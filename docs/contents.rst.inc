@@ -7,6 +7,25 @@ What is this about...
    :maxdepth: 2
 
    intro/duction
+   intro/datasets
+
+Use cases
+---------
+
+Hands-on real-world applications with step-by-step recipes...
+
+.. toctree::
+   :maxdepth: 1
+
+   usecases/REMoDNaV
+
+Misc
+----
+
+.. toctree::
+   :maxdepth: 1
+
+   glossary
 
 .. note::
    Notes defined within all diatonic and chromatic musical scales have been

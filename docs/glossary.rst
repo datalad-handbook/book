@@ -19,7 +19,18 @@ Glossary
    Datalad superdataset
       A datalad dataset that contains one or more levels of other datalad datasets (:term:`Datalad subdataset`)
 
+   git
+      A version control system. (TODO: add references)
+
+   git-annex
+      TODO
+
+   gitk
+      TODO
+
    relative path
       A path related to the present working directory. Relative paths never start with ``/``.
       Example: ``../data/studyforrest-phase-2/sub-02``. See also :term:`absolute path`.
 
+   tig
+      A tool to display git histories (TODO: improve this)

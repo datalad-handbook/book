@@ -28,9 +28,17 @@ Glossary
    gitk
       TODO
 
+   provenance
+      A record that describes entities and processes that were involved in producinng or influencing
+      a digital resource. It provides a critical foundation for assessing authenticity, enables trust,
+      and allows reproducibility.
+
    relative path
       A path related to the present working directory. Relative paths never start with ``/``.
       Example: ``../data/studyforrest-phase-2/sub-02``. See also :term:`absolute path`.
 
    tig
       A tool to display git histories (TODO: improve this)
+
+   version control
+      TODO

@@ -94,7 +94,7 @@ Step-by-Step
 
 .. code-block:: bash
 
-   datalad create algorithm-paper
+   % datalad create algorithm-paper
 
    [INFO   ] Creating a new annex repo at /home/adina/repos/testing/algorithm-paper
    create(ok): /home/adina/repos/testing/algorithm-paper (dataset)
@@ -103,19 +103,19 @@ Enter this newly created directory:
 
 .. code-block:: bash
 
-   cd algorithm-paper
+   % cd algorithm-paper
 
 Create subdirectories (``code/`` and ``data/``) to give your dataset a comprehensible structure:
 
 .. code-block:: bash
 
-   mkdir code data
+   % mkdir code data
 
 You can checkout the directory structure with the tree command
 
 .. code-block:: bash
 
-   tree
+   % tree
    algorithm-paper
    ├── code
    └── data
@@ -133,14 +133,14 @@ can be ``datalad install``-ed:
 
 .. code-block:: bash
 
-   cd data
+   % cd data
    # install existing git repositories with data (-s specifies the source, in this case, Github repositories)
    datalad install -s https://github.com/richardandersson/EyeMovementDetectorEvaluation.git
 
    [INFO   ] Cloning https://github.com/richardandersson/EyeMovementDetectorEvaluation.git [1 other candidates] into '/home/adina/repos/testing/algorithm-paper/data/EyeMovementDetectorEvaluation'
    install(ok): /home/adina/repos/testing/algorithm-paper/data/EyeMovementDetectorEvaluation (dataset)
 
-   datalad install -s git@github.com:psychoinformatics-de/studyforrest-data-eyemovementlabels.git
+   % datalad install -s git@github.com:psychoinformatics-de/studyforrest-data-eyemovementlabels.git
 
    [INFO   ] Cloning git@github.com:psychoinformatics-de/studyforrest-data-eyemovementlabels.git into '/home/adina/repos/testing/algorithm-paper/data/studyforrest-data-eyemovementlabels'
    Cloning (compressing objects):  45%|▍| 1.80k/4.00k [00:01<00:01, 1.29k objects/s
@@ -152,12 +152,12 @@ add the data, and ``datalad save`` this subdataset:
 .. code-block:: bash
 
    # for data that does not yet live in a git repository, create a new dataset and add the data to it
-   datalad create additional_data
+   % datalad create additional_data
    # copy your data into this dataset ("cp -r" copies a directories recursively)
-   cp -r /home/adina/data/mystudy additional_data
+   % cp -r /home/adina/data/mystudy additional_data
    # enter the subdataset and save its current state. Make sure to give it an informative commit message with -m
-   cd additional_data
-   datalad save . -m "added the data from my study on xyz"
+   % cd additional_data
+   % datalad save . -m "added the data from my study on xyz"
 
 
 Each of these datasets now has their own history, and the superdataset only records the states the
@@ -167,9 +167,9 @@ subdatasets are in. If you navigate into any of these subdatasets, a log-tool of
 .. code-block:: bash
 
    # navigate into the specific subdataset
-   cd data/studyforrest-data-eyemovementlabels
+   % cd data/studyforrest-data-eyemovementlabels
    # display history, e.g. with git log
-   git log
+   % git log
    commit 92279db3850ee4282d97001a3f650fc55cb64b4e (HEAD, medusa/synced/master)
    Author: Adina Wagner <adina.wagner@t-online.de>
    Date:   Tue Apr 23 15:03:21 2019 +0200
@@ -189,18 +189,18 @@ to record in your history can be ``datalad save`` -d
 .. code-block:: bash
 
    # lets say you fixed a bug in your script. Datalad status can tell you if modifications are present
-   datalad status
+   % datalad status
    modified: code/mk_figuresnstats.py
 
    # save these changes to your history with datalad save and a meaningful message
-   datalad save code/mk_figuresnstats.py -m "Bugfix: make path relative"
+   % datalad save code/mk_figuresnstats.py -m "Bugfix: make path relative"
 
 Whats missing still is the software repository. This already lives on Github, and can hence also be
 ``datalad install`` -ed in the root of the subdataset.
 
 .. code-block:: bash
 
-   datalad install -s git@github.com:psychoinformatics-de/remodnav.git
+   % datalad install -s git@github.com:psychoinformatics-de/remodnav.git
 
 This repository has also subdatasets in which the datasets used for testing live (``tests/data/``):
 

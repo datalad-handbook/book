@@ -7,7 +7,9 @@ What is this about...
    :maxdepth: 2
 
    intro/duction
+   intro/philosophy
    intro/datasets
+   intro/Howto
 
 Use cases
 ---------

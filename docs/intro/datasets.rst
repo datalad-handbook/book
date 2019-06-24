@@ -34,9 +34,9 @@ datasets arbitralily deep. This does not seem particulary spectacular -
 after all, any directory on a filesystem can have other directories inside it.
 The possibility for nested Datasets, however, is one of many advantages
 DataLad datasets have:
-Any lower-level DataLad dataset (the *Sub-Dataset*) has a stand-alone
-history. The top-level DataLad dataset (the *Super-Dataset*) only stores
-*which version* of the Subdataset is currently used.
+Any lower-level DataLad dataset (the *subdataset*) has a stand-alone
+history. The top-level DataLad dataset (the *superdataset*) only stores
+*which version* of the subdataset is currently used.
 
 .. todo::
 

@@ -9,6 +9,10 @@ Glossary
       The complete path from the root of the file system. Absolute paths always start with ``/``.
       Example: ``/home/user/studyforrest-phase-2/sub-02``. See also :term:`relative path`.
 
+   commit message
+      A consise summary of changes you should attach to a ``datalad save`` command. This summary will
+      show up in your :term:`Datalad dataset` history.
+
    DataLad dataset
       A DataLad dataset is a Git repository that may or may not have a data annex that is used to
       manage data referenced in a dataset. In practice, most DataLad datasets will come with an annex.

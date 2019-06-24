@@ -9,6 +9,7 @@ What DataLad is all about...
    intro/duction
    intro/philosophy
    intro/datasets
+   intro/contributing
 
 The Basics
 ----------

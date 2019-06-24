@@ -74,7 +74,7 @@ both the basics of DataLad and start-to-end use cases of specific applications.
      are not required (git, you don't need to be a programmer, ...).
    * Add info on how to contribute
    * Add info on the structure of the book, possibly related to Lauras idea of
-     "build your own DataLad adventure"
+     "build your own DataLad adventure".
 
 .. admonition:: Note for git-users
 

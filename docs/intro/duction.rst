@@ -83,3 +83,20 @@ both the basics of DataLad and start-to-end use cases of specific applications.
    command links to a git(-annex) command or concept in boxes like this.
    There is, however, absolutely no knowledge of git or git-annex necessary
    to follow this book.
+
+
+This book want to be a practical guide and includes as many hands-on examples
+as we can fit into it. Code snippets look like this, and you can either copy
+them into your own terminal to try them out, or modify them to fit your custom
+needs.
+For example, this code block below shows how to create a DataLad dataset, and
+you can run this command on your own computer if you wish to.
+
+.. code-block:: bash
+
+   # this is a comment - its only for additional explanations. Anything that
+   # is preceded by % is a command-line argument.
+   # if the line starts with neither # nor %, its the output of a command
+   % datalad create myfirstrepo
+   [INFO   ] Creating a new annex repo at /home/adina/myfirstrepo
+   create(ok): /home/adina/myfirstrepo (dataset)

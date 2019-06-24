@@ -55,7 +55,7 @@ link data sets together, and make them findable and searchable in a
 standardized way. Can we also easily **attach meta data to our data, and its evolution**?
 
 
-**Datalad** is a general purpose tool for managing everything involved in the
+**DataLad** is a general purpose tool for managing everything involved in the
 digital workflow of using data - regardless of the data's type, content, size,
 location, generation or development.
 It provides functionality to share, search, obtain, and version control data
@@ -64,8 +64,8 @@ and it aids managing the evolution of digital objects in a way that
 fulfills the FAIR principles.
 
 This handbook is a living resource on why and - more importantly - *how* to use
-Datalad. It aims to provide novices and advanced users of all backgrounds with
-both the basics of Datalad and start-to-end use cases of specific applications.
+DataLad. It aims to provide novices and advanced users of all backgrounds with
+both the basics of DataLad and start-to-end use cases of specific applications.
 
 .. todo::
    * Add info on how to read this book.
@@ -74,12 +74,12 @@ both the basics of Datalad and start-to-end use cases of specific applications.
      are not required (git, you don't need to be a programmer, ...).
    * Add info on how to contribute
    * Add info on the structure of the book, possibly related to Lauras idea of
-     "build your own datalad adventure"
+     "build your own DataLad adventure"
 
 .. admonition:: Note for git-users
 
-   Datalad uses :term:`git` and :term:`git-annex` underneath the hood. Readers that
-   are familiar with these tools can find occasional notes on how a Datalad
+   DataLad uses :term:`git` and :term:`git-annex` underneath the hood. Readers that
+   are familiar with these tools can find occasional notes on how a DataLad
    command links to a git(-annex) command or concept in boxes like this.
    There is, however, absolutely no knowledge of git or git-annex necessary
    to follow this book.

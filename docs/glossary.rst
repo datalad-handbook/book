@@ -9,15 +9,15 @@ Glossary
       The complete path from the root of the file system. Absolute paths always start with ``/``.
       Example: ``/home/user/studyforrest-phase-2/sub-02``. See also :term:`relative path`.
 
-   Datalad dataset
+   DataLad dataset
       A DataLad dataset is a Git repository that may or may not have a data annex that is used to
       manage data referenced in a dataset. In practice, most DataLad datasets will come with an annex.
 
-   Datalad subdataset
-      A datalad dataset contained within a different datalad dataset (the parent or :term:`Datalad superdataset`)
+   DataLad subdataset
+      A DataLad dataset contained within a different DataLad dataset (the parent or :term:`DataLad superdataset`)
 
-   Datalad superdataset
-      A datalad dataset that contains one or more levels of other datalad datasets (:term:`Datalad subdataset`)
+   DataLad superdataset
+      A DataLad dataset that contains one or more levels of other DataLad datasets (:term:`DataLad subdataset`)
 
    git
       A version control system. (TODO: add references)

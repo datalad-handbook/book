@@ -7,15 +7,15 @@ Writing a reproducible paper
 
 Summary
 ^^^^^^^
-This use case demonstrates how to use nested Datalad datasets to create a fully
+This use case demonstrates how to use nested DataLad datasets to create a fully
 reproducible paper by linking
 
 #. (different) data sources with
 #. the code needed to compute results and
 #. LaTeX files to compile the resulting paper.
 
-The different components each exist in individual Datalad datasets and are
-aggregated into a single :term:`Datalad superdataset`. The resulting superdataset can be publicly
+The different components each exist in individual DataLad datasets and are
+aggregated into a single :term:`DataLad superdataset`. The resulting superdataset can be publicly
 shared, data can effortlessly be obtained on demand by anyone that has the superdataset,
 and results and paper can be generated and recomputed everywhere on demand.
 
@@ -49,25 +49,25 @@ reviewer 2 demands that the figures his software produces need to get a new colo
 which requires updates in his software package, and more recomputations.
 
 
-The Datalad World
+The DataLad World
 ^^^^^^^^^^^^^^^^^
-Steve sets up a datalad dataset and calls it ``algorithm-paper``. In this
+Steve sets up a DataLad dataset and calls it ``algorithm-paper``. In this
 dataset, he creates several subdirectories to collate everything that is relevant for
 the manuscript: Data, code, a manuscript backbone without results.
 ``code/`` contains a Python script that he uses for validation analyses, and
 prior to computing results, the script
-attempts to download the data should the files need to be obtained using Datalads Python API.
-``data/`` contains a seperate datalad subdataset for every dataset he uses. An
-``algorithm/`` directory is a datalad dataset containing a clone of his software repository,
-and within it, in the directory ``test/data``, are additional datalad subdatasets that
+attempts to download the data should the files need to be obtained using DataLads Python API.
+``data/`` contains a seperate DataLad subdataset for every dataset he uses. An
+``algorithm/`` directory is a DataLad dataset containing a clone of his software repository,
+and within it, in the directory ``test/data``, are additional DataLad subdatasets that
 contain the data he used for testing.
-Lastly, the Datalad superdataset contains a ``LaTeX`` ``.tex`` file with the text of the manuscript.
+Lastly, the DataLad superdataset contains a ``LaTeX`` ``.tex`` file with the text of the manuscript.
 When everything is set up, a single command line call triggers (optional) data retrieval
 from Github repositories the data sets were published to, computation of
 results and figures, automatic embedding of results and figures into his manuscript
 upon computation, and PDF compiling.
 When he notices the error in his script, his manuscript is recompiled and updated in under
-five minutes, and when he learns about the data error, he updates the respective datalad dataset
+five minutes, and when he learns about the data error, he updates the respective DataLad dataset
 to the fixed state while preserving the history of the data repository.
 
 
@@ -84,13 +84,13 @@ itself with the new figures.
    `here <https://github.com/psychoinformatics-de/paper-remodnav/>`_:
    https://github.com/psychoinformatics-de/paper-remodnav/. ``datalad install``
    the repository and follow the few instructions in the README to experience the
-   Datalad world described above.
+   DataLad world described above.
 
 
 Step-by-Step
 ^^^^^^^^^^^^
 
-``datalad create`` a Datalad dataset (in this example, it is named "algorithm-paper"):
+``datalad create`` a DataLad dataset (in this example, it is named "algorithm-paper"):
 
 .. code-block:: bash
 
@@ -125,8 +125,8 @@ live in the ``data/`` directory. It is important to reference datafiles with the
 ``code/`` as a :term:`relative path` to ensure that the scripts also run on somebody elses
 file system.
 
-Lets start to populate our Datalad dataset. Add all the
-data sets you want to perform analyses on as individual :term:`datalad subdataset` within
+Lets start to populate our DataLad dataset. Add all the
+data sets you want to perform analyses on as individual :term:`DataLad subdataset` within
 ``data/``.
 Data sets that are already git repositories (for example if they are hosted on Github)
 can be ``datalad install``-ed:
@@ -146,7 +146,7 @@ can be ``datalad install``-ed:
    Cloning (compressing objects):  45%|▍| 1.80k/4.00k [00:01<00:01, 1.29k objects/s
    [...]
 
-For data sets that are not (yet) git repositories, one can simply create Datalad subdatasets,
+For data sets that are not (yet) git repositories, one can simply create DataLad subdatasets,
 add the data, and ``datalad save`` this subdataset:
 
 .. code-block:: bash
@@ -162,7 +162,7 @@ add the data, and ``datalad save`` this subdataset:
 
 Each of these datasets now has their own history, and the superdataset only records the states the
 subdatasets are in. If you navigate into any of these subdatasets, a log-tool of your choice (``git log``,
-:term:`tig`, :term:`gitk`, ...) can display this Datalad datasets history:
+:term:`tig`, :term:`gitk`, ...) can display this DataLad datasets history:
 
 .. code-block:: bash
 
@@ -188,7 +188,7 @@ to record in your history can be ``datalad save`` -d
 
 .. code-block:: bash
 
-   # lets say you fixed a bug in your script. Datalad status can tell you if modifications are present
+   # lets say you fixed a bug in your script. DataLad status can tell you if modifications are present
    % datalad status
    modified: code/mk_figuresnstats.py
 

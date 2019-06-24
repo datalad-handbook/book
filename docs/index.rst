@@ -9,7 +9,7 @@ The DataLad Handbook
 
 .. figure:: img/datalad-animated.gif
    :scale: 100%
-   :alt: Virtual directory tree of a nested Datalad dataset
+   :alt: Virtual directory tree of a nested DataLad dataset
 
 
 .. todo::
@@ -23,5 +23,5 @@ Table of contents
 
 
 .. todo::
-   Link to the datalad website, the datalad docs, datalad github
+   Link to the DataLad website, the DataLad docs, DataLad github
    somewhere at the end of this page.

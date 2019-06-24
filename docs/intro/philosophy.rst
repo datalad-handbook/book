@@ -1,5 +1,5 @@
 ######################
-The datalad philosophy
+The DataLad philosophy
 ######################
 
 

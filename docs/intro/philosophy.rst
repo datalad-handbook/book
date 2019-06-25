@@ -30,22 +30,24 @@ DataLad is built up on a handful of principles.
    (https://git-annex.branchable.com) manages it all underneath the hood.
 
 #. Deep in the core of DataLad is the social principle of
-   **Minimize custom procedures and data structures: Users must not loose data or data access, if DataLad would vanish**
+   **minimizing custom procedures and data structures: Users must not loose data or data access, if DataLad would vanish**
    Using DataLad does not require or generate datastructures that can only be
-   used or read with DataLad. Anything
+   used or read with DataLad.
 
 #. Furthermore, DataLad is developed for
-   **Complete decentralization, with no required central server or service**.
-   No central infrastructure anyone would need to pay for needs to be maintained
-   (your own laptop is the perfect place to live for your DataLad project for example),
+   **complete decentralization, with no required central server or service**.
+   This way, no central infrastructure anyone would need to pay for needs to be maintained -
+   your own laptop is the perfect place to live for your DataLad project for example.
    ...
 
 #. ... but simultanteously, DataLad aims to
-   **Maximize use of existing 3rd-party data resources and infrastructure re-use**
+   **maximize use of existing 3rd-party data resources and infrastructure re-use**
    Users *can* use existing central infrastructure should they want to.
    DataLad works with any infrastructure from Github to Figshare or institutional
    repositories, enabling users to harvest all of the advantages of their preferred
    infrastructure, without tying anyone down to central services.
+
+
 
 .. todo::
 

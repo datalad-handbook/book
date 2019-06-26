@@ -1,7 +1,7 @@
-Basic concepts
---------------
+Introduction
+------------
 
-What is this about...
+What DataLad is all about...
 
 .. toctree::
    :maxdepth: 2
@@ -9,6 +9,16 @@ What is this about...
    intro/duction
    intro/philosophy
    intro/datasets
+   intro/contributing
+
+The Basics
+----------
+
+The building blocks necessary to enable you to use DataLad...
+
+.. toctree::
+   :maxdepth: 1
+
    intro/Howto
 
 Use cases

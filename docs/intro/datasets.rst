@@ -2,8 +2,27 @@
 DataLad Datasets
 ****************
 
-A DataLad dataset is the core data type of DataLad.
-Once created, it looks like any other directory on your filesystem.
+.. note::
+   If you like
+   learning-by-doing, let us explore together what a DataLad dataset is.
+   If you have DataLad set-up, run the following command and follow the
+   commands in the screenshots.
+
+   .. code-block:: bash
+
+      datalad install https://github.com/psychoinformatics-de/studyforrest-data-phase2.git
+
+A DataLad dataset is the core data type of DataLad. We will explore the concepts
+of it with one public example dataset, the studyforrest phase 2 data (studyforrest.org).
+Note that this is just one type and use of a Datalad dataset, and you will find many
+more flavors of using DataLad datasets in upcoming chapters.
+In this example, I have installed the dataset in ``~/repos/testing``.
+
+Once created, a DataLad dataset looks like any other directory on your filesystem:
+
+.. figure:: ../img/DatasetLs2.png
+   :alt: A DataLad dataset structure does not look different from any other directory
+
 However, all files and directories within the DataLad dataset can be
 tracked (should you want them to be tracked), regardless of their size.
 Large content is tracked in an *annex* that is automatically
@@ -13,7 +32,12 @@ all of these changes can be written to your DataLad datasets history.
 .. admonition:: Note for git users:
 
    A DataLad dataset is a git repository. Large file content in the
-   dataset in the annex is tracked with git-annex.
+   dataset in the annex is tracked with git-annex. An ``ls -a``
+   reveals that git is secretly working in the background:
+
+   .. figure:: ../img/DatasetLsLAH2.png
+      :alt: Git exists underneath the hood
+
 
 Users can *create* new DataLad datasets from scratch, or install existing
 DataLad datasets from paths, urls, or open-data collections. This makes
@@ -22,12 +46,47 @@ a DataLad dataset, all copies also include the datasets history. An installed Da
 dataset knows the dataset it was installed from, and if changes
 in this original DataLad dataset happen, the installed dataset can simply be updated.
 
+You can view the DataLad datasets history with tools of your choice, but we will
+get into more detail on the history of a DataLad dataset in later chapters.
+The screenshot below is used for illustration purposes and is an exempt
+from :term:`tig`.
+
+.. figure:: ../img/DatasetHistory2.png
+   :alt: A Datalad dataset comes with its history.
+
+Dataset content identity and availability information
+*****************************************************
+
 Upon installation of a DataLad dataset, DataLad retrieves only (small) metadata
 information about the dataset. This exposes the datasets file hierarchy
 for exploration, and speeds up the installation of a DataLad dataset
-of many TB in size to a few seconds. Retrieval of the actual, potentially large
+of many TB in size to a few seconds. Just after installation, the dataset is
+small in size:
+
+.. figure:: ../img/DatasetSizeBefore.png
+   :alt: Dataset size after installation
+
+This is because only small files are present locally (my shell helps me to
+determine this with its highlighting features - for shits and giggles, you can try
+opening both files). A small ``.tsv`` (1.9K) file exists
+locally, but what would be a large, compressed neuroimaging nifti (``.nii.gz``) file
+isn't. In this state, one cannot open or work with the nifti file, but you can
+explore which files exist without the potentially large download.
+
+.. figure:: ../img/DatasetContentBefore.png
+   :alt: Just after installation, the DataLad dataset is tiny in size, and only small files are present locally
+
+The retrieval of the actual, potentially large
 file content can happen at any later time for the full dataset or subsets
-of files.
+of files. Lets get the nifti file:
+
+.. figure:: ../img/DatasetGetContent.png
+   :alt: Datalad get a file
+
+Wasn't this easy?
+
+Dataset Nesting
+***************
 
 Within DataLad datasets one can *nest* other DataLad
 datasets arbitralily deep. This does not seem particulary spectacular -
@@ -38,39 +97,45 @@ Any lower-level DataLad dataset (the *subdataset*) has a stand-alone
 history. The top-level DataLad dataset (the *superdataset*) only stores
 *which version* of the subdataset is currently used.
 
-.. todo::
+By taking advantage of dataset nesting, one can take datasets such as the
+studyforrest phase-2 data and install it as a subdataset within a
+superdataset containing analysis code and results computed from the
+studyforrest data. Should the studyforrest data get extended or changed,
+its subdataset can be updated to include the changes easily. More
+detailed examples of this can be found in the use cases in the last
+section (for example in :ref:`remodnav`).
 
-   Elaborate in an example. points to make:
-   - modularity: you can have a code, data, images, (maybe different albums?)
-   subdatasets and do not need to keep track of everything all at once
-   - you can update individual subdatasets
+The figure below illustrates dataset nesting schematically:
 
 
 .. figure:: ../img/virtual_dirtree.png
-   :scale: 100%
    :alt: Virtual directory tree of a nested DataLad dataset
 
+I want to create a dataset myself!
+**********************************
 
-
-A *new* DataLad dataset is instantiated from scratch with ``datalad create``.
+Anyone can create, populate, and optionally share a *new* DataLad dataset.
 A new DataLad dataset is always created empty, even if the target
 directory already contains additional files or directories. After creation,
-arbitralily large amounts of data can be added via ``datalad add``.
+arbitralily large amounts of data can be added. Once files are added and
+saved to the dataset, any changes done to these data files can be saved
+to the history.
 
 
 .. admonition:: Note for git users:
 
-   ``datalad create`` uses the ``git init`` and ``git annex init`` commands.
+   Creation of datasets relies on the ``git init`` and ``git annex init`` commands.
 
 
-An already existing datalad dataset can be obtained with the ``datalad install``
-command from a url or path, or from the datalad open-data collection.
-
+As already shown, already existing datalad dataset can be simply installed
+from a url or path, or from the datalad open-data collection.
 
 .. admonition:: Note
 
    ``datalad install`` used the ``git clone`` command.
 
+More information
+on the creation and installation of datasets will be introduced in later
+chapters.
 
-.. todo::
-   more examples with some simple ``tree`` visualization or fancy diagrams
+

@@ -1,3 +1,5 @@
+.. _remodnav:
+
 ****************************
 Writing a reproducible paper
 ****************************

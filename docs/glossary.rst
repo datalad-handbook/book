@@ -41,6 +41,9 @@ Glossary
       A path related to the present working directory. Relative paths never start with ``/``.
       Example: ``../data/studyforrest-phase-2/sub-02``. See also :term:`absolute path`.
 
+   symlink
+      TODO
+
    tig
       A tool to display git histories (TODO: improve this)
 

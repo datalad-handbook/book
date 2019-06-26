@@ -45,7 +45,7 @@ Glossary
       TODO
 
    tig
-      A tool to display git histories (TODO: improve this)
+      A tool to display git histories. Find out more `here <https://jonas.github.io/tig/>`_.
 
    version control
       TODO

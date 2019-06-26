@@ -139,3 +139,7 @@ on the creation and installation of datasets will be introduced in later
 chapters.
 
 
+.. todo::
+
+   We might need to address symlinks and the concept of content being stored
+   in the object tree, not the file user can see in their directory.

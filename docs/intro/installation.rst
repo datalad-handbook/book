@@ -31,7 +31,16 @@ You can find detailed installation instructions on how to do this
 
       % pip install --user datalad
 
-   TODO: how to install git-annex without sudo permissions
+
+.. todo::
+
+   how to install git-annex without sudo permissions. Currently the docs say:
+   "Git-annex can be deployed by extracting pre-built binaries from a tarball
+   (that also includes an up-to-date Git installation). Obtain the tarball,
+   extract it, and set the PATH environment variable to include the root of the
+   extracted tarball. Fingers crossed and good luck!" This could be turned into
+   a less intimidating step-by-step guide.
+
 
 (Neuro)Debian, Ubuntu, and similar systems
 ******************************************
@@ -92,3 +101,9 @@ transparently executes all DataLad functionality through the container.
 .. todo::
 
    What about Windows?
+   mih says: "For windows people: it does work somewhat. Core functionality should be OK
+   (current main focus of this effort), and is covered by tests. There are numerous issues
+   with SSH connections on windows, though. It works much better on Win10 within the linux
+   subsystem, and this is also where the hopes for the future are focused on. DataLad generally
+   feels sluggish on Windows, because of a range of filesystem issues that also affect Git itself."
+   Lets put that into some sort of instruction.

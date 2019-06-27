@@ -23,7 +23,7 @@ and results and paper can be generated and recomputed everywhere on demand.
 The Problem Space
 ^^^^^^^^^^^^^^^^^
 Over the past year, Steve worked on the implementation of an algorithm as a software package.
-For testing purposes, he used one of his own data collection, and later also included a publicly shared
+For testing purposes, he used one of his own data collections, and later also included a publicly shared
 data collection. After completion, he continued to work on validation analyses to
 prove the functionality and usefulness of his software. Next to a directory in which he developed
 his code, and directories with data he tested his code on, he now also has other directories

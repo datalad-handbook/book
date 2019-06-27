@@ -19,7 +19,7 @@ The building blocks necessary to enable you to use DataLad...
 .. toctree::
    :maxdepth: 1
 
-   intro/Howto
+   intro/howto
 
 Use cases
 ---------
@@ -29,7 +29,7 @@ Hands-on real-world applications with step-by-step recipes...
 .. toctree::
    :maxdepth: 1
 
-   usecases/REMoDNaV
+   usecases/remodnav
 
 Misc
 ----

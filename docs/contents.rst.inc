@@ -43,3 +43,11 @@ Misc
    Notes defined within all diatonic and chromatic musical scales have been
    intentionally excluded from this list of additional notes. Additionally,
    this note.
+
+Example Demo
+------------
+
+.. toctree::
+   :maxdepth: 1
+
+   remove/me

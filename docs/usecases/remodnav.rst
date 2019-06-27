@@ -30,6 +30,7 @@ his code, and directories with data he tested his code on, he now also has other
 with different data sources used for validation analyses.
 "This can't take too long!" Steve thinks optimistically when he finally sits down to write up a paper.
 
+
 His scripts run his algorithm on the different data collections, create derivates of his raw data,
 pretty figures, and impressive tables.
 Just after he hand-copies and checks the last decimal of the final result in the very
@@ -109,6 +110,7 @@ create subdirectories (``code/`` and ``data/``) to give your dataset a comprehen
    % mkdir code data
 
    # You can checkout the directory structure with the tree command
+
    % tree
    algorithm-paper
    ├── code

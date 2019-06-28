@@ -42,6 +42,8 @@ help:
 	@echo "  doctest    to run all doctests embedded in the documentation (if enabled)"
 
 clean:
+	# fixup permissions of annexes to allow for removal
+	-chmod +w -R $(BUILDDIR)/wdirs
 	rm -rf $(BUILDDIR)/*
 
 html:

@@ -152,11 +152,9 @@ arbitralily large amounts of data can be added. Once files are added and
 saved to the dataset, any changes done to these data files can be saved
 to the history.
 
-
-.. admonition:: Note for git users:
+.. admonition:: Note for Git users
 
    Creation of datasets relies on the ``git init`` and ``git annex init`` commands.
-
 
 As already shown, already existing datalad dataset can be simply installed
 from a url or path, or from the datalad open-data collection.
@@ -168,7 +166,6 @@ from a url or path, or from the datalad open-data collection.
 More information
 on the creation and installation of datasets will be introduced in later
 chapters.
-
 
 .. todo::
 

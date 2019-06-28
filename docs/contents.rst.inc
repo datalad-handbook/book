@@ -52,3 +52,4 @@ Example Demo
    :maxdepth: 1
 
    remove/me
+   remove/metoo

@@ -12,6 +12,10 @@ DataLad Datasets
 
       datalad install https://github.com/psychoinformatics-de/studyforrest-data-phase2.git
 
+.. todo::
+
+   This will need to be changed to a different, non-neuroimaging repository soon.
+
 A DataLad dataset is the core data type of DataLad. We will explore the concepts
 of it with one public example dataset, the studyforrest phase 2 data (studyforrest.org).
 Note that this is just one type and use of a Datalad dataset, and you will find many

@@ -10,9 +10,10 @@ DataLad Datasets
    If you have DataLad set-up, run the following command and follow the
    commands in the screenshots.
 
-   .. code-block:: bash
+   .. runrecord:: _examples/dataset
+      :language: console
 
-      datalad install https://github.com/psychoinformatics-de/studyforrest-data-phase2.git
+      $ datalad install https://github.com/psychoinformatics-de/studyforrest-data-phase2.git
 
 .. todo::
 
@@ -26,8 +27,12 @@ In this example, I have installed the dataset in ``~/repos/testing``.
 
 Once created, a DataLad dataset looks like any other directory on your filesystem:
 
-.. figure:: ../img/DatasetLs2.png
-   :alt: A DataLad dataset structure does not look different from any other directory
+.. runrecord:: _examples/dataset2
+   :language: console
+   :lines: 1-2, 8-18
+
+   $ cd studyforrest-data-phase2
+   $ ls # output below is only an excerpt from ls
 
 However, all files and directories within the DataLad dataset can be
 tracked (should you want them to be tracked), regardless of their size.
@@ -35,15 +40,19 @@ Large content is tracked in an *annex* that is automatically
 created and handled by DataLad. Whether text files or larger files change,
 all of these changes can be written to your DataLad datasets history.
 
-.. admonition:: Note for git users:
+.. admonition:: Note for Git users
 
-   A DataLad dataset is a git repository. Large file content in the
-   dataset in the annex is tracked with git-annex. An ``ls -a``
-   reveals that git is secretly working in the background:
+   A DataLad dataset is a Git repository. Large file content in the
+   dataset in the annex is tracked with Git-annex. An ``ls -a``
+   reveals that Git is secretly working in the background:
 
-   .. figure:: ../img/DatasetLsLAH2.png
-      :alt: Git exists underneath the hood
+   .. runrecord:: _examples/dataset3
+      :language: console
+      :lines: 1, 5-11, 15-25
+      :emphasize-lines: 3, 5-6, 8
+      :realcommand: cd studyforrest-data-phase2 && ls -a
 
+      $ ls -a # show also hidden files (excerpt)
 
 Users can *create* new DataLad datasets from scratch, or install existing
 DataLad datasets from paths, urls, or open-data collections. This makes
@@ -54,11 +63,16 @@ in this original DataLad dataset happen, the installed dataset can simply be upd
 
 You can view the DataLad datasets history with tools of your choice, but we will
 get into more detail on the history of a DataLad dataset in later chapters.
-The screenshot below is used for illustration purposes and is an exempt
-from :term:`tig`.
+The code block below is used for illustration purposes and is an exempt
+from ``git log``.
 
-.. figure:: ../img/DatasetHistory2.png
-   :alt: A Datalad dataset comes with its history.
+.. runrecord:: _examples/dataset4
+   :language: console
+   :lines: 1-10
+   :realcommand: cd studyforrest-data-phase2 && git log --oneline --graph --decorate
+
+   $ git log --oneline --graph --decorate
+
 
 Dataset content identity and availability information
 *****************************************************
@@ -69,8 +83,11 @@ for exploration, and speeds up the installation of a DataLad dataset
 of many TB in size to a few seconds. Just after installation, the dataset is
 small in size:
 
-.. figure:: ../img/DatasetSizeBefore.png
-   :alt: Dataset size after installation
+.. runrecord:: _examples/dataset5
+   :language: console
+   :realcommand: cd studyforrest-data-phase2 && du -sh
+
+   $ du -sh
 
 This is because only small files are present locally (my shell helps me to
 determine this with its highlighting features - for shits and giggles, you can try
@@ -79,15 +96,23 @@ locally, but what would be a large, compressed neuroimaging nifti (``.nii.gz``) 
 isn't. In this state, one cannot open or work with the nifti file, but you can
 explore which files exist without the potentially large download.
 
-.. figure:: ../img/DatasetContentBefore.png
-   :alt: Just after installation, the DataLad dataset is tiny in size, and only small files are present locally
+.. runrecord:: _examples/dataset6
+   :language: console
+   :emphasize-lines: 3
+   :realcommand: cd studyforrest-data-phase2 && ls participants.tsv  sub-01/ses-movie/func/sub-01_ses-movie_task-movie_run-1_bold.nii.gz
+
+   $ ls participants.tsv  sub-01/ses-movie/func/sub-01_ses-movie_task-movie_run-1_bold.nii.gz
 
 The retrieval of the actual, potentially large
 file content can happen at any later time for the full dataset or subsets
 of files. Lets get the nifti file:
 
-.. figure:: ../img/DatasetGetContent.png
-   :alt: Datalad get a file
+.. runrecord:: _examples/dataset7
+   :language: console
+   :realcommand: cd studyforrest-data-phase2 && datalad get sub-01/ses-movie/func/sub-01_ses-movie_task-movie_run-1_bold.nii.gz
+
+   $ datalad get sub-01/ses-movie/func/sub-01_ses-movie_task-movie_run-1_bold.nii.gz
+
 
 Wasn't this easy?
 

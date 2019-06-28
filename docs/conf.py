@@ -32,6 +32,7 @@ extensions = [
     'sphinx.ext.todo',
     'sphinx.ext.intersphinx',
     'sphinx.ext.doctest',
+    'sphinxcontrib.autorunrecord',
 ]
 
 # Add any paths that contain templates here, relative to this directory.

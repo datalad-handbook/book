@@ -8,6 +8,7 @@ What DataLad is all about...
 
    intro/duction
    intro/philosophy
+   intro/installation
    intro/datasets
    intro/contributing
 
@@ -19,7 +20,7 @@ The building blocks necessary to enable you to use DataLad...
 .. toctree::
    :maxdepth: 1
 
-   intro/Howto
+   intro/howto
 
 Use cases
 ---------
@@ -29,7 +30,7 @@ Hands-on real-world applications with step-by-step recipes...
 .. toctree::
    :maxdepth: 1
 
-   usecases/REMoDNaV
+   usecases/remodnav
 
 Misc
 ----
@@ -43,3 +44,11 @@ Misc
    Notes defined within all diatonic and chromatic musical scales have been
    intentionally excluded from this list of additional notes. Additionally,
    this note.
+
+Example Demo
+------------
+
+.. toctree::
+   :maxdepth: 1
+
+   remove/me

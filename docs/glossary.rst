@@ -32,6 +32,13 @@ Glossary
    gitk
       TODO
 
+   metadata
+      "Data about data": Information about one or more aspects of data used to summmarize
+      basic information, for example means of create of the data, creator or author, size,
+      or purpose of the data. For example, a digital image may include metadata that
+      describes how large the picture is, the color depth, the image resolution, when the image
+      was created, the shutter speed, and other data.
+
    provenance
       A record that describes entities and processes that were involved in producinng or influencing
       a digital resource. It provides a critical foundation for assessing authenticity, enables trust,

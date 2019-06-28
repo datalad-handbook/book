@@ -18,3 +18,4 @@ Sphinx
 sphinx-sitemap
 sphinxcontrib-websupport
 urllib3
+autorunrecord

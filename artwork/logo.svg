@@ -26,8 +26,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.49497475"
-     inkscape:cx="144.52594"
-     inkscape:cy="661.69024"
+     inkscape:cx="-223.36221"
+     inkscape:cy="692.51038"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -60,44 +60,38 @@
     <g
        id="g1263"
        transform="matrix(0.26458333,0,0,0.26458333,-149.96327,32.168625)">
-	<path
-   id="path1251"
-   d="M 673.4,766.9 H 279.3 V 142.4 h 394.2 c 18.8,0 34,15.2 34,34 v 556.5 c 0,18.8 -15.3,34 -34.1,34 z"
-   class="st0"
-   inkscape:connector-curvature="0"
-   style="fill:#4d4d4d" />
-
-	<path
-   id="path1253"
-   d="m 661.5,755.6 h -379 V 153.7 h 379 c 17.6,0 31.9,14.3 31.9,31.9 v 538 c 0.1,17.7 -14.2,32 -31.9,32 z"
-   class="st1"
-   inkscape:connector-curvature="0"
-   style="fill:white" />
-
-	<path
-   id="path1255"
-   d="M 646.7,766.9 H 269.6 c -9.4,0 -17,-7.6 -17,-17 V 159.4 c 0,-9.4 7.6,-17 17,-17 h 377.1 c 18.8,0 34,15.2 34,34 v 556.5 c 0,18.8 -15.2,34 -34,34 z"
-   class="st0"
-   inkscape:connector-curvature="0"
-   style="fill:#4d4d4d" />
-
-	<rect
-   id="rect1257"
-   height="217.39999"
-   width="428.20001"
-   class="st2"
-   y="380.39999"
-   x="252.5"
-   style="fill:#ffa200;fill-opacity:1" />
-
-	
-	<polygon
-   id="polygon1261"
-   points="289.2,766.9 289.2,817.6 314.8,802.4 340.5,817.6 340.5,766.9 "
-   class="st2"
-   style="fill:#ffa200;fill-opacity:1" />
-
-</g>
+      <path
+         id="path1251"
+         d="M 673.4,766.9 H 279.3 V 142.4 h 394.2 c 18.8,0 34,15.2 34,34 v 556.5 c 0,18.8 -15.3,34 -34.1,34 z"
+         class="st0"
+         inkscape:connector-curvature="0"
+         style="fill:#333;fill-opacity:1" />
+      <path
+         id="path1253"
+         d="m 661.5,755.6 h -379 V 153.7 h 379 c 17.6,0 31.9,14.3 31.9,31.9 v 538 c 0.1,17.7 -14.2,32 -31.9,32 z"
+         class="st1"
+         inkscape:connector-curvature="0"
+         style="fill:white" />
+      <path
+         id="path1255"
+         d="M 646.7,766.9 H 269.6 c -9.4,0 -17,-7.6 -17,-17 V 159.4 c 0,-9.4 7.6,-17 17,-17 h 377.1 c 18.8,0 34,15.2 34,34 v 556.5 c 0,18.8 -15.2,34 -34,34 z"
+         class="st0"
+         inkscape:connector-curvature="0"
+         style="fill:#333;fill-opacity:1" />
+      <rect
+         id="rect1257"
+         height="217.39999"
+         width="428.20001"
+         class="st2"
+         y="380.39999"
+         x="252.5"
+         style="fill:#ffa200;fill-opacity:1" />
+      <polygon
+         id="polygon1261"
+         points="289.2,766.9 289.2,817.6 314.8,802.4 340.5,817.6 340.5,766.9 "
+         class="st2"
+         style="fill:#ffa200;fill-opacity:1" />
+    </g>
     <g
        id="g1076"
        transform="matrix(1.3493612,0,0,1.3493612,-75.613564,79.147624)">
@@ -198,13 +192,15 @@
     </g>
     <g
        id="g1284"
-       transform="matrix(1.8082586,0,0,1.8082586,-179.87698,-143.40542)">
+       transform="matrix(1.8082586,0,0,1.8082586,-179.87698,-143.40542)"
+       style="fill:#333;fill-opacity:1">
       <g
          id="g1290"
-         transform="translate(-8.7204906,-3.8191599)">
+         transform="translate(-8.7204906,-3.8191599)"
+         style="fill:#333;fill-opacity:1">
         <text
            xml:space="preserve"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.03253651px;line-height:113.99999857%;font-family:'Latin Modern Sans Demi Cond';-inkscape-font-specification:'Latin Modern Sans Demi Cond';text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:black;fill-opacity:1;stroke:none;stroke-width:0.32130149px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.03253651px;line-height:113.99999857%;font-family:'Latin Modern Sans Demi Cond';-inkscape-font-specification:'Latin Modern Sans Demi Cond';text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#333;fill-opacity:1;stroke:none;stroke-width:0.32130149px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
            x="87.468765"
            y="168.50096"
            id="text1182"><tspan
@@ -212,10 +208,10 @@
              id="tspan1180"
              x="87.468765"
              y="168.50096"
-             style="stroke-width:0.32130149px">The</tspan></text>
+             style="stroke-width:0.32130149px;fill:#333;fill-opacity:1">The</tspan></text>
         <text
            xml:space="preserve"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.07134056px;line-height:113.99999857%;font-family:'Latin Modern Sans Demi Cond';-inkscape-font-specification:'Latin Modern Sans Demi Cond';text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:black;fill-opacity:1;stroke:none;stroke-width:0.52285367px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.07134056px;line-height:113.99999857%;font-family:'Latin Modern Sans Demi Cond';-inkscape-font-specification:'Latin Modern Sans Demi Cond';text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#333;fill-opacity:1;stroke:none;stroke-width:0.52285367px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
            x="67.096191"
            y="180.6012"
            id="text1186"><tspan
@@ -223,7 +219,7 @@
              id="tspan1184"
              x="67.096191"
              y="180.6012"
-             style="stroke-width:0.52285367px">Handbook</tspan></text>
+             style="stroke-width:0.52285367px;fill:#333;fill-opacity:1">Handbook</tspan></text>
       </g>
     </g>
   </g>

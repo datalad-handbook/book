@@ -4,7 +4,7 @@ Introduction
 What DataLad is all about...
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    intro/duction
    intro/philosophy

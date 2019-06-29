@@ -290,11 +290,12 @@ If it is unambiguous, such as ``cd Doc <Tab>``, it will expand to ``cd Documents
 If there are multiple matching options, such as ``cd Do``, you will be prompted for more letters.
 Pressing Tab again will list the matching options (``Documents`` and ``Downloads`` in this case).
 
-A visual example of tab-completion in action:
+.. only:: html
 
-.. figure:: https://upload.wikimedia.org/wikipedia/commons/a/ad/Command-line-completion-example.gif
-   :alt: Tab completion
-
+   A visual example of tab-completion in action:
+   
+   .. figure:: https://upload.wikimedia.org/wikipedia/commons/a/ad/Command-line-completion-example.gif
+      :alt: Tab completion
 
 
 **That's it - equipped with the basics of Unix, you are good to go on your DataLad advanture!**

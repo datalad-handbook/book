@@ -1,0 +1,4 @@
+$ datalad install https://github.com/psychoinformatics-de/studyforrest-data-phase2.git
+[INFO] Cloning https://github.com/psychoinformatics-de/studyforrest-data-phase2.git [1 other candidates] into '/home/mih/hacking/datalad/handbook/docs/_build/wdirs/intro/datasets/studyforrest-data-phase2' 
+[INFO]   Remote origin not usable by git-annex; setting annex-ignore 
+install(ok): /home/mih/hacking/datalad/handbook/docs/_build/wdirs/intro/datasets/studyforrest-data-phase2 (dataset)

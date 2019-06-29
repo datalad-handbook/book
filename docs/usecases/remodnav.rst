@@ -139,7 +139,7 @@ In this example, all data collections are already DataLad datasets or git reposi
    % datalad install -s git@github.com:psychoinformatics-de/studyforrest-data-eyemovementlabels.git
 
    [INFO   ] Cloning git@github.com:psychoinformatics-de/studyforrest-data-eyemovementlabels.git into '/home/adina/repos/testing/algorithm-paper/data/studyforrest-data-eyemovementlabels'
-   Cloning (compressing objects):  45%|▍| 1.80k/4.00k [00:01<00:01, 1.29k objects/s
+   Cloning (compressing objects):  45% 1.80k/4.00k [00:01<00:01, 1.29k objects/s
    [...]
 
 Any script we need for the analysis should live inside ``code/``. During script writing, save any changes

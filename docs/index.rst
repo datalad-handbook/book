@@ -14,7 +14,4 @@ The DataLad Handbook
       :alt: Virtual directory tree of a nested DataLad dataset
 
 
-Table of contents
-^^^^^^^^^^^^^^^^^
-
 .. include:: contents.rst.inc

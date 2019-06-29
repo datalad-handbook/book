@@ -13,7 +13,7 @@
    :maxdepth: 1
    :caption: The basics: Building blocks necessary to enable you to use DataLad
 
-   intro/howto
+   basics/howto
 
 
 .. toctree::

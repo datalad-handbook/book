@@ -36,7 +36,7 @@ text based interface. If you have used Matlab or IPython, then you are already f
 with the basics of a command line interface.
 
 .. figure:: ../img/shell.png
-   :scale: 50%
+   :figwidth: 50%
    :alt: A z-shell on a Debian system
 
 Command Syntax

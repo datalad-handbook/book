@@ -29,6 +29,9 @@
 
    glossary
 
+* :ref:`genindex`
+* :ref:`search`
+
 
 .. toctree::
    :maxdepth: 1

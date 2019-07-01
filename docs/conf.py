@@ -113,7 +113,7 @@ html_theme_options = {
     'github_user': 'psychoinformatics-de',
     'github_repo': 'datalad-handbook',
     'github_banner': True,
-    'show_related': False,
+    'show_related': True,
     'note_bg': '#FFF59C',
 }
 

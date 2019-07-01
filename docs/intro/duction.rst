@@ -103,8 +103,8 @@ run this command on your own computer if you wish to.
 .. code-block:: bash
 
    # this is a comment - its only for additional explanations. Anything that
-   # is preceded by % is a command-line argument.
-   # if the line starts with neither # nor %, its the output of a command
-   % datalad create myfirstrepo
+   # is preceded by $ is a command-line argument.
+   # if the line starts with neither # nor $, its the output of a command
+   $ datalad create myfirstrepo
    [INFO   ] Creating a new annex repo at /home/adina/myfirstrepo
    create(ok): /home/adina/myfirstrepo (dataset)

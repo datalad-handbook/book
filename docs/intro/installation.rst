@@ -16,7 +16,7 @@ To automatically install DataLad and its software dependencies type
 
 .. code-block:: bash
 
-   % pip install datalad
+   $ pip install datalad
 
 In addition, it is necessary to have a current version of git-annex installed which is
 not set up automatically by using the pip method.
@@ -29,7 +29,7 @@ You can find detailed installation instructions on how to do this
 
    .. code-block:: bash
 
-      % pip install --user datalad
+      $ pip install --user datalad
 
 
 .. todo::
@@ -55,7 +55,7 @@ DataLad and all of its software dependencies (including the git-annex-standalone
 
 .. code-block:: bash
 
-   % sudo apt-get install datalad
+   $ sudo apt-get install datalad
 
 
 OS X
@@ -67,7 +67,7 @@ git-annex can be installed using the command
 
 .. code-block:: bash
 
-   % brew install git-annex
+   $ brew install git-annex
 
 Once git-annex is available, DataLad can be installed via ``pip`` as described above.
 ``pip`` comes with Python distributions, such as `anaconda <https://www.continuum.io/downloads>`_.
@@ -91,7 +91,7 @@ The following command pulls the latest container for the DataLad development ver
 
 .. code-block:: bash
 
-   % singularity pull shub://datalad/datalad:fullmaster
+   $ singularity pull shub://datalad/datalad:fullmaster
 
 This will produce an executable image file. You can rename this image to ``datalad`` and
 put the directory it is located in into your ``PATH`` environment variable.

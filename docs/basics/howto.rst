@@ -50,7 +50,7 @@ In this example
 
 .. code-block:: bash
 
-   % ls -l test.txt
+   $ ls -l test.txt
    -rw-r--r-- 1 adina adina 9 Jun 24 15:57 test.txt
 
 
@@ -101,7 +101,7 @@ This says I am the user adina on the machine muninn and I am in the folder ``~``
 which is shorthand for the current user's home folder (in this case ``/home/adina``).
 
 The $ sign indicates that the prompt is interactive and awaiting user input.
-In this handbook, we will use ``%`` as a shorthand for the prompt, to allow
+In this handbook, we will use ``$`` as a shorthand for the prompt, to allow
 the reader to quickly differentiate between lines containing commands vs the
 output of those commands.
 
@@ -112,7 +112,7 @@ I can run the following command:
 
 .. code-block:: bash
 
-   % mkdir /home/adina/awesome_datalad_project
+   $ mkdir /home/adina/awesome_datalad_project
 
 And that works. ``/home/aqw/awesome_datalad_project`` is what is called an *absolute*
 path. Absolute paths *always* start with a ``/``, and define the folder's location
@@ -152,7 +152,7 @@ To demonstrate this further, consider the following: In my home directory
 
 .. code-block:: bash
 
-   % tree
+   $ tree
 
    └── home
        └── adina
@@ -184,7 +184,7 @@ But that is a bit wordy. It is much easier with a relative path:
 
 .. code-block:: bash
 
-   % cd awesome_datalad_project/aligned/code
+   $ cd awesome_datalad_project/aligned/code
 
 Relative to my starting location (``/home/adina``), I navigated into the subfolders.
 
@@ -192,7 +192,7 @@ I can change back to my home directory also with a relative path:
 
 .. code-block:: bash
 
-   % cd ../../../
+   $ cd ../../../
 
 The first ``../`` takes me from ``code/`` to its parent ``aligned/``, the
 second ``../`` to ``awesome_datalad_project/``, and the last ``../``
@@ -202,7 +202,7 @@ However, since I want to go back to my home folder, it's much faster to run:
 
 .. code-block:: bash
 
-   % cd ~
+   $ cd ~
 
 
 Text Editors
@@ -252,7 +252,7 @@ To determine what shell you're in, run the following:
 
 .. code-block:: bash
 
-   % echo $SHELL
+   $ echo $SHELL
    usr/bin/bash
 
 Tab Completion

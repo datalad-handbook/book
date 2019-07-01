@@ -2,7 +2,7 @@
    :maxdepth: 1
    :caption: Introduction: What DataLad is all about
 
-   intro/duction
+   intro/index
    intro/philosophy
    intro/installation
 
@@ -11,6 +11,7 @@
    :maxdepth: 1
    :caption: The basics: Building blocks necessary to enable you to use DataLad
 
+   basics/index
    basics/datasets
    basics/howto
 
@@ -19,6 +20,7 @@
    :maxdepth: 1
    :caption: Use cases: Hands-on real-world applications with step-by-step recipes...
 
+   usecases/index
    usecases/remodnav
 
 

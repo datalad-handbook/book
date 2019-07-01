@@ -1,13 +1,13 @@
-###############
+
 Install DataLad
-###############
+===============
 
 
 The content on this site is copied from the `DataLad website <https://www.datalad.org/get_datalad.html>`_
 and the `DataLad documentation <http://docs.datalad.org/en/latest/gettingstarted.html>`_.
 
 When there isn't anything more convenient
-*****************************************
+-----------------------------------------
 
 When there isn't anything more convenient (i.e. availability via package managers; see below),
 DataLad is most easily installed via
@@ -44,7 +44,7 @@ You can find detailed installation instructions on how to do this
 
 
 (Neuro)Debian, Ubuntu, and similar systems
-******************************************
+------------------------------------------
 For Debian-based operating systems, the most convenient installation method
 is to enable the `NeuroDebian <http://neuro.debian.net/>`_ repository.
 If you are on a Debian-based system, but do not have the NeuroDebian repository
@@ -60,7 +60,7 @@ DataLad and all of its software dependencies (including the git-annex-standalone
 
 
 OS X
-****
+----
 
 A common way to install packages on OS X is via the
 `homebrew <https://brew.sh/>`_ package manager.
@@ -76,7 +76,7 @@ Once git-annex is available, DataLad can be installed via ``pip`` as described a
 
 
 HPC environments or any system with singularity installed
-*********************************************************
+---------------------------------------------------------
 
 If you want to use DataLad on a high-performance computing (HPC) environment, such as a
 computer cluster or a similar multi-user machine, where you don't have admin privileges,

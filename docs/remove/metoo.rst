@@ -6,7 +6,7 @@ Here we have a very basic command:
 
 .. code-block:: bash
 
-   % datalad create firstrepo
+   $ datalad create firstrepo
 
 There are many advanced options, and if I put them all
 on this page, it will look very very complicated.
@@ -19,4 +19,4 @@ on this page, it will look very very complicated.
 
     .. code-block:: bash
 
-       % datalad create firstrepo --description "This is my first repo"
+       $ datalad create firstrepo --description "This is my first repo"

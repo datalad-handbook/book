@@ -113,7 +113,7 @@ html_theme_options = {
     'github_user': 'psychoinformatics-de',
     'github_repo': 'datalad-handbook',
     'github_banner': True,
-    'show_related': False,
+    'show_related': True,
     'note_bg': '#FFF59C',
 }
 
@@ -193,15 +193,15 @@ htmlhelp_basename = 'dataladhandbookdoc'
 # -- Options for LaTeX output --------------------------------------------------
 
 # The paper size ('letter' or 'a4').
-#latex_paper_size = 'letter'
+latex_paper_size = 'a4'
 
 # The font size ('10pt', '11pt' or '12pt').
-#latex_font_size = '10pt'
+latex_font_size = '11pt'
 
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('index', 'pythonguide.tex', u'The DataLad Handbook',
+  ('index', 'dataladhandbook.tex', u'The DataLad Handbook',
    u'all', 'manual'),
 ]
 

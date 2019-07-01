@@ -5,14 +5,13 @@
    intro/duction
    intro/philosophy
    intro/installation
-   intro/datasets
-   intro/contributing
 
 
 .. toctree::
    :maxdepth: 1
    :caption: The basics: Building blocks necessary to enable you to use DataLad
 
+   basics/datasets
    basics/howto
 
 
@@ -28,6 +27,7 @@
    :caption: Appendix
 
    glossary
+   contributing
 
 * :ref:`genindex`
 * :ref:`search`

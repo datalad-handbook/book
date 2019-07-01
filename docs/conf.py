@@ -110,8 +110,8 @@ html_theme = 'alabaster'
 # documentation.
 html_theme_options = {
     'show_powered_by': False,
-    'github_user': 'psychoinformatics-de',
-    'github_repo': 'datalad-handbook',
+    'github_user': 'datalad-handbook',
+    'github_repo': 'book',
     'github_banner': True,
     'show_related': True,
     'note_bg': '#FFF59C',

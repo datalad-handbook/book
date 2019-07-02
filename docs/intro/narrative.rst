@@ -82,7 +82,7 @@ is ongoing, and this handbook will incorporate all DataLad commands and extensio
 change in the future anymore). If you are looking for a feature but cannot find it in this
 handbook, please take a look at the `documentation <http://docs.datalad.org>`_,
 `write <LinkThisToContributing>`_ or
-`request <https://github.com/psychoinformatics-de/datalad-handbook/issues/new>`_
+`request <https://github.com/datalad-handbook/book/issues/new>`_
 an additional chapter if you believe it's a worthwhile addition, or
 `ask a question on Neurostars.org <https://neurostars.org/latest>`_
 with a ``datalad`` tag if you need help.

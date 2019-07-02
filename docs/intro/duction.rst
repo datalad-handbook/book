@@ -84,15 +84,6 @@ with a ``datalad`` tag if you need help.
    * Add info on the structure of the book, possibly related to Lauras idea of
      "build your own DataLad adventure".
 
-.. admonition:: Note for git-users
-
-   DataLad uses :term:`git` and :term:`git-annex` underneath the hood. Readers that
-   are familiar with these tools can find occasional notes on how a DataLad
-   command links to a git(-annex) command or concept in boxes like this.
-   There is, however, absolutely no knowledge of git or git-annex necessary
-   to follow this book.
-
-
 This book is to be a practical guide that includes as many hands-on examples
 as we can fit into it. Code snippets look like this, and you can either copy
 them into your own terminal to try them out, or modify them to fit your custom

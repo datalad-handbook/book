@@ -61,6 +61,16 @@ You can decide for yourself whether you want to check them out:
     Sections like this contain content that goes beyond the basics
     necessary to complete a challenge.
 
+Note further that...
+
+.. admonition:: Note for git-users
+
+   DataLad uses :term:`git` and :term:`git-annex` underneath the hood. Readers that
+   are familiar with these tools can find occasional notes on how a DataLad
+   command links to a git(-annex) command or concept in boxes like this.
+   There is, however, absolutely no knowledge of git or git-annex necessary
+   to follow this book.
+
 The storyline
 ^^^^^^^^^^^^^
 

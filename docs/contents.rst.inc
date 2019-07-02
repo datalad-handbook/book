@@ -1,54 +1,42 @@
-Introduction
-------------
-
-What DataLad is all about...
-
 .. toctree::
    :maxdepth: 1
+   :caption: Introduction: What DataLad is all about
+   
 
    intro/duction
    intro/philosophy
    intro/installation
-   intro/datasets
-   intro/contributing
 
-The Basics
-----------
-
-The building blocks necessary to enable you to use DataLad...
 
 .. toctree::
    :maxdepth: 1
+   :caption: The basics: Building blocks necessary to enable you to use DataLad
 
-   intro/howto
+   basics/datasets
+   basics/howto
 
-Use cases
----------
-
-Hands-on real-world applications with step-by-step recipes...
 
 .. toctree::
    :maxdepth: 1
+   :caption: Use cases: Hands-on real-world applications with step-by-step recipes...
 
    usecases/remodnav
 
-Misc
-----
 
 .. toctree::
    :maxdepth: 1
+   :caption: Appendix
 
    glossary
+   contributing
 
-.. note::
-   Notes defined within all diatonic and chromatic musical scales have been
-   intentionally excluded from this list of additional notes. Additionally,
-   this note.
+* :ref:`genindex`
+* :ref:`search`
 
-Example Demo
-------------
 
 .. toctree::
    :maxdepth: 1
+   :caption: Experimental
 
    remove/me
+   remove/metoo

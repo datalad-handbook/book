@@ -1,3 +1,5 @@
+.. _remodnav:
+
 ****************************
 Writing a reproducible paper
 ****************************
@@ -96,7 +98,7 @@ Step-by-Step
 
 .. code-block:: bash
 
-   % datalad create algorithm-paper
+   $ datalad create algorithm-paper
 
    [INFO   ] Creating a new annex repo at /home/adina/repos/testing/algorithm-paper
    create(ok): /home/adina/repos/testing/algorithm-paper (dataset)
@@ -106,12 +108,12 @@ create subdirectories (``code/`` and ``data/``) to give your dataset a comprehen
 
 .. code-block:: bash
 
-   % cd algorithm-paper
-   % mkdir code data
+   $ cd algorithm-paper
+   $ mkdir code data
 
    # You can checkout the directory structure with the tree command
 
-   % tree
+   $ tree
    algorithm-paper
    ├── code
    └── data
@@ -127,17 +129,17 @@ In this example, all data collections are already DataLad datasets or git reposi
 
 .. code-block:: bash
 
-   % cd data
+   $ cd data
    # install existing git repositories with data (-s specifies the source, in this case, Github repositories)
    datalad install -s https://github.com/psychoinformatics-de/studyforrest-data-phase2.git
 
    [INFO   ] Cloning https://github.com/psychoinformatics-de/studyforrest-data-phase2.git [1 other candidates] into '/home/adina/repos/testing/algorithm-paper/data/raw_eyegaze'
    install(ok): /home/adina/repos/testing/algorithm-paper/data/raw_eyegaze (dataset)
 
-   % datalad install -s git@github.com:psychoinformatics-de/studyforrest-data-eyemovementlabels.git
+   $ datalad install -s git@github.com:psychoinformatics-de/studyforrest-data-eyemovementlabels.git
 
    [INFO   ] Cloning git@github.com:psychoinformatics-de/studyforrest-data-eyemovementlabels.git into '/home/adina/repos/testing/algorithm-paper/data/studyforrest-data-eyemovementlabels'
-   Cloning (compressing objects):  45%|▍| 1.80k/4.00k [00:01<00:01, 1.29k objects/s
+   Cloning (compressing objects):  45% 1.80k/4.00k [00:01<00:01, 1.29k objects/s
    [...]
 
 Any script we need for the analysis should live inside ``code/``. During script writing, save any changes
@@ -175,13 +177,13 @@ Lastly, ``datalad install`` the software repository as a subdataset in the root 
 .. code-block:: bash
 
    # in the root of ``algorithm-paper`` run
-   % datalad install -s git@github.com:psychoinformatics-de/remodnav.git
+   $ datalad install -s git@github.com:psychoinformatics-de/remodnav.git
 
 This repository has also subdatasets in which the datasets used for testing live (``tests/data/``):
 
 .. code-block:: bash
 
-   % tree
+   $ tree
    [...]
 
    |   ├── remodnav

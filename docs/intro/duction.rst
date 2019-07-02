@@ -62,19 +62,6 @@ use DataLad. It aims to provide novices and advanced users of all backgrounds
 with both the basics of DataLad and start-to-end use cases of specific
 applications.
 
-Apart from core DataLad commands (introduced in the second section of this book),
-DataLad also comes with many extensions and advanced commands not (yet) referenced
-in this handbook. The development of many of these features
-is ongoing, and this handbook will incorporate all DataLad commands and extensions
-*once they are stable* (that is, once the command(-structure) is likely to not
-change in the future anymore). If you are looking for a feature but cannot find it in this
-handbook, please take a look at the `documentation <http://docs.datalad.org>`_,
-`write <LinkThisToContributing>`_ or
-`request <https://github.com/psychoinformatics-de/datalad-handbook/issues/new>`_
-an additional chapter if you believe it's a worthwhile addition, or
-`ask a question on Neurostars.org <https://neurostars.org/latest>`_
-with a ``datalad`` tag if you need help.
-
 .. todo::
    * Add info on how to read this book.
    * Extend/adjust the aims of this book.
@@ -84,18 +71,3 @@ with a ``datalad`` tag if you need help.
    * Add info on the structure of the book, possibly related to Lauras idea of
      "build your own DataLad adventure".
 
-This book is to be a practical guide that includes as many hands-on examples
-as we can fit into it. Code snippets look like this, and you can either copy
-them into your own terminal to try them out, or modify them to fit your custom
-needs.
-For example, the code block below shows how to create a DataLad dataset. You can
-run this command on your own computer if you wish to.
-
-.. code-block:: bash
-
-   # this is a comment - its only for additional explanations. Anything that
-   # is preceded by $ is a command-line argument.
-   # if the line starts with neither # nor $, its the output of a command
-   $ datalad create myfirstrepo
-   [INFO   ] Creating a new annex repo at /home/adina/myfirstrepo
-   create(ok): /home/adina/myfirstrepo (dataset)

@@ -71,14 +71,57 @@ Note further that...
    There is, however, absolutely no knowledge of git or git-annex necessary
    to follow this book.
 
+Apart from core DataLad commands (introduced in the second section of this book),
+DataLad also comes with many extensions and advanced commands not (yet) referenced
+in this handbook. The development of many of these features
+is ongoing, and this handbook will incorporate all DataLad commands and extensions
+*once they are stable* (that is, once the command(-structure) is likely to not
+change in the future anymore). If you are looking for a feature but cannot find it in this
+handbook, please take a look at the `documentation <http://docs.datalad.org>`_,
+`write <LinkThisToContributing>`_ or
+`request <https://github.com/psychoinformatics-de/datalad-handbook/issues/new>`_
+an additional chapter if you believe it's a worthwhile addition, or
+`ask a question on Neurostars.org <https://neurostars.org/latest>`_
+with a ``datalad`` tag if you need help.
+
+
 The storyline
 ^^^^^^^^^^^^^
 
-Most of the sections in the upcoming chapter follow a continous narrative.
+Most of the sections in the upcoming chapter follow a continous **narrative**.
+This narrative aims to be as domain-agnostic and relatable as possible, but
+it also needs to be able to showcase all of the principles and commands
+of DataLad. Therefore, we will build up together a DataLad project for the
+fictional educational course ``DataLad-101``.
 
-.. todo::
+Envision yourself in the last educational course you took or taught:
+Probably, you've created some files with notes you took, a directory
+with slides or books for further reading, and a place where you stored
+assigments and their solutions in. This is what we will be doing as well.
+This project will start with creating the necessary directory structures,
+populating them by ``installing`` and ``creating`` several
+:term:`DataLad subdataset`\s, adding files and changing their content,
+and executing simple scripts with input data to create results we can
+publish with DataLad.
 
-   Introduce and explain the narrative here
+As the handbook is to be a practical guide it includes as many hands-on examples
+as we can fit into it. Code snippets look like this, and you should copy
+them into your own terminal to try them out, but you can also modify them
+to fit your custom needs in your own use cases.
+For example, the code block below shows how to create a DataLad dataset.
+
+.. code-block:: bash
+
+   # this is a comment - its only for additional explanations. Anything that
+   # is preceded by $ is a command-line argument.
+   # if the line starts with neither # nor $, its the output of a command
+   $ datalad create myfirstrepo
+   [INFO   ] Creating a new annex repo at /home/adina/DataLad-101
+   create(ok): /home/adina/DataLad-101 (dataset)
+
+If you don't want to follow along and only read, there will be a
+finished DataLad-101 project for you to download and explore in the future.
+
 
 Lets get going!
 ---------------

@@ -4,6 +4,7 @@
 
    intro/duction
    intro/philosophy
+   intro/narrative
    intro/installation
 
 

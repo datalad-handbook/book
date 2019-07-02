@@ -93,7 +93,7 @@ exclude_patterns = [
 #show_authors = False
 
 # The name of the Pygments (syntax highlighting) style to use.
-pygments_style = 'flask_theme_support.FlaskyStyle'
+pygments_style = 'tango'
 
 # A list of ignored prefixes for module index sorting.
 #modindex_common_prefix = []
@@ -108,13 +108,20 @@ html_theme = 'alabaster'
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
 # documentation.
+# more options: https://alabaster.readthedocs.io/en/latest/customization.html
 html_theme_options = {
     'show_powered_by': False,
-    'github_user': 'psychoinformatics-de',
-    'github_repo': 'datalad-handbook',
+    'github_user': 'datalad-handbook',
+    'github_repo': 'book',
     'github_banner': True,
     'show_related': True,
-    'note_bg': '#FFF59C',
+    # colors
+    # "DataLad gray"
+    'body_text': '#333',
+    # this is a lighter variant of the "DataLad yellow"
+    'note_bg': '#e2eacdff',
+    # the real "DataLad dark gray"
+    'note_border': '#333333ff',
 }
 
 # Add any paths that contain custom themes here, relative to this directory.

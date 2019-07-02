@@ -62,12 +62,3 @@ use DataLad. It aims to provide novices and advanced users of all backgrounds
 with both the basics of DataLad and start-to-end use cases of specific
 applications.
 
-.. todo::
-   * Add info on how to read this book.
-   * Extend/adjust the aims of this book.
-   * Add info on what prerequisites are useful, but also on what prerequisites
-     are not required (git, you don't need to be a programmer, ...).
-   * Add info on how to contribute
-   * Add info on the structure of the book, possibly related to Lauras idea of
-     "build your own DataLad adventure".
-

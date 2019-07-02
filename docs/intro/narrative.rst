@@ -1,5 +1,8 @@
+How to use the handbook
+=======================
+
 For whom this book is written
-=============================
+-----------------------------
 
 The DataLad handbook is not the DataLad documentation, and it is also
 not an explanation of the computational magic that happens in the background.

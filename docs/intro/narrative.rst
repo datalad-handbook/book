@@ -16,7 +16,7 @@ handbook will show you the principles of DataLad, and from chapter 1 onwards
 you will be using them.
 
 How to read this book
-=====================
+---------------------
 
 First of all: Be exited. DataLad can help you to manage your digital data
 workflow in various ways, and in this book you will use many of them right
@@ -61,6 +61,8 @@ You can decide for yourself whether you want to check them out:
     Sections like this contain content that goes beyond the basics
     necessary to complete a challenge.
 
+The storyline
+^^^^^^^^^^^^^
 
 Most of the sections in the upcoming chapter follow a continous narrative.
 
@@ -69,7 +71,7 @@ Most of the sections in the upcoming chapter follow a continous narrative.
    Introduce and explain the narrative here
 
 Lets get going!
-===============
+---------------
 
 If you have DataLad installed, you can dive straight into chapter 1. (Todo: link).
 For everyone new, there are the sections :ref:`howto` as a minimal tutorial

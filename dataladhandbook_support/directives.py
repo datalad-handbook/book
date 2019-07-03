@@ -16,7 +16,6 @@ def visit_gitusernote_html(self, node):
     node.insert(0, nodes.title(
         'first',
         'Note for Git users'))
-    self.set_first_last(node)
 
 
 def depart_gitusernote_html(self, node):

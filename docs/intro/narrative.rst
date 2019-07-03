@@ -38,8 +38,7 @@ The following two chapters have two different goals: All of the *Basics* section
 will show you the core DataLad functionality and challenge you to use it.
 In *use cases* you will find concrete examples of DataLad applications for
 general inspiration. We recommend to read the Basics first. Afterwards,
-you might even want to `contribute <linktocontributing>`_ (TODO: link)
-to this book by sharing your own use case.
+you might even consider :ref:`contribute` to this book by sharing your own use case.
 
 Note that many challenges can have straightforward and basic solutions,
 but a lot of additional options or improvements are possible.

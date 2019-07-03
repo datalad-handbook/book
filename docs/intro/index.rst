@@ -84,7 +84,7 @@ with a ``datalad`` tag if you need help.
    * Add info on the structure of the book, possibly related to Lauras idea of
      "build your own DataLad adventure".
 
-.. admonition:: Note for git-users
+.. gitusernote::
 
    DataLad uses :term:`git` and :term:`git-annex` underneath the hood. Readers that
    are familiar with these tools can find occasional notes on how a DataLad

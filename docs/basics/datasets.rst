@@ -40,7 +40,7 @@ Large content is tracked in an *annex* that is automatically
 created and handled by DataLad. Whether text files or larger files change,
 all of these changes can be written to your DataLad datasets history.
 
-.. admonition:: Note for Git users
+.. gitusernote::
 
    A DataLad dataset is a Git repository. Large file content in the
    dataset in the annex is tracked with Git-annex. An ``ls -a``
@@ -152,14 +152,14 @@ arbitralily large amounts of data can be added. Once files are added and
 saved to the dataset, any changes done to these data files can be saved
 to the history.
 
-.. admonition:: Note for Git users
+.. gitusernote::
 
    Creation of datasets relies on the ``git init`` and ``git annex init`` commands.
 
 As already shown, already existing datalad dataset can be simply installed
 from a url or path, or from the datalad open-data collection.
 
-.. admonition:: Note for Git users
+.. gitusernote::
 
 
    ``datalad install`` used the ``git clone`` command.

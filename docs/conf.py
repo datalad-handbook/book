@@ -33,6 +33,7 @@ extensions = [
     'sphinx.ext.intersphinx',
     'sphinx.ext.doctest',
     'sphinxcontrib.autorunrecord',
+    'dataladhandbook_support',
 ]
 
 # Add any paths that contain templates here, relative to this directory.

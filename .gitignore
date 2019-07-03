@@ -12,3 +12,9 @@ docs/_build
 build/
 
 venv/
+
+*.egg-info
+
+__pycache__
+
+*.swp

@@ -13,6 +13,7 @@
 
    basics/datasets
    basics/howto
+   basics/c1
 
 
 .. toctree::

@@ -1,31 +1,45 @@
+############
+Introduction
+############
+
 .. toctree::
    :maxdepth: 1
-   :caption: Introduction: What DataLad is all about
-   
+   :caption: What DataLad is all about
 
-   intro/duction
+   intro/index
    intro/philosophy
-   intro/installation
 
+
+######
+Basics
+######
 
 .. toctree::
    :maxdepth: 1
-   :caption: The basics: Building blocks necessary to enable you to use DataLad
+   :caption: Building blocks necessary to enable you to use DataLad
 
+   basics/installation
    basics/datasets
    basics/howto
 
 
+#########
+Use Cases
+#########
+
 .. toctree::
    :maxdepth: 1
-   :caption: Use cases: Hands-on real-world applications with step-by-step recipes...
+   :caption: Hands-on real-world applications with step-by-step recipes...
 
    usecases/remodnav
 
+########
+Appendix
+########
 
 .. toctree::
    :maxdepth: 1
-   :caption: Appendix
+   :caption: Further information and references
 
    glossary
    contributing

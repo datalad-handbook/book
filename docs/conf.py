@@ -199,12 +199,6 @@ htmlhelp_basename = 'dataladhandbookdoc'
 
 # -- Options for LaTeX output --------------------------------------------------
 
-# The paper size ('letter' or 'a4').
-latex_paper_size = 'a4'
-
-# The font size ('10pt', '11pt' or '12pt').
-latex_font_size = '11pt'
-
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
@@ -216,18 +210,17 @@ latex_documents = [
 # the title page.
 #latex_logo = None
 
-# For "manual" documents, if this is true, then toplevel headings are parts,
-# not chapters.
-#latex_use_parts = False
-
-# If true, show page references after internal links.
-#latex_show_pagerefs = False
-
-# If true, show URL addresses after external links.
-#latex_show_urls = False
-
-# Additional stuff for the LaTeX preamble.
-#latex_preamble = ''
+latex_toplevel_sectioning = 'part'
+latex_show_pagerefs = True
+latex_show_urls = 'footnote'
+latex_elements = {
+    'papersize': 'a4',
+    'pointsize': '11pt',
+    'figure_align': 'tbp',
+    'preamble': """\
+\setcounter{tocdepth}{0}
+""",
+}
 
 # Documents to append as an appendix to all manuals.
 #latex_appendices = []

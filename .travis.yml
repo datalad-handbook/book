@@ -4,6 +4,7 @@ python:
 install:
   - sudo apt-get install texlive-latex-recommended texlive-fonts-recommended texlive-latex-extra latexmk
   - pip install -r requirements.txt
+  - pip install -e .
 script:
   - make doctest
   - make html

@@ -61,4 +61,3 @@ This handbook is a living resource about why and - more importantly - *how* to
 use DataLad. It aims to provide novices and advanced users of all backgrounds
 with both the basics of DataLad and start-to-end use cases of specific
 applications.
-

@@ -21,7 +21,7 @@ div.admonition-todo {
 /* relatively intense look for Git-note admonitions.
  * idea is to clearly set them apart from the normal
  * content, because they should be completely optional */
-div.admonition-note-for-git-users {
+div.gitusernote {
     background-color: #c3ebffff;
     border: 1px solid #7fd4ffff;
 }

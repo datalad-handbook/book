@@ -1,8 +1,9 @@
 .. _howto:
 
-################################
-Chapter 0: General prerequisites
-################################
+*********************
+General prerequisites
+*********************
+
 
 .. todo::
 
@@ -32,7 +33,7 @@ Almost all of this chapter is based on parts of a wonderful lab documentation
 Alex Waite wrote.
 
 The Command Line
-****************
+================
 The shell (sometimes also called a terminal, console, or CLI) is an interactive,
 text based interface. If you have used Matlab or IPython, then you are already familiar
 with the basics of a command line interface.
@@ -42,7 +43,7 @@ with the basics of a command line interface.
    :alt: A z-shell on a Debian system
 
 Command Syntax
-**************
+==============
 
 Commands are case sensitive and follow the syntax of: ``command [options...] <arguments...>``.
 Whenever you see some example code in the code snippets of this book, make sure
@@ -66,7 +67,7 @@ DataLad commands naturally also come with many options, and in the next chapters
 and later examples you will get to see many of them.
 
 Basic Commands
-**************
+==============
 The following commands can appear in our examples or are generally useful to know:
 They can help you to *explore and navigate* in your file system (``cd``, ``ls``),
 copy, move, or remove files (``cp``, ``mv``, ``rm``), or create new directories
@@ -93,7 +94,7 @@ copy, move, or remove files (``cp``, ``mv``, ``rm``), or create new directories
     delete an empty folder
 
 The Prompt
-**********
+==========
 When you first login on the command line, you are greeted with "the prompt",
 and it will likely look similar to this:
 
@@ -108,7 +109,7 @@ the reader to quickly differentiate between lines containing commands vs the
 output of those commands.
 
 Paths
-*****
+=====
 Let's say I want to create a new folder in my home folder,
 I can run the following command:
 
@@ -208,7 +209,7 @@ However, since I want to go back to my home folder, it's much faster to run:
 
 
 Text Editors
-************
+============
 
 Text editors are a crucial tool for any Linux user, but regardless of your operating system,
 if you use DataLad, you will occasionally find yourself in your default text editor to write
@@ -230,7 +231,7 @@ this is the breakdown:
 
 
 Shells
-******
+======
 
 Whenever you use the command line on a Unix-based system, you do that in a command-line
 interpreter that is referred to as a ``shell``.
@@ -258,7 +259,7 @@ To determine what shell you're in, run the following:
    usr/bin/bash
 
 Tab Completion
-**************
+==============
 
 One of the best features ever invented is tab completion. Imagine your favorite animal sitting
 on your shoulder. Now imagine that animal shouting "TAB!" every time you've typed the first

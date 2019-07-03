@@ -1,6 +1,7 @@
 .. toctree::
    :maxdepth: 1
    :caption: Introduction: What DataLad is all about
+   
 
    intro/duction
    intro/philosophy

@@ -34,6 +34,21 @@ workflows to more advanced commands, and you will see your skills increase
 with each. While learning, it will be easy to
 **find use cases in your own work for the commands you come across**.
 
+As the handbook is to be a practical guide it includes as many hands-on examples
+as we can fit into it. Code snippets look like this, and you should
+**copy them into your own terminal to try them out**, but you can also
+**modify them to fit your custom needs in your own use cases**.
+Note in the example below that shows the creation of a DataLad dataset how
+we distinguish ``comments (#)`` from ``commands ($)`` and their output:
+
+.. code-block:: bash
+
+   # this is a comment used for additional explanations. Anything preceded by $ is a command to try.
+   # if the line starts with neither # nor $, its the output of a command
+   $ datalad create myfirstrepo
+   [INFO   ] Creating a new annex repo at /home/adina/DataLad-101
+   create(ok): /home/adina/DataLad-101 (dataset)
+
 The following two chapters have two different goals: All of the *Basics* sections
 will show you the core DataLad functionality and challenge you to use it.
 In *use cases* you will find concrete examples of DataLad applications for
@@ -105,21 +120,6 @@ populating them by ``installing`` and ``creating`` several
 :term:`DataLad subdataset`\s, adding files and changing their content,
 and executing simple scripts with input data to create results we can
 publish with DataLad.
-
-As the handbook is to be a practical guide it includes as many hands-on examples
-as we can fit into it. Code snippets look like this, and you should copy
-them into your own terminal to try them out, but you can also modify them
-to fit your custom needs in your own use cases.
-For example, the code block below shows how to create a DataLad dataset.
-
-.. code-block:: bash
-
-   # this is a comment - its only for additional explanations. Anything that
-   # is preceded by $ is a command-line argument.
-   # if the line starts with neither # nor $, its the output of a command
-   $ datalad create myfirstrepo
-   [INFO   ] Creating a new annex repo at /home/adina/DataLad-101
-   create(ok): /home/adina/DataLad-101 (dataset)
 
 If you don't want to follow along and only read, there will be a
 finished DataLad-101 project for you to download and explore in the future.

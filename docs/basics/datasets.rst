@@ -159,7 +159,8 @@ to the history.
 As already shown, already existing datalad dataset can be simply installed
 from a url or path, or from the datalad open-data collection.
 
-.. admonition:: Note
+.. admonition:: Note for Git users
+
 
    ``datalad install`` used the ``git clone`` command.
 

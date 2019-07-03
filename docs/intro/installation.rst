@@ -26,6 +26,7 @@ You can find detailed installation instructions on how to do this
 `here <https://git-annex.branchable.com/install/>`_.
 
 .. admonition:: If you do not have admin powers…
+   :class: note
 
    pip supports installation into a user’s home directory with the ``--user`` option:
 

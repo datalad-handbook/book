@@ -9,6 +9,9 @@ install:
   - pip install -r requirements.txt
   - pip install -e .
 script:
+  # patch the planuml config, to prevent PDF conversion (works around a bug in the
+  # sphinx extension)
+  - sed -i -e "s/plantuml_latex_output_format = 'pdf'/plantuml_latex_output_format = 'png'/g" docs/conf.py
   - make doctest
   - make html
   - make latexpdf

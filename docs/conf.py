@@ -34,6 +34,7 @@ extensions = [
     'sphinx.ext.doctest',
     'sphinxcontrib.autorunrecord',
     'sphinxcontrib.rsvgconverter',
+    'sphinxcontrib.plantuml',
     'dataladhandbook_support',
 ]
 
@@ -287,6 +288,10 @@ todo_include_todos = True
 intersphinx_mapping = {
     'python': ('https://docs.python.org/3', None),
 }
+
+plantuml_output_format = 'svg'
+plantuml_latex_output_format = 'pdf'
+
 
 def setup(app):
     app.add_stylesheet('custom.css')

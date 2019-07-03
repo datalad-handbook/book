@@ -2,7 +2,7 @@ language: python
 python:
   - "3.6"
 install:
-  - sudo apt-get install texlive-latex-recommended texlive-fonts-recommended texlive-latex-extra latexmk librsvg2-bin
+  - sudo apt-get install texlive-latex-recommended texlive-fonts-recommended texlive-latex-extra latexmk librsvg2-bin plantuml
   - pip install -r requirements.txt
   - pip install -e .
 script:

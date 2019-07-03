@@ -33,6 +33,7 @@ extensions = [
     'sphinx.ext.intersphinx',
     'sphinx.ext.doctest',
     'sphinxcontrib.autorunrecord',
+    'sphinxcontrib.rsvgconverter',
     'dataladhandbook_support',
 ]
 

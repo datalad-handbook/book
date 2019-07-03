@@ -139,7 +139,7 @@ section (for example in :ref:`remodnav`).
 The figure below illustrates dataset nesting schematically:
 
 
-.. figure:: ../img/virtual_dirtree.png
+.. figure:: ../img/virtual_dirtree.svg
    :alt: Virtual directory tree of a nested DataLad dataset
 
 I want to create a dataset myself!

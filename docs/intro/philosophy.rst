@@ -1,6 +1,7 @@
 
+**********************
 The DataLad Philosophy
-======================
+**********************
 
 DataLad is a software tool developed to aid with everything related to the
 evolution of digital objects. It is not only keeping track of code, and it is not

@@ -1,15 +1,15 @@
 .. _remodnav:
 
-
+****************************
 Writing a reproducible paper
-============================
+****************************
 
 .. todo::
    This title should be changed to something more catchy
 
 
 Summary
--------
+=======
 This use case demonstrates how to use nested DataLad datasets to create a fully
 reproducible paper by linking
 
@@ -24,7 +24,7 @@ and results and paper can be generated and recomputed everywhere on demand.
 
 
 The Problem Space
------------------
+=================
 Over the past year, Steve worked on the implementation of an algorithm as a software package.
 For testing purposes, he used one of his own data collections, and later also included a publicly shared
 data collection. After completion, he continued to work on validation analyses to
@@ -54,7 +54,7 @@ which requires updates in his software package, and more recomputations.
 
 
 The DataLad World
------------------
+=================
 Steve sets up a DataLad dataset and calls it ``algorithm-paper``. In this
 dataset, he creates several subdirectories to collate everything that is relevant for
 the manuscript: Data, code, a manuscript backbone without results.
@@ -93,7 +93,7 @@ itself with the new figures.
 
 
 Step-by-Step
-------------
+============
 
 ``datalad create`` a DataLad dataset (in this example, it is named "algorithm-paper"):
 

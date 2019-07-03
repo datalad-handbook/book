@@ -1,8 +1,8 @@
 .. _datasets:
 
-
+****************
 DataLad Datasets
-================
+****************
 
 .. note::
    If you like
@@ -75,7 +75,7 @@ from ``git log``.
 
 
 Dataset content identity and availability information
------------------------------------------------------
+=====================================================
 
 Upon installation of a DataLad dataset, DataLad retrieves only (small) metadata
 information about the dataset. This exposes the datasets file hierarchy
@@ -117,7 +117,7 @@ of files. Lets get the nifti file:
 Wasn't this easy?
 
 Dataset Nesting
----------------
+===============
 
 Within DataLad datasets one can *nest* other DataLad
 datasets arbitralily deep. This does not seem particulary spectacular -
@@ -143,7 +143,7 @@ The figure below illustrates dataset nesting schematically:
    :alt: Virtual directory tree of a nested DataLad dataset
 
 I want to create a dataset myself!
-----------------------------------
+==================================
 
 Anyone can create, populate, and optionally share a *new* DataLad dataset.
 A new DataLad dataset is always created empty, even if the target

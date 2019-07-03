@@ -19,7 +19,6 @@ Basics
    :maxdepth: 1
    :caption: Building blocks necessary to enable you to use DataLad
 
-   basics/index
    basics/datasets
    basics/howto
 
@@ -32,9 +31,7 @@ Use Cases
    :maxdepth: 1
    :caption: Hands-on real-world applications with step-by-step recipes...
 
-   usecases/index
    usecases/remodnav
-
 
 ########
 Appendix

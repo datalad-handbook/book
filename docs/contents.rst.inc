@@ -8,6 +8,7 @@ Introduction
 
    intro/index
    intro/philosophy
+   intro/narrative
 
 
 ######

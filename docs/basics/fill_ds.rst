@@ -145,9 +145,10 @@ Cool, so now you have added some files to your dataset history. But what is a bi
 inconvenient is that both books were saved *together*. You begin to wonder: "A Python
 book and a Unix book do not have that much in common. I probably should not save them
 in the same commit. And ... what happens if I have files I don't want to track? A
-``datalad save -m "some commit message"`` would write all of that into the history!"
+``datalad save -m "some commit message"`` would write all of what is currently
+in my dataset and untracked or modified into the history!"
 
-And you're absolutely right with that! First, it is good practive to save only those changes
+And you're absolutely right with that! First, it is good practice to save only those changes
 together that belong together. We do not want to squish completely unrelated changes
 into the same spot of our history, because it would get very nasty should we want to
 revert *some* of the changes without affecting others in this commit.

@@ -9,7 +9,7 @@ we add content, and then modify it.
 
 For this, in the root of ``DataLad-101``, create a simple text file
 called ``notes.txt``. This will contain all of the notes that you take
-through the course.
+throughout the course.
 
 Pick an editor of your choice and write a short summary of how to create
 a DataLad dataset from scratch. Below is one way to do it, using the
@@ -37,3 +37,9 @@ Save this file in its current state:
    :realcommand: cd DataLad-101 && datalad save -m "Add notes on datalad create" notes.txt
 
    $ datalad save -m "Add notes on datalad create" notes.txt
+
+Modify this file by adding another note. After all, you already know how use
+``datalad save``, so write a short summary on that as well.
+
+Again, the example below uses Unix commands (``echo`` and redirecting, but *appending*
+with ``>>``) to accomplish this, but you can take an editor of your choice.

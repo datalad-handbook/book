@@ -1,0 +1,6 @@
+$ cd machinelearning-books
+$ ls
+
+
+$ wget https://github.com/progit/progit2/releases/download/2.1.154/progit.pdf
+bash: line 1: cd: DataLad-101/machinelearning-books: No such file or directory

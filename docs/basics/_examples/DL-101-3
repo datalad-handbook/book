@@ -1,0 +1,6 @@
+$ git log
+commit 66d9357cc9d05e2c9657090ae9a0fe76899fb438
+Author: Adina Wagner <adina.wagner@t-online.de>
+Date:   Thu Jul 4 17:30:43 2019 +0200
+
+    [DATALAD] new dataset

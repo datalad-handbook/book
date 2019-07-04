@@ -1,0 +1,2 @@
+ $ datalad install -d . -s https://github.com/datalad-datasets/machinelearning-books.git
+bash: line 1: cd: DataLad-101: No such file or directory

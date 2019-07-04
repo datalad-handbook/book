@@ -1,0 +1,59 @@
+$ git log -p
+commit f6fba7ab9b704c1998a585ff59c43787b8042295
+Author: Adina Wagner <adina.wagner@t-online.de>
+Date:   Thu Jul 4 17:30:47 2019 +0200
+
+    add books on Python and Unix to read later
+
+diff --git a/books/TLCL.pdf b/books/TLCL.pdf
+new file mode 120000
+index 0000000..4c84b61
+--- /dev/null
++++ b/books/TLCL.pdf
+@@ -0,0 +1 @@
++../.git/annex/objects/jf/3M/MD5E-s2120211--06d1efcb05bb2c55cd039dab3fb28455.pdf/MD5E-s2120211--06d1efcb05bb2c55cd039dab3fb28455.pdf
+\ No newline at end of file
+diff --git a/books/byte-of-python.pdf b/books/byte-of-python.pdf
+new file mode 120000
+index 0000000..be10866
+--- /dev/null
++++ b/books/byte-of-python.pdf
+@@ -0,0 +1 @@
++../.git/annex/objects/8Z/wk/MD5E-s4406531--5b86f0656a7660c140d3fb4d5994b1b1.pdf/MD5E-s4406531--5b86f0656a7660c140d3fb4d5994b1b1.pdf
+\ No newline at end of file
+
+commit 66d9357cc9d05e2c9657090ae9a0fe76899fb438
+Author: Adina Wagner <adina.wagner@t-online.de>
+Date:   Thu Jul 4 17:30:43 2019 +0200
+
+    [DATALAD] new dataset
+
+diff --git a/.datalad/.gitattributes b/.datalad/.gitattributes
+new file mode 100644
+index 0000000..b540820
+--- /dev/null
++++ b/.datalad/.gitattributes
+@@ -0,0 +1,4 @@
++
++config annex.largefiles=nothing
++metadata/aggregate* annex.largefiles=nothing
++metadata/objects/** annex.largefiles=(anything)
+\ No newline at end of file
+diff --git a/.datalad/config b/.datalad/config
+new file mode 100644
+index 0000000..2cd3197
+--- /dev/null
++++ b/.datalad/config
+@@ -0,0 +1,2 @@
++[datalad "dataset"]
++	id = afe3720a-9e70-11e9-aafa-d0c637c523bc
+diff --git a/.gitattributes b/.gitattributes
+new file mode 100644
+index 0000000..c3aaefe
+--- /dev/null
++++ b/.gitattributes
+@@ -0,0 +1,3 @@
++
++* annex.backend=MD5E
++**/.git* annex.largefiles=nothing
+\ No newline at end of file

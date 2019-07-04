@@ -8,7 +8,7 @@ Glossary
 
    absolute path
       The complete path from the root of the file system. Absolute paths always start with ``/``.
-      Example: ``/home/user/studyforrest-phase-2/sub-02``. See also :term:`relative path`.
+      Example: ``/home/user/Pictures/xkcd-webcomics/530.png``. See also :term:`relative path`.
 
    commit message
       A consise summary of changes you should attach to a ``datalad save`` command. This summary will
@@ -53,7 +53,7 @@ Glossary
 
    relative path
       A path related to the present working directory. Relative paths never start with ``/``.
-      Example: ``../data/studyforrest-phase-2/sub-02``. See also :term:`absolute path`.
+      Example: ``../Pictures/xkcd-webcomics/530.png``. See also :term:`absolute path`.
 
    symlink
       TODO

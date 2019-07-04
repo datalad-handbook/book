@@ -57,3 +57,9 @@ Glossary
 
    version control
       TODO
+
+   vim
+      A text editor, often the default in UNIX operating systems. If you are not used to using it,
+      but ended up in it accidentally: press ``ESC`` ``:`` ``q`` ``!`` ``Enter`` to exit without saving.
+      Here is help: `A vim tutorial <https://www.openvim.com/>`_ and
+      `how to configure the default editor for git <https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration>`_.

@@ -1,11 +1,17 @@
+dist: xenial
 language: python
 python:
   - "3.6"
 install:
-  - sudo apt-get install texlive-latex-recommended texlive-fonts-recommended texlive-latex-extra latexmk librsvg2-bin
+  - sudo apt-get install texlive-latex-recommended texlive-fonts-recommended texlive-latex-extra latexmk librsvg2-bin plantuml
+  # plantuml is really outdated, smuggle in the latest upstream
+  - sudo wget -O /usr/share/plantuml/plantuml.jar http://sourceforge.net/projects/plantuml/files/plantuml.jar/download
   - pip install -r requirements.txt
   - pip install -e .
 script:
+  # patch the planuml config, to prevent PDF conversion (works around a bug in the
+  # sphinx extension)
+  - sed -i -e "s/plantuml_latex_output_format = 'pdf'/plantuml_latex_output_format = 'png'/g" docs/conf.py
   - make doctest
   - make html
   - make latexpdf

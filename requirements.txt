@@ -19,4 +19,5 @@ sphinx-sitemap
 sphinxcontrib-websupport
 urllib3
 sphinxcontrib-svg2pdfconverter
+sphinxcontrib-plantuml
 autorunrecord

@@ -40,7 +40,7 @@ Large content is tracked in an *annex* that is automatically
 created and handled by DataLad. Whether text files or larger files change,
 all of these changes can be written to your DataLad datasets history.
 
-.. admonition:: Note for Git users
+.. gitusernote::
 
    A DataLad dataset is a Git repository. Large file content in the
    dataset in the annex is tracked with Git-annex. An ``ls -a``
@@ -75,7 +75,7 @@ from ``git log``.
 
 
 Dataset content identity and availability information
-*****************************************************
+=====================================================
 
 Upon installation of a DataLad dataset, DataLad retrieves only (small) metadata
 information about the dataset. This exposes the datasets file hierarchy
@@ -117,7 +117,7 @@ of files. Lets get the nifti file:
 Wasn't this easy?
 
 Dataset Nesting
-***************
+===============
 
 Within DataLad datasets one can *nest* other DataLad
 datasets arbitralily deep. This does not seem particulary spectacular -
@@ -139,11 +139,11 @@ section (for example in :ref:`remodnav`).
 The figure below illustrates dataset nesting schematically:
 
 
-.. figure:: ../img/virtual_dirtree.png
+.. figure:: ../img/virtual_dirtree.svg
    :alt: Virtual directory tree of a nested DataLad dataset
 
 I want to create a dataset myself!
-**********************************
+==================================
 
 Anyone can create, populate, and optionally share a *new* DataLad dataset.
 A new DataLad dataset is always created empty, even if the target
@@ -152,14 +152,15 @@ arbitralily large amounts of data can be added. Once files are added and
 saved to the dataset, any changes done to these data files can be saved
 to the history.
 
-.. admonition:: Note for Git users
+.. gitusernote::
 
    Creation of datasets relies on the ``git init`` and ``git annex init`` commands.
 
 As already shown, already existing datalad dataset can be simply installed
 from a url or path, or from the datalad open-data collection.
 
-.. admonition:: Note
+.. gitusernote::
+
 
    ``datalad install`` used the ``git clone`` command.
 

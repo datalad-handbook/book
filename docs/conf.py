@@ -33,6 +33,9 @@ extensions = [
     'sphinx.ext.intersphinx',
     'sphinx.ext.doctest',
     'sphinxcontrib.autorunrecord',
+    'sphinxcontrib.rsvgconverter',
+    'sphinxcontrib.plantuml',
+    'dataladhandbook_support',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -93,7 +96,7 @@ exclude_patterns = [
 #show_authors = False
 
 # The name of the Pygments (syntax highlighting) style to use.
-pygments_style = 'flask_theme_support.FlaskyStyle'
+pygments_style = 'tango'
 
 # A list of ignored prefixes for module index sorting.
 #modindex_common_prefix = []
@@ -108,13 +111,20 @@ html_theme = 'alabaster'
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
 # documentation.
+# more options: https://alabaster.readthedocs.io/en/latest/customization.html
 html_theme_options = {
     'show_powered_by': False,
-    'github_user': 'psychoinformatics-de',
-    'github_repo': 'datalad-handbook',
+    'github_user': 'datalad-handbook',
+    'github_repo': 'book',
     'github_banner': True,
     'show_related': True,
-    'note_bg': '#FFF59C',
+    # colors
+    # "DataLad gray"
+    'body_text': '#333',
+    # this is a lighter variant of the "DataLad yellow"
+    'note_bg': '#e2eacdff',
+    # the real "DataLad dark gray"
+    'note_border': '#333333ff',
 }
 
 # Add any paths that contain custom themes here, relative to this directory.
@@ -192,12 +202,6 @@ htmlhelp_basename = 'dataladhandbookdoc'
 
 # -- Options for LaTeX output --------------------------------------------------
 
-# The paper size ('letter' or 'a4').
-latex_paper_size = 'a4'
-
-# The font size ('10pt', '11pt' or '12pt').
-latex_font_size = '11pt'
-
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
@@ -209,18 +213,17 @@ latex_documents = [
 # the title page.
 #latex_logo = None
 
-# For "manual" documents, if this is true, then toplevel headings are parts,
-# not chapters.
-#latex_use_parts = False
-
-# If true, show page references after internal links.
-#latex_show_pagerefs = False
-
-# If true, show URL addresses after external links.
-#latex_show_urls = False
-
-# Additional stuff for the LaTeX preamble.
-#latex_preamble = ''
+latex_toplevel_sectioning = 'part'
+latex_show_pagerefs = True
+latex_show_urls = 'footnote'
+latex_elements = {
+    'papersize': 'a4',
+    'pointsize': '11pt',
+    'figure_align': 'tbp',
+    'preamble': """\
+\setcounter{tocdepth}{0}
+""",
+}
 
 # Documents to append as an appendix to all manuals.
 #latex_appendices = []
@@ -285,6 +288,10 @@ todo_include_todos = True
 intersphinx_mapping = {
     'python': ('https://docs.python.org/3', None),
 }
+
+plantuml_output_format = 'svg'
+plantuml_latex_output_format = 'pdf'
+
 
 def setup(app):
     app.add_stylesheet('custom.css')

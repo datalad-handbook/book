@@ -24,6 +24,7 @@ Basics
    basics/howto
    basics/c1
    basics/fill_ds
+   basics/c2
 
 #########
 Use Cases

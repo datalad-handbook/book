@@ -8,6 +8,7 @@ Introduction
 
    intro/index
    intro/philosophy
+   intro/narrative
 
 
 ######
@@ -54,3 +55,4 @@ Appendix
 
    remove/me
    remove/metoo
+   remove/uml

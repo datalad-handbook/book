@@ -1,7 +1,9 @@
+.. _howto:
 
 *********************
 General prerequisites
 *********************
+
 
 .. todo::
 

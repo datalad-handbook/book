@@ -91,7 +91,7 @@ created and handled by DataLad. Whether text files or larger files change,
 all of these changes can be written to your DataLad datasets history.
 
 
-.. admonition:: Note for Git-Users:
+.. gitusernote::
 
    ``datalad create`` uses ``git init`` and ``git-annex init``. Therefore,
    the DataLad dataset is a Git repository.

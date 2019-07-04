@@ -133,7 +133,7 @@ readable summary of that action.
 
     - it should be obvious: do not say nasty things about other people
 
-.. admonition:: Note for Git-users
+.. gitusernote::
 
    Just as in Git, new files are not tracked from their creation on, but only when
    explicitly given to Git (in Git terms with an initial ``git add``). But different

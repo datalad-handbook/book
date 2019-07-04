@@ -24,13 +24,19 @@ Glossary
    DataLad superdataset
       A DataLad dataset that contains one or more levels of other DataLad datasets (:term:`DataLad subdataset`)
 
-   git
-      A version control system. (TODO: add references)
+   Git
+      A version control system to track changes made to small-sized files over time. You can find out
+      more about git in `this (free) book <https://git-scm.com/book/en/v2>`_
+      or `these interactive Git tutorials <https://try.github.io/>`_ on :term:`Github`
 
-   git-annex
+   Git-annex
       TODO
 
-   gitk
+   Github
+      GitHub is an online platform where one can store and share version controlled projects
+      using Git (and thus also DataLad project).
+
+   Gitk
       TODO
 
    metadata
@@ -53,7 +59,8 @@ Glossary
       TODO
 
    tig
-      A tool to display git histories. Find out more `here <https://jonas.github.io/tig/>`_.
+      A text-mode interface for git that allows you to easily browse through your commit history.
+      It is not part of git and needs to be installed. Find out more `here <https://jonas.github.io/tig/>`_.
 
    version control
-      TODO
+      The management of changes to documents or other collections of information

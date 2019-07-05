@@ -185,7 +185,7 @@ Let's make it a habit to always specify precisely which changes we want to write
 
 A ``datalad status`` should now be empty, and our datasets history should look like this:
 
-.. runrecord:: _example/DL-101-32
+.. runrecord:: _examples/DL-101-32
    :language: console
    :realcommand: cd DataLad-101 && git log --oneline
 

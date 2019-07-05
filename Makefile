@@ -8,4 +8,6 @@ build: html
 
 # wipe out all recorded examples
 clean-examples:
-	find docs -name _examples -type d | xargs rm -rf
+	-find docs -name _examples -type d | xargs rm -rf
+	# also wipe the workdirs, otherwise a rebuild will lead to chaos
+	-rm -r docs/_build/wdirs

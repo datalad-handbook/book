@@ -34,6 +34,7 @@ Note the command structure of ``datalad create`` (optional bits are enclosed in 
 
 .. runrecord:: _examples/DL-101_1
    :language: console
+   :workdir: dl-101
 
    $ datalad create --description "course on DataLad-101 on my private Laptop" DataLad-101
 
@@ -45,6 +46,7 @@ Currently, it seems empty.
 
 .. runrecord:: _examples/DL-101_2
    :language: console
+   :workdir: dl-101
 
    $ cd DataLad-101
    $ ls    # ls does not show any output, because the dataset is empty.
@@ -67,6 +69,7 @@ a built-in git command [#f1]_.
 
 .. runrecord:: _examples/DL-101-3
    :language: console
+   :workdir: dl-101
    :emphasize-lines: 3-4, 6
    :realcommand: cd DataLad-101 && git log
 
@@ -101,6 +104,7 @@ all of these changes can be written to your DataLad datasets history.
 
    .. runrecord:: _examples/DL-101-10
       :language: console
+      :workdir: dl-101
       :emphasize-lines: 4-6
       :realcommand: cd DataLad-101 && ls -a
 

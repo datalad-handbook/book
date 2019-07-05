@@ -10,6 +10,7 @@ Lets first create a directory to save books for additional reading in.
 
 .. runrecord:: _examples/DL-101-20
    :language: console
+   :workdir: dl-101
    :realcommand: cd DataLad-101 && mkdir books
 
    $ mkdir books
@@ -18,6 +19,7 @@ Lets take a look at the current directory structure:
 
 .. runrecord:: _examples/DL-101-21
    :language: console
+   :workdir: dl-101
    :realcommand: cd DataLad-101 && tree
 
    $ tree
@@ -35,6 +37,7 @@ or run the following commands to download the books:
 
 .. runrecord:: _examples/DL-101-22
    :language: console
+   :workdir: dl-101
    :realcommand: cd DataLad-101/books &&  wget -nv https://sourceforge.net/projects/linuxcommand/files/TLCL/19.01/TLCL-19.01.pdf/download -O TLCL.pdf && wget -nv https://www.gitbook.com/download/pdf/book/swaroopch/byte-of-python -O byte-of-python.pdf
 
    $ cd books
@@ -48,6 +51,7 @@ structure with tree:
 
 .. runrecord:: _examples/DL-101-23
    :language: console
+   :workdir: dl-101
    :realcommand: cd DataLad-101 && tree
 
    $ tree
@@ -59,6 +63,7 @@ regular status reports should become a habit in the wake of ``DataLad-101``.
 
 .. runrecord:: _examples/DL-101-24
    :language: console
+   :workdir: dl-101
    :realcommand: cd DataLad-101 && datalad status
 
    $ datalad status
@@ -74,6 +79,7 @@ with the ``-m`` option:
 
 .. runrecord:: _examples/DL-101-25
    :language: console
+   :workdir: dl-101
    :realcommand: cd DataLad-101 && datalad save -m "add books on Python and Unix to read later"
 
    $ datalad save -m "add books on Python and Unix to read later"
@@ -98,6 +104,7 @@ by typing ``q``, navigate with up and down arrow keys):
 
 .. runrecord:: _examples/DL-101-26
    :language: console
+   :workdir: dl-101
    :lines: 1-20
    :emphasize-lines: 3-4, 6, 8, 12, 16, 20
    :realcommand: cd DataLad-101 && git log -p
@@ -159,6 +166,7 @@ Lets try this by adding yet another book, a good reference work about git:
 
 .. runrecord:: _examples/DL-101-28
    :language: console
+   :workdir: dl-101
    :realcommand: cd DataLad-101/books && wget -nv https://github.com/progit/progit2/releases/download/2.1.154/progit.pdf && cd ../
 
    $ cd books
@@ -169,6 +177,7 @@ Lets try this by adding yet another book, a good reference work about git:
 
 .. runrecord:: _examples/DL-101-29
    :language: console
+   :workdir: dl-101
    :realcommand: cd DataLad-101 && datalad status
 
    $ datalad status
@@ -177,6 +186,7 @@ Lets ``datalad save`` precisely this file by specifying its path after the commi
 
 .. runrecord:: _examples/DL-101-31
    :language: console
+   :workdir: dl-101
    :realcommand: cd DataLad-101 && datalad save -m "add reference book about git" books/progit.pdf
 
    $ datalad save -m "add reference book about git" books/progit.pdf
@@ -187,6 +197,7 @@ A ``datalad status`` should now be empty, and our datasets history should look l
 
 .. runrecord:: _examples/DL-101-32
    :language: console
+   :workdir: dl-101
    :realcommand: cd DataLad-101 && git log --oneline
 
    # lets make the output a bit more concise with the --oneline option

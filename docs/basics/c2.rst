@@ -18,6 +18,7 @@ with ``>``.
 
 .. runrecord:: _examples/DL-101-m-1
    :language: console
+   :workdir: dl-101
    :realcommand: cd DataLad-101 && echo "One can create a new dataset with 'datalad create [--description] PATH'. The dataset is created empty" > notes.txt
 
    $ echo "One can create a new dataset with 'datalad create [--description] PATH'. The dataset is created empty" > notes.txt
@@ -26,6 +27,7 @@ Run ``datalad status`` to confirm that there is new, untracked content:
 
 .. runrecord:: _examples/DL-101-m-2
    :language: console
+   :workdir: dl-101
    :realcommand: cd DataLad-101 && datalad status
 
    $ datalad status
@@ -34,6 +36,7 @@ Save this file in its current state:
 
 .. runrecord:: _examples/DL-101-m-3
    :language: console
+   :workdir: dl-101
    :realcommand: cd DataLad-101 && datalad save -m "Add notes on datalad create" notes.txt
 
    $ datalad save -m "Add notes on datalad create" notes.txt

@@ -22,9 +22,9 @@ Basics
    basics/installation
    basics/datasets
    basics/howto
-   basics/c1
-   basics/fill_ds
-   basics/c2
+   basics/101-1-create
+   basics/101-2-populate
+   basics/101-3-modify
 
 #########
 Use Cases

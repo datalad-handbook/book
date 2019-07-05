@@ -1,7 +1,7 @@
 $ git log -p
-commit f6fba7ab9b704c1998a585ff59c43787b8042295
+commit d18d13951be12ba482f23a773ab7a03cf97b0923
 Author: Adina Wagner <adina.wagner@t-online.de>
-Date:   Thu Jul 4 17:30:47 2019 +0200
+Date:   Fri Jul 5 08:30:23 2019 +0200
 
     add books on Python and Unix to read later
 
@@ -22,9 +22,9 @@ index 0000000..be10866
 +../.git/annex/objects/8Z/wk/MD5E-s4406531--5b86f0656a7660c140d3fb4d5994b1b1.pdf/MD5E-s4406531--5b86f0656a7660c140d3fb4d5994b1b1.pdf
 \ No newline at end of file
 
-commit 66d9357cc9d05e2c9657090ae9a0fe76899fb438
+commit 27b7ad2d4cb2d1a3d13f470a7157b3358a9490cf
 Author: Adina Wagner <adina.wagner@t-online.de>
-Date:   Thu Jul 4 17:30:43 2019 +0200
+Date:   Fri Jul 5 08:30:19 2019 +0200
 
     [DATALAD] new dataset
 
@@ -41,12 +41,12 @@ index 0000000..b540820
 \ No newline at end of file
 diff --git a/.datalad/config b/.datalad/config
 new file mode 100644
-index 0000000..2cd3197
+index 0000000..158d16b
 --- /dev/null
 +++ b/.datalad/config
 @@ -0,0 +1,2 @@
 +[datalad "dataset"]
-+	id = afe3720a-9e70-11e9-aafa-d0c637c523bc
++	id = 5c0c8da0-9eee-11e9-aafa-d0c637c523bc
 diff --git a/.gitattributes b/.gitattributes
 new file mode 100644
 index 0000000..c3aaefe

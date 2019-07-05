@@ -1,0 +1,5 @@
+# lets make the output a bit more concise with the --oneline option
+$ git log --oneline
+5e22441 add reference book about git
+d18d139 add books on Python and Unix to read later
+27b7ad2 [DATALAD] new dataset

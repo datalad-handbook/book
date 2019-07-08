@@ -16,7 +16,7 @@ a DataLad dataset from scratch. Below is one way to do it, using the
 ``echo`` command that comes with any Unix system, and a simple redirection
 with ``>``.
 
-.. runrecord:: _examples/DL-101-m-1
+.. runrecord:: _examples/DL-101-40
    :language: console
    :workdir: dl-101
    :realcommand: cd DataLad-101 && echo "One can create a new dataset with 'datalad create [--description] PATH'. The dataset is created empty" > notes.txt
@@ -25,7 +25,7 @@ with ``>``.
 
 Run ``datalad status`` to confirm that there is new, untracked content:
 
-.. runrecord:: _examples/DL-101-m-2
+.. runrecord:: _examples/DL-101-42
    :language: console
    :workdir: dl-101
    :realcommand: cd DataLad-101 && datalad status
@@ -34,7 +34,7 @@ Run ``datalad status`` to confirm that there is new, untracked content:
 
 Save this file in its current state:
 
-.. runrecord:: _examples/DL-101-m-3
+.. runrecord:: _examples/DL-101-43
    :language: console
    :workdir: dl-101
    :realcommand: cd DataLad-101 && datalad save -m "Add notes on datalad create" notes.txt
@@ -47,7 +47,7 @@ Modify this file by adding another note. After all, you already know how use
 Again, the example below uses Unix commands (``echo`` and redirecting, but *appending*
 with ``>>``) to accomplish this, but you can take any editor of your choice.
 
-.. runrecord:: _examples/DL-101-m-4
+.. runrecord:: _examples/DL-101-44
    :language: console
    :workdir: dl-101
    :realcommand: cd DataLad-101 && echo "'datalad save [-m] PATH' saves the file (modifications) to history. Note to self: Always use informative, concise commit messages." >> notes.txt
@@ -56,7 +56,7 @@ with ``>>``) to accomplish this, but you can take any editor of your choice.
 
 Lets check the datasets current state:
 
-.. runrecord:: _examples/DL-101-m-5
+.. runrecord:: _examples/DL-101-45
    :language: console
    :workdir: dl-101
    :realcommand: cd DataLad-101 && datalad status
@@ -65,9 +65,29 @@ Lets check the datasets current state:
 
 and save the file:
 
-.. runrecord:: _examples/DL-101-m-6
+.. runrecord:: _examples/DL-101-46
    :language: console
    :workdir: dl-101
    :realcommand: cd DataLad-101 && datalad save -m "add note on datalad save"
 
    $ datalad save -m "add note on datalad save"
+
+Let's take another look into our history to see the development of this file.
+We're using ``git log -p`` to see the difference to the previous state of a
+file within each commit. (Note: the output below is an excerpt, if you enter
+the git log, your history will be longer. You can get out of git log by pressing
+``q``.)
+
+.. runrecord:: _examples/DL-101-47
+   :language: console
+   :workdir: dl-101
+   :lines: 1-28
+   :emphasize-lines: 6, 14, 20, 28
+   :realcommand: cd DataLad-101 && git log -p
+
+   $ git log -p
+
+We can see that the history can not only show us the commit message attached to
+a commit, but also the precise change that occured in the textfile in the commit.
+Additions are marked with a ``+``, and deletions would be shown with a leading ``-``.
+Thats quite neat.

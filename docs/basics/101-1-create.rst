@@ -14,7 +14,7 @@ variables and data.
 But for DataLad, as we learn in the first lecture, a dataset is the core data type.
 
 As noted in :ref:`philo`, a dataset is a collection of *files*
-and *folders*, and a file is the smallest unit any dataset can contain.
+in folders, and a file is the smallest unit any dataset can contain.
 While it at its core this a very simple concept, datasets come with many
 useful features.
 Because experiencing is more insightful than just reading, we will explore the
@@ -22,8 +22,8 @@ concepts of DataLad datasets together by creating one.
 
 Find a nice place on your computers file system to put a dataset for ``DataLad-101``,
 and create a fresh, empty dataset with the ``datalad create`` command.
-In a bit of time, you will thank yourself for adding a description to
-your dataset with the *optional* ``--description`` flag. (At the moment,
+In a bit of time, you will thank yourself for adding a description about the *location*
+of your dataset with the *optional* ``--description`` flag. (At the moment,
 we will not dive into the details of where that description ends up or
 becomes useful in the future, but in more advanced parts of the book
 we will see how this gets handy.)

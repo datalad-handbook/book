@@ -1,4 +1,47 @@
 $ git log -p
+commit 1de9317b8474bc9c9985e0f64eafee7efdaca825
+Author: Adina Wagner <adina.wagner@t-online.de>
+Date:   Mon Jul 8 08:18:18 2019 +0200
+
+    add note on datalad save
+
+diff --git a/notes.txt b/notes.txt
+index 57689c1..836a1f0 100644
+--- a/notes.txt
++++ b/notes.txt
+@@ -1 +1,2 @@
+ One can create a new dataset with 'datalad create [--description] PATH'. The dataset is created empty
++'datalad save [-m] PATH' saves the file (modifications) to history. Note to self: Always use informative, concise commit messages.
+
+commit 7c77632d27a49541d215aa079ff6482512004efd
+Author: Adina Wagner <adina.wagner@t-online.de>
+Date:   Mon Jul 8 08:18:17 2019 +0200
+
+    Add notes on datalad create
+
+diff --git a/notes.txt b/notes.txt
+new file mode 100644
+index 0000000..57689c1
+--- /dev/null
++++ b/notes.txt
+@@ -0,0 +1 @@
++One can create a new dataset with 'datalad create [--description] PATH'. The dataset is created empty
+
+commit db60867322c4b8d6f182ed923d3dc77d432686c3
+Author: Adina Wagner <adina.wagner@t-online.de>
+Date:   Mon Jul 8 08:18:17 2019 +0200
+
+    add reference book about git
+
+diff --git a/books/progit.pdf b/books/progit.pdf
+new file mode 120000
+index 0000000..c5d2ab2
+--- /dev/null
++++ b/books/progit.pdf
+@@ -0,0 +1 @@
++../.git/annex/objects/G6/Gj/MD5E-s12465653--05cd7ed561d108c9bcf96022bc78a92c.pdf/MD5E-s12465653--05cd7ed561d108c9bcf96022bc78a92c.pdf
+\ No newline at end of file
+
 commit 5e98207dd78312ea653337fb4c0c724ec4d74d44
 Author: Adina Wagner <adina.wagner@t-online.de>
 Date:   Mon Jul 8 08:18:02 2019 +0200

@@ -52,6 +52,9 @@ Glossary
    symlink
       TODO
 
+   the DataLad superdataset ///
+      TODO
+
    tig
       A tool to display git histories. Find out more `here <https://jonas.github.io/tig/>`_.
 

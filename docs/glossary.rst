@@ -10,6 +10,13 @@ Glossary
       The complete path from the root of the file system. Absolute paths always start with ``/``.
       Example: ``/home/user/studyforrest-phase-2/sub-02``. See also :term:`relative path`.
 
+   checksum
+      TODO
+
+   commit
+      Adding selected changes of a file or dataset to the repository, and thus making these changes
+      part of the revision history of the repository. Should always have an informative :term:`commit message`
+
    commit message
       A consise summary of changes you should attach to a ``datalad save`` command. This summary will
       show up in your :term:`Datalad dataset` history.

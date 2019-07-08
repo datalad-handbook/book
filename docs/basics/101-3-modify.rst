@@ -19,9 +19,15 @@ with ``>``.
 .. runrecord:: _examples/DL-101-40
    :language: console
    :workdir: dl-101
-   :realcommand: cd DataLad-101 && echo "One can create a new dataset with 'datalad create [--description] PATH'. The dataset is created empty" > notes.txt
+   :realcommand: cd DataLad-101 && cat << EOT > notes.txt
+      One can create a new dataset with 'datalad create [--description] PATH'.
+      The dataset is created empty
+      EOT
 
-   $ echo "One can create a new dataset with 'datalad create [--description] PATH'. The dataset is created empty" > notes.txt
+   $ cat << EOT > notes.txt
+   One can create a new dataset with 'datalad create [--description] PATH'.
+   The dataset is created empty
+   EOT
 
 Run ``datalad status`` to confirm that there is new, untracked content:
 
@@ -50,9 +56,15 @@ with ``>>``) to accomplish this, but you can take any editor of your choice.
 .. runrecord:: _examples/DL-101-44
    :language: console
    :workdir: dl-101
-   :realcommand: cd DataLad-101 && echo "'datalad save [-m] PATH' saves the file (modifications) to history. Note to self: Always use informative, concise commit messages." >> notes.txt
+   :realcommand: cd DataLad-101 && cat << EOT > notes.txt
+      'datalad save [-m] PATH' saves the file (modifications) to history.
+      Note to self: Always use informative, concise commit messages.
+      EOT
 
-   $ echo "'datalad save [-m] PATH' saves the file (modifications) to history. Note to self: Always use informative, concise commit messages." >> notes.txt
+   $ cat << EOT > notes.txt
+   'datalad save [-m] PATH' saves the file (modifications) to history.
+   Note to self: Always use informative, concise commit messages.
+   EOT
 
 Lets check the datasets current state:
 

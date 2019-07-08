@@ -1,1 +1,4 @@
-$ echo "'datalad save [-m] PATH' saves the file (modifications) to history. Note to self: Always use informative, concise commit messages." >> notes.txt
+$ cat << EOT > notes.txt
+'datalad save [-m] PATH' saves the file (modifications) to history.
+Note to self: Always use informative, concise commit messages.
+EOT

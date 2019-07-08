@@ -29,17 +29,18 @@ becomes useful in the future, but in more advanced parts of the book
 we will see how this gets handy.)
 Note the command structure of ``datalad create`` (optional bits are enclosed in ``[ ]``):
 
-``datalad create [--description "..."] PATH``
+``datalad create [--description "..."] [-c <config options>] PATH``
 
 
 .. runrecord:: _examples/DL-101_1
    :language: console
    :workdir: dl-101
 
-   $ datalad create --description "course on DataLad-101 on my private Laptop" DataLad-101
+   $ datalad create --description "course on DataLad-101 on my private Laptop" -c text2git DataLad-101
 
 This will create a dataset called ``DataLad-101`` in the directory you are currently
-in.
+in. Ignore the configuration ``-c text2git``. There will be other parts of this book to explain
+this in detail.
 
 Once created, a DataLad dataset looks like any other directory on your filesystem.
 Currently, it seems empty.

@@ -45,4 +45,29 @@ Modify this file by adding another note. After all, you already know how use
 ``datalad save``, so write a short summary on that as well.
 
 Again, the example below uses Unix commands (``echo`` and redirecting, but *appending*
-with ``>>``) to accomplish this, but you can take an editor of your choice.
+with ``>>``) to accomplish this, but you can take any editor of your choice.
+
+.. runrecord:: _examples/DL-101-m-4
+   :language: console
+   :workdir: dl-101
+   :realcommand: cd DataLad-101 && echo "'datalad save [-m] PATH' saves the file (modifications) to history. Note to self: Always use informative, concise commit messages." >> notes.txt
+
+   $ echo "'datalad save [-m] PATH' saves the file (modifications) to history. Note to self: Always use informative, concise commit messages." >> notes.txt
+
+Lets check the datasets current state:
+
+.. runrecord:: _examples/DL-101-m-5
+   :language: console
+   :workdir: dl-101
+   :realcommand: cd DataLad-101 && datalad status
+
+   $ datalad status
+
+and save the file:
+
+.. runrecord:: _examples/DL-101-m-6
+   :language: console
+   :workdir: dl-101
+   :realcommand: cd DataLad-101 && datalad save -m "add note on datalad save"
+
+   $ datalad save -m "add note on datalad save"

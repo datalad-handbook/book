@@ -11,7 +11,7 @@ notes in.
 Since this is ``DataLad-101``, lets do it as a :term:`Datalad dataset`.
 You might associate the term "dataset" with a large spreadsheet containing
 variables and data.
-But for DataLad, as we learn in the first lecture, a dataset is the core data type.
+But for DataLad, as we learned in the first lecture, a dataset is the core data type.
 
 As noted in :ref:`philo`, a dataset is a collection of *files*
 in folders, and a file is the smallest unit any dataset can contain.

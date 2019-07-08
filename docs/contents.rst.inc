@@ -22,7 +22,7 @@ Basics
    basics/installation
    basics/datasets
    basics/howto
-
+   basics/101-5-install
 
 #########
 Use Cases

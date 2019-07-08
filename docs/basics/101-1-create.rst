@@ -64,24 +64,32 @@ mistakes are forever. We will see many examples of this later in the book,
 and such information is stored in what we will refer
 to as the history of a dataset.
 
-This history is as small as it can be at the current state, but let's take
+This history is almost as small as it can be at the current state, but let's take
 a look at it. For looking at the history, the code examples will use ``git log``,
 a built-in git command [#f1]_.
 
 .. runrecord:: _examples/DL-101-3
    :language: console
    :workdir: dl-101
-   :emphasize-lines: 3-4, 6
+   :emphasize-lines: 3-4, 6, 9-10, 12
    :realcommand: cd DataLad-101 && git log
 
    $ git log
 
-Highlighted in this example is information about the author and about
+We can see two :term:`commit`\s in the history of the repository.
+Each of them is identified by a unique 40 character sequence, called a
+:term:`checksum`.
+Highlighted in this output is information about the author and about
 the time, as well as a :term:`commit message` that summarizes the
-performed action concisely. In this case, the commit message was written by
-DataLad itself, and states that a new dataset was created.
-In most other cases, you will have to create an informative commit
-message yourself.
+performed action concisely. In this case, both commit messages were written by
+DataLad itself. The most recent change is on the top. The first commit
+written to the history therefore states that a new dataset was created,
+and the second commit to the history is related to ``-c text2git`` which
+configures :term:`Git-annex` to store textfiles in Git (but more on this
+configuration later).
+Even though these commits were produced by DataLad,
+in most other cases, you will have to create the commit and
+an informative commit message yourself.
 
 As already noted, any files you ``save`` in this dataset, and all modifications
 to these files that you ``save``, are tracked in this history.

@@ -21,7 +21,7 @@ can share our mid-term and final projects easily!"
 
 "But today, lets only focus on how to install a dataset", she continuous.
 
-"Damn it! Can't we have longer lectures?", you think and set alarms in all of the
+"Damn it! Can't we have longer lectures?", you think and set alarms to all of the
 upcoming lecture dates in your calender.
 There is so much exciting stuff to come, you can't miss a single one.
 
@@ -30,7 +30,6 @@ The command takes a location of an existing dataset (the *source*), and a path t
 the dataset to be installed. The source can be a URL or a path to a local directory,
 or an SSH server. Additionally, it can also be a pointer to an open-data collection,
 for example :term:`the DataLad superdataset ///` (more on this later, though).
-If you're wondering: yes, thats only a single command line call to get a dataset.
 
 Let's try this. To practice, we're using one of the many openly available datasets that
 DataLad provides in a public registry that anyone can access. One of these datasets is a
@@ -40,7 +39,7 @@ of yet-to-read text books we piled up. Lets install this dataset into our exisit
 DataLad-101 dataset, inside the directory books.
 
 Because we are installing a dataset within an existing dataset, we supply the ``-d``
-(--dataset) flag. This specifies the dataset to perform the operation on. Because we are inside
+(``--dataset``) flag. This specifies the dataset to perform the operation on. Because we are inside
 of the ``DataLad-101`` dataset, the pointer to the dataset is a ``.`` (which is Unix
 way for saying "current directory"). The dataset to be installed lives on Github, and
 we can give its Github URL as a source (``-s``, ``--source``).
@@ -52,17 +51,17 @@ we can give its Github URL as a source (``-s``, ``--source``).
 
    $  datalad install -d . -s https://github.com/datalad-datasets/machinelearning-books.git books/ml-books
 
-This command cloned the repository found at the URL https://github.com/datalad-datasets/machinelearning-books.git
+This command copied the repository found at the URL https://github.com/datalad-datasets/machinelearning-books.git
 into the existing ``DataLad-101`` dataset, into the directory ``books/ml-books``.
+
 Note: if we had not specified the path ``books/ml-books``, the command would have installed the
 dataset in the root of the directory and used the name of the remote repository
-"machinelearning-books". Alternatively, you could have navigated into the books directory
-and do the ``datalad install`` in there. Important: If you are installing *within* a dataset,
+"``machinelearning-books``". Alternatively, you could have also installed the dataset from within
+the books directory. Important: If you are installing *within* a dataset,
 but execute the command not from the root of this dataset, your ``-d`` option needs to specify
-the path to the root of the dataset. For example:
+the path to the root of the dataset, and the path needs to start from the directory root. For example:
 ``datalad install -d ../ -s https://github.com/datalad-datasets/machinelearning-books.git books/ml-books``
 (with ``../`` being the Unix expression for ``parent directory``, i.e. "one-directory-up").
-
 
 .. container:: toggle
 
@@ -70,8 +69,8 @@ the path to the root of the dataset. For example:
 
        **Addition: What if I don't install into an existing dataset?**
 
-   If you don't install inside an existing dataset, you only need to ommit the ``dataset``
-   option. You can try ``datalad install -s https://github.com/datalad-datasets/machinelearning-books.git ``
+   If you don't install inside an existing dataset, you only need to omit the ``dataset``
+   option. You can try ``datalad install -s https://github.com/datalad-datasets/machinelearning-books.git``
    anywhere outside of your ``Datalad-101`` dataset to install the dataset into a new directory
    called ``machinelearning-books``.
 
@@ -96,13 +95,16 @@ we'll get to what that is in the next section.
 
 
 Dataset content identity and availability information
-=====================================================
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 You might have been surprised by how fast the datalad was installed. Shouldn't
 a download of many books should take much more time? Here you can see another
-import feature of DataLad datasets and the ``datalad install`` command.
-Upon installation of a DataLad dataset, DataLad retrieves only (small) metadata
-information about the dataset. This exposes the datasets file hierarchy
+import feature of DataLad datasets and the ``datalad install`` command:
+
+Upon installation of a DataLad dataset, DataLad retrieves only small files
+(for examples text file or markdown files) and (small) metadata
+information about the dataset. It does not, however, download any large files
+(yet). This exposes the datasets file hierarchy
 for exploration, and speeds up the installation of a DataLad dataset
 of many TB in size to a few seconds. Just now, after installation, the dataset is
 small in size:

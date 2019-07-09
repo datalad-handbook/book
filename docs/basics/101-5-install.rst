@@ -195,4 +195,17 @@ the locally installed dataset can simply be updated. But we will see examples
 of this later in this handbook.
 
 Now you can not only create datasets and work with them locally, you can also consume
-existing datasets by installing them.
+existing datasets by installing them. Because thats cool, and because you will use this
+command frequently, make a note of it into your ``notes.txt``, and ``datalad save`` the
+modification.
+
+.. runrecord:: _examples/DL-101-5-8
+   :language: console
+   :workdir: dl-101/DataLad-101/books/ml-books
+
+   $ cat << EOT > notes.txt
+   The command 'datalad install [--source] PATH' installs a dataset from e.g. a URL or a path.
+   If you install a dataset into an existing dataset (as a subdataset), remember to specify the
+   root of the superdataset with the '-d' option.
+   EOT
+   $ datalad save -m "Add note on datalad install" notes.txt

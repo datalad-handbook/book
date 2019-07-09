@@ -13,7 +13,7 @@ throughout the course.
 
 Pick an editor of your choice and write a short summary of how to create
 a DataLad dataset from scratch. Below is one way to do it, using the
-``echo`` command that comes with any Unix system, and a simple redirection
+``cat`` command that comes with any Unix system, and a simple redirection
 with ``>``.
 
 .. runrecord:: _examples/DL-101-40
@@ -50,8 +50,8 @@ Save this file in its current state:
 Modify this file by adding another note. After all, you already know how use
 ``datalad save``, so write a short summary on that as well.
 
-Again, the example below uses Unix commands (``echo`` and redirecting, but *appending*
-with ``>>``) to accomplish this, but you can take any editor of your choice.
+Again, the example below uses Unix commands (``cat`` and redirecting)
+to accomplish this, but you can take any editor of your choice.
 
 .. runrecord:: _examples/DL-101-44
    :language: console

@@ -175,7 +175,7 @@ For example, we can find out who created with dataset in the first place
 .. runrecord:: _examples/DL-101-5-7
    :language: console
    :workdir: dl-101/DataLad-101/books/ml-books
-   :lines: 51-61
+   :lines: 1, 51-61
    :emphasize-lines: 2
 
    $ git log

@@ -1,0 +1,10 @@
+$ cd books/ml-books
+$ git log --oneline
+5fcf684 Update link for A.Shashua-Introduction_to_Machine_Learning.pdf
+3f9f96c Add new book
+6a64691 Update README after become a DataLad dataset
+aa6c65d [DATALAD] new dataset
+fad1d8b [DATALAD] Set default backend for all files to be MD5E
+7afa3e6 updated url to be relaxed (content changed) + removed no longer available online Inductive Logic Programming
+fbaf8cf added README.md
+0bc6230 Initial collation

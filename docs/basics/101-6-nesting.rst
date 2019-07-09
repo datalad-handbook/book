@@ -40,12 +40,12 @@ looks like after the installation of a subdataset. To do this, make sure you are
 
 We have highlighted the important part of this rather long commit summary.
 Note that you can not see any PDFs being added to the dataset, as was previously
-the case when we added PDFs locally. Instead,
+the case when we ``datalad save``\ed PDFs that we downloaded. Instead,
 DataLad stores what it calls a *subproject commit* of the subdataset.
 The cryptic character sequence in this line is the checksum we have briefly
 mentioned before, and it is
 how DataLad internally identifies files and changes to files. Exactly this
-checksum is what descrines the state of the subdatset.
+checksum is what describes the state of the subdatset.
 
 Navigate into ``ml-books`` and try to find the highlighted hash in the
 subdatasets history:

@@ -1,5 +1,6 @@
 $ cd books/ml-books
 $ git log --oneline
+edd591c Add note on datalad install
 5fcf684 Update link for A.Shashua-Introduction_to_Machine_Learning.pdf
 3f9f96c Add new book
 6a64691 Update README after become a DataLad dataset

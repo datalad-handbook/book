@@ -1,0 +1,2 @@
+$ datalad get A.Shashua-Introduction_to_Machine_Learning.pdf
+get(ok): /home/adina/repos/datalad-handbook/docs/_build/wdirs/dl-101/DataLad-101/books/ml-books/A.Shashua-Introduction_to_Machine_Learning.pdf (file) [from web...]

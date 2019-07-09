@@ -1,0 +1,13 @@
+$ datalad get .
+get(ok): /home/adina/repos/datalad-handbook/docs/_build/wdirs/dl-101/DataLad-101/books/ml-books/D.Michie_D.J.Spiegelhalter-Machine_Learning_Neural_and_Statistical_Classification.pdf (file) [from web...]
+get(ok): /home/adina/repos/datalad-handbook/docs/_build/wdirs/dl-101/DataLad-101/books/ml-books/C.E.Rasmussen_C.K.I.Williams-Gaussian_Processes_for_Machine_Learning.pdf (file) [from web...]
+get(ok): /home/adina/repos/datalad-handbook/docs/_build/wdirs/dl-101/DataLad-101/books/ml-books/D.C.C.MacKay-Information_Theory_Inference_and_Learning_Algorithms.pdf (file) [from web...]
+get(ok): /home/adina/repos/datalad-handbook/docs/_build/wdirs/dl-101/DataLad-101/books/ml-books/H.DaumeIII-A_Course_in_Machine_Learning.pdf (file) [from web...]
+get(ok): /home/adina/repos/datalad-handbook/docs/_build/wdirs/dl-101/DataLad-101/books/ml-books/N.J.Nilsson-Introduction_to_Machine_Learning.pdf (file) [from web...]
+get(ok): /home/adina/repos/datalad-handbook/docs/_build/wdirs/dl-101/DataLad-101/books/ml-books/G.James_D.Witten_T.Hastie_R.Tibshirani-An_Introduction_to_Statistical_Learning_with_Applications_in_R.pdf (file) [from web...]
+get(ok): /home/adina/repos/datalad-handbook/docs/_build/wdirs/dl-101/DataLad-101/books/ml-books/B.Efron_T.Hastie-Computer_Age_Statistical_Inference.pdf (file) [from web...]
+get(ok): /home/adina/repos/datalad-handbook/docs/_build/wdirs/dl-101/DataLad-101/books/ml-books/T.Hastie_R.Tibshirani_J.Friedman-The_Elements_of_Statistical_Learning_Data_Mining_Inference_and_Prediction.pdf (file) [from web...]
+get(ok): /home/adina/repos/datalad-handbook/docs/_build/wdirs/dl-101/DataLad-101/books/ml-books/D.Barber-Bayesian_Reasoning_and_Machine_Learning.pdf (file) [from web...]
+get(ok): /home/adina/repos/datalad-handbook/docs/_build/wdirs/dl-101/DataLad-101/books/ml-books (directory)
+action summary:
+  get (notneeded: 1, ok: 10)

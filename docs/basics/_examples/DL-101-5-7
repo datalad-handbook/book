@@ -1,0 +1,61 @@
+$ git log
+commit 5fcf68461a1dd458f0f984e63ea44b551f35a239
+Author: Kyle Meyer <kyle@kyleam.com>
+Date:   Mon Jul 16 11:54:35 2018 -0400
+
+    Update link for A.Shashua-Introduction_to_Machine_Learning.pdf
+    
+    The original http variant will fail with "301 Moved Permanently".
+    Running 'get' on the new one will still fail with a message from arxiv
+    that "your client does not supply a proper User-Agent".  I was unable
+    to make this go way by passing a --user-agent value to 'git annex
+    get'.  The download works if git-annex uses curl, but that requires
+    changing annex.security.allowed-http-addresses.
+
+commit 3f9f96cadd4bd23a832bd48a179446d02995e283
+Author: Michael Hanke <michael.hanke@gmail.com>
+Date:   Mon Jul 16 16:01:15 2018 +0200
+
+    Add new book
+
+commit 6a646911d48034813aa1e25a02e757dc94051428
+Author: Michael Hanke <michael.hanke@gmail.com>
+Date:   Mon Jul 16 15:56:34 2018 +0200
+
+    Update README after become a DataLad dataset
+
+commit aa6c65d1e4ac1a0fb44b63385372754e606259f4
+Author: Michael Hanke <michael.hanke@gmail.com>
+Date:   Mon Jul 16 15:52:25 2018 +0200
+
+    [DATALAD] new dataset
+
+commit fad1d8b52986aa715f10e025717c61934bd456dc
+Author: Michael Hanke <michael.hanke@gmail.com>
+Date:   Mon Jul 16 15:52:24 2018 +0200
+
+    [DATALAD] Set default backend for all files to be MD5E
+
+commit 7afa3e65d4d77cbfacb538766c7ea5562c0dd135
+Author: Yaroslav Halchenko <debian@onerussian.com>
+Date:   Tue May 10 15:40:24 2016 -0400
+
+    updated url to be relaxed (content changed) + removed no longer available online Inductive Logic Programming
+
+commit fbaf8cf678604c0b54a9de4d71576cfbd80b414d
+Author: Yaroslav Halchenko <debian@onerussian.com>
+Date:   Fri May 22 09:02:26 2015 -0400
+
+    added README.md
+
+commit 0bc62304c07431a3e0a8ac2a29a2cdf950f51964
+Author: Yaroslav Halchenko <debian@onerussian.com>
+Date:   Fri May 22 08:54:24 2015 -0400
+
+    Initial collation
+    
+    based on http://designimag.com/best-free-machine-learning-ebooks/
+    + G.James_D.Witten_T.Hastie_R.Tibshirani-An_Introduction_to_Statistical_Learning_with_Applications_in_R
+    
+    and missing some reinforcement learning books not avail in a single
+    file

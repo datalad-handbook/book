@@ -46,8 +46,7 @@ we can give its Github URL as a source (``-s``, ``--source``).
 
 .. runrecord:: _examples/DL-101-5-1
    :language: console
-   :workdir: dl-101
-   :realcommand: cd DataLad-101 &&  datalad install -d . -s https://github.com/datalad-datasets/machinelearning-books.git books/ml-books
+   :workdir: dl-101/DataLad-101
 
    $  datalad install -d . -s https://github.com/datalad-datasets/machinelearning-books.git books/ml-books
 
@@ -82,8 +81,7 @@ Here is the repository structure:
 
 .. runrecord:: _examples/DL-101-5-2
    :language: console
-   :workdir: dl-101
-   :realcommand: cd DataLad-101 && tree
+   :workdir: dl-101/DataLad-101
 
    $ tree
 
@@ -111,8 +109,7 @@ small in size:
 
 .. runrecord:: _examples/DL-101-5-3
    :language: console
-   :workdir: dl-101
-   :realcommand: cd DataLad-101/books/ml-books && du -sh
+   :workdir: dl-101/DataLad-101/
 
    $ cd books/ml-books
    $ du -sh      # Unix command to show size of contents
@@ -121,8 +118,7 @@ This is tiny. So lets see whats in this dataset.
 
 .. runrecord:: _examples/DL-101-5-4
    :language: console
-   :workdir: dl-101
-   :realcommand: cd DataLad-101/books/ml-books && ls
+   :workdir: dl-101/DataLad-101/books/ml-books
 
    $ ls
 
@@ -148,8 +144,7 @@ First, we get one of the PDFs in the dataset - take any one of your choice (here
 
 .. runrecord:: _examples/DL-101-5-5
    :language: console
-   :workdir: dl-101
-   :realcommand: cd DataLad-101/books/ml-books && datalad get A.Shashua-Introduction_to_Machine_Learning.pdf
+   :workdir: dl-101/DataLad-101/books/ml-books
 
    $ datalad get A.Shashua-Introduction_to_Machine_Learning.pdf
 
@@ -160,8 +155,7 @@ use ``.`` to refer to all of the dataset.
 
 .. runrecord:: _examples/DL-101-5-6
    :language: console
-   :workdir: dl-101
-   :realcommand: cd DataLad-101/books/ml-books && datalad get .
+   :workdir: dl-101/DataLad-101/books/ml-books
 
    $ datalad get .
 
@@ -180,8 +174,7 @@ For example, we can find out who created with dataset in the first place
 
 .. runrecord:: _examples/DL-101-5-7
    :language: console
-   :workdir: dl-101
-   :realcommand: cd DataLad-101/books/ml-books && git log
+   :workdir: dl-101/DataLad-101/books/ml-books
    :lines: 51-61
    :emphasize-lines: 2
 

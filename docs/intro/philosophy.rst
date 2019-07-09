@@ -1,3 +1,4 @@
+.. _philo:
 
 **********************
 The DataLad Philosophy

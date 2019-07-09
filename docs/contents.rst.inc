@@ -22,7 +22,10 @@ Basics
    basics/installation
    basics/datasets
    basics/howto
-
+   basics/101-1-create
+   basics/101-2-populate
+   basics/101-3-modify
+   basics/101-4-summary
 
 #########
 Use Cases

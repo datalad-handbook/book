@@ -1,0 +1,4 @@
+$ cat << EOT > notes.txt
+One can create a new dataset with 'datalad create [--description] PATH'.
+The dataset is created empty
+EOT

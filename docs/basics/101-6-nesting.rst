@@ -6,22 +6,26 @@ Without noticing, the previous section demonstrated another core principle
 and feature of DataLad datasets: *Nesting*.
 
 Within DataLad datasets one can *nest* other DataLad
-datasets arbitralily deep. This does not seem particulary spectacular -
+datasets arbitralily deep. We for example just installed one dataset, the
+machine learning books, *into* another dataset, the ``DataLad-101`` dataset.
+This does not seem particulary spectacular --
 after all, any directory on a filesystem can have other directories inside of it.
 
 The possibility for nested Datasets, however, is one of many advantages
 DataLad datasets have:
 
-Any lower-level DataLad dataset (the *subdataset*) has a stand-alone
+One aspect of nested datasets is that any lower-level DataLad dataset
+(the *subdataset*) has a stand-alone
 history. The top-level DataLad dataset (the *superdataset*) only stores
 *which version* of the subdataset is currently used.
 
+Let's dive into that.
 Remember how we had to navigate into ``books/ml-books`` to see the history,
 and how this history was completely independent of the ``DataLad-101``
-superdataset history?
+superdataset history? This was the subdatasets own history.
 
-But let's also check out how the *superdatasets* (``DataLad-101``) history
-looks like after the installation of a subdataset. Make sure you are
+But now let's also check out how the *superdatasets* (``DataLad-101``) history
+looks like after the installation of a subdataset. To do this, make sure you are
 *outside* of ``ml-books``.
 
 .. runrecord:: _examples/DL-101-6-1
@@ -35,10 +39,13 @@ looks like after the installation of a subdataset. Make sure you are
    $ git log -p
 
 We have highlighted the important part of this rather long commit summary.
-Note that you can not see any PDFs being added to the dataset. Instead,
+Note that you can not see any PDFs being added to the dataset, as was previously
+the case when we added PDFs locally. Instead,
 DataLad stores what it calls a *subproject commit* of the subdataset.
-The cryptic character sequence in this line is called a hash, and it is
-how DataLad internally identifies files and changes to files.
+The cryptic character sequence in this line is the checksum we have briefly
+mentioned before, and it is
+how DataLad internally identifies files and changes to files. Exactly this
+checksum is what descrines the state of the subdatset.
 
 Navigate into ``ml-books`` and try to find the highlighted hash in the
 subdatasets history:

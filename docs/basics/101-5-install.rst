@@ -133,11 +133,66 @@ and then one of the PDF files.
 You will notice that the (small) README.md file exists. But you cannot open any of the
 PDF files. This is not your fault: None of the PDFs exists on your computer yet.
 
+This sounds strange, but it has many advantages. Apart from a fast installation,
+it allows you to retrieve precisely the content you need, instead of all the contents
+of a dataset. Thus, even if you install a dataset that is many TB in size,
+it takes up only few MB of space after installation, and you can retrieve only those
+components of the dataset you need.
 
+The command to retrieve file content is ``datalad get``. You can specify (a) specific
+file(s), or ``get`` all of the dataset by specifying ``datalad get .`` (with ``.``
+denoting "current directory").
+Let's try both ways:
 
+First, we get one of the PDFs in the dataset - take any one of your choice (here, its the first).
 
+.. runrecord:: _examples/DL-101-5-5
+   :language: console
+   :workdir: dl-101
+   :realcommand: cd DataLad-101/books/ml-books && datalad get A.Shashua-Introduction_to_Machine_Learning.pdf
 
-Moreover, when sharing or installing
-a DataLad dataset, all copies also include the datasets history. An installed DataLad
-dataset knows the dataset it was installed from, and if changes
-in this original DataLad dataset happen, the installed dataset can simply be updated.
+   $ datalad get A.Shashua-Introduction_to_Machine_Learning.pdf
+
+Try to open it with a PDF viewer - it will now work.
+
+Lets now get the rest of the missing data. Instead of specifying all of them, we can
+use ``.`` to refer to all of the dataset.
+
+.. runrecord:: _examples/DL-101-5-6
+   :language: console
+   :workdir: dl-101
+   :realcommand: cd DataLad-101/books/ml-books && datalad get .
+
+   $ datalad get .
+
+Wasn't that easy?
+
+Note that any data that is already retrieved (one book) is not downloaded again.
+Datalad summarizes the outcome of the execution of ``get`` in the end and informs
+that one file was ``notneeded`` and the retrieval of the other files was ``ok``.
+
+You have now experienced how easy it is to share data with DataLad.
+Moreover, beyond simply sharing the *data* in the dataset, when sharing or installing
+a DataLad dataset, all copies also include the datasets *history*.
+
+For example, we can find out who created with dataset in the first place
+(the output shows an excerpt):
+
+.. runrecord:: _examples/DL-101-5-7
+   :language: console
+   :workdir: dl-101
+   :realcommand: cd DataLad-101/books/ml-books && git log
+   :lines: 51-61
+   :emphasize-lines: 2
+
+   $ git log
+
+But thats not all. Lets pretend Yaroslav finds another useful machine-learning book
+he wants to share in this dataset. He can add it to the original dataset (that
+we installed from Github), and because an installed
+dataset knows the dataset it was installed from,
+the locally installed dataset can simply be updated. But we will see examples
+of this later in this handbook.
+
+Now you can not only create datasets and work with them locally, you can also consume
+existing datasets by installing them.

@@ -39,8 +39,8 @@ Note the command structure of ``datalad create`` (optional bits are enclosed in 
    $ datalad create --description "course on DataLad-101 on my private Laptop" -c text2git DataLad-101
 
 This will create a dataset called ``DataLad-101`` in the directory you are currently
-in. Ignore the configuration ``-c text2git``. There will be other parts of this book to explain
-this in detail.
+in. For now, disregard ``-c text2git``. It applies a configuration template, but there
+will be other parts of this book to explain this in detail.
 
 Once created, a DataLad dataset looks like any other directory on your filesystem.
 Currently, it seems empty.
@@ -85,8 +85,8 @@ performed action concisely. In this case, both commit messages were written by
 DataLad itself. The most recent change is on the top. The first commit
 written to the history therefore states that a new dataset was created,
 and the second commit to the history is related to ``-c text2git`` which
-configures :term:`Git-annex` to store textfiles in Git (but more on this
-configuration later).
+uses a configuration template to instruct DataLad to store textfiles
+in Git (but more on this later).
 Even though these commits were produced by DataLad,
 in most other cases, you will have to create the commit and
 an informative commit message yourself.

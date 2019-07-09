@@ -100,10 +100,10 @@ a download of many books should take much more time? Here you can see another
 import feature of DataLad datasets and the ``datalad install`` command:
 
 Upon installation of a DataLad dataset, DataLad retrieves only small files
-(for examples text file or markdown files) and (small) metadata
+(for example text files or markdown files) and (small) metadata
 information about the dataset. It does not, however, download any large files
-(yet). This exposes the datasets file hierarchy
-for exploration, and speeds up the installation of a DataLad dataset
+(yet). The metadata exposes the datasets file hierarchy
+for exploration, and downloading only this speeds up the installation of a DataLad dataset
 of many TB in size to a few seconds. Just now, after installation, the dataset is
 small in size:
 

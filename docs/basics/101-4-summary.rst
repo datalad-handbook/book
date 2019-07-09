@@ -9,7 +9,7 @@ and making simple modifications *locally*:
   Command structure: ``datalad create --description "here is a description" -c text2git PATH``
 
 * Thanks to :term:`Git` and :term:`Git-annex`, the dataset has a history to track files and their
-  modifications. Build in Git tools (``git log``) or external tools (such as ``tig``) allow to explore
+  modifications. Built-in Git tools (``git log``) or external tools (such as ``tig``) allow to explore
   the history.
 
 * The ``datalad save`` command records the current state of the dataset to the history. Make it a habit

@@ -55,11 +55,7 @@ with ``>>``) to accomplish this, but you can take any editor of your choice.
 
 .. runrecord:: _examples/DL-101-44
    :language: console
-   :workdir: dl-101
-   :realcommand: cd DataLad-101 && cat << EOT > notes.txt
-      'datalad save [-m] PATH' saves the file (modifications) to history.
-      Note to self: Always use informative, concise commit messages.
-      EOT
+   :workdir: dl-101/DataLad-101
 
    $ cat << EOT > notes.txt
    'datalad save [-m] PATH' saves the file (modifications) to history.
@@ -70,8 +66,7 @@ Lets check the datasets current state:
 
 .. runrecord:: _examples/DL-101-45
    :language: console
-   :workdir: dl-101
-   :realcommand: cd DataLad-101 && datalad status
+   :workdir: dl-101/DataLad-101
 
    $ datalad status
 
@@ -79,8 +74,7 @@ and save the file:
 
 .. runrecord:: _examples/DL-101-46
    :language: console
-   :workdir: dl-101
-   :realcommand: cd DataLad-101 && datalad save -m "add note on datalad save"
+   :workdir: dl-101/DataLad-101
 
    $ datalad save -m "add note on datalad save"
 
@@ -92,10 +86,9 @@ the git log, your history will be longer. You can get out of git log by pressing
 
 .. runrecord:: _examples/DL-101-47
    :language: console
-   :workdir: dl-101
+   :workdir: dl-101/DataLad-101
    :lines: 1-28
    :emphasize-lines: 6, 14, 20, 28
-   :realcommand: cd DataLad-101 && git log -p
 
    $ git log -p
 

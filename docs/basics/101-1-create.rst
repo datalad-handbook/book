@@ -70,9 +70,8 @@ a built-in git command [#f1]_.
 
 .. runrecord:: _examples/DL-101-3
    :language: console
-   :workdir: dl-101
+   :workdir: dl-101/DataLad-101
    :emphasize-lines: 3-4, 6, 9-10, 12
-   :realcommand: cd DataLad-101 && git log
 
    $ git log
 
@@ -113,9 +112,8 @@ all of these changes can be written to your DataLad datasets history.
 
    .. runrecord:: _examples/DL-101-10
       :language: console
-      :workdir: dl-101
+      :workdir: dl-101/DataLad-101
       :emphasize-lines: 4-6
-      :realcommand: cd DataLad-101 && ls -a
 
       $ ls -a # show also hidden files
 

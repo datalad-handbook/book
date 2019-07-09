@@ -1,0 +1,6 @@
+$ ls -a # show also hidden files
+.
+..
+.datalad
+.git
+.gitattributes

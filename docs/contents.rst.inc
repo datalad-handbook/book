@@ -23,6 +23,7 @@ Basics
    basics/datasets
    basics/howto
    basics/101-5-install
+   basics/101-6-nesting
 
 #########
 Use Cases

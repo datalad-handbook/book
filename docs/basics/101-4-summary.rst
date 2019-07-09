@@ -1,7 +1,7 @@
 Starting from scratch: Summary
 ------------------------------
 
-In the last few pages, we have discovered the basics of starting a DataLad dataset from scratch,
+In the last few sections, we have discovered the basics of starting a DataLad dataset from scratch,
 and making simple modifications *locally*:
 
 * An empty dataset can be created with the ``datalad create`` command. Its useful to add a description

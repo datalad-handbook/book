@@ -19,7 +19,9 @@ history. The top-level DataLad dataset (the *superdataset*) only stores
 Remember how we had to navigate into ``books/ml-books`` to see the history,
 and how this history was completely independent of the ``DataLad-101``
 superdataset history?
-Let's check out how the superdatasets history looks like. Make sure you are
+
+But let's also check out how the *superdatasets* (``DataLad-101``) history
+looks like after the installation of a subdataset. Make sure you are
 *outside* of ``ml-books``.
 
 .. runrecord:: _examples/DL-101-6-1

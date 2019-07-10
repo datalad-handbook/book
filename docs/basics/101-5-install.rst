@@ -49,14 +49,14 @@ can wholeheartedly recommend them for their worldly wisdoms and compelling, thou
 ideas). Lets install this dataset into our exisiting ``DataLad-101`` dataset.
 
 To keep the ``DataLad-101`` dataset neat and organized, we first create a new directory,
-called audio-recordings.
+called recordings.
 
 .. runrecord:: _examples/DL-101-5-0
    :language: console
    :workdir: dl-101/DataLad-101
 
    # we are in the root of DataLad-101
-   $ mkdir audio-recordings
+   $ mkdir recordings
 
 Lets install the longnow podcasts in this new directory.
 Because we are installing a dataset (the podcasts) within an existing dataset (the ``DataLad-101``
@@ -69,24 +69,24 @@ we can give its Github URL as a source (``-s``, ``--source``).
 .. runrecord:: _examples/DL-101-5-1
    :language: console
    :workdir: dl-101/DataLad-101/
-   :realcommand: datalad install -d . -s https://github.com/datalad-datasets/longnow-podcasts.git audio-recordings/longnow
+   :realcommand: datalad install -d . -s https://github.com/datalad-datasets/longnow-podcasts.git recordings/longnow
 
-   $ datalad install --dataset . --source https://github.com/datalad-datasets/longnow-podcasts.git audio-recordings/longnow
+   $ datalad install --dataset . --source https://github.com/datalad-datasets/longnow-podcasts.git recordings/longnow
 
    # or, alternatively, using the shorter options:
-   $ datalad install -d . -s https://github.com/datalad-datasets/longnow-podcasts.git audio-recordings/longnow
+   $ datalad install -d . -s https://github.com/datalad-datasets/longnow-podcasts.git recordings/longnow
 
 This command copied the repository found at the URL https://github.com/datalad-datasets/longnow-podcasts.git
-into the existing ``DataLad-101`` dataset, into the directory ``audio-recordings/longnow``.
+into the existing ``DataLad-101`` dataset, into the directory ``recordings/longnow``.
 
-Note: if we had not specified the path ``audio-recordings/longnow``, the command would have installed the
+Note: if we had not specified the path ``recordings/longnow``, the command would have installed the
 dataset in the root of the directory and cleverly used the name of the remote repository
 "``longnow-podcasts``". Alternatively, you could have also installed the dataset from within
-the ``audio-recordings``, or ``books`` directory. Important: If you are installing *within* a dataset,
+the ``recordings``, or ``books`` directory. Important: If you are installing *within* a dataset,
 but execute the command not from the root of this dataset, your ``-d`` option needs to specify
 the path to the root of the dataset, and the path needs to start from the directory root. For example,
-if you navigate into ``audio-recordings`` the command would be:
-``datalad install -d ../ -s https://github.com/datalad-datasets/longnow-podcasts.git audio-recordings/longnow``.
+if you navigate into ``recordings`` the command would be:
+``datalad install -d ../ -s https://github.com/datalad-datasets/longnow-podcasts.git recordings/longnow``.
 Note that the path did not change, but ``-d .`` changed to ``-d ../``
 (the Unix expression for ``parent directory``, i.e. "one-directory-up").
 
@@ -113,7 +113,7 @@ Here is the repository structure:
 
    $ tree -d   # we limit the output to directories
 
-We can see that audio-recordings has one subdirectory, our newly installed ``longnow``
+We can see that recordings has one subdirectory, our newly installed ``longnow``
 dataset. Within the dataset are two other directories, ``Long_Now__Conversations_at_The_Interval``
 and ``Long_Now__Seminars_About_Long_term_Thinking``.
 If we navigate into one of them and list its content, we'll see many ``.mp3`` files (here is an
@@ -125,7 +125,7 @@ excerpt).
    :workdir: dl-101/DataLad-101/
    :lines: 1-15
 
-   $ cd audio-recordings/longnow/Long_Now__Seminars_About_Long_term_Thinking
+   $ cd recordings/longnow/Long_Now__Seminars_About_Long_term_Thinking
    $ ls
 
 
@@ -152,7 +152,7 @@ small in size:
    :language: console
    :workdir: dl-101/DataLad-101/
 
-   $ cd audio-recordings/longnow
+   $ cd recordings/longnow
    $ du -sh      # Unix command to show size of contents
 
 This is tiny indeed!
@@ -179,7 +179,7 @@ For this, we supply an additional option to ``datalad status``. Make sure to be
 
 .. runrecord:: _examples/DL-101-5-4.1
    :language: console
-   :workdir: dl-101/DataLad-101/audio-recordings/longnow
+   :workdir: dl-101/DataLad-101/recordings/longnow
 
    $ datalad status --annex basic
 
@@ -200,7 +200,7 @@ First, we get one of the recordings in the dataset -- take any one of your choic
 
 .. runrecord:: _examples/DL-101-5-5
    :language: console
-   :workdir: dl-101/DataLad-101/audio-recordings/longnow
+   :workdir: dl-101/DataLad-101/recordings/longnow
 
    $ datalad get Long_Now__Seminars_About_Long_term_Thinking/2003_11_15__Brian_Eno__The_Long_Now.mp3
 
@@ -222,7 +222,7 @@ has a nice summary:
 
 .. runrecord:: _examples/DL-101-5-5.1
    :language: console
-   :workdir: dl-101/DataLad-101/audio-recordings/longnow
+   :workdir: dl-101/DataLad-101/recordings/longnow
 
    $ datalad status --annex all
 
@@ -234,7 +234,7 @@ DataLads fancy progress bars.
 
 .. runrecord:: _examples/DL-101-5-5.2
    :language: console
-   :workdir: dl-101/DataLad-101/audio-recordings/longnow
+   :workdir: dl-101/DataLad-101/recordings/longnow
 
    $ datalad get Long_Now__Seminars_About_Long_term_Thinking/2003_11_15__Brian_Eno__The_Long_Now.mp3 \
    Long_Now__Seminars_About_Long_term_Thinking/2003_12_13__Peter_Schwartz__The_Art_Of_The_Really_Long_View.mp3 \
@@ -253,7 +253,7 @@ For example, we can find out who created the dataset in the first place
 
 .. runrecord:: _examples/DL-101-5-7
    :language: console
-   :workdir: dl-101/DataLad-101/audio-recordings/longnow
+   :workdir: dl-101/DataLad-101/recordings/longnow
    :lines: 1, 74-84
    :emphasize-lines: 3
 

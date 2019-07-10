@@ -20,7 +20,7 @@ history. The top-level DataLad dataset (the *superdataset*) only stores
 *which version* of the subdataset is currently used.
 
 Let's dive into that.
-Remember how we had to navigate into ``audio-recordings/longnow`` to see the history,
+Remember how we had to navigate into ``recordings/longnow`` to see the history,
 and how this history was completely independent of the ``DataLad-101``
 superdataset history? This was the subdatasets own history.
 
@@ -64,7 +64,7 @@ subdatasets history:
    :workdir: dl-101/DataLad-101
    :emphasize-lines: 3
 
-   $ cd audio-recordings/longnow
+   $ cd recordings/longnow
    $ git log --oneline
 
 We can see that it is the most recent commit hash of the subdataset

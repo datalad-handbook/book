@@ -76,9 +76,13 @@ This is what is meant by "the top-level DataLad dataset (the *superdataset*) onl
 Importantly, once we learn how to make use of the history of a dataset,
 we can set subdatasets to previous states, or *update* them.
 
-The figure below illustrates dataset nesting schematically:
+In the upcoming sections, we'll experience the perks of dataset nesting
+frequently, and everything that might seem vague at this point will become
+clearer. To conclude this demonstation,
+the figure below illustrates the current state of the dataset
+and nesting schematically:
 
-.. figure:: ../img/virtual_dirtree.svg
+.. figure:: ../img/virtual_dirtree_simple_subds.svg
    :alt: Virtual directory tree of a nested DataLad dataset
 
 Thus, without being consciously aware of it, by taking advantage of dataset

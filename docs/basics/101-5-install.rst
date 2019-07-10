@@ -12,7 +12,7 @@ Therefore, everyone in todays lecture exitedly await todays topic: Installing da
 "With DataLad, users can *install* existing
 DataLad datasets from paths, urls, or open-data collections." our lecturer begins.
 "This makes accessing data fast and easy. A dataset that others could install can be
-created by anyone, without a need for external software. Your own Datasets can be
+created by anyone, without a need for additional software. Your own Datasets can be
 installed by others, should you want that, for example. Therefore, not only accessing
 data becomes fast and easy, but also *sharing*."
 
@@ -95,7 +95,7 @@ we'll get to what that is in the next section.
 Dataset content identity and availability information
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-You might have been surprised by how fast the datalad was installed. Shouldn't
+You might have been surprised by how fast the dataset was installed. Shouldn't
 a download of many books should take much more time? Here you can see another
 import feature of DataLad datasets and the ``datalad install`` command:
 
@@ -163,13 +163,13 @@ Wasn't that easy?
 
 Note that any data that is already retrieved (one book) is not downloaded again.
 Datalad summarizes the outcome of the execution of ``get`` in the end and informs
-that one file was ``notneeded`` and the retrieval of the other files was ``ok``.
+that the download of one file was ``notneeded`` and the retrieval of the other files was ``ok``.
 
-You have now experienced how easy it is to share data with DataLad.
-Moreover, beyond simply sharing the *data* in the dataset, when sharing or installing
+You have now experienced how easy it is to obtain shared data with DataLad.
+But beyond simply sharing the *data* in the dataset, when sharing or installing
 a DataLad dataset, all copies also include the datasets *history*.
 
-For example, we can find out who created with dataset in the first place
+For example, we can find out who created the dataset in the first place
 (the output shows an excerpt):
 
 .. runrecord:: _examples/DL-101-5-7

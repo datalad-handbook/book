@@ -1,9 +1,9 @@
 $ tree -d   # we limit the output to directories
 .
-├── audio-recordings
-│   └── longnow
-│       ├── Long_Now__Conversations_at_The_Interval
-│       └── Long_Now__Seminars_About_Long_term_Thinking
-└── books
+├── books
+└── recordings
+    └── longnow
+        ├── Long_Now__Conversations_at_The_Interval
+        └── Long_Now__Seminars_About_Long_term_Thinking
 
 5 directories

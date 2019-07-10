@@ -1,4 +1,4 @@
-$ cd audio-recordings/longnow
+$ cd recordings/longnow
 $ git log --oneline
 e1bf31e [DATALAD RUNCMD] Update SALT series
 21d9290 [DATALAD RUNCMD] Update Interval seminar series

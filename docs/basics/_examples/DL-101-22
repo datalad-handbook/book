@@ -3,5 +3,5 @@ $ wget https://sourceforge.net/projects/linuxcommand/files/TLCL/19.01/TLCL-19.01
 $ wget https://www.gitbook.com/download/pdf/book/swaroopch/byte-of-python -O byte-of-python.pdf
 # get back into the root of the dataset
 $ cd ../
-2019-07-08 16:01:06 URL:https://netix.dl.sourceforge.net/project/linuxcommand/TLCL/19.01/TLCL-19.01.pdf [2120211/2120211] -> "TLCL.pdf" [1]
-2019-07-08 16:01:08 URL:https://legacy.gitbook.com/download/pdf/book/swaroopch/byte-of-python [4406531] -> "byte-of-python.pdf" [1]
+2019-07-10 22:57:23 URL:https://netcologne.dl.sourceforge.net/project/linuxcommand/TLCL/19.01/TLCL-19.01.pdf [2120211/2120211] -> "TLCL.pdf" [1]
+2019-07-10 22:57:25 URL:https://legacy.gitbook.com/download/pdf/book/swaroopch/byte-of-python [4406531] -> "byte-of-python.pdf" [1]

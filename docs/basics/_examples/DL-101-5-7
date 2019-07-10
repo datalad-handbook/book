@@ -1,61 +1,84 @@
 $ git log
-commit 5fcf68461a1dd458f0f984e63ea44b551f35a239
-Author: Kyle Meyer <kyle@kyleam.com>
-Date:   Mon Jul 16 11:54:35 2018 -0400
+commit e1bf31e3e91d97944b17c678036183e1d08d1598
+Author: Michael Hanke <michael.hanke@gmail.com>
+Date:   Wed Jul 10 09:43:02 2019 +0200
 
-    Update link for A.Shashua-Introduction_to_Machine_Learning.pdf
+    [DATALAD RUNCMD] Update SALT series
     
-    The original http variant will fail with "301 Moved Permanently".
-    Running 'get' on the new one will still fail with a message from arxiv
-    that "your client does not supply a proper User-Agent".  I was unable
-    to make this go way by passing a --user-agent value to 'git annex
-    get'.  The download works if git-annex uses curl, but that requires
-    changing annex.security.allowed-http-addresses.
+    === Do not change lines below ===
+    {
+     "chain": [],
+     "cmd": "git annex importfeed --template '${{feedtitle}}/${{itempubdate}}__${{itemtitle}}${{extension}}' --force http://longnow.org/projects/seminars/SALT.xml",
+     "dsid": "b3ca2718-8901-11e8-99aa-a0369f7c647e",
+     "exit": 0,
+     "extra_inputs": [],
+     "inputs": [],
+     "outputs": [],
+     "pwd": "."
+    }
+    ^^^ Do not change lines above ^^^
 
-commit 3f9f96cadd4bd23a832bd48a179446d02995e283
+commit 21d92907c1d05b246ea5eee805ac00c91366ae04
 Author: Michael Hanke <michael.hanke@gmail.com>
-Date:   Mon Jul 16 16:01:15 2018 +0200
+Date:   Wed Jul 10 09:41:13 2019 +0200
 
-    Add new book
+    [DATALAD RUNCMD] Update Interval seminar series
+    
+    === Do not change lines below ===
+    {
+     "chain": [],
+     "cmd": "git annex importfeed --template '${{feedtitle}}/${{itempubdate}}__${{itemtitle}}${{extension}}' --force http://longnow.org/projects/seminars/interval.xml",
+     "dsid": "b3ca2718-8901-11e8-99aa-a0369f7c647e",
+     "exit": 0,
+     "extra_inputs": [],
+     "inputs": [],
+     "outputs": [],
+     "pwd": "."
+    }
+    ^^^ Do not change lines above ^^^
 
-commit 6a646911d48034813aa1e25a02e757dc94051428
+commit 7f36dea615f0fe117aed74a04ad325aacc714111
 Author: Michael Hanke <michael.hanke@gmail.com>
-Date:   Mon Jul 16 15:56:34 2018 +0200
+Date:   Fri Dec 14 19:00:08 2018 +0100
 
-    Update README after become a DataLad dataset
+    Update from feed
+    
+    Via: git annex importfeed --template '${feedtitle}/${itempubdate}__${itemtitle}${extension}' --force http://longnow.org/projects/seminars/interval.xml
 
-commit aa6c65d1e4ac1a0fb44b63385372754e606259f4
+commit ff007135c3c290c24ebdb2b3f1459236a25f7410
 Author: Michael Hanke <michael.hanke@gmail.com>
-Date:   Mon Jul 16 15:52:25 2018 +0200
+Date:   Fri Dec 14 18:58:03 2018 +0100
+
+    Update from feed
+    
+    Via: git annex importfeed --template '${feedtitle}/${itempubdate}__${itemtitle}${extension}' --force http://longnow.org/projects/seminars/SALT.xml
+
+commit a052af9c059a82f36ee20ec708252568767ed067
+Author: Michael Hanke <michael.hanke@gmail.com>
+Date:   Mon Jul 16 17:30:47 2018 +0200
+
+    Include publication date in the filename
+
+commit 9f3127fad2dbb3848d8d9a0ff85e6a151a47b50f
+Author: Michael Hanke <michael.hanke@gmail.com>
+Date:   Mon Jul 16 17:18:10 2018 +0200
+
+    Import Interval feed
+
+commit b81bdea645d83c2ddef360faddafd0a778d03e1a
+Author: Michael Hanke <michael.hanke@gmail.com>
+Date:   Mon Jul 16 17:03:21 2018 +0200
+
+    Import SALT feed
+
+commit 3d0dc8f5e9e4032784bc5a08d243995ad5cf92f9
+Author: Michael Hanke <michael.hanke@gmail.com>
+Date:   Mon Jul 16 16:08:24 2018 +0200
 
     [DATALAD] new dataset
 
-commit fad1d8b52986aa715f10e025717c61934bd456dc
+commit 8df130bb825f99135c34b8bf0cbedb1b05edd581
 Author: Michael Hanke <michael.hanke@gmail.com>
-Date:   Mon Jul 16 15:52:24 2018 +0200
+Date:   Mon Jul 16 16:08:23 2018 +0200
 
     [DATALAD] Set default backend for all files to be MD5E
-
-commit 7afa3e65d4d77cbfacb538766c7ea5562c0dd135
-Author: Yaroslav Halchenko <debian@onerussian.com>
-Date:   Tue May 10 15:40:24 2016 -0400
-
-    updated url to be relaxed (content changed) + removed no longer available online Inductive Logic Programming
-
-commit fbaf8cf678604c0b54a9de4d71576cfbd80b414d
-Author: Yaroslav Halchenko <debian@onerussian.com>
-Date:   Fri May 22 09:02:26 2015 -0400
-
-    added README.md
-
-commit 0bc62304c07431a3e0a8ac2a29a2cdf950f51964
-Author: Yaroslav Halchenko <debian@onerussian.com>
-Date:   Fri May 22 08:54:24 2015 -0400
-
-    Initial collation
-    
-    based on http://designimag.com/best-free-machine-learning-ebooks/
-    + G.James_D.Witten_T.Hastie_R.Tibshirani-An_Introduction_to_Statistical_Learning_with_Applications_in_R
-    
-    and missing some reinforcement learning books not avail in a single
-    file

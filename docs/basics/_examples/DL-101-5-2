@@ -1,21 +1,9 @@
-$ tree
+$ tree -d   # we limit the output to directories
 .
-├── books
-│   ├── byte-of-python.pdf -> ../.git/annex/objects/8Z/wk/MD5E-s4406531--5b86f0656a7660c140d3fb4d5994b1b1.pdf/MD5E-s4406531--5b86f0656a7660c140d3fb4d5994b1b1.pdf
-│   ├── ml-books
-│   │   ├── A.Shashua-Introduction_to_Machine_Learning.pdf -> .git/annex/objects/xK/7m/URL-s700145--https&c%%arxiv.org%pdf%0904.3664v1.pdf/URL-s700145--https&c%%arxiv.org%pdf%0904.3664v1.pdf
-│   │   ├── B.Efron_T.Hastie-Computer_Age_Statistical_Inference.pdf -> .git/annex/objects/mv/Qm/MD5E-s8509054--fc8fa478c8543e99a6a1ab179a9bfc73.pdf/MD5E-s8509054--fc8fa478c8543e99a6a1ab179a9bfc73.pdf
-│   │   ├── C.E.Rasmussen_C.K.I.Williams-Gaussian_Processes_for_Machine_Learning.pdf -> .git/annex/objects/99/pg/URL-s4052292--http&c%%www.gaussianprocess.org%gpml%chapters%RW.pdf/URL-s4052292--http&c%%www.gaussianprocess.org%gpml%chapters%RW.pdf
-│   │   ├── D.Barber-Bayesian_Reasoning_and_Machine_Learning.pdf -> .git/annex/objects/g5/mW/URL-s14324939--http&c%%web4.cs.ucl.ac.uk%staff%D.Barber%textbook%240415.pdf/URL-s14324939--http&c%%web4.cs.ucl.ac.uk%staff%D.Barber%textbook%240415.pdf
-│   │   ├── D.C.C.MacKay-Information_Theory_Inference_and_Learning_Algorithms.pdf -> .git/annex/objects/vj/P6/URL-s11675219--http&c%%www.inference.phy.cam.ac.uk%itprnn%book.pdf/URL-s11675219--http&c%%www.inference.phy.cam.ac.uk%itprnn%book.pdf
-│   │   ├── D.Michie_D.J.Spiegelhalter-Machine_Learning_Neural_and_Statistical_Classification.pdf -> .git/annex/objects/zw/WF/URL-s1787416--http&c%%www1.maths.leeds.ac.uk%,126charles%statlog%whole.pdf/URL-s1787416--http&c%%www1.maths.leeds.ac.uk%,126charles%statlog%whole.pdf
-│   │   ├── G.James_D.Witten_T.Hastie_R.Tibshirani-An_Introduction_to_Statistical_Learning_with_Applications_in_R.pdf -> .git/annex/objects/WJ/4F/URL-s8990464--http&c%%www-bcf.usc.edu%,126gare-ee4ec48deca83996a6bb95f256bf7e74/URL-s8990464--http&c%%www-bcf.usc.edu%,126gare-ee4ec48deca83996a6bb95f256bf7e74
-│   │   ├── H.DaumeIII-A_Course_in_Machine_Learning.pdf -> .git/annex/objects/x9/7W/URL--http&c%%ciml.info%dl%v0_9%ciml-v0_9-all.pdf/URL--http&c%%ciml.info%dl%v0_9%ciml-v0_9-all.pdf
-│   │   ├── N.J.Nilsson-Introduction_to_Machine_Learning.pdf -> .git/annex/objects/ZV/G7/URL-s1899248--http&c%%ai.stanford.edu%,126nilsson%MLBOOK.pdf/URL-s1899248--http&c%%ai.stanford.edu%,126nilsson%MLBOOK.pdf
-│   │   ├── README.md
-│   │   └── T.Hastie_R.Tibshirani_J.Friedman-The_Elements_of_Statistical_Learning_Data_Mining_Inference_and_Prediction.pdf -> .git/annex/objects/4g/Vv/URL-s13303613--http&c%%statweb.stanford.edu%,12-04e98153e096973a0e94d05ae90fce26/URL-s13303613--http&c%%statweb.stanford.edu%,12-04e98153e096973a0e94d05ae90fce26
-│   ├── progit.pdf -> ../.git/annex/objects/G6/Gj/MD5E-s12465653--05cd7ed561d108c9bcf96022bc78a92c.pdf/MD5E-s12465653--05cd7ed561d108c9bcf96022bc78a92c.pdf
-│   └── TLCL.pdf -> ../.git/annex/objects/jf/3M/MD5E-s2120211--06d1efcb05bb2c55cd039dab3fb28455.pdf/MD5E-s2120211--06d1efcb05bb2c55cd039dab3fb28455.pdf
-└── notes.txt
+├── audio-recordings
+│   └── longnow
+│       ├── Long_Now__Conversations_at_The_Interval
+│       └── Long_Now__Seminars_About_Long_term_Thinking
+└── books
 
-2 directories, 15 files
+5 directories

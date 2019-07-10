@@ -1,7 +1,10 @@
-$  datalad install -d . -s https://github.com/datalad-datasets/machinelearning-books.git books/ml-books
-[INFO] Cloning https://github.com/datalad-datasets/machinelearning-books.git [1 other candidates] into '/home/adina/repos/datalad-handbook/docs/_build/wdirs/dl-101/DataLad-101/books/ml-books' 
+$ datalad install --dataset . --source https://github.com/datalad-datasets/longnow-podcasts.git audio-recordings/longnow
+
+# or, alternatively, using the shorter options:
+$ datalad install -d . -s https://github.com/datalad-datasets/longnow-podcasts.git audio-recordings/longnow
+[INFO] Cloning https://github.com/datalad-datasets/longnow-podcasts.git [1 other candidates] into '/home/adina/repos/datalad-handbook/docs/_build/wdirs/dl-101/DataLad-101/audio-recordings/longnow' 
 [INFO]   Remote origin not usable by git-annex; setting annex-ignore 
-install(ok): books/ml-books (dataset)
+install(ok): audio-recordings/longnow (dataset)
 action summary:
   add (ok: 2)
   install (ok: 1)

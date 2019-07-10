@@ -46,9 +46,13 @@ we can give its Github URL as a source (``-s``, ``--source``).
 
 .. runrecord:: _examples/DL-101-5-1
    :language: console
-   :workdir: dl-101/DataLad-101
+   :workdir: dl-101/DataLad-101/
+   :realcommand: datalad install -d . -s https://github.com/datalad-datasets/machinelearning-books.git books/ml-books
 
-   $  datalad install -d . -s https://github.com/datalad-datasets/machinelearning-books.git books/ml-books
+   $ datalad install --dataset . --source https://github.com/datalad-datasets/machinelearning-books.git books/ml-books
+
+   # or, alternatively, using the shorter options:
+   $ datalad install -d . -s https://github.com/datalad-datasets/machinelearning-books.git books/ml-books
 
 This command copied the repository found at the URL https://github.com/datalad-datasets/machinelearning-books.git
 into the existing ``DataLad-101`` dataset, into the directory ``books/ml-books``.

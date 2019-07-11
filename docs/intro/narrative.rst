@@ -21,7 +21,7 @@ you will be using them.
 How to read this book
 ---------------------
 
-First of all: Be exited. DataLad can help you to manage your digital data
+First of all: Be excited. DataLad can help you to manage your digital data
 workflow in various ways, and in this book you will use many of them right
 from the start.
 There are many topics you can explore, if you wish:

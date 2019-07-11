@@ -1,3 +1,5 @@
+.. _installds:
+
 Basic DataLad magic: Installing datasets
 ----------------------------------------
 

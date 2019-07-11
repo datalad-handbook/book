@@ -28,6 +28,7 @@ Basics
    basics/101-4-summary
    basics/101-5-install
    basics/101-6-nesting
+   basics/101-7-summary
 
 #########
 Use Cases

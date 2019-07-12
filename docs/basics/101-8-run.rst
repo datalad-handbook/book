@@ -1,0 +1,158 @@
+DataLad, Run! [1]
+-----------------
+
+In previous examples, all changes that happened to the dataset of
+the files it contains were
+saved to the datasets history by hand. We added larger and smaller
+files and saved them, and we also modified smaller file contents and
+saved these modification.
+
+Often, however, files or file contents get changed by shell commands
+or by scripts containing code.
+Consider a data scientist. She has data files with numeric data,
+and code scripts in Python, R, Matlab or any other programming language
+that will use the data to compute results of figures. Such output is
+stored in new files.
+
+But only few weeks after these scripts were executed it can be hard
+to remember script for which reason modified or created which
+output. How did this result came to be? Which script would she need
+to run again on what data to produce this particular figure?
+
+In this section we will experience how DataLad can help
+to record the changes in a dataset after execution of a script
+from the shell.
+
+Lets say, for example, that you enjoyed the longnow podcasts a lot,
+and you start a podcast-night with friends to wind down from all of
+the exciting DataLad lectures. They propose to make a
+list of speakers and titles to cross out what they've already listened
+to, and ask you to prepare such a list.
+
+"Mhh... probably there is a datalad way to do this... wasn't there also
+a note about meta data extraction at some point?" But as we're not that
+far into the lectures, you decide to write a simple Python script
+to generate a tab-separated file that lists speaker and title
+name instead.
+
+To do this, we're following a best practice that will reappear in the
+later section on YODA principles (todo: link): Collecting all code or
+scripts in one dedicated directory per dataset. Therefore,
+create a subdirectory ``code/`` in the ``DataLad-101``
+superdataset:
+
+.. runrecord:: _examples/DL-108-1
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ mkdir code
+
+Inside of ``Datalad-101/code``, create a simple Python script ``list_titles.py``.
+This script will carry out a simple task:
+It will loop through the filenames and
+write out speaker names and talk titles in a very simple fashion.
+The content of this script is written below - copy it into the script.
+
+.. runrecord:: _examples/DL-108-2
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ cat << EOT > code/list_titles.py
+   # import modules for path operations and pathname pattern expansion
+   from os.path import join, basename
+   from glob import glob
+
+   # define a path to the podcasts. Note that this is a relative path,
+   # pointing from the root of DataLad-101 to the podcasts:
+
+   path = join('recordings', 'longnow',
+               'Long_Now__Seminars_About_Long_term_Thinking', '*')
+   # create a list of all file names found under the path
+   files = glob(path)
+   # define an outfile name:
+   outfile = join('recordings', 'Podcasts.tsv')
+
+   # loop through all file names and write speaker and title into the file
+   with open(outfile, 'w') as f:
+       for file in files:
+           # extract speaker name
+           author = basename(file).split('__')[1] \
+               if len(basename(file).split('__')[1].split('_')) > 1 \
+               else '__'.join(basename(file).split('__')[1:3])
+           # extract title
+           title = '_'.join(basename(file).split(author)[-1].split('__')[1:])
+           # write speaker and talk title into the file
+           f.write(author + '\t' + title + '\n')
+   EOT
+
+Save this script to the dataset.
+
+.. runrecord:: _examples/DL-108-3
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ datalad status
+
+.. runrecord:: _examples/DL-108-4
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ datalad save -m "Add simple script to write a list of podcast speakers and titles" code/list_titles.py
+
+Once we run this script, it will create a new file, ``recordings/Podcasts.tsv``.
+Obviously, we could create this file, and subsequently save it to the dataset.
+However, just as in the example above,
+in a bit of time, we will forget how this file came into existence, or
+that the script ``code/list_titles.py`` is associated with this file.
+
+The ``datalad run`` command can help with this. It records a commands impact on a
+dataset. Lets try the most simple way to use this command: The ``datalad run``
+command, followed by a commit message (``-m "a concise summary"``), and the
+command that executes the script from the shell: ``python code/list_titles.py``.
+Make sure to run this command from the root of ``DataLad-101``.
+
+.. runrecord:: _examples/DL-108-5
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ datalad run -m "create a list of SALT podcast titles" python code/list_titles.py
+
+Lets take a look into the history:
+
+.. runrecord:: _examples/DL-108-6
+   :language: console
+   :workdir: dl-101/DataLad-101
+   :lines: 1-30
+   :emphasize-lines: 6, 11, 25
+
+   $ git log -p
+
+The commit message we have supplied with ``-m`` directly after ``datalad run`` appears
+in our history as a short summary.
+
+Also, note that the output of the command, the creation of ``recordings/Podcasts.tsv``,
+was saved right away.
+
+But what is more in this log entry is the section in between the
+``=== Do not change lines below ===`` and
+``^^^ Do not change lines above ^^^``.
+This is the so-called ``run-record`` - a recording of all of the
+information in the ``datalad run`` command, generated by DataLad.
+In this case, it is a very simple summary. One informative
+part is highlighted:
+``"cmd": "python code/list_titles.py"`` is the command that was run.
+This information therefore maps the command, and with it the script,
+to the output file, in one commit.
+
+Arguably, the run-record is not the most human-readable way to display information.
+This representation however is less for the human user (the human user should
+rely on their informative commit message), but for DataLad and the ``datalad rerun``
+command -- and you have to
+be patient for a few more sections to find out what this command does and how
+it is helpful. Prior to the magic of
+``datalad rerun``, we'll have to cover a bit more background
+and more complex ``datalad run`` examples.
+
+
+
+http://www.repronim.org/module-reproducible-basics/02-vcs/

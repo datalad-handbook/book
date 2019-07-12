@@ -19,9 +19,12 @@ The DataLad Handbook
    **Welcome to the DataLad handbook!**
 
    We are happy about and greatly appreciate your interest in the handbook.
-   Currently, the handbook is under initial development. You are welcome
-   to check out the existing content, but please consider the handbook to be in alpha
-   stage -- expect thourough changes and developments in all aspects of the book until further notice.
+   Currently, the handbook is under initial development. You are welcome to
+   check out the existing content, but please consider the handbook to be in
+   alpha stage -- expect thourough changes and developments in all aspects of
+   the book until further notice. Please also note that all examples are based
+   on a future release of DataLad version 0.12.
+
    If you would be willing to provide feedback on this, or a future beta version, please
    `get in touch <https://github.com/datalad-handbook/book/issues/new>`_.
 

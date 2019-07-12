@@ -30,6 +30,7 @@ Basics
    basics/101-6-nesting
    basics/101-7-summary
    basics/101-8-run
+   basics/101-9-run2
 
 #########
 Use Cases

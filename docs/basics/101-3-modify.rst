@@ -57,7 +57,7 @@ to accomplish this, but you can take any editor of your choice.
    :language: console
    :workdir: dl-101/DataLad-101
 
-   $ cat << EOT > notes.txt
+   $ cat << EOT >> notes.txt
    'datalad save [-m] PATH' saves the file (modifications) to history.
    Note to self: Always use informative, concise commit messages.
    EOT

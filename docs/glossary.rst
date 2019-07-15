@@ -10,6 +10,9 @@ Glossary
       The complete path from the root of the file system. Absolute paths always start with ``/``.
       Example: ``/home/user/studyforrest-phase-2/sub-02``. See also :term:`relative path`.
 
+   adjusted branch
+      (Git-annex term) TODO
+
    checksum
       TODO
 
@@ -38,6 +41,9 @@ Glossary
       TODO
 
    gitk
+      TODO
+
+   Github
       TODO
 
    globbing

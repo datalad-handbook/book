@@ -128,6 +128,6 @@ finished DataLad-101 project for you to download and explore in the future.
 Lets get going!
 ---------------
 
-If you have DataLad installed, you can dive straight into chapter 1. (Todo: link).
+If you have DataLad installed, you can dive straight into chapter 1, :ref:`createDS`.
 For everyone new, there are the sections :ref:`howto` as a minimal tutorial
 to using the shell and :ref:`install` to get your DataLad installation set up.

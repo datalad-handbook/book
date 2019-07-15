@@ -2,119 +2,15 @@ Datalad, Run! [2]
 -----------------
 
 In the previous section, you created a simple ``.tsv`` file of all
-speakers and talk titles in the longnow podcasts subdataset.
-Let's actually take a look into this file now:
+speakers and talk titles in the longnow podcasts subdataset, and you have
+re-executed a ``datalad run`` command after a bug-fix in your script.
 
-.. runrecord:: _examples/DL-101-9-1
-   :language: console
-   :workdir: dl-101/DataLad-101
-   :lines: 1-30
-
-   $ less recordings/Podcasts.tsv
-
-Not too bad, and certainly good enough for the podcast night people.
-What's been cool about creating this file is that it was created with
-a script within a ``datalad run`` command. Thanks to ``datalad run``,
-the output file ``Podcasts.tsv`` is associated with the script it
-generated.
-
-But this previous ``datalad run`` command was very simple. Maybe you noticed
-some values in the ``run-record`` were empty:
+But these previous ``datalad run`` and ``datalad rerun`` command were very simple.
+Maybe you noticed some values in the ``run-record`` were empty:
 ``outputs`` for example did not have an entry. Let's experience when
 ``outputs`` can become necessary.
 
-Upon reviewing the list you realized that you made a mistake: you only
-listed the talks in the SALT series (the
-``Long_Now__Seminars_About_Long_term_Thinking`` directory), but not
-in the ``Long_Now__Conversations_at_The_Interval/`` directory.
-Lets fix this in the script. Replace the contents in ``code/list_titles.py``
-with the following:
 
-.. code-block:: python
-
-   # import modules for path operations and pathname pattern expansion
-   from os.path import join, basename
-   from glob import glob
-
-   # define a path to the podcasts. Note that this is a relative path,
-   # pointing from the location the script resides to the podcasts:
-
-   path = join('recordings', 'longnow',
-               '*', '*')        # <-- here is the change!
-   # create a list of all file names found under the path
-   files = glob(path)
-   # define an outfile name:
-   outfile = join('recordings', 'Podcasts.tsv)
-
-   # loop through all file names and write speaker and title into the file
-   with open(outfile, 'w') as f:
-       for file in files:
-           # extract speaker name
-           author = basename(file).split('__')[1] \
-               if len(basename(file).split('__')[1].split('_')) > 1 \
-               else '__'.join(basename(file).split('__')[1:3])
-           # extract title
-           title = '_'.join(basename(file).split(author)[-1].split('__')[1:])
-           # write speaker and talk title into the file
-           f.write(author + '\t' + title + '\n')
-
-.. runrecord:: _examples/DL-109-2
-   :language: console
-   :workdir: dl-101/DataLad-101
-
-   $ cat << EOT > code/list_titles.py
-   # import modules for path operations and pathname pattern expansion
-   from os.path import join, basename
-   from glob import glob
-
-   # define a path to the podcasts. Note that this is a relative path,
-   # pointing from the root of DataLad-101 to the podcasts:
-
-   path = join('recordings', 'longnow',
-               '*', '*')        # <-- here is the change!
-   # create a list of all file names found under the path
-   files = glob(path)
-   # define an outfile name:
-   outfile = join('recordings', 'Podcasts.tsv')
-
-   # loop through all file names and write speaker and title into the file
-   with open(outfile, 'w') as f:
-       for file in files:
-           # extract speaker name
-           author = basename(file).split('__')[1] \
-               if len(basename(file).split('__')[1].split('_')) > 1 \
-               else '__'.join(basename(file).split('__')[1:3])
-           # extract title
-           title = '_'.join(basename(file).split(author)[-1].split('__')[1:])
-           # write speaker and talk title into the file
-           f.write(author + '\t' + title + '\n')
-   EOT
-
-Because the script is now modified, save the modifications to the dataset.
-We can use the shorthand "BF" to denote "Bug fix" in the commit message.
-
-
-.. runrecord:: _examples/DL-109-3
-   :language: console
-   :workdir: dl-101/DataLad-101
-
-   $ datalad status
-
-.. runrecord:: _examples/DL-109-4
-   :language: console
-   :workdir: dl-101/DataLad-101
-
-   $ datalad save -m "BF: list both directories content" code/list_titles.py
-
-Let's run the same ``datalad run`` command as before to recreate the file, but
-now with all of the contents:
-
-
-.. runrecord:: _examples/DL-109-5
-   :language: console
-   :workdir: dl-101/DataLad-101
-
-   $ datalad run -m "create a list of SALT podcast titles" python code/list_titles.py
 
 
 .. todo::
@@ -123,3 +19,5 @@ now with all of the contents:
    mittels 'datalad run convert -extract 1522x1522+1470+1470 sources/flowers.jpg pimpernel.jpg"'
    reveal.js präsentation einbauen
    mit pandoc oder rst2pdf notes.txt umbauen
+
+   Todo: datalad run mit nicht-aufgeräumter history

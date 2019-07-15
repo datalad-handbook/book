@@ -16,7 +16,7 @@ a DataLad dataset from scratch. Below is one way to do it, using the
 ``cat`` command that comes with any Unix system, and a simple redirection
 with ``>``.
 
-.. runrecord:: _examples/DL-101-40
+.. runrecord:: _examples/DL-101-103-1
    :language: console
    :workdir: dl-101
    :realcommand: cd DataLad-101 && cat << EOT > notes.txt
@@ -31,7 +31,7 @@ with ``>``.
 
 Run ``datalad status`` to confirm that there is new, untracked content:
 
-.. runrecord:: _examples/DL-101-42
+.. runrecord:: _examples/DL-101-103-2
    :language: console
    :workdir: dl-101
    :realcommand: cd DataLad-101 && datalad status
@@ -40,7 +40,7 @@ Run ``datalad status`` to confirm that there is new, untracked content:
 
 Save this file in its current state:
 
-.. runrecord:: _examples/DL-101-43
+.. runrecord:: _examples/DL-101-103-3
    :language: console
    :workdir: dl-101
    :realcommand: cd DataLad-101 && datalad save -m "Add notes on datalad create" notes.txt
@@ -53,7 +53,7 @@ Modify this file by adding another note. After all, you already know how use
 Again, the example below uses Unix commands (``cat`` and redirecting)
 to accomplish this, but you can take any editor of your choice.
 
-.. runrecord:: _examples/DL-101-44
+.. runrecord:: _examples/DL-101-103-4
    :language: console
    :workdir: dl-101/DataLad-101
 
@@ -64,7 +64,7 @@ to accomplish this, but you can take any editor of your choice.
 
 Lets check the datasets current state:
 
-.. runrecord:: _examples/DL-101-45
+.. runrecord:: _examples/DL-101-103-5
    :language: console
    :workdir: dl-101/DataLad-101
 
@@ -72,7 +72,7 @@ Lets check the datasets current state:
 
 and save the file:
 
-.. runrecord:: _examples/DL-101-46
+.. runrecord:: _examples/DL-101-103-6
    :language: console
    :workdir: dl-101/DataLad-101
 
@@ -84,7 +84,7 @@ file within each commit. (Note: the output below is an excerpt, if you enter
 the git log, your history will be longer. You can get out of git log by pressing
 ``q``.)
 
-.. runrecord:: _examples/DL-101-47
+.. runrecord:: _examples/DL-101-103-7
    :language: console
    :workdir: dl-101/DataLad-101
    :lines: 1-28

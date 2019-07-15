@@ -23,10 +23,10 @@ that we can modify ``notes.txt`` without unlocking its content first.
 
 The second commit message in our datasets history summarizes this:
 
-.. runrecord:: _examples/DL-101-11-1
+.. runrecord:: _examples/DL-101-111-1
    :language: console
    :workdir: dl-101/DataLad-101
-   :emphasize-lines: 12
+   :emphasize-lines: 3
 
    $ git log --oneline
 

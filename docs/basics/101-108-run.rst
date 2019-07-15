@@ -41,7 +41,7 @@ scripts in one dedicated directory per dataset. Therefore,
 create a subdirectory ``code/`` in the ``DataLad-101``
 superdataset:
 
-.. runrecord:: _examples/DL-108-1
+.. runrecord:: _examples/DL-101-108-101
    :language: console
    :workdir: dl-101/DataLad-101
 
@@ -53,7 +53,7 @@ It will loop through the filenames and
 write out speaker names and talk titles in a very simple fashion.
 The content of this script is written below - copy it into the script.
 
-.. runrecord:: _examples/DL-108-2
+.. runrecord:: _examples/DL-101-108-102
    :language: console
    :workdir: dl-101/DataLad-101
 
@@ -87,13 +87,13 @@ The content of this script is written below - copy it into the script.
 
 Save this script to the dataset.
 
-.. runrecord:: _examples/DL-108-3
+.. runrecord:: _examples/DL-101-108-103
    :language: console
    :workdir: dl-101/DataLad-101
 
    $ datalad status
 
-.. runrecord:: _examples/DL-108-4
+.. runrecord:: _examples/DL-101-108-104
    :language: console
    :workdir: dl-101/DataLad-101
 
@@ -111,7 +111,7 @@ command, followed by a commit message (``-m "a concise summary"``), and the
 command that executes the script from the shell: ``python code/list_titles.py``.
 Make sure to run this command from the root of ``DataLad-101``.
 
-.. runrecord:: _examples/DL-108-5
+.. runrecord:: _examples/DL-101-108-105
    :language: console
    :workdir: dl-101/DataLad-101
 
@@ -119,7 +119,7 @@ Make sure to run this command from the root of ``DataLad-101``.
 
 Lets take a look into the history:
 
-.. runrecord:: _examples/DL-108-6
+.. runrecord:: _examples/DL-101-108-106
    :language: console
    :workdir: dl-101/DataLad-101
    :lines: 1-30
@@ -157,7 +157,7 @@ So far, you created a simple ``.tsv`` file of all
 speakers and talk titles in the longnow podcasts subdataset.
 Let's actually take a look into this file now:
 
-.. runrecord:: _examples/DL-101-8-7
+.. runrecord:: _examples/DL-101-108-107
    :language: console
    :workdir: dl-101/DataLad-101
    :lines: 1-30
@@ -209,7 +209,7 @@ with the following:
            # write speaker and talk title into the file
            f.write(author + '\t' + title + '\n')
 
-.. runrecord:: _examples/DL-101-8-8
+.. runrecord:: _examples/DL-101-108-108
    :language: console
    :workdir: dl-101/DataLad-101
 
@@ -244,13 +244,13 @@ with the following:
 Because the script is now modified, save the modifications to the dataset.
 We can use the shorthand "BF" to denote "Bug fix" in the commit message.
 
-.. runrecord:: _examples/DL-101-8-9
+.. runrecord:: _examples/DL-101-108-109
    :language: console
    :workdir: dl-101/DataLad-101
 
    $ datalad status
 
-.. runrecord:: _examples/DL-101-8-10
+.. runrecord:: _examples/DL-101-108-110
    :language: console
    :workdir: dl-101/DataLad-101
 
@@ -273,7 +273,7 @@ try it in this very simple situation. To re-execute a ``datalad run`` command,
 find the checksum of its commit and use it as an argument for the
 ``datalad rerun`` command.
 
-.. runrecord:: _examples/DL-101-8-11
+.. runrecord:: _examples/DL-101-108-111
    :language: console
    :workdir: dl-101/DataLad-101
    :lines: 1-15
@@ -283,7 +283,7 @@ find the checksum of its commit and use it as an argument for the
 
 Take that checksum and paste it after ``datalad rerun``.
 
-.. runrecord:: _examples/DL-101-8-12
+.. runrecord:: _examples/DL-101-108-112
    :language: console
    :workdir: dl-101/DataLad-101
    :realcommand: echo "$ datalad rerun $(git rev-parse HEAD~2)" && datalad rerun $(git rev-parse HEAD~2)
@@ -297,7 +297,7 @@ does not add or change any content in the dataset, it will not be recorded in th
 We can see that ``datalad run`` was recorded. In the datasets history, this action is
 committed by Datalad under the original commit message:
 
-.. runrecord:: _examples/DL-101-8-13
+.. runrecord:: _examples/DL-101-108-113
    :language: console
    :workdir: dl-101/DataLad-101
 
@@ -317,7 +317,7 @@ more complex standard use cases: situations with *locked* contents.
 But prior to that, make a note about ``datalad run`` and ``datalad rerun`` in your
 ``notes.txt`` file.
 
-.. runrecord:: _examples/DL-101-8-14
+.. runrecord:: _examples/DL-101-108-114
    :language: console
    :workdir: dl-101/DataLad-101
 
@@ -333,7 +333,7 @@ But prior to that, make a note about ``datalad run`` and ``datalad rerun`` in yo
 
 Finally, save this note.
 
-.. runrecord:: _examples/DL-101-8-15
+.. runrecord:: _examples/DL-101-108-115
    :language: console
    :workdir: dl-101/DataLad-101
 

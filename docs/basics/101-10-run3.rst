@@ -251,6 +251,8 @@ If you used the ``--explicit`` flag, make sure to save your modifications to the
 
    - we need to address symlinks, objecttrees, etc.
 
+   - TODO: escape special characters
+
    evtl relevant:
    reveal.js präsentation einbauen
    mit pandoc oder rst2pdf notes.txt umbauen

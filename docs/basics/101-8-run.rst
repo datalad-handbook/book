@@ -149,6 +149,10 @@ This representation however is less for the human user (the human user should
 rely on their informative commit message), but for DataLad and the ``datalad rerun``
 command, which you will see in action at the end of this section.
 
+Note that any ``datalad run`` command that does not result in any changes
+in a dataset (no modification of existing content; no additional files)
+will not produce any record in the datasets history.
+
 So far, you created a simple ``.tsv`` file of all
 speakers and talk titles in the longnow podcasts subdataset.
 Let's actually take a look into this file now:
@@ -165,6 +169,10 @@ What's been cool about creating this file is that it was created with
 a script within a ``datalad run`` command. Thanks to ``datalad run``,
 the output file ``Podcasts.tsv`` is associated with the script it
 generated.
+
+Note that we executed the command from the root of the superdataset.
+It is recommended to use ``datalad run`` in the root of the dataset
+you want to record the changes in.
 
 Upon reviewing the list you realized that you made a mistake: you only
 listed the talks in the SALT series (the

@@ -28,7 +28,9 @@ Remembering the last lecture on ``datalad run``, you decide to plug this into
 
    runrecord a datalad run as in
 
-   ``datalad run "convert -resize 400x400 recordings/longnow/podcast_icon_seminars_02017_300x300.jpg recordings/cropped_logo.jpg"``
+   .. code-block:: bash
+
+      datalad run "convert -resize 400x400 recordings/longnow/podcast_icon_seminars_02017_300x300.jpg recordings/cropped_logo.jpg"
 
    without specifying the not yet present input
 
@@ -46,7 +48,7 @@ the file, because there is "No such file or directory".
 The second parts starts after ``[INFO   ] == Command exit (modification check follows) =====``.
 DataLad adds an information about a "non-zero exit code". A non-zero exit code indicates
 that something went wrong: in shell programming, commands exit with a specific code that indicates
-whether they failed, and if so, how. Successfull commands have the exit code zero. All failures
+whether they failed, and if so, how. Successful commands have the exit code zero. All failures
 have exit codes greater than zero. A few lines lower, DataLad even tells us the specific error
 code: the command failed with exitcode 1. In principle, you could go ahead a google what this
 specific exit status indicates. However, the solution might have already occured to you when
@@ -63,17 +65,57 @@ one file to retrieve, the command is
 
    do a runrecord of
 
-   ``datalad run`` --input "recordings/longnow/podcast_icon_seminars_02017_300x300.jpg" "convert -resize 400x400 recordings/longnow/podcast_icon_seminars_02017_300x300.jpg recordings/cropped_logo.jpg``
+   .. code-block:: bash
+
+      datalad run --input "recordings/longnow/podcast_icon_seminars_02017_300x300.jpg" "convert -resize 400x400 recordings/longnow/podcast_icon_seminars_02017_300x300.jpg recordings/cropped_logo.jpg
+      # or shorter:
+      datalad run -i "recordings/longnow/podcast_icon_seminars_02017_300x300.jpg" "convert -resize 400x400 recordings/longnow/podcast_icon_seminars_02017_300x300.jpg recordings/cropped_logo.jpg
 
 
+Cool! You can see in this output that prior to the data command execution, DataLad did a ``datalad get``.
+This is useful for several reasons. For one, it saved us the work of manually
+getting content. But moreover, this is useful for anyone whom we might share the
+dataset with: With an installed dataset one can very simply rerun ``datalad run`` commands
+if they have the input argument appropriately specified. It is therefore good practice to
+specify the inputs appropriately. Note that ``datalad get`` will only retrieve content if
+it is not yet present, all input already downloaded will not be downloaded again.
 
+.. container:: toggle
 
+   .. container:: header
+
+      **Addition: What if there are several inputs?**
+
+   Often, a command needs sevel inputs. In principle, every input gets its own ``-i``/``--input``
+   flag. However, you can make use of :term:`globbing`. For example,
+
+   .. code-block:: bash
+
+      datalad run --input "*.jpg" "COMMAND"
+
+   will retrieve all ``.jpg`` files prior to command execution.
+
+Looking at the resulting image, we realize however that 400x400 is still a tiny bit to small.
+Maybe we should try to resize it to 450x450, and see whether that looks better.
+
+Note that we can't use a ``datalad rerun`` for this: if we want to change that dimension option
+in the command, we have to define a new ``datalad run`` command.
+
+To establish best-practices, lets specify the input even though it is already present:
 
 .. todo::
 
-   Alternative: Extrahiere das png aus dem README für einen Vortrag, crop
-   mittels 'datalad run convert -extract 1522x1522+1470+1470 sources/flowers.jpg pimpernel.jpg"'
-   reveal.js präsentation einbauen
-   mit pandoc oder rst2pdf notes.txt umbauen
+   do a runrecord of
 
-   Todo: datalad run mit nicht-aufgeräumter history
+   .. code-block:: bash
+
+      datalad run --input "recordings/longnow/podcast_icon_seminars_02017_300x300.jpg" "convert -resize 450x450 recordings/longnow/podcast_icon_seminars_02017_300x300.jpg recordings/cropped_logo.jpg
+      # or shorter:
+      datalad run -i "recordings/longnow/podcast_icon_seminars_02017_300x300.jpg" "convert -resize 450x450 recordings/longnow/podcast_icon_seminars_02017_300x300.jpg recordings/cropped_logo.jpg
+
+Oh wtf... What is it now?
+
+A quick glimpse into the error message shows a different error than before:
+The tool complains that it is "unable to open" the image, because the a "Permission [is] denied"
+
+We haven't seen anything like this before, and we need to turn to our lecturer for help ...

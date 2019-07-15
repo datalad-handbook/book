@@ -1,8 +1,0 @@
-$ datalad run -m "create a list of SALT podcast titles" python code/list_titles.py
-[INFO] == Command start (output follows) ===== 
-[INFO] == Command exit (modification check follows) ===== 
-add(ok): recordings/Podcasts.tsv (file)
-save(ok): . (dataset)
-action summary:
-  add (ok: 1)
-  save (notneeded: 1, ok: 1)

@@ -1,6 +1,0 @@
-$ datalad save -m "Add simple script to write a list of podcast speakers and titles" code/list_titles.py
-add(ok): code/list_titles.py (file)
-save(ok): . (dataset)
-action summary:
-  add (ok: 1)
-  save (ok: 1)

@@ -1,0 +1,69 @@
+Content-protection, powered by Git-annex [2]
+--------------------------------------------
+
+Later in the day, after the lecture on ``datalad run``, you fall tired into your
+bed. Just as you are about to fall asleep, a thought crosses your mind:
+
+"I now know that tracked content in a dataset is protected by :term:`Git-annex`.
+Whenever tracked contents are ``saved``, they get locked and shouldn't be
+modifiable. But... what about the notes that I have been taking since the first day?
+Shouldn't I need to unlock them before I can modify them? How does that work?"
+
+This night, though, your question stays unanswered and you fall into a restless
+sleep filed with bad dreams about "permission denied" errors. The next day you're
+the first student in your lecturers' office hours.
+
+"Oh, you're really attentive. This is a great question!" our lecturer starts
+to explain.
+
+Do you remember that we created the ``DataLad-101`` dataset with a
+specific configuration template? It was the ``-c text2git`` option we
+provided in the beginning of :ref:`createDS`. It is because of this configuration
+that we can modify ``notes.txt`` without unlocking its content first.
+
+The second commit message in our datasets history summarizes this:
+
+.. runrecord:: _examples/DL-101-11-1
+   :language: console
+   :workdir: dl-101/DataLad-101
+   :emphasize-lines: 12
+
+   $ git log --oneline
+
+Instead of giving text files to Git-annex, the dataset stores it in :term:`Git`.
+But what does it mean if files are in Git instead of Git-annex?
+
+Well, procedurally it means that everyhing that is stored in Git-annex is
+content-locked, and everything that is stored in Git is not. You can modify
+content stored in Git straight away, without unlocking it first.
+
+That's easy enough.
+
+"So, first of all: If we hadn't provided the ``-c text2git`` argument, textfiles
+would get content-locked, too?". "Yes, indeed. However, there are also ways to
+later change how file content is handled based on its type or size. It can be specified
+in the ``.gitattributes`` file, using ``annex.largefile`` options.
+But there will be a lecture on that."
+
+"Okay, well, second: Isn't it much easier to just don't bother with locking and
+unlocking, and have everything 'stored in Git'? Even if ``datalad run`` takes care
+of unlocking content, I don't see the point of Git-annex", you continue.
+
+Here it gets tricky. To begin with the most important, and most straight-forward fact:
+It is not possible to store
+large files in Git. This is because Git would very quickly run into severe performance
+issues. For this reason, :term:`Github`, a well-known hosting site for projects using Git,
+for example does not allow files larger than 100MB of size. Therefore, it is not
+possible to track larger files only with Git.
+
+But here comes the second, tricky part: There are ways to get rid of locking and
+unlocking whithin Git-annex, using so-called :term:`adjusted branch`\es.
+This functionality is dependent on the Git-annex
+version one has installed, the Git-annex version of the repository, and a
+use-case dependent comparison of the pros and cons. BUT: it is possible,
+and in many cases useful, and in later sections we will see how to use this
+feature.
+
+.. todo::
+
+   add content on git annex largefiles at a later stage. here are resources: https://git-annex.branchable.com/tips/largefiles/

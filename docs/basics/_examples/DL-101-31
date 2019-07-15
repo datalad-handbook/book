@@ -1,6 +1,0 @@
-$ datalad save -m "add reference book about git" books/progit.pdf
-add(ok): books/progit.pdf (file)
-save(ok): . (dataset)
-action summary:
-  add (ok: 1)
-  save (ok: 1)

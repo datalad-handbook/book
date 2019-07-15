@@ -1,7 +1,0 @@
-$ datalad save -m "add books on Python and Unix to read later"
-add(ok): books/TLCL.pdf (file)
-add(ok): books/byte-of-python.pdf (file)
-save(ok): . (dataset)
-action summary:
-  add (ok: 2)
-  save (ok: 1)

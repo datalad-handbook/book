@@ -28,7 +28,7 @@ of data came into existence. This latter aspect, the :term:`provenance` of data
 -- information on its lineage and *how* it came to be in its current state, -- is
 often key to understanding or establishing trust in data.  In collaborative
 fields that work with small-sized data such as Wikipedia pages or software
-development, :term:`version control` are established and indispensable. These
+development, :term:`version control` tools are established and indispensable. These
 tools allow users to keep track of changes, view previous states, or restore
 older versions.  How about a **version control system for data**?
 

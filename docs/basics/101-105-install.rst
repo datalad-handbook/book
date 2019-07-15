@@ -256,10 +256,10 @@ For example, we can find out who created the dataset in the first place
 .. runrecord:: _examples/DL-101-105-110
    :language: console
    :workdir: dl-101/DataLad-101/recordings/longnow
-   :lines: 1, 74-84
    :emphasize-lines: 3
+   :lines: 1-13
 
-   $ git log
+   $ git log --reverse
 
 But thats not all. The seminar series is ongoing, and more recordings can get added
 to the original repository shared on Github.

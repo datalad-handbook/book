@@ -276,17 +276,17 @@ find the checksum of its commit and use it as an argument for the
 .. runrecord:: _examples/DL-101-108-111
    :language: console
    :workdir: dl-101/DataLad-101
-   :lines: 1-15
-   :emphasize-lines: 2
+   :lines: 1-12
+   :emphasize-lines: 8
 
-   $ git log -p -2
+   $ git log -2
 
 Take that checksum and paste it after ``datalad rerun``.
 
 .. runrecord:: _examples/DL-101-108-112
    :language: console
    :workdir: dl-101/DataLad-101
-   :realcommand: echo "$ datalad rerun $(git rev-parse HEAD~2)" && datalad rerun $(git rev-parse HEAD~2)
+   :realcommand: echo "$ datalad rerun $(git rev-parse HEAD~1)" && datalad rerun $(git rev-parse HEAD~1)
 
 Now DataLad has made use out of the runrecord, and re-executed the command. Because we
 updated the script, the output now contains the podcast titles of both subdirectories.
@@ -330,6 +330,7 @@ But prior to that, make a note about ``datalad run`` and ``datalad rerun`` in yo
    in datalad rerun CHECKSUM. DataLad will take information form the runrecord of the original
    commit, and re-execute it. If no changes happen with a rerun, the command will not be written
    to history. Note: you can also rerun a datalad rerun command!
+   EOT
 
 Finally, save this note.
 

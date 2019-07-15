@@ -305,3 +305,28 @@ remember the commands or scripts involved in creating an output.
 
 However, the next section will demonstrate how ``datalad run`` becomes handy in
 more complex standard use cases: situations with *locked* contents.
+
+But prior to that, make a note about ``datalad run`` and ``datalad rerun`` in your
+``notes.txt`` file.
+
+.. runrecord:: _examples/DL-109-9
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ cat << EOT >> notes.txt
+   The datalad run command can record the impact a script or command has on a Dataset.
+   In its most simple form, datalad run only takes a commit message and the command that
+   should be executed.
+
+   Any datalad run command can be re-executed by using its commit checksum as an argument
+   in datalad rerun CHECKSUM. DataLad will take information form the runrecord of the original
+   commit, and re-execute it. If no changes happen with a rerun, the command will not be written
+   to history. Note: you can also rerun a datalad rerun command!
+
+Finally, save this note.
+
+.. runrecord:: _examples/DL-109-10
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   datalad save -m "add note on basic datalad run and datalad rerun" notes.txt

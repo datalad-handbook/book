@@ -200,5 +200,5 @@ Well done! You're ``DataLad-101`` dataset and it's history are slowly growing.
 
 .. rubric:: Footnotes
 
-.. [#f1] A nice and easy tool we can recommend as an alternative to ``git log`` is :term:`tig`.
-         Once installed, exchange any git log command you see here with the single word ``tig``.
+.. [#f1] See :term:`tig`. Once installed, exchange any git log command you
+   see here with the single word ``tig``.

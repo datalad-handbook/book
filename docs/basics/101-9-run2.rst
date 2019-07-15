@@ -7,8 +7,64 @@ re-executed a ``datalad run`` command after a bug-fix in your script.
 
 But these previous ``datalad run`` and ``datalad rerun`` command were very simple.
 Maybe you noticed some values in the ``run-record`` were empty:
-``outputs`` for example did not have an entry. Let's experience when
-``outputs`` can become necessary.
+``inputs`` and ``outputs`` for example did not have an entry. Let's experience when
+these two arguments can become necessary.
+
+In our DataLad-101 course we were given a group assignment. Everyone should
+give a small presentation about an open DataLad dataset they found. Conveniently,
+we settled for the longnow podcasts. We know the dataset quite well already,
+and after listening to almost a third of them and enjoying them a lot,
+we also want to recommend them to others.
+
+Almost all of the slides are ready, but whats still missing is the logo of the
+longnow podcasts. Good thing that this is part of the subdataset, so we can simply
+extract it. For the slides we need an image of size 400x400 px, and therefore let's try to
+resize the image using the Unix command ``convert -resize 400x400 newfilename.jpg``
+
+Remembering the last lecture on ``datalad run``, you decide to plug this into
+``datalad run``.
+
+.. todo::
+
+   runrecord a datalad run as in
+
+   ``datalad run "convert -resize 400x400 recordings/longnow/podcast_icon_seminars_02017_300x300.jpg recordings/cropped_logo.jpg"``
+
+   without specifying the not yet present input
+
+Oh, crap! Why didn't this work?
+
+Lets take a look at the error message DataLad provides. In general, these error messages
+might seem wordy, and maybe a bit intimidating as well, but usually they provide helpful
+information to find out what is wrong.
+
+A ``datalad run`` error message has several parts. The first starts after
+``[INFO   ] == Command start (output follows) =====``. This is an error that the
+terminal command threw: The tool ``convert-im6.q16`` complains that it can't open
+the file, because there is "No such file or directory".
+
+The second parts starts after ``[INFO   ] == Command exit (modification check follows) =====``.
+DataLad adds an information about a "non-zero exit code". A non-zero exit code indicates
+that something went wrong: in shell programming, commands exit with a specific code that indicates
+whether they failed, and if so, how. Successfull commands have the exit code zero. All failures
+have exit codes greater than zero. A few lines lower, DataLad even tells us the specific error
+code: the command failed with exitcode 1. In principle, you could go ahead a google what this
+specific exit status indicates. However, the solution might have already occured to you when
+reading the first error report: The file is not present.
+
+How can that be? Right, we did not ``datalad get`` it!
+
+This is where the ``-i``/``--input`` option for a datalad run becomes useful.
+The content of everything that is specified as an ``input`` will be retrieved
+prior to running the command. Use one ``-i``/``--input`` flag per input: As we have only
+one file to retrieve, the command is
+
+.. todo::
+
+   do a runrecord of
+
+   ``datalad run`` --input "recordings/longnow/podcast_icon_seminars_02017_300x300.jpg" "convert -resize 400x400 recordings/longnow/podcast_icon_seminars_02017_300x300.jpg recordings/cropped_logo.jpg``
+
 
 
 

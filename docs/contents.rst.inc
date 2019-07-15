@@ -32,6 +32,7 @@ Basics
    basics/101-8-run
    basics/101-9-run2
    basics/101-10-run3
+   basics/101-11-summary
 
 #########
 Use Cases

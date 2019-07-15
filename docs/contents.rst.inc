@@ -33,6 +33,7 @@ Basics
    basics/101-9-run2
    basics/101-10-run3
    basics/101-11-summary
+   basics/101-11-txt2git
 
 #########
 Use Cases

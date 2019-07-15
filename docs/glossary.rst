@@ -40,6 +40,13 @@ Glossary
    gitk
       TODO
 
+   globbing
+      A powerful pattern matching function of a shell. Allows to match the names of multiple files
+      or directories. The most basic pattern is ``*``, which matches any number of character, such
+      that ``ls *.txt`` will list all ``.txt`` files in the current directory.
+      You can read about more about Pattern Matching in
+      `Bash's Docs <https://www.gnu.org/savannah-checkouts/gnu/bash/manual/bash.html#Pattern-Matching>`_.
+
    metadata
       "Data about data": Information about one or more aspects of data used to summmarize
       basic information, for example means of create of the data, creator or author, size,

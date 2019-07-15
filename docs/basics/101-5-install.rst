@@ -215,7 +215,7 @@ we can use ``.`` to refer to all of the dataset like this:
 
    $ datalad get .
 
-(However, with a total size of 14.1GB, this might take a while, so don't do that now)
+(However, with a total size of more than 15GB, this might take a while, so don't do that now)
 
 Isn't that easy?
 
@@ -276,6 +276,7 @@ modification.
    :language: console
    :workdir: dl-101/DataLad-101/
 
+   # in the root of DataLad-101:
    $ cat << EOT >> notes.txt
    The command 'datalad install [--source] PATH' installs a dataset from e.g. a URL or a path.
    If you install a dataset into an existing dataset (as a subdataset), remember to specify the

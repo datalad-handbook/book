@@ -22,18 +22,18 @@ Basics
    basics/installation
    basics/datasets
    basics/howto
-   basics/101-1-create
-   basics/101-2-populate
-   basics/101-3-modify
-   basics/101-4-summary
-   basics/101-5-install
-   basics/101-6-nesting
-   basics/101-7-summary
-   basics/101-8-run
-   basics/101-9-run2
-   basics/101-10-run3
-   basics/101-11-summary
-   basics/101-11-txt2git
+   basics/101-101-create
+   basics/101-102-populate
+   basics/101-103-modify
+   basics/101-104-summary
+   basics/101-105-install
+   basics/101-106-nesting
+   basics/101-107-summary
+   basics/101-108-run
+   basics/101-109-run2
+   basics/101-110-run3
+   basics/101-111-summary
+   basics/101-112-git2txt
 
 #########
 Use Cases

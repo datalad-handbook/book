@@ -8,8 +8,8 @@ DataLad is a software tool developed to aid with everything related to the
 evolution of digital objects. It is not only keeping track of code, and it is not
 only keeping track of data, but it assists with the combination of all things
 necessary in the digitial workflow of science.
-As built-in, but *optional* features, DataLad yields FAIR resources - for example
-:term:`metadata` and :term:`provenance` - and everything can be easily shared
+As built-in, but *optional* features, DataLad yields FAIR resources -- for example
+:term:`metadata` and :term:`provenance` -- and everything can be easily shared
 *should the user want this*.
 
 DataLad is built up on a handful of principles.

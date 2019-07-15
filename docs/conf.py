@@ -125,7 +125,8 @@ html_theme_options = {
     'note_bg': '#e2eacdff',
     # the real "DataLad dark gray"
     'note_border': '#333333ff',
-    'fixed_sidebar': True
+    'fixed_sidebar': True,
+    'show_relbar_bottom': True,
 }
 
 # Add any paths that contain custom themes here, relative to this directory.

@@ -1,0 +1,13 @@
+$ git log --oneline
+847b4aa add note on basic datalad run and datalad rerun
+1a8128d BF: list both directories content
+0ad74e0 [DATALAD RUNCMD] create a list of SALT podcast titles
+00fb79e Add simple script to write a list of podcast speakers and titles
+14b02b5 Add note on datalad install
+8f92a76 [DATALAD] Recorded changes
+e9cd822 add note on datalad save
+62bb2a4 Add notes on datalad create
+ccb499b add reference book about git
+12f5f95 add books on Python and Unix to read later
+999a0b2 Instruct annex to add text files to Git
+0e354f2 [DATALAD] new dataset

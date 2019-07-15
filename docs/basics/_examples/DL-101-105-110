@@ -1,0 +1,288 @@
+$ git log --reverse
+commit 8df130bb825f99135c34b8bf0cbedb1b05edd581
+Author: Michael Hanke <michael.hanke@gmail.com>
+Date:   Mon Jul 16 16:08:23 2018 +0200
+
+    [DATALAD] Set default backend for all files to be MD5E
+
+commit 3d0dc8f5e9e4032784bc5a08d243995ad5cf92f9
+Author: Michael Hanke <michael.hanke@gmail.com>
+Date:   Mon Jul 16 16:08:24 2018 +0200
+
+    [DATALAD] new dataset
+
+commit b81bdea645d83c2ddef360faddafd0a778d03e1a
+Author: Michael Hanke <michael.hanke@gmail.com>
+Date:   Mon Jul 16 17:03:21 2018 +0200
+
+    Import SALT feed
+
+commit 9f3127fad2dbb3848d8d9a0ff85e6a151a47b50f
+Author: Michael Hanke <michael.hanke@gmail.com>
+Date:   Mon Jul 16 17:18:10 2018 +0200
+
+    Import Interval feed
+
+commit a052af9c059a82f36ee20ec708252568767ed067
+Author: Michael Hanke <michael.hanke@gmail.com>
+Date:   Mon Jul 16 17:30:47 2018 +0200
+
+    Include publication date in the filename
+
+commit ff007135c3c290c24ebdb2b3f1459236a25f7410
+Author: Michael Hanke <michael.hanke@gmail.com>
+Date:   Fri Dec 14 18:58:03 2018 +0100
+
+    Update from feed
+    
+    Via: git annex importfeed --template '${feedtitle}/${itempubdate}__${itemtitle}${extension}' --force http://longnow.org/projects/seminars/SALT.xml
+
+commit 7f36dea615f0fe117aed74a04ad325aacc714111
+Author: Michael Hanke <michael.hanke@gmail.com>
+Date:   Fri Dec 14 19:00:08 2018 +0100
+
+    Update from feed
+    
+    Via: git annex importfeed --template '${feedtitle}/${itempubdate}__${itemtitle}${extension}' --force http://longnow.org/projects/seminars/interval.xml
+
+commit 21d92907c1d05b246ea5eee805ac00c91366ae04
+Author: Michael Hanke <michael.hanke@gmail.com>
+Date:   Wed Jul 10 09:41:13 2019 +0200
+
+    [DATALAD RUNCMD] Update Interval seminar series
+    
+    === Do not change lines below ===
+    {
+     "chain": [],
+     "cmd": "git annex importfeed --template '${{feedtitle}}/${{itempubdate}}__${{itemtitle}}${{extension}}' --force http://longnow.org/projects/seminars/interval.xml",
+     "dsid": "b3ca2718-8901-11e8-99aa-a0369f7c647e",
+     "exit": 0,
+     "extra_inputs": [],
+     "inputs": [],
+     "outputs": [],
+     "pwd": "."
+    }
+    ^^^ Do not change lines above ^^^
+
+commit e1bf31e3e91d97944b17c678036183e1d08d1598
+Author: Michael Hanke <michael.hanke@gmail.com>
+Date:   Wed Jul 10 09:43:02 2019 +0200
+
+    [DATALAD RUNCMD] Update SALT series
+    
+    === Do not change lines below ===
+    {
+     "chain": [],
+     "cmd": "git annex importfeed --template '${{feedtitle}}/${{itempubdate}}__${{itemtitle}}${{extension}}' --force http://longnow.org/projects/seminars/SALT.xml",
+     "dsid": "b3ca2718-8901-11e8-99aa-a0369f7c647e",
+     "exit": 0,
+     "extra_inputs": [],
+     "inputs": [],
+     "outputs": [],
+     "pwd": "."
+    }
+    ^^^ Do not change lines above ^^^
+
+commit e64d00f3c00309ec35cc360011563cdba474978a
+Author: Michael Hanke <michael.hanke@gmail.com>
+Date:   Thu Jul 11 18:37:01 2019 +0200
+
+    Prepare for addition of RSS feed metadata on episodes
+
+commit f0831b9c00b6fd11359321aa6bb9e2c58557961f
+Author: Michael Hanke <michael.hanke@gmail.com>
+Date:   Thu Jul 11 18:42:08 2019 +0200
+
+    Script to convert the RSS feed metadata into JSON-LD metadata
+    
+    For consumption by the `custom` metadata extractor
+
+commit 9bece59fbd606290a124bbf9a3dc3218e4b7612e
+Author: Michael Hanke <michael.hanke@gmail.com>
+Date:   Thu Jul 11 18:48:51 2019 +0200
+
+    Add duration to the metadata
+
+commit ead809e901232746e89ab3c1ecacef4fcb0e6f49
+Author: Michael Hanke <michael.hanke@gmail.com>
+Date:   Thu Jul 11 19:18:30 2019 +0200
+
+    Be resilient with different delimiters
+
+commit 979bd25bd55538ff6f5efd1c780fc3bdc30c7701
+Author: Michael Hanke <michael.hanke@gmail.com>
+Date:   Thu Jul 11 19:19:04 2019 +0200
+
+    Single update maintainer script
+
+commit 3e96466a522e36c1cbe70cf577a322917b5961e9
+Author: Michael Hanke <michael.hanke@gmail.com>
+Date:   Thu Jul 11 19:23:56 2019 +0200
+
+    More diff-able
+
+commit 61f46fca4bc9b19e9e812353e3cf75a9edc7e694
+Author: Michael Hanke <michael.hanke@gmail.com>
+Date:   Thu Jul 11 19:27:50 2019 +0200
+
+    Add base dataset metadata
+
+commit 740fa141299f852d37dbb3dd58f964c0df4c8fd3
+Author: Michael Hanke <michael.hanke@gmail.com>
+Date:   Thu Jul 11 19:28:23 2019 +0200
+
+    [DATALAD RUNCMD] Update from feed
+    
+    === Do not change lines below ===
+    {
+     "chain": [],
+     "cmd": ".datalad/maint/update.sh",
+     "dsid": "b3ca2718-8901-11e8-99aa-a0369f7c647e",
+     "exit": 0,
+     "extra_inputs": [],
+     "inputs": [],
+     "outputs": [],
+     "pwd": "."
+    }
+    ^^^ Do not change lines above ^^^
+
+commit 39226e9f8a9a11df3c8e86ca360f80f4c3a236e9
+Author: Michael Hanke <michael.hanke@gmail.com>
+Date:   Thu Jul 11 19:35:10 2019 +0200
+
+    Update aggregated metadata
+
+commit 0553111de6eb48deabd3efeee070cb7e070702aa
+Author: Michael Hanke <michael.hanke@gmail.com>
+Date:   Fri Jul 12 12:36:53 2019 +0200
+
+    content removed from git annex
+
+commit b9c517e007437677f1e0d54395a7852960a57918
+Author: Michael Hanke <michael.hanke@gmail.com>
+Date:   Fri Jul 12 12:37:16 2019 +0200
+
+    Make sure extracted metadata is directly in Git
+    
+    to avoid the need for separate hosting
+
+commit 5dd77723418c5c25bf49a29d55e8db273dd39217
+Author: Michael Hanke <michael.hanke@gmail.com>
+Date:   Fri Jul 12 12:38:16 2019 +0200
+
+    Manually place extracted metadata in Git
+
+commit 75d7f3fde28f63d14c506cfdd4bbf5e4854d83ec
+Author: Michael Hanke <michael.hanke@gmail.com>
+Date:   Mon Jul 15 07:10:28 2019 +0200
+
+    Rename metadata directory
+
+commit 1a396a641473ea95441c42891cf8dffdde837503
+Author: Michael Hanke <michael.hanke@gmail.com>
+Date:   Mon Jul 15 07:19:22 2019 +0200
+
+    Prepare to annex big feed logos
+
+commit 8053eed2a84780369cf156e3f856fbe57c0f688e
+Author: Michael Hanke <michael.hanke@gmail.com>
+Date:   Mon Jul 15 07:20:06 2019 +0200
+
+    Add annexed feed logos
+
+commit 80310175aa64035d0a18248cb882586d2e6ea394
+Author: Michael Hanke <michael.hanke@gmail.com>
+Date:   Mon Jul 15 07:50:44 2019 +0200
+
+    Consolidate all metadata-related files under .datalad
+    
+    This prevents such content from being intermingled with the
+    "intentional" dataset components.
+
+commit 997e07abf57669dcf818bffdc819fa92eddf5659
+Author: Michael Hanke <michael.hanke@gmail.com>
+Date:   Mon Jul 15 07:51:50 2019 +0200
+
+    Update aggregated metadata
+
+commit 43fdea19c2f87c70c3317c8886d4701b8acfe708
+Author: Michael Hanke <michael.hanke@gmail.com>
+Date:   Mon Jul 15 09:57:35 2019 +0200
+
+    Add script to generate a README from DataLad metadata
+
+commit 4b37790cd97f03a7807f82f20497218dc18898d0
+Author: Michael Hanke <michael.hanke@gmail.com>
+Date:   Mon Jul 15 10:03:27 2019 +0200
+
+    Fix README generator to parse correct directory
+
+commit e8296151fa2d1592791c8882a1c10c00c523267c
+Author: Michael Hanke <michael.hanke@gmail.com>
+Date:   Mon Jul 15 10:10:27 2019 +0200
+
+    Link to the handbook as a source of wisdom
+
+commit 7ee3ded7f0c18dc767fc32c850b57a03fcb792b9
+Author: Michael Hanke <michael.hanke@gmail.com>
+Date:   Mon Jul 15 10:22:06 2019 +0200
+
+    Sort episodes newest-first
+
+commit 004e484d05a93c6ca46438ffe7878f8e3d53312e
+Author: Michael Hanke <michael.hanke@gmail.com>
+Date:   Mon Jul 15 10:22:38 2019 +0200
+
+    [DATALAD RUNCMD] .datalad/maint/make_readme.py
+    
+    === Do not change lines below ===
+    {
+     "chain": [],
+     "cmd": ".datalad/maint/make_readme.py",
+     "dsid": "b3ca2718-8901-11e8-99aa-a0369f7c647e",
+     "exit": 0,
+     "extra_inputs": [],
+     "inputs": [
+      ".datalad/maint/README.md.in"
+     ],
+     "outputs": [
+      "README.md"
+     ],
+     "pwd": "."
+    }
+    ^^^ Do not change lines above ^^^
+
+commit bafdc041eac093760faa7cab3ca6196da99a39d9
+Author: Michael Hanke <michael.hanke@gmail.com>
+Date:   Mon Jul 15 12:45:36 2019 +0200
+
+    Uniformize JSON-LD context with DataLad's internal extractors
+    
+    This makes it easier to merge documents for a joint report.
+
+commit 36a30a1a1d8725658410b650d516d9d3c640427d
+Author: Michael Hanke <michael.hanke@gmail.com>
+Date:   Mon Jul 15 12:59:27 2019 +0200
+
+    [DATALAD RUNCMD] Update from feed
+    
+    === Do not change lines below ===
+    {
+     "chain": [
+      "740fa141299f852d37dbb3dd58f964c0df4c8fd3"
+     ],
+     "cmd": ".datalad/maint/update.sh",
+     "dsid": "b3ca2718-8901-11e8-99aa-a0369f7c647e",
+     "exit": 0,
+     "extra_inputs": [],
+     "inputs": [],
+     "outputs": [],
+     "pwd": "."
+    }
+    ^^^ Do not change lines above ^^^
+
+commit dcc34fbe669b06ced84ced381ba0db21cf5e665f
+Author: Michael Hanke <michael.hanke@gmail.com>
+Date:   Mon Jul 15 13:06:52 2019 +0200
+
+    Update aggregated metadata

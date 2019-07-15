@@ -1,0 +1,1 @@
+$ datalad save -m "BF: list both directories content" code/list_titles.py

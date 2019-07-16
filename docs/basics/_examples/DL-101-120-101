@@ -1,0 +1,3 @@
+$ cd ../
+$ mkdir mock_user
+mkdir: cannot create directory ‘mock_user’: File exists

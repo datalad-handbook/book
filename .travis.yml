@@ -2,6 +2,8 @@ dist: xenial
 language: python
 python:
   - "3.6"
+cache:
+  - apt
 install:
   - sudo apt-get install texlive-latex-recommended texlive-fonts-recommended texlive-latex-extra latexmk librsvg2-bin plantuml
   # plantuml is really outdated, smuggle in the latest upstream

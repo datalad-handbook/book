@@ -10,6 +10,13 @@ Glossary
       The complete path from the root of the file system. Absolute paths always start with ``/``.
       Example: ``/home/user/Pictures/xkcd-webcomics/530.png``. See also :term:`relative path`.
 
+   checksum
+      TODO
+
+   commit
+      Adding selected changes of a file or dataset to the repository, and thus making these changes
+      part of the revision history of the repository. Should always have an informative :term:`commit message`
+
    commit message
       A consise summary of changes you should attach to a ``datalad save`` command. This summary will
       show up in your :term:`Datalad dataset` history.
@@ -58,9 +65,19 @@ Glossary
    symlink
       TODO
 
+   the DataLad superdataset ///
+      TODO
+
    tig
       A text-mode interface for git that allows you to easily browse through your commit history.
       It is not part of git and needs to be installed. Find out more `here <https://jonas.github.io/tig/>`_.
 
    version control
       The management of changes to documents or other collections of information
+
+   vim
+      A text editor, often the default in UNIX operating systems. If you are not used to using it,
+      but ended up in it accidentally: press ``ESC`` ``:`` ``q`` ``!`` ``Enter`` to exit without saving.
+      Here is help: `A vim tutorial <https://www.openvim.com/>`_ and
+      `how to configure the default editor for git <https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration>`_.
+

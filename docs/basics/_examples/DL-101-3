@@ -1,0 +1,12 @@
+$ git log
+commit 3faaeb76c02adc4d02b3809312837c0ff88c1f79
+Author: Adina Wagner <adina.wagner@t-online.de>
+Date:   Wed Jul 10 22:57:20 2019 +0200
+
+    Instruct annex to add text files to Git
+
+commit 90bd87e35955ab90e8b06ea0d38e0e18048b87cf
+Author: Adina Wagner <adina.wagner@t-online.de>
+Date:   Wed Jul 10 22:57:20 2019 +0200
+
+    [DATALAD] new dataset

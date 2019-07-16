@@ -51,16 +51,36 @@ that you capitalize exactly as shown if you try it out yourself.
 The options modify the behavior of the program, and are usually preceded by ``-`` or ``--``.
 In this example
 
-.. code-block:: bash
 
-   $ ls -l test.txt
-   -rw-r--r-- 1 adina adina 9 Jun 24 15:57 test.txt
+.. runrecord:: _examples/how-to-1
+   :language: console
+   :workdir: dl-101
+   :lines: 1, 5
+   :realcommand: dd if=/dev/zero of=output.txt  bs=1M  count=24 && ls -l output.txt
+
+   $ ls -l output.txt
 
 
-``ls`` is the *command*. The *option* ``-l`` tells ``ls`` to display more information.
-``test.txt`` is the *argument* — the file that ``ls`` is listing.
+``ls`` is the *command*. The *option* ``-l`` tells ``ls`` to use a long listing format and
+thus display more information.
+``output.txt`` is the *argument* — the file that ``ls`` is listing.
+The difference between options preceded by ``-`` and ``--`` is their length:
+Usually, all options starting with a single dash are single letters. Often,
+a long, double-dashed option exists for these short options as well. For example,
+to list the size of a file in a *human-readable* format, supply the short option
+``-h``, or, alternatively, its longer form, ``--human-readable``.
 
-Every command has many options (often called "flags") that modify their behavior.
+
+.. runrecord:: _examples/how-to-2
+   :language: console
+   :workdir: dl-101
+   :realcommand: ls -lh output.txt && rm output.txt
+
+   $ ls -lh output.txt    # note that short options can be combined!
+   # or alternatively
+   $ ls -l --human-readable output.txt
+
+Every command has many of those options (often called "flags") that modify their behavior.
 There are too many to even consider memorizing. Remember the ones you use often,
 and the rest you will lookup in their documentation or via your favorite search engine.
 DataLad commands naturally also come with many options, and in the next chapters

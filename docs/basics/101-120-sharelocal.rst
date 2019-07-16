@@ -34,7 +34,7 @@ To install ``DataLad-101`` with datalad install into a different part
 of your file system, navigate out of ``DataLad-101``, and -- for
 simplicity -- create a new directory, ``mock_user``, right next to it:
 
-.. runrecord:: _examples/DL-101-113-101
+.. runrecord:: _examples/DL-101-120-101
    :language: console
    :workdir: dl-101/DataLad-101
 
@@ -44,7 +44,7 @@ simplicity -- create a new directory, ``mock_user``, right next to it:
 Afterwards, navigate into ``mock_user`` and install the dataset
 ``DataLad-101`` by specifying its path as a ``--source``.
 
-.. runrecord:: _examples/DL-101-113-102
+.. runrecord:: _examples/DL-101-120-102
    :language: console
    :workdir: dl-101
 
@@ -59,7 +59,7 @@ dataset under its original name in the current directory.
 Lets see what this dataset looks like. Before running the command,
 try to predict what you will see.
 
-.. runrecord:: _examples/DL-101-113-103
+.. runrecord:: _examples/DL-101-120-103
    :language: console
    :workdir: dl-101/mock_user
 
@@ -80,7 +80,7 @@ opened.
 
 Lets start by examing the PDFs further. Try to get one of the books:
 
-.. runrecord:: _examples/DL-101-113-104
+.. runrecord:: _examples/DL-101-120-104
    :language: console
    :workdir: dl-101/mock_user/DataLad-101
 
@@ -93,7 +93,7 @@ that original content?
 This information comes from Git-annex. Before getting the next PDF,
 lets query Git-Annex where its content is stored:
 
-.. runrecord:: _examples/DL-101-113-105
+.. runrecord:: _examples/DL-101-120-105
    :language: console
    :workdir: dl-101/mock_user/DataLad-101
 

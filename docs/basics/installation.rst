@@ -134,7 +134,7 @@ In the following example, exchange ``Bob McBobFace`` with your own name, and
 This information is used to track changes in the DataLad projects you will
 be working on. Based on this information, changes you make are associated
 with your name and email address, and you should use a real email address
-and name - it does not establish a lot of trust nor is it helpful after a few
+and name -- it does not establish a lot of trust nor is it helpful after a few
 years if your history, especially in a collaborative project, shows
 that changes were made by ``Anonymous`` with the email
 ``youdontgetmy@email.fu``.

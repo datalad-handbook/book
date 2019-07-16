@@ -6,9 +6,9 @@ Without noticing, the previous section demonstrated another core principle
 and feature of DataLad datasets: *Nesting*.
 
 Within DataLad datasets one can *nest* other DataLad
-datasets arbitralily deep. We for example just installed one dataset, the
+datasets arbitrarily deep. We for example just installed one dataset, the
 ``longnow`` podcast, *into* another dataset, the ``DataLad-101`` dataset.
-This does not seem particulary spectacular --
+This does not seem particularly spectacular --
 after all, any directory on a filesystem can have other directories inside of it.
 
 The possibility for nested Datasets, however, is one of many advantages
@@ -33,8 +33,8 @@ this excerpt).
 .. runrecord:: _examples/DL-101-6-1
    :language: console
    :workdir: dl-101/DataLad-101
-   :lines: 1, 19-41
-   :emphasize-lines: 24
+   :lines: 1, 19-42
+   :emphasize-lines: 25
    :realcommand: git log -p
 
 
@@ -48,7 +48,7 @@ DataLad stores what it calls a *subproject commit* of the subdataset.
 The cryptic character sequence in this line is the checksum we have briefly
 mentioned before, and it is
 how DataLad internally identifies files and changes to files. Exactly this
-checksum is what describes the state of the subdatset.
+checksum is what describes the state of the subdataset.
 
 This highlights a different aspect as well: Note that the ``longnow`` dataset
 is a completely independent, standalone dataset that was once created and
@@ -78,7 +78,7 @@ we can set subdatasets to previous states, or *update* them.
 
 In the upcoming sections, we'll experience the perks of dataset nesting
 frequently, and everything that might seem vague at this point will become
-clearer. To conclude this demonstation,
+clearer. To conclude this demonstration,
 the figure below illustrates the current state of the dataset
 and nesting schematically:
 

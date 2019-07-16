@@ -79,6 +79,99 @@ Once Git-annex is available, DataLad can be installed via ``pip`` as described a
 
 
 
+Windows 10
+----------
+
+There are two ways to use DataLad on Windows 10: one is within Windows itself,
+the other is using WSL, the Windows Subsystem Linux. We recommend the latter.
+
+Note: Using Windows comes with some downsides.
+In general, DataLad feels a bit sluggish on Windows systems (this is better
+if installed in the Windows Subsystem Linux, though). You will notice that some
+Unix commands displayed in examples may not work given the installation that you
+chose, and that terminal output can look different from what is displayed here.
+
+.. container:: toggle
+
+   .. container:: header
+
+   **1) Install within Windows**
+
+   - **Step 1**: If you haven't, install Python3
+
+      - Go to https://www.python.org/downloads.
+        The most recent version of Python is on the "Download"
+        button near the top of the page. Click on ``download``,
+        then ``save``.
+
+      - Run the Python installer by double-clicking the downloaded
+        ``python-<version>.exe`` file in your Downloads.
+
+      - **Check the box "Add Python <version> to PATH** at the bottom
+        of the window, and select "Customize installation".
+
+      - Stay with the default options, and additionally tick
+        "Add Python to environment variables" on the second page.
+        Optionally, tick the box
+        "Install for all users" to ensure that other users on the computer
+        are able to use Python.
+
+      - Finish the installation.
+
+      - check the installation by opening CMD (type cmd into the Windows
+        search bar and press Enter) and typing python + Enter. You should
+        see Python start up in the terminal. This means that Python is working
+        and the PATH is set correctly.
+
+   - **Step 2**: Install Git
+
+      - Go to https://git-scm.com/downloads, select Windows, and
+        **download the 32-bit Git for Windows Setup** (not the 64-bit version!)
+
+   - **Step 3**: Install Git-annex
+
+      - Obtain the current Git-annex versions installer from
+        `here <https://downloads.kitenet.net/git-annex/windows/current/>`_.
+        Save the file, and double click the downloaded
+        ``git-annex-installer.exe`` in your Downloads.
+
+      - During installation, you will be prompted to "Choose Install Location".
+        **Specify the directory in which Git is installed**.
+
+   - **Step 4**: Install DataLad via pip
+
+      - ``pip`` should be installed together with recent Python versions on
+        Windows. Open ``cmd`` and type ``pip install datalad``.
+
+
+
+.. container:: toggle
+
+   .. container:: header
+
+   **2) Install within WSL**
+
+  - **Step 1**: Enable the windows subsystem for Linux
+
+     - Open Windows Power Shell as an Administrator and run
+
+     .. code-block:: bash
+
+        Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
+
+     - If prompted, restart your computer
+
+  - **Step 2**: Install a Linux distribution of your choice
+
+     -
+
+  - **Step 3**: Initialize the
+
+
+
+
+
+
 HPC environments or any system with singularity installed
 ---------------------------------------------------------
 

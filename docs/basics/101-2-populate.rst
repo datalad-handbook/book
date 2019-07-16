@@ -25,7 +25,7 @@ Lets take a look at the current directory structure:
 
 Arguably, not the most exiting thing to see. So lets put some PDFs inside.
 Below is a short list optional readings. We decide to download them (they
-are all free, in total 16.1 MB), and save them in ``DataLad-101/books``.
+are all free, in total about 15 MB), and save them in ``DataLad-101/books``.
 
 - Additional reading about the command line: `The Linux Command Line <https://sourceforge.net/projects/linuxcommand/files/TLCL/19.01/TLCL-19.01.pdf/download>`_
 - An intro to Python: `A byte of Python <https://www.gitbook.com/download/pdf/book/swaroopch/byte-of-python>`_

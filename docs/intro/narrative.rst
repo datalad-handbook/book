@@ -80,11 +80,11 @@ You can decide for yourself whether you want to check them out:
 
 Note further that...
 
-.. admonition:: Note for git-users
+.. gitusernote::
 
    DataLad uses :term:`Git` and :term:`Git-annex` underneath the hood. Readers that
    are familiar with these tools can find occasional notes on how a DataLad
-   command links to a git(-annex) command or concept in boxes like this.
+   command links to a Git(-annex) command or concept in boxes like this.
    There is, however, absolutely no knowledge of Git or Git-annex necessary
    to follow this book. You will, though, encounter Git commands throughout
    the book when there is no better alternative, and executing those commands will

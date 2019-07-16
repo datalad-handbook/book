@@ -95,7 +95,7 @@ copy, move, or remove files (``cp``, ``mv``, ``rm``), or create new directories
 
 ``ls -lah <folder>``
     list the contents of a folder, including hidden files (-a), and all their information (-l);
-     print file sizes in human readable units (-h)
+    print file sizes in human readable units (-h)
 ``cd <folder>``
     change to another folder
 ``cp <from> <to>``

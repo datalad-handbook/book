@@ -1,3 +1,4 @@
+.. _nesting:
 
 Basic DataLad Magic: Dataset nesting
 ------------------------------------

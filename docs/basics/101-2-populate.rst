@@ -91,7 +91,7 @@ with the ``-m`` option:
    You can change the *last* commit message with the Git command
    ``git commit --amend``. This will open up your default editor
    and you can edit
-   the commit message. Careful - the default editor might be :term:`vim`!
+   the commit message. Careful -- the default editor might be :term:`vim`!
 
 Lets see how this shows up in the history of the dataset with ``git log``.
 In order to get a bit more details, we add the ``-p`` flag (leave the git log

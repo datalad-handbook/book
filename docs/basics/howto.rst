@@ -321,4 +321,4 @@ Pressing Tab again will list the matching options (``Documents`` and ``Downloads
       :alt: Tab completion
 
 
-**That's it - equipped with the basics of Unix, you are good to go on your DataLad advanture!**
+**That's it -- equipped with the basics of Unix, you are good to go on your DataLad advanture!**

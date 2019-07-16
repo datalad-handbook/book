@@ -9,19 +9,19 @@ commands we discovered.
 
 But we've been told that with DataLad we could very easily get vast amounts of data to our
 computer. Rumor has it that this would be only a single command in the terminal!
-Therefore, everyone in todays lecture exitedly awaits todays topic: Installing datasets.
+Therefore, everyone in today's lecture excitedly awaits today's topic: Installing datasets.
 
 "With DataLad, users can *install* existing
-DataLad datasets from paths, urls, or open-data collections." our lecturer begins.
+DataLad datasets from paths, URLs, or open-data collections." our lecturer begins.
 "This makes accessing data fast and easy. A dataset that others could install can be
 created by anyone, without a need for additional software. Your own Datasets can be
 installed by others, should you want that, for example. Therefore, not only accessing
 data becomes fast and easy, but also *sharing*."
 
-"Thats so cool!", you think. "Exam preparation will be a piece of cake if all of us
+"That's so cool!", you think. "Exam preparation will be a piece of cake if all of us
 can share our mid-term and final projects easily!"
 
-"But today, lets only focus on how to install a dataset", she continuous.
+"But today, let's only focus on how to install a dataset", she continuous.
 
 "Damn it! Can't we have longer lectures?", you think and set alarms to all of the
 upcoming lecture dates in your calender.
@@ -48,7 +48,7 @@ It consists of audiorecordings about long-term thinking, and while the DataLad-1
 course is not a long-term thinking seminar, those recordings are nevertheless a
 good addition to the large stash of yet-to-read text books we piled up (and also, we
 can wholeheartedly recommend them for their worldly wisdoms and compelling, thoughtful
-ideas). Lets install this dataset into our existing ``DataLad-101`` dataset.
+ideas). Let's install this dataset into our existing ``DataLad-101`` dataset.
 
 To keep the ``DataLad-101`` dataset neat and organized, we first create a new directory,
 called recordings.
@@ -261,14 +261,14 @@ For example, we can find out who created the dataset in the first place
 
    $ git log
 
-But thats not all. The seminar series is ongoing, and more recordings can get added
+But that's not all. The seminar series is ongoing, and more recordings can get added
 to the original repository shared on Github.
 Because an installed dataset knows the dataset it was installed from,
 the locally installed dataset can simply be updated, and thus get the new recordings,
 should there be some. But we will see examples of this later in this handbook.
 
 Now you can not only create datasets and work with them locally, you can also consume
-existing datasets by installing them. Because thats cool, and because you will use this
+existing datasets by installing them. Because that's cool, and because you will use this
 command frequently, make a note of it into your ``notes.txt``, and ``datalad save`` the
 modification.
 

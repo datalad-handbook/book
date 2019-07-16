@@ -8,7 +8,7 @@ In order to follow along and organize course content, let us create
 a directory on our computer to collate the materials, assignments, and
 notes in.
 
-Since this is ``DataLad-101``, lets do it as a :term:`Datalad dataset`.
+Since this is ``DataLad-101``, let's do it as a :term:`Datalad dataset`.
 You might associate the term "dataset" with a large spreadsheet containing
 variables and data.
 But for DataLad, as we learned in the first lecture, a dataset is the core data type.

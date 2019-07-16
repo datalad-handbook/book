@@ -26,7 +26,7 @@ workflow in various ways, and in this book you will use many of them right
 from the start.
 There are many topics you can explore, if you wish:
 Local or collaborative workflows, reproducible analyses, data publishing, ... .
-If anything seems particulary exciting, you can go ahead, read it, *and do it*.
+If anything seems particularly exciting, you can go ahead, read it, *and do it*.
 Therefore, **grab your computer, and be ready to use it**.
 
 Every chapter will give you different challenges, starting from basic local
@@ -107,7 +107,7 @@ with a ``datalad`` tag if you need help.
 The storyline
 ^^^^^^^^^^^^^
 
-Most of the sections in the upcoming chapter follow a continous **narrative**.
+Most of the sections in the upcoming chapter follow a continuous **narrative**.
 This narrative aims to be as domain-agnostic and relatable as possible, but
 it also needs to be able to showcase all of the principles and commands
 of DataLad. Therefore, we will build up together a DataLad project for the

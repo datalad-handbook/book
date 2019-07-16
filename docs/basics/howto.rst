@@ -19,7 +19,7 @@ General prerequisites
 DataLad uses command-line arguments in a *terminal*. This means that there is no graphical
 user interface with buttons to click on, but a set of commands and options users type into
 their shell. If you are not used to working with command-line arguments, DataLad can
-appear intimidating. Luckily, the set of posisble commands is limited, and even without
+appear intimidating. Luckily, the set of possible commands is limited, and even without
 prior experience with a shell, one can get used to it fairly quickly.
 
 This chapter aims at providing novices with general basics about the shell, common Unix

@@ -48,7 +48,7 @@ It consists of audiorecordings about long-term thinking, and while the DataLad-1
 course is not a long-term thinking seminar, those recordings are nevertheless a
 good addition to the large stash of yet-to-read text books we piled up (and also, we
 can wholeheartedly recommend them for their worldly wisdoms and compelling, thoughtful
-ideas). Lets install this dataset into our exisiting ``DataLad-101`` dataset.
+ideas). Lets install this dataset into our existing ``DataLad-101`` dataset.
 
 To keep the ``DataLad-101`` dataset neat and organized, we first create a new directory,
 called recordings.

@@ -35,6 +35,6 @@ Now what I can do with that?
 You have procedurally experienced how to install a dataset, but simultaneously you have
 learned a lot about the principles and features of DataLad datasets.
 Installing datasets and getting their content allows you to consume published datasets.
-By nesting datasets within eachother, you can modularly re-use datasets. While this may
+By nesting datasets within each other, you can modularly re-use datasets. While this may
 appear abstract, upcoming section will demonstrate many example of why this can be handy.
 

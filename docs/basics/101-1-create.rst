@@ -3,7 +3,7 @@
 Starting from scratch: Creating a dataset
 -----------------------------------------
 
-We are about to start the eductional course ``DataLad-101``.
+We are about to start the educational course ``DataLad-101``.
 In order to follow along and organize course content, let us create
 a directory on our computer to collate the materials, assignments, and
 notes in.

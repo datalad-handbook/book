@@ -128,8 +128,8 @@ In the following example, exchange ``Bob McBobFace`` with your own name, and
 
    # enter your home directory using the ~ shortcut
    % cd ~
-   % git-config --global --add user.name Bob McBobFace
-   % git-config --global --add user.email bob@example.com
+   % git config --global --add user.name Bob McBobFace
+   % git config --global --add user.email bob@example.com
 
 This information is used to track changes in the DataLad projects you will
 be working on. Based on this information, changes you make are associated

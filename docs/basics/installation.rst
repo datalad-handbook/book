@@ -94,46 +94,62 @@ You can find detailed installation instructions on how to do this
 Windows 10
 """"""""""
 
-There are two ways to use DataLad on Windows 10: one is within Windows itself,
-the other is using WSL, the Windows Subsystem Linux. We recommend the latter.
+There are two ways to get DataLad on Windows 10: one is within Windows itself,
+the other is using WSL 2, the Windows Subsystem for Linux 2. **We** *strongly*
+**recommend the latter.**
 
 Note: Using Windows comes with some downsides.
-In general, DataLad feels a bit sluggish on Windows systems (this is better
-if installed in the Windows Subsystem Linux, though). You will notice that some
+In general, DataLad feels a bit sluggish on Windows systems. This is because of
+a range of filesystem issues that also affect the version control system :term:`Git` itself,
+which DataLad relies on. The core functionality of DataLad should work, and you should
+be able to follow the contents covered in this book.
+You will notice, however, that some
 Unix commands displayed in examples may not work given the installation that you
 chose, and that terminal output can look different from what is displayed here.
+If you are a Windows user and want to help improve the handbook for Windows users,
+please `get in touch <https://github.com/datalad-handbook/book/issues/new>`_.
 
 .. container:: toggle
 
    .. container:: header
 
-   **1) Install within Windows**
+      **1) Install within Windows**
+
+   Note: This installation method will get you a working version of
+   DataLad, but be aware that many Unix commands shown in the book
+   examples will not work for you, and DataLad-related output might
+   look different from what we can show in this book.
 
    - **Step 1**: If you haven't, install Python3
 
-      - Go to https://www.python.org/downloads.
+      - Check for Python in your start menu. If no search results
+        show up, go to https://www.python.org/downloads.
         The most recent version of Python is on the "Download"
         button near the top of the page. Click on ``download``,
         then ``save``.
 
       - Run the Python installer by double-clicking the downloaded
-        ``python-<version>.exe`` file in your Downloads.
+        ``python-<version>.exe`` file in your Downloads or clicking
+        on the Python 3.x result in your start menu.
 
       - **Check the box "Add Python <version> to PATH** at the bottom
         of the window, and select "Customize installation".
 
-      - Stay with the default options, and additionally tick
+      - Stay with the default options to install all optional features,
+        and additionally tick
         "Add Python to environment variables" on the second page.
         Optionally, tick the box
         "Install for all users" to ensure that other users on the computer
         are able to use Python.
 
-      - Finish the installation.
+      - Finish the installation. After successful installation, instruct the installer
+        to bypass the 260 character file path limit (option available at the bottom
+        of the window).
 
-      - check the installation by opening CMD (type cmd into the Windows
-        search bar and press Enter) and typing python + Enter. You should
+      - Check the installation by opening CMD (type ``cmd`` into the Windows
+        search bar and press ``Enter``) and typing python + ``Enter``. You should
         see Python start up in the terminal. This means that Python is working
-        and the PATH is set correctly.
+        and the ``PATH`` is set correctly. Yay!
 
    - **Step 2**: Install Git
 
@@ -142,8 +158,8 @@ chose, and that terminal output can look different from what is displayed here.
 
    - **Step 3**: Install Git-annex
 
-      - Obtain the current Git-annex versions installer from
-        `here <https://downloads.kitenet.net/git-annex/windows/current/>`_.
+      - Obtain the current Git-annex versions installer
+        `from here <https://downloads.kitenet.net/git-annex/windows/current/>`_.
         Save the file, and double click the downloaded
         ``git-annex-installer.exe`` in your Downloads.
 
@@ -161,27 +177,116 @@ chose, and that terminal output can look different from what is displayed here.
 
    .. container:: header
 
-   **2) Install within WSL**
+      **2) Install within WSL2 [recommended]**
 
-  - **Step 1**: Enable the windows subsystem for Linux
+   The Windows Subsystem for Linux 2 (WSL2) allows Windows users to have full access
+   to a Linux distribution within Windows.
+   The improves the DataLad experience on Windows *greatly*.
 
-     - Open Windows Power Shell as an Administrator and run
+   If you have always used Windows be prepared for some user experience changes when
+   using Linux compared to Windows. For one, there will be no graphical user interface
+   (GUI). Instead, you will work inside of the standard Linux terminal. This however
+   mirrors the examples and code snippets provided in this handbook exactly.
+   Also, note that there will be incompatibilities between the Windows and Linux filesystems.
+   Files that are created within the WSL for examples can not be modified with
+   Windows tools.
 
-     .. code-block:: bash
+   .. todo::
 
-        Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
+       maybe we need some DOs and DON'Ts here, or at least link them
 
-     - If prompted, restart your computer
+   **Requirements**:
 
-  - **Step 2**: Install a Linux distribution of your choice
+   WSL can be enabled for **64-bit** versions of **Windows 10** systems running
+   **Version 1607** or above. To check whether your computer fulfills these requirements,
+   open *Settings* (in the start menu) > *System* > *About*. If your version number is
+   less than 1607, you will need to perform a
+   `windows update <https://support.microsoft.com/en-us/help/4028685/windows-10-get-the-update>`_
+   before installing WSL.
 
-     -
+   The instructions below show you how to set up the WSL and configure it to use
+   DataLad and its dependencies. They follow the
+   `Microsoft Documentation on the Windows Subsystem for Linux <https://docs.microsoft.com/en-us/windows/wsl/install-win10>`_.
+   If you run into troubles during the installation, please consult the
+   `WSL troubleshooting page <https://docs.microsoft.com/en-us/windows/wsl/troubleshooting>`_.
+   Also, a great resource to get started and understand the WSL is
+   `this tutorial <https://github.com/michaeltreat/Windows-Subsystem-For-Linux-Setup-Guide/>`_.
 
-  - **Step 3**: Initialize the
+   - **Step 1**: Enable the windows subsystem for Linux
 
+      - Open Windows Power Shell as an Administrator and run
 
+      .. code-block:: bash
 
+         $ Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
 
+      - Afterwards, when prompted in the Power Shell, restart your computer
+
+   - **Step 2**: Install a Linux distribution of your choice
+
+      - To do this, visit the Microsoft store, and search for your distribution of choice.
+        We recommend installing :term:`Ubuntu`. "Get" the app, and "install" it.
+
+   - **Step 3**: Initialize the distribution
+
+      - Launch the Subsystem either from the Microsoft store or from the Start menu. This
+        will start a terminal. Don't worry -- there is a dedicated section (:ref:`howto`)
+        on how to work with the terminal if you haven't so far.
+
+      - Upon first start, you will be prompted to enter a new UNIX username and password.
+        Tip: chose a short name, and no spaces or special characters. The password will
+        become necessary when you elevate a process using ``sudo`` -- sudo let's you execute a
+        process with rights of another user, such as administrative rights, for examples when
+        you need to install software.
+
+      - Right after initial installation, your Linux distribution will be minimally equipped.
+        Update your package catalog and upgrade your installed packages by running the command below.
+        As with all code examples in this book, make sure to copy commands exactly, including
+        capitalization. If this is the first time you use ``sudo``, your system will warn you
+        to use it with care. During upgrading installed packages, the terminal will ask
+        you to confirm upgrades by pressing ``Enter``.
+
+      .. code-block:: bash
+
+         $ sudo apt update && sudo apt upgrade
+
+   - **Step 4**: Install necessary tools
+
+      - To install Python, and Pythons package manager ``pip``, run the following command,
+        and confirm with ``Enter`` when prompted by the shell.
+
+      .. code-block:: bash
+
+         $ sudo apt install python3 python3-pip
+
+      - If you chose :term:`Ubuntu`, :term:`Git` will be pre-installed.
+        On other distributions, to install Git, run
+
+      .. code-block:: bash
+
+         $ sudo apt install git
+
+      - To install :term:`Git-annex`, run
+
+         $ sudo apt install git-annex
+
+      - Throughout using the WSL, you will notice that many tools are not yet installed.
+        For example, ``vim``, a powerful terminal-based editor, is not installed by default.
+        You can add tools you need by searching for them with ``apt search TOOLNAME`` and install
+        it using ``sudo apt install TOOLNAME``. Its helpful to consult Google or a search engine
+        of your choice prior to an installation to find out information about the tool.
+
+   - **Step 5**: Install DataLad via pip
+
+      - run
+
+      .. code-block:: bash
+
+         $ pip3 install datalad
+
+   .. todo::
+
+      Or do we want to have them use Debian and Neurodebian?
 
 
 HPC environments or any system with singularity installed
@@ -208,16 +313,6 @@ put the directory it is located in into your ``PATH`` environment variable.
 From there on, you will have a ``datalad`` command available from the command line that
 transparently executes all DataLad functionality through the container.
 
-.. todo::
-
-   What about Windows?
-   mih says: "For windows people: it does work somewhat. Core functionality should be OK
-   (current main focus of this effort), and is covered by tests. There are numerous issues
-   with SSH connections on windows, though. It works much better on Win10 within the linux
-   subsystem, and this is also where the hopes for the future are focused on. DataLad generally
-   feels sluggish on Windows, because of a range of filesystem issues that also affect Git itself."
-   Lets put that into some sort of instruction.
-
 
 Initial configuration
 ^^^^^^^^^^^^^^^^^^^^^
@@ -233,8 +328,8 @@ In the following example, exchange ``Bob McBobFace`` with your own name, and
 
    # enter your home directory using the ~ shortcut
    % cd ~
-   % git-config --global --add user.name Bob McBobFace
-   % git-config --global --add user.email bob@example.com
+   % git config --global --add user.name Bob McBobFace
+   % git config --global --add user.email bob@example.com
 
 This information is used to track changes in the DataLad projects you will
 be working on. Based on this information, changes you make are associated

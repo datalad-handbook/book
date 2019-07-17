@@ -169,7 +169,7 @@ please `get in touch <https://github.com/datalad-handbook/book/issues/new>`_.
    - **Step 4**: Install DataLad via pip
 
       - ``pip`` should be installed together with recent Python versions on
-        Windows. Open ``cmd`` and type ``pip install datalad``.
+        Windows. Open ``cmd`` and type ``pip install --user datalad``.
 
 
 
@@ -252,6 +252,15 @@ please `get in touch <https://github.com/datalad-handbook/book/issues/new>`_.
 
    - **Step 4**: Install necessary tools
 
+   .. todo::
+
+      Which way is recommended? Install everything piece-wise as outlined below,
+      or using Ubuntus datalad package (``sudo apt install datalad``)? ``apt install``
+      will get Datalad 0.9.3.
+
+      When doing the piece-wise installation, I still need to figure out how to
+      export the correct paths to make the commands available from bash.
+
       - To install Python, and Pythons package manager ``pip``, run the following command,
         and confirm with ``Enter`` when prompted by the shell.
 
@@ -282,7 +291,7 @@ please `get in touch <https://github.com/datalad-handbook/book/issues/new>`_.
 
       .. code-block:: bash
 
-         $ pip3 install datalad
+         $ pip3 install --user datalad
 
    .. todo::
 

@@ -179,43 +179,36 @@ with the superdataset.
 ``datalad install -s ../DataLad-101 --description "DataLad-101 in mock_user" -r --recursion-limit 1``
 hence would have installed the subdataset right away.
 
-Let's now however see the ``git annex whereis`` command in more detail.
-Within the original ``DataLad-101`` dataset, we retrieved some of the ``.mp3``
-files via ``datalad get``, but now others. How will this influence the
-output of ``git annex whereis``?
+To summarize what you learned in this section, write a note on how to
+install a dataset using a path as a source on a common file system.
+Include the options ``-r``/``--recursive`` and ``--recursion-limit``.
+
+Write this note in the original ``DataLad-101`` dataset, though!
 
 .. runrecord:: _examples/DL-101-120-108
    :language: console
    :workdir: dl-101/mock_user/DataLad-101
 
-   # navigate into the subdirectory
-   $ cd recordings/longnow
-   # file content exists in original DataLad-101 for this file
-   $ git annex whereis Long_Now__Seminars_About_Long_term_Thinking/2003_11_15__Brian_Eno__The_Long_Now.mp3
+   # navigate back into the original dataset
+   $ cd ../../DataLad-101
+   # write the note
+   $ cat << EOT >> notes.txt
+   A source to install a dataset from can also be a path,
+   for example as in "datalad install -s ../DataLad-101".
+   As when installing datasets before, make sure to add a
+   description on the location of the dataset to be
+   installed, and, if you want, a path to where the dataset
+   should be installed under which name.
 
-.. runrecord:: _examples/DL-101-120-109
-   :language: console
-   :workdir: dl-101/mock_user/DataLad-101/recordings/longnow
+   Note that subdatasets will not be installed by default --
+   you will have to do a plain
+   "datalad install PATH/TO/SUBDATASET", or specify the
+   -r/--recursive option in the install command:
+   "datalad install -s ../DataLad-101 -r".
 
-   # but not for this:
-   $ git annex whereis Long_Now__Seminars_About_Long_term_Thinking/2005_01_15__James_Carse__Religious_War_In_Light_of_the_Infinite_Game.mp3
+   A recursive installation would however install all
+   installed subdatasets, so a safer way to proceed is to
+   set a decent --recursion-limit:
+   "datalad install -s ../DataLad-101 -r --recursion-limit 2"
 
-.. todo::
-
-   at some point explain that and why it does not work like this from outside the subdataset
-
-The file thats content is present in the original DataLad-101 has one more copy available
-than the file that is not present.
-
-.. todo::
-
-   elaborate on what web and mih@medusa are.
-
-.. todo::
-
-   TODO: back in old directory, updates notes with
-
-   cat << EOT >> notes.txt
-   The command git annex whereis PATH lists the repositories that have
-   file content.
    EOT

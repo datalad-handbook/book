@@ -95,7 +95,7 @@ Windows 10
 """"""""""
 
 There are two ways to get DataLad on Windows 10: one is within Windows itself,
-the other is using WSL 2, the Windows Subsystem for Linux 2. **We** *strongly*
+the other is using WSL, the Windows Subsystem for Linux. **We** *strongly*
 **recommend the latter.**
 
 Note: Using Windows comes with some downsides.
@@ -177,9 +177,9 @@ please `get in touch <https://github.com/datalad-handbook/book/issues/new>`_.
 
    .. container:: header
 
-      **2) Install within WSL2 [recommended]**
+      **2) Install within WSL [recommended]**
 
-   The Windows Subsystem for Linux 2 (WSL2) allows Windows users to have full access
+   The Windows Subsystem for Linux (WSL) allows Windows users to have full access
    to a Linux distribution within Windows.
    The improves the DataLad experience on Windows *greatly*.
 
@@ -273,6 +273,19 @@ please `get in touch <https://github.com/datalad-handbook/book/issues/new>`_.
       .. code-block:: bash
 
          $ sudo apt install datalad
+
+
+.. container:: toggle
+
+   .. container:: header
+
+      **2) Install within WSL2 [TODO]**
+
+   .. todo::
+
+      - find out how to install/enable WSL2
+
+      - find out what changes about the above instructions
 
 
 HPC environments or any system with singularity installed

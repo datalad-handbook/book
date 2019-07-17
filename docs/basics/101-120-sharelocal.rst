@@ -1,5 +1,5 @@
-Sharing datasets: Local File systems
-------------------------------------
+Sharing datasets: Common File systems
+-------------------------------------
 
 One exciting aspect of DataLad datasets has yet been missing from this
 course: How does one share a dataset?
@@ -22,11 +22,14 @@ Using file systems that many users can access makes sharing files
 easy. Using DataLad for this sharing makes it even easier, though.
 
 To demonstrate how to share a DataLad dataset on a common file system
-in this course, we have to cheat a bit. We will pretend that you
+in this course, we will pretend that you
 want to install the ``DataLad-101`` dataset in a different place in
-your own file system.
+your own file system. A common real-world use case using a similar
+workflow would be two users on a shared file system sharing a
+dataset. But as we can't simulate a second user in this handbook,
+for now, you will have to share your dataset with yourself.
 
-This serves two purposes: For one, you will experience a very easy
+This endeavour serves two purposes: For one, you will experience a very easy
 way of sharing a dataset. Secondly, it will show you the installation
 of a dataset from a path (instead of a URL as shown in the section
 :ref:`installds`). Thirdly, ``DataLad-101`` is a dataset that can
@@ -35,7 +38,7 @@ be an additional learning experience to see how the different parts
 of the dataset -- textfiles, larger files, datalad subdataset -- will
 appear upon installation when shared.
 
-To install ``DataLad-101`` with datalad install into a different part
+To install ``DataLad-101`` with ``datalad install`` into a different part
 of your file system, navigate out of ``DataLad-101``, and -- for
 simplicity -- create a new directory, ``mock_user``, right next to it:
 
@@ -47,7 +50,8 @@ simplicity -- create a new directory, ``mock_user``, right next to it:
    $ mkdir mock_user
 
 Afterwards, navigate into ``mock_user`` and install the dataset
-``DataLad-101`` by specifying its path as a ``--source``.
+``DataLad-101`` by specifying its path as a ``--source`` (remember,
+the shorter option ``-s`` would work as well).
 
 .. runrecord:: _examples/DL-101-120-102
    :language: console
@@ -83,7 +87,7 @@ not be opened, because their file content was not yet retrieved.
 The textfiles contents, though, are present, and the files can be
 opened.
 
-Lets start by examing the PDFs further. Try to get one of the books:
+Lets start by examining the PDFs further. Try to get one of the books:
 
 .. runrecord:: _examples/DL-101-120-104
    :language: console
@@ -125,10 +129,12 @@ It uses the checksums to identify these locations.
 
 Let's now turn to the fact that the subdataset ``longnow`` does
 not contain not only no file content, but also no file meta data
-information to explore the contents of the dataset. This is behavior
-that we haven't observed until now.
+information to explore the contents of the dataset: There are no
+subdirectories or any files under ``recordings/longnow/``.
+This is behavior that we haven't observed until now.
 
-To fix this, you have to run a somewhat unexpected command:
+To fix this and obtain file availability meta data,
+you have to run a somewhat unexpected command:
 
 .. runrecord:: _examples/DL-101-120-106
    :language: console

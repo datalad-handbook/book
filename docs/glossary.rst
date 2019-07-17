@@ -72,6 +72,9 @@ Glossary
       A text-mode interface for git that allows you to easily browse through your commit history.
       It is not part of git and needs to be installed. Find out more `here <https://jonas.github.io/tig/>`_.
 
+   Ubuntu
+      A common Linux distribution.
+
    version control
       The management of changes to documents or other collections of information
 

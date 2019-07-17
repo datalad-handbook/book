@@ -1,0 +1,10 @@
+# we navigate into the installed copy:
+$ cd ../mock_user/DataLad-101
+$ cat notes.txt
+One can create a new dataset with 'datalad create [--description] PATH'.
+The dataset is created empty
+'datalad save [-m] PATH' saves the file (modifications) to history.
+Note to self: Always use informative, concise commit messages.
+The command 'datalad install [--source] PATH' installs a dataset from e.g. a URL or a path.
+If you install a dataset into an existing dataset (as a subdataset), remember to specify the
+root of the superdataset with the '-d' option.

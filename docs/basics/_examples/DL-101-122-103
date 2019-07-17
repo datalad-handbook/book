@@ -1,0 +1,29 @@
+$ cat notes.txt
+One can create a new dataset with 'datalad create [--description] PATH'.
+The dataset is created empty
+'datalad save [-m] PATH' saves the file (modifications) to history.
+Note to self: Always use informative, concise commit messages.
+The command 'datalad install [--source] PATH' installs a dataset from e.g. a URL or a path.
+If you install a dataset into an existing dataset (as a subdataset), remember to specify the
+root of the superdataset with the '-d' option.
+A source to install a dataset from can also be a path,
+for example as in "datalad install -s ../DataLad-101".
+As when installing datasets before, make sure to add a
+description on the location of the dataset to be
+installed, and, if you want, a path to where the dataset
+should be installed under which name.
+
+Note that subdatasets will not be installed by default --
+you will have to do a plain
+"datalad install PATH/TO/SUBDATASET", or specify the
+-r/--recursive option in the install command:
+"datalad install -s ../DataLad-101 -r".
+
+A recursive installation would however install all
+installed subdatasets, so a safer way to proceed is to
+set a decent --recursion-limit:
+"datalad install -s ../DataLad-101 -r --recursion-limit 2"
+
+The command "git annex whereis PATH" lists the repositories that have
+the file content of an annexed file. When using datalad get to retrieve
+file content, those repositories will be queried.

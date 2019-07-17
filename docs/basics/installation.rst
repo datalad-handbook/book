@@ -60,8 +60,8 @@ When there isn't anything more convenient: Use ``pip``
 DataLad can be installed via Pythons package manager
 `pip <https://pip.pypa.io/en/stable/>`_.
 ``pip`` comes with Python distributions, e.g. the Python distributions
-downloaded from `python.org <https.python.org>`_. When downloading Python, make sure to chose
-a recent Python **3** distribution.
+downloaded from `python.org <https://www.python.org>`_. When downloading
+Python, make sure to chose a recent Python **3** distribution.
 
 If you have Python and pip set up,
 to automatically install DataLad and its software dependencies, type

@@ -19,4 +19,5 @@ A recursive installation would however install all
 installed subdatasets, so a safer way to proceed is to
 set a decent --recursion-limit:
 "datalad install -s ../DataLad-101 -r --recursion-limit 2"
+
 EOT

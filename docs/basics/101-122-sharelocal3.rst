@@ -49,6 +49,27 @@ subdatasets' ``origin`` for updates, not the original
 Let's check the contents in ``notes.txt`` to see whether
 the previously missing changes are now present:
 
+.. runrecord:: _examples/DL-101-122-103
+   :language: console
+   :workdir: dl-101/mock_user/DataLad-101
+
+   $ cat notes.txt
+
+Wohoo, the contents are here!
+
+Therefore, sharing DataLad datasets by installing them
+enables you to update the datasets content should the
+original datasets' content change -- in only a single
+command. How cool is that?!
+
+
+
+PS: You might wonder whether there is also a sole
+``datalad merge`` command. Yes, there is -- if you are
+a Git-user and know about branches and merging you can read the
+``Note for Git-users`` below. Else, a thorough explanation
+will come at a later point in time.
+
 
 
 .. gitusernote::

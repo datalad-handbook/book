@@ -3,12 +3,12 @@
 Starting from scratch: Creating a dataset
 -----------------------------------------
 
-We are about to start the eductional course ``DataLad-101``.
+We are about to start the educational course ``DataLad-101``.
 In order to follow along and organize course content, let us create
 a directory on our computer to collate the materials, assignments, and
 notes in.
 
-Since this is ``DataLad-101``, lets do it as a :term:`Datalad dataset`.
+Since this is ``DataLad-101``, let's do it as a :term:`Datalad dataset`.
 You might associate the term "dataset" with a large spreadsheet containing
 variables and data.
 But for DataLad, as we learned in the first lecture, a dataset is the core data type.
@@ -32,7 +32,7 @@ Note the command structure of ``datalad create`` (optional bits are enclosed in 
 ``datalad create [--description "..."] [-c <config options>] PATH``
 
 
-.. runrecord:: _examples/DL-101_1
+.. runrecord:: _examples/DL-101_101-1
    :language: console
    :workdir: dl-101
 
@@ -45,7 +45,7 @@ will be other parts of this book to explain this in detail.
 Once created, a DataLad dataset looks like any other directory on your filesystem.
 Currently, it seems empty.
 
-.. runrecord:: _examples/DL-101_2
+.. runrecord:: _examples/DL-101_101-2
    :language: console
    :workdir: dl-101
 
@@ -68,7 +68,7 @@ This history is almost as small as it can be at the current state, but let's tak
 a look at it. For looking at the history, the code examples will use ``git log``,
 a built-in git command [#f1]_.
 
-.. runrecord:: _examples/DL-101-3
+.. runrecord:: _examples/DL-101-101-3
    :language: console
    :workdir: dl-101/DataLad-101
    :emphasize-lines: 3-4, 6, 9-10, 12
@@ -110,7 +110,7 @@ all of these changes can be written to your DataLad datasets history.
    dataset in the annex is tracked with Git-annex. An ``ls -a``
    reveals that Git is secretly working in the background:
 
-   .. runrecord:: _examples/DL-101-10
+   .. runrecord:: _examples/DL-101-101-4
       :language: console
       :workdir: dl-101/DataLad-101
       :emphasize-lines: 4-6

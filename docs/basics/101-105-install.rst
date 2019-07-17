@@ -9,19 +9,19 @@ commands we discovered.
 
 But we've been told that with DataLad we could very easily get vast amounts of data to our
 computer. Rumor has it that this would be only a single command in the terminal!
-Therefore, everyone in todays lecture exitedly awaits todays topic: Installing datasets.
+Therefore, everyone in today's lecture excitedly awaits today's topic: Installing datasets.
 
 "With DataLad, users can *install* existing
-DataLad datasets from paths, urls, or open-data collections." our lecturer begins.
+DataLad datasets from paths, URLs, or open-data collections." our lecturer begins.
 "This makes accessing data fast and easy. A dataset that others could install can be
 created by anyone, without a need for additional software. Your own Datasets can be
 installed by others, should you want that, for example. Therefore, not only accessing
 data becomes fast and easy, but also *sharing*."
 
-"Thats so cool!", you think. "Exam preparation will be a piece of cake if all of us
+"That's so cool!", you think. "Exam preparation will be a piece of cake if all of us
 can share our mid-term and final projects easily!"
 
-"But today, lets only focus on how to install a dataset", she continuous.
+"But today, let's only focus on how to install a dataset", she continuous.
 
 "Damn it! Can't we have longer lectures?", you think and set alarms to all of the
 upcoming lecture dates in your calender.
@@ -48,12 +48,12 @@ It consists of audiorecordings about long-term thinking, and while the DataLad-1
 course is not a long-term thinking seminar, those recordings are nevertheless a
 good addition to the large stash of yet-to-read text books we piled up (and also, we
 can wholeheartedly recommend them for their worldly wisdoms and compelling, thoughtful
-ideas). Lets install this dataset into our exisiting ``DataLad-101`` dataset.
+ideas). Let's install this dataset into our existing ``DataLad-101`` dataset.
 
 To keep the ``DataLad-101`` dataset neat and organized, we first create a new directory,
 called recordings.
 
-.. runrecord:: _examples/DL-101-5-0
+.. runrecord:: _examples/DL-101-105-101
    :language: console
    :workdir: dl-101/DataLad-101
 
@@ -68,7 +68,7 @@ of the ``DataLad-101`` dataset, the pointer to the dataset is a ``.`` (which is 
 way for saying "current directory"). The dataset to be installed lives on Github, and
 we can give its Github URL as a source (``-s``, ``--source``).
 
-.. runrecord:: _examples/DL-101-5-1
+.. runrecord:: _examples/DL-101-105-102
    :language: console
    :workdir: dl-101/DataLad-101/
    :realcommand: datalad install -d . -s https://github.com/datalad-datasets/longnow-podcasts.git recordings/longnow
@@ -109,7 +109,7 @@ Note that the path did not change, but ``-d .`` changed to ``-d ../``
 
 Here is the repository structure:
 
-.. runrecord:: _examples/DL-101-5-2
+.. runrecord:: _examples/DL-101-105-103
    :language: console
    :workdir: dl-101/DataLad-101
 
@@ -122,7 +122,7 @@ If we navigate into one of them and list its content, we'll see many ``.mp3`` fi
 excerpt).
 
 
-.. runrecord:: _examples/DL-101-5-4
+.. runrecord:: _examples/DL-101-105-104
    :language: console
    :workdir: dl-101/DataLad-101/
    :lines: 1-15
@@ -150,7 +150,7 @@ and downloading only this metadata speeds up the installation of a DataLad datas
 of many TB in size to a few seconds. Just now, after installation, the dataset is
 small in size:
 
-.. runrecord:: _examples/DL-101-5-3
+.. runrecord:: _examples/DL-101-105-105
    :language: console
    :workdir: dl-101/DataLad-101/
 
@@ -179,7 +179,7 @@ Lets see how large the dataset would be in total if all of the files were presen
 For this, we supply an additional option to ``datalad status``. Make sure to be
 (anywhere) inside of the ``longnow`` dataset to execute the following command:
 
-.. runrecord:: _examples/DL-101-5-4.1
+.. runrecord:: _examples/DL-101-105-106
    :language: console
    :workdir: dl-101/DataLad-101/recordings/longnow
 
@@ -200,7 +200,7 @@ denoting "current directory").
 First, we get one of the recordings in the dataset -- take any one of your choice
 (here, its the first).
 
-.. runrecord:: _examples/DL-101-5-5
+.. runrecord:: _examples/DL-101-105-107
    :language: console
    :workdir: dl-101/DataLad-101/recordings/longnow
 
@@ -215,14 +215,14 @@ we can use ``.`` to refer to all of the dataset like this:
 
    $ datalad get .
 
-(However, with a total size of 14.1GB, this might take a while, so don't do that now)
+(However, with a total size of more than 15GB, this might take a while, so don't do that now)
 
 Isn't that easy?
 
 Lets see how much data is now present locally. For this, ``datalad status --annex all``
 has a nice summary:
 
-.. runrecord:: _examples/DL-101-5-5.1
+.. runrecord:: _examples/DL-101-105-108
    :language: console
    :workdir: dl-101/DataLad-101/recordings/longnow
 
@@ -234,7 +234,7 @@ it is only a fraction of the total size.
 Lets ``get`` a few more recordings, just because it was so mesmerizing to watch
 DataLads fancy progress bars.
 
-.. runrecord:: _examples/DL-101-5-5.2
+.. runrecord:: _examples/DL-101-105-109
    :language: console
    :workdir: dl-101/DataLad-101/recordings/longnow
 
@@ -253,7 +253,7 @@ a DataLad dataset, all copies also include the datasets *history*.
 For example, we can find out who created the dataset in the first place
 (the output shows an excerpt):
 
-.. runrecord:: _examples/DL-101-5-7
+.. runrecord:: _examples/DL-101-105-110
    :language: console
    :workdir: dl-101/DataLad-101/recordings/longnow
    :lines: 1, 74-84
@@ -261,21 +261,22 @@ For example, we can find out who created the dataset in the first place
 
    $ git log
 
-But thats not all. The seminar series is ongoing, and more recordings can get added
+But that's not all. The seminar series is ongoing, and more recordings can get added
 to the original repository shared on Github.
 Because an installed dataset knows the dataset it was installed from,
 the locally installed dataset can simply be updated, and thus get the new recordings,
 should there be some. But we will see examples of this later in this handbook.
 
 Now you can not only create datasets and work with them locally, you can also consume
-existing datasets by installing them. Because thats cool, and because you will use this
+existing datasets by installing them. Because that's cool, and because you will use this
 command frequently, make a note of it into your ``notes.txt``, and ``datalad save`` the
 modification.
 
-.. runrecord:: _examples/DL-101-5-8
+.. runrecord:: _examples/DL-101-105-111
    :language: console
    :workdir: dl-101/DataLad-101/
 
+   # in the root of DataLad-101:
    $ cat << EOT >> notes.txt
    The command 'datalad install [--source] PATH' installs a dataset from e.g. a URL or a path.
    If you install a dataset into an existing dataset (as a subdataset), remember to specify the

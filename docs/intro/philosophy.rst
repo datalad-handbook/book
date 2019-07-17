@@ -8,8 +8,8 @@ DataLad is a software tool developed to aid with everything related to the
 evolution of digital objects. It is not only keeping track of code, and it is not
 only keeping track of data, but it assists with the combination of all things
 necessary in the digitial workflow of science.
-As built-in, but *optional* features, DataLad yields FAIR resources - for example
-:term:`metadata` and :term:`provenance` - and everything can be easily shared
+As built-in, but *optional* features, DataLad yields FAIR resources -- for example
+:term:`metadata` and :term:`provenance` -- and everything can be easily shared
 *should the user want this*.
 
 DataLad is built up on a handful of principles.
@@ -32,14 +32,14 @@ DataLad is built up on a handful of principles.
    (https://git-annex.branchable.com) manages it all underneath the hood.
 
 #. Deep in the core of DataLad is the social principle of
-   **minimizing custom procedures and data structures: Users must not loose data or data access, if DataLad would vanish**
+   **minimizing custom procedures and data structures: Users must not loose data or data access, if DataLad would vanish**.
    Using DataLad does not require or generate datastructures that can only be
    used or read with DataLad.
 
 #. Furthermore, DataLad is developed for
    **complete decentralization, with no required central server or service**.
-   This way, no central infrastructure anyone would need to pay for needs to be maintained -
-   your own laptop is the perfect place to live for your DataLad project for example.
+   This way, no central infrastructure anyone would need to pay for needs to be maintained --
+   your own laptop is the perfect place to live for your DataLad project for example
    ...
 
 #. ... but simultanteously, DataLad aims to

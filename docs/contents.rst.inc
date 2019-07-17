@@ -22,13 +22,13 @@ Basics
    basics/installation
    basics/datasets
    basics/howto
-   basics/101-1-create
-   basics/101-2-populate
-   basics/101-3-modify
-   basics/101-4-summary
-   basics/101-5-install
-   basics/101-6-nesting
-   basics/101-7-summary
+   basics/101-101-create
+   basics/101-102-populate
+   basics/101-103-modify
+   basics/101-104-summary
+   basics/101-105-install
+   basics/101-106-nesting
+   basics/101-107-summary
    basics/101-113-symlinks
 
 #########

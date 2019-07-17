@@ -8,7 +8,7 @@ Introduction
 Everyone uses data. But once it exists, it does not suffice for most data
 to simply reside unchanged in a single location for eternity.
 
-Most **data needs to be shared** - may it be a digital collection of family
+Most **data needs to be shared** -- may it be a digital collection of family
 photos, a genomic database between researchers around the world, or inventory
 lists of one company division to another. Some data is public and should be
 accessible to everyone.  Other data should circulate only among a select few.
@@ -25,10 +25,10 @@ version of a common naming standard and the data files are thus renamed.  It may
 be easy to change data, but it can be difficult to revert a change, get
 information on previous states of this data, or even simply find out how a piece
 of data came into existence. This latter aspect, the :term:`provenance` of data
-- information on its lineage and *how* it came to be in its current state, - is
+-- information on its lineage and *how* it came to be in its current state, -- is
 often key to understanding or establishing trust in data.  In collaborative
 fields that work with small-sized data such as Wikipedia pages or software
-development, :term:`version control` are established and indispensable. These
+development, :term:`version control` tools are established and indispensable. These
 tools allow users to keep track of changes, view previous states, or restore
 older versions.  How about a **version control system for data**?
 
@@ -57,7 +57,7 @@ search, obtain, and version control data in a distributed fashion, and it aids
 managing the evolution of digital objects in a way that fulfills the FAIR
 principles.
 
-This handbook is a living resource about why and - more importantly - *how* to
+This handbook is a living resource about why and -- more importantly -- *how* to
 use DataLad. It aims to provide novices and advanced users of all backgrounds
 with both the basics of DataLad and start-to-end use cases of specific
 applications.

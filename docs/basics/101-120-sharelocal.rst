@@ -152,7 +152,7 @@ Let's what has changed (excerpt):
    $ tree
 
 Interesting! The file meta data information is now present, and we can
-explore the file hierarchy. The file content however, is not present yet.
+explore the file hierarchy. The file content, however, is not present yet.
 
 What has happened here?
 
@@ -172,7 +172,7 @@ In :ref:`nesting` we learned that datasets can be nested *arbitrarily* deep.
 Upon installing a dataset you might not want to also install a few dozen levels of
 nested subdatasets right away.
 
-However, the is a middle way: The ``--recursion-limit`` option let's
+However, there is a middle way: The ``--recursion-limit`` option let's
 you specify how many levels of subdatasets should be installed together
 with the superdataset.
 
@@ -212,3 +212,11 @@ Write this note in the original ``DataLad-101`` dataset, though!
    "datalad install -s ../DataLad-101 -r --recursion-limit 2"
 
    EOT
+
+Saves this note.
+
+.. runrecord:: _examples/DL-101-120-109
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ datalad save -m "add note about installing from paths and recursive installations" notes.txt

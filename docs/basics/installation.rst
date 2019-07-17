@@ -6,49 +6,21 @@ Installation and Configuration
 Install DataLad
 ^^^^^^^^^^^^^^^
 
-The content on this site is copied from the `DataLad website <https://www.datalad.org/get_datalad.html>`_
+The content on this site is largely based on
+`DataLad website <https://www.datalad.org/get_datalad.html>`_
 and the `DataLad documentation <http://docs.datalad.org/en/latest/gettingstarted.html>`_.
 
-When there isn't anything more convenient
------------------------------------------
+If you are not on a Debian-based system with Neurodebian enabled (see below),
+beyond DataLad itself, the installation requires Python, Pythons package manager ``pip``,
+:term:`Git` and :term:`Git-annex`. The instructions below detail how to install
+each of these components for different common operating systems. Please
+`file an issue <https://github.com/datalad-handbook/book/issues/new>`_
+if you encounter problems.
 
-When there isn't anything more convenient (i.e. availability via package managers; see below),
-DataLad is most easily installed via
-`pip <https://pip.pypa.io/en/stable/>`_.
-To automatically install DataLad and its software dependencies type
-
-.. code-block:: bash
-
-   $ pip install datalad
-
-In addition, it is necessary to have a current version of Git-annex installed which is
-not set up automatically by using the pip method.
-You can find detailed installation instructions on how to do this
-`here <https://git-annex.branchable.com/install/>`_.
-
-.. admonition:: If you do not have admin powers…
-   :class: note
-
-   pip supports installation into a user’s home directory with the ``--user`` option:
 
 Linux: (Neuro)Debian, Ubuntu, and similar systems
 """""""""""""""""""""""""""""""""""""""""""""""""
 
-      $ pip install --user datalad
-
-
-.. todo::
-
-   how to install Git-annex without sudo permissions. Currently the docs say:
-   "Git-annex can be deployed by extracting pre-built binaries from a tarball
-   (that also includes an up-to-date Git installation). Obtain the tarball,
-   extract it, and set the PATH environment variable to include the root of the
-   extracted tarball. Fingers crossed and good luck!" This could be turned into
-   a less intimidating step-by-step guide.
-
-
-(Neuro)Debian, Ubuntu, and similar systems
-------------------------------------------
 For Debian-based operating systems, the most convenient installation method
 is to enable the `NeuroDebian <http://neuro.debian.net/>`_ repository.
 If you are on a Debian-based system, but do not have the NeuroDebian repository

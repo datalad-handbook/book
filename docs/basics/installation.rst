@@ -39,16 +39,57 @@ OS X
 
 A common way to install packages on OS X is via the
 `homebrew <https://brew.sh/>`_ package manager.
-Git-annex can be installed using the command
+First, install the homebrew package manager. Note that prior
+to the installation, `Xcode <https://apps.apple.com/us/app/xcode/id497799835>`_
+needs to be installed from the Mac App Store.
+Homebrew then can be installed using the command following the
+instructions on their webpage (linked above).
+
+Next, install :term:`Git-annex` via the ``brew`` command in a terminal:
 
 .. code-block:: bash
 
    $ brew install git-annex
 
-Once Git-annex is available, DataLad can be installed via ``pip`` as described above.
-``pip`` comes with Python distributions, such as `anaconda <https://www.continuum.io/downloads>`_.
+Once Git-annex is available, DataLad can be installed via Pythons package
+manager ``pip`` as described below.
 
+When there isn't anything more convenient: Use ``pip``
+""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+DataLad can be installed via Pythons package manager
+`pip <https://pip.pypa.io/en/stable/>`_.
+``pip`` comes with Python distributions, e.g. the Python distributions
+downloaded from `python.org <https.python.org>`_. When downloading Python, make sure to chose
+a recent Python **3** distribution.
+
+If you have Python and pip set up,
+to automatically install DataLad and its software dependencies, type
+
+.. code-block:: bash
+
+   $ pip install datalad
+
+If this results in a ``permission denied`` error, install DataLad into
+a user's home directory:
+
+.. code-block:: bash
+
+   $ pip install --user datalad
+
+In addition, it is necessary to have a current version of :term:`Git-annex` installed which is
+not set up automatically by using the ``pip`` method.
+You can find detailed installation instructions on how to do this
+`here <https://git-annex.branchable.com/install/>`_.
+
+.. todo::
+
+   how to install Git-annex without sudo permissions. Currently the docs say:
+   "Git-annex can be deployed by extracting pre-built binaries from a tarball
+   (that also includes an up-to-date Git installation). Obtain the tarball,
+   extract it, and set the PATH environment variable to include the root of the
+   extracted tarball. Fingers crossed and good luck!" This could be turned into
+   a less intimidating step-by-step guide.
 
 Windows 10
 """"""""""

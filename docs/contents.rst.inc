@@ -29,9 +29,9 @@ Basics
    basics/101-105-install
    basics/101-106-nesting
    basics/101-107-summary
-   basics/101-a-sharelocal
-   basics/101-b-sharelocal2
-   basics/101-c-sharelocal3
+   basics/101-120-sharelocal
+   basics/101-121-sharelocal2
+   basics/101-122-sharelocal3
 
 
 #########

@@ -30,6 +30,7 @@ Basics
    basics/101-6-nesting
    basics/101-7-summary
    basics/101-120-sharelocal
+   basics/101-121-sharelocal2
 
 #########
 Use Cases

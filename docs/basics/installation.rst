@@ -1,11 +1,10 @@
 .. _install:
 
-******************************
 Installation and Configuration
-******************************
+------------------------------
 
 Install DataLad
-===============
+^^^^^^^^^^^^^^^
 
 The content on this site is copied from the `DataLad website <https://www.datalad.org/get_datalad.html>`_
 and the `DataLad documentation <http://docs.datalad.org/en/latest/gettingstarted.html>`_.
@@ -32,7 +31,8 @@ You can find detailed installation instructions on how to do this
 
    pip supports installation into a user’s home directory with the ``--user`` option:
 
-   .. code-block:: bash
+Linux: (Neuro)Debian, Ubuntu, and similar systems
+"""""""""""""""""""""""""""""""""""""""""""""""""
 
       $ pip install --user datalad
 
@@ -62,9 +62,8 @@ DataLad and all of its software dependencies (including the Git-annex-standalone
 
    $ sudo apt-get install datalad
 
-
 OS X
-----
+""""
 
 A common way to install packages on OS X is via the
 `homebrew <https://brew.sh/>`_ package manager.
@@ -80,7 +79,7 @@ Once Git-annex is available, DataLad can be installed via ``pip`` as described a
 
 
 Windows 10
-----------
+""""""""""
 
 There are two ways to use DataLad on Windows 10: one is within Windows itself,
 the other is using WSL, the Windows Subsystem Linux. We recommend the latter.
@@ -173,7 +172,7 @@ chose, and that terminal output can look different from what is displayed here.
 
 
 HPC environments or any system with singularity installed
----------------------------------------------------------
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 If you want to use DataLad on a high-performance computing (HPC) environment, such as a
 computer cluster or a similar multi-user machine, where you don't have admin privileges,
@@ -208,7 +207,7 @@ transparently executes all DataLad functionality through the container.
 
 
 Initial configuration
-=====================
+^^^^^^^^^^^^^^^^^^^^^
 
 Initial configurations only concern the setup of a :term:`Git` identity. If you
 are a Git-User, you should hence be good to go.

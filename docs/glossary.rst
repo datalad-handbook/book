@@ -8,7 +8,7 @@ Glossary
 
    absolute path
       The complete path from the root of the file system. Absolute paths always start with ``/``.
-      Example: ``/home/user/studyforrest-phase-2/sub-02``. See also :term:`relative path`.
+      Example: ``/home/user/Pictures/xkcd-webcomics/530.png``. See also :term:`relative path`.
 
    checksum
       TODO
@@ -31,13 +31,19 @@ Glossary
    DataLad superdataset
       A DataLad dataset that contains one or more levels of other DataLad datasets (:term:`DataLad subdataset`)
 
-   git
-      A version control system. (TODO: add references)
+   Git
+      A version control system to track changes made to small-sized files over time. You can find out
+      more about git in `this (free) book <https://git-scm.com/book/en/v2>`_
+      or `these interactive Git tutorials <https://try.github.io/>`_ on :term:`Github`
 
-   git-annex
+   Git-annex
       TODO
 
-   gitk
+   Github
+      GitHub is an online platform where one can store and share version controlled projects
+      using Git (and thus also DataLad project).
+
+   Gitk
       TODO
 
    metadata
@@ -54,7 +60,7 @@ Glossary
 
    relative path
       A path related to the present working directory. Relative paths never start with ``/``.
-      Example: ``../data/studyforrest-phase-2/sub-02``. See also :term:`absolute path`.
+      Example: ``../Pictures/xkcd-webcomics/530.png``. See also :term:`absolute path`.
 
    SSH server
       An remote or local computer that users can log into using the :term:`SSH` protocol
@@ -70,13 +76,15 @@ Glossary
       TODO
 
    tig
-      A tool to display git histories. Find out more `here <https://jonas.github.io/tig/>`_.
+      A text-mode interface for git that allows you to easily browse through your commit history.
+      It is not part of git and needs to be installed. Find out more `here <https://jonas.github.io/tig/>`_.
 
    version control
-      TODO
+      The management of changes to documents or other collections of information
 
    vim
       A text editor, often the default in UNIX operating systems. If you are not used to using it,
       but ended up in it accidentally: press ``ESC`` ``:`` ``q`` ``!`` ``Enter`` to exit without saving.
       Here is help: `A vim tutorial <https://www.openvim.com/>`_ and
       `how to configure the default editor for git <https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration>`_.
+

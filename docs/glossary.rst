@@ -31,6 +31,9 @@ Glossary
    DataLad superdataset
       A DataLad dataset that contains one or more levels of other DataLad datasets (:term:`DataLad subdataset`)
 
+   Debian
+      A common Linux distribution
+
    Git
       A version control system to track changes made to small-sized files over time. You can find out
       more about git in `this (free) book <https://git-scm.com/book/en/v2>`_

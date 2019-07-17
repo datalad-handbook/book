@@ -188,12 +188,10 @@ please `get in touch <https://github.com/datalad-handbook/book/issues/new>`_.
    (GUI). Instead, you will work inside of the standard Linux terminal. This however
    mirrors the examples and code snippets provided in this handbook exactly.
    Also, note that there will be incompatibilities between the Windows and Linux filesystems.
-   Files that are created within the WSL for examples can not be modified with
-   Windows tools.
+   Files that are created within the WSL for example can not be modified with
+   Windows tools. A great resource to get started and understand the WSL is
+   `this guide <https://github.com/michaeltreat/Windows-Subsystem-For-Linux-Setup-Guide/>`_.
 
-   .. todo::
-
-       maybe we need some DOs and DON'Ts here, or at least link them
 
    **Requirements**:
 
@@ -209,8 +207,7 @@ please `get in touch <https://github.com/datalad-handbook/book/issues/new>`_.
    `Microsoft Documentation on the Windows Subsystem for Linux <https://docs.microsoft.com/en-us/windows/wsl/install-win10>`_.
    If you run into troubles during the installation, please consult the
    `WSL troubleshooting page <https://docs.microsoft.com/en-us/windows/wsl/troubleshooting>`_.
-   Also, a great resource to get started and understand the WSL is
-   `this tutorial <https://github.com/michaeltreat/Windows-Subsystem-For-Linux-Setup-Guide/>`_.
+
 
    - **Step 1**: Enable the windows subsystem for Linux
 
@@ -222,10 +219,11 @@ please `get in touch <https://github.com/datalad-handbook/book/issues/new>`_.
 
       - Afterwards, when prompted in the Power Shell, restart your computer
 
-   - **Step 2**: Install a Linux distribution of your choice
+   - **Step 2**: Install a Debian Linux distribution
 
-      - To do this, visit the Microsoft store, and search for your distribution of choice.
-        We recommend installing :term:`Ubuntu`. "Get" the app, and "install" it.
+      - To do this, visit the Microsoft store, and search for the Debian distro.
+        We **strongly** recommend installing :term:`Debian`, even though other
+        distributions are available. "Get" the app, and "install" it.
 
    - **Step 3**: Initialize the distribution
 
@@ -250,52 +248,31 @@ please `get in touch <https://github.com/datalad-handbook/book/issues/new>`_.
 
          $ sudo apt update && sudo apt upgrade
 
-   - **Step 4**: Install necessary tools
+   - **Step 4**: Enable Neurodebian
 
-   .. todo::
-
-      Which way is recommended? Install everything piece-wise as outlined below,
-      or using Ubuntus datalad package (``sudo apt install datalad``)? ``apt install``
-      will get Datalad 0.9.3.
-
-      When doing the piece-wise installation, I still need to figure out how to
-      export the correct paths to make the commands available from bash.
-
-      - To install Python, and Pythons package manager ``pip``, run the following command,
-        and confirm with ``Enter`` when prompted by the shell.
+      - In your terminal, run
 
       .. code-block:: bash
 
-         $ sudo apt install python3 python3-pip
+         $ wget -O- http://neuro.debian.net/lists/stretch.de-md.libre | sudo tee /etc/apt/sources.list.d/neurodebian.sources.list
 
-      - If you chose :term:`Ubuntu`, :term:`Git` will be pre-installed.
-        On other distributions, to install Git, run
-
-      .. code-block:: bash
-
-         $ sudo apt install git
-
-      - To install :term:`Git-annex`, run
-
-         $ sudo apt install git-annex
-
-      - Throughout using the WSL, you will notice that many tools are not yet installed.
-        For example, ``vim``, a powerful terminal-based editor, is not installed by default.
-        You can add tools you need by searching for them with ``apt search TOOLNAME`` and install
-        it using ``sudo apt install TOOLNAME``. Its helpful to consult Google or a search engine
-        of your choice prior to an installation to find out information about the tool.
-
-   - **Step 5**: Install DataLad via pip
-
-      - run
+      - Afterwards, run
 
       .. code-block:: bash
 
-         $ pip3 install --user datalad
+         $ curl -sL "http://keyserver.ubuntu.com/pks/lookup?op=get&search=0xA5D32F012649A5A9" | sudo apt-key add
 
-   .. todo::
+      - lastly do another
 
-      Or do we want to have them use Debian and Neurodebian?
+      .. code-block:: bash
+
+         $ sudo apt-update && sudo apt upgrade
+
+   - **Step 4**: Install datalad and everything it needs
+
+      .. code-block:: bash
+
+         $ sudo apt install datalad
 
 
 HPC environments or any system with singularity installed

@@ -183,7 +183,7 @@ For this, we supply an additional option to ``datalad status``. Make sure to be
    :language: console
    :workdir: dl-101/DataLad-101/recordings/longnow
 
-   $ datalad status --annex basic
+   $ datalad status --annex
 
 Woah! More than 200 files, totalling more than 15 GB?
 You begin to appreciate that DataLad did not

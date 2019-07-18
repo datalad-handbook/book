@@ -1,3 +1,5 @@
+.. _summary_scratch:
+
 Starting from scratch: Summary
 ------------------------------
 
@@ -6,7 +8,7 @@ and making simple modifications *locally*:
 
 * An empty dataset can be created with the ``datalad create`` command. Its useful to add a description
   to the dataset and use the ``-c text2git`` configuration, but we will see later why.
-  Command structure: ``datalad create --description "here is a description" -c text2git PATH``
+  Command structure: ``datalad create --description "here is a description" -c text2git PATH``.
 
 * Thanks to :term:`Git` and :term:`Git-annex`, the dataset has a history to track files and their
   modifications. Built-in Git tools (``git log``) or external tools (such as ``tig``) allow to explore
@@ -16,7 +18,7 @@ and making simple modifications *locally*:
   of specifying a concise commit message to summarize the change, and do not forget to specify the
   path to the file (change) that should be saved to history! Remember, if you run a ``datalad save`` without
   specifying a path, all untracked files and all file changes will be committed to the history together!
-  Command structure: ``datalad save -m "here is a commit message" PATH``
+  Command structure: ``datalad save -m "here is a commit message" PATH``.
 
 * The typical local workflow consists of an initial ``datalad save -m "Add file XY" PATH`` to instruct
   DataLad to track the file and its content. Afterwards, one *modifies* the file, and then *saves* the

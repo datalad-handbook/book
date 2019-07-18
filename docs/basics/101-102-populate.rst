@@ -8,7 +8,7 @@ Even if we end up not reading those books at all, lets just download
 them and put them into our dataset. You never know, right?
 Lets first create a directory to save books for additional reading in.
 
-.. runrecord:: _examples/DL-101-20
+.. runrecord:: _examples/DL-101-102-1
    :language: console
    :workdir: dl-101/DataLad-101
 
@@ -16,7 +16,7 @@ Lets first create a directory to save books for additional reading in.
 
 Lets take a look at the current directory structure:
 
-.. runrecord:: _examples/DL-101-21
+.. runrecord:: _examples/DL-101-102-2
    :language: console
    :workdir: dl-101/DataLad-101
 
@@ -25,7 +25,7 @@ Lets take a look at the current directory structure:
 
 Arguably, not the most exiting thing to see. So lets put some PDFs inside.
 Below is a short list optional readings. We decide to download them (they
-are all free, in total 16.1 MB), and save them in ``DataLad-101/books``.
+are all free, in total about 15 MB), and save them in ``DataLad-101/books``.
 
 - Additional reading about the command line: `The Linux Command Line <https://sourceforge.net/projects/linuxcommand/files/TLCL/19.01/TLCL-19.01.pdf/download>`_
 - An intro to Python: `A byte of Python <https://www.gitbook.com/download/pdf/book/swaroopch/byte-of-python>`_
@@ -33,7 +33,7 @@ are all free, in total 16.1 MB), and save them in ``DataLad-101/books``.
 You can either visit the links and save them in ``books/``,
 or run the following commands to download the books:
 
-.. runrecord:: _examples/DL-101-22
+.. runrecord:: _examples/DL-101-102-3
    :language: console
    :workdir: dl-101/DataLad-101
    :realcommand: cd books &&  wget -nv https://sourceforge.net/projects/linuxcommand/files/TLCL/19.01/TLCL-19.01.pdf/download -O TLCL.pdf && wget -nv https://www.gitbook.com/download/pdf/book/swaroopch/byte-of-python -O byte-of-python.pdf
@@ -47,7 +47,7 @@ or run the following commands to download the books:
 Let's see what happened. First of all, in the root of ``DataLad-101``, show the directory
 structure with tree:
 
-.. runrecord:: _examples/DL-101-23
+.. runrecord:: _examples/DL-101-102-4
    :language: console
    :workdir: dl-101/DataLad-101
 
@@ -58,7 +58,7 @@ Now what does DataLad do with this sudden content? One command you will use very
 often is ``datalad status``. It reports on the state of dataset content, and
 regular status reports should become a habit in the wake of ``DataLad-101``.
 
-.. runrecord:: _examples/DL-101-24
+.. runrecord:: _examples/DL-101-102-5
    :language: console
    :workdir: dl-101/DataLad-101
 
@@ -73,7 +73,7 @@ saving the files to the datasets history with the ``datalad save`` command.
 This time, its your turn to specify a helpful :term:`commit message`
 with the ``-m`` option:
 
-.. runrecord:: _examples/DL-101-25
+.. runrecord:: _examples/DL-101-102-6
    :language: console
    :workdir: dl-101/DataLad-101
 
@@ -91,13 +91,13 @@ with the ``-m`` option:
    You can change the *last* commit message with the Git command
    ``git commit --amend``. This will open up your default editor
    and you can edit
-   the commit message. Careful - the default editor might be :term:`vim`!
+   the commit message. Careful -- the default editor might be :term:`vim`!
 
 Lets see how this shows up in the history of the dataset with ``git log``.
 In order to get a bit more details, we add the ``-p`` flag (leave the git log
 by typing ``q``, navigate with up and down arrow keys):
 
-.. runrecord:: _examples/DL-101-26
+.. runrecord:: _examples/DL-101-102-7
    :language: console
    :workdir: dl-101/DataLad-101
    :lines: 1-20
@@ -158,7 +158,7 @@ Second, yes, you should have control about what you have tracked by DataLad.
 Luckily, we can point ``datalad save`` to exactly the changes we want it to record.
 Lets try this by adding yet another book, a good reference work about git:
 
-.. runrecord:: _examples/DL-101-28
+.. runrecord:: _examples/DL-101-102-8
    :language: console
    :workdir: dl-101/DataLad-101
    :realcommand: cd books && wget -nv https://github.com/progit/progit2/releases/download/2.1.154/progit.pdf && cd ../
@@ -169,7 +169,7 @@ Lets try this by adding yet another book, a good reference work about git:
 
 ``datalad status`` shows that there is a new untracked file:
 
-.. runrecord:: _examples/DL-101-29
+.. runrecord:: _examples/DL-101-102-9
    :language: console
    :workdir: dl-101/DataLad-101
 
@@ -177,7 +177,7 @@ Lets try this by adding yet another book, a good reference work about git:
 
 Lets ``datalad save`` precisely this file by specifying its path after the commit message:
 
-.. runrecord:: _examples/DL-101-31
+.. runrecord:: _examples/DL-101-102-10
    :language: console
    :workdir: dl-101/DataLad-101
 
@@ -187,7 +187,7 @@ Let's make it a habit to always specify precisely which changes we want to write
 
 A ``datalad status`` should now be empty, and our datasets history should look like this:
 
-.. runrecord:: _examples/DL-101-32
+.. runrecord:: _examples/DL-101-102-11
    :language: console
    :workdir: dl-101/DataLad-101
 
@@ -200,5 +200,5 @@ Well done! You're ``DataLad-101`` dataset and it's history are slowly growing.
 
 .. rubric:: Footnotes
 
-.. [#f1] A nice and easy tool we can recommend as an alternative to ``git log`` is :term:`tig`.
-         Once installed, exchange any git log command you see here with the single word ``tig``.
+.. [#f1] See :term:`tig`. Once installed, exchange any git log command you
+   see here with the single word ``tig``.

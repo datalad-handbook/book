@@ -1,34 +1,35 @@
 .. _datasets:
 
-****************
-DataLad Datasets
-****************
-
-.. note::
-   If you like
-   learning-by-doing, let us explore together what a DataLad dataset is.
-   If you have DataLad set-up, run the following command and follow the
-   commands in the screenshots.
-
-   .. runrecord:: _examples/dataset
-      :language: console
-
-      $ datalad install https://github.com/psychoinformatics-de/studyforrest-data-phase2.git
+***********************
+A Neuroimaging Datasets
+***********************
 
 .. todo::
 
-   This will need to be changed to a different, non-neuroimaging repository soon.
+   Currently, this is a left over. Later, we can rework this into something,
+   but its unclear yet what ;-)
 
+This section is a concise demonstration of what a DataLad dataset is,
+showcased on a dataset from the field of neuroimaging.
 A DataLad dataset is the core data type of DataLad. We will explore the concepts
 of it with one public example dataset, the studyforrest phase 2 data (studyforrest.org).
-Note that this is just one type and use of a Datalad dataset, and you will find many
-more flavors of using DataLad datasets in upcoming chapters.
-In this example, I have installed the dataset in ``~/repos/testing``.
+Note that this is just one type and use of a Datalad dataset, and you throughout there are
+many more flavors of using DataLad datasets in the basics or in upcoming use cases.
 
-Once created, a DataLad dataset looks like any other directory on your filesystem:
+Please follow along and run the commands below in your own terminal for
+a hands-on experience.
+
+   .. runrecord:: _examples/dataset
+      :language: console
+      :workdir: studyforrest
+
+      $ datalad install https://github.com/psychoinformatics-de/studyforrest-data-phase2.git
+
+Once installed, a DataLad dataset looks like any other directory on your filesystem:
 
 .. runrecord:: _examples/dataset2
    :language: console
+   :workdir: studyforrest
    :lines: 1-2, 8-18
 
    $ cd studyforrest-data-phase2
@@ -50,7 +51,7 @@ all of these changes can be written to your DataLad datasets history.
       :language: console
       :lines: 1, 5-11, 15-25
       :emphasize-lines: 3, 5-6, 8
-      :realcommand: cd studyforrest-data-phase2 && ls -a
+      :workdir: studyforrest/studyforrest-data-phase2
 
       $ ls -a # show also hidden files (excerpt)
 
@@ -61,15 +62,14 @@ a DataLad dataset, all copies also include the datasets history. An installed Da
 dataset knows the dataset it was installed from, and if changes
 in this original DataLad dataset happen, the installed dataset can simply be updated.
 
-You can view the DataLad datasets history with tools of your choice, but we will
-get into more detail on the history of a DataLad dataset in later chapters.
-The code block below is used for illustration purposes and is an exempt
+You can view the DataLad datasets history with tools of your choice.
+The code block below is used to illustrate the history and is an exempt
 from ``git log``.
 
 .. runrecord:: _examples/dataset4
    :language: console
    :lines: 1-10
-   :realcommand: cd studyforrest-data-phase2 && git log --oneline --graph --decorate
+   :workdir: studyforrest/studyforrest-data-phase2
 
    $ git log --oneline --graph --decorate
 
@@ -85,21 +85,22 @@ small in size:
 
 .. runrecord:: _examples/dataset5
    :language: console
-   :realcommand: cd studyforrest-data-phase2 && du -sh
+   :workdir: studyforrest/studyforrest-data-phase2
 
    $ du -sh
 
-This is because only small files are present locally (my shell helps me to
-determine this with its highlighting features - for shits and giggles, you can try
-opening both files). A small ``.tsv`` (1.9K) file exists
-locally, but what would be a large, compressed neuroimaging nifti (``.nii.gz``) file
+This is because only small files are present locally -- for shits and giggles, you can try
+opening both a small ``.tsv`` file in the root of the dataset,
+and a larger compressed ``nifti`` (``nii.gz``) in one of the subdirectories in this dataset.
+A small ``.tsv`` (1.9K) file exists and can be opened locally,
+but what would be a large, compressed ``nifti`` file
 isn't. In this state, one cannot open or work with the nifti file, but you can
 explore which files exist without the potentially large download.
 
 .. runrecord:: _examples/dataset6
    :language: console
    :emphasize-lines: 3
-   :realcommand: cd studyforrest-data-phase2 && ls participants.tsv  sub-01/ses-movie/func/sub-01_ses-movie_task-movie_run-1_bold.nii.gz
+   :workdir: studyforrest/studyforrest-data-phase2
 
    $ ls participants.tsv  sub-01/ses-movie/func/sub-01_ses-movie_task-movie_run-1_bold.nii.gz
 
@@ -109,7 +110,7 @@ of files. Lets get the nifti file:
 
 .. runrecord:: _examples/dataset7
    :language: console
-   :realcommand: cd studyforrest-data-phase2 && datalad get sub-01/ses-movie/func/sub-01_ses-movie_task-movie_run-1_bold.nii.gz
+   :workdir: studyforrest/studyforrest-data-phase2
 
    $ datalad get sub-01/ses-movie/func/sub-01_ses-movie_task-movie_run-1_bold.nii.gz
 
@@ -136,13 +137,14 @@ its subdataset can be updated to include the changes easily. More
 detailed examples of this can be found in the use cases in the last
 section (for example in :ref:`remodnav`).
 
-The figure below illustrates dataset nesting schematically:
+The figure below illustrates dataset nesting in a neuroimaging context
+schematically:
 
 
 .. figure:: ../img/virtual_dirtree.svg
    :alt: Virtual directory tree of a nested DataLad dataset
 
-I want to create a dataset myself!
+Creating your own dataset yourself
 ==================================
 
 Anyone can create, populate, and optionally share a *new* DataLad dataset.
@@ -164,11 +166,4 @@ from a url or path, or from the datalad open-data collection.
 
    ``datalad install`` used the ``git clone`` command.
 
-More information
-on the creation and installation of datasets will be introduced in later
-chapters.
 
-.. todo::
-
-   We might need to address symlinks and the concept of content being stored
-   in the object tree, not the file user can see in their directory.

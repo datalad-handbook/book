@@ -30,10 +30,12 @@ Basics
    basics/101-106-nesting
    basics/101-107-summary
    basics/101-108-run
-   basics/101-109-run2
-   basics/101-110-run3
-   basics/101-111-summary
-   basics/101-112-git2txt
+   basics/101-109-rerun
+   basics/101-110-run2
+   basics/101-111-run3
+   basics/101-112-run4
+   basics/101-113-summary
+   basics/101-114-txt2git
 
 
 #########

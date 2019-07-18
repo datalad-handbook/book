@@ -25,7 +25,7 @@ Lets take a look at the current directory structure:
 
 Arguably, not the most exiting thing to see. So lets put some PDFs inside.
 Below is a short list optional readings. We decide to download them (they
-are all free, in total 16.1 MB), and save them in ``DataLad-101/books``.
+are all free, in total about 15 MB), and save them in ``DataLad-101/books``.
 
 - Additional reading about the command line: `The Linux Command Line <https://sourceforge.net/projects/linuxcommand/files/TLCL/19.01/TLCL-19.01.pdf/download>`_
 - An intro to Python: `A byte of Python <https://www.gitbook.com/download/pdf/book/swaroopch/byte-of-python>`_
@@ -91,7 +91,7 @@ with the ``-m`` option:
    You can change the *last* commit message with the Git command
    ``git commit --amend``. This will open up your default editor
    and you can edit
-   the commit message. Careful - the default editor might be :term:`vim`!
+   the commit message. Careful -- the default editor might be :term:`vim`!
 
 Lets see how this shows up in the history of the dataset with ``git log``.
 In order to get a bit more details, we add the ``-p`` flag (leave the git log
@@ -200,5 +200,5 @@ Well done! You're ``DataLad-101`` dataset and it's history are slowly growing.
 
 .. rubric:: Footnotes
 
-.. [#f1] A nice and easy tool we can recommend as an alternative to ``git log`` is :term:`tig`.
-         Once installed, exchange any git log command you see here with the single word ``tig``.
+.. [#f1] See :term:`tig`. Once installed, exchange any git log command you
+   see here with the single word ``tig``.

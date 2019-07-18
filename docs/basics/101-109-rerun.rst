@@ -1,0 +1,195 @@
+DataLad, Re-Run!
+----------------
+
+So far, you created a simple ``.tsv`` file of all
+speakers and talk titles in the longnow podcasts subdataset.
+Let's actually take a look into this file now:
+
+.. runrecord:: _examples/DL-101-108-109
+   :language: console
+   :workdir: dl-101/DataLad-101
+   :lines: 1-30
+
+   $ less recordings/Podcasts.tsv
+
+Not too bad, and certainly good enough for the podcast night people.
+What's been cool about creating this file is that it was created with
+a script within a ``datalad run`` command. Thanks to ``datalad run``,
+the output file ``Podcasts.tsv`` is associated with the script it
+generated.
+
+Upon reviewing the list you realized that you made a mistake: you only
+listed the talks in the SALT series (the
+``Long_Now__Seminars_About_Long_term_Thinking`` directory), but not
+in the ``Long_Now__Conversations_at_The_Interval/`` directory.
+Lets fix this in the script. Replace the contents in ``code/list_titles.py``
+with the following:
+
+.. code-block:: python
+   :emphasize-lines: 9
+
+   # import modules for path operations and pathname pattern expansion
+   from os.path import join, basename
+   from glob import glob
+
+   # define a path to the podcasts. Note that this is a relative path,
+   # pointing from the location the script resides to the podcasts:
+
+   path = join('recordings', 'longnow',
+               '*', '*')        # <-- here is the change!
+   # create a list of all file names found under the path
+   files = glob(path)
+   # define an outfile name:
+   outfile = join('recordings', 'Podcasts.tsv)
+
+   # loop through all file names and write speaker and title into the file
+   with open(outfile, 'w') as f:
+       for file in files:
+           # extract speaker name
+           author = basename(file).split('__')[1] \
+               if len(basename(file).split('__')[1].split('_')) > 1 \
+               else '__'.join(basename(file).split('__')[1:3])
+           # extract title
+           title = '_'.join(basename(file).split(author)[-1].split('__')[1:])
+           # write speaker and talk title into the file
+           f.write(author + '\t' + title + '\n')
+
+.. runrecord:: _examples/DL-101-108-110
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ cat << EOT > code/list_titles.py
+   # import modules for path operations and pathname pattern expansion
+   from os.path import join, basename
+   from glob import glob
+
+   # define a path to the podcasts. Note that this is a relative path,
+   # pointing from the root of DataLad-101 to the podcasts:
+
+   path = join('recordings', 'longnow',
+               '*', '*')        # <-- here is the change!
+   # create a list of all file names found under the path
+   files = glob(path)
+   # define an outfile name:
+   outfile = join('recordings', 'Podcasts.tsv')
+
+   # loop through all file names and write speaker and title into the file
+   with open(outfile, 'w') as f:
+       for file in files:
+           # extract speaker name
+           author = basename(file).split('__')[1] \
+               if len(basename(file).split('__')[1].split('_')) > 1 \
+               else '__'.join(basename(file).split('__')[1:3])
+           # extract title
+           title = '_'.join(basename(file).split(author)[-1].split('__')[1:])
+           # write speaker and talk title into the file
+           f.write(author + '\t' + title + '\n')
+   EOT
+
+Because the script is now modified, save the modifications to the dataset.
+We can use the shorthand "BF" to denote "Bug fix" in the commit message.
+
+.. runrecord:: _examples/DL-101-108-111
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ datalad status
+
+.. runrecord:: _examples/DL-101-108-112
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ datalad save -m "BF: list both directories content" code/list_titles.py
+
+What we *could* do is to run the same ``datalad run`` command as before to recreate
+the file, but now with all of the contents:
+
+.. code-block:: bash
+
+   # don't execute this!
+   $ datalad run -m "create a list of podcast titles" python code/list_titles.py
+
+However, think about any situation where the command would be longer than this,
+or that is many months past the first execution. It wouldn't be easy to remember
+the command, nor would it be very convenient to copy it from the ``run-record``.
+
+As promised, there is a datalad way of re-executing a ``run`` command, and we'll
+try it in this very simple situation. To re-execute a ``datalad run`` command,
+find the checksum of its commit and use it as an argument for the
+``datalad rerun`` command.
+
+.. runrecord:: _examples/DL-101-108-113
+   :language: console
+   :workdir: dl-101/DataLad-101
+   :lines: 1-12
+   :emphasize-lines: 8
+
+   $ git log -2
+
+Take that checksum and paste it after ``datalad rerun`` (The first 6-8 characters
+of the checksum would be sufficient).
+
+.. runrecord:: _examples/DL-101-108-114
+   :language: console
+   :workdir: dl-101/DataLad-101
+   :realcommand: echo "$ datalad rerun $(git rev-parse HEAD~1)" && datalad rerun $(git rev-parse HEAD~1)
+
+Now DataLad has made use out of the ``run-record``, and based on the information in
+it re-executed the original command. Because we
+updated the script, the output ``Podcasts.tsv`` has changed and now contains the podcast
+titles of both subdirectories.
+You've probably already guessed it, but the easiest way to check whether a ``datalad rerun``
+has changed the desired output file is
+to check whether the rerun command appears in the datasets history: If a ``datalad rerun``
+does not add or change any content in the dataset, it will also not be recorded in the history.
+
+We can see that a new ``datalad run`` was recorded. In the datasets history, this action is
+committed by Datalad under the original commit message:
+
+.. runrecord:: _examples/DL-101-108-115
+   :language: console
+   :workdir: dl-101/DataLad-101
+   :emphasize-lines: 4
+
+   git log -1
+
+Note that ``datalad rerun`` works with ``datalad run`` or ``datalad rerun`` commands,
+but not with any other type of datalad command in your history. Therefore, make it a
+habit to record the execution of scripts by plugging it into ``datalad run``.
+
+This very basic example of a ``datalad run`` is as simple as it can get, but is already
+convenient from a memory-load perspective: Now you don't need to
+remember the commands or scripts involved in creating an output.
+Also, incidentally, we have generated :term:`provenance` information. It is
+now recorded in the history of the dataset how the output ``Podcasts.tsv`` came
+into existence.
+
+Still, this ``datalad run`` was very simple.
+The next section will demonstrate how ``datalad run`` becomes handy in
+more complex standard use cases: situations with *locked* contents.
+
+But prior to that, make a note about ``datalad run`` and ``datalad rerun`` in your
+``notes.txt`` file.
+
+.. runrecord:: _examples/DL-101-108-116
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ cat << EOT >> notes.txt
+   The datalad run command can record the impact a script or command has on a Dataset.
+   In its most simple form, datalad run only takes a commit message and the command that
+   should be executed.
+
+   Any datalad run command can be re-executed by using its commit checksum as an argument
+   in datalad rerun CHECKSUM. DataLad will take information form the runrecord of the original
+   commit, and re-execute it. If no changes happen with a rerun, the command will not be written
+   to history. Note: you can also rerun a datalad rerun command!
+   EOT
+
+Finally, save this note.
+
+.. runrecord:: _examples/DL-101-108-117
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   datalad save -m "add note on basic datalad run and datalad rerun" notes.txt

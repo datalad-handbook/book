@@ -44,7 +44,7 @@ that captures the spirit of what DataLad is, and here is a brief overview on it.
    in any field work with files on their computer, at its core,
    **DataLad is a completely domain-agnostic, general-purpose tool to manage data**.
    You can use it whether you have a PhD in Neuroscience and want to
-   `share one of the largest whole brain MRI images in the world <https://www.nature.com/articles/sdata201732>`_,
+   `share one of the largest whole brain MRI images in the world <https://github.com/datalad-datasets/bmmr-t1w-250um>`_,
    organize your private music library, keep track of all
    `cat memes <https://www.diabloii.net/gallery/data/500/medium/moar6-cat.jpg>`_
    on the internet, or `anything else <https://media.giphy.com/media/3o6YfXCehdioMXYbcs/giphy.gif>`_.
@@ -57,12 +57,12 @@ that captures the spirit of what DataLad is, and here is a brief overview on it.
    You will experience much of Git working its
    magic underneath the hood when you use DataLad. Do also rest assured that there
    is no need to panic if you don't know Git -- there is no necessity
-   to learn Git to follow along in learning and using DataLad.
+   to immediately learn all Git to follow along in learning and using DataLad.
 
 #. **A DataLad dataset can take care of managing and version controlling arbitrarily large data**.
    To do this, it has an optional *annex* for (large) file content:
    Thanks to this annex, DataLad can easily track files that are many TB or PB in size
-   (something that git couldn't do, and that allows you to restore previous versions of data,
+   (something that Git couldn't do, and that allows you to restore previous versions of data,
    transform and work with it while capturing all :term:`provenance`,
    or share it with whomever you want). At the same time, DataLad does all of the magic
    necessary to get this awesome feature to work quietly in the background.
@@ -78,7 +78,7 @@ that captures the spirit of what DataLad is, and here is a brief overview on it.
    whether it is managed by DataLad or not. This guarantees that users will not loose
    data or data access if DataLad would vanish from their system, or even when DataLad
    would vanish from the face of Earth. Using DataLad thus does not require or generate
-   datastructures that can only be used or read with DataLad -- DataLad doesn't
+   data structures that can only be used or read with DataLad -- DataLad doesn't
    tie you down, it liberates you.
 
 #. Furthermore, DataLad is developed for **complete decentralization**.
@@ -92,8 +92,9 @@ that captures the spirit of what DataLad is, and here is a brief overview on it.
    **maximize the (re-)use of existing 3rd-party data resources and infrastructure**.
    Users *can* use existing central infrastructure should they want to.
    DataLad works with any infrastructure from :term:`Github` to
-   Dropbox, Figshare or institutional
-   repositories, enabling users to harvest all of the advantages of their preferred
+   `Dropbox <https://www.dropbox.com>`_, `Figshare <https://figshare.com/>`_
+   or institutional repositories,
+   enabling users to harvest all of the advantages of their preferred
    infrastructure without tying anyone down to central services.
 
 These principles hopefully gave you some idea of what to expect from DataLad,

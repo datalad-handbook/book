@@ -25,7 +25,7 @@ arrows and quite cryptic paths following each non-textfile. Maybe your shell als
 displays these files in a different color than textfiles when listing
 them. We'll take a look together, using the ``books/`` directory as an example:
 
-.. runrecord:: _examples/DL-101-113-101
+.. runrecord:: _examples/DL-101-115-101
    :language: console
    :workdir: dl-101/DataLad-101
 
@@ -87,7 +87,7 @@ take the target path of any of the book's symlinks and
 open it, for example with ``evince <path>`` (Note: exchange ``evince`` with
 your standard PDF reader).
 
-.. runrecord:: _examples/DL-101-113-102
+.. runrecord:: _examples/DL-101-115-102
    :language: console
    :workdir: dl-101/DataLad-101/books
    :realcommand: echo "evince $(readlink TLCL.pdf)"
@@ -105,7 +105,7 @@ your files but only point to the actual content in ``.git/annex/objects`` are
 small in size. An ``ls -lah`` reveals that all of these symlinks have roughly the same,
 small size of ~130 Bytes:
 
-.. runrecord:: _examples/DL-101-113-103
+.. runrecord:: _examples/DL-101-115-103
    :language: console
    :workdir: dl-101/DataLad-101/books
 
@@ -215,14 +215,14 @@ to manage the file system in a datalad dataset (Todo: link).
    to understand some file system management operations (todo: link), for
    example deleting a subdataset.
 
-   .. runrecord:: _examples/DL-101-113-104
+   .. runrecord:: _examples/DL-101-115-104
       :language: console
       :workdir: dl-101/DataLad-101/books
 
       # take a look at the last part of the target path:
       $ ls -lah TLCL.pdf
 
-   .. runrecord:: _examples/DL-101-113-105
+   .. runrecord:: _examples/DL-101-115-105
       :language: console
       :workdir: dl-101/DataLad-101/books
 

@@ -1,0 +1,128 @@
+Datalad, Run! [2]
+-----------------
+
+Just now you realize that you need to fit both logos onto the same slide.
+"Ah, damn, I might then really need to have them 400 by 400 pixel to fit",
+you think. "Good that I know how to not run into the permission denied errors anymore!"
+
+Therefore, we need to do the ``datalad run`` command yet again - we wanted to have
+the image in 400x400 px size. "Now this definitely will be the last time I'm running this",
+you think.
+
+.. runrecord:: _examples/DL-101-112-101
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ datalad run -m "Resize logo for slides" \
+   --input "recordings/longnow/.datalad/feed_metadata/logo_interval.jpg" \
+   --output "recordings/interval_logo_small.jpg" \
+   "convert -resize 400x400 recordings/longnow/.datalad/feed_metadata/logo_interval.jpg recordings/interval_logo_small.jpg"
+
+Oh for f**** sake... run is "impossible"? Weird. Reading on,
+DataLad informs that a "clean dataset" is required.
+Run a ``datalad status`` to see what is meant by this:
+
+.. runrecord:: _examples/DL-101-112-102
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ datalad status
+
+Ah right. We forgot to save the notes we added.
+There are two ways to get around this error message:
+One is to save the modifications, and run the command in a clean dataset status.
+
+We will try this way with the ``logo_interval.jpg``.
+This would look like this:
+Save the changes,
+
+
+.. runrecord:: _examples/DL-101-112-103
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ datalad save -m "add additional notes on run options" notes.txt
+
+and then try again:
+
+.. runrecord:: _examples/DL-101-112-104
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ datalad run -m "Resize logo for slides" \
+   --input "recordings/longnow/.datalad/feed_metadata/logo_interval.jpg" \
+   --output "recordings/interval_logo_small.jpg" \
+   "convert -resize 400x400 recordings/longnow/.datalad/feed_metadata/logo_interval.jpg recordings/interval_logo_small.jpg"
+
+Add a quick addition to your notes about this:
+
+.. runrecord:: _examples/DL-101-112-105
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ cat << EOT >> notes.txt
+   Important! If the dataset is not "clean" (a datalad status output is empty),
+   datalad run will not work - you will have to save modifications present in your
+   dataset.
+   EOT
+
+
+A different option is to add the ``--explicit`` flag to ``datalad run``.
+We will try this flag with the ``logo_salt.jpg``. Note that thanks to the
+addition to the notes, we have an unclean ``datalad status`` again.
+
+
+.. runrecord:: _examples/DL-101-112-106
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ datalad run -m "Resize logo for slides" \
+   --input "recordings/longnow/.datalad/feed_metadata/logo_salt.jpg" \
+   --output "recordings/salt_logo_small.jpg" \
+   --explicit \
+   "convert -resize 400x400 recordings/longnow/.datalad/feed_metadata/logo_salt.jpg recordings/salt_logo_small.jpg"
+
+With this flag, DataLad considers the specification of inputs and outputs to be "explicit".
+It doesn't warn if the repository is dirty (as before), and only saves modifications to the
+listed outputs. This obviously has advantages and disadvantages, and you have to decide for
+yourself whether you want to make sure to have a clean ``datalad status`` and record every
+impact of a command on a dataset, or whether you want to record only what you specified in
+``--output``.
+
+Add an additional note on ``--explicit`` flag, and finally save your changes to ``notes.txt``.
+
+.. runrecord:: _examples/DL-101-112-107
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ cat << EOT >> notes.txt
+   Alternatively, specify the --explicit flag to record only those changes done
+   to the files listed with --output flags. In this case, you do not need to have
+   a clean datalad status.
+
+   EOT
+
+.. runrecord:: _examples/DL-101-112-108
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ datalad save -m "add note on datalad runs --explicit flag" notes.txt
+
+.. todo::
+
+   - add something on .gitignore -- else untracked content needs to be tracked for datalad run
+     without --explicit.
+
+   - TODO: escape special characters
+
+   - TODO: might be necessary to tell them that without --explicit dl run does a general save
+      Oh, you already did. Or rather: ``datalad save`` did it for you."
+
+   "Wait, I did not do a ``datalad save``." you say.
+
+   "Well, a ``datalad save`` is the end of every ``datalad run``. So in a way, you did."
+
+   evtl relevant:
+   reveal.js präsentation einbauen
+   mit pandoc oder rst2pdf notes.txt umbauen
+

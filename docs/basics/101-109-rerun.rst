@@ -18,7 +18,7 @@ a script within a ``datalad run`` command. Thanks to ``datalad run``,
 the output file ``Podcasts.tsv`` is associated with the script it
 generated.
 
-Upon reviewing the list you realized that you made a mistake: you only
+Upon reviewing the list you realized that you made a mistake, though: you only
 listed the talks in the SALT series (the
 ``Long_Now__Seminars_About_Long_term_Thinking/`` directory), but not
 in the ``Long_Now__Conversations_at_The_Interval/`` directory.
@@ -90,7 +90,9 @@ a ``run`` command, and he's eager to show it to you.
 
 "In order to re-execute a ``datalad run`` command,
 find the checksum of its commit and use it as an argument for the
-``datalad rerun`` command! That's it!" he says.
+``datalad rerun`` command! That's it!" he says happily.
+
+So you go ahead and find the commit checksum in your history:
 
 .. runrecord:: _examples/DL-101-108-113
    :language: console
@@ -118,12 +120,6 @@ has changed the desired output file is
 to check whether the rerun command appears in the datasets history: If a ``datalad rerun``
 does not add or change any content in the dataset, it will also not be recorded in the history.
 
-In the datasets history,
-we can see that a new ``datalad run`` was recorded. This action is
-committed by Datalad under the original commit message of the ``run``
-command, and looks just like the previous ``datalad run`` commit apart
-from the execution time:
-
 .. runrecord:: _examples/DL-101-108-115
    :language: console
    :workdir: dl-101/DataLad-101
@@ -131,10 +127,17 @@ from the execution time:
 
    git log -1
 
+In the datasets history,
+we can see that a new ``datalad run`` was recorded. This action is
+committed by Datalad under the original commit message of the ``run``
+command, and looks just like the previous ``datalad run`` commit apart
+from the execution time.
+
 Note that ``datalad rerun`` works with ``datalad run`` or ``datalad rerun`` commands
 (yes, you can ``rerun`` a ``datalad rerun``),
 but not with any other type of datalad command in your history
-such as a ``datalad save``. Therefore, make it a
+such as a ``datalad save`` on results or outputs after you executed a script.
+Therefore, make it a
 habit to record the execution of scripts by plugging it into ``datalad run``.
 
 This very basic example of a ``datalad run`` is as simple as it can get, but it

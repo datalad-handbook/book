@@ -1,4 +1,4 @@
-Datalad, Run! [2]
+Datalad, Run! [3]
 -----------------
 
 Just now you realize that you need to fit both logos onto the same slide.
@@ -20,6 +20,7 @@ you think.
    "convert -resize 400x400 recordings/longnow/.datalad/feed_metadata/logo_interval.jpg recordings/interval_logo_small.jpg"
 
 Oh for f**** sake... run is "impossible"?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Weird. After the initial annoyance about yet another error message faded,
 and you read on,
@@ -87,8 +88,8 @@ to a ``datalad run``:
    EOT
 
 
-A way of executing a ``datalad run`` *despite* an "unclean" dataset
-though is to add the ``--explicit`` flag to ``datalad run``.
+A way of executing a ``datalad run`` *despite* an "unclean" dataset,
+though, is to add the ``--explicit`` flag to ``datalad run``.
 We will try this flag with the ``logo_salt.jpg``. Note that thanks to the
 addition to the notes, we have an "unclean dataset" again.
 
@@ -111,6 +112,15 @@ This obviously has advantages and disadvantages, and you have to decide for
 yourself whether you want to make sure to have a clean ``datalad status``
 and record every impact of a command on a dataset,
 or whether you want to record only what you specified in ``--output``.
+
+A ``datalad status`` will show that your previously modified ``notes.txt``
+is still modified:
+
+.. runrecord:: _examples/DL-101-112-110
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ datalad status
 
 Add an additional note on ``--explicit`` flag, and finally save your changes to ``notes.txt``.
 

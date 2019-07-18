@@ -13,21 +13,23 @@ these two arguments can become necessary.
 
 In our DataLad-101 course we were given a group assignment. Everyone should
 give a small presentation about an open DataLad dataset they found. Conveniently,
-we settled for the longnow podcasts. We know the dataset quite well already,
+you decided to settle for the longnow podcasts right away.
+After all, you know the dataset quite well already,
 and after listening to almost a third of the podcasts
 and enjoying them a lot,
-we also want to recommend them to others.
+you also want to recommend them to the others.
 
 Almost all of the slides are ready, but whats still missing is the logo of the
-longnow podcasts. Good thing that this is part of the subdataset, so we can simply
-retrieve it from there.
+longnow podcasts. Good thing that this is part of the subdataset,
+so you can simply retrieve it from there.
 
 The logos (one for the SALT series, one for the Interval series -- the two
 directories in the subdataset)
 were originally extracted from the podcasts meta data information by DataLad.
-In a while we will dive into the metadata aggregation capabilities of DataLad,
-but for now, let's just use the logos.
-As they are part of the meta data of the dataset, they are in the subdataset
+In a while, we will dive into the metadata aggregation capabilities of DataLad,
+but for now, let's just use the logos instead of finding out where they
+come from -- this will come later.
+As part of the meta data of the dataset, the logos are
 in the hidden paths
 ``.datalad/feed_metadata/logo_salt.jpg`` and
 ``.datalad/feed_metadata/logo_interval.jpg``:
@@ -38,9 +40,9 @@ in the hidden paths
 
    $ ls recordings/longnow/.datalad/feed_metadata/*jpg
 
-For the slides we are preparing we need an image of size 400x400 px, but
+For the slides you decide to prepare images of size 400x400 px, but
 the logos original size is much larger: 3000x3000 pixel. Therefore
-let's try to resize the image -- currently, its far too large to fit on a slide.
+let's try to resize the images -- currently, its far too large to fit on a slide.
 
 To resize an image from the command line we can use the Unix
 command ``convert -resize``.
@@ -48,7 +50,7 @@ The command takes a new size in pixel as an argument, a path to the file that sh
 resized, and a filename and path under which a new,
 resized image will be saved.
 To resize one image to 400x400 px, the command would thus be
-``convert -resize 400x400 path/to/file.jpg path/to/newfilename.jpg``
+``convert -resize 400x400 path/to/file.jpg path/to/newfilename.jpg``.
 
 Remembering the last lecture on ``datalad run``, you decide to plug this into
 ``datalad run``. Even though this is not a script, it is a command, and you can wrap
@@ -71,29 +73,34 @@ when you copy them formatted like this.
 Lets take a look at the error message DataLad provides. In general, these error messages
 might seem wordy, and maybe a bit intimidating as well, but usually they provide helpful
 information to find out what is wrong. Whenever you encounter an error message,
-make sure to read it.
+make sure to read it, even if it feels like a mushroom cloud exploded in your terminal.
 
 A ``datalad run`` error message has several parts. The first starts after
-``[INFO   ] == Command start (output follows) =====``. This is displaying errors that the
-terminal command threw: The tool ``convert-im6.q16`` complains that it can't open
+
+``[INFO   ] == Command start (output follows) =====``.
+
+This is displaying errors that the
+terminal command threw: The ``convert`` tool complains that it can't open
 the file, because there is "No such file or directory".
 
-The second parts starts after ``[INFO   ] == Command exit (modification check follows) =====``.
+The second parts starts after
+
+``[INFO   ] == Command exit (modification check follows) =====``.
+
 DataLad adds an information about a "non-zero exit code". A non-zero exit code indicates
-that something went wrong. In shell programming, commands exit with a specific code that indicates
-whether they failed, and if so, how. Successful commands have the exit code zero. All failures
-have exit codes greater than zero. A few lines lower, DataLad even tells us the specific error
-code: The command failed with exitcode 1. In principle, you could go ahead a google what this
+that something went wrong [#f1]_. In principle, you could go ahead and google what this
 specific exit status indicates. However, the solution might have already occurred to you when
 reading the first error report: The file is not present.
 
-How can that be? Right, just as the ``.mp3`` files, the ``.jpg`` file content is not present
+How can that be?
+
+"Right!", you exclaim with a facepalm.
+Just as the ``.mp3`` files, the ``.jpg`` file content is not present
 locally after an install, and we did not ``datalad get`` it yet!
 
 This is where the ``-i``/``--input`` option for a datalad run becomes useful.
 The content of everything that is specified as an ``input`` will be retrieved
-prior to running the command. Use one ``-i``/``--input`` flag per input: As we have only
-one file to retrieve, the command is
+prior to running the command.
 
 .. runrecord:: _examples/DL-101-110-103
    :language: console
@@ -115,8 +122,10 @@ This is useful for several reasons. For one, it saved us the work of manually
 getting content. But moreover, this is useful for anyone whom we might share the
 dataset with: With an installed dataset one can very simply rerun ``datalad run`` commands
 if they have the input argument appropriately specified. It is therefore good practice to
-specify the inputs appropriately. Note that ``datalad get`` will only retrieve content if
-it is not yet present, all input already downloaded will not be downloaded again.
+specify the inputs appropriately. Remember from section :ref:`installds`
+that ``datalad get`` will only retrieve content if
+it is not yet present, all input already downloaded will not be downloaded again -- so
+specifying inputs even though they are already present will not do any harm.
 
 .. container:: toggle
 
@@ -133,10 +142,13 @@ it is not yet present, all input already downloaded will not be downloaded again
 
    will retrieve all ``.jpg`` files prior to command execution.
 
-Looking at the resulting image, you wonder whether 400x400 might be a tiny bit to small.
-Maybe we should try to resize it to 450x450, and see whether that looks better.
+If outputs already exists...
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Note that we can't use a ``datalad rerun`` for this: if we want to change that dimension option
+Looking at the resulting image, you wonder whether 400x400 might be a tiny bit to small.
+Maybe we should try to resize it to 450x450, and see whether that looks better?
+
+Note that we can't use a ``datalad rerun`` for this: if we want to change the dimension option
 in the command, we have to define a new ``datalad run`` command.
 
 To establish best-practices, lets specify the input even though it is already present:
@@ -163,3 +175,9 @@ A quick glimpse into the error message shows a different error than before:
 The tool complains that it is "unable to open" the image, because the "Permission [is] denied".
 
 We haven't seen anything like this before, and we need to turn to our lecturer for help ...
+
+
+.. [#f1] In shell programming, commands exit with a specific code that indicates
+    whether they failed, and if so, how. Successful commands have the exit code zero. All failures
+    have exit codes greater than zero. A few lines lower, DataLad even tells us the specific error
+    code: The command failed with exitcode 1.

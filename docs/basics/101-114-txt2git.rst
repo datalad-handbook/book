@@ -1,7 +1,8 @@
 Content-protection, powered by Git-annex [2]
 --------------------------------------------
 
-Later in the day, after the lecture on ``datalad run``, you fall tired into your
+Later in the day, after seeing and solving so many DataLad error messages,
+you fall tired into your
 bed. Just as you are about to fall asleep, a thought crosses your mind:
 
 "I now know that tracked content in a dataset is protected by :term:`Git-annex`.
@@ -12,7 +13,7 @@ I was able to modify this despite giving it to DataLad to track, with
 no permission denied errors whatsoever! How does that work?"
 
 This night, though, your question stays unanswered and you fall into a restless
-sleep filed with bad dreams about "permission denied" errors. The next day you're
+sleep filled with bad dreams about "permission denied" errors. The next day you're
 the first student in your lecturers' office hours.
 
 "Oh, you're really attentive. This is a great question!" our lecturer starts
@@ -32,7 +33,7 @@ The second commit message in our datasets history summarizes this:
 
    $ git log --reverse --oneline
 
-Instead of giving text such as your notes or your script
+Instead of giving text files such as your notes or your script
 to Git-annex, the dataset stores it in :term:`Git`.
 But what does it mean if files are in Git instead of Git-annex?
 
@@ -56,22 +57,20 @@ Here it gets tricky. To begin with the most important, and most straight-forward
 It is not possible to store
 large files in Git. This is because Git would very quickly run into severe performance
 issues. For this reason, :term:`Github`, a well-known hosting site for projects using Git,
-for example does not allow files larger than 100MB of size. Therefore, it is not
+for example does not allow files larger than 100MB of size. This first part is
+easy to explain therefore: it is not
 possible to track larger files only with Git.
 
-But here comes the second, tricky part: There are ways to get rid of locking and
-unlocking whithin Git-annex, using so-called :term:`adjusted branch`\es.
-This functionality is dependent on the Git-annex
-version one has installed, the Git-annex version of the repository, and a
-use-case dependent comparison of the pros and cons. BUT: it is possible,
-and in many cases useful, and in later sections we will see how to use this
-feature.
-
-For now however, we have solved the mystery of why text files can be modified
+For now, we have solved the mystery of why text files can be modified
 without unlocking and other file types' content can not, and this is a small
 improvement in the vast amount of questions that have piled up in our curious
 minds.
 
-.. todo::
-
-   add content on git annex largefiles at a later stage. here are resources: https://git-annex.branchable.com/tips/largefiles/
+But there comes the second, tricky part: There are ways to get rid of locking and
+unlocking within Git-annex, using so-called :term:`adjusted branch`\es.
+This functionality is dependent on the Git-annex
+version one has installed, the Git-annex version of the repository, and a
+use-case dependent comparison of the pros and cons. BUT: it is possible,
+and in many cases useful, and in later sections we will see how to use this
+feature. The next lecture, in any way, will guide us deeper into Git-annex,
+and improve our understanding a slight bit further.

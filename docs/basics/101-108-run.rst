@@ -1,21 +1,21 @@
 DataLad, Run! [1]
 -----------------
 
-In previous examples, all changes that happened to the dataset of
+In previous examples, all changes that happened to the dataset or
 the files it contains were
 saved to the datasets history by hand. We added larger and smaller
 files and saved them, and we also modified smaller file contents and
-saved these modification.
+saved these modifications.
 
 Often, however, files or file contents get changed by shell commands
 or by scripts containing code.
 Consider a data scientist. She has data files with numeric data,
 and code scripts in Python, R, Matlab or any other programming language
-that will use the data to compute results of figures. Such output is
+that will use the data to compute results or figures. Such output is
 stored in new files.
 
-But only few weeks after these scripts were executed it can be hard
-to remember what script  was modified for which reason or created which
+But only few weeks after these scripts were executed she finds it hard
+to remember what script was modified for which reason or created which
 output. How did this result came to be? Which script would she need
 to run again on what data to produce this particular figure?
 

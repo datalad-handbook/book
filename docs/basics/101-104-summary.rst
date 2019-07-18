@@ -1,3 +1,5 @@
+.. _summary_scratch:
+
 Starting from scratch: Summary
 ------------------------------
 

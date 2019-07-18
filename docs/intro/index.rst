@@ -51,7 +51,7 @@ evolution**?
 
 
 **DataLad** is a general purpose tool for managing everything involved in the
-digital workflow of using data - regardless of the data's type, content, size,
+digital workflow of using data -- regardless of the data's type, content, size,
 location, generation, or development.  It provides functionality to share,
 search, obtain, and version control data in a distributed fashion, and it aids
 managing the evolution of digital objects in a way that fulfills the FAIR
@@ -60,4 +60,5 @@ principles.
 This handbook is a living resource about why and -- more importantly -- *how* to
 use DataLad. It aims to provide novices and advanced users of all backgrounds
 with both the basics of DataLad and start-to-end use cases of specific
-applications.
+applications. Jump right into the handbook, and be ready to use your computer as
+this handbook is a hands-on experience.

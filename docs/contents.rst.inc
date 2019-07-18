@@ -20,7 +20,6 @@ Basics
    :caption: Building blocks necessary to enable you to use DataLad
 
    basics/installation
-   basics/datasets
    basics/howto
    basics/101-101-create
    basics/101-102-populate
@@ -38,7 +37,9 @@ Use Cases
    :maxdepth: 1
    :caption: Hands-on real-world applications with step-by-step recipes...
 
+   usecases/datasets
    usecases/remodnav
+
 
 ########
 Appendix

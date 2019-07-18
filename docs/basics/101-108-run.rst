@@ -36,9 +36,15 @@ to generate a tab-separated file that lists speaker and title
 name instead.
 
 To do this, we're following a best practice that will reappear in the
-later section on YODA principles (todo: link): Collecting all code or
-scripts in one dedicated directory per dataset. Therefore,
-create a subdirectory ``code/`` in the ``DataLad-101``
+later section on YODA principles (todo: link): Collecting scripts
+that works with content of a subdataset outside of this
+subdataset, in a dedicated ``code/`` directory, and collating the
+output of the execution outside of the subdataset as well -- and
+therefore to not modify the subdataset.
+
+The motivation behind this
+will become clear in later sections, for now we'll start with best-
+practice building. Therefore, create a subdirectory ``code/`` in the ``DataLad-101``
 superdataset:
 
 .. runrecord:: _examples/DL-101-108-101
@@ -49,9 +55,9 @@ superdataset:
 
 Inside of ``Datalad-101/code``, create a simple Python script ``list_titles.py``.
 This script will carry out a simple task:
-It will loop through the filenames and
+It will loop through the file names and
 write out speaker names and talk titles in a very simple fashion.
-The content of this script is written below - copy it into the script.
+The content of this script is written below -- copy it into the script.
 
 .. runrecord:: _examples/DL-101-108-102
    :language: console
@@ -100,7 +106,8 @@ Save this script to the dataset.
    $ datalad save -m "Add simple script to write a list of podcast speakers and titles" code/list_titles.py
 
 Once we run this script, it will create a new file, ``recordings/Podcasts.tsv``.
-Obviously, we could create this file, and subsequently save it to the dataset.
+Note that this file is outside of the longnow subdataset.
+Obviously, we could create this file, and subsequently save it to the superdataset.
 However, just as in the example above,
 in a bit of time, we will forget how this file came into existence, or
 that the script ``code/list_titles.py`` is associated with this file.
@@ -109,13 +116,18 @@ The ``datalad run`` command can help with this. It records a commands impact on 
 dataset. Lets try the most simple way to use this command: The ``datalad run``
 command, followed by a commit message (``-m "a concise summary"``), and the
 command that executes the script from the shell: ``python code/list_titles.py``.
-Make sure to run this command from the root of ``DataLad-101``.
+
+Note that we execute the command from the root of the superdataset.
+It is recommended to use ``datalad run`` in the root of the dataset
+you want to record the changes in, and therefore, make sure to run this
+command from the root of ``DataLad-101``.
 
 .. runrecord:: _examples/DL-101-108-105
    :language: console
    :workdir: dl-101/DataLad-101
 
-   $ datalad run -m "create a list of SALT podcast titles" python code/list_titles.py
+   $ datalad run -m "create a list of podcast titles" python code/list_titles.py
+
 
 Lets take a look into the history:
 

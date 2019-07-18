@@ -28,7 +28,8 @@ Basics
    basics/101-105-install
    basics/101-106-nesting
    basics/101-107-summary
-
+   basics/101-115-symlinks
+   
 #########
 Use Cases
 #########

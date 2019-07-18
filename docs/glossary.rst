@@ -66,6 +66,10 @@ Glossary
       describes how large the picture is, the color depth, the image resolution, when the image
       was created, the shutter speed, and other data.
 
+   object-tree
+      The place where :term:`Git-annex` stores available file contents. Files that are annexed get
+      a :term:`symlink` added to :term:`Git` that points to the file content.
+
    provenance
       A record that describes entities and processes that were involved in producinng or influencing
       a digital resource. It provides a critical foundation for assessing authenticity, enables trust,

@@ -1,3 +1,5 @@
+.. _summary_nest:
+
 Basic DataLad Magic: Summary
 ----------------------------
 

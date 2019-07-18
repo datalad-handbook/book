@@ -1,17 +1,21 @@
-git log -1
-commit 995dd64dac6ec68b26ef319a134967f91c73a130
+$ git log -2
+commit aacf9fee8fe60e4b72b577ff47a190ca048e333a
 Author: Adina Wagner <adina.wagner@t-online.de>
-Date:   Mon Jul 15 17:00:18 2019 +0200
+Date:   Thu Jul 18 10:49:42 2019 +0200
 
-    [DATALAD RUNCMD] create a list of SALT podcast titles
+    BF: list both directories content
+
+commit 10ad7fd8e5c9205a80b50d48b987d2e0d3a10432
+Author: Adina Wagner <adina.wagner@t-online.de>
+Date:   Thu Jul 18 10:49:41 2019 +0200
+
+    [DATALAD RUNCMD] create a list of podcast titles
     
     === Do not change lines below ===
     {
-     "chain": [
-      "83b1db1af67abedb5ad077dd5ac9a5440ae65f31"
-     ],
+     "chain": [],
      "cmd": "python code/list_titles.py",
-     "dsid": "9c897af8-a710-11e9-b419-e86a64c8054c",
+     "dsid": "e83177ba-a938-11e9-bb19-e86a64c8054c",
      "exit": 0,
      "extra_inputs": [],
      "inputs": [],

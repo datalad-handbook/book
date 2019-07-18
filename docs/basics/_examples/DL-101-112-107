@@ -1,0 +1,6 @@
+$ cat << EOT >> notes.txt
+Alternatively, specify the --explicit flag to record only those changes done
+to the files listed with --output flags. In this case, you do not need to have
+a clean datalad status.
+
+EOT

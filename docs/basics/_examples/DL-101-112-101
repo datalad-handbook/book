@@ -1,0 +1,5 @@
+$ datalad run -m "Resize logo for slides" \
+--input "recordings/longnow/.datalad/feed_metadata/logo_interval.jpg" \
+--output "recordings/interval_logo_small.jpg" \
+"convert -resize 400x400 recordings/longnow/.datalad/feed_metadata/logo_interval.jpg recordings/interval_logo_small.jpg"
+run(impossible): /home/adina/repos/datalad-handbook/docs/_build/wdirs/dl-101/DataLad-101 (dataset) [clean dataset required to detect changes from command; use `datalad status` to inspect unsaved changes]

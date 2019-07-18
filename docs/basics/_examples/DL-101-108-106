@@ -1,15 +1,15 @@
 $ git log -p
-commit 83b1db1af67abedb5ad077dd5ac9a5440ae65f31
+commit 10ad7fd8e5c9205a80b50d48b987d2e0d3a10432
 Author: Adina Wagner <adina.wagner@t-online.de>
-Date:   Mon Jul 15 17:00:17 2019 +0200
+Date:   Thu Jul 18 10:49:41 2019 +0200
 
-    [DATALAD RUNCMD] create a list of SALT podcast titles
+    [DATALAD RUNCMD] create a list of podcast titles
     
     === Do not change lines below ===
     {
      "chain": [],
      "cmd": "python code/list_titles.py",
-     "dsid": "9c897af8-a710-11e9-b419-e86a64c8054c",
+     "dsid": "e83177ba-a938-11e9-bb19-e86a64c8054c",
      "exit": 0,
      "extra_inputs": [],
      "inputs": [],
@@ -231,9 +231,9 @@ index 0000000..9360b49
 +David_Keith	Patient_Geoengineering.mp3
 +Mariana_Mazzucato	Rethinking_Value.mp3
 
-commit d287d7a3b8d1388fae880337e2870c2ab8c066e8
+commit f09a8bceb63dded939168cba6dba896d0053cbfe
 Author: Adina Wagner <adina.wagner@t-online.de>
-Date:   Mon Jul 15 17:00:17 2019 +0200
+Date:   Thu Jul 18 10:49:41 2019 +0200
 
     Add simple script to write a list of podcast speakers and titles
 
@@ -267,9 +267,39 @@ index 0000000..d0c3416
 +        # write speaker and talk title into the file
 +        f.write(author + '\t' + title + '\n')
 
-commit 2c350bbf2727a53635b8840d98350cbb8c3b4b5c
+commit 4626f01d20b75e8bfb20debddac75b88a71e9abc
 Author: Adina Wagner <adina.wagner@t-online.de>
-Date:   Mon Jul 15 17:00:16 2019 +0200
+Date:   Thu Jul 18 10:49:40 2019 +0200
+
+    [DATALAD RUNCMD] convert -resize 450x450 recordings/longn...
+    
+    === Do not change lines below ===
+    {
+     "chain": [],
+     "cmd": "convert -resize 450x450 recordings/longnow/.datalad/feed_metadata/logo_interval.jpg recordings/interval_logo_small.jpg",
+     "dsid": "e83177ba-a938-11e9-bb19-e86a64c8054c",
+     "exit": 0,
+     "extra_inputs": [],
+     "inputs": [
+      "recordings/longnow/.datalad/feed_metadata/logo_interval.jpg"
+     ],
+     "outputs": [],
+     "pwd": "."
+    }
+    ^^^ Do not change lines above ^^^
+
+diff --git a/recordings/interval_logo_small.jpg b/recordings/interval_logo_small.jpg
+new file mode 120000
+index 0000000..acc7d28
+--- /dev/null
++++ b/recordings/interval_logo_small.jpg
+@@ -0,0 +1 @@
++../.git/annex/objects/KJ/Jv/MD5E-s120651--abb987589c3e22d939267be184d19a99.jpg/MD5E-s120651--abb987589c3e22d939267be184d19a99.jpg
+\ No newline at end of file
+
+commit f4e3504222929290247ca40e1cc6a15a7233aeae
+Author: Adina Wagner <adina.wagner@t-online.de>
+Date:   Thu Jul 18 10:49:39 2019 +0200
 
     Add note on datalad install
 
@@ -285,9 +315,9 @@ index 729c441..540f757 100644
 +If you install a dataset into an existing dataset (as a subdataset), remember to specify the
 +root of the superdataset with the '-d' option.
 
-commit c0daaca6966539a80236f39f6be8929d824a37b6
+commit 169b84ada95901a99bc805e40cb0a4ba9e3285c2
 Author: Adina Wagner <adina.wagner@t-online.de>
-Date:   Mon Jul 15 16:56:20 2019 +0200
+Date:   Thu Jul 18 10:49:28 2019 +0200
 
     [DATALAD] Recorded changes
 
@@ -309,9 +339,9 @@ index 0000000..dcc34fb
 @@ -0,0 +1 @@
 +Subproject commit dcc34fbe669b06ced84ced381ba0db21cf5e665f
 
-commit d2ccad89bda6558fb9de7cbe3e995c8c22722c5f
+commit 1495cc7f82ae8b1f912acf661d4b166d29316819
 Author: Adina Wagner <adina.wagner@t-online.de>
-Date:   Mon Jul 15 16:56:18 2019 +0200
+Date:   Thu Jul 18 10:49:26 2019 +0200
 
     add note on datalad save
 
@@ -325,9 +355,9 @@ index c3587d4..729c441 100644
 +'datalad save [-m] PATH' saves the file (modifications) to history.
 +Note to self: Always use informative, concise commit messages.
 
-commit c9dcfb9673ff4d47a7ea8d0f96c7331f7bc0f5c6
+commit a908a1bc62e7d67caa9fdc987891b0eb181c6475
 Author: Adina Wagner <adina.wagner@t-online.de>
-Date:   Mon Jul 15 16:56:17 2019 +0200
+Date:   Thu Jul 18 10:49:25 2019 +0200
 
     Add notes on datalad create
 
@@ -340,9 +370,9 @@ index 0000000..c3587d4
 +One can create a new dataset with 'datalad create [--description] PATH'.
 +The dataset is created empty
 
-commit 871e4c39443d497d71d204acc91af95aeeb4d578
+commit b083f0c14a332d0d4c518cb2d4680405c0e8a2b8
 Author: Adina Wagner <adina.wagner@t-online.de>
-Date:   Mon Jul 15 16:56:17 2019 +0200
+Date:   Thu Jul 18 10:49:25 2019 +0200
 
     add reference book about git
 
@@ -355,9 +385,9 @@ index 0000000..c5d2ab2
 +../.git/annex/objects/G6/Gj/MD5E-s12465653--05cd7ed561d108c9bcf96022bc78a92c.pdf/MD5E-s12465653--05cd7ed561d108c9bcf96022bc78a92c.pdf
 \ No newline at end of file
 
-commit f591338f7d9a93bc3dfeb83200c54f5d94e50f32
+commit 76c3eec59ca7d907c944722843d3bc1b01ac61a6
 Author: Adina Wagner <adina.wagner@t-online.de>
-Date:   Mon Jul 15 16:55:51 2019 +0200
+Date:   Thu Jul 18 10:49:12 2019 +0200
 
     add books on Python and Unix to read later
 
@@ -378,9 +408,9 @@ index 0000000..be10866
 +../.git/annex/objects/8Z/wk/MD5E-s4406531--5b86f0656a7660c140d3fb4d5994b1b1.pdf/MD5E-s4406531--5b86f0656a7660c140d3fb4d5994b1b1.pdf
 \ No newline at end of file
 
-commit 4eb20338307bf26b3337775278759dc0557d3e6f
+commit e05b3c2f01a5039894e4b00471aac528089c3810
 Author: Adina Wagner <adina.wagner@t-online.de>
-Date:   Mon Jul 15 16:55:40 2019 +0200
+Date:   Thu Jul 18 10:49:09 2019 +0200
 
     Instruct annex to add text files to Git
 
@@ -397,9 +427,9 @@ index c3aaefe..8e9a246 100644
 +* annex.largefiles=(not(mimetype=text/*))
 \ No newline at end of file
 
-commit 25266423668ead034f9d39b0c0e901adf145fd69
+commit 33ae769a395c9f1ae5576e8240aa8e001780d1c3
 Author: Adina Wagner <adina.wagner@t-online.de>
-Date:   Mon Jul 15 16:55:39 2019 +0200
+Date:   Thu Jul 18 10:49:09 2019 +0200
 
     [DATALAD] new dataset
 
@@ -416,12 +446,12 @@ index 0000000..b540820
 \ No newline at end of file
 diff --git a/.datalad/config b/.datalad/config
 new file mode 100644
-index 0000000..b709778
+index 0000000..12521c5
 --- /dev/null
 +++ b/.datalad/config
 @@ -0,0 +1,2 @@
 +[datalad "dataset"]
-+	id = 9c897af8-a710-11e9-b419-e86a64c8054c
++	id = e83177ba-a938-11e9-bb19-e86a64c8054c
 diff --git a/.gitattributes b/.gitattributes
 new file mode 100644
 index 0000000..c3aaefe

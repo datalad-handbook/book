@@ -1,4 +1,13 @@
 $ git log --oneline
+9988a22 add note on datalad runs --explicit flag
+efa38d1 [DATALAD RUNCMD] Resize logo for slides
+1b52f72 [DATALAD RUNCMD] Resize logo for slides
+5c4cdec add additional notes on run options
+8d7d5dc resized picture by hand
+b4cc70f [DATALAD RUNCMD] convert -resize 400x400 recordings/longn...
+e4abfeb add note on basic datalad run and datalad rerun
+1f62b2c [DATALAD RUNCMD] create a list of podcast titles
+aacf9fe BF: list both directories content
 10ad7fd [DATALAD RUNCMD] create a list of podcast titles
 f09a8bc Add simple script to write a list of podcast speakers and titles
 4626f01 [DATALAD RUNCMD] convert -resize 450x450 recordings/longn...

@@ -1,0 +1,20 @@
+$ datalad run -m "Resize logo for slides" \
+--input "recordings/longnow/.datalad/feed_metadata/logo_interval.jpg" \
+--output "recordings/interval_logo_small.jpg" \
+"convert -resize 450x450 recordings/longnow/.datalad/feed_metadata/logo_interval.jpg recordings/interval_logo_small.jpg"
+
+# or shorter:
+$ datalad run -m "Resize logo for slides" \
+-i "recordings/longnow/.datalad/feed_metadata/logo_interval.jpg" \
+-o "recordings/interval_logo_small.jpg" \
+"convert -resize 450x450 recordings/longnow/.datalad/feed_metadata/logo_interval.jpg recordings/interval_logo_small.jpg"
+[INFO] Making sure inputs are available (this may take some time) 
+[INFO] == Command start (output follows) ===== 
+[INFO] == Command exit (modification check follows) ===== 
+unlock(ok): recordings/interval_logo_small.jpg (file)
+add(ok): recordings/interval_logo_small.jpg (file)
+action summary:
+  add (ok: 1)
+  get (notneeded: 1)
+  save (notneeded: 2)
+  unlock (ok: 1)

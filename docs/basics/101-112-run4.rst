@@ -12,13 +12,17 @@ you think.
 .. runrecord:: _examples/DL-101-112-101
    :language: console
    :workdir: dl-101/DataLad-101
+   :emphasize-lines: 5
 
    $ datalad run -m "Resize logo for slides" \
    --input "recordings/longnow/.datalad/feed_metadata/logo_interval.jpg" \
    --output "recordings/interval_logo_small.jpg" \
    "convert -resize 400x400 recordings/longnow/.datalad/feed_metadata/logo_interval.jpg recordings/interval_logo_small.jpg"
 
-Oh for f**** sake... run is "impossible"? Weird. Reading on,
+Oh for f**** sake... run is "impossible"?
+
+Weird. After the initial annoyance about yet another error message faded,
+and you read on,
 DataLad informs that a "clean dataset" is required.
 Run a ``datalad status`` to see what is meant by this:
 
@@ -28,13 +32,25 @@ Run a ``datalad status`` to see what is meant by this:
 
    $ datalad status
 
-Ah right. We forgot to save the notes we added.
-There are two ways to get around this error message:
-One is to save the modifications, and run the command in a clean dataset status.
+Ah right. We forgot to save the notes we added, and thus there are
+unsaved modifications present in ``DataLad-101``.
+But why is this a problem?
 
+By default, at the end of a ``datalad run`` is a ``datalad save``.
+Remember the section on :ref:`populate`: A general ``datalad save`` without
+a path specification will save *all* of the modified or untracked
+contents to the dataset.
+
+Therefore, in order to not mix any changes in the dataset that are unrelated
+to the command plugged into ``datalad run``, by default it will only run
+on a clean dataset with no changes or untracked files present.
+
+There are two ways to get around this error message:
+The obvious one is to save the modifications,
+and run the command in a clean dataset.
 We will try this way with the ``logo_interval.jpg``.
-This would look like this:
-Save the changes,
+It would look like this:
+First, save the changes,
 
 
 .. runrecord:: _examples/DL-101-112-103
@@ -54,7 +70,11 @@ and then try again:
    --output "recordings/interval_logo_small.jpg" \
    "convert -resize 400x400 recordings/longnow/.datalad/feed_metadata/logo_interval.jpg recordings/interval_logo_small.jpg"
 
-Add a quick addition to your notes about this:
+Note how in this execution of ``datalad run``, output unlocking was actually
+necessary and DataLad provides a summary of this action in its output.
+
+Add a quick addition to your notes about this way of cleaning up prior
+to a ``datalad run``:
 
 .. runrecord:: _examples/DL-101-112-105
    :language: console
@@ -67,9 +87,10 @@ Add a quick addition to your notes about this:
    EOT
 
 
-A different option is to add the ``--explicit`` flag to ``datalad run``.
+A way of executing a ``datalad run`` *despite* an "unclean" dataset
+though is to add the ``--explicit`` flag to ``datalad run``.
 We will try this flag with the ``logo_salt.jpg``. Note that thanks to the
-addition to the notes, we have an unclean ``datalad status`` again.
+addition to the notes, we have an "unclean dataset" again.
 
 
 .. runrecord:: _examples/DL-101-112-106
@@ -83,11 +104,13 @@ addition to the notes, we have an unclean ``datalad status`` again.
    "convert -resize 400x400 recordings/longnow/.datalad/feed_metadata/logo_salt.jpg recordings/salt_logo_small.jpg"
 
 With this flag, DataLad considers the specification of inputs and outputs to be "explicit".
-It doesn't warn if the repository is dirty (as before), and only saves modifications to the
-listed outputs. This obviously has advantages and disadvantages, and you have to decide for
-yourself whether you want to make sure to have a clean ``datalad status`` and record every
-impact of a command on a dataset, or whether you want to record only what you specified in
-``--output``.
+It doesn't warn if the repository is dirty (as before). The way this option works
+is that the ``datalad save`` at the end of ``datalad run``
+*only saves modifications to the listed outputs*.
+This obviously has advantages and disadvantages, and you have to decide for
+yourself whether you want to make sure to have a clean ``datalad status``
+and record every impact of a command on a dataset,
+or whether you want to record only what you specified in ``--output``.
 
 Add an additional note on ``--explicit`` flag, and finally save your changes to ``notes.txt``.
 
@@ -108,21 +131,21 @@ Add an additional note on ``--explicit`` flag, and finally save your changes to 
 
    $ datalad save -m "add note on datalad runs --explicit flag" notes.txt
 
+To conclude this section on ``datalad run``, take a look at the last ``datalad run``
+commit to see a :term:`run-record` with more content:
+
+.. runrecord:: _examples/DL-101-112-109
+   :language: console
+   :workdir: dl-101/DataLad-101
+   :lines: 1, 24-50
+   :emphasize-lines: 11, 15-17, 18-20
+
+   $ git log -p -2
+
 .. todo::
 
-   - add something on .gitignore -- else untracked content needs to be tracked for datalad run
+   - add something on .gitignore -- is there a git annex ignore?
+     else untracked content needs to be tracked for datalad run
      without --explicit.
 
    - TODO: escape special characters
-
-   - TODO: might be necessary to tell them that without --explicit dl run does a general save
-      Oh, you already did. Or rather: ``datalad save`` did it for you."
-
-   "Wait, I did not do a ``datalad save``." you say.
-
-   "Well, a ``datalad save`` is the end of every ``datalad run``. So in a way, you did."
-
-   evtl relevant:
-   reveal.js präsentation einbauen
-   mit pandoc oder rst2pdf notes.txt umbauen
-

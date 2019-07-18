@@ -20,43 +20,15 @@ generated.
 
 Upon reviewing the list you realized that you made a mistake: you only
 listed the talks in the SALT series (the
-``Long_Now__Seminars_About_Long_term_Thinking`` directory), but not
+``Long_Now__Seminars_About_Long_term_Thinking/`` directory), but not
 in the ``Long_Now__Conversations_at_The_Interval/`` directory.
 Lets fix this in the script. Replace the contents in ``code/list_titles.py``
-with the following:
-
-.. code-block:: python
-   :emphasize-lines: 9
-
-   # import modules for path operations and pathname pattern expansion
-   from os.path import join, basename
-   from glob import glob
-
-   # define a path to the podcasts. Note that this is a relative path,
-   # pointing from the location the script resides to the podcasts:
-
-   path = join('recordings', 'longnow',
-               '*', '*')        # <-- here is the change!
-   # create a list of all file names found under the path
-   files = glob(path)
-   # define an outfile name:
-   outfile = join('recordings', 'Podcasts.tsv)
-
-   # loop through all file names and write speaker and title into the file
-   with open(outfile, 'w') as f:
-       for file in files:
-           # extract speaker name
-           author = basename(file).split('__')[1] \
-               if len(basename(file).split('__')[1].split('_')) > 1 \
-               else '__'.join(basename(file).split('__')[1:3])
-           # extract title
-           title = '_'.join(basename(file).split(author)[-1].split('__')[1:])
-           # write speaker and talk title into the file
-           f.write(author + '\t' + title + '\n')
+with the following, fixed script:
 
 .. runrecord:: _examples/DL-101-108-110
    :language: console
    :workdir: dl-101/DataLad-101
+   :emphasize-lines: 10
 
    $ cat << EOT > code/list_titles.py
    # import modules for path operations and pathname pattern expansion
@@ -107,16 +79,18 @@ the file, but now with all of the contents:
 .. code-block:: bash
 
    # don't execute this!
-   $ datalad run -m "create a list of podcast titles" python code/list_titles.py
+   $ datalad run -m "create a list of podcast titles" "python code/list_titles.py"
 
 However, think about any situation where the command would be longer than this,
 or that is many months past the first execution. It wouldn't be easy to remember
 the command, nor would it be very convenient to copy it from the ``run-record``.
 
-As promised, there is a datalad way of re-executing a ``run`` command, and we'll
-try it in this very simple situation. To re-execute a ``datalad run`` command,
+Luckily, a fellow student remembered the DataLad way of re-executing
+a ``run`` command, and he's eager to show it to you.
+
+"In order to re-execute a ``datalad run`` command,
 find the checksum of its commit and use it as an argument for the
-``datalad rerun`` command.
+``datalad rerun`` command! That's it!" he says.
 
 .. runrecord:: _examples/DL-101-108-113
    :language: console
@@ -126,8 +100,9 @@ find the checksum of its commit and use it as an argument for the
 
    $ git log -2
 
-Take that checksum and paste it after ``datalad rerun`` (The first 6-8 characters
-of the checksum would be sufficient).
+Take that checksum and paste it after ``datalad rerun``
+(the first 6-8 characters of the checksum would be sufficient,
+here we're using all of them).
 
 .. runrecord:: _examples/DL-101-108-114
    :language: console
@@ -143,8 +118,11 @@ has changed the desired output file is
 to check whether the rerun command appears in the datasets history: If a ``datalad rerun``
 does not add or change any content in the dataset, it will also not be recorded in the history.
 
-We can see that a new ``datalad run`` was recorded. In the datasets history, this action is
-committed by Datalad under the original commit message:
+In the datasets history,
+we can see that a new ``datalad run`` was recorded. This action is
+committed by Datalad under the original commit message of the ``run``
+command, and looks just like the previous ``datalad run`` commit apart
+from the execution time:
 
 .. runrecord:: _examples/DL-101-108-115
    :language: console
@@ -153,11 +131,14 @@ committed by Datalad under the original commit message:
 
    git log -1
 
-Note that ``datalad rerun`` works with ``datalad run`` or ``datalad rerun`` commands,
-but not with any other type of datalad command in your history. Therefore, make it a
+Note that ``datalad rerun`` works with ``datalad run`` or ``datalad rerun`` commands
+(yes, you can ``rerun`` a ``datalad rerun``),
+but not with any other type of datalad command in your history
+such as a ``datalad save``. Therefore, make it a
 habit to record the execution of scripts by plugging it into ``datalad run``.
 
-This very basic example of a ``datalad run`` is as simple as it can get, but is already
+This very basic example of a ``datalad run`` is as simple as it can get, but it
+is already
 convenient from a memory-load perspective: Now you don't need to
 remember the commands or scripts involved in creating an output.
 Also, incidentally, we have generated :term:`provenance` information. It is

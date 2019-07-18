@@ -11,10 +11,10 @@ $ datalad run -m "Resize logo for slides" \
 [INFO] Making sure inputs are available (this may take some time) 
 [INFO] == Command start (output follows) ===== 
 [INFO] == Command exit (modification check follows) ===== 
-unlock(ok): recordings/interval_logo_small.jpg (file)
+get(ok): recordings/longnow/.datalad/feed_metadata/logo_interval.jpg (file) [from web...]
 add(ok): recordings/interval_logo_small.jpg (file)
+save(ok): . (dataset)
 action summary:
   add (ok: 1)
-  get (notneeded: 1)
-  save (notneeded: 2)
-  unlock (ok: 1)
+  get (ok: 1)
+  save (notneeded: 1, ok: 1)

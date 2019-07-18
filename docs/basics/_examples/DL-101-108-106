@@ -9,7 +9,7 @@ Date:   Thu Jul 18 10:49:41 2019 +0200
     {
      "chain": [],
      "cmd": "python code/list_titles.py",
-     "dsid": "e83177ba-a938-11e9-bb19-e86a64c8054c",
+     "dsid": "113e9a5c-a952-11e9-bb19-e86a64c8054c",
      "exit": 0,
      "extra_inputs": [],
      "inputs": [],
@@ -267,39 +267,9 @@ index 0000000..d0c3416
 +        # write speaker and talk title into the file
 +        f.write(author + '\t' + title + '\n')
 
-commit 4626f01d20b75e8bfb20debddac75b88a71e9abc
+commit fa577c7a2884d54cc5f81468fd125aa16266a52c
 Author: Adina Wagner <adina.wagner@t-online.de>
-Date:   Thu Jul 18 10:49:40 2019 +0200
-
-    [DATALAD RUNCMD] convert -resize 450x450 recordings/longn...
-    
-    === Do not change lines below ===
-    {
-     "chain": [],
-     "cmd": "convert -resize 450x450 recordings/longnow/.datalad/feed_metadata/logo_interval.jpg recordings/interval_logo_small.jpg",
-     "dsid": "e83177ba-a938-11e9-bb19-e86a64c8054c",
-     "exit": 0,
-     "extra_inputs": [],
-     "inputs": [
-      "recordings/longnow/.datalad/feed_metadata/logo_interval.jpg"
-     ],
-     "outputs": [],
-     "pwd": "."
-    }
-    ^^^ Do not change lines above ^^^
-
-diff --git a/recordings/interval_logo_small.jpg b/recordings/interval_logo_small.jpg
-new file mode 120000
-index 0000000..acc7d28
---- /dev/null
-+++ b/recordings/interval_logo_small.jpg
-@@ -0,0 +1 @@
-+../.git/annex/objects/KJ/Jv/MD5E-s120651--abb987589c3e22d939267be184d19a99.jpg/MD5E-s120651--abb987589c3e22d939267be184d19a99.jpg
-\ No newline at end of file
-
-commit f4e3504222929290247ca40e1cc6a15a7233aeae
-Author: Adina Wagner <adina.wagner@t-online.de>
-Date:   Thu Jul 18 10:49:39 2019 +0200
+Date:   Thu Jul 18 13:49:36 2019 +0200
 
     Add note on datalad install
 
@@ -446,12 +416,12 @@ index 0000000..b540820
 \ No newline at end of file
 diff --git a/.datalad/config b/.datalad/config
 new file mode 100644
-index 0000000..12521c5
+index 0000000..426f459
 --- /dev/null
 +++ b/.datalad/config
 @@ -0,0 +1,2 @@
 +[datalad "dataset"]
-+	id = e83177ba-a938-11e9-bb19-e86a64c8054c
++	id = 113e9a5c-a952-11e9-bb19-e86a64c8054c
 diff --git a/.gitattributes b/.gitattributes
 new file mode 100644
 index 0000000..c3aaefe

@@ -152,9 +152,9 @@ small in size:
 
 .. runrecord:: _examples/DL-101-105-105
    :language: console
-   :workdir: dl-101/DataLad-101/
+   :workdir: dl-101/DataLad-101/recordings/longnow/Long_Now__Seminars_About_Long_term_Thinking
 
-   $ cd recordings/longnow
+   $ cd ../      # in longnow/
    $ du -sh      # Unix command to show size of contents
 
 This is tiny indeed!
@@ -183,7 +183,7 @@ For this, we supply an additional option to ``datalad status``. Make sure to be
    :language: console
    :workdir: dl-101/DataLad-101/recordings/longnow
 
-   $ datalad status --annex basic
+   $ datalad status --annex
 
 Woah! More than 200 files, totalling more than 15 GB?
 You begin to appreciate that DataLad did not
@@ -256,10 +256,10 @@ For example, we can find out who created the dataset in the first place
 .. runrecord:: _examples/DL-101-105-110
    :language: console
    :workdir: dl-101/DataLad-101/recordings/longnow
-   :lines: 1, 74-84
+   :lines: 1-10
    :emphasize-lines: 3
 
-   $ git log
+   $ git log --reverse
 
 But that's not all. The seminar series is ongoing, and more recordings can get added
 to the original repository shared on Github.
@@ -274,9 +274,10 @@ modification.
 
 .. runrecord:: _examples/DL-101-105-111
    :language: console
-   :workdir: dl-101/DataLad-101/
+   :workdir: dl-101/DataLad-101/recordings/longnow
 
    # in the root of DataLad-101:
+   $ cd ../../
    $ cat << EOT >> notes.txt
    The command 'datalad install [--source] PATH' installs a dataset from e.g. a URL or a path.
    If you install a dataset into an existing dataset (as a subdataset), remember to specify the

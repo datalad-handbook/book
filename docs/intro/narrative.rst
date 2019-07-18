@@ -49,6 +49,10 @@ we distinguish ``comments (#)`` from ``commands ($)`` and their output:
    [INFO   ] Creating a new annex repo at /home/adina/DataLad-101
    create(ok): /home/adina/DataLad-101 (dataset)
 
+Note: When copying code snippets into your own terminal, do not copy the leading
+``$`` -- this only indicates that the line is a command, and would lead to an
+error when you'd try to execute it.
+
 The following two chapters have two different goals: All of the *Basics* sections
 will show you the core DataLad functionality and challenge you to use it.
 In *use cases* you will find concrete examples of DataLad applications for
@@ -57,14 +61,15 @@ you might even consider :ref:`contribute` to this book by sharing your own use c
 
 Note that many challenges can have straightforward and basic solutions,
 but a lot of additional options or improvements are possible.
-Sometimes one could get lost in all of the available DataLad functionality.
+Sometimes one could get lost in all of the available DataLad functionality,
+or in some interesting backgrounds about a command.
 For this reason we put all of the basics in plain sight, and those basics
 will let you master a given task and get along comfortably.
 Having the basics will be your multi-purpose swiss army knife.
 But if you want to have the special knowledge for a very peculiar type
-of problem set or that extra increase in skill,
+of problem set or that extra increase in skill or understanding,
 you'll have to do a detour into some of the *hidden* parts of the book:
-When there are command options that go beyond basics and
+When there are command options or explanations that go beyond basics and
 best practices, we hide them in foldable book sections in order
 to not be too distracting for anyone only interested in the basics.
 You can decide for yourself whether you want to check them out:
@@ -116,12 +121,12 @@ fictional educational course ``DataLad-101``.
 Envision yourself in the last educational course you took or taught:
 Probably, you've created some files with notes you took, a directory
 with slides or books for further reading, and a place where you stored
-assigments and their solutions in. This is what we will be doing as well.
+assignments and their solutions in. This is what we will be doing as well.
 This project will start with creating the necessary directory structures,
 populating them by ``installing`` and ``creating`` several
 :term:`DataLad subdataset`\s, adding files and changing their content,
 and executing simple scripts with input data to create results we can
-publish with DataLad.
+share and publish with DataLad.
 
 If you don't want to follow along and only read, there will be a
 finished DataLad-101 project for you to download and explore in the future.

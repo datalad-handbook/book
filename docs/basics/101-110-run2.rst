@@ -1,7 +1,7 @@
 Datalad, Run! [2]
 -----------------
 
-In the previous section, you created a simple ``.tsv`` file of all
+In the previous two sections, you created a simple ``.tsv`` file of all
 speakers and talk titles in the longnow podcasts subdataset, and you have
 re-executed a ``datalad run`` command after a bug-fix in your script.
 
@@ -18,21 +18,40 @@ we also want to recommend them to others.
 
 Almost all of the slides are ready, but whats still missing is the logo of the
 longnow podcasts. Good thing that this is part of the subdataset, so we can simply
-extract it. For the slides we need an image of size 400x400 px, and therefore let's try to
-resize the image using the Unix command ``convert -resize 400x400 newfilename.jpg``
+extract it.
+
+The logos were taken from the podcasts meta data information. In a while we
+will dive into the metadata aggregation capabilities of DataLad, but for now, let's just
+use the logos. They are in the subdataset in
+``.datalad/feed_metadata/logo_salt.jpg`` and ``.datalad/feed_metadata/logo_interval.jpg``:
+
+.. runrecord:: _examples/DL-101-110-101
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ ls recordings/longnow/.datalad/feed_metadata/*jpg
+
+For the slides we are preparing we need an image of size 400x400 px, and therefore
+let's try to resize the image -- currently, its far too large to fit on a slide.
+To resize an image from the command line we can use the Unix command ``convert -resize``.
+The command takes a new size in pixel as an argument, a path to the file that should be
+resized, and a filename and path under which the resized image will be saved.
+
+To resize one image to 400x400 px, the command would thus be
+``convert -resize 400x400 path/to/file.jpg path/to/newfilename.jpg``
 
 Remembering the last lecture on ``datalad run``, you decide to plug this into
-``datalad run``.
+``datalad run``. Note that we line break the commands in the upcoming examples
+for better readability -- in your terminal, you can always write the commands into
+a single line (the ``\`` are linebreaks for your shell).
 
-.. todo::
+.. runrecord:: _examples/DL-101-110-102
+   :language: console
+   :workdir: dl-101/DataLad-101
+   :emphasize-lines: 4
 
-   runrecord a datalad run as in
-
-   .. code-block:: bash
-
-      datalad run "convert -resize 400x400 recordings/longnow/podcast_icon_seminars_02017_300x300.jpg recordings/cropped_logo.jpg"
-
-   without specifying the not yet present input
+   $ datalad run -m "Resize logo for slides" \
+   "convert -resize 400x400 recordings/longnow/.datalad/feed_metadata/logo_salt.jpg recordings/salt_logo_small.jpg"
 
 Oh, crap! Why didn't this work?
 
@@ -41,7 +60,7 @@ might seem wordy, and maybe a bit intimidating as well, but usually they provide
 information to find out what is wrong.
 
 A ``datalad run`` error message has several parts. The first starts after
-``[INFO   ] == Command start (output follows) =====``. This is an error that the
+``[INFO   ] == Command start (output follows) =====``. This is displaying errors that the
 terminal command threw: The tool ``convert-im6.q16`` complains that it can't open
 the file, because there is "No such file or directory".
 
@@ -51,25 +70,30 @@ that something went wrong: in shell programming, commands exit with a specific c
 whether they failed, and if so, how. Successful commands have the exit code zero. All failures
 have exit codes greater than zero. A few lines lower, DataLad even tells us the specific error
 code: the command failed with exitcode 1. In principle, you could go ahead a google what this
-specific exit status indicates. However, the solution might have already occured to you when
+specific exit status indicates. However, the solution might have already occurred to you when
 reading the first error report: The file is not present.
 
-How can that be? Right, we did not ``datalad get`` it!
+How can that be? Right, just as the ``.mp3`` files, the ``.jpg`` file content is not present
+locally after an install, and we did not ``datalad get`` it yet!
 
 This is where the ``-i``/``--input`` option for a datalad run becomes useful.
 The content of everything that is specified as an ``input`` will be retrieved
 prior to running the command. Use one ``-i``/``--input`` flag per input: As we have only
 one file to retrieve, the command is
 
-.. todo::
+.. runrecord:: _examples/DL-101-110-103
+   :language: console
+   :workdir: dl-101/DataLad-101
+   :emphasize-lines: 8, 11, 16
+   :realcommand: datalad run --input "recordings/longnow/.datalad/feed_metadata/logo_salt.jpg" "convert -resize 400x400 recordings/longnow/.datalad/feed_metadata/logo_salt.jpg recordings/salt_logo_small.jpg"
 
-   do a runrecord of
-
-   .. code-block:: bash
-
-      datalad run --input "recordings/longnow/podcast_icon_seminars_02017_300x300.jpg" "convert -resize 400x400 recordings/longnow/podcast_icon_seminars_02017_300x300.jpg recordings/cropped_logo.jpg
-      # or shorter:
-      datalad run -i "recordings/longnow/podcast_icon_seminars_02017_300x300.jpg" "convert -resize 400x400 recordings/longnow/podcast_icon_seminars_02017_300x300.jpg recordings/cropped_logo.jpg
+   $ datalad run -m "Resize logo for slides" \
+   --input "recordings/longnow/.datalad/feed_metadata/logo_salt.jpg" \
+   "convert -resize 400x400 recordings/longnow/.datalad/feed_metadata/logo_salt.jpg recordings/salt_logo_small.jpg"
+   # or shorter:
+   $ datalad run -m "Resize logo for slides" \
+   -i "recordings/longnow/.datalad/feed_metadata/logo_salt.jpg" \
+   "convert -resize 400x400 recordings/longnow/.datalad/feed_metadata/logo_salt.jpg recordings/salt_logo_small.jpg"
 
 
 Cool! You can see in this output that prior to the data command execution, DataLad did a ``datalad get``.
@@ -86,7 +110,7 @@ it is not yet present, all input already downloaded will not be downloaded again
 
       **Addition: What if there are several inputs?**
 
-   Often, a command needs sevel inputs. In principle, every input gets its own ``-i``/``--input``
+   Often, a command needs several inputs. In principle, every input gets its own ``-i``/``--input``
    flag. However, you can make use of :term:`globbing`. For example,
 
    .. code-block:: bash
@@ -103,15 +127,21 @@ in the command, we have to define a new ``datalad run`` command.
 
 To establish best-practices, lets specify the input even though it is already present:
 
-.. todo::
 
-   do a runrecord of
+.. runrecord:: _examples/DL-101-110-104
+   :language: console
+   :workdir: dl-101/DataLad-101
+   :emphasize-lines: 10
+   :realcommand: datalad run --input "recordings/longnow/.datalad/feed_metadata/logo_salt.jpg" "convert -resize 450x450 recordings/longnow/.datalad/feed_metadata/logo_salt.jpg recordings/salt_logo_small.jpg"
 
-   .. code-block:: bash
+   $ datalad run -m "Resize logo for slides" \
+   --input "recordings/longnow/.datalad/feed_metadata/logo_salt.jpg" \
+   "convert -resize 450x450 recordings/longnow/.datalad/feed_metadata/logo_salt.jpg recordings/salt_logo_small.jpg"
+   # or shorter:
+   $ datalad run -m "Resize logo for slides" \
+   -i "recordings/longnow/.datalad/feed_metadata/logo_salt.jpg" \
+   "convert -resize 450x450 recordings/longnow/.datalad/feed_metadata/logo_salt.jpg recordings/salt_logo_small.jpg"
 
-      datalad run --input "recordings/longnow/podcast_icon_seminars_02017_300x300.jpg" "convert -resize 450x450 recordings/longnow/podcast_icon_seminars_02017_300x300.jpg recordings/cropped_logo.jpg
-      # or shorter:
-      datalad run -i "recordings/longnow/podcast_icon_seminars_02017_300x300.jpg" "convert -resize 450x450 recordings/longnow/podcast_icon_seminars_02017_300x300.jpg recordings/cropped_logo.jpg
 
 Oh wtf... What is it now?
 

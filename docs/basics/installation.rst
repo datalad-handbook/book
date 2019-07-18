@@ -10,13 +10,17 @@ The content on this site is largely based on
 `DataLad website <https://www.datalad.org/get_datalad.html>`_
 and the `DataLad documentation <http://docs.datalad.org/en/latest/gettingstarted.html>`_.
 
-If you are not on a Debian-based system with Neurodebian enabled (see below),
+If you are not on a Debian-based system with NeuroDebian enabled (see below),
 beyond DataLad itself, the installation requires Python, Pythons package manager ``pip``,
 :term:`Git` and :term:`Git-annex`. The instructions below detail how to install
 each of these components for different common operating systems. Please
 `file an issue <https://github.com/datalad-handbook/book/issues/new>`_
 if you encounter problems.
 
+Note that while these installation instructions will provide you with the core
+DataLad tool, many
+`extensions <http://docs.datalad.org/en/latest/index.html#extension-packages>`_
+exist, and they need to be installed separately, if needed.
 
 Linux: (Neuro)Debian, Ubuntu, and similar systems
 """""""""""""""""""""""""""""""""""""""""""""""""
@@ -26,6 +30,8 @@ is to enable the `NeuroDebian <http://neuro.debian.net/>`_ repository.
 If you are on a Debian-based system, but do not have the NeuroDebian repository
 enabled, you should very much consider enabling it right now. The above hyperlink links
 to a very easy instruction, and it only requires copy-pasting three lines of code.
+Also, should you be confused by the name:
+enabling this repository will not do any harm if your field is not neuroscience.
 
 The following command installs
 DataLad and all of its software dependencies (including the Git-annex-standalone package):
@@ -33,6 +39,7 @@ DataLad and all of its software dependencies (including the Git-annex-standalone
 .. code-block:: bash
 
    $ sudo apt-get install datalad
+
 
 OS X
 """"
@@ -45,17 +52,13 @@ needs to be installed from the Mac App Store.
 Homebrew then can be installed using the command following the
 instructions on their webpage (linked above).
 
-Next, install :term:`Git-annex` via the ``brew`` command in a terminal:
-
-.. code-block:: bash
-
-   $ brew install git-annex
+Next, `install Git-annex <https://git-annex.branchable.com/install/OSX/>`_.
 
 Once Git-annex is available, DataLad can be installed via Pythons package
 manager ``pip`` as described below.
 
-When there isn't anything more convenient: Use ``pip``
-""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Using Pythons package manager ``pip``
+"""""""""""""""""""""""""""""""""""""
 
 DataLad can be installed via Pythons package manager
 `pip <https://pip.pypa.io/en/stable/>`_.
@@ -63,7 +66,7 @@ DataLad can be installed via Pythons package manager
 downloaded from `python.org <https://www.python.org>`_. When downloading
 Python, make sure to chose a recent Python **3** distribution.
 
-If you have Python and pip set up,
+If you have Python and ``pip`` set up,
 to automatically install DataLad and its software dependencies, type
 
 .. code-block:: bash
@@ -109,68 +112,6 @@ chose, and that terminal output can look different from what is displayed here.
 If you are a Windows user and want to help improve the handbook for Windows users,
 please `get in touch <https://github.com/datalad-handbook/book/issues/new>`_.
 
-.. container:: toggle
-
-   .. container:: header
-
-      **1) Install within Windows**
-
-   Note: This installation method will get you a working version of
-   DataLad, but be aware that many Unix commands shown in the book
-   examples will not work for you, and DataLad-related output might
-   look different from what we can show in this book.
-
-   - **Step 1**: If you haven't, install Python3
-
-      - Check for Python in your start menu. If no search results
-        show up, go to https://www.python.org/downloads.
-        The most recent version of Python is on the "Download"
-        button near the top of the page. Click on ``download``,
-        then ``save``.
-
-      - Run the Python installer by double-clicking the downloaded
-        ``python-<version>.exe`` file in your Downloads or clicking
-        on the Python 3.x result in your start menu.
-
-      - **Check the box "Add Python <version> to PATH** at the bottom
-        of the window, and select "Customize installation".
-
-      - Stay with the default options to install all optional features,
-        and additionally tick
-        "Add Python to environment variables" on the second page.
-        Optionally, tick the box
-        "Install for all users" to ensure that other users on the computer
-        are able to use Python.
-
-      - Finish the installation. After successful installation, instruct the installer
-        to bypass the 260 character file path limit (option available at the bottom
-        of the window).
-
-      - Check the installation by opening CMD (type ``cmd`` into the Windows
-        search bar and press ``Enter``) and typing python + ``Enter``. You should
-        see Python start up in the terminal. This means that Python is working
-        and the ``PATH`` is set correctly. Yay!
-
-   - **Step 2**: Install Git
-
-      - Go to https://git-scm.com/downloads, select Windows, and
-        **download the 32-bit Git for Windows Setup** (not the 64-bit version!)
-
-   - **Step 3**: Install Git-annex
-
-      - Obtain the current Git-annex versions installer
-        `from here <https://downloads.kitenet.net/git-annex/windows/current/>`_.
-        Save the file, and double click the downloaded
-        ``git-annex-installer.exe`` in your Downloads.
-
-      - During installation, you will be prompted to "Choose Install Location".
-        **Specify the directory in which Git is installed**.
-
-   - **Step 4**: Install DataLad via pip
-
-      - ``pip`` should be installed together with recent Python versions on
-        Windows. Open ``cmd`` and type ``pip install --user datalad``.
-
 
 
 .. container:: toggle
@@ -185,7 +126,7 @@ please `get in touch <https://github.com/datalad-handbook/book/issues/new>`_.
 
    If you have always used Windows be prepared for some user experience changes when
    using Linux compared to Windows. For one, there will be no graphical user interface
-   (GUI). Instead, you will work inside of the standard Linux terminal. This however
+   (GUI). Instead, you will work inside a terminal window. This however
    mirrors the examples and code snippets provided in this handbook exactly.
    Also, note that there will be incompatibilities between the Windows and Linux filesystems.
    Files that are created within the WSL for example can not be modified with
@@ -248,7 +189,7 @@ please `get in touch <https://github.com/datalad-handbook/book/issues/new>`_.
 
          $ sudo apt update && sudo apt upgrade
 
-   - **Step 4**: Enable Neurodebian
+   - **Step 4**: Enable NeuroDebian
 
       - In your terminal, run
 
@@ -279,7 +220,7 @@ please `get in touch <https://github.com/datalad-handbook/book/issues/new>`_.
 
    .. container:: header
 
-      **2) Install within WSL2 [TODO]**
+      **2) Install within WSL2 [TODO; will be the recommendation soon]**
 
    .. todo::
 
@@ -288,29 +229,62 @@ please `get in touch <https://github.com/datalad-handbook/book/issues/new>`_.
       - find out what changes about the above instructions
 
 
-HPC environments or any system with singularity installed
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+.. container:: toggle
 
-If you want to use DataLad on a high-performance computing (HPC) environment, such as a
-computer cluster or a similar multi-user machine, where you don't have admin privileges,
-chances are that `Singularity <http://singularity.lbl.gov/>`_ is already installed.
-And if it isn't installed, the singularity website has a page dedicated to helping
-you make a `solid case <http://singularity.lbl.gov/install-request>`_ to help convince
-your admin why they really want to install it.
+   .. container:: header
 
-On any system with Singularity installed, you can pull a container with a full installation
-of DataLad (~300 MB) straight from `Singularity Hub <https://singularity-hub.org/collections/667>`_.
-The following command pulls the latest container for the DataLad development version
-(check on Singularity Hub for alternative container variants)
+      **1) Install within Windows**
 
-.. code-block:: bash
+   Note: This installation method will get you a working version of
+   DataLad, but be aware that many Unix commands shown in the book
+   examples will not work for you, and DataLad-related output might
+   look different from what we can show in this book.
 
-   $ singularity pull shub://datalad/datalad:fullmaster
+   - **Step 1**: If you haven't, install Python3
 
-This will produce an executable image file. You can rename this image to ``datalad`` and
-put the directory it is located in into your ``PATH`` environment variable.
-From there on, you will have a ``datalad`` command available from the command line that
-transparently executes all DataLad functionality through the container.
+      - Check the official
+        `Python docs on installing on Windows <https://docs.python.org/3/using/windows.html>`_
+        for instructions here. Please read the recommendation below,
+        though
+
+      - **Check the box "Add Python <version> to PATH** at the bottom
+        of the window, and select "Customize installation".
+
+      - Stay with the default options to install all optional features,
+        and additionally tick
+        "Add Python to environment variables" on the second page.
+        Optionally, tick the box
+        "Install for all users" to ensure that other users on the computer
+        are able to use Python.
+
+      - Finish the installation. After successful installation, instruct the installer
+        to bypass the 260 character file path limit (option available at the bottom
+        of the window).
+
+      - Check the installation by opening CMD (type ``cmd`` into the Windows
+        search bar and press ``Enter``) and typing python + ``Enter``. You should
+        see Python start up in the terminal. This means that Python is working
+        and the ``PATH`` is set correctly. Yay!
+
+   - **Step 2**: Install Git
+
+      - Go to https://git-scm.com/downloads, select Windows, and
+        **download the 32-bit Git for Windows Setup** (not the 64-bit version!)
+
+   - **Step 3**: Install Git-annex
+
+      - Obtain the current Git-annex versions installer
+        `from here <https://downloads.kitenet.net/git-annex/windows/current/>`_.
+        Save the file, and double click the downloaded
+        ``git-annex-installer.exe`` in your Downloads.
+
+      - During installation, you will be prompted to "Choose Install Location".
+        **Specify the directory in which Git is installed**.
+
+   - **Step 4**: Install DataLad via pip
+
+      - ``pip`` should be installed together with recent Python versions on
+        Windows. Open ``cmd`` and type ``pip install --user datalad``.
 
 
 Initial configuration

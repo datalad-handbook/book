@@ -1,5 +1,5 @@
-DataLad, Run! [1]
------------------
+DataLad, Run!
+-------------
 
 In previous examples, all changes that happened to the dataset or
 the files it contains were

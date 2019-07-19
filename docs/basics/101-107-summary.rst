@@ -1,7 +1,7 @@
 .. _summary_nest:
 
-Basic DataLad Magic: Summary
-----------------------------
+Summary
+-------
 
 In the last two sections, we have discovered the basics of installing a published DataLad dataset,
 and experienced the concept of modularly nesting datasets.

@@ -8,6 +8,8 @@ Introduction
 
    intro/philosophy
    intro/narrative
+   intro/installation
+   intro/howto
 
 
 ######
@@ -18,8 +20,6 @@ Basics
    :maxdepth: 1
    :caption: Building blocks necessary to enable you to use DataLad
 
-   basics/installation
-   basics/howto
    basics/101-101-create
    basics/101-102-populate
    basics/101-103-modify

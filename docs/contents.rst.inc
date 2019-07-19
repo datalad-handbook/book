@@ -6,7 +6,6 @@ Introduction
    :maxdepth: 1
    :caption: What DataLad is all about
 
-   intro/index
    intro/philosophy
    intro/narrative
 

@@ -1,7 +1,7 @@
 .. _installds:
 
-Basic DataLad magic: Installing datasets
-----------------------------------------
+Install datasets
+----------------
 
 So far, we have created a ``DataLad-101`` course dataset. We saved some additional readings
 into the dataset, and have carefully made and saved notes on the DataLad

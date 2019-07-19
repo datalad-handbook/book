@@ -6,7 +6,7 @@ you might be reluctant to perform usual file system managing
 operations, such as copying, moving, or renaming a files or
 directories.
 
-If I renamed on of those books, would the symlink that points
+If I renamed one of those books, would the symlink that points
 to the file content still be correct? What happens if I'd copy
 an annexed file?
 If I moved the whole ``books/`` directory? What if I moved
@@ -14,6 +14,8 @@ all of ``DataLad-101`` into a different place on my computer?
 What if renamed the whole superdataset?
 And how do I remove a file, or directory, or subdataset?
 
+Therefore, there is an extra tutorial offered by the courses'
+TA today afternoon, and you attend.
 There is no better way of learning than doing. Here, in the
 safe space of the ``DataLad-101`` course, you can try out all
 of the things you would be unsure about or reluctant to try

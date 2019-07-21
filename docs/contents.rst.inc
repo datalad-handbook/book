@@ -61,6 +61,7 @@ Appendix
    :caption: Further information and references
 
    glossary
+   glossary-dl
    contributing
 
 * :ref:`genindex`

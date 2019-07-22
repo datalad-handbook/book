@@ -1,5 +1,5 @@
-Datalad, Ruuuuuuuun!
---------------------
+Cleaning up
+-----------
 
 Just now you realize that you need to fit both logos onto the same slide.
 "Ah, damn, I might then really need to have them 400 by 400 pixel to fit",

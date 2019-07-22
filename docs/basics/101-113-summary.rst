@@ -1,5 +1,5 @@
-Run, Datalad! Summary
-----------------------
+Summary
+-------
 
 In the last five sections, we demonstrated how to create a proper ``datalad run``
 command, and discovered the concept of *locked* content.

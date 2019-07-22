@@ -12,7 +12,7 @@ all of the ``DataLad-101`` course dataset. Sharing datasets was
 something you wanted to look into soon, anyway.
 
 This is one exciting aspect of DataLad datasets has yet been missing
-from this course yet: How does one share a dataset?
+from this course: How does one share a dataset?
 In this section, we will cover the simplest way of sharing a dataset:
 on a local or shared filesystem, via an installation with a path as
 a source.
@@ -141,7 +141,7 @@ command. You however begin to wonder: how does DataLad know where to look for
 that original content?
 
 This information comes from Git-annex. Before getting the next PDF,
-lets query Git-Annex where its content is stored:
+lets query Git-annex where its content is stored:
 
 .. runrecord:: _examples/DL-101-120-105
    :language: console
@@ -163,7 +163,7 @@ This becomes especially useful when the number of repositories
 increases. If you have only one other dataset it may be easy to
 remember what and where it is. But once you have one back-up
 of your dataset on a USB-Stick, one dataset shared with
-`dropbox <dropbox.com>`, and a third one on your institutions
+`dropbox <dropbox.com>`_, and a third one on your institutions
 Gitlab instance you will be grateful for the descriptions
 you provided these locations with.
 
@@ -177,6 +177,17 @@ these PDFs, Git-annex will try
 to obtain it from the locations it knows to contain this content.
 It uses the checksums to identify these locations. Every copy
 of a dataset will get a unique ID with such a checksum.
+Note however that just because Git-annex knows a certain location
+where content was once it does not guarantee that retrieval will
+work. If one location is a USB-Stick that is in your bag pack instead
+of your USB port,
+a second location is a hard drive that you deleted all of its
+previous contents (including dataset content) from,
+and another location is a webserver, but you are not connected
+to the internet, Git-annex will not succeed in retrieving
+contents from these locations.
+As long as there is at least one location that contains
+the file and is accessible, though, Git-annex will get the contents.
 
 Let's now turn to the fact that the subdataset ``longnow`` does
 not contain not only no file content, but also no file meta data
@@ -208,7 +219,14 @@ explore the file hierarchy. The file content, however, is not present yet.
 What has happened here?
 
 When DataLad installs a dataset, it will by default only install the
-superdataset, and not the subdatasets. To explicitly install a dataset
+superdataset, and not the subdatasets. The superdataset contains the
+information that a subdataset exists though -- the subdataset is *registered*
+in the superdataset.  This is why the subdataset name exists as a directory.
+A subsequent ``datalad install`` in ``recordings/longnow/``
+or a ``datalad install PATH/TO/longnow`` will install the registered dataset without
+the need to specify the source again, just as we did it in the example above.
+
+To explicitly install a dataset right away
 *recursively*, that is, all of the subdatasets inside it as well, one
 has to specify the ``-r``/``--recursive`` option:
 

@@ -1,10 +1,17 @@
 Updating datasets: The basics
 -----------------------------
 
-So far, sharing the dataset with DataLad was remarkably
-unexciting given that you already knew most of the dataset
-magic that your room mate currently is still mesmerized about.
-But to be honest, you're not yet certain whether
+All of what you have seen about sharing dataset was really
+cool, and for the most part also surprisingly intuitive.
+``datalad run`` commands or file retrieval worked exactly as
+you imagined it to work, and you begin to think that slowly but
+steadily you're getting a feel about how DataLad really works.
+
+But to be honest, so far, sharing the dataset with DataLad was
+also remarkably unexciting given that you already knew most of
+the dataset magic that your room mate currently is still
+mesmerized about.
+To be honest, you're not yet certain whether
 sharing data with DataLad really improves your life up
 until this point. After all, you could have just copied
 your directory into your ``mock_user`` directory and

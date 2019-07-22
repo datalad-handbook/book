@@ -35,8 +35,7 @@ screen.
 
 First of all, find the commit checksum of the command you
 want to run by taking a look into the history of the dataset
-(in the shared dataset)
-
+(in the shared dataset):
 
 .. runrecord:: _examples/DL-101-122-101
    :language: console

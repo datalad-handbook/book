@@ -50,15 +50,15 @@ sharing a dataset with a simple example.
   dataset for updates, and a ``datalad update --merge`` will integrate
   these changes into the dataset copy.
 
-* Thus, using datalad, data can be easily shared and kept up to date
-  with only two commands: ``datalad install`` and ``datalad update``
+* Thus, using DataLad, data can be easily shared and kept up to date
+  with only two commands: ``datalad install`` and ``datalad update``.
 
 Now what I can do with that?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Most importantly, you have experienced the first way of sharing
 and updating a dataset.
-The example here may strike you as too simplistic, but in later parts of
+Thgit e example here may strike you as too simplistic, but in later parts of
 the book you will see examples in which datasets are shared on the same
 file system in surprisingly useful ways.
 
@@ -66,7 +66,7 @@ Simultaneously, you have observed dataset properties you already knew
 (for example how annexed files need to be retrieved via ``datalad get``),
 but you have also seen novel aspects of a dataset -- for example that
 subdatasets are not automatically installed by default, how
-``git annex whereis`` can help you find out where file content is stored,
+``git annex whereis`` can help you find out where file content might be stored,
 or how a shared dataset can be updated to reflect changes that were made
 to the original dataset.
 

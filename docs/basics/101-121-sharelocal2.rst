@@ -5,12 +5,16 @@ So far, your room mate and you have created a copy of the ``DataLad-101``
 dataset on the same file system but a different place by installing
 it from a path.
 
-You have observed that in order to install subdatasets right away to
-obtain their file content availability meta data to explore
-the file hierarchy within the subdatasets the ``-r``/``recursive``
-option needs to be given to ``datalad install``.
+You have observed that the ``-r``/``--recursive``
+option needs to be given to ``datalad install``
+in order to install subdatasets right away. Only then
+is the subdatasets file content availability meta data to explore
+the file hierarchy available within the subdataset right
+from the start. Alternatively, a subsequent ``datalad install``
+in the subdataset or with a path to the subdataset takes care
+of the missing installation.
 
-And you have mesmerized your room mate by showing him  how :term:`Git-annex`
+And you have mesmerized your room mate by showing him how :term:`Git-annex`
 retrieved large file contents from the original dataset.
 
 Let's now see the ``git annex whereis`` command in more detail.

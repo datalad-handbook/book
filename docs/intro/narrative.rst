@@ -13,7 +13,7 @@ you to fire up your terminal and follow along.
 
 You do not need to be a programmer, computer scientist, or Linux-crank.
 If you have never touched your computers shell before, you will be fine.
-No knowledge about :term:`git` or :term:`git-annex` is required or necessary.
+No knowledge about :term:`Git` or :term:`Git-annex` is required or necessary.
 Regardless of your background and personal use cases for DataLad, the
 handbook will show you the principles of DataLad, and from chapter 1 onwards
 you will be using them.
@@ -26,7 +26,7 @@ workflow in various ways, and in this book you will use many of them right
 from the start.
 There are many topics you can explore, if you wish:
 Local or collaborative workflows, reproducible analyses, data publishing, ... .
-If anything seems particulary exciting, you can go ahead, read it, *and do it*.
+If anything seems particularly exciting, you can go ahead, read it, *and do it*.
 Therefore, **grab your computer, and be ready to use it**.
 
 Every chapter will give you different challenges, starting from basic local
@@ -49,6 +49,10 @@ we distinguish ``comments (#)`` from ``commands ($)`` and their output:
    [INFO   ] Creating a new annex repo at /home/adina/DataLad-101
    create(ok): /home/adina/DataLad-101 (dataset)
 
+Note: When copying code snippets into your own terminal, do not copy the leading
+``$`` -- this only indicates that the line is a command, and would lead to an
+error when you'd try to execute it.
+
 The following two chapters have two different goals: All of the *Basics* sections
 will show you the core DataLad functionality and challenge you to use it.
 In *use cases* you will find concrete examples of DataLad applications for
@@ -57,14 +61,15 @@ you might even consider :ref:`contribute` to this book by sharing your own use c
 
 Note that many challenges can have straightforward and basic solutions,
 but a lot of additional options or improvements are possible.
-Sometimes one could get lost in all of the available DataLad functionality.
+Sometimes one could get lost in all of the available DataLad functionality,
+or in some interesting backgrounds about a command.
 For this reason we put all of the basics in plain sight, and those basics
 will let you master a given task and get along comfortably.
 Having the basics will be your multi-purpose swiss army knife.
 But if you want to have the special knowledge for a very peculiar type
-of problem set or that extra increase in skill,
+of problem set or that extra increase in skill or understanding,
 you'll have to do a detour into some of the *hidden* parts of the book:
-When there are command options that go beyond basics and
+When there are command options or explanations that go beyond basics and
 best practices, we hide them in foldable book sections in order
 to not be too distracting for anyone only interested in the basics.
 You can decide for yourself whether you want to check them out:
@@ -80,13 +85,15 @@ You can decide for yourself whether you want to check them out:
 
 Note further that...
 
-.. admonition:: Note for git-users
+.. gitusernote::
 
-   DataLad uses :term:`git` and :term:`git-annex` underneath the hood. Readers that
+   DataLad uses :term:`Git` and :term:`Git-annex` underneath the hood. Readers that
    are familiar with these tools can find occasional notes on how a DataLad
-   command links to a git(-annex) command or concept in boxes like this.
-   There is, however, absolutely no knowledge of git or git-annex necessary
-   to follow this book.
+   command links to a Git(-annex) command or concept in boxes like this.
+   There is, however, absolutely no knowledge of Git or Git-annex necessary
+   to follow this book. You will, though, encounter Git commands throughout
+   the book when there is no better alternative, and executing those commands will
+   suffice to follow along.
 
 Apart from core DataLad commands (introduced in the second section of this book),
 DataLad also comes with many extensions and advanced commands not (yet) referenced
@@ -105,7 +112,7 @@ with a ``datalad`` tag if you need help.
 The storyline
 ^^^^^^^^^^^^^
 
-Most of the sections in the upcoming chapter follow a continous **narrative**.
+Most of the sections in the upcoming chapter follow a continuous **narrative**.
 This narrative aims to be as domain-agnostic and relatable as possible, but
 it also needs to be able to showcase all of the principles and commands
 of DataLad. Therefore, we will build up together a DataLad project for the
@@ -114,12 +121,12 @@ fictional educational course ``DataLad-101``.
 Envision yourself in the last educational course you took or taught:
 Probably, you've created some files with notes you took, a directory
 with slides or books for further reading, and a place where you stored
-assigments and their solutions in. This is what we will be doing as well.
+assignments and their solutions in. This is what we will be doing as well.
 This project will start with creating the necessary directory structures,
 populating them by ``installing`` and ``creating`` several
 :term:`DataLad subdataset`\s, adding files and changing their content,
 and executing simple scripts with input data to create results we can
-publish with DataLad.
+share and publish with DataLad.
 
 If you don't want to follow along and only read, there will be a
 finished DataLad-101 project for you to download and explore in the future.
@@ -128,6 +135,6 @@ finished DataLad-101 project for you to download and explore in the future.
 Lets get going!
 ---------------
 
-If you have DataLad installed, you can dive straight into chapter 1. (Todo: link).
+If you have DataLad installed, you can dive straight into chapter 1, :ref:`createDS`.
 For everyone new, there are the sections :ref:`howto` as a minimal tutorial
 to using the shell and :ref:`install` to get your DataLad installation set up.

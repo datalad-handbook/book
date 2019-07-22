@@ -38,6 +38,7 @@ Basic DataLad Magic
    basics/101-106-nesting
    basics/101-107-summary
    basics/101-115-symlinks
+   basics/101-125-siblings
 
 
 #########

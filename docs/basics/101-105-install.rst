@@ -222,7 +222,9 @@ we can use ``.`` to refer to all of the dataset like this:
 
    $ datalad get .
 
-(However, with a total size of more than 15GB, this might take a while, so don't do that now)
+(However, with a total size of more than 15GB, this might take a while, so don't do that now.
+If you did execute the command above, interrupt it by pressing ``CTRL`` + ``C`` -- Don't worry,
+this will not break anything)
 
 Isn't that easy?
 
@@ -258,7 +260,8 @@ But beyond simply sharing the *data* in the dataset, when sharing or installing
 a DataLad dataset, all copies also include the datasets *history*.
 
 For example, we can find out who created the dataset in the first place
-(the output shows an excerpt):
+(the output shows an excerpt of ``git log --reverse``, which displays the
+history from first to most recent commit):
 
 .. runrecord:: _examples/DL-101-105-110
    :language: console

@@ -1,7 +1,7 @@
 .. _populate:
 
-Starting from scratch: Populating a dataset
--------------------------------------------
+Populate a dataset
+------------------
 
 The first lecture in DataLad-101 referenced some useful literature.
 Even if we end up not reading those books at all, lets just download

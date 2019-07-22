@@ -38,6 +38,15 @@ Basic DataLad Magic
    basics/101-106-nesting
    basics/101-107-summary
    basics/101-115-symlinks
+
+#####################
+Sharing a dataset [1]
+#####################
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Sharing on shared file systems
+
    basics/101-120-sharelocal
    basics/101-121-sharelocal2
    basics/101-122-sharelocal3

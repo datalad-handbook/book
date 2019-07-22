@@ -8,7 +8,7 @@ and making simple modifications *locally*:
 
 * An empty dataset can be created with the ``datalad create`` command. Its useful to add a description
   to the dataset and use the ``-c text2git`` configuration, but we will see later why.
-  Command structure: ``datalad create --description "here is a description" -c text2git PATH``.
+  The command structure is ``datalad create --description "here is a description" -c text2git PATH``.
 
 * Thanks to :term:`Git` and :term:`Git-annex`, the dataset has a history to track files and their
   modifications. Built-in Git tools (``git log``) or external tools (such as ``tig``) allow to explore
@@ -18,7 +18,7 @@ and making simple modifications *locally*:
   of specifying a concise commit message to summarize the change, and do not forget to specify the
   path to the file (change) that should be saved to history! Remember, if you run a ``datalad save`` without
   specifying a path, all untracked files and all file changes will be committed to the history together!
-  Command structure: ``datalad save -m "here is a commit message" PATH``.
+  The command structure is ``datalad save -m "here is a commit message" PATH``.
 
 * The typical local workflow consists of an initial ``datalad save -m "Add file XY" PATH`` to instruct
   DataLad to track the file and its content. Afterwards, one *modifies* the file, and then *saves* the
@@ -41,6 +41,7 @@ Additionally, you can add very large files to your datasets history.
 
 Currently, this is more of "best-practice building" than seeing DataLad magic. You can already explore
 the history, but for now, its been only informative, and hasn't been used for anything more fancy.
-The next lectures in ``DataLad-101`` will focus on utilizing the history in order to undo mistakes,
-changes to large content (as opposed to small content we have been modifying so far), and consuming
-existing datasets.
+The next lectures in ``DataLad-101`` will focus on extending the ``DataLad-101`` dataset, consuming
+existing datasets, and exploring more of the basic DataLad commands.
+Later on, we will look into utilizing the history in order to undo mistakes,
+or how to make changes to large content (as opposed to small content we have been modifying so far).

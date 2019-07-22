@@ -1,1 +1,11 @@
-git mv TLCL.pdf The_Linux_Command_Line.pdf
+$ git log -1 -p
+commit 98c2f7016fde05083d65a0e35889f634910ae8a7
+Author: Adina Wagner <adina.wagner@t-online.de>
+Date:   Mon Jul 22 16:51:47 2019 +0200
+
+    rename the book
+
+diff --git a/books/TLCL.pdf b/books/The_Linux_Command_Line.pdf
+similarity index 100%
+rename from books/TLCL.pdf
+rename to books/The_Linux_Command_Line.pdf

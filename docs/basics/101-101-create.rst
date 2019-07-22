@@ -93,7 +93,7 @@ an informative commit message yourself.
 As already noted, any files you ``save`` in this dataset, and all modifications
 to these files that you ``save``, are tracked in this history.
 Importantly, this file tracking works
-regardless of the size of the files - a DataLad dataset could be
+regardless of the size of the files -- a DataLad dataset could be
 your private music or movie collection with single files being many GB in size.
 This is one aspect that distinguishes DataLad from many other
 version control tools, among them Git.

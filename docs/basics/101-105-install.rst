@@ -142,7 +142,7 @@ Dataset content identity and availability information
 
 Surprised you turn to your fellow student and wonder about
 how fast the dataset was installed. Shouldn't
-a download of that many mp3 files should take much more time?
+a download of that many ``.mp3`` files should take much more time?
 
 Here you can see another import feature of DataLad datasets
 and the ``datalad install`` command:
@@ -197,8 +197,9 @@ download all of this data right away! That would have taken hours given the crap
 internet connection in the lecture hall, and you aren't even sure whether your
 harddrive has much space left...
 
-But you nevertheless are curious on how to actually listen to one of these mp3s now.
+But you nevertheless are curious on how to actually listen to one of these ``.mp3``\s now.
 So how does one actually "get" the files?
+
 The command to retrieve file content is ``datalad get``. You can specify one or more
 specific files, or ``get`` all of the dataset by specifying ``datalad get .`` (with ``.``
 denoting "current directory").
@@ -212,7 +213,7 @@ First, we get one of the recordings in the dataset -- take any one of your choic
 
    $ datalad get Long_Now__Seminars_About_Long_term_Thinking/2003_11_15__Brian_Eno__The_Long_Now.mp3
 
-Try to open it - it will now work.
+Try to open it -- it will now work.
 
 If you would want to get the rest of the missing data, instead of specifying all files individually,
 we can use ``.`` to refer to all of the dataset like this:

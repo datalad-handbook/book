@@ -43,7 +43,7 @@ this excerpt).
 
 We have highlighted the important part of this rather long commit summary.
 Note that you can not see any ``.mp3``\s being added to the dataset,
-as was previously the case when we ``datalad save``\ed PDFs that we
+as was previously the case when we ``datalad save``\d PDFs that we
 downloaded into ``books/``. Instead,
 DataLad stores what it calls a *subproject commit* of the subdataset.
 The cryptic character sequence in this line is the checksum we have briefly

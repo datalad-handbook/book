@@ -41,6 +41,8 @@ Basic DataLad Magic
    basics/101-120-sharelocal
    basics/101-121-sharelocal2
    basics/101-122-sharelocal3
+   basics/101-123-sharelocal4
+   basics/101-124-summary
 
 #########
 Use Cases

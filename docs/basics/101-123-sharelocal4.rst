@@ -1,8 +1,10 @@
 Updating datasets: The basics
 -----------------------------
 
-So far sharing the dataset with DataLad was remarkably
-unexciting. To be honest, you're not yet certain whether
+So far, sharing the dataset with DataLad was remarkably
+unexciting given that you already knew most of the dataset
+magic that your room mate currently is still mesmerized about.
+But to be honest, you're not yet certain whether
 sharing data with DataLad really improves your life up
 until this point. After all, you could have just copied
 your directory into your ``mock_user`` directory and
@@ -17,22 +19,28 @@ and ``git annex whereis`` into the original ``DataLad-101``?
 This is a change that is not reflected in your "shared"
 installation in ``../mock_user/DataLad-101``:
 
-.. runrecord:: _examples/DL-101-122-101
+.. runrecord:: _examples/DL-101-123-101
    :language: console
-   :workdir: dl-101/DataLad-101
+   :workdir: dl-101/mock_user/DataLad-101
 
    # we navigate into the installed copy:
    $ cd ../mock_user/DataLad-101
    $ cat notes.txt
 
-However, this installed copy knows its ``origin``, i.e.
+But the original intention of sharing the dataset with
+your room mate was to give him access to your notes.
+How does he get the notes that you have added in the last
+two sections, for example?
+
+This installed copy of ``DataLad-101`` knows its ``origin``, i.e.
 the place it was installed from. Using this information,
 it can query the original dataset whether any changes
-happened since the last time it checked.
+happened since the last time it checked, and if so, retrieve and
+integrate them.
 
 This is done with the ``datalad update --merge`` command.
 
-.. runrecord:: _examples/DL-101-122-102
+.. runrecord:: _examples/DL-101-123-102
    :language: console
    :workdir: dl-101/mock_user/DataLad-101
 
@@ -65,7 +73,7 @@ command. How cool is that?!
 
 
 PS: You might wonder whether there is also a sole
-``datalad merge`` command. Yes, there is -- if you are
+``datalad update`` command. Yes, there is -- if you are
 a Git-user and know about branches and merging you can read the
 ``Note for Git-users`` below. Else, a thorough explanation
 will come at a later point in time.

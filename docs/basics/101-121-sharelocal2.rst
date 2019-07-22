@@ -1,22 +1,28 @@
 Sharing datasets: Common File systems [2]
 -----------------------------------------
 
-In the last section we created a copy of the ``DataLad-101``
+So far, your room mate and you have created a copy of the ``DataLad-101``
 dataset on the same file system but a different place by installing
 it from a path.
 
-We have observed that in order to install subdatasets right away to
+You have observed that in order to install subdatasets right away to
 obtain their file content availability meta data to explore
 the file hierarchy within the subdatasets the ``-r``/``recursive``
 option needs to be given to ``datalad install``.
 
-And we have demonstrated how :term:`Git-annex` retrieved large file
-contents from the original dataset.
+And you have mesmerized your room mate by showing him  how :term:`Git-annex`
+retrieved large file contents from the original dataset.
 
 Let's now see the ``git annex whereis`` command in more detail.
-Within the original ``DataLad-101`` dataset, we retrieved some of the ``.mp3``
+Within the original ``DataLad-101`` dataset, you retrieved some of the ``.mp3``
 files via ``datalad get``, but not others. How will this influence the
-output of ``git annex whereis``?
+output of ``git annex whereis``, you wonder?
+
+Together with your room mate, you decide to find out. You navigate
+back into the installed copy, and run ``git annex whereis`` on a
+file that you once retrieved file content for, and on a file
+that you did not yet retrieve file content for.
+Here is the output for the retrieved file:
 
 .. runrecord:: _examples/DL-101-121-101
    :language: console
@@ -29,6 +35,9 @@ output of ``git annex whereis``?
    # file content exists in original DataLad-101 for this file
    $ git annex whereis Long_Now__Seminars_About_Long_term_Thinking/2003_11_15__Brian_Eno__The_Long_Now.mp3
 
+And here is the output for a file that you did not yet retrieve
+content for in your original ``DataLad-101`` dataset.
+
 .. runrecord:: _examples/DL-101-121-102
    :language: console
    :workdir: dl-101/mock_user/DataLad-101/recordings/longnow
@@ -36,9 +45,10 @@ output of ``git annex whereis``?
    # but not for this:
    $ git annex whereis Long_Now__Seminars_About_Long_term_Thinking/2005_01_15__James_Carse__Religious_War_In_Light_of_the_Infinite_Game.mp3
 
-As you can see, the file we downloaded with ``datalad get`` has a third source,
-our own computer. The file we did not yet retrieve in the original dataset
-only has two sources.
+As you can see, the file content previously downloaded with a
+``datalad get`` has a third source, your original dataset on your computer.
+The file we did not yet retrieve in the original dataset
+only has only two sources.
 
 Let's see how this affects a ``datalad get``:
 
@@ -72,7 +82,8 @@ This source is called ``web`` because it actually is a URL through which this pa
 podcast-episode is made available in the first place. You might also have noticed that the
 download from web took longer than the retrieval from the directory on the same
 file system. But we will get into the details
-of this once we cover the ``importfeed`` and ``add-url`` functions.
+of this type of content source
+once we cover the ``importfeed`` and ``add-url`` functions [#f1]_.
 
 Let's for now add a note on the ``git annex whereis`` command. Again, do
 this in the original ``DataLad-101`` directory, and don't forget to save it.
@@ -89,14 +100,26 @@ this in the original ``DataLad-101`` directory, and don't forget to save it.
    The command "git annex whereis PATH" lists the repositories that have
    the file content of an annexed file. When using ``datalad get`` to retrieve
    file content, those repositories will be queried.
+
    EOT
+
+.. runrecord:: _examples/DL-101-121-106
+   :language: console
+   :workdir: dl-101/DataLad-101
+
    $ datalad status
+
+.. runrecord:: _examples/DL-101-121-107
+   :language: console
+   :workdir: dl-101/DataLad-101
+
    $ datalad save -m "add note on git annex whereis" notes.txt
 
 
-.. todo::
+.. rubric:: Footnotes
 
-   Do we at some point need to explain that and why it does not work like this from
-   outside the subdataset?
-
-   Do we need to explain what mih@medusa is?
+.. [#f1] Maybe you wonder what the location ``mih@medusa`` is. It is a copy of the
+         data on an account belonging to user ``mih`` on the hostname ``medusa``.
+         Because we don't have the hostnames' address, nor log-in credentials for
+         this user, we can't retrieve content from this location. However, somebody
+         else (for example the user ``mih``) could.

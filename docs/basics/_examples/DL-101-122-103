@@ -1,29 +1,14 @@
-$ cat notes.txt
-One can create a new dataset with 'datalad create [--description] PATH'.
-The dataset is created empty
-'datalad save [-m] PATH' saves the file (modifications) to history.
-Note to self: Always use informative, concise commit messages.
-The command 'datalad install [--source] PATH' installs a dataset from e.g. a URL or a path.
-If you install a dataset into an existing dataset (as a subdataset), remember to specify the
-root of the superdataset with the '-d' option.
-A source to install a dataset from can also be a path,
-for example as in "datalad install -s ../DataLad-101".
-As when installing datasets before, make sure to add a
-description on the location of the dataset to be
-installed, and, if you want, a path to where the dataset
-should be installed under which name.
 
-Note that subdatasets will not be installed by default --
-you will have to do a plain
-"datalad install PATH/TO/SUBDATASET", or specify the
--r/--recursive option in the install command:
-"datalad install -s ../DataLad-101 -r".
-
-A recursive installation would however install all
-installed subdatasets, so a safer way to proceed is to
-set a decent --recursion-limit:
-"datalad install -s ../DataLad-101 -r --recursion-limit 2"
-
-The command "git annex whereis PATH" lists the repositories that have
-the file content of an annexed file. When using datalad get to retrieve
-file content, those repositories will be queried.
+$ datalad rerun 1b83c5fab761afe3f77339a09ef2a61c1df2b9ae
+[INFO] Making sure inputs are available (this may take some time) 
+[WARNING] no content present; cannot unlock [unlock(/home/adina/repos/datalad-handbook/docs/_build/wdirs/dl-101/mock_user/DataLad-101/recordings/salt_logo_small.jpg)] 
+[INFO] == Command start (output follows) ===== 
+[INFO] == Command exit (modification check follows) ===== 
+get(ok): recordings/longnow/.datalad/feed_metadata/logo_salt.jpg (file) [from origin...]
+remove(ok): recordings/salt_logo_small.jpg
+add(ok): recordings/salt_logo_small.jpg (file)
+action summary:
+  add (ok: 1)
+  get (ok: 1)
+  remove (ok: 1)
+  save (notneeded: 2)

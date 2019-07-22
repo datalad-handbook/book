@@ -6,12 +6,5 @@ $ cat << EOT >> notes.txt
 The command "git annex whereis PATH" lists the repositories that have
 the file content of an annexed file. When using ``datalad get`` to retrieve
 file content, those repositories will be queried.
+
 EOT
-$ datalad status
-$ datalad save -m "add note on git annex whereis" notes.txt
- modified: notes.txt (file)
-add(ok): notes.txt (file)
-save(ok): . (dataset)
-action summary:
-  add (ok: 1)
-  save (ok: 1)

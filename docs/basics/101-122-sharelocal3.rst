@@ -37,17 +37,39 @@ First of all, find the commit checksum of the command you
 want to run by taking a look into the history of the dataset
 (in the shared dataset)
 
+
 .. runrecord:: _examples/DL-101-122-101
    :language: console
    :workdir: dl-101/DataLad-101
 
    # navigate into the shared copy
    $ cd ../mock_user/DataLad-101
-   # let's view the history:
+
+.. runrecord:: _examples/DL-101-122-102
+   :language: console
+   :workdir: dl-101/mock_user/DataLad-101
+   :emphasize-lines: 4
+
+   # lets view the history
    $ git log --oneline
 
-
-Ah, there it is. Just as already done in LINK RUN SECTION,
+Ah, there it is, the second most recent commit.
+Just as already done in LINK RUN SECTION,
 take this checksum and plug it into a ``datalad rerun``
 command:
 
+.. runrecord:: _examples/DL-101-122-103
+   :language: console
+   :workdir: dl-101/mock_user/DataLad-101
+   :realcommand: echo "$ datalad rerun $(git rev-parse HEAD~1)"  && datalad rerun $(git rev-parse HEAD~1)
+
+"This was so easy!" you exclaim. DataLad retrieved the missing
+file content from the subdataset and it tried to unlock the output
+prior to the command execution. Note that because you did not retrieve
+the output, ``recordings/salt_logo_small.jpg``, yet, the missing content
+could not be unlocked. DataLad warns you about this, but proceeds
+successfully.
+
+Your room mate now not only knows how exactly the resized file
+came into existence, but he can also reproduce your exact steps to
+create it. "This is as reproducible as it can be!" you think in awe.

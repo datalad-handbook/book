@@ -100,12 +100,13 @@ here ``longnow``, why is it empty?"
 True, the subdataset has a directory name but apart from this,
 the ``longnow`` directory appears empty.
 
-"Also, why do the PDFs in ``books/`` appear so weird? They have
+"Also, why do the PDFs in ``books/`` and the ``.jpg`` files
+appear so weird? They have
 this cryptic path right next to them, and look, if I try to open
 one of them, it fails! Did something go wrong when we installed
 the dataset?" he worries.
 
-Indeed, the PDFs appear just as they did in the original dataset
+Indeed, the PDFs and pictures appear just as they did in the original dataset
 on first sight: They are symlinks pointing to some location in the
 object tree. To reassure your room mate that everything is fine you
 quickly explain to him the concept of a symlink and the ``:term:`object tree```

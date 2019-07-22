@@ -50,10 +50,14 @@ sharing a dataset with a simple example.
   dataset for updates, and a ``datalad update --merge`` will integrate
   these changes into the dataset copy.
 
+* Thus, using datalad, data can be easily shared and kept up to date
+  with only two commands: ``datalad install`` and ``datalad update``
+
 Now what I can do with that?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Most importantly, you have experienced the first way of sharing a dataset.
+Most importantly, you have experienced the first way of sharing
+and updating a dataset.
 The example here may strike you as too simplistic, but in later parts of
 the book you will see examples in which datasets are shared on the same
 file system in surprisingly useful ways.

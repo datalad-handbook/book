@@ -282,10 +282,15 @@ Write this note in "your own" (the original) ``DataLad-101`` dataset, though!
 
    EOT
 
-Saves this note.
+Save this note.
 
 .. runrecord:: _examples/DL-101-120-109
    :language: console
    :workdir: dl-101/DataLad-101
 
    $ datalad save -m "add note about installing from paths and recursive installations" notes.txt
+
+.. gitusernote::
+
+   A dataset that is installed from an existing source, e.g. a path or URL,
+   it the DataLad equivalent of a *clone* in Git.

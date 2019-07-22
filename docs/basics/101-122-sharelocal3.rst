@@ -1,84 +1,53 @@
-Updating datasets: The basics
------------------------------
+Sharing datasets: Common File systems [3]
+-----------------------------------------
 
-So far sharing the dataset with DataLad was remarkably
-unexciting. To be honest, you're not yet certain whether
-sharing data with DataLad really improves your life up
-until this point. After all, you could have just copied
-your directory into your ``mock_user`` directory and
-this would have resulted in about the same output, right?
+"Thanks a lot for sharing your dataset with me! This
+is super helpful. I'm sure I'll catch up in no time!",
+your room mate says confidently. "How far did you get
+with the DataLad commands yet?" he asks at last.
 
-What we will be looking into now is how shared DataLad
-datasets can be updated.
+"Mhh, I think the last big one was ``datalad run``.
+Actually, let me quickly show you what this command
+does. There is something that I've been wanting to try
+anyway." you say.
 
-Remember that you added some notes on ``datalad install``
-and ``git annex whereis`` into the original ``DataLad-101``?
+The dataset you shared contained a number of ``datalad run``
+commands. For example, you created the simple ``Podcasts.tsv``
+file that listed all titles and speaker names of the longnow
+podcasts.
 
-This is a change that is not reflected in your "shared"
-installation in ``../mock_user/DataLad-101``:
+Given that you learned to created "proper" ``datalad run`` commands,
+complete with ``--input`` and ``--output`` specification,
+anyone should be able to ``datalad rerun`` these commits
+easily. This is what you want to try now.
+
+You begin to think about which ``datalad run`` commit would be
+the most useful one to take a look at. The creation of
+``Podcasts.tsv`` was a bit lame -- at this point in time, you
+didn't yet know about ``--input`` and ``--output`` arguments,
+and the resulting output is present anyway because text files
+like this ``.tsv`` file are stored in Git.
+However, one of the attempts to resize a picture could be
+useful. The input, the podcast logos, is not yet retrieved,
+nor is the resulting, resized image. "Let's go for this!",
+you say, and drag your confused room mate to the computer
+screen.
+
+First of all, find the commit checksum of the command you
+want to run by taking a look into the history of the dataset
+(in the shared dataset)
 
 .. runrecord:: _examples/DL-101-122-101
    :language: console
    :workdir: dl-101/DataLad-101
 
-   # we navigate into the installed copy:
+   # navigate into the shared copy
    $ cd ../mock_user/DataLad-101
-   $ cat notes.txt
-
-However, this installed copy knows its ``origin``, i.e.
-the place it was installed from. Using this information,
-it can query the original dataset whether any changes
-happened since the last time it checked.
-
-This is done with the ``datalad update --merge`` command.
-
-.. runrecord:: _examples/DL-101-122-102
-   :language: console
-   :workdir: dl-101/mock_user/DataLad-101
-
-   $ datalad update --merge
-
-Importantly, run this command either within the specific
-(sub)dataset you are interested in, or provide a path to
-the root of the dataset you are interested in with the
-``-d``/``--dataset`` flag. If you would run the command
-within the ``longnow`` subdataset, you would query this
-subdatasets' ``origin`` for updates, not the original
-``DataLad-101`` dataset.
-
-Let's check the contents in ``notes.txt`` to see whether
-the previously missing changes are now present:
-
-.. runrecord:: _examples/DL-101-122-103
-   :language: console
-   :workdir: dl-101/mock_user/DataLad-101
-
-   $ cat notes.txt
-
-Wohoo, the contents are here!
-
-Therefore, sharing DataLad datasets by installing them
-enables you to update the datasets content should the
-original datasets' content change -- in only a single
-command. How cool is that?!
+   # let's view the history:
+   $ git log --oneline
 
 
+Ah, there it is. Just as already done in LINK RUN SECTION,
+take this checksum and plug it into a ``datalad rerun``
+command:
 
-PS: You might wonder whether there is also a sole
-``datalad merge`` command. Yes, there is -- if you are
-a Git-user and know about branches and merging you can read the
-``Note for Git-users`` below. Else, a thorough explanation
-will come at a later point in time.
-
-
-
-.. gitusernote::
-
-   ``datalad update`` is the DataLad equivalent of a ``git fetch``,
-   ``datalad update --merge`` is the DataLad equivalent of a
-   ``git pull``.
-   Upon a simple ``datalad update``, the remote information
-   is available on a branch seperate from the master branch
-   -- in most cases this will be ``remotes/origin/master``.
-   You can ``git checkout`` this branch or run ``git diff`` to
-   explore the changes and identify potential merge conflicts.

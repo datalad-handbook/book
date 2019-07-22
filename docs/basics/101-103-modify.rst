@@ -14,7 +14,8 @@ throughout the course.
 Pick an editor of your choice and write a short summary of how to create
 a DataLad dataset from scratch. Below is one way to do it, using the
 ``cat`` command that comes with any Unix system, and a simple redirection
-with ``>``.
+with ``>``. Running the command below will create ``notes.txt`` in the
+root of your ``DataLad-101`` dataset:
 
 .. runrecord:: _examples/DL-101-103-1
    :language: console
@@ -22,6 +23,7 @@ with ``>``.
    :realcommand: cd DataLad-101 && cat << EOT > notes.txt
       One can create a new dataset with 'datalad create [--description] PATH'.
       The dataset is created empty
+
       EOT
 
    $ cat << EOT > notes.txt
@@ -51,7 +53,7 @@ Modify this file by adding another note. After all, you already know how use
 ``datalad save``, so write a short summary on that as well.
 
 Again, the example below uses Unix commands (``cat`` and redirecting, this time however
-with ``>>`` to *append*)
+with ``>>`` to *append* new content to the existing file)
 to accomplish this, but you can take any editor of your choice.
 
 .. runrecord:: _examples/DL-101-103-4
@@ -59,8 +61,10 @@ to accomplish this, but you can take any editor of your choice.
    :workdir: dl-101/DataLad-101
 
    $ cat << EOT >> notes.txt
-   'datalad save [-m] PATH' saves the file (modifications) to history.
-   Note to self: Always use informative, concise commit messages.
+   The command "datalad save [-m] PATH" saves the file
+   (modifications) to history. Note to self:
+   Always use informative, concise commit messages.
+
    EOT
 
 Lets check the datasets current state:
@@ -96,4 +100,4 @@ the git log, your history will be longer. You can get out of git log by pressing
 We can see that the history can not only show us the commit message attached to
 a commit, but also the precise change that occured in the textfile in the commit.
 Additions are marked with a ``+``, and deletions would be shown with a leading ``-``.
-Thats quite neat.
+Thats quite neat, isn't it?

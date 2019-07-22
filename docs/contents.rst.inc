@@ -39,6 +39,16 @@ Basic DataLad Magic
    basics/101-107-summary
    basics/101-115-symlinks
 
+################
+Advanced options
+################
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Small pieces of advice and helpful but advanced options
+
+   basics/101-130-ignore
+
 
 #########
 Use Cases

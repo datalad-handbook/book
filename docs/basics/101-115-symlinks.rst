@@ -22,7 +22,7 @@ potential source of confusion that we want to eradicate.
 
 You might have noticed already that an ``ls -l`` or ``tree`` command in your dataset shows small
 arrows and quite cryptic paths following each non-textfile. Maybe your shell also
-displays these files in a different color than textfiles when listing
+displays these files in a different color than text files when listing
 them. We'll take a look together, using the ``books/`` directory as an example:
 
 .. runrecord:: _examples/DL-101-115-101
@@ -122,9 +122,11 @@ can be version controlled just as any text file.
 
 This comes with a two very important advantages:
 
-One, Should you have copies of the
+One, should you have copies of the
 same data in different places of your dataset, the symlinks of these files
-point to the same place. Therefore, any amount of copies of a piece of data
+point to the same place (in order to understand why this is the case, you
+will need to read the hidden section at the end of the page).
+Therefore, any amount of copies of a piece of data
 is only one single piece of data in your object tree. This, depending on
 how much identical file content lies in different parts of your dataset,
 can save you much disk space and time.
@@ -134,7 +136,7 @@ The second advantage is a
 .. gitusernote::
 
    Small symlinks can be written very very fast when switching branches,
-   as opposed to copying and deleting huge datafiles
+   as opposed to copying and deleting huge datafiles.
 
 This leads to a few conclusions:
 
@@ -182,11 +184,11 @@ to manage the file system in a datalad dataset (Todo: link).
 
    So how do these paths and names come into existence?
 
-   When a file is annexed, Git-annex generates a *key* from the file content
-   that it uses (in part) as a name for the file and as a part of the path
+   When a file is annexed, Git-annex generates a *key* from the **file content**.
+   It uses this key (in part) as a name for the file and as the path
    in the object tree.
-   The key is associated with the content of the file (the *value*).
-   Therefore, using this key, file content can be identified --
+   Thus, the key is associated with the content of the file (the *value*),
+   and therefore, using this key, file content can be identified --
    or rather: Based on the keys, it can be identified whether two files
    have identical contents, and whether file content changed.
 
@@ -199,9 +201,13 @@ to manage the file system in a datalad dataset (Todo: link).
    will generate the same hash for the same file content, but once file content
    changes, the generated hash will also look differently. If two files are
    turned into identical character strings, the content in these files is thus
-   identical (this, by the way, leads to two files having the same symlink, and thus
-   linking the same file in the object-tree).
-   Read more about hashes `here <https://en.wikipedia.org/wiki/Hash_function>`_.
+   identical. Therefore, if two have the same symlink, and thus
+   linking the same file in the object-tree, they are identical in content.
+   If you have many copies of the same data in your dataset, the obbject
+   tree will contain only one instance of that content, and all copies will
+   symlink to it, thus saving disk space. If you want to read more about the
+   computer science basics about about hashes check out the Wikipedia
+   page `here <https://en.wikipedia.org/wiki/Hash_function>`_.
 
    This key (or :term:`checksum`) is the last part of the name of the file the
    symlink links to (in which the actual data content
@@ -254,6 +260,12 @@ to manage the file system in a datalad dataset (Todo: link).
    consisting of two letters each. These two letters are also derived from the md5sum
    of the key, and their sole purpose to exist is to avoid issues with too many files
    in one directory (which is a situation that certain file systems have problems with).
+
+   In summary, you now know a great deal about Git-annex and the object tree. Maybe you
+   are as amazed as we are about some of the ingenuity used behind the scenes. In any
+   case, this section was hopefully insightful, and not confusing. If you are still curious
+   about Git-annex, you can check out its
+   `documentation <https://git-annex.branchable.com/git-annex/>`_.
 
 .. rubric:: Footnotes
 

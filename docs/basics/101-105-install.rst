@@ -30,8 +30,7 @@ There is so much exciting stuff to come, you can't miss a single one.
 Installing an existing dataset is done with the ``datalad install`` command.
 The command takes a location of an existing dataset (the *source*), and a path to where you want
 the dataset to be installed. The source can be a URL or a path to a local directory,
-or an SSH server (additionally, it can also be a pointer to an open-data collection,
-for example :term:`the DataLad superdataset ///` -- more on this later, though).
+or an SSH server [#f1]_.
 
 "Psst!" your fellow student from the row behind reaches over. "There are
 a bunch of audiorecordings of a really cool podcast, and they have been shared in the form
@@ -43,7 +42,7 @@ you think as you fire up your terminal and navigate into your ``DataLad-101`` da
 
 In this demonstration, we're using one of the many openly available datasets that
 DataLad provides in a public registry that anyone can access. One of these datasets is a
-collection of audiorecordings of a great podcast, the longnow seminar series [#f1]_.
+collection of audiorecordings of a great podcast, the longnow seminar series [#f2]_.
 It consists of audiorecordings about long-term thinking, and while the DataLad-101
 course is not a long-term thinking seminar, those recordings are nevertheless a
 good addition to the large stash of yet-to-read text books we piled up (and also, we
@@ -91,6 +90,8 @@ if you navigate into ``recordings`` the command would be:
 ``datalad install -d ../ -s https://github.com/datalad-datasets/longnow-podcasts.git recordings/longnow``.
 Note that the path did not change, but ``-d .`` changed to ``-d ../``
 (the Unix expression for ``parent directory``, i.e. "one-directory-up").
+Later in this book there is a dedicated section that explains what this ``-d``/``--dataset`` option
+does and why it is important, but for now just be mindful of the instruction above.
 
 .. container:: toggle
 
@@ -288,6 +289,10 @@ modification.
 
 .. rubric:: Footnotes
 
-.. [#f1] The longnow podcasts are lectures and conversations on long-term thinking produced by
+.. [#f1] Additionally, a source  can also be a pointer to an open-data collection,
+         for example :term:`the DataLad superdataset ///` -- more on what this is and how to
+         use it later, though.
+
+.. [#f2] The longnow podcasts are lectures and conversations on long-term thinking produced by
          the LongNow foundation. Subscribe to the podcasts at http://longnow.org/seminars/podcast.
          Support the foundation by becoming a member: https://longnow.org/membership. http://longnow.org

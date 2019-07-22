@@ -1,0 +1,74 @@
+How to keep content from DataLad
+--------------------------------
+
+You have progressed quite far in the DataLad-101 course,
+and by now, you have gotten a good overview on the basics
+and *not-so-basic-anymore*\s of DataLad.
+
+Some things that you continuously did were adding, modifying,
+and saving files. In fact, the ``datalad save`` command
+is probably the most often used command in this dataset up to this
+point.
+
+This means that you have seen some of the peculiarities
+related to ``datalad save``. The most striking was that it by default
+will save the complete datasets status if one does not provide
+a path to a file change. This would result in all content
+that is either modified or untracked being saved in a single
+commit.
+This is the reason why a ``datalad run`` requires a clean
+dataset: The ``datalad save`` that a ``datalad run`` ends with
+internally should only save changes that can be attributed to
+the command that was run, and not changes that existed already
+but were yet unsaved.
+Alternatively, you learned that one can specify the ``--explicit``
+option, which will only save those modifications that were specified
+in the ``--output`` argument. However, this also has disadvantages:
+It might be cumbersome to specify all of the outputs, or you
+might not even be completely sure which outputs will be generated.
+
+In principle, a general recommendation may be to keep your DataLad
+dataset clean. This assists a structured way of working and prevents
+clutter, and it also nicely records provenance inside your dataset.
+If you have content in your dataset that has been untracked for 9 months
+it will be hard to remember where this content came from, whether it
+is relevant, and if it is relevant, for what. Adding content to your
+dataset will thus usually not do harm -- certainly not for your
+dataset.
+
+However, there may be valid reasons to keep content out of
+DataLads version control and tracking. Maybe you hide your secret
+``my-little-pony-themesongs/`` collection within ``Deathmetal/``
+and don't want a record of this in your history or the directory
+being shared together with the rest of the dataset. Who knows?
+We wouldn't judge in any way.
+
+There are two ways to leave untracked content unaffected
+by a ``datalad save``. One is an option within ``datalad save``
+itself:
+
+``datalad save -m "my commit message here" -u/--updated``
+will only save dataset modifications to previously tracked
+paths. If ``my-little-pony-themesongs`` is not yet tracked,
+a ``datalad save -u`` will leave it untouched, and its existence
+or content is not written to the history of your dataset.
+
+A second way of hiding content from DataLad is a ``.gitignore``
+file. As the name suggests, it is a :term:`Git` related solution,
+but it works just as well for DataLad.
+
+A ``.gitignore`` file is a file that specifies which files should
+be *ignored* by the version control tool. You can either input
+a full file name, e.g.
+``playlists/my-little-pony-themesongs/Friendship-is-magic.mp3``,
+or paths or patterns that make use of globbing, such as
+``playlists/my-little-pony-themesongs/*``.
+
+To use a ``.gitignore`` file, simply create a file with this
+name in the root of your dataset (be mindful: remember the leading ``.``!).
+You can use one of `thousands of publicly shared examples <https://github.com/github/gitignore>`_,
+or create your own one.
+
+You just need to save it once to your dataset and then you're good.
+If you have new content you don't want to track, you can add
+new paths or patterns to the file.

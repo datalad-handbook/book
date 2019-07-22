@@ -1,0 +1,6 @@
+# navigate into the installed copy
+$ cd ../mock_user/DataLad-101
+
+# download the shell script and save it in your code/ directory
+$ wget -nv https://raw.githubusercontent.com/datalad/datalad.org/7e8e39b1f08d0a54ab521586f27ee918b4441d69/content/asciicast/seamless_nested_repos.sh -O code/nested_repos.sh
+2019-07-22 14:59:30 URL:https://raw.githubusercontent.com/datalad/datalad.org/7e8e39b1f08d0a54ab521586f27ee918b4441d69/content/asciicast/seamless_nested_repos.sh [1734/1734] -> "code/nested_repos.sh" [1]

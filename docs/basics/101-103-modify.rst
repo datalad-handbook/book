@@ -1,7 +1,7 @@
 .. _modify:
 
-Starting from scratch: Modifying content
-----------------------------------------
+Modify content
+--------------
 
 So far, we've only added new content to the dataset. And we haven't done
 much to that content up this point, to be honest. Lets see what happens if

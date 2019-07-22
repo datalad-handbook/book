@@ -6,25 +6,34 @@ Introduction
    :maxdepth: 1
    :caption: What DataLad is all about
 
-   intro/index
    intro/philosophy
    intro/narrative
+   intro/installation
+   intro/howto
 
 
-######
-Basics
-######
+#####################
+Starting from scratch
+#####################
 
 .. toctree::
    :maxdepth: 1
-   :caption: Building blocks necessary to enable you to use DataLad
+   :caption: The bare necessities
 
-   basics/installation
-   basics/howto
    basics/101-101-create
    basics/101-102-populate
    basics/101-103-modify
    basics/101-104-summary
+
+
+###################
+Basic DataLad Magic
+###################
+
+.. toctree::
+   :maxdepth: 1
+   :caption: A closer look at how things work
+
    basics/101-105-install
    basics/101-106-nesting
    basics/101-107-summary

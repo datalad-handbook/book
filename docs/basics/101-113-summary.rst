@@ -47,5 +47,5 @@ those errors in your own work.
 Lastly, we've started to unveil some principles of :term:`Git-annex` that are relevant to
 understanding how certain commands work and why certain commands may fail. We have seen that
 Git-annex locks large files' content to prevent accidental modifications, and how the ``--output``
-flag in ``datalad run`` can save as an intermediate ``datalad unlock`` to unlock this content.
+flag in ``datalad run`` can save us an intermediate ``datalad unlock`` to unlock this content.
 The next section will elaborate on this a bit more.

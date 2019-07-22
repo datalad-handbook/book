@@ -51,29 +51,51 @@ We can see that the old file is marked as ``deleted``, and
 simultaneously, an ``untracked`` file appears: the renamed
 PDF.
 
-In theory, we would need to do a ``datalad save`` at this point
-to commit the "deletion" and the "new file". This however, is
-suboptimal, and Git has built-in commands that provide a better
-solution.
-
-Lets revert the renaming of the the files:
+While this might appear messy, a ``datalad save`` will clean
+all of this up. Note, however, that you can't have any other
+modifications in the dataset!
 
 .. runrecord:: _examples/DL-101-114-103
    :language: console
    :workdir: dl-101/DataLad-101/books
 
-   $ git reset --hard master       # this restores TLCL.pdf
-   $ rm The_Linux_Command_Line.pdf       # this removes the untracked copy
+   $ datalad save -m "rename the book"
 
-A more convenient way to rename files is the ``git mv`` command:
+This command will realize that a simple renaming has taken place,
+and will summarize this nicely in the resulting commit:
 
 .. runrecord:: _examples/DL-101-114-104
+   :language: console
+   :workdir: dl-101/DataLad-101/books
+   :emphasize-lines: 8-11
+
+   $ git log -1 -p
+
+Thus, if you have a clean dataset, simply renaming files will
+be easily saved to the history with a ``datalad save``.
+
+If, however, you have unsaved modifications in your dataset that you
+don't (yet) want to save, you can do a detour by using git tools.
+Git has built-in commands that provide a solution in two steps.
+
+Lets revert the renaming of the the files:
+
+.. runrecord:: _examples/DL-101-114-105
+   :language: console
+   :workdir: dl-101/DataLad-101/books
+
+   $ git reset --hard HEAD~1
+   $ datalad status
+
+A Git-specific way to rename files is the ``git mv`` command:
+
+.. runrecord:: _examples/DL-101-114-106
    :language: console
    :workdir: dl-101/DataLad-101/books
 
    $ git mv TLCL.pdf The_Linux_Command_Line.pdf
 
-.. runrecord:: _examples/DL-101-114-105
+.. runrecord:: _examples/DL-101-114-107
    :language: console
    :workdir: dl-101/DataLad-101/books
 
@@ -83,21 +105,32 @@ We can see that the old file is still seen as "deleted", but the "new",
 renamed file is "added". A ``git status`` displays the change
 in the dataset a bit more accurate:
 
-.. runrecord:: _examples/DL-101-114-106
+.. runrecord:: _examples/DL-101-114-108
    :language: console
    :workdir: dl-101/DataLad-101/books
 
    $ git status
 
-.. todo::
+A subsequent ``git commit -m "rename book"`` will write the renaming
+-- and only the renaming -- to the datasets history.
 
-   can I mitigate a ``git commit`` here? I believe the best ``datalad save``
-   command to save the renaming (without the rest of the dataset state) is
-   ``datalad save -m "renamed TLCL to verbose title" The_Linux_Command_Line.pdf TLCL.pdf``,
-   but this still requires listing all paths, and tab completion does not seem to work for
-   the "deleted" files...
+.. runrecord:: _examples/DL-101-114-109
+   :language: console
+   :workdir: dl-101/DataLad-101/books
 
-TODO
+   $ git commit -m "rename book"
+
+Let's revert this now, to have a clean history.
+
+.. runrecord:: _examples/DL-101-114-110
+   :language: console
+   :workdir: dl-101/DataLad-101/books
+
+   $ git reset --hard HEAD~1
+   $ datalad status
+
+
+
 
 What happens if I rename a directory or subdataset?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

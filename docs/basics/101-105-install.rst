@@ -65,17 +65,22 @@ dataset), we supply the ``-d`` (``--dataset``) flag.
 This specifies the dataset to perform the operation on. Because we are in the root
 of the ``DataLad-101`` dataset, the pointer to the dataset is a ``.`` (which is Unix'
 way for saying "current directory"). The dataset to be installed lives on Github, and
-we can give its Github URL as a source (``-s``, ``--source``).
+we can give its Github URL as a source (``-s``, ``--source``). Note that we line
+break these examples with a ``\``. You can copy them as they are presented here into
+your terminal, but in your own work you can write commands like this into a single
+line.
 
 .. runrecord:: _examples/DL-101-105-102
    :language: console
    :workdir: dl-101/DataLad-101/
    :realcommand: datalad install -d . -s https://github.com/datalad-datasets/longnow-podcasts.git recordings/longnow
 
-   $ datalad install --dataset . --source https://github.com/datalad-datasets/longnow-podcasts.git recordings/longnow
+   $ datalad install --dataset . \
+   --source https://github.com/datalad-datasets/longnow-podcasts.git recordings/longnow
 
    # or, alternatively, using the shorter options:
-   $ datalad install -d . -s https://github.com/datalad-datasets/longnow-podcasts.git recordings/longnow
+   $ datalad install -d . \
+   -s https://github.com/datalad-datasets/longnow-podcasts.git recordings/longnow
 
 This command copied the repository found at the URL https://github.com/datalad-datasets/longnow-podcasts.git
 into the existing ``DataLad-101`` dataset, into the directory ``recordings/longnow``.
@@ -280,9 +285,12 @@ modification.
    # in the root of DataLad-101:
    $ cd ../../
    $ cat << EOT >> notes.txt
-   The command 'datalad install [--source] PATH' installs a dataset from e.g. a URL or a path.
-   If you install a dataset into an existing dataset (as a subdataset), remember to specify the
+   The command 'datalad install [--source] PATH'
+   installs a dataset from e.g. a URL or a path.
+   If you install a dataset into an existing
+   dataset (as a subdataset), remember to specify the
    root of the superdataset with the '-d' option.
+
    EOT
    $ datalad save -m "Add note on datalad install" notes.txt
 

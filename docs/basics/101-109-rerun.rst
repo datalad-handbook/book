@@ -185,7 +185,7 @@ Finally, save this note.
    :language: console
    :workdir: dl-101/DataLad-101
 
-   datalad save -m "add note datalad and git diff" notes.txt
+   $ datalad save -m "add note datalad and git diff" notes.txt
 
 Note that ``datalad rerun`` works with ``datalad run`` or ``datalad rerun`` commands
 (yes, you can ``rerun`` a ``datalad rerun``),
@@ -230,4 +230,4 @@ Finally, save this note.
    :language: console
    :workdir: dl-101/DataLad-101
 
-   datalad save -m "add note on basic datalad run and datalad rerun" notes.txt
+   $ datalad save -m "add note on basic datalad run and datalad rerun" notes.txt

@@ -18,11 +18,11 @@ Date:   Thu Jul 18 10:49:41 2019 +0200
     }
     ^^^ Do not change lines above ^^^
 
-diff --git a/recordings/Podcasts.tsv b/recordings/Podcasts.tsv
+diff --git a/recordings/podcasts.tsv b/recordings/podcasts.tsv
 new file mode 100644
 index 0000000..9360b49
 --- /dev/null
-+++ b/recordings/Podcasts.tsv
++++ b/recordings/podcasts.tsv
 @@ -0,0 +1,206 @@
 +Rachel_Sussman	The_World_s_Oldest_Living_Organisms.mp3
 +Larry__Harvey	Why_The_Man_Keeps_Burning.mp3
@@ -255,7 +255,7 @@ index 0000000..d0c3416
 +# create a list of all file names found under the path
 +files = glob(path)
 +# define an outfile name:
-+outfile = join('recordings', 'Podcasts.tsv')
++outfile = join('recordings', 'podcasts.tsv')
 +
 +# loop through all file names and write speaker and title into the file
 +with open(outfile, 'w') as f:

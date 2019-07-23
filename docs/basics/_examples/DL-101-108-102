@@ -11,7 +11,7 @@ path = join('recordings', 'longnow',
 # create a list of all file names found under the path
 files = glob(path)
 # define an outfile name:
-outfile = join('recordings', 'Podcasts.tsv')
+outfile = join('recordings', 'podcasts.tsv')
 
 # loop through all file names and write speaker and title into the file
 with open(outfile, 'w') as f:

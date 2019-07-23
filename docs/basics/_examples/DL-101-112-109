@@ -1,15 +1,15 @@
 $ git log -p -2
-commit 95293c807405e592e1a8665c2bc985484347c462
+commit e5803adc2d05ca4819c5fd3e9a4712afa55b5c8c
 Author: Adina Wagner <adina.wagner@t-online.de>
-Date:   Thu Jul 18 13:49:44 2019 +0200
+Date:   Tue Jul 23 15:29:56 2019 +0200
 
     add note on datalad runs --explicit flag
 
 diff --git a/notes.txt b/notes.txt
-index c1c169f..109a98f 100644
+index 9d7235b..4b32782 100644
 --- a/notes.txt
 +++ b/notes.txt
-@@ -18,3 +18,10 @@ files will be retrieved prior to the command execution. Any content that is modi
+@@ -24,3 +24,10 @@ files will be retrieved prior to the command execution. Any content that is modi
  produced by the command should be specified with an -o/--output flag. Upon a run or rerun
  of the command, the contents of these files will get unlocked so that they can be modified.
  

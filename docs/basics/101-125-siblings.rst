@@ -26,6 +26,9 @@ Because he found this very helpful in understanding dataset
 nesting concepts, he decided to download the ``shell`` script
 that was used to generate this example from Github, and saves
 it in the ``code/`` directory.
+He also does it using the datalad command ``datalad download-url``
+for it, that can take a commit message and will save the download
+right to the history!
 
 Navigate into your dataset copy in ``mock_user/DataLad-101``,
 and run the following command
@@ -38,7 +41,10 @@ and run the following command
    $ cd ../mock_user/DataLad-101
 
    # download the shell script and save it in your code/ directory
-   $ wget -nv https://raw.githubusercontent.com/datalad/datalad.org/7e8e39b1f08d0a54ab521586f27ee918b4441d69/content/asciicast/seamless_nested_repos.sh -O code/nested_repos.sh
+   $ datalad download-url \
+     -m "Include nesting demo from datalad website" \
+     -O code/nested_repos.sh \
+     https://raw.githubusercontent.com/datalad/datalad.org/7e8e39b1f08d0a54ab521586f27ee918b4441d69/content/asciicast/seamless_nested_repos.sh
 
 Run a quick datalad status:
 
@@ -48,13 +54,14 @@ Run a quick datalad status:
 
    $ datalad status
 
-Save this file:
+Nice, the ``datalad download-url command saved this download
+right into the history!
 
 .. runrecord:: _examples/DL-101-125-103
    :language: console
    :workdir: dl-101/mock_user/DataLad-101
 
-   $ datalad save -m "add shell script from ascii cast on nesting" code/nested_repos.sh
+   $ git log -1 -p
 
 Suddenly, your room mate has a file change that you do not have.
 His dataset evolved.

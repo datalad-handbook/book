@@ -7,9 +7,10 @@ saved to the dataset's history by hand. We added larger and smaller
 files and saved them, and we also modified smaller file contents and
 saved these modifications.
 
-Often, however, files or file contents get changed by shell commands
-or by scripts containing code.
-Consider a data scientist. She has data files with numeric data,
+Often, however, files get changed by shell commands
+or by scripts.
+Consider a `data scientist <https://xkcd.com/1838/>`_.
+She has data files with numeric data,
 and code scripts in Python, R, Matlab or any other programming language
 that will use the data to compute results or figures. Such output is
 stored in new files, or modifies existing files.

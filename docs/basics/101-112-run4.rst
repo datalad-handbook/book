@@ -154,8 +154,4 @@ commit to see a :term:`run-record` with more content:
 
 .. todo::
 
-   - add something on .gitignore -- is there a git annex ignore?
-     else untracked content needs to be tracked for datalad run
-     without --explicit.
-
-   - TODO: escape special characters
+   - how to escape special characters

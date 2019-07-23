@@ -74,7 +74,7 @@ Do we need to install the installed dataset of our room mate
 as a copy again?
 
 No, luckily, it's simpler and less convoluted. What we have to
-do is to create a datalad ``sibling``: A reference to our room mates
+do is to *register* a datalad ``sibling``: A reference to our room mates
 dataset in our own, original dataset.
 
 .. gitusernote::
@@ -125,19 +125,38 @@ This command will list all known siblings of the dataset. You can see it
 in the resulting list with the name "roommate" you have given to it.
 
 The fact that the ``DataLad-101`` dataset now has a sibling means that we
-can also ``datalad update`` this repository:
+can also ``datalad update`` this repository. Awesome!
+
+Your room mate previously ran a ``datalad update --merge``. This got him
+changes he knew you made into a dataset that he so far did not change.
+This meant that nothing unexpected would happen with the ``datalad update --merge``.
+
+But consider the current case: Your room mate made changes to his
+dataset, but you don't necessarily know which. Maybe you also made
+changes to your dataset. How would you know that his changes and
+your changes are not in conflict with each other?
+
+This scenario is where a plain ``datalad update`` becomes useful.
+If you run a plain ``datalad update``, DataLad will query the sibling
+for changes, and store those changes in a safe place in your own
+dataset, *but it will not yet integrate them into your dataset*.
+This gives you a chance to see whether you actually want to have the
+changes your room mate made.
+
+Let's see how it's done. First, run a plain ``datalad update`` without
+the ``--merge`` option.
 
 .. runrecord:: _examples/DL-101-125-106
    :language: console
    :workdir: dl-101/DataLad-101
 
-   $ datalad update --merge -s roommate
+   $ datalad update -s roommate
 
 Note that we supplied the siblings name with the ``-s``/``--name`` option.
 This is good practice, and allows you to be precise in where you want to get
 updates from. It would have worked without the specification (just as a bare
 ``datalad update --merge`` worked for your room mate), because there is only
-one known other location, though.
+one other known location, though.
 
 .. container:: toggle
 

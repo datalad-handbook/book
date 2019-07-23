@@ -22,7 +22,7 @@ Upon reviewing the list you realized that you made a mistake, though: you only
 listed the talks in the SALT series (the
 ``Long_Now__Seminars_About_Long_term_Thinking/`` directory), but not
 in the ``Long_Now__Conversations_at_The_Interval/`` directory.
-Lets fix this in the script. Replace the contents in ``code/list_titles.py``
+Let's fix this in the script. Replace the contents in ``code/list_titles.py``
 with the following, fixed script:
 
 .. runrecord:: _examples/DL-101-108-110
@@ -73,7 +73,7 @@ We can use the shorthand "BF" to denote "Bug fix" in the commit message.
 
    $ datalad save -m "BF: list both directories content" code/list_titles.py
 
-What we *could* do is to run the same ``datalad run`` command as before to recreate
+What we *could* do is run the same ``datalad run`` command as before to recreate
 the file, but now with all of the contents:
 
 .. code-block:: bash
@@ -83,7 +83,7 @@ the file, but now with all of the contents:
 
 However, think about any situation where the command would be longer than this,
 or that is many months past the first execution. It wouldn't be easy to remember
-the command, nor would it be very convenient to copy it from the ``run-record``.
+the command, nor would it be very convenient to copy it from the ``run record``.
 
 Luckily, a fellow student remembered the DataLad way of re-executing
 a ``run`` command, and he's eager to show it to you.
@@ -116,10 +116,12 @@ Now DataLad has made use of the ``run-record``, and based on the information in
 it re-executed the original command. Because we
 updated the script, the output ``podcasts.tsv`` has changed and now contains the podcast
 titles of both subdirectories.
-You've probably already guessed it, but the easiest way to check whether a ``datalad rerun``
+You've probably already guessed it, but the easiest way
+to check whether a ``datalad rerun``
 has changed the desired output file is
-to check whether the rerun command appears in the datasets history: If a ``datalad rerun``
-does not add or change any content in the dataset, it will also not be recorded in the history.
+to check whether the rerun command appears in the datasets history:
+If a ``datalad rerun`` does not add or change any content in the dataset,
+it will also not be recorded in the history.
 
 .. runrecord:: _examples/DL-101-108-115
    :language: console
@@ -132,16 +134,17 @@ In the datasets history,
 we can see that a new ``datalad run`` was recorded. This action is
 committed by Datalad under the original commit message of the ``run``
 command, and looks just like the previous ``datalad run`` commit apart
-from the execution time.
+from the commit time.
 
-A cool alternative are the ``datalad diff`` and ``git diff`` commands.
+Two cool tools that go beyond the ``git log``
+are the ``datalad diff`` and ``git diff`` commands.
 Both commands can report differences between two states of
 a dataset. Thus, you can get an overview of what changed between two commits.
 Both commands have a similar, but not identical structure: ``datalad diff``
-compares one state (specified as a commit checksum after ``-f``/``--from``,
+compares one state (a commit specified with ``-f``/``--from``,
 by default the latest change)
-and another state from the datasets history (specified as a commit checksum
-after ``-t``/``--to``). Let's do a ``datalad diff`` between the current state
+and another state from the dataset's history (a commit specified with
+``-t``/``--to``). Let's do a ``datalad diff`` between the current state
 of the dataset and the previous commit (called "HEAD~1" in Git terminology):
 
 .. runrecord:: _examples/DL-101-108-116
@@ -160,9 +163,9 @@ what exactly changed. This is a task for ``git diff``:
    $ git diff HEAD~1
 
 This output actually shows the precise changes between the contents created
-with the first ``datalad run`` and the ``datalad rerun`` after the bugfix.
-All of the files that are additionally included after the second directory
-was queried as well are preceded by a small ``+`` in the diff.
+with the first version of the script and the second script with the bugfix.
+All of the files that are added after the second directory
+was queried as well are shown in the ``diff``, preceded by a ``+``.
 
 Quickly create a note about these two helpful commands in ``notes.txt``:
 
@@ -174,8 +177,7 @@ Quickly create a note about these two helpful commands in ``notes.txt``:
    There are two useful functions to display changes between two
    states of a dataset: "datalad diff -f/--from COMMIT -t/--to COMMIT"
    and "git diff COMMIT COMMIT", where COMMIT is a checksum of a commit
-   in the history. If only one commit is given, the state of the dataset
-   at this commit will be compared to the state of the most recent commit.
+   in the history.
 
    EOT
 
@@ -187,8 +189,8 @@ Finally, save this note.
 
    $ datalad save -m "add note datalad and git diff" notes.txt
 
-Note that ``datalad rerun`` works with ``datalad run`` or ``datalad rerun`` commands
-(yes, you can ``rerun`` a ``datalad rerun``),
+Note that ``datalad rerun`` works with records of both a``datalad run``
+or a``datalad rerun`` commands (yes, you can ``rerun`` a ``datalad rerun``),
 but not with any other type of datalad command in your history
 such as a ``datalad save`` on results or outputs after you executed a script.
 Therefore, make it a
@@ -215,7 +217,7 @@ But prior to that, make a note about ``datalad run`` and ``datalad rerun`` in yo
 
    $ cat << EOT >> notes.txt
    The datalad run command can record the impact a script or command has on a Dataset.
-   In its most simple form, datalad run only takes a commit message and the command that
+   In its simplest form, datalad run only takes a commit message and the command that
    should be executed.
 
    Any datalad run command can be re-executed by using its commit checksum as an argument

@@ -14,7 +14,7 @@ no permission denied errors whatsoever! How does that work?"
 
 This night, though, your question stays unanswered and you fall into a restless
 sleep filled with bad dreams about "permission denied" errors. The next day you're
-the first student in your lecturers' office hours.
+the first student in your lecturer's office hours.
 
 "Oh, you're really attentive. This is a great question!" our lecturer starts
 to explain.
@@ -49,7 +49,7 @@ later change how file content is handled based on its type or size. It can be sp
 in the ``.gitattributes`` file, using ``annex.largefile`` options.
 But there will be a lecture on that."
 
-"Okay, well, second: Isn't it much easier to just don't bother with locking and
+"Okay, well, second: Isn't it much easier to just not bother with locking and
 unlocking, and have everything 'stored in Git'? Even if ``datalad run`` takes care
 of unlocking content, I don't see the point of Git-annex", you continue.
 
@@ -57,12 +57,10 @@ Here it gets tricky. To begin with the most important, and most straight-forward
 It is not possible to store
 large files in Git. This is because Git would very quickly run into severe performance
 issues. For this reason, :term:`Github`, a well-known hosting site for projects using Git,
-for example does not allow files larger than 100MB of size. This first part is
-easy to explain therefore: it is not
-possible to track larger files only with Git.
+for example does not allow files larger than 100MB of size.
 
 For now, we have solved the mystery of why text files can be modified
-without unlocking and other file types' content can not, and this is a small
+without unlocking, and this is a small
 improvement in the vast amount of questions that have piled up in our curious
 minds.
 

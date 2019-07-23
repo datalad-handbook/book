@@ -15,16 +15,16 @@ and code scripts in Python, R, Matlab or any other programming language
 that will use the data to compute results or figures. Such output is
 stored in new files, or modifies existing files.
 
-But only few weeks after these scripts were executed she finds it hard
-to remember what script was modified for which reason or created which
+But only a few weeks after these scripts were executed she finds it hard
+to remember which script was modified for which reason or created which
 output. How did this result came to be? Which script would she need
-to run again on what data to produce this particular figure?
+to run again on which data to produce this particular figure?
 
 In this section we will experience how DataLad can help
 to record the changes in a dataset after execution of a script
 from the shell.
 
-Lets say, for example, that you enjoyed the longnow podcasts a lot,
+Let's say, for example, that you enjoyed the longnow podcasts a lot,
 and you start a podcast-night with friends to wind down from all of
 the exciting DataLad lectures. They propose to make a
 list of speakers and titles to cross out what they've already listened
@@ -109,8 +109,8 @@ Save this script to the dataset.
 
    $ datalad save -m "Add simple script to write a list of podcast speakers and titles" code/list_titles.py
 
-Once we run this script, it will create a new file, ``recordings/podcasts.tsv``.
-Note that this file is outside of the `longnow/` subdataset.
+Once we run this script, we can save its outputs, the new file
+``recordings/podcasts.tsv``, to the superdataset.
 
 Obviously, we could create this file, and subsequently save it to the superdataset.
 However, just as in the example about the data scientist,
@@ -121,14 +121,14 @@ can be used to update it later on.
 The ``datalad run`` command can help with this. It records a command's impact on a
 dataset.
 
-Lets try the simplest way to use this command: The ``datalad run``
-command, followed by a commit message (``-m "a concise summary"``), and the
+Let's try the simplest way to use this command: ``datalad run``,
+followed by a commit message (``-m "a concise summary"``), and the
 command that executes the script from the shell: ``python code/list_titles.py``.
 It is helpful to enclose the command in quotation marks.
 
 Note that we execute the command from the root of the superdataset.
 It is recommended to use ``datalad run`` in the root of the dataset
-you want to record the changes in, and therefore, make sure to run this
+you want to record the changes in, so make sure to run this
 command from the root of ``DataLad-101``.
 
 .. runrecord:: _examples/DL-101-108-105
@@ -138,7 +138,7 @@ command from the root of ``DataLad-101``.
    $ datalad run -m "create a list of podcast titles" "python code/list_titles.py"
 
 
-Lets take a look into the history:
+Let's take a look into the history:
 
 .. runrecord:: _examples/DL-101-108-106
    :language: console
@@ -150,7 +150,7 @@ Lets take a look into the history:
 
 The commit message we have supplied with ``-m`` directly after ``datalad run`` appears
 in our history as a short summary.
-Additionally, the output of the command, the creation of ``recordings/podcasts.tsv``,
+Additionally, the output of the command, ``recordings/podcasts.tsv``,
 was saved right away.
 
 But there is more in this log entry, a section in between the markers
@@ -169,14 +169,14 @@ in the terminal.
 This information therefore maps the command, and with it the script,
 to the output file, in one commit. Nice, isn't it?
 
-Arguably, the :term:`run-record` is not the most human-readable way to display information.
+Arguably, the :term:`run record` is not the most human-readable way to display information.
 This representation however is less for the human user (the human user should
 rely on their informative commit message), but for DataLad, in particular for the
 ``datalad rerun`` command, which you will see in action shortly.
 
 Note that any ``datalad run`` command that does not result in any changes
 in a dataset (no modification of existing content; no additional files)
-will not produce any record in the datasets history. Try run the exact same
+will not produce any record in the dataset's history. Try run the exact same
 command as before, and check whether anything in your log changes:
 
 .. runrecord:: _examples/DL-101-108-107

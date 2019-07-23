@@ -19,7 +19,7 @@ and after listening to almost a third of the podcasts
 and enjoying them a lot,
 you also want to recommend them to the others.
 
-Almost all of the slides are ready, but whats still missing is the logo of the
+Almost all of the slides are ready, but what's still missing is the logo of the
 longnow podcasts. Good thing that this is part of the subdataset,
 so you can simply retrieve it from there.
 
@@ -41,12 +41,12 @@ in the hidden paths
    $ ls recordings/longnow/.datalad/feed_metadata/*jpg
 
 For the slides you decide to prepare images of size 400x400 px, but
-the logos original size is much larger: 3000x3000 pixel. Therefore
-let's try to resize the images -- currently, its far too large to fit on a slide.
+the logos' original size is much larger (both are 3000x3000 pixel). Therefore
+let's try to resize the images -- currently, they're far too large to fit on a slide.
 
 To resize an image from the command line we can use the Unix
-command ``convert -resize``.
-The command takes a new size in pixel as an argument, a path to the file that should be
+command ``convert -resize`` from the `ImageMagick tool <https://imagemagick.org/index.php>`_.
+The command takes a new size in pixels as an argument, a path to the file that should be
 resized, and a filename and path under which a new,
 resized image will be saved.
 To resize one image to 400x400 px, the command would thus be
@@ -70,7 +70,7 @@ when you copy them formatted like this.
 
 *Oh, crap!* Why didn't this work?
 
-Lets take a look at the error message DataLad provides. In general, these error messages
+Let's take a look at the error message DataLad provides. In general, these error messages
 might seem wordy, and maybe a bit intimidating as well, but usually they provide helpful
 information to find out what is wrong. Whenever you encounter an error message,
 make sure to read it, even if it feels like a mushroom cloud exploded in your terminal.
@@ -83,11 +83,11 @@ This is displaying errors that the
 terminal command threw: The ``convert`` tool complains that it can't open
 the file, because there is "No such file or directory".
 
-The second parts starts after
+The second part starts after
 
 ``[INFO   ] == Command exit (modification check follows) =====``.
 
-DataLad adds an information about a "non-zero exit code". A non-zero exit code indicates
+DataLad adds information about a "non-zero exit code". A non-zero exit code indicates
 that something went wrong [#f1]_. In principle, you could go ahead and google what this
 specific exit status indicates. However, the solution might have already occurred to you when
 reading the first error report: The file is not present.
@@ -142,8 +142,8 @@ specifying inputs even though they are already present will not do any harm.
 
    will retrieve all ``.jpg`` files prior to command execution.
 
-If outputs already exists...
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+If outputs already exist...
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Looking at the resulting image, you wonder whether 400x400 might be a tiny bit to small.
 Maybe we should try to resize it to 450x450, and see whether that looks better?

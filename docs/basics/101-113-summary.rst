@@ -5,8 +5,8 @@ In the last five sections, we demonstrated how to create a proper ``datalad run`
 command, and discovered the concept of *locked* content.
 
 * ``datalad run`` records and saves the changes a command makes in a dataset. That means
-  that modifications to existing contents or new content is associated with a specific command
-  and saved to the datasets history.
+  that modifications to existing content or new content is associated with a specific command
+  and saved to the dataset's history.
 
 * A ``datalad run`` command generates a ``run-record`` in the commit. This :term:`run-record` can be used
   by datalad to re-execute a command with ``datalad rerun CHECKSUM``, where CHECKSUM is the
@@ -27,8 +27,9 @@ command, and discovered the concept of *locked* content.
 * Getting and unlocking content is not only convenient for yourself, but enormously helpful
   for anyone you share your dataset with.
 
-* To execute a ``datalad run`` or ``datalad rerun``, ``datalad status`` either needs to be clean,
-  or the command needs to be extended with the ``--explicit`` option.
+* To execute a ``datalad run`` or ``datalad rerun``, a ``datalad status``
+  either needs to report that the dataset has no uncommitted changes (the dataset state
+  should be "clean"), or the command needs to be extended with the ``--explicit`` option.
 
 
 

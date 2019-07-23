@@ -31,6 +31,9 @@ Glossary
    DataLad superdataset
       A DataLad dataset that contains one or more levels of other DataLad datasets (:term:`DataLad subdataset`)
 
+   Debian
+      A common Linux distribution
+
    Git
       A version control system to track changes made to small-sized files over time. You can find out
       more about git in `this (free) book <https://git-scm.com/book/en/v2>`_
@@ -75,6 +78,9 @@ Glossary
    tig
       A text-mode interface for git that allows you to easily browse through your commit history.
       It is not part of git and needs to be installed. Find out more `here <https://jonas.github.io/tig/>`_.
+
+   Ubuntu
+      A common Linux distribution. https://ubuntu.com
 
    version control
       The management of changes to documents or other collections of information

@@ -134,6 +134,59 @@ committed by Datalad under the original commit message of the ``run``
 command, and looks just like the previous ``datalad run`` commit apart
 from the execution time.
 
+A cool alternative are the ``datalad diff`` and ``git diff`` commands.
+Both commands can report differences between two states of
+a dataset. Thus, you can get an overview of what changed between two commits.
+Both commands have a similar, but not identical structure: ``datalad diff``
+compares one state (specified as a commit checksum after ``-f``/``--from``,
+by default the latest change)
+and another state from the datasets history (specified as a commit checksum
+after ``-t``/``--to``). Let's do a ``datalad diff`` between the current state
+of the dataset and the previous commit (called "HEAD~1" in Git terminology):
+
+.. runrecord:: _examples/DL-101-108-116
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ datalad diff --to HEAD~1
+
+This indeed shows the output file as "modified". However, we don't know
+what exactly changed. This is a task for ``git diff``:
+
+.. runrecord:: _examples/DL-101-108-117
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ git diff HEAD~1
+
+This output actually shows the precise changes between the contents created
+with the first ``datalad run`` and the ``datalad rerun`` after the bugfix.
+All of the files that are additionally included after the second directory
+was queried as well are preceded by a small ``+`` in the diff.
+
+Quickly create a note about these two helpful commands in ``notes.txt``:
+
+.. runrecord:: _examples/DL-101-108-118
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ cat << EOT >> notes.txt
+   There are two useful functions to display changes between two
+   states of a dataset: "datalad diff -f/--from COMMIT -t/--to COMMIT"
+   and "git diff COMMIT COMMIT", where COMMIT is a checksum of a commit
+   in the history. If only one commit is given, the state of the dataset
+   at this commit will be compared to the state of the most recent commit.
+
+   EOT
+
+Finally, save this note.
+
+.. runrecord:: _examples/DL-101-108-119
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   datalad save -m "add note datalad and git diff" notes.txt
+
 Note that ``datalad rerun`` works with ``datalad run`` or ``datalad rerun`` commands
 (yes, you can ``rerun`` a ``datalad rerun``),
 but not with any other type of datalad command in your history

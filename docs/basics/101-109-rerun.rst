@@ -126,7 +126,7 @@ does not add or change any content in the dataset, it will also not be recorded 
    :workdir: dl-101/DataLad-101
    :emphasize-lines: 4
 
-   git log -1
+   $ git log -1
 
 In the datasets history,
 we can see that a new ``datalad run`` was recorded. This action is
@@ -156,7 +156,7 @@ more complex standard use cases: situations with *locked* contents.
 But prior to that, make a note about ``datalad run`` and ``datalad rerun`` in your
 ``notes.txt`` file.
 
-.. runrecord:: _examples/DL-101-108-116
+.. runrecord:: _examples/DL-101-108-120
    :language: console
    :workdir: dl-101/DataLad-101
 
@@ -173,7 +173,7 @@ But prior to that, make a note about ``datalad run`` and ``datalad rerun`` in yo
 
 Finally, save this note.
 
-.. runrecord:: _examples/DL-101-108-117
+.. runrecord:: _examples/DL-101-108-121
    :language: console
    :workdir: dl-101/DataLad-101
 

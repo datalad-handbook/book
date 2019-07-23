@@ -54,12 +54,14 @@ Run a quick datalad status:
 
    $ datalad status
 
-Nice, the ``datalad download-url command saved this download
-right into the history!
+Nice, the ``datalad download-url`` command saved this download
+right into the history! We'll show an excerpt of the last commit
+here:
 
 .. runrecord:: _examples/DL-101-125-103
    :language: console
    :workdir: dl-101/mock_user/DataLad-101
+   :lines: 1-30
 
    $ git log -1 -p
 
@@ -99,7 +101,7 @@ This registers your roommates ``DataLad-101`` as a "sibling" (we will call it
    :language: console
    :workdir: dl-101/mock_user/DataLad-101
 
-   cd ../../DataLad-101
+   $ cd ../../DataLad-101
    # add a sibling
    $ datalad siblings add -d . --name roommate --url ../mock_user/DataLad-101
 
@@ -166,9 +168,9 @@ one other known location, though.
 
    You can remove a sibling using ``datalad siblings remove -s roommate``
 
-The exciting question is now whether your room mates change is now
-also part of your own dataset. Let's list the contents of the ``code/``
-directory and also peek into the history:
+
+This plain ``datalad update`` informs you that it "fetched" updates from
+the dataset. The changes however, are not yet visible:
 
 .. runrecord:: _examples/DL-101-125-107
    :language: console
@@ -176,7 +178,67 @@ directory and also peek into the history:
 
    $ ls code/
 
+So where is the content? It is in a different *branch* of your dataset.
+If you don't use :term:`Git`, the concept of a branch can be a big
+source of confusion. There will be sections later in this book that will
+elaborate a bit more what branches are, and how to work with them, but
+for now envision a branch just like a bunch of drawers on your desk.
+The paperwork that you have in front of you right on your desk is your
+dataset as you currently see it.
+These drawers instead hold documents that you are in principle working on,
+just not now -- maybe different versions of paperwork you currently have in
+front of you, or maybe other files than the ones currently in front of you
+on your desk.
+
+Imagine that a ``datalad update`` created a small drawer, placed all of
+the changed or added files from the sibling inside, and put it on your
+desk. You can now take a look into that drawer to see whether you want
+to have the changes right in front of you.
+
+The drawer is a branch, and it is usually called ``remotes/origin/master``.
+To look inside of it you can ``git checkout BRANCHNAME``, or you can
+do a ``diff`` between the branch (your drawer) and the dataset as it
+is currently in front of you (your desk). We will do the latter, and leave
+the former for a different lecture:
+
 .. runrecord:: _examples/DL-101-125-108
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ datalad diff --to remotes/roommate/master
+
+This shows us that there is an additional file! Let's ask
+git diff to show us what is inside:
+
+.. runrecord:: _examples/DL-101-125-109
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ git diff remotes/roommate/master
+
+Cool! So now that you know what the changes are that your room mate
+made, you can safely ``datalad update --merge`` them to integrate
+them into your dataset. In technical terms you will
+*merge the branch remotes/roommate/master into master*.
+But the details of this will be stated in a standalone section later.
+
+.. runrecord:: _examples/DL-101-125-110
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ datalad update --merge -s roommate
+
+The exciting question is now whether your room mates change is now
+also part of your own dataset. Let's list the contents of the ``code/``
+directory and also peek into the history:
+
+.. runrecord:: _examples/DL-101-125-111
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ ls code/
+
+.. runrecord:: _examples/DL-101-125-112
    :language: console
    :lines: 1-6
    :emphasize-lines: 2-3
@@ -200,7 +262,7 @@ time using DataLad datasets.
 
 Create a note about this, and save it.
 
-.. runrecord:: _examples/DL-101-125-109
+.. runrecord:: _examples/DL-101-125-113
    :language: console
    :workdir: dl-101/DataLad-101
 
@@ -211,6 +273,9 @@ Create a note about this, and save it.
    the location of a dataset, and a name for it. Afterwards,
    a "datalad update --merge -s name" will integrate the changes
    made to the sibling into the dataset.
+   A safe step in between is to do a "datalad update -s name"
+   and checkout the changes with "git/datalad diff"
+   to remotes/origin/master
 
    EOT
    $ datalad save -m "Add note on adding siblings" notes.txt

@@ -6,7 +6,12 @@ long_desc = '''
 This package contains helpers for the DataLad handbook.
 '''
 
-requires = ['Sphinx']
+requires = [
+    'Sphinx',
+    'sphinxcontrib-svg2pdfconverter',
+    'sphinxcontrib-plantuml',
+    'autorunrecord',
+]
 
 setup(
     name='dataladhandbook',

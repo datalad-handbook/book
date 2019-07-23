@@ -1,0 +1,15 @@
+$ git log -1 -p
+commit 4f6b142d101d0174b3c5db88943842b868f07aa6
+Author: Adina Wagner <adina.wagner@t-online.de>
+Date:   Tue Jul 23 08:54:35 2019 +0200
+
+    add copy of TLCL.pdf
+
+diff --git a/copyofTLCL.pdf b/copyofTLCL.pdf
+new file mode 120000
+index 0000000..34328e2
+--- /dev/null
++++ b/copyofTLCL.pdf
+@@ -0,0 +1 @@
++.git/annex/objects/jf/3M/MD5E-s2120211--06d1efcb05bb2c55cd039dab3fb28455.pdf/MD5E-s2120211--06d1efcb05bb2c55cd039dab3fb28455.pdf
+\ No newline at end of file

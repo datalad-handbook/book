@@ -2,7 +2,7 @@ Input and Output
 ----------------
 
 In the previous two sections, you created a simple ``.tsv`` file of all
-speakers and talk titles in the longnow podcasts subdataset, and you have
+speakers and talk titles in the `longnow/` podcasts subdataset, and you have
 re-executed a ``datalad run`` command after a bug-fix in your script.
 
 But these previous ``datalad run`` and ``datalad rerun`` command were very simple.
@@ -25,11 +25,11 @@ so you can simply retrieve it from there.
 
 The logos (one for the SALT series, one for the Interval series -- the two
 directories in the subdataset)
-were originally extracted from the podcasts meta data information by DataLad.
+were originally extracted from the podcasts metadata information by DataLad.
 In a while, we will dive into the metadata aggregation capabilities of DataLad,
 but for now, let's just use the logos instead of finding out where they
 come from -- this will come later.
-As part of the meta data of the dataset, the logos are
+As part of the metadata of the dataset, the logos are
 in the hidden paths
 ``.datalad/feed_metadata/logo_salt.jpg`` and
 ``.datalad/feed_metadata/logo_interval.jpg``:
@@ -119,8 +119,8 @@ prior to running the command.
 
 Cool! You can see in this output that prior to the data command execution, DataLad did a ``datalad get``.
 This is useful for several reasons. For one, it saved us the work of manually
-getting content. But moreover, this is useful for anyone whom we might share the
-dataset with: With an installed dataset one can very simply rerun ``datalad run`` commands
+getting content. But moreover, this is useful for anyone with whom we might share the
+dataset: With an installed dataset one can very simply rerun ``datalad run`` commands
 if they have the input argument appropriately specified. It is therefore good practice to
 specify the inputs appropriately. Remember from section :ref:`installds`
 that ``datalad get`` will only retrieve content if
@@ -151,7 +151,7 @@ Maybe we should try to resize it to 450x450, and see whether that looks better?
 Note that we can't use a ``datalad rerun`` for this: if we want to change the dimension option
 in the command, we have to define a new ``datalad run`` command.
 
-To establish best-practices, lets specify the input even though it is already present:
+To establish best-practices, let's specify the input even though it is already present:
 
 
 .. runrecord:: _examples/DL-101-110-104

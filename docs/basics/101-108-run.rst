@@ -3,7 +3,7 @@ DataLad, Run!
 
 In previous examples, all changes that happened to the dataset or
 the files it contains were
-saved to the datasets history by hand. We added larger and smaller
+saved to the dataset's history by hand. We added larger and smaller
 files and saved them, and we also modified smaller file contents and
 saved these modifications.
 
@@ -12,7 +12,7 @@ or by scripts containing code.
 Consider a data scientist. She has data files with numeric data,
 and code scripts in Python, R, Matlab or any other programming language
 that will use the data to compute results or figures. Such output is
-stored in new files.
+stored in new files, or modifies existing files.
 
 But only few weeks after these scripts were executed she finds it hard
 to remember what script was modified for which reason or created which
@@ -29,8 +29,8 @@ the exciting DataLad lectures. They propose to make a
 list of speakers and titles to cross out what they've already listened
 to, and ask you to prepare such a list.
 
-"Mhh... probably there is a datalad way to do this... wasn't there also
-a note about meta data extraction at some point?" But as we're not that
+"Mhh... probably there is a DataLad way to do this... wasn't there also
+a note about metadata extraction at some point?" But as we're not that
 far into the lectures, you decide to write a simple Python script
 to generate a tab-separated file that lists speaker and title
 name instead.
@@ -109,17 +109,18 @@ Save this script to the dataset.
    $ datalad save -m "Add simple script to write a list of podcast speakers and titles" code/list_titles.py
 
 Once we run this script, it will create a new file, ``recordings/Podcasts.tsv``.
-Note that this file is outside of the longnow subdataset.
+Note that this file is outside of the `longnow/` subdataset.
 
 Obviously, we could create this file, and subsequently save it to the superdataset.
 However, just as in the example about the data scientist,
 in a bit of time, we will forget how this file came into existence, or
-that the script ``code/list_titles.py`` is associated with this file.
+that the script ``code/list_titles.py`` is associated with this file, and
+can be used to update it later on.
 
-The ``datalad run`` command can help with this. It records a commands impact on a
+The ``datalad run`` command can help with this. It records a command's impact on a
 dataset.
 
-Lets try the most simple way to use this command: The ``datalad run``
+Lets try the simplest way to use this command: The ``datalad run``
 command, followed by a commit message (``-m "a concise summary"``), and the
 command that executes the script from the shell: ``python code/list_titles.py``.
 It is helpful to enclose the command in quotation marks.
@@ -151,7 +152,7 @@ in our history as a short summary.
 Additionally, the output of the command, the creation of ``recordings/Podcasts.tsv``,
 was saved right away.
 
-But what is more in this log entry is the section in between the
+But there is more in this log entry, a section in between the markers
 
 
 ``=== Do not change lines below ===`` and

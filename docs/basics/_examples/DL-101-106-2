@@ -1,0 +1,36 @@
+$ cd recordings/longnow
+$ git log --oneline
+dcc34fb Update aggregated metadata
+36a30a1 [DATALAD RUNCMD] Update from feed
+bafdc04 Uniformize JSON-LD context with DataLad's internal extractors
+004e484 [DATALAD RUNCMD] .datalad/maint/make_readme.py
+7ee3ded Sort episodes newest-first
+e829615 Link to the handbook as a source of wisdom
+4b37790 Fix README generator to parse correct directory
+43fdea1 Add script to generate a README from DataLad metadata
+997e07a Update aggregated metadata
+8031017 Consolidate all metadata-related files under .datalad
+8053eed Add annexed feed logos
+1a396a6 Prepare to annex big feed logos
+75d7f3f Rename metadata directory
+5dd7772 Manually place extracted metadata in Git
+b9c517e Make sure extracted metadata is directly in Git
+0553111 content removed from git annex
+39226e9 Update aggregated metadata
+740fa14 [DATALAD RUNCMD] Update from feed
+61f46fc Add base dataset metadata
+3e96466 More diff-able
+979bd25 Single update maintainer script
+ead809e Be resilient with different delimiters
+9bece59 Add duration to the metadata
+f0831b9 Script to convert the RSS feed metadata into JSON-LD metadata
+e64d00f Prepare for addition of RSS feed metadata on episodes
+e1bf31e [DATALAD RUNCMD] Update SALT series
+21d9290 [DATALAD RUNCMD] Update Interval seminar series
+7f36dea Update from feed
+ff00713 Update from feed
+a052af9 Include publication date in the filename
+9f3127f Import Interval feed
+b81bdea Import SALT feed
+3d0dc8f [DATALAD] new dataset
+8df130b [DATALAD] Set default backend for all files to be MD5E

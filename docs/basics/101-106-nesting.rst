@@ -1,6 +1,7 @@
+.. _nest:
 
-Basic DataLad Magic: Dataset nesting
-------------------------------------
+Dataset nesting
+---------------
 
 Without noticing, the previous section demonstrated another core principle
 and feature of DataLad datasets: *Nesting*.
@@ -30,7 +31,7 @@ looks like after the installation of a subdataset. To do this, make sure you are
 addition to ``notes.txt``, so we'll look at the second most recent commit in
 this excerpt).
 
-.. runrecord:: _examples/DL-101-6-1
+.. runrecord:: _examples/DL-101-106-1
    :language: console
    :workdir: dl-101/DataLad-101
    :lines: 1, 19-42
@@ -59,7 +60,7 @@ is kept within a (sub)dataset.
 Navigate back into ``longnow`` and try to find the highlighted hash in the
 subdatasets history:
 
-.. runrecord:: _examples/DL-101-6-2
+.. runrecord:: _examples/DL-101-106-2
    :language: console
    :workdir: dl-101/DataLad-101
    :emphasize-lines: 3

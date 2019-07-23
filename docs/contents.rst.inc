@@ -6,29 +6,39 @@ Introduction
    :maxdepth: 1
    :caption: What DataLad is all about
 
-   intro/index
    intro/philosophy
    intro/narrative
+   intro/installation
+   intro/howto
 
 
-######
-Basics
-######
+#####################
+Starting from scratch
+#####################
 
 .. toctree::
    :maxdepth: 1
-   :caption: Building blocks necessary to enable you to use DataLad
+   :caption: The bare necessities
 
-   basics/installation
-   basics/datasets
-   basics/howto
-   basics/101-1-create
-   basics/101-2-populate
-   basics/101-3-modify
-   basics/101-4-summary
-   basics/101-5-install
-   basics/101-6-nesting
-   basics/101-7-summary
+   basics/101-101-create
+   basics/101-102-populate
+   basics/101-103-modify
+   basics/101-104-summary
+
+
+###################
+Basic DataLad Magic
+###################
+
+.. toctree::
+   :maxdepth: 1
+   :caption: A closer look at how things work
+
+   basics/101-105-install
+   basics/101-106-nesting
+   basics/101-107-summary
+   basics/101-115-symlinks
+
 
 #########
 Use Cases
@@ -38,7 +48,9 @@ Use Cases
    :maxdepth: 1
    :caption: Hands-on real-world applications with step-by-step recipes...
 
+   usecases/datasets
    usecases/remodnav
+
 
 ########
 Appendix

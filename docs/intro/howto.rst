@@ -5,17 +5,6 @@ General prerequisites
 *********************
 
 
-.. todo::
-
-   This chapter should be an optional chapter to introduce basic concepts
-   for absolute beginners. We need to talk about
-   - what is a terminal/shell
-   - basics of file systems ('.' for current directory, relative & absolute paths,
-   ...)
-   - Basic Unix commands that readers could come across: cd, ls (-lah), mkdir, rm, ...
-   - ...
-
-
 DataLad uses command-line arguments in a *terminal*. This means that there is no graphical
 user interface with buttons to click on, but a set of commands and options users type into
 their shell. If you are not used to working with command-line arguments, DataLad can
@@ -123,7 +112,7 @@ and it will likely look similar to this:
 This says I am the user adina on the machine muninn and I am in the folder ``~``,
 which is shorthand for the current user's home folder (in this case ``/home/adina``).
 
-The $ sign indicates that the prompt is interactive and awaiting user input.
+The ``$`` sign indicates that the prompt is interactive and awaiting user input.
 In this handbook, we will use ``$`` as a shorthand for the prompt, to allow
 the reader to quickly differentiate between lines containing commands vs the
 output of those commands.

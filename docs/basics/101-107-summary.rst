@@ -1,5 +1,7 @@
-Basic DataLad Magic: Summary
-----------------------------
+.. _summary_nest:
+
+Summary
+-------
 
 In the last two sections, we have discovered the basics of installing a published DataLad dataset,
 and experienced the concept of modularly nesting datasets.
@@ -22,7 +24,7 @@ and experienced the concept of modularly nesting datasets.
   To retrieve actual file content of larger files, ``datalad get PATH`` downloads large file
   content on demand.
 
-* ``datalad status --annex basic`` or ``datalad status --annex all`` are helpful to determine
+* ``datalad status --annex`` or ``datalad status --annex all`` are helpful to determine
   total repository size and the amount of data that is present locally.
 
 * Remember: Super- and subdatasets have standalone histories. A superdataset only stores

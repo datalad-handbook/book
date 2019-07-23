@@ -1,5 +1,7 @@
-Starting from scratch: Summary
-------------------------------
+.. _summary_scratch:
+
+Summary
+-------
 
 In the last few sections, we have discovered the basics of starting a DataLad dataset from scratch,
 and making simple modifications *locally*:

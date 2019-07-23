@@ -301,16 +301,28 @@ TODO: subdataset (tricky: change in .gitmodules. Also, I failed trying to
 revert a ``git mv`` with ``git reset --hard master``. It did not move
 subdataset back into original place, the subds became an untracked directory.
 
-What if I move the superdataset into a different place on my computer?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+What if I move or rename the superdataset?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-TODO: I don't think it should be a problem, but not sure whether I'm
-missing something
+Once create, a DataLad superdataset may not be in an optimal
+place on your file system, or have the best name.
 
-What happens if I copy files?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+After a while, you might think that the dataset would fit much
+better into ``/home/user/research_projects/`` than in
+``/home/user/Documentents/MyFiles/tmp/datalad-test/``. Or maybe at
+some point, a long name such as ``My-very-first-DataLad-project-wohoo-I-am-so-excited``
+does not look pretty in your terminal prompt anymore, and going for
+``finance-2019`` seems more professional.
 
-TODO: Copying will create a new file that could be added. Its not symlinked,
-I don't yet understand why, but the file is write-protected (why exactly? bc
-symlinked content is write protected?), which is
-inconveniently difficult to explain (needs digression into permissions)
+These will be situations in which you want to rename or move
+a superdataset. Will that break anything?
+
+In all standard situations, no, it will be completely fine.
+You can use standard Unix commands such as ``mv`` to do it,
+and also which ever graphical user interface or explorer you may
+use.
+
+.. todo::
+
+   What if the dataset is a sibling?
+

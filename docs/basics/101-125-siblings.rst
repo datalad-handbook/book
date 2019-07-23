@@ -1,5 +1,5 @@
-Dataset siblings
-----------------
+Collaboration [1]
+-----------------
 
 To get a hang on the basics of sharing a dataset,
 you shared your ``DataLad-101`` dataset with your

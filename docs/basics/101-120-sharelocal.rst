@@ -3,7 +3,7 @@ Sharing datasets: Common File systems
 
 Only now, several weeks into the DataLad-101 course does your room
 mate realize that he has enrolled in the course as well, but hasn't
-yet attended at all. "Oh man, can you help me catch me up?" he asks
+yet attended at all. "Oh man, can you help me catch up?" he asks
 you one day. "Sharing just your notes would be really cool for a
 start already!"
 
@@ -17,23 +17,24 @@ In this section, we will cover the simplest way of sharing a dataset:
 on a local or shared filesystem, via an installation with a path as
 a source.
 
-A shared file system is a system that lets multiple users access the
-same files at the same time. There are multiple different versions
-of shared file systems, and likely, you have already used at least one
-of them, for example an ``SSH server``.
-Using file systems that many users can access makes sharing files
-easy. Using DataLad for this sharing makes it even easier, though.
+In this scenario multiple people can access the very same files at the
+same time, often on the same machine (e.g., a shared workstation, or
+a server than people can "SSH" into). You might think: "What do I need
+DataLad for, if everyone can already access everything?" However,
+universal, unrestricted access can easily lead to chaos. DataLad can
+help facilitate collaboration without requiring ultimate trust and
+reliabiity of all participants.
 
 To demonstrate how to share a DataLad dataset on a common file system,
-we will pretend that your personal computer is
-a filesystem that can be accessed by other users. Let's pretend that
-your room mate has access to this file system, and you're installing
+we will pretend that your personal computer
+can be accessed by other users. Let's pretend that
+your room mate has access, and you're installing
 the ``DataLad-101`` dataset in a different place in the file system
 for him to access and work with.
 
 This is indeed a common real-world use case: Two users on a shared
 file system sharing a dataset with each other.
-But as we can't simulate a second user in this handbook,
+But as we can't easily simulate a second user in this handbook,
 for now, you will have to share your dataset with yourself.
 This endeavour serves two purposes: For one, you will experience a very easy
 way of sharing a dataset. Secondly, it will show you the installation
@@ -43,6 +44,9 @@ showcase many different properties of a dataset already, but it will
 be an additional learning experience to see how the different parts
 of the dataset -- text files, larger files, datalad subdataset,
 ``datalad run`` commands -- will appear upon installation when shared.
+And lastly, you will likely "share a dataset with yourself" whenever you
+will be using a particular dataset of your own creation as input for
+one or more projects.
 
 "Awesome!" exclaims your room mate as you take out your Laptop to
 share the dataset. "You're really saving my ass
@@ -62,7 +66,7 @@ simplicity -- create a new directory, ``mock_user``, right next to it:
 For simplicity, pretend that this is a second users' -- your room mates' --
 home directory. Furthermore, let's for now disregard anything about
 permissions. In a real-world example you likely wouldn't be able to read and write
-to a different users directories, but we will talk about permissions later.
+to a different user's directories, but we will talk about permissions later.
 
 After creation, navigate into ``mock_user`` and install
 the dataset ``DataLad-101`` by specifying its path as a ``--source``
@@ -75,7 +79,7 @@ the dataset ``DataLad-101`` by specifying its path as a ``--source``
    $ cd mock_user
    $ datalad install --source ../DataLad-101 --description "DataLad-101 in mock_user"
 
-This will install your dataset ``DataLad-101`` in your room mates home
+This will install your dataset ``DataLad-101`` in your room mate's home
 directory. Note that we have given this new
 dataset a description about its location as well. Note further that we
 have not provided a path to ``datalad install``, and hence it installed the
@@ -117,7 +121,7 @@ True, these files cannot be opened. This mimics our experience when
 installing the ``longnow`` subdataset: Right after installation,
 the ``.mp3`` files also could not be opened, because their file
 content was not yet retrieved. You begin to explain to your room mate
-how DataLad retrieves only small meta data about which files actually
+how DataLad retrieves only minimal metadata about which files actually
 exist in a dataset upon a ``datalad install``. "It's really handy",
 you tell him. "This way you can decide which book you want to read,
 and then retrieve what you need. Note though that the text files
@@ -187,15 +191,15 @@ and another location is a webserver, but you are not connected
 to the internet, Git-annex will not succeed in retrieving
 contents from these locations.
 As long as there is at least one location that contains
-the file and is accessible, though, Git-annex will get the contents.
+the file and is accessible, though, Git-annex will get the content.
 
 Let's now turn to the fact that the subdataset ``longnow`` does
-not contain not only no file content, but also no file meta data
+not contain not only no file content, but also no file metadata
 information to explore the contents of the dataset: There are no
 subdirectories or any files under ``recordings/longnow/``.
 This is behavior that you haven't observed until now.
 
-To fix this and obtain file availability meta data,
+To fix this and obtain file availability metadata,
 you have to run a somewhat unexpected command:
 
 .. runrecord:: _examples/DL-101-120-106
@@ -213,13 +217,13 @@ Let's what has changed (excerpt):
 
    $ tree
 
-Interesting! The file meta data information is now present, and we can
+Interesting! The file metadata information is now present, and we can
 explore the file hierarchy. The file content, however, is not present yet.
 
 What has happened here?
 
 When DataLad installs a dataset, it will by default only install the
-superdataset, and not the subdatasets. The superdataset contains the
+superdataset, and not any subdatasets. The superdataset contains the
 information that a subdataset exists though -- the subdataset is *registered*
 in the superdataset.  This is why the subdataset name exists as a directory.
 A subsequent ``datalad install`` in ``recordings/longnow/``

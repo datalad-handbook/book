@@ -112,9 +112,10 @@ here we're using all of them).
    :workdir: dl-101/DataLad-101
    :realcommand: echo "$ datalad rerun $(git rev-parse HEAD~1)" && datalad rerun $(git rev-parse HEAD~1)
 
-Now DataLad has made use of the ``run-record``, and based on the information in
-it re-executed the original command. Because we
-updated the script, the output ``podcasts.tsv`` has changed and now contains the podcast
+Now DataLad has made use of the ``run record``, and
+re-executed the original command based on the information in it.
+Because we updated the script, the output ``podcasts.tsv``
+has changed and now contains the podcast
 titles of both subdirectories.
 You've probably already guessed it, but the easiest way
 to check whether a ``datalad rerun``
@@ -221,7 +222,7 @@ But prior to that, make a note about ``datalad run`` and ``datalad rerun`` in yo
    should be executed.
 
    Any datalad run command can be re-executed by using its commit checksum as an argument
-   in datalad rerun CHECKSUM. DataLad will take information form the runrecord of the original
+   in datalad rerun CHECKSUM. DataLad will take information from the run record of the original
    commit, and re-execute it. If no changes happen with a rerun, the command will not be written
    to history. Note: you can also rerun a datalad rerun command!
    EOT

@@ -142,7 +142,7 @@ Add an additional note on ``--explicit`` flag, and finally save your changes to 
    $ datalad save -m "add note on datalad runs --explicit flag" notes.txt
 
 To conclude this section on ``datalad run``, take a look at the last ``datalad run``
-commit to see a :term:`run-record` with more content:
+commit to see a :term:`run record` with more content:
 
 .. runrecord:: _examples/DL-101-112-109
    :language: console

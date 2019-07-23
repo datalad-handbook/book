@@ -6,7 +6,7 @@ speakers and talk titles in the `longnow/` podcasts subdataset, and you have
 re-executed a ``datalad run`` command after a bug-fix in your script.
 
 But these previous ``datalad run`` and ``datalad rerun`` command were very simple.
-Maybe you noticed some values in the ``run-record`` were empty:
+Maybe you noticed some values in the ``run record`` were empty:
 ``inputs`` and ``outputs`` for example did not have an entry. Let's experience
 a few situations in which
 these two arguments can become necessary.

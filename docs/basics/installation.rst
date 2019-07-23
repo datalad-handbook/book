@@ -6,12 +6,11 @@ Installation and Configuration
 Install DataLad
 ^^^^^^^^^^^^^^^
 
-The content on this site is largely based on
+The content in this chapther is largely based on the information given on the
 `DataLad website <https://www.datalad.org/get_datalad.html>`_
 and the `DataLad documentation <http://docs.datalad.org/en/latest/gettingstarted.html>`_.
 
-If you are not on a Debian-based system with NeuroDebian enabled (see below),
-beyond DataLad itself, the installation requires Python, Pythons package manager ``pip``,
+Beyond DataLad itself, the installation requires Python, Pythons package manager ``pip``,
 :term:`Git` and :term:`Git-annex`. The instructions below detail how to install
 each of these components for different common operating systems. Please
 `file an issue <https://github.com/datalad-handbook/book/issues/new>`_
@@ -21,6 +20,7 @@ Note that while these installation instructions will provide you with the core
 DataLad tool, many
 `extensions <http://docs.datalad.org/en/latest/index.html#extension-packages>`_
 exist, and they need to be installed separately, if needed.
+
 
 Linux: (Neuro)Debian, Ubuntu, and similar systems
 """""""""""""""""""""""""""""""""""""""""""""""""
@@ -94,6 +94,14 @@ You can find detailed installation instructions on how to do this
    extracted tarball. Fingers crossed and good luck!" This could be turned into
    a less intimidating step-by-step guide.
 
+   It is actually sufficient to just extract the provided EXE installer into an
+   existing Git installation directory (`example of how this is done in
+   DataLad's own test environment on Windows
+   <https://github.com/datalad/datalad/blob/master/appveyor.yml#L59>`__). If done
+   this way, no PATH variable manipulation is necessary, and things just start to
+   work.
+
+
 Windows 10
 """"""""""
 
@@ -102,7 +110,7 @@ the other is using WSL, the Windows Subsystem for Linux. **We** *strongly*
 **recommend the latter.**
 
 Note: Using Windows comes with some downsides.
-In general, DataLad feels a bit sluggish on Windows systems. This is because of
+In general, DataLad can feel a bit sluggish on Windows systems. This is because of
 a range of filesystem issues that also affect the version control system :term:`Git` itself,
 which DataLad relies on. The core functionality of DataLad should work, and you should
 be able to follow the contents covered in this book.
@@ -118,7 +126,7 @@ please `get in touch <https://github.com/datalad-handbook/book/issues/new>`_.
 
    .. container:: header
 
-      **2) Install within WSL [recommended]**
+      **1) Install within WSL [recommended]**
 
    The Windows Subsystem for Linux (WSL) allows Windows users to have full access
    to a Linux distribution within Windows.
@@ -233,7 +241,7 @@ please `get in touch <https://github.com/datalad-handbook/book/issues/new>`_.
 
    .. container:: header
 
-      **1) Install within Windows**
+      **3) Install within Windows**
 
    Note: This installation method will get you a working version of
    DataLad, but be aware that many Unix commands shown in the book

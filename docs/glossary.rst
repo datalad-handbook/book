@@ -76,7 +76,7 @@ Glossary
       It is not part of git and needs to be installed. Find out more `here <https://jonas.github.io/tig/>`_.
 
    Ubuntu
-      A common Linux distribution.
+      A common Linux distribution. https://ubuntu.com
 
    version control
       The management of changes to documents or other collections of information

@@ -79,7 +79,7 @@ will write it into the script.
    # create a list of all file names found under the path
    files = glob(path)
    # define an outfile name:
-   outfile = join('recordings', 'Podcasts.tsv')
+   outfile = join('recordings', 'podcasts.tsv')
 
    # loop through all file names and write speaker and title into the file
    with open(outfile, 'w') as f:
@@ -108,7 +108,7 @@ Save this script to the dataset.
 
    $ datalad save -m "Add simple script to write a list of podcast speakers and titles" code/list_titles.py
 
-Once we run this script, it will create a new file, ``recordings/Podcasts.tsv``.
+Once we run this script, it will create a new file, ``recordings/podcasts.tsv``.
 Note that this file is outside of the `longnow/` subdataset.
 
 Obviously, we could create this file, and subsequently save it to the superdataset.
@@ -149,7 +149,7 @@ Lets take a look into the history:
 
 The commit message we have supplied with ``-m`` directly after ``datalad run`` appears
 in our history as a short summary.
-Additionally, the output of the command, the creation of ``recordings/Podcasts.tsv``,
+Additionally, the output of the command, the creation of ``recordings/podcasts.tsv``,
 was saved right away.
 
 But there is more in this log entry, a section in between the markers

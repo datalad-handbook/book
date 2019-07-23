@@ -10,12 +10,12 @@ Let's actually take a look into this file now:
    :workdir: dl-101/DataLad-101
    :lines: 1-30
 
-   $ less recordings/Podcasts.tsv
+   $ less recordings/podcasts.tsv
 
 Not too bad, and certainly good enough for the podcast night people.
 What's been cool about creating this file is that it was created with
 a script within a ``datalad run`` command. Thanks to ``datalad run``,
-the output file ``Podcasts.tsv`` is associated with the script it
+the output file ``podcasts.tsv`` is associated with the script it
 generated.
 
 Upon reviewing the list you realized that you made a mistake, though: you only
@@ -43,7 +43,7 @@ with the following, fixed script:
    # create a list of all file names found under the path
    files = glob(path)
    # define an outfile name:
-   outfile = join('recordings', 'Podcasts.tsv')
+   outfile = join('recordings', 'podcasts.tsv')
 
    # loop through all file names and write speaker and title into the file
    with open(outfile, 'w') as f:
@@ -114,7 +114,7 @@ here we're using all of them).
 
 Now DataLad has made use of the ``run-record``, and based on the information in
 it re-executed the original command. Because we
-updated the script, the output ``Podcasts.tsv`` has changed and now contains the podcast
+updated the script, the output ``podcasts.tsv`` has changed and now contains the podcast
 titles of both subdirectories.
 You've probably already guessed it, but the easiest way to check whether a ``datalad rerun``
 has changed the desired output file is
@@ -146,7 +146,7 @@ is already
 convenient from a memory-load perspective: Now you don't need to
 remember the commands or scripts involved in creating an output.
 Also, incidentally, we have generated :term:`provenance` information. It is
-now recorded in the history of the dataset how the output ``Podcasts.tsv`` came
+now recorded in the history of the dataset how the output ``podcasts.tsv`` came
 into existence.
 
 Still, this ``datalad run`` was very simple.

@@ -69,6 +69,13 @@ Glossary
       A path related to the present working directory. Relative paths never start with ``/``.
       Example: ``../Pictures/xkcd-webcomics/530.png``. See also :term:`absolute path`.
 
+   SSH server
+      An remote or local computer that users can log into using the :term:`SSH` protocol
+
+   SSH
+      Secure shell (SSH) is a network protocol to link one machine (computer),
+      the *client*, to a different local or remote machine, the *server*. See also: :term:`SSH server`.
+
    symlink
       TODO
 

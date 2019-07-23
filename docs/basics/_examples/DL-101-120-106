@@ -1,0 +1,3 @@
+$ datalad install recordings/longnow
+[INFO] Cloning /home/adina/repos/datalad-handbook/docs/_build/wdirs/dl-101/DataLad-101/recordings/longnow [2 other candidates] into '/home/adina/repos/datalad-handbook/docs/_build/wdirs/dl-101/mock_user/DataLad-101/recordings/longnow' 
+install(ok): /home/adina/repos/datalad-handbook/docs/_build/wdirs/dl-101/mock_user/DataLad-101/recordings/longnow (dataset) [Installed subdataset in order to get /home/adina/repos/datalad-handbook/docs/_build/wdirs/dl-101/mock_user/DataLad-101/recordings/longnow]

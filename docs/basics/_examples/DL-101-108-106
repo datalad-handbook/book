@@ -1,7 +1,7 @@
 $ git log -p
-commit 10ad7fd8e5c9205a80b50d48b987d2e0d3a10432
+commit b3aa255a9299459a4b90e57b148d97f77213914b
 Author: Adina Wagner <adina.wagner@t-online.de>
-Date:   Thu Jul 18 10:49:41 2019 +0200
+Date:   Wed Jul 24 08:47:44 2019 +0200
 
     [DATALAD RUNCMD] create a list of podcast titles
     
@@ -9,7 +9,7 @@ Date:   Thu Jul 18 10:49:41 2019 +0200
     {
      "chain": [],
      "cmd": "python code/list_titles.py",
-     "dsid": "113e9a5c-a952-11e9-bb19-e86a64c8054c",
+     "dsid": "dd9b3994-adde-11e9-a3c6-e86a64c8054c",
      "exit": 0,
      "extra_inputs": [],
      "inputs": [],
@@ -231,15 +231,15 @@ index 0000000..9360b49
 +David_Keith	Patient_Geoengineering.mp3
 +Mariana_Mazzucato	Rethinking_Value.mp3
 
-commit f09a8bceb63dded939168cba6dba896d0053cbfe
+commit 3617e868b093b8c60e4eac7695dab3d41d89c310
 Author: Adina Wagner <adina.wagner@t-online.de>
-Date:   Thu Jul 18 10:49:41 2019 +0200
+Date:   Wed Jul 24 08:47:44 2019 +0200
 
     Add simple script to write a list of podcast speakers and titles
 
 diff --git a/code/list_titles.py b/code/list_titles.py
 new file mode 100644
-index 0000000..d0c3416
+index 0000000..a212fa4
 --- /dev/null
 +++ b/code/list_titles.py
 @@ -0,0 +1,23 @@
@@ -267,9 +267,9 @@ index 0000000..d0c3416
 +        # write speaker and talk title into the file
 +        f.write(author + '\t' + title + '\n')
 
-commit fa577c7a2884d54cc5f81468fd125aa16266a52c
+commit 7b0b983c58f7155f0f2322c9ae3511a150ec531c
 Author: Adina Wagner <adina.wagner@t-online.de>
-Date:   Thu Jul 18 13:49:36 2019 +0200
+Date:   Wed Jul 24 08:47:43 2019 +0200
 
     Add note on datalad install
 

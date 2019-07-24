@@ -2,7 +2,6 @@ $ cat << EOT >> notes.txt
 There are two useful functions to display changes between two
 states of a dataset: "datalad diff -f/--from COMMIT -t/--to COMMIT"
 and "git diff COMMIT COMMIT", where COMMIT is a checksum of a commit
-in the history. If only one commit is given, the state of the dataset
-at this commit will be compared to the state of the most recent commit.
+in the history.
 
 EOT

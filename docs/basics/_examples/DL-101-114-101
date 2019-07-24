@@ -1,22 +1,22 @@
 $ git log --reverse --oneline
-6625c5b [DATALAD] new dataset
-68d1aa9 Instruct annex to add text files to Git
-f4f5587 add books on Python and Unix to read later
-fbeb9de add reference book about git
-cd9982d Add notes on datalad create
-da34b8f add note on datalad save
-956aa64 [DATALAD] Recorded changes
-74cba57 Add note on datalad install
-7bd24dd Add simple script to write a list of podcast speakers and titles
-70c9c37 [DATALAD RUNCMD] create a list of podcast titles
-d63b7c1 BF: list both directories content
-f84c64b [DATALAD RUNCMD] create a list of podcast titles
-e6dd5ca add note datalad and git diff
-046dd27 add note on basic datalad run and datalad rerun
-f05571c [DATALAD RUNCMD] convert -resize 400x400 recordings/longn...
-7710c98 resized picture by hand
-d683384 [DATALAD RUNCMD] convert -resize 450x450 recordings/longn...
-2a7a76e add additional notes on run options
-b269061 [DATALAD RUNCMD] Resize logo for slides
-05b5dad [DATALAD RUNCMD] Resize logo for slides
-e5803ad add note on datalad runs --explicit flag
+32b7114 [DATALAD] new dataset
+432633d Instruct annex to add text files to Git
+a437523 add books on Python and Unix to read later
+97f98c0 add reference book about git
+5022b52 Add notes on datalad create
+4562fd8 add note on datalad save
+ad5f600 [DATALAD] Recorded changes
+7b0b983 Add note on datalad install
+3617e86 Add simple script to write a list of podcast speakers and titles
+b3aa255 [DATALAD RUNCMD] create a list of podcast titles
+ba6f7b5 BF: list both directories content
+bb12557 [DATALAD RUNCMD] create a list of podcast titles
+1e60944 add note datalad and git diff
+0d45f56 add note on basic datalad run and datalad rerun
+2db1d84 [DATALAD RUNCMD] convert -resize 400x400 recordings/longn...
+54bc3ac resized picture by hand
+8803452 [DATALAD RUNCMD] convert -resize 450x450 recordings/longn...
+0eea426 add additional notes on run options
+31b7d9f [DATALAD RUNCMD] Resize logo for slides
+35c8bc7 [DATALAD RUNCMD] Resize logo for slides
+103aedc add note on clean datasets

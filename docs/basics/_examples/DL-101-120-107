@@ -247,7 +247,7 @@ $ tree
     │   │   ├── 2019_06_05__David_Byrne__Good_News___Sleeping_Beauties.mp3 -> ../.git/annex/objects/p4/Xf/MD5E-s87222771--1fdbc58fcb72d7721a032a62929bef1d.mp3/MD5E-s87222771--1fdbc58fcb72d7721a032a62929bef1d.mp3
     │   │   └── 2019_06_25__Mariana_Mazzucato__Rethinking_Value.mp3 -> ../.git/annex/objects/ZX/20/MD5E-s86261109--936051776c8074e90e99f9de9c2ea818.mp3/MD5E-s86261109--936051776c8074e90e99f9de9c2ea818.mp3
     │   └── README.md
-    ├── Podcasts.tsv
+    ├── podcasts.tsv
     └── salt_logo_small.jpg -> ../.git/annex/objects/xJ/4G/MD5E-s260607--4e695af0f3e8e836fcfc55f815940059.jpg/MD5E-s260607--4e695af0f3e8e836fcfc55f815940059.jpg
 
 6 directories, 243 files

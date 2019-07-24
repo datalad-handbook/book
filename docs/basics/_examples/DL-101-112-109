@@ -1,29 +1,29 @@
 $ git log -p -2
-commit e5803adc2d05ca4819c5fd3e9a4712afa55b5c8c
+commit 103aedc5d4728988dfed1c4f9f0c599c2f3e9a96
 Author: Adina Wagner <adina.wagner@t-online.de>
-Date:   Tue Jul 23 15:29:56 2019 +0200
+Date:   Wed Jul 24 08:47:53 2019 +0200
 
-    add note on datalad runs --explicit flag
+    add note on clean datasets
 
 diff --git a/notes.txt b/notes.txt
-index 9d7235b..4b32782 100644
+index 4e0ab07..d0f8c24 100644
 --- a/notes.txt
 +++ b/notes.txt
-@@ -24,3 +24,10 @@ files will be retrieved prior to the command execution. Any content that is modi
+@@ -23,3 +23,10 @@ files will be retrieved prior to the command execution. Any content that is modi
  produced by the command should be specified with an -o/--output flag. Upon a run or rerun
  of the command, the contents of these files will get unlocked so that they can be modified.
  
 +Important! If the dataset is not "clean" (a datalad status output is empty),
 +datalad run will not work - you will have to save modifications present in your
 +dataset.
-+Alternatively, specify the --explicit flag to record only those changes done
-+to the files listed with --output flags. In this case, you do not need to have
-+a clean datalad status.
++As suboptimal alternative is the --explicit flag,
++used to record only those changes done
++to the files listed with --output flags.
 +
 
-commit 34b255deb49239a3a76f60bde9e05469982e7a0d
+commit 35c8bc7acae3e18f47a8f68f9b3c6a92e5fe0310
 Author: Adina Wagner <adina.wagner@t-online.de>
-Date:   Thu Jul 18 13:49:44 2019 +0200
+Date:   Wed Jul 24 08:47:52 2019 +0200
 
     [DATALAD RUNCMD] Resize logo for slides
     
@@ -31,7 +31,7 @@ Date:   Thu Jul 18 13:49:44 2019 +0200
     {
      "chain": [],
      "cmd": "convert -resize 400x400 recordings/longnow/.datalad/feed_metadata/logo_salt.jpg recordings/salt_logo_small.jpg",
-     "dsid": "113e9a5c-a952-11e9-bb19-e86a64c8054c",
+     "dsid": "dd9b3994-adde-11e9-a3c6-e86a64c8054c",
      "exit": 0,
      "extra_inputs": [],
      "inputs": [

@@ -1,10 +1,40 @@
-$ cat << EOT >> notes.txt
-The datalad run command can record the impact a script or command has on a Dataset.
-In its most simple form, datalad run only takes a commit message and the command that
-should be executed.
+$ git log -- recordings/podcasts.tsv
+commit bb12557f83100375fa01fab2788a44eca9b5b024
+Author: Adina Wagner <adina.wagner@t-online.de>
+Date:   Wed Jul 24 08:47:46 2019 +0200
 
-Any datalad run command can be re-executed by using its commit checksum as an argument
-in datalad rerun CHECKSUM. DataLad will take information form the runrecord of the original
-commit, and re-execute it. If no changes happen with a rerun, the command will not be written
-to history. Note: you can also rerun a datalad rerun command!
-EOT
+    [DATALAD RUNCMD] create a list of podcast titles
+
+    === Do not change lines below ===
+    {
+     "chain": [
+      "b3aa255a9299459a4b90e57b148d97f77213914b"
+     ],
+     "cmd": "python code/list_titles.py",
+     "dsid": "dd9b3994-adde-11e9-a3c6-e86a64c8054c",
+     "exit": 0,
+     "extra_inputs": [],
+     "inputs": [],
+     "outputs": [],
+     "pwd": "."
+    }
+    ^^^ Do not change lines above ^^^
+
+commit b3aa255a9299459a4b90e57b148d97f77213914b
+Author: Adina Wagner <adina.wagner@t-online.de>
+Date:   Wed Jul 24 08:47:44 2019 +0200
+
+    [DATALAD RUNCMD] create a list of podcast titles
+
+    === Do not change lines below ===
+    {
+     "chain": [],
+     "cmd": "python code/list_titles.py",
+     "dsid": "dd9b3994-adde-11e9-a3c6-e86a64c8054c",
+     "exit": 0,
+     "extra_inputs": [],
+     "inputs": [],
+     "outputs": [],
+     "pwd": "."
+    }
+    ^^^ Do not change lines above ^^^

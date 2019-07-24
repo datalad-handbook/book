@@ -1,13 +1,13 @@
 $ git log -2
-commit aacf9fee8fe60e4b72b577ff47a190ca048e333a
+commit ba6f7b5dfbcf83d5355da701df45cafa328c3a48
 Author: Adina Wagner <adina.wagner@t-online.de>
-Date:   Thu Jul 18 10:49:42 2019 +0200
+Date:   Wed Jul 24 08:47:45 2019 +0200
 
     BF: list both directories content
 
-commit 10ad7fd8e5c9205a80b50d48b987d2e0d3a10432
+commit b3aa255a9299459a4b90e57b148d97f77213914b
 Author: Adina Wagner <adina.wagner@t-online.de>
-Date:   Thu Jul 18 10:49:41 2019 +0200
+Date:   Wed Jul 24 08:47:44 2019 +0200
 
     [DATALAD RUNCMD] create a list of podcast titles
     
@@ -15,7 +15,7 @@ Date:   Thu Jul 18 10:49:41 2019 +0200
     {
      "chain": [],
      "cmd": "python code/list_titles.py",
-     "dsid": "113e9a5c-a952-11e9-bb19-e86a64c8054c",
+     "dsid": "dd9b3994-adde-11e9-a3c6-e86a64c8054c",
      "exit": 0,
      "extra_inputs": [],
      "inputs": [],

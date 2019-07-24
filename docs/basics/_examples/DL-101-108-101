@@ -1,0 +1,11 @@
+$ mkdir code
+$ tree -d
+.
+├── books
+├── code
+└── recordings
+    └── longnow
+        ├── Long_Now__Conversations_at_The_Interval
+        └── Long_Now__Seminars_About_Long_term_Thinking
+
+6 directories

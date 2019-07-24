@@ -124,8 +124,22 @@ command from the root of ``DataLad-101``.
    :language: console
    :workdir: dl-101/DataLad-101
 
-   $ datalad run -m "create a list of podcast titles" "bash code/list_titles.sh"
+   $ datalad run -m "create a list of podcast titles" "bash code/list_titles.sh > recordings/podcasts.tsv"
 
+.. container:: toggle
+
+   .. container:: header
+
+      **Addition: Why is there a "notneeded" in the command summary?**
+
+   If you have stumbled across the command execution summary
+   ``save (notneeded: 1, ok: 1)`` and wondered what is "notneeded":
+   the ``datalad save`` at the end of a ``datalad run`` will query all potential
+   subdatasets *recursively* for modifications, and as there are no
+   modifications in the ``longnow`` subdataset, this part of ``save`` returns
+   a "notneeded" summary. Thus, after a ``datalad run``, you'll get a
+   "notneeded" for every subdataset with no modifications in the execution
+   summary.
 
 Let's take a look into the history:
 

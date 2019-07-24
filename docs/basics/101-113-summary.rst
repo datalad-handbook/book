@@ -34,7 +34,6 @@ command, and discovered the concept of *locked* content.
   should be "clean"), or the command needs to be extended with the ``--explicit`` option.
 
 
-
 Now what I can do with that?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 

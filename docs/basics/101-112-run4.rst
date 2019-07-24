@@ -92,8 +92,9 @@ to a ``datalad run``:
 
 A way of executing a ``datalad run`` *despite* an "unclean" dataset,
 though, is to add the ``--explicit`` flag to ``datalad run``.
-We will try this flag with the ``logo_salt.jpg``. Note that thanks to the
-addition to the notes, we have an "unclean dataset" again.
+We will try this flag with the remaining ``logo_salt.jpg``. Note that
+we have an "unclean dataset" again because of the
+addition to the note.
 
 
 .. runrecord:: _examples/DL-101-112-106
@@ -107,8 +108,9 @@ addition to the notes, we have an "unclean dataset" again.
    "convert -resize 400x400 recordings/longnow/.datalad/feed_metadata/logo_salt.jpg recordings/salt_logo_small.jpg"
 
 With this flag, DataLad considers the specification of inputs and outputs to be "explicit".
-It doesn't warn if the repository is dirty, and
-*only saves modifications to the listed outputs*.
+It doesn't warn if the repository is dirty, but importantly, is
+**only** saves modifications to the *listed outputs* (which is a problem in the
+vast amount of cases where one does not exactly know which outputs are produced).
 
 A ``datalad status`` will show that your previously modified ``notes.txt``
 is still modified:

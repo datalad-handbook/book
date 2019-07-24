@@ -122,7 +122,7 @@ In the datasets history,
 we can see that a new ``datalad run`` was recorded. This action is
 committed by Datalad under the original commit message of the ``run``
 command, and looks just like the previous ``datalad run`` commit apart
-from the commit time.
+from the execution time.
 
 Two cool tools that go beyond the ``git log``
 are the ``datalad diff`` and ``git diff`` commands.

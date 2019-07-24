@@ -24,40 +24,24 @@ Upon reviewing the list you realized that you made a mistake, though: you only
 listed the talks in the SALT series (the
 ``Long_Now__Seminars_About_Long_term_Thinking/`` directory), but not
 in the ``Long_Now__Conversations_at_The_Interval/`` directory.
-Let's fix this in the script. Replace the contents in ``code/list_titles.py``
+Let's fix this in the script. Replace the contents in ``code/list_titles.sh``
 with the following, fixed script:
 
 .. runrecord:: _examples/DL-101-108-110
    :language: console
    :workdir: dl-101/DataLad-101
-   :emphasize-lines: 10
+   :emphasize-lines: 2
 
-   $ cat << EOT > code/list_titles.py
-   # import modules for path operations and pathname pattern expansion
-   from os.path import join, basename
-   from glob import glob
-
-   # define a path to the podcasts. Note that this is a relative path,
-   # pointing from the root of DataLad-101 to the podcasts:
-
-   path = join('recordings', 'longnow',
-               '*', '*')        # <-- here is the change!
-   # create a list of all file names found under the path
-   files = glob(path)
-   # define an outfile name:
-   outfile = join('recordings', 'podcasts.tsv')
-
-   # loop through all file names and write speaker and title into the file
-   with open(outfile, 'w') as f:
-       for file in files:
-           # extract speaker name
-           author = basename(file).split('__')[1] \
-               if len(basename(file).split('__')[1].split('_')) > 1 \
-               else '__'.join(basename(file).split('__')[1:3])
-           # extract title
-           title = '_'.join(basename(file).split(author)[-1].split('__')[1:])
-           # write speaker and talk title into the file
-           f.write(author + '\t' + title + '\n')
+   $ cat << EOT > code/list_titles.sh
+   for i in recordings/longnow/Long_Now*/*.mp3; do
+      # get the filename
+      base=$(basename "$i");
+      # strip the extension
+      base=${base%.mp3};
+      printf "${base%%__*}\t" | tr '_' '-';
+      # name and title without underscores
+      printf "${base#*__}\n" | tr '_' ' ';
+   done
    EOT
 
 Because the script is now modified, save the modifications to the dataset.
@@ -73,7 +57,7 @@ We can use the shorthand "BF" to denote "Bug fix" in the commit message.
    :language: console
    :workdir: dl-101/DataLad-101
 
-   $ datalad save -m "BF: list both directories content" code/list_titles.py
+   $ datalad save -m "BF: list both directories content" code/list_titles.sh
 
 What we *could* do is run the same ``datalad run`` command as before to recreate
 the file, but now with all of the contents:
@@ -81,7 +65,7 @@ the file, but now with all of the contents:
 .. code-block:: bash
 
    # don't execute this!
-   $ datalad run -m "create a list of podcast titles" "python code/list_titles.py"
+   $ datalad run -m "create a list of podcast titles" "bash code/list_titles.sh"
 
 However, think about any situation where the command would be longer than this,
 or that is many months past the first execution. It wouldn't be easy to remember

@@ -27,7 +27,7 @@ sharing a dataset with a simple example.
   right away, while all file content that is ``annexed`` only has
   small meta data about its availability attached to it. The original
   ``DataLad-101`` dataset used the ``text2git`` configuration template
-  to store text files such as ``notes.txt`` and ``code/list_titles.py``
+  to store text files such as ``notes.txt`` and ``code/list_titles.sh``
   in Git -- these files' content is therefore available right after
   installation.
 

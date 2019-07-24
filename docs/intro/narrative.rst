@@ -95,7 +95,7 @@ Note further that...
    the book when there is no better alternative, and executing those commands will
    suffice to follow along.
 
-Apart from core DataLad commands (introduced in the second section of this book),
+Apart from core DataLad commands (introduced in the second part of this book),
 DataLad also comes with many extensions and advanced commands not (yet) referenced
 in this handbook. The development of many of these features
 is ongoing, and this handbook will incorporate all DataLad commands and extensions

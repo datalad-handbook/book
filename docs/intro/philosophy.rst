@@ -114,7 +114,7 @@ that captures the spirit of what DataLad is, and here is a brief overview on it.
 #. **A dataset is a Git repository**. If you know the :term:`version control` system
    :term:`Git`, and what you can use it for,
    then take notice that everything you can use Git for also applies to everything managed
-   by DataLad -- plus much more. If you don't know Git,
+   by DataLad -- plus much more. If you don't know Git
    (which is completely fine), rest assured that this is a good feature.
    You will experience much of Git working its
    magic underneath the hood when you use DataLad. Do also rest assured that there
@@ -123,7 +123,7 @@ that captures the spirit of what DataLad is, and here is a brief overview on it.
 
 #. **A DataLad dataset can take care of managing and version controlling arbitrarily large data**.
    To do this, it has an optional *annex* for (large) file content:
-   Thanks to this annex, DataLad can easily track files that are many TB or PB in size
+   Thanks to this :term:`annex`, DataLad can easily track files that are many TB or PB in size
    (something that Git couldn't do, and that allows you to restore previous versions of data,
    transform and work with it while capturing all :term:`provenance`,
    or share it with whomever you want). At the same time, DataLad does all of the magic

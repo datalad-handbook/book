@@ -97,7 +97,7 @@ this in the original ``DataLad-101`` directory, and don't forget to save it.
    :workdir: dl-101/mock_user/DataLad-101/recordings/longnow
 
    # navigate back:
-   $ cd ../../../../DataLad-101
+   $ cd ../../../../../DataLad-101
 
    # write the note
    $ cat << EOT >> notes.txt

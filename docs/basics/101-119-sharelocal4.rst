@@ -28,7 +28,7 @@ installation in ``../mock_user/DataLad-101``:
 
 .. runrecord:: _examples/DL-101-119-101
    :language: console
-   :workdir: dl-101/mock_user/DataLad-101
+   :workdir: dl-101/DataLad-101
 
    # we navigate into the installed copy:
    $ cd ../mock_user/DataLad-101

@@ -65,7 +65,6 @@ Basics on Git-annex
 
    basics/101-114-txt2git
    basics/101-115-symlinks
-   basics/101-125-siblings
 
 #####################
 Sharing a dataset [1]
@@ -75,11 +74,12 @@ Sharing a dataset [1]
    :maxdepth: 1
    :caption: Sharing on shared file systems
 
-   basics/101-120-sharelocal
-   basics/101-121-sharelocal2
-   basics/101-122-sharelocal3
-   basics/101-123-sharelocal4
-   basics/101-124-summary
+   basics/101-116-sharelocal
+   basics/101-117-sharelocal2
+   basics/101-118-sharelocal3
+   basics/101-119-sharelocal4
+   basics/101-120-summary
+   basics/101-121-siblings
 
 #########
 Use Cases

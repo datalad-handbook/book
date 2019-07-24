@@ -4,7 +4,7 @@ DataLad, Re-Run!
 ----------------
 
 So far, you created a simple ``.tsv`` file of all
-speakers and talk titles in the `longnow/` podcasts subdataset.
+speakers and talk titles in the ``longnow/`` podcasts subdataset.
 Let's actually take a look into this file now:
 
 .. runrecord:: _examples/DL-101-108-109
@@ -118,7 +118,7 @@ it will also not be recorded in the history.
 
    $ git log -1
 
-In the datasets history,
+In the dataset's history,
 we can see that a new ``datalad run`` was recorded. This action is
 committed by Datalad under the original commit message of the ``run``
 command, and looks just like the previous ``datalad run`` commit apart
@@ -133,7 +133,7 @@ compares one state (a commit specified with ``-f``/``--from``,
 by default the latest change)
 and another state from the dataset's history (a commit specified with
 ``-t``/``--to``). Let's do a ``datalad diff`` between the current state
-of the dataset and the previous commit (called "HEAD~1" in Git terminology):
+of the dataset and the previous commit (called "``HEAD~1``" in Git terminology):
 
 .. runrecord:: _examples/DL-101-108-116
    :language: console
@@ -179,7 +179,7 @@ Finally, save this note.
 
 Note that ``datalad rerun`` can re-execute the run records of both a ``datalad run``
 or a ``datalad rerun`` command,
-but not with any other type of datalad command in your history
+but does not work with any other type of datalad command in your history
 such as a ``datalad save`` on results or outputs after you executed a script.
 Therefore, make it a
 habit to record the execution of scripts by plugging it into ``datalad run``.

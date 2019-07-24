@@ -57,7 +57,7 @@ published. Nesting allows for a modular re-use of any other DataLad dataset,
 and this re-use is possible and simple precisely because all of the information
 is kept within a (sub)dataset.
 
-Navigate back into ``longnow`` and try to find the highlighted hash in the
+Navigate back into ``longnow`` and try to find the highlighted shasum in the
 subdataset's history:
 
 .. runrecord:: _examples/DL-101-106-2
@@ -68,9 +68,9 @@ subdataset's history:
    $ cd recordings/longnow
    $ git log --oneline
 
-We can see that it is the most recent commit hash of the subdataset
+We can see that it is the most recent commit shasum of the subdataset
 (albeit we can see only the first seven characters here -- a ``git log``
-would show you the full hash).
+would show you the full shasum).
 This is what is meant by "the top-level DataLad dataset (the *superdataset*) only stores
 *which version* of the subdataset is currently used".
 

@@ -216,7 +216,7 @@ First, we get one of the recordings in the dataset -- take any one of your choic
 Try to open it -- it will now work.
 
 If you would want to get the rest of the missing data, instead of specifying all files individually,
-we can use ``.`` to refer to all of the dataset like this:
+we can use ``.`` to refer to *all* of the dataset like this:
 
 .. code-block:: bash
 

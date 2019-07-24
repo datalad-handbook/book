@@ -11,7 +11,7 @@ this precise type of file, in conjunction with the initial configuration templat
 ``text2git`` we gave to ``datalad create``, is meaningful: As the text file is
 stored in Git and not Git-annex, no content unlocking is necessary.
 As we saw within the demonstrations of ``datalad run``,
-modifying content of non-text files, such as ``.jpg``\s requires
+modifying content of non-text files, such as ``.jpg``\s, requires
 -- spoiler: at least in our current type of dataset --
 the additional step of *unlocking* file content, either by hand with the ``datalad unlock``
 command, or within ``datalad run`` using the ``-o``/``--output`` flag.

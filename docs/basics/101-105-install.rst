@@ -24,7 +24,7 @@ can share our mid-term and final projects easily!"
 "But today, let's only focus on how to install a dataset", she continuous.
 
 "Damn it! Can't we have longer lectures?", you think and set alarms to all of the
-upcoming lecture dates in your calender.
+upcoming lecture dates in your calendar.
 There is so much exciting stuff to come, you can't miss a single one.
 
 Installing an existing dataset is done with the ``datalad install`` command.
@@ -33,7 +33,7 @@ the dataset to be installed. The source can be a URL or a path to a local direct
 or an SSH server [#f1]_.
 
 "Psst!" your fellow student from the row behind reaches over. "There are
-a bunch of audiorecordings of a really cool podcast, and they have been shared in the form
+a bunch of audio recordings of a really cool podcast, and they have been shared in the form
 of a DataLad dataset! Shall we try whether we can install that?"
 
 "Perfect! What a great way to learn how to install a dataset. Doing it
@@ -42,8 +42,8 @@ you think as you fire up your terminal and navigate into your ``DataLad-101`` da
 
 In this demonstration, we're using one of the many openly available datasets that
 DataLad provides in a public registry that anyone can access. One of these datasets is a
-collection of audiorecordings of a great podcast, the longnow seminar series [#f2]_.
-It consists of audiorecordings about long-term thinking, and while the DataLad-101
+collection of audio recordings of a great podcast, the longnow seminar series [#f2]_.
+It consists of audio recordings about long-term thinking, and while the DataLad-101
 course is not a long-term thinking seminar, those recordings are nevertheless a
 good addition to the large stash of yet-to-read text books we piled up (and also, we
 can wholeheartedly recommend them for their worldly wisdoms and compelling, thoughtful
@@ -191,11 +191,11 @@ For this, we supply an additional option to ``datalad status``. Make sure to be
 
    $ datalad status --annex
 
-Woah! More than 200 files, totalling more than 15 GB?
+Woah! More than 200 files, totaling more than 15 GB?
 You begin to appreciate that DataLad did not
 download all of this data right away! That would have taken hours given the crappy
 internet connection in the lecture hall, and you aren't even sure whether your
-harddrive has much space left...
+hard drive has much space left...
 
 But you nevertheless are curious on how to actually listen to one of these ``.mp3``\s now.
 So how does one actually "get" the files?
@@ -241,7 +241,7 @@ This shows you how much data of the total data is present locally. With one file
 it is only a fraction of the total size.
 
 Lets ``get`` a few more recordings, just because it was so mesmerizing to watch
-DataLads fancy progress bars.
+DataLad's fancy progress bars.
 
 .. runrecord:: _examples/DL-101-105-109
    :language: console

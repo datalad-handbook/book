@@ -113,8 +113,8 @@ There are a few confusing parts about this command: For one, don't be surprised
 about the ``--url`` argument -- it's called "URL" but it can be a path as well.
 Also, don't forget to give a name to your dataset's sibling. Without the ``-s``/
 ``--name`` argument the command will fail. The reason behind this is that the default
-name of a sibling if no name is given will be the hostname of the specified URL,
-but as you provide a path and not a URL, there is no hostname to take as a default.
+name of a sibling if no name is given will be the host name of the specified URL,
+but as you provide a path and not a URL, there is no host name to take as a default.
 
 .. todo::
 
@@ -300,7 +300,7 @@ Create a note about this, and save it.
    $ cat << EOT >> notes.txt
    To update from a dataset with a shared history, you
    need to add this dataset as a sibling to your dataset.
-   "Adding a sibling" means providing DataLad with infos about
+   "Adding a sibling" means providing DataLad with info about
    the location of a dataset, and a name for it. Afterwards,
    a "datalad update --merge -s name" will integrate the changes
    made to the sibling into the dataset.

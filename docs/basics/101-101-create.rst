@@ -42,7 +42,7 @@ This will create a dataset called ``DataLad-101`` in the directory you are curre
 in. For now, disregard ``-c text2git``. It applies a configuration template, but there
 will be other parts of this book to explain this in detail.
 
-Once created, a DataLad dataset looks like any other directory on your filesystem.
+Once created, a DataLad dataset looks like any other directory on your file system.
 Currently, it seems empty.
 
 .. runrecord:: _examples/DL-101_101-2
@@ -84,7 +84,7 @@ performed action concisely. In this case, both commit messages were written by
 DataLad itself. The most recent change is on the top. The first commit
 written to the history therefore states that a new dataset was created,
 and the second commit to the history is related to ``-c text2git`` which
-uses a configuration template to instruct DataLad to store textfiles
+uses a configuration template to instruct DataLad to store text files
 in Git (but more on this later).
 Even though these commits were produced by DataLad,
 in most other cases, you will have to create the commit and

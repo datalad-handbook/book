@@ -6,12 +6,12 @@ large and small files, modifying content and saving the changes to history, inst
 datasets, installing subdatasets within datasets, and recording the impact of commands
 on a dataset with the run and re-run commands.
 We further took note that when we modified content in ``notes.txt`` or ``list_files.py``,
-the modified content was in a *textfile*. We learned that
+the modified content was in a *text file*. We learned that
 this precise type of file, in conjunction with the initial configuration template
-``text2git`` we gave to ``datalad create``, is meaningful: As the textfile is
+``text2git`` we gave to ``datalad create``, is meaningful: As the text file is
 stored in Git and not Git-annex, no content unlocking is necessary.
 As we saw within the demonstrations of ``datalad run``,
-modifying content of non-textfiles, such as ``.jpg``\s requires
+modifying content of non-text files, such as ``.jpg``\s requires
 -- spoiler: at least in our current type of dataset --
 the additional step of *unlocking* file content, either by hand with the ``datalad unlock``
 command, or within ``datalad run`` using the ``-o``/``--output`` flag.
@@ -21,7 +21,7 @@ a crucial aspect to understanding certain aspects of a dataset, but it is also a
 potential source of confusion that we want to eradicate.
 
 You might have noticed already that an ``ls -l`` or ``tree`` command in your dataset shows small
-arrows and quite cryptic paths following each non-textfile. Maybe your shell also
+arrows and quite cryptic paths following each non-text file. Maybe your shell also
 displays these files in a different color than text files when listing
 them. We'll take a look together, using the ``books/`` directory as an example:
 
@@ -71,7 +71,7 @@ defined based on
 #. file size
 
 #. and/or path/pattern, and thus for example file extensions,
-   or names, or file types (e.g. textfiles, as with the
+   or names, or file types (e.g. text files, as with the
    ``text2git`` configuration template).
 
 Git-annex, in order to version control the data, takes the file content
@@ -136,7 +136,7 @@ The second advantage is a
 .. gitusernote::
 
    Small symlinks can be written very very fast when switching branches,
-   as opposed to copying and deleting huge datafiles.
+   as opposed to copying and deleting huge data files.
 
 This leads to a few conclusions:
 
@@ -173,7 +173,7 @@ to manage the file system in a datalad dataset (Todo: link).
    subsequent sections of the book. But it can help to establish trust in that
    your data is safely stored and tracked, and it can get certainly helpful
    should you be one of those weird people that always want to understand
-   things in depth (those people are great, btw!). Also, certain file management operations
+   things in depth (those people are great, BTW!). Also, certain file management operations
    can be messy -- for example, when you attempt to move a subdirectory
    (more on this in a dedicated section <link>) it can break symlinks, and
    you need to take appropriate actions to get the dataset back into a clean
@@ -203,7 +203,7 @@ to manage the file system in a datalad dataset (Todo: link).
    turned into identical character strings, the content in these files is thus
    identical. Therefore, if two have the same symlink, and thus
    linking the same file in the object-tree, they are identical in content.
-   If you have many copies of the same data in your dataset, the obbject
+   If you have many copies of the same data in your dataset, the object
    tree will contain only one instance of that content, and all copies will
    symlink to it, thus saving disk space. If you want to read more about the
    computer science basics about about hashes check out the Wikipedia

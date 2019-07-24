@@ -151,7 +151,7 @@ what exactly changed. This is a task for ``git diff``:
    $ git diff HEAD~1
 
 This output actually shows the precise changes between the contents created
-with the first version of the script and the second script with the bugfix.
+with the first version of the script and the second script with the bug fix.
 All of the files that are added after the second directory
 was queried as well are shown in the ``diff``, preceded by a ``+``.
 

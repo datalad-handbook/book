@@ -35,12 +35,13 @@ with the following, fixed script:
    $ cat << EOT > code/list_titles.sh
    for i in recordings/longnow/Long_Now*/*.mp3; do
       # get the filename
-      base=$(basename "$i");
+      base=\$(basename "\$i");
       # strip the extension
-      base=${base%.mp3};
-      printf "${base%%__*}\t" | tr '_' '-';
+      base=\${base%.mp3};
+      printf "\${base%%__*}\t" | tr '_' '-';
       # name and title without underscores
-      printf "${base#*__}\n" | tr '_' ' ';
+      printf "\${base#*__}\n" | tr '_' ' ';
+
    done
    EOT
 

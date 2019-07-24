@@ -72,13 +72,13 @@ will write it into the script.
    $ cat << EOT > code/list_titles.sh
    for i in recordings/longnow/Long_Now__Seminars*/*.mp3; do
       # get the filename
-      base=$(basename "$i");
+      base=\$(basename "\$i");
       # strip the extension
-      base=${base%.mp3};
+      base=\${base%.mp3};
       # date as yyyy-mm-dd
-      printf "${base%%__*}\t" | tr '_' '-';
+      printf "\${base%%__*}\t" | tr '_' '-';
       # name and title without underscores
-      printf "${base#*__}\n" | tr '_' ' ';
+      printf "\${base#*__}\n" | tr '_' ' ';
    done
    EOT
 
@@ -96,8 +96,10 @@ Save this script to the dataset.
 
    $ datalad save -m "Add simple script to write a list of podcast speakers and titles" code/list_titles.sh
 
-Once we run this script, we can save its outputs, the new file
-``recordings/podcasts.tsv``, to the superdataset.
+Once we run this script, it will simply print dates, names and titles to
+your terminal. We can save its outputs to a new file
+``recordings/podcasts.tsv`` in the superdataset by redirecting these
+outputs with ``bash code/list_titles.sh > recordings/podcasts.tsv``.
 
 Obviously, we could create this file, and subsequently save it to the superdataset.
 However, just as in the example about the data scientist,
@@ -163,14 +165,14 @@ rely on their informative commit message), but for DataLad, in particular for th
 
 Note that any ``datalad run`` command that does not result in any changes
 in a dataset (no modification of existing content; no additional files)
-will not produce any record in the dataset's history. Try run the exact same
+will not produce any record in the dataset's history. Try to run the exact same
 command as before, and check whether anything in your log changes:
 
 .. runrecord:: _examples/DL-101-108-107
    :language: console
    :workdir: dl-101/DataLad-101
 
-   $ datalad run -m "Try again to create a list of podcast titles" "bash code/list_titles.sh"
+   $ datalad run -m "Try again to create a list of podcast titles" "bash code/list_titles.sh > recordings/podcasts.tsv"
 
 .. runrecord:: _examples/DL-101-108-108
    :language: console

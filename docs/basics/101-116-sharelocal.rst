@@ -56,7 +56,7 @@ To install ``DataLad-101`` with ``datalad install`` into a different part
 of your file system, navigate out of ``DataLad-101``, and -- for
 simplicity -- create a new directory, ``mock_user``, right next to it:
 
-.. runrecord:: _examples/DL-101-120-101
+.. runrecord:: _examples/DL-101-116-101
    :language: console
    :workdir: dl-101/DataLad-101
 
@@ -72,7 +72,7 @@ After creation, navigate into ``mock_user`` and install
 the dataset ``DataLad-101`` by specifying its path as a ``--source``
 (remember, the shorter option ``-s`` would work as well).
 
-.. runrecord:: _examples/DL-101-120-102
+.. runrecord:: _examples/DL-101-116-102
    :language: console
    :workdir: dl-101
 
@@ -88,7 +88,7 @@ dataset under its original name in the current directory.
 Together with your room mate, you go ahead and see what this dataset looks
 like. Before running the command, try to predict what you will see.
 
-.. runrecord:: _examples/DL-101-120-103
+.. runrecord:: _examples/DL-101-116-103
    :language: console
    :workdir: dl-101/mock_user
 
@@ -132,7 +132,7 @@ and you can decide for yourself whether you want to ``get`` the books."
 To demonstrate this, you decide to examine the PDFs further.
 "Try to get one of the books", you instruct your room mate:
 
-.. runrecord:: _examples/DL-101-120-104
+.. runrecord:: _examples/DL-101-116-104
    :language: console
    :workdir: dl-101/mock_user/DataLad-101
 
@@ -147,7 +147,7 @@ that original content?
 This information comes from Git-annex. Before getting the next PDF,
 lets query Git-annex where its content is stored:
 
-.. runrecord:: _examples/DL-101-120-105
+.. runrecord:: _examples/DL-101-116-105
    :language: console
    :workdir: dl-101/mock_user/DataLad-101
 
@@ -202,7 +202,7 @@ This is behavior that you haven't observed until now.
 To fix this and obtain file availability metadata,
 you have to run a somewhat unexpected command:
 
-.. runrecord:: _examples/DL-101-120-106
+.. runrecord:: _examples/DL-101-116-106
    :language: console
    :workdir: dl-101/mock_user/DataLad-101
 
@@ -210,7 +210,7 @@ you have to run a somewhat unexpected command:
 
 Let's what has changed (excerpt):
 
-.. runrecord:: _examples/DL-101-120-107
+.. runrecord:: _examples/DL-101-116-107
    :language: console
    :workdir: dl-101/mock_user/DataLad-101
    :lines: 1-30
@@ -258,7 +258,7 @@ Include the options ``-r``/``--recursive`` and ``--recursion-limit``.
 
 Write this note in "your own" (the original) ``DataLad-101`` dataset, though!
 
-.. runrecord:: _examples/DL-101-120-108
+.. runrecord:: _examples/DL-101-116-108
    :language: console
    :workdir: dl-101/mock_user/DataLad-101
 
@@ -288,7 +288,7 @@ Write this note in "your own" (the original) ``DataLad-101`` dataset, though!
 
 Save this note.
 
-.. runrecord:: _examples/DL-101-120-109
+.. runrecord:: _examples/DL-101-116-109
    :language: console
    :workdir: dl-101/DataLad-101
 

@@ -13,15 +13,24 @@ Glossary
    adjusted branch
       (Git-annex term) TODO
 
+   branch
+      Git concept: A lightweight, independent history streak of your dataset. Branches can contain less,
+      more, or changed files compared to other branches, and one can :term:`merge` the changes
+      a branch contains into another branch.
+
    checksum
       TODO
 
+   clone
+      Git concept: A copy of a :term:`Git` repository. In Git-terminology, all "installed" datasets
+      are clones.
+
    commit
-      Adding selected changes of a file or dataset to the repository, and thus making these changes
+      Git concept: Adding selected changes of a file or dataset to the repository, and thus making these changes
       part of the revision history of the repository. Should always have an informative :term:`commit message`
 
    commit message
-      A consise summary of changes you should attach to a ``datalad save`` command. This summary will
+      Git concept: A consise summary of changes you should attach to a ``datalad save`` command. This summary will
       show up in your :term:`Datalad dataset` history.
 
    DataLad dataset
@@ -62,6 +71,13 @@ Glossary
       You can read about more about Pattern Matching in
       `Bash's Docs <https://www.gnu.org/savannah-checkouts/gnu/bash/manual/bash.html#Pattern-Matching>`_.
 
+   master
+      Git concept: The default :term:`branch` in a dataset.
+
+   merge
+      Git concept: to integrate the changes of one :term:`branch`/:term:`sibling`/ ... into
+      a different branch.
+
    metadata
       "Data about data": Information about one or more aspects of data used to summmarize
       basic information, for example means of create of the data, creator or author, size,
@@ -70,7 +86,7 @@ Glossary
       was created, the shutter speed, and other data.
 
    object-tree
-      The place where :term:`Git-annex` stores available file contents. Files that are annexed get
+      Git-annex concept: The place where :term:`Git-annex` stores available file contents. Files that are annexed get
       a :term:`symlink` added to :term:`Git` that points to the file content.
 
    provenance
@@ -95,6 +111,10 @@ Glossary
 
    symlink
       TODO
+
+   sibling
+      DataLad concept: A dataset clone that a given :term:`DataLad dataset` knows about. Changes can be
+      retrieved and pushed between a dataset and its sibling.
 
    the DataLad superdataset ///
       TODO

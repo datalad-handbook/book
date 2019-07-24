@@ -46,10 +46,10 @@ Note that you can not see any ``.mp3``\s being added to the dataset,
 as was previously the case when we ``datalad save``\d PDFs that we
 downloaded into ``books/``. Instead,
 DataLad stores what it calls a *subproject commit* of the subdataset.
-The cryptic character sequence in this line is the checksum we have briefly
+The cryptic character sequence in this line is the :term:`shasum` we have briefly
 mentioned before, and it is
 how DataLad internally identifies files and changes to files. Exactly this
-checksum is what describes the state of the subdataset.
+shasum is what describes the state of the subdataset.
 
 This highlights a different aspect as well: Note that the ``longnow`` dataset
 is a completely independent, standalone dataset that was once created and

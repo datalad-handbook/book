@@ -80,7 +80,7 @@ find the commit and use its shasum (or a tag, or anything else that Git
 understands) as an argument for the
 ``datalad rerun`` command! That's it!", he says happily.
 
-So you go ahead and find the commit checksum in your history:
+So you go ahead and find the commit shasum in your history:
 
 .. runrecord:: _examples/DL-101-108-113
    :language: console
@@ -90,8 +90,8 @@ So you go ahead and find the commit checksum in your history:
 
    $ git log -2
 
-Take that checksum and paste it after ``datalad rerun``
-(the first 6-8 characters of the checksum would be sufficient,
+Take that shasum and paste it after ``datalad rerun``
+(the first 6-8 characters of the shasum would be sufficient,
 here we're using all of them).
 
 .. runrecord:: _examples/DL-101-108-114
@@ -164,7 +164,7 @@ Quickly create a note about these two helpful commands in ``notes.txt``:
    $ cat << EOT >> notes.txt
    There are two useful functions to display changes between two
    states of a dataset: "datalad diff -f/--from COMMIT -t/--to COMMIT"
-   and "git diff COMMIT COMMIT", where COMMIT is a checksum of a commit
+   and "git diff COMMIT COMMIT", where COMMIT is a shasum of a commit
    in the history.
 
    EOT
@@ -220,7 +220,7 @@ But prior to that, make a note about ``datalad run`` and ``datalad rerun`` in yo
    In its simplest form, datalad run only takes a commit message and the command that
    should be executed.
 
-   Any datalad run command can be re-executed by using its commit checksum as an argument
+   Any datalad run command can be re-executed by using its commit shasum as an argument
    in datalad rerun CHECKSUM. DataLad will take information from the run record of the original
    commit, and re-execute it. If no changes happen with a rerun, the command will not be written
    to history. Note: you can also rerun a datalad rerun command!

@@ -77,7 +77,7 @@ a built-in git command [#f1]_.
 
 We can see two :term:`commit`\s in the history of the repository.
 Each of them is identified by a unique 40 character sequence, called a
-:term:`checksum`.
+:term:`shasum`.
 Highlighted in this output is information about the author and about
 the time, as well as a :term:`commit message` that summarizes the
 performed action concisely. In this case, both commit messages were written by

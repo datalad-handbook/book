@@ -1,0 +1,4 @@
+$ git annex whereis books/TLCL.pdf
+whereis books/TLCL.pdf (1 copy) 
+  	a004ea64-6633-42a5-be0e-a4e3399e696b -- course on DataLad-101 on my private Laptop [origin]
+ok

@@ -266,8 +266,8 @@ history from first to most recent commit):
 .. runrecord:: _examples/DL-101-105-110
    :language: console
    :workdir: dl-101/DataLad-101/recordings/longnow
-   :lines: 1-10
    :emphasize-lines: 3
+   :lines: 1-13
 
    $ git log --reverse
 

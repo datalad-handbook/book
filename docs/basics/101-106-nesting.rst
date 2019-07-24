@@ -1,4 +1,4 @@
-.. _nest:
+.. _nesting:
 
 Dataset nesting
 ---------------

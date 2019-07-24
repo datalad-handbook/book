@@ -35,11 +35,11 @@ In order to effectively work with the history, the most important
 information associated with a commit is its checksum. This checksum is how
 DataLad identifies dataset modifications in the history, and with this
 checksum you can communicate with DataLad or :term:`Git` about these
-modifications. The ``datalad rerun`` command introduced in section (todo:link)
-for example takes such a checksum as an argument, and reruns the ``datalad run``
-or ``datalad rerun`` command associated with this checksum.
-Here is an excerpt from the ``DataLad-101`` history to show a few abbreviated
-checksums of the 15 most recent commits:
+modifications. The ``datalad rerun`` command introduced in section
+:ref:`run2` for example takes such a checksum as an argument, and re-executes
+the ``datalad run`` or ``datalad rerun`` :term:`run record` associated with
+this checksum. Here is an excerpt from the ``DataLad-101`` history to show a
+few abbreviated checksums of the 15 most recent commits:
 
 .. runrecord:: _examples/DL-101-135-101
    :workdir: dl-101/DataLad-101
@@ -69,5 +69,16 @@ had just started to learn how to use DataLad. Identify the commit
 in which we added a note on ``datalad save`` in your own history
 (it will not have the same checksum as the example below).
 
- How do you change or add the commit message
+.. runrecord:: _examples/DL-101-135-102
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+To see the dataset at this state in time, run ``git checkout COMMIT``
+
+.. runrecord:: _examples/DL-101-135
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+Let's check out the notes at this state
+How do you change or add the commit message
 of the last commit?"

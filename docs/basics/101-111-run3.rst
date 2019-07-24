@@ -71,7 +71,7 @@ run a ``datalad save``."
    :language: console
    :workdir: dl-101/DataLad-101
 
-   $ datalad save -m "resized picture by hand" recordings/salt_logo_small.jpg
+   $ datalad save -m "resized picture by hand"
 
 "So", you wonder aloud, "whenever I want to modify I need to
 ``datalad unlock`` it, do the modifications, and then ``datalad save`` it?"

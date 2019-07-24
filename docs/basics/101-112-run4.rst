@@ -60,7 +60,7 @@ First, save the changes,
    :language: console
    :workdir: dl-101/DataLad-101
 
-   $ datalad save -m "add additional notes on run options" notes.txt
+   $ datalad save -m "add additional notes on run options"
 
 and then try again:
 
@@ -138,7 +138,7 @@ Add an additional note on ``--explicit`` flag, and finally save your changes to 
    :language: console
    :workdir: dl-101/DataLad-101
 
-   $ datalad save -m "add note on clean datasets" notes.txt
+   $ datalad save -m "add note on clean datasets"
 
 To conclude this section on ``datalad run``, take a look at the last ``datalad run``
 commit to see a :term:`run record` with more content:

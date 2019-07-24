@@ -197,7 +197,7 @@ Lets ``datalad save`` precisely this file by specifying its path after the commi
    (or the shorter form of ``--updated``, ``-u``) will only write *modifications* to the
    history, not untracked files. Later, we will also see ``.gitignore`` files that let
    you hide content from version control.
-   However, it is good practice to safely store away modification or new content.
+   However, it is good practice to safely store away modifications or new content.
    This both improves your dataset and workflow, and will be a requirement for the execution
    of certain commands.
 

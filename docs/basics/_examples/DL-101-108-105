@@ -1,4 +1,4 @@
-$ datalad run -m "create a list of podcast titles" "python code/list_titles.py"
+$ datalad run -m "create a list of podcast titles" "bash code/list_titles.sh > recordings/podcasts.tsv"
 [INFO] == Command start (output follows) ===== 
 [INFO] == Command exit (modification check follows) ===== 
 add(ok): recordings/podcasts.tsv (file)

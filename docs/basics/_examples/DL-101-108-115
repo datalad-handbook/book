@@ -1,17 +1,17 @@
 $ git log -1
-commit bb12557f83100375fa01fab2788a44eca9b5b024
+commit 7a7f97eb2fb46788acaffb7884c5fc32da4f52fa
 Author: Adina Wagner <adina.wagner@t-online.de>
-Date:   Wed Jul 24 08:47:46 2019 +0200
+Date:   Wed Jul 24 09:43:12 2019 +0200
 
     [DATALAD RUNCMD] create a list of podcast titles
     
     === Do not change lines below ===
     {
      "chain": [
-      "b3aa255a9299459a4b90e57b148d97f77213914b"
+      "f4ee04355a1247122bee991e9ad6d85b975b23dc"
      ],
-     "cmd": "python code/list_titles.py",
-     "dsid": "dd9b3994-adde-11e9-a3c6-e86a64c8054c",
+     "cmd": "bash code/list_titles.sh > recordings/podcasts.tsv",
+     "dsid": "9821e284-ade6-11e9-a3c6-e86a64c8054c",
      "exit": 0,
      "extra_inputs": [],
      "inputs": [],

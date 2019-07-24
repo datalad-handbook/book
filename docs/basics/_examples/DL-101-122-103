@@ -1,5 +1,5 @@
 
-$ datalad rerun 35c8bc7acae3e18f47a8f68f9b3c6a92e5fe0310
+$ datalad rerun 9e48fbc80e92be0037cd73709ad4e34e64f66ee3
 [INFO] Making sure inputs are available (this may take some time) 
 [WARNING] no content present; cannot unlock [unlock(/home/adina/repos/datalad-handbook/docs/_build/wdirs/dl-101/mock_user/DataLad-101/recordings/salt_logo_small.jpg)] 
 [INFO] == Command start (output follows) ===== 

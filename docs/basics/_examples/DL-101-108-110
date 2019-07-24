@@ -1,27 +1,12 @@
-$ cat << EOT > code/list_titles.py
-# import modules for path operations and pathname pattern expansion
-from os.path import join, basename
-from glob import glob
+$ cat << EOT > code/list_titles.sh
+for i in recordings/longnow/Long_Now*/*.mp3; do
+   # get the filename
+   base=\$(basename "\$i");
+   # strip the extension
+   base=\${base%.mp3};
+   printf "\${base%%__*}\t" | tr '_' '-';
+   # name and title without underscores
+   printf "\${base#*__}\n" | tr '_' ' ';
 
-# define a path to the podcasts. Note that this is a relative path,
-# pointing from the root of DataLad-101 to the podcasts:
-
-path = join('recordings', 'longnow',
-            '*', '*')        # <-- here is the change!
-# create a list of all file names found under the path
-files = glob(path)
-# define an outfile name:
-outfile = join('recordings', 'podcasts.tsv')
-
-# loop through all file names and write speaker and title into the file
-with open(outfile, 'w') as f:
-    for file in files:
-        # extract speaker name
-        author = basename(file).split('__')[1] \
-            if len(basename(file).split('__')[1].split('_')) > 1 \
-            else '__'.join(basename(file).split('__')[1:3])
-        # extract title
-        title = '_'.join(basename(file).split(author)[-1].split('__')[1:])
-        # write speaker and talk title into the file
-        f.write(author + '\t' + title + '\n')
+done
 EOT

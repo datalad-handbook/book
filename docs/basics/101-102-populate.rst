@@ -4,9 +4,9 @@ Populate a dataset
 ------------------
 
 The first lecture in DataLad-101 referenced some useful literature.
-Even if we end up not reading those books at all, lets just download
+Even if we end up not reading those books at all, let's just download
 them and put them into our dataset. You never know, right?
-Lets first create a directory to save books for additional reading in.
+Let's first create a directory to save books for additional reading in.
 
 .. runrecord:: _examples/DL-101-102-1
    :language: console
@@ -14,7 +14,7 @@ Lets first create a directory to save books for additional reading in.
 
    $ mkdir books
 
-Lets take a look at the current directory structure:
+Let's take a look at the current directory structure:
 
 .. runrecord:: _examples/DL-101-102-2
    :language: console
@@ -23,15 +23,15 @@ Lets take a look at the current directory structure:
    $ tree
 
 
-Arguably, not the most exiting thing to see. So lets put some PDFs inside.
-Below is a short list optional readings. We decide to download them (they
+Arguably, not the most exciting thing to see. So let's put some PDFs inside.
+Below is a short list of optional readings. We decide to download them (they
 are all free, in total about 15 MB), and save them in ``DataLad-101/books``.
 
 - Additional reading about the command line: `The Linux Command Line <https://sourceforge.net/projects/linuxcommand/files/TLCL/19.01/TLCL-19.01.pdf/download>`_
 - An intro to Python: `A byte of Python <https://www.gitbook.com/download/pdf/book/swaroopch/byte-of-python>`_
 
 You can either visit the links and save them in ``books/``,
-or run the following commands to download the books:
+or run the following commands to download the books right from the terminal:
 
 .. runrecord:: _examples/DL-101-102-3
    :language: console
@@ -68,7 +68,7 @@ Interesting, the ``books/`` directory is "untracked". Remember how content
 *can* be tracked *if a user wants to*?
 Untracked means that DataLad does not know about this directory or its content,
 because we haven't ordered DataLad to actually track it. This means, DataLad
-does not keep the downloaded books in its history yet. Lets change this by
+does not keep the downloaded books in its history yet. Let's change this by
 saving the files to the datasets history with the ``datalad save`` command.
 This time, its your turn to specify a helpful :term:`commit message`
 with the ``-m`` option:
@@ -93,7 +93,7 @@ with the ``-m`` option:
    and you can edit
    the commit message. Careful -- the default editor might be :term:`vim`!
 
-Lets see how this shows up in the history of the dataset with ``git log``.
+Let's see how this shows up in the history of the dataset with ``git log``.
 In order to get a bit more details, we add the ``-p`` flag (leave the git log
 by typing ``q``, navigate with up and down arrow keys):
 
@@ -107,8 +107,8 @@ by typing ``q``, navigate with up and down arrow keys):
 
 Now this might look a bit cryptic (and honestly, tig [#f1]_ makes it look prettier).
 But this tells us the date and time in which a particular author added two PDFs to
-the directory ``books/``, and thanks to that commit message we have a nice human-
-readable summary of that action.
+the directory ``books/``, and thanks to that commit message we have a nice
+human-readable summary of that action.
 
 .. container:: toggle
 
@@ -156,7 +156,7 @@ revert *some* of the changes without affecting others in this commit.
 Second, yes, you should have control about what you have tracked by DataLad.
 
 Luckily, we can point ``datalad save`` to exactly the changes we want it to record.
-Lets try this by adding yet another book, a good reference work about git:
+Let's try this by adding yet another book, a good reference work about git:
 
 .. runrecord:: _examples/DL-101-102-8
    :language: console
@@ -175,7 +175,7 @@ Lets try this by adding yet another book, a good reference work about git:
 
    $ datalad status
 
-Lets ``datalad save`` precisely this file by specifying its path after the commit message:
+Let's ``datalad save`` precisely this file by specifying its path after the commit message:
 
 .. runrecord:: _examples/DL-101-102-10
    :language: console
@@ -185,13 +185,13 @@ Lets ``datalad save`` precisely this file by specifying its path after the commi
 
 Let's make it a habit to always specify precisely which changes we want to write to history.
 
-A ``datalad status`` should now be empty, and our datasets history should look like this:
+A ``datalad status`` should now be empty, and our dataset's history should look like this:
 
 .. runrecord:: _examples/DL-101-102-11
    :language: console
    :workdir: dl-101/DataLad-101
 
-   # lets make the output a bit more concise with the --oneline option
+   # let's make the output a bit more concise with the --oneline option
    $ git log --oneline
 
 

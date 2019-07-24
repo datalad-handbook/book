@@ -102,7 +102,7 @@ the ``-o``/``--output`` option.
    ``-o directory/*``
 
 In order to execute ``datalad run`` with both the ``-i``/``--input`` and ``-o``/``--output``
-flag and see their magic, lets crop the second logo, ``logo_interval.jpg``:
+flag and see their magic, let's crop the second logo, ``logo_interval.jpg``:
 
 .. runrecord:: _examples/DL-101-111-105
    :language: console

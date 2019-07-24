@@ -145,7 +145,7 @@ command. You however begin to wonder: how does DataLad know where to look for
 that original content?
 
 This information comes from Git-annex. Before getting the next PDF,
-lets query Git-annex where its content is stored:
+let's query Git-annex where its content is stored:
 
 .. runrecord:: _examples/DL-101-116-105
    :language: console

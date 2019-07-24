@@ -49,7 +49,7 @@ want to run by taking a look into the history of the dataset
    :workdir: dl-101/mock_user/DataLad-101
    :emphasize-lines: 4
 
-   # lets view the history
+   # let's view the history
    $ git log --oneline
 
 Ah, there it is, the second most recent commit.

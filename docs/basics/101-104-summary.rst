@@ -28,7 +28,7 @@ and making simple modifications *locally*:
 
    make a graphic of this workflow
 
-* ``datalad status`` reports the current state of the dataset. Its a very helpful command you should
+* ``datalad status`` reports the current state of the dataset. It's a very helpful command you should
   run frequently to check for untracked or modified content.
 
 

@@ -35,7 +35,7 @@ them. We'll take a look together, using the ``books/`` directory as an example:
 
 If you don't know what you are looking at,
 this looks weird, if not worse: intimidating, wrong, or broken.
-First of all: no, **it is all fine**. But lets start with the basics of what is displayed
+First of all: no, **it is all fine**. But let's start with the basics of what is displayed
 here to understand it.
 
 The small ``->`` symbol connecting one path (the books name) to another path (the weird

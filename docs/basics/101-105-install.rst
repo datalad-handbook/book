@@ -59,7 +59,7 @@ called recordings.
    # we are in the root of DataLad-101
    $ mkdir recordings
 
-Lets install the longnow podcasts in this new directory.
+Let's install the longnow podcasts in this new directory.
 Because we are installing a dataset (the podcasts) within an existing dataset (the ``DataLad-101``
 dataset), we supply the ``-d`` (``--dataset``) flag.
 This specifies the dataset to perform the operation on. Because we are in the root
@@ -150,7 +150,7 @@ and the ``datalad install`` command:
 Upon installation of a DataLad dataset, DataLad retrieves only small files
 (for example text files or markdown files) and (small) metadata
 information about the dataset. It does not, however, download any large files
-(yet). The metadata exposes the datasets file hierarchy
+(yet). The metadata exposes the dataset's file hierarchy
 for exploration (note how you are able to list the dataset contents with ``ls``),
 and downloading only this metadata speeds up the installation of a DataLad dataset
 of many TB in size to a few seconds. Just now, after installation, the dataset is
@@ -179,9 +179,9 @@ This sounds strange, but it has many advantages. Apart from a fast installation,
 it allows you to retrieve precisely the content you need, instead of all the contents
 of a dataset. Thus, even if you install a dataset that is many TB in size,
 it takes up only few MB of space after installation, and you can retrieve only those
-components of the dataset you need.
+components of the dataset that you need.
 
-Lets see how large the dataset would be in total if all of the files were present.
+Let's see how large the dataset would be in total if all of the files were present.
 For this, we supply an additional option to ``datalad status``. Make sure to be
 (anywhere) inside of the ``longnow`` dataset to execute the following command:
 
@@ -228,7 +228,7 @@ this will not break anything)
 
 Isn't that easy?
 
-Lets see how much data is now present locally. For this, ``datalad status --annex all``
+Let's see how much data is now present locally. For this, ``datalad status --annex all``
 has a nice summary:
 
 .. runrecord:: _examples/DL-101-105-108
@@ -240,7 +240,7 @@ has a nice summary:
 This shows you how much data of the total data is present locally. With one file,
 it is only a fraction of the total size.
 
-Lets ``get`` a few more recordings, just because it was so mesmerizing to watch
+Let's ``get`` a few more recordings, just because it was so mesmerizing to watch
 DataLad's fancy progress bars.
 
 .. runrecord:: _examples/DL-101-105-109

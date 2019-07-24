@@ -138,8 +138,8 @@ The dataset will contain tags that relate different states of it to the
 respective book sections.
 
 
-Lets get going!
----------------
+Let's get going!
+----------------
 
 If you have DataLad installed, you can dive straight into chapter 1, :ref:`createDS`.
 For everyone new, there are the sections :ref:`howto` as a minimal tutorial

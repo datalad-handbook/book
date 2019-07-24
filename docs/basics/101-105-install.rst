@@ -283,7 +283,7 @@ modification.
    If you install a dataset into an existing dataset (as a subdataset), remember to specify the
    root of the superdataset with the '-d' option.
    EOT
-   $ datalad save -m "Add note on datalad install" notes.txt
+   $ datalad save -m "Add note on datalad install"
 
 
 .. rubric:: Footnotes

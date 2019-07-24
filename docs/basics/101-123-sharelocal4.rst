@@ -101,7 +101,7 @@ dataset to your own ``DataLad-101`` dataset:
 
    # save the changes
 
-   $ datalad save -m "add note about datalad update" notes.txt
+   $ datalad save -m "add note about datalad update"
 
 
 PS: You might wonder whether there is also a sole

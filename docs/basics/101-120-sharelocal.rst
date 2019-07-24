@@ -292,7 +292,7 @@ Save this note.
    :language: console
    :workdir: dl-101/DataLad-101
 
-   $ datalad save -m "add note about installing from paths and recursive installations" notes.txt
+   $ datalad save -m "add note about installing from paths and recursive installations"
 
 .. gitusernote::
 

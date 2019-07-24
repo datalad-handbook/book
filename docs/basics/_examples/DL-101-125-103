@@ -1,6 +1,0 @@
-$ datalad save -m "add shell script from ascii cast on nesting" code/nested_repos.sh
-add(ok): code/nested_repos.sh (file)
-save(ok): . (dataset)
-action summary:
-  add (ok: 1)
-  save (ok: 1)

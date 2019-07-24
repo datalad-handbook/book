@@ -1,6 +1,2 @@
-$ datalad save -m "add note on git annex whereis" notes.txt
-add(ok): notes.txt (file)
-save(ok): . (dataset)
-action summary:
-  add (ok: 1)
-  save (ok: 1)
+$ ls code/
+list_titles.sh

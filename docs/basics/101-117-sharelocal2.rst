@@ -28,7 +28,7 @@ file that you once retrieved file content for, and on a file
 that you did not yet retrieve file content for.
 Here is the output for the retrieved file:
 
-.. runrecord:: _examples/DL-101-121-101
+.. runrecord:: _examples/DL-101-117-101
    :language: console
    :workdir: dl-101/DataLad-101
 
@@ -42,7 +42,7 @@ Here is the output for the retrieved file:
 And here is the output for a file that you did not yet retrieve
 content for in your original ``DataLad-101`` dataset.
 
-.. runrecord:: _examples/DL-101-121-102
+.. runrecord:: _examples/DL-101-117-102
    :language: console
    :workdir: dl-101/mock_user/DataLad-101/recordings/longnow
 
@@ -56,7 +56,7 @@ only has only two sources.
 
 Let's see how this affects a ``datalad get``:
 
-.. runrecord:: _examples/DL-101-121-103
+.. runrecord:: _examples/DL-101-117-103
    :language: console
    :workdir: dl-101/mock_user/DataLad-101/recordings/longnow
 
@@ -64,7 +64,7 @@ Let's see how this affects a ``datalad get``:
    $ datalad get Long_Now__Seminars_About_Long_term_Thinking/2003_11_15__Brian_Eno__The_Long_Now.mp3
 
 
-.. runrecord:: _examples/DL-101-121-104
+.. runrecord:: _examples/DL-101-117-104
    :language: console
    :workdir: dl-101/mock_user/DataLad-101/recordings/longnow
 
@@ -92,7 +92,7 @@ once we cover the ``importfeed`` and ``add-url`` functions [#f1]_.
 Let's for now add a note on the ``git annex whereis`` command. Again, do
 this in the original ``DataLad-101`` directory, and don't forget to save it.
 
-.. runrecord:: _examples/DL-101-121-105
+.. runrecord:: _examples/DL-101-117-105
    :language: console
    :workdir: dl-101/mock_user/DataLad-101/recordings/longnow
 
@@ -107,13 +107,13 @@ this in the original ``DataLad-101`` directory, and don't forget to save it.
 
    EOT
 
-.. runrecord:: _examples/DL-101-121-106
+.. runrecord:: _examples/DL-101-117-106
    :language: console
    :workdir: dl-101/DataLad-101
 
    $ datalad status
 
-.. runrecord:: _examples/DL-101-121-107
+.. runrecord:: _examples/DL-101-117-107
    :language: console
    :workdir: dl-101/DataLad-101
 

@@ -33,7 +33,7 @@ right to the history!
 Navigate into your dataset copy in ``mock_user/DataLad-101``,
 and run the following command
 
-.. runrecord:: _examples/DL-101-125-101
+.. runrecord:: _examples/DL-101-121-101
    :language: console
    :workdir: dl-101/DataLad-101
 
@@ -48,7 +48,7 @@ and run the following command
 
 Run a quick datalad status:
 
-.. runrecord:: _examples/DL-101-125-102
+.. runrecord:: _examples/DL-101-121-102
    :language: console
    :workdir: dl-101/mock_user/DataLad-101
 
@@ -58,7 +58,7 @@ Nice, the ``datalad download-url`` command saved this download
 right into the history! We'll show an excerpt of the last commit
 here:
 
-.. runrecord:: _examples/DL-101-125-103
+.. runrecord:: _examples/DL-101-121-103
    :language: console
    :workdir: dl-101/mock_user/DataLad-101
    :lines: 1-30
@@ -97,7 +97,7 @@ This registers your roommates ``DataLad-101`` as a "sibling" (we will call it
 "roommate") to your own ``DataLad-101`` dataset.
 
 
-.. runrecord:: _examples/DL-101-125-104
+.. runrecord:: _examples/DL-101-121-104
    :language: console
    :workdir: dl-101/mock_user/DataLad-101
 
@@ -117,7 +117,7 @@ As you can see in the command output, the addition of a sibling succeeded:
 is now known to your own dataset as "roommate"
 
 
-.. runrecord:: _examples/DL-101-125-105
+.. runrecord:: _examples/DL-101-121-105
    :language: console
    :workdir: dl-101/mock_user/DataLad-101
 
@@ -148,7 +148,7 @@ changes your room mate made.
 Let's see how it's done. First, run a plain ``datalad update`` without
 the ``--merge`` option.
 
-.. runrecord:: _examples/DL-101-125-106
+.. runrecord:: _examples/DL-101-121-106
    :language: console
    :workdir: dl-101/DataLad-101
 
@@ -172,7 +172,7 @@ one other known location, though.
 This plain ``datalad update`` informs you that it "fetched" updates from
 the dataset. The changes however, are not yet visible:
 
-.. runrecord:: _examples/DL-101-125-107
+.. runrecord:: _examples/DL-101-121-107
    :language: console
    :workdir: dl-101/DataLad-101
 
@@ -201,7 +201,7 @@ do a ``diff`` between the branch (your drawer) and the dataset as it
 is currently in front of you (your desk). We will do the latter, and leave
 the former for a different lecture:
 
-.. runrecord:: _examples/DL-101-125-108
+.. runrecord:: _examples/DL-101-121-108
    :language: console
    :workdir: dl-101/DataLad-101
 
@@ -210,7 +210,7 @@ the former for a different lecture:
 This shows us that there is an additional file! Let's ask
 git diff to show us what is inside:
 
-.. runrecord:: _examples/DL-101-125-109
+.. runrecord:: _examples/DL-101-121-109
    :language: console
    :workdir: dl-101/DataLad-101
 
@@ -222,7 +222,13 @@ them into your dataset. In technical terms you will
 *merge the branch remotes/roommate/master into master*.
 But the details of this will be stated in a standalone section later.
 
-.. runrecord:: _examples/DL-101-125-110
+Note that the fact that your room mate does not have the note
+on ``datalad update`` does not influence your note. It will not
+get deleted by the merge. You do not set your dataset to the state
+of your room mates dataset, but you incorporate all changes he made
+-- which is only the addition of the script.
+
+.. runrecord:: _examples/DL-101-121-110
    :language: console
    :workdir: dl-101/DataLad-101
 
@@ -232,13 +238,13 @@ The exciting question is now whether your room mates change is now
 also part of your own dataset. Let's list the contents of the ``code/``
 directory and also peek into the history:
 
-.. runrecord:: _examples/DL-101-125-111
+.. runrecord:: _examples/DL-101-121-111
    :language: console
    :workdir: dl-101/DataLad-101
 
    $ ls code/
 
-.. runrecord:: _examples/DL-101-125-112
+.. runrecord:: _examples/DL-101-121-112
    :language: console
    :lines: 1-6
    :emphasize-lines: 2-3
@@ -262,7 +268,7 @@ time using DataLad datasets.
 
 Create a note about this, and save it.
 
-.. runrecord:: _examples/DL-101-125-113
+.. runrecord:: _examples/DL-101-121-113
    :language: console
    :workdir: dl-101/DataLad-101
 

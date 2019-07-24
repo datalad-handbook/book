@@ -1,0 +1,37 @@
+$ git diff HEAD~1
+diff --git a/recordings/podcasts.tsv b/recordings/podcasts.tsv
+index f691b53..d77891d 100644
+--- a/recordings/podcasts.tsv
++++ b/recordings/podcasts.tsv
+@@ -1,3 +1,31 @@
++2017-06-09	How Digital Memory Is Shaping Our Future  Abby Smith Rumsey
++2017-06-09	Pace Layers Thinking  Stewart Brand  Paul Saffo
++2017-06-09	Proof  The Science of Booze  Adam Rogers
++2017-06-09	Seveneves at The Interval  Neal Stephenson
++2017-06-09	Talking with Robots about Architecture  Jeffrey McGrew
++2017-06-09	The Red Planet for Real  Andy Weir
++2017-07-03	Transforming Perception  One Sense at a Time  Kara Platoni
++2017-08-01	How Climate Will Evolve Government and Society  Kim Stanley Robinson
++2017-09-01	Envisioning Deep Time  Jonathon Keats
++2017-10-01	Thinking Long term About the Evolving Global Challenge  The Refugee Reality
++2017-11-01	The Web In An Eye Blink  Jason Scott
++2017-12-01	Ideology in our Genes  The Biological Basis for Political Traits  Rose McDermott
++2017-12-07	Can Democracy Survive the Internet   Nathaniel Persily
++2018-01-02	The New Deal You Don t Know  Louis Hyman
++2018-02-01	Humanity and the Deep Ocean  James Nestor
++2018-03-01	Our Future in Algorithm Farming  Mike Kuniavsky
++2018-04-18	The Organized Pursuit of Knowledge  Margaret Levi
++2018-08-15	Facts  Feelings and Stories  How to Motivate Action on Climate Change  Shahzeen Attari
++2019-03-26	Charting the High Frontier of Space  Ed Lu
++2019-04-04	The Science of Climate Fiction  Can Stories Lead to Social Action   James Holland Jones
++2019-04-10	The Spirit Singularity  Science and the Afterlife at the Turn of the 20th Century  Hannu Rajaniemi
++2019-04-18	The Evolving Science of Behavior Change  Christopher Bryan
++2019-04-30	Siberia  A Journey to the Mammoth Steppe  Stewart Brand  Kevin Kelly  Alexander Rose
++2019-05-06	Can Nationalism be a Resource for Democracy   Maya Tudor
++2019-05-14	Growing Up Ape  The Long term Science of Studying Our Closest Living Relatives  Elizabeth  Lonsdorf
++2019-05-21	Time Poverty Amidst Digital Abundance  Judy Wajcman
++2019-06-07	A Foundation of Trust  Building a Blockchain Future  Brian Behlendorf
++2019-07-12	Learning From Le Guin  Kim Stanley Robinson
+ 2003-11-15	Brian Eno  The Long Now
+ 2003-12-13	Peter Schwartz  The Art Of The Really Long View
+ 2004-01-10	George Dyson  There s Plenty of Room at the Top  Long term Thinking About Large scale Computing

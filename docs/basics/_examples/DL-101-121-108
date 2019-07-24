@@ -1,0 +1,3 @@
+$ datalad diff --to remotes/roommate/master
+    added: code/nested_repos.sh (file)
+ modified: notes.txt (file)

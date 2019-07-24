@@ -1,7 +1,4 @@
-# we navigate into the installed copy:
-$ cd ../mock_user/DataLad-101
 $ cat notes.txt
-bash: line 2: cd: ../mock_user/DataLad-101: No such file or directory
 One can create a new dataset with 'datalad create [--description] PATH'.
 The dataset is created empty
 'datalad save [-m] PATH' saves the file (modifications) to history.
@@ -33,4 +30,22 @@ dataset.
 As suboptimal alternative is the --explicit flag,
 used to record only those changes done
 to the files listed with --output flags.
+
+A source to install a dataset from can also be a path,
+for example as in "datalad install -s ../DataLad-101".
+As when installing datasets before, make sure to add a
+description on the location of the dataset to be
+installed, and, if you want, a path to where the dataset
+should be installed under which name.
+
+Note that subdatasets will not be installed by default --
+you will have to do a plain
+"datalad install PATH/TO/SUBDATASET", or specify the
+-r/--recursive option in the install command:
+"datalad install -s ../DataLad-101 -r".
+
+A recursive installation would however install all
+installed subdatasets, so a safer way to proceed is to
+set a decent --recursion-limit:
+"datalad install -s ../DataLad-101 -r --recursion-limit 2"
 

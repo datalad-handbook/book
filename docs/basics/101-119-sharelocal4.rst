@@ -1,3 +1,5 @@
+.. _update:
+
 Updating datasets: The basics
 -----------------------------
 
@@ -26,9 +28,9 @@ and ``git annex whereis`` into the original ``DataLad-101``?
 This is a change that is not reflected in your "shared"
 installation in ``../mock_user/DataLad-101``:
 
-.. runrecord:: _examples/DL-101-123-101
+.. runrecord:: _examples/DL-101-119-101
    :language: console
-   :workdir: dl-101/mock_user/DataLad-101
+   :workdir: dl-101/DataLad-101
 
    # we navigate into the installed copy:
    $ cd ../mock_user/DataLad-101
@@ -47,7 +49,7 @@ integrate them.
 
 This is done with the ``datalad update --merge`` command.
 
-.. runrecord:: _examples/DL-101-123-102
+.. runrecord:: _examples/DL-101-119-102
    :language: console
    :workdir: dl-101/mock_user/DataLad-101
 
@@ -64,7 +66,7 @@ subdatasets' ``origin`` for updates, not the original
 Let's check the contents in ``notes.txt`` to see whether
 the previously missing changes are now present:
 
-.. runrecord:: _examples/DL-101-123-103
+.. runrecord:: _examples/DL-101-119-103
    :language: console
    :workdir: dl-101/mock_user/DataLad-101
 
@@ -80,7 +82,7 @@ command. How cool is that?!
 Conclude this section by adding a note about updating a
 dataset to your own ``DataLad-101`` dataset:
 
-.. runrecord:: _examples/DL-101-123-104
+.. runrecord:: _examples/DL-101-119-104
    :language: console
    :workdir: dl-101/mock_user/DataLad-101
 
@@ -95,7 +97,7 @@ dataset to your own ``DataLad-101`` dataset:
 
    EOT
 
-.. runrecord:: _examples/DL-101-123-105
+.. runrecord:: _examples/DL-101-119-105
    :language: console
    :workdir: dl-101/DataLad-101
 

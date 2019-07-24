@@ -37,14 +37,14 @@ First of all, find the commit checksum of the command you
 want to run by taking a look into the history of the dataset
 (in the shared dataset):
 
-.. runrecord:: _examples/DL-101-122-101
+.. runrecord:: _examples/DL-101-118-101
    :language: console
    :workdir: dl-101/DataLad-101
 
    # navigate into the shared copy
    $ cd ../mock_user/DataLad-101
 
-.. runrecord:: _examples/DL-101-122-102
+.. runrecord:: _examples/DL-101-118-102
    :language: console
    :workdir: dl-101/mock_user/DataLad-101
    :emphasize-lines: 4
@@ -57,7 +57,7 @@ Just as already done in LINK RUN SECTION,
 take this checksum and plug it into a ``datalad rerun``
 command:
 
-.. runrecord:: _examples/DL-101-122-103
+.. runrecord:: _examples/DL-101-118-103
    :language: console
    :workdir: dl-101/mock_user/DataLad-101
    :realcommand: echo "$ datalad rerun $(git rev-parse HEAD~1)"  && datalad rerun $(git rev-parse HEAD~1)

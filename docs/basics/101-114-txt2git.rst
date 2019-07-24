@@ -1,3 +1,5 @@
+.. _text2git:
+
 Content-protection, powered by Git-annex [2]
 --------------------------------------------
 

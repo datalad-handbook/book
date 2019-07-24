@@ -1,3 +1,5 @@
+.. _run4:
+
 Content-protection, powered by Git-annex [1]
 --------------------------------------------
 

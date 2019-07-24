@@ -18,16 +18,19 @@ I make in my dataset, or maybe the results of our upcoming
 mid-term project? Its a bit unfair that I can get your work,
 but you can't get mine."
 
-For example, your room mate might have googled about DataLad
+Consider, for example, that your room mate might have googled about DataLad
 a bit. On the `datalad homepage <https://www.datalad.org/>`_
 he might have found very useful additional information, such
 as the ascii-cast on `dataset nesting <https://www.datalad.org/for/git-users>`_.
 Because he found this very helpful in understanding dataset
 nesting concepts, he decided to download the ``shell`` script
-that was used to generate this example from Github, and saves
-it in the ``code/`` directory.
-He also does it using the datalad command ``datalad download-url``
-for it, that can take a commit message and will save the download
+that was `used to generate this example <https://raw.githubusercontent.com/datalad/datalad.org/7e8e39b1f08d0a54ab521586f27ee918b4441d69/content/asciicast/seamless_nested_repos.sh>`_
+from Github, and saves it in the ``code/`` directory.
+
+He does it using the datalad command ``datalad download-url``
+that he also read about on the datalad homepage.
+This command will download a file just as ``wget``, but it can
+also take a commit message and will save the download
 right to the history!
 
 Navigate into your dataset copy in ``mock_user/DataLad-101``,
@@ -55,7 +58,8 @@ Run a quick datalad status:
    $ datalad status
 
 Nice, the ``datalad download-url`` command saved this download
-right into the history! We'll show an excerpt of the last commit
+right into the history, and ``datalad status`` does not report
+unsaved modifications! We'll show an excerpt of the last commit
 here:
 
 .. runrecord:: _examples/DL-101-121-103
@@ -76,7 +80,7 @@ Do we need to install the installed dataset of our room mate
 as a copy again?
 
 No, luckily, it's simpler and less convoluted. What we have to
-do is to *register* a datalad ``sibling``: A reference to our room mates
+do is to *register* a datalad :term:`sibling`: A reference to our room mates
 dataset in our own, original dataset.
 
 .. gitusernote::
@@ -107,10 +111,14 @@ This registers your roommates ``DataLad-101`` as a "sibling" (we will call it
 
 There are a few confusing parts about this command: For one, don't be surprised
 about the ``--url`` argument -- it's called "URL" but it can be a path as well.
-Also, don't forget to give a name to your datasets sibling. Without the ``-s``/
+Also, don't forget to give a name to your dataset's sibling. Without the ``-s``/
 ``--name`` argument the command will fail. The reason behind this is that the default
 name of a sibling if no name is given will be the hostname of the specified URL,
 but as you provide a path and not a URL, there is no hostname to take as a default.
+
+.. todo::
+
+   remove this once https://github.com/datalad/datalad/issues/3553 is fixed
 
 As you can see in the command output, the addition of a sibling succeeded:
 ``roommate(+)[../mock_user/DataLad-101]`` means that your room mates dataset
@@ -119,23 +127,35 @@ is now known to your own dataset as "roommate"
 
 .. runrecord:: _examples/DL-101-121-105
    :language: console
-   :workdir: dl-101/mock_user/DataLad-101
+   :workdir: dl-101/DataLad-101
 
    $ datalad siblings
 
 This command will list all known siblings of the dataset. You can see it
 in the resulting list with the name "roommate" you have given to it.
 
+.. container:: toggle
+
+   .. container:: header
+
+      **Addition: What if I mistyped the name or want to remove the sibling?**
+
+   You can remove a sibling using ``datalad siblings remove -s roommate``
+
 The fact that the ``DataLad-101`` dataset now has a sibling means that we
 can also ``datalad update`` this repository. Awesome!
 
-Your room mate previously ran a ``datalad update --merge``. This got him
-changes he knew you made into a dataset that he so far did not change.
-This meant that nothing unexpected would happen with the ``datalad update --merge``.
+Your room mate previously ran a ``datalad update --merge`` in the section
+:ref:`update`. This got him
+changes *he knew you made* into a dataset that *he so far did not change*.
+This meant that nothing unexpected would happen with the
+``datalad update --merge``.
 
 But consider the current case: Your room mate made changes to his
-dataset, but you don't necessarily know which. Maybe you also made
-changes to your dataset. How would you know that his changes and
+dataset, but you don't necessarily know which. You also made
+changes to your dataset in the meantime, and added a note on
+``datalad update``.
+How would you know that his changes and
 your changes are not in conflict with each other?
 
 This scenario is where a plain ``datalad update`` becomes useful.
@@ -160,17 +180,9 @@ updates from. It would have worked without the specification (just as a bare
 ``datalad update --merge`` worked for your room mate), because there is only
 one other known location, though.
 
-.. container:: toggle
-
-   .. container:: header
-
-      **Addition: What if I mistyped the name or want to remove the sibling?**
-
-   You can remove a sibling using ``datalad siblings remove -s roommate``
-
-
 This plain ``datalad update`` informs you that it "fetched" updates from
-the dataset. The changes however, are not yet visible:
+the dataset. The changes however, are not yet visible -- the script that
+he added is not yet in your ``code/`` directory:
 
 .. runrecord:: _examples/DL-101-121-107
    :language: console
@@ -178,8 +190,9 @@ the dataset. The changes however, are not yet visible:
 
    $ ls code/
 
-So where is the content? It is in a different *branch* of your dataset.
-If you don't use :term:`Git`, the concept of a branch can be a big
+So where is the file? It is in a different *branch* of your dataset.
+
+If you don't use :term:`Git`, the concept of a :term:`branch` can be a big
 source of confusion. There will be sections later in this book that will
 elaborate a bit more what branches are, and how to work with them, but
 for now envision a branch just like a bunch of drawers on your desk.
@@ -207,14 +220,25 @@ the former for a different lecture:
 
    $ datalad diff --to remotes/roommate/master
 
-This shows us that there is an additional file! Let's ask
-git diff to show us what is inside:
+This shows us that there is an additional file, and it also shows us
+that there is a difference in ``notes.txt``! Let's ask
+``git diff`` to show us what the differences in detail:
 
 .. runrecord:: _examples/DL-101-121-109
    :language: console
    :workdir: dl-101/DataLad-101
 
    $ git diff remotes/roommate/master
+
+Let's digress into what is shown here.
+We are comparing the current state of your dataset against
+the current state of your room mates dataset. Everything marked with
+a ``-`` is a change that your room mate has, but not you: This is the
+script that he downloaded!
+
+Everything that is marked with a ``+`` is a change that you have,
+but not your room mate: It is the additional note on ``datalad update``
+you made in your own dataset in the previous section.
 
 Cool! So now that you know what the changes are that your room mate
 made, you can safely ``datalad update --merge`` them to integrate
@@ -234,7 +258,7 @@ of your room mates dataset, but you incorporate all changes he made
 
    $ datalad update --merge -s roommate
 
-The exciting question is now whether your room mates change is now
+The exciting question is now whether your room mate's change is now
 also part of your own dataset. Let's list the contents of the ``code/``
 directory and also peek into the history:
 
@@ -247,7 +271,7 @@ directory and also peek into the history:
 .. runrecord:: _examples/DL-101-121-112
    :language: console
    :lines: 1-6
-   :emphasize-lines: 2-3
+   :emphasize-lines: 2, 4
    :workdir: dl-101/DataLad-101
 
    $ git log --oneline
@@ -258,7 +282,8 @@ and you can also see a commit that records how you ``merged`` your
 roommates dataset changes into your own dataset. The commit message of this
 latter commit for now might contain many words yet unknown to you if you
 don't use Git, but a later section will get into the details of what
-the meaning of "merge", "branch", "refs" or "master" is.
+the meaning of ":term:`merge`", ":term:`branch`", "refs"
+or ":term:`master`" is.
 
 For now, you're happy to have the changes your room mate made available.
 This is how it should be! You helped him, and he helps you. Awesome!

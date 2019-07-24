@@ -27,7 +27,10 @@ can share our mid-term and final projects easily!"
 upcoming lecture dates in your calender.
 There is so much exciting stuff to come, you can't miss a single one.
 
-Installing an existing dataset is done with the ``datalad install`` command.
+.. index::
+   single: datalad install
+
+Installing an existing dataset is done with the :term:`datalad install` command.
 The command takes a location of an existing dataset (the *source*), and a path to where you want
 the dataset to be installed. The source can be a URL or a path to a local directory,
 or an SSH server (additionally, it can also be a pointer to an open-data collection,

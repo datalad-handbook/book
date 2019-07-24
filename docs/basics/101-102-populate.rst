@@ -53,9 +53,11 @@ structure with tree:
 
    $ tree
 
+.. index::
+   single: datalad status
 
 Now what does DataLad do with this sudden content? One command you will use very
-often is ``datalad status``. It reports on the state of dataset content, and
+often is :term:`datalad status`. It reports on the state of dataset content, and
 regular status reports should become a habit in the wake of ``DataLad-101``.
 
 .. runrecord:: _examples/DL-101-102-5
@@ -64,12 +66,15 @@ regular status reports should become a habit in the wake of ``DataLad-101``.
 
    $ datalad status
 
+.. index::
+   single: datalad create
+
 Interesting, the ``books/`` directory is "untracked". Remember how content
 *can* be tracked *if a user wants to*?
 Untracked means that DataLad does not know about this directory or its content,
 because we haven't ordered DataLad to actually track it. This means, DataLad
 does not keep the downloaded books in its history yet. Lets change this by
-saving the files to the datasets history with the ``datalad save`` command.
+saving the files to the datasets history with the :term:`datalad save` command.
 This time, its your turn to specify a helpful :term:`commit message`
 with the ``-m`` option:
 

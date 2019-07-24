@@ -190,8 +190,8 @@ Finally, save this note.
 
    $ datalad save -m "add note datalad and git diff" notes.txt
 
-Note that ``datalad rerun`` works with records of both a``datalad run``
-or a``datalad rerun`` commands (yes, you can ``rerun`` a ``datalad rerun``),
+Note that ``datalad rerun`` can re-execute the run records of both a ``datalad run``
+or a ``datalad rerun`` command,
 but not with any other type of datalad command in your history
 such as a ``datalad save`` on results or outputs after you executed a script.
 Therefore, make it a

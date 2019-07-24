@@ -81,8 +81,23 @@ Let's use the ``--output`` argument."
 
 ``datalad run`` *retrieves* everything that is specified as ``--input`` prior to
 command execution, and it *unlocks* everything specified as ``--output`` prior to
-command execution. Therefore, whatever the output of a ``datalad run`` command is
-should be specified as an argument in the ``-o``/``--output`` option.
+command execution. Therefore, whenever the output of a ``datalad run`` command already
+exists and is tracked, it should be specified as an argument in
+the ``-o``/``--output`` option.
+
+.. container:: toggle
+
+   .. container:: header
+
+      **Addition: But what if I have a lot of outputs?**
+
+   The use case here is simplistic -- a single file gets modified.
+   But there are commands and tools that create full directories with
+   many files as an output, for example
+   `FSL <https://fsl.fmrib.ox.ac.uk/fsl/fslwiki>`_, a neuro-imaging tool.
+   The easiest way to specify this type of output
+   is the directory name and a :term:`globbing` character, such as
+   ``-o directory/*``
 
 In order to execute ``datalad run`` with both the ``-i``/``--input`` and ``-o``/``--output``
 flag and see their magic, lets crop the second logo, ``logo_interval.jpg``:
@@ -114,10 +129,7 @@ exist before the command is run. Should you rerun this command however,
 the summary will include a statement about content unlocking. You will
 see an example of this in the next section.
 
-As with ``--input``, it is good practice to specify the ``--output`` of a command as well.
-It makes it possible to rerun the command without permission denied errors, and thus makes
-your life and the life of everyone who obtains a copy of your dataset much easier!
-Note now also how many individual commands a ``datalad run`` saves us:
+Note now how many individual commands a ``datalad run`` saves us:
 ``datalad get``, ``datalad unlock``, and ``datalad save``!
 
 With this last code snippet, you have experienced a full ``datalad run`` command: commit message,

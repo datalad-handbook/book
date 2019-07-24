@@ -47,7 +47,7 @@ to the command plugged into ``datalad run``, by default it will only run
 on a clean dataset with no changes or untracked files present.
 
 There are two ways to get around this error message:
-The obvious one is to save the modifications,
+The obvious -- and recommended -- one is to save the modifications,
 and run the command in a clean dataset.
 We will try this way with the ``logo_interval.jpg``.
 It would look like this:
@@ -105,13 +105,8 @@ addition to the notes, we have an "unclean dataset" again.
    "convert -resize 400x400 recordings/longnow/.datalad/feed_metadata/logo_salt.jpg recordings/salt_logo_small.jpg"
 
 With this flag, DataLad considers the specification of inputs and outputs to be "explicit".
-It doesn't warn if the repository is dirty (as before). The way this option works
-is that the ``datalad save`` at the end of ``datalad run``
+It doesn't warn if the repository is dirty, and
 *only saves modifications to the listed outputs*.
-This obviously has advantages and disadvantages, and you have to decide for
-yourself whether you want to make sure to have a clean ``datalad status``
-and record every impact of a command on a dataset,
-or whether you want to record only what you specified in ``--output``.
 
 A ``datalad status`` will show that your previously modified ``notes.txt``
 is still modified:
@@ -129,9 +124,9 @@ Add an additional note on ``--explicit`` flag, and finally save your changes to 
    :workdir: dl-101/DataLad-101
 
    $ cat << EOT >> notes.txt
-   Alternatively, specify the --explicit flag to record only those changes done
-   to the files listed with --output flags. In this case, you do not need to have
-   a clean datalad status.
+   As suboptimal alternative is the --explicit flag,
+   used to record only those changes done
+   to the files listed with --output flags.
 
    EOT
 
@@ -139,7 +134,7 @@ Add an additional note on ``--explicit`` flag, and finally save your changes to 
    :language: console
    :workdir: dl-101/DataLad-101
 
-   $ datalad save -m "add note on datalad runs --explicit flag" notes.txt
+   $ datalad save -m "add note on clean datasets" notes.txt
 
 To conclude this section on ``datalad run``, take a look at the last ``datalad run``
 commit to see a :term:`run record` with more content:

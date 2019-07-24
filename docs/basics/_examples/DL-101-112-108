@@ -1,4 +1,4 @@
-$ datalad save -m "add note on clean datasets" notes.txt
+$ datalad save -m "add note on clean datasets"
 add(ok): notes.txt (file)
 save(ok): . (dataset)
 action summary:

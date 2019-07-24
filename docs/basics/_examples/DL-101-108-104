@@ -1,4 +1,4 @@
-$ datalad save -m "Add simple script to write a list of podcast speakers and titles" code/list_titles.sh
+$ datalad save -m "Add simple script to write a list of podcast speakers and titles"
 add(ok): code/list_titles.sh (file)
 save(ok): . (dataset)
 action summary:

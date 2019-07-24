@@ -53,10 +53,14 @@ Note: When copying code snippets into your own terminal, do not copy the leading
 ``$`` -- this only indicates that the line is a command, and would lead to an
 error when you'd try to execute it.
 
-The following two chapters have two different goals: All of the *Basics* sections
-will show you the core DataLad functionality and challenge you to use it.
-In *use cases* you will find concrete examples of DataLad applications for
-general inspiration. We recommend to read the Basics first. Afterwards,
+The book is split between two different parts. The upcoming chapters
+are a *Basics* part that intends to show you the core DataLad functionality
+and challenges you to use it. It is recommended to read this part from
+start to end and follow along.
+In the chapter *use cases* you will find concrete examples of
+DataLad applications for general inspiration -- this is the second part of this book.
+Pick whatever you find interesting, and disregard the rest.
+In general, we recommend to read the Basics first. Afterwards,
 you might even consider :ref:`contribute` to this book by sharing your own use case.
 
 Note that many challenges can have straightforward and basic solutions,
@@ -130,6 +134,8 @@ share and publish with DataLad.
 
 If you don't want to follow along and only read, there will be a
 finished DataLad-101 project for you to download and explore in the future.
+The dataset will contain tags that relate different states of it to the
+respective book sections.
 
 
 Lets get going!

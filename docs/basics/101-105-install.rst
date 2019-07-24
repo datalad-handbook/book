@@ -28,7 +28,7 @@ upcoming lecture dates in your calender.
 There is so much exciting stuff to come, you can't miss a single one.
 
 .. index::
-   single: datalad install
+   single: datalad command (in book); install
 
 Installing an existing dataset is done with the :term:`datalad install` command.
 The command takes a location of an existing dataset (the *source*), and a path to where you want
@@ -194,9 +194,12 @@ download all of this data right away! That would have taken hours given the crap
 internet connection in the lecture hall, and you aren't even sure whether your
 harddrive has much space left...
 
+.. index::
+   single: datalad command (in book); get
+
 But you nevertheless are curious on how to actually listen to one of these mp3s now.
 So how does one actually "get" the files?
-The command to retrieve file content is ``datalad get``. You can specify one or more
+The command to retrieve file content is :term:`datalad get`. You can specify one or more
 specific files, or ``get`` all of the dataset by specifying ``datalad get .`` (with ``.``
 denoting "current directory").
 

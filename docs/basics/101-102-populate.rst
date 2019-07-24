@@ -54,7 +54,7 @@ structure with tree:
    $ tree
 
 .. index::
-   single: datalad status
+   single: datalad command (in book); status
 
 Now what does DataLad do with this sudden content? One command you will use very
 often is :term:`datalad status`. It reports on the state of dataset content, and
@@ -67,7 +67,7 @@ regular status reports should become a habit in the wake of ``DataLad-101``.
    $ datalad status
 
 .. index::
-   single: datalad create
+   single: datalad command (in book); save
 
 Interesting, the ``books/`` directory is "untracked". Remember how content
 *can* be tracked *if a user wants to*?

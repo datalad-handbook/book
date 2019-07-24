@@ -21,7 +21,7 @@ Because experiencing is more insightful than just reading, we will explore the
 concepts of DataLad datasets together by creating one.
 
 .. index::
-   single: datalad create
+   single: datalad command (in book); create
 
 Find a nice place on your computers file system to put a dataset for ``DataLad-101``,
 and create a fresh, empty dataset with the :term:`datalad create` command.

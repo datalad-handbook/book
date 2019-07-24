@@ -107,7 +107,10 @@ in a bit of time, we will forget how this file came into existence, or
 that the script ``code/list_titles.sh`` is associated with this file, and
 can be used to update it later on.
 
-The ``datalad run`` command can help with this. It records a command's impact on a
+.. index::
+   single: datalad command (in book); run
+
+The :term:`datalad run` command can help with this. It records a command's impact on a
 dataset.
 
 Let's try the simplest way to use this command: ``datalad run``,

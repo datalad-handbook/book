@@ -125,14 +125,6 @@ all of these changes can be written to your DataLad datasets history.
 Congratulations, you just created your first DataLad dataset!
 Let us now put some content inside.
 
-
-
-.. todo::
-
-   At some point, dive into how the description of a dataset is used for git-annex and becomes
-   handy once git-annex talks to the user, and how it is in git-annex info but nowhere else (?)
-
-
 .. rubric:: Footnotes
 
 .. [#f1] A nice and easy tool we can recommend as an alternative to ``git log`` is :term:`tig`.

@@ -1,0 +1,40 @@
+$ git log -- recordings/podcasts.tsv
+commit 7a7f97eb2fb46788acaffb7884c5fc32da4f52fa
+Author: Adina Wagner <adina.wagner@t-online.de>
+Date:   Wed Jul 24 09:43:12 2019 +0200
+
+    [DATALAD RUNCMD] create a list of podcast titles
+
+    === Do not change lines below ===
+    {
+     "chain": [
+      "f4ee04355a1247122bee991e9ad6d85b975b23dc"
+     ],
+     "cmd": "bash code/list_titles.sh > recordings/podcasts.tsv",
+     "dsid": "9821e284-ade6-11e9-a3c6-e86a64c8054c",
+     "exit": 0,
+     "extra_inputs": [],
+     "inputs": [],
+     "outputs": [],
+     "pwd": "."
+    }
+    ^^^ Do not change lines above ^^^
+
+commit f4ee04355a1247122bee991e9ad6d85b975b23dc
+Author: Adina Wagner <adina.wagner@t-online.de>
+Date:   Wed Jul 24 09:43:09 2019 +0200
+
+    [DATALAD RUNCMD] create a list of podcast titles
+
+    === Do not change lines below ===
+    {
+     "chain": [],
+     "cmd": "bash code/list_titles.sh > recordings/podcasts.tsv",
+     "dsid": "9821e284-ade6-11e9-a3c6-e86a64c8054c",
+     "exit": 0,
+     "extra_inputs": [],
+     "inputs": [],
+     "outputs": [],
+     "pwd": "."
+    }
+    ^^^ Do not change lines above ^^^

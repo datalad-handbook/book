@@ -27,18 +27,59 @@ Starting from scratch
 
 
 ###################
-Basic DataLad Magic
+Basic dataset magic
 ###################
 
 .. toctree::
    :maxdepth: 1
-   :caption: A closer look at how things work
+   :caption: A closer look at datasets
 
    basics/101-105-install
    basics/101-106-nesting
    basics/101-107-summary
+
+
+#############
+Datalad, Run!
+#############
+
+.. toctree::
+   :maxdepth: 1
+   :caption: How DataLad records provenance of dataset modifications
+
+   basics/101-108-run
+   basics/101-109-rerun
+   basics/101-110-run2
+   basics/101-111-run3
+   basics/101-112-run4
+   basics/101-113-summary
+
+
+###################
+Basics on Git-annex
+###################
+
+.. toctree::
+   :maxdepth: 1
+   :caption: A closer look at how and why things work
+
+   basics/101-114-txt2git
    basics/101-115-symlinks
 
+#####################
+Sharing a dataset [1]
+#####################
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Sharing on shared file systems
+
+   basics/101-116-sharelocal
+   basics/101-117-sharelocal2
+   basics/101-118-sharelocal3
+   basics/101-119-sharelocal4
+   basics/101-120-summary
+   basics/101-121-siblings
 
 #########
 Use Cases

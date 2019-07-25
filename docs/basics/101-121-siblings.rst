@@ -309,4 +309,4 @@ Create a note about this, and save it.
    to remotes/origin/master
 
    EOT
-   $ datalad save -m "Add note on adding siblings" notes.txt
+   $ datalad save -m "Add note on adding siblings"

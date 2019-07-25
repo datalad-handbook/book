@@ -145,15 +145,15 @@ readable summary of that action.
 Cool, so now you have added some files to your dataset history. But what is a bit
 inconvenient is that both books were saved *together*. You begin to wonder: "A Python
 book and a Unix book do not have that much in common. I probably should not save them
-in the same commit. And ... what happens if I have files I don't want to track? A
+in the same commit. And ... what happens if I have files I don't want to track?
 ``datalad save -m "some commit message"`` would write all of what is currently
 in my dataset and untracked or modified into the history!"
 
-And you're absolutely right with that! First, it is good practice to save only those changes
+Regarding your first remark, you're absolutely right with that!
+It is good practice to save only those changes
 together that belong together. We do not want to squish completely unrelated changes
 into the same spot of our history, because it would get very nasty should we want to
 revert *some* of the changes without affecting others in this commit.
-Second, yes, you should have control about what you have tracked by DataLad.
 
 Luckily, we can point ``datalad save`` to exactly the changes we want it to record.
 Lets try this by adding yet another book, a good reference work about git:
@@ -183,7 +183,23 @@ Lets ``datalad save`` precisely this file by specifying its path after the commi
 
    $ datalad save -m "add reference book about git" books/progit.pdf
 
-Let's make it a habit to always specify precisely which changes we want to write to history.
+
+.. container:: toggle
+
+   .. container:: header
+
+      **Addition: some more on save**
+
+   Regarding your second remark, you're right that a ``datalad save`` without a
+   path specification would write all of the currently untracked files or modifications
+   to the history.
+   There are some ways to mitigate this: A ``datalad save -m "concise message" --updated``
+   (or the shorter form of ``--updated``, ``-u``) will only write *modifications* to the
+   history, not untracked files. Later, we will also see ``.gitignore`` files that let
+   you hide content from version control.
+   However, it is good practice to safely store away modifications or new content.
+   This both improves your dataset and workflow, and will be a requirement for the execution
+   of certain commands.
 
 A ``datalad status`` should now be empty, and our datasets history should look like this:
 
@@ -195,7 +211,7 @@ A ``datalad status`` should now be empty, and our datasets history should look l
    $ git log --oneline
 
 
-Well done! You're ``DataLad-101`` dataset and it's history are slowly growing.
+Well done! Your ``DataLad-101`` dataset and its history are slowly growing.
 
 
 .. rubric:: Footnotes

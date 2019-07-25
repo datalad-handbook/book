@@ -38,14 +38,15 @@ Run ``datalad status`` to confirm that there is new, untracked content:
 
    $ datalad status
 
-Save this file in its current state:
+Save this file in its current state. Because it is the only modification
+in the dataset, there is no need to specify a path.
 
 .. runrecord:: _examples/DL-101-103-3
    :language: console
    :workdir: dl-101
    :realcommand: cd DataLad-101 && datalad save -m "Add notes on datalad create" notes.txt
 
-   $ datalad save -m "Add notes on datalad create" notes.txt
+   $ datalad save -m "Add notes on datalad create"
 
 Modify this file by adding another note. After all, you already know how use
 ``datalad save``, so write a short summary on that as well.

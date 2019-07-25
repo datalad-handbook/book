@@ -94,7 +94,7 @@ Save this script to the dataset.
    :language: console
    :workdir: dl-101/DataLad-101
 
-   $ datalad save -m "Add simple script to write a list of podcast speakers and titles" code/list_titles.sh
+   $ datalad save -m "Add simple script to write a list of podcast speakers and titles"
 
 Once we run this script, it will simply print dates, names and titles to
 your terminal. We can save its outputs to a new file

@@ -20,7 +20,7 @@ and experienced the concept of modular nesting datasets.
 * The source can be a URL (for example of a Github repository, as in section :ref:`installds`), but also
   paths, or open data collections.
 
-* After installation, only small files and meta data about file availability are present locally.
+* After installation, only small files and metadata about file availability are present locally.
   To retrieve actual file content of larger files, :command:`datalad get PATH` downloads large file
   content on demand.
 

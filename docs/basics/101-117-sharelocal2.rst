@@ -8,7 +8,7 @@ it from a path.
 You have observed that the ``-r``/``--recursive``
 option needs to be given to :command:`datalad install`
 in order to install subdatasets right away. Only then
-is the subdatasets file content availability meta data to explore
+is the subdatasets file content availability metadata to explore
 the file hierarchy available within the subdataset right
 from the start. Alternatively, a subsequent :command:`datalad install`
 in the subdataset or with a path to the subdataset takes care

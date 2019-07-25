@@ -8,13 +8,13 @@ on a dataset with the run and re-run commands.
 We further took note that when we modified content in ``notes.txt`` or ``list_files.py``,
 the modified content was in a *textfile*. We learned that
 this precise type of file, in conjunction with the initial configuration template
-``text2git`` we gave to ``datalad create``, is meaningful: As the textfile is
+``text2git`` we gave to :command:`datalad create`, is meaningful: As the textfile is
 stored in Git and not Git-annex, no content unlocking is necessary.
-As we saw within the demonstrations of ``datalad run``,
+As we saw within the demonstrations of :command:`datalad run`,
 modifying content of non-textfiles, such as ``.jpg``\s requires
 -- spoiler: at least in our current type of dataset --
-the additional step of *unlocking* file content, either by hand with the ``datalad unlock``
-command, or within ``datalad run`` using the ``-o``/``--output`` flag.
+the additional step of *unlocking* file content, either by hand with the :command:`datalad unlock`
+command, or within :command:`datalad run` using the ``-o``/``--output`` flag.
 
 There is one detail about DataLad datasets that we haven't covered yet. Its both
 a crucial aspect to understanding certain aspects of a dataset, but it is also a

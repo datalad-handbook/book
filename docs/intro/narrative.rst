@@ -106,7 +106,7 @@ handbook, please take a look at the `documentation <http://docs.datalad.org>`_,
 `request <https://github.com/datalad-handbook/book/issues/new>`_
 an additional chapter if you believe it's a worthwhile addition, or
 `ask a question on Neurostars.org <https://neurostars.org/latest>`_
-with a ``datalad`` tag if you need help.
+with a :command:`datalad` tag if you need help.
 
 
 The storyline

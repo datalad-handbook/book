@@ -90,8 +90,10 @@ dataset in the root of the directory and cleverly used the name of the remote re
 the ``recordings``, or ``books`` directory. Important: If you are installing *within* a dataset,
 but execute the command not from the root of this dataset, your ``-d`` option needs to specify
 the path to the root of the dataset, and the path needs to start from the directory root. For example,
-if you navigate into ``recordings`` the command would be:
-``datalad install -d ../ -s https://github.com/datalad-datasets/longnow-podcasts.git recordings/longnow``.
+if you navigate into ``recordings`` the command would be::
+
+  datalad install -d ../ -s https://github.com/datalad-datasets/longnow-podcasts.git recordings/longnow
+
 Note that the path did not change, but ``-d .`` changed to ``-d ../``
 (the Unix expression for ``parent directory``, i.e. "one-directory-up").
 
@@ -102,13 +104,16 @@ Note that the path did not change, but ``-d .`` changed to ``-d ../``
        **Addition: What if I don't install into an existing dataset?**
 
    If you don't install inside an existing dataset, you only need to omit the ``dataset``
-   option. You can try ``datalad install -s https://github.com/datalad-datasets/longnow-podcasts.git``
+   option. You can try::
+  
+     datalad install -s https://github.com/datalad-datasets/longnow-podcasts.git
+
    anywhere outside of your ``Datalad-101`` dataset to install the dataset into a new directory
    called ``longnow-podcasts``.
 
 .. gitusernote::
 
-   The ``datalad install`` command uses ``git clone``.
+   The :command:`datalad install` command uses :command:`git clone`.
 
 Here is the repository structure:
 
@@ -142,7 +147,7 @@ how fast the dataset was installed. Shouldn't
 a download of that many mp3 files should take much more time?
 
 Here you can see another import feature of DataLad datasets
-and the ``datalad install`` command:
+and the :command:`datalad install` command:
 
 Upon installation of a DataLad dataset, DataLad retrieves only small files
 (for example text files or markdown files) and (small) metadata
@@ -179,7 +184,7 @@ it takes up only few MB of space after installation, and you can retrieve only t
 components of the dataset you need.
 
 Lets see how large the dataset would be in total if all of the files were present.
-For this, we supply an additional option to ``datalad status``. Make sure to be
+For this, we supply an additional option to :command:`datalad status`. Make sure to be
 (anywhere) inside of the ``longnow`` dataset to execute the following command:
 
 .. runrecord:: _examples/DL-101-105-106
@@ -200,7 +205,7 @@ But you nevertheless are curious on how to actually listen to one of these mp3s 
 So how does one actually "get" the files?
 The command to retrieve file content is :command:`datalad get` (:manpage:`datalad-get` manual).
 You can specify one or more
-specific files, or ``get`` all of the dataset by specifying ``datalad get .`` (with ``.``
+specific files, or ``get`` all of the dataset by specifying :command:`datalad get .` (with ``.``
 denoting "current directory").
 
 First, we get one of the recordings in the dataset -- take any one of your choice
@@ -225,7 +230,7 @@ we can use ``.`` to refer to all of the dataset like this:
 
 Isn't that easy?
 
-Lets see how much data is now present locally. For this, ``datalad status --annex all``
+Lets see how much data is now present locally. For this, :command:`datalad status --annex all`
 has a nice summary:
 
 .. runrecord:: _examples/DL-101-105-108
@@ -275,7 +280,7 @@ should there be some. But we will see examples of this later in this handbook.
 
 Now you can not only create datasets and work with them locally, you can also consume
 existing datasets by installing them. Because that's cool, and because you will use this
-command frequently, make a note of it into your ``notes.txt``, and ``datalad save`` the
+command frequently, make a note of it into your ``notes.txt``, and :command:`datalad save` the
 modification.
 
 .. runrecord:: _examples/DL-101-105-111

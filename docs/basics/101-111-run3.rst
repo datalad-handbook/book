@@ -44,7 +44,7 @@ Let us check out what it does:
    $ datalad unlock recordings/salt_logo_small.jpg
 
 Well, ``unlock(ok)`` does not sound too bad for a start. As always, we
-feel the urge to run a ``datalad status`` on this:
+feel the urge to run a :command:`datalad status` on this:
 
 .. runrecord:: _examples/DL-101-111-102
    :language: console
@@ -67,8 +67,8 @@ Hey, no permission denied error! You note that the instructor still stands
 right next to you. "Sooo... now what do I do to *lock* the file again?" you ask.
 
 "Well... what you just did there was quite suboptimal. Didn't you want to
-use ``datalad run``? But, anyway, in order to lock the file again, you would need to
-run a ``datalad save``."
+use :command:`datalad run`? But, anyway, in order to lock the file again, you would need to
+run a :command:`datalad save`."
 
 .. runrecord:: _examples/DL-101-111-104
    :language: console
@@ -77,16 +77,16 @@ run a ``datalad save``."
    $ datalad save -m "resized picture by hand"
 
 "So", you wonder aloud, "whenever I want to modify I need to
-``datalad unlock`` it, do the modifications, and then ``datalad save`` it?"
+:command:`datalad unlock` it, do the modifications, and then :command:`datalad save` it?"
 
 "Well, this is certainly one way of doing it, and a completely valid workflow
-if you would do that outside of a ``datalad run`` command.
-But within ``datalad run`` there is actually a much easier way of doing this.
+if you would do that outside of a :command:`datalad run` command.
+But within :command:`datalad run` there is actually a much easier way of doing this.
 Let's use the ``--output`` argument."
 
-``datalad run`` *retrieves* everything that is specified as ``--input`` prior to
+:command:`datalad run` *retrieves* everything that is specified as ``--input`` prior to
 command execution, and it *unlocks* everything specified as ``--output`` prior to
-command execution. Therefore, whenever the output of a ``datalad run`` command already
+command execution. Therefore, whenever the output of a :command:`datalad run` command already
 exists and is tracked, it should be specified as an argument in
 the ``-o``/``--output`` option.
 
@@ -104,7 +104,7 @@ the ``-o``/``--output`` option.
    is the directory name and a :term:`globbing` character, such as
    ``-o directory/*``
 
-In order to execute ``datalad run`` with both the ``-i``/``--input`` and ``-o``/``--output``
+In order to execute :command:`datalad run` with both the ``-i``/``--input`` and ``-o``/``--output``
 flag and see their magic, lets crop the second logo, ``logo_interval.jpg``:
 
 .. runrecord:: _examples/DL-101-111-105
@@ -125,19 +125,19 @@ flag and see their magic, lets crop the second logo, ``logo_interval.jpg``:
    "convert -resize 450x450 recordings/longnow/.datalad/feed_metadata/logo_interval.jpg recordings/interval_logo_small.jpg"
 
 This time, with both ``--input`` and ``--output``
-options specified, DataLad informs about the ``datalad get``
+options specified, DataLad informs about the :command:`datalad get`
 operations it performs prior to the command
-execution, and ``datalad run`` executes the command successfully.
-It does *not* inform about any ``datalad unlock`` operation,
+execution, and :command:`datalad run` executes the command successfully.
+It does *not* inform about any :command:`datalad unlock` operation,
 because the output ``recordings/interval_logo_small.jpg`` does not
 exist before the command is run. Should you rerun this command however,
 the summary will include a statement about content unlocking. You will
 see an example of this in the next section.
 
-Note now how many individual commands a ``datalad run`` saves us:
-``datalad get``, ``datalad unlock``, and ``datalad save``!
+Note now how many individual commands a :command:`datalad run` saves us:
+:command:`datalad get`, :command:`datalad unlock`, and :command:`datalad save`!
 
-With this last code snippet, you have experienced a full ``datalad run`` command: commit message,
+With this last code snippet, you have experienced a full :command:`datalad run` command: commit message,
 input and output definitions (the order in which you give those two options is irrelevant),
 and the command to be executed. Whenever a command takes input or produces output you should specify
 this with the appropriate option.

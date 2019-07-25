@@ -29,7 +29,7 @@ with ``>``.
    The dataset is created empty
    EOT
 
-Run ``datalad status`` to confirm that there is new, untracked content:
+Run :command:`datalad status` to confirm that there is new, untracked content:
 
 .. runrecord:: _examples/DL-101-103-2
    :language: console
@@ -49,7 +49,7 @@ in the dataset, there is no need to specify a path.
    $ datalad save -m "Add notes on datalad create"
 
 Modify this file by adding another note. After all, you already know how use
-``datalad save``, so write a short summary on that as well.
+:command:`datalad save`, so write a short summary on that as well.
 
 Again, the example below uses Unix commands (``cat`` and redirecting, this time however
 with ``>>`` to *append*)
@@ -81,7 +81,7 @@ and save the file:
    $ datalad save -m "add note on datalad save"
 
 Let's take another look into our history to see the development of this file.
-We're using ``git log -p`` to see the difference to the previous state of a
+We're using :command:`git log -p` to see the difference to the previous state of a
 file within each commit. (Note: the output below is an excerpt, if you enter
 the git log, your history will be longer. You can get out of git log by pressing
 ``q``.)

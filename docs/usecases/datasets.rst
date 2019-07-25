@@ -64,7 +64,7 @@ in this original DataLad dataset happen, the installed dataset can simply be upd
 
 You can view the DataLad datasets history with tools of your choice.
 The code block below is used to illustrate the history and is an exempt
-from ``git log``.
+from :command:`git log`.
 
 .. runrecord:: _examples/dataset4
    :language: console
@@ -156,7 +156,7 @@ to the history.
 
 .. gitusernote::
 
-   Creation of datasets relies on the ``git init`` and ``git annex init`` commands.
+   Creation of datasets relies on the :command:`git init` and :command:`git annex init` commands.
 
 As already shown, already existing datalad dataset can be simply installed
 from a url or path, or from the datalad open-data collection.
@@ -164,6 +164,6 @@ from a url or path, or from the datalad open-data collection.
 .. gitusernote::
 
 
-   ``datalad install`` used the ``git clone`` command.
+   :command:`datalad install` used the :command:`git clone` command.
 
 

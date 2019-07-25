@@ -7,12 +7,6 @@ commands.
 
 .. glossary::
 
-
-   datalad create
-      Create a new dataset from scratch. See
-      `the command line reference <http://docs.datalad.org/en/latest/generated/man/datalad-create.html>`__ or
-      `the Python API reference <http://docs.datalad.org/en/latest/generated/datalad.api.create.html>`__ for additional info.
-
    datalad diff
       Report differences between two states of a dataset (hierarchy). See
       `the command line reference <http://docs.datalad.org/en/latest/generated/man/datalad-diff.html>`__ or

@@ -96,11 +96,11 @@ with the ``-m`` option:
    ``[DATALAD] Recorded changes`` as a commit message into your history.
    This is not particularly informative.
    You can change the *last* commit message with the Git command
-   ``git commit --amend``. This will open up your default editor
+   :command:`git commit --amend`. This will open up your default editor
    and you can edit
    the commit message. Careful -- the default editor might be :term:`vim`!
 
-Let's see how this shows up in the history of the dataset with ``git log``.
+Let's see how this shows up in the history of the dataset with :command:`git log`.
 In order to get a bit more details, we add the ``-p`` flag (leave the git log
 by typing ``q``, navigate with up and down arrow keys):
 
@@ -144,16 +144,16 @@ human-readable summary of that action.
 .. gitusernote::
 
    Just as in Git, new files are not tracked from their creation on, but only when
-   explicitly given to Git (in Git terms with an initial ``git add``). But different
-   from the common Git workflow, DataLad skips the staging area. A ``datalad save``
-   combines a ``git add`` and a ``git commit``, and therefore, the commit message
-   is specified with ``datalad save``.
+   explicitly given to Git (in Git terms with an initial :command:`git add`). But different
+   from the common Git workflow, DataLad skips the staging area. A :command:`datalad save`
+   combines a :command:`git add` and a :command:`git commit`, and therefore, the commit message
+   is specified with :command:`datalad save`.
 
 Cool, so now you have added some files to your dataset history. But what is a bit
 inconvenient is that both books were saved *together*. You begin to wonder: "A Python
 book and a Unix book do not have that much in common. I probably should not save them
 in the same commit. And ... what happens if I have files I don't want to track?
-``datalad save -m "some commit message"`` would write all of what is currently
+:command:`datalad save -m "some commit message"` would write all of what is currently
 in my dataset and untracked or modified into the history!"
 
 Regarding your first remark, you're absolutely right with that!
@@ -162,7 +162,7 @@ together that belong together. We do not want to squish completely unrelated cha
 into the same spot of our history, because it would get very nasty should we want to
 revert *some* of the changes without affecting others in this commit.
 
-Luckily, we can point ``datalad save`` to exactly the changes we want it to record.
+Luckily, we can point :command:`datalad save` to exactly the changes we want it to record.
 Let's try this by adding yet another book, a good reference work about git:
 
 .. runrecord:: _examples/DL-101-102-8
@@ -174,7 +174,7 @@ Let's try this by adding yet another book, a good reference work about git:
    $ wget https://github.com/progit/progit2/releases/download/2.1.154/progit.pdf
    $ cd ../
 
-``datalad status`` shows that there is a new untracked file:
+:command:`datalad status` shows that there is a new untracked file:
 
 .. runrecord:: _examples/DL-101-102-9
    :language: console
@@ -182,7 +182,7 @@ Let's try this by adding yet another book, a good reference work about git:
 
    $ datalad status
 
-Let's ``datalad save`` precisely this file by specifying its path after the commit message:
+Let's :command:`datalad save` precisely this file by specifying its path after the commit message:
 
 .. runrecord:: _examples/DL-101-102-10
    :language: console
@@ -197,10 +197,10 @@ Let's ``datalad save`` precisely this file by specifying its path after the comm
 
       **Addition: some more on save**
 
-   Regarding your second remark, you're right that a ``datalad save`` without a
+   Regarding your second remark, you're right that a :command:`datalad save` without a
    path specification would write all of the currently untracked files or modifications
    to the history.
-   There are some ways to mitigate this: A ``datalad save -m "concise message" --updated``
+   There are some ways to mitigate this: A :command:`datalad save -m "concise message" --updated`
    (or the shorter form of ``--updated``, ``-u``) will only write *modifications* to the
    history, not untracked files. Later, we will also see ``.gitignore`` files that let
    you hide content from version control.
@@ -208,7 +208,7 @@ Let's ``datalad save`` precisely this file by specifying its path after the comm
    This both improves your dataset and workflow, and will be a requirement for the execution
    of certain commands.
 
-A ``datalad status`` should now be empty, and our dataset's history should look like this:
+A :command:`datalad status` should now be empty, and our dataset's history should look like this:
 
 .. runrecord:: _examples/DL-101-102-11
    :language: console

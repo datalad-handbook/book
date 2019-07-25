@@ -52,7 +52,7 @@ in the ``.gitattributes`` file, using ``annex.largefile`` options.
 But there will be a lecture on that."
 
 "Okay, well, second: Isn't it much easier to just not bother with locking and
-unlocking, and have everything 'stored in Git'? Even if ``datalad run`` takes care
+unlocking, and have everything 'stored in Git'? Even if :command:`datalad run` takes care
 of unlocking content, I don't see the point of Git-annex", you continue.
 
 Here it gets tricky. To begin with the most important, and most straight-forward fact:

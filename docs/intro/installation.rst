@@ -284,7 +284,7 @@ please `get in touch <https://github.com/datalad-handbook/book/issues/new>`_.
       - Obtain the current Git-annex versions installer
         `from here <https://downloads.kitenet.net/git-annex/windows/current/>`_.
         Save the file, and double click the downloaded
-        ``git-annex-installer.exe`` in your Downloads.
+        :command:`git-annex-installer.exe` in your Downloads.
 
       - During installation, you will be prompted to "Choose Install Location".
         **Specify the directory in which Git is installed**.

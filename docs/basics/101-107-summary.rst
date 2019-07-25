@@ -6,8 +6,8 @@ Summary
 In the last two sections, we have discovered the basics of installing a published DataLad dataset,
 and experienced the concept of modular nesting datasets.
 
-* A published dataset can be installed with the ``datalad install`` command:
-  ``datalad install [--dataset PATH] --source PATH/URL PATH``.
+* A published dataset can be installed with the :command:`datalad install` command:
+  :command:`datalad install [--dataset PATH] --source PATH/URL PATH`.
 
 * The command takes a location of an existing dataset (``--source``/``-s``),
   and a path to where you want the dataset to be installed. If you do not specify a path,
@@ -21,10 +21,10 @@ and experienced the concept of modular nesting datasets.
   paths, or open data collections.
 
 * After installation, only small files and meta data about file availability are present locally.
-  To retrieve actual file content of larger files, ``datalad get PATH`` downloads large file
+  To retrieve actual file content of larger files, :command:`datalad get PATH` downloads large file
   content on demand.
 
-* ``datalad status --annex`` or ``datalad status --annex all`` are helpful to determine
+* :command:`datalad status --annex` or :command:`datalad status --annex all` are helpful to determine
   total repository size and the amount of data that is present locally.
 
 * Remember: Super- and subdatasets have standalone histories. A superdataset only stores

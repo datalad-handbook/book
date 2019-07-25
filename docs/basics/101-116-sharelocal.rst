@@ -43,7 +43,7 @@ of a dataset from a path (instead of a URL as shown in the section
 showcase many different properties of a dataset already, but it will
 be an additional learning experience to see how the different parts
 of the dataset -- text files, larger files, datalad subdataset,
-``datalad run`` commands -- will appear upon installation when shared.
+:command:`datalad run` commands -- will appear upon installation when shared.
 And lastly, you will likely "share a dataset with yourself" whenever you
 will be using a particular dataset of your own creation as input for
 one or more projects.
@@ -52,7 +52,7 @@ one or more projects.
 share the dataset. "You're really saving my ass
 here. I'll make up for it when we prepare for the final", he promises.
 
-To install ``DataLad-101`` with ``datalad install`` into a different part
+To install ``DataLad-101`` with :command:`datalad install` into a different part
 of your file system, navigate out of ``DataLad-101``, and -- for
 simplicity -- create a new directory, ``mock_user``, right next to it:
 
@@ -82,7 +82,7 @@ the dataset ``DataLad-101`` by specifying its path as a ``--source``
 This will install your dataset ``DataLad-101`` in your room mate's home
 directory. Note that we have given this new
 dataset a description about its location as well. Note further that we
-have not provided a path to ``datalad install``, and hence it installed the
+have not provided a path to :command:`datalad install`, and hence it installed the
 dataset under its original name in the current directory.
 
 Together with your room mate, you go ahead and see what this dataset looks
@@ -122,7 +122,7 @@ installing the ``longnow`` subdataset: Right after installation,
 the ``.mp3`` files also could not be opened, because their file
 content was not yet retrieved. You begin to explain to your room mate
 how DataLad retrieves only minimal metadata about which files actually
-exist in a dataset upon a ``datalad install``. "It's really handy",
+exist in a dataset upon a :command:`datalad install`. "It's really handy",
 you tell him. "This way you can decide which book you want to read,
 and then retrieve what you need. Note though that the text files
 contents are present, and the files can be opened -- this is because
@@ -161,7 +161,7 @@ Luckily, there is a human-readable description next to it:
 "is my datasets location I'm sharing it from!"
 
 This is, finally, where we see the description provided in
-``datalad create`` in section :ref:`createDS` becomes handy: It is
+:command:`datalad create` in section :ref:`createDS` becomes handy: It is
 a human-readable description of *where* file content is stored.
 This becomes especially useful when the number of repositories
 increases. If you have only one other dataset it may be easy to
@@ -226,15 +226,15 @@ When DataLad installs a dataset, it will by default only install the
 superdataset, and not any subdatasets. The superdataset contains the
 information that a subdataset exists though -- the subdataset is *registered*
 in the superdataset.  This is why the subdataset name exists as a directory.
-A subsequent ``datalad install`` in ``recordings/longnow/``
-or a ``datalad install PATH/TO/longnow`` will install the registered dataset without
+A subsequent :command:`datalad install` in ``recordings/longnow/``
+or a :command:`datalad install PATH/TO/longnow` will install the registered dataset without
 the need to specify the source again, just as we did it in the example above.
 
 To explicitly install a dataset right away
 *recursively*, that is, all of the subdatasets inside it as well, one
-has to specify the ``-r``/``--recursive`` option:
+has to specify the ``-r``/``--recursive`` option::
 
-``datalad install --source ../DataLad-101 -r --description "DataLad-101 in mock_user"``
+  datalad install --source ../DataLad-101 -r --description "DataLad-101 in mock_user"
 
 would have installed the ``longnow`` subdataset as well, and the meta
 data about file hierarchies would have been available right from the
@@ -247,10 +247,11 @@ nested subdatasets right away.
 
 However, there is a middle way: The ``--recursion-limit`` option let's
 you specify how many levels of subdatasets should be installed together
-with the superdataset.
+with the superdataset::
 
-``datalad install -s ../DataLad-101 --description "DataLad-101 in mock_user" -r --recursion-limit 1``
-hence would have installed the subdataset right away.
+  datalad install -s ../DataLad-101 --description "DataLad-101 in mock_user" -r --recursion-limit 1
+
+Hence, this alternative command would have installed the subdataset right away.
 
 To summarize what you learned in this section, write a note on how to
 install a dataset using a path as a source on a common file system.

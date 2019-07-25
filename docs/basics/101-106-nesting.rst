@@ -43,7 +43,7 @@ this excerpt).
 
 We have highlighted the important part of this rather long commit summary.
 Note that you can not see any ``.mp3``\s being added to the dataset,
-as was previously the case when we ``datalad save``\d PDFs that we
+as was previously the case when we :command:`datalad save`\d PDFs that we
 downloaded into ``books/``. Instead,
 DataLad stores what it calls a *subproject commit* of the subdataset.
 The cryptic character sequence in this line is the :term:`shasum` we have briefly
@@ -69,7 +69,7 @@ subdataset's history:
    $ git log --oneline
 
 We can see that it is the most recent commit shasum of the subdataset
-(albeit we can see only the first seven characters here -- a ``git log``
+(albeit we can see only the first seven characters here -- a :command:`git log`
 would show you the full shasum).
 This is what is meant by "the top-level DataLad dataset (the *superdataset*) only stores
 *which version* of the subdataset is currently used".

@@ -29,9 +29,9 @@ of your dataset with the *optional* ``--description`` flag. (At the moment,
 we will not dive into the details of where that description ends up or
 becomes useful in the future, but in more advanced parts of the book
 we will see how this gets handy.)
-Note the command structure of ``datalad create`` (optional bits are enclosed in ``[ ]``):
+Note the command structure of :command:`datalad create` (optional bits are enclosed in ``[ ]``)::
 
-``datalad create [--description "..."] [-c <config options>] PATH``
+  datalad create [--description "..."] [-c <config options>] PATH
 
 .. runrecord:: _examples/DL-101_101-1
    :language: console
@@ -66,7 +66,7 @@ and such information is stored in what we will refer
 to as the history of a dataset.
 
 This history is almost as small as it can be at the current state, but let's take
-a look at it. For looking at the history, the code examples will use ``git log``,
+a look at it. For looking at the history, the code examples will use :command:`git log`,
 a built-in git command [#f1]_.
 
 .. runrecord:: _examples/DL-101-101-3
@@ -105,7 +105,7 @@ all of these changes can be written to your DataLad datasets history.
 
 .. gitusernote::
 
-   ``datalad create`` uses ``git init`` and ``git-annex init``. Therefore,
+   :command:`datalad create` uses :command:`git init` and :command:`git-annex init`. Therefore,
    the DataLad dataset is a Git repository.
    Large file content in the
    dataset in the annex is tracked with Git-annex. An ``ls -a``
@@ -126,5 +126,5 @@ Let us now put some content inside.
 
 .. rubric:: Footnotes
 
-.. [#f1] A nice and easy tool we can recommend as an alternative to ``git log`` is :term:`tig`.
+.. [#f1] A nice and easy tool we can recommend as an alternative to :command:`git log` is :term:`tig`.
          Once installed, exchange any git log command you see here with the single word ``tig``.

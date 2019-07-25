@@ -4,7 +4,7 @@ Input and Output
 ----------------
 
 In the previous two sections, you created a simple ``.tsv`` file of all
-speakers and talk titles in the `longnow/` podcasts subdataset, and you have
+speakers and talk titles in the ``longnow/`` podcasts subdataset, and you have
 re-executed a :command:`datalad run` command after a bug-fix in your script.
 
 But these previous :command:`datalad run` and :command:`datalad rerun` command were very simple.
@@ -59,7 +59,7 @@ Remembering the last lecture on :command:`datalad run`, you decide to plug this 
 commands like this conveniently with :command:`datalad run`.
 Note that we line break the commands in the upcoming examples
 for better readability -- in your terminal, you can always write the commands into
-a single line. The ``\`` are linebreaks for your shell that make the commands work
+a single line. The ``\`` are line breaks for your shell that make the commands work
 when you copy them formatted like this.
 
 .. runrecord:: _examples/DL-101-110-102
@@ -182,4 +182,4 @@ We haven't seen anything like this before, and we need to turn to our lecturer f
 .. [#f1] In shell programming, commands exit with a specific code that indicates
     whether they failed, and if so, how. Successful commands have the exit code zero. All failures
     have exit codes greater than zero. A few lines lower, DataLad even tells us the specific error
-    code: The command failed with exitcode 1.
+    code: The command failed with exit code 1.

@@ -123,7 +123,7 @@ will come at a later point in time.
    :command:`datalad update --merge` is the DataLad equivalent of a
    :command:`git pull`.
    Upon a simple :command:`datalad update`, the remote information
-   is available on a branch seperate from the master branch
+   is available on a branch separate from the master branch
    -- in most cases this will be ``remotes/origin/master``.
    You can :command:`git checkout` this branch or run :command:`git diff` to
    explore the changes and identify potential merge conflicts.

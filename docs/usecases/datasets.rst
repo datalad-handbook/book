@@ -106,7 +106,7 @@ explore which files exist without the potentially large download.
 
 The retrieval of the actual, potentially large
 file content can happen at any later time for the full dataset or subsets
-of files. Lets get the nifti file:
+of files. Let's get the nifti file:
 
 .. runrecord:: _examples/dataset7
    :language: console

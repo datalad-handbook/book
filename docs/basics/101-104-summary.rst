@@ -8,7 +8,7 @@ and making simple modifications *locally*:
 
 * An empty dataset can be created with the :command:`datalad create` command. Its useful to add a description
   to the dataset and use the ``-c text2git`` configuration, but we will see later why.
-  Command structure::
+  The command structure::
  
     datalad create --description "here is a description" -c text2git PATH
 
@@ -21,7 +21,7 @@ and making simple modifications *locally*:
   exist in your dataset, specify the path to the precise file (change) that should be saved to history.
   Remember, if you run a :command:`datalad save` without
   specifying a path, all untracked files and all file changes will be committed to the history together!
-  Command structure::
+  The command structure::
  
     datalad save -m "here is a commit message" PATH
 
@@ -33,7 +33,7 @@ and making simple modifications *locally*:
 
    make a graphic of this workflow
 
-* :command:`datalad status` reports the current state of the dataset. Its a very helpful command you should
+* :command:`datalad status` reports the current state of the dataset. It's a very helpful command you should
   run frequently to check for untracked or modified content.
 
 
@@ -46,6 +46,7 @@ Additionally, you can add very large files to your datasets history.
 
 Currently, this is more of "best-practice building" than seeing DataLad magic. You can already explore
 the history, but for now, its been only informative, and hasn't been used for anything more fancy.
-The next lectures in ``DataLad-101`` will focus on utilizing the history in order to undo mistakes,
-changes to large content (as opposed to small content we have been modifying so far), and consuming
-existing datasets.
+The next lectures in ``DataLad-101`` will focus on extending the ``DataLad-101`` dataset, consuming
+existing datasets, and exploring more of the basic DataLad commands.
+Later on, we will look into utilizing the history in order to undo mistakes,
+or how to make changes to large content (as opposed to small content we have been modifying so far).

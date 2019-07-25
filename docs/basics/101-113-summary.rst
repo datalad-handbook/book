@@ -11,7 +11,7 @@ command, and discovered the concept of *locked* content.
   and saved to the dataset's history.
 
 * A :command:`datalad run` command generates a ``run record`` in the commit. This :term:`run record` can be used
-  by datalad to re-execute a command with :command:`datalad rerun CHECKSUM`, where CHECKSUM is the
+  by datalad to re-execute a command with :command:`datalad rerun SHASUM`, where SHASUM is the
   commit hash of the :command:`datalad run` command that should be re-executed.
 
 * If a :command:`datalad run` or :command:`datalad rerun` does not modify any content, it will not write a

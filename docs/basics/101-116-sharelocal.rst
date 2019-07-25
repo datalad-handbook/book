@@ -14,7 +14,7 @@ something you wanted to look into soon, anyway.
 This is one exciting aspect of DataLad datasets has yet been missing
 from this course: How does one share a dataset?
 In this section, we will cover the simplest way of sharing a dataset:
-on a local or shared filesystem, via an installation with a path as
+on a local or shared file system, via an installation with a path as
 a source.
 
 In this scenario multiple people can access the very same files at the
@@ -23,7 +23,7 @@ a server than people can "SSH" into). You might think: "What do I need
 DataLad for, if everyone can already access everything?" However,
 universal, unrestricted access can easily lead to chaos. DataLad can
 help facilitate collaboration without requiring ultimate trust and
-reliabiity of all participants.
+reliability of all participants.
 
 To demonstrate how to share a DataLad dataset on a common file system,
 we will pretend that your personal computer
@@ -36,7 +36,7 @@ This is indeed a common real-world use case: Two users on a shared
 file system sharing a dataset with each other.
 But as we can't easily simulate a second user in this handbook,
 for now, you will have to share your dataset with yourself.
-This endeavour serves two purposes: For one, you will experience a very easy
+This endeavor serves two purposes: For one, you will experience a very easy
 way of sharing a dataset. Secondly, it will show you the installation
 of a dataset from a path (instead of a URL as shown in the section
 :ref:`installds`). Thirdly, ``DataLad-101`` is a dataset that can
@@ -145,7 +145,7 @@ command. You however begin to wonder: how does DataLad know where to look for
 that original content?
 
 This information comes from Git-annex. Before getting the next PDF,
-lets query Git-annex where its content is stored:
+let's query Git-annex where its content is stored:
 
 .. runrecord:: _examples/DL-101-116-105
    :language: console
@@ -167,7 +167,7 @@ This becomes especially useful when the number of repositories
 increases. If you have only one other dataset it may be easy to
 remember what and where it is. But once you have one back-up
 of your dataset on a USB-Stick, one dataset shared with
-`dropbox <dropbox.com>`_, and a third one on your institutions
+`Dropbox <dropbox.com>`_, and a third one on your institutions
 Gitlab instance you will be grateful for the descriptions
 you provided these locations with.
 
@@ -187,7 +187,7 @@ work. If one location is a USB-Stick that is in your bag pack instead
 of your USB port,
 a second location is a hard drive that you deleted all of its
 previous contents (including dataset content) from,
-and another location is a webserver, but you are not connected
+and another location is a web server, but you are not connected
 to the internet, Git-annex will not succeed in retrieving
 contents from these locations.
 As long as there is at least one location that contains

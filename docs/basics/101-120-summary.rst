@@ -4,7 +4,7 @@ Summary
 -------
 
 Together with your room mate you have just discovered how
-to share and update a DataLad dataset on a shared filesystem.
+to share and update a DataLad dataset on a shared file system.
 Thus, you have glimpsed into the principles and advantages of
 sharing a dataset with a simple example.
 
@@ -58,7 +58,7 @@ Now what I can do with that?
 
 Most importantly, you have experienced the first way of sharing
 and updating a dataset.
-Thgit e example here may strike you as too simplistic, but in later parts of
+The example here may strike you as too simplistic, but in later parts of
 the book you will see examples in which datasets are shared on the same
 file system in surprisingly useful ways.
 

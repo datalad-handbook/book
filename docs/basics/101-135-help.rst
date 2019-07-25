@@ -14,4 +14,77 @@ caveats and principles already, but I certainly will mess
 something up at one point, and how will I get help then?"
 
 Fortunately, the syllabus has a whole section on that, and on
-one lazy, warm summer-afternoon, you flip through it.
+one lazy, warm summer-afternoon you flip through it.
+
+You realize that you already know the most important thins:
+The number one advice on how to get help is
+`"Read the error message." <http://memecrunch.com/meme/BT3A6/read-the-error-message/image.jpg>`_.
+The second advice it
+`"I'm not kidding: Read the error message <http://i.imgur.com/laG4tPr.jpg>`_.
+The third advice, finally, says
+`"Honestly, read the f***ing error message <http://poster.keepcalmandposters.com/default/5986752_keep_calm_and_read_the_error_message.png>`_.
+
+
+If you run into a DataLad problem and you have followed the three
+steps above, but the error message
+`doesn't give you a clue on how to proceed <https://imgs.xkcd.com/comics/code_quality_3.png>`_,
+the first you should do is
+
+.# find out which version of DataLad you use
+
+.# read the help of the command that failed
+
+The first step is important in order to find out whether a
+command failed due to using a wrong DataLad version. In order
+to use this book and follow along, your DataLad version
+should be ``datalad-0.12`` or higher.
+
+To find out which version you are using, run
+
+.. runrecord:: _examples/DL-101-135-101
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ datalad --version
+
+.. index:: ! datalad command; wtf
+
+If you want a comprehensive overview of your full setup,
+the :command:`datalad wtf` command is the place to go
+(:manpage:`datalad-wtf` manual). Running this command will
+generate a report about the DataLad installation and configuration.
+
+.. runrecord:: _examples/DL-101-135-102
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ datalad wtf
+
+The second step is important in order to find out how the
+command that failed is used. Are arguments specified correctly?
+Does the help list any caveats?
+
+There are multiple ways to find help on DataLad commands.
+You could turn to the `documentation <http://docs.datalad.org/>`_.
+Alternatively, to get help right inside the terminal,
+run the command with the ``-h``/``--help`` option.
+
+
+If nothing you do on your own helps to solve the problem,
+consider asking others. Check out `neurostars <https://neurostars.org/>`_
+and search for your problem -- likely,
+`somebody already encountered the same error before <http://imgs.xkcd.com/comics/wisdom_of_the_ancients.png>`_
+and fixed it, but if not, just ask a new question with a ``datalad`` tag.
+
+Make sure your question is as informative as it can be for others.
+Include
+
+- *context* -- what did you want to do and why
+
+- the *problem* -- paste the error message (all of it), and provide the
+  steps necessary to reproduce it
+
+- *technical details* -- what version of DataLad are you using, what version
+  of Git-annex, and which Git-annex repository type, what is your operating
+  system and -- if applicable -- Python version? (``datalad wtf`` is your friend
+  to find all of this information)?

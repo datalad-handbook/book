@@ -81,6 +81,16 @@ Sharing a dataset [1]
    basics/101-120-summary
    basics/101-121-siblings
 
+#############
+Help yourself
+#############
+
+.. toctree::
+   :maxdepth: 1
+   :caption: What to do if things go wrong
+
+   basics/101-135-help
+
 #########
 Use Cases
 #########

@@ -30,11 +30,11 @@ In the attempt to resize the image to 450x450 you tried to overwrite
 ``recordings/salt_logo_small.jpg``, a file that was given to DataLad
 and thus protected by Git-annex.
 
-.. index::
-   single: datalad command (in book); unlock
+.. index:: ! datalad command; unlock
 
 There is a DataLad command that takes care of unlocking file content,
-and thus making locked files modifiable again: :term:`datalad unlock`.
+and thus making locked files modifiable again: :command:`datalad unlock`
+(:manpage:`datalad-unlock` manual).
 Let us check out what it does:
 
 .. runrecord:: _examples/DL-101-111-101

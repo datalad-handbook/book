@@ -3,8 +3,7 @@
 DataLad, Re-Run!
 ----------------
 
-.. index::
-   single: datalad command (in book); rerun
+.. index:: ! datalad command; rerun
 
 So far, you created a simple ``.tsv`` file of all
 speakers and talk titles in the `longnow/` podcasts subdataset.
@@ -81,7 +80,8 @@ a ``run`` command, and he's eager to show it to you.
 "In order to re-execute a ``datalad run`` command,
 find the commit and use its shasum (or a tag, or anything else that Git
 understands) as an argument for the
-:term:`datalad rerun` command! That's it!", he says happily.
+:command:`datalad rerun` command (:manpage:`datalad-rerun` manual)! That's it!",
+he says happily.
 
 So you go ahead and find the commit checksum in your history:
 
@@ -127,11 +127,10 @@ committed by Datalad under the original commit message of the ``run``
 command, and looks just like the previous ``datalad run`` commit apart
 from the execution time.
 
-.. index::
-   single: datalad command (in book); diff
+.. index:: ! datalad command; diff
 
 Two cool tools that go beyond the ``git log``
-are the :term:`datalad diff` and ``git diff`` commands.
+are the :command:`datalad diff` (:manpage:`datalad-diff` manual) and ``git diff`` commands.
 Both commands can report differences between two states of
 a dataset. Thus, you can get an overview of what changed between two commits.
 Both commands have a similar, but not identical structure: ``datalad diff``

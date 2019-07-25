@@ -25,7 +25,7 @@ sharing a dataset with a simple example.
   of the dataset, and which types of files need to be retrieved via
   :command:`datalad get`: Any file content stored in :term:`Git` will be available
   right away, while all file content that is ``annexed`` only has
-  small meta data about its availability attached to it. The original
+  small metadata about its availability attached to it. The original
   ``DataLad-101`` dataset used the ``text2git`` configuration template
   to store text files such as ``notes.txt`` and ``code/list_titles.sh``
   in Git -- these files' content is therefore available right after

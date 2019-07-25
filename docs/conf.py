@@ -101,6 +101,7 @@ pygments_style = 'tango'
 # A list of ignored prefixes for module index sorting.
 #modindex_common_prefix = []
 
+manpages_url = 'http://docs.datalad.org/generated/man/{page}.html'
 
 # -- Options for HTML output ---------------------------------------------------
 

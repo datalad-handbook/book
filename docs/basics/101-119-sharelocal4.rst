@@ -47,7 +47,10 @@ it can query the original dataset whether any changes
 happened since the last time it checked, and if so, retrieve and
 integrate them.
 
-This is done with the ``datalad update --merge`` command.
+.. index:: ! datalad command; update
+
+This is done with the :command:`datalad update --merge`
+command (:manpage:`datalad-update` manual).
 
 .. runrecord:: _examples/DL-101-119-102
    :language: console

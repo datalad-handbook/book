@@ -24,20 +24,22 @@ The second advice it
 The third advice, finally, says
 `"Honestly, read the f***ing error message <http://poster.keepcalmandposters.com/default/5986752_keep_calm_and_read_the_error_message.png>`_.
 
+Help yourself
+^^^^^^^^^^^^^
 
 If you run into a DataLad problem and you have followed the three
 steps above, but the error message
 `doesn't give you a clue on how to proceed <https://imgs.xkcd.com/comics/code_quality_3.png>`_,
 the first you should do is
 
-.# find out which version of DataLad you use
+#. find out which *version* of DataLad you use
 
-.# read the help of the command that failed
+#. read the *help page* of the command that failed
 
 The first step is important in order to find out whether a
 command failed due to using a wrong DataLad version. In order
 to use this book and follow along, your DataLad version
-should be ``datalad-0.12`` or higher.
+should be ``datalad-0.12`` or higher, for example.
 
 To find out which version you are using, run
 
@@ -50,25 +52,52 @@ To find out which version you are using, run
 .. index:: ! datalad command; wtf
 
 If you want a comprehensive overview of your full setup,
-the :command:`datalad wtf` command is the place to go
+:command:`datalad wtf` is the command to turn to
 (:manpage:`datalad-wtf` manual). Running this command will
 generate a report about the DataLad installation and configuration.
+The output below shows an excerpt.
 
 .. runrecord:: _examples/DL-101-135-102
    :language: console
    :workdir: dl-101/DataLad-101
+   :lines: 1-20
 
    $ datalad wtf
 
-The second step is important in order to find out how the
+This lengthy output will report all information that might
+be relevant -- from DataLad to :term:`Git-annex` or Python
+up to your operating system.
+
+The second step, finding and reading the help page of the command
+in question, is important in order to find out how the
 command that failed is used. Are arguments specified correctly?
 Does the help list any caveats?
 
 There are multiple ways to find help on DataLad commands.
 You could turn to the `documentation <http://docs.datalad.org/>`_.
 Alternatively, to get help right inside the terminal,
-run the command with the ``-h``/``--help`` option.
+run any command with the ``-h``/``--help`` option (also shown
+as an excerpt here):
 
+.. runrecord:: _examples/DL-101-135-103
+   :language: console
+   :workdir: dl-101/DataLad-101
+   :lines: 1-40
+
+   $ datalad get --help
+
+This for example is the help page on :command:`datalad get`
+(the same you would find in the `documentation <docs.datalad.org>`__,
+but in your terminal). It contains a command description, a list
+of all the available options with a short explanation of them, and
+example commands. The paragraph *Options* shows all
+optional flags, and all required parts of
+the command are listed in the paragraph *Arguments*. One first thing
+to check for example is whether your command call
+specified all of the required arguments.
+
+Asking questions (right)
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 If nothing you do on your own helps to solve the problem,
 consider asking others. Check out `neurostars <https://neurostars.org/>`_
@@ -86,5 +115,5 @@ Include
 
 - *technical details* -- what version of DataLad are you using, what version
   of Git-annex, and which Git-annex repository type, what is your operating
-  system and -- if applicable -- Python version? (``datalad wtf`` is your friend
-  to find all of this information)?
+  system and -- if applicable -- Python version? :command:`datalad wtf` is your friend
+  to find all of this information.

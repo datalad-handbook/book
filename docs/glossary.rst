@@ -57,6 +57,10 @@ Glossary
    Git-annex
       TODO
 
+   Git config file
+      A file in which :term:`Git` stores configuration option. Such a file usually exists on
+      the system, user, and repository (dataset) level.
+
    Github
       GitHub is an online platform where one can store and share version controlled projects
       using Git (and thus also DataLad project).
@@ -122,6 +126,10 @@ Glossary
    sibling
       DataLad concept: A dataset clone that a given :term:`DataLad dataset` knows about. Changes can be
       retrieved and pushed between a dataset and its sibling.
+
+   submodule
+      Git concept: a submodule is a Git repository embedded inside another Git repository. A
+      :term:`DataLad subdataset` is known as a submodule in the :term:`Git config file`.
 
    the DataLad superdataset ///
       TODO

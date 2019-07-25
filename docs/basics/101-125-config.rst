@@ -1,0 +1,116 @@
+.. _config:
+
+Everything you ever wanted to configure
+---------------------------------------
+
+Back in section :ref:`text2git` we already learned that there
+are dataset configurations, and that these configurations can
+be modified, for example with the ``-c text2git`` option.
+This option applies a configuration template to store text
+files in :term:`Git` instead of :term:`Git-annex`, and thereby
+modifies the DataLad dataset default configuration to store
+every file in Git-annex.
+
+The lecture today focuses entirely on the topic of configurations,
+and aims to equip everyone with the basics to configure
+their general and dataset specific setup to their needs.
+This is not only a handy way to tune a dataset to one's
+wishes, but also helpful to understand potential differences in
+command execution and file handling between two users,
+computers, or datasets.
+
+"First of all, when we talk about configurations, we have
+to differentiate between different scopes of configuration,
+and different tools the configuration belongs or applies to",
+our lecturer starts.
+
+"We will start by looking into the very first configuration
+you did, already before the course started: The *global*
+Git configuration."
+
+At one point in time, you likely followed the instructions
+in :ref:`install` or similar instructions, and configured your
+*Git identity* with the commands::
+
+   git config --global --add user.name Bob McBobFace
+   git config --global --add user.email bob@example.com
+
+This configuration is a *user-specific* configuration
+(called *global* configurations by Git), and therefore
+applies to your user account. Where ever on your file system
+*you* run a Git or DataLad command, this global configuration will
+associate the name and email address you supplied in
+the :command:`git config --global --add` commands with this action.
+
+What the above commands do is very simple: They search for
+a specific :term:`Git config file`, and write the name and
+email supplied with the command into the file. Whenever you
+``datalad save``, the information in this file is used for the
+history entry.
+
+However, in total, there can be three different ``.(git)config``
+files: For the global configuration, the values you specify
+are stored in a file called ``.gitconfig`` in your home directory. Among
+your name and email address, this file can store general
+per-user configurations, such as a default editor, or highlighting
+options.
+
+Within each Git repository -- and therefore DataLad dataset --
+are *repository-specific* configurations. This is the second type of
+configuration file, and it is ``.git/config`` within every
+Git repository (and thus DataLad dataset)
+Let's find out how this file looks like in the ``DataLad-101``
+dataset:
+
+.. runrecord:: _examples/DL-101-125-101
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   cat .git/config
+
+This file contains information we can recognize. It consists
+of so called "sections" with the section names in square brackets.
+Within each section, ``name = value`` pairs specify configurations
+for the given section.
+
+For one, we can find the :term:`sibling`
+"roommate" we defined in :ref:`sibling` as the last section. You can see that
+its "url" is a path in your file system to your room mate's
+dataset. The "annex-uuid" [#f1]_ would be the character string a
+:command:`git annex whereis` displays about annexed content your
+room mate's directory stores.
+
+TODO: fetch, annex-uuid, annex-ignore
+
+This file, therefore, is where DataLad *registered* the sibling
+with :command:`datalad siblings add`.
+
+Furthermore, we can find a reference to the ``longnow`` podcasts
+we installed as a subdataset. The ``.config`` file lists this a
+a ":term:`submodule`". This is Git terminology, and describes a
+Git repository inside of another Git repository -- just like
+the super- and subdataset principles you discovered in the
+section :ref:`nesting`. Every subdataset (and sub-subdataset, and
+so forth) would be listed as an individual "submodule" in this file.
+The "url" of this submodule is the Github-URL we installed in from.
+
+The second key specifies the :term:`Git-annex`\-specific configurations
+of this superdataset. For example, it lists the repository as a
+"version 5 repository", and gives the dataset its own Git-annex
+UUID. If you have read the hidden section in the section
+:ref:`symlink` you will recognize the name "MD5E". This is the
+hash function used to generate the annexed files keys and thus
+paths in the object tree.
+
+.. todo::
+
+   explain annex, submodule, and roommate.
+
+
+
+
+
+.. rubric:: Footnotes
+
+.. [#f1] A UUID is a universally unique identifier -- a 128-bit number
+         that unambiguously identifies information.

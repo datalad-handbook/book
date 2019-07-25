@@ -108,12 +108,17 @@ and fixed it, but if not, just ask a new question with a ``datalad`` tag.
 Make sure your question is as informative as it can be for others.
 Include
 
-- *context* -- what did you want to do and why
+- *context* -- what did you want to do and why?
 
 - the *problem* -- paste the error message (all of it), and provide the
-  steps necessary to reproduce it
+  steps necessary to reproduce it.
 
 - *technical details* -- what version of DataLad are you using, what version
   of Git-annex, and which Git-annex repository type, what is your operating
   system and -- if applicable -- Python version? :command:`datalad wtf` is your friend
   to find all of this information.
+
+
+.. todo::
+
+   Git annex specific error messages

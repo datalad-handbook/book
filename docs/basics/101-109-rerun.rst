@@ -6,7 +6,7 @@ DataLad, Re-Run!
 .. index:: ! datalad command; rerun
 
 So far, you created a simple ``.tsv`` file of all
-speakers and talk titles in the `longnow/` podcasts subdataset.
+speakers and talk titles in the ``longnow/`` podcasts subdataset.
 Let's actually take a look into this file now:
 
 .. runrecord:: _examples/DL-101-108-109
@@ -83,7 +83,7 @@ understands) as an argument for the
 :command:`datalad rerun` command (:manpage:`datalad-rerun` manual)! That's it!",
 he says happily.
 
-So you go ahead and find the commit checksum in your history:
+So you go ahead and find the commit shasum in your history:
 
 .. runrecord:: _examples/DL-101-108-113
    :language: console
@@ -93,8 +93,8 @@ So you go ahead and find the commit checksum in your history:
 
    $ git log -2
 
-Take that checksum and paste it after ``datalad rerun``
-(the first 6-8 characters of the checksum would be sufficient,
+Take that shasum and paste it after ``datalad rerun``
+(the first 6-8 characters of the shasum would be sufficient,
 here we're using all of them).
 
 .. runrecord:: _examples/DL-101-108-114
@@ -121,7 +121,7 @@ it will also not be recorded in the history.
 
    $ git log -1
 
-In the datasets history,
+In the dataset's history,
 we can see that a new ``datalad run`` was recorded. This action is
 committed by Datalad under the original commit message of the ``run``
 command, and looks just like the previous ``datalad run`` commit apart
@@ -138,7 +138,7 @@ compares one state (a commit specified with ``-f``/``--from``,
 by default the latest change)
 and another state from the dataset's history (a commit specified with
 ``-t``/``--to``). Let's do a ``datalad diff`` between the current state
-of the dataset and the previous commit (called "HEAD~1" in Git terminology):
+of the dataset and the previous commit (called "``HEAD~1``" in Git terminology):
 
 
 .. runrecord:: _examples/DL-101-108-116
@@ -157,7 +157,7 @@ what exactly changed. This is a task for ``git diff``:
    $ git diff HEAD~1
 
 This output actually shows the precise changes between the contents created
-with the first version of the script and the second script with the bugfix.
+with the first version of the script and the second script with the bug fix.
 All of the files that are added after the second directory
 was queried as well are shown in the ``diff``, preceded by a ``+``.
 
@@ -170,7 +170,7 @@ Quickly create a note about these two helpful commands in ``notes.txt``:
    $ cat << EOT >> notes.txt
    There are two useful functions to display changes between two
    states of a dataset: "datalad diff -f/--from COMMIT -t/--to COMMIT"
-   and "git diff COMMIT COMMIT", where COMMIT is a checksum of a commit
+   and "git diff COMMIT COMMIT", where COMMIT is a shasum of a commit
    in the history.
 
    EOT
@@ -185,7 +185,7 @@ Finally, save this note.
 
 Note that ``datalad rerun`` can re-execute the run records of both a ``datalad run``
 or a ``datalad rerun`` command,
-but not with any other type of datalad command in your history
+but does not work with any other type of datalad command in your history
 such as a ``datalad save`` on results or outputs after you executed a script.
 Therefore, make it a
 habit to record the execution of scripts by plugging it into ``datalad run``.
@@ -226,7 +226,7 @@ But prior to that, make a note about ``datalad run`` and ``datalad rerun`` in yo
    In its simplest form, datalad run only takes a commit message and the command that
    should be executed.
 
-   Any datalad run command can be re-executed by using its commit checksum as an argument
+   Any datalad run command can be re-executed by using its commit shasum as an argument
    in datalad rerun CHECKSUM. DataLad will take information from the run record of the original
    commit, and re-execute it. If no changes happen with a rerun, the command will not be written
    to history. Note: you can also rerun a datalad rerun command!

@@ -222,7 +222,7 @@ In principle, the challenge boils down to:
 
 * automate as much as possible to keep it as simple as possible (done with a Makefile)
 
-Lets start by revealing how this magic trick works. Everything relies on printing
+Let's start by revealing how this magic trick works. Everything relies on printing
 the results in the form of user-defined ``LaTeX`` definitions (the so called
 ``\newcommand``), referencing those definitions in your manuscript where the
 results should end up, and bind the ``\newcommands`` as ``\input{}`` to your ``.tex``

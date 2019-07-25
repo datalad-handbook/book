@@ -4,7 +4,7 @@ Summary
 -------
 
 In the last two sections, we have discovered the basics of installing a published DataLad dataset,
-and experienced the concept of modularly nesting datasets.
+and experienced the concept of modular nesting datasets.
 
 * A published dataset can be installed with the ``datalad install`` command:
   ``datalad install [--dataset PATH] --source PATH/URL PATH``.
@@ -37,6 +37,6 @@ Now what I can do with that?
 You have procedurally experienced how to install a dataset, but simultaneously you have
 learned a lot about the principles and features of DataLad datasets.
 Installing datasets and getting their content allows you to consume published datasets.
-By nesting datasets within each other, you can modularly re-use datasets. While this may
+By nesting datasets within each other, you can modular re-use datasets. While this may
 appear abstract, upcoming section will demonstrate many example of why this can be handy.
 

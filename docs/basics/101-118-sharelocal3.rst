@@ -33,7 +33,7 @@ nor is the resulting, resized image. "Let's go for this!",
 you say, and drag your confused room mate to the computer
 screen.
 
-First of all, find the commit checksum of the command you
+First of all, find the commit shasum of the command you
 want to run by taking a look into the history of the dataset
 (in the shared dataset):
 
@@ -49,12 +49,12 @@ want to run by taking a look into the history of the dataset
    :workdir: dl-101/mock_user/DataLad-101
    :emphasize-lines: 4
 
-   # lets view the history
+   # let's view the history
    $ git log --oneline
 
 Ah, there it is, the second most recent commit.
 Just as already done in LINK RUN SECTION,
-take this checksum and plug it into a ``datalad rerun``
+take this shasum and plug it into a ``datalad rerun``
 command:
 
 .. runrecord:: _examples/DL-101-118-103

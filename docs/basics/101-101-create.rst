@@ -43,7 +43,7 @@ This will create a dataset called ``DataLad-101`` in the directory you are curre
 in. For now, disregard ``-c text2git``. It applies a configuration template, but there
 will be other parts of this book to explain this in detail.
 
-Once created, a DataLad dataset looks like any other directory on your filesystem.
+Once created, a DataLad dataset looks like any other directory on your file system.
 Currently, it seems empty.
 
 .. runrecord:: _examples/DL-101_101-2
@@ -78,14 +78,14 @@ a built-in git command [#f1]_.
 
 We can see two :term:`commit`\s in the history of the repository.
 Each of them is identified by a unique 40 character sequence, called a
-:term:`checksum`.
+:term:`shasum`.
 Highlighted in this output is information about the author and about
 the time, as well as a :term:`commit message` that summarizes the
 performed action concisely. In this case, both commit messages were written by
 DataLad itself. The most recent change is on the top. The first commit
 written to the history therefore states that a new dataset was created,
 and the second commit to the history is related to ``-c text2git`` which
-uses a configuration template to instruct DataLad to store textfiles
+uses a configuration template to instruct DataLad to store text files
 in Git (but more on this later).
 Even though these commits were produced by DataLad,
 in most other cases, you will have to create the commit and
@@ -94,7 +94,7 @@ an informative commit message yourself.
 As already noted, any files you ``save`` in this dataset, and all modifications
 to these files that you ``save``, are tracked in this history.
 Importantly, this file tracking works
-regardless of the size of the files - a DataLad dataset could be
+regardless of the size of the files -- a DataLad dataset could be
 your private music or movie collection with single files being many GB in size.
 This is one aspect that distinguishes DataLad from many other
 version control tools, among them Git.

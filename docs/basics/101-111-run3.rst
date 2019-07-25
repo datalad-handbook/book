@@ -5,7 +5,7 @@ Content-protection, powered by Git-annex [1]
 
 **Oh crap!** A "permission denied" error? Confused about what we might have
 done wrong, we raise our hand to ask the instructor for help.
-Knowlingly, she smiles, and tells you about how DataLad protects content given
+Knowingly, she smiles, and tells you about how DataLad protects content given
 to it:
 
 "Content in your DataLad dataset is protected by :term:`Git-annex` from
@@ -105,7 +105,7 @@ the ``-o``/``--output`` option.
    ``-o directory/*``
 
 In order to execute ``datalad run`` with both the ``-i``/``--input`` and ``-o``/``--output``
-flag and see their magic, lets crop the second logo, ``logo_interval.jpg``:
+flag and see their magic, let's crop the second logo, ``logo_interval.jpg``:
 
 .. runrecord:: _examples/DL-101-111-105
    :language: console

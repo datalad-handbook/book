@@ -10,7 +10,7 @@ and checkout the changes with "git/datalad diff"
 to remotes/origin/master
 
 EOT
-$ datalad save -m "Add note on adding siblings" notes.txt
+$ datalad save -m "Add note on adding siblings"
 add(ok): notes.txt (file)
 save(ok): . (dataset)
 action summary:

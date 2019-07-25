@@ -101,8 +101,21 @@ pygments_style = 'tango'
 # A list of ignored prefixes for module index sorting.
 #modindex_common_prefix = []
 
+manpages_url = 'http://docs.datalad.org/generated/man/{page}.html'
+
+# numbered figures for better referencing
+numfig = True
+numfig_secnum_depth = 1
+
+# convert quotes and dashes into to proper symbols
+smartquotes = True
+
+# Trim spaces before footnote references that are necessary for the reST parser
+# to recognize the footnote, but do not look too nice in the output.
+trim_footnote_reference_space = True
 
 # -- Options for HTML output ---------------------------------------------------
+html_baseurl = 'http://handbook.datalad.org/'
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
@@ -156,10 +169,6 @@ html_static_path = ['_static']
 # If not '', a 'Last updated on:' timestamp is inserted at every page bottom,
 # using the given strftime format.
 #html_last_updated_fmt = '%b %d, %Y'
-
-# If true, SmartyPants will be used to convert quotes and dashes to
-# typographically correct entities.
-#html_use_smartypants = True
 
 # Custom sidebar templates, maps document names to template names.
 html_sidebars = {

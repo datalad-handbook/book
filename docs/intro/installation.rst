@@ -11,7 +11,7 @@ The content in this chapther is largely based on the information given on the
 and the `DataLad documentation <http://docs.datalad.org/en/latest/gettingstarted.html>`_.
 
 Beyond DataLad itself, the installation requires Python, Pythons package manager ``pip``,
-:term:`Git` and :term:`Git-annex`. The instructions below detail how to install
+:term:`Git`, and :term:`Git-annex`. The instructions below detail how to install
 each of these components for different common operating systems. Please
 `file an issue <https://github.com/datalad-handbook/book/issues/new>`_
 if you encounter problems.
@@ -284,7 +284,7 @@ please `get in touch <https://github.com/datalad-handbook/book/issues/new>`_.
       - Obtain the current Git-annex versions installer
         `from here <https://downloads.kitenet.net/git-annex/windows/current/>`_.
         Save the file, and double click the downloaded
-        ``git-annex-installer.exe`` in your Downloads.
+        :command:`git-annex-installer.exe` in your Downloads.
 
       - During installation, you will be prompted to "Choose Install Location".
         **Specify the directory in which Git is installed**.
@@ -299,7 +299,7 @@ Initial configuration
 ^^^^^^^^^^^^^^^^^^^^^
 
 Initial configurations only concern the setup of a :term:`Git` identity. If you
-are a Git-User, you should hence be good to go.
+are a Git-user, you should hence be good to go.
 If you have not used the version control system Git before, you will need to
 tell Git some information about you. This needs to be done only once.
 In the following example, exchange ``Bob McBobFace`` with your own name, and

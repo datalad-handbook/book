@@ -1,7 +1,7 @@
 $ git log -p
-commit f4ee04355a1247122bee991e9ad6d85b975b23dc
+commit 13afaa688f85c75de8611dc82c249746eaab61a6
 Author: Adina Wagner <adina.wagner@t-online.de>
-Date:   Wed Jul 24 09:43:09 2019 +0200
+Date:   Wed Jul 24 13:15:21 2019 +0200
 
     [DATALAD RUNCMD] create a list of podcast titles
     
@@ -9,7 +9,7 @@ Date:   Wed Jul 24 09:43:09 2019 +0200
     {
      "chain": [],
      "cmd": "bash code/list_titles.sh > recordings/podcasts.tsv",
-     "dsid": "9821e284-ade6-11e9-a3c6-e86a64c8054c",
+     "dsid": "25be60d2-ae04-11e9-a3c6-e86a64c8054c",
      "exit": 0,
      "extra_inputs": [],
      "inputs": [],
@@ -231,9 +231,9 @@ index 0000000..f691b53
 +2019-06-05	David Byrne  Good News   Sleeping Beauties
 +2019-06-25	Mariana Mazzucato  Rethinking Value
 
-commit f5bc9a7f0c7b712cad9d50391920aeb9ef4fd933
+commit b685d0228998ad223d4939e60dd312d42358eb35
 Author: Adina Wagner <adina.wagner@t-online.de>
-Date:   Wed Jul 24 09:43:08 2019 +0200
+Date:   Wed Jul 24 13:15:20 2019 +0200
 
     Add simple script to write a list of podcast speakers and titles
 
@@ -254,9 +254,9 @@ index 0000000..f57ac65
 +   printf "${base#*__}\n" | tr '_' ' ';
 +done
 
-commit e03daca4b772c632bee000d89df7ab7746bfd34a
+commit cef0456abbc59d8cafa8cbd14d3e28e0119022fe
 Author: Adina Wagner <adina.wagner@t-online.de>
-Date:   Wed Jul 24 09:43:07 2019 +0200
+Date:   Wed Jul 24 13:15:19 2019 +0200
 
     Add note on datalad install
 
@@ -272,9 +272,9 @@ index 729c441..540f757 100644
 +If you install a dataset into an existing dataset (as a subdataset), remember to specify the
 +root of the superdataset with the '-d' option.
 
-commit 33e21d76e3c738d5429bcd2606b28be765ca131f
+commit 5a33d5e2cd82b6bcff534e5ad1dc1c38854366d3
 Author: Adina Wagner <adina.wagner@t-online.de>
-Date:   Wed Jul 24 09:42:56 2019 +0200
+Date:   Wed Jul 24 13:15:08 2019 +0200
 
     [DATALAD] Recorded changes
 
@@ -296,9 +296,9 @@ index 0000000..dcc34fb
 @@ -0,0 +1 @@
 +Subproject commit dcc34fbe669b06ced84ced381ba0db21cf5e665f
 
-commit de95952585558d37c7938895616857e1139f8c06
+commit d25fc886cb7c026b9d3f60e8d0f4502439528b89
 Author: Adina Wagner <adina.wagner@t-online.de>
-Date:   Wed Jul 24 09:42:54 2019 +0200
+Date:   Wed Jul 24 13:15:04 2019 +0200
 
     add note on datalad save
 
@@ -312,9 +312,9 @@ index c3587d4..729c441 100644
 +'datalad save [-m] PATH' saves the file (modifications) to history.
 +Note to self: Always use informative, concise commit messages.
 
-commit 34329a84f5963aa64a4da1412a9c71a0e22bb320
+commit eb011ecd413db391c2e87d920df56293e513fb9d
 Author: Adina Wagner <adina.wagner@t-online.de>
-Date:   Wed Jul 24 09:42:53 2019 +0200
+Date:   Wed Jul 24 13:15:03 2019 +0200
 
     Add notes on datalad create
 
@@ -327,9 +327,9 @@ index 0000000..c3587d4
 +One can create a new dataset with 'datalad create [--description] PATH'.
 +The dataset is created empty
 
-commit 70d624204d7ea095222d9ab1e9623f8f36a1f779
+commit 4e3ff6db59ce5b66878f8f39103132ec16a0dc76
 Author: Adina Wagner <adina.wagner@t-online.de>
-Date:   Wed Jul 24 09:42:53 2019 +0200
+Date:   Wed Jul 24 13:15:03 2019 +0200
 
     add reference book about git
 
@@ -342,9 +342,9 @@ index 0000000..c5d2ab2
 +../.git/annex/objects/G6/Gj/MD5E-s12465653--05cd7ed561d108c9bcf96022bc78a92c.pdf/MD5E-s12465653--05cd7ed561d108c9bcf96022bc78a92c.pdf
 \ No newline at end of file
 
-commit 7a56a04a29010d63575c7cfa93d4230f85d2e28a
+commit 680a3e8e322d044f9dbb4621b1d3fbd6a3ea1ee8
 Author: Adina Wagner <adina.wagner@t-online.de>
-Date:   Wed Jul 24 09:42:50 2019 +0200
+Date:   Wed Jul 24 13:14:50 2019 +0200
 
     add books on Python and Unix to read later
 
@@ -365,9 +365,9 @@ index 0000000..96f3d29
 +../.git/annex/objects/qx/x9/MD5E-s4406537--8e25b5f481c0b82a9a3dc241a12423ad.pdf/MD5E-s4406537--8e25b5f481c0b82a9a3dc241a12423ad.pdf
 \ No newline at end of file
 
-commit e98c161bc584bee92e5101dc1c64a3417744164c
+commit 7cca14cb3ef5f4a2bdbae170883a0afbf846eda4
 Author: Adina Wagner <adina.wagner@t-online.de>
-Date:   Wed Jul 24 09:42:32 2019 +0200
+Date:   Wed Jul 24 13:14:05 2019 +0200
 
     Instruct annex to add text files to Git
 
@@ -384,9 +384,9 @@ index c3aaefe..8e9a246 100644
 +* annex.largefiles=(not(mimetype=text/*))
 \ No newline at end of file
 
-commit e25b96d02dc00f4fd943260bb80996302983de08
+commit 3d184c5a0e0347a2fd42fac275664f3851fe92ff
 Author: Adina Wagner <adina.wagner@t-online.de>
-Date:   Wed Jul 24 09:42:31 2019 +0200
+Date:   Wed Jul 24 13:14:04 2019 +0200
 
     [DATALAD] new dataset
 
@@ -403,12 +403,12 @@ index 0000000..b540820
 \ No newline at end of file
 diff --git a/.datalad/config b/.datalad/config
 new file mode 100644
-index 0000000..bb2ca66
+index 0000000..123e389
 --- /dev/null
 +++ b/.datalad/config
 @@ -0,0 +1,2 @@
 +[datalad "dataset"]
-+	id = 9821e284-ade6-11e9-a3c6-e86a64c8054c
++	id = 25be60d2-ae04-11e9-a3c6-e86a64c8054c
 diff --git a/.gitattributes b/.gitattributes
 new file mode 100644
 index 0000000..c3aaefe

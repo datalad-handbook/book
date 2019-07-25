@@ -5,7 +5,7 @@ Updating datasets: The basics
 
 All of what you have seen about sharing dataset was really
 cool, and for the most part also surprisingly intuitive.
-``datalad run`` commands or file retrieval worked exactly as
+:command:`datalad run` commands or file retrieval worked exactly as
 you imagined it to work, and you begin to think that slowly but
 steadily you're getting a feel about how DataLad really works.
 
@@ -22,8 +22,8 @@ this would have resulted in about the same output, right?
 What we will be looking into now is how shared DataLad
 datasets can be updated.
 
-Remember that you added some notes on ``datalad install``
-and ``git annex whereis`` into the original ``DataLad-101``?
+Remember that you added some notes on :command:`datalad install`
+and :command:`git annex whereis` into the original ``DataLad-101``?
 
 This is a change that is not reflected in your "shared"
 installation in ``../mock_user/DataLad-101``:
@@ -47,7 +47,10 @@ it can query the original dataset whether any changes
 happened since the last time it checked, and if so, retrieve and
 integrate them.
 
-This is done with the ``datalad update --merge`` command.
+.. index:: ! datalad command; update
+
+This is done with the :command:`datalad update --merge`
+command (:manpage:`datalad-update` manual).
 
 .. runrecord:: _examples/DL-101-119-102
    :language: console
@@ -103,11 +106,11 @@ dataset to your own ``DataLad-101`` dataset:
 
    # save the changes
 
-   $ datalad save -m "add note about datalad update" notes.txt
+   $ datalad save -m "add note about datalad update"
 
 
 PS: You might wonder whether there is also a sole
-``datalad update`` command. Yes, there is -- if you are
+:command:`datalad update` command. Yes, there is -- if you are
 a Git-user and know about branches and merging you can read the
 ``Note for Git-users`` below. Else, a thorough explanation
 will come at a later point in time.
@@ -116,11 +119,11 @@ will come at a later point in time.
 
 .. gitusernote::
 
-   ``datalad update`` is the DataLad equivalent of a ``git fetch``,
-   ``datalad update --merge`` is the DataLad equivalent of a
-   ``git pull``.
-   Upon a simple ``datalad update``, the remote information
-   is available on a branch seperate from the master branch
+   :command:`datalad update` is the DataLad equivalent of a :command:`git fetch`,
+   :command:`datalad update --merge` is the DataLad equivalent of a
+   :command:`git pull`.
+   Upon a simple :command:`datalad update`, the remote information
+   is available on a branch separate from the master branch
    -- in most cases this will be ``remotes/origin/master``.
-   You can ``git checkout`` this branch or run ``git diff`` to
+   You can :command:`git checkout` this branch or run :command:`git diff` to
    explore the changes and identify potential merge conflicts.

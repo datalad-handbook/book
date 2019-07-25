@@ -31,6 +31,8 @@ with the basics of a command line interface.
    :figwidth: 50%
    :alt: A z-shell on a Debian system
 
+   A terminal window in a standard desktop environment.
+
 Command Syntax
 ==============
 
@@ -304,10 +306,10 @@ Pressing Tab again will list the matching options (``Documents`` and ``Downloads
 
 .. only:: html
 
-   A visual example of tab-completion in action:
-   
    .. figure:: https://upload.wikimedia.org/wikipedia/commons/a/ad/Command-line-completion-example.gif
       :alt: Tab completion
+
+      A visual example of tab-completion in action:
 
 
 **That's it -- equipped with the basics of Unix, you are good to go on your DataLad advanture!**

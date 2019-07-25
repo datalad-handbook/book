@@ -117,7 +117,7 @@ this in the original ``DataLad-101`` directory, and don't forget to save it.
    :language: console
    :workdir: dl-101/DataLad-101
 
-   $ datalad save -m "add note on git annex whereis" notes.txt
+   $ datalad save -m "add note on git annex whereis"
 
 
 .. rubric:: Footnotes

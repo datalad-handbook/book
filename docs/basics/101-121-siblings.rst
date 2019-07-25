@@ -91,9 +91,12 @@ dataset in our own, original dataset.
 
 Let's see how this is done.
 
+.. index:: ! datalad command; siblings
+
 First of all, navigate back into the original dataset.
 In the original dataset, "add" a "sibling" by using
-the ``datalad siblings`` command. The command takes the base command,
+the :command:`datalad siblings` command (:manpage:`datalad-siblings` manual).
+The command takes the base command,
 ``datalad siblings``, an action, in this case ``add``, a path to the
 root of the dataset ``-d .``, a name for the sibling, ``-s/--name roommate``,
 and a URL or path to the sibling, ``--url ../mock_user/DataLad-101``.
@@ -309,4 +312,4 @@ Create a note about this, and save it.
    to remotes/origin/master
 
    EOT
-   $ datalad save -m "Add note on adding siblings" notes.txt
+   $ datalad save -m "Add note on adding siblings"

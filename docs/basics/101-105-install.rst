@@ -27,7 +27,10 @@ can share our mid-term and final projects easily!"
 upcoming lecture dates in your calendar.
 There is so much exciting stuff to come, you can't miss a single one.
 
-Installing an existing dataset is done with the ``datalad install`` command.
+.. index:: ! datalad command; install
+
+Installing an existing dataset is done with the :command:`datalad install` command
+(:manpage:`datalad-install`).
 The command takes a location of an existing dataset (the *source*), and a path to where you want
 the dataset to be installed. The source can be a URL or a path to a local directory,
 or an SSH server [#f1]_.
@@ -197,10 +200,14 @@ download all of this data right away! That would have taken hours given the crap
 internet connection in the lecture hall, and you aren't even sure whether your
 hard drive has much space left...
 
+
 But you nevertheless are curious on how to actually listen to one of these ``.mp3``\s now.
 So how does one actually "get" the files?
 
-The command to retrieve file content is ``datalad get``. You can specify one or more
+.. index:: ! datalad command; get
+
+The command to retrieve file content is :command:`datalad get` (:manpage:`datalad-get` manual).
+You can specify one or more
 specific files, or ``get`` all of the dataset by specifying ``datalad get .`` (with ``.``
 denoting "current directory").
 
@@ -296,7 +303,7 @@ modification.
    root of the superdataset with the '-d' option.
 
    EOT
-   $ datalad save -m "Add note on datalad install" notes.txt
+   $ datalad save -m "Add note on datalad install"
 
 
 .. rubric:: Footnotes

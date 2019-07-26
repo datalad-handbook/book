@@ -22,7 +22,20 @@ computers, or datasets.
 "First of all, when we talk about configurations, we have
 to differentiate between different scopes of configuration,
 and different tools the configuration belongs or applies to",
-our lecturer starts.
+our lecturer starts. "In DataLad dataset are different tools that can
+have a configuration: :term:`Git`, :term:`Git-annex`, and
+obviously DataLad itself. Because these tools are all
+combined by DataLad to help you manage your data,
+it is important to understand how the configuration of one
+software is used by or influences a second tool, or the overall
+dataset performance."
+
+"Oh crap, one of these theoretical lectures again" mourns a
+student from the row behind you. You'd be much more excited
+about any hands-on lecture filled with commands as well, but the
+recent lecture about :term:`Git-annex` and the :term:`object-tree`
+was surprisingly captivating, so you're looking forward to today.
+"Shht! I want to hear this!", you shush him with a wink.
 
 "We will start by looking into the very first configuration
 you did, already before the course started: The *global*
@@ -37,18 +50,23 @@ in :ref:`install` or similar instructions, and configured your
 
 This configuration is a *user-specific* configuration
 (called *global* configurations by Git), and therefore
-applies to your user account. Where ever on your file system
-*you* run a Git or DataLad command, this global configuration will
-associate the name and email address you supplied in
-the :command:`git config --global --add` commands with this action.
-
+applies to your user account.
 What the above commands do is very simple: They search for
 a specific :term:`Git config file`, and write the name and
-email supplied with the command into the file. Whenever you
+email supplied with the command into the file.
+Where ever on your file system
+*you* run a Git -- or, because it sits on top of Git, DataLad --
+command, this global configuration will
+associate the name and email address you supplied in
+the :command:`git config --global --add` commands with this action.
+For examples, whenever you
 ``datalad save``, the information in this file is used for the
-history entry.
+history entry about commit author and email.
 
-However, in total, there can be three different ``.(git)config``
+This configuration has only on of a maximum of three possible scopes
+a Git configuration can have, and each of these types of
+configurations resides in its own file.
+At maximum, there can be three different ``.(git)config``
 files: For the global configuration, the values you specify
 are stored in a file called ``.gitconfig`` in your home directory. Among
 your name and email address, this file can store general
@@ -57,8 +75,10 @@ options.
 
 Within each Git repository -- and therefore DataLad dataset --
 are *repository-specific* configurations. This is the second type of
-configuration file, and it is ``.git/config`` within every
-Git repository (and thus DataLad dataset)
+configuration file, and its scope is more limited than that of the global
+configuration. For this reason, the repository-specific configuration
+does not reside in a file in your home directory, but in ``.git/config``
+within every Git repository (and thus DataLad dataset).
 Let's find out how this file looks like in the ``DataLad-101``
 dataset:
 
@@ -73,44 +93,171 @@ of so called "sections" with the section names in square brackets.
 Within each section, ``name = value`` pairs specify configurations
 for the given section.
 
-For one, we can find the :term:`sibling`
-"roommate" we defined in :ref:`sibling` as the last section. You can see that
+For one, as the last section, we can find the :term:`sibling`
+"roommate" we defined in :ref:`sibling`. You can see that
 its "url" is a path in your file system to your room mate's
 dataset. The "annex-uuid" [#f1]_ would be the character string a
 :command:`git annex whereis` displays about annexed content your
 room mate's directory stores.
+This file, therefore, is where DataLad *registered* the sibling
+with :command:`datalad siblings add`, and thanks to it you can
+collaborate with your room mate.
 
 TODO: fetch, annex-uuid, annex-ignore
 
-This file, therefore, is where DataLad *registered* the sibling
-with :command:`datalad siblings add`.
 
 Furthermore, we can find a reference to the ``longnow`` podcasts
-we installed as a subdataset. The ``.config`` file lists this a
+we installed as a subdataset. The ``.config`` file lists this as
 a ":term:`submodule`". This is Git terminology, and describes a
 Git repository inside of another Git repository -- just like
 the super- and subdataset principles you discovered in the
 section :ref:`nesting`. Every subdataset (and sub-subdataset, and
 so forth) would be listed as an individual "submodule" in this file.
-The "url" of this submodule is the Github-URL we installed in from.
+When you install a DataLad dataset the submodule entries
+in this config file store the information about the subdatasets
+``--source`` or *origin* (the "url") and its path within the superdataset.
+If one installs dataset without the ``-``/``--recursive``
+option (just like your room mate did), a subsequent plain
+:command:`datalad install` will install the subdatasets from
+the sources found in this configuration,
+and a recursive install will do the same right
+with the installation of the superdataset.
+If you want, go back to section :ref:`installds` to see that the
+"url" is the same URL we installed the longnow dataset from, and
+go back to section :ref:`sharelocal1` to remind yourself of
+how installing a dataset with subdatasets looked and felt like.
 
-The second key specifies the :term:`Git-annex`\-specific configurations
+The second section in the ``config`` file specifies the
+:term:`Git-annex`\-specific configurations
 of this superdataset. For example, it lists the repository as a
 "version 5 repository", and gives the dataset its own Git-annex
 UUID. If you have read the hidden section in the section
 :ref:`symlink` you will recognize the name "MD5E". This is the
 hash function used to generate the annexed files keys and thus
-paths in the object tree.
+paths in the object tree. Thus, this configuration file is where
+Git-annex retrieves information about which key format it is
+supposed to use.
+
+Lastly, the first section relates to "core" Git configurations.
 
 .. todo::
 
-   explain annex, submodule, and roommate.
+   * understand this section
+   * understand why there are .gitmodules files with the same information
+     as in the submodule section
+
+"By now we have only seen this huge amount of configurations
+in files that Git creates and uses! What does DataLad add to this?"
+you impatiently raise your arm and ask.
+
+"DataLad adds a repository-specific configuration file as well",
+you hear in response. "This file can be found in the ``.datalad``
+directory. Because everyone seems a bit impatient, we'll skip
+the system-wide Git configuration [#f2]_, but before we go to DataLad,
+we'll need to look at Git-annex configurations.
+The system-wide configuration of Git might just be something for some
+spare five minutes"
+
+"You surely all remember about the ``text2git`` configuration template
+we applied to ``DataLad-101``."
+
+Let's now see what exactly this configuration template did. Look into
+the file ``.gitattributes``. It lies right in the root of your superdataset:
+
+.. runrecord:: _examples/DL-101-125-102
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ cat .gitattributes
+
+This looks neither spectacular nor pretty. There is one key word that
+you recognize, though: MD5E. It's again a reference to the type of
+key used by Git-annex to identify and store file content in the object-tree.
+
+This ``annex.backend`` option indeed would be the place to change
+the key type. TODO: how precisely?
+
+But what is the rest? We'll start with the last row::
+
+   * annex.largefiles=(not(mimetype=text/*))
+
+Uhhh, cryptic. The lecturer explains:
+
+"Git-annex will *annex*, that is: store in the object-tree,
+anything it considers to be a "large file". By default, anything
+in your dataset would be a "large file" -- that's just how
+Git-annexes default is configured. However, in section
+:ref:`symlink` I already mentioned that exceptions to this behavior
+can be defined based on
+
+#. file size
+
+#. and/or path/pattern, and thus for example file extensions,
+   or names, or file types (e.g. text files, as with the
+   ``text2git`` configuration template).
+
+What you can see in this ``.gitattribute`` file is the latter option:
+With ``mimetype=text/*)``, the ``text2git`` configuration template
+configured Git-annex to regard files of type text **not** as a large file.
+Thanks to this little line, your text files are not annexed, but stored
+directly in Git.
+
+todo; explain the * and **
+
+
+"This is one way of configuring the ``annex.largefiles`` option -- using
+file *types* as a specification. You could just as easily however also
+specify paths or single file names."
+
+To see an example of this, navigate into the longnow subdataset,
+and view this dataset's ``.gitattributes`` file:
+
+.. runrecord:: _examples/DL-101-125-103
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ cd recordings/longnow
+   $ cat .gitattributes
+
+The relevant part is ``README.md annex.largefiles=nothing``
+
+
+.. todo::
+
+   are there other mimetypes? where does the name come from? what does
+   the ``/*`` do?
 
 
 
 
+.. runrecord:: _examples/DL-101-125-103
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ cat .datalad/config
+
+.. todo::
+
+   find out what can be inside a datalad config file
+
+This has been an intense lecture, you have to admit. One definite
+take-away from it has been that you now know a second reason why the hidden
+``.git`` and ``.datalad`` directory contents shouldn't be carelessly
+tempered with -- they contain all of the repositories configurations.
+
+But you now also know how to modify these configurations with enough
+care and background knowledge such that nothing should go wrong once you
+want to work with and change them. Slowly, you realize with pride,
+you're more and more becoming a DataLad power-user.
 
 .. rubric:: Footnotes
 
 .. [#f1] A UUID is a universally unique identifier -- a 128-bit number
          that unambiguously identifies information.
+
+.. [#f2] The third scope of a Git configuration are the system wide configurations.
+         These are stored (if they exist) in ``/etc/gitconfig`` and contain settings that would
+         apply to every user on the computer you are using. These configurations
+         are not relevant for DataLad-101, and we will thus skip them. You can
+         read more about Gits configurations and different files
+         `here <https://git-scm.com/docs/git-config>`_.

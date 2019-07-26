@@ -87,7 +87,7 @@ itself with the new figures.
 .. note::
    The actual manuscript this use case is based on can be found
    `here <https://github.com/psychoinformatics-de/paper-remodnav/>`_:
-   https://github.com/psychoinformatics-de/paper-remodnav/. ``datalad install``
+   https://github.com/psychoinformatics-de/paper-remodnav/. :command:`datalad install`
    the repository and follow the few instructions in the README to experience the
    DataLad world described above.
 
@@ -95,7 +95,7 @@ itself with the new figures.
 Step-by-Step
 ============
 
-``datalad create`` a DataLad dataset (in this example, it is named "algorithm-paper"):
+:command:`datalad create` a DataLad dataset (in this example, it is named "algorithm-paper"):
 
 .. code-block:: bash
 
@@ -126,7 +126,7 @@ To populate the DataLad dataset, add all the
 data collections you want to perform analyses on as individual DataLad subdatasets within
 ``data/``.
 In this example, all data collections are already DataLad datasets or git repositories and hosted on Github.
-``datalad install`` therefore installs them as subdatasets:
+:command:`datalad install` therefore installs them as subdatasets:
 
 .. code-block:: bash
 
@@ -144,7 +144,7 @@ In this example, all data collections are already DataLad datasets or git reposi
    [...]
 
 Any script we need for the analysis should live inside ``code/``. During script writing, save any changes
-to you want to record in your history with ``datalad save``.
+to you want to record in your history with :command:`datalad save`.
 
 The eventual outcome of this work is a Github repository that anyone can use to get the data
 and recompute all results
@@ -153,7 +153,7 @@ This requires minor preparation:
 
 * The final analysis should be able to run on anyone's filesystem. It is therefore important to reference datafiles with the scripts in ``code/`` as a :term:`relative path` instead of hard-coding absolute paths.
 
-* After cloning the ``algorithm-paper`` repository, data files are not yet present locally. To spare users the work of a manual ``datalad get``, you can have your script take care of data retrieval
+* After cloning the ``algorithm-paper`` repository, data files are not yet present locally. To spare users the work of a manual :command:`datalad get`, you can have your script take care of data retrieval
 
 These two preparations can be seen in this excerpt from the Python script:
 
@@ -173,7 +173,7 @@ These two preparations can be seen in this excerpt from the Python script:
    get(dataset='.', path=data)
 
 
-Lastly, ``datalad install`` the software repository as a subdataset in the root of the superdataset.
+Lastly, :command:`datalad install` the software repository as a subdataset in the root of the superdataset.
 
 .. code-block:: bash
 
@@ -222,7 +222,7 @@ In principle, the challenge boils down to:
 
 * automate as much as possible to keep it as simple as possible (done with a Makefile)
 
-Lets start by revealing how this magic trick works. Everything relies on printing
+Let's start by revealing how this magic trick works. Everything relies on printing
 the results in the form of user-defined ``LaTeX`` definitions (the so called
 ``\newcommand``), referencing those definitions in your manuscript where the
 results should end up, and bind the ``\newcommands`` as ``\input{}`` to your ``.tex``

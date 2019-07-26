@@ -1,0 +1,22 @@
+$ git log --reverse --oneline
+3d184c5 [DATALAD] new dataset
+7cca14c Instruct annex to add text files to Git
+680a3e8 add books on Python and Unix to read later
+4e3ff6d add reference book about git
+eb011ec Add notes on datalad create
+d25fc88 add note on datalad save
+5a33d5e [DATALAD] Recorded changes
+cef0456 Add note on datalad install
+b685d02 Add simple script to write a list of podcast speakers and titles
+13afaa6 [DATALAD RUNCMD] create a list of podcast titles
+3ee0008 BF: list both directories content
+2a644dd [DATALAD RUNCMD] create a list of podcast titles
+7bd091b add note datalad and git diff
+25e704b add note on basic datalad run and datalad rerun
+6650f9b [DATALAD RUNCMD] convert -resize 400x400 recordings/longn...
+7db9563 resized picture by hand
+1671899 [DATALAD RUNCMD] convert -resize 450x450 recordings/longn...
+66cf907 add additional notes on run options
+240e1ec [DATALAD RUNCMD] Resize logo for slides
+d99b5c1 [DATALAD RUNCMD] Resize logo for slides
+615d0c2 add note on clean datasets

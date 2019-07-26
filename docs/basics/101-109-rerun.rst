@@ -1,0 +1,242 @@
+.. _run2:
+
+DataLad, Re-Run!
+----------------
+
+.. index:: ! datalad command; rerun
+
+So far, you created a simple ``.tsv`` file of all
+speakers and talk titles in the ``longnow/`` podcasts subdataset.
+Let's actually take a look into this file now:
+
+.. runrecord:: _examples/DL-101-108-109
+   :language: console
+   :workdir: dl-101/DataLad-101
+   :lines: 1-30
+
+   $ less recordings/podcasts.tsv
+
+Not too bad, and certainly good enough for the podcast night people.
+What's been cool about creating this file is that it was created with
+a script within a :command:`datalad run` command. Thanks to :command:`datalad run`,
+the output file ``podcasts.tsv`` is associated with the script it
+generated.
+
+Upon reviewing the list you realized that you made a mistake, though: you only
+listed the talks in the SALT series (the
+``Long_Now__Seminars_About_Long_term_Thinking/`` directory), but not
+in the ``Long_Now__Conversations_at_The_Interval/`` directory.
+Let's fix this in the script. Replace the contents in ``code/list_titles.sh``
+with the following, fixed script:
+
+.. runrecord:: _examples/DL-101-108-110
+   :language: console
+   :workdir: dl-101/DataLad-101
+   :emphasize-lines: 2
+
+   $ cat << EOT > code/list_titles.sh
+   for i in recordings/longnow/Long_Now*/*.mp3; do
+      # get the filename
+      base=\$(basename "\$i");
+      # strip the extension
+      base=\${base%.mp3};
+      printf "\${base%%__*}\t" | tr '_' '-';
+      # name and title without underscores
+      printf "\${base#*__}\n" | tr '_' ' ';
+
+   done
+   EOT
+
+Because the script is now modified, save the modifications to the dataset.
+We can use the shorthand "BF" to denote "Bug fix" in the commit message.
+
+.. runrecord:: _examples/DL-101-108-111
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ datalad status
+
+.. runrecord:: _examples/DL-101-108-112
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ datalad save -m "BF: list both directories content" code/list_titles.sh
+
+What we *could* do is run the same :command:`datalad run` command as before to recreate
+the file, but now with all of the contents:
+
+.. code-block:: bash
+
+   # don't execute this!
+   $ datalad run -m "create a list of podcast titles" "bash code/list_titles.sh"
+
+However, think about any situation where the command would be longer than this,
+or that is many months past the first execution. It wouldn't be easy to remember
+the command, nor would it be very convenient to copy it from the ``run record``.
+
+Luckily, a fellow student remembered the DataLad way of re-executing
+a ``run`` command, and he's eager to show it to you.
+
+"In order to re-execute a :command:`datalad run` command,
+find the commit and use its shasum (or a tag, or anything else that Git
+understands) as an argument for the
+:command:`datalad rerun` command (:manpage:`datalad-rerun` manual)! That's it!",
+he says happily.
+
+So you go ahead and find the commit shasum in your history:
+
+.. runrecord:: _examples/DL-101-108-113
+   :language: console
+   :workdir: dl-101/DataLad-101
+   :lines: 1-12
+   :emphasize-lines: 8
+
+   $ git log -2
+
+Take that shasum and paste it after :command:`datalad rerun`
+(the first 6-8 characters of the shasum would be sufficient,
+here we're using all of them).
+
+.. runrecord:: _examples/DL-101-108-114
+   :language: console
+   :workdir: dl-101/DataLad-101
+   :realcommand: echo "$ datalad rerun $(git rev-parse HEAD~1)" && datalad rerun $(git rev-parse HEAD~1)
+
+Now DataLad has made use of the ``run record``, and
+re-executed the original command based on the information in it.
+Because we updated the script, the output ``podcasts.tsv``
+has changed and now contains the podcast
+titles of both subdirectories.
+You've probably already guessed it, but the easiest way
+to check whether a :command:`datalad rerun`
+has changed the desired output file is
+to check whether the rerun command appears in the datasets history:
+If a :command:`datalad rerun` does not add or change any content in the dataset,
+it will also not be recorded in the history.
+
+.. runrecord:: _examples/DL-101-108-115
+   :language: console
+   :workdir: dl-101/DataLad-101
+   :emphasize-lines: 4
+
+   $ git log -1
+
+In the dataset's history,
+we can see that a new :command:`datalad run` was recorded. This action is
+committed by Datalad under the original commit message of the ``run``
+command, and looks just like the previous :command:`datalad run` commit apart
+from the execution time.
+
+.. index:: ! datalad command; diff
+
+Two cool tools that go beyond the :command:`git log`
+are the :command:`datalad diff` (:manpage:`datalad-diff` manual) and :command:`git diff` commands.
+Both commands can report differences between two states of
+a dataset. Thus, you can get an overview of what changed between two commits.
+Both commands have a similar, but not identical structure: :command:`datalad diff`
+compares one state (a commit specified with ``-f``/``--from``,
+by default the latest change)
+and another state from the dataset's history (a commit specified with
+``-t``/``--to``). Let's do a :command:`datalad diff` between the current state
+of the dataset and the previous commit (called "HEAD~1" in Git terminology):
+of the dataset and the previous commit (called "``HEAD~1``" in Git terminology):
+
+
+.. runrecord:: _examples/DL-101-108-116
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ datalad diff --to HEAD~1
+
+This indeed shows the output file as "modified". However, we don't know
+what exactly changed. This is a task for :command:`git diff`:
+
+.. runrecord:: _examples/DL-101-108-117
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ git diff HEAD~1
+
+This output actually shows the precise changes between the contents created
+with the first version of the script and the second script with the bug fix.
+All of the files that are added after the second directory
+was queried as well are shown in the ``diff``, preceded by a ``+``.
+
+Quickly create a note about these two helpful commands in ``notes.txt``:
+
+.. runrecord:: _examples/DL-101-108-118
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ cat << EOT >> notes.txt
+   There are two useful functions to display changes between two
+   states of a dataset: "datalad diff -f/--from COMMIT -t/--to COMMIT"
+   and "git diff COMMIT COMMIT", where COMMIT is a shasum of a commit
+   in the history.
+
+   EOT
+
+Finally, save this note.
+
+.. runrecord:: _examples/DL-101-108-119
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ datalad save -m "add note datalad and git diff"
+
+Note that :command:`datalad rerun` can re-execute the run records of both a :command:`datalad run`
+or a :command:`datalad rerun` command,
+but not with any other type of datalad command in your history
+such as a :command:`datalad save` on results or outputs after you executed a script.
+Therefore, make it a
+habit to record the execution of scripts by plugging it into :command:`datalad run`.
+
+This very basic example of a :command:`datalad run` is as simple as it can get, but it
+is already
+convenient from a memory-load perspective: Now you don't need to
+remember the commands or scripts involved in creating an output.
+Also, incidentally, we have generated :term:`provenance` information. It is
+now recorded in the history of the dataset how the output ``podcasts.tsv`` came
+into existence.
+
+For example, to find out who (or what) created or modified a file,
+give the file path to :command:`git log` (prefixed by ``--``):
+
+.. runrecord:: _examples/DL-101-108-120
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ git log -- recordings/podcasts.tsv
+
+
+Neat, isn't it?
+
+Still, this :command:`datalad run` was very simple.
+The next section will demonstrate how :command:`datalad run` becomes handy in
+more complex standard use cases: situations with *locked* contents.
+
+But prior to that, make a note about :command:`datalad run` and :command:`datalad rerun` in your
+``notes.txt`` file.
+
+.. runrecord:: _examples/DL-101-108-121
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ cat << EOT >> notes.txt
+   The datalad run command can record the impact a script or command has on a Dataset.
+   In its simplest form, datalad run only takes a commit message and the command that
+   should be executed.
+
+   Any datalad run command can be re-executed by using its commit shasum as an argument
+   in datalad rerun CHECKSUM. DataLad will take information from the run record of the original
+   commit, and re-execute it. If no changes happen with a rerun, the command will not be written
+   to history. Note: you can also rerun a datalad rerun command!
+   EOT
+
+Finally, save this note.
+
+.. runrecord:: _examples/DL-101-108-122
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ datalad save -m "add note on basic datalad run and datalad rerun"

@@ -1,7 +1,7 @@
 $ git log -p
-commit d2ccad89bda6558fb9de7cbe3e995c8c22722c5f
+commit d25fc886cb7c026b9d3f60e8d0f4502439528b89
 Author: Adina Wagner <adina.wagner@t-online.de>
-Date:   Mon Jul 15 16:56:18 2019 +0200
+Date:   Wed Jul 24 13:15:04 2019 +0200
 
     add note on datalad save
 
@@ -15,9 +15,9 @@ index c3587d4..729c441 100644
 +'datalad save [-m] PATH' saves the file (modifications) to history.
 +Note to self: Always use informative, concise commit messages.
 
-commit c9dcfb9673ff4d47a7ea8d0f96c7331f7bc0f5c6
+commit eb011ecd413db391c2e87d920df56293e513fb9d
 Author: Adina Wagner <adina.wagner@t-online.de>
-Date:   Mon Jul 15 16:56:17 2019 +0200
+Date:   Wed Jul 24 13:15:03 2019 +0200
 
     Add notes on datalad create
 
@@ -30,9 +30,9 @@ index 0000000..c3587d4
 +One can create a new dataset with 'datalad create [--description] PATH'.
 +The dataset is created empty
 
-commit 871e4c39443d497d71d204acc91af95aeeb4d578
+commit 4e3ff6db59ce5b66878f8f39103132ec16a0dc76
 Author: Adina Wagner <adina.wagner@t-online.de>
-Date:   Mon Jul 15 16:56:17 2019 +0200
+Date:   Wed Jul 24 13:15:03 2019 +0200
 
     add reference book about git
 
@@ -45,9 +45,9 @@ index 0000000..c5d2ab2
 +../.git/annex/objects/G6/Gj/MD5E-s12465653--05cd7ed561d108c9bcf96022bc78a92c.pdf/MD5E-s12465653--05cd7ed561d108c9bcf96022bc78a92c.pdf
 \ No newline at end of file
 
-commit f591338f7d9a93bc3dfeb83200c54f5d94e50f32
+commit 680a3e8e322d044f9dbb4621b1d3fbd6a3ea1ee8
 Author: Adina Wagner <adina.wagner@t-online.de>
-Date:   Mon Jul 15 16:55:51 2019 +0200
+Date:   Wed Jul 24 13:14:50 2019 +0200
 
     add books on Python and Unix to read later
 
@@ -61,16 +61,16 @@ index 0000000..4c84b61
 \ No newline at end of file
 diff --git a/books/byte-of-python.pdf b/books/byte-of-python.pdf
 new file mode 120000
-index 0000000..be10866
+index 0000000..96f3d29
 --- /dev/null
 +++ b/books/byte-of-python.pdf
 @@ -0,0 +1 @@
-+../.git/annex/objects/8Z/wk/MD5E-s4406531--5b86f0656a7660c140d3fb4d5994b1b1.pdf/MD5E-s4406531--5b86f0656a7660c140d3fb4d5994b1b1.pdf
++../.git/annex/objects/qx/x9/MD5E-s4406537--8e25b5f481c0b82a9a3dc241a12423ad.pdf/MD5E-s4406537--8e25b5f481c0b82a9a3dc241a12423ad.pdf
 \ No newline at end of file
 
-commit 4eb20338307bf26b3337775278759dc0557d3e6f
+commit 7cca14cb3ef5f4a2bdbae170883a0afbf846eda4
 Author: Adina Wagner <adina.wagner@t-online.de>
-Date:   Mon Jul 15 16:55:40 2019 +0200
+Date:   Wed Jul 24 13:14:05 2019 +0200
 
     Instruct annex to add text files to Git
 
@@ -87,9 +87,9 @@ index c3aaefe..8e9a246 100644
 +* annex.largefiles=(not(mimetype=text/*))
 \ No newline at end of file
 
-commit 25266423668ead034f9d39b0c0e901adf145fd69
+commit 3d184c5a0e0347a2fd42fac275664f3851fe92ff
 Author: Adina Wagner <adina.wagner@t-online.de>
-Date:   Mon Jul 15 16:55:39 2019 +0200
+Date:   Wed Jul 24 13:14:04 2019 +0200
 
     [DATALAD] new dataset
 
@@ -106,12 +106,12 @@ index 0000000..b540820
 \ No newline at end of file
 diff --git a/.datalad/config b/.datalad/config
 new file mode 100644
-index 0000000..b709778
+index 0000000..123e389
 --- /dev/null
 +++ b/.datalad/config
 @@ -0,0 +1,2 @@
 +[datalad "dataset"]
-+	id = 9c897af8-a710-11e9-b419-e86a64c8054c
++	id = 25be60d2-ae04-11e9-a3c6-e86a64c8054c
 diff --git a/.gitattributes b/.gitattributes
 new file mode 100644
 index 0000000..c3aaefe

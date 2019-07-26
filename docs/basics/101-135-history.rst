@@ -59,6 +59,140 @@ referenced.
 "You tell me what you would be interested in doing, and I'll show you how it's
 done. For the rest of the lecture, call me Google!"
 
+From the back of the lecture hall comes a question you're really glad
+someone asked: "It has happened to me that I accidentally did a
+:command:`datalad save` and forgot to either specify the commit message,
+or forgot to give a path to the command when I wanted to only save
+a very specific change. Or sometimes I also just didn't remember that
+additional modifications existed in the dataset and saved unaware of
+those. I know that it is good practice to only save
+those changes together that belong together, so is there a way to
+disentangle an accidental :command:`datalad save` again?"
+
+The room nods in agreement -- apparently, others have run into this
+premature slip of the ``Enter`` key as well.
+
+"Sure, of course!", the guest lecturer reassures. "This is a great
+question, thank you. Before I'll show you I'll just repeat
+what each of you probably already knows by heart: Make sure to run
+a :command:`datalad status` prior to a :command:`datalad save`. You'll
+get reminded of the changes that would be saved. But let me tell you,
+I also frequently forget modifications, and I really appreciate
+that Git lets me revert such mistakes."
+
+Let's demonstrate a simple example. First, let's create some random
+files. Do this right in your dataset.
+
+.. runrecord:: _examples/DL-101-135-102
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ cat << EOT > test.txt
+   "hello, world!"
+   EOT
+
+   $ cat << EOT > test2.txt
+   A penny for your thoughts;
+   5 bucks if they're dirty;
+   10 if I'm right in the middle of it
+
+   $ cat << EOT > test3.txt
+   A woman calls a Swedish doctor and says:
+   Doctor, my young son has just swallowed a fountain pen.
+   He says: Oh my goodness, I come right over!
+   What should I do until you arrive?
+   Use a pencil!
+
+This will generate three new files in your dataset. Run a
+:command:`datalad status` to verify this:
+
+.. runrecord:: _examples/DL-101-135-103
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ datalad status
+
+Now, say you only wanted to save one of these files,
+but you accidentally :command:`datalad save` everything:
+
+.. runrecord:: _examples/DL-101-135-104
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ datalad save
+
+Whooops, there it happened. A :command:`datalad save` without a
+commit message and without a path to the file you wanted to save
+individually.
+
+.. runrecord:: _examples/DL-101-135-105
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ git log -p -1
+
+As expected all of the modifications present prior to the
+command are saved into the most recent commit. The aim of
+the next action is to keep all of the files as they are in the
+dataset, but just get them out of the history. We'll use the
+:command:`git reset` command for this. It essentially undoes
+commits. :command:`git reset: comes with many options, but the
+relevant one is ``--mixed``. Specifying the command::
+
+   git reset --mixed COMMIT
+
+will undo all commits in your history until the specified
+commit (it does not undo the specified commit).
+Importantly, the modifications
+you made in these commits that are undone will still be present
+in your dataset -- just not written to the history.
+
+The COMMIT in the command can either be a SHASUM or a reference
+with the HEAD pointer. Let's stay with the SHASUM:
+
+.. runrecord:: _examples/DL-101-135-106
+   :language: console
+   :workdir: dl-101/DataLad-101
+   :realcommand: echo "git reset --mixed $(git rev-parse HEAD~1)" && git reset --mixed $(git rev-parse HEAD~1)
+
+Let's see what has happened. First, let's check the history:
+
+.. runrecord:: _examples/DL-101-135-107
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ git log -2
+
+As you can see, the commit is not in the history anymore!
+Go on to see what :command:`datalad status` reports:
+
+.. runrecord:: _examples/DL-101-135-108
+   :workdir: dl-101/DataLad-101
+   :language: console
+
+   $ datalad status
+
+Nice, the files are present, and yet untracked. Do they contain
+the content still? We will read all of them with :command:`cat`:
+
+.. runrecord:: _examples/DL-101-135-109
+   :workdir: dl-101/DataLad-101
+   :language: console
+
+   $ cat test*
+
+
+ahhh shit, what about annexed files? They are a symlink afterwards...
+
+
+
+
+
+
+
+This action will not be
+recorded in your history.
+
 Let's start really simple, but also really magical: How does one *see*
 data as it was at a previous state in history?
 

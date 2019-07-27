@@ -87,21 +87,19 @@ files. Do this right in your dataset.
    :language: console
    :workdir: dl-101/DataLad-101
 
-   $ cat << EOT > test.txt
-   "hello, world!"
+   $ cat << EOT > Gitjoke1.txt
+   Git knows what you did last summer!
    EOT
 
-   $ cat << EOT > test2.txt
-   A penny for your thoughts;
-   5 bucks if they're dirty;
-   10 if I'm right in the middle of it
+   $ cat << EOT > Gitjoke2.txt
+   Knock knock. Who's there? Git.
+   Git-who?
+   Sorry, 'who' is not a git command - did you mean 'show'?
+   EOT
 
-   $ cat << EOT > test3.txt
-   A woman calls a Swedish doctor and says:
-   Doctor, my young son has just swallowed a fountain pen.
-   He says: Oh my goodness, I come right over!
-   What should I do until you arrive?
-   Use a pencil!
+   $ cat << EOT > Gitjoke3.txt
+   In Soviet Russia, git commits YOU!
+   EOT
 
 This will generate three new files in your dataset. Run a
 :command:`datalad status` to verify this:

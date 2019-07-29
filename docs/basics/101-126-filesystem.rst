@@ -301,10 +301,10 @@ TODO: subdataset (tricky: change in .gitmodules. Also, I failed trying to
 revert a ``git mv`` with ``git reset --hard master``. It did not move
 subdataset back into original place, the subds became an untracked directory.
 
-What if I move or rename the superdataset?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+What if I move or rename a superdataset?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Once create, a DataLad superdataset may not be in an optimal
+Once created, a DataLad superdataset may not be in an optimal
 place on your file system, or have the best name.
 
 After a while, you might think that the dataset would fit much
@@ -322,7 +322,101 @@ You can use standard Unix commands such as ``mv`` to do it,
 and also which ever graphical user interface or explorer you may
 use.
 
-.. todo::
+Beware of one thing though: If your dataset either is a sibling
+or has a sibling with the source being a path, moving or renaming
+the dataset will break the linkage between the datasets. This can
+be fixed easily though. Let's try it.
 
-   What if the dataset is a sibling?
+As section (todo: link section on config files) explains, each
+sibling is registered in ``.git/config`` in a "submodule" section.
+Let's look at how our sibling "roommate" is registered there:
+
+.. runrecord:: _examples/DL-101-114-140
+   :language: console
+   :workdir: dl-101/DataLad-101
+   :emphasize-lines: 14-15
+
+   $ cat .git/config
+
+As you can see, its "url" is specified as a relative path. Let's see
+what happens if we move the dataset such that the path does not point
+to the dataset anymore:
+
+.. runrecord:: _examples/DL-101-114-141
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   # add an intermediate directory
+   $ cd ../mock_user
+   $ mkdir onemoredir
+   # move your room mates dataset into this new directory
+   $ mv DataLad-101 onemoredir
+
+This means that relative to your ``DataLad-101``, your room mates
+dataset is not at ``../mock_user/DataLad-101`` anymore, but in
+``../mock_user/onemoredir/DataLad-101``. The path specified in
+the configuration file is thus wrong now.
+
+.. runrecord:: _examples/DL-101-114-142
+   :language: console
+   :workdir: dl-101/mock_user
+
+   # navigate back into your dataset
+   $ cd ../DataLad-101
+   # attempt a datalad update
+   $ datalad update
+
+Here we go::
+
+   'fatal: '../mock_user/DataLad-101' does not appear to be a git repository
+    fatal: Could not read from remote repository.
+
+Git seems pretty desperate (given the amount of error message) that
+it can't seem to find a Git repository at the location the ``.git/config``
+file specified. Luckily, we can provide this information. Edit the file with
+an editor of your choice and fix the path from
+``url = ../mock_user/DataLad-101`` to
+``url = ../mock_user/onemoredir/DataLad-101``.
+
+Below, we are using the stream editor `sed <https://en.wikipedia.org/wiki/Sed>`_
+for this operation.
+
+.. runrecord:: _examples/DL-101-114-143
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ sed -i 's/..\/mock_user\/DataLad-101/..\/mock_user\/onemoredir\/DataLad-101/' .git/config
+
+This is how the file looks now:
+
+.. runrecord:: _examples/DL-101-114-144
+   :language: console
+   :workdir: dl-101/DataLad-101
+   :emphasize-lines: 15
+
+   $ cat .git/config
+
+Let's try to update now:
+
+.. runrecord:: _examples/DL-101-114-145
+   :workdir: dl-101/DataLad-101
+   :language: console
+
+   $ datalad update
+
+Nice! We fixed it!
+Therefore, if a dataset you move or rename is known to other
+datasets from its path, or identifies siblings with paths,
+make sure to adjust them in the ``.git/config`` file.
+
+To clean up, we'll redo the move of the dataset and the
+modification in ``.git/config``.
+
+.. runrecord:: _examples/DL-101-114-146
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ cd ../mock_user && mv onemoredir/DataLad-101 .
+   $ rm -r onemoredir
+   $ cd ../DataLad-101 && git reset --hard master
 

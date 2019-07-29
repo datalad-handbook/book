@@ -1,0 +1,4 @@
+$ cd ../mock_user && mv onemoredir/DataLad-101 .
+$ rm -r onemoredir
+$ cd ../DataLad-101 && git reset --hard master
+HEAD is now at 05507c3 Add note on adding siblings

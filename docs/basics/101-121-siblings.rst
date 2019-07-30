@@ -74,14 +74,14 @@ Suddenly, your room mate has a file change that you do not have.
 His dataset evolved.
 
 So how do we link back from the copy of the dataset to its
-origin, such that your room mates changes can be included in
+origin, such that your room mate's changes can be included in
 your dataset? How to we let the original dataset "know" about
 this copy your room mate has?
 Do we need to install the installed dataset of our room mate
 as a copy again?
 
 No, luckily, it's simpler and less convoluted. What we have to
-do is to *register* a datalad :term:`sibling`: A reference to our room mates
+do is to *register* a datalad :term:`sibling`: A reference to our room mate's
 dataset in our own, original dataset.
 
 .. gitusernote::
@@ -101,7 +101,7 @@ The command takes the base command,
 :command:`datalad siblings`, an action, in this case ``add``, a path to the
 root of the dataset ``-d .``, a name for the sibling, ``-s/--name roommate``,
 and a URL or path to the sibling, ``--url ../mock_user/DataLad-101``.
-This registers your roommates ``DataLad-101`` as a "sibling" (we will call it
+This registers your room mate's ``DataLad-101`` as a "sibling" (we will call it
 "roommate") to your own ``DataLad-101`` dataset.
 
 
@@ -125,7 +125,7 @@ but as you provide a path and not a URL, there is no host name to take as a defa
    remove this once https://github.com/datalad/datalad/issues/3553 is fixed
 
 As you can see in the command output, the addition of a sibling succeeded:
-``roommate(+)[../mock_user/DataLad-101]`` means that your room mates dataset
+``roommate(+)[../mock_user/DataLad-101]`` means that your room mate's dataset
 is now known to your own dataset as "roommate"
 
 
@@ -236,7 +236,7 @@ that there is a difference in ``notes.txt``! Let's ask
 
 Let's digress into what is shown here.
 We are comparing the current state of your dataset against
-the current state of your room mates dataset. Everything marked with
+the current state of your room mate's dataset. Everything marked with
 a ``-`` is a change that your room mate has, but not you: This is the
 script that he downloaded!
 
@@ -253,7 +253,7 @@ But the details of this will be stated in a standalone section later.
 Note that the fact that your room mate does not have the note
 on :command:`datalad update` does not influence your note. It will not
 get deleted by the merge. You do not set your dataset to the state
-of your room mates dataset, but you incorporate all changes he made
+of your room mate's dataset, but you incorporate all changes he made
 -- which is only the addition of the script.
 
 .. runrecord:: _examples/DL-101-121-110
@@ -283,7 +283,7 @@ directory and also peek into the history:
 Wohoo! Here it is: The script now also exists in your own dataset.
 You can see the commit that your room mate made when he saved the script,
 and you can also see a commit that records how you ``merged`` your
-roommates dataset changes into your own dataset. The commit message of this
+room mate's dataset changes into your own dataset. The commit message of this
 latter commit for now might contain many words yet unknown to you if you
 don't use Git, but a later section will get into the details of what
 the meaning of ":term:`merge`", ":term:`branch`", "refs"

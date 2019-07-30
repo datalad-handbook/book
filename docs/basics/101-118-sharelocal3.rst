@@ -12,7 +12,7 @@ does. There is something that I've been wanting to try
 anyway." you say.
 
 The dataset you shared contained a number of :command:`datalad run`
-commands. For example, you created the simple ``Podcasts.tsv``
+commands. For example, you created the simple ``podcasts.tsv``
 file that listed all titles and speaker names of the longnow
 podcasts.
 
@@ -23,7 +23,7 @@ easily. This is what you want to try now.
 
 You begin to think about which :command:`datalad run` commit would be
 the most useful one to take a look at. The creation of
-``Podcasts.tsv`` was a bit lame -- at this point in time, you
+``podcasts.tsv`` was a bit lame -- at this point in time, you
 didn't yet know about ``--input`` and ``--output`` arguments,
 and the resulting output is present anyway because text files
 like this ``.tsv`` file are stored in Git.

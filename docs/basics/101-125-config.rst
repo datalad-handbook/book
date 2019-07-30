@@ -42,29 +42,33 @@ was surprisingly captivating, so you're actually looking forward to today.
 you did, already before the course started: The *global*
 Git configuration." the lecturer says.
 
-At one point in time, you likely followed the instructions
-in :ref:`install` or similar instructions, and configured your
+At one point in time, you likely followed instructions such as
+in :ref:`install`, and configured your
 *Git identity* with the commands::
 
    git config --global --add user.name Bob McBobFace
    git config --global --add user.email bob@example.com
 
-
 "What the above commands do is very simple: They search for
-a specific configuration file, and write the options specified
-in the command -- in this case name and email address -- into the file.
-Alternatively, you could have also added this information to the
-configuration file by hand and saved it." she explains.
+a specific configuration file, and set the variables specified
+in the command -- in this case user name and user email address
+-- to the values provided with the command." she explains.
 
-"This general procedure, specifying a value for a configurable
-option in a configuration file, is how you can configure the
+"This general procedure, specifying a value for a configuration
+variable in a configuration file, is how you can configure the
 different tools to your needs. The configuration, therefore,
 is really easy. Even if you are only used to ticking boxes
 in the ``settings`` tab of a software tool so far, it's intuitive
 to understand how a configuration file in principle works and also
 how to use it. The only piece of information you will need
-are the necessary files or the commands that write to them and
-the available options for configuration, that's it."
+are the necessary files or the command that writes to them and
+the available options for configuration, that's it. And what's
+really cool is that all tools we'll be looking at -- Git, Git-annex,
+and DataLad -- can be configured using the :command:`git config`
+command. Alternatively, however, you could also add the information
+to the configuration file by hand and save it, or run configuration
+templates or procedures (todo: link) that apply predefined
+configurations in the same way."
 
 "This seems easy enough", you think. Let's see what types of
 configurations there are.
@@ -76,7 +80,7 @@ The user name and email configuration
 is a *user-specific* configuration (called *global*
 configuration by Git), and therefore applies to your user account.
 Where ever on your computer
-*you* run a Git command-- or, because it sits on top of Git, DataLad command--
+*you* run a Git command -- or, because it sits on top of Git, DataLad command --
 this global configuration will
 associate the name and email address you supplied in
 the :command:`git config --global --add` commands with this action.
@@ -98,8 +102,11 @@ configuration (to a single repository), but it can overrule global
 configurations. For this reason, the repository-specific configuration
 does not reside in a file in your home directory, but in ``.git/config``
 within every Git repository (and thus DataLad dataset).
-Let's find out how this file looks like in the ``DataLad-101``
-superdataset:
+Conveniently, in many cases DataLad and Git-annex will use exactly the same
+files as Git for their own configurations.
+
+Let's find out how the repository-specific configuration file in the ``DataLad-101``
+superdataset looks like:
 
 .. runrecord:: _examples/DL-101-125-101
    :language: console
@@ -108,36 +115,34 @@ superdataset:
    $ cat .git/config
 
 This file consists of so called "sections" with the section names
-in square brackets (e.g. ``remote``), and occasionally subsection names in
-quotation marks after the section name (e.g. ``roommate``).
+in square brackets (e.g. ``remote``). Occasionally, a section can have
+subsection: This is indicated by subsection names in
+quotation marks after the section name (e.g. ``roommate`` is a subsection
+of the section ``submodule``).
 Within each section, ``variable = value`` pairs specify configurations
-for the given (sub)section. Some of the information in this file
-sound familiar, but let's start from the very beginning.
+for the given (sub)section.
 
 The first section is called ``core`` -- as the name suggests,
 this configures core Git functionality. There are
 `many more <https://git-scm.com/docs/git-config#Documentation/git-config.txt-corefileMode>`_
 configurations than the ones in this config file, but
-they are primarily relevant for advanced Git users and not
-to configure a DataLad dataset.
+they are primarily relevant for advanced Git users and not so much
+for configuring a DataLad dataset.
 
-A more interesting part is the third one, called
-``submodule "recordings/longnow"``. The notation suggest
-the section is called "submodule", and the subsection "recordings/longnow".
-Cleary, this is a reference to the ``longnow`` podcasts
+A more interesting part is the third one, the subsection
+``"recordings/longnow"`` in the section ``submodule``.
+Clearly, this is a reference to the ``longnow`` podcasts
 we installed as a subdataset. The name *submodule* is Git
 terminology, and describes a Git repository inside of
 another Git repository -- just like
 the super- and subdataset principles you discovered in the
-section :ref:`nesting`.
-When you install a DataLad dataset as a subdataset, it gets *registered* in this
-file. For each subdataset, an individual submodule entry
+section :ref:`nesting`. When you install a DataLad dataset
+as a subdataset, it gets *registered* in this file.
+For each subdataset, an individual submodule entry
 will store the information about the subdatasets
 ``--source`` or *origin* (the "url") and its path within the superdataset.
 Thus, every subdataset (and sub-subdataset, and so forth) in your dataset
 will be listed in this file.
-If one installs your superdataset, the "url" variable value will be used
-to install the subdataset.
 If you want, go back to section :ref:`installds` to see that the
 "url" is the same URL we installed the longnow dataset from, and
 go back to section :ref:`sharelocal1` to remind yourself of
@@ -154,7 +159,9 @@ collaborate with your room mate.
 
 Note the path given as a value to the ``url`` variable. If at any point
 either your superdataset or the remote moves, you should adjust this
-path. A demonstration of this is in section (Todo: link file system management)
+path. A demonstration of this is in section (Todo: link file system management).
+
+
 
 
 
@@ -163,16 +170,10 @@ TODO: fetch, annex-uuid, annex-ignore
 
 
 
-The second section in the ``config`` file looks peculiar -- it specifies
+The second section in the ``config`` specifies
 the :term:`Git-annex`\-specific configurations of this superdataset.
-
-"Wait, we're still in the configuration file of Git, aren't we?"
-you whisper to your neighbor. "Yes", he replies, "so apparently,
-other Git-related tools such as Git-annex will use the
-:term:`Git config file` as well for their configurations! I guess
-it's good to have everything in one place, right?"
-
-
+As mentioned above, Git-annex will use the
+:term:`Git config file` as well for some of its configurations.
 For example, it lists the repository as a
 "version 5 repository", and gives the dataset its own Git-annex
 UUID. If you have read the hidden section in the section
@@ -192,30 +193,37 @@ room mate's directory stores.
 
 .. todo::
 
-   * understand this section
    * understand why there are .gitmodules files with the same information
-     as in the submodule section
+     as in the .gitmodules section, and also redundancy to .gitattributes (the
+     git annex backend. which files need to be modified to change a specific
+     option?
+
+   * .gitmodules is a configuration file that stores the mapping between
+     the projects URL and the local subdirectory you've pulled it into.
+     There will be an entry for each submodule (subdataset) in your dataset.
+     This file is how other people that install your superdataset know where to get
+     submodule projects from.
+
+   * To change the backend, you should set it in ``.gitattributes``
+
 
 Git-annex configurations
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 "By now we have only seen this huge amount of configurations
-in files that Git creates and uses! What does DataLad add to this?"
+in git configuration files! Are there other files, specifically created
+by DataLad for example?"
 you impatiently raise your arm and ask.
 
 "DataLad adds a repository-specific configuration file as well",
 you hear in response. "This file can be found in the ``.datalad``
-directory. Because everyone seems a bit impatient, we'll skip
-the system-wide Git configuration [#f2]_, but before we go to DataLad,
-we'll need to look at Git-annex configurations.
-The system-wide configuration of Git might just be something for some
-spare five minutes"
-
-"You surely all remember about the ``text2git`` configuration template
-we applied to ``DataLad-101``."
-
-Let's now see what exactly this configuration template did. Look into
-the file ``.gitattributes``. It lies right in the root of your superdataset:
+directory. But before we go to DataLad-specific configuration files,
+we'll need to look at Git-annex configurations. For example,
+you surely all remember the ``text2git`` configuration template
+we applied to ``DataLad-101``. Let's now see what exactly this
+configuration template did and kook into
+the file ``.gitattributes``." This file
+lies right in the root of your superdataset:
 
 .. runrecord:: _examples/DL-101-125-102
    :language: console

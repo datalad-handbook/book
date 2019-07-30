@@ -1,53 +1,7 @@
 $ git log -p
-commit d25fc886cb7c026b9d3f60e8d0f4502439528b89
+commit 7f9e0192acbfdfe181e3574aca3ff41c0935608e
 Author: Adina Wagner <adina.wagner@t-online.de>
-Date:   Wed Jul 24 13:15:04 2019 +0200
-
-    add note on datalad save
-
-diff --git a/notes.txt b/notes.txt
-index c3587d4..729c441 100644
---- a/notes.txt
-+++ b/notes.txt
-@@ -1,2 +1,4 @@
- One can create a new dataset with 'datalad create [--description] PATH'.
- The dataset is created empty
-+'datalad save [-m] PATH' saves the file (modifications) to history.
-+Note to self: Always use informative, concise commit messages.
-
-commit eb011ecd413db391c2e87d920df56293e513fb9d
-Author: Adina Wagner <adina.wagner@t-online.de>
-Date:   Wed Jul 24 13:15:03 2019 +0200
-
-    Add notes on datalad create
-
-diff --git a/notes.txt b/notes.txt
-new file mode 100644
-index 0000000..c3587d4
---- /dev/null
-+++ b/notes.txt
-@@ -0,0 +1,2 @@
-+One can create a new dataset with 'datalad create [--description] PATH'.
-+The dataset is created empty
-
-commit 4e3ff6db59ce5b66878f8f39103132ec16a0dc76
-Author: Adina Wagner <adina.wagner@t-online.de>
-Date:   Wed Jul 24 13:15:03 2019 +0200
-
-    add reference book about git
-
-diff --git a/books/progit.pdf b/books/progit.pdf
-new file mode 120000
-index 0000000..c5d2ab2
---- /dev/null
-+++ b/books/progit.pdf
-@@ -0,0 +1 @@
-+../.git/annex/objects/G6/Gj/MD5E-s12465653--05cd7ed561d108c9bcf96022bc78a92c.pdf/MD5E-s12465653--05cd7ed561d108c9bcf96022bc78a92c.pdf
-\ No newline at end of file
-
-commit 680a3e8e322d044f9dbb4621b1d3fbd6a3ea1ee8
-Author: Adina Wagner <adina.wagner@t-online.de>
-Date:   Wed Jul 24 13:14:50 2019 +0200
+Date:   Tue Jul 30 06:33:46 2019 +0200
 
     add books on Python and Unix to read later
 
@@ -68,9 +22,9 @@ index 0000000..96f3d29
 +../.git/annex/objects/qx/x9/MD5E-s4406537--8e25b5f481c0b82a9a3dc241a12423ad.pdf/MD5E-s4406537--8e25b5f481c0b82a9a3dc241a12423ad.pdf
 \ No newline at end of file
 
-commit 7cca14cb3ef5f4a2bdbae170883a0afbf846eda4
+commit 8ca95b2f5a2a761f75b7b660ceda384bd80ab1a6
 Author: Adina Wagner <adina.wagner@t-online.de>
-Date:   Wed Jul 24 13:14:05 2019 +0200
+Date:   Tue Jul 30 06:33:41 2019 +0200
 
     Instruct annex to add text files to Git
 
@@ -87,9 +41,9 @@ index c3aaefe..8e9a246 100644
 +* annex.largefiles=(not(mimetype=text/*))
 \ No newline at end of file
 
-commit 3d184c5a0e0347a2fd42fac275664f3851fe92ff
+commit a211958c830c3017db96a328f71c017426ce7c97
 Author: Adina Wagner <adina.wagner@t-online.de>
-Date:   Wed Jul 24 13:14:04 2019 +0200
+Date:   Tue Jul 30 06:33:41 2019 +0200
 
     [DATALAD] new dataset
 
@@ -106,12 +60,12 @@ index 0000000..b540820
 \ No newline at end of file
 diff --git a/.datalad/config b/.datalad/config
 new file mode 100644
-index 0000000..123e389
+index 0000000..d723b5c
 --- /dev/null
 +++ b/.datalad/config
 @@ -0,0 +1,2 @@
 +[datalad "dataset"]
-+	id = 25be60d2-ae04-11e9-a3c6-e86a64c8054c
++	id = 352f1934-b283-11e9-bd6b-d0c637c523bc
 diff --git a/.gitattributes b/.gitattributes
 new file mode 100644
 index 0000000..c3aaefe

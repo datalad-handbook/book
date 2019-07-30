@@ -1,4 +1,49 @@
 $ git log -p
+commit 2766b4c0b84baab75966512738565350a165e53c
+Author: Adina Wagner <adina.wagner@t-online.de>
+Date:   Tue Jul 30 07:05:59 2019 +0200
+
+    Add note on datalad install
+
+diff --git a/notes.txt b/notes.txt
+index bfa64d7..2d35825 100644
+--- a/notes.txt
++++ b/notes.txt
+@@ -5,3 +5,9 @@ The command "datalad save [-m] PATH" saves the file
+ (modifications) to history. Note to self:
+ Always use informative, concise commit messages.
+ 
++The command 'datalad install [--source] PATH'
++installs a dataset from e.g. a URL or a path.
++If you install a dataset into an existing
++dataset (as a subdataset), remember to specify the
++root of the superdataset with the '-d' option.
++
+
+commit 16a48ae7b1f1047fbc329105017e573ddbd009f4
+Author: Adina Wagner <adina.wagner@t-online.de>
+Date:   Tue Jul 30 07:05:25 2019 +0200
+
+    [DATALAD] Recorded changes
+
+diff --git a/.gitmodules b/.gitmodules
+new file mode 100644
+index 0000000..1b59b8c
+--- /dev/null
++++ b/.gitmodules
+@@ -0,0 +1,4 @@
++[submodule "recordings/longnow"]
++	path = recordings/longnow
++	url = https://github.com/datalad-datasets/longnow-podcasts.git
++	datalad-id = b3ca2718-8901-11e8-99aa-a0369f7c647e
+diff --git a/recordings/longnow b/recordings/longnow
+new file mode 160000
+index 0000000..dcc34fb
+--- /dev/null
++++ b/recordings/longnow
+@@ -0,0 +1 @@
++Subproject commit dcc34fbe669b06ced84ced381ba0db21cf5e665f
+
 commit 1c3f5b45800c4c01aa65cee7a5bba119aa66dae7
 Author: Adina Wagner <adina.wagner@t-online.de>
 Date:   Tue Jul 30 07:05:24 2019 +0200

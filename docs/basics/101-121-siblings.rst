@@ -28,6 +28,7 @@ that was `used to generate this example <https://raw.githubusercontent.com/datal
 from Github, and saves it in the ``code/`` directory.
 
 He does it using the datalad command :command:`datalad download-url`
+(:manpage:`datalad-download-url` manual)
 that he also read about on the datalad homepage.
 This command will download a file just as ``wget``, but it can
 also take a commit message and will save the download

@@ -53,7 +53,7 @@ want to run by taking a look into the history of the dataset
    $ git log --oneline
 
 Ah, there it is, the second most recent commit.
-Just as already done in LINK RUN SECTION,
+Just as already done in section :ref:`run2`,
 take this shasum and plug it into a :command:`datalad rerun`
 command:
 

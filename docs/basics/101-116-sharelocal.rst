@@ -113,7 +113,7 @@ the dataset?" he worries.
 Indeed, the PDFs and pictures appear just as they did in the original dataset
 on first sight: They are symlinks pointing to some location in the
 object tree. To reassure your room mate that everything is fine you
-quickly explain to him the concept of a symlink and the ``:term:`object tree```
+quickly explain to him the concept of a symlink and the :term:`object-tree`
 of :term:`Git-annex`.
 
 "But why does the PDF not open when I try to open it?" he repeats.

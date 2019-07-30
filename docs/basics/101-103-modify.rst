@@ -89,7 +89,7 @@ the git log, your history will be longer. You can get out of ``git log`` by pres
    :language: console
    :workdir: dl-101/DataLad-101
    :lines: 1-28
-   :emphasize-lines: 6, 24, 27
+   :emphasize-lines: 6, 25, 27
 
    $ git log -p
 

@@ -212,8 +212,9 @@ A :command:`datalad status` should now be empty, and our dataset's history shoul
 
 .. runrecord:: _examples/DL-101-102-111
    :workdir: dl-101/DataLad-101
+   :language: console
 
-   # let's make the output a bit more concise with the --oneline option
+   # lets make the output a bit more concise with the --oneline option
    $ git log --oneline
 
 

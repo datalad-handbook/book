@@ -34,8 +34,8 @@ this excerpt).
 .. runrecord:: _examples/DL-101-106-101
    :language: console
    :workdir: dl-101/DataLad-101
-   :lines: 1, 19-42
-   :emphasize-lines: 25
+   :lines: 1, 23-46
+   :emphasize-lines: 24
    :realcommand: git log -p
 
 

@@ -220,8 +220,8 @@ latex_documents = [
       'index',
       'dataladhandbook.tex',
       u'The DataLad Handbook',
-      u'Adina~S.~Wagner \\and Laura~K.~Waite \\and Michael~Hanke',
-      'manual'),
+      u'Adina~S.~Wagner, Laura~K.~Waite and Michael~Hanke',
+      'tufte-book'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
@@ -235,8 +235,10 @@ latex_elements = {
     'papersize': 'a4',
     'pointsize': '11pt',
     'figure_align': 'tbp',
-    'preamble': """\
+    'preamble': r"""
 \setcounter{tocdepth}{0}
+% we will eventually have a proper titlepage
+\newcommand{\sphinxmaketitle}{}
 """,
 }
 

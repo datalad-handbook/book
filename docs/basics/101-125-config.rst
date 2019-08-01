@@ -3,12 +3,12 @@
 Everything you ever wanted to configure
 ---------------------------------------
 
-Back in section :ref:`text2git` we already learned that there
+Back in section :ref:`text2git`, we already learned that there
 are dataset configurations, and that these configurations can
 be modified, for example with the ``-c text2git`` option.
 This option applies a configuration template to store text
 files in :term:`Git` instead of :term:`Git-annex`, and thereby
-modifies the DataLad dataset default configuration to store
+modifies the DataLad dataset's default configuration to store
 every file in Git-annex.
 
 The lecture today focuses entirely on the topic of configurations,
@@ -43,7 +43,7 @@ you did, already before the course started: The *global*
 Git configuration." the lecturer says.
 
 At one point in time, you likely followed instructions such as
-in :ref:`install`, and configured your
+in :ref:`install` and configured your
 *Git identity* with the commands::
 
    git config --global --add user.name Bob McBobFace
@@ -61,14 +61,13 @@ is really easy. Even if you are only used to ticking boxes
 in the ``settings`` tab of a software tool so far, it's intuitive
 to understand how a configuration file in principle works and also
 how to use it. The only piece of information you will need
-are the necessary files or the command that writes to them and
+are the necessary files, or the command that writes to them and
 the available options for configuration, that's it. And what's
 really cool is that all tools we'll be looking at -- Git, Git-annex,
 and DataLad -- can be configured using the :command:`git config`
-command. Alternatively, however, you could also add the information
-to the configuration file by hand and save it, or run configuration
-templates or procedures (todo: link) that apply predefined
-configurations in the same way."
+command or even a simple text editor [#f5]_.
+However, prior to learning *how* to configure settings, we should start
+by *understanding* them."
 
 "This seems easy enough", you think. Let's see what types of
 configurations there are.
@@ -88,7 +87,7 @@ For example, whenever you
 ``datalad save``, the information in this file is used for the
 history entry about commit author and email.
 
-Apart from *global* Git configurations there are also *system-wide* [#f2]_
+Apart from *global* Git configurations, there are also *system-wide* [#f2]_
 and *repository* configurations. Each of these configurations
 resides in its own file. For the global configuration, the values you specify
 are stored in a file called ``.gitconfig`` in your home directory. Among
@@ -116,9 +115,9 @@ superdataset looks like:
 
 This file consists of so called "sections" with the section names
 in square brackets (e.g. ``remote``). Occasionally, a section can have
-subsection: This is indicated by subsection names in
-quotation marks after the section name (e.g. ``roommate`` is a subsection
-of the section ``submodule``).
+subsections: This is indicated by subsection names in
+quotation marks after the section name. For example, ``roommate`` is a subsection
+of the section ``submodule``.
 Within each section, ``variable = value`` pairs specify configurations
 for the given (sub)section.
 
@@ -140,7 +139,7 @@ section :ref:`nesting`. When you install a DataLad dataset
 as a subdataset, it gets *registered* in this file.
 For each subdataset, an individual submodule entry
 will store the information about the subdatasets
-``--source`` or *origin* (the "url") and its path within the superdataset.
+``--source`` or *origin* (the "url").
 Thus, every subdataset (and sub-subdataset, and so forth) in your dataset
 will be listed in this file.
 If you want, go back to section :ref:`installds` to see that the
@@ -157,15 +156,20 @@ This file, therefore, is where DataLad *registered* the sibling
 with :command:`datalad siblings add`, and thanks to it you can
 collaborate with your room mate.
 
-Note the path given as a value to the ``url`` variable. If at any point
-either your superdataset or the remote moves, you should adjust this
-path. A demonstration of this is in section (Todo: link file system management).
+Note the *path* given as a value to the ``url`` variable. If at any point
+either your superdataset or the remote moves on your file system,
+the association between the two datasets breaks -- this can be fixed by adjusting this
+path, and a demonstration of this is in section (Todo: link file system management).
 
+todo: fetch
 
+While the "annex-uuid" [#f1]_ looks like yet another cryptic random string of
+characters, you have seen a UUID like this before already:
+A :command:`git annex whereis` displays information about where the
+annexed content in a dataset is with these UUIDs. Lastly, the ``annex-ignore = false``
+configuration allows Git-annex to query the remote when it tries to
+retrieve data from annexed content.
 
-
-
-TODO: fetch, annex-uuid, annex-ignore
 
 
 
@@ -173,7 +177,7 @@ TODO: fetch, annex-uuid, annex-ignore
 The second section in the ``config`` specifies
 the :term:`Git-annex`\-specific configurations of this superdataset.
 As mentioned above, Git-annex will use the
-:term:`Git config file` as well for some of its configurations.
+:term:`Git config file` for some of its configurations.
 For example, it lists the repository as a
 "version 5 repository", and gives the dataset its own Git-annex
 UUID. If you have read the hidden section in the section
@@ -183,12 +187,6 @@ paths in the object tree. Thus, this configuration file is where
 Git-annex retrieves information about which key format it is
 supposed to use.
 
-about remote
-You can see that
-its "url" is a path in your file system to your room mate's
-dataset. The "annex-uuid" [#f1]_ would be the character string a
-:command:`git annex whereis` displays about annexed content your
-room mate's directory stores.
 
 
 .. todo::
@@ -355,3 +353,8 @@ you're more and more becoming a DataLad power-user.
          2) run the following command, but exchange ``nano`` with an editor of your choice::
 
              git config --global core.editor "nano"
+
+.. [#f5] Alternatively, you could also add the information
+         to the configuration file by hand and save it, or run configuration
+         templates or procedures (todo: link) that apply predefined
+         configurations in the same way.

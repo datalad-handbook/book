@@ -31,11 +31,11 @@ looks like after the installation of a subdataset. To do this, make sure you are
 addition to ``notes.txt``, so we'll look at the second most recent commit in
 this excerpt).
 
-.. runrecord:: _examples/DL-101-106-1
+.. runrecord:: _examples/DL-101-106-101
    :language: console
    :workdir: dl-101/DataLad-101
-   :lines: 1, 19-42
-   :emphasize-lines: 25
+   :lines: 1, 23-46
+   :emphasize-lines: 24
    :realcommand: git log -p
 
 
@@ -60,7 +60,7 @@ is kept within a (sub)dataset.
 Navigate back into ``longnow`` and try to find the highlighted shasum in the
 subdataset's history:
 
-.. runrecord:: _examples/DL-101-106-2
+.. runrecord:: _examples/DL-101-106-102
    :language: console
    :workdir: dl-101/DataLad-101
    :emphasize-lines: 3

@@ -99,12 +99,12 @@ this in the original ``DataLad-101`` directory, and don't forget to save it.
    :workdir: dl-101/mock_user/DataLad-101/recordings/longnow
 
    # navigate back:
-   $ cd ../../../../../DataLad-101
+   $ cd ../../../../DataLad-101
 
    # write the note
    $ cat << EOT >> notes.txt
    The command "git annex whereis PATH" lists the repositories that have
-   the file content of an annexed file. When using :command:`datalad get` to retrieve
+   the file content of an annexed file. When using "datalad get" to retrieve
    file content, those repositories will be queried.
 
    EOT

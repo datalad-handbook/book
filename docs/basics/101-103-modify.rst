@@ -17,33 +17,28 @@ a DataLad dataset from scratch. Below is one way to do it, using the
 with ``>``. Running the command below will create ``notes.txt`` in the
 root of your ``DataLad-101`` dataset:
 
-.. runrecord:: _examples/DL-101-103-1
+.. runrecord:: _examples/DL-101-103-101
    :language: console
-   :workdir: dl-101
-   :realcommand: cd DataLad-101 && cat << EOT > notes.txt
-      One can create a new dataset with 'datalad create [--description] PATH'.
-      The dataset is created empty
-
-      EOT
+   :workdir: dl-101/DataLad-101
 
    $ cat << EOT > notes.txt
    One can create a new dataset with 'datalad create [--description] PATH'.
    The dataset is created empty
+
    EOT
 
 Run :command:`datalad status` to confirm that there is new, untracked content:
 
-.. runrecord:: _examples/DL-101-103-2
+.. runrecord:: _examples/DL-101-103-102
    :language: console
-   :workdir: dl-101
-   :realcommand: cd DataLad-101 && datalad status
+   :workdir: dl-101/DataLad-101
 
    $ datalad status
 
 Save this file in its current state. Because it is the only modification
 in the dataset, there is no need to specify a path.
 
-.. runrecord:: _examples/DL-101-103-3
+.. runrecord:: _examples/DL-101-103-103
    :language: console
    :workdir: dl-101
    :realcommand: cd DataLad-101 && datalad save -m "Add notes on datalad create" notes.txt
@@ -57,7 +52,7 @@ Again, the example below uses Unix commands (``cat`` and redirecting, this time 
 with ``>>`` to *append* new content to the existing file)
 to accomplish this, but you can take any editor of your choice.
 
-.. runrecord:: _examples/DL-101-103-4
+.. runrecord:: _examples/DL-101-103-104
    :language: console
    :workdir: dl-101/DataLad-101
 
@@ -68,9 +63,9 @@ to accomplish this, but you can take any editor of your choice.
 
    EOT
 
-Let's check the datasets current state:
+Let's check the dataset's current state:
 
-.. runrecord:: _examples/DL-101-103-5
+.. runrecord:: _examples/DL-101-103-105
    :language: console
    :workdir: dl-101/DataLad-101
 
@@ -78,7 +73,7 @@ Let's check the datasets current state:
 
 and save the file:
 
-.. runrecord:: _examples/DL-101-103-6
+.. runrecord:: _examples/DL-101-103-106
    :language: console
    :workdir: dl-101/DataLad-101
 
@@ -90,11 +85,11 @@ file within each commit. (Note: the output below is an excerpt, if you enter
 the git log, your history will be longer. You can get out of ``git log`` by pressing
 ``q``.)
 
-.. runrecord:: _examples/DL-101-103-7
+.. runrecord:: _examples/DL-101-103-107
    :language: console
    :workdir: dl-101/DataLad-101
    :lines: 1-28
-   :emphasize-lines: 6, 14, 20, 28
+   :emphasize-lines: 6, 25, 27
 
    $ git log -p
 

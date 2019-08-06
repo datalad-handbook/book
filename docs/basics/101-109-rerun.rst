@@ -34,7 +34,7 @@ with the following, fixed script:
    :workdir: dl-101/DataLad-101
    :emphasize-lines: 2
 
-   $ cat << EOT > code/list_titles.sh
+   $ cat << EOT >| code/list_titles.sh
    for i in recordings/longnow/Long_Now*/*.mp3; do
       # get the filename
       base=\$(basename "\$i");

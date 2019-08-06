@@ -8,7 +8,7 @@ Even if we end up not reading those books at all, let's just download
 them and put them into our dataset. You never know, right?
 Let's first create a directory to save books for additional reading in.
 
-.. runrecord:: _examples/DL-101-102-1
+.. runrecord:: _examples/DL-101-102-101
    :language: console
    :workdir: dl-101/DataLad-101
 
@@ -16,7 +16,7 @@ Let's first create a directory to save books for additional reading in.
 
 Let's take a look at the current directory structure:
 
-.. runrecord:: _examples/DL-101-102-2
+.. runrecord:: _examples/DL-101-102-102
    :language: console
    :workdir: dl-101/DataLad-101
 
@@ -33,7 +33,7 @@ are all free, in total about 15 MB), and save them in ``DataLad-101/books``.
 You can either visit the links and save them in ``books/``,
 or run the following commands to download the books right from the terminal:
 
-.. runrecord:: _examples/DL-101-102-3
+.. runrecord:: _examples/DL-101-102-103
    :language: console
    :workdir: dl-101/DataLad-101
    :realcommand: cd books &&  wget -nv https://sourceforge.net/projects/linuxcommand/files/TLCL/19.01/TLCL-19.01.pdf/download -O TLCL.pdf && wget -nv https://www.gitbook.com/download/pdf/book/swaroopch/byte-of-python -O byte-of-python.pdf
@@ -47,7 +47,7 @@ or run the following commands to download the books right from the terminal:
 Let's see what happened. First of all, in the root of ``DataLad-101``, show the directory
 structure with tree:
 
-.. runrecord:: _examples/DL-101-102-4
+.. runrecord:: _examples/DL-101-102-104
    :language: console
    :workdir: dl-101/DataLad-101
 
@@ -60,7 +60,7 @@ often is :command:`datalad status` (:manpage:`datalad-status` manual).
 It reports on the state of dataset content, and
 regular status reports should become a habit in the wake of ``DataLad-101``.
 
-.. runrecord:: _examples/DL-101-102-5
+.. runrecord:: _examples/DL-101-102-105
    :language: console
    :workdir: dl-101/DataLad-101
 
@@ -80,7 +80,7 @@ saving the files to the dataset's history with the :command:`datalad save` comma
 This time, its your turn to specify a helpful :term:`commit message`
 with the ``-m`` option:
 
-.. runrecord:: _examples/DL-101-102-6
+.. runrecord:: _examples/DL-101-102-106
    :language: console
    :workdir: dl-101/DataLad-101
 
@@ -104,7 +104,7 @@ Let's see how this shows up in the history of the dataset with :command:`git log
 In order to get a bit more details, we add the ``-p`` flag (leave the git log
 by typing ``q``, navigate with up and down arrow keys):
 
-.. runrecord:: _examples/DL-101-102-7
+.. runrecord:: _examples/DL-101-102-107
    :language: console
    :workdir: dl-101/DataLad-101
    :lines: 1-20
@@ -165,7 +165,7 @@ revert *some* of the changes without affecting others in this commit.
 Luckily, we can point :command:`datalad save` to exactly the changes we want it to record.
 Let's try this by adding yet another book, a good reference work about git:
 
-.. runrecord:: _examples/DL-101-102-8
+.. runrecord:: _examples/DL-101-102-108
    :language: console
    :workdir: dl-101/DataLad-101
    :realcommand: cd books && wget -nv https://github.com/progit/progit2/releases/download/2.1.154/progit.pdf && cd ../
@@ -176,7 +176,7 @@ Let's try this by adding yet another book, a good reference work about git:
 
 :command:`datalad status` shows that there is a new untracked file:
 
-.. runrecord:: _examples/DL-101-102-9
+.. runrecord:: _examples/DL-101-102-109
    :language: console
    :workdir: dl-101/DataLad-101
 
@@ -184,7 +184,7 @@ Let's try this by adding yet another book, a good reference work about git:
 
 Let's :command:`datalad save` precisely this file by specifying its path after the commit message:
 
-.. runrecord:: _examples/DL-101-102-10
+.. runrecord:: _examples/DL-101-102-110
    :language: console
    :workdir: dl-101/DataLad-101
 
@@ -210,11 +210,11 @@ Let's :command:`datalad save` precisely this file by specifying its path after t
 
 A :command:`datalad status` should now be empty, and our dataset's history should look like this:
 
-.. runrecord:: _examples/DL-101-102-11
-   :language: console
+.. runrecord:: _examples/DL-101-102-111
    :workdir: dl-101/DataLad-101
+   :language: console
 
-   # let's make the output a bit more concise with the --oneline option
+   # lets make the output a bit more concise with the --oneline option
    $ git log --oneline
 
 

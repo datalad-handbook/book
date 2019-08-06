@@ -38,7 +38,7 @@ This is indeed a common real-world use case: Two users on a shared
 file system sharing a dataset with each other.
 But as we can't easily simulate a second user in this handbook,
 for now, you will have to share your dataset with yourself.
-This endeavor serves two purposes: For one, you will experience a very easy
+This endeavor serves several purposes: For one, you will experience a very easy
 way of sharing a dataset. Secondly, it will show you the installation
 of a dataset from a path (instead of a URL as shown in the section
 :ref:`installds`). Thirdly, ``DataLad-101`` is a dataset that can
@@ -115,7 +115,7 @@ the dataset?" he worries.
 Indeed, the PDFs and pictures appear just as they did in the original dataset
 on first sight: They are symlinks pointing to some location in the
 object tree. To reassure your room mate that everything is fine you
-quickly explain to him the concept of a symlink and the ``:term:`object tree```
+quickly explain to him the concept of a symlink and the :term:`object-tree`
 of :term:`Git-annex`.
 
 "But why does the PDF not open when I try to open it?" he repeats.

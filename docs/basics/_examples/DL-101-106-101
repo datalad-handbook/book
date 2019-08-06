@@ -1,25 +1,28 @@
 $ git log -p
-commit cef0456abbc59d8cafa8cbd14d3e28e0119022fe
+commit 2766b4c0b84baab75966512738565350a165e53c
 Author: Adina Wagner <adina.wagner@t-online.de>
-Date:   Wed Jul 24 13:15:19 2019 +0200
+Date:   Tue Jul 30 07:05:59 2019 +0200
 
     Add note on datalad install
 
 diff --git a/notes.txt b/notes.txt
-index 729c441..540f757 100644
+index bfa64d7..2d35825 100644
 --- a/notes.txt
 +++ b/notes.txt
-@@ -2,3 +2,6 @@ One can create a new dataset with 'datalad create [--description] PATH'.
- The dataset is created empty
- 'datalad save [-m] PATH' saves the file (modifications) to history.
- Note to self: Always use informative, concise commit messages.
-+The command 'datalad install [--source] PATH' installs a dataset from e.g. a URL or a path.
-+If you install a dataset into an existing dataset (as a subdataset), remember to specify the
+@@ -5,3 +5,9 @@ The command "datalad save [-m] PATH" saves the file
+ (modifications) to history. Note to self:
+ Always use informative, concise commit messages.
+ 
++The command 'datalad install [--source] PATH'
++installs a dataset from e.g. a URL or a path.
++If you install a dataset into an existing
++dataset (as a subdataset), remember to specify the
 +root of the superdataset with the '-d' option.
++
 
-commit 5a33d5e2cd82b6bcff534e5ad1dc1c38854366d3
+commit 16a48ae7b1f1047fbc329105017e573ddbd009f4
 Author: Adina Wagner <adina.wagner@t-online.de>
-Date:   Wed Jul 24 13:15:08 2019 +0200
+Date:   Tue Jul 30 07:05:25 2019 +0200
 
     [DATALAD] Recorded changes
 
@@ -41,40 +44,44 @@ index 0000000..dcc34fb
 @@ -0,0 +1 @@
 +Subproject commit dcc34fbe669b06ced84ced381ba0db21cf5e665f
 
-commit d25fc886cb7c026b9d3f60e8d0f4502439528b89
+commit 1c3f5b45800c4c01aa65cee7a5bba119aa66dae7
 Author: Adina Wagner <adina.wagner@t-online.de>
-Date:   Wed Jul 24 13:15:04 2019 +0200
+Date:   Tue Jul 30 07:05:24 2019 +0200
 
     add note on datalad save
 
 diff --git a/notes.txt b/notes.txt
-index c3587d4..729c441 100644
+index 3a7a1fe..bfa64d7 100644
 --- a/notes.txt
 +++ b/notes.txt
-@@ -1,2 +1,4 @@
+@@ -1,3 +1,7 @@
  One can create a new dataset with 'datalad create [--description] PATH'.
  The dataset is created empty
-+'datalad save [-m] PATH' saves the file (modifications) to history.
-+Note to self: Always use informative, concise commit messages.
+ 
++The command "datalad save [-m] PATH" saves the file
++(modifications) to history. Note to self:
++Always use informative, concise commit messages.
++
 
-commit eb011ecd413db391c2e87d920df56293e513fb9d
+commit 42ce8c2d08f27ff6e7910450906339d71dbf3aa1
 Author: Adina Wagner <adina.wagner@t-online.de>
-Date:   Wed Jul 24 13:15:03 2019 +0200
+Date:   Tue Jul 30 07:05:24 2019 +0200
 
     Add notes on datalad create
 
 diff --git a/notes.txt b/notes.txt
 new file mode 100644
-index 0000000..c3587d4
+index 0000000..3a7a1fe
 --- /dev/null
 +++ b/notes.txt
-@@ -0,0 +1,2 @@
+@@ -0,0 +1,3 @@
 +One can create a new dataset with 'datalad create [--description] PATH'.
 +The dataset is created empty
++
 
-commit 4e3ff6db59ce5b66878f8f39103132ec16a0dc76
+commit 70ddd658202ef9a6aba9e57b09082e8b208865b4
 Author: Adina Wagner <adina.wagner@t-online.de>
-Date:   Wed Jul 24 13:15:03 2019 +0200
+Date:   Tue Jul 30 07:05:23 2019 +0200
 
     add reference book about git
 
@@ -87,9 +94,9 @@ index 0000000..c5d2ab2
 +../.git/annex/objects/G6/Gj/MD5E-s12465653--05cd7ed561d108c9bcf96022bc78a92c.pdf/MD5E-s12465653--05cd7ed561d108c9bcf96022bc78a92c.pdf
 \ No newline at end of file
 
-commit 680a3e8e322d044f9dbb4621b1d3fbd6a3ea1ee8
+commit 165b8d31d358f5aa34875e1762276da1695625ae
 Author: Adina Wagner <adina.wagner@t-online.de>
-Date:   Wed Jul 24 13:14:50 2019 +0200
+Date:   Tue Jul 30 07:05:20 2019 +0200
 
     add books on Python and Unix to read later
 
@@ -110,9 +117,9 @@ index 0000000..96f3d29
 +../.git/annex/objects/qx/x9/MD5E-s4406537--8e25b5f481c0b82a9a3dc241a12423ad.pdf/MD5E-s4406537--8e25b5f481c0b82a9a3dc241a12423ad.pdf
 \ No newline at end of file
 
-commit 7cca14cb3ef5f4a2bdbae170883a0afbf846eda4
+commit 9fc4527a4121b32a607f475e95d7f7d71fb105ce
 Author: Adina Wagner <adina.wagner@t-online.de>
-Date:   Wed Jul 24 13:14:05 2019 +0200
+Date:   Tue Jul 30 07:05:16 2019 +0200
 
     Instruct annex to add text files to Git
 
@@ -129,9 +136,9 @@ index c3aaefe..8e9a246 100644
 +* annex.largefiles=(not(mimetype=text/*))
 \ No newline at end of file
 
-commit 3d184c5a0e0347a2fd42fac275664f3851fe92ff
+commit f13900e30fae4b87c709b7c38104b1d24b0700b2
 Author: Adina Wagner <adina.wagner@t-online.de>
-Date:   Wed Jul 24 13:14:04 2019 +0200
+Date:   Tue Jul 30 07:05:16 2019 +0200
 
     [DATALAD] new dataset
 
@@ -148,12 +155,12 @@ index 0000000..b540820
 \ No newline at end of file
 diff --git a/.datalad/config b/.datalad/config
 new file mode 100644
-index 0000000..123e389
+index 0000000..5ed2d43
 --- /dev/null
 +++ b/.datalad/config
 @@ -0,0 +1,2 @@
 +[datalad "dataset"]
-+	id = 25be60d2-ae04-11e9-a3c6-e86a64c8054c
++	id = 9eaef07e-b287-11e9-bd6b-d0c637c523bc
 diff --git a/.gitattributes b/.gitattributes
 new file mode 100644
 index 0000000..c3aaefe

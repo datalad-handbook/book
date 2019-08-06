@@ -134,7 +134,7 @@ command are saved into the most recent commit. The aim of
 the next action is to keep all of the files as they are in the
 dataset, but just get them out of the history. We'll use the
 :command:`git reset` command for this. It essentially undoes
-commits. :command:`git reset: comes with many options, but the
+commits. :command:`git reset` comes with many options, but the
 relevant one is ``--mixed``. Specifying the command::
 
    git reset --mixed COMMIT

@@ -116,12 +116,3 @@ Appendix
 
 * :ref:`genindex`
 * :ref:`search`
-
-
-.. toctree::
-   :maxdepth: 1
-   :caption: Experimental
-
-   remove/me
-   remove/metoo
-   remove/uml

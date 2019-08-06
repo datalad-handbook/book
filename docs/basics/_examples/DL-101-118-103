@@ -1,3 +1,14 @@
 
-$ datalad rerun d99b5c168bc0897614003283fb59fba648786c9b
-run(impossible): /home/adina/repos/datalad-handbook/docs/_build/wdirs/dl-101/mock_user/DataLad-101 (dataset) [clean dataset required to detect changes from command; use `datalad status` to inspect unsaved changes]
+$ datalad rerun b048c2d9d6494e232108aa5d4a42174d2e60a603
+[INFO] Making sure inputs are available (this may take some time) 
+[WARNING] no content present; cannot unlock [unlock(/home/adina/repos/datalad-handbook/docs/_build/wdirs/dl-101/mock_user/DataLad-101/recordings/salt_logo_small.jpg)] 
+[INFO] == Command start (output follows) ===== 
+[INFO] == Command exit (modification check follows) ===== 
+get(ok): recordings/longnow/.datalad/feed_metadata/logo_salt.jpg (file) [from origin...]
+remove(ok): recordings/salt_logo_small.jpg
+add(ok): recordings/salt_logo_small.jpg (file)
+action summary:
+  add (ok: 1)
+  get (ok: 1)
+  remove (ok: 1)
+  save (notneeded: 2)

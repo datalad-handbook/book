@@ -1,4 +1,4 @@
-$ cat << EOT > code/list_titles.sh
+$ cat << EOT >| code/list_titles.sh
 for i in recordings/longnow/Long_Now*/*.mp3; do
    # get the filename
    base=\$(basename "\$i");

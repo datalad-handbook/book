@@ -7,7 +7,7 @@ This package contains helpers for the DataLad handbook.
 '''
 
 requires = [
-    'Sphinx',
+    'Sphinx>=2',
     'sphinxcontrib-svg2pdfconverter',
     'sphinxcontrib-plantuml',
     'autorunrecord',

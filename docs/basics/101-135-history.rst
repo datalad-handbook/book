@@ -177,21 +177,14 @@ the content still? We will read all of them with :command:`cat`:
    :workdir: dl-101/DataLad-101
    :language: console
 
-   $ cat test*
+   $ cat Gitjoke*
 
 
-ahhh shit, what about annexed files? They are a symlink afterwards...
+TODO: ahhh shit, what about annexed files? They are a symlink afterwards...
 
+This action will not be recorded in your history.
 
-
-
-
-
-
-This action will not be
-recorded in your history.
-
-Let's start really simple, but also really magical: How does one *see*
+The next question is really magical: How does one *see*
 data as it was at a previous state in history?
 
 "To see a previous state of the data(set), you have to *checkout*
@@ -201,16 +194,28 @@ had just started to learn how to use DataLad. Identify the commit
 in which we added a note on ``datalad save`` in your own history
 (it will not have the same hash as the example below).
 
-.. runrecord:: _examples/DL-101-135-102
+.. runrecord:: _examples/DL-101-135-110
    :language: console
    :workdir: dl-101/DataLad-101
+
+
 
 To see the dataset at this state in time, run ``git checkout COMMIT``
 
-.. runrecord:: _examples/DL-101-135
+.. runrecord:: _examples/DL-101-135-110
    :language: console
    :workdir: dl-101/DataLad-101
 
-Let's check out the notes at this state
-How do you change or add the commit message
-of the last commit?"
+Let's check out the notes at this state.
+
+Todo: continue...
+
+
+More content:
+
+* How do you change or add the commit message
+  of the last commit or add files to it (Git commit --amend)?
+
+* definitely something about git annex unannex
+
+* .. ??

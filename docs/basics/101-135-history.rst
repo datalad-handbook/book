@@ -32,14 +32,14 @@ history, actually looking at it. Whatever tool you are using for it,
 you need a way to see what has been done in a dataset."
 
 In order to effectively work with the history, the most important
-information associated with a commit is its checksum. This checksum is how
+information associated with a commit is its hash. This hash is how
 DataLad identifies dataset modifications in the history, and with this
-checksum you can communicate with DataLad or :term:`Git` about these
+hash you can communicate with DataLad or :term:`Git` about these
 modifications. The ``datalad rerun`` command introduced in section
-:ref:`run2` for example takes such a checksum as an argument, and re-executes
+:ref:`run2` for example takes such a hash as an argument, and re-executes
 the ``datalad run`` or ``datalad rerun`` :term:`run record` associated with
-this checksum. Here is an excerpt from the ``DataLad-101`` history to show a
-few abbreviated checksums of the 15 most recent commits:
+this hash. Here is an excerpt from the ``DataLad-101`` history to show a
+few abbreviated hashes of the 15 most recent commits:
 
 .. runrecord:: _examples/DL-101-135-101
    :workdir: dl-101/DataLad-101
@@ -47,10 +47,10 @@ few abbreviated checksums of the 15 most recent commits:
 
    $ git log -15 --oneline
 
-Using these checksums for miscellaneous history management operations is also
+Using these hashes for miscellaneous history management operations is also
 a very fail-save method. An alternative way for example is to
 "count" ancestors of the most recent commit using the notation
-``HEAD~2``, ``HEAD^2`` or ``HEAD@{2}``, but using the commit checksum
+``HEAD~2``, ``HEAD^2`` or ``HEAD@{2}``, but using the commit hash
 saves you from accidentally miscounting. Just note that whenever you see
 a post or blog using the above notation, some commit in the history is
 referenced.
@@ -145,8 +145,8 @@ Importantly, the modifications
 you made in these commits that are undone will still be present
 in your dataset -- just not written to the history.
 
-The COMMIT in the command can either be a SHASUM or a reference
-with the HEAD pointer. Let's stay with the SHASUM:
+The COMMIT in the command can either be a hash or a reference
+with the HEAD pointer. Let's stay with the hash:
 
 .. runrecord:: _examples/DL-101-135-106
    :language: console
@@ -199,7 +199,7 @@ the commit you are interested in."
 Let us for example view the contents of ``notes.txt`` back when we
 had just started to learn how to use DataLad. Identify the commit
 in which we added a note on ``datalad save`` in your own history
-(it will not have the same checksum as the example below).
+(it will not have the same hash as the example below).
 
 .. runrecord:: _examples/DL-101-135-102
    :language: console

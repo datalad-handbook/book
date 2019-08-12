@@ -14,7 +14,7 @@ Let's first create a directory to save books for additional reading in.
 
    $ mkdir books
 
-Let's take a look at the current directory structure:
+Let's take a look at the current directory structure with the tree command [#f1]_:
 
 .. runrecord:: _examples/DL-101-102-102
    :language: console
@@ -31,7 +31,7 @@ are all free, in total about 15 MB), and save them in ``DataLad-101/books``.
 - An intro to Python: `A byte of Python <https://www.gitbook.com/download/pdf/book/swaroopch/byte-of-python>`_
 
 You can either visit the links and save them in ``books/``,
-or run the following commands to download the books right from the terminal:
+or run the following commands [#f2]_ to download the books right from the terminal:
 
 .. runrecord:: _examples/DL-101-102-103
    :language: console
@@ -112,7 +112,7 @@ by typing ``q``, navigate with up and down arrow keys):
 
    $ git log -p
 
-Now this might look a bit cryptic (and honestly, tig [#f1]_ makes it look prettier).
+Now this might look a bit cryptic (and honestly, tig [#f3]_ makes it look prettier).
 But this tells us the date and time in which a particular author added two PDFs to
 the directory ``books/``, and thanks to that commit message we have a nice
 human-readable summary of that action.
@@ -223,5 +223,14 @@ Well done! Your ``DataLad-101`` dataset and its history are slowly growing.
 
 .. rubric:: Footnotes
 
-.. [#f1] See :term:`tig`. Once installed, exchange any git log command you
+.. [#f1] ``tree`` is a Unix command to list file system content. If it is not yet installed,
+   you can get it with your native package manager (e.g.
+   ``apt`` or ``brew``). For example, if you use OSX, ``brew install tree``
+   will get you this tool.
+.. [#f2] ``wget`` is a Unix command for non-interactively downloading files from the
+   web. If it is not yet installed, you can get it with your native package manager (e.g.
+   ``apt`` or ``brew``). For example, if you use OSX, ``brew install wget``
+   will get you this tool.
+
+.. [#f3] See :term:`tig`. Once installed, exchange any git log command you
    see here with the single word ``tig``.

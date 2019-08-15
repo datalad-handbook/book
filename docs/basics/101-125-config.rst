@@ -65,9 +65,9 @@ are the necessary files, or the command that writes to them and
 the available options for configuration, that's it. And what's
 really cool is that all tools we'll be looking at -- Git, Git-annex,
 and DataLad -- can be configured using the :command:`git config`
-command or even a simple text editor [#f5]_.
-However, prior to learning *how* to configure settings, we should start
-by *understanding* them."
+command [#f1]_.
+Now, let's learn *how* to configure settings, but also
+*understand* them."
 
 "This seems easy enough", you think. Let's see what types of
 configurations there are.
@@ -258,7 +258,7 @@ can be defined based on
 by simply telling Git-annex by writing such rules."
 
 What you can see in this ``.gitattribute`` file is a rule based on file types:
-With ``mimetype=text/*)`` [#f3]_, the ``text2git`` configuration template
+With ``mimetype=text/*)`` [#f5]_, the ``text2git`` configuration template
 configured Git-annex to regard all files of type text **not** as a large file.
 Thanks to this little line, your text files are not annexed, but stored
 directly in Git.
@@ -312,10 +312,17 @@ care and background knowledge such that nothing should go wrong once you
 want to work with and change them. Slowly, you realize with pride,
 you're more and more becoming a DataLad power-user.
 
+
+TODO: environment variables. Environment variables take precedence over configuration file
+settings
+
+
+
 .. rubric:: Footnotes
 
-.. [#f1] A UUID is a universally unique identifier -- a 128-bit number
-         that unambiguously identifies information.
+.. [#f1] As an alternative to a ``git config`` command, you could also run configuration
+         templates or procedures (todo: link) that apply predefined configurations or in some cases even
+         add the information to the configuration file by hand and save it using an editor of your choice.
 
 .. [#f2] The third scope of a Git configuration are the system wide configurations.
          These are stored (if they exist) in ``/etc/gitconfig`` and contain settings that would
@@ -324,19 +331,7 @@ you're more and more becoming a DataLad power-user.
          read more about Gits configurations and different files
          `here <https://git-scm.com/docs/git-config>`_.
 
-.. [#f3] When opening any file on a UNIX system, the file does not need to have a file
-         extension (such as ``.txt``, ``.pdf``, ``.jpg``) for the operating system to know
-         how to open or use this file (in contrast to Windows, which does not know how to
-         open a file without an extension). To do this, Unix systems rely on a file's
-         MIME type -- an information about a files content. A ``.txt`` file for example
-         has MIME type ``text/plain`` as does a bash script (``.sh``), a Python
-         script has MIME type ``text/x-python``, a ``.jpg`` file is ``image/jpg``, and
-         a ``.pdf`` file has MIME type ``application/pdf``. You can find out the MIME type
-         of a file by running::
-
-            file --mime-type path/to/file
-
-.. [#f4] If your default editor is :term:`vim` and you do not like this, now can be the time
+.. [#f3] If your default editor is :term:`vim` and you do not like this, now can be the time
          to change it! Chose either of two options:
 
          1) Open up the file with an editor for your choice (e.g.
@@ -354,7 +349,17 @@ you're more and more becoming a DataLad power-user.
 
              git config --global core.editor "nano"
 
-.. [#f5] Alternatively, you could also add the information
-         to the configuration file by hand and save it, or run configuration
-         templates or procedures (todo: link) that apply predefined
-         configurations in the same way.
+.. [#f4] A UUID is a universally unique identifier -- a 128-bit number
+         that unambiguously identifies information.
+
+.. [#f5] When opening any file on a UNIX system, the file does not need to have a file
+         extension (such as ``.txt``, ``.pdf``, ``.jpg``) for the operating system to know
+         how to open or use this file (in contrast to Windows, which does not know how to
+         open a file without an extension). To do this, Unix systems rely on a file's
+         MIME type -- an information about a file's content. A ``.txt`` file for example
+         has MIME type ``text/plain`` as does a bash script (``.sh``), a Python
+         script has MIME type ``text/x-python``, a ``.jpg`` file is ``image/jpg``, and
+         a ``.pdf`` file has MIME type ``application/pdf``. You can find out the MIME type
+         of a file by running::
+
+            file --mime-type path/to/file

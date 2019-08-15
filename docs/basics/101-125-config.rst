@@ -72,8 +72,8 @@ Now, let's learn *how* to configure settings, but also
 "This seems easy enough", you think. Let's see what types of
 configurations there are.
 
-Git configurations
-^^^^^^^^^^^^^^^^^^
+Git config files
+^^^^^^^^^^^^^^^^
 
 The user name and email configuration
 is a *user-specific* configuration (called *global*
@@ -92,16 +92,26 @@ and *repository* configurations. Each of these configurations
 resides in its own file. For the global configuration, the values you specify
 are stored in a file called ``.gitconfig`` in your home directory. Among
 your name and email address, this file can store general
-per-user configurations, such as a default editor [#f4]_, or highlighting
+per-user configurations, such as a default editor [#f3]_, or highlighting
 options.
 
 The *repository-specific* configurations apply to each individual
 repository. Their scope is more limited than the *global*
 configuration (to a single repository), but it can overrule global
-configurations. For this reason, the repository-specific configuration
+configurations: The more specific the scope of a configuration file is, the more
+important it is, and the options in the more specific configuration
+will take precedence over options in less specific configuration files.
+One could for example have :term:`vim` configured to be the default editor
+on a global scope, but could overrule this by setting the editor to nano
+in a given repository. For this reason, the repository-specific configuration
 does not reside in a file in your home directory, but in ``.git/config``
 within every Git repository (and thus DataLad dataset).
-Conveniently, in many cases DataLad and Git-annex will use exactly the same
+
+Thus, there are three different scopes of Git configuration, and each is defined
+in a ``config`` file in a different location. The configurations will determine
+how Git behaves, and more specific scopes take precedence over broader
+scopes. Conveniently, not only can DataLad and Git-annex be configured with
+the same command as Git, but in many cases they will also use exactly the same
 files as Git for their own configurations.
 
 Let's find out how the repository-specific configuration file in the ``DataLad-101``
@@ -114,10 +124,10 @@ superdataset looks like:
    $ cat .git/config
 
 This file consists of so called "sections" with the section names
-in square brackets (e.g. ``remote``). Occasionally, a section can have
+in square brackets (e.g. ``core``). Occasionally, a section can have
 subsections: This is indicated by subsection names in
 quotation marks after the section name. For example, ``roommate`` is a subsection
-of the section ``submodule``.
+of the section ``remote``.
 Within each section, ``variable = value`` pairs specify configurations
 for the given (sub)section.
 
@@ -125,8 +135,84 @@ The first section is called ``core`` -- as the name suggests,
 this configures core Git functionality. There are
 `many more <https://git-scm.com/docs/git-config#Documentation/git-config.txt-corefileMode>`_
 configurations than the ones in this config file, but
-they are primarily relevant for advanced Git users and not so much
-for configuring a DataLad dataset.
+they are related to Git, and less related or important to the configuration of
+a DataLad dataset. We will use this section to showcase the anatomy of the
+:command:`git config` command, however. If you would want to specifically
+configure :term:`nano` to be the default editor in this dataset, you
+can do it like this:
+
+.. runrecord:: _examples/DL-101-125-102
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ git config --local --add core.editor "nano"
+
+The command consists of the base command :command:`git config`,
+a specification of the scope of the configuration with the ``--local``
+flag, a ``name`` specification consisting of section and key with the
+notation ``section.variable`` (here: ``core.editor``), and finally the value
+specification ``"nano"``.
+
+Let's see what has changed:
+
+.. runrecord:: _examples/DL-101-125-103
+   :language: console
+   :workdir: dl-101/DataLad-101
+   :emphasize-lines: 7
+
+   $ cat .git/config
+
+With this additional line in your repositories Git configuration, nano will
+be used as a default editor regardless of the configuration in your global
+or system-wide configuration. Note that the flag ``--local`` applies the
+configuration to your repository's ``.git/config`` file, whereas ``--global``
+would apply it as a user specific configuration, and ``--system`` as a
+system-wide configuration.
+If you would want to change this existing line in your ``.git/config``
+file, you would replace ``--add`` with ``--replace-all`` such as in::
+
+   git config --local --replace-all core.editor "vim"
+
+to configure :term:`vim` to be your default editor.
+
+This example demonstrated the structure of a :command:`git config`
+command. By specifying the ``name`` option with ``section.variable``
+(or ``section.subsection.variable`` if there is a subsection), and
+a value, one can configure Git, Git-annex, and DataLad.
+Most of these configurations will be written to a ``config`` file
+of Git, depending on the scope (local, global, system-wide)
+specified in the command (but not all).
+
+.. container:: toggle
+
+   .. container:: header
+
+       **Addition: If things go wrong**
+
+   If something goes wrong during the :command:`git config` command,
+   for example you end up having two keys of the same name because you
+   added a key instead of replacing an existing one, you can use the
+   ``--unset`` option to remove the line. Alternatively, you can also open
+   the config file in an editor and remove or change sections by hand.
+
+
+The only information you need, therefore, is the name of a section and
+variable to configure, and the value you want to specify.
+
+The second section of ``.git/config`` is a Git-annex configuration.
+As mentioned above, Git-annex will use the
+:term:`Git config file` for some of its configurations.
+For example, it lists the repository as a
+"version 5 repository", and gives the dataset its own Git-annex
+UUID. While the "annex-uuid" [#f4]_ looks like yet another cryptic
+random string of characters, you have seen a UUID like this before:
+A :command:`git annex whereis` displays information about where the
+annexed content in a dataset is with these UUIDs.
+This section also specifies the supported backends in this dataset.
+If you have read the hidden section in the section
+:ref:`symlink` you will recognize the name "MD5E". This is the
+hash function used to generate the annexed files keys and thus
+paths in the object tree.
 
 A more interesting part is the third one, the subsection
 ``"recordings/longnow"`` in the section ``submodule``.
@@ -163,10 +249,7 @@ path, and a demonstration of this is in section (Todo: link file system manageme
 
 todo: fetch
 
-While the "annex-uuid" [#f1]_ looks like yet another cryptic random string of
-characters, you have seen a UUID like this before already:
-A :command:`git annex whereis` displays information about where the
-annexed content in a dataset is with these UUIDs. Lastly, the ``annex-ignore = false``
+Lastly, the ``annex-ignore = false``
 configuration allows Git-annex to query the remote when it tries to
 retrieve data from annexed content.
 
@@ -174,18 +257,7 @@ retrieve data from annexed content.
 
 
 
-The second section in the ``config`` specifies
-the :term:`Git-annex`\-specific configurations of this superdataset.
-As mentioned above, Git-annex will use the
-:term:`Git config file` for some of its configurations.
-For example, it lists the repository as a
-"version 5 repository", and gives the dataset its own Git-annex
-UUID. If you have read the hidden section in the section
-:ref:`symlink` you will recognize the name "MD5E". This is the
-hash function used to generate the annexed files keys and thus
-paths in the object tree. Thus, this configuration file is where
-Git-annex retrieves information about which key format it is
-supposed to use.
+
 
 
 

@@ -92,6 +92,9 @@ Glossary
       describes how large the picture is, the color depth, the image resolution, when the image
       was created, the shutter speed, and other data.
 
+   nano
+      A common text-editor.
+
    object-tree
       Git-annex concept: The place where :term:`Git-annex` stores available file contents. Files that are annexed get
       a :term:`symlink` added to :term:`Git` that points to the file content. A different word for :term:`annex`.

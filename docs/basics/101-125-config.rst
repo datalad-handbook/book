@@ -295,7 +295,7 @@ configuration template did and kook into
 the file ``.gitattributes``." This file
 lies right in the root of your superdataset:
 
-.. runrecord:: _examples/DL-101-125-102
+.. runrecord:: _examples/DL-101-125-104
    :language: console
    :workdir: dl-101/DataLad-101
 
@@ -345,7 +345,7 @@ specify paths or single file names."
 To see an example of this, navigate into the longnow subdataset,
 and view this dataset's ``.gitattributes`` file:
 
-.. runrecord:: _examples/DL-101-125-103
+.. runrecord:: _examples/DL-101-125-105
    :language: console
    :workdir: dl-101/DataLad-101
 
@@ -364,7 +364,7 @@ This instructs Git-annex to specifically not annex ``README.md``.
 
 
 
-.. runrecord:: _examples/DL-101-125-103
+.. runrecord:: _examples/DL-101-125-106
    :language: console
    :workdir: dl-101/DataLad-101
 

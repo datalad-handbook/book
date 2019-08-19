@@ -61,7 +61,7 @@ PDF.
 
 While this might appear messy, a ``datalad save`` will clean
 all of this up. Therefore, don't panic if you rename a file,
-and see a dirty dataset with deleted and untracked files
+and see a dirty dataset status with deleted and untracked files
 -- ``datalad save`` handles these and other cases really well
 under the hood.
 Note, however, that you can't have any other
@@ -84,54 +84,65 @@ and will summarize this nicely in the resulting commit:
 
    $ git log -1 -p
 
-Thus, if you have a clean dataset, simply renaming files will
+Thus, if you have a clean dataset status, simply renaming files will
 be easily saved to the history with a ``datalad save``.
 
 If, however, you have unsaved modifications in your dataset that you
-don't (yet) want to save, you can do a detour by using git tools.
-Git has built-in commands that provide a solution in two steps.
+don't (yet) want to save, you can do a detour by using git tools,
+outlined in the following hidden section:
 
-Lets revert the renaming of the the files files:
+.. container:: toggle
 
-.. runrecord:: _examples/DL-101-114-105
-   :language: console
-   :workdir: dl-101/DataLad-101/books
+   .. container:: header
 
-   $ git reset --hard HEAD~1
-   $ datalad status
+      **Addition: Renaming with Git tools**
 
-A Git-specific way to rename files is the ``git mv`` command:
+   Git has built-in commands that provide a solution in two steps.
 
-.. runrecord:: _examples/DL-101-114-106
-   :language: console
-   :workdir: dl-101/DataLad-101/books
+   If you have followed along the previous :command:`datalad save`
+   (which you should have), let's revert the renaming of the the files files:
 
-   $ git mv TLCL.pdf The_Linux_Command_Line.pdf
+   .. runrecord:: _examples/DL-101-114-105
+      :language: console
+      :workdir: dl-101/DataLad-101/books
 
-.. runrecord:: _examples/DL-101-114-107
-   :language: console
-   :workdir: dl-101/DataLad-101/books
+      $ git reset --hard HEAD~1
+      $ datalad status
 
-   $ datalad status
+   Now we're checking out how to rename files and commit this operation
+   using only Git:
+   A Git-specific way to rename files is the ``git mv`` command:
 
-We can see that the old file is still seen as "deleted", but the "new",
-renamed file is "added". A ``git status`` displays the change
-in the dataset a bit more accurate:
+   .. runrecord:: _examples/DL-101-114-106
+      :language: console
+      :workdir: dl-101/DataLad-101/books
 
-.. runrecord:: _examples/DL-101-114-108
-   :language: console
-   :workdir: dl-101/DataLad-101/books
+      $ git mv TLCL.pdf The_Linux_Command_Line.pdf
 
-   $ git status
+   .. runrecord:: _examples/DL-101-114-107
+      :language: console
+      :workdir: dl-101/DataLad-101/books
 
-A subsequent ``git commit -m "rename book"`` will write the renaming
--- and only the renaming -- to the datasets history.
+      $ datalad status
 
-.. runrecord:: _examples/DL-101-114-109
-   :language: console
-   :workdir: dl-101/DataLad-101/books
+   We can see that the old file is still seen as "deleted", but the "new",
+   renamed file is "added". A ``git status`` displays the change
+   in the dataset a bit more accurate:
 
-   $ git commit -m "rename book"
+   .. runrecord:: _examples/DL-101-114-108
+      :language: console
+      :workdir: dl-101/DataLad-101/books
+
+      $ git status
+
+   A subsequent ``git commit -m "rename book"`` will write the renaming
+   -- and only the renaming -- to the datasets history.
+
+   .. runrecord:: _examples/DL-101-114-109
+      :language: console
+      :workdir: dl-101/DataLad-101/books
+
+      $ git commit -m "rename book"
 
 Let's revert this now, to have a clean history.
 

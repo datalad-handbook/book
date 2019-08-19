@@ -1,0 +1,6 @@
+$ datalad save -m "Add notes on datalad create"
+add(ok): notes.txt (file)
+save(ok): . (dataset)
+action summary:
+  add (ok: 1)
+  save (ok: 1)

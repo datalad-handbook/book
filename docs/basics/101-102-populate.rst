@@ -4,36 +4,36 @@ Populate a dataset
 ------------------
 
 The first lecture in DataLad-101 referenced some useful literature.
-Even if we end up not reading those books at all, lets just download
+Even if we end up not reading those books at all, let's just download
 them and put them into our dataset. You never know, right?
-Lets first create a directory to save books for additional reading in.
+Let's first create a directory to save books for additional reading in.
 
-.. runrecord:: _examples/DL-101-102-1
+.. runrecord:: _examples/DL-101-102-101
    :language: console
    :workdir: dl-101/DataLad-101
 
    $ mkdir books
 
-Lets take a look at the current directory structure:
+Let's take a look at the current directory structure with the tree command [#f1]_:
 
-.. runrecord:: _examples/DL-101-102-2
+.. runrecord:: _examples/DL-101-102-102
    :language: console
    :workdir: dl-101/DataLad-101
 
    $ tree
 
 
-Arguably, not the most exiting thing to see. So lets put some PDFs inside.
-Below is a short list optional readings. We decide to download them (they
+Arguably, not the most exciting thing to see. So let's put some PDFs inside.
+Below is a short list of optional readings. We decide to download them (they
 are all free, in total about 15 MB), and save them in ``DataLad-101/books``.
 
 - Additional reading about the command line: `The Linux Command Line <https://sourceforge.net/projects/linuxcommand/files/TLCL/19.01/TLCL-19.01.pdf/download>`_
 - An intro to Python: `A byte of Python <https://www.gitbook.com/download/pdf/book/swaroopch/byte-of-python>`_
 
 You can either visit the links and save them in ``books/``,
-or run the following commands to download the books:
+or run the following commands [#f2]_ to download the books right from the terminal:
 
-.. runrecord:: _examples/DL-101-102-3
+.. runrecord:: _examples/DL-101-102-103
    :language: console
    :workdir: dl-101/DataLad-101
    :realcommand: cd books &&  wget -nv https://sourceforge.net/projects/linuxcommand/files/TLCL/19.01/TLCL-19.01.pdf/download -O TLCL.pdf && wget -nv https://www.gitbook.com/download/pdf/book/swaroopch/byte-of-python -O byte-of-python.pdf
@@ -47,33 +47,40 @@ or run the following commands to download the books:
 Let's see what happened. First of all, in the root of ``DataLad-101``, show the directory
 structure with tree:
 
-.. runrecord:: _examples/DL-101-102-4
+.. runrecord:: _examples/DL-101-102-104
    :language: console
    :workdir: dl-101/DataLad-101
 
    $ tree
 
+.. index:: ! datalad command; status
 
 Now what does DataLad do with this sudden content? One command you will use very
-often is ``datalad status``. It reports on the state of dataset content, and
+often is :command:`datalad status` (:manpage:`datalad-status` manual).
+It reports on the state of dataset content, and
 regular status reports should become a habit in the wake of ``DataLad-101``.
 
-.. runrecord:: _examples/DL-101-102-5
+.. runrecord:: _examples/DL-101-102-105
    :language: console
    :workdir: dl-101/DataLad-101
 
    $ datalad status
 
+.. index:: ! datalad command; save
+
 Interesting, the ``books/`` directory is "untracked". Remember how content
 *can* be tracked *if a user wants to*?
 Untracked means that DataLad does not know about this directory or its content,
 because we haven't ordered DataLad to actually track it. This means, DataLad
-does not keep the downloaded books in its history yet. Lets change this by
-saving the files to the datasets history with the ``datalad save`` command.
+
+does not keep the downloaded books in its history yet. Let's change this by
+saving the files to the dataset's history with the :command:`datalad save` command
+(:manpage:`datalad-save` manual).
+
 This time, its your turn to specify a helpful :term:`commit message`
 with the ``-m`` option:
 
-.. runrecord:: _examples/DL-101-102-6
+.. runrecord:: _examples/DL-101-102-106
    :language: console
    :workdir: dl-101/DataLad-101
 
@@ -89,15 +96,15 @@ with the ``-m`` option:
    ``[DATALAD] Recorded changes`` as a commit message into your history.
    This is not particularly informative.
    You can change the *last* commit message with the Git command
-   ``git commit --amend``. This will open up your default editor
+   :command:`git commit --amend`. This will open up your default editor
    and you can edit
    the commit message. Careful -- the default editor might be :term:`vim`!
 
-Lets see how this shows up in the history of the dataset with ``git log``.
+Let's see how this shows up in the history of the dataset with :command:`git log`.
 In order to get a bit more details, we add the ``-p`` flag (leave the git log
 by typing ``q``, navigate with up and down arrow keys):
 
-.. runrecord:: _examples/DL-101-102-7
+.. runrecord:: _examples/DL-101-102-107
    :language: console
    :workdir: dl-101/DataLad-101
    :lines: 1-20
@@ -105,10 +112,10 @@ by typing ``q``, navigate with up and down arrow keys):
 
    $ git log -p
 
-Now this might look a bit cryptic (and honestly, tig [#f1]_ makes it look prettier).
+Now this might look a bit cryptic (and honestly, tig [#f3]_ makes it look prettier).
 But this tells us the date and time in which a particular author added two PDFs to
-the directory ``books/``, and thanks to that commit message we have a nice human-
-readable summary of that action.
+the directory ``books/``, and thanks to that commit message we have a nice
+human-readable summary of that action.
 
 .. container:: toggle
 
@@ -137,28 +144,28 @@ readable summary of that action.
 .. gitusernote::
 
    Just as in Git, new files are not tracked from their creation on, but only when
-   explicitly given to Git (in Git terms with an initial ``git add``). But different
-   from the common Git workflow, DataLad skips the staging area. A ``datalad save``
-   combines a ``git add`` and a ``git commit``, and therefore, the commit message
-   is specified with ``datalad save``.
+   explicitly given to Git (in Git terms with an initial :command:`git add`). But different
+   from the common Git workflow, DataLad skips the staging area. A :command:`datalad save`
+   combines a :command:`git add` and a :command:`git commit`, and therefore, the commit message
+   is specified with :command:`datalad save`.
 
 Cool, so now you have added some files to your dataset history. But what is a bit
 inconvenient is that both books were saved *together*. You begin to wonder: "A Python
 book and a Unix book do not have that much in common. I probably should not save them
-in the same commit. And ... what happens if I have files I don't want to track? A
-``datalad save -m "some commit message"`` would write all of what is currently
+in the same commit. And ... what happens if I have files I don't want to track?
+:command:`datalad save -m "some commit message"` would write all of what is currently
 in my dataset and untracked or modified into the history!"
 
-And you're absolutely right with that! First, it is good practice to save only those changes
+Regarding your first remark, you're absolutely right with that!
+It is good practice to save only those changes
 together that belong together. We do not want to squish completely unrelated changes
 into the same spot of our history, because it would get very nasty should we want to
 revert *some* of the changes without affecting others in this commit.
-Second, yes, you should have control about what you have tracked by DataLad.
 
-Luckily, we can point ``datalad save`` to exactly the changes we want it to record.
-Lets try this by adding yet another book, a good reference work about git:
+Luckily, we can point :command:`datalad save` to exactly the changes we want it to record.
+Let's try this by adding yet another book, a good reference work about git:
 
-.. runrecord:: _examples/DL-101-102-8
+.. runrecord:: _examples/DL-101-102-108
    :language: console
    :workdir: dl-101/DataLad-101
    :realcommand: cd books && wget -nv https://github.com/progit/progit2/releases/download/2.1.154/progit.pdf && cd ../
@@ -167,38 +174,63 @@ Lets try this by adding yet another book, a good reference work about git:
    $ wget https://github.com/progit/progit2/releases/download/2.1.154/progit.pdf
    $ cd ../
 
-``datalad status`` shows that there is a new untracked file:
+:command:`datalad status` shows that there is a new untracked file:
 
-.. runrecord:: _examples/DL-101-102-9
+.. runrecord:: _examples/DL-101-102-109
    :language: console
    :workdir: dl-101/DataLad-101
 
    $ datalad status
 
-Lets ``datalad save`` precisely this file by specifying its path after the commit message:
+Let's :command:`datalad save` precisely this file by specifying its path after the commit message:
 
-.. runrecord:: _examples/DL-101-102-10
+.. runrecord:: _examples/DL-101-102-110
    :language: console
    :workdir: dl-101/DataLad-101
 
    $ datalad save -m "add reference book about git" books/progit.pdf
 
-Let's make it a habit to always specify precisely which changes we want to write to history.
 
-A ``datalad status`` should now be empty, and our datasets history should look like this:
+.. container:: toggle
 
-.. runrecord:: _examples/DL-101-102-11
-   :language: console
+   .. container:: header
+
+      **Addition: some more on save**
+
+   Regarding your second remark, you're right that a :command:`datalad save` without a
+   path specification would write all of the currently untracked files or modifications
+   to the history.
+   There are some ways to mitigate this: A :command:`datalad save -m "concise message" --updated`
+   (or the shorter form of ``--updated``, ``-u``) will only write *modifications* to the
+   history, not untracked files. Later, we will also see ``.gitignore`` files that let
+   you hide content from version control.
+   However, it is good practice to safely store away modifications or new content.
+   This both improves your dataset and workflow, and will be a requirement for the execution
+   of certain commands.
+
+A :command:`datalad status` should now be empty, and our dataset's history should look like this:
+
+.. runrecord:: _examples/DL-101-102-111
    :workdir: dl-101/DataLad-101
+   :language: console
 
    # lets make the output a bit more concise with the --oneline option
    $ git log --oneline
 
 
-Well done! You're ``DataLad-101`` dataset and it's history are slowly growing.
+Well done! Your ``DataLad-101`` dataset and its history are slowly growing.
 
 
 .. rubric:: Footnotes
 
-.. [#f1] See :term:`tig`. Once installed, exchange any git log command you
+.. [#f1] ``tree`` is a Unix command to list file system content. If it is not yet installed,
+   you can get it with your native package manager (e.g.
+   ``apt`` or ``brew``). For example, if you use OSX, ``brew install tree``
+   will get you this tool.
+.. [#f2] ``wget`` is a Unix command for non-interactively downloading files from the
+   web. If it is not yet installed, you can get it with your native package manager (e.g.
+   ``apt`` or ``brew``). For example, if you use OSX, ``brew install wget``
+   will get you this tool.
+
+.. [#f3] See :term:`tig`. Once installed, exchange any git log command you
    see here with the single word ``tig``.

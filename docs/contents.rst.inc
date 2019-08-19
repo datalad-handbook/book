@@ -81,6 +81,16 @@ Sharing a dataset [1]
    basics/101-120-summary
    basics/101-121-siblings
 
+#########################
+Data Analysis in datasets
+#########################
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Organizational principles and best practices for data analyses
+
+   basics/101-122-yoda
+
 #########
 Use Cases
 #########

@@ -270,145 +270,23 @@ you a glimpse of this.
    Lastly, the ``annex-ignore = false`` configuration allows Git-annex
    to query the remote when it tries to retrieve data from annexed content.
 
-``.git/config`` versus other configuration files
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+``.git/config`` versus other (configuration) files
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Within a Git repository, ``.git/config`` is not the only configuration file.
-There are also ``.gitmodules`` and ``.gitattributes``, and in DataLad datasets
-there also is a ``.datalad/config`` file.
-
-One crucial aspect distinguishes the ``.git/config`` file from those other files:
-*It will not be shared.* The reason for this is simple. This config file
+One crucial aspect distinguishes the ``.git/config`` file from many other files
+in your dataset: *It will not be shared.*
+The reason for this is simple. This config file
 lives in the ``.git`` directory of your repository, and this directory is not
-version controlled
+version controlled. Any repository-specific configuration within your ``.git/config``
+file is thus not written to history. A :command:`datalad install` command
+of someone's dataset will not get your their editor configuration, should they
+have included one in their config file. Instead, upon a :command:`datalad install`,
+a new config file will be created.
 
+This means, however, that configurations that should "stick" to a dataset
+need to be defined in different files -- files that are version controlled.
+The next section will talk about them.
 
-.. todo::
-
-   * understand why there are .gitmodules files with the same information
-     as in the .gitmodules section, and also redundancy to .gitattributes (the
-     git annex backend. which files need to be modified to change a specific
-     option?
-
-   * .gitmodules is a configuration file that stores the mapping between
-     the projects URL and the local subdirectory you've pulled it into.
-     There will be an entry for each submodule (subdataset) in your dataset.
-     This file is how other people that install your superdataset know where to get
-     submodule projects from.
-
-   * To change the backend, you should set it in ``.gitattributes``
-
-
-Git-annex configurations
-^^^^^^^^^^^^^^^^^^^^^^^^
-
-"By now we have only seen this huge amount of configurations
-in git configuration files! Are there other files, specifically created
-by DataLad for example?"
-you impatiently raise your arm and ask.
-
-"DataLad adds a repository-specific configuration file as well",
-you hear in response. "This file can be found in the ``.datalad``
-directory. But before we go to DataLad-specific configuration files,
-we'll need to look at Git-annex configurations. For example,
-you surely all remember the ``text2git`` configuration template
-we applied to ``DataLad-101``. Let's now see what exactly this
-configuration template did and kook into
-the file ``.gitattributes``." This file
-lies right in the root of your superdataset:
-
-.. runrecord:: _examples/DL-101-125-104
-   :language: console
-   :workdir: dl-101/DataLad-101
-
-   $ cat .gitattributes
-
-This looks neither spectacular nor pretty. There is one key word that
-you recognize, though: MD5E. It's again a reference to the type of
-key used by Git-annex to identify and store file content in the object-tree.
-
-This ``annex.backend`` option indeed would be the place to change
-the key type. TODO: how precisely?
-
-But what is the rest? We'll start with the last row::
-
-   * annex.largefiles=(not(mimetype=text/*))
-
-Uhhh, cryptic. The lecturer explains:
-
-"Git-annex will *annex*, that is: store in the object-tree,
-anything it considers to be a "large file". By default, anything
-in your dataset would be a "large file". However, in section
-:ref:`symlink` I already mentioned that exceptions to this behavior
-can be defined based on
-
-#. file size
-
-#. and/or path/pattern, and thus for example file extensions,
-   or names, or file types (e.g. text files, as with the
-   ``text2git`` configuration template).
-
-"In ``.gitattributes``, you can define what a large file and what is not
-by simply telling Git-annex by writing such rules."
-
-What you can see in this ``.gitattribute`` file is a rule based on file types:
-With ``mimetype=text/*)`` [#f5]_, the ``text2git`` configuration template
-configured Git-annex to regard all files of type text **not** as a large file.
-Thanks to this little line, your text files are not annexed, but stored
-directly in Git.
-
-todo; explain the * and **
-
-
-"This is one way of configuring the ``annex.largefiles`` option -- using
-file's MIME types as a specification. You could just as easily however also
-specify paths or single file names."
-
-To see an example of this, navigate into the longnow subdataset,
-and view this dataset's ``.gitattributes`` file:
-
-.. runrecord:: _examples/DL-101-125-105
-   :language: console
-   :workdir: dl-101/DataLad-101
-
-   $ cd recordings/longnow
-   $ cat .gitattributes
-
-The relevant part is ``README.md annex.largefiles=nothing``
-This instructs Git-annex to specifically not annex ``README.md``.
-
-
-.. todo::
-
-   are there other mimetypes? where does the name come from? what does
-   the ``/*`` do?
-
-
-
-
-.. runrecord:: _examples/DL-101-125-106
-   :language: console
-   :workdir: dl-101/DataLad-101
-
-   $ cat .datalad/config
-
-.. todo::
-
-   find out what can be inside a datalad config file
-
-This has been an intense lecture, you have to admit. One definite
-take-away from it has been that you now know a second reason why the hidden
-``.git`` and ``.datalad`` directory contents shouldn't be carelessly
-tempered with -- they contain all of the repositories configurations.
-
-But you now also know how to modify these configurations with enough
-care and background knowledge such that nothing should go wrong once you
-want to work with and change them. Slowly, you realize with pride,
-you're more and more becoming a DataLad power-user.
-
-
-TODO: environment variables. Environment variables take precedence over configuration file
-settings
 
 
 
@@ -445,15 +323,3 @@ settings
 
 .. [#f4] A UUID is a universally unique identifier -- a 128-bit number
          that unambiguously identifies information.
-
-.. [#f5] When opening any file on a UNIX system, the file does not need to have a file
-         extension (such as ``.txt``, ``.pdf``, ``.jpg``) for the operating system to know
-         how to open or use this file (in contrast to Windows, which does not know how to
-         open a file without an extension). To do this, Unix systems rely on a file's
-         MIME type -- an information about a file's content. A ``.txt`` file for example
-         has MIME type ``text/plain`` as does a bash script (``.sh``), a Python
-         script has MIME type ``text/x-python``, a ``.jpg`` file is ``image/jpg``, and
-         a ``.pdf`` file has MIME type ``application/pdf``. You can find out the MIME type
-         of a file by running::
-
-            file --mime-type path/to/file

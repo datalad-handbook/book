@@ -1,0 +1,204 @@
+.. _config2:
+
+Everything you ever wanted to configure [2]
+-------------------------------------------
+
+"By now we have only seen this huge amount of configurations
+in git configuration files! Are there other files we should know
+about?" you impatiently raise your arm and ask.
+
+Within a Git repository, ``.git/config`` is not the only configuration file.
+There are also ``.gitmodules`` and ``.gitattributes``, and in DataLad datasets
+there also is a ``.datalad/config`` file.
+
+All of these files store configurations, but have an important difference:
+They are version controlled, and upon sharing a dataset these configurations
+will be shared as well. One example for a configuration that is shared
+is the one that the ``text2git`` configuration template applied:
+In the shared copy of your dataset, text files are also saved with Git,
+and not Git-annex (see section :ref:`sibling`). The configuration responsible
+for this behavior is in a ``.gitattributes`` file, and we'll start this
+section by looking into it.
+
+``.gitattributes``
+^^^^^^^^^^^^^^^^^^
+
+This file lies right in the root of your superdataset:
+
+.. runrecord:: _examples/DL-101-125-104
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ cat .gitattributes
+
+This looks neither spectacular nor pretty. There is one key word that
+you recognize, though: MD5E. If you have read the hidden section in :ref:`symlink`
+you will recognize it as a reference to the type of
+key used by Git-annex to identify and store file content in the object-tree.
+The first row, ``* annex.backend=MD5E``, therefore translates to "Everything in this
+directory should be hashed with a MD5E hash function".
+But what is the rest? We'll start with the last row::
+
+   * annex.largefiles=(not(mimetype=text/*))
+
+Uhhh, cryptic. The lecturer explains:
+
+"Git-annex will *annex*, that is: store in the object-tree,
+anything it considers to be a "large file". By default, anything
+in your dataset would be a "large file", that means anything would be annexed.
+However, in section :ref:`symlink` I already mentioned that exceptions to this
+behavior can be defined based on
+
+#. file size
+
+#. and/or path/pattern, and thus for example file extensions,
+   or names, or file types (e.g. text files, as with the
+   ``text2git`` configuration template).
+
+"In ``.gitattributes``, you can define what a large file and what is not
+by simply telling Git-annex by writing such rules."
+
+What you can see in this ``.gitattribute`` file is a rule based on **file types**:
+With ``mimetype=text/*)`` [#f1]_, the ``text2git`` configuration template
+configured Git-annex to regard all files of type text **not** as a large file.
+Thanks to this little line, your text files are not annexed, but stored
+directly in Git.
+
+The patterns ``*`` and ``**`` are so-called "wildcards" used in :term:`globbing`.
+``*`` matches any file or directory in the current directory, and ``**`` matches
+all files and directories in the current directory *and subdirectories*. In technical
+terms, ``**`` matches *recursively*. The third row therefore
+translates to "Don't annex anything that is a text file in this directory" for Git-annex.
+
+However, rules can be even simpler. The second row simply takes a complete directory
+(``.git``) and instructs Git-annex to regard nothing in it as a "large file".
+The second row, ``**/.git* annex.largefiles=nothing`` therefore means that no
+``.git`` repository in this directory or a subdirectory should be considered
+a "large file". This way, the ``.git`` repositories are protected from being annexed.
+If you had a single file (``myfile.pdf``) you wouldn't want annexed, specifying a rule such as::
+
+   myfile.pdf annex.largefiles=nothing
+
+will keep it stored in Git. To see an example of this, navigate into the longnow subdataset,
+and view this dataset's ``.gitattributes`` file:
+
+.. runrecord:: _examples/DL-101-125-105
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ cat recordings/longnow/.gitattributes
+
+The relevant part is ``README.md annex.largefiles=nothing``
+This instructs Git-annex to specifically not annex ``README.md``.
+
+Lastly, if you wanted to configure a rule based on **size**, you could add a row such as
+``** annex.largefiles(largerthan=20kb)`` to store only files exceeding 20KB in size
+in Git-annex [#f2]_.
+
+As you may have noticed, unlike ``.git/config`` files,
+there can be multiple ``.gitattributes`` files within a dataset. So far, you have seen one
+in the root of the superdataset, and in the root of the ``longnow`` subdataset.
+In principle, you can add one to every level of your dataset. For example, there is another
+``.gitattributes`` file within the ``.datalad`` directory:
+
+.. runrecord:: _examples/DL-101-125-107
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ cat .datalad/.gitattributes
+
+As with Git configuration files, more specific or lower-level configurations take precedence
+over more general or higher-level configurations. Specifications in a subdirectory can
+therefore overrule specifications made in the ``.gitattributes`` file of the parent
+directory.
+
+In summary, the ``.gitattributes`` files will give you the possibility to configure
+what should be annexed and what shouldn't be annexed up to individual file level.
+This can be very handy, and allows you to tune your dataset to your custom needs.
+For example, files you will often edit by hand could be stored in Git if they are
+not too large to ease modifying them.
+Should you ever need to, this file is also where one would change the Git-annex
+backend.
+
+``.gitmodules``
+^^^^^^^^^^^^^^^
+
+On last configuration file we want to look at is the ``.gitmodules`` file.
+There is one right in the root of your dataset:
+
+.. runrecord:: _examples/DL-101-125-108
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ cat .gitmodules
+
+Based on these contents, you might have already guessed what this file
+stores. ``.gitmodules`` is a configuration file that stores the mapping between
+your own dataset and any subdatasets you have installed in it.
+There will be an entry for each submodule (subdataset) in your dataset.
+The name *submodule* is Git terminology, and describes a Git repository inside of
+another Git repository, i.e. the super- and subdataset principles.
+Upon sharing your dataset, the information about subdatasets and where to retrieve
+them from is stored and shared with this file.
+
+
+
+``.datalad/config``
+^^^^^^^^^^^^^^^^^^^
+
+DataLad adds a repository-specific configuration file as well.
+It can be found in the ``.datalad`` directory, and just like ``.gitattributes``
+and ``.gitmodules`` it is version controlled and is thus shared together with
+the dataset. One can configure
+`many options <http://docs.datalad.org/en/latest/generated/datalad.config.html>`_,
+but currently, our ``.datalad/config`` file only stores a dataset ID:
+
+.. runrecord:: _examples/DL-101-125-106
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ cat .datalad/config
+
+
+This has been an intense lecture, you have to admit. One definite
+take-away from it has been that you now know a second reason why the hidden
+``.git`` and ``.datalad`` directory contents and also the contents of ``.gitmodules`` and
+``.gitattributes`` shouldn't be carelessly tempered with -- they contain all of
+the repositories configurations.
+
+But you now also know how to modify these configurations with enough
+care and background knowledge such that nothing should go wrong once you
+want to work with and change them. Slowly, you realize with pride,
+you're more and more becoming a DataLad power-user.
+
+
+.. todo::
+
+    Maybe talk about environment variables. Environment variables take precedence over configuration file
+    settings
+
+
+.. rubric:: Footnotes
+
+.. [#f1] When opening any file on a UNIX system, the file does not need to have a file
+         extension (such as ``.txt``, ``.pdf``, ``.jpg``) for the operating system to know
+         how to open or use this file (in contrast to Windows, which does not know how to
+         open a file without an extension). To do this, Unix systems rely on a file's
+         MIME type -- an information about a file's content. A ``.txt`` file for example
+         has MIME type ``text/plain`` as does a bash script (``.sh``), a Python
+         script has MIME type ``text/x-python``, a ``.jpg`` file is ``image/jpg``, and
+         a ``.pdf`` file has MIME type ``application/pdf``. You can find out the MIME type
+         of a file by running::
+
+            file --mime-type path/to/file
+
+.. [#f2] Specifying annex.largefiles in your .gitattributes file will make the configuration
+         "portable" -- shared copies of your dataset will retain these configurations.
+         You could however also set largefiles rules in your ``.git/config`` file. Rules
+         specified in there take precendence over rules in ``.gitattributes``. You can set
+         them using the :command:`git config` command::
+
+            git config annex.largefiles 'largerthan=100kb and not (include=*.c or include=*.h)'
+
+         The above command annexes files larger than 100KB, and will never annex files with a
+         ``.c`` or ``.h`` extension.

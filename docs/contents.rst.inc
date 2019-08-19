@@ -81,6 +81,16 @@ Sharing a dataset [1]
    basics/101-120-summary
    basics/101-121-siblings
 
+#####################
+Sharing a dataset [2]
+#####################
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Sharing datasets with third party infrastructure
+
+   basics/101-124-sharethirdparty
+
 #########
 Use Cases
 #########

@@ -234,7 +234,7 @@ you a glimpse of this.
    paths in the object tree. All backends specified in this file (it
    can be a list) can be used to hash your files.
 
-   You may recognize third part of the configuration, the subsection
+   You may recognize the third part of the configuration, the subsection
    ``"recordings/longnow"`` in the section ``submodule``.
    Clearly, this is a reference to the ``longnow`` podcasts
    we installed as a subdataset. The name *submodule* is Git

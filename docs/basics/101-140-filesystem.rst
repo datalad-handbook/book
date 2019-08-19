@@ -35,7 +35,7 @@ What happens if I rename an annexed file?
 Let's try it. In Unix, renaming a file is exactly the same as
 moving a file.
 
-.. runrecord:: _examples/DL-101-114-101
+.. runrecord:: _examples/DL-101-140-101
    :language: console
    :workdir: dl-101/DataLad-101
 
@@ -49,7 +49,7 @@ This works!
 
 But let's see what changed in the dataset with this operation:
 
-.. runrecord:: _examples/DL-101-114-102
+.. runrecord:: _examples/DL-101-140-102
    :language: console
    :workdir: dl-101/DataLad-101/books
 
@@ -68,7 +68,7 @@ Note, however, that you can't have any other
 modifications in the dataset, because it is a ``datalad save``
 with no path specification.
 
-.. runrecord:: _examples/DL-101-114-103
+.. runrecord:: _examples/DL-101-140-103
    :language: console
    :workdir: dl-101/DataLad-101/books
 
@@ -77,7 +77,7 @@ with no path specification.
 This command will realize that a simple renaming has taken place,
 and will summarize this nicely in the resulting commit:
 
-.. runrecord:: _examples/DL-101-114-104
+.. runrecord:: _examples/DL-101-140-104
    :language: console
    :workdir: dl-101/DataLad-101/books
    :emphasize-lines: 8-11
@@ -102,7 +102,7 @@ outlined in the following hidden section:
    If you have followed along the previous :command:`datalad save`
    (which you should have), let's revert the renaming of the the files files:
 
-   .. runrecord:: _examples/DL-101-114-105
+   .. runrecord:: _examples/DL-101-140-105
       :language: console
       :workdir: dl-101/DataLad-101/books
 
@@ -113,13 +113,13 @@ outlined in the following hidden section:
    using only Git:
    A Git-specific way to rename files is the ``git mv`` command:
 
-   .. runrecord:: _examples/DL-101-114-106
+   .. runrecord:: _examples/DL-101-140-106
       :language: console
       :workdir: dl-101/DataLad-101/books
 
       $ git mv TLCL.pdf The_Linux_Command_Line.pdf
 
-   .. runrecord:: _examples/DL-101-114-107
+   .. runrecord:: _examples/DL-101-140-107
       :language: console
       :workdir: dl-101/DataLad-101/books
 
@@ -129,7 +129,7 @@ outlined in the following hidden section:
    renamed file is "added". A ``git status`` displays the change
    in the dataset a bit more accurate:
 
-   .. runrecord:: _examples/DL-101-114-108
+   .. runrecord:: _examples/DL-101-140-108
       :language: console
       :workdir: dl-101/DataLad-101/books
 
@@ -138,7 +138,7 @@ outlined in the following hidden section:
    A subsequent ``git commit -m "rename book"`` will write the renaming
    -- and only the renaming -- to the datasets history.
 
-   .. runrecord:: _examples/DL-101-114-109
+   .. runrecord:: _examples/DL-101-140-109
       :language: console
       :workdir: dl-101/DataLad-101/books
 
@@ -146,7 +146,7 @@ outlined in the following hidden section:
 
 Let's revert this now, to have a clean history.
 
-.. runrecord:: _examples/DL-101-114-110
+.. runrecord:: _examples/DL-101-140-110
    :language: console
    :workdir: dl-101/DataLad-101/books
 
@@ -160,7 +160,7 @@ What happens if I move a file from or into a subdirectory?
 Let's move an annexed file from within ``books/`` into the root
 of the superdataset:
 
-.. runrecord:: _examples/DL-101-114-120
+.. runrecord:: _examples/DL-101-140-120
    :language: console
    :workdir: dl-101/DataLad-101/books
 
@@ -174,7 +174,7 @@ are two ways to demonstrate this. One is trying to open the
 file -- this will currently fail. The second way is to look
 at the symlink:
 
-.. runrecord:: _examples/DL-101-114-121
+.. runrecord:: _examples/DL-101-140-121
    :language: console
    :workdir: dl-101/DataLad-101/books
 
@@ -191,7 +191,7 @@ it will not resolve, and an error such as "no file or directory"
 will be returned.. But don't panic! A ``datalad save`` will
 rectify this as well:
 
-.. runrecord:: _examples/DL-101-114-122
+.. runrecord:: _examples/DL-101-140-122
    :language: console
    :workdir: dl-101/DataLad-101
 
@@ -211,7 +211,7 @@ the best option to turn to.
 
    Let's see how this shows up in the dataset history:
 
-   .. runrecord:: _examples/DL-101-114-123
+   .. runrecord:: _examples/DL-101-140-123
       :language: console
       :workdir: dl-101/DataLad-101/books
 
@@ -231,7 +231,7 @@ whenever you move or rename files.
 
 Finally, let's clean up:
 
-.. runrecord:: _examples/DL-101-114-124
+.. runrecord:: _examples/DL-101-140-124
    :language: console
    :workdir: dl-101/DataLad-101
 
@@ -244,7 +244,7 @@ What happens if I copy a file?
 Let's create a copy of an annexed file, using the Unix
 command ``cp`` to copy.
 
-.. runrecord:: _examples/DL-101-114-130
+.. runrecord:: _examples/DL-101-140-130
    :language: console
    :workdir: dl-101/DataLad-101
 
@@ -254,13 +254,13 @@ command ``cp`` to copy.
 That's expected. The copy shows up as a new, untracked
 file. Let's save it:
 
-.. runrecord:: _examples/DL-101-114-131
+.. runrecord:: _examples/DL-101-140-131
    :language: console
    :workdir: dl-101/DataLad-101
 
    $ datalad save -m "add copy of TLCL.pdf"
 
-.. runrecord:: _examples/DL-101-114-132
+.. runrecord:: _examples/DL-101-140-132
    :language: console
    :workdir: dl-101/DataLad-101
 
@@ -281,7 +281,7 @@ That's it.
 
    Let's check that out:
 
-   .. runrecord:: _examples/DL-101-114-133
+   .. runrecord:: _examples/DL-101-140-133
       :language: console
       :workdir: dl-101/DataLad-101
 
@@ -338,22 +338,23 @@ or has a sibling with the source being a path, moving or renaming
 the dataset will break the linkage between the datasets. This can
 be fixed easily though. Let's try it.
 
-As section (todo: link section on config files) explains, each
+As section todo link `config` explains, each
 sibling is registered in ``.git/config`` in a "submodule" section.
 Let's look at how our sibling "roommate" is registered there:
 
-.. runrecord:: _examples/DL-101-114-140
+.. runrecord:: _examples/DL-101-140-140
    :language: console
    :workdir: dl-101/DataLad-101
    :emphasize-lines: 14-15
 
    $ cat .git/config
 
-As you can see, its "url" is specified as a relative path. Let's see
+As you can see, its "url" is specified as a relative path. Say your
+room mate's directory is a dataset you would want to move. Let's see
 what happens if we move the dataset such that the path does not point
 to the dataset anymore:
 
-.. runrecord:: _examples/DL-101-114-141
+.. runrecord:: _examples/DL-101-140-141
    :language: console
    :workdir: dl-101/DataLad-101
 
@@ -368,7 +369,7 @@ dataset is not at ``../mock_user/DataLad-101`` anymore, but in
 ``../mock_user/onemoredir/DataLad-101``. The path specified in
 the configuration file is thus wrong now.
 
-.. runrecord:: _examples/DL-101-114-142
+.. runrecord:: _examples/DL-101-140-142
    :language: console
    :workdir: dl-101/mock_user
 
@@ -382,7 +383,7 @@ Here we go::
    'fatal: '../mock_user/DataLad-101' does not appear to be a git repository
     fatal: Could not read from remote repository.
 
-Git seems pretty desperate (given the amount of error message) that
+Git seems pretty desperate (given the amount of error messages) that
 it can't seem to find a Git repository at the location the ``.git/config``
 file specified. Luckily, we can provide this information. Edit the file with
 an editor of your choice and fix the path from
@@ -392,7 +393,7 @@ an editor of your choice and fix the path from
 Below, we are using the stream editor `sed <https://en.wikipedia.org/wiki/Sed>`_
 for this operation.
 
-.. runrecord:: _examples/DL-101-114-143
+.. runrecord:: _examples/DL-101-140-143
    :language: console
    :workdir: dl-101/DataLad-101
 
@@ -400,7 +401,7 @@ for this operation.
 
 This is how the file looks now:
 
-.. runrecord:: _examples/DL-101-114-144
+.. runrecord:: _examples/DL-101-140-144
    :language: console
    :workdir: dl-101/DataLad-101
    :emphasize-lines: 15
@@ -409,7 +410,7 @@ This is how the file looks now:
 
 Let's try to update now:
 
-.. runrecord:: _examples/DL-101-114-145
+.. runrecord:: _examples/DL-101-140-145
    :workdir: dl-101/DataLad-101
    :language: console
 
@@ -423,7 +424,7 @@ make sure to adjust them in the ``.git/config`` file.
 To clean up, we'll redo the move of the dataset and the
 modification in ``.git/config``.
 
-.. runrecord:: _examples/DL-101-114-146
+.. runrecord:: _examples/DL-101-140-146
    :language: console
    :workdir: dl-101/DataLad-101
 

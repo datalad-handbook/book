@@ -116,9 +116,7 @@ In summary, the ``.gitattributes`` files will give you the possibility to config
 what should be annexed and what shouldn't be annexed up to individual file level.
 This can be very handy, and allows you to tune your dataset to your custom needs.
 For example, files you will often edit by hand could be stored in Git if they are
-not too large to ease modifying them.
-Should you ever need to, this file is also where one would change the Git-annex
-backend.
+not too large to ease modifying them [#f3]_.
 
 ``.gitmodules``
 ^^^^^^^^^^^^^^^
@@ -202,3 +200,9 @@ you're more and more becoming a DataLad power-user.
 
          The above command annexes files larger than 100KB, and will never annex files with a
          ``.c`` or ``.h`` extension.
+
+.. [#f3] Should you ever need to, this file is also where one would change the Git-annex
+         backend in order to store new files with a new backend. Switching the backend of
+         *all* files (new as well as existing ones) requires the :command:`git annex migrate`
+         (see `the documentation <https://git-annex.branchable.com/git-annex-migrate/>`_ for
+         more information on this command).

@@ -129,9 +129,17 @@ warnings and errors and attempts to explain them.
 
 Upon installation of a dataset, you may see::
 
-   Remote origin not usable by git-annex; setting annex-ignore
+   [INFO    ]     Remote origin not usable by git-annex; setting annex-ignore
+   [INFO    ]     This could be a problem with the git-annex installation on the remote. Please make sure that git-annex-shell is available in PATH when you ssh into the remote. Once you have fixed the git-annex installation, run: git annex enableremote origin
 
 This warning lets you know that Git-annex will not attempt to download
 content from the remote "origin", because it is not usable. This can have
 many reasons, but as long as there are other remotes you can access the
 data from, you are fine.
+
+
+.. todo::
+
+   Another type of warning you may encounter during installation is::
+
+      [INFO   ] Submodule HEAD got detached. Resetting branch master to point to 046713bb. Original location was 47e53498

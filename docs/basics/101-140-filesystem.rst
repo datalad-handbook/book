@@ -500,3 +500,11 @@ modification in ``.git/config``.
    $ rm -r onemoredir
    $ cd ../DataLad-101 && git reset --hard master
 
+
+Summary
+^^^^^^^
+
+To sum up, the most filesystem management operations are safe, and easy.
+:command:`datalad save` is your friend, as is having a clean dataset status
+prior to doing anything. Just beware of moving subdatasets around. This
+can be a minefield.

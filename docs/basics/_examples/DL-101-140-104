@@ -1,7 +1,7 @@
 $ git log -1 -p
-commit 98c2f7016fde05083d65a0e35889f634910ae8a7
+commit b66d5a4b616672f0a8f7a4a75b5f467fb22a508a
 Author: Adina Wagner <adina.wagner@t-online.de>
-Date:   Mon Jul 22 16:51:47 2019 +0200
+Date:   Mon Aug 19 16:55:13 2019 +0200
 
     rename the book
 

@@ -1,3 +1,0 @@
-$ git reset --hard HEAD~1
-$ datalad status
-HEAD is now at 01f2937 Add note on adding siblings

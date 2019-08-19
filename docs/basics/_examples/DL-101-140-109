@@ -1,4 +1,4 @@
 $ git commit -m "rename book"
-[master 11f729f] rename book
+[master de8e76d] rename book
  1 file changed, 0 insertions(+), 0 deletions(-)
  rename books/{TLCL.pdf => The_Linux_Command_Line.pdf} (100%)

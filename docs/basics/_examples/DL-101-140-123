@@ -1,7 +1,7 @@
 $ git log -1 -p
-commit b3ca813ee20f415f359ce8f364836d560b67efb2
+commit 30854fafa722c2ad1f7422b70dc7bba6da4a0df2
 Author: Adina Wagner <adina.wagner@t-online.de>
-Date:   Tue Jul 23 08:34:23 2019 +0200
+Date:   Mon Aug 19 16:55:14 2019 +0200
 
     moved book into root
 

@@ -295,22 +295,90 @@ That's it.
 
 Finally, let's clean up:
 
-.. runrecord:: _examples/DL-101-114-134
+.. runrecord:: _examples/DL-101-140-134
    :language: console
    :workdir: dl-101/DataLad-101
 
    $ git reset --hard HEAD~1
 
-What happens if I rename a directory or subdataset?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+What happens if I move or rename a subdirectory, or subdataset?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-What happens if I move directories, or subdatasets?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Moving or renaming subdirectories, especially if they are subdatasets,
+*can* be a minefield. But in principle, a safe way to proceed is using
+the Unix :command:`mv` command to move or rename, and the :command:`datalad save`
+to clean up afterwards, just as in the examples above. Make sure to
+not use ``git mv``, especially for subdatasets.
 
-TODO: directory (all files in a directory will be renamed)
-TODO: subdataset (tricky: change in .gitmodules. Also, I failed trying to
-revert a ``git mv`` with ``git reset --hard master``. It did not move
-subdataset back into original place, the subds became an untracked directory.
+Let's for example rename the ``books`` directory:
+
+.. runrecord:: _examples/DL-101-140-150
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ mv books/ readings
+   $ datalad status
+
+.. runrecord:: _examples/DL-101-140-151
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ datalad save -m "renamed directory"
+
+This is easy, and complication free. Moving would work in the same fashion.
+Let's quickly clean this up:
+
+.. runrecord:: _examples/DL-101-140-152
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ git reset --hard HEAD~1
+
+But let's now try to move the ``longnow`` subdataset into the root of the
+superdataset:
+
+.. runrecord:: _examples/DL-101-140-153
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ mv recordings/longnow .
+   $ datalad status
+
+.. runrecord:: _examples/DL-101-140-154
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ datalad save -m "moved subdataset"
+
+.. runrecord:: _examples/DL-101-140-155
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ datalad status
+
+This seems fine. Reverting a commit like this however is tricky, at the moment.
+Therefore, if you can, try not to move subdatasets around. For now we'll clean
+up in a somewhat "hacky" way:
+
+.. runrecord:: _examples/DL-101-140-156
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ git reset HEAD~1
+
+.. runrecord:: _examples/DL-101-140-157
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   echo y | mv longnow recordings
+
+
+.. todo::
+
+   Above is a very ugly hack. Finish this, maybe when progress has been made towards
+   https://github.com/datalad/datalad/issues/3464
+
+   For now I'm staying with the advice to not attempt moving subdatasets
 
 What if I move or rename a superdataset?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

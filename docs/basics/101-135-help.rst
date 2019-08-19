@@ -119,6 +119,19 @@ Include
   to find all of this information.
 
 
-.. todo::
+Common Git-annex warnings and errors
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-   Git annex specific error messages
+A lot of output you will see while working with DataLad originates from
+Git-annex. It's outputs can be wordy and not trivial to comprehend even if
+everything works. This following section will list some common Git-annex
+warnings and errors and attempts to explain them.
+
+Upon installation of a dataset, you may see::
+
+   Remote origin not usable by git-annex; setting annex-ignore
+
+This warning lets you know that Git-annex will not attempt to download
+content from the remote "origin", because it is not usable. This can have
+many reasons, but as long as there are other remotes you can access the
+data from, you are fine.

@@ -3,17 +3,14 @@
 Everything you ever wanted to configure [2]
 -------------------------------------------
 
-"By now we have only seen this huge amount of configurations
-in git configuration files! Are there other files we should know
-about?" you impatiently raise your arm and ask.
-
-Within a Git repository, ``.git/config`` is not the only configuration file.
+As the last section already suggest, within a Git repository,
+``.git/config`` is not the only configuration file.
 There are also ``.gitmodules`` and ``.gitattributes``, and in DataLad datasets
 there also is a ``.datalad/config`` file.
 
 All of these files store configurations, but have an important difference:
 They are version controlled, and upon sharing a dataset these configurations
-will be shared as well. One example for a configuration that is shared
+will be shared as well. An example for a shared configuration
 is the one that the ``text2git`` configuration template applied:
 In the shared copy of your dataset, text files are also saved with Git,
 and not Git-annex (see section :ref:`sibling`). The configuration responsible
@@ -31,8 +28,11 @@ This file lies right in the root of your superdataset:
 
    $ cat .gitattributes
 
-This looks neither spectacular nor pretty. There is one key word that
-you recognize, though: MD5E. If you have read the hidden section in :ref:`symlink`
+This looks neither spectacular nor pretty. Also, it does not follow the ``section-option-value``
+organization of the ``.git/config`` file anymore. Instead, there are three lines,
+and all of these seem to have something to do with the configuration of Git-annex.
+There even is one key word that you recognize: MD5E.
+If you have read the hidden section in :ref:`symlink`
 you will recognize it as a reference to the type of
 key used by Git-annex to identify and store file content in the object-tree.
 The first row, ``* annex.backend=MD5E``, therefore translates to "Everything in this
@@ -43,7 +43,7 @@ But what is the rest? We'll start with the last row::
 
 Uhhh, cryptic. The lecturer explains:
 
-"Git-annex will *annex*, that is: store in the object-tree,
+"Git-annex will *annex*, that is, *store in the object-tree*,
 anything it considers to be a "large file". By default, anything
 in your dataset would be a "large file", that means anything would be annexed.
 However, in section :ref:`symlink` I already mentioned that exceptions to this
@@ -59,7 +59,7 @@ behavior can be defined based on
 by simply telling Git-annex by writing such rules."
 
 What you can see in this ``.gitattribute`` file is a rule based on **file types**:
-With ``mimetype=text/*)`` [#f1]_, the ``text2git`` configuration template
+With ``(not(mimetype=text/*))`` [#f1]_, the ``text2git`` configuration template
 configured Git-annex to regard all files of type text **not** as a large file.
 Thanks to this little line, your text files are not annexed, but stored
 directly in Git.
@@ -88,12 +88,14 @@ and view this dataset's ``.gitattributes`` file:
 
    $ cat recordings/longnow/.gitattributes
 
-The relevant part is ``README.md annex.largefiles=nothing``
+The relevant part is ``README.md annex.largefiles=nothing``.
 This instructs Git-annex to specifically not annex ``README.md``.
 
-Lastly, if you wanted to configure a rule based on **size**, you could add a row such as
-``** annex.largefiles(largerthan=20kb)`` to store only files exceeding 20KB in size
-in Git-annex [#f2]_.
+Lastly, if you wanted to configure a rule based on **size**, you could add a row such as::
+
+   ** annex.largefiles(largerthan=20kb)
+
+to store only files exceeding 20KB in size in Git-annex [#f2]_.
 
 As you may have noticed, unlike ``.git/config`` files,
 there can be multiple ``.gitattributes`` files within a dataset. So far, you have seen one

@@ -29,8 +29,8 @@ dataset, we're cleaning up within each segment with
 common git operations that manipulate the datasets
 history -- be sure to execute these commands as well.
 
-What happens if I rename an annexed file?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Renaming files
+^^^^^^^^^^^^^^
 
 Let's try it. In Unix, renaming a file is exactly the same as
 moving a file.
@@ -154,8 +154,8 @@ Let's revert this now, to have a clean history.
    $ datalad status
 
 
-What happens if I move a file from or into a subdirectory?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Moving files from or into subdirectories
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Let's move an annexed file from within ``books/`` into the root
 of the superdataset:
@@ -238,8 +238,8 @@ Finally, let's clean up:
    $ git reset --hard HEAD~1
 
 
-What happens if I copy a file?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Copying files
+^^^^^^^^^^^^^
 
 Let's create a copy of an annexed file, using the Unix
 command ``cp`` to copy.
@@ -301,8 +301,8 @@ Finally, let's clean up:
 
    $ git reset --hard HEAD~1
 
-What happens if I move or rename a subdirectory, or subdataset?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Moving/renaming a subdirectory or subdataset
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Moving or renaming subdirectories, especially if they are subdatasets,
 *can* be a minefield. But in principle, a safe way to proceed is using
@@ -380,8 +380,8 @@ up in a somewhat "hacky" way:
 
    For now I'm staying with the advice to not attempt moving subdatasets
 
-What if I move or rename a superdataset?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Moving/renaming a superdataset
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Once created, a DataLad superdataset may not be in an optimal
 place on your file system, or have the best name.

@@ -61,13 +61,15 @@ is really easy. Even if you are only used to ticking boxes
 in the ``settings`` tab of a software tool so far, it's intuitive
 to understand how a configuration file in principle works and also
 how to use it. The only piece of information you will need
-are the necessary files, or the command that writes to them and
+are the necessary files, or the command that writes to them, and
 the available options for configuration, that's it. And what's
 really cool is that all tools we'll be looking at -- Git, Git-annex,
 and DataLad -- can be configured using the :command:`git config`
-command [#f1]_.
-Now, let's learn *how* to configure settings, but also
-*understand* them."
+command [#f1]_. Therefore, once you understand the syntax of this
+command, you already know half of what's relevant. The other half
+is understanding what you're doing. Now then, let's learn *how*
+to configure settings, but also *understand* what we're doing
+with these configurations."
 
 "This seems easy enough", you think. Let's see what types of
 configurations there are.
@@ -79,7 +81,7 @@ The user name and email configuration
 is a *user-specific* configuration (called *global*
 configuration by Git), and therefore applies to your user account.
 Where ever on your computer *you* run a Git, Git-annex, or DataLad
-command this global configuration will
+command, this global configuration will
 associate the name and email address you supplied in
 the :command:`git config` commands above with this action.
 For example, whenever you
@@ -137,7 +139,7 @@ this configures core Git functionality. There are
 configurations than the ones in this config file, but
 they are related to Git, and less related or important to the configuration of
 a DataLad dataset. We will use this section to showcase the anatomy of the
-:command:`git config` command, however. If you would want to specifically
+:command:`git config` command. If for example you would want to specifically
 configure :term:`nano` to be the default editor in this dataset, you
 can do it like this:
 
@@ -244,7 +246,7 @@ you a glimpse of this.
    section :ref:`nesting`. When you install a DataLad dataset
    as a subdataset, it gets *registered* in this file.
    For each subdataset, an individual submodule entry
-   will store the information about the subdatasets
+   will store the information about the subdataset's
    ``--source`` or *origin* (the "url").
    Thus, every subdataset (and sub-subdataset, and so forth) in your dataset
    will be listed in this file.
@@ -266,7 +268,7 @@ you a glimpse of this.
    the association between the two datasets breaks -- this can be fixed by adjusting this
    path, and a demonstration of this is in section (Todo: link file system management).
    `fetch` contains a specification which parts of the repository are
-   updated - in this case the everything (all of the branches).
+   updated -- in this case everything (all of the branches).
    Lastly, the ``annex-ignore = false`` configuration allows Git-annex
    to query the remote when it tries to retrieve data from annexed content.
 
@@ -319,7 +321,7 @@ The next section will talk about them.
 
          2) run the following command, but exchange ``nano`` with an editor of your choice::
 
-             git config --global core.editor "nano"
+             git config --global --add core.editor "nano"
 
 .. [#f4] A UUID is a universally unique identifier -- a 128-bit number
          that unambiguously identifies information.

@@ -1,0 +1,18 @@
+.. _yoda:
+
+
+YODA: Best practices for data analyses in a dataset
+---------------------------------------------------
+
+"What are the YODA principles?" you ask, as you have never heard of this
+before.
+
+"The topic of today's lecture!", you hear in response. "At the end of
+the session, we'll be talking about the midterm projects. But now we
+will talk about organizational principles of data analyses in DataLad
+datasets."
+
+[Disclaimer: This section is based on a
+`poster and abstract <https://f1000research.com/posters/7-1965>`_ by
+Hanke et al., 2018]
+

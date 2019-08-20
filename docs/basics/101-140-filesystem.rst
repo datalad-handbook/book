@@ -64,9 +64,6 @@ all of this up. Therefore, don't panic if you rename a file,
 and see a dirty dataset status with deleted and untracked files
 -- ``datalad save`` handles these and other cases really well
 under the hood.
-Note, however, that you can't have any other
-modifications in the dataset, because it is a ``datalad save``
-with no path specification.
 
 .. runrecord:: _examples/DL-101-140-103
    :language: console
@@ -74,8 +71,8 @@ with no path specification.
 
    $ datalad save -m "rename the book"
 
-This command will realize that a simple renaming has taken place,
-and will summarize this nicely in the resulting commit:
+The :command:`datalad save` command will identify that a file was
+renamed, and will summarize this nicely in the resulting commit:
 
 .. runrecord:: _examples/DL-101-140-104
    :language: console
@@ -84,12 +81,27 @@ and will summarize this nicely in the resulting commit:
 
    $ git log -1 -p
 
-Thus, if you have a clean dataset status, simply renaming files will
-be easily saved to the history with a ``datalad save``.
+Note, however, that its best to have a clean dataset status
+with no other modifications present if you are using
+the code snippet in your own projects:
+The :command:`datalad save` command above did not get
+a path specification. Any other modifications you may have
+will be saved to the history together with the renaming of the
+file in a single commit. This is not bad per se, but keep it in
+mind.
 
-If, however, you have unsaved modifications in your dataset that you
-don't (yet) want to save, you can do a detour by using git tools,
-outlined in the following hidden section:
+If there are unsaved modifications you do not want to commit
+together with the file name change, you could give both the
+new and the deleted file as a path specification to
+:command:`datalad save`, even if it feels unintuitive to
+save a change that is marked as a deletion in a
+:command:`datalad status`::
+
+   datalad save -m "rename file" oldname newname
+
+Alternatively, there is also a way to save the name change
+only using Git tools only, outlined in the following hidden
+section. If you are a Git-user, you will be very familiar with it.
 
 .. container:: toggle
 
@@ -144,6 +156,13 @@ outlined in the following hidden section:
 
       $ git commit -m "rename book"
 
+
+To summarize, renaming files is easy and worry-free. Don't be intimidated
+by a file marked as deleted -- a :command:`datalad save` will rectify this.
+Be mindful of other modifications in your dataset, though, and either supply
+appropriate paths to ``datalad save``, or use Git tools to exclusively save
+the name change and nothing else.
+
 Let's revert this now, to have a clean history.
 
 .. runrecord:: _examples/DL-101-140-110
@@ -186,7 +205,7 @@ directory, but currently, it doesn't -- the symlink still looks
 like ``TLCL.pdf`` would be within ``books/``. Instead of pointing
 into ``.git``, it currently points to ``../.git``, which is non-existent,
 and even outside of the superdataset. This is why the file
-cannot be opened: When any program tries to resolve the symlink,
+cannot be opened: When any program tries to follow the symlink,
 it will not resolve, and an error such as "no file or directory"
 will be returned.. But don't panic! A ``datalad save`` will
 rectify this as well:
@@ -222,12 +241,12 @@ the best option to turn to.
    that is tracked is the actual symlink, and due to the change in
    relative location, the symlink needed to change. Hence, what looks
    and feels like a move on the file system for you is actually a
-   move plus a content change.
+   move plus a content change for Git.
 
-This has given you much background, and you have also seen many
-symlinks -- maybe more than you wanted? If you are currently confused,
-worry not: The take-home-message is simple: Use ``datalad save``
-whenever you move or rename files.
+
+Therefore, while it might be startling
+if you've moved a file and can't open it directly afterwards, everything
+will be rectified by :command:`datalad save` as well.
 
 Finally, let's clean up:
 
@@ -308,7 +327,7 @@ Moving or renaming subdirectories, especially if they are subdatasets,
 *can* be a minefield. But in principle, a safe way to proceed is using
 the Unix :command:`mv` command to move or rename, and the :command:`datalad save`
 to clean up afterwards, just as in the examples above. Make sure to
-not use ``git mv``, especially for subdatasets.
+**not** use ``git mv``, especially for subdatasets.
 
 Let's for example rename the ``books`` directory:
 
@@ -325,7 +344,8 @@ Let's for example rename the ``books`` directory:
 
    $ datalad save -m "renamed directory"
 
-This is easy, and complication free. Moving would work in the same fashion.
+This is easy, and complication free. Moving the directory would work in the
+same fashion, and a :command:`datalad save` would fix broken symlinks afterwards.
 Let's quickly clean this up:
 
 .. runrecord:: _examples/DL-101-140-152
@@ -356,9 +376,13 @@ superdataset:
 
    $ datalad status
 
-This seems fine. Reverting a commit like this however is tricky, at the moment.
-Therefore, if you can, try not to move subdatasets around. For now we'll clean
-up in a somewhat "hacky" way:
+This seems fine, and it has indeed worked.
+However, *reverting* a commit like this is tricky, at the moment. This could
+lead to trouble if you at a later point try to revert or rebase chunks of your
+history including this move. Therefore, if you can, try not to move subdatasets
+around. For now we'll clean up in a somewhat "hacky" way: Reverting, and
+moving remaining subdataset contents back to their original place by hand
+to take care of the unwanted changes the commit reversal introduced.
 
 .. runrecord:: _examples/DL-101-140-156
    :language: console
@@ -370,15 +394,19 @@ up in a somewhat "hacky" way:
    :language: console
    :workdir: dl-101/DataLad-101
 
-   echo y | mv longnow recordings
+   $ echo y | mv longnow recordings
 
+
+The take-home message therefore is that it is best not to move subdatasets,
+but very possible to move subdirectories if necessary. In both cases, do not
+attempt moving with the :command:`git mv`, but stick with :command:`mv` and
+a subsequent :command:`datalad save`.
 
 .. todo::
 
-   Above is a very ugly hack. Finish this, maybe when progress has been made towards
+   Update this when progress has been made towards
    https://github.com/datalad/datalad/issues/3464
 
-   For now I'm staying with the advice to not attempt moving subdatasets
 
 Moving/renaming a superdataset
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -404,107 +432,122 @@ use.
 Beware of one thing though: If your dataset either is a sibling
 or has a sibling with the source being a path, moving or renaming
 the dataset will break the linkage between the datasets. This can
-be fixed easily though. Let's try it.
+be fixed easily though. We can try this in the following hidden
+section.
 
-As section todo link `config` explains, each
-sibling is registered in ``.git/config`` in a "submodule" section.
-Let's look at how our sibling "roommate" is registered there:
+.. container:: toggle
 
-.. runrecord:: _examples/DL-101-140-140
-   :language: console
-   :workdir: dl-101/DataLad-101
-   :emphasize-lines: 14-15
+   .. container:: header
 
-   $ cat .git/config
+        **Addition: If a renamed/moved dataset is a sibling...**
 
-As you can see, its "url" is specified as a relative path. Say your
-room mate's directory is a dataset you would want to move. Let's see
-what happens if we move the dataset such that the path does not point
-to the dataset anymore:
+   As section todo link `config` explains, each
+   sibling is registered in ``.git/config`` in a "submodule" section.
+   Let's look at how our sibling "roommate" is registered there:
 
-.. runrecord:: _examples/DL-101-140-141
-   :language: console
-   :workdir: dl-101/DataLad-101
+   .. runrecord:: _examples/DL-101-140-140
+      :language: console
+      :workdir: dl-101/DataLad-101
+      :emphasize-lines: 14-15
 
-   # add an intermediate directory
-   $ cd ../mock_user
-   $ mkdir onemoredir
-   # move your room mates dataset into this new directory
-   $ mv DataLad-101 onemoredir
+      $ cat .git/config
 
-This means that relative to your ``DataLad-101``, your room mates
-dataset is not at ``../mock_user/DataLad-101`` anymore, but in
-``../mock_user/onemoredir/DataLad-101``. The path specified in
-the configuration file is thus wrong now.
+   As you can see, its "url" is specified as a relative path. Say your
+   room mate's directory is a dataset you would want to move. Let's see
+   what happens if we move the dataset such that the path does not point
+   to the dataset anymore:
 
-.. runrecord:: _examples/DL-101-140-142
-   :language: console
-   :workdir: dl-101/mock_user
+   .. runrecord:: _examples/DL-101-140-141
+      :language: console
+      :workdir: dl-101/DataLad-101
 
-   # navigate back into your dataset
-   $ cd ../DataLad-101
-   # attempt a datalad update
-   $ datalad update
+      # add an intermediate directory
+      $ cd ../mock_user
+      $ mkdir onemoredir
+      # move your room mates dataset into this new directory
+      $ mv DataLad-101 onemoredir
 
-Here we go::
+   This means that relative to your ``DataLad-101``, your room mates
+   dataset is not at ``../mock_user/DataLad-101`` anymore, but in
+   ``../mock_user/onemoredir/DataLad-101``. The path specified in
+   the configuration file is thus wrong now.
 
-   'fatal: '../mock_user/DataLad-101' does not appear to be a git repository
-    fatal: Could not read from remote repository.
+   .. runrecord:: _examples/DL-101-140-142
+      :language: console
+      :workdir: dl-101/mock_user
 
-Git seems pretty desperate (given the amount of error messages) that
-it can't seem to find a Git repository at the location the ``.git/config``
-file specified. Luckily, we can provide this information. Edit the file with
-an editor of your choice and fix the path from
-``url = ../mock_user/DataLad-101`` to
-``url = ../mock_user/onemoredir/DataLad-101``.
+      # navigate back into your dataset
+      $ cd ../DataLad-101
+      # attempt a datalad update
+      $ datalad update
 
-Below, we are using the stream editor `sed <https://en.wikipedia.org/wiki/Sed>`_
-for this operation.
+   Here we go::
 
-.. runrecord:: _examples/DL-101-140-143
-   :language: console
-   :workdir: dl-101/DataLad-101
+      'fatal: '../mock_user/DataLad-101' does not appear to be a git repository
+       fatal: Could not read from remote repository.
 
-   $ sed -i 's/..\/mock_user\/DataLad-101/..\/mock_user\/onemoredir\/DataLad-101/' .git/config
+   Git seems pretty desperate (given the amount of error messages) that
+   it can't seem to find a Git repository at the location the ``.git/config``
+   file specified. Luckily, we can provide this information. Edit the file with
+   an editor of your choice and fix the path from
+   ``url = ../mock_user/DataLad-101`` to
+   ``url = ../mock_user/onemoredir/DataLad-101``.
 
-This is how the file looks now:
+   Below, we are using the stream editor `sed <https://en.wikipedia.org/wiki/Sed>`_
+   for this operation.
 
-.. runrecord:: _examples/DL-101-140-144
-   :language: console
-   :workdir: dl-101/DataLad-101
-   :emphasize-lines: 15
+   .. runrecord:: _examples/DL-101-140-143
+      :language: console
+      :workdir: dl-101/DataLad-101
 
-   $ cat .git/config
+      $ sed -i 's/..\/mock_user\/DataLad-101/..\/mock_user\/onemoredir\/DataLad-101/' .git/config
 
-Let's try to update now:
+   This is how the file looks now:
 
-.. runrecord:: _examples/DL-101-140-145
-   :workdir: dl-101/DataLad-101
-   :language: console
+   .. runrecord:: _examples/DL-101-140-144
+      :language: console
+      :workdir: dl-101/DataLad-101
+      :emphasize-lines: 15
 
-   $ datalad update
+      $ cat .git/config
 
-Nice! We fixed it!
-Therefore, if a dataset you move or rename is known to other
-datasets from its path, or identifies siblings with paths,
-make sure to adjust them in the ``.git/config`` file.
+   Let's try to update now:
 
-To clean up, we'll redo the move of the dataset and the
-modification in ``.git/config``.
+   .. runrecord:: _examples/DL-101-140-145
+      :workdir: dl-101/DataLad-101
+      :language: console
 
-.. runrecord:: _examples/DL-101-140-146
-   :language: console
-   :workdir: dl-101/DataLad-101
+      $ datalad update
 
-   $ cd ../mock_user && mv onemoredir/DataLad-101 .
-   $ rm -r onemoredir
-   $ cd ../DataLad-101 && git reset --hard master
+   Nice! We fixed it!
+   Therefore, if a dataset you move or rename is known to other
+   datasets from its path, or identifies siblings with paths,
+   make sure to adjust them in the ``.git/config`` file.
 
+   To clean up, we'll redo the move of the dataset and the
+   modification in ``.git/config``.
+
+   .. runrecord:: _examples/DL-101-140-146
+      :language: console
+      :workdir: dl-101/DataLad-101
+
+      $ cd ../mock_user && mv onemoredir/DataLad-101 .
+      $ rm -r onemoredir
+      $ cd ../DataLad-101 && git reset --hard master
 
 Summary
 ^^^^^^^
 
 To sum up, the most filesystem management operations are safe, and easy.
-:command:`datalad save` is your friend, as is having a clean dataset status
-prior to doing anything. Just beware of moving subdatasets around. This
-can be a minefield.
+Even if you are currently confused about one or two operations,
+worry not: The take-home-message is simple: Use ``datalad save``
+whenever you move or rename files. Be mindful that a ``datalad status``
+can appear unintuitive or that symlinks can break if annexed files are moved,
+but all of these problems are solved after a :command:`datalad save` command.
+Apart from this command, having a clean dataset status prior to doing anything
+is your friend as well. It will make sure that you have a neat and organized
+commit history, and no accidental commits of changes unrelated to your file
+system management operations. The only operation you should beware of is
+moving subdatasets around -- this can be a minefield.
+With all of these experiences and tips, you feel confident that you know
+how to handle your datasets files and directories well and worry-free.

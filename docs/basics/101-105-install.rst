@@ -107,7 +107,7 @@ does and why it is important, but for now just be mindful of the instruction abo
 
    .. container:: header
 
-       **Addition: What if I don't install into an existing dataset?**
+       **Addition:** What if I don't install into an existing dataset?
 
    If you don't install inside an existing dataset, you only need to omit the ``dataset``
    option. You can try::

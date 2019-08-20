@@ -1,9 +1,0 @@
-.. _yoda:
-
-
-YODA: Best practices for data analyses in a dataset
----------------------------------------------------
-
-Placeholder to talk about yoda principles.
-This might make sense in the context of a "data analysis midterm project"
-

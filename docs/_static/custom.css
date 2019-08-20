@@ -10,12 +10,12 @@
 .toggle .header strong {color: #2980b9 }
 
 
-.toggle .header:after {
-    content: " ▼";
+.toggle .header:before {
+    content: "⇩ ";
 }
 
-.toggle .header.open:after {
-    content: " ▲";
+.toggle .header.open:before {
+    content: "⇧ ";
 }
 
 .toggle {

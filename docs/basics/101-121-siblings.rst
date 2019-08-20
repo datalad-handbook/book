@@ -142,7 +142,7 @@ in the resulting list with the name "roommate" you have given to it.
 
    .. container:: header
 
-      **Addition: What if I mistyped the name or want to remove the sibling?**
+      **Addition:** What if I mistyped the name or want to remove the sibling?
 
    You can remove a sibling using :command:`datalad siblings remove -s roommate`
 

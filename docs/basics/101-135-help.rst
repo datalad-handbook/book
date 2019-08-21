@@ -118,6 +118,10 @@ Include
   system and -- if applicable -- Python version? :command:`datalad wtf` is your friend
   to find all of this information.
 
+The "submit a question link" on `DataLad's Github page <https://github.com/datalad/datalad#support>`_
+page prefills a neurostars form with a template for a question for a good
+starting point if you want to have more guidance or encounter writer's block.
+
 
 Common Git-annex warnings and errors
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

@@ -167,6 +167,12 @@ but currently, our ``.datalad/config`` file only stores a dataset ID:
 
    $ cat .datalad/config
 
+Note, though, that local configurations within a Git configuration file
+will take precedence over configurations that can be distributed with a dataset.
+Otherwise, dataset updates with :command:`datalad update` (or, for Git-users,
+:command:`git pull`) could suddenly and unintentionally alter local DataLad
+behavior that was specifically configured.
+
 
 Writing to configuration files other than ``.git/config``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

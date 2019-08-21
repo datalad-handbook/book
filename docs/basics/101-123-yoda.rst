@@ -63,14 +63,139 @@ dataset structures and best practices regarding the analysis:
 
 - **P3:** Record what you did to it, and with what
 
-Let's go through them one by one
+Let's go through them one by one:
 
 P1: One thing, one dataset
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Whenever a particular collection of files could be useful in more
+than one context, put them in their own DataLad dataset.
+In the broadest sense, this means to structure your study elements (data, code,
+computational environments, results, ...) in modular components. For example:
 
 
-#. The (raw) **data** for the analysis project (structured following community
+- Store **input data** for an analysis in a dedicated ``inputs/`` subdataset.
+  Don't mix raw data, data that is already structured following community
+  guidelines of the given field, or preprocessed data, but also keep
+  these different types of input data as modular components. And if your analysis
+  relies on two or more data collections, these collections should each be a
+  standalone subdataset.
+
+.. figure:: ../img/dataset_modules.svg
+   :figwidth: 100%
+   :alt: Modular structure of a data analysis project
+
+- Store scripts or **code** used for the analysis of data in a dedicated ``code/``
+  directory, outside of the data component of the dataset.
+
+- Collect results of an analysis in a dedicated ``outputs/`` directory, and
+  leave the input data of an analysis untouched by your computations.
+
+- Include a place for complete **execution environments**, for example
+  `singularity images <https://singularity.lbl.gov/>`_ or
+  `docker containers <https://www.docker.com/get-started>`_ [#f2]_, in
+  the form of an ``envs/`` directory, if relevant for your analysis.
+
+- If you conduct multiple analyses, create a dedicated dataset for each
+  analysis.
+
+There are many advantages to this modular way of organizing contents.
+Having input data as independent dataset(s) that are not influenced (only
+consumed) by an analysis allows does not conflate the data for
+an analysis with the results or the code, thus assisting understanding
+the project for anyone unfamiliar with it.
+Just now you remember helping a friend of yours with an analysis years ago.
+It took an hour of one-on-one guidance to understand the relationships between
+vaguely named files in an analysis project that lived inside a single directory.
+Thinking about this mess still makes you roll your eyes. From this aspect
+alone you therefore find it useful to adopt a modular structure in
+your analysis project.
+But more than just structure, this organization aids modular reuse or
+publication of pure data datasets. It is usually costly to collect data,
+and economically unfeasible to keep it locked in a drawer, -- or behind
+complexities of data retrieval or difficulties in understanding the data.
+Conducting several projects on the same dataset or sharing it is easy,
+if the dataset is a DataLad dataset that can be installed
+and retrieved on demand, and is kept clean from everything that is not
+part of this data component.
+
+P2: Record where you got it from, and where it is now
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Its good to have data, but its even better if you and anyone you
+collaborate with can find out where the data came from, or how it
+is dependent on or linked to other data. Therefore, this principle
+means to make sure to attach this information to the components of
+your data analysis project.
+Luckily, this is a no-brainer with DataLad. Installing a
+subdataset with data, or anything else? Thanks to
+:command:`datalad install`, information on the source of these datasets
+is stored, and you can even update from those sources. Downloading a
+file, for example code from Github? With :command:`datalad download-url`
+(introduced in section :ref:`sibling`) all of it is safely recorded
+in your dataset's history. Add anything to your dataset, from simple
+incremental coding progress in your analysis scripts up to files that
+a colleague sent you via email? A plain :command:`datalad save` with a
+helpful commit message goes a very long way on its own already.
+
+One core aspect of this principle is linking between re-usable data
+resource units -- or in plain words: DataLad datasets containing
+pure data.
+
+
+.. figure:: ../img/data_origin.svg
+   :figwidth: 50%
+   :alt: Datasets are installed as subdatasets
+
+
+This part of this principle we be absolutely obvious to you because you already
+know about installing and nesting datasets within datasets. But
+this is everything perfect linkage boils down to: Installing subdatasets.
+"Huh, I might just overcome my impostor syndrome if I experience such advanced
+reproducible analysis concepts as being obvious", you think with a grin.
+
+But more than linking datasets in a superdataset, linkage also needs to
+be established between components of your dataset. Scripts inside of
+your ``code/`` directory should point to data not as :term:`absolute path`\s
+that would only work on your system, but instead as :term:`relative path`\s
+that will work in any shared copy of your dataset. The next section
+on DataLads Python API will show concrete examples of this.
+
+Lastly, this principle also includes moving, sharing, and publishing your
+datasets or its components.
+
+.. figure:: ../img/decentralized_publishing.svg
+   :figwidth: 100%
+   :alt: A full data analysis workflow complying with YODA principles
+
+
+TODO More here
+
+P3: Record what you did to it, and with what
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This last principle boils down to capture how exactly the content of
+every file that was not obtained from elsewhere came to be.
+The section :ref:`run` already outlined the problem
+of associating, say, a result with an input and a script.
+:command:`datalad run` however mitigates these difficulties,
+and captures the provenance of any output generated with a
+``datalad run`` call in the history of the dataset.
+
+With DataLad, one can even go one step further: The command
+:command:`datalad containers-run` that will be introduced in
+a later part of the book, performs a command execution within
+a configured containerized environment. Thus, not only inputs,
+outputs, and command, but also the software environment are captured
+as provenance.
+
+- talk about datalad run
+- capture provenance
+
+This might be the place for the computational environments.....
+
+
+#. If The (raw) **data** for the analysis project (structured following community
    guidelines of the given field) is stored as an independent component of
    the dataset (ideally, as one or more subdatasets).
    These data should live in an ``inputs/`` directory.
@@ -162,31 +287,28 @@ controlling all pieces within the analysis regardless of their size, and
 generates provenance for everything.
 
 
-
-
-
-
-
-
-
-
 .. rubric:: Footnotes
 
 .. [#f1] "Why does the acronym contain itself?" you ask confused.
          "That's because it's a `recursive acronym <https://en.wikipedia.org/wiki/Recursive_acronym>`_,
          where the first letter stands recursively for the whole acronym." you get in response.
+         "This is a reference to the recursiveness within a DataLad dataset -- all principles
+         apply recursively to all the subdatasets a dataset has."
          "And what does all of this have to do with Yoda?" you ask mildly amused.
          "Oh, well. That's just because the DataLad team is full of geeks."
 
-.. [#f2] If writing tests for analysis scripts is a new idea for you, but
+.. [#f2] If you want to learn more about Docker and Singularity, or general information
+         about containerized computational environments for reproducible data science,
+         check out `this section <https://the-turing-way.netlify.com/reproducible_environments/06/containers#Containers_section>`_
+         in the wonderful book `The Turing Way <https://the-turing-way.netlify.com/introduction/introduction>`_,
+         a comprehensive guide to reproducible data science.
+
+.. [#f3] If writing tests for analysis scripts is a new idea for you, but
          you want to learn more, check out
          `this excellent chapter on testing <https://the-turing-way.netlify.com/testing/testing.html#Acceptance_testing>`_
          in the book `The Turing Way <https://the-turing-way.netlify.com/introduction/introduction>`_,
-         a comprehensive guide to reproducible data science.
+         .
 
-.. [#f3] The chapter mentioned in [#f2]_ is also a great resource to
+.. [#f4] The chapter mentioned in [#f2]_ is also a great resource to
          learn more about continous integration.
 
-.. [#f4] For more on Docker and Singularity images, check out
-         `this section <https://the-turing-way.netlify.com/reproducible_environments/06/containers#Containers_section>`_
-         in the book `The Turing Way <https://the-turing-way.netlify.com/introduction/introduction>`_.

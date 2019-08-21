@@ -294,7 +294,7 @@ That's it.
       **Find out more:** Symlinks!
 
    If you have read the additional content in the section
-   :ref:`symlinks`, you know that the same file content
+   :ref:`symlink`, you know that the same file content
    is only stored once, and copies of the same file point to
    the same location in the object tree.
 

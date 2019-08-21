@@ -4,6 +4,12 @@
 YODA: Best practices for data analyses in a dataset
 ---------------------------------------------------
 
+[Disclaimer: This section is based on a
+`poster and abstract <https://f1000research.com/posters/7-1965>`_ by
+Hanke et al., 2018]
+
+The last requirement for the midterm projects reads "needs to comply to the
+YODA principles".
 "What are the YODA principles?" you ask, as you have never heard of this
 before.
 
@@ -12,7 +18,23 @@ the session, we'll be talking about the midterm projects. But now we
 will talk about organizational principles of data analyses in DataLad
 datasets."
 
-[Disclaimer: This section is based on a
-`poster and abstract <https://f1000research.com/posters/7-1965>`_ by
-Hanke et al., 2018]
+"The YODA principles are a clear set of organizational standards for
+a dataset used for data analysis projects. This is where the name derives
+from: YODA stands for YODAs Organigram on Data Analysis." [#f1]_
 
+
+
+
+
+
+
+
+
+
+.. rubric:: Footnotes
+
+.. [#f1] "Why does the acronym contain itself?" you ask confused.
+         "That's because it's a `recursive acronym <https://en.wikipedia.org/wiki/Recursive_acronym>`_,
+         where the first letter stands recursively for the whole acronym." you get in response.
+         "And what does all of this have to do with Yoda?" you ask mildly amused.
+         "Oh, well. That's just because the DataLad team is full of geeks."

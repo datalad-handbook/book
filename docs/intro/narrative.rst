@@ -82,7 +82,7 @@ You can decide for yourself whether you want to check them out:
 
     .. container:: header
 
-       **Additional Content: Click here to show/hide further commands**
+       **Find out more:** Click here to show/hide further commands
 
     Sections like this contain content that goes beyond the basics
     necessary to complete a challenge.

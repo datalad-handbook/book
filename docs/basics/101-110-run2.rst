@@ -133,7 +133,7 @@ specifying inputs even though they are already present will not do any harm.
 
    .. container:: header
 
-      **Addition:** What if there are several inputs?
+      **Find out more:** What if there are several inputs?
 
    Often, a command needs several inputs. In principle, every input gets its own ``-i``/``--input``
    flag. However, you can make use of :term:`globbing`. For example,

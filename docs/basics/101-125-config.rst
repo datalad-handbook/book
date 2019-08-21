@@ -192,7 +192,7 @@ specified in the command.
 
    .. container:: header
 
-       **Addition: If things go wrong**
+       **Find out more:** If things go wrong
 
    If something goes wrong during the :command:`git config` command,
    for example you end up having two keys of the same name because you
@@ -218,7 +218,7 @@ you a glimpse of this.
 
    .. container:: header
 
-      **Addition: More on this config file**
+      **Find out more:** More on this config file
 
    The second section of ``.git/config`` is a Git-annex configuration.
    As mentioned above, Git-annex will use the

@@ -90,7 +90,7 @@ with the ``-m`` option:
 
    .. container:: header
 
-      **Addition: "Oh no! I forgot the -m option!"**
+      **Addition:** "Oh no! I forgot the -m option!"
 
    If you forget to specify a commit message with ``-m``, DataLad will write
    ``[DATALAD] Recorded changes`` as a commit message into your history.
@@ -121,7 +121,7 @@ human-readable summary of that action.
 
     .. container:: header
 
-       **Addition: DOs and DON'Ts for commit messages**
+       **Addition:** DOs and DON'Ts for commit messages
 
     **DOs**
 
@@ -195,7 +195,7 @@ Let's :command:`datalad save` precisely this file by specifying its path after t
 
    .. container:: header
 
-      **Addition: some more on save**
+      **Addition:** some more on save
 
    Regarding your second remark, you're right that a :command:`datalad save` without a
    path specification would write all of the currently untracked files or modifications

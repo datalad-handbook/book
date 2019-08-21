@@ -1,0 +1,14 @@
+.. _python:
+
+DataLad's Python API
+--------------------
+
+.. todo::
+
+    - General intro on commands within Python
+    - importing datalad
+    - examples of datalad get
+    - I haven't used anything but get tbh within Python...
+    - Note that this works in interactive sessions and in scripts,
+      maybe include fancy screenshots from a Jupyter notebook and datalad progress bars...
+    - maybe point to remodnav use case. Maybe finish remodnav use case first...

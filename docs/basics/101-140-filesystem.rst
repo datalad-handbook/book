@@ -107,7 +107,7 @@ section. If you are a Git-user, you will be very familiar with it.
 
    .. container:: header
 
-      **Addition: Renaming with Git tools**
+      **Find out more:** Renaming with Git tools
 
    Git has built-in commands that provide a solution in two steps.
 
@@ -226,7 +226,7 @@ the best option to turn to.
 
    .. container:: header
 
-      **Addition: Why a move between directories is actually a content change**
+      **Find out more:** Why a move between directories is actually a content change
 
    Let's see how this shows up in the dataset history:
 
@@ -291,7 +291,7 @@ That's it.
 
    .. container:: header
 
-      **Addition: Symlinks!**
+      **Find out more:** Symlinks!
 
    If you have read the additional content in the section
    :ref:`symlinks`, you know that the same file content
@@ -439,7 +439,7 @@ section.
 
    .. container:: header
 
-        **Addition: If a renamed/moved dataset is a sibling...**
+        **Find out more:** If a renamed/moved dataset is a sibling...
 
    As section todo link `config` explains, each
    sibling is registered in ``.git/config`` in a "submodule" section.

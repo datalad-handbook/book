@@ -101,7 +101,8 @@ Data Analysis in datasets
    :maxdepth: 1
    :caption: Organizational principles and best practices for data analyses
 
-   basics/101-122-yoda
+   basics/101-122-intro
+   basics/101-123-yoda
 
 #########
 Use Cases

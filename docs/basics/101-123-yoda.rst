@@ -4,8 +4,8 @@
 YODA: Best practices for data analyses in a dataset
 ---------------------------------------------------
 
-.. figure:: ../img/yoda.png
-   :figwidth: 50%
+.. figure:: ../img/yoda.svg
+   :figwidth: 30%
    :alt: A very cute YODA
 
 

@@ -3,6 +3,12 @@
 DataLad's Python API
 --------------------
 
+In addition to the command line interface you are already very
+familiar with, DataLad's functionality can also be used within
+interactive Python sessions or Python scripts.
+
+To import: ``from datalad.api import ...``
+
 .. todo::
 
     - General intro on commands within Python

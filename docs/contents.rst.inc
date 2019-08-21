@@ -80,6 +80,9 @@ Sharing a dataset [1]
    basics/101-119-sharelocal4
    basics/101-120-summary
    basics/101-121-siblings
+   basics/101-122-intro
+   basics/101-123-yoda
+   basics/101-124-python
    basics/101-125-config
    basics/101-126-config2
 
@@ -92,6 +95,8 @@ Help yourself
    :caption: What to do if things go wrong
 
    basics/101-135-help
+
+
 
 #########
 Use Cases

@@ -4,6 +4,11 @@
 YODA: Best practices for data analyses in a dataset
 ---------------------------------------------------
 
+.. figure:: ../img/yoda.png
+   :figwidth: 50%
+   :alt: A very cute YODA
+
+
 [Disclaimer: This section is based on a
 `poster and abstract <https://f1000research.com/posters/7-1965>`_ by
 Hanke et al., 2018]

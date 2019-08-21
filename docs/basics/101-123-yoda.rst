@@ -18,48 +18,90 @@ YODA principles".
 "What are the YODA principles?" you ask, as you have never heard of this
 before.
 
-"The topic of today's lecture!", you hear in response. "At the end of
-the session, we'll be talking about the midterm projects. But now we
-will talk about organizational principles of data analyses in DataLad
-datasets."
+"The topic of today's lecture, organizational principles of data
+analyses in DataLad datasets!", you hear in response.
 
-"The YODA principles are a clear set of organizational standards for
+Data analyses projects are very common, both in science and industry.
+But it can be very difficult to produce a reproducible, let alone comprehensible
+data analysis project. Many data analysis projects do not start out with
+a stringent organization, or fail to keep the structural organization of a
+directory intact as the project develops. Often, this can be due to not
+version-controlling analysis projects. In these cases, one could quickly end up
+with many
+`almost-identical scripts suffixed with "_version_xyz" <http://phdcomics.com/comics/archive.php?comicid=1531>`_,
+or a chaotic results structure split between various directories with names
+such as ``results/``, ``results_August19/``, ``results_revision/`` and
+``now_with_nicer_plots/``.
+
+All data analysis endeavours in directories like this can work, for a while,
+if there is a person who knows the project well, and works on it all the time.
+But it inevitably will get messy once anyone tries to collaborate on a project
+like this, or simply goes on a two-week vacation and forgets whether
+the function in ``main_analysis_newparameters.py`` or the one in
+``takethisscriptformostthingsnow.py`` was the one that created a particular figure.
+
+But even if a project has an intuitive structure, and is even version
+controlled, in many cases an analysis script will stop working, or maybe worse,
+will produce different results, because the software and tools used to
+conduct the analysis in the first place got an update. This update may have
+come with API changes that made functions stop working, or work differently
+than before.
+
+The YODA principles are a clear set of organizational standards for
 a dataset used for data analysis projects. This is where the name derives
-from: YODA stands for YODAs Organigram on Data Analysis." [#f1]_
+from: YODA stands for "YODAs Organigram on Data Analysis" [#f1]_.
+These principles set simple rules for directory names and structures, best-practices for
+version-controlling dataset elements and analyses, facilitate
+usage of tools to improve the reproducibility and accountability
+of data analysis projects, and make collaboration easier.
+They are summarized in three base principles, that translate to both
+dataset structures and best practices regarding the analysis:
 
-"We can summarize them in a handful of simple best practices, that translate to a
-dataset structure:
+- **P1:** One thing, one dataset
 
-#. The (raw) data for the analysis project, structured following community
-   guidelines of the given field, is stored as an independent component of
-   the dataset as subdatasets. These data should live in an ``inputs/``
-   directory
+- **P2:** Record where you got it from, and where it is now
 
-#. Scripts or code used for the analysis of the data is stored in a dedicated
+- **P3:** Record what you did to it, and with what
+
+Let's go through them one by one
+
+P1: One thing, one dataset
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+
+#. The (raw) **data** for the analysis project (structured following community
+   guidelines of the given field) is stored as an independent component of
+   the dataset (ideally, as one or more subdatasets).
+   These data should live in an ``inputs/`` directory.
+
+#. Scripts or **code** used for the analysis of the data is stored in a dedicated
    ``code/`` directory, outside of the data component of the dataset.
 
-#. Within ``code/``, add tests for your software/code, and use automated
-   computing, for example
-   `continuous integration systems <https://en.wikipedia.org/wiki/Continuous_integration>`_,
-   to assess the functionality of your functions and scripts. The setup
-   for continuous integration frameworks, such as
-   ``Travis <>`_ lives outside of ``code/``, in a dedicated ``ci``
-   directory
+   #. Within ``code/``, it is best practice to add **tests** for the code. These tests can be
+      run to check whether the code still works [#f2]_.
 
-#. The results of an analysis should be kept in a dedicated ``outputs/``
+   #. It is even better to further use automated computing, for example
+      `continuous integration (CI) systems <https://en.wikipedia.org/wiki/Continuous_integration>`_,
+      to test the functionality of your functions and scripts automatically [#f3]_.
+      If relevant, the setup for continuous integration frameworks (such as
+      `Travis <https://travis-ci.org>`_) lives outside of ``code/``,
+      in a dedicated ``ci/`` directory.
+
+#. The **results** of an analysis should be kept in a dedicated ``outputs/``
    directory in the dataset, away from the ``inputs/`` the results were
    derived from.
 
-#. Include documents for fellow humans: Notes, the scientific paper you
-   wrote about your analysis, a README.md, a HOWTO.md, or even proper
-   documentation in a dedicated ``docs/`` directory. Within these documents,
+#. Include **documents for fellow humans**: Notes in a README.md or a HOWTO.md,
+   the scientific paper you wrote about your analysis, or even proper
+   documentation (for example using  in a dedicated ``docs/`` directory. Within these documents,
    include all relevant metadata for your analysis. If you are
    conducting a scientific study, this might be authorship, funding,
    change log, etc.
 
-#. Include a place for complete execution environments, for example
+#. Include a place for complete **execution environments**, for example
    `singularity images <https://singularity.lbl.gov/>`_ or
-   `docker containers <https://www.docker.com/get-started>`_ , in
+   `docker containers <https://www.docker.com/get-started>`_ [#f4]_, in
    the form of an ``envs/`` directory, if relevant for your analysis.
 
 
@@ -95,15 +137,31 @@ about:
 
 
 
+These standards are not complex -- quite the opposite, they are very
+intuitive. They structure essential components of a data analysis project --
+data, code, computational environments, and lastly also the results --
+in a modular and practical way.
 
-"These standards are not complex -- quite the opposite, they are very
-intuitive. Most data analysis projects however do not start out with
-such organization, or fail to keep the structural organization of a
-directory intact as the project develops. Often, this can be due to not
-version-controlling analysis projects. In these cases, one could quickly end up
-with many almost-identical scripts suffixed with ``_version_xyz``,
-or a chaotic results structure split between various directories with names
-such as ``results``, ``results_August19``, ``results_revision``, ``nicer_plots``.
+There are many advantages to the way this precise way of organizing contents.
+Having input data as independent dataset(s) that are not influenced (only
+consumed) by an analysis allows for a modular reuse of pure data datasets,
+and does not conflate the data of an analysis with the results or the code.
+
+Keeping code within an independent, version-controlled directory, but as a part
+of the analysis dataset, makes sharing code easy and transparent. Moreover,
+with the data as subdatasets, data and code can be automatically shared together.
+
+Including the computational environment into an analysis dataset encapsulates
+software and software versions, and thus prevents re-computation failures
+(or sudden differences in the results) once
+software is updated, and software conflicts arising on different machines
+than the one the analysis was originally conducted on.
+
+Having all of these components as part of a DataLad dataset allows version
+controlling all pieces within the analysis regardless of their size, and
+generates provenance for everything.
+
+
 
 
 
@@ -119,3 +177,16 @@ such as ``results``, ``results_August19``, ``results_revision``, ``nicer_plots``
          where the first letter stands recursively for the whole acronym." you get in response.
          "And what does all of this have to do with Yoda?" you ask mildly amused.
          "Oh, well. That's just because the DataLad team is full of geeks."
+
+.. [#f2] If writing tests for analysis scripts is a new idea for you, but
+         you want to learn more, check out
+         `this excellent chapter on testing <https://the-turing-way.netlify.com/testing/testing.html#Acceptance_testing>`_
+         in the book `The Turing Way <https://the-turing-way.netlify.com/introduction/introduction>`_,
+         a comprehensive guide to reproducible data science.
+
+.. [#f3] The chapter mentioned in [#f2]_ is also a great resource to
+         learn more about continous integration.
+
+.. [#f4] For more on Docker and Singularity images, check out
+         `this section <https://the-turing-way.netlify.com/reproducible_environments/06/containers#Containers_section>`_
+         in the book `The Turing Way <https://the-turing-way.netlify.com/introduction/introduction>`_.

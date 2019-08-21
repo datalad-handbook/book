@@ -100,8 +100,9 @@ to store only files exceeding 20KB in size in Git-annex [#f2]_.
 As you may have noticed, unlike ``.git/config`` files,
 there can be multiple ``.gitattributes`` files within a dataset. So far, you have seen one
 in the root of the superdataset, and in the root of the ``longnow`` subdataset.
-In principle, you can add one to every level of your dataset. For example, there is another
-``.gitattributes`` file within the ``.datalad`` directory:
+In principle, you can add one to every directory-level of your dataset.
+For example, there is another ``.gitattributes`` file within the
+``.datalad`` directory:
 
 .. runrecord:: _examples/DL-101-125-107
    :language: console

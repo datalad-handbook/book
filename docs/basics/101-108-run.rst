@@ -132,7 +132,7 @@ command from the root of ``DataLad-101``.
 
    .. container:: header
 
-      **Addition: Why is there a "notneeded" in the command summary?**
+      **Addition:** Why is there a "notneeded" in the command summary?
 
    If you have stumbled across the command execution summary
    ``save (notneeded: 1, ok: 1)`` and wondered what is "notneeded":

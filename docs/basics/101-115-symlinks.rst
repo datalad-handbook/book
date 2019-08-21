@@ -1,4 +1,4 @@
-.. _symlinks:
+.. _symlink:
 
 Secrets of Git-annex: Symlinks and object trees
 -----------------------------------------------
@@ -163,7 +163,7 @@ to manage the file system in a datalad dataset (Todo: link).
 
    .. container:: header
 
-      **Addition: more about paths, checksums, and object trees**
+      **Addition:** more about paths, checksums, and object trees
 
    But why does the target path to the object tree needs to be so cryptic?
    Does someone want to create

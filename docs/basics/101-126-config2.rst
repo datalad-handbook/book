@@ -257,13 +257,6 @@ rules, and you understand the majority of variables within ``.gitmodules`` or th
 in ``.git/config``. Slowly, you realize with pride,
 you're more and more becoming a DataLad power-user.
 
-
-.. todo::
-
-    Maybe talk about environment variables. Environment variables take precedence over configuration file
-    settings
-
-
 .. rubric:: Footnotes
 
 .. [#f1] When opening any file on a UNIX system, the file does not need to have a file

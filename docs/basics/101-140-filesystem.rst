@@ -535,6 +535,29 @@ section.
       $ rm -r onemoredir
       $ cd ../DataLad-101 && git reset --hard master
 
+
+Deleting (annexed) files/directories
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+- everything in Git: ``git rm`` deletes content, and stages deletion. File content can
+  be recovered, because it's still in project history
+
+- everything in annex: removal will fail because of protection by Git-annex. ``datalad drop``
+  will remove file from disk (?), then there is also ``datalad remove``.
+
+Deleting subdatasets
+^^^^^^^^^^^^^^^^^^^^
+
+- looks like ``datalad remove`` is what one would need to turn to
+
+Deleting a superdataset
+^^^^^^^^^^^^^^^^^^^^^^^
+
+- take care of revoked write permission in object tree: ``chmod -R +w dataset``
+- remove directory: ``rm -rf dataset``
+
+
+
 Summary
 ^^^^^^^
 

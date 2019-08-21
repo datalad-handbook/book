@@ -1,3 +1,5 @@
+.. _symlink:
+
 Secrets of Git-annex: Symlinks and object trees
 -----------------------------------------------
 

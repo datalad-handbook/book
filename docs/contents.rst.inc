@@ -80,6 +80,8 @@ Sharing a dataset [1]
    basics/101-119-sharelocal4
    basics/101-120-summary
    basics/101-121-siblings
+   basics/101-125-config
+   basics/101-126-config2
 
 #############
 Help yourself

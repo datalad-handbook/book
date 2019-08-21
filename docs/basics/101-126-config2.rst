@@ -1,7 +1,7 @@
 .. _config2:
 
-Everything you ever wanted to configure [2]
--------------------------------------------
+Tuning datasets to your needs: Configurations [2]
+-------------------------------------------------
 
 As the last section already suggest, within a Git repository,
 ``.git/config`` is not the only configuration file.

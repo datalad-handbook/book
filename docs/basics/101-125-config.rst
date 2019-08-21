@@ -1,7 +1,7 @@
 .. _config:
 
-Everything you ever wanted to configure
----------------------------------------
+Tuning datasets to your needs: Configurations [1]
+-------------------------------------------------
 
 Back in section :ref:`text2git`, we already learned that there
 are dataset configurations, and that these configurations can

@@ -52,7 +52,7 @@ To find out which version you are using, run
 .. index:: ! datalad command; wtf
 
 If you want a comprehensive overview of your full setup,
-:command:`datalad wtf` is the command to turn to
+:command:`datalad wtf` [#f1]_ is the command to turn to
 (:manpage:`datalad-wtf` manual). Running this command will
 generate a report about the DataLad installation and configuration.
 The output below shows an excerpt.
@@ -143,3 +143,12 @@ data from, you are fine.
    Another type of warning you may encounter during installation is::
 
       [INFO   ] Submodule HEAD got detached. Resetting branch master to point to 046713bb. Original location was 47e53498
+
+
+.. rubric:: Footnotes
+
+.. [#f1] ``wtf`` in :command:`datalad wtf` could stand for many things. "Why the Face?"
+         "Wow, that's fantastic!", "What's this for?", "What to fix", "What the FAQ",
+         "Where's the fire?", "Wipe the floor", "Welcome to fun",
+         "Waste Treatment Facility", "What's this foolishness", "What the fruitcake", ...
+         Pick a translation of your choice and make running this command more joyful.

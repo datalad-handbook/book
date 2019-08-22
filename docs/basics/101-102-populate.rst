@@ -86,11 +86,7 @@ with the ``-m`` option:
 
    $ datalad save -m "add books on Python and Unix to read later"
 
-.. container:: toggle
-
-   .. container:: header
-
-      **Find out more:** "Oh no! I forgot the -m option!"
+.. findoutmore:: "Oh no! I forgot the -m option!"
 
    If you forget to specify a commit message with ``-m``, DataLad will write
    ``[DATALAD] Recorded changes`` as a commit message into your history.
@@ -117,11 +113,7 @@ But this tells us the date and time in which a particular author added two PDFs 
 the directory ``books/``, and thanks to that commit message we have a nice
 human-readable summary of that action.
 
-.. container:: toggle
-
-    .. container:: header
-
-       **Find out more:** DOs and DON'Ts for commit messages
+.. findoutmore:: DOs and DON'Ts for commit messages
 
     **DOs**
 
@@ -191,11 +183,7 @@ Let's :command:`datalad save` precisely this file by specifying its path after t
    $ datalad save -m "add reference book about git" books/progit.pdf
 
 
-.. container:: toggle
-
-   .. container:: header
-
-      **Find out more:** some more on save
+.. findoutmore:: Some more on save
 
    Regarding your second remark, you're right that a :command:`datalad save` without a
    path specification would write all of the currently untracked files or modifications

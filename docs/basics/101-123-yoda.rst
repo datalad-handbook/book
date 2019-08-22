@@ -4,36 +4,74 @@
 YODA: Best practices for data analyses in a dataset
 ---------------------------------------------------
 
-.. figure:: ../img/yoda.svg
-   :figwidth: 30%
-   :alt: A very cute YODA
 
-
-[Disclaimer: This section is based on a
-`poster and abstract <https://f1000research.com/posters/7-1965>`_ by
-Hanke et al., 2018]
 
 The last requirement for the midterm projects reads "needs to comply to the
 YODA principles".
 "What are the YODA principles?" you ask, as you have never heard of this
 before.
+"The topic of today's lecture: Organizational principles of data
+analyses in DataLad datasets. This lecture will show you the basic
+principles behind creating, sharing, and publishing reproducible,
+understandable, and open data analysis projects with DataLad."
 
-"The topic of today's lecture, organizational principles of data
-analyses in DataLad datasets!", you hear in response.
+The starting point...
+^^^^^^^^^^^^^^^^^^^^^
 
 Data analyses projects are very common, both in science and industry.
-But it can be very difficult to produce a reproducible, let alone comprehensible
-data analysis project. Many data analysis projects do not start out with
+But it can be very difficult to produce a reproducible, let alone only
+*comprehensible* data analysis project.
+Many data analysis projects do not start out with
 a stringent organization, or fail to keep the structural organization of a
 directory intact as the project develops. Often, this can be due to not
-version-controlling analysis projects. In these cases, one could quickly end up
+version-controlling analysis projects. In these cases, a project will quickly end up
 with many
 `almost-identical scripts suffixed with "_version_xyz" <http://phdcomics.com/comics/archive.php?comicid=1531>`_,
 or a chaotic results structure split between various directories with names
 such as ``results/``, ``results_August19/``, ``results_revision/`` and
-``now_with_nicer_plots/``.
+``now_with_nicer_plots/``. Something like this for example is a very
+common shape a data science project may take after a while:
 
-All data analysis endeavours in directories like this can work, for a while,
+.. code-block:: bash
+
+    ├── code/
+    │   ├── code_final/
+    │   │   ├── final_2/
+    │   │   │   ├── main_script_fixed.py
+    │   │   │   └──takethisscriptformostthingsnow.py
+    │   │   ├── utils_new.py
+    │   │   ├── main_script.py
+    │   │   ├── utils_new.py
+    │   │   ├── utils_2.py
+    │   │   └── main_analysis_newparameters.py
+    │   └── main_script_DONTUSE.py
+    ├── data/
+    │   ├── data_updated/
+    │   │    └── dataset1/
+    │   │        ├── datafile_a
+    │   │        └── [...]
+    │   ├── dataset1/
+    │   │   ├── datafile_a
+    │   │   └── [...]
+    │   ├── outputs/
+    │   │   ├── figures/
+    │   │   │   ├── figures_new.py
+    │   │   │   └── figures_final_forreal.py
+    │   │   ├── important_results/
+    │   │   │   └── [...]
+    │   │   ├── random_results_file.tsv
+    │   │   ├── results_for_paper/
+    │   │   │   └── [...]
+    │   │   ├── results_for_paper_revised/
+    │   │   │   └── [...]
+    │   │   └── results_new_data/
+    │   │   │   └── [...]
+    │   ├── random_results_file.tsv
+    │   ├── random_results_file_v2.tsv
+
+    [...]
+
+All data analysis endeavours in directories like this *can* work, for a while,
 if there is a person who knows the project well, and works on it all the time.
 But it inevitably will get messy once anyone tries to collaborate on a project
 like this, or simply goes on a two-week vacation and forgets whether
@@ -46,11 +84,19 @@ will produce different results, because the software and tools used to
 conduct the analysis in the first place got an update. This update may have
 come with API changes that made functions stop working, or work differently
 than before.
+In the same vein, recomputing an analysis project on a different machine than
+the one the analysis was developed on can fail if the necessary
+software in the required versions is not installed or available on this new machine.
+The analysis might depend on software that runs on a Linux machine, but the project
+was shared with a Windows user. The environment during analysis development used
+Python 2, but on the new system has only Python 3 installed. Or one of the dependent
+libraries needs to be in version X, but is installed as version Y.
 
 The YODA principles are a clear set of organizational standards for
-a dataset used for data analysis projects. This is where the name derives
-from: YODA stands for "YODAs Organigram on Data Analysis" [#f1]_.
-These principles set simple rules for directory names and structures, best-practices for
+datasets used for data analysis projects that aim to overcome issues like the
+ones outlined above. The name stands for
+"YODAs Organigram on Data Analysis" [#f1]_. The principles outlined
+in YODA set simple rules for directory names and structures, best-practices for
 version-controlling dataset elements and analyses, facilitate
 usage of tools to improve the reproducibility and accountability
 of data analysis projects, and make collaboration easier.

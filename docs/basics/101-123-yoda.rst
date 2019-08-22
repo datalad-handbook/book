@@ -109,32 +109,30 @@ dataset structures and best practices regarding the analysis:
 
 - **P3:** Record what you did to it, and with what
 
-Let's go through them one by one:
+As you will see, complying to these principles is easy if you you
+use DataLad. Let's go through them one by one:
 
 P1: One thing, one dataset
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Whenever a particular collection of files could be useful in more
-than one context, put them in their own DataLad dataset.
+than one context, make them a standalone, modular component.
 In the broadest sense, this means to structure your study elements (data, code,
-computational environments, results, ...) in modular components. For example:
+computational environments, results, ...) in dedicated directories. For example:
 
 
-- Store **input data** for an analysis in a dedicated ``inputs/`` subdataset.
-  Don't mix raw data, data that is already structured following community
-  guidelines of the given field, or preprocessed data, but also keep
-  these different types of input data as modular components. And if your analysis
-  relies on two or more data collections, these collections should each be a
-  standalone subdataset.
-
-.. figure:: ../img/dataset_modules.svg
-   :figwidth: 100%
-   :alt: Modular structure of a data analysis project
+- Store **input data** for an analysis in a dedicated ``inputs/`` directory.
+  Keep different formats or processing-stages of your input data as individual,
+  modular components:  Don't mix raw data, data that is already structured
+  following community guidelines of the given field, or preprocessed data, but create
+  one data component for each of them. And if your analysis
+  relies on two or more data collections, these collections should each be an
+  individual component, not combined into one.
 
 - Store scripts or **code** used for the analysis of data in a dedicated ``code/``
   directory, outside of the data component of the dataset.
 
-- Collect results of an analysis in a dedicated ``outputs/`` directory, and
+- Collect **results** of an analysis in a dedicated ``outputs/`` directory, and
   leave the input data of an analysis untouched by your computations.
 
 - Include a place for complete **execution environments**, for example
@@ -142,61 +140,110 @@ computational environments, results, ...) in modular components. For example:
   `docker containers <https://www.docker.com/get-started>`_ [#f2]_, in
   the form of an ``envs/`` directory, if relevant for your analysis.
 
-- If you conduct multiple analyses, create a dedicated dataset for each
-  analysis.
+- And if you conduct multiple different analyses, create a dedicated
+  project for each analysis, instead of conflating them.
+
+This, for example, would be a directory structure of a very comprehensive [#f3]_
+data analysis project complying to the YODA principles:
+
+.. code-block:: bash
+
+    ├── ci/                         # continuous integration configuration
+    │   └── .travis.yml
+    ├── code/                       # your code
+    │   ├── tests/                  # unit tests to test your code
+    │   │   └── test_myscript.py
+    │   └── myscript.py
+    ├── docs                        # documentation about the project
+    │   ├── build/
+    │   └── source/
+    ├── envs                        # computational environments
+    │   └── Singularity
+    ├── inputs/                     # dedicated inputs/, will not be changed by an analysis
+    │   └─── data/
+    │       ├── dataset1/           # one stand-alone data component
+    │       │   └── datafile_a
+    │       └── dataset2/
+    │           └── datafile_a
+    ├── outputs/                    # outputs away from the input data
+    │   └── important_results/
+    │       └── figures/
+    ├── CHANGELOG.md                # notes for fellow humans about your project
+    ├── HOWTO.md
+    └── README.md
+
 
 There are many advantages to this modular way of organizing contents.
-Having input data as independent dataset(s) that are not influenced (only
-consumed) by an analysis allows does not conflate the data for
+Having input data as independent components that are not influenced (only
+consumed) by an analysis does not conflate the data for
 an analysis with the results or the code, thus assisting understanding
 the project for anyone unfamiliar with it.
-Just now you remember helping a friend of yours with an analysis years ago.
-It took an hour of one-on-one guidance to understand the relationships between
-vaguely named files in an analysis project that lived inside a single directory.
-Thinking about this mess still makes you roll your eyes. From this aspect
-alone you therefore find it useful to adopt a modular structure in
-your analysis project.
 But more than just structure, this organization aids modular reuse or
-publication of pure data datasets. It is usually costly to collect data,
-and economically unfeasible to keep it locked in a drawer, -- or behind
-complexities of data retrieval or difficulties in understanding the data.
-Conducting several projects on the same dataset or sharing it is easy,
-if the dataset is a DataLad dataset that can be installed
-and retrieved on demand, and is kept clean from everything that is not
-part of this data component.
+publication of the individual components, for example data.
+Later you might also write a scientific paper about your analysis.
+This whole dataset can easily become a modular component in a paper
+project, to make sharing paper, code, data, and results easy.
+The usecase :ref:`remodnav` contains a step-by-step instruction on
+how to build and share such a reproducible paper, if you want to learn
+more.
+
+.. figure:: ../img/dataset_modules.svg
+   :figwidth: 100%
+   :alt: Modular structure of a data analysis project
+
+   Data are modular components that can be re-used easily.
+
+Principle 1, therefore, encourages to structure data analysis
+projects in a clear and modular fashion, yielding comprehensible
+structures and re-usable components. Having each component
+version-controlled -- regardless of size --  will aid keeping
+directories clean and organized, instead of piling up different
+versions of code, data, or results.
 
 P2: Record where you got it from, and where it is now
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Its good to have data, but its even better if you and anyone you
-collaborate with can find out where the data came from, or how it
+collaborate or share the project or its components with can find
+out where the data came from, or how it
 is dependent on or linked to other data. Therefore, this principle
-means to make sure to attach this information to the components of
+aims to attach this information to the components of
 your data analysis project.
-Luckily, this is a no-brainer with DataLad. Installing a
-subdataset with data, or anything else? Thanks to
-:command:`datalad install`, information on the source of these datasets
-is stored, and you can even update from those sources. Downloading a
-file, for example code from Github? With :command:`datalad download-url`
-(introduced in section :ref:`sibling`) all of it is safely recorded
-in your dataset's history. Add anything to your dataset, from simple
-incremental coding progress in your analysis scripts up to files that
-a colleague sent you via email? A plain :command:`datalad save` with a
-helpful commit message goes a very long way on its own already.
 
-One core aspect of this principle is linking between re-usable data
-resource units -- or in plain words: DataLad datasets containing
-pure data.
+Luckily, this is a no-brainer with DataLad, because the core data structure
+of DataLad, the dataset, and many of the DataLad commands already covered
+up to now fulfill this principle.
+
+If data components of a project are DataLad datasets, they can
+be included in an analysis superdataset as subdatasets. Thanks to
+:command:`datalad install`, information on the source of these subdatasets
+is stored in the history of the analysis superdataset, and they can even be
+updated from those sources if the original data dataset gets extended or changed.
+If you are including a file, for example code from Github,
+the :command:`datalad download-url` command (introduced in section :ref:`sibling`)
+will record the source of it safely in the dataset's history. And if you add anything to your dataset,
+from simple incremental coding progress in your analysis scripts up to
+files that a colleague sent you via email, a plain :command:`datalad save`
+with a helpful commit message goes a very long way to fulfill this principle
+on its own already.
+
+One core aspect of this principle is *linking* between re-usable data
+resource units (i.e. DataLad subdatasets containing pure data). You will
+be happy to hear that this is achieved by simply installing datasets
+as subdatasets:
 
 
 .. figure:: ../img/data_origin.svg
    :figwidth: 50%
    :alt: Datasets are installed as subdatasets
 
+   Schematic illustration of two standalone data datasets installed as subdatasets
+   into an analysis project.
 
-This part of this principle we be absolutely obvious to you because you already
-know about installing and nesting datasets within datasets. But
-this is everything perfect linkage boils down to: Installing subdatasets.
+
+This part of this principle will therefore be absolutely obvious to you
+because you already know how to install and nest datasets within datasets.
+
 "Huh, I might just overcome my impostor syndrome if I experience such advanced
 reproducible analysis concepts as being obvious", you think with a grin.
 
@@ -209,117 +256,78 @@ on DataLads Python API will show concrete examples of this.
 
 Lastly, this principle also includes moving, sharing, and publishing your
 datasets or its components.
+It is usually costly to collect data, and economically unfeasible to keep
+it locked in a drawer (or similarly out of reach behind complexities of
+data retrieval or difficulties in understanding the data structure).
+But conducting several projects on the same dataset yourself, sharing it with
+collaborators, or publishing it is easy if the project is a DataLad dataset
+that can be installed and retrieved on demand, and is kept clean from
+everything that is not part of the data according to principle 1.
+Conducting transparent open science is easier if you can link code, data,
+and results within a dataset, and share everything together. In conjunction
+with principle 1, this means that you can distribute your analysis projects
+(or parts of it) in a comprehensible form.
 
 .. figure:: ../img/decentralized_publishing.svg
    :figwidth: 100%
    :alt: A full data analysis workflow complying with YODA principles
 
+   In a dataset that complies to the YODA principles, modular components
+   (data, analysis results, papers) can be shared or published easily.
 
-TODO More here
+Principle 2, therefore, facilitates transparent linkage of datasets and their
+components to other components, their original sources, or shared copies.
+With the DataLad tools you learned to master up to this point,
+you have all the necessary skills to comply to it.
 
 P3: Record what you did to it, and with what
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-This last principle boils down to capture how exactly the content of
-every file that was not obtained from elsewhere came to be.
-The section :ref:`run` already outlined the problem
-of associating, say, a result with an input and a script.
-:command:`datalad run` however mitigates these difficulties,
+This last principle is about capturing *how exactly the content of
+every file came to be* that was not obtained from elsewhere. For example,
+this relates to results generated from inputs by scripts or commands.
+The section :ref:`run` already outlined the problem of associating
+a result with an input and a script. It can be difficult to link a
+figure from your data analysis project with an input data file or a
+script, even if you created this figure yourself.
+The :command:`datalad run` command however mitigates these difficulties,
 and captures the provenance of any output generated with a
-``datalad run`` call in the history of the dataset.
+``datalad run`` call in the history of the dataset. Thus, using
+:command:`datalad run` in analysis projects, your dataset knows
+which result was generated when, by which author, from which inputs,
+and by means of which command.
 
-With DataLad, one can even go one step further: The command
-:command:`datalad containers-run` that will be introduced in
-a later part of the book, performs a command execution within
+With another DataLad command one can even go one step further:
+The command :command:`datalad containers-run` (it will be introduced in
+a later part of the book) performs a command execution within
 a configured containerized environment. Thus, not only inputs,
-outputs, and command, but also the software environment are captured
-as provenance.
-
-- talk about datalad run
-- capture provenance
-
-This might be the place for the computational environments.....
+outputs, command, time, and author, but also the software environment
+are captured as provenance of a dataset component such as a results file.
 
 
-#. If The (raw) **data** for the analysis project (structured following community
-   guidelines of the given field) is stored as an independent component of
-   the dataset (ideally, as one or more subdatasets).
-   These data should live in an ``inputs/`` directory.
 
-#. Scripts or **code** used for the analysis of the data is stored in a dedicated
-   ``code/`` directory, outside of the data component of the dataset.
-
-   #. Within ``code/``, it is best practice to add **tests** for the code. These tests can be
-      run to check whether the code still works [#f2]_.
-
-   #. It is even better to further use automated computing, for example
-      `continuous integration (CI) systems <https://en.wikipedia.org/wiki/Continuous_integration>`_,
-      to test the functionality of your functions and scripts automatically [#f3]_.
-      If relevant, the setup for continuous integration frameworks (such as
-      `Travis <https://travis-ci.org>`_) lives outside of ``code/``,
-      in a dedicated ``ci/`` directory.
-
-#. The **results** of an analysis should be kept in a dedicated ``outputs/``
-   directory in the dataset, away from the ``inputs/`` the results were
-   derived from.
-
-#. Include **documents for fellow humans**: Notes in a README.md or a HOWTO.md,
-   the scientific paper you wrote about your analysis, or even proper
-   documentation (for example using  in a dedicated ``docs/`` directory. Within these documents,
-   include all relevant metadata for your analysis. If you are
-   conducting a scientific study, this might be authorship, funding,
-   change log, etc.
-
-#. Include a place for complete **execution environments**, for example
-   `singularity images <https://singularity.lbl.gov/>`_ or
-   `docker containers <https://www.docker.com/get-started>`_ [#f4]_, in
-   the form of an ``envs/`` directory, if relevant for your analysis.
+.. figure:: ../img/yoda.svg
+   :figwidth: 30%
+   :alt: A very cute YODA
 
 
-This directory structure has all of the components the YODA principles talk
-about:
-
-.. code-block:: bash
-
-    ├── ci/
-    │   └── .travis.yml
-    ├── code/
-    │   ├── tests/
-    │   │   └── test_myscript.py
-    │   └── myscript.py
-    ├── docs
-    │   ├── build/
-    │   └── source/
-    ├── envs
-    │   └── Singularity
-    ├── inputs/
-    │   └─── data/
-    │       ├── dataset1/
-    │       │   └── datafile_a
-    │       └── dataset2/
-    │           └── datafile_a
-    ├── outputs/
-    │   └── important_results/
-    │       └── figures/
-    ├── tests/
-    ├── CHANGELOG.md
-    ├── HOWTO.md
-    └── README.md
-
-
+Summary
+^^^^^^^
 
 These standards are not complex -- quite the opposite, they are very
 intuitive. They structure essential components of a data analysis project --
 data, code, computational environments, and lastly also the results --
-in a modular and practical way.
+in a modular and practical way, and use basic principles and commands
+of DataLad you are already familiar with.
 
-There are many advantages to the way this precise way of organizing contents.
+There are many advantages to this organization of contents.
 Having input data as independent dataset(s) that are not influenced (only
 consumed) by an analysis allows for a modular reuse of pure data datasets,
 and does not conflate the data of an analysis with the results or the code.
 
 Keeping code within an independent, version-controlled directory, but as a part
-of the analysis dataset, makes sharing code easy and transparent. Moreover,
+of the analysis dataset, makes sharing code easy and transparent, and helps
+to keep directories neat and organized. Moreover,
 with the data as subdatasets, data and code can be automatically shared together.
 
 Including the computational environment into an analysis dataset encapsulates
@@ -330,7 +338,15 @@ than the one the analysis was originally conducted on.
 
 Having all of these components as part of a DataLad dataset allows version
 controlling all pieces within the analysis regardless of their size, and
-generates provenance for everything.
+generates provenance for everything, especially if you make use of the tools
+that DataLad provides.
+
+
+Sources
+^^^^^^^
+This section is based on this comprehensive
+`poster <https://f1000research.com/posters/7-1965>`_ and these publicly
+available `slides <https://github.com/myyoda/talk-principles>`_.
 
 
 .. rubric:: Footnotes
@@ -349,12 +365,28 @@ generates provenance for everything.
          in the wonderful book `The Turing Way <https://the-turing-way.netlify.com/introduction/introduction>`_,
          a comprehensive guide to reproducible data science.
 
-.. [#f3] If writing tests for analysis scripts is a new idea for you, but
-         you want to learn more, check out
-         `this excellent chapter on testing <https://the-turing-way.netlify.com/testing/testing.html#Acceptance_testing>`_
-         in the book `The Turing Way <https://the-turing-way.netlify.com/introduction/introduction>`_,
-         .
+.. [#f3] This directory structure is very comprehensive, and displays many best-practices for
+         reproducible data science. For example,
 
-.. [#f4] The chapter mentioned in [#f2]_ is also a great resource to
-         learn more about continous integration.
+            #. Within ``code/``, it is best practice to add **tests** for the code.
+               These tests can be run to check whether the code still works.
+
+            #. It is even better to further use automated computing, for example
+               `continuous integration (CI) systems <https://en.wikipedia.org/wiki/Continuous_integration>`_,
+               to test the functionality of your functions and scripts automatically.
+               If relevant, the setup for continuous integration frameworks (such as
+               `Travis <https://travis-ci.org>`_) lives outside of ``code/``,
+               in a dedicated ``ci/`` directory.
+
+            #. Include **documents for fellow humans**: Notes in a README.md or a HOWTO.md,
+               or even proper documentation (for example using  in a dedicated ``docs/`` directory.
+               Within these documents, include all relevant metadata for your analysis. If you are
+               conducting a scientific study, this might be authorship, funding,
+               change log, etc.
+
+         If writing tests for analysis scripts or using continuous integration
+         is a new idea for you, but you want to learn more, check out
+         `this excellent chapter on testing <https://the-turing-way.netlify.com/testing/testing.html#Acceptance_testing>`_
+         in the book `The Turing Way <https://the-turing-way.netlify.com/introduction/introduction>`_.
+
 

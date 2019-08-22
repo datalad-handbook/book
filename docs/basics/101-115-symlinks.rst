@@ -159,11 +159,7 @@ in certain situations. Later in this book we will have a section on how
 to manage the file system in a datalad dataset (Todo: link).
 
 
-.. container:: toggle
-
-   .. container:: header
-
-      **Find out more:** more about paths, checksums, and object trees
+.. findoutmore:: more about paths, checksums, and object trees
 
    But why does the target path to the object tree needs to be so cryptic?
    Does someone want to create

@@ -90,11 +90,7 @@ command execution. Therefore, whenever the output of a :command:`datalad run` co
 exists and is tracked, it should be specified as an argument in
 the ``-o``/``--output`` option.
 
-.. container:: toggle
-
-   .. container:: header
-
-      **Find out more:** But what if I have a lot of outputs?
+.. findoutmore:: But what if I have a lot of outputs?
 
    The use case here is simplistic -- a single file gets modified.
    But there are commands and tools that create full directories with

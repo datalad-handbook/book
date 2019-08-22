@@ -140,11 +140,7 @@ is now known to your own dataset as "roommate"
 This command will list all known siblings of the dataset. You can see it
 in the resulting list with the name "roommate" you have given to it.
 
-.. container:: toggle
-
-   .. container:: header
-
-      **Find out more:** What if I mistyped the name or want to remove the sibling?
+.. findoutmore:: What if I mistyped the name or want to remove the sibling?
 
    You can remove a sibling using :command:`datalad siblings remove -s roommate`
 

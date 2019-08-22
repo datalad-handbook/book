@@ -188,11 +188,7 @@ a value, one can configure Git, Git-annex, and DataLad.
 of Git, depending on the scope (local, global, system-wide)
 specified in the command.
 
-.. container:: toggle
-
-   .. container:: header
-
-       **Find out more:** If things go wrong
+.. findoutmore:: If things go wrong
 
    If something goes wrong during the :command:`git config` command,
    for example you end up having two keys of the same name because you
@@ -214,11 +210,7 @@ Nevertheless, it might be helpful to get an overview about the meaning of the
 remaining sections in that file, and the following hidden section can give
 you a glimpse of this.
 
-.. container:: toggle
-
-   .. container:: header
-
-      **Find out more:** More on this config file
+.. findoutmore:: More on this config file
 
    The second section of ``.git/config`` is a Git-annex configuration.
    As mentioned above, Git-annex will use the

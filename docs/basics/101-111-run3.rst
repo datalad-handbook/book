@@ -94,7 +94,7 @@ the ``-o``/``--output`` option.
 
    .. container:: header
 
-      **Addition: But what if I have a lot of outputs?**
+      **Find out more:** But what if I have a lot of outputs?
 
    The use case here is simplistic -- a single file gets modified.
    But there are commands and tools that create full directories with

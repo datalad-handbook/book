@@ -293,7 +293,7 @@ to fill tables with unique names with minimal work, for example like this:
 Without diving into the context of the paper, this table contains results for three
 three comparisons ("MN versus RA", "AL versus RA", "AL versus MN"), for three
 event types (Fixations, Saccades, and post-saccadic oscillations (PSO)), and three different
-stimulus types (Images, Dots, and Videos). Here is how this table looks like:
+stimulus types (Images, Dots, and Videos). Here is how this table looks like in the manuscript:
 
 .. figure:: ../img/remodnav.png
 
@@ -350,7 +350,6 @@ in the actual manuscript, if you want!). This was step number 1 of 4.
    .. figure:: ../img/remodnav2.png
 
 For step 2 and 3, the print statements need to be captured and bound to the ``.tex`` file.
-
 The `tee <https://en.wikipedia.org/wiki/Tee_(command)>`_ command can write all of the output to
 a file (called ``results_def.tex``):
 
@@ -405,7 +404,7 @@ One can read a Makefile as a recipe:
   the manuscript)."
 
 - Line 2-3: "To make the target ``main.pdf``, the following files are required:
-  main.tex (the .tex file), tools.bib & EyeGaze.bib (bibliography files), results_def.tex
+  ``main.tex`` (the ``.tex`` file), ``tools.bib`` & ``EyeGaze.bib`` (bibliography files), ``results_def.tex``
   (the results definitions), and figures (a section not covered here, about rendering figures
   with inkscape prior to including them in the manuscript). If all of these files are present,
   the target ``main.pdf`` can be made by running the command ``latexmk -pdf -g``"
@@ -414,7 +413,14 @@ One can read a Makefile as a recipe:
   required. If the file is present, the target ``results_def.tex`` can be made by running the
   command ``bash -c 'set -o pipefail; code/mk_figuresnstats.py -s | tee results_def.tex'``"
 
-This triggers the execution of the script, collection of results in results_def.tex, and PDF
+This triggers the execution of the script, collection of results in ``results_def.tex``, and PDF
 compilation upon typing ``make``.
-The last three lines define the a ``make clean`` removes all computed files, and also all
+The last three lines define that a ``make clean`` removes all computed files, and also all
 images.
+
+Thus, by using DataLad and its Python API, a few clever Unix and ``LaTeX`` tricks,
+and Makefiles, anyone can create a reproducible paper. This saves time, increases your own
+trust in the results, and helps to make a more convincing case with your research.
+If you haven't yet, but are curious, checkout the
+`manuscript this use case is based on <http://github.com/psychoinformatics-de/paper-remodnav/>`_.
+Any questions can be asked by `opening an issue <https://github.com/psychoinformatics-de/paper-remodnav/issues/new>`_.

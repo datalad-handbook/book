@@ -1,0 +1,1 @@
+$ git config --file=.gitmodules --replace-all submodule."recordings/longnow".url "git@github.com:datalad-datasets/longnow-podcasts.git"

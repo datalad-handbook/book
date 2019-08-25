@@ -83,7 +83,7 @@ clearer. To conclude this demonstration,
 the figure below illustrates the current state of the dataset
 and nesting schematically:
 
-.. figure:: ../img/virtual_dirtree_simple_subds.svg
+.. figure:: ../artwork/src/virtual_dstree_dl101.svg
    :alt: Virtual directory tree of a nested DataLad dataset
 
 Thus, without being consciously aware of it, by taking advantage of dataset

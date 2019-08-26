@@ -1,17 +1,89 @@
 .. _contribute:
 
-************
 Contributing
-************
+------------
 
-.. todo::
+Thanks for being curious about contributing!
+We greatly appreciate and welcome contributions to this book, be it in the form
+of an `issue <https://github.com/datalad-handbook/book/issues/new>`_ or a pull request!
 
-   Add a section on how to contribute to this
-   I'm creating this as a standalone so that we can easily link and reference it
+If you are considering doing a pull request: Great! Every contribution is valuable,
+from fixing typos to writing full chapters.
+The steps below outline how the book "works".
 
+Software
+""""""""
+
+Depending on the size of your contribution, you may want to be able to build the book
+locally to test and preview your changes. However, if you are fixing typos, tweak the
+language, or rewrite a paragraph or two, this shouldn't be necessary.
+If you want to be able to build the book locally, please follow these instructions:
+
+.. code-block::
+
+   # datalad install the repository recursively.
+   # This ensures that dependent subdatasets are installed as well
+   datalad install -r https://github.com/datalad-handbook/book.git
+
+   # Optional: create a virtual environment:
+   virtualenv --python=python3 ~/env/handbook
+   . ~/env/handbook/bin/activate
+
+   # install the requirements and a custom Python helpers for the handbook
+   cd book
+   pip install -r requirements
+   pip install -e .
+
+   # finally, install librsvg2-bin (a tool to render .svgs) with your package manager
+   sudo apt-get install librsvg2-bin
+
+Once this is configured, you can build the book locally by running ``make``,
+and open it in your browser, for example with ``firefox docs/_build/html/index.html``.
+
+
+Directives
+""""""""""
+
+If you are writing larger sections that contain code, please make sure that you
+read this paragraph.
+The book is build with a number of custom directives. If applicable, please
+use them in the same way they are used throughout the book. For code that runs
+inside a dataset such as ``DataLad-101``, working directories exist. The ``DataLad-101``
+dataset for example lives in ``docs/build/wdirs/dl-101``. This comes with the advantage
+that code is tested immediately -- if the code snippet contains an error, this error will
+be written into the book, and thus prevent faulty commands from being published.
+Running code in a working directory will furthermore build up on the existing history
+of this dataset, which is very useful if some code relies on working with previously
+created content or dataset history. Build code snippets that add to these working directories
+by using the ``runrecord`` directive. Commands wrapped in these will write the output
+of a command into example files. Make sure to name this files according to the following
+schema, because they are executed sequentially:
+``DL-101-1<nr-of-section>-1<nr-of-example>``, e.g.
+``docs/basics/_examples/DL-101-101-101`` for the first example in the first section
+of the basics.
+Here is how a ``runrecord`` directive can look like:
+
+.. code-block:: rst
+
+   .. runrecord:: _examples/DL-101-101-101   # give the path to the resulting file
+      :language: console
+      :workdir: dl-101/DataLad-101    # specify a working directory here
+
+      # this is a comment
+      $ this line will be executed
+
+Afterwards, the resulting example files need to be committed into Git. To clear existing
+examples and working directory history, run ``make clean`` and ``make clean-examples``.
+
+For simple code snippets outside of the narrative of ``DataLad-101``,
+simple ``code-block::`` directives are sufficient, however.
+
+Other custom directives are ``gitusernote`` (for additional Git-related information for
+Git-users), and ``findoutmore`` (foldable sections that contain content that goes beyond
+the basics).
 
 Desired structure of the book
-=============================
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The book consists of three major parts: Introduction, Basics, and Use Cases,
 plus an appendix. Purpose and desired content of these parts are outlined
@@ -19,7 +91,7 @@ below.
 
 
 Introduction
-------------
+""""""""""""
 
 - An introduction to DataLad, and the problems it aims to be a solution for.
 
@@ -34,7 +106,7 @@ Introduction
 
 
 Basics
-------
+""""""
 
 - This part contains hands-on-style content on skills that are crucial for
   using DataLad productively. Any non-essential information is not in basics,
@@ -49,7 +121,7 @@ Basics
 
 
 Use Cases
----------
+"""""""""
 
 - Topics that do not fit into the introduction or basics parts, but are
   DataLad-centric, go into this part.

@@ -309,6 +309,70 @@ form of a software container.
    :figwidth: 30%
    :alt: A very cute YODA
 
+   “Feel the force!”
+
+With this last principle, your dataset collects and stores provenance
+of all the contents you created in the wake of your analysis project.
+This established trust in your results, and enables others to understand
+where files derive from.
+
+The yoda procedure
+^^^^^^^^^^^^^^^^^^
+
+There is one tool that can make starting a yoda-compliant data analysis
+even easier: DataLads ``yoda`` procedure. Just as the ``text2git`` procedure
+from section :ref:`createds`, the ``yoda`` procedure can be included in a
+:command:`datalad create` command and will apply useful configurations
+to your dataset:
+
+.. code-block:: bash
+
+   $ datalad create -c yoda "my_analysis"
+
+   [INFO   ] Creating a new annex repo at /home/adina/repos/testing/my_analysis
+   create(ok): /home/adina/repos/testing/my_analysis (dataset)
+   [INFO   ] Running procedure cfg_yoda
+   [INFO   ] == Command start (output follows) =====
+   [INFO   ] == Command exit (modification check follows) =====
+
+Let's take a look at what configurations and changes come with this procedure:
+
+.. code-block:: bash
+
+   $ tree -a
+
+   .
+   ├── .gitattributes
+   ├── CHANGELOG.md
+   ├── code
+   │   ├── .gitattributes
+   │   └── README.md
+   └── README.md
+
+Let's take a closer look into the ``.gitattributes`` files:
+
+.. code-block:: bash
+
+   $ less .gitattributes
+
+   **/.git* annex.largefiles=nothing
+   CHANGELOG.md annex.largefiles=nothing
+   README.md annex.largefiles=nothing
+
+   $ less code/.gitattributes
+
+   * annex.largefiles=nothing
+
+Summarizing these two glimpses into the dataset, this configuration has
+
+#. included a code directory in your dataset
+#. included three files for human consumption (``README.md``, ``CHANGELOG.md``)
+#. configured everything in the ``code/`` directory to be tracked by Git, not Git-annex [#f4]_
+#. and configured ``README.md`` and ``CHANGELOG.md`` in the root of the dataset to be
+   tracked by Git.
+
+Your next data analysis project can thus get a headstart with useful configurations
+and the start of a comprehensible directory structure by applying the ``yoda`` procedure.
 
 
 
@@ -365,4 +429,5 @@ YODA principles.
          `this excellent chapter on testing <https://the-turing-way.netlify.com/testing/testing.html#Acceptance_testing>`_
          in the book `The Turing Way <https://the-turing-way.netlify.com/introduction/introduction>`_.
 
-
+.. [#f4] To re-read how ``.gitattributes`` work, go back to section :ref:`config`, and to remind yourself
+         about how this worked for the ``text2git`` configuration, go back to section :ref:`text2git`.

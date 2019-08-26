@@ -89,7 +89,7 @@ the one the analysis was developed on can fail if the necessary
 software in the required versions is not installed or available on this new machine.
 The analysis might depend on software that runs on a Linux machine, but the project
 was shared with a Windows user. The environment during analysis development used
-Python 2, but on the new system has only Python 3 installed. Or one of the dependent
+Python 2, but the new system has only Python 3 installed. Or one of the dependent
 libraries needs to be in version X, but is installed as version Y.
 
 The YODA principles are a clear set of organizational standards for
@@ -230,7 +230,11 @@ on its own already.
 One core aspect of this principle is *linking* between re-usable data
 resource units (i.e. DataLad subdatasets containing pure data). You will
 be happy to hear that this is achieved by simply installing datasets
-as subdatasets:
+as subdatasets.
+This part of this principle will therefore be absolutely obvious to you
+because you already know how to install and nest datasets within datasets.
+"I might just overcome my impostor syndrome if I experience such advanced
+reproducible analysis concepts as being obvious", you think with a grin.
 
 
 .. figure:: ../img/data_origin.svg
@@ -240,13 +244,6 @@ as subdatasets:
    Schematic illustration of two standalone data datasets installed as subdatasets
    into an analysis project.
 
-
-This part of this principle will therefore be absolutely obvious to you
-because you already know how to install and nest datasets within datasets.
-
-"Huh, I might just overcome my impostor syndrome if I experience such advanced
-reproducible analysis concepts as being obvious", you think with a grin.
-
 But more than linking datasets in a superdataset, linkage also needs to
 be established between components of your dataset. Scripts inside of
 your ``code/`` directory should point to data not as :term:`absolute path`\s
@@ -254,7 +251,7 @@ that would only work on your system, but instead as :term:`relative path`\s
 that will work in any shared copy of your dataset. The next section
 on DataLads Python API will show concrete examples of this.
 
-Lastly, this principle also includes moving, sharing, and publishing your
+Lastly, this principle also includes *moving*, *sharing*, and *publishing* your
 datasets or its components.
 It is usually costly to collect data, and economically unfeasible to keep
 it locked in a drawer (or similarly out of reach behind complexities of
@@ -278,7 +275,7 @@ with principle 1, this means that you can distribute your analysis projects
 Principle 2, therefore, facilitates transparent linkage of datasets and their
 components to other components, their original sources, or shared copies.
 With the DataLad tools you learned to master up to this point,
-you have all the necessary skills to comply to it.
+you have all the necessary skills to comply to it already.
 
 P3: Record what you did to it, and with what
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -292,7 +289,7 @@ figure from your data analysis project with an input data file or a
 script, even if you created this figure yourself.
 The :command:`datalad run` command however mitigates these difficulties,
 and captures the provenance of any output generated with a
-``datalad run`` call in the history of the dataset. Thus, using
+``datalad run`` call in the history of the dataset. Thus, by using
 :command:`datalad run` in analysis projects, your dataset knows
 which result was generated when, by which author, from which inputs,
 and by means of which command.
@@ -301,8 +298,10 @@ With another DataLad command one can even go one step further:
 The command :command:`datalad containers-run` (it will be introduced in
 a later part of the book) performs a command execution within
 a configured containerized environment. Thus, not only inputs,
-outputs, command, time, and author, but also the software environment
-are captured as provenance of a dataset component such as a results file.
+outputs, command, time, and author, but also the *software environment*
+are captured as provenance of a dataset component such as a results file,
+and, importantly, can be shared together with the dataset in the
+form of a software container.
 
 
 
@@ -346,7 +345,8 @@ Sources
 ^^^^^^^
 This section is based on this comprehensive
 `poster <https://f1000research.com/posters/7-1965>`_ and these publicly
-available `slides <https://github.com/myyoda/talk-principles>`_.
+available `slides <https://github.com/myyoda/talk-principles>`_ about the
+YODA principles.
 
 
 .. rubric:: Footnotes

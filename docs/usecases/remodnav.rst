@@ -174,7 +174,8 @@ These two preparations can be seen in this excerpt from the Python script:
    get(dataset='.', path=data)
 
 
-Lastly, :command:`datalad install` the software repository as a subdataset in the root of the superdataset.
+Lastly, :command:`datalad install` the software repository as a subdataset in the
+root of the superdataset [#f2]_.
 
 .. code-block:: bash
 
@@ -440,3 +441,5 @@ Any questions can be asked by `opening an issue <https://github.com/psychoinform
 .. rubric:: Footnotes
 
 .. [#f1] You can read up on installing datasets as subdatasets again in section :ref:`installds`.
+
+.. [#f2] Note that the software repository may just as well be installed within ``data/``.

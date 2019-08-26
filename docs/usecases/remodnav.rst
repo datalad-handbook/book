@@ -249,7 +249,7 @@ form (excerpt from script):
 
 .. code-block:: python
 
-   print('\\newcommand{\\maxmclf}{max_mclf}')
+   print('\\newcommand{\\maxmclf}{{%.2f}}' % max_mclf)
 
 where ``max_mclf`` is a variable that stores the value of one computation.
 

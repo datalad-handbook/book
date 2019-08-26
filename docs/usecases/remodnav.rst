@@ -388,7 +388,7 @@ of the manuscript.
 The last step is to automate this procedure. So far, the script would need to be executed
 with a command line call, and the PDF compilation would require another commandline call.
 One way to automate this process are `Makefiles <https://en.wikipedia.org/wiki/Make_(software)>`_.
-``make`` is a decade-old tool known to many and bears the important advantage that is will
+``make`` is a decades-old tool known to many and bears the important advantage that is will
 deliver results regardless of what actually needs to be done with a single ``make`` call --
 whether it is executing a Python script, running bash commands, or rendering figures, or all of this.
 Here is the one used for the manuscript:

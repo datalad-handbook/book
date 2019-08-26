@@ -114,25 +114,27 @@ create subdirectories (``code/`` and ``data/``) to give your dataset a comprehen
    ├── code
    └── data
 
-All of your analyses scripts should live in the ``code/`` directory, and all data should
+All of your analyses scripts should live in the ``code/`` directory, and all input data should
 live in the ``data/`` directory.
 
 To populate the DataLad dataset, add all the
 data collections you want to perform analyses on as individual DataLad subdatasets within
 ``data/``.
 In this example, all data collections are already DataLad datasets or git repositories and hosted on Github.
-:command:`datalad install` therefore installs them as subdatasets:
+:command:`datalad install` therefore installs them as subdatasets. ``-s`` specifies the source,
+and ``-d ../`` registers them as subdatasets to the superdataset [#f1]_.
 
 .. code-block:: bash
 
    $ cd data
    # install existing git repositories with data (-s specifies the source, in this case, Github repositories)
-   datalad install -s https://github.com/psychoinformatics-de/studyforrest-data-phase2.git
+   # -d points to the root of the superdataset
+   datalad install -d ../ -s https://github.com/psychoinformatics-de/studyforrest-data-phase2.git
 
    [INFO   ] Cloning https://github.com/psychoinformatics-de/studyforrest-data-phase2.git [1 other candidates] into '/home/adina/repos/testing/algorithm-paper/data/raw_eyegaze'
    install(ok): /home/adina/repos/testing/algorithm-paper/data/raw_eyegaze (dataset)
 
-   $ datalad install -s git@github.com:psychoinformatics-de/studyforrest-data-eyemovementlabels.git
+   $ datalad install -d ../ -s git@github.com:psychoinformatics-de/studyforrest-data-eyemovementlabels.git
 
    [INFO   ] Cloning git@github.com:psychoinformatics-de/studyforrest-data-eyemovementlabels.git into '/home/adina/repos/testing/algorithm-paper/data/studyforrest-data-eyemovementlabels'
    Cloning (compressing objects):  45% 1.80k/4.00k [00:01<00:01, 1.29k objects/s
@@ -177,7 +179,7 @@ Lastly, :command:`datalad install` the software repository as a subdataset in th
 .. code-block:: bash
 
    # in the root of ``algorithm-paper`` run
-   $ datalad install -s git@github.com:psychoinformatics-de/remodnav.git
+   $ datalad install -d . -s git@github.com:psychoinformatics-de/remodnav.git
 
 This repository has also subdatasets in which the datasets used for testing live (``tests/data/``):
 

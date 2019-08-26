@@ -7,7 +7,7 @@ The rendered version is [here](http://handbook.datalad.org): http://handbook.dat
 under initial development.
 
 The handbook is a practical, hands-on crashcourse to learn and experience DataLad.
-You do not need to be a programmer, computer scientist, or Linux-crank. If you have never touched your computers shell before, you will be fine. Regardless of your background and personal use cases for DataLad, the handbook will show you the principles of DataLad, and from chapter 1 onwards you will be using them. 
+You do not need to be a programmer, computer scientist, or Linux-crank. If you have never touched your computer's shell before, you will be fine. Regardless of your background and personal use cases for DataLad, the handbook will show you the principles of DataLad, and from chapter 1 onwards you will be using them.
 
 ## Contributing
 

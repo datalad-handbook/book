@@ -11,7 +11,8 @@ reproducible paper by linking
 #. LaTeX files to compile the resulting paper.
 
 The different components each exist in individual DataLad datasets and are
-aggregated into a single :term:`DataLad superdataset`. The resulting superdataset can be publicly
+aggregated into a single :term:`DataLad superdataset` complying to the YODA principles
+for data analysis projects [#f1]_. The resulting superdataset can be publicly
 shared, data can be obtained effortlessly on demand by anyone that has the superdataset,
 and results and paper can be generated and recomputed everywhere on demand.
 
@@ -90,29 +91,37 @@ itself with the new figures.
 Step-by-Step
 ^^^^^^^^^^^^
 
-:command:`datalad create` a DataLad dataset (in this example, it is named "algorithm-paper"):
+:command:`datalad create` a DataLad dataset. In this example, it is named "algorithm-paper",
+and :command:`datalad create` uses the yoda procedure [#f1]_ to apply useful configurations
+for a data analysis project:
 
 .. code-block:: bash
 
-   $ datalad create algorithm-paper
+   $ datalad create -c yoda algorithm-paper
 
    [INFO   ] Creating a new annex repo at /home/adina/repos/testing/algorithm-paper
    create(ok): /home/adina/repos/testing/algorithm-paper (dataset)
 
-Enter this newly created directory and
-create subdirectories (``code/`` and ``data/``) to give your dataset a comprehensible structure:
+This newly created directory already has a ``code/`` directory that will be tracked with Git
+and some ``README.md`` and ``CHANGELOG.md`` files
+thanks to the yoda procedure applied above. Additionally, create a subdirectory ``data/`` within
+the dataset. This project thus already has a comprehensible structure:
 
 .. code-block:: bash
 
    $ cd algorithm-paper
-   $ mkdir code data
+   $ mkdir data
 
    # You can checkout the directory structure with the tree command
 
    $ tree
    algorithm-paper
+   ├── CHANGELOG.md
    ├── code
-   └── data
+   │   └── README.md
+   ├── data
+   └── README.md
+
 
 All of your analyses scripts should live in the ``code/`` directory, and all input data should
 live in the ``data/`` directory.
@@ -122,7 +131,7 @@ data collections you want to perform analyses on as individual DataLad subdatase
 ``data/``.
 In this example, all data collections are already DataLad datasets or git repositories and hosted on Github.
 :command:`datalad install` therefore installs them as subdatasets. ``-s`` specifies the source,
-and ``-d ../`` registers them as subdatasets to the superdataset [#f1]_.
+and ``-d ../`` registers them as subdatasets to the superdataset [#f2]_.
 
 .. code-block:: bash
 
@@ -175,7 +184,7 @@ These two preparations can be seen in this excerpt from the Python script:
 
 
 Lastly, :command:`datalad install` the software repository as a subdataset in the
-root of the superdataset [#f2]_.
+root of the superdataset [#f3]_.
 
 .. code-block:: bash
 
@@ -440,6 +449,8 @@ Any questions can be asked by `opening an issue <https://github.com/psychoinform
 
 .. rubric:: Footnotes
 
-.. [#f1] You can read up on installing datasets as subdatasets again in section :ref:`installds`.
+.. [#f1] You can read up on the YODA principles again in section <TODO>
 
-.. [#f2] Note that the software repository may just as well be installed within ``data/``.
+.. [#f2] You can read up on installing datasets as subdatasets again in section :ref:`installds`.
+
+.. [#f3] Note that the software repository may just as well be installed within ``data/``.

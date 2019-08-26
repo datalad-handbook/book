@@ -89,3 +89,12 @@ and nesting schematically:
 Thus, without being consciously aware of it, by taking advantage of dataset
 nesting, we took a dataset ``longnow`` and installed it as a
 subdataset within the superdataset  ``DataLad-101``.
+
+If you have executed the above code snippets, make sure to go back into the
+root of the dataset again:
+
+.. runrecord:: _examples/DL-101-106-103
+   :language: console
+   :workdir: dl-101/DataLad-101/recordings/longnow
+
+   $ cd ../../

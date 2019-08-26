@@ -12,7 +12,7 @@ reproducible paper by linking
 
 The different components each exist in individual DataLad datasets and are
 aggregated into a single :term:`DataLad superdataset`. The resulting superdataset can be publicly
-shared, data can effortlessly be obtained on demand by anyone that has the superdataset,
+shared, data can be obtained effortlessly on demand by anyone that has the superdataset,
 and results and paper can be generated and recomputed everywhere on demand.
 
 
@@ -84,7 +84,7 @@ itself with the new figures.
    `here <https://github.com/psychoinformatics-de/paper-remodnav/>`_:
    https://github.com/psychoinformatics-de/paper-remodnav/. :command:`datalad install`
    the repository and follow the few instructions in the README to experience the
-   DataLad world described above.
+   DataLad approach described above.
 
 
 Step-by-Step

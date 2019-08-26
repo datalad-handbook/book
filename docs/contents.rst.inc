@@ -94,7 +94,7 @@ Help yourself
    basics/101-135-help
 
 #########################
-Data Analysis in datasets
+Data analyses in datasets
 #########################
 
 .. toctree::
@@ -103,6 +103,7 @@ Data Analysis in datasets
 
    basics/101-122-intro
    basics/101-123-yoda
+   basics/101-124-summary
 
 #########
 Use Cases

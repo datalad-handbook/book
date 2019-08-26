@@ -16,8 +16,8 @@ shared, data can effortlessly be obtained on demand by anyone that has the super
 and results and paper can be generated and recomputed everywhere on demand.
 
 
-The Problem Space
-^^^^^^^^^^^^^^^^^
+The Challenge
+^^^^^^^^^^^^^
 
 Over the past year, Steve worked on the implementation of an algorithm as a software package.
 For testing purposes, he used one of his own data collections, and later also included a publicly shared
@@ -47,8 +47,8 @@ reviewer 2 demands that the figures his software produces need to get a new colo
 which requires updates in his software package, and more recomputations.
 
 
-The DataLad World
-^^^^^^^^^^^^^^^^^
+The DataLad Approach
+^^^^^^^^^^^^^^^^^^^^
 
 Steve sets up a DataLad dataset and calls it ``algorithm-paper``. In this
 dataset, he creates several subdirectories to collate everything that is relevant for

@@ -265,6 +265,14 @@ to manage the file system in a datalad dataset (Todo: link).
    about Git-annex, you can check out its
    `documentation <https://git-annex.branchable.com/git-annex/>`_.
 
+If you are still in the ``books/`` directory, go back into the root of the superdataset.
+
+.. runrecord:: _examples/DL-101-115-106
+   :workdir: dl-101/DataLad-101/books
+   :language: console
+
+   $ cd ../
+
 .. rubric:: Footnotes
 
 .. [#f1] Note, though, that the information below applies to everything that is not an

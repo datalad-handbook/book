@@ -310,35 +310,11 @@ form of a software container.
    :alt: A very cute YODA
 
 
-Summary
-^^^^^^^
 
-These standards are not complex -- quite the opposite, they are very
-intuitive. They structure essential components of a data analysis project --
-data, code, computational environments, and lastly also the results --
-in a modular and practical way, and use basic principles and commands
-of DataLad you are already familiar with.
 
-There are many advantages to this organization of contents.
-Having input data as independent dataset(s) that are not influenced (only
-consumed) by an analysis allows for a modular reuse of pure data datasets,
-and does not conflate the data of an analysis with the results or the code.
 
-Keeping code within an independent, version-controlled directory, but as a part
-of the analysis dataset, makes sharing code easy and transparent, and helps
-to keep directories neat and organized. Moreover,
-with the data as subdatasets, data and code can be automatically shared together.
 
-Including the computational environment into an analysis dataset encapsulates
-software and software versions, and thus prevents re-computation failures
-(or sudden differences in the results) once
-software is updated, and software conflicts arising on different machines
-than the one the analysis was originally conducted on.
 
-Having all of these components as part of a DataLad dataset allows version
-controlling all pieces within the analysis regardless of their size, and
-generates provenance for everything, especially if you make use of the tools
-that DataLad provides.
 
 
 Sources

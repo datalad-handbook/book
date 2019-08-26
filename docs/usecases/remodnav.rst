@@ -266,47 +266,42 @@ Tables and references to results within the ``.tex`` files then do not contain t
 specific value ``0.67`` (this value would change if the data changes, or other parameters),
 but ``\maxmclf`` (and similar, unique names for other results).
 For full tables, one can come up with naming schemes that make it easy
-to fill tables with unique names with minimal work, for example like this:
+to fill tables with unique names with minimal work, for example like this (excerpt):
 
 .. code-block:: tex
 
    \begin{table}[tbp]
-     \caption{Cohen's Kappa reliability between human coders (MN, RA), and \remodnav\ (AL)
-     with each of the human coders.
+     \caption{Cohen's Kappa reliability between human coders (MN, RA),
+     and \remodnav\ (AL) with each of the human coders.
      }
      \label{tab:kappa}
      \begin{tabular*}{0.5\textwidth}{c @{\extracolsep{\fill}}llll}
-       \textbf {Fixations}                   &                  &                   &                    \\
+       \textbf {Fixations} &                  &                   \\
        \hline\noalign{\smallskip}
-       Comparison                            & Images           & Dots              & Videos             \\
+       Comparison          & Images           & Dots              \\
        \noalign{\smallskip}\hline\noalign{\smallskip}
-       MN versus RA                          & \kappaRAMNimgFix & \kappaRAMNdotsFix & \kappaRAMNvideoFix \\
-       AL versus RA                          & \kappaALRAimgFix & \kappaALRAdotsFix & \kappaALRAvideoFix \\
-       AL versus MN                          & \kappaALMNimgFix & \kappaALMNdotsFix & \kappaALMNvideoFix \\
+       MN versus RA        & \kappaRAMNimgFix & \kappaRAMNdotsFix \\
+       AL versus RA        & \kappaALRAimgFix & \kappaALRAdotsFix \\
+       AL versus MN        & \kappaALMNimgFix & \kappaALMNdotsFix \\
        \noalign{\smallskip}
-       \textbf{Saccades}                     &                  &                   &                    \\
+       \textbf{Saccades}   &                  &                   \\
        \hline\noalign{\smallskip}
-       Comparison                            & Images           & Dots              & Videos             \\
+       Comparison          & Images           & Dots              \\
        \noalign{\smallskip}\hline\noalign{\smallskip}
-       MN versus RA                          & \kappaRAMNimgSac & \kappaRAMNdotsSac & \kappaRAMNvideoSac \\
-       AL versus RA                          & \kappaALRAimgSac & \kappaALRAdotsSac & \kappaALRAvideoSac \\
-       AL versus MN                          & \kappaALMNimgSac & \kappaALMNdotsSac & \kappaALMNvideoSac \\
+       MN versus RA        & \kappaRAMNimgSac & \kappaRAMNdotsSac \\
+       AL versus RA        & \kappaALRAimgSac & \kappaALRAdotsSac \\
+       AL versus MN        & \kappaALMNimgSac & \kappaALMNdotsSac \\
        \noalign{\smallskip}
-       \textbf{PSOs}                         &                  &                   &                    \\
-       \hline\noalign{\smallskip}
-       Comparison                            & Images           & Dots              & Videos             \\
-       \noalign{\smallskip}\hline\noalign{\smallskip}
-       MN versus RA                          & \kappaRAMNimgPSO & \kappaRAMNdotsPSO & \kappaRAMNvideoPSO \\
-       AL versus RA                          & \kappaALRAimgPSO & \kappaALRAdotsPSO & \kappaALRAvideoPSO \\
-       AL versus MN                          & \kappaALMNimgPSO & \kappaALMNdotsPSO & \kappaALMNvideoPSO \\
-       \noalign{\smallskip}\hline
+       % [..] more content ommitted
      \end{tabular*}
    \end{table}
 
 Without diving into the context of the paper, this table contains results for three
 three comparisons ("MN versus RA", "AL versus RA", "AL versus MN"), for three
 event types (Fixations, Saccades, and post-saccadic oscillations (PSO)), and three different
-stimulus types (Images, Dots, and Videos). Here is how this table looks like in the manuscript:
+stimulus types (Images, Dots, and Videos). The latter event and stimulus are omitted for
+better readability of the ``.tex`` excerpt. Here is how this table looks like in the manuscript
+(cropped to match the ``.tex`` snippet):
 
 .. figure:: ../img/remodnav.png
 

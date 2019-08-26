@@ -149,8 +149,8 @@ when running the script after cloning and setting up the necessary software.
 This requires minor preparation:
 
 * The final analysis should be able to run on anyone's filesystem.
-   It is therefore important to reference datafiles with the scripts in ``code/`` as
-   :term:`relative path`\s instead of hard-coding :term:`absolute path`\s.
+  It is therefore important to reference datafiles with the scripts in ``code/`` as
+  :term:`relative path`\s instead of hard-coding :term:`absolute path`\s.
 
 * After cloning the ``algorithm-paper`` repository, data files are not yet present
   locally. To spare users the work of a manual :command:`datalad get`, you can have your

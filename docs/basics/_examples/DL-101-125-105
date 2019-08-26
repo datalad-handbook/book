@@ -1,5 +1,4 @@
-$ cd recordings/longnow
-$ cat .gitattributes
+$ cat recordings/longnow/.gitattributes
 * annex.backend=MD5E
 **/.git* annex.largefiles=nothing
 README.md annex.largefiles=nothing

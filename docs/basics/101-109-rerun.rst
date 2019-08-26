@@ -149,7 +149,8 @@ of the dataset and the previous commit (called "``HEAD~1``" in Git terminology):
    $ datalad diff --to HEAD~1
 
 This indeed shows the output file as "modified". However, we don't know
-what exactly changed. This is a task for :command:`git diff`:
+what exactly changed. This is a task for :command:`git diff` (get out of the
+diff view by pressing ``q``):
 
 .. runrecord:: _examples/DL-101-108-117
    :language: console

@@ -201,9 +201,10 @@ This repository has also subdatasets in which the datasets used for testing live
 At this stage, a public ``algorithm-paper`` repository shares code and data, and changes to any
 dataset can easily be handled by updating the respective subdataset.
 This already is a big leap towards open and reproducible science. Thanks to DataLad, code,
-data, and the history of all code and data are easily shared. By making use of the Python API
-of DataLad and :term:`relative path`\s in scripts, data retrieval is automated, and scripts
-can run on any other computer.
+data, and the history of all code and data are easily shared - with exact versions of all
+components and bound together in a single, fully tracked research object.
+By making use of the Python API of DataLad and :term:`relative path`\s in scripts,
+data retrieval is automated, and scripts can run on any other computer.
 
 Automation with existing tools
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -211,8 +212,8 @@ Automation with existing tools
 To go beyond that and include freshly computed results in a manuscript on the fly does not
 require DataLad anymore, only some understanding of Python, ``LaTeX``, and Makefiles. As with most things,
 its a surprisingly simple challenge if one has just seen how to do it once.
-The main advantage of this method compared to for example Jupyter Notebooks
-is that the result will be a PDF, and thus a standard format for paper submission.
+This last section will therefore outline how to compile the results into a PDF manuscript and
+automate this process.
 In principle, the challenge boils down to:
 
 #. have the script output results (only requires ``print()`` statements)
@@ -226,13 +227,13 @@ In principle, the challenge boils down to:
 
 That does not sound too bad, does it?
 Let's start by revealing how this magic trick works. Everything relies on printing
-the results in the form of user-defined ``LaTeX`` definitions (the so called
-``\newcommand``), referencing those definitions in your manuscript where the
-results should end up, and bind the ``\newcommands`` as ``\input{}`` to your ``.tex``
+the results in the form of user-defined ``LaTeX`` definitions (using the ``\newcommand``
+command), referencing those definitions in your manuscript where the
+results should end up, and bind the ``\newcommand``\s as ``\input{}`` to your ``.tex``
 file. But lets get there in small steps.
 
 First, if you want to read up on the ``\newcommand``, please see
-`the documentation <https://en.wikibooks.org/wiki/LaTeX/Macros>`_.
+`its documentation <https://en.wikibooks.org/wiki/LaTeX/Macros>`_.
 The command syntax looks like this:
 
 ``\newcommand{\name}[num]{definition}``
@@ -322,7 +323,7 @@ and loops to keep the code within a few lines for a full table, such as
             print('\\newcommand{\\%s}{%s}' % (label, '%.2f' % kappa))
 
 
-Running the python script hence will print plenty of LaTeX commands to your screen (try it out
+Running the python script will hence print plenty of LaTeX commands to your screen (try it out
 in the actual manuscript, if you want!). This was step number 1 of 4.
 
 .. findoutmore:: How about figures?
@@ -376,10 +377,14 @@ of the manuscript.
 
 The last step is to automate this procedure. So far, the script would need to be executed
 with a command line call, and the PDF compilation would require another commandline call.
-To automate this process, `Makefiles <https://en.wikipedia.org/wiki/Make_(software)>`_ can help.
+One way to automate this process are `Makefiles <https://en.wikipedia.org/wiki/Make_(software)>`_.
+``make`` is a decade-old tool known to many and bears the important advantage that is will
+deliver results regardless of what actually needs to be done with a single ``make`` call --
+whether it is executing a Python script, running bash commands, or rendering figures, or all of this.
 Here is the one used for the manuscript:
 
 .. code-block:: make
+   :linenos:
 
    all: main.pdf
 
@@ -406,7 +411,7 @@ One can read a Makefile as a recipe:
   the manuscript)."
 
 - Line 2-3: "To make the target ``main.pdf``, the following files are required:
-  ``main.tex`` (the ``.tex`` file), ``tools.bib`` & ``EyeGaze.bib`` (bibliography files), ``results_def.tex``
+  ``main.tex`` (the manuscript's ``.tex`` file), ``tools.bib`` & ``EyeGaze.bib`` (bibliography files), ``results_def.tex``
   (the results definitions), and figures (a section not covered here, about rendering figures
   with inkscape prior to including them in the manuscript). If all of these files are present,
   the target ``main.pdf`` can be made by running the command ``latexmk -pdf -g``"
@@ -420,9 +425,18 @@ compilation upon typing ``make``.
 The last three lines define that a ``make clean`` removes all computed files, and also all
 images.
 
+Finally, by wrapping ``make`` in a :command:`datalad run` command, the computation of results
+and compiling of the manuscript with all generated output can be written to the history of
+the superdataset. ``datalad run make`` will thus capture all provenance for the results
+and the final PDF.
+
 Thus, by using DataLad and its Python API, a few clever Unix and ``LaTeX`` tricks,
 and Makefiles, anyone can create a reproducible paper. This saves time, increases your own
 trust in the results, and helps to make a more convincing case with your research.
 If you haven't yet, but are curious, checkout the
 `manuscript this use case is based on <http://github.com/psychoinformatics-de/paper-remodnav/>`_.
 Any questions can be asked by `opening an issue <https://github.com/psychoinformatics-de/paper-remodnav/issues/new>`_.
+
+.. rubric:: Footnotes
+
+.. [#f1] You can read up on installing datasets as subdatasets again in section :ref:`installds`.

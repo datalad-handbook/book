@@ -19,12 +19,12 @@ The starting point...
 ^^^^^^^^^^^^^^^^^^^^^
 
 Data analyses projects are very common, both in science and industry.
-But it can be very difficult to produce a reproducible, let alone only
+But it can be very difficult to produce a reproducible, let alone
 *comprehensible* data analysis project.
 Many data analysis projects do not start out with
 a stringent organization, or fail to keep the structural organization of a
-directory intact as the project develops. Often, this can be due to not
-version-controlling analysis projects. In these cases, a project will quickly end up
+directory intact as the project develops. Often, this can be due a lack of
+version-control. In these cases, a project will quickly end up
 with many
 `almost-identical scripts suffixed with "_version_xyz" <http://phdcomics.com/comics/archive.php?comicid=1531>`_,
 or a chaotic results structure split between various directories with names
@@ -49,23 +49,18 @@ common shape a data science project may take after a while:
     │   ├── data_updated/
     │   │    └── dataset1/
     │   │        ├── datafile_a
-    │   │        └── [...]
+
     │   ├── dataset1/
     │   │   ├── datafile_a
-    │   │   └── [...]
     │   ├── outputs/
     │   │   ├── figures/
     │   │   │   ├── figures_new.py
     │   │   │   └── figures_final_forreal.py
     │   │   ├── important_results/
-    │   │   │   └── [...]
     │   │   ├── random_results_file.tsv
     │   │   ├── results_for_paper/
-    │   │   │   └── [...]
     │   │   ├── results_for_paper_revised/
-    │   │   │   └── [...]
     │   │   └── results_new_data/
-    │   │   │   └── [...]
     │   ├── random_results_file.tsv
     │   ├── random_results_file_v2.tsv
 
@@ -78,11 +73,11 @@ like this, or simply goes on a two-week vacation and forgets whether
 the function in ``main_analysis_newparameters.py`` or the one in
 ``takethisscriptformostthingsnow.py`` was the one that created a particular figure.
 
-But even if a project has an intuitive structure, and is even version
+But even if a project has an intuitive structure, and *is* version
 controlled, in many cases an analysis script will stop working, or maybe worse,
 will produce different results, because the software and tools used to
 conduct the analysis in the first place got an update. This update may have
-come with API changes that made functions stop working, or work differently
+come with software changes that made functions stop working, or work differently
 than before.
 In the same vein, recomputing an analysis project on a different machine than
 the one the analysis was developed on can fail if the necessary
@@ -100,16 +95,16 @@ in YODA set simple rules for directory names and structures, best-practices for
 version-controlling dataset elements and analyses, facilitate
 usage of tools to improve the reproducibility and accountability
 of data analysis projects, and make collaboration easier.
-They are summarized in three base principles, that translate to both
+They are summarized in three basic principles, that translate to both
 dataset structures and best practices regarding the analysis:
 
-- **P1:** One thing, one dataset
+- `P1: One thing, one dataset <yoda#P1: One thing, one dataset>`_
 
-- **P2:** Record where you got it from, and where it is now
+- `P2: Record where you got it from, and where it is now <yoda#P2: Record where you got it from, and where it is now>`_
 
-- **P3:** Record what you did to it, and with what
+- `P3: Record what you did to it, and with what <yoda#P3: Record what you did to it, and with what>`_
 
-As you will see, complying to these principles is easy if you you
+As you will see, complying to these principles is easy if you
 use DataLad. Let's go through them one by one:
 
 P1: One thing, one dataset
@@ -174,7 +169,7 @@ data analysis project complying to the YODA principles:
 
 
 There are many advantages to this modular way of organizing contents.
-Having input data as independent components that are not influenced (only
+Having input data as independent components that are not altered (only
 consumed) by an analysis does not conflate the data for
 an analysis with the results or the code, thus assisting understanding
 the project for anyone unfamiliar with it.
@@ -253,7 +248,7 @@ on DataLads Python API will show concrete examples of this.
 
 Lastly, this principle also includes *moving*, *sharing*, and *publishing* your
 datasets or its components.
-It is usually costly to collect data, and economically unfeasible to keep
+It is usually costly to collect data, and economically unfeasible [#f4]_ to keep
 it locked in a drawer (or similarly out of reach behind complexities of
 data retrieval or difficulties in understanding the data structure).
 But conducting several projects on the same dataset yourself, sharing it with
@@ -320,7 +315,7 @@ The yoda procedure
 ^^^^^^^^^^^^^^^^^^
 
 There is one tool that can make starting a yoda-compliant data analysis
-even easier: DataLads ``yoda`` procedure. Just as the ``text2git`` procedure
+easier: DataLads ``yoda`` procedure. Just as the ``text2git`` procedure
 from section :ref:`createds`, the ``yoda`` procedure can be included in a
 :command:`datalad create` command and will apply useful configurations
 to your dataset:
@@ -367,7 +362,7 @@ Summarizing these two glimpses into the dataset, this configuration has
 
 #. included a code directory in your dataset
 #. included three files for human consumption (``README.md``, ``CHANGELOG.md``)
-#. configured everything in the ``code/`` directory to be tracked by Git, not Git-annex [#f4]_
+#. configured everything in the ``code/`` directory to be tracked by Git, not Git-annex [#f5]_
 #. and configured ``README.md`` and ``CHANGELOG.md`` in the root of the dataset to be
    tracked by Git.
 
@@ -429,5 +424,7 @@ YODA principles.
          `this excellent chapter on testing <https://the-turing-way.netlify.com/testing/testing.html#Acceptance_testing>`_
          in the book `The Turing Way <https://the-turing-way.netlify.com/introduction/introduction>`_.
 
-.. [#f4] To re-read how ``.gitattributes`` work, go back to section :ref:`config`, and to remind yourself
+.. [#f4] Substitute unfeasible with *wasteful*, *impractical*, or simply *stupid* if preferred.
+
+.. [#f5] To re-read how ``.gitattributes`` work, go back to section :ref:`config`, and to remind yourself
          about how this worked for the ``text2git`` configuration, go back to section :ref:`text2git`.

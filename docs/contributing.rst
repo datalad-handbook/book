@@ -9,32 +9,45 @@ of an `issue <https://github.com/datalad-handbook/book/issues/new>`_ or a pull r
 
 If you are considering doing a pull request: Great! Every contribution is valuable,
 from fixing typos to writing full chapters.
-The steps below outline how the book "works".
+The steps below outline how the book "works". It is recommended to also create an issue
+to discuss changes or additions you plan to make in advance.
 
-Software
-""""""""
+Software setup
+""""""""""""""
 
 Depending on the size of your contribution, you may want to be able to build the book
-locally to test and preview your changes. However, if you are fixing typos, tweak the
-language, or rewrite a paragraph or two, this shouldn't be necessary.
-If you want to be able to build the book locally, please follow these instructions:
+locally to test and preview your changes. If you are fixing typos, tweak the
+language, or rewrite a paragraph or two, this shouldn't be necessary, and you can safely
+skip this paragraph.
+If you want to be able to build the book locally, though, please follow these instructions:
 
-.. code-block::
+-  datalad install the repository recursively. This ensures that dependent subdatasets are installed as well
 
-   # datalad install the repository recursively.
-   # This ensures that dependent subdatasets are installed as well
+.. code-block:: bash
+
    datalad install -r https://github.com/datalad-handbook/book.git
 
-   # Optional: create a virtual environment:
+- optional, but recommended: Create a virtual environment
+
+.. code-block:: bash
+
    virtualenv --python=python3 ~/env/handbook
    . ~/env/handbook/bin/activate
 
-   # install the requirements and a custom Python helpers for the handbook
+- install the requirements and a custom Python helper for the handbook
+
+.. code-block:: bash
+
+   # navigate into the installed dataset
    cd book
+   # install required software
    pip install -r requirements
    pip install -e .
 
-   # finally, install librsvg2-bin (a tool to render .svgs) with your package manager
+- install ``librsvg2-bin`` (a tool to render ``.svgs``) with your package manager
+
+.. code-block:: bash
+
    sudo apt-get install librsvg2-bin
 
 Once this is configured, you can build the book locally by running ``make``,
@@ -44,10 +57,15 @@ and open it in your browser, for example with ``firefox docs/_build/html/index.h
 Directives
 """"""""""
 
-If you are writing larger sections that contain code, please make sure that you
-read this paragraph.
+If you are writing larger sections that contain code, ``gitusernote``\s, ``findoutmore``\s,
+or other special directives, please make sure that you read this paragraph.
+
 The book is build with a number of custom directives. If applicable, please
-use them in the same way they are used throughout the book. For code that runs
+use them in the same way they are used throughout the book.
+
+
+
+**Code:** For code that runs
 inside a dataset such as ``DataLad-101``, working directories exist. The ``DataLad-101``
 dataset for example lives in ``docs/build/wdirs/dl-101``. This comes with the advantage
 that code is tested immediately -- if the code snippet contains an error, this error will
@@ -75,20 +93,21 @@ Here is how a ``runrecord`` directive can look like:
 Afterwards, the resulting example files need to be committed into Git. To clear existing
 examples and working directory history, run ``make clean`` and ``make clean-examples``.
 
-For simple code snippets outside of the narrative of ``DataLad-101``,
-simple ``code-block::`` directives are sufficient, however.
+However, for simple code snippets outside of the narrative of ``DataLad-101``,
+simple ``code-block::`` directives are sufficient.
 
-Other custom directives are ``gitusernote`` (for additional Git-related information for
-Git-users), and ``findoutmore`` (foldable sections that contain content that goes beyond
-the basics).
+**Other custom directives:** Other custom directives are ``gitusernote``
+(for additional Git-related information for Git-users), and ``findoutmore``
+(foldable sections that contain content that goes beyond the basics). Make use
+of them, if applicable to your contribution.
 
 Desired structure of the book
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The book consists of three major parts: Introduction, Basics, and Use Cases,
 plus an appendix. Purpose and desired content of these parts are outlined
-below.
-
+below. When contributing to one of these sections, please make sure that your
+contribution stays in the scope of the respective section.
 
 Introduction
 """"""""""""

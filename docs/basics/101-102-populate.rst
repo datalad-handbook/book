@@ -154,7 +154,8 @@ into the same spot of our history, because it would get very nasty should we wan
 revert *some* of the changes without affecting others in this commit.
 
 Luckily, we can point :command:`datalad save` to exactly the changes we want it to record.
-Let's try this by adding yet another book, a good reference work about git:
+Let's try this by adding yet another book, a good reference work about git,
+`Pro Git <https://git-scm.com/book/en/v2>`_:
 
 .. runrecord:: _examples/DL-101-102-108
    :language: console

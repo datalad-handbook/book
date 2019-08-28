@@ -102,7 +102,7 @@ is ongoing, and this handbook will incorporate all DataLad commands and extensio
 *once they are stable* (that is, once the command(-structure) is likely to not
 change in the future anymore). If you are looking for a feature but cannot find it in this
 handbook, please take a look at the `documentation <http://docs.datalad.org>`_,
-`write <LinkThisToContributing>`_ or
+`write <http://handbook.datalad.org/en/latest/contributing.html>`_ or
 `request <https://github.com/datalad-handbook/book/issues/new>`_
 an additional chapter if you believe it's a worthwhile addition, or
 `ask a question on Neurostars.org <https://neurostars.org/latest>`_

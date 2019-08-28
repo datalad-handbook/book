@@ -72,7 +72,6 @@ Interesting, the ``books/`` directory is "untracked". Remember how content
 *can* be tracked *if a user wants to*?
 Untracked means that DataLad does not know about this directory or its content,
 because we haven't ordered DataLad to actually track it. This means, DataLad
-
 does not keep the downloaded books in its history yet. Let's change this by
 saving the files to the dataset's history with the :command:`datalad save` command
 (:manpage:`datalad-save` manual).
@@ -155,7 +154,8 @@ into the same spot of our history, because it would get very nasty should we wan
 revert *some* of the changes without affecting others in this commit.
 
 Luckily, we can point :command:`datalad save` to exactly the changes we want it to record.
-Let's try this by adding yet another book, a good reference work about git:
+Let's try this by adding yet another book, a good reference work about git,
+`Pro Git <https://git-scm.com/book/en/v2>`_:
 
 .. runrecord:: _examples/DL-101-102-108
    :language: console

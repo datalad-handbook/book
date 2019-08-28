@@ -138,7 +138,8 @@ computational environments, results, ...) in dedicated directories. For example:
 - And if you conduct multiple different analyses, create a dedicated
   project for each analysis, instead of conflating them.
 
-This, for example, would be a directory structure of a very comprehensive [#f3]_
+This, for example, would be a directory structure from the root of a
+superdataset of a very comprehensive [#f3]_
 data analysis project complying to the YODA principles:
 
 .. code-block:: bash
@@ -174,9 +175,12 @@ consumed) by an analysis does not conflate the data for
 an analysis with the results or the code, thus assisting understanding
 the project for anyone unfamiliar with it.
 But more than just structure, this organization aids modular reuse or
-publication of the individual components, for example data.
-Later you might also write a scientific paper about your analysis.
-This whole dataset can easily become a modular component in a paper
+publication of the individual components, for example data. In a
+YODA-compliant dataset, any processing stage of a data component can
+be reused in a new project or published and shared. The same is true
+for a whole analysis dataset. At one point you might also write a
+scientific paper about your analysis in a paper project, and the
+whole analysis project can easily become a modular component in a paper
 project, to make sharing paper, code, data, and results easy.
 The usecase :ref:`remodnav` contains a step-by-step instruction on
 how to build and share such a reproducible paper, if you want to learn
@@ -187,6 +191,32 @@ more.
    :alt: Modular structure of a data analysis project
 
    Data are modular components that can be re-used easily.
+
+The directory tree above and Figure 3 highlight different aspects
+of this principle. The directory tree illustrates the structure of
+the individual pieces on the file system from the point of view of
+a single top-level dataset with a particular purpose. It for example
+could be an analysis dataset created by a statistician for a scientific
+project, and it could be shared between collaborators or
+with others during development of the project. In this
+superdataset, code is created that operates on input data to
+compute outputs, and the code and outputs are captured, version-
+controlled, and linked to the input data. Each input data in turn
+is a (potentially nested) subdataset, but this is not visible
+in the directory hierarchy.
+Figure 3 in comparison emphasizes a process view on a project and
+the nested structure of input subdataset:
+You can see how the preprocessed data that serves as an input for
+the analysis datasets evolves from raw data to
+standardized data organization to its preprocessed state. Within
+the ``data/`` directory of the file system hierarchy displayed
+above one would find data datasets with their previous version as
+a subdataset, and this is repeated recursively until one reaches
+the raw data as it was originally collected at one point. A finished
+analysis project in turn can be used as a component (subdataset) in
+a paper project, such that the paper is a fully reproducible research
+object that shares code, analysis results, and data, as well as the
+history of all of these components.
 
 Principle 1, therefore, encourages to structure data analysis
 projects in a clear and modular fashion, yielding comprehensible

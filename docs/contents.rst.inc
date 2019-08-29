@@ -114,7 +114,7 @@ Use Cases
    :caption: Hands-on real-world applications with step-by-step recipes...
 
    usecases/datasets
-   usecases/remodnav
+   usecases/reproducible-paper
 
 
 ########

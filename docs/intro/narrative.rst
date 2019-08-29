@@ -113,7 +113,8 @@ What you will learn in this book
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This handbook will teach you simple and yet advanced principles of data
-management for reproducible, comprehensible, transparent, and FAIR data
+management for reproducible, comprehensible, transparent, and
+`FAIR <https://www.go-fair.org/fair-principles/>`_ data
 projects. It does so with hands-on tool use of DataLad and its
 underlying software, blended with clear explanations of relevant
 theoretical backgrounds whenever necessary, and by demonstrating

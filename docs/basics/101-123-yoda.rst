@@ -219,11 +219,12 @@ object that shares code, analysis results, and data, as well as the
 history of all of these components.
 
 Principle 1, therefore, encourages to structure data analysis
-projects in a clear and modular fashion, yielding comprehensible
-structures and re-usable components. Having each component
-version-controlled -- regardless of size --  will aid keeping
-directories clean and organized, instead of piling up different
-versions of code, data, or results.
+projects in a clear and modular fashion that makes use of nested
+DataLad datasets, yielding comprehensible structures and re-usable
+components. Having each component version-controlled --
+regardless of size --  will aid keeping directories clean and
+organized, instead of piling up different versions of code, data,
+or results.
 
 P2: Record where you got it from, and where it is now
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

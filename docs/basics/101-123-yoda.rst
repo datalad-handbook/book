@@ -341,7 +341,7 @@ of all the contents you created in the wake of your analysis project.
 This established trust in your results, and enables others to understand
 where files derive from.
 
-The yoda procedure
+The YODA procedure
 ^^^^^^^^^^^^^^^^^^
 
 There is one tool that can make starting a yoda-compliant data analysis

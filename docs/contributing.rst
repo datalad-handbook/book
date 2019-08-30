@@ -18,7 +18,8 @@ Software setup
 Depending on the size of your contribution, you may want to be able to build the book
 locally to test and preview your changes. If you are fixing typos, tweak the
 language, or rewrite a paragraph or two, this shouldn't be necessary, and you can safely
-skip this paragraph.
+skip this paragraph and instead take a look into the paragraph
+`Easy pull requests <contribute#Easy pull requests>`_.
 If you want to be able to build the book locally, though, please follow these instructions:
 
 -  datalad install the repository recursively. This ensures that dependent subdatasets are installed as well
@@ -100,6 +101,27 @@ simple ``code-block::`` directives are sufficient.
 (for additional Git-related information for Git-users), and ``findoutmore``
 (foldable sections that contain content that goes beyond the basics). Make use
 of them, if applicable to your contribution.
+
+
+Easy pull requests
+^^^^^^^^^^^^^^^^^^
+
+The easiest way to do a pull request is within the web-interface that Github
+and `readthedocs <https://readthedocs.org>`_ provide. If you visit the rendered
+version of the handbook at `handbook.datalad.org <http://handbook.datalad.org/>`_
+and click on the small, floating ``v:latest`` element at the lower
+right-hand side, the ``Edit`` option will take you straight to an editor that
+lets you make your changes and submit a pull request.
+
+.. figure:: img/contrib.png
+   :figwidth: 100%
+   :alt: Access the Github interface to submit a pull request right from within
+         Readthedocs.
+
+   You can find an easy way to submit a pull request right from within the handbook.
+
+But you of course are also welcome to submit a pull request with whichever
+other workflow suites you best.
 
 Desired structure of the book
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

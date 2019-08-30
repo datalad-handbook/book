@@ -120,6 +120,13 @@ Glossary
       A hexadecimal number, 40 digits long, that is produced by a secure hash algorithm, and
       is used by :term:`Git` to identify :term:`commit`\s. A shasum is a type of :term:`checksum`.
 
+   shebang
+      The characters ``#!`` at the very top of a script. One can specify the interpreter (i.e. the
+      software that executes a script of yours, such as Python) after with it such as in``#! /usr/bin/python``.
+      If the script has executable permissions, it is hanceforth able to call the interpreter itself.
+      Instead of ``python code/myscript.py`` one can just run ``code/myscript`` if ``myscript`` has
+      executable permissions and a correctly specified shebang.
+
    SSH
       Secure shell (SSH) is a network protocol to link one machine (computer),
       the *client*, to a different local or remote machine, the *server*. See also: :term:`SSH server`.

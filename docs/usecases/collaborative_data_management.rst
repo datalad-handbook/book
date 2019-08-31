@@ -35,7 +35,8 @@ The DataLad Approach
 Bob creates his analysis project as a DataLad dataset. Complying with
 the `YODA principles <linkyoda>`_, he creates his scripts in a dedicated
 ``code/`` directory, and installs the open dataset as a standalone
-DataLad dataset within ``data/``. To collaborate with his senior grad
+DataLad subdataset within a dedicated subdirectory.
+To collaborate with his senior grad
 student Alice, he shares the dataset on the lab's SSH server, and they
 can collaborate on the version controlled dataset almost in real time
 with no need for Bob to spend much time integrating the fix that Alice
@@ -77,7 +78,7 @@ thanks to the yoda procedure:
     │   └── README.md
     └── README.md
 
-Bob knows that a DataLad dataset can contain other datasets. He knows that
+Bob knows that a DataLad dataset can contain other datasets. He also knows that
 as any content of a dataset is tracked and its precise state is recorded,
 this is a powerful method to specify and later resolve data dependencies,
 and that including the dataset as a standalone data component will it also
@@ -141,7 +142,7 @@ inputs such that DataLad can take care of the data retrieval for him:
      --input "src/forrest_structural" --output results.txt "code/run_analysis.py" \
 
    [INFO   ] Making sure inputs are available (this may take some time)
-   sub-01/anat .. _T1w.nii.gz:  12%|        | 1.68M/13.7M [00:20<04:04, 49.1kB/s]
+   sub-01/anat .. _T1w.nii.gz:  12%|[...]    | 1.68M/13.7M [00:20<04:04, 49.1kB/s]
    [...]
    get(ok): src/forrest_structural/ [...] [from mddatasrc...; from mddatasrc...]
    [INFO   ] == Command start (output follows) =====

@@ -141,7 +141,7 @@ inputs such that DataLad can take care of the data retrieval for him:
      --input "src/forrest_structural" --output results.txt "code/run_analysis.py" \
 
    [INFO   ] Making sure inputs are available (this may take some time)
-   sub-01/anat .. _T1w.nii.gz:  12%|█▏        | 1.68M/13.7M [00:20<04:04, 49.1kB/s]
+   sub-01/anat .. _T1w.nii.gz:  12%|        | 1.68M/13.7M [00:20<04:04, 49.1kB/s]
    [...]
    get(ok): src/forrest_structural/ [...] [from mddatasrc...; from mddatasrc...]
    [INFO   ] == Command start (output follows) =====

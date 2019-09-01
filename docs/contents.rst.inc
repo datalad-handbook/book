@@ -93,6 +93,18 @@ Help yourself
 
    basics/101-135-help
 
+#########################
+Data analyses in datasets
+#########################
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Organizational principles and best practices for data analyses
+
+   basics/101-122-intro
+   basics/101-123-yoda
+   basics/101-124-summary
+
 #########
 Use Cases
 #########

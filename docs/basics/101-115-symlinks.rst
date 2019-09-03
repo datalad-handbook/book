@@ -159,11 +159,7 @@ in certain situations. Later in this book we will have a section on how
 to manage the file system in a datalad dataset (Todo: link).
 
 
-.. container:: toggle
-
-   .. container:: header
-
-      **Addition:** more about paths, checksums, and object trees
+.. findoutmore:: more about paths, checksums, and object trees
 
    But why does the target path to the object tree needs to be so cryptic?
    Does someone want to create
@@ -268,6 +264,14 @@ to manage the file system in a datalad dataset (Todo: link).
    case, this section was hopefully insightful, and not confusing. If you are still curious
    about Git-annex, you can check out its
    `documentation <https://git-annex.branchable.com/git-annex/>`_.
+
+If you are still in the ``books/`` directory, go back into the root of the superdataset.
+
+.. runrecord:: _examples/DL-101-115-106
+   :workdir: dl-101/DataLad-101/books
+   :language: console
+
+   $ cd ../
 
 .. rubric:: Footnotes
 

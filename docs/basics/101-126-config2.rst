@@ -257,6 +257,37 @@ rules, and you understand the majority of variables within ``.gitmodules`` or th
 in ``.git/config``. Slowly, you realize with pride,
 you're more and more becoming a DataLad power-user.
 
+Write a note about configurations in datasets into ``notes.txt``.
+
+.. runrecord:: _examples/DL-101-125-113
+   :workdir: dl-101/DataLad-101
+   :language: console
+
+   $ cat << EOT >> notes.txt
+   Configurations for datasets exist on different levels
+   (systemwide, global, and local), and in different types
+   of files (not version controlled (git)config files, or
+   version controlled .datalad/config, .gitattributes, or
+   gitmodules files). With the exception of .gitattributes,
+   all these configuration files share a common structure,
+   and can be modified with the git config command, but also
+   with an editor by hand.
+
+   Depending on whether a configuration file is version
+   controlled or not, the configurations will be shared together
+   with the dataset. More specific configurations and not-shared
+   configurations will always take precedence over more global or
+   shared configurations.
+
+   The git config --list --show-origin command is a useful tool
+   to give an overview over existing configurations. Particularly
+   important may be the .gitattributes file, in which one can set
+   rules for Git-annex about which files should be version-controlled
+   with Git instead of being annexed.
+
+
+   EOT
+
 .. rubric:: Footnotes
 
 .. [#f1] When opening any file on a UNIX system, the file does not need to have a file

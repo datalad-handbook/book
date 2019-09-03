@@ -188,11 +188,7 @@ a value, one can configure Git, Git-annex, and DataLad.
 of Git, depending on the scope (local, global, system-wide)
 specified in the command.
 
-.. container:: toggle
-
-   .. container:: header
-
-       **Addition: If things go wrong**
+.. findoutmore:: If things go wrong
 
    If something goes wrong during the :command:`git config` command,
    for example you end up having two keys of the same name because you
@@ -202,9 +198,43 @@ specified in the command.
 
 
 The only information you need, therefore, is the name of a section and
-variable to configure, and the value you want to specify.
+variable to configure, and the value you want to specify. But in many cases
+it is also useful to find out which configurations are already set in
+which way and where. For this, the :command:`git config --list --show-origin`
+is useful. It will display all configurations and their location:
 
-The configuration file inside of ``DataLad-101`` does not appear to be
+.. code-block:: bash
+
+    $ git config --list --show-origin
+    file:/home/bob/.gitconfig	user.name=Bob McBobface
+    file:/home/bob/.gitconfig	user.email=bob@mcbobface.com
+    file:/home/bob/.gitconfig	core.editor=vim
+    file:/home/bob/.gitconfig	annex.security.allowed-url-schemes=http https file
+    file:.git/config	core.repositoryformatversion=0
+    file:.git/config	core.filemode=true
+    file:.git/config	core.bare=false
+    file:.git/config	core.logallrefupdates=true
+    file:.git/config	annex.uuid=1f83595e-bcba-4226-aa2c-6f0153eb3c54
+    file:.git/config	annex.version=5
+    file:.git/config	annex.backends=MD5E
+    file:.git/config	submodule.recordings/longnow.url=https://github.com/datalad-datasets/longnow-podcasts.git
+    file:.git/config	submodule.recordings/longnow.active=true
+    file:.git/config	remote.roommate.url=../mock_user/onemoredir/DataLad-101
+    file:.git/config	remote.roommate.fetch=+refs/heads/*:refs/remotes/roommate/*
+    file:.git/config	remote.roommate.annex-uuid=a5ae24de-1533-4b09-98b9-cd9ba6bf303c
+    file:.git/config	remote.roommate.annex-ignore=false
+    file:.git/config	submodule.longnow.url=https://github.com/datalad-datasets/longnow-podcasts.git
+    file:.git/config	submodule.longnow.active=true
+
+This example shows some configurations in the global ``.gitconfig``
+file, and the configurations within ``DataLad-101/.git/config``.
+The command is very handy to display all configurations at once to identify
+configuration problems, find the right configuration file to make a change to,
+or simply remind oneself of the existing configurations, and it is a useful
+helper to keep in the back of your head.
+
+At this point you may feel like many of these configurations or the configuration file
+inside of ``DataLad-101`` do not appear to be
 intuitively understandable enough to confidently apply changes to them,
 or identify necessary changes. And indeed, most of the sections and variables
 or values in there are irrelevant for understanding the book, your dataset,
@@ -214,11 +244,7 @@ Nevertheless, it might be helpful to get an overview about the meaning of the
 remaining sections in that file, and the following hidden section can give
 you a glimpse of this.
 
-.. container:: toggle
-
-   .. container:: header
-
-      **Addition: More on this config file**
+.. findoutmore:: More on this config file
 
    The second section of ``.git/config`` is a Git-annex configuration.
    As mentioned above, Git-annex will use the

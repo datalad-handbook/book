@@ -104,6 +104,18 @@ Help yourself
    basics/101-140-filesystem
 
 
+=======
+#########################
+Data analyses in datasets
+#########################
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Organizational principles and best practices for data analyses
+
+   basics/101-122-intro
+   basics/101-123-yoda
+   basics/101-124-summary
 
 #########
 Use Cases
@@ -114,7 +126,7 @@ Use Cases
    :caption: Hands-on real-world applications with step-by-step recipes...
 
    usecases/datasets
-   usecases/remodnav
+   usecases/reproducible-paper
 
 
 ########

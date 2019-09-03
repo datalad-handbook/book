@@ -103,6 +103,7 @@ Use Cases
 
    usecases/datasets
    usecases/collaborative_data_management
+   usecases/provenance_tracking
    usecases/reproducible-paper
 
 

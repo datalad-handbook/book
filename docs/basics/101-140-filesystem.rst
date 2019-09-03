@@ -553,10 +553,31 @@ Deleting subdatasets
 Deleting a superdataset
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-- take care of revoked write permission in object tree: ``chmod -R +w dataset``
-- remove directory: ``rm -rf dataset``
+If for whatever reason you at one point tried to remove a DataLad dataset,
+whether with a GUI or the command line call ``rm -rf <directory>``, you likely
+have seen permission denied errors such as
 
+.. code-block::
 
+    rm: cannot remove '<directory>/.git/annex/objects/Mz/M1/MD5E-s422982--2977b5c6ea32de1f98689bc42613aac7.jpg/MD5E-s422982--2977b5c6ea32de1f98689bc42613aac7.jpg': Permission denied
+    rm: cannot remove '<directory>/.git/annex/objects/FP/wv/MD5E-s543180--6209797211280fc0a95196b0f781311e.jpg/MD5E-s543180--6209797211280fc0a95196b0f781311e.jpg': Permission denied
+    [...]
+
+This error indicates that there is write protected content within ``.git`` that
+cannot not be deleted. What is this write-protected content? It's the file content
+stored in the object tree of Git-annex. If you want, you can re-read section on
+ref:`symlinks` to find out how Git-annex revokes write permission for the user
+to protect the file content given to it. To remove a dataset with annexed content
+one has to regain write permissions to everything in the dataset. This is done
+with the `chmod <https://en.wikipedia.org/wiki/Chmod>`_ command::
+
+    chmod -R u+w <dataset>
+
+This *recursively* (``-R``, i.e. throughout all files and (sub)directories) gives users
+(``u``) write permissions (``+w``) for the dataset.
+
+Afterwards, ``rm -rf <dataset>`` will succeed. Be aware though that this will
+inevitably delete the dataset, it's contents, and it's history.
 
 Summary
 ^^^^^^^

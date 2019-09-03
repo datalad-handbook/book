@@ -574,6 +574,30 @@ To uninstall the dataset, use
 
 Note that the dataset is still known in the dataset, and not completely removed.
 
+In case one want to fully delete a subdataset from a dataset, the
+:command:`datalad remove` command (:manpage:`datalad-remove` manual) is
+relevant [#f1]_.
+It needs a pointer to the root of the superdataset with the ``-d/--dataset``
+flag, a path to the subdataset to be removed, and optionally a commit message
+(``-m/--message``) or recursive specification (``-r/--recursive``).
+To remove a subdataset, we will install the uninstalled subdataset again, and
+subsequently remove it with the :command:`datalad remove` command:
+
+.. runrecord:: _examples/DL-101-140-163
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ datalad install cloud
+   # delete the subdataset
+   $ datalad remove -m "remove obsolete subds" -d . cloud
+
+Finally, let's clean up:
+
+.. runrecord:: _examples/DL-101-140-164
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ git reset --hard HEAD~2
 
 Deleting a superdataset
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -620,3 +644,9 @@ system management operations. The only operation you should beware of is
 moving subdatasets around -- this can be a minefield.
 With all of these experiences and tips, you feel confident that you know
 how to handle your datasets files and directories well and worry-free.
+
+.. rubric:: Footnotes
+
+.. [#f1] This is indeed the only case in which :command:`datalad remove` is
+         relevant. For all other cases of content deletion a normal ``rm``
+         with a subsequent :command:`datalad save` works best.

@@ -545,10 +545,35 @@ Deleting (annexed) files/directories
 - everything in annex: removal will fail because of protection by Git-annex. ``datalad drop``
   will remove file from disk (?), then there is also ``datalad remove``.
 
-Deleting subdatasets
-^^^^^^^^^^^^^^^^^^^^
+Uninstalling or deleting subdatasets
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- looks like ``datalad remove`` is what one would need to turn to
+Depending on the exact aim, two commands are of relevance if anyone wants to
+delete a DataLad subdataset. The softer (and not so much "deleting" version)
+is to uninstall a dataset with the :command:`datalad uninstall` (:manpage:`datalad-uninstall` manual)
+This command can be used to uninstall any number of
+subdatasets -- note though that only subdatasets can be uninstalled, the command
+will error if given a dub-*directory*, a file, or a top-level dataset.
+
+.. runrecord:: _examples/DL-101-140-160
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   # Install a subdataset - the content is irrelevant, so why not a cloud :)
+   $ datalad install -d . \
+    --source https://github.com/datalad-datasets/disneyanimation-cloud.git \
+    cloud
+
+To uninstall the dataset, use
+
+.. runrecord:: _examples/DL-101-140-161
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ datalad uninstall cloud
+
+Note that the dataset is still known in the dataset, and not completely removed.
+
 
 Deleting a superdataset
 ^^^^^^^^^^^^^^^^^^^^^^^

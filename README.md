@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/datalad-handbook/book.svg?branch=master)](https://travis-ci.org/datalad-handbook/book) [![Documentation Status](https://readthedocs.org/projects/datalad-handbook/badge/?version=latest)](http://handbook.datalad.org/en/latest/?badge=latest)
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
 
 # The Datalad handbook :orange_book:
 
@@ -30,3 +31,19 @@ under the following terms:
  contributions under the same license as the original.
 
 <img src="https://raw.githubusercontent.com/datalad-handbook/book/master/artwork/logo.svg?sanitize=true" width="200" height="400">  
+
+## Contributors ✨
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore -->
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/loj"><img src="https://avatars2.githubusercontent.com/u/15157717?v=4" width="100px;" alt="Laura Waite"/><br /><sub><b>Laura Waite</b></sub></a><br /><a href="#ideas-loj" title="Ideas, Planning, & Feedback">🤔</a> <a href="#maintenance-loj" title="Maintenance">🚧</a> <a href="#review-loj" title="Reviewed Pull Requests">👀</a> <a href="#talk-loj" title="Talks">📢</a> <a href="#question-loj" title="Answering Questions">💬</a> <a href="#content-loj" title="Content">🖋</a></td>
+  </tr>
+</table>
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!

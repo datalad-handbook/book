@@ -67,7 +67,7 @@ to as the history of a dataset.
 
 This history is almost as small as it can be at the current state, but let's take
 a look at it. For looking at the history, the code examples will use :command:`git log`,
-a built-in git command [#f1]_.
+a built-in git command [#f1]_. You can get out of git log by pressing q.
 
 .. runrecord:: _examples/DL-101-101-103
    :language: console

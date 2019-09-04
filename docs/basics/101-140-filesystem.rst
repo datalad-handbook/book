@@ -539,11 +539,123 @@ section.
 Deleting (annexed) files/directories
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- everything in Git: ``git rm`` deletes content, and stages deletion. File content can
-  be recovered, because it's still in project history
+Removing files from a dataset is possible in two different ways.
+An ``rm <file>`` or ``rm -rf <directory>`` with a subsequent :command:`datalad save`
+will remove a file or directory, and save its removal. The file content however will
+still be in the history of the dataset, and the file can be brought back to existence
+by going back in to the history of the dataset or reverting the removal commit:
 
-- everything in annex: removal will fail because of protection by Git-annex. ``datalad drop``
-  will remove file from disk (?), then there is also ``datalad remove``.
+.. runrecord:: _examples/DL-101-140-170
+   :workdir: dl-101/DataLad-101
+
+   # download a file
+   $ datalad download-url -m "Added flower mosaic from wikimedia" \
+     https://upload.wikimedia.org/wikipedia/commons/a/a5/Flower_poster_2.jpg \
+     --path flowers.jpg
+   $ ls -l flowers.jpg
+
+.. runrecord:: _examples/DL-101-140-171
+   :workdir: dl-101/DataLad-101
+   :language: console
+
+   # removal is easy:
+   $ rm flowers.jpg
+
+This will lead to a dirty dataset status:
+
+.. runrecord:: _examples/DL-101-140-172
+   :workdir: dl-101/DataLad-101
+   :language: console
+
+   $ datalad status
+
+If a removal happened by accident, a ``git reset HEAD flowers.jpg`` would undo
+the removal at this stage. To stick with the removal and clean up the dataset
+state, :command:`datalad save` will suffice:
+
+.. runrecord:: _examples/DL-101-140-173
+   :workdir: dl-101/DataLad-101
+   :language: console
+
+   $ datalad save -m "removed file again"
+
+This commits the deletion of the file in the dataset's history.
+If this commit is reverted, the file comes back to existence:
+
+.. runrecord:: _examples/DL-101-140-174
+   :language: console
+   :workdir: dl-101/DataLad-101
+   :emphasize-lines: 6
+
+   $ git reset --hard HEAD~1
+   $ ls
+
+A different command to remove file content entirely and irreversibly from a repository is
+the :command:`datalad drop` command (:manpage:`datalad-drop` manual). This
+command will drop file content or directory content from a dataset.
+If an entire dataset is specified, all file content in sub-*directories* is
+dropped automatically, but for content in sub-*datasets* to be dropped, the
+``-r/--recursive`` flag has to be included.
+
+By default, DataLad will not drop any content that does not have at least
+one verified remote copy that the content could be retrieved from again.
+It is possible to drop the downloaded image, because thanks to
+:command:`datalad download-url` its original location in the web in known:
+
+.. runrecord:: _examples/DL-101-140-175
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ datalad drop flowers.jpg
+
+Currently, the file content is gone, and opening the remaining symlink
+will fail. But the content can be obtained easily again with
+:command:`datalad get`:
+
+.. runrecord:: _examples/DL-101-140-176
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ datalad get flowers.jpg
+
+If a file has no verified remote copies, DataLad will only drop its
+content if the ``--nocheck`` option is specified. We will demonstrate
+this by generating a random PDF file:
+
+.. runrecord:: _examples/DL-101-140-177
+   :workdir: dl-101/DataLad-101
+   :language: console
+
+   $ convert xc:none -page Letter a.pdf
+   $ datalad save -m "add empty pdf"
+
+DataLad will safeguard dropping content that it can't retrieve again:
+
+.. runrecord:: _examples/DL-101-140-178
+   :workdir: dl-101/DataLad-101
+   :language: console
+
+   $ datalad drop a.pdf
+
+But with the ``--nocheck`` flag it will work:
+
+.. runrecord:: _examples/DL-101-140-179
+   :workdir: dl-101/DataLad-101
+   :language: console
+
+   $ datalad drop --nocheck a.pdf
+
+Note though that this file content is irreversibly gone now, and
+even going back in time in the history of the dataset will not bring it
+back into existence.
+
+Finally, let's clean up:
+
+.. runrecord:: _examples/DL-101-140-180
+   :workdir: dl-101/DataLad-101
+   :language: console
+
+   $ git reset --hard HEAD~2
 
 Uninstalling or deleting subdatasets
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

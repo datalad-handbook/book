@@ -43,6 +43,24 @@
         "talk",
         "userTesting"
       ]
+    },
+    {
+      "login": "adswa",
+      "name": "Adina Wagner",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/29738718?v=4",
+      "profile": "https://www.researchgate.net/profile/Adina_Wagner",
+      "contributions": [
+        "code",
+        "content",
+        "doc",
+        "design",
+        "ideas",
+        "infra",
+        "maintenance",
+        "projectManagement",
+        "review",
+        "userTesting"
+      ]
     }
   ],
   "contributorsPerLine": 7,

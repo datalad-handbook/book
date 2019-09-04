@@ -18,6 +18,31 @@
         "question",
         "content"
       ]
+    },
+    {
+      "login": "mih",
+      "name": "Michael Hanke",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/136479?v=4",
+      "profile": "http://psychoinformatics.de",
+      "contributions": [
+        "question",
+        "bug",
+        "code",
+        "content",
+        "doc",
+        "design",
+        "example",
+        "ideas",
+        "infra",
+        "maintenance",
+        "plugin",
+        "projectManagement",
+        "review",
+        "tool",
+        "test",
+        "talk",
+        "userTesting"
+      ]
     }
   ],
   "contributorsPerLine": 7,

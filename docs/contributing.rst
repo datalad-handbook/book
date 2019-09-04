@@ -5,7 +5,11 @@ Contributing
 
 Thanks for being curious about contributing!
 We greatly appreciate and welcome contributions to this book, be it in the form
-of an `issue <https://github.com/datalad-handbook/book/issues/new>`_ or a pull request!
+of an `issue <https://github.com/datalad-handbook/book/issues/new>`_, a pull request,
+or a discussion you had with anyone on the team via a non-Github communication channel!
+To find out how we acknowledge contributions, please read the paragraph
+`Acknowledging Contributions <contribute#Acknowledging Contributors>`_ at the bottom of
+this page.
 
 If you are considering doing a pull request: Great! Every contribution is valuable,
 from fixing typos to writing full chapters.
@@ -183,3 +187,17 @@ Use Cases
   cases). However, if possible, common example datasets, names, terms should be
   adopted, and the broadest feasible target audience should be assumed. Such
   more generic content should form the early chapters in this part.
+
+
+Acknowledging Contributors
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If you have helped this project, we would like to acknowledge your contribution in the
+`Github repository <https://github.com/datalad-handbook/book>`_ in our README with
+`allcontributors.org <https://allcontributors.org/>`_, and the project's
+`.zenodo <https://github.com/datalad-handbook/book/blob/master/.zenodo.md>`_ and
+`CONTRIBUTORS.md <https://github.com/datalad-handbook/book/blob/master/CONTRIBUTORS.md>`_
+files. The `allcontributors bot <https://github.com/all-contributors>`_ will give credit
+for `various types of contributions <https://allcontributors.org/docs/en/emoji-key>`_.
+We may ask you to open a PR to add yourself to all of our contributing acknowledgements
+or do it ourselves and let you know.

@@ -664,8 +664,8 @@ Depending on the exact aim, two commands are of relevance if anyone wants to
 delete a DataLad subdataset. The softer (and not so much "deleting" version)
 is to uninstall a dataset with the :command:`datalad uninstall` (:manpage:`datalad-uninstall` manual)
 This command can be used to uninstall any number of
-subdatasets -- note though that only subdatasets can be uninstalled, the command
-will error if given a dub-*directory*, a file, or a top-level dataset.
+*subdatasets* -- note though that only subdatasets can be uninstalled, the command
+will error if given a sub-*directory*, a file, or a top-level dataset.
 
 .. runrecord:: _examples/DL-101-140-160
    :language: console
@@ -686,7 +686,7 @@ To uninstall the dataset, use
 
 Note that the dataset is still known in the dataset, and not completely removed.
 
-In case one want to fully delete a subdataset from a dataset, the
+In case one wants to fully delete a subdataset from a dataset, the
 :command:`datalad remove` command (:manpage:`datalad-remove` manual) is
 relevant [#f1]_.
 It needs a pointer to the root of the superdataset with the ``-d/--dataset``
@@ -727,7 +727,7 @@ have seen permission denied errors such as
 This error indicates that there is write protected content within ``.git`` that
 cannot not be deleted. What is this write-protected content? It's the file content
 stored in the object tree of Git-annex. If you want, you can re-read section on
-ref:`symlinks` to find out how Git-annex revokes write permission for the user
+:ref:`symlink` to find out how Git-annex revokes write permission for the user
 to protect the file content given to it. To remove a dataset with annexed content
 one has to regain write permissions to everything in the dataset. This is done
 with the `chmod <https://en.wikipedia.org/wiki/Chmod>`_ command::
@@ -738,7 +738,7 @@ This *recursively* (``-R``, i.e. throughout all files and (sub)directories) give
 (``u``) write permissions (``+w``) for the dataset.
 
 Afterwards, ``rm -rf <dataset>`` will succeed. Be aware though that this will
-inevitably delete the dataset, it's contents, and it's history.
+irretrievable delete the dataset, it's contents, and it's history.
 
 Summary
 ^^^^^^^

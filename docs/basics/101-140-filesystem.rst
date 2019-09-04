@@ -669,7 +669,7 @@ Uninstalling or deleting subdatasets
 
 Depending on the exact aim, two commands are of relevance if anyone wants to
 delete a DataLad subdataset. The softer (and not so much "deleting" version)
-is to uninstall a dataset with the :command:`datalad uninstall` (:manpage:`datalad-uninstall` manual)
+is to uninstall a dataset with the :command:`datalad uninstall` (:manpage:`datalad-uninstall` manual).
 This command can be used to uninstall any number of
 *subdatasets* -- note though that only subdatasets can be uninstalled, the command
 will error if given a sub-*directory*, a file, or a top-level dataset.
@@ -710,7 +710,12 @@ subsequently remove it with the :command:`datalad remove` command:
    # delete the subdataset
    $ datalad remove -m "remove obsolete subds" -d . cloud
 
-Finally, let's clean up:
+Note that for both commands a pointer to the *current directory* will not work.
+``datalad remove .`` or ``datalad uninstall .`` will fail, even if
+the command is executed in a subdataset instead of the top-level
+superdataset -- you need to execute the command from a higher-level directory.
+
+Finally, after this last piece of information, let's clean up:
 
 .. runrecord:: _examples/DL-101-140-164
    :language: console

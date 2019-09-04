@@ -84,6 +84,18 @@
         "ideas",
         "userTesting"
       ]
+    },
+    {
+      "login": "bpoldrack",
+      "name": "Benjamin Poldrack",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/10498301?v=4",
+      "profile": "https://github.com/bpoldrack",
+      "contributions": [
+        "question",
+        "ideas",
+        "example",
+        "tutorial"
+      ]
     }
   ],
   "contributorsPerLine": 7,

@@ -61,6 +61,19 @@
         "review",
         "userTesting"
       ]
+    },
+    {
+      "login": "kyleam",
+      "name": "Kyle Meyer",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1297788?v=4",
+      "profile": "https://github.com/kyleam",
+      "contributions": [
+        "bug",
+        "review",
+        "question",
+        "content",
+        "ideas"
+      ]
     }
   ],
   "contributorsPerLine": 7,

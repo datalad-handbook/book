@@ -3,8 +3,8 @@ Miscallaneous file system operations
 
 With all of the information about symlinks and object trees,
 you might be reluctant to perform usual file system managing
-operations, such as copying, moving, or renaming a files or
-directories with annexed content.
+operations, such as copying, moving, renaming or deleting
+files or directories with annexed content.
 
 If I renamed one of those books, would the symlink that points
 to the file content still be correct? What happens if I'd copy
@@ -15,7 +15,7 @@ What if renamed the whole superdataset?
 And how do I remove a file, or directory, or subdataset?
 
 Therefore, there is an extra tutorial offered by the courses'
-TA today afternoon, and you attend.
+TA today, and you attend.
 There is no better way of learning than doing. Here, in the
 safe space of the ``DataLad-101`` course, you can try out all
 of the things you would be unsure about or reluctant to try
@@ -33,7 +33,7 @@ Renaming files
 ^^^^^^^^^^^^^^
 
 Let's try it. In Unix, renaming a file is exactly the same as
-moving a file.
+moving a file, and uses the :command:`mv` command.
 
 .. runrecord:: _examples/DL-101-140-101
    :language: console
@@ -81,15 +81,9 @@ renamed, and will summarize this nicely in the resulting commit:
 
    $ git log -1 -p
 
-Note, however, that its best to have a clean dataset status
-with no other modifications present if you are using
-the code snippet in your own projects:
-The :command:`datalad save` command above did not get
-a path specification. Any other modifications you may have
-will be saved to the history together with the renaming of the
-file in a single commit. This is not bad per se, but keep it in
-mind.
-
+Note that :command:`datalad save` commits all modifications when
+it's called without a path specification,
+so any other changes will be saved in the same commit as the rename.
 If there are unsaved modifications you do not want to commit
 together with the file name change, you could give both the
 new and the deleted file as a path specification to
@@ -101,7 +95,7 @@ save a change that is marked as a deletion in a
 
 Alternatively, there is also a way to save the name change
 only using Git tools only, outlined in the following hidden
-section. If you are a Git-user, you will be very familiar with it.
+section. If you are a Git user, you will be very familiar with it.
 
 .. container:: toggle
 
@@ -111,8 +105,8 @@ section. If you are a Git-user, you will be very familiar with it.
 
    Git has built-in commands that provide a solution in two steps.
 
-   If you have followed along the previous :command:`datalad save`
-   (which you should have), let's revert the renaming of the the files files:
+   If you have followed along with the previous :command:`datalad save`
+   (which you should have), let's revert the renaming of the the files:
 
    .. runrecord:: _examples/DL-101-140-105
       :language: console
@@ -139,7 +133,7 @@ section. If you are a Git-user, you will be very familiar with it.
 
    We can see that the old file is still seen as "deleted", but the "new",
    renamed file is "added". A ``git status`` displays the change
-   in the dataset a bit more accurate:
+   in the dataset a bit more accurately:
 
    .. runrecord:: _examples/DL-101-140-108
       :language: console
@@ -147,8 +141,11 @@ section. If you are a Git-user, you will be very familiar with it.
 
       $ git status
 
-   A subsequent ``git commit -m "rename book"`` will write the renaming
-   -- and only the renaming -- to the datasets history.
+   Because the :command:`git mv` places the change directly into the
+   staging area (the *index*) of Git [#f1]_,
+   a subsequent ``git commit -m "rename book"`` will write the renaming
+   -- and only the renaming -- to the dataset's history, even if other
+   (unstaged) modifications are present.
 
    .. runrecord:: _examples/DL-101-140-109
       :language: console
@@ -207,7 +204,7 @@ into ``.git``, it currently points to ``../.git``, which is non-existent,
 and even outside of the superdataset. This is why the file
 cannot be opened: When any program tries to follow the symlink,
 it will not resolve, and an error such as "no file or directory"
-will be returned.. But don't panic! A ``datalad save`` will
+will be returned. But don't panic! A :command:`datalad save` will
 rectify this as well:
 
 .. runrecord:: _examples/DL-101-140-122
@@ -244,7 +241,7 @@ the best option to turn to.
    move plus a content change for Git.
 
    An additional piece of background information: A :command:`datalad save` command
-   internally uses a :command:`git commit` to save changes to a dataset to its history.
+   internally uses a :command:`git commit` to save changes to a dataset.
    :command:`git commit` in turn triggers a :command:`git annex fix`
    command. This Git-annex command fixes up links that have become broken
    to again point to annexed content, and is responsible for cleaning up
@@ -317,7 +314,7 @@ That's it.
    Indeed! Apart from their relative location (``.git`` versus
    ``../.git``) their symlink is identical. Thus, even though two
    copies of the book exist in your dataset, your disk needs to
-   store only one.
+   store it only once.
 
 Finally, let's clean up:
 
@@ -351,7 +348,8 @@ Let's for example rename the ``books`` directory:
 
    $ datalad save -m "renamed directory"
 
-This is easy, and complication free. Moving the directory would work in the
+This is easy, and complication free. Moving (as in: changing the location, instead of
+the name) the directory would work in the
 same fashion, and a :command:`datalad save` would fix broken symlinks afterwards.
 Let's quickly clean this up:
 
@@ -401,7 +399,7 @@ to take care of the unwanted changes the commit reversal introduced.
    :language: console
    :workdir: dl-101/DataLad-101
 
-   $ echo y | mv longnow recordings
+   $ mv -f longnow recordings
 
 
 The take-home message therefore is that it is best not to move subdatasets,
@@ -433,7 +431,7 @@ a superdataset. Will that break anything?
 
 In all standard situations, no, it will be completely fine.
 You can use standard Unix commands such as ``mv`` to do it,
-and also which ever graphical user interface or explorer you may
+and also whichever graphical user interface or explorer you may
 use.
 
 Beware of one thing though: If your dataset either is a sibling
@@ -448,7 +446,7 @@ section.
 
         **Find out more:** If a renamed/moved dataset is a sibling...
 
-   As section todo link `config` explains, each
+   As section :ref:`config` explains, each
    sibling is registered in ``.git/config`` in a "submodule" section.
    Let's look at how our sibling "roommate" is registered there:
 
@@ -493,7 +491,7 @@ section.
       'fatal: '../mock_user/DataLad-101' does not appear to be a git repository
        fatal: Could not read from remote repository.
 
-   Git seems pretty desperate (given the amount of error messages) that
+   Git seems pretty insistent (given the amount of error messages) that
    it can't seem to find a Git repository at the location the ``.git/config``
    file specified. Luckily, we can provide this information. Edit the file with
    an editor of your choice and fix the path from
@@ -546,11 +544,19 @@ section.
 Deleting (annexed) files/directories
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Removing files from a dataset is possible in two different ways.
+Removing files from a dataset is possible in two different ways:
+Either by removing the file from the current state of the repository
+(which Git calls the *worktree*) but keeping the content in the history
+of the dataset, or by removing content entirely from a dataset and its
+history.
+
+Removing a file, but keeping content in history
+"""""""""""""""""""""""""""""""""""""""""""""""
+
 An ``rm <file>`` or ``rm -rf <directory>`` with a subsequent :command:`datalad save`
 will remove a file or directory, and save its removal. The file content however will
 still be in the history of the dataset, and the file can be brought back to existence
-by going back in to the history of the dataset or reverting the removal commit:
+by going back into the history of the dataset or reverting the removal commit:
 
 .. runrecord:: _examples/DL-101-140-170
    :workdir: dl-101/DataLad-101
@@ -576,7 +582,7 @@ This will lead to a dirty dataset status:
 
    $ datalad status
 
-If a removal happened by accident, a ``git reset HEAD flowers.jpg`` would undo
+If a removal happened by accident, a ``git checkout -- flowers.jpg`` would undo
 the removal at this stage. To stick with the removal and clean up the dataset
 state, :command:`datalad save` will suffice:
 
@@ -597,13 +603,25 @@ If this commit is reverted, the file comes back to existence:
    $ git reset --hard HEAD~1
    $ ls
 
+In other words, with an :command:`rm` and subsequent :command:`datalad save`,
+the symlink is removed, but the content is retained in the history.
+
+Removing annexed content entirely
+"""""""""""""""""""""""""""""""""
+
 A different command to remove file content entirely and irreversibly from a repository is
-the :command:`datalad drop` command (:manpage:`datalad-drop` manual). This
-command will drop file content or directory content from a dataset.
+the :command:`datalad drop` command (:manpage:`datalad-drop` manual).
+One usecase for this is to make a repository more lean. Think about a
+situation in which a very large result file is computed by default
+in some analysis, but isn't relevant for any project, and one may want to remove it.
+
 If an entire dataset is specified, all file content in sub-*directories* is
 dropped automatically, but for content in sub-*datasets* to be dropped, the
 ``-r/--recursive`` flag has to be included.
 
+
+The command will drop file content or directory content from a dataset,
+but will retain a symlink for this file.
 By default, DataLad will not drop any content that does not have at least
 one verified remote copy that the content could be retrieved from again.
 It is possible to drop the downloaded image, because thanks to
@@ -615,8 +633,8 @@ It is possible to drop the downloaded image, because thanks to
 
    $ datalad drop flowers.jpg
 
-Currently, the file content is gone, and opening the remaining symlink
-will fail. But the content can be obtained easily again with
+Currently, the file content is gone, but the symlink still exist. Opening the
+remaining symlink will fail, but the content can be obtained easily again with
 :command:`datalad get`:
 
 .. runrecord:: _examples/DL-101-140-176
@@ -667,11 +685,12 @@ Finally, let's clean up:
 Uninstalling or deleting subdatasets
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Depending on the exact aim, two commands are of relevance if anyone wants to
-delete a DataLad subdataset. The softer (and not so much "deleting" version)
-is to uninstall a dataset with the :command:`datalad uninstall` (:manpage:`datalad-uninstall` manual).
+Depending on the exact aim, two commands are of relevance for
+deleting a DataLad subdataset. The softer (and not so much "deleting" version)
+is to uninstall a dataset with the :command:`datalad uninstall`
+(:manpage:`datalad-uninstall` manual).
 This command can be used to uninstall any number of
-*subdatasets* -- note though that only subdatasets can be uninstalled, the command
+*subdatasets*. Note though that only subdatasets can be uninstalled; the command
 will error if given a sub-*directory*, a file, or a top-level dataset.
 
 .. runrecord:: _examples/DL-101-140-160
@@ -692,10 +711,12 @@ To uninstall the dataset, use
    $ datalad uninstall cloud
 
 Note that the dataset is still known in the dataset, and not completely removed.
+A ``datalad install cloud`` or ``datalad get cloud`` would reinstall the
+dataset.
 
 In case one wants to fully delete a subdataset from a dataset, the
 :command:`datalad remove` command (:manpage:`datalad-remove` manual) is
-relevant [#f1]_.
+relevant [#f2]_.
 It needs a pointer to the root of the superdataset with the ``-d/--dataset``
 flag, a path to the subdataset to be removed, and optionally a commit message
 (``-m/--message``) or recursive specification (``-r/--recursive``).
@@ -736,9 +757,9 @@ have seen permission denied errors such as
     rm: cannot remove '<directory>/.git/annex/objects/FP/wv/MD5E-s543180--6209797211280fc0a95196b0f781311e.jpg/MD5E-s543180--6209797211280fc0a95196b0f781311e.jpg': Permission denied
     [...]
 
-This error indicates that there is write protected content within ``.git`` that
+This error indicates that there is write-protected content within ``.git`` that
 cannot not be deleted. What is this write-protected content? It's the file content
-stored in the object tree of Git-annex. If you want, you can re-read section on
+stored in the object tree of Git-annex. If you want, you can re-read the section on
 :ref:`symlink` to find out how Git-annex revokes write permission for the user
 to protect the file content given to it. To remove a dataset with annexed content
 one has to regain write permissions to everything in the dataset. This is done
@@ -755,15 +776,15 @@ However, instead of ``rm -rf``, a faster way to remove a dataset is using
 :command:`datalad remove`: Run ``datalad remove <dataset>`` outside of the
 superdataset to remove a top-level dataset with all its contents. Likely,
 both ``--nocheck`` and ``--recursive`` flags are necessary
-to remove content that does not have verified remotes, and to digress into subdatasets.
+to remove content that does not have verified remotes, and to traverse into subdatasets.
 
 Be aware though that both ways to delete a dataset will
-irretrievable delete the dataset, it's contents, and it's history.
+irretrievably delete the dataset, it's contents, and it's history.
 
 Summary
 ^^^^^^^
 
-To sum up, filesystem management operations are safe and easy.
+To sum up, file system management operations are safe and easy.
 Even if you are currently confused about one or two operations,
 worry not -- the take-home-message is simple: Use ``datalad save``
 whenever you move or rename files. Be mindful that a ``datalad status``
@@ -779,6 +800,14 @@ how to handle your datasets files and directories well and worry-free.
 
 .. rubric:: Footnotes
 
-.. [#f1] This is indeed the only case in which :command:`datalad remove` is
+.. [#f1] If you want to learn more about the Git-specific concepts of *worktree*,
+         *staging area*/*index* or *HEAD*, check out section ...
+
+         .. todo::
+
+            Write a section on this high-level Git stuff. Maybe in draft of
+            section on Git history...
+
+.. [#f2] This is indeed the only case in which :command:`datalad remove` is
          relevant. For all other cases of content deletion a normal ``rm``
          with a subsequent :command:`datalad save` works best.

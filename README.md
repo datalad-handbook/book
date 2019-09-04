@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/datalad-handbook/book.svg?branch=master)](https://travis-ci.org/datalad-handbook/book) [![Documentation Status](https://readthedocs.org/projects/datalad-handbook/badge/?version=latest)](http://handbook.datalad.org/en/latest/?badge=latest)
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors)
 
 # The Datalad handbook :orange_book:
 
@@ -41,6 +41,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <table>
   <tr>
     <td align="center"><a href="https://github.com/loj"><img src="https://avatars2.githubusercontent.com/u/15157717?v=4" width="100px;" alt="Laura Waite"/><br /><sub><b>Laura Waite</b></sub></a><br /><a href="#ideas-loj" title="Ideas, Planning, & Feedback">🤔</a> <a href="#maintenance-loj" title="Maintenance">🚧</a> <a href="#review-loj" title="Reviewed Pull Requests">👀</a> <a href="#talk-loj" title="Talks">📢</a> <a href="#question-loj" title="Answering Questions">💬</a> <a href="#content-loj" title="Content">🖋</a></td>
+    <td align="center"><a href="http://psychoinformatics.de"><img src="https://avatars1.githubusercontent.com/u/136479?v=4" width="100px;" alt="Michael Hanke"/><br /><sub><b>Michael Hanke</b></sub></a><br /><a href="#question-mih" title="Answering Questions">💬</a> <a href="https://github.com/datalad-handbook/book/issues?q=author%3Amih" title="Bug reports">🐛</a> <a href="https://github.com/datalad-handbook/book/commits?author=mih" title="Code">💻</a> <a href="#content-mih" title="Content">🖋</a> <a href="https://github.com/datalad-handbook/book/commits?author=mih" title="Documentation">📖</a> <a href="#design-mih" title="Design">🎨</a> <a href="#example-mih" title="Examples">💡</a> <a href="#ideas-mih" title="Ideas, Planning, & Feedback">🤔</a> <a href="#infra-mih" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="#maintenance-mih" title="Maintenance">🚧</a> <a href="#plugin-mih" title="Plugin/utility libraries">🔌</a> <a href="#projectManagement-mih" title="Project Management">📆</a> <a href="#review-mih" title="Reviewed Pull Requests">👀</a> <a href="#tool-mih" title="Tools">🔧</a> <a href="https://github.com/datalad-handbook/book/commits?author=mih" title="Tests">⚠️</a> <a href="#talk-mih" title="Talks">📢</a> <a href="#userTesting-mih" title="User Testing">📓</a></td>
   </tr>
 </table>
 

@@ -92,17 +92,7 @@ Help yourself
    :caption: What to do if things go wrong
 
    basics/101-135-help
-
-#############
-Help yourself
-#############
-
-.. toctree::
-   :maxdepth: 1
-   :caption: What to do if things go wrong
-
    basics/101-140-filesystem
-
 
 #########################
 Data analyses in datasets

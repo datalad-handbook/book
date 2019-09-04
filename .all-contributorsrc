@@ -6,6 +6,24 @@
   "commit": false,
   "contributors": [
     {
+      "login": "adswa",
+      "name": "Adina Wagner",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/29738718?v=4",
+      "profile": "https://www.researchgate.net/profile/Adina_Wagner",
+      "contributions": [
+        "code",
+        "content",
+        "doc",
+        "design",
+        "ideas",
+        "infra",
+        "maintenance",
+        "projectManagement",
+        "review",
+        "userTesting"
+      ]
+    },
+    {
       "login": "loj",
       "name": "Laura Waite",
       "avatar_url": "https://avatars2.githubusercontent.com/u/15157717?v=4",
@@ -41,24 +59,6 @@
         "tool",
         "test",
         "talk",
-        "userTesting"
-      ]
-    },
-    {
-      "login": "adswa",
-      "name": "Adina Wagner",
-      "avatar_url": "https://avatars1.githubusercontent.com/u/29738718?v=4",
-      "profile": "https://www.researchgate.net/profile/Adina_Wagner",
-      "contributions": [
-        "code",
-        "content",
-        "doc",
-        "design",
-        "ideas",
-        "infra",
-        "maintenance",
-        "projectManagement",
-        "review",
         "userTesting"
       ]
     },

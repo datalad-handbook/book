@@ -744,7 +744,15 @@ with the `chmod <https://en.wikipedia.org/wiki/Chmod>`_ command::
 This *recursively* (``-R``, i.e. throughout all files and (sub)directories) gives users
 (``u``) write permissions (``+w``) for the dataset.
 
-Afterwards, ``rm -rf <dataset>`` will succeed. Be aware though that this will
+Afterwards, ``rm -rf <dataset>`` will succeed.
+
+However, instead of ``rm -rf``, a faster way to remove a dataset is using
+:command:`datalad remove`: Run ``datalad remove <dataset>`` outside of the
+superdataset to remove a top-level dataset with all its contents. Likely,
+both ``--nocheck`` and ``--recursive`` flags are necessary
+to remove content that does not have verified remotes, and to digress into subdatasets.
+
+Be aware though that both ways to delete a dataset will
 irretrievable delete the dataset, it's contents, and it's history.
 
 Summary

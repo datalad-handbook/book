@@ -1,0 +1,28 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "loj",
+      "name": "Laura Waite",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/15157717?v=4",
+      "profile": "https://github.com/loj",
+      "contributions": [
+        "ideas",
+        "maintenance",
+        "review",
+        "talk",
+        "question",
+        "content"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "book",
+  "projectOwner": "datalad-handbook",
+  "repoType": "github",
+  "repoHost": "https://github.com"
+}

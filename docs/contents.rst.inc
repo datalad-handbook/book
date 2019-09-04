@@ -115,6 +115,7 @@ Use Cases
 
    usecases/datasets
    usecases/reproducible-paper
+   usecases/supervision
 
 
 ########

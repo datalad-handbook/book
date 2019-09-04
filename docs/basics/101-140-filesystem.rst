@@ -763,9 +763,9 @@ irretrievable delete the dataset, it's contents, and it's history.
 Summary
 ^^^^^^^
 
-To sum up, the most filesystem management operations are safe, and easy.
+To sum up, filesystem management operations are safe and easy.
 Even if you are currently confused about one or two operations,
-worry not: The take-home-message is simple: Use ``datalad save``
+worry not -- the take-home-message is simple: Use ``datalad save``
 whenever you move or rename files. Be mindful that a ``datalad status``
 can appear unintuitive or that symlinks can break if annexed files are moved,
 but all of these problems are solved after a :command:`datalad save` command.

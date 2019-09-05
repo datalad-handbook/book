@@ -80,8 +80,19 @@ Sharing a dataset [1]
    basics/101-119-sharelocal4
    basics/101-120-summary
    basics/101-121-siblings
+
+#############################
+Tuning datasets to your needs
+#############################
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Various types and methods for dataset configurations
+
    basics/101-125-config
    basics/101-126-config2
+   basics/101-127-procedures
+   basics/101-128-summary
 
 #############
 Help yourself

@@ -10,6 +10,13 @@ can be captured with DataLad by
 #. perform changes to this data file and
 #. capture provenance for all of this
 
+.. note::
+
+   This section uses advanced Git commands and concepts on the side
+   that are not covered in the book. If you want to learn more about
+   the Git commands shown here, the `ProGit book <https://git-scm.com/book/en/v2>`_
+   is an excellent resource.
+
 The Challenge
 ^^^^^^^^^^^^^
 
@@ -23,12 +30,12 @@ The DataLad Approach
 ^^^^^^^^^^^^^^^^^^^^
 
 Rob starts his art project as a DataLad dataset. When downloading the
-images he wants to use for his project, he tracks where they come from,
-and when he changes or creates output, he tracks how, when, why and by
-whom using standard DataLad commands.
-This will make it easy for him to find out what has been done, and how
-it has been done, a long time after he finished the project, without
-any note taking.
+images he wants to use for his project, he tracks where they come from.
+And when he changes or creates output, he tracks how, when and why and
+this was done using standard DataLad commands.
+This will make it easy for him to find out or remember what he has
+done in his project, and how it has been done, a long time after he
+finished the project, without any note taking.
 
 Step-by-Step
 ^^^^^^^^^^^^
@@ -45,10 +52,9 @@ be version controlled and tracked:
    $ cd artproject
 
 For his art project, Rob decides to download a mosaic image composed of flowers
-from Wikimedia, and as a first step extract some of them into individual files
-to reuse them later.
-In order store information on the original source of the picture, he uses
-the :command:`datalad download-url` command to get the resource straight
+from Wikimedia. As a first step, he extracts some of the flowers into individual
+files to reuse them later.
+He uses the :command:`datalad download-url` command to get the resource straight
 from the web, but also capture all provenance automatically, and save the
 resource in his dataset together with a useful commit message:
 
@@ -69,7 +75,7 @@ resource in his dataset together with a useful commit message:
         save (ok: 1)
 
 
-If he wants to find out where he obtained this file from, a
+If he later wants to find out where he obtained this file from, a
 :command:`git annex whereis` [#f1]_ command will tell him:
 
 .. code-block:: bash
@@ -87,8 +93,8 @@ the ``extract`` tool from `ImageMagick <https://imagemagick.org/index.php>`_ to
 extract the St. Bernard's Lily from the upper left corner, and the pimpernel
 from the upper right corner. The commands will take the
 Wikimedia poster as an input and produce output files from it. To capture
-provenance on this action, Rob wraps it into a :command:`datalad run` [#f2]_
-command.
+provenance on this action, Rob wraps it into :command:`datalad run` [#f2]_
+commands.
 
 .. code-block:: bash
 
@@ -124,10 +130,11 @@ command.
        get (notneeded: 1)
        save (ok: 1)
 
-He continues to process the images capturing all provenance with DataLad, and
-can later find out which commands produced or changes which files. This
-information is easily accessible within the git history of his dataset, both
-with Git and DataLad commands.
+He continues to process the images, capturing all provenance with DataLad.
+Later, he can always find out which commands produced or changed which file.
+This information is easily accessible within the history of his dataset,
+both with Git and DataLad commands such as :command:`git log` or
+:command:`datalad diff`.
 
 .. code-block:: bash
 
@@ -141,11 +148,11 @@ with Git and DataLad commands.
         added: sources/flowers.jpg (file)
         added: st-bernard.jpg (file)
 
-Based on this information, he can always reconstruct how any data file came
-to be – across the entire life-time of a project.
+Based on this information, he can always reconstruct how an when
+any data file came to be – across the entire life-time of a project.
 
-One image manipulation for his art project will be to displace pixels of an image
-by a random amount to blur the image:
+He decides that one image manipulation for his art project will
+be to displace pixels of an image by a random amount to blur the image:
 
 .. code-block:: bash
 
@@ -167,12 +174,27 @@ by a random amount to blur the image:
 Because he is not completely satisfied with the first random pixel displacement,
 he decides to retry the operation. Because everything was wrapped in :command:`datalad run`,
 he can rerun the command. The command will produce a commit, because the displacement is
-random so that the output file changes from its previous version.
+random and the output file changes slightly from its previous version.
+
 
 .. code-block:: bash
 
-   $ git log -1 --oneline HEAD~1
+   $ git log -1 --oneline HEAD
      643c175 (HEAD -> master) [DATALAD RUNCMD] blur image
+   # rerun with the commit hash:
+   $ datalad rerun 643c175
+
+   [INFO   ] Making sure inputs are available (this may take some time)
+   unlock(ok): st-bernard-displaced.jpg (file)
+   [INFO   ] == Command start (output follows) =====
+   [INFO   ] == Command exit (modification check follows) =====
+   add(ok): st-bernard-displaced.jpg (file)
+   save(ok): . (dataset)
+   action summary:
+     add (ok: 1)
+     get (notneeded: 1)
+     save (ok: 1)
+     unlock (ok: 1)
 
 This blur also does not yet fulfill Robs expectations, so he decides to
 discard the change, using standard Git tools [#f3]_.
@@ -183,11 +205,13 @@ discard the change, using standard Git tools [#f3]_.
      HEAD is not at 643c175 [DATALAD RUNCMD] blur image
 
 He knows that within a DataLad dataset, he can also rerun multiple commands
-(with ``--since``) and choose where HEAD is when he start rerunning from
-(with ``--onto``). When both arguments are set to empty strings, it means
-"rerun all commands with HEAD at the parent of the first commit".
-In other words, he can "replay" the commands. He does that on a new branch
-he names ``replay``:
+with ``--since``  and ``--onto`` to specify where to start rerunning from and
+up to which point.
+When both arguments are set to empty strings, it means
+"rerun all commands with HEAD at the parent of the first commit a command".
+In other words, he can "replay" all the history for his artproject in a single
+command. Using the ``--branch`` option of :command:`datalad rerun`,
+he does it on a new branch he names ``replay``:
 
 .. code-block:: bash
 
@@ -237,9 +261,10 @@ He can even compare the two branches:
      modified: st-bernard-displaced.jpg (file)
 
 He can see that the blurring, which involved a random element,
-produced different results. And these are just two branches,
-so he can compare them using normal Git operations.
-The next command, for example, marks which commits are "patch-equivalent".
+produced different results. Because his dataset contains two branches,
+he can compare the two branches using normal Git operations.
+The next command, for example, marks which commits are "patch-equivalent"
+between the branches.
 Notice that all commits are marked as equivalent (=) except the ‘random spread’ ones.
 
 .. code-block:: bash
@@ -253,6 +278,9 @@ Notice that all commits are marked as equivalent (=) except the ‘random spread
     = 643c175 [DATALAD RUNCMD] extract pimpernel
     = 53cb5dc [DATALAD RUNCMD] extract st-bernard lily
 
+Rob can continue processing images, and will turn in a sucessful art project.
+Long after he finishes high school, he finds his dataset on his old computer
+again and remembers this small project fondly.
 
 .. rubric:: Footnotes
 

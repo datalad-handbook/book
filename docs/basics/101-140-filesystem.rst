@@ -1,3 +1,5 @@
+.. _filesystem:
+
 Miscallaneous file system operations
 ------------------------------------
 
@@ -27,7 +29,8 @@ solutions with code examples you can paste into your own terminal.
 Because these code snippets will add many commits to your
 dataset, we're cleaning up within each segment with
 common git operations that manipulate the datasets
-history -- be sure to execute these commands as well.
+history -- be sure to execute these commands as well (and
+be sure to be in the correct dataset).
 
 Renaming files
 ^^^^^^^^^^^^^^
@@ -315,6 +318,12 @@ That's it.
    ``../.git``) their symlink is identical. Thus, even though two
    copies of the book exist in your dataset, your disk needs to
    store it only once.
+
+   In most cases, this is just an interesting fun-fact, but beware
+   when dropping content with :command:`datalad drop`
+   (`further down <filesystem#Removing annexed content entirely>`_):
+   If you drop the content of one copy of a file, all
+   other copies will lose this content as well.
 
 Finally, let's clean up:
 

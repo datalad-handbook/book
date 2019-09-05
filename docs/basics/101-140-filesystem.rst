@@ -1,6 +1,6 @@
 .. _filesystem:
 
-Miscallaneous file system operations
+Miscellaneous file system operations
 ------------------------------------
 
 With all of the information about symlinks and object trees,

@@ -72,3 +72,7 @@ or create your own one.
 You just need to save it once to your dataset and then you're good.
 If you have new content you don't want to track, you can add
 new paths or patterns to the file.
+Note though that If a command creates an output that is git-ignored,
+a subsequent command that requires it as an undisclosed input will
+succeed, if both commands a ran in succession. However, the second
+command will fail, if re-ran on its own.

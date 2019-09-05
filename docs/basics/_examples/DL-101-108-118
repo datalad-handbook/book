@@ -1,0 +1,7 @@
+$ cat << EOT >> notes.txt
+There are two useful functions to display changes between two
+states of a dataset: "datalad diff -f/--from COMMIT -t/--to COMMIT"
+and "git diff COMMIT COMMIT", where COMMIT is a shasum of a commit
+in the history.
+
+EOT

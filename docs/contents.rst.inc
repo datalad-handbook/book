@@ -27,17 +27,72 @@ Starting from scratch
 
 
 ###################
-Basic DataLad Magic
+Basic dataset magic
 ###################
 
 .. toctree::
    :maxdepth: 1
-   :caption: A closer look at how things work
+   :caption: A closer look at datasets
 
    basics/101-105-install
    basics/101-106-nesting
    basics/101-107-summary
+
+
+#############
+Datalad, Run!
+#############
+
+.. toctree::
+   :maxdepth: 1
+   :caption: How DataLad records provenance of dataset modifications
+
+   basics/101-108-run
+   basics/101-109-rerun
+   basics/101-110-run2
+   basics/101-111-run3
+   basics/101-112-run4
+   basics/101-113-summary
+
+
+###################
+Basics on Git-annex
+###################
+
+.. toctree::
+   :maxdepth: 1
+   :caption: A closer look at how and why things work
+
+   basics/101-114-txt2git
    basics/101-115-symlinks
+
+#####################
+Sharing a dataset [1]
+#####################
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Sharing on shared file systems
+
+   basics/101-116-sharelocal
+   basics/101-117-sharelocal2
+   basics/101-118-sharelocal3
+   basics/101-119-sharelocal4
+   basics/101-120-summary
+   basics/101-121-siblings
+   basics/101-125-config
+   basics/101-126-config2
+
+#############
+Help yourself
+#############
+
+.. toctree::
+   :maxdepth: 1
+   :caption: What to do if things go wrong
+
+   basics/101-135-help
+
 
 ################
 Advanced options
@@ -50,6 +105,18 @@ Advanced options
    basics/101-130-ignore
 
 
+#########################
+Data analyses in datasets
+#########################
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Organizational principles and best practices for data analyses
+
+   basics/101-122-intro
+   basics/101-123-yoda
+   basics/101-124-summary
+
 #########
 Use Cases
 #########
@@ -59,7 +126,7 @@ Use Cases
    :caption: Hands-on real-world applications with step-by-step recipes...
 
    usecases/datasets
-   usecases/remodnav
+   usecases/reproducible-paper
 
 
 ########
@@ -75,12 +142,3 @@ Appendix
 
 * :ref:`genindex`
 * :ref:`search`
-
-
-.. toctree::
-   :maxdepth: 1
-   :caption: Experimental
-
-   remove/me
-   remove/metoo
-   remove/uml

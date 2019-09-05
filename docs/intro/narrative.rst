@@ -53,10 +53,14 @@ Note: When copying code snippets into your own terminal, do not copy the leading
 ``$`` -- this only indicates that the line is a command, and would lead to an
 error when you'd try to execute it.
 
-The following two chapters have two different goals: All of the *Basics* sections
-will show you the core DataLad functionality and challenge you to use it.
-In *use cases* you will find concrete examples of DataLad applications for
-general inspiration. We recommend to read the Basics first. Afterwards,
+The book is split between two different parts. The upcoming chapters
+are a *Basics* part that intends to show you the core DataLad functionality
+and challenges you to use it. It is recommended to read this part from
+start to end and follow along.
+In the chapter *use cases* you will find concrete examples of
+DataLad applications for general inspiration -- this is the second part of this book.
+Pick whatever you find interesting, and disregard the rest.
+In general, we recommend to read the Basics first. Afterwards,
 you might even consider :ref:`contribute` to this book by sharing your own use case.
 
 Note that many challenges can have straightforward and basic solutions,
@@ -74,11 +78,7 @@ best practices, we hide them in foldable book sections in order
 to not be too distracting for anyone only interested in the basics.
 You can decide for yourself whether you want to check them out:
 
-.. container:: toggle
-
-    .. container:: header
-
-       **Additional Content: Click here to show/hide further commands**
+.. findoutmore:: Click here to show/hide further commands
 
     Sections like this contain content that goes beyond the basics
     necessary to complete a challenge.
@@ -95,19 +95,64 @@ Note further that...
    the book when there is no better alternative, and executing those commands will
    suffice to follow along.
 
-Apart from core DataLad commands (introduced in the second section of this book),
+Apart from core DataLad commands (introduced in the second part of this book),
 DataLad also comes with many extensions and advanced commands not (yet) referenced
 in this handbook. The development of many of these features
 is ongoing, and this handbook will incorporate all DataLad commands and extensions
 *once they are stable* (that is, once the command(-structure) is likely to not
 change in the future anymore). If you are looking for a feature but cannot find it in this
 handbook, please take a look at the `documentation <http://docs.datalad.org>`_,
-`write <LinkThisToContributing>`_ or
+`write <http://handbook.datalad.org/en/latest/contributing.html>`_ or
 `request <https://github.com/datalad-handbook/book/issues/new>`_
 an additional chapter if you believe it's a worthwhile addition, or
 `ask a question on Neurostars.org <https://neurostars.org/latest>`_
-with a ``datalad`` tag if you need help.
+with a :command:`datalad` tag if you need help.
 
+
+What you will learn in this book
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This handbook will teach you simple and yet advanced principles of data
+management for reproducible, comprehensible, transparent, and
+`FAIR <https://www.go-fair.org/fair-principles/>`_ data
+projects. It does so with hands-on tool use of DataLad and its
+underlying software, blended with clear explanations of relevant
+theoretical backgrounds whenever necessary, and by demonstrating
+organizational and procedural guidelines and standards for data
+related projects on concrete examples.
+
+You will learn how to create, consume, structure, share, publish, and use
+*DataLad datasets*: modular, reusable components that can be version-controlled,
+linked, and that are able to capture and track full provenance of their
+contents, if used correctly.
+
+At the end of the ``Basics`` section, these are some of the main
+things you will know how to do, and understand why doing them is useful:
+
+- **Version-control** data objects, regardless of size, keep track of
+  and **update** (from) their sources and shared copies, and capture the
+  **provenance** of all data objects whether you consume them from any source
+  or create them yourself.
+
+- **Build up complete projects** with data as independent, version-controlled,
+  provenance-tracked, and linked DataLad dataset(s) that allow **distribution**,
+  modular **reuse**, and are **transparent** both in their structure and their
+  development to their current and future states.
+
+- **Bind** modular components into complete data analysis projects, and comply
+  to procedural and organizational principles that will help to create transparent
+  and comprehensible projects to ease **collaboration** and **reproducibility**.
+
+- **Share** complete data objects, version-controlled as a whole, but including
+  modular components such as data in a way that preserves the history,
+  provenance, and linkage of its components.
+
+At the end of this handbook, you will find it easy to create, build up, and
+share intuitively structured and version-controlled data projects that
+fulfill high standards for reproducibility and FAIRness. You are able to
+decide for yourself into how much of the DataLad world you want to dive in
+based on your individual use cases, and with every section you will learn
+more about state-of-the-art data management.
 
 The storyline
 ^^^^^^^^^^^^^
@@ -130,10 +175,12 @@ share and publish with DataLad.
 
 If you don't want to follow along and only read, there will be a
 finished DataLad-101 project for you to download and explore in the future.
+The dataset will contain tags that relate different states of it to the
+respective book sections.
 
 
-Lets get going!
----------------
+Let's get going!
+----------------
 
 If you have DataLad installed, you can dive straight into chapter 1, :ref:`createDS`.
 For everyone new, there are the sections :ref:`howto` as a minimal tutorial

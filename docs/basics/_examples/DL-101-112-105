@@ -1,0 +1,5 @@
+$ cat << EOT >> notes.txt
+Important! If the dataset is not "clean" (a datalad status output is empty),
+datalad run will not work - you will have to save modifications present in your
+dataset.
+EOT

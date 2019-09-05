@@ -430,7 +430,7 @@ place on your file system, or have the best name.
 
 After a while, you might think that the dataset would fit much
 better into ``/home/user/research_projects/`` than in
-``/home/user/Documentents/MyFiles/tmp/datalad-test/``. Or maybe at
+``/home/user/Documents/MyFiles/tmp/datalad-test/``. Or maybe at
 some point, a long name such as ``My-very-first-DataLad-project-wohoo-I-am-so-excited``
 does not look pretty in your terminal prompt anymore, and going for
 ``finance-2019`` seems more professional.
@@ -620,7 +620,7 @@ Removing annexed content entirely
 
 A different command to remove file content entirely and irreversibly from a repository is
 the :command:`datalad drop` command (:manpage:`datalad-drop` manual).
-One usecase for this is to make a repository more lean. Think about a
+One use case for this is to make a repository more lean. Think about a
 situation in which a very large result file is computed by default
 in some analysis, but isn't relevant for any project, and one may want to remove it.
 

@@ -3,7 +3,7 @@
 DIY Configurations [1]
 ----------------------
 
-Back in section :ref:`text2git`, we already learned that there
+Back in section :ref:`text2git`, you already learned that there
 are dataset configurations, and that these configurations can
 be modified, for example with the ``-c text2git`` option.
 This option applies a configuration template to store text

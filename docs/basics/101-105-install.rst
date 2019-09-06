@@ -103,11 +103,7 @@ Note that the path did not change, but ``-d .`` changed to ``-d ../``
 Later in this book there is a dedicated section that explains what this ``-d``/``--dataset`` option
 does and why it is important, but for now just be mindful of the instruction above.
 
-.. container:: toggle
-
-   .. container:: header
-
-       **Addition: What if I don't install into an existing dataset?**
+.. findoutmore:: What if I don't install into an existing dataset?
 
    If you don't install inside an existing dataset, you only need to omit the ``dataset``
    option. You can try::

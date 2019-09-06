@@ -80,6 +80,30 @@ Sharing a dataset [1]
    basics/101-119-sharelocal4
    basics/101-120-summary
    basics/101-121-siblings
+   basics/101-125-config
+   basics/101-126-config2
+
+#############
+Help yourself
+#############
+
+.. toctree::
+   :maxdepth: 1
+   :caption: What to do if things go wrong
+
+   basics/101-135-help
+
+#########################
+Data analyses in datasets
+#########################
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Organizational principles and best practices for data analyses
+
+   basics/101-122-intro
+   basics/101-123-yoda
+   basics/101-124-summary
 
 #####################
 Sharing a dataset [2]
@@ -100,7 +124,7 @@ Use Cases
    :caption: Hands-on real-world applications with step-by-step recipes...
 
    usecases/datasets
-   usecases/remodnav
+   usecases/reproducible-paper
 
 
 ########

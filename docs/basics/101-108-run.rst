@@ -39,7 +39,7 @@ to generate a text file that lists speaker and title
 name instead.
 
 To do this, we're following a best practice that will reappear in the
-later section on YODA principles (todo: link): Collecting all
+later section on `YODA principles <101-123-yoda.html>`_ : Collecting all
 additional scripts that work with content of a subdataset *outside*
 of this subdataset, in a dedicated ``code/`` directory,
 and collating the output of the execution of these scripts
@@ -128,11 +128,7 @@ command from the root of ``DataLad-101``.
 
    $ datalad run -m "create a list of podcast titles" "bash code/list_titles.sh > recordings/podcasts.tsv"
 
-.. container:: toggle
-
-   .. container:: header
-
-      **Addition: Why is there a "notneeded" in the command summary?**
+.. findoutmore:: Why is there a "notneeded" in the command summary?
 
    If you have stumbled across the command execution summary
    ``save (notneeded: 1, ok: 1)`` and wondered what is "notneeded":

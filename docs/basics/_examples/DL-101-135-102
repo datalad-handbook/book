@@ -1,0 +1,190 @@
+$ datalad wtf
+# WTF
+## configuration <SENSITIVE, report disabled by configuration>
+## datalad 
+  - version: 0.12.0rc4.dev218
+  - full_version: 0.12.0rc4.dev218-gae2c2
+## dataset 
+  - path: /home/adina/repos/datalad-handbook/docs/_build/wdirs/dl-101/DataLad-101
+  - repo: AnnexRepo
+  - metadata: <SENSITIVE, report disabled by configuration>
+## dependencies 
+  - tqdm: 4.32.2
+  - cmd:annex: 7.20190129
+  - cmd:git: 2.20.1
+  - cmd:bundled-git: 2.20.1
+  - cmd:system-git: 2.20.1
+  - cmd:system-ssh: 7.9p1
+  - appdirs: 1.4.3
+  - boto: 2.49.0
+  - git: 2.1.11
+  - gitdb: 2.0.5
+  - humanize: 0.5.1
+  - iso8601: 0.1.12
+  - keyring: 19.0.2
+  - keyrings.alt: 3.1.1
+  - msgpack: 0.6.1
+  - requests: 2.22.0
+  - six: 1.12.0
+  - wrapt: 1.11.2
+## environment 
+  - LANG: en_US.UTF-8
+  - PYTHONPATH: /usr/bin/python
+  - PATH: /home/adina/env/handbook/bin:/home/adina/Documents/freesurfer/bin:/home/adina/Documents/freesurfer/fsfast/bin:/home/adina/Documents/freesurfer/tktools:/usr/share/fsl/5.0/bin:/usr/lib/fsl/5.0:/home/adina/Documents/freesurfer/mni/bin:/usr/share/fsl/5.0/5.0/bin:/home/adina/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/home/adina/.dotfiles/bin
+  - GIT_PYTHON_GIT_EXECUTABLE: /usr/bin/git
+## extensions 
+## git-annex 
+  - version: 7.20190129
+  - build flags: 
+    - Assistant
+    - Webapp
+    - Pairing
+    - S3(multipartupload)(storageclasses)
+    - WebDAV
+    - Inotify
+    - DBus
+    - DesktopNotify
+    - TorrentParser
+    - MagicMime
+    - Feeds
+    - Testsuite
+  - dependency versions: 
+    - aws-0.20
+    - bloomfilter-2.0.1.0
+    - cryptonite-0.25
+    - DAV-1.3.3
+    - feed-1.0.0.0
+    - ghc-8.4.4
+    - http-client-0.5.13.1
+    - persistent-sqlite-2.8.2
+    - torrent-10000.1.1
+    - uuid-1.3.13
+    - yesod-1.6.0
+  - key/value backends: 
+    - SHA256E
+    - SHA256
+    - SHA512E
+    - SHA512
+    - SHA224E
+    - SHA224
+    - SHA384E
+    - SHA384
+    - SHA3_256E
+    - SHA3_256
+    - SHA3_512E
+    - SHA3_512
+    - SHA3_224E
+    - SHA3_224
+    - SHA3_384E
+    - SHA3_384
+    - SKEIN256E
+    - SKEIN256
+    - SKEIN512E
+    - SKEIN512
+    - BLAKE2B256E
+    - BLAKE2B256
+    - BLAKE2B512E
+    - BLAKE2B512
+    - BLAKE2B160E
+    - BLAKE2B160
+    - BLAKE2B224E
+    - BLAKE2B224
+    - BLAKE2B384E
+    - BLAKE2B384
+    - BLAKE2S256E
+    - BLAKE2S256
+    - BLAKE2S160E
+    - BLAKE2S160
+    - BLAKE2S224E
+    - BLAKE2S224
+    - BLAKE2SP256E
+    - BLAKE2SP256
+    - BLAKE2SP224E
+    - BLAKE2SP224
+    - SHA1E
+    - SHA1
+    - MD5E
+    - MD5
+    - WORM
+    - URL
+  - remote types: 
+    - git
+    - gcrypt
+    - p2p
+    - S3
+    - bup
+    - directory
+    - rsync
+    - web
+    - bittorrent
+    - webdav
+    - adb
+    - tahoe
+    - glacier
+    - ddar
+    - hook
+    - external
+  - operating system: linux x86_64
+  - supported repository versions: 
+    - 5
+    - 7
+  - upgrade supported from repository versions: 
+    - 0
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+  - local repository version: 5
+## location 
+  - path: /home/adina/repos/datalad-handbook/docs/_build/wdirs/dl-101/DataLad-101
+  - type: dataset
+## metadata_extractors 
+  - annex: 
+    - module: datalad.metadata.extractors.annex
+    - version: None
+    - load_error: None
+  - audio: 
+    - module: datalad.metadata.extractors.audio
+    - load_error: No module named 'mutagen' [audio.py:<module>:17]
+  - datacite: 
+    - module: datalad.metadata.extractors.datacite
+    - version: None
+    - load_error: None
+  - datalad_core: 
+    - module: datalad.metadata.extractors.datalad_core
+    - version: None
+    - load_error: None
+  - datalad_rfc822: 
+    - module: datalad.metadata.extractors.datalad_rfc822
+    - version: None
+    - load_error: None
+  - exif: 
+    - module: datalad.metadata.extractors.exif
+    - load_error: No module named 'exifread' [exif.py:<module>:16]
+  - frictionless_datapackage: 
+    - module: datalad.metadata.extractors.frictionless_datapackage
+    - version: None
+    - load_error: None
+  - image: 
+    - module: datalad.metadata.extractors.image
+    - version: None
+    - load_error: None
+  - xmp: 
+    - module: datalad.metadata.extractors.xmp
+    - load_error: No module named 'libxmp' [xmp.py:<module>:20]
+## python 
+  - version: 3.7.3
+  - implementation: CPython
+## system 
+  - type: posix
+  - name: Linux
+  - release: 4.19.0-5-amd64
+  - version: #1 SMP Debian 4.19.37-5 (2019-06-19)
+  - distribution: debian/10.0
+  - max_path_length: 327
+  - encoding: 
+    - default: utf-8
+    - filesystem: utf-8
+    - locale.prefered: UTF-8

@@ -1,0 +1,196 @@
+.. _help:
+
+How to get help
+---------------
+
+After all of the DataLad-101 lectures and tutorials so far,
+you really begin to appreciate the pre-crafted examples the
+lecturer provided the students with.
+
+"Nothing really goes wrong, and if so, it's intended", you
+acknowledge. "But how does this prepare me for life after
+the course? I've seen a lot of different errors and know many
+caveats and principles already, but I certainly will mess
+something up at one point, and how will I get help then?"
+
+Fortunately, the syllabus has a whole section on that, and on
+one lazy, warm summer-afternoon you flip through it.
+
+You realize that you already know the most important things:
+The number one advice on how to get help is
+`"Read the error message." <http://poster.keepcalmandposters.com/default/5986752_keep_calm_and_read_the_error_message.png>`_.
+The second advice it
+`"I'm not kidding: Read the error message <https://images.app.goo.gl/GWQ82AAJnx1dWtWx6>`_.
+The third advice, finally, says
+`"Honestly, read the f***ing error message <https://images.app.goo.gl/ddxg4aowbji6XTrw7>`_.
+
+Help yourself
+^^^^^^^^^^^^^
+
+If you run into a DataLad problem and you have followed the three
+steps above, but the error message
+`doesn't give you a clue on how to proceed <https://imgs.xkcd.com/comics/code_quality_3.png>`_,
+the first you should do is
+
+#. find out which *version* of DataLad you use
+
+#. read the *help page* of the command that failed
+
+The first step is important in order to find out whether a
+command failed due to using a wrong DataLad version. In order
+to use this book and follow along, your DataLad version
+should be ``datalad-0.12`` or higher, for example.
+
+To find out which version you are using, run
+
+.. runrecord:: _examples/DL-101-135-101
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ datalad --version
+
+.. index:: ! datalad command; wtf
+
+If you want a comprehensive overview of your full setup,
+:command:`datalad wtf` [#f1]_ is the command to turn to
+(:manpage:`datalad-wtf` manual). Running this command will
+generate a report about the DataLad installation and configuration.
+The output below shows an excerpt.
+
+.. runrecord:: _examples/DL-101-135-102
+   :language: console
+   :workdir: dl-101/DataLad-101
+   :lines: 1-20
+
+   $ datalad wtf
+
+This lengthy output will report all information that might
+be relevant -- from DataLad to :term:`Git-annex` or Python
+up to your operating system.
+
+The second step, finding and reading the help page of the command
+in question, is important in order to find out how the
+command that failed is used. Are arguments specified correctly?
+Does the help list any caveats?
+
+There are multiple ways to find help on DataLad commands.
+You could turn to the `documentation <http://docs.datalad.org/>`_.
+Alternatively, to get help right inside the terminal,
+run any command with the ``-h``/``--help`` option (also shown
+as an excerpt here):
+
+.. runrecord:: _examples/DL-101-135-103
+   :language: console
+   :workdir: dl-101/DataLad-101
+   :lines: 1-40
+
+   $ datalad get --help
+
+This for example is the help page on :command:`datalad get`
+(the same you would find in the `documentation <docs.datalad.org>`__,
+but in your terminal). It contains a command description, a list
+of all the available options with a short explanation of them, and
+example commands. The paragraph *Options* shows all
+optional flags, and all required parts of
+the command are listed in the paragraph *Arguments*. One first thing
+to check for example is whether your command call
+specified all of the required arguments.
+
+Asking questions (right)
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+If nothing you do on your own helps to solve the problem,
+consider asking others. Check out `neurostars <https://neurostars.org/>`_
+and search for your problem -- likely,
+`somebody already encountered the same error before <http://imgs.xkcd.com/comics/wisdom_of_the_ancients.png>`_
+and fixed it, but if not, just ask a new question with a ``datalad`` tag.
+
+Make sure your question is as informative as it can be for others.
+Include
+
+- *context* -- what did you want to do and why?
+
+- the *problem* -- paste the error message (all of it), and provide the
+  steps necessary to reproduce it.
+
+- *technical details* -- what version of DataLad are you using, what version
+  of Git-annex, and which Git-annex repository type, what is your operating
+  system and -- if applicable -- Python version? :command:`datalad wtf` is your friend
+  to find all of this information.
+
+The "submit a question link" on `DataLad's Github page <https://github.com/datalad/datalad#support>`_
+page prefills a neurostars form with a template for a question for a good
+starting point if you want to have more guidance or encounter writer's block.
+
+
+Common Git-annex warnings and errors
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+A lot of output you will see while working with DataLad originates from
+Git-annex. It's outputs can be wordy and not trivial to comprehend even if
+everything works. This following section will list some common Git-annex
+warnings and errors and attempts to explain them.
+
+Upon installation of a dataset, you may see::
+
+   [INFO    ]     Remote origin not usable by git-annex; setting annex-ignore
+   [INFO    ]     This could be a problem with the git-annex installation on the remote. Please make sure that git-annex-shell is available in PATH when you ssh into the remote. Once you have fixed the git-annex installation, run: git annex enableremote origin
+
+This warning lets you know that Git-annex will not attempt to download
+content from the remote "origin", because it is not usable. This can have
+many reasons, but as long as there are other remotes you can access the
+data from, you are fine.
+
+
+.. todo::
+
+   Another type of warning you may encounter during installation is::
+
+      [INFO   ] Submodule HEAD got detached. Resetting branch master to point to 046713bb. Original location was 47e53498
+
+
+.. todo::
+
+   Another one from a missing git config::
+
+      [WARNING] It is highly recommended to configure git first (set both user.name and user.email) before using DataLad. Failed to verify that git is configured: CommandError: command '['git', 'config', 'user.name']' failed with exitcode 1
+      | Failed to run ['git', 'config', 'user.name'] under None. Exit code=1. out= err= [cmd.py:run:552]CommandError: command '['git', 'config', 'user.email']' failed with exitcode 1
+      | Failed to run ['git', 'config', 'user.email'] under None. Exit code=1. out= err= [cmd.py:run:552].  Some operations might fail or not perform correctly.
+
+.. todo::
+
+   If one does not have an SSH key configured, e.g. on a server (from remodnav paper on brainbfast)::
+
+      [INFO   ] Cloning https://github.com/psychoinformatics-de/paper-remodnav.git/remodnav [2 other candidates] into '/home/homeGlobal/adina/paper-remodnav/remodnav'
+      Permission denied (publickey).
+      [WARNING] Failed to run cmd ['ssh', '-fN', '-o', 'ControlMaster=auto', '-o', 'ControlPersist=15m', '-o', 'ControlPath="/home/homeGlobal/adina/.cache/datalad/sockets/6ca483de"', 'git@github.com']. Exit code=255
+      | stdout: None
+      | stderr: None
+      [ERROR  ] Failed to clone from any candidate source URL. Encountered errors per each url were: (OrderedDict([('https://github.com/psychoinformatics-de/paper-remodnav.git/remodnav', "Cmd('/usr/lib/git-annex.linux/git') failed due to: exit code(128)\n  cmdline: /usr/lib/git-annex.linux/git clone --progress -v https://github.com/psychoinformatics-de/paper-remodnav.git/remodnav /home/homeGlobal/adina/paper-remodnav/remodnav [cmd.py:wait:412]"), ('https://github.com/psychoinformatics-de/paper-remodnav.git/remodnav/.git', "Cmd('/usr/lib/git-annex.linux/git') failed due to: exit code(128)\n  cmdline: /usr/lib/git-annex.linux/git clone --progress -v https://github.com/psychoinformatics-de/paper-remodnav.git/remodnav/.git /home/homeGlobal/adina/paper-remodnav/remodnav [cmd.py:wait:412]"), ('git@github.com:psychoinformatics-de/remodnav.git', "Cmd('/usr/lib/git-annex.linux/git') failed due to: exit code(128)\n  cmdline: /usr/lib/git-annex.linux/git clone --progress -v git@github.com:psychoinformatics-de/remodnav.git /home/homeGlobal/adina/paper-remodnav/remodnav [cmd.py:wait:412]")]),) [install(/home/homeGlobal/adina/paper-remodnav/remodnav)]
+      [ERROR  ] Installation of subdatasets /home/homeGlobal/adina/paper-remodnav/remodnav failed with exception: InstallFailedError:
+      Failed to install dataset from any of: ['https://github.com/psychoinformatics-de/paper-remodnav.git/remodnav', 'git@github.com:psychoinformatics-de/remodnav.git'] [get.py:_install_subds_from_flexible_source:184] [install(/home/homeGlobal/adina/paper-remodnav/remodnav)]
+      Traceback (most recent call last):
+        File "code/mk_figuresnstats.py", line 811, in <module>
+          savefigs(args.figure, args.stats)
+        File "code/mk_figuresnstats.py", line 410, in savefigs
+          stat)
+        File "code/mk_figuresnstats.py", line 274, in confusion
+          load_anderson(stimtype, finame)
+        File "code/mk_figuresnstats.py", line 28, in load_anderson
+          get(fname)
+        File "/home/homeGlobal/adina/env/remodnav/lib/python3.5/site-packages/datalad/interface/utils.py", line 492, in eval_func
+          return return_func(generator_func)(*args, **kwargs)
+        File "/home/homeGlobal/adina/env/remodnav/lib/python3.5/site-packages/datalad/interface/utils.py", line 480, in return_func
+          results = list(results)
+        File "/home/homeGlobal/adina/env/remodnav/lib/python3.5/site-packages/datalad/interface/utils.py", line 468, in generator_func
+          msg="Command did not complete successfully")
+      datalad.support.exceptions.IncompleteResultsError: Command did not complete successfully [{'type': 'dataset', 'status': 'error', 'action': 'install', 'message': ('Installation of subdatasets %s failed with exception: %s', '/home/homeGlobal/adina/paper-remodnav/remodnav', "InstallFailedError: \nFailed to install dataset from any of: ['https://github.com/psychoinformatics-de/paper-remodnav.git/remodnav', 'git@github.com:psychoinformatics-de/remodnav.git'] [get.py:_install_subds_from_flexible_source:184]"), 'path': '/home/homeGlobal/adina/paper-remodnav/remodnav'}]
+
+
+.. rubric:: Footnotes
+
+.. [#f1] ``wtf`` in :command:`datalad wtf` could stand for many things. "Why the Face?"
+         "Wow, that's fantastic!", "What's this for?", "What to fix", "What the FAQ",
+         "Where's the fire?", "Wipe the floor", "Welcome to fun",
+         "Waste Treatment Facility", "What's this foolishness", "What the fruitcake", ...
+         Pick a translation of your choice and make running this command more joyful.

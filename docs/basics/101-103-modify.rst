@@ -82,7 +82,7 @@ and save the file:
 Let's take another look into our history to see the development of this file.
 We're using :command:`git log -p` to see the difference to the previous state of a
 file within each commit. (Note: the output below is an excerpt, if you enter
-the git log, your history will be longer. 
+the git log, your history will be longer, and thus opened in a [pager](https://en.wikipedia.org/wiki/Terminal_pager). You can get out of it by pressing ``q``.
 
 .. runrecord:: _examples/DL-101-103-107
    :language: console

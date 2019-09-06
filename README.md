@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/datalad-handbook/book.svg?branch=master)](https://travis-ci.org/datalad-handbook/book) [![Documentation Status](https://readthedocs.org/projects/datalad-handbook/badge/?version=latest)](http://handbook.datalad.org/en/latest/?badge=latest)
-[![All Contributors](https://img.shields.io/badge/all_contributors-6-orange.svg?style=flat-square)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-7-orange.svg?style=flat-square)](#contributors)
 
 # The Datalad handbook :orange_book:
 
@@ -46,6 +46,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/kyleam"><img src="https://avatars2.githubusercontent.com/u/1297788?v=4" width="100px;" alt="Kyle Meyer"/><br /><sub><b>Kyle Meyer</b></sub></a><br /><a href="https://github.com/datalad-handbook/book/issues?q=author%3Akyleam" title="Bug reports">🐛</a> <a href="#review-kyleam" title="Reviewed Pull Requests">👀</a> <a href="#question-kyleam" title="Answering Questions">💬</a> <a href="#content-kyleam" title="Content">🖋</a> <a href="#ideas-kyleam" title="Ideas, Planning, & Feedback">🤔</a></td>
     <td align="center"><a href="https://github.com/marisaheckner"><img src="https://avatars2.githubusercontent.com/u/52243533?v=4" width="100px;" alt="marisaheckner"/><br /><sub><b>marisaheckner</b></sub></a><br /><a href="#ideas-marisaheckner" title="Ideas, Planning, & Feedback">🤔</a> <a href="#userTesting-marisaheckner" title="User Testing">📓</a></td>
     <td align="center"><a href="https://github.com/bpoldrack"><img src="https://avatars2.githubusercontent.com/u/10498301?v=4" width="100px;" alt="Benjamin Poldrack"/><br /><sub><b>Benjamin Poldrack</b></sub></a><br /><a href="#question-bpoldrack" title="Answering Questions">💬</a> <a href="#ideas-bpoldrack" title="Ideas, Planning, & Feedback">🤔</a> <a href="#example-bpoldrack" title="Examples">💡</a> <a href="#tutorial-bpoldrack" title="Tutorials">✅</a></td>
+    <td align="center"><a href="https://github.com/mheckner"><img src="https://avatars0.githubusercontent.com/u/805685?v=4" width="100px;" alt="Markus Heckner"/><br /><sub><b>Markus Heckner</b></sub></a><br /><a href="https://github.com/datalad-handbook/book/commits?author=mheckner" title="Tests">⚠️</a> <a href="https://github.com/datalad-handbook/book/issues?q=author%3Amheckner" title="Bug reports">🐛</a> <a href="#content-mheckner" title="Content">🖋</a></td>
   </tr>
 </table>
 

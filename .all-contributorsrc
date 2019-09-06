@@ -96,6 +96,17 @@
         "example",
         "tutorial"
       ]
+    },
+    {
+      "login": "mheckner",
+      "name": "Markus Heckner",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/805685?v=4",
+      "profile": "https://github.com/mheckner",
+      "contributions": [
+        "test",
+        "bug",
+        "content"
+      ]
     }
   ],
   "contributorsPerLine": 7,

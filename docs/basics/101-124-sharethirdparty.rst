@@ -54,7 +54,7 @@ available and which special-remote they need, please see this
 .. code-block::
    :emphasize-lines: 7-8, 22, 26, 30, 36
 
-   $ rclone config                                                         127 ↵
+   $ rclone config
     2019/09/06 13:43:58 NOTICE: Config file "/home/adina/.config/rclone/rclone.conf" not found - using defaults
     No remotes found - make a new one
     n) New remote

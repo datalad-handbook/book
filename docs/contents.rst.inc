@@ -113,7 +113,6 @@ Use Cases
    :maxdepth: 1
    :caption: Hands-on real-world applications with step-by-step recipes...
 
-   usecases/datasets
    usecases/reproducible-paper
 
 
@@ -130,3 +129,12 @@ Appendix
 
 * :ref:`genindex`
 * :ref:`search`
+
+..
+
+  stuff that we don't need or show at the moment
+
+.. toctree::
+   :hidden:
+
+   usecases/datasets

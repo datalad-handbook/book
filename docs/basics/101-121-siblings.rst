@@ -1,7 +1,7 @@
 .. _sibling:
 
-Collaboration [1]
------------------
+Networking
+----------
 
 To get a hang on the basics of sharing a dataset,
 you shared your ``DataLad-101`` dataset with your

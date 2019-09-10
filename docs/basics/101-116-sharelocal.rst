@@ -1,7 +1,7 @@
 .. _sharelocal1:
 
-Sharing datasets: Common File systems
--------------------------------------
+Looking without touching
+------------------------
 
 Only now, several weeks into the DataLad-101 course does your room
 mate realize that he has enrolled in the course as well, but hasn't

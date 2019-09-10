@@ -1,7 +1,7 @@
 .. _sharelocal2:
 
-Sharing datasets: Common File systems [2]
------------------------------------------
+Where's Waldo?
+--------------
 
 So far, your room mate and you have created a copy of the ``DataLad-101``
 dataset on the same file system but a different place by installing

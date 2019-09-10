@@ -1,7 +1,7 @@
 .. _text2git:
 
-Content-protection, powered by Git-annex [2]
---------------------------------------------
+Data safety
+-----------
 
 Later in the day, after seeing and solving so many DataLad error messages,
 you fall tired into your

@@ -1,7 +1,7 @@
 .. _symlink:
 
-Secrets of Git-annex: Symlinks and object trees
------------------------------------------------
+Data integrity
+--------------
 
 So far, we mastered quite a number of challenges: Creating and populating a dataset with
 large and small files, modifying content and saving the changes to history, installing

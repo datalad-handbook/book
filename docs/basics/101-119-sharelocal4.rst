@@ -2,8 +2,8 @@
 
 .. _update:
 
-Updating datasets: The basics
------------------------------
+Stay up to date
+---------------
 
 All of what you have seen about sharing dataset was really
 cool, and for the most part also surprisingly intuitive.

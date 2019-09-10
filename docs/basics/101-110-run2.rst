@@ -174,6 +174,156 @@ The tool complains that it is "unable to open" the image, because the "Permissio
 
 We haven't seen anything like this before, and we need to turn to our lecturer for help ...
 
+**Oh crap!** A "permission denied" error? Confused about what we might have
+done wrong, we raise our hand to ask the instructor for help.
+Knowingly, she smiles, and tells you about how DataLad protects content given
+to it:
+
+"Content in your DataLad dataset is protected by :term:`Git-annex` from
+accidental changes" our instructor begins.
+
+"Wait!" we interrupt. "First of, that wasn't accidental. And second, I was told this
+course does not have ``Git-annex-101`` as a prerequisite?"
+
+"Yes, hear me out" she says. "I promise you two different solutions at
+the end of this explanation, and the concept behind this is quite relevant".
+
+DataLad usually gives content to :term:`Git-annex` to store and track.
+Git-annex, let's just say, takes this task *really* seriously. One of its
+features that you have just experienced is that it *locks* content.
+
+If files are *locked down*, their content can't be modified. In principle,
+that's not a bad thing: It could be your late grandma's secret cherry-pie
+recipe, and you don't want to *accidentally* change that.
+Therefore, a file needs to be consciously *unlocked* to apply modifications.
+
+In the attempt to resize the image to 450x450 you tried to overwrite
+``recordings/salt_logo_small.jpg``, a file that was given to DataLad
+and thus protected by Git-annex.
+
+.. index:: ! datalad command; unlock
+
+There is a DataLad command that takes care of unlocking file content,
+and thus making locked files modifiable again: :command:`datalad unlock`
+(:manpage:`datalad-unlock` manual).
+Let us check out what it does:
+
+.. runrecord:: _examples/DL-101-111-101
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ datalad unlock recordings/salt_logo_small.jpg
+
+Well, ``unlock(ok)`` does not sound too bad for a start. As always, we
+feel the urge to run a :command:`datalad status` on this:
+
+.. runrecord:: _examples/DL-101-111-102
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ datalad status
+
+"Ah, don't mind that for now", our instructor says, and with a wink she
+continues: "We'll talk about symlinks and object trees a while later".
+We're not really sure whether that's a good thing, but we have a task to focus
+on. Hastily, you run the command right from the terminal:
+
+.. runrecord:: _examples/DL-101-111-103
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ convert -resize 450x450 recordings/longnow/.datalad/feed_metadata/logo_salt.jpg recordings/salt_logo_small.jpg
+
+Hey, no permission denied error! You note that the instructor still stands
+right next to you. "Sooo... now what do I do to *lock* the file again?" you ask.
+
+"Well... what you just did there was quite suboptimal. Didn't you want to
+use :command:`datalad run`? But, anyway, in order to lock the file again, you would need to
+run a :command:`datalad save`."
+
+.. runrecord:: _examples/DL-101-111-104
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ datalad save -m "resized picture by hand"
+
+"So", you wonder aloud, "whenever I want to modify I need to
+:command:`datalad unlock` it, do the modifications, and then :command:`datalad save` it?"
+
+"Well, this is certainly one way of doing it, and a completely valid workflow
+if you would do that outside of a :command:`datalad run` command.
+But within :command:`datalad run` there is actually a much easier way of doing this.
+Let's use the ``--output`` argument."
+
+:command:`datalad run` *retrieves* everything that is specified as ``--input`` prior to
+command execution, and it *unlocks* everything specified as ``--output`` prior to
+command execution. Therefore, whenever the output of a :command:`datalad run` command already
+exists and is tracked, it should be specified as an argument in
+the ``-o``/``--output`` option.
+
+.. findoutmore:: But what if I have a lot of outputs?
+
+   The use case here is simplistic -- a single file gets modified.
+   But there are commands and tools that create full directories with
+   many files as an output, for example
+   `FSL <https://fsl.fmrib.ox.ac.uk/fsl/fslwiki>`_, a neuro-imaging tool.
+   The easiest way to specify this type of output
+   is the directory name and a :term:`globbing` character, such as
+   ``-o directory/*``
+
+In order to execute :command:`datalad run` with both the ``-i``/``--input`` and ``-o``/``--output``
+flag and see their magic, let's crop the second logo, ``logo_interval.jpg``:
+
+.. runrecord:: _examples/DL-101-111-105
+   :language: console
+   :workdir: dl-101/DataLad-101
+   :emphasize-lines: 14, 19
+   :realcommand: datalad run --input "recordings/longnow/.datalad/feed_metadata/logo_interval.jpg" --output "recordings/interval_logo_small.jpg" "convert -resize 450x450 recordings/longnow/.datalad/feed_metadata/logo_interval.jpg recordings/interval_logo_small.jpg"
+
+   $ datalad run -m "Resize logo for slides" \
+   --input "recordings/longnow/.datalad/feed_metadata/logo_interval.jpg" \
+   --output "recordings/interval_logo_small.jpg" \
+   "convert -resize 450x450 recordings/longnow/.datalad/feed_metadata/logo_interval.jpg recordings/interval_logo_small.jpg"
+
+   # or shorter:
+   $ datalad run -m "Resize logo for slides" \
+   -i "recordings/longnow/.datalad/feed_metadata/logo_interval.jpg" \
+   -o "recordings/interval_logo_small.jpg" \
+   "convert -resize 450x450 recordings/longnow/.datalad/feed_metadata/logo_interval.jpg recordings/interval_logo_small.jpg"
+
+This time, with both ``--input`` and ``--output``
+options specified, DataLad informs about the :command:`datalad get`
+operations it performs prior to the command
+execution, and :command:`datalad run` executes the command successfully.
+It does *not* inform about any :command:`datalad unlock` operation,
+because the output ``recordings/interval_logo_small.jpg`` does not
+exist before the command is run. Should you rerun this command however,
+the summary will include a statement about content unlocking. You will
+see an example of this in the next section.
+
+Note now how many individual commands a :command:`datalad run` saves us:
+:command:`datalad get`, :command:`datalad unlock`, and :command:`datalad save`!
+
+With this last code snippet, you have experienced a full :command:`datalad run` command: commit message,
+input and output definitions (the order in which you give those two options is irrelevant),
+and the command to be executed. Whenever a command takes input or produces output you should specify
+this with the appropriate option.
+
+Make a note of this behavior in your ``notes.txt`` file.
+
+.. runrecord:: _examples/DL-101-111-106
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ cat << EOT >> notes.txt
+   You should specify all files that a command takes as input with an -i/--input flag. These
+   files will be retrieved prior to the command execution. Any content that is modified or
+   produced by the command should be specified with an -o/--output flag. Upon a run or rerun
+   of the command, the contents of these files will get unlocked so that they can be modified.
+
+   EOT
+
+
 
 .. [#f1] In shell programming, commands exit with a specific code that indicates
     whether they failed, and if so, how. Successful commands have the exit code zero. All failures

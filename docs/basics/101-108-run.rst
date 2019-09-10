@@ -1,6 +1,6 @@
 .. _run:
 
-DataLad, Run!
+Keeping track
 -------------
 
 In previous examples, all changes that happened to the dataset or

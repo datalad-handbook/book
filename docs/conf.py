@@ -16,6 +16,7 @@ import os
 import sys
 from pathlib import Path
 import json
+import dataladhandbook_support
 
 # pull out author list from all-contributors spec
 authors = [
@@ -68,7 +69,7 @@ copyright = (u'2019-{} CC-BY-SA').format(current_year)
 # built documents.
 #
 # The short X.Y version.
-version = '0.1'
+version = dataladhandbook_support.__version__
 # The full version, including alpha/beta/rc tags.
 release = version
 

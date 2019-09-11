@@ -15,10 +15,20 @@ SETUP_REQUIRES = ['setuptools >= 30.3.0']
 # This enables setuptools to install wheel on-the-fly
 SETUP_REQUIRES += ['wheel'] if 'bdist_wheel' in sys.argv else []
 
+requires = [
+    'Sphinx>=2',
+    'sphinxcontrib-svg2pdfconverter',
+    'sphinxcontrib-plantuml',
+    'autorunrecord',
+]
+
 if __name__ == '__main__':
     setup(name='dataladhandbook',
           version=versioneer.get_version(),
           cmdclass=versioneer.get_cmdclass(),
           setup_requires=SETUP_REQUIRES,
           packages=find_packages(),
+          platforms='any',
+          include_package_data=True,
+          install_requires=requires,
           )

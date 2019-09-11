@@ -1,6 +1,6 @@
 .. _run3:
 
-Input and Output
+Input and output
 ----------------
 
 In the previous two sections, you created a simple ``.tsv`` file of all
@@ -172,9 +172,8 @@ To establish best-practices, let's specify the input even though it is already p
 A quick glimpse into the error message shows a different error than before:
 The tool complains that it is "unable to open" the image, because the "Permission [is] denied".
 
-We haven't seen anything like this before, and we need to turn to our lecturer for help ...
-
-**Oh crap!** A "permission denied" error? Confused about what we might have
+We haven't seen anything like this before, and we need to turn to our lecturer for help.
+Confused about what we might have
 done wrong, we raise our hand to ask the instructor for help.
 Knowingly, she smiles, and tells you about how DataLad protects content given
 to it:

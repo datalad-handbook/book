@@ -144,7 +144,8 @@ This leads to a few conclusions:
 
 The first is that you shouldn't be worried
 to see cryptic looking symlinks in your repository -- this is how it should
-look. If you are interested in why these paths look so weird, you can check
+look. If you are interested in why these paths look so weird, and what all
+of this has to do with data integrity, you can check
 out the hidden section below.
 
 The second is that it should now be clear to you why the ``.git`` directory
@@ -159,7 +160,7 @@ in certain situations. Later in this book we will have a section on how
 to manage the file system in a datalad dataset (Todo: link).
 
 
-.. findoutmore:: more about paths, checksums, and object trees
+.. findoutmore:: more about paths, checksums, object trees, and data integrity
 
    But why does the target path to the object tree needs to be so cryptic?
    Does someone want to create
@@ -170,8 +171,8 @@ to manage the file system in a datalad dataset (Todo: link).
    Understanding the next section is completely irrelevant for the
    subsequent sections of the book. But it can help to establish trust in that
    your data is safely stored and tracked, and it can get certainly helpful
-   should you be one of those weird people that always want to understand
-   things in depth (those people are great, BTW!). Also, certain file management operations
+   should you be one of those people that always want to understand
+   things in depth. Also, certain file management operations
    can be messy -- for example, when you attempt to move a subdirectory
    (more on this in a dedicated section <link>) it can break symlinks, and
    you need to take appropriate actions to get the dataset back into a clean
@@ -199,11 +200,14 @@ to manage the file system in a datalad dataset (Todo: link).
    will generate the same hash for the same file content, but once file content
    changes, the generated hash will also look differently. If two files are
    turned into identical character strings, the content in these files is thus
-   identical. Therefore, if two have the same symlink, and thus
-   linking the same file in the object-tree, they are identical in content.
+   identical. Therefore, if two files have the same symlink, and thus
+   link the same file in the object-tree, they are identical in content.
    If you have many copies of the same data in your dataset, the object
    tree will contain only one instance of that content, and all copies will
-   symlink to it, thus saving disk space. If you want to read more about the
+   symlink to it, thus saving disk space. But furthermore,
+   the file name also becomes a way of ensuring data integrity. File content
+   can not be changed without Git-annex noticing, because the symlink to the
+   file content will change. If you want to read more about the
    computer science basics about about hashes check out the Wikipedia
    page `here <https://en.wikipedia.org/wiki/Hash_function>`_.
 

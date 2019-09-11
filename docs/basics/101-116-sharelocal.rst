@@ -25,7 +25,8 @@ a server than people can "SSH" into). You might think: "What do I need
 DataLad for, if everyone can already access everything?" However,
 universal, unrestricted access can easily lead to chaos. DataLad can
 help facilitate collaboration without requiring ultimate trust and
-reliability of all participants.
+reliability of all participants. Essentially, with a shared dataset,
+collaborators can look and use your dataset without ever touching it.
 
 To demonstrate how to share a DataLad dataset on a common file system,
 we will pretend that your personal computer
@@ -101,8 +102,7 @@ There are a number of interesting things, and your room mate is the
 first to notice them:
 
 "Hey, can you explain some things to me?", he asks. "This directory
-here ``longnow``, why is it empty?"
-
+here, "``longnow``", why is it empty?"
 True, the subdataset has a directory name but apart from this,
 the ``longnow`` directory appears empty.
 
@@ -111,7 +111,6 @@ appear so weird? They have
 this cryptic path right next to them, and look, if I try to open
 one of them, it fails! Did something go wrong when we installed
 the dataset?" he worries.
-
 Indeed, the PDFs and pictures appear just as they did in the original dataset
 on first sight: They are symlinks pointing to some location in the
 object tree. To reassure your room mate that everything is fine you
@@ -126,7 +125,8 @@ content was not yet retrieved. You begin to explain to your room mate
 how DataLad retrieves only minimal metadata about which files actually
 exist in a dataset upon a :command:`datalad install`. "It's really handy",
 you tell him. "This way you can decide which book you want to read,
-and then retrieve what you need. Note though that the text files
+and then retrieve what you need. Everything that is *annexed* is retrieved
+on demand. Note though that the text files
 contents are present, and the files can be opened -- this is because
 these files are stored in :term:`Git`. So you already have my notes,
 and you can decide for yourself whether you want to ``get`` the books."
@@ -155,7 +155,7 @@ let's query Git-annex where its content is stored:
 
    $ git annex whereis books/TLCL.pdf
 
-Oh, another checksum! This time however not in a symlink...
+Oh, another :term:`shasum`! This time however not in a symlink...
 "That's hard to read -- what is it?" your room mate asks.
 Luckily, there is a human-readable description next to it:
 "course on DataLad-101 on my private Laptop".

@@ -2,7 +2,10 @@
 # -*- coding: utf-8 -*-
 
 import sys
-from setuptools import setup
+from setuptools import (
+    setup,
+    find_packages,
+)
 import versioneer
 
 # Give setuptools a hint to complain if it's too old a version
@@ -17,4 +20,5 @@ if __name__ == '__main__':
           version=versioneer.get_version(),
           cmdclass=versioneer.get_cmdclass(),
           setup_requires=SETUP_REQUIRES,
+          packages=find_packages(),
           )

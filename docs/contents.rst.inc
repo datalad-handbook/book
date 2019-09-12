@@ -80,6 +80,7 @@ Help yourself
    :caption: What to do if things go wrong
 
    basics/101-135-help
+   basics/101-140-filesystem
 
 #############################
 Make the most out of datasets

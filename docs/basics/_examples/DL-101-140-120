@@ -1,0 +1,4 @@
+$ mv TLCL.pdf ../TLCL.pdf
+$ datalad status
+untracked: /home/adina/repos/datalad-handbook/docs/_build/wdirs/dl-101/DataLad-101/TLCL.pdf (symlink)
+  deleted: /home/adina/repos/datalad-handbook/docs/_build/wdirs/dl-101/DataLad-101/books/TLCL.pdf (symlink)

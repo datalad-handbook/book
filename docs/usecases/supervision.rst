@@ -6,7 +6,7 @@ Student supervision in a research project
 This use case will demonstrate a workflow that uses DataLad tools and principles
 to assist in technical aspects of supervising research projects with computational
 components.
-It demonstrates how a DataLad dataset comes with advantages that ease technical
+It demonstrates how a DataLad dataset comes with advantages that mitigate technical
 complexities for trainees and allows high-quality supervision from afar with minimal
 effort and time commitment from busy supervisors. It furthermore serves to log
 undertaken steps, establishes trust in an analysis, and eases collaboration.
@@ -32,7 +32,7 @@ conference talk Megan should give at the end of her stay. Megan is excited about
 responsibility and her project, and can not wait to start.
 
 On the first day, her supervisor spends an hour to show her the office,
-the coffee machine, and the toilets, and they chat about the high-level aspects
+the coffee machine, and they chat about the high-level aspects
 of the projects: Which is the relevant literature, who collected the data,
 how long should the final talk be. Megan has many procedural questions,
 but the hour is over fast, and it is difficult to find time to meet again.
@@ -40,7 +40,7 @@ As it turns out, her supervisor will leave the country for a three month visit
 to a lab in Japan soon, and is very busy preparing this stay and coordinating
 other projects. However, everyone is confident that Megan will be just fine.
 The IT office issues an account on the computational cluster for her,
-and the Post-doc that collected the data points her to the directories in which
+and the postdoc that collected the data points her to the directories in which
 the data is stored.
 
 When she starts, Megan realizes that she has no experience with the
@@ -49,8 +49,8 @@ to write scripts to perform very complex analyses, but needs to invest much
 time to understand basic concepts and relevant commands on the cluster
 because no-one is around to give her a quick introduction.
 When she starts her computations, she accidentally overwrites a data file in the
-data collection, and emails the Post-doc for help. He luckily has a back-up
-of the data and is able to restore the original data sate, but grimly CCs her supervisor
+data collection, and emails the postdoc for help. He luckily has a backup
+of the data and is able to restore the original state, but grimly CCs her supervisor
 in his response email to her. Not being told where to store analysis results in,
 Megan saves the results in a not backed-up ``scratch`` directory. With ambiguous,
 hard-to-make-sense-of emails her supervisor sends at 3am, Megan tries to
@@ -61,14 +61,14 @@ about what she is supposed to do, and saves multiple different analysis scripts
 and results of them inside of the scratch folder.
 
 When her supervisor returns and meets for a project update, he scolds her for the
-bad organization, and the not-backed up storage choice. With a pressing timeline,
+bad organization, and the no-backup storage choice. With a pressing timeline,
 Megan is told to write down her results. She is discouraged when she finally gets
 feedback on them and learns that she interpreted one instruction of her supervisor
 differently from what was meant by it, deeming all of her results irrelevant.
 Not trusting Megan's analyses anymore, her supervisor cancels the talk and has the
-Post-doc take over.
+postdoc take over.
 Megan feels incompetent and regards the stay as a waste of time, her supervisor
-is unhappy about the mis-communication and lack of results, and the Post doc
+is unhappy about the mis-communication and lack of results, and the postdoc
 taking over is unable to comprehend what was done so far and needs to start over new,
 even though all analysis scripts were correct and very relevant for the future
 of the project.
@@ -76,10 +76,10 @@ of the project.
 The DataLad Approach
 ^^^^^^^^^^^^^^^^^^^^
 
-When Megan arrives in the lab, her supervisor and the Post doc that collected the
+When Megan arrives in the lab, her supervisor and the postdoc that collected the
 data take an hour to meet and talk about the upcoming project. To ease the technical
 complexities for a new student like Megan on an unfamiliar computational infrastructure,
-they talk about the yoda principles and basic DataLad commands, and
+they talk about the YODA principles, basic DataLad commands, and
 set up a project dataset for Megan to work in. Inside of this dataset, the original
 data is installed as a subdataset, code is tracked with Git, and the appropriate software
 is provided with a containerized image tracked in the dataset.
@@ -95,7 +95,7 @@ Her supervisor can see how well made Megan's analysis methods are, and has trust
 Megan proudly presents the results of her analysis and leaves with many good experiences
 and lots of new knowledge. Her supervisor is happy about the progress done on the project,
 and the dataset is a standalone "lab-notebook" that anyone can later use as a detailed log
-to make sense of what was done. As an ongoing collaboration, Megan, the Post-doc, and her
+to make sense of what was done. As an ongoing collaboration, Megan, the postdoc, and her
 supervisor write up a paper on the analysis and use the analysis dataset as a subdataset
 in this project.
 
@@ -108,7 +108,7 @@ to technical aspects unrelated to the project, interactive teaching, or in-perso
 Megan in turn is a competent student and eager to learn new things, but she
 doesn't have experience with DataLad, version control, or the computational cluster.
 
-As a first step, therefore, her supervisor and the Post-doc prepare a preconfigured
+As a first step, therefore, her supervisor and the postdoc prepare a preconfigured
 dataset in a dedicated directory everyone involved in the project has access to:
 
 .. code-block:: bash
@@ -118,7 +118,7 @@ dataset in a dedicated directory everyone involved in the project has access to:
 All data that this lab generates or uses is a standalone DataLad dataset that lives
 in a dedicated ``data\`` directory on a server. To give Megan access to the data without
 endangering or potentially modifying the pristine data kept in there, complying to the
-yoda principles, they install the data she is supposed to analyze as a subdataset:
+YODA principles, they install the data she is supposed to analyze as a subdataset:
 
 .. code-block:: bash
 
@@ -135,7 +135,7 @@ yoda principles, they install the data she is supposed to analyze as a subdatase
       install (ok: 1)
       save (ok: 1)
 
-The yoda principle and the data installation created a comprehensive directory
+The YODA principle and the data installation created a comprehensive directory
 structure and configured the ``code\`` directory to be tracked in Git, to allow
 for easy, version-controlled modifications without the necessity to learn about
 locked content in the annex.
@@ -152,7 +152,7 @@ locked content in the annex.
    └── README.md
 
 Within a 20-minute walk-through, Megan learns the general concepts of version-
-control, gets an overview of the yoda principles [#f1]_,
+control, gets an overview of the YODA principles [#f1]_,
 configures her Git identity with the help of her supervisor, and is
 given an introduction to the most important DataLad commands relevant to her,
 :command:`datalad save` [#f2]_, :command:`datalad containers-run` [#f3]_,
@@ -183,7 +183,7 @@ better been split up into separate commits. But from the very beginning she is
 able to version control her progress, and she gets more and more proficient as
 the project develops.
 
-Knowing the three yoda principles gives her clear and easy-to-follow guidelines
+Knowing the YODA principles gives her clear and easy-to-follow guidelines
 on how to work. Her scripts are producing results in dedicated ``output/`` directories
 and are executed with :command:`datalad containers-run` to capture the provenance of how
 which result came to be with which software. These guidelines are not complex, and yet
@@ -230,7 +230,7 @@ created for collaborative paper-writing on the analysis:
 
 Even as Megan returns to her home institution, they can write up the paper
 on her analysis collaboratively, and her co-authors have a detailed research log
-of the project with the dataset's history.
+of the project within the dataset's history.
 
 In summary, DataLad can help to effectively manage student supervision in computational
 projects. It requires minimal effort, but comes with great benefit:
@@ -257,7 +257,7 @@ projects. It requires minimal effort, but comes with great benefit:
 
 .. rubric:: Footnotes
 
-.. [#f1] Find out more about the yoda principles in section :ref:`yoda`
+.. [#f1] Find out more about the YODA principles in section :ref:`yoda`
 .. [#f2] Find out more about datalad save in section :ref:`modify`
 .. [#f3] Find out more about the ``datalad containers`` extension in section TODO:link once it exists
 .. [#f4] Find out more about the ``datalad rerun`` command in section :ref:`run2`

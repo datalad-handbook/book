@@ -12,28 +12,17 @@ Introduction
    intro/howto
 
 
-#####################
-Starting from scratch
-#####################
+################
+DataLad datasets
+################
 
 .. toctree::
    :maxdepth: 1
-   :caption: The bare necessities
+   :caption: Exploring DataLad's core data structure
 
    basics/101-101-create
    basics/101-102-populate
    basics/101-103-modify
-   basics/101-104-summary
-
-
-###################
-Basic dataset magic
-###################
-
-.. toctree::
-   :maxdepth: 1
-   :caption: A closer look at datasets
-
    basics/101-105-install
    basics/101-106-nesting
    basics/101-107-summary
@@ -50,14 +39,13 @@ Datalad, Run!
    basics/101-108-run
    basics/101-109-rerun
    basics/101-110-run2
-   basics/101-111-run3
    basics/101-112-run4
    basics/101-113-summary
 
 
-###################
-Basics on Git-annex
-###################
+#########################
+Under the hood: Git-annex
+#########################
 
 .. toctree::
    :maxdepth: 1
@@ -66,9 +54,9 @@ Basics on Git-annex
    basics/101-114-txt2git
    basics/101-115-symlinks
 
-#####################
-Sharing a dataset [1]
-#####################
+#############
+Collaboration
+#############
 
 .. toctree::
    :maxdepth: 1
@@ -78,8 +66,8 @@ Sharing a dataset [1]
    basics/101-117-sharelocal2
    basics/101-118-sharelocal3
    basics/101-119-sharelocal4
-   basics/101-120-summary
    basics/101-121-siblings
+   basics/101-120-summary
    basics/101-125-config
    basics/101-126-config2
 
@@ -93,9 +81,9 @@ Help yourself
 
    basics/101-135-help
 
-#########################
-Data analyses in datasets
-#########################
+#############################
+Make the most out of datasets
+#############################
 
 .. toctree::
    :maxdepth: 1

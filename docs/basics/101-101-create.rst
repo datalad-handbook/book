@@ -91,18 +91,6 @@ Even though these commits were produced by DataLad,
 in most other cases, you will have to create the commit and
 an informative commit message yourself.
 
-As already noted, any files you ``save`` in this dataset, and all modifications
-to these files that you ``save``, are tracked in this history.
-Importantly, this file tracking works
-regardless of the size of the files -- a DataLad dataset could be
-your private music or movie collection with single files being many GB in size.
-This is one aspect that distinguishes DataLad from many other
-version control tools, among them Git.
-Large content is tracked in an *annex* that is automatically
-created and handled by DataLad. Whether text files or larger files change,
-all of these changes can be written to your DataLad datasets history.
-
-
 .. gitusernote::
 
    :command:`datalad create` uses :command:`git init` and :command:`git-annex init`. Therefore,

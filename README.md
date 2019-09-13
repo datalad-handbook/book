@@ -12,7 +12,12 @@ You do not need to be a programmer, computer scientist, or Linux-crank. If you h
 
 ## Contributing
 
-Contributions in any form - pull requests, issues, content requests/ideas, ... are always welcome. If you are using the handbook and find that something does not work, please [let us know](https://github.com/datalad-handbook/book/issues/new). Likewise, if you are using DataLad for your individual project, consider contributing by telling us about your use-case. You can find out more on how to contribute [here](http://handbook.datalad.org/en/latest/contributing.html).
+Contributions in any form - pull requests, issues, content requests/ideas, ... are always welcome.
+If you are using the handbook and find that something does not work,
+please [let us know](https://github.com/datalad-handbook/book/issues/new).
+Likewise, if you are using DataLad for your individual project, consider contributing by telling us about your use-case.
+You can find out more on how to contribute [here](http://handbook.datalad.org/en/latest/contributing.html),
+and a list of all contributors so far below, in [CONTRIBUTORS.md](CONTRIBUTORS.md), and in [.zenodo.json](.zenodo.json).
 
 ## License
 

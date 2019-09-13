@@ -87,8 +87,8 @@ as any content of a dataset is tracked and its precise state is recorded,
 this is a powerful method to specify and later resolve data dependencies,
 and that including the dataset as a standalone data component will it also
 make it easier to keep his analysis organized and share it later.
-The dataset that Bob wants to work with is structural data from the
-`studyforrest project <http://studyforrest.org/>`_, a public brain imaging
+The dataset that Bob wants to work with is structural brain imaging data from the
+`studyforrest project <http://studyforrest.org/>`_, a public
 data resource that the original authors share as a DataLad dataset through
 :term:`Github`. This means that Bob can simply install the relevant dataset from this
 service and into his own dataset. To do that, he installs it as a subdataset

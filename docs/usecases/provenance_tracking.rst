@@ -158,12 +158,25 @@ discard the change, using standard Git tools [#f3]_.
 
    $ git reset --hard HEAD~1
 
-He knows that within a DataLad dataset, he can also rerun multiple commands
-with ``--since``  and ``--onto`` to specify where to start rerunning from and
-up to which point.
-When both arguments are set to empty strings, it means
+He knows that within a DataLad dataset, he can also rerun *a range*
+of commands with the ``--since``  flag, and even specify alternative
+starting points for rerunning them with the ``--onto`` flag. Every
+command from commits reachable from the specified checksum until
+``--since`` (but not including ``--since``) will be re-executed.
+For example, ``datalad rerun --since=HEAD~5`` will re-execute any
+commands in the last five commits.
+``--onto`` indicates where to start rerunning the commands from.
+The default is ``HEAD``, but anything other than HEAD will be
+checked out prior to execution, such that re-execution happens in
+a detached HEAD state, or checked out out on the new branch specified
+by the ``--branch`` flag.
+If ``--since`` is an empty string, it is set to rerun every command from the
+first commit that contains a recorded command. If ``--onto`` is an empty
+string, re-execution is performed on top to the parent of the first
+run commit in the revision list specified with ``--since``.
+When both arguments are set to empty strings, it therefore means
 "rerun all commands with HEAD at the parent of the first commit a command".
-In other words, he can "replay" all the history for his artproject in a single
+In other words, Rob can "replay" all the history for his artproject in a single
 command. Using the ``--branch`` option of :command:`datalad rerun`,
 he does it on a new branch he names ``replay``:
 

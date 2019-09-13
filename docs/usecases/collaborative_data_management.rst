@@ -57,30 +57,22 @@ Bob creates a DataLad dataset for his analysis project to live in.
 Because he knows about the YODA principles, he configures the dataset
 to be a YODA dataset right at the time of creation:
 
-.. code-block:: bash
+.. runrecord:: _examples/collab-101
+   :workdir: usecases/collab
+   :language: console
 
-    $ datalad create -c yoda --description "my 1st phd project on work computer" myanalysis
-    [INFO   ] Creating a new annex repo at /home/user/bob/myanalysis
-                                                                                    [INFO   ] Running procedure cfg_yoda
-    [INFO   ] == Command start (output follows) =====
-    [INFO   ] == Command exit (modification check follows) =====
-    create(ok): /home/user/bob/myanalysis (dataset)
-
+   $ datalad create -c yoda --description "my 1st phd project on work computer" myanalysis
 
 After creation, there already is a ``code/`` directory, and all of its
 inputs are version-controlled by :term:`Git` instead of :term:`Git-annex`
 thanks to the yoda procedure:
 
-.. code-block:: bash
+.. runrecord:: _examples/collab-102
+   :workdir: usecases/collab
+   :language: console
 
-
-    $ cd myanalysis
-    $ tree
-    .
-    ├── CHANGELOG.md
-    ├── code
-    │   └── README.md
-    └── README.md
+   $ cd myanalysis
+   $ tree
 
 Bob knows that a DataLad dataset can contain other datasets. He also knows that
 as any content of a dataset is tracked and its precise state is recorded,
@@ -95,17 +87,11 @@ service and into his own dataset. To do that, he installs it as a subdataset
 into a directory he calls ``src/`` as he wants to make it obvious which parts
 of his analysis steps and code require 3rd party data:
 
-.. code-block:: bash
+.. runrecord:: _examples/collab-103
+   :workdir: usecases/collab/myanalysis
+   :language: console
 
-    datalad install -d . --source https://github.com/psychoinformatics-de/studyforrest-data-structural.git src/forrest_structural
-    [INFO   ] Cloning https://github.com/psychoinformatics-de/studyforrest-data-structural.git [1 other candidates] into '/home/user/bob/myanalysis/src/forrest_structural'
-    [INFO   ]   Remote origin not usable by git-annex; setting annex-ignore
-    install(ok): src/forrest_structural (dataset)
-    action summary:
-      add (ok: 1)
-      install (ok: 1)
-      save (ok: 1)
-
+   $ datalad install -d . --source https://github.com/psychoinformatics-de/studyforrest-data-structural.git src/forrest_structural
 
 Now that he executed this command, Bob has access to the entire dataset
 content, and the precise version of the dataset got linked to his top-level dataset
@@ -119,42 +105,37 @@ command and therefore does not need to care about getting the data yet. Instead,
 he focuses to write his script ``code/run_analysis.sh``.
 To save this progress, he runs frequent :command:`datalad save` commands:
 
-.. code-block:: bash
+.. runrecord:: _examples/collab-104
+   :workdir: usecases/collab/myanalysis
+   :language: console
+   :realcommand: echo "#! /usr/bin/env python" > code/run_analysis.py && datalad save -m "First steps: start analysis script" code/run_analysis.py
 
-    datalad save -m "First steps: start analysis script" code/run_analysis.py
-    add(ok): code/run_analysis.sh (file)
-    save(ok): . (dataset)
-    action summary:
-      add (ok: 1)
-      save (ok: 1)
+   $ datalad save -m "First steps: start analysis script" code/run_analysis.py
 
 Once Bob's analysis is finished, he can wrap it into :command:`datalad run`.
 To ease execution, he first makes his script executable by adding a :term:`shebang`
 that specifies Python as an interpreter at the start of his script, and giving it
 executable permissions:
 
-.. code-block:: bash
+.. runrecord:: _examples/collab-105
+   :workdir: usecases/collab/myanalysis
+   :language: console
 
-   chmod +x code/run_analysis.py
+   $ chmod +x code/run_analysis.py
+   $ datalad save -m "make script executable"
 
 Importantly, prior to a :command:`datalad run`, he specifies the necessary
 inputs such that DataLad can take care of the data retrieval for him:
 
-.. code-block:: bash
+.. runrecord:: _examples/collab-106
+   :workdir: usecases/collab/myanalysis
+   :language: console
+   :realcommand: datalad run -m "run first part of analysis workflow" --input "src/forrest_structural/sub-01/anat/sub-01_T1w.nii.gz" --output results.txt "code/run_analysis.py"
 
    $ datalad run -m "run first part of analysis workflow" \
-     --input "src/forrest_structural" --output results.txt "code/run_analysis.py" \
-
-   [INFO   ] Making sure inputs are available (this may take some time)
-   sub-01/anat .. _T1w.nii.gz:  12%|[...]    | 1.68M/13.7M [00:20<04:04, 49.1kB/s]
-   [...]
-   get(ok): src/forrest_structural/ [...] [from mddatasrc...; from mddatasrc...]
-   [INFO   ] == Command start (output follows) =====
-   [INFO   ] == Command exit (modification check follows) =====
-   action summary:
-      get (ok: [...])
-      save (ok: 1)
-
+     --input "src/forrest_structural" \
+     --output results.txt \
+     "code/run_analysis.py"
 
 This will take care of retrieving the data, running Bobs script, and
 saving all outputs.
@@ -166,29 +147,44 @@ the directory is configured to have permissions that allow for
 read-access for all lab-members, so Alice can obtain Bob’s work directly
 from his home directory:
 
-.. code-block:: bash
+.. runrecord:: _examples/collab-107
+   :workdir: usecases/collab
+   :language: console
+   :realcommand: echo "$ datalad install -r --source "$BOBS_HOME/myanalysis" bobs_analysis" && datalad install -r --source "myanalysis" bobs_analysis
 
-   # Alice runs...
-   $ datalad install -r --source "$BOBS_HOME/myanalysis" bobs_analysis
+.. runrecord:: _examples/collab-108
+   :workdir: usecases/collab
+   :language: console
+   :realcommand: cd bobs_analysis && echo "some contribution" >> code/run_analysis.py && datalad save
+
    $ cd bobs_analysis
+   # ... make contributions, and save them
+   $ [...]
+   $ datalad save -m "your welcome, bob"
+
 
 Alice can get the studyforrest data Bob used as an input as well as the
 result file, but she can also rerun his analysis by using :command:`datalad rerun`.
 She goes ahead and fixes Bobs script, and saves the changes. To integrate her
 changes into his dataset, Bob registers Alice's dataset as a sibling:
 
-.. code-block:: bash
+.. runrecord:: _examples/collab-109
+   :workdir: usecases/collab/myanalysis
+   :language: console
+   :realcommand: echo "$ datalad siblings add -s alice --url '$ALICES_HOME/bobs_analysis'" && datalad siblings add -s alice --url '../bobs_analysis'
 
-    # Bob runs...
-    $ cd ~/myanalysis
-    $ datalad siblings add -s alice --url "$ALICES_HOME/bobs_analysis"
+   #in Bobs home directory
 
 Afterwards, he can get her changes with a :command:`datalad update --merge`
 command:
 
-.. code-block:: bash
 
-    datalad update -s alice --merge
+.. runrecord:: _examples/collab-110
+   :workdir: usecases/collab/myanalysis
+   :language: console
+
+   $ datalad update -s alice --merge
+
 
 Finally, when Bob is ready to share his results with the world or a remote
 collaborator, he makes his dataset available by uploading them to a webserver
@@ -198,14 +194,14 @@ which the dataset can be published and later also updated.
 .. code-block:: bash
 
     # this generated sibling for the dataset and all subdatasets
-    datalad create-sibling --recursive -s public "$SERVER_URL"
+    $ datalad create-sibling --recursive -s public "$SERVER_URL"
 
 Once the remote sibling is created and registered under the name “public”,
 Bob can publish his version to it.
 
 .. code-block:: bash
 
-    datalad publish -r --to public .
+    $ datalad publish -r --to public .
 
 This workflow allowed Bob to obtain data, collaborate with Alice, and publish
 or share his dataset with others easily -- he cannot wait for his next project,

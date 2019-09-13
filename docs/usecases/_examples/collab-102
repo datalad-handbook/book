@@ -1,0 +1,9 @@
+$ cd myanalysis
+$ tree
+.
+├── CHANGELOG.md
+├── code
+│   └── README.md
+└── README.md
+
+1 directory, 3 files

@@ -1,0 +1,6 @@
+$ datalad save -m "First steps: start analysis script" code/run_analysis.py
+add(ok): code/run_analysis.py (file)
+save(ok): . (dataset)
+action summary:
+  add (ok: 1)
+  save (ok: 1)

@@ -1,0 +1,2 @@
+$ git reset --hard HEAD~1
+HEAD is now at d4bfb43 Add note on adding siblings

@@ -95,7 +95,19 @@ with the ``-m`` option:
    and you can edit
    the commit message. Careful -- the default editor might be :term:`vim`!
 
-Let's see how this shows up in the history of the dataset with :command:`git log`.
+
+As already noted, any files you ``save`` in this dataset, and all modifications
+to these files that you ``save``, are tracked in this history.
+Importantly, this file tracking works
+regardless of the size of the files -- a DataLad dataset could be
+your private music or movie collection with single files being many GB in size.
+This is one aspect that distinguishes DataLad from many other
+version control tools, among them Git.
+Large content is tracked in an *annex* that is automatically
+created and handled by DataLad. Whether text files or larger files change,
+all of these changes can be written to your DataLad datasets history.
+
+Let's see how the saved content shows up in the history of the dataset with :command:`git log`.
 In order to get a bit more details, we add the ``-p`` flag (leave the git log
 by typing ``q``, navigate with up and down arrow keys):
 

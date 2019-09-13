@@ -5,7 +5,8 @@ Install datasets
 
 So far, we have created a ``DataLad-101`` course dataset. We saved some additional readings
 into the dataset, and have carefully made and saved notes on the DataLad
-commands we discovered.
+commands we discovered. Up to this point, we therefore know the typical, *local*
+workflow to create and populate a dataset from scratch.
 
 But we've been told that with DataLad we could very easily get vast amounts of data to our
 computer. Rumor has it that this would be only a single command in the terminal!
@@ -17,12 +18,9 @@ DataLad datasets from paths, URLs, or open-data collections." our lecturer begin
 created by anyone, without a need for additional software. Your own Datasets can be
 installed by others, should you want that, for example. Therefore, not only accessing
 data becomes fast and easy, but also *sharing*."
-
 "That's so cool!", you think. "Exam preparation will be a piece of cake if all of us
 can share our mid-term and final projects easily!"
-
 "But today, let's only focus on how to install a dataset", she continuous.
-
 "Damn it! Can't we have longer lectures?", you think and set alarms to all of the
 upcoming lecture dates in your calendar.
 There is so much exciting stuff to come, you can't miss a single one.

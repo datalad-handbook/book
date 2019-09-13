@@ -444,7 +444,7 @@ Any questions can be asked by `opening an issue <https://github.com/psychoinform
 
 .. rubric:: Footnotes
 
-.. [#f1] You can read up on the YODA principles again in section <TODO>
+.. [#f1] You can read up on the YODA principles again in section :ref:`yoda`
 
 .. [#f2] You can read up on installing datasets as subdatasets again in section :ref:`installds`.
 

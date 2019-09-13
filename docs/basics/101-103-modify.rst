@@ -12,9 +12,49 @@ called ``notes.txt``. This will contain all of the notes that you take
 throughout the course.
 
 Pick an editor of your choice and write a short summary of how to create
-a DataLad dataset from scratch. Below is one way to do it, using the
-``cat`` command that comes with any Unix system, and a simple redirection
-with ``>``. Running the command below will create ``notes.txt`` in the
+a DataLad dataset from scratch. The code below contains the note within
+the start and end part of a `here document <https://en.wikipedia.org/wiki/Here_document>`_:
+
+  "One can create a new dataset with 'datalad create
+  [--description] PATH'. The dataset is created empty".
+
+This is meant to be a note you would take in an educational course.
+You can take this note and write it to a file with an editor.
+But you can also copy the full code snippet, starting
+from ``cat << EOT > notes.txt``, including the ``EOT`` in the last line, in your
+terminal to write this note into ``notes.txt``.
+
+.. findoutmore:: How does a here-document work?
+
+   The code snippet below makes sure to write a line of text into a
+   file (that so far does not exist) called ``notes.txt``.
+
+   To do this, the content of the "document" is wrapped in between
+   *delimiting identifiers*. Here, these identifiers are *EOT* (short
+   for "end of text"), but naming is arbitrary as long as the two identifiers
+   are identical. The first "EOT" identifies the start of the text stream, and
+   the second "EOT" terminates the text stream.
+
+   The characters ``<<`` redirect the text stream into
+   `"standard input" (stdin) <https://en.wikipedia.org/wiki/Standard_streams#Standard_input_(stdin)>`_,
+   the standard location that provides the *input* for a command.
+   Thus, the text stream becomes the input for the
+   `cat command <https://en.wikipedia.org/wiki/Cat_(Unix)>`_, which takes
+   the input and writes it to
+   `"standard output" (stdout) <https://en.wikipedia.org/wiki/Standard_streams#Standard_output_(stdout)>`_.
+
+   Lastly, the ``>`` character takes ``stdout`` can creates a new file
+   ``notes.txt`` with ``stdout`` as its contents.
+
+   It might seem like a slightly convoluted way to create a text file with
+   a simple note in it. But it allows to write notes from the terminal, enabling
+   this book to create commands you can execute with nothing other than your terminal.
+   You are free to copy-paste the snippets with the here-documents,
+   or find a workflow that suites you better. The only thing important is that
+   you create and modify a ``.txt`` file over the course of the Basics part of this
+   handbook.
+
+Running the command below will create ``notes.txt`` in the
 root of your ``DataLad-101`` dataset:
 
 .. runrecord:: _examples/DL-101-103-101
@@ -81,9 +121,9 @@ and save the file:
 
 Let's take another look into our history to see the development of this file.
 We're using :command:`git log -p` to see the difference to the previous state of a
-file within each commit. (Note: the output below is an excerpt, if you enter
-the git log, your history will be longer. You can get out of ``git log`` by pressing
-``q``.)
+file within each commit. Note: the output below is an excerpt, if you enter
+the git log, your history will be longer, and thus opened in a
+`pager <https://en.wikipedia.org/wiki/Terminal_pager>`_. You can get out of it by pressing ``q``.
 
 .. runrecord:: _examples/DL-101-103-107
    :language: console

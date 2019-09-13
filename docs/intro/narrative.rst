@@ -109,6 +109,51 @@ an additional chapter if you believe it's a worthwhile addition, or
 with a :command:`datalad` tag if you need help.
 
 
+What you will learn in this book
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This handbook will teach you simple and yet advanced principles of data
+management for reproducible, comprehensible, transparent, and
+`FAIR <https://www.go-fair.org/fair-principles/>`_ data
+projects. It does so with hands-on tool use of DataLad and its
+underlying software, blended with clear explanations of relevant
+theoretical backgrounds whenever necessary, and by demonstrating
+organizational and procedural guidelines and standards for data
+related projects on concrete examples.
+
+You will learn how to create, consume, structure, share, publish, and use
+*DataLad datasets*: modular, reusable components that can be version-controlled,
+linked, and that are able to capture and track full provenance of their
+contents, if used correctly.
+
+At the end of the ``Basics`` section, these are some of the main
+things you will know how to do, and understand why doing them is useful:
+
+- **Version-control** data objects, regardless of size, keep track of
+  and **update** (from) their sources and shared copies, and capture the
+  **provenance** of all data objects whether you consume them from any source
+  or create them yourself.
+
+- **Build up complete projects** with data as independent, version-controlled,
+  provenance-tracked, and linked DataLad dataset(s) that allow **distribution**,
+  modular **reuse**, and are **transparent** both in their structure and their
+  development to their current and future states.
+
+- **Bind** modular components into complete data analysis projects, and comply
+  to procedural and organizational principles that will help to create transparent
+  and comprehensible projects to ease **collaboration** and **reproducibility**.
+
+- **Share** complete data objects, version-controlled as a whole, but including
+  modular components such as data in a way that preserves the history,
+  provenance, and linkage of its components.
+
+At the end of this handbook, you will find it easy to create, build up, and
+share intuitively structured and version-controlled data projects that
+fulfill high standards for reproducibility and FAIRness. You are able to
+decide for yourself into how much of the DataLad world you want to dive in
+based on your individual use cases, and with every section you will learn
+more about state-of-the-art data management.
+
 The storyline
 ^^^^^^^^^^^^^
 

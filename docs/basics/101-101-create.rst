@@ -67,7 +67,7 @@ to as the history of a dataset.
 
 This history is almost as small as it can be at the current state, but let's take
 a look at it. For looking at the history, the code examples will use :command:`git log`,
-a built-in git command [#f1]_.
+a built-in git command [#f1]_. Your git log *might* be opened in a `terminal pager <https://en.wikipedia.org/wiki/Terminal_pager>`_ that lets you scroll up and down with your arrow keys, but not enter any more commands. If this happens, you can get out of git log by pressing q.
 
 .. runrecord:: _examples/DL-101-101-103
    :language: console
@@ -90,18 +90,6 @@ in Git (but more on this later).
 Even though these commits were produced by DataLad,
 in most other cases, you will have to create the commit and
 an informative commit message yourself.
-
-As already noted, any files you ``save`` in this dataset, and all modifications
-to these files that you ``save``, are tracked in this history.
-Importantly, this file tracking works
-regardless of the size of the files -- a DataLad dataset could be
-your private music or movie collection with single files being many GB in size.
-This is one aspect that distinguishes DataLad from many other
-version control tools, among them Git.
-Large content is tracked in an *annex* that is automatically
-created and handled by DataLad. Whether text files or larger files change,
-all of these changes can be written to your DataLad datasets history.
-
 
 .. gitusernote::
 

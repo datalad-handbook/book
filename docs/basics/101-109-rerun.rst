@@ -83,7 +83,7 @@ understands) as an argument for the
 :command:`datalad rerun` command (:manpage:`datalad-rerun` manual)! That's it!",
 he says happily.
 
-So you go ahead and find the commit shasum in your history:
+So you go ahead and find the commit :term:`shasum` in your history:
 
 .. runrecord:: _examples/DL-101-108-113
    :language: console
@@ -195,7 +195,8 @@ habit to record the execution of scripts by plugging it into :command:`datalad r
 This very basic example of a :command:`datalad run` is as simple as it can get, but it
 is already
 convenient from a memory-load perspective: Now you don't need to
-remember the commands or scripts involved in creating an output.
+remember the commands or scripts involved in creating an output. DataLad kept track
+of what you did, and you can instruct it to just "``rerun``" it.
 Also, incidentally, we have generated :term:`provenance` information. It is
 now recorded in the history of the dataset how the output ``podcasts.tsv`` came
 into existence.

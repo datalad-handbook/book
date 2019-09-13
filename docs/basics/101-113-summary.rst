@@ -3,12 +3,13 @@
 Summary
 -------
 
-In the last five sections, we demonstrated how to create a proper :command:`datalad run`
+In the last four sections, we demonstrated how to create a proper :command:`datalad run`
 command, and discovered the concept of *locked* content.
 
 * :command:`datalad run` records and saves the changes a command makes in a dataset. That means
   that modifications to existing content or new content is associated with a specific command
-  and saved to the dataset's history.
+  and saved to the dataset's history. Essentially, :command:`datalad run` helps you to keep
+  track of what you do in your dataset.
 
 * A :command:`datalad run` command generates a ``run record`` in the commit. This :term:`run record` can be used
   by datalad to re-execute a command with :command:`datalad rerun SHASUM`, where SHASUM is the
@@ -27,7 +28,8 @@ command, and discovered the concept of *locked* content.
   execution. Anything specified as ``output`` will be ``unlocked`` prior to modifications.
 
 * Getting and unlocking content is not only convenient for yourself, but enormously helpful
-  for anyone you share your dataset with.
+  for anyone you share your dataset with, but this will be demonstrated in an upcoming section
+  in detail.
 
 * To execute a :command:`datalad run` or :command:`datalad rerun`, a :command:`datalad status`
   either needs to report that the dataset has no uncommitted changes (the dataset state

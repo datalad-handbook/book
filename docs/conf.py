@@ -14,7 +14,16 @@
 import datetime
 import os
 import sys
+from pathlib import Path
+import json
+import dataladhandbook_support
 
+# pull out author list from all-contributors spec
+authors = [
+    c['name'] for c in json.load(
+        (Path(__file__).parent.parent / '.all-contributorsrc').open()).get(
+            'contributors', [])
+]
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
@@ -60,7 +69,7 @@ copyright = (u'2019-{} CC-BY-SA').format(current_year)
 # built documents.
 #
 # The short X.Y version.
-version = '0.1'
+version = dataladhandbook_support.__version__
 # The full version, including alpha/beta/rc tags.
 release = version
 
@@ -220,7 +229,7 @@ latex_documents = [
       'index',
       'dataladhandbook.tex',
       u'The DataLad Handbook',
-      u'Adina~S.~Wagner \\and Laura~K.~Waite \\and Michael~Hanke',
+      u' \\and '.join(a.replace(' ', '~') for a in authors),
       'manual'),
 ]
 

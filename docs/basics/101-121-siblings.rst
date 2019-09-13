@@ -1,7 +1,7 @@
 .. _sibling:
 
-Collaboration [1]
------------------
+Networking
+----------
 
 To get a hang on the basics of sharing a dataset,
 you shared your ``DataLad-101`` dataset with your
@@ -28,6 +28,8 @@ Because he found this very helpful in understanding dataset
 nesting concepts, he decided to download the ``shell`` script
 that was `used to generate this example <https://raw.githubusercontent.com/datalad/datalad.org/7e8e39b1f08d0a54ab521586f27ee918b4441d69/content/asciicast/seamless_nested_repos.sh>`_
 from Github, and saves it in the ``code/`` directory.
+
+.. index:: ! datalad command; download-url
 
 He does it using the datalad command :command:`datalad download-url`
 (:manpage:`datalad-download-url` manual)
@@ -77,7 +79,7 @@ His dataset evolved.
 
 So how do we link back from the copy of the dataset to its
 origin, such that your room mate's changes can be included in
-your dataset? How to we let the original dataset "know" about
+your dataset? How do we let the original dataset "know" about
 this copy your room mate has?
 Do we need to install the installed dataset of our room mate
 as a copy again?
@@ -245,7 +247,7 @@ you made in your own dataset in the previous section.
 Cool! So now that you know what the changes are that your room mate
 made, you can safely :command:`datalad update --merge` them to integrate
 them into your dataset. In technical terms you will
-*merge the branch remotes/roommate/master into master*.
+"*merge the branch remotes/roommate/master into master*".
 But the details of this will be stated in a standalone section later.
 
 Note that the fact that your room mate does not have the note

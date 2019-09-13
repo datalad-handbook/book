@@ -1,6 +1,6 @@
 .. _install:
 
-Installation and Configuration
+Installation and configuration
 ------------------------------
 
 Install DataLad

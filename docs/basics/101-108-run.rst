@@ -1,6 +1,6 @@
 .. _run:
 
-DataLad, Run!
+Keeping track
 -------------
 
 In previous examples, all changes that happened to the dataset or
@@ -197,3 +197,7 @@ command as before, and check whether anything in your log changes:
 The most recent commit is still the :command:`datalad run` command from before,
 and there was no second :command:`datalad run` commit created.
 
+The :command:`datalad run` can therefore help you to keep track of what you are doing
+in a dataset. The next sections will demonstrate how to make use of this information,
+and also how to extend the command with additional arguments that will prove to
+be helpful over the course of this chapter.

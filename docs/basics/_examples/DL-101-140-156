@@ -1,0 +1,4 @@
+$ git reset HEAD~1
+Unstaged changes after reset:
+M	.gitmodules
+D	recordings/longnow

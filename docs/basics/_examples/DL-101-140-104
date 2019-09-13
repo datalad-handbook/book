@@ -1,0 +1,11 @@
+$ git log -1 -p
+commit b66d5a4b616672f0a8f7a4a75b5f467fb22a508a
+Author: Adina Wagner <adina.wagner@t-online.de>
+Date:   Mon Aug 19 16:55:13 2019 +0200
+
+    rename the book
+
+diff --git a/books/TLCL.pdf b/books/The_Linux_Command_Line.pdf
+similarity index 100%
+rename from books/TLCL.pdf
+rename to books/The_Linux_Command_Line.pdf

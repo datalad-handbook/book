@@ -77,12 +77,14 @@
     },
     {
       "login": "marisaheckner",
-      "name": "marisaheckner",
+      "name": "Marisa Heckner",
       "avatar_url": "https://avatars2.githubusercontent.com/u/52243533?v=4",
       "profile": "https://github.com/marisaheckner",
       "contributions": [
         "ideas",
-        "userTesting"
+        "userTesting",
+        "bug",
+        "content"
       ]
     },
     {
@@ -95,6 +97,15 @@
         "ideas",
         "example",
         "tutorial"
+      ]
+    },
+    {
+      "login": "yarikoptic",
+      "name": "Yaroslav Halchenko",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/39889?v=4",
+      "profile": "http://www.onerussian.com",
+      "contributions": [
+        "review"
       ]
     }
   ],

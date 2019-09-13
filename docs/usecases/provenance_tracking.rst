@@ -118,7 +118,7 @@ commands.
     $ datalad run -m "extract pimpernel" \
      --input "sources/flowers.jpg" \
      --output "pimpernel.jpg" \
-     convert -extract 1522x1522+1470+1470 sources/flowers.jpg pimpernel.jpg
+     "convert -extract 1522x1522+1470+1470 sources/flowers.jpg pimpernel.jpg"
 
      [INFO   ] Making sure inputs are available (this may take some time)
      [INFO   ] == Command start (output follows) =====
@@ -173,7 +173,7 @@ be to displace pixels of an image by a random amount to blur the image:
 
 Because he is not completely satisfied with the first random pixel displacement,
 he decides to retry the operation. Because everything was wrapped in :command:`datalad run`,
-he can rerun the command. The command will produce a commit, because the displacement is
+he can rerun the command. Rerunning the command will produce a commit, because the displacement is
 random and the output file changes slightly from its previous version.
 
 
@@ -290,4 +290,4 @@ again and remembers this small project fondly.
 .. [#f2] If you want to learn more about :command:`datalad run`, read on from
          section :ref:`run`.
 .. [#f3] Find out more about working with the history of a dataset with Git in
-         section <yettolink>
+         section :ref:`filesystem`

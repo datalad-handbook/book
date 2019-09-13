@@ -14,19 +14,23 @@ But figuring out which configurations are useful and how
 to apply them are also not the easiest tasks. Therefore,
 some clever people decided to assist with
 these tasks, and created pre-configured *procedures*
-that can be shipped within DataLad or its extensions,
-lie on a system, or come within datasets, and process
-datasets in a particular way.
+that process datasets in a particular way.
+These extensions can be shipped within DataLad or its extensions,
+lie on a system, or can be shared together with datasets.
 
 One of such procedures is the ``text2git`` configuration.
-Let's demystify what this exactly is: The procedure is
-nothing more than a simple script that writes the relevant
-configuration (``annex_largefiles = '(not(mimetype=text/*))'``)
-to the ``.gitattributes`` file of a dataset and saves this
-modification with the commit message
-"Instruct annex to add text files to Git". This particular
-procedure lives in a script called ``cfg_text2git`` in the
-sourcecode of DataLad. The amount of code
+In order to learn about procedures in general, let's demystify
+what the ``text2git`` procedure exactly is: It is
+nothing more than a simple script that
+
+- writes the relevant configuration (``annex_largefiles = '(not(mimetype=text/*))'``,
+  i.e. "Don't put anything that is a text file in the annex")
+  to the ``.gitattributes`` file of a dataset, and
+- saves this modification with the commit message
+  "Instruct annex to add text files to Git".
+
+This particular procedure lives in a script called
+``cfg_text2git`` in the sourcecode of DataLad. The amount of code
 in this script is not large, and the relevant lines of code
 are highlighted:
 
@@ -59,31 +63,39 @@ are highlighted:
         message="Instruct annex to add text files to Git",
     )
 
-Despite its simplicity, it is very handy to have preconfigured
-procedures that can be run in a single command line call. In the
-case of ``text2git``, all text files in a dataset will be stored
-in Git -- this is a useful configuration that is applicable to a
-wide range of datasets. The ``text2git`` shortcut
-spares naive users the necessity to learn about the ``.gitattributes``
-file when setting up a dataset.
-
-Thus, this configuration helper can minimize technical complexities
-in a dataset -- users can concentrate on the actual task while
-the dataset is configured automatically. Especially in the case
-of trainees and new users, ``run-procedures`` can help to ease
-working with the dataset, as the use case `link supervision <TODOsupervision>`_
-showcases.
-
-The ``text2git`` configuration applies a configuration for how
+Just like ``cfg_text2git``, all DataLad procedures are scripts.
+In principle, they can be written in any language, and perform
+any task inside of a dataset.
+The ``text2git`` configuration for example applies a configuration for how
 Git-annex treats different file types. Other procedures do not
 only modify ``.gitattributes``, but can also populate a dataset
 with particular content, or automate routine tasks such as
 synchronizing dataset content with certain siblings.
-To find out which procedures are available, one can use the
-:command:`datalad run-procedure --discover` command (:manpage:`datalad-run-procedure`
-manual). The command will search the dataset, the source code of
-DataLad or installed DataLad extensions, and the system for
-available procedures:
+What makes them a particularly versatile and flexible tool is
+that anyone can write their own procedures. If a workflow is
+a standard in a team and needs to be applied often, turning it into
+a script can save time and effort. By pointing DataLad
+to the location the procedures reside in they can be applied, and by
+including them in a dataset they can even be shared.
+And even if the script is simple, it is very handy to have preconfigured
+procedures that can be run in a single command line call. In the
+case of ``text2git``, all text files in a dataset will be stored
+in Git -- this is a useful configuration that is applicable to a
+wide range of datasets. It is a shortcut that
+spares naive users the necessity to learn about the ``.gitattributes``
+file when setting up a dataset.
+
+
+.. index:: ! datalad command; run-procedure
+
+
+To find out available procedures, the command
+:command:`datalad run-procedure --discover` (:manpage:`datalad-run-procedure`
+manual) is helpful.
+This command will make DataLad search the default location for
+procedures in a dataset, the source code of DataLad or
+installed DataLad extensions, and the default locations for
+procedures on the system for available procedures:
 
 .. runrecord:: _examples/DL-101-127-101
    :workdir: dl-101/DataLad-101
@@ -91,25 +103,21 @@ available procedures:
 
    $ datalad run-procedure --discover
 
-The output shows that there are three procedures available:
+The output shows that in this particular dataset, on the particular
+system the book is written on, there are three procedures available:
 ``cfg_metadatatypes``, ``cfg_text2git``, and ``cfg_yoda``.
 It also lists where they are stored -- in this case,
 they are all part of the source code of DataLad.
-To find out more about a given procedure, you can ask for help:
 
-.. todo::
+- ``cfg_yoda`` configures a dataset according to the yoda
+  principles -- the section :ref:`yoda` talks about this in detail.
+- ``cfg_text2git`` configures text files to be stored in Git.
+- ``cfg_metadatatypes`` lets users configure additional metadata
+  types -- more about this in a later section on DataLads metadata
+  handling.
 
-   Once there is help for these procedures (https://github.com/datalad/datalad/issues/2649),
-   include it here:
-
-   .. runrecord:: _examples/DL-101-127-102
-      :workdir: dl-101/DataLad-101
-      :language: console
-
-      $ datalad run-procedure --help-proc cfg_text2git
-
-   It might be helpful to have (or reference) a table with all available
-   procedures and a short explanation.
+Applying procedures
+^^^^^^^^^^^^^^^^^^^
 
 :command:`datalad run-procedure` not only *discovers*
 but also *executes* procedures. If given the name of
@@ -117,15 +125,28 @@ a procedure, this command will apply the procedure to
 the current dataset, or the dataset that is specified
 with the ``-d/--dataset`` flag::
 
-   datalad run-procedure cfg_text2git
+   datalad run-procedure [-d <PATH>] cfg_text2git
 
-However, procedures -- at least the procedures with
-a ``cfg_`` prefix that DataLad provides --
-can also be applied right at the creation of a dataset with the
-``-c/--cfg-proc <name>`` option in a :command:`datalad create`
-command, as in ``datalad create -c text2git DataLad-101``.
-Note that to keep it extra simple and short, the
-``cfg_`` prefix of the procedures is omitted in these calls.
+The typical workflow is to create a dataset and apply
+a procedure afterwards.
+However, procedures shipped with DataLad or its extensions with a
+``cfg_`` prefix can also be applied right at the creation of a dataset
+with the ``-c/--cfg-proc <name>`` option in a :command:`datalad create`
+command. This is a peculiarity of these procedures because, by convention,
+all of these procedures are written to not require arguments.
+The command structure looks like this::
+
+   datalad create -c text2git DataLad-101
+
+Note that the ``cfg_`` prefix of the procedures is omitted in these
+calls to keep it extra simple and short. The
+available procedures in this example (``cfg_yoda``, ``cfg_text2git``,
+and ``cfg_metadatatypes``) could thus be applied within a
+:command:`datalad create` as
+
+- ``datalad create -c yoda <DSname>``
+- ``datalad create -c text2git <DSname>``
+- ``datalad create -c metadatatypes <DSname>``
 
 As a general note, it is useful to apply procedures
 as early as possible. Procedures such
@@ -144,34 +165,184 @@ problems or failures.
    Some general rules for creating a custom procedure are outlined
    below:
 
+     .. todo::
+
+        turn shebang into term once PR#134 is merged
+
    - A procedure can be any executable. Executables must have the
      appropriate permissions and, in the case of a script,
-     must contain an appropriate shebang (TODO: turn into term once
-     PR#134 is merged).
+     must contain an appropriate shebang
 
        - If a procedure is not executable, but its filename ends with
-         ‘.py’, it is automatically executed by the ‘python’ interpreter
+         ``.py``, it is automatically executed by the Python interpreter
          (whichever version is available in the present environment).
-         Likewise, procedure implementations ending on ‘.sh’ are executed via ‘bash’.
+         Likewise, procedure implementations ending on ``.sh`` are executed
+         via :term:`bash`.
 
    - Procedures can implement any argument handling, but must be capable
      of taking at least one positional argument (the absolute path to the
      dataset they shall operate on).
 
+   - Custom procedures rely heavily on configurations in ``.datalad/config``
+     (or the associated environment variables). Within ``.datalad/config``,
+     each procedure should get an individual entry that contains at least
+     a short "help" description on what the procedure does. Below is a minimal
+     ``.datalad/config`` entry for a custom procedure:
+
+     .. code-block:: bash
+
+        [datalad "procedures.<NAME>"]
+           help = "This is a string to describe what the procedure does"
+
    - By default, DataLad will search for user procedures (i.e. procedures on the
      *global* level) in ``~/.config/datalad/procedures``, and for dataset procedures
      (i.e. the *local* level) in ``.datalad/procedures`` relative to a dataset root.
+     Note that ``.datalad/procedures`` does not exist by default, and the ``procedures``
+     directory needs to be created first.
+     Alternatively to the default locations, DataLad can be pointed to the
+     location of a procedure with a configuration in ``.datalad/config``,
+     or with the help of :term:`environment variable`\s.
+     The appropriate configuration keys for
+     ``.datalad/config`` are either ``datalad.locations.system-procedures``
+     for changing the *global* default or ``datalad.locations.dataset-procedures`` to
+     change the *local* default. The associated environment variables are
+     ``DATALAD_LOCATIONS_SYSTEM__PROCEDURES`` and ``DATALAD_LOCATIONS_DATASET__PROCEDURES``.
+     An example ``.datalad/config`` entry for the local scope is shown below.
+
+     .. code-block:: bash
+
+        [datalad "locations"]
+            dataset-procedures = relative/path/to/procedure-scripts/from/root
+
+    - By default, DataLad will call a procedure with a standard template
+      defined by a format string::
+
+         interpreter {script} {ds} {arguments}
+
+      where arguments can be any additional command line arguments a script
+      (procedure) takes or requires. This default format string can be
+      customized within ``.datalad/config`` in ``datalad.procedures.<NAME>.call-format``.
+      An example ``.datalad/config`` entry with a changed call format string
+      is shown below.
+
+      .. code-block:: bash
+
+         [datalad "procedures.<NAME>"]
+            help = "This is a string to describe what the procedure does"
+            call-format = "python {script} {ds} {somearg1} {somearg2}"
+
+    - By convention, procedures should leave a dataset in a clean state.
 
    Therefore, in order to create a custom procedure, a simple script
    in the appropriate location is fine. Placing a script ``myprocedure``
    into ``.datalad/procedures`` will allow running
    ``datalad run-procedure myprocedure`` in your dataset, and because
    it is part of the dataset it will also allow distributing the procedure.
+   Below is a toy-example for a custom procedure:
+
+   .. runrecord:: _examples/DL-101-127-103
+      :language: console
+      :workdir: procs
+
+      $ datalad create somedataset; cd somedataset
+
+   .. runrecord:: _examples/DL-101-127-104
+      :language: console
+      :workdir: procs/somedataset
+
+      $ mkdir .datalad/procedures
+      $ cat << EOT > .datalad/procedures/example.py
+      """A simple procedure to create a file 'example' and store
+      it in Git, and a file 'example2' and annex it. The contents
+      of 'example' must be defined with a positional argument."""
+
+      import sys
+      import os.path as op
+      from datalad.distribution.dataset import require_dataset
+      from datalad.utils import create_tree
+
+      ds = require_dataset(
+          sys.argv[1],
+          check_installed=True,
+          purpose='showcase an example procedure')
+
+      # this is the content for file "example"
+      content = """\
+      This file was created by a custom procedure! Neat, huh?
+      """
+
+      # create a directory structure template. Write
+      tmpl = {
+          'somedir': {
+              'example': content,
+          },
+          'example2': sys.argv[2] if sys.argv[2] else "got no input"
+      }
+
+      # actually create the structure in the dataset
+      create_tree(ds.path, tmpl)
+
+      # rule to store 'example' Git
+      ds.repo.set_gitattributes([('example', {'annex.largefiles': 'nothing'})])
+
+      # save the dataset modifications
+      ds.save(message="Apply custom procedure")
+
+      EOT
+
+   .. runrecord:: _examples/DL-101-127-105
+      :language: console
+      :workdir: procs/somedataset
+
+      $ datalad save -m "add custom procedure"
+
+   At this point, the dataset contains the custom procedure ``example``.
+   This is how it can be executed and what it does:
+
+   .. runrecord:: _examples/DL-101-127-106
+      :language: console
+      :workdir: procs/somedataset
+
+      $ datalad run-procedure example "this text will be in the file 'example2'"
+
+   .. runrecord:: _examples/DL-101-127-107
+      :language: console
+      :workdir: procs/somedataset
+
+      #the directory structure has been created
+      $ tree
+
+   .. runrecord:: _examples/DL-101-127-108
+      :workdir: procs/somedataset
+      :language: console
+
+      #lets check out the contents in the files
+      $ cat example2  && echo '' && cat somedir/example
 
    .. todo::
 
-      maybe write a toy-example procedure here
+      At which point in this workflow do I include the help in the
+      config file?
 
+   .. runrecord:: _examples/DL-101-127-109
+      :workdir:  procs/somedataset
+      :language: console
+
+      $ git config -f .datalad/config datalad.procedures.example.help "A toy example"
+      $ datalad save -m "add help description"
+
+   To find out more about a given procedure, you can ask for help:
+
+   .. runrecord:: _examples/DL-101-127-110
+      :workdir: procs/somedataset
+      :language: console
+
+      $ datalad run-procedure --help-proc example
+
+   .. todo::
+
+      It might be helpful to have (or reference) a table with all available
+      procedures and a short explanation. Maybe on the cheatsheet.
 
 Summing up, DataLads :command:`run-procedure` command is a handy tool
 with useful existing procedures but much flexibility for own
@@ -180,6 +351,14 @@ you should be able to write and understand necessary configurations,
 but you can also rely on existing, preconfigured templates in the
 form of procedures, and even write and distribute your own.
 
+Therefore, envision procedures as
+configuration helpers that can minimize technical complexities
+in a dataset -- users can concentrate on the actual task while
+the dataset is configured automatically with the help of a procedure.
+Especially in the case of trainees and new users, applying procedures
+instead of doing configurations "by hand" can help to ease
+working with the dataset, as the use case `link supervision <TODOsupervision>`_
+showcases.
 
 
 

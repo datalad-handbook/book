@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/datalad-handbook/book.svg?branch=master)](https://travis-ci.org/datalad-handbook/book) [![Documentation Status](https://readthedocs.org/projects/datalad-handbook/badge/?version=latest)](http://handbook.datalad.org/en/latest/?badge=latest)
-[![All Contributors](https://img.shields.io/badge/all_contributors-7-orange.svg?style=flat-square)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-8-orange.svg?style=flat-square)](#contributors)
 
 # The Datalad handbook :orange_book:
 
@@ -47,6 +47,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/marisaheckner"><img src="https://avatars2.githubusercontent.com/u/52243533?v=4" width="100px;" alt="Marisa Heckner"/><br /><sub><b>Marisa Heckner</b></sub></a><br /><a href="#ideas-marisaheckner" title="Ideas, Planning, & Feedback">🤔</a> <a href="#userTesting-marisaheckner" title="User Testing">📓</a> <a href="https://github.com/datalad-handbook/book/issues?q=author%3Amarisaheckner" title="Bug reports">🐛</a> <a href="#content-marisaheckner" title="Content">🖋</a></td>
     <td align="center"><a href="https://github.com/bpoldrack"><img src="https://avatars2.githubusercontent.com/u/10498301?v=4" width="100px;" alt="Benjamin Poldrack"/><br /><sub><b>Benjamin Poldrack</b></sub></a><br /><a href="#question-bpoldrack" title="Answering Questions">💬</a> <a href="#ideas-bpoldrack" title="Ideas, Planning, & Feedback">🤔</a> <a href="#example-bpoldrack" title="Examples">💡</a> <a href="#tutorial-bpoldrack" title="Tutorials">✅</a></td>
     <td align="center"><a href="http://www.onerussian.com"><img src="https://avatars3.githubusercontent.com/u/39889?v=4" width="100px;" alt="Yaroslav Halchenko"/><br /><sub><b>Yaroslav Halchenko</b></sub></a><br /><a href="#review-yarikoptic" title="Reviewed Pull Requests">👀</a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/effigies"><img src="https://avatars0.githubusercontent.com/u/83442?v=4" width="100px;" alt="Chris Markiewicz"/><br /><sub><b>Chris Markiewicz</b></sub></a><br /><a href="https://github.com/datalad-handbook/book/issues?q=author%3Aeffigies" title="Bug reports">🐛</a></td>
   </tr>
 </table>
 

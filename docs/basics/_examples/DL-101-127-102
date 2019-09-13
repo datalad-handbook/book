@@ -1,2 +1,0 @@
-$ datalad run-procedure --help-proc cfg_text2git
-[WARNING] No help available for 'cfg_text2git' [procedure_help(/home/adina/repos/datalad/datalad/resources/procedures/cfg_text2git.py)] 

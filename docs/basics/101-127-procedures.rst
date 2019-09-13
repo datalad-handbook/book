@@ -1,7 +1,7 @@
 .. _procedures:
 
-Running Procedures
-------------------
+Configurations to go
+--------------------
 
 The past two sections should have given you a comprehensive
 overview on the different configuration options the tools
@@ -357,8 +357,5 @@ in a dataset -- users can concentrate on the actual task while
 the dataset is configured automatically with the help of a procedure.
 Especially in the case of trainees and new users, applying procedures
 instead of doing configurations "by hand" can help to ease
-working with the dataset, as the use case `link supervision <TODOsupervision>`_
+working with the dataset, as the use case :ref:`supervision`
 showcases.
-
-
-

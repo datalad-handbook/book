@@ -1,0 +1,3 @@
+$ datalad create somedataset; cd somedataset
+[INFO] Creating a new annex repo at /home/adina/repos/datalad-handbook/docs/_build/wdirs/procs/somedataset 
+create(ok): /home/adina/repos/datalad-handbook/docs/_build/wdirs/procs/somedataset (dataset)

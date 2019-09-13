@@ -103,6 +103,7 @@ Use Cases
    :caption: Hands-on real-world applications with step-by-step recipes...
 
    usecases/reproducible-paper
+   usecases/supervision
 
 
 ########

@@ -30,7 +30,7 @@ Glossary
 
    commit
       Git concept: Adding selected changes of a file or dataset to the repository, and thus making these changes
-      part of the revision history of the repository. Should always have an informative :term:`commit message`
+      part of the revision history of the repository. Should always have an informative :term:`commit message`.
 
    commit message
       Git concept: A consise summary of changes you should attach to a :command:`datalad save` command. This summary will
@@ -41,21 +41,22 @@ Glossary
       manage data referenced in a dataset. In practice, most DataLad datasets will come with an annex.
 
    DataLad subdataset
-      A DataLad dataset contained within a different DataLad dataset (the parent or :term:`DataLad superdataset`)
+      A DataLad dataset contained within a different DataLad dataset (the parent or :term:`DataLad superdataset`).
 
    DataLad superdataset
-      A DataLad dataset that contains one or more levels of other DataLad datasets (:term:`DataLad subdataset`)
+      A DataLad dataset that contains one or more levels of other DataLad datasets (:term:`DataLad subdataset`).
 
    Debian
-      A common Linux distribution
+      A common Linux distribution. `More information here <https://www.debian.org/index.en.html>`__.
 
    Git
       A version control system to track changes made to small-sized files over time. You can find out
       more about git in `this (free) book <https://git-scm.com/book/en/v2>`_
-      or `these interactive Git tutorials <https://try.github.io/>`_ on :term:`Github`
+      or `these interactive Git tutorials <https://try.github.io/>`_ on :term:`Github`.
 
    Git-annex
-      TODO
+      A distributed file synchronization system, enabling sharing and synchronizing collections
+      of large files. It allows managing files with :term:`Git`, without checking the file content into Git.
 
    Git config file
       A file in which :term:`Git` stores configuration option. Such a file usually exists on
@@ -66,10 +67,13 @@ Glossary
       using Git (and thus also DataLad project).
 
    Gitk
-      TODO
+      A repository browser that displays changes in a repository or a selected set of commits. It
+      visualizes a commit graph, information related to each commit, and the files in the trees
+      of each revision.
 
    Github
-      TODO
+      An online platform to host and share software projects version controlled with :term:`Git`. See
+      https://github.com/.
 
    globbing
       A powerful pattern matching function of a shell. Allows to match the names of multiple files
@@ -125,10 +129,11 @@ Glossary
       the *client*, to a different local or remote machine, the *server*. See also: :term:`SSH server`.
 
    SSH server
-      An remote or local computer that users can log into using the :term:`SSH` protocol
+      An remote or local computer that users can log into using the :term:`SSH` protocol.
 
    symlink
-      TODO
+      A symbolic link (also symlink or soft link) is a reference to another file or path in the form
+      of a relative path. Windows users are familiar with a similar concept: shortcuts.
 
    sibling
       DataLad concept: A dataset clone that a given :term:`DataLad dataset` knows about. Changes can be
@@ -146,10 +151,10 @@ Glossary
       It is not part of git and needs to be installed. Find out more `here <https://jonas.github.io/tig/>`_.
 
    Ubuntu
-      A common Linux distribution. https://ubuntu.com
+      A common Linux distribution. `More information here <https://ubuntu.com>`__.
 
    version control
-      The management of changes to documents or other collections of information
+      Processes and tools to keep track of changes to documents or other collections of information.
 
    vim
       A text editor, often the default in UNIX operating systems. If you are not used to using it,

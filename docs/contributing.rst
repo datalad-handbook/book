@@ -8,7 +8,7 @@ We greatly appreciate and welcome contributions to this book, be it in the form
 of an `issue <https://github.com/datalad-handbook/book/issues/new>`_, a pull request,
 or a discussion you had with anyone on the team via a non-Github communication channel!
 To find out how we acknowledge contributions, please read the paragraph
-`Acknowledging Contributions <contribute#Acknowledging Contributors>`_ at the bottom of
+:ref:`acknowledge` at the bottom of
 this page.
 
 If you are considering doing a pull request: Great! Every contribution is valuable,
@@ -23,7 +23,7 @@ Depending on the size of your contribution, you may want to be able to build the
 locally to test and preview your changes. If you are fixing typos, tweak the
 language, or rewrite a paragraph or two, this shouldn't be necessary, and you can safely
 skip this paragraph and instead take a look into the paragraph
-`Easy pull requests <contribute#Easy pull requests>`_.
+:ref:`easy`.
 If you want to be able to build the book locally, though, please follow these instructions:
 
 -  datalad install the repository recursively. This ensures that dependent subdatasets are installed as well
@@ -106,6 +106,7 @@ simple ``code-block::`` directives are sufficient.
 (foldable sections that contain content that goes beyond the basics). Make use
 of them, if applicable to your contribution.
 
+.. _easy:
 
 Easy pull requests
 ^^^^^^^^^^^^^^^^^^
@@ -140,7 +141,7 @@ Introduction
 
 - An introduction to DataLad, and the problems it aims to be a solution for.
 
-- This part is practically free of hands-on content, i.e. no installation
+- This part is practically free of hands-on content, i.e. no
   instructions, no demos. Instead, it is about concepts, analogies, general
   problems.
 
@@ -188,6 +189,7 @@ Use Cases
   adopted, and the broadest feasible target audience should be assumed. Such
   more generic content should form the early chapters in this part.
 
+.. _acknowledge:
 
 Acknowledging Contributors
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -195,7 +197,7 @@ Acknowledging Contributors
 If you have helped this project, we would like to acknowledge your contribution in the
 `Github repository <https://github.com/datalad-handbook/book>`_ in our README with
 `allcontributors.org <https://allcontributors.org/>`_, and the project's
-`.zenodo <https://github.com/datalad-handbook/book/blob/master/.zenodo.md>`_ and
+`.zenodo <https://github.com/datalad-handbook/book/blob/master/.zenodo.json>`_ and
 `CONTRIBUTORS.md <https://github.com/datalad-handbook/book/blob/master/CONTRIBUTORS.md>`_
 files. The `allcontributors bot <https://github.com/all-contributors>`_ will give credit
 for `various types of contributions <https://allcontributors.org/docs/en/emoji-key>`_.

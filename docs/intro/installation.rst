@@ -6,7 +6,7 @@ Installation and configuration
 Install DataLad
 ^^^^^^^^^^^^^^^
 
-The content in this chapther is largely based on the information given on the
+The content in this chapter is largely based on the information given on the
 `DataLad website <https://www.datalad.org/get_datalad.html>`_
 and the `DataLad documentation <http://docs.datalad.org/en/latest/gettingstarted.html>`_.
 
@@ -309,7 +309,7 @@ In the following example, exchange ``Bob McBobFace`` with your own name, and
 
    # enter your home directory using the ~ shortcut
    % cd ~
-   % git config --global --add user.name Bob McBobFace
+   % git config --global --add user.name "Bob McBobFace"
    % git config --global --add user.email bob@example.com
 
 This information is used to track changes in the DataLad projects you will

@@ -15,7 +15,7 @@ to apply them are also not the easiest tasks. Therefore,
 some clever people decided to assist with
 these tasks, and created pre-configured *procedures*
 that process datasets in a particular way.
-These extensions can be shipped within DataLad or its extensions,
+These procedures can be shipped within DataLad or its extensions,
 lie on a system, or can be shared together with datasets.
 
 One of such procedures is the ``text2git`` configuration.
@@ -107,7 +107,7 @@ The output shows that in this particular dataset, on the particular
 system the book is written on, there are three procedures available:
 ``cfg_metadatatypes``, ``cfg_text2git``, and ``cfg_yoda``.
 It also lists where they are stored -- in this case,
-they are all part of the source code of DataLad.
+they are all part of the source code of DataLad [#f1]_.
 
 - ``cfg_yoda`` configures a dataset according to the yoda
   principles -- the section :ref:`yoda` talks about this in detail.
@@ -159,8 +159,9 @@ problems or failures.
 
 .. findoutmore:: Write your own procedures
 
-   Procedures can come with source code or datasets, but anyone can
-   write their own extension as well, if they wish. This allows to
+   Procedures can come with DataLad or its extensions, but anyone can
+   write their own ones in addition, and deploy them on individual machines,
+   or ship them within DataLad datasets. This allows to
    automate routine configurations or tasks in a dataset.
    Some general rules for creating a custom procedure are outlined
    below:
@@ -194,25 +195,29 @@ problems or failures.
         [datalad "procedures.<NAME>"]
            help = "This is a string to describe what the procedure does"
 
-   - By default, DataLad will search for user procedures (i.e. procedures on the
-     *global* level) in ``~/.config/datalad/procedures``, and for dataset procedures
-     (i.e. the *local* level) in ``.datalad/procedures`` relative to a dataset root.
+   - By default, on GNU/Linux systems, DataLad will search for system-wide procedures
+     (i.e. procedures on the *system* level) in ``/etc/xdg/datalad/procedures``,
+     for user procedures (i.e. procedures on the *global* level) in ``~/.config/datalad/procedures``,
+     and for dataset procedures (i.e. the *local* level [#f2]_) in ``.datalad/procedures``
+     relative to a dataset root.
      Note that ``.datalad/procedures`` does not exist by default, and the ``procedures``
      directory needs to be created first.
-     Alternatively to the default locations, DataLad can be pointed to the
-     location of a procedure with a configuration in ``.datalad/config``,
-     or with the help of :term:`environment variable`\s.
-     The appropriate configuration keys for
-     ``.datalad/config`` are either ``datalad.locations.system-procedures``
-     for changing the *global* default or ``datalad.locations.dataset-procedures`` to
-     change the *local* default. The associated environment variables are
-     ``DATALAD_LOCATIONS_SYSTEM__PROCEDURES`` and ``DATALAD_LOCATIONS_DATASET__PROCEDURES``.
-     An example ``.datalad/config`` entry for the local scope is shown below.
 
-     .. code-block:: bash
+       - Alternatively to the default locations, DataLad can be pointed to the
+         location of a procedure with a configuration in ``.datalad/config``,
+         or with the help of :term:`environment variable`\s.
+         The appropriate configuration keys for ``.datalad/config`` are either
+         ``datalad.locations.system-procedures`` (for changing the *system* default),
+         ``datalad.locations.user-procedures`` (for changing the *global* default),
+         or ``datalad.locations.dataset-procedures`` (for changing the *local* default).
+         The associated environment variables are ``DATALAD_LOCATIONS_SYSTEM__PROCEDURES``,
+         ``DATALAD_LOCATIONS_USER__PROCEDURES``, and ``DATALAD_LOCATIONS_DATASET__PROCEDURES``.
+         An example ``.datalad/config`` entry for the local scope is shown below.
 
-        [datalad "locations"]
-            dataset-procedures = relative/path/to/procedure-scripts/from/root
+         .. code-block:: bash
+
+            [datalad "locations"]
+                dataset-procedures = relative/path/from/dataset-root
 
     - By default, DataLad will call a procedure with a standard template
       defined by a format string::
@@ -352,10 +357,29 @@ but you can also rely on existing, preconfigured templates in the
 form of procedures, and even write and distribute your own.
 
 Therefore, envision procedures as
-configuration helpers that can minimize technical complexities
+helper-tools that can minimize technical complexities
 in a dataset -- users can concentrate on the actual task while
-the dataset is configured automatically with the help of a procedure.
+the dataset is set-up, structured, processed, or configured automatically
+with the help of a procedure.
 Especially in the case of trainees and new users, applying procedures
-instead of doing configurations "by hand" can help to ease
+instead of doing relevant routines "by hand" can help to ease
 working with the dataset, as the use case :ref:`supervision`
 showcases.
+
+
+.. rubric:: Footnotes
+
+.. [#f1] In theory, because procedures can exist on different levels, and
+         because anyone can create (and thus name) their own procedures, there
+         can be name conflicts. If two procedures have the same name, but exist
+         on different levels (e.g. a system-wide procedure and a dataset-specific
+         procedure), the procedure closer to the dataset ``run-procedure`` is
+         operating on takes precedence (e.g. the dataset-specific one takes
+         precendence over the system-wide one).
+
+.. [#f2] Note that we simplify the level of procedures that exist within a dataset
+         by calling them *local*. Even though they apply to a dataset just as *local*
+         Git configurations, unlike Git's *local* configurations in ``.git/config``,
+         the procedures and procedure configurations in ``.datalad/config`` are committed
+         and can be shared together with a dataset. The procedure level *local* therefore
+         does not exactly corresponds to the *local* scope in the sense that Git uses it.

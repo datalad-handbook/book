@@ -9,8 +9,10 @@ your horizon about configurations of datasets:
 
 - Configurations exist at different scopes and for different tools. Each
   of such configuration scopes exists in an individual file, on a *system-wide*,
-  *global* (user-specific) or *local* (repository specific) level. More
-  specialized scopes take precedence over more global scopes.
+  *global* (user-specific) or *local* (repository specific) level. In addition
+  to Git's *local* scope in ``.git/config``, DataLad introduces configurations within
+  ``.datalad/config`` that apply to a specific dataset, but are committed and
+  therefore distributed. More specialized scopes take precedence over more global scopes.
 
 - Almost all configurations can be set with the :command:`git config`.
   Its structure looks like this::
@@ -33,9 +35,9 @@ your horizon about configurations of datasets:
   and which are stored in Git.
 
 - DataLads ``run-procedure``\s offer an easy and fast alternative to DIY
-  configurations of the dataset. You can apply them already at creation
-  of a dataset with ``datalad create -c <procedure>``, or execute them later
-  with a :command:`datalad run-procedure` command.
+  configurations, structuring, or processing of the dataset.
+  They can be applied already at creation of a dataset with ``datalad create -c <procedure>``,
+  or executed later with a :command:`datalad run-procedure` command.
 
 Now what can I do with it?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^

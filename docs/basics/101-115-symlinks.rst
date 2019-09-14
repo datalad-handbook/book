@@ -157,7 +157,7 @@ Lastly, understanding that annexed files in your dataset are symlinked
 will be helpful to understand how common file system operations such as
 moving, renaming, or copying content translate to dataset modifications
 in certain situations. Later in this book we will have a section on how
-to manage the file system in a datalad dataset (Todo: link).
+to manage the file system in a datalad dataset (:ref:`filesystem`).
 
 
 .. findoutmore:: more about paths, checksums, object trees, and data integrity
@@ -174,7 +174,7 @@ to manage the file system in a datalad dataset (Todo: link).
    should you be one of those people that always want to understand
    things in depth. Also, certain file management operations
    can be messy -- for example, when you attempt to move a subdirectory
-   (more on this in a dedicated section <link>) it can break symlinks, and
+   (more on this in a dedicated section :ref:`filesystem`) it can break symlinks, and
    you need to take appropriate actions to get the dataset back into a clean
    state.
    Understanding more about the object tree can help to understand such
@@ -220,7 +220,8 @@ to manage the file system in a datalad dataset (Todo: link).
    permissions to modify it.
    This two-level structure is implemented because it helps to prevent
    accidental deletions and changes, and this information will be helpful
-   to understand some file system management operations (todo: link), for
+   to understand some file system management operations (see section
+   :ref:`filesystem`), for
    example deleting a subdataset.
 
    .. runrecord:: _examples/DL-101-115-104

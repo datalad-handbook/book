@@ -292,7 +292,7 @@ you a glimpse of this.
    Note the *path* given as a value to the ``url`` variable. If at any point
    either your superdataset or the remote moves on your file system,
    the association between the two datasets breaks -- this can be fixed by adjusting this
-   path, and a demonstration of this is in section (Todo: link file system management).
+   path, and a demonstration of this is in section :ref:`filesystem`.
    `fetch` contains a specification which parts of the repository are
    updated -- in this case everything (all of the branches).
    Lastly, the ``annex-ignore = false`` configuration allows Git-annex
@@ -328,7 +328,7 @@ The next section will talk about them.
 .. rubric:: Footnotes
 
 .. [#f1] As an alternative to a ``git config`` command, you could also run configuration
-         templates or procedures (todo: link) that apply predefined configurations or in some cases even
+         templates or procedures (later in this chapter) that apply predefined configurations or in some cases even
          add the information to the configuration file by hand and save it using an editor of your choice.
 
 .. [#f2] The third scope of a Git configuration are the system wide configurations.

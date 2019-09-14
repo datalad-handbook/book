@@ -69,7 +69,7 @@ its shared copies**?
 The world is full of data. The public and private sector make use of it to
 understand, improve, and innovate the complex world we live in.  Currently, this
 process is far from optimal.  In order for society to get the most out of public
-data collections, public **data need to be** `FAIR <go-fair.org>`_: Findable,
+data collections, public **data need to be** `FAIR <https://www.go-fair.org/>`_: Findable,
 Accessible, Interoperable, and Reusable. Apart from easy ways to share or update
 shared copies of data, extensive **metadata** is required to identify data, link
 data collections together, and make them findable and searchable in a

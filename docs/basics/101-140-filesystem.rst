@@ -321,7 +321,7 @@ That's it.
 
    In most cases, this is just an interesting fun-fact, but beware
    when dropping content with :command:`datalad drop`
-   (`further down <filesystem#Removing annexed content entirely>`_):
+   (:ref:`remove`):
    If you drop the content of one copy of a file, all
    other copies will lose this content as well.
 
@@ -614,6 +614,8 @@ If this commit is reverted, the file comes back to existence:
 
 In other words, with an :command:`rm` and subsequent :command:`datalad save`,
 the symlink is removed, but the content is retained in the history.
+
+.. _remove:
 
 Removing annexed content entirely
 """""""""""""""""""""""""""""""""

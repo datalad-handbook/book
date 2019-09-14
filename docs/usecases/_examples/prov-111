@@ -1,0 +1,2 @@
+$ git reset --hard HEAD~1
+HEAD is now at 3dd4e49 [DATALAD RUNCMD] blur image

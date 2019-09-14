@@ -1,0 +1,6 @@
+$ datalad create -c yoda --description "my 1st phd project on work computer" myanalysis
+[INFO] Creating a new annex repo at /home/adina/repos/datalad-handbook/docs/_build/wdirs/usecases/collab/myanalysis 
+[INFO] Running procedure cfg_yoda 
+[INFO] == Command start (output follows) ===== 
+[INFO] == Command exit (modification check follows) ===== 
+create(ok): /home/adina/repos/datalad-handbook/docs/_build/wdirs/usecases/collab/myanalysis (dataset)

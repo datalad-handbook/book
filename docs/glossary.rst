@@ -90,7 +90,7 @@ Glossary
       a different branch.
 
    metadata
-      "Data about data": Information about one or more aspects of data used to summmarize
+      "Data about data": Information about one or more aspects of data used to summarize
       basic information, for example means of create of the data, creator or author, size,
       or purpose of the data. For example, a digital image may include metadata that
       describes how large the picture is, the color depth, the image resolution, when the image
@@ -123,6 +123,14 @@ Glossary
    shasum
       A hexadecimal number, 40 digits long, that is produced by a secure hash algorithm, and
       is used by :term:`Git` to identify :term:`commit`\s. A shasum is a type of :term:`checksum`.
+
+   shebang
+      The characters ``#!`` at the very top of a script. One can specify the interpreter (i.e. the
+      software that executes a script of yours, such as Python) after with it such as in
+      ``#! /usr/bin/python``.
+      If the script has executable permissions, it is henceforth able to call the interpreter itself.
+      Instead of ``python code/myscript.py`` one can just run ``code/myscript`` if ``myscript`` has
+      executable permissions and a correctly specified shebang.
 
    SSH
       Secure shell (SSH) is a network protocol to link one machine (computer),

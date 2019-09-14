@@ -102,6 +102,8 @@ Use Cases
    :maxdepth: 1
    :caption: Hands-on real-world applications with step-by-step recipes...
 
+   usecases/collaborative_data_management
+   usecases/provenance_tracking
    usecases/reproducible-paper
    usecases/supervision
 

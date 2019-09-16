@@ -102,11 +102,13 @@ Dataset operations
    +--------------+---------------+----------------------------------------------------------+
 
 TODO:
+
 - publish
 - create-sibling
 
 
 Metadata
+
 - search
 - metadata
 - aggregate_metadata
@@ -181,7 +183,31 @@ plumbing
 
 Concepts
 ^^^^^^^^
-- nesting
+
+**Dataset nesting**
+
+DataLad datasets can contain other DataLad datasets, enabling arbitrarily deep nesting
+inside of a dataset. Each individual dataset is a modular component with a stand-alone
+history. A superdataset only registers the version (via commit hash) of the subdataset.
+A dataset knows its installed subdatasets, but has no way of knowing about its superdataset(s).
+To apply commands not only to the dataset the action is performed in but also in subdatasets,
+run commands *recursively*, i.e. with ``-r/--recursive``.
+
+**Recursion**
+
+
 - recursion
+
+**DataLad procedures**
+
+Datalad procedures are algorithms that alter datasets in certain ways. They are used to
+automate routine tasks such as configurations, synchronizing datasets with siblings, or
+populating datasets. :command:`datalad run-procedure --discover`` finds available
+procedures, :command:`datalad run-procedure <Procedure-name>` applies a given procedure
+to a dataset.
+
+TODO: table of DataLad core's extensions
+
 - procedures
-- what is DataLad
+
+TODO: cross reference to the chapters

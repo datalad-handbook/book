@@ -22,7 +22,8 @@
         "review",
         "userTesting",
         "talk",
-        "test"
+        "test",
+        "bug"
       ]
     },
     {

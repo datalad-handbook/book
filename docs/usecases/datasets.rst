@@ -1,4 +1,4 @@
-.. _datasets:
+.. _usecase_neuroimaging_datasets:
 
 ***********************
 A Neuroimaging Datasets
@@ -135,7 +135,7 @@ superdataset containing analysis code and results computed from the
 studyforrest data. Should the studyforrest data get extended or changed,
 its subdataset can be updated to include the changes easily. More
 detailed examples of this can be found in the use cases in the last
-section (for example in :ref:`remodnav`).
+section (for example in :ref:`usecase_reproducible_paper`).
 
 The figure below illustrates dataset nesting in a neuroimaging context
 schematically:

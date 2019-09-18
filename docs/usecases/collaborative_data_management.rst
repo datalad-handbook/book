@@ -1,4 +1,4 @@
-.. _collab_usecase:
+.. _usecase_collab:
 
 A typical collaborative data management workflow
 ------------------------------------------------

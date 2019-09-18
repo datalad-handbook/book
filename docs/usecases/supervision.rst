@@ -1,4 +1,4 @@
-.. _supervision:
+.. _usecase_student_supervision:
 
 Student supervision in a research project
 -----------------------------------------

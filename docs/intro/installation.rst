@@ -40,6 +40,26 @@ DataLad and all of its software dependencies (including the Git-annex-standalone
 
    $ sudo apt-get install datalad
 
+.. container:: toggle
+
+   .. container:: header
+
+      **Linux-machines with no root access**
+
+   If you want to install DataLad on a machine you do not have root access to, DataLad
+   can be installed with `Miniconda <https://docs.conda.io/en/latest/miniconda.html>`_.
+
+   .. code-block:: bash
+
+      $ wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+      $ bash Miniconda3-latest-Linux-x86_64.sh
+      # acknowledge license, keep everything at default
+      $ conda install -c conda-forge datalad
+
+   This should install :term:`Git`, :term:`Git-annex`, and DataLad.
+   The installer automatically configures the shell to make conda-installed
+   tools accessible, so no further configuration is necessary.
+
 
 OS X
 """"

@@ -1,4 +1,4 @@
-.. _prov:
+.. _usecase_provenance_tracking:
 
 Basic provenance tracking
 -------------------------

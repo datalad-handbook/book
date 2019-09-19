@@ -170,14 +170,16 @@ Use Cases
 """""""""
 
 - Topics that do not fit into the introduction or basics parts, but are
-  DataLad-centric, go into this part.
+  DataLad-centric, go into this part. Ideal content are concrete examples of
+  how DataLad's concepts and building blocks can be combined to implement
+  a solution to a problem.
 
-- Any chapter is written as a more-or-less self-contained document that makes
-  references to introduction and basics, but only few, and more general ones to
-  other use cases. This should help with long-term maintenance of the content,
-  as the specifics of how to approach a particular use case optimally may
-  evolve over time, and cross-references to specific functionality might
-  become invalid.
+- Any chapter is written as a more-or-less self-contained document that can
+  make frequent references to introduction and basics, but only few, and more
+  general ones to other use cases. This should help with long-term maintenance
+  of the content, as the specifics of how to approach a particular use case
+  optimally may evolve over time, and cross-references to specific
+  functionality might become invalid.
 
 - There is no inherent order in this part, but chapters may be grouped by
   domain, skill-level, or DataLad functionality involved (or combinations of
@@ -188,6 +190,20 @@ Use Cases
   cases). However, if possible, common example datasets, names, terms should be
   adopted, and the broadest feasible target audience should be assumed. Such
   more generic content should form the early chapters in this part.
+
+- Unless there is reason to deviate, the following structure should be adopted:
+
+  #. Summary/Abstract (no dedicated heading)
+
+  #. *The Challenge*: description what problem will be solved, or which conditions
+     are present when DataLad is not used
+
+  #. *The DataLad Approach*: high-level description how DataLad can be used to
+     address the problem at hand.
+
+  #. *Step-by-Step*: More detailed illustration on how the "DataLad approach" can
+     be implemented, ideally with concrete code examples.
+
 
 .. _acknowledge:
 

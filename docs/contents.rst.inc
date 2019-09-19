@@ -123,7 +123,6 @@ Appendix
 * :ref:`search`
 
 ..
-
   stuff that we don't need or show at the moment
 
 .. toctree::

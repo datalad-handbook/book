@@ -3,7 +3,7 @@
 
 # The Datalad handbook :orange_book:
 
-This is a living resource on why and - more importantly - *how* to use [DataLad](www.datalad.org).
+This is a living resource on why and - more importantly - *how* to use [DataLad](http://www.datalad.org).
 The rendered version is [here](http://handbook.datalad.org): http://handbook.datalad.org, and is currently
 under initial development.
 

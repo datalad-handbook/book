@@ -121,6 +121,16 @@
       "contributions": [
         "bug"
       ]
+    },
+    {
+      "login": "heytitle",
+      "name": "Pattarawat Chormai",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/1214890?v=4",
+      "profile": "http://pat.chormai.org",
+      "contributions": [
+        "bug",
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,

@@ -148,13 +148,18 @@ and ``cfg_metadatatypes``) could thus be applied within a
 - ``datalad create -c text2git <DSname>``
 - ``datalad create -c metadatatypes <DSname>``
 
-As a general note, it is useful to apply procedures
-as early as possible. Procedures such
+As a general note, it can be useful to apply procedures
+early in the life of a dataset. Procedures such
 as ``cfg_yoda`` (explained in detail in section :ref:`yoda`),
-assume clean, freshly created datasets when they run,
-and given that many procedures create files or change ``.gitattributes``,
-existing files or configurations in a dataset can lead to unexpected
-problems or failures.
+create files, change ``.gitattributes``, or apply other configurations.
+If many other (possibly complex) configurations are
+already in place, or if files of the same name as the ones created by
+a procedure are already in existence, this can lead to unexpected
+problems or failures, especially for naive users. Applying ``cfg_text2git``
+to a default dataset in which one has saved many text files already
+(as per default added to the annex) will not place the existing, saved
+files into Git -- only those text files created *after* the configuration
+was applied.
 
 
 .. findoutmore:: Write your own procedures

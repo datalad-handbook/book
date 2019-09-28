@@ -157,7 +157,7 @@ inconvenient is that both books were saved *together*. You begin to wonder: "A P
 book and a Unix book do not have that much in common. I probably should not save them
 in the same commit. And ... what happens if I have files I don't want to track?
 :command:`datalad save -m "some commit message"` would save all of what is currently
-in my dataset untracked or modified into the history!"
+untracked or modified in the dataset into the history!"
 
 Regarding your first remark, you're absolutely right with that!
 It is good practice to save only those changes

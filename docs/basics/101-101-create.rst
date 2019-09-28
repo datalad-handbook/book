@@ -15,7 +15,7 @@ But for DataLad, as we learned in the first lecture, a dataset is the core data 
 
 As noted in :ref:`philo`, a dataset is a collection of *files*
 in folders, and a file is the smallest unit any dataset can contain.
-While it at its core this a very simple concept, datasets come with many
+While it at its core this is a very simple concept, datasets come with many
 useful features.
 Because experiencing is more insightful than just reading, we will explore the
 concepts of DataLad datasets together by creating one.
@@ -97,7 +97,7 @@ an informative commit message yourself.
    the DataLad dataset is a Git repository.
    Large file content in the
    dataset in the annex is tracked with Git-annex. An ``ls -a``
-   reveals that Git is secretly working in the background:
+   reveals that Git has secretly done its work:
 
    .. runrecord:: _examples/DL-101-101-104
       :language: console
@@ -106,8 +106,8 @@ an informative commit message yourself.
 
       $ ls -a # show also hidden files
 
-   **For non-Git-Users: these hidden** *dot-directories* **are doing their magic in the**
-   **background. Please do not temper with them, and, importantly,** *do not delete them.*
+   **For non-Git-Users: these hidden** *dot-directories* **are necessary for all git magic**
+   **to work. Please do not temper with them, and, importantly,** *do not delete them.*
 
 Congratulations, you just created your first DataLad dataset!
 Let us now put some content inside.
@@ -115,4 +115,4 @@ Let us now put some content inside.
 .. rubric:: Footnotes
 
 .. [#f1] A nice and easy tool we can recommend as an alternative to :command:`git log` is :term:`tig`.
-         Once installed, exchange any git log command you see here with the single word ``tig``.
+         Once installed, exchange any ``git log`` command you see here with the single word ``tig``.

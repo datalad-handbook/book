@@ -299,5 +299,5 @@ Save this note.
 
 .. gitusernote::
 
-   A dataset that is installed from an existing source, e.g. a path or URL,
+   A dataset that is installed from an existing source, e.g., a path or URL,
    it the DataLad equivalent of a *clone* in Git.

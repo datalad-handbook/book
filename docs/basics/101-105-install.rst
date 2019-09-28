@@ -296,7 +296,7 @@ modification.
    $ cd ../../
    $ cat << EOT >> notes.txt
    The command 'datalad install [--source] PATH'
-   installs a dataset from e.g. a URL or a path.
+   installs a dataset from e.g., a URL or a path.
    If you install a dataset into an existing
    dataset (as a subdataset), remember to specify the
    root of the superdataset with the '-d' option.

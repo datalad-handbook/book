@@ -130,7 +130,7 @@ human-readable summary of that action.
 
     - Write a *title line* with 72 characters or less (as we did so far)
 
-    - it should be in imperative voice, e.g. "Add notes from lecture 2"
+    - it should be in imperative voice, e.g., "Add notes from lecture 2"
 
     - Often, a title line is not enough to express your changes and reasoning behind it. In this case, add a body to your commit message by hitting enter twice (before closing the quotation marks), and continue writing a brief summary of the changes after a blank line. This summary should explain "what" has been done and "why", but not "how". Close the quotation marks, and hit enter to save the change with your message.
 
@@ -224,11 +224,11 @@ Well done! Your ``DataLad-101`` dataset and its history are slowly growing.
 .. rubric:: Footnotes
 
 .. [#f1] ``tree`` is a Unix command to list file system content. If it is not yet installed,
-   you can get it with your native package manager (e.g.
+   you can get it with your native package manager (e.g.,
    ``apt`` or ``brew``). For example, if you use OSX, ``brew install tree``
    will get you this tool.
 .. [#f2] ``wget`` is a Unix command for non-interactively downloading files from the
-   web. If it is not yet installed, you can get it with your native package manager (e.g.
+   web. If it is not yet installed, you can get it with your native package manager (e.g.,
    ``apt`` or ``brew``). For example, if you use OSX, ``brew install wget``
    will get you this tool.
 

@@ -48,7 +48,7 @@ a :term:`relative path` or :term:`absolute path`.
 If you use Windows, you are familiar with a related concept: a shortcut.
 
 This means that the files that are in the locations in which you saved content
-to and are named as you named your files (e.g. ``TLCL.pdf``),
+to and are named as you named your files (e.g., ``TLCL.pdf``),
 do *not actually contain your files' content*:
 they just point to the place where the actual file content resides.
 
@@ -73,7 +73,7 @@ defined based on
 #. file size
 
 #. and/or path/pattern, and thus for example file extensions,
-   or names, or file types (e.g. text files, as with the
+   or names, or file types (e.g., text files, as with the
    ``text2git`` configuration template).
 
 Git-annex, in order to version control the data, takes the file content
@@ -192,7 +192,7 @@ to manage the file system in a datalad dataset (:ref:`filesystem`).
    have identical contents, and whether file content changed.
 
    The key is generated using *hashes*. A hash is a function that turns an
-   input (e.g. a PDF file) into a string of characters with a fixed length.
+   input (e.g., a PDF file) into a string of characters with a fixed length.
    In principle, therefore, the hash function simply transforms a content of
    any size into a string with fixed length.
 
@@ -213,7 +213,7 @@ to manage the file system in a datalad dataset (:ref:`filesystem`).
 
    This key (or :term:`checksum`) is the last part of the name of the file the
    symlink links to (in which the actual data content
-   is stored). The extension (e.g. ``.pdf``) is appended because some
+   is stored). The extension (e.g., ``.pdf``) is appended because some
    operating systems (Windows) need this information.
    The key is also one of the subdirectory names in the path. This subdirectory
    adds an important feature to the :term:`object-tree`: It revokes the users

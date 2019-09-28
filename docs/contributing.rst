@@ -81,7 +81,7 @@ created content or dataset history. Build code snippets that add to these workin
 by using the ``runrecord`` directive. Commands wrapped in these will write the output
 of a command into example files. Make sure to name this files according to the following
 schema, because they are executed sequentially:
-``DL-101-1<nr-of-section>-1<nr-of-example>``, e.g.
+``DL-101-1<nr-of-section>-1<nr-of-example>``, e.g.,
 ``docs/basics/_examples/DL-101-101-101`` for the first example in the first section
 of the basics.
 Here is how a ``runrecord`` directive can look like:
@@ -186,7 +186,7 @@ Use Cases
   those).
 
 - Any content in this part can deviate from the examples and narrative used for
-  introduction and basics whenever necessary (e.g. concrete domain specific use
+  introduction and basics whenever necessary (e.g., concrete domain specific use
   cases). However, if possible, common example datasets, names, terms should be
   adopted, and the broadest feasible target audience should be assumed. Such
   more generic content should form the early chapters in this part.

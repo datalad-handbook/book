@@ -46,7 +46,7 @@ moving a file, and uses the :command:`mv` command.
    $ mv TLCL.pdf The_Linux_Command_Line.pdf
    $ ls -lah
 
-Try to open the renamed file, e.g. with
+Try to open the renamed file, e.g., with
 ``evince The_Linux_Command_Line.pdf``.
 This works!
 

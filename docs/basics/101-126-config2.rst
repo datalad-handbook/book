@@ -52,7 +52,7 @@ behavior can be defined based on
 #. file size
 
 #. and/or path/pattern, and thus for example file extensions,
-   or names, or file types (e.g. text files, as with the
+   or names, or file types (e.g., text files, as with the
    ``text2git`` configuration template).
 
 "In ``.gitattributes``, you can define what a large file and what is not

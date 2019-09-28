@@ -237,6 +237,30 @@ command. This is due to its different format that does not comply to the
 ``section.variable.value`` structure of all other configuration files. This file, therefore,
 has to be edited by hand, with an editor of your choice.
 
+Environment variables
+^^^^^^^^^^^^^^^^^^^^^
+
+An :term:`environment variable` is a variable set up in your shell
+that affects the way the shell or certain software works -- for example
+the environment variables ``HOME``, ``PWD``, or ``PATH`` [#f4]_.
+Other than with configuration files, the behavior of Git, Git-annex, and DataLad can
+also be altered with environment variables, providing a configuration method entirely
+independent from the :command:`git config` command.
+Usually, every option that can be set in a configuration file also has an environment
+variable. If the environment variable is set, it takes precedence over options set in
+configuration files. For example, the ``user.name`` configuration of Git can be overridden
+by its associated environment variable, ``GIT_AUTHOR_NAME``.
+
+Git, Git-annex, and DataLad have more environment variables than anyone would want to
+remember. `Here <https://git-scm.com/book/en/v2/Git-Internals-Environment-Variables>`__
+is a good overview on Git's most useful available environment variables for a start.
+All of DataLad's configuration options can be easily translated to their
+associated environment variables. Any environment variable with a name that starts with ``DATALAD_``
+will be available as the corresponding ``datalad.`` configuration variable,
+replacing any ``__`` (two underscores) with a hyphen, then any ``_`` (single underscore)
+with a dot, and finally converting all letters to lower case. The ``datalad.log.level``
+configuration option thus is the environment variable ``DATALAD_LOG_LEVEL``.
+
 Summary
 ^^^^^^^
 
@@ -318,3 +342,23 @@ Write a note about configurations in datasets into ``notes.txt``.
          *all* files (new as well as existing ones) requires the :command:`git annex migrate`
          (see `the documentation <https://git-annex.branchable.com/git-annex-migrate/>`_ for
          more information on this command).
+
+.. [#f4] **Some more on environment variables**:
+         Names of environment variables are often all-uppercase. While the ``$`` is not part of
+         the name of the environment variable, it is necessary to *refer* to the environment
+         variable: To find the value of the environment variable ``HOME`` for example you would
+         need to use ``echo $HOME`` and not ``echo HOME``. However, environment variables are
+         set without a leading ``$``. There are several ways to set an environment variable
+         (note that there are no spaces before and after the ``=`` !), leading to different
+         levels of availability of the variable:
+
+         - ``THEANSWER=42 <command>`` makes the variable ``THEANSWER`` available for the process in ``<command>``.
+           For example, ``DATALAD_LOG_LEVEL=debug datalad get <file>`` will execute the :command:`datalad get`
+           command (and only this one) with the log level set to "debug".
+         - ``export THEANSWER=42`` makes the variable ``THEANSWER`` available for other processes in the
+           same session, but it will not be available to other shells.
+         - ``echo 'export THEANSWER=42' >> ~/.bashrc`` will write the variable definition in the
+           ``.bashrc`` file and thus available to all future shells of the user (i.e., this will make
+           the variable permanent for the user)
+
+         To list all of the configured environment variables, type ``env`` into your terminal.

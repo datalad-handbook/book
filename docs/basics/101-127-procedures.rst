@@ -171,13 +171,9 @@ was applied.
    Some general rules for creating a custom procedure are outlined
    below:
 
-     .. todo::
-
-        turn shebang into term once PR#134 is merged
-
    - A procedure can be any executable. Executables must have the
      appropriate permissions and, in the case of a script,
-     must contain an appropriate shebang
+     must contain an appropriate :term:`shebang`.
 
        - If a procedure is not executable, but its filename ends with
          ``.py``, it is automatically executed by the Python interpreter
@@ -329,11 +325,6 @@ was applied.
       #lets check out the contents in the files
       $ cat example2  && echo '' && cat somedir/example
 
-   .. todo::
-
-      At which point in this workflow do I include the help in the
-      config file?
-
    .. runrecord:: _examples/DL-101-127-109
       :workdir:  procs/somedataset
       :language: console
@@ -368,7 +359,7 @@ the dataset is set-up, structured, processed, or configured automatically
 with the help of a procedure.
 Especially in the case of trainees and new users, applying procedures
 instead of doing relevant routines "by hand" can help to ease
-working with the dataset, as the use case :ref:`supervision`
+working with the dataset, as the use case :ref:`usecase_student_supervision`
 showcases.
 
 

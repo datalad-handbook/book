@@ -46,7 +46,7 @@ moving a file, and uses the :command:`mv` command.
    $ mv TLCL.pdf The_Linux_Command_Line.pdf
    $ ls -lah
 
-Try to open the renamed file, e.g. with
+Try to open the renamed file, e.g., with
 ``evince The_Linux_Command_Line.pdf``.
 This works!
 
@@ -321,7 +321,7 @@ That's it.
 
    In most cases, this is just an interesting fun-fact, but beware
    when dropping content with :command:`datalad drop`
-   (`further down <filesystem#Removing annexed content entirely>`_):
+   (:ref:`remove`):
    If you drop the content of one copy of a file, all
    other copies will lose this content as well.
 
@@ -615,8 +615,12 @@ If this commit is reverted, the file comes back to existence:
 In other words, with an :command:`rm` and subsequent :command:`datalad save`,
 the symlink is removed, but the content is retained in the history.
 
+.. _remove:
+
 Removing annexed content entirely
 """""""""""""""""""""""""""""""""
+
+.. index:: ! datalad command; drop
 
 A different command to remove file content entirely and irreversibly from a repository is
 the :command:`datalad drop` command (:manpage:`datalad-drop` manual).
@@ -694,6 +698,8 @@ Finally, let's clean up:
 Uninstalling or deleting subdatasets
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+.. index:: ! datalad command; uninstall
+
 Depending on the exact aim, two commands are of relevance for
 deleting a DataLad subdataset. The softer (and not so much "deleting" version)
 is to uninstall a dataset with the :command:`datalad uninstall`
@@ -722,6 +728,8 @@ To uninstall the dataset, use
 Note that the dataset is still known in the dataset, and not completely removed.
 A ``datalad install cloud`` or ``datalad get cloud`` would reinstall the
 dataset.
+
+.. index:: ! datalad command; remove
 
 In case one wants to fully delete a subdataset from a dataset, the
 :command:`datalad remove` command (:manpage:`datalad-remove` manual) is

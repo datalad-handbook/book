@@ -1,0 +1,13 @@
+$ datalad run -m "extract pimpernel" \
+  --input "sources/flowers.jpg" \
+  --output "pimpernel.jpg" \
+  "convert -extract 1522x1522+1470+1470 sources/flowers.jpg pimpernel.jpg"
+[INFO] Making sure inputs are available (this may take some time) 
+[INFO] == Command start (output follows) ===== 
+[INFO] == Command exit (modification check follows) ===== 
+add(ok): pimpernel.jpg (file)
+save(ok): . (dataset)
+action summary:
+  add (ok: 1)
+  get (notneeded: 1)
+  save (ok: 1)

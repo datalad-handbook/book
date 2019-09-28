@@ -20,7 +20,12 @@
         "maintenance",
         "projectManagement",
         "review",
-        "userTesting"
+        "userTesting",
+        "talk",
+        "test",
+        "bug",
+        "example",
+        "question"
       ]
     },
     {
@@ -105,7 +110,29 @@
       "avatar_url": "https://avatars3.githubusercontent.com/u/39889?v=4",
       "profile": "http://www.onerussian.com",
       "contributions": [
-        "review"
+        "review",
+        "content",
+        "ideas",
+        "bug"
+      ]
+    },
+    {
+      "login": "effigies",
+      "name": "Chris Markiewicz",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/83442?v=4",
+      "profile": "https://github.com/effigies",
+      "contributions": [
+        "bug"
+      ]
+    },
+    {
+      "login": "heytitle",
+      "name": "Pattarawat Chormai",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/1214890?v=4",
+      "profile": "http://pat.chormai.org",
+      "contributions": [
+        "bug",
+        "code"
       ]
     }
   ],

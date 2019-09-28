@@ -1,4 +1,4 @@
-.. _remodnav:
+.. _usecase_reproducible_paper:
 
 Writing a reproducible paper
 ----------------------------

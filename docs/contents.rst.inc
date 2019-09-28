@@ -113,6 +113,8 @@ Use Cases
    :maxdepth: 1
    :caption: Hands-on real-world applications with step-by-step recipes...
 
+   usecases/collaborative_data_management
+   usecases/provenance_tracking
    usecases/reproducible-paper
    usecases/supervision
 
@@ -132,7 +134,6 @@ Appendix
 * :ref:`search`
 
 ..
-
   stuff that we don't need or show at the moment
 
 .. toctree::

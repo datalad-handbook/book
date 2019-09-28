@@ -48,7 +48,7 @@ a :term:`relative path` or :term:`absolute path`.
 If you use Windows, you are familiar with a related concept: a shortcut.
 
 This means that the files that are in the locations in which you saved content
-to and are named as you named your files (e.g. ``TLCL.pdf``),
+to and are named as you named your files (e.g., ``TLCL.pdf``),
 do *not actually contain your files' content*:
 they just point to the place where the actual file content resides.
 
@@ -73,7 +73,7 @@ defined based on
 #. file size
 
 #. and/or path/pattern, and thus for example file extensions,
-   or names, or file types (e.g. text files, as with the
+   or names, or file types (e.g., text files, as with the
    ``text2git`` configuration template).
 
 Git-annex, in order to version control the data, takes the file content
@@ -157,7 +157,7 @@ Lastly, understanding that annexed files in your dataset are symlinked
 will be helpful to understand how common file system operations such as
 moving, renaming, or copying content translate to dataset modifications
 in certain situations. Later in this book we will have a section on how
-to manage the file system in a datalad dataset (Todo: link).
+to manage the file system in a datalad dataset (:ref:`filesystem`).
 
 
 .. findoutmore:: more about paths, checksums, object trees, and data integrity
@@ -174,7 +174,7 @@ to manage the file system in a datalad dataset (Todo: link).
    should you be one of those people that always want to understand
    things in depth. Also, certain file management operations
    can be messy -- for example, when you attempt to move a subdirectory
-   (more on this in a dedicated section <link>) it can break symlinks, and
+   (more on this in a dedicated section :ref:`filesystem`) it can break symlinks, and
    you need to take appropriate actions to get the dataset back into a clean
    state.
    Understanding more about the object tree can help to understand such
@@ -192,7 +192,7 @@ to manage the file system in a datalad dataset (Todo: link).
    have identical contents, and whether file content changed.
 
    The key is generated using *hashes*. A hash is a function that turns an
-   input (e.g. a PDF file) into a string of characters with a fixed length.
+   input (e.g., a PDF file) into a string of characters with a fixed length.
    In principle, therefore, the hash function simply transforms a content of
    any size into a string with fixed length.
 
@@ -213,14 +213,15 @@ to manage the file system in a datalad dataset (Todo: link).
 
    This key (or :term:`checksum`) is the last part of the name of the file the
    symlink links to (in which the actual data content
-   is stored). The extension (e.g. ``.pdf``) is appended because some
+   is stored). The extension (e.g., ``.pdf``) is appended because some
    operating systems (Windows) need this information.
    The key is also one of the subdirectory names in the path. This subdirectory
    adds an important feature to the :term:`object-tree`: It revokes the users
    permissions to modify it.
    This two-level structure is implemented because it helps to prevent
    accidental deletions and changes, and this information will be helpful
-   to understand some file system management operations (todo: link), for
+   to understand some file system management operations (see section
+   :ref:`filesystem`), for
    example deleting a subdataset.
 
    .. runrecord:: _examples/DL-101-115-104

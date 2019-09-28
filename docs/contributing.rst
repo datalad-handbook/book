@@ -5,7 +5,11 @@ Contributing
 
 Thanks for being curious about contributing!
 We greatly appreciate and welcome contributions to this book, be it in the form
-of an `issue <https://github.com/datalad-handbook/book/issues/new>`_ or a pull request!
+of an `issue <https://github.com/datalad-handbook/book/issues/new>`_, a pull request,
+or a discussion you had with anyone on the team via a non-Github communication channel!
+To find out how we acknowledge contributions, please read the paragraph
+:ref:`acknowledge` at the bottom of
+this page.
 
 If you are considering doing a pull request: Great! Every contribution is valuable,
 from fixing typos to writing full chapters.
@@ -19,7 +23,7 @@ Depending on the size of your contribution, you may want to be able to build the
 locally to test and preview your changes. If you are fixing typos, tweak the
 language, or rewrite a paragraph or two, this shouldn't be necessary, and you can safely
 skip this paragraph and instead take a look into the paragraph
-`Easy pull requests <contribute#Easy pull requests>`_.
+:ref:`easy`.
 If you want to be able to build the book locally, though, please follow these instructions:
 
 -  datalad install the repository recursively. This ensures that dependent subdatasets are installed as well
@@ -77,7 +81,7 @@ created content or dataset history. Build code snippets that add to these workin
 by using the ``runrecord`` directive. Commands wrapped in these will write the output
 of a command into example files. Make sure to name this files according to the following
 schema, because they are executed sequentially:
-``DL-101-1<nr-of-section>-1<nr-of-example>``, e.g.
+``DL-101-1<nr-of-section>-1<nr-of-example>``, e.g.,
 ``docs/basics/_examples/DL-101-101-101`` for the first example in the first section
 of the basics.
 Here is how a ``runrecord`` directive can look like:
@@ -102,6 +106,7 @@ simple ``code-block::`` directives are sufficient.
 (foldable sections that contain content that goes beyond the basics). Make use
 of them, if applicable to your contribution.
 
+.. _easy:
 
 Easy pull requests
 ^^^^^^^^^^^^^^^^^^
@@ -136,7 +141,7 @@ Introduction
 
 - An introduction to DataLad, and the problems it aims to be a solution for.
 
-- This part is practically free of hands-on content, i.e. no installation
+- This part is practically free of hands-on content, i.e. no
   instructions, no demos. Instead, it is about concepts, analogies, general
   problems.
 
@@ -165,21 +170,52 @@ Use Cases
 """""""""
 
 - Topics that do not fit into the introduction or basics parts, but are
-  DataLad-centric, go into this part.
+  DataLad-centric, go into this part. Ideal content are concrete examples of
+  how DataLad's concepts and building blocks can be combined to implement
+  a solution to a problem.
 
-- Any chapter is written as a more-or-less self-contained document that makes
-  references to introduction and basics, but only few, and more general ones to
-  other use cases. This should help with long-term maintenance of the content,
-  as the specifics of how to approach a particular use case optimally may
-  evolve over time, and cross-references to specific functionality might
-  become invalid.
+- Any chapter is written as a more-or-less self-contained document that can
+  make frequent references to introduction and basics, but only few, and more
+  general ones to other use cases. This should help with long-term maintenance
+  of the content, as the specifics of how to approach a particular use case
+  optimally may evolve over time, and cross-references to specific
+  functionality might become invalid.
 
 - There is no inherent order in this part, but chapters may be grouped by
   domain, skill-level, or DataLad functionality involved (or combinations of
   those).
 
 - Any content in this part can deviate from the examples and narrative used for
-  introduction and basics whenever necessary (e.g. concrete domain specific use
+  introduction and basics whenever necessary (e.g., concrete domain specific use
   cases). However, if possible, common example datasets, names, terms should be
   adopted, and the broadest feasible target audience should be assumed. Such
   more generic content should form the early chapters in this part.
+
+- Unless there is reason to deviate, the following structure should be adopted:
+
+  #. Summary/Abstract (no dedicated heading)
+
+  #. *The Challenge*: description what problem will be solved, or which conditions
+     are present when DataLad is not used
+
+  #. *The DataLad Approach*: high-level description how DataLad can be used to
+     address the problem at hand.
+
+  #. *Step-by-Step*: More detailed illustration on how the "DataLad approach" can
+     be implemented, ideally with concrete code examples.
+
+
+.. _acknowledge:
+
+Acknowledging Contributors
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If you have helped this project, we would like to acknowledge your contribution in the
+`Github repository <https://github.com/datalad-handbook/book>`_ in our README with
+`allcontributors.org <https://allcontributors.org/>`_, and the project's
+`.zenodo <https://github.com/datalad-handbook/book/blob/master/.zenodo.json>`_ and
+`CONTRIBUTORS.md <https://github.com/datalad-handbook/book/blob/master/CONTRIBUTORS.md>`_
+files. The `allcontributors bot <https://github.com/all-contributors>`_ will give credit
+for `various types of contributions <https://allcontributors.org/docs/en/emoji-key>`_.
+We may ask you to open a PR to add yourself to all of our contributing acknowledgements
+or do it ourselves and let you know.

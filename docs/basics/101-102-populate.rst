@@ -55,7 +55,7 @@ structure with tree:
 
 .. index:: ! datalad command; status
 
-Now what does DataLad do with this sudden content? One command you will use very
+Now what does DataLad do with this new content? One command you will use very
 often is :command:`datalad status` (:manpage:`datalad-status` manual).
 It reports on the state of dataset content, and
 regular status reports should become a habit in the wake of ``DataLad-101``.
@@ -71,7 +71,7 @@ regular status reports should become a habit in the wake of ``DataLad-101``.
 Interesting, the ``books/`` directory is "untracked". Remember how content
 *can* be tracked *if a user wants to*?
 Untracked means that DataLad does not know about this directory or its content,
-because we haven't ordered DataLad to actually track it. This means, DataLad
+because we haven't instructed DataLad to actually track it. This means, DataLad
 does not keep the downloaded books in its history yet. Let's change this by
 saving the files to the dataset's history with the :command:`datalad save` command
 (:manpage:`datalad-save` manual).
@@ -130,7 +130,7 @@ human-readable summary of that action.
 
     - Write a *title line* with 72 characters or less (as we did so far)
 
-    - it should be in imperative voice, e.g. "Add notes from lecture 2"
+    - it should be in imperative voice, e.g., "Add notes from lecture 2"
 
     - Often, a title line is not enough to express your changes and reasoning behind it. In this case, add a body to your commit message by hitting enter twice (before closing the quotation marks), and continue writing a brief summary of the changes after a blank line. This summary should explain "what" has been done and "why", but not "how". Close the quotation marks, and hit enter to save the change with your message.
 
@@ -147,7 +147,7 @@ human-readable summary of that action.
 .. gitusernote::
 
    Just as in Git, new files are not tracked from their creation on, but only when
-   explicitly given to Git (in Git terms with an initial :command:`git add`). But different
+   explicitly added to Git (in Git terms with an initial :command:`git add`). But different
    from the common Git workflow, DataLad skips the staging area. A :command:`datalad save`
    combines a :command:`git add` and a :command:`git commit`, and therefore, the commit message
    is specified with :command:`datalad save`.
@@ -156,8 +156,8 @@ Cool, so now you have added some files to your dataset history. But what is a bi
 inconvenient is that both books were saved *together*. You begin to wonder: "A Python
 book and a Unix book do not have that much in common. I probably should not save them
 in the same commit. And ... what happens if I have files I don't want to track?
-:command:`datalad save -m "some commit message"` would write all of what is currently
-in my dataset and untracked or modified into the history!"
+:command:`datalad save -m "some commit message"` would save all of what is currently
+untracked or modified in the dataset into the history!"
 
 Regarding your first remark, you're absolutely right with that!
 It is good practice to save only those changes
@@ -224,11 +224,11 @@ Well done! Your ``DataLad-101`` dataset and its history are slowly growing.
 .. rubric:: Footnotes
 
 .. [#f1] ``tree`` is a Unix command to list file system content. If it is not yet installed,
-   you can get it with your native package manager (e.g.
+   you can get it with your native package manager (e.g.,
    ``apt`` or ``brew``). For example, if you use OSX, ``brew install tree``
    will get you this tool.
 .. [#f2] ``wget`` is a Unix command for non-interactively downloading files from the
-   web. If it is not yet installed, you can get it with your native package manager (e.g.
+   web. If it is not yet installed, you can get it with your native package manager (e.g.,
    ``apt`` or ``brew``). For example, if you use OSX, ``brew install wget``
    will get you this tool.
 

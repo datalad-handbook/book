@@ -126,7 +126,7 @@ superdataset looks like:
    $ cat .git/config
 
 This file consists of so called "sections" with the section names
-in square brackets (e.g. ``core``). Occasionally, a section can have
+in square brackets (e.g., ``core``). Occasionally, a section can have
 subsections: This is indicated by subsection names in
 quotation marks after the section name. For example, ``roommate`` is a subsection
 of the section ``remote``.
@@ -292,7 +292,7 @@ you a glimpse of this.
    Note the *path* given as a value to the ``url`` variable. If at any point
    either your superdataset or the remote moves on your file system,
    the association between the two datasets breaks -- this can be fixed by adjusting this
-   path, and a demonstration of this is in section (Todo: link file system management).
+   path, and a demonstration of this is in section :ref:`filesystem`.
    `fetch` contains a specification which parts of the repository are
    updated -- in this case everything (all of the branches).
    Lastly, the ``annex-ignore = false`` configuration allows Git-annex
@@ -341,7 +341,7 @@ The next section will talk about them.
 .. [#f3] If your default editor is :term:`vim` and you do not like this, now can be the time
          to change it! Chose either of two options:
 
-         1) Open up the file with an editor for your choice (e.g.
+         1) Open up the file with an editor for your choice (e.g.,
          `nano <https://www.howtogeek.com/howto/42980/the-beginners-guide-to-nano-the-linux-command-line-text-editor/>`_)::
 
              nano ~/.gitconfig

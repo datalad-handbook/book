@@ -56,7 +56,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   <tr>
     <td align="center"><a href="https://github.com/effigies"><img src="https://avatars0.githubusercontent.com/u/83442?v=4" width="100px;" alt="Chris Markiewicz"/><br /><sub><b>Chris Markiewicz</b></sub></a><br /><a href="https://github.com/datalad-handbook/book/issues?q=author%3Aeffigies" title="Bug reports">🐛</a></td>
     <td align="center"><a href="http://pat.chormai.org"><img src="https://avatars0.githubusercontent.com/u/1214890?v=4" width="100px;" alt="Pattarawat Chormai"/><br /><sub><b>Pattarawat Chormai</b></sub></a><br /><a href="https://github.com/datalad-handbook/book/issues?q=author%3Aheytitle" title="Bug reports">🐛</a> <a href="https://github.com/datalad-handbook/book/commits?author=heytitle" title="Code">💻</a></td>
-    <td align="center"><a href="https://github.com/lisanmo"><img src="https://avatars0.githubusercontent.com/u/52251433?v=4" width="100px;" alt="lisanmo"/><br /><sub><b>lisanmo</b></sub></a><br /><a href="https://github.com/datalad-handbook/book/issues?q=author%3Alisanmo" title="Bug reports">🐛</a> <a href="#content-lisanmo" title="Content">🖋</a></td>
+    <td align="center"><a href="https://github.com/lisanmo"><img src="https://avatars0.githubusercontent.com/u/52251433?v=4" width="100px;" alt="lisanmo"/><br /><sub><b>lisanmo</b></sub></a><br /><a href="https://github.com/datalad-handbook/book/issues?q=author%3Alisanmo" title="Bug reports">🐛</a> <a href="#content-lisanmo" title="Content">🖋</a> <a href="#example-lisanmo" title="Examples">💡</a> <a href="#ideas-lisanmo" title="Ideas, Planning, & Feedback">🤔</a></td>
   </tr>
 </table>
 

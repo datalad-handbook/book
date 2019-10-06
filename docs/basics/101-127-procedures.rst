@@ -362,6 +362,24 @@ instead of doing relevant routines "by hand" can help to ease
 working with the dataset, as the use case :ref:`usecase_student_supervision`
 showcases.
 
+Finally, make a note about running procedures inside of ``notes.txt``:
+
+.. runrecord:: _examples/DL-101-127-111
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ cat << EOT >> notes.txt
+   It can be useful to use pre-configured procedures that can apply
+   configurations, create files or file hierarchies, or perform
+   arbitrary tasks in datasets. They can be shipped with DataLad,
+   its extensions, or datasets, and you can even write your own
+   procedures and distribute them. The "datalad run-procedure"
+   command is used to apply such a procedure to a dataset. Procedures
+   shipped with DataLad or its extensions starting with a "cfg" prefix
+   can also be applied at the creation of a dataset with
+   "datalad create -c <PROC-NAME> <PATH>" (omitting the "cfg" prefix).
+
+   EOT
 
 .. rubric:: Footnotes
 

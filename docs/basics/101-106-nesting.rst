@@ -25,7 +25,7 @@ Remember how we had to navigate into ``recordings/longnow`` to see the history,
 and how this history was completely independent of the ``DataLad-101``
 superdataset history? This was the subdataset's own history.
 
-But now let's also check out how the *subdataset's* (``DataLad-101``) history
+But now let's also check out how the *superdataset's* (``DataLad-101``) history
 looks like after the installation of a subdataset. To do this, make sure you are
 *outside* of the subdataset ``longnow`` (note that the first commit is our recent
 addition to ``notes.txt``, so we'll look at the second most recent commit in

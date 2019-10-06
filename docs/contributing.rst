@@ -55,9 +55,35 @@ If you want to be able to build the book locally, though, please follow these in
 
    sudo apt-get install librsvg2-bin
 
-Once this is configured, you can build the book locally by running ``make``,
-and open it in your browser, for example with ``firefox docs/_build/html/index.html``.
+The code examples that need to be executed to build the book (see also the paragraph "Code" in
+:ref:`directive` to learn more about this) are executed inside of
+the directory ``/home/me``. This means that *this directory needs to exist* on your machine.
+Essentially, ``/home/me`` is a mock directory set up in order to have identical paths
+in code snippets regardless of the machine the book is build on: Else, code snippets
+created on one machine might have the path ``/home/adina``, and others created on
+a second machine ``/home/mih``, for example, leading to some potential confusion for readers.
+Therefore, you need to create this directory, and also --
+for consistency in the Git logs as well -- a separate, mock Git identity
+(we chose `Elena Piscopia <https://en.wikipedia.org/wiki/Elena_Cornaro_Piscopia>`_, the first
+woman to receive a PhD -- don't worry, this does not mess with your own Git identity):
 
+.. code-block:: bash
+
+   sudo mkdir /home/me
+   sudo chown $USER:$USER /home/me
+   HOME=/home/me git config --global user.name "Elena Piscopia"
+   HOME=/home/me git config --global user.email "elena@example.net"
+
+.. todo::
+
+   remove separate Git identity until https://github.com/datalad/datalad/issues/3750
+   is fixed
+
+Once this is configured, you can build the book locally by running ``make`` in the root
+of the repository, and open it in your browser, for example with
+``firefox docs/_build/html/index.html``.
+
+.. _directive:
 
 Directives
 """"""""""
@@ -70,33 +96,36 @@ use them in the same way they are used throughout the book.
 
 
 
-**Code:** For code that runs
-inside a dataset such as ``DataLad-101``, working directories exist. The ``DataLad-101``
-dataset for example lives in ``docs/build/wdirs/dl-101``. This comes with the advantage
+**Code:** For code that runs inside a dataset such as ``DataLad-101``,
+working directories exist inside of ``/home/me``. The ``DataLad-101``
+dataset for example lives in ``/home/me/dl-101``. This comes with the advantage
 that code is tested immediately -- if the code snippet contains an error, this error will
 be written into the book, and thus prevent faulty commands from being published.
 Running code in a working directory will furthermore build up on the existing history
 of this dataset, which is very useful if some code relies on working with previously
 created content or dataset history. Build code snippets that add to these working directories
 by using the ``runrecord`` directive. Commands wrapped in these will write the output
-of a command into example files. Make sure to name this files according to the following
+of a command into example files stored inside of the DataLad Handbook repository clone
+in ``docs/PART/_examples`` (where ``PART`` is ``basics`` or ``usecases``).
+Make sure to name this files according to the following
 schema, because they are executed sequentially:
-``DL-101-1<nr-of-section>-1<nr-of-example>``, e.g.,
-``docs/basics/_examples/DL-101-101-101`` for the first example in the first section
-of the basics.
+``_examples/DL-101-1<nr-of-section>-1<nr-of-example>``, e.g.,
+``_examples/DL-101-101-101`` for the first example in the first section
+of the given part.
 Here is how a ``runrecord`` directive can look like:
 
 .. code-block:: rst
 
-   .. runrecord:: _examples/DL-101-101-101   # give the path to the resulting file
+   .. runrecord:: _examples/DL-101-101-101   # give the path to the resulting file, start with _examples
       :language: console
-      :workdir: dl-101/DataLad-101    # specify a working directory here
+      :workdir: dl-101/DataLad-101    # specify a working directory here. This translates to /home/me/dl-101/DataLad-101
 
       # this is a comment
       $ this line will be executed
 
 Afterwards, the resulting example files need to be committed into Git. To clear existing
-examples and working directory history, run ``make clean`` and ``make clean-examples``.
+examples in ``docs/PART/_examples`` and the mock directories in ``/home/me``, run ``make clean`` and
+``make clean-examples``.
 
 However, for simple code snippets outside of the narrative of ``DataLad-101``,
 simple ``code-block::`` directives are sufficient.

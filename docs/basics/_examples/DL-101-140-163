@@ -1,9 +1,9 @@
 $ datalad install cloud
-[INFO] Cloning https://github.com/datalad-datasets/disneyanimation-cloud.git [1 other candidates] into '/home/adina/repos/datalad-handbook/docs/_build/wdirs/dl-101/DataLad-101/cloud' 
-[INFO]   Remote origin not usable by git-annex; setting annex-ignore 
-install(ok): /home/adina/repos/datalad-handbook/docs/_build/wdirs/dl-101/DataLad-101/cloud (dataset) [Installed subdataset in order to get /home/adina/repos/datalad-handbook/docs/_build/wdirs/dl-101/DataLad-101/cloud]
 # delete the subdataset
 $ datalad remove -m "remove obsolete subds" -d . cloud
+[INFO] Cloning https://github.com/datalad-datasets/disneyanimation-cloud.git [1 other candidates] into '/home/me/dl-101/DataLad-101/cloud' 
+[INFO]   Remote origin not usable by git-annex; setting annex-ignore 
+install(ok): /home/me/dl-101/DataLad-101/cloud (dataset) [Installed subdataset in order to get /home/me/dl-101/DataLad-101/cloud]
 uninstall(ok): cloud (dataset)
 remove(ok): cloud (dataset)
 save(ok): . (dataset)

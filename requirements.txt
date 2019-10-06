@@ -20,4 +20,4 @@ sphinxcontrib-websupport
 urllib3
 sphinxcontrib-svg2pdfconverter
 sphinxcontrib-plantuml
-autorunrecord>=0.2
+autorunrecord>=0.4

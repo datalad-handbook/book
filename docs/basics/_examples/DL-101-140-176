@@ -1,2 +1,2 @@
 $ datalad get flowers.jpg
-get(ok): /home/adina/repos/datalad-handbook/docs/_build/wdirs/dl-101/DataLad-101/flowers.jpg (file) [from web...]
+get(ok): /home/me/dl-101/DataLad-101/flowers.jpg (file) [from web...]

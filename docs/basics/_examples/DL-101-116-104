@@ -1,2 +1,2 @@
 $ datalad get books/progit.pdf
-get(ok): /home/adina/repos/datalad-handbook/docs/_build/wdirs/dl-101/mock_user/DataLad-101/books/progit.pdf (file) [from origin...]
+get(ok): /home/me/dl-101/mock_user/DataLad-101/books/progit.pdf (file) [from origin...]

@@ -1,7 +1,7 @@
 $ git log -1 -p
-commit db659fa73bd14f4e9448781d4f14a44d7769fc51
-Author: Adina Wagner <adina.wagner@t-online.de>
-Date:   Mon Aug 19 16:55:15 2019 +0200
+commit d7711fdf76d1e748a4d64fc7a3cf6fe956fbed12
+Author: Elena Piscopia <elena@example.net>
+Date:   Sun Oct 6 09:41:10 2019 +0200
 
     add copy of TLCL.pdf
 

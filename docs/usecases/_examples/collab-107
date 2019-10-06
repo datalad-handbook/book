@@ -1,8 +1,8 @@
 
-$ datalad install -r --source $BOBS_HOME/myanalysis bobs_analysis
-[INFO] Cloning myanalysis into '/home/adina/repos/datalad-handbook/docs/_build/wdirs/usecases/collab/bobs_analysis' 
-[INFO] Installing <Dataset path=/home/adina/repos/datalad-handbook/docs/_build/wdirs/usecases/collab/bobs_analysis> recursively 
-[INFO] Cloning /home/adina/repos/datalad-handbook/docs/_build/wdirs/usecases/collab/myanalysis/src/forrest_structural [2 other candidates] into '/home/adina/repos/datalad-handbook/docs/_build/wdirs/usecases/collab/bobs_analysis/src/forrest_structural' 
-install(ok): /home/adina/repos/datalad-handbook/docs/_build/wdirs/usecases/collab/bobs_analysis (dataset)
+$ datalad install -r --source /myanalysis bobs_analysis
+[INFO] Cloning myanalysis into '/home/me/usecases/collab/bobs_analysis' 
+[INFO] Installing <Dataset path=/home/me/usecases/collab/bobs_analysis> recursively 
+[INFO] Cloning /home/me/usecases/collab/myanalysis/src/forrest_structural [2 other candidates] into '/home/me/usecases/collab/bobs_analysis/src/forrest_structural' 
+install(ok): /home/me/usecases/collab/bobs_analysis (dataset)
 action summary:
   install (ok: 2)

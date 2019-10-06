@@ -3,7 +3,7 @@
 Summary
 -------
 
-This has been a substantial amount of information on various configuration
+This has been a substantial amount of information regarding various configuration
 types, methods, and files. After this lecture, you have greatly broadened
 your horizon about configurations of datasets:
 
@@ -17,7 +17,7 @@ your horizon about configurations of datasets:
 - Almost all configurations can be set with the :command:`git config`.
   Its structure looks like this::
 
-   git config --local/--global/--system --add/remove-all--list section.[subsection.]variable "value"
+   git config --local/--global/--system --add/remove-all/--list section.[subsection.]variable "value"
 
 - The ``.git/config`` configuration file is not version controlled, other
   configuration files (``.gitmodules``, ``.gitattributes``, ``.datalad/config``)

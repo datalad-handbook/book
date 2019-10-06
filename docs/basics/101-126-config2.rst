@@ -1,7 +1,7 @@
 .. _config2:
 
-DIY Configurations [2]
-----------------------
+More on DIY configurations
+--------------------------
 
 As the last section already suggest, within a Git repository,
 ``.git/config`` is not the only configuration file.
@@ -145,7 +145,7 @@ stores. ``.gitmodules`` is a configuration file that stores the mapping between
 your own dataset and any subdatasets you have installed in it.
 There will be an entry for each submodule (subdataset) in your dataset.
 The name *submodule* is Git terminology, and describes a Git repository inside of
-another Git repository, i.e. the super- and subdataset principles.
+another Git repository, i.e., the super- and subdataset principles.
 Upon sharing your dataset, the information about subdatasets and where to retrieve
 them from is stored and shared with this file.
 
@@ -243,13 +243,16 @@ Environment variables
 An :term:`environment variable` is a variable set up in your shell
 that affects the way the shell or certain software works -- for example
 the environment variables ``HOME``, ``PWD``, or ``PATH`` [#f4]_.
-Other than with configuration files, the behavior of Git, Git-annex, and DataLad can
-also be altered with environment variables, providing a configuration method entirely
-independent from the :command:`git config` command.
-Usually, every option that can be set in a configuration file also has an environment
-variable. If the environment variable is set, it takes precedence over options set in
-configuration files. For example, the ``user.name`` configuration of Git can be overridden
-by its associated environment variable, ``GIT_AUTHOR_NAME``.
+Configuration options that determine the behavior of Git, Git-annex, and
+DataLad that could be defined in a configuration file can also be set (or overridden)
+by the associated environment variables of these configuration options.
+Many configuration items have associated environment variables.
+If this environment variable is set, it takes precedence over options set in
+configuration files, thus providing both an alternative way to define configurations
+as well as an override mechanism. For example, the ``user.name``
+configuration of Git can be overridden by its associated environment variable,
+``GIT_AUTHOR_NAME``. Likewise, one can define the environment variable instead
+of setting the ``user.name`` configuration in a configuration file.
 
 Git, Git-annex, and DataLad have more environment variables than anyone would want to
 remember. `Here <https://git-scm.com/book/en/v2/Git-Internals-Environment-Variables>`__
@@ -346,7 +349,7 @@ Write a note about configurations in datasets into ``notes.txt``.
 .. [#f4] **Some more on environment variables**:
          Names of environment variables are often all-uppercase. While the ``$`` is not part of
          the name of the environment variable, it is necessary to *refer* to the environment
-         variable: To find the value of the environment variable ``HOME`` for example you would
+         variable: To reference the value of the environment variable ``HOME`` for example you would
          need to use ``echo $HOME`` and not ``echo HOME``. However, environment variables are
          set without a leading ``$``. There are several ways to set an environment variable
          (note that there are no spaces before and after the ``=`` !), leading to different

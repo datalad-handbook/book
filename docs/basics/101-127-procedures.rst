@@ -24,7 +24,7 @@ what the ``text2git`` procedure exactly is: It is
 nothing more than a simple script that
 
 - writes the relevant configuration (``annex_largefiles = '(not(mimetype=text/*))'``,
-  i.e. "Don't put anything that is a text file in the annex")
+  i.e., "Don't put anything that is a text file in the annex")
   to the ``.gitattributes`` file of a dataset, and
 - saves this modification with the commit message
   "Instruct annex to add text files to Git".
@@ -63,7 +63,8 @@ are highlighted:
         message="Instruct annex to add text files to Git",
     )
 
-Just like ``cfg_text2git``, all DataLad procedures are scripts.
+Just like ``cfg_text2git``, all DataLad procedures are
+executables (such as a script, or compiled code).
 In principle, they can be written in any language, and perform
 any task inside of a dataset.
 The ``text2git`` configuration for example applies a configuration for how
@@ -104,7 +105,7 @@ procedures on the system for available procedures:
    $ datalad run-procedure --discover
 
 The output shows that in this particular dataset, on the particular
-system the book is written on, there are three procedures available:
+system the book is written on, there are at least three procedures available:
 ``cfg_metadatatypes``, ``cfg_text2git``, and ``cfg_yoda``.
 It also lists where they are stored -- in this case,
 they are all part of the source code of DataLad [#f1]_.
@@ -176,10 +177,7 @@ was applied.
      must contain an appropriate :term:`shebang`.
 
        - If a procedure is not executable, but its filename ends with
-         ``.py``, it is automatically executed by the Python interpreter
-         (whichever version is available in the present environment).
-         Likewise, procedure implementations ending on ``.sh`` are executed
-         via :term:`bash`.
+         ``.sh``, it is automatically executed via :term:`bash`.
 
    - Procedures can implement any argument handling, but must be capable
      of taking at least one positional argument (the absolute path to the
@@ -197,22 +195,20 @@ was applied.
            help = "This is a string to describe what the procedure does"
 
    - By default, on GNU/Linux systems, DataLad will search for system-wide procedures
-     (i.e. procedures on the *system* level) in ``/etc/xdg/datalad/procedures``,
-     for user procedures (i.e. procedures on the *global* level) in ``~/.config/datalad/procedures``,
-     and for dataset procedures (i.e. the *local* level [#f2]_) in ``.datalad/procedures``
+     (i.e., procedures on the *system* level) in ``/etc/xdg/datalad/procedures``,
+     for user procedures (i.e., procedures on the *global* level) in ``~/.config/datalad/procedures``,
+     and for dataset procedures (i.e., the *local* level [#f2]_) in ``.datalad/procedures``
      relative to a dataset root.
      Note that ``.datalad/procedures`` does not exist by default, and the ``procedures``
      directory needs to be created first.
 
        - Alternatively to the default locations, DataLad can be pointed to the
-         location of a procedure with a configuration in ``.datalad/config``,
-         or with the help of :term:`environment variable`\s.
+         location of a procedure with a configuration in ``.datalad/config``
+         (or with the help of the associated :term:`environment variable`\s).
          The appropriate configuration keys for ``.datalad/config`` are either
          ``datalad.locations.system-procedures`` (for changing the *system* default),
          ``datalad.locations.user-procedures`` (for changing the *global* default),
          or ``datalad.locations.dataset-procedures`` (for changing the *local* default).
-         The associated environment variables are ``DATALAD_LOCATIONS_SYSTEM__PROCEDURES``,
-         ``DATALAD_LOCATIONS_USER__PROCEDURES``, and ``DATALAD_LOCATIONS_DATASET__PROCEDURES``.
          An example ``.datalad/config`` entry for the local scope is shown below.
 
          .. code-block:: bash
@@ -239,7 +235,7 @@ was applied.
 
     - By convention, procedures should leave a dataset in a clean state.
 
-   Therefore, in order to create a custom procedure, a simple script
+   Therefore, in order to create a custom procedure, an executable script
    in the appropriate location is fine. Placing a script ``myprocedure``
    into ``.datalad/procedures`` will allow running
    ``datalad run-procedure myprocedure`` in your dataset, and because
@@ -385,11 +381,13 @@ Finally, make a note about running procedures inside of ``notes.txt``:
 
 .. [#f1] In theory, because procedures can exist on different levels, and
          because anyone can create (and thus name) their own procedures, there
-         can be name conflicts. If two procedures have the same name, but exist
-         on different levels (e.g. a system-wide procedure and a dataset-specific
-         procedure), the procedure closer to the dataset ``run-procedure`` is
-         operating on takes precedence (e.g. the dataset-specific one takes
-         precendence over the system-wide one).
+         can be name conflicts. The order of precedence in such cases is:
+         user-level, system-level, dataset, DataLad extension, DataLad, i.e.,
+         local procedures take precedence over those coming from "outside" via
+         datasets or datalad extensions.
+         If procedures in a higher-level dataset and a subdataset have the same
+         name, the procedure closer to the dataset ``run-procedure`` is
+         operating on takes precedence.
 
 .. [#f2] Note that we simplify the level of procedures that exist within a dataset
          by calling them *local*. Even though they apply to a dataset just as *local*

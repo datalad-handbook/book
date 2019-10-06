@@ -1,7 +1,7 @@
 .. _config:
 
-DIY Configurations [1]
-----------------------
+DIY configurations
+------------------
 
 Back in section :ref:`text2git`, you already learned that there
 are dataset configurations, and that these configurations can
@@ -46,8 +46,8 @@ At one point in time, you likely followed instructions such as
 in :ref:`install` and configured your
 *Git identity* with the commands::
 
-   git config --global --add user.name "Bob McBobFace"
-   git config --global --add user.email bob@example.com
+   git config --global --add user.name "Elena Piscopia"
+   git config --global --add user.email elena@example.net
 
 "What the above commands do is very simple: They search for
 a specific configuration file, and set the variables specified

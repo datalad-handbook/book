@@ -784,7 +784,7 @@ with the `chmod <https://en.wikipedia.org/wiki/Chmod>`_ command::
 
     chmod -R u+w <dataset>
 
-This *recursively* (``-R``, i.e. throughout all files and (sub)directories) gives users
+This *recursively* (``-R``, i.e., throughout all files and (sub)directories) gives users
 (``u``) write permissions (``+w``) for the dataset.
 
 Afterwards, ``rm -rf <dataset>`` will succeed.

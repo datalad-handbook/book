@@ -170,7 +170,7 @@ Introduction
 
 - An introduction to DataLad, and the problems it aims to be a solution for.
 
-- This part is practically free of hands-on content, i.e. no
+- This part is practically free of hands-on content, i.e., no
   instructions, no demos. Instead, it is about concepts, analogies, general
   problems.
 

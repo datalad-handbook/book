@@ -97,7 +97,7 @@ if you navigate into ``recordings`` the command would be::
   datalad install -d ../ -s https://github.com/datalad-datasets/longnow-podcasts.git recordings/longnow
 
 Note that the path did not change, but ``-d .`` changed to ``-d ../``
-(the Unix expression for ``parent directory``, i.e. "one-directory-up").
+(the Unix expression for ``parent directory``, i.e.,  "one-directory-up").
 Later in this book there is a dedicated section that explains what this ``-d``/``--dataset`` option
 does and why it is important, but for now just be mindful of the instruction above.
 

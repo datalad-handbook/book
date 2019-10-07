@@ -152,7 +152,9 @@ Glossary
       :term:`DataLad subdataset` is known as a submodule in the :term:`Git config file`.
 
    the DataLad superdataset ///
-      TODO
+      A large superdataset containing more than 60TB of scientific data in its subdatasets. It allows
+      uniformly accessing and discovering the datasets it contains, and is thus a handy shortcut
+      for (neuro-)scientists to obtain (knowledge about) data.
 
    tig
       A text-mode interface for git that allows you to easily browse through your commit history.

@@ -145,7 +145,7 @@ stores. ``.gitmodules`` is a configuration file that stores the mapping between
 your own dataset and any subdatasets you have installed in it.
 There will be an entry for each submodule (subdataset) in your dataset.
 The name *submodule* is Git terminology, and describes a Git repository inside of
-another Git repository, i.e. the super- and subdataset principles.
+another Git repository, i.e., the super- and subdataset principles.
 Upon sharing your dataset, the information about subdatasets and where to retrieve
 them from is stored and shared with this file.
 

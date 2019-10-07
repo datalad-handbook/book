@@ -9,7 +9,7 @@ This command only operates on dataset content. To obtain a new independent
 dataset from some source use the INSTALL command.
 
 By default this command operates recursively within a dataset, but not
-across potential subdatasets, i.e. if a directory is provided, all files in
+across potential subdatasets, i.e., if a directory is provided, all files in
 the directory are obtained. Recursion into subdatasets is supported too. If
 enabled, relevant subdatasets are detected and installed in order to
 fulfill a request.

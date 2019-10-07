@@ -125,7 +125,7 @@ Glossary
       is used by :term:`Git` to identify :term:`commit`\s. A shasum is a type of :term:`checksum`.
 
    shebang
-      The characters ``#!`` at the very top of a script. One can specify the interpreter (i.e. the
+      The characters ``#!`` at the very top of a script. One can specify the interpreter (i.e., the
       software that executes a script of yours, such as Python) after with it such as in
       ``#! /usr/bin/python``.
       If the script has executable permissions, it is henceforth able to call the interpreter itself.

@@ -258,7 +258,7 @@ with a helpful commit message goes a very long way to fulfill this principle
 on its own already.
 
 One core aspect of this principle is *linking* between re-usable data
-resource units (i.e. DataLad subdatasets containing pure data). You will
+resource units (i.e., DataLad subdatasets containing pure data). You will
 be happy to hear that this is achieved by simply installing datasets
 as subdatasets.
 This part of this principle will therefore be absolutely obvious to you

@@ -94,6 +94,18 @@ Make the most out of datasets
    basics/101-123-yoda
    basics/101-124-summary
 
+###############################
+DataLad's metadata capabilities
+###############################
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Working with data on data
+
+   basics/101-150-search
+   basics/101-151-metadata
+   basics/101-153-summary
+
 #########
 Use Cases
 #########

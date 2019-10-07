@@ -1,0 +1,5 @@
+$ cd datasets.datalad.org
+$ ls .datalad
+config
+meta
+metadata

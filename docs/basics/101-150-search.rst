@@ -1,0 +1,121 @@
+.. _superdataset:
+
+Querying metadata
+-----------------
+
+DataLad allows to extract, aggregate, and query *metadata* about DataLad datasets.
+This functionality is useful to search for or in datasets, and also helps
+to make datasets findable.
+
+:term:`Metadata` is data describing a dataset, such as its author(s) or
+descriptions of its content.
+This type of metadata is different from the dataset content identity and
+availability metadata obtained with a :command:`datalad install` that allows
+the exploration of file hierarchies prior to any actual data download.
+Instead, extracted metadata on a dataset or its content is managed by DataLad
+itself as (somewhat hidden) dataset-internal content, and needs to be explicitly
+created and/or accessed using the :command:`datalad search` command,
+metadata *extractors* provided by DataLad or it's extension, and commands
+to extract, aggregate, and summarize metadata.
+
+.. todo::
+
+   Figure out which commands. datalad extract-metadata or
+   datalad meta-extract and so forth... from
+   metalad: extract, dump, aggregate
+
+The following sections will demonstrate how to make use of such metadata
+with queries and for data discovery, and also how to extract and aggregate it.
+
+DataLad's superdataset ``///``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Prior to diving into the internals of DataLads metadata functionality,
+let's start by looking into one example of how to make use of some of the metadata
+that can be acquired.
+DataLad provides uniform access to more than 60TB of scientific data and
+its associated metadata via what is called ":term:`The DataLad superdataset ///`"
+(abbreviated ``///``). It is an open-data collection of various, to a large extent
+neuroscientific, data datasets. Each data dataset is a subdataset, nested within the
+toplevel superdataset ``///``. Installing the superdataset thus makes a large number of
+open datasets available to anyone, and is basically a handy shortcut for scientist in
+this particular field. But because the superdataset includes aggregated
+metadata on all its subdatasets, this resource not only allows to *obtain* (parts of)
+this data uniformly, but also *search* this "superdataset" and hence
+*discover* suitable datasets without the need to download the data first.
+
+In DataLad-101, we will use this dataset to demonstrate how to discover
+datasets with the :command:`datalad search` command
+(:manpage:`datalad-search` manual). As a first step, it needs to be installed.
+Unlike previous datasets we installed with a path or URL specification,
+the DataLad superdataset can be installed by specifying ``///`` instead of
+the path/URL. To follow along, please install this dataset somewhere outside of
+``DataLad-101`` [#f1]_:
+
+.. runrecord:: _examples/DL-101-150-101
+   :language: console
+   :workdir: dl-101
+
+   $ datalad install ///
+
+The DataLad superdataset contains many subdatasets:
+
+.. runrecord:: _examples/DL-101-150-102
+   :language: console
+   :workdir: dl-101
+
+   $ ls -a datasets.datalad.org
+
+As seen in section :ref:`sharelocal1`, when installing a superdataset without
+the ``--recursive`` flag, the subdatasets file hierarchy metadata is only available
+after another ``datalad install path/to/subds``. Exploring any of the subdatasets file
+hierarchies would thus require another :command:`datalad install` command.
+However, discovering potentially relevant subdatasets works right away,
+as the superdataset already contains aggregated metadata from all of its
+subdatasets. This data can be found in ``.datalad/`` in the top-level dataset:
+
+.. runrecord:: _examples/DL-101-150-103
+   :language: console
+   :workdir: dl-101
+
+   $ cd datasets.datalad.org
+   $ ls .datalad
+
+.. index:: ! datalad command; search
+
+This metadata allows to *search* this dataset and its contents.
+The :command:`datalad search` command can search aggregated metadata.
+This makes it possible to discover datasets, or individual files in a
+dataset even when they are not available locally.
+
+Consider a scientist that has not used DataLad before and decides to find
+datasets which relate to their field of study: neuroimaging research using
+movies as stimulation. Providing these two keywords yields a number of
+datasets that could be of potential interest:
+
+.. runrecord:: _examples/DL-101-150-104
+   :language: console
+   :workdir: dl-101/datasets.datalad.org
+
+   $ datalad search neuroimaging movie
+
+
+.. todo::
+
+   elaborate on queries, talk about modes
+
+
+.. rubric:: Footnotes
+
+.. [#f1] Note that ``datalad install ///`` will install the DataLad superdataset
+         into your current directory. ``datalad install -s /// path/to/destination``
+         will let you specify a path.
+         Note further that :term:`the DataLad superdataset ///` has a special meaning
+         for the :command:`datalad search` command: If ``///`` is installed in its default
+         location ``~/datalad`` (or if this configuration is appropriately adjusted
+         to the path ``///`` was installed to with ``datalad.locations.default-dataset``),
+         a :command:`datalad search` outside of
+         a DataLad dataset will fall back to searching ``///`` automatically. Running
+         :command:`datalad search` outside a DataLad dataset for the first time will
+         start an interactive assistant to help with the installation for this
+         functionality.

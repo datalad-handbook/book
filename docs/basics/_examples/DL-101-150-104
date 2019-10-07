@@ -1,0 +1,15 @@
+$ datalad search neuroimaging movie
+search(ok): /home/me/dl-101/datasets.datalad.org/hbnssi (dataset)
+search(ok): /home/me/dl-101/datasets.datalad.org/labs/haxby/raiders (dataset)
+search(ok): /home/me/dl-101/datasets.datalad.org/openfmri/ds000113b (dataset)
+search(ok): /home/me/dl-101/datasets.datalad.org/openfmri/ds000113d (dataset)
+search(ok): /home/me/dl-101/datasets.datalad.org/openfmri/ds000228 (dataset)
+search(ok): /home/me/dl-101/datasets.datalad.org/openfmri/ds000256 (dataset)
+search(ok): /home/me/dl-101/datasets.datalad.org/openneuro/ds000228 (dataset)
+search(ok): /home/me/dl-101/datasets.datalad.org/openneuro/ds001103 (dataset)
+search(ok): /home/me/dl-101/datasets.datalad.org/openneuro/ds001110 (dataset)
+search(ok): /home/me/dl-101/datasets.datalad.org/openneuro/ds001132 (dataset)
+search(ok): /home/me/dl-101/datasets.datalad.org/openneuro/ds001145 (dataset)
+search(ok): /home/me/dl-101/datasets.datalad.org/openneuro/ds001545 (dataset)
+action summary:
+  search (ok: 12)

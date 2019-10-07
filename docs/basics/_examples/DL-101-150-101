@@ -1,0 +1,3 @@
+$ datalad install ///
+[INFO] Cloning http://datasets.datalad.org/ [1 other candidates] into '/home/me/dl-101/datasets.datalad.org' 
+install(ok): /home/me/dl-101/datasets.datalad.org (dataset)

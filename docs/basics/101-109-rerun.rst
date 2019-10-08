@@ -138,7 +138,7 @@ compares one state (a commit specified with ``-f``/``--from``,
 by default the latest change)
 and another state from the dataset's history (a commit specified with
 ``-t``/``--to``). Let's do a :command:`datalad diff` between the current state
- of the dataset and the previous commit (called "``HEAD~1``" in Git terminology):
+of the dataset and the previous commit (called "``HEAD~1``" in Git terminology):
 
 
 .. runrecord:: _examples/DL-101-108-116

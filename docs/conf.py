@@ -273,7 +273,10 @@ latex_elements = {
     'papersize': 'a4',
     'pointsize': '11pt',
     'figure_align': 'tbp',
-    'preamble': """\
+    'preamble': r"""
+\usepackage{charter}
+\usepackage[defaultsans]{lato}
+\usepackage{inconsolata}
 \setcounter{tocdepth}{0}
 """,
 }

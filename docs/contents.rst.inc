@@ -106,6 +106,7 @@ Use Cases
    usecases/provenance_tracking
    usecases/reproducible-paper
    usecases/supervision
+   usecases/reproducible_neuroimaging_analysis
 
 
 ########

@@ -133,7 +133,7 @@ is only one single piece of data in your object tree. This, depending on
 how much identical file content lies in different parts of your dataset,
 can save you much disk space and time.
 
-The second advantage is a
+The second advantage is a ?
 
 .. gitusernote::
 

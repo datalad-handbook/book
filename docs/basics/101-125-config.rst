@@ -1,9 +1,9 @@
 .. _config:
 
-Tuning datasets to your needs: Configurations [1]
--------------------------------------------------
+DIY configurations
+------------------
 
-Back in section :ref:`text2git`, we already learned that there
+Back in section :ref:`text2git`, you already learned that there
 are dataset configurations, and that these configurations can
 be modified, for example with the ``-c text2git`` option.
 This option applies a configuration template to store text
@@ -46,8 +46,8 @@ At one point in time, you likely followed instructions such as
 in :ref:`install` and configured your
 *Git identity* with the commands::
 
-   git config --global --add user.name Bob McBobFace
-   git config --global --add user.email bob@example.com
+   git config --global --add user.name "Elena Piscopia"
+   git config --global --add user.email elena@example.net
 
 "What the above commands do is very simple: They search for
 a specific configuration file, and set the variables specified
@@ -328,14 +328,14 @@ The next section will talk about them.
 .. rubric:: Footnotes
 
 .. [#f1] As an alternative to a ``git config`` command, you could also run configuration
-         templates or procedures (later in this chapter) that apply predefined configurations or in some cases even
+         templates or procedures (see :ref:`procedures`) that apply predefined configurations or in some cases even
          add the information to the configuration file by hand and save it using an editor of your choice.
 
 .. [#f2] The third scope of a Git configuration are the system wide configurations.
          These are stored (if they exist) in ``/etc/gitconfig`` and contain settings that would
          apply to every user on the computer you are using. These configurations
          are not relevant for DataLad-101, and we will thus skip them. You can
-         read more about Gits configurations and different files
+         read more about Git's configurations and different files
          `here <https://git-scm.com/docs/git-config>`_.
 
 .. [#f3] If your default editor is :term:`vim` and you do not like this, now can be the time

@@ -16,6 +16,9 @@ Glossary
    annex
       Git annex concept: a different word for :term:`object-tree`.
 
+   bash
+      A Unix shell and command language.
+
    branch
       Git concept: A lightweight, independent history streak of your dataset. Branches can contain less,
       more, or changed files compared to other branches, and one can :term:`merge` the changes
@@ -48,6 +51,10 @@ Glossary
 
    Debian
       A common Linux distribution. `More information here <https://www.debian.org/index.en.html>`__.
+
+   environment variable
+      A variable made up of a name/value pair. Programs using a given environment variable
+      will use its associated value for their execution.
 
    Git
       A version control system to track changes made to small-sized files over time. You can find out

@@ -130,7 +130,7 @@ with the ``-d/--dataset`` flag::
 
 The typical workflow is to create a dataset and apply
 a procedure afterwards.
-However, procedures shipped with DataLad or its extensions with a
+However, some procedures shipped with DataLad or its extensions with a
 ``cfg_`` prefix can also be applied right at the creation of a dataset
 with the ``-c/--cfg-proc <name>`` option in a :command:`datalad create`
 command. This is a peculiarity of these procedures because, by convention,
@@ -141,13 +141,11 @@ The command structure looks like this::
 
 Note that the ``cfg_`` prefix of the procedures is omitted in these
 calls to keep it extra simple and short. The
-available procedures in this example (``cfg_yoda``, ``cfg_text2git``,
-and ``cfg_metadatatypes``) could thus be applied within a
-:command:`datalad create` as
+available procedures in this example (``cfg_yoda``, ``cfg_text2git``)
+could thus be applied within a :command:`datalad create` as
 
 - ``datalad create -c yoda <DSname>``
 - ``datalad create -c text2git <DSname>``
-- ``datalad create -c metadatatypes <DSname>``
 
 As a general note, it can be useful to apply procedures
 early in the life of a dataset. Procedures such

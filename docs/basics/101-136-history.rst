@@ -9,7 +9,6 @@ it might have been possible to restore the lost content. But surely each of us
 is especially cautious with some command in the flavors of ``rm`` (remove files),
 ``save`` (save files -- maybe you accidentally deleted content), or similar
 because of a hasty operation that caused data fatalities in the past.
-
 With DataLad, no mistakes are forever. As long as the content was version
 controlled, it is possible to look at previous states of the data, or revert
 changes -- even years after they happened.
@@ -22,7 +21,7 @@ But because working with the history of a dataset is entirely
 "Good morning! What a wonderful day to learn some Git commands!" he greets
 everyone. "I don't have enough time to go through all the details in only
 one lecture. But I'll give you the basics. And always remember: Just google
-what you need. You will find thousands of helpful post or blogs right away.
+what you need. You will find thousands of helpful post or stackoverflow questions right away.
 Even the experts will google which Git command to use, and how to use it, *constantly*.",
 he reassures with a wink.
 
@@ -59,29 +58,18 @@ referenced.
 "You tell me what you would be interested in doing, and I'll show you how it's
 done. For the rest of the lecture, call me Google!"
 
+Fixing (empty) commit messages
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 From the back of the lecture hall comes a question you're really glad
 someone asked: "It has happened to me that I accidentally did a
-:command:`datalad save` and forgot to either specify the commit message,
-or forgot to give a path to the command when I wanted to only save
-a very specific change. Or sometimes I also just didn't remember that
-additional modifications existed in the dataset and saved unaware of
-those. I know that it is good practice to only save
-those changes together that belong together, so is there a way to
-disentangle an accidental :command:`datalad save` again?"
-
+:command:`datalad save` and forgot to specify the commit message,
+how can I fix this?".
 The room nods in agreement -- apparently, others have run into this
 premature slip of the ``Enter`` key as well.
 
-"Sure, of course!", the guest lecturer reassures. "This is a great
-question, thank you. Before I'll show you I'll just repeat
-what each of you probably already knows by heart: Make sure to run
-a :command:`datalad status` prior to a :command:`datalad save`. You'll
-get reminded of the changes that would be saved. But let me tell you,
-I also frequently forget modifications, and I really appreciate
-that Git lets me revert such mistakes."
-
-Let's demonstrate a simple example. First, let's create some random
-files. Do this right in your dataset.
+Let's demonstrate a simple example. First, let's create some random files.
+Do this right in your dataset.
 
 .. runrecord:: _examples/DL-101-136-102
    :language: console
@@ -110,7 +98,7 @@ This will generate three new files in your dataset. Run a
 
    $ datalad status
 
-And now, an accidental :command:`datalad save` happens:
+And now:
 
 .. runrecord:: _examples/DL-101-136-104
    :language: console
@@ -124,34 +112,60 @@ commit message that saved all of the files.
 .. runrecord:: _examples/DL-101-136-105
    :language: console
    :workdir: dl-101/DataLad-101
+   :emphasize-lines: 6
 
    $ git log -p -1
 
-As expected all of the modifications present prior to the
+As expected, all of the modifications present prior to the
 command are saved into the most recent commit, and the commit
 message DataLad provides by default, ``[DATALAD] Recorded changes``,
 is not very helpful.
 
-Let's say you'd only want to change the commit message of this
-record: This can be done with the command
-:command:`git commit --amend`. Running this command will open
+Changing the commit message of the most recent commit can be done with
+the command :command:`git commit --amend`. Running this command will open
 an editor (the default, as configured in Git), and allow you
-to change the commit message.
+to change the commit message. Try running this command and give
+that commit a new commit message (you can just delete the one
+created by DataLad in the editor).
 
-But let's now say instead of committing all three files you
-intended to save only one of those file. What we in this case
+Fixing accidentally saved contents
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The next question comes from the front:
+"It happened that I forgot to give a path to the :command:`datalad save`
+command when I wanted to only save a very specific change.
+Or sometimes I also just didn't remember that
+additional modifications existed in the dataset and saved unaware of
+those. I know that it is good practice to only save
+those changes together that belong together, so is there a way to
+disentangle an accidental :command:`datalad save` again?"
+
+For this let's now say instead of committing all three Git jokes from
+before you intended to save only one of those files. What we in this case
 want to achieve is to keep all of the files as they are in the
-dataset, but just get them out of the history. We'll use the
-:command:`git reset` command for this. It essentially undoes
-commits. :command:`git reset` comes with many options, but the
-relevant one is ``--mixed``. Specifying the command::
+dataset, but just get them out of the history to :command:`datalad save`
+only one of the files afterwards.
+
+.. important::
+
+   Note that this is a case with *text files* (stored in Git)! For
+   accidental annexing of files, please make sure to check out
+   the next paragraph!
+
+We'll use the :command:`git reset` command for this. It essentially allows to
+undo commits by resetting the history of a dataset to an earlier version.
+:command:`git reset` comes with several *modes* that determine the
+exact behavior it, but the relevant one is ``--mixed`` [#f1]_.
+Specifying the command::
 
    git reset --mixed COMMIT
 
-will undo all commits in your history until the specified
-commit (it does not undo the specified commit).
-Importantly, the modifications
-you made in these commits that are undone will still be present
+will preserve all changes made to files until the specified
+commit in the dataset, but remove them from the datasets history.
+This means the commits *until* ``COMMIT`` (not *including* ``COMMIT``)
+will not be in your history anymore, and instead untracked changes
+that can be saved again. In other words, the modifications
+you made in these commits that are "undone" will still be present
 in your dataset -- just not written to the history.
 
 The COMMIT in the command can either be a hash or a reference
@@ -188,8 +202,26 @@ the content still? We will read all of them with :command:`cat`:
 
    $ cat Gitjoke*
 
+Great. Now we can go ahead and save only those changes we intended
+to save:
 
-TODO: ahhh shit, what about annexed files? They are a symlink afterwards...
+.. runrecord:: _examples/DL-101-136-110
+   :workdir: dl-101/DataLad-101
+   :language: console
+
+   $ datalad save -m "save my favourite Git joke" Gitjoke2.txt
+
+Finally, lets check how the history looks afterwards:
+
+.. runrecord:: _examples/DL-101-137-111
+   :workdir: dl-101/DataLad-101
+   :language: console
+
+   git log -2
+
+It is only the last save that is recorded in the history, not the
+previous save that recorded all three files. You have rewritten
+history [#f2]_ !
 
 This action will not be recorded in your history.
 
@@ -228,3 +260,16 @@ More content:
 * definitely something about git annex unannex
 
 * .. ??
+
+
+.. rubric:: Footnotes
+
+.. [#f1] The option ``--mixed`` is the default mode for a :command:`git reset`
+         command, omitting it (i.e., running just ``git reset``) leads to the
+         same behavior. It is explicitly stated in this book to make the mode
+         clear, though.
+
+.. [#f2] Note though that rewriting history can be dangerous, and you should
+         be aware of what you are doing. For example, rewriting parts of the
+         dataset's history that have been published (e.g., to a Github repository)
+         already or that other people have copies of is not advised.

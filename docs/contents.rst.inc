@@ -53,7 +53,6 @@ Under the hood: Git-annex
 
    basics/101-114-txt2git
    basics/101-115-symlinks
-   basics/101-135-history
 
 #############
 Collaboration
@@ -93,6 +92,7 @@ Help yourself
 
    basics/101-135-help
    basics/101-140-filesystem
+   basics/101-136-history
 
 #############################
 Make the most out of datasets

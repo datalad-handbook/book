@@ -1,13 +1,13 @@
 $ git log -2
-commit e3d92a16e973bb27c7e5820517044eb2136718ee
+commit f1360235d3935a1137170f3c917aa42be9880f3b
 Author: Adina Wagner <adina.wagner@t-online.de>
-Date:   Tue Jul 30 07:06:30 2019 +0200
+Date:   Wed Oct 9 13:47:21 2019 +0200
 
     Add note on adding siblings
 
-commit 8c1f28a80d0fa51773f6816269095208e4f11b01
-Merge: 19c31d3 a9becc2
+commit 1ee817fd24a1b4c585c4b4cb13b3be2d3c1794d1
+Merge: 19744b9 3f0436b
 Author: Adina Wagner <adina.wagner@t-online.de>
-Date:   Tue Jul 30 07:06:30 2019 +0200
+Date:   Wed Oct 9 13:47:21 2019 +0200
 
     Merge remote-tracking branch 'refs/remotes/roommate/master'

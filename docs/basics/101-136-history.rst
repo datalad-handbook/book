@@ -41,7 +41,7 @@ the ``datalad run`` or ``datalad rerun`` :term:`run record` associated with
 this hash. Here is an excerpt from the ``DataLad-101`` history to show a
 few abbreviated hashes of the 15 most recent commits:
 
-.. runrecord:: _examples/DL-101-135-101
+.. runrecord:: _examples/DL-101-136-101
    :workdir: dl-101/DataLad-101
    :language: console
 
@@ -83,7 +83,7 @@ that Git lets me revert such mistakes."
 Let's demonstrate a simple example. First, let's create some random
 files. Do this right in your dataset.
 
-.. runrecord:: _examples/DL-101-135-102
+.. runrecord:: _examples/DL-101-136-102
    :language: console
    :workdir: dl-101/DataLad-101
 
@@ -104,7 +104,7 @@ files. Do this right in your dataset.
 This will generate three new files in your dataset. Run a
 :command:`datalad status` to verify this:
 
-.. runrecord:: _examples/DL-101-135-103
+.. runrecord:: _examples/DL-101-136-103
    :language: console
    :workdir: dl-101/DataLad-101
 
@@ -112,7 +112,7 @@ This will generate three new files in your dataset. Run a
 
 And now, an accidental :command:`datalad save` happens:
 
-.. runrecord:: _examples/DL-101-135-104
+.. runrecord:: _examples/DL-101-136-104
    :language: console
    :workdir: dl-101/DataLad-101
 
@@ -121,7 +121,7 @@ And now, an accidental :command:`datalad save` happens:
 Whooops! A :command:`datalad save` without a
 commit message that saved all of the files.
 
-.. runrecord:: _examples/DL-101-135-105
+.. runrecord:: _examples/DL-101-136-105
    :language: console
    :workdir: dl-101/DataLad-101
 
@@ -157,14 +157,14 @@ in your dataset -- just not written to the history.
 The COMMIT in the command can either be a hash or a reference
 with the HEAD pointer. Let's stay with the hash:
 
-.. runrecord:: _examples/DL-101-135-106
+.. runrecord:: _examples/DL-101-136-106
    :language: console
    :workdir: dl-101/DataLad-101
    :realcommand: echo "git reset --mixed $(git rev-parse HEAD~1)" && git reset --mixed $(git rev-parse HEAD~1)
 
 Let's see what has happened. First, let's check the history:
 
-.. runrecord:: _examples/DL-101-135-107
+.. runrecord:: _examples/DL-101-136-107
    :language: console
    :workdir: dl-101/DataLad-101
 
@@ -173,7 +173,7 @@ Let's see what has happened. First, let's check the history:
 As you can see, the commit is not in the history anymore!
 Go on to see what :command:`datalad status` reports:
 
-.. runrecord:: _examples/DL-101-135-108
+.. runrecord:: _examples/DL-101-136-108
    :workdir: dl-101/DataLad-101
    :language: console
 
@@ -182,7 +182,7 @@ Go on to see what :command:`datalad status` reports:
 Nice, the files are present, and yet untracked. Do they contain
 the content still? We will read all of them with :command:`cat`:
 
-.. runrecord:: _examples/DL-101-135-109
+.. runrecord:: _examples/DL-101-136-109
    :workdir: dl-101/DataLad-101
    :language: console
 
@@ -203,7 +203,7 @@ had just started to learn how to use DataLad. Identify the commit
 in which we added a note on ``datalad save`` in your own history
 (it will not have the same hash as the example below).
 
-.. runrecord:: _examples/DL-101-135-110
+.. runrecord:: _examples/DL-101-136-110
    :language: console
    :workdir: dl-101/DataLad-101
 
@@ -211,7 +211,7 @@ in which we added a note on ``datalad save`` in your own history
 
 To see the dataset at this state in time, run ``git checkout COMMIT``
 
-.. runrecord:: _examples/DL-101-135-110
+.. runrecord:: _examples/DL-101-136-110
    :language: console
    :workdir: dl-101/DataLad-101
 

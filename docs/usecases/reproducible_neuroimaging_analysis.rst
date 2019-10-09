@@ -7,15 +7,15 @@ This use case sketches the basics of an analysis that can be
 automatically reproduced:
 
 #. Data for an analysis stems from :term:`the DataLad superdataset ///`.
-#. Automatic data retrieval can be ensured by using either DataLad's
+#. Automatic data retrieval can be ensured by using DataLad's
    commands in the analysis scripts, or the ``--input`` specification of
    :command:`datalad run`,
-#. The analyses is executed using :command:`datalad run` and
+#. Analyses are executed using :command:`datalad run` and
    :command:`datalad rerun` commands to capture everything relevant to
    reproduce the analysis.
 #. The dataset can be kept as lightweight as possible, and a complete
    reproduction of the analysis and the results is possible even if
-   the inputs are not retrieved.
+   the inputs are not locally retrieved yet.
 
 The data types and methods mentioned in this usecase belong to the scientific
 field of neuroimaging, but the basic workflow is domain-agnostic.
@@ -26,13 +26,14 @@ The Challenge
 Creating reproducible (scientific) analyses seems to require so much:
 One needs to share data, scripts, results, and instructions on how to
 use data and scripts to obtain the results.
-A researcher at any stage of their career can struggle already to
-remember for themselves which script needs to be run in which order,
-let alone to create comprehensible instructions on where and how to obtain
-data and how to run which script at what point in time.
-This leads to a loss of confidence in results, a loss of time for anyone
-trying to reproduce others or even their own analyses, and lots of
-frustration.
+A researcher at any stage of their career can struggle to remember
+which script needs to be run in which order,
+or to create comprehensible instructions for others
+on where and how to obtain data and how to run which script
+at what point in time.
+This leads to failed replications, a loss of confidence in results,
+and major time requirements for anyone trying to reproduce others
+or even their own analyses.
 
 The DataLad Approach
 ^^^^^^^^^^^^^^^^^^^^
@@ -46,8 +47,8 @@ access to a large amount of data. Using it to install datasets into an
 analysis-superdataset makes it easy to share this data together with the analysis.
 By ensuring that all relevant data is downloaded via :command:`datalad get`
 via DataLad's command line tools in the analysis scripts, or ``--input`` specifications
-in a :command:`datalad run`, the execution of an analysis can retrieve all required
-inputs fully automatically.
+in a :command:`datalad run`, an analysis can retrieve all required
+inputs fully automatically during execution.
 Recording executed commands with :command:`datalad run` allows to rerun
 complete analysis workflows with a single command, even if input data does not exist
 locally. Combining these three steps allows to share fully automatically reproducible
@@ -65,7 +66,7 @@ It always starts with a dataset:
    $ datalad create -c yoda demo
 
 For this demo we are using two public brain imaging datasets that were published on
-`OpenFMRI.org <https://legacy.openfmri.org/>`, and are available from
+`OpenFMRI.org <https://legacy.openfmri.org/>`_, and are available from
 :term:`the DataLad superdataset ///` (datasets.datalad.org). When installing datasets
 from this superdataset, we can use its abbreviation ``///``.
 The two datasets, `ds000001 <https://legacy.openfmri.org/dataset/ds000001/>`_ and
@@ -129,6 +130,7 @@ dataset-creation.
 .. runrecord:: _examples/repro-107
    :language: console
    :workdir: usecases/repro/demo
+   :emphasize-lines: 6
 
    $ cat << EOT > code/brain_extraction.sh
    # enable FSL
@@ -155,8 +157,9 @@ We are saving this script in the dataset. This way, we will know exactly
 which code was used for the analysis. Everything inside of ``code/``
 is tracked with Git thanks to the yoda-procedure, so we can see more easily
 how it was edited over time. In addition, we will “tag” this state of the
-dataset. This is optional, but it can help to identify important milestones
-more easily.
+dataset with the tag ``setup_done`` to mark the repository state at which the
+analysis script was completed. This is optional, but it can help to identify
+important milestones more easily.
 
 .. runrecord:: _examples/repro-108
    :language: console
@@ -166,7 +169,7 @@ more easily.
 
 Now we can run our analysis code to produce results. However, instead of
 running it directly, we will run it with DataLad – this will automatically
-create a record of exactly how this script was executed
+create a record of exactly how this script was executed.
 
 For this demo we will just run it on the structural images (T1w) of the first
 subject (sub-01) from each dataset.
@@ -230,8 +233,7 @@ Nothing was changed.
 
 With DataLad with don’t have to keep those inputs around – without losing
 the ability to reproduce an analysis.
-
-Let’s uninstall them – checking the size on disk before and after.
+Let’s uninstall them, and check the size on disk before and after.
 
 .. runrecord:: _examples/repro-113
    :language: console
@@ -280,4 +282,5 @@ Reproduced!
 
 This dataset could now be published and shared as a lightweight yet fully
 reproducible resource and enable anyone to replicate the exact
-same analysis. Public data and reproducible execution for the win!
+same analysis -- with a single command.
+Public data and reproducible execution for the win!

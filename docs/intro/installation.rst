@@ -1,12 +1,12 @@
 .. _install:
 
-Installation and Configuration
+Installation and configuration
 ------------------------------
 
 Install DataLad
 ^^^^^^^^^^^^^^^
 
-The content in this chapther is largely based on the information given on the
+The content in this chapter is largely based on the information given on the
 `DataLad website <https://www.datalad.org/get_datalad.html>`_
 and the `DataLad documentation <http://docs.datalad.org/en/latest/gettingstarted.html>`_.
 
@@ -40,6 +40,26 @@ DataLad and all of its software dependencies (including the Git-annex-standalone
 
    $ sudo apt-get install datalad
 
+.. container:: toggle
+
+   .. container:: header
+
+      **Linux-machines with no root access**
+
+   If you want to install DataLad on a machine you do not have root access to, DataLad
+   can be installed with `Miniconda <https://docs.conda.io/en/latest/miniconda.html>`_.
+
+   .. code-block:: bash
+
+      $ wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+      $ bash Miniconda3-latest-Linux-x86_64.sh
+      # acknowledge license, keep everything at default
+      $ conda install -c conda-forge datalad
+
+   This should install :term:`Git`, :term:`Git-annex`, and DataLad.
+   The installer automatically configures the shell to make conda-installed
+   tools accessible, so no further configuration is necessary.
+
 
 OS X
 """"
@@ -62,7 +82,7 @@ Using Pythons package manager ``pip``
 
 DataLad can be installed via Pythons package manager
 `pip <https://pip.pypa.io/en/stable/>`_.
-``pip`` comes with Python distributions, e.g. the Python distributions
+``pip`` comes with Python distributions, e.g., the Python distributions
 downloaded from `python.org <https://www.python.org>`_. When downloading
 Python, make sure to chose a recent Python **3** distribution.
 
@@ -309,7 +329,7 @@ In the following example, exchange ``Bob McBobFace`` with your own name, and
 
    # enter your home directory using the ~ shortcut
    % cd ~
-   % git config --global --add user.name Bob McBobFace
+   % git config --global --add user.name "Bob McBobFace"
    % git config --global --add user.email bob@example.com
 
 This information is used to track changes in the DataLad projects you will

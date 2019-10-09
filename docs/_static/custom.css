@@ -1,14 +1,31 @@
 .toggle .header {
     display: block;
     clear: both;
+    cursor: pointer;
 }
 
-.toggle .header:after {
-    content: " ▶";
+/* force the arrow into the same line */
+.toggle .header p {display: inline; }
+/*text color for fat text*/
+.toggle .header strong {color: #2980b9 }
+
+
+.toggle .header:before {
+    content: "⇩ ";
 }
 
-.toggle .header.open:after {
-    content: " ▼";
+.toggle .header.open:before {
+    content: "⇧ ";
+}
+
+.toggle {
+    display: block;
+    border: 1px solid #2980b9;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    background: rgba(41,128,185,0.1);
 }
 
 /* make TODOslook plain and stand out at the same time
@@ -24,4 +41,9 @@ div.admonition-todo {
 div.gitusernote {
     background-color: #c3ebffff;
     border: 1px solid #7fd4ffff;
+}
+
+div.sphinxsidebar {
+    max-height: 100%;
+    overflow-y: auto;
 }

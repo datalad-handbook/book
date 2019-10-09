@@ -1,0 +1,5 @@
+$ datalad drop a.pdf
+[WARNING] Running drop resulted in stderr output: git-annex: drop: 1 failed
+ 
+[ERROR] unsafe; Could only verify the existence of 0 out of 1 necessary copies; Rather than dropping this file, try using: git annex move; (Use --force to override this check, or adjust numcopies.) [drop(/home/me/dl-101/DataLad-101/a.pdf)] 
+drop(error): /home/me/dl-101/DataLad-101/a.pdf (file) [unsafe; Could only verify the existence of 0 out of 1 necessary copies; Rather than dropping this file, try using: git annex move; (Use --force to override this check, or adjust numcopies.)]

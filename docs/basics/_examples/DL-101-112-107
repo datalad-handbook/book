@@ -1,5 +1,5 @@
 $ cat << EOT >> notes.txt
-As suboptimal alternative is the --explicit flag,
+A suboptimal alternative is the --explicit flag,
 used to record only those changes done
 to the files listed with --output flags.
 

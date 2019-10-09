@@ -1,0 +1,4 @@
+$ mv recordings/longnow .
+$ datalad status
+untracked: longnow (directory)
+  deleted: recordings/longnow (dataset)

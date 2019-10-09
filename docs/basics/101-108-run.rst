@@ -1,6 +1,6 @@
 .. _run:
 
-DataLad, Run!
+Keeping track
 -------------
 
 In previous examples, all changes that happened to the dataset or
@@ -39,7 +39,7 @@ to generate a text file that lists speaker and title
 name instead.
 
 To do this, we're following a best practice that will reappear in the
-later section on YODA principles (todo: link): Collecting all
+later section on `YODA principles <101-123-yoda.html>`_ : Collecting all
 additional scripts that work with content of a subdataset *outside*
 of this subdataset, in a dedicated ``code/`` directory,
 and collating the output of the execution of these scripts
@@ -128,11 +128,7 @@ command from the root of ``DataLad-101``.
 
    $ datalad run -m "create a list of podcast titles" "bash code/list_titles.sh > recordings/podcasts.tsv"
 
-.. container:: toggle
-
-   .. container:: header
-
-      **Addition: Why is there a "notneeded" in the command summary?**
+.. findoutmore:: Why is there a "notneeded" in the command summary?
 
    If you have stumbled across the command execution summary
    ``save (notneeded: 1, ok: 1)`` and wondered what is "notneeded":
@@ -201,3 +197,7 @@ command as before, and check whether anything in your log changes:
 The most recent commit is still the :command:`datalad run` command from before,
 and there was no second :command:`datalad run` commit created.
 
+The :command:`datalad run` can therefore help you to keep track of what you are doing
+in a dataset. The next sections will demonstrate how to make use of this information,
+and also how to extend the command with additional arguments that will prove to
+be helpful over the course of this chapter.

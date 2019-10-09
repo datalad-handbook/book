@@ -1,7 +1,7 @@
 .. _run5:
 
-Cleaning up
------------
+Clean desk
+----------
 
 Just now you realize that you need to fit both logos onto the same slide.
 "Ah, damn, I might then really need to have them 400 by 400 pixel to fit",
@@ -128,7 +128,7 @@ Add an additional note on the ``--explicit`` flag, and finally save your changes
    :workdir: dl-101/DataLad-101
 
    $ cat << EOT >> notes.txt
-   As suboptimal alternative is the --explicit flag,
+   A suboptimal alternative is the --explicit flag,
    used to record only those changes done
    to the files listed with --output flags.
 

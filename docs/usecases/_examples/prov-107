@@ -1,0 +1,4 @@
+$ datalad diff -f HEAD~3
+    added: pimpernel.jpg (file)
+    added: sources/flowers.jpg (file)
+    added: st-bernard.jpg (file)

@@ -25,17 +25,17 @@ Remember how we had to navigate into ``recordings/longnow`` to see the history,
 and how this history was completely independent of the ``DataLad-101``
 superdataset history? This was the subdataset's own history.
 
-But now let's also check out how the *subdataset's* (``DataLad-101``) history
+But now let's also check out how the *superdataset's* (``DataLad-101``) history
 looks like after the installation of a subdataset. To do this, make sure you are
 *outside* of the subdataset ``longnow`` (note that the first commit is our recent
 addition to ``notes.txt``, so we'll look at the second most recent commit in
 this excerpt).
 
-.. runrecord:: _examples/DL-101-106-1
+.. runrecord:: _examples/DL-101-106-101
    :language: console
    :workdir: dl-101/DataLad-101
-   :lines: 1, 19-42
-   :emphasize-lines: 25
+   :lines: 1, 23-46
+   :emphasize-lines: 24
    :realcommand: git log -p
 
 
@@ -60,7 +60,7 @@ is kept within a (sub)dataset.
 Navigate back into ``longnow`` and try to find the highlighted shasum in the
 subdataset's history:
 
-.. runrecord:: _examples/DL-101-106-2
+.. runrecord:: _examples/DL-101-106-102
    :language: console
    :workdir: dl-101/DataLad-101
    :emphasize-lines: 3
@@ -83,9 +83,18 @@ clearer. To conclude this demonstration,
 the figure below illustrates the current state of the dataset
 and nesting schematically:
 
-.. figure:: ../img/virtual_dirtree_simple_subds.svg
+.. figure:: ../artwork/src/virtual_dstree_dl101.svg
    :alt: Virtual directory tree of a nested DataLad dataset
 
 Thus, without being consciously aware of it, by taking advantage of dataset
 nesting, we took a dataset ``longnow`` and installed it as a
 subdataset within the superdataset  ``DataLad-101``.
+
+If you have executed the above code snippets, make sure to go back into the
+root of the dataset again:
+
+.. runrecord:: _examples/DL-101-106-103
+   :language: console
+   :workdir: dl-101/DataLad-101/recordings/longnow
+
+   $ cd ../../

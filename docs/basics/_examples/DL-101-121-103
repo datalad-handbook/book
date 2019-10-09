@@ -1,7 +1,7 @@
 $ git log -1 -p
-commit eca146bdc54fe69deaf231e0f147da814d9204a3
-Author: Adina Wagner <adina.wagner@t-online.de>
-Date:   Wed Jul 24 13:15:38 2019 +0200
+commit a73bd3b2607352b8932d94ddeccc726a8e951bec
+Author: Elena Piscopia <elena@example.net>
+Date:   Sun Oct 6 09:40:59 2019 +0200
 
     Include nesting demo from datalad website
 

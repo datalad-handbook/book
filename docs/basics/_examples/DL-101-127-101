@@ -1,0 +1,4 @@
+$ datalad run-procedure --discover
+cfg_metadatatypes (../../../../../../datalad/datalad/resources/procedures/cfg_metadatatypes.py) [python_script]
+cfg_text2git (../../../../../../datalad/datalad/resources/procedures/cfg_text2git.py) [python_script]
+cfg_yoda (../../../../../../datalad/datalad/resources/procedures/cfg_yoda.py) [python_script]

@@ -1,0 +1,6 @@
+$ cat << EOT >> notes.txt
+The command "datalad save [-m] PATH" saves the file
+(modifications) to history. Note to self:
+Always use informative, concise commit messages.
+
+EOT

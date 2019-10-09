@@ -1,0 +1,41 @@
+$ git log -1 -p
+commit d2fea17c05c829ee7d0800aa083df712d4a9f433
+Author: Elena Piscopia <elena@example.net>
+Date:   Sun Oct 6 09:41:07 2019 +0200
+
+    rename the book
+
+diff --git a/books/TLCL.pdf b/books/The_Linux_Command_Line.pdf
+similarity index 100%
+rename from books/TLCL.pdf
+rename to books/The_Linux_Command_Line.pdf
+diff --git a/notes.txt b/notes.txt
+index 8b8a87d..9f6c1f2 100644
+--- a/notes.txt
++++ b/notes.txt
+@@ -73,3 +73,25 @@ A safe step in between is to do a "datalad update -s name"
+ and checkout the changes with "git/datalad diff"
+ to remotes/origin/master
+ 
++Configurations for datasets exist on different levels
++(systemwide, global, and local), and in different types
++of files (not version controlled (git)config files, or
++version controlled .datalad/config, .gitattributes, or
++gitmodules files). With the exception of .gitattributes,
++all these configuration files share a common structure,
++and can be modified with the git config command, but also
++with an editor by hand.
++
++Depending on whether a configuration file is version
++controlled or not, the configurations will be shared together
++with the dataset. More specific configurations and not-shared
++configurations will always take precedence over more global or
++shared configurations.
++
++The git config --list --show-origin command is a useful tool
++to give an overview over existing configurations. Particularly
++important may be the .gitattributes file, in which one can set
++rules for Git-annex about which files should be version-controlled
++with Git instead of being annexed.
++
++

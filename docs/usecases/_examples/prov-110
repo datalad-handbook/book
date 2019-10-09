@@ -1,0 +1,13 @@
+
+$ datalad rerun c449b146f2c39dc01d22b476da362606d7a2512e
+[INFO] Making sure inputs are available (this may take some time) 
+[INFO] == Command start (output follows) ===== 
+[INFO] == Command exit (modification check follows) ===== 
+unlock(ok): st-bernard-displaced.jpg (file)
+add(ok): st-bernard-displaced.jpg (file)
+save(ok): . (dataset)
+action summary:
+  add (ok: 1)
+  get (notneeded: 1)
+  save (ok: 1)
+  unlock (ok: 1)

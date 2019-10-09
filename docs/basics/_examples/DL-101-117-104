@@ -1,3 +1,3 @@
 # get the second file
 $ datalad get Long_Now__Seminars_About_Long_term_Thinking/2005_01_15__James_Carse__Religious_War_In_Light_of_the_Infinite_Game.mp3
-get(ok): /home/adina/repos/datalad-handbook/docs/_build/wdirs/dl-101/mock_user/DataLad-101/recordings/longnow/Long_Now__Seminars_About_Long_term_Thinking/2005_01_15__James_Carse__Religious_War_In_Light_of_the_Infinite_Game.mp3 (file) [from web...]
+get(ok): /home/me/dl-101/mock_user/DataLad-101/recordings/longnow/Long_Now__Seminars_About_Long_term_Thinking/2005_01_15__James_Carse__Religious_War_In_Light_of_the_Infinite_Game.mp3 (file) [from web...]

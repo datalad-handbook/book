@@ -1,7 +1,7 @@
 .. _text2git:
 
-Content-protection, powered by Git-annex [2]
---------------------------------------------
+Data safety
+-----------
 
 Later in the day, after seeing and solving so many DataLad error messages,
 you fall tired into your
@@ -64,7 +64,11 @@ for example does not allow files larger than 100MB of size.
 For now, we have solved the mystery of why text files can be modified
 without unlocking, and this is a small
 improvement in the vast amount of questions that have piled up in our curious
-minds.
+minds. Essentially, Git-annex protects your data from accidental modifications
+and thus keeps it safe. :command:`datalad run` commands mitigate any technical
+complexity of this completely if ``-o/--output`` is specified properly, and
+:command:`datalad unlock` commands can be used to unlock content "by hand" if
+modifications are performed outside of a :command:`datalad run`.
 
 But there comes the second, tricky part: There are ways to get rid of locking and
 unlocking within Git-annex, using so-called :term:`adjusted branch`\es.

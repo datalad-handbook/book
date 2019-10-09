@@ -1,7 +1,9 @@
+.. _sharelocal4:
+
 .. _update:
 
-Updating datasets: The basics
------------------------------
+Stay up to date
+---------------
 
 All of what you have seen about sharing dataset was really
 cool, and for the most part also surprisingly intuitive.
@@ -112,10 +114,8 @@ dataset to your own ``DataLad-101`` dataset:
 PS: You might wonder whether there is also a sole
 :command:`datalad update` command. Yes, there is -- if you are
 a Git-user and know about branches and merging you can read the
-``Note for Git-users`` below. Else, a thorough explanation
-will come at a later point in time.
-
-
+``Note for Git-users`` below. However, a thorough explanation
+and demonstration will be in the next section.
 
 .. gitusernote::
 

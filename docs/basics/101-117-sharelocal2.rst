@@ -1,5 +1,7 @@
-Sharing datasets: Common File systems [2]
------------------------------------------
+.. _sharelocal2:
+
+Where's Waldo?
+--------------
 
 So far, your room mate and you have created a copy of the ``DataLad-101``
 dataset on the same file system but a different place by installing
@@ -17,7 +19,8 @@ of the missing installation.
 And you have mesmerized your room mate by showing him how :term:`Git-annex`
 retrieved large file contents from the original dataset.
 
-Let's now see the :command:`git annex whereis` command in more detail.
+Let's now see the :command:`git annex whereis` command in more detail,
+and find out how Git-annex knows *where* file content can be obtained from.
 Within the original ``DataLad-101`` dataset, you retrieved some of the ``.mp3``
 files via :command:`datalad get`, but not others. How will this influence the
 output of :command:`git annex whereis`, you wonder?
@@ -97,12 +100,12 @@ this in the original ``DataLad-101`` directory, and don't forget to save it.
    :workdir: dl-101/mock_user/DataLad-101/recordings/longnow
 
    # navigate back:
-   $ cd ../../../../../DataLad-101
+   $ cd ../../../../DataLad-101
 
    # write the note
    $ cat << EOT >> notes.txt
    The command "git annex whereis PATH" lists the repositories that have
-   the file content of an annexed file. When using :command:`datalad get` to retrieve
+   the file content of an annexed file. When using "datalad get" to retrieve
    file content, those repositories will be queried.
 
    EOT

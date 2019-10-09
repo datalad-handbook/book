@@ -128,7 +128,7 @@ I can run the following command:
 
    $ mkdir /home/adina/awesome_datalad_project
 
-And that works. ``/home/aqw/awesome_datalad_project`` is what is called an *absolute*
+And that works. ``/home/adina/awesome_datalad_project`` is what is called an *absolute*
 path. Absolute paths *always* start with a ``/``, and define the folder's location
 with no ambiguity.
 

@@ -110,8 +110,7 @@ This will generate three new files in your dataset. Run a
 
    $ datalad status
 
-Now, say you only wanted to save one of these files,
-but you accidentally :command:`datalad save` everything:
+And now, an accidental :command:`datalad save` happens:
 
 .. runrecord:: _examples/DL-101-135-104
    :language: console
@@ -119,9 +118,8 @@ but you accidentally :command:`datalad save` everything:
 
    $ datalad save
 
-Whooops, there it happened. A :command:`datalad save` without a
-commit message and without a path to the file you wanted to save
-individually.
+Whooops! A :command:`datalad save` without a
+commit message that saved all of the files.
 
 .. runrecord:: _examples/DL-101-135-105
    :language: console
@@ -130,8 +128,19 @@ individually.
    $ git log -p -1
 
 As expected all of the modifications present prior to the
-command are saved into the most recent commit. The aim of
-the next action is to keep all of the files as they are in the
+command are saved into the most recent commit, and the commit
+message DataLad provides by default, ``[DATALAD] Recorded changes``,
+is not very helpful.
+
+Let's say you'd only want to change the commit message of this
+record: This can be done with the command
+:command:`git commit --amend`. Running this command will open
+an editor (the default, as configured in Git), and allow you
+to change the commit message.
+
+But let's now say instead of committing all three files you
+intended to save only one of those file. What we in this case
+want to achieve is to keep all of the files as they are in the
 dataset, but just get them out of the history. We'll use the
 :command:`git reset` command for this. It essentially undoes
 commits. :command:`git reset` comes with many options, but the

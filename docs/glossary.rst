@@ -16,6 +16,14 @@ Glossary
    annex
       Git annex concept: a different word for :term:`object-tree`.
 
+   annex ID
+       A :term:`UUID` assigned to an annex of each individual :term:`clone` of a dataset repository.
+       :term:`Git-annex` uses this UUID to track file content availability information.
+       The UUID is available under the configuration key ``annex.uuid`` and is stored in the
+       configuration file of a local clone (``<dataset root>/.git/config``).
+       A single dataset instance (i.e. clone) can only have a single annex UUID, but a dataset
+       with multiple clones will have multiple annex UUIDs.
+
    bash
       A Unix shell and command language.
 
@@ -48,6 +56,14 @@ Glossary
 
    DataLad superdataset
       A DataLad dataset that contains one or more levels of other DataLad datasets (:term:`DataLad subdataset`).
+
+   dataset ID
+      A :term:`UUID` that identifies a dataset as a whole across its entire history and flavors.
+      This ID is stored in a dataset’s own configuration file (``<dataset root>/.datalad/config``)
+      under the configuration key ``datalad.dataset.id``.
+      As this configuration is stored in a file that is part of the Git
+      history of a dataset, this ID is identical for all :term:`clone`\s of a dataset and across all
+      its versions.
 
    Debian
       A common Linux distribution. `More information here <https://www.debian.org/index.en.html>`__.
@@ -167,6 +183,11 @@ Glossary
 
    Ubuntu
       A common Linux distribution. `More information here <https://ubuntu.com>`__.
+
+   UUID
+      Universally Unique Identifier. It is an identification number, formatted according to a
+      specific standard, used for identifying information. Every DataLad dataset has a UUID that
+      identifies a dataset as a whole across its entire history and flavors called :term:`Dataset ID`.  Git-annex ass
 
    version control
       Processes and tools to keep track of changes to documents or other collections of information.

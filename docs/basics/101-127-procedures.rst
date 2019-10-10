@@ -375,6 +375,12 @@ Finally, make a note about running procedures inside of ``notes.txt``:
 
    EOT
 
+.. runrecord:: _examples/DL-101-127-112
+   :workdir: dl-101/DataLad-101
+   :language: console
+
+   $ datalad save -m "add note on DataLads procedures"
+
 .. rubric:: Footnotes
 
 .. [#f1] In theory, because procedures can exist on different levels, and

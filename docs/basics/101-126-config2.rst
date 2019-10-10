@@ -315,6 +315,12 @@ Write a note about configurations in datasets into ``notes.txt``.
 
    EOT
 
+.. runrecord:: _examples/DL-101-125-114
+   :workdir: dl-101/DataLad-101
+   :language: console
+
+   $ datalad save -m "add note on configurations and git config"
+
 .. rubric:: Footnotes
 
 .. [#f1] When opening any file on a UNIX system, the file does not need to have a file

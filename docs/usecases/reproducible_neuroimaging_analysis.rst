@@ -1,24 +1,31 @@
 .. _usecase_reproduce_neuroimg:
 
-An automatically reproducible neuroimaging data analysis
---------------------------------------------------------
+An automatically reproducible analysis of public neuroimaging data
+------------------------------------------------------------------
 
 This use case sketches the basics of an analysis that can be
-automatically reproduced:
+automatically reproduced by anyone:
 
-#. Data for an analysis stems from :term:`the DataLad superdataset ///`.
+#. Public open data stems from :term:`the DataLad superdataset ///`.
 #. Automatic data retrieval can be ensured by using DataLad's
    commands in the analysis scripts, or the ``--input`` specification of
    :command:`datalad run`,
 #. Analyses are executed using :command:`datalad run` and
    :command:`datalad rerun` commands to capture everything relevant to
    reproduce the analysis.
-#. The dataset can be kept as lightweight as possible, and a complete
-   reproduction of the analysis and the results is possible even if
-   the inputs are not locally retrieved yet.
+#. The final dataset can be kept as lightweight as possible by dropping input
+   that can be easily re-obtained.
+#. A complete reproduction of the computation (including input retrieval),
+   is possible with a single :command:`datalad rerun` command.
 
-The data types and methods mentioned in this usecase belong to the scientific
-field of neuroimaging, but the basic workflow is domain-agnostic.
+This use case is a specialization of :ref:`usecase_reproducible_paper`:
+It is a data analysis that requires and creates large data files,
+uses specialized analysis software, and is fully automated using solely
+DataLad commands and tools.
+While exact data types, analysis methods, and software mentioned
+in this use case belong to the scientific field of neuroimaging, the
+basic workflow is domain-agnostic.
+
 
 The Challenge
 ^^^^^^^^^^^^^

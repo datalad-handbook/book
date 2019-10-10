@@ -128,8 +128,8 @@ to change the commit message. Try running this command and give
 that commit a new commit message (you can just delete the one
 created by DataLad in the editor).
 
-Fixing accidentally saved contents
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Fixing accidentally saved contents (tracked in Git)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The next question comes from the front:
 "It happened that I forgot to give a path to the :command:`datalad save`
@@ -155,7 +155,7 @@ only one of the files afterwards.
 We'll use the :command:`git reset` command for this. It essentially allows to
 undo commits by resetting the history of a dataset to an earlier version.
 :command:`git reset` comes with several *modes* that determine the
-exact behavior it, but the relevant one is ``--mixed`` [#f1]_.
+exact behavior it, but the relevant one for this aim is ``--mixed`` [#f1]_.
 Specifying the command::
 
    git reset --mixed COMMIT
@@ -163,13 +163,14 @@ Specifying the command::
 will preserve all changes made to files until the specified
 commit in the dataset, but remove them from the datasets history.
 This means the commits *until* ``COMMIT`` (not *including* ``COMMIT``)
-will not be in your history anymore, and instead untracked changes
-that can be saved again. In other words, the modifications
+will not be in your history anymore, and instead "untracked files" or
+"unsaved changes". In other words, the modifications
 you made in these commits that are "undone" will still be present
-in your dataset -- just not written to the history.
+in your dataset -- just not written to the history anymore.
 
 The COMMIT in the command can either be a hash or a reference
-with the HEAD pointer. Let's stay with the hash:
+with the HEAD pointer. Let's stay with the hash, and reset to the
+commit prior to saving the Gitjokes:
 
 .. runrecord:: _examples/DL-101-136-106
    :language: console
@@ -222,6 +223,11 @@ Finally, lets check how the history looks afterwards:
 It is only the last save that is recorded in the history, not the
 previous save that recorded all three files. You have rewritten
 history [#f2]_ !
+
+Fixing accidentally saved contents (stored in Git-annex)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The previous :command:`git reset`
 
 This action will not be recorded in your history.
 

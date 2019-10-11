@@ -120,6 +120,18 @@ Use Cases
    usecases/reproducible_neuroimaging_analysis
 
 
+####################
+Use Cases: INM-7 FZJ
+####################
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Exemplary data management at the Juelich Research Center
+
+   usecases/inm7_analysis_project
+   usecases/inm7_hammerpants
+   usecases/inm7_jsc_data
+
 ########
 Appendix
 ########

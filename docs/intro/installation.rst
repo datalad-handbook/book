@@ -169,7 +169,7 @@ please `get in touch <https://github.com/datalad-handbook/book/issues/new>`_.
 
       - During installation, you will be prompted to "Choose Install Location".
         **Install it into the miniconda Library directory**, e.g.
-        ``C:\Users\mih\Miniconda3\Library``.
+        ``C:\Users\me\Miniconda3\Library``.
 
    - **Step 4**: Install DataLad via pip
 

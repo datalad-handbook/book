@@ -60,6 +60,16 @@ DataLad and all of its software dependencies (including the Git-annex-standalone
    The installer automatically configures the shell to make conda-installed
    tools accessible, so no further configuration is necessary.
 
+   .. note::
+
+      Currently, the latest DataLad version on conda is 0.11, but the handbook
+      is written for version 0.12. If you have installed DataLad 0.11 already, an upgrade
+      to the most recent 0.12 release candidate is possible with
+
+      .. code-block:: bash
+
+         pip install datalad~=0.12.0rc5
+
 
 OS X
 """"

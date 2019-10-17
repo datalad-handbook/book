@@ -68,7 +68,7 @@ DataLad and all of its software dependencies (including the Git-annex-standalone
 
       .. code-block:: bash
 
-         pip install datalad==0.12.0rc5
+         pip install datalad~=0.12.0rc5
 
 
 OS X

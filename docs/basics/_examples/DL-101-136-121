@@ -1,4 +1,5 @@
-$ git log -15 --oneline
+$ git log -20 --oneline
+26a5e77 save my favourite Git joke
 644ca2e add note on DataLads procedures
 5192a50 add note on configurations and git config
 1b4ae54 Add note on adding siblings
@@ -14,3 +15,7 @@ f81784b add additional notes on run options
 3595077 [DATALAD RUNCMD] convert -resize 450x450 recordings/longn...
 b1a2448 resized picture by hand
 c916c95 [DATALAD RUNCMD] convert -resize 400x400 recordings/longn...
+f5141f8 add note on basic datalad run and datalad rerun
+66d1674 add note datalad and git diff
+801a49d [DATALAD RUNCMD] create a list of podcast titles
+e29b3d7 BF: list both directories content

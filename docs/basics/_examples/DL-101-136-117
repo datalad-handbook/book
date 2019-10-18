@@ -1,0 +1,4 @@
+$ git log -3 --oneline
+ed416a9 [DATALAD] Recorded changes
+26a5e77 save my favourite Git joke
+644ca2e add note on DataLads procedures

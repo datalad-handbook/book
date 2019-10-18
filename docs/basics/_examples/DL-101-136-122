@@ -1,0 +1,14 @@
+
+$ git checkout f5141f8d5b395b7eeac222e65126e6f0bb281a8a
+Note: checking out 'f5141f8d5b395b7eeac222e65126e6f0bb281a8a'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at f5141f8 add note on basic datalad run and datalad rerun

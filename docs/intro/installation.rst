@@ -3,6 +3,14 @@
 Installation and configuration
 ------------------------------
 
+.. note::
+
+  The handbook is written for DataLad version 0.12. Currently, the latest version available
+  via many package managers is 0.11. Therefore, the most convenient way to obtain a
+  suitable version of datalad is to install of the most recent 0.12 release candidate,
+  ``datalad~=0.12.0rc5``, via ``pip`` or ``conda``. Until 0.12 is released, please use
+  ``pip`` or ``conda``-based methods to install the release candidate.
+
 Install DataLad
 ^^^^^^^^^^^^^^^
 
@@ -25,6 +33,11 @@ exist, and they need to be installed separately, if needed.
 Linux: (Neuro)Debian, Ubuntu, and similar systems
 """""""""""""""""""""""""""""""""""""""""""""""""
 
+.. note::
+
+   Do not use this method at the current time. This note will be removed
+   once DataLad 0.12 has been released.
+
 For Debian-based operating systems, the most convenient installation method
 is to enable the `NeuroDebian <http://neuro.debian.net/>`_ repository.
 If you are on a Debian-based system, but do not have the NeuroDebian repository
@@ -40,36 +53,23 @@ DataLad and all of its software dependencies (including the Git-annex-standalone
 
    $ sudo apt-get install datalad
 
-.. container:: toggle
 
-   .. container:: header
+Linux-machines with no root access (e.g. HPC systems)
+"""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-      **Linux-machines with no root access (e.g. HPC systems)**
+If you want to install DataLad on a machine you do not have root access to, DataLad
+can be installed with `Miniconda <https://docs.conda.io/en/latest/miniconda.html>`_.
 
-   If you want to install DataLad on a machine you do not have root access to, DataLad
-   can be installed with `Miniconda <https://docs.conda.io/en/latest/miniconda.html>`_.
+.. code-block:: bash
 
-   .. code-block:: bash
+  $ wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+  $ bash Miniconda3-latest-Linux-x86_64.sh
+  # acknowledge license, keep everything at default
+  $ conda install -c conda-forge datalad~=0.12.0rc5
 
-      $ wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
-      $ bash Miniconda3-latest-Linux-x86_64.sh
-      # acknowledge license, keep everything at default
-      $ conda install -c conda-forge datalad
-
-   This should install :term:`Git`, :term:`Git-annex`, and DataLad.
-   The installer automatically configures the shell to make conda-installed
-   tools accessible, so no further configuration is necessary.
-
-   .. note::
-
-      Currently, the latest DataLad version on conda is 0.11, but the handbook
-      is written for version 0.12. If you have installed DataLad 0.11 already, an upgrade
-      to the most recent 0.12 release candidate is possible with
-
-      .. code-block:: bash
-
-         pip install datalad~=0.12.0rc5
-
+This should install :term:`Git`, :term:`Git-annex`, and DataLad.
+The installer automatically configures the shell to make conda-installed
+tools accessible, so no further configuration is necessary.
 
 OS X
 """"
@@ -101,14 +101,14 @@ to automatically install DataLad and its software dependencies, type
 
 .. code-block:: bash
 
-   $ pip install datalad
+   $ pip install datalad~=0.12.0rc5
 
 If this results in a ``permission denied`` error, install DataLad into
 a user's home directory:
 
 .. code-block:: bash
 
-   $ pip install --user datalad
+   $ pip install --user datalad~=0.12.0rc5
 
 In addition, it is necessary to have a current version of :term:`Git-annex` installed which is
 not set up automatically by using the ``pip`` method.
@@ -166,7 +166,10 @@ please `get in touch <https://github.com/datalad-handbook/book/issues/new>`_.
 
    - **Step 2**: Install Git
 
-      - In the ``Anaconda prompt``, run ``conda install -c conda-forge git``.
+      - In the ``Anaconda prompt``, run::
+
+           conda install -c conda-forge git
+
         Note: Is has to be from ``conda-forge``, the anaconda version does not
         provide the ``cp`` command.
 
@@ -183,8 +186,9 @@ please `get in touch <https://github.com/datalad-handbook/book/issues/new>`_.
 
    - **Step 4**: Install DataLad via pip
 
-      - ``pip`` was installed by ``miniconda``. In the ``Anaconda prompt``, run
-        ``pip install datalad``.
+      - ``pip`` was installed by ``miniconda``. In the ``Anaconda prompt``, run::
+
+           pip install datalad~=0.12.0rc5
 
 
 .. container:: toggle
@@ -192,6 +196,11 @@ please `get in touch <https://github.com/datalad-handbook/book/issues/new>`_.
    .. container:: header
 
       **2) Install within WSL**
+
+   .. note::
+
+      Do not use this method at the current time. This note will be removed
+      once DataLad 0.12 has been released.
 
    The Windows Subsystem for Linux (WSL) allows Windows users to have full access
    to a Linux distribution within Windows.
@@ -296,6 +305,12 @@ please `get in touch <https://github.com/datalad-handbook/book/issues/new>`_.
    .. container:: header
 
       **3) Install within WSL2**
+
+   .. note::
+
+      Do not use this method at the current time. This note will be removed
+      once DataLad 0.12 has been released.
+
 
    The Windows Subsystem for Linux (WSL) allows Windows users to have full access
    to a Linux distribution within Windows. The Windows Subsystem for Linux 2 (WSL2)

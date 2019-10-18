@@ -1,0 +1,9 @@
+# create an empty pdf file
+$ convert xc:none -page Letter apdffile.pdf
+# accidentally save it
+$ datalad save
+add(ok): apdffile.pdf (file)
+save(ok): . (dataset)
+action summary:
+  add (ok: 1)
+  save (ok: 1)

@@ -1,4 +1,4 @@
-$ datalad status
-untracked: Gitjoke1.txt (file)
-untracked: Gitjoke2.txt (file)
-untracked: Gitjoke3.txt (file)
+$ git log -2 online
+fatal: ambiguous argument 'online': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'

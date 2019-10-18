@@ -1,16 +1,16 @@
 $ git log -15 --oneline
-f136023 Add note on adding siblings
-1ee817f Merge remote-tracking branch 'refs/remotes/roommate/master'
-19744b9 add note about datalad update
-3f0436b Include nesting demo from datalad website
-dfaa833 add note about installing from paths and recursive installations
-3862d0a add note on clean datasets
-acb6fc4 [DATALAD RUNCMD] Resize logo for slides
-521b4e5 [DATALAD RUNCMD] Resize logo for slides
-efa4b83 add additional notes on run options
-29f102a [DATALAD RUNCMD] convert -resize 450x450 recordings/longn...
-7f1cff3 resized picture by hand
-538007c [DATALAD RUNCMD] convert -resize 400x400 recordings/longn...
-37e622f add note on basic datalad run and datalad rerun
-851fe7a add note datalad and git diff
-5c82d68 [DATALAD RUNCMD] create a list of podcast titles
+852979b add note on DataLads procedures
+f152511 add note on configurations and git config
+47ad445 Add note on adding siblings
+af24d24 Merge remote-tracking branch 'refs/remotes/roommate/master'
+a7f3305 add note about datalad update
+b1195c3 Include nesting demo from datalad website
+914269a add note on git annex whereis
+682c1fc add note about installing from paths and recursive installations
+1dda538 add note on clean datasets
+429d623 [DATALAD RUNCMD] Resize logo for slides
+5b5b1e9 [DATALAD RUNCMD] Resize logo for slides
+9d3f176 add additional notes on run options
+0f2f5f8 [DATALAD RUNCMD] convert -resize 450x450 recordings/longn...
+d471464 resized picture by hand
+cf904b6 [DATALAD RUNCMD] convert -resize 400x400 recordings/longn...

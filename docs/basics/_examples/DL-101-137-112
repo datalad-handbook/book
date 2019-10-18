@@ -1,0 +1,12 @@
+git log -2
+commit 1800302fd474ee14ddcfc82cc053aa235155f415
+Author: Elena Piscopia <elena@example.net>
+Date:   Fri Oct 18 08:07:14 2019 +0200
+
+    save my favourite Git joke
+
+commit 852979bade2fdd967a1a3c8fbe01a8635aebd5dc
+Author: Elena Piscopia <elena@example.net>
+Date:   Fri Oct 18 08:07:11 2019 +0200
+
+    add note on DataLads procedures

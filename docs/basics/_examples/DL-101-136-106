@@ -1,2 +1,4 @@
-
-git reset --mixed f1360235d3935a1137170f3c917aa42be9880f3b
+$ git log -3 --oneline
+189aac7 [DATALAD] Recorded changes
+852979b add note on DataLads procedures
+f152511 add note on configurations and git config

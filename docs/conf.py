@@ -351,3 +351,4 @@ plantuml_latex_output_format = 'pdf'
 
 def setup(app):
     app.add_stylesheet('custom.css')
+    app.add_config_value('internal', '', 'env')

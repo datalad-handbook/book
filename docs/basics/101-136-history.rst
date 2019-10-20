@@ -1,52 +1,43 @@
+.. _history:
+
 Back and forth in time
 ----------------------
 
-One powerful feature of a version control system is the ability to revert
-data to a previous state and thus view earlier content or correct mistakes.
 
-Almost everyone inadvertently deleted or overwrote files with some command
-in the flavors of ``rm`` (remove files) or ``save`` (save files) at some point.
-A hasty operation caused data fatalities or at least troubles to get the data back.
-With DataLad, no mistakes are forever. As long as the content was version
-controlled, it is possible to look at previous states of the data, or revert
-changes -- even years after they happened -- thanks to the dataset's history.
+Almost everyone inadvertently deleted or overwrote files at some point with
+a hasty operation that caused data fatalities or at least troubles to
+re-obtain or restore data.
+With DataLad, no mistakes are forever: One powerful feature of datasets
+is the ability to revert data to a previous state and thus view earlier content or
+correct mistakes. As long as the content was version controlled (i.e., tracked),
+it is possible to look at previous states of the data, or revert changes --
+even years after they happened -- thanks to the underlying version control
+system :term:`Git`.
 
 To get a glimpse into how to work with the history of a dataset, today's lecture
 has an external Git-expert as a guest lecturer.
+"I don't have enough time to go through all the details in only
+one lecture. But I'll give you the basics, and an idea of what is possible.
+Always remember: Just google what you need. You will find thousands of helpful tutorials
+or questions on `Stackoverflow <https.stackoverflow.com>`_ right away.
+Even experts will *constantly* seek help to find out which Git command to
+use, and how to use it.", he reassures with a wink.
 
-"Good morning! What a wonderful day to learn some Git commands!" he greets
-everyone. "I don't have enough time to go through all the details in only
-one lecture. But I'll give you the basics. And always remember: Just google
-what you need. You will find thousands of helpful post or stackoverflow questions right away.
-Even the experts will google which Git command to use, and how to use it, *constantly*.",
-he reassures with a wink.
-
-"I have seen everyone is already working relatively confidently with the
-``git log`` or ``tig`` -- great! This is the basics of working with the
-history, actually looking at it. Whatever tool you are using for it,
-you need a way to see what has been done in a dataset."
-
-In order to effectively work with the history, the most important
-information associated with a commit is its :term:`shasum` (or hash).
+The basis of working with the history is to *look at it* with tools such
+as :term:`tig`, :term:`gitk`, or simply the :command:`git log` command.
+The most important information in an entry (commit) in the history is
+the :term:`shasum` (or hash) associated with it.
 This hash is how dataset modifications in the history are identified,
 and with this hash you can communicate with DataLad or :term:`Git` about these
-modifications or version states.
-The ``datalad rerun`` command introduced in section
-:ref:`run2` takes such a hash as an argument, and re-executes
-the ``datalad run`` or ``datalad rerun`` :term:`run record` associated with
-this hash, for example. Here is an excerpt from the ``DataLad-101`` history to show a
-few abbreviated hashes of the 15 most recent commits:
+modifications or version states [#f1]_.
+Here is an excerpt from the ``DataLad-101`` history to show a
+few abbreviated hashes of the 15 most recent commits [#f2]_:
 
 .. runrecord:: _examples/DL-101-136-101
    :workdir: dl-101/DataLad-101
    :language: console
 
    $ git log -15 --oneline
-
-There are other alternatives to reference commits in the history of a dataset,
-for example "counting" ancestors of the most recent commit using the notation
-``HEAD~2``, ``HEAD^2`` or ``HEAD@{2}``. However, using hashes to reference
-commits is a very fail-save method and saves you from accidentally miscounting.
 
 
 "I'll let you people direct this lecture", the guest lecturer proposes.
@@ -119,9 +110,11 @@ is not very helpful.
 Changing the commit message of the most recent commit can be done with
 the command :command:`git commit --amend`. Running this command will open
 an editor (the default, as configured in Git), and allow you
-to change the commit message. Try running this command and give
-that commit a new commit message (you can just delete the one
-created by DataLad in the editor).
+to change the commit message.
+
+Try running the :command:`git commit --amend` command right now and give
+the commit a new commit message (you can just delete the one created by
+DataLad in the editor)!
 
 .. findoutmore:: Changing the commit messages of not-the-most-recent commits
 
@@ -140,8 +133,8 @@ created by DataLad in the editor).
    any number of commit messages within the last three commits.
 
    Running this command gives you a list of the N most recent commits
-   in your text editor (sorted with the most recent commit on the bottom).
-   Careful, your default editor may be :term:`vim`!
+   in your text editor (which may be :term:`vim`!), sorted with
+   the most recent commit on the bottom.
    This is how it may look like:
 
    .. code-block:: bash
@@ -163,9 +156,10 @@ created by DataLad in the editor).
       # d, drop <commit> = remove commit
       # l, label <label> = label current HEAD with a name
 
-   Below the list are instructions on how to apply different possible options
-   to the commits.
-   To reword the top-most commit message in this list
+   An interactive rebase allows to apply various modifying actions to any
+   number of commits in the list. Below the list are descriptions of these
+   different actions. Among them is "reword", which lets you "edit the commit
+   message". To apply this action and reword the top-most commit message in this list
    (``8503f26 Add note on adding siblings``, three commits back in the history),
    exchange the word ``pick`` in the beginning of the line with the word
    ``reword`` or simply ``r`` like this::
@@ -174,31 +168,30 @@ created by DataLad in the editor).
 
    If you want to reword more than one commit message, exchange several
    ``pick``\s. Any commit with the word ``pick`` at the beginning of the line will
-   be kept as is.
-   Be careful not to delete any lines --
-   **If you remove a line the commit will be lost!**
-   Once you are done, save and close the editor. This will
+   be kept as is. Once you are done, save and close the editor. This will
    sequentially open up a new editor for each commit you want to reword. In
    it, you will be able to change the commit message. Save to proceed to
    the next commit message until the rebase is complete.
+   But be careful not to delete any lines in the above editor view --
+   **An interactive rebase can be dangerous, and if you remove a line, this commit will be lost!** [#f5]_
 
-Fixing accidentally saved contents (tracked in Git)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Untracking accidentally saved contents (tracked in Git)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The next question comes from the front:
 "It happened that I forgot to give a path to the :command:`datalad save`
-command when I wanted to only save a very specific change.
+command when I wanted to only start tracking a very specific file.
 Other times I just didn't remember that
-additional modifications existed in the dataset and saved unaware of
+additional, untracked files existed in the dataset and saved unaware of
 those. I know that it is good practice to only save
 those changes together that belong together, so is there a way to
 disentangle an accidental :command:`datalad save` again?"
 
-Let's say instead of committing *all three* Git jokes
+Let's say instead of saving *all three* previously untracked Git jokes
 you intended to save *only one* of those files. What we
 want to achieve is to keep all of the files and their contents
-in the dataset, but get them out of the history, and save them
-*individually* afterwards.
+in the dataset, but get them out of the history into an
+*untracked* state again, and save them *individually* afterwards.
 
 .. important::
 
@@ -209,7 +202,7 @@ in the dataset, but get them out of the history, and save them
 This is a task for the :command:`git reset` command. It essentially allows to
 undo commits by resetting the history of a dataset to an earlier version.
 :command:`git reset` comes with several *modes* that determine the
-exact behavior it, but the relevant one for this aim is ``--mixed`` [#f1]_.
+exact behavior it, but the relevant one for this aim is ``--mixed`` [#f3]_.
 Specifying the command::
 
    git reset --mixed COMMIT
@@ -220,7 +213,8 @@ This means the commits *until* ``COMMIT`` (not *including* ``COMMIT``)
 will not be in your history anymore, and instead "untracked files" or
 "unsaved changes". In other words, the modifications
 you made in these commits that are "undone" will still be present
-in your dataset -- just not written to the history anymore.
+in your dataset -- just not written to the history anymore. Let's
+try this to get a feel for it.
 
 The COMMIT in the command can either be a hash or a reference
 with the HEAD pointer. Let's stay with the hash, and reset to the
@@ -247,8 +241,9 @@ Let's see what has happened. First, let's check the history:
 
    $ git log -2 --oneline
 
-As you can see, the commit is not in the history anymore!
-Go on to see what :command:`datalad status` reports:
+As you can see, the commit in which the jokes were tracked
+is not in the history anymore! Go on to see what :command:`datalad status`
+reports:
 
 .. runrecord:: _examples/DL-101-136-109
    :workdir: dl-101/DataLad-101
@@ -256,7 +251,7 @@ Go on to see what :command:`datalad status` reports:
 
    $ datalad status
 
-Nice, the files are present, and yet untracked. Do they contain
+Nice, the files are present, and untracked again. Do they contain
 the content still? We will read all of them with :command:`cat`:
 
 .. runrecord:: _examples/DL-101-136-110
@@ -265,8 +260,8 @@ the content still? We will read all of them with :command:`cat`:
 
    $ cat Gitjoke*
 
-Great. Now we can go ahead and save only those changes we intended
-to save:
+Great. Now we can go ahead and save only the file we intended
+to track:
 
 .. runrecord:: _examples/DL-101-136-111
    :workdir: dl-101/DataLad-101
@@ -282,14 +277,12 @@ Finally, lets check how the history looks afterwards:
 
    $ git log -2
 
-It is only the last save that is recorded in the history, not the
-previous save that recorded all three files. You have rewritten
-history [#f2]_ !
+Wow! You have rewritten history [#f4]_ !
 
-Fixing accidentally saved contents (stored in Git-annex)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Untracking accidentally saved contents (stored in Git-annex)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The previous :command:`git reset` undid the save of *text* files.
+The previous :command:`git reset` undid the tracking of *text* files.
 However, those files are stored in Git, and thus their content
 is also stored in Git. Files that are annexed, however, have
 their content stored in Git-annex, and not the file itself is stored
@@ -344,7 +337,7 @@ The file is now no longer symlinked:
 
    $ ls -l apdffile.pdf
 
-Finally, you :command:`git reset --mixed` can be used to revert the
+Finally, :command:`git reset --mixed` can be used to revert the
 accidental :command:`save`. Again, find out the shasum first, and
 afterwards, reset it.
 
@@ -447,7 +440,7 @@ The contents of ``notes.txt`` will now be the most recent version again:
 
    $ cat notes.txt
 
-... Wow! You took many notes!
+... Wow! You travelled back and forth in time!
 
 
 Undoing latest modifications of files
@@ -515,7 +508,9 @@ Undoing past modifications of files
 
 What :command:`git reset` did was to undo commits from
 the most recent version of your dataset. How
-would one undo a change that happened a while ago, though?
+would one undo a change that happened a while ago, though,
+with important changes being added afterwards that you want
+to keep?
 
 Let's save a bad modification to ``Gitjoke2.txt``,
 but also a modification to ``notes.txt``:
@@ -558,9 +553,8 @@ but also a modification to ``notes.txt``:
 The objective is to remove the first, "bad" modification, but
 keep the more recent modification of ``notes.txt``. A :command:`git reset`
 command is not convenient, because resetting would need to reset
-the most recent, "good" modification as well. Instead, the
-:command:`git rebase -i` command for an "interactive rebase"
-is necessary.
+the most recent, "good" modification as well. Instead, an interactive
+rebase with the command :command:`git rebase -i` is necessary [#f5]_.
 
 The command looks like this:
 
@@ -704,10 +698,10 @@ from your history, and report a successful rebase:
    In the documents the merge conflict applies to, Git marks the sections
    it needs help with with markers that consists of ``>``, ``<``, and ``=``
    signs and commit shasums or branch names. There will be two marked parts,
-   and you have to simply delete the one you do not want to keep, as well as
+   and you have to delete the one you do not want to keep, as well as
    all markers.
-
    Afterwards, run ``git add <path/to/file`` and finally a ``git commit``.
+
    An excellent resource on how to deal with merge conflicts is
    `this post <https://help.github.com/en/articles/resolving-a-merge-conflict-using-the-command-line>`_.
 
@@ -717,9 +711,14 @@ from your history, and report a successful rebase:
 
    $ datalad status
 
+This guest lecture has given you a glimpse into how to work with the
+history of your DataLad datasets.
 To conclude this section, let's remove all untracked contents from
-the dataset. If you want, apply you're new knowledge about interactive
-rebasing to remove the ``Gitjoke2.txt`` file.
+the dataset. This can be done with :command:`git reset` as well:
+``git reset --hard master`` (where ``master`` is a branch name)
+swipes your dataset clean and removes anything that is untracked or
+modified but not saved yet.
+**Careful! This is not revertible, and content lost with this commands can not be recovered!**
 
 .. runrecord:: _examples/DL-101-136-147
    :language: console
@@ -727,22 +726,42 @@ rebasing to remove the ``Gitjoke2.txt`` file.
 
    $ git reset --hard master
 
+Afterwards, the :command:`datalad status` returns nothing, indicating a
+clean dataset state with no untracked files or modifications.
+
 .. runrecord:: _examples/DL-101-136-148
    :language: console
    :workdir: dl-101/DataLad-101
 
    $ datalad status
 
-
+Finally, if you want, apply you're new knowledge about interactive
+rebasing to remove the ``Gitjoke2.txt`` file.
 
 .. rubric:: Footnotes
 
-.. [#f1] The option ``--mixed`` is the default mode for a :command:`git reset`
+.. [#f1] For example, the :command:`datalad rerun` command introduced in section
+         :ref:`run2` takes such a hash as an argument, and re-executes
+         the ``datalad run`` or ``datalad rerun`` :term:`run record` associated with
+         this hash. Likewise, the :command:`git diff` can work with commit hashes.
+
+.. [#f2] There are other alternatives to reference commits in the history of a dataset,
+         for example "counting" ancestors of the most recent commit using the notation
+         ``HEAD~2``, ``HEAD^2`` or ``HEAD@{2}``. However, using hashes to reference
+         commits is a very fail-save method and saves you from accidentally miscounting.
+
+.. [#f3] The option ``--mixed`` is the default mode for a :command:`git reset`
          command, omitting it (i.e., running just ``git reset``) leads to the
          same behavior. It is explicitly stated in this book to make the mode
          clear, though.
 
-.. [#f2] Note though that rewriting history can be dangerous, and you should
+.. [#f4] Note though that rewriting history can be dangerous, and you should
          be aware of what you are doing. For example, rewriting parts of the
          dataset's history that have been published (e.g., to a Github repository)
          already or that other people have copies of, is not advised.
+
+.. [#f5] When in need to interactively rebase, please consult further documentation
+         and tutorials. It is out of the scope of this handbook to be a complete
+         guide on rebasing, and not all interactive rebasing operations are
+         complication-free. However, you can always undo mistakes that occur
+         during rebasing with the help of the `reflog <https://git-scm.com/docs/git-reflog>`_.

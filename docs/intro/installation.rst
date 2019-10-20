@@ -8,7 +8,7 @@ Installation and configuration
   The handbook is written for DataLad version 0.12. Currently, the latest version available
   via many package managers is 0.11. Therefore, the most convenient way to obtain a
   suitable version of datalad is to install of the most recent 0.12 release candidate,
-  ``datalad~=0.12.0rc5``, via ``pip`` or ``conda``. Until 0.12 is released, please use
+  ``datalad~=0.12.0rc6``, via ``pip`` or ``conda``. Until 0.12 is released, please use
   ``pip`` or ``conda``-based methods to install the release candidate.
 
 Install DataLad
@@ -65,7 +65,9 @@ can be installed with `Miniconda <https://docs.conda.io/en/latest/miniconda.html
   $ wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
   $ bash Miniconda3-latest-Linux-x86_64.sh
   # acknowledge license, keep everything at default
-  $ conda install -c conda-forge datalad~=0.12.0rc5
+  $ conda install -c conda-forge datalad
+  # upgrade to the latest release candidate to match the requires of the book
+  $ conda install -c conda-forge/label/rc datalad
 
 This should install :term:`Git`, :term:`Git-annex`, and DataLad.
 The installer automatically configures the shell to make conda-installed
@@ -101,14 +103,14 @@ to automatically install DataLad and its software dependencies, type
 
 .. code-block:: bash
 
-   $ pip install datalad~=0.12.0rc5
+   $ pip install datalad~=0.12.0rc6
 
 If this results in a ``permission denied`` error, install DataLad into
 a user's home directory:
 
 .. code-block:: bash
 
-   $ pip install --user datalad~=0.12.0rc5
+   $ pip install --user datalad~=0.12.0rc6
 
 In addition, it is necessary to have a current version of :term:`Git-annex` installed which is
 not set up automatically by using the ``pip`` method.
@@ -188,7 +190,7 @@ please `get in touch <https://github.com/datalad-handbook/book/issues/new>`_.
 
       - ``pip`` was installed by ``miniconda``. In the ``Anaconda prompt``, run::
 
-           pip install datalad~=0.12.0rc5
+           pip install datalad~=0.12.0rc6
 
 
 .. container:: toggle

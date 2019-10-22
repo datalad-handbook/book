@@ -305,6 +305,17 @@ modification.
    $ datalad save -m "Add note on datalad install"
 
 
+.. note::
+
+  Listing files directly after an installation of a dataset will
+  work if done in a terminal with ``ls``.
+  However, certain file managers (such as OSX's Finder [#f3]_) may fail to
+  display files that are not yet present locally (i.e., before a
+  :command:`datalad get` was run). Therefore, be  mindful when exploring
+  a dataset hierarchy with a file manager -- it might not show you
+  the available but not yet retrieved files. More about why this is will be
+  explained in section :ref:`symlink`.
+
 .. rubric:: Footnotes
 
 .. [#f1] Additionally, a source  can also be a pointer to an open-data collection,
@@ -314,3 +325,8 @@ modification.
 .. [#f2] The longnow podcasts are lectures and conversations on long-term thinking produced by
          the LongNow foundation. Subscribe to the podcasts at http://longnow.org/seminars/podcast.
          Support the foundation by becoming a member: https://longnow.org/membership. http://longnow.org
+
+.. [#f3] You can also upgrade your file manager to display file types in a
+         DataLad datasets (e.g., with the
+         `git-annex-turtle extension <https://github.com/andrewringler/git-annex-turtle>`_
+         for Finder)

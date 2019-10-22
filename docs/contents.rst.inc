@@ -118,6 +118,7 @@ Use Cases
    usecases/reproducible-paper
    usecases/supervision
    usecases/reproducible_neuroimaging_analysis
+   usecases/datastorage_for_institutions
 
 
 ########

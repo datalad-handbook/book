@@ -449,7 +449,22 @@ The contents of ``notes.txt`` will now be the most recent version again:
    $ cat notes.txt
 
 ... Wow! You travelled back and forth in time!
+But an even more magical way to see the contents of files in previous
+versions is Git's :command:`cat-file` command: Among many other things, it lets
+you read a file's contents as of any point in time in the history, without a
+prior :command:`git checkout`:
 
+.. runrecord:: _examples/DL-101-136-127
+   :language: console
+   :workdir: dl-101/DataLad-101
+   :realcommand: echo "$ git cat-file --textconv $(git rev-parse HEAD~15):notes.txt" && git cat-file --textconv $(git rev-parse HEAD~15):notes.txt
+
+The cat-file command is very versatile, and
+`it's documentation <https://git-scm.com/docs/git-cat-file>`_ will list all
+of its functionality. To use it to see the contents of a file at a previous
+state as done above, this is how the general structure looks like::
+
+   $ git cat-file --textconv SHASUM:<path/to/file>
 
 Undoing latest modifications of files
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -460,25 +475,25 @@ How does one undo a *modification* to a tracked file?
 
 Let's modify the saved ``Gitjoke1.txt``:
 
-.. runrecord:: _examples/DL-101-136-127
+.. runrecord:: _examples/DL-101-136-128
    :language: console
    :workdir: dl-101/DataLad-101
 
    $ echo "this is by far my favourite joke!" >> Gitjoke2.txt
 
-.. runrecord:: _examples/DL-101-136-128
+.. runrecord:: _examples/DL-101-136-129
    :language: console
    :workdir: dl-101/DataLad-101
 
    $ cat Gitjoke2.txt
 
-.. runrecord:: _examples/DL-101-136-129
+.. runrecord:: _examples/DL-101-136-130
    :language: console
    :workdir: dl-101/DataLad-101
 
    $ datalad status
 
-.. runrecord:: _examples/DL-101-136-130
+.. runrecord:: _examples/DL-101-136-131
    :language: console
    :workdir: dl-101/DataLad-101
 
@@ -491,18 +506,18 @@ With the :command:`git reset` command again. If you want to
 get rid of the modifications entirely, use the option ``--hard``
 instead of ``--mixed``:
 
-.. runrecord:: _examples/DL-101-136-131
+.. runrecord:: _examples/DL-101-136-132
    :language: console
    :workdir: dl-101/DataLad-101
 
    $ git log -2 --oneline
 
-.. runrecord:: _examples/DL-101-136-132
+.. runrecord:: _examples/DL-101-136-133
    :language: console
    :workdir: dl-101/DataLad-101
    :realcommand: echo "$ git reset --hard $(git rev-parse HEAD~1)" && git reset --hard $(git rev-parse HEAD~1)
 
-.. runrecord:: _examples/DL-101-136-133
+.. runrecord:: _examples/DL-101-136-134
    :language: console
    :workdir: dl-101/DataLad-101
 

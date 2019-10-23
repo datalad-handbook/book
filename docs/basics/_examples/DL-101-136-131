@@ -1,3 +1,6 @@
-$ git log -2 --oneline
-8a861ff add joke evaluation to joke
-26a5e77 save my favourite Git joke
+$ datalad save -m "add joke evaluation to joke" Gitjoke2.txt
+add(ok): Gitjoke2.txt (file)
+save(ok): . (dataset)
+action summary:
+  add (ok: 1)
+  save (ok: 1)

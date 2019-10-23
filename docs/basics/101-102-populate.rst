@@ -11,8 +11,9 @@ Let's first create a directory to save books for additional reading in.
 .. runrecord:: _examples/DL-101-102-101
    :language: console
    :workdir: dl-101/DataLad-101
-   :cast: cast_dataset_basics
-   :caption: create a directory to store books in
+   :cast: dataset_basics
+   :caption: The dataset is empty atm, but lets put some PDFs inside.
+      First, create a directory to store them in:
 
    $ mkdir books
 
@@ -21,8 +22,8 @@ Let's take a look at the current directory structure with the tree command [#f1]
 .. runrecord:: _examples/DL-101-102-102
    :language: console
    :workdir: dl-101/DataLad-101
-   :cast: cast_dataset_basics
-   :caption: look at hierarchy in dataset
+   :cast: dataset_basics
+   :caption: This is how the directory structure looks like now
 
    $ tree
 
@@ -40,9 +41,9 @@ or run the following commands [#f2]_ to download the books right from the termin
 .. runrecord:: _examples/DL-101-102-103
    :language: console
    :workdir: dl-101/DataLad-101
-   :realcommand: cd books &&  wget -nv https://sourceforge.net/projects/linuxcommand/files/TLCL/19.01/TLCL-19.01.pdf/download -O TLCL.pdf && wget -nv https://www.gitbook.com/download/pdf/book/swaroopch/byte-of-python -O byte-of-python.pdf
-   :cast: cast_dataset_basics
-   :caption: download
+   :realcommand: cd books && wget -nv https://sourceforge.net/projects/linuxcommand/files/TLCL/19.01/TLCL-19.01.pdf/download -O TLCL.pdf && wget -nv https://www.gitbook.com/download/pdf/book/swaroopch/byte-of-python -O byte-of-python.pdf && cd ../
+   :cast: dataset_basics
+   :caption: We use wget to download a few books from the web
 
    $ cd books
    $ wget https://sourceforge.net/projects/linuxcommand/files/TLCL/19.01/TLCL-19.01.pdf/download -O TLCL.pdf
@@ -56,6 +57,8 @@ structure with tree:
 .. runrecord:: _examples/DL-101-102-104
    :language: console
    :workdir: dl-101/DataLad-101
+   :cast: dataset_basics
+   :caption: Here they are:
 
    $ tree
 
@@ -69,6 +72,8 @@ regular status reports should become a habit in the wake of ``DataLad-101``.
 .. runrecord:: _examples/DL-101-102-105
    :language: console
    :workdir: dl-101/DataLad-101
+   :cast: dataset_basics
+   :caption: What has happened to our dataset now with this new content? We can use datalad status to find out
 
    $ datalad status
 
@@ -88,6 +93,8 @@ with the ``-m`` option:
 .. runrecord:: _examples/DL-101-102-106
    :language: console
    :workdir: dl-101/DataLad-101
+   :cast: dataset_basics
+   :caption: In order to version control the PDFs we need to save them. We attach a meaningful summary of this with the -m option
 
    $ datalad save -m "add books on Python and Unix to read later"
 
@@ -122,6 +129,8 @@ by typing ``q``, navigate with up and down arrow keys):
    :workdir: dl-101/DataLad-101
    :lines: 1-20
    :emphasize-lines: 3-4, 6, 8, 12, 16, 20
+   :cast: dataset_basics
+   :caption: Now we can see how this action looks like in our dataset's history
 
    $ git log -p
 
@@ -179,6 +188,8 @@ Let's try this by adding yet another book, a good reference work about git,
    :language: console
    :workdir: dl-101/DataLad-101
    :realcommand: cd books && wget -nv https://github.com/progit/progit2/releases/download/2.1.154/progit.pdf && cd ../
+   :cast: dataset_basics
+   :caption: Its inconvenient that we saved two books together - we should have saved them as independent modifications of the dataset. To see how single modifications can be saved, let's download another book
 
    $ cd books
    $ wget https://github.com/progit/progit2/releases/download/2.1.154/progit.pdf
@@ -189,6 +200,8 @@ Let's try this by adding yet another book, a good reference work about git,
 .. runrecord:: _examples/DL-101-102-109
    :language: console
    :workdir: dl-101/DataLad-101
+   :cast: dataset_basics
+   :caption: Check the dataset state with the status command frequently
 
    $ datalad status
 
@@ -197,6 +210,8 @@ Let's :command:`datalad save` precisely this file by specifying its path after t
 .. runrecord:: _examples/DL-101-102-110
    :language: console
    :workdir: dl-101/DataLad-101
+   :cast: dataset_basics
+   :caption: To save a single modification, provide a path to it!
 
    $ datalad save -m "add reference book about git" books/progit.pdf
 
@@ -219,7 +234,8 @@ A :command:`datalad status` should now be empty, and our dataset's history shoul
 .. runrecord:: _examples/DL-101-102-111
    :workdir: dl-101/DataLad-101
    :language: console
-   :cast: cast_dataset_basics
+   :cast: dataset_basics
+   :caption: Let's view the growing history:
 
    # lets make the output a bit more concise with the --oneline option
    $ git log --oneline

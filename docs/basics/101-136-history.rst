@@ -582,159 +582,92 @@ but also a modification to ``notes.txt``:
 The objective is to remove the first, "bad" modification, but
 keep the more recent modification of ``notes.txt``. A :command:`git reset`
 command is not convenient, because resetting would need to reset
-the most recent, "good" modification as well. Instead, an interactive
-rebase with the command :command:`git rebase -i` is necessary [#f5]_.
+the most recent, "good" modification as well.
+
+One way to accomplish it is with an *interactive rebase*, using the
+:command:`git rebase -i` command [#f5]_. Experienced Git-users will know
+under which situations and how to perform such an interactive rebase.
+
+However, outlining an interactive rebase here in the handbook could lead to
+problems for readers without (much) Git experience: An interactive rebase,
+even if performed successfully, can lead to many problems if it is applied with
+too little experience, for example in any collaborative real-world project.
+
+Instead, we demonstrate a different, less intrusive way to revert one or more
+changes at any point in the history of a dataset: the :command:`git revert`
+command.
+Instead of *rewriting* the history, it will add an additional commit in which
+the changes of an unwanted commit are reverted.
 
 The command looks like this:
 
 .. code-block:: bash
 
-   $ git rebase -i HEAD~N
+   $ git revert SHASUM
 
-where ``N`` specifies how far back you want to modify commits.
-``git rebase -i HEAD~3`` for example lets you apply changes to the
-any number of commits within the last three commits.
+where ``SHASUM`` specifies the commit hash of the modification that should
+be reverted.
 
-First, start the interactive rebase process. We want to undo
-the second most recent commit, and thus need to rebase two
-commits.
+.. findoutmore:: Reverting more than a single commit
 
-.. code-block:: bash
+   Alternatively, you can also specify a range of commits modify commits, for
+   example like this::
 
-   $ git rebase -i HEAD~2
+      $ git revert OLDER_SHASUM..NEWERSHASUM
 
-This opens up an editor that lists the last 2 commits in your history
-with the most recent at the bottom (note that commit hashes will differ
-for you):
+   This command will revert all commits starting with the one after
+   ``OLDER_SHASUM`` (i.e. **not including** this commit) until and **including**
+   the one specified with ``NEWERSHASUM``.
+   For each reverted commit, one new commit will be added to the history that
+   reverts it. Thus, if you revert a range of three commits, there will be three
+   reversal commits. If you however want the reversal of a range of commits
+   saved in a single commit, supply the ``--no-commit`` option as in
 
-.. code-block:: bash
+   .. code-block:: bash
 
-   pick 27e486e did a bad modification
-   pick badcd22 add note on helpful git resource
+      $ git revert --no-commit OLDER_SHASUM..NEWERSHASUM
 
-   # Rebase fa7992a..badcd22 onto fa7992a (2 commands)
-   #
-   # Commands:
-   # p, pick <commit> = use commit
-   # r, reword <commit> = use commit, but edit the commit message
-   # e, edit <commit> = use commit, but stop for amending
-   # s, squash <commit> = use commit, but meld into previous commit
-   # f, fixup <commit> = like "squash", but discard this commit's log message
-   # x, exec <command> = run command (the rest of the line) using shell
-   # b, break = stop here (continue rebase later with 'git rebase --continue')
-   # d, drop <commit> = remove commit
-   # l, label <label> = label current HEAD with a name
-   # t, reset <label> = reset HEAD to a label
-   # m, merge [-C <commit> | -c <commit>] <label> [# <oneline>]
-   # .       create a merge commit using the original merge commit's
-   # .       message (or the oneline, if no original merge commit was
-   # .       specified). Use -c <commit> to reword the commit message.
-   #
-   # These lines can be re-ordered; they are executed from top to bottom.
-   #
-   # If you remove a line here THAT COMMIT WILL BE LOST.
-   #
-   # However, if you remove everything, the rebase will be aborted.
-   #
-   # Note that empty commits are commented out
+   After running this command, run a single ``git commit`` to conclude the
+   reversal and save it in a single commit.
 
-In order to remove the bad modification, exchange the word "pick" at
-the beginning of the line with "drop" or simply "d" like this:
+Let's see how it looks like:
 
+.. runrecord:: _examples/DL-101-136-144
+   :language: console
+   :workdir: dl-101/DataLad-101
+   :realcommand: echo "$ git revert $(git rev-parse HEAD~1)" && git revert $(git rev-parse HEAD~1)
 
-.. code-block:: bash
-   :emphasize-lines: 1
+This is the state of the file in which we reverted a modification:
 
-   d 27e486e did a bad modification
-   pick badcd22 add note on helpful git resource
+.. runrecord:: _examples/DL-101-136-145
+   :language: console
+   :workdir: dl-101/DataLad-101
 
-   # Rebase fa7992a..badcd22 onto fa7992a (2 commands)
-   #
-   # Commands:
-   # p, pick <commit> = use commit
-   # r, reword <commit> = use commit, but edit the commit message
-   # e, edit <commit> = use commit, but stop for amending
-   # s, squash <commit> = use commit, but meld into previous commit
-   # f, fixup <commit> = like "squash", but discard this commit's log message
-   # x, exec <command> = run command (the rest of the line) using shell
-   # b, break = stop here (continue rebase later with 'git rebase --continue')
-   # d, drop <commit> = remove commit
-   # l, label <label> = label current HEAD with a name
-   # t, reset <label> = reset HEAD to a label
-   # m, merge [-C <commit> | -c <commit>] <label> [# <oneline>]
-   # .       create a merge commit using the original merge commit's
-   # .       message (or the oneline, if no original merge commit was
-   # .       specified). Use -c <commit> to reword the commit message.
-   #
-   # These lines can be re-ordered; they are executed from top to bottom.
-   #
-   # If you remove a line here THAT COMMIT WILL BE LOST.
-   #
-   # However, if you remove everything, the rebase will be aborted.
-   #
-   # Note that empty commits are commented out
+   $ cat Gitjoke2.txt
 
-Afterwards, save to exit the editor. Git will drop the bad modification
-from your history, and report a successful rebase:
-
-.. code-block:: bash
-
-   Successfully rebased and updated refs/heads/master.
-
-.. ifconfig:: internal
-
-   This section is not rendered, and only exists because we can not
-   interactively rebase in the autorunrecord directives.
-
-   .. runrecord:: _examples/DL-101-136-144
-      :language: console
-      :workdir: dl-101/DataLad-101
-
-      $ git reset --hard HEAD~2
-      $ cat << EOT >> notes.txt
-
-      Git has many handy tools to go back in forth in
-      time and work with the history of datasets.
-      Among many other things you can rewrite commit
-      messages, undo changes, or look at previous versions
-      of datasets. A superb resource to find out more about
-      this and practice such Git operations is this
-      chapter in the Pro-git book:
-      https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History
-
-      EOT
-
-   .. runrecord:: _examples/DL-101-136-145
-      :language: console
-      :workdir: dl-101/DataLad-101
-
-      $ datalad save -m "add note on helpful git resource" notes.txt
-
-.. findoutmore:: Oh no! I'm in a merge conflict!
-
-   Merge conflicts happen when Git needs assistance in deciding
-   which changes to keep and which to apply. It will require
-   you to edit the file the merge conflict is happening in with
-   a text editor, but such merge conflict are by far not as scary as
-   they may seem during the first few times of solving merge conflicts.
-
-   The first thing to do if you end up in a merge conflict is
-   to read the instructions Git is giving you -- they are a useful guide.
-   Also, it is reassuring to remember that you can always get out of
-   a merge conflict by aborting the operation that led to it (e.g.,
-   ``git rebase --abort``.
-
-   In the documents the merge conflict applies to, Git marks the sections
-   it needs help with with markers that consists of ``>``, ``<``, and ``=``
-   signs and commit shasums or branch names. There will be two marked parts,
-   and you have to delete the one you do not want to keep, as well as
-   all markers.
-   Afterwards, run ``git add <path/to/file`` and finally a ``git commit``.
-
-   An excellent resource on how to deal with merge conflicts is
-   `this post <https://help.github.com/en/articles/resolving-a-merge-conflict-using-the-command-line>`_.
+It does not contain the bad modification anymore. And this is what happened in
+the history of the dataset:
 
 .. runrecord:: _examples/DL-101-136-146
+   :language: console
+   :workdir: dl-101/DataLad-101
+   :emphasize-lines: 6-8, 20
+
+   $ git log -3
+
+The commit that introduced the bad modification is still present, but it
+transparently gets undone with the most recent commit. At the same time, the
+good modification of ``notes.txt`` was not influenced in any way. The
+:command:`git revert` command is thus a transparent and safe way of undoing past
+changes. Note though that this command can only be used efficiently if the
+commits in your datasets history are meaningful, independent units -- having
+several unrelated modifications in a single commit may make an easy solution
+with :command:`git revert` impossible and instead require a complex
+:command:`checkout`, :command:`revert`, or :command:`rebase` operation.
+
+Finally, let's take a look at the state of the dataset after this operation:
+
+.. runrecord:: _examples/DL-101-136-147
    :language: console
    :workdir: dl-101/DataLad-101
 

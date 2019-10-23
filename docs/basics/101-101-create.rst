@@ -36,7 +36,7 @@ Note the command structure of :command:`datalad create` (optional bits are enclo
 .. runrecord:: _examples/DL-101-101-101
    :language: console
    :workdir: dl-101
-   :tag: cast_dataset_basics
+   :cast: cast_dataset_basics
    :caption: We will start by creating a dataset
 
    $ datalad create --description "course on DataLad-101 on my private Laptop" -c text2git DataLad-101

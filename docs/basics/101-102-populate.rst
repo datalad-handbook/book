@@ -11,7 +11,8 @@ Let's first create a directory to save books for additional reading in.
 .. runrecord:: _examples/DL-101-102-101
    :language: console
    :workdir: dl-101/DataLad-101
-   :tag: cast_dataset_basics
+   :cast: cast_dataset_basics
+   :caption: create a directory to store books in
 
    $ mkdir books
 
@@ -20,7 +21,8 @@ Let's take a look at the current directory structure with the tree command [#f1]
 .. runrecord:: _examples/DL-101-102-102
    :language: console
    :workdir: dl-101/DataLad-101
-   :tag: cast_dataset_basics
+   :cast: cast_dataset_basics
+   :caption: look at hierarchy in dataset
 
    $ tree
 
@@ -39,7 +41,8 @@ or run the following commands [#f2]_ to download the books right from the termin
    :language: console
    :workdir: dl-101/DataLad-101
    :realcommand: cd books &&  wget -nv https://sourceforge.net/projects/linuxcommand/files/TLCL/19.01/TLCL-19.01.pdf/download -O TLCL.pdf && wget -nv https://www.gitbook.com/download/pdf/book/swaroopch/byte-of-python -O byte-of-python.pdf
-   :tag: cast_dataset_basics
+   :cast: cast_dataset_basics
+   :caption: download
 
    $ cd books
    $ wget https://sourceforge.net/projects/linuxcommand/files/TLCL/19.01/TLCL-19.01.pdf/download -O TLCL.pdf
@@ -216,7 +219,7 @@ A :command:`datalad status` should now be empty, and our dataset's history shoul
 .. runrecord:: _examples/DL-101-102-111
    :workdir: dl-101/DataLad-101
    :language: console
-   :tag: cast_dataset_basics
+   :cast: cast_dataset_basics
 
    # lets make the output a bit more concise with the --oneline option
    $ git log --oneline

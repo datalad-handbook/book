@@ -526,6 +526,12 @@ instead of ``--mixed``:
 The change has been undone completely. This method will work with
 files stored in Git and annexed files.
 
+Note that this operation only restores this one file, because the commit that
+was undone only contained modifications to this one file. This is a
+demonstration of one of the reasons why one should strive for commits to
+represent meaningful logical units of change -- if necessary, they can be
+undone easily.
+
 Undoing past modifications of files
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 

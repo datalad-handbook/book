@@ -673,16 +673,54 @@ Finally, let's take a look at the state of the dataset after this operation:
 
    $ datalad status
 
+As you can see, unsurprisingly, the :command:`git revert` command had no
+effects on anything else but the specified commit, and previously untracked
+files are still present.
+
+Oh no! I'm in a merge conflict!
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+When working with the history of a dataset, especially when rewriting
+the history with an interactive rebase or when reverting commits, it is
+possible to run into so-called *merge conflicts*.
+Merge conflicts happen when Git needs assistance in deciding
+which changes to keep and which to apply. It will require
+you to edit the file the merge conflict is happening in with
+a text editor, but such merge conflict are by far not as scary as
+they may seem during the first few times of solving merge conflicts.
+
+This section is not a guide on how to solve merge-conflicts, but a broad
+overview on the necessary steps, and a pointer to a more comprehensive guide.
+
+- The first thing to do if you end up in a merge conflict is
+  to read the instructions Git is giving you -- they are a useful guide.
+- Also, it is reassuring to remember that you can always get out of
+  a merge conflict by aborting the operation that led to it (e.g.,
+  ``git rebase --abort``.
+- To actually solve a merge conflict, you will have to edit files: In the
+  documents the merge conflict applies to, Git marks the sections it needs
+  help with with markers that consists of ``>``, ``<``, and ``=``
+  signs and commit shasums or branch names.
+  There will be two marked parts, and you have to delete the one you do not
+  want to keep, as well as all markers.
+- Afterwards, run ``git add <path/to/file`` and finally a ``git commit``.
+
+An excellent resource on how to deal with merge conflicts is
+`this post <https://help.github.com/en/articles/resolving-a-merge-conflict-using-the-command-line>`_.
+
+Summary
+^^^^^^^
+
 This guest lecture has given you a glimpse into how to work with the
 history of your DataLad datasets.
 To conclude this section, let's remove all untracked contents from
-the dataset. This can be done with :command:`git reset` as well:
-``git reset --hard master`` (where ``master`` is a branch name)
+the dataset. This can be done with :command:`git reset` as well: The command
+:command:`git reset --hard master` (where ``master`` is a branch name)
 swipes your dataset clean and removes anything that is untracked or
 modified but not saved yet.
 **Careful! This is not revertible, and content lost with this commands can not be recovered!**
 
-.. runrecord:: _examples/DL-101-136-147
+.. runrecord:: _examples/DL-101-136-148
    :language: console
    :workdir: dl-101/DataLad-101
 
@@ -691,14 +729,14 @@ modified but not saved yet.
 Afterwards, the :command:`datalad status` returns nothing, indicating a
 clean dataset state with no untracked files or modifications.
 
-.. runrecord:: _examples/DL-101-136-148
+.. runrecord:: _examples/DL-101-136-149
    :language: console
    :workdir: dl-101/DataLad-101
 
    $ datalad status
 
-Finally, if you want, apply you're new knowledge about interactive
-rebasing to remove the ``Gitjoke2.txt`` file.
+Finally, if you want, apply you're new knowledge about reverting commits
+to remove the ``Gitjoke2.txt`` file.
 
 .. rubric:: Footnotes
 

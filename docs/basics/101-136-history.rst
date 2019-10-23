@@ -121,7 +121,7 @@ DataLad in the editor)!
    The :command:`git commit --amend` commands will let you
    rewrite the commit message of the most recent commit. If you
    however need to rewrite commit messages of older commits, you
-   can do so during a so-called "interactive rebase". The command
+   can do so during a so-called "interactive rebase" [#f4]_. The command
    for this is
 
    .. code-block:: bash
@@ -131,6 +131,14 @@ DataLad in the editor)!
    where ``N`` specifies how far back you want to rewrite commits.
    ``git rebase -i HEAD~3`` for example lets you apply changes to the
    any number of commit messages within the last three commits.
+
+   .. note::
+
+      Be aware that an interactive rebase lets you *rewrite* history.
+      This can lead to confusion or worse if the history you are rewriting
+      is shared with others, e.g., in a collaborative project. Be also aware
+      that rewriting history that is *pushed*/*published* (e.g., to Github)
+      will require a force-push!
 
    Running this command gives you a list of the N most recent commits
    in your text editor (which may be :term:`vim`!), sorted with

@@ -28,7 +28,6 @@ authors = [
 # autorunrecord setup (extension used to run and capture the output of
 # examples)
 autorunrecord_basedir = '/home/me'
-autorunrecord_castdir = '/home/adina/repos/datalad-handbook/casts'
 # pre-crafted artificial environment to run the code examples in
 autorunrecord_env = {
     # make everything talk in english
@@ -48,8 +47,9 @@ autorunrecord_env = {
     # maintain the PATH to keep all installed software functional
     'PATH': os.environ['PATH'],
     'GIT_EDITOR': 'vim',
-    'CAST_DIR': autorunrecord_castdir,
 }
+if 'CAST_DIR' in os.environ:
+    autorunrecord_env['CAST_DIR'] = os.environ['CAST_DIR']
 if 'VIRTUAL_ENV' in os.environ:
     # inherit venv, if there is any
     autorunrecord_env.update(VIRTUAL_ENV=os.environ['VIRTUAL_ENV'])

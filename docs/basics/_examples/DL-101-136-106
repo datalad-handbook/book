@@ -1,4 +1,4 @@
 $ git log -3 --oneline
-37795a3 [DATALAD] Recorded changes
-644ca2e add note on DataLads procedures
-5192a50 add note on configurations and git config
+b4cd5a2 [DATALAD] Recorded changes
+73f8322 add note on DataLads procedures
+9d125d8 add note on configurations and git config

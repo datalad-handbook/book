@@ -1,6 +1,6 @@
 
-$ git checkout f5141f8d5b395b7eeac222e65126e6f0bb281a8a
-Note: checking out 'f5141f8d5b395b7eeac222e65126e6f0bb281a8a'.
+$ git checkout 1e4f296a5843c8cc9260b872fd3f89d4f9a06c88
+Note: checking out '1e4f296a5843c8cc9260b872fd3f89d4f9a06c88'.
 
 You are in 'detached HEAD' state. You can look around, make experimental
 changes and commit them, and you can discard any commits you make in this
@@ -11,4 +11,4 @@ do so (now or later) by using -b with the checkout command again. Example:
 
   git checkout -b <new-branch-name>
 
-HEAD is now at f5141f8 add note on basic datalad run and datalad rerun
+HEAD is now at 1e4f296 add note on basic datalad run and datalad rerun

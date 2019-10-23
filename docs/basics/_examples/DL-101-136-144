@@ -1,14 +1,5 @@
-$ git reset --hard HEAD~2
-$ cat << EOT >> notes.txt
 
-Git has many handy tools to go back in forth in
-time and work with the history of datasets.
-Among many other things you can rewrite commit
-messages, undo changes, or look at previous versions
-of datasets. A superb resource to find out more about
-this and practice such Git operations is this
-chapter in the Pro-git book:
-https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History
-
-EOT
-HEAD is now at 26a5e77 save my favourite Git joke
+$ git revert a4bd70789da8041ceeb57d02544c8982c40faf68
+[master 717f0d7] Revert "did a bad modification"
+ Date: Wed Oct 23 13:52:51 2019 +0200
+ 1 file changed, 1 deletion(-)

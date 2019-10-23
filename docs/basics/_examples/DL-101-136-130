@@ -1,6 +1,5 @@
-$ datalad save -m "add joke evaluation to joke" Gitjoke2.txt
-add(ok): Gitjoke2.txt (file)
-save(ok): . (dataset)
-action summary:
-  add (ok: 1)
-  save (ok: 1)
+$ datalad status
+untracked: Gitjoke1.txt (file)
+untracked: Gitjoke3.txt (file)
+untracked: apdffile.pdf (file)
+ modified: Gitjoke2.txt (file)

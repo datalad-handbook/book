@@ -20,4 +20,4 @@ sphinxcontrib-websupport
 urllib3
 sphinxcontrib-svg2pdfconverter
 sphinxcontrib-plantuml
-autorunrecord>=0.4
+-e git://github.com/mih/autorunrecord.git@81afbbbb86909cd7e916ff912884377300ebd75f#egg=autorunrecord

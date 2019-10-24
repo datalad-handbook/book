@@ -19,6 +19,14 @@ Likewise, if you are using DataLad for your individual project, consider contrib
 You can find out more on how to contribute [here](http://handbook.datalad.org/en/latest/contributing.html),
 and a list of all contributors so far below, in [CONTRIBUTORS.md](CONTRIBUTORS.md), and in [.zenodo.json](.zenodo.json).
 
+## Notes for Instructors
+
+The book is the basis for workshops and lectures on DataLad and data management.
+The handbook's [``course repository``](https://github.com/datalad-handbook/course)
+among other things contains live casts from the code examples in this book and
+slides. It is constantly growing, and everyone is free to use the material under
+the license terms below. Contributions and feedback are very welcome.
+
 ## License
 
 CC-BY-SA: You are free to

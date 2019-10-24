@@ -48,6 +48,8 @@ autorunrecord_env = {
     'PATH': os.environ['PATH'],
     'GIT_EDITOR': 'vim',
 }
+if 'CAST_DIR' in os.environ:
+    autorunrecord_env['CAST_DIR'] = os.environ['CAST_DIR']
 if 'VIRTUAL_ENV' in os.environ:
     # inherit venv, if there is any
     autorunrecord_env.update(VIRTUAL_ENV=os.environ['VIRTUAL_ENV'])

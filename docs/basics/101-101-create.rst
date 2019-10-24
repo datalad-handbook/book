@@ -36,6 +36,8 @@ Note the command structure of :command:`datalad create` (optional bits are enclo
 .. runrecord:: _examples/DL-101-101-101
    :language: console
    :workdir: dl-101
+   :cast: dataset_basics
+   :caption: We will start by creating a dataset with a configuration template and a description
 
    $ datalad create --description "course on DataLad-101 on my private Laptop" -c text2git DataLad-101
 
@@ -49,6 +51,8 @@ Currently, it seems empty.
 .. runrecord:: _examples/DL-101-101-102
    :language: console
    :workdir: dl-101
+   :cast: dataset_basics
+   :caption: Let's see what is inside of a newly created dataset
 
    $ cd DataLad-101
    $ ls    # ls does not show any output, because the dataset is empty.
@@ -73,6 +77,8 @@ a built-in git command [#f1]_. Your git log *might* be opened in a `terminal pag
    :language: console
    :workdir: dl-101/DataLad-101
    :emphasize-lines: 3-4, 6, 9-10, 12
+   :cast: dataset_basics
+   :caption: A dataset is version controlled. Let's take a look into the history, even if it is small atm
 
    $ git log
 
@@ -103,6 +109,8 @@ an informative commit message yourself.
       :language: console
       :workdir: dl-101/DataLad-101
       :emphasize-lines: 4-6
+      :cast: dataset_basics
+      :caption: Datalad, git-annex, and git create hidden files and directories in your dataset. Make sure to not delete them!
 
       $ ls -a # show also hidden files
 

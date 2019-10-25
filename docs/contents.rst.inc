@@ -92,6 +92,7 @@ Help yourself
 
    basics/101-135-help
    basics/101-140-filesystem
+   basics/101-136-history
 
 #############################
 Make the most out of datasets

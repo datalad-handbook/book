@@ -1,0 +1,11 @@
+# create an empty pdf file
+$ convert xc:none -page Letter apdffile.pdf
+# accidentally save it
+$ datalad save
+add(ok): Gitjoke1.txt (file)
+add(ok): Gitjoke3.txt (file)
+add(ok): apdffile.pdf (file)
+save(ok): . (dataset)
+action summary:
+  add (ok: 3)
+  save (ok: 1)

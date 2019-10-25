@@ -1,0 +1,2 @@
+$ git reset --hard master
+HEAD is now at 717f0d7 Revert "did a bad modification"

@@ -60,7 +60,7 @@ root of your ``DataLad-101`` dataset:
 .. runrecord:: _examples/DL-101-103-101
    :language: console
    :workdir: dl-101/DataLad-101
-   :cast: dataset_basics
+   :cast: 01_dataset_basics
    :caption: Let's find out how we can modify files in dataset. Lets create a text file with notes about the datalad commands we learned. (maybe explain here docs)
 
    $ cat << EOT > notes.txt
@@ -74,7 +74,7 @@ Run :command:`datalad status` to confirm that there is a new, untracked file:
 .. runrecord:: _examples/DL-101-103-102
    :language: console
    :workdir: dl-101/DataLad-101
-   :cast: dataset_basics
+   :cast: 01_dataset_basics
    :caption: At first the file is untracked. We can save \wo path because it is the only existing modification
 
    $ datalad status
@@ -85,7 +85,7 @@ in the dataset, there is no need to specify a path.
 .. runrecord:: _examples/DL-101-103-103
    :language: console
    :workdir: dl-101/DataLad-101
-   :cast: dataset_basics
+   :cast: 01_dataset_basics
 
    $ datalad save -m "Add notes on datalad create"
 
@@ -99,7 +99,7 @@ to accomplish this, but you can take any editor of your choice.
 .. runrecord:: _examples/DL-101-103-104
    :language: console
    :workdir: dl-101/DataLad-101
-   :cast: dataset_basics
+   :cast: 01_dataset_basics
    :caption: Now let's start to modify this textfile by adding more notes to it:
 
    $ cat << EOT >> notes.txt
@@ -114,7 +114,7 @@ Let's check the dataset's current state:
 .. runrecord:: _examples/DL-101-103-105
    :language: console
    :workdir: dl-101/DataLad-101
-   :cast: dataset_basics
+   :cast: 01_dataset_basics
 
    $ datalad status
 
@@ -123,7 +123,7 @@ and save the file in DataLad:
 .. runrecord:: _examples/DL-101-103-106
    :language: console
    :workdir: dl-101/DataLad-101
-   :cast: dataset_basics
+   :cast: 01_dataset_basics
    :caption: The modification can simply be saved as well
 
    $ datalad save -m "add note on datalad save"
@@ -139,10 +139,10 @@ the git log, your history will be longer, and thus opened in a
    :workdir: dl-101/DataLad-101
    :lines: 1-28
    :emphasize-lines: 6, 25, 27
-   :cast: dataset_basics
+   :cast: 01_dataset_basics
    :caption: An the history gives an accurate record of what happened to this file
 
-   $ git log -p
+   $ git log -p -2
 
 We can see that the history can not only show us the commit message attached to
 a commit, but also the precise change that occurred in the text file in the commit.

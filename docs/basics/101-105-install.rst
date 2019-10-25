@@ -56,8 +56,8 @@ called recordings.
 .. runrecord:: _examples/DL-101-105-101
    :language: console
    :workdir: dl-101/DataLad-101
-   :cast: dataset_basics
-   :caption: The next challenge is to install an existing dataset from the web. First, we create a location for this
+   :cast: 01_dataset_basics
+   :caption: local wf done. The next challenge is to install an existing dataset from the web. First, we create a location for this
 
    # we are in the root of DataLad-101
    $ mkdir recordings
@@ -77,7 +77,7 @@ line.
    :language: console
    :workdir: dl-101/DataLad-101/
    :realcommand: datalad install -d . -s https://github.com/datalad-datasets/longnow-podcasts.git recordings/longnow
-   :cast: dataset_basics
+   :cast: 01_dataset_basics
    :caption: We need to install the dataset as a subdataset. For this, we use the datalad install command with a --dataset option and --source option as well as a path
 
    $ datalad install --dataset . \
@@ -124,7 +124,7 @@ Here is the repository structure:
 .. runrecord:: _examples/DL-101-105-103
    :language: console
    :workdir: dl-101/DataLad-101
-   :cast: dataset_basics
+   :cast: 01_dataset_basics
    :caption: Let's take a look at the directory structure after the installation
 
    $ tree -d   # we limit the output to directories
@@ -140,7 +140,7 @@ excerpt).
    :language: console
    :workdir: dl-101/DataLad-101/
    :lines: 1-15
-   :cast: dataset_basics
+   :cast: 01_dataset_basics
    :caption: And now lets look into these seminar series folders:
 
    $ cd recordings/longnow/Long_Now__Seminars_About_Long_term_Thinking
@@ -169,7 +169,7 @@ small in size:
 .. runrecord:: _examples/DL-101-105-105
    :language: console
    :workdir: dl-101/DataLad-101/recordings/longnow/Long_Now__Seminars_About_Long_term_Thinking
-   :cast: dataset_basics
+   :cast: 01_dataset_basics
    :caption: Upon installation of a DataLad dataset, DataLad retrieves only small files and metadata. Therefore the dataset is tiny in size
 
    $ cd ../      # in longnow/
@@ -200,7 +200,7 @@ For this, we supply an additional option to :command:`datalad status`. Make sure
 .. runrecord:: _examples/DL-101-105-106
    :language: console
    :workdir: dl-101/DataLad-101/recordings/longnow
-   :cast: dataset_basics
+   :cast: 01_dataset_basics
    :caption: But how large would the dataset be if we had all the content?
 
    $ datalad status --annex
@@ -228,7 +228,7 @@ First, we get one of the recordings in the dataset -- take any one of your choic
 .. runrecord:: _examples/DL-101-105-107
    :language: console
    :workdir: dl-101/DataLad-101/recordings/longnow
-   :cast: dataset_basics
+   :cast: 01_dataset_basics
    :caption: Now let's finally get some content in this dataset. This is done with the datalad get command
 
    $ datalad get Long_Now__Seminars_About_Long_term_Thinking/2003_11_15__Brian_Eno__The_Long_Now.mp3
@@ -254,7 +254,7 @@ has a nice summary:
 .. runrecord:: _examples/DL-101-105-108
    :language: console
    :workdir: dl-101/DataLad-101/recordings/longnow
-   :cast: dataset_basics
+   :cast: 01_dataset_basics
    :caption: Datalad status can also summarize how much of the content is already present locally:
 
    $ datalad status --annex all
@@ -268,7 +268,7 @@ DataLad's fancy progress bars.
 .. runrecord:: _examples/DL-101-105-109
    :language: console
    :workdir: dl-101/DataLad-101/recordings/longnow
-   :cast: dataset_basics
+   :cast: 01_dataset_basics
    :caption: Let's get a few more files. Note how already obtained files are not downloaded again:
 
    $ datalad get Long_Now__Seminars_About_Long_term_Thinking/2003_11_15__Brian_Eno__The_Long_Now.mp3 \
@@ -292,7 +292,7 @@ history from first to most recent commit):
    :workdir: dl-101/DataLad-101/recordings/longnow
    :emphasize-lines: 3
    :lines: 1-13
-   :cast: dataset_basics
+   :cast: 01_dataset_basics
    :caption: The subdataset has a standalone history! We can find out who created it!
 
    $ git log --reverse
@@ -311,7 +311,7 @@ modification.
 .. runrecord:: _examples/DL-101-105-111
    :language: console
    :workdir: dl-101/DataLad-101/recordings/longnow
-   :cast: dataset_basics
+   :cast: 01_dataset_basics
    :caption: We can make a note about this:
 
    # in the root of DataLad-101:

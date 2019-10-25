@@ -41,6 +41,8 @@ moving a file, and uses the :command:`mv` command.
 .. runrecord:: _examples/DL-101-140-101
    :language: console
    :workdir: dl-101/DataLad-101
+   :caption: Let's look into file system operations. What does renaming does to a file that is symlinked?
+   :cast: 03_git_annex_basics
 
    $ cd books/
    $ mv TLCL.pdf The_Linux_Command_Line.pdf
@@ -55,6 +57,8 @@ But let's see what changed in the dataset with this operation:
 .. runrecord:: _examples/DL-101-140-102
    :language: console
    :workdir: dl-101/DataLad-101/books
+   :caption: how does datalad see this? (deleted and untracked -- weird!!)
+   :cast: 03_git_annex_basics
 
    $ datalad status
 
@@ -71,6 +75,8 @@ under the hood.
 .. runrecord:: _examples/DL-101-140-103
    :language: console
    :workdir: dl-101/DataLad-101/books
+   :caption: datalad save rectifies the weird status
+   :cast: 03_git_annex_basics
 
    $ datalad save -m "rename the book"
 
@@ -81,6 +87,8 @@ renamed, and will summarize this nicely in the resulting commit:
    :language: console
    :workdir: dl-101/DataLad-101/books
    :emphasize-lines: 8-11
+   :caption: and this is how it looks like in the history
+   :cast: 03_git_annex_basics
 
    $ git log -1 -p
 
@@ -114,6 +122,8 @@ section. If you are a Git user, you will be very familiar with it.
    .. runrecord:: _examples/DL-101-140-105
       :language: console
       :workdir: dl-101/DataLad-101/books
+      :caption: We can also rename with git tools. first: reset history
+      :cast: 03_git_annex_basics
 
       $ git reset --hard HEAD~1
       $ datalad status
@@ -125,12 +135,16 @@ section. If you are a Git user, you will be very familiar with it.
    .. runrecord:: _examples/DL-101-140-106
       :language: console
       :workdir: dl-101/DataLad-101/books
+      :caption: we use "git mv" instead of "mv" to rename
+      :cast: 03_git_annex_basics
 
       $ git mv TLCL.pdf The_Linux_Command_Line.pdf
 
    .. runrecord:: _examples/DL-101-140-107
       :language: console
       :workdir: dl-101/DataLad-101/books
+      :caption: how does the modification appear to datalad now?
+      :cast: 03_git_annex_basics
 
       $ datalad status
 
@@ -141,6 +155,8 @@ section. If you are a Git user, you will be very familiar with it.
    .. runrecord:: _examples/DL-101-140-108
       :language: console
       :workdir: dl-101/DataLad-101/books
+      :caption: how does the modification appear to git?
+      :cast: 03_git_annex_basics
 
       $ git status
 
@@ -153,6 +169,8 @@ section. If you are a Git user, you will be very familiar with it.
    .. runrecord:: _examples/DL-101-140-109
       :language: console
       :workdir: dl-101/DataLad-101/books
+      :caption: git mv put the modification to the staging area, we need to commit
+      :cast: 03_git_annex_basics
 
       $ git commit -m "rename book"
 
@@ -168,6 +186,8 @@ Let's revert this now, to have a clean history.
 .. runrecord:: _examples/DL-101-140-110
    :language: console
    :workdir: dl-101/DataLad-101/books
+   :caption: (reverting again for clean history)
+   :cast: 03_git_annex_basics
 
    $ git reset --hard HEAD~1
    $ datalad status
@@ -182,6 +202,8 @@ of the superdataset:
 .. runrecord:: _examples/DL-101-140-120
    :language: console
    :workdir: dl-101/DataLad-101/books
+   :caption: Renaming was easy. How does moving files into different directories look like?
+   :cast: 03_git_annex_basics
 
    $ mv TLCL.pdf ../TLCL.pdf
    $ datalad status
@@ -196,6 +218,8 @@ at the symlink:
 .. runrecord:: _examples/DL-101-140-121
    :language: console
    :workdir: dl-101/DataLad-101/books
+   :caption: currently the symlink is broken! it points into nowhere
+   :cast: 03_git_annex_basics
 
    $ cd ../
    $ ls -l TLCL.pdf
@@ -213,6 +237,8 @@ rectify this as well:
 .. runrecord:: _examples/DL-101-140-122
    :language: console
    :workdir: dl-101/DataLad-101
+   :caption: but a save rectifies it
+   :cast: 03_git_annex_basics
 
    $ datalad save -m "moved book into root"
    $ ls -l TLCL.pdf
@@ -233,6 +259,8 @@ the best option to turn to.
    .. runrecord:: _examples/DL-101-140-123
       :language: console
       :workdir: dl-101/DataLad-101/books
+      :caption: moving files across directory levels is a content change because the symlink changes!
+      :cast: 03_git_annex_basics
 
       $ git log -1 -p
 
@@ -260,6 +288,8 @@ Finally, let's clean up:
 .. runrecord:: _examples/DL-101-140-124
    :language: console
    :workdir: dl-101/DataLad-101
+   :caption: (reset history)
+   :cast: 03_git_annex_basics
 
    $ git reset --hard HEAD~1
 
@@ -273,6 +303,8 @@ command ``cp`` to copy.
 .. runrecord:: _examples/DL-101-140-130
    :language: console
    :workdir: dl-101/DataLad-101
+   :caption: renaming and moving was fine, how about copying?
+   :cast: 03_git_annex_basics
 
    $ cp books/TLCL.pdf copyofTLCL.pdf
    $ datalad status
@@ -283,12 +315,17 @@ file. Let's save it:
 .. runrecord:: _examples/DL-101-140-131
    :language: console
    :workdir: dl-101/DataLad-101
+   :caption: status says there's an untracked file, let's save it
+   :cast: 03_git_annex_basics
+
 
    $ datalad save -m "add copy of TLCL.pdf"
 
 .. runrecord:: _examples/DL-101-140-132
    :language: console
    :workdir: dl-101/DataLad-101
+   :caption: That's it!
+   :cast: 03_git_annex_basics
 
    $ git log -1 -p
 
@@ -310,6 +347,8 @@ That's it.
    .. runrecord:: _examples/DL-101-140-133
       :language: console
       :workdir: dl-101/DataLad-101
+      :caption: A cool thing is that the two identical files link to the same place in the object tree
+      :cast: 03_git_annex_basics
 
       $ ls -l copyofTLCL.pdf
       $ ls -l books/TLCL.pdf
@@ -330,6 +369,8 @@ Finally, let's clean up:
 .. runrecord:: _examples/DL-101-140-134
    :language: console
    :workdir: dl-101/DataLad-101
+   :caption: (reset history)
+   :cast: 03_git_annex_basics
 
    $ git reset --hard HEAD~1
 
@@ -347,6 +388,8 @@ Let's for example rename the ``books`` directory:
 .. runrecord:: _examples/DL-101-140-150
    :language: console
    :workdir: dl-101/DataLad-101
+   :caption: renaming and moving subdirectories and subdatasets can be a minefield, but is usually okay: let's change the name of books to readings
+   :cast: 03_git_annex_basics
 
    $ mv books/ readings
    $ datalad status
@@ -354,6 +397,8 @@ Let's for example rename the ``books`` directory:
 .. runrecord:: _examples/DL-101-140-151
    :language: console
    :workdir: dl-101/DataLad-101
+   :caption: a save rectifies everything
+   :cast: 03_git_annex_basics
 
    $ datalad save -m "renamed directory"
 
@@ -365,6 +410,8 @@ Let's quickly clean this up:
 .. runrecord:: _examples/DL-101-140-152
    :language: console
    :workdir: dl-101/DataLad-101
+   :caption: (quickly clean up)
+   :cast: 03_git_annex_basics
 
    $ git reset --hard HEAD~1
 
@@ -374,6 +421,8 @@ superdataset:
 .. runrecord:: _examples/DL-101-140-153
    :language: console
    :workdir: dl-101/DataLad-101
+   :caption: But what about renaming or moving a subdataset? Let's move longnow into the root of the dataset
+   :cast: 03_git_annex_basics
 
    $ mv recordings/longnow .
    $ datalad status
@@ -381,12 +430,15 @@ superdataset:
 .. runrecord:: _examples/DL-101-140-154
    :language: console
    :workdir: dl-101/DataLad-101
+   :caption: a save will work and rectify things ...
+   :cast: 03_git_annex_basics
 
    $ datalad save -m "moved subdataset"
 
 .. runrecord:: _examples/DL-101-140-155
    :language: console
    :workdir: dl-101/DataLad-101
+   :cast: 03_git_annex_basics
 
    $ datalad status
 
@@ -401,12 +453,16 @@ to take care of the unwanted changes the commit reversal introduced.
 .. runrecord:: _examples/DL-101-140-156
    :language: console
    :workdir: dl-101/DataLad-101
+   :caption: BUT reverting such a commit in the history can be tricky atm:
+   :cast: 03_git_annex_basics
 
-   $ git reset HEAD~1
+   $ git reset --hard HEAD~1
 
 .. runrecord:: _examples/DL-101-140-157
    :language: console
    :workdir: dl-101/DataLad-101
+   :caption: we have to move the remaining subdataset contents back to the original place
+   :cast: 03_git_annex_basics
 
    $ mv -f longnow recordings
 
@@ -569,6 +625,8 @@ by going back into the history of the dataset or reverting the removal commit:
 
 .. runrecord:: _examples/DL-101-140-170
    :workdir: dl-101/DataLad-101
+   :caption: 2 ways to remove a file from dataset: remove the file from the current state of the repository (the *worktree*) but keeping the content in the history, or remove content entirely from a dataset and its history.
+   :cast: 03_git_annex_basics
 
    # download a file
    $ datalad download-url -m "Added flower mosaic from wikimedia" \
@@ -579,6 +637,8 @@ by going back into the history of the dataset or reverting the removal commit:
 .. runrecord:: _examples/DL-101-140-171
    :workdir: dl-101/DataLad-101
    :language: console
+   :cast: 03_git_annex_basics
+
 
    # removal is easy:
    $ rm flowers.jpg
@@ -588,6 +648,8 @@ This will lead to a dirty dataset status:
 .. runrecord:: _examples/DL-101-140-172
    :workdir: dl-101/DataLad-101
    :language: console
+   :caption: the deletion looks like this for datalad
+   :cast: 03_git_annex_basics
 
    $ datalad status
 
@@ -598,6 +660,8 @@ state, :command:`datalad save` will suffice:
 .. runrecord:: _examples/DL-101-140-173
    :workdir: dl-101/DataLad-101
    :language: console
+   :caption: a save will write the deletion of the file to history, but keep the content.
+   :cast: 03_git_annex_basics
 
    $ datalad save -m "removed file again"
 
@@ -608,6 +672,8 @@ If this commit is reverted, the file comes back to existence:
    :language: console
    :workdir: dl-101/DataLad-101
    :emphasize-lines: 6
+   :caption: reverting the last action will bring back the file content:
+   :cast: 03_git_annex_basics
 
    $ git reset --hard HEAD~1
    $ ls
@@ -643,6 +709,8 @@ It is possible to drop the downloaded image, because thanks to
 .. runrecord:: _examples/DL-101-140-175
    :language: console
    :workdir: dl-101/DataLad-101
+   :caption: to drop content entirely we use datalad drop
+   :cast: 03_git_annex_basics
 
    $ datalad drop flowers.jpg
 
@@ -653,6 +721,8 @@ remaining symlink will fail, but the content can be obtained easily again with
 .. runrecord:: _examples/DL-101-140-176
    :language: console
    :workdir: dl-101/DataLad-101
+   :caption: this will keep the symlink, but drop the content, making the dataset lean
+   :cast: 03_git_annex_basics
 
    $ datalad get flowers.jpg
 
@@ -663,6 +733,8 @@ this by generating a random PDF file:
 .. runrecord:: _examples/DL-101-140-177
    :workdir: dl-101/DataLad-101
    :language: console
+   :caption: the content could be dropped bc the file was obtained with datalad, and dl knows where to retrieve the file again. If this isn't the case, datalad will complain. Let's try:
+   :cast: 03_git_annex_basics
 
    $ convert xc:none -page Letter a.pdf
    $ datalad save -m "add empty pdf"
@@ -672,6 +744,8 @@ DataLad will safeguard dropping content that it can't retrieve again:
 .. runrecord:: _examples/DL-101-140-178
    :workdir: dl-101/DataLad-101
    :language: console
+   :caption: datalad does not know how to reobtain the file, so it complains
+   :cast: 03_git_annex_basics
 
    $ datalad drop a.pdf
 
@@ -680,6 +754,8 @@ But with the ``--nocheck`` flag it will work:
 .. runrecord:: _examples/DL-101-140-179
    :workdir: dl-101/DataLad-101
    :language: console
+   :caption: the --nocheck flag lets us drop content anyway. This content is gone forever now, though!
+   :cast: 03_git_annex_basics
 
    $ datalad drop --nocheck a.pdf
 
@@ -692,6 +768,8 @@ Finally, let's clean up:
 .. runrecord:: _examples/DL-101-140-180
    :workdir: dl-101/DataLad-101
    :language: console
+   :caption: let's clean up
+   :cast: 03_git_annex_basics
 
    $ git reset --hard HEAD~2
 
@@ -711,6 +789,8 @@ will error if given a sub-*directory*, a file, or a top-level dataset.
 .. runrecord:: _examples/DL-101-140-160
    :language: console
    :workdir: dl-101/DataLad-101
+   :caption: To get rid of subdatasets one can either uninstall or remove them. let's install one to see:
+   :cast: 03_git_annex_basics
 
    # Install a subdataset - the content is irrelevant, so why not a cloud :)
    $ datalad install -d . \
@@ -722,6 +802,8 @@ To uninstall the dataset, use
 .. runrecord:: _examples/DL-101-140-161
    :language: console
    :workdir: dl-101/DataLad-101
+   :caption: uninstall uninstalls the dataset, but it is still registered in the superdataset. a dl install will get the dataset again!
+   :cast: 03_git_annex_basics
 
    $ datalad uninstall cloud
 
@@ -743,6 +825,8 @@ subsequently remove it with the :command:`datalad remove` command:
 .. runrecord:: _examples/DL-101-140-163
    :language: console
    :workdir: dl-101/DataLad-101
+   :caption: to completely remove the dataset, use datalad remove
+   :cast: 03_git_annex_basics
 
    $ datalad install cloud
    # delete the subdataset
@@ -758,6 +842,8 @@ Finally, after this last piece of information, let's clean up:
 .. runrecord:: _examples/DL-101-140-164
    :language: console
    :workdir: dl-101/DataLad-101
+   :caption: (clean up)
+   :cast: 03_git_annex_basics
 
    $ git reset --hard HEAD~2
 

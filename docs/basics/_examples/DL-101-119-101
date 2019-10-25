@@ -1,5 +1,4 @@
-# we navigate into the installed copy:
-$ cd ../mock_user/DataLad-101
+# we are inside the installed copy
 $ cat notes.txt
 One can create a new dataset with 'datalad create [--description] PATH'.
 The dataset is created empty

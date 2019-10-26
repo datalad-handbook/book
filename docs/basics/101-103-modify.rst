@@ -61,7 +61,7 @@ root of your ``DataLad-101`` dataset:
    :language: console
    :workdir: dl-101/DataLad-101
    :cast: 01_dataset_basics
-   :caption: Let's find out how we can modify files in dataset. Lets create a text file with notes about the datalad commands we learned. (maybe explain here docs)
+   :caption: Let's find out how we can modify files in dataset. Lets create a text file with notes about the DataLad commands we learned. (maybe explain here docs)
 
    $ cat << EOT > notes.txt
    One can create a new dataset with 'datalad create [--description] PATH'.
@@ -75,7 +75,7 @@ Run :command:`datalad status` to confirm that there is a new, untracked file:
    :language: console
    :workdir: dl-101/DataLad-101
    :cast: 01_dataset_basics
-   :caption: At first the file is untracked. We can save \wo path because it is the only existing modification
+   :caption: As expected, there is a new file in the dataset. At first the file is untracked. We can save without a path specification because it is the only existing modification
 
    $ datalad status
 
@@ -100,7 +100,7 @@ to accomplish this, but you can take any editor of your choice.
    :language: console
    :workdir: dl-101/DataLad-101
    :cast: 01_dataset_basics
-   :caption: Now let's start to modify this textfile by adding more notes to it:
+   :caption: Now let's start to modify this text file by adding more notes to it. Think about this being a code file that you add functions to:
 
    $ cat << EOT >> notes.txt
    The command "datalad save [-m] PATH" saves the file

@@ -49,8 +49,8 @@ and experienced the concept of modular nesting datasets.
   the dataset will be installed in the current directory, with the original name of the
   dataset you are installing.
 
-* If a dataset is installed inside of a dataset, the ``--dataset``/``-d`` option
-  needs to specify the root of the superdataset.
+* If a dataset is installed inside of a dataset as a subdataset, the
+  ``--dataset``/``-d`` option needs to specify the root of the superdataset.
 
 * The source can be a URL (for example of a Github repository, as in section :ref:`installds`), but also
   paths, or open data collections.
@@ -86,4 +86,4 @@ You have procedurally experienced how to install a dataset, and simultaneously y
 learned a lot about the principles and features of DataLad datasets.
 Installing datasets and getting their content allows you to consume published datasets.
 By nesting datasets within each other, you can re-use datasets in a modular fashion. While this may
-appear abstract, upcoming section will demonstrate many example of why this can be handy.
+appear abstract, upcoming sections will demonstrate many examples of why this can be handy.

@@ -12,8 +12,7 @@ Let's first create a directory to save books for additional reading in.
    :language: console
    :workdir: dl-101/DataLad-101
    :cast: 01_dataset_basics
-   :caption: The dataset is empty atm, but lets put some PDFs inside.
-      First, create a directory to store them in:
+   :caption: The dataset is empty, lets put some PDFs inside. First, create a directory to store them in:
 
    $ mkdir books
 
@@ -23,7 +22,7 @@ Let's take a look at the current directory structure with the tree command [#f1]
    :language: console
    :workdir: dl-101/DataLad-101
    :cast: 01_dataset_basics
-   :caption: This is how the directory structure looks like now
+   :caption: The tree command shows us the directory structure in the dataset. Apart from the directory, its empty.
 
    $ tree
 
@@ -43,7 +42,7 @@ or run the following commands [#f2]_ to download the books right from the termin
    :workdir: dl-101/DataLad-101
    :realcommand: cd books && wget -nv https://sourceforge.net/projects/linuxcommand/files/TLCL/19.01/TLCL-19.01.pdf/download -O TLCL.pdf && wget -nv https://www.gitbook.com/download/pdf/book/swaroopch/byte-of-python -O byte-of-python.pdf && cd ../
    :cast: 01_dataset_basics
-   :caption: We use wget to download a few books from the web
+   :caption: We use wget to download a few books from the web. CAVE: longish realcommand!
 
    $ cd books
    $ wget https://sourceforge.net/projects/linuxcommand/files/TLCL/19.01/TLCL-19.01.pdf/download -O TLCL.pdf
@@ -73,7 +72,7 @@ regular status reports should become a habit in the wake of ``DataLad-101``.
    :language: console
    :workdir: dl-101/DataLad-101
    :cast: 01_dataset_basics
-   :caption: What has happened to our dataset now with this new content? We can use datalad status to find out
+   :caption: What has happened to our dataset now with this new content? We can use datalad status to find out:
 
    $ datalad status
 
@@ -94,7 +93,7 @@ with the ``-m`` option:
    :language: console
    :workdir: dl-101/DataLad-101
    :cast: 01_dataset_basics
-   :caption: In order to version control the PDFs we need to save them. We attach a meaningful summary of this with the -m option
+   :caption: ATM the files are untracked and thus unknown to any version control system. In order to version control the PDFs we need to save them. We attach a meaningful summary of this with the -m option:
 
    $ datalad save -m "add books on Python and Unix to read later"
 
@@ -130,7 +129,7 @@ by typing ``q``, navigate with up and down arrow keys):
    :lines: 1-20
    :emphasize-lines: 3-4, 6, 8, 12, 16, 20
    :cast: 01_dataset_basics
-   :caption: Now we can see how this action looks like in our dataset's history
+   :caption: Save command reports what has been added to the dataset. Now we can see how this action looks like in our dataset's history:
 
    $ git log -p -1
 
@@ -235,7 +234,7 @@ A :command:`datalad status` should now be empty, and our dataset's history shoul
    :workdir: dl-101/DataLad-101
    :language: console
    :cast: 01_dataset_basics
-   :caption: Let's view the growing history:
+   :caption: Let's view the growing history (concise with the --oneline option):
 
    # lets make the output a bit more concise with the --oneline option
    $ git log --oneline

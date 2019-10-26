@@ -25,13 +25,15 @@ and making simple modifications *locally*.
 
     datalad save -m "here is a commit message" PATH
 
-* The typical local workflow consists of an initial :command:`datalad save -m "Add file XY" PATH` to instruct
-  DataLad to track the file and its content. Afterwards, one *modifies* the file, and then *saves* the
-  changes to the history (and repeats these two steps).
+* The typical local workflow is simple: *Modify* the dataset by adding or
+  modifying files, *save* the changes as meaningful units to the history,
+  *repeat*:
 
-.. todo::
+.. figure:: ../artwork/src/local_wf_simple.png
+   :alt: A simple, local version control workflow with datalad.
+   :figwidth: 100%
 
-   make a graphic of this workflow
+   A simple, local version control workflow with DataLad.
 
 * :command:`datalad status` reports the current state of the dataset. It's a very helpful command you should
   run frequently to check for untracked or modified content.

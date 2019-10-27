@@ -37,7 +37,7 @@ of this data by multiple people, and the subsequent storing of multiple copies
 or derivatives of the data constitutes a challenge for computational clusters
 and data management solutions.
 
-The data science institute XYZ consists of 70 people: Principle
+The data science institute XYZ consists of dozens of people: Principle
 investigators, PhD students, general research staff, system's administration,
 and IT support. It does research on important global issues, and prides
 itself with ground-breaking insights obtained from elaborate and complex
@@ -49,18 +49,44 @@ multiple researchers.
 Every member of the institute has an account on the compute cluster, and all
 of the data exists in dedicated directories on the server. In order to work on
 their research questions without modifying original data, every user creates own
-copies of the data they need, and stores it together with the multitude of
-output files on the cluster. Version control is not a standard skill in the
+copies of the full data -- even if it contains many files that are not
+necessary for their analysis. In addition, all computed derivatives and outputs
+are added into their analysis projects, and everything is stored on the cluster.
+Version control is not a standard skill in the
 institute, and especially PhD students and other trainees struggle with the
 technical overhead of data management *and* data science. Thus, an excess of
 data copies and derivatives exists in addition to the already substantial
 amount of original data. With data directories of several TB in size, the
-compute cluster quickly is quickly brought to its knees: Insufficient memory and
+compute cluster is quickly brought to its knees: Insufficient memory and
 IOPS starvation make computations painstakingly slow, and hinder scientific
 progress.
 
 The DataLad approach
 ^^^^^^^^^^^^^^^^^^^^
+
+The compute cluster is refurbished to a state-of-the-art data management
+system. Unlike traditional solutions, both because of the size of the large
+amounts of data, and for more efficient use of compute power for
+calculations instead of data storage, the cluster gets a distributed data
+store: Data lives as DataLad datasets on a different machine than the one
+the scientific analyses are computed on.
+For access to the annexed data in datasets, the data store is configured as a
+Git-annex ria remote. Using DataLad's run-procedures, an institute-wide
+configuration is distributed among users. Applying the procedure is done in a
+single :command:`datalad run-procedure` command, and users subsequently
+face minimal technical overhead to interact with the data store.
+
+By using the data store, the institutes work routines are adjusted around
+DataLad datasets: Analyses are set-up inside of DataLad datasets. This has
+the advantage of vastly simplified version control, even for trainees. Data
+from the data store is installed as subdatasets. This comes with several
+benefits: Analyses are automatically linked to data, no unused file
+copies waste disk space on the compute cluster as data can be retrieved
+on-demand, and files that are easily reobtained or recomputed can savely be
+dropped to save even more diskspace. What is more, in case of inode
+limitations on the machine serving as the data store, full datasets can be
+7-zipped, without loosing the ability to query available files.
+Datasets with several thousand files thus use only one inode.
 
 - distributed data store: data is stored in a different place than where you
   work with it

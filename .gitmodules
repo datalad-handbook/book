@@ -1,0 +1,4 @@
+[submodule "docs/artwork"]
+	path = docs/artwork
+	url = https://github.com/datalad-handbook/artwork.git
+	datalad-id = 4d04397a-c725-11e9-a657-f0d5bf7b5561

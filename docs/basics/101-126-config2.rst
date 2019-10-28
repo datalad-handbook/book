@@ -1,7 +1,7 @@
 .. _config2:
 
-Tuning datasets to your needs: Configurations [2]
--------------------------------------------------
+More on DIY configurations
+--------------------------
 
 As the last section already suggest, within a Git repository,
 ``.git/config`` is not the only configuration file.
@@ -52,7 +52,7 @@ behavior can be defined based on
 #. file size
 
 #. and/or path/pattern, and thus for example file extensions,
-   or names, or file types (e.g. text files, as with the
+   or names, or file types (e.g., text files, as with the
    ``text2git`` configuration template).
 
 "In ``.gitattributes``, you can define what a large file and what is not
@@ -145,7 +145,7 @@ stores. ``.gitmodules`` is a configuration file that stores the mapping between
 your own dataset and any subdatasets you have installed in it.
 There will be an entry for each submodule (subdataset) in your dataset.
 The name *submodule* is Git terminology, and describes a Git repository inside of
-another Git repository, i.e. the super- and subdataset principles.
+another Git repository, i.e., the super- and subdataset principles.
 Upon sharing your dataset, the information about subdatasets and where to retrieve
 them from is stored and shared with this file.
 
@@ -237,6 +237,33 @@ command. This is due to its different format that does not comply to the
 ``section.variable.value`` structure of all other configuration files. This file, therefore,
 has to be edited by hand, with an editor of your choice.
 
+Environment variables
+^^^^^^^^^^^^^^^^^^^^^
+
+An :term:`environment variable` is a variable set up in your shell
+that affects the way the shell or certain software works -- for example
+the environment variables ``HOME``, ``PWD``, or ``PATH`` [#f4]_.
+Configuration options that determine the behavior of Git, Git-annex, and
+DataLad that could be defined in a configuration file can also be set (or overridden)
+by the associated environment variables of these configuration options.
+Many configuration items have associated environment variables.
+If this environment variable is set, it takes precedence over options set in
+configuration files, thus providing both an alternative way to define configurations
+as well as an override mechanism. For example, the ``user.name``
+configuration of Git can be overridden by its associated environment variable,
+``GIT_AUTHOR_NAME``. Likewise, one can define the environment variable instead
+of setting the ``user.name`` configuration in a configuration file.
+
+Git, Git-annex, and DataLad have more environment variables than anyone would want to
+remember. `Here <https://git-scm.com/book/en/v2/Git-Internals-Environment-Variables>`__
+is a good overview on Git's most useful available environment variables for a start.
+All of DataLad's configuration options can be easily translated to their
+associated environment variables. Any environment variable with a name that starts with ``DATALAD_``
+will be available as the corresponding ``datalad.`` configuration variable,
+replacing any ``__`` (two underscores) with a hyphen, then any ``_`` (single underscore)
+with a dot, and finally converting all letters to lower case. The ``datalad.log.level``
+configuration option thus is the environment variable ``DATALAD_LOG_LEVEL``.
+
 Summary
 ^^^^^^^
 
@@ -256,6 +283,43 @@ important, you know how to configure Git-annex's content management based on ``l
 rules, and you understand the majority of variables within ``.gitmodules`` or the sections
 in ``.git/config``. Slowly, you realize with pride,
 you're more and more becoming a DataLad power-user.
+
+Write a note about configurations in datasets into ``notes.txt``.
+
+.. runrecord:: _examples/DL-101-125-113
+   :workdir: dl-101/DataLad-101
+   :language: console
+
+   $ cat << EOT >> notes.txt
+   Configurations for datasets exist on different levels
+   (systemwide, global, and local), and in different types
+   of files (not version controlled (git)config files, or
+   version controlled .datalad/config, .gitattributes, or
+   gitmodules files), or environment variables.
+   With the exception of .gitattributes, all configuration
+   files share a common structure, and can be modified with
+   the git config command, but also with an editor by hand.
+
+   Depending on whether a configuration file is version
+   controlled or not, the configurations will be shared together
+   with the dataset. More specific configurations and not-shared
+   configurations will always take precedence over more global or
+   shared configurations, and environment variables take precedence
+   over configurations in files.
+
+   The git config --list --show-origin command is a useful tool
+   to give an overview over existing configurations. Particularly
+   important may be the .gitattributes file, in which one can set
+   rules for Git-annex about which files should be version-controlled
+   with Git instead of being annexed.
+
+   EOT
+
+.. runrecord:: _examples/DL-101-125-114
+   :workdir: dl-101/DataLad-101
+   :language: console
+
+   $ datalad save -m "add note on configurations and git config"
 
 .. rubric:: Footnotes
 
@@ -287,3 +351,23 @@ you're more and more becoming a DataLad power-user.
          *all* files (new as well as existing ones) requires the :command:`git annex migrate`
          (see `the documentation <https://git-annex.branchable.com/git-annex-migrate/>`_ for
          more information on this command).
+
+.. [#f4] **Some more on environment variables**:
+         Names of environment variables are often all-uppercase. While the ``$`` is not part of
+         the name of the environment variable, it is necessary to *refer* to the environment
+         variable: To reference the value of the environment variable ``HOME`` for example you would
+         need to use ``echo $HOME`` and not ``echo HOME``. However, environment variables are
+         set without a leading ``$``. There are several ways to set an environment variable
+         (note that there are no spaces before and after the ``=`` !), leading to different
+         levels of availability of the variable:
+
+         - ``THEANSWER=42 <command>`` makes the variable ``THEANSWER`` available for the process in ``<command>``.
+           For example, ``DATALAD_LOG_LEVEL=debug datalad get <file>`` will execute the :command:`datalad get`
+           command (and only this one) with the log level set to "debug".
+         - ``export THEANSWER=42`` makes the variable ``THEANSWER`` available for other processes in the
+           same session, but it will not be available to other shells.
+         - ``echo 'export THEANSWER=42' >> ~/.bashrc`` will write the variable definition in the
+           ``.bashrc`` file and thus available to all future shells of the user (i.e., this will make
+           the variable permanent for the user)
+
+         To list all of the configured environment variables, type ``env`` into your terminal.

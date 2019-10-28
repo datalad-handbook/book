@@ -1,22 +1,22 @@
 $ git log --reverse --oneline
-f13900e [DATALAD] new dataset
-9fc4527 Instruct annex to add text files to Git
-165b8d3 add books on Python and Unix to read later
-70ddd65 add reference book about git
-42ce8c2 Add notes on datalad create
-1c3f5b4 add note on datalad save
-16a48ae [DATALAD] Recorded changes
-2766b4c Add note on datalad install
-3be5179 Add simple script to write a list of podcast speakers and titles
-dc6dcbf [DATALAD RUNCMD] create a list of podcast titles
-f6515ae BF: list both directories content
-99f0c05 [DATALAD RUNCMD] create a list of podcast titles
-63d04ff add note datalad and git diff
-ee208fa add note on basic datalad run and datalad rerun
-0dcdcec [DATALAD RUNCMD] convert -resize 400x400 recordings/longn...
-3e59349 resized picture by hand
-e1562c9 [DATALAD RUNCMD] convert -resize 450x450 recordings/longn...
-e5c42dc add additional notes on run options
-4506018 [DATALAD RUNCMD] Resize logo for slides
-b048c2d [DATALAD RUNCMD] Resize logo for slides
-355c5f2 add note on clean datasets
+8d54aba [DATALAD] new dataset
+4ae8e0a Instruct annex to add text files to Git
+794de4e add books on Python and Unix to read later
+b85c9b6 add reference book about git
+8cfb192 Add notes on datalad create
+6ec6612 add note on datalad save
+4c80dbd [DATALAD] Recorded changes
+25cc38d Add note on datalad install
+89f4bc7 Add simple script to write a list of podcast speakers and titles
+c92bd28 [DATALAD RUNCMD] create a list of podcast titles
+e341c7f BF: list both directories content
+d56f365 [DATALAD RUNCMD] create a list of podcast titles
+7dc5fdd add note datalad and git diff
+6587c55 add note on basic datalad run and datalad rerun
+043574a [DATALAD RUNCMD] convert -resize 400x400 recordings/longn...
+b61ecdf resized picture by hand
+3135fef [DATALAD RUNCMD] convert -resize 450x450 recordings/longn...
+7ca14d0 add additional notes on run options
+d3c5104 [DATALAD RUNCMD] Resize logo for slides
+ae9c7f5 [DATALAD RUNCMD] Resize logo for slides
+bb10eda add note on clean datasets

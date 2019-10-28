@@ -1,7 +1,7 @@
 .. _symlink:
 
-Secrets of Git-annex: Symlinks and object trees
------------------------------------------------
+Data integrity
+--------------
 
 So far, we mastered quite a number of challenges: Creating and populating a dataset with
 large and small files, modifying content and saving the changes to history, installing
@@ -48,7 +48,7 @@ a :term:`relative path` or :term:`absolute path`.
 If you use Windows, you are familiar with a related concept: a shortcut.
 
 This means that the files that are in the locations in which you saved content
-to and are named as you named your files (e.g. ``TLCL.pdf``),
+to and are named as you named your files (e.g., ``TLCL.pdf``),
 do *not actually contain your files' content*:
 they just point to the place where the actual file content resides.
 
@@ -73,7 +73,7 @@ defined based on
 #. file size
 
 #. and/or path/pattern, and thus for example file extensions,
-   or names, or file types (e.g. text files, as with the
+   or names, or file types (e.g., text files, as with the
    ``text2git`` configuration template).
 
 Git-annex, in order to version control the data, takes the file content
@@ -144,7 +144,8 @@ This leads to a few conclusions:
 
 The first is that you shouldn't be worried
 to see cryptic looking symlinks in your repository -- this is how it should
-look. If you are interested in why these paths look so weird, you can check
+look. If you are interested in why these paths look so weird, and what all
+of this has to do with data integrity, you can check
 out the hidden section below.
 
 The second is that it should now be clear to you why the ``.git`` directory
@@ -156,14 +157,10 @@ Lastly, understanding that annexed files in your dataset are symlinked
 will be helpful to understand how common file system operations such as
 moving, renaming, or copying content translate to dataset modifications
 in certain situations. Later in this book we will have a section on how
-to manage the file system in a datalad dataset (Todo: link).
+to manage the file system in a datalad dataset (:ref:`filesystem`).
 
 
-.. container:: toggle
-
-   .. container:: header
-
-      **Find out more:** more about paths, checksums, and object trees
+.. findoutmore:: more about paths, checksums, object trees, and data integrity
 
    But why does the target path to the object tree needs to be so cryptic?
    Does someone want to create
@@ -174,10 +171,10 @@ to manage the file system in a datalad dataset (Todo: link).
    Understanding the next section is completely irrelevant for the
    subsequent sections of the book. But it can help to establish trust in that
    your data is safely stored and tracked, and it can get certainly helpful
-   should you be one of those weird people that always want to understand
-   things in depth (those people are great, BTW!). Also, certain file management operations
+   should you be one of those people that always want to understand
+   things in depth. Also, certain file management operations
    can be messy -- for example, when you attempt to move a subdirectory
-   (more on this in a dedicated section <link>) it can break symlinks, and
+   (more on this in a dedicated section :ref:`filesystem`) it can break symlinks, and
    you need to take appropriate actions to get the dataset back into a clean
    state.
    Understanding more about the object tree can help to understand such
@@ -195,7 +192,7 @@ to manage the file system in a datalad dataset (Todo: link).
    have identical contents, and whether file content changed.
 
    The key is generated using *hashes*. A hash is a function that turns an
-   input (e.g. a PDF file) into a string of characters with a fixed length.
+   input (e.g., a PDF file) into a string of characters with a fixed length.
    In principle, therefore, the hash function simply transforms a content of
    any size into a string with fixed length.
 
@@ -203,24 +200,28 @@ to manage the file system in a datalad dataset (Todo: link).
    will generate the same hash for the same file content, but once file content
    changes, the generated hash will also look differently. If two files are
    turned into identical character strings, the content in these files is thus
-   identical. Therefore, if two have the same symlink, and thus
-   linking the same file in the object-tree, they are identical in content.
+   identical. Therefore, if two files have the same symlink, and thus
+   link the same file in the object-tree, they are identical in content.
    If you have many copies of the same data in your dataset, the object
    tree will contain only one instance of that content, and all copies will
-   symlink to it, thus saving disk space. If you want to read more about the
+   symlink to it, thus saving disk space. But furthermore,
+   the file name also becomes a way of ensuring data integrity. File content
+   can not be changed without Git-annex noticing, because the symlink to the
+   file content will change. If you want to read more about the
    computer science basics about about hashes check out the Wikipedia
    page `here <https://en.wikipedia.org/wiki/Hash_function>`_.
 
    This key (or :term:`checksum`) is the last part of the name of the file the
    symlink links to (in which the actual data content
-   is stored). The extension (e.g. ``.pdf``) is appended because some
+   is stored). The extension (e.g., ``.pdf``) is appended because some
    operating systems (Windows) need this information.
    The key is also one of the subdirectory names in the path. This subdirectory
    adds an important feature to the :term:`object-tree`: It revokes the users
    permissions to modify it.
    This two-level structure is implemented because it helps to prevent
    accidental deletions and changes, and this information will be helpful
-   to understand some file system management operations (todo: link), for
+   to understand some file system management operations (see section
+   :ref:`filesystem`), for
    example deleting a subdataset.
 
    .. runrecord:: _examples/DL-101-115-104
@@ -268,6 +269,43 @@ to manage the file system in a datalad dataset (Todo: link).
    case, this section was hopefully insightful, and not confusing. If you are still curious
    about Git-annex, you can check out its
    `documentation <https://git-annex.branchable.com/git-annex/>`_.
+
+Broken symlinks
+^^^^^^^^^^^^^^^
+
+Whenever a symlink points to a non-existent target, this symlink is called
+*broken*, and opening the symlink would not work as it does not resolve. The
+section :ref:`filesystem` will give a thorough demonstration of how symlinks can
+break, and how one can fix them again. Even though *broken* sounds
+troublesome, most types of broken symlinks you will encounter can be fixed,
+or are not problematic. At this point, you actually have already seen broken
+symlinks: Back in section :ref:`installds` we explored
+the file hierarchy in an installed subdataset that contained many annexed
+``mp3`` files. Upon installation, the annexed files were not present locally.
+Instead, their symlinks (stored in Git) existed and allowed to explore which
+file's contents could be retrieved. These symlinks point to nothing, though, as
+the content isn't yet present locally, and are thus *broken*. This state,
+however, is not problematic at all. Once the content is retrieved via
+:command:`datalad get`, the symlink is functional again.
+
+Nevertheless, it may be important to know that some file managers (e.g., OSX's
+Finder) may not display broken symlinks. In these cases, it will be
+impossible to browse and explore the file hierarchy of not-yet-retrieved
+files with the file manager. You can make sure to always be able to see the
+file hierarchy in two seperate ways: Upgrade your file manager to display
+file types in a DataLad datasets (e.g., the
+`git-annex-turtle extension <https://github.com/andrewringler/git-annex-turtle>`_
+for Finder). Alternatively, use the :command:`ls` command in a terminal instead
+of a file manager GUI.
+
+Finally, if you are still in the ``books/`` directory, go back into the root of
+the superdataset.
+
+.. runrecord:: _examples/DL-101-115-106
+   :workdir: dl-101/DataLad-101/books
+   :language: console
+
+   $ cd ../
 
 .. rubric:: Footnotes
 

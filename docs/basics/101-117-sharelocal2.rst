@@ -1,7 +1,7 @@
 .. _sharelocal2:
 
-Sharing datasets: Common File systems [2]
------------------------------------------
+Where's Waldo?
+--------------
 
 So far, your room mate and you have created a copy of the ``DataLad-101``
 dataset on the same file system but a different place by installing
@@ -19,7 +19,8 @@ of the missing installation.
 And you have mesmerized your room mate by showing him how :term:`Git-annex`
 retrieved large file contents from the original dataset.
 
-Let's now see the :command:`git annex whereis` command in more detail.
+Let's now see the :command:`git annex whereis` command in more detail,
+and find out how Git-annex knows *where* file content can be obtained from.
 Within the original ``DataLad-101`` dataset, you retrieved some of the ``.mp3``
 files via :command:`datalad get`, but not others. How will this influence the
 output of :command:`git annex whereis`, you wonder?

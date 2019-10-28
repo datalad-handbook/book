@@ -16,6 +16,9 @@ Glossary
    annex
       Git annex concept: a different word for :term:`object-tree`.
 
+   bash
+      A Unix shell and command language.
+
    branch
       Git concept: A lightweight, independent history streak of your dataset. Branches can contain less,
       more, or changed files compared to other branches, and one can :term:`merge` the changes
@@ -30,7 +33,7 @@ Glossary
 
    commit
       Git concept: Adding selected changes of a file or dataset to the repository, and thus making these changes
-      part of the revision history of the repository. Should always have an informative :term:`commit message`
+      part of the revision history of the repository. Should always have an informative :term:`commit message`.
 
    commit message
       Git concept: A consise summary of changes you should attach to a :command:`datalad save` command. This summary will
@@ -41,21 +44,26 @@ Glossary
       manage data referenced in a dataset. In practice, most DataLad datasets will come with an annex.
 
    DataLad subdataset
-      A DataLad dataset contained within a different DataLad dataset (the parent or :term:`DataLad superdataset`)
+      A DataLad dataset contained within a different DataLad dataset (the parent or :term:`DataLad superdataset`).
 
    DataLad superdataset
-      A DataLad dataset that contains one or more levels of other DataLad datasets (:term:`DataLad subdataset`)
+      A DataLad dataset that contains one or more levels of other DataLad datasets (:term:`DataLad subdataset`).
 
    Debian
-      A common Linux distribution
+      A common Linux distribution. `More information here <https://www.debian.org/index.en.html>`__.
+
+   environment variable
+      A variable made up of a name/value pair. Programs using a given environment variable
+      will use its associated value for their execution.
 
    Git
       A version control system to track changes made to small-sized files over time. You can find out
       more about git in `this (free) book <https://git-scm.com/book/en/v2>`_
-      or `these interactive Git tutorials <https://try.github.io/>`_ on :term:`Github`
+      or `these interactive Git tutorials <https://try.github.io/>`_ on :term:`Github`.
 
    Git-annex
-      TODO
+      A distributed file synchronization system, enabling sharing and synchronizing collections
+      of large files. It allows managing files with :term:`Git`, without checking the file content into Git.
 
    Git config file
       A file in which :term:`Git` stores configuration option. Such a file usually exists on
@@ -66,10 +74,13 @@ Glossary
       using Git (and thus also DataLad project).
 
    Gitk
-      TODO
+      A repository browser that displays changes in a repository or a selected set of commits. It
+      visualizes a commit graph, information related to each commit, and the files in the trees
+      of each revision.
 
    Github
-      TODO
+      An online platform to host and share software projects version controlled with :term:`Git`. See
+      https://github.com/.
 
    globbing
       A powerful pattern matching function of a shell. Allows to match the names of multiple files
@@ -86,7 +97,7 @@ Glossary
       a different branch.
 
    metadata
-      "Data about data": Information about one or more aspects of data used to summmarize
+      "Data about data": Information about one or more aspects of data used to summarize
       basic information, for example means of create of the data, creator or author, size,
       or purpose of the data. For example, a digital image may include metadata that
       describes how large the picture is, the color depth, the image resolution, when the image
@@ -120,15 +131,24 @@ Glossary
       A hexadecimal number, 40 digits long, that is produced by a secure hash algorithm, and
       is used by :term:`Git` to identify :term:`commit`\s. A shasum is a type of :term:`checksum`.
 
+   shebang
+      The characters ``#!`` at the very top of a script. One can specify the interpreter (i.e., the
+      software that executes a script of yours, such as Python) after with it such as in
+      ``#! /usr/bin/python``.
+      If the script has executable permissions, it is henceforth able to call the interpreter itself.
+      Instead of ``python code/myscript.py`` one can just run ``code/myscript`` if ``myscript`` has
+      executable permissions and a correctly specified shebang.
+
    SSH
       Secure shell (SSH) is a network protocol to link one machine (computer),
       the *client*, to a different local or remote machine, the *server*. See also: :term:`SSH server`.
 
    SSH server
-      An remote or local computer that users can log into using the :term:`SSH` protocol
+      An remote or local computer that users can log into using the :term:`SSH` protocol.
 
    symlink
-      TODO
+      A symbolic link (also symlink or soft link) is a reference to another file or path in the form
+      of a relative path. Windows users are familiar with a similar concept: shortcuts.
 
    sibling
       DataLad concept: A dataset clone that a given :term:`DataLad dataset` knows about. Changes can be
@@ -146,10 +166,10 @@ Glossary
       It is not part of git and needs to be installed. Find out more `here <https://jonas.github.io/tig/>`_.
 
    Ubuntu
-      A common Linux distribution. https://ubuntu.com
+      A common Linux distribution. `More information here <https://ubuntu.com>`__.
 
    version control
-      The management of changes to documents or other collections of information
+      Processes and tools to keep track of changes to documents or other collections of information.
 
    vim
       A text editor, often the default in UNIX operating systems. If you are not used to using it,

@@ -1,0 +1,15 @@
+$ git log -1 -p
+commit d7711fdf76d1e748a4d64fc7a3cf6fe956fbed12
+Author: Elena Piscopia <elena@example.net>
+Date:   Sun Oct 6 09:41:10 2019 +0200
+
+    add copy of TLCL.pdf
+
+diff --git a/copyofTLCL.pdf b/copyofTLCL.pdf
+new file mode 120000
+index 0000000..34328e2
+--- /dev/null
++++ b/copyofTLCL.pdf
+@@ -0,0 +1 @@
++.git/annex/objects/jf/3M/MD5E-s2120211--06d1efcb05bb2c55cd039dab3fb28455.pdf/MD5E-s2120211--06d1efcb05bb2c55cd039dab3fb28455.pdf
+\ No newline at end of file

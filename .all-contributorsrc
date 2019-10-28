@@ -1,0 +1,156 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "adswa",
+      "name": "Adina S. Wagner",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/29738718?v=4",
+      "profile": "https://www.researchgate.net/profile/Adina_Wagner",
+      "contributions": [
+        "code",
+        "content",
+        "doc",
+        "design",
+        "ideas",
+        "infra",
+        "maintenance",
+        "projectManagement",
+        "review",
+        "userTesting",
+        "talk",
+        "test",
+        "bug",
+        "example",
+        "question"
+      ]
+    },
+    {
+      "login": "loj",
+      "name": "Laura Waite",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/15157717?v=4",
+      "profile": "https://github.com/loj",
+      "contributions": [
+        "ideas",
+        "maintenance",
+        "review",
+        "talk",
+        "question",
+        "content"
+      ]
+    },
+    {
+      "login": "mih",
+      "name": "Michael Hanke",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/136479?v=4",
+      "profile": "http://psychoinformatics.de",
+      "contributions": [
+        "question",
+        "bug",
+        "code",
+        "content",
+        "doc",
+        "design",
+        "example",
+        "ideas",
+        "infra",
+        "maintenance",
+        "plugin",
+        "projectManagement",
+        "review",
+        "tool",
+        "test",
+        "talk",
+        "userTesting"
+      ]
+    },
+    {
+      "login": "kyleam",
+      "name": "Kyle Meyer",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1297788?v=4",
+      "profile": "https://github.com/kyleam",
+      "contributions": [
+        "bug",
+        "review",
+        "question",
+        "content",
+        "ideas"
+      ]
+    },
+    {
+      "login": "marisaheckner",
+      "name": "Marisa Heckner",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/52243533?v=4",
+      "profile": "https://github.com/marisaheckner",
+      "contributions": [
+        "ideas",
+        "userTesting",
+        "bug",
+        "content"
+      ]
+    },
+    {
+      "login": "bpoldrack",
+      "name": "Benjamin Poldrack",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/10498301?v=4",
+      "profile": "https://github.com/bpoldrack",
+      "contributions": [
+        "question",
+        "ideas",
+        "example",
+        "tutorial"
+      ]
+    },
+    {
+      "login": "yarikoptic",
+      "name": "Yaroslav Halchenko",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/39889?v=4",
+      "profile": "http://www.onerussian.com",
+      "contributions": [
+        "review",
+        "content",
+        "ideas",
+        "bug"
+      ]
+    },
+    {
+      "login": "effigies",
+      "name": "Chris Markiewicz",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/83442?v=4",
+      "profile": "https://github.com/effigies",
+      "contributions": [
+        "bug"
+      ]
+    },
+    {
+      "login": "heytitle",
+      "name": "Pattarawat Chormai",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/1214890?v=4",
+      "profile": "http://pat.chormai.org",
+      "contributions": [
+        "bug",
+        "code"
+      ]
+    },
+    {
+      "login": "lisanmo",
+      "name": "Lisa N. Mochalski",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/52251433?v=4",
+      "profile": "https://github.com/lisanmo",
+      "contributions": [
+        "bug",
+        "content",
+        "example",
+        "ideas"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "book",
+  "projectOwner": "datalad-handbook",
+  "repoType": "github",
+  "repoHost": "https://github.com"
+}

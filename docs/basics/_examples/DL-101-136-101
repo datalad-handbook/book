@@ -1,0 +1,16 @@
+$ git log -15 --oneline
+73f8322 add note on DataLads procedures
+9d125d8 add note on configurations and git config
+d7ea7c1 Add note on adding siblings
+78a49de Merge remote-tracking branch 'refs/remotes/roommate/master'
+2af90e2 Include nesting demo from datalad website
+f97b373 add note about datalad update
+782994c add note on git annex whereis
+3f419da add note about installing from paths and recursive installations
+b90cea2 add note on clean datasets
+a370ed8 [DATALAD RUNCMD] Resize logo for slides
+7e9cbde [DATALAD RUNCMD] Resize logo for slides
+942f088 add additional notes on run options
+e35aeb8 [DATALAD RUNCMD] convert -resize 450x450 recordings/longn...
+c181149 resized picture by hand
+7bf692b [DATALAD RUNCMD] convert -resize 400x400 recordings/longn...

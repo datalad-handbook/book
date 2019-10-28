@@ -1,7 +1,7 @@
 
-$ datalad rerun b048c2d9d6494e232108aa5d4a42174d2e60a603
+$ datalad rerun ae9c7f50c1e960ad6765841f20b7c5d4ea62208b
 [INFO] Making sure inputs are available (this may take some time) 
-[WARNING] no content present; cannot unlock [unlock(/home/adina/repos/datalad-handbook/docs/_build/wdirs/dl-101/mock_user/DataLad-101/recordings/salt_logo_small.jpg)] 
+[WARNING] no content present; cannot unlock [unlock(/home/me/dl-101/mock_user/DataLad-101/recordings/salt_logo_small.jpg)] 
 [INFO] == Command start (output follows) ===== 
 [INFO] == Command exit (modification check follows) ===== 
 get(ok): recordings/longnow/.datalad/feed_metadata/logo_salt.jpg (file) [from origin...]

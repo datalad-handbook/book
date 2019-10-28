@@ -1,3 +1,3 @@
 $ datalad update -s roommate
-[INFO] Fetching updates for <Dataset path=/home/adina/repos/datalad-handbook/docs/_build/wdirs/dl-101/DataLad-101> 
+[INFO] Fetching updates for <Dataset path=/home/me/dl-101/DataLad-101> 
 update(ok): . (dataset)

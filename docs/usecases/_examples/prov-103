@@ -1,0 +1,7 @@
+$ git annex whereis sources/flowers.jpg
+whereis sources/flowers.jpg (2 copies) 
+  	00000000-0000-0000-0000-000000000001 -- web
+   	810e9c23-bb50-4589-ae62-f6e2460b8afc -- me@meiner:~/usecases/provenance/artproject [here]
+
+  web: https://upload.wikimedia.org/wikipedia/commons/a/a5/Flower_poster_2.jpg
+ok

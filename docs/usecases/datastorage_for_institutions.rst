@@ -3,14 +3,24 @@
 Building a scalable data storage for scientific computing
 ---------------------------------------------------------
 
+Research can require enormous amounts of data. Such data needs to be accessed by
+multiple people at the same time, and is used in a diverse range of
+computations or research questions.
+The size of the data set, the need for simultaneous access and transformation
+of this data by multiple people, and the subsequent storing of multiple copies
+or derivatives of the data constitutes a challenge for computational clusters
+and requires state-of-the-art data management solutions.
 This use case details a model implementation for a scalable data storage
 solution, suitable to serve the computational and logistic demands of data
 science in big (scientific) institutions, while keeping workflows for users
 user as simple as possible. It elaborates on
 
-#. how to setup a computational cluster or supercomputer as a data store
-#. configure the data store and ...
-#. ...
+#. How to implement a scalable, distributed data store can be so that data is
+   stored in a different place than where people work with is.
+#. How to configure the data store and general cluster setup for easy and
+   fast accessibility of data.
+#. How to reduce technical complexities for users and encourage reproducible,
+   version-controlled scientific workflows.
 
 .. note::
 
@@ -28,15 +38,6 @@ user as simple as possible. It elaborates on
 The Challenge
 ^^^^^^^^^^^^^
 
-Research in many areas of science requires enormous amounts of data. Such
-data is often accessed by multiple people at the same time and used for various
-computations and different research questions.
-
-The size of the data set, the need for simultaneous access and transformation
-of this data by multiple people, and the subsequent storing of multiple copies
-or derivatives of the data constitutes a challenge for computational clusters
-and data management solutions.
-
 The data science institute XYZ consists of dozens of people: Principle
 investigators, PhD students, general research staff, system's administration,
 and IT support. It does research on important global issues, and prides
@@ -46,20 +47,24 @@ The data sets used in the institute are big both in size and number of files,
 and expensive to collect.
 Therefore, datasets are used for various different research questions, by
 multiple researchers.
+
 Every member of the institute has an account on the compute cluster, and all
 of the data exists in dedicated directories on the server. In order to work on
 their research questions without modifying original data, every user creates own
-copies of the full data -- even if it contains many files that are not
-necessary for their analysis. In addition, all computed derivatives and outputs
-are added into their analysis projects, and everything is stored on the cluster.
-Version control is not a standard skill in the
-institute, and especially PhD students and other trainees struggle with the
-technical overhead of data management *and* data science. Thus, an excess of
+copies of the full data in their user account on the cluster -- even if it
+contains many files that are not necessary for their analysis. In addition,
+they add all computed derivatives and outputs, even old versions, out of fear
+of losing work that may become relevant again.
+This is because version control is not a standard skill in the institute, and
+especially PhD  students and other trainees struggle with the technical
+overhead of data management *and* data science. Thus, an excess of
 data copies and derivatives exists in addition to the already substantial
-amount of original data. With data directories of several TB in size, the
+amount of original data. At the same time, the compute cluster is both the
+data storage and the analysis playground for the institute. With data
+directories of several TB in size, *and* computationally heavy analyses, the
 compute cluster is quickly brought to its knees: Insufficient memory and
 IOPS starvation make computations painstakingly slow, and hinder scientific
-progress.
+progress, despite the elaborate and expensive cluster setup.
 
 The DataLad approach
 ^^^^^^^^^^^^^^^^^^^^
@@ -83,10 +88,11 @@ from the data store is installed as subdatasets. This comes with several
 benefits: Analyses are automatically linked to data, no unused file
 copies waste disk space on the compute cluster as data can be retrieved
 on-demand, and files that are easily reobtained or recomputed can savely be
-dropped to save even more diskspace. What is more, in case of inode
-limitations on the machine serving as the data store, full datasets can be
-7-zipped, without loosing the ability to query available files.
-Datasets with several thousand files thus use only one inode.
+dropped to save even more diskspace. What is more, in case of filesystem inode
+limitations on the machine serving as the data store (e.g., HPC storage
+systems), full datasets can be (compressed) 7-zip archives, without loosing the
+ability to query available files. Regardless of file number and size,
+such datasets thus use only few inodes.
 
 - distributed data store: data is stored in a different place than where you
   work with it
@@ -100,33 +106,146 @@ Datasets with several thousand files thus use only one inode.
 Step-by-step
 ^^^^^^^^^^^^
 
-- needs a few sentences on what a special remote is. third party sharing WIP
-  PR could already have this
-- distributed nature of the data storage: JSC, brainbfast
-- detail on the nested trees: dataset ID, what can lie beneath (bare repo,
-  object tree, archive...)
+.. note::
+
+   This use case describes the data storage implementation as done in INM-7,
+   research centre Juelich, Germany.
+
+To create a data store, parts of the old compute cluster and parts of the
+super computer at the Juelich supercomputing centre (JSC) are used to store
+large
+amounts of data. Thus, multiple different, independent machines take care of
+warehousing the data. While this is unconventional, it is convenient: The
+data does not strain the compute cluster, and with DataLad, it is irrelevant
+where the data is located. Thanks to Git-annex, any large file content in
+datasets is stored as a *value* in Git-annex's object tree. A *key*
+generated from its contents is checked into Git and used to reference the
+location of the value in the object tree [#f1]_. The object tree (or *keystore*)
+with the data contents can be located anywhere -- its location only needs to be
+encoded using a *special remote*. This configuration is done on an
+administrative, system-wide level, and users do not need to care or know
+about where data is stored, as they can access it just as easily as before.
+
+A `special-remote <https://git-annex.branchable.com/special_remotes/>`_ is an
+extension to Git's concept of remotes, and can enable Git-annex to transfer
+data to and from places that are not Git repositories (e.g., cloud services
+or external machines such as an HPC system). Don't envision a special-remote as a
+physical place or location -- a special-remote is just a protocol that defines
+the underlying *transport* of your files *to* and *from* a specific location.
+
+The machines in question, parts of an old compute cluster and parts of the
+supercomputer at the JSC, are configured to receive and store data using the
+Git-annex remote for indexed file archives (`RIA <https://libraries.io/pypi/ria-remote>`_)
+special remote. The Git-annex RIA-remote is similar to Git-annex's built-in
+`directory <https://git-annex.branchable.com/special_remotes/directory/>`_
+special remote, but distinct in certain aspects:
+
+- It allows read-access to (compressed) 7z archives, which is a useful
+  feature on systems where strong quotas on filesystem inodes might be imposed
+  on users. This way, the entire key store (i.e., all data contents) of the
+  remote that serves as the data store can be put into an archive that uses
+  only a handful of inodes, while remaining fully accessible.
+
+- It provides access to configurable directories via SSH.
+  .. todo::
+
+     understand this part.
+
+- It allows a multi-repository directory structure, in which key store
+  directories of multiple repositories can be organized in to a homogeneous
+  archive directory structure. A key store location in an archive is defined
+  using the datasets UUID (in case of DataLad datasets) or the annex remote
+  UUID (in case of any non DataLad dataset). This aids handling of large
+  numbers of repositories in a data store use case, because locations are
+  derived from repository properties rather than having to re-configure them explicitly.
+
+The structure under which data is stored in the data store looks like this:
+
+.. code-block::
+   :emphasize-lines: 1-2, 4-10
+
+    082
+    ├── 8ac72-f7c8-11e9-917f-a81e84238a11
+    │   ├── annex
+    │   │   ├── objects
+    │   │   │   ├── ff4
+    │   │   │   │   └── c57
+    │   │   │   │       └── MD5E-s4--ba1f2511fc30423bdbb183fe33f3dd0f
+    │   │   │   ├── abc
+    │   │   │   │   └── def
+    │   │   │   │       └── MD5E-s4--ba1f2511fc30423bdbb183fe33f3dd0f
+    │   │   │   ├── [...]
+    │   ├── branches
+    │   ├── config
+    │   ├── description
+    │   ├── HEAD
+    │   ├── hooks
+    │   │   ├── [...]
+    │   ├── info
+    │   │   └── exclude
+    │   ├── objects
+    │   │   ├── 04
+    │   │   │   └── 49b485d128818ff039b4fa88ef57be0cb5b184
+    │   │   ├── 06
+    │   │   │   └── 4e5deab57592a54e4e9a495cde70cd6da7605a
+    │   │   ├── [...]
+    │   │   ├── info
+    │   │   └── pack
+    │   ├── refs
+    │   │   ├── heads
+    │   │   │   ├── git-annex
+    │   │   │   └── master
+    │   │   └── tags
+    │   └── ria-layout-version
+    └── c9d36-f733-11e9-917f-a81e84238a11
+        ├── [...]
+
+Here is how the RIA-remote features look like in real life:
+
+- Datasets are identified via their :term:`UUID` (e.g.,
+  ``0828ac72-f7c8-11e9-917f-a81e84238a11``). The UUID is split into the first
+  two levels of the tree structure (as highlighted above in the first two
+  lines), with the two-level structure preventing too many inodes underneath
+  a single directory
+- This first, two-level tree structure can host key stores for any number of
+  repositories.
+- The third level holds a directory structure that is identical to a *bare* git
+  repository.
+- A bare Git repository is a repository that contains the contents of the ``.git``
+  directory of regular DataLad datasets or Git repositories, but no worktree
+  or checkout. This has advantages: The repository is leaner, it is easier
+  for administrators to perform garbage collections, and it can be pushed to at
+  all times. You can find out more on what bare repositories are and how to use them
+  `here <https://git-scm.com/book/en/v2/Git-on-the-Server-Getting-Git-on-a
+  -Server>`_.
+- Inside of the bare Git repository, the ``annex`` directory -- just as in
+  any standard dataset or repository -- contains the key store (object tree) under
+  ``annex/objects`` (highlighted above as well). Details on how this object tree
+  is structured are outlined in the hidden section in :ref:`symlink`.
+- These key stores can be 7zipped if necessary.
+
+Once this is set up, in order to retrieve data from the data store, special
+remote access to the data store needs to be initialized.
+
+.. todo::
+
+   - everything about the inm7-configuration run procedure.
+   - workflows on how to get, work with, publish data.
 
 
 
-- copies of stuff (lack of version control)
-- play with data where it is stored
-- all is on this space -- this has problems (Which???)
+**Software Requirements**
 
-performance IOPS starvations --> gets worse at RAID (multiple write operations)
-waiting on disk: shared infra for writing/reading and computing
+- Git-annex version 7.20 or newer
+- DataLad version 0.12.5 (or later), or any DataLad development version more
+  recent than May 2019 (critical feature: https://github.com/datalad/datalad/pull/3402)
+- The ``cfg_inm7`` run procedure as provided with ``pip install git+https://jugit.fz-juelich.de/inm7/infrastructure/inm7-datalad.git``
+- Server side: 7z needs to be in the path.
 
-TODO: data close to compute nodes
 
-With data directories of several TB in size, the compute cluster quickly is
-quickly brought to its knees: Insufficient memory, immense computational
-effort to copy
+.. rubric:: Footnotes
 
-infrastructure: harddrives,
-hammerpants: modular store, the user should never know
-big systems: expensive, scalability
-we're doing sharding -->
-everything on one dataserver tough bc size -- would need to be on multiple
-machines, have to behave in the same way.
-Instead: multiple differnt independent machines
-With datalad it is irrelevant where the data is located, its encoded into
-special remote
+.. [#f1] To re-read about how Git-annex's object tree works, check out section
+         :ref:`symlink`, and pay close attention to the hidden section.
+         Additionally, you can find much background information in Git-annex's
+         `documentation <https://git-annex.branchable.com/internals/>`_.

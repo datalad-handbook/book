@@ -106,6 +106,18 @@ Make the most out of datasets
    basics/101-123-yoda
    basics/101-124-summary
 
+#################
+Extending DataLad
+#################
+
+.. toctree::
+   :maxdepth: 1
+   :caption: An overview on DataLads extensions
+
+   basics/101-144-intro_extensions
+   basics/101-145-containersrun
+
+
 #########
 Use Cases
 #########

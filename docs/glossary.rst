@@ -110,6 +110,11 @@ Glossary
       Git-annex concept: The place where :term:`Git-annex` stores available file contents. Files that are annexed get
       a :term:`symlink` added to :term:`Git` that points to the file content. A different word for :term:`annex`.
 
+   pip
+      A Python package manager. Short for "Pip installs Python". ``pip install <package name>``
+      searches the Python package index `PyPi <https://pypi.org/>`_ for a
+      package and installs it while resolving any potential dependencies.
+
    provenance
       A record that describes entities and processes that were involved in producinng or influencing
       a digital resource. It provides a critical foundation for assessing authenticity, enables trust,

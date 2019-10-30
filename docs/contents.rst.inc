@@ -131,6 +131,7 @@ Appendix
 
    glossary
    contributing
+   01_dataset_basics_code
 
 * :ref:`genindex`
 * :ref:`search`

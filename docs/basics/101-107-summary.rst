@@ -25,13 +25,15 @@ and making simple modifications *locally*.
 
     datalad save -m "here is a commit message" PATH
 
-* The typical local workflow consists of an initial :command:`datalad save -m "Add file XY" PATH` to instruct
-  DataLad to track the file and its content. Afterwards, one *modifies* the file, and then *saves* the
-  changes to the history (and repeats these two steps).
+* The typical local workflow is simple: *Modify* the dataset by adding or
+  modifying files, *save* the changes as meaningful units to the history,
+  *repeat*:
 
-.. todo::
+.. figure:: ../artwork/src/local_wf_simple.png
+   :alt: A simple, local version control workflow with datalad.
+   :figwidth: 100%
 
-   make a graphic of this workflow
+   A simple, local version control workflow with DataLad.
 
 * :command:`datalad status` reports the current state of the dataset. It's a very helpful command you should
   run frequently to check for untracked or modified content.
@@ -49,8 +51,8 @@ and experienced the concept of modular nesting datasets.
   the dataset will be installed in the current directory, with the original name of the
   dataset you are installing.
 
-* If a dataset is installed inside of a dataset, the ``--dataset``/``-d`` option
-  needs to specify the root of the superdataset.
+* If a dataset is installed inside of a dataset as a subdataset, the
+  ``--dataset``/``-d`` option needs to specify the root of the superdataset.
 
 * The source can be a URL (for example of a Github repository, as in section :ref:`installds`), but also
   paths, or open data collections.
@@ -86,4 +88,4 @@ You have procedurally experienced how to install a dataset, and simultaneously y
 learned a lot about the principles and features of DataLad datasets.
 Installing datasets and getting their content allows you to consume published datasets.
 By nesting datasets within each other, you can re-use datasets in a modular fashion. While this may
-appear abstract, upcoming section will demonstrate many example of why this can be handy.
+appear abstract, upcoming sections will demonstrate many examples of why this can be handy.

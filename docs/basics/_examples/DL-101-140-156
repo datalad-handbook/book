@@ -1,4 +1,3 @@
-$ git reset HEAD~1
-Unstaged changes after reset:
-M	.gitmodules
-D	recordings/longnow
+$ git reset --hard HEAD~1
+warning: unable to rmdir 'longnow': Directory not empty
+HEAD is now at 60a155c add note on DataLads procedures

@@ -40,7 +40,7 @@ this excerpt).
    :cast: 01_dataset_basics
    :caption: The superdataset only stores the version of the subdataset.  Let's take a look into how the superdataset's history looks like
 
-   $ git log -p -2
+   $ git log -p -n 2
 
 We have highlighted the important part of this rather long commit summary.
 Note that you can not see any ``.mp3``\s being added to the dataset,

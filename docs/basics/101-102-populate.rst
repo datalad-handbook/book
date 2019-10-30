@@ -120,7 +120,8 @@ created and handled by DataLad. Whether text files or larger files change,
 all of these changes can be written to your DataLad datasets history.
 
 Let's see how the saved content shows up in the history of the dataset with :command:`git log`.
-In order to get a bit more details, we add the ``-p`` flag (leave the git log
+``-n 1`` specifies that we want to take a look at the most recent commit.
+In order to get a bit more details, we add the ``-p`` flag (if in a pager, leave the git log
 by typing ``q``, navigate with up and down arrow keys):
 
 .. runrecord:: _examples/DL-101-102-107
@@ -131,7 +132,7 @@ by typing ``q``, navigate with up and down arrow keys):
    :cast: 01_dataset_basics
    :caption: Save command reports what has been added to the dataset. Now we can see how this action looks like in our dataset's history:
 
-   $ git log -p -1
+   $ git log -p -n 1
 
 Now this might look a bit cryptic (and honestly, tig [#f3]_ makes it look prettier).
 But this tells us the date and time in which a particular author added two PDFs to

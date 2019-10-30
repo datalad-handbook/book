@@ -1,7 +1,7 @@
-$ git log -p -2
-commit f023d459716ccd7aeae88055111bf05c17cab392
+$ git log -p -n 2
+commit dbada2a538db7a84d49383ae18b82770f5713f8c
 Author: Elena Piscopia <elena@example.net>
-Date:   Fri Oct 25 14:47:24 2019 +0200
+Date:   Wed Oct 30 12:30:17 2019 +0100
 
     add note on datalad save
 

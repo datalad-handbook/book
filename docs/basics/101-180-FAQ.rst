@@ -1,0 +1,31 @@
+.. _FAQ:
+
+Frequently Asked Questions
+--------------------------
+
+This section answers frequently asked questions about high-level DataLad
+concepts or commands. If you have a question you want to see answered in here,
+`please create an issue <https://github.com/datalad-handbook/book/issues/new>`_
+or a `pull request <http://handbook.datalad.org/en/latest/contributing.html>`_.
+
+
+What is the difference between DataLad, Git LFS, and Flywheel?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+`Flywheel <https://flywheel.io/>`_ is an informatics platform for biomedical
+research and collaboration.
+
+`Git Large File Storage <https://github.com/git-lfs/git-lfs>`_ (Git LFS) is a
+commandline tool that extends Git with the ability to manage large files. In
+that it appears similar to Git-annex.
+
+.. todo::
+
+   TF is flywheel? How can I find out without 2 hours
+
+
+A more elaborate delineation from related solutions can be found in the DataLad
+`developer documentation <http://docs.datalad.org/en/latest/related.html>`_.
+
+DataLad version-controls my large files -- great. But how much is saved in total?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

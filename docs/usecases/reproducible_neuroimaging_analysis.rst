@@ -333,6 +333,19 @@ ran by `ReproNim <https://www.repronim.org/>`_.
 The Challenge
 ^^^^^^^^^^^^^
 
+Allan is an exemplary neuroscientist and researcher. He has spent countless
+hours diligently learning not only the statistical methods for his research
+questions and the software tools for his computations, but also taught
+himself about version control and data standards in neuroimaging, such as
+the brain imaging data structure (`BIDS <https://bids.neuroimaging.io/>`_).
+For his final PhD project, he patiently acquires functional MRI data of many
+participants, and afterwards prepares it according to the BIDS standard.
+It takes him a full week week of time and two failed attempts, but he
+eventually has a `BIDS-compliant <http://bids-standard.github.io/bids-validator/>`_
+dataset.
+
+
+
 Creating reproducible (scientific) analyses seems to require so much:
 One needs to share data, scripts, results, and instructions on how to
 use data and scripts to obtain the results.
@@ -345,252 +358,238 @@ This leads to failed replications, a loss of confidence in results,
 and major time requirements for anyone trying to reproduce others
 or even their own analyses.
 
+But what is worse, even if an analysis workflow is fully captured and
+version-controlled, and data and code are being linked, an analysis may not
+reproduce. Comprehensive *computational* reproducibility requires that also
+the *software* involved in an analysis and its precise versions need to be
+known.
+
 The DataLad Approach
 ^^^^^^^^^^^^^^^^^^^^
 
-Scientific studies should be reproducible, and with the increasing accessibility
-of data, there is not much excuse for a lack of reproducibility anymore.
-DataLad can help with the technical aspects of reproducible science.
 
-For neuroscientific studies, :term:`the DataLad superdataset ///` provides unified
-access to a large amount of data. Using it to install datasets into an
-analysis-superdataset makes it easy to share this data together with the analysis.
-By ensuring that all relevant data is downloaded via :command:`datalad get`
-via DataLad's command line tools in the analysis scripts, or ``--input`` specifications
-in a :command:`datalad run`, an analysis can retrieve all required
-inputs fully automatically during execution.
-Recording executed commands with :command:`datalad run` allows to rerun
-complete analysis workflows with a single command, even if input data does not exist
-locally. Combining these three steps allows to share fully automatically reproducible
-analyses as lightweight datasets.
 
 Step-by-Step
 ^^^^^^^^^^^^
 
-It always starts with a dataset:
+The first part of this Step-by-Step guide details how to computationally
+reproducibly and
+automatically reproducibly perform data preparation from raw
+`DICOM <https://www.dicomstandard.org/>`_ files to BIDS-compliant
+`NifTi <https://nifti.nimh.nih.gov/>`_ images. The second part details how to
 
-.. runrecord:: _examples/repro-101
+
+For this, two DataLad extensions are required:
+
+- `datalad-container <https://github.com/datalad/datalad-container>`_ and
+- `datalad-neuroimaging <https://github.com/datalad/datalad-neuroimaging>`_
+
+You can install them via ``pip`` like this::
+
+   $ pip install datalad-neuroimaging, datalad-container
+
+Data Preparation
+""""""""""""""""
+
+We start by creating a home for the raw data:
+
+.. runrecord:: _examples/repro2-101
    :language: console
-   :workdir: usecases/repro
+   :workdir: usecases/repro2
 
-   $ datalad create -c yoda demo
+   $ datalad create localizer_scans
+   $ cd localizer_scans
 
-For this demo we are using two public brain imaging datasets that were published on
-`OpenFMRI.org <https://legacy.openfmri.org/>`_, and are available from
-:term:`the DataLad superdataset ///` (datasets.datalad.org). When installing datasets
-from this superdataset, we can use its abbreviation ``///``.
-The two datasets, `ds000001 <https://legacy.openfmri.org/dataset/ds000001/>`_ and
-`ds000002 <https://legacy.openfmri.org/dataset/ds000002/>`_, are installed into the
-subdirectory ``inputs/``.
+For this example, we can use a number of publicly available DICOM files. They
+are stored on Github (as a Git repository [#f1]_), so we can install them as
+a subdataset. As they are the raw inputs of the analysis, we store them in a
+directory we call ``inputs/raw``.
 
-.. runrecord:: _examples/repro-102
+.. runrecord:: _examples/repro2-102
    :language: console
-   :workdir: usecases/repro
+   :workdir: repro2/localizer_scans
 
-   $ cd demo
-   $ datalad install -d . -s ///openfmri/ds000001 inputs/ds000001
+   $ datalad install --dataset . \
+    --source https://github.com/datalad/example-dicom-functional.git  \
+    inputs/rawdata
 
-.. runrecord:: _examples/repro-103
+The :command:`datalad subdatasets` reports the installed dataset to be indeed
+a subdataset of the superdataset ``localizer_scans``:
+
+.. runrecord:: _examples/repro2-103
    :language: console
-   :workdir: usecases/repro
+   :workdir: repro2/localizer_scans
 
-   $ cd demo
-   $ datalad install -d . -s ///openfmri/ds000002 inputs/ds000002
+   $ datalad subdatasets
 
-Both datasets are now registered as subdatasets, and their precise versions
-(e.g. in the form of the commit shasum of the lastest commit) are on record:
+Given that we have obtained raw data, it is time to think about preparing it
+for a data analysis. This includes a transformation from DICOMs into the
+NifTi format, a format specifically designed for scientific analyses of brain
+images. This requires software. To take extra care to know exactly what software
+is used both to be able to go back to it at a later stage, should we have the
+need to investigate an issue, and to capture *full* provenance of the
+transformation process, we are using a software container that contains the
+relevant software setup.
 
-.. runrecord:: _examples/repro-104
+For the task at hand, `HeudiConv <https://heudiconv.readthedocs.io/en/latest/>`_,
+a DICOM converter, is our software of choice. Beyond converting DICOMs, it
+also provides assistance in converting a raw data set to the BIDS standard,
+and it integrates with DataLad to place converted and original data under
+git/git-annex version control, while automatically annotating files with
+sensitive information (e.g., non-defaced anatomicals, etc).
+A ready-made `singularity <http://singularity.lbl.gov/>`_ container is
+available from `singularity-hub <https://singularity-hub.org/>`_ at
+`shub://ReproNim/ohbm2018-training:heudiconvn <shub://ReproNim/ohbm2018-training:heudiconvn>`_.
+
+Using the :command:`datalad containers-add` command we can add this container
+to the ``localizer_scans``superdataset. We are giving it the name ``heudiconv``.
+
+.. runrecord:: _examples/repro2-104
    :language: console
-   :workdir: usecases/repro/demo
+   :workdir: repro2/localizer_scans
 
-   $ datalad --output-format '{path}: {gitshasum}' subdatasets
+   $ datalad containers-add heudiconv --url shub://ReproNim/ohbm2018-training:heudiconvn
 
-DataLad datasets are fairly lightweight in size, they only contain
-pointers to data and history information in their minimal form.
-Thus, so far very little data were actually downloaded:
+The command :command:`datalad containers-list` can verify that this worked:
 
-.. runrecord:: _examples/repro-105
+.. runrecord:: _examples/repro2-105
    :language: console
-   :workdir: usecases/repro/demo
+   :workdir: repro2/localizer_scans
 
-   $ du -sh inputs/
+   $ datalad containers-list
 
-Both datasets would actually be several gigabytes in size, once the
-dataset content gets downloaded:
+Great. The dataset now tracks all of the input data *and* the computational
+environment for the DICOM conversion. Thus far, we have a complete record of
+all components. Let's stay transparent, but also automatically reproducible
+in the actual data conversion.
 
-.. runrecord:: _examples/repro-106
+To do this, we will wrap the necessary heudiconv command seen below::
+
+   $ heudiconv -f reproin -s 02 -c dcm2niix -b -l "" --minmeta -a . \
+    -o /tmp/heudiconv.sub-02 --files inputs/rawdata/dicoms
+
+within a :command:`datalad containers-run` command. To save time, we will
+only transfer one subjects data (``sub-02``, hence the subject identifier ``-s
+02`` in the command).
+
+.. runrecord:: _examples/repro2-106
    :language: console
-   :workdir: usecases/repro/demo
+   :workdir: repro2/localizer_scans
 
-   $ datalad -C inputs/ds000001 status --annex
-   $ datalad -C inputs/ds000002 status --annex
+   $ datalad containers-run -m "Convert sub-02 DICOMs into BIDS" \
+     --container-name heudiconv \
+     heudiconv -f reproin -s 02 -c dcm2niix -b -l "" --minmeta -a . \
+     -o /tmp/heudiconv.sub-02 --files inputs/rawdata/dicoms
 
-Both datasets contain brain imaging data, and are compliant with the
-`BIDS standard <https://bids.neuroimaging.io/>`_.
-This makes it really easy to locate particular images
-and perform analysis across datasets.
+Find out what changed after this command by comparing the most recent commit
+by DataLad (i.e., ``HEAD``) to the previous one (i.e., ``HEAD~1``) with
+:command:`datalad diff`:
 
-Here we will use a small script that performs ‘brain extraction’ using
-`FSL <https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FSL>`_ as a stand-in for
-a full analysis pipeline. The script will be stored inside of the
-``code/`` directory that the yoda-procedure created that at the time of
-dataset-creation.
-
-.. runrecord:: _examples/repro-107
+.. runrecord:: _examples/repro2-107
    :language: console
-   :workdir: usecases/repro/demo
-   :emphasize-lines: 6
+   :workdir: repro2/localizer_scans
 
-   $ cat << EOT > code/brain_extraction.sh
-   # enable FSL
-   . /etc/fsl/5.0/fsl.sh
+   $ datalad diff -f HEAD~1
 
-   # obtain all inputs
-   datalad get \$@
-   # perform brain extraction
-   count=1
-   for nifti in \$@; do
-      subdir="sub-\$(printf %03d \$count)"
-      mkdir -p \$subdir
-      echo "Processing \$nifti"
-      bet \$nifti \$subdir/anat -m
-      count=\$((count + 1))
-   done
-   EOT
+As expected, DICOM files of one subject were converted into NifTi files,
+**and** the outputs follow the BIDS standard's layout and naming conventions!
+But what's even better is that this action and the relevant software
+environment was fully recorded.
 
-Note that this script uses the :command:`datalad get` command which automatically
-obtains the required files from their remote source – we will see this in
-action shortly.
+There is only one thing missing before the functional imaging data can be
+analyzed: A stimulation protocol, so that we know what stimulation was done
+at which point during the scan.
+Thankfully, the data was collected using an implementation that exported
+this information directly in the BIDS events.tsv format. The file came with
+our DICOM dataset and can be found at inputs/rawdata/events.tsv. All we need
+to do is copy it to the right location under the BIDS-mandated name. To keep
+track of where this file came from, we will also wrap the copying into a
+:command:`datalad run` command. The ``{inputs}`` and ``{outputs}``
+placeholders can help to avoid duplication in the command call:
 
-We are saving this script in the dataset. This way, we will know exactly
-which code was used for the analysis. Everything inside of ``code/``
-is tracked with Git thanks to the yoda-procedure, so we can see more easily
-how it was edited over time. In addition, we will “tag” this state of the
-dataset with the tag ``setup_done`` to mark the repository state at which the
-analysis script was completed. This is optional, but it can help to identify
-important milestones more easily.
-
-.. runrecord:: _examples/repro-108
+.. runrecord:: _examples/repro2-108
    :language: console
-   :workdir: usecases/repro/demo
+   :workdir: repro2/localizer_scans
 
-   $ datalad save --version-tag setup_done -m "Brain extraction script" code/brain_extraction.sh
+   $ datalad run -m "Import stimulation events" \
+     --input inputs/rawdata/events.tsv \
+     --output sub-02/func/sub-02_task-oneback_run-01_events.tsv \
+     cp {inputs} {outputs}
 
-Now we can run our analysis code to produce results. However, instead of
-running it directly, we will run it with DataLad – this will automatically
-create a record of exactly how this script was executed.
+``git log`` shows what information DataLad captured about this command's
+execution:
 
-For this demo we will just run it on the structural images (T1w) of the first
-subject (sub-01) from each dataset.
-The uniform structure of the datasets makes this very easy.
-Of course we could run it on all subjects; we are simply saving some time for
-this demo. While the command runs, you should notice a few things:
-
-1) We run this command with ‘bash -e’ to stop at any failure that may occur
-
-2) You’ll see the required data files being obtained as they are needed – and
-   only those that are actually required will be downloaded (because of the
-   appropriate ``--input`` specification of the :command:`datalad run` -- but
-   as a :command:`datalad get` is also included in the bash script, forgetting
-   an ``--input`` specification would not be problem).
-
-.. runrecord:: _examples/repro-109
+.. runrecord:: _examples/repro2-109
    :language: console
-   :workdir: usecases/repro/demo
+   :workdir: repro2/localizer_scans
 
-   $ datalad run -m "run brain extract workflow" \
-     --input "inputs/ds*/sub-01/anat/sub-01_T1w.nii.gz" \
-     --output "sub-*/anat" \
-     bash -e code/brain_extraction.sh inputs/ds*/sub-01/anat/sub-01_T1w.nii.gz
+   $ git log -p -n 1
 
 
+Analysis execution
+""""""""""""""""""
 
-The analysis step is done, all generated results were saved in the dataset.
-All changes, including the command that caused them are on record:
+Since the raw data are reproducibly prepared in BIDS standard we can now go
+further an conduct an analysis. For this example, we will implement a very
+basic first-level GLM analysis using `FSL <>`_ that runs in a few minutes. As
+before, we will capture all provenance: inputs, computational environments,
+code, and outputs.
 
-.. runrecord:: _examples/repro-110
+Following the YODA principles [#f2]_, the analysis is set up in a new
+dataset, with the input dataset ``localizer_scans`` as a subdataset:
+
+.. runrecord:: _examples/repro2-110
    :language: console
-   :workdir: usecases/repro/demo
+   :workdir: repro2/localizer_scans
 
-   $ git show --stat
+   # get out of localizer_scans
+   $ cd ../
 
-DataLad has enough information stored to be able to re-run a command.
+   $ datalad create glm_analysis
+   $ cd glm_analysis
 
-On command exit, it will inspect the results and save them again, but
-only if they are different.
-In our case, the re-run yields bit-identical results, hence nothing
-new is saved.
+We install ``localizer_scans`` by providing its path as a ``--source`` to
+:command:`datalad install`:
 
-.. runrecord:: _examples/repro-111
+.. runrecord:: _examples/repro2-111
    :language: console
-   :workdir: usecases/repro/demo
+   :workdir: repro2/glm_analysis
 
-   $ datalad rerun
+   $ datalad install -d . \
+     --source ../localizer_scans \
+     inputs/rawdata
 
-Now that we are done, and have checked that we can reproduce the results
-ourselves, we can clean up. DataLad can easily verify if any part of our
-input dataset was modified since we configured our analysis, using
-:command:`datalad diff` and the tag we provided:
+:command:`datalad subdatasets` reports the number of installed subdatasets
+again:
 
-.. runrecord:: _examples/repro-112
+.. runrecord:: _examples/repro2-112
    :language: console
-   :workdir: usecases/repro/demo
+   :workdir: repro2/glm_analysis
 
-   $ datalad diff setup_done inputs
+   $ datalad subdatasets
 
-Nothing was changed.
+Oh, we almost forgot something really useful: Structuring the dataset with
+the help of DataLad! Luckily, procedures such as ``yoda`` can not only be
+applied upon creating of a dataset (as in :ref:`createDS`), but also with the
+:command:`run-procedure` command (as in :ref:`procedures`)
 
-With DataLad with don’t have to keep those inputs around – without losing
-the ability to reproduce an analysis.
-Let’s uninstall them, and check the size on disk before and after.
-
-.. runrecord:: _examples/repro-113
+.. runrecord:: _examples/repro2-113
    :language: console
-   :workdir: usecases/repro/demo
+   :workdir: repro2/glm_analysis
 
-   $ du -sh
+   $ datalad run-procedure cfg_yoda
 
-.. runrecord:: _examples/repro-114
-   :language: console
-   :workdir: usecases/repro/demo
 
-   $ datalad uninstall inputs/*
+.. rubric:: Footnotes
 
-.. runrecord:: _examples/repro-115
-   :language: console
-   :workdir: usecases/repro/demo
+.. [#f1] "Why can such data exist as a Git repository, shouldn't large files
+         be always stored outside of Git?" you may ask. The DICOMs exist in a
+         Git-repository for a number of reasons: First, it makes them easily
+         available for demonstrations and tutorials without involving DataLad
+         at all. Second, the DICOMs are *comparatively* small: 21K per file.
+         Importantly, the repository is not meant to version control those
+         files *and* future states or derivatives and results obtained from
+         them -- this would bring a Git repositories to its knees.
 
-   $ du -sh
-
-The dataset is substantially smaller as all inputs are gone…
-
-.. runrecord:: _examples/repro-116
-   :language: console
-   :workdir: usecases/repro/demo
-
-   $ ls inputs/*
-
-But as these inputs were registered in the dataset when we installed
-them, getting them back is very easy.
-Only the remaining data (our code and the results) need to be kept and
-require a backup for long term archival. Everything else can be
-re-obtained as needed, when needed.
-
-As DataLad knows everything needed about the inputs, including where
-to get the right version, we can re-run the analysis with a single command.
-Watch how DataLad re-obtains all required data, re-runs the code, and checks
-that none of the results changed and need saving.
-
-.. runrecord:: _examples/repro-117
-   :language: console
-   :workdir: usecases/repro/demo
-
-   $ datalad rerun
-
-Reproduced!
-
-This dataset could now be published and shared as a lightweight yet fully
-reproducible resource and enable anyone to replicate the exact
-same analysis -- with a single command.
-Public data and reproducible execution for the win!
+.. [#f2] To re-read everything about the YODA principles, checkout out section
+         :ref:`yoda`.

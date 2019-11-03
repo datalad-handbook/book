@@ -17,7 +17,8 @@ scanner up to complete data analysis results:
    structures study components in a way that facilitates reuse.
 #. It starts with preparing a raw data (dicom) dataset, and subsequently uses
    the prepared data for a general linear model (GLM) based analysis.
-#.
+#. After completion, data and results are archived, and disk usage of the
+   dataset is maximally reduced.
 
 It is adapted from the
 `ReproIn/DataLad tutorial <http://www.repronim.org/ohbm2018-training/03-01-reproin/>`_
@@ -26,19 +27,19 @@ ran by `ReproNim <https://www.repronim.org/>`_.
 
 .. note::
 
-   This use case is multilayered, assumes familiarity with neuroimaging
+   This use case is multi-layered, assumes familiarity with neuroimaging
    data structures and standards, and some understanding of neuroimaging
    software. It includes many neuroimaging-specific tools, commands, or
    concepts that are not covered in the Basics of the handbook.
 
-   Please see the hidden section below for a less complex automatically
-   reproducible analysis of public data without DataLad extensions. This
-   hidden use case can give you a more general introduction into
-   automatically reproducible analyses.
+   For a less complex yet still automatically reproducible analysis of public
+   data (without DataLad extensions), please see the hidden section below. This
+   hidden use case gives a more "introductory" automatically reproducible
+   analyses.
 
    .. findoutmore:: An automatically reproducible analysis of public neuroimaging data
 
-       This use case sketches the basics of an analysis that can be
+       This hidden use case sketches the basics of an analysis that can be
        automatically reproduced by anyone:
 
        #. Public open data stems from :term:`the DataLad superdataset ///`.
@@ -161,7 +162,7 @@ ran by `ReproNim <https://www.repronim.org/>`_.
        and perform analysis across datasets.
 
        Here we will use a small script that performs ‘brain extraction’ using
-       `FSL <https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FSL>`_ as a stand-in for
+       `FSL <https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FSL>`__ as a stand-in for
        a full analysis pipeline. The script will be stored inside of the
        ``code/`` directory that the yoda-procedure created that at the time of
        dataset-creation.
@@ -344,29 +345,35 @@ It takes him a full week week of time and two failed attempts, but he
 eventually has a `BIDS-compliant <http://bids-standard.github.io/bids-validator/>`_
 dataset.
 
+When he writes his analysis scripts he takes extra care to responsibly
+version control every change. He happily notices how much cleaner his
+directories are, and how he and other can transparently see how his code
+evolved. Once everything is set up, he runs his analysis using large and
+complex neuroscientific software packages that he installed on his computer a
+few years back. Finally, he writes a paper and publishes his findings in a
+prestigious peer-reviewed journal. His data and code can be accessed by
+others easily, as he makes them publicly available.
 
-
-Creating reproducible (scientific) analyses seems to require so much:
-One needs to share data, scripts, results, and instructions on how to
-use data and scripts to obtain the results.
-A researcher at any stage of their career can struggle to remember
-which script needs to be run in which order,
-or to create comprehensible instructions for others
-on where and how to obtain data and how to run which script
-at what point in time.
-This leads to failed replications, a loss of confidence in results,
-and major time requirements for anyone trying to reproduce others
-or even their own analyses.
-
-But what is worse, even if an analysis workflow is fully captured and
-version-controlled, and data and code are being linked, an analysis may not
-reproduce. Comprehensive *computational* reproducibility requires that also
-the *software* involved in an analysis and its precise versions need to be
-known.
+A few months after his great accomplishment Allan starts to get emails by
+colleagues and strangers that report that his scripts do not produce the same
+results as the ones reported in the publication. Startled and confused he
+investigates what may be the issue. After many sleepless nights he realizes:
+The software he used was fairly old! More recent versions of the same
+software compute results slightly different, changed function's names, and
+fixed discovered bugs in the underlying source code.
 
 The DataLad Approach
 ^^^^^^^^^^^^^^^^^^^^
 
+Even if an analysis workflow is fully captured and version-controlled, and
+data and code are being linked, an analysis may not reproduce. Comprehensive
+*computational* reproducibility requires that also the *software* involved in
+an analysis and its precise versions need to be known.
+
+DataLad can help with this. Using the ``datalad-containers`` extension,
+complete software environments can be captured in computational containers,
+added to (and thus shared together with) datasets, and linked with commands
+and outputs they were used for.
 
 
 Step-by-Step
@@ -407,7 +414,7 @@ directory we call ``inputs/raw``.
 
 .. runrecord:: _examples/repro2-102
    :language: console
-   :workdir: repro2/localizer_scans
+   :workdir: usecases/repro2/localizer_scans
 
    $ datalad install --dataset . \
     --source https://github.com/datalad/example-dicom-functional.git  \
@@ -418,7 +425,7 @@ a subdataset of the superdataset ``localizer_scans``:
 
 .. runrecord:: _examples/repro2-103
    :language: console
-   :workdir: repro2/localizer_scans
+   :workdir: usecases/repro2/localizer_scans
 
    $ datalad subdatasets
 
@@ -446,7 +453,7 @@ to the ``localizer_scans``superdataset. We are giving it the name ``heudiconv``.
 
 .. runrecord:: _examples/repro2-104
    :language: console
-   :workdir: repro2/localizer_scans
+   :workdir: usecases/repro2/localizer_scans
 
    $ datalad containers-add heudiconv --url shub://ReproNim/ohbm2018-training:heudiconvn
 
@@ -454,7 +461,7 @@ The command :command:`datalad containers-list` can verify that this worked:
 
 .. runrecord:: _examples/repro2-105
    :language: console
-   :workdir: repro2/localizer_scans
+   :workdir: usecases/repro2/localizer_scans
 
    $ datalad containers-list
 
@@ -474,7 +481,7 @@ only transfer one subjects data (``sub-02``, hence the subject identifier ``-s
 
 .. runrecord:: _examples/repro2-106
    :language: console
-   :workdir: repro2/localizer_scans
+   :workdir: usecases/repro2/localizer_scans
 
    $ datalad containers-run -m "Convert sub-02 DICOMs into BIDS" \
      --container-name heudiconv \
@@ -487,7 +494,7 @@ by DataLad (i.e., ``HEAD``) to the previous one (i.e., ``HEAD~1``) with
 
 .. runrecord:: _examples/repro2-107
    :language: console
-   :workdir: repro2/localizer_scans
+   :workdir: usecases/repro2/localizer_scans
 
    $ datalad diff -f HEAD~1
 
@@ -509,7 +516,7 @@ placeholders can help to avoid duplication in the command call:
 
 .. runrecord:: _examples/repro2-108
    :language: console
-   :workdir: repro2/localizer_scans
+   :workdir: usecases/repro2/localizer_scans
 
    $ datalad run -m "Import stimulation events" \
      --input inputs/rawdata/events.tsv \
@@ -521,9 +528,9 @@ execution:
 
 .. runrecord:: _examples/repro2-109
    :language: console
-   :workdir: repro2/localizer_scans
+   :workdir: usecases/repro2/localizer_scans
 
-   $ git log -p -n 1
+   $ git log -n 1
 
 
 Analysis execution
@@ -531,8 +538,9 @@ Analysis execution
 
 Since the raw data are reproducibly prepared in BIDS standard we can now go
 further an conduct an analysis. For this example, we will implement a very
-basic first-level GLM analysis using `FSL <>`_ that runs in a few minutes. As
-before, we will capture all provenance: inputs, computational environments,
+basic first-level GLM analysis using `FSL <http://fsl.fmrib.ox.ac.uk/>`__
+that runs in a few minutes. As before, we will capture all provenance:
+inputs, computational environments,
 code, and outputs.
 
 Following the YODA principles [#f2]_, the analysis is set up in a new
@@ -540,7 +548,7 @@ dataset, with the input dataset ``localizer_scans`` as a subdataset:
 
 .. runrecord:: _examples/repro2-110
    :language: console
-   :workdir: repro2/localizer_scans
+   :workdir: usecases/repro2/localizer_scans
 
    # get out of localizer_scans
    $ cd ../
@@ -553,7 +561,7 @@ We install ``localizer_scans`` by providing its path as a ``--source`` to
 
 .. runrecord:: _examples/repro2-111
    :language: console
-   :workdir: repro2/glm_analysis
+   :workdir: usecases/repro2/glm_analysis
 
    $ datalad install -d . \
      --source ../localizer_scans \
@@ -564,7 +572,7 @@ again:
 
 .. runrecord:: _examples/repro2-112
    :language: console
-   :workdir: repro2/glm_analysis
+   :workdir: usecases/repro2/glm_analysis
 
    $ datalad subdatasets
 
@@ -575,9 +583,196 @@ applied upon creating of a dataset (as in :ref:`createDS`), but also with the
 
 .. runrecord:: _examples/repro2-113
    :language: console
-   :workdir: repro2/glm_analysis
+   :workdir: usecases/repro2/glm_analysis
 
    $ datalad run-procedure cfg_yoda
+
+
+The analysis obviously needs custom code. For the simple GLM analysis with
+FSL we use:
+
+#. A small script to convert BIDS-formatted ``events.tsv`` files into the
+   ``EV3`` format FSL understands, available at
+   `https://raw.githubusercontent.com/myyoda/ohbm2018-training/master/section23/scripts/events2ev3.sh <https://raw.githubusercontent.com/myyoda/ohbm2018-training/master/section23/scripts/events2ev3.sh>`_
+
+#. An FSL analysis configuration template script, available at
+   `https://raw.githubusercontent.com/myyoda/ohbm2018-training/master/section23/scripts/ffa_design.fsf <https://raw.githubusercontent.com/myyoda/ohbm2018-training/master/section23/scripts/ffa_design.fsf>`_
+
+These script should be stored and tracked inside the dataset within ``code/``.
+The :command:`datalad download-url` command downloads these scripts *and*
+records where they were obtained from:
+
+.. runrecord:: _examples/repro2-114
+   :language: console
+   :workdir: usecases/repro2/glm_analysis
+
+   $ datalad download-url  --path code \
+     https://raw.githubusercontent.com/myyoda/ohbm2018-training/master/section23/scripts/events2ev3.sh \
+     https://raw.githubusercontent.com/myyoda/ohbm2018-training/master/section23/scripts/ffa_design.fsf
+
+The commit message that DataLad created shows the URL where each script has
+been downloaded from:
+
+.. runrecord:: _examples/repro2-115
+   :language: console
+   :workdir: usecases/repro2/glm_analysis
+
+   $ git log -n 1
+
+Prior to the actual analysis, we need to run the ``events2ev3.sh`` script to
+transform inputs into the format that FSL expects. The :command:`datalad run`
+makes this maximally reproducible and easy, as the files given as
+``--inputs`` and ``--outputs`` are automatically managed by DataLad.
+
+.. runrecord:: _examples/repro2-116
+   :workdir: usecases/repro2/glm_analysis
+   :language: console
+
+   $ datalad run -m 'Build FSL EV3 design files' \
+     --input inputs/rawdata/sub-02/func/sub-02_task-oneback_run-01_events.tsv \
+     --output 'sub-02/onsets' \
+     bash code/events2ev3.sh sub-02 {inputs}
+
+The dataset now contains and manages all of the required inputs, and we're
+ready for FSL. Since FSL is not a simple program, we make sure to record the
+precise software environment for the analysis with
+:command:`datalad containers-run`. First, we get a container with FSL in the
+version we require:
+
+
+.. runrecord:: _examples/repro2-117
+   :workdir: usecases/repro2/glm_analysis
+   :language: console
+
+   $ datalad containers-add fsl --url shub://mih/ohbm2018-training:fsl
+
+As the analysis setup is now complete, let's label this state of the dataset:
+
+.. runrecord:: _examples/repro2-118
+   :workdir: usecases/repro2/glm_analysis
+   :language: console
+
+   $ datalad save --version-tag ready4analysis
+
+All we have left is to configure the desired first-level GLM analysis with
+FSL. At this point, the template contains placeholders for the ``basepath``
+and the subject ID, and they need to be replaced,
+The following command uses the arcane, yet powerful :term:`sed` editor to do
+this. We will again use datalad run to invoke our command so that
+we store in the history how this template was generated (so that we may
+audit, alter, or regenerate this file in the future — fearlessly).
+
+.. runrecord:: _examples/repro2-119
+   :workdir: usecases/repro2/glm_analysis
+   :language: console
+
+   $ datalad run \
+    -m "FSL FEAT analysis config script" \
+    --output sub-02/1stlvl_design.fsf \
+    bash -c 'sed -e "s,##BASEPATH##,{pwd},g" -e "s,##SUB##,sub-02,g" \
+    code/ffa_design.fsf > {outputs}'
+
+To compute the analysis, a simple ``feat sub-02/1stlvl_design.fsf`` command
+is wrapped into a ``datalad containers-run`` command with appropriate
+``--input`` and ``--output`` specification:
+
+.. runrecord:: _examples/repro2-120
+   :language: console
+   :workdir: usecases/repro2/glm_analysis
+
+   $ datalad containers-run --container-name fsl -m "sub-02 1st-level GLM" \
+     --input sub-02/1stlvl_design.fsf \
+     --input sub-02/onsets \
+     --input inputs/rawdata/sub-02/func/sub-02_task-oneback_run-01_bold.nii.gz \
+     --output sub-02/1stlvl_glm.feat \
+     feat {inputs[0]}
+
+Once this command finishes, DataLad will have captured the entire FSL output,
+and the dataset will contain a complete record all the way from the input BIDS
+dataset to the GLM results (which, by the way, performed an FFA localization on
+a real BOLD imaging dataset, take a look!). The BIDS subdataset in turn has a
+complete record of all processing down from the raw DICOMs onwards.
+
+
+Archive data and results
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+After study completion it is important to properly archive data and results,
+for example for future inquiries by reviewers or readers of the associated
+publication. Thanks to the modularity of the study units, this tasks is easy
+and avoids needless duplication.
+
+The raw data is tracked in its own dataset (``localizer_scans``) that only
+needs to be archived once, regardless of how many analysis are using it as
+input. This means that we can “throw away” this subdataset copy within this
+analysis dataset. DataLad can re-obtain the correct version at any point in
+the future, as long as the recorded location remains accessible.
+
+To make sure we're not deleting information we are not aware of,
+:command:`datalad diff` and :command:`git log` can help to verify that the
+subdataset is in the same state as when it was initially added:
+
+.. runrecord:: _examples/repro2-121
+   :language: console
+   :workdir: usecases/repro2/glm_analysis
+
+   $ datalad diff -- inputs
+
+.. runrecord:: _examples/repro2-122
+   :language: console
+   :workdir: usecases/repro2/glm_analysis
+
+   $ git log -- inputs
+
+Since the state of the subdataset is exactly the state of the original
+``localizer_scans`` dataset it is safe to uninstall it.
+
+.. runrecord:: _examples/repro2-123
+   :language: console
+   :workdir: usecases/repro2/glm_analysis
+
+   $ datalad uninstall --dataset . inputs --recursive
+
+Prior to archiving the results, we can go one step further and verify their
+computational reproducibility. DataLad provides a rerun command that is
+capable of “replaying” any recorded command. The following command we
+re-execute the FSL analysis (the command that was recorded since we tagged
+the dataset as “ready4analysis”). It will record the recomputed results in a
+separate Git branch named “verify” of the dataset. We can then automatically
+compare these new results to the original ones in the “master” branch. We
+will see that all outputs can be reproduced in bit-identical form. The only
+changes are observed in log files that contain volatile information, such as
+time steps.
+
+.. runrecord:: _examples/repro-124
+   :language: console
+   :workdir: usecases/repro2/glm_analysis
+
+   $ datalad rerun --branch verify --onto ready4analysis --since ready4analysis
+
+.. runrecord:: _examples/repro-125
+   :language: console
+   :workdir: usecases/repro2/glm_analysis
+
+   # check that we are now on the new `verify` branch
+   $ git branch
+
+.. runrecord:: _examples/repro-126
+   :language: console
+   :workdir: usecases/repro2/glm_analysis
+
+   # compare which files have changes with respect to the original results
+   $ git diff master --stat
+
+
+.. runrecord:: _examples/repro-127
+   :language: console
+   :workdir: usecases/repro2/glm_analysis
+
+   # switch back to the master branch and remove the `verify` branch
+   $ git checkout master
+   $ git branch -D verify
+
 
 
 .. rubric:: Footnotes

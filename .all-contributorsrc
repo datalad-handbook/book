@@ -146,6 +146,15 @@
         "example",
         "ideas"
       ]
+    },
+    {
+      "login": "LisaWiersch96",
+      "name": "LisaWiersch96",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/57354773?v=4",
+      "profile": "https://github.com/LisaWiersch96",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,

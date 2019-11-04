@@ -119,6 +119,7 @@ Use Cases
    usecases/reproducible-paper
    usecases/supervision
    usecases/reproducible_neuroimaging_analysis
+   usecases/external_collaboration
 
 
 ########

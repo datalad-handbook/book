@@ -1,0 +1,9 @@
+$ datalad install --dataset . \
+ --source https://github.com/datalad/example-dicom-functional.git  \
+ inputs/rawdata
+[INFO] Cloning https://github.com/datalad/example-dicom-functional.git [1 other candidates] into '/home/me/usecases/repro2/localizer_scans/inputs/rawdata' 
+install(ok): inputs/rawdata (dataset)
+action summary:
+  add (ok: 2)
+  install (ok: 1)
+  save (ok: 1)

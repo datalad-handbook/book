@@ -1,0 +1,10 @@
+$ git log -n 1
+commit a2dfaa64aaa53986c3418960718139d1e4bd3771
+Author: Elena Piscopia <elena@example.net>
+Date:   Mon Nov 4 07:18:53 2019 +0100
+
+    [DATALAD] Download URLs
+    
+    URLs:
+      https://raw.githubusercontent.com/myyoda/ohbm2018-training/master/section23/scripts/events2ev3.sh
+      https://raw.githubusercontent.com/myyoda/ohbm2018-training/master/section23/scripts/ffa_design.fsf

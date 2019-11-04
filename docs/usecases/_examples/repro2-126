@@ -1,0 +1,17 @@
+# compare which files have changes with respect to the original results
+$ git diff master --stat
+ sub-02/1stlvl_glm.feat/logs/feat0                                    | 2 +-
+ sub-02/1stlvl_glm.feat/logs/{feat0_init.e20894 => feat0_init.e23257} | 0
+ sub-02/1stlvl_glm.feat/logs/{feat0_init.o20894 => feat0_init.o23257} | 0
+ sub-02/1stlvl_glm.feat/logs/feat1                                    | 2 +-
+ sub-02/1stlvl_glm.feat/logs/{feat2_pre.e20984 => feat2_pre.e23337}   | 0
+ sub-02/1stlvl_glm.feat/logs/{feat2_pre.o20984 => feat2_pre.o23337}   | 0
+ sub-02/1stlvl_glm.feat/logs/{feat3_film.e21497 => feat3_film.e23776} | 0
+ sub-02/1stlvl_glm.feat/logs/{feat3_film.o21497 => feat3_film.o23776} | 0
+ sub-02/1stlvl_glm.feat/logs/{feat4_post.e21852 => feat4_post.e24201} | 0
+ sub-02/1stlvl_glm.feat/logs/{feat4_post.o21852 => feat4_post.o24201} | 0
+ sub-02/1stlvl_glm.feat/logs/{feat5_stop.e22485 => feat5_stop.e24833} | 0
+ sub-02/1stlvl_glm.feat/logs/{feat5_stop.o22485 => feat5_stop.o24833} | 0
+ sub-02/1stlvl_glm.feat/report.html                                   | 2 +-
+ sub-02/1stlvl_glm.feat/report_log.html                               | 2 +-
+ 14 files changed, 4 insertions(+), 4 deletions(-)

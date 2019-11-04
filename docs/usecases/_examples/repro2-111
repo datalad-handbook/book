@@ -1,0 +1,9 @@
+$ datalad install -d . \
+  --source ../localizer_scans \
+  inputs/rawdata
+[INFO] Cloning ../localizer_scans into '/home/me/usecases/repro2/glm_analysis/inputs/rawdata' 
+install(ok): inputs/rawdata (dataset)
+action summary:
+  add (ok: 2)
+  install (ok: 1)
+  save (ok: 1)

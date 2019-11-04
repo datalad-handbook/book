@@ -1,0 +1,14 @@
+$ datalad download-url  --path code \
+  https://raw.githubusercontent.com/myyoda/ohbm2018-training/master/section23/scripts/events2ev3.sh \
+  https://raw.githubusercontent.com/myyoda/ohbm2018-training/master/section23/scripts/ffa_design.fsf
+[INFO] Downloading 'https://raw.githubusercontent.com/myyoda/ohbm2018-training/master/section23/scripts/events2ev3.sh' into 'code' 
+[INFO] Downloading 'https://raw.githubusercontent.com/myyoda/ohbm2018-training/master/section23/scripts/ffa_design.fsf' into 'code' 
+download_url(ok): code/events2ev3.sh (file)
+download_url(ok): code/ffa_design.fsf (file)
+add(ok): code/events2ev3.sh (file)
+add(ok): code/ffa_design.fsf (file)
+save(ok): . (dataset)
+action summary:
+  add (ok: 2)
+  download_url (ok: 2)
+  save (ok: 1)

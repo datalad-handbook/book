@@ -4,7 +4,7 @@ DataLad's Python API
 --------------------
 
 
-"Whatever you can do with DataLad from the command line, you can also do with
+"Whatever you can do with DataLad from the command line, you can also do it with
 DataLads Python API", begins the lecturer.
 "In addition to the command line interface you are already very familiar with,
 DataLad's functionality can also be used within interactive Python sessions
@@ -51,7 +51,7 @@ dataset with DataLad in Python::
    Out[3]: <Dataset path=/home/me/scratch/test>
 
 As shown above, the only required parameter for a Dataset is the ``path`` to
-its location. This location may or may not exist yet.
+its location, and this location may or may not exist yet.
 
 
 .. todo::
@@ -69,13 +69,13 @@ the majority of tasks. Both are valid ways to accomplish the same results.
 One typical application though is the use of :command:`datalad get` in Python
 scripts to ensure data retrieval. While the :command:`datalad run` command
 can take care of this as well with correctly specified ``--input`` arguments,
-taking care of file retrieval in scripts is a fail-safe methods when sharing
+taking care of file retrieval in scripts is a fail-safe method when sharing
 datasets with users that may not use DataLad (and thus not the
 :command:`datalad rerun` command). Likewise, using :command:`datalad install`
-within scripts to install subdatasets that after an initial installation of
-the superdataset are potentially only registered to the superdataset ensures
-subdataset availability. The usecase :ref:`usecase_reproducible_paper`
-showcases such a situation.
+within scripts to install subdatasets (that after an initial installation of
+the superdataset are potentially only registered, not installed in the
+superdataset) ensures subdataset availability. The usecase
+:ref:`usecase_reproducible_paper` showcases such a situation.
 
 A reproducible data analysis project with DataLad
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -110,10 +110,26 @@ The :command:`datalad subdatasets` can report on which subdatasets exist for
 
 Not only the longnow dataset, but also the newly created ``midterm_project``
 subdataset are displayed.
-This is the current directory structure of ``DataLad-101``:
+
+After the last lecture, you naturally want your dataset to follow the YODA
+principles. As a start, you use the ``cfg_yoda`` procedure to help you
+structure the dataset.
 
 .. runrecord:: _examples/DL-101-124-107
    :language: console
    :workdir: dl-101/DataLad-101
 
+   $ cd midterm_project
+   $ datalad run-procedure cfg_yoda
+
+This is the current directory structure of ``DataLad-101``:
+
+.. runrecord:: _examples/DL-101-124-108
+   :language: console
+   :workdir: dl-101/DataLad-101/midterm_project
+
+   $ cd ../
    $ tree -d
+
+Within ``midterm_project``, the ``code/`` directory is where you want to
+place your scripts.

@@ -71,7 +71,7 @@ it also adds a range of useful concepts and functions:
 - Both Git and Git-annex are made to work with a single repository at a time.
   For example, while nesting pure Git repositories is possible via Git
   submodules (that DataLad also uses internally), *cleaning up* after
-  placing a random file somewhere into this repository hierarchy is very
+  placing a random file somewhere into this repository hierarchy can be very
   painful. One of the key advantages that DataLad brings to the table is that it
   tries to make the boundaries between repositories vanish from a user's point
   of view. Most core commands have a --recursive option that will discover
@@ -81,9 +81,8 @@ it also adds a range of useful concepts and functions:
 - DataLad provides users with the ability to act on "virtual" file paths. If
   software needs datafiles that are carried in a subdataset (in Git terms:
   submodule) for a computation or test, a ``datalad get`` will discover if
-  there are any subdatasets to install at a particular version to eventually#
-  provide the file content. This will also effectively become a caching layer,
-  as DataLad won't download things twice if not needed.
+  there are any subdatasets to install at a particular version to eventually
+  provide the file content.
 - .. todo::
 
      more here.
@@ -92,8 +91,8 @@ How does Github relate to DataLad?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 DataLad can make good use of Github, if you have figured out storage for your
-large files otherwise. You can make DataLad automatically publish file
-content to one location and afterwards push an update to Github, such that
+large files otherwise. You can make DataLad publish file content to one location
+and afterwards automatically push an update to Github, such that
 users can install directly from Github and seemingly also obtain large file
 content from Github. Github is also capable of resolving submodule/subdataset
 links to other Github repos, which makes for a nice UI.
@@ -105,7 +104,7 @@ Conceptually and technically, there is no difference between a dataset, a
 subdataset, or a superdataset. The only aspect that makes a dataset a sub- or
 superdataset is whether it is *registered* in another dataset (by means of an entry in the
 ``.gitmodules``, automatically performed upon an appropriate ``datalad
-install -d`` command) or contains registered datasets.
+install -d`` or ``datalad create -d`` command) or contains registered datasets.
 
 How can I convert/import/transform an existing Git or Git-annex repository into a DataLad dataset?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -138,8 +137,7 @@ that it appears similar to Git-annex.
 
 .. todo::
 
-   TF is flywheel? How can I find out without 2 hours
-
+   this.
 
 A more elaborate delineation from related solutions can be found in the DataLad
 `developer documentation <http://docs.datalad.org/en/latest/related.html>`_.
@@ -160,11 +158,11 @@ many cases just like in any regular directory. The only
 caveat exists in the case of annexed data: If file content is managed with
 Git-annex and stored in the :term:`object-tree`, what *appears* to be the
 file in the dataset is merely a symlink (please read section :ref:`symlink`
-to understand this). Moving or copying this symlink will not yield the
+for details). Moving or copying this symlink will not yield the
 intended result -- instead you will have a broken symlink outside of your
 dataset.
 
-When using the terminal command ``cp``, it is sufficient to use the
+When using the terminal command ``cp`` [#f1]_, it is sufficient to use the
 ``-L``/``--dereference`` option. This will follow symbolic links, and make
 sure that content gets moved instead of symlinks.
 With tools other than ``cp`` (e.g., graphical file managers), to copy or move
@@ -172,3 +170,9 @@ annexed content, make sure it is *unlocked* first:
 After a :command:`datalad unlock` copying and moving contents will work fine.
 A subsequent :command:`datalad save` in the dataset will annex the content
 again.
+
+
+.. rubric:: Footnotes
+
+.. [#f1] The absolutely amazing `Midnight Commander <https://github.com/MidnightCommander/mc>`_
+         ``mc`` can also follow symlinks.

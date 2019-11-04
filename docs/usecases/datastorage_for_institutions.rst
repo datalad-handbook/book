@@ -13,10 +13,10 @@ and requires state-of-the-art data management solutions.
 This use case details a model implementation for a scalable data storage
 solution, suitable to serve the computational and logistic demands of data
 science in big (scientific) institutions, while keeping workflows for users
-user as simple as possible. It elaborates on
+as simple as possible. It elaborates on
 
-#. How to implement a scalable, distributed data store can be so that data is
-   stored in a different place than where people work with is.
+#. How to implement a scalable, distributed data store so that data is
+   stored in a different place than where people work with it.
 #. How to configure the data store and general cluster setup for easy and
    fast accessibility of data.
 #. How to reduce technical complexities for users and encourage reproducible,
@@ -56,7 +56,7 @@ contains many files that are not necessary for their analysis. In addition,
 they add all computed derivatives and outputs, even old versions, out of fear
 of losing work that may become relevant again.
 This is because version control is not a standard skill in the institute, and
-especially PhD  students and other trainees struggle with the technical
+especially PhD students and other trainees struggle with the technical
 overhead of data management *and* data science. Thus, an excess of
 data copies and derivatives exists in addition to the already substantial
 amount of original data. At the same time, the compute cluster is both the
@@ -76,32 +76,33 @@ calculations instead of data storage, the cluster gets a distributed data
 store: Data lives as DataLad datasets on a different machine than the one
 the scientific analyses are computed on.
 For access to the annexed data in datasets, the data store is configured as a
-Git-annex ria remote. Using DataLad's run-procedures, an institute-wide
+Git-annex ria remote. In case of filesystem inode limitations on the machine
+serving as the data store (e.g., HPC storage systems), full datasets can be
+(compressed) 7-zip archives, without loosing the ability to query available files.
+Regardless of file number and size, such datasets thus use only few inodes.
+Using DataLad's run-procedures, an institute-wide
 configuration is distributed among users. Applying the procedure is done in a
 single :command:`datalad run-procedure` command, and users subsequently
 face minimal technical overhead to interact with the data store.
 
 By using the data store, the institutes work routines are adjusted around
-DataLad datasets: Analyses are set-up inside of DataLad datasets. This has
-the advantage of vastly simplified version control, even for trainees. Data
+DataLad datasets: Analyses are set-up inside of DataLad datasets, and for every
+analysis, an associated ``project`` is created under the namespace of the
+institute on the institute's :term:`Gitlab` instance automatically. This has
+the advantage of vastly simplified version control, even for trainees, and
+simplified access to projects for collaborators and supervisors. Data
 from the data store is installed as subdatasets. This comes with several
 benefits: Analyses are automatically linked to data, no unused file
 copies waste disk space on the compute cluster as data can be retrieved
-on-demand, and files that are easily reobtained or recomputed can savely be
-dropped to save even more diskspace. What is more, in case of filesystem inode
-limitations on the machine serving as the data store (e.g., HPC storage
-systems), full datasets can be (compressed) 7-zip archives, without loosing the
-ability to query available files. Regardless of file number and size,
-such datasets thus use only few inodes.
+on-demand, and files that are easily re-obtained or recomputed can safely be
+dropped to save even more disk-space. More over, upon creation of an analysis
+project, the associated Gitlab project it is automatically configured as a remote
+with a publication dependency on the data store, thus enabling vastly simplified
+data publication routines.
 
-- distributed data store: data is stored in a different place than where you
-  work with it
-- configure git annex ria remote for indexed files
-- data is version controlled and in a datalad dataset: no need to keep outdated
-  choatic derivatives because they are version controlled), installed datasets
-  are lightweight and only necessary data can be retrieved, data that can be
-  reobtained/recomputed easily can be dropped to save space.
-- 7zipping files mitigates any inode limitation
+.. todo::
+
+   sketch how the interaction of users with the cluster improves
 
 Step-by-step
 ^^^^^^^^^^^^

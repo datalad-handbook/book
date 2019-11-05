@@ -1,3 +1,0 @@
-$ datalad run-procedure --help-proc example
-example (.datalad/procedures/example.py)
-A toy example

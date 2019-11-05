@@ -1,4 +1,0 @@
-$ datalad run-procedure example "this text will be in the file 'example2'"
-[INFO] Running procedure example 
-[INFO] == Command start (output follows) ===== 
-[INFO] == Command exit (modification check follows) ===== 

@@ -1,5 +1,6 @@
-$ cd midterm_project
-$ datalad run-procedure cfg_yoda
-[INFO] Running procedure cfg_yoda 
-[INFO] == Command start (output follows) ===== 
-[INFO] == Command exit (modification check follows) ===== 
+$ datalad save -m "add custom procedure"
+add(ok): .datalad/procedures/example.py (file)
+save(ok): . (dataset)
+action summary:
+  add (ok: 1)
+  save (ok: 1)

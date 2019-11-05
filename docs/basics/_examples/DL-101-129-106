@@ -1,0 +1,7 @@
+$ datalad install -d . --source ../../iris_data input/
+[INFO] Cloning ../../iris_data into '/home/me/dl-101/DataLad-101/midterm_project/input' 
+install(ok): input (dataset)
+action summary:
+  add (ok: 2)
+  install (ok: 1)
+  save (ok: 1)

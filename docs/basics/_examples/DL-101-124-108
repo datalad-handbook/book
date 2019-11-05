@@ -1,15 +1,4 @@
-$ cd ../
-$ tree -d
-.
-├── books
-├── code
-├── midterm_project
-│   ├── code
-│   ├── input
-│   └── output
-└── recordings
-    └── longnow
-        ├── Long_Now__Conversations_at_The_Interval
-        └── Long_Now__Seminars_About_Long_term_Thinking
-
-10 directories
+#lets check out the contents in the files
+$ cat example2  && echo '' && cat somedir/example
+this text will be in the file 'example2'
+This file was created by a custom procedure! Neat, huh?

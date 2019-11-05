@@ -1,8 +1,0 @@
-#the directory structure has been created
-$ tree
-.
-├── example2 -> .git/annex/objects/G6/zw/MD5E-s40--2ed1bce0db9f376c277a1ba6418f3ddd/MD5E-s40--2ed1bce0db9f376c277a1ba6418f3ddd
-└── somedir
-    └── example
-
-1 directory, 2 files

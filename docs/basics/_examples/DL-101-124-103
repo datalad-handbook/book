@@ -1,9 +1,3 @@
-# go back into DataLad-101
-$ cd ../DataLad-101
-$ datalad create --dataset . midterm_project
-[INFO] Creating a new annex repo at /home/me/dl-101/DataLad-101/midterm_project 
-create(ok): midterm_project (dataset)
-action summary:
-  add (ok: 2)
-  create (ok: 1)
-  save (ok: 1)
+$ datalad create somedataset; cd somedataset
+[INFO] Creating a new annex repo at /home/me/procs/somedataset 
+create(ok): /home/me/procs/somedataset (dataset)

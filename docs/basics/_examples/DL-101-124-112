@@ -1,5 +1,5 @@
-$ datalad save -m "add kNN classification and plotting" code/script.py
-add(ok): code/script.py (file)
+$ datalad save -m "add note on DataLads procedures"
+add(ok): notes.txt (file)
 save(ok): . (dataset)
 action summary:
   add (ok: 1)

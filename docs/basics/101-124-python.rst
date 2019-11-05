@@ -3,7 +3,6 @@
 DataLad's Python API
 --------------------
 
-
 "Whatever you can do with DataLad from the command line, you can also do it with
 DataLads Python API", begins the lecturer.
 "In addition to the command line interface you are already very familiar with,
@@ -81,20 +80,65 @@ A reproducible data analysis project with DataLad
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 In order to combine the previous section on YODA principles and DataLad's
-Python API, DataLad-101's midterm project is a data analysis project.
+Python API, ``DataLad-101``'s midterm project is a data analysis project with
+Python.
+
+For your submission, you decide to analyse the
+`iris flower data set <https://en.wikipedia.org/wiki/Iris_flower_data_set>`_.
+It is a multivariate data set on 50 samples of each of three species of Iris
+flowers, with four variables, the length and width of the sepals and petals
+of the flowers in centimeters. It is often used in introductory data science
+courses for statistical classification techniques in machine learning, and
+widely available, among many other sources as
+`Github gists <https://gist.github.com/netj/8836201>`_.
+
+To start your analysis project and comply to the YODA principles, you set up
+an independent data dataset with your projects raw data. For this, create a
+new dataset outside of ``DataLad-101``:
+
+.. runrecord:: _examples/DL-101-124-101
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   # make sure to move outside of DataLad-101!
+   $ cd ../
+   $ datalad create iris_data
+
+Inside of this newly created dataset, get the data. Tt is publicly
+available from Github Gist, and we can use :command:`datalad download-url` to
+get it:
+
+.. findoutmore:: What are Github Gists?
+
+   Github Gists are a particular service offered by Github that allow users
+   to share pieces of code snippets and other short/small standalone
+   information.
+
+
+.. runrecord:: _examples/DL-101-124-102
+   :workdir: dl-101
+   :language: console
+
+   $ cd iris_data
+   $ datalad download-url https://gist.githubusercontent.com/netj/8836201/raw/6f9306ad21398ea43cba4f7d537619d0e07d5ae3/iris.csv
 
 .. todo::
 
-   Think of a suitable analysis
+   or do we rather want to install/clone the dataset?
 
+This downloaded the iris dataset as a comma-seperated (.csv) file.
+Now that you have this raw dataset, it is time to create an analysis for your
+midterm project.
 For this, you start by creating an analysis dataset. Let's do it as a subdataset
 of ``DataLad-101``. For this, specify the ``--dataset`` option within
 :command:`datalad create`:
 
-.. runrecord:: _examples/DL-101-124-105
+.. runrecord:: _examples/DL-101-124-103
    :language: console
-   :workdir: dl-101/DataLad-101
+   :workdir: dl-101/iris_data
 
+   # go back into DataLad-101
+   $ cd ../DataLad-101
    $ datalad create --dataset . midterm_project
 
 .. index:: ! datalad command; datalad subdatasets
@@ -102,7 +146,7 @@ of ``DataLad-101``. For this, specify the ``--dataset`` option within
 The :command:`datalad subdatasets` can report on which subdatasets exist for
 ``DataLad-101``:
 
-.. runrecord:: _examples/DL-101-124-106
+.. runrecord:: _examples/DL-101-124-104
    :language: console
    :workdir: dl-101/DataLad-101
 
@@ -115,12 +159,32 @@ After the last lecture, you naturally want your dataset to follow the YODA
 principles. As a start, you use the ``cfg_yoda`` procedure to help you
 structure the dataset.
 
-.. runrecord:: _examples/DL-101-124-107
+.. runrecord:: _examples/DL-101-124-105
    :language: console
    :workdir: dl-101/DataLad-101
 
    $ cd midterm_project
    $ datalad run-procedure cfg_yoda
+
+Prior to writing your analysis script, take care of
+linking your raw dataset adequately to your ``midterm_project`` dataset by
+installing it as a subdataset. Make sure to install it as a subdataset of
+``midterm_project``!
+
+.. runrecord:: _examples/DL-101-124-106
+   :language: console
+   :workdir: dl-101/DataLad-101/midterm_project
+
+   $ datalad install -d . --source ../../iris_data input/
+
+Now that you have a ``code/`` directory and an ``input/`` directory, create
+an ``output/`` directory as well to collect all of your results in:
+
+.. runrecord:: _examples/DL-101-124-107
+   :language: console
+   :workdir: dl-101/DataLad-101/midterm_project
+
+   $ mkdir output
 
 This is the current directory structure of ``DataLad-101``:
 
@@ -132,4 +196,161 @@ This is the current directory structure of ``DataLad-101``:
    $ tree -d
 
 Within ``midterm_project``, the ``code/`` directory is where you want to
-place your scripts.
+place your scripts. For your analysis, you want to
+
+#. plot the relationship between variables in the dataset and save the
+   resulting graphic.
+#. perform a k-nearest neighbour classification on a subset of the dataset to
+   predict class membership of samples in a left-out test set.
+
+To compute the analysis you create the following script:
+
+.. runrecord:: _examples/DL-101-124-110
+   :language: console
+   :workdir: dl-101/DataLad-101/midterm_project
+   :emphasize-lines: 8, 10, 13-14, 23, 42
+
+   $ cat << EOT > code/script.py
+
+   import pandas as pd
+   import seaborn as sns
+   from sklearn import model_selection
+   from sklearn.neighbors import KNeighborsClassifier
+   from sklearn.metrics import classification_report
+   from datalad.api import get, install
+
+   data = "input/iris.csv"
+
+   # make sure that the data is obtained ("recursive=True" install potential subdatasets):
+   install('input/')
+   get(data)
+
+   # prepare the data as a pandas dataframe
+   df = pd.read_csv(data)
+   attributes = ["sepal_length", "sepal_width", "petal_length","petal_width", "class"]
+   df.columns = attributes
+
+   # create a pairplot to plot pairwise relationships in the dataset
+   plot = sns.pairplot(df, hue='class')
+   plot.savefig('output/pairwise_relationships.png')
+
+   # perform a K-nearest-neighbours classification with scikit-learn
+   # Step 1: split data in test and training dataset (0.2:0.8)
+   array = df.values
+   X = array[:,0:4]
+   Y = array[:,4]
+   validation_size = 0.20
+   seed = 7
+   X_train, X_test, Y_train, Y_test = model_selection.train_test_split(X, Y,
+                                                                       test_size=validation_size,
+                                                                       random_state=seed)
+   # Step 2: Fit the model and make predictions on the test dataset
+   knn = KNeighborsClassifier()
+   knn.fit(X_train, Y_train)
+   predictions = knn.predict(X_test)
+
+   # Step 3: Save the classification report
+   report = classification_report(Y_test, predictions, output_dict=True)
+   df_report = pd.DataFrame(report).transpose().to_csv('output/prediction_report.csv')
+
+   EOT
+
+It will make sure to install the subdataset (line 11), retrieve the data prior
+to reading it in (line 12) and save the resulting figure (line 21) and csv
+file (line 40) into the ``output/`` directory. Note how all paths (to
+input data and output files) are *relative*, such that the
+``midterm_project`` analysis is completely self-contained within the dataset.
+
+Let's run a quick :command:`datalad status`:
+
+.. runrecord:: _examples/DL-101-124-111
+   :language: console
+   :workdir: dl-101/DataLad-101/midterm_project
+
+   $ datalad status
+
+Save this dataset to the subdataset's history:
+
+.. runrecord:: _examples/DL-101-124-112
+   :language: console
+   :workdir: dl-101/DataLad-101/midterm_project
+
+   $ datalad save -m "add kNN classification and plotting" code/script.py
+
+Finally, with your directory structure modular and intuitive, the input data
+installed, the script ready, and the dataset status clean, you can wrap the
+execution of the script in a :command:`datalad run` command.
+
+.. note::
+
+   Note that you need to have the following Python packages installed to run the
+   analysis [#f1]_:
+   - `pandas <https://pandas.pydata.org/>`_
+   - `seaborn <https://seaborn.pydata.org/>`_
+   - `sklearn <https://scikit-learn.org/>`_
+
+   The packages can be installed via ``pip``. Check the footnote for code
+   snippets to copy and paste. However, if you don't want to install any
+   Python packages, do not execute the remaining code examples in this sections
+   -- an upcoming section on ``datalad containers-run`` will allow you to
+   perform the analysis without changing with your Python software-setup.
+
+.. runrecord:: _examples/DL-101-124-113
+   :language: console
+   :workdir: dl-101/DataLad-101/midterm_project
+
+   $ datalad run -m "analyze iris data with classification analysis" \
+     --input "input/iris.csv" \
+     --output "output/*" \
+     "python code/script.py"
+
+As the successful command summary indicates, your analysis seems to work! Two
+files were created and saved to the dataset: ``output/pairwise_relationships.png``
+and ``output/prediction_report.csv``. If you want, take a look and interpret
+your analysis. But what excites you even more than a successful data science
+project on first try is that you achieved complete provenance capture:
+
+- Every single file in this dataset is associated with an author and a time
+  stamp for each modification thanks to :command:`datalad save`.
+- The raw dataset knows where the data came from thanks to
+  :command:`datalad download-url`
+- The subdataset is linked to the superdataset thanks to
+  :command:`datalad install -d`.
+- The :command:`datalad run` command took care of linking the outputs of your
+  analysis with the script and the input data it was generated from.
+
+Let's take a look at your the history of the ``midterm_project`` analysis
+dataset:
+
+.. runrecord:: _examples/DL-101-124-114
+   :language: console
+   :workdir: dl-101/DataLad-101/midterm_project
+
+   $ git log
+
+"Wow, this is so clean an intuitive!" you congratulate yourself. "And I think
+this was and will be the fastest I have ever completed a midterm project!"
+
+
+.. todo::
+
+   maybe add something human readable to the READMEs?
+
+The only thing left to do now is to hand in your assignment.
+
+.. rubric:: Footnotes
+
+.. [#f1] It is recommended (but optional) to create a
+         `virtual environment <https://docs.python.org/3/tutorial/venv.html>`_ and
+         install the required Python packages inside of it:
+
+         .. code-block:: bash
+
+            # create and enter a new virtual environment (optional)
+            $ virtualenv --python=python3 ~/env/handbook
+            $ . ~/env/handbook/bin/activate
+
+         .. code-block:: bash
+
+            # install the Python packages from PyPi via pip
+            pip install seaborn, pandas, sklearn

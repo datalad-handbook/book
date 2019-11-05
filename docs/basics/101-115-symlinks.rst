@@ -37,7 +37,7 @@ them. We'll take a look together, using the ``books/`` directory as an example:
    $ cd books
    $ tree
 
-If you don't know what you are looking at,
+If you do not know what you are looking at,
 this looks weird, if not worse: intimidating, wrong, or broken.
 First of all: no, **it is all fine**. But let's start with the basics of what is displayed
 here to understand it.

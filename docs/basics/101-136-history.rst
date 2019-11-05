@@ -16,7 +16,7 @@ system :term:`Git`.
 
 To get a glimpse into how to work with the history of a dataset, today's lecture
 has an external Git-expert as a guest lecturer.
-"I don't have enough time to go through all the details in only
+"I do not have enough time to go through all the details in only
 one lecture. But I'll give you the basics, and an idea of what is possible.
 Always remember: Just google what you need. You will find thousands of helpful tutorials
 or questions on `Stackoverflow <https.stackoverflow.com>`_ right away.

@@ -65,7 +65,7 @@ a second machine ``/home/mih``, for example, leading to some potential confusion
 Therefore, you need to create this directory, and also --
 for consistency in the Git logs as well -- a separate, mock Git identity
 (we chose `Elena Piscopia <https://en.wikipedia.org/wiki/Elena_Cornaro_Piscopia>`_, the first
-woman to receive a PhD -- don't worry, this does not mess with your own Git identity):
+woman to receive a PhD -- do not worry, this does not mess with your own Git identity):
 
 .. code-block:: bash
 

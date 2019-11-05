@@ -136,7 +136,7 @@ Appendix
 * :ref:`search`
 
 ..
-  stuff that we don't need or show at the moment
+  stuff that we do not need or show at the moment
 
 .. toctree::
    :hidden:

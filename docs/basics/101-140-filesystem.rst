@@ -67,7 +67,7 @@ simultaneously, an ``untracked`` file appears: the renamed
 PDF.
 
 While this might appear messy, a ``datalad save`` will clean
-all of this up. Therefore, don't panic if you rename a file,
+all of this up. Therefore, do not panic if you rename a file,
 and see a dirty dataset status with deleted and untracked files
 -- ``datalad save`` handles these and other cases really well
 under the hood.
@@ -175,7 +175,7 @@ section. If you are a Git user, you will be very familiar with it.
       $ git commit -m "rename book"
 
 
-To summarize, renaming files is easy and worry-free. Don't be intimidated
+To summarize, renaming files is easy and worry-free. Do not be intimidated
 by a file marked as deleted -- a :command:`datalad save` will rectify this.
 Be mindful of other modifications in your dataset, though, and either supply
 appropriate paths to ``datalad save``, or use Git tools to exclusively save
@@ -231,7 +231,7 @@ into ``.git``, it currently points to ``../.git``, which is non-existent,
 and even outside of the superdataset. This is why the file
 cannot be opened: When any program tries to follow the symlink,
 it will not resolve, and an error such as "no file or directory"
-will be returned. But don't panic! A :command:`datalad save` will
+will be returned. But do not panic! A :command:`datalad save` will
 rectify this as well:
 
 .. runrecord:: _examples/DL-101-140-122

@@ -125,9 +125,9 @@ This registers your room mate's ``DataLad-101`` as a "sibling" (we will call it
    # add a sibling
    $ datalad siblings add -d . --name roommate --url ../mock_user/DataLad-101
 
-There are a few confusing parts about this command: For one, don't be surprised
+There are a few confusing parts about this command: For one, do not be surprised
 about the ``--url`` argument -- it's called "URL" but it can be a path as well.
-Also, don't forget to give a name to your dataset's sibling. Without the ``-s``/
+Also, do not forget to give a name to your dataset's sibling. Without the ``-s``/
 ``--name`` argument the command will fail. The reason behind this is that the default
 name of a sibling if no name is given will be the host name of the specified URL,
 but as you provide a path and not a URL, there is no host name to take as a default.
@@ -166,7 +166,7 @@ This meant that nothing unexpected would happen with the
 :command:`datalad update --merge`.
 
 But consider the current case: Your room mate made changes to his
-dataset, but you don't necessarily know which. You also made
+dataset, but you do not necessarily know which. You also made
 changes to your dataset in the meantime, and added a note on
 :command:`datalad update`.
 How would you know that his changes and
@@ -210,7 +210,7 @@ he added is not yet in your ``code/`` directory:
 
 So where is the file? It is in a different *branch* of your dataset.
 
-If you don't use :term:`Git`, the concept of a :term:`branch` can be a big
+If you do not use :term:`Git`, the concept of a :term:`branch` can be a big
 source of confusion. There will be sections later in this book that will
 elaborate a bit more what branches are, and how to work with them, but
 for now envision a branch just like a bunch of drawers on your desk.
@@ -309,7 +309,7 @@ You can see the commit that your room mate made when he saved the script,
 and you can also see a commit that records how you ``merged`` your
 room mate's dataset changes into your own dataset. The commit message of this
 latter commit for now might contain many words yet unknown to you if you
-don't use Git, but a later section will get into the details of what
+do not use Git, but a later section will get into the details of what
 the meaning of ":term:`merge`", ":term:`branch`", "refs"
 or ":term:`master`" is.
 

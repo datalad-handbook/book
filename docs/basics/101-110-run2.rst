@@ -201,7 +201,7 @@ features that you have just experienced is that it *locks* content.
 
 If files are *locked down*, their content can not be modified. In principle,
 that's not a bad thing: It could be your late grandma's secret cherry-pie
-recipe, and you don't want to *accidentally* change that.
+recipe, and you do not want to *accidentally* change that.
 Therefore, a file needs to be consciously *unlocked* to apply modifications.
 
 In the attempt to resize the image to 450x450 you tried to overwrite
@@ -234,7 +234,7 @@ feel the urge to run a :command:`datalad status` on this:
 
    $ datalad status
 
-"Ah, don't mind that for now", our instructor says, and with a wink she
+"Ah, do not mind that for now", our instructor says, and with a wink she
 continues: "We'll talk about symlinks and object trees a while later".
 We're not really sure whether that's a good thing, but we have a task to focus
 on. Hastily, you run the command right from the terminal:

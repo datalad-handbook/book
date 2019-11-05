@@ -4,7 +4,7 @@ A brief overview of DataLad
 ---------------------------
 
 There can be numerous reasons why you ended up with this handbook in front of
-you -- We don't know who you are, or why you are here.
+you -- We do not know who you are, or why you are here.
 You could have any background, any amount of previous experience with
 DataLad, any individual application to use it for,
 any level of maturity in your own mental concept of what DataLad
@@ -114,11 +114,11 @@ that captures the spirit of what DataLad is, and here is a brief overview on it.
 #. **A dataset is a Git repository**. If you know the :term:`version control` system
    :term:`Git`, and what you can use it for,
    then take notice that everything you can use Git for also applies to everything managed
-   by DataLad -- plus much more. If you don't know Git
+   by DataLad -- plus much more. If you do not know Git
    (which is completely fine), rest assured that this is a good feature.
    You will experience much of Git working its
    magic underneath the hood when you use DataLad. Do also rest assured that there
-   is no need to panic if you don't know Git -- there is no necessity
+   is no need to panic if you do not know Git -- there is no necessity
    to immediately learn all Git to follow along in learning and using DataLad.
 
 #. **A DataLad dataset can take care of managing and version controlling arbitrarily large data**.

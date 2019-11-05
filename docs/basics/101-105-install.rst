@@ -105,9 +105,9 @@ Note that the path did not change, but ``-d .`` changed to ``-d ../``
 Later in this book there is a dedicated section that explains what this ``-d``/``--dataset`` option
 does and why it is important, but for now just be mindful of the instruction above.
 
-.. findoutmore:: What if I don't install into an existing dataset?
+.. findoutmore:: What if I do not install into an existing dataset?
 
-   If you don't install inside an existing dataset, you only need to omit the ``dataset``
+   If you do not install inside an existing dataset, you only need to omit the ``dataset``
    option. You can try::
   
      datalad install -s https://github.com/datalad-datasets/longnow-podcasts.git
@@ -242,8 +242,8 @@ we can use ``.`` to refer to *all* of the dataset like this:
 
    $ datalad get .
 
-(However, with a total size of more than 15GB, this might take a while, so don't do that now.
-If you did execute the command above, interrupt it by pressing ``CTRL`` + ``C`` -- Don't worry,
+(However, with a total size of more than 15GB, this might take a while, so do not do that now.
+If you did execute the command above, interrupt it by pressing ``CTRL`` + ``C`` -- Do not worry,
 this will not break anything)
 
 Isn't that easy?

@@ -173,7 +173,7 @@ populating them by ``installing`` and ``creating`` several
 and executing simple scripts with input data to create results we can
 share and publish with DataLad.
 
-If you don't want to follow along and only read, there will be a
+If you do not want to follow along and only read, there will be a
 finished DataLad-101 project for you to download and explore in the future.
 The dataset will contain tags that relate different states of it to the
 respective book sections.

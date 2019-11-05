@@ -24,7 +24,7 @@ what the ``text2git`` procedure exactly is: It is
 nothing more than a simple script that
 
 - writes the relevant configuration (``annex_largefiles = '(not(mimetype=text/*))'``,
-  i.e., "Don't put anything that is a text file in the annex")
+  i.e., "Do not put anything that is a text file in the annex")
   to the ``.gitattributes`` file of a dataset, and
 - saves this modification with the commit message
   "Instruct annex to add text files to Git".

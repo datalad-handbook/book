@@ -140,7 +140,7 @@ that captures the spirit of what DataLad is, and here is a brief overview on it.
    whether it is managed by DataLad or not. This guarantees that users will not loose
    data or data access if DataLad would vanish from their system, or even when DataLad
    would vanish from the face of Earth. Using DataLad thus does not require or generate
-   data structures that can only be used or read with DataLad -- DataLad doesn't
+   data structures that can only be used or read with DataLad -- DataLad does not
    tie you down, it liberates you.
 
 #. Furthermore, DataLad is developed for **complete decentralization**.

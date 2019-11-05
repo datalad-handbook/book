@@ -225,7 +225,7 @@ at the symlink:
    $ ls -l TLCL.pdf
 
 The first part of the symlink should point into the ``.git/``
-directory, but currently, it doesn't -- the symlink still looks
+directory, but currently, it does not -- the symlink still looks
 like ``TLCL.pdf`` would be within ``books/``. Instead of pointing
 into ``.git``, it currently points to ``../.git``, which is non-existent,
 and even outside of the superdataset. This is why the file

@@ -77,10 +77,10 @@ Tuning datasets to your needs
    :maxdepth: 1
    :caption: Various types and methods for dataset configurations
 
-   basics/101-125-config
-   basics/101-126-config2
-   basics/101-127-procedures
-   basics/101-128-summary
+   basics/101-122-config
+   basics/101-123-config2
+   basics/101-124-procedures
+   basics/101-125-summary
 
 #############
 Help yourself
@@ -102,11 +102,11 @@ Make the most out of datasets
    :maxdepth: 1
    :caption: Organizational principles and best practices for data analyses
 
-   basics/101-122-intro
-   basics/101-123-yoda
-   basics/101-124-summary
-   basics/101-124-python
-   basics/101-125-summary
+   basics/101-126-intro
+   basics/101-127-yoda
+   basics/101-128-summary_yoda
+   basics/101-129-python
+   basics/101-130-summary
 
 
 #########

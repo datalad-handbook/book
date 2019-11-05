@@ -1,0 +1,47 @@
+$ git log
+commit 23dc62477b74469713a378ced33b75d6b2f4bff6
+Author: Elena Piscopia <elena@example.net>
+Date:   Tue Nov 5 21:45:56 2019 +0100
+
+    [DATALAD RUNCMD] analyze iris data with classification analysis
+    
+    === Do not change lines below ===
+    {
+     "chain": [],
+     "cmd": "python code/script.py",
+     "dsid": "3ffdf358-000d-11ea-97b1-d0c637c523bc",
+     "exit": 0,
+     "extra_inputs": [],
+     "inputs": [
+      "input/iris.csv"
+     ],
+     "outputs": [
+      "output/*"
+     ],
+     "pwd": "."
+    }
+    ^^^ Do not change lines above ^^^
+
+commit b1eac6daf267ce3d0dd98ef5e95da3b4f42e832f
+Author: Elena Piscopia <elena@example.net>
+Date:   Tue Nov 5 21:45:51 2019 +0100
+
+    add kNN classification and plotting
+
+commit fa46207c3ce44a5f4114c3513749baa938aef0aa
+Author: Elena Piscopia <elena@example.net>
+Date:   Tue Nov 5 21:45:50 2019 +0100
+
+    [DATALAD] Recorded changes
+
+commit ed65b36be810d17676a88be2da00684744d1fa66
+Author: Elena Piscopia <elena@example.net>
+Date:   Tue Nov 5 21:45:50 2019 +0100
+
+    Apply YODA dataset setup
+
+commit b38ca423edf86fd60034f98ad37c80d11d4460be
+Author: Elena Piscopia <elena@example.net>
+Date:   Tue Nov 5 21:45:49 2019 +0100
+
+    [DATALAD] new dataset

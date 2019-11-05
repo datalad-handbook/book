@@ -1,11 +1,1 @@
-$ tree -d
-.
-├── books
-├── code
-├── midterm_project
-└── recordings
-    └── longnow
-        ├── Long_Now__Conversations_at_The_Interval
-        └── Long_Now__Seminars_About_Long_term_Thinking
-
-7 directories
+$ mkdir output

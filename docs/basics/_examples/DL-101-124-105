@@ -1,7 +1,5 @@
-$ datalad create --dataset . midterm_project
-[INFO] Creating a new annex repo at /home/me/dl-101/DataLad-101/midterm_project 
-create(ok): midterm_project (dataset)
-action summary:
-  add (ok: 2)
-  create (ok: 1)
-  save (ok: 1)
+$ cd midterm_project
+$ datalad run-procedure cfg_yoda
+[INFO] Running procedure cfg_yoda 
+[INFO] == Command start (output follows) ===== 
+[INFO] == Command exit (modification check follows) ===== 

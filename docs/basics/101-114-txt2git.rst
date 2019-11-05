@@ -8,9 +8,9 @@ you fall tired into your
 bed. Just as you are about to fall asleep, a thought crosses your mind:
 
 "I now know that tracked content in a dataset is protected by :term:`Git-annex`.
-Whenever tracked contents are ``saved``, they get locked and shouldn't be
+Whenever tracked contents are ``saved``, they get locked and should not be
 modifiable. But... what about the notes that I have been taking since the first day?
-Shouldn't I need to unlock them before I can modify them? And also the script!
+Should I not need to unlock them before I can modify them? And also the script!
 I was able to modify this despite giving it to DataLad to track, with
 no permission denied errors whatsoever! How does that work?"
 

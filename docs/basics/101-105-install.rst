@@ -151,8 +151,8 @@ Dataset content identity and availability information
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Surprised you turn to your fellow student and wonder about
-how fast the dataset was installed. Shouldn't
-a download of that many ``.mp3`` files should take much more time?
+how fast the dataset was installed. Should
+a download of that many ``.mp3`` files not take much more time?
 
 Here you can see another import feature of DataLad datasets
 and the :command:`datalad install` command:

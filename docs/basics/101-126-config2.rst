@@ -75,7 +75,7 @@ However, rules can be even simpler. The second row simply takes a complete direc
 The second row, ``**/.git* annex.largefiles=nothing`` therefore means that no
 ``.git`` repository in this directory or a subdirectory should be considered
 a "large file". This way, the ``.git`` repositories are protected from being annexed.
-If you had a single file (``myfile.pdf``) you wouldn't want annexed, specifying a rule such as::
+If you had a single file (``myfile.pdf``) you would not want annexed, specifying a rule such as::
 
    myfile.pdf annex.largefiles=nothing
 
@@ -116,7 +116,7 @@ therefore overrule specifications made in the ``.gitattributes`` file of the par
 directory.
 
 In summary, the ``.gitattributes`` files will give you the possibility to configure
-what should be annexed and what shouldn't be annexed up to individual file level.
+what should be annexed and what should not be annexed up to individual file level.
 This can be very handy, and allows you to tune your dataset to your custom needs.
 For example, files you will often edit by hand could be stored in Git if they are
 not too large to ease modifying them [#f3]_.
@@ -270,7 +270,7 @@ Summary
 This has been an intense lecture, you have to admit. One definite
 take-away from it has been that you now know a second reason why the hidden
 ``.git`` and ``.datalad`` directory contents and also the contents of ``.gitmodules`` and
-``.gitattributes`` shouldn't be carelessly tempered with -- they contain all of
+``.gitattributes`` should not be carelessly tempered with -- they contain all of
 the repositories configurations.
 
 But you now also know how to modify these configurations with enough

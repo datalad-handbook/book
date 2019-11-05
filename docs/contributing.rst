@@ -21,7 +21,7 @@ Software setup
 
 Depending on the size of your contribution, you may want to be able to build the book
 locally to test and preview your changes. If you are fixing typos, tweak the
-language, or rewrite a paragraph or two, this shouldn't be necessary, and you can safely
+language, or rewrite a paragraph or two, this should not be necessary, and you can safely
 skip this paragraph and instead take a look into the paragraph
 :ref:`easy`.
 If you want to be able to build the book locally, though, please follow these instructions:

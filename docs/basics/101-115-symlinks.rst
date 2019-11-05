@@ -148,7 +148,7 @@ The second advantage is a
 
 This leads to a few conclusions:
 
-The first is that you shouldn't be worried
+The first is that you should not be worried
 to see cryptic looking symlinks in your repository -- this is how it should
 look. If you are interested in why these paths look so weird, and what all
 of this has to do with data integrity, you can check

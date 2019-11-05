@@ -211,7 +211,7 @@ Let's now turn to the fact that the subdataset ``longnow`` does
 not contain not only no file content, but also no file metadata
 information to explore the contents of the dataset: There are no
 subdirectories or any files under ``recordings/longnow/``.
-This is behavior that you haven't observed until now.
+This is behavior that you have not observed until now.
 
 To fix this and obtain file availability metadata,
 you have to run a somewhat unexpected command:

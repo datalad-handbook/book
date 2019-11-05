@@ -18,7 +18,7 @@ modifying content of non-text files, such as ``.jpg``\s, requires
 the additional step of *unlocking* file content, either by hand with the :command:`datalad unlock`
 command, or within :command:`datalad run` using the ``-o``/``--output`` flag.
 
-There is one detail about DataLad datasets that we haven't covered yet. Its both
+There is one detail about DataLad datasets that we have not covered yet. Its both
 a crucial aspect to understanding certain aspects of a dataset, but it is also a
 potential source of confusion that we want to eradicate.
 

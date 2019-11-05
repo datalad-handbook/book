@@ -81,7 +81,7 @@ regular status reports should become a habit in the wake of ``DataLad-101``.
 Interesting, the ``books/`` directory is "untracked". Remember how content
 *can* be tracked *if a user wants to*?
 Untracked means that DataLad does not know about this directory or its content,
-because we haven't instructed DataLad to actually track it. This means, DataLad
+because we have not instructed DataLad to actually track it. This means, DataLad
 does not keep the downloaded books in its history yet. Let's change this by
 saving the files to the dataset's history with the :command:`datalad save` command
 (:manpage:`datalad-save` manual).

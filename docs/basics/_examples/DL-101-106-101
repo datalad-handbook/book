@@ -1,7 +1,7 @@
-$ git log -p
-commit 25cc38d5096c485ddedd47e8d32902c46092dee8
+$ git log -p -n 2
+commit fcc4a4ad2fe1eb55446a5026f3843864ffe68c08
 Author: Elena Piscopia <elena@example.net>
-Date:   Sun Oct 6 09:39:31 2019 +0200
+Date:   Wed Oct 30 12:30:31 2019 +0100
 
     Add note on datalad install
 

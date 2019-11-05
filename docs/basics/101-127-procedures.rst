@@ -147,6 +147,17 @@ could thus be applied within a :command:`datalad create` as
 - ``datalad create -c yoda <DSname>``
 - ``datalad create -c text2git <DSname>``
 
+.. findoutmore:: Applying procedures in subdatasets
+
+   Procedures can be applied in datasets on any level in the dataset hierarchy, i.e.,
+   also in subdatasets. Note, though, that a subdataset will show up as being
+   ``modified`` in :command:`datalad status` *in the superdataset*
+   after applying a procedure.
+   This is expected, and it would also be the case with any other modification
+   (saved or not) in the subdataset, as the version of the subdataset that is tracked
+   in the superdataset simply changed. A :command:`datalad save` in the superdataset
+   will make sure that the version of the subdataset gets updated in the superdataset.
+
 As a general note, it can be useful to apply procedures
 early in the life of a dataset. Procedures such
 as ``cfg_yoda`` (explained in detail in section :ref:`yoda`),

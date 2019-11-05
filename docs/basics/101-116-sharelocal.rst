@@ -61,7 +61,10 @@ simplicity -- create a new directory, ``mock_user``, right next to it:
 
 .. runrecord:: _examples/DL-101-116-101
    :language: console
-   :workdir: dl-101/DataLad-101
+   :workdir: dl-101
+   :realcommand: mkdir mock_user
+   :caption: (hope this works)
+   :cast: 04_collaboration
 
    $ cd ../
    $ mkdir mock_user
@@ -78,6 +81,9 @@ the dataset ``DataLad-101`` by specifying its path as a ``--source``
 .. runrecord:: _examples/DL-101-116-102
    :language: console
    :workdir: dl-101
+   :caption: We pretend to install the DataLad-101 dataset into a different users home directory. To do this, we use datalad install with a path
+   :cast: 04_collaboration
+
 
    $ cd mock_user
    $ datalad install --source ../DataLad-101 --description "DataLad-101 in mock_user"
@@ -94,6 +100,8 @@ like. Before running the command, try to predict what you will see.
 .. runrecord:: _examples/DL-101-116-103
    :language: console
    :workdir: dl-101/mock_user
+   :caption: How do you think does the dataset look like
+   :cast: 04_collaboration
 
    $ cd DataLad-101
    $ tree
@@ -137,6 +145,8 @@ To demonstrate this, you decide to examine the PDFs further.
 .. runrecord:: _examples/DL-101-116-104
    :language: console
    :workdir: dl-101/mock_user/DataLad-101
+   :caption: how does it feel to get a file?
+   :cast: 04_collaboration
 
    $ datalad get books/progit.pdf
 
@@ -152,6 +162,8 @@ let's query Git-annex where its content is stored:
 .. runrecord:: _examples/DL-101-116-105
    :language: console
    :workdir: dl-101/mock_user/DataLad-101
+   :caption: git-annex whereis to find out where content is stored
+   :cast: 04_collaboration
 
    $ git annex whereis books/TLCL.pdf
 
@@ -207,6 +219,8 @@ you have to run a somewhat unexpected command:
 .. runrecord:: _examples/DL-101-116-106
    :language: console
    :workdir: dl-101/mock_user/DataLad-101
+   :caption: how do we get the subdataset? currently it looks empty. --> a plain datalad install
+   :cast: 04_collaboration
 
    $ datalad install recordings/longnow
 
@@ -216,6 +230,8 @@ Let's what has changed (excerpt):
    :language: console
    :workdir: dl-101/mock_user/DataLad-101
    :lines: 1-30
+   :caption: what has changed? --> file metadata information!
+   :cast: 04_collaboration
 
    $ tree
 
@@ -264,6 +280,8 @@ Write this note in "your own" (the original) ``DataLad-101`` dataset, though!
 .. runrecord:: _examples/DL-101-116-108
    :language: console
    :workdir: dl-101/mock_user/DataLad-101
+   :caption: note in original DataLad-101 dataset
+   :cast: 04_collaboration
 
    # navigate back into the original dataset
    $ cd ../../DataLad-101
@@ -294,6 +312,7 @@ Save this note.
 .. runrecord:: _examples/DL-101-116-109
    :language: console
    :workdir: dl-101/DataLad-101
+   :cast: 04_collaboration
 
    $ datalad save -m "add note about installing from paths and recursive installations"
 

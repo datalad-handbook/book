@@ -39,6 +39,8 @@ in the hidden paths
 .. runrecord:: _examples/DL-101-110-101
    :language: console
    :workdir: dl-101/DataLad-101
+   :caption: We saw a very simple datalad run. Now we're going to extend it with useful options. For this, we'll try to resize a logo in the meta data of the subdataset
+   :cast: 02_reproducible_execution
 
    $ ls recordings/longnow/.datalad/feed_metadata/*jpg
 
@@ -66,6 +68,8 @@ when you copy them formatted like this.
    :language: console
    :workdir: dl-101/DataLad-101
    :emphasize-lines: 4
+   :caption: This command resizes the logo to 400 by 400 px.
+   :cast: 02_reproducible_execution
 
    $ datalad run -m "Resize logo for slides" \
    "convert -resize 400x400 recordings/longnow/.datalad/feed_metadata/logo_salt.jpg recordings/salt_logo_small.jpg"
@@ -109,6 +113,8 @@ prior to running the command.
    :workdir: dl-101/DataLad-101
    :emphasize-lines: 8, 11, 16
    :realcommand: datalad run --input "recordings/longnow/.datalad/feed_metadata/logo_salt.jpg" "convert -resize 400x400 recordings/longnow/.datalad/feed_metadata/logo_salt.jpg recordings/salt_logo_small.jpg"
+   :caption: The --input option makes sure that all content is retrieved prior to command execution.
+   :cast: 02_reproducible_execution
 
    $ datalad run -m "Resize logo for slides" \
    --input "recordings/longnow/.datalad/feed_metadata/logo_salt.jpg" \
@@ -157,6 +163,8 @@ To establish best-practices, let's specify the input even though it is already p
    :workdir: dl-101/DataLad-101
    :emphasize-lines: 10
    :realcommand: datalad run --input "recordings/longnow/.datalad/feed_metadata/logo_salt.jpg" "convert -resize 450x450 recordings/longnow/.datalad/feed_metadata/logo_salt.jpg recordings/salt_logo_small.jpg"
+   :caption: Maybe 400x400 is too small. We should try 450x450. Can we use a datalad rerun for this? (no)
+   :cast: 02_reproducible_execution
 
    $ datalad run -m "Resize logo for slides" \
    --input "recordings/longnow/.datalad/feed_metadata/logo_salt.jpg" \
@@ -210,6 +218,8 @@ Let us check out what it does:
 .. runrecord:: _examples/DL-101-111-101
    :language: console
    :workdir: dl-101/DataLad-101
+   :caption: The created output is protected from accidental modifications, we have to unlock it first
+   :cast: 02_reproducible_execution
 
    $ datalad unlock recordings/salt_logo_small.jpg
 
@@ -219,6 +229,8 @@ feel the urge to run a :command:`datalad status` on this:
 .. runrecord:: _examples/DL-101-111-102
    :language: console
    :workdir: dl-101/DataLad-101
+   :caption: How does the file look like after an unlock?
+   :cast: 02_reproducible_execution
 
    $ datalad status
 
@@ -230,6 +242,8 @@ on. Hastily, you run the command right from the terminal:
 .. runrecord:: _examples/DL-101-111-103
    :language: console
    :workdir: dl-101/DataLad-101
+   :caption: In principle, you could rerun the command now, outside of any datalad run. The unlocked output can be overwritten
+   :cast: 02_reproducible_execution
 
    $ convert -resize 450x450 recordings/longnow/.datalad/feed_metadata/logo_salt.jpg recordings/salt_logo_small.jpg
 
@@ -243,6 +257,8 @@ run a :command:`datalad save`."
 .. runrecord:: _examples/DL-101-111-104
    :language: console
    :workdir: dl-101/DataLad-101
+   :caption: Afterwards you'd need to save, to lock everything again
+   :cast: 02_reproducible_execution
 
    $ datalad save -m "resized picture by hand"
 
@@ -278,6 +294,8 @@ flag and see their magic, let's crop the second logo, ``logo_interval.jpg``:
    :workdir: dl-101/DataLad-101
    :emphasize-lines: 14, 19
    :realcommand: datalad run --input "recordings/longnow/.datalad/feed_metadata/logo_interval.jpg" --output "recordings/interval_logo_small.jpg" "convert -resize 450x450 recordings/longnow/.datalad/feed_metadata/logo_interval.jpg recordings/interval_logo_small.jpg"
+   :caption: but it is way easier to just use the --output option of datalad run: it takes care of unlocking if necessary
+   :cast: 02_reproducible_execution
 
    $ datalad run -m "Resize logo for slides" \
    --input "recordings/longnow/.datalad/feed_metadata/logo_interval.jpg" \
@@ -313,6 +331,8 @@ Make a note of this behavior in your ``notes.txt`` file.
 .. runrecord:: _examples/DL-101-111-106
    :language: console
    :workdir: dl-101/DataLad-101
+   :caption: Finally, lets add a note on this
+   :cast: 02_reproducible_execution
 
    $ cat << EOT >> notes.txt
    You should specify all files that a command takes as input with an -i/--input flag. These

@@ -11,9 +11,8 @@ Let's first create a directory to save books for additional reading in.
 .. runrecord:: _examples/DL-101-102-101
    :language: console
    :workdir: dl-101/DataLad-101
-   :cast: dataset_basics
-   :caption: The dataset is empty atm, but lets put some PDFs inside.
-      First, create a directory to store them in:
+   :cast: 01_dataset_basics
+   :caption: The dataset is empty, lets put some PDFs inside. First, create a directory to store them in:
 
    $ mkdir books
 
@@ -22,8 +21,8 @@ Let's take a look at the current directory structure with the tree command [#f1]
 .. runrecord:: _examples/DL-101-102-102
    :language: console
    :workdir: dl-101/DataLad-101
-   :cast: dataset_basics
-   :caption: This is how the directory structure looks like now
+   :cast: 01_dataset_basics
+   :caption: The tree command shows us the directory structure in the dataset. Apart from the directory, its empty.
 
    $ tree
 
@@ -42,8 +41,8 @@ or run the following commands [#f2]_ to download the books right from the termin
    :language: console
    :workdir: dl-101/DataLad-101
    :realcommand: cd books && wget -nv https://sourceforge.net/projects/linuxcommand/files/TLCL/19.01/TLCL-19.01.pdf/download -O TLCL.pdf && wget -nv https://www.gitbook.com/download/pdf/book/swaroopch/byte-of-python -O byte-of-python.pdf && cd ../
-   :cast: dataset_basics
-   :caption: We use wget to download a few books from the web
+   :cast: 01_dataset_basics
+   :caption: We use wget to download a few books from the web. CAVE: longish realcommand!
 
    $ cd books
    $ wget https://sourceforge.net/projects/linuxcommand/files/TLCL/19.01/TLCL-19.01.pdf/download -O TLCL.pdf
@@ -57,7 +56,7 @@ structure with tree:
 .. runrecord:: _examples/DL-101-102-104
    :language: console
    :workdir: dl-101/DataLad-101
-   :cast: dataset_basics
+   :cast: 01_dataset_basics
    :caption: Here they are:
 
    $ tree
@@ -72,8 +71,8 @@ regular status reports should become a habit in the wake of ``DataLad-101``.
 .. runrecord:: _examples/DL-101-102-105
    :language: console
    :workdir: dl-101/DataLad-101
-   :cast: dataset_basics
-   :caption: What has happened to our dataset now with this new content? We can use datalad status to find out
+   :cast: 01_dataset_basics
+   :caption: What has happened to our dataset now with this new content? We can use datalad status to find out:
 
    $ datalad status
 
@@ -93,8 +92,8 @@ with the ``-m`` option:
 .. runrecord:: _examples/DL-101-102-106
    :language: console
    :workdir: dl-101/DataLad-101
-   :cast: dataset_basics
-   :caption: In order to version control the PDFs we need to save them. We attach a meaningful summary of this with the -m option
+   :cast: 01_dataset_basics
+   :caption: ATM the files are untracked and thus unknown to any version control system. In order to version control the PDFs we need to save them. We attach a meaningful summary of this with the -m option:
 
    $ datalad save -m "add books on Python and Unix to read later"
 
@@ -121,7 +120,8 @@ created and handled by DataLad. Whether text files or larger files change,
 all of these changes can be written to your DataLad datasets history.
 
 Let's see how the saved content shows up in the history of the dataset with :command:`git log`.
-In order to get a bit more details, we add the ``-p`` flag (leave the git log
+``-n 1`` specifies that we want to take a look at the most recent commit.
+In order to get a bit more details, we add the ``-p`` flag (if in a pager, leave the git log
 by typing ``q``, navigate with up and down arrow keys):
 
 .. runrecord:: _examples/DL-101-102-107
@@ -129,10 +129,10 @@ by typing ``q``, navigate with up and down arrow keys):
    :workdir: dl-101/DataLad-101
    :lines: 1-20
    :emphasize-lines: 3-4, 6, 8, 12, 16, 20
-   :cast: dataset_basics
-   :caption: Now we can see how this action looks like in our dataset's history
+   :cast: 01_dataset_basics
+   :caption: Save command reports what has been added to the dataset. Now we can see how this action looks like in our dataset's history:
 
-   $ git log -p
+   $ git log -p -n 1
 
 Now this might look a bit cryptic (and honestly, tig [#f3]_ makes it look prettier).
 But this tells us the date and time in which a particular author added two PDFs to
@@ -188,7 +188,7 @@ Let's try this by adding yet another book, a good reference work about git,
    :language: console
    :workdir: dl-101/DataLad-101
    :realcommand: cd books && wget -nv https://github.com/progit/progit2/releases/download/2.1.154/progit.pdf && cd ../
-   :cast: dataset_basics
+   :cast: 01_dataset_basics
    :caption: Its inconvenient that we saved two books together - we should have saved them as independent modifications of the dataset. To see how single modifications can be saved, let's download another book
 
    $ cd books
@@ -200,7 +200,7 @@ Let's try this by adding yet another book, a good reference work about git,
 .. runrecord:: _examples/DL-101-102-109
    :language: console
    :workdir: dl-101/DataLad-101
-   :cast: dataset_basics
+   :cast: 01_dataset_basics
    :caption: Check the dataset state with the status command frequently
 
    $ datalad status
@@ -210,7 +210,7 @@ Let's :command:`datalad save` precisely this file by specifying its path after t
 .. runrecord:: _examples/DL-101-102-110
    :language: console
    :workdir: dl-101/DataLad-101
-   :cast: dataset_basics
+   :cast: 01_dataset_basics
    :caption: To save a single modification, provide a path to it!
 
    $ datalad save -m "add reference book about git" books/progit.pdf
@@ -234,8 +234,8 @@ A :command:`datalad status` should now be empty, and our dataset's history shoul
 .. runrecord:: _examples/DL-101-102-111
    :workdir: dl-101/DataLad-101
    :language: console
-   :cast: dataset_basics
-   :caption: Let's view the growing history:
+   :cast: 01_dataset_basics
+   :caption: Let's view the growing history (concise with the --oneline option):
 
    # lets make the output a bit more concise with the --oneline option
    $ git log --oneline

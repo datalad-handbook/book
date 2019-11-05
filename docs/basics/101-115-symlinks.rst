@@ -30,6 +30,8 @@ them. We'll take a look together, using the ``books/`` directory as an example:
 .. runrecord:: _examples/DL-101-115-101
    :language: console
    :workdir: dl-101/DataLad-101
+   :caption: We have to talk about symlinks now.
+   :cast: 03_git_annex_basics
 
    # in the root of DataLad-101
    $ cd books
@@ -93,6 +95,8 @@ your standard PDF reader).
    :language: console
    :workdir: dl-101/DataLad-101/books
    :realcommand: echo "evince $(readlink TLCL.pdf)"
+   :caption: we can just open the cryptic file path and it works just as any pdf!
+   :cast: 03_git_annex_basics
 
 
 Even though the path looks cryptic, it works and opens the file. Whenever you
@@ -110,6 +114,8 @@ small size of ~130 Bytes:
 .. runrecord:: _examples/DL-101-115-103
    :language: console
    :workdir: dl-101/DataLad-101/books
+   :caption: Symlinks are super small in size, just the amount of characters in the symlink!
+   :cast: 03_git_annex_basics
 
    $ ls -lah
 
@@ -227,6 +233,8 @@ to manage the file system in a datalad dataset (:ref:`filesystem`).
    .. runrecord:: _examples/DL-101-115-104
       :language: console
       :workdir: dl-101/DataLad-101/books
+      :caption: how does the symlink relate to the shasum of the file?
+      :cast: 03_git_annex_basics
 
       # take a look at the last part of the target path:
       $ ls -lah TLCL.pdf
@@ -234,6 +242,8 @@ to manage the file system in a datalad dataset (:ref:`filesystem`).
    .. runrecord:: _examples/DL-101-115-105
       :language: console
       :workdir: dl-101/DataLad-101/books
+      :caption: let's look at how the shasum would look like
+      :cast: 03_git_annex_basics
 
       # compare it to the checksum (here of type md5sum) of the PDF file and the subdirectory name
       $ md5sum TLCL.pdf
@@ -304,6 +314,8 @@ the superdataset.
 .. runrecord:: _examples/DL-101-115-106
    :workdir: dl-101/DataLad-101/books
    :language: console
+   :caption: understanding how symlinks work will help you with everyday file management operations.
+   :cast: 03_git_annex_basics
 
    $ cd ../
 

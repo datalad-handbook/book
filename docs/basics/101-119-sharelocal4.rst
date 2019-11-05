@@ -31,11 +31,11 @@ This is a change that is not reflected in your "shared"
 installation in ``../mock_user/DataLad-101``:
 
 .. runrecord:: _examples/DL-101-119-101
-   :language: console
-   :workdir: dl-101/DataLad-101
+   :workdir: dl-101/mock_user/DataLad-101
+   :caption: On updating dataset. How do we get the updated notes from the original dataset?
+   :cast: 04_collaboration
 
-   # we navigate into the installed copy:
-   $ cd ../mock_user/DataLad-101
+   # we are inside the installed copy
    $ cat notes.txt
 
 But the original intention of sharing the dataset with
@@ -57,6 +57,8 @@ command (:manpage:`datalad-update` manual).
 .. runrecord:: _examples/DL-101-119-102
    :language: console
    :workdir: dl-101/mock_user/DataLad-101
+   :caption: retrieve and integrate changes from origin with datalad update --merge
+   :cast: 04_collaboration
 
    $ datalad update --merge
 
@@ -74,6 +76,8 @@ the previously missing changes are now present:
 .. runrecord:: _examples/DL-101-119-103
    :language: console
    :workdir: dl-101/mock_user/DataLad-101
+   :caption: let's check whether the updates are there
+   :cast: 04_collaboration
 
    $ cat notes.txt
 
@@ -90,6 +94,8 @@ dataset to your own ``DataLad-101`` dataset:
 .. runrecord:: _examples/DL-101-119-104
    :language: console
    :workdir: dl-101/mock_user/DataLad-101
+   :caption: note in original ds
+   :cast: 04_collaboration
 
    # navigate back:
    $ cd ../../DataLad-101
@@ -105,6 +111,8 @@ dataset to your own ``DataLad-101`` dataset:
 .. runrecord:: _examples/DL-101-119-105
    :language: console
    :workdir: dl-101/DataLad-101
+   :caption:
+   :cast: 04_collaboration
 
    # save the changes
 

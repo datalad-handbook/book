@@ -73,8 +73,8 @@ This should install :term:`Git`, :term:`Git-annex`, and DataLad.
 The installer automatically configures the shell to make conda-installed
 tools accessible, so no further configuration is necessary.
 
-OS X
-""""
+macOS/OSX
+"""""""""
 
 A common way to install packages on OS X is via the
 `homebrew <https://brew.sh/>`_ package manager.
@@ -87,7 +87,13 @@ instructions on their webpage (linked above).
 Next, `install Git-annex <https://git-annex.branchable.com/install/OSX/>`_.
 
 Once Git-annex is available, DataLad can be installed via Pythons package
-manager ``pip`` as described below.
+manager ``pip`` as described below. ``pip`` should already be installed by
+default. Recent macOS versions may have ``pip3`` instead of ``pip`` -- use
+:term:`tab completion` to find out which is installed. If it is ``pip3``, run::
+
+   $ pip3 install datalad~=0.12.0rc6
+
+instead of the code snippets in the section below.
 
 Using Pythons package manager ``pip``
 """""""""""""""""""""""""""""""""""""

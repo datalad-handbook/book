@@ -4,7 +4,7 @@ Looking without touching
 ------------------------
 
 Only now, several weeks into the DataLad-101 course does your room
-mate realize that he has enrolled in the course as well, but hasn't
+mate realize that he has enrolled in the course as well, but has not
 yet attended at all. "Oh man, can you help me catch up?" he asks
 you one day. "Sharing just your notes would be really cool for a
 start already!"

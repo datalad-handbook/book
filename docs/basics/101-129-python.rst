@@ -96,7 +96,7 @@ To start your analysis project and comply to the YODA principles, you set up
 an independent data dataset with your projects raw data. For this, create a
 new dataset outside of ``DataLad-101``:
 
-.. runrecord:: _examples/DL-101-124-101
+.. runrecord:: _examples/DL-101-129-101
    :language: console
    :workdir: dl-101/DataLad-101
 
@@ -115,7 +115,7 @@ get it:
    information.
 
 
-.. runrecord:: _examples/DL-101-124-102
+.. runrecord:: _examples/DL-101-129-102
    :workdir: dl-101
    :language: console
 
@@ -133,7 +133,7 @@ For this, you start by creating an analysis dataset. Let's do it as a subdataset
 of ``DataLad-101``. For this, specify the ``--dataset`` option within
 :command:`datalad create`:
 
-.. runrecord:: _examples/DL-101-124-103
+.. runrecord:: _examples/DL-101-129-103
    :language: console
    :workdir: dl-101/iris_data
 
@@ -146,7 +146,7 @@ of ``DataLad-101``. For this, specify the ``--dataset`` option within
 The :command:`datalad subdatasets` can report on which subdatasets exist for
 ``DataLad-101``:
 
-.. runrecord:: _examples/DL-101-124-104
+.. runrecord:: _examples/DL-101-129-104
    :language: console
    :workdir: dl-101/DataLad-101
 
@@ -159,7 +159,7 @@ After the last lecture, you naturally want your dataset to follow the YODA
 principles. As a start, you use the ``cfg_yoda`` procedure to help you
 structure the dataset.
 
-.. runrecord:: _examples/DL-101-124-105
+.. runrecord:: _examples/DL-101-129-105
    :language: console
    :workdir: dl-101/DataLad-101
 
@@ -171,7 +171,7 @@ linking your raw dataset adequately to your ``midterm_project`` dataset by
 installing it as a subdataset. Make sure to install it as a subdataset of
 ``midterm_project``!
 
-.. runrecord:: _examples/DL-101-124-106
+.. runrecord:: _examples/DL-101-129-106
    :language: console
    :workdir: dl-101/DataLad-101/midterm_project
 
@@ -180,7 +180,7 @@ installing it as a subdataset. Make sure to install it as a subdataset of
 Now that you have a ``code/`` directory and an ``input/`` directory, create
 an ``output/`` directory as well to collect all of your results in:
 
-.. runrecord:: _examples/DL-101-124-107
+.. runrecord:: _examples/DL-101-129-107
    :language: console
    :workdir: dl-101/DataLad-101/midterm_project
 
@@ -188,7 +188,7 @@ an ``output/`` directory as well to collect all of your results in:
 
 This is the current directory structure of ``DataLad-101``:
 
-.. runrecord:: _examples/DL-101-124-108
+.. runrecord:: _examples/DL-101-129-108
    :language: console
    :workdir: dl-101/DataLad-101/midterm_project
 
@@ -205,7 +205,7 @@ place your scripts. For your analysis, you want to
 
 To compute the analysis you create the following script:
 
-.. runrecord:: _examples/DL-101-124-110
+.. runrecord:: _examples/DL-101-129-110
    :language: console
    :workdir: dl-101/DataLad-101/midterm_project
    :emphasize-lines: 8, 10, 13-14, 23, 42
@@ -263,7 +263,7 @@ input data and output files) are *relative*, such that the
 
 Let's run a quick :command:`datalad status`:
 
-.. runrecord:: _examples/DL-101-124-111
+.. runrecord:: _examples/DL-101-129-111
    :language: console
    :workdir: dl-101/DataLad-101/midterm_project
 
@@ -271,7 +271,7 @@ Let's run a quick :command:`datalad status`:
 
 Save this dataset to the subdataset's history:
 
-.. runrecord:: _examples/DL-101-124-112
+.. runrecord:: _examples/DL-101-129-112
    :language: console
    :workdir: dl-101/DataLad-101/midterm_project
 
@@ -295,7 +295,7 @@ execution of the script in a :command:`datalad run` command.
    -- an upcoming section on ``datalad containers-run`` will allow you to
    perform the analysis without changing with your Python software-setup.
 
-.. runrecord:: _examples/DL-101-124-113
+.. runrecord:: _examples/DL-101-129-113
    :language: console
    :workdir: dl-101/DataLad-101/midterm_project
 
@@ -322,7 +322,7 @@ project on first try is that you achieved complete provenance capture:
 Let's take a look at your the history of the ``midterm_project`` analysis
 dataset:
 
-.. runrecord:: _examples/DL-101-124-114
+.. runrecord:: _examples/DL-101-129-114
    :language: console
    :workdir: dl-101/DataLad-101/midterm_project
 

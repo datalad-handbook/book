@@ -98,7 +98,7 @@ procedures in a dataset, the source code of DataLad or
 installed DataLad extensions, and the default locations for
 procedures on the system for available procedures:
 
-.. runrecord:: _examples/DL-101-127-101
+.. runrecord:: _examples/DL-101-124-101
    :workdir: dl-101/DataLad-101
    :language: console
 
@@ -251,13 +251,13 @@ was applied.
    it is part of the dataset it will also allow distributing the procedure.
    Below is a toy-example for a custom procedure:
 
-   .. runrecord:: _examples/DL-101-127-103
+   .. runrecord:: _examples/DL-101-124-103
       :language: console
       :workdir: procs
 
       $ datalad create somedataset; cd somedataset
 
-   .. runrecord:: _examples/DL-101-127-104
+   .. runrecord:: _examples/DL-101-124-104
       :language: console
       :workdir: procs/somedataset
 
@@ -301,7 +301,7 @@ was applied.
 
       EOT
 
-   .. runrecord:: _examples/DL-101-127-105
+   .. runrecord:: _examples/DL-101-124-105
       :language: console
       :workdir: procs/somedataset
 
@@ -310,27 +310,27 @@ was applied.
    At this point, the dataset contains the custom procedure ``example``.
    This is how it can be executed and what it does:
 
-   .. runrecord:: _examples/DL-101-127-106
+   .. runrecord:: _examples/DL-101-124-106
       :language: console
       :workdir: procs/somedataset
 
       $ datalad run-procedure example "this text will be in the file 'example2'"
 
-   .. runrecord:: _examples/DL-101-127-107
+   .. runrecord:: _examples/DL-101-124-107
       :language: console
       :workdir: procs/somedataset
 
       #the directory structure has been created
       $ tree
 
-   .. runrecord:: _examples/DL-101-127-108
+   .. runrecord:: _examples/DL-101-124-108
       :workdir: procs/somedataset
       :language: console
 
       #lets check out the contents in the files
       $ cat example2  && echo '' && cat somedir/example
 
-   .. runrecord:: _examples/DL-101-127-109
+   .. runrecord:: _examples/DL-101-124-109
       :workdir:  procs/somedataset
       :language: console
 
@@ -339,7 +339,7 @@ was applied.
 
    To find out more about a given procedure, you can ask for help:
 
-   .. runrecord:: _examples/DL-101-127-110
+   .. runrecord:: _examples/DL-101-124-110
       :workdir: procs/somedataset
       :language: console
 
@@ -369,7 +369,7 @@ showcases.
 
 Finally, make a note about running procedures inside of ``notes.txt``:
 
-.. runrecord:: _examples/DL-101-127-111
+.. runrecord:: _examples/DL-101-124-111
    :language: console
    :workdir: dl-101/DataLad-101
 
@@ -386,7 +386,7 @@ Finally, make a note about running procedures inside of ``notes.txt``:
 
    EOT
 
-.. runrecord:: _examples/DL-101-127-112
+.. runrecord:: _examples/DL-101-124-112
    :workdir: dl-101/DataLad-101
    :language: console
 

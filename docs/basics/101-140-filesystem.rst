@@ -692,7 +692,7 @@ A different command to remove file content entirely and irreversibly from a repo
 the :command:`datalad drop` command (:manpage:`datalad-drop` manual).
 One use case for this is to make a repository more lean. Think about a
 situation in which a very large result file is computed by default
-in some analysis, but isn't relevant for any project, and one may want to remove it.
+in some analysis, but is not relevant for any project, and one may want to remove it.
 
 If an entire dataset is specified, all file content in sub-*directories* is
 dropped automatically, but for content in sub-*datasets* to be dropped, the
@@ -733,7 +733,7 @@ this by generating a random PDF file:
 .. runrecord:: _examples/DL-101-140-177
    :workdir: dl-101/DataLad-101
    :language: console
-   :caption: the content could be dropped bc the file was obtained with datalad, and dl knows where to retrieve the file again. If this isn't the case, datalad will complain. Let's try:
+   :caption: the content could be dropped bc the file was obtained with datalad, and dl knows where to retrieve the file again. If this is not the case, datalad will complain. Let's try:
    :cast: 03_git_annex_basics
 
    $ convert xc:none -page Letter a.pdf

@@ -94,7 +94,7 @@ opening both a small ``.tsv`` file in the root of the dataset,
 and a larger compressed ``nifti`` (``nii.gz``) in one of the subdirectories in this dataset.
 A small ``.tsv`` (1.9K) file exists and can be opened locally,
 but what would be a large, compressed ``nifti`` file
-isn't. In this state, one cannot open or work with the nifti file, but you can
+is not. In this state, one cannot open or work with the nifti file, but you can
 explore which files exist without the potentially large download.
 
 .. runrecord:: _examples/dataset6

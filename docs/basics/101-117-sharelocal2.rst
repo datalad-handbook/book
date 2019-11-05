@@ -138,5 +138,5 @@ this in the original ``DataLad-101`` directory, and don't forget to save it.
 .. [#f1] Maybe you wonder what the location ``mih@medusa`` is. It is a copy of the
          data on an account belonging to user ``mih`` on the host name ``medusa``.
          Because we don't have the host names' address, nor log-in credentials for
-         this user, we can't retrieve content from this location. However, somebody
+         this user, we can not retrieve content from this location. However, somebody
          else (for example the user ``mih``) could.

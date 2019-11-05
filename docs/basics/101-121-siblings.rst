@@ -18,7 +18,7 @@ provide helpful information for you as well!", says your
 room mate. "How could you get any insightful notes that
 I make in my dataset, or maybe the results of our upcoming
 mid-term project? Its a bit unfair that I can get your work,
-but you can't get mine."
+but you can not get mine."
 
 Consider, for example, that your room mate might have googled about DataLad
 a bit. On the `datalad homepage <https://www.datalad.org/>`_

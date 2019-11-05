@@ -26,7 +26,7 @@ data collection. After completion, he continued to work on validation analyses t
 prove the functionality and usefulness of his software. Next to a directory in which he developed
 his code, and directories with data he tested his code on, he now also has other directories
 with different data sources used for validation analyses.
-"This can't take too long!" Steve thinks optimistically when he finally sits down to write up a paper.
+"This can not take too long!" Steve thinks optimistically when he finally sits down to write up a paper.
 
 
 His scripts run his algorithm on the different data collections, create derivatives of his raw data,

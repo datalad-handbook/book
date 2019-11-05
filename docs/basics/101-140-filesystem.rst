@@ -280,7 +280,7 @@ the best option to turn to.
 
 
 Therefore, while it might be startling
-if you've moved a file and can't open it directly afterwards, everything
+if you've moved a file and can not open it directly afterwards, everything
 will be rectified by :command:`datalad save` as well.
 
 Finally, let's clean up:
@@ -557,7 +557,7 @@ section.
        fatal: Could not read from remote repository.
 
    Git seems pretty insistent (given the amount of error messages) that
-   it can't seem to find a Git repository at the location the ``.git/config``
+   it can not seem to find a Git repository at the location the ``.git/config``
    file specified. Luckily, we can provide this information. Edit the file with
    an editor of your choice and fix the path from
    ``url = ../mock_user/DataLad-101`` to
@@ -739,7 +739,7 @@ this by generating a random PDF file:
    $ convert xc:none -page Letter a.pdf
    $ datalad save -m "add empty pdf"
 
-DataLad will safeguard dropping content that it can't retrieve again:
+DataLad will safeguard dropping content that it can not retrieve again:
 
 .. runrecord:: _examples/DL-101-140-178
    :workdir: dl-101/DataLad-101

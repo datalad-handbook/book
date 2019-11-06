@@ -1,0 +1,6 @@
+$ cd midtermproject
+$ datalad get input/iris.csv
+[ERROR] No dataset found [dataset.py:require_dataset:589] (NoDatasetArgumentFound) 
+usage: datalad get [-h] [-s LABEL] [-d PATH] [-r] [-R LEVELS] [-n]
+                   [-D DESCRIPTION] [--reckless] [-J NJOBS]
+                   [PATH [PATH ...]]

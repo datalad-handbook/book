@@ -1,0 +1,5 @@
+$ datalad rerun
+[ERROR] No dataset found [dataset.py:require_dataset:589] (NoDatasetArgumentFound) 
+usage: datalad rerun [-h] [--since SINCE] [-d DATASET] [-b NAME] [-m MESSAGE]
+                     [--onto base] [--script FILE] [--report] [--explicit]
+                     [REVISION]

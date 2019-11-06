@@ -1,0 +1,9 @@
+$ cat << EOT > output/README.md
+  This directory contains the analysis outputs.
+
+  - ``output/prediction_report.csv`` contains the main classification
+    metrics.
+  - ``output/pairwise_relationships.png`` is a plot of the relations
+    between features.
+
+EOT

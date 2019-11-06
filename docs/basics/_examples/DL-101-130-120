@@ -1,0 +1,6 @@
+$ ls -l output
+$ datalad status
+total 12
+lrwxrwxrwx 1 adina adina 129 Nov  6 16:05 pairwise_relationships.png -> ../.git/annex/objects/Pz/Xm/MD5E-s175662--8a9a3e225267f327e1671cf6d01b1957.png/MD5E-s175662--8a9a3e225267f327e1671cf6d01b1957.png
+lrwxrwxrwx 1 adina adina 123 Nov  6 16:05 prediction_report.csv -> ../.git/annex/objects/8q/6M/MD5E-s345--a88cab39b1a5ec59ace322225cc88bc9.csv/MD5E-s345--a88cab39b1a5ec59ace322225cc88bc9.csv
+-rw-r--r-- 1 adina adina 216 Nov  6 16:05 README.md

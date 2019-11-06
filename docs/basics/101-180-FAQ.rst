@@ -72,20 +72,42 @@ it also adds a range of useful concepts and functions:
   For example, while nesting pure Git repositories is possible via Git
   submodules (that DataLad also uses internally), *cleaning up* after
   placing a random file somewhere into this repository hierarchy can be very
-  painful. One of the key advantages that DataLad brings to the table is that it
-  tries to make the boundaries between repositories vanish from a user's point
-  of view. Most core commands have a --recursive option that will discover
+  painful. A key advantage that DataLad brings to the table is that it makes
+  the boundaries between repositories vanish from a user's point
+  of view. Most core commands have a ``--recursive`` option that will discover
   and traverse any subdatasets and do-the-right-thing.
-  For example, ``datalad save . --recursive`` will solve the above example, no
-  matter what was changed/added, no matter where in a tree of subdatasets.
+  :command:`datalad save . --recursive` will solve the subdataset problem above
+  for example, no matter what was changed/added, no matter where in a tree
+  of subdatasets.
 - DataLad provides users with the ability to act on "virtual" file paths. If
   software needs datafiles that are carried in a subdataset (in Git terms:
   submodule) for a computation or test, a ``datalad get`` will discover if
   there are any subdatasets to install at a particular version to eventually
   provide the file content.
+
 - .. todo::
 
      more here.
+
+
+Does DataLad host my data?
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+No, DataLad manages your data, but it does not host it. When publishing a
+dataset with annexed data, you will need to find a place that the large file
+content can be stored in -- this could be a webserver, a cloud service such
+as `Dropbox <https://www.dropbox.com/>`_, an S3 bucket, or many other storage
+solutions -- and set up a publication dependency on this location.
+This gives you all the freedom to decide where your data lives, and who can
+have access to it. Once this set up is complete, publishing and accessing a
+published dataset and its data is as easy as if it would lie on your own
+machine.
+
+.. todo::
+
+   sketch a typical workflow, link a yet to write section on sharing on third
+   party infrastructure
+
 
 How does Github relate to DataLad?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -97,6 +119,7 @@ users can install directly from Github and seemingly also obtain large file
 content from Github. Github is also capable of resolving submodule/subdataset
 links to other Github repos, which makes for a nice UI.
 
+
 What is the difference between a superdataset, a subdataset, and a dataset?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -105,6 +128,7 @@ subdataset, or a superdataset. The only aspect that makes a dataset a sub- or
 superdataset is whether it is *registered* in another dataset (by means of an entry in the
 ``.gitmodules``, automatically performed upon an appropriate ``datalad
 install -d`` or ``datalad create -d`` command) or contains registered datasets.
+
 
 How can I convert/import/transform an existing Git or Git-annex repository into a DataLad dataset?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -170,6 +194,24 @@ annexed content, make sure it is *unlocked* first:
 After a :command:`datalad unlock` copying and moving contents will work fine.
 A subsequent :command:`datalad save` in the dataset will annex the content
 again.
+
+
+Is there Python 2 support for DataLad?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+No, Python 2 support has been dropped in
+`September 2019 <https://github.com/datalad/datalad/pull/3629>`_.
+
+
+Is there a graphical user interface for DataLad?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+No, DataLad's functionality is available in the command line or via it's
+Python API.
+
+.. todo::
+
+   maybe update this by mentioning the DataLad webapp extension
+
 
 
 .. rubric:: Footnotes

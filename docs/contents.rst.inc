@@ -82,17 +82,6 @@ Tuning datasets to your needs
    basics/101-124-procedures
    basics/101-125-summary
 
-#############
-Help yourself
-#############
-
-.. toctree::
-   :maxdepth: 1
-   :caption: What to do if things go wrong
-
-   basics/101-135-help
-   basics/101-140-filesystem
-   basics/101-136-history
 
 #############################
 Make the most out of datasets
@@ -113,6 +102,20 @@ Make the most out of datasets
 Dataset nesting in real life
 ############################
 
+   basics/101-132-advancednesting.rst
+
+
+#############
+Help yourself
+#############
+
+.. toctree::
+   :maxdepth: 1
+   :caption: What to do if things go wrong
+
+   basics/101-135-help
+   basics/101-140-filesystem
+   basics/101-136-history
 
 
 #########

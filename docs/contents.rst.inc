@@ -95,12 +95,17 @@ Make the most out of datasets
    basics/101-127-yoda
    basics/101-128-summary_yoda
    basics/101-129-python
-   basics/101-130-summary
+   basics/101-130-yodaproject
+   basics/101-131-summary
 
 
-############################
-Dataset nesting in real life
-############################
+###########################
+Dataset nesting -- Advanced
+###########################
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Manipulating subdatasets and its impact on the superdataset(s)
 
    basics/101-132-advancednesting.rst
 

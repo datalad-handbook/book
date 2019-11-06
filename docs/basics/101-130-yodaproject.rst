@@ -58,8 +58,8 @@ mentally tick of YODA principle 2 for your input data.
 
 Now that you have this raw dataset, it is time to create an analysis for your
 midterm project.
-For this, you start by creating an analysis dataset. Let's do it as a subdataset
-of ``DataLad-101``. For this, specify the ``--dataset`` option within
+You start by creating an analysis dataset. Let's do it as a subdataset
+of ``DataLad-101``. Remember to specify the ``--dataset`` option within
 :command:`datalad create`:
 
 .. runrecord:: _examples/DL-101-130-103
@@ -275,46 +275,124 @@ dataset:
 this was and will be the fastest I have ever completed a midterm project!"
 But what is still missing is a human readable description of your dataset.
 The YODA procedure kindly placed a ``README.md`` file into the root of your
-dataset that you can use for this [#f4]. We will also create a README.md
-inside of ``outputs``
+dataset that you can use for this [#f4].
 
-.. runrecord:: _examples/DL-101-
+.. runrecord:: _examples/DL-101-130-115
+   :language: console
+   :workdir: dl-101/DataLad-101/midterm_project
 
+   # with the >| redirection we are replacing existing contents in the file
+   $ cat << EOT >| README.md
 
+   # Midterm YODA Data Analysis Project
 
-.. todo::
+   ## Dataset structure
 
-   maybe add something human readable to the READMEs?
+   - All inputs (i.e. building blocks from other sources) are located in
+     `input/`.
+   - All custom code is located in `code/`.
+   - All results (i.e., generated files) are located in ``output/``
+
+   EOT
+
+.. runrecord:: _examples/DL-101-130-116
+   :language: console
+   :workdir: dl-101/DataLad-101/midterm_project
+
+   $ datalad status
+
+.. runrecord:: _examples/DL-101-130-117
+   :language: console
+   :workdir: dl-101/DataLad-101/midterm_project
+
+   $ datalad save -m "Provide project description" README.md
+
+To be extra helpful we will also create a README.md inside of ``outputs``
+that tells others about the nature of the result files:
+
+.. runrecord:: _examples/DL-101-130-118
+   :language: console
+   :workdir: dl-101/DataLad-101/midterm_project
+
+   $ cat << EOT > output/README.md
+     This directory contains the analysis outputs.
+
+     - ``output/prediction_report.csv`` contains the main classification
+       metrics.
+     - ``output/pairwise_relationships.png`` is a plot of the relations
+       between features.
+
+   EOT
+
+One feature of the YODA procedure was that it configured certain files (for
+examples everything inside of ``code/`` and the ``README.md`` file in the
+root of the dataset) to be saved in Git instead of Git-annex. This was the
+reason why the ``README.md`` in the root of the dataset was easily modifyable.
+However, such a configuration does not exist for the ``README.md`` file we
+are creating in ``output``. This means, should we :command:`datalad save`
+this file, it will be annexed -- an inconvenience, given that this file is
+small enough to be handled by Git.
+
+Luckily, there is a handy shortcut to saving files in Git that does not
+require you to edit configurations in ``.gitattributes``: The ``--to-git``
+option for :command:`datalad save`.
+
+.. runrecord:: _examples/DL-101-130-119
+   :language: console
+   :workdir: dl-101/DataLad-101/midterm_project
+
+   $ datalad save -m "add README.md to output directory" --to-git output/README.md
+
+Let's check whether this has worked: Is the file symlinked?
+
+.. runrecord:: _examples/DL-101-130-120
+   :language: console
+   :workdir: dl-101/DataLad-101/midterm_project
+
+   $ ls -l output
+   $ datalad status
+
+No, it isn't, and :command:`datalad status` is clean -- great, so it is
+stored in Git!
 
 The only thing left to do now is to hand in your assignment. According to the
-syllabus, this should be done via Github.
+syllabus, this should be done via :term:`Github`.
 
 .. findoutmore:: What is Github?
 
-   Github is a web based hosting service for Git repositories.
-   TODO
+   Github is a web based hosting service for Git repositories. Among many
+   different other useful perks it adds features that allow collaboration on
+   Git repositories. Gitlab is a similar service with highly similar
+   features, but its source code is free and open, whereas Github is a
+   subsidary of Microsoft (though most services are free for private users).
+
+   .. todo::
+
+      elaborate how such infrastructure is cool to share datasets through,
+      easily accessible, ...
 
 .. note::
 
    The upcoming part requires a Github account. If you do not have one you
    can either
 
-   - create on now -- it is fast, free, and you can get rid of it afterwards,
+   - Create on now -- it is fast, free, and you can get rid of it afterwards,
      if you want to.
-   - or exchange the command ``create-sibling-github`` with
+   - Or exchange the command ``create-sibling-github`` with
      ``create-sibling-gitlab`` if you have a Gitlab account instead of a Github
      account.
+   - Don't listen to me and not follow along. I'm only a book, not your mom.
 
 For this, you need to create a repository for this dataset on Github,
 configure this Github repository to be a :term:`sibling` of the
 ``midterm_project`` dataset, and *publish* your dataset to Github. Luckily,
 DataLad can make all of this very easy with the
-:command:`datalad create-sibling-github`` command (or, for
+:command:`datalad create-sibling-github` command (or, for
 `Gitlab <https://about.gitlab.com/>`_,
-:command:`datalad create-sibling-gitlab``).
+:command:`datalad create-sibling-gitlab`).
 
-index:: ! datalad command; create-sibling-github
-index:: ! datalad command; create-sibling-gitlab
+.. index:: ! datalad command; create-sibling-github
+.. index:: ! datalad command; create-sibling-gitlab
 
 The command takes a repository name and Github authentication credentials
 (either in the command line call with options ``github-login <NAME>`` and
@@ -323,15 +401,16 @@ configuration [#f5]_, or interactively). Based on the credentials and the
 repository name, it will create a new, empty repository on Github, and
 configure this repository as a sibling of the dataset:
 
-.. runrecord:: _examples/DL-101-130-115
+.. runrecord:: _examples/DL-101-130-121
    :language: console
    :workdir: dl-101/DataLad-101/midterm_project
+   :realcommand: datalad --log-level critical siblings add -d . --name github --url https://github.com/adswa/midtermproject.git
 
    $ datalad create-sibling-github -d . midtermproject
 
 Verify that this worked by listing the siblings of the dataset:
 
-.. runrecord:: _examples/DL-101-130-116
+.. runrecord:: _examples/DL-101-130-122
    :language: console
    :workdir: dl-101/DataLad-101/midterm_project
 
@@ -342,7 +421,7 @@ On Github, you will see a new, empty repository with the name
 history or files. This requires *publishing* the current state of the dataset
 to this sibling:
 
-.. runrecord:: _examples/DL-101-130-116
+.. runrecord:: _examples/DL-101-130-123
    :language: console
    :workdir: dl-101/DataLad-101/midterm_project
 
@@ -350,7 +429,10 @@ to this sibling:
 
 .. todo::
 
-   maybe we need more on publish
+   The sibling on github and publishing is tricky in executable code snippets
+   ... How can we make authentication work without exposing passwords? how
+   can we make publish work after rebuilding the book from scratch? --> maybe
+   only code blocks
 
 
 .. gitusernote::
@@ -360,6 +442,9 @@ to this sibling:
    :command:`datalad publish` to this sibling, your datasets commits
    will be pushed there.
 
+Yay! Consider your midterm project submitted! Others can now install your
+dataset and check out your data science project -- even better: they can
+reproduce your data science project!
 
 .. findoutmore:: On the looks and feels of this published dataset
 
@@ -371,54 +456,60 @@ to this sibling:
    Replace the ``url`` in the :command:`install` command below with the path
    to your own ``midtermproject`` Github repository:
 
-   .. runrecord:: _examples/DL-101-130-120
+   Note that we performed a *recursive* installation. Thus, we don't need to
+   install the ``input/`` subdataset again.
+   Let's start with the subdataset, and see whether we can retrieve the
+   input ``iris.csv`` file. This should not be a problem, since it's origin
+   is recorded:
+
+   .. runrecord:: _examples/DL-101-130-125
       :language: console
       :workdir: dl-101/DataLad-101/midterm_project
 
-      # move out of DataLad-101/midterm_project
       $ cd ../../../
-      $ datalad install -r https://github.com/adswa/midtermproject.git'
+      $ datalad install -r --source "https://github.com/adswa/midtermproject.git"
 
-    Note that we performed a *recursive* installation. Thus, we don't need to
-    install the ``input/`` subdataset again.
-    Let's start with the subdataset, and see whether we can retrieve the
-    input ``iris.csv`` file. This should not be a problem, since it's origin
-    is recorded:
+   .. runrecord:: _examples/DL-101-130-126
+      :language: console
+      :workdir: dl-101
 
-    .. runrecord:: _examples/DL-101-130-121
-       :language: console
-       :workdir: dl-101/midtermproject
+      $ cd midtermproject
+      $ datalad get input/iris.csv
 
-       $ datalad get input/iris.csv
+   Nice, this worked well. The output files, however, can not be easily
+   retrieved:
 
-    Nice, this worked well. The output files, however, can not be easily
-    retrieved:
+   .. runrecord:: _examples/DL-101-130-127
+      :language: console
+      :workdir: dl-101/midtermproject
 
-    .. runrecord:: _examples/DL-101-130-122
-       :language: console
-       :workdir: dl-101/midtermproject
+      $ datalad get outputs/*
 
-       $ datalad get outputs/*
+   Why is that? The file content of these files is managed by Git-annex, and
+   thus only information about the file name and location is known to Git.
+   Because Github does not host large data, annexed file content always
+   needs to be deposited somewhere else (e.g., a webserver) to make it
+   accessible via :command:`datalad get`. A later section
 
-    Why is that? The file content of these files is managed by Git-annex, and
-    thus only information about the file name and location is known to Git.
-    Because Github does not host large data, annexed file content always
-    needs to be deposited somewhere else (e.g., a webserver) to make it
-    accessible via :command:`datalad get`. A later section
+   .. todo::
 
-    .. todo::
-
-       link 3rd party infra section
+      link 3rd party infra section
 
     will demonstrate how this can be done. For this dataset, it is not
     necessary to make the outputs available, though: Because all provenance
     on their creation was captured, we can simply recompute them with the
     :command:`datalad rerun` command.
 
-    .. todo::
+   .. runrecord:: _examples/DL-101-130-128
+      :language: console
+      :workdir: dl-101/midtermproject
 
-       rerunning currently fails! removing the output given with --output
-       gets rid of the output dir that seaborn expects to save plots under...
+      $ datalad rerun
+
+   .. todo::
+
+      rerunning currently fails! removing the output given with --output
+      gets rid of the output dir that seaborn expects to save plots under...
 
 
 .. rubric:: Footnotes

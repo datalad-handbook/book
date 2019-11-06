@@ -11,7 +11,7 @@ subdataset is a subdataset that you modified and worked in.
 Note a few things:
 
 - Being inside of the dataset feels normal, and no info about anything
-outside of the dataset
+  outside of the dataset
 - Build up a standalone history in the subdataset
 
 

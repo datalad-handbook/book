@@ -302,7 +302,7 @@ syllabus, this should be done via Github.
    - create on now -- it is fast, free, and you can get rid of it afterwards,
      if you want to.
    - or exchange the command ``create-sibling-github`` with
-   ``create-sibling-gitlab`` if you have a Gitlab account instead of a Github
+     ``create-sibling-gitlab`` if you have a Gitlab account instead of a Github
      account.
 
 For this, you need to create a repository for this dataset on Github,

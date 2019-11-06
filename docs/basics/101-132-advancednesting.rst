@@ -25,3 +25,10 @@ what it thinks about this.
 
 todo: the Git -C option to perform command across dataset boundaries without
 cd'ing
+
+.. runrecord:: _examples/DL-101-132-101
+   :language: console
+   :workdir: dl-101/DataLad-101/midterm_project
+
+   # move into the superdataset
+   $

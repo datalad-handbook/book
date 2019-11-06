@@ -1,5 +1,0 @@
-$ cd midterm_project
-$ datalad run-procedure cfg_yoda
-[INFO] Running procedure cfg_yoda 
-[INFO] == Command start (output follows) ===== 
-[INFO] == Command exit (modification check follows) ===== 

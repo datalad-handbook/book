@@ -1,15 +1,10 @@
-$ cd ../../../
+$ cd ../../
 $ datalad install -r --source "https://github.com/adswa/midtermproject.git"
-$ datalad get input/iris.csv
-[INFO] Cloning https://github.com/adswa/midtermproject.git [1 other candidates] into '/home/me/midtermproject' 
+[INFO] Cloning https://github.com/adswa/midtermproject.git [1 other candidates] into '/home/me/dl-101/midtermproject'
 [INFO]   Remote origin not usable by git-annex; setting annex-ignore 
-[INFO] Installing <Dataset path=/home/me/midtermproject> underneath /home/me/midtermproject recursively 
-[INFO] Cloning https://github.com/adswa/midtermproject.git/input [2 other candidates] into '/home/me/midtermproject/input' 
-install(ok): /home/me/midtermproject (dataset)
+[INFO] Installing <Dataset path=/home/me/dl-101/midtermproject> underneath /home/me/dl-101/midtermproject recursively
+[INFO] Cloning https://github.com/adswa/midtermproject.git/input [2 other candidates] into '/home/me/dl-101/midtermproject/input'
+install(ok): /home/me/dl-101/midtermproject (dataset)
 action summary:
   get (ok: 1)
   install (ok: 1)
-[ERROR] No dataset found [dataset.py:require_dataset:589] (NoDatasetArgumentFound) 
-usage: datalad get [-h] [-s LABEL] [-d PATH] [-r] [-R LEVELS] [-n]
-                   [-D DESCRIPTION] [--reckless] [-J NJOBS]
-                   [PATH [PATH ...]]

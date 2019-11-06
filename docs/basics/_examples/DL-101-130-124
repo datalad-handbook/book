@@ -1,5 +1,0 @@
-# move out of DataLad-101/midterm_project
-$ cd ../../../
-$ datalad install -r https://github.com/adswa/midtermproject.git'
-bash: line 3: unexpected EOF while looking for matching `''
-bash: line 4: syntax error: unexpected end of file

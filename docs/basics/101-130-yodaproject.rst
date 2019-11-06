@@ -244,7 +244,8 @@ execution of the script in a :command:`datalad run` command.
 
    $ datalad run -m "analyze iris data with classification analysis" \
      --input "input/iris.csv" \
-     --output "output/*" \
+     --output "output/prediction_report.csv" \
+     --output "output/pairwise_relationships.png" \
      "python code/script.py"
 
 As the successful command summary indicates, your analysis seems to work! Two
@@ -466,7 +467,7 @@ reproduce your data science project!
       :language: console
       :workdir: dl-101/DataLad-101/midterm_project
 
-      $ cd ../../../
+      $ cd ../../
       $ datalad install -r --source "https://github.com/adswa/midtermproject.git"
 
    .. runrecord:: _examples/DL-101-130-126
@@ -483,7 +484,7 @@ reproduce your data science project!
       :language: console
       :workdir: dl-101/midtermproject
 
-      $ datalad get outputs/*
+      $ datalad get output/*
 
    Why is that? The file content of these files is managed by Git-annex, and
    thus only information about the file name and location is known to Git.
@@ -503,13 +504,7 @@ reproduce your data science project!
    .. runrecord:: _examples/DL-101-130-128
       :language: console
       :workdir: dl-101/midtermproject
-
-      $ datalad rerun
-
-   .. todo::
-
-      rerunning currently fails! removing the output given with --output
-      gets rid of the output dir that seaborn expects to save plots under...
+      :realcommand: echo "datalad rerun $(git rev-parse HEAD~2)" && datalad rerun $(git rev-parse HEAD~2)
 
 
 .. rubric:: Footnotes

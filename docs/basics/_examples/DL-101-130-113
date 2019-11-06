@@ -1,6 +1,7 @@
 $ datalad run -m "analyze iris data with classification analysis" \
   --input "input/iris.csv" \
-  --output "output/*" \
+  --output "output/prediction_report.csv" \
+  --output "output/pairwise_relationships.png" \
   "python code/script.py"
 [INFO] Making sure inputs are available (this may take some time) 
 [INFO] == Command start (output follows) ===== 

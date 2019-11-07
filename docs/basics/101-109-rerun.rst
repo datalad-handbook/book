@@ -13,7 +13,7 @@ Let's actually take a look into this file now:
    :language: console
    :workdir: dl-101/DataLad-101
    :lines: 1-30
-   :caption: let's take a look into our output file:
+   :caption: The script produced a simple list of podcast titles. let's take a look into our output file. What's cool is that is was created in a way that the code and output are linked:
    :cast: 02_reproducible_execution
 
    $ less recordings/podcasts.tsv
@@ -99,7 +99,7 @@ So you go ahead and find the commit :term:`shasum` in your history:
    :caption: We could execute the same command as before. However, we can also let DataLad take care of it, and use the datalad rerun command.
    :cast: 02_reproducible_execution
 
-   $ git log -2
+   $ git log -n 2
 
 Take that shasum and paste it after :command:`datalad rerun`
 (the first 6-8 characters of the shasum would be sufficient,
@@ -131,7 +131,7 @@ it will also not be recorded in the history.
    :caption: how does a rerun look in the history?
    :cast: 02_reproducible_execution
 
-   $ git log -1
+   $ git log -n 1
 
 In the dataset's history,
 we can see that a new :command:`datalad run` was recorded. This action is
@@ -263,7 +263,6 @@ Finally, save this note.
 .. runrecord:: _examples/DL-101-108-122
    :language: console
    :workdir: dl-101/DataLad-101
-   :caption: Another final note on run and rerun
    :cast: 02_reproducible_execution
 
    $ datalad save -m "add note on basic datalad run and datalad rerun"

@@ -107,7 +107,8 @@ Dataset nesting -- Advanced
    :maxdepth: 1
    :caption: Manipulating subdatasets and its impact on the superdataset(s)
 
-   basics/101-132-advancednesting.rst
+   basics/101-132-advancednesting
+   basics/101-132-gitC
 
 
 #############

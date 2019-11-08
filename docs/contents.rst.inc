@@ -94,16 +94,6 @@ Help yourself
    basics/101-140-filesystem
    basics/101-136-history
 
-################
-Advanced options
-################
-
-.. toctree::
-   :maxdepth: 1
-   :caption: Small pieces of advice and helpful but advanced options
-
-   basics/101-130-ignore
-
 #############################
 Make the most out of datasets
 #############################
@@ -115,6 +105,17 @@ Make the most out of datasets
    basics/101-122-intro
    basics/101-123-yoda
    basics/101-124-summary
+
+
+###############
+Further options
+###############
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Small pieces of advice and helpful additional options
+
+   basics/101-179-gitignore
 
 #########
 Use Cases

@@ -90,7 +90,7 @@ to a :command:`datalad run`:
 .. runrecord:: _examples/DL-101-112-105
    :language: console
    :workdir: dl-101/DataLad-101
-   :notes: we'll put this into a note (which we won't save)
+   :notes: we'll make a note on clean datasets (which we won't save)
    :cast: 02_reproducible_execution
 
    $ cat << EOT >> notes.txt
@@ -140,7 +140,7 @@ Add an additional note on the ``--explicit`` flag, and finally save your changes
 .. runrecord:: _examples/DL-101-112-107
    :language: console
    :workdir: dl-101/DataLad-101
-   :notes: we note this down
+   :notes: Note on --explicit flag
    :cast: 02_reproducible_execution
 
    $ cat << EOT >> notes.txt
@@ -169,7 +169,7 @@ commit to see a :term:`run record` with more content:
    :notes: finally, lets see a more complex runrecord
    :cast: 02_reproducible_execution
 
-   $ git log -p -2
+   $ git log -p -n 2
 
 .. todo::
 

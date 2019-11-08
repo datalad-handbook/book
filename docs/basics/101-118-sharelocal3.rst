@@ -42,7 +42,7 @@ want to run by taking a look into the history of the dataset
 .. runrecord:: _examples/DL-101-118-101
    :language: console
    :workdir: dl-101/DataLad-101
-   :caption: More cool things on shared datasets: rerunning run commands
+   :notes: More cool things on shared datasets: rerunning run commands
    :cast: 04_collaboration
 
    # navigate into the shared copy
@@ -52,7 +52,7 @@ want to run by taking a look into the history of the dataset
    :language: console
    :workdir: dl-101/mock_user/DataLad-101
    :emphasize-lines: 4
-   :caption: find the shasum
+   :notes: find the shasum
    :cast: 04_collaboration
 
    # lets view the history
@@ -67,7 +67,7 @@ command:
    :language: console
    :workdir: dl-101/mock_user/DataLad-101
    :realcommand: echo "$ datalad rerun $(git rev-parse HEAD~1)" && datalad rerun $(git rev-parse HEAD~1)
-   :caption: plug the shasum into a rerun command
+   :notes: plug the shasum into a rerun command
    :cast: 04_collaboration
 
 "This was so easy!" you exclaim. DataLad retrieved the missing

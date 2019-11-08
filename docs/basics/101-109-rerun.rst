@@ -13,7 +13,7 @@ Let's actually take a look into this file now:
    :language: console
    :workdir: dl-101/DataLad-101
    :lines: 1-30
-   :caption: let's take a look into our output file:
+   :notes: let's take a look into our output file:
    :cast: 02_reproducible_execution
 
    $ less recordings/podcasts.tsv
@@ -35,7 +35,7 @@ with the following, fixed script:
    :language: console
    :workdir: dl-101/DataLad-101
    :emphasize-lines: 2
-   :caption: Dang, we made a mistake in our script: we only listed a part of the podcasts! Let's fix the script:
+   :notes: Dang, we made a mistake in our script: we only listed a part of the podcasts! Let's fix the script:
    :cast: 02_reproducible_execution
 
    $ cat << EOT >| code/list_titles.sh
@@ -96,7 +96,7 @@ So you go ahead and find the commit :term:`shasum` in your history:
    :workdir: dl-101/DataLad-101
    :lines: 1-12
    :emphasize-lines: 8
-   :caption: We could execute the same command as before. However, we can also let DataLad take care of it, and use the datalad rerun command.
+   :notes: We could execute the same command as before. However, we can also let DataLad take care of it, and use the datalad rerun command.
    :cast: 02_reproducible_execution
 
    $ git log -2
@@ -109,7 +109,7 @@ here we're using all of them).
    :language: console
    :workdir: dl-101/DataLad-101
    :realcommand: echo "$ datalad rerun $(git rev-parse HEAD~1)" && datalad rerun $(git rev-parse HEAD~1)
-   :caption: We'll find the shasum of the run commit and plug it into rerun
+   :notes: We'll find the shasum of the run commit and plug it into rerun
    :cast: 02_reproducible_execution
 
 Now DataLad has made use of the ``run record``, and
@@ -128,7 +128,7 @@ it will also not be recorded in the history.
    :language: console
    :workdir: dl-101/DataLad-101
    :emphasize-lines: 4
-   :caption: how does a rerun look in the history?
+   :notes: how does a rerun look in the history?
    :cast: 02_reproducible_execution
 
    $ git log -1
@@ -156,7 +156,7 @@ of the dataset and the previous commit (called "``HEAD~1``" in Git terminology):
 .. runrecord:: _examples/DL-101-108-116
    :language: console
    :workdir: dl-101/DataLad-101
-   :caption: The datalad diff command can help us find out what changed between the last two commands:
+   :notes: The datalad diff command can help us find out what changed between the last two commands:
    :cast: 02_reproducible_execution
 
    $ datalad diff --to HEAD~1
@@ -168,7 +168,7 @@ diff view by pressing ``q``):
 .. runrecord:: _examples/DL-101-108-117
    :language: console
    :workdir: dl-101/DataLad-101
-   :caption: The git diff command has even more insights:
+   :notes: The git diff command has even more insights:
    :cast: 02_reproducible_execution
 
    $ git diff HEAD~1
@@ -183,7 +183,7 @@ Quickly create a note about these two helpful commands in ``notes.txt``:
 .. runrecord:: _examples/DL-101-108-118
    :language: console
    :workdir: dl-101/DataLad-101
-   :caption: Let's make a note about this.
+   :notes: Let's make a note about this.
    :cast: 02_reproducible_execution
 
    $ cat << EOT >> notes.txt
@@ -225,7 +225,7 @@ give the file path to :command:`git log` (prefixed by ``--``):
 .. runrecord:: _examples/DL-101-108-120
    :language: console
    :workdir: dl-101/DataLad-101
-   :caption: An amazing thing is that DataLad captured all of the provenance of the output file, and we get use git tools to find out about it
+   :notes: An amazing thing is that DataLad captured all of the provenance of the output file, and we get use git tools to find out about it
    :cast: 02_reproducible_execution
 
    $ git log -- recordings/podcasts.tsv
@@ -243,7 +243,7 @@ But prior to that, make a note about :command:`datalad run` and :command:`datala
 .. runrecord:: _examples/DL-101-108-121
    :language: console
    :workdir: dl-101/DataLad-101
-   :caption: Another final note on run and rerun
+   :notes: Another final note on run and rerun
    :cast: 02_reproducible_execution
 
    $ cat << EOT >> notes.txt
@@ -263,7 +263,7 @@ Finally, save this note.
 .. runrecord:: _examples/DL-101-108-122
    :language: console
    :workdir: dl-101/DataLad-101
-   :caption: Another final note on run and rerun
+   :notes: Another final note on run and rerun
    :cast: 02_reproducible_execution
 
    $ datalad save -m "add note on basic datalad run and datalad rerun"

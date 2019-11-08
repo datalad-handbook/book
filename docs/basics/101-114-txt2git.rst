@@ -33,7 +33,7 @@ The second commit message in our datasets history summarizes this:
    :workdir: dl-101
    :emphasize-lines: 3
    :realcommand: cd DataLad-101 && git log --reverse --oneline
-   :caption: Confusing: Why could we modify the tsv file without unlocking? The reason is in the dataset configuration with text2git
+   :notes: Confusing: Why could we modify the tsv file without unlocking? The reason is in the dataset configuration with text2git
    :cast: 03_git_annex_basics
 
    $ git log --reverse --oneline

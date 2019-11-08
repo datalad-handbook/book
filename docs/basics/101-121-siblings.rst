@@ -44,7 +44,7 @@ and run the following command
 .. runrecord:: _examples/DL-101-121-101
    :language: console
    :workdir: dl-101/DataLad-101
-   :caption: Let's make changes in the copy of the original ds
+   :notes: Let's make changes in the copy of the original ds
    :cast: 04_collaboration
 
    # navigate into the installed copy
@@ -61,7 +61,7 @@ Run a quick datalad status:
 .. runrecord:: _examples/DL-101-121-102
    :language: console
    :workdir: dl-101/mock_user/DataLad-101
-   :caption: the download url command takes care of saving contents for you
+   :notes: the download url command takes care of saving contents for you
    :cast: 04_collaboration
 
    $ datalad status
@@ -75,7 +75,7 @@ here:
    :language: console
    :workdir: dl-101/mock_user/DataLad-101
    :lines: 1-30
-   :caption: the ds copy has a change the original ds does not have:
+   :notes: the ds copy has a change the original ds does not have:
    :cast: 04_collaboration
 
    $ git log -1 -p
@@ -118,7 +118,7 @@ This registers your room mate's ``DataLad-101`` as a "sibling" (we will call it
 .. runrecord:: _examples/DL-101-121-104
    :language: console
    :workdir: dl-101/mock_user/DataLad-101
-   :caption: To allow updates from copy to original we have to configure the copy as a sibling of the original
+   :notes: To allow updates from copy to original we have to configure the copy as a sibling of the original
    :cast: 04_collaboration
 
    $ cd ../../DataLad-101
@@ -144,7 +144,7 @@ is now known to your own dataset as "roommate"
 .. runrecord:: _examples/DL-101-121-105
    :language: console
    :workdir: dl-101/DataLad-101
-   :caption: we can check which siblings the dataset has
+   :notes: we can check which siblings the dataset has
    :cast: 04_collaboration
 
    $ datalad siblings
@@ -185,7 +185,7 @@ the ``--merge`` option.
 .. runrecord:: _examples/DL-101-121-106
    :language: console
    :workdir: dl-101/DataLad-101
-   :caption: now we can update. Problem: how do we know whether we want the changes? --> plain datalad update
+   :notes: now we can update. Problem: how do we know whether we want the changes? --> plain datalad update
    :cast: 04_collaboration
 
    $ datalad update -s roommate
@@ -203,7 +203,7 @@ he added is not yet in your ``code/`` directory:
 .. runrecord:: _examples/DL-101-121-107
    :language: console
    :workdir: dl-101/DataLad-101
-   :caption: no file changes there yet, but where are they?
+   :notes: no file changes there yet, but where are they?
    :cast: 04_collaboration
 
    $ ls code/
@@ -235,7 +235,7 @@ the former for a different lecture:
 .. runrecord:: _examples/DL-101-121-108
    :language: console
    :workdir: dl-101/DataLad-101
-   :caption: on a different branch: remotes/roommate/master. Do a git remote -v here
+   :notes: on a different branch: remotes/roommate/master. Do a git remote -v here
    :cast: 04_collaboration
 
    $ datalad diff --to remotes/roommate/master
@@ -247,7 +247,7 @@ that there is a difference in ``notes.txt``! Let's ask
 .. runrecord:: _examples/DL-101-121-109
    :language: console
    :workdir: dl-101/DataLad-101
-   :caption: also git diff
+   :notes: also git diff
    :cast: 04_collaboration
 
    $ git diff remotes/roommate/master
@@ -277,7 +277,7 @@ of your room mate's dataset, but you incorporate all changes he made
 .. runrecord:: _examples/DL-101-121-110
    :language: console
    :workdir: dl-101/DataLad-101
-   :caption: no we can safely merge
+   :notes: no we can safely merge
    :cast: 04_collaboration
 
    $ datalad update --merge -s roommate
@@ -289,7 +289,7 @@ directory and also peek into the history:
 .. runrecord:: _examples/DL-101-121-111
    :language: console
    :workdir: dl-101/DataLad-101
-   :caption: check for the updated files... they are there!
+   :notes: check for the updated files... they are there!
    :cast: 04_collaboration
 
    $ ls code/
@@ -299,7 +299,7 @@ directory and also peek into the history:
    :lines: 1-6
    :emphasize-lines: 2, 4
    :workdir: dl-101/DataLad-101
-   :caption: and here is the summary in the log
+   :notes: and here is the summary in the log
    :cast: 04_collaboration
 
    $ git log --oneline
@@ -324,7 +324,7 @@ Create a note about this, and save it.
 .. runrecord:: _examples/DL-101-121-113
    :language: console
    :workdir: dl-101/DataLad-101
-   :caption: write a note
+   :notes: write a note
    :cast: 04_collaboration
 
    $ cat << EOT >> notes.txt

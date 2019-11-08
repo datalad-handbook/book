@@ -38,7 +38,7 @@ this excerpt).
    :emphasize-lines: 24
    :realcommand: git log -p
    :cast: 01_dataset_basics
-   :caption: The superdataset only stores the version of the subdataset.  Let's take a look into how the superdataset's history looks like
+   :notes: The superdataset only stores the version of the subdataset.  Let's take a look into how the superdataset's history looks like
 
    $ git log -p -n 2
 
@@ -66,7 +66,7 @@ subdataset's history:
    :workdir: dl-101/DataLad-101
    :emphasize-lines: 3
    :cast: 01_dataset_basics
-   :caption: We can find this shasum in the subdatasets history: it's the most recent change
+   :notes: We can find this shasum in the subdatasets history: it's the most recent change
 
    $ cd recordings/longnow
    $ git log --oneline

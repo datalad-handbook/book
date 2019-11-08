@@ -1,7 +1,7 @@
 .. _summary_python:
 
-Summary: DataLad's Python API
------------------------------
+Summary
+-------
 
 DataLad's Python API makes all of DataLad's functionality available in
 Python, either as standalone functions that are exposed via ``datalad.api``,

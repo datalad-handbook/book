@@ -12,7 +12,7 @@ This feature can help to automate dataset operations, provides an alternative
 to the command line, and it is immensely useful when creating reproducible
 data analyses."
 
-This lecture will give you an overview on DataLad's Python API and explore
+Todays lecture will give you an overview on DataLad's Python API and explore
 how to make use of it in an analysis project. Together with the previous
 section on the YODA principles, this section will be the basis for a data
 analysis midterm project.
@@ -51,11 +51,6 @@ dataset with DataLad in Python::
 
 As shown above, the only required parameter for a Dataset is the ``path`` to
 its location, and this location may or may not exist yet.
-
-
-.. todo::
-
-   Dev: make these python code snippets executable for testing?
 
 Use cases for DataLad's Python API
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

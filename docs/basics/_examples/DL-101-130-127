@@ -1,9 +1,9 @@
 $ datalad get output/*
 [WARNING] Running get resulted in stderr output: git-annex: get: 2 failed
 
-[ERROR] not available; Try making some of these repositories available:; 	3e25f1c6-25e2-40c1-b6b1-cdeff53d1ea0 -- me@muninn:~/dl-101/DataLad-101/midterm_project; ; (Note that these git remotes have annex-ignore set: origin) [get(/home/me/dl-101/midtermproject/output/prediction_report.csv)]
-[ERROR] not available; Try making some of these repositories available:; 	3e25f1c6-25e2-40c1-b6b1-cdeff53d1ea0 -- me@muninn:~/dl-101/DataLad-101/midterm_project; ; (Note that these git remotes have annex-ignore set: origin) [get(/home/me/dl-101/midtermproject/output/pairwise_relationships.png)]
-get(error): output/prediction_report.csv (file) [not available; Try making some of these repositories available:; 	3e25f1c6-25e2-40c1-b6b1-cdeff53d1ea0 -- me@muninn:~/dl-101/DataLad-101/midterm_project; ; (Note that these git remotes have annex-ignore set: origin)]
-get(error): output/pairwise_relationships.png (file) [not available; Try making some of these repositories available:; 	3e25f1c6-25e2-40c1-b6b1-cdeff53d1ea0 -- me@muninn:~/dl-101/DataLad-101/midterm_project; ; (Note that these git remotes have annex-ignore set: origin)]
+[ERROR] not available; Try making some of these repositories available:; 	cbdfe13d-4f49-4500-b8ee-06d3b94f7178 -- me@muninn:~/dl-101/DataLad-101/midterm_project; ; (Note that these git remotes have annex-ignore set: origin) [get(/home/me/dl-101/midtermproject/output/prediction_report.csv)]
+[ERROR] not available; Try making some of these repositories available:; 	cbdfe13d-4f49-4500-b8ee-06d3b94f7178 -- me@muninn:~/dl-101/DataLad-101/midterm_project; ; (Note that these git remotes have annex-ignore set: origin) [get(/home/me/dl-101/midtermproject/output/pairwise_relationships.png)]
+get(error): output/prediction_report.csv (file) [not available; Try making some of these repositories available:; 	cbdfe13d-4f49-4500-b8ee-06d3b94f7178 -- me@muninn:~/dl-101/DataLad-101/midterm_project; ; (Note that these git remotes have annex-ignore set: origin)]
+get(error): output/pairwise_relationships.png (file) [not available; Try making some of these repositories available:; 	cbdfe13d-4f49-4500-b8ee-06d3b94f7178 -- me@muninn:~/dl-101/DataLad-101/midterm_project; ; (Note that these git remotes have annex-ignore set: origin)]
 action summary:
   get (error: 2, notneeded: 1)

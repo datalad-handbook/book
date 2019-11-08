@@ -5,11 +5,8 @@ $ cat << EOT >| README.md
 
 ## Dataset structure
 
-- All inputs (i.e. building blocks from other sources) are located in
-  `input/`.
-- All custom code is located in `code/`.
-- All results (i.e., generated files) are located in ``output/``
+- All inputs (i.e. building blocks from other sources) are located in input/.
+- All custom code is located in code/.
+- All results (i.e., generated files) are located in output/.
 
 EOT
-bash: line 2: input/: Is a directory
-bash: line 2: code/: Is a directory

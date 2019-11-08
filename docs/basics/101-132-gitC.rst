@@ -9,3 +9,7 @@ Luckily, Git has an option to run commands in a path different from the current
 working directory: ``-C`` (note that it is a capital C). Providing this
 option together with a path to any Git command let's you run the command as
 if Git was started in this path instead of the current working directory.
+
+.. todo::
+
+   this needs some examples and practice.

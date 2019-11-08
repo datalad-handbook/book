@@ -1,0 +1,13 @@
+$ datalad run -m "extract st-bernard lily" \
+ --input "sources/flowers.jpg" \
+ --output "st-bernard.jpg" \
+ "convert -extract 1522x1522+0+0 sources/flowers.jpg st-bernard.jpg"
+[INFO] Making sure inputs are available (this may take some time) 
+[INFO] == Command start (output follows) ===== 
+[INFO] == Command exit (modification check follows) ===== 
+add(ok): st-bernard.jpg (file)
+save(ok): . (dataset)
+action summary:
+  add (ok: 1)
+  get (notneeded: 1)
+  save (ok: 1)

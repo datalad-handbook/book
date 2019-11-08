@@ -159,7 +159,7 @@ data from, you are fine.
 
 .. todo::
 
-   If one does not have an SSH key configured, e.g. on a server (from remodnav paper on brainbfast)::
+   If one does not have an SSH key configured, e.g., on a server (from remodnav paper on brainbfast)::
 
       [INFO   ] Cloning https://github.com/psychoinformatics-de/paper-remodnav.git/remodnav [2 other candidates] into '/home/homeGlobal/adina/paper-remodnav/remodnav'
       Permission denied (publickey).

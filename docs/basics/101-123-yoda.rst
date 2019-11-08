@@ -98,14 +98,16 @@ of data analysis projects, and make collaboration easier.
 They are summarized in three basic principles, that translate to both
 dataset structures and best practices regarding the analysis:
 
-- `P1: One thing, one dataset <yoda#P1: One thing, one dataset>`_
+- :ref:`P1`
 
-- `P2: Record where you got it from, and where it is now <yoda#P2: Record where you got it from, and where it is now>`_
+- :ref:`P2`
 
-- `P3: Record what you did to it, and with what <yoda#P3: Record what you did to it, and with what>`_
+- :ref:`P3`
 
 As you will see, complying to these principles is easy if you
 use DataLad. Let's go through them one by one:
+
+.. _P1:
 
 P1: One thing, one dataset
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -182,7 +184,7 @@ for a whole analysis dataset. At one point you might also write a
 scientific paper about your analysis in a paper project, and the
 whole analysis project can easily become a modular component in a paper
 project, to make sharing paper, code, data, and results easy.
-The usecase :ref:`remodnav` contains a step-by-step instruction on
+The usecase :ref:`usecase_reproducible_paper` contains a step-by-step instruction on
 how to build and share such a reproducible paper, if you want to learn
 more.
 
@@ -226,6 +228,8 @@ regardless of size --  will aid keeping directories clean and
 organized, instead of piling up different versions of code, data,
 or results.
 
+.. _P2:
+
 P2: Record where you got it from, and where it is now
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -254,7 +258,7 @@ with a helpful commit message goes a very long way to fulfill this principle
 on its own already.
 
 One core aspect of this principle is *linking* between re-usable data
-resource units (i.e. DataLad subdatasets containing pure data). You will
+resource units (i.e., DataLad subdatasets containing pure data). You will
 be happy to hear that this is achieved by simply installing datasets
 as subdatasets.
 This part of this principle will therefore be absolutely obvious to you
@@ -302,6 +306,8 @@ Principle 2, therefore, facilitates transparent linkage of datasets and their
 components to other components, their original sources, or shared copies.
 With the DataLad tools you learned to master up to this point,
 you have all the necessary skills to comply to it already.
+
+.. _P3:
 
 P3: Record what you did to it, and with what
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

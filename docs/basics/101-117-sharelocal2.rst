@@ -1,7 +1,7 @@
 .. _sharelocal2:
 
-Sharing datasets: Common File systems [2]
------------------------------------------
+Where's Waldo?
+--------------
 
 So far, your room mate and you have created a copy of the ``DataLad-101``
 dataset on the same file system but a different place by installing
@@ -19,7 +19,8 @@ of the missing installation.
 And you have mesmerized your room mate by showing him how :term:`Git-annex`
 retrieved large file contents from the original dataset.
 
-Let's now see the :command:`git annex whereis` command in more detail.
+Let's now see the :command:`git annex whereis` command in more detail,
+and find out how Git-annex knows *where* file content can be obtained from.
 Within the original ``DataLad-101`` dataset, you retrieved some of the ``.mp3``
 files via :command:`datalad get`, but not others. How will this influence the
 output of :command:`git annex whereis`, you wonder?
@@ -33,6 +34,8 @@ Here is the output for the retrieved file:
 .. runrecord:: _examples/DL-101-117-101
    :language: console
    :workdir: dl-101/DataLad-101
+   :notes: More on how git-annex whereis behaves
+   :cast: 04_collaboration
 
    # navigate back into the installed copy of DataLad-101
    $ cd ../mock_user/DataLad-101
@@ -47,6 +50,7 @@ content for in your original ``DataLad-101`` dataset.
 .. runrecord:: _examples/DL-101-117-102
    :language: console
    :workdir: dl-101/mock_user/DataLad-101/recordings/longnow
+   :cast: 04_collaboration
 
    # but not for this:
    $ git annex whereis Long_Now__Seminars_About_Long_term_Thinking/2005_01_15__James_Carse__Religious_War_In_Light_of_the_Infinite_Game.mp3
@@ -61,6 +65,8 @@ Let's see how this affects a :command:`datalad get`:
 .. runrecord:: _examples/DL-101-117-103
    :language: console
    :workdir: dl-101/mock_user/DataLad-101/recordings/longnow
+   :notes: Get a file thats present in original and one that is not
+   :cast: 04_collaboration
 
    # get the first file
    $ datalad get Long_Now__Seminars_About_Long_term_Thinking/2003_11_15__Brian_Eno__The_Long_Now.mp3
@@ -69,6 +75,7 @@ Let's see how this affects a :command:`datalad get`:
 .. runrecord:: _examples/DL-101-117-104
    :language: console
    :workdir: dl-101/mock_user/DataLad-101/recordings/longnow
+   :cast: 04_collaboration
 
    # get the second file
    $ datalad get Long_Now__Seminars_About_Long_term_Thinking/2005_01_15__James_Carse__Religious_War_In_Light_of_the_Infinite_Game.mp3
@@ -97,6 +104,8 @@ this in the original ``DataLad-101`` directory, and don't forget to save it.
 .. runrecord:: _examples/DL-101-117-105
    :language: console
    :workdir: dl-101/mock_user/DataLad-101/recordings/longnow
+   :notes: a note in original dataset
+   :cast: 04_collaboration
 
    # navigate back:
    $ cd ../../../../DataLad-101
@@ -112,12 +121,14 @@ this in the original ``DataLad-101`` directory, and don't forget to save it.
 .. runrecord:: _examples/DL-101-117-106
    :language: console
    :workdir: dl-101/DataLad-101
+   :cast: 04_collaboration
 
    $ datalad status
 
 .. runrecord:: _examples/DL-101-117-107
    :language: console
    :workdir: dl-101/DataLad-101
+   :cast: 04_collaboration
 
    $ datalad save -m "add note on git annex whereis"
 

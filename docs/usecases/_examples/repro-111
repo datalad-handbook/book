@@ -1,0 +1,21 @@
+$ datalad rerun
+[INFO] Making sure inputs are available (this may take some time) 
+[INFO] == Command start (output follows) ===== 
+action summary:
+  get (notneeded: 2)
+Processing inputs/ds000001/sub-01/anat/sub-01_T1w.nii.gz
+Processing inputs/ds000002/sub-01/anat/sub-01_T1w.nii.gz
+[INFO] == Command exit (modification check follows) ===== 
+unlock(ok): sub-001/anat.nii.gz (file)
+unlock(ok): sub-001/anat_mask.nii.gz (file)
+unlock(ok): sub-002/anat.nii.gz (file)
+unlock(ok): sub-002/anat_mask.nii.gz (file)
+add(ok): sub-001/anat.nii.gz (file)
+add(ok): sub-001/anat_mask.nii.gz (file)
+add(ok): sub-002/anat.nii.gz (file)
+add(ok): sub-002/anat_mask.nii.gz (file)
+action summary:
+  add (ok: 4)
+  get (notneeded: 2)
+  save (notneeded: 3)
+  unlock (notneeded: 4, ok: 4)

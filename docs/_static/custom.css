@@ -42,3 +42,8 @@ div.gitusernote {
     background-color: #c3ebffff;
     border: 1px solid #7fd4ffff;
 }
+
+div.sphinxsidebar {
+    max-height: 100%;
+    overflow-y: auto;
+}

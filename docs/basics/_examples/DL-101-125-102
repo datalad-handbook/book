@@ -1,1 +1,1 @@
-$ git config --local core.editor "nano"
+$ git config --local --add core.editor "nano"

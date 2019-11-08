@@ -4,7 +4,7 @@ Summary
 -------
 
 Together with your room mate you have just discovered how
-to share and update a DataLad dataset on a shared file system.
+to share, update, and collaborate on a DataLad dataset on a shared file system.
 Thus, you have glimpsed into the principles and advantages of
 sharing a dataset with a simple example.
 
@@ -53,6 +53,14 @@ sharing a dataset with a simple example.
 * Thus, using DataLad, data can be easily shared and kept up to date
   with only two commands: :command:`datalad install` and :command:`datalad update`.
 
+* By configuring a dataset as a :term:`sibling`, collaboration becomes easy.
+
+* To avoid integrating conflicting modifications of a sibling dataset into your
+  own dataset, a :command:`datalad update -s SIBLINGNAME` will "``fetch``" modifications
+  and store them on a different :term:`branch` of your dataset. The commands
+  :command:`datalad diff` and :command:`git diff` can subsequently help to find
+  out what changes have been made in the sibling.
+
 Now what I can do with that?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -75,6 +83,14 @@ principles to your room mate: How content stored in Git is present right
 away and how annexed content first needs to be retrieved, how easy a
 :command:`datalad rerun` is if the original :command:`datalad run` command was well
 specified, how a datasets history is shared and not only its data.
+
+Lastly, with the configuration of a sibling, you have experienced one
+way to collaborate in a dataset, and with :command:`datalad update --merge`
+and :command:`datalad update`, you also glimpsed into more advances aspects
+of Git, namely the concept of a branch.
+
 Therefore, these last few sections have hopefully been a good review
-of what you already knew, but also a big knowledge gain.
+of what you already knew, but also a big knowledge gain, and cause
+joyful anticipation of collaboration in a real-world setting of one
+of your own use cases.
 

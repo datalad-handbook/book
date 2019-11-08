@@ -1,0 +1,29 @@
+$ git show --stat
+commit 6318a4fbd6a480bcbc8b69d937837e8c5d461455
+Author: Elena Piscopia <elena@example.net>
+Date:   Tue Oct 8 15:32:11 2019 +0200
+
+    [DATALAD RUNCMD] run brain extract workflow
+    
+    === Do not change lines below ===
+    {
+     "chain": [],
+     "cmd": "bash -e code/brain_extraction.sh inputs/ds000001/sub-01/anat/sub-01_T1w.nii.gz inputs/ds000002/sub-01/anat/sub-01_T1w.nii.gz",
+     "dsid": "f084b1ac-e9cf-11e9-b64e-e86a64c8054c",
+     "exit": 0,
+     "extra_inputs": [],
+     "inputs": [
+      "inputs/ds*/sub-01/anat/sub-01_T1w.nii.gz"
+     ],
+     "outputs": [
+      "sub-*/anat"
+     ],
+     "pwd": "."
+    }
+    ^^^ Do not change lines above ^^^
+
+ sub-001/anat.nii.gz      | 1 +
+ sub-001/anat_mask.nii.gz | 1 +
+ sub-002/anat.nii.gz      | 1 +
+ sub-002/anat_mask.nii.gz | 1 +
+ 4 files changed, 4 insertions(+)

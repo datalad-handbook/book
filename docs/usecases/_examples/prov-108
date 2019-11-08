@@ -1,0 +1,13 @@
+$ datalad run -m "blur image" \
+   --input "st-bernard.jpg" \
+   --output "st-bernard-displaced.jpg" \
+   "convert -spread 10 st-bernard.jpg st-bernard-displaced.jpg"
+[INFO] Making sure inputs are available (this may take some time) 
+[INFO] == Command start (output follows) ===== 
+[INFO] == Command exit (modification check follows) ===== 
+add(ok): st-bernard-displaced.jpg (file)
+save(ok): . (dataset)
+action summary:
+  add (ok: 1)
+  get (notneeded: 1)
+  save (ok: 1)

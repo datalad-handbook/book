@@ -1,7 +1,7 @@
 .. _sharelocal3:
 
-Sharing datasets: Common File systems [3]
------------------------------------------
+Retrace and reenact
+-------------------
 
 "Thanks a lot for sharing your dataset with me! This
 is super helpful. I'm sure I'll catch up in no time!",
@@ -42,6 +42,8 @@ want to run by taking a look into the history of the dataset
 .. runrecord:: _examples/DL-101-118-101
    :language: console
    :workdir: dl-101/DataLad-101
+   :notes: More cool things on shared datasets: rerunning run commands
+   :cast: 04_collaboration
 
    # navigate into the shared copy
    $ cd ../mock_user/DataLad-101
@@ -50,6 +52,8 @@ want to run by taking a look into the history of the dataset
    :language: console
    :workdir: dl-101/mock_user/DataLad-101
    :emphasize-lines: 4
+   :notes: find the shasum
+   :cast: 04_collaboration
 
    # lets view the history
    $ git log --oneline
@@ -62,7 +66,9 @@ command:
 .. runrecord:: _examples/DL-101-118-103
    :language: console
    :workdir: dl-101/mock_user/DataLad-101
-   :realcommand: echo "$ datalad rerun $(git rev-parse HEAD~1)"  && datalad rerun $(git rev-parse HEAD~1)
+   :realcommand: echo "$ datalad rerun $(git rev-parse HEAD~1)" && datalad rerun $(git rev-parse HEAD~1)
+   :notes: plug the shasum into a rerun command
+   :cast: 04_collaboration
 
 "This was so easy!" you exclaim. DataLad retrieved the missing
 file content from the subdataset and it tried to unlock the output

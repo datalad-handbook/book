@@ -1,0 +1,2 @@
+$ datalad drop --nocheck a.pdf
+drop(ok): /home/me/dl-101/DataLad-101/a.pdf (file)

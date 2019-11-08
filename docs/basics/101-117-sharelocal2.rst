@@ -34,7 +34,7 @@ Here is the output for the retrieved file:
 .. runrecord:: _examples/DL-101-117-101
    :language: console
    :workdir: dl-101/DataLad-101
-   :caption: More on how git-annex whereis behaves
+   :notes: More on how git-annex whereis behaves
    :cast: 04_collaboration
 
    # navigate back into the installed copy of DataLad-101
@@ -65,7 +65,7 @@ Let's see how this affects a :command:`datalad get`:
 .. runrecord:: _examples/DL-101-117-103
    :language: console
    :workdir: dl-101/mock_user/DataLad-101/recordings/longnow
-   :caption: Get a file thats present in original and one that is not
+   :notes: Get a file thats present in original and one that is not
    :cast: 04_collaboration
 
    # get the first file
@@ -104,7 +104,7 @@ this in the original ``DataLad-101`` directory, and don't forget to save it.
 .. runrecord:: _examples/DL-101-117-105
    :language: console
    :workdir: dl-101/mock_user/DataLad-101/recordings/longnow
-   :caption: a note in original dataset
+   :notes: a note in original dataset
    :cast: 04_collaboration
 
    # navigate back:

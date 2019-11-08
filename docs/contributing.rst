@@ -148,7 +148,7 @@ following prerequisites exist:
 - If ``:realcommand:`` options are specified, they will become the executable
   part of the cast. If note, the code snippet in the code-block of the
   ``runrecord`` will become the executable part of the cast.
-- An optional ``:caption:`` lets you add "speakernotes" for the cast.
+- An optional ``:notes:`` lets you add "speakernotes" for the cast.
 - Casts are produced upon ``make``, but only if the environment variable
   ``CAST_DIR`` is set.
   This should be a path that points to any directory in which casts should be
@@ -164,7 +164,7 @@ This is a fully specified ``runrecord``:
       :language: console
       :workdir: dl-101/DataLad-101
       :cast: dataset_basics   # name of the cast file (will be created/extended in CAST_DIR)
-      :caption: This is an optional speaker note only visible to presenter during the cast
+      :notes: This is an optional speaker note only visible to presenter during the cast
 
       # this is a comment and will be written to the cast
       $ this line will be executed and written to the cast

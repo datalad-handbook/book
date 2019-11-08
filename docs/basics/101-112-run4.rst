@@ -15,7 +15,7 @@ you think.
    :language: console
    :workdir: dl-101/DataLad-101
    :emphasize-lines: 5
-   :caption: mhh, 450x450px seems a bit large, we have to go back to 400. Lets make yet another, complete run command
+   :notes: mhh, 450x450px seems a bit large, we have to go back to 400. Lets make yet another, complete run command
    :cast: 02_reproducible_execution
 
    $ datalad run -m "Resize logo for slides" \
@@ -34,7 +34,7 @@ Run a :command:`datalad status` to see what is meant by this:
 .. runrecord:: _examples/DL-101-112-102
    :language: console
    :workdir: dl-101/DataLad-101
-   :caption: What happened? The dataset is not "clean"
+   :notes: What happened? The dataset is not "clean"
    :cast: 02_reproducible_execution
 
    $ datalad status
@@ -63,7 +63,7 @@ First, save the changes,
 .. runrecord:: _examples/DL-101-112-103
    :language: console
    :workdir: dl-101/DataLad-101
-   :caption: One way to prevent this is to have a clean dataset state
+   :notes: One way to prevent this is to have a clean dataset state
    :cast: 02_reproducible_execution
 
    $ datalad save -m "add additional notes on run options"
@@ -73,7 +73,7 @@ and then try again:
 .. runrecord:: _examples/DL-101-112-104
    :language: console
    :workdir: dl-101/DataLad-101
-   :caption: let's try again with a clean dataset
+   :notes: let's try again with a clean dataset
    :cast: 02_reproducible_execution
 
    $ datalad run -m "Resize logo for slides" \
@@ -90,7 +90,7 @@ to a :command:`datalad run`:
 .. runrecord:: _examples/DL-101-112-105
    :language: console
    :workdir: dl-101/DataLad-101
-   :caption: we'll make a note on clean datasets (which we won't save)
+   :notes: we'll make a note on clean datasets (which we won't save)
    :cast: 02_reproducible_execution
 
    $ cat << EOT >> notes.txt
@@ -110,7 +110,7 @@ addition to the note.
 .. runrecord:: _examples/DL-101-112-106
    :language: console
    :workdir: dl-101/DataLad-101
-   :caption: alternatively, the --explicit flag allows run despite an unclean dataset. However, this will only save changes to --output
+   :notes: alternatively, the --explicit flag allows run despite an unclean dataset. However, this will only save changes to --output
    :cast: 02_reproducible_execution
 
    $ datalad run -m "Resize logo for slides" \
@@ -130,7 +130,7 @@ is still modified:
 .. runrecord:: _examples/DL-101-112-110
    :language: console
    :workdir: dl-101/DataLad-101
-   :caption: the previously modified ``notes.txt`` is still modified:
+   :notes: the previously modified ``notes.txt`` is still modified:
    :cast: 02_reproducible_execution
 
    $ datalad status
@@ -140,7 +140,7 @@ Add an additional note on the ``--explicit`` flag, and finally save your changes
 .. runrecord:: _examples/DL-101-112-107
    :language: console
    :workdir: dl-101/DataLad-101
-   :caption: Note on --explicit flag
+   :notes: Note on --explicit flag
    :cast: 02_reproducible_execution
 
    $ cat << EOT >> notes.txt
@@ -153,7 +153,7 @@ Add an additional note on the ``--explicit`` flag, and finally save your changes
 .. runrecord:: _examples/DL-101-112-108
    :language: console
    :workdir: dl-101/DataLad-101
-   :caption: and save it
+   :notes: and save it
    :cast: 02_reproducible_execution
 
    $ datalad save -m "add note on clean datasets"
@@ -166,7 +166,7 @@ commit to see a :term:`run record` with more content:
    :workdir: dl-101/DataLad-101
    :lines: 1, 24-50
    :emphasize-lines: 11, 15-17, 18-20
-   :caption: finally, lets see a more complex runrecord
+   :notes: finally, lets see a more complex runrecord
    :cast: 02_reproducible_execution
 
    $ git log -p -n 2

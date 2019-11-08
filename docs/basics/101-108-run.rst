@@ -54,7 +54,7 @@ superdataset:
 .. runrecord:: _examples/DL-101-108-101
    :language: console
    :workdir: dl-101
-   :caption: its impossible to remember how a large data analysis produced which result for a human, but datalad can help to keep track. To see this in action, we'll do a data analysis. Start with yoda principles and structure ds with code directory.
+   :notes: its impossible to remember how a large data analysis produced which result for a human, but datalad can help to keep track. To see this in action, we'll do a data analysis. Start with yoda principles and structure ds with code directory.
    :cast: 02_reproducible_execution
    :realcommand: cd DataLad-101 && mkdir code && tree -d
 
@@ -71,7 +71,7 @@ will write it into the script.
 .. runrecord:: _examples/DL-101-108-102
    :language: console
    :workdir: dl-101/DataLad-101
-   :caption: We will create a script to execute. Let's make one that summarizes the podcasts titles in the longnow dataset:
+   :notes: We will create a script to execute. Let's make one that summarizes the podcasts titles in the longnow dataset:
    :cast: 02_reproducible_execution
 
    $ cat << EOT > code/list_titles.sh
@@ -92,7 +92,7 @@ Save this script to the dataset.
 .. runrecord:: _examples/DL-101-108-103
    :language: console
    :workdir: dl-101/DataLad-101
-   :caption: We have to save the script first: status and save
+   :notes: We have to save the script first: status and save
    :cast: 02_reproducible_execution
 
    $ datalad status
@@ -100,7 +100,7 @@ Save this script to the dataset.
 .. runrecord:: _examples/DL-101-108-104
    :language: console
    :workdir: dl-101/DataLad-101
-   :caption: ... preferably with a helpful commit message
+   :notes: ... preferably with a helpful commit message
    :cast: 02_reproducible_execution
 
    $ datalad save -m "Add simple script to write a list of podcast speakers and titles"
@@ -134,7 +134,7 @@ command from the root of ``DataLad-101``.
 .. runrecord:: _examples/DL-101-108-105
    :language: console
    :workdir: dl-101/DataLad-101
-   :caption: The datalad run command records a command's impact on a dataset. We try it in the most simple way:
+   :notes: The datalad run command records a command's impact on a dataset. We try it in the most simple way:
    :cast: 02_reproducible_execution
 
    $ datalad run -m "create a list of podcast titles" "bash code/list_titles.sh > recordings/podcasts.tsv"
@@ -157,7 +157,7 @@ Let's take a look into the history:
    :workdir: dl-101/DataLad-101
    :lines: 1-30
    :emphasize-lines: 6, 11, 25
-   :caption: Let's now check what has been written into the history. (runrecord)
+   :notes: Let's now check what has been written into the history. (runrecord)
    :cast: 02_reproducible_execution
 
    $ git log -p -n 1
@@ -196,7 +196,7 @@ command as before, and check whether anything in your log changes:
 .. runrecord:: _examples/DL-101-108-107
    :language: console
    :workdir: dl-101/DataLad-101
-   :caption: A run command that does not result in changes (no modifcations, no additional files) will not produce a record in the dataset history. So what happens if we do the same again?
+   :notes: A run command that does not result in changes (no modifcations, no additional files) will not produce a record in the dataset history. So what happens if we do the same again?
    :cast: 02_reproducible_execution
 
    $ datalad run -m "Try again to create a list of podcast titles" "bash code/list_titles.sh > recordings/podcasts.tsv"
@@ -206,7 +206,7 @@ command as before, and check whether anything in your log changes:
    :workdir: dl-101/DataLad-101
    :lines: 1-5
    :emphasize-lines: 2
-   :caption: as the result is byte-identical, there is no new commit
+   :notes: as the result is byte-identical, there is no new commit
    :cast: 02_reproducible_execution
 
    $ git log --oneline

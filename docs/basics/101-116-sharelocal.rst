@@ -63,7 +63,7 @@ simplicity -- create a new directory, ``mock_user``, right next to it:
    :language: console
    :workdir: dl-101
    :realcommand: mkdir mock_user
-   :caption: (hope this works)
+   :notes: (hope this works)
    :cast: 04_collaboration
 
    $ cd ../
@@ -81,7 +81,7 @@ the dataset ``DataLad-101`` by specifying its path as a ``--source``
 .. runrecord:: _examples/DL-101-116-102
    :language: console
    :workdir: dl-101
-   :caption: We pretend to install the DataLad-101 dataset into a different users home directory. To do this, we use datalad install with a path
+   :notes: We pretend to install the DataLad-101 dataset into a different users home directory. To do this, we use datalad install with a path
    :cast: 04_collaboration
 
 
@@ -100,7 +100,7 @@ like. Before running the command, try to predict what you will see.
 .. runrecord:: _examples/DL-101-116-103
    :language: console
    :workdir: dl-101/mock_user
-   :caption: How do you think does the dataset look like
+   :notes: How do you think does the dataset look like
    :cast: 04_collaboration
 
    $ cd DataLad-101
@@ -145,7 +145,7 @@ To demonstrate this, you decide to examine the PDFs further.
 .. runrecord:: _examples/DL-101-116-104
    :language: console
    :workdir: dl-101/mock_user/DataLad-101
-   :caption: how does it feel to get a file?
+   :notes: how does it feel to get a file?
    :cast: 04_collaboration
 
    $ datalad get books/progit.pdf
@@ -162,7 +162,7 @@ let's query Git-annex where its content is stored:
 .. runrecord:: _examples/DL-101-116-105
    :language: console
    :workdir: dl-101/mock_user/DataLad-101
-   :caption: git-annex whereis to find out where content is stored
+   :notes: git-annex whereis to find out where content is stored
    :cast: 04_collaboration
 
    $ git annex whereis books/TLCL.pdf
@@ -219,7 +219,7 @@ you have to run a somewhat unexpected command:
 .. runrecord:: _examples/DL-101-116-106
    :language: console
    :workdir: dl-101/mock_user/DataLad-101
-   :caption: how do we get the subdataset? currently it looks empty. --> a plain datalad install
+   :notes: how do we get the subdataset? currently it looks empty. --> a plain datalad install
    :cast: 04_collaboration
 
    $ datalad install recordings/longnow
@@ -230,7 +230,7 @@ Let's what has changed (excerpt):
    :language: console
    :workdir: dl-101/mock_user/DataLad-101
    :lines: 1-30
-   :caption: what has changed? --> file metadata information!
+   :notes: what has changed? --> file metadata information!
    :cast: 04_collaboration
 
    $ tree
@@ -280,7 +280,7 @@ Write this note in "your own" (the original) ``DataLad-101`` dataset, though!
 .. runrecord:: _examples/DL-101-116-108
    :language: console
    :workdir: dl-101/mock_user/DataLad-101
-   :caption: note in original DataLad-101 dataset
+   :notes: note in original DataLad-101 dataset
    :cast: 04_collaboration
 
    # navigate back into the original dataset

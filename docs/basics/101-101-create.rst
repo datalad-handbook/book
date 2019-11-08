@@ -37,7 +37,7 @@ Note the command structure of :command:`datalad create` (optional bits are enclo
    :language: console
    :workdir: dl-101
    :cast: 01_dataset_basics
-   :caption: Datasets are datalads core data type. We will explore the concepts of datasets by creating one with datalad create. optional configuration template and a description
+   :notes: Datasets are datalads core data type. We will explore the concepts of datasets by creating one with datalad create. optional configuration template and a description
 
    $ datalad create --description "course on DataLad-101 on my private Laptop" -c text2git DataLad-101
 
@@ -52,7 +52,7 @@ Currently, it seems empty.
    :language: console
    :workdir: dl-101
    :cast: 01_dataset_basics
-   :caption: Datalad informs about what it is doing during a command. At the end is a summary, in this case it is ok. What is inside of a newly created dataset? We list contents with ls.
+   :notes: Datalad informs about what it is doing during a command. At the end is a summary, in this case it is ok. What is inside of a newly created dataset? We list contents with ls.
 
    $ cd DataLad-101
    $ ls    # ls does not show any output, because the dataset is empty.
@@ -78,7 +78,7 @@ a built-in git command [#f1]_. Your git log *might* be opened in a `terminal pag
    :workdir: dl-101/DataLad-101
    :emphasize-lines: 3-4, 6, 9-10, 12
    :cast: 01_dataset_basics
-   :caption: GIT LOG, SHASUM, MESSAGE: A dataset is version controlled. This means, edits done to a file are associated with information about the change, the author, and the time + ability to restore previous states of the dataset. Let's take a look into the history, even if it is small atm
+   :notes: GIT LOG, SHASUM, MESSAGE: A dataset is version controlled. This means, edits done to a file are associated with information about the change, the author, and the time + ability to restore previous states of the dataset. Let's take a look into the history, even if it is small atm
 
    $ git log
 
@@ -110,7 +110,7 @@ an informative commit message yourself.
       :workdir: dl-101/DataLad-101
       :emphasize-lines: 4-6
       :cast: 01_dataset_basics
-      :caption: Datalad, git-annex, and git create hidden files and directories in your dataset. Make sure to not delete them!
+      :notes: Datalad, git-annex, and git create hidden files and directories in your dataset. Make sure to not delete them!
 
       $ ls -a # show also hidden files
 

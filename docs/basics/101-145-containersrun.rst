@@ -134,8 +134,8 @@ section below has some pointers:
 
       sudo singularity build <NAME> <RECIPE>
 
-   will build a container (callen ``<NAME>``) from the recipe. Alternatively,
-   ``Singularity Hub <https://singularity-hub.org/>`_ integrates with Github
+   will build a container (called ``<NAME>``) from the recipe. Alternatively,
+   `Singularity Hub <https://singularity-hub.org/>`_ integrates with Github
    and builds containers from recipes pushed to repositories on Github.
    `The docs <https://singularityhub.github.io/singularityhub-docs/>`_ can
    give you an easy set of instructions for this.
@@ -145,7 +145,7 @@ section below has some pointers:
    :workdir: dl-101/DataLad-101/midterm_project
 
    # we are in the midterm_project subdataset
-   $ datalad containers-add python shub://adswa/resources:1
+   $ datalad containers-add python --url shub://adswa/resources:1
 
 
 This command downloaded the container from Singularity Hub, added it to
@@ -190,7 +190,7 @@ section :ref:`run` with the :command:`datalad containers-run` command.
 .. runrecord:: _examples/DL-101-145-104
    :language: console
    :workdir: dl-101/DataLad-101/midterm_project
-   :realcommand: echo "datalad containers-run -m "rerun analysis in container" \--container-name python \ datalad rerun $(git rev-parse HEAD~2)" && datalad containers-run -m "rerun analysis in container" \--container-name python \ datalad rerun $(git rev-parse HEAD~2)
+   :realcommand: echo "datalad containers-run -m "rerun analysis in container" --container-name python datalad rerun $(git rev-parse HEAD~3)" && datalad containers-run -m "rerun analysis in container" --container-name python datalad rerun $(git rev-parse HEAD~3)
 
 .. todo::
 

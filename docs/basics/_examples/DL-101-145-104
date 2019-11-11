@@ -1,0 +1,23 @@
+
+datalad containers-run -m rerun analysis in container --container-name python datalad rerun a39d7907214b1669612281a23a50656288c87735
+[INFO] Making sure inputs are available (this may take some time) 
+[INFO] == Command start (output follows) ===== 
+[INFO] Making sure inputs are available (this may take some time) 
+[INFO] == Command start (output follows) ===== 
+/usr/lib/python3/dist-packages/sklearn/externals/joblib.py:1: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+  import imp
+[INFO] == Command exit (modification check follows) ===== 
+unlock(ok): output/prediction_report.csv (file)
+unlock(ok): output/pairwise_relationships.png (file)
+add(ok): output/pairwise_relationships.png (file)
+add(ok): output/prediction_report.csv (file)
+save(ok): /home/me/dl-101/DataLad-101/midterm_project (dataset)
+action summary:
+  add (ok: 2)
+  get (notneeded: 2)
+  save (ok: 1)
+  unlock (ok: 2)
+[INFO] == Command exit (modification check follows) ===== 
+action summary:
+  get (notneeded: 1)
+  save (notneeded: 2)

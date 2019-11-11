@@ -1,0 +1,2 @@
+$ datalad containers-list
+python -> .datalad/environments/python/image

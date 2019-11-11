@@ -27,6 +27,12 @@ command, and discovered the concept of *locked* content.
 * Anything specified as ``input`` will be retrieved if necessary with a :command:`datalad get` prior to command
   execution. Anything specified as ``output`` will be ``unlocked`` prior to modifications.
 
+.. figure:: ../artwork/src/run.svg
+   :alt: Schematic illustration of datalad run.
+   :figwidth: 100%
+
+   Overview of ``datalad run``.
+
 * Getting and unlocking content is not only convenient for yourself, but enormously helpful
   for anyone you share your dataset with, but this will be demonstrated in an upcoming section
   in detail.

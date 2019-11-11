@@ -39,7 +39,8 @@ in the hidden paths
 .. runrecord:: _examples/DL-101-110-101
    :language: console
    :workdir: dl-101/DataLad-101
-   :notes: We saw a very simple datalad run. Now we're going to extend it with useful options. For this, we'll try to resize a logo in the meta data of the subdataset
+
+   :notes: We saw a very simple datalad run. Now we're going to extend it with useful options. Narrative: prepare talk about dataset, add logo to slides. For this, we'll try to resize a logo in the meta data of the subdataset
    :cast: 02_reproducible_execution
 
    $ ls recordings/longnow/.datalad/feed_metadata/*jpg
@@ -68,7 +69,7 @@ when you copy them formatted like this.
    :language: console
    :workdir: dl-101/DataLad-101
    :emphasize-lines: 4
-   :notes: This command resizes the logo to 400 by 400 px.
+   :notes: This command resizes the logo to 400 by 400 px -- but it will fail!
    :cast: 02_reproducible_execution
 
    $ datalad run -m "Resize logo for slides" \
@@ -113,7 +114,7 @@ prior to running the command.
    :workdir: dl-101/DataLad-101
    :emphasize-lines: 8, 11, 16
    :realcommand: datalad run --input "recordings/longnow/.datalad/feed_metadata/logo_salt.jpg" "convert -resize 400x400 recordings/longnow/.datalad/feed_metadata/logo_salt.jpg recordings/salt_logo_small.jpg"
-   :notes: The --input option makes sure that all content is retrieved prior to command execution.
+   :notes: The problem is that the content (logo) is not yet retrieved. The --input option makes sure that all content is retrieved prior to command execution.
    :cast: 02_reproducible_execution
 
    $ datalad run -m "Resize logo for slides" \
@@ -218,7 +219,7 @@ Let us check out what it does:
 .. runrecord:: _examples/DL-101-111-101
    :language: console
    :workdir: dl-101/DataLad-101
-   :notes: The created output is protected from accidental modifications, we have to unlock it first
+   :notes: The created output is protected from accidental modifications, we have to unlock it first:
    :cast: 02_reproducible_execution
 
    $ datalad unlock recordings/salt_logo_small.jpg

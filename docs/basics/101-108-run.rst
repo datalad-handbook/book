@@ -54,7 +54,7 @@ superdataset:
 .. runrecord:: _examples/DL-101-108-101
    :language: console
    :workdir: dl-101
-   :notes: its impossible to remember how a large data analysis produced which result for a human, but not for datalad. Start with yoda principles and structure.
+   :notes: its impossible to remember how a large data analysis produced which result for a human, but datalad can help to keep track. To see this in action, we'll do a data analysis. Start with yoda principles and structure ds with code directory.
    :cast: 02_reproducible_execution
    :realcommand: cd DataLad-101 && mkdir code && tree -d
 
@@ -71,7 +71,7 @@ will write it into the script.
 .. runrecord:: _examples/DL-101-108-102
    :language: console
    :workdir: dl-101/DataLad-101
-   :notes: First we will create a script to execute. Let's make one that summarizes the podcasts in the longnow dataset
+   :notes: We will create a script to execute. Let's make one that summarizes the podcasts titles in the longnow dataset:
    :cast: 02_reproducible_execution
 
    $ cat << EOT > code/list_titles.sh
@@ -160,7 +160,7 @@ Let's take a look into the history:
    :notes: Let's now check what has been written into the history. (runrecord)
    :cast: 02_reproducible_execution
 
-   $ git log -p -1
+   $ git log -p -n 1
 
 The commit message we have supplied with ``-m`` directly after :command:`datalad run` appears
 in our history as a short summary.
@@ -196,7 +196,7 @@ command as before, and check whether anything in your log changes:
 .. runrecord:: _examples/DL-101-108-107
    :language: console
    :workdir: dl-101/DataLad-101
-   :notes: What happens if we do the same again?
+   :notes: A run command that does not result in changes (no modifcations, no additional files) will not produce a record in the dataset history. So what happens if we do the same again?
    :cast: 02_reproducible_execution
 
    $ datalad run -m "Try again to create a list of podcast titles" "bash code/list_titles.sh > recordings/podcasts.tsv"

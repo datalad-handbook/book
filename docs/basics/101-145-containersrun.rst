@@ -192,12 +192,6 @@ section :ref:`run` with the :command:`datalad containers-run` command.
    :workdir: dl-101/DataLad-101/midterm_project
    :realcommand: echo "datalad containers-run -m "rerun analysis in container" --container-name python datalad rerun $(git rev-parse HEAD~3)" && datalad containers-run -m "rerun analysis in container" --container-name python datalad rerun $(git rev-parse HEAD~3)
 
-.. todo::
-
-   re-do a previous (yet) to write run command for a data analysis in
-   ``midterm_project``.
-
-
 Note: The ``--container-name`` flag is optional at this point. Only if your dataset
 contains more than one container, you will *need* to specify the name of the container
 you want to use in your command. The complete command's structure looks like this::
@@ -212,6 +206,7 @@ you want to use in your command. The complete command's structure looks like thi
    .. runrecord:: _examples/DL-101-145-110
       :language: console
       :workdir: dl-101/DataLad-101/midterm_project
+
 
       $ datalad containers-list
 

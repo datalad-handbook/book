@@ -108,22 +108,49 @@ computational containers to a dataset. This is done with the
 :command:`datalad containers-add` command. The command takes an arbitrary
 name to give to the container, and a path or url to a container image.
 
-Let's see this in action for the ``midterm_analysis`` dataset.
+Let's see this in action for the ``midterm_analysis`` dataset by rerunning
+the analysis you did for the midterm project within a Singularity container.
+For this we will pull a container from Singularity hub. This container has
+been build for the handbook, and it contains the relevant Python setup for
+the analysis. If you're curious how to create a Singularity image, the hidden
+section below has some pointers:
 
-.. todo::
+.. findoutmore:: How to make a Singularity image
 
-   based on analysis in section on Python, build a singularity image.
-   The recipe can be displayed (added to the dataset as a how to), but the
-   container should be build and pulled from shub to show the workflow
+   A singularity containers are build from definition files, often
+   called "recipes". The
+   `singularity documentation <https://sylabs.io/guides/3.4/user-guide/build_a_container.html>`_
+   has its own tutorial. One other way to build one is with
+   `Neurodocker <https://github.com/kaczmarj/neurodocker#singularity>`_. This
+   command-line program can help you generate custom Singularity recipes (and
+   also Dockerfiles, from which Docker images are build). A wonderful tutorial
+   on how to use Neurodocker is
+   `this introduction <https://miykael.github.io/nipype_tutorial/notebooks/introduction_neurodocker.html>`_
+   by Michael Notter.
+
+   Once a recipe exists, the command
+
+   .. code-block:: bash
+
+      sudo singularity build <NAME> <RECIPE>
+
+   will build a container (callen ``<NAME>``) from the recipe. Alternatively,
+   ``Singularity Hub <https://singularity-hub.org/>`_ integrates with Github
+   and builds containers from recipes pushed to repositories on Github.
+   `The docs <https://singularityhub.github.io/singularityhub-docs/>`_ can
+   give you an easy set of instructions for this.
 
 .. runrecord:: _examples/DL-101-145-101
    :language: console
    :workdir: dl-101/DataLad-101/midterm_project
 
+   # we are in the midterm_project subdataset
+   $ datalad containers-add python shub://adswa/resources:1
 
-This command downloaded the container image from singularity hub, added it to
+
+This command downloaded the container from Singularity Hub, added it to
 the ``midterm_project`` dataset, and recorded basic information on the
-container under its name "<TODO>" in the dataset's configuration at
+container under its name "python" in the dataset's configuration at
 ``.datalad/config``.
 
 .. findoutmore:: What has been added to .datalad/config?
@@ -160,15 +187,20 @@ it, i.e., in the precise software environment the container encapsulates. All it
 needs for this it to swap the :command:`datalad run` command introduced in
 section :ref:`run` with the :command:`datalad containers-run` command.
 
+.. runrecord:: _examples/DL-101-145-104
+   :language: console
+   :workdir: dl-101/DataLad-101/midterm_project
+   :realcommand: echo "datalad containers-run -m "rerun analysis in container" \--container-name python \ datalad rerun $(git rev-parse HEAD~2)" && datalad containers-run -m "rerun analysis in container" \--container-name python \ datalad rerun $(git rev-parse HEAD~2)
+
 .. todo::
 
    re-do a previous (yet) to write run command for a data analysis in
    ``midterm_project``.
 
 
-Note: If your dataset contains more than one container, you will also need to
-specify the name of the container you want to use in your command. The
-complete command's structure looks like this::
+Note: The ``--container-name`` flag is optional at this point. Only if your dataset
+contains more than one container, you will *need* to specify the name of the container
+you want to use in your command. The complete command's structure looks like this::
 
    $ datalad containers-run --name <containername> [--input ...] [--output ...] <COMMAND>
 
@@ -181,15 +213,12 @@ complete command's structure looks like this::
       :language: console
       :workdir: dl-101/DataLad-101/midterm_project
 
+      $ datalad containers-list
+
    The command :command:`datalad containers-remove` will remove a container
    from the dataset, if there exists a container with name given to the
    command. Note that this will remove not only the image from the dataset,
    but also the configuration for it in ``.datalad/config``.
-
-.. todo::
-
-   take care of demonstrating more peculiarities of working and modifying a
-   subdataset from the perspective of the superdataset!
 
 .. rubric:: Footnotes
 

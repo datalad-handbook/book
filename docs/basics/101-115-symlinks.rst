@@ -18,7 +18,7 @@ modifying content of non-text files, such as ``.jpg``\s, requires
 the additional step of *unlocking* file content, either by hand with the :command:`datalad unlock`
 command, or within :command:`datalad run` using the ``-o``/``--output`` flag.
 
-There is one detail about DataLad datasets that we haven't covered yet. Its both
+There is one detail about DataLad datasets that we have not covered yet. Its both
 a crucial aspect to understanding certain aspects of a dataset, but it is also a
 potential source of confusion that we want to eradicate.
 
@@ -37,7 +37,7 @@ them. We'll take a look together, using the ``books/`` directory as an example:
    $ cd books
    $ tree
 
-If you don't know what you are looking at,
+If you do not know what you are looking at,
 this looks weird, if not worse: intimidating, wrong, or broken.
 First of all: no, **it is all fine**. But let's start with the basics of what is displayed
 here to understand it.
@@ -148,7 +148,7 @@ The second advantage is a
 
 This leads to a few conclusions:
 
-The first is that you shouldn't be worried
+The first is that you should not be worried
 to see cryptic looking symlinks in your repository -- this is how it should
 look. If you are interested in why these paths look so weird, and what all
 of this has to do with data integrity, you can check

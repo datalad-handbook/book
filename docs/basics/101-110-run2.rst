@@ -87,7 +87,7 @@ A :command:`datalad run` error message has several parts. The first starts after
 ``[INFO   ] == Command start (output follows) =====``.
 
 This is displaying errors that the
-terminal command threw: The ``convert`` tool complains that it can't open
+terminal command threw: The ``convert`` tool complains that it can not open
 the file, because there is "No such file or directory".
 
 The second part starts after
@@ -153,7 +153,7 @@ If outputs already exist...
 Looking at the resulting image, you wonder whether 400x400 might be a tiny bit to small.
 Maybe we should try to resize it to 450x450, and see whether that looks better?
 
-Note that we can't use a :command:`datalad rerun` for this: if we want to change the dimension option
+Note that we can not use a :command:`datalad rerun` for this: if we want to change the dimension option
 in the command, we have to define a new :command:`datalad run` command.
 
 To establish best-practices, let's specify the input even though it is already present:
@@ -181,7 +181,7 @@ To establish best-practices, let's specify the input even though it is already p
 A quick glimpse into the error message shows a different error than before:
 The tool complains that it is "unable to open" the image, because the "Permission [is] denied".
 
-We haven't seen anything like this before, and we need to turn to our lecturer for help.
+We have not seen anything like this before, and we need to turn to our lecturer for help.
 Confused about what we might have
 done wrong, we raise our hand to ask the instructor for help.
 Knowingly, she smiles, and tells you about how DataLad protects content given
@@ -200,9 +200,9 @@ DataLad usually gives content to :term:`Git-annex` to store and track.
 Git-annex, let's just say, takes this task *really* seriously. One of its
 features that you have just experienced is that it *locks* content.
 
-If files are *locked down*, their content can't be modified. In principle,
+If files are *locked down*, their content can not be modified. In principle,
 that's not a bad thing: It could be your late grandma's secret cherry-pie
-recipe, and you don't want to *accidentally* change that.
+recipe, and you do not want to *accidentally* change that.
 Therefore, a file needs to be consciously *unlocked* to apply modifications.
 
 In the attempt to resize the image to 450x450 you tried to overwrite
@@ -235,7 +235,7 @@ feel the urge to run a :command:`datalad status` on this:
 
    $ datalad status
 
-"Ah, don't mind that for now", our instructor says, and with a wink she
+"Ah, do not mind that for now", our instructor says, and with a wink she
 continues: "We'll talk about symlinks and object trees a while later".
 We're not really sure whether that's a good thing, but we have a task to focus
 on. Hastily, you run the command right from the terminal:

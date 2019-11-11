@@ -307,7 +307,7 @@ with the dataset. The reason for this is that this file is not version
 controlled, as it lies within the ``.git`` directory.
 Repository-specific configurations within your ``.git/config``
 file are thus not written to history. Any local configuration in ``.git/config``
-applies to the dataset, but it doesn't *stick* to the dataset.
+applies to the dataset, but it does not *stick* to the dataset.
 One can have the misconception that because the configurations were made *in*
 the dataset, these configurations will also be shared together with the dataset.
 ``.git/config``, however, behaves just as your global or system-wide configurations.

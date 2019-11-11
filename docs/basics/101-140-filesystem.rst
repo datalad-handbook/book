@@ -67,7 +67,7 @@ simultaneously, an ``untracked`` file appears: the renamed
 PDF.
 
 While this might appear messy, a ``datalad save`` will clean
-all of this up. Therefore, don't panic if you rename a file,
+all of this up. Therefore, do not panic if you rename a file,
 and see a dirty dataset status with deleted and untracked files
 -- ``datalad save`` handles these and other cases really well
 under the hood.
@@ -175,7 +175,7 @@ section. If you are a Git user, you will be very familiar with it.
       $ git commit -m "rename book"
 
 
-To summarize, renaming files is easy and worry-free. Don't be intimidated
+To summarize, renaming files is easy and worry-free. Do not be intimidated
 by a file marked as deleted -- a :command:`datalad save` will rectify this.
 Be mindful of other modifications in your dataset, though, and either supply
 appropriate paths to ``datalad save``, or use Git tools to exclusively save
@@ -225,13 +225,13 @@ at the symlink:
    $ ls -l TLCL.pdf
 
 The first part of the symlink should point into the ``.git/``
-directory, but currently, it doesn't -- the symlink still looks
+directory, but currently, it does not -- the symlink still looks
 like ``TLCL.pdf`` would be within ``books/``. Instead of pointing
 into ``.git``, it currently points to ``../.git``, which is non-existent,
 and even outside of the superdataset. This is why the file
 cannot be opened: When any program tries to follow the symlink,
 it will not resolve, and an error such as "no file or directory"
-will be returned. But don't panic! A :command:`datalad save` will
+will be returned. But do not panic! A :command:`datalad save` will
 rectify this as well:
 
 .. runrecord:: _examples/DL-101-140-122
@@ -280,7 +280,7 @@ the best option to turn to.
 
 
 Therefore, while it might be startling
-if you've moved a file and can't open it directly afterwards, everything
+if you've moved a file and can not open it directly afterwards, everything
 will be rectified by :command:`datalad save` as well.
 
 Finally, let's clean up:
@@ -557,7 +557,7 @@ section.
        fatal: Could not read from remote repository.
 
    Git seems pretty insistent (given the amount of error messages) that
-   it can't seem to find a Git repository at the location the ``.git/config``
+   it can not seem to find a Git repository at the location the ``.git/config``
    file specified. Luckily, we can provide this information. Edit the file with
    an editor of your choice and fix the path from
    ``url = ../mock_user/DataLad-101`` to
@@ -692,7 +692,7 @@ A different command to remove file content entirely and irreversibly from a repo
 the :command:`datalad drop` command (:manpage:`datalad-drop` manual).
 One use case for this is to make a repository more lean. Think about a
 situation in which a very large result file is computed by default
-in some analysis, but isn't relevant for any project, and one may want to remove it.
+in some analysis, but is not relevant for any project, and one may want to remove it.
 
 If an entire dataset is specified, all file content in sub-*directories* is
 dropped automatically, but for content in sub-*datasets* to be dropped, the
@@ -739,7 +739,7 @@ this by generating a random PDF file:
    $ convert xc:none -page Letter a.pdf
    $ datalad save -m "add empty pdf"
 
-DataLad will safeguard dropping content that it can't retrieve again:
+DataLad will safeguard dropping content that it can not retrieve again:
 
 .. runrecord:: _examples/DL-101-140-178
    :workdir: dl-101/DataLad-101

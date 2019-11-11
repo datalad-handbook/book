@@ -4,7 +4,7 @@ Looking without touching
 ------------------------
 
 Only now, several weeks into the DataLad-101 course does your room
-mate realize that he has enrolled in the course as well, but hasn't
+mate realize that he has enrolled in the course as well, but has not
 yet attended at all. "Oh man, can you help me catch up?" he asks
 you one day. "Sharing just your notes would be really cool for a
 start already!"
@@ -37,7 +37,7 @@ for him to access and work with.
 
 This is indeed a common real-world use case: Two users on a shared
 file system sharing a dataset with each other.
-But as we can't easily simulate a second user in this handbook,
+But as we can not easily simulate a second user in this handbook,
 for now, you will have to share your dataset with yourself.
 This endeavor serves several purposes: For one, you will experience a very easy
 way of sharing a dataset. Secondly, it will show you the installation
@@ -71,7 +71,7 @@ simplicity -- create a new directory, ``mock_user``, right next to it:
 
 For simplicity, pretend that this is a second users' -- your room mates' --
 home directory. Furthermore, let's for now disregard anything about
-permissions. In a real-world example you likely wouldn't be able to read and write
+permissions. In a real-world example you likely would not be able to read and write
 to a different user's directories, but we will talk about permissions later.
 
 After creation, navigate into ``mock_user`` and install
@@ -211,7 +211,7 @@ Let's now turn to the fact that the subdataset ``longnow`` does
 not contain not only no file content, but also no file metadata
 information to explore the contents of the dataset: There are no
 subdirectories or any files under ``recordings/longnow/``.
-This is behavior that you haven't observed until now.
+This is behavior that you have not observed until now.
 
 To fix this and obtain file availability metadata,
 you have to run a somewhat unexpected command:

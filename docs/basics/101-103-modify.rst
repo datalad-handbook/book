@@ -3,7 +3,7 @@
 Modify content
 --------------
 
-So far, we've only added new content to the dataset. And we haven't done
+So far, we've only added new content to the dataset. And we have not done
 much to that content up to this point, to be honest. Let's see what happens if
 we add content, and then modify it.
 

@@ -21,7 +21,7 @@ Software setup
 
 Depending on the size of your contribution, you may want to be able to build the book
 locally to test and preview your changes. If you are fixing typos, tweak the
-language, or rewrite a paragraph or two, this shouldn't be necessary, and you can safely
+language, or rewrite a paragraph or two, this should not be necessary, and you can safely
 skip this paragraph and instead take a look into the paragraph
 :ref:`easy`.
 If you want to be able to build the book locally, though, please follow these instructions:
@@ -65,7 +65,7 @@ a second machine ``/home/mih``, for example, leading to some potential confusion
 Therefore, you need to create this directory, and also --
 for consistency in the Git logs as well -- a separate, mock Git identity
 (we chose `Elena Piscopia <https://en.wikipedia.org/wiki/Elena_Cornaro_Piscopia>`_, the first
-woman to receive a PhD -- don't worry, this does not mess with your own Git identity):
+woman to receive a PhD -- do not worry, this does not mess with your own Git identity):
 
 .. code-block:: bash
 

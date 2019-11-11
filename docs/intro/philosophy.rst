@@ -4,7 +4,7 @@ A brief overview of DataLad
 ---------------------------
 
 There can be numerous reasons why you ended up with this handbook in front of
-you -- We don't know who you are, or why you are here.
+you -- We do not know who you are, or why you are here.
 You could have any background, any amount of previous experience with
 DataLad, any individual application to use it for,
 any level of maturity in your own mental concept of what DataLad
@@ -123,7 +123,7 @@ that captures the spirit of what DataLad is, and here is a brief overview on it.
 #. **A DataLad dataset can take care of managing and version controlling arbitrarily large data**.
    To do this, it has an optional *annex* for (large) file content:
    Thanks to this :term:`annex`, DataLad can easily track files that are many TB or PB in size
-   (something that Git couldn't do, and that allows you to restore previous versions of data,
+   (something that Git could not do, and that allows you to restore previous versions of data,
    transform and work with it while capturing all :term:`provenance`,
    or share it with whomever you want). At the same time, DataLad does all of the magic
    necessary to get this awesome feature to work quietly in the background.
@@ -139,7 +139,7 @@ that captures the spirit of what DataLad is, and here is a brief overview on it.
    whether it is managed by DataLad or not. This guarantees that users will not loose
    data or data access if DataLad would vanish from their system, or even when DataLad
    would vanish from the face of Earth. Using DataLad thus does not require or generate
-   data structures that can only be used or read with DataLad -- DataLad doesn't
+   data structures that can only be used or read with DataLad -- DataLad does not
    tie you down, it liberates you.
 
 #. Furthermore, DataLad is developed for **complete decentralization**.

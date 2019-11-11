@@ -261,8 +261,8 @@ please `get in touch <https://github.com/datalad-handbook/book/issues/new>`_.
    - **Step 3**: Initialize the distribution
 
       - Launch the Subsystem either from the Microsoft store or from the Start menu. This
-        will start a terminal. Don't worry -- there is a dedicated section (:ref:`howto`)
-        on how to work with the terminal if you haven't so far.
+        will start a terminal. Do not worry -- there is a dedicated section (:ref:`howto`)
+        on how to work with the terminal if you have not so far.
 
       - Upon first start, you will be prompted to enter a new UNIX username and password.
         Tip: chose a short name, and no spaces or special characters. The password will
@@ -373,7 +373,7 @@ please `get in touch <https://github.com/datalad-handbook/book/issues/new>`_.
    - **Step 3**: Initialize the distribution
 
       - Launch the Subsystem either from the Microsoft store or from the Start menu. This
-        will start a terminal. Don't worry -- there is a dedicated section (:ref:`howto`)
+        will start a terminal. Do not worry -- there is a dedicated section (:ref:`howto`)
         on how to work with the terminal if you haven't so far.
 
       - Upon first start, you will be prompted to enter a new UNIX username and password.
@@ -447,4 +447,4 @@ and name -- it does not establish a lot of trust nor is it helpful after a few
 years if your history, especially in a collaborative project, shows
 that changes were made by ``Anonymous`` with the email
 ``youdontgetmy@email.fu``.
-And don't worry, you won't get any emails from Git or DataLad.
+And do not worry, you won't get any emails from Git or DataLad.

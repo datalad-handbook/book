@@ -81,7 +81,7 @@ regular status reports should become a habit in the wake of ``DataLad-101``.
 Interesting, the ``books/`` directory is "untracked". Remember how content
 *can* be tracked *if a user wants to*?
 Untracked means that DataLad does not know about this directory or its content,
-because we haven't instructed DataLad to actually track it. This means, DataLad
+because we have not instructed DataLad to actually track it. This means, DataLad
 does not keep the downloaded books in its history yet. Let's change this by
 saving the files to the dataset's history with the :command:`datalad save` command
 (:manpage:`datalad-save` manual).
@@ -170,7 +170,7 @@ human-readable summary of that action.
 Cool, so now you have added some files to your dataset history. But what is a bit
 inconvenient is that both books were saved *together*. You begin to wonder: "A Python
 book and a Unix book do not have that much in common. I probably should not save them
-in the same commit. And ... what happens if I have files I don't want to track?
+in the same commit. And ... what happens if I have files I do not want to track?
 :command:`datalad save -m "some commit message"` would save all of what is currently
 untracked or modified in the dataset into the history!"
 

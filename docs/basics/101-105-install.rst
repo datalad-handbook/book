@@ -21,9 +21,9 @@ data becomes fast and easy, but also *sharing*."
 "That's so cool!", you think. "Exam preparation will be a piece of cake if all of us
 can share our mid-term and final projects easily!"
 "But today, let's only focus on how to install a dataset", she continuous.
-"Damn it! Can't we have longer lectures?", you think and set alarms to all of the
+"Damn it! Can we not have longer lectures?", you think and set alarms to all of the
 upcoming lecture dates in your calendar.
-There is so much exciting stuff to come, you can't miss a single one.
+There is so much exciting stuff to come, you can not miss a single one.
 
 .. index:: ! datalad command; install
 
@@ -105,9 +105,9 @@ Note that the path did not change, but ``-d .`` changed to ``-d ../``
 Later in this book there is a dedicated section that explains what this ``-d``/``--dataset`` option
 does and why it is important, but for now just be mindful of the instruction above.
 
-.. findoutmore:: What if I don't install into an existing dataset?
+.. findoutmore:: What if I do not install into an existing dataset?
 
-   If you don't install inside an existing dataset, you only need to omit the ``dataset``
+   If you do not install inside an existing dataset, you only need to omit the ``dataset``
    option. You can try::
   
      datalad install -s https://github.com/datalad-datasets/longnow-podcasts.git
@@ -151,8 +151,8 @@ Dataset content identity and availability information
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Surprised you turn to your fellow student and wonder about
-how fast the dataset was installed. Shouldn't
-a download of that many ``.mp3`` files should take much more time?
+how fast the dataset was installed. Should
+a download of that many ``.mp3`` files not take much more time?
 
 Here you can see another import feature of DataLad datasets
 and the :command:`datalad install` command:
@@ -242,8 +242,8 @@ we can use ``.`` to refer to *all* of the dataset like this:
 
    $ datalad get .
 
-(However, with a total size of more than 15GB, this might take a while, so don't do that now.
-If you did execute the command above, interrupt it by pressing ``CTRL`` + ``C`` -- Don't worry,
+(However, with a total size of more than 15GB, this might take a while, so do not do that now.
+If you did execute the command above, interrupt it by pressing ``CTRL`` + ``C`` -- Do not worry,
 this will not break anything)
 
 Isn't that easy?

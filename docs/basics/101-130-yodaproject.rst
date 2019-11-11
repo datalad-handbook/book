@@ -251,7 +251,7 @@ you can wrap the execution of the script in a :command:`datalad run` command.
      --input "input/iris.csv" \
      --output "output/prediction_report.csv" \
      --output "output/pairwise_relationships.png" \
-     "python code/script.py"
+     "python3 code/script.py"
 
 As the successful command summary indicates, your analysis seems to work! Two
 files were created and saved to the dataset: ``output/pairwise_relationships.png``

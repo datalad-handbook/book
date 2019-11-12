@@ -1,6 +1,0 @@
-$ datalad save -m "add copy of TLCL.pdf"
-add(ok): copyofTLCL.pdf (file)
-save(ok): . (dataset)
-action summary:
-  add (ok: 1)
-  save (ok: 1)

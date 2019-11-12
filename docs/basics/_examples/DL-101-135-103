@@ -1,6 +1,6 @@
 $ datalad get --help
 Usage: datalad get [-h] [-s LABEL] [-d PATH] [-r] [-R LEVELS] [-n]
-                   [-D DESCRIPTION] [--reckless] [-J NJOBS] [-v]
+                   [-D DESCRIPTION] [--reckless] [-J NJOBS]
                    [PATH [PATH ...]]
 
 Get any dataset content (files/directories/subdatasets).
@@ -9,7 +9,7 @@ This command only operates on dataset content. To obtain a new independent
 dataset from some source use the INSTALL command.
 
 By default this command operates recursively within a dataset, but not
-across potential subdatasets, i.e., if a directory is provided, all files in
+across potential subdatasets, i.e. if a directory is provided, all files in
 the directory are obtained. Recursion into subdatasets is supported too. If
 enabled, relevant subdatasets are detected and installed in order to
 fulfill a request.
@@ -22,6 +22,20 @@ specified.
 NOTE
   Power-user info: This command uses git annex get to fulfill
   file handles.
+
+*Examples*
+
+Get a single file::
+
+   % datalad get <path/to/file>
+
+Get contents of a directory::
+
+   % datalad get <path/to/dir/>
+
+Get all contents of the current dataset and its subdatasets::
+
+   % datalad get . --recursive
 
 *Arguments*
   PATH                  path/name of the requested dataset component. The
@@ -77,6 +91,4 @@ NOTE
                         how many parallel jobs (where possible) to use.
                         Constraints: value must be convertible to type 'int',
                         or value must be one of ('auto',) [Default: 'auto']
-  -v, --verbose         print out more detailed information while executing a
-                        command. [Default: False]
 

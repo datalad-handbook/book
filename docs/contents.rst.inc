@@ -91,8 +91,8 @@ Help yourself
    :caption: What to do if things go wrong
 
    basics/101-135-help
-   basics/101-140-filesystem
-   basics/101-136-history
+   basics/101-136-filesystem
+   basics/101-137-history
    basics/101-180-FAQ
 
 #############################

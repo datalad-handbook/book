@@ -1,28 +1,23 @@
-$ cat notes.txt
-One can create a new dataset with 'datalad create [--description] PATH'.
-The dataset is created empty
+$ git log -1 -p
+commit 57619f689e1674654e9418d1d07ebb0531ba1d8d
+Author: Elena Piscopia <elena@example.net>
+Date:   Tue Nov 12 15:05:48 2019 +0100
 
-The command "datalad save [-m] PATH" saves the file
-(modifications) to history. Note to self:
-Always use informative, concise commit messages.
+    moved book into root
 
-The command 'datalad install [--source] PATH'
-installs a dataset from e.g., a URL or a path.
-If you install a dataset into an existing
-dataset (as a subdataset), remember to specify the
-root of the superdataset with the '-d' option.
-
-There are two useful functions to display changes between two
-states of a dataset: "datalad diff -f/--from COMMIT -t/--to COMMIT"
-and "git diff COMMIT COMMIT", where COMMIT is a shasum of a commit
-in the history.
-
-The datalad run command can record the impact a script or command has on a Dataset.
-In its simplest form, datalad run only takes a commit message and the command that
-should be executed.
-
-Any datalad run command can be re-executed by using its commit shasum as an argument
-in datalad rerun CHECKSUM. DataLad will take information from the run record of the original
-commit, and re-execute it. If no changes happen with a rerun, the command will not be written
-to history. Note: you can also rerun a datalad rerun command!
-
+diff --git a/TLCL.pdf b/TLCL.pdf
+new file mode 120000
+index 0000000..34328e2
+--- /dev/null
++++ b/TLCL.pdf
+@@ -0,0 +1 @@
++.git/annex/objects/jf/3M/MD5E-s2120211--06d1efcb05bb2c55cd039dab3fb28455.pdf/MD5E-s2120211--06d1efcb05bb2c55cd039dab3fb28455.pdf
+\ No newline at end of file
+diff --git a/books/TLCL.pdf b/books/TLCL.pdf
+deleted file mode 120000
+index 4c84b61..0000000
+--- a/books/TLCL.pdf
++++ /dev/null
+@@ -1 +0,0 @@
+-../.git/annex/objects/jf/3M/MD5E-s2120211--06d1efcb05bb2c55cd039dab3fb28455.pdf/MD5E-s2120211--06d1efcb05bb2c55cd039dab3fb28455.pdf
+\ No newline at end of file

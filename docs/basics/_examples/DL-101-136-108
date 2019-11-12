@@ -1,3 +1,7 @@
-$ git log -2 --oneline
-73f8322 add note on DataLads procedures
-9d125d8 add note on configurations and git config
+$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	renamed:    TLCL.pdf -> The_Linux_Command_Line.pdf
+

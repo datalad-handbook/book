@@ -54,3 +54,5 @@ such as in
 .. code-block:: bash
 
    $ pip install datalad-container
+
+Afterwards, the new DataLad functionality the extension provides is readily available.

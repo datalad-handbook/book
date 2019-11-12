@@ -117,13 +117,15 @@ section below has some pointers:
 
 .. findoutmore:: How to make a Singularity image
 
-   A singularity containers are build from definition files, often
-   called "recipes". The
+   Singularity containers are build from Image files, often
+   called "recipes", that hold a "definition" of the software container and its
+   contents and components. The
    `singularity documentation <https://sylabs.io/guides/3.4/user-guide/build_a_container.html>`_
-   has its own tutorial. One other way to build one is with
+   has its own tutorial on how to build such Images from scratch.
+   An alternative to writing the Image file by hand is to use
    `Neurodocker <https://github.com/kaczmarj/neurodocker#singularity>`_. This
    command-line program can help you generate custom Singularity recipes (and
-   also Dockerfiles, from which Docker images are build). A wonderful tutorial
+   also ``Dockerfiles``, from which Docker images are build). A wonderful tutorial
    on how to use Neurodocker is
    `this introduction <https://miykael.github.io/nipype_tutorial/notebooks/introduction_neurodocker.html>`_
    by Michael Notter.
@@ -136,9 +138,9 @@ section below has some pointers:
 
    will build a container (called ``<NAME>``) from the recipe. Alternatively,
    `Singularity Hub <https://singularity-hub.org/>`_ integrates with Github
-   and builds containers from recipes pushed to repositories on Github.
+   and builds containers from Images pushed to repositories on Github.
    `The docs <https://singularityhub.github.io/singularityhub-docs/>`_ can
-   give you an easy set of instructions for this.
+   give you an easy set of instructions on how to do this.
 
 .. runrecord:: _examples/DL-101-145-101
    :language: console
@@ -162,11 +164,17 @@ container under its name "python" in the dataset's configuration at
       $ cat .datalad/config
 
    This recorded the images origin on Singularity-Hub, the location of the
-   image in the dataset, and
+   image in the dataset under ``.datalad/environments/<NAME>/image``, and it
+   specifies the way in which the container should be used: The line
 
-   .. todo::
+   .. code-block:: bash
 
-      what exactly is ``cmdexec = singularity exec {img} {cmd}``?
+       cmdexec = singularity exec {img} {cmd}
+
+   can be read as: "If this container is used, take the ``cmd`` (what you wrap in a
+   :command:`datalad containers-run` command) and plug it into a
+   :command:`singularity exec` command. The mode of calling Singularity,
+   namely ``exec``, means that the command will be executed inside of the container.
 
    Note that the image is saved under ``.datalad/environments`` and the
    configuration is done in ``.datalad/config`` -- as these files are version
@@ -192,8 +200,9 @@ section :ref:`run` with the :command:`datalad containers-run` command.
    :workdir: dl-101/DataLad-101/midterm_project
    :realcommand: echo "datalad containers-run -m "rerun analysis in container" --container-name python datalad rerun $(git rev-parse HEAD~3)" && datalad containers-run -m "rerun analysis in container" --container-name python datalad rerun $(git rev-parse HEAD~3)
 
-Note: The ``--container-name`` flag is optional at this point. Only if your dataset
-contains more than one container, you will *need* to specify the name of the container
+Note that at this point, the ``--container-name`` flag is *optional* because there
+is only a single container registered to the dataset. But if your dataset
+contains more than one container you will *need* to specify the name of the container
 you want to use in your command. The complete command's structure looks like this::
 
    $ datalad containers-run --name <containername> [--input ...] [--output ...] <COMMAND>
@@ -214,6 +223,13 @@ you want to use in your command. The complete command's structure looks like thi
    from the dataset, if there exists a container with name given to the
    command. Note that this will remove not only the image from the dataset,
    but also the configuration for it in ``.datalad/config``.
+
+Software containers, the ``datalad-containers``, and DataLad thus work well together
+to make your analysis completely reproducible -- by not only linking code, data,
+and outputs, but also the software environment of an analysis. And this does not
+only benefit your future self, but also whomever you share your dataset with, as
+the information about the container is shared together with the dataset. How cool
+is that?
 
 .. rubric:: Footnotes
 

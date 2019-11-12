@@ -161,12 +161,11 @@ To compute the analysis you create the following Python script inside of ``code/
    from sklearn import model_selection
    from sklearn.neighbors import KNeighborsClassifier
    from sklearn.metrics import classification_report
-   from datalad.api import get, install
+   from datalad.api import get
 
    data = "input/iris.csv"
 
    # make sure that the data is obtained:
-   install('input/')
    get(data)
 
    # prepare the data as a pandas dataframe
@@ -201,8 +200,7 @@ To compute the analysis you create the following Python script inside of ``code/
 
 This script will
 
-- make sure to install the subdataset (line 11),
-- retrieve the data prior to reading it in (l. 12), and
+- make sure to install the linked subdataset and retrieve the data prior to reading it in (l. 12), and
 - save the resulting figure (l. 21) and ``.csv`` file (l 40) into the ``output/`` directory.
 
 Note how all paths (to input data and output files) are *relative*, such that the

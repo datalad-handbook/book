@@ -77,7 +77,7 @@ you can also add very large files to your datasets history.
 Currently, this can be considered "best-practice building": Frequent :command:`datalad status`
 commands, :command:`datalad save` commands to save dataset modifications,
 and concise :term:`commit message`\s are the main take aways from this. You can already explore
-the history of a dataset, but for now, its been only informative, and hasn't been used
+the history of a dataset, but for now, its been only informative, and has not been used
 for anything more fancy. Later on, we will look into utilizing the history
 in order to undo mistakes, or how to make changes to large content
 (as opposed to small content we have been modifying so far).

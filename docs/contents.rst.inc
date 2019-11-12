@@ -122,6 +122,7 @@ Help yourself
    basics/101-135-help
    basics/101-140-filesystem
    basics/101-136-history
+   basics/101-180-FAQ
 
 
 #########
@@ -154,7 +155,7 @@ Appendix
 * :ref:`search`
 
 ..
-  stuff that we don't need or show at the moment
+  stuff that we do not need or show at the moment
 
 .. toctree::
    :hidden:

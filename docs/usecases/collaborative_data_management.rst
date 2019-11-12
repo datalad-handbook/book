@@ -28,7 +28,7 @@ responds a week later with the fixed script, but in the meantime
 Bob already performed some miscellaneous changes to his script as well.
 Identifying and integrating her fix into his slightly changed script
 takes him half a day. When he finally finishes his analysis, he wants to
-publish code and data online, but can't find a way to share his data
+publish code and data online, but can not find a way to share his data
 together with his code.
 
 

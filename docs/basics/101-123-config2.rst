@@ -68,14 +68,14 @@ The patterns ``*`` and ``**`` are so-called "wildcards" used in :term:`globbing`
 ``*`` matches any file or directory in the current directory, and ``**`` matches
 all files and directories in the current directory *and subdirectories*. In technical
 terms, ``**`` matches *recursively*. The third row therefore
-translates to "Don't annex anything that is a text file in this directory" for Git-annex.
+translates to "Do not annex anything that is a text file in this directory" for Git-annex.
 
 However, rules can be even simpler. The second row simply takes a complete directory
 (``.git``) and instructs Git-annex to regard nothing in it as a "large file".
 The second row, ``**/.git* annex.largefiles=nothing`` therefore means that no
 ``.git`` repository in this directory or a subdirectory should be considered
 a "large file". This way, the ``.git`` repositories are protected from being annexed.
-If you had a single file (``myfile.pdf``) you wouldn't want annexed, specifying a rule such as::
+If you had a single file (``myfile.pdf``) you would not want annexed, specifying a rule such as::
 
    myfile.pdf annex.largefiles=nothing
 
@@ -116,7 +116,7 @@ therefore overrule specifications made in the ``.gitattributes`` file of the par
 directory.
 
 In summary, the ``.gitattributes`` files will give you the possibility to configure
-what should be annexed and what shouldn't be annexed up to individual file level.
+what should be annexed and what should not be annexed up to individual file level.
 This can be very handy, and allows you to tune your dataset to your custom needs.
 For example, files you will often edit by hand could be stored in Git if they are
 not too large to ease modifying them [#f3]_.
@@ -179,7 +179,7 @@ Writing to configuration files other than ``.git/config``
 
 "Didn't you say that knowing git :command:`git config` command is already
 half of what I need to know?" you ask. "Now there are three other configuration
-files, and I don't know with which command I can write into these files."
+files, and I do not know with which command I can write into these files."
 
 "Excellent question", you hear in return, "but in reality, you **do** know:
 it's also the :command:`git config` command. The only part of it you need to
@@ -270,14 +270,14 @@ Summary
 This has been an intense lecture, you have to admit. One definite
 take-away from it has been that you now know a second reason why the hidden
 ``.git`` and ``.datalad`` directory contents and also the contents of ``.gitmodules`` and
-``.gitattributes`` shouldn't be carelessly tempered with -- they contain all of
+``.gitattributes`` should not be carelessly tempered with -- they contain all of
 the repositories configurations.
 
 But you now also know how to modify these configurations with enough
 care and background knowledge such that nothing should go wrong once you
 want to work with and change them. You can use the :command:`git config` command
 for Git configuration files on different scopes, and even the ``.gitmodules`` or ``datalad/config``
-files. Of course you don't yet know all of the available configuration options. However,
+files. Of course you do not yet know all of the available configuration options. However,
 you already know some core Git configurations such as name, email, and editor. Even more
 important, you know how to configure Git-annex's content management based on ``largefile``
 rules, and you understand the majority of variables within ``.gitmodules`` or the sections

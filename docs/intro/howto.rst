@@ -231,7 +231,7 @@ Religious wars have been fought over which is "the best" editor. From the smolde
 this is the breakdown:
 
 ``nano``
-    Easy to use; medium features. If you don't know which to use, start with this.
+    Easy to use; medium features. If you do not know which to use, start with this.
 ``vim``
     Powerful and light; lots of features and many plugins; steep learning curve.
     Two resources to help get the most out of vim are the vimtutor program

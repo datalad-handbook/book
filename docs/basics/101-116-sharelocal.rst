@@ -4,7 +4,7 @@ Looking without touching
 ------------------------
 
 Only now, several weeks into the DataLad-101 course does your room
-mate realize that he has enrolled in the course as well, but hasn't
+mate realize that he has enrolled in the course as well, but has not
 yet attended at all. "Oh man, can you help me catch up?" he asks
 you one day. "Sharing just your notes would be really cool for a
 start already!"
@@ -37,7 +37,7 @@ for him to access and work with.
 
 This is indeed a common real-world use case: Two users on a shared
 file system sharing a dataset with each other.
-But as we can't easily simulate a second user in this handbook,
+But as we can not easily simulate a second user in this handbook,
 for now, you will have to share your dataset with yourself.
 This endeavor serves several purposes: For one, you will experience a very easy
 way of sharing a dataset. Secondly, it will show you the installation
@@ -63,7 +63,7 @@ simplicity -- create a new directory, ``mock_user``, right next to it:
    :language: console
    :workdir: dl-101
    :realcommand: mkdir mock_user
-   :caption: (hope this works)
+   :notes: (hope this works)
    :cast: 04_collaboration
 
    $ cd ../
@@ -71,7 +71,7 @@ simplicity -- create a new directory, ``mock_user``, right next to it:
 
 For simplicity, pretend that this is a second users' -- your room mates' --
 home directory. Furthermore, let's for now disregard anything about
-permissions. In a real-world example you likely wouldn't be able to read and write
+permissions. In a real-world example you likely would not be able to read and write
 to a different user's directories, but we will talk about permissions later.
 
 After creation, navigate into ``mock_user`` and install
@@ -81,7 +81,7 @@ the dataset ``DataLad-101`` by specifying its path as a ``--source``
 .. runrecord:: _examples/DL-101-116-102
    :language: console
    :workdir: dl-101
-   :caption: We pretend to install the DataLad-101 dataset into a different users home directory. To do this, we use datalad install with a path
+   :notes: We pretend to install the DataLad-101 dataset into a different users home directory. To do this, we use datalad install with a path
    :cast: 04_collaboration
 
 
@@ -100,7 +100,7 @@ like. Before running the command, try to predict what you will see.
 .. runrecord:: _examples/DL-101-116-103
    :language: console
    :workdir: dl-101/mock_user
-   :caption: How do you think does the dataset look like
+   :notes: How do you think does the dataset look like
    :cast: 04_collaboration
 
    $ cd DataLad-101
@@ -145,7 +145,7 @@ To demonstrate this, you decide to examine the PDFs further.
 .. runrecord:: _examples/DL-101-116-104
    :language: console
    :workdir: dl-101/mock_user/DataLad-101
-   :caption: how does it feel to get a file?
+   :notes: how does it feel to get a file?
    :cast: 04_collaboration
 
    $ datalad get books/progit.pdf
@@ -162,7 +162,7 @@ let's query Git-annex where its content is stored:
 .. runrecord:: _examples/DL-101-116-105
    :language: console
    :workdir: dl-101/mock_user/DataLad-101
-   :caption: git-annex whereis to find out where content is stored
+   :notes: git-annex whereis to find out where content is stored
    :cast: 04_collaboration
 
    $ git annex whereis books/TLCL.pdf
@@ -211,7 +211,7 @@ Let's now turn to the fact that the subdataset ``longnow`` does
 not contain not only no file content, but also no file metadata
 information to explore the contents of the dataset: There are no
 subdirectories or any files under ``recordings/longnow/``.
-This is behavior that you haven't observed until now.
+This is behavior that you have not observed until now.
 
 To fix this and obtain file availability metadata,
 you have to run a somewhat unexpected command:
@@ -219,7 +219,7 @@ you have to run a somewhat unexpected command:
 .. runrecord:: _examples/DL-101-116-106
    :language: console
    :workdir: dl-101/mock_user/DataLad-101
-   :caption: how do we get the subdataset? currently it looks empty. --> a plain datalad install
+   :notes: how do we get the subdataset? currently it looks empty. --> a plain datalad install
    :cast: 04_collaboration
 
    $ datalad install recordings/longnow
@@ -230,7 +230,7 @@ Let's what has changed (excerpt):
    :language: console
    :workdir: dl-101/mock_user/DataLad-101
    :lines: 1-30
-   :caption: what has changed? --> file metadata information!
+   :notes: what has changed? --> file metadata information!
    :cast: 04_collaboration
 
    $ tree
@@ -280,7 +280,7 @@ Write this note in "your own" (the original) ``DataLad-101`` dataset, though!
 .. runrecord:: _examples/DL-101-116-108
    :language: console
    :workdir: dl-101/mock_user/DataLad-101
-   :caption: note in original DataLad-101 dataset
+   :notes: note in original DataLad-101 dataset
    :cast: 04_collaboration
 
    # navigate back into the original dataset

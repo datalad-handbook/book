@@ -214,13 +214,32 @@ Let's run a quick :command:`datalad status`...
 
    $ datalad status
 
-... and save the script to the subdataset's history:
+... and save the script to the subdataset's history. As the script completes your
+analysis setup, we *tag* the state of the dataset.
 
 .. runrecord:: _examples/DL-101-130-112
    :language: console
    :workdir: dl-101/DataLad-101/midterm_project
 
-   $ datalad save -m "add script for kNN classification and plotting" code/script.py
+   $ datalad save -m "add script for kNN classification and plotting" --version-tag ready4analysis code/script.py
+
+.. findoutmore:: What is a tag?
+
+   :term:`tag`\s are markers that you can attach to commits in your dataset history.
+   They can have any name, and can help you and others to identify certain commits
+   or dataset states in the history of a dataset. Let's take a look at how the tag
+   you just created looks like in your history:
+
+   .. runrecord:: _examples/DL-101-130-112
+      :workdir: dl-101/DataLad-101/midterm_project
+      :language: console
+      :emphasizelines: 3
+
+      $ git log -p -n 1
+
+   Later we can use this tag to identify the version state of the dataset in which
+   the analysis setup was ready -- much more intuitive than a 40-character shasum!
+
 
 Finally, with your directory structure being modular and intuitive,
 the input data installed, the script ready, and the dataset status clean,
@@ -241,7 +260,7 @@ you can wrap the execution of the script in a :command:`datalad run` command.
    -- an upcoming section on ``datalad containers-run`` will allow you to
    perform the analysis without changing with your Python software-setup.
 
-.. runrecord:: _examples/DL-101-130-113
+.. runrecord:: _examples/DL-101-130-114
    :language: console
    :workdir: dl-101/DataLad-101/midterm_project
 
@@ -269,7 +288,7 @@ project on first try is that you achieved complete provenance capture:
 Let's take a look at the history of the ``midterm_project`` analysis
 dataset:
 
-.. runrecord:: _examples/DL-101-130-114
+.. runrecord:: _examples/DL-101-130-115
    :language: console
    :workdir: dl-101/DataLad-101/midterm_project
 
@@ -281,7 +300,7 @@ But what is still missing is a human readable description of your dataset.
 The YODA procedure kindly placed a ``README.md`` file into the root of your
 dataset that you can use for this [#f4]_.
 
-.. runrecord:: _examples/DL-101-130-115
+.. runrecord:: _examples/DL-101-130-116
    :language: console
    :workdir: dl-101/DataLad-101/midterm_project
 
@@ -298,13 +317,13 @@ dataset that you can use for this [#f4]_.
 
    EOT
 
-.. runrecord:: _examples/DL-101-130-116
+.. runrecord:: _examples/DL-101-130-117
    :language: console
    :workdir: dl-101/DataLad-101/midterm_project
 
    $ datalad status
 
-.. runrecord:: _examples/DL-101-130-117
+.. runrecord:: _examples/DL-101-130-118
    :language: console
    :workdir: dl-101/DataLad-101/midterm_project
 
@@ -313,7 +332,7 @@ dataset that you can use for this [#f4]_.
 To be extra helpful we will also create a README.md inside of ``outputs``
 that tells others about the nature of the result files:
 
-.. runrecord:: _examples/DL-101-130-118
+.. runrecord:: _examples/DL-101-130-119
    :language: console
    :workdir: dl-101/DataLad-101/midterm_project
 
@@ -342,7 +361,7 @@ Luckily, there is a handy shortcut to saving files in Git that does not
 require you to edit configurations in ``.gitattributes``: The ``--to-git``
 option for :command:`datalad save`.
 
-.. runrecord:: _examples/DL-101-130-119
+.. runrecord:: _examples/DL-101-130-120
    :language: console
    :workdir: dl-101/DataLad-101/midterm_project
 
@@ -350,7 +369,7 @@ option for :command:`datalad save`.
 
 Let's check whether this has worked: Is the file symlinked?
 
-.. runrecord:: _examples/DL-101-130-120
+.. runrecord:: _examples/DL-101-130-121
    :language: console
    :workdir: dl-101/DataLad-101/midterm_project
 
@@ -418,7 +437,7 @@ configuration [#f5]_, or interactively). Based on the credentials and the
 repository name, it will create a new, empty repository on Github, and
 configure this repository as a sibling of the dataset:
 
-.. runrecord:: _examples/DL-101-130-121
+.. runrecord:: _examples/DL-101-130-122
    :language: console
    :workdir: dl-101/DataLad-101/midterm_project
    :realcommand: datalad --log-level critical siblings add -d . --name github --url https://github.com/adswa/midtermproject.git
@@ -427,7 +446,7 @@ configure this repository as a sibling of the dataset:
 
 Verify that this worked by listing the siblings of the dataset:
 
-.. runrecord:: _examples/DL-101-130-122
+.. runrecord:: _examples/DL-101-130-123
    :language: console
    :workdir: dl-101/DataLad-101/midterm_project
 

@@ -58,7 +58,7 @@ That's easy enough.
 would get content-locked, too?". "Yes, indeed. However, there are also ways to
 later change how file content is handled based on its type or size. It can be specified
 in the ``.gitattributes`` file, using ``annex.largefile`` options.
-But there will be a lecture on that."
+But there will be a lecture on that [#f1]_."
 
 "Okay, well, second: Isn't it much easier to just not bother with locking and
 unlocking, and have everything 'stored in Git'? Even if :command:`datalad run` takes care
@@ -87,3 +87,10 @@ use-case dependent comparison of the pros and cons. BUT: it is possible,
 and in many cases useful, and in later sections we will see how to use this
 feature. The next lecture, in any way, will guide us deeper into Git-annex,
 and improve our understanding a slight bit further.
+
+
+.. rubric:: Footnotes
+
+.. [#f1] If you can't wait to read about ``.gitattributes`` and other
+         configuration files, jump ahead to chapter "Tuning datasets to your needs",
+         starting with section :ref:`config`.

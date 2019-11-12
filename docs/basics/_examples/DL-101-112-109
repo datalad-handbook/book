@@ -1,7 +1,7 @@
-$ git log -p -2
-commit bb10eda0df4006ab218d6f02733fe55a5276ddb7
+$ git log -p -n 2
+commit fe2a5cde6677e9b7922611d3f01d7be9d3cc0d98
 Author: Elena Piscopia <elena@example.net>
-Date:   Sun Oct 6 09:39:52 2019 +0200
+Date:   Thu Nov 7 16:53:48 2019 +0100
 
     add note on clean datasets
 

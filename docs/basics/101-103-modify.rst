@@ -3,7 +3,7 @@
 Modify content
 --------------
 
-So far, we've only added new content to the dataset. And we haven't done
+So far, we've only added new content to the dataset. And we have not done
 much to that content up to this point, to be honest. Let's see what happens if
 we add content, and then modify it.
 
@@ -61,7 +61,7 @@ root of your ``DataLad-101`` dataset:
    :language: console
    :workdir: dl-101/DataLad-101
    :cast: 01_dataset_basics
-   :caption: Let's find out how we can modify files in dataset. Lets create a text file with notes about the DataLad commands we learned. (maybe explain here docs)
+   :notes: Let's find out how we can modify files in dataset. Lets create a text file with notes about the DataLad commands we learned. (maybe explain here docs)
 
    $ cat << EOT > notes.txt
    One can create a new dataset with 'datalad create [--description] PATH'.
@@ -75,7 +75,7 @@ Run :command:`datalad status` to confirm that there is a new, untracked file:
    :language: console
    :workdir: dl-101/DataLad-101
    :cast: 01_dataset_basics
-   :caption: As expected, there is a new file in the dataset. At first the file is untracked. We can save without a path specification because it is the only existing modification
+   :notes: As expected, there is a new file in the dataset. At first the file is untracked. We can save without a path specification because it is the only existing modification
 
    $ datalad status
 
@@ -100,7 +100,7 @@ to accomplish this, but you can take any editor of your choice.
    :language: console
    :workdir: dl-101/DataLad-101
    :cast: 01_dataset_basics
-   :caption: Now let's start to modify this text file by adding more notes to it. Think about this being a code file that you add functions to:
+   :notes: Now let's start to modify this text file by adding more notes to it. Think about this being a code file that you add functions to:
 
    $ cat << EOT >> notes.txt
    The command "datalad save [-m] PATH" saves the file
@@ -124,15 +124,15 @@ and save the file in DataLad:
    :language: console
    :workdir: dl-101/DataLad-101
    :cast: 01_dataset_basics
-   :caption: The modification can simply be saved as well
+   :notes: The modification can simply be saved as well
 
    $ datalad save -m "add note on datalad save"
 
 Let's take another look into our history to see the development of this file.
-We're using :command:`git log -p` to see the difference to the previous state of a
-file within each commit. Note: the output below is an excerpt, if you enter
-the git log, your history will be longer, and thus opened in a
-`pager <https://en.wikipedia.org/wiki/Terminal_pager>`_. You can get out of it by pressing ``q``.
+We're using :command:`git log -p -n 2` to see last two commits and explore
+the difference to the previous state of a file within each commit.
+Note: git log may be opened in a `pager <https://en.wikipedia.org/wiki/Terminal_pager>`_.
+You can get out of it by pressing ``q``.
 
 .. runrecord:: _examples/DL-101-103-107
    :language: console
@@ -140,9 +140,9 @@ the git log, your history will be longer, and thus opened in a
    :lines: 1-28
    :emphasize-lines: 6, 25, 27
    :cast: 01_dataset_basics
-   :caption: An the history gives an accurate record of what happened to this file
+   :notes: An the history gives an accurate record of what happened to this file
 
-   $ git log -p -2
+   $ git log -p -n 2
 
 We can see that the history can not only show us the commit message attached to
 a commit, but also the precise change that occurred in the text file in the commit.

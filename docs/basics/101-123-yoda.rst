@@ -120,7 +120,7 @@ computational environments, results, ...) in dedicated directories. For example:
 
 - Store **input data** for an analysis in a dedicated ``inputs/`` directory.
   Keep different formats or processing-stages of your input data as individual,
-  modular components:  Don't mix raw data, data that is already structured
+  modular components:  Do not mix raw data, data that is already structured
   following community guidelines of the given field, or preprocessed data, but create
   one data component for each of them. And if your analysis
   relies on two or more data collections, these collections should each be an

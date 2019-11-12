@@ -146,6 +146,24 @@
         "example",
         "ideas"
       ]
+    },
+    {
+      "login": "LisaWiersch96",
+      "name": "Lisa Wiersch",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/57354773?v=4",
+      "profile": "https://github.com/LisaWiersch96",
+      "contributions": [
+        "bug"
+      ]
+    },
+    {
+      "login": "jbpoline",
+      "name": "Jean-Baptiste Poline",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/275048?v=4",
+      "profile": "https://github.com/jbpoline",
+      "contributions": [
+        "content"
+      ]
     }
   ],
   "contributorsPerLine": 7,

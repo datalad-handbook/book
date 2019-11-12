@@ -18,7 +18,7 @@ modifying content of non-text files, such as ``.jpg``\s, requires
 the additional step of *unlocking* file content, either by hand with the :command:`datalad unlock`
 command, or within :command:`datalad run` using the ``-o``/``--output`` flag.
 
-There is one detail about DataLad datasets that we haven't covered yet. Its both
+There is one detail about DataLad datasets that we have not covered yet. Its both
 a crucial aspect to understanding certain aspects of a dataset, but it is also a
 potential source of confusion that we want to eradicate.
 
@@ -30,14 +30,14 @@ them. We'll take a look together, using the ``books/`` directory as an example:
 .. runrecord:: _examples/DL-101-115-101
    :language: console
    :workdir: dl-101/DataLad-101
-   :caption: We have to talk about symlinks now.
+   :notes: We have to talk about symlinks now.
    :cast: 03_git_annex_basics
 
    # in the root of DataLad-101
    $ cd books
    $ tree
 
-If you don't know what you are looking at,
+If you do not know what you are looking at,
 this looks weird, if not worse: intimidating, wrong, or broken.
 First of all: no, **it is all fine**. But let's start with the basics of what is displayed
 here to understand it.
@@ -95,7 +95,7 @@ your standard PDF reader).
    :language: console
    :workdir: dl-101/DataLad-101/books
    :realcommand: echo "evince $(readlink TLCL.pdf)"
-   :caption: we can just open the cryptic file path and it works just as any pdf!
+   :notes: we can just open the cryptic file path and it works just as any pdf!
    :cast: 03_git_annex_basics
 
 
@@ -114,7 +114,7 @@ small size of ~130 Bytes:
 .. runrecord:: _examples/DL-101-115-103
    :language: console
    :workdir: dl-101/DataLad-101/books
-   :caption: Symlinks are super small in size, just the amount of characters in the symlink!
+   :notes: Symlinks are super small in size, just the amount of characters in the symlink!
    :cast: 03_git_annex_basics
 
    $ ls -lah
@@ -148,7 +148,7 @@ The second advantage is a
 
 This leads to a few conclusions:
 
-The first is that you shouldn't be worried
+The first is that you should not be worried
 to see cryptic looking symlinks in your repository -- this is how it should
 look. If you are interested in why these paths look so weird, and what all
 of this has to do with data integrity, you can check
@@ -233,7 +233,7 @@ to manage the file system in a datalad dataset (:ref:`filesystem`).
    .. runrecord:: _examples/DL-101-115-104
       :language: console
       :workdir: dl-101/DataLad-101/books
-      :caption: how does the symlink relate to the shasum of the file?
+      :notes: how does the symlink relate to the shasum of the file?
       :cast: 03_git_annex_basics
 
       # take a look at the last part of the target path:
@@ -242,7 +242,7 @@ to manage the file system in a datalad dataset (:ref:`filesystem`).
    .. runrecord:: _examples/DL-101-115-105
       :language: console
       :workdir: dl-101/DataLad-101/books
-      :caption: let's look at how the shasum would look like
+      :notes: let's look at how the shasum would look like
       :cast: 03_git_annex_basics
 
       # compare it to the checksum (here of type md5sum) of the PDF file and the subdirectory name
@@ -314,7 +314,7 @@ the superdataset.
 .. runrecord:: _examples/DL-101-115-106
    :workdir: dl-101/DataLad-101/books
    :language: console
-   :caption: understanding how symlinks work will help you with everyday file management operations.
+   :notes: understanding how symlinks work will help you with everyday file management operations.
    :cast: 03_git_annex_basics
 
    $ cd ../

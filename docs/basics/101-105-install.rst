@@ -21,9 +21,9 @@ data becomes fast and easy, but also *sharing*."
 "That's so cool!", you think. "Exam preparation will be a piece of cake if all of us
 can share our mid-term and final projects easily!"
 "But today, let's only focus on how to install a dataset", she continuous.
-"Damn it! Can't we have longer lectures?", you think and set alarms to all of the
+"Damn it! Can we not have longer lectures?", you think and set alarms to all of the
 upcoming lecture dates in your calendar.
-There is so much exciting stuff to come, you can't miss a single one.
+There is so much exciting stuff to come, you can not miss a single one.
 
 .. index:: ! datalad command; install
 
@@ -57,7 +57,7 @@ called recordings.
    :language: console
    :workdir: dl-101/DataLad-101
    :cast: 01_dataset_basics
-   :caption: The next challenge is to install an existing dataset from the web as a subdataset. First, we create a location for this
+   :notes: The next challenge is to install an existing dataset from the web as a subdataset. First, we create a location for this
 
    # we are in the root of DataLad-101
    $ mkdir recordings
@@ -78,7 +78,7 @@ line.
    :workdir: dl-101/DataLad-101/
    :realcommand: datalad install -d . -s https://github.com/datalad-datasets/longnow-podcasts.git recordings/longnow
    :cast: 01_dataset_basics
-   :caption: We need to install the dataset as a subdataset. For this, we use the datalad install command with a --dataset option and --source option as well as a path. Else the dataset would not be registered as a subdataset!
+   :notes: We need to install the dataset as a subdataset. For this, we use the datalad install command with a --dataset option and --source option as well as a path. Else the dataset would not be registered as a subdataset!
 
    $ datalad install --dataset . \
    --source https://github.com/datalad-datasets/longnow-podcasts.git recordings/longnow
@@ -105,9 +105,9 @@ Note that the path did not change, but ``-d .`` changed to ``-d ../``
 Later in this book there is a dedicated section that explains what this ``-d``/``--dataset`` option
 does and why it is important, but for now just be mindful of the instruction above.
 
-.. findoutmore:: What if I don't install into an existing dataset?
+.. findoutmore:: What if I do not install into an existing dataset?
 
-   If you don't install inside an existing dataset, you only need to omit the ``dataset``
+   If you do not install inside an existing dataset, you only need to omit the ``dataset``
    option. You can try::
   
      datalad install -s https://github.com/datalad-datasets/longnow-podcasts.git
@@ -125,7 +125,7 @@ Here is the repository structure:
    :language: console
    :workdir: dl-101/DataLad-101
    :cast: 01_dataset_basics
-   :caption: Let's take a look at the directory structure after the installation
+   :notes: Let's take a look at the directory structure after the installation
 
    $ tree -d   # we limit the output to directories
 
@@ -141,7 +141,7 @@ excerpt).
    :workdir: dl-101/DataLad-101/
    :lines: 1-15
    :cast: 01_dataset_basics
-   :caption: And now lets look into these seminar series folders: There are hundreds of mp3 files, yet the download only took a few seconds! How can that be?
+   :notes: And now lets look into these seminar series folders: There are hundreds of mp3 files, yet the download only took a few seconds! How can that be?
 
    $ cd recordings/longnow/Long_Now__Seminars_About_Long_term_Thinking
    $ ls
@@ -151,8 +151,8 @@ Dataset content identity and availability information
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Surprised you turn to your fellow student and wonder about
-how fast the dataset was installed. Shouldn't
-a download of that many ``.mp3`` files should take much more time?
+how fast the dataset was installed. Should
+a download of that many ``.mp3`` files not take much more time?
 
 Here you can see another import feature of DataLad datasets
 and the :command:`datalad install` command:
@@ -170,7 +170,7 @@ small in size:
    :language: console
    :workdir: dl-101/DataLad-101/recordings/longnow/Long_Now__Seminars_About_Long_term_Thinking
    :cast: 01_dataset_basics
-   :caption: Upon installation of a DataLad dataset, DataLad retrieves only small files and metadata. Therefore the dataset is tiny in size. The files are non-functional now atm (Try opening one)
+   :notes: Upon installation of a DataLad dataset, DataLad retrieves only small files and metadata. Therefore the dataset is tiny in size. The files are non-functional now atm (Try opening one)
 
    $ cd ../      # in longnow/
    $ du -sh      # Unix command to show size of contents
@@ -201,7 +201,7 @@ For this, we supply an additional option to :command:`datalad status`. Make sure
    :language: console
    :workdir: dl-101/DataLad-101/recordings/longnow
    :cast: 01_dataset_basics
-   :caption: But how large would the dataset be if we had all the content?
+   :notes: But how large would the dataset be if we had all the content?
 
    $ datalad status --annex
 
@@ -229,7 +229,7 @@ First, we get one of the recordings in the dataset -- take any one of your choic
    :language: console
    :workdir: dl-101/DataLad-101/recordings/longnow
    :cast: 01_dataset_basics
-   :caption: Now let's finally get some content in this dataset. This is done with the datalad get command
+   :notes: Now let's finally get some content in this dataset. This is done with the datalad get command
 
    $ datalad get Long_Now__Seminars_About_Long_term_Thinking/2003_11_15__Brian_Eno__The_Long_Now.mp3
 
@@ -242,8 +242,8 @@ we can use ``.`` to refer to *all* of the dataset like this:
 
    $ datalad get .
 
-(However, with a total size of more than 15GB, this might take a while, so don't do that now.
-If you did execute the command above, interrupt it by pressing ``CTRL`` + ``C`` -- Don't worry,
+(However, with a total size of more than 15GB, this might take a while, so do not do that now.
+If you did execute the command above, interrupt it by pressing ``CTRL`` + ``C`` -- Do not worry,
 this will not break anything)
 
 Isn't that easy?
@@ -255,7 +255,7 @@ has a nice summary:
    :language: console
    :workdir: dl-101/DataLad-101/recordings/longnow
    :cast: 01_dataset_basics
-   :caption: Datalad status can also summarize how much of the content is already present locally:
+   :notes: Datalad status can also summarize how much of the content is already present locally:
 
    $ datalad status --annex all
 
@@ -269,7 +269,7 @@ DataLad's fancy progress bars.
    :language: console
    :workdir: dl-101/DataLad-101/recordings/longnow
    :cast: 01_dataset_basics
-   :caption: Let's get a few more files. Note how already obtained files are not downloaded again:
+   :notes: Let's get a few more files. Note how already obtained files are not downloaded again:
 
    $ datalad get Long_Now__Seminars_About_Long_term_Thinking/2003_11_15__Brian_Eno__The_Long_Now.mp3 \
    Long_Now__Seminars_About_Long_term_Thinking/2003_12_13__Peter_Schwartz__The_Art_Of_The_Really_Long_View.mp3 \
@@ -293,7 +293,7 @@ history from first to most recent commit):
    :emphasize-lines: 3
    :lines: 1-13
    :cast: 01_dataset_basics
-   :caption: On Dataset nesting: You have seen the history of DataLad-101. But the subdataset has a standalone history as well! We can find out who created it!
+   :notes: On Dataset nesting: You have seen the history of DataLad-101. But the subdataset has a standalone history as well! We can find out who created it!
 
 
    $ git log --reverse
@@ -313,7 +313,7 @@ modification.
    :language: console
    :workdir: dl-101/DataLad-101/recordings/longnow
    :cast: 01_dataset_basics
-   :caption: We can make a note about this:
+   :notes: We can make a note about this:
 
    # in the root of DataLad-101:
    $ cd ../../

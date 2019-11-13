@@ -1,5 +1,5 @@
-Code from cast: 02_reproducible_execution
------------------------------------------
+Code from chapter: 02_reproducible_execution
+--------------------------------------------
 
 Code snippet 37::
 

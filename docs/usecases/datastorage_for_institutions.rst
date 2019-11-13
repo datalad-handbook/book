@@ -16,9 +16,9 @@ science in big (scientific) institutions, while keeping workflows for users
 as simple as possible. It elaborates on
 
 #. How to implement a scalable, distributed data store so that data is
-   stored in a different place than where people work with it.
+   stored in a different place than where people work with it,
 #. How to configure the data store and general cluster setup for easy and
-   fast accessibility of data.
+   fast accessibility of data, and
 #. How to reduce technical complexities for users and encourage reproducible,
    version-controlled scientific workflows.
 
@@ -48,8 +48,8 @@ and expensive to collect.
 Therefore, datasets are used for various different research questions, by
 multiple researchers.
 
-Every member of the institute has an account on the compute cluster, and all
-of the data exists in dedicated directories on the server. In order to work on
+Every member of the institute has an account on an expensive and large compute cluster, and all
+of the data exists in dedicated directories on this server. In order to work on
 their research questions without modifying original data, every user creates own
 copies of the full data in their user account on the cluster -- even if it
 contains many files that are not necessary for their analysis. In addition,
@@ -85,6 +85,8 @@ configuration is distributed among users. Applying the procedure is done in a
 single :command:`datalad run-procedure` command, and users subsequently
 face minimal technical overhead to interact with the data store.
 
+The infrastructural changes are accompanied by changes in the mindset and workflows
+of the researchers that perform analyses on the cluster.
 By using the data store, the institutes work routines are adjusted around
 DataLad datasets: Analyses are set-up inside of DataLad datasets, and for every
 analysis, an associated ``project`` is created under the namespace of the
@@ -98,11 +100,8 @@ on-demand, and files that are easily re-obtained or recomputed can safely be
 dropped to save even more disk-space. More over, upon creation of an analysis
 project, the associated Gitlab project it is automatically configured as a remote
 with a publication dependency on the data store, thus enabling vastly simplified
-data publication routines.
+data publication routines and back-up of pristine results.
 
-.. todo::
-
-   sketch how the interaction of users with the cluster improves
 
 Step-by-step
 ^^^^^^^^^^^^
@@ -114,11 +113,32 @@ Step-by-step
 
 To create a data store, parts of the old compute cluster and parts of the
 super computer at the Juelich supercomputing centre (JSC) are used to store
-large
-amounts of data. Thus, multiple different, independent machines take care of
+large amounts of data. Thus, multiple different, independent machines take care of
 warehousing the data. While this is unconventional, it is convenient: The
 data does not strain the compute cluster, and with DataLad, it is irrelevant
-where the data is located. Thanks to Git-annex, any large file content in
+where the data is located.
+
+.. figure:: ../artwork/src/ephemeral_infra.svg
+   :alt: A simple, local version control workflow with datalad.
+   :figwidth: 80%
+
+   Trinity of research data handling: The data store (``$DATA``) is managed and
+   backed-up. The compute cluster (``$COMPUTE``) has an analysis-appropriate structure
+   with adequate resources, but just as users workstations/laptops (``$HOME``),
+   it is not concerned with data hosting.
+
+On their own machines (``$HOME``), researchers are free to do whatever they want
+as long as it is within the limits of their machines. The cluster (``$COMPUTE``)
+pulls the data exclusively from the data store (``$DATA``). Thus, within
+``$HOME``, researchers are free to explore data from ``$DATA`` as they wish,
+but scaling requires them to use ``$COMPUTE``. Results from ``$COMPUTE`` are pushed
+back to ``$DATA``, and hence anything that is relevant for a computation is tracked
+(and backed-up) there.
+
+The data store as a Git-annex RIA remote
+""""""""""""""""""""""""""""""""""""""""
+
+The distributed data store exists thanks to Git-annex: Any large file content in
 datasets is stored as a *value* in Git-annex's object tree. A *key*
 generated from its contents is checked into Git and used to reference the
 location of the value in the object tree [#f1]_. The object tree (or *keystore*)
@@ -127,12 +147,14 @@ encoded using a *special remote*. This configuration is done on an
 administrative, system-wide level, and users do not need to care or know
 about where data is stored, as they can access it just as easily as before.
 
-A `special-remote <https://git-annex.branchable.com/special_remotes/>`_ is an
-extension to Git's concept of remotes, and can enable Git-annex to transfer
-data to and from places that are not Git repositories (e.g., cloud services
-or external machines such as an HPC system). Don't envision a special-remote as a
-physical place or location -- a special-remote is just a protocol that defines
-the underlying *transport* of your files *to* and *from* a specific location.
+.. findoutmore:: What is a special remote?
+
+   A `special-remote <https://git-annex.branchable.com/special_remotes/>`_ is an
+   extension to Git's concept of remotes, and can enable Git-annex to transfer
+   data to and from places that are not Git repositories (e.g., cloud services
+   or external machines such as an HPC system). Don't envision a special-remote as a
+   physical place or location -- a special-remote is just a protocol that defines
+   the underlying *transport* of your files *to* and *from* a specific location.
 
 The machines in question, parts of an old compute cluster and parts of the
 supercomputer at the JSC, are configured to receive and store data using the
@@ -143,22 +165,24 @@ special remote, but distinct in certain aspects:
 
 - It allows read-access to (compressed) 7z archives, which is a useful
   feature on systems where strong quotas on filesystem inodes might be imposed
-  on users. This way, the entire key store (i.e., all data contents) of the
+  on users, or where one wants to have compression gains.
+  This way, the entire key store (i.e., all data contents) of the
   remote that serves as the data store can be put into an archive that uses
   only a handful of inodes, while remaining fully accessible.
 
 - It provides access to configurable directories via SSH.
+
   .. todo::
 
-     understand this part.
+     understand why this is special/cool.
 
 - It allows a multi-repository directory structure, in which key store
   directories of multiple repositories can be organized in to a homogeneous
-  archive directory structure. A key store location in an archive is defined
-  using the datasets UUID (in case of DataLad datasets) or the annex remote
+  archive directory structure. Importantly, the key store location in an archive is defined
+  using the **datasets UUID** (in case of DataLad datasets) or the annex remote
   UUID (in case of any non DataLad dataset). This aids handling of large
   numbers of repositories in a data store use case, because locations are
-  derived from repository properties rather than having to re-configure them explicitly.
+  derived from *repository properties* rather than having to re-configure them explicitly.
 
 The structure under which data is stored in the data store looks like this:
 
@@ -176,6 +200,8 @@ The structure under which data is stored in the data store looks like this:
     │   │   │   │   └── def
     │   │   │   │       └── MD5E-s4--ba1f2511fc30423bdbb183fe33f3dd0f
     │   │   │   ├── [...]
+    │   │   └── archives
+    │   │       └── archive.7z
     │   ├── branches
     │   ├── config
     │   ├── description
@@ -207,41 +233,70 @@ Here is how the RIA-remote features look like in real life:
   ``0828ac72-f7c8-11e9-917f-a81e84238a11``). The UUID is split into the first
   two levels of the tree structure (as highlighted above in the first two
   lines), with the two-level structure preventing too many inodes underneath
-  a single directory
+  a single directory.
 - This first, two-level tree structure can host key stores for any number of
   repositories.
 - The third level holds a directory structure that is identical to a *bare* git
-  repository.
-- A bare Git repository is a repository that contains the contents of the ``.git``
-  directory of regular DataLad datasets or Git repositories, but no worktree
-  or checkout. This has advantages: The repository is leaner, it is easier
-  for administrators to perform garbage collections, and it can be pushed to at
-  all times. You can find out more on what bare repositories are and how to use them
-  `here <https://git-scm.com/book/en/v2/Git-on-the-Server-Getting-Git-on-a
-  -Server>`_.
+  repository, and is a clone of the dataset.
+
+  .. findoutmore:: What is a bare Git repository?
+
+     A bare Git repository is a repository that contains the contents of the ``.git``
+     directory of regular DataLad datasets or Git repositories, but no worktree
+     or checkout. This has advantages: The repository is leaner, it is easier
+     for administrators to perform garbage collections, and it can be pushed to at
+     all times. You can find out more on what bare repositories are and how to use them
+     `here <https://git-scm.com/book/en/v2/Git-on-the-Server-Getting-Git-on-a
+     -Server>`_.
+
 - Inside of the bare Git repository, the ``annex`` directory -- just as in
   any standard dataset or repository -- contains the key store (object tree) under
   ``annex/objects`` (highlighted above as well). Details on how this object tree
   is structured are outlined in the hidden section in :ref:`symlink`.
-- These key stores can be 7zipped if necessary.
+- These key stores can be 7zipped if necessary to hold (additional) Git-annex objects,
+  either for compression gains, or for use on HPC-systems with inode limitations.
 
-Once this is set up, in order to retrieve data from the data store, special
+This implementation is fully self-contained, and is a plain file system storage,
+not a database. Once is is set up, in order to retrieve data from the data store, special
 remote access to the data store needs to be initialized.
+
+This is done with a custom configuration (``cfg_inm7``) as a run procedure with a
+:command:`datalad create` command::
+
+   $ datalad create -c inm7 <PATH>
+
+The configuration performs all the relevant setup of the dataset with a fully
+configured link to ``$DATA``: It is configured as a remote to install and pull
+data from, but upon creation of the dataset, the dataset's directory is also created at the remote
+end as a bare repository to enable pushing of results back to ``$DATA``. At the same
+time, a Gitlab sibling in the institute's Gitlab instance is created, with a
+publication dependency on the data storage.
+
+With this setup, a dataset of any size can be installed in a matter of seconds
+by providing its ID as a source in a :command:`datalad install` command::
+
+   $ datalad install --dataset mynewdataset \
+     --source <ID/URL> \
+     mynewdataset/inputs
+
+Actual data content can be obtained in demand via :command:`datalad get`.
 
 .. todo::
 
-   - everything about the inm7-configuration run procedure.
-   - workflows on how to get, work with, publish data.
+   maybe something about caching here
+
+Upon :command:`datalad publish`, computed results can be pushed to the data store
+an be thus backed-up. Easy-to-reobtain input data can safely be dropped to free
+disk space on the compute cluster.
 
 
+.. findoutmore:: Software Requirements
 
-**Software Requirements**
-
-- Git-annex version 7.20 or newer
-- DataLad version 0.12.5 (or later), or any DataLad development version more
-  recent than May 2019 (critical feature: https://github.com/datalad/datalad/pull/3402)
-- The ``cfg_inm7`` run procedure as provided with ``pip install git+https://jugit.fz-juelich.de/inm7/infrastructure/inm7-datalad.git``
-- Server side: 7z needs to be in the path.
+   - Git-annex version 7.20 or newer
+   - DataLad version 0.12.5 (or later), or any DataLad development version more
+     recent than May 2019 (critical feature: https://github.com/datalad/datalad/pull/3402)
+   - The ``cfg_inm7`` run procedure as provided with ``pip install git+https://jugit.fz-juelich.de/inm7/infrastructure/inm7-datalad.git``
+   - Server side: 7z needs to be in the path.
 
 
 .. rubric:: Footnotes

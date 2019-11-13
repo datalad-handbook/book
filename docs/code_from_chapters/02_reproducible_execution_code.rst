@@ -1,5 +1,5 @@
 Code from chapter: 02_reproducible_execution
------------------------------------------
+--------------------------------------------
 
 Code snippet 37::
 

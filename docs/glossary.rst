@@ -87,16 +87,17 @@ Glossary
 
    Github
       GitHub is an online platform where one can store and share version controlled projects
-      using Git (and thus also DataLad project).
+      using Git (and thus also DataLad project).See
+      `Github.com <https://github.com/>`_.
 
    Gitk
       A repository browser that displays changes in a repository or a selected set of commits. It
       visualizes a commit graph, information related to each commit, and the files in the trees
       of each revision.
 
-   Github
-      An online platform to host and share software projects version controlled with :term:`Git`. See
-      https://github.com/.
+   Gitlab
+      An online platform to host and share software projects version controlled with :term:`Git`,
+      similar to :term:`Github`. See `Gitlab.com <https://about.gitlab.com/>`_.
 
    globbing
       A powerful pattern matching function of a shell. Allows to match the names of multiple files

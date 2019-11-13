@@ -422,6 +422,11 @@ the ``--input`` and ``--output`` specification done before.
    can be accessed with an integer index, e.g., ``{inputs[0]}`` for the very first
    input.
 
+.. findoutmore:: ... wait, what if I need a { or } character in my datalad run call?
+
+   If your command call involves a ``{`` or ``}`` character, you will need to escape
+   this brace character by doubling it, i.e., ``{{`` or ``}}``.
+
 .. [#f1] In shell programming, commands exit with a specific code that indicates
     whether they failed, and if so, how. Successful commands have the exit code zero. All failures
     have exit codes greater than zero. A few lines lower, DataLad even tells us the specific error

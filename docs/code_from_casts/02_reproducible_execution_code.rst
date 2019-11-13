@@ -39,7 +39,7 @@ Code snippet 41::
 
 Code snippet 42::
 
-   git log -p -1
+   git log -p -n 1
 
 
 Code snippet 43::
@@ -95,7 +95,7 @@ Code snippet 50::
 
 Code snippet 51::
 
-   git log -1
+   git log -n 1
 
 
 Code snippet 52::

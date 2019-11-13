@@ -91,7 +91,9 @@ Help yourself
    :caption: What to do if things go wrong
 
    basics/101-135-help
-   basics/101-140-filesystem
+   basics/101-136-filesystem
+   basics/101-137-history
+   basics/101-180-FAQ
 
 #############################
 Make the most out of datasets
@@ -104,6 +106,17 @@ Make the most out of datasets
    basics/101-122-intro
    basics/101-123-yoda
    basics/101-124-summary
+
+
+###############
+Further options
+###############
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Small pieces of advice and helpful additional options
+
+   basics/101-179-gitignore
 
 #########
 Use Cases
@@ -142,12 +155,15 @@ Appendix
 
    glossary
    contributing
+   code_from_casts/01_dataset_basics_code
+   code_from_casts/02_reproducible_execution_code
+
 
 * :ref:`genindex`
 * :ref:`search`
 
 ..
-  stuff that we don't need or show at the moment
+  stuff that we do not need or show at the moment
 
 .. toctree::
    :hidden:

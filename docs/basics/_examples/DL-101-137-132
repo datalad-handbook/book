@@ -1,0 +1,3 @@
+$ git log -2 --oneline
+53b0737 add joke evaluation to joke
+928c260 save my favourite Git joke

@@ -1,3 +1,0 @@
-$ cp books/TLCL.pdf copyofTLCL.pdf
-$ datalad status
-untracked: copyofTLCL.pdf (file)

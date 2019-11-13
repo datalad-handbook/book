@@ -5,7 +5,7 @@ $ cat .git/config
 	bare = false
 	logallrefupdates = true
 [annex]
-	uuid = fa886017-cbc4-435e-b4e3-b6dd2a7ff916
+	uuid = 8c154892-26d4-4130-bbe0-51c49154ad55
 	version = 5
 	backends = MD5E
 [submodule "recordings/longnow"]
@@ -14,5 +14,5 @@ $ cat .git/config
 [remote "roommate"]
 	url = ../mock_user/DataLad-101
 	fetch = +refs/heads/*:refs/remotes/roommate/*
-	annex-uuid = 73b026a9-dcfa-4a0c-b892-d543e8d20727
+	annex-uuid = 00a600d7-8535-4f76-abf5-93639b0f4ad5
 	annex-ignore = false

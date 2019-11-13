@@ -39,7 +39,6 @@ in the hidden paths
 .. runrecord:: _examples/DL-101-110-101
    :language: console
    :workdir: dl-101/DataLad-101
-
    :notes: We saw a very simple datalad run. Now we're going to extend it with useful options. Narrative: prepare talk about dataset, add logo to slides. For this, we'll try to resize a logo in the meta data of the subdataset
    :cast: 02_reproducible_execution
 

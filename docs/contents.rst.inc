@@ -131,7 +131,7 @@ Use Cases
    usecases/reproducible-paper
    usecases/supervision
    usecases/reproducible_neuroimaging_analysis
-
+   usecases/using_hammerpants
 
 ####################
 Use Cases: INM-7 FZJ

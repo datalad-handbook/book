@@ -1,5 +1,5 @@
-Code from cast: 01_dataset_basics
----------------------------------
+Code from chapter: 01_dataset_basics
+------------------------------------
 
 Code snippet 1::
 

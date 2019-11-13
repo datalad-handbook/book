@@ -21,7 +21,7 @@ Software setup
 
 Depending on the size of your contribution, you may want to be able to build the book
 locally to test and preview your changes. If you are fixing typos, tweak the
-language, or rewrite a paragraph or two, this shouldn't be necessary, and you can safely
+language, or rewrite a paragraph or two, this should not be necessary, and you can safely
 skip this paragraph and instead take a look into the paragraph
 :ref:`easy`.
 If you want to be able to build the book locally, though, please follow these instructions:
@@ -30,30 +30,30 @@ If you want to be able to build the book locally, though, please follow these in
 
 .. code-block:: bash
 
-   datalad install -r https://github.com/datalad-handbook/book.git
+   $ datalad install -r https://github.com/datalad-handbook/book.git
 
 - optional, but recommended: Create a virtual environment
 
 .. code-block:: bash
 
-   virtualenv --python=python3 ~/env/handbook
-   . ~/env/handbook/bin/activate
+   $ virtualenv --python=python3 ~/env/handbook
+   $ . ~/env/handbook/bin/activate
 
 - install the requirements and a custom Python helper for the handbook
 
 .. code-block:: bash
 
    # navigate into the installed dataset
-   cd book
+   $ cd book
    # install required software
-   pip install -r requirements.txt
-   pip install -e .
+   $ pip install -r requirements.txt
+   $ pip install -e .
 
 - install ``librsvg2-bin`` (a tool to render ``.svgs``) with your package manager
 
 .. code-block:: bash
 
-   sudo apt-get install librsvg2-bin
+   $ sudo apt-get install librsvg2-bin
 
 The code examples that need to be executed to build the book (see also the paragraph "Code" in
 :ref:`directive` to learn more about this) are executed inside of
@@ -65,14 +65,14 @@ a second machine ``/home/mih``, for example, leading to some potential confusion
 Therefore, you need to create this directory, and also --
 for consistency in the Git logs as well -- a separate, mock Git identity
 (we chose `Elena Piscopia <https://en.wikipedia.org/wiki/Elena_Cornaro_Piscopia>`_, the first
-woman to receive a PhD -- don't worry, this does not mess with your own Git identity):
+woman to receive a PhD -- do not worry, this does not mess with your own Git identity):
 
 .. code-block:: bash
 
-   sudo mkdir /home/me
-   sudo chown $USER:$USER /home/me
-   HOME=/home/me git config --global user.name "Elena Piscopia"
-   HOME=/home/me git config --global user.email "elena@example.net"
+   $ sudo mkdir /home/me
+   $ sudo chown $USER:$USER /home/me
+   $ HOME=/home/me git config --global user.name "Elena Piscopia"
+   $ HOME=/home/me git config --global user.email "elena@example.net"
 
 .. todo::
 
@@ -85,8 +85,8 @@ of the repository, and open it in your browser, for example with
 
 .. _directive:
 
-Directives
-""""""""""
+Directives and casts
+""""""""""""""""""""
 
 If you are writing larger sections that contain code, ``gitusernote``\s, ``findoutmore``\s,
 or other special directives, please make sure that you read this paragraph.
@@ -134,6 +134,52 @@ simple ``code-block::`` directives are sufficient.
 (for additional Git-related information for Git-users), and ``findoutmore``
 (foldable sections that contain content that goes beyond the basics). Make use
 of them, if applicable to your contribution.
+
+**Creating code live casts out of runrecord directives**:
+The book has the capability to turn code snippets into a script that the tool
+`cast_live <https://github.com/datalad/datalad/blob/master/tools/cast_live>`_
+can use to cast and execute it in a demonstration shell. This feature is
+intended for educational courses and other types of demonstrations. The
+following prerequisites exist:
+
+- A snippet only gets added to a cast, if the ``:cast:`` option in the
+  ``runrecord`` specifies a filename where to save the cast to (it does not
+  need to be an existing file).
+- If ``:realcommand:`` options are specified, they will become the executable
+  part of the cast. If note, the code snippet in the code-block of the
+  ``runrecord`` will become the executable part of the cast.
+- An optional ``:notes:`` lets you add "speakernotes" for the cast.
+- Casts are produced upon ``make``, but only if the environment variable
+  ``CAST_DIR`` is set.
+  This should be a path that points to any directory in which casts should be
+  created and saved. An invocation could look like this::
+
+     $ CAST_DIR=/home/me/casts make
+
+This is a fully specified ``runrecord``:
+
+.. code-block:: rst
+
+   .. runrecord:: _examples/DL-101-101-101
+      :language: console
+      :workdir: dl-101/DataLad-101
+      :cast: dataset_basics   # name of the cast file (will be created/extended in CAST_DIR)
+      :notes: This is an optional speaker note only visible to presenter during the cast
+
+      # this is a comment and will be written to the cast
+      $ this line will be executed and written to the cast
+
+**IMPORTANT!** Code snippets will be turned into casts in the order of
+execution of ``runrecords``. If you are adding code into an existing cast,
+i.e., in between two snippets that get written to the same cast, make sure that
+the cast will still run smoothly afterwards!
+
+**Running code live casts from created casts**:
+If you have created a cast, you can use the tool ``live_cast`` in ``tools/`` in
+the `DataLad Course <https://github.com/datalad-handbook/course>`_ to
+execute them::
+
+   ~ course$ tools/cast_live path/to/casts
 
 .. _easy:
 

@@ -1,0 +1,11 @@
+$ git log -1 -p
+commit 1e73e54127769872ee863986b9363e1ca47ab285
+Author: Elena Piscopia <elena@example.net>
+Date:   Tue Nov 12 15:05:47 2019 +0100
+
+    rename the book
+
+diff --git a/books/TLCL.pdf b/books/The_Linux_Command_Line.pdf
+similarity index 100%
+rename from books/TLCL.pdf
+rename to books/The_Linux_Command_Line.pdf

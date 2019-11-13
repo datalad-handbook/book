@@ -174,6 +174,11 @@ Glossary
       Git concept: a submodule is a Git repository embedded inside another Git repository. A
       :term:`DataLad subdataset` is known as a submodule in the :term:`Git config file`.
 
+   tab completion
+      Also known as command-line completion. A common shell feature in which
+      the program automatically fills in partially types commands upon
+      pressing the ``TAB`` key.
+
    the DataLad superdataset ///
       TODO
 

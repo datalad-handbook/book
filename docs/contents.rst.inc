@@ -107,6 +107,17 @@ Make the most out of datasets
    basics/101-123-yoda
    basics/101-124-summary
 
+
+###############
+Further options
+###############
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Small pieces of advice and helpful additional options
+
+   basics/101-179-gitignore
+
 #########
 Use Cases
 #########

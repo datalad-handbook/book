@@ -67,7 +67,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/lisanmo"><img src="https://avatars0.githubusercontent.com/u/52251433?v=4" width="100px;" alt="Lisa N. Mochalski"/><br /><sub><b>Lisa N. Mochalski</b></sub></a><br /><a href="https://github.com/datalad-handbook/book/issues?q=author%3Alisanmo" title="Bug reports">🐛</a> <a href="#content-lisanmo" title="Content">🖋</a> <a href="#example-lisanmo" title="Examples">💡</a> <a href="#ideas-lisanmo" title="Ideas, Planning, & Feedback">🤔</a></td>
     <td align="center"><a href="https://github.com/LisaWiersch96"><img src="https://avatars3.githubusercontent.com/u/57354773?v=4" width="100px;" alt="Lisa Wiersch"/><br /><sub><b>Lisa Wiersch</b></sub></a><br /><a href="https://github.com/datalad-handbook/book/issues?q=author%3ALisaWiersch96" title="Bug reports">🐛</a></td>
     <td align="center"><a href="https://github.com/jbpoline"><img src="https://avatars0.githubusercontent.com/u/275048?v=4" width="100px;" alt="Jean-Baptiste Poline"/><br /><sub><b>Jean-Baptiste Poline</b></sub></a><br /><a href="#content-jbpoline" title="Content">🖋</a></td>
-    <td align="center"><a href="https://github.com/NevenaK"><img src="https://avatars2.githubusercontent.com/u/57677812?v=4" width="100px;" alt="NevenaK"/><br /><sub><b>NevenaK</b></sub></a><br /><a href="#userTesting-NevenaK" title="User Testing">📓</a></td>
+    <td align="center"><a href="https://github.com/NevenaK"><img src="https://avatars2.githubusercontent.com/u/57677812?v=4" width="100px;" alt="Nevena Kraljevic"/><br /><sub><b>Nevena Kraljevic</b></sub></a><br /><a href="#userTesting-NevenaK" title="User Testing">📓</a></td>
   </tr>
 </table>
 

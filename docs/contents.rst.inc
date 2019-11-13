@@ -155,8 +155,8 @@ Appendix
 
    glossary
    contributing
-   code_from_casts/01_dataset_basics_code
-   code_from_casts/02_reproducible_execution_code
+   code_from_chapters/01_dataset_basics_code
+   code_from_chapters/02_reproducible_execution_code
 
 
 * :ref:`genindex`

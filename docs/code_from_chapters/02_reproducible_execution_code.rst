@@ -1,4 +1,4 @@
-Code from cast: 02_reproducible_execution
+Code from chapter: 02_reproducible_execution
 -----------------------------------------
 
 Code snippet 37::
@@ -273,5 +273,3 @@ Code snippet 77::
 Code snippet 78::
 
    git log -p -n 2
-
-

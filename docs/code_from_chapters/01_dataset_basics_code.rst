@@ -1,5 +1,5 @@
-Code from cast: 01_dataset_basics
----------------------------------
+Code from chapter: 01_dataset_basics
+------------------------------------
 
 Code snippet 1::
 
@@ -206,5 +206,3 @@ Code snippet 35::
 Code snippet 36::
 
    cd ../../
-
-

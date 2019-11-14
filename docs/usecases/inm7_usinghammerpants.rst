@@ -48,7 +48,7 @@ idle for weeks, and important computations are delayed.
 The DataLad Approach
 ^^^^^^^^^^^^^^^^^^^^
 
-A new cluster is build, but beyond this a new concept for data storage and management
+A new cluster is build, but beyond this, a new concept for data storage and management
 is implemented as well. The changes in infrastructure and workflows not only improve
 the efficiency and scalability of the institute's computations, but also the
 reproducibility and audibility of individual research projects.
@@ -62,7 +62,7 @@ Users set up their analyses in DataLad datasets, configured with an institute-sp
 run-procedure.
 In these analysis datasets, data from the data store can be installed as subdatasets.
 Given that not all file contents in a dataset will be relevant for all analysis,
-users can obtain the precise required content on demand.
+users can obtain the precise required content on demand instead of all of them.
 Simple local version control workflows help researchers to keep track of file modifications
 regardless of file size, and best practices and standards for structuring
 data analyses datasets contribute to making analysis projects intuitively organized
@@ -70,15 +70,16 @@ and reproducible.
 Upon analysis completion, results can be published to the datastore to ensure archival
 and backup.
 
-Users' ``$HOME`` directories are limited to a maximum of 100GB in size - this allows
-any researchers to explore data and test their scripts as they wish, but prevents uncontrolled
-clutter and data piles. In order to scale and compute analysis on large datasets,
+Users' ``$HOME`` directories are limited to a maximum of 100 GB in size - this allows
+researchers to explore data and test their scripts as they wish, but prevents uncontrolled
+clutter and data piling up. In order to scale and compute analysis on large datasets,
 computations have to run on the compute nodes of the cluster, managed by the job
 scheduler `HTCondor <https://research.cs.wisc.edu/htcondor/>`_ to ensure optimal
 resource usage and fair job allocation. The use of the job scheduler further incentivizes
-small-chunked, partial analysis-steps, that can run fast and in parallel.
-Once an analysis has been performed, input datasets from the data store can be
-dropped to save disk space on the cluster.
+small-chunked, partial analysis-steps, that can run fast and in parallel, making
+computations more efficient.
+Once an analysis is finished, input datasets from the data store are dropped to
+save disk space on the cluster.
 
 .. figure:: ../artwork/src/ephemeral_infra.svg
    :alt: A simple, local version control workflow with datalad.
@@ -108,7 +109,7 @@ Datasets are identified through their ID or a URL
 
 .. todo::
 
-   How do people get to know these IDs?
+   How do people get to know these IDs? This needs an example.
 
 Installing the datasets as subdatasets into the analysis project dataset establishes
 a link between the datasets, and ensures modularity.
@@ -123,16 +124,18 @@ Python API)
 
 or by appropriate ``--input`` specification in a :command:`datalad run` command [#f4]_.
 
+The results computed from the analyses need to be backed-up and archived. To do this,
+users :command:`datalad publish` their results back to ``HAMMERPANTS`` for longterm-storage::
+
+   $ datalad publish --to inm7
+
+Data analyses projects comply to the YODA principles [#f5]_. The projects are build up
+from separate, but linked modular entities. Once analyses are finished, contents of the linked
+subdatasets from the ``HAMMERPANTS`` data store can be removed with :command:`datalad drop` [#f6]_.
 
 .. todo::
 
-   - context: data analysis project
-   - outline the general set up of an analysis dataset, cross-reference to the
-     yoda principles
-   - INM-7 specific: what is HAMMPERPANTS?
-   - INM-7 specific: how to install and get data that is on HAMMERPANTS
-   - possibly: analysis best-practices after data retrieval (reproducible
-     execution and all things yoda principles)
+   summarize how easy the workflow is.
 
 
 .. rubric:: Footnotes
@@ -156,4 +159,13 @@ or by appropriate ``--input`` specification in a :command:`datalad run` command 
          sections starting from :ref:`installds`.
 
 .. [#f4] To re-read about the :command:`datalad run` command, checkout the chapter
-         "DataLad, Run!", starting with section :ref:`run`
+         "DataLad, Run!", starting with section :ref:`run`.
+
+.. [#f5] To re-read about the YODA principles, checkout section :ref:`yoda`.
+
+.. [#f6] Find out how drop works in section :ref:`filesystem`. See it in action
+         in the use case
+
+         .. todo::
+
+            link updated neuroimaging use case once in the book.

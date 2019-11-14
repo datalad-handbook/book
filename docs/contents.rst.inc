@@ -131,7 +131,7 @@ Use Cases
    usecases/reproducible-paper
    usecases/supervision
    usecases/reproducible_neuroimaging_analysis
-   usecases/using_hammerpants
+
 
 ####################
 Use Cases: INM-7 FZJ
@@ -142,6 +142,7 @@ Use Cases: INM-7 FZJ
    :caption: Exemplary data management at the Juelich Research Center
 
    usecases/inm7_analysis_project
+   usecases/inm7_usinghammerpants
    usecases/inm7_hammerpants
    usecases/inm7_jsc_data
 

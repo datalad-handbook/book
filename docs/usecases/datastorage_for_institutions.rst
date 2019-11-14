@@ -76,7 +76,8 @@ calculations instead of data storage, the cluster gets a distributed data
 store: Data lives as DataLad datasets on a different machine than the one
 the scientific analyses are computed on.
 For access to the annexed data in datasets, the data store is configured as a
-Git-annex RIA-remote. In case of filesystem inode limitations on the machine
+Git-annex `RIA-remote <https://libraries.io/pypi/ria-remote>`_.
+In case of filesystem inode limitations on the machine
 serving as the data store (e.g., HPC storage systems), full datasets can be
 (compressed) 7-zip archives, without loosing the ability to query available files.
 Regardless of file number and size, such datasets thus use only few inodes.

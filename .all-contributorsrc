@@ -164,6 +164,15 @@
       "contributions": [
         "content"
       ]
+    },
+    {
+      "login": "NevenaK",
+      "name": "Nevena Kraljevic",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/57677812?v=4",
+      "profile": "https://github.com/NevenaK",
+      "contributions": [
+        "userTesting"
+      ]
     }
   ],
   "contributorsPerLine": 7,

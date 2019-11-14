@@ -84,7 +84,10 @@ needs to be installed from the Mac App Store.
 Homebrew then can be installed using the command following the
 instructions on their webpage (linked above).
 
-Next, `install Git-annex <https://git-annex.branchable.com/install/OSX/>`_.
+Next, `install Git-annex <https://git-annex.branchable.com/install/OSX/>`_. The
+easiest way to do this is via ``brew``::
+
+   $ brew install git-annex
 
 Once Git-annex is available, DataLad can be installed via Pythons package
 manager ``pip`` as described below. ``pip`` should already be installed by

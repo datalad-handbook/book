@@ -120,10 +120,21 @@ Help yourself
    :caption: What to do if things go wrong
 
    basics/101-135-help
-   basics/101-140-filesystem
-   basics/101-136-history
+   basics/101-136-filesystem
+   basics/101-137-history
    basics/101-180-FAQ
 
+
+
+###############
+Further options
+###############
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Small pieces of advice and helpful additional options
+
+   basics/101-179-gitignore
 
 #########
 Use Cases
@@ -150,6 +161,9 @@ Appendix
 
    glossary
    contributing
+   code_from_chapters/01_dataset_basics_code
+   code_from_chapters/02_reproducible_execution_code
+
 
 * :ref:`genindex`
 * :ref:`search`

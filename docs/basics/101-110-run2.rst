@@ -343,6 +343,89 @@ Make a note of this behavior in your ``notes.txt`` file.
    EOT
 
 
+Placeholders
+^^^^^^^^^^^^
+
+Just after writing this note, you have to relax your fingers a bit. "Man, this was
+so much typing. Not only did I need to specify the inputs and outputs, I also had
+to repeat all of these lengthy paths in the command line call..." you think.
+
+There is a neat little trick to spare you half of this typing effort, though: *Placeholders*
+for inputs and outputs. This is how it works:
+
+Instead of running
+
+.. code-block:: bash
+
+   $ datalad run -m "Resize logo for slides" \
+   --input "recordings/longnow/.datalad/feed_metadata/logo_interval.jpg" \
+   --output "recordings/interval_logo_small.jpg" \
+   "convert -resize 450x450 recordings/longnow/.datalad/feed_metadata/logo_interval.jpg recordings/interval_logo_small.jpg"
+
+you could shorten this to
+
+.. code-block:: bash
+   :emphasize-lines: 4
+
+   $ datalad run -m "Resize logo for slides" \
+   --input "recordings/longnow/.datalad/feed_metadata/logo_interval.jpg" \
+   --output "recordings/interval_logo_small.jpg" \
+   "convert -resize 450x450 {inputs} {outputs}"
+
+The placeholder ``{inputs}`` will expand to the path given as ``--input``, and
+the placeholder ``{outputs}`` will expand to the path given as ``--output``.
+This means instead of writing the full paths in the command, you can simply reuse
+the ``--input`` and ``--output`` specification done before.
+
+.. findoutmore:: What if I have multiple inputs or outputs?
+
+   If multiple values are specified, e.g., as in
+
+   .. code-block:: bash
+
+      $ datalad run -m "move a few files around" \
+      --input "file1" --input "file2" --input "file3" \
+      --output "directory_a/" \
+      "mv {inputs} {outputs}"
+
+   the values will be joined by a space like this:
+
+   .. code-block:: bash
+
+      $ datalad run -m "move a few files around" \
+      --input "file1" --input "file2" --input "file3" \
+      --output "directory_a/" \
+      "mv file1 file2 file3 directory_a}"
+
+
+   The order of the values will match that order from the command line.
+
+   If you use globs for input specification, as in
+
+   .. code-block:: bash
+
+      $ datalad run -m "move a few files around" \
+      --input "file*" \
+      --output "directory_a/" \
+      "mv {inputs} {outputs}"
+
+   the globs will expanded in alphabetical order (like bash):
+
+   .. code-block:: bash
+
+      $ datalad run -m "move a few files around" \
+      --input "file1" --input "file2" --input "file3" \
+      --output "directory_a/" \
+      "mv file1 file2 file3 directory_a}"
+
+   If the command only needs a subset of the inputs or outputs, individual values
+   can be accessed with an integer index, e.g., ``{inputs[0]}`` for the very first
+   input.
+
+.. findoutmore:: ... wait, what if I need a { or } character in my datalad run call?
+
+   If your command call involves a ``{`` or ``}`` character, you will need to escape
+   this brace character by doubling it, i.e., ``{{`` or ``}}``.
 
 .. [#f1] In shell programming, commands exit with a specific code that indicates
     whether they failed, and if so, how. Successful commands have the exit code zero. All failures

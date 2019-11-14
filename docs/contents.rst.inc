@@ -143,7 +143,6 @@ Use Cases: INM-7 FZJ
 
    usecases/inm7_analysis_project
    usecases/inm7_usinghammerpants
-   usecases/inm7_hammerpants
    usecases/inm7_jsc_data
 
 ########

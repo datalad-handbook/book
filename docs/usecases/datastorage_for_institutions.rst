@@ -76,7 +76,7 @@ calculations instead of data storage, the cluster gets a distributed data
 store: Data lives as DataLad datasets on a different machine than the one
 the scientific analyses are computed on.
 For access to the annexed data in datasets, the data store is configured as a
-Git-annex ria remote. In case of filesystem inode limitations on the machine
+Git-annex RIA-remote. In case of filesystem inode limitations on the machine
 serving as the data store (e.g., HPC storage systems), full datasets can be
 (compressed) 7-zip archives, without loosing the ability to query available files.
 Regardless of file number and size, such datasets thus use only few inodes.
@@ -260,7 +260,7 @@ This implementation is fully self-contained, and is a plain file system storage,
 not a database. Once is is set up, in order to retrieve data from the data store, special
 remote access to the data store needs to be initialized.
 
-This is done with a custom configuration (``cfg_inm7``) as a run procedure with a
+This is done with a custom configuration (``cfg_inm7``) as a run-procedure [#f2]_ with a
 :command:`datalad create` command::
 
    $ datalad create -c inm7 <PATH>
@@ -279,7 +279,9 @@ by providing its ID as a source in a :command:`datalad install` command::
      --source <ID/URL> \
      mynewdataset/inputs
 
-Actual data content can be obtained in demand via :command:`datalad get`.
+Actual data content can be obtained on demand via :command:`datalad get`. Thus,
+users can selectively obtain only those contents they need instead of having
+complete copies of data sets as before.
 
 .. todo::
 
@@ -287,7 +289,7 @@ Actual data content can be obtained in demand via :command:`datalad get`.
 
 Upon :command:`datalad publish`, computed results can be pushed to the data store
 an be thus backed-up. Easy-to-reobtain input data can safely be dropped to free
-disk space on the compute cluster.
+disk space on the compute cluster again.
 
 
 .. findoutmore:: Software Requirements
@@ -305,3 +307,7 @@ disk space on the compute cluster.
          :ref:`symlink`, and pay close attention to the hidden section.
          Additionally, you can find much background information in Git-annex's
          `documentation <https://git-annex.branchable.com/internals/>`_.
+
+.. [#f2] To re-read about DataLad's run-procedures, check out section
+         :ref:`procedures`. You can find the source code of the procedure
+         `on Gitlab <https://jugit.fz-juelich.de/inm7/infrastructure/inm7-datalad/blob/master/inm7_datalad/resources/procedures/cfg_inm7.py>`_.

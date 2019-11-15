@@ -1,6 +1,3 @@
-$ datalad save -m "add README.md to output directory" --to-git output/README.md
-add(ok): output/README.md (file)
-save(ok): . (dataset)
-action summary:
-  add (ok: 1)
-  save (ok: 1)
+$ cd midtermproject
+$ datalad get input/iris.csv
+get(ok): input/iris.csv (file) [from origin...]

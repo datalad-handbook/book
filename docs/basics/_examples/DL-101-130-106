@@ -1,8 +1,14 @@
-# we are in midterm_project, thus -d . points to the root of it.
-$ datalad install -d . --source ../../iris_data input/
-[INFO] Cloning ../../iris_data into '/home/me/dl-101/DataLad-101/midterm_project/input' 
-install(ok): input (dataset)
-action summary:
-  add (ok: 2)
-  install (ok: 1)
-  save (ok: 1)
+$ cd ../
+$ tree -d
+.
+├── books
+├── code
+├── midterm_project
+│   ├── code
+│   └── input
+└── recordings
+    └── longnow
+        ├── Long_Now__Conversations_at_The_Interval
+        └── Long_Now__Seminars_About_Long_term_Thinking
+
+9 directories

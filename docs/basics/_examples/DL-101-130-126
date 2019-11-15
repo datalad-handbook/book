@@ -1,3 +1,0 @@
-$ cd midtermproject
-$ datalad get input/iris.csv
-get(ok): input/iris.csv (file) [from origin...]

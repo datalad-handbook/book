@@ -1,12 +1,1 @@
-# with the >| redirection we are replacing existing contents in the file
-$ cat << EOT >| README.md
-
-# Midterm YODA Data Analysis Project
-
-## Dataset structure
-
-- All inputs (i.e. building blocks from other sources) are located in input/.
-- All custom code is located in code/.
-- All results (i.e., generated files) are located in output/.
-
-EOT
+$ datalad save -m "Provide project description" README.md

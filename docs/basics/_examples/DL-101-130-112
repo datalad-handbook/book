@@ -1,6 +1,54 @@
-$ datalad save -m "add script for kNN classification and plotting" code/script.py
-add(ok): code/script.py (file)
-save(ok): . (dataset)
-action summary:
-  add (ok: 1)
-  save (ok: 1)
+$ git log
+commit d94b67d8e0099f44fdf0249409519a42a36e64c0
+Author: Elena Piscopia <elena@example.net>
+Date:   Fri Nov 15 12:38:47 2019 +0100
+
+    [DATALAD RUNCMD] analyze iris data with classification analysis
+
+    === Do not change lines below ===
+    {
+     "chain": [],
+     "cmd": "python3 code/script.py",
+     "dsid": "27632586-079a-11ea-98f1-e86a64c8054c",
+     "exit": 0,
+     "extra_inputs": [],
+     "inputs": [
+      "input/iris.csv"
+     ],
+     "outputs": [
+      "prediction_report.csv",
+      "pairwise_relationships.png"
+     ],
+     "pwd": "."
+    }
+    ^^^ Do not change lines above ^^^
+
+commit 4ebca0cb526a12c03227e5ed1916410fb6a96fac
+Author: Elena Piscopia <elena@example.net>
+Date:   Fri Nov 15 12:38:41 2019 +0100
+
+    [DATALAD] Recorded changes
+
+commit a1849e09908261f28e2a3f961238ef23fcbf926c
+Author: Elena Piscopia <elena@example.net>
+Date:   Fri Nov 15 12:22:09 2019 +0100
+
+    Provide project description
+
+commit 13c4529f18dab64c909f1c07a5150ab78dede50c
+Author: Elena Piscopia <elena@example.net>
+Date:   Fri Nov 15 12:22:07 2019 +0100
+
+    add script for kNN classification and plotting
+
+commit 8269651004a396874c2394fed9c7d72bb49b3e48
+Author: Elena Piscopia <elena@example.net>
+Date:   Fri Nov 15 12:22:05 2019 +0100
+
+    Apply YODA dataset setup
+
+commit a25355231fe5e7e6814ff3f6758ab3984e1fa458
+Author: Elena Piscopia <elena@example.net>
+Date:   Fri Nov 15 12:22:05 2019 +0100
+
+    [DATALAD] new dataset

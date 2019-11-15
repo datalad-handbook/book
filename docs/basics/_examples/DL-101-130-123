@@ -1,3 +1,0 @@
-$ datalad publish --to github
-[INFO] Publishing <Dataset path=/home/me/dl-101/DataLad-101/midterm_project> to github 
-publish(ok): . (dataset) [pushed to github: ['[new branch]', '[new branch]']]

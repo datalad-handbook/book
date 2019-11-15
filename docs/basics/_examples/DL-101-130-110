@@ -1,44 +1,24 @@
-$ cat << EOT > code/script.py
+$ git log -p -n 1
+commit 4ebca0cb526a12c03227e5ed1916410fb6a96fac
+Author: Elena Piscopia <elena@example.net>
+Date:   Fri Nov 15 12:38:41 2019 +0100
 
-import pandas as pd
-import seaborn as sns
-from sklearn import model_selection
-from sklearn.neighbors import KNeighborsClassifier
-from sklearn.metrics import classification_report
-from datalad.api import get, install
+    [DATALAD] Recorded changes
 
-data = "input/iris.csv"
-
-# make sure that the data is obtained:
-install('input/')
-get(data)
-
-# prepare the data as a pandas dataframe
-df = pd.read_csv(data)
-attributes = ["sepal_length", "sepal_width", "petal_length","petal_width", "class"]
-df.columns = attributes
-
-# create a pairplot to plot pairwise relationships in the dataset
-plot = sns.pairplot(df, hue='class')
-plot.savefig('output/pairwise_relationships.png')
-
-# perform a K-nearest-neighbours classification with scikit-learn
-# Step 1: split data in test and training dataset (20:80)
-array = df.values
-X = array[:,0:4]
-Y = array[:,4]
-test_size = 0.20
-seed = 7
-X_train, X_test, Y_train, Y_test = model_selection.train_test_split(X, Y,
-                                                                    test_size=test_size,
-                                                                    random_state=seed)
-# Step 2: Fit the model and make predictions on the test dataset
-knn = KNeighborsClassifier()
-knn.fit(X_train, Y_train)
-predictions = knn.predict(X_test)
-
-# Step 3: Save the classification report
-report = classification_report(Y_test, predictions, output_dict=True)
-df_report = pd.DataFrame(report).transpose().to_csv('output/prediction_report.csv')
-
-EOT
+diff --git a/.gitmodules b/.gitmodules
+new file mode 100644
+index 0000000..a0ff2f8
+--- /dev/null
++++ b/.gitmodules
+@@ -0,0 +1,4 @@
++[submodule "input"]
++	path = input
++	url = /home/me/dl-101/DataLad-101/midterm_project/../../iris_data
++	datalad-id = b12f8b38-079a-11ea-98f1-e86a64c8054c
+diff --git a/input b/input
+new file mode 160000
+index 0000000..27a93cd
+--- /dev/null
++++ b/input
+@@ -0,0 +1 @@
++Subproject commit 27a93cd1602d2d12b8b1911d8261e38e38a8eec7

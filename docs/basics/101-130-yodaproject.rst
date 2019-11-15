@@ -61,7 +61,10 @@ Now that you have this raw dataset, it is time to create an analysis for your
 midterm project.
 You start by creating an analysis dataset. Let's do it as a subdataset
 of ``DataLad-101``. Remember to specify the ``--dataset`` option within
-:command:`datalad create` to link it as a subdataset:
+:command:`datalad create` to link it as a subdataset!
+After the last lecture, you naturally want your dataset to follow the YODA
+principles. As a start, you use the ``cfg_yoda`` procedure to help you
+structure the dataset [#f1]_.
 
 .. runrecord:: _examples/DL-101-130-103
    :language: console
@@ -69,7 +72,7 @@ of ``DataLad-101``. Remember to specify the ``--dataset`` option within
 
    # go back into DataLad-101
    $ cd ../DataLad-101
-   $ datalad create --dataset . midterm_project
+   $ datalad create -c yoda --dataset . midterm_project
 
 .. index:: ! datalad command; datalad subdatasets
 
@@ -85,17 +88,6 @@ dataset was indeed linked as a subdataset to ``DataLad-101``:
 
 Not only the ``longnow`` subdataset, but also the newly created
 ``midterm_project`` subdataset are displayed -- wonderful!
-
-After the last lecture, you naturally want your dataset to follow the YODA
-principles. As a start, you use the ``cfg_yoda`` procedure to help you
-structure the dataset [#f1]_.
-
-.. runrecord:: _examples/DL-101-130-105
-   :language: console
-   :workdir: dl-101/DataLad-101
-
-   $ cd midterm_project
-   $ datalad run-procedure cfg_yoda
 
 As a next step you take care of linking your raw dataset
 adequately to your ``midterm_project`` dataset by installing it as a
@@ -542,10 +534,12 @@ reproduce your data science project easily from scratch!
 
 .. rubric:: Footnotes
 
-.. [#f1] Note that you could have applied the YODA procedure right at
-         creation of the dataset with ``-c yoda`` as well::
+.. [#f1] Note that you could have applied the YODA procedure not only right at
+         creation of the dataset with ``-c yoda``, but also after creation
+         with the :command:`datalad run-procedure: command::
 
-            $ datalad create -c yoda --dataset . midterm_project
+           $ cd midterm_project
+           $ datalad run-procedure cfg_yoda
 
          Both ways of applying the YODA procedure will lead to the same
          outcome.

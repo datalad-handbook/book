@@ -15,7 +15,7 @@ solution, suitable to serve the computational and logistic demands of data
 science in big (scientific) institutions, while keeping workflows for users
 as simple as possible. It elaborates on
 
-#. How to implement a scalable, distributed data store so that data is
+#. How to implement a scalable, remote data store so that data is
    stored in a different place than where people work with it,
 #. How to configure the data store and general cluster setup for easy and
    fast accessibility of data, and
@@ -72,7 +72,7 @@ The DataLad approach
 The compute cluster is refurbished to a state-of-the-art data management
 system. Unlike traditional solutions, both because of the size of the large
 amounts of data, and for more efficient use of compute power for
-calculations instead of data storage, the cluster gets a distributed data
+calculations instead of data storage, the cluster gets a remote data
 store: Data lives as DataLad datasets on a different machine than the one
 the scientific analyses are computed on.
 For access to the annexed data in datasets, the data store is configured as a
@@ -139,7 +139,7 @@ back to ``$DATA``, and hence anything that is relevant for a computation is trac
 The data store as a Git-annex RIA remote
 """"""""""""""""""""""""""""""""""""""""
 
-The distributed data store exists thanks to Git-annex: Any large file content in
+The remote data store exists thanks to Git-annex: Any large file content in
 datasets is stored as a *value* in Git-annex's object tree. A *key*
 generated from its contents is checked into Git and used to reference the
 location of the value in the object tree [#f1]_. The object tree (or *keystore*)

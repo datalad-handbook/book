@@ -98,7 +98,7 @@ from the data store is installed as subdatasets. This comes with several
 benefits: Analyses are automatically linked to data, no unused file
 copies waste disk space on the compute cluster as data can be retrieved
 on-demand, and files that are easily re-obtained or recomputed can safely be
-dropped to save even more disk-space. More over, upon creation of an analysis
+dropped to save even more disk-space. Moreover, upon creation of an analysis
 project, the associated Gitlab project it is automatically configured as a remote
 with a publication dependency on the data store, thus enabling vastly simplified
 data publication routines and back-up of pristine results.

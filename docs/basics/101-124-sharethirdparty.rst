@@ -13,13 +13,19 @@ accessed by anyone who needs the data. Such a resource can
 be third party services cloud storage such as
 `Dropbox <https://dropbox.com>`_,
 `Google <https://google.com>`_,
-`Àmazon <https://aws.amazon.com/s3/?nc1=h_ls>`_,
+`Amazon <https://aws.amazon.com/s3/?nc1=h_ls>`_,
 `Box.com <https://www.box.com/en-gb/home>`_,
 `Figshare <https://figshare.com/>`_,
 `owncloud <https://owncloud.org/>`_,
 `sciebo <https://sciebo.de/>`_,
-or many more. This tutorial showcases the basics of how
-data can be shared.
+or many more. This is especially relevant for datasets with large
+file content: While pure Git repositories (i.e., datasets that do not
+have an annex) can be shared easily via hosting services such as
+:term:`Github` or :term:`Gitlab` large, annexed content can not be
+hosted there. Instead, services as the ones listed above need to be
+configured as a large file storage.
+This tutorial showcases how this can be done, and shows the basics of how
+datasets can be shared via a third party infrastructure.
 
 
 Note that the exact procedures are different from service
@@ -31,25 +37,40 @@ The general workflow however is the same:
    from service to service).
 #. Push annexed file content to the third-party service to use it as a storage provider
 #. Share the dataset (repository) via Github/Gitlab/...
-#. If your repository is cloned by others, they can ``pull`` files
-   and obtain them from the third-party service
+
+If the above steps are implemented, other can :command:`install` or
+:command:`clone` your shared dataset, and :command:`get` or :command:`pull` large
+file content from the remote, third party storage without needing to
+know *where* the data actually comes from.
+
+.. findoutmore:: What is a special remote
+
+   steal from hammerpants branch
 
 Let's walk through all necessary steps to publish ``DataLad-101``
 to Dropbox. The special-remote used to do this is
 `rclone <https://github.com/DanielDent/git-annex-remote-rclone>`_.
-This special remote is used for the majority of commercial
-providers (Google, Amazon, ...), and quite easy to work with.
+It is a command line program to sync files and directories to and
+from a large number of commercial providers (Google, Amazon, owncloud,
+...), and quite easy to work with. By enabling it as a special remote,
+:term:`Git-annex` gets the ability to do the same, and can thus take
+care of publishing large file content to such sources conveniently under
+the hood.
+
 For a complete overview of which third-party services are
 available and which special-remote they need, please see this
 `list <http://git-annex.branchable.com/special_remotes/>`_.
 
 - The first step is to `install <https://rclone.org/install/>`_
-  rclone.
+  ``rclone`` on your system. The installation instructions are straightforward
+  and the installation quick if you are on a Unix-based system (macOS or any
+  Linux distribution).
 
 - Afterwards, run ``rclone config`` to configure ``rclone`` to
   work with Dropbox. Running this command will prompt interactively
   from the terminal to configure a remote (here it will have the
-  name "dropbox-remote"):
+  name "dropbox-remote"). All parts of the dialog that require user input
+  are highlighted in the code block below.
 
 .. code-block::
    :emphasize-lines: 7-8, 22, 26, 30, 36
@@ -94,12 +115,13 @@ available and which special-remote they need, please see this
     Log in and authorize rclone for access
     Waiting for code...
 
-- This will open a browser and ask you to authorize ``rclone`` to
+- At this point, this will open a browser and ask you to authorize ``rclone`` to
   manage your Dropbox, or any other third-party service you have selected
-  in the interactive prompt. Accepting will bring you to the final configuration
-  prompts:
+  in the interactive prompt. Accepting will bring you back into the terminal
+  to the final configuration prompts:
 
 .. code-block:: bash
+   :emphasize-lines: 12, 26
 
    Got code
    --------------------
@@ -130,7 +152,12 @@ available and which special-remote they need, please see this
 
 - ``git clone`` the
   `git-annex-remote-rclone <https://github.com/DanielDent/git-annex-remote-rclone>`_
-  repository to your machine.
+  repository to your machine (not inside ``DataLad-101``)::
+
+     $ git clone https://github.com/DanielDent/git-annex-remote-rclone.git
+
+  This is a wrapper around `rclone <https://rclone.or>`_ that makes any
+  destination supported by rclone usable with Git-annex.
 
 - Copy the path to this repository into your ``$PATH`` variable. If the
   clone is in ``/home/user-bob/repos``, the command would look like this::

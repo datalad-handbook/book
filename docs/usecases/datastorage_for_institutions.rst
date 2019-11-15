@@ -291,6 +291,11 @@ Upon :command:`datalad publish`, computed results can be pushed to the data stor
 an be thus backed-up. Easy-to-reobtain input data can safely be dropped to free
 disk space on the compute cluster again.
 
+With this remote data store setup, the compute cluster is efficiently used for
+computations instead of data storage. Researchers can not only compute their
+analyses faster and on larger datasets than before, but with DataLad's version
+control capabilities their work also becomes more transparent, open, and reproducible.
+
 
 .. findoutmore:: Software Requirements
 

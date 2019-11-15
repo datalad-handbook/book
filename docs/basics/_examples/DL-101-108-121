@@ -7,4 +7,5 @@ Any datalad run command can be re-executed by using its commit shasum as an argu
 in datalad rerun CHECKSUM. DataLad will take information from the run record of the original
 commit, and re-execute it. If no changes happen with a rerun, the command will not be written
 to history. Note: you can also rerun a datalad rerun command!
+
 EOT

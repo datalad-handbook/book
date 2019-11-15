@@ -1,0 +1,8 @@
+$ git reset --hard HEAD~1
+$ ls
+HEAD is now at f1e03c1 Added flower mosaic from wikimedia
+books
+code
+flowers.jpg
+notes.txt
+recordings

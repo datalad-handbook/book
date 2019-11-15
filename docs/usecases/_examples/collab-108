@@ -1,0 +1,9 @@
+$ cd bobs_analysis
+# ... make contributions, and save them
+$ [...]
+$ datalad save -m "your welcome, bob"
+add(ok): code/run_analysis.py (file)
+save(ok): . (dataset)
+action summary:
+  add (ok: 1)
+  save (ok: 1)

@@ -29,7 +29,7 @@ Help yourself
 
 If you run into a DataLad problem and you have followed the three
 steps above, but the error message
-`doesn't give you a clue on how to proceed <https://imgs.xkcd.com/comics/code_quality_3.png>`_,
+`does not give you a clue on how to proceed <https://imgs.xkcd.com/comics/code_quality_3.png>`_,
 the first you should do is
 
 #. find out which *version* of DataLad you use
@@ -159,7 +159,7 @@ data from, you are fine.
 
 .. todo::
 
-   If one does not have an SSH key configured, e.g. on a server (from remodnav paper on brainbfast)::
+   If one does not have an SSH key configured, e.g., on a server (from remodnav paper on brainbfast)::
 
       [INFO   ] Cloning https://github.com/psychoinformatics-de/paper-remodnav.git/remodnav [2 other candidates] into '/home/homeGlobal/adina/paper-remodnav/remodnav'
       Permission denied (publickey).

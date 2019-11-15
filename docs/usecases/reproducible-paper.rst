@@ -1,4 +1,4 @@
-.. _remodnav:
+.. _usecase_reproducible_paper:
 
 Writing a reproducible paper
 ----------------------------
@@ -26,7 +26,7 @@ data collection. After completion, he continued to work on validation analyses t
 prove the functionality and usefulness of his software. Next to a directory in which he developed
 his code, and directories with data he tested his code on, he now also has other directories
 with different data sources used for validation analyses.
-"This can't take too long!" Steve thinks optimistically when he finally sits down to write up a paper.
+"This can not take too long!" Steve thinks optimistically when he finally sits down to write up a paper.
 
 
 His scripts run his algorithm on the different data collections, create derivatives of his raw data,
@@ -438,7 +438,7 @@ and the final PDF.
 Thus, by using DataLad and its Python API, a few clever Unix and ``LaTeX`` tricks,
 and Makefiles, anyone can create a reproducible paper. This saves time, increases your own
 trust in the results, and helps to make a more convincing case with your research.
-If you haven't yet, but are curious, checkout the
+If you have not yet, but are curious, checkout the
 `manuscript this use case is based on <http://github.com/psychoinformatics-de/paper-remodnav/>`_.
 Any questions can be asked by `opening an issue <https://github.com/psychoinformatics-de/paper-remodnav/issues/new>`_.
 

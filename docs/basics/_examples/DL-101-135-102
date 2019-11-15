@@ -2,10 +2,10 @@ $ datalad wtf
 # WTF
 ## configuration <SENSITIVE, report disabled by configuration>
 ## datalad 
-  - version: 0.12.0rc4.dev218
-  - full_version: 0.12.0rc4.dev218-gae2c2
+  - version: 0.12.0rc6.dev91
+  - full_version: 0.12.0rc6.dev91-gde46
 ## dataset 
-  - path: /home/adina/repos/datalad-handbook/docs/_build/wdirs/dl-101/DataLad-101
+  - path: /home/me/dl-101/DataLad-101
   - repo: AnnexRepo
   - metadata: <SENSITIVE, report disabled by configuration>
 ## dependencies 
@@ -25,14 +25,110 @@ $ datalad wtf
   - keyrings.alt: 3.1.1
   - msgpack: 0.6.1
   - requests: 2.22.0
-  - six: 1.12.0
+  - scrapy: 1.7.4
   - wrapt: 1.11.2
 ## environment 
+  - LANGUAGE: en_US:en
   - LANG: en_US.UTF-8
-  - PYTHONPATH: /usr/bin/python
-  - PATH: /home/adina/env/handbook/bin:/home/adina/Documents/freesurfer/bin:/home/adina/Documents/freesurfer/fsfast/bin:/home/adina/Documents/freesurfer/tktools:/usr/share/fsl/5.0/bin:/usr/lib/fsl/5.0:/home/adina/Documents/freesurfer/mni/bin:/usr/share/fsl/5.0/5.0/bin:/home/adina/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/home/adina/.dotfiles/bin
+  - GIT_AUTHOR_EMAIL: elena@example.net
+  - GIT_EDITOR: vim
+  - LC_CTYPE: en_US.UTF-8
+  - GIT_AUTHOR_NAME: Elena Piscopia
+  - PATH: /home/adina/env/handbook/bin:/home/adina/Documents/freesurfer/bin:/home/adina/Documents/freesurfer/fsfast/bin:/home/adina/Documents/freesurfer/tktools:/usr/share/fsl/5.0/bin:/usr/lib/fsl/5.0:/home/adina/Documents/freesurfer/mni/bin:/usr/share/fsl/5.0/5.0/bin:/home/adina/.local/bin:/home/adina/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/home/adina/.dotfiles/bin
   - GIT_PYTHON_GIT_EXECUTABLE: /usr/bin/git
 ## extensions 
+  - crawler: 
+    - load_error: None
+    - description: Crawl web resources
+    - module: datalad_crawler
+    - version: 0.4.1
+    - entrypoints: 
+      - datalad_crawler.crawl.Crawl: 
+        - module: datalad_crawler.crawl
+        - class: Crawl
+        - names: 
+          - crawl
+        - load_error: None
+      - datalad_crawler.crawl_init.CrawlInit: 
+        - module: datalad_crawler.crawl_init
+        - class: CrawlInit
+        - names: 
+          - crawl-init
+          - crawl_init
+        - load_error: None
+  - container: 
+    - load_error: None
+    - description: Containerized environments
+    - module: datalad_container
+    - version: 0.5.0
+    - entrypoints: 
+      - datalad_container.containers_list.ContainersList: 
+        - module: datalad_container.containers_list
+        - class: ContainersList
+        - names: 
+          - containers-list
+          - containers_list
+        - load_error: None
+      - datalad_container.containers_remove.ContainersRemove: 
+        - module: datalad_container.containers_remove
+        - class: ContainersRemove
+        - names: 
+          - containers-remove
+          - containers_remove
+        - load_error: None
+      - datalad_container.containers_add.ContainersAdd: 
+        - module: datalad_container.containers_add
+        - class: ContainersAdd
+        - names: 
+          - containers-add
+          - containers_add
+        - load_error: None
+      - datalad_container.containers_run.ContainersRun: 
+        - module: datalad_container.containers_run
+        - class: ContainersRun
+        - names: 
+          - containers-run
+          - containers_run
+        - load_error: None
+  - neuroimaging:
+    - load_error: None
+    - description: Neuroimaging tools
+    - module: datalad_neuroimaging
+    - version: 0.2.3
+    - entrypoints:
+      - datalad_neuroimaging.bids2scidata.BIDS2Scidata:
+        - module: datalad_neuroimaging.bids2scidata
+        - class: BIDS2Scidata
+        - names:
+          - bids2scidata
+        - load_error: None
+  - metalad:
+    - load_error: None
+    - description: DataLad semantic metadata command suite
+    - module: datalad_metalad
+    - version: 0.2.0
+    - entrypoints:
+      - datalad_metalad.dump.Dump:
+        - module: datalad_metalad.dump
+        - class: Dump
+        - names:
+          - meta-dump
+          - meta_dump
+        - load_error: None
+      - datalad_metalad.extract.Extract:
+        - module: datalad_metalad.extract
+        - class: Extract
+        - names:
+          - meta-extract
+          - meta_extract
+        - load_error: None
+      - datalad_metalad.aggregate.Aggregate:
+        - module: datalad_metalad.aggregate
+        - class: Aggregate
+        - names:
+          - meta-aggregate
+          - meta_aggregate
+        - load_error: None
 ## git-annex 
   - version: 7.20190129
   - build flags: 
@@ -138,9 +234,41 @@ $ datalad wtf
     - 6
   - local repository version: 5
 ## location 
-  - path: /home/adina/repos/datalad-handbook/docs/_build/wdirs/dl-101/DataLad-101
+  - path: /home/me/dl-101/DataLad-101
   - type: dataset
 ## metadata_extractors 
+  - bids:
+    - module: datalad_neuroimaging.extractors.bids
+    - version: None
+    - load_error: None
+  - dicom:
+    - module: datalad_neuroimaging.extractors.dicom
+    - version: None
+    - load_error: None
+  - nidm:
+    - module: datalad_neuroimaging.extractors.nidm
+    - version: None
+    - load_error: None
+  - nifti1:
+    - module: datalad_neuroimaging.extractors.nifti1
+    - version: None
+    - load_error: None
+  - metalad_annex: 
+    - module: datalad_metalad.extractors.annex
+    - version: None
+    - load_error: None
+  - metalad_core: 
+    - module: datalad_metalad.extractors.core
+    - version: None
+    - load_error: None
+  - metalad_custom: 
+    - module: datalad_metalad.extractors.custom
+    - version: None
+    - load_error: None
+  - metalad_runprov: 
+    - module: datalad_metalad.extractors.runprov
+    - version: None
+    - load_error: None
   - annex: 
     - module: datalad.metadata.extractors.annex
     - version: None
@@ -180,10 +308,10 @@ $ datalad wtf
 ## system 
   - type: posix
   - name: Linux
-  - release: 4.19.0-5-amd64
-  - version: #1 SMP Debian 4.19.37-5 (2019-06-19)
-  - distribution: debian/10.0
-  - max_path_length: 327
+  - release: 4.19.0-6-amd64
+  - version: #1 SMP Debian 4.19.67-2+deb10u1 (2019-09-20)
+  - distribution: debian/10.1
+  - max_path_length: 283
   - encoding: 
     - default: utf-8
     - filesystem: utf-8

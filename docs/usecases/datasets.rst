@@ -1,4 +1,4 @@
-.. _datasets:
+.. _usecase_neuroimaging_datasets:
 
 ***********************
 A Neuroimaging Datasets
@@ -21,7 +21,7 @@ a hands-on experience.
 
    .. runrecord:: _examples/dataset
       :language: console
-      :workdir: studyforrest
+      :workdir: usecases/studyforrest
 
       $ datalad install https://github.com/psychoinformatics-de/studyforrest-data-phase2.git
 
@@ -29,7 +29,7 @@ Once installed, a DataLad dataset looks like any other directory on your filesys
 
 .. runrecord:: _examples/dataset2
    :language: console
-   :workdir: studyforrest
+   :workdir: usecases/studyforrest
    :lines: 1-2, 8-18
 
    $ cd studyforrest-data-phase2
@@ -51,7 +51,7 @@ all of these changes can be written to your DataLad datasets history.
       :language: console
       :lines: 1, 5-11, 15-25
       :emphasize-lines: 3, 5-6, 8
-      :workdir: studyforrest/studyforrest-data-phase2
+      :workdir: usecases/studyforrest/studyforrest-data-phase2
 
       $ ls -a # show also hidden files (excerpt)
 
@@ -69,7 +69,7 @@ from :command:`git log`.
 .. runrecord:: _examples/dataset4
    :language: console
    :lines: 1-10
-   :workdir: studyforrest/studyforrest-data-phase2
+   :workdir: usecases/studyforrest/studyforrest-data-phase2
 
    $ git log --oneline --graph --decorate
 
@@ -85,7 +85,7 @@ small in size:
 
 .. runrecord:: _examples/dataset5
    :language: console
-   :workdir: studyforrest/studyforrest-data-phase2
+   :workdir: usecases/studyforrest/studyforrest-data-phase2
 
    $ du -sh
 
@@ -94,13 +94,13 @@ opening both a small ``.tsv`` file in the root of the dataset,
 and a larger compressed ``nifti`` (``nii.gz``) in one of the subdirectories in this dataset.
 A small ``.tsv`` (1.9K) file exists and can be opened locally,
 but what would be a large, compressed ``nifti`` file
-isn't. In this state, one cannot open or work with the nifti file, but you can
+is not. In this state, one cannot open or work with the nifti file, but you can
 explore which files exist without the potentially large download.
 
 .. runrecord:: _examples/dataset6
    :language: console
    :emphasize-lines: 3
-   :workdir: studyforrest/studyforrest-data-phase2
+   :workdir: usecases/studyforrest/studyforrest-data-phase2
 
    $ ls participants.tsv  sub-01/ses-movie/func/sub-01_ses-movie_task-movie_run-1_bold.nii.gz
 
@@ -110,7 +110,7 @@ of files. Let's get the nifti file:
 
 .. runrecord:: _examples/dataset7
    :language: console
-   :workdir: studyforrest/studyforrest-data-phase2
+   :workdir: usecases/studyforrest/studyforrest-data-phase2
 
    $ datalad get sub-01/ses-movie/func/sub-01_ses-movie_task-movie_run-1_bold.nii.gz
 
@@ -135,7 +135,7 @@ superdataset containing analysis code and results computed from the
 studyforrest data. Should the studyforrest data get extended or changed,
 its subdataset can be updated to include the changes easily. More
 detailed examples of this can be found in the use cases in the last
-section (for example in :ref:`remodnav`).
+section (for example in :ref:`usecase_reproducible_paper`).
 
 The figure below illustrates dataset nesting in a neuroimaging context
 schematically:

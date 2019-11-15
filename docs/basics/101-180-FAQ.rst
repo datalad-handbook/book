@@ -1,0 +1,220 @@
+.. _FAQ:
+
+Frequently Asked Questions
+--------------------------
+
+This section answers frequently asked questions about high-level DataLad
+concepts or commands. If you have a question you want to see answered in here,
+`please create an issue <https://github.com/datalad-handbook/book/issues/new>`_
+or a `pull request <http://handbook.datalad.org/en/latest/contributing.html>`_.
+
+What is Git?
+^^^^^^^^^^^^
+
+Git is a free and open source distributed version control system. In a
+directory that is initialized as a Git repository, it can track small-sized
+files and the modifications done to them.
+Git thinks of its data like a *series of snapshots* -- it basically takes a
+picture of what all files look like whenever a modification in the repository
+is saved. It is a powerful and yet small and fast tool with many features such
+as *branching and merging* for independent development, *checksumming* of
+contents for integrity, and *easy collaborative workflows* thanks to its
+distributed nature.
+
+DataLad uses Git underneath the hood. Every DataLad dataset is a Git
+repository, and you can use any Git command within a DataLad dataset. Based
+on the configurations in ``.gitattributes``, file content can be version
+controlled by Git or managed by Git-annex, based on path pattern, file types,
+or file size. The section :ref:`config2` details how these configurations work.
+`This chapter <https://git-scm.com/book/en/v2/Getting-Started-What-is-Git%3F>`_
+gives a comprehensive overview on what Git is.
+
+Where is Git's "staging area" in DataLad datasets?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+As mentioned in :ref:`populate`, a local version control workflow with
+DataLad "skips" the staging area (that is typical for Git workflows) from the
+user's point of view.
+
+What is Git-annex?
+^^^^^^^^^^^^^^^^^^
+
+Git-annex (`https://git-annex.branchable.com/ <https://git-annex.branchable.com/>`_)
+is a distributed file synchronization system written by Joey Hess. It can
+share and synchronize large files independent from a commercial service or a
+central server. It does so by managing all file *content* in a separate
+directory (the *annex*, *object tree*, or *key-value-store* in ``.git/annex/objects/``),
+and placing only file names and
+metadata into version control by Git. Among many other features, Git-annex
+can ensure sufficient amounts of file copies to prevent accidental data loss and
+enables a variety of data transfer mechanisms.
+DataLad uses Git-annex underneath the hood for file content tracking and
+transport logistics. Git-annex offers an astonishing range of functionality
+that DataLad tries to expose in full. That being said, any DataLad dataset
+(with the exception of datasets configured to be pure Git repositories) is
+fully compatible with Git-annex -- you can use any Git-annex command inside a
+DataLad dataset.
+
+The chapter :ref:`symlink` can give you more insights into how Git-annex
+takes care of your data. Git-annex's `website <https://git-annex.branchable.com/>`_
+can give you a complete walk-through and detailed technical background
+information.
+
+What does DataLad add to Git and Git-annex?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+DataLad sits on top of Git and Git-annex and tries to integrate and expose
+their functionality fully. While DataLad thus is a "thin layer" on top of
+these tools and tries to minimize the use of unique/idiosyncratic functionality,
+it also adds a range of useful concepts and functions:
+
+- Both Git and Git-annex are made to work with a single repository at a time.
+  For example, while nesting pure Git repositories is possible via Git
+  submodules (that DataLad also uses internally), *cleaning up* after
+  placing a random file somewhere into this repository hierarchy can be very
+  painful. A key advantage that DataLad brings to the table is that it makes
+  the boundaries between repositories vanish from a user's point
+  of view. Most core commands have a ``--recursive`` option that will discover
+  and traverse any subdatasets and do-the-right-thing.
+  :command:`datalad save . --recursive` will solve the subdataset problem above
+  for example, no matter what was changed/added, no matter where in a tree
+  of subdatasets.
+- DataLad provides users with the ability to act on "virtual" file paths. If
+  software needs datafiles that are carried in a subdataset (in Git terms:
+  submodule) for a computation or test, a ``datalad get`` will discover if
+  there are any subdatasets to install at a particular version to eventually
+  provide the file content.
+
+- .. todo::
+
+     more here.
+
+
+Does DataLad host my data?
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+No, DataLad manages your data, but it does not host it. When publishing a
+dataset with annexed data, you will need to find a place that the large file
+content can be stored in -- this could be a webserver, a cloud service such
+as `Dropbox <https://www.dropbox.com/>`_, an S3 bucket, or many other storage
+solutions -- and set up a publication dependency on this location.
+This gives you all the freedom to decide where your data lives, and who can
+have access to it. Once this set up is complete, publishing and accessing a
+published dataset and its data is as easy as if it would lie on your own
+machine.
+
+.. todo::
+
+   sketch a typical workflow, link a yet to write section on sharing on third
+   party infrastructure
+
+
+How does Github relate to DataLad?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+DataLad can make good use of Github, if you have figured out storage for your
+large files otherwise. You can make DataLad publish file content to one location
+and afterwards automatically push an update to Github, such that
+users can install directly from Github and seemingly also obtain large file
+content from Github. Github is also capable of resolving submodule/subdataset
+links to other Github repos, which makes for a nice UI.
+
+
+What is the difference between a superdataset, a subdataset, and a dataset?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Conceptually and technically, there is no difference between a dataset, a
+subdataset, or a superdataset. The only aspect that makes a dataset a sub- or
+superdataset is whether it is *registered* in another dataset (by means of an entry in the
+``.gitmodules``, automatically performed upon an appropriate ``datalad
+install -d`` or ``datalad create -d`` command) or contains registered datasets.
+
+
+How can I convert/import/transform an existing Git or Git-annex repository into a DataLad dataset?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+You can transform any existing Git or Git-annex repository of yours into a
+DataLad dataset by running::
+
+   $ datalad create -f
+
+inside of it. Afterwards, you may want to tweak settings in ``.gitattributes``
+according to your needs (see sections :ref:`config` and :ref:`config2` for
+additional insights on this).
+
+How can I cite DataLad?
+^^^^^^^^^^^^^^^^^^^^^^^
+
+There is no official paper on DataLad (yet). To cite it, please use the latest
+`zenodo <https://zenodo.org>`_ entry found here:
+`https://zenodo.org/record/3512712 <https://zenodo.org/record/3512712>`_.
+
+What is the difference between DataLad, Git LFS, and Flywheel?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+`Flywheel <https://flywheel.io/>`_ is an informatics platform for biomedical
+research and collaboration.
+
+`Git Large File Storage <https://github.com/git-lfs/git-lfs>`_ (Git LFS) is a
+commandline tool that extends Git with the ability to manage large files. In
+that it appears similar to Git-annex.
+
+.. todo::
+
+   this.
+
+A more elaborate delineation from related solutions can be found in the DataLad
+`developer documentation <http://docs.datalad.org/en/latest/related.html>`_.
+
+DataLad version-controls my large files -- great. But how much is saved in total?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. todo::
+
+   this.
+
+
+How can I copy data out of a DataLad dataset?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Moving or copying data out of a DataLad dataset is always possible and works in
+many cases just like in any regular directory. The only
+caveat exists in the case of annexed data: If file content is managed with
+Git-annex and stored in the :term:`object-tree`, what *appears* to be the
+file in the dataset is merely a symlink (please read section :ref:`symlink`
+for details). Moving or copying this symlink will not yield the
+intended result -- instead you will have a broken symlink outside of your
+dataset.
+
+When using the terminal command ``cp`` [#f1]_, it is sufficient to use the
+``-L``/``--dereference`` option. This will follow symbolic links, and make
+sure that content gets moved instead of symlinks.
+With tools other than ``cp`` (e.g., graphical file managers), to copy or move
+annexed content, make sure it is *unlocked* first:
+After a :command:`datalad unlock` copying and moving contents will work fine.
+A subsequent :command:`datalad save` in the dataset will annex the content
+again.
+
+
+Is there Python 2 support for DataLad?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+No, Python 2 support has been dropped in
+`September 2019 <https://github.com/datalad/datalad/pull/3629>`_.
+
+
+Is there a graphical user interface for DataLad?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+No, DataLad's functionality is available in the command line or via it's
+Python API.
+
+.. todo::
+
+   maybe update this by mentioning the DataLad webapp extension
+
+
+
+.. rubric:: Footnotes
+
+.. [#f1] The absolutely amazing `Midnight Commander <https://github.com/MidnightCommander/mc>`_
+         ``mc`` can also follow symlinks.

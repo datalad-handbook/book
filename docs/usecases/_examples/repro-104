@@ -1,0 +1,3 @@
+$ datalad --output-format '{path}: {gitshasum}' subdatasets
+/home/me/usecases/repro/demo/inputs/ds000001: f7fe2e38852915e7042ca1755775fcad0ff166e5
+/home/me/usecases/repro/demo/inputs/ds000002: 6b16eff0c9e8d443ee551784981ddd954f657071

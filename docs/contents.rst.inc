@@ -12,28 +12,17 @@ Introduction
    intro/howto
 
 
-#####################
-Starting from scratch
-#####################
+################
+DataLad datasets
+################
 
 .. toctree::
    :maxdepth: 1
-   :caption: The bare necessities
+   :caption: Exploring DataLad's core data structure
 
    basics/101-101-create
    basics/101-102-populate
    basics/101-103-modify
-   basics/101-104-summary
-
-
-###################
-Basic dataset magic
-###################
-
-.. toctree::
-   :maxdepth: 1
-   :caption: A closer look at datasets
-
    basics/101-105-install
    basics/101-106-nesting
    basics/101-107-summary
@@ -50,14 +39,13 @@ Datalad, Run!
    basics/101-108-run
    basics/101-109-rerun
    basics/101-110-run2
-   basics/101-111-run3
    basics/101-112-run4
    basics/101-113-summary
 
 
-###################
-Basics on Git-annex
-###################
+#########################
+Under the hood: Git-annex
+#########################
 
 .. toctree::
    :maxdepth: 1
@@ -66,9 +54,9 @@ Basics on Git-annex
    basics/101-114-txt2git
    basics/101-115-symlinks
 
-#####################
-Sharing a dataset [1]
-#####################
+#############
+Collaboration
+#############
 
 .. toctree::
    :maxdepth: 1
@@ -78,10 +66,21 @@ Sharing a dataset [1]
    basics/101-117-sharelocal2
    basics/101-118-sharelocal3
    basics/101-119-sharelocal4
-   basics/101-120-summary
    basics/101-121-siblings
+   basics/101-120-summary
+
+#############################
+Tuning datasets to your needs
+#############################
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Various types and methods for dataset configurations
+
    basics/101-125-config
    basics/101-126-config2
+   basics/101-127-procedures
+   basics/101-128-summary
 
 #############
 Help yourself
@@ -92,10 +91,13 @@ Help yourself
    :caption: What to do if things go wrong
 
    basics/101-135-help
+   basics/101-136-filesystem
+   basics/101-137-history
+   basics/101-180-FAQ
 
-#########################
-Data analyses in datasets
-#########################
+#############################
+Make the most out of datasets
+#############################
 
 .. toctree::
    :maxdepth: 1
@@ -115,6 +117,17 @@ Sharing a dataset [2]
 
    basics/101-124-sharethirdparty
 
+
+###############
+Further options
+###############
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Small pieces of advice and helpful additional options
+
+   basics/101-179-gitignore
+
 #########
 Use Cases
 #########
@@ -123,8 +136,11 @@ Use Cases
    :maxdepth: 1
    :caption: Hands-on real-world applications with step-by-step recipes...
 
-   usecases/datasets
+   usecases/collaborative_data_management
+   usecases/provenance_tracking
    usecases/reproducible-paper
+   usecases/supervision
+   usecases/reproducible_neuroimaging_analysis
 
 
 ########
@@ -137,6 +153,17 @@ Appendix
 
    glossary
    contributing
+   code_from_chapters/01_dataset_basics_code
+   code_from_chapters/02_reproducible_execution_code
+
 
 * :ref:`genindex`
 * :ref:`search`
+
+..
+  stuff that we do not need or show at the moment
+
+.. toctree::
+   :hidden:
+
+   usecases/datasets

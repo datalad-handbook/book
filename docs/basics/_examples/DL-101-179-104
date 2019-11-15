@@ -1,0 +1,2 @@
+$ mkdir tmp
+$ echo "this is just noise" > tmp/a_random_ignored_file

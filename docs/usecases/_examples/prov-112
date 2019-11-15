@@ -1,0 +1,20 @@
+$ datalad rerun --since= --onto= --branch=replay
+[INFO] Making sure inputs are available (this may take some time) 
+[INFO] == Command start (output follows) ===== 
+[INFO] == Command exit (modification check follows) ===== 
+[INFO] Making sure inputs are available (this may take some time) 
+[INFO] == Command start (output follows) ===== 
+[INFO] == Command exit (modification check follows) ===== 
+[INFO] Making sure inputs are available (this may take some time) 
+[INFO] == Command start (output follows) ===== 
+[INFO] == Command exit (modification check follows) ===== 
+add(ok): st-bernard.jpg (file)
+save(ok): . (dataset)
+add(ok): pimpernel.jpg (file)
+save(ok): . (dataset)
+add(ok): st-bernard-displaced.jpg (file)
+save(ok): . (dataset)
+action summary:
+  add (ok: 3)
+  get (notneeded: 3)
+  save (ok: 3)

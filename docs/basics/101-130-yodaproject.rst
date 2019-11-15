@@ -502,12 +502,15 @@ reproduce your data science project easily from scratch!
    will demonstrate how this can be done. For this dataset, it is not
    necessary to make the outputs available, though: Because all provenance
    on their creation was captured, we can simply recompute them with the
-   :command:`datalad rerun` command.
+   :command:`datalad rerun` command. Since we tagged the dataset once it was
+   ready for analysis, we can simply rerun any :command:`datalad run` command
+   since this tag:
 
    .. runrecord:: _examples/DL-101-130-121
       :language: console
       :workdir: dl-101/midtermproject
-      :realcommand: echo "datalad rerun $(git rev-parse HEAD~2)" && datalad rerun $(git rev-parse HEAD~2)
+
+      $ datalad rerun --since ready4analysis
 
    Hooray, your analysis was reproduced! Note however that none of the DataLad
    commands would have been necessary to reproduce the analysis -- simply

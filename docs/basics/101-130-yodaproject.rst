@@ -255,8 +255,8 @@ you can wrap the execution of the script in a :command:`datalad run` command.
      "python3 code/script.py"
 
 As the successful command summary indicates, your analysis seems to work! Two
-files were created and saved to the dataset: ``output/pairwise_relationships.png``
-and ``output/prediction_report.csv``. If you want, take a look and interpret
+files were created and saved to the dataset: ``pairwise_relationships.png``
+and ``prediction_report.csv``. If you want, take a look and interpret
 your analysis. But what excites you even more than a successful data science
 project on first try is that you achieved complete provenance capture:
 
@@ -487,7 +487,7 @@ reproduce your data science project easily from scratch!
       :language: console
       :workdir: dl-101/midtermproject
 
-      $ datalad get output/*
+      $ datalad get prediction_report.csv pairwise_relationships.png
 
    Why is that? The file content of these files is managed by Git-annex, and
    thus only information about the file name and location is known to Git.

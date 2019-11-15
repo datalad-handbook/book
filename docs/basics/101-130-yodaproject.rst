@@ -94,37 +94,27 @@ adequately to your ``midterm_project`` dataset by installing it as a
 subdataset. Make sure to install it as a subdataset of ``midterm_project``,
 and not ``DataLad-101``!
 
-.. runrecord:: _examples/DL-101-130-106
+.. runrecord:: _examples/DL-101-130-105
    :language: console
    :workdir: dl-101/DataLad-101/midterm_project
 
    # we are in midterm_project, thus -d . points to the root of it.
    $ datalad install -d . --source ../../iris_data input/
 
-Now that you have an ``input/`` directory with data, and a ``code/`` directory
-(created by the YODA procedure) for your scripts, create an ``output/``
-directory as well to collect all of your results in it. This will help
-to fulfil YODA principle 1 on modularity by storing results away from the
-input subdataset.
-
-.. runrecord:: _examples/DL-101-130-107
-   :language: console
-   :workdir: dl-101/DataLad-101/midterm_project
-
-   $ mkdir output
-
 After this directory is created, the directory structure of ``DataLad-101``
 looks like this:
 
-.. runrecord:: _examples/DL-101-130-108
+.. runrecord:: _examples/DL-101-130-106
    :language: console
    :workdir: dl-101/DataLad-101/midterm_project
 
    $ cd ../
    $ tree -d
 
-Within ``midterm_project``, the ``code/`` directory is where you want to
-place your scripts. Finally you can try out the Python API of DataLad!
+Now that you have an ``input/`` directory with data, and a ``code/`` directory
+(created by the YODA procedure) for your scripts, it is time to work on the script
+for your analysis. Within ``midterm_project``, the ``code/`` directory is where
+you want to place your scripts. Finally you can try out the Python API of DataLad!
 
 But first, you plan your research question. You decide to do a
 classification analysis with a k-nearest neighbors algorithm [#f2]_. The iris
@@ -167,7 +157,7 @@ To compute the analysis you create the following Python script inside of ``code/
 
    # create a pairplot to plot pairwise relationships in the dataset
    plot = sns.pairplot(df, hue='class')
-   plot.savefig('output/pairwise_relationships.png')
+   plot.savefig('pairwise_relationships.png')
 
    # perform a K-nearest-neighbours classification with scikit-learn
    # Step 1: split data in test and training dataset (20:80)
@@ -186,14 +176,16 @@ To compute the analysis you create the following Python script inside of ``code/
 
    # Step 3: Save the classification report
    report = classification_report(Y_test, predictions, output_dict=True)
-   df_report = pd.DataFrame(report).transpose().to_csv('output/prediction_report.csv')
+   df_report = pd.DataFrame(report).transpose().to_csv('prediction_report.csv')
 
    EOT
 
 This script will
 
 - make sure to install the linked subdataset and retrieve the data prior to reading it in (l. 12), and
-- save the resulting figure (l. 21) and ``.csv`` file (l 40) into the ``output/`` directory.
+- save the resulting figure (l. 21) and ``.csv`` file (l 40) into the root of
+  ``midterm_project/``. This will help to fulfil YODA principle 1 on modularity
+  by storing results away from the input subdataset.
 
 Note how all paths (to input data and output files) are *relative*, such that the
 ``midterm_project`` analysis is completely self-contained within the dataset.
@@ -252,14 +244,14 @@ you can wrap the execution of the script in a :command:`datalad run` command.
    -- an upcoming section on ``datalad containers-run`` will allow you to
    perform the analysis without changing with your Python software-setup.
 
-.. runrecord:: _examples/DL-101-130-114
+.. runrecord:: _examples/DL-101-130-111
    :language: console
    :workdir: dl-101/DataLad-101/midterm_project
 
    $ datalad run -m "analyze iris data with classification analysis" \
      --input "input/iris.csv" \
-     --output "output/prediction_report.csv" \
-     --output "output/pairwise_relationships.png" \
+     --output "prediction_report.csv" \
+     --output "pairwise_relationships.png" \
      "python3 code/script.py"
 
 As the successful command summary indicates, your analysis seems to work! Two
@@ -305,73 +297,55 @@ dataset that you can use for this [#f4]_.
 
    - All inputs (i.e. building blocks from other sources) are located in input/.
    - All custom code is located in code/.
-   - All results (i.e., generated files) are located in output/.
+   - All results (i.e., generated files) are located in the root of the dataset:
+     - "prediction_report.csv" contains the main classification metrics.
+     - "output/pairwise_relationships.png" is a plot of the relations between features.
 
    EOT
 
-.. runrecord:: _examples/DL-101-130-117
+.. runrecord:: _examples/DL-101-130-114
    :language: console
    :workdir: dl-101/DataLad-101/midterm_project
 
    $ datalad status
 
-.. runrecord:: _examples/DL-101-130-118
+.. runrecord:: _examples/DL-101-130-115
    :language: console
    :workdir: dl-101/DataLad-101/midterm_project
 
    $ datalad save -m "Provide project description" README.md
 
-To be extra helpful we will also create a README.md inside of ``outputs``
-that tells others about the nature of the result files:
 
-.. runrecord:: _examples/DL-101-130-119
-   :language: console
-   :workdir: dl-101/DataLad-101/midterm_project
-
-   $ cat << EOT > output/README.md
-     This directory contains the analysis outputs.
-
-     - ``output/prediction_report.csv`` contains the main classification
-       metrics.
-     - ``output/pairwise_relationships.png`` is a plot of the relations
-       between features.
-
-   EOT
-
-.. index:: datalad command; save --to-git
-
-One feature of the YODA procedure was that it configured certain files (for
-examples everything inside of ``code/`` and the ``README.md`` file in the
+Note that one feature of the YODA procedure was that it configured certain files
+(for examples everything inside of ``code/`` and the ``README.md`` file in the
 root of the dataset) to be saved in Git instead of Git-annex. This was the
-reason why the ``README.md`` in the root of the dataset was easily modifyable.
-However, such a configuration does not exist for the ``README.md`` file we
-are creating in ``output``. This means, should we :command:`datalad save`
-this file, it will be annexed -- an inconvenience, given that this file is
-small enough to be handled by Git.
+reason why the ``README.md`` in the root of the dataset was easily modifiable [#f4]_.
 
-Luckily, there is a handy shortcut to saving files in Git that does not
-require you to edit configurations in ``.gitattributes``: The ``--to-git``
-option for :command:`datalad save`.
+.. findoutmore:: Saving contents with Git regardless of configuration with --to-git
 
-.. runrecord:: _examples/DL-101-130-120
-   :language: console
-   :workdir: dl-101/DataLad-101/midterm_project
+   .. index:: datalad command; save --to-git
 
-   $ datalad save -m "add README.md to output directory" --to-git output/README.md
+   The ``yoda`` procedure in ``midterm_project`` applied a different configuration
+   within ``.gitattributes`` than the ``text2git`` procedure did in ``DataLad-101``.
+   Within ``DataLad-101``, any text file is automatically stored in :term:`Git`.
+   This is not true in ``midterm_project``: Only the existing ``README.md`` files and
+   anything within ``code/`` are stored -- everything else will be annexed.
+   That means that if you create any other file, even text files, inside of
+   ``midterm_project`` (but not in ``code/``), it will be managed by :term:`Git-annex`
+   and content-locked after a :command:`datalad save` -- an inconvenience if it
+   would be a file that is small enough to be handled by Git.
 
-Let's check whether this has worked: Is the file symlinked?
+   Luckily, there is a handy shortcut to saving files in Git that does not
+   require you to edit configurations in ``.gitattributes``: The ``--to-git``
+   option for :command:`datalad save`.
 
-.. runrecord:: _examples/DL-101-130-121
-   :language: console
-   :workdir: dl-101/DataLad-101/midterm_project
+   .. code-block:: bash
 
-   $ ls -l output
-   $ datalad status
+      $ datalad save -m "add sometextfile.txt" --to-git sometextfile.txt
 
-No, it isn't, and :command:`datalad status` is clean -- great, so ``output/README.md``
-is stored in Git! This means that your dataset now also contains sufficient
-human-readable information to ensure that others can understand everything you did
-easily.
+After adding this short description to your ``README.md`` your dataset now also
+contains sufficient human-readable information to ensure that others can understand
+everything you did easily.
 The only thing left to do is to hand in your assignment. According to the
 syllabus, this should be done via :term:`Github`.
 

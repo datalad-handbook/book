@@ -172,10 +172,9 @@ special remote, but distinct in certain aspects:
   only a handful of inodes, while remaining fully accessible.
 
 - It provides access to configurable directories via SSH.
-
-  .. todo::
-
-     understand why this is special/cool.
+  This makes it easier to accommodate infrastructural changes, especially when dealing
+  with large numbers of repositories, as moving from local to remote operations, or
+  switching target paths can be done by simply changing the configuration.
 
 - It allows a multi-repository directory structure, in which key store
   directories of multiple repositories can be organized in to a homogeneous

@@ -20,7 +20,7 @@ To start your analysis project and comply to the YODA principles, you set up
 an independent data dataset with your project's raw data. For this, create a
 new dataset outside of ``DataLad-101``:
 
-.. runrecord:: _examples/DL-101-129-101
+.. runrecord:: _examples/DL-101-130-101
    :language: console
    :workdir: dl-101/DataLad-101
 
@@ -131,7 +131,7 @@ dataset is. You settle on two objectives for your analysis:
 
 To compute the analysis you create the following Python script inside of ``code/``:
 
-.. runrecord:: _examples/DL-101-130-110
+.. runrecord:: _examples/DL-101-130-107
    :language: console
    :workdir: dl-101/DataLad-101/midterm_project
    :emphasize-lines: 8, 10, 13-14, 23, 42
@@ -192,16 +192,17 @@ Note how all paths (to input data and output files) are *relative*, such that th
 
 Let's run a quick :command:`datalad status`...
 
-.. runrecord:: _examples/DL-101-130-111
+.. runrecord:: _examples/DL-101-130-108
    :language: console
    :workdir: dl-101/DataLad-101/midterm_project
 
    $ datalad status
 
 ... and save the script to the subdataset's history. As the script completes your
-analysis setup, we *tag* the state of the dataset.
+analysis setup, we *tag* the state of the dataset to refer to it easily at a later
+point.
 
-.. runrecord:: _examples/DL-101-130-112
+.. runrecord:: _examples/DL-101-130-109
    :language: console
    :workdir: dl-101/DataLad-101/midterm_project
 
@@ -214,16 +215,15 @@ analysis setup, we *tag* the state of the dataset.
    or dataset states in the history of a dataset. Let's take a look at how the tag
    you just created looks like in your history:
 
-   .. runrecord:: _examples/DL-101-130-112
+   .. runrecord:: _examples/DL-101-130-110
       :workdir: dl-101/DataLad-101/midterm_project
       :language: console
-      :emphasizelines: 3
+      :emphasize-lines: 3
 
       $ git log -p -n 1
 
    Later we can use this tag to identify the version state of the dataset in which
    the analysis setup was ready -- much more intuitive than a 40-character shasum!
-
 
 Finally, with your directory structure being modular and intuitive,
 the input data installed, the script ready, and the dataset status clean,
@@ -272,7 +272,7 @@ project on first try is that you achieved complete provenance capture:
 Let's take a look at the history of the ``midterm_project`` analysis
 dataset:
 
-.. runrecord:: _examples/DL-101-130-115
+.. runrecord:: _examples/DL-101-130-112
    :language: console
    :workdir: dl-101/DataLad-101/midterm_project
 
@@ -284,7 +284,7 @@ But what is still missing is a human readable description of your dataset.
 The YODA procedure kindly placed a ``README.md`` file into the root of your
 dataset that you can use for this [#f4]_.
 
-.. runrecord:: _examples/DL-101-130-116
+.. runrecord:: _examples/DL-101-130-113
    :language: console
    :workdir: dl-101/DataLad-101/midterm_project
 
@@ -359,12 +359,12 @@ syllabus, this should be done via :term:`Github`.
 
    Web-hosting services like Github and Gitlab integrate wonderfully with
    DataLad. They are especially useful for making your dataset publicly available,
-   if you have figured out storage for your large files (as they can not be hosted
-   by Github) otherwise. You can make DataLad publish large file content to one location
+   if you have figured out storage for your large files otherwise (as large content
+   can not be hosted by Github). You can make DataLad publish large file content to one location
    and afterwards automatically push an update to Github, such that
    users can install directly from Github/Gitlab and seemingly also obtain large file
    content from Github. Github can also resolve subdataset links to other Github
-   repositories, which lets you navigate through nested datasets in the webinterface.
+   repositories, which lets you navigate through nested datasets in the web-interface.
 
    .. todo::
 
@@ -390,8 +390,7 @@ For this, you need to
 
 Luckily, DataLad can make all of this very easy with the
 :command:`datalad create-sibling-github` command (or, for
-`Gitlab <https://about.gitlab.com/>`_,
-:command:`datalad create-sibling-gitlab`).
+`Gitlab <https://about.gitlab.com/>`_, :command:`datalad create-sibling-gitlab`).
 
 .. index:: ! datalad command; create-sibling-github
 .. index:: ! datalad command; create-sibling-gitlab
@@ -401,33 +400,25 @@ The command takes a repository name and Github authentication credentials
 ``github-passwd <PASSWORD>``, with an *oauth* token stored in the Git
 configuration [#f5]_, or interactively). Based on the credentials and the
 repository name, it will create a new, empty repository on Github, and
-configure this repository as a sibling of the dataset:
+configure this repository as a sibling of the dataset. If the ``-r/--recursive``
+option is specified, siblings will be created *recursively*, i.e., not only a
+repository for the ``midterm_project`` dataset will be created, but also one
+for the ``iris_data`` dataset:
 
-.. runrecord:: _examples/DL-101-130-122
+.. runrecord:: _examples/DL-101-130-116
    :language: console
    :workdir: dl-101/DataLad-101/midterm_project
    :realcommand: datalad --log-level critical siblings add -d . --name github --url https://github.com/adswa/midtermproject.git
 
-   $ datalad create-sibling-github -d . midtermproject
+   $ datalad create-sibling-github -d . -r midtermproject
 
 Verify that this worked by listing the siblings of the dataset:
 
-.. runrecord:: _examples/DL-101-130-123
+.. runrecord:: _examples/DL-101-130-117
    :language: console
    :workdir: dl-101/DataLad-101/midterm_project
 
    $ datalad siblings
-
-On Github, you will see a new, empty repository with the name
-``midtermproject``. However, it does not yet contain any of your dataset's
-history or files. This requires *publishing* the current state of the dataset
-to this sibling:
-
-.. code-block:: bash
-
-   $ datalad publish --to github
-   [INFO] Publishing <Dataset path=/home/me/dl-101/DataLad-101/midterm_project> to github
-   publish(ok): . (dataset) [pushed to github: ['[new branch]', '[new branch]']]
 
 .. gitusernote::
 
@@ -435,6 +426,24 @@ to this sibling:
    account that you provide and set up a *remote* to this repository. Upon a
    :command:`datalad publish` to this sibling, your datasets history
    will be pushed there.
+
+On Github, you will see two new, empty repository with the names
+``midtermproject``, and ``inputs``. However, none of these repositories yet contain
+any of your dataset's history or files. This requires *publishing* the current
+state of the dataset to this sibling. As before, we do this recursively with
+``-r/--recursive``.
+
+.. code-block:: bash
+
+   $ datalad publish -r --to github
+   [INFO] Publishing <Dataset path=/home/me/dl-101/DataLad-101/midterm_project> to github
+   publish(ok): . (dataset) [pushed to github: ['[new branch]', '[new branch]']]
+
+.. gitusernote::
+
+   The :command:`datalad publish` uses ``git push``, and ``git annex copy`` under
+   the hood. Publication targets need to either be configured remote Git repositories,
+   or Git-annex special remotes (if they support data upload).
 
 Yay! Consider your midterm project submitted! Others can now install your
 dataset and check out your data science project -- and even better: they can
@@ -450,7 +459,7 @@ reproduce your data science project easily from scratch!
    Replace the ``url`` in the :command:`install` command below with the path
    to your own ``midtermproject`` Github repository:
 
-   .. runrecord:: _examples/DL-101-130-125
+   .. runrecord:: _examples/DL-101-130-118
       :language: console
       :workdir: dl-101/DataLad-101/midterm_project
 
@@ -464,7 +473,7 @@ reproduce your data science project easily from scratch!
    is recorded:
 
 
-   .. runrecord:: _examples/DL-101-130-126
+   .. runrecord:: _examples/DL-101-130-119
       :language: console
       :workdir: dl-101
 
@@ -474,7 +483,7 @@ reproduce your data science project easily from scratch!
    Nice, this worked well. The output files, however, can not be easily
    retrieved:
 
-   .. runrecord:: _examples/DL-101-130-127
+   .. runrecord:: _examples/DL-101-130-120
       :language: console
       :workdir: dl-101/midtermproject
 
@@ -495,7 +504,7 @@ reproduce your data science project easily from scratch!
    on their creation was captured, we can simply recompute them with the
    :command:`datalad rerun` command.
 
-   .. runrecord:: _examples/DL-101-130-128
+   .. runrecord:: _examples/DL-101-130-121
       :language: console
       :workdir: dl-101/midtermproject
       :realcommand: echo "datalad rerun $(git rev-parse HEAD~2)" && datalad rerun $(git rev-parse HEAD~2)
@@ -510,7 +519,7 @@ reproduce your data science project easily from scratch!
 
 .. [#f1] Note that you could have applied the YODA procedure not only right at
          creation of the dataset with ``-c yoda``, but also after creation
-         with the :command:`datalad run-procedure: command::
+         with the :command:`datalad run-procedure` command::
 
            $ cd midterm_project
            $ datalad run-procedure cfg_yoda
@@ -542,7 +551,8 @@ reproduce your data science project easily from scratch!
 .. [#f4] Note that all ``README.md`` files the YODA procedure created are
          version controlled by Git, not Git-annex, thanks to the
          configurations that YODA supplied. This makes it easy to change the
-         ``README.md`` file.
+         ``README.md`` file. If you want to re-read the chapter on configurations
+         and run-procedures, start with section :ref:`config`.
 
 .. [#f5] Such a token can be obtained, for example, using the commandline
          Github interface (https://github.com/sociomantic/git-hub) by running:

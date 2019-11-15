@@ -7,7 +7,7 @@ In order to combine the previous sections, this midterm project is a
 YODA-compliant data analysis project, written in Python, and set up in a
 DataLad dataset.
 
-For your submission, you decide to analyse the
+For your submission, you decide to analyze the
 `iris flower data set <https://en.wikipedia.org/wiki/Iris_flower_data_set>`_.
 It is a multivariate data set on 50 samples of each of three species of Iris
 flowers (*Setosa*, *Versicolor*, or *Virginica*), with four variables: the length and width of the sepals and petals
@@ -15,6 +15,9 @@ of the flowers in centimeters. It is often used in introductory data science
 courses for statistical classification techniques in machine learning, and
 widely available, among many other sources as
 `Github gists <https://gist.github.com/netj/8836201>`_.
+
+Raw data as a modular, independent entity
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 To start your analysis project and comply to the YODA principles, you set up
 an independent data dataset with your project's raw data. For this, create a
@@ -55,7 +58,10 @@ and we can use :command:`datalad download-url` to get it:
 This downloaded the iris dataset as a comma-seperated (``.csv``) file, and,
 importantly, recorded where it was obtained from. "Nice, this way I have
 sufficient provenance capture for my input dataset!" you think as you
-mentally tick of YODA principle 2 for your input data.
+mentally tick of YODA principle number 2 for your input data.
+
+An analysis dataset
+^^^^^^^^^^^^^^^^^^^
 
 Now that you have this raw dataset, it is time to create an analysis for your
 midterm project.
@@ -134,7 +140,7 @@ To compute the analysis you create the following Python script inside of ``code/
 .. runrecord:: _examples/DL-101-130-107
    :language: console
    :workdir: dl-101/DataLad-101/midterm_project
-   :emphasize-lines: 8, 10, 13-14, 23, 42
+   :emphasize-lines: 8, 10, 13, 22, 41
 
    $ cat << EOT > code/script.py
 

@@ -58,8 +58,8 @@ Glossary
       A DataLad dataset that contains one or more levels of other DataLad datasets (:term:`DataLad subdataset`).
 
    dataset ID
-      A :term:`UUID` that identifies a dataset as a whole across its entire history and flavors.
-      This ID is stored in a dataset’s own configuration file (``<dataset root>/.datalad/config``)
+      A :term:`UUID` that identifies a dataset as a unit -- across its entire history and flavors.
+      This ID is stored in a dataset's own configuration file (``<dataset root>/.datalad/config``)
       under the configuration key ``datalad.dataset.id``.
       As this configuration is stored in a file that is part of the Git
       history of a dataset, this ID is identical for all :term:`clone`\s of a dataset and across all
@@ -75,7 +75,7 @@ Glossary
    Git
       A version control system to track changes made to small-sized files over time. You can find out
       more about git in `this (free) book <https://git-scm.com/book/en/v2>`_
-      or `these interactive Git tutorials <https://try.github.io/>`_ on :term:`Github`.
+      or `these interactive Git tutorials <https://try.github.io/>`_ on :term:`GitHub`.
 
    Git-annex
       A distributed file synchronization system, enabling sharing and synchronizing collections
@@ -85,7 +85,7 @@ Glossary
       A file in which :term:`Git` stores configuration option. Such a file usually exists on
       the system, user, and repository (dataset) level.
 
-   Github
+   GitHub
       GitHub is an online platform where one can store and share version controlled projects
       using Git (and thus also DataLad project).See
       `Github.com <https://github.com/>`_.
@@ -95,9 +95,9 @@ Glossary
       visualizes a commit graph, information related to each commit, and the files in the trees
       of each revision.
 
-   Gitlab
+   GitLab
       An online platform to host and share software projects version controlled with :term:`Git`,
-      similar to :term:`Github`. See `Gitlab.com <https://about.gitlab.com/>`_.
+      similar to :term:`GitHub`. See `Gitlab.com <https://about.gitlab.com/>`_.
 
    globbing
       A powerful pattern matching function of a shell. Allows to match the names of multiple files

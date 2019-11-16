@@ -173,6 +173,15 @@
       "contributions": [
         "userTesting"
       ]
+    },
+    {
+      "login": "aqw",
+      "name": "Alex Waite",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/765557?v=4",
+      "profile": "https://github.com/aqw",
+      "contributions": [
+        "review"
+      ]
     }
   ],
   "contributorsPerLine": 7,

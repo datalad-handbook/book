@@ -91,7 +91,7 @@ of the researchers that perform analyses on the cluster.
 By using the data store, the institutes work routines are adjusted around
 DataLad datasets: Analyses are set-up inside of DataLad datasets, and for every
 analysis, an associated ``project`` is created under the namespace of the
-institute on the institute's :term:`Gitlab` instance automatically. This has
+institute on the institute's :term:`GitLab` instance automatically. This has
 the advantage of vastly simplified version control, even for trainees, and
 simplified access to projects for collaborators and supervisors. Data
 from the data store is installed as subdatasets. This comes with several
@@ -99,7 +99,7 @@ benefits: Analyses are automatically linked to data, no unused file
 copies waste disk space on the compute cluster as data can be retrieved
 on-demand, and files that are easily re-obtained or recomputed can safely be
 dropped to save even more disk-space. Moreover, upon creation of an analysis
-project, the associated Gitlab project it is automatically configured as a remote
+project, the associated GitLab project it is automatically configured as a remote
 with a publication dependency on the data store, thus enabling vastly simplified
 data publication routines and back-up of pristine results.
 
@@ -257,7 +257,7 @@ Here is how the RIA-remote features look like in real life:
   either for compression gains, or for use on HPC-systems with inode limitations.
 
 This implementation is fully self-contained, and is a plain file system storage,
-not a database. Once is is set up, in order to retrieve data from the data store, special
+not a database. Once it is set up, in order to retrieve data from the data store, special
 remote access to the data store needs to be initialized.
 
 This is done with a custom configuration (``cfg_inm7``) as a run-procedure [#f2]_ with a
@@ -269,7 +269,7 @@ The configuration performs all the relevant setup of the dataset with a fully
 configured link to ``$DATA``: It is configured as a remote to install and pull
 data from, but upon creation of the dataset, the dataset's directory is also created at the remote
 end as a bare repository to enable pushing of results back to ``$DATA``. At the same
-time, a Gitlab sibling in the institute's Gitlab instance is created, with a
+time, a GitLab :term:`sibling` in the institute's GitLab instance is created, with a
 publication dependency on the data storage.
 
 With this setup, a dataset of any size can be installed in a matter of seconds
@@ -281,14 +281,14 @@ by providing its ID as a source in a :command:`datalad install` command::
 
 Actual data content can be obtained on demand via :command:`datalad get`. Thus,
 users can selectively obtain only those contents they need instead of having
-complete copies of data sets as before.
+complete copies of datasets as before.
 
 .. todo::
 
    maybe something about caching here
 
 Upon :command:`datalad publish`, computed results can be pushed to the data store
-an be thus backed-up. Easy-to-reobtain input data can safely be dropped to free
+and be thus backed-up. Easy-to-reobtain input data can safely be dropped to free
 disk space on the compute cluster again.
 
 With this remote data store setup, the compute cluster is efficiently used for
@@ -315,4 +315,4 @@ control capabilities their work also becomes more transparent, open, and reprodu
 
 .. [#f2] To re-read about DataLad's run-procedures, check out section
          :ref:`procedures`. You can find the source code of the procedure
-         `on Gitlab <https://jugit.fz-juelich.de/inm7/infrastructure/inm7-datalad/blob/master/inm7_datalad/resources/procedures/cfg_inm7.py>`_.
+         `on GitLab <https://jugit.fz-juelich.de/inm7/infrastructure/inm7-datalad/blob/master/inm7_datalad/resources/procedures/cfg_inm7.py>`_.

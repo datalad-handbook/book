@@ -1,5 +1,0 @@
-$ datalad run-procedure --discover
-cfg_bids (../../../adina/repos/datalad-neuroimaging/datalad_neuroimaging/resources/procedures/cfg_bids.py) [python_script]
-cfg_metadatatypes (../../../adina/repos/datalad/datalad/resources/procedures/cfg_metadatatypes.py) [python_script]
-cfg_text2git (../../../adina/repos/datalad/datalad/resources/procedures/cfg_text2git.py) [python_script]
-cfg_yoda (../../../adina/repos/datalad/datalad/resources/procedures/cfg_yoda.py) [python_script]

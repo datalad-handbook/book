@@ -34,7 +34,7 @@ your horizon about configurations of datasets:
   the user can write simple rules into it that determine which files are annexed
   and which are stored in Git.
 
-- DataLads ``run-procedure``\s offer an easy and fast alternative to DIY
+- DataLad's ``run-procedure``\s offer an easy and fast alternative to DIY
   configurations, structuring, or processing of the dataset.
   They can be applied already at creation of a dataset with ``datalad create -c <procedure>``,
   or executed later with a :command:`datalad run-procedure` command.
@@ -44,5 +44,5 @@ Now what can I do with it?
 
 Configurations are not a closed book for you anymore. What will probably be
 especially helpful is your new knowledge about ``.gitattributes`` and
-DataLads ``run-procedure`` command that allow you to configure the behaviour
+DataLad's ``run-procedure`` command that allow you to configure the behavior
 of Git-annex in your dataset.

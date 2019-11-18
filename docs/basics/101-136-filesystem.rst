@@ -744,7 +744,7 @@ DataLad will safeguard dropping content that it can not retrieve again:
 .. runrecord:: _examples/DL-101-136-178
    :workdir: dl-101/DataLad-101
    :language: console
-   :notes: datalad does not know how to reobtain the file, so it complains
+   :notes: datalad does not know how to re-obtain the file, so it complains
    :cast: 03_git_annex_basics
 
    $ datalad drop a.pdf

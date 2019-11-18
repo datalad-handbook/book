@@ -58,7 +58,7 @@ behavior can be defined based on
 "In ``.gitattributes``, you can define what a large file and what is not
 by simply telling Git-annex by writing such rules."
 
-What you can see in this ``.gitattribute`` file is a rule based on **file types**:
+What you can see in this ``.gitattributes`` file is a rule based on **file types**:
 With ``(not(mimetype=text/*))`` [#f1]_, the ``text2git`` configuration template
 configured Git-annex to regard all files of type text **not** as a large file.
 Thanks to this little line, your text files are not annexed, but stored

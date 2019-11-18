@@ -275,7 +275,7 @@ to track:
    :workdir: dl-101/DataLad-101
    :language: console
 
-   $ datalad save -m "save my favourite Git joke" Gitjoke2.txt
+   $ datalad save -m "save my favorite Git joke" Gitjoke2.txt
 
 Finally, lets check how the history looks afterwards:
 
@@ -448,7 +448,7 @@ The contents of ``notes.txt`` will now be the most recent version again:
 
    $ cat notes.txt
 
-... Wow! You travelled back and forth in time!
+... Wow! You traveled back and forth in time!
 But an even more magical way to see the contents of files in previous
 versions is Git's :command:`cat-file` command: Among many other things, it lets
 you read a file's contents as of any point in time in the history, without a
@@ -479,7 +479,7 @@ Let's modify the saved ``Gitjoke1.txt``:
    :language: console
    :workdir: dl-101/DataLad-101
 
-   $ echo "this is by far my favourite joke!" >> Gitjoke2.txt
+   $ echo "this is by far my favorite joke!" >> Gitjoke2.txt
 
 .. runrecord:: _examples/DL-101-137-129
    :language: console

@@ -219,16 +219,18 @@ point.
    :term:`tag`\s are markers that you can attach to commits in your dataset history.
    They can have any name, and can help you and others to identify certain commits
    or dataset states in the history of a dataset. Let's take a look at how the tag
-   you just created looks like in your history:
+   you just created looks like in your history with :command:`git show`.
+   Note how we can use a tag just as easily as a commit :term:`shasum`:
 
    .. runrecord:: _examples/DL-101-130-110
       :workdir: dl-101/DataLad-101/midterm_project
       :language: console
-      :emphasize-lines: 3
 
-      $ git log -p -n 1
+      $ git show ready4analysis
 
-   Later we can use this tag to identify the version state of the dataset in which
+   This tag thus identifies the version state of the dataset in which this script
+   was added.
+   Later we can use this tag to identify the point in time at which
    the analysis setup was ready -- much more intuitive than a 40-character shasum!
 
 Finally, with your directory structure being modular and intuitive,
@@ -452,6 +454,17 @@ state of the dataset to this sibling. As before, we do this recursively with
    The :command:`datalad publish` uses ``git push``, and ``git annex copy`` under
    the hood. Publication targets need to either be configured remote Git repositories,
    or Git-annex special remotes (if they support data upload).
+
+Here is one important detail, though: By default, your tags will not be published.
+This requires an additional :command:`git push` with the ``--tags`` option to the
+sibling:
+
+.. code-block:: bash
+
+   $ git push github --tags
+   To https://github.com/adswa/midtermproject.git
+     * [new tag]         ready4analysis -> ready4analysis
+
 
 Yay! Consider your midterm project submitted! Others can now install your
 dataset and check out your data science project -- and even better: they can

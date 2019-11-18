@@ -93,7 +93,6 @@ Make the most out of datasets
 
    basics/101-126-intro
    basics/101-127-yoda
-   basics/101-129-python
    basics/101-130-yodaproject
    basics/101-128-summary_yoda
 

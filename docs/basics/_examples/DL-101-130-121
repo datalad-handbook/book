@@ -1,2 +1,9 @@
-$ datalad create-sibling-github -d . midtermproject
-.: github(-) [https://github.com/adswa/midtermproject.git (git)]
+$ datalad get prediction_report.csv pairwise_relationships.png
+[WARNING] Running get resulted in stderr output: git-annex: get: 2 failed
+
+[ERROR] not available; Try making some of these repositories available:; 	14110780-e583-4147-a745-5f47c9b9c4ea -- me@muninn:~/dl-101/DataLad-101/midterm_project;  	56542179-a3ba-4494-a3c5-6fdb858666fb -- me@muninn:~/dl-101/DataLad-101/midterm_project; ; (Note that these git remotes have annex-ignore set: origin) [get(/home/me/dl-101/midtermproject/prediction_report.csv)]
+[ERROR] not available; Try making some of these repositories available:; 	14110780-e583-4147-a745-5f47c9b9c4ea -- me@muninn:~/dl-101/DataLad-101/midterm_project;  	56542179-a3ba-4494-a3c5-6fdb858666fb -- me@muninn:~/dl-101/DataLad-101/midterm_project; ; (Note that these git remotes have annex-ignore set: origin) [get(/home/me/dl-101/midtermproject/pairwise_relationships.png)]
+get(error): prediction_report.csv (file) [not available; Try making some of these repositories available:; 	14110780-e583-4147-a745-5f47c9b9c4ea -- me@muninn:~/dl-101/DataLad-101/midterm_project;  	56542179-a3ba-4494-a3c5-6fdb858666fb -- me@muninn:~/dl-101/DataLad-101/midterm_project; ; (Note that these git remotes have annex-ignore set: origin)]
+get(error): pairwise_relationships.png (file) [not available; Try making some of these repositories available:; 	14110780-e583-4147-a745-5f47c9b9c4ea -- me@muninn:~/dl-101/DataLad-101/midterm_project;  	56542179-a3ba-4494-a3c5-6fdb858666fb -- me@muninn:~/dl-101/DataLad-101/midterm_project; ; (Note that these git remotes have annex-ignore set: origin)]
+action summary:
+  get (error: 2)

@@ -9,7 +9,7 @@ from datalad.api import get
 
 data = "input/iris.csv"
 
-# make sure that the data is obtained:
+# make sure that the data is obtained (get will also install linked sub-ds!):
 get(data)
 
 # prepare the data as a pandas dataframe

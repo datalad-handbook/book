@@ -1,0 +1,17 @@
+$ datalad rerun --since ready4analysis
+[INFO] Making sure inputs are available (this may take some time) 
+[WARNING] no content present; cannot unlock [unlock(/home/me/dl-101/midtermproject/pairwise_relationships.png)] 
+[WARNING] no content present; cannot unlock [unlock(/home/me/dl-101/midtermproject/prediction_report.csv)] 
+[INFO] == Command start (output follows) ===== 
+[INFO] == Command exit (modification check follows) ===== 
+remove(ok): pairwise_relationships.png
+remove(ok): prediction_report.csv
+add(ok): pairwise_relationships.png (file)
+add(ok): prediction_report.csv (file)
+run(ok): /home/me/dl-101/midtermproject (dataset) [7c4eb2c does not have a command; skipping]
+action summary:
+  add (ok: 2)
+  get (notneeded: 1)
+  remove (ok: 2)
+  run (ok: 1)
+  save (notneeded: 2)

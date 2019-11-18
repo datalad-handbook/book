@@ -1,7 +1,10 @@
 # go back into DataLad-101
 $ cd ../DataLad-101
-$ datalad create --dataset . midterm_project
+$ datalad create -c yoda --dataset . midterm_project
 [INFO] Creating a new annex repo at /home/me/dl-101/DataLad-101/midterm_project 
+[INFO] Running procedure cfg_yoda
+[INFO] == Command start (output follows) =====
+[INFO] == Command exit (modification check follows) =====
 create(ok): midterm_project (dataset)
 action summary:
   add (ok: 2)

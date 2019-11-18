@@ -199,7 +199,7 @@ Glossary
       its entire history and flavors called :term:`Dataset ID` that looks similar to
       this ``0828ac72-f7c8-11e9-917f-a81e84238a11``. This dataset ID will only exist once,
       identifying only one particular dataset on the planet. Note that this does not
-      require all UUIDs to be known in some central data base -- the fact that no UUID
+      require all UUIDs to be known in some central database -- the fact that no UUID
       exists twice is achieved by mere probability: The chance of a UUID being duplicated
       is so close to zero that it is negligible.
 

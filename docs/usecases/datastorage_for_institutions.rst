@@ -4,7 +4,7 @@ Building a scalable data storage for scientific computing
 ---------------------------------------------------------
 
 Research can require enormous amounts of data. Such data needs to be accessed by
-multiple people at the same time, and is used in a diverse range of
+multiple people at the same time, and is used across a diverse range of
 computations or research questions.
 The size of the data set, the need for simultaneous access and transformation
 of this data by multiple people, and the subsequent storing of multiple copies
@@ -39,7 +39,7 @@ The Challenge
 ^^^^^^^^^^^^^
 
 The data science institute XYZ consists of dozens of people: Principle
-investigators, PhD students, general research staff, system's administration,
+investigators, PhD students, general research staff, system administration,
 and IT support. It does research on important global issues, and prides
 itself with ground-breaking insights obtained from elaborate and complex
 computations run on a large scientific computing cluster.
@@ -50,7 +50,7 @@ multiple researchers.
 
 Every member of the institute has an account on an expensive and large compute cluster, and all
 of the data exists in dedicated directories on this server. In order to work on
-their research questions without modifying original data, every user creates own
+their research questions without modifying original data, every user creates their own
 copies of the full data in their user account on the cluster -- even if it
 contains many files that are not necessary for their analysis. In addition,
 they add all computed derivatives and outputs, even old versions, out of fear
@@ -79,8 +79,8 @@ For access to the annexed data in datasets, the data store is configured as a
 Git-annex `RIA-remote <https://libraries.io/pypi/ria-remote>`_.
 In case of filesystem inode limitations on the machine
 serving as the data store (e.g., HPC storage systems), full datasets can be
-(compressed) 7-zip archives, without loosing the ability to query available files.
-Regardless of file number and size, such datasets thus use only few inodes.
+(compressed) 7-zip archives, without losing the ability to query available files.
+Regardless of the number of file and size of them, such datasets thus use only few inodes.
 Using DataLad's run-procedures, an institute-wide
 configuration is distributed among users. Applying the procedure is done in a
 single :command:`datalad run-procedure` command, and users subsequently
@@ -88,20 +88,20 @@ face minimal technical overhead to interact with the data store.
 
 The infrastructural changes are accompanied by changes in the mindset and workflows
 of the researchers that perform analyses on the cluster.
-By using the data store, the institutes work routines are adjusted around
+By using the data store, the institute's work routines are adjusted around
 DataLad datasets: Analyses are set-up inside of DataLad datasets, and for every
 analysis, an associated ``project`` is created under the namespace of the
 institute on the institute's :term:`GitLab` instance automatically. This has
-the advantage of vastly simplified version control, even for trainees, and
+the advantage of vastly simplified version control and
 simplified access to projects for collaborators and supervisors. Data
 from the data store is installed as subdatasets. This comes with several
 benefits: Analyses are automatically linked to data, no unused file
 copies waste disk space on the compute cluster as data can be retrieved
 on-demand, and files that are easily re-obtained or recomputed can safely be
-dropped to save even more disk-space. Moreover, upon creation of an analysis
+dropped locally to save even more disk-space. Moreover, upon creation of an analysis
 project, the associated GitLab project it is automatically configured as a remote
 with a publication dependency on the data store, thus enabling vastly simplified
-data publication routines and back-up of pristine results.
+data publication routines and backups of pristine results.
 
 
 Step-by-step
@@ -139,9 +139,9 @@ back to ``$DATA``, and hence anything that is relevant for a computation is trac
 The data store as a Git-annex RIA remote
 """"""""""""""""""""""""""""""""""""""""
 
-The remote data store exists thanks to Git-annex: Any large file content in
-datasets is stored as a *value* in Git-annex's object tree. A *key*
-generated from its contents is checked into Git and used to reference the
+The remote data store exists thanks to Git-annex (which DataLad builds upon):
+Large files in datasets are stored as *values* in Git-annex's object tree. A *key*
+generated from their contents is checked into Git and used to reference the
 location of the value in the object tree [#f1]_. The object tree (or *keystore*)
 with the data contents can be located anywhere -- its location only needs to be
 encoded using a *special remote*. This configuration is done on an
@@ -157,17 +157,17 @@ about where data is stored, as they can access it just as easily as before.
    physical place or location -- a special-remote is just a protocol that defines
    the underlying *transport* of your files *to* and *from* a specific location.
 
-The machines in question, parts of an old compute cluster and parts of the
-supercomputer at the JSC, are configured to receive and store data using the
+The machines in question, parts of an old compute cluster, and parts of the
+supercomputer at the JSC are configured to receive and store data using the
 Git-annex remote for indexed file archives (`RIA <https://libraries.io/pypi/ria-remote>`_)
 special remote. The Git-annex RIA-remote is similar to Git-annex's built-in
 `directory <https://git-annex.branchable.com/special_remotes/directory/>`_
 special remote, but distinct in certain aspects:
 
-- It allows read-access to (compressed) 7z archives, which is a useful
-  feature on systems where strong quotas on filesystem inodes might be imposed
+- It allows read access to (compressed) 7z archives, which is a useful
+  feature on systems where light quotas on filesystem inodes are imposed
   on users, or where one wants to have compression gains.
-  This way, the entire key store (i.e., all data contents) of the
+  This way, the entire keystore (i.e., all data contents) of the
   remote that serves as the data store can be put into an archive that uses
   only a handful of inodes, while remaining fully accessible.
 
@@ -176,9 +176,9 @@ special remote, but distinct in certain aspects:
   with large numbers of repositories, as moving from local to remote operations, or
   switching target paths can be done by simply changing the configuration.
 
-- It allows a multi-repository directory structure, in which key store
+- It allows a multi-repository directory structure, in which keystore
   directories of multiple repositories can be organized in to a homogeneous
-  archive directory structure. Importantly, the key store location in an archive is defined
+  archive directory structure. Importantly, the keystore location in an archive is defined
   using the **datasets UUID** (in case of DataLad datasets) or the annex remote
   UUID (in case of any non DataLad dataset). This aids handling of large
   numbers of repositories in a data store use case, because locations are
@@ -232,9 +232,9 @@ Here is how the RIA-remote features look like in real life:
 - Datasets are identified via their :term:`UUID` (e.g.,
   ``0828ac72-f7c8-11e9-917f-a81e84238a11``). The UUID is split into the first
   two levels of the tree structure (as highlighted above in the first two
-  lines), with the two-level structure preventing too many inodes underneath
-  a single directory.
-- This first, two-level tree structure can host key stores for any number of
+  lines), with the two-level structure to avoid exhausting file system limits
+  on the number of files/folders within a directory.
+- This first, two-level tree structure can host keystores for any number of
   repositories.
 - The third level holds a directory structure that is identical to a *bare* git
   repository, and is a clone of the dataset.
@@ -244,16 +244,16 @@ Here is how the RIA-remote features look like in real life:
      A bare Git repository is a repository that contains the contents of the ``.git``
      directory of regular DataLad datasets or Git repositories, but no worktree
      or checkout. This has advantages: The repository is leaner, it is easier
-     for administrators to perform garbage collections, and it can be pushed to at
-     all times. You can find out more on what bare repositories are and how to use them
+     for administrators to perform garbage collections, and it is required if you
+     want to push to it at all times. You can find out more on what bare repositories are and how to use them
      `here <https://git-scm.com/book/en/v2/Git-on-the-Server-Getting-Git-on-a
      -Server>`_.
 
 - Inside of the bare Git repository, the ``annex`` directory -- just as in
-  any standard dataset or repository -- contains the key store (object tree) under
+  any standard dataset or repository -- contains the keystore (object tree) under
   ``annex/objects`` (highlighted above as well). Details on how this object tree
   is structured are outlined in the hidden section in :ref:`symlink`.
-- These key stores can be 7zipped if necessary to hold (additional) Git-annex objects,
+- These keystores can be 7zipped if necessary to hold (additional) Git-annex objects,
   either for compression gains, or for use on HPC-systems with inode limitations.
 
 This implementation is fully self-contained, and is a plain file system storage,

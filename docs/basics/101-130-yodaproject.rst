@@ -1,20 +1,115 @@
 YODA-compliant data analysis projects
 -------------------------------------
 
-Now that you know about the YODA principles and DataLad's Python API, it is
-time to start working on ``DataLad-101``'s midterm project.
-In order to combine the previous sections, this midterm project is a
-YODA-compliant data analysis project, written in Python, and set up in a
-DataLad dataset.
+Now that you know about the YODA principles, it is time to start working on
+``DataLad-101``'s midterm project. Because the midterm project guidelines
+require a YODA-compliant data analysis project, you will not only have theoretical
+knowledge about the YODA principles, but also gain practical experience.
 
-For your submission, you decide to analyze the
+In principle, you can prepare YODA-compliant data analyses in any programming
+language of your choice. But because you are already familiar with
+the `Python <https://www.python.org/>`__ programming language, you decide
+to script your analysis in Python. Delighted, you find out that there is even
+a Python API for DataLad's functionality that you can read about in the hidden
+section below:
+
+.. findoutmore:: DataLad's Python API
+
+    .. _python:
+
+    "Whatever you can do with DataLad from the command line, you can also do it with
+    DataLads Python API", begins the lecturer.
+    "In addition to the command line interface you are already very familiar with,
+    DataLad's functionality can also be used within interactive Python sessions
+    or Python scripts.
+    This feature can help to automate dataset operations, provides an alternative
+    to the command line, and it is immensely useful when creating reproducible
+    data analyses."
+
+    This short secton will give you an overview on DataLad's Python API and explore
+    how to make use of it in an analysis project. Together with the previous
+    section on the YODA principles, it is a good basis for a data analysis midterm project
+    in Python.
+
+    All of DataLad's user-oriented commands are exposed via ``datalad.api``.
+    Thus, any command can be imported as a stand-alone command like this::
+
+       >>> from datalad.api import <COMMAND>
+
+    Alternatively, to import all commands, one can use
+
+    .. code-block:: python
+
+       >>> import datalad.api as dl
+
+    and subsequently access commands as ``dl.get()``, ``dl.install()``, and so forth.
+
+
+    The `developer documentation <http://docs.datalad.org/en/latest/modref.html>`_
+    of DataLad lists an overview of all commands, but naming is congruent to the
+    command line interface. The only functionality that is not available at the
+    command line is ``datalad.api.Dataset``, DataLads core Python data type.
+    Just like any other command, it can be imported like this::
+
+       >>> from datalad.api import Dataset
+
+    or like this::
+
+       >>> import datalad.api as dl
+       >>> dl.Dataset()
+
+    A ``Dataset`` is a `class <https://docs.python.org/3/tutorial/classes.html>`_
+    that represents a DataLad dataset. In addition to the
+    stand-alone commands, all of DataLad's functionality is also available via
+    `methods <https://docs.python.org/3/tutorial/classes.html#method-objects>`_
+    of this class. Thus, these are two equally valid ways to create a new
+    dataset with DataLad in Python::
+
+       >>> from datalad.api import create, Dataset
+       # create as a stand-alone command
+       >>> create(path='scratch/test')
+       [INFO   ] Creating a new annex repo at /home/me/scratch/test
+       Out[3]: <Dataset path=/home/me/scratch/test>
+
+       # create as a dataset method
+       >>> ds = Dataset(path='scratch/test')
+       >>> ds.create()
+       [INFO   ] Creating a new annex repo at /home/me/scratch/test
+       Out[3]: <Dataset path=/home/me/scratch/test>
+
+    As shown above, the only required parameter for a Dataset is the ``path`` to
+    its location, and this location may or may not exist yet.
+
+    **Use cases for DataLad's Python API**
+
+    "Why should one use the Python API? Can we not do everything necessary via the
+    command line already? Does Python add anything to this?" asks somebody.
+
+    It is completely up to on you and dependent on your preferred workflow
+    whether you decide to use the command line or the Python API of DataLad for
+    the majority of tasks. Both are valid ways to accomplish the same results.
+    One advantage of using the Python API is the ``Dataset`` though:
+    Given that the command line ``datalad`` command has a startup time (even when doing nothing) of
+    ~200ms, this means that there is the potential for substantial speed-up when
+    doing many calls to the API, and using a persistent Dataset object instance.
+
+.. note::
+
+   While there is a dedicated API for Python, DataLad's functions can of course
+   also be used with other programming languages, such as Matlab, via standard
+   system calls.
+
+   Even if you don't know or like Python, you can just copy-paste the code
+   and follow along -- the high-level YODA principles demonstrated in this
+   section generalize across programming languages.
+
+For your midterm project submission, you decide to create a data analysis on the
 `iris flower data set <https://en.wikipedia.org/wiki/Iris_flower_data_set>`_.
 It is a multivariate data set on 50 samples of each of three species of Iris
 flowers (*Setosa*, *Versicolor*, or *Virginica*), with four variables: the length and width of the sepals and petals
 of the flowers in centimeters. It is often used in introductory data science
 courses for statistical classification techniques in machine learning, and
-widely available, among many other sources as
-`GitHub gists <https://gist.github.com/netj/8836201>`_.
+widely available -- a perfect dataset for your midterm project!
 
 Raw data as a modular, independent entity
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

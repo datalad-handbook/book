@@ -1,7 +1,7 @@
 .. _summary_yoda:
 
-YODA: Summary
--------------
+Summary
+-------
 
 The YODA principles are a small set of guidelines that can make a huge
 difference towards reproducibility, comprehensibility, and transparency

@@ -14,7 +14,7 @@ flowers (*Setosa*, *Versicolor*, or *Virginica*), with four variables: the lengt
 of the flowers in centimeters. It is often used in introductory data science
 courses for statistical classification techniques in machine learning, and
 widely available, among many other sources as
-`Github gists <https://gist.github.com/netj/8836201>`_.
+`GitHub gists <https://gist.github.com/netj/8836201>`_.
 
 Raw data as a modular, independent entity
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -33,12 +33,12 @@ new dataset outside of ``DataLad-101``:
 
 Inside of this newly created dataset, get the data. It is publicly
 available from a
-`Github Gist <https://gist.github.com/netj/8836201>`_,
+`GitHub Gist <https://gist.github.com/netj/8836201>`_,
 and we can use :command:`datalad download-url` to get it:
 
-.. findoutmore:: What are Github Gists?
+.. findoutmore:: What are GitHub Gists?
 
-   Github Gists are a particular service offered by Github that allow users
+   GitHub Gists are a particular service offered by GitHub that allow users
    to share pieces of code snippets and other short/small standalone
    information. Find out more on Gists
    `here <https://help.github.com/en/github/writing-on-github/creating-gists#about-gists>`__.
@@ -353,23 +353,23 @@ After adding this short description to your ``README.md`` your dataset now also
 contains sufficient human-readable information to ensure that others can understand
 everything you did easily.
 The only thing left to do is to hand in your assignment. According to the
-syllabus, this should be done via :term:`Github`.
+syllabus, this should be done via :term:`GitHub`.
 
-.. findoutmore:: What is Github?
+.. findoutmore:: What is GitHub?
 
-   Github is a web based hosting service for Git repositories. Among many
+   GitHub is a web based hosting service for Git repositories. Among many
    different other useful perks it adds features that allow collaboration on
-   Git repositories. `Gitlab <https://about.gitlab.com/>`_ is a similar
+   Git repositories. `GitLab <https://about.gitlab.com/>`_ is a similar
    service with highly similar features, but its source code is free and open,
-   whereas Github is a subsidiary of Microsoft.
+   whereas GitHub is a subsidiary of Microsoft.
 
-   Web-hosting services like Github and Gitlab integrate wonderfully with
+   Web-hosting services like GitHub and :term:`GitLab` integrate wonderfully with
    DataLad. They are especially useful for making your dataset publicly available,
    if you have figured out storage for your large files otherwise (as large content
-   can not be hosted by Github). You can make DataLad publish large file content to one location
-   and afterwards automatically push an update to Github, such that
-   users can install directly from Github/Gitlab and seemingly also obtain large file
-   content from Github. Github can also resolve subdataset links to other Github
+   can not be hosted by GitHub). You can make DataLad publish large file content to one location
+   and afterwards automatically push an update to GitHub, such that
+   users can install directly from GitHub/GitLab and seemingly also obtain large file
+   content from GitHub. GitHub can also resolve subdataset links to other GitHub
    repositories, which lets you navigate through nested datasets in the web-interface.
 
    .. todo::
@@ -428,12 +428,14 @@ Verify that this worked by listing the siblings of the dataset:
 
 .. gitusernote::
 
-   Creating a sibling on Github will create a new empty repository under the
+   Creating a sibling on GitHub will create a new empty repository under the
    account that you provide and set up a *remote* to this repository. Upon a
    :command:`datalad publish` to this sibling, your datasets history
    will be pushed there.
 
-On Github, you will see two new, empty repository with the names
+   .. index:: datalad command; publish
+
+On GitHub, you will see two new, empty repository with the names
 ``midtermproject``, and ``inputs``. However, none of these repositories yet contain
 any of your dataset's history or files. This requires *publishing* the current
 state of the dataset to this sibling. As before, we do this recursively with
@@ -463,9 +465,9 @@ reproduce your data science project easily from scratch!
    computer, just to get a feel for it.
 
    Replace the ``url`` in the :command:`install` command below with the path
-   to your own ``midtermproject`` Github repository:
+   to your own ``midtermproject`` GitHub repository:
 
-   .. runrecord:: _examples/DL-101-130-118
+   .. runrecord:: _examples/DL-101-130-119
       :language: console
       :workdir: dl-101/DataLad-101/midterm_project
 
@@ -497,7 +499,7 @@ reproduce your data science project easily from scratch!
 
    Why is that? The file content of these files is managed by Git-annex, and
    thus only information about the file name and location is known to Git.
-   Because Github does not host large data, annexed file content always
+   Because GitHub does not host large data, annexed file content always
    needs to be deposited somewhere else (e.g., a webserver) to make it
    accessible via :command:`datalad get`. A later section
 
@@ -564,5 +566,5 @@ reproduce your data science project easily from scratch!
          and run-procedures, start with section :ref:`config`.
 
 .. [#f5] Such a token can be obtained, for example, using the commandline
-         Github interface (https://github.com/sociomantic/git-hub) by running:
+         GitHub interface (https://github.com/sociomantic/git-hub) by running:
          ``git hub setup`` (if no 2FA is used).

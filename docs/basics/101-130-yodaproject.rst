@@ -1,5 +1,5 @@
-A YODA-compliant data analysis project with DataLad
----------------------------------------------------
+YODA-compliant data analysis projects
+-------------------------------------
 
 Now that you know about the YODA principles and DataLad's Python API, it is
 time to start working on ``DataLad-101``'s midterm project.

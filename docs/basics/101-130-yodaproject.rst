@@ -586,7 +586,7 @@ for the ``iris_data`` dataset:
 
 .. code-block:: bash
 
-   $ datalad create-sibling-github -d . -r midtermproject
+   $ datalad create-sibling-github -d . midtermproject
    .: github(-) [https://github.com/adswa/midtermproject.git (git)]
    .: github(-) [https://github.com/adswa/midtermproject-input.git (git)]
    'https://github.com/adswa/midtermproject.git' configured as sibling 'github' for <Dataset path=/home/me/dl-101/DataLad-101/midterm_project>
@@ -610,23 +610,19 @@ Verify that this worked by listing the siblings of the dataset:
 
    .. index:: datalad command; publish
 
-On GitHub, you will see two new, empty repository with the names
-``midtermproject``, and ``inputs``. However, none of these repositories yet contain
+On GitHub, you will see a new, empty repository with the name
+``midtermproject``. However, the repository does not yet contain
 any of your dataset's history or files. This requires *publishing* the current
 state of the dataset to this sibling with the :command:`datalad publish`
-(:manpage:`datalad-publish` manual) command. As before, we do this recursively with
-``-r/--recursive``. Because this will publish the contents of *two* datasets,
-``midterm_project`` and ``inputs``, you will be asked twice to authenticate.
+(:manpage:`datalad-publish` manual) command.
 
 .. code-block:: bash
 
    $ datalad publish -r --to github
-   [INFO   ] Publishing <Dataset path=/home/me/dl-101/DataLad-101/midterm_project/input> to github
-   publish(ok): input (dataset) [pushed to github: ['[new branch]', '[new branch]']]
    [INFO   ] Publishing <Dataset path=/home/me/dl-101/DataLad-101/midterm_project> to github
    publish(ok): . (dataset) [pushed to github: ['[new branch]', '[new branch]']]
    action summary:
-     publish (ok: 2)
+     publish (ok: 1)
 
 .. gitusernote::
 
@@ -635,15 +631,14 @@ state of the dataset to this sibling with the :command:`datalad publish`
    or Git-annex special remotes (if they support data upload).
 
 Here is one important detail, though: By default, your tags will not be published.
-This requires an additional :command:`git push` with the ``--tags`` option to the
-sibling:
+The reason for this is that tags are viral -- they can be removed locally, and old
+published tags can cause confusion or unwanted changes. In order to publish a tag,
+an additional :command:`git push` with the ``--tags`` option to the
+sibling would be required:
 
 .. code-block:: bash
 
    $ git push github --tags
-   To https://github.com/adswa/midtermproject.git
-     * [new tag]         ready4analysis -> ready4analysis
-
 
 Yay! Consider your midterm project submitted! Others can now install your
 dataset and check out your data science project -- and even better: they can
@@ -664,14 +659,11 @@ reproduce your data science project easily from scratch!
       :workdir: dl-101/DataLad-101/midterm_project
 
       $ cd ../../
-      $ datalad install -r --source "https://github.com/adswa/midtermproject.git"
+      $ datalad install --source "https://github.com/adswa/midtermproject.git"
 
-   Note that we performed a *recursive* installation by providing the ``-r``
-   option. Thus, we don't need to install the ``input/`` subdataset anymore.
    Let's start with the subdataset, and see whether we can retrieve the
    input ``iris.csv`` file. This should not be a problem, since it's origin
    is recorded:
-
 
    .. runrecord:: _examples/DL-101-130-120
       :language: console
@@ -691,7 +683,7 @@ reproduce your data science project easily from scratch!
 
    Why is that? The file content of these files is managed by Git-annex, and
    thus only information about the file name and location is known to Git.
-   Because GitHub does not host large data, annexed file content always
+   Because GitHub does not host large data for free, annexed file content always
    needs to be deposited somewhere else (e.g., a webserver) to make it
    accessible via :command:`datalad get`. A later section
 
@@ -702,21 +694,29 @@ reproduce your data science project easily from scratch!
    will demonstrate how this can be done. For this dataset, it is not
    necessary to make the outputs available, though: Because all provenance
    on their creation was captured, we can simply recompute them with the
-   :command:`datalad rerun` command. Since we tagged the dataset once it was
-   ready for analysis, we can simply rerun any :command:`datalad run` command
-   since this tag:
+   :command:`datalad rerun` command. If the tag was published we can simply
+   rerun any :command:`datalad run` command since this tag:
+
+   .. code-block:: bash
+
+      $ datalad rerun --since ready4analysis
+
+   But without the published tag, we can rerun the analysis by specifying its
+   shasum:
 
    .. runrecord:: _examples/DL-101-130-122
       :language: console
       :workdir: dl-101/midtermproject
-
-      $ datalad rerun --since ready4analysis
+      :realcommand: echo "$ datalad rerun $(git rev-parse HEAD~1)" && datalad rerun $(git rev-parse HEAD~1)
 
    Hooray, your analysis was reproduced! You happily note that rerunning your
    analysis was incredibly easy -- it would not even be necessary to have any
    knowledge about the analysis at all to reproduce it!
    With this, you realize again how letting DataLad take care of linking input,
    output, and code can make your life and others' lives so much easier.
+   Applying the YODA principles to your data analysis was very beneficial indeed.
+   Proud of your midterm project you can not wait to use those principles the
+   next time again.
 
 .. rubric:: Footnotes
 
@@ -754,8 +754,9 @@ reproduce your data science project easily from scratch!
 .. [#f4] Note that all ``README.md`` files the YODA procedure created are
          version controlled by Git, not Git-annex, thanks to the
          configurations that YODA supplied. This makes it easy to change the
-         ``README.md`` file. If you want to re-read the chapter on configurations
-         and run-procedures, start with section :ref:`config`.
+         ``README.md`` file. Let previous section detailed how the YODA procedure
+         configured your dataset. If you want to re-read the full chapter on
+         configurations and run-procedures, start with section :ref:`config`.
 
 .. [#f5] Such a token can be obtained, for example, using the commandline
          GitHub interface (https://github.com/sociomantic/git-hub) by running:

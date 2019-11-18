@@ -286,21 +286,21 @@ To compute the analysis you create the following Python script inside of ``code/
 .. runrecord:: _examples/DL-101-130-107
    :language: console
    :workdir: dl-101/DataLad-101/midterm_project
-   :emphasize-lines: 8, 10, 13, 22, 41
+   :emphasize-lines: 5, 10, 13, 22, 41
 
    $ cat << EOT > code/script.py
 
    import pandas as pd
    import seaborn as sns
+   import datalad.api as dl
    from sklearn import model_selection
    from sklearn.neighbors import KNeighborsClassifier
    from sklearn.metrics import classification_report
-   from datalad.api import get
 
    data = "input/iris.csv"
 
    # make sure that the data is obtained (get will also install linked sub-ds!):
-   get(data)
+   dl.get(data)
 
    # prepare the data as a pandas dataframe
    df = pd.read_csv(data)
@@ -334,14 +334,15 @@ To compute the analysis you create the following Python script inside of ``code/
 
 This script will
 
+- import DataLad's functionality and expose it as ``dl.<COMMAND>``
 - make sure to install the linked subdataset and retrieve the data with
-  :command:`datalad get` prior to reading it in (l. 12), and
+  :command:`datalad get` (l. 12) prior to reading it in, and
 - save the resulting figure (l. 21) and ``.csv`` file (l. 40) into the root of
-  ``midterm_project/``. This will help to fulfil YODA principle 1 on modularity
-  by storing results away from the input subdataset.
-
-Note how all paths (to input data and output files) are *relative*, such that the
-``midterm_project`` analysis is completely self-contained within the dataset.
+  ``midterm_project/``. Note how this helps to fulfil YODA principle 1 on modularity:
+  Results are stored outside of the pristine input subdataset.
+- Note further how all paths (to input data and output files) are *relative*, such that the
+  ``midterm_project`` analysis is completely self-contained within the dataset,
+  contributing to fulfill the second YODA principle.
 
 Let's run a quick :command:`datalad status`...
 

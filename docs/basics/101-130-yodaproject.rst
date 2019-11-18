@@ -114,41 +114,79 @@ widely available -- a perfect dataset for your midterm project!
 Raw data as a modular, independent entity
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To start your analysis project and comply to the YODA principles, you set up
-an independent data dataset with your project's raw data. For this, create a
-new dataset outside of ``DataLad-101``:
+The first YODA principle stressed the importance of modularity in a data analysis
+project: Every component that could be used in more than one context should be
+an independent component.
 
-.. runrecord:: _examples/DL-101-130-101
-   :language: console
-   :workdir: dl-101/DataLad-101
+The first aspect this applies to is the input data of your dataset: There can
+be thousands of ways to analyze it, and it is therefore immensely helpful to
+have a pristine raw iris dataset that does not get modified, but serves as
+input for these analysis.
+As such, the iris data should become a standalone DataLad dataset.
+For the purpose of this analysis, the DataLad handbook provides an ``iris_data``
+dataset at `https://github.com/datalad-handbook/iris_data <https://github.com/datalad-handbook/iris_data>`_.
 
-   # make sure to move outside of DataLad-101!
-   $ cd ../
-   $ datalad create iris_data
+You can either use this provided input dataset, or find out how to create an
+independent dataset from scratch in the hidden section below.
 
-Inside of this newly created dataset, get the data. It is publicly
-available from a
-`GitHub Gist <https://gist.github.com/netj/8836201>`_,
-and we can use :command:`datalad download-url` to get it:
+.. findoutmore:: Creating an independent input dataset
 
-.. findoutmore:: What are GitHub Gists?
+   If you acquire your own data for a data analysis, it will not magically exist as a
+   DataLad dataset that you can simply install from somewhere -- you'll have
+   to turn it into a dataset yourself. Any directory with data that exists on
+   your computer can be turned into a dataset with :command:`datalad create --force`
+   and a subsequent :command:`datalad save -m "add data" .` to first create a dataset inside of
+   an existing, non-empty directory, and subsequently save all of its contents into
+   the history of the newly created dataset.
+   And that's it already -- it does not take anything more to create a stand-alone
+   input dataset from existing data (apart from restraining yourself from
+   modifying it afterwards).
 
-   GitHub Gists are a particular service offered by GitHub that allow users
-   to share pieces of code snippets and other short/small standalone
-   information. Find out more on Gists
-   `here <https://help.github.com/en/github/writing-on-github/creating-gists#about-gists>`__.
+   To create the ``iris_data`` dataset at https://github.com/datalad-handbook/iris_data
+   we first created a DataLad dataset...
+
+   .. runrecord:: _examples/DL-101-130-101
+      :language: console
+      :workdir: dl-101/DataLad-101
+
+      # make sure to move outside of DataLad-101!
+      $ cd ../
+      $ datalad create iris_data
+
+   and subsequently got the data from a publicly available
+   `GitHub Gist <https://gist.github.com/netj/8836201>`_ with a
+   :command:`datalad download-url` command:
+
+    .. findoutmore:: What are GitHub Gists?
+
+       GitHub Gists are a particular service offered by GitHub that allow users
+       to share pieces of code snippets and other short/small standalone
+       information. Find out more on Gists
+       `here <https://help.github.com/en/github/writing-on-github/creating-gists#about-gists>`__.
+
+    .. runrecord:: _examples/DL-101-130-102
+       :workdir: dl-101
+       :language: console
+
+       $ cd iris_data
+       $ datalad download-url https://gist.githubusercontent.com/netj/8836201/raw/6f9306ad21398ea43cba4f7d537619d0e07d5ae3/iris.csv
+
+   Finally, we *published* (more on this later in this section) the dataset
+   to :term:`Github`.
+
+   With this setup, the iris dataset (a single comma-separated (``.csv``)
+   file) is downloaded, and, importantly, the dataset recorded *where* it
+   was obtained from thanks to :command:`datalad download-url`, thus complying
+   to the second YODA principle.
+   This way, upon an installation of the dataset, DataLad knows where to
+   obtain the file content from. You can :command:`datalad install` the iris
+   dataset and find out with a ``git annex whereis iris.csv`` command.
 
 
-.. runrecord:: _examples/DL-101-130-102
-   :workdir: dl-101
-   :language: console
-
-   $ cd iris_data
-   $ datalad download-url https://gist.githubusercontent.com/netj/8836201/raw/6f9306ad21398ea43cba4f7d537619d0e07d5ae3/iris.csv
-
-.. todo::
-
-   or do we rather want to install/clone the dataset?
+"Nice, with this input dataset I have sufficient provenance capture for my
+input dataset, and I can install it as a modular component", you think as you
+mentally tick of YODA principle number 1 and 2. "But before I can install it,
+I need an analysis superdataset first."
 
 This downloaded the iris dataset as a comma-seperated (``.csv``) file, and,
 importantly, recorded where it was obtained from. "Nice, this way I have

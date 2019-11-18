@@ -67,7 +67,7 @@ of unlocking content, I do not see the point of Git-annex", you continue.
 Here it gets tricky. To begin with the most important, and most straight-forward fact:
 It is not possible to store
 large files in Git. This is because Git would very quickly run into severe performance
-issues. For this reason, :term:`Github`, a well-known hosting site for projects using Git,
+issues. For this reason, :term:`GitHub`, a well-known hosting site for projects using Git,
 for example does not allow files larger than 100MB of size.
 
 For now, we have solved the mystery of why text files can be modified

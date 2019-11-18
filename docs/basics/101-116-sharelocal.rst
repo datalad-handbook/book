@@ -182,7 +182,7 @@ increases. If you have only one other dataset it may be easy to
 remember what and where it is. But once you have one back-up
 of your dataset on a USB-Stick, one dataset shared with
 `Dropbox <dropbox.com>`_, and a third one on your institutions
-Gitlab instance you will be grateful for the descriptions
+GitLab instance you will be grateful for the descriptions
 you provided these locations with.
 
 The message further informs you that there is only "``(1 copy)``"

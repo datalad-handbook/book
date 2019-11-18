@@ -59,7 +59,7 @@ Glossary
    Git
       A version control system to track changes made to small-sized files over time. You can find out
       more about git in `this (free) book <https://git-scm.com/book/en/v2>`_
-      or `these interactive Git tutorials <https://try.github.io/>`_ on :term:`Github`.
+      or `these interactive Git tutorials <https://try.github.io/>`_ on :term:`GitHub`.
 
    Git-annex
       A distributed file synchronization system, enabling sharing and synchronizing collections
@@ -69,7 +69,7 @@ Glossary
       A file in which :term:`Git` stores configuration option. Such a file usually exists on
       the system, user, and repository (dataset) level.
 
-   Github
+   GitHub
       GitHub is an online platform where one can store and share version controlled projects
       using Git (and thus also DataLad project).
 
@@ -78,7 +78,7 @@ Glossary
       visualizes a commit graph, information related to each commit, and the files in the trees
       of each revision.
 
-   Github
+   GitHub
       An online platform to host and share software projects version controlled with :term:`Git`. See
       https://github.com/.
 

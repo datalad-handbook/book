@@ -202,7 +202,7 @@ Let's try this:
 
 This command will replace the submodule's https URL with an SSH URL.
 The later is often used if someone has an *SSH key pair* and added the
-public key to their Github account (you can read more about this
+public key to their GitHub account (you can read more about this
 `here <https://help.github.com/en/articles/which-remote-url-should-i-use>`_).
 We will revert this change shortly, but use it to show the difference between
 a :command:`git config` on a ``.git/config`` file and on a version controlled file:

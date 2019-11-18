@@ -153,7 +153,7 @@ To compute the analysis you create the following Python script inside of ``code/
 
    data = "input/iris.csv"
 
-   # make sure that the data is obtained:
+   # make sure that the data is obtained (get will also install linked sub-ds!):
    get(data)
 
    # prepare the data as a pandas dataframe
@@ -188,8 +188,9 @@ To compute the analysis you create the following Python script inside of ``code/
 
 This script will
 
-- make sure to install the linked subdataset and retrieve the data prior to reading it in (l. 12), and
-- save the resulting figure (l. 21) and ``.csv`` file (l 40) into the root of
+- make sure to install the linked subdataset and retrieve the data with
+  :command:`datalad get` prior to reading it in (l. 12), and
+- save the resulting figure (l. 21) and ``.csv`` file (l. 40) into the root of
   ``midterm_project/``. This will help to fulfil YODA principle 1 on modularity
   by storing results away from the input subdataset.
 
@@ -380,45 +381,55 @@ syllabus, this should be done via :term:`GitHub`.
 
 .. note::
 
-   The upcoming part requires a Github account. If you do not have one you
+   The upcoming part requires a GitHub account. If you do not have one you
    can either
 
    - Create on now -- it is fast, free, and you can get rid of it afterwards,
      if you want to.
    - Or exchange the command ``create-sibling-github`` with
-     ``create-sibling-gitlab`` if you have a Gitlab account instead of a Github
+     ``create-sibling-gitlab`` if you have a GitLab account instead of a GitHub
      account.
    - Don't listen to me and not follow along. I'm only a book, not your mom.
 
 For this, you need to
 
-- create a repository for this dataset on Github,
-- configure this Github repository to be a :term:`sibling` of the ``midterm_project`` dataset,
-- and *publish* your dataset to Github.
+- create a repository for this dataset on GitHub,
+- configure this GitHub repository to be a :term:`sibling` of the ``midterm_project`` dataset,
+- and *publish* your dataset to GitHub.
 
 Luckily, DataLad can make all of this very easy with the
 :command:`datalad create-sibling-github` command (or, for
-`Gitlab <https://about.gitlab.com/>`_, :command:`datalad create-sibling-gitlab`).
+`GitLab <https://about.gitlab.com/>`_, :command:`datalad create-sibling-gitlab`).
 
 .. index:: ! datalad command; create-sibling-github
 .. index:: ! datalad command; create-sibling-gitlab
 
-The command takes a repository name and Github authentication credentials
+The command takes a repository name and GitHub authentication credentials
 (either in the command line call with options ``github-login <NAME>`` and
 ``github-passwd <PASSWORD>``, with an *oauth* token stored in the Git
 configuration [#f5]_, or interactively). Based on the credentials and the
-repository name, it will create a new, empty repository on Github, and
+repository name, it will create a new, empty repository on GitHub, and
 configure this repository as a sibling of the dataset. If the ``-r/--recursive``
 option is specified, siblings will be created *recursively*, i.e., not only a
 repository for the ``midterm_project`` dataset will be created, but also one
 for the ``iris_data`` dataset:
 
-.. runrecord:: _examples/DL-101-130-116
-   :language: console
-   :workdir: dl-101/DataLad-101/midterm_project
-   :realcommand: datalad --log-level critical siblings add -d . --name github --url https://github.com/adswa/midtermproject.git
+
+.. ifconfig:: internal
+
+    .. runrecord:: _examples/DL-101-130-116
+       :language: console
+       :workdir: dl-101/DataLad-101/midterm_project
+       :realcommand: datalad --log-level critical siblings add -d . --name github --url https://github.com/adswa/midtermproject.git
+
+.. code-block:: bash
 
    $ datalad create-sibling-github -d . -r midtermproject
+   .: github(-) [https://github.com/adswa/midtermproject.git (git)]
+   .: github(-) [https://github.com/adswa/midtermproject-input.git (git)]
+   'https://github.com/adswa/midtermproject.git' configured as sibling 'github' for <Dataset path=/home/me/dl-101/DataLad-101/midterm_project>
+   'https://github.com/adswa/midtermproject-input.git' configured as sibling 'github' for <Dataset path=/home/me/dl-101/DataLad-101/midterm_project/input>
+
 
 Verify that this worked by listing the siblings of the dataset:
 
@@ -440,14 +451,20 @@ Verify that this worked by listing the siblings of the dataset:
 On GitHub, you will see two new, empty repository with the names
 ``midtermproject``, and ``inputs``. However, none of these repositories yet contain
 any of your dataset's history or files. This requires *publishing* the current
-state of the dataset to this sibling. As before, we do this recursively with
-``-r/--recursive``.
+state of the dataset to this sibling with the :command:`datalad publish`
+(:manpage:`datalad-publish` manual) command. As before, we do this recursively with
+``-r/--recursive``. Because this will publish the contents of *two* datasets,
+``midterm_project`` and ``inputs``, you will be asked twice to authenticate.
 
 .. code-block:: bash
 
    $ datalad publish -r --to github
-   [INFO] Publishing <Dataset path=/home/me/dl-101/DataLad-101/midterm_project> to github
+   [INFO   ] Publishing <Dataset path=/home/me/dl-101/DataLad-101/midterm_project/input> to github
+   publish(ok): input (dataset) [pushed to github: ['[new branch]', '[new branch]']]
+   [INFO   ] Publishing <Dataset path=/home/me/dl-101/DataLad-101/midterm_project> to github
    publish(ok): . (dataset) [pushed to github: ['[new branch]', '[new branch]']]
+   action summary:
+     publish (ok: 2)
 
 .. gitusernote::
 
@@ -494,7 +511,7 @@ reproduce your data science project easily from scratch!
    is recorded:
 
 
-   .. runrecord:: _examples/DL-101-130-119
+   .. runrecord:: _examples/DL-101-130-120
       :language: console
       :workdir: dl-101
 
@@ -504,7 +521,7 @@ reproduce your data science project easily from scratch!
    Nice, this worked well. The output files, however, can not be easily
    retrieved:
 
-   .. runrecord:: _examples/DL-101-130-120
+   .. runrecord:: _examples/DL-101-130-121
       :language: console
       :workdir: dl-101/midtermproject
 
@@ -527,7 +544,7 @@ reproduce your data science project easily from scratch!
    ready for analysis, we can simply rerun any :command:`datalad run` command
    since this tag:
 
-   .. runrecord:: _examples/DL-101-130-121
+   .. runrecord:: _examples/DL-101-130-122
       :language: console
       :workdir: dl-101/midtermproject
 

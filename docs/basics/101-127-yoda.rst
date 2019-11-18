@@ -1,10 +1,7 @@
 .. _yoda:
 
-
 YODA: Best practices for data analyses in a dataset
 ---------------------------------------------------
-
-
 
 The last requirement for the midterm projects reads "needs to comply to the
 YODA principles".
@@ -13,7 +10,8 @@ before.
 "The topic of today's lecture: Organizational principles of data
 analyses in DataLad datasets. This lecture will show you the basic
 principles behind creating, sharing, and publishing reproducible,
-understandable, and open data analysis projects with DataLad."
+understandable, and open data analysis projects with DataLad.", you
+hear in return.
 
 The starting point...
 ^^^^^^^^^^^^^^^^^^^^^
@@ -23,13 +21,13 @@ But it can be very difficult to produce a reproducible, let alone
 *comprehensible* data analysis project.
 Many data analysis projects do not start out with
 a stringent organization, or fail to keep the structural organization of a
-directory intact as the project develops. Often, this can be due a lack of
+directory intact as the project develops. Often, this can be due to a lack of
 version-control. In these cases, a project will quickly end up
 with many
 `almost-identical scripts suffixed with "_version_xyz" <http://phdcomics.com/comics/archive.php?comicid=1531>`_,
 or a chaotic results structure split between various directories with names
 such as ``results/``, ``results_August19/``, ``results_revision/`` and
-``now_with_nicer_plots/``. Something like this for example is a very
+``now_with_nicer_plots/``. Something like this is a very
 common shape a data science project may take after a while:
 
 .. code-block:: bash
@@ -403,15 +401,8 @@ Summarizing these two glimpses into the dataset, this configuration has
 #. and configured ``README.md`` and ``CHANGELOG.md`` in the root of the dataset to be
    tracked by Git.
 
-Your next data analysis project can thus get a headstart with useful configurations
+Your midterm data analysis project can thus get a headstart with useful configurations
 and the start of a comprehensible directory structure by applying the ``yoda`` procedure.
-
-
-
-
-
-
-
 
 Sources
 ^^^^^^^

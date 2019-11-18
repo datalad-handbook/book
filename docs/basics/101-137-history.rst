@@ -714,17 +714,18 @@ Summary
 This guest lecture has given you a glimpse into how to work with the
 history of your DataLad datasets.
 To conclude this section, let's remove all untracked contents from
-the dataset. This can be done with :command:`git reset` as well: The command
-:command:`git reset --hard master` (where ``master`` is a branch name)
-swipes your dataset clean and removes anything that is untracked or
-modified but not saved yet.
+the dataset. This can be done with :command:`git clean`: The command
+:command:`git clean -f` swipes your dataset clean and removes any untracked
+file.
 **Careful! This is not revertible, and content lost with this commands can not be recovered!**
+If you want to be extra sure, run :command:`git clean -fn` beforehand -- this will
+give you a list of the files that would be deleted.
 
 .. runrecord:: _examples/DL-101-137-148
    :language: console
    :workdir: dl-101/DataLad-101
 
-   $ git reset --hard master
+   $ git clean -f
 
 Afterwards, the :command:`datalad status` returns nothing, indicating a
 clean dataset state with no untracked files or modifications.

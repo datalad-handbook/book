@@ -380,10 +380,17 @@ point.
    was added.
    Later we can use this tag to identify the point in time at which
    the analysis setup was ready -- much more intuitive than a 40-character shasum!
+   This is handy in the context of a :command:`datalad rerun` for example::
+
+      $ datalad rerun --since ready4analysis
+
+   would rerun any :command:`run` command in the history performed between tagging
+   and the current dataset state.
 
 Finally, with your directory structure being modular and intuitive,
 the input data installed, the script ready, and the dataset status clean,
-you can wrap the execution of the script in a :command:`datalad run` command.
+you can wrap the execution of the script (which is a simple
+``python3 code/script.py``) in a :command:`datalad run` command.
 
 .. note::
 
@@ -418,12 +425,13 @@ project on first try is that you achieved complete provenance capture:
 
 - Every single file in this dataset is associated with an author and a time
   stamp for each modification thanks to :command:`datalad save`.
-- The raw dataset knows where the data came from thanks to
-  :command:`datalad download-url`.
+- The raw dataset knows where the data came from thanks to :command:`datalad install`
+  and :command:`datalad download-url`.
 - The subdataset is linked to the superdataset thanks to
   :command:`datalad install -d`.
 - The :command:`datalad run` command took care of linking the outputs of your
-  analysis with the script and the input data it was generated from.
+  analysis with the script and the input data it was generated from, fulfilling
+  the third YODA principle.
 
 Let's take a look at the history of the ``midterm_project`` analysis
 dataset:
@@ -432,7 +440,7 @@ dataset:
    :language: console
    :workdir: dl-101/DataLad-101/midterm_project
 
-   $ git log
+   $ git log --oneline
 
 "Wow, this is so clean an intuitive!" you congratulate yourself. "And I think
 this was and will be the fastest I have ever completed a midterm project!"
@@ -516,15 +524,21 @@ syllabus, this should be done via :term:`GitHub`.
    Web-hosting services like GitHub and :term:`GitLab` integrate wonderfully with
    DataLad. They are especially useful for making your dataset publicly available,
    if you have figured out storage for your large files otherwise (as large content
-   can not be hosted by GitHub). You can make DataLad publish large file content to one location
+   can not be hosted for free by GitHub). You can make DataLad publish large file content to one location
    and afterwards automatically push an update to GitHub, such that
    users can install directly from GitHub/GitLab and seemingly also obtain large file
    content from GitHub. GitHub can also resolve subdataset links to other GitHub
    repositories, which lets you navigate through nested datasets in the web-interface.
 
-   .. todo::
+   .. figure:: ../artwork/src/screenshot_midtermproject.png
+      :alt: The midterm project repository, published to Github
 
-      maybe a screenshot here.
+   The above screenshot shows the linkage between the analysis project you will create
+   and its subdataset. Clicking on the subdataset (highlighted) will take you to the iris dataset
+   the handbook provides, shown below.
+
+   .. figure:: ../artwork/src/screenshot_submodule.png
+      :alt: The input dataset is linked
 
 .. note::
 
@@ -545,8 +559,9 @@ For this, you need to
 - and *publish* your dataset to GitHub.
 
 Luckily, DataLad can make all of this very easy with the
-:command:`datalad create-sibling-github` command (or, for
-`GitLab <https://about.gitlab.com/>`_, :command:`datalad create-sibling-gitlab`).
+:command:`datalad create-sibling-github` (:manpage:`datalad-create-sibling-github` manual)
+command (or, for `GitLab <https://about.gitlab.com/>`_, :command:`datalad create-sibling-gitlab`,
+:manpage:`datalad-create-sibling-gitlab` manual).
 
 .. index:: ! datalad command; create-sibling-github
 .. index:: ! datalad command; create-sibling-gitlab

@@ -21,8 +21,8 @@ Glossary
        :term:`Git-annex` uses this UUID to track file content availability information.
        The UUID is available under the configuration key ``annex.uuid`` and is stored in the
        configuration file of a local clone (``<dataset root>/.git/config``).
-       A single dataset instance (i.e. clone) can only have a single annex UUID, but a dataset
-       with multiple clones will have multiple annex UUIDs.
+       A single dataset instance (i.e. a local clone) has exactly one annex UUID,
+       but other clones of the same dataset each have their own unique annex UUIDs.
 
    bash
       A Unix shell and command language.

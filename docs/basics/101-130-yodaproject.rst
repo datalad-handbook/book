@@ -188,29 +188,24 @@ input dataset, and I can install it as a modular component", you think as you
 mentally tick of YODA principle number 1 and 2. "But before I can install it,
 I need an analysis superdataset first."
 
-This downloaded the iris dataset as a comma-seperated (``.csv``) file, and,
-importantly, recorded where it was obtained from. "Nice, this way I have
-sufficient provenance capture for my input dataset!" you think as you
-mentally tick of YODA principle number 2 for your input data.
+Building an analysis dataset
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-An analysis dataset
-^^^^^^^^^^^^^^^^^^^
+There is an independent raw dataset as input data, but there is no place
+for your analysis to live, yet. Therefore, you start your midterm project
+by creating an analysis dataset. As this project is part of ``DataLad-101``,
+you do it as a subdataset of ``DataLad-101``.
+Remember to specify the ``--dataset`` option of :command:`datalad create`
+to link it as a subdataset!
 
-Now that you have this raw dataset, it is time to create an analysis for your
-midterm project.
-You start by creating an analysis dataset. Let's do it as a subdataset
-of ``DataLad-101``. Remember to specify the ``--dataset`` option within
-:command:`datalad create` to link it as a subdataset!
-After the last lecture, you naturally want your dataset to follow the YODA
-principles. As a start, you use the ``cfg_yoda`` procedure to help you
-structure the dataset [#f1]_.
+You naturally want your dataset to follow the YODA principles, and, as a start,
+you use the ``cfg_yoda`` procedure to help you structure the dataset [#f1]_:
 
 .. runrecord:: _examples/DL-101-130-103
    :language: console
-   :workdir: dl-101/iris_data
+   :workdir: dl-101/DataLad-101
 
-   # go back into DataLad-101
-   $ cd ../DataLad-101
+   # inside of DataLad-101
    $ datalad create -c yoda --dataset . midterm_project
 
 .. index:: ! datalad command; datalad subdatasets
@@ -228,19 +223,24 @@ dataset was indeed linked as a subdataset to ``DataLad-101``:
 Not only the ``longnow`` subdataset, but also the newly created
 ``midterm_project`` subdataset are displayed -- wonderful!
 
-As a next step you take care of linking your raw dataset
-adequately to your ``midterm_project`` dataset by installing it as a
-subdataset. Make sure to install it as a subdataset of ``midterm_project``,
-and not ``DataLad-101``!
+But back to the midterm project now. So far, you have created a pre-structured
+analysis dataset. As a next step, you take care of installing and linking the
+raw dataset for your analysis adequately to your ``midterm_project`` dataset
+by installing it as a subdataset. Make sure to install it as a subdataset of
+``midterm_project``, and not ``DataLad-101``!
 
 .. runrecord:: _examples/DL-101-130-105
    :language: console
-   :workdir: dl-101/DataLad-101/midterm_project
+   :workdir: dl-101/DataLad-101
 
+   $ cd midterm_project
    # we are in midterm_project, thus -d . points to the root of it.
-   $ datalad install -d . --source ../../iris_data input/
+   $ datalad install -d . --source https://github.com/datalad-handbook/iris_data.git input/
 
-After this directory is created, the directory structure of ``DataLad-101``
+Note that we did not keep its original name, ``iris_data``, but rather provided
+a path with a new name, ``input``, because this much more intuitively comprehensible.
+
+After the input dataset is installed, the directory structure of ``DataLad-101``
 looks like this:
 
 .. runrecord:: _examples/DL-101-130-106
@@ -249,6 +249,19 @@ looks like this:
 
    $ cd ../
    $ tree -d
+
+Importantly, all of the subdatasets are linked to the higher-level datasets,
+and despite being inside of ``DataLad-101``, your ``midterm_project`` is an independent
+dataset, as is its ``input/`` subdataset:
+
+.. figure:: ../artwork/src/virtual_dstree_dl101_midterm.svg
+   :alt: Overview of (linked) datasets in DataLad-101.
+   :figwidth: 100%
+
+
+
+YODA-compliant analysis scripts
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Now that you have an ``input/`` directory with data, and a ``code/`` directory
 (created by the YODA procedure) for your scripts, it is time to work on the script

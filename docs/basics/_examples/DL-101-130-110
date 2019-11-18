@@ -1,28 +1,28 @@
 $ git show ready4analysis
-commit 60250f07f9866ea9c6234d2f38f65d35ba779a24
+commit 789e6b445eac4f2245a05420289bff3e1580e9f7
 Author: Elena Piscopia <elena@example.net>
-Date:   Mon Nov 18 08:44:14 2019 +0100
+Date:   Mon Nov 18 16:13:18 2019 +0100
 
     add script for kNN classification and plotting
 
 diff --git a/code/script.py b/code/script.py
 new file mode 100644
-index 0000000..840ca17
+index 0000000..d82606c
 --- /dev/null
 +++ b/code/script.py
 @@ -0,0 +1,41 @@
 +
 +import pandas as pd
 +import seaborn as sns
++import datalad.api as dl
 +from sklearn import model_selection
 +from sklearn.neighbors import KNeighborsClassifier
 +from sklearn.metrics import classification_report
-+from datalad.api import get
 +
 +data = "input/iris.csv"
 +
 +# make sure that the data is obtained (get will also install linked sub-ds!):
-+get(data)
++dl.get(data)
 +
 +# prepare the data as a pandas dataframe
 +df = pd.read_csv(data)

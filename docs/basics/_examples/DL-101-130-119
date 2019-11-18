@@ -1,10 +1,5 @@
 $ cd ../../
-$ datalad install -r --source "https://github.com/adswa/midtermproject.git"
-[INFO] Cloning https://github.com/adswa/midtermproject.git [1 other candidates] into '/home/me/dl-101/midtermproject'
-[INFO]   Remote origin not usable by git-annex; setting annex-ignore
-[INFO] Installing <Dataset path=/home/me/dl-101/midtermproject> underneath /home/me/dl-101/midtermproject recursively
-[INFO] Cloning https://github.com/adswa/midtermproject.git/input [2 other candidates] into '/home/me/dl-101/midtermproject/input'
+$ datalad install --source "https://github.com/adswa/midtermproject.git"
+[INFO] Cloning https://github.com/adswa/midtermproject.git [1 other candidates] into '/home/me/dl-101/midtermproject' 
+[INFO]   Remote origin not usable by git-annex; setting annex-ignore 
 install(ok): /home/me/dl-101/midtermproject (dataset)
-action summary:
-  get (ok: 1)
-  install (ok: 1)

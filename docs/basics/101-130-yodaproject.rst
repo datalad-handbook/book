@@ -550,11 +550,11 @@ reproduce your data science project easily from scratch!
 
       $ datalad rerun --since ready4analysis
 
-   Hooray, your analysis was reproduced! Note however that none of the DataLad
-   commands would have been necessary to reproduce the analysis -- simply
-   executing the Python script would have installed and retrieved the inputs thanks
-   to the DataLad functions used in the script, as long as DataLad is installed
-   on the system.
+   Hooray, your analysis was reproduced! You happily note that rerunning your
+   analysis was incredibly easy -- it would not even be necessary to have any
+   knowledge about the analysis at all to reproduce it!
+   With this, you realize again how letting DataLad take care of linking input,
+   output, and code can make your life and others' lives so much easier.
 
 .. rubric:: Footnotes
 

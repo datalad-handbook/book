@@ -3,6 +3,12 @@
 DataLad's Python API
 --------------------
 
+.. note::
+
+   While there is a dedicated API for Python, DataLad's functions can of course
+   also be used with other programming languages, such as Matlab, via standard
+   system calls.
+
 "Whatever you can do with DataLad from the command line, you can also do it with
 DataLads Python API", begins the lecturer.
 "In addition to the command line interface you are already very familiar with,

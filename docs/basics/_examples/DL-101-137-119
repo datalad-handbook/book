@@ -1,3 +1,3 @@
-$ git log -2 --oneline
-928c260 save my favourite Git joke
-110f3d9 add note on DataLads procedures
+$ git log -n 2 --oneline
+f338c8a save my favorite Git joke
+8ad60b2 add note on DataLads procedures

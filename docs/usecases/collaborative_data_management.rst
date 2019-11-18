@@ -82,7 +82,7 @@ make it easier to keep his analysis organized and share it later.
 The dataset that Bob wants to work with is structural brain imaging data from the
 `studyforrest project <http://studyforrest.org/>`_, a public
 data resource that the original authors share as a DataLad dataset through
-:term:`Github`. This means that Bob can simply install the relevant dataset from this
+:term:`GitHub`. This means that Bob can simply install the relevant dataset from this
 service and into his own dataset. To do that, he installs it as a subdataset
 into a directory he calls ``src/`` as he wants to make it obvious which parts
 of his analysis steps and code require 3rd party data:

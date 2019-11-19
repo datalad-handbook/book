@@ -19,7 +19,7 @@ has an external Git-expert as a guest lecturer.
 "I do not have enough time to go through all the details in only
 one lecture. But I'll give you the basics, and an idea of what is possible.
 Always remember: Just google what you need. You will find thousands of helpful tutorials
-or questions on `Stackoverflow <https.stackoverflow.com>`_ right away.
+or questions on `Stack Overflow <https://stackoverflow.com>`_ right away.
 Even experts will *constantly* seek help to find out which Git command to
 use, and how to use it.", he reassures with a wink.
 

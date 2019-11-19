@@ -395,7 +395,7 @@ the ``--input`` and ``--output`` specification done before.
       $ datalad run -m "move a few files around" \
       --input "file1" --input "file2" --input "file3" \
       --output "directory_a/" \
-      "mv file1 file2 file3 directory_a}"
+      "mv file1 file2 file3 directory_a/"
 
 
    The order of the values will match that order from the command line.
@@ -416,7 +416,7 @@ the ``--input`` and ``--output`` specification done before.
       $ datalad run -m "move a few files around" \
       --input "file1" --input "file2" --input "file3" \
       --output "directory_a/" \
-      "mv file1 file2 file3 directory_a}"
+      "mv file1 file2 file3 directory_a/"
 
    If the command only needs a subset of the inputs or outputs, individual values
    can be accessed with an integer index, e.g., ``{inputs[0]}`` for the very first

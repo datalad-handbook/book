@@ -48,6 +48,8 @@ autorunrecord_env = {
     'PATH': os.environ['PATH'],
     'GIT_EDITOR': 'vim',
 }
+if 'CAST_DIR' in os.environ:
+    autorunrecord_env['CAST_DIR'] = os.environ['CAST_DIR']
 if 'VIRTUAL_ENV' in os.environ:
     # inherit venv, if there is any
     autorunrecord_env.update(VIRTUAL_ENV=os.environ['VIRTUAL_ENV'])
@@ -273,7 +275,10 @@ latex_elements = {
     'papersize': 'a4',
     'pointsize': '11pt',
     'figure_align': 'tbp',
-    'preamble': """\
+    'preamble': r"""
+\usepackage{charter}
+\usepackage[defaultsans]{lato}
+\usepackage{inconsolata}
 \setcounter{tocdepth}{0}
 """,
 }
@@ -348,3 +353,4 @@ plantuml_latex_output_format = 'pdf'
 
 def setup(app):
     app.add_stylesheet('custom.css')
+    app.add_config_value('internal', '', 'env')

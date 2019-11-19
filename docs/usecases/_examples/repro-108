@@ -1,0 +1,6 @@
+$ datalad save --version-tag setup_done -m "Brain extraction script" code/brain_extraction.sh
+add(ok): code/brain_extraction.sh (file)
+save(ok): . (dataset)
+action summary:
+  add (ok: 1)
+  save (ok: 1)

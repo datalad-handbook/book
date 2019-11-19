@@ -37,9 +37,10 @@ this excerpt).
    :lines: 1, 23-46
    :emphasize-lines: 24
    :realcommand: git log -p
+   :cast: 01_dataset_basics
+   :notes: The superdataset only stores the version of the subdataset.  Let's take a look into how the superdataset's history looks like
 
-
-   $ git log -p
+   $ git log -p -n 2
 
 We have highlighted the important part of this rather long commit summary.
 Note that you can not see any ``.mp3``\s being added to the dataset,
@@ -64,6 +65,8 @@ subdataset's history:
    :language: console
    :workdir: dl-101/DataLad-101
    :emphasize-lines: 3
+   :cast: 01_dataset_basics
+   :notes: We can find this shasum in the subdatasets history: it's the most recent change
 
    $ cd recordings/longnow
    $ git log --oneline
@@ -76,6 +79,17 @@ This is what is meant by "the top-level DataLad dataset (the *superdataset*) onl
 
 Importantly, once we learn how to make use of the history of a dataset,
 we can set subdatasets to previous states, or *update* them.
+
+.. findoutmore:: Do I have to navigate into the subdataset to see it's history?
+
+   Previously, we used :command:`cd` to navigate into the subdataset, and
+   subsequently opened the Git log. This is necessary, because a :command:`git log`
+   in the superdataset would only return the superdatasets history. There is one
+   trick, though: ``git -C`` lets you perform any Git command in a provided path.
+   Thus, from the root of ``DataLad-101``, this command would have given you the
+   subdatasets history as well::
+
+      $ git -C recordings/longnow log --oneline
 
 In the upcoming sections, we'll experience the perks of dataset nesting
 frequently, and everything that might seem vague at this point will become
@@ -96,5 +110,6 @@ root of the dataset again:
 .. runrecord:: _examples/DL-101-106-103
    :language: console
    :workdir: dl-101/DataLad-101/recordings/longnow
+   :cast: 01_dataset_basics
 
    $ cd ../../

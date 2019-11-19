@@ -18,7 +18,7 @@ modifying content of non-text files, such as ``.jpg``\s, requires
 the additional step of *unlocking* file content, either by hand with the :command:`datalad unlock`
 command, or within :command:`datalad run` using the ``-o``/``--output`` flag.
 
-There is one detail about DataLad datasets that we haven't covered yet. Its both
+There is one detail about DataLad datasets that we have not covered yet. Its both
 a crucial aspect to understanding certain aspects of a dataset, but it is also a
 potential source of confusion that we want to eradicate.
 
@@ -30,12 +30,14 @@ them. We'll take a look together, using the ``books/`` directory as an example:
 .. runrecord:: _examples/DL-101-115-101
    :language: console
    :workdir: dl-101/DataLad-101
+   :notes: We have to talk about symlinks now.
+   :cast: 03_git_annex_basics
 
    # in the root of DataLad-101
    $ cd books
    $ tree
 
-If you don't know what you are looking at,
+If you do not know what you are looking at,
 this looks weird, if not worse: intimidating, wrong, or broken.
 First of all: no, **it is all fine**. But let's start with the basics of what is displayed
 here to understand it.
@@ -93,6 +95,8 @@ your standard PDF reader).
    :language: console
    :workdir: dl-101/DataLad-101/books
    :realcommand: echo "evince $(readlink TLCL.pdf)"
+   :notes: we can just open the cryptic file path and it works just as any pdf!
+   :cast: 03_git_annex_basics
 
 
 Even though the path looks cryptic, it works and opens the file. Whenever you
@@ -110,6 +114,8 @@ small size of ~130 Bytes:
 .. runrecord:: _examples/DL-101-115-103
    :language: console
    :workdir: dl-101/DataLad-101/books
+   :notes: Symlinks are super small in size, just the amount of characters in the symlink!
+   :cast: 03_git_annex_basics
 
    $ ls -lah
 
@@ -142,7 +148,7 @@ The second advantage is a
 
 This leads to a few conclusions:
 
-The first is that you shouldn't be worried
+The first is that you should not be worried
 to see cryptic looking symlinks in your repository -- this is how it should
 look. If you are interested in why these paths look so weird, and what all
 of this has to do with data integrity, you can check
@@ -227,6 +233,8 @@ to manage the file system in a datalad dataset (:ref:`filesystem`).
    .. runrecord:: _examples/DL-101-115-104
       :language: console
       :workdir: dl-101/DataLad-101/books
+      :notes: how does the symlink relate to the shasum of the file?
+      :cast: 03_git_annex_basics
 
       # take a look at the last part of the target path:
       $ ls -lah TLCL.pdf
@@ -234,6 +242,8 @@ to manage the file system in a datalad dataset (:ref:`filesystem`).
    .. runrecord:: _examples/DL-101-115-105
       :language: console
       :workdir: dl-101/DataLad-101/books
+      :notes: let's look at how the shasum would look like
+      :cast: 03_git_annex_basics
 
       # compare it to the checksum (here of type md5sum) of the PDF file and the subdirectory name
       $ md5sum TLCL.pdf
@@ -270,11 +280,42 @@ to manage the file system in a datalad dataset (:ref:`filesystem`).
    about Git-annex, you can check out its
    `documentation <https://git-annex.branchable.com/git-annex/>`_.
 
-If you are still in the ``books/`` directory, go back into the root of the superdataset.
+Broken symlinks
+^^^^^^^^^^^^^^^
+
+Whenever a symlink points to a non-existent target, this symlink is called
+*broken*, and opening the symlink would not work as it does not resolve. The
+section :ref:`filesystem` will give a thorough demonstration of how symlinks can
+break, and how one can fix them again. Even though *broken* sounds
+troublesome, most types of broken symlinks you will encounter can be fixed,
+or are not problematic. At this point, you actually have already seen broken
+symlinks: Back in section :ref:`installds` we explored
+the file hierarchy in an installed subdataset that contained many annexed
+``mp3`` files. Upon installation, the annexed files were not present locally.
+Instead, their symlinks (stored in Git) existed and allowed to explore which
+file's contents could be retrieved. These symlinks point to nothing, though, as
+the content isn't yet present locally, and are thus *broken*. This state,
+however, is not problematic at all. Once the content is retrieved via
+:command:`datalad get`, the symlink is functional again.
+
+Nevertheless, it may be important to know that some file managers (e.g., OSX's
+Finder) may not display broken symlinks. In these cases, it will be
+impossible to browse and explore the file hierarchy of not-yet-retrieved
+files with the file manager. You can make sure to always be able to see the
+file hierarchy in two seperate ways: Upgrade your file manager to display
+file types in a DataLad datasets (e.g., the
+`git-annex-turtle extension <https://github.com/andrewringler/git-annex-turtle>`_
+for Finder). Alternatively, use the :command:`ls` command in a terminal instead
+of a file manager GUI.
+
+Finally, if you are still in the ``books/`` directory, go back into the root of
+the superdataset.
 
 .. runrecord:: _examples/DL-101-115-106
    :workdir: dl-101/DataLad-101/books
    :language: console
+   :notes: understanding how symlinks work will help you with everyday file management operations.
+   :cast: 03_git_annex_basics
 
    $ cd ../
 

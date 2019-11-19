@@ -8,9 +8,9 @@ you fall tired into your
 bed. Just as you are about to fall asleep, a thought crosses your mind:
 
 "I now know that tracked content in a dataset is protected by :term:`Git-annex`.
-Whenever tracked contents are ``saved``, they get locked and shouldn't be
+Whenever tracked contents are ``saved``, they get locked and should not be
 modifiable. But... what about the notes that I have been taking since the first day?
-Shouldn't I need to unlock them before I can modify them? And also the script!
+Should I not need to unlock them before I can modify them? And also the script!
 I was able to modify this despite giving it to DataLad to track, with
 no permission denied errors whatsoever! How does that work?"
 
@@ -30,8 +30,11 @@ The second commit message in our datasets history summarizes this:
 
 .. runrecord:: _examples/DL-101-114-101
    :language: console
-   :workdir: dl-101/DataLad-101
+   :workdir: dl-101
    :emphasize-lines: 3
+   :realcommand: cd DataLad-101 && git log --reverse --oneline
+   :notes: Confusing: Why could we modify the tsv file without unlocking? The reason is in the dataset configuration with text2git
+   :cast: 03_git_annex_basics
 
    $ git log --reverse --oneline
 
@@ -43,17 +46,23 @@ Well, procedurally it means that everything that is stored in Git-annex is
 content-locked, and everything that is stored in Git is not. You can modify
 content stored in Git straight away, without unlocking it first.
 
+.. figure:: ../artwork/src/git_vs_gitannex.svg
+   :alt: A simplified illustration of content lock in files managed by Git-annex.
+   :figwidth: 100%
+
+   A simplified overview of the tools that manage data in your dataset.
+
 That's easy enough.
 
 "So, first of all: If we hadn't provided the ``-c text2git`` argument, text files
 would get content-locked, too?". "Yes, indeed. However, there are also ways to
 later change how file content is handled based on its type or size. It can be specified
 in the ``.gitattributes`` file, using ``annex.largefile`` options.
-But there will be a lecture on that."
+But there will be a lecture on that [#f1]_."
 
 "Okay, well, second: Isn't it much easier to just not bother with locking and
 unlocking, and have everything 'stored in Git'? Even if :command:`datalad run` takes care
-of unlocking content, I don't see the point of Git-annex", you continue.
+of unlocking content, I do not see the point of Git-annex", you continue.
 
 Here it gets tricky. To begin with the most important, and most straight-forward fact:
 It is not possible to store
@@ -78,3 +87,10 @@ use-case dependent comparison of the pros and cons. BUT: it is possible,
 and in many cases useful, and in later sections we will see how to use this
 feature. The next lecture, in any way, will guide us deeper into Git-annex,
 and improve our understanding a slight bit further.
+
+
+.. rubric:: Footnotes
+
+.. [#f1] If you can't wait to read about ``.gitattributes`` and other
+         configuration files, jump ahead to chapter "Tuning datasets to your needs",
+         starting with section :ref:`config`.

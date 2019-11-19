@@ -23,7 +23,7 @@ The Challenge
 Rob needs to turn in an art project at the end of the high school year.
 He wants to make it as easy as possible and decides to just make a
 photomontage of some pictures from the internet. When he submits the project,
-he doesn't remember where he got the input data from, nor the exact steps to
+he does not remember where he got the input data from, nor the exact steps to
 create his project, even though he tried to take notes.
 
 The DataLad Approach

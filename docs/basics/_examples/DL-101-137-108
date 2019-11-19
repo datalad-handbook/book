@@ -1,0 +1,3 @@
+$ git log -2 --oneline
+587ac34 finished my midterm project!
+de7d909 [DATALAD] Recorded changes

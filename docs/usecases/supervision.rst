@@ -11,7 +11,7 @@ complexities for trainees and allows high-quality supervision from afar with min
 effort and time commitment from busy supervisors. It furthermore serves to log
 undertaken steps, establishes trust in an analysis, and eases collaboration.
 
-Successful workflows rely on more knowledgeable "trainers" (i.e. supervisors, or a more
+Successful workflows rely on more knowledgeable "trainers" (i.e., supervisors, or a more
 experienced collaborator) for a quick initial dataset setup with optimal configuration, and
 an introduction to the YODA principles and basic DataLad commands.
 Subsequently, supervision and collaboration is made easy by the distributed nature of a dataset.
@@ -103,10 +103,10 @@ Step-by-Step
 ^^^^^^^^^^^^
 
 Megan's supervisor is excited that she comes to visit the lab and trusts her to be a diligent,
-organized, and capable researcher. But he also doesn't have much time for a lengthy introduction
+organized, and capable researcher. But he also does not have much time for a lengthy introduction
 to technical aspects unrelated to the project, interactive teaching, or in-person supervision.
 Megan in turn is a competent student and eager to learn new things, but she
-doesn't have experience with DataLad, version control, or the computational cluster.
+does not have experience with DataLad, version control, or the computational cluster.
 
 As a first step, therefore, her supervisor and the postdoc prepare a preconfigured
 dataset in a dedicated directory everyone involved in the project has access to:

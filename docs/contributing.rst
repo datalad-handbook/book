@@ -6,7 +6,7 @@ Contributing
 Thanks for being curious about contributing!
 We greatly appreciate and welcome contributions to this book, be it in the form
 of an `issue <https://github.com/datalad-handbook/book/issues/new>`_, a pull request,
-or a discussion you had with anyone on the team via a non-Github communication channel!
+or a discussion you had with anyone on the team via a non-GitHub communication channel!
 To find out how we acknowledge contributions, please read the paragraph
 :ref:`acknowledge` at the bottom of
 this page.
@@ -186,7 +186,7 @@ execute them::
 Easy pull requests
 ^^^^^^^^^^^^^^^^^^
 
-The easiest way to do a pull request is within the web-interface that Github
+The easiest way to do a pull request is within the web-interface that GitHub
 and `readthedocs <https://readthedocs.org>`_ provide. If you visit the rendered
 version of the handbook at `handbook.datalad.org <http://handbook.datalad.org/>`_
 and click on the small, floating ``v:latest`` element at the lower
@@ -195,7 +195,7 @@ lets you make your changes and submit a pull request.
 
 .. figure:: img/contrib.png
    :figwidth: 100%
-   :alt: Access the Github interface to submit a pull request right from within
+   :alt: Access the GitHub interface to submit a pull request right from within
          Readthedocs.
 
    You can find an easy way to submit a pull request right from within the handbook.
@@ -286,7 +286,7 @@ Acknowledging Contributors
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you have helped this project, we would like to acknowledge your contribution in the
-`Github repository <https://github.com/datalad-handbook/book>`_ in our README with
+`GitHub repository <https://github.com/datalad-handbook/book>`_ in our README with
 `allcontributors.org <https://allcontributors.org/>`_, and the project's
 `.zenodo <https://github.com/datalad-handbook/book/blob/master/.zenodo.json>`_ and
 `CONTRIBUTORS.md <https://github.com/datalad-handbook/book/blob/master/CONTRIBUTORS.md>`_

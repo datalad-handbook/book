@@ -137,7 +137,7 @@ DataLad in the editor)!
       Be aware that an interactive rebase lets you *rewrite* history.
       This can lead to confusion or worse if the history you are rewriting
       is shared with others, e.g., in a collaborative project. Be also aware
-      that rewriting history that is *pushed*/*published* (e.g., to Github)
+      that rewriting history that is *pushed*/*published* (e.g., to GitHub)
       will require a force-push!
 
    Running this command gives you a list of the N most recent commits
@@ -757,7 +757,7 @@ to remove the ``Gitjoke2.txt`` file.
 
 .. [#f4] Note though that rewriting history can be dangerous, and you should
          be aware of what you are doing. For example, rewriting parts of the
-         dataset's history that have been published (e.g., to a Github repository)
+         dataset's history that have been published (e.g., to a GitHub repository)
          already or that other people have copies of, is not advised.
 
 .. [#f5] When in need to interactively rebase, please consult further documentation

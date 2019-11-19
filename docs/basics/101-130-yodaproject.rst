@@ -172,7 +172,7 @@ independent dataset from scratch in the hidden section below.
        $ datalad download-url https://gist.githubusercontent.com/netj/8836201/raw/6f9306ad21398ea43cba4f7d537619d0e07d5ae3/iris.csv
 
    Finally, we *published* (more on this later in this section) the dataset
-   to :term:`Github`.
+   to :term:`GitHub`.
 
    With this setup, the iris dataset (a single comma-separated (``.csv``)
    file) is downloaded, and, importantly, the dataset recorded *where* it
@@ -531,7 +531,7 @@ syllabus, this should be done via :term:`GitHub`.
    repositories, which lets you navigate through nested datasets in the web-interface.
 
    .. figure:: ../artwork/src/screenshot_midtermproject.png
-      :alt: The midterm project repository, published to Github
+      :alt: The midterm project repository, published to GitHub
 
    The above screenshot shows the linkage between the analysis project you will create
    and its subdataset. Clicking on the subdataset (highlighted) will take you to the iris dataset

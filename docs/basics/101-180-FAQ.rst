@@ -109,15 +109,15 @@ machine.
    party infrastructure
 
 
-How does Github relate to DataLad?
+How does GitHub relate to DataLad?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-DataLad can make good use of Github, if you have figured out storage for your
+DataLad can make good use of GitHub, if you have figured out storage for your
 large files otherwise. You can make DataLad publish file content to one location
-and afterwards automatically push an update to Github, such that
-users can install directly from Github and seemingly also obtain large file
-content from Github. Github is also capable of resolving submodule/subdataset
-links to other Github repos, which makes for a nice UI.
+and afterwards automatically push an update to GitHub, such that
+users can install directly from GitHub and seemingly also obtain large file
+content from GitHub. GitHub is also capable of resolving submodule/subdataset
+links to other GitHub repos, which makes for a nice UI.
 
 
 What is the difference between a superdataset, a subdataset, and a dataset?

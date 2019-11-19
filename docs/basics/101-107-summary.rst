@@ -54,7 +54,7 @@ and experienced the concept of modular nesting datasets.
 * If a dataset is installed inside of a dataset as a subdataset, the
   ``--dataset``/``-d`` option needs to specify the root of the superdataset.
 
-* The source can be a URL (for example of a Github repository, as in section :ref:`installds`), but also
+* The source can be a URL (for example of a GitHub repository, as in section :ref:`installds`), but also
   paths, or open data collections.
 
 * After installation, only small files and metadata about file availability are present locally.

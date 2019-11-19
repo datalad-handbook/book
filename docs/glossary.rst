@@ -180,6 +180,12 @@ Glossary
       the program automatically fills in partially types commands upon
       pressing the ``TAB`` key.
 
+
+   tag
+      Git concept: A mark on a commit that can help to identify commits. You can attach
+      a tag with a name of your choice to any commit by supplying the ``--version-tag <TAG-NAME>``
+      option to :command:`datalad save`.
+
    the DataLad superdataset ///
       TODO
 

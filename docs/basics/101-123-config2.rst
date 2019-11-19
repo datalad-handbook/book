@@ -22,7 +22,7 @@ section by looking into it.
 
 This file lies right in the root of your superdataset:
 
-.. runrecord:: _examples/DL-101-125-104
+.. runrecord:: _examples/DL-101-123-101
    :language: console
    :workdir: dl-101/DataLad-101
 
@@ -82,7 +82,7 @@ If you had a single file (``myfile.pdf``) you would not want annexed, specifying
 will keep it stored in Git. To see an example of this, navigate into the longnow subdataset,
 and view this dataset's ``.gitattributes`` file:
 
-.. runrecord:: _examples/DL-101-125-105
+.. runrecord:: _examples/DL-101-123-102
    :language: console
    :workdir: dl-101/DataLad-101
 
@@ -104,7 +104,7 @@ In principle, you can add one to every directory-level of your dataset.
 For example, there is another ``.gitattributes`` file within the
 ``.datalad`` directory:
 
-.. runrecord:: _examples/DL-101-125-107
+.. runrecord:: _examples/DL-101-123-103
    :language: console
    :workdir: dl-101/DataLad-101
 
@@ -134,7 +134,7 @@ in the root ``.gitattributes`` file.
 On last configuration file we want to look at is the ``.gitmodules`` file.
 There is one right in the root of your dataset:
 
-.. runrecord:: _examples/DL-101-125-108
+.. runrecord:: _examples/DL-101-123-104
    :language: console
    :workdir: dl-101/DataLad-101
 
@@ -161,7 +161,7 @@ the dataset. One can configure
 `many options <http://docs.datalad.org/en/latest/generated/datalad.config.html>`_,
 but currently, our ``.datalad/config`` file only stores a dataset ID:
 
-.. runrecord:: _examples/DL-101-125-106
+.. runrecord:: _examples/DL-101-123-105
    :language: console
    :workdir: dl-101/DataLad-101
 
@@ -194,7 +194,7 @@ to commit this change, as ``.gitmodules`` is version controlled".
 
 Let's try this:
 
-.. runrecord:: _examples/DL-101-125-109
+.. runrecord:: _examples/DL-101-123-106
    :workdir: dl-101/DataLad-101
    :language: console
 
@@ -207,13 +207,13 @@ public key to their Github account (you can read more about this
 We will revert this change shortly, but use it to show the difference between
 a :command:`git config` on a ``.git/config`` file and on a version controlled file:
 
-.. runrecord:: _examples/DL-101-125-110
+.. runrecord:: _examples/DL-101-123-107
    :workdir: dl-101/DataLad-101
    :language: console
 
    $ datalad status
 
-.. runrecord:: _examples/DL-101-125-111
+.. runrecord:: _examples/DL-101-123-108
    :workdir: dl-101/DataLad-101
    :language: console
 
@@ -225,7 +225,7 @@ changes, we would need to :command:`datalad save` them. However, as we want to s
 https URLs, we will just *checkout* this change -- using a Git tool to undo an
 unstaged modification.
 
-.. runrecord:: _examples/DL-101-125-112
+.. runrecord:: _examples/DL-101-123-109
    :workdir: dl-101/DataLad-101
    :language: console
 
@@ -286,7 +286,7 @@ you're more and more becoming a DataLad power-user.
 
 Write a note about configurations in datasets into ``notes.txt``.
 
-.. runrecord:: _examples/DL-101-125-113
+.. runrecord:: _examples/DL-101-123-110
    :workdir: dl-101/DataLad-101
    :language: console
 
@@ -315,7 +315,7 @@ Write a note about configurations in datasets into ``notes.txt``.
 
    EOT
 
-.. runrecord:: _examples/DL-101-125-114
+.. runrecord:: _examples/DL-101-123-111
    :workdir: dl-101/DataLad-101
    :language: console
 

@@ -1,6 +1,7 @@
 
-$ git checkout 327fd8340f54ee432b96653cbabb7bc35ab21369
-Note: checking out '327fd8340f54ee432b96653cbabb7bc35ab21369'.
+$ git checkout f59a78356d78525239347ecf763b6677130898af
+warning: unable to rmdir 'midterm_project': Directory not empty
+Note: checking out 'f59a78356d78525239347ecf763b6677130898af'.
 
 You are in 'detached HEAD' state. You can look around, make experimental
 changes and commit them, and you can discard any commits you make in this
@@ -11,4 +12,4 @@ do so (now or later) by using -b with the checkout command again. Example:
 
   git checkout -b <new-branch-name>
 
-HEAD is now at 327fd83 add note on basic datalad run and datalad rerun
+HEAD is now at f59a783 resized picture by hand

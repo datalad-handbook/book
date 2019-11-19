@@ -1,0 +1,6 @@
+$ datalad save -m "Provide project description" README.md
+add(ok): README.md (file)
+save(ok): . (dataset)
+action summary:
+  add (ok: 1)
+  save (ok: 1)

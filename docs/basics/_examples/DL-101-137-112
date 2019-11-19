@@ -1,12 +1,12 @@
-$ git log -2
-commit f338c8aaec6f23a032bd77f2376ddab499ccffe2
+$ git log -n 2
+commit 51d763ed5883bc51f6eabc36248e4ef80b9f600f
 Author: Elena Piscopia <elena@example.net>
-Date:   Mon Nov 18 10:53:26 2019 +0100
+Date:   Mon Nov 18 08:44:46 2019 +0100
 
     save my favorite Git joke
 
-commit 8ad60b2d09e65bb81b31f7408da0b8b02d226a05
+commit 587ac34d63c93275649cb65cd932c6a052569fdd
 Author: Elena Piscopia <elena@example.net>
-Date:   Mon Nov 18 10:53:07 2019 +0100
+Date:   Mon Nov 18 08:44:26 2019 +0100
 
-    add note on DataLads procedures
+    finished my midterm project!

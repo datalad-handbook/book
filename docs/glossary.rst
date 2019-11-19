@@ -16,6 +16,14 @@ Glossary
    annex
       Git annex concept: a different word for :term:`object-tree`.
 
+   annex UUID
+       A :term:`UUID` assigned to an annex of each individual :term:`clone` of a dataset repository.
+       :term:`Git-annex` uses this UUID to track file content availability information.
+       The UUID is available under the configuration key ``annex.uuid`` and is stored in the
+       configuration file of a local clone (``<dataset root>/.git/config``).
+       A single dataset instance (i.e. a local clone) has exactly one annex UUID,
+       but other clones of the same dataset each have their own unique annex UUIDs.
+
    bash
       A Unix shell and command language.
 
@@ -49,6 +57,14 @@ Glossary
    DataLad superdataset
       A DataLad dataset that contains one or more levels of other DataLad datasets (:term:`DataLad subdataset`).
 
+   dataset ID
+      A :term:`UUID` that identifies a dataset as a unit -- across its entire history and flavors.
+      This ID is stored in a dataset's own configuration file (``<dataset root>/.datalad/config``)
+      under the configuration key ``datalad.dataset.id``.
+      As this configuration is stored in a file that is part of the Git
+      history of a dataset, this ID is identical for all :term:`clone`\s of a dataset and across all
+      its versions.
+
    Debian
       A common Linux distribution. `More information here <https://www.debian.org/index.en.html>`__.
 
@@ -71,16 +87,17 @@ Glossary
 
    GitHub
       GitHub is an online platform where one can store and share version controlled projects
-      using Git (and thus also DataLad project).
+      using Git (and thus also DataLad project).See
+      `Github.com <https://github.com/>`_.
 
    Gitk
       A repository browser that displays changes in a repository or a selected set of commits. It
       visualizes a commit graph, information related to each commit, and the files in the trees
       of each revision.
 
-   GitHub
-      An online platform to host and share software projects version controlled with :term:`Git`. See
-      https://github.com/.
+   GitLab
+      An online platform to host and share software projects version controlled with :term:`Git`,
+      similar to :term:`GitHub`. See `Gitlab.com <https://about.gitlab.com/>`_.
 
    globbing
       A powerful pattern matching function of a shell. Allows to match the names of multiple files
@@ -163,6 +180,12 @@ Glossary
       the program automatically fills in partially types commands upon
       pressing the ``TAB`` key.
 
+
+   tag
+      Git concept: A mark on a commit that can help to identify commits. You can attach
+      a tag with a name of your choice to any commit by supplying the ``--version-tag <TAG-NAME>``
+      option to :command:`datalad save`.
+
    the DataLad superdataset ///
       TODO
 
@@ -172,6 +195,19 @@ Glossary
 
    Ubuntu
       A common Linux distribution. `More information here <https://ubuntu.com>`__.
+
+   UUID
+      Universally Unique Identifier. It is a character string used for *unambiguous*,
+      identification, formatted according to a specific standard. This
+      identification is not only unambiguous and unique on a system, but indeed *universally*
+      unique -- no UUID exists twice anywhere *on the planet*.
+      Every DataLad dataset has a UUID that identifies a dataset uniquely as a whole across
+      its entire history and flavors called :term:`Dataset ID` that looks similar to
+      this ``0828ac72-f7c8-11e9-917f-a81e84238a11``. This dataset ID will only exist once,
+      identifying only one particular dataset on the planet. Note that this does not
+      require all UUIDs to be known in some central database -- the fact that no UUID
+      exists twice is achieved by mere probability: The chance of a UUID being duplicated
+      is so close to zero that it is negligible.
 
    version control
       Processes and tools to keep track of changes to documents or other collections of information.

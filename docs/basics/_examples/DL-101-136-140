@@ -15,8 +15,11 @@ $ cat .git/config
 [remote "roommate"]
 	url = ../mock_user/DataLad-101
 	fetch = +refs/heads/*:refs/remotes/roommate/*
-	annex-uuid = 838f9159-3b3d-4dd7-86b0-7dd7e51b05ed
+	annex-uuid = 050f8bfe-1ee0-4742-bcb4-b103347aaa05
 	annex-ignore = false
+[submodule "midterm_project"]
+	url = /home/me/dl-101/DataLad-101/midterm_project
+	active = true
 [submodule "longnow"]
 	url = https://github.com/datalad-datasets/longnow-podcasts.git
 	active = true

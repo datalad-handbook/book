@@ -1,3 +1,2 @@
-
-$ git reset --hard f338c8aaec6f23a032bd77f2376ddab499ccffe2
-HEAD is now at f338c8a save my favorite Git joke
+$ git reset --hard 51d763ed5883bc51f6eabc36248e4ef80b9f600f
+HEAD is now at 51d763e save my favourite Git joke

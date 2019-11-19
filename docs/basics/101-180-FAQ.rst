@@ -80,7 +80,7 @@ it also adds a range of useful concepts and functions:
   for example, no matter what was changed/added, no matter where in a tree
   of subdatasets.
 - DataLad provides users with the ability to act on "virtual" file paths. If
-  software needs datafiles that are carried in a subdataset (in Git terms:
+  software needs data files that are carried in a subdataset (in Git terms:
   submodule) for a computation or test, a ``datalad get`` will discover if
   there are any subdatasets to install at a particular version to eventually
   provide the file content.
@@ -95,7 +95,7 @@ Does DataLad host my data?
 
 No, DataLad manages your data, but it does not host it. When publishing a
 dataset with annexed data, you will need to find a place that the large file
-content can be stored in -- this could be a webserver, a cloud service such
+content can be stored in -- this could be a web server, a cloud service such
 as `Dropbox <https://www.dropbox.com/>`_, an S3 bucket, or many other storage
 solutions -- and set up a publication dependency on this location.
 This gives you all the freedom to decide where your data lives, and who can
@@ -156,7 +156,7 @@ What is the difference between DataLad, Git LFS, and Flywheel?
 research and collaboration.
 
 `Git Large File Storage <https://github.com/git-lfs/git-lfs>`_ (Git LFS) is a
-commandline tool that extends Git with the ability to manage large files. In
+command line tool that extends Git with the ability to manage large files. In
 that it appears similar to Git-annex.
 
 .. todo::

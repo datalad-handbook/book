@@ -62,7 +62,7 @@ called recordings.
    # we are in the root of DataLad-101
    $ mkdir recordings
 
-Let's install the longnow poqdcasts in this new directory.
+Let's install the longnow podcasts in this new directory.
 Because we are installing a dataset (the podcasts) within an existing dataset (the ``DataLad-101``
 dataset), we supply the ``-d`` (``--dataset``) flag.
 This specifies the dataset to perform the operation on. Because we are in the root

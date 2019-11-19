@@ -16,11 +16,11 @@ from the start. Alternatively, a subsequent :command:`datalad install`
 in the subdataset or with a path to the subdataset takes care
 of the missing installation.
 
-And you have mesmerized your room mate by showing him how :term:`Git-annex`
+And you have mesmerized your room mate by showing him how :term:`git-annex`
 retrieved large file contents from the original dataset.
 
 Let's now see the :command:`git annex whereis` command in more detail,
-and find out how Git-annex knows *where* file content can be obtained from.
+and find out how git-annex knows *where* file content can be obtained from.
 Within the original ``DataLad-101`` dataset, you retrieved some of the ``.mp3``
 files via :command:`datalad get`, but not others. How will this influence the
 output of :command:`git annex whereis`, you wonder?
@@ -84,7 +84,7 @@ Let's see how this affects a :command:`datalad get`:
 The most important thing to note is: It worked in both cases, regardless of whether the original
 ``DataLad-101`` dataset contained the file content or not.
 
-We can see that Git-annex used two different sources to retrieve the content from,
+We can see that git-annex used two different sources to retrieve the content from,
 though, if we look at the very end of the ``get`` summary.
 The first file was retrieved "``from origin...``". ``Origin`` is Git terminology
 for "from where the dataset was copied from" -- ``origin`` therefore is the

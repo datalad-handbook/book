@@ -64,7 +64,7 @@ to be a YODA dataset right at the time of creation:
    $ datalad create -c yoda --description "my 1st phd project on work computer" myanalysis
 
 After creation, there already is a ``code/`` directory, and all of its
-inputs are version-controlled by :term:`Git` instead of :term:`Git-annex`
+inputs are version-controlled by :term:`Git` instead of :term:`git-annex`
 thanks to the yoda procedure:
 
 .. runrecord:: _examples/collab-102

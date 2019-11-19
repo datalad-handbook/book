@@ -35,7 +35,7 @@ sharing a dataset with a simple example.
   file content sources.
 
 * :command:`git annex whereis PATH` will list all locations known to contain file
-  content for a particular file. This location is where :term:`Git-annex`
+  content for a particular file. This location is where :term:`git-annex`
   will attempt to retrieve file content from, and it is described with the
   ``--description`` provided during a :command:`datalad create`. It is a very
   helpful command to find out where file content resides, and how many

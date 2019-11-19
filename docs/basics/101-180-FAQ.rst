@@ -24,7 +24,7 @@ distributed nature.
 DataLad uses Git underneath the hood. Every DataLad dataset is a Git
 repository, and you can use any Git command within a DataLad dataset. Based
 on the configurations in ``.gitattributes``, file content can be version
-controlled by Git or managed by Git-annex, based on path pattern, file types,
+controlled by Git or managed by git-annex, based on path pattern, file types,
 or file size. The section :ref:`config2` details how these configurations work.
 `This chapter <https://git-scm.com/book/en/v2/Getting-Started-What-is-Git%3F>`_
 gives a comprehensive overview on what Git is.
@@ -36,39 +36,39 @@ As mentioned in :ref:`populate`, a local version control workflow with
 DataLad "skips" the staging area (that is typical for Git workflows) from the
 user's point of view.
 
-What is Git-annex?
+What is git-annex?
 ^^^^^^^^^^^^^^^^^^
 
-Git-annex (`https://git-annex.branchable.com/ <https://git-annex.branchable.com/>`_)
+git-annex (`https://git-annex.branchable.com/ <https://git-annex.branchable.com/>`_)
 is a distributed file synchronization system written by Joey Hess. It can
 share and synchronize large files independent from a commercial service or a
 central server. It does so by managing all file *content* in a separate
 directory (the *annex*, *object tree*, or *key-value-store* in ``.git/annex/objects/``),
 and placing only file names and
-metadata into version control by Git. Among many other features, Git-annex
+metadata into version control by Git. Among many other features, git-annex
 can ensure sufficient amounts of file copies to prevent accidental data loss and
 enables a variety of data transfer mechanisms.
-DataLad uses Git-annex underneath the hood for file content tracking and
-transport logistics. Git-annex offers an astonishing range of functionality
+DataLad uses git-annex underneath the hood for file content tracking and
+transport logistics. git-annex offers an astonishing range of functionality
 that DataLad tries to expose in full. That being said, any DataLad dataset
 (with the exception of datasets configured to be pure Git repositories) is
-fully compatible with Git-annex -- you can use any Git-annex command inside a
+fully compatible with git-annex -- you can use any git-annex command inside a
 DataLad dataset.
 
-The chapter :ref:`symlink` can give you more insights into how Git-annex
-takes care of your data. Git-annex's `website <https://git-annex.branchable.com/>`_
+The chapter :ref:`symlink` can give you more insights into how git-annex
+takes care of your data. git-annex's `website <https://git-annex.branchable.com/>`_
 can give you a complete walk-through and detailed technical background
 information.
 
-What does DataLad add to Git and Git-annex?
+What does DataLad add to Git and git-annex?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-DataLad sits on top of Git and Git-annex and tries to integrate and expose
+DataLad sits on top of Git and git-annex and tries to integrate and expose
 their functionality fully. While DataLad thus is a "thin layer" on top of
 these tools and tries to minimize the use of unique/idiosyncratic functionality,
 it also adds a range of useful concepts and functions:
 
-- Both Git and Git-annex are made to work with a single repository at a time.
+- Both Git and git-annex are made to work with a single repository at a time.
   For example, while nesting pure Git repositories is possible via Git
   submodules (that DataLad also uses internally), *cleaning up* after
   placing a random file somewhere into this repository hierarchy can be very
@@ -130,10 +130,10 @@ superdataset is whether it is *registered* in another dataset (by means of an en
 install -d`` or ``datalad create -d`` command) or contains registered datasets.
 
 
-How can I convert/import/transform an existing Git or Git-annex repository into a DataLad dataset?
+How can I convert/import/transform an existing Git or git-annex repository into a DataLad dataset?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-You can transform any existing Git or Git-annex repository of yours into a
+You can transform any existing Git or git-annex repository of yours into a
 DataLad dataset by running::
 
    $ datalad create -f
@@ -157,7 +157,7 @@ research and collaboration.
 
 `Git Large File Storage <https://github.com/git-lfs/git-lfs>`_ (Git LFS) is a
 commandline tool that extends Git with the ability to manage large files. In
-that it appears similar to Git-annex.
+that it appears similar to git-annex.
 
 .. todo::
 
@@ -180,7 +180,7 @@ How can I copy data out of a DataLad dataset?
 Moving or copying data out of a DataLad dataset is always possible and works in
 many cases just like in any regular directory. The only
 caveat exists in the case of annexed data: If file content is managed with
-Git-annex and stored in the :term:`object-tree`, what *appears* to be the
+git-annex and stored in the :term:`object-tree`, what *appears* to be the
 file in the dataset is merely a symlink (please read section :ref:`symlink`
 for details). Moving or copying this symlink will not yield the
 intended result -- instead you will have a broken symlink outside of your

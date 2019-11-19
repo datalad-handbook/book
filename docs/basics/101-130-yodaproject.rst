@@ -482,7 +482,7 @@ dataset that you can use for this [#f4]_.
 
 Note that one feature of the YODA procedure was that it configured certain files
 (for example everything inside of ``code/``, and the ``README.md`` file in the
-root of the dataset) to be saved in Git instead of Git-annex. This was the
+root of the dataset) to be saved in Git instead of git-annex. This was the
 reason why the ``README.md`` in the root of the dataset was easily modifiable [#f4]_.
 
 .. findoutmore:: Saving contents with Git regardless of configuration with --to-git
@@ -495,7 +495,7 @@ reason why the ``README.md`` in the root of the dataset was easily modifiable [#
    This is not true in ``midterm_project``: Only the existing ``README.md`` files and
    anything within ``code/`` are stored -- everything else will be annexed.
    That means that if you create any other file, even text files, inside of
-   ``midterm_project`` (but not in ``code/``), it will be managed by :term:`Git-annex`
+   ``midterm_project`` (but not in ``code/``), it will be managed by :term:`git-annex`
    and content-locked after a :command:`datalad save` -- an inconvenience if it
    would be a file that is small enough to be handled by Git.
 
@@ -623,7 +623,7 @@ state of the dataset to this sibling with the :command:`datalad publish`
 
    The :command:`datalad publish` uses ``git push``, and ``git annex copy`` under
    the hood. Publication targets need to either be configured remote Git repositories,
-   or Git-annex special remotes (if they support data upload).
+   or git-annex special remotes (if they support data upload).
 
 Here is one important detail, though: By default, your tags will not be published.
 The reason for this is that tags are viral -- they can be removed locally, and old
@@ -676,7 +676,7 @@ reproduce your data science project easily from scratch!
 
       $ datalad get prediction_report.csv pairwise_relationships.png
 
-   Why is that? The file content of these files is managed by Git-annex, and
+   Why is that? The file content of these files is managed by git-annex, and
    thus only information about the file name and location is known to Git.
    Because GitHub does not host large data for free, annexed file content always
    needs to be deposited somewhere else (e.g., a webserver) to make it
@@ -747,7 +747,7 @@ reproduce your data science project easily from scratch!
             pip install seaborn, pandas, sklearn
 
 .. [#f4] Note that all ``README.md`` files the YODA procedure created are
-         version controlled by Git, not Git-annex, thanks to the
+         version controlled by Git, not git-annex, thanks to the
          configurations that YODA supplied. This makes it easy to change the
          ``README.md`` file. Let previous section detailed how the YODA procedure
          configured your dataset. If you want to re-read the full chapter on

@@ -274,9 +274,9 @@ the best option to turn to.
    An additional piece of background information: A :command:`datalad save` command
    internally uses a :command:`git commit` to save changes to a dataset.
    :command:`git commit` in turn triggers a :command:`git annex fix`
-   command. This Git-annex command fixes up links that have become broken
+   command. This git-annex command fixes up links that have become broken
    to again point to annexed content, and is responsible for cleaning up
-   what needs to be cleaned up. Thanks, Git-annex!
+   what needs to be cleaned up. Thanks, git-annex!
 
 
 Therefore, while it might be startling
@@ -862,8 +862,8 @@ have seen permission denied errors such as
 
 This error indicates that there is write-protected content within ``.git`` that
 cannot not be deleted. What is this write-protected content? It's the file content
-stored in the object tree of Git-annex. If you want, you can re-read the section on
-:ref:`symlink` to find out how Git-annex revokes write permission for the user
+stored in the object tree of git-annex. If you want, you can re-read the section on
+:ref:`symlink` to find out how git-annex revokes write permission for the user
 to protect the file content given to it. To remove a dataset with annexed content
 one has to regain write permissions to everything in the dataset. This is done
 with the `chmod <https://en.wikipedia.org/wiki/Chmod>`_ command::

@@ -415,7 +415,7 @@ please `get in touch <https://github.com/datalad-handbook/book/issues/new>`_.
 
          $ sudo apt-update && sudo apt upgrade
 
-   - **Step 6**: Install datalad and everything it needs from Neurodebian
+   - **Step 6**: Install datalad and everything it needs from NeuroDebian
 
       .. code-block:: bash
 

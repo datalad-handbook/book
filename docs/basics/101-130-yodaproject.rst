@@ -354,7 +354,7 @@ Let's run a quick :command:`datalad status`...
 
 ... and save the script to the subdataset's history. As the script completes your
 analysis setup, we *tag* the state of the dataset to refer to it easily at a later
-point.
+point with the ``--version-tag`` option of :command:`datalad save`.
 
 .. runrecord:: _examples/DL-101-130-109
    :language: console
@@ -481,7 +481,7 @@ dataset that you can use for this [#f4]_.
 
 
 Note that one feature of the YODA procedure was that it configured certain files
-(for examples everything inside of ``code/`` and the ``README.md`` file in the
+(for example everything inside of ``code/``, and the ``README.md`` file in the
 root of the dataset) to be saved in Git instead of Git-annex. This was the
 reason why the ``README.md`` in the root of the dataset was easily modifiable [#f4]_.
 
@@ -507,7 +507,7 @@ reason why the ``README.md`` in the root of the dataset was easily modifiable [#
 
       $ datalad save -m "add sometextfile.txt" --to-git sometextfile.txt
 
-After adding this short description to your ``README.md`` your dataset now also
+After adding this short description to your ``README.md``, your dataset now also
 contains sufficient human-readable information to ensure that others can understand
 everything you did easily.
 The only thing left to do is to hand in your assignment. According to the
@@ -571,10 +571,7 @@ The command takes a repository name and GitHub authentication credentials
 ``github-passwd <PASSWORD>``, with an *oauth* token stored in the Git
 configuration [#f5]_, or interactively). Based on the credentials and the
 repository name, it will create a new, empty repository on GitHub, and
-configure this repository as a sibling of the dataset. If the ``-r/--recursive``
-option is specified, siblings will be created *recursively*, i.e., not only a
-repository for the ``midterm_project`` dataset will be created, but also one
-for the ``iris_data`` dataset:
+configure this repository as a sibling of the dataset:
 
 
 .. ifconfig:: internal
@@ -588,9 +585,7 @@ for the ``iris_data`` dataset:
 
    $ datalad create-sibling-github -d . midtermproject
    .: github(-) [https://github.com/adswa/midtermproject.git (git)]
-   .: github(-) [https://github.com/adswa/midtermproject-input.git (git)]
    'https://github.com/adswa/midtermproject.git' configured as sibling 'github' for <Dataset path=/home/me/dl-101/DataLad-101/midterm_project>
-   'https://github.com/adswa/midtermproject-input.git' configured as sibling 'github' for <Dataset path=/home/me/dl-101/DataLad-101/midterm_project/input>
 
 
 Verify that this worked by listing the siblings of the dataset:
@@ -618,7 +613,7 @@ state of the dataset to this sibling with the :command:`datalad publish`
 
 .. code-block:: bash
 
-   $ datalad publish -r --to github
+   $ datalad publish --to github
    [INFO   ] Publishing <Dataset path=/home/me/dl-101/DataLad-101/midterm_project> to github
    publish(ok): . (dataset) [pushed to github: ['[new branch]', '[new branch]']]
    action summary:

@@ -114,7 +114,7 @@ they are all part of the source code of DataLad [#f1]_.
   principles -- the section :ref:`yoda` talks about this in detail.
 - ``cfg_text2git`` configures text files to be stored in Git.
 - ``cfg_metadatatypes`` lets users configure additional metadata
-  types -- more about this in a later section on DataLads metadata
+  types -- more about this in a later section on DataLad's metadata
   handling.
 
 Applying procedures
@@ -359,7 +359,7 @@ was applied.
       It might be helpful to have (or reference) a table with all available
       procedures and a short explanation. Maybe on the cheatsheet.
 
-Summing up, DataLads :command:`run-procedure` command is a handy tool
+Summing up, DataLad's :command:`run-procedure` command is a handy tool
 with useful existing procedures but much flexibility for own
 DIY procedure scripts. With the information of the last three sections
 you should be able to write and understand necessary configurations,

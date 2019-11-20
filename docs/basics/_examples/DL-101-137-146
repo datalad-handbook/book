@@ -1,4 +1,4 @@
-$ git log -3
+$ git log -n 3
 commit 37c73e7eff6df09ce3ea9a149e64ea5e82ed5d8b
 Author: Elena Piscopia <elena@example.net>
 Date:   Mon Nov 18 08:44:48 2019 +0100

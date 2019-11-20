@@ -112,7 +112,7 @@ that captures the spirit of what DataLad is, and here is a brief overview on it.
    on the internet, or `anything else <https://media.giphy.com/media/3o6YfXCehdioMXYbcs/giphy.gif>`_.
 
 #. **A dataset is a Git repository**. 
-   A dataset is a Git repository. All features of the :term:version control system :term:Git 
+   A dataset is a Git repository. All features of the :term:`version control` system :term:`Git`
    also apply to everything managed by DataLad – plus many more.
    If you do not know or use Git yet, there is no need to panic – there is no necessity to 
    learn all of Git to follow along in learning and using DataLad. You will 

@@ -64,7 +64,7 @@ common shape a data science project may take after a while:
 
     [...]
 
-All data analysis endeavours in directories like this *can* work, for a while,
+All data analysis endeavors in directories like this *can* work, for a while,
 if there is a person who knows the project well, and works on it all the time.
 But it inevitably will get messy once anyone tries to collaborate on a project
 like this, or simply goes on a two-week vacation and forgets whether
@@ -277,7 +277,7 @@ be established between components of your dataset. Scripts inside of
 your ``code/`` directory should point to data not as :term:`absolute path`\s
 that would only work on your system, but instead as :term:`relative path`\s
 that will work in any shared copy of your dataset. The next section
-on DataLads Python API will show concrete examples of this.
+on DataLad's Python API will show concrete examples of this.
 
 Lastly, this principle also includes *moving*, *sharing*, and *publishing* your
 datasets or its components.
@@ -350,7 +350,7 @@ The YODA procedure
 ^^^^^^^^^^^^^^^^^^
 
 There is one tool that can make starting a yoda-compliant data analysis
-easier: DataLads ``yoda`` procedure. Just as the ``text2git`` procedure
+easier: DataLad's ``yoda`` procedure. Just as the ``text2git`` procedure
 from section :ref:`createds`, the ``yoda`` procedure can be included in a
 :command:`datalad create` command and will apply useful configurations
 to your dataset:
@@ -401,7 +401,7 @@ Summarizing these two glimpses into the dataset, this configuration has
 #. and configured ``README.md`` and ``CHANGELOG.md`` in the root of the dataset to be
    tracked by Git.
 
-Your midterm data analysis project can thus get a headstart with useful configurations
+Your next data analysis project can thus get a head start with useful configurations
 and the start of a comprehensible directory structure by applying the ``yoda`` procedure.
 
 Sources

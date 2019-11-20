@@ -234,7 +234,7 @@ First, find out the shasum, and afterwards, reset it.
    :language: console
    :workdir: dl-101/DataLad-101
 
-   $ git log -3 --oneline
+   $ git log -n 3 --oneline
 
 .. runrecord:: _examples/DL-101-137-107
    :language: console
@@ -247,7 +247,7 @@ Let's see what has happened. First, let's check the history:
    :language: console
    :workdir: dl-101/DataLad-101
 
-   $ git log -2 --oneline
+   $ git log -n 2 --oneline
 
 As you can see, the commit in which the jokes were tracked
 is not in the history anymore! Go on to see what :command:`datalad status`
@@ -275,7 +275,7 @@ to track:
    :workdir: dl-101/DataLad-101
    :language: console
 
-   $ datalad save -m "save my favourite Git joke" Gitjoke2.txt
+   $ datalad save -m "save my favorite Git joke" Gitjoke2.txt
 
 Finally, lets check how the history looks afterwards:
 
@@ -353,7 +353,7 @@ afterwards, reset it.
    :language: console
    :workdir: dl-101/DataLad-101
 
-   $ git log -3 --oneline
+   $ git log -n 3 --oneline
 
 .. runrecord:: _examples/DL-101-137-118
    :language: console
@@ -366,7 +366,7 @@ To see what has happened, let's check the history:
    :language: console
    :workdir: dl-101/DataLad-101
 
-   $ git log -2 --oneline
+   $ git log -n 2 --oneline
 
 ... and also the status of the dataset:
 
@@ -399,7 +399,7 @@ to specify the point in time you want to go back to:
    :language: console
    :workdir: dl-101/DataLad-101
 
-   $ git log -20 --oneline
+   $ git log -n 20 --oneline
 
 Let's go 15 commits back in time:
 
@@ -448,7 +448,7 @@ The contents of ``notes.txt`` will now be the most recent version again:
 
    $ cat notes.txt
 
-... Wow! You travelled back and forth in time!
+... Wow! You traveled back and forth in time!
 But an even more magical way to see the contents of files in previous
 versions is Git's :command:`cat-file` command: Among many other things, it lets
 you read a file's contents as of any point in time in the history, without a
@@ -479,7 +479,7 @@ Let's modify the saved ``Gitjoke1.txt``:
    :language: console
    :workdir: dl-101/DataLad-101
 
-   $ echo "this is by far my favourite joke!" >> Gitjoke2.txt
+   $ echo "this is by far my favorite joke!" >> Gitjoke2.txt
 
 .. runrecord:: _examples/DL-101-137-129
    :language: console
@@ -510,7 +510,7 @@ instead of ``--mixed``:
    :language: console
    :workdir: dl-101/DataLad-101
 
-   $ git log -2 --oneline
+   $ git log -n 2 --oneline
 
 .. runrecord:: _examples/DL-101-137-133
    :language: console
@@ -653,7 +653,7 @@ the history of the dataset:
    :workdir: dl-101/DataLad-101
    :emphasize-lines: 6-8, 20
 
-   $ git log -3
+   $ git log -n 3
 
 The commit that introduced the bad modification is still present, but it
 transparently gets undone with the most recent commit. At the same time, the
@@ -714,17 +714,18 @@ Summary
 This guest lecture has given you a glimpse into how to work with the
 history of your DataLad datasets.
 To conclude this section, let's remove all untracked contents from
-the dataset. This can be done with :command:`git reset` as well: The command
-:command:`git reset --hard master` (where ``master`` is a branch name)
-swipes your dataset clean and removes anything that is untracked or
-modified but not saved yet.
+the dataset. This can be done with :command:`git clean`: The command
+:command:`git clean -f` swipes your dataset clean and removes any untracked
+file.
 **Careful! This is not revertible, and content lost with this commands can not be recovered!**
+If you want to be extra sure, run :command:`git clean -fn` beforehand -- this will
+give you a list of the files that would be deleted.
 
 .. runrecord:: _examples/DL-101-137-148
    :language: console
    :workdir: dl-101/DataLad-101
 
-   $ git reset --hard master
+   $ git clean -f
 
 Afterwards, the :command:`datalad status` returns nothing, indicating a
 clean dataset state with no untracked files or modifications.

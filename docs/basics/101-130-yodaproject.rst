@@ -18,7 +18,7 @@ section below:
     .. _python:
 
     "Whatever you can do with DataLad from the command line, you can also do it with
-    DataLads Python API", begins the lecturer.
+    DataLad's Python API", begins the lecturer.
     "In addition to the command line interface you are already very familiar with,
     DataLad's functionality can also be used within interactive Python sessions
     or Python scripts.
@@ -26,7 +26,7 @@ section below:
     to the command line, and it is immensely useful when creating reproducible
     data analyses."
 
-    This short secton will give you an overview on DataLad's Python API and explore
+    This short section will give you an overview on DataLad's Python API and explore
     how to make use of it in an analysis project. Together with the previous
     section on the YODA principles, it is a good basis for a data analysis midterm project
     in Python.
@@ -48,7 +48,7 @@ section below:
     The `developer documentation <http://docs.datalad.org/en/latest/modref.html>`_
     of DataLad lists an overview of all commands, but naming is congruent to the
     command line interface. The only functionality that is not available at the
-    command line is ``datalad.api.Dataset``, DataLads core Python data type.
+    command line is ``datalad.api.Dataset``, DataLad's core Python data type.
     Just like any other command, it can be imported like this::
 
        >>> from datalad.api import Dataset
@@ -277,7 +277,7 @@ dataset is. You settle on two objectives for your analysis:
 
 #. Explore and plot the relationship between variables in the dataset and save
    the resulting graphic as a first result.
-#. Perform a k-nearest neighbour classification on a subset of the dataset to
+#. Perform a k-nearest neighbor classification on a subset of the dataset to
    predict class membership (flower type) of samples in a left-out test set.
    Your final result should be a statistical summary of this prediction.
 
@@ -679,7 +679,7 @@ reproduce your data science project easily from scratch!
    Why is that? The file content of these files is managed by git-annex, and
    thus only information about the file name and location is known to Git.
    Because GitHub does not host large data for free, annexed file content always
-   needs to be deposited somewhere else (e.g., a webserver) to make it
+   needs to be deposited somewhere else (e.g., a web server) to make it
    accessible via :command:`datalad get`. A later section
 
    .. todo::
@@ -753,6 +753,6 @@ reproduce your data science project easily from scratch!
          configured your dataset. If you want to re-read the full chapter on
          configurations and run-procedures, start with section :ref:`config`.
 
-.. [#f5] Such a token can be obtained, for example, using the commandline
+.. [#f5] Such a token can be obtained, for example, using the command line
          GitHub interface (https://github.com/sociomantic/git-hub) by running:
          ``git hub setup`` (if no 2FA is used).

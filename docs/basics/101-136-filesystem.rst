@@ -90,7 +90,7 @@ renamed, and will summarize this nicely in the resulting commit:
    :notes: and this is how it looks like in the history
    :cast: 03_git_annex_basics
 
-   $ git log -1 -p
+   $ git log -n 1 -p
 
 Note that :command:`datalad save` commits all modifications when
 it's called without a path specification,
@@ -262,7 +262,7 @@ the best option to turn to.
       :notes: moving files across directory levels is a content change because the symlink changes!
       :cast: 03_git_annex_basics
 
-      $ git log -1 -p
+      $ git log -n 1 -p
 
    As you can see, this action does not show up as a move, but instead
    a deletion and addition of a new file. Why? Because the content
@@ -327,7 +327,7 @@ file. Let's save it:
    :notes: That's it!
    :cast: 03_git_annex_basics
 
-   $ git log -1 -p
+   $ git log -n 1 -p
 
 That's it.
 
@@ -744,7 +744,7 @@ DataLad will safeguard dropping content that it can not retrieve again:
 .. runrecord:: _examples/DL-101-136-178
    :workdir: dl-101/DataLad-101
    :language: console
-   :notes: datalad does not know how to reobtain the file, so it complains
+   :notes: datalad does not know how to re-obtain the file, so it complains
    :cast: 03_git_annex_basics
 
    $ datalad drop a.pdf

@@ -1,4 +1,3 @@
-
 $ git checkout f59a78356d78525239347ecf763b6677130898af
 warning: unable to rmdir 'midterm_project': Directory not empty
 Note: checking out 'f59a78356d78525239347ecf763b6677130898af'.

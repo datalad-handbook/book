@@ -67,7 +67,7 @@ Because we are installing a dataset (the podcasts) within an existing dataset (t
 dataset), we supply the ``-d`` (``--dataset``) flag.
 This specifies the dataset to perform the operation on. Because we are in the root
 of the ``DataLad-101`` dataset, the pointer to the dataset is a ``.`` (which is Unix'
-way for saying "current directory"). The dataset to be installed lives on GitHub, and
+way for saying "current directory"). The dataset to be installed lives on :term:`GitHub`, and
 we can give its GitHub URL as a source (``-s``, ``--source``). Note that we line
 break these examples with a ``\``. You can copy them as they are presented here into
 your terminal, but in your own work you can write commands like this into a single

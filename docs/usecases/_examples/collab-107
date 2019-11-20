@@ -1,8 +1,9 @@
 
 $ datalad install -r --source /myanalysis bobs_analysis
 [INFO] Cloning myanalysis into '/home/me/usecases/collab/bobs_analysis' 
-[INFO] Installing <Dataset path=/home/me/usecases/collab/bobs_analysis> recursively 
+[INFO] Installing <Dataset path=/home/me/usecases/collab/bobs_analysis> underneath /home/me/usecases/collab/bobs_analysis recursively
 [INFO] Cloning /home/me/usecases/collab/myanalysis/src/forrest_structural [2 other candidates] into '/home/me/usecases/collab/bobs_analysis/src/forrest_structural' 
 install(ok): /home/me/usecases/collab/bobs_analysis (dataset)
 action summary:
-  install (ok: 2)
+  get (ok: 1)
+  install (ok: 1)

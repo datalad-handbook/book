@@ -78,7 +78,7 @@ here:
    :notes: the ds copy has a change the original ds does not have:
    :cast: 04_collaboration
 
-   $ git log -1 -p
+   $ git log -n 1 -p
 
 Suddenly, your room mate has a file change that you do not have.
 His dataset evolved.

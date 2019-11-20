@@ -45,4 +45,4 @@ Now what can I do with it?
 Configurations are not a closed book for you anymore. What will probably be
 especially helpful is your new knowledge about ``.gitattributes`` and
 DataLad's ``run-procedure`` command that allow you to configure the behavior
-of Git-annex in your dataset.
+of git-annex in your dataset.

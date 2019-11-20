@@ -5,7 +5,7 @@ Configurations to go
 
 The past two sections should have given you a comprehensive
 overview on the different configuration options the tools
-Git, Git-annex, and DataLad provide. They not only
+Git, git-annex, and DataLad provide. They not only
 showed you a way to configure everything you may need to
 configure, but also gave explanations about what the
 configuration options actually mean.
@@ -50,7 +50,7 @@ are highlighted:
     annex_largefiles = '(not(mimetype=text/*))'
     # check existing configurations:
     attrs = ds.repo.get_gitattributes('*')
-    # if not already an existing configuration, configure Git-annex with the above rule
+    # if not already an existing configuration, configure git-annex with the above rule
     if not attrs.get('*', {}).get(
             'annex.largefiles', None) == annex_largefiles:
         ds.repo.set_gitattributes([
@@ -68,7 +68,7 @@ executables (such as a script, or compiled code).
 In principle, they can be written in any language, and perform
 any task inside of a dataset.
 The ``text2git`` configuration for example applies a configuration for how
-Git-annex treats different file types. Other procedures do not
+git-annex treats different file types. Other procedures do not
 only modify ``.gitattributes``, but can also populate a dataset
 with particular content, or automate routine tasks such as
 synchronizing dataset content with certain siblings.

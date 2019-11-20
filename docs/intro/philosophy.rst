@@ -127,7 +127,7 @@ that captures the spirit of what DataLad is, and here is a brief overview on it.
    transform and work with it while capturing all :term:`provenance`,
    or share it with whomever you want). At the same time, DataLad does all of the magic
    necessary to get this awesome feature to work quietly in the background.
-   The annex is set-up automatically, and the tool :term:`Git-annex`
+   The annex is set-up automatically, and the tool :term:`git-annex`
    (https://git-annex.branchable.com) manages it all underneath the hood. Worry-free
    large-content data management? Check!
 

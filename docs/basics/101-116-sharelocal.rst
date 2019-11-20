@@ -123,7 +123,7 @@ Indeed, the PDFs and pictures appear just as they did in the original dataset
 on first sight: They are symlinks pointing to some location in the
 object tree. To reassure your room mate that everything is fine you
 quickly explain to him the concept of a symlink and the :term:`object-tree`
-of :term:`Git-annex`.
+of :term:`git-annex`.
 
 "But why does the PDF not open when I try to open it?" he repeats.
 True, these files cannot be opened. This mimics our experience when
@@ -156,8 +156,8 @@ thought it would. Your room mate is excited by this magical
 command. You however begin to wonder: how does DataLad know where to look for
 that original content?
 
-This information comes from Git-annex. Before getting the next PDF,
-let's query Git-annex where its content is stored:
+This information comes from git-annex. Before getting the next PDF,
+let's query git-annex where its content is stored:
 
 .. runrecord:: _examples/DL-101-116-105
    :language: console
@@ -191,21 +191,21 @@ is only your own, original ``DataLad-101`` dataset in which
 this book is saved.
 
 To retrieve file content of an annexed file such as one of
-these PDFs, Git-annex will try
+these PDFs, git-annex will try
 to obtain it from the locations it knows to contain this content.
 It uses the checksums to identify these locations. Every copy
 of a dataset will get a unique ID with such a checksum.
-Note however that just because Git-annex knows a certain location
+Note however that just because git-annex knows a certain location
 where content was once it does not guarantee that retrieval will
 work. If one location is a USB-Stick that is in your bag pack instead
 of your USB port,
 a second location is a hard drive that you deleted all of its
 previous contents (including dataset content) from,
 and another location is a web server, but you are not connected
-to the internet, Git-annex will not succeed in retrieving
+to the internet, git-annex will not succeed in retrieving
 contents from these locations.
 As long as there is at least one location that contains
-the file and is accessible, though, Git-annex will get the content.
+the file and is accessible, though, git-annex will get the content.
 
 Let's now turn to the fact that the subdataset ``longnow`` does
 not contain not only no file content, but also no file metadata

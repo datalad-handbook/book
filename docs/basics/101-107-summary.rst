@@ -12,7 +12,7 @@ and making simple modifications *locally*.
 
     datalad create --description "here is a description" -c text2git PATH
 
-* Thanks to :term:`Git` and :term:`Git-annex`, the dataset has a history to track files and their
+* Thanks to :term:`Git` and :term:`git-annex`, the dataset has a history to track files and their
   modifications. Built-in Git tools (:command:`git log`) or external tools (such as ``tig``) allow to explore
   the history.
 

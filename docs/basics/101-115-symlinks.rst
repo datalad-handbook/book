@@ -11,7 +11,7 @@ We further took note that when we modified content in ``notes.txt`` or ``list_fi
 the modified content was in a *text file*. We learned that
 this precise type of file, in conjunction with the initial configuration template
 ``text2git`` we gave to :command:`datalad create`, is meaningful: As the textfile is
-stored in Git and not Git-annex, no content unlocking is necessary.
+stored in Git and not git-annex, no content unlocking is necessary.
 As we saw within the demonstrations of :command:`datalad run`,
 modifying content of non-text files, such as ``.jpg``\s, requires
 -- spoiler: at least in our current type of dataset --
@@ -65,11 +65,11 @@ repository in the root of any dataset. One reason
 why you should not do this is because *this* ``.git`` directory is where all of your file content
 is actually stored.
 
-But why is that? We have to talk a bit Git-annex now in order to understand it [#f1]_.
+But why is that? We have to talk a bit git-annex now in order to understand it [#f1]_.
 
 When a file is saved into a dataset to be tracked,
 by default -- that is in a dataset created without any configuration template --
-DataLad gives this file to Git-annex. Exceptions to this behavior can be
+DataLad gives this file to git-annex. Exceptions to this behavior can be
 defined based on
 
 #. file size
@@ -78,7 +78,7 @@ defined based on
    or names, or file types (e.g., text files, as with the
    ``text2git`` configuration template).
 
-Git-annex, in order to version control the data, takes the file content
+git-annex, in order to version control the data, takes the file content
 and moves it under ``.git/annex/objects`` -- the so called :term:`object-tree`.
 It further renames the file into the sequence of characters you can see
 in the path, and in its place
@@ -124,7 +124,7 @@ Here you can see the reason why content is symlinked: Small file size means that
 Therefore, instead of large file content, only the symlinks are committed into
 Git, and the Git repository thus stays lean. Simultaneously, still, all
 files stored in Git as symlinks can point to arbitrarily large files in the
-object tree. Within the object tree, Git-annex handles file content tracking,
+object tree. Within the object tree, git-annex handles file content tracking,
 and is busy creating and maintaining appropriate symlinks so that your data
 can be version controlled just as any text file.
 
@@ -156,7 +156,7 @@ out the hidden section below.
 
 The second is that it should now be clear to you why the ``.git`` directory
 should not be deleted or in any way modified by hand. This place is where
-your data is stored, and you can trust Git-annex to be better able to
+your data is stored, and you can trust git-annex to be better able to
 work with the paths in the object tree than you or any other human are.
 
 Lastly, understanding that annexed files in your dataset are symlinked
@@ -173,7 +173,7 @@ to manage the file system in a datalad dataset (:ref:`filesystem`).
    maximal confusion with this naming? Can't it be ... more *readable*?
 
    Its not malicious intent that leads to these paths and file names. Its
-   checksums. And they are quite readable -- just not for humans, but Git-annex.
+   checksums. And they are quite readable -- just not for humans, but git-annex.
    Understanding the next section is completely irrelevant for the
    subsequent sections of the book. But it can help to establish trust in that
    your data is safely stored and tracked, and it can get certainly helpful
@@ -184,12 +184,12 @@ to manage the file system in a datalad dataset (:ref:`filesystem`).
    you need to take appropriate actions to get the dataset back into a clean
    state.
    Understanding more about the object tree can help to understand such
-   problems, and knowing bits of the Git-annex basics can make you more
+   problems, and knowing bits of the git-annex basics can make you more
    confident in working with your datasets.
 
    So how do these paths and names come into existence?
 
-   When a file is annexed, Git-annex generates a *key* from the **file content**.
+   When a file is annexed, git-annex generates a *key* from the **file content**.
    It uses this key (in part) as a name for the file and as the path
    in the object tree.
    Thus, the key is associated with the content of the file (the *value*),
@@ -212,7 +212,7 @@ to manage the file system in a datalad dataset (:ref:`filesystem`).
    tree will contain only one instance of that content, and all copies will
    symlink to it, thus saving disk space. But furthermore,
    the file name also becomes a way of ensuring data integrity. File content
-   can not be changed without Git-annex noticing, because the symlink to the
+   can not be changed without git-annex noticing, because the symlink to the
    file content will change. If you want to read more about the
    computer science basics about about hashes check out the Wikipedia
    page `here <https://en.wikipedia.org/wiki/Hash_function>`_.
@@ -274,10 +274,10 @@ to manage the file system in a datalad dataset (:ref:`filesystem`).
    of the key, and their sole purpose to exist is to avoid issues with too many files
    in one directory (which is a situation that certain file systems have problems with).
 
-   In summary, you now know a great deal about Git-annex and the object tree. Maybe you
+   In summary, you now know a great deal about git-annex and the object tree. Maybe you
    are as amazed as we are about some of the ingenuity used behind the scenes. In any
    case, this section was hopefully insightful, and not confusing. If you are still curious
-   about Git-annex, you can check out its
+   about git-annex, you can check out its
    `documentation <https://git-annex.branchable.com/git-annex/>`_.
 
 Broken symlinks
@@ -322,7 +322,7 @@ the superdataset.
 .. rubric:: Footnotes
 
 .. [#f1] Note, though, that the information below applies to everything that is not an
-         *adjusted branch* in a Git-annex *v7 repository* -- this information does not make
+         *adjusted branch* in a git-annex *v7 repository* -- this information does not make
          sense yet, but it will be an important reference point later on.
          Just for the record: Currently, we do not yet have a v7 repository
          in ``DataLad-101``, and the explanation below applies to our current dataset.

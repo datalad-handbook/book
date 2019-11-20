@@ -11,14 +11,14 @@ Glossary
       Example: ``/home/user/Pictures/xkcd-webcomics/530.png``. See also :term:`relative path`.
 
    adjusted branch
-      (Git-annex term) TODO
+      (git-annex term) TODO
 
    annex
       Git annex concept: a different word for :term:`object-tree`.
 
    annex UUID
        A :term:`UUID` assigned to an annex of each individual :term:`clone` of a dataset repository.
-       :term:`Git-annex` uses this UUID to track file content availability information.
+       :term:`git-annex` uses this UUID to track file content availability information.
        The UUID is available under the configuration key ``annex.uuid`` and is stored in the
        configuration file of a local clone (``<dataset root>/.git/config``).
        A single dataset instance (i.e. a local clone) has exactly one annex UUID,
@@ -77,7 +77,7 @@ Glossary
       more about git in `this (free) book <https://git-scm.com/book/en/v2>`_
       or `these interactive Git tutorials <https://try.github.io/>`_ on :term:`GitHub`.
 
-   Git-annex
+   git-annex
       A distributed file synchronization system, enabling sharing and synchronizing collections
       of large files. It allows managing files with :term:`Git`, without checking the file content into Git.
 
@@ -88,7 +88,7 @@ Glossary
    GitHub
       GitHub is an online platform where one can store and share version controlled projects
       using Git (and thus also DataLad project).See
-      `Github.com <https://github.com/>`_.
+      `GitHub.com <https://github.com/>`_.
 
    Gitk
       A repository browser that displays changes in a repository or a selected set of commits. It
@@ -124,7 +124,7 @@ Glossary
       A common text-editor.
 
    object-tree
-      Git-annex concept: The place where :term:`Git-annex` stores available file contents. Files that are annexed get
+      git-annex concept: The place where :term:`git-annex` stores available file contents. Files that are annexed get
       a :term:`symlink` added to :term:`Git` that points to the file content. A different word for :term:`annex`.
 
    provenance

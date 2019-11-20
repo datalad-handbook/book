@@ -54,8 +54,8 @@ Furthermore, by experiencing many common error messages in the context of :comma
 commands, you have gotten some clues on where to look for problems, should you encounter
 those errors in your own work.
 
-Lastly, we've started to unveil some principles of :term:`Git-annex` that are relevant to
+Lastly, we've started to unveil some principles of :term:`git-annex` that are relevant to
 understanding how certain commands work and why certain commands may fail. We have seen that
-Git-annex locks large files' content to prevent accidental modifications, and how the ``--output``
+git-annex locks large files' content to prevent accidental modifications, and how the ``--output``
 flag in :command:`datalad run` can save us an intermediate :command:`datalad unlock` to unlock this content.
 The next section will elaborate on this a bit more.

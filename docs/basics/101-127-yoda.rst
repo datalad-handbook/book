@@ -247,7 +247,7 @@ be included in an analysis superdataset as subdatasets. Thanks to
 :command:`datalad install`, information on the source of these subdatasets
 is stored in the history of the analysis superdataset, and they can even be
 updated from those sources if the original data dataset gets extended or changed.
-If you are including a file, for example code from Github,
+If you are including a file, for example code from GitHub,
 the :command:`datalad download-url` command (introduced in section :ref:`sibling`)
 will record the source of it safely in the dataset's history. And if you add anything to your dataset,
 from simple incremental coding progress in your analysis scripts up to
@@ -397,7 +397,7 @@ Summarizing these two glimpses into the dataset, this configuration has
 
 #. included a code directory in your dataset
 #. included three files for human consumption (``README.md``, ``CHANGELOG.md``)
-#. configured everything in the ``code/`` directory to be tracked by Git, not Git-annex [#f5]_
+#. configured everything in the ``code/`` directory to be tracked by Git, not git-annex [#f5]_
 #. and configured ``README.md`` and ``CHANGELOG.md`` in the root of the dataset to be
    tracked by Git.
 

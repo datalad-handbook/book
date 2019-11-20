@@ -13,7 +13,7 @@ They are version controlled, and upon sharing a dataset these configurations
 will be shared as well. An example for a shared configuration
 is the one that the ``text2git`` configuration template applied:
 In the shared copy of your dataset, text files are also saved with Git,
-and not Git-annex (see section :ref:`sibling`). The configuration responsible
+and not git-annex (see section :ref:`sibling`). The configuration responsible
 for this behavior is in a ``.gitattributes`` file, and we'll start this
 section by looking into it.
 
@@ -30,11 +30,11 @@ This file lies right in the root of your superdataset:
 
 This looks neither spectacular nor pretty. Also, it does not follow the ``section-option-value``
 organization of the ``.git/config`` file anymore. Instead, there are three lines,
-and all of these seem to have something to do with the configuration of Git-annex.
+and all of these seem to have something to do with the configuration of git-annex.
 There even is one key word that you recognize: MD5E.
 If you have read the hidden section in :ref:`symlink`
 you will recognize it as a reference to the type of
-key used by Git-annex to identify and store file content in the object-tree.
+key used by git-annex to identify and store file content in the object-tree.
 The first row, ``* annex.backend=MD5E``, therefore translates to "Everything in this
 directory should be hashed with a MD5E hash function".
 But what is the rest? We'll start with the last row::
@@ -43,7 +43,7 @@ But what is the rest? We'll start with the last row::
 
 Uhhh, cryptic. The lecturer explains:
 
-"Git-annex will *annex*, that is, *store in the object-tree*,
+"git-annex will *annex*, that is, *store in the object-tree*,
 anything it considers to be a "large file". By default, anything
 in your dataset would be a "large file", that means anything would be annexed.
 However, in section :ref:`symlink` I already mentioned that exceptions to this
@@ -56,11 +56,11 @@ behavior can be defined based on
    ``text2git`` configuration template).
 
 "In ``.gitattributes``, you can define what a large file and what is not
-by simply telling Git-annex by writing such rules."
+by simply telling git-annex by writing such rules."
 
 What you can see in this ``.gitattribute`` file is a rule based on **file types**:
 With ``(not(mimetype=text/*))`` [#f1]_, the ``text2git`` configuration template
-configured Git-annex to regard all files of type text **not** as a large file.
+configured git-annex to regard all files of type text **not** as a large file.
 Thanks to this little line, your text files are not annexed, but stored
 directly in Git.
 
@@ -68,10 +68,10 @@ The patterns ``*`` and ``**`` are so-called "wildcards" used in :term:`globbing`
 ``*`` matches any file or directory in the current directory, and ``**`` matches
 all files and directories in the current directory *and subdirectories*. In technical
 terms, ``**`` matches *recursively*. The third row therefore
-translates to "Do not annex anything that is a text file in this directory" for Git-annex.
+translates to "Do not annex anything that is a text file in this directory" for git-annex.
 
 However, rules can be even simpler. The second row simply takes a complete directory
-(``.git``) and instructs Git-annex to regard nothing in it as a "large file".
+(``.git``) and instructs git-annex to regard nothing in it as a "large file".
 The second row, ``**/.git* annex.largefiles=nothing`` therefore means that no
 ``.git`` repository in this directory or a subdirectory should be considered
 a "large file". This way, the ``.git`` repositories are protected from being annexed.
@@ -89,13 +89,13 @@ and view this dataset's ``.gitattributes`` file:
    $ cat recordings/longnow/.gitattributes
 
 The relevant part is ``README.md annex.largefiles=nothing``.
-This instructs Git-annex to specifically not annex ``README.md``.
+This instructs git-annex to specifically not annex ``README.md``.
 
 Lastly, if you wanted to configure a rule based on **size**, you could add a row such as::
 
    ** annex.largefiles(largerthan=20kb)
 
-to store only files exceeding 20KB in size in Git-annex [#f2]_.
+to store only files exceeding 20KB in size in git-annex [#f2]_.
 
 As you may have noticed, unlike ``.git/config`` files,
 there can be multiple ``.gitattributes`` files within a dataset. So far, you have seen one
@@ -121,9 +121,9 @@ This can be very handy, and allows you to tune your dataset to your custom needs
 For example, files you will often edit by hand could be stored in Git if they are
 not too large to ease modifying them [#f3]_.
 Once you know the basics of this type of configuration syntax, writing
-your own rules is easy. For more tips on how configure Git-annex's content
+your own rules is easy. For more tips on how configure git-annex's content
 management in ``.gitattributes``, take a look at `this <https://git-annex.branchable.com/tips/largefiles/>`_
-page of the Git-annex documentation.
+page of the git-annex documentation.
 Later however you will see preconfigured DataLad *procedures* such as ``text2git`` that
 can apply useful configurations for you, just as ``text2git`` added the last line
 in the root ``.gitattributes`` file.
@@ -202,7 +202,7 @@ Let's try this:
 
 This command will replace the submodule's https URL with an SSH URL.
 The later is often used if someone has an *SSH key pair* and added the
-public key to their Github account (you can read more about this
+public key to their GitHub account (you can read more about this
 `here <https://help.github.com/en/articles/which-remote-url-should-i-use>`_).
 We will revert this change shortly, but use it to show the difference between
 a :command:`git config` on a ``.git/config`` file and on a version controlled file:
@@ -243,7 +243,7 @@ Environment variables
 An :term:`environment variable` is a variable set up in your shell
 that affects the way the shell or certain software works -- for example
 the environment variables ``HOME``, ``PWD``, or ``PATH`` [#f4]_.
-Configuration options that determine the behavior of Git, Git-annex, and
+Configuration options that determine the behavior of Git, git-annex, and
 DataLad that could be defined in a configuration file can also be set (or overridden)
 by the associated environment variables of these configuration options.
 Many configuration items have associated environment variables.
@@ -254,7 +254,7 @@ configuration of Git can be overridden by its associated environment variable,
 ``GIT_AUTHOR_NAME``. Likewise, one can define the environment variable instead
 of setting the ``user.name`` configuration in a configuration file.
 
-Git, Git-annex, and DataLad have more environment variables than anyone would want to
+Git, git-annex, and DataLad have more environment variables than anyone would want to
 remember. `Here <https://git-scm.com/book/en/v2/Git-Internals-Environment-Variables>`__
 is a good overview on Git's most useful available environment variables for a start.
 All of DataLad's configuration options can be easily translated to their
@@ -279,7 +279,7 @@ want to work with and change them. You can use the :command:`git config` command
 for Git configuration files on different scopes, and even the ``.gitmodules`` or ``datalad/config``
 files. Of course you do not yet know all of the available configuration options. However,
 you already know some core Git configurations such as name, email, and editor. Even more
-important, you know how to configure Git-annex's content management based on ``largefile``
+important, you know how to configure git-annex's content management based on ``largefile``
 rules, and you understand the majority of variables within ``.gitmodules`` or the sections
 in ``.git/config``. Slowly, you realize with pride,
 you're more and more becoming a DataLad power-user.
@@ -310,7 +310,7 @@ Write a note about configurations in datasets into ``notes.txt``.
    The git config --list --show-origin command is a useful tool
    to give an overview over existing configurations. Particularly
    important may be the .gitattributes file, in which one can set
-   rules for Git-annex about which files should be version-controlled
+   rules for git-annex about which files should be version-controlled
    with Git instead of being annexed.
 
    EOT
@@ -346,7 +346,7 @@ Write a note about configurations in datasets into ``notes.txt``.
          The above command annexes files larger than 100KB, and will never annex files with a
          ``.c`` or ``.h`` extension.
 
-.. [#f3] Should you ever need to, this file is also where one would change the Git-annex
+.. [#f3] Should you ever need to, this file is also where one would change the git-annex
          backend in order to store new files with a new backend. Switching the backend of
          *all* files (new as well as existing ones) requires the :command:`git annex migrate`
          (see `the documentation <https://git-annex.branchable.com/git-annex-migrate/>`_ for

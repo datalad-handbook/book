@@ -76,7 +76,7 @@ calculations instead of data storage, the cluster gets a remote data
 store: Data lives as DataLad datasets on a different machine than the one
 the scientific analyses are computed on.
 For access to the annexed data in datasets, the data store is configured as a
-Git-annex `RIA-remote <https://libraries.io/pypi/ria-remote>`_.
+git-annex `RIA-remote <https://libraries.io/pypi/ria-remote>`_.
 In case of filesystem inode limitations on the machine
 serving as the data store (e.g., HPC storage systems), full datasets can be
 (compressed) 7-zip archives, without losing the ability to query available files.
@@ -136,11 +136,11 @@ but scaling requires them to use ``$COMPUTE``. Results from ``$COMPUTE`` are pus
 back to ``$DATA``, and hence anything that is relevant for a computation is tracked
 (and backed-up) there.
 
-The data store as a Git-annex RIA remote
+The data store as a git-annex RIA remote
 """"""""""""""""""""""""""""""""""""""""
 
-The remote data store exists thanks to Git-annex (which DataLad builds upon):
-Large files in datasets are stored as *values* in Git-annex's object tree. A *key*
+The remote data store exists thanks to git-annex (which DataLad builds upon):
+Large files in datasets are stored as *values* in git-annex's object tree. A *key*
 generated from their contents is checked into Git and used to reference the
 location of the value in the object tree [#f1]_. The object tree (or *keystore*)
 with the data contents can be located anywhere -- its location only needs to be
@@ -151,7 +151,7 @@ about where data is stored, as they can access it just as easily as before.
 .. findoutmore:: What is a special remote?
 
    A `special-remote <https://git-annex.branchable.com/special_remotes/>`_ is an
-   extension to Git's concept of remotes, and can enable Git-annex to transfer
+   extension to Git's concept of remotes, and can enable git-annex to transfer
    data to and from places that are not Git repositories (e.g., cloud services
    or external machines such as an HPC system). Don't envision a special-remote as a
    physical place or location -- a special-remote is just a protocol that defines
@@ -159,8 +159,8 @@ about where data is stored, as they can access it just as easily as before.
 
 The machines in question, parts of an old compute cluster, and parts of the
 supercomputer at the JSC are configured to receive and store data using the
-Git-annex remote for indexed file archives (`RIA <https://libraries.io/pypi/ria-remote>`_)
-special remote. The Git-annex RIA-remote is similar to Git-annex's built-in
+git-annex remote for indexed file archives (`RIA <https://libraries.io/pypi/ria-remote>`_)
+special remote. The git-annex RIA-remote is similar to git-annex's built-in
 `directory <https://git-annex.branchable.com/special_remotes/directory/>`_
 special remote, but distinct in certain aspects:
 
@@ -253,7 +253,7 @@ Here is how the RIA-remote features look like in real life:
   any standard dataset or repository -- contains the keystore (object tree) under
   ``annex/objects`` (highlighted above as well). Details on how this object tree
   is structured are outlined in the hidden section in :ref:`symlink`.
-- These keystores can be 7zipped if necessary to hold (additional) Git-annex objects,
+- These keystores can be 7zipped if necessary to hold (additional) git-annex objects,
   either for compression gains, or for use on HPC-systems with inode limitations.
 
 This implementation is fully self-contained, and is a plain file system storage,
@@ -299,7 +299,7 @@ control capabilities their work also becomes more transparent, open, and reprodu
 
 .. findoutmore:: Software Requirements
 
-   - Git-annex version 7.20 or newer
+   - git-annex version 7.20 or newer
    - DataLad version 0.12.5 (or later), or any DataLad development version more
      recent than May 2019 (critical feature: https://github.com/datalad/datalad/pull/3402)
    - The ``cfg_inm7`` run procedure as provided with ``pip install git+https://jugit.fz-juelich.de/inm7/infrastructure/inm7-datalad.git``
@@ -308,9 +308,9 @@ control capabilities their work also becomes more transparent, open, and reprodu
 
 .. rubric:: Footnotes
 
-.. [#f1] To re-read about how Git-annex's object tree works, check out section
+.. [#f1] To re-read about how git-annex's object tree works, check out section
          :ref:`symlink`, and pay close attention to the hidden section.
-         Additionally, you can find much background information in Git-annex's
+         Additionally, you can find much background information in git-annex's
          `documentation <https://git-annex.branchable.com/internals/>`_.
 
 .. [#f2] To re-read about DataLad's run-procedures, check out section

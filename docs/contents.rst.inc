@@ -44,7 +44,7 @@ Datalad, Run!
 
 
 #########################
-Under the hood: Git-annex
+Under the hood: git-annex
 #########################
 
 .. toctree::

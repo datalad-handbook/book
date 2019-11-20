@@ -19,7 +19,7 @@ has an external Git-expert as a guest lecturer.
 "I do not have enough time to go through all the details in only
 one lecture. But I'll give you the basics, and an idea of what is possible.
 Always remember: Just google what you need. You will find thousands of helpful tutorials
-or questions on `Stackoverflow <https.stackoverflow.com>`_ right away.
+or questions on `Stack Overflow <https://stackoverflow.com>`_ right away.
 Even experts will *constantly* seek help to find out which Git command to
 use, and how to use it.", he reassures with a wink.
 
@@ -137,7 +137,7 @@ DataLad in the editor)!
       Be aware that an interactive rebase lets you *rewrite* history.
       This can lead to confusion or worse if the history you are rewriting
       is shared with others, e.g., in a collaborative project. Be also aware
-      that rewriting history that is *pushed*/*published* (e.g., to Github)
+      that rewriting history that is *pushed*/*published* (e.g., to GitHub)
       will require a force-push!
 
    Running this command gives you a list of the N most recent commits
@@ -287,13 +287,13 @@ Finally, lets check how the history looks afterwards:
 
 Wow! You have rewritten history [#f4]_ !
 
-Untracking accidentally saved contents (stored in Git-annex)
+Untracking accidentally saved contents (stored in git-annex)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The previous :command:`git reset` undid the tracking of *text* files.
 However, those files are stored in Git, and thus their content
 is also stored in Git. Files that are annexed, however, have
-their content stored in Git-annex, and not the file itself is stored
+their content stored in git-annex, and not the file itself is stored
 in the history, but a symlink pointing to the location of the file
 content in the dataset's annex. This has consequences for
 a :command:`git reset` command: Reverting a save of a file that is
@@ -757,7 +757,7 @@ to remove the ``Gitjoke2.txt`` file.
 
 .. [#f4] Note though that rewriting history can be dangerous, and you should
          be aware of what you are doing. For example, rewriting parts of the
-         dataset's history that have been published (e.g., to a Github repository)
+         dataset's history that have been published (e.g., to a GitHub repository)
          already or that other people have copies of, is not advised.
 
 .. [#f5] When in need to interactively rebase, please consult further documentation

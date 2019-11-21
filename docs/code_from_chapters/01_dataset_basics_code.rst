@@ -194,7 +194,7 @@ Code snippet 33::
 
 Code snippet 34::
 
-   git log -p
+   git log -p -n 2
 
 
 Code snippet 35::

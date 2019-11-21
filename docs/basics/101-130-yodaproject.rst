@@ -204,6 +204,8 @@ you use the ``cfg_yoda`` procedure to help you structure the dataset [#f1]_:
 .. runrecord:: _examples/DL-101-130-103
    :language: console
    :workdir: dl-101/DataLad-101
+   :cast: 10_yoda
+   :notes: Let's create a data analysis project with a yoda procedure
 
    # inside of DataLad-101
    $ datalad create -c yoda --dataset . midterm_project
@@ -232,6 +234,8 @@ by installing it as a subdataset. Make sure to install it as a subdataset of
 .. runrecord:: _examples/DL-101-130-105
    :language: console
    :workdir: dl-101/DataLad-101
+   :cast: 10_yoda
+   :notes: Now install input data as a subdataset
 
    $ cd midterm_project
    # we are in midterm_project, thus -d . points to the root of it.
@@ -246,9 +250,12 @@ looks like this:
 .. runrecord:: _examples/DL-101-130-106
    :language: console
    :workdir: dl-101/DataLad-101/midterm_project
+   :cast: 10_yoda
+   :notes: here is how the directory structure looks like
 
    $ cd ../
    $ tree -d
+   $ cd midterm_project
 
 Importantly, all of the subdatasets are linked to the higher-level datasets,
 and despite being inside of ``DataLad-101``, your ``midterm_project`` is an independent
@@ -287,6 +294,8 @@ To compute the analysis you create the following Python script inside of ``code/
    :language: console
    :workdir: dl-101/DataLad-101/midterm_project
    :emphasize-lines: 5, 10, 13, 22, 41
+   :cast: 10_yoda
+   :notes: Let's create code for an analysis
 
    $ cat << EOT > code/script.py
 
@@ -349,6 +358,8 @@ Let's run a quick :command:`datalad status`...
 .. runrecord:: _examples/DL-101-130-108
    :language: console
    :workdir: dl-101/DataLad-101/midterm_project
+   :cast: 10_yoda
+   :notes: datalad status will show a new file
 
    $ datalad status
 
@@ -359,6 +370,8 @@ point with the ``--version-tag`` option of :command:`datalad save`.
 .. runrecord:: _examples/DL-101-130-109
    :language: console
    :workdir: dl-101/DataLad-101/midterm_project
+   :cast: 10_yoda
+   :notes: Save the analysis to the history
 
    $ datalad save -m "add script for kNN classification and plotting" --version-tag ready4analysis code/script.py
 
@@ -410,6 +423,8 @@ you can wrap the execution of the script (which is a simple
 .. runrecord:: _examples/DL-101-130-111
    :language: console
    :workdir: dl-101/DataLad-101/midterm_project
+   :cast: 10_yoda
+   :notes: The datalad run command can reproducibly execute a command reproducibly
 
    $ datalad run -m "analyze iris data with classification analysis" \
      --input "input/iris.csv" \
@@ -439,6 +454,8 @@ dataset:
 .. runrecord:: _examples/DL-101-130-112
    :language: console
    :workdir: dl-101/DataLad-101/midterm_project
+   :cast: 10_yoda
+   :notes: Let's take a look at the history
 
    $ git log --oneline
 
@@ -451,6 +468,8 @@ dataset that you can use for this [#f4]_.
 .. runrecord:: _examples/DL-101-130-113
    :language: console
    :workdir: dl-101/DataLad-101/midterm_project
+   :cast: 10_yoda
+   :notes: create human readable information for your project
 
    # with the >| redirection we are replacing existing contents in the file
    $ cat << EOT >| README.md
@@ -470,15 +489,18 @@ dataset that you can use for this [#f4]_.
 .. runrecord:: _examples/DL-101-130-114
    :language: console
    :workdir: dl-101/DataLad-101/midterm_project
+   :cast: 10_yoda
+   :notes: The README file is now modified
 
    $ datalad status
 
 .. runrecord:: _examples/DL-101-130-115
    :language: console
    :workdir: dl-101/DataLad-101/midterm_project
+   :cast: 10_yoda
+   :notes: Let's save this change
 
    $ datalad save -m "Provide project description" README.md
-
 
 Note that one feature of the YODA procedure was that it configured certain files
 (for example everything inside of ``code/``, and the ``README.md`` file in the

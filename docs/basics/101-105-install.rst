@@ -67,8 +67,8 @@ Because we are installing a dataset (the podcasts) within an existing dataset (t
 dataset), we supply the ``-d`` (``--dataset``) flag.
 This specifies the dataset to perform the operation on. Because we are in the root
 of the ``DataLad-101`` dataset, the pointer to the dataset is a ``.`` (which is Unix'
-way for saying "current directory"). The dataset to be installed lives on Github, and
-we can give its Github URL as a source (``-s``, ``--source``). Note that we line
+way for saying "current directory"). The dataset to be installed lives on :term:`GitHub`, and
+we can give its GitHub URL as a source (``-s``, ``--source``). Note that we line
 break these examples with a ``\``. You can copy them as they are presented here into
 your terminal, but in your own work you can write commands like this into a single
 line.
@@ -299,7 +299,7 @@ history from first to most recent commit):
    $ git log --reverse
 
 But that's not all. The seminar series is ongoing, and more recordings can get added
-to the original repository shared on Github.
+to the original repository shared on GitHub.
 Because an installed dataset knows the dataset it was installed from,
 the locally installed dataset can simply be updated, and thus get the new recordings,
 should there be some. But we will see examples of this later in this handbook.

@@ -186,17 +186,17 @@ done wrong, we raise our hand to ask the instructor for help.
 Knowingly, she smiles, and tells you about how DataLad protects content given
 to it:
 
-"Content in your DataLad dataset is protected by :term:`Git-annex` from
+"Content in your DataLad dataset is protected by :term:`git-annex` from
 accidental changes" our instructor begins.
 
 "Wait!" we interrupt. "First of, that wasn't accidental. And second, I was told this
-course does not have ``Git-annex-101`` as a prerequisite?"
+course does not have ``git-annex-101`` as a prerequisite?"
 
 "Yes, hear me out" she says. "I promise you two different solutions at
 the end of this explanation, and the concept behind this is quite relevant".
 
-DataLad usually gives content to :term:`Git-annex` to store and track.
-Git-annex, let's just say, takes this task *really* seriously. One of its
+DataLad usually gives content to :term:`git-annex` to store and track.
+git-annex, let's just say, takes this task *really* seriously. One of its
 features that you have just experienced is that it *locks* content.
 
 If files are *locked down*, their content can not be modified. In principle,
@@ -206,7 +206,7 @@ Therefore, a file needs to be consciously *unlocked* to apply modifications.
 
 In the attempt to resize the image to 450x450 you tried to overwrite
 ``recordings/salt_logo_small.jpg``, a file that was given to DataLad
-and thus protected by Git-annex.
+and thus protected by git-annex.
 
 .. index:: ! datalad command; unlock
 
@@ -395,7 +395,7 @@ the ``--input`` and ``--output`` specification done before.
       $ datalad run -m "move a few files around" \
       --input "file1" --input "file2" --input "file3" \
       --output "directory_a/" \
-      "mv file1 file2 file3 directory_a}"
+      "mv file1 file2 file3 directory_a/"
 
 
    The order of the values will match that order from the command line.
@@ -416,7 +416,7 @@ the ``--input`` and ``--output`` specification done before.
       $ datalad run -m "move a few files around" \
       --input "file1" --input "file2" --input "file3" \
       --output "directory_a/" \
-      "mv file1 file2 file3 directory_a}"
+      "mv file1 file2 file3 directory_a/"
 
    If the command only needs a subset of the inputs or outputs, individual values
    can be accessed with an integer index, e.g., ``{inputs[0]}`` for the very first

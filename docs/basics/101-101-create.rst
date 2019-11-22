@@ -102,7 +102,7 @@ an informative commit message yourself.
    :command:`datalad create` uses :command:`git init` and :command:`git-annex init`. Therefore,
    the DataLad dataset is a Git repository.
    Large file content in the
-   dataset in the annex is tracked with Git-annex. An ``ls -a``
+   dataset in the annex is tracked with git-annex. An ``ls -a``
    reveals that Git has secretly done its work:
 
    .. runrecord:: _examples/DL-101-101-104

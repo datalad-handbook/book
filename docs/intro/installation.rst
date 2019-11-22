@@ -19,7 +19,7 @@ The content in this chapter is largely based on the information given on the
 and the `DataLad documentation <http://docs.datalad.org/en/latest/gettingstarted.html>`_.
 
 Beyond DataLad itself, the installation requires Python, Pythons package manager ``pip``,
-:term:`Git`, and :term:`Git-annex`. The instructions below detail how to install
+:term:`Git`, and :term:`git-annex`. The instructions below detail how to install
 each of these components for different common operating systems. Please
 `file an issue <https://github.com/datalad-handbook/book/issues/new>`_
 if you encounter problems.
@@ -47,7 +47,7 @@ Also, should you be confused by the name:
 enabling this repository will not do any harm if your field is not neuroscience.
 
 The following command installs
-DataLad and all of its software dependencies (including the Git-annex-standalone package):
+DataLad and all of its software dependencies (including the git-annex-standalone package):
 
 .. code-block:: bash
 
@@ -69,7 +69,7 @@ can be installed with `Miniconda <https://docs.conda.io/en/latest/miniconda.html
   # upgrade to the latest release candidate to match the requires of the book
   $ conda install -c conda-forge/label/rc datalad
 
-This should install :term:`Git`, :term:`Git-annex`, and DataLad.
+This should install :term:`Git`, :term:`git-annex`, and DataLad.
 The installer automatically configures the shell to make conda-installed
 tools accessible, so no further configuration is necessary.
 
@@ -84,12 +84,12 @@ needs to be installed from the Mac App Store.
 Homebrew then can be installed using the command following the
 instructions on their webpage (linked above).
 
-Next, `install Git-annex <https://git-annex.branchable.com/install/OSX/>`_. The
+Next, `install git-annex <https://git-annex.branchable.com/install/OSX/>`_. The
 easiest way to do this is via ``brew``::
 
    $ brew install git-annex
 
-Once Git-annex is available, DataLad can be installed via Pythons package
+Once git-annex is available, DataLad can be installed via Pythons package
 manager ``pip`` as described below. ``pip`` should already be installed by
 default. Recent macOS versions may have ``pip3`` instead of ``pip`` -- use
 :term:`tab completion` to find out which is installed. If it is ``pip3``, run::
@@ -121,7 +121,7 @@ a user's home directory:
 
    $ pip install --user datalad~=0.12.0rc6
 
-In addition, it is necessary to have a current version of :term:`Git-annex` installed which is
+In addition, it is necessary to have a current version of :term:`git-annex` installed which is
 not set up automatically by using the ``pip`` method.
 You can find detailed installation instructions on how to do this
 `here <https://git-annex.branchable.com/install/>`__.
@@ -184,9 +184,9 @@ please `get in touch <https://github.com/datalad-handbook/book/issues/new>`_.
         Note: Is has to be from ``conda-forge``, the anaconda version does not
         provide the ``cp`` command.
 
-   - **Step 3**: Install Git-annex
+   - **Step 3**: Install git-annex
 
-      - Obtain the current Git-annex versions installer
+      - Obtain the current git-annex versions installer
         `from here <https://downloads.kitenet.net/git-annex/windows/current/>`_.
         Save the file, and double click the downloaded
         :command:`git-annex-installer.exe` in your Downloads.
@@ -415,7 +415,7 @@ please `get in touch <https://github.com/datalad-handbook/book/issues/new>`_.
 
          $ sudo apt-update && sudo apt upgrade
 
-   - **Step 6**: Install datalad and everything it needs from Neurodebian
+   - **Step 6**: Install datalad and everything it needs from NeuroDebian
 
       .. code-block:: bash
 
@@ -423,7 +423,7 @@ please `get in touch <https://github.com/datalad-handbook/book/issues/new>`_.
 
    .. todo::
 
-      - maybe update Step 6 to use ``pip3`` to install DataLad and Git-annex.
+      - maybe update Step 6 to use ``pip3`` to install DataLad and git-annex.
 
 
 Initial configuration

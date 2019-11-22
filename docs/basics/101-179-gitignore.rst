@@ -31,7 +31,7 @@ dataset.
 
 
 However, there may be valid reasons to keep content out of
-DataLads version control and tracking. Maybe you hide your secret
+DataLad's version control and tracking. Maybe you hide your secret
 ``my-little-pony-themesongs/`` collection within ``Deathmetal/``
 and do not want a record of this in your history or the directory
 being shared together with the rest of the dataset. Who knows?

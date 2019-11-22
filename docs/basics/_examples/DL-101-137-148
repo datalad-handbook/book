@@ -1,2 +1,4 @@
-$ git reset --hard master
-HEAD is now at d95c45c Revert "did a bad modification"
+$ git clean -f
+Removing Gitjoke1.txt
+Removing Gitjoke3.txt
+Removing apdffile.pdf

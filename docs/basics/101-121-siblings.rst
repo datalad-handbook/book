@@ -27,7 +27,7 @@ as the ascii-cast on `dataset nesting <https://www.datalad.org/for/git-users>`_.
 Because he found this very helpful in understanding dataset
 nesting concepts, he decided to download the ``shell`` script
 that was `used to generate this example <https://raw.githubusercontent.com/datalad/datalad.org/7e8e39b1f08d0a54ab521586f27ee918b4441d69/content/asciicast/seamless_nested_repos.sh>`_
-from Github, and saves it in the ``code/`` directory.
+from GitHub, and saves it in the ``code/`` directory.
 
 .. index:: ! datalad command; download-url
 
@@ -78,7 +78,7 @@ here:
    :notes: the ds copy has a change the original ds does not have:
    :cast: 04_collaboration
 
-   $ git log -1 -p
+   $ git log -n 1 -p
 
 Suddenly, your room mate has a file change that you do not have.
 His dataset evolved.

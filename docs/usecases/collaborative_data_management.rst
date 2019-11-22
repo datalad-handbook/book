@@ -64,7 +64,7 @@ to be a YODA dataset right at the time of creation:
    $ datalad create -c yoda --description "my 1st phd project on work computer" myanalysis
 
 After creation, there already is a ``code/`` directory, and all of its
-inputs are version-controlled by :term:`Git` instead of :term:`Git-annex`
+inputs are version-controlled by :term:`Git` instead of :term:`git-annex`
 thanks to the yoda procedure:
 
 .. runrecord:: _examples/collab-102
@@ -82,7 +82,7 @@ make it easier to keep his analysis organized and share it later.
 The dataset that Bob wants to work with is structural brain imaging data from the
 `studyforrest project <http://studyforrest.org/>`_, a public
 data resource that the original authors share as a DataLad dataset through
-:term:`Github`. This means that Bob can simply install the relevant dataset from this
+:term:`GitHub`. This means that Bob can simply install the relevant dataset from this
 service and into his own dataset. To do that, he installs it as a subdataset
 into a directory he calls ``src/`` as he wants to make it obvious which parts
 of his analysis steps and code require 3rd party data:

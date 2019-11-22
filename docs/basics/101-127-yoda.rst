@@ -1,10 +1,7 @@
 .. _yoda:
 
-
 YODA: Best practices for data analyses in a dataset
 ---------------------------------------------------
-
-
 
 The last requirement for the midterm projects reads "needs to comply to the
 YODA principles".
@@ -13,7 +10,8 @@ before.
 "The topic of today's lecture: Organizational principles of data
 analyses in DataLad datasets. This lecture will show you the basic
 principles behind creating, sharing, and publishing reproducible,
-understandable, and open data analysis projects with DataLad."
+understandable, and open data analysis projects with DataLad.", you
+hear in return.
 
 The starting point...
 ^^^^^^^^^^^^^^^^^^^^^
@@ -23,13 +21,13 @@ But it can be very difficult to produce a reproducible, let alone
 *comprehensible* data analysis project.
 Many data analysis projects do not start out with
 a stringent organization, or fail to keep the structural organization of a
-directory intact as the project develops. Often, this can be due a lack of
+directory intact as the project develops. Often, this can be due to a lack of
 version-control. In these cases, a project will quickly end up
 with many
 `almost-identical scripts suffixed with "_version_xyz" <http://phdcomics.com/comics/archive.php?comicid=1531>`_,
 or a chaotic results structure split between various directories with names
 such as ``results/``, ``results_August19/``, ``results_revision/`` and
-``now_with_nicer_plots/``. Something like this for example is a very
+``now_with_nicer_plots/``. Something like this is a very
 common shape a data science project may take after a while:
 
 .. code-block:: bash
@@ -66,7 +64,7 @@ common shape a data science project may take after a while:
 
     [...]
 
-All data analysis endeavours in directories like this *can* work, for a while,
+All data analysis endeavors in directories like this *can* work, for a while,
 if there is a person who knows the project well, and works on it all the time.
 But it inevitably will get messy once anyone tries to collaborate on a project
 like this, or simply goes on a two-week vacation and forgets whether
@@ -249,7 +247,7 @@ be included in an analysis superdataset as subdatasets. Thanks to
 :command:`datalad install`, information on the source of these subdatasets
 is stored in the history of the analysis superdataset, and they can even be
 updated from those sources if the original data dataset gets extended or changed.
-If you are including a file, for example code from Github,
+If you are including a file, for example code from GitHub,
 the :command:`datalad download-url` command (introduced in section :ref:`sibling`)
 will record the source of it safely in the dataset's history. And if you add anything to your dataset,
 from simple incremental coding progress in your analysis scripts up to
@@ -279,7 +277,7 @@ be established between components of your dataset. Scripts inside of
 your ``code/`` directory should point to data not as :term:`absolute path`\s
 that would only work on your system, but instead as :term:`relative path`\s
 that will work in any shared copy of your dataset. The next section
-on DataLads Python API will show concrete examples of this.
+on DataLad's Python API will show concrete examples of this.
 
 Lastly, this principle also includes *moving*, *sharing*, and *publishing* your
 datasets or its components.
@@ -352,7 +350,7 @@ The YODA procedure
 ^^^^^^^^^^^^^^^^^^
 
 There is one tool that can make starting a yoda-compliant data analysis
-easier: DataLads ``yoda`` procedure. Just as the ``text2git`` procedure
+easier: DataLad's ``yoda`` procedure. Just as the ``text2git`` procedure
 from section :ref:`createds`, the ``yoda`` procedure can be included in a
 :command:`datalad create` command and will apply useful configurations
 to your dataset:
@@ -399,19 +397,12 @@ Summarizing these two glimpses into the dataset, this configuration has
 
 #. included a code directory in your dataset
 #. included three files for human consumption (``README.md``, ``CHANGELOG.md``)
-#. configured everything in the ``code/`` directory to be tracked by Git, not Git-annex [#f5]_
+#. configured everything in the ``code/`` directory to be tracked by Git, not git-annex [#f5]_
 #. and configured ``README.md`` and ``CHANGELOG.md`` in the root of the dataset to be
    tracked by Git.
 
-Your next data analysis project can thus get a headstart with useful configurations
+Your next data analysis project can thus get a head start with useful configurations
 and the start of a comprehensible directory structure by applying the ``yoda`` procedure.
-
-
-
-
-
-
-
 
 Sources
 ^^^^^^^

@@ -90,7 +90,7 @@ renamed, and will summarize this nicely in the resulting commit:
    :notes: and this is how it looks like in the history
    :cast: 03_git_annex_basics
 
-   $ git log -1 -p
+   $ git log -n 1 -p
 
 Note that :command:`datalad save` commits all modifications when
 it's called without a path specification,
@@ -262,7 +262,7 @@ the best option to turn to.
       :notes: moving files across directory levels is a content change because the symlink changes!
       :cast: 03_git_annex_basics
 
-      $ git log -1 -p
+      $ git log -n 1 -p
 
    As you can see, this action does not show up as a move, but instead
    a deletion and addition of a new file. Why? Because the content
@@ -274,9 +274,9 @@ the best option to turn to.
    An additional piece of background information: A :command:`datalad save` command
    internally uses a :command:`git commit` to save changes to a dataset.
    :command:`git commit` in turn triggers a :command:`git annex fix`
-   command. This Git-annex command fixes up links that have become broken
+   command. This git-annex command fixes up links that have become broken
    to again point to annexed content, and is responsible for cleaning up
-   what needs to be cleaned up. Thanks, Git-annex!
+   what needs to be cleaned up. Thanks, git-annex!
 
 
 Therefore, while it might be startling
@@ -327,7 +327,7 @@ file. Let's save it:
    :notes: That's it!
    :cast: 03_git_annex_basics
 
-   $ git log -1 -p
+   $ git log -n 1 -p
 
 That's it.
 
@@ -518,7 +518,7 @@ section.
    .. runrecord:: _examples/DL-101-136-140
       :language: console
       :workdir: dl-101/DataLad-101
-      :emphasize-lines: 14-15
+      :emphasize-lines: 15-16
 
       $ cat .git/config
 
@@ -577,7 +577,7 @@ section.
    .. runrecord:: _examples/DL-101-136-144
       :language: console
       :workdir: dl-101/DataLad-101
-      :emphasize-lines: 15
+      :emphasize-lines: 16
 
       $ cat .git/config
 
@@ -744,7 +744,7 @@ DataLad will safeguard dropping content that it can not retrieve again:
 .. runrecord:: _examples/DL-101-136-178
    :workdir: dl-101/DataLad-101
    :language: console
-   :notes: datalad does not know how to reobtain the file, so it complains
+   :notes: datalad does not know how to re-obtain the file, so it complains
    :cast: 03_git_annex_basics
 
    $ datalad drop a.pdf
@@ -862,8 +862,8 @@ have seen permission denied errors such as
 
 This error indicates that there is write-protected content within ``.git`` that
 cannot not be deleted. What is this write-protected content? It's the file content
-stored in the object tree of Git-annex. If you want, you can re-read the section on
-:ref:`symlink` to find out how Git-annex revokes write permission for the user
+stored in the object tree of git-annex. If you want, you can re-read the section on
+:ref:`symlink` to find out how git-annex revokes write permission for the user
 to protect the file content given to it. To remove a dataset with annexed content
 one has to regain write permissions to everything in the dataset. This is done
 with the `chmod <https://en.wikipedia.org/wiki/Chmod>`_ command::

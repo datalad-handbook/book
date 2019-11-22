@@ -1,0 +1,15 @@
+Working in (sub-)datasets from afar
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Up until now, we made sure to diligently ``cd`` into the precise dataset or
+subdataset we wanted to work with. This was straightforward and easy, but, to
+be honest, you found it slightly annoying from time to time as well.
+
+Luckily, Git has an option to run commands in a path different from the current
+working directory: ``-C`` (note that it is a capital C). Providing this
+option together with a path to any Git command let's you run the command as
+if Git was started in this path instead of the current working directory.
+
+.. todo::
+
+   this needs some examples and practice.

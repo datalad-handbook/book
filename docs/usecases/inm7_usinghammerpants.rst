@@ -3,7 +3,7 @@
 Using the INM-7 Hammerpants data store
 --------------------------------------
 
-This usecase is a step-by-step instruction on how to work with the distributed
+This usecase is a step-by-step instruction on how to work with the remote
 data store ``HAMMERPANTS`` at INM-7, Research Centre Juelich. It details how to
 
 - Create an analysis dataset with an appropriate configuration
@@ -42,7 +42,7 @@ With less and less disk space available, the cluster aches under the
 additional load of large computing jobs. Analyses run slower and slower because of
 insufficient memory. Moreover, because no job scheduler [#f1]_ exists on the cluster
 that would incentivize reasonably sized partial analyses steps, analyses can be
-large chunks that run for days or weeks. With this, important analyses often sit
+large chunks that run for days or weeks. With this, analyses often sit
 idle for weeks, and important computations are delayed.
 
 The DataLad Approach
@@ -61,9 +61,9 @@ managed by experienced system administrators and data curators.
 Users set up their analyses in DataLad datasets, configured with an institute-specific
 run-procedure.
 In these analysis datasets, data from the data store can be installed as subdatasets.
-Given that not all file contents in a dataset will be relevant for all analysis,
-users can obtain the precise required content on demand, instead of all of the dataset
-contents.
+Given that not all file contents in a dataset will be relevant for all analyses,
+users can obtain the precise required content on demand, instead of keeping
+full-size copies of datasets around.
 Simple local version control workflows help researchers to keep track of file modifications
 regardless of file size, and best practices and standards for structuring
 data analyses datasets contribute to making analysis projects intuitively organized
@@ -73,7 +73,7 @@ and backup that complies to funding requirements.
 
 Other than data retrieval and storage, computational analysis workflows are improved by
 incentivizing computational best-practices and preventing computational catastrophes.
-Users' ``$HOME`` directories are limited to a maximum of 100 GB in size - this allows
+Users' ``$HOME`` directories are limited to a maximum of 100 GB in size -- this allows
 researchers to explore data and test their scripts as they wish, but prevents uncontrolled
 clutter and data piling up. In order to scale and compute analysis on large datasets,
 computations have to run on the compute nodes of the cluster, managed by the job
@@ -82,25 +82,40 @@ resource usage and fair job allocation. The use of the job scheduler further inc
 small-chunked, partial analysis-steps, that can run fast and in parallel, making
 computations more efficient.
 
-Because researchers work more disk-space aware than before, and because the remote
-``HAMMERPANTS`` data store ensures data is sufficiently backed up and easily
-available again, input datasets from the data store are dropped to save disk space
-once an analysis is finished.
+The new computational setup and configuration also aids computations at the Juelich
+Supercomputing centre (JSC)
+
 
 .. todo::
 
    Add how the cluster aids computing jobs at the JSC
 
+Because researchers work more disk-space aware than before, and because the remote
+``HAMMERPANTS`` data store ensures data is sufficiently backed up and easily
+available again, input datasets from the data store are dropped to save disk space
+once an analysis is finished.
+
+
 
 Step-by-Step
 ^^^^^^^^^^^^
 
+.. findoutmore:: TODO !!! Expand this for a glossary in specific location names
+
+   - ``cfg_inm7``: An INM-7 specific run-procedure that configures ...
+     Can either be applied with ``datalad create -c inm7 <name>`` or
+     ``datalad run-procedure cfg_inm7``
+   - ``install_ria_ephemeral``: procedure for long-term archival at JSC (?)
+   - ``ria-layout-version``: ??
+   - ``inm7-storage``: dataset sibling, to...
+   - ``inm7``: dataset sibling, to...
+
 Once the ``HAMMERPANTS`` storage is set up, only experienced, specialized data
 curation, system administration, and maintenance personnel has write access to
-it. This ensure that organizational and file name standards are kept, prevents
+it. This ensures that organizational and file name standards are kept, prevents
 accidental changes or deletion of data, rules out that multiple duplicates of
 datasets exist, and leads to standardized workflows for applications for datasets
-and their download.
+and the download of such dataset from their sources.
 
 On the level of users ``$HOME`` directories and the compute cluster, sensible
 limits and rules prevent blatant misuse of computational infrastructure and
@@ -122,8 +137,13 @@ most efficient way possible [#f1]_.
 
    Trinity of research data handling: The data store (``$DATA``) is managed and
    backed-up. The compute cluster (``$COMPUTE``) has an analysis-appropriate structure
-   with adequate resources, but just as users workstations/laptops (``$HOME``),
-   it is not concerned with data hosting.
+   with adequate resources. Large computations have to run on the compute nodes
+   via the job scheduler HTCondor. Users workstations/laptops (``$HOME``) provide
+   sufficient resources for small analyses and analysis script development.
+
+
+Starting an analysis project
+""""""""""""""""""""""""""""
 
 When working on projects and interacting with the data store, technical overhead
 for users is kept minimal. A basic set of DataLad commands suffices.
@@ -135,6 +155,13 @@ run-procedure [#f2]_::
 This procedure takes care of all the relevant set up. It configures a complete
 linkage to ``HAMMERPANTS``: Both on the institutes GitLab instance and on
 ``HAMMERPANTS``, a sibling-project is automatically created and linked.
+This allows for data retrieval and back-up, and for easy collaboration.
+
+.. todo::
+
+   - screenshot from a Gitlab sibling
+   - (when) do users take care of install-ria-ephemeral?
+
 Afterwards, datasets from the datastore can be installed with
 :command:`datalad install` [#f3]_::
 
@@ -142,12 +169,14 @@ Afterwards, datasets from the datastore can be installed with
    --source <ID/URL> \
    mynewdataset/inputs/...
 
-Datasets are identified through their ID or a URL
+Datasets are identified through their :term:`dataset ID` or a URL to the remote
+storage.
 
 .. todo::
 
    - How do people get to know these IDs? This needs an example.
    - At which point does Alex create projects for people?
+   - What's with ``datalad ria-install-ephemeral inm7-storage:5a6b3c4c-0d0e-11ea-bf7c-f0d5bf7b5561 mydataset``
 
 Installing the datasets as subdatasets into the analysis project dataset establishes
 a link between the datasets, and ensures modularity.
@@ -156,6 +185,17 @@ File content from the subdatasets can be retrieved on demand, either with
 :command:`datalad get` calls from the command line or within scripts (using DataLad's
 Python API, or standard system calls in any other programming language [#f4]_)
 or by appropriate ``--input`` specification in a :command:`datalad run` command [#f5]_.
+
+Computing on INM7
+"""""""""""""""""
+
+.. todo::
+
+   Compute@INM7 on ``juseless``
+
+   - ``datalad install-ria-ephemeral`` (or ``datalad -c ria-install-ria --ephemeral inm7-storage:<dsID>``?)
+   - ``datalad save``
+   - ``datalad publish --to origin``
 
 After creation & configuration of a dataset and installation of input datasets
 from ``HAMMERPANTS`` researchers can use their standard workflows to develop and
@@ -168,7 +208,21 @@ and tutorials are available [#f1]_.
 The results computed from the analyses need to be backed-up and archived. To do this,
 users :command:`datalad publish` their results back to ``HAMMERPANTS`` for longterm-storage::
 
-   $ datalad publish --to inm7
+   $ datalad publish --to inm7 --transfer-data all
+
+.. todo::
+
+   when does a ``transfer-data all`` suffice, when is a ``transfer-data auto``
+   with ``git-annex copy --all --to inm7-storage`` necessary?
+
+.. todo::
+
+   How to get data from compute node?
+   ``datalad update -d mynewdataset -s inm7 --merge``
+
+.. todo::
+
+   "Staging" to remote store with ``datalad ria-export-archive``
 
 .. todo::
 

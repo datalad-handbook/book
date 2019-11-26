@@ -253,6 +253,32 @@ The complete command's structure looks like this::
    command. Note that this will remove not only the image from the dataset,
    but also the configuration for it in ``.datalad/config``.
 
+
+Here is how the history entry looks like:
+
+.. runrecord:: _examples/DL-101-133-111
+   :language: console
+   :workdir: dl-101/DataLad-101/midterm_project
+
+   $ git log -p -n 1
+
+Because this modified the ``midterm_project`` subdirectory, we need to also save
+the most recent state of the subdataset to the superdataset ``DataLad-101``.
+
+.. runrecord:: _examples/DL-101-133-112
+   :language: console
+   :workdir: dl-101/DataLad-101/midterm_project
+
+   $ cd ../
+   $ datalad status
+
+.. runrecord:: _examples/DL-101-133-113
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ datalad save -m "add container and execute analysis within container"
+
+
 Software containers, the ``datalad-containers``, and DataLad thus work well together
 to make your analysis completely reproducible -- by not only linking code, data,
 and outputs, but also the software environment of an analysis. And this does not

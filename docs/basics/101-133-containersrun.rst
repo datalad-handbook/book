@@ -279,7 +279,7 @@ the most recent state of the subdataset to the superdataset ``DataLad-101``.
    $ datalad save -m "add container and execute analysis within container"
 
 
-Software containers, the ``datalad-containers``, and DataLad thus work well together
+Software containers, the ``datalad-containers`` extension, and DataLad thus work well together
 to make your analysis completely reproducible -- by not only linking code, data,
 and outputs, but also the software environment of an analysis. And this does not
 only benefit your future self, but also whomever you share your dataset with, as

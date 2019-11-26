@@ -201,20 +201,38 @@ container under its name "python" in the dataset's configuration at
 
       $ git log -n 1 -p
 
-Once a container is registered, arbitrary commands can be executed inside of
-it, i.e., in the precise software environment the container encapsulates. All it
-needs for this it to swap the :command:`datalad run` command introduced in
-section :ref:`run` with the :command:`datalad containers-run` command.
+Now that we have a complete computational environment linked to the ``midterm_project``
+dataset, we can execute commands in this environment. Let us for example try to repeat
+the :command:`datalad run` command from the section :ref:`yoda_project` as a
+:command:`datalad containers-run` command.
+
+The previous ``run`` command looked like this::
+
+   $ datalad run -m "analyze iris data with classification analysis" \
+     --input "input/iris.csv" \
+     --output "prediction_report.csv" \
+     --output "pairwise_relationships.png" \
+     "python3 code/script.py"
+
+How would it look like as a ``containers-run`` command?
 
 .. runrecord:: _examples/DL-101-145-104
    :language: console
    :workdir: dl-101/DataLad-101/midterm_project
-   :realcommand: echo "datalad containers-run -m "rerun analysis in container" --container-name python datalad rerun $(git rev-parse HEAD~3)" && datalad containers-run -m "rerun analysis in container" --container-name python datalad rerun $(git rev-parse HEAD~3)
 
-Note that at this point, the ``--container-name`` flag is *optional* because there
-is only a single container registered to the dataset. But if your dataset
-contains more than one container you will *need* to specify the name of the container
-you want to use in your command. The complete command's structure looks like this::
+   $ datalad containers-run -m "rerun analysis in container" \
+     --container-name python \
+     --input "input/iris.csv" \
+     --output "prediction_report.csv" \
+     --output "pairwise_relationships.png" \
+     "python3 code/script.py"
+
+Almost exactly like a :command:`datalad run` command! The only additional parameter
+is ``container-name``. At this point, though, the ``--container-name``
+flag is even *optional* because there is only a single container registered to the dataset.
+But if your dataset contains more than one container you will *need* to specify
+the name of the container you want to use in your command.
+The complete command's structure looks like this::
 
    $ datalad containers-run --name <containername> [-m ...] [--input ...] [--output ...] <COMMAND>
 

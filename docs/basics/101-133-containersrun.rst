@@ -11,7 +11,9 @@ install this particular analysis dataset to learn more about the methods used
 in there. However, when you :command:`re-run` your friends analysis script,
 it throws an error. Hastily, you call her -- maybe she can quickly fix her
 script and resubmit the project with only minor delays. "I don't know what
-you mean", you hear in return, "on my machine, everything works fine!"
+you mean", you hear in return.
+"On my machine, everything works fine!"
+
 
 On its own, DataLad datasets can contain almost everything that is relevant to
 ensure reproducibility: Data, code, human-readable analysis descriptions
@@ -33,7 +35,7 @@ important to communicate all details about the computational environment for
 an analysis as thoroughly as possible. Luckily, DataLad provides an extension
 that can link computational environments to datasets, the
 `datalad containers <http://docs.datalad.org/projects/container/en/latest/>`_
-extension.
+extension [#f1]_.
 
 This section will give a quick overview on what containers are and
 demonstrate how ``datalad-containers`` helps to capture full provenance of an
@@ -55,7 +57,7 @@ others. On your own and others machines, the container constitutes a secluded
 software environment that
 
 - contains the exact software environment that you specified, ready to run
-  analysis in
+  analyses in
 - does not effect any software outside of the container
 
 Unlike virtual machines, software containers do not have their own operating
@@ -71,7 +73,7 @@ computational reproducibility of your analyses.
 There are a number of different tools to create and use containers, with
 `Docker <https://www.docker.com/>`_ being one of the most well-known of them.
 While being a powerful tool, it can not be used on high performance computing
-(HPC) infrastructure [#f1]_. An alternative is `Singularity <https://sylabs
+(HPC) infrastructure [#f2]_. An alternative is `Singularity <https://sylabs
 .io/docs/>`_.
 Both of these tools share core terminology:
 
@@ -95,21 +97,27 @@ Note that as of now, the ``datalad-containers`` extensions only supports
 Singularity images, but support for Docker is being actively developed.
 Singularity is however very compatible with Docker -- you can, for example, use
 Docker images as a basis for Singularity images, or run Docker images with
-Singularity (even without having Docker installed). Note further that in order
-to use Singularity containers, you have to
-`install <https://singularity.lbl.gov/docs-installation>`_ the software
-singularity.
+Singularity (even without having Docker installed).
+
+.. note::
+
+   In order to use Singularity containers (and thus ``datalad containers``), you have to
+   `install <https://singularity.lbl.gov/docs-installation>`_ the software singularity.
 
 Using ``datalad containers``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 One core feature of the ``datalad containers`` extension is that it registers
 computational containers to a dataset. This is done with the
-:command:`datalad containers-add` command. The command takes an arbitrary
-name to give to the container, and a path or url to a container image.
+:command:`datalad containers-add` command.
+Once a container is registered, arbitrary commands can be executed inside of
+it, i.e., in the precise software environment the container encapsulates. All it
+needs for this it to swap the :command:`datalad run` command introduced in
+section :ref:`run` with the :command:`datalad containers-run` command.
 
 Let's see this in action for the ``midterm_analysis`` dataset by rerunning
 the analysis you did for the midterm project within a Singularity container.
+We start by registering a container to the dataset.
 For this we will pull a container from Singularity hub. This container has
 been build for the handbook, and it contains the relevant Python setup for
 the analysis. If you're curious how to create a Singularity image, the hidden
@@ -139,8 +147,11 @@ section below has some pointers:
    will build a container (called ``<NAME>``) from the recipe. Alternatively,
    `Singularity Hub <https://singularity-hub.org/>`_ integrates with Github
    and builds containers from Images pushed to repositories on Github.
-   `The docs <https://singularityhub.github.io/singularityhub-docs/>`_ can
-   give you an easy set of instructions on how to do this.
+   `The docs <https://singularityhub.github.io/singularityhub-docs/>`_
+   give you a set of instructions on how to do this.
+
+The :command:`datalad containers-add` command takes an arbitrary
+name to give to the container, and a path or url to a container image:
 
 .. runrecord:: _examples/DL-101-145-101
    :language: console
@@ -163,7 +174,7 @@ container under its name "python" in the dataset's configuration at
 
       $ cat .datalad/config
 
-   This recorded the images origin on Singularity-Hub, the location of the
+   This recorded the image's origin on Singularity-Hub, the location of the
    image in the dataset under ``.datalad/environments/<NAME>/image``, and it
    specifies the way in which the container should be used: The line
 
@@ -205,7 +216,7 @@ is only a single container registered to the dataset. But if your dataset
 contains more than one container you will *need* to specify the name of the container
 you want to use in your command. The complete command's structure looks like this::
 
-   $ datalad containers-run --name <containername> [--input ...] [--output ...] <COMMAND>
+   $ datalad containers-run --name <containername> [-m ...] [--input ...] [--output ...] <COMMAND>
 
 .. findoutmore:: How can I list available containers or remove them?
 
@@ -233,7 +244,8 @@ is that?
 
 .. rubric:: Footnotes
 
-.. [#f1] The main reason why Docker is not deployed on HPC systems is because
+.. [#f1] To read more about DataLad's extensions, see section :ref:`extensions_intro`.
+.. [#f2] The main reason why Docker is not deployed on HPC systems is because
          it grants users "`superuser privileges <https://en.wikipedia.org/wiki/Superuser>`_".
          On multi-user systems such as HPC, users should not have those
          privileges, as it would enable them to temper with other's or shared

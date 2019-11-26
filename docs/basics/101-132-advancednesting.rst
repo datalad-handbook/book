@@ -39,8 +39,11 @@ evolved. Let's query the superdataset what it thinks about this.
    $ datalad status
 
 From the superdataset's perspective, the subdataset appears as being
-"modified". Note that these modifications of the subdataset are not
-automatically recorded to the superdataset! This makes sense -- after all it
+"modified". Note how it is not individual files that show up as "modified", but
+indeed the complete subdataset as a single entity.
+
+What this shows you is that the modifications of the subdataset you performed are not
+automatically recorded to the superdataset. This makes sense -- after all it
 should be up to you to decide whether you want record something or not --,
 but it is worth repeating: If you modify a subdataset, you will need to save
 this *in the superdataset* in order to have a clean superdataset status.

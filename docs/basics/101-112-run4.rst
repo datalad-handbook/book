@@ -53,7 +53,7 @@ to the command plugged into :command:`datalad run`, by default it will only run
 on a clean dataset with no changes or untracked files present.
 
 There are two ways to get around this error message:
-The obvious -- and recommended -- one is to save the modifications,
+The more obvious -- and recommended -- one is to save the modifications,
 and run the command in a clean dataset.
 We will try this way with the ``logo_interval.jpg``.
 It would look like this:

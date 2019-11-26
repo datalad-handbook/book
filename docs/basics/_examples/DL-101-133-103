@@ -1,0 +1,26 @@
+$ git log -n 1 -p
+commit e3b5fe16b5227b5e792b013fa20e433fa71121f5
+Author: Elena Piscopia <elena@example.net>
+Date:   Tue Nov 26 12:54:17 2019 +0100
+
+    [DATALAD] Configure containerized environment 'python'
+
+diff --git a/.datalad/config b/.datalad/config
+index af6e089..6674d81 100644
+--- a/.datalad/config
++++ b/.datalad/config
+@@ -1,2 +1,6 @@
+ [datalad "dataset"]
+ 	id = 641bc4fe-1043-11ea-97f1-e86a64c8054c
++[datalad "containers.python"]
++	updateurl = shub://adswa/resources:1
++	image = .datalad/environments/python/image
++	cmdexec = singularity exec {img} {cmd}
+diff --git a/.datalad/environments/python/image b/.datalad/environments/python/image
+new file mode 120000
+index 0000000..800282a
+--- /dev/null
++++ b/.datalad/environments/python/image
+@@ -0,0 +1 @@
++../../../.git/annex/objects/zJ/8f/MD5E-s232214559--49dcb6ac1a5787636c9897c4d4df7e10/MD5E-s232214559--49dcb6ac1a5787636c9897c4d4df7e10
+\ No newline at end of file

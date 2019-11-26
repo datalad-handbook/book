@@ -1,0 +1,4 @@
+$ git reset --hard HEAD~1
+<<<<<<< HEAD
+HEAD is now at 587ac34 finished my midterm project!
+

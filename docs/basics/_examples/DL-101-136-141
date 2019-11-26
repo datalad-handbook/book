@@ -1,6 +1,5 @@
-$ datalad save -m "did a bad modification" Gitjoke2.txt
-add(ok): Gitjoke2.txt (file)
-save(ok): . (dataset)
-action summary:
-  add (ok: 1)
-  save (ok: 1)
+# add an intermediate directory
+$ cd ../mock_user
+$ mkdir onemoredir
+# move your room mates dataset into this new directory
+$ mv DataLad-101 onemoredir

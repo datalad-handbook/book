@@ -1,4 +1,3 @@
-$ cat Gitjoke2.txt
-Knock knock. Who's there? Git.
-Git-who?
-Sorry, 'who' is not a git command - did you mean 'show'?
+$ datalad update
+[INFO] Fetching updates for <Dataset path=/home/me/dl-101/DataLad-101> 
+update(ok): . (dataset)

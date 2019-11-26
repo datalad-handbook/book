@@ -1,20 +1,5 @@
-$ git log -3
-commit 717f0d73dfdac5d4c47f6dd298c24df2d7f3cafd
-Author: Elena Piscopia <elena@example.net>
-Date:   Wed Oct 23 13:52:51 2019 +0200
+$ cd ../mock_user && mv onemoredir/DataLad-101 .
+$ rm -r onemoredir
+$ cd ../DataLad-101 && git reset --hard master
+HEAD is now at 587ac34 finished my midterm project!
 
-    Revert "did a bad modification"
-    
-    This reverts commit a4bd70789da8041ceeb57d02544c8982c40faf68.
-
-commit 4bdbb1f81bc81db02274c9fc3ad61d331b3b6d4f
-Author: Elena Piscopia <elena@example.net>
-Date:   Wed Oct 23 13:52:51 2019 +0200
-
-    add note on helpful git resource
-
-commit a4bd70789da8041ceeb57d02544c8982c40faf68
-Author: Elena Piscopia <elena@example.net>
-Date:   Wed Oct 23 13:52:51 2019 +0200
-
-    did a bad modification

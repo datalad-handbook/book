@@ -1,0 +1,16 @@
+
+$ datalad rerun 6f92a3977619152eac0f4dc58d47191e13a23bc6
+[INFO] Making sure inputs are available (this may take some time) 
+[WARNING] no content present; cannot unlock [unlock(/home/me/dl-101/midtermproject/pairwise_relationships.png)] 
+[WARNING] no content present; cannot unlock [unlock(/home/me/dl-101/midtermproject/prediction_report.csv)] 
+[INFO] == Command start (output follows) ===== 
+[INFO] == Command exit (modification check follows) ===== 
+remove(ok): pairwise_relationships.png
+remove(ok): prediction_report.csv
+add(ok): pairwise_relationships.png (file)
+add(ok): prediction_report.csv (file)
+action summary:
+  add (ok: 2)
+  get (notneeded: 1)
+  remove (ok: 2)
+  save (notneeded: 2)

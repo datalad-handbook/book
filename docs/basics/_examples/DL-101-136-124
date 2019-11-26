@@ -1,3 +1,3 @@
-$ git checkout master
-Previous HEAD position was 1e4f296 add note on basic datalad run and datalad rerun
-Switched to branch 'master'
+$ git reset --hard HEAD~1
+HEAD is now at 587ac34 finished my midterm project!
+

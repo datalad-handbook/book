@@ -1,30 +1,4 @@
-$ git log -p -1
-commit b4cd5a2d1babe64b9f7772abddaffeb5270ff62e
-Author: Elena Piscopia <elena@example.net>
-Date:   Wed Oct 23 13:52:48 2019 +0200
+$ git reset --hard HEAD~1
+$ datalad status
+HEAD is now at 587ac34 finished my midterm project!
 
-    [DATALAD] Recorded changes
-
-diff --git a/Gitjoke1.txt b/Gitjoke1.txt
-new file mode 100644
-index 0000000..d7e1359
---- /dev/null
-+++ b/Gitjoke1.txt
-@@ -0,0 +1 @@
-+Git knows what you did last summer!
-diff --git a/Gitjoke2.txt b/Gitjoke2.txt
-new file mode 100644
-index 0000000..51beecb
---- /dev/null
-+++ b/Gitjoke2.txt
-@@ -0,0 +1,3 @@
-+Knock knock. Who's there? Git.
-+Git-who?
-+Sorry, 'who' is not a git command - did you mean 'show'?
-diff --git a/Gitjoke3.txt b/Gitjoke3.txt
-new file mode 100644
-index 0000000..7b83d95
---- /dev/null
-+++ b/Gitjoke3.txt
-@@ -0,0 +1 @@
-+In Soviet Russia, git commits YOU!

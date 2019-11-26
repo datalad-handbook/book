@@ -1,8 +1,11 @@
-$ datalad save
-add(ok): Gitjoke1.txt (file)
-add(ok): Gitjoke2.txt (file)
-add(ok): Gitjoke3.txt (file)
-save(ok): . (dataset)
-action summary:
-  add (ok: 3)
-  save (ok: 1)
+$ git log -n 1 -p
+commit 4b793ed196fc072389963aa5d2d87e585a88e034
+Author: Elena Piscopia <elena@example.net>
+Date:   Mon Nov 18 10:53:09 2019 +0100
+
+    rename the book
+
+diff --git a/books/TLCL.pdf b/books/The_Linux_Command_Line.pdf
+similarity index 100%
+rename from books/TLCL.pdf
+rename to books/The_Linux_Command_Line.pdf

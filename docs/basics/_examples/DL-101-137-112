@@ -1,0 +1,12 @@
+$ git log -n 2
+commit 51d763ed5883bc51f6eabc36248e4ef80b9f600f
+Author: Elena Piscopia <elena@example.net>
+Date:   Mon Nov 18 08:44:46 2019 +0100
+
+    save my favorite Git joke
+
+commit 587ac34d63c93275649cb65cd932c6a052569fdd
+Author: Elena Piscopia <elena@example.net>
+Date:   Mon Nov 18 08:44:26 2019 +0100
+
+    finished my midterm project!

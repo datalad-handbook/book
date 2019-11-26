@@ -44,7 +44,7 @@ all of these changes can be written to your DataLad datasets history.
 .. gitusernote::
 
    A DataLad dataset is a Git repository. Large file content in the
-   dataset in the annex is tracked with Git-annex. An ``ls -a``
+   dataset in the annex is tracked with git-annex. An ``ls -a``
    reveals that Git is secretly working in the background:
 
    .. runrecord:: _examples/dataset3

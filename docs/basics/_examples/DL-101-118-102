@@ -1,23 +1,23 @@
 # lets view the history
 $ git log --oneline
-bb10eda add note on clean datasets
-ae9c7f5 [DATALAD RUNCMD] Resize logo for slides
-d3c5104 [DATALAD RUNCMD] Resize logo for slides
-7ca14d0 add additional notes on run options
-3135fef [DATALAD RUNCMD] convert -resize 450x450 recordings/longn...
-b61ecdf resized picture by hand
-043574a [DATALAD RUNCMD] convert -resize 400x400 recordings/longn...
-6587c55 add note on basic datalad run and datalad rerun
-7dc5fdd add note datalad and git diff
-d56f365 [DATALAD RUNCMD] create a list of podcast titles
-e341c7f BF: list both directories content
-c92bd28 [DATALAD RUNCMD] create a list of podcast titles
-89f4bc7 Add simple script to write a list of podcast speakers and titles
-25cc38d Add note on datalad install
-4c80dbd [DATALAD] Recorded changes
-6ec6612 add note on datalad save
-8cfb192 Add notes on datalad create
-b85c9b6 add reference book about git
-794de4e add books on Python and Unix to read later
-4ae8e0a Instruct annex to add text files to Git
-8d54aba [DATALAD] new dataset
+f609f69 add note on clean datasets
+009c66d [DATALAD RUNCMD] Resize logo for slides
+5e96512 [DATALAD RUNCMD] Resize logo for slides
+3b21c7d add additional notes on run options
+054b821 [DATALAD RUNCMD] convert -resize 450x450 recordings/longn...
+dc84ec4 resized picture by hand
+771909d [DATALAD RUNCMD] convert -resize 400x400 recordings/longn...
+15e7810 add note on basic datalad run and datalad rerun
+e6e14a7 add note datalad and git diff
+406b44c [DATALAD RUNCMD] create a list of podcast titles
+854a655 BF: list both directories content
+c64173f [DATALAD RUNCMD] create a list of podcast titles
+9d578af Add simple script to write a list of podcast speakers and titles
+fd5cbf6 Add note on datalad install
+d4b91a5 [DATALAD] Recorded changes
+84ce7c5 add note on datalad save
+d792dfb Add notes on datalad create
+8d6a681 add reference book about git
+464b1e5 add books on Python and Unix to read later
+758f0af Instruct annex to add text files to Git
+715acb0 [DATALAD] new dataset

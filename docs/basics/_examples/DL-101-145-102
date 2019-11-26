@@ -1,7 +1,0 @@
-$ cat .datalad/config
-[datalad "dataset"]
-	id = 942371e6-04a0-11ea-99ca-d0c637c523bc
-[datalad "containers.python"]
-	updateurl = shub://adswa/resources:1
-	image = .datalad/environments/python/image
-	cmdexec = singularity exec {img} {cmd}

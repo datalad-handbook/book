@@ -1,1 +1,2 @@
-$ datalad create-sibling-github -d . -r midtermproject
+
+.: github(-) [https://github.com/adswa/midtermproject.git (git)]

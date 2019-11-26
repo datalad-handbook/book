@@ -2,8 +2,8 @@ $ datalad wtf
 # WTF
 ## configuration <SENSITIVE, report disabled by configuration>
 ## datalad 
-  - version: 0.12.0rc6.dev91
-  - full_version: 0.12.0rc6.dev91-gde46
+  - version: 0.12.0rc6.dev97
+  - full_version: 0.12.0rc6.dev97-g9250-dirty
 ## dataset 
   - path: /home/me/dl-101/DataLad-101
   - repo: AnnexRepo
@@ -11,9 +11,9 @@ $ datalad wtf
 ## dependencies 
   - tqdm: 4.32.2
   - cmd:annex: 7.20190129
-  - cmd:git: 2.20.1
-  - cmd:bundled-git: 2.20.1
-  - cmd:system-git: 2.20.1
+  - cmd:git: 2.24.0
+  - cmd:bundled-git: 2.24.0
+  - cmd:system-git: 2.24.0
   - cmd:system-ssh: 7.9p1
   - appdirs: 1.4.3
   - boto: 2.49.0
@@ -309,8 +309,8 @@ $ datalad wtf
   - type: posix
   - name: Linux
   - release: 4.19.0-6-amd64
-  - version: #1 SMP Debian 4.19.67-2+deb10u1 (2019-09-20)
-  - distribution: debian/10.1
+  - version: #1 SMP Debian 4.19.67-2+deb10u2 (2019-11-11)
+  - distribution: debian/10.2
   - max_path_length: 283
   - encoding: 
     - default: utf-8

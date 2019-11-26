@@ -153,7 +153,7 @@ section below has some pointers:
 The :command:`datalad containers-add` command takes an arbitrary
 name to give to the container, and a path or url to a container image:
 
-.. runrecord:: _examples/DL-101-145-101
+.. runrecord:: _examples/DL-101-133-101
    :language: console
    :workdir: dl-101/DataLad-101/midterm_project
 
@@ -168,7 +168,7 @@ container under its name "python" in the dataset's configuration at
 
 .. findoutmore:: What has been added to .datalad/config?
 
-   .. runrecord:: _examples/DL-101-145-102
+   .. runrecord:: _examples/DL-101-133-102
       :language: console
       :workdir: dl-101/DataLad-101/midterm_project
 
@@ -195,7 +195,7 @@ container under its name "python" in the dataset's configuration at
 
    This is how the ``containers-add`` command is recorded in your history:
 
-   .. runrecord:: _examples/DL-101-145-103
+   .. runrecord:: _examples/DL-101-133-103
       :language: console
       :workdir: dl-101/DataLad-101/midterm_project
 
@@ -216,7 +216,7 @@ The previous ``run`` command looked like this::
 
 How would it look like as a ``containers-run`` command?
 
-.. runrecord:: _examples/DL-101-145-104
+.. runrecord:: _examples/DL-101-133-104
    :language: console
    :workdir: dl-101/DataLad-101/midterm_project
 
@@ -241,7 +241,7 @@ The complete command's structure looks like this::
    The command :command:`datalad containers-list` will list all containers in
    the current dataset:
 
-   .. runrecord:: _examples/DL-101-145-110
+   .. runrecord:: _examples/DL-101-133-110
       :language: console
       :workdir: dl-101/DataLad-101/midterm_project
 

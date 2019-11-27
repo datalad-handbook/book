@@ -28,7 +28,8 @@ The following DataLad extensions are currently available:
    * - `DataLad Container <http://docs.datalad.org/projects/container/en/latest/>`_
      - Equips DataLad's :command:`run`/:command:`rerun` functionality with
        the ability to transparently execute commands in containerized
-       computational environments.
+       computational environments. The section :ref:`containersrun` demonstrates
+       how this extension can be used, as well as the usecase :ref:`usecase_reproduce_neuroimg`.
    * - `DataLad Neuroimaging <https://datalad-neuroimaging.readthedocs.io/en/latest/>`_
      - Metadata extraction support for a range of standards common to
        neuroimaging data.

@@ -52,7 +52,7 @@ superdataset:
    :language: console
    :workdir: dl-101/DataLad-101/
 
-   $ datalad save -m "finished my midterm project!"
+   $ datalad save -m "finished my midterm project"
 
 Let's check which subproject commit is now recorded in the superdataset:
 

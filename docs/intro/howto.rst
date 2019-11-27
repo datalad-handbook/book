@@ -109,7 +109,7 @@ The Prompt
 When you first login on the command line, you are greeted with "the prompt",
 and it will likely look similar to this:
 
-``adina@munnin: ~$``
+``adina@muninn: ~$``
 
 This says I am the user adina on the machine muninn and I am in the folder ``~``,
 which is shorthand for the current user's home folder (in this case ``/home/adina``).

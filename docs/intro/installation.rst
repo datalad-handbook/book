@@ -98,6 +98,58 @@ default. Recent macOS versions may have ``pip3`` instead of ``pip`` -- use
 
 instead of the code snippets in the section below.
 
+If this results in a ``permission denied`` error, install DataLad into
+a user's home directory:
+
+.. code-block:: bash
+
+   $ pip3 install --user datalad~=0.12.0rc6
+
+
+.. findoutmore:: If something is not on PATH...
+
+    Recent macOS versions may warn after installation that scripts were installed
+    into locations that where not on ``PATH``::
+
+       The script chardetect is installed in '/Users/awagner/Library/Python/3.7/bin' which is not on PATH.
+       Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+
+    To fix this, add these paths to the ``$PATH`` environment variable.
+    You can either do this for your own user (1), or for all users of the computer
+    (requires using ``sudo`` and authenticating with your computer's password):
+
+    (1) Add something like (exchange the user name accordingly)
+
+    .. code-block:: bash
+
+       export PATH=$PATH:/Users/awagner/Library/Python/3.7/bin
+
+    to the *profile* file of your shell. If you use a :term:`bash` shell, this may
+    be ``~/.bashrc`` or ``~/.bash_profile``, if you are using a :term:`zsh` shell,
+    it may be ``~/.zshrc`` or ``~/.zprofile``. Find out which shell you are using by
+    typing ``echo $SHELL`` into your terminal.
+
+    (2) Alternatively, configure it *system-wide*, i.e., for all users of your computer
+    by adding the the path ``/Users/awagner/Library/Python/3.7/bin`` to the file
+    ``/etc/paths``, e.g., with the editor :term:`nano`:
+
+    .. code-block:: bash
+
+       sudo nano /etc/paths
+
+    The contents of this file could look like this afterwards (the last line was
+    added):
+
+    .. code-block:: bash
+
+        /usr/local/bin
+        /usr/bin
+        /bin
+        /usr/sbin
+        /sbin
+        /Users/awagner/Library/Python/3.7/bin
+
+
 Using Pythons package manager ``pip``
 """""""""""""""""""""""""""""""""""""
 

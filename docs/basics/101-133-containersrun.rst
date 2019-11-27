@@ -41,12 +41,6 @@ This section will give a quick overview on what containers are and
 demonstrate how ``datalad-containers`` helps to capture full provenance of an
 analysis by linking containers to datasets and analyses.
 
-.. todo::
-
-   - link to neuroimaging use case
-   - maybe mention the 10 year code challenge by ReScience
-
-
 Containers
 ^^^^^^^^^^
 
@@ -268,7 +262,14 @@ Here is how the history entry looks like:
 
    $ git log -p -n 1
 
-Because this modified the ``midterm_project`` subdirectory, we need to also save
+If you would :command:`rerun` this commit, it would be re-executed in the
+software container registered to the dataset. If you would share the dataset
+with a friend and they would :command:`rerun` this commit, the Image would first
+be obtained from its registered url, and thus your
+friend can obtain the correct execution environment automatically.
+
+Note that because this new :command:`containers-run` command modified the
+``midterm_project`` subdirectory, we need to also save
 the most recent state of the subdataset to the superdataset ``DataLad-101``.
 
 .. runrecord:: _examples/DL-101-133-112
@@ -291,6 +292,9 @@ and outputs, but also the software environment of an analysis. And this does not
 only benefit your future self, but also whomever you share your dataset with, as
 the information about the container is shared together with the dataset. How cool
 is that?
+
+If you are interested in more, you can read about another example of :command:`datalad containers-run`
+in the usecase :ref:`usecase_reproduce_neuroimg`.
 
 .. rubric:: Footnotes
 

@@ -40,7 +40,7 @@ by hand, he finally submits the paper. Trying to stand with his values of
 open and reproducible science, he struggles to bundle all scripts, algorithm code, and data
 he used in a shareable form, and frankly, with all the extra time this manuscript took
 him so far, he lacks motivation and time. In the end, he writes a three page long README
-file in his Github code repository, includes his email for data requests, and
+file in his GitHub code repository, includes his email for data requests, and
 secretly hopes that no-one will want to recompute his results, because by now even he
 himself forgot which script ran on which dataset and what data was fixed in which way,
 or whether he was careful enough to copy all of the results correctly. In the review process,
@@ -63,7 +63,7 @@ and within it, in the directory ``test/data/``, are additional DataLad subdatase
 contain the data he used for testing.
 Lastly, the DataLad superdataset contains a ``LaTeX`` ``.tex`` file with the text of the manuscript.
 When everything is set up, a single command line call triggers (optional) data retrieval
-from Github repositories of the datasets, computation of
+from GitHub repositories of the datasets, computation of
 results and figures, automatic embedding of results and figures into his manuscript
 upon computation, and PDF compiling.
 When he notices the error in his script, his manuscript is recompiled and updated
@@ -72,7 +72,7 @@ he updates the respective DataLad dataset
 to the fixed state while preserving the history of the data repository.
 
 
-He makes his superdataset a public repository on Github, and anyone who clones it can obtain the
+He makes his superdataset a public repository on GitHub, and anyone who clones it can obtain the
 data automatically and recompute and recompile the full manuscript with all results.
 Steve never had more confidence in his research results and proudly submits his manuscript.
 During review, the color scheme update in his algorithm sourcecode is integrated with a simple
@@ -129,14 +129,14 @@ live in the ``data/`` directory.
 To populate the DataLad dataset, add all the
 data collections you want to perform analyses on as individual DataLad subdatasets within
 ``data/``.
-In this example, all data collections are already DataLad datasets or git repositories and hosted on Github.
+In this example, all data collections are already DataLad datasets or git repositories and hosted on GitHub.
 :command:`datalad install` therefore installs them as subdatasets. ``-s`` specifies the source,
 and ``-d ../`` registers them as subdatasets to the superdataset [#f2]_.
 
 .. code-block:: bash
 
    $ cd data
-   # install existing git repositories with data (-s specifies the source, in this case, Github repositories)
+   # install existing git repositories with data (-s specifies the source, in this case, GitHub repositories)
    # -d points to the root of the superdataset
    datalad install -d ../ -s https://github.com/psychoinformatics-de/studyforrest-data-phase2.git
 
@@ -152,7 +152,7 @@ and ``-d ../`` registers them as subdatasets to the superdataset [#f2]_.
 Any script we need for the analysis should live inside ``code/``. During script writing, save any changes
 to you want to record in your history with :command:`datalad save`.
 
-The eventual outcome of this work is a Github repository that anyone can use to get the data
+The eventual outcome of this work is a GitHub repository that anyone can use to get the data
 and recompute all results
 when running the script after cloning and setting up the necessary software.
 This requires minor preparation:

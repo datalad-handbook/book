@@ -1,12 +1,12 @@
-$ git log -2
-commit 928c260c00e04724f2684d85c28b78c11ef91fb2
+$ git log -n 2
+commit 51d763ed5883bc51f6eabc36248e4ef80b9f600f
 Author: Elena Piscopia <elena@example.net>
-Date:   Tue Nov 12 15:06:00 2019 +0100
+Date:   Mon Nov 18 08:44:46 2019 +0100
 
-    save my favourite Git joke
+    save my favorite Git joke
 
-commit 110f3d9893158cc63972a97bde63efd1c2de07b7
+commit 587ac34d63c93275649cb65cd932c6a052569fdd
 Author: Elena Piscopia <elena@example.net>
-Date:   Tue Nov 12 15:05:44 2019 +0100
+Date:   Mon Nov 18 08:44:26 2019 +0100
 
-    add note on DataLads procedures
+    finished my midterm project!

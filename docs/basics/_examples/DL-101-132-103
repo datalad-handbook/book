@@ -1,0 +1,6 @@
+$ datalad save -m "finished my midterm project!"
+add(ok): midterm_project (file)
+save(ok): . (dataset)
+action summary:
+  add (ok: 1)
+  save (ok: 1)

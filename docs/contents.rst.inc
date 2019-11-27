@@ -44,7 +44,7 @@ Datalad, Run!
 
 
 #########################
-Under the hood: Git-annex
+Under the hood: git-annex
 #########################
 
 .. toctree::
@@ -77,10 +77,37 @@ Tuning datasets to your needs
    :maxdepth: 1
    :caption: Various types and methods for dataset configurations
 
-   basics/101-125-config
-   basics/101-126-config2
-   basics/101-127-procedures
-   basics/101-128-summary
+   basics/101-122-config
+   basics/101-123-config2
+   basics/101-124-procedures
+   basics/101-125-summary
+
+
+#############################
+Make the most out of datasets
+#############################
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Organizational principles and best practices for data analyses
+
+   basics/101-126-intro
+   basics/101-127-yoda
+   basics/101-130-yodaproject
+   basics/101-128-summary_yoda
+
+
+###########################
+Dataset nesting -- Advanced
+###########################
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Manipulating subdatasets and its impact on the superdataset(s)
+
+   basics/101-132-advancednesting
+   basics/101-132-gitC
+
 
 #############
 Help yourself
@@ -95,17 +122,6 @@ Help yourself
    basics/101-137-history
    basics/101-180-FAQ
 
-#############################
-Make the most out of datasets
-#############################
-
-.. toctree::
-   :maxdepth: 1
-   :caption: Organizational principles and best practices for data analyses
-
-   basics/101-122-intro
-   basics/101-123-yoda
-   basics/101-124-summary
 
 #####################
 Sharing a dataset [2]
@@ -141,6 +157,7 @@ Use Cases
    usecases/reproducible-paper
    usecases/supervision
    usecases/reproducible_neuroimaging_analysis
+   usecases/datastorage_for_institutions
 
 
 ########
@@ -155,7 +172,7 @@ Appendix
    contributing
    code_from_chapters/01_dataset_basics_code
    code_from_chapters/02_reproducible_execution_code
-
+   code_from_chapters/10_yoda_code
 
 * :ref:`genindex`
 * :ref:`search`

@@ -13,7 +13,7 @@ you to fire up your terminal and follow along.
 
 You do not need to be a programmer, computer scientist, or Linux-crank.
 If you have never touched your computers shell before, you will be fine.
-No knowledge about :term:`Git` or :term:`Git-annex` is required or necessary.
+No knowledge about :term:`Git` or :term:`git-annex` is required or necessary.
 Regardless of your background and personal use cases for DataLad, the
 handbook will show you the principles of DataLad, and from chapter 1 onwards
 you will be using them.
@@ -87,10 +87,10 @@ Note further that...
 
 .. gitusernote::
 
-   DataLad uses :term:`Git` and :term:`Git-annex` underneath the hood. Readers that
+   DataLad uses :term:`Git` and :term:`git-annex` underneath the hood. Readers that
    are familiar with these tools can find occasional notes on how a DataLad
    command links to a Git(-annex) command or concept in boxes like this.
-   There is, however, absolutely no knowledge of Git or Git-annex necessary
+   There is, however, absolutely no knowledge of Git or git-annex necessary
    to follow this book. You will, though, encounter Git commands throughout
    the book when there is no better alternative, and executing those commands will
    suffice to follow along.

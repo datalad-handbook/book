@@ -108,6 +108,15 @@ Dataset nesting -- Advanced
    basics/101-132-advancednesting
    basics/101-132-gitC
 
+#####################
+Sharing a dataset [2]
+#####################
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Sharing datasets with third party infrastructure
+
+   basics/101-124-sharethirdparty
 
 #############
 Help yourself
@@ -121,18 +130,6 @@ Help yourself
    basics/101-136-filesystem
    basics/101-137-history
    basics/101-180-FAQ
-
-
-#####################
-Sharing a dataset [2]
-#####################
-
-.. toctree::
-   :maxdepth: 1
-   :caption: Sharing datasets with third party infrastructure
-
-   basics/101-124-sharethirdparty
-
 
 ###############
 Further options

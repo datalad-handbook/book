@@ -182,6 +182,16 @@
       "contributions": [
         "review"
       ]
+    },
+    {
+      "login": "lilikapa",
+      "name": "Lya K. Paas",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/14184487?v=4",
+      "profile": "https://github.com/lilikapa",
+      "contributions": [
+        "bug",
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,

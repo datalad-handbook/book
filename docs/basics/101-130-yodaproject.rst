@@ -572,7 +572,7 @@ syllabus, this should be done via :term:`GitHub`.
    - Or exchange the command ``create-sibling-github`` with
      ``create-sibling-gitlab`` if you have a GitLab account instead of a GitHub
      account.
-   - Don't listen to me and not follow along. I'm only a book, not your mom.
+   - Decide to not follow along.
 
 For this, you need to
 

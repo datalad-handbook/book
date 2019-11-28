@@ -170,7 +170,3 @@ commit to see a :term:`run record` with more content:
    :cast: 02_reproducible_execution
 
    $ git log -p -n 2
-
-.. todo::
-
-   - how to escape special characters

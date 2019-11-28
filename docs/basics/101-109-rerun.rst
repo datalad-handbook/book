@@ -5,7 +5,7 @@ DataLad, Re-Run!
 
 .. index:: ! datalad command; rerun
 
-So far, you created a simple ``.tsv`` file of all
+So far, you created a ``.tsv`` file of all
 speakers and talk titles in the ``longnow/`` podcasts subdataset.
 Let's actually take a look into this file now:
 
@@ -214,7 +214,7 @@ This very basic example of a :command:`datalad run` is as simple as it can get, 
 is already
 convenient from a memory-load perspective: Now you do not need to
 remember the commands or scripts involved in creating an output. DataLad kept track
-of what you did, and you can instruct it to just "``rerun``" it.
+of what you did, and you can instruct it to "``rerun``" it.
 Also, incidentally, we have generated :term:`provenance` information. It is
 now recorded in the history of the dataset how the output ``podcasts.tsv`` came
 into existence.

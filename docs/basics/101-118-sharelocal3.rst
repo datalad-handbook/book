@@ -25,7 +25,7 @@ easily. This is what you want to try now.
 
 You begin to think about which :command:`datalad run` commit would be
 the most useful one to take a look at. The creation of
-``podcasts.tsv`` was a bit lame -- at this point in time, you
+``podcasts.tsv`` was a bit dull -- at this point in time, you
 didn't yet know about ``--input`` and ``--output`` arguments,
 and the resulting output is present anyway because text files
 like this ``.tsv`` file are stored in Git.

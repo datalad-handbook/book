@@ -283,7 +283,7 @@ the most recent state of the subdataset to the superdataset ``DataLad-101``.
    :language: console
    :workdir: dl-101/DataLad-101
 
-   $ datalad save -m "add container and execute analysis within container"
+   $ datalad save -d . -m "add container and execute analysis within container" midterm_project
 
 
 Software containers, the ``datalad-containers`` extension, and DataLad thus work well together

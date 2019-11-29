@@ -223,7 +223,7 @@ to manage the file system in a DataLad dataset (:ref:`filesystem`).
    operating systems (Windows) need this information.
    The key is also one of the subdirectory names in the path. This subdirectory
    adds an important feature to the :term:`object-tree`: It revokes the users
-   permissions to modify it.
+   :term:`permissions` to modify it.
    This two-level structure is implemented because it helps to prevent
    accidental deletions and changes, and this information will be helpful
    to understand some file system management operations (see section

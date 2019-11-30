@@ -308,7 +308,7 @@ To compute the analysis you create the following Python script inside of ``code/
 
    data = "input/iris.csv"
 
-   # make sure that the data is obtained (get will also install linked sub-ds!):
+   # make sure that the data are obtained (get will also install linked sub-ds!):
    dl.get(data)
 
    # prepare the data as a pandas dataframe

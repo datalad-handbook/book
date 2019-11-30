@@ -252,7 +252,7 @@ Isn't that easy?
 
    :command:`datalad get` uses :command:`git annex get` underneath the hood.
 
-Let's see how much data is now present locally. For this, :command:`datalad status --annex all`
+Let's see how much content is now present locally. For this, :command:`datalad status --annex all`
 has a nice summary:
 
 .. runrecord:: _examples/DL-101-105-108
@@ -263,7 +263,7 @@ has a nice summary:
 
    $ datalad status --annex all
 
-This shows you how much data of the total data is present locally. With one file,
+This shows you how much of the total content is present locally. With one file,
 it is only a fraction of the total size.
 
 Let's ``get`` a few more recordings, just because it was so mesmerizing to watch

@@ -128,7 +128,7 @@ object tree. Within the object tree, git-annex handles file content tracking,
 and is busy creating and maintaining appropriate symlinks so that your data
 can be version controlled just as any text file.
 
-This comes with a two very important advantages:
+This comes with two very important advantages:
 
 One, should you have copies of the
 same data in different places of your dataset, the symlinks of these files
@@ -163,7 +163,7 @@ Lastly, understanding that annexed files in your dataset are symlinked
 will be helpful to understand how common file system operations such as
 moving, renaming, or copying content translate to dataset modifications
 in certain situations. Later in this book we will have a section on how
-to manage the file system in a datalad dataset (:ref:`filesystem`).
+to manage the file system in a DataLad dataset (:ref:`filesystem`).
 
 
 .. findoutmore:: more about paths, checksums, object trees, and data integrity
@@ -204,7 +204,7 @@ to manage the file system in a datalad dataset (:ref:`filesystem`).
 
    The important aspect of a hash function is that it
    will generate the same hash for the same file content, but once file content
-   changes, the generated hash will also look differently. If two files are
+   changes, the generated hash will also look different. If two files are
    turned into identical character strings, the content in these files is thus
    identical. Therefore, if two files have the same symlink, and thus
    link the same file in the object-tree, they are identical in content.
@@ -223,7 +223,7 @@ to manage the file system in a datalad dataset (:ref:`filesystem`).
    operating systems (Windows) need this information.
    The key is also one of the subdirectory names in the path. This subdirectory
    adds an important feature to the :term:`object-tree`: It revokes the users
-   permissions to modify it.
+   :term:`permissions` to modify it.
    This two-level structure is implemented because it helps to prevent
    accidental deletions and changes, and this information will be helpful
    to understand some file system management operations (see section

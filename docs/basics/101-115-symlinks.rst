@@ -156,7 +156,7 @@ out the hidden section below.
 
 The second is that it should now be clear to you why the ``.git`` directory
 should not be deleted or in any way modified by hand. This place is where
-your data is stored, and you can trust git-annex to be better able to
+your data are stored, and you can trust git-annex to be better able to
 work with the paths in the object tree than you or any other human are.
 
 Lastly, understanding that annexed files in your dataset are symlinked
@@ -176,7 +176,7 @@ to manage the file system in a DataLad dataset (:ref:`filesystem`).
    checksums. And they are quite readable -- just not for humans, but git-annex.
    Understanding the next section is completely irrelevant for the
    subsequent sections of the book. But it can help to establish trust in that
-   your data is safely stored and tracked, and it can get certainly helpful
+   your data are safely stored and tracked, and it can get certainly helpful
    should you be one of those people that always want to understand
    things in depth. Also, certain file management operations
    can be messy -- for example, when you attempt to move a subdirectory

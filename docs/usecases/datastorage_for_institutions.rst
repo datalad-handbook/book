@@ -15,7 +15,7 @@ solution, suitable to serve the computational and logistic demands of data
 science in big (scientific) institutions, while keeping workflows for users
 as simple as possible. It elaborates on
 
-#. How to implement a scalable, remote data store so that data is
+#. How to implement a scalable, remote data store so that data are
    stored in a different place than where people work with it,
 #. How to configure the data store and general cluster setup for easy and
    fast accessibility of data, and
@@ -117,7 +117,7 @@ super computer at the Juelich supercomputing centre (JSC) are used to store
 large amounts of data. Thus, multiple different, independent machines take care of
 warehousing the data. While this is unconventional, it is convenient: The
 data does not strain the compute cluster, and with DataLad, it is irrelevant
-where the data is located.
+where the data are located.
 
 .. figure:: ../artwork/src/ephemeral_infra.svg
    :alt: A simple, local version control workflow with datalad.
@@ -146,7 +146,7 @@ location of the value in the object tree [#f1]_. The object tree (or *keystore*)
 with the data contents can be located anywhere -- its location only needs to be
 encoded using a *special remote*. This configuration is done on an
 administrative, system-wide level, and users do not need to care or know
-about where data is stored, as they can access it just as easily as before.
+about where data are stored, as they can access it just as easily as before.
 
 .. findoutmore:: What is a special remote?
 

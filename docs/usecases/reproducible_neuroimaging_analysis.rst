@@ -52,7 +52,7 @@ DataLad can help with the technical aspects of reproducible science.
 For neuroscientific studies, :term:`the DataLad superdataset ///` provides unified
 access to a large amount of data. Using it to install datasets into an
 analysis-superdataset makes it easy to share this data together with the analysis.
-By ensuring that all relevant data is downloaded via :command:`datalad get`
+By ensuring that all relevant data are downloaded via :command:`datalad get`
 via DataLad's command line tools in the analysis scripts, or ``--input`` specifications
 in a :command:`datalad run`, an analysis can retrieve all required
 inputs fully automatically during execution.

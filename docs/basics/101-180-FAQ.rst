@@ -66,7 +66,8 @@ What does DataLad add to Git and git-annex?
 DataLad sits on top of Git and git-annex and tries to integrate and expose
 their functionality fully. While DataLad thus is a "thin layer" on top of
 these tools and tries to minimize the use of unique/idiosyncratic functionality,
-it also adds a range of useful concepts and functions:
+it also tries to simplify working with repositories and adds a range of useful concepts
+and functions:
 
 - Both Git and git-annex are made to work with a single repository at a time.
   For example, while nesting pure Git repositories is possible via Git
@@ -76,6 +77,9 @@ it also adds a range of useful concepts and functions:
   the boundaries between repositories vanish from a user's point
   of view. Most core commands have a ``--recursive`` option that will discover
   and traverse any subdatasets and do-the-right-thing.
+  Whereas git and git-annex would require the caller to first cd to the target
+  repository, DataLad figures out which repository the given paths belong to and
+  then works within that repository.
   :command:`datalad save . --recursive` will solve the subdataset problem above
   for example, no matter what was changed/added, no matter where in a tree
   of subdatasets.
@@ -84,6 +88,8 @@ it also adds a range of useful concepts and functions:
   submodule) for a computation or test, a ``datalad get`` will discover if
   there are any subdatasets to install at a particular version to eventually
   provide the file content.
+- DataLad adds metadata facilities for metadata extraction in various flavors,
+  and can store extracted and aggregated metadata under ``.datalad/metadata``.
 
 - .. todo::
 

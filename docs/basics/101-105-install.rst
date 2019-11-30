@@ -248,6 +248,10 @@ this will not break anything)
 
 Isn't that easy?
 
+.. gitusernote::
+
+   :command:`datalad get` uses :command:`git annex get` underneath the hood.
+
 Let's see how much data is now present locally. For this, :command:`datalad status --annex all`
 has a nice summary:
 

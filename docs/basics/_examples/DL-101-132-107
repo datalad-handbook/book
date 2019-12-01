@@ -1,0 +1,3 @@
+$ datalad status -d . midterm_project midterm_project/
+ modified: midterm_project (dataset)
+untracked: midterm_project/an_empty_file (file)

@@ -1,0 +1,14 @@
+$ git log -p -n 1
+commit c260b371c1992bd2b9c8758c0e88ded01ef62d84
+Author: Elena Piscopia <elena@example.net>
+Date:   Fri Nov 29 09:52:55 2019 +0100
+
+    finished my midterm project
+
+diff --git a/midterm_project b/midterm_project
+index 855f0b7..e2b9975 160000
+--- a/midterm_project
++++ b/midterm_project
+@@ -1 +1 @@
+-Subproject commit 855f0b757d8ce85f46eacbb24e77a0df3ba30ee0
++Subproject commit e2b9975103bfcbe7ecec853b1d6771d8d19de8ae

@@ -105,7 +105,7 @@ section below:
 
 For your midterm project submission, you decide to create a data analysis on the
 `iris flower data set <https://en.wikipedia.org/wiki/Iris_flower_data_set>`_.
-It is a multivariate data set on 50 samples of each of three species of Iris
+It is a multivariate dataset on 50 samples of each of three species of Iris
 flowers (*Setosa*, *Versicolor*, or *Virginica*), with four variables: the length and width of the sepals and petals
 of the flowers in centimeters. It is often used in introductory data science
 courses for statistical classification techniques in machine learning, and
@@ -185,7 +185,7 @@ independent dataset from scratch in the hidden section below.
 
 "Nice, with this input dataset I have sufficient provenance capture for my
 input dataset, and I can install it as a modular component", you think as you
-mentally tick of YODA principle number 1 and 2. "But before I can install it,
+mentally tick off YODA principle number 1 and 2. "But before I can install it,
 I need an analysis superdataset first."
 
 Building an analysis dataset
@@ -416,7 +416,7 @@ you can wrap the execution of the script (which is a simple
 
    The packages can be installed via ``pip``. Check the footnote [#f3]_ for code
    snippets to copy and paste. However, if you do not want to install any
-   Python packages, do not execute the remaining code examples in this sections
+   Python packages, do not execute the remaining code examples in this section
    -- an upcoming section on ``datalad containers-run`` will allow you to
    perform the analysis without changing with your Python software-setup.
 
@@ -567,7 +567,7 @@ syllabus, this should be done via :term:`GitHub`.
    The upcoming part requires a GitHub account. If you do not have one you
    can either
 
-   - Create on now -- it is fast, free, and you can get rid of it afterwards,
+   - Create one now -- it is fast, free, and you can get rid of it afterwards,
      if you want to.
    - Or exchange the command ``create-sibling-github`` with
      ``create-sibling-gitlab`` if you have a GitLab account instead of a GitHub
@@ -771,7 +771,7 @@ reproduce your data science project easily from scratch!
 .. [#f4] Note that all ``README.md`` files the YODA procedure created are
          version controlled by Git, not git-annex, thanks to the
          configurations that YODA supplied. This makes it easy to change the
-         ``README.md`` file. Let previous section detailed how the YODA procedure
+         ``README.md`` file. The previous section detailed how the YODA procedure
          configured your dataset. If you want to re-read the full chapter on
          configurations and run-procedures, start with section :ref:`config`.
 

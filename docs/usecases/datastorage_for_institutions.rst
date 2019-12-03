@@ -6,7 +6,7 @@ Building a scalable data storage for scientific computing
 Research can require enormous amounts of data. Such data needs to be accessed by
 multiple people at the same time, and is used across a diverse range of
 computations or research questions.
-The size of the data set, the need for simultaneous access and transformation
+The size of the dataset, the need for simultaneous access and transformation
 of this data by multiple people, and the subsequent storing of multiple copies
 or derivatives of the data constitutes a challenge for computational clusters
 and requires state-of-the-art data management solutions.

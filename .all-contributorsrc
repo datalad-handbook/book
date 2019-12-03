@@ -65,7 +65,8 @@
         "tool",
         "test",
         "talk",
-        "userTesting"
+        "userTesting",
+        "a11y"
       ]
     },
     {

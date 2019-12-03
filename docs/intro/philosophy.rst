@@ -35,9 +35,9 @@ On Data
 Everyone uses data. But once it exists, it does not suffice for most data
 to simply reside unchanged in a single location for eternity.
 
-Most **data needs to be shared** -- may it be a digital collection of family
+Most **data need to be shared** -- may it be a digital collection of family
 photos, a genomic database between researchers around the world, or inventory
-lists of one company division to another. Some data is public and should be
+lists of one company division to another. Some data are public and should be
 accessible to everyone.  Other data should circulate only among a select few.
 There are various ways to distribute data, from emailing files to sending
 physical storage media, from pointers to data locations on shared file systems
@@ -60,7 +60,7 @@ tools allow users to keep track of changes, view previous states, or restore
 older versions.  How about a **version control system for data**?
 
 
-If data is shared as a copy *of one state* of its history, **keeping all shared
+If data are shared as a copy *of one state* of its history, **keeping all shared
 copies of this data up-to-date** once the original data changes or evolves is at
 best tedious, but likely impossible. What about ways to easily **update data and
 its shared copies**?

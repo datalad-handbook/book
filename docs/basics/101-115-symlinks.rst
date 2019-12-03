@@ -128,7 +128,7 @@ object tree. Within the object tree, git-annex handles file content tracking,
 and is busy creating and maintaining appropriate symlinks so that your data
 can be version controlled just as any text file.
 
-This comes with a two very important advantages:
+This comes with two very important advantages:
 
 One, should you have copies of the
 same data in different places of your dataset, the symlinks of these files
@@ -156,14 +156,14 @@ out the hidden section below.
 
 The second is that it should now be clear to you why the ``.git`` directory
 should not be deleted or in any way modified by hand. This place is where
-your data is stored, and you can trust git-annex to be better able to
+your data are stored, and you can trust git-annex to be better able to
 work with the paths in the object tree than you or any other human are.
 
 Lastly, understanding that annexed files in your dataset are symlinked
 will be helpful to understand how common file system operations such as
 moving, renaming, or copying content translate to dataset modifications
 in certain situations. Later in this book we will have a section on how
-to manage the file system in a datalad dataset (:ref:`filesystem`).
+to manage the file system in a DataLad dataset (:ref:`filesystem`).
 
 
 .. findoutmore:: more about paths, checksums, object trees, and data integrity
@@ -176,7 +176,7 @@ to manage the file system in a datalad dataset (:ref:`filesystem`).
    checksums. And they are quite readable -- just not for humans, but git-annex.
    Understanding the next section is completely irrelevant for the
    subsequent sections of the book. But it can help to establish trust in that
-   your data is safely stored and tracked, and it can get certainly helpful
+   your data are safely stored and tracked, and it can get certainly helpful
    should you be one of those people that always want to understand
    things in depth. Also, certain file management operations
    can be messy -- for example, when you attempt to move a subdirectory
@@ -204,7 +204,7 @@ to manage the file system in a datalad dataset (:ref:`filesystem`).
 
    The important aspect of a hash function is that it
    will generate the same hash for the same file content, but once file content
-   changes, the generated hash will also look differently. If two files are
+   changes, the generated hash will also look different. If two files are
    turned into identical character strings, the content in these files is thus
    identical. Therefore, if two files have the same symlink, and thus
    link the same file in the object-tree, they are identical in content.
@@ -223,7 +223,7 @@ to manage the file system in a datalad dataset (:ref:`filesystem`).
    operating systems (Windows) need this information.
    The key is also one of the subdirectory names in the path. This subdirectory
    adds an important feature to the :term:`object-tree`: It revokes the users
-   permissions to modify it.
+   :term:`permissions` to modify it.
    This two-level structure is implemented because it helps to prevent
    accidental deletions and changes, and this information will be helpful
    to understand some file system management operations (see section

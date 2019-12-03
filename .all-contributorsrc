@@ -25,7 +25,8 @@
         "test",
         "bug",
         "example",
-        "question"
+        "question",
+        "a11y"
       ]
     },
     {
@@ -64,7 +65,8 @@
         "tool",
         "test",
         "talk",
-        "userTesting"
+        "userTesting",
+        "a11y"
       ]
     },
     {
@@ -198,5 +200,6 @@
   "projectName": "book",
   "projectOwner": "datalad-handbook",
   "repoType": "github",
-  "repoHost": "https://github.com"
+  "repoHost": "https://github.com",
+  "skipCi": true
 }

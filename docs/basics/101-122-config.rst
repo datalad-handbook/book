@@ -24,7 +24,7 @@ to differentiate between different scopes of configuration,
 and different tools the configuration belongs or applies to",
 our lecturer starts. "In DataLad datasets, different tools can
 have a configuration: :term:`Git`, :term:`git-annex`, and
-obviously DataLad itself. Because these tools are all
+DataLad itself. Because these tools are all
 combined by DataLad to help you manage your data,
 it is important to understand how the configuration of one
 software is used by or influences a second tool, or the overall

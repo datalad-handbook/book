@@ -46,8 +46,8 @@ history.
 On a different matter, you are now able to capture and share analysis provenance that
 includes the relevant software environment. This does not only make your analyses
 projects automatically reproducible, but automatically *computationally* reproducible -
-you can make sure that your analyses runs on any computer, regardless of the software
-environment on this computer. Even if you are unsure how you can wrap up an
+you can make sure that your analyses runs on any computer with Singularity,
+regardless of the software environment on this computer. Even if you are unsure how you can wrap up an
 environment into a software container Image at this point, you could make use of
 hundreds of publicly available Images on `Singularity-Hub <https://singularity-hub.org/>`_ and
 `Docker-Hub <https://hub.docker.com/>`_.

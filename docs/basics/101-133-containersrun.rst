@@ -15,7 +15,7 @@ you mean", you hear in return.
 "On my machine, everything works fine!"
 
 
-On its own, DataLad datasets can contain almost everything that is relevant to
+On its own, DataLad datasets can contain almost anything that is relevant to
 ensure reproducibility: Data, code, human-readable analysis descriptions
 (e.g., ``README.md`` files), provenance on the origin of all files
 obtained from elsewhere, and machine-readable records that link generated
@@ -47,7 +47,7 @@ Containers
 To put it simple, computational containers are cut-down virtual machines that
 allow you to package all software libraries and their dependencies (all in the
 precise version your analysis requires) into a bundle you can share with
-others. On your own and others machines, the container constitutes a secluded
+others. On your own and other's machines, the container constitutes a secluded
 software environment that
 
 - contains the exact software environment that you specified, ready to run
@@ -62,11 +62,13 @@ others (and also yourself) have easy access to the correct software
 without the need to modify the software environment of the machine the
 container runs on. Thus, containers are ideal to encapsulate the software
 environment and share it together with the analysis code and data to ensure
-computational reproducibility of your analyses.
+computational reproducibility of your analyses, or to create a suitable
+software environment on a computer that you do not have permissions to deploy
+software on.
 
 There are a number of different tools to create and use containers, with
 `Docker <https://www.docker.com/>`_ being one of the most well-known of them.
-While being a powerful tool, it can not be used on high performance computing
+While being a powerful tool, it is only rarely used on high performance computing
 (HPC) infrastructure [#f2]_. An alternative is `Singularity <https://sylabs
 .io/docs/>`_.
 Both of these tools share core terminology:
@@ -85,11 +87,14 @@ Both of these tools share core terminology:
 **Hub**
   A storage resource to share and consume images. There is
   `Singularity-Hub <https://singularity-hub.org/>`_ and
-  `Docker-Hub <https://hub.docker.com/>`_.
+  `Docker-Hub <https://hub.docker.com/>`_. Both are optional, additional services
+  not required to use software containers, but a convenient way to share recipes
+  and have imaged built from them by a service (instead of building them
+  manually and locally).
 
 Note that as of now, the ``datalad-containers`` extensions only supports
 Singularity images, but support for Docker is being actively developed.
-Singularity is however very compatible with Docker -- you can, for example, use
+Singularity is however compatible with Docker -- you can use
 Docker images as a basis for Singularity images, or run Docker images with
 Singularity (even without having Docker installed).
 
@@ -141,9 +146,12 @@ section below has some pointers:
 
       sudo singularity build <NAME> <RECIPE>
 
-   will build a container (called ``<NAME>``) from the recipe. Alternatively,
-   `Singularity Hub <https://singularity-hub.org/>`_ integrates with Github
-   and builds containers from Images pushed to repositories on Github.
+   will build a container (called ``<NAME>``) from the recipe. Note that this
+   command requires ``root`` privileges ("``sudo``"). You can build the container
+   on any machine, though, not necessarily the one that is later supposed to
+   actually run the analysis, e.g., your own laptop versus a compute cluster.
+   Alternatively, `Singularity Hub <https://singularity-hub.org/>`_ integrates
+   with Github and builds containers from Images pushed to repositories on Github.
    `The docs <https://singularityhub.github.io/singularityhub-docs/>`_
    give you a set of instructions on how to do this.
 

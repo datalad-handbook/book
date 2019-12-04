@@ -16,11 +16,8 @@ explicitly). The installation is done with
 standard Python package managers, such as :term:`pip`, and beyond installation
 of the package, no additional setup is required.
 
-The following DataLad extensions are currently available:
-
-.. todo::
-
-   Which extensions do you want to see mentioned (and which not)?
+Among others (a full list can be found on `PyPi <https://pypi.org/search/?q=datalad>`_),
+the following DataLad extensions are available:
 
 .. list-table::
    :widths: 50 100
@@ -35,17 +32,15 @@ The following DataLad extensions are currently available:
        how this extension can be used, as well as the usecase :ref:`usecase_reproduce_neuroimg`.
    * - `DataLad Neuroimaging <https://datalad-neuroimaging.readthedocs.io/en/latest/>`_
      - Metadata extraction support for a range of standards common to
-       neuroimaging data.
+       neuroimaging data. The usecase :ref:`usecase_reproduce_neuroimg` demonstrates
+       how this extension can be used.
    * - `DataLad Metalad <http://docs.datalad.org/projects/metalad/en/latest/>`_
-     - Equips DataLad with an alternative command suite for metadata handling
-       (extraction, aggregation, reporting).
-   * - `DataLad Webapp <https://github.com/datalad/datalad-webapp>`_
-     - DataLad extension for exposing a REST API of selected functionality.
-   * - `DataLad Crawler <http://docs.datalad.org/projects/crawler/en/latest/basics.html>`_
-     - Datalad for crawling web resources and automated data distributions.
-   * - `DataLad HTCondor <https://github.com/datalad/datalad-htcondor>`_
-     - Remote code execution for DataLad via HTCondor.
+     - Equips DataLad with an alternative command suite and advanced tooling
+       for metadata handling (extraction, aggregation, reporting).
 
+       .. todo::
+
+          once section on metadata is done, link it here
 
 To install a DataLad extension, use
 

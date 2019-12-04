@@ -1,23 +1,23 @@
 # lets view the history
 $ git log --oneline
-66f97f3 add note on clean datasets
-17e39f4 [DATALAD RUNCMD] Resize logo for slides
-68ade50 [DATALAD RUNCMD] Resize logo for slides
-048ae39 add additional notes on run options
-fa3fca4 [DATALAD RUNCMD] convert -resize 450x450 recordings/longn...
-8cdc201 resized picture by hand
-11dfb75 [DATALAD RUNCMD] convert -resize 400x400 recordings/longn...
-5ca7d13 add note on basic datalad run and datalad rerun
-de40bb1 add note datalad and git diff
-140477a [DATALAD RUNCMD] create a list of podcast titles
-3923b9c BF: list both directories content
-69f9ecc [DATALAD RUNCMD] create a list of podcast titles
-12323f0 Add simple script to write a list of podcast speakers and titles
-67d32e9 Add note on datalad install
-776b0ac [DATALAD] Recorded changes
-1de8b79 add note on datalad save
-0ed048a Add notes on datalad create
-90ade2e add reference book about git
-5d5a801 add books on Python and Unix to read later
-4cc7c21 Instruct annex to add text files to Git
-fca4a60 [DATALAD] new dataset
+199587f add note on clean datasets
+dd726a6 [DATALAD RUNCMD] Resize logo for slides
+e4dd212 [DATALAD RUNCMD] Resize logo for slides
+b08d657 add additional notes on run options
+3a4418d [DATALAD RUNCMD] convert -resize 450x450 recordings/longn...
+bd42809 resized picture by hand
+86be52e [DATALAD RUNCMD] convert -resize 400x400 recordings/longn...
+aadf74e add note on basic datalad run and datalad rerun
+09c0513 add note datalad and git diff
+b549762 [DATALAD RUNCMD] create a list of podcast titles
+1678700 BF: list both directories content
+281a9a4 [DATALAD RUNCMD] create a list of podcast titles
+61f3a4d Add short script to write a list of podcast speakers and titles
+8db7558 Add note on datalad install
+ab0b11f [DATALAD] Recorded changes
+c56f7cb add note on datalad save
+2422714 Add notes on datalad create
+3d3987b add reference book about git
+c2dcdaa add books on Python and Unix to read later
+6c2e485 Instruct annex to add text files to Git
+623d3f6 [DATALAD] new dataset

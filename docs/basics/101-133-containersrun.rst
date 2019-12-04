@@ -123,15 +123,15 @@ section :ref:`run` with the :command:`datalad containers-run` command.
 Let's see this in action for the ``midterm_analysis`` dataset by rerunning
 the analysis you did for the midterm project within a Singularity container.
 We start by registering a container to the dataset.
-For this, we will pull an Image from Singularity hub. This image was made
+For this, we will pull an Image from Singularity hub. This Image was made
 for the handbook, and it contains the relevant Python setup for
 the analysis. Its recipe lives in the handbook's
 `resources repository <https://github.com/datalad-handbook/resources>`_, and the
 Image is built from the recipe via Singularity hub.
-If you're curious how to create a Singularity image, the hidden
+If you're curious how to create a Singularity Image, the hidden
 section below has some pointers:
 
-.. findoutmore:: How to make a Singularity image
+.. findoutmore:: How to make a Singularity Image
 
    Singularity containers are build from Image files, often
    called "recipes", that hold a "definition" of the software container and its
@@ -141,7 +141,7 @@ section below has some pointers:
    An alternative to writing the Image file by hand is to use
    `Neurodocker <https://github.com/kaczmarj/neurodocker#singularity>`_. This
    command-line program can help you generate custom Singularity recipes (and
-   also ``Dockerfiles``, from which Docker images are build). A wonderful tutorial
+   also ``Dockerfiles``, from which Docker Images are build). A wonderful tutorial
    on how to use Neurodocker is
    `this introduction <https://miykael.github.io/nipype_tutorial/notebooks/introduction_neurodocker.html>`_
    by Michael Notter.
@@ -162,7 +162,7 @@ section below has some pointers:
    give you a set of instructions on how to do this.
 
 The :command:`datalad containers-add` command takes an arbitrary
-name to give to the container, and a path or url to a container image:
+name to give to the container, and a path or url to a container Image:
 
 .. runrecord:: _examples/DL-101-133-101
    :language: console
@@ -185,8 +185,8 @@ container under its name "midterm-software" in the dataset's configuration at
 
       $ cat .datalad/config
 
-   This recorded the image's origin on Singularity-Hub, the location of the
-   image in the dataset under ``.datalad/environments/<NAME>/image``, and it
+   This recorded the Image's origin on Singularity-Hub, the location of the
+   Image in the dataset under ``.datalad/environments/<NAME>/image``, and it
    specifies the way in which the container should be used: The line
 
    .. code-block:: bash
@@ -198,7 +198,7 @@ container under its name "midterm-software" in the dataset's configuration at
    :command:`singularity exec` command. The mode of calling Singularity,
    namely ``exec``, means that the command will be executed inside of the container.
 
-   Note that the image is saved under ``.datalad/environments`` and the
+   Note that the Image is saved under ``.datalad/environments`` and the
    configuration is done in ``.datalad/config`` -- as these files are version
    controlled and shared with together with a dataset, your software
    container and the information where it can be re-obtained from are linked
@@ -264,7 +264,7 @@ The complete command's structure looks like this::
 
    The command :command:`datalad containers-remove` will remove a container
    from the dataset, if there exists a container with name given to the
-   command. Note that this will remove not only the image from the dataset,
+   command. Note that this will remove not only the Image from the dataset,
    but also the configuration for it in ``.datalad/config``.
 
 

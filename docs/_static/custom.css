@@ -39,8 +39,9 @@ div.admonition-todo {
  * idea is to clearly set them apart from the normal
  * content, because they should be completely optional */
 div.gitusernote {
-    background-color: #c3ebffff;
-    border: 1px solid #7fd4ffff;
+    background-color: rgba(62, 44, 0, 0.2);
+    border: 2px solid rgba(241, 80, 47, 1);
+    border-style: groove;
 }
 
 div.sphinxsidebar {

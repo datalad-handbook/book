@@ -73,16 +73,19 @@ While being a powerful tool, it is only rarely used on high performance computin
 .io/docs/>`_.
 Both of these tools share core terminology:
 
+**Recipe**
+   A text file template that lists all required components of the computational environment.
+   It is made by a human user.
+
 **Image**
-   A template or "recipe" from which containers are build. It lists all
-   required components of the computational environment, and is made by a
-   human user. If you want to create your own container, you start by writing
-   an Image file, but you can also *pull* a publicly shared image from the
-   *Hub* of the tool you are using. Based on images, containers are *build*.
+   This is *build* from the recipe file. It is a static filesystem inside a file,
+   populated with the software specified in the recipe, and some initial configuration.
 
 **Container**
-  The instance that you can actually use for your computations, *build* from
-  an image.
+  A running instance of an Image that you can actually use for your computations.
+  If you want to create and run your own software container, you start by writing
+  a recipe file and build an Image from it. Alternatively, you can can also *pull*
+  an Image built from a publicly shared recipe from the *Hub* of the tool you are using.
 
 **Hub**
   A storage resource to share and consume images. There is

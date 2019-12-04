@@ -4,12 +4,15 @@ DataLad's extensions
 --------------------
 
 The commands DataLad provides cover a broad range of domain-agnostic use cases.
-However, there is a vast supply of extension packages that can add
-(domain-specific) functionality and new commands.
+However, there are extension packages that can add (domain-specific)
+functionality and new commands.
 
-Such extensions are shipped as proper Python packages, and are *not* included in
+Such extensions are shipped as separate Python packages, and are *not* included in
 DataLad itself. Instead, users with the need for a particular extension can
-install the extension package on top of DataLad. The installation is done with
+install the extension package -- either on top of DataLad if DataLad is already
+installed, or on its own (the extension will then pull in DataLad core
+automatically, with no need to first or simultaneously install DataLad itself
+explicitly). The installation is done with
 standard Python package managers, such as :term:`pip`, and beyond installation
 of the package, no additional setup is required.
 

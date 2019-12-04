@@ -1,26 +1,26 @@
 $ git log -n 1 -p
-commit e3b5fe16b5227b5e792b013fa20e433fa71121f5
+commit 2344fa6676afcc92b47c7a03bbd4090b7ddabe27
 Author: Elena Piscopia <elena@example.net>
-Date:   Tue Nov 26 12:54:17 2019 +0100
+Date:   Wed Dec 4 16:22:52 2019 +0100
 
-    [DATALAD] Configure containerized environment 'python'
+    [DATALAD] Configure containerized environment 'midterm-software'
 
 diff --git a/.datalad/config b/.datalad/config
-index af6e089..6674d81 100644
+index 61c5ac2..651422a 100644
 --- a/.datalad/config
 +++ b/.datalad/config
 @@ -1,2 +1,6 @@
  [datalad "dataset"]
- 	id = 641bc4fe-1043-11ea-97f1-e86a64c8054c
-+[datalad "containers.python"]
+	id = d62da69a-16a9-11ea-b652-d0c637c523bc
++[datalad "containers.midterm-software"]
 +	updateurl = shub://adswa/resources:1
-+	image = .datalad/environments/python/image
++	image = .datalad/environments/midterm-software/image
 +	cmdexec = singularity exec {img} {cmd}
-diff --git a/.datalad/environments/python/image b/.datalad/environments/python/image
+diff --git a/.datalad/environments/midterm-software/image b/.datalad/environments/midterm-software/image
 new file mode 120000
 index 0000000..800282a
 --- /dev/null
-+++ b/.datalad/environments/python/image
++++ b/.datalad/environments/midterm-software/image
 @@ -0,0 +1 @@
 +../../../.git/annex/objects/zJ/8f/MD5E-s232214559--49dcb6ac1a5787636c9897c4d4df7e10/MD5E-s232214559--49dcb6ac1a5787636c9897c4d4df7e10
 \ No newline at end of file

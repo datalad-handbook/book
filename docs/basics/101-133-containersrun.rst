@@ -123,9 +123,12 @@ section :ref:`run` with the :command:`datalad containers-run` command.
 Let's see this in action for the ``midterm_analysis`` dataset by rerunning
 the analysis you did for the midterm project within a Singularity container.
 We start by registering a container to the dataset.
-For this we will pull a container from Singularity hub. This container has
-been build for the handbook, and it contains the relevant Python setup for
-the analysis. If you're curious how to create a Singularity image, the hidden
+For this, we will pull an Image from Singularity hub. This image was made
+for the handbook, and it contains the relevant Python setup for
+the analysis. Its recipe lives in the handbook's
+`resources repository <https://github.com/datalad-handbook/resources>`_, and the
+Image is built from the recipe via Singularity hub.
+If you're curious how to create a Singularity image, the hidden
 section below has some pointers:
 
 .. findoutmore:: How to make a Singularity image
@@ -166,12 +169,12 @@ name to give to the container, and a path or url to a container image:
    :workdir: dl-101/DataLad-101/midterm_project
 
    # we are in the midterm_project subdataset
-   $ datalad containers-add python --url shub://adswa/resources:1
+   $ datalad containers-add midterm-software --url shub://adswa/resources:1
 
 
 This command downloaded the container from Singularity Hub, added it to
 the ``midterm_project`` dataset, and recorded basic information on the
-container under its name "python" in the dataset's configuration at
+container under its name "midterm-software" in the dataset's configuration at
 ``.datalad/config``.
 
 .. findoutmore:: What has been added to .datalad/config?
@@ -229,7 +232,7 @@ How would it look like as a ``containers-run`` command?
    :workdir: dl-101/DataLad-101/midterm_project
 
    $ datalad containers-run -m "rerun analysis in container" \
-     --container-name python \
+     --container-name midterm-software \
      --input "input/iris.csv" \
      --output "prediction_report.csv" \
      --output "pairwise_relationships.png" \

@@ -1,5 +1,5 @@
 $ datalad containers-run -m "rerun analysis in container" \
-  --container-name python \
+  --container-name midterm-software \
   --input "input/iris.csv" \
   --output "prediction_report.csv" \
   --output "pairwise_relationships.png" \

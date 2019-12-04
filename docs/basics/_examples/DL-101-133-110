@@ -1,2 +1,2 @@
 $ datalad containers-list
-python -> .datalad/environments/python/image
+midterm-software -> .datalad/environments/midterm-software/image

@@ -61,3 +61,24 @@ div.body li, div.body dd {
 table.docutils .justify-align {
     text-align: justify;
 }
+
+
+progress {
+  color: #ffa200;
+}
+
+progress::-webkit-progress-value {
+  background: #ffa200;
+}
+
+progress::-moz-progress-bar {
+  background: #ffa200;
+}
+
+progress::-webkit-progress-value {
+  background: #ffa200;
+}
+
+progress::-webkit-progress-bar {
+  background: #ffa200;
+}

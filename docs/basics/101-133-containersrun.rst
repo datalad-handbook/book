@@ -95,10 +95,10 @@ Both of these tools share core terminology:
   and have imaged built from them by a service (instead of building them
   manually and locally).
 
-Note that as of now, the ``datalad-containers`` extensions only supports
-Singularity images, but support for Docker is being actively developed.
-Singularity is however compatible with Docker -- you can use
-Docker images as a basis for Singularity images, or run Docker images with
+Note that as of now, the ``datalad-containers`` extension supports
+Singularity and Docker images.
+Singularity furthermore is compatible with Docker -- you can use
+Docker Images as a basis for Singularity Images, or run Docker Images with
 Singularity (even without having Docker installed).
 
 .. note::

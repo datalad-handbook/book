@@ -109,7 +109,7 @@ a user's home directory:
 .. findoutmore:: If something is not on PATH...
 
     Recent macOS versions may warn after installation that scripts were installed
-    into locations that where not on ``PATH``::
+    into locations that were not on ``PATH``::
 
        The script chardetect is installed in '/Users/awagner/Library/Python/3.7/bin' which is not on PATH.
        Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.

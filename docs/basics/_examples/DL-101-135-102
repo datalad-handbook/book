@@ -2,8 +2,8 @@ $ datalad wtf
 # WTF
 ## configuration <SENSITIVE, report disabled by configuration>
 ## datalad 
-  - version: 0.12.0rc6.dev91
-  - full_version: 0.12.0rc6.dev91-gde46
+  - version: 0.12.0rc6.dev97
+  - full_version: 0.12.0rc6.dev97-g9250-dirty
 ## dataset 
   - path: /home/me/dl-101/DataLad-101
   - repo: AnnexRepo
@@ -11,12 +11,13 @@ $ datalad wtf
 ## dependencies 
   - tqdm: 4.32.2
   - cmd:annex: 7.20190129
-  - cmd:git: 2.20.1
-  - cmd:bundled-git: 2.20.1
-  - cmd:system-git: 2.20.1
+  - cmd:git: 2.24.0
+  - cmd:bundled-git: 2.24.0
+  - cmd:system-git: 2.24.0
   - cmd:system-ssh: 7.9p1
   - appdirs: 1.4.3
   - boto: 2.49.0
+  - exifread: 2.1.2
   - git: 2.1.11
   - gitdb: 2.0.5
   - humanize: 0.5.1
@@ -24,6 +25,7 @@ $ datalad wtf
   - keyring: 19.0.2
   - keyrings.alt: 3.1.1
   - msgpack: 0.6.1
+  - mutagen: 1.43.0
   - requests: 2.22.0
   - scrapy: 1.7.4
   - wrapt: 1.11.2
@@ -37,6 +39,53 @@ $ datalad wtf
   - PATH: /home/adina/env/handbook/bin:/home/adina/Documents/freesurfer/bin:/home/adina/Documents/freesurfer/fsfast/bin:/home/adina/Documents/freesurfer/tktools:/usr/share/fsl/5.0/bin:/usr/lib/fsl/5.0:/home/adina/Documents/freesurfer/mni/bin:/usr/share/fsl/5.0/5.0/bin:/home/adina/.local/bin:/home/adina/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/home/adina/.dotfiles/bin
   - GIT_PYTHON_GIT_EXECUTABLE: /usr/bin/git
 ## extensions 
+  - webapp:
+    - load_error: None
+    - description: Generic web app support
+    - module: datalad_webapp
+    - version: 0.2
+    - entrypoints:
+      - datalad_webapp.WebApp:
+        - module: datalad_webapp
+        - class: WebApp
+        - names:
+          - webapp
+          - webapp
+        - load_error: None
+  - hirni:
+    - load_error: None
+    - description: HIRNI workflows
+    - module: datalad_hirni
+    - version: 0.0.4
+    - entrypoints:
+      - datalad_hirni.commands.import_dicoms.ImportDicoms:
+        - module: datalad_hirni.commands.import_dicoms
+        - class: ImportDicoms
+        - names:
+          - hirni-import-dcm
+          - hirni_import_dcm
+        - load_error: None
+      - datalad_hirni.commands.spec4anything.Spec4Anything:
+        - module: datalad_hirni.commands.spec4anything
+        - class: Spec4Anything
+        - names:
+          - hirni-spec4anything
+          - hirni_spec4anything
+        - load_error: None
+      - datalad_hirni.commands.dicom2spec.Dicom2Spec:
+        - module: datalad_hirni.commands.dicom2spec
+        - class: Dicom2Spec
+        - names:
+          - hirni-dicom2spec
+          - hirni_dicom2spec
+        - load_error: None
+      - datalad_hirni.commands.spec2bids.Spec2Bids:
+        - module: datalad_hirni.commands.spec2bids
+        - class: Spec2Bids
+        - names:
+          - hirni-spec2bids
+          - hirni_spec2bids
+        - load_error: None
   - crawler: 
     - load_error: None
     - description: Crawl web resources
@@ -275,7 +324,8 @@ $ datalad wtf
     - load_error: None
   - audio: 
     - module: datalad.metadata.extractors.audio
-    - load_error: No module named 'mutagen' [audio.py:<module>:17]
+    - version: None
+    - load_error: None
   - datacite: 
     - module: datalad.metadata.extractors.datacite
     - version: None
@@ -290,7 +340,8 @@ $ datalad wtf
     - load_error: None
   - exif: 
     - module: datalad.metadata.extractors.exif
-    - load_error: No module named 'exifread' [exif.py:<module>:16]
+    - version: None
+    - load_error: None
   - frictionless_datapackage: 
     - module: datalad.metadata.extractors.frictionless_datapackage
     - version: None
@@ -301,7 +352,8 @@ $ datalad wtf
     - load_error: None
   - xmp: 
     - module: datalad.metadata.extractors.xmp
-    - load_error: No module named 'libxmp' [xmp.py:<module>:20]
+    - version: None
+    - load_error: None
 ## python 
   - version: 3.7.3
   - implementation: CPython
@@ -309,8 +361,8 @@ $ datalad wtf
   - type: posix
   - name: Linux
   - release: 4.19.0-6-amd64
-  - version: #1 SMP Debian 4.19.67-2+deb10u1 (2019-09-20)
-  - distribution: debian/10.1
+  - version: #1 SMP Debian 4.19.67-2+deb10u2 (2019-11-11)
+  - distribution: debian/10.2
   - max_path_length: 283
   - encoding: 
     - default: utf-8

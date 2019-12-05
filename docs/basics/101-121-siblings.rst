@@ -29,14 +29,10 @@ nesting concepts, he decided to download the ``shell`` script
 that was `used to generate this example <https://raw.githubusercontent.com/datalad/datalad.org/7e8e39b1f08d0a54ab521586f27ee918b4441d69/content/asciicast/seamless_nested_repos.sh>`_
 from GitHub, and saves it in the ``code/`` directory.
 
-.. index:: ! datalad command; download-url
-
 He does it using the datalad command :command:`datalad download-url`
-(:manpage:`datalad-download-url` manual)
-that he also read about on the datalad homepage.
-This command will download a file just as ``wget``, but it can
-also take a commit message and will save the download
-right to the history!
+that you experienced in section :ref:`createDS` already: This command will
+download a file just as ``wget``, but it can also take a commit message
+and will save the download right to the history of the dataset that you specify!
 
 Navigate into your dataset copy in ``mock_user/DataLad-101``,
 and run the following command
@@ -52,6 +48,7 @@ and run the following command
 
    # download the shell script and save it in your code/ directory
    $ datalad download-url \
+     -d . \
      -m "Include nesting demo from datalad website" \
      -O code/nested_repos.sh \
      https://raw.githubusercontent.com/datalad/datalad.org/7e8e39b1f08d0a54ab521586f27ee918b4441d69/content/asciicast/seamless_nested_repos.sh

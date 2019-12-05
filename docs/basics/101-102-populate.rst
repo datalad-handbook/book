@@ -264,18 +264,49 @@ To experience this, lets add a final book,
 to the dataset. We provide the command with a URL, a pointer to the dataset the
 file should be saved in, and a commit message:
 
+.. runrecord:: _examples/DL-101-102-112
+   :language: console
+   :workdir: dl-101/DataLad-101
+   :cast: 01_dataset_basics
+   :notes: finally, datalad-download-url
 
+   $ datalad download-url http://www.tldp.org/LDP/Bash-Beginners-Guide/Bash-Beginners-Guide.pdf \
+     --dataset . \
+     -m "add beginners guide on bash" \
+     -O books/bash_guide.pdf \
 
 Afterwards, a fourth book is inside your ``books/`` directory:
 
+.. runrecord:: _examples/DL-101-102-113
+   :language: console
+   :workdir: dl-101/DataLad-101
+   :cast: 01_dataset_basics
+
+   $ ls books
 
 However, the :command:`datalad status` command does not return any output –
 the dataset state is “clean”:
 
+.. runrecord:: _examples/DL-101-102-114
+   :language: console
+   :workdir: dl-101/DataLad-101
+   :cast: 01_dataset_basics
+
+   $ datalad status
 
 This is because :command:`datalad download-url` took care of saving for you:
 
+.. runrecord:: _examples/DL-101-102-115
+   :language: console
+   :workdir: dl-101/DataLad-101
 
+   $ git log -p -n 1
+
+.. runrecord:: _examples/DL-101-102-116
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ git log --oneline
 
 
 At this point in time, the biggest advantage may seem to be the time save. However,

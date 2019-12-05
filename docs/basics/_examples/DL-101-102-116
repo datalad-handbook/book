@@ -1,5 +1,5 @@
-# lets make the output a bit more concise with the --oneline option
 $ git log --oneline
+97dffe2 add beginners guide on bash
 3e8a5ff add reference book about git
 c0d92d3 add books on Python and Unix to read later
 0e30acd Instruct annex to add text files to Git

@@ -1,0 +1,12 @@
+$ datalad download-url http://www.tldp.org/LDP/Bash-Beginners-Guide/Bash-Beginners-Guide.pdf \
+  --dataset . \
+  -m "add beginners guide on bash" \
+  -O books/bash_guide.pdf \
+[INFO] Downloading 'http://www.tldp.org/LDP/Bash-Beginners-Guide/Bash-Beginners-Guide.pdf' into 'books/bash_guide.pdf' 
+download_url(ok): books/bash_guide.pdf (file)
+add(ok): books/bash_guide.pdf (file)
+save(ok): . (dataset)
+action summary:
+  add (ok: 1)
+  download_url (ok: 1)
+  save (ok: 1)

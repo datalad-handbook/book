@@ -1,12 +1,14 @@
 $ datalad save -m "renamed directory"
 delete(ok): books/TLCL.pdf (file)
+delete(ok): books/bash_guide.pdf (file)
 delete(ok): books/byte-of-python.pdf (file)
 delete(ok): books/progit.pdf (file)
 add(ok): readings/TLCL.pdf (file)
+add(ok): readings/bash_guide.pdf (file)
 add(ok): readings/byte-of-python.pdf (file)
 add(ok): readings/progit.pdf (file)
 save(ok): . (dataset)
 action summary:
-  add (ok: 3)
-  delete (ok: 3)
+  add (ok: 4)
+  delete (ok: 4)
   save (ok: 1)

@@ -1,3 +1,3 @@
 $ git log -n 2 --oneline
-b6dd7d1 add joke evaluation to joke
-51d763e save my favourite Git joke
+ea29439 add joke evaluation to joke
+0a87147 save my favorite Git joke

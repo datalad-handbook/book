@@ -1,22 +1,23 @@
 $ git log --reverse --oneline
-715acb0 [DATALAD] new dataset
-758f0af Instruct annex to add text files to Git
-464b1e5 add books on Python and Unix to read later
-8d6a681 add reference book about git
-d792dfb Add notes on datalad create
-84ce7c5 add note on datalad save
-d4b91a5 [DATALAD] Recorded changes
-fd5cbf6 Add note on datalad install
-9d578af Add simple script to write a list of podcast speakers and titles
-c64173f [DATALAD RUNCMD] create a list of podcast titles
-854a655 BF: list both directories content
-406b44c [DATALAD RUNCMD] create a list of podcast titles
-e6e14a7 add note datalad and git diff
-15e7810 add note on basic datalad run and datalad rerun
-771909d [DATALAD RUNCMD] convert -resize 400x400 recordings/longn...
-dc84ec4 resized picture by hand
-054b821 [DATALAD RUNCMD] convert -resize 450x450 recordings/longn...
-3b21c7d add additional notes on run options
-5e96512 [DATALAD RUNCMD] Resize logo for slides
-009c66d [DATALAD RUNCMD] Resize logo for slides
-f609f69 add note on clean datasets
+28d6455 [DATALAD] new dataset
+0e30acd Instruct annex to add text files to Git
+c0d92d3 add books on Python and Unix to read later
+3e8a5ff add reference book about git
+97dffe2 add beginners guide on bash
+ecd9e52 Add notes on datalad create
+d508113 add note on datalad save
+1941146 [DATALAD] Recorded changes
+2073525 Add note on datalad install
+e6e1181 Add short script to write a list of podcast speakers and titles
+d23aa5b [DATALAD RUNCMD] create a list of podcast titles
+843e9f1 BF: list both directories content
+3e0915c [DATALAD RUNCMD] create a list of podcast titles
+294e184 add note datalad and git diff
+b747ce2 add note on basic datalad run and datalad rerun
+6f5195d [DATALAD RUNCMD] convert -resize 400x400 recordings/longn...
+1a3a64a resized picture by hand
+23c8fb0 [DATALAD RUNCMD] convert -resize 450x450 recordings/longn...
+d254f09 add additional notes on run options
+7af8c96 [DATALAD RUNCMD] Resize logo for slides
+28c6a3b [DATALAD RUNCMD] Resize logo for slides
+e77826f add note on clean datasets

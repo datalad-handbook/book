@@ -1,10 +1,10 @@
 $ git log --oneline --graph master replay
-* ac4e320 [DATALAD RUNCMD] blur image
-* a2cedeb [DATALAD RUNCMD] extract pimpernel
-* 92d9ee4 [DATALAD RUNCMD] extract st-bernard lily
-| * d375a72 [DATALAD RUNCMD] blur image
-| * 713c457 [DATALAD RUNCMD] extract pimpernel
-| * bef52a4 [DATALAD RUNCMD] extract st-bernard lily
+* da395eb [DATALAD RUNCMD] blur image
+* 0b4e082 [DATALAD RUNCMD] extract pimpernel
+* 6383964 [DATALAD RUNCMD] extract st-bernard lily
+| * 5da8b28 [DATALAD RUNCMD] blur image
+| * 52c5114 [DATALAD RUNCMD] extract pimpernel
+| * a28e3d8 [DATALAD RUNCMD] extract st-bernard lily
 |/  
-* aa4c57a Added flower mosaic from wikimedia
-* 85b2bef [DATALAD] new dataset
+* cffd2b6 Added flower mosaic from wikimedia
+* 64e3ee1 [DATALAD] new dataset

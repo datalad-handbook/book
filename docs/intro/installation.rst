@@ -115,7 +115,7 @@ a user's home directory:
        Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
 
     To fix this, add these paths to the ``$PATH`` environment variable.
-    You can either do this for your own user (1), or for all users of the computer
+    You can either do this for your own user (1), or for all users of the computer (2)
     (requires using ``sudo`` and authenticating with your computer's password):
 
     (1) Add something like (exchange the user name accordingly)

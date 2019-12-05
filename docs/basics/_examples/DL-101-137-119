@@ -1,3 +1,3 @@
 $ git log -n 2 --oneline
-0a87147 save my favorite Git joke
-01625cc finished my midterm project
+22832a5 save my favorite Git joke
+d65fa15 finished my midterm project

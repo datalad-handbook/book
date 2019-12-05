@@ -1,4 +1,4 @@
 $ git log -n 3 --oneline
-fb981e2 [DATALAD] Recorded changes
-0a87147 save my favorite Git joke
-01625cc finished my midterm project
+93fd774 [DATALAD] Recorded changes
+22832a5 save my favorite Git joke
+d65fa15 finished my midterm project

@@ -1,5 +1,5 @@
 
-$ datalad rerun 28c6a3bb051c93c422cbeb11c40b16d034f7b53a
+$ datalad rerun 4e09af74365d62336cccfb4bf04c1063caa4167c
 [INFO] Making sure inputs are available (this may take some time) 
 [WARNING] no content present; cannot unlock [unlock(/home/me/dl-101/mock_user/DataLad-101/recordings/salt_logo_small.jpg)] 
 [INFO] == Command start (output follows) ===== 

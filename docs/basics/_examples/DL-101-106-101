@@ -1,7 +1,7 @@
 $ git log -p -n 2
-commit 207352567b6856495d535482064c8e507184fd1c
+commit 30050b611d1e4d72772a0b5af61016c54047b774
 Author: Elena Piscopia <elena@example.net>
-Date:   Thu Dec 5 14:53:03 2019 +0100
+Date:   Thu Dec 5 16:19:06 2019 +0100
 
     Add note on datalad install
 
@@ -20,9 +20,9 @@ index bfa64d7..6d8cdce 100644
 +root of the superdataset with the '-d' option.
 +
 
-commit 1941146ad347d070e5b56ad39f8fe9230195a180
+commit 75009bc629b4d85457885d7ef19326fd64a4211e
 Author: Elena Piscopia <elena@example.net>
-Date:   Thu Dec 5 14:52:51 2019 +0100
+Date:   Thu Dec 5 16:18:54 2019 +0100
 
     [DATALAD] Recorded changes
 
@@ -44,9 +44,9 @@ index 0000000..dcc34fb
 @@ -0,0 +1 @@
 +Subproject commit dcc34fbe669b06ced84ced381ba0db21cf5e665f
 
-commit d508113d6abbe08f5e357093eb354bc70f10d3d6
+commit f3fdb88f82c54fe7e679f735a09c218edcea8b30
 Author: Elena Piscopia <elena@example.net>
-Date:   Thu Dec 5 14:52:49 2019 +0100
+Date:   Thu Dec 5 16:18:52 2019 +0100
 
     add note on datalad save
 
@@ -63,9 +63,9 @@ index 3a7a1fe..bfa64d7 100644
 +Always use informative, concise commit messages.
 +
 
-commit ecd9e52790968212caf671b7e412363996d39646
+commit 968ea6443e587ab6d487e5f5e937ec181e8e1e31
 Author: Elena Piscopia <elena@example.net>
-Date:   Thu Dec 5 14:52:49 2019 +0100
+Date:   Thu Dec 5 16:18:52 2019 +0100
 
     Add notes on datalad create
 
@@ -79,9 +79,9 @@ index 0000000..3a7a1fe
 +The dataset is created empty
 +
 
-commit 97dffe24a4be781eb827961b12bbbd53c1eb2f6e
+commit 25678fc592e5e2b123cef42f3a751e2ffbc1f166
 Author: Elena Piscopia <elena@example.net>
-Date:   Thu Dec 5 14:52:47 2019 +0100
+Date:   Thu Dec 5 16:18:50 2019 +0100
 
     add beginners guide on bash
 
@@ -94,9 +94,9 @@ index 0000000..00ca6bd
 +../.git/annex/objects/WF/Gq/MD5E-s1198170--0ab2c121bcf68d7278af266f6a399c5f.pdf/MD5E-s1198170--0ab2c121bcf68d7278af266f6a399c5f.pdf
 \ No newline at end of file
 
-commit 3e8a5ff6d4b978b9eae7c2b5d595af1b11d6701d
+commit 8d8f64c2614d1bf73489be68c64f089eeb3f2d7b
 Author: Elena Piscopia <elena@example.net>
-Date:   Thu Dec 5 14:52:42 2019 +0100
+Date:   Thu Dec 5 16:18:48 2019 +0100
 
     add reference book about git
 
@@ -109,9 +109,9 @@ index 0000000..c5d2ab2
 +../.git/annex/objects/G6/Gj/MD5E-s12465653--05cd7ed561d108c9bcf96022bc78a92c.pdf/MD5E-s12465653--05cd7ed561d108c9bcf96022bc78a92c.pdf
 \ No newline at end of file
 
-commit c0d92d3fff23974d93c484ee6fa4a696a057e095
+commit f87217f452993759c57db02bd3ed14140b3a7fbb
 Author: Elena Piscopia <elena@example.net>
-Date:   Thu Dec 5 14:52:39 2019 +0100
+Date:   Thu Dec 5 16:18:35 2019 +0100
 
     add books on Python and Unix to read later
 
@@ -132,9 +132,9 @@ index 0000000..9a812a0
 +../.git/annex/objects/ZZ/f1/MD5E-s4407669--32e6b03a08a6edda12ad42eb7bb06a5c.pdf/MD5E-s4407669--32e6b03a08a6edda12ad42eb7bb06a5c.pdf
 \ No newline at end of file
 
-commit 0e30acd82ef5a5c2bbb414d2e07768186e5bcecc
+commit c54d4f7ba53ae5eac1796e7ad3f9fde999f2dc65
 Author: Elena Piscopia <elena@example.net>
-Date:   Thu Dec 5 14:52:34 2019 +0100
+Date:   Thu Dec 5 16:18:24 2019 +0100
 
     Instruct annex to add text files to Git
 
@@ -151,9 +151,9 @@ index c3aaefe..b223f34 100644
 +* annex.largefiles=(not(mimetype=text/*)and(largerthan=0))
 \ No newline at end of file
 
-commit 28d6455641015af6eb62e4409ba55ad2a4c5e3c7
+commit 8601320575bdb81ec80a7d778cb289327dac970c
 Author: Elena Piscopia <elena@example.net>
-Date:   Thu Dec 5 14:52:34 2019 +0100
+Date:   Thu Dec 5 16:18:23 2019 +0100
 
     [DATALAD] new dataset
 
@@ -170,12 +170,12 @@ index 0000000..b540820
 \ No newline at end of file
 diff --git a/.datalad/config b/.datalad/config
 new file mode 100644
-index 0000000..4148e7b
+index 0000000..ac32ff2
 --- /dev/null
 +++ b/.datalad/config
 @@ -0,0 +1,2 @@
 +[datalad "dataset"]
-+	id = 7d2ecd5e-1766-11ea-b652-d0c637c523bc
++	id = 7a6f906a-1772-11ea-b652-d0c637c523bc
 diff --git a/.gitattributes b/.gitattributes
 new file mode 100644
 index 0000000..c3aaefe

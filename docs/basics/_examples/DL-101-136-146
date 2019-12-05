@@ -1,4 +1,4 @@
 $ cd ../mock_user && mv onemoredir/DataLad-101 .
 $ rm -r onemoredir
 $ cd ../DataLad-101 && git reset --hard master
-HEAD is now at 01625cc finished my midterm project
+HEAD is now at d65fa15 finished my midterm project

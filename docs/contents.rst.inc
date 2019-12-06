@@ -10,6 +10,7 @@ Introduction
    intro/narrative
    intro/installation
    intro/howto
+   intro/executive_summary
 
 
 ################

@@ -3,7 +3,7 @@
 What you really need to know
 ----------------------------
 
-DataLad is a data management multitool that can assist you at all times during the
+DataLad is a data management multitool that can assist you during all steps in the
 evolution of digital objects. It is a command-line tool, free and open source, and
 available for all major operating systems.
 
@@ -21,8 +21,6 @@ to manage.
    :alt: Create DataLad datasets
    :width: 70%
 
--> something about nesting
-
 
 Simplified local version control workflows
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -34,27 +32,60 @@ version control arbitrarily large content in datasets:
    :alt: Version control arbitrarily large contents
    :width: 70%
 
-Collaboration
-^^^^^^^^^^^^^
+Dataset linkage
+^^^^^^^^^^^^^^^
+
+Datasets can contain other datasets (subdatasets), nested arbitrarily deep. Each
+dataset has an independent revision history, but can be registered in higher-level
+datasets. This allows to combine datasets and to perform commands recursively across
+a hierarchy of datasets.
+
+.. figure:: ../artwork/src/linkage_subds.svg
+   :alt: Dataset nesting
+   :width: 100%
+
+Consumption and collaboration
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Consume existing datasets and update them from their sources, or create sibling
 datasets you can publish updates to and pull updates from for collaboration and
-sharing.
+sharing. Additionally, get access to publicly available open data collections
+with :term:`the DataLad superdataset ///`.
 
--> datalad install, datalad update, datalad create-sibling, datalad publish
+.. figure:: ../artwork/src/collaboration.svg
+   :alt: Consume and collaborate
+   :width: 130%
 
 Full provenance capture and reproducibility
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Capture full :term:`provenance` of content in your dataset: Record where files
-or datasets came from, or how they were created, including software environments.
+Capture full :term:`provenance` of content in your dataset: Dataset origin is
+always captured, but moreover, record where files obtained from web sources
+came from, or how files were created, including software environments.
+This way, content can be re-obtained or reproducibly recomputed with a single
+command, and the provenance of dataset content (who created it, when, and how?)
+can be queried and used.
 
--> datalad run, datalad rerun, datalad download-url,
+.. figure:: ../artwork/src/reproducible_execution.svg
+   :alt: provenance capture
+   :width: 100%
+
 
 Third party service integration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
--> datalad create-sibling-github, datalad create-sibling-gitlab, datalad export-to-figshare
+Export datasets to third party services such as
+`GitHub <https://github.com/>`_, `GitLab <https://about.gitlab.com/>`_, or
+`Figshare <https://figshare.com/>`_ with built-in commands, or use a multitude
+of other available third party services such as `Dropbox <https://dropbox.com>`_,
+`Google Drive <https://drive.google.com/drive/my-drive>`_,
+`Amazon S3 <https://aws.amazon.com/de/s3/>`_, `owncloud <https://owncloud.org/>`_,
+or many more.
+
+.. figure:: ../artwork/src/thirdparty.svg
+   :alt: third party integration
+   :width: 100%
+
 
 Metadata handling
 ^^^^^^^^^^^^^^^^^
@@ -65,3 +96,7 @@ Extensions
 ^^^^^^^^^^
 
 ???
+
+.. todo::
+
+   crawler?

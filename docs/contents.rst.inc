@@ -90,7 +90,7 @@ Make the most out of datasets
 
 .. toctree::
    :maxdepth: 1
-   :caption: Organizational principles and best practices for data analyses
+   :caption: Organizational principles and best practices for reproducible data analyses
 
    basics/101-126-intro
    basics/101-127-yoda
@@ -98,16 +98,17 @@ Make the most out of datasets
    basics/101-128-summary_yoda
 
 
-###########################
-Dataset nesting -- Advanced
-###########################
+################
+One step further
+################
 
 .. toctree::
    :maxdepth: 1
-   :caption: Manipulating subdatasets and its impact on the superdataset(s)
+   :caption: Advanced nesting and "extended" reproducibility
 
    basics/101-132-advancednesting
-   basics/101-132-gitC
+   basics/101-133-containersrun
+   basics/101-134-summary
 
 
 #############
@@ -134,6 +135,8 @@ Further options
    :caption: Small pieces of advice and helpful additional options
 
    basics/101-179-gitignore
+   basics/101-144-intro_extensions
+
 
 #########
 Use Cases

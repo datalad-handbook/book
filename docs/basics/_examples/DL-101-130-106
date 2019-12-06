@@ -1,5 +1,6 @@
 $ cd ../
 $ tree -d
+$ cd midterm_project
 .
 ├── books
 ├── code

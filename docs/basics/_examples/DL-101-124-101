@@ -1,4 +1,5 @@
 $ datalad run-procedure --discover
+cfg_hirni (../../../adina/env/handbook/lib/python3.7/site-packages/datalad_hirni/resources/procedures/cfg_hirni.py) [python_script]
 cfg_bids (../../../adina/repos/datalad-neuroimaging/datalad_neuroimaging/resources/procedures/cfg_bids.py) [python_script]
 cfg_metadatatypes (../../../adina/repos/datalad/datalad/resources/procedures/cfg_metadatatypes.py) [python_script]
 cfg_text2git (../../../adina/repos/datalad/datalad/resources/procedures/cfg_text2git.py) [python_script]

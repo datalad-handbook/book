@@ -74,6 +74,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   <tr>
     <td align="center"><a href="https://github.com/lilikapa"><img src="https://avatars3.githubusercontent.com/u/14184487?v=4" width="100px;" alt="Lya K. Paas"/><br /><sub><b>Lya K. Paas</b></sub></a><br /><a href="https://github.com/datalad-handbook/book/issues?q=author%3Alilikapa" title="Bug reports">🐛</a> <a href="https://github.com/datalad-handbook/book/commits?author=lilikapa" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/nhjjreuter"><img src="https://avatars1.githubusercontent.com/u/24777116?v=4" width="100px;" alt="Niels Reuter"/><br /><sub><b>Niels Reuter</b></sub></a><br /><a href="#content-nhjjreuter" title="Content">🖋</a></td>
+    <td align="center"><a href="https://github.com/pvavra"><img src="https://avatars3.githubusercontent.com/u/5610129?v=4" width="100px;" alt="Peter Vavra"/><br /><sub><b>Peter Vavra</b></sub></a><br /><a href="#ideas-pvavra" title="Ideas, Planning, & Feedback">🤔</a> <a href="#userTesting-pvavra" title="User Testing">📓</a></td>
   </tr>
 </table>
 

@@ -203,6 +203,16 @@
       "contributions": [
         "content"
       ]
+    },
+    {
+      "login": "pvavra",
+      "name": "Peter Vavra",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/5610129?v=4",
+      "profile": "https://github.com/pvavra",
+      "contributions": [
+        "ideas",
+        "userTesting"
+      ]
     }
   ],
   "contributorsPerLine": 7,

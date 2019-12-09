@@ -3,15 +3,16 @@
 Sharing datasets: Third party infrastructure
 --------------------------------------------
 
-The sections :ref:`sharelocal1` and :ref:`yoda_project` already
-outlined two common setups for sharing datasets:
+From the sections :ref:`sharelocal1` and :ref:`yoda_project` you already
+know about two common setups for sharing datasets:
 
 The first was between users on a common, shared computational infrastructure
-such as an :term:`SSH server`. In this case, sharing was easy via a simple
+such as an :term:`SSH server`, as the situation you experienced with a "simulated"
+roommate. In this case, sharing was easy via a simple
 :command:`datalad install` command with a path to where the dataset lies.
 
-In the second case, we shared the ``midterm_project`` dataset via :term:`GitHub`.
-In this endeavour you noticed that the files stored in :term:`git-annex`
+In the second case, you shared your ``midterm_project`` dataset via :term:`GitHub`.
+In this endeavour, you noticed that the files stored in :term:`git-annex`
 (among others, the results of your analysis,
 ``pairwise_comparisons.png`` and ``prediction_report.csv``) were not shared
 via GitHub. There was meta data about their file availability, but a
@@ -27,7 +28,17 @@ server, have access to the same systems, or share something
 that can be recomputed quickly, but need to actually share datasets
 with data, including the annexed contents.
 
-In these cases, the two approaches above do not suffice. What you
+Let's say you'd like to share your complete ``DataLad-101`` dataset with
+a friend overseas. After all you know about DataLad, you'd like to let more people
+know about its capabilities. You and your friend, however, do not have access
+to the same computational infrastructure, and there are also many annexed files, e.g.,
+the PDFs in your dataset, that you'd like your friend to have but that can't be
+simply computed.
+
+In these cases, the two approaches you already know about do not suffice.
+What you'd like to do, though, is to provide your friend with a GitHub URL to
+install from *and* successfully run :command:`datalad get`, just as for example with
+the ``longnow`` podcasts. What you
 would need to do to share a dataset (e.g., via GitHub) and make a
 :command:`datalad get` on annexed contents work, is to configure an external
 resource that holds your annexed data contents and that can be
@@ -44,7 +55,7 @@ third party services cloud storage such as
 or many more.
 
 In order to use them for file storage, services as the ones listed above need to be
-configured, and the contents published to them. Afterwards, published datasets
+configured, and the contents *published* to them. Afterwards, published datasets
 (e.g., via :term:`GitHub` or :term:`GitLab`) know where to obtain annexed
 file contents from, such that :command:`datalad get` works.
 This tutorial showcases how this can be done, and shows the basics of how
@@ -60,11 +71,11 @@ need to
 
 This gives you all the freedom to decide where your data lives, and
 who can have access to it. Once this set up is complete, publishing and
-accessing a published dataset and its data is as easy as if it would
+accessing a published dataset and its data is almost as easy as if it would
 lie on your own machine.
 
-From the perspective of someone you share your dataset with, they will need
-to
+From the perspective of your friend, i.e., someone you share your dataset with,
+they will need to
 
 - (potentially) install the relevant *special-remote*
 - do normal :command:`datalad install` and :command:`datalad get` commands
@@ -105,7 +116,7 @@ file content from the remote, third party storage.
    of your files to and from a specific location.
 
 As an example, let's walk through all necessary steps to publish ``DataLad-101``
-to **Dropbox**. The special-remote used to do this is
+to **Dropbox** for your friend to install. The special-remote used to do this is
 `rclone <https://github.com/DanielDent/git-annex-remote-rclone>`__.
 It is a command line program to sync files and directories to and
 from a large number of commercial providers [#f2]_ (Google, Amazon, owncloud,
@@ -242,7 +253,7 @@ On a conceptual, dataset level, your Dropbox folder is now a :term:`sibling`:
     .: roommate(+) [../mock_user/DataLad-101 (git)]
 
 On Dropbox, a new folder, ``git-annex`` will be created for your annexed files.
-However, this is not the location we would refer any collaborator to.
+However, this is not the location we would refer any collaborator or your friend to.
 Indeed, the representation of the files in the special-remote is not
 human-readable, it is a tree of annex objects.
 Only through this design it becomes possible to chunk files into
@@ -262,7 +273,8 @@ and configure this repository as a :term:`sibling` of your dataset
 called ``github`` (exactly the same as what you have done in :ref:`yoda_project`
 with the ``midterm_project`` subdataset).
 However, in order to be able to link contents stored in Dropbox, you also need to
-configure a *publication dependency* to the ``dropbox-remote`` sibling.
+configure a *publication dependency* to the ``dropbox-remote`` sibling -- this is
+done with the ``publish-depends <sibling>`` option.
 
 .. code-block:: bash
 
@@ -318,9 +330,10 @@ Afterwards, your dataset can be found on GitHub, and ``cloned`` or ``installed``
 From the perspective of whom you share your dataset with...
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Let's say another person would want to get your dataset including the annexed
-contents, and you made sure that they can access the dropbox folder with
-the annexed files (e.g., by sharing an access link).
+If your friend would now want to get your dataset including the annexed
+contents, and you made sure that they can access the Dropbox folder with
+the annexed files (e.g., by sharing an access link), here is what they would
+have to do:
 
 If the repository is on GitHub, a :command:`datalad install` with the url
 will install the dataset::
@@ -358,7 +371,7 @@ the same as before:
   $ export PATH="/home/user-bob/repos/git-annex-remote-rclone:$PATH"
 
 After this is done, you can execute what DataLad's output message suggests
-(inside of the installed ``DataLad-101``)::
+to "enable" this special remote (inside of the installed ``DataLad-101``)::
 
    $ datalad siblings -d "/Users/awagner/Documents/DataLad-101" enable -s dropbox-remote
    .: dropbox-remote(?) [git]

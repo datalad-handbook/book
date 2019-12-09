@@ -4,8 +4,8 @@ Populate a dataset
 ------------------
 
 The first lecture in DataLad-101 referenced some useful literature.
-Even if we end up not reading those books at all, let's just download
-them and put them into our dataset. You never know, right?
+Even if we end up not reading those books at all, let's download
+them nevertheless and put them into our dataset. You never know, right?
 Let's first create a directory to save books for additional reading in.
 
 .. runrecord:: _examples/DL-101-102-101
@@ -226,8 +226,8 @@ Let's :command:`datalad save` precisely this file by specifying its path after t
    history, not untracked files. Later, we will also see ``.gitignore`` files that let
    you hide content from version control.
    However, it is good practice to safely store away modifications or new content.
-   This both improves your dataset and workflow, and will be a requirement for the execution
-   of certain commands.
+   This improves your dataset and workflow, and will be a requirement for executing
+   certain commands.
 
 A :command:`datalad status` should now be empty, and our dataset's history should look like this:
 

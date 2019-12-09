@@ -7,7 +7,7 @@ So far, we've only added new content to the dataset. And we have not done
 much to that content up to this point, to be honest. Let's see what happens if
 we add content, and then modify it.
 
-For this, in the root of ``DataLad-101``, create a simple text file
+For this, in the root of ``DataLad-101``, create a plain text file
 called ``notes.txt``. It will contain all of the notes that you take
 throughout the course.
 
@@ -47,7 +47,7 @@ terminal to write this note into ``notes.txt``.
    ``notes.txt`` with ``stdout`` as its contents.
 
    It might seem like a slightly convoluted way to create a text file with
-   a simple note in it. But it allows to write notes from the terminal, enabling
+   a note in it. But it allows to write notes from the terminal, enabling
    this book to create commands you can execute with nothing other than your terminal.
    You are free to copy-paste the snippets with the here-documents,
    or find a workflow that suites you better. The only thing important is that
@@ -124,7 +124,7 @@ and save the file in DataLad:
    :language: console
    :workdir: dl-101/DataLad-101
    :cast: 01_dataset_basics
-   :notes: The modification can simply be saved as well
+   :notes: The modification can be saved as well
 
    $ datalad save -m "add note on datalad save"
 

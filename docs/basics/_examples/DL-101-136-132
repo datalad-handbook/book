@@ -1,7 +1,7 @@
 $ git log -n 1 -p
-commit 1246e8c40678edf85874b5f72940500220d3a148
+commit 8759da9a782ba607e8d9c8137176104fa988296e
 Author: Elena Piscopia <elena@example.net>
-Date:   Mon Nov 18 10:53:11 2019 +0100
+Date:   Wed Dec 4 16:23:04 2019 +0100
 
     add copy of TLCL.pdf
 

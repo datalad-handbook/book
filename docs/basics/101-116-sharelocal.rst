@@ -71,7 +71,7 @@ simplicity -- create a new directory, ``mock_user``, right next to it:
 
 For simplicity, pretend that this is a second users' -- your room mates' --
 home directory. Furthermore, let's for now disregard anything about
-permissions. In a real-world example you likely would not be able to read and write
+:term:`permissions`. In a real-world example you likely would not be able to read and write
 to a different user's directories, but we will talk about permissions later.
 
 After creation, navigate into ``mock_user`` and install

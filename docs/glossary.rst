@@ -126,6 +126,22 @@ Glossary
       git-annex concept: The place where :term:`git-annex` stores available file contents. Files that are annexed get
       a :term:`symlink` added to :term:`Git` that points to the file content. A different word for :term:`annex`.
 
+   permissions
+      Access rights assigned by most file systems that determine whether a user can view (``read permission``),
+      change (``write permission``), or execute (``execute permission``) a specific content.
+
+      - ``read permissions`` grant the ability to a file, or the contents (file names) in a directory.
+      - ``write permissions`` grant the ability to modify a file. When content is stored in the
+        :term:`object-tree` by :term:`git-annex`, your previously granted write permission for this
+        content is revoked to prevent accidental modifications.
+      - ``execute permissions`` grant the ability to execute a file. Any script that should be an executable
+        needs to get such permission.
+
+   pip
+      A Python package manager. Short for "Pip installs Python". ``pip install <package name>``
+      searches the Python package index `PyPi <https://pypi.org/>`_ for a
+      package and installs it while resolving any potential dependencies.
+
    provenance
       A record that describes entities and processes that were involved in producinng or influencing
       a digital resource. It provides a critical foundation for assessing authenticity, enables trust,
@@ -151,9 +167,9 @@ Glossary
       The characters ``#!`` at the very top of a script. One can specify the interpreter (i.e., the
       software that executes a script of yours, such as Python) after with it such as in
       ``#! /usr/bin/python``.
-      If the script has executable permissions, it is henceforth able to call the interpreter itself.
+      If the script has executable :term:`permissions`, it is henceforth able to call the interpreter itself.
       Instead of ``python code/myscript.py`` one can just run ``code/myscript`` if ``myscript`` has
-      executable permissions and a correctly specified shebang.
+      executable :term:`permissions` and a correctly specified shebang.
 
    SSH
       Secure shell (SSH) is a network protocol to link one machine (computer),
@@ -217,3 +233,5 @@ Glossary
       Here is help: `A vim tutorial <https://www.openvim.com/>`_ and
       `how to configure the default editor for git <https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration>`_.
 
+   zsh
+      A Unix shell.

@@ -33,7 +33,7 @@ The command takes a location of an existing dataset (the *source*), and a path t
 the dataset to be installed. The source can be a URL or a path to a local directory,
 or an SSH server [#f1]_.
 
-"Psst!" your fellow student from the row behind reaches over. "There are
+"Psst!" a student from the row behind reaches over. "There are
 a bunch of audio recordings of a really cool podcast, and they have been shared in the form
 of a DataLad dataset! Shall we try whether we can install that?"
 
@@ -248,7 +248,11 @@ this will not break anything)
 
 Isn't that easy?
 
-Let's see how much data is now present locally. For this, :command:`datalad status --annex all`
+.. gitusernote::
+
+   :command:`datalad get` uses :command:`git annex get` underneath the hood.
+
+Let's see how much content is now present locally. For this, :command:`datalad status --annex all`
 has a nice summary:
 
 .. runrecord:: _examples/DL-101-105-108
@@ -259,7 +263,7 @@ has a nice summary:
 
    $ datalad status --annex all
 
-This shows you how much data of the total data is present locally. With one file,
+This shows you how much of the total content is present locally. With one file,
 it is only a fraction of the total size.
 
 Let's ``get`` a few more recordings, just because it was so mesmerizing to watch
@@ -280,7 +284,7 @@ Datalad summarizes the outcome of the execution of ``get`` in the end and inform
 that the download of one file was ``notneeded`` and the retrieval of the other files was ``ok``.
 
 You have now experienced how easy it is to obtain shared data with DataLad.
-But beyond simply sharing the *data* in the dataset, when sharing or installing
+But beyond only sharing the *data* in the dataset, when sharing or installing
 a DataLad dataset, all copies also include the datasets *history*.
 
 For example, we can find out who created the dataset in the first place
@@ -301,7 +305,7 @@ history from first to most recent commit):
 But that's not all. The seminar series is ongoing, and more recordings can get added
 to the original repository shared on GitHub.
 Because an installed dataset knows the dataset it was installed from,
-the locally installed dataset can simply be updated, and thus get the new recordings,
+the locally installed dataset can be updated, and thus get the new recordings,
 should there be some. But we will see examples of this later in this handbook.
 
 Now you can not only create datasets and work with them locally, you can also consume

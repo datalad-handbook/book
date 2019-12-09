@@ -115,7 +115,7 @@ To save this progress, he runs frequent :command:`datalad save` commands:
 Once Bob's analysis is finished, he can wrap it into :command:`datalad run`.
 To ease execution, he first makes his script executable by adding a :term:`shebang`
 that specifies Python as an interpreter at the start of his script, and giving it
-executable permissions:
+executable :term:`permissions`:
 
 .. runrecord:: _examples/collab-105
    :workdir: usecases/collab/myanalysis
@@ -143,7 +143,7 @@ saving all outputs.
 Some time later, Bob needs help with his analysis. He turns to his senior
 grad student Alice for help. Alice and Bob both work on the same computing server.
 Bob has told Alice in which directory he keeps his analysis dataset, and
-the directory is configured to have permissions that allow for
+the directory is configured to have :term:`permissions` that allow for
 read-access for all lab-members, so Alice can obtain Bob’s work directly
 from his home directory:
 

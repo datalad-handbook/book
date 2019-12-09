@@ -23,7 +23,7 @@ output. How did this result came to be? Which script would she need
 to run again on which data to produce this particular figure?
 
 In this section we will experience how DataLad can help
-to record the changes in a dataset after execution of a script
+to record the changes in a dataset after executing a script
 from the shell.
 
 Let's say, for example, that you enjoyed the longnow podcasts a lot,
@@ -34,7 +34,7 @@ to, and ask you to prepare such a list.
 
 "Mhh... probably there is a DataLad way to do this... wasn't there also
 a note about metadata extraction at some point?" But as we're not that
-far into the lectures, you decide to write a simple shell script
+far into the lectures, you decide to write a short shell script
 to generate a text file that lists speaker and title
 name instead.
 
@@ -64,7 +64,7 @@ superdataset:
 Inside of ``Datalad-101/code``, create a simple shell script ``list_titles.sh``.
 This script will carry out a simple task:
 It will loop through the file names of the ``.mp3`` files and
-write out speaker names and talk titles in a very simple fashion.
+write out speaker names and talk titles in a very basic fashion.
 The content of this script is written below -- the ``cat`` command
 will write it into the script.
 
@@ -103,7 +103,7 @@ Save this script to the dataset.
    :notes: ... preferably with a helpful commit message
    :cast: 02_reproducible_execution
 
-   $ datalad save -m "Add simple script to write a list of podcast speakers and titles"
+   $ datalad save -m "Add short script to write a list of podcast speakers and titles"
 
 Once we run this script, it will simply print dates, names and titles to
 your terminal. We can save its outputs to a new file

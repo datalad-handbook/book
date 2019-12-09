@@ -235,7 +235,7 @@ Its good to have data, but its even better if you and anyone you
 collaborate or share the project or its components with can find
 out where the data came from, or how it
 is dependent on or linked to other data. Therefore, this principle
-aims to attach this information to the components of
+aims to attach this information, the data's :term:`provenance`, to the components of
 your data analysis project.
 
 Luckily, this is a no-brainer with DataLad, because the core data structure
@@ -248,7 +248,7 @@ be included in an analysis superdataset as subdatasets. Thanks to
 is stored in the history of the analysis superdataset, and they can even be
 updated from those sources if the original data dataset gets extended or changed.
 If you are including a file, for example code from GitHub,
-the :command:`datalad download-url` command (introduced in section :ref:`sibling`)
+the :command:`datalad download-url` command (introduced in section :ref:`populate`)
 will record the source of it safely in the dataset's history. And if you add anything to your dataset,
 from simple incremental coding progress in your analysis scripts up to
 files that a colleague sent you via email, a plain :command:`datalad save`
@@ -277,7 +277,7 @@ be established between components of your dataset. Scripts inside of
 your ``code/`` directory should point to data not as :term:`absolute path`\s
 that would only work on your system, but instead as :term:`relative path`\s
 that will work in any shared copy of your dataset. The next section
-on DataLad's Python API will show concrete examples of this.
+demonstrates a YODA data analysis project and will show concrete examples of this.
 
 Lastly, this principle also includes *moving*, *sharing*, and *publishing* your
 datasets or its components.
@@ -426,7 +426,8 @@ YODA principles.
          about containerized computational environments for reproducible data science,
          check out `this section <https://the-turing-way.netlify.com/reproducible_environments/06/containers#Containers_section>`_
          in the wonderful book `The Turing Way <https://the-turing-way.netlify.com/introduction/introduction>`_,
-         a comprehensive guide to reproducible data science.
+         a comprehensive guide to reproducible data science, or read about it in
+         section :ref:`yodaproject`.
 
 .. [#f3] This directory structure is very comprehensive, and displays many best-practices for
          reproducible data science. For example,

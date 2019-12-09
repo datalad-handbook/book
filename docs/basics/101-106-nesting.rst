@@ -8,8 +8,10 @@ and feature of DataLad datasets: *Nesting*.
 
 Within DataLad datasets one can *nest* other DataLad
 datasets arbitrarily deep. We for example just installed one dataset, the
-``longnow`` podcast, *into* another dataset, the ``DataLad-101`` dataset.
-This does not seem particularly spectacular --
+``longnow`` podcasts, *into* another dataset, the ``DataLad-101`` dataset.
+This was done by supplying the ``--dataset``/``-d`` flag in the command call.
+
+At first glance, nesting does not seem particularly spectacular --
 after all, any directory on a file system can have other directories inside of it.
 
 The possibility for nested Datasets, however, is one of many advantages
@@ -25,11 +27,18 @@ Remember how we had to navigate into ``recordings/longnow`` to see the history,
 and how this history was completely independent of the ``DataLad-101``
 superdataset history? This was the subdataset's own history.
 
+Apart from stand-alone histories of super- or subdatasets, this highlights another
+very important advantage that nesting provides: Note that the ``longnow`` dataset
+is a completely independent, standalone dataset that was once created and
+published. Nesting allows for a modular re-use of any other DataLad dataset,
+and this re-use is possible and simple precisely because all of the information
+is kept within a (sub)dataset.
+
 But now let's also check out how the *superdataset's* (``DataLad-101``) history
 looks like after the installation of a subdataset. To do this, make sure you are
-*outside* of the subdataset ``longnow`` (note that the first commit is our recent
+*outside* of the subdataset ``longnow``. Note that the first commit is our recent
 addition to ``notes.txt``, so we'll look at the second most recent commit in
-this excerpt).
+this excerpt.
 
 .. runrecord:: _examples/DL-101-106-101
    :language: console
@@ -52,12 +61,6 @@ mentioned before, and it is
 how DataLad internally identifies files and changes to files. Exactly this
 shasum is what describes the state of the subdataset.
 
-This highlights a different aspect as well: Note that the ``longnow`` dataset
-is a completely independent, standalone dataset that was once created and
-published. Nesting allows for a modular re-use of any other DataLad dataset,
-and this re-use is possible and simple precisely because all of the information
-is kept within a (sub)dataset.
-
 Navigate back into ``longnow`` and try to find the highlighted shasum in the
 subdataset's history:
 
@@ -73,7 +76,9 @@ subdataset's history:
 
 We can see that it is the most recent commit shasum of the subdataset
 (albeit we can see only the first seven characters here -- a :command:`git log`
-would show you the full shasum).
+would show you the full shasum). Thus, your dataset does not only know the origin
+of its subdataset, but also its version, i.e., an identification which point
+of the subdatasets evolution you installed.
 This is what is meant by "the top-level DataLad dataset (the *superdataset*) only stores
 *which version* of the subdataset is currently used".
 

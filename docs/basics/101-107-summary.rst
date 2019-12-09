@@ -38,13 +38,19 @@ and making simple modifications *locally*.
 * :command:`datalad status` reports the current state of the dataset. It's a very helpful command you should
   run frequently to check for untracked or modified content.
 
+* :command:`datalad download-url` can retrieve files from websources and save them
+  automatically to your dataset. This does not only save you the time of one
+  :command:`datalad save`, but it also records the source of the file as hidden
+  :term:`provenance` information.
 
 Furthermore, we have discovered the basics of installing a published DataLad dataset,
 and experienced the concept of modular nesting datasets.
 
-* A published dataset can be installed with the :command:`datalad install` command:
-  :command:`datalad install [--dataset PATH] --source PATH/URL PATH`. It can be
-  installed "on its own", or within an existing dataset.
+* A published dataset can be installed with the :command:`datalad install` command::
+
+     $ datalad install [--dataset PATH] --source PATH/URL PATH
+
+  It can be installed "on its own", or within an existing dataset.
 
 * The command takes a location of an existing dataset (``--source``/``-s``),
   and a path to where you want the dataset to be installed. If you do not specify a path,
@@ -77,10 +83,12 @@ you can also add very large files to your datasets history.
 Currently, this can be considered "best-practice building": Frequent :command:`datalad status`
 commands, :command:`datalad save` commands to save dataset modifications,
 and concise :term:`commit message`\s are the main take aways from this. You can already explore
-the history of a dataset, but for now, its been only informative, and has not been used
+the history of a dataset and you know about many types of provenance information
+captured by DataLad, but for now, its been only informative, and has not been used
 for anything more fancy. Later on, we will look into utilizing the history
-in order to undo mistakes, or how to make changes to large content
-(as opposed to small content we have been modifying so far).
+in order to undo mistakes, how the origin of files or datasets becomes helpful
+when sharing datasets or removing file contents, and how to make changes to large
+content (as opposed to small content we have been modifying so far).
 
 Additionally, you learned the basics on extending the ``DataLad-101`` dataset and consuming
 existing datasets:

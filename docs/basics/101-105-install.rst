@@ -89,6 +89,9 @@ line.
 
 This command copied the repository found at the URL https://github.com/datalad-datasets/longnow-podcasts.git
 into the existing ``DataLad-101`` dataset, into the directory ``recordings/longnow``.
+But what is more is that this command also recorded where this dataset came from,
+thus capturing its *origin* as :term:`provenance`. Later chapters in this handbook will
+demonstrate how useful this information can be.
 
 Note: if we had not specified the path ``recordings/longnow``, the command would have installed the
 dataset in the root of the directory and cleverly used the name of the remote repository

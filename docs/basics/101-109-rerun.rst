@@ -217,8 +217,8 @@ remember the commands or scripts involved in creating an output. DataLad kept tr
 of what you did, and you can instruct it to "``rerun``" it.
 Also, incidentally, we have generated :term:`provenance` information. It is
 now recorded in the history of the dataset how the output ``podcasts.tsv`` came
-into existence.
-
+into existence. And we can interact with and use this provenance information with
+other tools than from the machine-readable ``run record``.
 For example, to find out who (or what) created or modified a file,
 give the file path to :command:`git log` (prefixed by ``--``):
 

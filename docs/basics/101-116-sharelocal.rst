@@ -206,11 +206,12 @@ to the internet, git-annex will not succeed in retrieving
 contents from these locations.
 As long as there is at least one location that contains
 the file and is accessible, though, git-annex will get the content.
-
-For the books in your dataset, retrieving contents works because you
+Therefore, for the books in your dataset, retrieving contents works because you
 and your room mate share the same file system. If you'd share the dataset
 with anyone without access to your file system, ``datalad get`` would not
-work! But there is one book that does not suffer from this restriction:
+work, because it can't access your files.
+
+But there is one book that does not suffer from this restriction:
 The ``bash_guide.pdf``.
 This book was not manually downloaded and saved to the dataset with ``wget``
 (thus keeping DataLad in the dark about where it came from), but it was
@@ -227,7 +228,7 @@ Unlike the ``TLCL.pdf`` book, this book has two sources, and one of them is
 ``web``. The second to last line specifies the precise URL you downloaded the
 file from. Thus, for this book, your room mate is always able to obtain it
 (as long as the URL remains valid), even if you would delete your ``DataLad-101``
-dataset.
+dataset. Quite useful, this provenance, right?
 
 Let's now turn to the fact that the subdataset ``longnow`` does
 not contain not only no file content, but also no file metadata

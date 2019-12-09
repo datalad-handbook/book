@@ -18,7 +18,7 @@ commands. For example, you created the simple ``podcasts.tsv``
 file that listed all titles and speaker names of the longnow
 podcasts.
 
-Given that you learned to created "proper" :command:`datalad run` commands,
+Given that you learned to create "proper" :command:`datalad run` commands,
 complete with ``--input`` and ``--output`` specification,
 anyone should be able to :command:`datalad rerun` these commits
 easily. This is what you want to try now.

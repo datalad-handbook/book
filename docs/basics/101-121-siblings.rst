@@ -32,7 +32,8 @@ from GitHub, and saves it in the ``code/`` directory.
 He does it using the datalad command :command:`datalad download-url`
 that you experienced in section :ref:`createDS` already: This command will
 download a file just as ``wget``, but it can also take a commit message
-and will save the download right to the history of the dataset that you specify!
+and will save the download right to the history of the dataset that you specify,
+while recording its origin as provenance information.
 
 Navigate into your dataset copy in ``mock_user/DataLad-101``,
 and run the following command
@@ -129,11 +130,7 @@ Also, do not forget to give a name to your dataset's sibling. Without the ``-s``
 name of a sibling if no name is given will be the host name of the specified URL,
 but as you provide a path and not a URL, there is no host name to take as a default.
 
-.. todo::
-
-   remove this once https://github.com/datalad/datalad/issues/3553 is fixed
-
-As you can see in the command output, the addition of a sibling succeeded:
+As you can see in the command output, the addition of a :term:`sibling` succeeded:
 ``roommate(+)[../mock_user/DataLad-101]`` means that your room mate's dataset
 is now known to your own dataset as "roommate"
 

@@ -38,7 +38,7 @@ $ datalad wtf
   - GIT_AUTHOR_NAME: Elena Piscopia
   - PATH: /home/adina/env/handbook/bin:/home/adina/Documents/freesurfer/bin:/home/adina/Documents/freesurfer/fsfast/bin:/home/adina/Documents/freesurfer/tktools:/usr/share/fsl/5.0/bin:/usr/lib/fsl/5.0:/home/adina/Documents/freesurfer/mni/bin:/usr/share/fsl/5.0/5.0/bin:/home/adina/.local/bin:/home/adina/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/home/adina/.dotfiles/bin
   - GIT_PYTHON_GIT_EXECUTABLE: /usr/bin/git
-## extensions 
+## extensions
   - webapp:
     - load_error: None
     - description: Generic web app support
@@ -139,42 +139,42 @@ $ datalad wtf
           - containers-run
           - containers_run
         - load_error: None
-  - neuroimaging:
+  - neuroimaging: 
     - load_error: None
     - description: Neuroimaging tools
     - module: datalad_neuroimaging
     - version: 0.2.3
-    - entrypoints:
-      - datalad_neuroimaging.bids2scidata.BIDS2Scidata:
+    - entrypoints: 
+      - datalad_neuroimaging.bids2scidata.BIDS2Scidata: 
         - module: datalad_neuroimaging.bids2scidata
         - class: BIDS2Scidata
-        - names:
+        - names: 
           - bids2scidata
         - load_error: None
-  - metalad:
+  - metalad: 
     - load_error: None
     - description: DataLad semantic metadata command suite
     - module: datalad_metalad
     - version: 0.2.0
-    - entrypoints:
-      - datalad_metalad.dump.Dump:
+    - entrypoints: 
+      - datalad_metalad.dump.Dump: 
         - module: datalad_metalad.dump
         - class: Dump
-        - names:
+        - names: 
           - meta-dump
           - meta_dump
         - load_error: None
-      - datalad_metalad.extract.Extract:
+      - datalad_metalad.extract.Extract: 
         - module: datalad_metalad.extract
         - class: Extract
-        - names:
+        - names: 
           - meta-extract
           - meta_extract
         - load_error: None
-      - datalad_metalad.aggregate.Aggregate:
+      - datalad_metalad.aggregate.Aggregate: 
         - module: datalad_metalad.aggregate
         - class: Aggregate
-        - names:
+        - names: 
           - meta-aggregate
           - meta_aggregate
         - load_error: None
@@ -286,19 +286,19 @@ $ datalad wtf
   - path: /home/me/dl-101/DataLad-101
   - type: dataset
 ## metadata_extractors 
-  - bids:
+  - bids: 
     - module: datalad_neuroimaging.extractors.bids
     - version: None
     - load_error: None
-  - dicom:
+  - dicom: 
     - module: datalad_neuroimaging.extractors.dicom
     - version: None
     - load_error: None
-  - nidm:
+  - nidm: 
     - module: datalad_neuroimaging.extractors.nidm
     - version: None
     - load_error: None
-  - nifti1:
+  - nifti1: 
     - module: datalad_neuroimaging.extractors.nifti1
     - version: None
     - load_error: None

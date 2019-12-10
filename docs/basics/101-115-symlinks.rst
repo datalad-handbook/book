@@ -5,9 +5,10 @@ Data integrity
 
 So far, we mastered quite a number of challenges: Creating and populating a dataset with
 large and small files, modifying content and saving the changes to history, installing
-datasets, installing subdatasets within datasets, and recording the impact of commands
-on a dataset with the run and re-run commands.
-We further took note that when we modified content in ``notes.txt`` or ``list_files.py``,
+datasets, installing subdatasets within datasets, recording the impact of commands
+on a dataset with the run and re-run commands, and capturing plenty of
+:term:`provenance` on the way.
+We further noticed that when we modified content in ``notes.txt`` or ``list_files.py``,
 the modified content was in a *text file*. We learned that
 this precise type of file, in conjunction with the initial configuration template
 ``text2git`` we gave to :command:`datalad create`, is meaningful: As the textfile is

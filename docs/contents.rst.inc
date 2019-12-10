@@ -1,6 +1,6 @@
-############
-Introduction
-############
+################
+**Introduction**
+################
 
 .. toctree::
    :maxdepth: 1
@@ -13,9 +13,9 @@ Introduction
    intro/executive_summary
 
 
-################
-DataLad datasets
-################
+################################
+**Basics 1** -- DataLad datasets
+################################
 
 .. toctree::
    :maxdepth: 1
@@ -29,9 +29,9 @@ DataLad datasets
    basics/101-107-summary
 
 
-#############
-Datalad, Run!
-#############
+#############################
+**Basics 2** -- Datalad, Run!
+#############################
 
 .. toctree::
    :maxdepth: 1
@@ -44,9 +44,9 @@ Datalad, Run!
    basics/101-113-summary
 
 
-#########################
-Under the hood: git-annex
-#########################
+#########################################
+**Basics 3** -- Under the hood: git-annex
+#########################################
 
 .. toctree::
    :maxdepth: 1
@@ -55,9 +55,9 @@ Under the hood: git-annex
    basics/101-114-txt2git
    basics/101-115-symlinks
 
-#############
-Collaboration
-#############
+#############################
+**Basics 4** -- Collaboration
+#############################
 
 .. toctree::
    :maxdepth: 1
@@ -70,9 +70,9 @@ Collaboration
    basics/101-121-siblings
    basics/101-120-summary
 
-#############################
-Tuning datasets to your needs
-#############################
+#############################################
+**Basics 5** -- Tuning datasets to your needs
+#############################################
 
 .. toctree::
    :maxdepth: 1
@@ -84,9 +84,9 @@ Tuning datasets to your needs
    basics/101-125-summary
 
 
-#############################
-Make the most out of datasets
-#############################
+#############################################
+**Basics 6** -- Make the most out of datasets
+#############################################
 
 .. toctree::
    :maxdepth: 1
@@ -98,9 +98,9 @@ Make the most out of datasets
    basics/101-128-summary_yoda
 
 
-################
-One step further
-################
+################################
+**Basics 7** -- One step further
+################################
 
 .. toctree::
    :maxdepth: 1
@@ -111,9 +111,9 @@ One step further
    basics/101-134-summary
 
 
-#############
-Help yourself
-#############
+#############################
+**Basics 8** -- Help yourself
+#############################
 
 .. toctree::
    :maxdepth: 1
@@ -125,10 +125,9 @@ Help yourself
    basics/101-180-FAQ
 
 
-
-###############
-Further options
-###############
+###############################
+**Basics 9** -- Further options
+###############################
 
 .. toctree::
    :maxdepth: 1
@@ -138,9 +137,9 @@ Further options
    basics/101-144-intro_extensions
 
 
-#########
-Use Cases
-#########
+#############
+**Use Cases**
+#############
 
 .. toctree::
    :maxdepth: 1

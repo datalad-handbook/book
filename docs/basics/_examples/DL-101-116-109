@@ -1,6 +1,23 @@
-$ datalad save -m "add note about installing from paths and recursive installations"
-add(ok): notes.txt (file)
-save(ok): . (dataset)
-action summary:
-  add (ok: 1)
-  save (ok: 1)
+# navigate back into the original dataset
+$ cd ../../DataLad-101
+# write the note
+$ cat << EOT >> notes.txt
+A source to install a dataset from can also be a path,
+for example as in "datalad install -s ../DataLad-101".
+As when installing datasets before, make sure to add a
+description on the location of the dataset to be
+installed, and, if you want, a path to where the dataset
+should be installed under which name.
+
+Note that subdatasets will not be installed by default --
+you will have to do a plain
+"datalad install PATH/TO/SUBDATASET", or specify the
+-r/--recursive option in the install command:
+"datalad install -s ../DataLad-101 -r".
+
+A recursive installation would however install all
+installed subdatasets, so a safer way to proceed is to
+set a decent --recursion-limit:
+"datalad install -s ../DataLad-101 -r --recursion-limit 2"
+
+EOT

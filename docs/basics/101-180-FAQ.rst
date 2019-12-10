@@ -218,6 +218,13 @@ Python API.
 
    maybe update this by mentioning the DataLad webapp extension
 
+How does DataLad interface with OpenNeuro?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+`OpenNeuro <https://openneuro.org/>`_ is a free and open platform for sharing MRI,
+MEG, EEG, iEEG, and ECoG data. It publishes hosted data as DataLad datasets on
+:term:`GitHub`. The entire collection can be found at
+`github.com/OpenNeuroDatasets <https://github.com/OpenNeuroDatasets>`_. You can
+obtain the datasets just as any other DataLad datasets with :command:`datalad install`.
 
 
 .. rubric:: Footnotes

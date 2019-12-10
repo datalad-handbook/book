@@ -151,8 +151,6 @@
    usecases/reproducible_neuroimaging_analysis
    usecases/datastorage_for_institutions
 
-
-
 ########
 Appendix
 ########

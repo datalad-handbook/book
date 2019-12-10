@@ -8,7 +8,15 @@ evolution of digital objects. It is a command-line tool, free and open source, a
 available for all major operating systems.
 
 This document is the 1000 feet overview of important concepts, commands, and
-capacities of DataLad.
+capacities of DataLad. Each section highlights one group of functionality or
+concept and the associated commands. The upcoming Basics chapters will demonstrate
+in detail how to use them. If you are interested in more high-level information
+on DataLad than this section, you can find answers to common questions in the
+section :ref:`FAQ`, and a concise command cheat-sheet in section
+
+.. todo::
+
+   link cheat sheet
 
 DataLad datasets
 ^^^^^^^^^^^^^^^^
@@ -20,17 +28,40 @@ to manage.
 .. figure:: ../artwork/src/dataset.svg
    :alt: Create DataLad datasets
    :width: 70%
+   :target: ../basics/101-101-create.html
 
+You can create new, empty datasets from scratch and populate them,
+or transform existing directories into datasets.
 
 Simplified local version control workflows
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Building on top of :term:`Git` and :term:`git-annex`, DataLad allows you to
-version control arbitrarily large content in datasets:
+version control arbitrarily large content in datasets.
 
 .. figure:: ../artwork/src/local_wf.svg
    :alt: Version control arbitrarily large contents
    :width: 70%
+   :target: ../basics/101-107-summary.html
+
+Thus you can keep track of revisions of data of any size, and view, interact with or
+restore any version of your datasets history.
+
+
+Consumption and collaboration
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+DataLad lets you consume and collaborate on datasets. You can install existing
+datasets and update them from their sources, or create sibling datasets that you can
+publish updates to and pull updates from for collaboration and sharing.
+
+.. figure:: ../artwork/src/collaboration.svg
+   :alt: Consume and collaborate
+   :width: 130%
+   :target: ../basics/101-120-summary.html
+
+Additionally, via DataLad you get access to ~70TB of publicly available open
+data collections with :term:`the DataLad superdataset ///`.
 
 Dataset linkage
 ^^^^^^^^^^^^^^^
@@ -38,38 +69,29 @@ Dataset linkage
 Datasets can contain other datasets (subdatasets), nested arbitrarily deep. Each
 dataset has an independent revision history, but can be registered in higher-level
 datasets. This allows to combine datasets and to perform commands recursively across
-a hierarchy of datasets.
+a hierarchy of datasets and is the basis for advanced provenance capture abilities.
 
 .. figure:: ../artwork/src/linkage_subds.svg
    :alt: Dataset nesting
    :width: 100%
-
-Consumption and collaboration
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Consume existing datasets and update them from their sources, or create sibling
-datasets you can publish updates to and pull updates from for collaboration and
-sharing. Additionally, get access to publicly available open data collections
-with :term:`the DataLad superdataset ///`.
-
-.. figure:: ../artwork/src/collaboration.svg
-   :alt: Consume and collaborate
-   :width: 130%
+   :target: ../basics/101-106-nesting.html
 
 Full provenance capture and reproducibility
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Capture full :term:`provenance` of content in your dataset: Dataset origin is
-always captured, but moreover, record where files obtained from web sources
-came from, or how files were created, including software environments.
-This way, content can be re-obtained or reproducibly recomputed with a single
-command, and the provenance of dataset content (who created it, when, and how?)
-can be queried and used.
+DataLad allows to capture full :term:`provenance`: The origin of datasets, the
+origin of files obtained from web sources, complete machine-readable and
+automatically reproducible records of how files were created (including software
+environments).
 
 .. figure:: ../artwork/src/reproducible_execution.svg
    :alt: provenance capture
    :width: 100%
+   :target: ../basics/101-113-summary.html
 
+You or your collaborators can thus re-obtain or reproducibly recompute content
+with a single command, and make use of extensive provenance of dataset content
+(who created it, when, and how?).
 
 Third party service integration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -89,14 +111,11 @@ or many more.
 
 Metadata handling
 ^^^^^^^^^^^^^^^^^
+Extract, aggregate, and query dataset metadata. This allows to automatically obtain
+metadata according to different metadata standards (EXIF, XMP, ID3, BIDS, DICOM,
+NIfTI1, ...), store this metadata in a portable format, share it, and search dataset
+contents.
 
-???
-
-Extensions
-^^^^^^^^^^
-
-???
-
-.. todo::
-
-   crawler?
+.. figure:: ../artwork/src/metadata_prov_imaging.svg
+   :alt: meta data capabilities
+   :width: 100%

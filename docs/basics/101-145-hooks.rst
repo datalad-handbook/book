@@ -1,0 +1,166 @@
+.. _hooks:
+
+DataLad's result hooks
+^^^^^^^^^^^^^^^^^^^^^^
+
+If you are particularly keen on automating tasks in your datasets, you may be
+interested in running DataLad commands automatically as soon
+as previous commands are executed and resulted in particular outcomes or states.
+For example, you may want to automatically :command:`unlock` all dataset contents
+right after an installation in one go. Therefore, you would like to automatically
+run the :command:`datalad unlock .` command right after the :command:`datalad install`
+command, *but only* if the previous :command:`install` command was successful.
+
+Such automation allows for flexible and yet automatic responses to the results
+of DataLad commands, and can be done with DataLad's *result hooks*.
+Generally speaking, `hooks <https://en.wikipedia.org/wiki/Hooking>`__ intercept
+function calls or events and allow to extend the functionality of a program.
+DataLad's result hooks are calls to other DataLad commands after the command
+resulted in a specified result -- such as a successful install.
+
+To understand how hooks can be used and defined, we have to briefly mention
+DataLad's *command result evaluations*. Whenever a DataLad
+command is executed, an internal evaluation generates a *report* on the status
+and result of the command. Internally, this is useful for final result
+rendering, error detection, and logging. However, by using hooks, you can
+utilize these evaluations for your own purposes and "hook" in more commands
+whenever an evaluation fulfills your criteria.
+
+To be able to specify matching criteria, you need to be aware of the potential
+criteria you can match against. The evaluation report is a dictionary with
+``key:value`` pairs. The following table provides an overview on the available
+keys and their possible values:
+
+.. list-table::
+   :widths: 50 100
+   :header-rows: 1
+
+   * - Key name
+     - Values
+   * - ``action``
+     - ``get``, ``install``, ``drop``, ...?
+   * - ``type``
+     - ``file``, ``dataset``, ``symlink``, ...?
+   * - ``status``
+     - ``ok``, ``notneeded``, ...?
+   * - ...?
+     - ...?
+
+.. todo::
+
+   finish table
+
+These key-value pairs provide the basis to define matching rules that -- once met --
+can trigger the execution of custom hooks.
+To define a hook based on certain command results, two configuration variables
+need to be set in ``.datalad/config``:
+
+.. code-block:: bash
+
+   datalad.result-hook.<name>.match-json
+
+and
+
+.. code-block:: bash
+
+   datalad.result-hook.<name>.call-json
+
+Here is what you need to know about these variables:
+
+- The ``<name>`` part of the configurations is the same for both variables, and can be
+  an arbitrarily [#f1]_ chosen name that serves as an identifier for the hook you are
+  defining.
+
+- The first configuration variable, ``datalad.result-hook.<name>.match-json``, defines
+  the requirements that a result evaluation needs to match in order to trigger the hook.
+
+- The second configuration variable, ``datalad.result-hook.<name>.call-json``, defines
+  what the hook execution comprises. It can be any DataLad command of your choice.
+
+And here is how to set the values for these variables:
+
+- The value for ``datalad.result-hook.<name>.match-json`` needs to be specified as
+  a JSON-encoded dictionary with any number of keys, such as
+
+  .. code-block:: bash
+
+     {"type": "file", "action": "get", "status": "notneeded"}
+
+  This translates to: "Match a "not-needed" after :command:`datalad get` of a file."
+  If all specified values in the keys in this dictionary match the values of the
+  same keys in the result evaluation, the hook is executed. Apart from ``==``
+  evaluations, ``in``, ``not in``, and ``!=`` are supported. To make use of such
+  operations, the test value needs to be wrapped into a list, with the first item
+  being the operation, and the second value the test value, such as
+
+  .. code-block:: bash
+
+     {"type": ["in", ["file", "directory"]], "action": "get", "status": "notneeded"}
+
+  This translates to:  "Match a "not-needed" after :command:`datalad get` of a file or directory."
+  Another example is this::
+
+     '{"type":"dataset","action":"install","status":["eq", "ok"]}'
+
+  which translates to: "Match a successful installation of a dataset".
+
+- The value for ``datalad.result-hook.<name>.call-json`` is specified in its
+  Python notation, and its options are specified as a JSON-encoded dictionary
+  with keyword arguments. Conveniently, a number of string substitutions are
+  supported: a ``dsarg`` argument expands to the ``dataset`` given to the initial
+  command the hook operates in, and any key from the result evaluation can be
+  expanded to the respective value in the result dictionary. Curly braces need to
+  be escaped by doubling them.
+  This is not the easiest specification there is, but its also not as hard as it
+  may sound. Here is how this could look like for a :command:`datalad unlock`::
+
+     $ unlock {{"dataset": "{dsarg}", "path": "{path}"}}
+
+  This translates to "unlock the path the previous command operated on, in the
+  dataset the previous command operated on". Another example is this run command::
+
+     $ run  {{"cmd": "touch {path}_annoyed", "dataset": "{dsarg}", "explicit": true}}
+
+  This translate to "execute a run command in the dataset the previous command operated
+  on. It should create an empty file under the same path the previous command
+  operated on, with an added '_annoyed' in the file name." A final example is this::
+
+     $ run_procedure {{"dataset":"{path}","spec":"cfg_metadatatypes bids"}}
+
+  This hook will run the procedure ``cfg_metadatatypes`` with the argument ``bids``
+  and thus set the standard metadata extractor to be bids.
+
+
+As these variables are configuration variables, they can be set via :command:`git config` [#f2]_::
+
+   $ git config -f .datalad/config --add datalad.result-hook.annoy.call-json 'run {{"cmd":"touch {path}_annoyed", "dataset":"{dsarg}","explicit":true}}'
+   $ git config -f .datalad/config --add datalad.result-hook.annoy.match-json '{"type":["in", ["file"]],"action":"get","status":"notneeded"}'
+
+Here is what this writes to the ``.datalad/config`` file::
+
+    [datalad "result-hook.annoy"]
+        call-json = run {{\"cmd\":\"touch {path}_annoyed\", \"dataset\":\"{dsarg}\",\"explicit\":true}}
+        match-json = {\"type\":[\"in\", [\"file\"]],\"action\":\"get\",\"status\":\"notneeded\"}
+
+Given this configuration in the ``.datalad/config`` file of your dataset, the
+"annoy" hook would be executed whenever you run :command:`datalad get` on a file
+and the command evaluates to "notneeded". The annoy hook would then automatically
+create an empty file with the same name as the one you attempted to get, but with
+an appened ``_annoy`` in the file name [#f3]_.
+
+
+
+.. rubric:: Footnotes
+
+.. [#f1] It only needs to be compatible with :command:`git config`. This means that
+         it for example should not contain any dots (``.``).
+
+.. [#f2] To re-read about the :command:`git config` command and other configurations
+         of DataLad and its underlying tools, go back to the chapter on Configurations,
+         starting with :ref:`config`.
+
+.. [#f3] Its a toy example, but supposedly highly effective in training yourself
+         (or others) to restrain from using :command:`datalad get`. There is generally
+         no reason to do that, but why miss a chance on classical conditioning?
+         `B.F. Skinner <https://en.wikipedia.org/wiki/B._F._Skinner>`_ would be
+         `proud <https://xkcd.com/1156/>`_.

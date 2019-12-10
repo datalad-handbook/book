@@ -284,7 +284,8 @@ the ``-o``/``--output`` option.
    `FSL <https://fsl.fmrib.ox.ac.uk/fsl/fslwiki>`_, a neuro-imaging tool.
    The easiest way to specify this type of output
    is the directory name and a :term:`globbing` character, such as
-   ``-o directory/*``
+   ``-o directory/*``. And, just as for ``-i``/``--input``, you could use
+   multiple ``--output`` specifications.
 
 In order to execute :command:`datalad run` with both the ``-i``/``--input`` and ``-o``/``--output``
 flag and see their magic, let's crop the second logo, ``logo_interval.jpg``:
@@ -320,6 +321,9 @@ see an example of this in the next section.
 
 Note now how many individual commands a :command:`datalad run` saves us:
 :command:`datalad get`, :command:`datalad unlock`, and :command:`datalad save`!
+But even better: Beyond saving time *now*, running commands reproducibly and
+recorded with :command:`datalad run` saves us plenty of time in the future as soon
+as we want to rerun a command, or find out how a file came into existence.
 
 With this last code snippet, you have experienced a full :command:`datalad run` command: commit message,
 input and output definitions (the order in which you give those two options is irrelevant),

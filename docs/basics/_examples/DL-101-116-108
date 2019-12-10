@@ -1,23 +1,254 @@
-# navigate back into the original dataset
-$ cd ../../DataLad-101
-# write the note
-$ cat << EOT >> notes.txt
-A source to install a dataset from can also be a path,
-for example as in "datalad install -s ../DataLad-101".
-As when installing datasets before, make sure to add a
-description on the location of the dataset to be
-installed, and, if you want, a path to where the dataset
-should be installed under which name.
+$ tree
+.
+├── books
+│   ├── bash_guide.pdf -> ../.git/annex/objects/WF/Gq/MD5E-s1198170--0ab2c121bcf68d7278af266f6a399c5f.pdf/MD5E-s1198170--0ab2c121bcf68d7278af266f6a399c5f.pdf
+│   ├── byte-of-python.pdf -> ../.git/annex/objects/ZZ/f1/MD5E-s4407669--32e6b03a08a6edda12ad42eb7bb06a5c.pdf/MD5E-s4407669--32e6b03a08a6edda12ad42eb7bb06a5c.pdf
+│   ├── progit.pdf -> ../.git/annex/objects/G6/Gj/MD5E-s12465653--05cd7ed561d108c9bcf96022bc78a92c.pdf/MD5E-s12465653--05cd7ed561d108c9bcf96022bc78a92c.pdf
+│   └── TLCL.pdf -> ../.git/annex/objects/jf/3M/MD5E-s2120211--06d1efcb05bb2c55cd039dab3fb28455.pdf/MD5E-s2120211--06d1efcb05bb2c55cd039dab3fb28455.pdf
+├── code
+│   └── list_titles.sh
+├── notes.txt
+└── recordings
+    ├── interval_logo_small.jpg -> ../.git/annex/objects/36/jF/MD5E-s100877--0fea9537f9fe255d827e4401a7d539e7.jpg/MD5E-s100877--0fea9537f9fe255d827e4401a7d539e7.jpg
+    ├── longnow
+    │   ├── Long_Now__Conversations_at_The_Interval
+    │   │   ├── 2017_06_09__How_Digital_Memory_Is_Shaping_Our_Future__Abby_Smith_Rumsey.mp3 -> ../.git/annex/objects/8j/kQ/MD5E-s66305442--c723d53d207e6d82dd64c3909a6a93b0.mp3/MD5E-s66305442--c723d53d207e6d82dd64c3909a6a93b0.mp3
+    │   │   ├── 2017_06_09__Pace_Layers_Thinking__Stewart_Brand__Paul_Saffo.mp3 -> ../.git/annex/objects/Qk/9M/MD5E-s112801659--00a42a1a617485fb2c03cbf8482c905c.mp3/MD5E-s112801659--00a42a1a617485fb2c03cbf8482c905c.mp3
+    │   │   ├── 2017_06_09__Proof__The_Science_of_Booze__Adam_Rogers.mp3 -> ../.git/annex/objects/FP/96/MD5E-s60091960--6e48eceb5c54d458164c2d0f47b540bc.mp3/MD5E-s60091960--6e48eceb5c54d458164c2d0f47b540bc.mp3
+    │   │   ├── 2017_06_09__Seveneves_at_The_Interval__Neal_Stephenson.mp3 -> ../.git/annex/objects/Wf/5Q/MD5E-s66431897--aff90c838a1c4a363bb9d83a46fa989b.mp3/MD5E-s66431897--aff90c838a1c4a363bb9d83a46fa989b.mp3
+    │   │   ├── 2017_06_09__Talking_with_Robots_about_Architecture__Jeffrey_McGrew.mp3 -> ../.git/annex/objects/Fj/9V/MD5E-s61491081--c4e88ea062c0afdbea73d295922c5759.mp3/MD5E-s61491081--c4e88ea062c0afdbea73d295922c5759.mp3
+    │   │   ├── 2017_06_09__The_Red_Planet_for_Real__Andy_Weir.mp3 -> ../.git/annex/objects/xq/Q3/MD5E-s136924472--0d1072105caa56475df9037670d35a06.mp3/MD5E-s136924472--0d1072105caa56475df9037670d35a06.mp3
+    │   │   ├── 2017_07_03__Transforming_Perception__One_Sense_at_a_Time__Kara_Platoni.mp3 -> ../.git/annex/objects/J6/88/MD5E-s62941770--77ae65e0f84c4b1fbefe74183284c305.mp3/MD5E-s62941770--77ae65e0f84c4b1fbefe74183284c305.mp3
+    │   │   ├── 2017_08_01__How_Climate_Will_Evolve_Government_and_Society__Kim_Stanley_Robinson.mp3 -> ../.git/annex/objects/kw/PF/MD5E-s60929439--86a30b6bab51e59af52ca8aa6684498f.mp3/MD5E-s60929439--86a30b6bab51e59af52ca8aa6684498f.mp3
+    │   │   ├── 2017_09_01__Envisioning_Deep_Time__Jonathon_Keats.mp3 -> ../.git/annex/objects/W4/2q/MD5E-s57113552--82a985abe7fa362e29e4ffa3a9951cc3.mp3/MD5E-s57113552--82a985abe7fa362e29e4ffa3a9951cc3.mp3
+    │   │   ├── 2017_10_01__Thinking_Long_term_About_the_Evolving_Global_Challenge__The_Refugee_Reality.mp3 -> ../.git/annex/objects/81/qF/MD5E-s78362767--5b077807c50d1fa02bebd399ec1431e0.mp3/MD5E-s78362767--5b077807c50d1fa02bebd399ec1431e0.mp3
+    │   │   ├── 2017_11_01__The_Web_In_An_Eye_Blink__Jason_Scott.mp3 -> ../.git/annex/objects/03/4v/MD5E-s64398689--049e8d1c9288d201b275331afb71b316.mp3/MD5E-s64398689--049e8d1c9288d201b275331afb71b316.mp3
+    │   │   ├── 2017_12_01__Ideology_in_our_Genes__The_Biological_Basis_for_Political_Traits__Rose_McDermott.mp3 -> ../.git/annex/objects/x0/2j/MD5E-s59979926--05127d163371d1152b72d98263d7848a.mp3/MD5E-s59979926--05127d163371d1152b72d98263d7848a.mp3
+    │   │   ├── 2017_12_07__Can_Democracy_Survive_the_Internet___Nathaniel_Persily.mp3 -> ../.git/annex/objects/5M/Pv/MD5E-s64541470--64960bf95544bc76ed564b541ebb36bc.mp3/MD5E-s64541470--64960bf95544bc76ed564b541ebb36bc.mp3
+    │   │   ├── 2018_01_02__The_New_Deal_You_Don_t_Know__Louis_Hyman.mp3 -> ../.git/annex/objects/MZ/MP/MD5E-s61802477--8c3056079a4d3bfe1adbbf0195d57f3c.mp3/MD5E-s61802477--8c3056079a4d3bfe1adbbf0195d57f3c.mp3
+    │   │   ├── 2018_02_01__Humanity_and_the_Deep_Ocean__James_Nestor.mp3 -> ../.git/annex/objects/3G/5v/MD5E-s55707819--6bb054946ca3e3e95fd1b1792693706c.mp3/MD5E-s55707819--6bb054946ca3e3e95fd1b1792693706c.mp3
+    │   │   ├── 2018_03_01__Our_Future_in_Algorithm_Farming__Mike_Kuniavsky.mp3 -> ../.git/annex/objects/GJ/J2/MD5E-s70246964--5a9f4538aa4d7bc3163067a9e7f093ca.mp3/MD5E-s70246964--5a9f4538aa4d7bc3163067a9e7f093ca.mp3
+    │   │   ├── 2018_04_18__The_Organized_Pursuit_of_Knowledge__Margaret_Levi.mp3 -> ../.git/annex/objects/p3/k2/MD5E-s73210485--7c9aae9a75d469ba7f3f66c53b666537.mp3/MD5E-s73210485--7c9aae9a75d469ba7f3f66c53b666537.mp3
+    │   │   ├── 2018_08_15__Facts__Feelings_and_Stories__How_to_Motivate_Action_on_Climate_Change__Shahzeen_Attari.mp3 -> ../.git/annex/objects/KP/K2/MD5E-s65132611--24512f7ec67223ccf780e0f2b97834f6.mp3/MD5E-s65132611--24512f7ec67223ccf780e0f2b97834f6.mp3
+    │   │   ├── 2019_03_26__Charting_the_High_Frontier_of_Space__Ed_Lu.mp3 -> ../.git/annex/objects/M4/ZV/MD5E-s63544942--eb26888680eb46cccf0582e3786988fb.mp3/MD5E-s63544942--eb26888680eb46cccf0582e3786988fb.mp3
+    │   │   ├── 2019_04_04__The_Science_of_Climate_Fiction__Can_Stories_Lead_to_Social_Action___James_Holland_Jones.mp3 -> ../.git/annex/objects/kq/wm/MD5E-s75248104--494600f8f37afa79751f20e67ca8e826.mp3/MD5E-s75248104--494600f8f37afa79751f20e67ca8e826.mp3
+    │   │   ├── 2019_04_10__The_Spirit_Singularity__Science_and_the_Afterlife_at_the_Turn_of_the_20th_Century__Hannu_Rajaniemi.mp3 -> ../.git/annex/objects/7M/gQ/MD5E-s62773439--bd7517903216f342bfab76f2f1b6ed69.mp3/MD5E-s62773439--bd7517903216f342bfab76f2f1b6ed69.mp3
+    │   │   ├── 2019_04_18__The_Evolving_Science_of_Behavior_Change__Christopher_Bryan.mp3 -> ../.git/annex/objects/61/x0/MD5E-s69287107--391d1447ccfe4b209e420dc84c2ba8e6.mp3/MD5E-s69287107--391d1447ccfe4b209e420dc84c2ba8e6.mp3
+    │   │   ├── 2019_04_30__Siberia__A_Journey_to_the_Mammoth_Steppe__Stewart_Brand__Kevin_Kelly__Alexander_Rose.mp3 -> ../.git/annex/objects/zF/Jf/MD5E-s79917988--d6ffcd9308f9d9bf5a94249f074121a2.mp3/MD5E-s79917988--d6ffcd9308f9d9bf5a94249f074121a2.mp3
+    │   │   ├── 2019_05_06__Can_Nationalism_be_a_Resource_for_Democracy___Maya_Tudor.mp3 -> ../.git/annex/objects/pW/Q1/MD5E-s64503403--d29cd91accc19df6e0090043992ce60b.mp3/MD5E-s64503403--d29cd91accc19df6e0090043992ce60b.mp3
+    │   │   ├── 2019_05_14__Growing_Up_Ape__The_Long_term_Science_of_Studying_Our_Closest_Living_Relatives__Elizabeth__Lonsdorf.mp3 -> ../.git/annex/objects/77/qX/MD5E-s62173059--07f3975be35e756305308936799cd6cf.mp3/MD5E-s62173059--07f3975be35e756305308936799cd6cf.mp3
+    │   │   ├── 2019_05_21__Time_Poverty_Amidst_Digital_Abundance__Judy_Wajcman.mp3 -> ../.git/annex/objects/3v/FQ/MD5E-s65763064--225a21c8990ae360b14af1268226c889.mp3/MD5E-s65763064--225a21c8990ae360b14af1268226c889.mp3
+    │   │   ├── 2019_06_07__A_Foundation_of_Trust__Building_a_Blockchain_Future__Brian_Behlendorf.mp3 -> ../.git/annex/objects/Vp/f9/MD5E-s68634064--11ef7afe27bd66af4ef011c724809384.mp3/MD5E-s68634064--11ef7afe27bd66af4ef011c724809384.mp3
+    │   │   └── 2019_07_12__Learning_From_Le_Guin__Kim_Stanley_Robinson.mp3 -> ../.git/annex/objects/X8/4w/MD5E-s91272796--0d45409155e6fab7bd0812aa25d34c77.mp3/MD5E-s91272796--0d45409155e6fab7bd0812aa25d34c77.mp3
+    │   ├── Long_Now__Seminars_About_Long_term_Thinking
+    │   │   ├── 2003_11_15__Brian_Eno__The_Long_Now.mp3 -> ../.git/annex/objects/wM/Pp/MD5E-s37400577--d2608f34da71aa80fa08ea4247af8e43.mp3/MD5E-s37400577--d2608f34da71aa80fa08ea4247af8e43.mp3
+    │   │   ├── 2003_12_13__Peter_Schwartz__The_Art_Of_The_Really_Long_View.mp3 -> ../.git/annex/objects/9G/kv/MD5E-s60647011--bb4bece3953e14297c5f4e3bfbc6d139.mp3/MD5E-s60647011--bb4bece3953e14297c5f4e3bfbc6d139.mp3
+    │   │   ├── 2004_01_10__George_Dyson__There_s_Plenty_of_Room_at_the_Top__Long_term_Thinking_About_Large_scale_Computing.mp3 -> ../.git/annex/objects/9g/Mw/MD5E-s43592996--65d7e0dd7a7ac5b85be870ba18c27ff7.mp3/MD5E-s43592996--65d7e0dd7a7ac5b85be870ba18c27ff7.mp3
+    │   │   ├── 2004_02_14__James_Dewar__Long_term_Policy_Analysis.mp3 -> ../.git/annex/objects/vz/2x/MD5E-s33341653--b4af70a252071edc065742499c7faf94.mp3/MD5E-s33341653--b4af70a252071edc065742499c7faf94.mp3
+    │   │   ├── 2004_03_13__Rusty_Schweickart__The_Asteroid_Threat_Over_the_Next_100_000_Years.mp3 -> ../.git/annex/objects/6z/QM/MD5E-s43829532--bfc1ea14ca5245ba07331765a5899fa2.mp3/MD5E-s43829532--bfc1ea14ca5245ba07331765a5899fa2.mp3
+    │   │   ├── 2004_04_10__Daniel_Janzen__Third_World_Conservation__It_s_ALL_Gardening.mp3 -> ../.git/annex/objects/Wz/Wv/MD5E-s40902765--879848c838d9e5e972a2202b7553441f.mp3/MD5E-s40902765--879848c838d9e5e972a2202b7553441f.mp3
+    │   │   ├── 2004_05_15__David_Rumsey__Mapping_Time.mp3 -> ../.git/annex/objects/xV/zW/MD5E-s48573955--b15b5759429bf78545fe63b7bbcf6c45.mp3/MD5E-s48573955--b15b5759429bf78545fe63b7bbcf6c45.mp3
+    │   │   ├── 2004_06_12__Bruce_Sterling__The_Singularity__Your_Future_as_a_Black_Hole.mp3 -> ../.git/annex/objects/XX/6Q/MD5E-s47082293--a1fee27420e268eff863112b1250b9f5.mp3/MD5E-s47082293--a1fee27420e268eff863112b1250b9f5.mp3
+    │   │   ├── 2004_07_10__Jill_Tarter__The_Search_for_Extra_terrestrial_Intelligence__Necessarily_a_Long_term_Strategy.mp3 -> ../.git/annex/objects/JZ/9Z/MD5E-s39026026--5b1cfe3b7a5f1e376856b2dc402cbf99.mp3/MD5E-s39026026--5b1cfe3b7a5f1e376856b2dc402cbf99.mp3
+    │   │   ├── 2004_08_14__Phillip_Longman__The_Depopulation_Problem.mp3 -> ../.git/annex/objects/mj/2W/MD5E-s29912301--05fd6bf6a9c8687f4fca30fd9c23461d.mp3/MD5E-s29912301--05fd6bf6a9c8687f4fca30fd9c23461d.mp3
+    │   │   ├── 2004_09_11__Danny_Hillis__Progress_on_the_10_000_year_Clock.mp3 -> ../.git/annex/objects/J1/9Z/MD5E-s32394149--a6b80e97513f1d08f1a7d861f3039485.mp3/MD5E-s32394149--a6b80e97513f1d08f1a7d861f3039485.mp3
+    │   │   ├── 2004_10_16__Paul_Hawken__The_Long_Green.mp3 -> ../.git/annex/objects/Km/pg/MD5E-s38341709--e22fcde71de602dc1f20867e99817fcf.mp3/MD5E-s38341709--e22fcde71de602dc1f20867e99817fcf.mp3
+    │   │   ├── 2004_11_13__Michael_West__The_Prospects_of_Human_Life_Extension.mp3 -> ../.git/annex/objects/4v/qp/MD5E-s40719691--8745bc0681272c6957044681d22abaf8.mp3/MD5E-s40719691--8745bc0681272c6957044681d22abaf8.mp3
+    │   │   ├── 2004_12_04__Ken_Dychtwald__The_Consequences_of_Human_Life_Extension.mp3 -> ../.git/annex/objects/V9/07/MD5E-s60009557--1761225dfd602083b8ea22531149f946.mp3/MD5E-s60009557--1761225dfd602083b8ea22531149f946.mp3
+    │   │   ├── 2005_01_15__James_Carse__Religious_War_In_Light_of_the_Infinite_Game.mp3 -> ../.git/annex/objects/W6/1z/MD5E-s42159493--02cfb776004e688ec5a88d4a35fa7a40.mp3/MD5E-s42159493--02cfb776004e688ec5a88d4a35fa7a40.mp3
+    │   │   ├── 2005_02_26__Roger_Kennedy__The_Political_History_of_North_America_from_25_000_BC_to_12_000_AD.mp3 -> ../.git/annex/objects/jK/J4/MD5E-s40927311--8bc53f940863e7caec094afc04361b43.mp3/MD5E-s40927311--8bc53f940863e7caec094afc04361b43.mp3
+    │   │   ├── 2005_03_12__Spencer_Beebe__Very_Long_term_Very_Large_scale_Biomimicry.mp3 -> ../.git/annex/objects/8v/XM/MD5E-s36572151--b606f5cf4ad1c31158ae76f965e82e84.mp3/MD5E-s36572151--b606f5cf4ad1c31158ae76f965e82e84.mp3
+    │   │   ├── 2005_04_09__Stewart_Brand__Cities___Time.mp3 -> ../.git/annex/objects/2x/w6/MD5E-s39295836--2a112247f6015c4c8250289ab9d63668.mp3/MD5E-s39295836--2a112247f6015c4c8250289ab9d63668.mp3
+    │   │   ├── 2005_06_11__Robert_Neuwirth__The_21st_Century_Medieval_City.mp3 -> ../.git/annex/objects/Vp/q8/MD5E-s38550688--05ad0ff6388ed786e568ef1e58d389fb.mp3/MD5E-s38550688--05ad0ff6388ed786e568ef1e58d389fb.mp3
+    │   │   ├── 2005_07_16__Jared_Diamond__How_Societies_Fail_And_Sometimes_Succeed.mp3 -> ../.git/annex/objects/Q2/mw/MD5E-s34753748--d1fa4290b0dad993bd9011e0e2ad5a1f.mp3/MD5E-s34753748--d1fa4290b0dad993bd9011e0e2ad5a1f.mp3
+    │   │   ├── 2005_08_13__Robert_Fuller__Patient_Revolution__Human_Rights_Past_and_Future.mp3 -> ../.git/annex/objects/X8/05/MD5E-s29838138--80c496ec104bede97272691744dbe0b2.mp3/MD5E-s29838138--80c496ec104bede97272691744dbe0b2.mp3
+    │   │   ├── 2005_09_24__Ray_Kurzweil__Kurzweil_s_Law.mp3 -> ../.git/annex/objects/Xp/Pp/MD5E-s51068756--1a8e1b9bd5c0781b5798ad6fe1fe64f0.mp3/MD5E-s51068756--1a8e1b9bd5c0781b5798ad6fe1fe64f0.mp3
+    │   │   ├── 2005_10_06__Esther_Dyson__Freeman_Dyson__George_Dyson__The_Difficulty_of_Looking_Far_Ahead.mp3 -> ../.git/annex/objects/Xp/qX/MD5E-s45116431--b98b672ebd13005ea800f7f96df6cf9b.mp3/MD5E-s45116431--b98b672ebd13005ea800f7f96df6cf9b.mp3
+    │   │   ├── 2005_11_15__Clay_Shirky__Making_Digital_Durable__What_Time_Does_to_Categories.mp3 -> ../.git/annex/objects/xq/9M/MD5E-s46629230--1d82c368c20f626d5903ba72d8d72adb.mp3/MD5E-s46629230--1d82c368c20f626d5903ba72d8d72adb.mp3
+    │   │   ├── 2005_12_10__Sam_Harris__The_View_from_the_End_of_the_World.mp3 -> ../.git/annex/objects/4F/8G/MD5E-s39843853--a8f7cac6df6a3fe57fea55238e171513.mp3/MD5E-s39843853--a8f7cac6df6a3fe57fea55238e171513.mp3
+    │   │   ├── 2006_01_14__Ralph_Cavanagh__Peter_Schwartz__Nuclear_Power__Climate_Change_and_the_Next_10_000_Years.mp3 -> ../.git/annex/objects/gp/v0/MD5E-s49219891--b4d50f8eb1618e010a556aacf8f4ab8c.mp3/MD5E-s49219891--b4d50f8eb1618e010a556aacf8f4ab8c.mp3
+    │   │   ├── 2006_02_14__Stephen_Lansing__Perfect_Order__A_Thousand_Years_in_Bali.mp3 -> ../.git/annex/objects/vg/K9/MD5E-s38414621--c24195b1fc7c0188c959b447ff22eb74.mp3/MD5E-s38414621--c24195b1fc7c0188c959b447ff22eb74.mp3
+    │   │   ├── 2006_03_11__Kevin_Kelly__The_Next_100_Years_of_Science__Long_term_Trends_in_the_Scientific_Method..mp3 -> ../.git/annex/objects/wW/jJ/MD5E-s37249410--e92bb84028e026eb33f66c5eb0f761ea.mp3/MD5E-s37249410--e92bb84028e026eb33f66c5eb0f761ea.mp3
+    │   │   ├── 2006_04_15__Jimmy_Wales__Vision__Wikipedia_and_the_Future_of_Free_Culture.mp3 -> ../.git/annex/objects/PJ/Mw/MD5E-s36694097--fbe81b642bf2e36e3f1f44bf53e2c832.mp3/MD5E-s36694097--fbe81b642bf2e36e3f1f44bf53e2c832.mp3
+    │   │   ├── 2006_05_13__Chris_Anderson__Will_Hearst__The_Long_Time_Tail.mp3 -> ../.git/annex/objects/Z4/WZ/MD5E-s42929386--cbf6f31c6c8e616d32815e3c0a0e8dc9.mp3/MD5E-s42929386--cbf6f31c6c8e616d32815e3c0a0e8dc9.mp3
+    │   │   ├── 2006_06_27__Brian_Eno__Will_Wright__Playing_with_Time.mp3 -> ../.git/annex/objects/3z/MW/MD5E-s48120641--c7794df5d24e5ec697655f392f054a7d.mp3/MD5E-s48120641--c7794df5d24e5ec697655f392f054a7d.mp3
+    │   │   ├── 2006_07_15__John_Rendon__Long_term_Policy_to_Make_the_War_on_Terror_Short.mp3 -> ../.git/annex/objects/Zg/px/MD5E-s43093884--5dd1d00e4829c1a5482c5941ae4c0deb.mp3/MD5E-s43093884--5dd1d00e4829c1a5482c5941ae4c0deb.mp3
+    │   │   ├── 2006_09_23__Orville_Schell__China_Thinks_Long_term__But_Can_It_Relearn_to_Act_Long_term_.mp3 -> ../.git/annex/objects/6z/G6/MD5E-s42977502--05ea8ed6092d5d6c8b248f256942a8eb.mp3/MD5E-s42977502--05ea8ed6092d5d6c8b248f256942a8eb.mp3
+    │   │   ├── 2006_10_14__John_Baez__Zooming_Out_in_Time.mp3 -> ../.git/annex/objects/z6/Gf/MD5E-s39220210--335e92a49072179695b9086c5e429133.mp3/MD5E-s39220210--335e92a49072179695b9086c5e429133.mp3
+    │   │   ├── 2006_11_04__Larry_Brilliant__Katherine_Fulton__Richard_Rockefeller__The_Deeper_News_About_the_New_Philanthropy.mp3 -> ../.git/annex/objects/mZ/Jk/MD5E-s48439808--37ffbb967a67e5661ee7d74320dc2b79.mp3/MD5E-s48439808--37ffbb967a67e5661ee7d74320dc2b79.mp3
+    │   │   ├── 2006_12_01__Philip_Rosedale___Second_Life___What_Do_We_Learn_If_We_Digitize_EVERYTHING_.mp3 -> ../.git/annex/objects/58/9v/MD5E-s41936130--6fbaabb438cbb41c674e89f9914c68c9.mp3/MD5E-s41936130--6fbaabb438cbb41c674e89f9914c68c9.mp3
+    │   │   ├── 2007_01_27__Philip_Tetlock__Why_Foxes_Are_Better_Forecasters_Than_Hedgehogs.mp3 -> ../.git/annex/objects/Fm/vG/MD5E-s35425777--3dc81719eae535412ee8ec4578126fbd.mp3/MD5E-s35425777--3dc81719eae535412ee8ec4578126fbd.mp3
+    │   │   ├── 2007_02_16__Vernor_Vinge__What_If_the_Singularity_Does_NOT_Happen_.mp3 -> ../.git/annex/objects/W8/x8/MD5E-s43975374--1975e476fba2f01d779497a41e966f42.mp3/MD5E-s43975374--1975e476fba2f01d779497a41e966f42.mp3
+    │   │   ├── 2007_03_10__Brian_Fagan__We_Are_Not_the_First_to_Suffer_Through_Climate_Change.mp3 -> ../.git/annex/objects/12/Mx/MD5E-s38065175--afd876160ae3f8821a406ac1f3fd5e7c.mp3/MD5E-s38065175--afd876160ae3f8821a406ac1f3fd5e7c.mp3
+    │   │   ├── 2007_04_28__Frans_Lanting__Life_s_Journey_Through_Time.mp3 -> ../.git/annex/objects/Wx/73/MD5E-s8150366--fc261d927bf501e41162709fe2bfdaf3.mp3/MD5E-s8150366--fc261d927bf501e41162709fe2bfdaf3.mp3
+    │   │   ├── 2007_05_12__Steven_Johnson__The_Long_Zoom.mp3 -> ../.git/annex/objects/03/2F/MD5E-s41751799--795eca058bc7d8dc8819185ad212edc5.mp3/MD5E-s41751799--795eca058bc7d8dc8819185ad212edc5.mp3
+    │   │   ├── 2007_06_09__Paul_Hawken__The_New_Great_Transformation.mp3 -> ../.git/annex/objects/qQ/qG/MD5E-s34334254--8198f0c4b8855f8db29c1cc359de2a8f.mp3/MD5E-s34334254--8198f0c4b8855f8db29c1cc359de2a8f.mp3
+    │   │   ├── 2007_06_29__Francis_Fukuyama___The_End_of_History__Revisited.mp3 -> ../.git/annex/objects/zQ/p8/MD5E-s86957701--807d990c3edfe5dc0c2e31060e9fa221.mp3/MD5E-s86957701--807d990c3edfe5dc0c2e31060e9fa221.mp3
+    │   │   ├── 2007_08_18__Alex_Wright__Glut__Mastering_Information_Though_the_Ages.mp3 -> ../.git/annex/objects/Vq/9V/MD5E-s44370724--9d6858d432c22621843bec7c821c7540.mp3/MD5E-s44370724--9d6858d432c22621843bec7c821c7540.mp3
+    │   │   ├── 2007_09_15__Rip_Anderson__Gwyneth_Cravens__Power_to_Save_the_World.mp3 -> ../.git/annex/objects/g3/G9/MD5E-s49475888--bfcea29531c79fe2c3742a5c1a34cb30.mp3/MD5E-s49475888--bfcea29531c79fe2c3742a5c1a34cb30.mp3
+    │   │   ├── 2007_10_13__Juan_Enriquez__Mapping_the_Frontier_of_Knowledge.mp3 -> ../.git/annex/objects/Gx/qM/MD5E-s42612152--ee5ee16215cdb2ebdf3b8785a51d7fd5.mp3/MD5E-s42612152--ee5ee16215cdb2ebdf3b8785a51d7fd5.mp3
+    │   │   ├── 2007_11_10__Rosabeth_Moss_Kanter__Enduring_Principles_for_Changing_Times.mp3 -> ../.git/annex/objects/2v/2X/MD5E-s38669105--d8a95dfe2d45afee2252259d5208c6b0.mp3/MD5E-s38669105--d8a95dfe2d45afee2252259d5208c6b0.mp3
+    │   │   ├── 2007_12_15__Joline_Blais__Jon_Ippolito__At_the_Edge_of_Art.mp3 -> ../.git/annex/objects/PJ/ZM/MD5E-s41049161--f891ff0dc77ed5d4f39f8cd862610d4c.mp3/MD5E-s41049161--f891ff0dc77ed5d4f39f8cd862610d4c.mp3
+    │   │   ├── 2008_01_12__Paul_Saffo__Embracing_Uncertainty__the_secret_to_effective_forecasting.mp3 -> ../.git/annex/objects/P6/mP/MD5E-s40854207--48b54c45ae4be605d838a066b7c8a270.mp3/MD5E-s40854207--48b54c45ae4be605d838a066b7c8a270.mp3
+    │   │   ├── 2008_02_05__Nassim_Nicholas_Taleb__The_Future_Has_Always_Been_Crazier_Than_We_Thought.mp3 -> ../.git/annex/objects/64/jW/MD5E-s41992520--969a1f3812e552a6fe16b2755c6c9d23.mp3/MD5E-s41992520--969a1f3812e552a6fe16b2755c6c9d23.mp3
+    │   │   ├── 2008_02_26__Craig_Venter__Joining_3.5_Billion_Years_of_Microbial_Invention.mp3 -> ../.git/annex/objects/Xw/xF/MD5E-s52243794--c86611f72b55b9854a3ae89e80028053.mp3/MD5E-s52243794--c86611f72b55b9854a3ae89e80028053.mp3
+    │   │   ├── 2008_04_29__Niall_Ferguson__Peter_Schwartz__Historian_vs._Futurist_on_Human_Progress.mp3 -> ../.git/annex/objects/Mj/XX/MD5E-s48909656--f58ec5f796cec3acfc2fc6076a332c1f.mp3/MD5E-s48909656--f58ec5f796cec3acfc2fc6076a332c1f.mp3
+    │   │   ├── 2008_05_22__Iqbal_Quadir__Technology_Empowers_the_Poorest.mp3 -> ../.git/annex/objects/K1/02/MD5E-s35922583--3baf5c9a4ca07468e113dd1674c8af64.mp3/MD5E-s35922583--3baf5c9a4ca07468e113dd1674c8af64.mp3
+    │   │   ├── 2008_06_28__Paul_Ehrlich__The_Dominant_Animal__Human_Evolution_and_the_Environment.mp3 -> ../.git/annex/objects/vG/Z5/MD5E-s42323632--32b03361fca3339c5afe884d2d9e8fab.mp3/MD5E-s42323632--32b03361fca3339c5afe884d2d9e8fab.mp3
+    │   │   ├── 2008_07_24__Edward_Burtynsky__The_10_000_year_Gallery.mp3 -> ../.git/annex/objects/42/K7/MD5E-s53695042--968062aa10adfb915a09a675844247d5.mp3/MD5E-s53695042--968062aa10adfb915a09a675844247d5.mp3
+    │   │   ├── 2008_08_09__Daniel_Suarez__Daemon__Bot_mediated_Reality.mp3 -> ../.git/annex/objects/80/90/MD5E-s37685881--1d0d983c04df0b2d749d12da9ea07ce0.mp3/MD5E-s37685881--1d0d983c04df0b2d749d12da9ea07ce0.mp3
+    │   │   ├── 2008_09_09__Neal_Stephenson__ANATHEM_Book_Launch_Event.mp3 -> ../.git/annex/objects/4g/Xk/MD5E-s9437542--f8a813f2aa53c38fdc23388950b2bb70.mp3/MD5E-s9437542--f8a813f2aa53c38fdc23388950b2bb70.mp3
+    │   │   ├── 2008_09_13__Peter_Diamandis__Long_term_X_Prizes.mp3 -> ../.git/annex/objects/XM/mM/MD5E-s35501727--755574091d9abe61dc1248667d7acd72.mp3/MD5E-s35501727--755574091d9abe61dc1248667d7acd72.mp3
+    │   │   ├── 2008_10_04__Huey_Johnson__Green_Planning_at_Nation_Scale.mp3 -> ../.git/annex/objects/X0/mv/MD5E-s42050106--0274dc241f63cd768c3540e1fceb9923.mp3/MD5E-s42050106--0274dc241f63cd768c3540e1fceb9923.mp3
+    │   │   ├── 2008_11_18__Drew_Endy__Jim_Thomas__Synthetic_Biology_Debate.mp3 -> ../.git/annex/objects/mk/f0/MD5E-s59629253--53cd8eb88ce058cf76eaefb8e9cd4ee5.mp3/MD5E-s59629253--53cd8eb88ce058cf76eaefb8e9cd4ee5.mp3
+    │   │   ├── 2008_12_20__Rick_Prelinger__Lost_Landscapes_of_San_Francisco.mp3 -> ../.git/annex/objects/qv/2j/MD5E-s45891041--a4157f90e969c61b012c8d660690a76c.mp3/MD5E-s45891041--a4157f90e969c61b012c8d660690a76c.mp3
+    │   │   ├── 2009_01_17__Saul_Griffith__Climate_Change_Recalculated.mp3 -> ../.git/annex/objects/89/FG/MD5E-s46528544--da4aa82f73bf5dffc94e0840f862f0f0.mp3/MD5E-s46528544--da4aa82f73bf5dffc94e0840f862f0f0.mp3
+    │   │   ├── 2009_02_14__Dmitry_Orlov__Social_Collapse_Best_Practices.mp3 -> ../.git/annex/objects/xw/Z8/MD5E-s42143599--53162f6bc58ba27e0c91c9ee3dd3cf98.mp3/MD5E-s42143599--53162f6bc58ba27e0c91c9ee3dd3cf98.mp3
+    │   │   ├── 2009_03_21__Daniel_Everett__Endangered_languages__lost_knowledge_and_the_future.mp3 -> ../.git/annex/objects/Gf/Xz/MD5E-s43519400--904e9ddb91333ea13f95a6b4ff8f8d40.mp3/MD5E-s43519400--904e9ddb91333ea13f95a6b4ff8f8d40.mp3
+    │   │   ├── 2009_04_09__Gavin_Newsom__Cities_and_Time.mp3 -> ../.git/annex/objects/f2/F2/MD5E-s38952192--365330de9e1e4761efcb68c6bdf290cc.mp3/MD5E-s38952192--365330de9e1e4761efcb68c6bdf290cc.mp3
+    │   │   ├── 2009_05_06__Michael_Pollan__Deep_Agriculture.mp3 -> ../.git/annex/objects/qw/M8/MD5E-s41937466--b6b0cc1ff73a5225568602d39ac33329.mp3/MD5E-s41937466--b6b0cc1ff73a5225568602d39ac33329.mp3
+    │   │   ├── 2009_05_19__Paul_Romer__A_Theory_of_History__with_an_Application.mp3 -> ../.git/annex/objects/vV/Fj/MD5E-s24884522--a336743bfd486f32cd06a9f4d5174140.mp3/MD5E-s24884522--a336743bfd486f32cd06a9f4d5174140.mp3
+    │   │   ├── 2009_07_29__Raoul_Adamchak__Pamela__Ronald__Organically_Grown_and_Genetically_Engineered__The_Food_of_the_Future.mp3 -> ../.git/annex/objects/z7/52/MD5E-s48321583--51e8af81b38616fe3ea7488cc25373e1.mp3/MD5E-s48321583--51e8af81b38616fe3ea7488cc25373e1.mp3
+    │   │   ├── 2009_08_18__Wayne_Clough__Smithsonian_Forever.mp3 -> ../.git/annex/objects/94/kG/MD5E-s41569871--9baeb7c2bf1da2ed6a980d204e4023de.mp3/MD5E-s41569871--9baeb7c2bf1da2ed6a980d204e4023de.mp3
+    │   │   ├── 2009_09_15__Arthur_Ganson__Machines_and_the_Breath_of_Time.mp3 -> ../.git/annex/objects/JM/10/MD5E-s42758965--ce3f08e2a1218c81245e8938346580e5.mp3/MD5E-s42758965--ce3f08e2a1218c81245e8938346580e5.mp3
+    │   │   ├── 2009_10_10__Stewart_Brand__Rethinking_Green.mp3 -> ../.git/annex/objects/9z/GK/MD5E-s42844019--3807faf3e9e38be2bdcdf21ab6d3f42e.mp3/MD5E-s42844019--3807faf3e9e38be2bdcdf21ab6d3f42e.mp3
+    │   │   ├── 2009_11_19__Sander_van_der_Leeuw__The_Archaeology_of_Innovation.mp3 -> ../.git/annex/objects/9X/Qx/MD5E-s43092078--95705a7333f36161a94e325b1704fb0c.mp3/MD5E-s43092078--95705a7333f36161a94e325b1704fb0c.mp3
+    │   │   ├── 2009_12_05__Rick_Prelinger__Lost_Landscapes_of_San_Francisco_4.mp3 -> ../.git/annex/objects/vX/90/MD5E-s51277391--1be564edab148856aac1028b6f2c20fa.mp3/MD5E-s51277391--1be564edab148856aac1028b6f2c20fa.mp3
+    │   │   ├── 2010_01_14__Wade_Davis__The_Wayfinders__Why_Ancient_Wisdom_Matters_in_the_Modern_World.mp3 -> ../.git/annex/objects/W4/Jg/MD5E-s52452101--4e4182a845fba5807cda7fe810cb0168.mp3/MD5E-s52452101--4e4182a845fba5807cda7fe810cb0168.mp3
+    │   │   ├── 2010_02_01__Stewart_Brand__Brian_Eno__Alexander_Rose__Long_Finance__The_Enduring_Value_Conference.mp3 -> ../.git/annex/objects/v6/zQ/MD5E-s18998612--d741c1b6a72b0401840275199a54207a.mp3/MD5E-s18998612--d741c1b6a72b0401840275199a54207a.mp3
+    │   │   ├── 2010_02_25__Alan__Weisman__World_Without_Us__World_With_Us.mp3 -> ../.git/annex/objects/4W/x4/MD5E-s49080388--37a333115c68557f49446de3957dc86c.mp3/MD5E-s49080388--37a333115c68557f49446de3957dc86c.mp3
+    │   │   ├── 2010_03_05__Beth__Noveck__Transparent_Government.mp3 -> ../.git/annex/objects/QM/Mw/MD5E-s50401557--28b3f51b5717b6453efe8d53df40546b.mp3/MD5E-s50401557--28b3f51b5717b6453efe8d53df40546b.mp3
+    │   │   ├── 2010_04_02__David__Eagleman__Six_Easy_Steps_to_Avert_the_Collapse_of_Civilization.mp3 -> ../.git/annex/objects/VP/40/MD5E-s49414129--e4e9022f6c48dbf7dcca5d5a68cb86d1.mp3/MD5E-s49414129--e4e9022f6c48dbf7dcca5d5a68cb86d1.mp3
+    │   │   ├── 2010_05_04__Nils_Gilman__Deviant_Globalization.mp3 -> ../.git/annex/objects/22/K9/MD5E-s45481760--153c10e53d67e31177eeb7e91458613a.mp3/MD5E-s45481760--153c10e53d67e31177eeb7e91458613a.mp3
+    │   │   ├── 2010_06_17__Ed_Moses__Clean_Fusion_Power_This_Decade.mp3 -> ../.git/annex/objects/Zz/50/MD5E-s47394968--b1ee685975bd0bbe6a7ffaa8e247c624.mp3/MD5E-s47394968--b1ee685975bd0bbe6a7ffaa8e247c624.mp3
+    │   │   ├── 2010_07_13__Frank_Gavin__Five_Ways_to_Use_History_Well.mp3 -> ../.git/annex/objects/2F/Pf/MD5E-s48493156--c18df37154babd411ea0c301f21a1382.mp3/MD5E-s48493156--c18df37154babd411ea0c301f21a1382.mp3
+    │   │   ├── 2010_07_28__Jesse_Schell__Visions_of_the_Gamepocalypse.mp3 -> ../.git/annex/objects/Zw/z7/MD5E-s52795836--96176ed7f2f9ffa7f9083f1e1b2cb73a.mp3/MD5E-s52795836--96176ed7f2f9ffa7f9083f1e1b2cb73a.mp3
+    │   │   ├── 2010_08_03__Martin_Rees__Life_s_Future_in_the_Cosmos.mp3 -> ../.git/annex/objects/V1/62/MD5E-s47892757--a35b832b742f073a0aa6c3b854159e08.mp3/MD5E-s47892757--a35b832b742f073a0aa6c3b854159e08.mp3
+    │   │   ├── 2010_10_16__Emily_Levine__Jill_Tarter__Long_Conversation_4_of_19.mp3 -> ../.git/annex/objects/4w/pv/MD5E-s9476457--18c26321e2077ceb7399d85c7eec713f.mp3/MD5E-s9476457--18c26321e2077ceb7399d85c7eec713f.mp3
+    │   │   ├── 2010_10_16__Jem_Finer__Saul_Griffith__Long_Conversation_2_of_19.mp3 -> ../.git/annex/objects/v6/Zx/MD5E-s9442811--d2dafb668a8ce520bef4cc29901005b0.mp3/MD5E-s9442811--d2dafb668a8ce520bef4cc29901005b0.mp3
+    │   │   ├── 2010_10_16__John_Perry_Barlow__Violet_Blue__Long_Conversation_7_of_19.mp3 -> ../.git/annex/objects/2f/jq/MD5E-s9667673--5b5d5d5b1a18c0efc0d84cafc4bb9f54.mp3/MD5E-s9667673--5b5d5d5b1a18c0efc0d84cafc4bb9f54.mp3
+    │   │   ├── 2010_10_16__Robin_Sloan__Jill_Tarter__Long_Conversation_5_of_19.mp3 -> ../.git/annex/objects/W3/kG/MD5E-s9469561--39c2609234eb014e6d3f6f5e295ef683.mp3/MD5E-s9469561--39c2609234eb014e6d3f6f5e295ef683.mp3
+    │   │   ├── 2010_10_16__Saul_Griffith__Emily_Levine__Long_Conversation_3_of_19.mp3 -> ../.git/annex/objects/92/0x/MD5E-s9409792--88de6be9e92d50465453e47c1db237f6.mp3/MD5E-s9409792--88de6be9e92d50465453e47c1db237f6.mp3
+    │   │   ├── 2010_10_16__Stewart_Brand__Jem_Finer__Long_Conversation_1_of_19.mp3 -> ../.git/annex/objects/w0/JJ/MD5E-s10004339--4e5e697618cd7477c870bd8028def3b9.mp3/MD5E-s10004339--4e5e697618cd7477c870bd8028def3b9.mp3
+    │   │   ├── 2010_10_16__Violet_Blue__Robin_Sloan__Long_Conversation_6_of_19.mp3 -> ../.git/annex/objects/53/XM/MD5E-s9431108--0eb687ef1c767ee7f3d3e315cd645dd4.mp3/MD5E-s9431108--0eb687ef1c767ee7f3d3e315cd645dd4.mp3
+    │   │   ├── 2010_10_17__Danese_Cooper__Peter_Schwartz__Long_Conversation_13_of_19.mp3 -> ../.git/annex/objects/mp/7z/MD5E-s9472486--a92da9f65c8b2e442fd532adbb30258b.mp3/MD5E-s9472486--a92da9f65c8b2e442fd532adbb30258b.mp3
+    │   │   ├── 2010_10_17__Jane_McGonigal__Tiffany_Shlain__Long_Conversation_18_of_19.mp3 -> ../.git/annex/objects/Z0/W3/MD5E-s9360473--ea1acd1011856e192491a28db4913c65.mp3/MD5E-s9360473--ea1acd1011856e192491a28db4913c65.mp3
+    │   │   ├── 2010_10_17__John_Perry_Barlow__Ken_Wilson__Long_Conversation_8_of_19.mp3 -> ../.git/annex/objects/xk/9z/MD5E-s9439258--e3f82f8b94b5b7b03a7cafa9e0d1d8ee.mp3/MD5E-s9439258--e3f82f8b94b5b7b03a7cafa9e0d1d8ee.mp3
+    │   │   ├── 2010_10_17__Katherine_Fulton__Paul_Hawken__Long_Conversation_16_of_19.mp3 -> ../.git/annex/objects/kx/5q/MD5E-s9297152--5e41d126ddf48e2c7fe3d553f3b94bd6.mp3/MD5E-s9297152--5e41d126ddf48e2c7fe3d553f3b94bd6.mp3
+    │   │   ├── 2010_10_17__Ken_Foster__Pete_Worden__Long_Conversation_11_of_19.mp3 -> ../.git/annex/objects/3G/j8/MD5E-s9445946--908a10eba0b88de07a4dbffbfde71aaf.mp3/MD5E-s9445946--908a10eba0b88de07a4dbffbfde71aaf.mp3
+    │   │   ├── 2010_10_17__Melissa_Alexander__Ken_Foster__Long_Conversation_10_of_19.mp3 -> ../.git/annex/objects/50/kV/MD5E-s9436124--f361c958b49638b8a71fb99082e29ddd.mp3/MD5E-s9436124--f361c958b49638b8a71fb99082e29ddd.mp3
+    │   │   ├── 2010_10_17__Melissa_Alexander__Ken_Wilson__Long_Conversation_9_of_19.mp3 -> ../.git/annex/objects/KZ/xW/MD5E-s9457022--ba815a71c37f51fc0ff5ee10e8223a79.mp3/MD5E-s9457022--ba815a71c37f51fc0ff5ee10e8223a79.mp3
+    │   │   ├── 2010_10_17__Paul_Hawken__Tiffany_Shlain__Long_Conversation_17_of_19.mp3 -> ../.git/annex/objects/6M/F9/MD5E-s9266223--db0298b9b88cc97032136384ad12885d.mp3/MD5E-s9266223--db0298b9b88cc97032136384ad12885d.mp3
+    │   │   ├── 2010_10_17__Peter_Schwartz__Pete_Worden__Long_Conversation_12_of_19.mp3 -> ../.git/annex/objects/4P/9Q/MD5E-s9511774--0dd0c59e98010e514895e43c85ad773b.mp3/MD5E-s9511774--0dd0c59e98010e514895e43c85ad773b.mp3
+    │   │   ├── 2010_10_17__Stewart_Brand__Jane_McGonigal__Long_Conversation_19_of_19.mp3 -> ../.git/annex/objects/xK/MP/MD5E-s8670214--0a85b1b4390586513472594c72b5b591.mp3/MD5E-s8670214--0a85b1b4390586513472594c72b5b591.mp3
+    │   │   ├── 2010_10_17__Stuart_Candy__Danese_Cooper__Long_Conversation_14_of_19.mp3 -> ../.git/annex/objects/1q/KQ/MD5E-s9501743--c619ea9ce113f90c9b33d4c3a08aaac5.mp3/MD5E-s9501743--c619ea9ce113f90c9b33d4c3a08aaac5.mp3
+    │   │   ├── 2010_10_17__Stuart_Candy__Katherine_Fulton__Long_Conversation_15_of_19.mp3 -> ../.git/annex/objects/5W/Gx/MD5E-s9459321--e85f8ba45323fb17afd345f800c4ebc4.mp3/MD5E-s9459321--e85f8ba45323fb17afd345f800c4ebc4.mp3
+    │   │   ├── 2010_10_27__Lera_Boroditsky__How_Language_Shapes_Thought.mp3 -> ../.git/annex/objects/41/F2/MD5E-s51700574--effe1fe1607502fa383999f4eeac69f1.mp3/MD5E-s51700574--effe1fe1607502fa383999f4eeac69f1.mp3
+    │   │   ├── 2010_11_16__Rachel_Sussman__The_World_s_Oldest_Living_Organisms.mp3 -> ../.git/annex/objects/f1/kV/MD5E-s32731915--db708bb3b63a2f5fcd7eb5587c1bf522.mp3/MD5E-s32731915--db708bb3b63a2f5fcd7eb5587c1bf522.mp3
+    │   │   ├── 2010_12_17__Rick_Prelinger__Lost_Landscapes_of_San_Francisco__5.mp3 -> ../.git/annex/objects/pj/2X/MD5E-s42969616--089b5e5eaa9080929e7a54813548a33b.mp3/MD5E-s42969616--089b5e5eaa9080929e7a54813548a33b.mp3
+    │   │   ├── 2011_01_19__Philip_K._Howard__Fixing_Broken_Government.mp3 -> ../.git/annex/objects/3X/K3/MD5E-s45375598--5928f520167e141ce253896e66b41e25.mp3/MD5E-s45375598--5928f520167e141ce253896e66b41e25.mp3
+    │   │   ├── 2011_02_10__Mary_Catherine__Bateson__Live_Longer__Think_Longer.mp3 -> ../.git/annex/objects/x9/G7/MD5E-s42646325--4d0241a7a57d989207d58c66e6b2411e.mp3/MD5E-s42646325--4d0241a7a57d989207d58c66e6b2411e.mp3
+    │   │   ├── 2011_03_23__Matt_Ridley__Deep_Optimism.mp3 -> ../.git/annex/objects/qx/KM/MD5E-s46637417--caa469567f89a71c39bc8edf5d090720.mp3/MD5E-s46637417--caa469567f89a71c39bc8edf5d090720.mp3
+    │   │   ├── 2011_04_06__Alexander_Rose__Millennial_Precedent.mp3 -> ../.git/annex/objects/gG/j6/MD5E-s25385192--cc2f1618cacdc4ed56eb6a34882e1085.mp3/MD5E-s25385192--cc2f1618cacdc4ed56eb6a34882e1085.mp3
+    │   │   ├── 2011_04_14__Ian_Morris__Why_the_West_Rules___For_Now.mp3 -> ../.git/annex/objects/WP/GG/MD5E-s47364875--fcfa97ffa1ff3645ebad632cdfc0d70f.mp3/MD5E-s47364875--fcfa97ffa1ff3645ebad632cdfc0d70f.mp3
+    │   │   ├── 2011_05_04__Tim_Flannery__Here_on_Earth.mp3 -> ../.git/annex/objects/92/07/MD5E-s44075536--612c4562aaaeb3c7715080effb66de5f.mp3/MD5E-s44075536--612c4562aaaeb3c7715080effb66de5f.mp3
+    │   │   ├── 2011_06_08__Carl_Zimmer__Viral_Time.mp3 -> ../.git/annex/objects/Jv/m7/MD5E-s44509796--612db92349df8406d4583a6880f98c2c.mp3/MD5E-s44509796--612db92349df8406d4583a6880f98c2c.mp3
+    │   │   ├── 2011_06_28__Peter_Kareiva__Conservation_in_the_Real_World.mp3 -> ../.git/annex/objects/zw/J3/MD5E-s44001327--98121bd2a4f5e6ed6fcb4c169039dce5.mp3/MD5E-s44001327--98121bd2a4f5e6ed6fcb4c169039dce5.mp3
+    │   │   ├── 2011_07_26__Geoffrey_B.__West__Why_Cities_Keep_on_Growing__Corporations_Always_Die__and_Life_Gets_Faster.mp3 -> ../.git/annex/objects/fF/J2/MD5E-s52373698--7dcb1c4bb3d236f5553761063739d89d.mp3/MD5E-s52373698--7dcb1c4bb3d236f5553761063739d89d.mp3
+    │   │   ├── 2011_09_15__Timothy__Ferriss__Accelerated_Learning_in_Accelerated_Times.mp3 -> ../.git/annex/objects/Qk/mp/MD5E-s40890060--029f385ecc101872f7b1aeda889c1df5.mp3/MD5E-s40890060--029f385ecc101872f7b1aeda889c1df5.mp3
+    │   │   ├── 2011_10_18__Laura_Cunningham__Ten_Millennia_of_California_Ecology.mp3 -> ../.git/annex/objects/zx/Qk/MD5E-s43835001--4c85fc36b55f7dd42f811eb6be8cfbc0.mp3/MD5E-s43835001--4c85fc36b55f7dd42f811eb6be8cfbc0.mp3
+    │   │   ├── 2011_12_01__Brewster_Kahle__Universal_Access_to_All_Knowledge.mp3 -> ../.git/annex/objects/JP/xk/MD5E-s45496597--62fc4b4ca0e117a6c46e7f954d2162ee.mp3/MD5E-s45496597--62fc4b4ca0e117a6c46e7f954d2162ee.mp3
+    │   │   ├── 2011_12_09__Rick_Prelinger__Lost_Landscapes_of_San_Francisco__6.mp3 -> ../.git/annex/objects/JZ/GW/MD5E-s39917469--2b3a6d2a8934afb8b9ee5bcfbb31875f.mp3/MD5E-s39917469--2b3a6d2a8934afb8b9ee5bcfbb31875f.mp3
+    │   │   ├── 2012_01_18__Lawrence_Lessig__How_Money_Corrupts_Congress_and_a_Plan_to_Stop_It.mp3 -> ../.git/annex/objects/WK/Fg/MD5E-s44462775--d55e8f817bd8158d67f1bd70a1ee1581.mp3/MD5E-s44462775--d55e8f817bd8158d67f1bd70a1ee1581.mp3
+    │   │   ├── 2012_02_23__Jim_Richardson__Heirlooms__Saving_Humanity_s_10_000_year_Legacy_of_Food.mp3 -> ../.git/annex/objects/z6/F0/MD5E-s41506132--bf9ebd2e5042073b198b6b5afabd0a13.mp3/MD5E-s41506132--bf9ebd2e5042073b198b6b5afabd0a13.mp3
+    │   │   ├── 2012_03_07__Mark_Lynas__The_Nine_Planetary_Boundaries__Finessing_the_Anthropocene.mp3 -> ../.git/annex/objects/vf/mq/MD5E-s81470552--01a3a8d6e650fcc8746d81f940ba7ff9.mp3/MD5E-s81470552--01a3a8d6e650fcc8746d81f940ba7ff9.mp3
+    │   │   ├── 2012_04_21__Edward_O._Wilson__The_Social_Conquest_of_Earth.mp3 -> ../.git/annex/objects/7J/7V/MD5E-s89075905--5189deb5e78f41a6d132d23726aa56b3.mp3/MD5E-s89075905--5189deb5e78f41a6d132d23726aa56b3.mp3
+    │   │   ├── 2012_04_24__Charles_C._Mann__Living_in_the_Homogenocene__The_First_500_Years.mp3 -> ../.git/annex/objects/fP/z1/MD5E-s95778297--9a893bf229470a4eec9e6b0eceb7ab1f.mp3/MD5E-s95778297--9a893bf229470a4eec9e6b0eceb7ab1f.mp3
+    │   │   ├── 2012_05_23__Susan_Freinkel__Eternal_Plastic__A_Toxic_Love_Story.mp3 -> ../.git/annex/objects/Q2/jj/MD5E-s80592838--30d6cb4b6715b3e2674a7e7fcd9c5d6b.mp3/MD5E-s80592838--30d6cb4b6715b3e2674a7e7fcd9c5d6b.mp3
+    │   │   ├── 2012_06_06__Benjamin_Barber__If_Mayors_Ruled_the_World.mp3 -> ../.git/annex/objects/x6/8F/MD5E-s84650386--559a8f6710652900d53ebf2b99534c3e.mp3/MD5E-s84650386--559a8f6710652900d53ebf2b99534c3e.mp3
+    │   │   ├── 2012_08_01__Cory_Doctorow__The_Coming_Century_of_War_Against_Your_Computer.mp3 -> ../.git/annex/objects/j2/Fv/MD5E-s85005651--da026b81a7bfc25c17800a394578111a.mp3/MD5E-s85005651--da026b81a7bfc25c17800a394578111a.mp3
+    │   │   ├── 2012_08_21__Elaine_Pagels__The_Truth_About_the_Book_of_Revelations.mp3 -> ../.git/annex/objects/0Z/kj/MD5E-s72548378--e4af30147830994d467a193b0d384927.mp3/MD5E-s72548378--e4af30147830994d467a193b0d384927.mp3
+    │   │   ├── 2012_09_06__Tim_O_Reilly__Birth_of_the_Global_Mind.mp3 -> ../.git/annex/objects/77/km/MD5E-s46167351--077cd2de0834c5a2f9286b9cd69dd4bb.mp3/MD5E-s46167351--077cd2de0834c5a2f9286b9cd69dd4bb.mp3
+    │   │   ├── 2012_10_09__Steven_Pinker__The_Decline_of_Violence.mp3 -> ../.git/annex/objects/GG/G0/MD5E-s89857375--5ccc0db0d4736c32bc17b947166b9a64.mp3/MD5E-s89857375--5ccc0db0d4736c32bc17b947166b9a64.mp3
+    │   │   ├── 2012_11_14__Lazar_Kunstmann__Jon_Lackman__Preservation_without_Permission__the_Paris_Urban_eXperiment.mp3 -> ../.git/annex/objects/8M/1F/MD5E-s90595602--0e48f5aea99195a5863ab399a3b831fe.mp3/MD5E-s90595602--0e48f5aea99195a5863ab399a3b831fe.mp3
+    │   │   ├── 2012_11_29__Peter_Warshall__Enchanted_by_the_Sun__The_CoEvolution_of_Light__Life__and_Color_on_Earth.mp3 -> ../.git/annex/objects/84/xm/MD5E-s107329525--b61371474d7d07528f4e8085f1070c94.mp3/MD5E-s107329525--b61371474d7d07528f4e8085f1070c94.mp3
+    │   │   ├── 2013_01_18__Terry_Hunt__Carl_Lipo__The_Statues_Walked____What_Really_Happened_on_Easter_Island.mp3 -> ../.git/annex/objects/jk/9P/MD5E-s96658492--058f0bbfd16b31274d46f971ff1caa40.mp3/MD5E-s96658492--058f0bbfd16b31274d46f971ff1caa40.mp3
+    │   │   ├── 2013_02_20__Chris_Anderson__The_Makers_Revolution.mp3 -> ../.git/annex/objects/83/3K/MD5E-s86449484--677ff7685edadc7d176f8ca78a6a55be.mp3/MD5E-s86449484--677ff7685edadc7d176f8ca78a6a55be.mp3
+    │   │   ├── 2013_03_20__George_Dyson__No_Time_Is_There____The_Digital_Universe_and_Why_Things_Appear_To_Be_Speeding_Up.mp3 -> ../.git/annex/objects/8q/2g/MD5E-s87774322--5de50b4cdbe3a9bf538ee0d2538fba23.mp3/MD5E-s87774322--5de50b4cdbe3a9bf538ee0d2538fba23.mp3
+    │   │   ├── 2013_04_18__Nicholas_Negroponte__Beyond_Digital.mp3 -> ../.git/annex/objects/PM/jg/MD5E-s87892589--726bdc0f94428a3e8fd0ef2834d52d7b.mp3/MD5E-s87892589--726bdc0f94428a3e8fd0ef2834d52d7b.mp3
+    │   │   ├── 2013_05_22__Stewart_Brand__Reviving_Extinct_Species.mp3 -> ../.git/annex/objects/FM/2P/MD5E-s86241770--1147873844d58acb74243566711f82ff.mp3/MD5E-s86241770--1147873844d58acb74243566711f82ff.mp3
+    │   │   ├── 2013_06_19__Ed_Lu__Anthropocene_Astronomy__Thwarting_Dangerous_Asteroids_Begins_with_Finding_Them.mp3 -> ../.git/annex/objects/X9/WK/MD5E-s86241259--04aa4ade69c3d8b405604eabf1616669.mp3/MD5E-s86241259--04aa4ade69c3d8b405604eabf1616669.mp3
+    │   │   ├── 2013_07_30__Craig_Childs__Apocalyptic_Planet__Field_Guide_to_the_Everending_Earth.mp3 -> ../.git/annex/objects/pX/XQ/MD5E-s91784054--1f64eab388dd02d4d4efb93c96b2049e.mp3/MD5E-s91784054--1f64eab388dd02d4d4efb93c96b2049e.mp3
+    │   │   ├── 2013_08_14__Daniel_Kahneman__Thinking_Fast_and_Slow.mp3 -> ../.git/annex/objects/gj/x3/MD5E-s74446061--8b2d0315e593e786fed9e32b9217a118.mp3/MD5E-s74446061--8b2d0315e593e786fed9e32b9217a118.mp3
+    │   │   ├── 2013_09_18__Peter_Schwartz__The_Starships_ARE_Coming.mp3 -> ../.git/annex/objects/Kz/k8/MD5E-s73486514--dcfaf4ba8dc980d54567af35f8cbdc61.mp3/MD5E-s73486514--dcfaf4ba8dc980d54567af35f8cbdc61.mp3
+    │   │   ├── 2013_10_16__Adam_Steltzner__Beyond_Mars__Earth.mp3 -> ../.git/annex/objects/z6/Z8/MD5E-s86324693--5cede70c8306cb52a3281a815b00c73d.mp3/MD5E-s86324693--5cede70c8306cb52a3281a815b00c73d.mp3
+    │   │   ├── 2013_11_19__Richard_Kurin__American_History_in_101_Objects.mp3 -> ../.git/annex/objects/kw/zX/MD5E-s78382378--b083d6653365b1173e05a924a028bfe6.mp3/MD5E-s78382378--b083d6653365b1173e05a924a028bfe6.mp3
+    │   │   ├── 2014_01_22__Brian_Eno__Danny_Hillis__The_Long_Now__now.mp3 -> ../.git/annex/objects/pw/f8/MD5E-s107151421--9c9525903ac0f8fee03c98891ff107bf.mp3/MD5E-s107151421--9c9525903ac0f8fee03c98891ff107bf.mp3
+    │   │   ├── 2014_03_25__Mariana_Mazzucato__The_Entrepreneurial_State__Debunking_Private_vs._Public_Sector_Myths.mp3 -> ../.git/annex/objects/4p/p1/MD5E-s141702671--41756f4d7441fcf2a4055671d5f849fa.mp3/MD5E-s141702671--41756f4d7441fcf2a4055671d5f849fa.mp3
+    │   │   ├── 2014_04_23__Tony_Hsieh__Helping_Revitalize_a_City.mp3 -> ../.git/annex/objects/JQ/kZ/MD5E-s179833767--eac378f5b4b2e0c250de707a1489d8b6.mp3/MD5E-s179833767--eac378f5b4b2e0c250de707a1489d8b6.mp3
+    │   │   ├── 2014_05_21__Sylvia_Earle__Tierney_Thys__Oceanic.mp3 -> ../.git/annex/objects/fF/83/MD5E-s184475755--69ce451ae52d66eb7358f243e12f626b.mp3/MD5E-s184475755--69ce451ae52d66eb7358f243e12f626b.mp3
+    │   │   ├── 2014_06_11__Stefan_Kroepelin__Civilization_s_Mysterious_Desert_Cradle__Rediscovering_the_Deep_Sahara.mp3 -> ../.git/annex/objects/0w/Mq/MD5E-s190971120--52a6941ce882dfcbe64afc27086e0a22.mp3/MD5E-s190971120--52a6941ce882dfcbe64afc27086e0a22.mp3
+    │   │   ├── 2014_07_17__Adrian_Hon__A_History_of_the_Future_in_100_Objects.mp3 -> ../.git/annex/objects/56/Ff/MD5E-s156378204--5a34e21202ad93f9f067c8dc2b01eae4.mp3/MD5E-s156378204--5a34e21202ad93f9f067c8dc2b01eae4.mp3
+    │   │   ├── 2014_08_07__Anne_Neuberger__Inside_the_NSA.mp3 -> ../.git/annex/objects/q3/23/MD5E-s171490321--ff4bb70264b6d2901df6ff5ddea2812c.mp3/MD5E-s171490321--ff4bb70264b6d2901df6ff5ddea2812c.mp3
+    │   │   ├── 2014_09_17__Drew_Endy__The_iGEM_Revolution.mp3 -> ../.git/annex/objects/34/86/MD5E-s184674213--6cc5729866306b61470c797a93658516.mp3/MD5E-s184674213--6cc5729866306b61470c797a93658516.mp3
+    │   │   ├── 2014_10_21__Larry__Harvey__Why_The_Man_Keeps_Burning.mp3 -> ../.git/annex/objects/4F/Z2/MD5E-s175572374--30770ebfd8bb7e080cf6bc0b060d5199.mp3/MD5E-s175572374--30770ebfd8bb7e080cf6bc0b060d5199.mp3
+    │   │   ├── 2014_11_13__Kevin_Kelly__Technium_Unbound.mp3 -> ../.git/annex/objects/wM/3J/MD5E-s168696055--b0a3de03b0dee86aef220c69afbe724c.mp3/MD5E-s168696055--b0a3de03b0dee86aef220c69afbe724c.mp3
+    │   │   ├── 2015_01_14__Jesse_Ausubel__Nature_is_Rebounding__Land__and_Ocean_sparing_through_Concentrating_Human_Activities_.mp3 -> ../.git/annex/objects/G8/X9/MD5E-s182969926--4da5d9e915ab1355a192a50a8ce1c705.mp3/MD5E-s182969926--4da5d9e915ab1355a192a50a8ce1c705.mp3
+    │   │   ├── 2015_01_28__Stewart_Brand__Paul_Saffo__Pace_Layers_Thinking.mp3 -> ../.git/annex/objects/Qk/9M/MD5E-s112801659--00a42a1a617485fb2c03cbf8482c905c.mp3/MD5E-s112801659--00a42a1a617485fb2c03cbf8482c905c.mp3
+    │   │   ├── 2015_02_18__David_Keith__Patient_Geoengineering.mp3 -> ../.git/annex/objects/jP/f6/MD5E-s170263599--065ff4d75d52429c34bddd5f67120ad0.mp3/MD5E-s170263599--065ff4d75d52429c34bddd5f67120ad0.mp3
+    │   │   ├── 2015_04_01__Paul_Saffo__The_Creator_Economy.mp3 -> ../.git/annex/objects/94/px/MD5E-s160513321--64acfebf9c35289964be38f3ef601e26.mp3/MD5E-s160513321--64acfebf9c35289964be38f3ef601e26.mp3
+    │   │   ├── 2015_04_15__Michael_Shermer__The_Long_Arc_of_Moral_Progress.mp3 -> ../.git/annex/objects/p4/F5/MD5E-s166027315--61f21c609f4d4e5750311d6771e831f3.mp3/MD5E-s166027315--61f21c609f4d4e5750311d6771e831f3.mp3
+    │   │   ├── 2015_05_12__Beth_Shapiro__How_to_Clone_a_Mammoth.mp3 -> ../.git/annex/objects/3j/QG/MD5E-s165653273--aa3dc7b40f643a16ed82a1c9a92ebfcd.mp3/MD5E-s165653273--aa3dc7b40f643a16ed82a1c9a92ebfcd.mp3
+    │   │   ├── 2015_06_10__Neil_Gaiman__How_Stories_Last.mp3 -> ../.git/annex/objects/GV/Gk/MD5E-s197997269--22e1c4be81bb765f9e397dd21ad5d76c.mp3/MD5E-s197997269--22e1c4be81bb765f9e397dd21ad5d76c.mp3
+    │   │   ├── 2015_07_23__Ramez_Naam__Enhancing_Humans__Advancing_Humanity.mp3 -> ../.git/annex/objects/KW/VF/MD5E-s166849971--52801b85ad0c5bf8e847ef99d357903e.mp3/MD5E-s166849971--52801b85ad0c5bf8e847ef99d357903e.mp3
+    │   │   ├── 2015_08_11__Sara_Seager__Other_Earths._Other_Life..mp3 -> ../.git/annex/objects/VV/kF/MD5E-s156916472--0c1828cf8340e98f6223f690da98fd5f.mp3/MD5E-s156916472--0c1828cf8340e98f6223f690da98fd5f.mp3
+    │   │   ├── 2015_09_22__Saul_Griffith__Infrastructure_and_Climate_Change.mp3 -> ../.git/annex/objects/87/71/MD5E-s195384162--511d8270410a2bb3e87c0e3e3c6794da.mp3/MD5E-s195384162--511d8270410a2bb3e87c0e3e3c6794da.mp3
+    │   │   ├── 2015_10_07__James_Fallows__Civilization_s_Infrastructure.mp3 -> ../.git/annex/objects/4f/3w/MD5E-s156410607--4e9e26bfd876c1c9977d8d60b8140975.mp3/MD5E-s156410607--4e9e26bfd876c1c9977d8d60b8140975.mp3
+    │   │   ├── 2015_10_28__Andy_Weir__The_Red_Planet_for_Real.mp3 -> ../.git/annex/objects/xq/Q3/MD5E-s136924472--0d1072105caa56475df9037670d35a06.mp3/MD5E-s136924472--0d1072105caa56475df9037670d35a06.mp3
+    │   │   ├── 2015_11_24__Philip_Tetlock__Superforecasting.mp3 -> ../.git/annex/objects/9G/9v/MD5E-s182555547--7757d1c89d3001c65288ad9f43d4a4be.mp3/MD5E-s182555547--7757d1c89d3001c65288ad9f43d4a4be.mp3
+    │   │   ├── 2016_01_12__Eric_Cline__1177_B.C.__When_Civilization_Collapsed.mp3 -> ../.git/annex/objects/0J/pq/MD5E-s168749837--d2e5da36ecb594f387960b17b09554dd.mp3/MD5E-s168749837--d2e5da36ecb594f387960b17b09554dd.mp3
+    │   │   ├── 2016_02_10__Stephen_Pyne__Fire_Slow__Fire_Fast__Fire_Deep.mp3 -> ../.git/annex/objects/Kx/jg/MD5E-s162531687--cd85c028e1eb207c6547911bda61301e.mp3/MD5E-s162531687--cd85c028e1eb207c6547911bda61301e.mp3
+    │   │   ├── 2016_03_15__Jane_Langdale__Radical_Ag__C4_Rice_and_Beyond.mp3 -> ../.git/annex/objects/Wm/MF/MD5E-s168613715--2bd5923209cdd874ed13e9715d4d2929.mp3/MD5E-s168613715--2bd5923209cdd874ed13e9715d4d2929.mp3
+    │   │   ├── 2016_04_12__Priyamvada_Natarajan__Solving_Dark_Matter_and_Dark_Energy.mp3 -> ../.git/annex/objects/gq/Fm/MD5E-s176254449--92dae15789656059ce96d3ec20bb748d.mp3/MD5E-s176254449--92dae15789656059ce96d3ec20bb748d.mp3
+    │   │   ├── 2016_05_03__Walter_Mischel__The_Marshmallow_Test__Mastering_Self_Control.mp3 -> ../.git/annex/objects/vF/pj/MD5E-s166936767--dd72342ec038b17500b936b8c9d777b1.mp3/MD5E-s166936767--dd72342ec038b17500b936b8c9d777b1.mp3
+    │   │   ├── 2016_06_21__Brian_Christian__Algorithms_to_Live_By.mp3 -> ../.git/annex/objects/mx/J3/MD5E-s174158979--a50d6f35f6e13a23065867b1e42eadda.mp3/MD5E-s174158979--a50d6f35f6e13a23065867b1e42eadda.mp3
+    │   │   ├── 2016_07_15__Kevin_Kelly__The_Next_30_Digital_Years.mp3 -> ../.git/annex/objects/9m/Zx/MD5E-s174534089--900618e750c9b9b5e57f652c423efea7.mp3/MD5E-s174534089--900618e750c9b9b5e57f652c423efea7.mp3
+    │   │   ├── 2016_08_10__Seth_Lloyd__Quantum_Computer_Reality.mp3 -> ../.git/annex/objects/ZX/WK/MD5E-s201423004--9403a511f3ad738dc42a0ad6a8440aea.mp3/MD5E-s201423004--9403a511f3ad738dc42a0ad6a8440aea.mp3
+    │   │   ├── 2016_09_21__Jonathan_Rose__The_Well_Tempered_City.mp3 -> ../.git/annex/objects/z5/W9/MD5E-s161741565--153dc36d867ec7f0f26183e37745cc38.mp3/MD5E-s161741565--153dc36d867ec7f0f26183e37745cc38.mp3
+    │   │   ├── 2016_10_05__David__Eagleman__The_Brain_and_The_Now.mp3 -> ../.git/annex/objects/JV/w9/MD5E-s155774650--56d0b7d2bca16824be058fd25f5c7a15.mp3/MD5E-s155774650--56d0b7d2bca16824be058fd25f5c7a15.mp3
+    │   │   ├── 2016_11_02__Douglas_Coupland__The_Extreme_Present.mp3 -> ../.git/annex/objects/Xm/6Z/MD5E-s172600006--32acef04f8b58153bf1434edb1a741e8.mp3/MD5E-s172600006--32acef04f8b58153bf1434edb1a741e8.mp3
+    │   │   ├── 2017_01_05__Steven_Johnson__Wonderland__How_Play_Made_the_Modern_World.mp3 -> ../.git/annex/objects/Mw/gm/MD5E-s80569546--de84318c92b770bb1e0dc0e9c79d010a.mp3/MD5E-s80569546--de84318c92b770bb1e0dc0e9c79d010a.mp3
+    │   │   ├── 2017_02_02__Jennifer_Pahlka__Fixing_Government__Bottom_Up_and_Outside_In.mp3 -> ../.git/annex/objects/4V/f1/MD5E-s81727806--bdaaf0beaecb3d48faf03ee16910e1e0.mp3/MD5E-s81727806--bdaaf0beaecb3d48faf03ee16910e1e0.mp3
+    │   │   ├── 2017_03_14__Bjorn_Lomborg__From_Feel_Good_to_High_Yield_Good__How_to_Improve_Philanthropy_and_Aid.mp3 -> ../.git/annex/objects/wq/PQ/MD5E-s86688795--606cb9164513540d490e69f29222262c.mp3/MD5E-s86688795--606cb9164513540d490e69f29222262c.mp3
+    │   │   ├── 2017_04_11__Frank_Ostaseski__What_the_Dying_Teach_the_Living.mp3 -> ../.git/annex/objects/Zq/8W/MD5E-s89099723--11a669a750a21c7eb514197f37ad75e9.mp3/MD5E-s89099723--11a669a750a21c7eb514197f37ad75e9.mp3
+    │   │   ├── 2017_05_24__Geoffrey_B.__West__The_Universal_Laws_of_Growth_and_Pace.mp3 -> ../.git/annex/objects/5J/x7/MD5E-s90562186--600aa6cdcdf02f76b329e36c449d1890.mp3/MD5E-s90562186--600aa6cdcdf02f76b329e36c449d1890.mp3
+    │   │   ├── 2017_06_06__James_Gleick__Time_Travel.mp3 -> ../.git/annex/objects/63/W6/MD5E-s77545131--e60156ee3c7c9603242132e219be1f4b.mp3/MD5E-s77545131--e60156ee3c7c9603242132e219be1f4b.mp3
+    │   │   ├── 2017_07_25__Carolyn_Porco__Searching_for_Life_in_the_Solar_System.mp3 -> ../.git/annex/objects/10/zj/MD5E-s82300411--186d9eec6161ab40e9af452096ef7f27.mp3/MD5E-s82300411--186d9eec6161ab40e9af452096ef7f27.mp3
+    │   │   ├── 2017_08_08__Nicky_Case__Seeing_Whole_Systems.mp3 -> ../.git/annex/objects/Jk/13/MD5E-s75623278--43b4511266b274941b1e04d6171bf5a9.mp3/MD5E-s75623278--43b4511266b274941b1e04d6171bf5a9.mp3
+    │   │   ├── 2017_09_07__David_Grinspoon__Earth_in_Human_Hands.mp3 -> ../.git/annex/objects/kM/qP/MD5E-s88205668--ac9ce1a1f470e4b099bfdc55153441a5.mp3/MD5E-s88205668--ac9ce1a1f470e4b099bfdc55153441a5.mp3
+    │   │   ├── 2017_10_31__Renee_Wegrzyn__Engineering_Gene_Safety.mp3 -> ../.git/annex/objects/jf/jw/MD5E-s78319976--f959ab3b948f2867047b8331a342bd5e.mp3/MD5E-s78319976--f959ab3b948f2867047b8331a342bd5e.mp3
+    │   │   ├── 2017_11_21__Elena_Bennett__Seeds_of_a_Good_Anthropocene.mp3 -> ../.git/annex/objects/kg/k7/MD5E-s76108280--a8be6219ec6235aacd5e9a0f82c4ab72.mp3/MD5E-s76108280--a8be6219ec6235aacd5e9a0f82c4ab72.mp3
+    │   │   ├── 2018_01_23__Charles_C._Mann__The_Wizard_and_the_Prophet.mp3 -> ../.git/annex/objects/gV/2g/MD5E-s84495848--cb4ba9bcc69428b9c2af19253ffa6887.mp3/MD5E-s84495848--cb4ba9bcc69428b9c2af19253ffa6887.mp3
+    │   │   ├── 2018_02_27__Michael_Frachetti__Open_Source_Civilization_and_the_Unexpected_Origins_of_the_Silk_Road.mp3 -> ../.git/annex/objects/XM/0x/MD5E-s85021110--aaa6c8b425d5e9a17ccc53992762edbd.mp3/MD5E-s85021110--aaa6c8b425d5e9a17ccc53992762edbd.mp3
+    │   │   ├── 2018_03_14__Steven_Pinker__A_New_Enlightenment.mp3 -> ../.git/annex/objects/8g/QQ/MD5E-s89003796--68f193cb6694a5f67b6626ad36dde41b.mp3/MD5E-s89003796--68f193cb6694a5f67b6626ad36dde41b.mp3
+    │   │   ├── 2018_04_24__Kishore_Mahbubani__Has_the_West_Lost_It__Can_Asia_Save_It_.mp3 -> ../.git/annex/objects/Mw/g2/MD5E-s87684607--9611eccff43298ab4dd449b44989e9d5.mp3/MD5E-s87684607--9611eccff43298ab4dd449b44989e9d5.mp3
+    │   │   ├── 2018_05_23__Benjamin_Grant__Overview__Earth_and_Civilization_in_the_Macroscope.mp3 -> ../.git/annex/objects/1g/M4/MD5E-s79235114--71f660d39d3b26237fc1d4dfcc408807.mp3/MD5E-s79235114--71f660d39d3b26237fc1d4dfcc408807.mp3
+    │   │   ├── 2018_06_20__Chris_D._Thomas__Are_We_Initiating_The_Great_Anthropocene_Speciation_Event_.mp3 -> ../.git/annex/objects/Q3/GG/MD5E-s96942126--858b79003a2ca30585bca92be9406a99.mp3/MD5E-s96942126--858b79003a2ca30585bca92be9406a99.mp3
+    │   │   ├── 2018_07_17__George_P._Shultz__Perspective.mp3 -> ../.git/annex/objects/vP/X3/MD5E-s60777923--101de7976f2838d1fdcf6cecd61ab251.mp3/MD5E-s60777923--101de7976f2838d1fdcf6cecd61ab251.mp3
+    │   │   ├── 2018_08_07__Juan_Benet__Long_Term_Info_structure.mp3 -> ../.git/annex/objects/VK/MW/MD5E-s85943250--b2ecc137d9a3af8f6d896dbdbe701d52.mp3/MD5E-s85943250--b2ecc137d9a3af8f6d896dbdbe701d52.mp3
+    │   │   ├── 2018_09_13__Julia_Galef__Soldiers_and_Scouts__Why_our_minds_weren_t_built_for_truth__and_how_we_can_change_that.mp3 -> ../.git/annex/objects/WX/8M/MD5E-s89370057--e87762ffdbbc65db32510e07e77a1ce4.mp3/MD5E-s89370057--e87762ffdbbc65db32510e07e77a1ce4.mp3
+    │   │   ├── 2018_10_14__Stewart_Brand__Whole_Earth_Catalog_50th_Anniversary_Celebration.mp3 -> ../.git/annex/objects/z6/wQ/MD5E-s115945335--38cc657ccb8d90e81ed21ca6b292ecb6.mp3/MD5E-s115945335--38cc657ccb8d90e81ed21ca6b292ecb6.mp3
+    │   │   ├── 2018_10_30__Mary_Lou_Jepsen__Toward_Practical_Telepathy.mp3 -> ../.git/annex/objects/4P/Xp/MD5E-s86742084--7765ff07107b4ef3c1ffb52a7d73028a.mp3/MD5E-s86742084--7765ff07107b4ef3c1ffb52a7d73028a.mp3
+    │   │   ├── 2018_11_20__Niall_Ferguson__Networks_and_Power.mp3 -> ../.git/annex/objects/VM/0k/MD5E-s87074723--e9733eb2b0bd63e94b7cf7a6591d59b5.mp3/MD5E-s87074723--e9733eb2b0bd63e94b7cf7a6591d59b5.mp3
+    │   │   ├── 2019_01_15__Martin_Rees__Prospects_for_Humanity.mp3 -> ../.git/annex/objects/Wv/vQ/MD5E-s81528228--e45354635d0f1d31fb391faacbc02991.mp3/MD5E-s81528228--e45354635d0f1d31fb391faacbc02991.mp3
+    │   │   ├── 2019_02_26__John_Brockman__Possible_Minds.mp3 -> ../.git/annex/objects/q4/pV/MD5E-s92555373--ee1d1bdc7db0e215cc050b5f09630914.mp3/MD5E-s92555373--ee1d1bdc7db0e215cc050b5f09630914.mp3
+    │   │   ├── 2019_03_14__Chip_Conley__The_Modern_Elder_and_the_Intergenerational_Workplace.mp3 -> ../.git/annex/objects/G0/Q8/MD5E-s81116955--846510b4da3fe44142bc148cc846995c.mp3/MD5E-s81116955--846510b4da3fe44142bc148cc846995c.mp3
+    │   │   ├── 2019_04_03__Jeff_Goodell__The_Water_Will_Come.mp3 -> ../.git/annex/objects/z9/mj/MD5E-s81609177--29179b225f5804ffaf728d0d1cca652d.mp3/MD5E-s81609177--29179b225f5804ffaf728d0d1cca652d.mp3
+    │   │   ├── 2019_05_05__Ian_McEwan__Machines_Like_Me.mp3 -> ../.git/annex/objects/5j/70/MD5E-s93248590--de4c82e013b31cdf69f85dc9d8c63141.mp3/MD5E-s93248590--de4c82e013b31cdf69f85dc9d8c63141.mp3
+    │   │   ├── 2019_06_05__David_Byrne__Good_News___Sleeping_Beauties.mp3 -> ../.git/annex/objects/p4/Xf/MD5E-s87222771--1fdbc58fcb72d7721a032a62929bef1d.mp3/MD5E-s87222771--1fdbc58fcb72d7721a032a62929bef1d.mp3
+    │   │   └── 2019_06_25__Mariana_Mazzucato__Rethinking_Value.mp3 -> ../.git/annex/objects/ZX/20/MD5E-s86261109--936051776c8074e90e99f9de9c2ea818.mp3/MD5E-s86261109--936051776c8074e90e99f9de9c2ea818.mp3
+    │   └── README.md
+    ├── podcasts.tsv
+    └── salt_logo_small.jpg -> ../.git/annex/objects/xJ/4G/MD5E-s260607--4e695af0f3e8e836fcfc55f815940059.jpg/MD5E-s260607--4e695af0f3e8e836fcfc55f815940059.jpg
 
-Note that subdatasets will not be installed by default --
-you will have to do a plain
-"datalad install PATH/TO/SUBDATASET", or specify the
--r/--recursive option in the install command:
-"datalad install -s ../DataLad-101 -r".
-
-A recursive installation would however install all
-installed subdatasets, so a safer way to proceed is to
-set a decent --recursion-limit:
-"datalad install -s ../DataLad-101 -r --recursion-limit 2"
-
-EOT
+6 directories, 244 files

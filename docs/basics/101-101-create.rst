@@ -22,7 +22,7 @@ concepts of DataLad datasets together by creating one.
 
 .. index:: ! datalad command; create
 
-Find a nice place on your computers file system to put a dataset for ``DataLad-101``,
+Find a nice place on your computer's file system to put a dataset for ``DataLad-101``,
 and create a fresh, empty dataset with the :command:`datalad create` command (:manpage:`datalad-create` manual).
 In a bit of time, you will thank yourself for adding a description about the *location*
 of your dataset with the *optional* ``--description`` flag. (At the moment,
@@ -61,17 +61,22 @@ However, all files and directories you store within the DataLad dataset
 can be tracked (should you want them to be tracked).
 *Tracking* in this context means that edits done to a file are automatically
 associated with information about the change, the author of the edit,
-and the time of this change. This is already informative on its own,
-but what is especially helpful is that previous states of files or directories
+and the time of this change. This is already informative important on its own
+-- the :term:`provenance` captured with this can for example be used to learn
+about a file's lineage, and can establish trust in it.
+But what is especially helpful is that previous states of files or directories
 can be restored. Remember the last time you accidentally deleted content
 in a file, but only realized *after* you saved it? With DataLad, no
 mistakes are forever. We will see many examples of this later in the book,
 and such information is stored in what we will refer
-to as the history of a dataset.
+to as the *history* of a dataset.
 
 This history is almost as small as it can be at the current state, but let's take
 a look at it. For looking at the history, the code examples will use :command:`git log`,
-a built-in git command [#f1]_. Your git log *might* be opened in a `terminal pager <https://en.wikipedia.org/wiki/Terminal_pager>`_ that lets you scroll up and down with your arrow keys, but not enter any more commands. If this happens, you can get out of git log by pressing q.
+a built-in git command [#f1]_. Your git log *might* be opened in a
+`terminal pager <https://en.wikipedia.org/wiki/Terminal_pager>`_ that lets
+you scroll up and down with your arrow keys, but not enter any more commands.
+If this happens, you can get out of git log by pressing q.
 
 .. runrecord:: _examples/DL-101-101-103
    :language: console
@@ -90,9 +95,9 @@ the time, as well as a :term:`commit message` that summarizes the
 performed action concisely. In this case, both commit messages were written by
 DataLad itself. The most recent change is on the top. The first commit
 written to the history therefore states that a new dataset was created,
-and the second commit to the history is related to ``-c text2git`` which
+and the second commit is related to the ``-c text2git`` option (which
 uses a configuration template to instruct DataLad to store text files
-in Git (but more on this later).
+in Git, but more on this later).
 Even though these commits were produced by DataLad,
 in most other cases, you will have to create the commit and
 an informative commit message yourself.

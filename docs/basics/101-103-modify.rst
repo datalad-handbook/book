@@ -12,17 +12,18 @@ called ``notes.txt``. It will contain all of the notes that you take
 throughout the course.
 
 Use an editor of your choice and write a short summary of how to create
-a DataLad dataset from scratch. The code below contains the note within
-the start and end part of a `here document <https://en.wikipedia.org/wiki/Here_document>`_:
+a DataLad dataset from scratch:
 
   "One can create a new dataset with 'datalad create
   [--description] PATH'. The dataset is created empty".
 
 This is meant to be a note you would take in an educational course.
-You can take this note and write it to a file with an editor.
-But you can also copy the full code snippet, starting
+You can take this note and write it to a file with an editor of your choice.
+The code below, however, contains this note within the start and end part of a
+`here document <https://en.wikipedia.org/wiki/Here_document>`_.
+You can also copy the full code snippet, starting
 from ``cat << EOT > notes.txt``, including the ``EOT`` in the last line, in your
-terminal to write this note into ``notes.txt``.
+terminal to write this note from the terminal (without any editor) into ``notes.txt``.
 
 .. findoutmore:: How does a here-document work?
 
@@ -79,7 +80,7 @@ Run :command:`datalad status` to confirm that there is a new, untracked file:
 
    $ datalad status
 
-Save current state of this file in DataLad version history. Because it is the only modification
+Save the current state of this file in your dataset's history. Because it is the only modification
 in the dataset, there is no need to specify a path.
 
 .. runrecord:: _examples/DL-101-103-103
@@ -89,6 +90,7 @@ in the dataset, there is no need to specify a path.
 
    $ datalad save -m "Add notes on datalad create"
 
+But now, let's see how *changing* tracked content works.
 Modify this file by adding another note. After all, you already know how to use
 :command:`datalad save`, so write a short summary on that as well.
 
@@ -138,7 +140,7 @@ You can get out of it by pressing ``q``.
    :language: console
    :workdir: dl-101/DataLad-101
    :lines: 1-28
-   :emphasize-lines: 6, 25, 27
+   :emphasize-lines: 6, 25
    :cast: 01_dataset_basics
    :notes: An the history gives an accurate record of what happened to this file
 
@@ -147,7 +149,8 @@ You can get out of it by pressing ``q``.
 We can see that the history can not only show us the commit message attached to
 a commit, but also the precise change that occurred in the text file in the commit.
 Additions are marked with a ``+``, and deletions would be shown with a leading ``-``.
-That's quite neat, isn't it?
+From the dataset's history, we can therefore also find out *how* the text file
+evolved over time. That's quite neat, isn't it?
 
 .. findoutmore:: git log has many more useful options
 

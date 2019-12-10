@@ -75,6 +75,8 @@ Simultaneously, you have observed dataset properties you already knew
 but you have also seen novel aspects of a dataset -- for example that
 subdatasets are not automatically installed by default, how
 :command:`git annex whereis` can help you find out where file content might be stored,
+how useful commands that capture provenance about the origin or creation of files
+(such as :command:`datalad run` or :command:`datalad download-url`) are,
 or how a shared dataset can be updated to reflect changes that were made
 to the original dataset.
 

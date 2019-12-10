@@ -138,6 +138,11 @@ Glossary
       - ``execute permissions`` grant the ability to execute a file. Any script that should be an executable
         needs to get such permission.
 
+   pip
+      A Python package manager. Short for "Pip installs Python". ``pip install <package name>``
+      searches the Python package index `PyPi <https://pypi.org/>`_ for a
+      package and installs it while resolving any potential dependencies.
+
    provenance
       A record that describes entities and processes that were involved in producinng or influencing
       a digital resource. It provides a critical foundation for assessing authenticity, enables trust,
@@ -229,3 +234,5 @@ Glossary
       Here is help: `A vim tutorial <https://www.openvim.com/>`_ and
       `how to configure the default editor for git <https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration>`_.
 
+   zsh
+      A Unix shell.

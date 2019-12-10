@@ -1,3 +1,3 @@
 $ git checkout master
-Previous HEAD position was c1dabc7 resized picture by hand
+Previous HEAD position was 3a4418d [DATALAD RUNCMD] convert -resize 450x450 recordings/longn...
 Switched to branch 'master'

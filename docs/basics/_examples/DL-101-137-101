@@ -1,16 +1,17 @@
 $ git log -15 --oneline
-d65fa15 finished my midterm project
-b3d5d86 [DATALAD] Recorded changes
-e7c25d2 add note on DataLads procedures
-3e88a43 add note on configurations and git config
-f376a3d Add note on adding siblings
-9df2af9 Merge remote-tracking branch 'refs/remotes/roommate/master'
-cdb1fd9 add note about datalad update
-6a1c61d Include nesting demo from datalad website
-3e6cd7e add note on git annex whereis
-05c8b01 add note about installing from paths and recursive installations
-d22c510 add note on clean datasets
-4e09af7 [DATALAD RUNCMD] Resize logo for slides
-c627fb3 [DATALAD RUNCMD] Resize logo for slides
-57d9a9f add additional notes on run options
-9a30cf2 [DATALAD RUNCMD] convert -resize 450x450 recordings/longn...
+d3ee8e9 add container and execute analysis within container
+c4aaeb2 finished my midterm project!
+ca76f3b [DATALAD] Recorded changes
+73f14ee add note on DataLads procedures
+9a795e3 add note on configurations and git config
+da9d193 Add note on adding siblings
+c15ea3e Merge remote-tracking branch 'refs/remotes/roommate/master'
+aca5177 Include nesting demo from datalad website
+1291140 add note about datalad update
+1b07d87 add note on git annex whereis
+ad17112 add note about installing from paths and recursive installations
+199587f add note on clean datasets
+dd726a6 [DATALAD RUNCMD] Resize logo for slides
+e4dd212 [DATALAD RUNCMD] Resize logo for slides
+b08d657 add additional notes on run options
+

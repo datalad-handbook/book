@@ -194,6 +194,25 @@
         "bug",
         "code"
       ]
+    },
+    {
+      "login": "nhjjreuter",
+      "name": "Niels Reuter",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/24777116?v=4",
+      "profile": "https://github.com/nhjjreuter",
+      "contributions": [
+        "content"
+      ]
+    },
+    {
+      "login": "pvavra",
+      "name": "Peter Vavra",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/5610129?v=4",
+      "profile": "https://github.com/pvavra",
+      "contributions": [
+        "ideas",
+        "userTesting"
+      ]
     }
   ],
   "contributorsPerLine": 7,

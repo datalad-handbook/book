@@ -1,4 +1,4 @@
-.. _yodaproject:
+.. _yoda_project:
 
 YODA-compliant data analysis projects
 -------------------------------------

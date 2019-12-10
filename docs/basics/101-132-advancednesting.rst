@@ -39,8 +39,11 @@ evolved. Let's query the superdataset what it thinks about this.
    $ datalad status
 
 From the superdataset's perspective, the subdataset appears as being
-"modified". Note that these modifications of the subdataset are not
-automatically recorded to the superdataset! This makes sense -- after all it
+"modified". Note how it is not individual files that show up as "modified", but
+indeed the complete subdataset as a single entity.
+
+What this shows you is that the modifications of the subdataset you performed are not
+automatically recorded to the superdataset. This makes sense -- after all it
 should be up to you to decide whether you want record something or not --,
 but it is worth repeating: If you modify a subdataset, you will need to save
 this *in the superdataset* in order to have a clean superdataset status.
@@ -163,13 +166,42 @@ interested in this, checkout the hidden section below.
       $ datalad status --recursive
 
 Let's save the modification of the subdataset into the history of the
-superdataset:
+superdataset. For this, to avoid confusion, you can specify explicitly to
+which dataset you want to save a modification. ``-d .`` specifies the current
+dataset, i.e., ``DataLad-101``, as the dataset to save to:
 
 .. runrecord:: _examples/DL-101-132-110
    :language: console
    :workdir: dl-101/DataLad-101/
 
-   $ datalad save -m "finished my midterm project"
+   $ datalad save -d . -m "finished my midterm project!" midterm_project
+
+.. findoutmore:: More on how save can operate on nested datasets
+
+   In a superdataset with subdatasets, :command:`datalad save` by default
+   tries to figure out on its own which dataset's history of all available
+   datasets a :command:`save` should be written to. However, it can reduce
+   confusion or allow specific operations to be very explicit in the command
+   call and tell DataLad where to save what kind of modifications to.
+
+   If you want to save the current state of the subdataset into the superdataset
+   (as necessary here), start a ``save`` from the superdataset and have the
+   ``-d/--dataset`` option point to its root::
+
+      # in the root of the superds
+      $ datalad save -d . -m "update subdataset"
+
+   If you are in the superdataset, and you want to save an unsaved modification
+   in a subdataset to the *subdatasets* history, let ``-d/--dataset`` point to
+   the subdataset::
+
+      # in the superds
+      $ datalad save -d path/to/subds -m "modified XY"
+
+   The recursive option allows you to save any content underneath the specified
+   directory, and recurse into any potential subdatasets::
+
+      $ datalad save . --recursive
 
 Let's check which subproject commit is now recorded in the superdataset:
 

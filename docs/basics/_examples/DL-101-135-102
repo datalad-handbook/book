@@ -38,51 +38,51 @@ $ datalad wtf
   - GIT_AUTHOR_NAME: Elena Piscopia
   - PATH: /home/adina/env/handbook/bin:/home/adina/Documents/freesurfer/bin:/home/adina/Documents/freesurfer/fsfast/bin:/home/adina/Documents/freesurfer/tktools:/usr/share/fsl/5.0/bin:/usr/lib/fsl/5.0:/home/adina/Documents/freesurfer/mni/bin:/usr/share/fsl/5.0/5.0/bin:/home/adina/.local/bin:/home/adina/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/home/adina/.dotfiles/bin
   - GIT_PYTHON_GIT_EXECUTABLE: /usr/bin/git
-## extensions 
-  - webapp: 
+## extensions
+  - webapp:
     - load_error: None
     - description: Generic web app support
     - module: datalad_webapp
     - version: 0.2
-    - entrypoints: 
-      - datalad_webapp.WebApp: 
+    - entrypoints:
+      - datalad_webapp.WebApp:
         - module: datalad_webapp
         - class: WebApp
-        - names: 
+        - names:
           - webapp
           - webapp
         - load_error: None
-  - hirni: 
+  - hirni:
     - load_error: None
     - description: HIRNI workflows
     - module: datalad_hirni
     - version: 0.0.4
-    - entrypoints: 
-      - datalad_hirni.commands.import_dicoms.ImportDicoms: 
+    - entrypoints:
+      - datalad_hirni.commands.import_dicoms.ImportDicoms:
         - module: datalad_hirni.commands.import_dicoms
         - class: ImportDicoms
-        - names: 
+        - names:
           - hirni-import-dcm
           - hirni_import_dcm
         - load_error: None
-      - datalad_hirni.commands.spec4anything.Spec4Anything: 
+      - datalad_hirni.commands.spec4anything.Spec4Anything:
         - module: datalad_hirni.commands.spec4anything
         - class: Spec4Anything
-        - names: 
+        - names:
           - hirni-spec4anything
           - hirni_spec4anything
         - load_error: None
-      - datalad_hirni.commands.dicom2spec.Dicom2Spec: 
+      - datalad_hirni.commands.dicom2spec.Dicom2Spec:
         - module: datalad_hirni.commands.dicom2spec
         - class: Dicom2Spec
-        - names: 
+        - names:
           - hirni-dicom2spec
           - hirni_dicom2spec
         - load_error: None
-      - datalad_hirni.commands.spec2bids.Spec2Bids: 
+      - datalad_hirni.commands.spec2bids.Spec2Bids:
         - module: datalad_hirni.commands.spec2bids
         - class: Spec2Bids
-        - names: 
+        - names:
           - hirni-spec2bids
           - hirni_spec2bids
         - load_error: None

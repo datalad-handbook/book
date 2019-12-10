@@ -1,5 +1,4 @@
 $ git log -n 3 --oneline
-a84bc8b [DATALAD] Recorded changes
-d3ee8e9 add container and execute analysis within container
-c4aaeb2 finished my midterm project!
-
+2c3fcfd [DATALAD] Recorded changes
+cc27fbf add container and execute analysis within container
+12e9c4a finished my midterm project!

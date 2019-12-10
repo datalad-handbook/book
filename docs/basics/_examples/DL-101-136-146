@@ -1,5 +1,4 @@
 $ cd ../mock_user && mv onemoredir/DataLad-101 .
 $ rm -r onemoredir
 $ cd ../DataLad-101 && git reset --hard master
-HEAD is now at d3ee8e9 add container and execute analysis within container
-
+HEAD is now at cc27fbf add container and execute analysis within container

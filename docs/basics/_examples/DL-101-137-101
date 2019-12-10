@@ -1,17 +1,16 @@
 $ git log -15 --oneline
-d3ee8e9 add container and execute analysis within container
-c4aaeb2 finished my midterm project!
-ca76f3b [DATALAD] Recorded changes
-73f14ee add note on DataLads procedures
-9a795e3 add note on configurations and git config
-da9d193 Add note on adding siblings
-c15ea3e Merge remote-tracking branch 'refs/remotes/roommate/master'
-aca5177 Include nesting demo from datalad website
-1291140 add note about datalad update
-1b07d87 add note on git annex whereis
-ad17112 add note about installing from paths and recursive installations
-199587f add note on clean datasets
-dd726a6 [DATALAD RUNCMD] Resize logo for slides
-e4dd212 [DATALAD RUNCMD] Resize logo for slides
-b08d657 add additional notes on run options
-
+cc27fbf add container and execute analysis within container
+12e9c4a finished my midterm project!
+8356a71 [DATALAD] Recorded changes
+1948a37 add note on DataLads procedures
+a19bd24 add note on configurations and git config
+cda7d02 Add note on adding siblings
+ba1b576 Merge remote-tracking branch 'refs/remotes/roommate/master'
+462a468 Include nesting demo from datalad website
+a746756 add note about datalad update
+f530382 add note on git annex whereis
+53e05c4 add note about installing from paths and recursive installations
+78ea5d5 add note on clean datasets
+231d15d [DATALAD RUNCMD] Resize logo for slides
+8542779 [DATALAD RUNCMD] Resize logo for slides
+a9ead0b add additional notes on run options

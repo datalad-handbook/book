@@ -1,5 +1,5 @@
 
-$ git cat-file --textconv 3a4418dc8d74b9889da49b26e0f201e169902113:notes.txt
+$ git cat-file --textconv 63b2b5159ab0549ee40ae240d567124f8a6b42c5:notes.txt
 One can create a new dataset with 'datalad create [--description] PATH'.
 The dataset is created empty
 

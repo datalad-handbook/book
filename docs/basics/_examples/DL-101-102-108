@@ -1,5 +1,4 @@
 $ cd books
 $ wget https://github.com/progit/progit2/releases/download/2.1.154/progit.pdf
 $ cd ../
-2019-12-04 16:21:24 URL:https://github-production-release-asset-2e65be.s3.amazonaws.com/15400220/57552a00-9a49-11e9-9144-d9607ed4c2db?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20191204%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20191204T152122Z&X-Amz-Expires=300&X-Amz-Signature=66df788d2f7db5a587cd679928904ddf3735912c6589aa767a65fdb322422ec5&X-Amz-SignedHeaders=host&actor_id=0&response-content-disposition=attachment%3B%20filename%3Dprogit.pdf&response-content-type=application%2Foctet-stream [12465653/12465653] -> "progit.pdf" [1]
-
+2019-12-10 09:08:20 URL:https://github-production-release-asset-2e65be.s3.amazonaws.com/15400220/57552a00-9a49-11e9-9144-d9607ed4c2db?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20191210%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20191210T080818Z&X-Amz-Expires=300&X-Amz-Signature=f37ac5d838f24e2ba86fd200930615eb41678ce7984458fd237b93b84f924546&X-Amz-SignedHeaders=host&actor_id=0&response-content-disposition=attachment%3B%20filename%3Dprogit.pdf&response-content-type=application%2Foctet-stream [12465653/12465653] -> "progit.pdf" [1]

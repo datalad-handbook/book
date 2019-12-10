@@ -1,7 +1,7 @@
-$ git log -p
-commit 165b8d31d358f5aa34875e1762276da1695625ae
-Author: Adina Wagner <adina.wagner@t-online.de>
-Date:   Tue Jul 30 07:05:20 2019 +0200
+$ git log -p -n 1
+commit 3d6141e1a958804a7d1c4d1585ec9ce964367d46
+Author: Elena Piscopia <elena@example.net>
+Date:   Tue Dec 10 09:08:17 2019 +0100
 
     add books on Python and Unix to read later
 
@@ -15,64 +15,9 @@ index 0000000..4c84b61
 \ No newline at end of file
 diff --git a/books/byte-of-python.pdf b/books/byte-of-python.pdf
 new file mode 120000
-index 0000000..96f3d29
+index 0000000..9a812a0
 --- /dev/null
 +++ b/books/byte-of-python.pdf
 @@ -0,0 +1 @@
-+../.git/annex/objects/qx/x9/MD5E-s4406537--8e25b5f481c0b82a9a3dc241a12423ad.pdf/MD5E-s4406537--8e25b5f481c0b82a9a3dc241a12423ad.pdf
-\ No newline at end of file
-
-commit 9fc4527a4121b32a607f475e95d7f7d71fb105ce
-Author: Adina Wagner <adina.wagner@t-online.de>
-Date:   Tue Jul 30 07:05:16 2019 +0200
-
-    Instruct annex to add text files to Git
-
-diff --git a/.gitattributes b/.gitattributes
-index c3aaefe..8e9a246 100644
---- a/.gitattributes
-+++ b/.gitattributes
-@@ -1,3 +1,4 @@
- 
- * annex.backend=MD5E
--**/.git* annex.largefiles=nothing
-\ No newline at end of file
-+**/.git* annex.largefiles=nothing
-+* annex.largefiles=(not(mimetype=text/*))
-\ No newline at end of file
-
-commit f13900e30fae4b87c709b7c38104b1d24b0700b2
-Author: Adina Wagner <adina.wagner@t-online.de>
-Date:   Tue Jul 30 07:05:16 2019 +0200
-
-    [DATALAD] new dataset
-
-diff --git a/.datalad/.gitattributes b/.datalad/.gitattributes
-new file mode 100644
-index 0000000..b540820
---- /dev/null
-+++ b/.datalad/.gitattributes
-@@ -0,0 +1,4 @@
-+
-+config annex.largefiles=nothing
-+metadata/aggregate* annex.largefiles=nothing
-+metadata/objects/** annex.largefiles=(anything)
-\ No newline at end of file
-diff --git a/.datalad/config b/.datalad/config
-new file mode 100644
-index 0000000..5ed2d43
---- /dev/null
-+++ b/.datalad/config
-@@ -0,0 +1,2 @@
-+[datalad "dataset"]
-+	id = 9eaef07e-b287-11e9-bd6b-d0c637c523bc
-diff --git a/.gitattributes b/.gitattributes
-new file mode 100644
-index 0000000..c3aaefe
---- /dev/null
-+++ b/.gitattributes
-@@ -0,0 +1,3 @@
-+
-+* annex.backend=MD5E
-+**/.git* annex.largefiles=nothing
++../.git/annex/objects/ZZ/f1/MD5E-s4407669--32e6b03a08a6edda12ad42eb7bb06a5c.pdf/MD5E-s4407669--32e6b03a08a6edda12ad42eb7bb06a5c.pdf
 \ No newline at end of file

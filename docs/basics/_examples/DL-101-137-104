@@ -1,0 +1,8 @@
+$ datalad save
+add(ok): Gitjoke1.txt (file)
+add(ok): Gitjoke2.txt (file)
+add(ok): Gitjoke3.txt (file)
+save(ok): . (dataset)
+action summary:
+  add (ok: 3)
+  save (ok: 1)

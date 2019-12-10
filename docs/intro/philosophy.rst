@@ -4,7 +4,7 @@ A brief overview of DataLad
 ---------------------------
 
 There can be numerous reasons why you ended up with this handbook in front of
-you -- We don't know who you are, or why you are here.
+you -- We do not know who you are, or why you are here.
 You could have any background, any amount of previous experience with
 DataLad, any individual application to use it for,
 any level of maturity in your own mental concept of what DataLad
@@ -35,9 +35,9 @@ On Data
 Everyone uses data. But once it exists, it does not suffice for most data
 to simply reside unchanged in a single location for eternity.
 
-Most **data needs to be shared** -- may it be a digital collection of family
+Most **data need to be shared** -- may it be a digital collection of family
 photos, a genomic database between researchers around the world, or inventory
-lists of one company division to another. Some data is public and should be
+lists of one company division to another. Some data are public and should be
 accessible to everyone.  Other data should circulate only among a select few.
 There are various ways to distribute data, from emailing files to sending
 physical storage media, from pointers to data locations on shared file systems
@@ -60,7 +60,7 @@ tools allow users to keep track of changes, view previous states, or restore
 older versions.  How about a **version control system for data**?
 
 
-If data is shared as a copy *of one state* of its history, **keeping all shared
+If data are shared as a copy *of one state* of its history, **keeping all shared
 copies of this data up-to-date** once the original data changes or evolves is at
 best tedious, but likely impossible. What about ways to easily **update data and
 its shared copies**?
@@ -69,7 +69,7 @@ its shared copies**?
 The world is full of data. The public and private sector make use of it to
 understand, improve, and innovate the complex world we live in.  Currently, this
 process is far from optimal.  In order for society to get the most out of public
-data collections, public **data need to be** `FAIR <go-fair.org>`_: Findable,
+data collections, public **data need to be** `FAIR <https://www.go-fair.org/>`_: Findable,
 Accessible, Interoperable, and Reusable. Apart from easy ways to share or update
 shared copies of data, extensive **metadata** is required to identify data, link
 data collections together, and make them findable and searchable in a
@@ -111,24 +111,23 @@ that captures the spirit of what DataLad is, and here is a brief overview on it.
    `cat memes <https://www.diabloii.net/gallery/data/500/medium/moar6-cat.jpg>`_
    on the internet, or `anything else <https://media.giphy.com/media/3o6YfXCehdioMXYbcs/giphy.gif>`_.
 
-#. **A dataset is a Git repository**. If you know the :term:`version control` system
-   :term:`Git`, and what you can use it for,
-   then take notice that everything you can use Git for also applies to everything managed
-   by DataLad -- plus much more. If you don't know Git
-   (which is completely fine), rest assured that this is a good feature.
-   You will experience much of Git working its
-   magic underneath the hood when you use DataLad. Do also rest assured that there
-   is no need to panic if you don't know Git -- there is no necessity
-   to immediately learn all Git to follow along in learning and using DataLad.
+#. **A dataset is a Git repository**. 
+   All features of the :term:`version control` system :term:`Git`
+   also apply to everything managed by DataLad – plus many more.
+   If you do not know or use Git yet, there is no need to panic – there is no necessity to 
+   learn all of Git to follow along in learning and using DataLad. You will 
+   experience much of Git working its magic underneath the hood when you use DataLad, 
+   and will soon start to appreciate its features. Later, you may want to know more
+   on how DataLad uses Git as a fundamental layer and learn some of Git.
 
 #. **A DataLad dataset can take care of managing and version controlling arbitrarily large data**.
-   To do this, it has an optional *annex* for (large) file content:
+   To do this, it has an optional *annex* for (large) file content.
    Thanks to this :term:`annex`, DataLad can easily track files that are many TB or PB in size
-   (something that Git couldn't do, and that allows you to restore previous versions of data,
-   transform and work with it while capturing all :term:`provenance`,
+   (something that Git could not do, and allows you to transform, work with, and restore previous 
+   versions of data, while capturing all :term:`provenance`,
    or share it with whomever you want). At the same time, DataLad does all of the magic
    necessary to get this awesome feature to work quietly in the background.
-   The annex is set-up automatically, and the tool :term:`Git-annex`
+   The annex is set-up automatically, and the tool :term:`git-annex`
    (https://git-annex.branchable.com) manages it all underneath the hood. Worry-free
    large-content data management? Check!
 
@@ -137,23 +136,23 @@ that captures the spirit of what DataLad is, and here is a brief overview on it.
    your files into something that only DataLad or a specialized tool can read.
    A PDF file (or any other type of
    file) stays a PDF file (or whatever other type of file it was)
-   whether it is managed by DataLad or not. This guarantees that users will not loose
-   data or data access if DataLad would vanish from their system, or even when DataLad
-   would vanish from the face of Earth. Using DataLad thus does not require or generate
-   data structures that can only be used or read with DataLad -- DataLad doesn't
+   whether it is managed by DataLad or not. This guarantees that users will not lose
+   data or access if DataLad would vanish from their system (or from the face of the 
+   Earth). Using DataLad thus does not require or generate
+   data structures that can only be used or read with DataLad -- DataLad does not
    tie you down, it liberates you.
 
 #. Furthermore, DataLad is developed for **complete decentralization**.
    There is no required central server or service necessary to use DataLad. In this
-   way, no central infrastructure needs to be maintained (or paid for) --
-   your own laptop is the perfect place to live for your DataLad project, as is your
-   institutions webserver, or any other common computational infrastructure you
+   way, no central infrastructure needs to be maintained (or paid for).
+   Your own laptop is the perfect place for your DataLad project to live, as is your
+   institution's webserver, or any other common computational infrastructure you
    might be using.
 
 #. Simultaneously, though, DataLad aims to
    **maximize the (re-)use of existing 3rd-party data resources and infrastructure**.
-   Users *can* use existing central infrastructure should they want to.
-   DataLad works with any infrastructure from :term:`Github` to
+   Users *can* use existing central infrastructures should they want to.
+   DataLad works with any infrastructure from :term:`GitHub` to
    `Dropbox <https://www.dropbox.com>`_, `Figshare <https://figshare.com/>`_
    or institutional repositories,
    enabling users to harvest all of the advantages of their preferred
@@ -165,10 +164,10 @@ it is not.
 
 Additionally, as some last key facts about DataLad, it comes with a
 command line interface enabling usage from within a terminal, and a Python API
-to use its features within your software and scripts. And while being a general,
+to use its features within your software and scripts. While being a general,
 multi-purpose tool, it comes with plenty of extensions that provide helpful,
 domain specific features that may very well fit your precise use case.
 
-But enough of the abstract talking.
-You came here to learn, and the handbook will not waste your time further by
-requiring you to only read -- let's start to *use* DataLad.
+But enough of the abstract talk.
+You came here to learn, and the handbook will not waste your time any further by
+having you only read about DataLad -- let's start to *use* DataLad.

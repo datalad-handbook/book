@@ -1,3 +1,7 @@
-$ datalad install recordings/longnow
-[INFO] Cloning /home/adina/repos/datalad-handbook/docs/_build/wdirs/dl-101/DataLad-101/recordings/longnow [2 other candidates] into '/home/adina/repos/datalad-handbook/docs/_build/wdirs/dl-101/mock_user/DataLad-101/recordings/longnow' 
-install(ok): /home/adina/repos/datalad-handbook/docs/_build/wdirs/dl-101/mock_user/DataLad-101/recordings/longnow (dataset) [Installed subdataset in order to get /home/adina/repos/datalad-handbook/docs/_build/wdirs/dl-101/mock_user/DataLad-101/recordings/longnow]
+$ git annex whereis books/bash_guide.pdf
+whereis books/bash_guide.pdf (2 copies)
+	00000000-0000-0000-0000-000000000001 -- web
+	8c4edcb0-68b5-4dc4-9c9d-de1e00277b9f -- course on DataLad-101 on my private Laptop [origin]
+
+  web: http://www.tldp.org/LDP/Bash-Beginners-Guide/Bash-Beginners-Guide.pdf
+ok

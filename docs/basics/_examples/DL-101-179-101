@@ -1,0 +1,4 @@
+$ cat << EOT > .gitignore
+
+tmp/*
+EOT

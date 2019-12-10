@@ -14,6 +14,46 @@
 import datetime
 import os
 import sys
+from pathlib import Path
+import json
+import dataladhandbook_support
+
+# pull out author list from all-contributors spec
+authors = [
+    c['name'] for c in json.load(
+        (Path(__file__).parent.parent / '.all-contributorsrc').open()).get(
+            'contributors', [])
+]
+
+# autorunrecord setup (extension used to run and capture the output of
+# examples)
+autorunrecord_basedir = '/home/me'
+# pre-crafted artificial environment to run the code examples in
+autorunrecord_env = {
+    # make everything talk in english
+    'LANG': 'en_US.UTF-8',
+    'LANGUAGE': 'en_US:en',
+    'LC_CTYPE': 'en_US.UTF-8',
+    # use very common shell
+    'SHELL': '/bin/bash',
+    # keep username extra short to save on line length
+    'USER': 'me',
+    'USERNAME': 'me',
+    'HOME': autorunrecord_basedir,
+    # earned a PhD in 1678 and taught mathematics at the University of Padua
+    'GIT_AUTHOR_EMAIL': 'elena@example.net',
+    'GIT_AUTHOR_NAME': 'Elena Piscopia',
+    'HOST': 'padua',
+    # maintain the PATH to keep all installed software functional
+    'PATH': os.environ['PATH'],
+    'GIT_EDITOR': 'vim',
+}
+if 'CAST_DIR' in os.environ:
+    autorunrecord_env['CAST_DIR'] = os.environ['CAST_DIR']
+if 'VIRTUAL_ENV' in os.environ:
+    # inherit venv, if there is any
+    autorunrecord_env.update(VIRTUAL_ENV=os.environ['VIRTUAL_ENV'])
+
 
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
@@ -60,7 +100,7 @@ copyright = (u'2019-{} CC-BY-SA').format(current_year)
 # built documents.
 #
 # The short X.Y version.
-version = '0.1'
+version = dataladhandbook_support.__version__
 # The full version, including alpha/beta/rc tags.
 release = version
 
@@ -220,7 +260,7 @@ latex_documents = [
       'index',
       'dataladhandbook.tex',
       u'The DataLad Handbook',
-      u'Adina~S.~Wagner \\and Laura~K.~Waite \\and Michael~Hanke',
+      u' \\and '.join(a.replace(' ', '~') for a in authors),
       'manual'),
 ]
 
@@ -235,8 +275,24 @@ latex_elements = {
     'papersize': 'a4',
     'pointsize': '11pt',
     'figure_align': 'tbp',
-    'preamble': """\
+    'preamble': r"""
+\usepackage{charter}
+\usepackage[defaultsans]{lato}
+\usepackage{inconsolata}
 \setcounter{tocdepth}{0}
+\usepackage{xcolor}
+\newsavebox\mytempbox
+\definecolor{sphinxnoteBgColor}{RGB}{255, 193, 84}
+\renewenvironment{sphinxnote}[1]
+   {\begin{lrbox}{\mytempbox}\begin{minipage}{\columnwidth}%
+    \begin{sphinxlightbox}\sphinxstrong{#1} }
+   {\end{sphinxlightbox}\end{minipage}\end{lrbox}%
+    \colorbox{sphinxnoteBgColor}{\usebox{\mytempbox}}}
+\renewenvironment{sphinximportant}[2]
+   {\begin{lrbox}{\mytempbox}\begin{minipage}{\columnwidth}%
+    \begin{sphinxlightbox}\sphinxstrong{#1} }
+   {\end{sphinxlightbox}\end{minipage}\end{lrbox}%
+    \colorbox{sphinxnoteBgColor}{\usebox{\mytempbox}}}
 """,
 }
 
@@ -310,3 +366,4 @@ plantuml_latex_output_format = 'pdf'
 
 def setup(app):
     app.add_stylesheet('custom.css')
+    app.add_config_value('internal', '', 'env')

@@ -1,7 +1,9 @@
+.. _sharelocal4:
+
 .. _update:
 
-Updating datasets: The basics
------------------------------
+Stay up to date
+---------------
 
 All of what you have seen about sharing dataset was really
 cool, and for the most part also surprisingly intuitive.
@@ -29,11 +31,11 @@ This is a change that is not reflected in your "shared"
 installation in ``../mock_user/DataLad-101``:
 
 .. runrecord:: _examples/DL-101-119-101
-   :language: console
-   :workdir: dl-101/DataLad-101
+   :workdir: dl-101/mock_user/DataLad-101
+   :notes: On updating dataset. How do we get the updated notes from the original dataset?
+   :cast: 04_collaboration
 
-   # we navigate into the installed copy:
-   $ cd ../mock_user/DataLad-101
+   # we are inside the installed copy
    $ cat notes.txt
 
 But the original intention of sharing the dataset with
@@ -55,6 +57,8 @@ command (:manpage:`datalad-update` manual).
 .. runrecord:: _examples/DL-101-119-102
    :language: console
    :workdir: dl-101/mock_user/DataLad-101
+   :notes: retrieve and integrate changes from origin with datalad update --merge
+   :cast: 04_collaboration
 
    $ datalad update --merge
 
@@ -72,6 +76,8 @@ the previously missing changes are now present:
 .. runrecord:: _examples/DL-101-119-103
    :language: console
    :workdir: dl-101/mock_user/DataLad-101
+   :notes: let's check whether the updates are there
+   :cast: 04_collaboration
 
    $ cat notes.txt
 
@@ -88,6 +94,8 @@ dataset to your own ``DataLad-101`` dataset:
 .. runrecord:: _examples/DL-101-119-104
    :language: console
    :workdir: dl-101/mock_user/DataLad-101
+   :notes: note in original ds
+   :cast: 04_collaboration
 
    # navigate back:
    $ cd ../../DataLad-101
@@ -103,6 +111,8 @@ dataset to your own ``DataLad-101`` dataset:
 .. runrecord:: _examples/DL-101-119-105
    :language: console
    :workdir: dl-101/DataLad-101
+   :notes:
+   :cast: 04_collaboration
 
    # save the changes
 
@@ -112,10 +122,8 @@ dataset to your own ``DataLad-101`` dataset:
 PS: You might wonder whether there is also a sole
 :command:`datalad update` command. Yes, there is -- if you are
 a Git-user and know about branches and merging you can read the
-``Note for Git-users`` below. Else, a thorough explanation
-will come at a later point in time.
-
-
+``Note for Git-users`` below. However, a thorough explanation
+and demonstration will be in the next section.
 
 .. gitusernote::
 

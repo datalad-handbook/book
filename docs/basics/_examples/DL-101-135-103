@@ -1,0 +1,94 @@
+$ datalad get --help
+Usage: datalad get [-h] [-s LABEL] [-d PATH] [-r] [-R LEVELS] [-n]
+                   [-D DESCRIPTION] [--reckless] [-J NJOBS]
+                   [PATH [PATH ...]]
+
+Get any dataset content (files/directories/subdatasets).
+
+This command only operates on dataset content. To obtain a new independent
+dataset from some source use the INSTALL command.
+
+By default this command operates recursively within a dataset, but not
+across potential subdatasets, i.e. if a directory is provided, all files in
+the directory are obtained. Recursion into subdatasets is supported too. If
+enabled, relevant subdatasets are detected and installed in order to
+fulfill a request.
+
+Known data locations for each requested file are evaluated and data are
+obtained from some available location (according to git-annex configuration
+and possibly assigned remote priorities), unless a specific source is
+specified.
+
+NOTE
+  Power-user info: This command uses git annex get to fulfill
+  file handles.
+
+*Examples*
+
+Get a single file::
+
+   % datalad get <path/to/file>
+
+Get contents of a directory::
+
+   % datalad get <path/to/dir/>
+
+Get all contents of the current dataset and its subdatasets::
+
+   % datalad get . --recursive
+
+*Arguments*
+  PATH                  path/name of the requested dataset component. The
+                        component must already be known to a dataset. To add
+                        new components to a dataset use the ADD command.
+                        Constraints: value must be a string [Default: None]
+
+*Options*
+  -h, --help, --help-np
+                        show this help message. --help-np forcefully disables
+                        the use of a pager for displaying the help message
+  -s LABEL, --source LABEL
+                        label of the data source to be used to fulfill
+                        requests. This can be the name of a dataset sibling or
+                        another known source. Constraints: value must be a
+                        string [Default: None]
+  -d PATH, --dataset PATH
+                        specify the dataset to perform the add operation on,
+                        in which case PATH arguments are interpreted as being
+                        relative to this dataset. If no dataset is given, an
+                        attempt is made to identify a dataset for each input
+                        PATH. Constraints: Value must be a Dataset or a valid
+                        identifier of a Dataset (e.g. a path) [Default: None]
+  -r, --recursive       if set, recurse into potential subdataset. [Default:
+                        False]
+  -R LEVELS, --recursion-limit LEVELS
+                        limit recursion into subdataset to the given number of
+                        levels. Alternatively, 'existing' will limit recursion
+                        to subdatasets that already existed on the filesystem
+                        at the start of processing, and prevent new
+                        subdatasets from being obtained recursively.
+                        Constraints: value must be convertible to type 'int',
+                        or value must be one of ('existing',) [Default: None]
+  -n, --no-data         whether to obtain data for all file handles. If
+                        disabled, GET operations are limited to dataset
+                        handles. This option prevents data for file handles
+                        from being obtained. [Default: True]
+  -D DESCRIPTION, --description DESCRIPTION
+                        short description to use for a dataset location. Its
+                        primary purpose is to help humans to identify a
+                        dataset copy (e.g., "mike's dataset on lab server").
+                        Note that when a dataset is published, this
+                        information becomes available on the remote side.
+                        Constraints: value must be a string [Default: None]
+  --reckless            Set up the dataset to be able to obtain content in the
+                        cheapest/fastest possible way, even if this poses a
+                        potential risk the data integrity (e.g. hardlink files
+                        from a local clone of the dataset). Use with care, and
+                        limit to "read-only" use cases. With this flag the
+                        installed dataset will be marked as untrusted.
+                        [Default: False]
+  -J NJOBS, --jobs NJOBS
+                        how many parallel jobs (where possible) to use.
+                        Constraints: value must be convertible to type 'int',
+                        or value must be one of ('auto',) [Default: 'auto']
+

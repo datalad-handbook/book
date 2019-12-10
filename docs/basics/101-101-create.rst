@@ -15,14 +15,14 @@ But for DataLad, as we learned in the first lecture, a dataset is the core data 
 
 As noted in :ref:`philo`, a dataset is a collection of *files*
 in folders, and a file is the smallest unit any dataset can contain.
-While it at its core this a very simple concept, datasets come with many
+While it at its core this is a very simple concept, datasets come with many
 useful features.
 Because experiencing is more insightful than just reading, we will explore the
 concepts of DataLad datasets together by creating one.
 
 .. index:: ! datalad command; create
 
-Find a nice place on your computers file system to put a dataset for ``DataLad-101``,
+Find a nice place on your computer's file system to put a dataset for ``DataLad-101``,
 and create a fresh, empty dataset with the :command:`datalad create` command (:manpage:`datalad-create` manual).
 In a bit of time, you will thank yourself for adding a description about the *location*
 of your dataset with the *optional* ``--description`` flag. (At the moment,
@@ -36,6 +36,8 @@ Note the command structure of :command:`datalad create` (optional bits are enclo
 .. runrecord:: _examples/DL-101-101-101
    :language: console
    :workdir: dl-101
+   :cast: 01_dataset_basics
+   :notes: Datasets are datalads core data type. We will explore the concepts of datasets by creating one with datalad create. optional configuration template and a description
 
    $ datalad create --description "course on DataLad-101 on my private Laptop" -c text2git DataLad-101
 
@@ -49,6 +51,8 @@ Currently, it seems empty.
 .. runrecord:: _examples/DL-101-101-102
    :language: console
    :workdir: dl-101
+   :cast: 01_dataset_basics
+   :notes: Datalad informs about what it is doing during a command. At the end is a summary, in this case it is ok. What is inside of a newly created dataset? We list contents with ls.
 
    $ cd DataLad-101
    $ ls    # ls does not show any output, because the dataset is empty.
@@ -57,22 +61,29 @@ However, all files and directories you store within the DataLad dataset
 can be tracked (should you want them to be tracked).
 *Tracking* in this context means that edits done to a file are automatically
 associated with information about the change, the author of the edit,
-and the time of this change. This is already informative on its own,
-but what is especially helpful is that previous states of files or directories
+and the time of this change. This is already informative important on its own
+-- the :term:`provenance` captured with this can for example be used to learn
+about a file's lineage, and can establish trust in it.
+But what is especially helpful is that previous states of files or directories
 can be restored. Remember the last time you accidentally deleted content
 in a file, but only realized *after* you saved it? With DataLad, no
 mistakes are forever. We will see many examples of this later in the book,
 and such information is stored in what we will refer
-to as the history of a dataset.
+to as the *history* of a dataset.
 
 This history is almost as small as it can be at the current state, but let's take
 a look at it. For looking at the history, the code examples will use :command:`git log`,
-a built-in git command [#f1]_.
+a built-in git command [#f1]_. Your git log *might* be opened in a
+`terminal pager <https://en.wikipedia.org/wiki/Terminal_pager>`_ that lets
+you scroll up and down with your arrow keys, but not enter any more commands.
+If this happens, you can get out of git log by pressing q.
 
 .. runrecord:: _examples/DL-101-101-103
    :language: console
    :workdir: dl-101/DataLad-101
    :emphasize-lines: 3-4, 6, 9-10, 12
+   :cast: 01_dataset_basics
+   :notes: GIT LOG, SHASUM, MESSAGE: A dataset is version controlled. This means, edits done to a file are associated with information about the change, the author, and the time + ability to restore previous states of the dataset. Let's take a look into the history, even if it is small atm
 
    $ git log
 
@@ -84,47 +95,37 @@ the time, as well as a :term:`commit message` that summarizes the
 performed action concisely. In this case, both commit messages were written by
 DataLad itself. The most recent change is on the top. The first commit
 written to the history therefore states that a new dataset was created,
-and the second commit to the history is related to ``-c text2git`` which
+and the second commit is related to the ``-c text2git`` option (which
 uses a configuration template to instruct DataLad to store text files
-in Git (but more on this later).
+in Git, but more on this later).
 Even though these commits were produced by DataLad,
 in most other cases, you will have to create the commit and
 an informative commit message yourself.
-
-As already noted, any files you ``save`` in this dataset, and all modifications
-to these files that you ``save``, are tracked in this history.
-Importantly, this file tracking works
-regardless of the size of the files -- a DataLad dataset could be
-your private music or movie collection with single files being many GB in size.
-This is one aspect that distinguishes DataLad from many other
-version control tools, among them Git.
-Large content is tracked in an *annex* that is automatically
-created and handled by DataLad. Whether text files or larger files change,
-all of these changes can be written to your DataLad datasets history.
-
 
 .. gitusernote::
 
    :command:`datalad create` uses :command:`git init` and :command:`git-annex init`. Therefore,
    the DataLad dataset is a Git repository.
    Large file content in the
-   dataset in the annex is tracked with Git-annex. An ``ls -a``
-   reveals that Git is secretly working in the background:
+   dataset in the annex is tracked with git-annex. An ``ls -a``
+   reveals that Git has secretly done its work:
 
    .. runrecord:: _examples/DL-101-101-104
       :language: console
       :workdir: dl-101/DataLad-101
       :emphasize-lines: 4-6
+      :cast: 01_dataset_basics
+      :notes: Datalad, git-annex, and git create hidden files and directories in your dataset. Make sure to not delete them!
 
       $ ls -a # show also hidden files
 
-   **For non-Git-Users: these hidden** *dot-directories* **are doing their magic in the**
-   **background. Please do not temper with them, and, importantly,** *do not delete them.*
+   **For non-Git-Users: these hidden** *dot-directories* **are necessary for all git magic**
+   **to work. Please do not temper with them, and, importantly,** *do not delete them.*
 
 Congratulations, you just created your first DataLad dataset!
 Let us now put some content inside.
 
 .. rubric:: Footnotes
 
-.. [#f1] A nice and easy tool we can recommend as an alternative to :command:`git log` is :term:`tig`.
-         Once installed, exchange any git log command you see here with the single word ``tig``.
+.. [#f1] A tool we can recommend as an alternative to :command:`git log` is :term:`tig`.
+         Once installed, exchange any ``git log`` command you see here with the single word ``tig``.

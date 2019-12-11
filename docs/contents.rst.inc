@@ -116,13 +116,12 @@
 
 .. toctree::
    :maxdepth: 1
-   :caption: What to do if things go wrong
+   :caption: Dealing with problems, filesystems, and version histories
 
-   basics/101-135-help
+   basics/101-135-intro
    basics/101-136-filesystem
    basics/101-137-history
-   basics/101-180-FAQ
-
+   basics/101-135-help
 
 ###############################
 **Basics 9** -- Further options

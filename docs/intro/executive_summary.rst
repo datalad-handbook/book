@@ -7,16 +7,10 @@ DataLad is a data management multitool that can assist you during all steps in t
 evolution of digital objects. It is a command-line tool, free and open source, and
 available for all major operating systems.
 
-This document is the 1000 feet overview of important concepts, commands, and
-capacities of DataLad. Each section highlights one group of functionality or
-concept and the associated commands. The upcoming Basics chapters will demonstrate
-in detail how to use them. If you are interested in more high-level information
-on DataLad than this section, you can find answers to common questions in the
-section :ref:`FAQ`, and a concise command cheat-sheet in section
-
-.. todo::
-
-   link cheat sheet
+This document is the 10.000 feet overview of important concepts, commands, and
+capacities of DataLad. Each section briefly highlights one group of functionality or
+concept and the associated commands, and the upcoming Basics chapters will demonstrate
+in detail how to use them.
 
 DataLad datasets
 ^^^^^^^^^^^^^^^^
@@ -44,23 +38,23 @@ version control arbitrarily large content in datasets.
    :width: 70%
    :target: ../basics/101-107-summary.html
 
-Thus you can keep track of revisions of data of any size, and view, interact with or
-restore any version of your datasets history.
+Thus, you can keep track of revisions of data of any size, and view, interact with or
+restore any version of your dataset's history.
 
 
 Consumption and collaboration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-DataLad lets you consume and collaborate on datasets. You can install existing
+DataLad lets you consume others datasets or collaborate. You can install existing
 datasets and update them from their sources, or create sibling datasets that you can
-publish updates to and pull updates from for collaboration and sharing.
+publish updates to and pull updates from for collaboration and data sharing.
 
 .. figure:: ../artwork/src/collaboration.svg
    :alt: Consume and collaborate
    :width: 130%
    :target: ../basics/101-120-summary.html
 
-Additionally, via DataLad you get access to ~70TB of publicly available open
+Additionally, you can get access to ~70TB of publicly available open
 data collections with :term:`the DataLad superdataset ///`.
 
 Dataset linkage
@@ -69,7 +63,7 @@ Dataset linkage
 Datasets can contain other datasets (subdatasets), nested arbitrarily deep. Each
 dataset has an independent revision history, but can be registered in higher-level
 datasets. This allows to combine datasets and to perform commands recursively across
-a hierarchy of datasets and is the basis for advanced provenance capture abilities.
+a hierarchy of datasets, and it is the basis for advanced provenance capture abilities.
 
 .. figure:: ../artwork/src/linkage_subds.svg
    :alt: Dataset nesting
@@ -98,16 +92,16 @@ Third party service integration
 
 Export datasets to third party services such as
 `GitHub <https://github.com/>`_, `GitLab <https://about.gitlab.com/>`_, or
-`Figshare <https://figshare.com/>`_ with built-in commands, or use a multitude
-of other available third party services such as `Dropbox <https://dropbox.com>`_,
-`Google Drive <https://drive.google.com/drive/my-drive>`_,
-`Amazon S3 <https://aws.amazon.com/de/s3/>`_, `owncloud <https://owncloud.org/>`_,
-or many more.
+`Figshare <https://figshare.com/>`_ with built-in commands.
 
 .. figure:: ../artwork/src/thirdparty.svg
    :alt: third party integration
    :width: 100%
 
+Alternatively, you can use a multitude of other available third party services such as
+`Dropbox <https://dropbox.com>`_, `Google Drive <https://drive.google.com/drive/my-drive>`_,
+`Amazon S3 <https://aws.amazon.com/de/s3/>`_, `owncloud <https://owncloud.org/>`_,
+or many more that DataLad datasets are compatible with.
 
 Metadata handling
 ^^^^^^^^^^^^^^^^^
@@ -119,3 +113,18 @@ contents.
 .. figure:: ../artwork/src/metadata_prov_imaging.svg
    :alt: meta data capabilities
    :width: 100%
+
+All in all...
+^^^^^^^^^^^^^
+
+You can use DataLad for a variety of use cases. At its core, it is a domain-agnostic
+and self-effacing tool: DataLad allows to improve your data management without
+custom data structures or the need for central infrastructure or third party
+services.
+If you are interested in more high-level information on DataLad, you can find
+answers to common questions in the section :ref:`FAQ`, and a concise command
+cheat-sheet in section
+
+.. todo::
+
+   link cheat sheet

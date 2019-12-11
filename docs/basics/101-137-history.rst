@@ -277,7 +277,7 @@ to track:
 
    $ datalad save -m "save my favorite Git joke" Gitjoke2.txt
 
-Finally, lets check how the history looks afterwards:
+Finally, let's check how the history looks afterwards:
 
 .. runrecord:: _examples/DL-101-137-112
    :workdir: dl-101/DataLad-101

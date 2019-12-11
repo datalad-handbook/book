@@ -163,6 +163,16 @@ Appendix
    glossary
    basics/101-180-FAQ
    contributing
+
+########################
+Code lists from chapters
+########################
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Easy access to copy-paste snippets for workshops
+
+   code_from_chapters/intro
    code_from_chapters/01_dataset_basics_code
    code_from_chapters/02_reproducible_execution_code
    code_from_chapters/10_yoda_code

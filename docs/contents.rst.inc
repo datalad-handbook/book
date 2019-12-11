@@ -162,6 +162,7 @@ Appendix
 
    glossary
    contributing
+   acknowledgements
    code_from_chapters/01_dataset_basics_code
    code_from_chapters/02_reproducible_execution_code
    code_from_chapters/10_yoda_code

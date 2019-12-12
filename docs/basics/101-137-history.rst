@@ -229,8 +229,8 @@ with the HEAD pointer.
 
 .. findoutmore:: Git terminology: branches and HEADs?
 
-   A Git repository (and thus any DataLad dataset) is build up as a tree of
-   commits. A *branch* is a named pointer (reference) to a commit, and allows
+   A Git repository (and thus any DataLad dataset) is built up as a tree of
+   commits. A *branch* is a named pointer (reference) to a commit, and allows you
    to isolate developments. The default branch is called ``master``. ``HEAD`` is
    a pointer to the branch you are currently on, and thus to the last commit
    in the given branch.

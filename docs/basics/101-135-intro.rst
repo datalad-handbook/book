@@ -13,6 +13,6 @@ the dataset to undo what I screwed up? Also, I'm not sure whether I know what I
 can and can not do with the files inside of my dataset... What if I would
 like to remove one, for example?”
 
-Therefore, a this upcoming chapter is a series of tutorials about common
+Therefore, this upcoming chapter is a series of tutorials about common
 file system operations, interactions with the history of datasets, and how
 to get help after errors.

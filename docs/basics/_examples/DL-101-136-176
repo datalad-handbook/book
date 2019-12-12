@@ -1,0 +1,2 @@
+$ datalad get flowers.jpg
+get(ok): flowers.jpg (file) [from web...]

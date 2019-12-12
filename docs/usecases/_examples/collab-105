@@ -1,0 +1,7 @@
+$ chmod +x code/run_analysis.py
+$ datalad save -m "make script executable"
+add(ok): code/run_analysis.py (file)
+save(ok): . (dataset)
+action summary:
+  add (ok: 1)
+  save (ok: 1)

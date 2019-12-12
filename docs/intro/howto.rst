@@ -109,7 +109,7 @@ The Prompt
 When you first login on the command line, you are greeted with "the prompt",
 and it will likely look similar to this:
 
-``adina@munnin: ~$``
+``adina@muninn: ~$``
 
 This says I am the user adina on the machine muninn and I am in the folder ``~``,
 which is shorthand for the current user's home folder (in this case ``/home/adina``).
@@ -128,7 +128,7 @@ I can run the following command:
 
    $ mkdir /home/adina/awesome_datalad_project
 
-And that works. ``/home/aqw/awesome_datalad_project`` is what is called an *absolute*
+And that works. ``/home/adina/awesome_datalad_project`` is what is called an *absolute*
 path. Absolute paths *always* start with a ``/``, and define the folder's location
 with no ambiguity.
 
@@ -231,7 +231,7 @@ Religious wars have been fought over which is "the best" editor. From the smolde
 this is the breakdown:
 
 ``nano``
-    Easy to use; medium features. If you don't know which to use, start with this.
+    Easy to use; medium features. If you do not know which to use, start with this.
 ``vim``
     Powerful and light; lots of features and many plugins; steep learning curve.
     Two resources to help get the most out of vim are the vimtutor program

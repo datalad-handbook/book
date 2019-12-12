@@ -1,7 +1,7 @@
 .. _run5:
 
-Cleaning up
------------
+Clean desk
+----------
 
 Just now you realize that you need to fit both logos onto the same slide.
 "Ah, damn, I might then really need to have them 400 by 400 pixel to fit",
@@ -15,6 +15,8 @@ you think.
    :language: console
    :workdir: dl-101/DataLad-101
    :emphasize-lines: 5
+   :notes: mhh, 450x450px seems a bit large, we have to go back to 400. Lets make yet another, complete run command
+   :cast: 02_reproducible_execution
 
    $ datalad run -m "Resize logo for slides" \
    --input "recordings/longnow/.datalad/feed_metadata/logo_interval.jpg" \
@@ -32,6 +34,8 @@ Run a :command:`datalad status` to see what is meant by this:
 .. runrecord:: _examples/DL-101-112-102
    :language: console
    :workdir: dl-101/DataLad-101
+   :notes: What happened? The dataset is not "clean"
+   :cast: 02_reproducible_execution
 
    $ datalad status
 
@@ -49,7 +53,7 @@ to the command plugged into :command:`datalad run`, by default it will only run
 on a clean dataset with no changes or untracked files present.
 
 There are two ways to get around this error message:
-The obvious -- and recommended -- one is to save the modifications,
+The more obvious -- and recommended -- one is to save the modifications,
 and run the command in a clean dataset.
 We will try this way with the ``logo_interval.jpg``.
 It would look like this:
@@ -59,6 +63,8 @@ First, save the changes,
 .. runrecord:: _examples/DL-101-112-103
    :language: console
    :workdir: dl-101/DataLad-101
+   :notes: One way to prevent this is to have a clean dataset state
+   :cast: 02_reproducible_execution
 
    $ datalad save -m "add additional notes on run options"
 
@@ -67,6 +73,8 @@ and then try again:
 .. runrecord:: _examples/DL-101-112-104
    :language: console
    :workdir: dl-101/DataLad-101
+   :notes: let's try again with a clean dataset
+   :cast: 02_reproducible_execution
 
    $ datalad run -m "Resize logo for slides" \
    --input "recordings/longnow/.datalad/feed_metadata/logo_interval.jpg" \
@@ -82,6 +90,8 @@ to a :command:`datalad run`:
 .. runrecord:: _examples/DL-101-112-105
    :language: console
    :workdir: dl-101/DataLad-101
+   :notes: we'll make a note on clean datasets (which we won't save)
+   :cast: 02_reproducible_execution
 
    $ cat << EOT >> notes.txt
    Important! If the dataset is not "clean" (a datalad status output is empty),
@@ -94,12 +104,14 @@ A way of executing a :command:`datalad run` *despite* an "unclean" dataset,
 though, is to add the ``--explicit`` flag to :command:`datalad run`.
 We will try this flag with the remaining ``logo_salt.jpg``. Note that
 we have an "unclean dataset" again because of the
-addition to the note.
+additional note in ``notes.txt``.
 
 
 .. runrecord:: _examples/DL-101-112-106
    :language: console
    :workdir: dl-101/DataLad-101
+   :notes: alternatively, the --explicit flag allows run despite an unclean dataset. However, this will only save changes to --output
+   :cast: 02_reproducible_execution
 
    $ datalad run -m "Resize logo for slides" \
    --input "recordings/longnow/.datalad/feed_metadata/logo_salt.jpg" \
@@ -118,6 +130,8 @@ is still modified:
 .. runrecord:: _examples/DL-101-112-110
    :language: console
    :workdir: dl-101/DataLad-101
+   :notes: the previously modified ``notes.txt`` is still modified:
+   :cast: 02_reproducible_execution
 
    $ datalad status
 
@@ -126,6 +140,8 @@ Add an additional note on the ``--explicit`` flag, and finally save your changes
 .. runrecord:: _examples/DL-101-112-107
    :language: console
    :workdir: dl-101/DataLad-101
+   :notes: Note on --explicit flag
+   :cast: 02_reproducible_execution
 
    $ cat << EOT >> notes.txt
    A suboptimal alternative is the --explicit flag,
@@ -137,6 +153,8 @@ Add an additional note on the ``--explicit`` flag, and finally save your changes
 .. runrecord:: _examples/DL-101-112-108
    :language: console
    :workdir: dl-101/DataLad-101
+   :notes: and save it
+   :cast: 02_reproducible_execution
 
    $ datalad save -m "add note on clean datasets"
 
@@ -148,9 +166,7 @@ commit to see a :term:`run record` with more content:
    :workdir: dl-101/DataLad-101
    :lines: 1, 24-50
    :emphasize-lines: 11, 15-17, 18-20
+   :notes: finally, lets see a more complex runrecord
+   :cast: 02_reproducible_execution
 
-   $ git log -p -2
-
-.. todo::
-
-   - how to escape special characters
+   $ git log -p -n 2

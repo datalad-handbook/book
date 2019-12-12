@@ -1,5 +1,0 @@
-$ cat .gitattributes
-
-* annex.backend=MD5E
-**/.git* annex.largefiles=nothing
-* annex.largefiles=(not(mimetype=text/*))

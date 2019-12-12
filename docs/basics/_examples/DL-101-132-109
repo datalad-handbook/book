@@ -1,0 +1,3 @@
+$ rm midterm_project/an_empty_file
+$ datalad status --recursive
+ modified: midterm_project (dataset)

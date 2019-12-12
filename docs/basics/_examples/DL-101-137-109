@@ -1,0 +1,4 @@
+$ datalad status
+untracked: Gitjoke1.txt (file)
+untracked: Gitjoke2.txt (file)
+untracked: Gitjoke3.txt (file)

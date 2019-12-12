@@ -28,8 +28,8 @@ whenever an evaluation fulfills your criteria.
 
 To be able to specify matching criteria, you need to be aware of the potential
 criteria you can match against. The evaluation report is a dictionary with
-``key:value`` pairs. The following table provides an overview on the available
-keys and their possible values:
+``key:value`` pairs. The following table provides an overview on some of the
+available keys and their possible values:
 
 .. list-table::
    :widths: 50 100
@@ -38,17 +38,13 @@ keys and their possible values:
    * - Key name
      - Values
    * - ``action``
-     - ``get``, ``install``, ``drop``, ...?
+     - ``get``, ``install``, ``drop``, ``status``, ... (any command's name)
    * - ``type``
-     - ``file``, ``dataset``, ``symlink``, ...?
+     - ``file``, ``dataset``, ``symlink``, ``directory``
    * - ``status``
-     - ``ok``, ``notneeded``, ...?
-   * - ...?
-     - ...?
-
-.. todo::
-
-   finish table
+     - ``ok``, ``notneeded``, ``impossible``, ``error``
+   * - ``path``
+     - The path the previous command operated on
 
 These key-value pairs provide the basis to define matching rules that -- once met --
 can trigger the execution of custom hooks.

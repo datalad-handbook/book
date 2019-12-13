@@ -116,13 +116,12 @@
 
 .. toctree::
    :maxdepth: 1
-   :caption: What to do if things go wrong
+   :caption: Dealing with problems, filesystems, and version histories
 
-   basics/101-135-help
+   basics/101-135-intro
    basics/101-136-filesystem
    basics/101-137-history
-   basics/101-180-FAQ
-
+   basics/101-135-help
 
 ###############################
 **Basics 9** -- Further options
@@ -161,7 +160,18 @@ Appendix
    :caption: Further information and references
 
    glossary
+   basics/101-180-FAQ
    contributing
+
+########################
+Code lists from chapters
+########################
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Easy access to copy-paste snippets for workshops
+
+   code_from_chapters/intro
    code_from_chapters/01_dataset_basics_code
    code_from_chapters/02_reproducible_execution_code
    code_from_chapters/10_yoda_code

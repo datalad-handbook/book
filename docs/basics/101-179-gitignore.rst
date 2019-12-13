@@ -14,9 +14,9 @@ The most striking was that it by default
 will save the complete datasets status if one does not provide
 a path to a file change. This would result in all content
 that is either modified or untracked being saved in a single
-commit. This, by the way, is the reason why a :command:`datalad run`
-requires a clean dataset: The :command:`datalad save` that a :command:`datalad run` ends with
-internally should only save changes that can be attributed to
+commit. You know already that this is the reason why a :command:`datalad run`
+requires a clean dataset: The final :command:`datalad save` after
+:command:`datalad run` should only save changes that can be attributed to
 the command that was run, and not changes that existed already
 but were yet unsaved.
 

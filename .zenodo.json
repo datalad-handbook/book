@@ -16,7 +16,7 @@
       "orcid": "0000-0003-2213-7465"
     },
     {
-      "affiliation": "Dartmouth College",
+      "affiliation": "Dartmouth College, Hanover, NH, United States",
       "name": "Meyer, Kyle",
       "orcid": "TODO"
     },
@@ -46,9 +46,14 @@
       "orcid": "0000-0001-7628-0801"
     },
     {
-      "affiliation": "Stanford University",
+      "affiliation": "Stanford University, Stanford, CA, United States",
       "name": "Markiewicz, Christopher J.",
       "orcid": "0000-0002-6533-164X"
+    },
+    {
+      "affiliation": "Dartmouth College, Hanover, NH, United States",
+      "name": "Halchenko, Yaroslav O.",
+      "orcid": "0000-0003-3456-2493"
     }
   ],
   "keywords": [
@@ -58,6 +63,7 @@
     "version control",
     "teaching resource"
   ],
+  "access_right": "open",
   "license": "CC-BY-SA",
   "upload_type": "book"
 }

@@ -1,16 +1,10 @@
-$ git log -15 --oneline
-73f8322 add note on DataLads procedures
-9d125d8 add note on configurations and git config
-d7ea7c1 Add note on adding siblings
-78a49de Merge remote-tracking branch 'refs/remotes/roommate/master'
-2af90e2 Include nesting demo from datalad website
-f97b373 add note about datalad update
-782994c add note on git annex whereis
-3f419da add note about installing from paths and recursive installations
-b90cea2 add note on clean datasets
-a370ed8 [DATALAD RUNCMD] Resize logo for slides
-7e9cbde [DATALAD RUNCMD] Resize logo for slides
-942f088 add additional notes on run options
-e35aeb8 [DATALAD RUNCMD] convert -resize 450x450 recordings/longn...
-c181149 resized picture by hand
-7bf692b [DATALAD RUNCMD] convert -resize 400x400 recordings/longn...
+$ cd books/
+$ mv TLCL.pdf The_Linux_Command_Line.pdf
+$ ls -lah
+total 24K
+drwxr-xr-x 2 adina adina 4.0K Dec 10 09:10 .
+drwxr-xr-x 8 adina adina 4.0K Dec 10 09:10 ..
+lrwxrwxrwx 1 adina adina  131 Jan 19  2009 bash_guide.pdf -> ../.git/annex/objects/WF/Gq/MD5E-s1198170--0ab2c121bcf68d7278af266f6a399c5f.pdf/MD5E-s1198170--0ab2c121bcf68d7278af266f6a399c5f.pdf
+lrwxrwxrwx 1 adina adina  131 Dec 10 09:08 byte-of-python.pdf -> ../.git/annex/objects/ZZ/f1/MD5E-s4407669--32e6b03a08a6edda12ad42eb7bb06a5c.pdf/MD5E-s4407669--32e6b03a08a6edda12ad42eb7bb06a5c.pdf
+lrwxrwxrwx 1 adina adina  133 Jun 29 17:39 progit.pdf -> ../.git/annex/objects/G6/Gj/MD5E-s12465653--05cd7ed561d108c9bcf96022bc78a92c.pdf/MD5E-s12465653--05cd7ed561d108c9bcf96022bc78a92c.pdf
+lrwxrwxrwx 1 adina adina  131 Jan 28  2019 The_Linux_Command_Line.pdf -> ../.git/annex/objects/jf/3M/MD5E-s2120211--06d1efcb05bb2c55cd039dab3fb28455.pdf/MD5E-s2120211--06d1efcb05bb2c55cd039dab3fb28455.pdf

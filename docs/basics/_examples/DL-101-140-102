@@ -1,3 +1,0 @@
-$ datalad status
-untracked: /home/me/dl-101/DataLad-101/books/The_Linux_Command_Line.pdf (symlink)
-  deleted: /home/me/dl-101/DataLad-101/books/TLCL.pdf (symlink)

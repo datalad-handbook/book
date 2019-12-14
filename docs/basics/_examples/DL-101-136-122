@@ -1,14 +1,10 @@
-
-$ git checkout 1e4f296a5843c8cc9260b872fd3f89d4f9a06c88
-Note: checking out '1e4f296a5843c8cc9260b872fd3f89d4f9a06c88'.
-
-You are in 'detached HEAD' state. You can look around, make experimental
-changes and commit them, and you can discard any commits you make in this
-state without impacting any branches by performing another checkout.
-
-If you want to create a new branch to retain commits you create, you may
-do so (now or later) by using -b with the checkout command again. Example:
-
-  git checkout -b <new-branch-name>
-
-HEAD is now at 1e4f296 add note on basic datalad run and datalad rerun
+$ datalad save -m "moved book into root"
+$ ls -l TLCL.pdf
+delete(ok): books/TLCL.pdf (file)
+add(ok): TLCL.pdf (file)
+save(ok): . (dataset)
+action summary:
+  add (ok: 1)
+  delete (ok: 1)
+  save (ok: 1)
+lrwxrwxrwx 1 adina adina 128 Dec 10 09:10 TLCL.pdf -> .git/annex/objects/jf/3M/MD5E-s2120211--06d1efcb05bb2c55cd039dab3fb28455.pdf/MD5E-s2120211--06d1efcb05bb2c55cd039dab3fb28455.pdf

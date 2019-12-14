@@ -25,7 +25,7 @@ The Challenge
 Megan is a graduate student and does an internship in a lab
 at a partnering research institution. As she already has experience in data analysis,
 and the time of her supervisor is limited, she is given a research question
-to work on autonomously. The data is already collected, and everyone involved
+to work on autonomously. The data are already collected, and everyone involved
 is certain that Megan will be fine performing the analyses she has
 experience with. Her supervisor confidently proposes the research project as a
 conference talk Megan should give at the end of her stay. Megan is excited about the
@@ -41,7 +41,7 @@ to a lab in Japan soon, and is very busy preparing this stay and coordinating
 other projects. However, everyone is confident that Megan will be just fine.
 The IT office issues an account on the computational cluster for her,
 and the postdoc that collected the data points her to the directories in which
-the data is stored.
+the data are stored.
 
 When she starts, Megan realizes that she has no experience with the
 Linux-based operating system running on the compute cluster. She knows very well how
@@ -81,7 +81,7 @@ data take an hour to meet and talk about the upcoming project. To ease the techn
 complexities for a new student like Megan on an unfamiliar computational infrastructure,
 they talk about the YODA principles, basic DataLad commands, and
 set up a project dataset for Megan to work in. Inside of this dataset, the original
-data is installed as a subdataset, code is tracked with Git, and the appropriate software
+data are installed as a subdataset, code is tracked with Git, and the appropriate software
 is provided with a containerized image tracked in the dataset.
 Megan can adopt the version control workflow and data
 analysis principles very fast and is thankful for the brief but sufficient introduction.
@@ -103,10 +103,10 @@ Step-by-Step
 ^^^^^^^^^^^^
 
 Megan's supervisor is excited that she comes to visit the lab and trusts her to be a diligent,
-organized, and capable researcher. But he also doesn't have much time for a lengthy introduction
+organized, and capable researcher. But he also does not have much time for a lengthy introduction
 to technical aspects unrelated to the project, interactive teaching, or in-person supervision.
 Megan in turn is a competent student and eager to learn new things, but she
-doesn't have experience with DataLad, version control, or the computational cluster.
+does not have experience with DataLad, version control, or the computational cluster.
 
 As a first step, therefore, her supervisor and the postdoc prepare a preconfigured
 dataset in a dedicated directory everyone involved in the project has access to:

@@ -16,11 +16,11 @@ from the start. Alternatively, a subsequent :command:`datalad install`
 in the subdataset or with a path to the subdataset takes care
 of the missing installation.
 
-And you have mesmerized your room mate by showing him how :term:`Git-annex`
+And you have mesmerized your room mate by showing him how :term:`git-annex`
 retrieved large file contents from the original dataset.
 
 Let's now see the :command:`git annex whereis` command in more detail,
-and find out how Git-annex knows *where* file content can be obtained from.
+and find out how git-annex knows *where* file content can be obtained from.
 Within the original ``DataLad-101`` dataset, you retrieved some of the ``.mp3``
 files via :command:`datalad get`, but not others. How will this influence the
 output of :command:`git annex whereis`, you wonder?
@@ -34,7 +34,7 @@ Here is the output for the retrieved file:
 .. runrecord:: _examples/DL-101-117-101
    :language: console
    :workdir: dl-101/DataLad-101
-   :caption: More on how git-annex whereis behaves
+   :notes: More on how git-annex whereis behaves
    :cast: 04_collaboration
 
    # navigate back into the installed copy of DataLad-101
@@ -65,7 +65,7 @@ Let's see how this affects a :command:`datalad get`:
 .. runrecord:: _examples/DL-101-117-103
    :language: console
    :workdir: dl-101/mock_user/DataLad-101/recordings/longnow
-   :caption: Get a file thats present in original and one that is not
+   :notes: Get a file thats present in original and one that is not
    :cast: 04_collaboration
 
    # get the first file
@@ -84,7 +84,7 @@ Let's see how this affects a :command:`datalad get`:
 The most important thing to note is: It worked in both cases, regardless of whether the original
 ``DataLad-101`` dataset contained the file content or not.
 
-We can see that Git-annex used two different sources to retrieve the content from,
+We can see that git-annex used two different sources to retrieve the content from,
 though, if we look at the very end of the ``get`` summary.
 The first file was retrieved "``from origin...``". ``Origin`` is Git terminology
 for "from where the dataset was copied from" -- ``origin`` therefore is the
@@ -99,12 +99,12 @@ of this type of content source
 once we cover the ``importfeed`` and ``add-url`` functions [#f1]_.
 
 Let's for now add a note on the :command:`git annex whereis` command. Again, do
-this in the original ``DataLad-101`` directory, and don't forget to save it.
+this in the original ``DataLad-101`` directory, and do not forget to save it.
 
 .. runrecord:: _examples/DL-101-117-105
    :language: console
    :workdir: dl-101/mock_user/DataLad-101/recordings/longnow
-   :caption: a note in original dataset
+   :notes: a note in original dataset
    :cast: 04_collaboration
 
    # navigate back:
@@ -137,6 +137,6 @@ this in the original ``DataLad-101`` directory, and don't forget to save it.
 
 .. [#f1] Maybe you wonder what the location ``mih@medusa`` is. It is a copy of the
          data on an account belonging to user ``mih`` on the host name ``medusa``.
-         Because we don't have the host names' address, nor log-in credentials for
-         this user, we can't retrieve content from this location. However, somebody
+         Because we do not have the host names' address, nor log-in credentials for
+         this user, we can not retrieve content from this location. However, somebody
          else (for example the user ``mih``) could.

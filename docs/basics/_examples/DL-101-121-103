@@ -1,7 +1,7 @@
-$ git log -1 -p
-commit a73bd3b2607352b8932d94ddeccc726a8e951bec
+$ git log -n 1 -p
+commit 462a468cb0a935c31d2d9f8965a154946d3f63aa
 Author: Elena Piscopia <elena@example.net>
-Date:   Sun Oct 6 09:40:59 2019 +0200
+Date:   Tue Dec 10 09:09:01 2019 +0100
 
     Include nesting demo from datalad website
 

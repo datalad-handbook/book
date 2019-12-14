@@ -1,0 +1,6 @@
+$ datalad save -m "save my favorite Git joke" Gitjoke2.txt
+add(ok): Gitjoke2.txt (file)
+save(ok): . (dataset)
+action summary:
+  add (ok: 1)
+  save (ok: 1)

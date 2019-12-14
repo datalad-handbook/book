@@ -39,7 +39,7 @@ in the hidden paths
 .. runrecord:: _examples/DL-101-110-101
    :language: console
    :workdir: dl-101/DataLad-101
-   :caption: We saw a very simple datalad run. Now we're going to extend it with useful options. For this, we'll try to resize a logo in the meta data of the subdataset
+   :notes: We saw a very simple datalad run. Now we're going to extend it with useful options. Narrative: prepare talk about dataset, add logo to slides. For this, we'll try to resize a logo in the meta data of the subdataset
    :cast: 02_reproducible_execution
 
    $ ls recordings/longnow/.datalad/feed_metadata/*jpg
@@ -68,7 +68,7 @@ when you copy them formatted like this.
    :language: console
    :workdir: dl-101/DataLad-101
    :emphasize-lines: 4
-   :caption: This command resizes the logo to 400 by 400 px.
+   :notes: This command resizes the logo to 400 by 400 px -- but it will fail!
    :cast: 02_reproducible_execution
 
    $ datalad run -m "Resize logo for slides" \
@@ -86,7 +86,7 @@ A :command:`datalad run` error message has several parts. The first starts after
 ``[INFO   ] == Command start (output follows) =====``.
 
 This is displaying errors that the
-terminal command threw: The ``convert`` tool complains that it can't open
+terminal command threw: The ``convert`` tool complains that it can not open
 the file, because there is "No such file or directory".
 
 The second part starts after
@@ -113,7 +113,7 @@ prior to running the command.
    :workdir: dl-101/DataLad-101
    :emphasize-lines: 8, 11, 16
    :realcommand: datalad run --input "recordings/longnow/.datalad/feed_metadata/logo_salt.jpg" "convert -resize 400x400 recordings/longnow/.datalad/feed_metadata/logo_salt.jpg recordings/salt_logo_small.jpg"
-   :caption: The --input option makes sure that all content is retrieved prior to command execution.
+   :notes: The problem is that the content (logo) is not yet retrieved. The --input option makes sure that all content is retrieved prior to command execution.
    :cast: 02_reproducible_execution
 
    $ datalad run -m "Resize logo for slides" \
@@ -152,7 +152,7 @@ If outputs already exist...
 Looking at the resulting image, you wonder whether 400x400 might be a tiny bit to small.
 Maybe we should try to resize it to 450x450, and see whether that looks better?
 
-Note that we can't use a :command:`datalad rerun` for this: if we want to change the dimension option
+Note that we can not use a :command:`datalad rerun` for this: if we want to change the dimension option
 in the command, we have to define a new :command:`datalad run` command.
 
 To establish best-practices, let's specify the input even though it is already present:
@@ -163,7 +163,7 @@ To establish best-practices, let's specify the input even though it is already p
    :workdir: dl-101/DataLad-101
    :emphasize-lines: 10
    :realcommand: datalad run --input "recordings/longnow/.datalad/feed_metadata/logo_salt.jpg" "convert -resize 450x450 recordings/longnow/.datalad/feed_metadata/logo_salt.jpg recordings/salt_logo_small.jpg"
-   :caption: Maybe 400x400 is too small. We should try 450x450. Can we use a datalad rerun for this? (no)
+   :notes: Maybe 400x400 is too small. We should try 450x450. Can we use a datalad rerun for this? (no)
    :cast: 02_reproducible_execution
 
    $ datalad run -m "Resize logo for slides" \
@@ -180,33 +180,33 @@ To establish best-practices, let's specify the input even though it is already p
 A quick glimpse into the error message shows a different error than before:
 The tool complains that it is "unable to open" the image, because the "Permission [is] denied".
 
-We haven't seen anything like this before, and we need to turn to our lecturer for help.
+We have not seen anything like this before, and we need to turn to our lecturer for help.
 Confused about what we might have
 done wrong, we raise our hand to ask the instructor for help.
 Knowingly, she smiles, and tells you about how DataLad protects content given
 to it:
 
-"Content in your DataLad dataset is protected by :term:`Git-annex` from
+"Content in your DataLad dataset is protected by :term:`git-annex` from
 accidental changes" our instructor begins.
 
 "Wait!" we interrupt. "First of, that wasn't accidental. And second, I was told this
-course does not have ``Git-annex-101`` as a prerequisite?"
+course does not have ``git-annex-101`` as a prerequisite?"
 
 "Yes, hear me out" she says. "I promise you two different solutions at
 the end of this explanation, and the concept behind this is quite relevant".
 
-DataLad usually gives content to :term:`Git-annex` to store and track.
-Git-annex, let's just say, takes this task *really* seriously. One of its
+DataLad usually gives content to :term:`git-annex` to store and track.
+git-annex, let's just say, takes this task *really* seriously. One of its
 features that you have just experienced is that it *locks* content.
 
-If files are *locked down*, their content can't be modified. In principle,
+If files are *locked down*, their content can not be modified. In principle,
 that's not a bad thing: It could be your late grandma's secret cherry-pie
-recipe, and you don't want to *accidentally* change that.
+recipe, and you do not want to *accidentally* change that.
 Therefore, a file needs to be consciously *unlocked* to apply modifications.
 
 In the attempt to resize the image to 450x450 you tried to overwrite
 ``recordings/salt_logo_small.jpg``, a file that was given to DataLad
-and thus protected by Git-annex.
+and thus protected by git-annex.
 
 .. index:: ! datalad command; unlock
 
@@ -218,7 +218,7 @@ Let us check out what it does:
 .. runrecord:: _examples/DL-101-111-101
    :language: console
    :workdir: dl-101/DataLad-101
-   :caption: The created output is protected from accidental modifications, we have to unlock it first
+   :notes: The created output is protected from accidental modifications, we have to unlock it first:
    :cast: 02_reproducible_execution
 
    $ datalad unlock recordings/salt_logo_small.jpg
@@ -229,12 +229,12 @@ feel the urge to run a :command:`datalad status` on this:
 .. runrecord:: _examples/DL-101-111-102
    :language: console
    :workdir: dl-101/DataLad-101
-   :caption: How does the file look like after an unlock?
+   :notes: How does the file look like after an unlock?
    :cast: 02_reproducible_execution
 
    $ datalad status
 
-"Ah, don't mind that for now", our instructor says, and with a wink she
+"Ah, do not mind that for now", our instructor says, and with a wink she
 continues: "We'll talk about symlinks and object trees a while later".
 We're not really sure whether that's a good thing, but we have a task to focus
 on. Hastily, you run the command right from the terminal:
@@ -242,7 +242,7 @@ on. Hastily, you run the command right from the terminal:
 .. runrecord:: _examples/DL-101-111-103
    :language: console
    :workdir: dl-101/DataLad-101
-   :caption: In principle, you could rerun the command now, outside of any datalad run. The unlocked output can be overwritten
+   :notes: In principle, you could rerun the command now, outside of any datalad run. The unlocked output can be overwritten
    :cast: 02_reproducible_execution
 
    $ convert -resize 450x450 recordings/longnow/.datalad/feed_metadata/logo_salt.jpg recordings/salt_logo_small.jpg
@@ -257,7 +257,7 @@ run a :command:`datalad save`."
 .. runrecord:: _examples/DL-101-111-104
    :language: console
    :workdir: dl-101/DataLad-101
-   :caption: Afterwards you'd need to save, to lock everything again
+   :notes: Afterwards you'd need to save, to lock everything again
    :cast: 02_reproducible_execution
 
    $ datalad save -m "resized picture by hand"
@@ -284,7 +284,8 @@ the ``-o``/``--output`` option.
    `FSL <https://fsl.fmrib.ox.ac.uk/fsl/fslwiki>`_, a neuro-imaging tool.
    The easiest way to specify this type of output
    is the directory name and a :term:`globbing` character, such as
-   ``-o directory/*``
+   ``-o directory/*``. And, just as for ``-i``/``--input``, you could use
+   multiple ``--output`` specifications.
 
 In order to execute :command:`datalad run` with both the ``-i``/``--input`` and ``-o``/``--output``
 flag and see their magic, let's crop the second logo, ``logo_interval.jpg``:
@@ -294,7 +295,7 @@ flag and see their magic, let's crop the second logo, ``logo_interval.jpg``:
    :workdir: dl-101/DataLad-101
    :emphasize-lines: 14, 19
    :realcommand: datalad run --input "recordings/longnow/.datalad/feed_metadata/logo_interval.jpg" --output "recordings/interval_logo_small.jpg" "convert -resize 450x450 recordings/longnow/.datalad/feed_metadata/logo_interval.jpg recordings/interval_logo_small.jpg"
-   :caption: but it is way easier to just use the --output option of datalad run: it takes care of unlocking if necessary
+   :notes: but it is way easier to just use the --output option of datalad run: it takes care of unlocking if necessary
    :cast: 02_reproducible_execution
 
    $ datalad run -m "Resize logo for slides" \
@@ -320,6 +321,9 @@ see an example of this in the next section.
 
 Note now how many individual commands a :command:`datalad run` saves us:
 :command:`datalad get`, :command:`datalad unlock`, and :command:`datalad save`!
+But even better: Beyond saving time *now*, running commands reproducibly and
+recorded with :command:`datalad run` saves us plenty of time in the future as soon
+as we want to rerun a command, or find out how a file came into existence.
 
 With this last code snippet, you have experienced a full :command:`datalad run` command: commit message,
 input and output definitions (the order in which you give those two options is irrelevant),
@@ -331,7 +335,7 @@ Make a note of this behavior in your ``notes.txt`` file.
 .. runrecord:: _examples/DL-101-111-106
    :language: console
    :workdir: dl-101/DataLad-101
-   :caption: Finally, lets add a note on this
+   :notes: Finally, lets add a note on this
    :cast: 02_reproducible_execution
 
    $ cat << EOT >> notes.txt
@@ -343,6 +347,89 @@ Make a note of this behavior in your ``notes.txt`` file.
    EOT
 
 
+Placeholders
+^^^^^^^^^^^^
+
+Just after writing this note, you have to relax your fingers a bit. "Man, this was
+so much typing. Not only did I need to specify the inputs and outputs, I also had
+to repeat all of these lengthy paths in the command line call..." you think.
+
+There is a neat little trick to spare you half of this typing effort, though: *Placeholders*
+for inputs and outputs. This is how it works:
+
+Instead of running
+
+.. code-block:: bash
+
+   $ datalad run -m "Resize logo for slides" \
+   --input "recordings/longnow/.datalad/feed_metadata/logo_interval.jpg" \
+   --output "recordings/interval_logo_small.jpg" \
+   "convert -resize 450x450 recordings/longnow/.datalad/feed_metadata/logo_interval.jpg recordings/interval_logo_small.jpg"
+
+you could shorten this to
+
+.. code-block:: bash
+   :emphasize-lines: 4
+
+   $ datalad run -m "Resize logo for slides" \
+   --input "recordings/longnow/.datalad/feed_metadata/logo_interval.jpg" \
+   --output "recordings/interval_logo_small.jpg" \
+   "convert -resize 450x450 {inputs} {outputs}"
+
+The placeholder ``{inputs}`` will expand to the path given as ``--input``, and
+the placeholder ``{outputs}`` will expand to the path given as ``--output``.
+This means instead of writing the full paths in the command, you can simply reuse
+the ``--input`` and ``--output`` specification done before.
+
+.. findoutmore:: What if I have multiple inputs or outputs?
+
+   If multiple values are specified, e.g., as in
+
+   .. code-block:: bash
+
+      $ datalad run -m "move a few files around" \
+      --input "file1" --input "file2" --input "file3" \
+      --output "directory_a/" \
+      "mv {inputs} {outputs}"
+
+   the values will be joined by a space like this:
+
+   .. code-block:: bash
+
+      $ datalad run -m "move a few files around" \
+      --input "file1" --input "file2" --input "file3" \
+      --output "directory_a/" \
+      "mv file1 file2 file3 directory_a/"
+
+
+   The order of the values will match that order from the command line.
+
+   If you use globs for input specification, as in
+
+   .. code-block:: bash
+
+      $ datalad run -m "move a few files around" \
+      --input "file*" \
+      --output "directory_a/" \
+      "mv {inputs} {outputs}"
+
+   the globs will expanded in alphabetical order (like bash):
+
+   .. code-block:: bash
+
+      $ datalad run -m "move a few files around" \
+      --input "file1" --input "file2" --input "file3" \
+      --output "directory_a/" \
+      "mv file1 file2 file3 directory_a/"
+
+   If the command only needs a subset of the inputs or outputs, individual values
+   can be accessed with an integer index, e.g., ``{inputs[0]}`` for the very first
+   input.
+
+.. findoutmore:: ... wait, what if I need a { or } character in my datalad run call?
+
+   If your command call involves a ``{`` or ``}`` character, you will need to escape
+   this brace character by doubling it, i.e., ``{{`` or ``}}``.
 
 .. [#f1] In shell programming, commands exit with a specific code that indicates
     whether they failed, and if so, how. Successful commands have the exit code zero. All failures

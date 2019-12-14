@@ -6,7 +6,7 @@ Contributing
 Thanks for being curious about contributing!
 We greatly appreciate and welcome contributions to this book, be it in the form
 of an `issue <https://github.com/datalad-handbook/book/issues/new>`_, a pull request,
-or a discussion you had with anyone on the team via a non-Github communication channel!
+or a discussion you had with anyone on the team via a non-GitHub communication channel!
 To find out how we acknowledge contributions, please read the paragraph
 :ref:`acknowledge` at the bottom of
 this page.
@@ -21,7 +21,7 @@ Software setup
 
 Depending on the size of your contribution, you may want to be able to build the book
 locally to test and preview your changes. If you are fixing typos, tweak the
-language, or rewrite a paragraph or two, this shouldn't be necessary, and you can safely
+language, or rewrite a paragraph or two, this should not be necessary, and you can safely
 skip this paragraph and instead take a look into the paragraph
 :ref:`easy`.
 If you want to be able to build the book locally, though, please follow these instructions:
@@ -65,7 +65,7 @@ a second machine ``/home/mih``, for example, leading to some potential confusion
 Therefore, you need to create this directory, and also --
 for consistency in the Git logs as well -- a separate, mock Git identity
 (we chose `Elena Piscopia <https://en.wikipedia.org/wiki/Elena_Cornaro_Piscopia>`_, the first
-woman to receive a PhD -- don't worry, this does not mess with your own Git identity):
+woman to receive a PhD -- do not worry, this does not mess with your own Git identity):
 
 .. code-block:: bash
 
@@ -148,7 +148,7 @@ following prerequisites exist:
 - If ``:realcommand:`` options are specified, they will become the executable
   part of the cast. If note, the code snippet in the code-block of the
   ``runrecord`` will become the executable part of the cast.
-- An optional ``:caption:`` lets you add "speakernotes" for the cast.
+- An optional ``:notes:`` lets you add "speakernotes" for the cast.
 - Casts are produced upon ``make``, but only if the environment variable
   ``CAST_DIR`` is set.
   This should be a path that points to any directory in which casts should be
@@ -164,7 +164,7 @@ This is a fully specified ``runrecord``:
       :language: console
       :workdir: dl-101/DataLad-101
       :cast: dataset_basics   # name of the cast file (will be created/extended in CAST_DIR)
-      :caption: This is an optional speaker note only visible to presenter during the cast
+      :notes: This is an optional speaker note only visible to presenter during the cast
 
       # this is a comment and will be written to the cast
       $ this line will be executed and written to the cast
@@ -186,7 +186,7 @@ execute them::
 Easy pull requests
 ^^^^^^^^^^^^^^^^^^
 
-The easiest way to do a pull request is within the web-interface that Github
+The easiest way to do a pull request is within the web-interface that GitHub
 and `readthedocs <https://readthedocs.org>`_ provide. If you visit the rendered
 version of the handbook at `handbook.datalad.org <http://handbook.datalad.org/>`_
 and click on the small, floating ``v:latest`` element at the lower
@@ -195,7 +195,7 @@ lets you make your changes and submit a pull request.
 
 .. figure:: img/contrib.png
    :figwidth: 100%
-   :alt: Access the Github interface to submit a pull request right from within
+   :alt: Access the GitHub interface to submit a pull request right from within
          Readthedocs.
 
    You can find an easy way to submit a pull request right from within the handbook.
@@ -286,7 +286,7 @@ Acknowledging Contributors
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you have helped this project, we would like to acknowledge your contribution in the
-`Github repository <https://github.com/datalad-handbook/book>`_ in our README with
+`GitHub repository <https://github.com/datalad-handbook/book>`_ in our README with
 `allcontributors.org <https://allcontributors.org/>`_, and the project's
 `.zenodo <https://github.com/datalad-handbook/book/blob/master/.zenodo.json>`_ and
 `CONTRIBUTORS.md <https://github.com/datalad-handbook/book/blob/master/CONTRIBUTORS.md>`_

@@ -1,5 +1,5 @@
-$ datalad save -m "add joke evaluation to joke" Gitjoke2.txt
-add(ok): Gitjoke2.txt (file)
+$ datalad save -m "add copy of TLCL.pdf"
+add(ok): copyofTLCL.pdf (file)
 save(ok): . (dataset)
 action summary:
   add (ok: 1)

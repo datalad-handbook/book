@@ -3,26 +3,27 @@
 Modify content
 --------------
 
-So far, we've only added new content to the dataset. And we haven't done
+So far, we've only added new content to the dataset. And we have not done
 much to that content up to this point, to be honest. Let's see what happens if
 we add content, and then modify it.
 
-For this, in the root of ``DataLad-101``, create a simple text file
+For this, in the root of ``DataLad-101``, create a plain text file
 called ``notes.txt``. It will contain all of the notes that you take
 throughout the course.
 
 Use an editor of your choice and write a short summary of how to create
-a DataLad dataset from scratch. The code below contains the note within
-the start and end part of a `here document <https://en.wikipedia.org/wiki/Here_document>`_:
+a DataLad dataset from scratch:
 
   "One can create a new dataset with 'datalad create
   [--description] PATH'. The dataset is created empty".
 
 This is meant to be a note you would take in an educational course.
-You can take this note and write it to a file with an editor.
-But you can also copy the full code snippet, starting
+You can take this note and write it to a file with an editor of your choice.
+The code below, however, contains this note within the start and end part of a
+`here document <https://en.wikipedia.org/wiki/Here_document>`_.
+You can also copy the full code snippet, starting
 from ``cat << EOT > notes.txt``, including the ``EOT`` in the last line, in your
-terminal to write this note into ``notes.txt``.
+terminal to write this note from the terminal (without any editor) into ``notes.txt``.
 
 .. findoutmore:: How does a here-document work?
 
@@ -47,7 +48,7 @@ terminal to write this note into ``notes.txt``.
    ``notes.txt`` with ``stdout`` as its contents.
 
    It might seem like a slightly convoluted way to create a text file with
-   a simple note in it. But it allows to write notes from the terminal, enabling
+   a note in it. But it allows to write notes from the terminal, enabling
    this book to create commands you can execute with nothing other than your terminal.
    You are free to copy-paste the snippets with the here-documents,
    or find a workflow that suites you better. The only thing important is that
@@ -61,7 +62,7 @@ root of your ``DataLad-101`` dataset:
    :language: console
    :workdir: dl-101/DataLad-101
    :cast: 01_dataset_basics
-   :caption: Let's find out how we can modify files in dataset. Lets create a text file with notes about the DataLad commands we learned. (maybe explain here docs)
+   :notes: Let's find out how we can modify files in dataset. Lets create a text file with notes about the DataLad commands we learned. (maybe explain here docs)
 
    $ cat << EOT > notes.txt
    One can create a new dataset with 'datalad create [--description] PATH'.
@@ -75,11 +76,11 @@ Run :command:`datalad status` to confirm that there is a new, untracked file:
    :language: console
    :workdir: dl-101/DataLad-101
    :cast: 01_dataset_basics
-   :caption: As expected, there is a new file in the dataset. At first the file is untracked. We can save without a path specification because it is the only existing modification
+   :notes: As expected, there is a new file in the dataset. At first the file is untracked. We can save without a path specification because it is the only existing modification
 
    $ datalad status
 
-Save current state of this file in DataLad version history. Because it is the only modification
+Save the current state of this file in your dataset's history. Because it is the only modification
 in the dataset, there is no need to specify a path.
 
 .. runrecord:: _examples/DL-101-103-103
@@ -89,6 +90,7 @@ in the dataset, there is no need to specify a path.
 
    $ datalad save -m "Add notes on datalad create"
 
+But now, let's see how *changing* tracked content works.
 Modify this file by adding another note. After all, you already know how to use
 :command:`datalad save`, so write a short summary on that as well.
 
@@ -100,7 +102,7 @@ to accomplish this, but you can take any editor of your choice.
    :language: console
    :workdir: dl-101/DataLad-101
    :cast: 01_dataset_basics
-   :caption: Now let's start to modify this text file by adding more notes to it. Think about this being a code file that you add functions to:
+   :notes: Now let's start to modify this text file by adding more notes to it. Think about this being a code file that you add functions to:
 
    $ cat << EOT >> notes.txt
    The command "datalad save [-m] PATH" saves the file
@@ -124,7 +126,7 @@ and save the file in DataLad:
    :language: console
    :workdir: dl-101/DataLad-101
    :cast: 01_dataset_basics
-   :caption: The modification can simply be saved as well
+   :notes: The modification can be saved as well
 
    $ datalad save -m "add note on datalad save"
 
@@ -138,16 +140,17 @@ You can get out of it by pressing ``q``.
    :language: console
    :workdir: dl-101/DataLad-101
    :lines: 1-28
-   :emphasize-lines: 6, 25, 27
+   :emphasize-lines: 6, 25
    :cast: 01_dataset_basics
-   :caption: An the history gives an accurate record of what happened to this file
+   :notes: An the history gives an accurate record of what happened to this file
 
    $ git log -p -n 2
 
 We can see that the history can not only show us the commit message attached to
 a commit, but also the precise change that occurred in the text file in the commit.
 Additions are marked with a ``+``, and deletions would be shown with a leading ``-``.
-That's quite neat, isn't it?
+From the dataset's history, we can therefore also find out *how* the text file
+evolved over time. That's quite neat, isn't it?
 
 .. findoutmore:: git log has many more useful options
 

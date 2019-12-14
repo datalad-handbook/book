@@ -28,7 +28,7 @@ responds a week later with the fixed script, but in the meantime
 Bob already performed some miscellaneous changes to his script as well.
 Identifying and integrating her fix into his slightly changed script
 takes him half a day. When he finally finishes his analysis, he wants to
-publish code and data online, but can't find a way to share his data
+publish code and data online, but can not find a way to share his data
 together with his code.
 
 
@@ -64,7 +64,7 @@ to be a YODA dataset right at the time of creation:
    $ datalad create -c yoda --description "my 1st phd project on work computer" myanalysis
 
 After creation, there already is a ``code/`` directory, and all of its
-inputs are version-controlled by :term:`Git` instead of :term:`Git-annex`
+inputs are version-controlled by :term:`Git` instead of :term:`git-annex`
 thanks to the yoda procedure:
 
 .. runrecord:: _examples/collab-102
@@ -82,7 +82,7 @@ make it easier to keep his analysis organized and share it later.
 The dataset that Bob wants to work with is structural brain imaging data from the
 `studyforrest project <http://studyforrest.org/>`_, a public
 data resource that the original authors share as a DataLad dataset through
-:term:`Github`. This means that Bob can simply install the relevant dataset from this
+:term:`GitHub`. This means that Bob can simply install the relevant dataset from this
 service and into his own dataset. To do that, he installs it as a subdataset
 into a directory he calls ``src/`` as he wants to make it obvious which parts
 of his analysis steps and code require 3rd party data:
@@ -115,7 +115,7 @@ To save this progress, he runs frequent :command:`datalad save` commands:
 Once Bob's analysis is finished, he can wrap it into :command:`datalad run`.
 To ease execution, he first makes his script executable by adding a :term:`shebang`
 that specifies Python as an interpreter at the start of his script, and giving it
-executable permissions:
+executable :term:`permissions`:
 
 .. runrecord:: _examples/collab-105
    :workdir: usecases/collab/myanalysis
@@ -143,7 +143,7 @@ saving all outputs.
 Some time later, Bob needs help with his analysis. He turns to his senior
 grad student Alice for help. Alice and Bob both work on the same computing server.
 Bob has told Alice in which directory he keeps his analysis dataset, and
-the directory is configured to have permissions that allow for
+the directory is configured to have :term:`permissions` that allow for
 read-access for all lab-members, so Alice can obtain Bob’s work directly
 from his home directory:
 

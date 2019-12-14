@@ -1,27 +1,28 @@
 $ git log --oneline
-3866d38 Merge remote-tracking branch 'refs/remotes/roommate/master'
-a73bd3b Include nesting demo from datalad website
-f41b19b add note about datalad update
-191eafe add note on git annex whereis
-6332e35 add note about installing from paths and recursive installations
-bb10eda add note on clean datasets
-ae9c7f5 [DATALAD RUNCMD] Resize logo for slides
-d3c5104 [DATALAD RUNCMD] Resize logo for slides
-7ca14d0 add additional notes on run options
-3135fef [DATALAD RUNCMD] convert -resize 450x450 recordings/longn...
-b61ecdf resized picture by hand
-043574a [DATALAD RUNCMD] convert -resize 400x400 recordings/longn...
-6587c55 add note on basic datalad run and datalad rerun
-7dc5fdd add note datalad and git diff
-d56f365 [DATALAD RUNCMD] create a list of podcast titles
-e341c7f BF: list both directories content
-c92bd28 [DATALAD RUNCMD] create a list of podcast titles
-89f4bc7 Add simple script to write a list of podcast speakers and titles
-25cc38d Add note on datalad install
-4c80dbd [DATALAD] Recorded changes
-6ec6612 add note on datalad save
-8cfb192 Add notes on datalad create
-b85c9b6 add reference book about git
-794de4e add books on Python and Unix to read later
-4ae8e0a Instruct annex to add text files to Git
-8d54aba [DATALAD] new dataset
+ba1b576 Merge remote-tracking branch 'refs/remotes/roommate/master'
+462a468 Include nesting demo from datalad website
+a746756 add note about datalad update
+f530382 add note on git annex whereis
+53e05c4 add note about installing from paths and recursive installations
+78ea5d5 add note on clean datasets
+231d15d [DATALAD RUNCMD] Resize logo for slides
+8542779 [DATALAD RUNCMD] Resize logo for slides
+a9ead0b add additional notes on run options
+63b2b51 [DATALAD RUNCMD] convert -resize 450x450 recordings/longn...
+d01aaf1 resized picture by hand
+0e38ca9 [DATALAD RUNCMD] convert -resize 400x400 recordings/longn...
+d52fad8 add note on basic datalad run and datalad rerun
+da55e62 add note datalad and git diff
+5d40fe0 [DATALAD RUNCMD] create a list of podcast titles
+6cfab6b BF: list both directories content
+9f3e644 [DATALAD RUNCMD] create a list of podcast titles
+6e44703 Add short script to write a list of podcast speakers and titles
+f9a0549 Add note on datalad install
+01fd49a [DATALAD] Recorded changes
+bcacb83 add note on datalad save
+21d6a45 Add notes on datalad create
+9e7b07f add beginners guide on bash
+bc53fbe add reference book about git
+3d6141e add books on Python and Unix to read later
+aef8e52 Instruct annex to add text files to Git
+237212e [DATALAD] new dataset

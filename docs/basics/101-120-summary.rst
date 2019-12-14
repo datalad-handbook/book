@@ -35,7 +35,7 @@ sharing a dataset with a simple example.
   file content sources.
 
 * :command:`git annex whereis PATH` will list all locations known to contain file
-  content for a particular file. This location is where :term:`Git-annex`
+  content for a particular file. This location is where :term:`git-annex`
   will attempt to retrieve file content from, and it is described with the
   ``--description`` provided during a :command:`datalad create`. It is a very
   helpful command to find out where file content resides, and how many
@@ -75,6 +75,8 @@ Simultaneously, you have observed dataset properties you already knew
 but you have also seen novel aspects of a dataset -- for example that
 subdatasets are not automatically installed by default, how
 :command:`git annex whereis` can help you find out where file content might be stored,
+how useful commands that capture provenance about the origin or creation of files
+(such as :command:`datalad run` or :command:`datalad download-url`) are,
 or how a shared dataset can be updated to reflect changes that were made
 to the original dataset.
 

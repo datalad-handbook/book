@@ -18,7 +18,7 @@ provide helpful information for you as well!", says your
 room mate. "How could you get any insightful notes that
 I make in my dataset, or maybe the results of our upcoming
 mid-term project? Its a bit unfair that I can get your work,
-but you can't get mine."
+but you can not get mine."
 
 Consider, for example, that your room mate might have googled about DataLad
 a bit. On the `datalad homepage <https://www.datalad.org/>`_
@@ -27,16 +27,13 @@ as the ascii-cast on `dataset nesting <https://www.datalad.org/for/git-users>`_.
 Because he found this very helpful in understanding dataset
 nesting concepts, he decided to download the ``shell`` script
 that was `used to generate this example <https://raw.githubusercontent.com/datalad/datalad.org/7e8e39b1f08d0a54ab521586f27ee918b4441d69/content/asciicast/seamless_nested_repos.sh>`_
-from Github, and saves it in the ``code/`` directory.
-
-.. index:: ! datalad command; download-url
+from GitHub, and saves it in the ``code/`` directory.
 
 He does it using the datalad command :command:`datalad download-url`
-(:manpage:`datalad-download-url` manual)
-that he also read about on the datalad homepage.
-This command will download a file just as ``wget``, but it can
-also take a commit message and will save the download
-right to the history!
+that you experienced in section :ref:`createDS` already: This command will
+download a file just as ``wget``, but it can also take a commit message
+and will save the download right to the history of the dataset that you specify,
+while recording its origin as provenance information.
 
 Navigate into your dataset copy in ``mock_user/DataLad-101``,
 and run the following command
@@ -44,7 +41,7 @@ and run the following command
 .. runrecord:: _examples/DL-101-121-101
    :language: console
    :workdir: dl-101/DataLad-101
-   :caption: Let's make changes in the copy of the original ds
+   :notes: Let's make changes in the copy of the original ds
    :cast: 04_collaboration
 
    # navigate into the installed copy
@@ -52,6 +49,7 @@ and run the following command
 
    # download the shell script and save it in your code/ directory
    $ datalad download-url \
+     -d . \
      -m "Include nesting demo from datalad website" \
      -O code/nested_repos.sh \
      https://raw.githubusercontent.com/datalad/datalad.org/7e8e39b1f08d0a54ab521586f27ee918b4441d69/content/asciicast/seamless_nested_repos.sh
@@ -61,7 +59,7 @@ Run a quick datalad status:
 .. runrecord:: _examples/DL-101-121-102
    :language: console
    :workdir: dl-101/mock_user/DataLad-101
-   :caption: the download url command takes care of saving contents for you
+   :notes: the download url command takes care of saving contents for you
    :cast: 04_collaboration
 
    $ datalad status
@@ -75,10 +73,10 @@ here:
    :language: console
    :workdir: dl-101/mock_user/DataLad-101
    :lines: 1-30
-   :caption: the ds copy has a change the original ds does not have:
+   :notes: the ds copy has a change the original ds does not have:
    :cast: 04_collaboration
 
-   $ git log -1 -p
+   $ git log -n 1 -p
 
 Suddenly, your room mate has a file change that you do not have.
 His dataset evolved.
@@ -118,25 +116,21 @@ This registers your room mate's ``DataLad-101`` as a "sibling" (we will call it
 .. runrecord:: _examples/DL-101-121-104
    :language: console
    :workdir: dl-101/mock_user/DataLad-101
-   :caption: To allow updates from copy to original we have to configure the copy as a sibling of the original
+   :notes: To allow updates from copy to original we have to configure the copy as a sibling of the original
    :cast: 04_collaboration
 
    $ cd ../../DataLad-101
    # add a sibling
    $ datalad siblings add -d . --name roommate --url ../mock_user/DataLad-101
 
-There are a few confusing parts about this command: For one, don't be surprised
+There are a few confusing parts about this command: For one, do not be surprised
 about the ``--url`` argument -- it's called "URL" but it can be a path as well.
-Also, don't forget to give a name to your dataset's sibling. Without the ``-s``/
+Also, do not forget to give a name to your dataset's sibling. Without the ``-s``/
 ``--name`` argument the command will fail. The reason behind this is that the default
 name of a sibling if no name is given will be the host name of the specified URL,
 but as you provide a path and not a URL, there is no host name to take as a default.
 
-.. todo::
-
-   remove this once https://github.com/datalad/datalad/issues/3553 is fixed
-
-As you can see in the command output, the addition of a sibling succeeded:
+As you can see in the command output, the addition of a :term:`sibling` succeeded:
 ``roommate(+)[../mock_user/DataLad-101]`` means that your room mate's dataset
 is now known to your own dataset as "roommate"
 
@@ -144,7 +138,7 @@ is now known to your own dataset as "roommate"
 .. runrecord:: _examples/DL-101-121-105
    :language: console
    :workdir: dl-101/DataLad-101
-   :caption: we can check which siblings the dataset has
+   :notes: we can check which siblings the dataset has
    :cast: 04_collaboration
 
    $ datalad siblings
@@ -166,7 +160,7 @@ This meant that nothing unexpected would happen with the
 :command:`datalad update --merge`.
 
 But consider the current case: Your room mate made changes to his
-dataset, but you don't necessarily know which. You also made
+dataset, but you do not necessarily know which. You also made
 changes to your dataset in the meantime, and added a note on
 :command:`datalad update`.
 How would you know that his changes and
@@ -185,7 +179,7 @@ the ``--merge`` option.
 .. runrecord:: _examples/DL-101-121-106
    :language: console
    :workdir: dl-101/DataLad-101
-   :caption: now we can update. Problem: how do we know whether we want the changes? --> plain datalad update
+   :notes: now we can update. Problem: how do we know whether we want the changes? --> plain datalad update
    :cast: 04_collaboration
 
    $ datalad update -s roommate
@@ -203,14 +197,14 @@ he added is not yet in your ``code/`` directory:
 .. runrecord:: _examples/DL-101-121-107
    :language: console
    :workdir: dl-101/DataLad-101
-   :caption: no file changes there yet, but where are they?
+   :notes: no file changes there yet, but where are they?
    :cast: 04_collaboration
 
    $ ls code/
 
 So where is the file? It is in a different *branch* of your dataset.
 
-If you don't use :term:`Git`, the concept of a :term:`branch` can be a big
+If you do not use :term:`Git`, the concept of a :term:`branch` can be a big
 source of confusion. There will be sections later in this book that will
 elaborate a bit more what branches are, and how to work with them, but
 for now envision a branch just like a bunch of drawers on your desk.
@@ -235,7 +229,7 @@ the former for a different lecture:
 .. runrecord:: _examples/DL-101-121-108
    :language: console
    :workdir: dl-101/DataLad-101
-   :caption: on a different branch: remotes/roommate/master. Do a git remote -v here
+   :notes: on a different branch: remotes/roommate/master. Do a git remote -v here
    :cast: 04_collaboration
 
    $ datalad diff --to remotes/roommate/master
@@ -247,7 +241,7 @@ that there is a difference in ``notes.txt``! Let's ask
 .. runrecord:: _examples/DL-101-121-109
    :language: console
    :workdir: dl-101/DataLad-101
-   :caption: also git diff
+   :notes: also git diff
    :cast: 04_collaboration
 
    $ git diff remotes/roommate/master
@@ -277,7 +271,7 @@ of your room mate's dataset, but you incorporate all changes he made
 .. runrecord:: _examples/DL-101-121-110
    :language: console
    :workdir: dl-101/DataLad-101
-   :caption: no we can safely merge
+   :notes: no we can safely merge
    :cast: 04_collaboration
 
    $ datalad update --merge -s roommate
@@ -289,7 +283,7 @@ directory and also peek into the history:
 .. runrecord:: _examples/DL-101-121-111
    :language: console
    :workdir: dl-101/DataLad-101
-   :caption: check for the updated files... they are there!
+   :notes: check for the updated files... they are there!
    :cast: 04_collaboration
 
    $ ls code/
@@ -299,7 +293,7 @@ directory and also peek into the history:
    :lines: 1-6
    :emphasize-lines: 2, 4
    :workdir: dl-101/DataLad-101
-   :caption: and here is the summary in the log
+   :notes: and here is the summary in the log
    :cast: 04_collaboration
 
    $ git log --oneline
@@ -309,7 +303,7 @@ You can see the commit that your room mate made when he saved the script,
 and you can also see a commit that records how you ``merged`` your
 room mate's dataset changes into your own dataset. The commit message of this
 latter commit for now might contain many words yet unknown to you if you
-don't use Git, but a later section will get into the details of what
+do not use Git, but a later section will get into the details of what
 the meaning of ":term:`merge`", ":term:`branch`", "refs"
 or ":term:`master`" is.
 
@@ -324,7 +318,7 @@ Create a note about this, and save it.
 .. runrecord:: _examples/DL-101-121-113
    :language: console
    :workdir: dl-101/DataLad-101
-   :caption: write a note
+   :notes: write a note
    :cast: 04_collaboration
 
    $ cat << EOT >> notes.txt

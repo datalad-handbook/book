@@ -60,7 +60,7 @@ Now what can I do with it?
 
 Using tools that DataLad provides you are able to make the most out of
 your data analysis project. The YODA principles are a guide to accompany
-you on your path to reproducibility.
+you on your path to reproducibility and provenance-tracking.
 
 What should have become clear in this section is that you are already
 equipped with enough DataLad tools and knowledge that complying to these

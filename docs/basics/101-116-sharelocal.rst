@@ -206,6 +206,29 @@ to the internet, git-annex will not succeed in retrieving
 contents from these locations.
 As long as there is at least one location that contains
 the file and is accessible, though, git-annex will get the content.
+Therefore, for the books in your dataset, retrieving contents works because you
+and your room mate share the same file system. If you'd share the dataset
+with anyone without access to your file system, ``datalad get`` would not
+work, because it can't access your files.
+
+But there is one book that does not suffer from this restriction:
+The ``bash_guide.pdf``.
+This book was not manually downloaded and saved to the dataset with ``wget``
+(thus keeping DataLad in the dark about where it came from), but it was
+obtained with the :command:`datalad download-url` command. This registered
+the books original source in the dataset, and here is why that is useful:
+
+.. runrecord:: _examples/DL-101-116-106
+   :language: console
+   :workdir: dl-101/mock_user/DataLad-101
+
+   $ git annex whereis books/bash_guide.pdf
+
+Unlike the ``TLCL.pdf`` book, this book has two sources, and one of them is
+``web``. The second to last line specifies the precise URL you downloaded the
+file from. Thus, for this book, your room mate is always able to obtain it
+(as long as the URL remains valid), even if you would delete your ``DataLad-101``
+dataset. Quite useful, this provenance, right?
 
 Let's now turn to the fact that the subdataset ``longnow`` does
 not contain not only no file content, but also no file metadata
@@ -216,7 +239,7 @@ This is behavior that you have not observed until now.
 To fix this and obtain file availability metadata,
 you have to run a somewhat unexpected command:
 
-.. runrecord:: _examples/DL-101-116-106
+.. runrecord:: _examples/DL-101-116-107
    :language: console
    :workdir: dl-101/mock_user/DataLad-101
    :notes: how do we get the subdataset? currently it looks empty. --> a plain datalad install
@@ -226,7 +249,7 @@ you have to run a somewhat unexpected command:
 
 Let's what has changed (excerpt):
 
-.. runrecord:: _examples/DL-101-116-107
+.. runrecord:: _examples/DL-101-116-108
    :language: console
    :workdir: dl-101/mock_user/DataLad-101
    :lines: 1-30
@@ -277,7 +300,7 @@ Include the options ``-r``/``--recursive`` and ``--recursion-limit``.
 
 Write this note in "your own" (the original) ``DataLad-101`` dataset, though!
 
-.. runrecord:: _examples/DL-101-116-108
+.. runrecord:: _examples/DL-101-116-109
    :language: console
    :workdir: dl-101/mock_user/DataLad-101
    :notes: note in original DataLad-101 dataset
@@ -309,7 +332,7 @@ Write this note in "your own" (the original) ``DataLad-101`` dataset, though!
 
 Save this note.
 
-.. runrecord:: _examples/DL-101-116-109
+.. runrecord:: _examples/DL-101-116-110
    :language: console
    :workdir: dl-101/DataLad-101
    :cast: 04_collaboration

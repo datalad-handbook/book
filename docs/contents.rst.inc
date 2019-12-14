@@ -1,6 +1,6 @@
-############
-Introduction
-############
+################
+**Introduction**
+################
 
 .. toctree::
    :maxdepth: 1
@@ -12,9 +12,9 @@ Introduction
    intro/howto
 
 
-################
-DataLad datasets
-################
+################################
+**Basics 1** -- DataLad datasets
+################################
 
 .. toctree::
    :maxdepth: 1
@@ -28,9 +28,9 @@ DataLad datasets
    basics/101-107-summary
 
 
-#############
-Datalad, Run!
-#############
+#############################
+**Basics 2** -- Datalad, Run!
+#############################
 
 .. toctree::
    :maxdepth: 1
@@ -43,9 +43,9 @@ Datalad, Run!
    basics/101-113-summary
 
 
-#########################
-Under the hood: git-annex
-#########################
+#########################################
+**Basics 3** -- Under the hood: git-annex
+#########################################
 
 .. toctree::
    :maxdepth: 1
@@ -54,9 +54,9 @@ Under the hood: git-annex
    basics/101-114-txt2git
    basics/101-115-symlinks
 
-#############
-Collaboration
-#############
+#############################
+**Basics 4** -- Collaboration
+#############################
 
 .. toctree::
    :maxdepth: 1
@@ -69,9 +69,9 @@ Collaboration
    basics/101-121-siblings
    basics/101-120-summary
 
-#############################
-Tuning datasets to your needs
-#############################
+#############################################
+**Basics 5** -- Tuning datasets to your needs
+#############################################
 
 .. toctree::
    :maxdepth: 1
@@ -83,9 +83,9 @@ Tuning datasets to your needs
    basics/101-125-summary
 
 
-#############################
-Make the most out of datasets
-#############################
+#############################################
+**Basics 6** -- Make the most out of datasets
+#############################################
 
 .. toctree::
    :maxdepth: 1
@@ -97,9 +97,9 @@ Make the most out of datasets
    basics/101-128-summary_yoda
 
 
-################
-One step further
-################
+################################
+**Basics 7** -- One step further
+################################
 
 .. toctree::
    :maxdepth: 1
@@ -109,22 +109,24 @@ One step further
    basics/101-133-containersrun
    basics/101-134-summary
 
-#############
-Help yourself
-#############
+
+#############################
+**Basics 8** -- Help yourself
+#############################
 
 .. toctree::
    :maxdepth: 1
-   :caption: What to do if things go wrong
+   :caption: Dealing with problems, filesystems, and version histories
 
-   basics/101-135-help
+   basics/101-135-intro
    basics/101-136-filesystem
    basics/101-137-history
-   basics/101-180-FAQ
+   basics/101-135-help
 
-#####################
-Sharing a dataset [2]
-#####################
+
+##################################
+**Basics 9** Sharing a dataset [2]
+##################################
 
 .. toctree::
    :maxdepth: 1
@@ -132,9 +134,10 @@ Sharing a dataset [2]
 
    basics/101-138-sharethirdparty
 
-###############
-Further options
-###############
+
+################################
+**Basics 10** -- Further options
+################################
 
 .. toctree::
    :maxdepth: 1
@@ -144,9 +147,9 @@ Further options
    basics/101-144-intro_extensions
 
 
-#########
-Use Cases
-#########
+#############
+**Use Cases**
+#############
 
 .. toctree::
    :maxdepth: 1
@@ -169,7 +172,18 @@ Appendix
    :caption: Further information and references
 
    glossary
+   basics/101-180-FAQ
    contributing
+
+########################
+Code lists from chapters
+########################
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Easy access to copy-paste snippets for workshops
+
+   code_from_chapters/intro
    code_from_chapters/01_dataset_basics_code
    code_from_chapters/02_reproducible_execution_code
    code_from_chapters/10_yoda_code

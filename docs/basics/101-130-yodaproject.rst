@@ -405,7 +405,10 @@ point with the ``--version-tag`` option of :command:`datalad save`.
 Finally, with your directory structure being modular and intuitive,
 the input data installed, the script ready, and the dataset status clean,
 you can wrap the execution of the script (which is a simple
-``python3 code/script.py``) in a :command:`datalad run` command.
+``python3 code/script.py``) in a :command:`datalad run` command. Note that
+simply executing the script would work as well -- thanks to DataLad's Python API.
+But using :command:`datalad run` will capture full provenance, and will make
+re-execution with :command:`datalad rerun` easy.
 
 .. note::
 
@@ -632,8 +635,10 @@ Verify that this worked by listing the siblings of the dataset:
 On GitHub, you will see a new, empty repository with the name
 ``midtermproject``. However, the repository does not yet contain
 any of your dataset's history or files. This requires *publishing* the current
-state of the dataset to this sibling with the :command:`datalad publish`
-(:manpage:`datalad-publish` manual) command.
+state of the dataset to this :term:`sibling` with the :command:`datalad publish`
+(:manpage:`datalad-publish` manual) command. The :command:`datalad publish` command
+will make the last saved state of your dataset available to the :term:`sibling`
+you provide with the ``--to`` option.
 
 .. code-block:: bash
 

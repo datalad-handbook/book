@@ -1,0 +1,18 @@
+.. _intro:
+
+What to do if things go wrong
+-----------------------------
+
+After all of the DataLad-101 lectures and tutorials so far, you really begin to
+appreciate the pre-crafted examples and tasks the handbook provides.
+“Nothing really goes wrong, and if so, it’s intended”, you acknowledge.
+“But how does this prepare me for life after the course? I’ve seen a lot of
+different errors and know many caveats and principles already, but I certainly
+will mess something up at one point. How can I get help, or use the history of
+the dataset to undo what I screwed up? Also, I'm not sure whether I know what I
+can and can not do with the files inside of my dataset... What if I would
+like to remove one, for example?”
+
+Therefore, this upcoming chapter is a series of tutorials about common
+file system operations, interactions with the history of datasets, and how
+to get help after errors.

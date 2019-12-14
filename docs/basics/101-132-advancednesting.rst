@@ -208,6 +208,7 @@ Let's check which subproject commit is now recorded in the superdataset:
 .. runrecord:: _examples/DL-101-132-112
    :language: console
    :workdir: dl-101/DataLad-101/
+   :emphasize-lines: 14
 
    $ git log -p -n 1
 

@@ -225,8 +225,28 @@ in your dataset -- just not written to the history anymore. Let's
 try this to get a feel for it.
 
 The COMMIT in the command can either be a hash or a reference
-with the HEAD pointer. Let's stay with the hash, and reset to the
-commit prior to saving the Gitjokes.
+with the HEAD pointer.
+
+.. findoutmore:: Git terminology: branches and HEADs?
+
+   A Git repository (and thus any DataLad dataset) is built up as a tree of
+   commits. A *branch* is a named pointer (reference) to a commit, and allows you
+   to isolate developments. The default branch is called ``master``. ``HEAD`` is
+   a pointer to the branch you are currently on, and thus to the last commit
+   in the given branch.
+
+   .. figure:: ../artwork/src/git_branch_HEAD.png
+
+   Using ``HEAD``, you can identify the most recent commit, or count backwards
+   starting from the most recent commit. ``HEAD~1`` is the ancestor of the most
+   recent commit, i.e., one commit back (``f30ab`` in the figure above). Apart from
+   the notation ``HEAD~N``, there is also ``HEAD^N`` used to count backwards, but
+   less frequently used and of importance primarily in the case of *merge*
+   commits.
+   `This post <https://stackoverflow.com/questions/2221658/whats-the-difference-between-head-and-head-in-git>`__
+   explains the details well.
+
+Let's stay with the hash, and reset to the commit prior to saving the Gitjokes.
 
 First, find out the shasum, and afterwards, reset it.
 
@@ -277,7 +297,7 @@ to track:
 
    $ datalad save -m "save my favorite Git joke" Gitjoke2.txt
 
-Finally, lets check how the history looks afterwards:
+Finally, let's check how the history looks afterwards:
 
 .. runrecord:: _examples/DL-101-137-112
    :workdir: dl-101/DataLad-101

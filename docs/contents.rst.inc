@@ -162,6 +162,8 @@ Appendix
    glossary
    basics/101-180-FAQ
    contributing
+   acknowledgements
+
 
 ########################
 Code lists from chapters

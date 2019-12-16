@@ -11,6 +11,10 @@ Installation and configuration
   ``datalad~=0.12.0rc6``, via ``pip`` or ``conda``. Until 0.12 is released, please use
   ``pip`` or ``conda``-based methods to install the release candidate.
 
+  If you already have DataLad installed but are unsure whether it is the correct
+  version, you can get information on your version of DataLad by typing
+  ``datalad --version`` into your terminal.
+
 Install DataLad
 ^^^^^^^^^^^^^^^
 

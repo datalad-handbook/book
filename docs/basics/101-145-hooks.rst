@@ -7,7 +7,9 @@ If you are particularly keen on automating tasks in your datasets, you may be
 interested in running DataLad commands automatically as soon
 as previous commands are executed and resulted in particular outcomes or states.
 For example, you may want to automatically :command:`unlock` all dataset contents
-right after an installation in one go. Therefore, you would like to automatically
+right after an installation in one go. However, you'd also want to make sure that
+the :command:`install` command was *successful* before attempting an
+:command:`unlock`. Therefore, you would like to automatically
 run the :command:`datalad unlock .` command right after the :command:`datalad install`
 command, *but only* if the previous :command:`install` command was successful.
 
@@ -21,7 +23,23 @@ resulted in a specified result -- such as a successful install.
 To understand how hooks can be used and defined, we have to briefly mention
 DataLad's *command result evaluations*. Whenever a DataLad
 command is executed, an internal evaluation generates a *report* on the status
-and result of the command. Internally, this is useful for final result
+and result of the command. To get a glimpse into such an evaluation, you can call
+any DataLad command with the ``datalad`` option
+``-f/--output-format <default, json, json_pp, tailored, '<template>'>`` to
+return the command result evaluations with a specific formatting. Here is how this
+can look like for a :command:`datalad create`::
+
+   $ datalad -f json_pp create somedataset
+    [INFO   ] Creating a new annex repo at /tmp/somedataset
+    {
+      "action": "create",
+      "path": "/tmp/somedataset",
+      "refds": null,
+      "status": "ok",
+      "type": "dataset"
+    }
+
+Internally, this is useful for final result
 rendering, error detection, and logging. However, by using hooks, you can
 utilize these evaluations for your own purposes and "hook" in more commands
 whenever an evaluation fulfills your criteria.
@@ -29,7 +47,7 @@ whenever an evaluation fulfills your criteria.
 To be able to specify matching criteria, you need to be aware of the potential
 criteria you can match against. The evaluation report is a dictionary with
 ``key:value`` pairs. The following table provides an overview on some of the
-available keys and their possible values:
+available keys and their possible values [#f1]_:
 
 .. list-table::
    :widths: 50 100
@@ -64,7 +82,7 @@ and
 Here is what you need to know about these variables:
 
 - The ``<name>`` part of the configurations is the same for both variables, and can be
-  an arbitrarily [#f1]_ chosen name that serves as an identifier for the hook you are
+  an arbitrarily [#f2]_ chosen name that serves as an identifier for the hook you are
   defining.
 
 - The first configuration variable, ``datalad.result-hook.<name>.match-json``, defines
@@ -148,7 +166,14 @@ an appened ``_annoy`` in the file name [#f3]_.
 
 .. rubric:: Footnotes
 
-.. [#f1] It only needs to be compatible with :command:`git config`. This means that
+
+.. [#f1] The key-value table provides a selection of available key-value pairs, but
+         the set of possible key-value pairs is potentially unlimited, as any
+         third-party extension could introduce new keys, for example. If in doubt,
+         use the ``-f/--output-format`` option with the command of your choice to
+         explore how your matching criteria may look like.
+
+.. [#f2] It only needs to be compatible with :command:`git config`. This means that
          it for example should not contain any dots (``.``).
 
 .. [#f2] To re-read about the :command:`git config` command and other configurations

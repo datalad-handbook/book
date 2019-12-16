@@ -3,12 +3,12 @@
 What you really need to know
 ----------------------------
 
-DataLad is a data management multitool that can assist you during all steps in the
-evolution of digital objects. It is a command-line tool, free and open source, and
+DataLad is a data management multitool that can assist you in handling the entire
+life cycle of digital objects. It is a command-line tool, free and open source, and
 available for all major operating systems.
 
 This document is the 10.000 feet overview of important concepts, commands, and
-capacities of DataLad. Each section briefly highlights one group of functionality or
+capacities of DataLad. Each section briefly highlights one type of functionality or
 concept and the associated commands, and the upcoming Basics chapters will demonstrate
 in detail how to use them.
 
@@ -16,8 +16,7 @@ DataLad datasets
 ^^^^^^^^^^^^^^^^
 
 Every command affects or uses DataLad *datasets*, the core data structure of
-DataLad. A *dataset* is any directory on a computer that DataLad is instructed
-to manage.
+DataLad. A *dataset* is a directory on a computer that DataLad manages.
 
 .. figure:: ../artwork/src/dataset.svg
    :alt: Create DataLad datasets
@@ -31,7 +30,7 @@ Simplified local version control workflows
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Building on top of :term:`Git` and :term:`git-annex`, DataLad allows you to
-version control arbitrarily large content in datasets.
+version control arbitrarily large files in datasets.
 
 .. figure:: ../artwork/src/local_wf.svg
    :alt: Version control arbitrarily large contents
@@ -45,24 +44,25 @@ restore any version of your dataset's history.
 Consumption and collaboration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-DataLad lets you consume others datasets or collaborate. You can install existing
-datasets and update them from their sources, or create sibling datasets that you can
-publish updates to and pull updates from for collaboration and data sharing.
+DataLad lets you consume datasets provided by others, and collaborate with them.
+You can install existing datasets and update them from their sources, or create
+sibling datasets that you can publish updates to and pull updates from for
+collaboration and data sharing.
 
 .. figure:: ../artwork/src/collaboration.svg
    :alt: Consume and collaborate
    :width: 130%
    :target: ../basics/101-120-summary.html
 
-Additionally, you can get access to ~70TB of publicly available open
+Additionally, you can get access to publicly available open
 data collections with :term:`the DataLad superdataset ///`.
 
 Dataset linkage
 ^^^^^^^^^^^^^^^
 
 Datasets can contain other datasets (subdatasets), nested arbitrarily deep. Each
-dataset has an independent revision history, but can be registered in higher-level
-datasets. This allows to combine datasets and to perform commands recursively across
+dataset has an independent revision history, but can be registered at a precise version
+in higher-level datasets. This allows to combine datasets and to perform commands recursively across
 a hierarchy of datasets, and it is the basis for advanced provenance capture abilities.
 
 .. figure:: ../artwork/src/linkage_subds.svg

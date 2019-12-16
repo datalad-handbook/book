@@ -10,6 +10,7 @@
    intro/narrative
    intro/installation
    intro/howto
+   intro/executive_summary
 
 
 ################################
@@ -165,6 +166,8 @@ Appendix
    basics/101-180-FAQ
    basics/101-136-cheatsheet
    contributing
+   acknowledgements
+
 
 ########################
 Code lists from chapters

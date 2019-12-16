@@ -3,16 +3,9 @@
 How to get help
 ---------------
 
-After all of the DataLad-101 lectures and tutorials so far,
-you really begin to appreciate the pre-crafted examples the
-lecturer provided the students with.
-
-"Nothing really goes wrong, and if so, it's intended", you
-acknowledge. "But how does this prepare me for life after
-the course? I've seen a lot of different errors and know many
-caveats and principles already, but I certainly will mess
-something up at one point, and how will I get help then?"
-
+All DataLad errors or problems you encounter during ``DataLad-101`` are intentional
+and serve illustrative purposes. But what if you run into any DataLad errors
+outside of this course?
 Fortunately, the syllabus has a whole section on that, and on
 one lazy, warm summer-afternoon you flip through it.
 
@@ -82,7 +75,7 @@ as an excerpt here):
 .. runrecord:: _examples/DL-101-135-103
    :language: console
    :workdir: dl-101/DataLad-101
-   :lines: 1-40
+   :lines: 1-60
 
    $ datalad get --help
 

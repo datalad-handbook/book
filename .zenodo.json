@@ -13,17 +13,72 @@
     {
       "affiliation": "Institute of Neuroscience and Medicine, Brain & Behaviour (INM-7), Research Centre Jülich, Jülich, Germany",
       "name": "Waite, Laura K.",
-      "orcid": "TODO"
+      "orcid": "0000-0003-2213-7465"
     },
     {
-      "affiliation": "Dartmouth College",
+      "affiliation": "Dartmouth College, Hanover, NH, United States",
       "name": "Meyer, Kyle",
       "orcid": "TODO"
     },
     {
+      "affiliation": "Institute of Neuroscience and Medicine, Brain & Behaviour (INM-7), Research Centre Jülich, Jülich, Germany and Institute of Systems Neuroscience, Medical Faculty, Heinrich Heine University Düsseldorf, Düsseldorf, Germany",
+      "name": "Heckner, Marisa K.",
+      "orcid": "0000-0002-4761-9308"
+    },
+    {
       "affiliation": "Institute of Neuroscience and Medicine, Brain & Behaviour (INM-7), Research Centre Jülich, Jülich, Germany",
-      "name": "Heckner, Marisa",
-      "orcid": "TODO"
+      "name": "Kadelka, Tobias",
+      "orcid": "0000-0002-0152-3490"
+    },
+    {
+      "affiliation": "Institute of Neuroscience and Medicine, Brain & Behaviour (INM-7), Research Centre Jülich, Jülich, Germany and Institute of Systems Neuroscience, Medical Faculty, Heinrich Heine University Düsseldorf, Düsseldorf, Germany",
+      "name": "Reuter, Niels",
+      "orcid": "0000-0001-6895-3527"
+    },
+    {
+      "affiliation": "Institute of Neuroscience and Medicine, Brain & Behaviour (INM-7), Research Centre Jülich, Jülich, Germany",
+      "name": "Waite, Alexander Q.",
+      "orcid": "0000-0002-8402-6173"
+    },
+    {
+      "affiliation": "Institute of Neuroscience and Medicine, Brain & Behaviour (INM-7), Research Centre Jülich, Jülich, Germany",
+      "name": "Poldrack, Benjamin",
+      "orcid": "0000-0001-7628-0801"
+    },
+    {
+      "affiliation": "Stanford University, Stanford, CA, United States",
+      "name": "Markiewicz, Christopher J.",
+      "orcid": "0000-0002-6533-164X"
+    },
+    {
+      "affiliation": "Dartmouth College, Hanover, NH, United States",
+      "name": "Halchenko, Yaroslav O.",
+      "orcid": "0000-0003-3456-2493"
+    },
+    {
+      "affiliation": "Department of Biological Psychology, Otto von Guericke University Magdeburg, Magdeburg, Germany",
+      "name": "Vavra, Peter",
+      "orcid": "0000-0001-8432-5459"
+    },
+    {
+      "affiliation": "Max Planck School of Cognition, Leipzig, Germany",
+      "name": "Chormai, Pattarawat",
+      "orcid": "0000-0002-7582-4667"
+    },
+    {
+      "affiliation": "McGill University",
+      "name": "Poline, Jean-Baptiste",
+      "orcid": "0000-0002-9794-749X"
+    },
+    {
+     "name": "Paas, Lya K.",
+     "affiliation": "Institute of Neuroscience and Medicine, Brain & Behaviour (INM-7), Research Centre Jülich, Jülich, Germany and Institute of Systems Neuroscience, Medical Faculty, Heinrich Heine University Düsseldorf, Düsseldorf, Germany",
+     "orcid": "0000-0001-7924-3440"
+    },
+    {
+      "affiliation": "Montréal Neurological Institute, McGill University, Montréal, Canada",
+      "name": "Herholz, Peer",
+      "orcid": "0000-0002-9840-6257"
     }
   ],
   "keywords": [
@@ -33,6 +88,7 @@
     "version control",
     "teaching resource"
   ],
+  "access_right": "open",
   "license": "CC-BY-SA",
   "upload_type": "book"
 }

@@ -4,7 +4,7 @@
 
 .. toctree::
    :maxdepth: 1
-   :caption: What DataLad is all about
+   :caption: What DataLad and the handbook are all about
 
    intro/philosophy
    intro/narrative

@@ -203,7 +203,11 @@ Glossary
       option to :command:`datalad save`.
 
    the DataLad superdataset ///
-      TODO
+      DataLad provides unified access to a large amount of data at an open data
+      collection found at `datasets.datalad.org <http://datasets.datalad.org/>`_.
+      This collection is known as "The DataLad superdataset" and under its shortcut,
+      ``///``. You can install the superdataset -- and subsequently query its content via metadata
+      search -- by running ``datalad install ///``.
 
    tig
       A text-mode interface for git that allows you to easily browse through your commit history.

@@ -128,3 +128,6 @@ cheat-sheet in section
 .. todo::
 
    link cheat sheet
+
+But enough of the introduction now -- let's dive into the
+`Basics <../basics/101-101-create.html>`_!

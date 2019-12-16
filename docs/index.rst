@@ -24,7 +24,7 @@ applications. If you want to get hands-on experience and learn DataLad, the *Bas
 part of this book will teach you. If you want to know what is possible, the
 *use cases* will show you. And if you want to help others to get started with DataLad,
 the `companion repository <https://github.com/datalad-handbook/course>`_ provides
-free and open source teaching material tailored to the handbook.
+`free and open source teaching material <teaching.html>`_ tailored to the handbook.
 
 Before you read on, please note that the handbook is based on **DataLad version 0.12**,
 but the section :ref:`install` will set you up with what you need if you currently do

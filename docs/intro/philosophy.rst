@@ -81,20 +81,18 @@ evolution**?
 digital workflow of using data -- regardless of the data's type, content, size,
 location, generation, or development.  It provides functionality to share,
 search, obtain, and version control data in a distributed fashion, and it aids
-managing the evolution of digital objects in a way that fulfills the FAIR
+managing the evolution of digital objects in a way that fulfills the `FAIR <https://www.go-fair.org/>`_
 principles.
-
-This handbook is a living resource about why and -- more importantly -- *how* to
-use DataLad. It aims to provide novices and advanced users of all backgrounds
-with both the basics of DataLad and start-to-end use cases of specific
-applications. Jump right into the handbook, and be ready to use your computer as
-this handbook is a hands-on experience.
 
 
 The DataLad Philosophy
 ^^^^^^^^^^^^^^^^^^^^^^
+From a software point of view, DataLad is a command line tool, with an additional
+Python API to use its features within your software and scripts.
+While being a general, multi-purpose tool, there are also plenty of extensions
+that provide helpful, domain specific features that may very well fit your precise use case.
 
-DataLad is built up on a handful of principles. It is this underlying philosophy
+But beyond software facts, DataLad is built up on a handful of principles. It is this underlying philosophy
 that captures the spirit of what DataLad is, and here is a brief overview on it.
 
 #. **DataLad only cares (knows) about two things: Datasets and files.**
@@ -160,14 +158,7 @@ that captures the spirit of what DataLad is, and here is a brief overview on it.
 
 These principles hopefully gave you some idea of what to expect from DataLad,
 cleared some worries that you might have had, and highlighted what DataLad is and what
-it is not.
-
-Additionally, as some last key facts about DataLad, it comes with a
-command line interface enabling usage from within a terminal, and a Python API
-to use its features within your software and scripts. While being a general,
-multi-purpose tool, it comes with plenty of extensions that provide helpful,
-domain specific features that may very well fit your precise use case.
-
-But enough of the abstract talk.
-You came here to learn, and the handbook will not waste your time any further by
-having you only read about DataLad -- let's start to *use* DataLad.
+it is not. The section :ref:`executive_summary` will give you a one-page summary
+of the functionality and commands you will learn with this handbook. But before we
+get there, let's get ready to *use* DataLad. For this, the next
+section will show you how to use the handbook.

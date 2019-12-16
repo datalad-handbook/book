@@ -163,6 +163,7 @@ Appendix
    glossary
    basics/101-180-FAQ
    contributing
+   teaching
    acknowledgements
 
 

@@ -93,7 +93,8 @@ Here is what you need to know about these variables:
 
 And here is how to set the values for these variables:
 
-- The value for ``datalad.result-hook.<name>.match-json`` needs to be specified as
+- When set via the :command:`git config` command, the value for
+  ``datalad.result-hook.<name>.match-json`` needs to be specified as
   a JSON-encoded dictionary with any number of keys, such as
 
   .. code-block:: bash
@@ -112,17 +113,20 @@ And here is how to set the values for these variables:
      {"type": ["in", ["file", "directory"]], "action": "get", "status": "notneeded"}
 
   This translates to:  "Match a "not-needed" after :command:`datalad get` of a file or directory."
-  Another example is this::
+  Another example is
 
-     '{"type":"dataset","action":"install","status":["eq", "ok"]}'
+  .. code-block:: bash
+
+     {"type":"dataset","action":"install","status":["eq", "ok"]}
 
   which translates to: "Match a successful installation of a dataset".
 
 - The value for ``datalad.result-hook.<name>.call-json`` is specified in its
-  Python notation, and its options are specified as a JSON-encoded dictionary
+  Python notation, and its options -- when set via the :command:`git config`
+  command -- are specified as a JSON-encoded dictionary
   with keyword arguments. Conveniently, a number of string substitutions are
   supported: a ``dsarg`` argument expands to the ``dataset`` given to the initial
-  command the hook operates in, and any key from the result evaluation can be
+  command the hook operates on, and any key from the result evaluation can be
   expanded to the respective value in the result dictionary. Curly braces need to
   be escaped by doubling them.
   This is not the easiest specification there is, but its also not as hard as it
@@ -133,11 +137,11 @@ And here is how to set the values for these variables:
   This translates to "unlock the path the previous command operated on, in the
   dataset the previous command operated on". Another example is this run command::
 
-     $ run  {{"cmd": "touch {path}_annoyed", "dataset": "{dsarg}", "explicit": true}}
+     $ FIXME run  {{"cmd": "cp ~/templates/standard-readme.txt {path}/README", "dataset": "{dsarg}", "explicit": true}}
 
   This translate to "execute a run command in the dataset the previous command operated
-  on. It should create an empty file under the same path the previous command
-  operated on, with an added '_annoyed' in the file name." A final example is this::
+  on. In this run command, copy a README template file from ``~/Templates/standard-readme.txt``
+  and place it into the newly created dataset." A final example is this::
 
      $ run_procedure {{"dataset":"{path}","spec":"cfg_metadatatypes bids"}}
 
@@ -145,23 +149,29 @@ And here is how to set the values for these variables:
   and thus set the standard metadata extractor to be bids.
 
 
-As these variables are configuration variables, they can be set via :command:`git config` [#f2]_::
+As these variables are configuration variables, they can be set via
+:command:`git config` -- either for the dataset (``--local``), or the
+user (``--global``) [#f3]_::
 
-   $ git config -f .datalad/config --add datalad.result-hook.annoy.call-json 'run {{"cmd":"touch {path}_annoyed", "dataset":"{dsarg}","explicit":true}}'
-   $ git config -f .datalad/config --add datalad.result-hook.annoy.match-json '{"type":["in", ["file"]],"action":"get","status":"notneeded"}'
+   $ FIXME git config --global --add datalad.result-hook.readme.call-json 'run {{"cmd":"cp ~/templates/standard-readme.txt {path}/README", "dataset":"{dsarg}","explicit":true}}'
+   $ FIXME git config --global --add datalad.result-hook.readme.match-json '{"type": "dataset","action":"create","status":"ok"}'
 
-Here is what this writes to the ``.datalad/config`` file::
+Here is what this writes to the ``~/.gitconfig`` file::
 
-    [datalad "result-hook.annoy"]
-        call-json = run {{\"cmd\":\"touch {path}_annoyed\", \"dataset\":\"{dsarg}\",\"explicit\":true}}
-        match-json = {\"type\":[\"in\", [\"file\"]],\"action\":\"get\",\"status\":\"notneeded\"}
+    [datalad "result-hook.readme"]
+    FIXME        call-json = run {{\"cmd\":\"cp ~/templates/standard-readme.txt {path}/README\", \"dataset\":\"{dsarg}\",\"explicit\":true}}
+    FIXME        match-json = {\"type\": \"dataset\",\"action\":\"create\",\"status\":\"ok\"}
 
-Given this configuration in the ``.datalad/config`` file of your dataset, the
-"annoy" hook would be executed whenever you run :command:`datalad get` on a file
-and the command evaluates to "notneeded". The annoy hook would then automatically
-create an empty file with the same name as the one you attempted to get, but with
-an appened ``_annoy`` in the file name [#f3]_.
 
+Note how characters such as quotation marks are automatically escaped via
+backslashes. If you want to set the variables "by hand" with an editor instead
+of using :command:`git config`, pay close attention to escape them as well.
+
+Given this configuration in the global ``~/.gitconfig`` file, the
+"``readme``" hook would be executed whenever you successfully create a new dataset
+with :command:`datalad create`. The "``readme``" hook would then automatically copy a
+file, ``~/Templates/standard-readme.txt`` (this could be a standard README template
+you defined), into the new dataset.
 
 
 .. rubric:: Footnotes
@@ -176,12 +186,9 @@ an appened ``_annoy`` in the file name [#f3]_.
 .. [#f2] It only needs to be compatible with :command:`git config`. This means that
          it for example should not contain any dots (``.``).
 
-.. [#f2] To re-read about the :command:`git config` command and other configurations
+.. [#f3] To re-read about the :command:`git config` command and other configurations
          of DataLad and its underlying tools, go back to the chapter on Configurations,
          starting with :ref:`config`.
-
-.. [#f3] Its a toy example, but supposedly highly effective in training yourself
-         (or others) to restrain from using :command:`datalad get`. There is generally
-         no reason to do that, but why miss a chance on classical conditioning?
-         `B.F. Skinner <https://en.wikipedia.org/wiki/B._F._Skinner>`_ would be
-         `proud <https://xkcd.com/1156/>`_.
+         **Note that hooks are only read from Git's config files, not .datalad/config!**
+         Else, this would pose a severe security risk, as it would allow installed datasets to
+         alter DataLad commands to perform arbitrary executions on a system.

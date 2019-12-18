@@ -123,8 +123,8 @@ YODA principles, they install the data she is supposed to analyze as a subdatase
 .. code-block:: bash
 
    $ cd project-megan
-   $ datalad install -d . \
-     --source /home/data/ABC-project \
+   $ datalad clone -d . \
+     /home/data/ABC-project \
      data/ABC-project
 
     [INFO   ] Cloning /home/data/ABC-project [1 other candidates] into '/home/projects/project-megan/data/ABC-project'
@@ -220,8 +220,8 @@ created for collaborative paper-writing on the analysis:
 
    $ datalad create megans-paper
    $ cd megans-paper
-   $ datalad install -d . \
-     --source /home/projects/project-megan \
+   $ datalad clone -d . \
+     /home/projects/project-megan \
      analysis
 
    [INFO   ] Cloning /home/projects/project-megan [1 other candidates] into '/home/paper/megans-paper'

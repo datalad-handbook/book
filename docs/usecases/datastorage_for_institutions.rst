@@ -273,9 +273,9 @@ time, a GitLab :term:`sibling` in the institute's GitLab instance is created, wi
 publication dependency on the data storage.
 
 With this setup, a dataset of any size can be installed in a matter of seconds
-by providing its ID as a source in a :command:`datalad install` command::
+by providing its ID as a source in a :command:`datalad clone` command::
 
-   $ datalad install --dataset mynewdataset \
+   $ datalad clone --dataset mynewdataset \
      --source <ID/URL> \
      mynewdataset/inputs
 

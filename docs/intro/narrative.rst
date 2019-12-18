@@ -38,8 +38,8 @@ As the handbook is to be a practical guide it includes as many hands-on examples
 as we can fit into it. Code snippets look like this, and you should
 **copy them into your own terminal to try them out**, but you can also
 **modify them to fit your custom needs in your own use cases**.
-Note in the example below that shows the creation of a DataLad dataset how
-we distinguish ``comments (#)`` from ``commands ($)`` and their output:
+Note how we distinguish ``comments (#)`` from ``commands ($)`` and their output
+in the example below (it shows the creation of a DataLad dataset):
 
 .. code-block:: bash
 
@@ -55,10 +55,12 @@ error when executed.
 
 The book is split in two different parts. The upcoming chapters
 are the *Basics* that intend to show you the core DataLad functionality
-and challenges you to use it. It is recommended to start with this part
-and read it from start to end.
+and challenge you to use it. If you want to learn how to use DataLad, it is
+recommended to start with this part and read it from start to end.
 In the chapter *use cases* you will find concrete examples of
 DataLad applications for general inspiration -- this is the second part of this book.
+If you want to get an overview of what is possible with DataLad, this section will
+show you in a concise and non-technical manner.
 Pick whatever you find interesting and disregard the rest. Afterwards,
 you might even consider :ref:`contribute` to this book by sharing your own use case.
 
@@ -94,7 +96,7 @@ Note further that...
    the book when there is no better alternative, and executing those commands will
    suffice to follow along.
 
-Apart from core DataLad commands (introduced in the second part of this book),
+Apart from core DataLad commands (introduced in the *Basics* part of this book),
 DataLad also comes with many extensions and advanced commands not (yet) referenced
 in this handbook. The development of many of these features
 is ongoing, and this handbook will incorporate all DataLad commands and extensions

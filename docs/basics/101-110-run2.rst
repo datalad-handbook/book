@@ -102,7 +102,7 @@ How can that be?
 
 "Right!", you exclaim with a facepalm.
 Just as the ``.mp3`` files, the ``.jpg`` file content is not present
-locally after an install, and we did not :command:`datalad get` it yet!
+locally after a clone, and we did not :command:`datalad get` it yet!
 
 This is where the ``-i``/``--input`` option for a datalad run becomes useful.
 The content of everything that is specified as an ``input`` will be retrieved
@@ -128,7 +128,7 @@ prior to running the command.
 Cool! You can see in this output that prior to the data command execution, DataLad did a :command:`datalad get`.
 This is useful for several reasons. For one, it saved us the work of manually
 getting content. But moreover, this is useful for anyone with whom we might share the
-dataset: With an installed dataset one can very simply rerun :command:`datalad run` commands
+dataset: With a cloned dataset one can very simply rerun :command:`datalad run` commands
 if they have the input argument appropriately specified. It is therefore good practice to
 specify the inputs appropriately. Remember from section :ref:`installds`
 that :command:`datalad get` will only retrieve content if

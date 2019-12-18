@@ -793,8 +793,8 @@ will error if given a sub-*directory*, a file, or a top-level dataset.
    :cast: 03_git_annex_basics
 
    # Install a subdataset - the content is irrelevant, so why not a cloud :)
-   $ datalad install -d . \
-    --source https://github.com/datalad-datasets/disneyanimation-cloud.git \
+   $ datalad clone -d . \
+    https://github.com/datalad-datasets/disneyanimation-cloud.git \
     cloud
 
 To uninstall the dataset, use
@@ -828,7 +828,7 @@ subsequently remove it with the :command:`datalad remove` command:
    :notes: to completely remove the dataset, use datalad remove
    :cast: 03_git_annex_basics
 
-   $ datalad install cloud
+   $ datalad get -n cloud
    # delete the subdataset
    $ datalad remove -m "remove obsolete subds" -d . cloud
 

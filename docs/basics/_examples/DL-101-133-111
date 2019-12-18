@@ -1,7 +1,7 @@
 $ git log -p -n 1
-commit 6459f96d007cb4232d1a743079a7e905047d9b65
+commit c5ead6687734e74690409b9827b7e82fe565f67e
 Author: Elena Piscopia <elena@example.net>
-Date:   Tue Dec 10 09:09:56 2019 +0100
+Date:   Wed Dec 18 16:07:38 2019 +0100
 
     [DATALAD RUNCMD] rerun analysis in container
     
@@ -9,7 +9,7 @@ Date:   Tue Dec 10 09:09:56 2019 +0100
     {
      "chain": [],
      "cmd": "singularity exec .datalad/environments/midterm-software/image python3 code/script.py",
-     "dsid": "57897a06-1b24-11ea-a08c-e86a64c8054c",
+     "dsid": "016dab12-21a8-11ea-910e-d0c637c523bc",
      "exit": 0,
      "extra_inputs": [
       ".datalad/environments/midterm-software/image"

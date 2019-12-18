@@ -3,6 +3,9 @@ $ cd midterm_project
 $ datalad install -d . --source https://github.com/datalad-handbook/iris_data.git input/
 [INFO] Cloning https://github.com/datalad-handbook/iris_data.git [1 other candidates] into '/home/me/dl-101/DataLad-101/midterm_project/input' 
 [INFO]   Remote origin not usable by git-annex; setting annex-ignore 
+add(ok): input (file)
+add(ok): .gitmodules (file)
+save(ok): . (dataset)
 install(ok): input (dataset)
 action summary:
   add (ok: 2)

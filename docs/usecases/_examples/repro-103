@@ -1,6 +1,9 @@
 $ cd demo
 $ datalad install -d . -s ///openfmri/ds000002 inputs/ds000002
 [INFO] Cloning http://datasets.datalad.org/openfmri/ds000002 [1 other candidates] into '/home/me/usecases/repro/demo/inputs/ds000002' 
+add(ok): inputs/ds000002 (file)
+add(ok): .gitmodules (file)
+save(ok): . (dataset)
 install(ok): inputs/ds000002 (dataset)
 action summary:
   add (ok: 2)

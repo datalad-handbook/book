@@ -153,15 +153,14 @@ As these variables are configuration variables, they can be set via
 :command:`git config` -- either for the dataset (``--local``), or the
 user (``--global``) [#f3]_::
 
-   $ FIXME git config --global --add datalad.result-hook.readme.call-json 'run {{"cmd":"cp ~/templates/standard-readme.txt {path}/README", "dataset":"{dsarg}","explicit":true}}'
-   $ FIXME git config --global --add datalad.result-hook.readme.match-json '{"type": "dataset","action":"create","status":"ok"}'
+    $ git config --global --add datalad.result-hook.readme.call-json 'run {{"cmd":"cp ~/Templates/standard-readme.txt {path}/README", "outputs":["{path}/README"], "dataset":"{path}","explicit":true}}'
+    $ git config --global --add datalad.result-hook.readme.match-json '{"type": "dataset","action":"create","status":"ok"}'
 
 Here is what this writes to the ``~/.gitconfig`` file::
 
     [datalad "result-hook.readme"]
-    FIXME        call-json = run {{\"cmd\":\"cp ~/templates/standard-readme.txt {path}/README\", \"dataset\":\"{dsarg}\",\"explicit\":true}}
-    FIXME        match-json = {\"type\": \"dataset\",\"action\":\"create\",\"status\":\"ok\"}
-
+        call-json = run {{\"cmd\":\"cp ~/Templates/standard-readme.txt {path}/README\", \"outputs\":[\"{path}/READ>
+        match-json = {\"type\": \"dataset\",\"action\":\"create\",\"status\":\"ok\"}
 
 Note how characters such as quotation marks are automatically escaped via
 backslashes. If you want to set the variables "by hand" with an editor instead

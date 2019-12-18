@@ -374,7 +374,10 @@ with the help of a procedure.
 Especially in the case of trainees and new users, applying procedures
 instead of doing relevant routines "by hand" can help to ease
 working with the dataset, as the use case :ref:`usecase_student_supervision`
-showcases.
+showcases. Other than by users, procedures can also be triggered to automatically
+run after any command execution if a command results matches a specific
+requirement. If you are interested in finding out more about this, read on in
+section :ref:`hooks`.
 
 Finally, make a note about running procedures inside of ``notes.txt``:
 

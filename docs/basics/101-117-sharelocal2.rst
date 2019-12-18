@@ -13,8 +13,9 @@ in order to install subdatasets right away. Only then
 is the subdatasets file content availability metadata to explore
 the file hierarchy available within the subdataset right
 from the start. Alternatively, a subsequent :command:`datalad install`
-in the subdataset or with a path to the subdataset takes care
-of the missing installation.
+in the subdataset or with a path to the subdataset, or a
+:command:`datalad get -n` takes care of the cloning the registered
+subdataset.
 
 And you have mesmerized your room mate by showing him how :term:`git-annex`
 retrieved large file contents from the original dataset.

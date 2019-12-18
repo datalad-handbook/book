@@ -31,29 +31,29 @@ Slides are made using `reveal.js <https://github.com/hakimel/reveal.js/>`_.
 They are available as PDFs in ``talks/PDFs/``, or as the source ``html`` files
 in ``talks/``.
 
-Enhance talks and workshops with code casts
+Enhance talks and workshops with code demos
 """""""""""""""""""""""""""""""""""""""""""
 
 Any number of code snippets in the handbook that are created with the ``runrecord``
 directive can be aggregated into a series of commands that can be sequentially
-executed as a code cast using the
+executed as a code demo using the
 `cast_live <https://github.com/datalad-handbook/course/blob/master/tools/cast_live>`_
 tool provided in the `companion course repository <https://github.com/datalad-handbook/course>`_.
-These code casts allow you to remote-control a second terminal that executes
+These code demos allow you to remote-control a second terminal that executes
 the code snippets upon pressing ``Enter`` and can provide you with simultaneous
 speaker notes.
 
-A number of casts exist that accompany the slides for the data management sessions
-in ``casts``, but you can also create your own casts. To find out how to do this,
-please consult the section `directives and casts <http://handbook.datalad.org/en/latest/contributing.html#directives-and-casts>`_
+A number of demos exist that accompany the slides for the data management sessions
+in ``casts``, but you can also create your own. To find out how to do this,
+please consult the section `directives and demos <http://handbook.datalad.org/en/latest/contributing.html#directives-and-demos>`_
 in the contributing guide.
 To use the tool, download the ``cast_live`` script and the ``cast_bash.rc`` file
 that accompanies it (e.g., by simply cloning/installing the
-course repository), and provide a path to the cast you want to run::
+course repository), and provide a path to the demo you want to run::
 
    $ cast_live casts/01_dataset_basics
 
-For existing casts, the chapter `Code from chapters <code_from_chapters/intro.html>`_
+For existing code demos, the chapter `Code from chapters <code_from_chapters/intro.html>`_
 contains numbered lists of code snippets to allow your audience to copy-paste what
 you execute to follow along.
 

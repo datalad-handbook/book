@@ -80,7 +80,7 @@ of the repository, and open it in your browser, for example with
 
 .. _directive:
 
-Directives and casts
+Directives and demos
 ^^^^^^^^^^^^^^^^^^^^
 
 If you are writing larger sections that contain code, ``gitusernote``\s, ``findoutmore``\s,
@@ -131,7 +131,7 @@ simple ``code-block::`` directives are sufficient.
 (foldable sections that contain content that goes beyond the basics). Make use
 of them, if applicable to your contribution.
 
-**Creating code live casts out of runrecord directives**:
+**Creating live code demos out of runrecord directives**:
 The book has the capability to turn code snippets into a script that the tool
 `cast_live <https://github.com/datalad/datalad/blob/master/tools/cast_live>`_
 can use to cast and execute it in a demonstration shell. This feature is
@@ -139,15 +139,15 @@ intended for educational courses and other types of demonstrations. The
 following prerequisites exist:
 
 - A snippet only gets added to a cast, if the ``:cast:`` option in the
-  ``runrecord`` specifies a filename where to save the cast to (it does not
+  ``runrecord`` specifies a filename where to save the demo to (it does not
   need to be an existing file).
 - If ``:realcommand:`` options are specified, they will become the executable
   part of the cast. If note, the code snippet in the code-block of the
   ``runrecord`` will become the executable part of the cast.
 - An optional ``:notes:`` lets you add "speakernotes" for the cast.
-- Casts are produced upon ``make``, but only if the environment variable
+- Demos are produced upon ``make``, but only if the environment variable
   ``CAST_DIR`` is set.
-  This should be a path that points to any directory in which casts should be
+  This should be a path that points to any directory in which demos should be
   created and saved. An invocation could look like this::
 
      $ CAST_DIR=/home/me/casts make
@@ -170,7 +170,7 @@ execution of ``runrecords``. If you are adding code into an existing cast,
 i.e., in between two snippets that get written to the same cast, make sure that
 the cast will still run smoothly afterwards!
 
-**Running code live casts from created casts**:
+**Running live code demos from created casts**:
 If you have created a cast, you can use the tool ``live_cast`` in ``tools/`` in
 the `DataLad Course <https://github.com/datalad-handbook/course>`_ to
 execute them::

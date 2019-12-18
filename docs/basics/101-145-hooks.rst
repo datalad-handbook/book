@@ -67,7 +67,7 @@ available keys and their possible values [#f1]_:
 These key-value pairs provide the basis to define matching rules that -- once met --
 can trigger the execution of custom hooks.
 To define a hook based on certain command results, two configuration variables
-need to be set in ``.datalad/config``:
+need to be set:
 
 .. code-block:: bash
 

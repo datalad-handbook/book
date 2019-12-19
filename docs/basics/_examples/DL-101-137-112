@@ -1,12 +1,12 @@
 $ git log -2
-commit 520e94007daa366075f90b3037d3db8f6384af3f
+commit 78531addd30ab222ab08801c3b897f37930eafa0
 Author: Elena Piscopia <elena@example.net>
-Date:   Wed Dec 18 16:08:08 2019 +0100
+Date:   Thu Dec 19 10:01:01 2019 +0100
 
     save my favorite Git joke
 
-commit d0b6bca26235e3148a77cc7ab4bf65cc7cd1ffbd
+commit 371fa5042737c977aa0785b092c52ab3f7217c3e
 Author: Elena Piscopia <elena@example.net>
-Date:   Wed Dec 18 16:07:40 2019 +0100
+Date:   Thu Dec 19 10:00:36 2019 +0100
 
     add container and execute analysis within container

@@ -1,6 +1,6 @@
 $ cd midterm_project
 # we are in midterm_project, thus -d . points to the root of it.
-$ datalad install -d . --source https://github.com/datalad-handbook/iris_data.git input/
+$ datalad clone -d . https://github.com/datalad-handbook/iris_data.git input/
 [INFO] Cloning https://github.com/datalad-handbook/iris_data.git [1 other candidates] into '/home/me/dl-101/DataLad-101/midterm_project/input' 
 [INFO]   Remote origin not usable by git-annex; setting annex-ignore 
 add(ok): input (file)

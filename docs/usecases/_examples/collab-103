@@ -1,4 +1,4 @@
-$ datalad install -d . --source https://github.com/psychoinformatics-de/studyforrest-data-structural.git src/forrest_structural
+$ datalad clone -d . https://github.com/psychoinformatics-de/studyforrest-data-structural.git src/forrest_structural
 [INFO] Cloning https://github.com/psychoinformatics-de/studyforrest-data-structural.git [1 other candidates] into '/home/me/usecases/collab/myanalysis/src/forrest_structural' 
 [INFO]   Remote origin not usable by git-annex; setting annex-ignore 
 add(ok): src/forrest_structural (file)

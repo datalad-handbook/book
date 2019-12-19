@@ -65,10 +65,10 @@ index f84c817..0000000
 -# commits throughout the repository tree
 -datalad diff --revision @~1 -r
 diff --git a/notes.txt b/notes.txt
-index 4f2df90..c7adfcc 100644
+index a894336..a1e5bca 100644
 --- a/notes.txt
 +++ b/notes.txt
-@@ -63,3 +63,7 @@ The command "git annex whereis PATH" lists the repositories that have
+@@ -60,3 +60,7 @@ The command "git annex whereis PATH" lists the repositories that have
  the file content of an annexed file. When using "datalad get" to retrieve
  file content, those repositories will be queried.
  

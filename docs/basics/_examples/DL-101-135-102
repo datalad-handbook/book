@@ -7,7 +7,7 @@ $ datalad wtf
 ## dataset 
   - path: /home/me/dl-101/DataLad-101
   - repo: AnnexRepo
-  - id: da81f616-21a7-11ea-910e-d0c637c523bc
+  - id: c13f1288-223d-11ea-af8b-e86a64c8054c
   - metadata: <SENSITIVE, report disabled by configuration>
 ## dependencies 
   - cmd:git: 2.20.1

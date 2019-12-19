@@ -241,7 +241,7 @@ by cloning it as a subdataset. Make sure to clone it as a subdataset of
 
    $ cd midterm_project
    # we are in midterm_project, thus -d . points to the root of it.
-   $ datalad clone -d https://github.com/datalad-handbook/iris_data.git input/
+   $ datalad clone -d . https://github.com/datalad-handbook/iris_data.git input/
 
 Note that we did not keep its original name, ``iris_data``, but rather provided
 a path with a new name, ``input``, because this much more intuitively comprehensible.

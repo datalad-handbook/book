@@ -1,9 +1,9 @@
 $ git log -p -n 2
-commit 102c012ec6463d09baf5bec519aa581de31567db
+commit 0de1d07b2116124ee2b25d2a5b97a9fdede72e32
 Author: Elena Piscopia <elena@example.net>
-Date:   Wed Dec 18 16:06:02 2019 +0100
+Date:   Thu Dec 19 09:59:06 2019 +0100
 
-    Add note on datalad install
+    Add note on datalad clone
 
 diff --git a/notes.txt b/notes.txt
 index bfa64d7..ffdc2c0 100644
@@ -20,9 +20,9 @@ index bfa64d7..ffdc2c0 100644
 +root of the superdataset with the '-d' option.
 +
 
-commit 5ade99e9a3f64594aa5ee37ae96c61707e5a7cdc
+commit d84147e3b771f7e5c55f3270d58419195cbc8d11
 Author: Elena Piscopia <elena@example.net>
-Date:   Wed Dec 18 16:05:55 2019 +0100
+Date:   Thu Dec 19 09:59:01 2019 +0100
 
     [DATALAD] Recorded changes
 
@@ -44,9 +44,9 @@ index 0000000..dcc34fb
 @@ -0,0 +1 @@
 +Subproject commit dcc34fbe669b06ced84ced381ba0db21cf5e665f
 
-commit 3fe4c7d06cc317f32df061b341cc8f59d0bfba07
+commit 506780232494a09738eee14e1aee10f094c31af3
 Author: Elena Piscopia <elena@example.net>
-Date:   Wed Dec 18 16:05:53 2019 +0100
+Date:   Thu Dec 19 09:58:58 2019 +0100
 
     add note on datalad save
 
@@ -63,9 +63,9 @@ index 3a7a1fe..bfa64d7 100644
 +Always use informative, concise commit messages.
 +
 
-commit 225b9d9b8598114c0172d5181e6b4450f7ab8d39
+commit 257437822e94959ac8f3fc609781b396e4dd8b18
 Author: Elena Piscopia <elena@example.net>
-Date:   Wed Dec 18 16:05:52 2019 +0100
+Date:   Thu Dec 19 09:58:58 2019 +0100
 
     Add notes on datalad create
 
@@ -79,9 +79,9 @@ index 0000000..3a7a1fe
 +The dataset is created empty
 +
 
-commit cdfad59a41e12e5cebce04b7c75efcc6b13cbff5
+commit ce4938af86af57fe86317bc247ec7ffa2e6603df
 Author: Elena Piscopia <elena@example.net>
-Date:   Wed Dec 18 16:05:50 2019 +0100
+Date:   Thu Dec 19 09:58:56 2019 +0100
 
     add beginners guide on bash
 
@@ -94,9 +94,9 @@ index 0000000..00ca6bd
 +../.git/annex/objects/WF/Gq/MD5E-s1198170--0ab2c121bcf68d7278af266f6a399c5f.pdf/MD5E-s1198170--0ab2c121bcf68d7278af266f6a399c5f.pdf
 \ No newline at end of file
 
-commit 537813006e0e0a9543244f33873a32e01f2ce16d
+commit a9d9e75ec6dd3c4784c5508e8875b98dbdc7ac93
 Author: Elena Piscopia <elena@example.net>
-Date:   Wed Dec 18 16:05:48 2019 +0100
+Date:   Thu Dec 19 09:58:54 2019 +0100
 
     add reference book about git
 
@@ -109,9 +109,9 @@ index 0000000..c5d2ab2
 +../.git/annex/objects/G6/Gj/MD5E-s12465653--05cd7ed561d108c9bcf96022bc78a92c.pdf/MD5E-s12465653--05cd7ed561d108c9bcf96022bc78a92c.pdf
 \ No newline at end of file
 
-commit 7732a930aed63ea956381cd52417189e8c0d9d5f
+commit b915c9b62b7c7f0c91cb1fa4610af9ef52714212
 Author: Elena Piscopia <elena@example.net>
-Date:   Wed Dec 18 16:05:46 2019 +0100
+Date:   Thu Dec 19 09:58:51 2019 +0100
 
     add books on Python and Unix to read later
 
@@ -132,9 +132,9 @@ index 0000000..34276a5
 +../.git/annex/objects/6G/KG/MD5E-s4407675--1c9aa7c72fd93f0882cd25850237890a.pdf/MD5E-s4407675--1c9aa7c72fd93f0882cd25850237890a.pdf
 \ No newline at end of file
 
-commit f79ae8ee9df518956322c71bc2bf643bcff5463d
+commit f0f5bea22a4c98e54577c700834a85971f2518f9
 Author: Elena Piscopia <elena@example.net>
-Date:   Wed Dec 18 16:05:40 2019 +0100
+Date:   Thu Dec 19 09:58:42 2019 +0100
 
     Instruct annex to add text files to Git
 
@@ -151,9 +151,9 @@ index c3aaefe..b223f34 100644
 +* annex.largefiles=(not(mimetype=text/*)and(largerthan=0))
 \ No newline at end of file
 
-commit 2610c6f92f259eedbe99fc4a88337092d8d9644e
+commit 1adf5836bbd24baa6cb983d6ba874893b346ef8f
 Author: Elena Piscopia <elena@example.net>
-Date:   Wed Dec 18 16:05:39 2019 +0100
+Date:   Thu Dec 19 09:58:41 2019 +0100
 
     [DATALAD] new dataset
 
@@ -170,12 +170,12 @@ index 0000000..b540820
 \ No newline at end of file
 diff --git a/.datalad/config b/.datalad/config
 new file mode 100644
-index 0000000..cf63412
+index 0000000..9c8e340
 --- /dev/null
 +++ b/.datalad/config
 @@ -0,0 +1,2 @@
 +[datalad "dataset"]
-+	id = da81f616-21a7-11ea-910e-d0c637c523bc
++	id = c13f1288-223d-11ea-af8b-e86a64c8054c
 diff --git a/.gitattributes b/.gitattributes
 new file mode 100644
 index 0000000..c3aaefe

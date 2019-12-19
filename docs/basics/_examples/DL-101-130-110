@@ -1,13 +1,13 @@
 $ git show ready4analysis
-commit 6918dd71d1ca65b151e160a3b59c12f03986037c
+commit a420097e99c9864d95991861e38b806f9b06767f
 Author: Elena Piscopia <elena@example.net>
-Date:   Wed Dec 18 16:06:50 2019 +0100
+Date:   Thu Dec 19 09:59:47 2019 +0100
 
     add script for kNN classification and plotting
 
 diff --git a/code/script.py b/code/script.py
 new file mode 100644
-index 0000000..e43d58e
+index 0000000..32c7c03
 --- /dev/null
 +++ b/code/script.py
 @@ -0,0 +1,41 @@
@@ -21,7 +21,7 @@ index 0000000..e43d58e
 +
 +data = "input/iris.csv"
 +
-+# make sure that the data are obtained (get will also install linked sub-ds!):
++# make sure that the data are obtained (get will also clone linked sub-ds!):
 +dl.get(data)
 +
 +# prepare the data as a pandas dataframe

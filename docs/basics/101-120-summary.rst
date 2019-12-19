@@ -8,28 +8,22 @@ to share, update, and collaborate on a DataLad dataset on a shared file system.
 Thus, you have glimpsed into the principles and advantages of
 sharing a dataset with a simple example.
 
-* To obtain a dataset, one can also use :command:`datalad install` as an
-  alternative to :command:`datalad clone`.
-  By default, potential subdatasets will not be installed right away --
-  you will have to do :command:`datalad get -n/--no-data`, a plain
-  :command:`datalad install PATH/TO/SUBDATASET`, or specify the
-  ``-r``/``--recursive`` option in the install command
-  (``datalad install -s ../DataLad-101 -r``) with a decent
-  ``-R/--recursion-limit`` choice.
-
-* On a common or share file system, :command:`datalad install`
-  (or :command:`datalad clone` take a path as the ``-s``/``--source`` option.
+* To obtain a dataset, one can also use :command:`datalad clone` with a path.
+  Potential subdatasets will not be cloned right away. As they are registered in
+  the superdataset, you can do :command:`datalad get -n/--no-data`,
+  or specify the ``-r``/``--recursive`` (``datalad get -n -r <subds>``)
+  with a decent ``-R/--recursion-limit`` choice to clone them afterwards.
 
 * The configuration of the original dataset determines which types
-  of files will have their content available right after installation
-  of the dataset, and which types of files need to be retrieved via
+  of files will have their content available right after cloning
+  the dataset, and which types of files need to be retrieved via
   :command:`datalad get`: Any file content stored in :term:`Git` will be available
   right away, while all file content that is ``annexed`` only has
   small metadata about its availability attached to it. The original
   ``DataLad-101`` dataset used the ``text2git`` configuration template
   to store text files such as ``notes.txt`` and ``code/list_titles.sh``
   in Git -- these files' content is therefore available right after
-  installation.
+  cloning.
 
 * Annexed content can be retrieved via :command:`datalad get` from the
   file content sources.
@@ -45,13 +39,13 @@ sharing a dataset with a simple example.
   :command:`datalad run` commands can then easily be ``rerun``.
 
 * Because a cloned dataset knows its origin -- the place it was
-  originally installed from -- it can be kept up-to-date with the
+  originally cloned from -- it can be kept up-to-date with the
   :command:`datalad update` command. This command will query the origin of the
   dataset for updates, and a :command:`datalad update --merge` will integrate
   these changes into the dataset copy.
 
 * Thus, using DataLad, data can be easily shared and kept up to date
-  with only two commands: :command:`datalad install` and :command:`datalad update`.
+  with only two commands: :command:`datalad clone` and :command:`datalad update`.
 
 * By configuring a dataset as a :term:`sibling`, collaboration becomes easy.
 
@@ -73,7 +67,7 @@ file system in surprisingly useful ways.
 Simultaneously, you have observed dataset properties you already knew
 (for example how annexed files need to be retrieved via :command:`datalad get`),
 but you have also seen novel aspects of a dataset -- for example that
-subdatasets are not automatically installed by default, how
+subdatasets are not automatically cloned by default, how
 :command:`git annex whereis` can help you find out where file content might be stored,
 how useful commands that capture provenance about the origin or creation of files
 (such as :command:`datalad run` or :command:`datalad download-url`) are,

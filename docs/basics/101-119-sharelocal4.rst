@@ -24,8 +24,9 @@ this would have resulted in about the same output, right?
 What we will be looking into now is how shared DataLad
 datasets can be updated.
 
-Remember that you added some notes on :command:`datalad install`
-and :command:`git annex whereis` into the original ``DataLad-101``?
+Remember that you added some notes on :command:`datalad clone`,
+:command:`datalad get`, and :command:`git annex whereis` into the
+original ``DataLad-101``?
 
 This is a change that is not reflected in your "shared"
 installation in ``../mock_user/DataLad-101``:

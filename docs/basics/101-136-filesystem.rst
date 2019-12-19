@@ -789,10 +789,10 @@ will error if given a sub-*directory*, a file, or a top-level dataset.
 .. runrecord:: _examples/DL-101-136-160
    :language: console
    :workdir: dl-101/DataLad-101
-   :notes: To get rid of subdatasets one can either uninstall or remove them. let's install one to see:
+   :notes: To get rid of subdatasets one can either uninstall or remove them. let's clone one to see:
    :cast: 03_git_annex_basics
 
-   # Install a subdataset - the content is irrelevant, so why not a cloud :)
+   # clone a subdataset - the content is irrelevant, so why not a cloud :)
    $ datalad clone -d . \
     https://github.com/datalad-datasets/disneyanimation-cloud.git \
     cloud
@@ -808,8 +808,7 @@ To uninstall the dataset, use
    $ datalad uninstall cloud
 
 Note that the dataset is still known in the dataset, and not completely removed.
-A ``datalad install cloud`` or ``datalad get cloud`` would reinstall the
-dataset.
+A ``datalad get [-n/--no-data] cloud`` would clone the dataset again.
 
 .. index:: ! datalad command; remove
 
@@ -819,7 +818,7 @@ relevant [#f2]_.
 It needs a pointer to the root of the superdataset with the ``-d/--dataset``
 flag, a path to the subdataset to be removed, and optionally a commit message
 (``-m/--message``) or recursive specification (``-r/--recursive``).
-To remove a subdataset, we will install the uninstalled subdataset again, and
+To remove a subdataset, we will clone the uninstalled subdataset again, and
 subsequently remove it with the :command:`datalad remove` command:
 
 .. runrecord:: _examples/DL-101-136-163

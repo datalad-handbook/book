@@ -94,7 +94,7 @@ analysis, an associated ``project`` is created under the namespace of the
 institute on the institute's :term:`GitLab` instance automatically. This has
 the advantage of vastly simplified version control and
 simplified access to projects for collaborators and supervisors. Data
-from the data store is installed as subdatasets. This comes with several
+from the data store is cloned as subdatasets. This comes with several
 benefits: Analyses are automatically linked to data, no unused file
 copies waste disk space on the compute cluster as data can be retrieved
 on-demand, and files that are easily re-obtained or recomputed can safely be
@@ -266,13 +266,13 @@ This is done with a custom configuration (``cfg_inm7``) as a run-procedure [#f2]
    $ datalad create -c inm7 <PATH>
 
 The configuration performs all the relevant setup of the dataset with a fully
-configured link to ``$DATA``: It is configured as a remote to install and pull
+configured link to ``$DATA``: It is configured as a remote to clone and pull
 data from, but upon creation of the dataset, the dataset's directory is also created at the remote
 end as a bare repository to enable pushing of results back to ``$DATA``. At the same
 time, a GitLab :term:`sibling` in the institute's GitLab instance is created, with a
 publication dependency on the data storage.
 
-With this setup, a dataset of any size can be installed in a matter of seconds
+With this setup, a dataset of any size can be cloned in a matter of seconds
 by providing its ID as a source in a :command:`datalad clone` command::
 
    $ datalad clone --dataset mynewdataset \

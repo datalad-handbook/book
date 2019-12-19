@@ -106,20 +106,14 @@ chapters in this handbook will demonstrate how useful this information can be.
    No. Instead of from the *root* of the ``DataLad-101`` dataset, you could have also
    cloned the dataset from within the ``recordings``, or ``books`` directory.
    In the case of cloning datasets into existing datasets you however need
-   to adjust the paths that are given with the ``-d/--dataset`` option and as a
-   destination: ``-d`` needs to specify the path to the root of the dataset,
-   and the destination path needs to start from the directory root. This is
+   to adjust the paths that are given with the ``-d/--dataset`` option:
+   ``-d`` needs to specify the path to the root of the dataset. This is
    important to keep in mind whenever you don't execute the :command:`clone` command
-   from the root of this dataset. For example, if you navigate into ``recordings``
+   from the root of this dataset. Luckily, there is a shortcut: ``-d^`` will always
+   point to root of the top-most dataset. For example, if you navigate into ``recordings``
    the command would be::
 
-     datalad clone -d ../ https://github.com/datalad-datasets/longnow-podcasts.git recordings/longnow
-
-   Note that the path did not change and defines a destination starting from the root
-   if the dataset, but ``-d .`` changed to ``-d ../`` (the Unix expression for
-   ``parent directory``, i.e.,  "one-directory-up").
-   Later in this book there is a dedicated section that explains what this ``-d``/``--dataset`` option
-   does and why it is important, but for now just be mindful of the instruction above.
+     datalad clone -d^ https://github.com/datalad-datasets/longnow-podcasts.git longnow
 
 .. findoutmore:: What if I do not clone into an existing dataset?
 

@@ -808,7 +808,7 @@ To uninstall the dataset, use
    $ datalad uninstall cloud
 
 Note that the dataset is still known in the dataset, and not completely removed.
-A ``datalad get [-n/--no-data] cloud`` would clone the dataset again.
+A ``datalad get [-n/--no-data] cloud`` would install the dataset again.
 
 .. index:: ! datalad command; remove
 
@@ -818,7 +818,7 @@ relevant [#f2]_.
 It needs a pointer to the root of the superdataset with the ``-d/--dataset``
 flag, a path to the subdataset to be removed, and optionally a commit message
 (``-m/--message``) or recursive specification (``-r/--recursive``).
-To remove a subdataset, we will clone the uninstalled subdataset again, and
+To remove a subdataset, we will install the uninstalled subdataset again, and
 subsequently remove it with the :command:`datalad remove` command:
 
 .. runrecord:: _examples/DL-101-136-163

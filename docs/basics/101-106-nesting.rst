@@ -7,7 +7,7 @@ Without noticing, the previous section demonstrated another core principle
 and feature of DataLad datasets: *Nesting*.
 
 Within DataLad datasets one can *nest* other DataLad
-datasets arbitrarily deep. We for example just cloned one dataset, the
+datasets arbitrarily deep. We for example just installed one dataset, the
 ``longnow`` podcasts, *into* another dataset, the ``DataLad-101`` dataset.
 This was done by supplying the ``--dataset``/``-d`` flag in the command call.
 
@@ -78,7 +78,7 @@ We can see that it is the most recent commit shasum of the subdataset
 (albeit we can see only the first seven characters here -- a :command:`git log`
 would show you the full shasum). Thus, your dataset does not only know the origin
 of its subdataset, but also its version, i.e., an identification which point
-of the subdatasets evolution you cloned.
+of the subdatasets evolution you installed.
 This is what is meant by "the top-level DataLad dataset (the *superdataset*) only stores
 *which version* of the subdataset is currently used".
 
@@ -112,7 +112,7 @@ and nesting schematically:
    :alt: Virtual directory tree of a nested DataLad dataset
 
 Thus, without being consciously aware of it, by taking advantage of dataset
-nesting, we took a dataset ``longnow`` and cloned it as a
+nesting, we took a dataset ``longnow`` and installed it as a
 subdataset within the superdataset  ``DataLad-101``.
 
 If you have executed the above code snippets, make sure to go back into the

@@ -257,10 +257,10 @@ on its own already.
 
 One core aspect of this principle is *linking* between re-usable data
 resource units (i.e., DataLad subdatasets containing pure data). You will
-be happy to hear that this is achieved by simply cloning datasets
+be happy to hear that this is achieved by simply installing datasets
 as subdatasets.
 This part of this principle will therefore be absolutely obvious to you
-because you already know how to clone and nest datasets within datasets.
+because you already know how to install and nest datasets within datasets.
 "I might just overcome my impostor syndrome if I experience such advanced
 reproducible analysis concepts as being obvious", you think with a grin.
 
@@ -269,7 +269,7 @@ reproducible analysis concepts as being obvious", you think with a grin.
    :figwidth: 50%
    :alt: Datasets are installed as subdatasets
 
-   Schematic illustration of two standalone data datasets cloned as subdatasets
+   Schematic illustration of two standalone data datasets installed as subdatasets
    into an analysis project.
 
 But more than linking datasets in a superdataset, linkage also needs to
@@ -286,7 +286,7 @@ it locked in a drawer (or similarly out of reach behind complexities of
 data retrieval or difficulties in understanding the data structure).
 But conducting several projects on the same dataset yourself, sharing it with
 collaborators, or publishing it is easy if the project is a DataLad dataset
-that can be cloned and retrieved on demand, and is kept clean from
+that can be installed and retrieved on demand, and is kept clean from
 everything that is not part of the data according to principle 1.
 Conducting transparent open science is easier if you can link code, data,
 and results within a dataset, and share everything together. In conjunction

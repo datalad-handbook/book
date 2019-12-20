@@ -134,7 +134,7 @@ independent dataset from scratch in the hidden section below.
 .. findoutmore:: Creating an independent input dataset
 
    If you acquire your own data for a data analysis, it will not magically exist as a
-   DataLad dataset that you can simply clone from somewhere -- you'll have
+   DataLad dataset that you can simply install from somewhere -- you'll have
    to turn it into a dataset yourself. Any directory with data that exists on
    your computer can be turned into a dataset with :command:`datalad create --force`
    and a subsequent :command:`datalad save -m "add data" .` to first create a dataset inside of
@@ -180,14 +180,14 @@ independent dataset from scratch in the hidden section below.
    file) is downloaded, and, importantly, the dataset recorded *where* it
    was obtained from thanks to :command:`datalad download-url`, thus complying
    to the second YODA principle.
-   This way, upon cloning the dataset, DataLad knows where to
+   This way, upon installation of the dataset, DataLad knows where to
    obtain the file content from. You can :command:`datalad clone` the iris
    dataset and find out with a ``git annex whereis iris.csv`` command.
 
 
 "Nice, with this input dataset I have sufficient provenance capture for my
-input dataset, and I can clone it as a modular component", you think as you
-mentally tick off YODA principle number 1 and 2. "But before I can clone it,
+input dataset, and I can install it as a modular component", you think as you
+mentally tick off YODA principle number 1 and 2. "But before I can install it,
 I need an analysis superdataset first."
 
 Building an analysis dataset
@@ -228,9 +228,9 @@ Not only the ``longnow`` subdataset, but also the newly created
 ``midterm_project`` subdataset are displayed -- wonderful!
 
 But back to the midterm project now. So far, you have created a pre-structured
-analysis dataset. As a next step, you take care of cloning and linking the
+analysis dataset. As a next step, you take care of installing and linking the
 raw dataset for your analysis adequately to your ``midterm_project`` dataset
-by cloning it as a subdataset. Make sure to clone it as a subdataset of
+by installing it as a subdataset. Make sure to install it as a subdataset of
 ``midterm_project``, and not ``DataLad-101``!
 
 .. runrecord:: _examples/DL-101-130-105
@@ -246,7 +246,7 @@ by cloning it as a subdataset. Make sure to clone it as a subdataset of
 Note that we did not keep its original name, ``iris_data``, but rather provided
 a path with a new name, ``input``, because this much more intuitively comprehensible.
 
-After the input dataset is cloned, the directory structure of ``DataLad-101``
+After the input dataset is installed, the directory structure of ``DataLad-101``
 looks like this:
 
 .. runrecord:: _examples/DL-101-130-106
@@ -310,7 +310,7 @@ To compute the analysis you create the following Python script inside of ``code/
 
    data = "input/iris.csv"
 
-   # make sure that the data are obtained (get will also clone linked sub-ds!):
+   # make sure that the data are obtained (get will also install linked sub-ds!):
    dl.get(data)
 
    # prepare the data as a pandas dataframe
@@ -346,7 +346,7 @@ To compute the analysis you create the following Python script inside of ``code/
 This script will
 
 - import DataLad's functionality and expose it as ``dl.<COMMAND>``
-- make sure to clone the linked subdataset and retrieve the data with
+- make sure to install the linked subdataset and retrieve the data with
   :command:`datalad get` (l. 12) prior to reading it in, and
 - save the resulting figure (l. 21) and ``.csv`` file (l. 40) into the root of
   ``midterm_project/``. Note how this helps to fulfil YODA principle 1 on modularity:
@@ -403,7 +403,7 @@ point with the ``--version-tag`` option of :command:`datalad save`.
    and the current dataset state.
 
 Finally, with your directory structure being modular and intuitive,
-the input data cloned, the script ready, and the dataset status clean,
+the input data installed, the script ready, and the dataset status clean,
 you can wrap the execution of the script (which is a simple
 ``python3 code/script.py``) in a :command:`datalad run` command. Note that
 simply executing the script would work as well -- thanks to DataLad's Python API.
@@ -553,7 +553,7 @@ syllabus, this should be done via :term:`GitHub`.
    if you have figured out storage for your large files otherwise (as large content
    can not be hosted for free by GitHub). You can make DataLad publish large file content to one location
    and afterwards automatically push an update to GitHub, such that
-   users can clone directly from GitHub/GitLab and seemingly also obtain large file
+   users can install directly from GitHub/GitLab and seemingly also obtain large file
    content from GitHub. GitHub can also resolve subdataset links to other GitHub
    repositories, which lets you navigate through nested datasets in the web-interface.
 
@@ -664,7 +664,7 @@ sibling would be required:
 
    $ git push github --tags
 
-Yay! Consider your midterm project submitted! Others can now clone your
+Yay! Consider your midterm project submitted! Others can now install your
 dataset and check out your data science project -- and even better: they can
 reproduce your data science project easily from scratch!
 
@@ -672,7 +672,7 @@ reproduce your data science project easily from scratch!
 
    Now that you have created and published such a YODA-compliant dataset, you
    are understandably excited how this dataset must look and feel for others.
-   Therefore, you decide to clone this dataset into a new location on your
+   Therefore, you decide to install this dataset into a new location on your
    computer, just to get a feel for it.
 
    Replace the ``url`` in the :command:`clone` command below with the path

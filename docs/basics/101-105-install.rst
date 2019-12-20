@@ -1,7 +1,7 @@
 .. _installds:
 
-Obtain datasets
----------------
+Install datasets
+----------------
 
 So far, we have created a ``DataLad-101`` course dataset. We saved some additional readings
 into the dataset, and have carefully made and saved notes on the DataLad
@@ -14,22 +14,22 @@ Therefore, everyone in today's lecture excitedly awaits today's topic: Installin
 
 "With DataLad, users can get *clones* of existing DataLad datasets from paths, URLs, or
 open-data collections" our lecturer begins.
-"This makes accessing data fast and easy. A dataset that others could *clone* can be
+"This makes accessing data fast and easy. A dataset that others could install can be
 created by anyone, without a need for additional software. Your own datasets can be
-cloned by others, should you want that, for example. Therefore, not only accessing
+installed by others, should you want that, for example. Therefore, not only accessing
 data becomes fast and easy, but also *sharing*."
 "That's so cool!", you think. "Exam preparation will be a piece of cake if all of us
 can share our mid-term and final projects easily!"
-"But today, let's only focus on how to clone a dataset", she continuous.
+"But today, let's only focus on how to install a dataset", she continuous.
 "Damn it! Can we not have longer lectures?", you think and set alarms to all of the
 upcoming lecture dates in your calendar.
 There is so much exciting stuff to come, you can not miss a single one.
 
 "Psst!" a student from the row behind reaches over. "There are
 a bunch of audio recordings of a really cool podcast, and they have been shared in the form
-of a DataLad dataset! Shall we try whether we can clone that?"
+of a DataLad dataset! Shall we try whether we can install that?"
 
-"Perfect! What a great way to learn how to clone a dataset. Doing it
+"Perfect! What a great way to learn how to install a dataset. Doing it
 now instead of looking at slides for hours is my preferred type of learning anyway",
 you think as you fire up your terminal and navigate into your ``DataLad-101`` dataset.
 
@@ -56,22 +56,27 @@ called recordings.
 
 
 .. index:: ! datalad command; clone
+.. index:: ! datalad command; install
 
-Let's clone the longnow podcasts in this new directory:
-Getting a clone of an existing dataset is done with the :command:`datalad clone` command
-(:manpage:`datalad-clone` manual).
+There are two commands that can be used to obtain a dataset: :command:`datalad install`
+(:manpage:`datalad-install` manual),and :command:`datalad clone` (:manpage:`datalad-clone`
+manual). Throughout this handbook, we will use :command:`datalad clone` to obtain
+datasets. The command has a less complex structure and slightly simplified behavior,
+but a hidden section in section :ref:`sharelocal1` will elaborate on the differences
+between the two commands.
+Let's install the longnow podcasts in this new directory with :command:`datalad clone`.
 
 - The command takes a location of an existing dataset to clone. This *source*
   can be a URL or a path to a local directory, or an SSH server [#f1]_. The dataset
-  to be cloned lives on :term:`GitHub`, at
+  to be installed lives on :term:`GitHub`, at
   `https://github.com/datalad-datasets/longnow-podcasts.git <https://github.com/datalad-datasets/longnow-podcasts.git>`_,
   and we can give its GitHub URL as the  first positional argument.
 - Optionally, the command also takes a second positional path as an argument --
-  to the *destination*, i.e., a path to where we want to clone the dataset to --
+  to the *destination*, i.e., a path to where we want to install the dataset to --
   in this case it is ``recordings/longnow``.
-- Because we are cloning a dataset (the podcasts) into an existing dataset (the ``DataLad-101``
+- Because we are installing a dataset (the podcasts) into an existing dataset (the ``DataLad-101``
   dataset), we also supply a ``-d/--dataset`` flag to the command.
-  This specifies the dataset to perform the operation on, and allows us to clone
+  This specifies the dataset to perform the operation on, and allows us to install
   the podcasts as a *subdataset* of ``DataLad-101``. Because we are in the root
   of the ``DataLad-101`` dataset, the pointer to the dataset is a ``.`` (which is Unix'
   way for saying "current directory").
@@ -93,7 +98,7 @@ This command copied the repository found at the URL https://github.com/datalad-d
 into the existing ``DataLad-101`` dataset, into the directory ``recordings/longnow``.
 The optional destination is helpful: If we had not specified the path
 ``recordings/longnow`` as a destination for the dataset clone, the command would
-have cloned the dataset into the root of the ``DataLad-101`` dataset, and instead
+have installed the dataset into the root of the ``DataLad-101`` dataset, and instead
 of ``longnow`` it would have used the name of the remote repository "``longnow-podcasts``".
 But the coolest feature of :command:`datalad clone` is yet invisible: This command
 also recorded where this dataset came from, thus capturing its *origin* as
@@ -101,11 +106,11 @@ also recorded where this dataset came from, thus capturing its *origin* as
 chapters in this handbook will demonstrate how useful this information can be.
 
 
-.. findoutmore:: Do I have to clone from the root of datasets?
+.. findoutmore:: Do I have to install from the root of datasets?
 
    No. Instead of from the *root* of the ``DataLad-101`` dataset, you could have also
-   cloned the dataset from within the ``recordings``, or ``books`` directory.
-   In the case of cloning datasets into existing datasets you however need
+   installed the dataset from within the ``recordings``, or ``books`` directory.
+   In the case of installing datasets into existing datasets you however need
    to adjust the paths that are given with the ``-d/--dataset`` option:
    ``-d`` needs to specify the path to the root of the dataset. This is
    important to keep in mind whenever you don't execute the :command:`clone` command
@@ -115,24 +120,24 @@ chapters in this handbook will demonstrate how useful this information can be.
 
      datalad clone -d^ https://github.com/datalad-datasets/longnow-podcasts.git longnow
 
-.. findoutmore:: What if I do not clone into an existing dataset?
+.. findoutmore:: What if I do not install into an existing dataset?
 
-   If you do not clone into an existing dataset, you only need to omit the ``-d/--dataset``
+   If you do not install into an existing dataset, you only need to omit the ``-d/--dataset``
    option. You can try::
   
      datalad clone https://github.com/datalad-datasets/longnow-podcasts.git
 
-   anywhere outside of your ``Datalad-101`` dataset to clone the dataset into a new directory
+   anywhere outside of your ``Datalad-101`` dataset to install the dataset into a new directory
    called ``longnow-podcasts``. You could even do this inside of an existing dataset.
-   However, whenever you clone datasets into of other datasets, the ``-d/--dataset``
-   option is necessary to not only clone the dataset, but also *register* it
+   However, whenever you install datasets into of other datasets, the ``-d/--dataset``
+   option is necessary to not only install the dataset, but also *register* it
    automatically into the higher level *superdataset*. The upcoming section will
    elaborate on this.
 
 .. gitusernote::
 
    The :command:`datalad clone` command uses :command:`git clone`.
-   A dataset that is cloned from an existing source, e.g., a path or URL,
+   A dataset that is installed from an existing source, e.g., a path or URL,
    is the DataLad equivalent of a *clone* in Git.
 
 Here is the repository structure:
@@ -145,7 +150,7 @@ Here is the repository structure:
 
    $ tree -d   # we limit the output to directories
 
-We can see that recordings has one subdirectory, our newly cloned ``longnow``
+We can see that recordings has one subdirectory, our newly installed ``longnow``
 dataset. Within the dataset are two other directories, ``Long_Now__Conversations_at_The_Interval``
 and ``Long_Now__Seminars_About_Long_term_Thinking``.
 If we navigate into one of them and list its content, we'll see many ``.mp3`` files (here is an
@@ -167,18 +172,18 @@ Dataset content identity and availability information
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Surprised you turn to your fellow student and wonder about
-how fast the dataset was cloned. Should
+how fast the dataset was installed. Should
 a download of that many ``.mp3`` files not take much more time?
 
 Here you can see another import feature of DataLad datasets
 and the :command:`datalad clone` command:
-Upon cloning a DataLad dataset, DataLad retrieves only small files
+Upon installation of a DataLad dataset, DataLad retrieves only small files
 (for example text files or markdown files) and (small) metadata
 information about the dataset. It does not, however, download any large files
 (yet). The metadata exposes the dataset's file hierarchy
 for exploration (note how you are able to list the dataset contents with ``ls``),
-and downloading only this metadata speeds up cloning of a DataLad dataset
-of many TB in size to a few seconds. Just now, after cloning, the dataset is
+and downloading only this metadata speeds up the installation of a DataLad dataset
+of many TB in size to a few seconds. Just now, after installing, the dataset is
 small in size:
 
 .. runrecord:: _examples/DL-101-105-105
@@ -200,10 +205,10 @@ This is not your fault: *None of these files exist on your computer yet*.
 
 Wait, what?
 
-This sounds strange, but it has many advantages. Apart from fast cloning,
+This sounds strange, but it has many advantages. Apart from a fast installation,
 it allows you to retrieve precisely the content you need, instead of all the contents
-of a dataset. Thus, even if you clone a dataset that is many TB in size,
-it takes up only few MB of space after cloning, and you can retrieve only those
+of a dataset. Thus, even if you install a dataset that is many TB in size,
+it takes up only few MB of space after the install, and you can retrieve only those
 components of the dataset that you need.
 
 Let's see how large the dataset would be in total if all of the files were present.
@@ -297,7 +302,7 @@ that the download of one file was ``notneeded`` and the retrieval of the other f
 
 
 You have now experienced how easy it is to obtain shared data with DataLad.
-But beyond only sharing the *data* in the dataset, when sharing or cloning
+But beyond only sharing the *data* in the dataset, when sharing or installing
 a DataLad dataset, all copies also include the datasets *history*.
 
 For example, we can find out who created the dataset in the first place
@@ -317,12 +322,12 @@ history from first to most recent commit):
 
 But that's not all. The seminar series is ongoing, and more recordings can get added
 to the original repository shared on GitHub.
-Because a cloned dataset knows the dataset it was cloned from,
+Because an installed dataset knows the dataset it was installed from,
 you local dataset clone can be updated from its origin, and thus get the new recordings,
 should there be some. But we will see examples of this later in this handbook.
 
 Now you can not only create datasets and work with them locally, you can also consume
-existing datasets by cloning them. Because that's cool, and because you will use this
+existing datasets by installing them. Because that's cool, and because you will use this
 command frequently, make a note of it into your ``notes.txt``, and :command:`datalad save` the
 modification.
 
@@ -336,8 +341,8 @@ modification.
    $ cd ../../
    $ cat << EOT >> notes.txt
    The command 'datalad clone URL/PATH [PATH]'
-   clones a dataset from e.g., a URL or a path.
-   If you clone a dataset into an existing
+   installs a dataset from e.g., a URL or a path.
+   If you install a dataset into an existing
    dataset (as a subdataset), remember to specify the
    root of the superdataset with the '-d' option.
 
@@ -346,7 +351,7 @@ modification.
 
 .. note::
 
-  Listing files directly after cloning a dataset will
+  Listing files directly after the installation of a dataset will
   work if done in a terminal with ``ls``.
   However, certain file managers (such as OSX's Finder [#f3]_) may fail to
   display files that are not yet present locally (i.e., before a

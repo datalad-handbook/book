@@ -43,10 +43,10 @@ and making simple modifications *locally*.
   :command:`datalad save`, but it also records the source of the file as hidden
   :term:`provenance` information.
 
-Furthermore, we have discovered the basics of cloning a published DataLad dataset,
+Furthermore, we have discovered the basics of installing a published DataLad dataset,
 and experienced the concept of modular nesting datasets.
 
-* A published dataset can be cloned with the :command:`datalad clone` command::
+* A published dataset can be installed with the :command:`datalad clone` command::
 
      $ datalad clone [--dataset PATH] SOURCE-PATH/URL [DESTINATION PATH]
 
@@ -54,10 +54,10 @@ and experienced the concept of modular nesting datasets.
 
 * The command takes a location of an existing dataset as a positional argument,
   and optionally a path to where you want the dataset to be installed. If you do not specify a path,
-  the dataset will be cloned into the current directory, with the original name of the
+  the dataset will be installed into the current directory, with the original name of the
   dataset.
 
-* If a dataset is cloned inside of a dataset as a subdataset, the
+* If a dataset is installed inside of a dataset as a subdataset, the
   ``--dataset``/``-d`` option needs to specify the root of the superdataset.
 
 * The source can be a URL (for example of a GitHub repository, as in section :ref:`installds`), but also
@@ -92,7 +92,7 @@ content (as opposed to small content we have been modifying so far).
 
 Additionally, you learned the basics on extending the ``DataLad-101`` dataset and consuming
 existing datasets:
-You have procedurally experienced how to clone a dataset, and simultaneously you have
+You have procedurally experienced how to install a dataset, and simultaneously you have
 learned a lot about the principles and features of DataLad datasets.
 Cloning datasets and getting their content allows you to consume published datasets.
 By nesting datasets within each other, you can re-use datasets in a modular fashion. While this may

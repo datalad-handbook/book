@@ -17,7 +17,7 @@ The steps below outline how the book "works". It is recommended to also create a
 to discuss changes or additions you plan to make in advance.
 
 Software setup
-""""""""""""""
+^^^^^^^^^^^^^^
 
 Depending on the size of your contribution, you may want to be able to build the book
 locally to test and preview your changes. If you are fixing typos, tweak the
@@ -65,7 +65,7 @@ a second machine ``/home/mih``, for example, leading to some potential confusion
 Therefore, you need to create this directory, and also --
 for consistency in the Git logs as well -- a separate, mock Git identity
 (we chose `Elena Piscopia <https://en.wikipedia.org/wiki/Elena_Cornaro_Piscopia>`_, the first
-woman to receive a PhD -- do not worry, this does not mess with your own Git identity):
+woman to receive a PhD. Do not worry, this does not mess with your own Git identity):
 
 .. code-block:: bash
 
@@ -74,19 +74,14 @@ woman to receive a PhD -- do not worry, this does not mess with your own Git ide
    $ HOME=/home/me git config --global user.name "Elena Piscopia"
    $ HOME=/home/me git config --global user.email "elena@example.net"
 
-.. todo::
-
-   remove separate Git identity until https://github.com/datalad/datalad/issues/3750
-   is fixed
-
 Once this is configured, you can build the book locally by running ``make`` in the root
 of the repository, and open it in your browser, for example with
 ``firefox docs/_build/html/index.html``.
 
 .. _directive:
 
-Directives and casts
-""""""""""""""""""""
+Directives and demos
+^^^^^^^^^^^^^^^^^^^^
 
 If you are writing larger sections that contain code, ``gitusernote``\s, ``findoutmore``\s,
 or other special directives, please make sure that you read this paragraph.
@@ -107,8 +102,8 @@ created content or dataset history. Build code snippets that add to these workin
 by using the ``runrecord`` directive. Commands wrapped in these will write the output
 of a command into example files stored inside of the DataLad Handbook repository clone
 in ``docs/PART/_examples`` (where ``PART`` is ``basics`` or ``usecases``).
-Make sure to name this files according to the following
-schema, because they are executed sequentially:
+Make sure to name these files according to the following
+schema, because they are executed *sequentially*:
 ``_examples/DL-101-1<nr-of-section>-1<nr-of-example>``, e.g.,
 ``_examples/DL-101-101-101`` for the first example in the first section
 of the given part.
@@ -124,8 +119,9 @@ Here is how a ``runrecord`` directive can look like:
       $ this line will be executed
 
 Afterwards, the resulting example files need to be committed into Git. To clear existing
-examples in ``docs/PART/_examples`` and the mock directories in ``/home/me``, run ``make clean`` and
-``make clean-examples``.
+examples in ``docs/PART/_examples`` and the mock directories in ``/home/me``, run
+``make clean`` (to remove working directories and examples for all parts of the book)
+or ``make clean-examples`` (to remove only examples and workdirs of the Basics part).
 
 However, for simple code snippets outside of the narrative of ``DataLad-101``,
 simple ``code-block::`` directives are sufficient.
@@ -135,7 +131,7 @@ simple ``code-block::`` directives are sufficient.
 (foldable sections that contain content that goes beyond the basics). Make use
 of them, if applicable to your contribution.
 
-**Creating code live casts out of runrecord directives**:
+**Creating live code demos out of runrecord directives**:
 The book has the capability to turn code snippets into a script that the tool
 `cast_live <https://github.com/datalad/datalad/blob/master/tools/cast_live>`_
 can use to cast and execute it in a demonstration shell. This feature is
@@ -143,15 +139,15 @@ intended for educational courses and other types of demonstrations. The
 following prerequisites exist:
 
 - A snippet only gets added to a cast, if the ``:cast:`` option in the
-  ``runrecord`` specifies a filename where to save the cast to (it does not
+  ``runrecord`` specifies a filename where to save the demo to (it does not
   need to be an existing file).
 - If ``:realcommand:`` options are specified, they will become the executable
   part of the cast. If note, the code snippet in the code-block of the
   ``runrecord`` will become the executable part of the cast.
 - An optional ``:notes:`` lets you add "speakernotes" for the cast.
-- Casts are produced upon ``make``, but only if the environment variable
+- Demos are produced upon ``make``, but only if the environment variable
   ``CAST_DIR`` is set.
-  This should be a path that points to any directory in which casts should be
+  This should be a path that points to any directory in which demos should be
   created and saved. An invocation could look like this::
 
      $ CAST_DIR=/home/me/casts make
@@ -174,12 +170,15 @@ execution of ``runrecords``. If you are adding code into an existing cast,
 i.e., in between two snippets that get written to the same cast, make sure that
 the cast will still run smoothly afterwards!
 
-**Running code live casts from created casts**:
+**Running live code demos from created casts**:
 If you have created a cast, you can use the tool ``live_cast`` in ``tools/`` in
 the `DataLad Course <https://github.com/datalad-handbook/course>`_ to
 execute them::
 
    ~ course$ tools/cast_live path/to/casts
+
+The section :ref:`teach` outlines more on this and other teaching materials the
+handbook provides.
 
 .. _easy:
 

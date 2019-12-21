@@ -247,7 +247,7 @@ you have to run a somewhat unexpected command:
 
    $ datalad get -n recordings/longnow
 
-The hidden section below will elaborate on :command:`datalad get` and the
+The section below will elaborate on :command:`datalad get` and the
 ``-n/--no-data`` option, but for now, let's first see what has changed after
 running the above command (excerpt):
 
@@ -272,24 +272,23 @@ in the superdataset.  This is why the subdataset name exists as a directory.
 A subsequent :command:`datalad get -n path/to/longnow` will install the registered
 subdataset again, just as we did it in the example above.
 
-.. findoutmore:: More on datalad get
+But what about the ``-n`` option for :command:`datalad get`?
+Previously, we used :command:`datalad get` to get file content. However,
+:command:`get` can operate on more than just the level of *files* or *directories*.
+Instead, it can also operate on the level of *datasets*. Regardless of whether
+it is a single file (such as ``books/TLCL.pdf``) or a registered subdataset
+(such as ``recordings/longnow``), :command:`get` will operate on it to 1) install
+it -- if it is a not yet installed subdataset -- and 2) retrieve the contents of any files.
+That makes it very easy to get your file content, regardless of
+how your dataset may be structured -- it is always the same command, and DataLad
+blurs the boundaries between superdatasets and subdatasets.
 
-   Previously, we used :command:`datalad get` to get file content. However,
-   :command:`get` can operate on more than just the level of *files* or *directories*.
-   Instead, it can also operate on the level of *datasets*. Regardless of whether
-   it is a single file (such as ``books/TLCL.pdf``) or a registered subdataset
-   (such as ``recordings/longnow``), :command:`get` will operate on it to 1) install
-   it -- if it is a not yet installed subdataset -- and 2) retrieve the contents of any files.
-   That makes it very easy to get your file content, regardless of
-   how your dataset may be structured -- it is always the same command, and DataLad
-   blurs the boundaries between superdatasets and subdatasets.
-
-   In the above example, we called :command:`datalad get` with the option ``-n/--no-data``.
-   This option prevents that :command:`get` obtains the data of individual files or
-   directories, thus limiting its scope to the level of datasets as only a
-   :command:`datalad clone` is performed. Without this option, the command would
-   have retrieved all of the subdatasets contents right away. But with ``-n/--no-data``,
-   it only installed the subdataset to retrieve the meta data about file availability.
+In the above example, we called :command:`datalad get` with the option ``-n/--no-data``.
+This option prevents that :command:`get` obtains the data of individual files or
+directories, thus limiting its scope to the level of datasets as only a
+:command:`datalad clone` is performed. Without this option, the command would
+have retrieved all of the subdatasets contents right away. But with ``-n/--no-data``,
+it only installed the subdataset to retrieve the meta data about file availability.
 
 To explicitly install all potential subdatasets *recursively*, that is,
 all of the subdatasets inside it as well, one can give the
@@ -316,12 +315,11 @@ with the first subdataset::
 .. findoutmore:: datalad clone versus datalad install
 
    You may remember from section :ref:`installds` that DataLad has two commands to obtain datasets,
-   :command:`datalad clone` and :command:`datalad install`. They look and
-   feel surprisingly similar, and seem to result in identical outcomes.
+   :command:`datalad clone` and :command:`datalad install`.
    The command structure of :command:`install` and :command:`datalad clone` are
-   almost the same::
+   almost identical::
 
-      $ datalad install [-d/--dataset PATH] [-D/--description] --source PATH/URL [DEST-PATH]
+      $ datalad install [-d/--dataset PATH] [-D/--description] --source PATH/URL [DEST-PATH ...]
       $ datalad clone [-d/--dataset PATH] [-D/--description] SOURCE-PATH/URL [DEST-PATH]
 
    Both commands are also often interchangeable: To create a copy of your

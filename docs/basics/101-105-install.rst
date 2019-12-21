@@ -12,7 +12,7 @@ But we've been told that with DataLad we could very easily get vast amounts of d
 computer. Rumor has it that this would be only a single command in the terminal!
 Therefore, everyone in today's lecture excitedly awaits today's topic: Installing datasets.
 
-"With DataLad, users can get *clones* of existing DataLad datasets from paths, URLs, or
+"With DataLad, users can install *clones* of existing DataLad datasets from paths, URLs, or
 open-data collections" our lecturer begins.
 "This makes accessing data fast and easy. A dataset that others could install can be
 created by anyone, without a need for additional software. Your own datasets can be
@@ -189,7 +189,7 @@ small in size:
    :language: console
    :workdir: dl-101/DataLad-101/recordings/longnow/Long_Now__Seminars_About_Long_term_Thinking
    :cast: 01_dataset_basics
-   :notes: Upon clonging of a DataLad dataset, DataLad retrieves only small files and metadata. Therefore the dataset is tiny in size. The files are non-functional now atm (Try opening one)
+   :notes: Upon cloning of a DataLad dataset, DataLad retrieves only small files and metadata. Therefore the dataset is tiny in size. The files are non-functional now atm (Try opening one)
 
    $ cd ../      # in longnow/
    $ du -sh      # Unix command to show size of contents

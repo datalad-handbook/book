@@ -77,8 +77,8 @@ subdataset's history:
 We can see that it is the most recent commit shasum of the subdataset
 (albeit we can see only the first seven characters here -- a :command:`git log`
 would show you the full shasum). Thus, your dataset does not only know the origin
-of its subdataset, but also its version, i.e., an identification which point
-of the subdatasets evolution you installed.
+of its subdataset, but also its version, i.e., it has an identifier of the stage
+of the subdatasets evolution.
 This is what is meant by "the top-level DataLad dataset (the *superdataset*) only stores
 *which version* of the subdataset is currently used".
 
@@ -98,7 +98,7 @@ we can set subdatasets to previous states, or *update* them.
    a Git command let's you run the command as if Git was started in this path
    instead of the current working directory.
    Thus, from the root of ``DataLad-101``, this command would have given you the
-   subdatasets history as well::
+   subdataset's history as well::
 
       $ git -C recordings/longnow log --oneline
 

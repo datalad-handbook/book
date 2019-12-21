@@ -44,7 +44,7 @@ your room mate was to give him access to your notes.
 How does he get the notes that you have added in the last
 two sections, for example?
 
-This installed copy of ``DataLad-101`` knows its ``origin``, i.e.
+This installed copy of ``DataLad-101`` knows its ``origin``, i.e.,
 the place it was installed from. Using this information,
 it can query the original dataset whether any changes
 happened since the last time it checked, and if so, retrieve and

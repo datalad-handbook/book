@@ -150,7 +150,7 @@ compares one state (a commit specified with ``-f``/``--from``,
 by default the latest change)
 and another state from the dataset's history (a commit specified with
 ``-t``/``--to``). Let's do a :command:`datalad diff` between the current state
-of the dataset and the previous commit (called "``HEAD~1``" in Git terminology):
+of the dataset and the previous commit (called "``HEAD~1``" in Git terminology [#f1]_):
 
 
 .. runrecord:: _examples/DL-101-108-116
@@ -267,3 +267,8 @@ Finally, save this note.
    :cast: 02_reproducible_execution
 
    $ datalad save -m "add note on basic datalad run and datalad rerun"
+
+.. rubric:: Footnotes
+
+.. [#f1] The section :ref:`history` will elaborate more on common :term:`git` commands
+         and terminology.

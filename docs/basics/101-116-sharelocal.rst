@@ -91,8 +91,8 @@ dataset. Here is how it looks like:
 This will install your dataset ``DataLad-101`` into your room mate's home
 directory. Note that we have given this new
 dataset a description about its location as well. Note further that we
-have not provided a path to :command:`datalad clone`, and hence it installed the
-dataset under its original name in the current directory.
+have not provided the optional destination path to :command:`datalad clone`,
+and hence it installed the dataset under its original name in the current directory.
 
 Together with your room mate, you go ahead and see what this dataset looks
 like. Before running the command, try to predict what you will see.
@@ -172,7 +172,7 @@ Oh, another :term:`shasum`! This time however not in a symlink...
 Luckily, there is a human-readable description next to it:
 "course on DataLad-101 on my private Laptop".
 "This", you exclaim, excited about your own realization,
-"is my datasets location I'm sharing it from!"
+"is my dataset's location I'm sharing it from!"
 
 This is, finally, where we see the description provided in
 :command:`datalad create` in section :ref:`createDS` becomes handy: It is
@@ -336,7 +336,7 @@ with the first subdataset::
        # versus
        $ datalad clone ../DataLad-101
 
-   On a technical layer, :command:`datalad clone` as a subset (or rather: the underlying
+   On a technical layer, :command:`datalad clone` is a subset (or rather: the underlying
    function) of the :command:`datalad install` command. Whenever you use
    :command:`datalad install`, it will call :command:`datalad clone` underneath the
    hood.

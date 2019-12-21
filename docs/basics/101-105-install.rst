@@ -38,9 +38,8 @@ DataLad provides in a public registry that anyone can access. One of these datas
 collection of audio recordings of a great podcast, the longnow seminar series [#f2]_.
 It consists of audio recordings about long-term thinking, and while the DataLad-101
 course is not a long-term thinking seminar, those recordings are nevertheless a
-good addition to the large stash of yet-to-read text books we piled up (and also, we
-can wholeheartedly recommend them for their worldly wisdoms and compelling, thoughtful
-ideas). Let's get this dataset into our existing ``DataLad-101`` dataset.
+good addition to the large stash of yet-to-read text books we piled up.
+Let's get this dataset into our existing ``DataLad-101`` dataset.
 
 To keep the ``DataLad-101`` dataset neat and organized, we first create a new directory,
 called recordings.
@@ -59,30 +58,30 @@ called recordings.
 .. index:: ! datalad command; install
 
 There are two commands that can be used to obtain a dataset: :command:`datalad install`
-(:manpage:`datalad-install` manual),and :command:`datalad clone` (:manpage:`datalad-clone`
+(:manpage:`datalad-install` manual) and :command:`datalad clone` (:manpage:`datalad-clone`
 manual). Throughout this handbook, we will use :command:`datalad clone` to obtain
-datasets. The command has a less complex structure and slightly simplified behavior,
-but a hidden section in section :ref:`sharelocal1` will elaborate on the differences
+datasets. The command has a less complex structure but slightly simplified behavior,
+and a hidden section in section :ref:`sharelocal1` will elaborate on the differences
 between the two commands.
 Let's install the longnow podcasts in this new directory with :command:`datalad clone`.
 
-- The command takes a location of an existing dataset to clone. This *source*
-  can be a URL or a path to a local directory, or an SSH server [#f1]_. The dataset
-  to be installed lives on :term:`GitHub`, at
-  `https://github.com/datalad-datasets/longnow-podcasts.git <https://github.com/datalad-datasets/longnow-podcasts.git>`_,
-  and we can give its GitHub URL as the  first positional argument.
-- Optionally, the command also takes a second positional path as an argument --
-  to the *destination*, i.e., a path to where we want to install the dataset to --
-  in this case it is ``recordings/longnow``.
-- Because we are installing a dataset (the podcasts) into an existing dataset (the ``DataLad-101``
-  dataset), we also supply a ``-d/--dataset`` flag to the command.
-  This specifies the dataset to perform the operation on, and allows us to install
-  the podcasts as a *subdataset* of ``DataLad-101``. Because we are in the root
-  of the ``DataLad-101`` dataset, the pointer to the dataset is a ``.`` (which is Unix'
-  way for saying "current directory").
+The command takes a location of an existing dataset to clone. This *source*
+can be a URL or a path to a local directory, or an SSH server [#f1]_. The dataset
+to be installed lives on :term:`GitHub`, at
+`https://github.com/datalad-datasets/longnow-podcasts.git <https://github.com/datalad-datasets/longnow-podcasts.git>`_,
+and we can give its GitHub URL as the  first positional argument.
+Optionally, the command also takes a second positional path as an argument --
+to the *destination*, i.e., a path to where we want to install the dataset to --
+in this case it is ``recordings/longnow``.
+Because we are installing a dataset (the podcasts) into an existing dataset (the ``DataLad-101``
+dataset), we also supply a ``-d/--dataset`` flag to the command.
+This specifies the dataset to perform the operation on, and allows us to install
+the podcasts as a *subdataset* of ``DataLad-101``. Because we are in the root
+of the ``DataLad-101`` dataset, the pointer to the dataset is a ``.`` (which is Unix'
+way for saying "current directory").
 
-Note: In the command below we line break these examples with a ``\``. You can
-copy them as they are presented here into your terminal, but in your own work you
+As before with long commands, we line break the code below with a ``\``. You can
+copy it as it is presented here into your terminal, but in your own work you
 can write commands like this into a single line.
 
 .. runrecord:: _examples/DL-101-105-102
@@ -127,7 +126,7 @@ chapters in this handbook will demonstrate how useful this information can be.
   
      datalad clone https://github.com/datalad-datasets/longnow-podcasts.git
 
-   anywhere outside of your ``Datalad-101`` dataset to install the dataset into a new directory
+   anywhere outside of your ``Datalad-101`` dataset to install the podcast dataset into a new directory
    called ``longnow-podcasts``. You could even do this inside of an existing dataset.
    However, whenever you install datasets into of other datasets, the ``-d/--dataset``
    option is necessary to not only install the dataset, but also *register* it
@@ -259,9 +258,9 @@ we can use ``.`` to refer to *all* of the dataset like this:
 
    $ datalad get .
 
-(However, with a total size of more than 15GB, this might take a while, so do not do that now.
+However, with a total size of more than 15GB, this might take a while, so do not do that now.
 If you did execute the command above, interrupt it by pressing ``CTRL`` + ``C`` -- Do not worry,
-this will not break anything)
+this will not break anything.
 
 Isn't that easy?
 Let's see how much content is now present locally. For this, :command:`datalad status --annex all`
@@ -324,7 +323,7 @@ But that's not all. The seminar series is ongoing, and more recordings can get a
 to the original repository shared on GitHub.
 Because an installed dataset knows the dataset it was installed from,
 you local dataset clone can be updated from its origin, and thus get the new recordings,
-should there be some. But we will see examples of this later in this handbook.
+should there be some. later in this handbook, we will see examples of this.
 
 Now you can not only create datasets and work with them locally, you can also consume
 existing datasets by installing them. Because that's cool, and because you will use this
@@ -367,7 +366,8 @@ modification.
          use it later, though.
 
 .. [#f2] The longnow podcasts are lectures and conversations on long-term thinking produced by
-         the LongNow foundation. Subscribe to the podcasts at http://longnow.org/seminars/podcast.
+         the LongNow foundation and we can wholeheartedly recommend them for their worldly
+         wisdoms and compelling, thoughtful ideas. Subscribe to the podcasts at http://longnow.org/seminars/podcast.
          Support the foundation by becoming a member: https://longnow.org/membership. http://longnow.org
 
 .. [#f3] You can also upgrade your file manager to display file types in a

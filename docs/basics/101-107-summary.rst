@@ -17,7 +17,7 @@ and making simple modifications *locally*.
   the history.
 
 * The :command:`datalad save` command records the current state of the dataset to the history. Make it a habit
-  of specifying a concise commit message to summarize the change. If several unrelated modifications
+  to specify a concise commit message to summarize the change. If several unrelated modifications
   exist in your dataset, specify the path to the precise file (change) that should be saved to history.
   Remember, if you run a :command:`datalad save` without
   specifying a path, all untracked files and all file changes will be committed to the history together!

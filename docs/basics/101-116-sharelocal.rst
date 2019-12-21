@@ -298,19 +298,21 @@ all of the subdatasets inside it as well, one can give the
 
 This would install the ``subds`` subdataset and all potential further
 subdatasets inside of it, and the meta data about file hierarchies would
-have been available right away for every subdataset inside of ``subds``.
+have been available right away for every subdataset inside of ``subds``. If you
+had several subdatasets and would not provide a path to a single dataset,
+but, say, the current directory (``.`` as in :command:`datalad get -n -r .`), it
+would clone all registered subdatasets recursively.
 
 So why is a recursive get not the default behavior?
 In :ref:`nesting` we learned that datasets can be nested *arbitrarily* deep.
 Upon getting the meta data of one dataset you might not want to also install
 a few dozen levels of nested subdatasets right away.
 
-However, there is a middle way: The ``--recursion-limit`` option let's
+However, there is a middle way [#f1]_: The ``--recursion-limit`` option let's
 you specify how many levels of subdatasets should be installed together
 with the first subdataset::
 
   datalad get -n -r --recursion-limit 1 <subds>
-
 
 .. findoutmore:: datalad clone versus datalad install
 
@@ -398,3 +400,159 @@ Save this note.
 
    A dataset that is installed from an existing source, e.g., a path or URL,
    it the DataLad equivalent of a *clone* in Git.
+
+
+.. rubric:: Footnotes
+
+.. [#f1] Another alternative to a recursion limit to :command:`datalad get -n -r` is
+         a dataset configuration that specifies subdatasets that should *not* be
+         cloned recursively, unless explicitly given to the command with a path. With
+         this configuration, a superdataset's maintainer can safeguard users and prevent
+         potentially large amounts of subdatasets to be cloned.
+         The configuration is called ``datalad-recursiveinstall = skip`` and it is
+         made on a subdataset specific basis to the ``.gitmodules`` file of the superdataset.
+         The chapter "Tuning datasets to your needs", starting in section :ref:`config`,
+         will talk about the details of configurations and the ``.gitmodules`` file.
+         Below, however, is a minimally functional example on how to apply the configuration
+         and how it works:
+
+         .. code-block:: bash
+
+            # create a superdataset with two subdatasets
+            $ datalad create superds && cd superds && datalad create -d . subds1 && datalad create -d . subds2
+            [INFO   ] Creating a new annex repo at /tmp/superds
+            create(ok): /tmp/superds (dataset)
+            [INFO   ] Creating a new annex repo at /tmp/superds/subds1
+            add(ok): subds1 (file)
+            add(ok): .gitmodules (file)
+            save(ok): . (dataset)
+            create(ok): subds1 (dataset)
+            action summary:
+              add (ok: 2)
+              create (ok: 1)
+              save (ok: 1)
+            [INFO   ] Creating a new annex repo at /tmp/superds/subds2
+            add(ok): subds2 (file)
+            add(ok): .gitmodules (file)
+            save(ok): . (dataset)
+            create(ok): subds2 (dataset)
+            action summary:
+              add (ok: 2)
+              create (ok: 1)
+              save (ok: 1)
+
+
+            # create two subdatasets in subds1
+            $ cd subds1 && datalad create -d . subsubds1 && datalad create -d . subsubds2 && cd ../
+            [INFO   ] Creating a new annex repo at /tmp/superds/subds1/subsubds1
+            add(ok): subsubds1 (file)
+            add(ok): .gitmodules (file)
+            save(ok): . (dataset)
+            create(ok): subsubds1 (dataset)
+            action summary:
+              add (ok: 2)
+              create (ok: 1)
+              save (ok: 1)
+            [INFO   ] Creating a new annex repo at /tmp/superds/subds1/subsubds2
+            add(ok): subsubds2 (file)
+            add(ok): .gitmodules (file)
+            save(ok): . (dataset)
+            create(ok): subsubds2 (dataset)
+            action summary:
+              add (ok: 2)
+              create (ok: 1)
+              save (ok: 1)
+
+
+            # create two subdatasets in subds2
+            $ cd subds2 && datalad create -d . subsubds1 && datalad create -d . subsubds2
+            [INFO   ] Creating a new annex repo at /tmp/superds/subds2/subsubds1
+            add(ok): subsubds1 (file)
+            add(ok): .gitmodules (file)
+            save(ok): . (dataset)
+            create(ok): subsubds1 (dataset)
+            action summary:
+              add (ok: 2)
+              create (ok: 1)
+              save (ok: 1)
+            [INFO   ] Creating a new annex repo at /tmp/superds/subds2/subsubds2
+            add(ok): subsubds2 (file)
+            add(ok): .gitmodules (file)
+            save(ok): . (dataset)
+            create(ok): subsubds2 (dataset)
+            action summary:
+              add (ok: 2)
+              create (ok: 1)
+              save (ok: 1)
+
+            # here is the directory structure:
+            $ cd ../ && tree
+            .
+            ├── subds1
+            │   ├── subsubds1
+            │   └── subsubds2
+            └── subds2
+                ├── subsubds1
+                └── subsubds2
+
+            # save in the superdataset
+            datalad save -m "add a few sub and subsub datasets"
+            add(ok): subds1 (file)
+            add(ok): subds2 (file)
+            save(ok): . (dataset)
+            action summary:
+              add (ok: 2)
+              save (ok: 1)
+
+            # apply the configuration to skip recursive installations for subds1
+            $ git config -f .gitmodules --add submodule.subds1.datalad-recursiveinstall skip
+
+            # save this configuration
+            $ datalad save -m "prevent recursion into subds1, unless explicitly given as path"
+            add(ok): .gitmodules (file)
+            save(ok): . (dataset)
+            action summary:
+              add (ok: 1)
+              save (ok: 1)
+
+            # clone the dataset somewhere else
+            $ cd ../ && datalad clone superds clone_of_superds
+            [INFO   ] Cloning superds into '/tmp/clone_of_superds'
+            install(ok): /tmp/clone_of_superds (dataset)
+
+            # recursively get all contents (without data)
+            $ cd clone_of_superds && datalad get -n -r .
+            [INFO   ] Installing <Dataset path=/tmp/clone_of_superds> underneath /tmp/clone_of_superds recursively
+            [INFO   ] Cloning /tmp/superds/subds2 into '/tmp/clone_of_superds/subds2'
+            get(ok): /tmp/clone_of_superds/subds2 (dataset)
+            [INFO   ] Cloning /tmp/superds/subds2/subsubds1 into '/tmp/clone_of_superds/subds2/subsubds1'
+            get(ok): /tmp/clone_of_superds/subds2/subsubds1 (dataset)
+            [INFO   ] Cloning /tmp/superds/subds2/subsubds2 into '/tmp/clone_of_superds/subds2/subsubds2'
+            get(ok): /tmp/clone_of_superds/subds2/subsubds2 (dataset)
+            action summary:
+              get (ok: 3)
+
+            # only subsubds of subds2 are installed, not of subds1:
+            $ tree
+            .
+            ├── subds1
+            └── subds2
+                ├── subsubds1
+                └── subsubds2
+
+            4 directories, 0 files
+
+            # but if provided with an explicit path, subsubds of subds1 are cloned:
+            $  datalad get -n -r subds1 && tree
+            [INFO   ] Cloning /tmp/superds/subds1 into '/tmp/clone_of_superds/subds1'
+            install(ok): /tmp/clone_of_superds/subds1 (dataset) [Installed subdataset in order to get /tmp/clone_of_superds/subds1]
+            [INFO   ] Installing <Dataset path=/tmp/clone_of_superds> underneath /tmp/clone_of_superds/subds1 recursively
+            .
+            ├── subds1
+            │   ├── subsubds1
+            │   └── subsubds2
+            └── subds2
+                ├── subsubds1
+                └── subsubds2
+
+            6 directories, 0 files

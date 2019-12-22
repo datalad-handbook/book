@@ -5,7 +5,7 @@ Data integrity
 
 So far, we mastered quite a number of challenges: Creating and populating a dataset with
 large and small files, modifying content and saving the changes to history, installing
-datasets, installing subdatasets within datasets, recording the impact of commands
+datasets, even as subdatasets within datasets, recording the impact of commands
 on a dataset with the run and re-run commands, and capturing plenty of
 :term:`provenance` on the way.
 We further noticed that when we modified content in ``notes.txt`` or ``list_files.py``,
@@ -292,7 +292,7 @@ troublesome, most types of broken symlinks you will encounter can be fixed,
 or are not problematic. At this point, you actually have already seen broken
 symlinks: Back in section :ref:`installds` we explored
 the file hierarchy in an installed subdataset that contained many annexed
-``mp3`` files. Upon installation, the annexed files were not present locally.
+``mp3`` files. Upon the initial :command:`datalad clone`, the annexed files were not present locally.
 Instead, their symlinks (stored in Git) existed and allowed to explore which
 file's contents could be retrieved. These symlinks point to nothing, though, as
 the content isn't yet present locally, and are thus *broken*. This state,

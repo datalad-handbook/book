@@ -8,13 +8,12 @@ dataset on the same file system but a different place by installing
 it from a path.
 
 You have observed that the ``-r``/``--recursive``
-option needs to be given to :command:`datalad install`
-in order to install subdatasets right away. Only then
-is the subdatasets file content availability metadata to explore
-the file hierarchy available within the subdataset right
-from the start. Alternatively, a subsequent :command:`datalad install`
-in the subdataset or with a path to the subdataset takes care
-of the missing installation.
+option needs to be given to :command:`datalad get [-n/--no-data]`
+in order to install further potential subdatasets in one go. Only then
+is the subdatasets file content availability metadata present to explore
+the file hierarchy available within the subdataset.
+Alternatively, a :command:`datalad get -n <subds>` takes care of installing
+exactly the specified registered subdataset.
 
 And you have mesmerized your room mate by showing him how :term:`git-annex`
 retrieved large file contents from the original dataset.
@@ -26,7 +25,7 @@ files via :command:`datalad get`, but not others. How will this influence the
 output of :command:`git annex whereis`, you wonder?
 
 Together with your room mate, you decide to find out. You navigate
-back into the installed copy, and run :command:`git annex whereis` on a
+back into the installed dataset, and run :command:`git annex whereis` on a
 file that you once retrieved file content for, and on a file
 that you did not yet retrieve file content for.
 Here is the output for the retrieved file:
@@ -37,7 +36,7 @@ Here is the output for the retrieved file:
    :notes: More on how git-annex whereis behaves
    :cast: 04_collaboration
 
-   # navigate back into the installed copy of DataLad-101
+   # navigate back into the clone of DataLad-101
    $ cd ../mock_user/DataLad-101
    # navigate into the subdirectory
    $ cd recordings/longnow

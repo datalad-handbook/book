@@ -1,2 +1,3 @@
 $ git checkout .gitmodules
 $ datalad status
+Updated 1 path from the index

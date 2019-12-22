@@ -4,7 +4,7 @@ $ datalad rerun
 [INFO] Cloning http://datasets.datalad.org/openfmri/ds000002/.git into '/home/me/usecases/repro/demo/inputs/ds000002' 
 [INFO] == Command start (output follows) ===== 
 action summary:
-  get (notneeded: 2)
+  get (notneeded: 4)
 Processing inputs/ds000001/sub-01/anat/sub-01_T1w.nii.gz
 Processing inputs/ds000002/sub-01/anat/sub-01_T1w.nii.gz
 [INFO] == Command exit (modification check follows) ===== 
@@ -22,7 +22,7 @@ add(ok): sub-002/anat.nii.gz (file)
 add(ok): sub-002/anat_mask.nii.gz (file)
 action summary:
   add (ok: 4)
-  get (ok: 2)
+  get (notneeded: 2, ok: 2)
   install (ok: 2)
   save (notneeded: 3)
   unlock (notneeded: 4, ok: 4)

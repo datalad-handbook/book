@@ -11,8 +11,7 @@ notes in.
 Since this is ``DataLad-101``, let's do it as a :term:`Datalad dataset`.
 You might associate the term "dataset" with a large spreadsheet containing
 variables and data.
-But for DataLad, as we learned in the first lecture, a dataset is the core data type.
-
+But for DataLad, a dataset is the core data type:
 As noted in :ref:`philo`, a dataset is a collection of *files*
 in folders, and a file is the smallest unit any dataset can contain.
 While it at its core this is a very simple concept, datasets come with many
@@ -30,10 +29,10 @@ Note the command structure of :command:`datalad create` (optional bits are enclo
   datalad create [--description "..."] [-c <config options>] PATH
 
 In a bit of time, you will thank yourself for adding a description about the *location*
-of your dataset with the *optional* ``--description`` flag. (At the moment,
+of your dataset with the *optional* ``--description`` flag. At the moment,
 we will not dive into the details of where that description ends up or
 becomes useful in the future, but in more advanced parts of the book
-we will see how this gets handy.) Let's start:
+we will see how this gets handy. Let's start:
 
 
 .. runrecord:: _examples/DL-101-101-101
@@ -76,9 +75,9 @@ to as the *history* of a dataset.
 
 This history is almost as small as it can be at the current state, but let's take
 a look at it. For looking at the history, the code examples will use :command:`git log`,
-a built-in git command [#f1]_. Your git log *might* be opened in a
-`terminal pager <https://en.wikipedia.org/wiki/Terminal_pager>`_ that lets
-you scroll up and down with your arrow keys, but not enter any more commands.
+a built-in :term:`Git` command [#f1]_ that works right in your terminal. Your log
+*might* be opened in a `terminal pager <https://en.wikipedia.org/wiki/Terminal_pager>`_
+that lets you scroll up and down with your arrow keys, but not enter any more commands.
 If this happens, you can get out of git log by pressing q.
 
 .. runrecord:: _examples/DL-101-101-103

@@ -2,17 +2,18 @@ $ datalad wtf
 # WTF
 ## configuration <SENSITIVE, report disabled by configuration>
 ## datalad 
-  - version: 0.12.0rc6.dev97
-  - full_version: 0.12.0rc6.dev97-g9250-dirty
+  - version: 0.12.0rc6.dev186
+  - full_version: 0.12.0rc6.dev186-g9aa12
 ## dataset 
   - path: /home/me/dl-101/DataLad-101
   - repo: AnnexRepo
+  - id: c13f1288-223d-11ea-af8b-e86a64c8054c
   - metadata: <SENSITIVE, report disabled by configuration>
 ## dependencies 
+  - cmd:git: 2.20.1
   - tqdm: 4.32.2
-  - cmd:annex: 7.20190129
-  - cmd:git: 2.24.0
-  - cmd:bundled-git: 2.24.0
+  - cmd:annex: 7.20190819+git2-g908476a9b-1~ndall+1
+  - cmd:bundled-git: 2.20.1
   - cmd:system-git: 2.24.0
   - cmd:system-ssh: 7.9p1
   - appdirs: 1.4.3
@@ -37,7 +38,7 @@ $ datalad wtf
   - LC_CTYPE: en_US.UTF-8
   - GIT_AUTHOR_NAME: Elena Piscopia
   - PATH: /home/adina/env/handbook/bin:/home/adina/Documents/freesurfer/bin:/home/adina/Documents/freesurfer/fsfast/bin:/home/adina/Documents/freesurfer/tktools:/usr/share/fsl/5.0/bin:/usr/lib/fsl/5.0:/home/adina/Documents/freesurfer/mni/bin:/usr/share/fsl/5.0/5.0/bin:/home/adina/.local/bin:/home/adina/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/home/adina/.dotfiles/bin
-  - GIT_PYTHON_GIT_EXECUTABLE: /usr/bin/git
+  - GIT_PYTHON_GIT_EXECUTABLE: /usr/lib/git-annex.linux/git
 ## extensions
   - webapp:
     - load_error: None
@@ -179,12 +180,12 @@ $ datalad wtf
           - meta_aggregate
         - load_error: None
 ## git-annex 
-  - version: 7.20190129
+  - version: 7.20190819+git2-g908476a9b-1~ndall+1
   - build flags: 
     - Assistant
     - Webapp
     - Pairing
-    - S3(multipartupload)(storageclasses)
+    - S3
     - WebDAV
     - Inotify
     - DBus
@@ -236,6 +237,8 @@ $ datalad wtf
     - BLAKE2B224
     - BLAKE2B384E
     - BLAKE2B384
+    - BLAKE2BP512E
+    - BLAKE2BP512
     - BLAKE2S256E
     - BLAKE2S256
     - BLAKE2S160E
@@ -267,6 +270,7 @@ $ datalad wtf
     - tahoe
     - glacier
     - ddar
+    - git-lfs
     - hook
     - external
   - operating system: linux x86_64

@@ -149,6 +149,15 @@ another Git repository, i.e., the super- and subdataset principles.
 Upon sharing your dataset, the information about subdatasets and where to retrieve
 them from is stored and shared with this file.
 
+Back in section :ref:`sharelocal1` you may have already seen one additional
+configuration option in a footnote: The ``datalad-recursiveinstall`` key. This key
+is defined on a per subdataset basis, and if set to "``skip``", the given subdataset
+will not be recursively installed unless it is explicitly specified as a path to
+:command:`datalad get [-n/--no-data] -r`. If you are a maintainer of a superdataset
+with monstrous amounts of subdatasets, you can set this option and share it together
+with the dataset to prevent an accidental, large recursive installation in
+particularly deeply nested subdatasets.
+
 
 
 ``.datalad/config``

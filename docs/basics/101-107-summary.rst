@@ -17,13 +17,13 @@ and making simple modifications *locally*.
   the history.
 
 * The :command:`datalad save` command records the current state of the dataset to the history. Make it a habit
-  of specifying a concise commit message to summarize the change. If several unrelated modifications
+  to specify a concise commit message to summarize the change. If several unrelated modifications
   exist in your dataset, specify the path to the precise file (change) that should be saved to history.
   Remember, if you run a :command:`datalad save` without
   specifying a path, all untracked files and all file changes will be committed to the history together!
   This is the command structure::
 
-    datalad save -m "here is a commit message" PATH
+    datalad save -m "here is a commit message" [PATH]
 
 * The typical local workflow is simple: *Modify* the dataset by adding or
   modifying files, *save* the changes as meaningful units to the history,
@@ -46,16 +46,16 @@ and making simple modifications *locally*.
 Furthermore, we have discovered the basics of installing a published DataLad dataset,
 and experienced the concept of modular nesting datasets.
 
-* A published dataset can be installed with the :command:`datalad install` command::
+* A published dataset can be installed with the :command:`datalad clone` command::
 
-     $ datalad install [--dataset PATH] --source PATH/URL PATH
+     $ datalad clone [--dataset PATH] SOURCE-PATH/URL [DESTINATION PATH]
 
   It can be installed "on its own", or within an existing dataset.
 
-* The command takes a location of an existing dataset (``--source``/``-s``),
-  and a path to where you want the dataset to be installed. If you do not specify a path,
-  the dataset will be installed in the current directory, with the original name of the
-  dataset you are installing.
+* The command takes a location of an existing dataset as a positional argument,
+  and optionally a path to where you want the dataset to be installed. If you do not specify a path,
+  the dataset will be installed into the current directory, with the original name of the
+  dataset.
 
 * If a dataset is installed inside of a dataset as a subdataset, the
   ``--dataset``/``-d`` option needs to specify the root of the superdataset.
@@ -63,7 +63,7 @@ and experienced the concept of modular nesting datasets.
 * The source can be a URL (for example of a GitHub repository, as in section :ref:`installds`), but also
   paths, or open data collections.
 
-* After installation, only small files and metadata about file availability are present locally.
+* After :command:`datalad clone`, only small files and metadata about file availability are present locally.
   To retrieve actual file content of larger files, :command:`datalad get PATH` downloads large file
   content on demand.
 
@@ -94,6 +94,6 @@ Additionally, you learned the basics on extending the ``DataLad-101`` dataset an
 existing datasets:
 You have procedurally experienced how to install a dataset, and simultaneously you have
 learned a lot about the principles and features of DataLad datasets.
-Installing datasets and getting their content allows you to consume published datasets.
+Cloning datasets and getting their content allows you to consume published datasets.
 By nesting datasets within each other, you can re-use datasets in a modular fashion. While this may
 appear abstract, upcoming sections will demonstrate many examples of why this can be handy.

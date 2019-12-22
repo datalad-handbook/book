@@ -1,4 +1,4 @@
-$ datalad save -m "add note about installing from paths and recursive installations"
+$ datalad save -m "add note about cloning from paths and recursive datalad get"
 add(ok): notes.txt (file)
 save(ok): . (dataset)
 action summary:

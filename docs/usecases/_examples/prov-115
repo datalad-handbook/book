@@ -1,7 +1,7 @@
 $ git log --oneline --left-right --cherry-mark master...replay
-> da395eb [DATALAD RUNCMD] blur image
-= 0b4e082 [DATALAD RUNCMD] extract pimpernel
-= 6383964 [DATALAD RUNCMD] extract st-bernard lily
-< 5da8b28 [DATALAD RUNCMD] blur image
-= 52c5114 [DATALAD RUNCMD] extract pimpernel
-= a28e3d8 [DATALAD RUNCMD] extract st-bernard lily
+> 2079cff [DATALAD RUNCMD] blur image
+= 9b9ee7b [DATALAD RUNCMD] extract pimpernel
+= 92a125b [DATALAD RUNCMD] extract st-bernard lily
+< a6e322c [DATALAD RUNCMD] blur image
+= 14d8e8f [DATALAD RUNCMD] extract pimpernel
+= 999b4f5 [DATALAD RUNCMD] extract st-bernard lily

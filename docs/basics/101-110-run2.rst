@@ -59,10 +59,9 @@ To resize one image to 400x400 px, the command would thus be
 Remembering the last lecture on :command:`datalad run`, you decide to plug this into
 :command:`datalad run`. Even though this is not a script, it is a command, and you can wrap
 commands like this conveniently with :command:`datalad run`.
-Note that we line break the commands in the upcoming examples
+Because they will be quite long, we line break the commands in the upcoming examples
 for better readability -- in your terminal, you can always write the commands into
-a single line. The ``\`` are line breaks for your shell that make the commands work
-when you copy them formatted like this.
+a single line.
 
 .. runrecord:: _examples/DL-101-110-102
    :language: console
@@ -102,7 +101,7 @@ How can that be?
 
 "Right!", you exclaim with a facepalm.
 Just as the ``.mp3`` files, the ``.jpg`` file content is not present
-locally after an install, and we did not :command:`datalad get` it yet!
+locally after a :command:`datalad clone`, and we did not :command:`datalad get` it yet!
 
 This is where the ``-i``/``--input`` option for a datalad run becomes useful.
 The content of everything that is specified as an ``input`` will be retrieved
@@ -236,7 +235,7 @@ feel the urge to run a :command:`datalad status` on this:
 
 "Ah, do not mind that for now", our instructor says, and with a wink she
 continues: "We'll talk about symlinks and object trees a while later".
-We're not really sure whether that's a good thing, but we have a task to focus
+You are not really sure whether that's a good thing, but you have a task to focus
 on. Hastily, you run the command right from the terminal:
 
 .. runrecord:: _examples/DL-101-111-103

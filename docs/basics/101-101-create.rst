@@ -24,14 +24,17 @@ concepts of DataLad datasets together by creating one.
 
 Find a nice place on your computer's file system to put a dataset for ``DataLad-101``,
 and create a fresh, empty dataset with the :command:`datalad create` command (:manpage:`datalad-create` manual).
+
+Note the command structure of :command:`datalad create` (optional bits are enclosed in ``[ ]``)::
+
+  datalad create [--description "..."] [-c <config options>] PATH
+
 In a bit of time, you will thank yourself for adding a description about the *location*
 of your dataset with the *optional* ``--description`` flag. (At the moment,
 we will not dive into the details of where that description ends up or
 becomes useful in the future, but in more advanced parts of the book
-we will see how this gets handy.)
-Note the command structure of :command:`datalad create` (optional bits are enclosed in ``[ ]``)::
+we will see how this gets handy.) Let's start:
 
-  datalad create [--description "..."] [-c <config options>] PATH
 
 .. runrecord:: _examples/DL-101-101-101
    :language: console

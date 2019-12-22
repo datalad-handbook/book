@@ -1,4 +1,6 @@
 {
+  "title": "The DataLad Handbook",
+  "description": "<p>The DataLad Handbook is a comprehensive educational resource for data management with DataLad.</p>",
   "creators": [
     {
       "name": "Hanke, Michael",
@@ -14,11 +16,12 @@
       "affiliation": "Institute of Neuroscience and Medicine, Brain & Behaviour (INM-7), Research Centre Jülich, Jülich, Germany",
       "name": "Waite, Laura K.",
       "orcid": "0000-0003-2213-7465"
-    },
+    }
+  ],
+  "contributors": [
     {
       "affiliation": "Dartmouth College, Hanover, NH, United States",
       "name": "Meyer, Kyle",
-      "orcid": "TODO"
     },
     {
       "affiliation": "Institute of Neuroscience and Medicine, Brain & Behaviour (INM-7), Research Centre Jülich, Jülich, Germany and Institute of Systems Neuroscience, Medical Faculty, Heinrich Heine University Düsseldorf, Düsseldorf, Germany",
@@ -79,6 +82,21 @@
       "affiliation": "Montréal Neurological Institute, McGill University, Montréal, Canada",
       "name": "Herholz, Peer",
       "orcid": "0000-0002-9840-6257"
+    },
+    {
+      "name": "Mochalski, Lisa N.",
+      "affiliation": "Institute of Neuroscience and Medicine, Brain & Behaviour (INM-7), Research Centre Jülich, Jülich, Germany and Institute of Systems Neuroscience, Medical Faculty, Heinrich Heine University Düsseldorf, Düsseldorf, Germany",
+      "orcid": "0000-0002-9558-8251"
+    },
+    {
+     "name": "Kraljevic, Nevena",
+     "affiliation": "Institute of Neuroscience and Medicine, Brain & Behaviour (INM-7), Research Centre Jülich, Jülich, Germany and Institute of Systems Neuroscience, Medical Faculty, Heinrich Heine University Düsseldorf, Düsseldorf, Germany",
+     "orcid": "0000-0003-0869-648X"
+    },
+    {
+     "name": "Wiersch, Lisa",
+     "affiliation": "Institute of Neuroscience and Medicine, Brain & Behaviour (INM-7)",
+     "orcid": "0000-0001-8006-8678"
     }
   ],
   "keywords": [

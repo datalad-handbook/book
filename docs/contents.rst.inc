@@ -4,12 +4,13 @@
 
 .. toctree::
    :maxdepth: 1
-   :caption: What DataLad is all about
+   :caption: What DataLad and the handbook are all about
 
    intro/philosophy
    intro/narrative
    intro/installation
    intro/howto
+   intro/executive_summary
 
 
 ################################
@@ -145,7 +146,7 @@
 
    basics/101-179-gitignore
    basics/101-144-intro_extensions
-
+   basics/101-145-hooks
 
 #############
 **Use Cases**
@@ -174,6 +175,9 @@ Appendix
    glossary
    basics/101-180-FAQ
    contributing
+   teaching
+   acknowledgements
+
 
 ########################
 Code lists from chapters

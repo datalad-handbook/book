@@ -124,6 +124,8 @@
    basics/101-137-history
    basics/101-135-help
 
+
+
 ###############################
 **Basics 9** -- Further options
 ###############################
@@ -162,6 +164,7 @@ Appendix
 
    glossary
    basics/101-180-FAQ
+   basics/101-136-cheatsheet
    contributing
    teaching
    acknowledgements

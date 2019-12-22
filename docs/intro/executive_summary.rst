@@ -123,11 +123,7 @@ custom data structures or the need for central infrastructure or third party
 services.
 If you are interested in more high-level information on DataLad, you can find
 answers to common questions in the section :ref:`FAQ`, and a concise command
-cheat-sheet in section
-
-.. todo::
-
-   link cheat sheet
+cheat-sheet in section :ref:`cheat`.
 
 But enough of the introduction now -- let's dive into the
 `Basics <../basics/101-101-create.html>`_!

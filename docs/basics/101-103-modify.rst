@@ -11,8 +11,7 @@ For this, in the root of ``DataLad-101``, create a plain text file
 called ``notes.txt``. It will contain all of the notes that you take
 throughout the course.
 
-Use an editor of your choice and write a short summary of how to create
-a DataLad dataset from scratch:
+Let's write a short summary of how to create a DataLad dataset from scratch:
 
   "One can create a new dataset with 'datalad create
   [--description] PATH'. The dataset is created empty".
@@ -133,8 +132,6 @@ and save the file in DataLad:
 Let's take another look into our history to see the development of this file.
 We're using :command:`git log -p -n 2` to see last two commits and explore
 the difference to the previous state of a file within each commit.
-Note: git log may be opened in a `pager <https://en.wikipedia.org/wiki/Terminal_pager>`_.
-You can get out of it by pressing ``q``.
 
 .. runrecord:: _examples/DL-101-103-107
    :language: console
@@ -154,8 +151,8 @@ evolved over time. That's quite neat, isn't it?
 
 .. findoutmore:: git log has many more useful options
 
-   ``git log``, as many other ``git`` commands, has a good number of options
+   ``git log``, as many other ``Git`` commands, has a good number of options
    which you can discover if you run ``git log --help``.  Those options could
    help to find specific changes (e.g., which added or removed a specific word
-   with ``-S``), or change how git log output will look (e.g.,
+   with ``-S``), or change how ``git log`` output will look (e.g.,
    ``--word-diff`` to highlight individual word changes in the ``-p`` output).

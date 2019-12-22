@@ -6,9 +6,9 @@ The command "datalad save [-m] PATH" saves the file
 (modifications) to history. Note to self:
 Always use informative, concise commit messages.
 
-The command 'datalad install [--source] PATH'
-installs a dataset from e.g., a URL or a path.
-If you install a dataset into an existing
+The command 'datalad clone URL/PATH [PATH]'
+clones a dataset from e.g., a URL or a path.
+If you clone a dataset into an existing
 dataset (as a subdataset), remember to specify the
 root of the superdataset with the '-d' option.
 
@@ -38,23 +38,24 @@ A suboptimal alternative is the --explicit flag,
 used to record only those changes done
 to the files listed with --output flags.
 
-A source to install a dataset from can also be a path,
-for example as in "datalad install -s ../DataLad-101".
-As when installing datasets before, make sure to add a
-description on the location of the dataset to be
-installed, and, if you want, a path to where the dataset
-should be installed under which name.
+A source to clone a dataset from can also be a path,
+for example as in "datalad clone ../DataLad-101".
 
-Note that subdatasets will not be installed by default --
-you will have to do a plain
-"datalad install PATH/TO/SUBDATASET", or specify the
--r/--recursive option in the install command:
-"datalad install -s ../DataLad-101 -r".
+Just as in creating datasets, you can add a
+description on the location of the new dataset clone
+with the -D/--description option.
 
-A recursive installation would however install all
-installed subdatasets, so a safer way to proceed is to
-set a decent --recursion-limit:
-"datalad install -s ../DataLad-101 -r --recursion-limit 2"
+Note that subdatasets will not be installed by default,
+but are only registered in the superdataset -- you will
+have to do a "datalad get -n PATH/TO/SUBDATASET"
+to clone the subdataset for file availability meta data.
+The -n/--no-data options prevents that file contents are
+also downloaded.
+
+Note that a recursive "datalad get" would clone all further
+registered subdatasets underneath a subdataset, so a safer
+way to proceed is to set a decent --recursion-limit:
+"datalad get -n -r --recursion-limit 2 <subds>"
 
 The command "git annex whereis PATH" lists the repositories that have
 the file content of an annexed file. When using "datalad get" to retrieve

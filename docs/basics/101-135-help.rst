@@ -9,6 +9,9 @@ outside of this course?
 Fortunately, the syllabus has a whole section on that, and on
 one lazy, warm summer-afternoon you flip through it.
 
+.. figure:: ../artwork/src/reading.svg
+   :width: 50%
+
 You realize that you already know the most important things:
 The number one advice on how to get help is
 `"Read the error message." <http://poster.keepcalmandposters.com/default/5986752_keep_calm_and_read_the_error_message.png>`_.

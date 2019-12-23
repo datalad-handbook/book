@@ -742,6 +742,10 @@ reproduce your data science project easily from scratch!
    Proud of your midterm project you can not wait to use those principles the
    next time again.
 
+    .. figure:: ../artwork/src/reproduced.svg
+       :width: 50%
+
+
 .. rubric:: Footnotes
 
 .. [#f1] Note that you could have applied the YODA procedure not only right at

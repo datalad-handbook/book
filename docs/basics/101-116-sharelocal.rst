@@ -28,6 +28,10 @@ help facilitate collaboration without requiring ultimate trust and
 reliability of all participants. Essentially, with a shared dataset,
 collaborators can look and use your dataset without ever touching it.
 
+
+.. figure:: ../artwork/src/collaboration_sketch.svg
+   :width: 70%
+
 To demonstrate how to share a DataLad dataset on a common file system,
 we will pretend that your personal computer
 can be accessed by other users. Let's say that

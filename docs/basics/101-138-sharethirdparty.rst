@@ -9,7 +9,7 @@ know about two common setups for sharing datasets:
 The first was between users on a common, shared computational infrastructure
 such as an :term:`SSH server`, as the situation you experienced with a "simulated"
 roommate. In this case, sharing was easy via a simple
-:command:`datalad install` command with a path to where the dataset lies.
+:command:`datalad clone` command with a path to where the dataset lies.
 
 In the second case, you shared your ``midterm_project`` dataset via :term:`GitHub`.
 In this endeavour, you noticed that the files stored in :term:`git-annex`
@@ -78,7 +78,7 @@ From the perspective of your friend, i.e., someone you share your dataset with,
 they will need to
 
 - (potentially) install the relevant *special-remote*
-- do normal :command:`datalad install` and :command:`datalad get` commands
+- do normal :command:`datalad clone` and :command:`datalad get` commands
   as necessary.
 
 Thus, from a collaborators perspective, with the exception of installing/setting up
@@ -335,10 +335,10 @@ contents, and you made sure that they can access the Dropbox folder with
 the annexed files (e.g., by sharing an access link), here is what they would
 have to do:
 
-If the repository is on GitHub, a :command:`datalad install` with the url
+If the repository is on GitHub, a :command:`datalad clone` with the url
 will install the dataset::
 
-   $ datalad install https://github.com/adswa/DataLad-101.git
+   $ datalad clone https://github.com/adswa/DataLad-101.git
    [INFO   ] Cloning https://github.com/adswa/DataLad-101.git [1 other candidates] into '/Users/awagner/Documents/DataLad-101'
    [INFO   ]   Remote origin not usable by git-annex; setting annex-ignore
    [INFO   ] access to 1 dataset sibling dropbox-remote not auto-enabled, enable with:

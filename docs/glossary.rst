@@ -68,6 +68,11 @@ Glossary
    Debian
       A common Linux distribution. `More information here <https://www.debian.org/index.en.html>`__.
 
+   DOI
+      A digital object identifier (DOI) is a character string used to permanently identify
+      a resource and link to in on the web. A DOI will always refer to the one resource
+      it was assigned to, and only that one.
+
    environment variable
       A variable made up of a name/value pair. Programs using a given environment variable
       will use its associated value for their execution.

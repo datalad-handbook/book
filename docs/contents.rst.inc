@@ -125,13 +125,13 @@
    basics/101-135-help
 
 
-##################################
-**Basics 9** Sharing a dataset [2]
-##################################
+#######################################
+**Basics 9** Third party infrastructure
+#######################################
 
 .. toctree::
    :maxdepth: 1
-   :caption: Sharing datasets with third party infrastructure
+   :caption: Leverage third party services to share datasets
 
    basics/101-138-sharethirdparty
 

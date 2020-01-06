@@ -1,7 +1,7 @@
 .. _sharethirdparty:
 
-Sharing datasets: Third party infrastructure
---------------------------------------------
+Beyond shared infrastructure
+----------------------------
 
 From the sections :ref:`sharelocal1` and :ref:`yoda_project` you already
 know about two common setups for sharing datasets:

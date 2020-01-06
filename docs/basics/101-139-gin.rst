@@ -1,0 +1,126 @@
+.. _gin:
+
+Dataset hosting on GIN
+----------------------
+
+`GIN <https://gin.g-node.org/G-Node/Info/wiki>`__ (G-Node infrastructure) is a
+free data management system designed for comprehensive and reproducible management
+of scientific data. It is a secure, web-based repository store and provides
+fine-grained access control to share data. :term:`GIN` builds up on :term:`Git` and
+:term:`git-annex`, and is an easy alternative to other third-party services to host
+and share your DataLad datasets. Moreover, its
+`web interface <https://gin.g-node.org/G-Node/Info/wiki/WebInterface>`_
+and `client <https://gin.g-node.org/G-Node/Info/wiki/GinUsageTutorial>`_ are also
+useful tools with a variety of features that are worthwhile to check out.
+
+.. todo::
+
+   Are the limits regarding the size of repositories? So far, I wasn't able to
+   find information on this.
+
+Prerequisites
+^^^^^^^^^^^^^
+
+In order to use GIN for hosting and sharing your datasets, you need to
+
+- register
+- upload your :term:`SSH key` for SSH access
+- create an empty repository on GIN and publish your dataset to it
+
+Once you have `registered <https://gin.g-node.org/user/sign_up>`_
+an account on the GIN server by providing your e-mail address, affiliation,
+and name, and selecting a user name and password, you should upload your
+:term:`SSH key` to allow SSH access.
+
+.. findoutmore:: What is an SSH key and how can I create one?
+
+   An SSH key is an access credential in the :term:`SSH` protocol that can be used
+   to login from one system to remote servers and services, such as from your private
+   computer to an :term:`SSH server`. For repository hosting services such as :term:`GIN`,
+   :term:`GitHub`, or :term:`GitLab`, it can be used to connect and authenticate
+   without supplying your username or password for each action.
+
+   This `tutorial by GitHub <https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent>`_
+   is a detailed step-by-step instruction to generate and use SSH keys for authentication,
+   and it also shows you how to add your public SSH key to your GitHub account
+   so that you can install or clone datasets or Git repositories via ``SSH`` (in addition
+   to the ``http`` protocol), and the same procedure applies to GitLab and Gin.
+
+   Don't be intimidated if you have never done this before -- it is fast and easy:
+   First, you need to create a private and a public key (an SSH key pair).
+   All this takes is a single command in the terminal. The resulting files are
+   text files that look like someone spilled alphabet soup in them, but constitute
+   a secure password procedure.
+   You keep the private key on your own machine (the system you are connecting from),
+   and copy the public key to the system or service you are connecting to.
+   On the remote system or service, you make the public key an *authorized key* to
+   allow authentication via the SSH key pair instead of your password. This
+   either takes a single command in the terminal, or a few clicks in a webinterface
+   to achieve.
+   For extra security, you can protect your SSH keys on your machine with a
+   passphrase (such that if someone steals your computer they still can't log in
+   to servers or services with SSH authentication) and configure an ``ssh agent``
+   to handle this passphrase for you with a single command. How to do all of this
+   is detailed in the above tutorial.
+
+To do this, visit the settings of your user account. On the left hand side, select
+the tab "SSH Keys", and click the button "Add Key":
+
+.. figure:: ../artwork/src/GIN_SSH_1.png
+
+You should copy the contents of your public key file into the field labeled
+``content``, and enter an arbitrary but informative ``Key Name``, such as
+"My private work station". Afterwards, you are done!
+
+
+Publishing your dataset to GIN
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To publish an existing dataset to GIN, create a new, empty repository on GIN.
+This needs to be done via the web interface:
+
+.. figure:: ../artwork/src/GIN_newrepo.png
+
+Afterwards, add this repository as a sibling of your dataset. To do this, use the
+SSH URL of the repository. Note that since this is the first time you will be
+connecting to the GIN server with SSH, you will likely be asked to "confirm the
+authenticity of the host". This is a safety measure, and you can type "yes" to
+continue::
+
+    $ datalad siblings add -d . --name gin --url git@gin.g-node.org:/adswa/DataLad-101.git
+
+    The authenticity of host 'gin.g-node.org (141.84.41.219)' can't be established.
+    ECDSA key fingerprint is SHA256:E35RRG3bhoAm/WD+0dqKpFnxJ9+yi0uUiFLi+H/lkdU.
+    Are you sure you want to continue connecting (yes/no)? yes
+    [INFO   ] Failed to enable annex remote gin, could be a pure git or not accessible
+    [WARNING] Failed to determine if gin carries annex.
+    .: gin(-) [git@gin.g-node.org:/adswa/DataLad-101.git (git)]
+
+
+Afterwards, you can publish your dataset::
+
+   $ datalad publish --to gin --transfer-data all                            1 ↵
+    [INFO   ] Publishing <Dataset path=/home/me/dl-101/DataLad-101> data to gin
+    publish(ok): books/TLCL.pdf (file)
+    publish(ok): books/bash_guide.pdf (file)
+    publish(ok): books/byte-of-python.pdf (file)
+    publish(ok): books/progit.pdf (file)
+    publish(ok): recordings/interval_logo_small.jpg (file)
+    publish(ok): recordings/salt_logo_small.jpg (file)
+    [INFO   ] Publishing <Dataset path=/home/me/dl-101/DataLad-101> to gin
+    Fetching gin (counting objects):   4%| | 1.00/23.0 [00:00<00:00, 12.4k objects/s [...]
+    publish(ok): . (dataset) [pushed to gin: ['5ea3394..f9a941f', '[new branch]']]
+    action summary:
+      publish (ok: 7)
+
+
+If you refresh your GIN repository afterwards, you will find all of your dataset
+-- including annexed contents! -- on GIN. What is especially cool is that the
+GIN webinterface (unlike GitHub) can even preview your annexed contents.
+
+.. figure:: ../artwork/src/GIN_dl101_repo.png
+
+.. todo::
+
+   - how to handle/publish all the subdatasets as well
+   - how to share this (with collaborator with/without GIN account)

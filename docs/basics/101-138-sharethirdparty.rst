@@ -6,83 +6,83 @@ Beyond shared infrastructure
 From the sections :ref:`sharelocal1` and :ref:`yoda_project` you already
 know about two common setups for sharing datasets:
 
-The first was between users on a common, shared computational infrastructure
-such as an :term:`SSH server`, as the situation you experienced with a "simulated"
-roommate. In this case, sharing was easy via a simple
-:command:`datalad clone` command with a path to where the dataset lies.
+Users on a common, shared computational infrastructure such as an :term:`SSH server`
+one can share datasets via simple installations with paths.
 
-In the second case, you shared your ``midterm_project`` dataset via :term:`GitHub`.
-In this endeavour, you noticed that the files stored in :term:`git-annex`
-(among others, the results of your analysis,
-``pairwise_comparisons.png`` and ``prediction_report.csv``) were not shared
-via GitHub. There was meta data about their file availability, but a
-:command:`datalad get` command on these files failed, because annexed content
-in datasets can not be hosted on services like :term:`GitHub` and
-:term:`GitLab` for free.
+Without access to the same computer, it is possible to :command:`publish` datasets
+to :term:`GitHub` or :term:`GitLab`. You have already done this when you shared
+your ``midterm_project`` dataset via :term:`GitHub`. However, this section
+demonstrated that the files stored in :term:`git-annex` (such as the results of
+your analysis, ``pairwise_comparisons.png`` and ``prediction_report.csv``) are not
+published to GitHub: There was meta data about their file availability, but a
+:command:`datalad get` command on these files failed, because storing (large)
+annexed content is currently not supported by :term:`GitHub` [#f1]_.
 In the case of the ``midterm_project``, this was not a problem: The
-computation that you ran were captured with :command:`datalad run`, and
-instead of needing to obtain your results, others can just recompute them.
+computations that you ran were captured with :command:`datalad run`, and
+others can just recompute your results instead of :command:`datalad get`\ing them.
 
-However, not always do two or more parties share the same
-server, have access to the same systems, or share something
-that can be recomputed quickly, but need to actually share datasets
-with data, including the annexed contents.
+However, not always do two or more parties share the same server, have access to
+the same systems, or share something that can be recomputed quickly, but need to
+actually share datasets with data, including the annexed contents.
+
+Leveraging third party infrastructure
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Let's say you'd like to share your complete ``DataLad-101`` dataset with
 a friend overseas. After all you know about DataLad, you'd like to let more people
 know about its capabilities. You and your friend, however, do not have access
 to the same computational infrastructure, and there are also many annexed files, e.g.,
 the PDFs in your dataset, that you'd like your friend to have but that can't be
-simply computed.
+simply computed or automatically obtained from web sources.
 
-In these cases, the two approaches you already know about do not suffice.
-What you'd like to do, though, is to provide your friend with a GitHub URL to
-install from *and* successfully run :command:`datalad get`, just as for example with
-the ``longnow`` podcasts. What you
-would need to do to share a dataset (e.g., via GitHub) and make a
-:command:`datalad get` on annexed contents work, is to configure an external
-resource that holds your annexed data contents and that can be
-accessed by the person you want to share your data with.
-Such a resource can be a private webserver, but also a
-third party services cloud storage such as
+In these cases, the two previous approaches to share data do not suffice.
+What you would like to do is to provide your friend with a GitHub URL to
+install a dataset from *and* successfully run :command:`datalad get`, just as with
+the many publicly available DataLad datasets such as the ``longnow`` podcasts.
+
+To share all dataset contents with your friend, you need to configure an external
+resource that stores your annexed data contents and that can be accessed by the
+person you want to share your data with. Such a resource can be a private
+webserver [#f2]_, but also a third party services cloud storage such as
 `Dropbox <https://dropbox.com>`_,
 `Google <https://google.com>`_,
-`Amazon <https://aws.amazon.com/s3/?nc1=h_ls>`_,
+`Amazon S3 buckets <https://aws.amazon.com/s3/?nc1=h_ls>`_,
 `Box.com <https://www.box.com/en-gb/home>`_,
 `Figshare <https://figshare.com/>`_,
 `owncloud <https://owncloud.org/>`_,
 `sciebo <https://sciebo.de/>`_,
-or many more.
+or many more. The key to achieve this lies within :term:`git-annex`.
 
-In order to use them for file storage, services as the ones listed above need to be
-configured, and the contents *published* to them. Afterwards, published datasets
-(e.g., via :term:`GitHub` or :term:`GitLab`) know where to obtain annexed
-file contents from, such that :command:`datalad get` works.
+In order to use third party services for file storage, you need to configure the
+service of your choice and *publish* the annexed contents to it. Afterwards,
+the published dataset (e.g., via :term:`GitHub` or :term:`GitLab`) stores the
+information about where to obtain annexed file contents from such that
+:command:`datalad get` works.
+
 This tutorial showcases how this can be done, and shows the basics of how
 datasets can be shared via a third party infrastructure.
-
-From your perspective as someone who wants to share data, you will
+From your perspective (as someone who wants to share data), you will
 need to
 
-- (potentially) install/setup the relevant *special-remote*
-- find a place that the large file content can be stored in and set
-  up a publication dependency on this location.
+- (potentially) install/setup the relevant *special-remote*,
+- find a place that large file content can be stored in & set up a
+  *publication dependency* on this location,
 - publish your dataset
 
-This gives you all the freedom to decide where your data lives, and
-who can have access to it. Once this set up is complete, publishing and
+This gives you the freedom to decide where your data lives and
+who can have access to it. Once this set up is complete, updating and
 accessing a published dataset and its data is almost as easy as if it would
 lie on your own machine.
 
-From the perspective of your friend, i.e., someone you share your dataset with,
+From the perspective of your friend (as someone who wants to obtain a dataset),
 they will need to
 
-- (potentially) install the relevant *special-remote*
-- do normal :command:`datalad clone` and :command:`datalad get` commands
+- (potentially) install the relevant *special-remote* and
+- perform the standard :command:`datalad clone` and :command:`datalad get` commands
   as necessary.
 
-Thus, from a collaborators perspective, with the exception of installing/setting up
-the relevant *special-remote*, obtaining your dataset and its
+Thus, from a collaborator's perspective, with the exception of potentially
+installing/setting up the relevant *special-remote*, obtaining your dataset and its
 data is as easy as with any public DataLad dataset.
 While you have to invest some setup effort in the beginning, once this
 is done, the workflows of yours and others are the same that you are already
@@ -109,34 +109,45 @@ file content from the remote, third party storage.
 .. findoutmore:: What is a special remote
 
    A special-remote is an extension to Git’s concept of remotes, and can
-   enable git-annex to transfer data to and from places that are not Git
+   enable :term:`git-annex` to transfer data to and from places that are not Git
    repositories (e.g., cloud services or external machines such as an HPC
    system). Don’t envision a special-remote as a physical place or location
    – a special-remote is just a protocol that defines the underlying transport
    of your files to and from a specific location.
 
 As an example, let's walk through all necessary steps to publish ``DataLad-101``
-to **Dropbox** for your friend to install. The special-remote used to do this is
+to **Dropbox**. If you instead are interested in learning how to set up a public
+`Amazon S3 bucket <https://aws.amazon.com/s3/?nc1=h_ls>`_, there is a single-page, step-by-step
+walk-through `in the documentation of git-annex <https://git-annex.branchable.com/tips/public_Amazon_S3_remote/>`_
+that shows how you can create an S3 special remote and share data with anyone who
+gets a clone of your dataset, without them needing Amazon AWS credentials. Likewise,
+the documentation provides step-by-step walk-throughs for many other services,
+such as `Google Cloud Storage <https://git-annex.branchable.com/tips/using_Google_Cloud_Storage/>`_,
+`Box.com <https://git-annex.branchable.com/tips/using_box.com_as_a_special_remote/>`__,
+`Amazon Glacier <https://git-annex.branchable.com/tips/using_Amazon_Glacier/>`_,
+`OwnCloud <https://git-annex.branchable.com/tips/owncloudannex/>`__, and many more.
+Here is the complete list: `git-annex.branchable.com/special_remotes/ <https://git-annex.branchable.com/special_remotes/>`_.
+
+For Dropbox, the relevant special-remote to configures is
 `rclone <https://github.com/DanielDent/git-annex-remote-rclone>`__.
 It is a command line program to sync files and directories to and
-from a large number of commercial providers [#f2]_ (Google, Amazon, owncloud,
-...), and quite easy to work with. By enabling it as a special remote,
-:term:`Git-annex` gets the ability to do the same, and can thus take
-care of publishing large file content to such sources conveniently under
-the hood.
+from a large number of commercial providers [#f3]_ (Amazon Cloud Drive, Microsoft
+One Drive, ...). By enabling it as a special remote, :term:`git-annex` gets the
+ability to do the same, and can thus take care of publishing large file content
+to such sources conveniently under the hood.
 
 
 - The first step is to `install <https://rclone.org/install/>`_
-  ``rclone`` on your system. The installation instructions are straightforward
-  and the installation quick if you are on a Unix-based system (macOS or any
+  ``rclone`` on your computer. The installation instructions are straightforward
+  and the installation is quick if you are on a Unix-based system (macOS or any
   Linux distribution).
 
-- Afterwards, run ``rclone config`` to configure ``rclone`` to
-  work with Dropbox. Running this command will prompt interactively
-  from the terminal to configure a remote (here it will have the
-  name "dropbox-remote" - the name will be used to refer to it later during the
-  configuration of the dataset we want to publish). All parts of the dialog that require user input
-  are highlighted in the code block below.
+- Afterwards, run ``rclone config`` from the command line to configure ``rclone`` to
+  work with Dropbox. Running this command will a guide you with an interactive
+  prompt through a ~2 minute configuration of the remote (here we will name the
+  remote "dropbox-remote" -- the name will be used to refer to it later during the
+  configuration of the dataset we want to publish). The interactive dialog is
+  outlined below, and all parts that require user input are highlighted.
 
 .. code-block::
    :emphasize-lines: 7-8, 22, 26, 30, 36
@@ -216,23 +227,24 @@ the hood.
    q) Quit config
    e/n/d/r/c/s/q> q
 
-- ``git clone`` the
+- Once this is done, ``git clone`` the
   `git-annex-remote-rclone <https://github.com/DanielDent/git-annex-remote-rclone>`_
-  repository to your machine (not inside ``DataLad-101``)::
+  repository to your machine (do not clone it into ``DataLad-101`` but somewhere
+  else on your computer)::
 
      $ git clone https://github.com/DanielDent/git-annex-remote-rclone.git
 
   This is a wrapper around `rclone <https://rclone.or>`__ that makes any
-  destination supported by rclone usable with Git-annex.
+  destination supported by rclone usable with :term:`git-annex`.
 
 - Copy the path to this repository into your ``$PATH`` variable. If the
-  clone is in ``/home/user-bob/repos``, the command would look like this [#f1]_::
+  clone is in ``/home/user-bob/repos``, the command would look like this [#f4]_::
 
    $ export PATH="/home/user-bob/repos/git-annex-remote-rclone:$PATH"
 
-- Finally, in the dataset, run the :command:`git annex initremote` command.
+- Finally, in the dataset you want to share, run the :command:`git annex initremote` command.
   Give the remote a name (it is ``dropbox-remote`` here), and specify the name of
-  the remote your configured with ``rclone`` with the ``target`` parameters:
+  the remote you configured with ``rclone`` with the ``target`` parameters:
 
 .. code-block:: bash
 
@@ -253,26 +265,26 @@ On a conceptual, dataset level, your Dropbox folder is now a :term:`sibling`:
     .: roommate(+) [../mock_user/DataLad-101 (git)]
 
 On Dropbox, a new folder, ``git-annex`` will be created for your annexed files.
-However, this is not the location we would refer any collaborator or your friend to.
-Indeed, the representation of the files in the special-remote is not
-human-readable, it is a tree of annex objects.
-Only through this design it becomes possible to chunk files into
-smaller units, optionally encrypt content on its way from a local
-machine to a storage service, and avoid leakage of information via
-file names. Therefore these places are not something a real person
-would take a look at, instead they are only meant to to be managed
-and accessed via DataLad/Git-annex.
+However, this is not the location you would refer your friend or a collaborator to.
+The representation of the files in the special-remote is not human-readable --
+it is a tree of annex objects, and thus looks like a bunch of very weirdly named
+folders and files to anyone.
+Through this design it becomes possible to chunk files into smaller units,
+optionally encrypt content on its way from a local machine to a storage service,
+and avoid leakage of information via file names. Therefore, the Dropbox remote is
+not a places a real person would take a look at, instead they are only meant to
+be managed and accessed via DataLad/git-annex.
 
-To actually share your dataset with someone outside, you need to
-publish it to Github, Gitlab, or a similar place.
+To actually share your dataset with someone, you need to *publish* it to Github,
+Gitlab, or a similar hosting service.
 
 You could, for example, create a sibling of the ``DataLad-101`` dataset
-on GitHub with :command:`datalad-sibling-github`.
+on GitHub with the command :command:`datalad-sibling-github`.
 This will create a new GitHub repository called "DataLad-101" under your account,
 and configure this repository as a :term:`sibling` of your dataset
-called ``github`` (exactly the same as what you have done in :ref:`yoda_project`
+called ``github`` (exactly like you have done in :ref:`yoda_project`
 with the ``midterm_project`` subdataset).
-However, in order to be able to link contents stored in Dropbox, you also need to
+However, in order to be able to link the contents stored in Dropbox, you also need to
 configure a *publication dependency* to the ``dropbox-remote`` sibling -- this is
 done with the ``publish-depends <sibling>`` option.
 
@@ -303,9 +315,11 @@ publishing to GitHub dependent on the ``dropbox-remote`` sibling
 (that has a remote data annex), so that annexed contents are published
 there first.
 
-With this setup, we can publish the dataset to GitHub.
+With this setup, we can publish the dataset to GitHub. Note how the publication
+dependency is served first:
 
 .. code-block:: bash
+   :emphasize-lines: 2
 
    $ datalad publish --to github --transfer-data all
    [INFO   ] Transferring data to configured publication dependency: 'dropbox-remote'
@@ -335,7 +349,7 @@ contents, and you made sure that they can access the Dropbox folder with
 the annexed files (e.g., by sharing an access link), here is what they would
 have to do:
 
-If the repository is on GitHub, a :command:`datalad clone` with the url
+If the repository is on GitHub, a :command:`datalad clone` with the URL
 will install the dataset::
 
    $ datalad clone https://github.com/adswa/DataLad-101.git
@@ -366,7 +380,7 @@ the same as before:
   `git-annex-remote-rclone <https://github.com/DanielDent/git-annex-remote-rclone>`_
   repository to your machine.
 - Copy the path to this repository into your ``$PATH`` variable. If the
-  clone is in ``/home/user-bob/repos``, the command would look like this [#f1]_::
+  clone is in ``/home/user-bob/repos``, the command would look like this [#f4]_::
 
   $ export PATH="/home/user-bob/repos/git-annex-remote-rclone:$PATH"
 
@@ -400,16 +414,23 @@ history or configurations.
 
 .. rubric:: Footnotes
 
-.. [#f1] Note that ``export`` will extend your ``$PATH`` *for your current shell*.
+.. [#f1] :term:`GitLab`, on the other hand, provides a git-annex configuration. It
+         is disabled by default, and to enable it you would need to have administrative
+         access to the server and client side of your GitLab instance. Find out more
+         `here <https://docs.gitlab.com/ee/administration/git_annex.html>`_.
+
+.. [#f2] If you have an unused computer and a bit of time to spare, here is an
+         instruction `how to build your own webserver <https://www.instructables.com/id/Set-up-your-very-own-Web-server/>`_.
+
+.. [#f3] ``rclone`` is a useful special-remote for this example, because
+         you can not only use it for Dropbox, but also for many other
+         third-party hosting services.
+         For a complete overview of which third-party services are
+         available and which special-remote they need, please see this
+         `list <http://git-annex.branchable.com/special_remotes/>`_.
+
+.. [#f4] Note that ``export`` will extend your ``$PATH`` *for your current shell*.
          This means you will have to repeat this command if you open a new shell.
          Alternatively, you can insert this line into your shells configuration file
          (e.g., ``~/.bashrc``) to make this path available to all future shells of
          your user account.
-
-.. [#f2] ``rclone`` is a useful special-remote for this example, because
-         you can not only use it for Dropbox, but also for many other
-         third-party hosting services. If you follow along and install it, you are
-         ready to go to use it also with Google drive or Amazon S3, for example.
-         For a complete overview of which third-party services are
-         available and which special-remote they need, please see this
-         `list <http://git-annex.branchable.com/special_remotes/>`_.

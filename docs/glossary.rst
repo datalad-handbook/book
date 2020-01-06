@@ -179,6 +179,21 @@ Glossary
       Secure shell (SSH) is a network protocol to link one machine (computer),
       the *client*, to a different local or remote machine, the *server*. See also: :term:`SSH server`.
 
+   SSH key
+      An SSH key is an access credential in the SSH protocol that can be used to login
+      from one system to remote servers and services, such as from your private
+      computer to an :term:`SSH server`, without supplying your username or password
+      at each visit. To use an SSH key for authentication, you need to generate a
+      key pair on the system you would like to use to access a remote system or service
+      (most likely, your computer).
+      The pair consists of a *private* and a *public* key. The public key is shared
+      with the remote server, and the private key is used to authenticate your machine
+      whenever you want to access the remote server or service.
+      Services such as :term:`GitHub`, :term:`GitLab`, and :term:`GIN` use SSH keys and the SSH protocol
+      to ease access to repositories. This
+      `tutorial by GitHub <https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent>`_
+      is a detailed step-by-step instruction to generate and use SSH keys for authentication.
+
    SSH server
       An remote or local computer that users can log into using the :term:`SSH` protocol.
 

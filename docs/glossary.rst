@@ -72,6 +72,10 @@ Glossary
       A variable made up of a name/value pair. Programs using a given environment variable
       will use its associated value for their execution.
 
+   GIN
+      A web-based repository store for data management that you can use to host and
+      share datasets. Find out more about GIN `here <https://gin.g-node.org/G-Node/Info/wiki>`__.
+
    Git
       A version control system to track changes made to small-sized files over time. You can find out
       more about git in `this (free) book <https://git-scm.com/book/en/v2>`_

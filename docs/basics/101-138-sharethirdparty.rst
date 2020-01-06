@@ -60,7 +60,11 @@ information about where to obtain annexed file contents from such that
 :command:`datalad get` works.
 
 This tutorial showcases how this can be done, and shows the basics of how
-datasets can be shared via a third party infrastructure.
+datasets can be shared via a third party infrastructure. A much easier
+alternative using another third party infrastructure is introduced in the next
+section, :ref:`gin`, using the free G-Node infrastructure. If you prefer this as an
+easier start, feel free to skip ahead.
+
 From your perspective (as someone who wants to share data), you will
 need to
 

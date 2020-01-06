@@ -8,21 +8,15 @@ to share, update, and collaborate on a DataLad dataset on a shared file system.
 Thus, you have glimpsed into the principles and advantages of
 sharing a dataset with a simple example.
 
-* To obtain a dataset, one has to :command:`datalad install` this
-  dataset. Note that this requires the appropriate permissions
-  in real-world examples.
-  Note further that subdatasets will not be installed by default --
-  you will have to do a plain :command:`datalad install PATH/TO/SUBDATASET`,
-  or specify the ``-r``/``--recursive`` option in the install command:
-  :command:`datalad install -s ../DataLad-101 -r` with a decent
-  ``recursion-limit`` choice.
-
-* On a common or share file system, :command:`datalad install` takes a path
-  as the ``-s``/``--source`` option.
+* To obtain a dataset, one can also use :command:`datalad clone` with a path.
+  Potential subdatasets will not be installed right away. As they are registered in
+  the superdataset, you can do :command:`datalad get -n/--no-data`,
+  or specify the ``-r``/``--recursive`` (``datalad get -n -r <subds>``)
+  with a decent ``-R/--recursion-limit`` choice to install them afterwards.
 
 * The configuration of the original dataset determines which types
-  of files will have their content available right after installation
-  of the dataset, and which types of files need to be retrieved via
+  of files will have their content available right after the installation of
+  the dataset, and which types of files need to be retrieved via
   :command:`datalad get`: Any file content stored in :term:`Git` will be available
   right away, while all file content that is ``annexed`` only has
   small metadata about its availability attached to it. The original
@@ -51,7 +45,7 @@ sharing a dataset with a simple example.
   these changes into the dataset copy.
 
 * Thus, using DataLad, data can be easily shared and kept up to date
-  with only two commands: :command:`datalad install` and :command:`datalad update`.
+  with only two commands: :command:`datalad clone` and :command:`datalad update`.
 
 * By configuring a dataset as a :term:`sibling`, collaboration becomes easy.
 

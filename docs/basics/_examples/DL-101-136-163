@@ -1,4 +1,4 @@
-$ datalad install cloud
+$ datalad get -n cloud
 # delete the subdataset
 $ datalad remove -m "remove obsolete subds" -d . cloud
 [INFO] Cloning https://github.com/datalad-datasets/disneyanimation-cloud.git [1 other candidates] into '/home/me/dl-101/DataLad-101/cloud' 

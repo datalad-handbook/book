@@ -44,7 +44,7 @@ section below:
 
        >>> import datalad.api as dl
 
-    and subsequently access commands as ``dl.get()``, ``dl.install()``, and so forth.
+    and subsequently access commands as ``dl.get()``, ``dl.clone()``, and so forth.
 
 
     The `developer documentation <http://docs.datalad.org/en/latest/modref.html>`_
@@ -180,8 +180,8 @@ independent dataset from scratch in the hidden section below.
    file) is downloaded, and, importantly, the dataset recorded *where* it
    was obtained from thanks to :command:`datalad download-url`, thus complying
    to the second YODA principle.
-   This way, upon an installation of the dataset, DataLad knows where to
-   obtain the file content from. You can :command:`datalad install` the iris
+   This way, upon installation of the dataset, DataLad knows where to
+   obtain the file content from. You can :command:`datalad clone` the iris
    dataset and find out with a ``git annex whereis iris.csv`` command.
 
 
@@ -237,11 +237,11 @@ by installing it as a subdataset. Make sure to install it as a subdataset of
    :language: console
    :workdir: dl-101/DataLad-101
    :cast: 10_yoda
-   :notes: Now install input data as a subdataset
+   :notes: Now clone input data as a subdataset
 
    $ cd midterm_project
    # we are in midterm_project, thus -d . points to the root of it.
-   $ datalad install -d . --source https://github.com/datalad-handbook/iris_data.git input/
+   $ datalad clone -d . https://github.com/datalad-handbook/iris_data.git input/
 
 Note that we did not keep its original name, ``iris_data``, but rather provided
 a path with a new name, ``input``, because this much more intuitively comprehensible.
@@ -445,10 +445,10 @@ project on first try is that you achieved complete provenance capture:
 
 - Every single file in this dataset is associated with an author and a time
   stamp for each modification thanks to :command:`datalad save`.
-- The raw dataset knows where the data came from thanks to :command:`datalad install`
+- The raw dataset knows where the data came from thanks to :command:`datalad clone`
   and :command:`datalad download-url`.
 - The subdataset is linked to the superdataset thanks to
-  :command:`datalad install -d`.
+  :command:`datalad clone -d`.
 - The :command:`datalad run` command took care of linking the outputs of your
   analysis with the script and the input data it was generated from, fulfilling
   the third YODA principle.
@@ -672,10 +672,10 @@ reproduce your data science project easily from scratch!
 
    Now that you have created and published such a YODA-compliant dataset, you
    are understandably excited how this dataset must look and feel for others.
-   Therefore, you decide to install this dataset in a new location on your
+   Therefore, you decide to install this dataset into a new location on your
    computer, just to get a feel for it.
 
-   Replace the ``url`` in the :command:`install` command below with the path
+   Replace the ``url`` in the :command:`clone` command below with the path
    to your own ``midtermproject`` GitHub repository:
 
    .. runrecord:: _examples/DL-101-130-119
@@ -683,7 +683,7 @@ reproduce your data science project easily from scratch!
       :workdir: dl-101/DataLad-101/midterm_project
 
       $ cd ../../
-      $ datalad install --source "https://github.com/adswa/midtermproject.git"
+      $ datalad clone "https://github.com/adswa/midtermproject.git"
 
    Let's start with the subdataset, and see whether we can retrieve the
    input ``iris.csv`` file. This should not be a problem, since it's origin
@@ -741,6 +741,10 @@ reproduce your data science project easily from scratch!
    Applying the YODA principles to your data analysis was very beneficial indeed.
    Proud of your midterm project you can not wait to use those principles the
    next time again.
+
+    .. figure:: ../artwork/src/reproduced.svg
+       :width: 50%
+
 
 .. rubric:: Footnotes
 

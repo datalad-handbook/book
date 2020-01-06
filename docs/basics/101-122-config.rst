@@ -265,11 +265,11 @@ you a glimpse of this.
    You may recognize the third part of the configuration, the subsection
    ``"recordings/longnow"`` in the section ``submodule``.
    Clearly, this is a reference to the ``longnow`` podcasts
-   we installed as a subdataset. The name *submodule* is Git
+   we cloned as a subdataset. The name *submodule* is Git
    terminology, and describes a Git repository inside of
    another Git repository -- just like
    the super- and subdataset principles you discovered in the
-   section :ref:`nesting`. When you install a DataLad dataset
+   section :ref:`nesting`. When you clone a DataLad dataset
    as a subdataset, it gets *registered* in this file.
    For each subdataset, an individual submodule entry
    will store the information about the subdataset's
@@ -277,9 +277,9 @@ you a glimpse of this.
    Thus, every subdataset (and sub-subdataset, and so forth) in your dataset
    will be listed in this file.
    If you want, go back to section :ref:`installds` to see that the
-   "url" is the same URL we installed the longnow dataset from, and
+   "url" is the same URL we cloned the longnow dataset from, and
    go back to section :ref:`sharelocal1` to remind yourself of
-   how installing a dataset with subdatasets looked and felt like.
+   how cloning a dataset with subdatasets looked and felt like.
 
    Another interesting part is the last section, "remote".
    Here we can find the :term:`sibling` "roommate" we defined
@@ -313,9 +313,9 @@ the dataset, these configurations will also be shared together with the dataset.
 ``.git/config``, however, behaves just as your global or system-wide configurations.
 These configurations are in effect on a system, or for a user, or for a dataset,
 but are not shared.
-A :command:`datalad install` command of someone's dataset will not get your their
+A :command:`datalad clone` command of someone's dataset will not get your their
 editor configuration, should they have included one in their config file.
-Instead, upon a :command:`datalad install`, a new config file will be created.
+Instead, upon a :command:`datalad clone`, a new config file will be created.
 
 
 This means, however, that configurations that should "stick" to a dataset

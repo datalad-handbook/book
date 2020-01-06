@@ -11,6 +11,9 @@ To find out how we acknowledge contributions, please read the paragraph
 :ref:`acknowledge` at the bottom of
 this page.
 
+.. figure:: artwork/src/contributing.svg
+   :width: 50%
+
 If you are considering doing a pull request: Great! Every contribution is valuable,
 from fixing typos to writing full chapters.
 The steps below outline how the book "works". It is recommended to also create an issue

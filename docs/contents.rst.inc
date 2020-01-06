@@ -163,7 +163,6 @@
    usecases/reproducible_neuroimaging_analysis
    usecases/datastorage_for_institutions
 
-
 ########
 Appendix
 ########
@@ -174,6 +173,7 @@ Appendix
 
    glossary
    basics/101-180-FAQ
+   basics/101-136-cheatsheet
    contributing
    teaching
    acknowledgements

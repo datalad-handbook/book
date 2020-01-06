@@ -33,6 +33,9 @@ DataLad tool, many
 `extensions <http://docs.datalad.org/en/latest/index.html#extension-packages>`_
 exist, and they need to be installed separately, if needed.
 
+.. figure:: ../artwork/src/install.svg
+   :width: 70%
+
 
 Linux: (Neuro)Debian, Ubuntu, and similar systems
 """""""""""""""""""""""""""""""""""""""""""""""""
@@ -487,6 +490,10 @@ Initial configuration
 
 Initial configurations only concern the setup of a :term:`Git` identity. If you
 are a Git-user, you should hence be good to go.
+
+.. figure:: ../artwork/src/gitidentity.svg
+   :width: 70%
+
 If you have not used the version control system Git before, you will need to
 tell Git some information about you. This needs to be done only once.
 In the following example, exchange ``Bob McBobFace`` with your own name, and

@@ -206,7 +206,7 @@ Glossary
       collection found at `datasets.datalad.org <http://datasets.datalad.org/>`_.
       This collection is known as "The DataLad superdataset" and under its shortcut,
       ``///``. You can install the superdataset -- and subsequently query its content via metadata
-      search -- by running ``datalad install ///``.
+      search -- by running ``datalad clone ///``.
 
    tig
       A text-mode interface for git that allows you to easily browse through your commit history.

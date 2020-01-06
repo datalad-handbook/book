@@ -244,7 +244,7 @@ up to now fulfill this principle.
 
 If data components of a project are DataLad datasets, they can
 be included in an analysis superdataset as subdatasets. Thanks to
-:command:`datalad install`, information on the source of these subdatasets
+:command:`datalad clone`, information on the source of these subdatasets
 is stored in the history of the analysis superdataset, and they can even be
 updated from those sources if the original data dataset gets extended or changed.
 If you are including a file, for example code from GitHub,

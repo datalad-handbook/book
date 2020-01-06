@@ -11,6 +11,6 @@ add(ok): pairwise_relationships.png (file)
 add(ok): prediction_report.csv (file)
 action summary:
   add (ok: 2)
-  get (notneeded: 1)
+  get (notneeded: 3)
   remove (ok: 2)
   save (notneeded: 2)

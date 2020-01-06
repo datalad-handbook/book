@@ -14,6 +14,9 @@ it is possible to look at previous states of the data, or revert changes --
 even years after they happened -- thanks to the underlying version control
 system :term:`Git`.
 
+.. figure:: ../artwork/src/versioncontrol.svg
+   :width: 70%
+
 To get a glimpse into how to work with the history of a dataset, today's lecture
 has an external Git-expert as a guest lecturer.
 "I do not have enough time to go through all the details in only

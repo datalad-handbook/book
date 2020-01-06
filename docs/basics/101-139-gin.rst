@@ -8,7 +8,8 @@ free data management system designed for comprehensive and reproducible manageme
 of scientific data. It is a secure, web-based repository store and provides
 fine-grained access control to share data. :term:`GIN` builds up on :term:`Git` and
 :term:`git-annex`, and is an easy alternative to other third-party services to host
-and share your DataLad datasets. Moreover, its
+and share your DataLad datasets. Among a number of additional advantages, it can
+assign a :term:`DOI` to your dataset, making it citeable. Moreover, its
 `web interface <https://gin.g-node.org/G-Node/Info/wiki/WebInterface>`_
 and `client <https://gin.g-node.org/G-Node/Info/wiki/GinUsageTutorial>`_ are also
 useful tools with a variety of features that are worthwhile to check out.
@@ -120,7 +121,68 @@ GIN webinterface (unlike GitHub) can even preview your annexed contents.
 
 .. figure:: ../artwork/src/GIN_dl101_repo.png
 
+What is also cool is that the longnow subdataset directly references the original
+GitHub dataset. If you click onto ``recordings`` and then ``longnow``, you will
+be redirected to the podcast's original dataset on Github.
+
+Subdataset publishing
+^^^^^^^^^^^^^^^^^^^^^
+
+The subdataset ``midterm_project``, however, is not successfully referenced. If
+you click on it, you would get to a 404 Error page. The crucial difference between this
+subdataset and the longnow dataset is its entry in the ``.gitmodules`` file of
+``DataLad-101``:
+
+.. code-block:: bash
+   :emphasize-lines: 4, 8
+
+   $ cat .gitmodules
+   [submodule "recordings/longnow"]
+           path = recordings/longnow
+           url = https://github.com/datalad-datasets/longnow-podcasts.git
+           datalad-id = b3ca2718-8901-11e8-99aa-a0369f7c647e
+   [submodule "midterm_project"]
+           path = midterm_project
+           url = ./midterm_project
+           datalad-id = e5a3d370-223d-11ea-af8b-e86a64c8054c
+
+While the podcast subdataset is referenced with a valid URL to GitHub, the midterm
+project's URL is a relative path from the root of the superdataset. This is because
+the ``longnow`` subdataset was installed with :command:`datalad clone`, and
+the ``midterm_project`` dataset was created as a subdataset with
+:command:`datalad create -d . midterm_project`. Since there is no repository at
+``https://gin.g-node.org/adswa/DataLad-101/midterm_project`` (which this submodule
+entry would resolve to), accessing the subdataset fails.
+
+However, since you have already published this dataset (to GitHub), you could
+update the submodule entry and provide the accessible GitHub URL instead:
+
+.. runrecord:: DL-101-139-102
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ git config -f .gitmodules --replace-all  submodule.midterm_project.url https://github.com/adswa/midtermproject
+
+.. runrecord:: DL-101-139-103
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ datalad status
+
+.. runrecord:: DL-101-139-104
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ datalad save -m "provide resolvable URL to midterm subdataset"
+
+Afterwards, publish these changes to ``gin`` and see for yourself how this fixed
+the problem::
+
+   $ datalad publish --to gin --transfer-data all
+   [INFO   ] Publishing <Dataset path=/home/me/dl-101/DataLad-101> data to gin
+   [INFO   ] Publishing <Dataset path=/home/me/dl-101/DataLad-101> to gin
+
+
 .. todo::
 
-   - how to handle/publish all the subdatasets as well
    - how to share this (with collaborator with/without GIN account)

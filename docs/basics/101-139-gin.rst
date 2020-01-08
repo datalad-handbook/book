@@ -95,7 +95,7 @@ repository on GIN supports a dataset annex, there is no publication dependency
 to an external data hosting service necessary, and the dataset contents
 stored in Git and in git-annex are published to the same place::
 
-   $ datalad publish --to gin --transfer-data all                            1 ↵
+   $ datalad publish --to gin --transfer-data all
     [INFO   ] Publishing <Dataset path=/home/me/dl-101/DataLad-101> data to gin
     publish(ok): books/TLCL.pdf (file)
     publish(ok): books/bash_guide.pdf (file)
@@ -104,7 +104,7 @@ stored in Git and in git-annex are published to the same place::
     publish(ok): recordings/interval_logo_small.jpg (file)
     publish(ok): recordings/salt_logo_small.jpg (file)
     [INFO   ] Publishing <Dataset path=/home/me/dl-101/DataLad-101> to gin
-    Fetching gin (counting objects):   4%| | 1.00/23.0 [00:00<00:00, 12.4k objects/s [...]
+    Fetching gin (counting objects):  [...]
     publish(ok): . (dataset) [pushed to gin: ['5ea3394..f9a941f', '[new branch]']]
     action summary:
       publish (ok: 7)

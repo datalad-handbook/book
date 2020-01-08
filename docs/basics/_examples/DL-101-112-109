@@ -1,12 +1,12 @@
-$ git log -p -2
-commit bb10eda0df4006ab218d6f02733fe55a5276ddb7
+$ git log -p -n 2
+commit 50cf4f3792d6f1df05c29a4d9783ea1633c7d7c4
 Author: Elena Piscopia <elena@example.net>
-Date:   Sun Oct 6 09:39:52 2019 +0200
+Date:   Thu Dec 19 09:59:23 2019 +0100
 
     add note on clean datasets
 
 diff --git a/notes.txt b/notes.txt
-index d1ba8fc..8f0124f 100644
+index 21fd91f..3416898 100644
 --- a/notes.txt
 +++ b/notes.txt
 @@ -30,3 +30,10 @@ files will be retrieved prior to the command execution. Any content that is modi
@@ -21,9 +21,9 @@ index d1ba8fc..8f0124f 100644
 +to the files listed with --output flags.
 +
 
-commit ae9c7f50c1e960ad6765841f20b7c5d4ea62208b
+commit 668c32cbab77f071043f61e9d36eb9a31fddcdd2
 Author: Elena Piscopia <elena@example.net>
-Date:   Sun Oct 6 09:39:51 2019 +0200
+Date:   Thu Dec 19 09:59:23 2019 +0100
 
     [DATALAD RUNCMD] Resize logo for slides
     
@@ -31,7 +31,7 @@ Date:   Sun Oct 6 09:39:51 2019 +0200
     {
      "chain": [],
      "cmd": "convert -resize 400x400 recordings/longnow/.datalad/feed_metadata/logo_salt.jpg recordings/salt_logo_small.jpg",
-     "dsid": "1749b14a-e80c-11e9-ac07-f0d5bf7b5561",
+     "dsid": "c13f1288-223d-11ea-af8b-e86a64c8054c",
      "exit": 0,
      "extra_inputs": [],
      "inputs": [

@@ -1,0 +1,3 @@
+$ git reset --hard HEAD~1
+warning: unable to rmdir 'longnow': Directory not empty
+HEAD is now at 371fa50 add container and execute analysis within container

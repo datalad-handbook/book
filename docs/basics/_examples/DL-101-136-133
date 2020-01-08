@@ -1,3 +1,4 @@
-
-$ git reset --hard a841f6a361abb3e83896d36a6afee93983da7703
-HEAD is now at a841f6a save my favourite Git joke
+$ ls -l copyofTLCL.pdf
+$ ls -l books/TLCL.pdf
+lrwxrwxrwx 1 adina adina 128 Dec 19 10:00 copyofTLCL.pdf -> .git/annex/objects/jf/3M/MD5E-s2120211--06d1efcb05bb2c55cd039dab3fb28455.pdf/MD5E-s2120211--06d1efcb05bb2c55cd039dab3fb28455.pdf
+lrwxrwxrwx 1 adina adina 131 Dec 19 10:00 books/TLCL.pdf -> ../.git/annex/objects/jf/3M/MD5E-s2120211--06d1efcb05bb2c55cd039dab3fb28455.pdf/MD5E-s2120211--06d1efcb05bb2c55cd039dab3fb28455.pdf

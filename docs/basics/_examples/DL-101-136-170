@@ -1,0 +1,14 @@
+# download a file
+$ datalad download-url -m "Added flower mosaic from wikimedia" \
+  https://upload.wikimedia.org/wikipedia/commons/a/a5/Flower_poster_2.jpg \
+  --path flowers.jpg
+$ ls -l flowers.jpg
+[INFO] Downloading 'https://upload.wikimedia.org/wikipedia/commons/a/a5/Flower_poster_2.jpg' into '/home/me/dl-101/DataLad-101/flowers.jpg'
+download_url(ok): /home/me/dl-101/DataLad-101/flowers.jpg (file)
+add(ok): flowers.jpg (file)
+save(ok): . (dataset)
+action summary:
+  add (ok: 1)
+  download_url (ok: 1)
+  save (ok: 1)
+lrwxrwxrwx 1 adina adina 128 Oct  6  2013 flowers.jpg -> .git/annex/objects/7q/9Z/MD5E-s4487679--3898ef0e3497a89fa1ea74698992bf51.jpg/MD5E-s4487679--3898ef0e3497a89fa1ea74698992bf51.jpg

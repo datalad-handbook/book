@@ -50,9 +50,9 @@ of data, there is not much excuse for a lack of reproducibility anymore.
 DataLad can help with the technical aspects of reproducible science.
 
 For neuroscientific studies, :term:`the DataLad superdataset ///` provides unified
-access to a large amount of data. Using it to install datasets into an
+access to a large amount of data. Using it to clone datasets into an
 analysis-superdataset makes it easy to share this data together with the analysis.
-By ensuring that all relevant data is downloaded via :command:`datalad get`
+By ensuring that all relevant data are downloaded via :command:`datalad get`
 via DataLad's command line tools in the analysis scripts, or ``--input`` specifications
 in a :command:`datalad run`, an analysis can retrieve all required
 inputs fully automatically during execution.
@@ -74,10 +74,10 @@ It always starts with a dataset:
 
 For this demo we are using two public brain imaging datasets that were published on
 `OpenFMRI.org <https://legacy.openfmri.org/>`_, and are available from
-:term:`the DataLad superdataset ///` (datasets.datalad.org). When installing datasets
+:term:`the DataLad superdataset ///` (datasets.datalad.org). When cloning datasets
 from this superdataset, we can use its abbreviation ``///``.
 The two datasets, `ds000001 <https://legacy.openfmri.org/dataset/ds000001/>`_ and
-`ds000002 <https://legacy.openfmri.org/dataset/ds000002/>`_, are installed into the
+`ds000002 <https://legacy.openfmri.org/dataset/ds000002/>`_, are cloned into the
 subdirectory ``inputs/``.
 
 .. runrecord:: _examples/repro-102
@@ -85,14 +85,14 @@ subdirectory ``inputs/``.
    :workdir: usecases/repro
 
    $ cd demo
-   $ datalad install -d . -s ///openfmri/ds000001 inputs/ds000001
+   $ datalad clone -d . ///openfmri/ds000001 inputs/ds000001
 
 .. runrecord:: _examples/repro-103
    :language: console
    :workdir: usecases/repro
 
    $ cd demo
-   $ datalad install -d . -s ///openfmri/ds000002 inputs/ds000002
+   $ datalad clone -d . ///openfmri/ds000002 inputs/ds000002
 
 Both datasets are now registered as subdatasets, and their precise versions
 (e.g. in the form of the commit shasum of the lastest commit) are on record:

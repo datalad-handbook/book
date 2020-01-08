@@ -1,5 +1,25 @@
-
-$ git revert a4bd70789da8041ceeb57d02544c8982c40faf68
-[master 717f0d7] Revert "did a bad modification"
- Date: Wed Oct 23 13:52:51 2019 +0200
- 1 file changed, 1 deletion(-)
+$ cat .git/config
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+	editor = nano
+[annex]
+	uuid = e9dc3c4d-d166-44d4-9a18-e48cd6a87d7d
+	version = 5
+	backends = MD5E
+[submodule "recordings/longnow"]
+	url = https://github.com/datalad-datasets/longnow-podcasts.git
+	active = true
+[remote "roommate"]
+	url = ../mock_user/onemoredir/DataLad-101
+	fetch = +refs/heads/*:refs/remotes/roommate/*
+	annex-uuid = 13259b0d-9c44-4260-b8f1-ea1d0c19207d
+	annex-ignore = false
+[submodule "midterm_project"]
+	url = /home/me/dl-101/DataLad-101/midterm_project
+	active = true
+[submodule "longnow"]
+	url = https://github.com/datalad-datasets/longnow-podcasts.git
+	active = true

@@ -1,0 +1,2 @@
+$ git reset --hard HEAD~2
+HEAD is now at 371fa50 add container and execute analysis within container

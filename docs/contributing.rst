@@ -6,10 +6,13 @@ Contributing
 Thanks for being curious about contributing!
 We greatly appreciate and welcome contributions to this book, be it in the form
 of an `issue <https://github.com/datalad-handbook/book/issues/new>`_, a pull request,
-or a discussion you had with anyone on the team via a non-Github communication channel!
+or a discussion you had with anyone on the team via a non-GitHub communication channel!
 To find out how we acknowledge contributions, please read the paragraph
 :ref:`acknowledge` at the bottom of
 this page.
+
+.. figure:: artwork/src/contributing.svg
+   :width: 50%
 
 If you are considering doing a pull request: Great! Every contribution is valuable,
 from fixing typos to writing full chapters.
@@ -17,11 +20,11 @@ The steps below outline how the book "works". It is recommended to also create a
 to discuss changes or additions you plan to make in advance.
 
 Software setup
-""""""""""""""
+^^^^^^^^^^^^^^
 
 Depending on the size of your contribution, you may want to be able to build the book
 locally to test and preview your changes. If you are fixing typos, tweak the
-language, or rewrite a paragraph or two, this shouldn't be necessary, and you can safely
+language, or rewrite a paragraph or two, this should not be necessary, and you can safely
 skip this paragraph and instead take a look into the paragraph
 :ref:`easy`.
 If you want to be able to build the book locally, though, please follow these instructions:
@@ -65,7 +68,7 @@ a second machine ``/home/mih``, for example, leading to some potential confusion
 Therefore, you need to create this directory, and also --
 for consistency in the Git logs as well -- a separate, mock Git identity
 (we chose `Elena Piscopia <https://en.wikipedia.org/wiki/Elena_Cornaro_Piscopia>`_, the first
-woman to receive a PhD -- don't worry, this does not mess with your own Git identity):
+woman to receive a PhD. Do not worry, this does not mess with your own Git identity):
 
 .. code-block:: bash
 
@@ -74,19 +77,14 @@ woman to receive a PhD -- don't worry, this does not mess with your own Git iden
    $ HOME=/home/me git config --global user.name "Elena Piscopia"
    $ HOME=/home/me git config --global user.email "elena@example.net"
 
-.. todo::
-
-   remove separate Git identity until https://github.com/datalad/datalad/issues/3750
-   is fixed
-
 Once this is configured, you can build the book locally by running ``make`` in the root
 of the repository, and open it in your browser, for example with
 ``firefox docs/_build/html/index.html``.
 
 .. _directive:
 
-Directives and casts
-""""""""""""""""""""
+Directives and demos
+^^^^^^^^^^^^^^^^^^^^
 
 If you are writing larger sections that contain code, ``gitusernote``\s, ``findoutmore``\s,
 or other special directives, please make sure that you read this paragraph.
@@ -107,8 +105,8 @@ created content or dataset history. Build code snippets that add to these workin
 by using the ``runrecord`` directive. Commands wrapped in these will write the output
 of a command into example files stored inside of the DataLad Handbook repository clone
 in ``docs/PART/_examples`` (where ``PART`` is ``basics`` or ``usecases``).
-Make sure to name this files according to the following
-schema, because they are executed sequentially:
+Make sure to name these files according to the following
+schema, because they are executed *sequentially*:
 ``_examples/DL-101-1<nr-of-section>-1<nr-of-example>``, e.g.,
 ``_examples/DL-101-101-101`` for the first example in the first section
 of the given part.
@@ -124,8 +122,9 @@ Here is how a ``runrecord`` directive can look like:
       $ this line will be executed
 
 Afterwards, the resulting example files need to be committed into Git. To clear existing
-examples in ``docs/PART/_examples`` and the mock directories in ``/home/me``, run ``make clean`` and
-``make clean-examples``.
+examples in ``docs/PART/_examples`` and the mock directories in ``/home/me``, run
+``make clean`` (to remove working directories and examples for all parts of the book)
+or ``make clean-examples`` (to remove only examples and workdirs of the Basics part).
 
 However, for simple code snippets outside of the narrative of ``DataLad-101``,
 simple ``code-block::`` directives are sufficient.
@@ -135,7 +134,7 @@ simple ``code-block::`` directives are sufficient.
 (foldable sections that contain content that goes beyond the basics). Make use
 of them, if applicable to your contribution.
 
-**Creating code live casts out of runrecord directives**:
+**Creating live code demos out of runrecord directives**:
 The book has the capability to turn code snippets into a script that the tool
 `cast_live <https://github.com/datalad/datalad/blob/master/tools/cast_live>`_
 can use to cast and execute it in a demonstration shell. This feature is
@@ -143,15 +142,15 @@ intended for educational courses and other types of demonstrations. The
 following prerequisites exist:
 
 - A snippet only gets added to a cast, if the ``:cast:`` option in the
-  ``runrecord`` specifies a filename where to save the cast to (it does not
+  ``runrecord`` specifies a filename where to save the demo to (it does not
   need to be an existing file).
 - If ``:realcommand:`` options are specified, they will become the executable
   part of the cast. If note, the code snippet in the code-block of the
   ``runrecord`` will become the executable part of the cast.
-- An optional ``:caption:`` lets you add "speakernotes" for the cast.
-- Casts are produced upon ``make``, but only if the environment variable
+- An optional ``:notes:`` lets you add "speakernotes" for the cast.
+- Demos are produced upon ``make``, but only if the environment variable
   ``CAST_DIR`` is set.
-  This should be a path that points to any directory in which casts should be
+  This should be a path that points to any directory in which demos should be
   created and saved. An invocation could look like this::
 
      $ CAST_DIR=/home/me/casts make
@@ -164,7 +163,7 @@ This is a fully specified ``runrecord``:
       :language: console
       :workdir: dl-101/DataLad-101
       :cast: dataset_basics   # name of the cast file (will be created/extended in CAST_DIR)
-      :caption: This is an optional speaker note only visible to presenter during the cast
+      :notes: This is an optional speaker note only visible to presenter during the cast
 
       # this is a comment and will be written to the cast
       $ this line will be executed and written to the cast
@@ -174,19 +173,22 @@ execution of ``runrecords``. If you are adding code into an existing cast,
 i.e., in between two snippets that get written to the same cast, make sure that
 the cast will still run smoothly afterwards!
 
-**Running code live casts from created casts**:
+**Running live code demos from created casts**:
 If you have created a cast, you can use the tool ``live_cast`` in ``tools/`` in
 the `DataLad Course <https://github.com/datalad-handbook/course>`_ to
 execute them::
 
    ~ course$ tools/cast_live path/to/casts
 
+The section :ref:`teach` outlines more on this and other teaching materials the
+handbook provides.
+
 .. _easy:
 
 Easy pull requests
 ^^^^^^^^^^^^^^^^^^
 
-The easiest way to do a pull request is within the web-interface that Github
+The easiest way to do a pull request is within the web-interface that GitHub
 and `readthedocs <https://readthedocs.org>`_ provide. If you visit the rendered
 version of the handbook at `handbook.datalad.org <http://handbook.datalad.org/>`_
 and click on the small, floating ``v:latest`` element at the lower
@@ -195,7 +197,7 @@ lets you make your changes and submit a pull request.
 
 .. figure:: img/contrib.png
    :figwidth: 100%
-   :alt: Access the Github interface to submit a pull request right from within
+   :alt: Access the GitHub interface to submit a pull request right from within
          Readthedocs.
 
    You can find an easy way to submit a pull request right from within the handbook.
@@ -286,7 +288,7 @@ Acknowledging Contributors
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you have helped this project, we would like to acknowledge your contribution in the
-`Github repository <https://github.com/datalad-handbook/book>`_ in our README with
+`GitHub repository <https://github.com/datalad-handbook/book>`_ in our README with
 `allcontributors.org <https://allcontributors.org/>`_, and the project's
 `.zenodo <https://github.com/datalad-handbook/book/blob/master/.zenodo.json>`_ and
 `CONTRIBUTORS.md <https://github.com/datalad-handbook/book/blob/master/CONTRIBUTORS.md>`_

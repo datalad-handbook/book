@@ -280,6 +280,19 @@ latex_elements = {
 \usepackage[defaultsans]{lato}
 \usepackage{inconsolata}
 \setcounter{tocdepth}{0}
+\usepackage{xcolor}
+\newsavebox\mytempbox
+\definecolor{sphinxnoteBgColor}{RGB}{255, 193, 84}
+\renewenvironment{sphinxnote}[1]
+   {\begin{lrbox}{\mytempbox}\begin{minipage}{\columnwidth}%
+    \begin{sphinxlightbox}\sphinxstrong{#1} }
+   {\end{sphinxlightbox}\end{minipage}\end{lrbox}%
+    \colorbox{sphinxnoteBgColor}{\usebox{\mytempbox}}}
+\renewenvironment{sphinximportant}[2]
+   {\begin{lrbox}{\mytempbox}\begin{minipage}{\columnwidth}%
+    \begin{sphinxlightbox}\sphinxstrong{#1} }
+   {\end{sphinxlightbox}\end{minipage}\end{lrbox}%
+    \colorbox{sphinxnoteBgColor}{\usebox{\mytempbox}}}
 """,
 }
 

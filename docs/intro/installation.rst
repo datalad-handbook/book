@@ -11,6 +11,10 @@ Installation and configuration
   ``datalad~=0.12.0rc6``, via ``pip`` or ``conda``. Until 0.12 is released, please use
   ``pip`` or ``conda``-based methods to install the release candidate.
 
+  If you already have DataLad installed but are unsure whether it is the correct
+  version, you can get information on your version of DataLad by typing
+  ``datalad --version`` into your terminal.
+
 Install DataLad
 ^^^^^^^^^^^^^^^
 
@@ -19,7 +23,7 @@ The content in this chapter is largely based on the information given on the
 and the `DataLad documentation <http://docs.datalad.org/en/latest/gettingstarted.html>`_.
 
 Beyond DataLad itself, the installation requires Python, Pythons package manager ``pip``,
-:term:`Git`, and :term:`Git-annex`. The instructions below detail how to install
+:term:`Git`, and :term:`git-annex`. The instructions below detail how to install
 each of these components for different common operating systems. Please
 `file an issue <https://github.com/datalad-handbook/book/issues/new>`_
 if you encounter problems.
@@ -28,6 +32,9 @@ Note that while these installation instructions will provide you with the core
 DataLad tool, many
 `extensions <http://docs.datalad.org/en/latest/index.html#extension-packages>`_
 exist, and they need to be installed separately, if needed.
+
+.. figure:: ../artwork/src/install.svg
+   :width: 70%
 
 
 Linux: (Neuro)Debian, Ubuntu, and similar systems
@@ -47,7 +54,7 @@ Also, should you be confused by the name:
 enabling this repository will not do any harm if your field is not neuroscience.
 
 The following command installs
-DataLad and all of its software dependencies (including the Git-annex-standalone package):
+DataLad and all of its software dependencies (including the git-annex-standalone package):
 
 .. code-block:: bash
 
@@ -69,12 +76,12 @@ can be installed with `Miniconda <https://docs.conda.io/en/latest/miniconda.html
   # upgrade to the latest release candidate to match the requires of the book
   $ conda install -c conda-forge/label/rc datalad
 
-This should install :term:`Git`, :term:`Git-annex`, and DataLad.
+This should install :term:`Git`, :term:`git-annex`, and DataLad.
 The installer automatically configures the shell to make conda-installed
 tools accessible, so no further configuration is necessary.
 
-OS X
-""""
+macOS/OSX
+"""""""""
 
 A common way to install packages on OS X is via the
 `homebrew <https://brew.sh/>`_ package manager.
@@ -84,10 +91,71 @@ needs to be installed from the Mac App Store.
 Homebrew then can be installed using the command following the
 instructions on their webpage (linked above).
 
-Next, `install Git-annex <https://git-annex.branchable.com/install/OSX/>`_.
+Next, `install git-annex <https://git-annex.branchable.com/install/OSX/>`_. The
+easiest way to do this is via ``brew``::
 
-Once Git-annex is available, DataLad can be installed via Pythons package
-manager ``pip`` as described below.
+   $ brew install git-annex
+
+Once git-annex is available, DataLad can be installed via Pythons package
+manager ``pip`` as described below. ``pip`` should already be installed by
+default. Recent macOS versions may have ``pip3`` instead of ``pip`` -- use
+:term:`tab completion` to find out which is installed. If it is ``pip3``, run::
+
+   $ pip3 install datalad~=0.12.0rc6
+
+instead of the code snippets in the section below.
+
+If this results in a ``permission denied`` error, install DataLad into
+a user's home directory:
+
+.. code-block:: bash
+
+   $ pip3 install --user datalad~=0.12.0rc6
+
+
+.. findoutmore:: If something is not on PATH...
+
+    Recent macOS versions may warn after installation that scripts were installed
+    into locations that were not on ``PATH``::
+
+       The script chardetect is installed in '/Users/awagner/Library/Python/3.7/bin' which is not on PATH.
+       Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+
+    To fix this, add these paths to the ``$PATH`` environment variable.
+    You can either do this for your own user (1), or for all users of the computer (2)
+    (requires using ``sudo`` and authenticating with your computer's password):
+
+    (1) Add something like (exchange the user name accordingly)
+
+    .. code-block:: bash
+
+       export PATH=$PATH:/Users/awagner/Library/Python/3.7/bin
+
+    to the *profile* file of your shell. If you use a :term:`bash` shell, this may
+    be ``~/.bashrc`` or ``~/.bash_profile``, if you are using a :term:`zsh` shell,
+    it may be ``~/.zshrc`` or ``~/.zprofile``. Find out which shell you are using by
+    typing ``echo $SHELL`` into your terminal.
+
+    (2) Alternatively, configure it *system-wide*, i.e., for all users of your computer
+    by adding the the path ``/Users/awagner/Library/Python/3.7/bin`` to the file
+    ``/etc/paths``, e.g., with the editor :term:`nano`:
+
+    .. code-block:: bash
+
+       sudo nano /etc/paths
+
+    The contents of this file could look like this afterwards (the last line was
+    added):
+
+    .. code-block:: bash
+
+        /usr/local/bin
+        /usr/bin
+        /bin
+        /usr/sbin
+        /sbin
+        /Users/awagner/Library/Python/3.7/bin
+
 
 Using Pythons package manager ``pip``
 """""""""""""""""""""""""""""""""""""
@@ -112,7 +180,7 @@ a user's home directory:
 
    $ pip install --user datalad~=0.12.0rc6
 
-In addition, it is necessary to have a current version of :term:`Git-annex` installed which is
+In addition, it is necessary to have a current version of :term:`git-annex` installed which is
 not set up automatically by using the ``pip`` method.
 You can find detailed installation instructions on how to do this
 `here <https://git-annex.branchable.com/install/>`__.
@@ -175,9 +243,9 @@ please `get in touch <https://github.com/datalad-handbook/book/issues/new>`_.
         Note: Is has to be from ``conda-forge``, the anaconda version does not
         provide the ``cp`` command.
 
-   - **Step 3**: Install Git-annex
+   - **Step 3**: Install git-annex
 
-      - Obtain the current Git-annex versions installer
+      - Obtain the current git-annex versions installer
         `from here <https://downloads.kitenet.net/git-annex/windows/current/>`_.
         Save the file, and double click the downloaded
         :command:`git-annex-installer.exe` in your Downloads.
@@ -255,8 +323,8 @@ please `get in touch <https://github.com/datalad-handbook/book/issues/new>`_.
    - **Step 3**: Initialize the distribution
 
       - Launch the Subsystem either from the Microsoft store or from the Start menu. This
-        will start a terminal. Don't worry -- there is a dedicated section (:ref:`howto`)
-        on how to work with the terminal if you haven't so far.
+        will start a terminal. Do not worry -- there is a dedicated section (:ref:`howto`)
+        on how to work with the terminal if you have not so far.
 
       - Upon first start, you will be prompted to enter a new UNIX username and password.
         Tip: chose a short name, and no spaces or special characters. The password will
@@ -367,7 +435,7 @@ please `get in touch <https://github.com/datalad-handbook/book/issues/new>`_.
    - **Step 3**: Initialize the distribution
 
       - Launch the Subsystem either from the Microsoft store or from the Start menu. This
-        will start a terminal. Don't worry -- there is a dedicated section (:ref:`howto`)
+        will start a terminal. Do not worry -- there is a dedicated section (:ref:`howto`)
         on how to work with the terminal if you haven't so far.
 
       - Upon first start, you will be prompted to enter a new UNIX username and password.
@@ -406,7 +474,7 @@ please `get in touch <https://github.com/datalad-handbook/book/issues/new>`_.
 
          $ sudo apt-update && sudo apt upgrade
 
-   - **Step 6**: Install datalad and everything it needs from Neurodebian
+   - **Step 6**: Install datalad and everything it needs from NeuroDebian
 
       .. code-block:: bash
 
@@ -414,7 +482,7 @@ please `get in touch <https://github.com/datalad-handbook/book/issues/new>`_.
 
    .. todo::
 
-      - maybe update Step 6 to use ``pip3`` to install DataLad and Git-annex.
+      - maybe update Step 6 to use ``pip3`` to install DataLad and git-annex.
 
 
 Initial configuration
@@ -422,6 +490,10 @@ Initial configuration
 
 Initial configurations only concern the setup of a :term:`Git` identity. If you
 are a Git-user, you should hence be good to go.
+
+.. figure:: ../artwork/src/gitidentity.svg
+   :width: 70%
+
 If you have not used the version control system Git before, you will need to
 tell Git some information about you. This needs to be done only once.
 In the following example, exchange ``Bob McBobFace`` with your own name, and
@@ -441,4 +513,4 @@ and name -- it does not establish a lot of trust nor is it helpful after a few
 years if your history, especially in a collaborative project, shows
 that changes were made by ``Anonymous`` with the email
 ``youdontgetmy@email.fu``.
-And don't worry, you won't get any emails from Git or DataLad.
+And do not worry, you won't get any emails from Git or DataLad.

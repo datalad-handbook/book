@@ -1,5 +1,5 @@
 
-$ datalad rerun ae9c7f50c1e960ad6765841f20b7c5d4ea62208b
+$ datalad rerun 668c32cbab77f071043f61e9d36eb9a31fddcdd2
 [INFO] Making sure inputs are available (this may take some time) 
 [WARNING] no content present; cannot unlock [unlock(/home/me/dl-101/mock_user/DataLad-101/recordings/salt_logo_small.jpg)] 
 [INFO] == Command start (output follows) ===== 
@@ -9,6 +9,6 @@ remove(ok): recordings/salt_logo_small.jpg
 add(ok): recordings/salt_logo_small.jpg (file)
 action summary:
   add (ok: 1)
-  get (ok: 1)
+  get (notneeded: 1, ok: 1)
   remove (ok: 1)
   save (notneeded: 2)

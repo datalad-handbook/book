@@ -1,3 +1,15 @@
-$ git log -2 --oneline
-46047e2 add joke evaluation to joke
-a841f6a save my favourite Git joke
+$ git log -n 1 -p
+commit 8601749867c3a60c77159a20d6e8f25cf7ce3d1f
+Author: Elena Piscopia <elena@example.net>
+Date:   Thu Dec 19 10:00:43 2019 +0100
+
+    add copy of TLCL.pdf
+
+diff --git a/copyofTLCL.pdf b/copyofTLCL.pdf
+new file mode 120000
+index 0000000..34328e2
+--- /dev/null
++++ b/copyofTLCL.pdf
+@@ -0,0 +1 @@
++.git/annex/objects/jf/3M/MD5E-s2120211--06d1efcb05bb2c55cd039dab3fb28455.pdf/MD5E-s2120211--06d1efcb05bb2c55cd039dab3fb28455.pdf
+\ No newline at end of file

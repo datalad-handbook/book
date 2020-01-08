@@ -7,10 +7,10 @@ Later in the day, after seeing and solving so many DataLad error messages,
 you fall tired into your
 bed. Just as you are about to fall asleep, a thought crosses your mind:
 
-"I now know that tracked content in a dataset is protected by :term:`Git-annex`.
-Whenever tracked contents are ``saved``, they get locked and shouldn't be
+"I now know that tracked content in a dataset is protected by :term:`git-annex`.
+Whenever tracked contents are ``saved``, they get locked and should not be
 modifiable. But... what about the notes that I have been taking since the first day?
-Shouldn't I need to unlock them before I can modify them? And also the script!
+Should I not need to unlock them before I can modify them? And also the script!
 I was able to modify this despite giving it to DataLad to track, with
 no permission denied errors whatsoever! How does that work?"
 
@@ -21,6 +21,9 @@ the first student in your lecturer's office hours.
 "Oh, you're really attentive. This is a great question!" our lecturer starts
 to explain.
 
+.. figure:: ../artwork/src/teacher.svg
+   :width: 70%
+
 Do you remember that we created the ``DataLad-101`` dataset with a
 specific configuration template? It was the ``-c text2git`` option we
 provided in the beginning of :ref:`createDS`. It is because of this configuration
@@ -30,18 +33,27 @@ The second commit message in our datasets history summarizes this:
 
 .. runrecord:: _examples/DL-101-114-101
    :language: console
-   :workdir: dl-101/DataLad-101
+   :workdir: dl-101
    :emphasize-lines: 3
+   :realcommand: cd DataLad-101 && git log --reverse --oneline
+   :notes: Confusing: Why could we modify the tsv file without unlocking? The reason is in the dataset configuration with text2git
+   :cast: 03_git_annex_basics
 
    $ git log --reverse --oneline
 
 Instead of giving text files such as your notes or your script
-to Git-annex, the dataset stores it in :term:`Git`.
-But what does it mean if files are in Git instead of Git-annex?
+to git-annex, the dataset stores it in :term:`Git`.
+But what does it mean if files are in Git instead of git-annex?
 
-Well, procedurally it means that everything that is stored in Git-annex is
+Well, procedurally it means that everything that is stored in git-annex is
 content-locked, and everything that is stored in Git is not. You can modify
 content stored in Git straight away, without unlocking it first.
+
+.. figure:: ../artwork/src/git_vs_gitannex.svg
+   :alt: A simplified illustration of content lock in files managed by git-annex.
+   :figwidth: 100%
+
+   A simplified overview of the tools that manage data in your dataset.
 
 That's easy enough.
 
@@ -49,32 +61,39 @@ That's easy enough.
 would get content-locked, too?". "Yes, indeed. However, there are also ways to
 later change how file content is handled based on its type or size. It can be specified
 in the ``.gitattributes`` file, using ``annex.largefile`` options.
-But there will be a lecture on that."
+But there will be a lecture on that [#f1]_."
 
 "Okay, well, second: Isn't it much easier to just not bother with locking and
 unlocking, and have everything 'stored in Git'? Even if :command:`datalad run` takes care
-of unlocking content, I don't see the point of Git-annex", you continue.
+of unlocking content, I do not see the point of git-annex", you continue.
 
 Here it gets tricky. To begin with the most important, and most straight-forward fact:
 It is not possible to store
 large files in Git. This is because Git would very quickly run into severe performance
-issues. For this reason, :term:`Github`, a well-known hosting site for projects using Git,
+issues. For this reason, :term:`GitHub`, a well-known hosting site for projects using Git,
 for example does not allow files larger than 100MB of size.
 
 For now, we have solved the mystery of why text files can be modified
 without unlocking, and this is a small
 improvement in the vast amount of questions that have piled up in our curious
-minds. Essentially, Git-annex protects your data from accidental modifications
+minds. Essentially, git-annex protects your data from accidental modifications
 and thus keeps it safe. :command:`datalad run` commands mitigate any technical
 complexity of this completely if ``-o/--output`` is specified properly, and
 :command:`datalad unlock` commands can be used to unlock content "by hand" if
 modifications are performed outside of a :command:`datalad run`.
 
 But there comes the second, tricky part: There are ways to get rid of locking and
-unlocking within Git-annex, using so-called :term:`adjusted branch`\es.
-This functionality is dependent on the Git-annex
-version one has installed, the Git-annex version of the repository, and a
+unlocking within git-annex, using so-called :term:`adjusted branch`\es.
+This functionality is dependent on the git-annex
+version one has installed, the git-annex version of the repository, and a
 use-case dependent comparison of the pros and cons. BUT: it is possible,
 and in many cases useful, and in later sections we will see how to use this
-feature. The next lecture, in any way, will guide us deeper into Git-annex,
+feature. The next lecture, in any way, will guide us deeper into git-annex,
 and improve our understanding a slight bit further.
+
+
+.. rubric:: Footnotes
+
+.. [#f1] If you can't wait to read about ``.gitattributes`` and other
+         configuration files, jump ahead to chapter "Tuning datasets to your needs",
+         starting with section :ref:`config`.

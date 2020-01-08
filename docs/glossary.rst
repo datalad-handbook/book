@@ -96,7 +96,7 @@ Glossary
 
    GitHub
       GitHub is an online platform where one can store and share version controlled projects
-      using Git (and thus also DataLad project).See`GitHub.com <https://github.com/>`_.
+      using Git (and thus also DataLad project). See`GitHub.com <https://github.com/>`_.
 
    Gitk
       A repository browser that displays changes in a repository or a selected set of commits. It

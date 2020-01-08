@@ -180,6 +180,11 @@ Glossary
       Instead of ``python code/myscript.py`` one can just run ``code/myscript`` if ``myscript`` has
       executable :term:`permissions` and a correctly specified shebang.
 
+   special remote
+      git-annex concept: A protocol that defines the underlying transport of annexed files
+      to and from places that are not :term:`Git` repositories (e.g., a cloud service or
+      external machines such as HPC systems).
+
    SSH
       Secure shell (SSH) is a network protocol to link one machine (computer),
       the *client*, to a different local or remote machine, the *server*. See also: :term:`SSH server`.

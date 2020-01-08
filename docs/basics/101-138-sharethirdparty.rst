@@ -43,7 +43,7 @@ the many publicly available DataLad datasets such as the ``longnow`` podcasts.
 To share all dataset contents with your friend, you need to configure an external
 resource that stores your annexed data contents and that can be accessed by the
 person you want to share your data with. Such a resource can be a private
-webserver [#f2]_, but also a third party services cloud storage such as
+web server [#f2]_, but also a third party services cloud storage such as
 `Dropbox <https://dropbox.com>`_,
 `Google <https://google.com>`_,
 `Amazon S3 buckets <https://aws.amazon.com/s3/?nc1=h_ls>`_,

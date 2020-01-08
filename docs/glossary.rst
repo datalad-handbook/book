@@ -44,7 +44,7 @@ Glossary
       part of the revision history of the repository. Should always have an informative :term:`commit message`.
 
    commit message
-      Git concept: A consise summary of changes you should attach to a :command:`datalad save` command. This summary will
+      Git concept: A concise summary of changes you should attach to a :command:`datalad save` command. This summary will
       show up in your :term:`Datalad dataset` history.
 
    DataLad dataset
@@ -152,7 +152,7 @@ Glossary
       package and installs it while resolving any potential dependencies.
 
    provenance
-      A record that describes entities and processes that were involved in producinng or influencing
+      A record that describes entities and processes that were involved in producing or influencing
       a digital resource. It provides a critical foundation for assessing authenticity, enables trust,
       and allows reproducibility.
 

@@ -32,6 +32,11 @@ you store your data and thus who can get access.
   ``--transfer-data auto`` and a path to files, directories, or subdatasets you
   can publish only selected contents' data.
 
+
+.. figure:: ../artwork/src/going_up.svg
+   :width: 70%
+
+
 Now what can I do with it?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 

@@ -188,9 +188,13 @@ the problem::
 If the subdataset was not published before, you could publish the subdataset to
 a location of your choice, and modify the ``.gitmodule`` entry accordingly.
 
-.. todo::
+Sharing the dataset
+^^^^^^^^^^^^^^^^^^^
 
-   - how to share this (with collaborator with/without GIN account)
+Once your dataset is published, you can point collaborators and friends to it.
+The "Collaboration" tab under Settings lets you set fine-grained access rights,
+and it is possible to share datasets with collaborators that are not registered
+on GIN.
 
 
 .. rubric:: Footnotes

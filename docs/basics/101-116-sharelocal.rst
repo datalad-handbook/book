@@ -173,21 +173,44 @@ let's query git-annex where its content is stored:
 
 Oh, another :term:`shasum`! This time however not in a symlink...
 "That's hard to read -- what is it?" your room mate asks.
-Luckily, there is a human-readable description next to it:
-"course on DataLad-101 on my private Laptop".
+Luckily, there is a more human-readable piece of text next to it:
+"``me@muninn:~/dl-101/DataLad-101``".
 "This", you exclaim, excited about your own realization,
 "is my dataset's location I'm sharing it from!"
 
-This is, finally, where we see the description provided in
-:command:`datalad create` in section :ref:`createDS` becomes handy: It is
-a human-readable description of *where* file content is stored.
-This becomes especially useful when the number of repositories
-increases. If you have only one other dataset it may be easy to
-remember what and where it is. But once you have one back-up
-of your dataset on a USB-Stick, one dataset shared with
-`Dropbox <dropbox.com>`_, and a third one on your institutions
-GitLab instance you will be grateful for the descriptions
-you provided these locations with.
+.. findoutmore:: What is this location, and what if I provided a description?
+
+   Back in the very first section of the Basics, :ref:`createDS`, a hidden
+   section mentioned the ``--description`` option of :command:`datalad create`.
+   With this option, you can provide a description about the *location* of
+   your dataset.
+
+   The :command:`git annex whereis` command, finally, is where such a description
+   can become handy: If you had created the dataset with
+
+   .. code-block:: bash
+
+      $ datalad create --description "course on DataLad-101 on my private Laptop" -c text2git DataLad-101
+
+   instead of ``me@muninn:~/dl-101/DataLad-101`` the command would show
+   ``course on DataLad-101 on my private Laptop`` -- and thus a more
+   human-readable description of *where* file content is stored.
+   This becomes especially useful when the number of repository copies
+   increases. If you have only one other dataset it may be easy to
+   remember what and where it is. But once you have one back-up
+   of your dataset on a USB-Stick, one dataset shared with
+   `Dropbox <dropbox.com>`_, and a third one on your institutions
+   :term:`GitLab` instance you will be grateful for the descriptions
+   you provided these locations with.
+
+   But what is ``me@muninn:~/dl-101/DataLad-101``? This also reports the
+   location of the dataset, in the format ``user@host:path``.
+   As one computer this book is being build on is called "muninn" and its
+   user "me", this could look like this: ``me@muninn:~/dl-101/DataLad-101``.
+
+   Depending on what you find more readable -- a self-made location description,
+   or an automatic ``user@host:path`` information, decide for yourself whether
+   you want to use the ``--description`` option for future datasets or not.
 
 The message further informs you that there is only "``(1 copy)``"
 of this file content. This makes sense: There

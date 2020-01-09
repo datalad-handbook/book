@@ -7,7 +7,7 @@ From the sections :ref:`sharelocal1` and :ref:`yoda_project` you already
 know about two common setups for sharing datasets:
 
 Users on a common, shared computational infrastructure such as an :term:`SSH server`
-one can share datasets via simple installations with paths.
+can share datasets via simple installations with paths.
 
 Without access to the same computer, it is possible to :command:`publish` datasets
 to :term:`GitHub` or :term:`GitLab`. You have already done this when you shared

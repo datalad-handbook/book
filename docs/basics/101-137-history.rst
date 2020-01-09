@@ -583,7 +583,7 @@ but also a modification to ``notes.txt``:
    :language: console
    :workdir: dl-101/DataLad-101
 
-   $ cat << EOT > notes.txt
+   $ cat << EOT >> notes.txt
 
    Git has many handy tools to go back in forth in
    time and work with the history of datasets.

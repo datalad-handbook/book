@@ -174,7 +174,7 @@ dataset, i.e., ``DataLad-101``, as the dataset to save to:
    :language: console
    :workdir: dl-101/DataLad-101/
 
-   $ datalad save -d . -m "finished my midterm project!" midterm_project
+   $ datalad save -d . -m "finished my midterm project" midterm_project
 
 .. findoutmore:: More on how save can operate on nested datasets
 

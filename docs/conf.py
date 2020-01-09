@@ -24,6 +24,9 @@ authors = [
         (Path(__file__).parent.parent / '.all-contributorsrc').open()).get(
             'contributors', [])
 ]
+# make sure mih is last author
+authors.append(authors.pop(authors.index('Michael Hanke')))
+
 
 # autorunrecord setup (extension used to run and capture the output of
 # examples)

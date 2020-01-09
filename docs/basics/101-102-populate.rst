@@ -280,7 +280,7 @@ like this into a single line.
    $ datalad download-url http://www.tldp.org/LDP/Bash-Beginners-Guide/Bash-Beginners-Guide.pdf \
      --dataset . \
      -m "add beginners guide on bash" \
-     -O books/bash_guide.pdf \
+     -O books/bash_guide.pdf
 
 Afterwards, a fourth book is inside your ``books/`` directory:
 

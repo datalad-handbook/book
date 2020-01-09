@@ -762,6 +762,18 @@ clean dataset state with no untracked files or modifications.
 Finally, if you want, apply you're new knowledge about reverting commits
 to remove the ``Gitjoke2.txt`` file.
 
+
+.. only:: adminmode
+
+Add a tag at the section end.
+
+  .. runrecord:: _examples/DL-101-137-160
+     :language: console
+     :workdir: dl-101/DataLad-101
+
+     $ git tag back_and_forth_in_time
+
+
 .. rubric:: Footnotes
 
 .. [#f1] For example, the :command:`datalad rerun` command introduced in section

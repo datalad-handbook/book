@@ -333,6 +333,17 @@ Write a note about configurations in datasets into ``notes.txt``.
 
    $ datalad save -m "add note on configurations and git config"
 
+.. only:: adminmode
+
+Add a tag at the section end.
+
+  .. runrecord:: _examples/DL-101-123-112
+     :language: console
+     :workdir: dl-101/DataLad-101
+
+     $ git tag more_on_DYI_configurations
+
+
 .. rubric:: Footnotes
 
 .. [#f1] When opening any file on a UNIX system, the file does not need to have a file

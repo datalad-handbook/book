@@ -325,6 +325,16 @@ this point:
 
 Well done! Your ``DataLad-101`` dataset and its history are slowly growing.
 
+.. only:: adminmode
+
+Add a tag at the section end.
+
+  .. runrecord:: _examples/DL-101-102-117
+     :language: console
+     :workdir: dl-101/DataLad-101
+
+     $ git tag populate_a_dataset
+
 
 .. rubric:: Footnotes
 

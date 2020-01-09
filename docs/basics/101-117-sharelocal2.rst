@@ -132,6 +132,17 @@ this in the original ``DataLad-101`` directory, and do not forget to save it.
    $ datalad save -m "add note on git annex whereis"
 
 
+.. only:: adminmode
+
+Add a tag at the section end.
+
+  .. runrecord:: _examples/DL-101-117-108
+     :language: console
+     :workdir: dl-101/DataLad-101
+
+     $ git tag where_is_waldo
+
+
 .. rubric:: Footnotes
 
 .. [#f1] Maybe you wonder what the location ``mih@medusa`` is. It is a copy of the

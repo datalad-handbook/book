@@ -406,6 +406,17 @@ Save this note.
    it the DataLad equivalent of a *clone* in Git.
 
 
+.. only:: adminmode
+
+Add a tag at the section end.
+
+  .. runrecord:: _examples/DL-101-116-111
+     :language: console
+     :workdir: dl-101/DataLad-101
+
+     $ git tag looking_without_touching
+
+
 .. rubric:: Footnotes
 
 .. [#f1] Another alternative to a recursion limit to :command:`datalad get -n -r` is

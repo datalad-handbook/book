@@ -127,3 +127,13 @@ your dataset to be messy, if you want to be.
    that requires it as an undisclosed input will only succeed if both
    commands a ran in succession. The second command will fail if re-ran on its own,
    however.
+
+.. only:: adminmode
+
+Add a tag at the section end.
+
+  .. runrecord:: _examples/DL-101-179-106
+     :language: console
+     :workdir: dl-101/DataLad-101
+
+     $ git tag hide_content

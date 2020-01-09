@@ -170,3 +170,14 @@ commit to see a :term:`run record` with more content:
    :cast: 02_reproducible_execution
 
    $ git log -p -n 2
+
+
+.. only:: adminmode
+
+Add a tag at the section end.
+
+  .. runrecord:: _examples/DL-101-112-110
+     :language: console
+     :workdir: dl-101/DataLad-101
+
+     $ git tag clean_desk

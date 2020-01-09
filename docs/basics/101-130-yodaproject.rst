@@ -746,6 +746,17 @@ reproduce your data science project easily from scratch!
        :width: 50%
 
 
+.. only:: adminmode
+
+Add a tag at the section end.
+
+  .. runrecord:: _examples/DL-101-130-123
+     :language: console
+     :workdir: dl-101/DataLad-101
+
+     $ git tag yoda_project
+
+
 .. rubric:: Footnotes
 
 .. [#f1] Note that you could have applied the YODA procedure not only right at

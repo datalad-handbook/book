@@ -156,3 +156,14 @@ evolved over time. That's quite neat, isn't it?
    help to find specific changes (e.g., which added or removed a specific word
    with ``-S``), or change how ``git log`` output will look (e.g.,
    ``--word-diff`` to highlight individual word changes in the ``-p`` output).
+
+
+.. only:: adminmode
+
+Add a tag at the section end.
+
+  .. runrecord:: _examples/DL-101-103-108
+     :language: console
+     :workdir: dl-101/DataLad-101
+
+     $ git tag modify_content

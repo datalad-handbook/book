@@ -310,6 +310,18 @@ is that?
 If you are interested in more, you can read about another example of :command:`datalad containers-run`
 in the usecase :ref:`usecase_reproduce_neuroimg`.
 
+
+
+.. only:: adminmode
+
+Add a tag at the section end.
+
+  .. runrecord:: _examples/DL-101-133-114
+     :language: console
+     :workdir: dl-101/DataLad-101
+
+     $ git tag computational_reproducibility
+
 .. rubric:: Footnotes
 
 .. [#f1] To read more about DataLad's extensions, see section :ref:`extensions_intro`.

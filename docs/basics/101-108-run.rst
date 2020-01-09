@@ -234,3 +234,14 @@ was a particular file created or modified?
 The next sections will demonstrate how to make use of this information,
 and also how to extend the command with additional arguments that will prove to
 be helpful over the course of this chapter.
+
+
+.. only:: adminmode
+
+Add a tag at the section end.
+
+  .. runrecord:: _examples/DL-101-108-109
+     :language: console
+     :workdir: dl-101/DataLad-101
+
+     $ git tag keeping_track

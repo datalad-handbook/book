@@ -127,6 +127,16 @@ an informative commit message yourself.
 Congratulations, you just created your first DataLad dataset!
 Let us now put some content inside.
 
+.. only:: adminmode
+
+Add a tag at the section end.
+
+  .. runrecord:: _examples/DL-101-101-105
+     :language: console
+     :workdir: dl-101/DataLad-101
+
+     $ git tag create_a_dataset
+
 .. rubric:: Footnotes
 
 .. [#f1] A tool we can recommend as an alternative to :command:`git log` is :term:`tig`.

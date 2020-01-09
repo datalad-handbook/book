@@ -1,5 +1,5 @@
 
-$ git cat-file --textconv a18fab24e4ae66bfb2e6dc0169e20161c4945bd3:notes.txt
+$ git cat-file --textconv 97f36f17f90cc92ce4ef4ec1d8629622b26865cd:notes.txt
 One can create a new dataset with 'datalad create [--description] PATH'.
 The dataset is created empty
 
@@ -8,8 +8,8 @@ The command "datalad save [-m] PATH" saves the file
 Always use informative, concise commit messages.
 
 The command 'datalad clone URL/PATH [PATH]'
-clones a dataset from e.g., a URL or a path.
-If you clone a dataset into an existing
+installs a dataset from e.g., a URL or a path.
+If you install a dataset into an existing
 dataset (as a subdataset), remember to specify the
 root of the superdataset with the '-d' option.
 

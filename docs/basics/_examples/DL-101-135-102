@@ -7,7 +7,7 @@ $ datalad wtf
 ## dataset 
   - path: /home/me/dl-101/DataLad-101
   - repo: AnnexRepo
-  - id: c13f1288-223d-11ea-af8b-e86a64c8054c
+  - id: 71f03bec-32ac-11ea-b7a4-e86a64c8054c
   - metadata: <SENSITIVE, report disabled by configuration>
 ## dependencies 
   - cmd:git: 2.20.1
@@ -37,7 +37,7 @@ $ datalad wtf
   - GIT_EDITOR: vim
   - LC_CTYPE: en_US.UTF-8
   - GIT_AUTHOR_NAME: Elena Piscopia
-  - PATH: /home/adina/env/handbook/bin:/home/adina/Documents/freesurfer/bin:/home/adina/Documents/freesurfer/fsfast/bin:/home/adina/Documents/freesurfer/tktools:/usr/share/fsl/5.0/bin:/usr/lib/fsl/5.0:/home/adina/Documents/freesurfer/mni/bin:/usr/share/fsl/5.0/5.0/bin:/home/adina/.local/bin:/home/adina/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/home/adina/.dotfiles/bin
+  - PATH: /home/adina/env/handbook/bin:/home/adina/Documents/freesurfer/bin:/home/adina/Documents/freesurfer/fsfast/bin:/home/adina/Documents/freesurfer/tktools:/usr/share/fsl/5.0/bin:/usr/lib/fsl/5.0:/home/adina/Documents/freesurfer/mni/bin:/usr/share/fsl/5.0/5.0/bin:/home/adina/.local/bin:/home/adina/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/home/adina/.dotfiles/bin:/usr/local/go/bin:/home/adina/work/bin
   - GIT_PYTHON_GIT_EXECUTABLE: /usr/lib/git-annex.linux/git
 ## extensions
   - webapp:

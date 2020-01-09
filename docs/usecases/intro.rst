@@ -13,6 +13,19 @@ the solutions they demonstrate.
 .. figure:: ../artwork/src/recipe.svg
    :width: 70%
 
+
+**Use case overview:**
+
+.. toctree::
+   :maxdepth: 1
+
+   collaborative_data_management
+   provenance_tracking
+   reproducible-paper
+   supervision
+   reproducible_neuroimaging_analysis
+   datastorage_for_institutions
+
 Contributing
 ^^^^^^^^^^^^
 

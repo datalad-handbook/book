@@ -159,3 +159,12 @@ Add a tag at the section end.
 
      $ git config -f .gitmodules --replace-all submodule.midterm_project.url https://github.com/datalad-handbook/midterm_project
      $ datalad save -m "SERVICE COMMIT - IGNORE. This commit only serves to appropriately reference the subdataset in the public showroom dataset"
+
+  This allows to automatically push all section branches (not accidentally synced or adjusted annex branches) with
+  git push. Note: requires git push; datalad publish can not handle this atm (see https://github.com/datalad/datalad/issues/4006)
+
+  .. runrecord:: _examples/DL-101-179-110
+     :language: console
+     :workdir: dl-101/DataLad-101
+
+     $ git config --local remote.public.push 'refs/heads/sct*'

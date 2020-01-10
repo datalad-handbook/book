@@ -252,7 +252,7 @@ to such sources conveniently under the hood.
 
 .. code-block:: bash
 
-   $ git annex initremote dropbox-remote type=external externaltype=rclone encryption=none target=dropbox-remote
+   $ git annex initremote dropbox-remote type=external externaltype=rclone chunk=50MiB encryption=none target=dropbox-remote
 
    initremote dropbox-remote ok
    (recording state in git...)
@@ -273,8 +273,10 @@ However, this is not the location you would refer your friend or a collaborator 
 The representation of the files in the special-remote is not human-readable --
 it is a tree of annex objects, and thus looks like a bunch of very weirdly named
 folders and files to anyone.
-Through this design it becomes possible to chunk files into smaller units,
-optionally encrypt content on its way from a local machine to a storage service,
+Through this design it becomes possible to chunk files into smaller units (see
+`the git-annex documentation <https://git-annex.branchable.com/chunking/>`_ for more on this),
+optionally encrypt content on its way from a local machine to a storage service
+(see `the git-annex documentation <https://git-annex.branchable.com/encryption/>`__ for more on this),
 and avoid leakage of information via file names. Therefore, the Dropbox remote is
 not a places a real person would take a look at, instead they are only meant to
 be managed and accessed via DataLad/git-annex.

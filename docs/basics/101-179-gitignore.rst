@@ -137,3 +137,25 @@ Add a tag at the section end.
      :workdir: dl-101/DataLad-101
 
      $ git branch hide_content
+
+   As this is currently the last section in the book, I'll add siblings to the
+   published showroom datasets to it here:
+
+  .. runrecord:: _examples/DL-101-179-107
+    :language: console
+    :workdir: dl-101/DataLad-101
+
+    $ datalad siblings add -d . --name public --url git@github.com:datalad-handbook/DataLad-101.git
+
+  .. runrecord:: _examples/DL-101-179-108
+     :language: console
+     :workdir: dl-101/DataLad-101/midterm_project
+
+     $ datalad siblings add -d . --name public --url git@github.com:datalad-handbook/midterm_project.git
+
+  .. runrecord:: _examples/DL-101-179-109
+     :language: console
+     :workdir: dl-101/DataLad-101
+
+     $ git config -f .gitmodules --replace-all submodule.midterm_project.url https://github.com/datalad-handbook/midterm_project
+     $ datalad save -m "SERVICE COMMIT - IGNORE. This commit only serves to appropriately reference the subdataset in the public showroom dataset"

@@ -277,7 +277,7 @@ Add a tag at the section end.
      :language: console
      :workdir: dl-101/DataLad-101
 
-     $ git tag datalad_rerun
+     $ git branch datalad_rerun
 
 
 .. rubric:: Footnotes

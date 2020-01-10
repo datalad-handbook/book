@@ -414,7 +414,7 @@ Add a tag at the section end.
      :language: console
      :workdir: dl-101/DataLad-101
 
-     $ git tag looking_without_touching
+     $ git branch looking_without_touching
 
 
 .. rubric:: Footnotes

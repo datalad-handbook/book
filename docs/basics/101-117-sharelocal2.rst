@@ -140,7 +140,7 @@ Add a tag at the section end.
      :language: console
      :workdir: dl-101/DataLad-101
 
-     $ git tag where_is_waldo
+     $ git branch where_is_waldo
 
 
 .. rubric:: Footnotes

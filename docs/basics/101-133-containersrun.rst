@@ -320,7 +320,7 @@ Add a tag at the section end.
      :language: console
      :workdir: dl-101/DataLad-101
 
-     $ git tag computational_reproducibility
+     $ git branch computational_reproducibility
 
 .. rubric:: Footnotes
 

@@ -754,7 +754,7 @@ Add a tag at the section end.
      :language: console
      :workdir: dl-101/DataLad-101
 
-     $ git tag yoda_project
+     $ git branch yoda_project
 
 
 .. rubric:: Footnotes

@@ -130,41 +130,41 @@ your dataset to be messy, if you want to be.
 
 .. only:: adminmode
 
-Add a tag at the section end.
+   Add a tag at the section end.
 
-  .. runrecord:: _examples/DL-101-179-106
-     :language: console
-     :workdir: dl-101/DataLad-101
+   .. runrecord:: _examples/DL-101-179-106
+      :language: console
+      :workdir: dl-101/DataLad-101
 
-     $ git branch sct_hide_content
+      $ git branch sct_hide_content
 
    As this is currently the last section in the book, I'll add siblings to the
    published showroom datasets to it here:
 
-  .. runrecord:: _examples/DL-101-179-107
-    :language: console
-    :workdir: dl-101/DataLad-101
+   .. runrecord:: _examples/DL-101-179-107
+      :language: console
+      :workdir: dl-101/DataLad-101
 
-    $ datalad siblings add -d . --name public --url git@github.com:datalad-handbook/DataLad-101.git
+      $ datalad siblings add -d . --name public --url git@github.com:datalad-handbook/DataLad-101.git
 
-  .. runrecord:: _examples/DL-101-179-108
-     :language: console
-     :workdir: dl-101/DataLad-101/midterm_project
+   .. runrecord:: _examples/DL-101-179-108
+      :language: console
+      :workdir: dl-101/DataLad-101/midterm_project
 
-     $ datalad siblings add -d . --name public --url git@github.com:datalad-handbook/midterm_project.git
+      $ datalad siblings add -d . --name public --url git@github.com:datalad-handbook/midterm_project.git
 
-  .. runrecord:: _examples/DL-101-179-109
-     :language: console
-     :workdir: dl-101/DataLad-101
+   .. runrecord:: _examples/DL-101-179-109
+      :language: console
+      :workdir: dl-101/DataLad-101
 
-     $ git config -f .gitmodules --replace-all submodule.midterm_project.url https://github.com/datalad-handbook/midterm_project
-     $ datalad save -m "SERVICE COMMIT - IGNORE. This commit only serves to appropriately reference the subdataset in the public showroom dataset"
+      $ git config -f .gitmodules --replace-all submodule.midterm_project.url https://github.com/datalad-handbook/midterm_project
+      $ datalad save -m "SERVICE COMMIT - IGNORE. This commit only serves to appropriately reference the subdataset in the public showroom dataset"
 
-  This allows to automatically push all section branches (not accidentally synced or adjusted annex branches) with
-  git push. Note: requires git push; datalad publish can not handle this atm (see https://github.com/datalad/datalad/issues/4006)
+   This allows to automatically push all section branches (not accidentally synced or adjusted annex branches) with
+   git push. Note: requires git push; datalad publish can not handle this atm (see https://github.com/datalad/datalad/issues/4006)
 
-  .. runrecord:: _examples/DL-101-179-110
-     :language: console
-     :workdir: dl-101/DataLad-101
+   .. runrecord:: _examples/DL-101-179-110
+      :language: console
+      :workdir: dl-101/DataLad-101
 
-     $ git config --local remote.public.push 'refs/heads/sct*'
+      $ git config --local remote.public.push 'refs/heads/sct*'

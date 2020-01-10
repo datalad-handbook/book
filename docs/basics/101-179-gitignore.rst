@@ -168,3 +168,4 @@ your dataset to be messy, if you want to be.
       :workdir: dl-101/DataLad-101
 
       $ git config --local remote.public.push 'refs/heads/sct*'
+      $ git config --local --add remote.public.push 'refs/heads/master'

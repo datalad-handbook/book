@@ -771,7 +771,7 @@ Add a tag at the section end.
      :language: console
      :workdir: dl-101/DataLad-101
 
-     $ git branch back_and_forth_in_time
+     $ git branch sct_back_and_forth_in_time
 
 
 .. rubric:: Footnotes

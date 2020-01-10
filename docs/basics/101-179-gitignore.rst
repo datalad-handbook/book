@@ -136,7 +136,7 @@ Add a tag at the section end.
      :language: console
      :workdir: dl-101/DataLad-101
 
-     $ git branch hide_content
+     $ git branch sct_hide_content
 
    As this is currently the last section in the book, I'll add siblings to the
    published showroom datasets to it here:

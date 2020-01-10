@@ -146,4 +146,4 @@ Add a tag at the section end.
      :language: console
      :workdir: dl-101/DataLad-101
 
-     $ git branch stay_up_to_date
+     $ git branch sct_stay_up_to_date

@@ -90,4 +90,4 @@ Add a tag at the section end.
      :language: console
      :workdir: dl-101/DataLad-101
 
-     $ git branch retrace_and_reenact
+     $ git branch sct_retrace_and_reenact

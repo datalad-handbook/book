@@ -439,7 +439,7 @@ Add a tag at the section end.
      :language: console
      :workdir: dl-101/DataLad-101
 
-     $ git branch input_and_output
+     $ git branch sct_input_and_output
 
 .. [#f1] In shell programming, commands exit with a specific code that indicates
     whether they failed, and if so, how. Successful commands have the exit code zero. All failures

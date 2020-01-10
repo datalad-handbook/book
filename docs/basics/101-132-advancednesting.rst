@@ -226,4 +226,4 @@ Add a tag at the section end.
      :language: console
      :workdir: dl-101/DataLad-101
 
-     $ git branch more_on_dataset_nesting
+     $ git branch sct_more_on_dataset_nesting

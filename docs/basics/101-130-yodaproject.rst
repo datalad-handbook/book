@@ -676,7 +676,9 @@ reproduce your data science project easily from scratch!
    computer, just to get a feel for it.
 
    Replace the ``url`` in the :command:`clone` command below with the path
-   to your own ``midtermproject`` GitHub repository:
+   to your own ``midtermproject`` GitHub repository, or clone the "public"
+   ``midterm_project`` repository that is available via the Handbook's GitHub
+   organization at `github.com/datalad-handbook/midterm_project <https://github.com/datalad-handbook/midterm_project>`_:
 
    .. runrecord:: _examples/DL-101-130-119
       :language: console

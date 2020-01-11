@@ -440,17 +440,13 @@ annexed data can be transferred from and to Dropbox, anyone who needs annexed
 data from Dropbox needs this special remote. Therefore, the first steps are
 the same as before:
 
-- `Install <https://rclone.org/install/>`__ ``rclone`` on your system.
-- Run ``rclone config`` to configure ``rclone`` to work with Dropbox. It is
-  important to name the remote "dropbox-remote" (i.e., give it the same name
-  as the one configured in the dataset).
+- `Install <https://rclone.org/install/>`__ ``rclone`` (as described above).
+- Run ``rclone config`` to configure ``rclone`` to work with Dropbox (as described
+  above). It is important to name the remote "dropbox-remote" (i.e., give it the
+  same name as the one configured in the dataset).
 - ``git clone`` the
   `git-annex-remote-rclone <https://github.com/DanielDent/git-annex-remote-rclone>`_
-  repository to your machine.
-- Copy the path to this repository into your ``$PATH`` variable. If the
-  clone is in ``/home/user-bob/repos``, the command would look like this [#f4]_::
-
-  $ export PATH="/home/user-bob/repos/git-annex-remote-rclone:$PATH"
+  repository and copy the path into your ``$PATH`` variable (as described above).
 
 After this is done, you can execute what DataLad's output message suggests
 to "enable" this special remote (inside of the installed ``DataLad-101``)::

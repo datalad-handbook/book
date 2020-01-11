@@ -129,10 +129,22 @@
    basics/101-135-help
 
 
+#######################################
+**Basics 9** Third party infrastructure
+#######################################
 
-###############################
-**Basics 9** -- Further options
-###############################
+.. toctree::
+   :maxdepth: 1
+   :caption: Leverage third party services to share datasets
+
+   basics/101-138-sharethirdparty
+   basics/101-139-gin
+   basics/101-140-summary
+
+
+################################
+**Basics 10** -- Further options
+################################
 
 .. toctree::
    :maxdepth: 1

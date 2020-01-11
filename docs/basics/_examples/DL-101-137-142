@@ -1,4 +1,4 @@
-$ cat << EOT > notes.txt
+$ cat << EOT >> notes.txt
 
 Git has many handy tools to go back in forth in
 time and work with the history of datasets.

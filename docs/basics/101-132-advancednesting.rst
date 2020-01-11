@@ -174,7 +174,7 @@ dataset, i.e., ``DataLad-101``, as the dataset to save to:
    :language: console
    :workdir: dl-101/DataLad-101/
 
-   $ datalad save -d . -m "finished my midterm project!" midterm_project
+   $ datalad save -d . -m "finished my midterm project" midterm_project
 
 .. findoutmore:: More on how save can operate on nested datasets
 
@@ -216,3 +216,14 @@ As you can see in the log entry, the subproject commit changed from the
 first commit hash in the subdataset history to the most recent one. With this
 change, therefore, your superdataset tracks the most recent version of
 the ``midterm_project`` dataset, and your dataset's status is clean again.
+
+
+.. only:: adminmode
+
+Add a tag at the section end.
+
+  .. runrecord:: _examples/DL-101-132-113
+     :language: console
+     :workdir: dl-101/DataLad-101
+
+     $ git branch sct_more_on_dataset_nesting

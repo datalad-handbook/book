@@ -136,3 +136,14 @@ and demonstration will be in the next section.
    -- in most cases this will be ``remotes/origin/master``.
    You can :command:`git checkout` this branch or run :command:`git diff` to
    explore the changes and identify potential merge conflicts.
+
+
+.. only:: adminmode
+
+Add a tag at the section end.
+
+  .. runrecord:: _examples/DL-101-119-106
+     :language: console
+     :workdir: dl-101/DataLad-101
+
+     $ git branch sct_stay_up_to_date

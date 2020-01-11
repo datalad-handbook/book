@@ -1,14 +1,14 @@
 $ git log -p -n 1
-commit ef74dcfaf22cd8d82a83e9dfc72fef0d31ccfd39
+commit 71c53f52a0eed42f82da089e9e352a7ddf36b6ac
 Author: Elena Piscopia <elena@example.net>
-Date:   Thu Dec 19 10:00:14 2019 +0100
+Date:   Thu Jan 9 07:53:09 2020 +0100
 
     finished my midterm project!
 
 diff --git a/midterm_project b/midterm_project
-index b5a4bbc..af17a5c 160000
+index d28b8b0..677edbb 160000
 --- a/midterm_project
 +++ b/midterm_project
 @@ -1 +1 @@
--Subproject commit b5a4bbc0437e12031884e6bd4c786c947690402e
-+Subproject commit af17a5cd4dab4cd55f6f81b22a0f06f090d7c7ca
+-Subproject commit d28b8b097c73ab930e407b945da184d724c714a5
++Subproject commit 677edbb02d057865a3cbca678234bf49f987211d

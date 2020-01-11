@@ -122,6 +122,7 @@ release = version
 exclude_patterns = [
     '_build',
     '_themes/*.rst',  # Excluded due to README.rst in _themes/
+    '**/*admin', # useful for executing, but not showing code
 ]
 
 # The reST default role (used for this markup: `text`) to use for all documents.

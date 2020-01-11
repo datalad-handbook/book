@@ -208,9 +208,14 @@ and hostname of your computer. "This", you exclaim, excited about your own reali
    As one computer this book is being build on is called "muninn" and its
    user "me", it could look like this: ``me@muninn:~/dl-101/DataLad-101``.
 
-   Depending on what you find more readable -- a self-made location description,
-   or an automatic ``user@host:path`` information, decide for yourself whether
-   you want to use the ``--description`` option for future datasets or not.
+   If the physical location of a dataset is not relevant, ambiguous, or volatile,
+   or if it has an :term:`annex` that could move within the foreseeable lifetime of a
+   dataset, a custom description with the relevant information on the dataset is
+   superior. If this is not the case, decide for yourself whether you want to use
+   the ``--description`` option for future datasets or not depending on what you
+   find more readable -- a self-made location description, or an automatic
+   ``user@host:path`` information.
+
 
 The message further informs you that there is only "``(1 copy)``"
 of this file content. This makes sense: There

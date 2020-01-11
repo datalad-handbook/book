@@ -43,8 +43,6 @@ Beta stage release matching the release of datalad v0.12.0.
 - Include `datalad download-url` in first chapter to emphasize provenance capture
   abilities of DataLad ([#294][])
 
-
-
 #### Usecases
 
 - Use case "An automatically reproducible analysis of public neuroimaging data" ([#205][])
@@ -61,6 +59,9 @@ Beta stage release matching the release of datalad v0.12.0.
   workshops ([#273][]
 
 - Illustrations from [undraw.co][undraw] (starting in [#329][])
+
+- Tagged "showroom" repositories with branches reflecting dataset states at different
+  book sections ([#341][])
 
 
 
@@ -120,3 +121,4 @@ Alpha stage release with handbook content covering most of the core commands.
 [#304]: https://github.com/datalad-handbook/book/pull/304
 [#326]: https://github.com/datalad-handbook/book/pull/326
 [#329]: https://github.com/datalad-handbook/book/pull/329
+[#341]: https://github.com/datalad-handbook/book/pull/341

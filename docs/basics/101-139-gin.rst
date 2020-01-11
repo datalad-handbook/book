@@ -16,7 +16,7 @@ Prerequisites
 In order to use GIN for hosting and sharing your datasets, you need to
 
 - register
-- upload your :term:`SSH key` for SSH access
+- upload your public :term:`SSH key` for SSH access
 - create an empty repository on GIN and publish your dataset to it
 
 Once you have `registered <https://gin.g-node.org/user/sign_up>`_
@@ -43,15 +43,16 @@ and name, and selecting a user name and password, you should upload your
    All this takes is a single command in the terminal. The resulting files are
    text files that look like someone spilled alphabet soup in them, but constitute
    a secure password procedure.
-   You keep the private key on your own machine (the system you are connecting from),
+   You keep the private key on your own machine (the system you are connecting from
+   , and that **only you have access to**),
    and copy the public key to the system or service you are connecting to.
    On the remote system or service, you make the public key an *authorized key* to
    allow authentication via the SSH key pair instead of your password. This
    either takes a single command in the terminal, or a few clicks in a web interface
    to achieve.
-   For extra security, you can protect your SSH keys on your machine with a
-   passphrase (such that if someone steals your computer they still can't log in
-   to servers or services with SSH authentication) and configure an ``ssh agent``
+   You should protect your SSH keys on your machine with a passphrase to prevent
+   others -- e.g., in case of theft -- to log in to servers or services with
+   SSH authentication [#f1]_, and configure an ``ssh agent``
    to handle this passphrase for you with a single command. How to do all of this
    is detailed in the above tutorial.
 
@@ -154,7 +155,7 @@ entry would resolve to), accessing the subdataset fails.
 However, since you have already published this dataset (to GitHub), you could
 update the submodule entry and provide the accessible GitHub URL instead. This
 can be done via the ``set-property <NAME> <VALUE>`` option of
-:command:`datalad subdatasets` [#f2]_ (replace the URL shown here with the URL
+:command:`datalad subdatasets` [#f3]_ (replace the URL shown here with the URL
 your dataset was published to -- likely, you only need to change the user name):
 
 .. runrecord:: _examples/DL-101-139-102
@@ -205,7 +206,13 @@ on GIN.
          and `client <https://gin.g-node.org/G-Node/Info/wiki/GinUsageTutorial>`_ are
          useful tools with a variety of features that are worthwhile to check out, as well.
 
-.. [#f2] Alternatively, you can configure the siblings url with :command:`git config`::
+.. [#f2] Your private SSH key is incredibly valuable, and it is important to keep
+         it secret!
+         Anyone who gets your private key has access to anything that the public key
+         is protecting. If the private key does not have a passphrase, simply copying
+         this file grants a person access!
+
+.. [#f3] Alternatively, you can configure the siblings url with :command:`git config`::
 
            $ git config -f .gitmodules --replace-all  submodule.midterm_project.url https://github.com/adswa/midtermproject
 

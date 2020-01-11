@@ -90,7 +90,7 @@ manager ``pip`` as described below. ``pip`` should already be installed by
 default. Recent macOS versions may have ``pip3`` instead of ``pip`` -- use
 :term:`tab completion` to find out which is installed. If it is ``pip3``, run::
 
-   $ pip3 install datalad
+   $ pip3 install datalad~=0.12
 
 instead of the code snippets in the section below.
 
@@ -99,7 +99,7 @@ a user's home directory:
 
 .. code-block:: bash
 
-   $ pip3 install --user datalad
+   $ pip3 install --user datalad~=0.12
 
 
 .. findoutmore:: If something is not on PATH...
@@ -160,14 +160,14 @@ to automatically install DataLad and its software dependencies, type
 
 .. code-block:: bash
 
-   $ pip install datalad
+   $ pip install datalad~=0.12
 
 If this results in a ``permission denied`` error, install DataLad into
 a user's home directory:
 
 .. code-block:: bash
 
-   $ pip install --user datalad
+   $ pip install --user datalad~=0.12
 
 In addition, it is necessary to have a current version of :term:`git-annex` installed which is
 not set up automatically by using the ``pip`` method.
@@ -247,7 +247,7 @@ please `get in touch <https://github.com/datalad-handbook/book/issues/new>`_.
 
       - ``pip`` was installed by ``miniconda``. In the ``Anaconda prompt``, run::
 
-           pip install datalad
+           pip install datalad~=0.12
 
 
 .. container:: toggle

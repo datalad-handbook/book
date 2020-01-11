@@ -239,7 +239,9 @@ to such sources conveniently under the hood.
      $ git clone https://github.com/DanielDent/git-annex-remote-rclone.git
 
   This is a wrapper around `rclone <https://rclone.or>`__ that makes any
-  destination supported by rclone usable with :term:`git-annex`.
+  destination supported by rclone usable with :term:`git-annex`. If you are on
+  a recent version of Debian or Ubuntu, you alternatively can get it more
+  conveniently via your package manager with ``sudo apt-get install git-annex-remote-rclone``.
 
 - Copy the path to this repository into your ``$PATH`` variable. If the
   clone is in ``/home/user-bob/repos``, the command would look like this [#f3]_::

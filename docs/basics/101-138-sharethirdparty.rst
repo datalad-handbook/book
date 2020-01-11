@@ -149,7 +149,7 @@ to such sources conveniently under the hood.
 - Afterwards, run ``rclone config`` from the command line to configure ``rclone`` to
   work with Dropbox. Running this command will a guide you with an interactive
   prompt through a ~2 minute configuration of the remote (here we will name the
-  remote "dropbox-remote" -- the name will be used to refer to it later during the
+  remote "dropbox-for-friends" -- the name will be used to refer to it later during the
   configuration of the dataset we want to publish). The interactive dialog is
   outlined below, and all parts that require user input are highlighted.
 
@@ -163,7 +163,7 @@ to such sources conveniently under the hood.
     s) Set configuration password
     q) Quit config
     n/s/q> n
-    name> dropbox-remote
+    name> dropbox-for-friends
     Type of storage to configure.
     Enter a string value. Press Enter for the default ("").
     Choose a number from below, or type in your own value
@@ -206,7 +206,7 @@ to such sources conveniently under the hood.
 
    Got code
    --------------------
-   [dropbox-remote]
+   [dropbox-for-friends]
    type = dropbox
    token = {"access_token":"meVHyc[...]",
             "token_type":"bearer",
@@ -220,7 +220,7 @@ to such sources conveniently under the hood.
 
    Name                 Type
    ====                 ====
-   dropbox-remote       dropbox
+   dropbox-for-friends  dropbox
 
    e) Edit existing remote
    n) New remote
@@ -249,14 +249,14 @@ to such sources conveniently under the hood.
    $ export PATH="/home/user-bob/repos/git-annex-remote-rclone:$PATH"
 
 - Finally, in the dataset you want to share, run the :command:`git annex initremote` command.
-  Give the remote a name (it is ``dropbox-remote`` here), and specify the name of
+  Give the remote a name (it is ``dropbox-for-friends`` here), and specify the name of
   the remote you configured with ``rclone`` with the ``target`` parameters:
 
 .. code-block:: bash
 
-   $ git annex initremote dropbox-remote type=external externaltype=rclone chunk=50MiB encryption=none target=dropbox-remote
+   $ git annex initremote dropbox-for-friends type=external externaltype=rclone chunk=50MiB encryption=none target=dropbox-for-friends
 
-   initremote dropbox-remote ok
+   initremote dropbox-for-friends ok
    (recording state in git...)
 
 What has happened up to this point is that we have configured Dropbox
@@ -267,7 +267,7 @@ On a conceptual, dataset level, your Dropbox folder is now a :term:`sibling`:
 
    $ datalad siblings
     .: here(+) [git]
-    .: dropbox-remote(+) [rclone]
+    .: dropbox-for-friends(+) [rclone]
     .: roommate(+) [../mock_user/DataLad-101 (git)]
 
 On Dropbox, a new folder, ``git-annex`` will be created for your annexed files.
@@ -293,13 +293,13 @@ and configure this repository as a :term:`sibling` of your dataset
 called ``github`` (exactly like you have done in :ref:`yoda_project`
 with the ``midterm_project`` subdataset).
 However, in order to be able to link the contents stored in Dropbox, you also need to
-configure a *publication dependency* to the ``dropbox-remote`` sibling -- this is
+configure a *publication dependency* to the ``dropbox-for-friends`` sibling -- this is
 done with the ``publish-depends <sibling>`` option.
 
 .. code-block:: bash
 
-   $ datalad create-sibling-github -d . DataLad-101 --publish-depends dropbox-remote
-     [INFO   ] Configure additional publication dependency on "dropbox-remote"
+   $ datalad create-sibling-github -d . DataLad-101 --publish-depends dropbox-for-friends
+     [INFO   ] Configure additional publication dependency on "dropbox-for-friends"
      .: github(-) [https://github.com/adswa/DataLad-101.git (git)]
      'https://github.com/adswa/DataLad-101.git' configured as sibling 'github' for <Dataset path=/home/me/dl-101/DataLad-101>
 
@@ -309,7 +309,7 @@ done with the ``publish-depends <sibling>`` option.
 
    $ datalad siblings
     .: here(+) [git]
-    .: dropbox-remote(+) [rclone]
+    .: dropbox-for-friends(+) [rclone]
     .: roommate(+) [../mock_user/DataLad-101 (git)]
     .: github(-) [https://github.com/adswa/DataLad-101.git (git)]
 
@@ -319,7 +319,7 @@ remote. You can see that your ``github`` sibling indeed does not have a remote
 data annex.
 Therefore, instead of "only" publishing to this GitHub repository (as done in section
 :ref:`yoda_project`), in order to also publish annex contents, we made
-publishing to GitHub dependent on the ``dropbox-remote`` sibling
+publishing to GitHub dependent on the ``dropbox-for-friends`` sibling
 (that has a remote data annex), so that annexed contents are published
 there first.
 
@@ -330,15 +330,15 @@ dependency is served first:
    :emphasize-lines: 2
 
    $ datalad publish --to github --transfer-data all
-   [INFO   ] Transferring data to configured publication dependency: 'dropbox-remote'
-   [INFO   ] Publishing <Dataset path=/home/me/dl-101/DataLad-101> data to dropbox-remote
+   [INFO   ] Transferring data to configured publication dependency: 'dropbox-for-friends'
+   [INFO   ] Publishing <Dataset path=/home/me/dl-101/DataLad-101> data to dropbox-for-friends
    publish(ok): books/TLCL.pdf (file)
    publish(ok): books/byte-of-python.pdf (file)
    publish(ok): books/progit.pdf (file)
    publish(ok): recordings/interval_logo_small.jpg (file)
    publish(ok): recordings/salt_logo_small.jpg (file)
-   [INFO   ] Publishing to configured dependency: 'dropbox-remote-2'
-   [INFO   ] Publishing <Dataset path=/home/me/dl-101/DataLad-101> data to dropbox-remote
+   [INFO   ] Publishing to configured dependency: 'dropbox-for-friends'
+   [INFO   ] Publishing <Dataset path=/home/me/dl-101/DataLad-101> data to dropbox-for-friends
    [INFO   ] Publishing <Dataset path=/home/me/dl-101/DataLad-101> to github
    Username for 'https://github.com': adswa
    Password for 'https://adswa@github.com':
@@ -423,14 +423,14 @@ will install the dataset::
    $ datalad clone https://github.com/adswa/DataLad-101.git
    [INFO   ] Cloning https://github.com/adswa/DataLad-101.git [1 other candidates] into '/Users/awagner/Documents/DataLad-101'
    [INFO   ]   Remote origin not usable by git-annex; setting annex-ignore
-   [INFO   ] access to 1 dataset sibling dropbox-remote not auto-enabled, enable with:
-   |         datalad siblings -d "/Users/awagner/Documents/DataLad-101" enable -s dropbox-remote
+   [INFO   ] access to 1 dataset sibling dropbox-for-friends not auto-enabled, enable with:
+   |         datalad siblings -d "/Users/awagner/Documents/DataLad-101" enable -s dropbox-for-friends
    install(ok): /Users/awagner/Documents/DataLad-101 (dataset)
 
 Pay attention to one crucial information in this output::
 
-   [INFO   ] access to 1 dataset sibling dropbox-remote not auto-enabled, enable with:
-   |         datalad siblings -d "/Users/awagner/Documents/DataLad-101" enable -s dropbox-remote
+   [INFO   ] access to 1 dataset sibling dropbox-for-friends not auto-enabled, enable with:
+   |         datalad siblings -d "/Users/awagner/Documents/DataLad-101" enable -s dropbox-for-friends
 
 This means that someone who wants to access the data from dropbox needs to
 enable the special remote.
@@ -442,7 +442,7 @@ the same as before:
 
 - `Install <https://rclone.org/install/>`__ ``rclone`` (as described above).
 - Run ``rclone config`` to configure ``rclone`` to work with Dropbox (as described
-  above). It is important to name the remote "dropbox-remote" (i.e., give it the
+  above). It is important to name the remote "dropbox-for-friends" (i.e., give it the
   same name as the one configured in the dataset).
 - ``git clone`` the
   `git-annex-remote-rclone <https://github.com/DanielDent/git-annex-remote-rclone>`_
@@ -451,14 +451,14 @@ the same as before:
 After this is done, you can execute what DataLad's output message suggests
 to "enable" this special remote (inside of the installed ``DataLad-101``)::
 
-   $ datalad siblings -d "/Users/awagner/Documents/DataLad-101" enable -s dropbox-remote
-   .: dropbox-remote(?) [git]
+   $ datalad siblings -d "/Users/awagner/Documents/DataLad-101" enable -s dropbox-for-friends
+   .: dropbox-for-friends(?) [git]
 
 And once this is done, you can get any annexed file contents, for example the
 books, or the cropped logos from chapter "DataLad, Run!"::
 
    $ datalad get books/TLCL.pdf
-   get(ok): /home/some/other/user/DataLad-101/books/TLCL.pdf (file) [from dropbox-remote]
+   get(ok): /home/some/other/user/DataLad-101/books/TLCL.pdf (file) [from dropbox-for-friends]
 
 Built-in data export
 ^^^^^^^^^^^^^^^^^^^^

@@ -28,6 +28,10 @@ Beta stage release matching the release of datalad v0.12.0.
   an overview on DataLad's extensions ([#242][]), and how to keep clean datasets despite
   untracked contents ([#84][])
 
+- Chapter "Third party infrastructure" on how to use various hosting services to
+  share DataLad datasets, with concrete demonstrations/step-by-step instructions
+  of sharing via Dropbox and GIN ([#111][])
+
 - Section "Frequently Asked Questions" ([#239][])
 
 - Section "Back and forth in time" on interacting with dataset history with
@@ -102,6 +106,7 @@ Alpha stage release with handbook content covering most of the core commands.
 
 [#84]: https://github.com/datalad-handbook/book/pull/84
 [#106]: https://github.com/datalad-handbook/book/pull/106
+[#111]: https://github.com/datalad-handbook/book/pull/111
 [#157]: https://github.com/datalad-handbook/book/pull/157
 [#205]: https://github.com/datalad-handbook/book/pull/205
 [#219]: https://github.com/datalad-handbook/book/pull/219

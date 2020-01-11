@@ -12,10 +12,14 @@
    intro/howto
    intro/executive_summary
 
-
 ################################
 **Basics 1** -- DataLad datasets
 ################################
+
+.. toctree::
+   :hidden:
+
+   basics/intro.rst
 
 .. toctree::
    :maxdepth: 1
@@ -141,6 +145,11 @@
 #############
 **Use Cases**
 #############
+
+.. toctree::
+   :hidden:
+
+   usecases/intro
 
 .. toctree::
    :maxdepth: 1

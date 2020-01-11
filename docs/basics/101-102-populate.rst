@@ -280,7 +280,7 @@ like this into a single line.
    $ datalad download-url http://www.tldp.org/LDP/Bash-Beginners-Guide/Bash-Beginners-Guide.pdf \
      --dataset . \
      -m "add beginners guide on bash" \
-     -O books/bash_guide.pdf \
+     -O books/bash_guide.pdf
 
 Afterwards, a fourth book is inside your ``books/`` directory:
 
@@ -324,6 +324,16 @@ this point:
    $ git log --oneline
 
 Well done! Your ``DataLad-101`` dataset and its history are slowly growing.
+
+.. only:: adminmode
+
+Add a tag at the section end.
+
+  .. runrecord:: _examples/DL-101-102-117
+     :language: console
+     :workdir: dl-101/DataLad-101
+
+     $ git branch sct_populate_a_dataset
 
 
 .. rubric:: Footnotes

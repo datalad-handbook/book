@@ -43,7 +43,7 @@ the many publicly available DataLad datasets such as the ``longnow`` podcasts.
 To share all dataset contents with your friend, you need to configure an external
 resource that stores your annexed data contents and that can be accessed by the
 person you want to share your data with. Such a resource can be a private
-web server [#f2]_, but also a third party services cloud storage such as
+web server, but also a third party services cloud storage such as
 `Dropbox <https://dropbox.com>`_,
 `Google <https://google.com>`_,
 `Amazon S3 buckets <https://aws.amazon.com/s3/?nc1=h_ls>`_,
@@ -135,7 +135,7 @@ Here is the complete list: `git-annex.branchable.com/special_remotes/ <https://g
 For Dropbox, the relevant special-remote to configures is
 `rclone <https://github.com/DanielDent/git-annex-remote-rclone>`__.
 It is a command line program to sync files and directories to and
-from a large number of commercial providers [#f3]_ (Amazon Cloud Drive, Microsoft
+from a large number of commercial providers [#f2]_ (Amazon Cloud Drive, Microsoft
 One Drive, ...). By enabling it as a special remote, :term:`git-annex` gets the
 ability to do the same, and can thus take care of publishing large file content
 to such sources conveniently under the hood.
@@ -242,7 +242,7 @@ to such sources conveniently under the hood.
   destination supported by rclone usable with :term:`git-annex`.
 
 - Copy the path to this repository into your ``$PATH`` variable. If the
-  clone is in ``/home/user-bob/repos``, the command would look like this [#f4]_::
+  clone is in ``/home/user-bob/repos``, the command would look like this [#f3]_::
 
    $ export PATH="/home/user-bob/repos/git-annex-remote-rclone:$PATH"
 
@@ -485,17 +485,14 @@ history or configurations.
          access to the server and client side of your GitLab instance. Find out more
          `here <https://docs.gitlab.com/ee/administration/git_annex.html>`_.
 
-.. [#f2] If you have an unused computer and a bit of time to spare, here is an
-         instruction `how to build your own webserver <https://www.instructables.com/id/Set-up-your-very-own-Web-server/>`_.
-
-.. [#f3] ``rclone`` is a useful special-remote for this example, because
+.. [#f2] ``rclone`` is a useful special-remote for this example, because
          you can not only use it for Dropbox, but also for many other
          third-party hosting services.
          For a complete overview of which third-party services are
          available and which special-remote they need, please see this
          `list <http://git-annex.branchable.com/special_remotes/>`_.
 
-.. [#f4] Note that ``export`` will extend your ``$PATH`` *for your current shell*.
+.. [#f3] Note that ``export`` will extend your ``$PATH`` *for your current shell*.
          This means you will have to repeat this command if you open a new shell.
          Alternatively, you can insert this line into your shells configuration file
          (e.g., ``~/.bashrc``) to make this path available to all future shells of

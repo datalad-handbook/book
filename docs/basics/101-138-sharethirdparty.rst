@@ -19,7 +19,7 @@ published to GitHub: There was meta data about their file availability, but a
 annexed content is currently not supported by :term:`GitHub` [#f1]_.
 In the case of the ``midterm_project``, this was not a problem: The
 computations that you ran were captured with :command:`datalad run`, and
-others can just recompute your results instead of :command:`datalad get`\ing them.
+others can just recompute your results instead of :command:`datalad get`\ting them.
 
 However, not always do two or more parties share the same server, have access to
 the same systems, or share something that can be recomputed quickly, but need to
@@ -157,7 +157,7 @@ to such sources conveniently under the hood.
    :emphasize-lines: 7-8, 22, 26, 30, 36
 
    $ rclone config
-    2019/09/06 13:43:58 NOTICE: Config file "/home/adina/.config/rclone/rclone.conf" not found - using defaults
+    2019/09/06 13:43:58 NOTICE: Config file "/home/me/.config/rclone/rclone.conf" not found - using defaults
     No remotes found - make a new one
     n) New remote
     s) Set configuration password

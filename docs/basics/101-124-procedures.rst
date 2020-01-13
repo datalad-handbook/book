@@ -360,7 +360,7 @@ was applied.
       procedures and a short explanation. Maybe on the cheatsheet.
 
 Summing up, DataLad's :command:`run-procedure` command is a handy tool
-with useful existing procedures but much flexibility for own
+with useful existing procedures but much flexibility for your own
 DIY procedure scripts. With the information of the last three sections
 you should be able to write and understand necessary configurations,
 but you can also rely on existing, preconfigured templates in the

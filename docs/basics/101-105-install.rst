@@ -170,7 +170,7 @@ excerpt).
 Dataset content identity and availability information
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Surprised you turn to your fellow student and wonder about
+Surprised, you turn to your fellow student and wonder about
 how fast the dataset was installed. Should
 a download of that many ``.mp3`` files not take much more time?
 

@@ -27,7 +27,7 @@ as the ascii-cast on `dataset nesting <https://www.datalad.org/for/git-users>`_.
 Because he found this very helpful in understanding dataset
 nesting concepts, he decided to download the ``shell`` script
 that was `used to generate this example <https://raw.githubusercontent.com/datalad/datalad.org/7e8e39b1f08d0a54ab521586f27ee918b4441d69/content/asciicast/seamless_nested_repos.sh>`_
-from GitHub, and saves it in the ``code/`` directory.
+from GitHub, and saved it in the ``code/`` directory.
 
 He does it using the datalad command :command:`datalad download-url`
 that you experienced in section :ref:`createDS` already: This command will
@@ -184,7 +184,7 @@ the ``--merge`` option.
 
    $ datalad update -s roommate
 
-Note that we supplied the siblings name with the ``-s``/``--name`` option.
+Note that we supplied the sibling's name with the ``-s``/``--name`` option.
 This is good practice, and allows you to be precise in where you want to get
 updates from. It would have worked without the specification (just as a bare
 :command:`datalad update --merge` worked for your room mate), because there is only
@@ -334,7 +334,6 @@ Create a note about this, and save it.
 
    EOT
    $ datalad save -m "Add note on adding siblings"
-
 
 .. only:: adminmode
 

@@ -3,7 +3,7 @@
 Where's Waldo?
 --------------
 
-So far, your room mate and you have created a copy of the ``DataLad-101``
+So far, you and your room mate have created a copy of the ``DataLad-101``
 dataset on the same file system but a different place by installing
 it from a path.
 

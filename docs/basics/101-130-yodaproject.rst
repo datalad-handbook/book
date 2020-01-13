@@ -688,7 +688,7 @@ reproduce your data science project easily from scratch!
       $ datalad clone "https://github.com/adswa/midtermproject.git"
 
    Let's start with the subdataset, and see whether we can retrieve the
-   input ``iris.csv`` file. This should not be a problem, since it's origin
+   input ``iris.csv`` file. This should not be a problem, since its origin
    is recorded:
 
    .. runrecord:: _examples/DL-101-130-120

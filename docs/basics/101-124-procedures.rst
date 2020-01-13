@@ -404,6 +404,18 @@ Finally, make a note about running procedures inside of ``notes.txt``:
 
    $ datalad save -m "add note on DataLads procedures"
 
+
+.. only:: adminmode
+
+Add a tag at the section end.
+
+  .. runrecord:: _examples/DL-101-124-112
+     :language: console
+     :workdir: dl-101/DataLad-101
+
+     $ git branch sct_configurations_to_go
+
+
 .. rubric:: Footnotes
 
 .. [#f1] In theory, because procedures can exist on different levels, and

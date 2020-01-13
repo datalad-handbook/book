@@ -359,6 +359,18 @@ modification.
   the available but not yet retrieved files. More about why this is will be
   explained in section :ref:`symlink`.
 
+
+.. only:: adminmode
+
+Add a tag at the section end.
+
+  .. runrecord:: _examples/DL-101-105-112
+     :language: console
+     :workdir: dl-101/DataLad-101
+
+     $ git branch sct_install_datasets
+
+
 .. rubric:: Footnotes
 
 .. [#f1] Additionally, a source  can also be a pointer to an open-data collection,

@@ -7,8 +7,8 @@ The command "datalad save [-m] PATH" saves the file
 Always use informative, concise commit messages.
 
 The command 'datalad clone URL/PATH [PATH]'
-clones a dataset from e.g., a URL or a path.
-If you clone a dataset into an existing
+installs a dataset from e.g., a URL or a path.
+If you install a dataset into an existing
 dataset (as a subdataset), remember to specify the
 root of the superdataset with the '-d' option.
 

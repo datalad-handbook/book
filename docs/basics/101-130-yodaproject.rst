@@ -676,7 +676,9 @@ reproduce your data science project easily from scratch!
    computer, just to get a feel for it.
 
    Replace the ``url`` in the :command:`clone` command below with the path
-   to your own ``midtermproject`` GitHub repository:
+   to your own ``midtermproject`` GitHub repository, or clone the "public"
+   ``midterm_project`` repository that is available via the Handbook's GitHub
+   organization at `github.com/datalad-handbook/midterm_project <https://github.com/datalad-handbook/midterm_project>`_:
 
    .. runrecord:: _examples/DL-101-130-119
       :language: console
@@ -744,6 +746,17 @@ reproduce your data science project easily from scratch!
 
     .. figure:: ../artwork/src/reproduced.svg
        :width: 50%
+
+
+.. only:: adminmode
+
+Add a tag at the section end.
+
+  .. runrecord:: _examples/DL-101-130-123
+     :language: console
+     :workdir: dl-101/DataLad-101
+
+     $ git branch sct_yoda_project
 
 
 .. rubric:: Footnotes

@@ -24,6 +24,9 @@ authors = [
         (Path(__file__).parent.parent / '.all-contributorsrc').open()).get(
             'contributors', [])
 ]
+# make sure mih is last author
+authors.append(authors.pop(authors.index('Michael Hanke')))
+
 
 # autorunrecord setup (extension used to run and capture the output of
 # examples)
@@ -119,6 +122,7 @@ release = version
 exclude_patterns = [
     '_build',
     '_themes/*.rst',  # Excluded due to README.rst in _themes/
+    '**/*admin', # useful for executing, but not showing code
 ]
 
 # The reST default role (used for this markup: `text`) to use for all documents.

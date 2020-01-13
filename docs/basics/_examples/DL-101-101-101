@@ -1,4 +1,4 @@
-$ datalad create --description "course on DataLad-101 on my private Laptop" -c text2git DataLad-101
+$ datalad create -c text2git DataLad-101
 [INFO] Creating a new annex repo at /home/me/dl-101/DataLad-101 
 [INFO] Running procedure cfg_text2git 
 [INFO] == Command start (output follows) ===== 

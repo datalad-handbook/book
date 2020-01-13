@@ -407,13 +407,13 @@ Finally, make a note about running procedures inside of ``notes.txt``:
 
 .. only:: adminmode
 
-Add a tag at the section end.
+    Add a tag at the section end.
 
-  .. runrecord:: _examples/DL-101-124-112
-     :language: console
-     :workdir: dl-101/DataLad-101
+      .. runrecord:: _examples/DL-101-124-112
+         :language: console
+         :workdir: dl-101/DataLad-101
 
-     $ git branch sct_configurations_to_go
+         $ git branch sct_configurations_to_go
 
 
 .. rubric:: Footnotes

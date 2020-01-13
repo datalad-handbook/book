@@ -84,10 +84,10 @@ create it. "This is as reproducible as it can be!" you think in awe.
 
 .. only:: adminmode
 
-Add a tag at the section end.
+    Add a tag at the section end.
 
-  .. runrecord:: _examples/DL-101-118-104
-     :language: console
-     :workdir: dl-101/DataLad-101
+      .. runrecord:: _examples/DL-101-118-104
+         :language: console
+         :workdir: dl-101/DataLad-101
 
-     $ git branch sct_retrace_and_reenact
+         $ git branch sct_retrace_and_reenact

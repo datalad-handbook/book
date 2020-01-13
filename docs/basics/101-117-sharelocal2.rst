@@ -134,13 +134,13 @@ this in the original ``DataLad-101`` directory, and do not forget to save it.
 
 .. only:: adminmode
 
-Add a tag at the section end.
+   Add a tag at the section end.
 
-  .. runrecord:: _examples/DL-101-117-108
-     :language: console
-     :workdir: dl-101/DataLad-101
+     .. runrecord:: _examples/DL-101-117-108
+        :language: console
+        :workdir: dl-101/DataLad-101
 
-     $ git branch sct_where_is_waldo
+        $ git branch sct_where_is_waldo
 
 
 .. rubric:: Footnotes

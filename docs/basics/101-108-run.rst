@@ -238,10 +238,10 @@ be helpful over the course of this chapter.
 
 .. only:: adminmode
 
-Add a tag at the section end.
+   Add a tag at the section end.
 
-  .. runrecord:: _examples/DL-101-108-109
-     :language: console
-     :workdir: dl-101/DataLad-101
+     .. runrecord:: _examples/DL-101-108-109
+        :language: console
+        :workdir: dl-101/DataLad-101
 
-     $ git branch sct_keeping_track
+        $ git branch sct_keeping_track

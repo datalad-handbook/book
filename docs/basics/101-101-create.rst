@@ -14,7 +14,7 @@ variables and data.
 But for DataLad, a dataset is the core data type:
 As noted in :ref:`philo`, a dataset is a collection of *files*
 in folders, and a file is the smallest unit any dataset can contain.
-While it at its core this is a very simple concept, datasets come with many
+Although this is a very simple concept, datasets come with many
 useful features.
 Because experiencing is more insightful than just reading, we will explore the
 concepts of DataLad datasets together by creating one.
@@ -122,7 +122,7 @@ an informative commit message yourself.
       $ ls -a # show also hidden files
 
    **For non-Git-Users: these hidden** *dot-directories* **are necessary for all git magic**
-   **to work. Please do not temper with them, and, importantly,** *do not delete them.*
+   **to work. Please do not tamper with them, and, importantly,** *do not delete them.*
 
 Congratulations, you just created your first DataLad dataset!
 Let us now put some content inside.

@@ -120,6 +120,39 @@ As expected, the file does not show up as untracked -- it is being
 ignored! Therefore, a ``.gitignore`` file can give you a space inside of
 your dataset to be messy, if you want to be.
 
+.. findoutmore:: Rules for .gitignore files
+
+   Here are some general rules for the patterns you can put into a ``.gitignore``
+   file, taken from the book `Pro Git <https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository#_ignoring>`_ :
+
+   - Blank lines or lines starting with ``#`` are ignored
+   - Standard :term:`globbing` patterns work. The line
+
+     .. code-block:: bash
+
+        *.[oa]
+
+     lets all files ending in ``.o`` or ``.a`` be ignored. Importantly, these patterns
+     will be applied recursively through your dataset, so that a file matching this
+     rule will be ignored, even if it is in a subdirectory of your dataset. If you
+     want to ignore specific files in the directory your ``.gitignore`` file lies in,
+     but not any subdirectories, start the pattern with a forward slash (``/``), as
+     in ``/TODO``.
+   - To specify directories, you can end patterns with a forward slash (``/``), for
+     example ``build/``.
+   - You can negate a pattern by starting it with an exclamation point (``!``), such
+     as ``!lib.a``. This would track the file ``lib.a``, even if you would be ignoring
+     all other files with ``.a`` extension.
+
+   The manpage of ``gitignore`` has an extensive and well explained overview.
+   To read it, simply type ``man gitignore`` into your terminal.
+
+   You can have a single ``.gitignore`` file in the root of your dataset,
+   and its rules apply recursively to the entire hierarchy of the dataset (but not
+   subdatasets!). Alternatively, you can have additional ``.gitignore`` files in
+   subdirectories of your dataset. The rules in these nested ``.gitignore`` files only
+   apply to the files under the directory where they are located.
+
 .. note::
 
    Note one caveat: If a command creates an output that is git-ignored,

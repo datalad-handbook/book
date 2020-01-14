@@ -21,7 +21,7 @@ a source.
 
 In this scenario multiple people can access the very same files at the
 same time, often on the same machine (e.g., a shared workstation, or
-a server than people can "SSH" into). You might think: "What do I need
+a server that people can "SSH" into). You might think: "What do I need
 DataLad for, if everyone can already access everything?" However,
 universal, unrestricted access can easily lead to chaos. DataLad can
 help facilitate collaboration without requiring ultimate trust and
@@ -73,7 +73,7 @@ simplicity -- create a new directory, ``mock_user``, right next to it:
    $ cd ../
    $ mkdir mock_user
 
-For simplicity, pretend that this is a second users' -- your room mates' --
+For simplicity, pretend that this is a second user's -- your room mate's --
 home directory. Furthermore, let's for now disregard anything about
 :term:`permissions`. In a real-world example you likely would not be able to read and write
 to a different user's directories, but we will talk about permissions later.
@@ -173,21 +173,49 @@ let's query git-annex where its content is stored:
 
 Oh, another :term:`shasum`! This time however not in a symlink...
 "That's hard to read -- what is it?" your room mate asks.
-Luckily, there is a human-readable description next to it:
-"course on DataLad-101 on my private Laptop".
-"This", you exclaim, excited about your own realization,
+Luckily, there is a more human-readable piece of text next to it. You can
+recognize a path to the dataset on your computer, prefixed with the user
+and hostname of your computer. "This", you exclaim, excited about your own realization,
 "is my dataset's location I'm sharing it from!"
 
-This is, finally, where we see the description provided in
-:command:`datalad create` in section :ref:`createDS` becomes handy: It is
-a human-readable description of *where* file content is stored.
-This becomes especially useful when the number of repositories
-increases. If you have only one other dataset it may be easy to
-remember what and where it is. But once you have one back-up
-of your dataset on a USB-Stick, one dataset shared with
-`Dropbox <dropbox.com>`_, and a third one on your institutions
-GitLab instance you will be grateful for the descriptions
-you provided these locations with.
+.. findoutmore:: What is this location, and what if I provided a description?
+
+   Back in the very first section of the Basics, :ref:`createDS`, a hidden
+   section mentioned the ``--description`` option of :command:`datalad create`.
+   With this option, you can provide a description about the *location* of
+   your dataset.
+
+   The :command:`git annex whereis` command, finally, is where such a description
+   can become handy: If you had created the dataset with
+
+   .. code-block:: bash
+
+      $ datalad create --description "course on DataLad-101 on my private Laptop" -c text2git DataLad-101
+
+   the command would show ``course on DataLad-101 on my private Laptop`` after
+   the :term:`shasum` -- and thus a more human-readable description of *where*
+   file content is stored.
+   This becomes especially useful when the number of repository copies
+   increases. If you have only one other dataset it may be easy to
+   remember what and where it is. But once you have one back-up
+   of your dataset on a USB-Stick, one dataset shared with
+   `Dropbox <dropbox.com>`_, and a third one on your institutions
+   :term:`GitLab` instance you will be grateful for the descriptions
+   you provided these locations with.
+
+   The current report of the location of the dataset is in the format
+   ``user@host:path``.
+   As one computer this book is being build on is called "muninn" and its
+   user "me", it could look like this: ``me@muninn:~/dl-101/DataLad-101``.
+
+   If the physical location of a dataset is not relevant, ambiguous, or volatile,
+   or if it has an :term:`annex` that could move within the foreseeable lifetime of a
+   dataset, a custom description with the relevant information on the dataset is
+   superior. If this is not the case, decide for yourself whether you want to use
+   the ``--description`` option for future datasets or not depending on what you
+   find more readable -- a self-made location description, or an automatic
+   ``user@host:path`` information.
+
 
 The message further informs you that there is only "``(1 copy)``"
 of this file content. This makes sense: There
@@ -234,10 +262,9 @@ file from. Thus, for this book, your room mate is always able to obtain it
 (as long as the URL remains valid), even if you would delete your ``DataLad-101``
 dataset. Quite useful, this provenance, right?
 
-Let's now turn to the fact that the subdataset ``longnow`` does
-not contain not only no file content, but also no file metadata
-information to explore the contents of the dataset: There are no
-subdirectories or any files under ``recordings/longnow/``.
+Let's now turn to the fact that the subdataset ``longnow`` contains neither
+file content nor file metadata information to explore the contents of the 
+dataset: there are no subdirectories or any files under ``recordings/longnow/``.
 This is behavior that you have not observed until now.
 
 To fix this and obtain file availability metadata,
@@ -274,7 +301,7 @@ superdataset, and not any subdatasets. The superdataset contains the
 information that a subdataset exists though -- the subdataset is *registered*
 in the superdataset.  This is why the subdataset name exists as a directory.
 A subsequent :command:`datalad get -n path/to/longnow` will install the registered
-subdataset again, just as we did it in the example above.
+subdataset again, just as we did in the example above.
 
 But what about the ``-n`` option for :command:`datalad get`?
 Previously, we used :command:`datalad get` to get file content. However,

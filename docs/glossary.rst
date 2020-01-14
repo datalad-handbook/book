@@ -44,7 +44,7 @@ Glossary
       part of the revision history of the repository. Should always have an informative :term:`commit message`.
 
    commit message
-      Git concept: A consise summary of changes you should attach to a :command:`datalad save` command. This summary will
+      Git concept: A concise summary of changes you should attach to a :command:`datalad save` command. This summary will
       show up in your :term:`Datalad dataset` history.
 
    DataLad dataset
@@ -68,9 +68,18 @@ Glossary
    Debian
       A common Linux distribution. `More information here <https://www.debian.org/index.en.html>`__.
 
+   DOI
+      A digital object identifier (DOI) is a character string used to permanently identify
+      a resource and link to in on the web. A DOI will always refer to the one resource
+      it was assigned to, and only that one.
+
    environment variable
       A variable made up of a name/value pair. Programs using a given environment variable
       will use its associated value for their execution.
+
+   GIN
+      A web-based repository store for data management that you can use to host and
+      share datasets. Find out more about GIN `here <https://gin.g-node.org/G-Node/Info/wiki>`__.
 
    Git
       A version control system to track changes made to small-sized files over time. You can find out
@@ -87,8 +96,7 @@ Glossary
 
    GitHub
       GitHub is an online platform where one can store and share version controlled projects
-      using Git (and thus also DataLad project).See
-      `GitHub.com <https://github.com/>`_.
+      using Git (and thus also DataLad project). See`GitHub.com <https://github.com/>`_.
 
    Gitk
       A repository browser that displays changes in a repository or a selected set of commits. It
@@ -144,7 +152,7 @@ Glossary
       package and installs it while resolving any potential dependencies.
 
    provenance
-      A record that describes entities and processes that were involved in producinng or influencing
+      A record that describes entities and processes that were involved in producing or influencing
       a digital resource. It provides a critical foundation for assessing authenticity, enables trust,
       and allows reproducibility.
 
@@ -172,9 +180,29 @@ Glossary
       Instead of ``python code/myscript.py`` one can just run ``code/myscript`` if ``myscript`` has
       executable :term:`permissions` and a correctly specified shebang.
 
+   special remote
+      git-annex concept: A protocol that defines the underlying transport of annexed files
+      to and from places that are not :term:`Git` repositories (e.g., a cloud service or
+      external machines such as HPC systems).
+
    SSH
       Secure shell (SSH) is a network protocol to link one machine (computer),
       the *client*, to a different local or remote machine, the *server*. See also: :term:`SSH server`.
+
+   SSH key
+      An SSH key is an access credential in the SSH protocol that can be used to login
+      from one system to remote servers and services, such as from your private
+      computer to an :term:`SSH server`, without supplying your username or password
+      at each visit. To use an SSH key for authentication, you need to generate a
+      key pair on the system you would like to use to access a remote system or service
+      (most likely, your computer).
+      The pair consists of a *private* and a *public* key. The public key is shared
+      with the remote server, and the private key is used to authenticate your machine
+      whenever you want to access the remote server or service.
+      Services such as :term:`GitHub`, :term:`GitLab`, and :term:`GIN` use SSH keys and the SSH protocol
+      to ease access to repositories. This
+      `tutorial by GitHub <https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent>`_
+      is a detailed step-by-step instruction to generate and use SSH keys for authentication.
 
    SSH server
       An remote or local computer that users can log into using the :term:`SSH` protocol.

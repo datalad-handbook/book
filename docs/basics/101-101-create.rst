@@ -14,7 +14,7 @@ variables and data.
 But for DataLad, a dataset is the core data type:
 As noted in :ref:`philo`, a dataset is a collection of *files*
 in folders, and a file is the smallest unit any dataset can contain.
-While it at its core this is a very simple concept, datasets come with many
+Although this is a very simple concept, datasets come with many
 useful features.
 Because experiencing is more insightful than just reading, we will explore the
 concepts of DataLad datasets together by creating one.
@@ -28,11 +28,21 @@ Note the command structure of :command:`datalad create` (optional bits are enclo
 
   datalad create [--description "..."] [-c <config options>] PATH
 
-In a bit of time, you will thank yourself for adding a description about the *location*
-of your dataset with the *optional* ``--description`` flag. At the moment,
-we will not dive into the details of where that description ends up or
-becomes useful in the future, but in more advanced parts of the book
-we will see how this gets handy. Let's start:
+.. findoutmore:: What is the description option?
+
+   The optional ``--description`` flag allows you to provide a short description of
+   the *location* of your dataset, for example with
+
+   .. code-block:: bash
+
+      datalad create --description "course on DataLad-101 on my private Laptop" -c text2git DataLad-101
+
+   If you want, use the above command instead of the :command:`create` command below
+   to provide a description. Its use will not be immediately clear, but later
+   chapters (starting with :ref:`sharelocal1`) will show you where this description
+   ends up and how it may be useful.
+
+Let's start:
 
 
 .. runrecord:: _examples/DL-101-101-101
@@ -41,7 +51,7 @@ we will see how this gets handy. Let's start:
    :cast: 01_dataset_basics
    :notes: Datasets are datalads core data type. We will explore the concepts of datasets by creating one with datalad create. optional configuration template and a description
 
-   $ datalad create --description "course on DataLad-101 on my private Laptop" -c text2git DataLad-101
+   $ datalad create -c text2git DataLad-101
 
 This will create a dataset called ``DataLad-101`` in the directory you are currently
 in. For now, disregard ``-c text2git``. It applies a configuration template, but there
@@ -122,7 +132,7 @@ an informative commit message yourself.
       $ ls -a # show also hidden files
 
    **For non-Git-Users: these hidden** *dot-directories* **are necessary for all git magic**
-   **to work. Please do not temper with them, and, importantly,** *do not delete them.*
+   **to work. Please do not tamper with them, and, importantly,** *do not delete them.*
 
 Congratulations, you just created your first DataLad dataset!
 Let us now put some content inside.

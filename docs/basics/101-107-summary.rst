@@ -6,7 +6,7 @@ Summary
 In the last few sections, we have discovered the basics of starting a DataLad dataset from scratch,
 and making simple modifications *locally*.
 
-* An empty dataset can be created with the :command:`datalad create` command. Its useful to add a description
+* An empty dataset can be created with the :command:`datalad create` command. It's useful to add a description
   to the dataset and use the ``-c text2git`` configuration, but we will see later why.
   This is the command structure::
 

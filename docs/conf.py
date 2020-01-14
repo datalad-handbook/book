@@ -274,7 +274,7 @@ latex_logo = None
 
 latex_toplevel_sectioning = 'part'
 latex_show_pagerefs = True
-#latex_show_urls = 'footnote'
+latex_show_urls = 'footnote'
 latex_elements = {
     'papersize': 'a4',
     'pointsize': '11pt',

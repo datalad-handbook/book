@@ -359,8 +359,8 @@ to your dataset:
 
    $ datalad create -c yoda "my_analysis"
 
-   [INFO   ] Creating a new annex repo at /home/adina/repos/testing/my_analysis
-   create(ok): /home/adina/repos/testing/my_analysis (dataset)
+   [INFO   ] Creating a new annex repo at /home/me/repos/testing/my_analysis
+   create(ok): /home/me/repos/testing/my_analysis (dataset)
    [INFO   ] Running procedure cfg_yoda
    [INFO   ] == Command start (output follows) =====
    [INFO   ] == Command exit (modification check follows) =====

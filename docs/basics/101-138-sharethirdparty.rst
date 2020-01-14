@@ -300,8 +300,8 @@ done with the ``publish-depends <sibling>`` option.
 
    $ datalad create-sibling-github -d . DataLad-101 --publish-depends dropbox-for-friends
      [INFO   ] Configure additional publication dependency on "dropbox-for-friends"
-     .: github(-) [https://github.com/adswa/DataLad-101.git (git)]
-     'https://github.com/adswa/DataLad-101.git' configured as sibling 'github' for <Dataset path=/home/me/dl-101/DataLad-101>
+     .: github(-) [https://github.com/<user-name>/DataLad-101.git (git)]
+     'https://github.com/<user-name>/DataLad-101.git' configured as sibling 'github' for <Dataset path=/home/me/dl-101/DataLad-101>
 
 :command:`datalad siblings` will again list all available siblings:
 
@@ -311,7 +311,7 @@ done with the ``publish-depends <sibling>`` option.
     .: here(+) [git]
     .: dropbox-for-friends(+) [rclone]
     .: roommate(+) [../mock_user/DataLad-101 (git)]
-    .: github(-) [https://github.com/adswa/DataLad-101.git (git)]
+    .: github(-) [https://github.com/<user-name>/DataLad-101.git (git)]
 
 Note that each sibling has either a ``+`` or ``-`` attached to its name. This
 indicates the presence (``+``) or absence (``-``) of a remote data annex at this
@@ -340,8 +340,8 @@ dependency is served first:
    [INFO   ] Publishing to configured dependency: 'dropbox-for-friends'
    [INFO   ] Publishing <Dataset path=/home/me/dl-101/DataLad-101> data to dropbox-for-friends
    [INFO   ] Publishing <Dataset path=/home/me/dl-101/DataLad-101> to github
-   Username for 'https://github.com': adswa
-   Password for 'https://adswa@github.com':
+   Username for 'https://github.com': <user-name>
+   Password for 'https://<user-name>@github.com':
    publish(ok): . (dataset) [pushed to github: ['[new branch]', '[new branch]']]
    action summary:
      publish (ok: 6)
@@ -420,8 +420,8 @@ have to do:
 If the repository is on GitHub, a :command:`datalad clone` with the URL
 will install the dataset::
 
-   $ datalad clone https://github.com/adswa/DataLad-101.git
-   [INFO   ] Cloning https://github.com/adswa/DataLad-101.git [1 other candidates] into '/Users/awagner/Documents/DataLad-101'
+   $ datalad clone https://github.com/<user-name>/DataLad-101.git
+   [INFO   ] Cloning https://github.com/<user-name>/DataLad-101.git [1 other candidates] into '/Users/awagner/Documents/DataLad-101'
    [INFO   ]   Remote origin not usable by git-annex; setting annex-ignore
    [INFO   ] access to 1 dataset sibling dropbox-for-friends not auto-enabled, enable with:
    |         datalad siblings -d "/Users/awagner/Documents/DataLad-101" enable -s dropbox-for-friends
@@ -430,7 +430,7 @@ will install the dataset::
 Pay attention to one crucial information in this output::
 
    [INFO   ] access to 1 dataset sibling dropbox-for-friends not auto-enabled, enable with:
-   |         datalad siblings -d "/Users/awagner/Documents/DataLad-101" enable -s dropbox-for-friends
+   |         datalad siblings -d "/Users/<user-name>/Documents/DataLad-101" enable -s dropbox-for-friends
 
 This means that someone who wants to access the data from dropbox needs to
 enable the special remote.

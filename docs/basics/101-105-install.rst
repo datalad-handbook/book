@@ -362,13 +362,13 @@ modification.
 
 .. only:: adminmode
 
-Add a tag at the section end.
+   Add a tag at the section end.
 
-  .. runrecord:: _examples/DL-101-105-112
-     :language: console
-     :workdir: dl-101/DataLad-101
+     .. runrecord:: _examples/DL-101-105-112
+        :language: console
+        :workdir: dl-101/DataLad-101
 
-     $ git branch sct_install_datasets
+        $ git branch sct_install_datasets
 
 
 .. rubric:: Footnotes

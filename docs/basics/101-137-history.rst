@@ -765,13 +765,13 @@ to remove the ``Gitjoke2.txt`` file.
 
 .. only:: adminmode
 
-Add a tag at the section end.
+   Add a tag at the section end.
 
-  .. runrecord:: _examples/DL-101-137-160
-     :language: console
-     :workdir: dl-101/DataLad-101
+     .. runrecord:: _examples/DL-101-137-160
+        :language: console
+        :workdir: dl-101/DataLad-101
 
-     $ git branch sct_back_and_forth_in_time
+        $ git branch sct_back_and_forth_in_time
 
 
 .. rubric:: Footnotes

@@ -337,10 +337,11 @@ Create a note about this, and save it.
 
 .. only:: adminmode
 
-Add a tag at the section end.
+   Add a tag at the section end.
 
-  .. runrecord:: _examples/DL-101-121-114
-     :language: console
-     :workdir: dl-101/DataLad-101
+     .. runrecord:: _examples/DL-101-121-114
+        :language: console
+        :workdir: dl-101/DataLad-101
 
-     $ git branch sct_networking
+
+        $ git branch sct_networking

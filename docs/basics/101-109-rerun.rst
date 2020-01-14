@@ -271,13 +271,13 @@ Finally, save this note.
 
 .. only:: adminmode
 
-Add a tag at the section end.
+   Add a tag at the section end.
 
-  .. runrecord:: _examples/DL-101-109-115
-     :language: console
-     :workdir: dl-101/DataLad-101
+     .. runrecord:: _examples/DL-101-109-115
+        :language: console
+        :workdir: dl-101/DataLad-101
 
-     $ git branch sct_datalad_rerun
+        $ git branch sct_datalad_rerun
 
 
 .. rubric:: Footnotes

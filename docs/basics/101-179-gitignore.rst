@@ -14,11 +14,7 @@ The most striking was that it by default
 will save the complete datasets status if one does not provide
 a path to a file change. This would result in all content
 that is either modified or untracked being saved in a single
-commit. You know already that this is the reason why a :command:`datalad run`
-requires a clean dataset: The final :command:`datalad save` after
-:command:`datalad run` should only save changes that can be attributed to
-the command that was run, and not changes that existed already
-but were yet unsaved.
+commit.
 
 In principle, a general recommendation may be to keep your DataLad
 dataset clean. This assists a structured way of working and prevents
@@ -28,14 +24,14 @@ it will be hard to remember where this content came from, whether it
 is relevant, and if it is relevant, for what. Adding content to your
 dataset will thus usually not do harm -- certainly not for your
 dataset.
-
-
 However, there may be valid reasons to keep content out of
 DataLad's version control and tracking. Maybe you hide your secret
 ``my-little-pony-themesongs/`` collection within ``Deathmetal/``
 and do not want a record of this in your history or the directory
 being shared together with the rest of the dataset. Who knows?
-We would not judge in any way. In principle, you already know a few
+We would not judge in any way.
+
+In principle, you already know a few
 tricks on how to be "messy" and have untracked files.
 For :command:`datalad save`, you know that precise file paths allow
 you to save only those modifications you want to change.
@@ -44,9 +40,9 @@ can specify the ``--explicit`` option
 to only save those modifications that are specified in the ``--output``
 argument.
 
-But there are two ways to leave untracked content unaffected
-by a :command:`datalad save`. One is an option within :command:`datalad save`
-itself::
+Beyond these tricks, there are two ways to leave *untracked* content unaffected
+by a :command:`datalad save`. One is the ``-u/--untracked`` option of
+:command:`datalad save`::
 
    $ datalad save -m "my commit message here" -u/--updated
 
@@ -69,7 +65,8 @@ or create your own one.
 To specify dataset content to be git-ignored, you can either write
 a full file name, e.g. ``playlists/my-little-pony-themesongs/Friendship-is-magic.mp3``
 into this file, or paths or patterns that make use of globbing, such as
-``playlists/my-little-pony-themesongs/*``. Afterwards,
+``playlists/my-little-pony-themesongs/*``. The hidden section at the end of this
+page contains some general rules for patterns in ``.gitignore`` files. Afterwards,
 you just need to save the file once to your dataset so that it is version controlled.
 If you have new content you do not want to track, you can add
 new paths or patterns to the file, and save these modifications.

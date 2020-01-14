@@ -161,6 +161,36 @@ your dataset to be messy, if you want to be.
    commands a ran in succession. The second command will fail if re-ran on its own,
    however.
 
+.. findoutmore:: Globally ignoring files
+
+   Its not only possible to define files or patterns for files to ignore inside
+   of individual datasets, but to also set global specifications to have every
+   single dataset you own ignore certain files or file types.
+
+   This can be useful, for example, for unwanted files that your operating system
+   or certain software creates, such as `lock files <https://fileinfo.com/extension/lock>`_,
+   `.swp files <https://www.networkworld.com/article/2931534/what-are-unix-swap-swp-files.html>`_,
+   `.DS_Store files <https://en.wikipedia.org/wiki/.DS_Store>`_,
+   `Thumbs.DB <https://en.wikipedia.org/wiki/Windows_thumbnail_cache#Thumbs.db>`_,
+   or others.
+
+   To set rules to ignore files for all of your datasets, you need to create a
+   *global* ``.gitignore`` file. The only difference between a repository-specific
+   and a global ``.gitignore`` file is its location on your file
+   system. You can put it either in its default location ``~/.config/git/ignore``
+   (you may need to create the ``~/.config/git`` directory first),
+   or place it into any other location and point Git to it. If you create a
+   file at  ``~/.gitignore_global`` and run
+
+   .. code-block:: bash
+
+      $ git config --global core.excludesfile ~/.gitignore_global
+
+   Git -- and consequently DataLad -- will not bother you about any of the files
+   or file types you have specified.
+
+
+
 .. only:: adminmode
 
    Add a tag at the section end.

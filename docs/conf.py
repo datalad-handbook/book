@@ -279,24 +279,14 @@ latex_elements = {
     'papersize': 'a4',
     'pointsize': '11pt',
     'figure_align': 'tbp',
+    'fncychap' : r'\usepackage[Bjarne]{fncychap}',
+    'passoptionstopackages': r'\PassOptionsToPackage{svgnames}{xcolor}',
     'preamble': r"""
 \usepackage{charter}
 \usepackage[defaultsans]{lato}
 \usepackage{inconsolata}
 \setcounter{tocdepth}{0}
 \usepackage{xcolor}
-\newsavebox\mytempbox
-\definecolor{sphinxnoteBgColor}{RGB}{255, 193, 84}
-\renewenvironment{sphinxnote}[1]
-   {\begin{lrbox}{\mytempbox}\begin{minipage}{\columnwidth}%
-    \begin{sphinxlightbox}\sphinxstrong{#1} }
-   {\end{sphinxlightbox}\end{minipage}\end{lrbox}%
-    \colorbox{sphinxnoteBgColor}{\usebox{\mytempbox}}}
-\renewenvironment{sphinximportant}[2]
-   {\begin{lrbox}{\mytempbox}\begin{minipage}{\columnwidth}%
-    \begin{sphinxlightbox}\sphinxstrong{#1} }
-   {\end{sphinxlightbox}\end{minipage}\end{lrbox}%
-    \colorbox{sphinxnoteBgColor}{\usebox{\mytempbox}}}
 """,
 }
 

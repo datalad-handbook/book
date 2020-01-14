@@ -162,3 +162,19 @@ it is not. The section :ref:`executive_summary` will give you a one-page summary
 of the functionality and commands you will learn with this handbook. But before we
 get there, let's get ready to *use* DataLad. For this, the next
 section will show you how to use the handbook.
+
+.. raw:: latex
+
+   \begingroup
+   \sphinxsetup{%
+         VerbatimColor={named}{OldLace},
+         TitleColor={named}{DarkGoldenrod},
+         hintBorderColor={named}{LightCoral},
+         attentionborder=3pt,
+         attentionBorderColor={named}{Crimson},
+         attentionBgColor={named}{FloralWhite},
+         noteborder=2pt,
+         noteBorderColor={named}{Orange},
+         cautionborder=3pt,
+         cautionBorderColor={named}{Cyan},
+         cautionBgColor={named}{LightCyan}}

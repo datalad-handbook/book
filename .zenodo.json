@@ -110,5 +110,6 @@
   ],
   "access_right": "open",
   "license": "CC-BY-SA",
-  "upload_type": "book"
+  "upload_type": "publication",
+  "publication_type": "book"
 }

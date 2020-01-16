@@ -314,13 +314,13 @@ in the usecase :ref:`usecase_reproduce_neuroimg`.
 
 .. only:: adminmode
 
-Add a tag at the section end.
+    Add a tag at the section end.
 
-  .. runrecord:: _examples/DL-101-133-114
-     :language: console
-     :workdir: dl-101/DataLad-101
+      .. runrecord:: _examples/DL-101-133-114
+         :language: console
+         :workdir: dl-101/DataLad-101
 
-     $ git branch sct_computational_reproducibility
+         $ git branch sct_computational_reproducibility
 
 .. rubric:: Footnotes
 

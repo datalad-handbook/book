@@ -189,7 +189,7 @@ behavior that was specifically configured.
 Writing to configuration files other than ``.git/config``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-"Didn't you say that knowing git :command:`git config` command is already
+"Didn't you say that knowing the :command:`git config` command is already
 half of what I need to know?" you ask. "Now there are three other configuration
 files, and I do not know with which command I can write into these files."
 
@@ -213,7 +213,7 @@ Let's try this:
    $ git config --file=.gitmodules --replace-all submodule."recordings/longnow".url "git@github.com:datalad-datasets/longnow-podcasts.git"
 
 This command will replace the submodule's https URL with an SSH URL.
-The later is often used if someone has an *SSH key pair* and added the
+The latter is often used if someone has an *SSH key pair* and added the
 public key to their GitHub account (you can read more about this
 `here <https://help.github.com/en/articles/which-remote-url-should-i-use>`_).
 We will revert this change shortly, but use it to show the difference between
@@ -282,7 +282,7 @@ Summary
 This has been an intense lecture, you have to admit. One definite
 take-away from it has been that you now know a second reason why the hidden
 ``.git`` and ``.datalad`` directory contents and also the contents of ``.gitmodules`` and
-``.gitattributes`` should not be carelessly tempered with -- they contain all of
+``.gitattributes`` should not be carelessly tampered with -- they contain all of
 the repositories configurations.
 
 But you now also know how to modify these configurations with enough
@@ -335,13 +335,13 @@ Write a note about configurations in datasets into ``notes.txt``.
 
 .. only:: adminmode
 
-Add a tag at the section end.
+   Add a tag at the section end.
 
-  .. runrecord:: _examples/DL-101-123-112
-     :language: console
-     :workdir: dl-101/DataLad-101
+     .. runrecord:: _examples/DL-101-123-112
+        :language: console
+        :workdir: dl-101/DataLad-101
 
-     $ git branch sct_more_on_DYI_configurations
+        $ git branch sct_more_on_DYI_configurations
 
 
 .. rubric:: Footnotes

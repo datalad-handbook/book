@@ -43,7 +43,7 @@ this looks weird, if not worse: intimidating, wrong, or broken.
 First of all: no, **it is all fine**. But let's start with the basics of what is displayed
 here to understand it.
 
-The small ``->`` symbol connecting one path (the books name) to another path (the weird
+The small ``->`` symbol connecting one path (the book's name) to another path (the weird
 sequence of characters ending in ``.pdf``) is what is called a
 *symbolic link* (short: :term:`symlink`) or *softlink*.
 It is a term for any file that contains a reference to another file or directory as
@@ -51,7 +51,7 @@ a :term:`relative path` or :term:`absolute path`.
 If you use Windows, you are familiar with a related concept: a shortcut.
 
 This means that the files that are in the locations in which you saved content
-to and are named as you named your files (e.g., ``TLCL.pdf``),
+and are named as you named your files (e.g., ``TLCL.pdf``),
 do *not actually contain your files' content*:
 they just point to the place where the actual file content resides.
 
@@ -140,7 +140,7 @@ is only one single piece of data in your object tree. This, depending on
 how much identical file content lies in different parts of your dataset,
 can save you much disk space and time.
 
-The second advantage is a
+The second advantage is less intuitive but clear for users familiar with Git.
 
 .. gitusernote::
 

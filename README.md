@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/datalad-handbook/book.svg?branch=master)](https://travis-ci.org/datalad-handbook/book) [![Documentation Status](https://readthedocs.org/projects/datalad-handbook/badge/?version=latest)](http://handbook.datalad.org/en/latest/?badge=latest)
 [![All Contributors](https://img.shields.io/badge/all_contributors-19-orange.svg?style=flat-square)](#contributors)
+[![DOI](https://zenodo.org/badge/192547315.svg)](https://zenodo.org/badge/latestdoi/192547315)
 
 # The Datalad handbook :orange_book:
 
@@ -77,7 +78,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/pvavra"><img src="https://avatars3.githubusercontent.com/u/5610129?v=4" width="100px;" alt=""/><br /><sub><b>Peter Vavra</b></sub></a><br /><a href="#ideas-pvavra" title="Ideas, Planning, & Feedback">🤔</a> <a href="#userTesting-pvavra" title="User Testing">📓</a></td>
     <td align="center"><a href="https://github.com/TobiasKadelka"><img src="https://avatars1.githubusercontent.com/u/49553687?v=4" width="100px;" alt=""/><br /><sub><b>Tobias Kadelka</b></sub></a><br /><a href="#userTesting-TobiasKadelka" title="User Testing">📓</a></td>
     <td align="center"><a href="http://peerherholz.github.io"><img src="https://avatars0.githubusercontent.com/u/20129524?v=4" width="100px;" alt=""/><br /><sub><b>Peer Herholz</b></sub></a><br /><a href="#ideas-PeerHerholz" title="Ideas, Planning, & Feedback">🤔</a></td>
-    <td align="center"><a href="https://github.com/AlexandreHutton"><img src="https://avatars3.githubusercontent.com/u/50920802?v=4" width="100px;" alt=""/><br /><sub><b>AlexandreHutton</b></sub></a><br /><a href="#content-AlexandreHutton" title="Content">🖋</a> <a href="https://github.com/datalad-handbook/book/issues?q=author%3AAlexandreHutton" title="Bug reports">🐛</a></td>
+    <td align="center"><a href="https://github.com/AlexandreHutton"><img src="https://avatars3.githubusercontent.com/u/50920802?v=4" width="100px;" alt=""/><br /><sub><b>Alexandre Hutton</b></sub></a><br /><a href="#content-AlexandreHutton" title="Content">🖋</a> <a href="https://github.com/datalad-handbook/book/issues?q=author%3AAlexandreHutton" title="Bug reports">🐛</a></td>
   </tr>
 </table>
 

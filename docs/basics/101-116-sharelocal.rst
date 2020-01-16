@@ -21,7 +21,7 @@ a source.
 
 In this scenario multiple people can access the very same files at the
 same time, often on the same machine (e.g., a shared workstation, or
-a server than people can "SSH" into). You might think: "What do I need
+a server that people can "SSH" into). You might think: "What do I need
 DataLad for, if everyone can already access everything?" However,
 universal, unrestricted access can easily lead to chaos. DataLad can
 help facilitate collaboration without requiring ultimate trust and
@@ -73,7 +73,7 @@ simplicity -- create a new directory, ``mock_user``, right next to it:
    $ cd ../
    $ mkdir mock_user
 
-For simplicity, pretend that this is a second users' -- your room mates' --
+For simplicity, pretend that this is a second user's -- your room mate's --
 home directory. Furthermore, let's for now disregard anything about
 :term:`permissions`. In a real-world example you likely would not be able to read and write
 to a different user's directories, but we will talk about permissions later.
@@ -262,10 +262,9 @@ file from. Thus, for this book, your room mate is always able to obtain it
 (as long as the URL remains valid), even if you would delete your ``DataLad-101``
 dataset. Quite useful, this provenance, right?
 
-Let's now turn to the fact that the subdataset ``longnow`` does
-not contain not only no file content, but also no file metadata
-information to explore the contents of the dataset: There are no
-subdirectories or any files under ``recordings/longnow/``.
+Let's now turn to the fact that the subdataset ``longnow`` contains neither
+file content nor file metadata information to explore the contents of the 
+dataset: there are no subdirectories or any files under ``recordings/longnow/``.
 This is behavior that you have not observed until now.
 
 To fix this and obtain file availability metadata,
@@ -302,7 +301,7 @@ superdataset, and not any subdatasets. The superdataset contains the
 information that a subdataset exists though -- the subdataset is *registered*
 in the superdataset.  This is why the subdataset name exists as a directory.
 A subsequent :command:`datalad get -n path/to/longnow` will install the registered
-subdataset again, just as we did it in the example above.
+subdataset again, just as we did in the example above.
 
 But what about the ``-n`` option for :command:`datalad get`?
 Previously, we used :command:`datalad get` to get file content. However,
@@ -436,13 +435,13 @@ Save this note.
 
 .. only:: adminmode
 
-Add a tag at the section end.
+    Add a tag at the section end.
 
-  .. runrecord:: _examples/DL-101-116-111
-     :language: console
-     :workdir: dl-101/DataLad-101
+      .. runrecord:: _examples/DL-101-116-111
+         :language: console
+         :workdir: dl-101/DataLad-101
 
-     $ git branch sct_looking_without_touching
+         $ git branch sct_looking_without_touching
 
 
 .. rubric:: Footnotes

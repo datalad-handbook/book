@@ -78,11 +78,11 @@ regular status reports should become a habit in the wake of ``DataLad-101``.
 
 .. index:: ! datalad command; save
 
-Interesting, the ``books/`` directory is "untracked". Remember how content
+Interesting; the ``books/`` directory is "untracked". Remember how content
 *can* be tracked *if a user wants to*?
 Untracked means that DataLad does not know about this directory or its content,
 because we have not instructed DataLad to actually track it. This means that DataLad
-does not store the downloaded books in its history, yet. Let's change this by
+does not store the downloaded books in its history yet. Let's change this by
 *saving* the files to the dataset's history with the :command:`datalad save` command
 (:manpage:`datalad-save` manual).
 
@@ -327,13 +327,13 @@ Well done! Your ``DataLad-101`` dataset and its history are slowly growing.
 
 .. only:: adminmode
 
-Add a tag at the section end.
+   Add a tag at the section end.
 
-  .. runrecord:: _examples/DL-101-102-117
-     :language: console
-     :workdir: dl-101/DataLad-101
+     .. runrecord:: _examples/DL-101-102-117
+        :language: console
+        :workdir: dl-101/DataLad-101
 
-     $ git branch sct_populate_a_dataset
+        $ git branch sct_populate_a_dataset
 
 
 .. rubric:: Footnotes

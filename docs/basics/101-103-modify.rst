@@ -160,10 +160,10 @@ evolved over time. That's quite neat, isn't it?
 
 .. only:: adminmode
 
-Add a tag at the section end.
+   Add a tag at the section end.
 
-  .. runrecord:: _examples/DL-101-103-108
-     :language: console
-     :workdir: dl-101/DataLad-101
+     .. runrecord:: _examples/DL-101-103-108
+        :language: console
+        :workdir: dl-101/DataLad-101
 
-     $ git branch sct_modify_content
+        $ git branch sct_modify_content

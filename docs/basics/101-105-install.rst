@@ -170,7 +170,7 @@ excerpt).
 Dataset content identity and availability information
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Surprised you turn to your fellow student and wonder about
+Surprised, you turn to your fellow student and wonder about
 how fast the dataset was installed. Should
 a download of that many ``.mp3`` files not take much more time?
 
@@ -362,13 +362,13 @@ modification.
 
 .. only:: adminmode
 
-Add a tag at the section end.
+   Add a tag at the section end.
 
-  .. runrecord:: _examples/DL-101-105-112
-     :language: console
-     :workdir: dl-101/DataLad-101
+     .. runrecord:: _examples/DL-101-105-112
+        :language: console
+        :workdir: dl-101/DataLad-101
 
-     $ git branch sct_install_datasets
+        $ git branch sct_install_datasets
 
 
 .. rubric:: Footnotes

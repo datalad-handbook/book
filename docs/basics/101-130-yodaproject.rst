@@ -688,7 +688,7 @@ reproduce your data science project easily from scratch!
       $ datalad clone "https://github.com/adswa/midtermproject.git"
 
    Let's start with the subdataset, and see whether we can retrieve the
-   input ``iris.csv`` file. This should not be a problem, since it's origin
+   input ``iris.csv`` file. This should not be a problem, since its origin
    is recorded:
 
    .. runrecord:: _examples/DL-101-130-120
@@ -750,13 +750,13 @@ reproduce your data science project easily from scratch!
 
 .. only:: adminmode
 
-Add a tag at the section end.
+    Add a tag at the section end.
 
-  .. runrecord:: _examples/DL-101-130-123
-     :language: console
-     :workdir: dl-101/DataLad-101
+      .. runrecord:: _examples/DL-101-130-123
+         :language: console
+         :workdir: dl-101/DataLad-101
 
-     $ git branch sct_yoda_project
+         $ git branch sct_yoda_project
 
 
 .. rubric:: Footnotes

@@ -148,4 +148,10 @@ Code snippet 140::
 
 Code snippet 141::
 
+   cd ../
+   datalad status
+
+
+Code snippet 142::
+
    datalad save -d . -m "add container and execute analysis within container" midterm_project

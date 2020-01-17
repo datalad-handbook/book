@@ -297,6 +297,8 @@ the most recent state of the subdataset to the superdataset ``DataLad-101``.
 .. runrecord:: _examples/DL-101-133-112
    :language: console
    :workdir: dl-101/DataLad-101/midterm_project
+   :cast: 10_yoda
+   :notes: Save the change in the superdataset
 
    $ cd ../
    $ datalad status

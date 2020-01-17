@@ -1,0 +1,19 @@
+.. _gobig:
+
+Going big with DataLad
+^^^^^^^^^^^^^^^^^^^^^^
+
+If you intend to use DataLad to create and work with particularly large datasets,
+this section encompasses advice and benchmarks from other's experiences with such
+endeavours.
+As a general rule, consider this section relevant once you go substantially
+beyond 100k files in your dataset. Starting at about this size, all involved tools --
+:term:`Git`, :term:`git-annex`, and DataLad -- can begin to have issues.
+
+Some things to note:
+
+- link to up-to-date benchmarks of datalad: https://www.datalad.org/test_fs_analysis.html
+- what can lead to differences: number of files, filesize, file systems, number of subdatasets, git annex repository versions, ?
+- Tip by mih: distributing files across multiple datasets, linking them as subdatasets.
+  Link to HCP usecase, once ready I assume
+- Discuss gitannex.thin, using standalone git-annex build versus native git-annex binary

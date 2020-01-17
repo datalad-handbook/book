@@ -167,6 +167,8 @@ name to give to the container, and a path or url to a container Image:
 .. runrecord:: _examples/DL-101-133-101
    :language: console
    :workdir: dl-101/DataLad-101/midterm_project
+   :cast: 10_yoda
+   :notes: Computational reproducibility: add a software container
 
    # we are in the midterm_project subdataset
    $ datalad containers-add midterm-software --url shub://adswa/resources:1
@@ -209,6 +211,8 @@ container under its name "midterm-software" in the dataset's configuration at
    .. runrecord:: _examples/DL-101-133-103
       :language: console
       :workdir: dl-101/DataLad-101/midterm_project
+      :cast: 10_yoda
+      :notes: The software container got added to your datasets history
 
       $ git log -n 1 -p
 
@@ -230,6 +234,8 @@ How would it look like as a ``containers-run`` command?
 .. runrecord:: _examples/DL-101-133-104
    :language: console
    :workdir: dl-101/DataLad-101/midterm_project
+   :cast: 10_yoda
+   :notes: The analysis can be rerun in a software container
 
    $ datalad containers-run -m "rerun analysis in container" \
      --container-name midterm-software \
@@ -273,6 +279,8 @@ Here is how the history entry looks like:
 .. runrecord:: _examples/DL-101-133-111
    :language: console
    :workdir: dl-101/DataLad-101/midterm_project
+   :cast: 10_yoda
+   :notes: Here is how that looks like in the history:
 
    $ git log -p -n 1
 
@@ -296,6 +304,8 @@ the most recent state of the subdataset to the superdataset ``DataLad-101``.
 .. runrecord:: _examples/DL-101-133-113
    :language: console
    :workdir: dl-101/DataLad-101
+   :cast: 10_yoda
+   :notes: Save the change in the superdataset
 
    $ datalad save -d . -m "add container and execute analysis within container" midterm_project
 

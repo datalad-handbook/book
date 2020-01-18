@@ -319,7 +319,7 @@ To compute the analysis you create the following Python script inside of ``code/
    df.columns = attributes
 
    # create a pairplot to plot pairwise relationships in the dataset
-   plot = sns.pairplot(df, hue='class')
+   plot = sns.pairplot(df, hue='class', palette='muted')
    plot.savefig('pairwise_relationships.png')
 
    # perform a K-nearest-neighbours classification with scikit-learn

@@ -12,18 +12,28 @@
    intro/howto
    intro/executive_summary
 
-.. figure:: artwork/src/basics.svg
-   :width: 60%
-   :target: http://handbook.datalad.org/en/latest/basics/intro.html
+.. only:: latex
+
+   ##########
+   **Basics**
+   ##########
+
+.. only:: html
+
+   .. figure:: artwork/src/basics.svg
+      :width: 60%
+      :target: http://handbook.datalad.org/en/latest/basics/intro.html
 
 ################################
 **Basics 1** -- DataLad datasets
 ################################
 
-.. toctree::
-   :hidden:
+.. only:: html
 
-   basics/intro.rst
+   .. toctree::
+      :hidden:
+
+      basics/intro.rst
 
 .. toctree::
    :maxdepth: 1
@@ -158,20 +168,31 @@
    basics/101-144-intro_extensions
    basics/101-145-hooks
 
-.. figure:: artwork/src/usecases.svg
-   :width: 60%
-   :target: http://handbook.datalad.org/en/latest/usecases/intro.html
+.. only:: latex
 
-.. toctree::
-   :hidden:
-   :maxdepth: 1
-   :caption: Hands-on real-world applications with step-by-step recipes...
+   #############
+   **Use cases**
+   #############
 
-   usecases/intro
+.. only:: html
+
+   .. figure:: artwork/src/usecases.svg
+      :width: 60%
+      :target: http://handbook.datalad.org/en/latest/usecases/intro.html
+
 
 ###############################
 **Use case I** -- Collaboration
 ###############################
+
+.. only:: html
+
+   .. toctree::
+      :hidden:
+      :maxdepth: 1
+      :caption: Hands-on real-world applications with step-by-step recipes...
+
+      usecases/intro
 
 .. toctree::
    :maxdepth: 1

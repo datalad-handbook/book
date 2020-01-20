@@ -278,7 +278,7 @@ latex_show_urls = 'footnote'
 latex_elements = {
     'papersize': 'a4',
     'pointsize': '11pt',
-    'figure_align': 'tbp',
+    'figure_align': 'H',
     'fncychap' : r'\usepackage[Bjarne]{fncychap}',
     'passoptionstopackages': r'\PassOptionsToPackage{svgnames}{xcolor}',
     'preamble': r"""

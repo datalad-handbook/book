@@ -83,7 +83,7 @@ Code snippet 16::
    datalad download-url http://www.tldp.org/LDP/Bash-Beginners-Guide/Bash-Beginners-Guide.pdf \
      --dataset . \
      -m "add beginners guide on bash" \
-     -O books/bash_guide.pdf \
+     -O books/bash_guide.pdf
 
 
 Code snippet 17::

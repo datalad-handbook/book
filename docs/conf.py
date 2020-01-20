@@ -279,6 +279,7 @@ latex_elements = {
     'papersize': 'a4',
     'pointsize': '11pt',
     'figure_align': 'H',
+    'extraclassoptions': 'openany,oneside',
     'fncychap' : r'\usepackage[Bjarne]{fncychap}',
     'passoptionstopackages': r'\PassOptionsToPackage{svgnames}{xcolor}',
     'preamble': r"""

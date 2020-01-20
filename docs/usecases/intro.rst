@@ -16,15 +16,12 @@ the solutions they demonstrate.
 
 **Use case overview:**
 
-.. toctree::
-   :maxdepth: 1
-
-   collaborative_data_management
-   provenance_tracking
-   reproducible-paper
-   supervision
-   reproducible_neuroimaging_analysis
-   datastorage_for_institutions
+- :ref:`usecase_collab`
+- :ref:`usecase_provenance_tracking`
+- :ref:`usecase_reproducible_paper`
+- :ref:`usecase_student_supervision`
+- :ref:`usecase_reproduce_neuroimg`
+- :ref:`usecase_datastore`
 
 Contributing
 ^^^^^^^^^^^^

@@ -3,6 +3,10 @@
 A brief overview of DataLad
 ---------------------------
 
+.. figure:: ../artwork/src/enter.svg
+   :width: 70%
+
+
 There can be numerous reasons why you ended up with this handbook in front of
 you -- We do not know who you are, or why you are here.
 You could have any background, any amount of previous experience with

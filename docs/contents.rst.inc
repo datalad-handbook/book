@@ -12,6 +12,10 @@
    intro/howto
    intro/executive_summary
 
+.. figure:: artwork/src/basics.svg
+   :width: 60%
+   :target: http://handbook.datalad.org/en/latest/basics/intro.html
+
 ################################
 **Basics 1** -- DataLad datasets
 ################################
@@ -129,9 +133,9 @@
    basics/101-135-help
 
 
-#######################################
-**Basics 9** Third party infrastructure
-#######################################
+##########################################
+**Basics 9** -- Third party infrastructure
+##########################################
 
 .. toctree::
    :maxdepth: 1
@@ -154,24 +158,80 @@
    basics/101-144-intro_extensions
    basics/101-145-hooks
 
-#############
-**Use Cases**
-#############
+.. figure:: artwork/src/usecases.svg
+   :width: 60%
+   :target: http://handbook.datalad.org/en/latest/usecases/intro.html
 
 .. toctree::
    :hidden:
-
-   usecases/intro
-
-.. toctree::
    :maxdepth: 1
    :caption: Hands-on real-world applications with step-by-step recipes...
 
+   usecases/intro
+
+###############################
+**Use case I** -- Collaboration
+###############################
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Bob uses public data for a data analysis project and collaborates with Alice to develop his analysis scripts.
+
    usecases/collaborative_data_management
+
+
+#############################
+**Use case II** -- Provenance
+#############################
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Track provenance of dataset contents: From their origin from websources to scripts or commands that used, modified, or produced them.
+
    usecases/provenance_tracking
+
+
+#################################################
+**Use case III** -- Reproducible Research Objects
+#################################################
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Share code, data, and computational workflows of your science, and allow others to not only recompute your results, but also build a PDF manuscript from scratch.
+
    usecases/reproducible-paper
+
+
+##############################
+**Use case IV** -- Supervision
+##############################
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Use DataLad in a supervision setup and benefit from easy data management workflows and automatic log keeping.
+
    usecases/supervision
+
+
+#######################################
+**Use case V** -- Reproducible Analysis
+#######################################
+
+.. toctree::
+   :maxdepth: 1
+   :caption: A thorough demonstration of data management and data analysis practices to create reproducible (neuro-)science.
+
    usecases/reproducible_neuroimaging_analysis
+
+
+#################################
+**Use case VI** -- Infrastructure
+#################################
+
+.. toctree::
+   :maxdepth: 1
+   :caption: An implementation of a domain-agnostic data store to enable scalability of scientific computing.
+
    usecases/datastorage_for_institutions
 
 ########

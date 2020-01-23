@@ -4,6 +4,8 @@
 404 — Not Found
 ###############
 
+.. figure:: artwork/src/404.svg
+
 **Sorry, but we could not find the page you requested.**
 
 It looks like this was the result of either:

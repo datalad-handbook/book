@@ -64,6 +64,7 @@
 
 .. toctree::
    :maxdepth: 1
+   :numbered:
    :caption: Hands-on real-world applications with step-by-step recipes...
 
    usecases/collaborative_data_management

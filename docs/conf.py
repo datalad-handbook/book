@@ -288,6 +288,7 @@ latex_elements = {
 \usepackage{inconsolata}
 \setcounter{tocdepth}{1}
 \usepackage{xcolor}
+\setcounter{secnumdepth}{0}
 """,
 }
 

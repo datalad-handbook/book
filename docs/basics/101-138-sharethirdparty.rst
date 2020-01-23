@@ -455,7 +455,7 @@ to "enable" this special remote (inside of the installed ``DataLad-101``)::
    .: dropbox-for-friends(?) [git]
 
 And once this is done, you can get any annexed file contents, for example the
-books, or the cropped logos from chapter "DataLad, Run!"::
+books, or the cropped logos from chapter :ref:`chapter_run`::
 
    $ datalad get books/TLCL.pdf
    get(ok): /home/some/other/user/DataLad-101/books/TLCL.pdf (file) [from dropbox-for-friends]

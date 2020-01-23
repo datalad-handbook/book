@@ -449,7 +449,7 @@ Save this note.
          potentially large amounts of subdatasets to be cloned.
          The configuration is called ``datalad-recursiveinstall = skip`` and it is
          made on a subdataset specific basis to the ``.gitmodules`` file of the superdataset.
-         The chapter "Tuning datasets to your needs", starting in section :ref:`config`,
+         The chapter :ref:`chapter_config`,
          will talk about the details of configurations and the ``.gitmodules`` file.
          Below, however, is a minimally functional example on how to apply the configuration
          and how it works:

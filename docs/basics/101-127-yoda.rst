@@ -334,13 +334,6 @@ and, importantly, can be shared together with the dataset in the
 form of a software container.
 
 
-
-.. figure:: ../img/yoda.svg
-   :figwidth: 30%
-   :alt: A very cute YODA
-
-   “Feel the force!”
-
 With this last principle, your dataset collects and stores provenance
 of all the contents you created in the wake of your analysis project.
 This established trust in your results, and enables others to understand

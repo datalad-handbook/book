@@ -109,7 +109,9 @@ Code lists from chapters
 ..
   stuff that we do not need or show at the moment
 
-.. toctree::
-   :hidden:
+.. only:: adminmode
 
-   usecases/datasets
+    .. toctree::
+       :hidden:
+
+       usecases/datasets

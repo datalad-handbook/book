@@ -178,3 +178,4 @@ it is not. The section :ref:`executive_summary` will give you a one-page summary
 of the functionality and commands you will learn with this handbook. But before we
 get there, let's get ready to *use* DataLad. For this, the next
 section will show you how to use the handbook.
+

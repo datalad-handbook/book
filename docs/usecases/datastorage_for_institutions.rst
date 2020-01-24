@@ -1,6 +1,4 @@
 .. _usecase_datastore:
-.. _RIA:
-
 
 Building a scalable data storage for scientific computing
 ---------------------------------------------------------

@@ -241,6 +241,8 @@ such purposes:
 
    .. code-block:: md
 
+        [![made-with-datalad](https://www.datalad.org/badges/made_with.svg)](https://datalad.org)
+
         ## DataLad datasets and how to use them
 
         This repository is a [DataLad](https://www.datalad.org/) dataset. It provides

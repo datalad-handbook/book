@@ -5,7 +5,8 @@ Contributing
 
 Thanks for being curious about contributing!
 We greatly appreciate and welcome contributions to this book, be it in the form
-of an `issue <https://github.com/datalad-handbook/book/issues/new>`_, a pull request,
+of an `issue <https://github.com/datalad-handbook/book/issues/new>`_, quick
+`feedback on DataLad's usability <https://forms.gle/FkNEc7HVaZU5RTYP6>`_, a pull request,
 or a discussion you had with anyone on the team via a non-GitHub communication channel!
 To find out how we acknowledge contributions, please read the paragraph
 :ref:`acknowledge` at the bottom of

@@ -3,6 +3,14 @@
 Beyond shared infrastructure
 ----------------------------
 
+.. note::
+
+   If you plan to share your own datasets with people that are unfamiliar with
+   DataLad, it may be helpful to give a short explanation of what a DataLad
+   dataset is and what it can do. For this, you can use a ready-made text
+   block that the handbook provides. To find this textblock, go to
+   :ref:`dataset_textblock`.
+
 From the sections :ref:`sharelocal1` and :ref:`yoda_project` you already
 know about two common setups for sharing datasets:
 

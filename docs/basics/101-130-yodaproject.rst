@@ -719,12 +719,7 @@ reproduce your data science project easily from scratch!
    thus only information about the file name and location is known to Git.
    Because GitHub does not host large data for free, annexed file content always
    needs to be deposited somewhere else (e.g., a web server) to make it
-   accessible via :command:`datalad get`. A later section
-
-   .. todo::
-
-      link 3rd party infra section
-
+   accessible via :command:`datalad get`. The section :ref:`sharethirdparty`
    will demonstrate how this can be done. For this dataset, it is not
    necessary to make the outputs available, though: Because all provenance
    on their creation was captured, we can simply recompute them with the

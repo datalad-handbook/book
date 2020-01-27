@@ -953,12 +953,8 @@ how to handle your datasets files and directories well and worry-free.
 .. rubric:: Footnotes
 
 .. [#f1] If you want to learn more about the Git-specific concepts of *worktree*,
-         *staging area*/*index* or *HEAD*, check out section ...
-
-         .. todo::
-
-            Write a section on this high-level Git stuff. Maybe in draft of
-            section on Git history...
+         *staging area*/*index* or *HEAD*, the upcoming section :ref:`history` will
+         talk briefly about them and demonstrate helpful commands.
 
 .. [#f2] This is indeed the only case in which :command:`datalad remove` is
          relevant. For all other cases of content deletion a normal ``rm``

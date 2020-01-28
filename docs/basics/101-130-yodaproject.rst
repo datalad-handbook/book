@@ -82,6 +82,31 @@ section below:
     As shown above, the only required parameter for a Dataset is the ``path`` to
     its location, and this location may or may not exist yet.
 
+    Stand-alone functions have a ``dataset=`` argument, similar to the
+    ``-d/--dataset`` option in their command-line equivalent. You can specify
+    the ``dataset=`` argument with a path (string) to your dataset (such as
+    ``dataset='.'`` for the current directory, or ``dataset='path/to/ds'`` to
+    another location). Alternatively, you can pass a ``Dataset`` instance to it::
+
+        >>> from datalad.api import save, Dataset
+        # use save with dataset specified as a path
+        >>> save(dataset='path/to/dataset/')
+        # use save with dataset specified as a dataset instance
+        >>> ds = Dataset('path/to/dataset')
+        >>> save(dataset=ds, message="saving all modifications")
+        # use save as a dataset method (no dataset argument)
+        >>> ds.save(message="saving all modifications")
+
+    .. note::
+
+        At the moment, ``dataset`` argument handling is not fully consistent
+        across commands. When executing commands outside of the dataset in question,
+        ``path`` arguments are sometimes interpreted as relative from the
+        ``dataset`` path, and sometimes as relative from the location the command
+        is executed from. You can get consistent behavior (paths relative to the
+        dataset root) by using ``Dataset`` methods or passing ``Dataset`` instances to
+        the commands instead of specifying paths (strings) for ``dataset=``.
+
     **Use cases for DataLad's Python API**
 
     "Why should one use the Python API? Can we not do everything necessary via the

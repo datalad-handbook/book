@@ -170,7 +170,7 @@ excerpt).
 Dataset content identity and availability information
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Surprised you turn to your fellow student and wonder about
+Surprised, you turn to your fellow student and wonder about
 how fast the dataset was installed. Should
 a download of that many ``.mp3`` files not take much more time?
 
@@ -358,6 +358,18 @@ modification.
   a dataset hierarchy with a file manager -- it might not show you
   the available but not yet retrieved files. More about why this is will be
   explained in section :ref:`symlink`.
+
+
+.. only:: adminmode
+
+   Add a tag at the section end.
+
+     .. runrecord:: _examples/DL-101-105-112
+        :language: console
+        :workdir: dl-101/DataLad-101
+
+        $ git branch sct_install_datasets
+
 
 .. rubric:: Footnotes
 

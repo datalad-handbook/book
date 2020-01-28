@@ -188,7 +188,7 @@ to it:
 "Content in your DataLad dataset is protected by :term:`git-annex` from
 accidental changes" our instructor begins.
 
-"Wait!" we interrupt. "First of, that wasn't accidental. And second, I was told this
+"Wait!" we interrupt. "First off, that wasn't accidental. And second, I was told this
 course does not have ``git-annex-101`` as a prerequisite?"
 
 "Yes, hear me out" she says. "I promise you two different solutions at
@@ -429,6 +429,17 @@ the ``--input`` and ``--output`` specification done before.
 
    If your command call involves a ``{`` or ``}`` character, you will need to escape
    this brace character by doubling it, i.e., ``{{`` or ``}}``.
+
+
+.. only:: adminmode
+
+    Add a tag at the section end.
+
+      .. runrecord:: _examples/DL-101-111-107
+         :language: console
+         :workdir: dl-101/DataLad-101
+
+         $ git branch sct_input_and_output
 
 .. [#f1] In shell programming, commands exit with a specific code that indicates
     whether they failed, and if so, how. Successful commands have the exit code zero. All failures

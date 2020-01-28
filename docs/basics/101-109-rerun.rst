@@ -9,7 +9,7 @@ So far, you created a ``.tsv`` file of all
 speakers and talk titles in the ``longnow/`` podcasts subdataset.
 Let's actually take a look into this file now:
 
-.. runrecord:: _examples/DL-101-108-109
+.. runrecord:: _examples/DL-101-109-101
    :language: console
    :workdir: dl-101/DataLad-101
    :lines: 1-30
@@ -31,7 +31,7 @@ in the ``Long_Now__Conversations_at_The_Interval/`` directory.
 Let's fix this in the script. Replace the contents in ``code/list_titles.sh``
 with the following, fixed script:
 
-.. runrecord:: _examples/DL-101-108-110
+.. runrecord:: _examples/DL-101-109-102
    :language: console
    :workdir: dl-101/DataLad-101
    :emphasize-lines: 2
@@ -54,14 +54,14 @@ with the following, fixed script:
 Because the script is now modified, save the modifications to the dataset.
 We can use the shorthand "BF" to denote "Bug fix" in the commit message.
 
-.. runrecord:: _examples/DL-101-108-111
+.. runrecord:: _examples/DL-101-109-103
    :language: console
    :workdir: dl-101/DataLad-101
    :cast: 02_reproducible_execution
 
    $ datalad status
 
-.. runrecord:: _examples/DL-101-108-112
+.. runrecord:: _examples/DL-101-109-104
    :language: console
    :workdir: dl-101/DataLad-101
    :cast: 02_reproducible_execution
@@ -91,7 +91,7 @@ he says happily.
 
 So you go ahead and find the commit :term:`shasum` in your history:
 
-.. runrecord:: _examples/DL-101-108-113
+.. runrecord:: _examples/DL-101-109-105
    :language: console
    :workdir: dl-101/DataLad-101
    :lines: 1-12
@@ -105,7 +105,7 @@ Take that shasum and paste it after :command:`datalad rerun`
 (the first 6-8 characters of the shasum would be sufficient,
 here we're using all of them).
 
-.. runrecord:: _examples/DL-101-108-114
+.. runrecord:: _examples/DL-101-109-106
    :language: console
    :workdir: dl-101/DataLad-101
    :realcommand: echo "$ datalad rerun $(git rev-parse HEAD~1)" && datalad rerun $(git rev-parse HEAD~1)
@@ -124,7 +124,7 @@ to check whether the rerun command appears in the datasets history:
 If a :command:`datalad rerun` does not add or change any content in the dataset,
 it will also not be recorded in the history.
 
-.. runrecord:: _examples/DL-101-108-115
+.. runrecord:: _examples/DL-101-109-107
    :language: console
    :workdir: dl-101/DataLad-101
    :emphasize-lines: 4
@@ -153,7 +153,7 @@ and another state from the dataset's history (a commit specified with
 of the dataset and the previous commit (called "``HEAD~1``" in Git terminology [#f1]_):
 
 
-.. runrecord:: _examples/DL-101-108-116
+.. runrecord:: _examples/DL-101-109-108
    :language: console
    :workdir: dl-101/DataLad-101
    :notes: The datalad diff command can help us find out what changed between the last two commands:
@@ -165,7 +165,7 @@ This indeed shows the output file as "modified". However, we do not know
 what exactly changed. This is a task for :command:`git diff` (get out of the
 diff view by pressing ``q``):
 
-.. runrecord:: _examples/DL-101-108-117
+.. runrecord:: _examples/DL-101-109-109
    :language: console
    :workdir: dl-101/DataLad-101
    :notes: The git diff command has even more insights:
@@ -180,7 +180,7 @@ was queried as well are shown in the ``diff``, preceded by a ``+``.
 
 Quickly create a note about these two helpful commands in ``notes.txt``:
 
-.. runrecord:: _examples/DL-101-108-118
+.. runrecord:: _examples/DL-101-109-110
    :language: console
    :workdir: dl-101/DataLad-101
    :notes: Let's make a note about this.
@@ -196,7 +196,7 @@ Quickly create a note about these two helpful commands in ``notes.txt``:
 
 Finally, save this note.
 
-.. runrecord:: _examples/DL-101-108-119
+.. runrecord:: _examples/DL-101-109-111
    :language: console
    :workdir: dl-101/DataLad-101
    :cast: 02_reproducible_execution
@@ -222,7 +222,7 @@ other tools than from the machine-readable ``run record``.
 For example, to find out who (or what) created or modified a file,
 give the file path to :command:`git log` (prefixed by ``--``):
 
-.. runrecord:: _examples/DL-101-108-120
+.. runrecord:: _examples/DL-101-109-112
    :language: console
    :workdir: dl-101/DataLad-101
    :notes: An amazing thing is that DataLad captured all of the provenance of the output file, and we get use git tools to find out about it
@@ -240,7 +240,7 @@ more complex standard use cases: situations with *locked* contents.
 But prior to that, make a note about :command:`datalad run` and :command:`datalad rerun` in your
 ``notes.txt`` file.
 
-.. runrecord:: _examples/DL-101-108-121
+.. runrecord:: _examples/DL-101-109-113
    :language: console
    :workdir: dl-101/DataLad-101
    :notes: Another final note on run and rerun
@@ -260,13 +260,25 @@ But prior to that, make a note about :command:`datalad run` and :command:`datala
 
 Finally, save this note.
 
-.. runrecord:: _examples/DL-101-108-122
+.. runrecord:: _examples/DL-101-109-114
    :language: console
    :workdir: dl-101/DataLad-101
    :notes: Another final note on run and rerun
    :cast: 02_reproducible_execution
 
    $ datalad save -m "add note on basic datalad run and datalad rerun"
+
+
+.. only:: adminmode
+
+   Add a tag at the section end.
+
+     .. runrecord:: _examples/DL-101-109-115
+        :language: console
+        :workdir: dl-101/DataLad-101
+
+        $ git branch sct_datalad_rerun
+
 
 .. rubric:: Footnotes
 

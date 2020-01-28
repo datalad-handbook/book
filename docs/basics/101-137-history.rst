@@ -324,8 +324,8 @@ annexed would revert the save of the symlink into Git, but it will
 not revert the *annexing* of the file.
 Thus, what will be left in the dataset is an untracked symlink.
 
-To undo an accidental save that annexed a file, the annexed file
-has to be "unannexed" first with a :command:`datalad unlock` command.
+To undo an accidental save of that annexed a file, the annexed file
+has to be "unlocked" first with a :command:`datalad unlock` command.
 
 We will simulate such a situation by creating a PDF file that
 gets annexed with an accidental :command:`datalad save`:
@@ -583,7 +583,7 @@ but also a modification to ``notes.txt``:
    :language: console
    :workdir: dl-101/DataLad-101
 
-   $ cat << EOT > notes.txt
+   $ cat << EOT >> notes.txt
 
    Git has many handy tools to go back in forth in
    time and work with the history of datasets.
@@ -761,6 +761,18 @@ clean dataset state with no untracked files or modifications.
 
 Finally, if you want, apply you're new knowledge about reverting commits
 to remove the ``Gitjoke2.txt`` file.
+
+
+.. only:: adminmode
+
+   Add a tag at the section end.
+
+     .. runrecord:: _examples/DL-101-137-160
+        :language: console
+        :workdir: dl-101/DataLad-101
+
+        $ git branch sct_back_and_forth_in_time
+
 
 .. rubric:: Footnotes
 

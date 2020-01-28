@@ -32,7 +32,7 @@ Below is a short list of optional readings. We decide to download them (they
 are all free, in total about 15 MB), and save them in ``DataLad-101/books``.
 
 - Additional reading about the command line: `The Linux Command Line <https://sourceforge.net/projects/linuxcommand/files/TLCL/19.01/TLCL-19.01.pdf/download>`_
-- An intro to Python: `A byte of Python <https://www.gitbook.com/download/pdf/book/swaroopch/byte-of-python>`_
+- An intro to Python: `A byte of Python <https://edisciplinas.usp.br/pluginfile.php/3252353/mod_resource/content/1/b_Swaroop_Byte_of_python.pdf>`_
 
 You can either visit the links and save them in ``books/``,
 or run the following commands [#f2]_ to download the books right from the terminal:
@@ -40,13 +40,13 @@ or run the following commands [#f2]_ to download the books right from the termin
 .. runrecord:: _examples/DL-101-102-103
    :language: console
    :workdir: dl-101/DataLad-101
-   :realcommand: cd books && wget -nv https://sourceforge.net/projects/linuxcommand/files/TLCL/19.01/TLCL-19.01.pdf/download -O TLCL.pdf && wget -nv https://www.gitbook.com/download/pdf/book/swaroopch/byte-of-python -O byte-of-python.pdf && cd ../
+   :realcommand: cd books && wget -nv https://sourceforge.net/projects/linuxcommand/files/TLCL/19.01/TLCL-19.01.pdf/download -O TLCL.pdf && wget -nv https://edisciplinas.usp.br/pluginfile.php/3252353/mod_resource/content/1/b_Swaroop_Byte_of_python.pdf -O byte-of-python.pdf && cd ../
    :cast: 01_dataset_basics
    :notes: We use wget to download a few books from the web. CAVE: longish realcommand!
 
    $ cd books
    $ wget https://sourceforge.net/projects/linuxcommand/files/TLCL/19.01/TLCL-19.01.pdf/download -O TLCL.pdf
-   $ wget https://www.gitbook.com/download/pdf/book/swaroopch/byte-of-python -O byte-of-python.pdf
+   $ wget https://edisciplinas.usp.br/pluginfile.php/3252353/mod_resource/content/1/b_Swaroop_Byte_of_python.pdf -O byte-of-python.pdf
    # get back into the root of the dataset
    $ cd ../
 
@@ -78,11 +78,11 @@ regular status reports should become a habit in the wake of ``DataLad-101``.
 
 .. index:: ! datalad command; save
 
-Interesting, the ``books/`` directory is "untracked". Remember how content
+Interesting; the ``books/`` directory is "untracked". Remember how content
 *can* be tracked *if a user wants to*?
 Untracked means that DataLad does not know about this directory or its content,
 because we have not instructed DataLad to actually track it. This means that DataLad
-does not store the downloaded books in its history, yet. Let's change this by
+does not store the downloaded books in its history yet. Let's change this by
 *saving* the files to the dataset's history with the :command:`datalad save` command
 (:manpage:`datalad-save` manual).
 
@@ -280,7 +280,7 @@ like this into a single line.
    $ datalad download-url http://www.tldp.org/LDP/Bash-Beginners-Guide/Bash-Beginners-Guide.pdf \
      --dataset . \
      -m "add beginners guide on bash" \
-     -O books/bash_guide.pdf \
+     -O books/bash_guide.pdf
 
 Afterwards, a fourth book is inside your ``books/`` directory:
 
@@ -324,6 +324,16 @@ this point:
    $ git log --oneline
 
 Well done! Your ``DataLad-101`` dataset and its history are slowly growing.
+
+.. only:: adminmode
+
+   Add a tag at the section end.
+
+     .. runrecord:: _examples/DL-101-102-117
+        :language: console
+        :workdir: dl-101/DataLad-101
+
+        $ git branch sct_populate_a_dataset
 
 
 .. rubric:: Footnotes

@@ -319,7 +319,7 @@ To compute the analysis you create the following Python script inside of ``code/
    df.columns = attributes
 
    # create a pairplot to plot pairwise relationships in the dataset
-   plot = sns.pairplot(df, hue='class')
+   plot = sns.pairplot(df, hue='class', palette='muted')
    plot.savefig('pairwise_relationships.png')
 
    # perform a K-nearest-neighbours classification with scikit-learn
@@ -469,6 +469,14 @@ this was and will be the fastest I have ever completed a midterm project!"
 But what is still missing is a human readable description of your dataset.
 The YODA procedure kindly placed a ``README.md`` file into the root of your
 dataset that you can use for this [#f4]_.
+
+.. note::
+
+   If you plan to share your own datasets with people that are unfamiliar with
+   DataLad, it may be helpful to give a short explanation of what a DataLad
+   dataset is and what it can do. For this, you can use a ready-made text
+   block that the handbook provides. To find this textblock, go to
+   :ref:`dataset_textblock`.
 
 .. runrecord:: _examples/DL-101-130-113
    :language: console
@@ -676,7 +684,9 @@ reproduce your data science project easily from scratch!
    computer, just to get a feel for it.
 
    Replace the ``url`` in the :command:`clone` command below with the path
-   to your own ``midtermproject`` GitHub repository:
+   to your own ``midtermproject`` GitHub repository, or clone the "public"
+   ``midterm_project`` repository that is available via the Handbook's GitHub
+   organization at `github.com/datalad-handbook/midterm_project <https://github.com/datalad-handbook/midterm_project>`_:
 
    .. runrecord:: _examples/DL-101-130-119
       :language: console
@@ -686,7 +696,7 @@ reproduce your data science project easily from scratch!
       $ datalad clone "https://github.com/adswa/midtermproject.git"
 
    Let's start with the subdataset, and see whether we can retrieve the
-   input ``iris.csv`` file. This should not be a problem, since it's origin
+   input ``iris.csv`` file. This should not be a problem, since its origin
    is recorded:
 
    .. runrecord:: _examples/DL-101-130-120
@@ -744,6 +754,17 @@ reproduce your data science project easily from scratch!
 
     .. figure:: ../artwork/src/reproduced.svg
        :width: 50%
+
+
+.. only:: adminmode
+
+    Add a tag at the section end.
+
+      .. runrecord:: _examples/DL-101-130-123
+         :language: console
+         :workdir: dl-101/DataLad-101
+
+         $ git branch sct_yoda_project
 
 
 .. rubric:: Footnotes

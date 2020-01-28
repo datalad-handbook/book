@@ -3,7 +3,7 @@
 Where's Waldo?
 --------------
 
-So far, your room mate and you have created a copy of the ``DataLad-101``
+So far, you and your room mate have created a copy of the ``DataLad-101``
 dataset on the same file system but a different place by installing
 it from a path.
 
@@ -130,6 +130,17 @@ this in the original ``DataLad-101`` directory, and do not forget to save it.
    :cast: 04_collaboration
 
    $ datalad save -m "add note on git annex whereis"
+
+
+.. only:: adminmode
+
+   Add a tag at the section end.
+
+     .. runrecord:: _examples/DL-101-117-108
+        :language: console
+        :workdir: dl-101/DataLad-101
+
+        $ git branch sct_where_is_waldo
 
 
 .. rubric:: Footnotes

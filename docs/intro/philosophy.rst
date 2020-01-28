@@ -3,6 +3,10 @@
 A brief overview of DataLad
 ---------------------------
 
+.. figure:: ../artwork/src/enter.svg
+   :width: 70%
+
+
 There can be numerous reasons why you ended up with this handbook in front of
 you -- We do not know who you are, or why you are here.
 You could have any background, any amount of previous experience with
@@ -162,3 +166,19 @@ it is not. The section :ref:`executive_summary` will give you a one-page summary
 of the functionality and commands you will learn with this handbook. But before we
 get there, let's get ready to *use* DataLad. For this, the next
 section will show you how to use the handbook.
+
+.. raw:: latex
+
+   \begingroup
+   \sphinxsetup{%
+         VerbatimColor={named}{OldLace},
+         TitleColor={named}{DarkGoldenrod},
+         hintBorderColor={named}{LightCoral},
+         attentionborder=3pt,
+         attentionBorderColor={named}{Crimson},
+         attentionBgColor={named}{FloralWhite},
+         noteborder=2pt,
+         noteBorderColor={named}{Orange},
+         cautionborder=3pt,
+         cautionBorderColor={named}{Cyan},
+         cautionBgColor={named}{LightCyan}}

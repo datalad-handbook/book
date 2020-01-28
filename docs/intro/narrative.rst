@@ -21,11 +21,11 @@ you will be using them.
 How to read this book
 ---------------------
 
-First of all: Be excited. DataLad can help you to manage your digital data
+First of all: be excited. DataLad can help you to manage your digital data
 workflow in various ways, and in this book you will use many of them right
 from the start.
 There are many topics you can explore, if you wish:
-Local or collaborative workflows, reproducible analyses, data publishing, ... .
+local or collaborative workflows, reproducible analyses, data publishing, and so on.
 If anything seems particularly exciting, you can go ahead, read it, *and do it*.
 Therefore, **grab your computer, and be ready to use it**.
 
@@ -177,11 +177,21 @@ share and publish with DataLad.
 .. figure:: ../artwork/src/student.svg
    :width: 70%
 
-If you do not want to follow along and only read, there will be a
-finished DataLad-101 project for you to download and explore in the future.
-The dataset will contain tags that relate different states of it to the
-respective book sections.
+.. findoutmore:: I can not/do not want to code along...
 
+   If you do not want to follow along and only read, there is a showroom dataset
+   of the complete DataLad-101 project at
+   `github.com/datalad-handbook/DataLad-101 <https://github.com/datalad-handbook/DataLad-101>`_.
+   This dataset contains a separate branch for each section that introduced changes
+   in the repository. The branches have the names of the sections, e.g.,
+   ``sct_create_a_dataset`` marks the repository state at the end of the first section
+   in the first chapter. You can checkout a branch with `git checkout <branch-name>`
+   to explore how the dataset looks like at the end of a given section.
+
+   Note that this "public" dataset has a number of limitations, but it is useful
+   for an overview of the dataset history (and thus the actions performed throughout
+   the "course"), a good display of how many and what files will be present in the
+   end of the book, and a demonstration of how subdatasets are linked.
 
 Let's get going!
 ----------------

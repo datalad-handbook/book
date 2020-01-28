@@ -606,6 +606,56 @@ section.
       $ cd ../DataLad-101 && git reset --hard master
 
 
+Getting contents out of git-annex
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Files in your dataset can either be handled by :term:`Git` or :term:`Git-annex`.
+Self-made or predefined configurations to ``.gitattributes``, defaults, or the
+``--to-git`` option to :command:`datalad save` allow you to control which tool
+does what on up to single-file basis. Accidentally though, you may give a file of yours
+to git-annex when it was intended to be stored in Git, or you want to get a previously
+annexed file into Git.
+
+Consider you intend to share the cropped ``.png`` images you created from the
+``longnow`` logos. Would you publish your ``DataLad-101`` dataset so :term:`GitHub`
+or :term:`GitLab`, these files would not be available to others, because annexed
+dataset contents can not be published to these services.
+Even though you could find a third party service of your choice
+and publish your dataset *and* the annexed data (section :ref:`sharethirdparty`
+will demonstrate how this can be done), you're feeling lazy today. And since it
+is only two files, and they are quite small, you decide to store them in Git --
+this way, the files would be available without configuring an external data
+store.
+
+To get contents out of the dataset's annex you need to *unannex* them. This is
+done with the git-annex command :command:`git annex unannex`. Let's see how it
+works:
+
+.. runrecord:: _examples/DL-101-136-147
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ git annex unannex recordings/*logo_small.jpg
+
+Your dataset's history records the unannexing of the files.
+
+.. runrecord:: _examples/DL-101-136-148
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ git log -p -n 1
+
+Once files have been unannexed, they are "untracked" again, and you can save them
+into Git, either by adding a rule to ``.gitattributes``, or with
+:command:`datalad save --to-git`:
+
+.. runrecord:: _examples/DL-101-136-149
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ datalad save --to-git -m "save cropped logos to Git" recordings/*jpg
+
+
 Deleting (annexed) files/directories
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 

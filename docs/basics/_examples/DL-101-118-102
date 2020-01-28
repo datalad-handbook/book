@@ -1,24 +1,24 @@
 # lets view the history
 $ git log --oneline
-50cf4f3 add note on clean datasets
-668c32c [DATALAD RUNCMD] Resize logo for slides
-79304e8 [DATALAD RUNCMD] Resize logo for slides
-2df646c add additional notes on run options
-a18fab2 [DATALAD RUNCMD] convert -resize 450x450 recordings/longn...
-dab5403 resized picture by hand
-d28f8d9 [DATALAD RUNCMD] convert -resize 400x400 recordings/longn...
-a7c4fb5 add note on basic datalad run and datalad rerun
-1c6772d add note datalad and git diff
-e42da7b [DATALAD RUNCMD] create a list of podcast titles
-2b0f263 BF: list both directories content
-0890234 [DATALAD RUNCMD] create a list of podcast titles
-b599e05 Add short script to write a list of podcast speakers and titles
-0de1d07 Add note on datalad clone
-d84147e [DATALAD] Recorded changes
-5067802 add note on datalad save
-2574378 Add notes on datalad create
-ce4938a add beginners guide on bash
-a9d9e75 add reference book about git
-b915c9b add books on Python and Unix to read later
-f0f5bea Instruct annex to add text files to Git
-1adf583 [DATALAD] new dataset
+b64a92b add note on clean datasets
+cd4e9c1 [DATALAD RUNCMD] Resize logo for slides
+cfd6f24 [DATALAD RUNCMD] Resize logo for slides
+3f06057 add additional notes on run options
+97f36f1 [DATALAD RUNCMD] convert -resize 450x450 recordings/longn...
+b71548b resized picture by hand
+4291a9f [DATALAD RUNCMD] convert -resize 400x400 recordings/longn...
+a2055bf add note on basic datalad run and datalad rerun
+cec87ae add note datalad and git diff
+3d0c225 [DATALAD RUNCMD] create a list of podcast titles
+f2c608e BF: list both directories content
+87fde6a [DATALAD RUNCMD] create a list of podcast titles
+5b391e9 Add short script to write a list of podcast speakers and titles
+445c53e Add note on datalad clone
+2fcef51 [DATALAD] Recorded changes
+0023a97 add note on datalad save
+3baae1e Add notes on datalad create
+da7d2d0 add beginners guide on bash
+e1e8af3 add reference book about git
+69e7983 add books on Python and Unix to read later
+ca376f4 Instruct annex to add text files to Git
+d842213 [DATALAD] new dataset

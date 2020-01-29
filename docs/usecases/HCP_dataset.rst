@@ -10,8 +10,7 @@ archive (RIA) data store. Using the
 (HCP) data as an example, it shows how large-scale datasets can be managed
 with the help of modular nesting, and how access to data that is contingent on
 usage agreements and external service credentials is possible via DataLad
-without circumventing or breaching the data providers terms.
-In particular, it shows how ...
+without circumventing or breaching the data providers terms:
 
 #. The :command:`datalad addurls` command is used to automatically aggregate
    files and information about their sources from public
@@ -128,10 +127,13 @@ Thus, in order to retrieve HCP data of up to single file level, users need to:
 Step-by-Step
 ^^^^^^^^^^^^
 
+Dataset creation with ``datalad addurls``
+"""""""""""""""""""""""""""""""""""""""""
+
 .. index:: ! datalad command; addurls
 
-The :command:`datalad addurls` (:manpage:`datalad-addurls` manual) allows to create
-(and update) DataLad datasets from a list of URLs.
+The :command:`datalad addurls` command (:manpage:`datalad-addurls` manual)
+allows to create (and update) DataLad datasets from a list of URLs.
 By supplying a ``.csv`` file that contains an S3 download link, a subject ID,
 a file name, and a version specification per file in the HCP dataset,
 :command:`datalad addurls` can download these files and create datasets to
@@ -141,18 +143,30 @@ section below.
 
 .. findoutmore:: Details of the datasets came to be
 
-   - ask Tobias about this
+   ask Tobias about this
+   - how was the original gigantic table created?
+   - what determined subdataset names?
+   - whats the hcp configuration for datalad create?
 
 As soon as files are retrieved and registered in the resulting datasets,
 their content can be dropped again via :command:`datalad drop`: The origin
 of the file was successfully recorded, and a :command:`datalad get` could
 retrieve file contents on demand, if required. Shortly after a complete
 download of the HCP project data, the datasets in which it has been
-aggregated are small in size, and yet provide access to the HCP data.
+aggregated are small in size, and yet provide access to the HCP data for anyone
+who has valid AWS S3 credentials.
 
-Subsequently, the datasets are published to
+All of the dataset aggregation is done on a scientific compute cluster.
+In this location, however, datasets would not be accessible to anyone without
+an account on this system. Subsequently, therefore, the datasets are published
+with :command:`datalad publish` to the publicly available
 `store.datalad.org <http://store.datalad.org/>`_, a remote indexed archive (RIA)
-store. A RIA store contains datasets as bare git repositories, identified via
+store.
+
+A Remote Indexed Archive Store
+""""""""""""""""""""""""""""""
+
+A RIA store contains datasets as bare git repositories, identified via
 their :term:`dataset ID`.
 
 .. todo::
@@ -160,10 +174,34 @@ their :term:`dataset ID`.
    a store layout here
 
 You can find more technical details on RIA stores in the use case
-:ref:`usecase_datastore`.
+:ref:`usecase_datastore`. The major advantages of such a store are its
+flexibility, scalability, and maintainability. Because datasets can be identified
+with their universally unique ID, there is no need for static, filename-based
+hierarchies. New datasets can be added to the store without consequences for
+existing ones
 
-- how does the data get into the RIA store? Why (to make the datasets publicly
-  accessible)
+.. todo::
+
+    maybe contrast this to datasets.datalad.org).
+
+As the store consists of bare git repositories (with optionally 7zipped archives
+or annexes), it is easily maintainable by data stewards or system administrators.
+Common compression or cleaning operations of Git and git-annex can be performed
+without requiring knowledge about the data inside of the store.
+
+.. todo::
+
+    - What are the advantages? --> flexible store: Can hold any amount of datasets,
+      and as datasets are identified via ID, there is no need for static filename-based
+      hierarchies.
+    - Problem: Subdataset layout in superdataset does not reflect store layout. Where
+      subdataset is referenced in superdataset as lying directly underneath the super
+      dataset, it is referenced under their ID in the store. BUT: .gitmodules does
+      not only hold path, but also dataset ID
+    - Talk about 0.12.2 features: Resolving dataset IDs to URLs, subdataset-source-
+      candidates in superdatasets, using ria+// URLs to point to RIA stores and
+      dataset versions,
+
 
 
 .. rubric:: Footnotes

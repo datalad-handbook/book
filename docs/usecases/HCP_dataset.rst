@@ -73,32 +73,43 @@ The DataLad Approach
 ^^^^^^^^^^^^^^^^^^^^
 
 Using the :command:`datalad addurls` command, the HCP data release is
-aggregated into a lean top-level dataset with a large amount (N ~= 5000) of
-subdatasets. The top-level dataset contains one subdataset per
-subject with the subject's release notes. Within each subject's subdataset,
-each additional available subdirectory is another subdataset.
+aggregated into a large amount (N ~= 5000) of datasets. A lean top-level dataset
+combines all datasets into a nested dataset hierarchy that recreates the original
+HCP data releases structure. The topmost dataset contains one subdataset per
+subject with the subject's release notes, and within each subject's subdataset,
+each additional available subdirectory is another subdataset. This preserves
+the original structure of the HCP data release, but builds it up from sensible
+components that resemble standalone dataset units. As with any DataLad dataset,
+dataset nesting and operations across dataset boundaries are seamless, and
+allow to easily retrieve data on a subject, modality, or file level.
 
-This highly modular structure has multiple advantages. For one, it preserves
-the original structure of the HCP data release, but allows to easily retrieve
-data on a subject, modality, or file level. Secondly, with barely any data in
-the superdataset, the top-level dataset is very lean. The only big thing
-about it is an impressive ``.gitmodules`` file [#f1]_ with almost 1200 registered
-subdatasets. The superdataset is published to :term:`GitHub` at
+The highly modular structure has several advantages. For one, with barely any
+data in the superdataset, the top-level dataset is very lean. It mainly consists
+of an impressive ``.gitmodules`` file [#f1]_ with almost 1200 registered
+(subject-level) subdatasets. The superdataset is published to :term:`GitHub` at
 `github.com/datalad-datasets/human-connectome-project-openaccess <https://github.com/datalad-datasets/human-connectome-project-openaccess>`_
 to expose this superdataset and allow anyone to install it with a single
-:command:`datalad clone` command.
+:command:`datalad clone` command in a few seconds.
+Secondly, the modularity from splitting the data release into
+several thousand subdatasets also has performance advantages. If :term:`Git` or
+:term:`git-annex` repositories exceed certain a certain size (either in terms of
+file sizes or the number of files), performance can drop severely [#f2]_.
+By dividing the vast amount of data into many subdatasets,
+this can be prevented, and it comes with no additional costs or difficulties,
+as DataLad can work smoothly across subdatasets.
+
 
 In order to only simplify access to the data instead of providing data access
 that could circumvent HCP license term agreements for users, DataLad does not
-host any HCP data. Instead, thanks to :command:`datalad download-url`, each
-data file knows its origin from the public AWS S3 bucket, and a
+host any HCP data. Instead, thanks to :command:`datalad addurls`, each
+data file knows its source (the public AWS S3 bucket of the HCP project), and a
 :command:`datalad get` will retrieve HCP data from this bucket.
-With this setup, anyone who wants to obtain the
-data will still need to consent to data usage terms and retrieve AWS credentials
-from the HCP project, but can afterwards obtain the data with DataLad commands.
-
-To authenticate prior to data retrieval, DataLad will prompt any user at the time
-of the first :command:`datalad get` in the HCP dataset for their AWS credentials.
+With this setup, anyone who wants to obtain the data will still need to consent
+to data usage terms and retrieve AWS credentials from the HCP project, but can
+afterwards obtain the data solely with DataLad commands from the command line
+or in scripts. Only the first :command:`datalad get`, requires authentication
+with AWS credentials provided by the HCP project: DataLad will prompt any user at
+the time of retrieval of the first file content of the dataset.
 Afterwards, no further authentication is needed, unless the credentials become
 invalid or need to be updated for other reasons.
 
@@ -112,11 +123,6 @@ Thus, in order to retrieve HCP data of up to single file level, users need to:
   subdataset contents on demand. Authentication is necessary only
   once (at the time of the first :command:`datalad get`).
 
-Beyond modularity and a lean superdataset, splitting the data release into several
-thousand subdatasets also has performance advantages. If Git or Git annex
-repositories exceed certain amounts of files (in size or file numbers), the
-performance drops severely. By dividing the vast amount of data into many subdatasets,
-this can be prevented.
 
 
 Step-by-Step
@@ -164,3 +170,9 @@ You can find more technical details on RIA stores in the use case
 
 .. [#f1] If you want to read up on how DataLad stores information about
          registered subdatasets in ``.gitmodules``, checkout section :ref:`config2`.
+
+.. [#f2] Precise performance will always be dependent on the details of the
+         repository, software setup, and hardware, but to get a feeling for the
+         possible performance issues in oversized datasets, imagine a mere
+         :command:`git status` or :command:`datalad status` command taking several
+         minutes up to hours in a clean dataset.

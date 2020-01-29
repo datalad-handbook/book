@@ -14,8 +14,9 @@ without circumventing or breaching the data providers terms.
 In particular, it shows how ...
 
 #. The :command:`datalad addurls` command is used to automatically aggregate
-   files and information about their sources from public AWS S3 bucket storage
-   into a small-sized, modular DataLad datasets.
+   files and information about their sources from public
+   `AWS S3 <https://docs.aws.amazon.com/AmazonS3/latest/dev/Welcome.html>`_
+   bucket storage into a small-sized, modular DataLad datasets.
 #. Modular datasets are structured into a hierarchy of nested datasets, with a
    single HCP superdataset at the top. This modularizes storage and access,
    and mitigates performance problems that would arise in oversized standalone
@@ -41,13 +42,17 @@ to provide an unparalleled compilation of neural data through a customized
 database. Its largest open access data collection is the
 `WU-Minn HCP1200 Data <https://humanconnectome.org/study/hcp-young-adult/document/1200-subjects-data-release/>`_.
 It is made available via a public AWS S3 bucket and includes high-resolution 3T
-MR scans from young healthy adult twins and non-twin siblings (ages 22-35)
-using four imaging modalities: structural images (T1w and T2w), resting-state
-fMRI (rfMRI), task-fMRI (tfMRI), and high angular resolution diffusion imaging
-(dMRI). It further includes behavioral and other individual subject measure
-data for all, and MEG data and 7T MR data for a subset of subjects (twin pairs).
+`magnetic resonance <https://en.wikipedia.org/wiki/Magnetic_resonance_imaging>`_
+scans from young healthy adult twins and non-twin siblings (ages 22-35)
+using four imaging modalities: structural images (T1w and T2w),
+`resting-state fMRI (rfMRI) <https://en.wikipedia.org/wiki/Resting_state_fMRI>`_,
+task-fMRI (tfMRI), and high angular resolution
+`diffusion imaging (dMRI) <https://en.wikipedia.org/wiki/Diffusion_MRI>`_.
+It further includes behavioral and other individual subject measure
+data for all, and `magnetoencephalography <https://en.wikipedia.org/wiki/Magnetoencephalography>`_
+data and 7T MR data for a subset of subjects (twin pairs).
 In total, the data release encompasses around 80TB of data, and is of immense
-value to the field o neuroscience.
+value to the field of neuroscience.
 
 Its large amount of data, however, also constitutes a data management challenge:
 Such amounts of data are difficult to store, structure, access, and version
@@ -56,13 +61,12 @@ control. Even tools such as DataLad, and its foundations, :term:`Git` and
 of files. Simply transforming the complete data release into a single DataLad
 dataset would at best lead to severe performance issues, but quite likely result
 in software errors and crashes.
-Moreover, access to the HCP data is dependent on consent to the
+Moreover, access to the HCP data is contingent on consent to the
 `data usage agreement <http://www.humanconnectomeproject.org/wp-content/uploads/2010/01/HCP_Data_Agreement.pdf>`_
-of the HCP project and requires valid AWS S3 credentials. Instead of providing
-unrestrained access to the HCP data via DataLad, an HCP DataLad dataset would
-need to only enable data retrieval given the user complied to the HCP usage terms,
-and instead of hosting data, it would need to reference the public S3 bucket so
-that valid AWS credentials are required for data access.
+of the HCP project and requires valid AWS S3 credentials. Instead of hosting
+this data or providing otherwise unrestrained access to it, an HCP
+DataLad dataset would need to enable data retrieval from the original sources,
+conditional on the user agreeing to the HCP usage terms.
 
 
 The DataLad Approach

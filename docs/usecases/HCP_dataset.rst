@@ -3,26 +3,35 @@
 The HCP data as a dataset
 -------------------------
 
-This usecase outlines how a large neuroimaging data collection can be
-version controlled and published in an accessible manner with DataLad
-in a remote indexed archive data store. Using the
+This usecase outlines how a large data collection can be version controlled
+and published in an accessible manner with DataLad in a remote indexed
+archive (RIA) data store. Using the
 `Human Connectome Project <http://www.humanconnectomeproject.org/>`_
-(HCP) data as an example, it shows how...
+(HCP) data as an example, it shows how large-scale datasets can be managed
+with the help of modular nesting, and how access to data that is contingent on
+usage agreements and external service credentials is possible via DataLad
+without circumventing or breaching the data providers terms.
+In particular, it shows how ...
 
 #. The :command:`datalad addurls` command is used to automatically aggregate
    files and information about their sources from public AWS S3 bucket storage
-   into a small-sized DataLad datasets.
-#. The resulting datasets are registered as subdatasets into a single HCP
-   superdataset. This hierarchy of nested DataLad datasets modularizes
-   storage and access, and mitigates performance problems that would arise
-   from storing hundreds of thousands of files in a single dataset.
+   into a small-sized, modular DataLad datasets.
+#. Modular datasets are structured into a hierarchy of nested datasets, with a
+   single HCP superdataset at the top. This modularizes storage and access,
+   and mitigates performance problems that would arise in oversized standalone
+   datasets, but maintains access to any subdataset from the top-level dataset.
 #. Individual datasets are stored in an remote indexed archive (RIA) store
-   at `store.datalad.org <store.datalad.org>`__ and can be identified for
-   DataLad-internal referencing by their dataset ID, while the top-level
-   superdataset is published to GitHub as a public access point for the
-   full HCP dataset.
-#. Once users obtain valid AWS credentials for the AWS S3 bucket, data retrieval
-   of the HCP data is possible via :command:`datalad get` commands.
+   at `store.datalad.org <store.datalad.org>`__ under their :term:`dataset ID`.
+   This results in a flexible and scalable storage solution in which dataset
+   locations are derived from their properties.
+#. The top-level dataset is published to GitHub as a public access point for the
+   full HCP dataset. As the RIA store only file availability and source
+   information instead data contents, :command:`datalad get` retrieves file
+   contents from the original AWS S3 sources.
+#. With DataLad's authentication management, users will authenticate once -- and
+   are thus required to accept the HCP projects terms to obtain valid
+   credentials --, but subsequent :command:`datalad get` commands work swiftly
+   without logging in.
 
 The Challenge
 ^^^^^^^^^^^^^

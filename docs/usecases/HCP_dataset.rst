@@ -111,8 +111,8 @@ with AWS credentials provided by the HCP project: DataLad will prompt any user a
 the time of retrieval of the first file content of the dataset.
 Afterwards, no further authentication is needed, unless the credentials become
 invalid or need to be updated for other reasons.
-
-Thus, in order to retrieve HCP data of up to single file level, users need to:
+Thus, in order to retrieve HCP data of up to single file level with DataLad,
+users need to:
 
 - :command:`datalad clone` the superdataset from :term:`GitHub`
   (`github.com/datalad-datasets/human-connectome-project-openaccess <https://github.com/datalad-datasets/human-connectome-project-openaccess>`_)
@@ -133,28 +133,168 @@ Dataset creation with ``datalad addurls``
 .. index:: ! datalad command; addurls
 
 The :command:`datalad addurls` command (:manpage:`datalad-addurls` manual)
-allows to create (and update) DataLad datasets from a list of URLs.
-By supplying a ``.csv`` file that contains an S3 download link, a subject ID,
-a file name, and a version specification per file in the HCP dataset,
-:command:`datalad addurls` can download these files and create datasets to
-store them in. With the help of a few bash commands, this task can be
-automated. If you are interested in the details of this, checkout the hidden
-section below.
-
-.. findoutmore:: Details of the datasets came to be
-
-   ask Tobias about this
-   - how was the original gigantic table created?
-   - what determined subdataset names?
-   - whats the hcp configuration for datalad create?
-
-As soon as files are retrieved and registered in the resulting datasets,
+allows to create (and update) potentially nested DataLad datasets from a list
+of URLs.
+By supplying subject specific ``.csv`` files that contain S3 download links,
+a subject ID, a file name, and a version specification per file in the HCP dataset,
+as well as information on where subdataset boundaries are,
+:command:`datalad addurls` can download all subjects' files and create (nested) datasets
+to store them in. With the help of a few bash commands, this task can be
+automated, and with the help of a `job scheduler <https://en.wikipedia.org/wiki/Job_scheduler>`_,
+it can also be parallelized. The results of this effort are one nested dataset
+per subject. As soon as files are retrieved and registered in the resulting datasets,
 their content can be dropped again via :command:`datalad drop`: The origin
 of the file was successfully recorded, and a :command:`datalad get` could
 retrieve file contents on demand, if required. Shortly after a complete
 download of the HCP project data, the datasets in which it has been
 aggregated are small in size, and yet provide access to the HCP data for anyone
 who has valid AWS S3 credentials.
+If you are interested in the details of this process, checkout the hidden section
+below.
+
+.. findoutmore:: How exactly did the datasets came to be?
+
+   .. note::
+
+      All code and tables necessary to generate the HCP datasets can be found on
+      GitHub at `github.com/TobiadKadelka/build_hcp <https://github.com/TobiasKadelka/build_hcp>`_.
+
+   The :command:`datalad addurls` command is capable of building all necessary nested
+   subject datasets automatically, it only needs an appropriate specification of
+   its tasks. We'll approach the function of :command:`datalad addurls` and
+   how exactly it was invoked to build the HCP dataset by looking at the
+   information it needs. Below are excerpts of the ``.csv`` table of one subject
+   (``100206``) that illustrate how :command:`addurls` works:
+
+   .. code-block::
+      :caption: Table header and some of the release note files
+
+      "original_url","subject","filename","version"
+      "s3://hcp-openaccess/HCP_1200/100206/release-notes/Diffusion_unproc.txt","100206","release-notes/Diffusion_unproc.txt","j9bm9Jvph3EzC0t9Jl51KVrq6NFuoznu"
+      "s3://hcp-openaccess/HCP_1200/100206/release-notes/ReleaseNotes.txt","100206","release-notes/ReleaseNotes.txt","RgG.VC2mzp5xIc6ZGN6vB7iZ0mG7peXN"
+      "s3://hcp-openaccess/HCP_1200/100206/release-notes/Structural_preproc.txt","100206","release-notes/Structural_preproc.txt","OeUYjysiX5zR7nRMixCimFa_6yQ3IKqf"
+      "s3://hcp-openaccess/HCP_1200/100206/release-notes/Structural_preproc_extended.txt","100206","release-notes/Structural_preproc_extended.txt","cyP8G5_YX5F30gO9Yrpk8TADhkLltrNV"
+      "s3://hcp-openaccess/HCP_1200/100206/release-notes/Structural_unproc.txt","100206","release-notes/Structural_unproc.txt","AyW6GmavML6I7LfbULVmtGIwRGpFmfPZ"
+
+   .. code-block::
+      :caption: Some files in the MNINonLinear directory
+
+      "s3://hcp-openaccess/HCP_1200/100206/MNINonLinear/100206.164k_fs_LR.wb.spec","100206","MNINonLinear//100206.164k_fs_LR.wb.spec","JSZJhZekZnMhv1sDWih.khEVUNZXMHTE"
+      "s3://hcp-openaccess/HCP_1200/100206/MNINonLinear/100206.ArealDistortion_FS.164k_fs_LR.dscalar.nii","100206","MNINonLinear//100206.ArealDistortion_FS.164k_fs_LR.dscalar.nii","sP4uw8R1oJyqCWeInSd9jmOBjfOCtN4D"
+      "s3://hcp-openaccess/HCP_1200/100206/MNINonLinear/100206.ArealDistortion_MSMAll.164k_fs_LR.dscalar.nii","100206","MNINonLinear//100206.ArealDistortion_MSMAll.164k_fs_LR.dscalar.nii","yD88c.HfsFwjyNXHQQv2SymGIsSYHQVZ"
+      "s3://hcp-openaccess/HCP_1200/100206/MNINonLinear/100206.ArealDistortion_MSMSulc.164k_fs_LR.dscalar.nii","100206","MNINonLinear
+
+   The ``.csv`` table contains one row per file, and includes the columns
+   ``original_url``, ``subject``, ``filename``, and ``version``. ``original_url``
+   is an s3 URL pointing to an individual file in the S3 bucket, ``subject`` is
+   the subject's ID (here: ``100206``), ``filename`` is the path to the file
+   within the dataset that will be build, and ``version`` is an S3 specific
+   file version identifier.
+   The first table thus specifies a few files in the directory ``release-notes``
+   in the dataset of subject ``100206``. For :command:`datalad addurls`, the
+   column headers serve as placeholders for fields in each row.
+   If this table excerpt is given to a :command:`datalad addurls` call as shown
+   below, it will create a dataset and download and save the files in precise
+   versions in it::
+
+      $ datalad addurls -d <Subject-ID> <TABLE> '{original_url}?versionId={version}' '{filename}'
+
+   This command translates to "create a dataset with the name of the subject ID
+   (``-d <Subject-ID>``) and use the provided table (``<TABLE>``) to assemble the
+   dataset contents. Iterate through the table rows, and perform one download per
+   row. Generate the download URL from the ``original_url`` and ``version``
+   field of the table (``{original_url}?versionId={version}'``), and save the
+   downloaded file under the name specified in the ``filename`` field (``'{filename}'``).
+
+   If the file name contains a double slash (``//``), for example seen in the second
+   table in ``"MNINonLinear//...``, this file will be created underneath a
+   *subdataset* of the name in front of the double slash. The rows in the second
+   table thus translate to "save these files into the subdataset "MNINonLinear",
+   and if this subdataset does not exist, create it".
+
+   With a single subject's table, a nested subject specific dataset is thus built.
+   Here is how the directory hierarchy looks for this particular subject once
+   :command:`datalad addurls` worked through its table:
+
+   .. code-block:: bash
+
+       100206
+       ├── MNINonLinear     <- subdataset
+       ├── release-notes
+       ├── T1w              <- subdataset
+       └── unprocessed      <- subdataset
+
+   This is all there is to assemble subject specific datasets. The interesting
+   question is how to do this as automated as possible.
+
+   **How to create subject-specific tables**
+
+   One crucial part of the process are the subject specific tables for
+   :command:`datalad addurls`. The information on the file url, its name, and its
+   version can be queried with the :command:`datalad ls` command (:manpage:`datalad-ls`
+   manual). It is a DataLad-specific version of the Unix ``ls`` command and can
+   be used to list summary information about s3 URLs and datasets. With this
+   command, the public S3 bucket can be queried and the command will output the
+   relevant information.
+
+   .. note::
+
+      The :command:`datalad ls` command is a rather old command and less user-friendly
+      than other commands demonstrated in the handbook. One problem for automation
+      is that the command is made for interactive use, and it outputs information in
+      a non-structured fashion. In order to retrieve the relevant information,
+      a custom Python script was used to split its output and extract it. This
+      script can be found in the GitHub repository as
+      `code/create_subject_table.py <https://github.com/TobiasKadelka/build_hcp/blob/master/code/create_subject_table.py>`_.
+
+   **How to schedule datalad addurls commands for all tables**
+
+   Once the subject specific tables exist, :command:`datalad addurls` can start
+   to aggregate the files into datasets. To do it efficiently, this can be done
+   in parallel by using a job scheduler. On the computer cluster the datasets
+   were aggregated, this was `HTCondor <https://research.cs.wisc.edu/htcondor/>`_.
+
+   The jobs (per subject) performed by HTCondor consisted of
+
+   - a :command:`datalad addurls` command to generate the (nested) dataset
+     and retrieve content once [#f3]_::
+
+        datalad -l warning addurls -d "$outds" -c hcp_dataset "$subj_table" '{original_url}?versionId={version}' '{filename}'
+
+   - a subsequent :command:`datalad drop` command to remove file contents as
+     soon as they were saved to the dataset to save disk space (this is possible
+     since the S3 source of the file is known, and content can be reobtained using
+     :command:`get`)::
+
+        datalad drop -d "$outds" -r --nocheck
+
+   - a few (Git) commands to clean up well afterwards, as the system the HCP dataset
+     was downloaded to had a strict 5TB limit on disk usage.
+
+
+   **Summary**
+
+   Thus, in order to download the complete HCP project and aggregate it into
+   nested subject level datasets (on a system with much less disk space than the
+   complete HCP project's size!), only two DataLad commands, one custom configuration,
+   and some scripts to parse terminal output into ``.csv`` tables and create
+   subject-wise HTCondor jobs were necessary. With all tables set up, the jobs
+   ran over the Christmas break and finished before everyone went back to work.
+
+   **Where things went wrong**
+
+   As with virtually any undertaking that involves a computer and code, the
+   initial tries were not 100% successful. After a complete download, the log
+   files of HTCondor and some datasets showed some mis-specified S3 URLs in tables
+   (``%`` characters were accidentally replaced by ``,``) and an exploration of
+   the resulting datasets showed individual datasets with non-dropped or missing
+   contents. After a thorough data check, correcting tables, and rebuilding
+   affected datasets, in  Mid-January a ``HCP1200`` superdataset was build and
+   all subjects nested datasets were added as subdatasets.
+
+
+
+
 
 All of the dataset aggregation is done on a scientific compute cluster.
 In this location, however, datasets would not be accessible to anyone without
@@ -166,43 +306,148 @@ store.
 A Remote Indexed Archive Store
 """"""""""""""""""""""""""""""
 
-A RIA store contains datasets as bare git repositories, identified via
-their :term:`dataset ID`.
+A RIA store is a flexible and scalable data storage solution for DataLad datasets.
+If you were to take a look at one, it is a directory on some computer with
+hard to decipher contents. A RIA store contains datasets as *bare git repositories*,
+and thus abstracted from their layout dataset (clone) has if one works with it.
 
-.. todo::
+.. findoutmore:: What is a bare Git repository?
 
-   a store layout here
+     A bare Git repository is a repository that contains the contents of the ``.git``
+     directory of regular DataLad datasets or Git repositories, but no worktree
+     or checkout. This has advantages: The repository is leaner, it is easier
+     for administrators to perform garbage collections, and it is required if you
+     want to push to it at all times. You can find out more on what bare repositories are and how to use them
+     `here <https://git-scm.com/book/en/v2/Git-on-the-Server-Getting-Git-on-a
+     -Server>`_.
 
-You can find more technical details on RIA stores in the use case
-:ref:`usecase_datastore`. The major advantages of such a store are its
-flexibility, scalability, and maintainability. Because datasets can be identified
-with their universally unique ID, there is no need for static, filename-based
-hierarchies. New datasets can be added to the store without consequences for
-existing ones
+Here is how one dataset may look like:
 
-.. todo::
+.. code-block:: bash
+   :emphasize-lines: 1-2
 
-    maybe contrast this to datasets.datalad.org).
+    ├── 946
+    │   └── e8cac-432b-11ea-aac8-f0d5bf7b5561
+    │       ├── annex
+    │       │   └── objects
+    │       │       ├── 6q
+    │       │       │   └── mZ
+    │       │       │       └── MD5E-s93567133--7c93fc5d0b5f197ae8a02e5a89954bc8.nii.gz
+    │       │       │           └── MD5E-s93567133--7c93fc5d0b5f197ae8a02e5a89954bc8.nii.gz
+    │       │       ├── 6v
+    │       │       │   └── zK
+    │       │       │       └── MD5E-s2043924480--47718be3b53037499a325cf1d402b2be.nii.gz
+    │       │       │           └── MD5E-s2043924480--47718be3b53037499a325cf1d402b2be.nii.gz
+    │       │       ├── [...]
+    │       │       │   └── [...]
+    │       │       │       └── [...]
+    │       │       │           └── [...]
+    │       │       [...]
+    │       │ 
+    │       ├── archives
+    │       ├── branches
+    │       ├── config
+    │       ├── description
+    │       ├── HEAD
+    │       ├── hooks
+    │       │   ├── applypatch-msg.sample
+    │       │   ├── commit-msg.sample
+    │       │   ├── fsmonitor-watchman.sample
+    │       │   ├── post-update.sample
+    │       │   ├── pre-applypatch.sample
+    │       │   ├── pre-commit.sample
+    │       │   ├── pre-merge-commit.sample
+    │       │   ├── prepare-commit-msg.sample
+    │       │   ├── pre-push.sample
+    │       │   ├── pre-rebase.sample
+    │       │   ├── pre-receive.sample
+    │       │   └── update.sample
+    │       ├── info
+    │       │   └── exclude
+    │       ├── objects
+    │       │   ├── 05
+    │       │   │   └── 3d25959223e8173497fa7f747442b72c31671c
+    │       │   ├── 0b
+    │       │   │   └── 8d0edbf8b042998dfeb185fa2236d25dd80cf9
+    │       │   ├── 0d
+    │       │   │   └── a63a92497bd0996aa9398fc9e05783c5d0fe65
+    │       │   ├── [...]
+    │       │   │   └── [...]
+    │       │   ├── info
+    │       │   └── pack
+    │       ├── refs
+    │       │   ├── heads
+    │       │   │   ├── git-annex
+    │       │   │   └── master
+    │       │   └── tags
+    │       ├── ria-layout-version
+    │       └── ria-remote-ebce196a-b057-4c96-81dc-7656ea876234
+    │           └── transfer
 
-As the store consists of bare git repositories (with optionally 7zipped archives
-or annexes), it is easily maintainable by data stewards or system administrators.
-Common compression or cleaning operations of Git and git-annex can be performed
-without requiring knowledge about the data inside of the store.
+While it looks confusing, it is only a clever storage solution, and users never
+consciously interact with the store to get the HCP datasets. On the lowest level,
+`store.datalad.org <store.datalad.org>`__ is a directory on a publicly accessible
+server that holds a great number of such bare repositories. The only important
+aspect of it for this usecase is that instead of by their names (e.g., ``100206``),
+datasets are stored and identified via their :term:`dataset ID` (the first two
+highlighted lines). A store like this is used, because -- among other advantages --
+its layout makes the store flexible and scalable. If you are interested in
+finding out why, you can find more technical details on RIA stores, their advantages,
+and even how to create and use one yourself in the use case :ref:`usecase_datastore`.
+Importantly, after cloning a dataset from a RIA store, the dataset clone will
+have its usual file hierarchy and file names.
 
-.. todo::
+Making the datasets accessible
+""""""""""""""""""""""""""""""
 
-    - What are the advantages? --> flexible store: Can hold any amount of datasets,
-      and as datasets are identified via ID, there is no need for static filename-based
-      hierarchies.
-    - Problem: Subdataset layout in superdataset does not reflect store layout. Where
-      subdataset is referenced in superdataset as lying directly underneath the super
-      dataset, it is referenced under their ID in the store. BUT: .gitmodules does
-      not only hold path, but also dataset ID
-    - Talk about 0.12.2 features: Resolving dataset IDs to URLs, subdataset-source-
-      candidates in superdatasets, using ria+// URLs to point to RIA stores and
-      dataset versions,
+At this point, roughly 1200 nested datasets were created and published to a publicly
+accessible RIA store. This modularized the HCP dataset and prevented performance
+issues that would arise in oversized datasets. In order to make the complete dataset
+available and accessible, the only thing missing is a single superdataset.
 
+For this, a new dataset, ``human-connectome-project-openaccess``, was created.
+It contains a short ``README`` file with short instructions how to use it,
+a text-based copy of the HCP projects data usage agreement, and each subject
+dataset as a subdataset. The ``.gitmodules`` file [#f1]_ of this superdataset
+thus is impressive. Here is an excerpt::
 
+    [submodule "100206"]
+        path = HCP1200/100206
+        url = ./HCP1200/100206
+        branch = master
+        datalad-id = 346a3ae0-2c2e-11ea-a27d-002590496000
+    [submodule "100307"]
+        path = HCP1200/100307
+        url = ./HCP1200/100307
+        branch = master
+        datalad-id = a51b84fc-2c2d-11ea-9359-0025904abcb0
+    [submodule "100408"]
+        path = HCP1200/100408
+        url = ./HCP1200/100408
+        branch = master
+        datalad-id = d3fa72e4-2c2b-11ea-948f-0025904abcb0
+    [...]
+
+For each subdataset (named after subject IDs), there is one entry.
+
+This (and only this) superdataset is published to a public :term:`GitHub`
+repository that anyone can :command:`datalad clone`. If you inspect the GitHub
+repository, though, you will find the the subdatasets will not resolve if you
+click on them, because they are not published to GitHub, but lie in the RIA
+store [#f4]_.
+This, however, is not a problem, and dataset or file content retrieval will
+work automatically with :command:`datalad get`: Each entry lists the subdatasets
+dataset ID, and based on a configuration of "subdataset-source-candidates" in
+``.datalad/config`` of the superdataset, the subdataset ID is assembled to a
+RIA URL that retrieves the correct dataset from the store:
+
+.. code-block:: bash
+
+    $ cat .datalad/config
+    [datalad "dataset"]
+        id = 2e2a8a70-3eaa-11ea-a9a5-b4969157768c
+    [datalad "get"]
+        subdataset-source-candidate-origin = "ria+http://store.datalad.org#{id}"
 
 .. rubric:: Footnotes
 
@@ -214,3 +459,19 @@ without requiring knowledge about the data inside of the store.
          possible performance issues in oversized datasets, imagine a mere
          :command:`git status` or :command:`datalad status` command taking several
          minutes up to hours in a clean dataset.
+
+.. [#f3] Note that this command is more complex than the previously shown
+         :command:`datalad addurls` command. In particular, it has an additional
+         `loglevel` configuration for the main command, and creates the datasets
+         with an `hcp_dataset` configuration. The logging level was set (to
+         ``warning``) to help with post-execution diagnostics in the HTCondors
+         log files. The configuration can be found in
+         `code/cfg_hcp_dataset <https://github.com/TobiasKadelka/build_hcp/blob/master/code/cfg_hcp_dataset.sh>`_
+         and enables a :term:`special remote` in the resulting dataset.
+
+.. [#f4] If you coded along in the Basics part of the book and published your
+         dataset to :term:`Gin`, you have experienced in :ref:`subdspublishing`
+         how the links to unpublished subdatasets in a published dataset do not
+         resolve in the webinterface: Its path points to a URL that would resolve
+         to lying underneath the superdataset, but there is not published
+         subdataset on the hosting platform!

@@ -257,6 +257,11 @@ please `get in touch <https://github.com/datalad-handbook/book/issues/new>`_.
 
            pip install datalad~=0.12
 
+   - **Step 5**: Install 7zip
+
+      - `7zip <https://7-zip.de/download.html>`_ is a dependency of DataLad and
+        not installed by default on Windows 10. Please make sure to download and
+        install it.
 
 .. container:: toggle
 

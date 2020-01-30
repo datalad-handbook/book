@@ -51,6 +51,9 @@ DataLad and all of its software dependencies (including the git-annex-standalone
 
    $ sudo apt-get install datalad
 
+The command above will also upgrade existing installations to the most recent
+available version.
+
 
 Linux-machines with no root access (e.g. HPC systems)
 """""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -68,6 +71,8 @@ can be installed with `Miniconda <https://docs.conda.io/en/latest/miniconda.html
 This should install :term:`Git`, :term:`git-annex`, and DataLad.
 The installer automatically configures the shell to make conda-installed
 tools accessible, so no further configuration is necessary.
+
+To update an existing installation with conda, use ``conda update datalad``.
 
 macOS/OSX
 """""""""
@@ -169,6 +174,8 @@ a user's home directory:
 
    $ pip install --user datalad~=0.12
 
+An existing installation can be upgraded with ``pip install -U datalad``.
+
 In addition, it is necessary to have a current version of :term:`git-annex` installed which is
 not set up automatically by using the ``pip`` method.
 You can find detailed installation instructions on how to do this
@@ -177,6 +184,7 @@ You can find detailed installation instructions on how to do this
 For Windows, extract the provided EXE installer into an existing Git
 installation directory (e.g. ``C:\\Program Files\Git``). If done
 this way, no ``PATH`` variable manipulation is necessary.
+
 
 Windows 10
 """"""""""

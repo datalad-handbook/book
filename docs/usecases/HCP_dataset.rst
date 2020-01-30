@@ -141,32 +141,31 @@ Dataset creation with ``datalad addurls``
 
 The :command:`datalad addurls` command (:manpage:`datalad-addurls` manual)
 allows to create (and update) potentially nested DataLad datasets from a list
-of download URLs that point to files.
+of download URLs that point to the HCP files in the S3 buckets.
 By supplying subject specific ``.csv`` files that contain S3 download links,
 a subject ID, a file name, and a version specification per file in the HCP dataset,
 as well as information on where subdataset boundaries are,
 :command:`datalad addurls` can download all subjects' files and create (nested) datasets
 to store them in. With the help of a few bash commands, this task can be
 automated, and with the help of a `job scheduler <https://en.wikipedia.org/wiki/Job_scheduler>`_,
-it can also be parallelized. The results of this effort are one nested dataset
-per subject in the data release.
+it can also be parallelized.
+As soon as files are downloaded and saved to a datasets, their content can be
+dropped eith :command:`datalad drop`: The origin of the file was successfully
+recorded, and a :command:`datalad get` can now retrieve file contents on demand.
+Thus, shortly after a complete download of the HCP project data, the datasets in
+which it has been aggregated are small in size, and yet provide access to the HCP
+data for anyone who has valid AWS S3 credentials.
 
-As soon as files are retrieved and registered in the resulting datasets,
-their content can be dropped again via :command:`datalad drop`: The origin
-of the file was successfully recorded, and a :command:`datalad get` could
-retrieve file contents on demand, if required. Shortly after a complete
-download of the HCP project data, the datasets in which it has been
-aggregated are small in size, and yet provide access to the HCP data for anyone
-who has valid AWS S3 credentials.
-If you are interested in the details of this process, checkout the hidden section
-below.
+At the end of this step, there is one nested dataset per subject in the HCP data
+release. If you are interested in the details of this process, checkout the
+hidden section below.
 
 .. findoutmore:: How exactly did the datasets came to be?
 
    .. note::
 
       All code and tables necessary to generate the HCP datasets can be found on
-      GitHub at `github.com/TobiadKadelka/build_hcp <https://github.com/TobiasKadelka/build_hcp>`_.
+      GitHub at `github.com/TobiasKadelka/build_hcp <https://github.com/TobiasKadelka/build_hcp>`_.
 
    The :command:`datalad addurls` command is capable of building all necessary nested
    subject datasets automatically, it only needs an appropriate specification of
@@ -213,12 +212,12 @@ below.
    dataset contents. Iterate through the table rows, and perform one download per
    row. Generate the download URL from the ``original_url`` and ``version``
    field of the table (``{original_url}?versionId={version}'``), and save the
-   downloaded file under the name specified in the ``filename`` field (``'{filename}'``).
+   downloaded file under the name specified in the ``filename`` field (``'{filename}'``)".
 
    If the file name contains a double slash (``//``), for example seen in the second
    table in ``"MNINonLinear//...``, this file will be created underneath a
    *subdataset* of the name in front of the double slash. The rows in the second
-   table thus translate to "save these files into the subdataset "MNINonLinear",
+   table thus translate to "save these files into the subdataset ``MNINonLinear``,
    and if this subdataset does not exist, create it".
 
    With a single subject's table, a nested subject specific dataset is thus built.
@@ -289,6 +288,7 @@ below.
    and some scripts to parse terminal output into ``.csv`` tables and create
    subject-wise HTCondor jobs were necessary. With all tables set up, the jobs
    ran over the Christmas break and finished before everyone went back to work.
+   Getting 15 million files into datasets? Check!
 
    **Where things went wrong**
 
@@ -301,21 +301,21 @@ below.
    affected datasets, in  Mid-January a ``HCP1200`` superdataset was build and
    all subjects nested datasets were added as subdatasets.
 
+Using a Remote Indexed Archive Store for dataset hosting
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-All of the dataset aggregation is done on a scientific compute cluster.
-In this location, however, datasets would not be accessible to anyone without
-an account on this system. Subsequently, therefore, the datasets are published
-with :command:`datalad publish` to the publicly available
+All datasets were build on a scientific compute cluster. In this location, however,
+datasets would only be accessible to users with an account on this system.
+Subsequently, therefore, everything was published with
+:command:`datalad publish` to the publicly available
 `store.datalad.org <http://store.datalad.org/>`_, a remote indexed archive (RIA)
 store.
 
-A Remote Indexed Archive Store
-""""""""""""""""""""""""""""""
-
 A RIA store is a flexible and scalable data storage solution for DataLad datasets.
 If you were to take a look at one, it is a directory on some computer with
-hard to decipher contents. A RIA store contains datasets as *bare git repositories*,
-and thus abstracted from their layout dataset (clone) has if one works with it.
+hard to decipher contents. A RIA store contains datasets, but it stores them
+as *bare git repositories* instead of using the familiar layout of that dataset,
+and thus appears quite abstracted from the layout a dataset (clone) would have.
 
 .. findoutmore:: What is a bare Git repository?
 

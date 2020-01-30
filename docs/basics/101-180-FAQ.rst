@@ -55,7 +55,7 @@ that DataLad tries to expose in full. That being said, any DataLad dataset
 fully compatible with git-annex -- you can use any git-annex command inside a
 DataLad dataset.
 
-The chapter :ref:`symlink` can give you more insights into how git-annex
+The chapter :ref:`chapter_gitannex` can give you more insights into how git-annex
 takes care of your data. git-annex's `website <https://git-annex.branchable.com/>`_
 can give you a complete walk-through and detailed technical background
 information.

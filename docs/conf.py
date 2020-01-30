@@ -286,8 +286,9 @@ latex_elements = {
 \usepackage{charter}
 \usepackage[defaultsans]{lato}
 \usepackage{inconsolata}
-\setcounter{tocdepth}{0}
+\setcounter{tocdepth}{1}
 \usepackage{xcolor}
+\setcounter{secnumdepth}{0}
 """,
 }
 

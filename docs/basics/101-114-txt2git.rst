@@ -95,5 +95,5 @@ and improve our understanding a slight bit further.
 .. rubric:: Footnotes
 
 .. [#f1] If you can't wait to read about ``.gitattributes`` and other
-         configuration files, jump ahead to chapter "Tuning datasets to your needs",
+         configuration files, jump ahead to chapter :ref:`chapter_config`,
          starting with section :ref:`config`.

@@ -29,9 +29,6 @@ a file with its origin and store this information, we want to be
 able to associate a particular file with the commands, scripts, and inputs
 it was produced from, and thus capture and store full :term:`provenance`.
 
-.. figure:: ../artwork/src/keeptrack.svg
-   :width: 70%
-
 Let's say, for example, that you enjoyed the longnow podcasts a lot,
 and you start a podcast-night with friends to wind down from all of
 the exciting DataLad lectures. They propose to make a

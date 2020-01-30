@@ -38,8 +38,8 @@ Note the command structure of :command:`datalad create` (optional bits are enclo
       datalad create --description "course on DataLad-101 on my private Laptop" -c text2git DataLad-101
 
    If you want, use the above command instead of the :command:`create` command below
-   to provide a description. Its use will not be immediately clear, but later
-   chapters (starting with :ref:`sharelocal1`) will show you where this description
+   to provide a description. Its use will not be immediately clear, the chapter
+   :ref:`chapter_collaboration`) will show you where this description
    ends up and how it may be useful.
 
 Let's start:

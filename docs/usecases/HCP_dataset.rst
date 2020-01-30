@@ -75,7 +75,7 @@ The DataLad Approach
 Using the :command:`datalad addurls` command, the HCP data release is
 aggregated into a large amount (N ~= 5000) of datasets. A lean top-level dataset
 combines all datasets into a nested dataset hierarchy that recreates the original
-HCP data releases structure. The topmost dataset contains one subdataset per
+HCP data release's structure. The topmost dataset contains one subdataset per
 subject with the subject's release notes, and within each subject's subdataset,
 each additional available subdirectory is another subdataset. This preserves
 the original structure of the HCP data release, but builds it up from sensible
@@ -92,14 +92,14 @@ to expose this superdataset and allow anyone to install it with a single
 :command:`datalad clone` command in a few seconds.
 Secondly, the modularity from splitting the data release into
 several thousand subdatasets has performance advantages. If :term:`Git` or
-:term:`git-annex` repositories exceed certain a certain size (either in terms of
+:term:`git-annex` repositories exceed a certain size (either in terms of
 file sizes or the number of files), performance can drop severely [#f2]_.
 By dividing the vast amount of data into many subdatasets,
 this can be prevented: Subdatasets are small-sized units that are combined to the
 complete HCP dataset structure, and nesting comes with no additional costs or
 difficulties, as DataLad can work smoothly across hierarchies of subdatasets.
 
-In order to only simplify access to the data instead of providing data access
+In order to simplify access to the data instead of providing data access
 that could circumvent HCP license term agreements for users, DataLad does not
 host any HCP data. Instead, thanks to :command:`datalad addurls`, each
 data file knows its source (the public AWS S3 bucket of the HCP project), and a
@@ -140,7 +140,7 @@ Dataset creation with ``datalad addurls``
 .. index:: ! datalad command; addurls
 
 The :command:`datalad addurls` command (:manpage:`datalad-addurls` manual)
-allows to create (and update) potentially nested DataLad datasets from a list
+allows you to create (and update) potentially nested DataLad datasets from a list
 of download URLs that point to the HCP files in the S3 buckets.
 By supplying subject specific ``.csv`` files that contain S3 download links,
 a subject ID, a file name, and a version specification per file in the HCP dataset,
@@ -150,7 +150,7 @@ to store them in. With the help of a few bash commands, this task can be
 automated, and with the help of a `job scheduler <https://en.wikipedia.org/wiki/Job_scheduler>`_,
 it can also be parallelized.
 As soon as files are downloaded and saved to a datasets, their content can be
-dropped eith :command:`datalad drop`: The origin of the file was successfully
+dropped with :command:`datalad drop`: The origin of the file was successfully
 recorded, and a :command:`datalad get` can now retrieve file contents on demand.
 Thus, shortly after a complete download of the HCP project data, the datasets in
 which it has been aggregated are small in size, and yet provide access to the HCP
@@ -299,12 +299,12 @@ hidden section below.
    the resulting datasets showed individual datasets with non-dropped or missing
    contents. After a thorough data check, correcting tables, and rebuilding
    affected datasets, in  Mid-January a ``HCP1200`` superdataset was build and
-   all subjects nested datasets were added as subdatasets.
+   all subjects' nested datasets were added as subdatasets.
 
 Using a Remote Indexed Archive Store for dataset hosting
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-All datasets were build on a scientific compute cluster. In this location, however,
+All datasets were built on a scientific compute cluster. In this location, however,
 datasets would only be accessible to users with an account on this system.
 Subsequently, therefore, everything was published with
 :command:`datalad publish` to the publicly available
@@ -477,6 +477,11 @@ repository that anyone can :command:`datalad clone`.
 
 Data retrieval and interacting with the repository
 """"""""""""""""""""""""""""""""""""""""""""""""""
+
+.. note::
+
+   Using this dataset requires DataLad version 0.12.2 or higher. Upgrading
+   an existing DataLad installation is detailed in section :ref:`install`.
 
 Procedurally, getting data from this dataset is almost as simple as with any
 other public DataLad dataset: One needs to :command:`clone` the repository

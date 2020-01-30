@@ -327,7 +327,7 @@ and thus appears quite abstracted from the layout a dataset (clone) would have.
      `here <https://git-scm.com/book/en/v2/Git-on-the-Server-Getting-Git-on-a
      -Server>`_.
 
-Here is how one dataset may look like:
+Here is how one dataset may look like if it is published to a RIA store:
 
 .. code-block:: bash
    :emphasize-lines: 1-2
@@ -390,18 +390,53 @@ Here is how one dataset may look like:
     │       └── ria-remote-ebce196a-b057-4c96-81dc-7656ea876234
     │           └── transfer
 
-While it looks confusing, it is only a clever storage solution, and users never
-consciously interact with the store to get the HCP datasets. On the lowest level,
-`store.datalad.org <http://store.datalad.org/>`__ is a directory on a publicly accessible
-server that holds a great number of such bare repositories. The only important
-aspect of it for this usecase is that instead of by their names (e.g., ``100206``),
-datasets are stored and identified via their :term:`dataset ID` (the first two
-highlighted lines). A store like this is used, because -- among other advantages --
-its layout makes the store flexible and scalable. If you are interested in
-finding out why, you can find more technical details on RIA stores, their advantages,
-and even how to create and use one yourself in the use case :ref:`usecase_datastore`.
+
+The :command:`datalad clone` command can understand this layout and install
+datasets from a RIA store based on their ID.
+
+.. findoutmore:: How would a datalad clone from a RIA store look like?
+
+   In order to get a dataset from a RIA store, :command:`datalad clone` needs
+   a RIA URL. It is build from the following components:
+
+   - a ``ria+`` identifier
+   - a path/url to the store in question. For store.datalad.org, this is
+     ``http://store.datalad.org``, but it could also be an SSH url, such as
+     ``ssh://juseless.inm7.de/data/group/psyinf/dataset_store``
+   - a pound sign (``#``)
+   - the dataset ID
+   - and optionally a version or branch specification (appended with a leading ``@``)
+
+   Here is how a valid :command:`datalad clone` command from the data store
+   for one dataset would look like:
+
+   .. code-block:: bash
+
+      datalad clone 'ria+http://store.datalad.org#d1ca308e-3d17-11ea-bf3b-f0d5bf7b5561' subj-01
+
+   But worry not! To get the HCP data, no-one will ever need to compose
+   :command:`clone` commands to RIA stores apart from DataLad itself.
+
+While its layout looks confusing, a RIA store is nothing but a clever storage
+solution, and users never consciously interact with the store to get the HCP
+datasets. On the lowest level, `store.datalad.org <http://store.datalad.org/>`__
+is a directory on a publicly accessible server that holds a great number of such
+bare repositories. The only important aspect of it for this usecase is that
+instead of by their names (e.g., ``100206``), datasets are stored and identified
+via their :term:`dataset ID` (the first two highlighted lines). The hidden section
+above demonstrated how this dataset ID becomes relevant to obtain the dataset.
 Importantly, after cloning a dataset from a RIA store, the dataset clone will
 have its usual file hierarchy and file names.
+
+A RIA store is used, because -- among other advantages -- its layout makes the
+store flexible and scalable. With datasets of sizes like the HCP project,
+especially scalability becomes an important factor. If you are interested in
+finding out why, you can find more technical details on RIA stores, their advantages,
+and even how to create and use one yourself in the use case :ref:`usecase_datastore`.
+
+.. todo::
+
+   Extend the datastore use case
 
 Making the datasets accessible
 """"""""""""""""""""""""""""""
@@ -409,11 +444,12 @@ Making the datasets accessible
 At this point, roughly 1200 nested datasets were created and published to a publicly
 accessible RIA store. This modularized the HCP dataset and prevented performance
 issues that would arise in oversized datasets. In order to make the complete dataset
-available and accessible, the only thing missing is a single superdataset.
+available and accessible from one central point, the only thing missing is a
+single superdataset.
 
 For this, a new dataset, ``human-connectome-project-openaccess``, was created.
-It contains a short ``README`` file with short instructions how to use it,
-a text-based copy of the HCP projects data usage agreement, and each subject
+It contains a ``README`` file with short instructions how to use it,
+a text-based copy of the HCP projects data usage agreement, -- and each subject
 dataset as a subdataset. The ``.gitmodules`` file [#f1]_ of this superdataset
 thus is impressive. Here is an excerpt::
 
@@ -434,18 +470,35 @@ thus is impressive. Here is an excerpt::
         datalad-id = d3fa72e4-2c2b-11ea-948f-0025904abcb0
     [...]
 
-For each subdataset (named after subject IDs), there is one entry.
+For each subdataset (named after subject IDs), there is one entry. Thus, this
+superdatasets combines all individual datasets to the original HCP dataset
+structure. This (and only this) superdataset is published to a public :term:`GitHub`
+repository that anyone can :command:`datalad clone`.
 
-This (and only this) superdataset is published to a public :term:`GitHub`
-repository that anyone can :command:`datalad clone`. If you inspect the GitHub
-repository, though, you will find the the subdatasets will not resolve if you
-click on them, because they are not published to GitHub, but lie in the RIA
-store [#f4]_.
-This, however, is not a problem, and dataset or file content retrieval will
-work automatically with :command:`datalad get`: Each entry lists the subdatasets
-dataset ID, and based on a configuration of "subdataset-source-candidates" in
+Data retrieval and interacting with the repository
+""""""""""""""""""""""""""""""""""""""""""""""""""
+
+Procedurally, getting data from this dataset is almost as simple as with any
+other public DataLad dataset: One needs to :command:`clone` the repository
+and use :command:`datalad get [-n] [-r] PATH` to retrieve any file, directory,
+or subdataset (content). But because the data will be downloaded from the HCP's
+AWS S3 bucket, users will need to create an account at
+`db.humanconnectome.org <http://db.humanconnectome.org>`_ to agree to the projects
+data usage terms and get credentials. When performing the first :command:`datalad
+get` for file contents, DataLad will prompt for these credentials interactively
+from the terminal. Once supplied, all subsequent :command:`get` commands will
+retrieve data right away.
+
+Internally, DataLad cleverly manages the crucial aspects of data retrieval:
+Linking registered subdatasets to the correct dataset in the RIA store. If you
+inspect the GitHub repository, you will find that the subdatasets links in it
+will not resolve if you click on them, because none of the subdatasets was
+published to GitHub [#f4]_, but lie in the RIA store instead.
+Dataset or file content retrieval will nevertheless work automatically with
+:command:`datalad get`: Each ``.gitmodule`` entry lists the subdatasets
+dataset ID. Based on a configuration of "subdataset-source-candidates" in
 ``.datalad/config`` of the superdataset, the subdataset ID is assembled to a
-RIA URL that retrieves the correct dataset from the store:
+RIA URL that retrieves the correct dataset from the store by :command:`get`:
 
 .. code-block:: bash
 
@@ -454,6 +507,24 @@ RIA URL that retrieves the correct dataset from the store:
         id = 2e2a8a70-3eaa-11ea-a9a5-b4969157768c
     [datalad "get"]
         subdataset-source-candidate-origin = "ria+http://store.datalad.org#{id}"
+
+If subdatasets are obtained from a RIA store from a dataset with such a configuration,
+the configuration is propagated into the ``.git/config`` of the subdataset so that
+all potential further subdatasets underneath it can be retrieved in the same way.
+With this in place, anyone can clone the top most dataset from GitHub, and --
+given they have valid credentials -- get any file in the HCP dataset hierarchy.
+
+Summary
+"""""""
+
+This usecase demonstrated how it is possible to version control and distribute
+datasets of sizes that would otherwise be unmanageably large for version control
+systems. With the public HCP dataset available as a DataLad dataset, data access
+is simplified, data analysis that use the HCP data can link it (in precise versions)
+to their scripts and even share it, and the complete HCP release can be stored
+at a fraction of its total size for on demand retrieval.
+
+
 
 .. rubric:: Footnotes
 

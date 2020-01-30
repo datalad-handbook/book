@@ -15,19 +15,20 @@ without circumventing or breaching the data providers terms:
 #. The :command:`datalad addurls` command is used to automatically aggregate
    files and information about their sources from public
    `AWS S3 <https://docs.aws.amazon.com/AmazonS3/latest/dev/Welcome.html>`_
-   bucket storage into a small-sized, modular DataLad datasets.
+   bucket storage into small-sized, modular DataLad datasets.
 #. Modular datasets are structured into a hierarchy of nested datasets, with a
    single HCP superdataset at the top. This modularizes storage and access,
    and mitigates performance problems that would arise in oversized standalone
    datasets, but maintains access to any subdataset from the top-level dataset.
-#. Individual datasets are stored in an remote indexed archive (RIA) store
-   at `store.datalad.org <store.datalad.org>`__ under their :term:`dataset ID`.
-   This results in a flexible and scalable storage solution in which dataset
-   locations are derived from their properties.
+#. Individual datasets are stored in a remote indexed archive (RIA) store
+   at `store.datalad.org <http://store.datalad.org/>`__ under their :term:`dataset ID`.
+   This setup constitutes a flexible, domain-agnostic, and scalable storage
+   solution, while dataset configurations enable seamless automatic dataset
+   retrieval from the store.
 #. The top-level dataset is published to GitHub as a public access point for the
-   full HCP dataset. As the RIA store only file availability and source
-   information instead data contents, :command:`datalad get` retrieves file
-   contents from the original AWS S3 sources.
+   full HCP dataset. As the RIA store contains datasets with only file source
+   information instead of hosting data contents, a :command:`datalad get` retrieves
+   file contents from the original AWS S3 sources.
 #. With DataLad's authentication management, users will authenticate once -- and
    are thus required to accept the HCP projects terms to obtain valid
    credentials --, but subsequent :command:`datalad get` commands work swiftly
@@ -50,8 +51,8 @@ task-fMRI (tfMRI), and high angular resolution
 It further includes behavioral and other individual subject measure
 data for all, and `magnetoencephalography <https://en.wikipedia.org/wiki/Magnetoencephalography>`_
 data and 7T MR data for a subset of subjects (twin pairs).
-In total, the data release encompasses around 80TB of data, and is of immense
-value to the field of neuroscience.
+In total, the data release encompasses around 80TB of data in 15 million files,
+and is of immense value to the field of neuroscience.
 
 Its large amount of data, however, also constitutes a data management challenge:
 Such amounts of data are difficult to store, structure, access, and version
@@ -90,13 +91,13 @@ of an impressive ``.gitmodules`` file [#f1]_ with almost 1200 registered
 to expose this superdataset and allow anyone to install it with a single
 :command:`datalad clone` command in a few seconds.
 Secondly, the modularity from splitting the data release into
-several thousand subdatasets also has performance advantages. If :term:`Git` or
+several thousand subdatasets has performance advantages. If :term:`Git` or
 :term:`git-annex` repositories exceed certain a certain size (either in terms of
 file sizes or the number of files), performance can drop severely [#f2]_.
 By dividing the vast amount of data into many subdatasets,
-this can be prevented, and it comes with no additional costs or difficulties,
-as DataLad can work smoothly across subdatasets.
-
+this can be prevented: Subdatasets are small-sized units that are combined to the
+complete HCP dataset structure, and nesting comes with no additional costs or
+difficulties, as DataLad can work smoothly across hierarchies of subdatasets.
 
 In order to only simplify access to the data instead of providing data access
 that could circumvent HCP license term agreements for users, DataLad does not
@@ -106,13 +107,13 @@ data file knows its source (the public AWS S3 bucket of the HCP project), and a
 With this setup, anyone who wants to obtain the data will still need to consent
 to data usage terms and retrieve AWS credentials from the HCP project, but can
 afterwards obtain the data solely with DataLad commands from the command line
-or in scripts. Only the first :command:`datalad get`, requires authentication
+or in scripts. Only the first :command:`datalad get` requires authentication
 with AWS credentials provided by the HCP project: DataLad will prompt any user at
 the time of retrieval of the first file content of the dataset.
 Afterwards, no further authentication is needed, unless the credentials become
 invalid or need to be updated for other reasons.
 Thus, in order to retrieve HCP data of up to single file level with DataLad,
-users need to:
+users only need to:
 
 - :command:`datalad clone` the superdataset from :term:`GitHub`
   (`github.com/datalad-datasets/human-connectome-project-openaccess <https://github.com/datalad-datasets/human-connectome-project-openaccess>`_)
@@ -122,10 +123,16 @@ users need to:
   subdataset contents on demand. Authentication is necessary only
   once (at the time of the first :command:`datalad get`).
 
-
+The HCP data release, despite its large size, can thus be version controlled and
+easily distributed with DataLad.
 
 Step-by-Step
 ^^^^^^^^^^^^
+
+Building and publishing a DataLad dataset with HCP data consists of several steps:
+1) Creating all necessary datasets, 2) publishing them to a RIA store, and 3) creating
+an access point to all files in the HCP data release. The upcoming subsections
+detail each of these.
 
 Dataset creation with ``datalad addurls``
 """""""""""""""""""""""""""""""""""""""""
@@ -134,7 +141,7 @@ Dataset creation with ``datalad addurls``
 
 The :command:`datalad addurls` command (:manpage:`datalad-addurls` manual)
 allows to create (and update) potentially nested DataLad datasets from a list
-of URLs.
+of download URLs that point to files.
 By supplying subject specific ``.csv`` files that contain S3 download links,
 a subject ID, a file name, and a version specification per file in the HCP dataset,
 as well as information on where subdataset boundaries are,
@@ -142,7 +149,9 @@ as well as information on where subdataset boundaries are,
 to store them in. With the help of a few bash commands, this task can be
 automated, and with the help of a `job scheduler <https://en.wikipedia.org/wiki/Job_scheduler>`_,
 it can also be parallelized. The results of this effort are one nested dataset
-per subject. As soon as files are retrieved and registered in the resulting datasets,
+per subject in the data release.
+
+As soon as files are retrieved and registered in the resulting datasets,
 their content can be dropped again via :command:`datalad drop`: The origin
 of the file was successfully recorded, and a :command:`datalad get` could
 retrieve file contents on demand, if required. Shortly after a complete
@@ -293,9 +302,6 @@ below.
    all subjects nested datasets were added as subdatasets.
 
 
-
-
-
 All of the dataset aggregation is done on a scientific compute cluster.
 In this location, however, datasets would not be accessible to anyone without
 an account on this system. Subsequently, therefore, the datasets are published
@@ -386,7 +392,7 @@ Here is how one dataset may look like:
 
 While it looks confusing, it is only a clever storage solution, and users never
 consciously interact with the store to get the HCP datasets. On the lowest level,
-`store.datalad.org <store.datalad.org>`__ is a directory on a publicly accessible
+`store.datalad.org <http://store.datalad.org/>`__ is a directory on a publicly accessible
 server that holds a great number of such bare repositories. The only important
 aspect of it for this usecase is that instead of by their names (e.g., ``100206``),
 datasets are stored and identified via their :term:`dataset ID` (the first two

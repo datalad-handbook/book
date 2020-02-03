@@ -148,18 +148,28 @@ in the figure below:
    with adequate resources, but just as users workstations/laptops (``$HOME``),
    it is not concerned with data hosting.
 
-On their own machines (``$HOME``), researchers are free to do whatever they want
-as long as it is within the limits of their machines. The cluster (``$COMPUTE``)
-pulls the data exclusively from the data store (``$DATA``). Thus, within
-``$HOME``, researchers are free to explore data from ``$DATA`` as they wish,
-but scaling requires them to use ``$COMPUTE``. Results from ``$COMPUTE`` are pushed
-back to ``$DATA``, and hence anything that is relevant for a computation is tracked
-(and backed-up) there.
-
-The data store as a git-annex RIA remote
-""""""""""""""""""""""""""""""""""""""""
-
-The remote data store exists thanks to git-annex (which DataLad builds upon):
+Data from the RIA store (``$DATA``) is accessible for researchers for exploration
+and computation, but the scale of the operations they want to perform can require
+different approaches.
+On their own machines or ``$HOME`` directories on the cluster (``$HOME``),
+researchers are free to do whatever they want as long as it is within the limits
+of their machines or their user accounts. On the clusters head node, with 100GB
+storage per person, researchers can explore data from the store (``$DATA``),
+test and develop code, or visualize results, but they can not create complete
+dataset copies or afford to keep an excess of unused data around.
+Only the cluster's compute nodes (``$COMPUTE``) have the necessary hardware
+requirements for expensive computations, and can also pull from ``$DATA``.
+Thus, within ``$HOME``, researchers are free to explore data from ``$DATA``
+as they wish, but scaling requires them to use ``$COMPUTE``. By using a job
+scheduler, compute jobs of multiple researchers are distributed fairly across
+the available compute infrastructure. Version controlled (and potentially
+reproducible) research logs and the results of the analyses can be pushed from
+``COMPUTE`` to ``$DATA`` for back-up and archival, and hence anything that is
+relevant for a research project is tracked, backed-up, and stored, all without
+straining available disk-space on the cluster afterwards. While the imposed
+limitations are independent of DataLad, DataLad can make sure that the necessary
+workflows are simple enough for researchers of any seniority, background, or
+skill level.
 Large files in datasets are stored as *values* in git-annex's object tree. A *key*
 generated from their contents is checked into Git and used to reference the
 location of the value in the object tree [#f1]_. The object tree (or *keystore*)

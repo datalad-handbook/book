@@ -78,22 +78,34 @@ amounts of data, and for more efficient use of compute power for
 calculations instead of data storage, the cluster gets a remote data
 store: Data lives as DataLad datasets on a different machine than the one
 the scientific analyses are computed on.
-For access to the annexed data in datasets, the data store is configured as a
-git-annex `RIA-remote <https://libraries.io/pypi/ria-remote>`_ and constitutes
-a remote indexed archive (RIA) store, a flexible and scalable storage solution
-for DataLad datasets that aligns well with the requirements of scientific
-computing (infrastructure). In case of filesystem inode limitations on the machine
-serving as the data store (e.g., HPC storage systems), full datasets can be
-(compressed) 7-zip archives, without losing the ability to query available files.
-Regardless of the number of file and size of them, such datasets thus use only
-few inodes. DataLad's run-procedures can be used to distribute institute-wide
+For a scalable and flexible dataset storage and access to the annexed data in
+datasets, the data store is a Remote Indexed Archive (RIA) store, an extendable,
+file-system based storage solution for DataLad datasets that aligns well with the
+requirements of scientific computing (infrastructure), and is configured as a
+git-annex `RIA-remote <https://libraries.io/pypi/ria-remote>`_.
+In case of filesystem inode limitations on the machine the RIA store exists on
+(e.g., HPC storage systems), full datasets can be (compressed) 7-zip archives,
+without losing the ability to query available files. Regardless of the number of
+file and size of them, such datasets thus use only few inodes.
+
+.. todo::
+
+   Is this still the case?
+
+DataLad's run-procedures can be used to distribute institute-wide
 configurations adjusted to the compute infrastructure among users to mitigate any
 potential remaining technical overhead to interact with the data store.
 
 The infrastructural changes are accompanied by changes in the mindset and workflows
 of the researchers that perform analyses on the cluster.
-By using the data store, the institute's work routines are adjusted around
-DataLad datasets: Analyses are set-up inside of DataLad datasets, and for every
+By using a RIA store, the institute's work routines are adjusted around
+DataLad datasets.
+
+.. todo::
+
+   Update the workflow overview, if necessary
+
+Analyses are set-up inside of DataLad datasets, and for every
 analysis, an associated ``project`` is created under the namespace of the
 institute on the institute's :term:`GitLab` instance automatically. This has
 the advantage of vastly simplified version control and

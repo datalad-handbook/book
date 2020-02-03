@@ -73,7 +73,7 @@ The DataLad Approach
 ^^^^^^^^^^^^^^^^^^^^
 
 Using the :command:`datalad addurls` command, the HCP data release is
-aggregated into a large amount (N ~= 5000) of datasets. A lean top-level dataset
+aggregated into a large amount (N ~= 4500) of datasets. A lean top-level dataset
 combines all datasets into a nested dataset hierarchy that recreates the original
 HCP data release's structure. The topmost dataset contains one subdataset per
 subject with the subject's release notes, and within each subject's subdataset,

@@ -217,52 +217,59 @@ special remote, but distinct in certain aspects:
 The structure under which data is stored in the data store looks like this:
 
 .. code-block::
-   :emphasize-lines: 1-2, 4-10
+   :emphasize-lines: 1-2, 4-12, 21-24
 
-    082
-    ├── 8ac72-f7c8-11e9-917f-a81e84238a11
-    │   ├── annex
-    │   │   ├── objects
-    │   │   │   ├── ff4
-    │   │   │   │   └── c57
-    │   │   │   │       └── MD5E-s4--ba1f2511fc30423bdbb183fe33f3dd0f
-    │   │   │   ├── abc
-    │   │   │   │   └── def
-    │   │   │   │       └── MD5E-s4--ba1f2511fc30423bdbb183fe33f3dd0f
-    │   │   │   ├── [...]
-    │   │   └── archives
-    │   │       └── archive.7z
-    │   ├── branches
-    │   ├── config
-    │   ├── description
-    │   ├── HEAD
-    │   ├── hooks
-    │   │   ├── [...]
-    │   ├── info
-    │   │   └── exclude
-    │   ├── objects
-    │   │   ├── 04
-    │   │   │   └── 49b485d128818ff039b4fa88ef57be0cb5b184
-    │   │   ├── 06
-    │   │   │   └── 4e5deab57592a54e4e9a495cde70cd6da7605a
-    │   │   ├── [...]
-    │   │   ├── info
-    │   │   └── pack
-    │   ├── refs
-    │   │   ├── heads
-    │   │   │   ├── git-annex
-    │   │   │   └── master
-    │   │   └── tags
-    │   └── ria-layout-version
-    └── c9d36-f733-11e9-917f-a81e84238a11
-        ├── [...]
+    ├── 946
+    │   └── e8cac-432b-11ea-aac8-f0d5bf7b5561
+    │       ├── annex
+    │       │   └── objects
+    │       │       ├── 6q
+    │       │       │   └── mZ
+    │       │       │       └── MD5E-s93567133--7c93fc5d0b5f197ae8a02e5a89954bc8.nii.gz
+    │       │       │           └── MD5E-s93567133--7c93fc5d0b5f197ae8a02e5a89954bc8.nii.gz
+    │       │       ├── 6v
+    │       │       │   └── zK
+    │       │       │       └── MD5E-s2043924480--47718be3b53037499a325cf1d402b2be.nii.gz
+    │       │       │           └── MD5E-s2043924480--47718be3b53037499a325cf1d402b2be.nii.gz
+    │       │       ├── [...]
+    │       │       └── [...]
+    │       ├── archives
+    │       │   └── archive.7z
+    │       ├── branches
+    │       ├── config
+    │       ├── description
+    │       ├── HEAD
+    │       ├── hooks
+    │       │   ├── applypatch-msg.sample
+    │       │   ├── [...]
+    │       │   └── update.sample
+    │       ├── info
+    │       │   └── exclude
+    │       ├── objects
+    │       │   ├── 05
+    │       │   │   └── 3d25959223e8173497fa7f747442b72c31671c
+    │       │   ├── 0b
+    │       │   │   └── 8d0edbf8b042998dfeb185fa2236d25dd80cf9
+    │       │   ├── [...]
+    │       │   │   └── [...]
+    │       │   ├── info
+    │       │   └── pack
+    │       ├── refs
+    │       │   ├── heads
+    │       │   │   ├── git-annex
+    │       │   │   └── master
+    │       │   └── tags
+    │       ├── ria-layout-version
+    │       └── ria-remote-ebce196a-b057-4c96-81dc-7656ea876234
+    │           └── transfer
 
-Here is how the RIA-remote features look like in real life:
+The code block above shows the representation of one dataset in the RIA store
+and helps to illustrate how the RIA-remote features look like in real life:
 
 - Datasets are identified via their :term:`UUID` (e.g.,
-  ``0828ac72-f7c8-11e9-917f-a81e84238a11``). The UUID is split into the first
+  ``946e8cac-432b-11ea-aac8-f0d5bf7b5561``). The UUID is split into the first
   two levels of the tree structure (as highlighted above in the first two
-  lines), with the two-level structure to avoid exhausting file system limits
+  lines). This two-level structure exists to avoid exhausting file system limits
   on the number of files/folders within a directory.
 - This first, two-level tree structure can host keystores for any number of
   repositories.

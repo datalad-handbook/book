@@ -62,6 +62,12 @@ compute cluster is quickly brought to its knees: Insufficient memory and
 IOPS starvation make computations painstakingly slow, and hinder scientific
 progress, despite the elaborate and expensive cluster setup.
 
+Therefore, the challenge is two-fold: On an infrastructural level, institute XYZ
+needs a scalable, flexible, and maintainable data storage solution for their
+growing collection of large datasets.
+On the level of human behavior, researchers not formerly trained in data
+management need to apply and adhere to advanced data management principles.
+
 The DataLad approach
 ^^^^^^^^^^^^^^^^^^^^
 

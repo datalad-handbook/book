@@ -72,21 +72,23 @@ The DataLad approach
 ^^^^^^^^^^^^^^^^^^^^
 
 The compute cluster is refurbished to a state-of-the-art data management
-system. Unlike traditional solutions, both because of the size of the large
+system.
+Unlike traditional solutions, both because of the size of the large
 amounts of data, and for more efficient use of compute power for
 calculations instead of data storage, the cluster gets a remote data
 store: Data lives as DataLad datasets on a different machine than the one
 the scientific analyses are computed on.
 For access to the annexed data in datasets, the data store is configured as a
-git-annex `RIA-remote <https://libraries.io/pypi/ria-remote>`_.
-In case of filesystem inode limitations on the machine
+git-annex `RIA-remote <https://libraries.io/pypi/ria-remote>`_ and constitutes
+a remote indexed archive (RIA) store, a flexible and scalable storage solution
+for DataLad datasets that aligns well with the requirements of scientific
+computing (infrastructure). In case of filesystem inode limitations on the machine
 serving as the data store (e.g., HPC storage systems), full datasets can be
 (compressed) 7-zip archives, without losing the ability to query available files.
-Regardless of the number of file and size of them, such datasets thus use only few inodes.
-Using DataLad's run-procedures, an institute-wide
-configuration is distributed among users. Applying the procedure is done in a
-single :command:`datalad run-procedure` command, and users subsequently
-face minimal technical overhead to interact with the data store.
+Regardless of the number of file and size of them, such datasets thus use only
+few inodes. DataLad's run-procedures can be used to distribute institute-wide
+configurations adjusted to the compute infrastructure among users to mitigate any
+potential remaining technical overhead to interact with the data store.
 
 The infrastructural changes are accompanied by changes in the mindset and workflows
 of the researchers that perform analyses on the cluster.

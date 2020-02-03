@@ -170,6 +170,11 @@ straining available disk-space on the cluster afterwards. While the imposed
 limitations are independent of DataLad, DataLad can make sure that the necessary
 workflows are simple enough for researchers of any seniority, background, or
 skill level.
+
+A Remote Indexed Archive Store
+""""""""""""""""""""""""""""""
+
+The remote data store exists thanks to :term:`git-annex` (which DataLad builds upon):
 Large files in datasets are stored as *values* in git-annex's object tree. A *key*
 generated from their contents is checked into Git and used to reference the
 location of the value in the object tree [#f1]_. The object tree (or *keystore*)
@@ -294,7 +299,19 @@ and helps to illustrate how the RIA-remote features look like in real life:
   either for compression gains, or for use on HPC-systems with inode limitations.
 
 This implementation is fully self-contained, and is a plain file system storage,
-not a database. Once it is set up, in order to retrieve data from the data store, special
+not a database.
+
+
+--> advantages here
+
+.. findoutmore:: How to create a RIA store
+
+   This needs to be a step-by-step instruction how to create a RIA store
+
+Workflows based on the RIA store
+""""""""""""""""""""""""""""""""
+
+Once it is set up, in order to retrieve data from the data store, special
 remote access to the data store needs to be initialized.
 
 This is done with a custom configuration (``cfg_inm7``) as a run-procedure [#f2]_ with a
@@ -323,6 +340,34 @@ complete copies of datasets as before.
 .. todo::
 
    maybe something about caching here
+
+   The major advantages of such a store are its
+   flexibility, scalability, and maintainability. Because datasets can be identified
+   with their universally unique ID, there is no need for static, filename-based
+   hierarchies. New datasets can be added to the store without consequences for
+   existing ones
+
+   .. todo::
+
+      maybe contrast this to datasets.datalad.org).
+
+   .. todo::
+
+       - What are the advantages? --> flexible store: Can hold any amount of datasets,
+         and as datasets are identified via ID, there is no need for static filename-based
+         hierarchies.
+       - Problem: Subdataset layout in superdataset does not reflect store layout. Where
+         subdataset is referenced in superdataset as lying directly underneath the super
+         dataset, it is referenced under their ID in the store. BUT: .gitmodules does
+         not only hold path, but also dataset ID
+       - Talk about 0.12.2 features: Resolving dataset IDs to URLs, subdataset-source-
+         candidates in superdatasets, using ria+// URLs to point to RIA stores and
+         dataset versions,
+
+As the store consists of bare git repositories (with optionally 7zipped archives
+or annexes), it is easily maintainable by data stewards or system administrators.
+Common compression or cleaning operations of Git and git-annex can be performed
+without requiring knowledge about the data inside of the store.
 
 Upon :command:`datalad publish`, computed results can be pushed to the data store
 and be thus backed-up. Easy-to-reobtain input data can safely be dropped to free

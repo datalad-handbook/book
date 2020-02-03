@@ -24,15 +24,11 @@ as simple as possible. It elaborates on
 
 .. note::
 
-   This section is technical in nature and aimed at IT/data management
+   This usecase is technical in nature and aimed at IT/data management
    personnel seeking insights into the technical implementation and
-   configuration of a scalable data storage. It is not meant for users of
-   such a data store. A use case about user-facing interactions and workflows
-   with such a data storage is detailed in
-
-   .. todo::
-
-      write and link HAMMERPANTS usecase
+   configuration of a scalable data storage. In particular, it describes the
+   RIA data storage implementation as done in INM-7, research centre Juelich,
+   Germany.
 
 
 The Challenge

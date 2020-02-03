@@ -109,17 +109,33 @@ data publication routines and backups of pristine results.
 Step-by-step
 ^^^^^^^^^^^^
 
-.. note::
+The following section will elaborate on the details of the technical
+implementation of a RIA store, and the workflow requirements and incentives for
+researchers. Both of them are aimed at making scientific analyses on a
+compute cluster scale, but can be viewed as independent (yet complimentary).
+Some hardware-specific implementation details are unique to the real-world
+example this usecase is based on. For example, to create a data store, parts of
+the old compute cluster and parts of the super computer at the Juelich
+supercomputing centre (JSC) are used to store large amounts of data. Thus,
+multiple different, independent machines take care of warehousing the data.
+While this is unconventional, it is convenient: The data does not strain the
+compute cluster, and with DataLad, it is irrelevant where the data are located.
+While such a setup for a RIA store made sense in this particular case of
+application and is possible with DataLad, a remote setup is not a requirement
+for a RIA store.
 
-   This use case describes the data storage implementation as done in INM-7,
-   research centre Juelich, Germany.
 
-To create a data store, parts of the old compute cluster and parts of the
-super computer at the Juelich supercomputing centre (JSC) are used to store
-large amounts of data. Thus, multiple different, independent machines take care of
-warehousing the data. While this is unconventional, it is convenient: The
-data does not strain the compute cluster, and with DataLad, it is irrelevant
-where the data are located.
+Incentives and imperatives for disk-space aware computing
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+One aspect of the problem are disk-space unaware computing workflows. Researchers
+make and keep numerous copies of data in their home directory and perform
+computationally expensive analyses on the headnode of a compute cluster because
+they don't know better, and/or want to do it in the easiest way possible.
+A general change for the better can be achieved by imposing sensible limitations
+and restrictions on what can be done at which scale on a new compute cluster.
+On a high level, this can be summarized as the *Trinity of research data handling*
+in the figure below:
 
 .. figure:: ../artwork/src/ephemeral_infra.svg
    :alt: A simple, local version control workflow with datalad.

@@ -26,9 +26,9 @@ as simple as possible. It elaborates on
 
    This usecase is technical in nature and aimed at IT/data management
    personnel seeking insights into the technical implementation and
-   configuration of a scalable data storage. In particular, it describes the
-   RIA data storage implementation as done in INM-7, research centre Juelich,
-   Germany.
+   configuration of a RIA store or into its workflows. In particular, it
+   describes the RIA data storage and workflow implementation as done in INM-7,
+   research centre Juelich, Germany.
 
 
 The Challenge
@@ -183,59 +183,29 @@ limitations are independent of DataLad, DataLad can make sure that the necessary
 workflows are simple enough for researchers of any seniority, background, or
 skill level.
 
-A Remote Indexed Archive Store
-""""""""""""""""""""""""""""""
 
-The remote data store exists thanks to :term:`git-annex` (which DataLad builds upon):
-Large files in datasets are stored as *values* in git-annex's object tree. A *key*
-generated from their contents is checked into Git and used to reference the
-location of the value in the object tree [#f1]_. The object tree (or *keystore*)
-with the data contents can be located anywhere -- its location only needs to be
-encoded using a *special remote*. This configuration is done on an
-administrative, system-wide level, and users do not need to care or know
-about where data are stored, as they can access it just as easily as before.
+The data store as a git-annex RIA remote
+""""""""""""""""""""""""""""""""""""""""
 
-.. findoutmore:: What is a special remote?
+A RIA store is a storage solution for DataLad datasets that can be flexibly
+extended with new datasets, independent of static file names or directory
+hierarchies, and that can be (automatically) maintained or queried without
+requiring expert or domain knowledge about the data. At its core, it is a flat,
+file-system based repository representation of any number of datasets, limited
+only by disk-space constrains of the machine it lies on.
 
-   A `special-remote <https://git-annex.branchable.com/special_remotes/>`_ is an
-   extension to Git's concept of remotes, and can enable git-annex to transfer
-   data to and from places that are not Git repositories (e.g., cloud services
-   or external machines such as an HPC system). Don't envision a special-remote as a
-   physical place or location -- a special-remote is just a protocol that defines
-   the underlying *transport* of your files *to* and *from* a specific location.
-
-The machines in question, parts of an old compute cluster, and parts of the
-supercomputer at the JSC are configured to receive and store data using the
-git-annex remote for indexed file archives (`RIA <https://libraries.io/pypi/ria-remote>`_)
-special remote. The git-annex RIA-remote is similar to git-annex's built-in
-`directory <https://git-annex.branchable.com/special_remotes/directory/>`_
-special remote, but distinct in certain aspects:
-
-- It allows read access to (compressed) 7z archives, which is a useful
-  feature on systems where light quotas on filesystem inodes are imposed
-  on users, or where one wants to have compression gains.
-  This way, the entire keystore (i.e., all data contents) of the
-  remote that serves as the data store can be put into an archive that uses
-  only a handful of inodes, while remaining fully accessible.
-
-- It provides access to configurable directories via SSH.
-  This makes it easier to accommodate infrastructural changes, especially when dealing
-  with large numbers of repositories, as moving from local to remote operations, or
-  switching target paths can be done by simply changing the configuration.
-
-- It allows a multi-repository directory structure, in which keystore
-  directories of multiple repositories can be organized in to a homogeneous
-  archive directory structure. Importantly, the keystore location in an archive is defined
-  using the **datasets UUID** (in case of DataLad datasets) or the annex remote
-  UUID (in case of any non DataLad dataset). This aids handling of large
-  numbers of repositories in a data store use case, because locations are
-  derived from *repository properties* rather than having to re-configure them explicitly.
-
-The structure under which data is stored in the data store looks like this:
+The layout of a RIA store is a tree of datasets. The first level of subdirectories
+in this tree consists of the first three characters of the :term:`dataset ID`,
+and the second level of subdatasets contains the remaining characters of the
+dataset ID. Thus, the first two levels of subdirectories in the tree are split
+dataset IDs of the datasets that are stored in them [#f1]_. The code block below
+illustrates a RIA store with a single dataset, and the dataset ID of the dataset
+(``946e8cac-432b-11ea-aac8-f0d5bf7b5561``) is highlighted:
 
 .. code-block::
-   :emphasize-lines: 1-2, 4-12, 21-24
+   :emphasize-lines: 2-3
 
+    /path/to/my_riastore
     ├── 946
     │   └── e8cac-432b-11ea-aac8-f0d5bf7b5561
     │       ├── annex
@@ -279,39 +249,179 @@ The structure under which data is stored in the data store looks like this:
     │       ├── ria-layout-version
     │       └── ria-remote-ebce196a-b057-4c96-81dc-7656ea876234
     │           └── transfer
+    ├── error_logs
+    └── ria-layout-version
 
-The code block above shows the representation of one dataset in the RIA store
-and helps to illustrate how the RIA-remote features look like in real life:
+With this setup, the location of a particular dataset in the RIA store is dependent
+on its :term:`dataset ID`. As the dataset ID is universally unique, gets assigned to
+a dataset at the time of creation, and does not change across the life time of a
+dataset, no two different datasets could have the same location in a RIA store.
 
-- Datasets are identified via their :term:`UUID` (e.g.,
-  ``946e8cac-432b-11ea-aac8-f0d5bf7b5561``). The UUID is split into the first
-  two levels of the tree structure (as highlighted above in the first two
-  lines). This two-level structure exists to avoid exhausting file system limits
-  on the number of files/folders within a directory.
-- This first, two-level tree structure can host keystores for any number of
-  repositories.
-- The third level holds a directory structure that is identical to a *bare* git
-  repository, and is a clone of the dataset.
+.. findoutmore:: What if I don't have a dataset, but a git-annex repository?
 
-  .. findoutmore:: What is a bare Git repository?
+   If you want to store :term:`git-annex` repositories in a RIA store, the repository
+   will not have a dataset ID. Instead, the repository will be identified by its
+   :term:`annex UUID` in the store. This is ID is also universally unique, but unlike
+   :term:`dataset ID`\s, each repository clone will have a different :term:`annex UUID`.
+   Thus, while datasets can be identified across their entire lifetime, flavors,
+   and clones, each clone of a git-annex repository will get a new :term:`annex UUID`.
 
-     A bare Git repository is a repository that contains the contents of the ``.git``
-     directory of regular DataLad datasets or Git repositories, but no worktree
-     or checkout. This has advantages: The repository is leaner, it is easier
-     for administrators to perform garbage collections, and it is required if you
-     want to push to it at all times. You can find out more on what bare repositories are and how to use them
-     `here <https://git-scm.com/book/en/v2/Git-on-the-Server-Getting-Git-on-a
-     -Server>`_.
+The directory underneath the two dataset ID based subdirectories contains a
+*bare git repository* that is a clone of the dataset.
 
-- Inside of the bare Git repository, the ``annex`` directory -- just as in
-  any standard dataset or repository -- contains the keystore (object tree) under
-  ``annex/objects`` (highlighted above as well). Details on how this object tree
-  is structured are outlined in the hidden section in :ref:`symlink`.
-- These keystores can be 7zipped if necessary to hold (additional) git-annex objects,
-  either for compression gains, or for use on HPC-systems with inode limitations.
+.. findoutmore:: What is a bare Git repository?
 
-This implementation is fully self-contained, and is a plain file system storage,
-not a database.
+   Bare repositories are the contents of the ``.git`` directory  of regular
+   DataLad datasets or Git/git-annex repositories. They are typically used as
+   *remote* repositories to *share* repositories among several people and make
+   collaborative workflows possible. As a bare Git repository is the contents of
+   the ``.git`` directory, it does not contain a *working tree* (the directory tree
+   of files you can see or edit in a regular repository or dataset) or *checkout*
+   (a pointer to a specific state of the repository). Because of this, no-one can work
+   inside of a bare repository -- modifications to files or the repository require
+   a working tree. However, bare repositories can be cloned, pulled from, and
+   pushed to, and thus enable collaboration.
+
+   In a collaborative Git/git-annex/DataLad workflow, one commonly creates a bare
+   repository in a centralized place (such as -- you guessed it -- :term:`GitHub`)
+   and lets others clone repositories, pull updates, or push their changes to them.
+   Thus, you are already familiar with bare Git repositories, you may just not
+   have been aware. Whenever you publish a dataset to GitHub, it is the ``.git``
+   directory that will be transferred to GitHub's server. Whenever you clone a
+   dataset, regardless of whether you clone it from GitHub, another hosting service,
+   or a file path, it is a ``.git`` directory that is copied to your machine.
+
+   At this point, you may be confused about the fact that all repositories
+   that GitHub hosts are bare Git repositories, but that it appears as if GitHub
+   repositories -- unlike the bare repositories in a RIA store that you have seen
+   -- retain their directory hierarchy and their file names, or that edits directly
+   within GitHubs interface are possible, as if those repositories would actually
+   have a working tree:
+   GitHub's web-interface creates a *representation* of the repository content
+   and a *temporary* working tree to modify files directly from the web UI that
+   enables browsing and modifying file content. If you would push a bare
+   repository from a RIA store to GitHub, it would also be represented with the
+   file and directory hierarchy of the original dataset.
+
+   Apart from enabling collaboration (a bare repository is required if you want to push to
+   it at all times), bare repositories have further advantages: Because they
+   do not contain a working tree or checkout, the repositories are leaner, and it
+   is easier for administrators to perform garbage collections and maintenance.
+   You can find out more on what bare repositories are and how to use them
+   `here <https://git-scm.com/book/en/v2/Git-on-the-Server-Getting-Git-on-a
+   -Server>`_.
+
+
+Inside of the bare :term:`Git` repository, the ``annex`` directory -- just as in
+any standard dataset or repository -- contains the dataset's keystore (object
+tree) under ``annex/objects`` [#f2]_. In conjunction, keystore and bare Git
+repository are the original dataset -- just differently represented, with no
+*working tree*, i.e., directory hierarchy that exists in the original dataset.
+
+If necessary, the keystores can be `7zipped <https://www.7-zip.org/>`_
+(``archives/``), either for compression gains, or for use on HPC-systems with
+inode limitations. Despite of this, the archives can be indexed and support
+relatively fast random read access. Thus, the entire key store be put into an
+archive, re-using the exact same directory structure, and remains fully
+accessible while only using a handful of inodes, regardless of file number and size.
+
+A RIA store fully self-contained, and is a plain file system storage, not a
+database. It can be set up on any infrastructure that a dataset can be created
+on, with only few additional software requirements.
+
+.. findoutmore:: Software Requirements
+
+   .. todo::
+
+      update with correct versions!
+
+   - git-annex version 7.20 or newer
+   - DataLad version 0.12.5 (or later), or any DataLad development version more
+     recent than May 2019 (critical feature: https://github.com/datalad/datalad/pull/3402)
+   - The ``cfg_inm7`` run procedure as provided with ``pip install git+https://jugit.fz-juelich.de/inm7/infrastructure/inm7-datalad.git``
+   - Server side: 7z needs to be in the path.
+
+
+Storing datasets in RIA stores has a number of advantages that align well with
+the demands of large datasets and scientific compute infrastructure.
+In a RIA store layout, the first two levels of subdirectories can host any
+number of keystores and bare repositories. As datasets are identified via ID and
+stored *next to eachother* underneath the top-level RIA store directory, the
+store is completely flexible and extendable. Regardless of the number or nature of
+datasets inside of the store, a RIA store keeps a homogeneous directory structure.
+This feature further aids the handling of large numbers of repositories in a
+back-up or data store use case, because locations are derived from
+*repository properties* (their ID) rather than having to re-configure them
+explicitly.
+Because the dataset representation in the RIA is a bare repository,
+"house-keeping" as well as query tasks can be automated or performed by data
+management personnel with no domain-specific knowledge about dataset contents.
+Short maintenance scripts can be used to automate basically any task that is
+of interest and possible in a dataset or RIA store. A few examples are:
+
+- Copy or move annex objects into a 7z archive.
+- Find dataset dependencies across all stored datasets by returning the dataset
+  IDs of subdatasets recorded in each dataset.
+- Automatically return the number of commits in each repository.
+- Automatically return the author and time of the last dataset update.
+- Find all datasets associated with specific authors.
+- Clean up unnecessary files and minimize a (or all) repository with :term:`Git`\s
+  `garbage collection (gc) <https://git-scm.com/docs/git-gc>`_ command.
+
+
+On a technical level, beyond being a tree of datasets, a RIA store can be a
+:term:`git-annex` special remote.
+
+.. findoutmore:: What is a special remote?
+
+   A `special-remote <https://git-annex.branchable.com/special_remotes/>`_ is an
+   extension to Git's concept of remotes, and can enable git-annex to transfer
+   data to and from places that are not Git repositories (e.g., cloud services
+   or external machines such as an HPC system). Don't envision a special-remote as a
+   physical place or location -- a special-remote is just a protocol that defines
+   the underlying *transport* of your files *to* and *from* a specific location.
+
+The remote data store exists thanks to git-annex (which DataLad builds upon):
+Large files in datasets are stored as *values* in git-annex's object tree. A *key*
+generated from their contents is checked into Git and used to reference the
+location of the value in the object tree [#f2]_. The object tree (or *keystore*)
+with the data contents can be located anywhere -- its location only needs to be
+encoded using a *special remote*. This configuration is done on an
+administrative, system-wide level, and users do not need to care or know
+about where data are stored, as they can access it just as easily as before.
+
+.. todo::
+
+   What is a RIA store without a git annex special remote?
+
+
+
+The machines in question, parts of an old compute cluster, and parts of the
+supercomputer at the JSC are configured to receive and store data using the
+git-annex remote for indexed file archives (`RIA <https://libraries.io/pypi/ria-remote>`_)
+special remote. The git-annex RIA-remote is similar to git-annex's built-in
+`directory <https://git-annex.branchable.com/special_remotes/directory/>`_
+special remote, but distinct in certain aspects:
+
+- It allows read access to (compressed) 7z archives, which is a useful
+  feature on systems where light quotas on filesystem inodes are imposed
+  on users, or where one wants to have compression gains.
+  This way, the entire keystore (i.e., all data contents) of the
+  remote that serves as the data store can be put into an archive that uses
+  only a handful of inodes, while remaining fully accessible.
+
+- It provides access to configurable directories via SSH.
+  This makes it easier to accommodate infrastructural changes, especially when dealing
+  with large numbers of repositories, as moving from local to remote operations, or
+  switching target paths can be done by simply changing the configuration.
+
+- It allows a multi-repository directory structure, in which keystore
+  directories of multiple repositories can be organized in to a homogeneous
+  archive directory structure. Importantly, the keystore location in an archive is defined
+  using the **datasets UUID** (in case of DataLad datasets) or the annex remote
+  UUID (in case of any non DataLad dataset). This aids handling of large
+  numbers of repositories in a data store use case, because locations are
+  derived from *repository properties* rather than having to re-configure them explicitly.
 
 
 --> advantages here
@@ -326,7 +436,7 @@ Workflows based on the RIA store
 Once it is set up, in order to retrieve data from the data store, special
 remote access to the data store needs to be initialized.
 
-This is done with a custom configuration (``cfg_inm7``) as a run-procedure [#f2]_ with a
+This is done with a custom configuration (``cfg_inm7``) as a run-procedure [#f3]_ with a
 :command:`datalad create` command::
 
    $ datalad create -c inm7 <PATH>
@@ -391,22 +501,20 @@ analyses faster and on larger datasets than before, but with DataLad's version
 control capabilities their work also becomes more transparent, open, and reproducible.
 
 
-.. findoutmore:: Software Requirements
 
-   - git-annex version 7.20 or newer
-   - DataLad version 0.12.5 (or later), or any DataLad development version more
-     recent than May 2019 (critical feature: https://github.com/datalad/datalad/pull/3402)
-   - The ``cfg_inm7`` run procedure as provided with ``pip install git+https://jugit.fz-juelich.de/inm7/infrastructure/inm7-datalad.git``
-   - Server side: 7z needs to be in the path.
 
 
 .. rubric:: Footnotes
 
-.. [#f1] To re-read about how git-annex's object tree works, check out section
+.. [#f1]  The two-level structure (3 ID characters as one subdirectory, the
+          remaining ID characters as the next subdirectory) exists to avoid exhausting
+          file system limits on the number of files/folders within a directory.
+
+.. [#f2] To re-read about how git-annex's object tree works, check out section
          :ref:`symlink`, and pay close attention to the hidden section.
          Additionally, you can find much background information in git-annex's
          `documentation <https://git-annex.branchable.com/internals/>`_.
 
-.. [#f2] To re-read about DataLad's run-procedures, check out section
+.. [#f3] To re-read about DataLad's run-procedures, check out section
          :ref:`procedures`. You can find the source code of the procedure
          `on GitLab <https://jugit.fz-juelich.de/inm7/infrastructure/inm7-datalad/blob/master/inm7_datalad/resources/procedures/cfg_inm7.py>`_.

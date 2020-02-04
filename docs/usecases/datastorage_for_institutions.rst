@@ -15,10 +15,10 @@ solution, suitable to serve the computational and logistic demands of data
 science in big (scientific) institutions, while keeping workflows for users
 as simple as possible. It elaborates on
 
-#. How to implement a scalable, remote data store so that data are
-   stored in a different place than where people work with it,
-#. How to configure the data store and general cluster setup for easy and
-   fast accessibility of data, and
+#. How to implement a scalable Remote Indexed Archive (RIA) store for DataLad
+   datasets, potentially remote, so that data are stored in a different place
+   than where people work with it,
+#. How to incentivize and enforce disk-space aware computing, and
 #. How to reduce technical complexities for users and encourage reproducible,
    version-controlled scientific workflows.
 
@@ -128,15 +128,15 @@ implementation of a RIA store, and the workflow requirements and incentives for
 researchers. Both of them are aimed at making scientific analyses on a
 compute cluster scale, but can be viewed as independent (yet complimentary).
 Some hardware-specific implementation details are unique to the real-world
-example this usecase is based on. For example, to create a data store, parts of
-the old compute cluster and parts of the super computer at the Juelich
-supercomputing centre (JSC) are used to store large amounts of data. Thus,
-multiple different, independent machines take care of warehousing the data.
-While this is unconventional, it is convenient: The data does not strain the
-compute cluster, and with DataLad, it is irrelevant where the data are located.
-While such a setup for a RIA store made sense in this particular case of
-application and is possible with DataLad, a remote setup is not a requirement
-for a RIA store.
+example this usecase is based on, and are not a requirement: For example, parts
+of an old compute cluster and parts of the super computer at the Juelich
+supercomputing centre (JSC) are used to host the data store, instead of the
+institutes compute cluster. Thus, multiple different, independent machines take
+care of warehousing the data. While this is an unconventional storage location,
+it is convenient: The data does not strain the compute cluster, and with DataLad,
+it is irrelevant where the RIA store is located.
+In this particular case of application, a remote setup for a RIA store made sense
+(and is possible with DataLad), a remote setup is not a requirement for a RIA store.
 
 
 Incentives and imperatives for disk-space aware computing
@@ -187,6 +187,8 @@ skill level.
 The data store as a git-annex RIA remote
 """"""""""""""""""""""""""""""""""""""""
 
+**The looks and feels of a RIA store**
+
 A RIA store is a storage solution for DataLad datasets that can be flexibly
 extended with new datasets, independent of static file names or directory
 hierarchies, and that can be (automatically) maintained or queried without
@@ -194,13 +196,24 @@ requiring expert or domain knowledge about the data. At its core, it is a flat,
 file-system based repository representation of any number of datasets, limited
 only by disk-space constrains of the machine it lies on.
 
+Put simple, a RIA store is a dataset storage location that allows for access to
+and collaboration on DataLad datasets (or, just as well, :term:`git-annex`
+repositories). The high-level workflow overview is as follows: Create a dataset,
+publish it into an existing RIA store or create a new RIA store with
+:command:`datalad create-sibling-ria`, (let others) clone the dataset from the
+RIA store, and (let others) publish and pull updates from the RIA store.  In the
+case of large, institute-wide datasets, the RIA store can serve as a singular,
+central storage location that enables fine-grained data access to everyone who
+needs it, and as a storage and back-up location for all analyses datasets.
+
 The layout of a RIA store is a tree of datasets. The first level of subdirectories
 in this tree consists of the first three characters of the :term:`dataset ID`,
 and the second level of subdatasets contains the remaining characters of the
 dataset ID. Thus, the first two levels of subdirectories in the tree are split
 dataset IDs of the datasets that are stored in them [#f1]_. The code block below
-illustrates a RIA store with a single dataset, and the dataset ID of the dataset
-(``946e8cac-432b-11ea-aac8-f0d5bf7b5561``) is highlighted:
+illustrates how a single DataLad dataset looks like in a RIA store, and the
+dataset ID of the dataset (``946e8cac-432b-11ea-aac8-f0d5bf7b5561``) is
+highlighted:
 
 .. code-block::
    :emphasize-lines: 2-3
@@ -252,10 +265,18 @@ illustrates a RIA store with a single dataset, and the dataset ID of the dataset
     ├── error_logs
     └── ria-layout-version
 
-With this setup, the location of a particular dataset in the RIA store is dependent
-on its :term:`dataset ID`. As the dataset ID is universally unique, gets assigned to
-a dataset at the time of creation, and does not change across the life time of a
-dataset, no two different datasets could have the same location in a RIA store.
+Beyond datasets, the RIA store only contains the directory ``error_logs``
+for error logging and the file ``ria-layout-version`` for a specification of the
+dataset tree layout in the store (last two lines in the code block above).
+If a second dataset gets published to the RIA store, it will be represented in a
+similar tree structure under its dataset ID. Note that subdatasets are not
+represented *underneath* another dataset, but are stored on the same hierarchy
+level as their superdataset in the RIA store.
+With this setup, the location of a particular dataset in the RIA store is only
+dependent on its :term:`dataset ID`. As the dataset ID is universally unique,
+gets assigned to a dataset at the time of creation, and does not change across
+the life time of a dataset, no two different datasets could have the same location
+in a RIA store.
 
 .. findoutmore:: What if I don't have a dataset, but a git-annex repository?
 
@@ -283,8 +304,9 @@ The directory underneath the two dataset ID based subdirectories contains a
    pushed to, and thus enable collaboration.
 
    In a collaborative Git/git-annex/DataLad workflow, one commonly creates a bare
-   repository in a centralized place (such as -- you guessed it -- :term:`GitHub`)
-   and lets others clone repositories, pull updates, or push their changes to them.
+   repository in a centralized place (such as a RIA store, but also -- you
+   guessed it -- :term:`GitHub` or :term:`GitLab`) and lets others clone
+   repositories, pull updates, or push their changes to them.
    Thus, you are already familiar with bare Git repositories, you may just not
    have been aware. Whenever you publish a dataset to GitHub, it is the ``.git``
    directory that will be transferred to GitHub's server. Whenever you clone a
@@ -292,22 +314,23 @@ The directory underneath the two dataset ID based subdirectories contains a
    or a file path, it is a ``.git`` directory that is copied to your machine.
 
    At this point, you may be confused about the fact that all repositories
-   that GitHub hosts are bare Git repositories, but that it appears as if GitHub
-   repositories -- unlike the bare repositories in a RIA store that you have seen
-   -- retain their directory hierarchy and their file names, or that edits directly
-   within GitHubs interface are possible, as if those repositories would actually
-   have a working tree:
-   GitHub's web-interface creates a *representation* of the repository content
+   that GitHub/GitLab hosts are bare Git repositories, but that it appears as if
+   repositories on GitHub or GitLab -- unlike the bare repositories in a RIA
+   store that you have seen -- retain their directory hierarchy and their file
+   names, or that edits directly within GitHubs interface are possible, as if
+   those repositories would actually have a working tree:
+   GitHub's/GitLab's web-interface creates a *representation* of the repository content
    and a *temporary* working tree to modify files directly from the web UI that
    enables browsing and modifying file content. If you would push a bare
-   repository from a RIA store to GitHub, it would also be represented with the
+   repository from a RIA store to GitHub/GitLab, it would also be represented with the
    file and directory hierarchy of the original dataset.
 
    Apart from enabling collaboration (a bare repository is required if you want to push to
    it at all times), bare repositories have further advantages: Because they
    do not contain a working tree or checkout, the repositories are leaner, and it
    is easier for administrators to perform garbage collections and maintenance.
-   You can find out more on what bare repositories are and how to use them
+   If you are interested in finding out more, you can read up on bare repositories
+   and how to use them
    `here <https://git-scm.com/book/en/v2/Git-on-the-Server-Getting-Git-on-a
    -Server>`_.
 
@@ -320,7 +343,8 @@ repository are the original dataset -- just differently represented, with no
 
 If necessary, the keystores can be `7zipped <https://www.7-zip.org/>`_
 (``archives/``), either for compression gains, or for use on HPC-systems with
-inode limitations. Despite of this, the archives can be indexed and support
+`inode <https://en.wikipedia.org/wiki/Inode>`_ limitations.
+Despite of this, those archives could be indexed and support
 relatively fast random read access. Thus, the entire key store be put into an
 archive, re-using the exact same directory structure, and remains fully
 accessible while only using a handful of inodes, regardless of file number and size.
@@ -341,23 +365,25 @@ on, with only few additional software requirements.
    - The ``cfg_inm7`` run procedure as provided with ``pip install git+https://jugit.fz-juelich.de/inm7/infrastructure/inm7-datalad.git``
    - Server side: 7z needs to be in the path.
 
+**Advantages of RIA stores**
 
 Storing datasets in RIA stores has a number of advantages that align well with
-the demands of large datasets and scientific compute infrastructure.
+the demands of large datasets and scientific compute infrastructure, but are also
+well suited for most back-up and storage applications.
 In a RIA store layout, the first two levels of subdirectories can host any
 number of keystores and bare repositories. As datasets are identified via ID and
 stored *next to eachother* underneath the top-level RIA store directory, the
-store is completely flexible and extendable. Regardless of the number or nature of
-datasets inside of the store, a RIA store keeps a homogeneous directory structure.
-This feature further aids the handling of large numbers of repositories in a
-back-up or data store use case, because locations are derived from
-*repository properties* (their ID) rather than having to re-configure them
-explicitly.
+store is completely flexible and extendable, and regardless of the number or
+nature of datasets inside of the store, a RIA store keeps a homogeneous directory
+structure. This aids the handling of large numbers of repositories, because
+unique locations are derived from *dataset/repository properties* (their ID)
+rather than a dataset name or a location in a complex dataset hierarchy.
 Because the dataset representation in the RIA is a bare repository,
 "house-keeping" as well as query tasks can be automated or performed by data
 management personnel with no domain-specific knowledge about dataset contents.
 Short maintenance scripts can be used to automate basically any task that is
-of interest and possible in a dataset or RIA store. A few examples are:
+of interest and possible in a dataset, but across the full RIA store.
+A few examples are:
 
 - Copy or move annex objects into a 7z archive.
 - Find dataset dependencies across all stored datasets by returning the dataset
@@ -368,9 +394,17 @@ of interest and possible in a dataset or RIA store. A few examples are:
 - Clean up unnecessary files and minimize a (or all) repository with :term:`Git`\s
   `garbage collection (gc) <https://git-scm.com/docs/git-gc>`_ command.
 
+If all datasets of an institute are kept in a single RIA store, questions such
+as "Which projects use this data as their input?", "In which projects was the
+student with this Git identity involved?", "Give me a complete research log
+of what was done for this publication" , or "Which datasets weren't used in the
+last 5 years?" can be answered automatically with Git tools, without requiring
+expert knowledge about the contents of any of the datasets.
 
-On a technical level, beyond being a tree of datasets, a RIA store can be a
-:term:`git-annex` special remote.
+**Technical details**
+
+On a technical level, beyond being a tree of datasets, a RIA store is by default
+a :term:`git-annex` `ria-remote special remote <https://libraries.io/pypi/ria-remote>`_.
 
 .. findoutmore:: What is a special remote?
 
@@ -381,54 +415,34 @@ On a technical level, beyond being a tree of datasets, a RIA store can be a
    physical place or location -- a special-remote is just a protocol that defines
    the underlying *transport* of your files *to* and *from* a specific location.
 
-The remote data store exists thanks to git-annex (which DataLad builds upon):
-Large files in datasets are stored as *values* in git-annex's object tree. A *key*
-generated from their contents is checked into Git and used to reference the
-location of the value in the object tree [#f2]_. The object tree (or *keystore*)
-with the data contents can be located anywhere -- its location only needs to be
-encoded using a *special remote*. This configuration is done on an
-administrative, system-wide level, and users do not need to care or know
-about where data are stored, as they can access it just as easily as before.
+The git-annex ria-remote special remote is similar to git-annex's built-in
+`directory <https://git-annex.branchable.com/special_remotes/directory/>`_
+special remote, but distinct in certain aspects, and results in the fact that
+regular git-annex key storage is possible and also retrieval of keys from
+(compressed) 7z archives in the RIA store works.
+
+Certain applications will not require special remote features. The usecase
 
 .. todo::
 
-   What is a RIA store without a git annex special remote?
+   link HCP usecase
+
+shows an example where git-annex key storage is explicitly not wanted. For most
+storage or back-up scenarios, special remote capabilities are useful, though,
+and thus the default.
+Special remote capabilities of a RIA store can be disabled at the time of RIA
+store creation by passing the option ``--no-ria-remote`` to the
+:command:`datalad create-sibling-ria` command.
+
+How to create a RIA store
+"""""""""""""""""""""""""
+
+.. index:: ! datalad command; create-sibling-ria
+
+A RIA store can be created or extended with the :command:`datalad create-sibling-ria`
+command. In
 
 
-
-The machines in question, parts of an old compute cluster, and parts of the
-supercomputer at the JSC are configured to receive and store data using the
-git-annex remote for indexed file archives (`RIA <https://libraries.io/pypi/ria-remote>`_)
-special remote. The git-annex RIA-remote is similar to git-annex's built-in
-`directory <https://git-annex.branchable.com/special_remotes/directory/>`_
-special remote, but distinct in certain aspects:
-
-- It allows read access to (compressed) 7z archives, which is a useful
-  feature on systems where light quotas on filesystem inodes are imposed
-  on users, or where one wants to have compression gains.
-  This way, the entire keystore (i.e., all data contents) of the
-  remote that serves as the data store can be put into an archive that uses
-  only a handful of inodes, while remaining fully accessible.
-
-- It provides access to configurable directories via SSH.
-  This makes it easier to accommodate infrastructural changes, especially when dealing
-  with large numbers of repositories, as moving from local to remote operations, or
-  switching target paths can be done by simply changing the configuration.
-
-- It allows a multi-repository directory structure, in which keystore
-  directories of multiple repositories can be organized in to a homogeneous
-  archive directory structure. Importantly, the keystore location in an archive is defined
-  using the **datasets UUID** (in case of DataLad datasets) or the annex remote
-  UUID (in case of any non DataLad dataset). This aids handling of large
-  numbers of repositories in a data store use case, because locations are
-  derived from *repository properties* rather than having to re-configure them explicitly.
-
-
---> advantages here
-
-.. findoutmore:: How to create a RIA store
-
-   This needs to be a step-by-step instruction how to create a RIA store
 
 Workflows based on the RIA store
 """"""""""""""""""""""""""""""""

@@ -473,7 +473,7 @@ thus is impressive. Here is an excerpt::
 For each subdataset (named after subject IDs), there is one entry. Thus, this
 superdatasets combines all individual datasets to the original HCP dataset
 structure. This (and only this) superdataset is published to a public :term:`GitHub`
-repository that anyone can :command:`datalad clone`.
+repository that anyone can :command:`datalad clone` [#f4]_.
 
 Data retrieval and interacting with the repository
 """"""""""""""""""""""""""""""""""""""""""""""""""
@@ -498,7 +498,7 @@ Internally, DataLad cleverly manages the crucial aspects of data retrieval:
 Linking registered subdatasets to the correct dataset in the RIA store. If you
 inspect the GitHub repository, you will find that the subdatasets links in it
 will not resolve if you click on them, because none of the subdatasets was
-published to GitHub [#f4]_, but lie in the RIA store instead.
+published to GitHub [#f5]_, but lie in the RIA store instead.
 Dataset or file content retrieval will nevertheless work automatically with
 :command:`datalad get`: Each ``.gitmodule`` entry lists the subdatasets
 dataset ID. Based on a configuration of "subdataset-source-candidates" in
@@ -518,7 +518,7 @@ This configuration allows :command:`get` to flexibly generate RIA URLs from the
 base URL in the config file and the dataset ID's listed in ``.gitmodules``. In
 the superdataset, it needed to be done "by hand" via :command:`git config`.
 Because the configuration should be shared together with the dataset, the
-configuration needed to be set in ``.datalad/config`` [#f5]_::
+configuration needed to be set in ``.datalad/config`` [#f6]_::
 
    $ git config -f .datalad/config "datalad.get.subdataset-source-candidate-origin" "ria+http://store.datalad.org#{id}"
 
@@ -562,12 +562,15 @@ at a fraction of its total size for on demand retrieval.
          `code/cfg_hcp_dataset <https://github.com/TobiasKadelka/build_hcp/blob/master/code/cfg_hcp_dataset.sh>`_
          and enables a :term:`special remote` in the resulting dataset.
 
-.. [#f4] If you coded along in the Basics part of the book and published your
+.. [#f4] To re-read about publishing datasets to hosting services such as
+         :term:`GitHub` or :term:`GitLab`, go back to :ref:`publishtogithub`.
+
+.. [#f5] If you coded along in the Basics part of the book and published your
          dataset to :term:`Gin`, you have experienced in :ref:`subdspublishing`
          how the links to unpublished subdatasets in a published dataset do not
          resolve in the webinterface: Its path points to a URL that would resolve
          to lying underneath the superdataset, but there is not published
          subdataset on the hosting platform!
 
-.. [#f5] To re-read on configurations of datasets, go back to sections :ref:`config`
+.. [#f6] To re-read on configurations of datasets, go back to sections :ref:`config`
          and :ref:`config2`.

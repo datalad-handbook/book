@@ -466,6 +466,8 @@ please `get in touch <https://github.com/datalad-handbook/book/issues/new>`_.
 Initial configuration
 ^^^^^^^^^^^^^^^^^^^^^
 
+.. index:: ! Git identity
+
 Initial configurations only concern the setup of a :term:`Git` identity. If you
 are a Git-user, you should hence be good to go.
 

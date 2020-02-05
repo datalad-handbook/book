@@ -3,6 +3,8 @@
 YODA: Best practices for data analyses in a dataset
 ---------------------------------------------------
 
+.. index:: ! YODA principles
+
 The last requirement for the midterm projects reads "needs to comply to the
 YODA principles".
 "What are the YODA principles?" you ask, as you have never heard of this

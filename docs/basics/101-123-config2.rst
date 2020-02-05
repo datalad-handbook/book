@@ -20,6 +20,8 @@ section by looking into it.
 ``.gitattributes``
 ^^^^^^^^^^^^^^^^^^
 
+.. index:: ! .gitattributes
+
 This file lies right in the root of your superdataset:
 
 .. runrecord:: _examples/DL-101-123-101
@@ -131,6 +133,8 @@ in the root ``.gitattributes`` file.
 ``.gitmodules``
 ^^^^^^^^^^^^^^^
 
+.. index:: ! .gitmodules
+
 On last configuration file that Git creates is the ``.gitmodules`` file.
 There is one right in the root of your dataset:
 
@@ -162,6 +166,8 @@ particularly deeply nested subdatasets.
 
 ``.datalad/config``
 ^^^^^^^^^^^^^^^^^^^
+
+.. index:: ! .datalad/config
 
 DataLad adds a repository-specific configuration file as well.
 It can be found in the ``.datalad`` directory, and just like ``.gitattributes``
@@ -251,6 +257,8 @@ has to be edited by hand, with an editor of your choice.
 
 Environment variables
 ^^^^^^^^^^^^^^^^^^^^^
+
+.. index:: ! environment variable
 
 An :term:`environment variable` is a variable set up in your shell
 that affects the way the shell or certain software works -- for example
@@ -375,6 +383,8 @@ Write a note about configurations in datasets into ``notes.txt``.
          command
          (see `the documentation <https://git-annex.branchable.com/git-annex-migrate/>`_ for
          more information on this command).
+
+.. index:: ! environment variable
 
 .. [#f4] **Some more on environment variables**:
          Names of environment variables are often all-uppercase. While the ``$`` is not part of

@@ -284,6 +284,8 @@ to manage the file system in a DataLad dataset (:ref:`filesystem`).
 Broken symlinks
 ^^^^^^^^^^^^^^^
 
+.. index:: ! broken symlink, ! symlink (broken)
+
 Whenever a symlink points to a non-existent target, this symlink is called
 *broken*, and opening the symlink would not work as it does not resolve. The
 section :ref:`filesystem` will give a thorough demonstration of how symlinks can

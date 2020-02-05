@@ -44,6 +44,8 @@ analysis by linking containers to datasets and analyses.
 Containers
 ^^^^^^^^^^
 
+.. index:: ! software container, ! container
+
 To put it simple, computational containers are cut-down virtual machines that
 allow you to package all software libraries and their dependencies (all in the
 precise version your analysis requires) into a bundle you can share with

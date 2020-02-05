@@ -114,6 +114,12 @@ Glossary
       You can read about more about Pattern Matching in
       `Bash's Docs <https://www.gnu.org/savannah-checkouts/gnu/bash/manual/bash.html#Pattern-Matching>`_.
 
+   http
+      Hypertext Transfer Protocol; A protocol for file transfer over a network.
+
+   https
+      Hypertext Transfer Protocol Secure; A protocol for file transfer over a network.
+
    master
       Git concept: The default :term:`branch` in a dataset.
 

@@ -24,8 +24,8 @@ def depart_gitusernote_html(self, node):
 
 def visit_gitusernote_latex(self, node):
     # wrap the Gitusernote in a colored box (defined in conf.py preamble)
-    self.body.append('\n\n\\sphinxstrong{\\textcolor{purple}{Note for Git users:}}'
-                     '\n\n\\begin{colbox}{C9C0BB}\n\n')
+    self.body.append('\n\n\\begin{colbox}{C9C0BB}\n'
+                     '\n\n\\sphinxstrong{\\textcolor{purple}{Note for Git users:}}\n\n')
 
 
 def depart_gitusernote_latex(self, node):

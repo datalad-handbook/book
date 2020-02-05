@@ -37,6 +37,8 @@ without circumventing or breaching the data providers terms:
 The Challenge
 ^^^^^^^^^^^^^
 
+.. index:: ! Human Connectome Project (HCP)
+
 The `Human Connectome Project <http://www.humanconnectomeproject.org/>`_ aims
 to provide an unparalleled compilation of neural data through a customized
 database. Its largest open access data collection is the
@@ -303,6 +305,8 @@ hidden section below.
 
 Using a Remote Indexed Archive Store for dataset hosting
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+.. index:: Remote Indexed Archive (RIA) store
 
 All datasets were built on a scientific compute cluster. In this location, however,
 datasets would only be accessible to users with an account on this system.

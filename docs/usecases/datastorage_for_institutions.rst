@@ -15,12 +15,13 @@ solution, suitable to serve the computational and logistic demands of data
 science in big (scientific) institutions, while keeping workflows for users
 as simple as possible. It elaborates on
 
-#. How to implement a scalable Remote Indexed Archive (RIA) store for DataLad
-   datasets, potentially remote, so that data are stored in a different place
-   than where people work with it,
-#. How to incentivize and enforce disk-space aware computing, and
+#. How to implement a scalable Remote Indexed Archive (RIA) store to flexibly
+   store large amounts of DataLad datasets, potentially remote to lower storage
+   strains on computing infrastructure,
+#. How disk-space aware computing can be eased by DataLad based workflows and
+   enforced by infrastructural incentives and limitations, and
 #. How to reduce technical complexities for users and encourage reproducible,
-   version-controlled scientific workflows.
+   version-controlled, and scalable scientific workflows.
 
 .. note::
 
@@ -58,7 +59,9 @@ data storage and the analysis playground for the institute. With data
 directories of several TB in size, *and* computationally heavy analyses, the
 compute cluster is quickly brought to its knees: Insufficient memory and
 IOPS starvation make computations painstakingly slow, and hinder scientific
-progress, despite the elaborate and expensive cluster setup.
+progress. Despite the elaborate and expensive cluster setup, exciting datasets
+can not be stored or processed, as there just doesn't seem to be enough disk
+space.
 
 Therefore, the challenge is two-fold: On an infrastructural level, institute XYZ
 needs a scalable, flexible, and maintainable data storage solution for their
@@ -101,7 +104,7 @@ not only lead to vastly simplified version control workflows, but also to
 simplified access to projects and research logs for collaborators and supervisors.
 Input data gets installed as subdatasets from the RIA store. This automatically
 links analyses projects to data sets, and allows for fine-grained access of up
-to individual file level. With only precisely needed data analyses datasets are
+to individual file level. With only precisely needed data, analyses datasets are
 already much leaner than with previous complete dataset copies, but as data can
 be re-obtained on-demand from the store, original input files or files that are
 easily recomputed can safely be dropped to save even more disk-space.
@@ -137,8 +140,7 @@ compute cluster scale, but can be viewed as independent (yet complimentary).
    but it is convenient: The data does not strain the compute cluster, and with
    DataLad, it is irrelevant where the RIA store is located. The next subsection
    introduces the general layout of the compute infrastructure and some
-   DataLad-unrelated incentives and restrictions, but a remote setup is not
-   compulsory to set up a RIA store.
+   DataLad-unrelated incentives and restrictions.
 
 Incentives and imperatives for disk-space aware computing
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -184,9 +186,8 @@ limitations are independent of DataLad, DataLad can make sure that the necessary
 workflows are simple enough for researchers of any seniority, background, or
 skill level.
 
-
-The data store as a git-annex RIA remote
-""""""""""""""""""""""""""""""""""""""""
+Remote indexed archive (RIA) stores
+"""""""""""""""""""""""""""""""""""
 
 **The looks and feels of a RIA store**
 
@@ -280,7 +281,7 @@ gets assigned to a dataset at the time of creation, and does not change across
 the life time of a dataset, no two different datasets could have the same location
 in a RIA store.
 
-.. findoutmore:: What about the ID if is a git-annex repository?
+.. findoutmore:: What about the ID if it is a git-annex repository?
 
    If you want to store :term:`git-annex` repositories in a RIA store, the repository
    will not have a dataset ID. Instead, the repository will be identified by its
@@ -360,13 +361,14 @@ a dataset can be created on, with only few additional software requirements.
 
    .. todo::
 
-      update with correct versions!
+      @mih, @bpoldrack: please check!
 
    - git-annex version 7.20 or newer
-   - DataLad version 0.12.5 (or later), or any DataLad development version more
-     recent than May 2019 (critical feature: https://github.com/datalad/datalad/pull/3402)
-   - The ``cfg_inm7`` run procedure as provided with ``pip install git+https://jugit.fz-juelich.de/inm7/infrastructure/inm7-datalad.git``
+   - DataLad version 0.12.3 (or later)
    - Server side: 7z needs to be in the path.
+   - Only relevant for the application at hand: The ``cfg_inm7`` run procedure as provided with
+     ``pip install git+https://jugit.fz-juelich.de/inm7/infrastructure/inm7-datalad.git``
+
 
 **Advantages of RIA stores**
 
@@ -421,9 +423,9 @@ a :term:`git-annex` `ria-remote special remote <https://libraries.io/pypi/ria-re
 
 The git-annex ria-remote special remote is similar to git-annex's built-in
 `directory <https://git-annex.branchable.com/special_remotes/directory/>`_
-special remote, but distinct in certain aspects, and results in the fact that
-regular git-annex key storage is possible and also retrieval of keys from
-(compressed) 7z archives in the RIA store works.
+special remote, and results in the facts that regular git-annex key storage is
+possible and that retrieval of keys from (compressed) 7z archives in the RIA
+store works.
 
 Certain applications will not require special remote features. The usecase
 
@@ -442,21 +444,33 @@ With special remote capabilities enabled, the command will create a second
 sibling to the git-annex special remote. With these two siblings set up, upon an
 invocation of :command:`datalad publish --to <sibling> --transfer-data all`,
 the complete dataset contents, including annexed contents, will be published
-to the RIA store, with no further set up or configuration required,
+to the RIA store, with no further setup or configuration required [#f5]_.
 
 RIA store workflows
 """""""""""""""""""
 
 .. index:: ! datalad command; create-sibling-ria
 
-A RIA store can be created or extended with the :command:`datalad create-sibling-ria`
+A RIA store can be created or extended by running the :command:`datalad create-sibling-ria`
 command (:manpage:`datalad-create-sibling-ria` manual) in an existing dataset.
-A sibling name of your choice needs to be supplied with the ``-s/--sibling`` option.
-The sibling to the special remote will have the same name suffixed with ``-ria``,
-unless it is explicitly given via ``--ria-remote-name``.
-The only other required argument of the command is the
-location of the store as a ``ria+`` URL. Depending on the file transfer protocol,
-the looks of the URL can differ:
+Supply a sibling name of your choice with the ``-s/--sibling`` option, and specify
+the location of the store as a ``ria+`` URL. Beyond this, there are no further
+required arguments.
+
+.. findoutmore:: What about optional arguments?
+
+   - unless it is explicitly given via ``--ria-remote-name``, the sibling to the
+     ria-remote special remote will have the same sibling name suffixed with ``-ria``.
+   - Special remote capabilities of a RIA store can be disabled at the time of
+     RIA store creation by using the option ``--no-ria-remote``
+   - :term:`Permissions` in the RIA store can be configured via ``--shared``. It
+     will default to multi-user access, but can take any specification of
+     the :command:`git init --shared` argument (find out more in the
+     `documentation <https://git-scm.com/docs/git-init>`__ of the command).
+
+
+RIA stores can be used under different types of file transfer protocols.
+Depending on the file transfer protocol, the looks of the URL can differ:
 
 - :term:`SSH`: ``ria+ssh://[user@]hostname:/absolute/path/to/ria-store``
 - Local file system: ``ria+file:///absolute/path/to/ria-store``
@@ -464,8 +478,8 @@ the looks of the URL can differ:
   ``ria+http://store.datalad.org:/absolute/path/to/ria-store``
 
 Note that it is required to specify an :term:`absolute path` in the URL. Here is
-how one could create two siblings, ``server_juseless`` and ``server_juseless-ria``
-to a RIA store (which, but does not need to exist yet) on an :term:`SSH server`
+how one could create two siblings, ``server_juseless`` and ``server_juseless-ria``,
+to a RIA store (which can, but does not need to exist yet) on an :term:`SSH server`
 from within an existing dataset:
 
 .. code-block:: bash
@@ -489,10 +503,14 @@ in the example above, annexed contents will be published automatically.
 
 To clone a dataset from the RIA store, the RIA URL needs to be passed to the
 :command:`datalad clone` command, following a similar scheme as outlined above:
-The first part of the URL is identical (a ``ria+`` identifier for a RIA URL,
-followed by a protocol specification and a path). Beyond this, the URL further
-consists of a ``#`` sign, followed by the :term:`dataset ID`, and, optionally, a
-version identifier such as a tag or a branch name, appended with an ``@``.
+
+- A ``ria+`` identifier for a RIA URL, followed by a protocol specification and
+  a path to the RIA store (identical to the URL before).
+- A ``#`` sign,
+- The :term:`dataset ID`,
+- (Optionally) a ``@`` followed by a version identifier such as a tag or a branch
+  name.
+
 Here is how to clone a dataset with the ID ``1d368e0a-439e-11ea-b341-d0c637c523bc``
 in the version identified by the tag ``ready4analysis`` from a RIA store on an
 SSH server:
@@ -503,9 +521,12 @@ SSH server:
      ria+ssh://user@juseless.inm7.de/home/user/scratch/myriastore#1d368e0a-439e-11ea-b341-d0c637c523bc@ready4analysis \
      mydataset
 
-Note how much more important the optional path with a dataset name is in this
-clone command: Without specifying an explicit target dataset name (``mydataset``),
-the clone would be called ``1d368e0a-439e-11ea-b341-d0c637c523bc``.
+.. note::
+
+   When cloning from a RIA store with a RIA URL, the optional path with a dataset
+   name becomes more important than usually. It is still optional, but without
+   an explicit target dataset name (``mydataset``), the clone would be called
+   ``1d368e0a-439e-11ea-b341-d0c637c523bc``.
 
 .. findoutmore:: On cloning datasets with subdatasets from RIA stores
 
@@ -536,15 +557,17 @@ the clone would be called ``1d368e0a-439e-11ea-b341-d0c637c523bc``.
    from the RIA store.
 
    The configuration either needs to be done by hand with a :command:`git config`
-   command [#f5]_, or exists automatically in ``.git/config`` if the dataset is
+   command [#f6]_, or exists automatically in ``.git/config`` if the dataset is
    cloned from a RIA store.
 
-Thus, setting up a RIA store and appropriate siblings is fairly easy -- it requires
-only the :command:`datalad create-sibling-ria` command.
+**Configurations can hide the technical layers**
 
+Setting up a RIA store and appropriate siblings is fairly easy -- it requires
+only the :command:`datalad create-sibling-ria` command.
 However, in the institute this usecase describes, in order to spare users
 knowing about RIA stores, custom configurations are distributed via DataLad's
-run-procedures to simplify workflows further:
+run-procedures to simplify workflows further and hide the technical layers of
+the RIA setup:
 
 A `custom procedure <https://jugit.fz-juelich.de/inm7/infrastructure/inm7-datalad/blob/master/inm7_datalad/resources/procedures/cfg_inm7.py>`_
 performs the relevant sibling setup with a fully configured link to the RIA store,
@@ -579,7 +602,7 @@ Summary
 """""""
 
 The infrastructural and workflow changes around DataLad datasets in RIA stores
-improve the efficiency of the institute greatly:
+improve the efficiency of the institute:
 
 With easy local version control workflows and DataLad-based data management routines,
 researchers are able to focus on science and face barely any technical overhead for
@@ -622,5 +645,8 @@ reproducible.
          store creation by passing the option ``--no-ria-remote`` to the
          :command:`datalad create-sibling-ria` command.
 
-.. [#f5] To re-read on configuring datasets with the :command:`git config`, go
+.. [#f5] To re-read about publication dependencies and why this is relevant to
+         annexed contents in the dataset, checkout section :ref:`sharethirdparty`.
+
+.. [#f6] To re-read on configuring datasets with the :command:`git config`, go
          back to sections :ref:`config` and :ref:`config2`.

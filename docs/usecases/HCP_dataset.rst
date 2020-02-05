@@ -506,6 +506,7 @@ dataset ID. Based on a configuration of "subdataset-source-candidates" in
 RIA URL that retrieves the correct dataset from the store by :command:`get`:
 
 .. code-block:: bash
+   :emphasize-lines: 4-5
 
     $ cat .datalad/config
     [datalad "dataset"]
@@ -513,9 +514,19 @@ RIA URL that retrieves the correct dataset from the store by :command:`get`:
     [datalad "get"]
         subdataset-source-candidate-origin = "ria+http://store.datalad.org#{id}"
 
-If subdatasets are obtained from a RIA store from a dataset with such a configuration,
-the configuration is propagated into the ``.git/config`` of the subdataset so that
-all potential further subdatasets underneath it can be retrieved in the same way.
+This configuration allows :command:`get` to flexibly generate RIA URLs from the
+base URL in the config file and the dataset ID's listed in ``.gitmodules``. In
+the superdataset, it needed to be done "by hand" via :command:`git config`.
+Because the configuration should be shared together with the dataset, the
+configuration needed to be set in ``.datalad/config`` [#f5]_::
+
+   $ git config -f .datalad/config "datalad.get.subdataset-source-candidate-origin" "ria+http://store.datalad.org#{id}"
+
+With this configuration, :command:`get` will retrieve all subdatasets from the
+RIA store. Any subdataset that is obtained from a RIA store in turn gets the very
+same configuration automatically into ``.git/config``. Thus, the configuration
+that makes seamless subdataset retrieval from RIA stores possible is propagated
+throughout the dataset hierarchy.
 With this in place, anyone can clone the top most dataset from GitHub, and --
 given they have valid credentials -- get any file in the HCP dataset hierarchy.
 
@@ -557,3 +568,6 @@ at a fraction of its total size for on demand retrieval.
          resolve in the webinterface: Its path points to a URL that would resolve
          to lying underneath the superdataset, but there is not published
          subdataset on the hosting platform!
+
+.. [#f5] To re-read on configurations of datasets, go back to sections :ref:`config`
+         and :ref:`config2`.

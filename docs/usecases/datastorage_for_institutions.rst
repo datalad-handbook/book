@@ -42,18 +42,16 @@ computations run on a large scientific computing cluster.
 The data sets used in the institute are big both in size and number of files,
 and expensive to collect.
 Therefore, datasets are used for various different research questions, by
-multiple researchers.
-
-Every member of the institute has an account on an expensive and large compute cluster, and all
-of the data exists in dedicated directories on this server. In order to work on
-their research questions without modifying original data, every user creates their own
-copies of the full data in their user account on the cluster -- even if it
-contains many files that are not necessary for their analysis. In addition,
-they add all computed derivatives and outputs, even old versions, out of fear
-of losing work that may become relevant again.
-This is because version control is not a standard skill in the institute, and
-especially PhD students and other trainees struggle with the technical
-overhead of data management *and* data science. Thus, an excess of
+multiple researchers. Every member of the institute has an account on an expensive
+and large compute cluster, and all of the data exists in dedicated directories
+on this server. However, researchers struggle with the technical overhead of
+data management *and* data science.
+In order to work on their research questions without modifying
+original data, every user creates their own copies of the full data in their
+user account on the cluster -- even if it contains many files that are not
+necessary for their analysis. In addition, as version control is not a standard
+skill, they add all computed derivatives and outputs, even old versions, out of
+fear of losing work that may become relevant again. Thus, an excess of (unorganized)
 data copies and derivatives exists in addition to the already substantial
 amount of original data. At the same time, the compute cluster is both the
 data storage and the analysis playground for the institute. With data
@@ -73,51 +71,51 @@ The DataLad approach
 
 The compute cluster is refurbished to a state-of-the-art data management
 system.
+For a scalable and flexible dataset storage, the data store is a Remote Indexed
+Archive (RIA) store -- an extendable, file-system based storage solution for
+DataLad datasets that aligns well with the requirements of scientific computing
+(infrastructure).
+The RIA store is configured as a git-annex
+`RIA-remote special remote <https://libraries.io/pypi/ria-remote>`_ for access
+to annexed keys in the store and so that full datasets can be (compressed)
+7-zip archives. The latter is especially useful in case of filesystem inode
+limitations, such as on HPC storage systems: Regardless of a dataset's number of
+files and size, (compressed) 7zipped datasets use only few inodes, but retain the
+ability to query available files.
 Unlike traditional solutions, both because of the size of the large
 amounts of data, and for more efficient use of compute power for
-calculations instead of data storage, the cluster gets a remote data
-store: Data lives as DataLad datasets on a different machine than the one
-the scientific analyses are computed on.
-For a scalable and flexible dataset storage and access to the annexed data in
-datasets, the data store is a Remote Indexed Archive (RIA) store, an extendable,
-file-system based storage solution for DataLad datasets that aligns well with the
-requirements of scientific computing (infrastructure), and is configured as a
-git-annex `RIA-remote <https://libraries.io/pypi/ria-remote>`_.
-In case of filesystem inode limitations on the machine the RIA store exists on
-(e.g., HPC storage systems), full datasets can be (compressed) 7-zip archives,
-without losing the ability to query available files. Regardless of the number of
-file and size of them, such datasets thus use only few inodes.
+calculations instead of data storage, the RIA store is set up *remote*: Data is
+stored on a different machine than the one the scientific analyses are computed
+on. While unconventional, it is convenient, and perfectly possible with DataLad.
 
-.. todo::
-
-   Is this still the case?
-
-DataLad's run-procedures can be used to distribute institute-wide
-configurations adjusted to the compute infrastructure among users to mitigate any
-potential remaining technical overhead to interact with the data store.
-
-The infrastructural changes are accompanied by changes in the mindset and workflows
-of the researchers that perform analyses on the cluster.
+The infrastructural changes are accompanied by changes in the mindset and
+workflows of the researchers that perform analyses on the cluster.
 By using a RIA store, the institute's work routines are adjusted around
-DataLad datasets.
-
-.. todo::
-
-   Update the workflow overview, if necessary
-
+DataLad datasets. Simple configurations, distributed system-wide with DataLad's
+run-procedures, or basic data management principles improve the efficiency and
+reproducibility of research projects:
 Analyses are set-up inside of DataLad datasets, and for every
 analysis, an associated ``project`` is created under the namespace of the
-institute on the institute's :term:`GitLab` instance automatically. This has
-the advantage of vastly simplified version control and
-simplified access to projects for collaborators and supervisors. Data
-from the data store is cloned as subdatasets. This comes with several
-benefits: Analyses are automatically linked to data, no unused file
-copies waste disk space on the compute cluster as data can be retrieved
-on-demand, and files that are easily re-obtained or recomputed can safely be
-dropped locally to save even more disk-space. Moreover, upon creation of an analysis
-project, the associated GitLab project it is automatically configured as a remote
-with a publication dependency on the data store, thus enabling vastly simplified
-data publication routines and backups of pristine results.
+institute on the institute's :term:`GitLab` instance automatically. This does
+not only lead to vastly simplified version control workflows, but also to
+simplified access to projects and research logs for collaborators and supervisors.
+Input data gets installed as subdatasets from the RIA store. This automatically
+links analyses projects to data sets, and allows for fine-grained access of up
+to individual file level. With only precisely needed data analyses datasets are
+already much leaner than with previous complete dataset copies, but as data can
+be re-obtained on-demand from the store, original input files or files that are
+easily recomputed can safely be dropped to save even more disk-space.
+Finally, upon creation of an analysis project, the associated GitLab project it
+is automatically configured as a remote with a publication dependency on the
+data store, thus enabling vastly simplified data publication routines and
+backups of pristine results: After computing their results, a
+:command:`datalad publish` is all it takes to backup and share ones scientific
+insights. Thus, even with a complex setup of data store, compute infrastructure,
+and repository hosting, configurations adjusted to the compute infrastructure
+can be distributed and used to mitigate any potential remaining technical overhead.
+Finally, with all datasets stored in a RIA store and in a single place, any remaining
+maintenance and query tasks in the datasets can be performed by data management
+personnel without requiring domain knowledge about dataset contents.
 
 
 Step-by-step
@@ -127,17 +125,20 @@ The following section will elaborate on the details of the technical
 implementation of a RIA store, and the workflow requirements and incentives for
 researchers. Both of them are aimed at making scientific analyses on a
 compute cluster scale, but can be viewed as independent (yet complimentary).
-Some hardware-specific implementation details are unique to the real-world
-example this usecase is based on, and are not a requirement: For example, parts
-of an old compute cluster and parts of the super computer at the Juelich
-supercomputing centre (JSC) are used to host the data store, instead of the
-institutes compute cluster. Thus, multiple different, independent machines take
-care of warehousing the data. While this is an unconventional storage location,
-it is convenient: The data does not strain the compute cluster, and with DataLad,
-it is irrelevant where the RIA store is located.
-In this particular case of application, a remote setup for a RIA store made sense
-(and is possible with DataLad), a remote setup is not a requirement for a RIA store.
 
+.. note::
+
+   Some hardware-specific implementation details are unique to the real-world
+   example this usecase is based on, and are not a requirement. In this particular
+   case of application, for example, a *remote* setup for a RIA store made sense:
+   Parts of an old compute cluster and of the super computer at the Juelich
+   supercomputing centre (JSC) instead of the institutes compute cluster are used
+   to host the data store. This may be an unconventional storage location,
+   but it is convenient: The data does not strain the compute cluster, and with
+   DataLad, it is irrelevant where the RIA store is located. The next subsection
+   introduces the general layout of the compute infrastructure and some
+   DataLad-unrelated incentives and restrictions, but a remote setup is not
+   compulsory to set up a RIA store.
 
 Incentives and imperatives for disk-space aware computing
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""

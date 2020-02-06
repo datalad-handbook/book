@@ -359,7 +359,11 @@ accessible while only using a handful of inodes, regardless of file number and s
 
 On an infrastructural level, a RIA store is fully self-contained, and is a plain
 file system storage, not a database. It can be set up on any infrastructure that
-a dataset can be created on, with only few additional software requirements.
+a dataset can be created on, with only few additional software requirements (see
+below). With these attributes, a RIA store is a suitable solution for a number of
+usecases (back-up, single or multi-user dataset storage, central point for
+collaborative workflows, ...), be that on private workstations, webservers,
+compute clusters, or other IT infrastructures.
 
 .. findoutmore:: Software Requirements
 
@@ -531,6 +535,87 @@ SSH server:
    name becomes more important than usually. It is still optional, but without
    an explicit target dataset name (``mydataset``), the clone would be called
    ``1d368e0a-439e-11ea-b341-d0c637c523bc``.
+
+
+Be aware of one caveat:
+If the RIA store has special remote capabilities, depending on whether a RIA
+store is created and used over the same protocol or not, or if URLs with
+user names or other individual information were used, additional configurations
+may be necessary to ensure that not only cloning datasets from the store, but
+also *file retrieval* from the special remote afterwards is functional.
+Problems that can arise with this stem from :term:`git-annex`\'s internal
+representation of the special remote that is constructed once the RIA siblings
+are created. While the problem seems obvious once known and relates to mismatching
+protocol or log-in specifications for file retrieval, finding it can be tedious
+as it is hidden in :term:`git-annex` internal files. To find out more about
+this, check out the hidden section below.
+
+.. findoutmore:: Configuring appropriate protocols, store locations, or log-ins for special remote access
+
+   At the time of the creation of the ``-ria`` sibling, the ``ria+`` URL specification
+   is used by :term:`git-annex` to save availability-location information about
+   all files that are published to the RIA store: :term:`git-annex`
+   records where file contents are stored from the ``ria+`` URL used in the
+   :command:`create-sibling-ria` command. At sibling creation, the ``ria+`` URL
+   is resolved to a proper URL -- an http or SSH URL, or an absolute path, depending
+   on whether the :term:`http`, :term:`ssh`, or file protocol is used in the
+   ``ria+`` URL specification -- and stored in the file ``remote.log`` in the
+   git-annex :term:`branch` of the repository.
+
+   This information on file content location allows to retrieve files from the
+   RIA store, and it is propagated into all clones of the dataset. Usually, this
+   allows anyone to not only clone datasets, but also get their contents. If the
+   protocol or -- in the case of an SSH protocol -- user name to an
+   :term:`SSH server` does not apply to a specific user or clone, though,
+   file retrieval from the special remote will be impossible.
+   To illustrate how such a problem can arise, consider the following examples:
+
+   1) A RIA store is set up on a shared compute cluster. A dataset gets published
+   into the store via file protocol from a different location on the server. The
+   URL about where file contents can be retrieved from will be an :term:`absolute path`
+   on the server. If a dataset gets cloned from outside of the server
+   (via SSH), the absolute path does not resolve on the new system and a
+   :command:`datalad get` command fails.
+
+   2) User Bob publishes a dataset to a RIA store on a shared :term:`SSH server`
+   from his local machine. When specifying the ``+ria`` URL, he uses the SSH protocol,
+   but needs to use his user name (bob@some.server.edu) to log in. When Alice
+   clones Bob's dataset from the store to her local machine, she uses the correct
+   protocol (SSH), but a :command:`datalad get` command tries to log into
+   the server under Bob's user account, which fails.
+
+   The information about the remote location is stored in the file ``remote.log``
+   in the git-annex :term:`branch` of each dataset. We can take a look at it
+   with the :command:`git cat-file` command. Below we exemplify how this would
+   look to Alice in the example of user Bob, who created a RIA sibling on a
+   shared server, but used his user name for login:
+
+   .. code-block:: bash
+      :emphasize-lines: 6
+
+      git cat-file -p git-annex:remote.log
+      d585ec1c-a8b9-4eb9-a276-4ffc4c645f81 \
+      archive-id=ae5713fa-48ee-11ea-b341-d0c637c523bc \
+      autoenable=true encryption=none externaltype=ria \
+      name=backup_server-ria type=external \
+      url=ria+ssh://bob@some.server.edu:/data/datasets/RIAstore timestamp=1581000354.064541765s
+
+   In general, it is recommended to keep ``ria+`` URLs as generic and widely
+   applicable as needed for the user base of the RIA store. However, in cases
+   where some store serves a large number of repositories, and serves them with
+   multiple access methods, and some users need to use different access methods,
+   a configuration allows individual users to specify alternative URLs with
+   the key ``url.<new_RIA_base>.insteadOf``::
+
+      $ git config url."ria+ssh://bob@some.server.edu:/data/datasets/RIAstore".insteadOf "ria+ssh://alice@some.server.edu:/data/datasets/RIAstore"
+
+   With this configurations, all URLs beginning with
+   ``ria+ssh://bob@some.server.edu:/data/datasets/RIAstore`` will be dynamically
+   rewritten to start with ``ria+ssh://alice@some.server.edu:/data/datasets/RIAstore``
+   and allow Alice to retrieve files successfully.
+   Thus, by configuring ``url.<base>.insteadOf``, URL mismatches can be fixed
+   fast.
+
 
 .. findoutmore:: On cloning datasets with subdatasets from RIA stores
 

@@ -1,3 +1,5 @@
+.. index:: ! 2-002
+.. _2-002:
 .. _symlink:
 
 Data integrity
@@ -283,6 +285,8 @@ to manage the file system in a DataLad dataset (:ref:`filesystem`).
 
 Broken symlinks
 ^^^^^^^^^^^^^^^
+
+.. index:: ! broken symlink, ! symlink (broken)
 
 Whenever a symlink points to a non-existent target, this symlink is called
 *broken*, and opening the symlink would not work as it does not resolve. The

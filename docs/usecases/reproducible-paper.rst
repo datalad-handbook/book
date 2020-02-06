@@ -3,6 +3,8 @@
 Writing a reproducible paper
 ----------------------------
 
+.. index:: ! Usecase; reproducible paper
+
 This use case demonstrates how to use nested DataLad datasets to create a fully
 reproducible paper by linking
 
@@ -379,6 +381,8 @@ For step 3, one can include this file as an input source into the ``.tex`` file 
 Upon compilation of the ``.tex`` file into a PDF, the results of the
 computations captured with ``\newcommand`` definitions are inserted into the respective part
 of the manuscript.
+
+.. index:: ! Make
 
 The last step is to automate this procedure. So far, the script would need to be executed
 with a command line call, and the PDF compilation would require another commandline call.

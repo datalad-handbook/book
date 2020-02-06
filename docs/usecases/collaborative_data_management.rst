@@ -3,6 +3,8 @@
 A typical collaborative data management workflow
 ------------------------------------------------
 
+.. index:: ! Usecase; Collaboration
+
 This use case sketches the basics of a common, collaborative
 data management workflow for an analysis:
 

@@ -118,7 +118,7 @@ scopes. Conveniently, not only can DataLad and git-annex be configured with
 the same command as Git, but in many cases they will also use exactly the same
 files as Git for their own configurations.
 
-.. index:: ! .git/config
+.. index:: ! Config files; .git/config
 
 Let's find out how the repository-specific configuration file in the ``DataLad-101``
 superdataset looks like:

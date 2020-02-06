@@ -20,7 +20,7 @@ section by looking into it.
 ``.gitattributes``
 ^^^^^^^^^^^^^^^^^^
 
-.. index:: ! .gitattributes
+.. index:: ! Config files; .gitattributes
 
 This file lies right in the root of your superdataset:
 
@@ -133,7 +133,7 @@ in the root ``.gitattributes`` file.
 ``.gitmodules``
 ^^^^^^^^^^^^^^^
 
-.. index:: ! .gitmodules
+.. index:: ! Config files; .gitmodules
 
 On last configuration file that Git creates is the ``.gitmodules`` file.
 There is one right in the root of your dataset:
@@ -167,7 +167,7 @@ particularly deeply nested subdatasets.
 ``.datalad/config``
 ^^^^^^^^^^^^^^^^^^^
 
-.. index:: ! .datalad/config
+.. index:: ! Config files; .datalad/config
 
 DataLad adds a repository-specific configuration file as well.
 It can be found in the ``.datalad`` directory, and just like ``.gitattributes``

@@ -82,7 +82,7 @@ section below:
     As shown above, the only required parameter for a Dataset is the ``path`` to
     its location, and this location may or may not exist yet.
 
-    Stand-alone functions have a ``dataset=`` argument, similar to the
+    Stand-alone functions have a ``dataset=`` argument, corresponding to the
     ``-d/--dataset`` option in their command-line equivalent. You can specify
     the ``dataset=`` argument with a path (string) to your dataset (such as
     ``dataset='.'`` for the current directory, or ``dataset='path/to/ds'`` to

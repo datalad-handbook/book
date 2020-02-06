@@ -463,8 +463,11 @@ thus is impressive. Here is an excerpt::
         datalad-id = d3fa72e4-2c2b-11ea-948f-0025904abcb0
     [...]
 
-For each subdataset (named after subject IDs), there is one entry. Thus, this
-superdatasets combines all individual datasets to the original HCP dataset
+For each subdataset (named after subject IDs), there is one entry (note that
+individual ``url``\s of the subdatasets are pointless and not needed: As will be
+demonstrated shortly, DataLad resolves each subdataset ID from the common store
+automatically).
+Thus, this superdatasets combines all individual datasets to the original HCP dataset
 structure. This (and only this) superdataset is published to a public :term:`GitHub`
 repository that anyone can :command:`datalad clone` [#f4]_.
 

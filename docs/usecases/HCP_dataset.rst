@@ -292,17 +292,6 @@ hidden section below.
    ran over the Christmas break and finished before everyone went back to work.
    Getting 15 million files into datasets? Check!
 
-   **Where things went wrong**
-
-   As with virtually any undertaking that involves a computer and code, the
-   initial tries were not 100% successful. After a complete download, the log
-   files of HTCondor and some datasets showed some mis-specified S3 URLs in tables
-   (``%`` characters were accidentally replaced by ``,``) and an exploration of
-   the resulting datasets showed individual datasets with non-dropped or missing
-   contents. After a thorough data check, correcting tables, and rebuilding
-   affected datasets, in  Mid-January a ``HCP1200`` superdataset was build and
-   all subjects' nested datasets were added as subdatasets.
-
 Using a Remote Indexed Archive Store for dataset hosting
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 

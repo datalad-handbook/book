@@ -1,3 +1,5 @@
+.. index:: ! 3-001
+.. _3-001:
 .. _usecase_datastore:
 
 Building a scalable data storage for scientific computing

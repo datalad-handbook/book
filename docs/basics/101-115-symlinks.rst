@@ -1,3 +1,5 @@
+.. index:: ! 2-002
+.. _2-002:
 .. _symlink:
 
 Data integrity

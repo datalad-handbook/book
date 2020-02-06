@@ -1,3 +1,5 @@
+.. index:: ! 1-002
+.. _1-002:
 .. _chapter_run:
 
 **II - DataLad, Run!**

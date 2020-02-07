@@ -200,7 +200,7 @@ hidden section below.
    the subject's ID (here: ``100206``), ``filename`` is the path to the file
    within the dataset that will be build, and ``version`` is an S3 specific
    file version identifier.
-   The first table thus specifies a few files in the directory ``release-notes``
+   The first table excerpt thus specifies a few files in the directory ``release-notes``
    in the dataset of subject ``100206``. For :command:`datalad addurls`, the
    column headers serve as placeholders for fields in each row.
    If this table excerpt is given to a :command:`datalad addurls` call as shown
@@ -217,12 +217,12 @@ hidden section below.
    downloaded file under the name specified in the ``filename`` field (``'{filename}'``)".
 
    If the file name contains a double slash (``//``), for example seen in the second
-   table in ``"MNINonLinear//...``, this file will be created underneath a
+   table excerpt in ``"MNINonLinear//...``, this file will be created underneath a
    *subdataset* of the name in front of the double slash. The rows in the second
    table thus translate to "save these files into the subdataset ``MNINonLinear``,
    and if this subdataset does not exist, create it".
 
-   With a single subject's table, a nested subject specific dataset is thus built.
+   Thus, with a single subject's table, a nested, subject specific dataset is built.
    Here is how the directory hierarchy looks for this particular subject once
    :command:`datalad addurls` worked through its table:
 
@@ -235,7 +235,7 @@ hidden section below.
        └── unprocessed      <- subdataset
 
    This is all there is to assemble subject specific datasets. The interesting
-   question is how to do this as automated as possible.
+   question is: How can this be done as automated as possible?
 
    **How to create subject-specific tables**
 
@@ -512,7 +512,8 @@ RIA URL that retrieves the correct dataset from the store by :command:`get`:
 
 This configuration allows :command:`get` to flexibly generate RIA URLs from the
 base URL in the config file and the dataset ID's listed in ``.gitmodules``. In
-the superdataset, it needed to be done "by hand" via :command:`git config`.
+the superdataset, it needed to be done "by hand" via the :command:`git config`
+command.
 Because the configuration should be shared together with the dataset, the
 configuration needed to be set in ``.datalad/config`` [#f6]_::
 

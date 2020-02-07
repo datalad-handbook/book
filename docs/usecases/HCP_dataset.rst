@@ -305,85 +305,14 @@ Subsequently, therefore, everything was published with
 store.
 
 A RIA store is a flexible and scalable data storage solution for DataLad datasets.
-If you were to take a look at one, it is a directory on some computer with
-hard to decipher contents. A RIA store contains datasets, but it stores them
-as *bare git repositories* instead of using the familiar layout of that dataset,
-and thus appears quite abstracted from the layout a dataset (clone) would have.
-
-.. findoutmore:: What is a bare Git repository?
-
-     A bare Git repository is a repository that contains the contents of the ``.git``
-     directory of regular DataLad datasets or Git repositories, but no worktree
-     or checkout. This has advantages: The repository is leaner, it is easier
-     for administrators to perform garbage collections, and it is required if you
-     want to push to it at all times. You can find out more on what bare repositories are and how to use them
-     `here <https://git-scm.com/book/en/v2/Git-on-the-Server-Getting-Git-on-a
-     -Server>`_.
-
-Here is how one dataset may look like if it is published to a RIA store:
-
-.. code-block:: bash
-   :emphasize-lines: 1-2
-
-    ├── 946
-    │   └── e8cac-432b-11ea-aac8-f0d5bf7b5561
-    │       ├── annex
-    │       │   └── objects
-    │       │       ├── 6q
-    │       │       │   └── mZ
-    │       │       │       └── MD5E-s93567133--7c93fc5d0b5f197ae8a02e5a89954bc8.nii.gz
-    │       │       │           └── MD5E-s93567133--7c93fc5d0b5f197ae8a02e5a89954bc8.nii.gz
-    │       │       ├── 6v
-    │       │       │   └── zK
-    │       │       │       └── MD5E-s2043924480--47718be3b53037499a325cf1d402b2be.nii.gz
-    │       │       │           └── MD5E-s2043924480--47718be3b53037499a325cf1d402b2be.nii.gz
-    │       │       ├── [...]
-    │       │       │   └── [...]
-    │       │       │       └── [...]
-    │       │       │           └── [...]
-    │       │       [...]
-    │       │ 
-    │       ├── archives
-    │       ├── branches
-    │       ├── config
-    │       ├── description
-    │       ├── HEAD
-    │       ├── hooks
-    │       │   ├── applypatch-msg.sample
-    │       │   ├── commit-msg.sample
-    │       │   ├── fsmonitor-watchman.sample
-    │       │   ├── post-update.sample
-    │       │   ├── pre-applypatch.sample
-    │       │   ├── pre-commit.sample
-    │       │   ├── pre-merge-commit.sample
-    │       │   ├── prepare-commit-msg.sample
-    │       │   ├── pre-push.sample
-    │       │   ├── pre-rebase.sample
-    │       │   ├── pre-receive.sample
-    │       │   └── update.sample
-    │       ├── info
-    │       │   └── exclude
-    │       ├── objects
-    │       │   ├── 05
-    │       │   │   └── 3d25959223e8173497fa7f747442b72c31671c
-    │       │   ├── 0b
-    │       │   │   └── 8d0edbf8b042998dfeb185fa2236d25dd80cf9
-    │       │   ├── 0d
-    │       │   │   └── a63a92497bd0996aa9398fc9e05783c5d0fe65
-    │       │   ├── [...]
-    │       │   │   └── [...]
-    │       │   ├── info
-    │       │   └── pack
-    │       ├── refs
-    │       │   ├── heads
-    │       │   │   ├── git-annex
-    │       │   │   └── master
-    │       │   └── tags
-    │       ├── ria-layout-version
-    │       └── ria-remote-ebce196a-b057-4c96-81dc-7656ea876234
-    │           └── transfer
-
-
+While its layout may look confusing if one were to take a look at it, a RIA store
+is nothing but a clever storage solution, and users never consciously interact
+with the store to get the HCP datasets.
+On the lowest level, `store.datalad.org <http://store.datalad.org/>`__
+is a directory on a publicly accessible server that holds a great number of datasets
+stored as :term:`bare git repositories`. The only important aspect of it for this
+usecase is that instead of by their names (e.g., ``100206``), datasets are stored
+and identified via their :term:`dataset ID`.
 The :command:`datalad clone` command can understand this layout and install
 datasets from a RIA store based on their ID.
 
@@ -410,26 +339,12 @@ datasets from a RIA store based on their ID.
    But worry not! To get the HCP data, no-one will ever need to compose
    :command:`clone` commands to RIA stores apart from DataLad itself.
 
-While its layout looks confusing, a RIA store is nothing but a clever storage
-solution, and users never consciously interact with the store to get the HCP
-datasets. On the lowest level, `store.datalad.org <http://store.datalad.org/>`__
-is a directory on a publicly accessible server that holds a great number of such
-bare repositories. The only important aspect of it for this usecase is that
-instead of by their names (e.g., ``100206``), datasets are stored and identified
-via their :term:`dataset ID` (the first two highlighted lines). The hidden section
-above demonstrated how this dataset ID becomes relevant to obtain the dataset.
-Importantly, after cloning a dataset from a RIA store, the dataset clone will
-have its usual file hierarchy and file names.
-
 A RIA store is used, because -- among other advantages -- its layout makes the
 store flexible and scalable. With datasets of sizes like the HCP project,
 especially scalability becomes an important factor. If you are interested in
 finding out why, you can find more technical details on RIA stores, their advantages,
 and even how to create and use one yourself in the use case :ref:`usecase_datastore`.
 
-.. todo::
-
-   Extend the datastore use case
 
 Making the datasets accessible
 """"""""""""""""""""""""""""""

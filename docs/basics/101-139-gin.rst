@@ -117,6 +117,9 @@ GIN web interface (unlike :term:`GitHub`) can even preview your annexed contents
 
 .. figure:: ../artwork/src/GIN_dl101_repo.png
 
+
+.. _subdspublishing:
+
 Subdataset publishing
 ^^^^^^^^^^^^^^^^^^^^^
 Just as the input subdataset ``iris_data`` in your published ``midterm_project``

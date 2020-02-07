@@ -575,6 +575,11 @@ syllabus, this should be done via :term:`GitHub`.
    .. figure:: ../artwork/src/screenshot_submodule.png
       :alt: The input dataset is linked
 
+.. _publishtogithub:
+
+Publishing the dataset to GitHub
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 .. note::
 
    The upcoming part requires a GitHub account. If you do not have one you

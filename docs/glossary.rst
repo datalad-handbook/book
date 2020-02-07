@@ -24,6 +24,15 @@ Glossary
        A single dataset instance (i.e. a local clone) has exactly one annex UUID,
        but other clones of the same dataset each have their own unique annex UUIDs.
 
+   bare Git repositories
+       A bare Git repository is a repository that contains the contents of the ``.git``
+       directory of regular DataLad datasets or Git repositories, but no worktree
+       or checkout. This has advantages: The repository is leaner, it is easier
+       for administrators to perform garbage collections, and it is required if you
+       want to push to it at all times. You can find out more on what bare repositories are and how to use them
+       `here <https://git-scm.com/book/en/v2/Git-on-the-Server-Getting-Git-on-a
+       -Server>`__.
+
    bash
       A Unix shell and command language.
 

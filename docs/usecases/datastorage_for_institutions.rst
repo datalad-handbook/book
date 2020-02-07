@@ -402,7 +402,8 @@ a :term:`git-annex` ria-remote special remote.
 
 The git-annex ria-remote special remote is similar to git-annex's built-in
 `directory <https://git-annex.branchable.com/special_remotes/directory/>`_
-special remote, and results in the facts that regular git-annex key storage is
+special remote (but works remotely and uses the ``hashdir_mixed`` [#f2]_ keystore
+layout), and results in the facts that regular git-annex key storage is
 possible and that retrieval of keys from (compressed) 7z archives in the RIA
 store works.
 
@@ -438,7 +439,7 @@ required arguments.
 
 .. findoutmore:: What about optional arguments?
 
-   - unless it is explicitly given via ``--ria-remote-name``, the sibling to the
+   - unless it is explicitly given via ``--ria-remote-name``, the
      ria-remote special remote will have the same sibling name suffixed with ``-ria``.
    - Special remote capabilities of a RIA store can be disabled at the time of
      RIA store creation by using the option ``--no-ria-remote``
@@ -457,9 +458,8 @@ Depending on the file transfer protocol, the looks of the ``ria+`` URL can diffe
   ``ria+http://store.datalad.org:/absolute/path/to/ria-store``
 
 Note that it is required to specify an :term:`absolute path` in the URL. Here is
-how one could create two siblings, ``server_juseless`` and ``server_juseless-ria``,
-to a RIA store (which can, but does not need to exist yet) on an :term:`SSH server`
-from within an existing dataset:
+how one could store a dataset in a RIA store (which can, but does not need to
+exist yet) on an :term:`SSH server` from within an existing dataset:
 
 .. code-block:: bash
 
@@ -475,10 +475,15 @@ from within an existing dataset:
     .: server_juseless(-) [ (git)]
     .: server_juseless-ria(+) [ria]
 
-Once the siblings to the RIA store are created, a
-:command:`datalad publish --to <sibling> --transfer-data all` publishes the
-dataset to the RIA store. With git-annex special remote capabilities enabled as
-in the example above, annexed contents will be published automatically.
+The sibling name of the store in the example above is ``server_juseless``, and
+the link to its git-annex ria-remote special remote was automatically named
+``server_juseless-ria``.
+
+Once the sibling to the RIA store and the special remote link to the RIA store
+are created, a :command:`datalad publish --to <sibling> --transfer-data all`
+publishes the dataset to the RIA store. With the git-annex special remote
+capabilities enabled as in the example above, annexed contents will be published
+automatically.
 
 To clone a dataset from the RIA store, the RIA URL needs to be passed to the
 :command:`datalad clone` command, following a similar scheme as outlined above:
@@ -491,13 +496,13 @@ To clone a dataset from the RIA store, the RIA URL needs to be passed to the
   name.
 
 Here is how to clone a dataset with the ID ``1d368e0a-439e-11ea-b341-d0c637c523bc``
-in the version identified by the tag ``ready4analysis`` from a RIA store on an
-SSH server:
+in the version identified by the tag ``ready4analysis`` from a RIA store on a
+webserver:
 
 .. code-block:: bash
 
    $ datalad clone \
-     ria+ssh://user@juseless.inm7.de/home/user/scratch/myriastore#1d368e0a-439e-11ea-b341-d0c637c523bc@ready4analysis \
+     ria+http://store.datalad.org#d1ca308e-3d17-11ea-bf3b-f0d5bf7b5561@ready4analysis \
      mydataset
 
 .. note::
@@ -650,11 +655,17 @@ to know the location of the store, its layout, or how it works -- they can go
 about doing their science, while DataLad handles publications routines.
 
 In order to get input data from datasets hosted in the datastore without requiring
-users to know about dataset IDs or construct ``ria+`` URLs, RIA store hosted
-datasets get a :term:`sibling` on :term:`GitLab` or :term:`GitHub` with their
-human readable name.
-Users can clone the datasets from the web hosting service, and obtain data
-via :command:`datalad get`. While :command:`datalad get` will retrieve file
+users to know about dataset IDs or construct ``ria+`` URLs, superdatasets
+get a :term:`sibling` on :term:`GitLab` or :term:`GitHub` with a human readable
+name. Users can clone the superdatasets from the web hosting service, and obtain data
+via :command:`datalad get`. A concrete example for this is described in
+the usecase
+
+.. todo::
+
+   Link HCP usecase
+
+While :command:`datalad get` will retrieve file
 or subdataset contents from the RIA store, users will not need to bother where
 the data actually comes from.
 

@@ -78,12 +78,11 @@ The DataLad approach
 
 The compute cluster is refurbished to a state-of-the-art data management
 system.
-For a scalable and flexible dataset storage, the data store is a Remote Indexed
-Archive (RIA) store -- an extendable, file-system based storage solution for
-DataLad datasets that aligns well with the requirements of scientific computing
-(infrastructure).
-The RIA store is configured as a git-annex
-`RIA-remote special remote <https://libraries.io/pypi/ria-remote>`_ for access
+For a scalable and flexible dataset storage, the data store is a
+:term:`Remote Indexed Archive (RIA) store` -- an extendable, file-system based
+storage solution for DataLad datasets that aligns well with the requirements of
+scientific computing (infrastructure).
+The RIA store is configured as a git-annex RIA-remote special remote for access
 to annexed keys in the store and so that full datasets can be (compressed)
 7-zip archives. The latter is especially useful in case of filesystem inode
 limitations, such as on HPC storage systems: Regardless of a dataset's number of
@@ -418,7 +417,7 @@ original creators of the dataset.
 **git-annex ria-remote special remotes**
 
 On a technical level, beyond being a tree of datasets, a RIA store is by default
-a :term:`git-annex` `ria-remote special remote <https://libraries.io/pypi/ria-remote>`_.
+a :term:`git-annex` ria-remote special remote.
 
 .. findoutmore:: What is a special remote?
 

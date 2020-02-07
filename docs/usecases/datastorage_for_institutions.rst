@@ -635,7 +635,7 @@ performs the relevant sibling setup with a fully configured link to the RIA stor
 and, on top of it, also creates an associated repository with a publication
 dependency on the RIA store to an institute's GitLab instance [#f4]_.
 With a procedure like this in place system-wide, an individual researcher only
-needs to call the procedure right at the time of dataset creation, and have a
+needs to call the procedure right at the time of dataset creation, and has a
 fully configured and set up analysis dataset afterwards:
 
 .. code-block:: bash

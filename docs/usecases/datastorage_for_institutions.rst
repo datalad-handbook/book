@@ -223,14 +223,15 @@ use the :command:`datalad create-sibling-ria` command to establish a connection
 to an either pre-existing or not-yet-existing RIA store, publish dataset contents
 with :command:`datalad publish`, (let others) clone the dataset from the
 RIA store, and (let others) publish and pull updates. In the
-case of large, institute-wide datasets, the RIA store can serve as a singular,
-central storage location that enables fine-grained data access to everyone who
-needs it, and as a storage and back-up location for all analyses datasets.
+case of large, institute-wide datasets, a RIA store (or multiple RIA stores)
+can serve as a central storage location that enables fine-grained data access to
+everyone who needs it, and as a storage and back-up location for all analyses datasets.
 
-The layout of a RIA store is a tree of datasets. The first level of subdirectories
-in this tree consists of the first three characters of the :term:`dataset ID`,
-and the second level of subdatasets contains the remaining characters of the
-dataset ID. Thus, the first two levels of subdirectories in the tree are split
+The layout of a RIA store is a directory tree with datasets. The first level of
+subdirectories in this tree consists of the first three characters of the
+:term:`dataset ID`, and the second level of subdatasets contains the remaining
+characters of the dataset ID.
+Thus, the first two levels of subdirectories in the tree are split
 dataset IDs of the datasets that are stored in them [#f1]_. The code block below
 illustrates how a single DataLad dataset looks like in a RIA store, and the
 dataset ID of the dataset (``946e8cac-432b-11ea-aac8-f0d5bf7b5561``) is
@@ -287,7 +288,7 @@ highlighted:
     └── ria-layout-version
 
 Beyond datasets, the RIA store only contains the directory ``error_logs``
-for error logging and the file ``ria-layout-version`` for a specification of the
+for error logging and the file ``ria-layout-version`` [#f2]_ for a specification of the
 dataset tree layout in the store (last two lines in the code block above).
 If a second dataset gets published to the RIA store, it will be represented in a
 similar tree structure under its dataset ID. Note that subdatasets are not
@@ -330,7 +331,8 @@ accessible while only using a handful of inodes, regardless of file number and s
 On an infrastructural level, a RIA store is fully self-contained, and is a plain
 file system storage, not a database. It can be set up on any infrastructure that
 a dataset can be created on, with only few additional software requirements (see
-below). With these attributes, a RIA store is a suitable solution for a number of
+below), and access to datasets can be managed by using file system :term:`permissions`.
+With these attributes, a RIA store is a suitable solution for a number of
 usecases (back-up, single or multi-user dataset storage, central point for
 collaborative workflows, ...), be that on private workstations, webservers,
 compute clusters, or other IT infrastructures.
@@ -413,7 +415,7 @@ Certain applications will not require special remote features. The usecase
 
 shows an example where git-annex key storage is explicitly not wanted. For most
 storage or back-up scenarios, special remote capabilities are useful, though,
-and thus the default [#f4]_.
+and thus the default [#f5]_.
 The :command:`datalad create-sibling-ria` command will automatically create a
 dataset representation in a RIA store (and set up the RIA store, if it does not
 exist), and configure a sibling to allow publishing to the RIA store and updating
@@ -422,7 +424,7 @@ With special remote capabilities enabled, the command will create a second
 sibling to the git-annex special remote. With these two siblings set up, upon an
 invocation of :command:`datalad publish --to <sibling> --transfer-data all`,
 the complete dataset contents, including annexed contents, will be published
-to the RIA store, with no further setup or configuration required [#f5]_.
+to the RIA store, with no further setup or configuration required [#f6]_.
 
 RIA store workflows
 """""""""""""""""""
@@ -616,7 +618,7 @@ this, check out the hidden section below.
    from the RIA store.
 
    The configuration either needs to be done by hand with a :command:`git config`
-   command [#f6]_, or exists automatically in ``.git/config`` if the dataset is
+   command [#f7]_, or exists automatically in ``.git/config`` if the dataset is
    cloned from a RIA store.
 
 **Configurations can hide the technical layers**
@@ -631,7 +633,7 @@ the RIA setup:
 A `custom procedure <https://jugit.fz-juelich.de/inm7/infrastructure/inm7-datalad/blob/master/inm7_datalad/resources/procedures/cfg_inm7.py>`_
 performs the relevant sibling setup with a fully configured link to the RIA store,
 and, on top of it, also creates an associated repository with a publication
-dependency on the RIA store to an institute's GitLab instance [#f3]_.
+dependency on the RIA store to an institute's GitLab instance [#f4]_.
 With a procedure like this in place system-wide, an individual researcher only
 needs to call the procedure right at the time of dataset creation, and have a
 fully configured and set up analysis dataset afterwards:
@@ -687,25 +689,32 @@ reproducible.
 
 .. rubric:: Footnotes
 
-.. [#f1]  The two-level structure (3 ID characters as one subdirectory, the
-          remaining ID characters as the next subdirectory) exists to avoid exhausting
-          file system limits on the number of files/folders within a directory.
+.. [#f1] The two-level structure (3 ID characters as one subdirectory, the
+         remaining ID characters as the next subdirectory) exists to avoid exhausting
+         file system limits on the number of files/folders within a directory.
 
-.. [#f2] To re-read about how git-annex's object tree works, check out section
+.. [#f2] The ``ria-layout-version`` is important because it identifies whether
+         the keystore uses git-annex's ``hashdirlower`` (git-annex's default for
+         bare repositories) or ``hashdirmixed`` layout (which is necessary to
+         allow symlinked annexes, relevant for :term:`ephemeral clone`\s). To read
+         more about hashing in the key store, take a look at
+         `the docs <https://git-annex.branchable.com/internals/hashing/>`_.
+
+.. [#f3] To re-read about how git-annex's object tree works, check out section
          :ref:`symlink`, and pay close attention to the hidden section.
          Additionally, you can find much background information in git-annex's
          `documentation <https://git-annex.branchable.com/internals/>`_.
 
-.. [#f3] To re-read about DataLad's run-procedures, check out section
+.. [#f4] To re-read about DataLad's run-procedures, check out section
          :ref:`procedures`. You can find the source code of the procedure
          `on GitLab <https://jugit.fz-juelich.de/inm7/infrastructure/inm7-datalad/blob/master/inm7_datalad/resources/procedures/cfg_inm7.py>`_.
 
-.. [#f4] Special remote capabilities of a RIA store can be disabled at the time of RIA
+.. [#f5] Special remote capabilities of a RIA store can be disabled at the time of RIA
          store creation by passing the option ``--no-ria-remote`` to the
          :command:`datalad create-sibling-ria` command.
 
-.. [#f5] To re-read about publication dependencies and why this is relevant to
+.. [#f6] To re-read about publication dependencies and why this is relevant to
          annexed contents in the dataset, checkout section :ref:`sharethirdparty`.
 
-.. [#f6] To re-read on configuring datasets with the :command:`git config`, go
+.. [#f7] To re-read on configuring datasets with the :command:`git config`, go
          back to sections :ref:`config` and :ref:`config2`.

@@ -14,7 +14,7 @@ pytz
 requests
 six
 snowballstemmer
-Sphinx
+Sphinx==2.1.2
 sphinx-sitemap
 sphinxcontrib-websupport
 urllib3

@@ -35,6 +35,9 @@ as simple as possible. It elaborates on
    describes the RIA data storage and workflow implementation as done in INM-7,
    research centre Juelich, Germany.
 
+   **Note further**: Building a RIA store requires **DataLad version 0.12.3**
+   or higher.
+
 
 The Challenge
 ^^^^^^^^^^^^^
@@ -130,7 +133,7 @@ Step-by-step
 The following section will elaborate on the details of the technical
 implementation of a RIA store, and the workflow requirements and incentives for
 researchers. Both of them are aimed at making scientific analyses on a
-compute cluster scale, but can be viewed as complimentary but independent.
+compute cluster scale and can be viewed as complimentary but independent.
 
 .. note::
 
@@ -160,11 +163,12 @@ and are seen as *ephemeral* (short-lived).
 The RIA store (``$DATA``) can be accessed both from ``$HOME`` and ``$COMPUTE``,
 in both directions: Researchers can pull datasets from the store, push new
 datasets to it, or update (certain) existing datasets. ``$DATA`` is the one location
-experienced data management personnel ensures back-up and archival, performs
+in which experienced data management personnel ensures back-up and archival, performs
 house-keeping, and handles :term:`permissions`, and is thus were pristine raw
 data is stored or analyses code or results from ``$COMPUTE`` and ``$HOME`` should
 end up in. This aids organization, and allows a central management of back-ups
-and archival by experienced data stewards and data management personnel.
+and archival, potentially by data stewards or similar data management personnel
+with no domain knowledge about data contents.
 
 .. _fig_store:
 
@@ -192,7 +196,7 @@ researchers can explore data, test and develop code, or visualize results,
 but they can not create complete dataset copies or afford to keep an excess of
 unused data around.
 Only ``$COMPUTE`` has the necessary hardware requirements for expensive computations.
-Thus, within ``$HOME``, researchers are free to explore data from ``$DATA``
+Thus, within ``$HOME``, researchers are free to explore data
 as they wish, but scaling requires them to use ``$COMPUTE``. By using a job
 scheduler, compute jobs of multiple researchers are distributed fairly across
 the available compute infrastructure. Version controlled (and potentially
@@ -335,7 +339,7 @@ below), and access to datasets can be managed by using file system :term:`permis
 With these attributes, a RIA store is a suitable solution for a number of
 usecases (back-up, single or multi-user dataset storage, central point for
 collaborative workflows, ...), be that on private workstations, webservers,
-compute clusters, or other IT infrastructures.
+compute clusters, or other IT infrastructure.
 
 .. findoutmore:: Software Requirements
 
@@ -346,7 +350,8 @@ compute clusters, or other IT infrastructures.
    On the client side, you need DataLad version 0.12.3 (or later; has the
    :command:`create-sibling-ria` command and the git-annex ria-remote special remote).
    Alternatively, DataLad version 0.12.2 and a stand-alone installation of
-   `git-annex-ria-remote <https://github.com/datalad/git-annex-ria-remote>`_.
+   `git-annex-ria-remote <https://github.com/datalad/git-annex-ria-remote>`_
+   works.
 
 
 **Advantages of RIA stores**
@@ -388,8 +393,8 @@ original creators of the dataset.
 
 **git-annex ria-remote special remotes**
 
-On a technical level, beyond being a tree of datasets, a RIA store is by default
-a :term:`git-annex` ria-remote special remote.
+On a technical level, beyond being a directory tree of datasets, a RIA store
+is by default a :term:`git-annex` ria-remote special remote.
 
 .. findoutmore:: What is a special remote?
 
@@ -408,11 +413,7 @@ possible and that retrieval of keys from (compressed) 7z archives in the RIA
 store works.
 
 Certain applications will not require special remote features. The usecase
-
-.. todo::
-
-   link HCP usecase
-
+:ref:`usecase_HCP_dataset`
 shows an example where git-annex key storage is explicitly not wanted. For most
 storage or back-up scenarios, special remote capabilities are useful, though,
 and thus the default [#f5]_.
@@ -420,9 +421,9 @@ The :command:`datalad create-sibling-ria` command will automatically create a
 dataset representation in a RIA store (and set up the RIA store, if it does not
 exist), and configure a sibling to allow publishing to the RIA store and updating
 from it.
-With special remote capabilities enabled, the command will create a second
-sibling to the git-annex special remote. With these two siblings set up, upon an
-invocation of :command:`datalad publish --to <sibling> --transfer-data all`,
+With special remote capabilities enabled, the command will automatically create
+and link the git-annex special remote. With the sibling and special remote set up,
+upon an invocation of :command:`datalad publish --to <sibling> --transfer-data all`,
 the complete dataset contents, including annexed contents, will be published
 to the RIA store, with no further setup or configuration required [#f6]_.
 
@@ -463,21 +464,21 @@ exist yet) on an :term:`SSH server` from within an existing dataset:
 
 .. code-block:: bash
 
-   $ datalad create-sibling-ria -s server_juseless \
-     ria+ssh://user@juseless.inm7.de:/home/user/scratch/myriastore
-   [INFO   ] create siblings 'server_juseless' and 'server_juseless-ria' ...
+   $ datalad create-sibling-ria -s server_backup \
+     ria+ssh://user@some.server.edu:/home/user/scratch/myriastore
+   [INFO   ] create siblings 'server_backup' and 'server_backup-ria' ...
    [INFO   ] Fetching updates for <Dataset path=/tmp/my_dataset>
-   [INFO   ] Configure additional publication dependency on "server_juseless-ria"
+   [INFO   ] Configure additional publication dependency on "server_backup-ria"
    create-sibling-ria(ok): /tmp/my_dataset (dataset)
 
    $ datalad siblings
     .: here(+) [git]
-    .: server_juseless(-) [ (git)]
-    .: server_juseless-ria(+) [ria]
+    .: server_backup(-) [ (git)]
+    .: server_backup-ria(+) [ria]
 
-The sibling name of the store in the example above is ``server_juseless``, and
+The sibling name of the store in the example above is ``server_backup``, and
 the link to its git-annex ria-remote special remote was automatically named
-``server_juseless-ria``.
+``server_backup-ria``.
 
 Once the sibling to the RIA store and the special remote link to the RIA store
 are created, a :command:`datalad publish --to <sibling> --transfer-data all`
@@ -585,7 +586,7 @@ this, check out the hidden section below.
 
       $ git config url."ria+ssh://bob@some.server.edu:/data/datasets/RIAstore".insteadOf "ria+ssh://alice@some.server.edu:/data/datasets/RIAstore"
 
-   With this configurations, all URLs beginning with
+   With this configuration, all URLs beginning with
    ``ria+ssh://bob@some.server.edu:/data/datasets/RIAstore`` will be dynamically
    rewritten to start with ``ria+ssh://alice@some.server.edu:/data/datasets/RIAstore``
    and allow Alice to retrieve files successfully.
@@ -595,12 +596,7 @@ this, check out the hidden section below.
 
 .. findoutmore:: On cloning datasets with subdatasets from RIA stores
 
-   The usecase
-
-   .. todo::
-
-      link HCP usecase
-
+   The usecase :ref:`usecase_HCP_dataset`
    details a RIA-store based publication of a large dataset, split into a nested
    dataset hierarchy with about 4500 subdatasets in total. But how can links to
    subdatasets work, if datasets in a RIA store are stored in a flat hierarchy,
@@ -659,13 +655,7 @@ users to know about dataset IDs or construct ``ria+`` URLs, superdatasets
 get a :term:`sibling` on :term:`GitLab` or :term:`GitHub` with a human readable
 name. Users can clone the superdatasets from the web hosting service, and obtain data
 via :command:`datalad get`. A concrete example for this is described in
-the usecase
-
-.. todo::
-
-   Link HCP usecase
-
-While :command:`datalad get` will retrieve file
+the usecase :ref:`usecase_HCP_dataset`. While :command:`datalad get` will retrieve file
 or subdataset contents from the RIA store, users will not need to bother where
 the data actually comes from.
 

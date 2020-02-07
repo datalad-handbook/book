@@ -216,9 +216,9 @@ requiring expert or domain knowledge about the data. At its core, it is a flat,
 file-system based repository representation of any number of datasets, limited
 only by disk-space constrains of the machine it lies on.
 
-Put simple, a RIA store is a dataset storage location that allows for access to
-and collaboration on DataLad datasets (or, just as well, :term:`git-annex`
-repositories). The high-level workflow overview is as follows: Create a dataset,
+Put simply, a RIA store is a dataset storage location that allows for access to
+and collaboration on DataLad datasets.
+The high-level workflow overview is as follows: Create a dataset,
 use the :command:`datalad create-sibling-ria` command to establish a connection
 to an either pre-existing or not-yet-existing RIA store, publish dataset contents
 with :command:`datalad publish`, (let others) clone the dataset from the
@@ -298,15 +298,6 @@ dependent on its :term:`dataset ID`. As the dataset ID is universally unique,
 gets assigned to a dataset at the time of creation, and does not change across
 the life time of a dataset, no two different datasets could have the same location
 in a RIA store.
-
-.. findoutmore:: What about the ID if it is a git-annex repository?
-
-   If you want to store :term:`git-annex` repositories in a RIA store, the repository
-   will not have a dataset ID. Instead, the repository will be identified by its
-   :term:`annex UUID` in the store. This is ID is also universally unique, but unlike
-   :term:`dataset ID`\s, each repository clone will have a different :term:`annex UUID`.
-   Thus, while datasets can be identified across their entire lifetime, flavors,
-   and clones, each clone of a git-annex repository will get a new :term:`annex UUID`.
 
 The directory underneath the two dataset ID based subdirectories contains a
 *bare git repository* that is a clone of the dataset.

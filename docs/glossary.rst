@@ -77,6 +77,9 @@ Glossary
       A variable made up of a name/value pair. Programs using a given environment variable
       will use its associated value for their execution.
 
+   ephemeral clone
+      TODO
+
    GIN
       A web-based repository store for data management that you can use to host and
       share datasets. Find out more about GIN `here <https://gin.g-node.org/G-Node/Info/wiki>`__.

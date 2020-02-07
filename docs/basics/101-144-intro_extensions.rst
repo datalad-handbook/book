@@ -3,6 +3,8 @@
 DataLad's extensions
 --------------------
 
+.. index:: ! extensions
+
 The commands DataLad provides cover a broad range of domain-agnostic use cases.
 However, there are extension packages that can add (domain-specific)
 functionality and new commands.

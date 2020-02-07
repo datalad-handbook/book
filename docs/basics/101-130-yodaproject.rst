@@ -522,7 +522,7 @@ reason why the ``README.md`` in the root of the dataset was easily modifiable [#
 
 .. findoutmore:: Saving contents with Git regardless of configuration with --to-git
 
-   .. index:: datalad command; save --to-git
+   .. index:: ! datalad command; save --to-git
 
    The ``yoda`` procedure in ``midterm_project`` applied a different configuration
    within ``.gitattributes`` than the ``text2git`` procedure did in ``DataLad-101``.
@@ -575,6 +575,11 @@ syllabus, this should be done via :term:`GitHub`.
    .. figure:: ../artwork/src/screenshot_submodule.png
       :alt: The input dataset is linked
 
+.. _publishtogithub:
+
+Publishing the dataset to GitHub
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 .. note::
 
    The upcoming part requires a GitHub account. If you do not have one you
@@ -598,8 +603,7 @@ Luckily, DataLad can make all of this very easy with the
 command (or, for `GitLab <https://about.gitlab.com/>`_, :command:`datalad create-sibling-gitlab`,
 :manpage:`datalad-create-sibling-gitlab` manual).
 
-.. index:: ! datalad command; create-sibling-github
-.. index:: ! datalad command; create-sibling-gitlab
+.. index:: ! datalad command; create-sibling-github, ! datalad command; create-sibling-gitlab
 
 The command takes a repository name and GitHub authentication credentials
 (either in the command line call with options ``github-login <NAME>`` and
@@ -638,7 +642,7 @@ Verify that this worked by listing the siblings of the dataset:
    :command:`datalad publish` to this sibling, your datasets history
    will be pushed there.
 
-   .. index:: datalad command; publish
+   .. index:: ! datalad command; publish
 
 On GitHub, you will see a new, empty repository with the name
 ``midtermproject``. However, the repository does not yet contain

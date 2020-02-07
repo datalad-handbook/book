@@ -441,6 +441,23 @@ obtain the datasets just as any other DataLad datasets with :command:`datalad cl
 or :command:`datalad install`.
 
 
+What is the git-annex branch?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+If your DataLad dataset contains an annex, there is also a ``git-annex`` :term:`branch`
+that is created, used, and maintained solely by :term:`git-annex`. It is completely
+unconnected to any other branches in your dataset, and contains different types
+of log files.
+The contents of this branch are used for git-annex internal tracking of the
+dataset and its annexed contents. For example, git-annex stores information where
+file content can be retrieved from in a ``.log`` file for each object, and if the object
+was obtained from web-sources (e.g., with :command:`datalad download-url`), a
+``.log.web`` file stores the URL. Other files in this branch store information about
+the known remotes of the dataset and their description, if they have one.
+You can find out much more about the ``git-annex`` branch and its contents in the
+`documentation <https://git-annex.branchable.com/internals/>`_.
+This branch, however, is managed by git-annex, and you should not temper with it.
+
+
 .. rubric:: Footnotes
 
 .. [#f1] The absolutely amazing `Midnight Commander <https://github.com/MidnightCommander/mc>`_

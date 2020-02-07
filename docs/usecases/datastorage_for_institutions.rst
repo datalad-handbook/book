@@ -19,7 +19,7 @@ solution, suitable to serve the computational and logistic demands of data
 science in big (scientific) institutions, while keeping workflows for users
 as simple as possible. It elaborates on
 
-#. How to implement a scalable Remote Indexed Archive (RIA) store to flexibly
+#. How to implement a scalable :term:`Remote Indexed Archive (RIA) store` to flexibly
    store large amounts of DataLad datasets, potentially remote to lower storage
    strains on computing infrastructure,
 #. How disk-space aware computing can be eased by DataLad based workflows and
@@ -44,7 +44,7 @@ investigators, PhD students, general research staff, system administration,
 and IT support. It does research on important global issues, and prides
 itself with ground-breaking insights obtained from elaborate and complex
 computations run on a large scientific computing cluster.
-The data sets used in the institute are big both in size and number of files,
+The datasets used in the institute are big both in size and number of files,
 and expensive to collect.
 Therefore, datasets are used for various different research questions, by
 multiple researchers. Every member of the institute has an account on an expensive
@@ -111,7 +111,7 @@ to individual file level. With only precisely needed data, analyses datasets are
 already much leaner than with previous complete dataset copies, but as data can
 be re-obtained on-demand from the store, original input files or files that are
 easily recomputed can safely be dropped to save even more disk-space.
-Finally, upon creation of an analysis project, the associated GitLab project it
+Beyond this, upon creation of an analysis project, the associated GitLab project
 is automatically configured as a remote with a publication dependency on the
 data store, thus enabling vastly simplified data publication routines and
 backups of pristine results: After computing their results, a
@@ -130,7 +130,7 @@ Step-by-step
 The following section will elaborate on the details of the technical
 implementation of a RIA store, and the workflow requirements and incentives for
 researchers. Both of them are aimed at making scientific analyses on a
-compute cluster scale, but can be viewed as independent (yet complimentary).
+compute cluster scale, but can be viewed as complimentary but independent.
 
 .. note::
 
@@ -450,7 +450,7 @@ required arguments.
 
 
 RIA stores can be used under different types of file transfer protocols.
-Depending on the file transfer protocol, the looks of the URL can differ:
+Depending on the file transfer protocol, the looks of the ``ria+`` URL can differ:
 
 - :term:`SSH`: ``ria+ssh://[user@]hostname:/absolute/path/to/ria-store``
 - Local file system: ``ria+file:///absolute/path/to/ria-store``

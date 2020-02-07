@@ -304,52 +304,17 @@ The directory underneath the two dataset ID based subdirectories contains a
 
 .. findoutmore:: What is a bare Git repository?
 
-   Bare repositories are the contents of the ``.git`` directory  of regular
-   DataLad datasets or Git/git-annex repositories. They are typically used as
-   *remote* repositories to *share* repositories among several people and make
-   collaborative workflows possible. As a bare Git repository is the contents of
-   the ``.git`` directory, it does not contain a *working tree* (the directory tree
-   of files you can see or edit in a regular repository or dataset) or *checkout*
-   (a pointer to a specific state of the repository). Because of this, no-one can work
-   inside of a bare repository -- modifications to files or the repository require
-   a working tree. However, bare repositories can be cloned, pulled from, and
-   pushed to, and thus enable collaboration.
-
-   In a collaborative Git/git-annex/DataLad workflow, one commonly creates a bare
-   repository in a centralized place (such as a RIA store, but also -- you
-   guessed it -- :term:`GitHub` or :term:`GitLab`) and lets others clone
-   repositories, pull updates, or push their changes to them.
-   Thus, you are already familiar with bare Git repositories, you may just not
-   have been aware. Whenever you publish a dataset to GitHub, it is the ``.git``
-   directory that will be transferred to GitHub's server. Whenever you clone a
-   dataset, regardless of whether you clone it from GitHub, another hosting service,
-   or a file path, it is a ``.git`` directory that is copied to your machine.
-
-   At this point, you may be confused about the fact that all repositories
-   that GitHub/GitLab hosts are bare Git repositories, but that it appears as if
-   repositories on GitHub or GitLab -- unlike the bare repositories in a RIA
-   store that you have seen -- retain their directory hierarchy and their file
-   names, or that edits directly within GitHubs interface are possible, as if
-   those repositories would actually have a working tree:
-   GitHub's/GitLab's web-interface creates a *representation* of the repository content
-   and a *temporary* working tree to modify files directly from the web UI that
-   enables browsing and modifying file content. If you would push a bare
-   repository from a RIA store to GitHub/GitLab, it would also be represented with the
-   file and directory hierarchy of the original dataset.
-
-   Apart from enabling collaboration (a bare repository is required if you want to push to
-   it at all times), bare repositories have further advantages: Because they
-   do not contain a working tree or checkout, the repositories are leaner, and it
-   is easier for administrators to perform garbage collections and maintenance.
-   If you are interested in finding out more, you can read up on bare repositories
-   and how to use them
-   `here <https://git-scm.com/book/en/v2/Git-on-the-Server-Getting-Git-on-a
-   -Server>`_.
-
+   A bare Git repository is a repository that contains the contents of the ``.git``
+   directory of regular DataLad datasets or Git repositories, but no worktree
+   or checkout. This has advantages: The repository is leaner, it is easier
+   for administrators to perform garbage collections, and it is required if you
+   want to push to it at all times. You can find out more on what bare repositories
+   are and how to use them
+   `here <https://git-scm.com/book/en/v2/Git-on-the-Server-Getting-Git-on-a-Server>`__.
 
 Inside of the bare :term:`Git` repository, the ``annex`` directory -- just as in
 any standard dataset or repository -- contains the dataset's keystore (object
-tree) under ``annex/objects`` [#f2]_. In conjunction, keystore and bare Git
+tree) under ``annex/objects`` [#f3]_. In conjunction, keystore and bare Git
 repository are the original dataset -- just differently represented, with no
 *working tree*, i.e., directory hierarchy that exists in the original dataset,
 and without the name it was created under, but stored under its dataset ID.

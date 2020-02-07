@@ -148,14 +148,25 @@ compute cluster scale, but can be viewed as independent (yet complimentary).
 Incentives and imperatives for disk-space aware computing
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-One aspect of the problem are disk-space unaware computing workflows. Researchers
-make and keep numerous copies of data in their home directory and perform
-computationally expensive analyses on the headnode of a compute cluster because
-they don't know better, and/or want to do it in the easiest way possible.
-A general change for the better can be achieved by imposing sensible limitations
-and restrictions on what can be done at which scale on a new compute cluster.
-On a high level, this can be summarized as the *Trinity of research data handling*
-in the figure below:
+On a high level, the layout and relationships of the relevant computational
+infrastructure in this usecase are as follows:
+Every researcher has a workstation that they can access the compute cluster with.
+On the compute clusters' head node, every user account has their own
+home directory. These are the private spaces of researchers and are referred to
+as ``$HOME`` in :numref:`fig_store`.
+Analyses should be conducted on the cluster's compute nodes (``$COMPUTE``).
+``$HOME`` and ``$COMPUTE`` are not managed or trusted by data management personnel,
+and are seen as *ephemeral* (short-lived).
+The RIA store (``$DATA``) can be accessed both from ``$HOME`` and ``$COMPUTE``,
+in both directions: Researchers can pull datasets from the store, push new
+datasets to it, or update (certain) existing datasets. ``$DATA`` is the one location
+experienced data management personnel ensures back-up and archival, performs
+house-keeping, and handles :term:`permissions`, and is thus were pristine raw
+data is stored or analyses code or results from ``$COMPUTE`` and ``$HOME`` should
+end up in. This aids organization, and allows a central management of back-ups
+and archival by experienced data stewards and data management personnel.
+
+.. _fig_store:
 
 .. figure:: ../artwork/src/ephemeral_infra.svg
    :alt: A simple, local version control workflow with datalad.
@@ -166,17 +177,21 @@ in the figure below:
    with adequate resources, but just as users workstations/laptops (``$HOME``),
    it is not concerned with data hosting.
 
-Data from the RIA store (``$DATA``) is accessible for researchers for exploration
+One aspect of the problem are disk-space unaware computing workflows. Researchers
+make and keep numerous copies of data in their home directory and perform
+computationally expensive analyses on the headnode of a compute cluster because
+they don't know better, and/or want to do it in the easiest way possible.
+A general change for the better can be achieved by imposing sensible limitations
+and restrictions on what can be done at which scale:
+Data from the RIA store (``$DATA``) is accessible to researchers for exploration
 and computation, but the scale of the operations they want to perform can require
 different approaches.
-On their own machines or ``$HOME`` directories on the cluster (``$HOME``),
-researchers are free to do whatever they want as long as it is within the limits
-of their machines or their user accounts. On the clusters head node, with 100GB
-storage per person, researchers can explore data from the store (``$DATA``),
-test and develop code, or visualize results, but they can not create complete
-dataset copies or afford to keep an excess of unused data around.
-Only the cluster's compute nodes (``$COMPUTE``) have the necessary hardware
-requirements for expensive computations, and can also pull from ``$DATA``.
+In their ``$HOME``, researchers are free to do whatever they want as long as it
+is within the limits of their machines or their user accounts (100GB). Thus,
+researchers can explore data, test and develop code, or visualize results,
+but they can not create complete dataset copies or afford to keep an excess of
+unused data around.
+Only ``$COMPUTE`` has the necessary hardware requirements for expensive computations.
 Thus, within ``$HOME``, researchers are free to explore data from ``$DATA``
 as they wish, but scaling requires them to use ``$COMPUTE``. By using a job
 scheduler, compute jobs of multiple researchers are distributed fairly across

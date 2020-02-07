@@ -339,15 +339,14 @@ compute clusters, or other IT infrastructures.
 
 .. findoutmore:: Software Requirements
 
-   .. todo::
+   On the server side, only 7z is to be installed, if desired. Specifically, no
+   git, no git-annex, and no otherwise running daemons are necessary.
+   If the RIA store is setup remotely, the server needs to be SSH-accessible.
 
-      @mih, @bpoldrack: please check!
-
-   - git-annex version 7.20 or newer
-   - DataLad version 0.12.3 (or later)
-   - Server side: 7z needs to be in the path.
-   - Only relevant for the application at hand: The ``cfg_inm7`` run procedure as provided with
-     ``pip install git+https://jugit.fz-juelich.de/inm7/infrastructure/inm7-datalad.git``
+   On the client side, you need DataLad version 0.12.3 (or later; has the
+   :command:`create-sibling-ria` command and the git-annex ria-remote special remote).
+   Alternatively, DataLad version 0.12.2 and a stand-alone installation of
+   `git-annex-ria-remote <https://github.com/datalad/git-annex-ria-remote>`_.
 
 
 **Advantages of RIA stores**

@@ -46,9 +46,7 @@
    basics/basics8toc
    basics/basics9toc
    basics/basics10toc
-   basics/101-150-search
-   basics/101-151-metadata
-   basics/101-153-summary
+   basics/basics11toc
 
 .. only:: html
 

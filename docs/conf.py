@@ -79,8 +79,10 @@ extensions = [
     'sphinxcontrib.rsvgconverter',
     'sphinxcontrib.plantuml',
     'dataladhandbook_support',
+    'sphinx_copybutton'
 ]
 
+copybutton_skip_text = "$"
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 

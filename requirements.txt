@@ -1,4 +1,4 @@
-alabaster
+alabaster >= 0.7.11
 Babel
 certifi
 chardet

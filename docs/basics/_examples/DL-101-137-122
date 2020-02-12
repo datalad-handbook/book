@@ -1,15 +1,21 @@
 
-$ git checkout f59a78356d78525239347ecf763b6677130898af
+$ git checkout 97f36f17f90cc92ce4ef4ec1d8629622b26865cd
 warning: unable to rmdir 'midterm_project': Directory not empty
-Note: checking out 'f59a78356d78525239347ecf763b6677130898af'.
+Note: switching to '97f36f17f90cc92ce4ef4ec1d8629622b26865cd'.
 
 You are in 'detached HEAD' state. You can look around, make experimental
 changes and commit them, and you can discard any commits you make in this
-state without impacting any branches by performing another checkout.
+state without impacting any branches by switching back to a branch.
 
 If you want to create a new branch to retain commits you create, you may
-do so (now or later) by using -b with the checkout command again. Example:
+do so (now or later) by using -c with the switch command. Example:
 
-  git checkout -b <new-branch-name>
+  git switch -c <new-branch-name>
 
-HEAD is now at f59a783 resized picture by hand
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at 97f36f1 [DATALAD RUNCMD] convert -resize 450x450 recordings/longn...

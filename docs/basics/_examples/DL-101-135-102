@@ -2,21 +2,23 @@ $ datalad wtf
 # WTF
 ## configuration <SENSITIVE, report disabled by configuration>
 ## datalad 
-  - version: 0.12.0rc6.dev91
-  - full_version: 0.12.0rc6.dev91-gde46
+  - version: 0.12.0rc6.dev186
+  - full_version: 0.12.0rc6.dev186-g9aa12
 ## dataset 
   - path: /home/me/dl-101/DataLad-101
   - repo: AnnexRepo
+  - id: 71f03bec-32ac-11ea-b7a4-e86a64c8054c
   - metadata: <SENSITIVE, report disabled by configuration>
 ## dependencies 
-  - tqdm: 4.32.2
-  - cmd:annex: 7.20190129
   - cmd:git: 2.20.1
+  - tqdm: 4.32.2
+  - cmd:annex: 7.20190819+git2-g908476a9b-1~ndall+1
   - cmd:bundled-git: 2.20.1
-  - cmd:system-git: 2.20.1
+  - cmd:system-git: 2.24.0
   - cmd:system-ssh: 7.9p1
   - appdirs: 1.4.3
   - boto: 2.49.0
+  - exifread: 2.1.2
   - git: 2.1.11
   - gitdb: 2.0.5
   - humanize: 0.5.1
@@ -24,6 +26,7 @@ $ datalad wtf
   - keyring: 19.0.2
   - keyrings.alt: 3.1.1
   - msgpack: 0.6.1
+  - mutagen: 1.43.0
   - requests: 2.22.0
   - scrapy: 1.7.4
   - wrapt: 1.11.2
@@ -34,9 +37,56 @@ $ datalad wtf
   - GIT_EDITOR: vim
   - LC_CTYPE: en_US.UTF-8
   - GIT_AUTHOR_NAME: Elena Piscopia
-  - PATH: /home/adina/env/handbook/bin:/home/adina/Documents/freesurfer/bin:/home/adina/Documents/freesurfer/fsfast/bin:/home/adina/Documents/freesurfer/tktools:/usr/share/fsl/5.0/bin:/usr/lib/fsl/5.0:/home/adina/Documents/freesurfer/mni/bin:/usr/share/fsl/5.0/5.0/bin:/home/adina/.local/bin:/home/adina/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/home/adina/.dotfiles/bin
-  - GIT_PYTHON_GIT_EXECUTABLE: /usr/bin/git
-## extensions 
+  - PATH: /home/adina/env/handbook/bin:/home/adina/Documents/freesurfer/bin:/home/adina/Documents/freesurfer/fsfast/bin:/home/adina/Documents/freesurfer/tktools:/usr/share/fsl/5.0/bin:/usr/lib/fsl/5.0:/home/adina/Documents/freesurfer/mni/bin:/usr/share/fsl/5.0/5.0/bin:/home/adina/.local/bin:/home/adina/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/home/adina/.dotfiles/bin:/usr/local/go/bin:/home/adina/work/bin
+  - GIT_PYTHON_GIT_EXECUTABLE: /usr/lib/git-annex.linux/git
+## extensions
+  - webapp:
+    - load_error: None
+    - description: Generic web app support
+    - module: datalad_webapp
+    - version: 0.2
+    - entrypoints:
+      - datalad_webapp.WebApp:
+        - module: datalad_webapp
+        - class: WebApp
+        - names:
+          - webapp
+          - webapp
+        - load_error: None
+  - hirni:
+    - load_error: None
+    - description: HIRNI workflows
+    - module: datalad_hirni
+    - version: 0.0.4
+    - entrypoints:
+      - datalad_hirni.commands.import_dicoms.ImportDicoms:
+        - module: datalad_hirni.commands.import_dicoms
+        - class: ImportDicoms
+        - names:
+          - hirni-import-dcm
+          - hirni_import_dcm
+        - load_error: None
+      - datalad_hirni.commands.spec4anything.Spec4Anything:
+        - module: datalad_hirni.commands.spec4anything
+        - class: Spec4Anything
+        - names:
+          - hirni-spec4anything
+          - hirni_spec4anything
+        - load_error: None
+      - datalad_hirni.commands.dicom2spec.Dicom2Spec:
+        - module: datalad_hirni.commands.dicom2spec
+        - class: Dicom2Spec
+        - names:
+          - hirni-dicom2spec
+          - hirni_dicom2spec
+        - load_error: None
+      - datalad_hirni.commands.spec2bids.Spec2Bids:
+        - module: datalad_hirni.commands.spec2bids
+        - class: Spec2Bids
+        - names:
+          - hirni-spec2bids
+          - hirni_spec2bids
+        - load_error: None
   - crawler: 
     - load_error: None
     - description: Crawl web resources
@@ -90,52 +140,52 @@ $ datalad wtf
           - containers-run
           - containers_run
         - load_error: None
-  - neuroimaging:
+  - neuroimaging: 
     - load_error: None
     - description: Neuroimaging tools
     - module: datalad_neuroimaging
     - version: 0.2.3
-    - entrypoints:
-      - datalad_neuroimaging.bids2scidata.BIDS2Scidata:
+    - entrypoints: 
+      - datalad_neuroimaging.bids2scidata.BIDS2Scidata: 
         - module: datalad_neuroimaging.bids2scidata
         - class: BIDS2Scidata
-        - names:
+        - names: 
           - bids2scidata
         - load_error: None
-  - metalad:
+  - metalad: 
     - load_error: None
     - description: DataLad semantic metadata command suite
     - module: datalad_metalad
     - version: 0.2.0
-    - entrypoints:
-      - datalad_metalad.dump.Dump:
+    - entrypoints: 
+      - datalad_metalad.dump.Dump: 
         - module: datalad_metalad.dump
         - class: Dump
-        - names:
+        - names: 
           - meta-dump
           - meta_dump
         - load_error: None
-      - datalad_metalad.extract.Extract:
+      - datalad_metalad.extract.Extract: 
         - module: datalad_metalad.extract
         - class: Extract
-        - names:
+        - names: 
           - meta-extract
           - meta_extract
         - load_error: None
-      - datalad_metalad.aggregate.Aggregate:
+      - datalad_metalad.aggregate.Aggregate: 
         - module: datalad_metalad.aggregate
         - class: Aggregate
-        - names:
+        - names: 
           - meta-aggregate
           - meta_aggregate
         - load_error: None
 ## git-annex 
-  - version: 7.20190129
+  - version: 7.20190819+git2-g908476a9b-1~ndall+1
   - build flags: 
     - Assistant
     - Webapp
     - Pairing
-    - S3(multipartupload)(storageclasses)
+    - S3
     - WebDAV
     - Inotify
     - DBus
@@ -187,6 +237,8 @@ $ datalad wtf
     - BLAKE2B224
     - BLAKE2B384E
     - BLAKE2B384
+    - BLAKE2BP512E
+    - BLAKE2BP512
     - BLAKE2S256E
     - BLAKE2S256
     - BLAKE2S160E
@@ -218,6 +270,7 @@ $ datalad wtf
     - tahoe
     - glacier
     - ddar
+    - git-lfs
     - hook
     - external
   - operating system: linux x86_64
@@ -237,19 +290,19 @@ $ datalad wtf
   - path: /home/me/dl-101/DataLad-101
   - type: dataset
 ## metadata_extractors 
-  - bids:
+  - bids: 
     - module: datalad_neuroimaging.extractors.bids
     - version: None
     - load_error: None
-  - dicom:
+  - dicom: 
     - module: datalad_neuroimaging.extractors.dicom
     - version: None
     - load_error: None
-  - nidm:
+  - nidm: 
     - module: datalad_neuroimaging.extractors.nidm
     - version: None
     - load_error: None
-  - nifti1:
+  - nifti1: 
     - module: datalad_neuroimaging.extractors.nifti1
     - version: None
     - load_error: None
@@ -275,7 +328,8 @@ $ datalad wtf
     - load_error: None
   - audio: 
     - module: datalad.metadata.extractors.audio
-    - load_error: No module named 'mutagen' [audio.py:<module>:17]
+    - version: None
+    - load_error: None
   - datacite: 
     - module: datalad.metadata.extractors.datacite
     - version: None
@@ -290,7 +344,8 @@ $ datalad wtf
     - load_error: None
   - exif: 
     - module: datalad.metadata.extractors.exif
-    - load_error: No module named 'exifread' [exif.py:<module>:16]
+    - version: None
+    - load_error: None
   - frictionless_datapackage: 
     - module: datalad.metadata.extractors.frictionless_datapackage
     - version: None
@@ -301,7 +356,8 @@ $ datalad wtf
     - load_error: None
   - xmp: 
     - module: datalad.metadata.extractors.xmp
-    - load_error: No module named 'libxmp' [xmp.py:<module>:20]
+    - version: None
+    - load_error: None
 ## python 
   - version: 3.7.3
   - implementation: CPython
@@ -309,8 +365,8 @@ $ datalad wtf
   - type: posix
   - name: Linux
   - release: 4.19.0-6-amd64
-  - version: #1 SMP Debian 4.19.67-2+deb10u1 (2019-09-20)
-  - distribution: debian/10.1
+  - version: #1 SMP Debian 4.19.67-2+deb10u2 (2019-11-11)
+  - distribution: debian/10.2
   - max_path_length: 283
   - encoding: 
     - default: utf-8

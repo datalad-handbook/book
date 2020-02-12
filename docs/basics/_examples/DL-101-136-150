@@ -2,5 +2,6 @@ $ mv books/ readings
 $ datalad status
 untracked: readings (directory)
   deleted: books/TLCL.pdf (symlink)
+  deleted: books/bash_guide.pdf (symlink)
   deleted: books/byte-of-python.pdf (symlink)
   deleted: books/progit.pdf (symlink)

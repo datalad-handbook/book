@@ -1,3 +1,5 @@
+.. index:: ! 3-001
+.. _3-001:
 .. _usecase_datastore:
 
 Building a scalable data storage for scientific computing
@@ -6,7 +8,7 @@ Building a scalable data storage for scientific computing
 Research can require enormous amounts of data. Such data needs to be accessed by
 multiple people at the same time, and is used across a diverse range of
 computations or research questions.
-The size of the data set, the need for simultaneous access and transformation
+The size of the dataset, the need for simultaneous access and transformation
 of this data by multiple people, and the subsequent storing of multiple copies
 or derivatives of the data constitutes a challenge for computational clusters
 and requires state-of-the-art data management solutions.
@@ -15,7 +17,7 @@ solution, suitable to serve the computational and logistic demands of data
 science in big (scientific) institutions, while keeping workflows for users
 as simple as possible. It elaborates on
 
-#. How to implement a scalable, remote data store so that data is
+#. How to implement a scalable, remote data store so that data are
    stored in a different place than where people work with it,
 #. How to configure the data store and general cluster setup for easy and
    fast accessibility of data, and
@@ -76,7 +78,7 @@ calculations instead of data storage, the cluster gets a remote data
 store: Data lives as DataLad datasets on a different machine than the one
 the scientific analyses are computed on.
 For access to the annexed data in datasets, the data store is configured as a
-Git-annex `RIA-remote <https://libraries.io/pypi/ria-remote>`_.
+git-annex `RIA-remote <https://libraries.io/pypi/ria-remote>`_.
 In case of filesystem inode limitations on the machine
 serving as the data store (e.g., HPC storage systems), full datasets can be
 (compressed) 7-zip archives, without losing the ability to query available files.
@@ -94,7 +96,7 @@ analysis, an associated ``project`` is created under the namespace of the
 institute on the institute's :term:`GitLab` instance automatically. This has
 the advantage of vastly simplified version control and
 simplified access to projects for collaborators and supervisors. Data
-from the data store is installed as subdatasets. This comes with several
+from the data store is cloned as subdatasets. This comes with several
 benefits: Analyses are automatically linked to data, no unused file
 copies waste disk space on the compute cluster as data can be retrieved
 on-demand, and files that are easily re-obtained or recomputed can safely be
@@ -117,7 +119,7 @@ super computer at the Juelich supercomputing centre (JSC) are used to store
 large amounts of data. Thus, multiple different, independent machines take care of
 warehousing the data. While this is unconventional, it is convenient: The
 data does not strain the compute cluster, and with DataLad, it is irrelevant
-where the data is located.
+where the data are located.
 
 .. figure:: ../artwork/src/ephemeral_infra.svg
    :alt: A simple, local version control workflow with datalad.
@@ -136,22 +138,22 @@ but scaling requires them to use ``$COMPUTE``. Results from ``$COMPUTE`` are pus
 back to ``$DATA``, and hence anything that is relevant for a computation is tracked
 (and backed-up) there.
 
-The data store as a Git-annex RIA remote
+The data store as a git-annex RIA remote
 """"""""""""""""""""""""""""""""""""""""
 
-The remote data store exists thanks to Git-annex (which DataLad builds upon):
-Large files in datasets are stored as *values* in Git-annex's object tree. A *key*
+The remote data store exists thanks to git-annex (which DataLad builds upon):
+Large files in datasets are stored as *values* in git-annex's object tree. A *key*
 generated from their contents is checked into Git and used to reference the
 location of the value in the object tree [#f1]_. The object tree (or *keystore*)
 with the data contents can be located anywhere -- its location only needs to be
 encoded using a *special remote*. This configuration is done on an
 administrative, system-wide level, and users do not need to care or know
-about where data is stored, as they can access it just as easily as before.
+about where data are stored, as they can access it just as easily as before.
 
 .. findoutmore:: What is a special remote?
 
    A `special-remote <https://git-annex.branchable.com/special_remotes/>`_ is an
-   extension to Git's concept of remotes, and can enable Git-annex to transfer
+   extension to Git's concept of remotes, and can enable git-annex to transfer
    data to and from places that are not Git repositories (e.g., cloud services
    or external machines such as an HPC system). Don't envision a special-remote as a
    physical place or location -- a special-remote is just a protocol that defines
@@ -159,8 +161,8 @@ about where data is stored, as they can access it just as easily as before.
 
 The machines in question, parts of an old compute cluster, and parts of the
 supercomputer at the JSC are configured to receive and store data using the
-Git-annex remote for indexed file archives (`RIA <https://libraries.io/pypi/ria-remote>`_)
-special remote. The Git-annex RIA-remote is similar to Git-annex's built-in
+git-annex remote for indexed file archives (`RIA <https://libraries.io/pypi/ria-remote>`_)
+special remote. The git-annex RIA-remote is similar to git-annex's built-in
 `directory <https://git-annex.branchable.com/special_remotes/directory/>`_
 special remote, but distinct in certain aspects:
 
@@ -253,7 +255,7 @@ Here is how the RIA-remote features look like in real life:
   any standard dataset or repository -- contains the keystore (object tree) under
   ``annex/objects`` (highlighted above as well). Details on how this object tree
   is structured are outlined in the hidden section in :ref:`symlink`.
-- These keystores can be 7zipped if necessary to hold (additional) Git-annex objects,
+- These keystores can be 7zipped if necessary to hold (additional) git-annex objects,
   either for compression gains, or for use on HPC-systems with inode limitations.
 
 This implementation is fully self-contained, and is a plain file system storage,
@@ -266,16 +268,16 @@ This is done with a custom configuration (``cfg_inm7``) as a run-procedure [#f2]
    $ datalad create -c inm7 <PATH>
 
 The configuration performs all the relevant setup of the dataset with a fully
-configured link to ``$DATA``: It is configured as a remote to install and pull
+configured link to ``$DATA``: It is configured as a remote to clone and pull
 data from, but upon creation of the dataset, the dataset's directory is also created at the remote
 end as a bare repository to enable pushing of results back to ``$DATA``. At the same
 time, a GitLab :term:`sibling` in the institute's GitLab instance is created, with a
 publication dependency on the data storage.
 
-With this setup, a dataset of any size can be installed in a matter of seconds
-by providing its ID as a source in a :command:`datalad install` command::
+With this setup, a dataset of any size can be cloned in a matter of seconds
+by providing its ID as a source in a :command:`datalad clone` command::
 
-   $ datalad install --dataset mynewdataset \
+   $ datalad clone --dataset mynewdataset \
      --source <ID/URL> \
      mynewdataset/inputs
 
@@ -299,7 +301,7 @@ control capabilities their work also becomes more transparent, open, and reprodu
 
 .. findoutmore:: Software Requirements
 
-   - Git-annex version 7.20 or newer
+   - git-annex version 7.20 or newer
    - DataLad version 0.12.5 (or later), or any DataLad development version more
      recent than May 2019 (critical feature: https://github.com/datalad/datalad/pull/3402)
    - The ``cfg_inm7`` run procedure as provided with ``pip install git+https://jugit.fz-juelich.de/inm7/infrastructure/inm7-datalad.git``
@@ -308,9 +310,9 @@ control capabilities their work also becomes more transparent, open, and reprodu
 
 .. rubric:: Footnotes
 
-.. [#f1] To re-read about how Git-annex's object tree works, check out section
+.. [#f1] To re-read about how git-annex's object tree works, check out section
          :ref:`symlink`, and pay close attention to the hidden section.
-         Additionally, you can find much background information in Git-annex's
+         Additionally, you can find much background information in git-annex's
          `documentation <https://git-annex.branchable.com/internals/>`_.
 
 .. [#f2] To re-read about DataLad's run-procedures, check out section

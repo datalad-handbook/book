@@ -1,4 +1,4 @@
 $ cd ../mock_user && mv onemoredir/DataLad-101 .
 $ rm -r onemoredir
 $ cd ../DataLad-101 && git reset --hard master
-HEAD is now at 587ac34 finished my midterm project!
+HEAD is now at c2c4282 add container and execute analysis within container

@@ -1,22 +1,23 @@
 $ git log --reverse --oneline
-e85b950 [DATALAD] new dataset
-1a45fd4 Instruct annex to add text files to Git
-9a6fb63 add books on Python and Unix to read later
-dac2fa7 add reference book about git
-b72b237 Add notes on datalad create
-5f98f2b add note on datalad save
-49e85d1 [DATALAD] Recorded changes
-e61c229 Add note on datalad install
-ef8b726 Add simple script to write a list of podcast speakers and titles
-ecde4e4 [DATALAD RUNCMD] create a list of podcast titles
-d04c4af BF: list both directories content
-d26a29b [DATALAD RUNCMD] create a list of podcast titles
-4e3fb6e add note datalad and git diff
-327fd83 add note on basic datalad run and datalad rerun
-6e624f5 [DATALAD RUNCMD] convert -resize 400x400 recordings/longn...
-257130b resized picture by hand
-e3277e9 [DATALAD RUNCMD] convert -resize 450x450 recordings/longn...
-244c234 add additional notes on run options
-36a9cfd [DATALAD RUNCMD] Resize logo for slides
-d9d0872 [DATALAD RUNCMD] Resize logo for slides
-dd6fef5 add note on clean datasets
+d842213 [DATALAD] new dataset
+ca376f4 Instruct annex to add text files to Git
+69e7983 add books on Python and Unix to read later
+e1e8af3 add reference book about git
+da7d2d0 add beginners guide on bash
+3baae1e Add notes on datalad create
+0023a97 add note on datalad save
+2fcef51 [DATALAD] Recorded changes
+445c53e Add note on datalad clone
+5b391e9 Add short script to write a list of podcast speakers and titles
+87fde6a [DATALAD RUNCMD] create a list of podcast titles
+f2c608e BF: list both directories content
+3d0c225 [DATALAD RUNCMD] create a list of podcast titles
+cec87ae add note datalad and git diff
+a2055bf add note on basic datalad run and datalad rerun
+4291a9f [DATALAD RUNCMD] convert -resize 400x400 recordings/longn...
+b71548b resized picture by hand
+97f36f1 [DATALAD RUNCMD] convert -resize 450x450 recordings/longn...
+3f06057 add additional notes on run options
+cfd6f24 [DATALAD RUNCMD] Resize logo for slides
+cd4e9c1 [DATALAD RUNCMD] Resize logo for slides
+b64a92b add note on clean datasets

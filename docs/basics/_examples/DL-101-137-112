@@ -1,12 +1,12 @@
 $ git log -2
-commit 51d763ed5883bc51f6eabc36248e4ef80b9f600f
+commit 29cdf4e0d2aa6575863139b13a381a0194f892de
 Author: Elena Piscopia <elena@example.net>
-Date:   Mon Nov 18 08:44:46 2019 +0100
+Date:   Thu Jan 9 07:53:56 2020 +0100
 
-    save my favourite Git joke
+    save my favorite Git joke
 
-commit 587ac34d63c93275649cb65cd932c6a052569fdd
+commit c2c42825a9f75bb281a5d66f92a6047beb5b9709
 Author: Elena Piscopia <elena@example.net>
-Date:   Mon Nov 18 08:44:26 2019 +0100
+Date:   Thu Jan 9 07:53:30 2020 +0100
 
-    finished my midterm project!
+    add container and execute analysis within container

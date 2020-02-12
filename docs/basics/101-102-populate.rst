@@ -4,8 +4,8 @@ Populate a dataset
 ------------------
 
 The first lecture in DataLad-101 referenced some useful literature.
-Even if we end up not reading those books at all, let's just download
-them and put them into our dataset. You never know, right?
+Even if we end up not reading those books at all, let's download
+them nevertheless and put them into our dataset. You never know, right?
 Let's first create a directory to save books for additional reading in.
 
 .. runrecord:: _examples/DL-101-102-101
@@ -32,7 +32,7 @@ Below is a short list of optional readings. We decide to download them (they
 are all free, in total about 15 MB), and save them in ``DataLad-101/books``.
 
 - Additional reading about the command line: `The Linux Command Line <https://sourceforge.net/projects/linuxcommand/files/TLCL/19.01/TLCL-19.01.pdf/download>`_
-- An intro to Python: `A byte of Python <https://www.gitbook.com/download/pdf/book/swaroopch/byte-of-python>`_
+- An intro to Python: `A byte of Python <https://edisciplinas.usp.br/pluginfile.php/3252353/mod_resource/content/1/b_Swaroop_Byte_of_python.pdf>`_
 
 You can either visit the links and save them in ``books/``,
 or run the following commands [#f2]_ to download the books right from the terminal:
@@ -40,13 +40,13 @@ or run the following commands [#f2]_ to download the books right from the termin
 .. runrecord:: _examples/DL-101-102-103
    :language: console
    :workdir: dl-101/DataLad-101
-   :realcommand: cd books && wget -nv https://sourceforge.net/projects/linuxcommand/files/TLCL/19.01/TLCL-19.01.pdf/download -O TLCL.pdf && wget -nv https://www.gitbook.com/download/pdf/book/swaroopch/byte-of-python -O byte-of-python.pdf && cd ../
+   :realcommand: cd books && wget -nv https://sourceforge.net/projects/linuxcommand/files/TLCL/19.01/TLCL-19.01.pdf/download -O TLCL.pdf && wget -nv https://edisciplinas.usp.br/pluginfile.php/3252353/mod_resource/content/1/b_Swaroop_Byte_of_python.pdf -O byte-of-python.pdf && cd ../
    :cast: 01_dataset_basics
    :notes: We use wget to download a few books from the web. CAVE: longish realcommand!
 
    $ cd books
    $ wget https://sourceforge.net/projects/linuxcommand/files/TLCL/19.01/TLCL-19.01.pdf/download -O TLCL.pdf
-   $ wget https://www.gitbook.com/download/pdf/book/swaroopch/byte-of-python -O byte-of-python.pdf
+   $ wget https://edisciplinas.usp.br/pluginfile.php/3252353/mod_resource/content/1/b_Swaroop_Byte_of_python.pdf -O byte-of-python.pdf
    # get back into the root of the dataset
    $ cd ../
 
@@ -78,15 +78,15 @@ regular status reports should become a habit in the wake of ``DataLad-101``.
 
 .. index:: ! datalad command; save
 
-Interesting, the ``books/`` directory is "untracked". Remember how content
+Interesting; the ``books/`` directory is "untracked". Remember how content
 *can* be tracked *if a user wants to*?
 Untracked means that DataLad does not know about this directory or its content,
-because we have not instructed DataLad to actually track it. This means, DataLad
-does not keep the downloaded books in its history yet. Let's change this by
-saving the files to the dataset's history with the :command:`datalad save` command
+because we have not instructed DataLad to actually track it. This means that DataLad
+does not store the downloaded books in its history yet. Let's change this by
+*saving* the files to the dataset's history with the :command:`datalad save` command
 (:manpage:`datalad-save` manual).
 
-This time, its your turn to specify a helpful :term:`commit message`
+This time, it is your turn to specify a helpful :term:`commit message`
 with the ``-m`` option:
 
 .. runrecord:: _examples/DL-101-102-106
@@ -99,13 +99,15 @@ with the ``-m`` option:
 
 .. findoutmore:: "Oh no! I forgot the -m option!"
 
-   If you forget to specify a commit message with ``-m``, DataLad will write
+   If you forget to specify a commit message with the ``-m`` option, DataLad will write
    ``[DATALAD] Recorded changes`` as a commit message into your history.
    This is not particularly informative.
    You can change the *last* commit message with the Git command
    :command:`git commit --amend`. This will open up your default editor
    and you can edit
    the commit message. Careful -- the default editor might be :term:`vim`!
+   The section :ref:`history` will show you many more ways in which you can
+   interact with a dataset's history.
 
 
 As already noted, any files you ``save`` in this dataset, and all modifications
@@ -117,12 +119,12 @@ This is one aspect that distinguishes DataLad from many other
 version control tools, among them Git.
 Large content is tracked in an *annex* that is automatically
 created and handled by DataLad. Whether text files or larger files change,
-all of these changes can be written to your DataLad datasets history.
+all of these changes can be written to your DataLad dataset's history.
 
 Let's see how the saved content shows up in the history of the dataset with :command:`git log`.
-``-n 1`` specifies that we want to take a look at the most recent commit.
-In order to get a bit more details, we add the ``-p`` flag (if in a pager, leave the git log
-by typing ``q``, navigate with up and down arrow keys):
+The option ``-n 1`` specifies that we want to take a look at the most recent commit.
+In order to get a bit more details, we add the ``-p`` flag. If you end up in a
+pager, navigate with up and down arrow keys and leave the log by typing ``q``:
 
 .. runrecord:: _examples/DL-101-102-107
    :language: console
@@ -226,8 +228,8 @@ Let's :command:`datalad save` precisely this file by specifying its path after t
    history, not untracked files. Later, we will also see ``.gitignore`` files that let
    you hide content from version control.
    However, it is good practice to safely store away modifications or new content.
-   This both improves your dataset and workflow, and will be a requirement for the execution
-   of certain commands.
+   This improves your dataset and workflow, and will be a requirement for executing
+   certain commands.
 
 A :command:`datalad status` should now be empty, and our dataset's history should look like this:
 
@@ -240,8 +242,98 @@ A :command:`datalad status` should now be empty, and our dataset's history shoul
    # lets make the output a bit more concise with the --oneline option
    $ git log --oneline
 
+“Wonderful! I’m getting a hang on this quickly”, you think. “Version controlling
+files is not as hard as I thought!”
+
+But downloading and adding content to your dataset “manually” has two
+disadvantages: For one, it requires you to download the content and save it.
+Compared to a workflow with no DataLad dataset, this is one additional command
+you have to perform (`and that additional time adds up, after a while <https://xkcd.com/1205/>`_). But a more
+serious disadvantage is that you have no electronic record of the source of the
+contents you added. The amount of :term:`provenance`, the time, date, and author
+of file, is already quite nice, but we don't know anything about where you downloaded
+these files from. If you would want to find out, you would have to *remember*
+where you got the content from – and brains are not made for such tasks.
+
+Luckily, DataLad has a command that will solve both of these problems:
+The :command:`datalad download-url` command (:manpage:`datalad-download-url` manual).
+We will dive deeper into the provenance-related benefits of using it in later chapters, but for now,
+we’ll start with best-practice-building. :command:`datalad download-url` can retrieve content
+from a URL (following any URL-scheme from https, http, or ftp or s3) and save it
+into the dataset together with a human-readable commit message and a hidden,
+machine-readable record of the origin of the content. This saves you time,
+and captures :term:`provenance` information about the data you add to your dataset.
+To experience this, lets add a final book,
+`a beginner’s guide to bash <http://www.tldp.org/LDP/Bash-Beginners-Guide/Bash-Beginners-Guide.pdf>`_,
+to the dataset. We provide the command with a URL, a pointer to the dataset the
+file should be saved in (``.`` denotes "current directory"), and a commit message.
+Note that we line break the command with ``\`` signs. You can copy them as they
+are presented here into your terminal, but in your own work you can write commands
+like this into a single line.
+
+.. runrecord:: _examples/DL-101-102-112
+   :language: console
+   :workdir: dl-101/DataLad-101
+   :cast: 01_dataset_basics
+   :notes: finally, datalad-download-url
+
+   $ datalad download-url http://www.tldp.org/LDP/Bash-Beginners-Guide/Bash-Beginners-Guide.pdf \
+     --dataset . \
+     -m "add beginners guide on bash" \
+     -O books/bash_guide.pdf
+
+Afterwards, a fourth book is inside your ``books/`` directory:
+
+.. runrecord:: _examples/DL-101-102-113
+   :language: console
+   :workdir: dl-101/DataLad-101
+   :cast: 01_dataset_basics
+
+   $ ls books
+
+However, the :command:`datalad status` command does not return any output –
+the dataset state is “clean”:
+
+.. runrecord:: _examples/DL-101-102-114
+   :language: console
+   :workdir: dl-101/DataLad-101
+   :cast: 01_dataset_basics
+
+   $ datalad status
+
+This is because :command:`datalad download-url` took care of saving for you:
+
+.. runrecord:: _examples/DL-101-102-115
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ git log -p -n 1
+
+
+At this point in time, the biggest advantage may seem to be the time save. However,
+soon you will experience how useful it is to have DataLad keep track for you where
+file content came from.
+
+To conclude this section, let's take a final look at the history of your dataset at
+this point:
+
+.. runrecord:: _examples/DL-101-102-116
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ git log --oneline
 
 Well done! Your ``DataLad-101`` dataset and its history are slowly growing.
+
+.. only:: adminmode
+
+   Add a tag at the section end.
+
+     .. runrecord:: _examples/DL-101-102-117
+        :language: console
+        :workdir: dl-101/DataLad-101
+
+        $ git branch sct_populate_a_dataset
 
 
 .. rubric:: Footnotes

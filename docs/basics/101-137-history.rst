@@ -14,12 +14,15 @@ it is possible to look at previous states of the data, or revert changes --
 even years after they happened -- thanks to the underlying version control
 system :term:`Git`.
 
+.. figure:: ../artwork/src/versioncontrol.svg
+   :width: 70%
+
 To get a glimpse into how to work with the history of a dataset, today's lecture
 has an external Git-expert as a guest lecturer.
 "I do not have enough time to go through all the details in only
 one lecture. But I'll give you the basics, and an idea of what is possible.
 Always remember: Just google what you need. You will find thousands of helpful tutorials
-or questions on `Stackoverflow <https.stackoverflow.com>`_ right away.
+or questions on `Stack Overflow <https://stackoverflow.com>`_ right away.
 Even experts will *constantly* seek help to find out which Git command to
 use, and how to use it.", he reassures with a wink.
 
@@ -137,7 +140,7 @@ DataLad in the editor)!
       Be aware that an interactive rebase lets you *rewrite* history.
       This can lead to confusion or worse if the history you are rewriting
       is shared with others, e.g., in a collaborative project. Be also aware
-      that rewriting history that is *pushed*/*published* (e.g., to Github)
+      that rewriting history that is *pushed*/*published* (e.g., to GitHub)
       will require a force-push!
 
    Running this command gives you a list of the N most recent commits
@@ -225,8 +228,28 @@ in your dataset -- just not written to the history anymore. Let's
 try this to get a feel for it.
 
 The COMMIT in the command can either be a hash or a reference
-with the HEAD pointer. Let's stay with the hash, and reset to the
-commit prior to saving the Gitjokes.
+with the HEAD pointer.
+
+.. findoutmore:: Git terminology: branches and HEADs?
+
+   A Git repository (and thus any DataLad dataset) is built up as a tree of
+   commits. A *branch* is a named pointer (reference) to a commit, and allows you
+   to isolate developments. The default branch is called ``master``. ``HEAD`` is
+   a pointer to the branch you are currently on, and thus to the last commit
+   in the given branch.
+
+   .. figure:: ../artwork/src/git_branch_HEAD.png
+
+   Using ``HEAD``, you can identify the most recent commit, or count backwards
+   starting from the most recent commit. ``HEAD~1`` is the ancestor of the most
+   recent commit, i.e., one commit back (``f30ab`` in the figure above). Apart from
+   the notation ``HEAD~N``, there is also ``HEAD^N`` used to count backwards, but
+   less frequently used and of importance primarily in the case of *merge*
+   commits.
+   `This post <https://stackoverflow.com/questions/2221658/whats-the-difference-between-head-and-head-in-git>`__
+   explains the details well.
+
+Let's stay with the hash, and reset to the commit prior to saving the Gitjokes.
 
 First, find out the shasum, and afterwards, reset it.
 
@@ -234,7 +257,7 @@ First, find out the shasum, and afterwards, reset it.
    :language: console
    :workdir: dl-101/DataLad-101
 
-   $ git log -3 --oneline
+   $ git log -n 3 --oneline
 
 .. runrecord:: _examples/DL-101-137-107
    :language: console
@@ -247,7 +270,7 @@ Let's see what has happened. First, let's check the history:
    :language: console
    :workdir: dl-101/DataLad-101
 
-   $ git log -2 --oneline
+   $ git log -n 2 --oneline
 
 As you can see, the commit in which the jokes were tracked
 is not in the history anymore! Go on to see what :command:`datalad status`
@@ -275,9 +298,9 @@ to track:
    :workdir: dl-101/DataLad-101
    :language: console
 
-   $ datalad save -m "save my favourite Git joke" Gitjoke2.txt
+   $ datalad save -m "save my favorite Git joke" Gitjoke2.txt
 
-Finally, lets check how the history looks afterwards:
+Finally, let's check how the history looks afterwards:
 
 .. runrecord:: _examples/DL-101-137-112
    :workdir: dl-101/DataLad-101
@@ -287,13 +310,13 @@ Finally, lets check how the history looks afterwards:
 
 Wow! You have rewritten history [#f4]_ !
 
-Untracking accidentally saved contents (stored in Git-annex)
+Untracking accidentally saved contents (stored in git-annex)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The previous :command:`git reset` undid the tracking of *text* files.
 However, those files are stored in Git, and thus their content
 is also stored in Git. Files that are annexed, however, have
-their content stored in Git-annex, and not the file itself is stored
+their content stored in git-annex, and not the file itself is stored
 in the history, but a symlink pointing to the location of the file
 content in the dataset's annex. This has consequences for
 a :command:`git reset` command: Reverting a save of a file that is
@@ -301,8 +324,8 @@ annexed would revert the save of the symlink into Git, but it will
 not revert the *annexing* of the file.
 Thus, what will be left in the dataset is an untracked symlink.
 
-To undo an accidental save that annexed a file, the annexed file
-has to be "unannexed" first with a :command:`datalad unlock` command.
+To undo an accidental save of that annexed a file, the annexed file
+has to be "unlocked" first with a :command:`datalad unlock` command.
 
 We will simulate such a situation by creating a PDF file that
 gets annexed with an accidental :command:`datalad save`:
@@ -353,7 +376,7 @@ afterwards, reset it.
    :language: console
    :workdir: dl-101/DataLad-101
 
-   $ git log -3 --oneline
+   $ git log -n 3 --oneline
 
 .. runrecord:: _examples/DL-101-137-118
    :language: console
@@ -366,7 +389,7 @@ To see what has happened, let's check the history:
    :language: console
    :workdir: dl-101/DataLad-101
 
-   $ git log -2 --oneline
+   $ git log -n 2 --oneline
 
 ... and also the status of the dataset:
 
@@ -399,7 +422,7 @@ to specify the point in time you want to go back to:
    :language: console
    :workdir: dl-101/DataLad-101
 
-   $ git log -20 --oneline
+   $ git log -n 20 --oneline
 
 Let's go 15 commits back in time:
 
@@ -448,7 +471,7 @@ The contents of ``notes.txt`` will now be the most recent version again:
 
    $ cat notes.txt
 
-... Wow! You travelled back and forth in time!
+... Wow! You traveled back and forth in time!
 But an even more magical way to see the contents of files in previous
 versions is Git's :command:`cat-file` command: Among many other things, it lets
 you read a file's contents as of any point in time in the history, without a
@@ -479,7 +502,7 @@ Let's modify the saved ``Gitjoke1.txt``:
    :language: console
    :workdir: dl-101/DataLad-101
 
-   $ echo "this is by far my favourite joke!" >> Gitjoke2.txt
+   $ echo "this is by far my favorite joke!" >> Gitjoke2.txt
 
 .. runrecord:: _examples/DL-101-137-129
    :language: console
@@ -510,7 +533,7 @@ instead of ``--mixed``:
    :language: console
    :workdir: dl-101/DataLad-101
 
-   $ git log -2 --oneline
+   $ git log -n 2 --oneline
 
 .. runrecord:: _examples/DL-101-137-133
    :language: console
@@ -560,7 +583,7 @@ but also a modification to ``notes.txt``:
    :language: console
    :workdir: dl-101/DataLad-101
 
-   $ cat << EOT > notes.txt
+   $ cat << EOT >> notes.txt
 
    Git has many handy tools to go back in forth in
    time and work with the history of datasets.
@@ -653,7 +676,7 @@ the history of the dataset:
    :workdir: dl-101/DataLad-101
    :emphasize-lines: 6-8, 20
 
-   $ git log -3
+   $ git log -n 3
 
 The commit that introduced the bad modification is still present, but it
 transparently gets undone with the most recent commit. At the same time, the
@@ -714,17 +737,18 @@ Summary
 This guest lecture has given you a glimpse into how to work with the
 history of your DataLad datasets.
 To conclude this section, let's remove all untracked contents from
-the dataset. This can be done with :command:`git reset` as well: The command
-:command:`git reset --hard master` (where ``master`` is a branch name)
-swipes your dataset clean and removes anything that is untracked or
-modified but not saved yet.
+the dataset. This can be done with :command:`git clean`: The command
+:command:`git clean -f` swipes your dataset clean and removes any untracked
+file.
 **Careful! This is not revertible, and content lost with this commands can not be recovered!**
+If you want to be extra sure, run :command:`git clean -fn` beforehand -- this will
+give you a list of the files that would be deleted.
 
 .. runrecord:: _examples/DL-101-137-148
    :language: console
    :workdir: dl-101/DataLad-101
 
-   $ git reset --hard master
+   $ git clean -f
 
 Afterwards, the :command:`datalad status` returns nothing, indicating a
 clean dataset state with no untracked files or modifications.
@@ -737,6 +761,18 @@ clean dataset state with no untracked files or modifications.
 
 Finally, if you want, apply you're new knowledge about reverting commits
 to remove the ``Gitjoke2.txt`` file.
+
+
+.. only:: adminmode
+
+   Add a tag at the section end.
+
+     .. runrecord:: _examples/DL-101-137-160
+        :language: console
+        :workdir: dl-101/DataLad-101
+
+        $ git branch sct_back_and_forth_in_time
+
 
 .. rubric:: Footnotes
 
@@ -757,7 +793,7 @@ to remove the ``Gitjoke2.txt`` file.
 
 .. [#f4] Note though that rewriting history can be dangerous, and you should
          be aware of what you are doing. For example, rewriting parts of the
-         dataset's history that have been published (e.g., to a Github repository)
+         dataset's history that have been published (e.g., to a GitHub repository)
          already or that other people have copies of, is not advised.
 
 .. [#f5] When in need to interactively rebase, please consult further documentation

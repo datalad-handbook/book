@@ -1,0 +1,2 @@
+$ git config --local remote.public.push 'refs/heads/sct*'
+$ git config --local --add remote.public.push 'refs/heads/master'

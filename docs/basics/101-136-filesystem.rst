@@ -90,7 +90,7 @@ renamed, and will summarize this nicely in the resulting commit:
    :notes: and this is how it looks like in the history
    :cast: 03_git_annex_basics
 
-   $ git log -1 -p
+   $ git log -n 1 -p
 
 Note that :command:`datalad save` commits all modifications when
 it's called without a path specification,
@@ -262,7 +262,7 @@ the best option to turn to.
       :notes: moving files across directory levels is a content change because the symlink changes!
       :cast: 03_git_annex_basics
 
-      $ git log -1 -p
+      $ git log -n 1 -p
 
    As you can see, this action does not show up as a move, but instead
    a deletion and addition of a new file. Why? Because the content
@@ -274,9 +274,9 @@ the best option to turn to.
    An additional piece of background information: A :command:`datalad save` command
    internally uses a :command:`git commit` to save changes to a dataset.
    :command:`git commit` in turn triggers a :command:`git annex fix`
-   command. This Git-annex command fixes up links that have become broken
+   command. This git-annex command fixes up links that have become broken
    to again point to annexed content, and is responsible for cleaning up
-   what needs to be cleaned up. Thanks, Git-annex!
+   what needs to be cleaned up. Thanks, git-annex!
 
 
 Therefore, while it might be startling
@@ -327,7 +327,7 @@ file. Let's save it:
    :notes: That's it!
    :cast: 03_git_annex_basics
 
-   $ git log -1 -p
+   $ git log -n 1 -p
 
 That's it.
 
@@ -606,6 +606,56 @@ section.
       $ cd ../DataLad-101 && git reset --hard master
 
 
+Getting contents out of git-annex
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Files in your dataset can either be handled by :term:`Git` or :term:`Git-annex`.
+Self-made or predefined configurations to ``.gitattributes``, defaults, or the
+``--to-git`` option to :command:`datalad save` allow you to control which tool
+does what on up to single-file basis. Accidentally though, you may give a file of yours
+to git-annex when it was intended to be stored in Git, or you want to get a previously
+annexed file into Git.
+
+Consider you intend to share the cropped ``.png`` images you created from the
+``longnow`` logos. Would you publish your ``DataLad-101`` dataset so :term:`GitHub`
+or :term:`GitLab`, these files would not be available to others, because annexed
+dataset contents can not be published to these services.
+Even though you could find a third party service of your choice
+and publish your dataset *and* the annexed data (section :ref:`sharethirdparty`
+will demonstrate how this can be done), you're feeling lazy today. And since it
+is only two files, and they are quite small, you decide to store them in Git --
+this way, the files would be available without configuring an external data
+store.
+
+To get contents out of the dataset's annex you need to *unannex* them. This is
+done with the git-annex command :command:`git annex unannex`. Let's see how it
+works:
+
+.. runrecord:: _examples/DL-101-136-147
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ git annex unannex recordings/*logo_small.jpg
+
+Your dataset's history records the unannexing of the files.
+
+.. runrecord:: _examples/DL-101-136-148
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ git log -p -n 1
+
+Once files have been unannexed, they are "untracked" again, and you can save them
+into Git, either by adding a rule to ``.gitattributes``, or with
+:command:`datalad save --to-git`:
+
+.. runrecord:: _examples/DL-101-136-149
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ datalad save --to-git -m "save cropped logos to Git" recordings/*jpg
+
+
 Deleting (annexed) files/directories
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -744,7 +794,7 @@ DataLad will safeguard dropping content that it can not retrieve again:
 .. runrecord:: _examples/DL-101-136-178
    :workdir: dl-101/DataLad-101
    :language: console
-   :notes: datalad does not know how to reobtain the file, so it complains
+   :notes: datalad does not know how to re-obtain the file, so it complains
    :cast: 03_git_annex_basics
 
    $ datalad drop a.pdf
@@ -789,12 +839,12 @@ will error if given a sub-*directory*, a file, or a top-level dataset.
 .. runrecord:: _examples/DL-101-136-160
    :language: console
    :workdir: dl-101/DataLad-101
-   :notes: To get rid of subdatasets one can either uninstall or remove them. let's install one to see:
+   :notes: To get rid of subdatasets one can either uninstall or remove them. let's clone one to see:
    :cast: 03_git_annex_basics
 
-   # Install a subdataset - the content is irrelevant, so why not a cloud :)
-   $ datalad install -d . \
-    --source https://github.com/datalad-datasets/disneyanimation-cloud.git \
+   # clone a subdataset - the content is irrelevant, so why not a cloud :)
+   $ datalad clone -d . \
+    https://github.com/datalad-datasets/disneyanimation-cloud.git \
     cloud
 
 To uninstall the dataset, use
@@ -808,8 +858,7 @@ To uninstall the dataset, use
    $ datalad uninstall cloud
 
 Note that the dataset is still known in the dataset, and not completely removed.
-A ``datalad install cloud`` or ``datalad get cloud`` would reinstall the
-dataset.
+A ``datalad get [-n/--no-data] cloud`` would install the dataset again.
 
 .. index:: ! datalad command; remove
 
@@ -828,7 +877,7 @@ subsequently remove it with the :command:`datalad remove` command:
    :notes: to completely remove the dataset, use datalad remove
    :cast: 03_git_annex_basics
 
-   $ datalad install cloud
+   $ datalad get -n cloud
    # delete the subdataset
    $ datalad remove -m "remove obsolete subds" -d . cloud
 
@@ -862,8 +911,8 @@ have seen permission denied errors such as
 
 This error indicates that there is write-protected content within ``.git`` that
 cannot not be deleted. What is this write-protected content? It's the file content
-stored in the object tree of Git-annex. If you want, you can re-read the section on
-:ref:`symlink` to find out how Git-annex revokes write permission for the user
+stored in the object tree of git-annex. If you want, you can re-read the section on
+:ref:`symlink` to find out how git-annex revokes write permission for the user
 to protect the file content given to it. To remove a dataset with annexed content
 one has to regain write permissions to everything in the dataset. This is done
 with the `chmod <https://en.wikipedia.org/wiki/Chmod>`_ command::

@@ -13,7 +13,7 @@ A clear and concise description of what the bug is.
 **Background information**
 Please provide us with everything relevant to make sense of the issue such as:
 1. Your operating system
-2. Your version of DataLad and Git-annex. Consider providing the output of a ``datalad wtf``.
+2. Your version of DataLad and git-annex. Consider providing the output of a ``datalad wtf``.
 3. Your browser [e.g., chrome, safari] and its version [e.g., 22]
 4. ...
 

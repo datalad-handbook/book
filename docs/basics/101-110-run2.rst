@@ -59,10 +59,9 @@ To resize one image to 400x400 px, the command would thus be
 Remembering the last lecture on :command:`datalad run`, you decide to plug this into
 :command:`datalad run`. Even though this is not a script, it is a command, and you can wrap
 commands like this conveniently with :command:`datalad run`.
-Note that we line break the commands in the upcoming examples
+Because they will be quite long, we line break the commands in the upcoming examples
 for better readability -- in your terminal, you can always write the commands into
-a single line. The ``\`` are line breaks for your shell that make the commands work
-when you copy them formatted like this.
+a single line.
 
 .. runrecord:: _examples/DL-101-110-102
    :language: console
@@ -102,7 +101,7 @@ How can that be?
 
 "Right!", you exclaim with a facepalm.
 Just as the ``.mp3`` files, the ``.jpg`` file content is not present
-locally after an install, and we did not :command:`datalad get` it yet!
+locally after a :command:`datalad clone`, and we did not :command:`datalad get` it yet!
 
 This is where the ``-i``/``--input`` option for a datalad run becomes useful.
 The content of everything that is specified as an ``input`` will be retrieved
@@ -186,17 +185,17 @@ done wrong, we raise our hand to ask the instructor for help.
 Knowingly, she smiles, and tells you about how DataLad protects content given
 to it:
 
-"Content in your DataLad dataset is protected by :term:`Git-annex` from
+"Content in your DataLad dataset is protected by :term:`git-annex` from
 accidental changes" our instructor begins.
 
-"Wait!" we interrupt. "First of, that wasn't accidental. And second, I was told this
-course does not have ``Git-annex-101`` as a prerequisite?"
+"Wait!" we interrupt. "First off, that wasn't accidental. And second, I was told this
+course does not have ``git-annex-101`` as a prerequisite?"
 
 "Yes, hear me out" she says. "I promise you two different solutions at
 the end of this explanation, and the concept behind this is quite relevant".
 
-DataLad usually gives content to :term:`Git-annex` to store and track.
-Git-annex, let's just say, takes this task *really* seriously. One of its
+DataLad usually gives content to :term:`git-annex` to store and track.
+git-annex, let's just say, takes this task *really* seriously. One of its
 features that you have just experienced is that it *locks* content.
 
 If files are *locked down*, their content can not be modified. In principle,
@@ -206,7 +205,7 @@ Therefore, a file needs to be consciously *unlocked* to apply modifications.
 
 In the attempt to resize the image to 450x450 you tried to overwrite
 ``recordings/salt_logo_small.jpg``, a file that was given to DataLad
-and thus protected by Git-annex.
+and thus protected by git-annex.
 
 .. index:: ! datalad command; unlock
 
@@ -236,7 +235,7 @@ feel the urge to run a :command:`datalad status` on this:
 
 "Ah, do not mind that for now", our instructor says, and with a wink she
 continues: "We'll talk about symlinks and object trees a while later".
-We're not really sure whether that's a good thing, but we have a task to focus
+You are not really sure whether that's a good thing, but you have a task to focus
 on. Hastily, you run the command right from the terminal:
 
 .. runrecord:: _examples/DL-101-111-103
@@ -284,7 +283,8 @@ the ``-o``/``--output`` option.
    `FSL <https://fsl.fmrib.ox.ac.uk/fsl/fslwiki>`_, a neuro-imaging tool.
    The easiest way to specify this type of output
    is the directory name and a :term:`globbing` character, such as
-   ``-o directory/*``
+   ``-o directory/*``. And, just as for ``-i``/``--input``, you could use
+   multiple ``--output`` specifications.
 
 In order to execute :command:`datalad run` with both the ``-i``/``--input`` and ``-o``/``--output``
 flag and see their magic, let's crop the second logo, ``logo_interval.jpg``:
@@ -320,6 +320,9 @@ see an example of this in the next section.
 
 Note now how many individual commands a :command:`datalad run` saves us:
 :command:`datalad get`, :command:`datalad unlock`, and :command:`datalad save`!
+But even better: Beyond saving time *now*, running commands reproducibly and
+recorded with :command:`datalad run` saves us plenty of time in the future as soon
+as we want to rerun a command, or find out how a file came into existence.
 
 With this last code snippet, you have experienced a full :command:`datalad run` command: commit message,
 input and output definitions (the order in which you give those two options is irrelevant),
@@ -395,7 +398,7 @@ the ``--input`` and ``--output`` specification done before.
       $ datalad run -m "move a few files around" \
       --input "file1" --input "file2" --input "file3" \
       --output "directory_a/" \
-      "mv file1 file2 file3 directory_a}"
+      "mv file1 file2 file3 directory_a/"
 
 
    The order of the values will match that order from the command line.
@@ -416,7 +419,7 @@ the ``--input`` and ``--output`` specification done before.
       $ datalad run -m "move a few files around" \
       --input "file1" --input "file2" --input "file3" \
       --output "directory_a/" \
-      "mv file1 file2 file3 directory_a}"
+      "mv file1 file2 file3 directory_a/"
 
    If the command only needs a subset of the inputs or outputs, individual values
    can be accessed with an integer index, e.g., ``{inputs[0]}`` for the very first
@@ -426,6 +429,17 @@ the ``--input`` and ``--output`` specification done before.
 
    If your command call involves a ``{`` or ``}`` character, you will need to escape
    this brace character by doubling it, i.e., ``{{`` or ``}}``.
+
+
+.. only:: adminmode
+
+    Add a tag at the section end.
+
+      .. runrecord:: _examples/DL-101-111-107
+         :language: console
+         :workdir: dl-101/DataLad-101
+
+         $ git branch sct_input_and_output
 
 .. [#f1] In shell programming, commands exit with a specific code that indicates
     whether they failed, and if so, how. Successful commands have the exit code zero. All failures

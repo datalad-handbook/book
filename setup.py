@@ -20,6 +20,7 @@ requires = [
     'sphinxcontrib-svg2pdfconverter',
     'sphinxcontrib-plantuml',
     'autorunrecord',
+    'alabaster>=0.7.11',
 ]
 
 if __name__ == '__main__':

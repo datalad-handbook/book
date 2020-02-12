@@ -3,36 +3,63 @@
 Querying metadata
 -----------------
 
-DataLad allows to extract, aggregate, and query *metadata* about DataLad datasets.
-This functionality is useful to search for or in datasets, and also helps
-to make datasets findable.
+"We're almost at the end of the semester already!" begins our lecturer. "I've
+kept one very exciting aspect of DataLad private, up to this point. But today
+is the day we'll be talking about it: *metadata*".
 
-:term:`Metadata` is data describing a dataset, such as its author(s) or
-descriptions of its content.
-This type of metadata is different from the dataset content identity and
-availability metadata obtained with a :command:`datalad install` that allows
-the exploration of file hierarchies prior to any actual data download.
-Instead, extracted metadata on a dataset or its content is managed by DataLad
-itself as (somewhat hidden) dataset-internal content, and needs to be explicitly
-created and/or accessed using the :command:`datalad search` command,
-metadata *extractors* provided by DataLad or it's extension, and commands
-to extract, aggregate, and summarize metadata.
+.. figure:: ../artwork/src/metadata_intro.svg
 
-.. todo::
+:term:`Metadata` is data about data. It comes in many different types and exists
+in multiple standards, but the overall purpose of metadata is to summarize basic
+information about data to make tracking, querying, finding, or working with
+specific data easier. This may seem like a minor or auxiliary task, but
+creating, providing, and using sufficiently rich machine-and human-readable
+metadata are core aspects in the
+`FAIR principles <https://www.nature.com/articles/sdata201618>`_ that have
+a substantial impact on `science <https://en.wikipedia.org/wiki/FAIR_data>`_
+and became a key feature in
+`policy-making <https://ec.europa.eu/research/participants/data/ref/h2020/grants_manual/hi/oa_pilot/h2020-hi-oa-data-mgt_en.pdf>`_.
+Working with metadata, be it curating or using it, however, is not an easy task.
 
-   Figure out which commands. datalad extract-metadata or
-   datalad meta-extract and so forth... from
-   metalad: extract, dump, aggregate
+To make working with metadata easier, DataLad can automatically *extract*
+(create), *aggregate* (store), and *query* (search) various metadata types and
+standards in DataLad datasets, and allows to share metadata together with datasets.
+This functionality can help to make your own data in datasets more **F**\indable,
+**A**\ccessible, **I**\nteroperable, and **R**\eusable, and help you to discover
+interesting data or datasets.
 
-The following sections will demonstrate how to make use of such metadata
-with queries and for data discovery, and also how to extract and aggregate it.
+"Before we start, there is one important distinction in terminology", cautions
+the lecturer. "The metadata we will be talking about in this lecture is different
+from the dataset content identity and availability information we referred to as
+"metadata" in chapter :ref:`installDS`. This previous type of metadata is obtained
+with a :command:`datalad clone` and allows to explore of directory hierarchies,
+file names, and information on annexed data such as its size, its availability,
+and the locations at which copies are stored prior to any actual data download.
+The meta data we will be talking about today, instead, is different:
+It can describe dataset contents on arbitrary levels, and needs to be explicitly
+created and/or accessed, using specialised commands and DataLad tools.
+And the extracted and aggregated metadata on a dataset or its contents are managed
+by DataLad itself and as somewhat hidden dataset-internal content."
+
+The following sections will demonstrate how to make use of existing metadata
+with queries and for data discovery, and also how to extract and aggregate
+metadata yourself.
+The following terminology is used:
+
+- ``extract``: Create metadata about a dataset or specific dataset contents
+- ``aggregate``: Extract metadata (potentially recursively across a hierarchy of
+  datasets, or from subdatasets to higher level datasets) and store it in a
+  portable internal format
+- ``dump``: Report on aggregated metadata, either for files in a dataset or for
+  a dataset as a whole.
+- ``search``: Query aggregated metadata
 
 DataLad's superdataset ``///``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Prior to diving into the internals of DataLads metadata functionality,
-let's start by looking into one example of how to make use of some of the metadata
-that can be acquired.
+let's start by looking into one example of how to make use of some existing
+metadata.
 DataLad provides uniform access to more than 60TB of scientific data and
 its associated metadata via what is called ":term:`The DataLad superdataset ///`"
 (abbreviated ``///``). It is an open-data collection of various, to a large extent

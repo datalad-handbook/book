@@ -1,0 +1,5 @@
+$ mv notes.txt midterm_project/notes.txt
+$ datalad status -r
+ modified: midterm_project (dataset)
+untracked: midterm_project/notes.txt (file)
+  deleted: notes.txt (file)

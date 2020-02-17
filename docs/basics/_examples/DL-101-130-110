@@ -1,13 +1,13 @@
 $ git show ready4analysis
-commit 75ba33af65b84826e8c2007ed586e9edf1caaf3c
+commit 8147ae7c0a1b67b8dccbe61afdb39e41c3034e8a
 Author: Elena Piscopia <elena@example.net>
-Date:   Thu Jan 9 07:52:41 2020 +0100
+Date:   Mon Feb 17 08:51:01 2020 +0100
 
     add script for kNN classification and plotting
 
 diff --git a/code/script.py b/code/script.py
 new file mode 100644
-index 0000000..e43d58e
+index 0000000..26058d3
 --- /dev/null
 +++ b/code/script.py
 @@ -0,0 +1,41 @@
@@ -30,7 +30,7 @@ index 0000000..e43d58e
 +df.columns = attributes
 +
 +# create a pairplot to plot pairwise relationships in the dataset
-+plot = sns.pairplot(df, hue='class')
++plot = sns.pairplot(df, hue='class', palette='muted')
 +plot.savefig('pairwise_relationships.png')
 +
 +# perform a K-nearest-neighbours classification with scikit-learn

@@ -70,4 +70,11 @@ such as in
 
    $ pip install datalad-container
 
-Afterwards, the new DataLad functionality the extension provides is readily available.
+Afterwards, the new DataLad functionality the extension provides is
+readily available.
+
+Some extensions could also be available from the
+software distribution (e.g., NeuroDebian or conda) you used to install
+DataLad itself.  Visit `github.com/datalad/datalad-extensions/
+<https://github.com/datalad/datalad-extensions/>`_ to review available
+versions and their status.

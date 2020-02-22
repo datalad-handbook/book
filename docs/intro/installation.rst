@@ -203,278 +203,59 @@ code examples of the book.
 If you are a Windows user and want to help improve the handbook for Windows users,
 please `get in touch <https://github.com/datalad-handbook/book/issues/new>`_.
 
-.. container:: toggle
+Note: This installation method will get you a working version of
+DataLad, but be aware that many Unix commands shown in the book
+examples will not work for you, and DataLad-related output might
+look different from what we can show in this book. Please
+`get in touch <https://github.com/datalad-handbook/book/issues/new>`__
+touch if you want to help.
 
-   .. container:: header
+- **Step 1**: Install Conda
 
-      **1) Install within Windows [RECOMMENDED]**
+  - Go to https://docs.conda.io/en/latest/miniconda.html and pick the
+    latest Python 3 installer. Miniconda is a free, minimal installer for
+    conda and will install `conda <https://docs.conda.io/en/latest/>`_,
+    Python, depending packages, and a number of useful packages such as
+    `pip <https://pip.pypa.io/en/stable/>`_.
 
-   Note: This installation method will get you a working version of
-   DataLad, but be aware that many Unix commands shown in the book
-   examples will not work for you, and DataLad-related output might
-   look different from what we can show in this book. Please
-   `get in touch <https://github.com/datalad-handbook/book/issues/new>`__
-   touch if you want to help.
+  - During installation, keep everything on default. In particular, do
+    not add anything to ``PATH``.
 
-   - **Step 1**: Install Conda
+  - From now on, any further action must take place in the ``Anaconda prompt``,
+    a preconfigured terminal shell. Find it by searching for "Anaconda prompt"
+    in your search bar.
 
-      - Go to https://docs.conda.io/en/latest/miniconda.html and pick the
-        latest Python 3 installer. Miniconda is a free, minimal installer for
-        conda and will install `conda <https://docs.conda.io/en/latest/>`_,
-        Python, depending packages, and a number of useful packages such as
-        `pip <https://pip.pypa.io/en/stable/>`_.
+- **Step 2**: Install Git
 
-      - During installation, keep everything on default. In particular, do
-        not add anything to ``PATH``.
+  - In the ``Anaconda prompt``, run::
 
-      - From now on, any further action must take place in the ``Anaconda prompt``,
-        a preconfigured terminal shell. Find it by searching for "Anaconda prompt"
-        in your search bar.
+       conda install -c conda-forge git
 
-   - **Step 2**: Install Git
+    Note: Is has to be from ``conda-forge``, the anaconda version does not
+    provide the ``cp`` command.
 
-      - In the ``Anaconda prompt``, run::
+- **Step 3**: Install git-annex
 
-           conda install -c conda-forge git
+  - Obtain the current git-annex versions installer
+    `from here <https://downloads.kitenet.net/git-annex/windows/current/>`_.
+    Save the file, and double click the downloaded
+    :command:`git-annex-installer.exe` in your Downloads.
 
-        Note: Is has to be from ``conda-forge``, the anaconda version does not
-        provide the ``cp`` command.
+  - During installation, you will be prompted to "Choose Install Location".
+    **Install it into the miniconda Library directory**, e.g.
+    ``C:\Users\me\Miniconda3\Library``.
 
-   - **Step 3**: Install git-annex
+- **Step 4**: Install DataLad via pip
 
-      - Obtain the current git-annex versions installer
-        `from here <https://downloads.kitenet.net/git-annex/windows/current/>`_.
-        Save the file, and double click the downloaded
-        :command:`git-annex-installer.exe` in your Downloads.
+  - ``pip`` was installed by ``miniconda``. In the ``Anaconda prompt``, run::
 
-      - During installation, you will be prompted to "Choose Install Location".
-        **Install it into the miniconda Library directory**, e.g.
-        ``C:\Users\me\Miniconda3\Library``.
+       pip install datalad~=0.12
 
-   - **Step 4**: Install DataLad via pip
+- **Step 5**: Install 7zip
 
-      - ``pip`` was installed by ``miniconda``. In the ``Anaconda prompt``, run::
-
-           pip install datalad~=0.12
-
-   - **Step 5**: Install 7zip
-
-      - `7zip <https://7-zip.de/download.html>`_ is a dependency of DataLad and
-        not installed by default on Windows 10. Please make sure to download and
-        install it.
-
-.. container:: toggle
-
-   .. container:: header
-
-      **2) Install within WSL**
-
-   The Windows Subsystem for Linux (WSL) allows Windows users to have full access
-   to a Linux distribution within Windows.
-   If you have always used Windows be prepared for some user experience changes when
-   using Linux compared to Windows. For one, there will be no graphical user interface
-   (GUI). Instead, you will work inside a terminal window. This however
-   mirrors the examples and code snippets provided in this handbook exactly.
-   Using a proper Linux installation improves the DataLad handbook experience on Windows
-   *greatly*. However, it comes with
-   the downside of two filesystems that are somewhat separated. Data access to files
-   within Linux from within Windows is problematic:
-   Note that there will be incompatibilities between the Windows and Linux filesystems.
-   Files that are created within the WSL for example can not be modified with
-   Windows tools. A great resource to get started and understand the WSL is
-   `this guide <https://github.com/michaeltreat/Windows-Subsystem-For-Linux-Setup-Guide/>`_.
-
-
-   **Requirements**:
-
-   WSL can be enabled for **64-bit** versions of **Windows 10** systems running
-   **Version 1607** or above. To check whether your computer fulfills these requirements,
-   open *Settings* (in the start menu) > *System* > *About*. If your version number is
-   less than 1607, you will need to perform a
-   `windows update <https://support.microsoft.com/en-us/help/4028685/windows-10-get-the-update>`_
-   before installing WSL.
-
-   The instructions below show you how to set up the WSL and configure it to use
-   DataLad and its dependencies. They follow the
-   `Microsoft Documentation on the Windows Subsystem for Linux <https://docs.microsoft.com/en-us/windows/wsl/install-win10>`_.
-   If you run into troubles during the installation, please consult the
-   `WSL troubleshooting page <https://docs.microsoft.com/en-us/windows/wsl/troubleshooting>`_.
-
-
-   - **Step 1**: Enable the windows subsystem for Linux
-
-      - Open Windows Power Shell as an Administrator and run
-
-      .. code-block:: bash
-
-         $ Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
-
-      - Afterwards, when prompted in the Power Shell, restart your computer
-
-   - **Step 2**: Install a Debian Linux distribution
-
-      - To do this, visit the Microsoft store, and search for the Debian distro.
-        We **strongly** recommend installing :term:`Debian`, even though other
-        distributions are available. "Get" the app, and "install" it.
-
-   - **Step 3**: Initialize the distribution
-
-      - Launch the Subsystem either from the Microsoft store or from the Start menu. This
-        will start a terminal. Do not worry -- there is a dedicated section (:ref:`howto`)
-        on how to work with the terminal if you have not so far.
-
-      - Upon first start, you will be prompted to enter a new UNIX username and password.
-        Tip: chose a short name, and no spaces or special characters. The password will
-        become necessary when you elevate a process using ``sudo`` -- sudo let's you execute a
-        process with rights of another user, such as administrative rights, for examples when
-        you need to install software.
-
-      - Right after initial installation, your Linux distribution will be minimally equipped.
-        Update your package catalog and upgrade your installed packages by running the command below.
-        As with all code examples in this book, make sure to copy commands exactly, including
-        capitalization. If this is the first time you use ``sudo``, your system will warn you
-        to use it with care. During upgrading installed packages, the terminal will ask
-        you to confirm upgrades by pressing ``Enter``.
-
-      .. code-block:: bash
-
-         $ sudo apt update && sudo apt upgrade
-
-   - **Step 4**: Enable NeuroDebian
-
-      - In your terminal, run
-
-      .. code-block:: bash
-
-         $ wget -O- http://neuro.debian.net/lists/stretch.de-md.libre | sudo tee /etc/apt/sources.list.d/neurodebian.sources.list
-
-      - Afterwards, run
-
-      .. code-block:: bash
-
-         $ curl -sL "http://keyserver.ubuntu.com/pks/lookup?op=get&search=0xA5D32F012649A5A9" | sudo apt-key add
-
-      - lastly do another
-
-      .. code-block:: bash
-
-         $ sudo apt-update && sudo apt upgrade
-
-   - **Step 4**: Install datalad and everything it needs
-
-      .. code-block:: bash
-
-         $ sudo apt install datalad
-
-
-.. container:: toggle
-
-   .. container:: header
-
-      **3) Install within WSL2**
-
-   The Windows Subsystem for Linux (WSL) allows Windows users to have full access
-   to a Linux distribution within Windows. The Windows Subsystem for Linux 2 (WSL2)
-   is the (currently pre-released) update to the WSL.
-   If you have always used Windows be prepared for some user experience changes when
-   using Linux compared to Windows. For one, there will be no graphical user interface
-   (GUI). Instead, you will work inside a terminal window. This however
-   mirrors the examples and code snippets provided in this handbook exactly.
-   Using a proper Linux installation improves the DataLad handbook experience on Windows
-   *greatly*. However, it comes with
-   the downside of two filesystems that are somewhat separated. Data access to files
-   within Linux from within Windows is problematic:
-   Note that there will be incompatibilities between the Windows and Linux filesystems.
-   Files that are created within the WSL for example can not be modified with
-   Windows tools. A great resource to get started and understand the WSL is
-   `this guide <https://github.com/michaeltreat/Windows-Subsystem-For-Linux-Setup-Guide/>`_.
-
-   **Requirements**:
-
-   WSL can be enabled for **64-bit** versions of **Windows 10** systems running
-   Windows 10 Insider Preview Build 18917 or higher. You can find out how to enter
-   the Windows Insider Program to get access to the prebuilds
-   `here <https://insider.windows.com/en-us/>`_.
-   To check whether your computer fulfills these requirements,
-   open *Settings* (in the start menu) > *System* > *About*. Your version number should be
-   at least 1903.
-   Furthermore, your computer needs to support
-   `Hyper-V Virtualization <https://www.thomasmaurer.ch/2017/08/install-hyper-v-on-windows-10-using-powershell/>`_.
-
-   The instructions below show you how to set up the WSL and configure it to use
-   DataLad and its dependencies. They follow the
-   `Microsoft Documentation on the Windows Subsystem for Linux <https://docs.microsoft.com/en-us/windows/wsl/install-win10>`_.
-   If you run into troubles during the installation, please consult the
-   `WSL troubleshooting page <https://docs.microsoft.com/en-us/windows/wsl/troubleshooting>`_.
-
-
-
-   - **Step 1**: Enable the windows subsystem for Linux.
-
-      - Start the Power Shell as an administrator. Run both commands below,
-        only restart after the second one (despite being prompted after the first one already)::
-
-           Enable-WindowsOptionalFeature -Online -FeatureName VirtualMachinePlatform
-           Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
-
-   - **Step 2**: Install a Debian Linux distribution
-
-      - To do this, visit the Microsoft store, and search for the Debian distro.
-        We **strongly** recommend installing :term:`Debian`, even though other
-        distributions are available. "Get" the app, and "install" it.
-
-   - **Step 3**: Initialize the distribution
-
-      - Launch the Subsystem either from the Microsoft store or from the Start menu. This
-        will start a terminal. Do not worry -- there is a dedicated section (:ref:`howto`)
-        on how to work with the terminal if you haven't so far.
-
-      - Upon first start, you will be prompted to enter a new UNIX username and password.
-        Tip: chose a short name, and no spaces or special characters. The password will
-        become necessary when you elevate a process using ``sudo`` -- sudo let's you execute a
-        process with rights of another user, such as administrative rights, for examples when
-        you need to install software.
-
-
-   - **Step 4**: Configure the WLS
-
-      - Start the Power Shell as an administrator. To set the WSL version to WSL2, run
-        ``wsl --set-default-version 2``. Configure the distro to use WSL2 by running
-        ``wsl -l -v``. This should give an output like this::
-
-               NAME        STATE               VERSION
-           *   Debian       Running            2
-
-   - **Step 5**: Enable NeuroDebian
-
-      - In the terminal of your distribution, run
-
-      .. code-block:: bash
-
-         $ wget -O- http://neuro.debian.net/lists/stretch.de-md.libre | sudo tee /etc/apt/sources.list.d/neurodebian.sources.list
-
-      - Afterwards, run
-
-      .. code-block:: bash
-
-         $ curl -sL "http://keyserver.ubuntu.com/pks/lookup?op=get&search=0xA5D32F012649A5A9" | sudo apt-key add
-
-      - lastly do another
-
-      .. code-block:: bash
-
-         $ sudo apt-update && sudo apt upgrade
-
-   - **Step 6**: Install datalad and everything it needs from NeuroDebian
-
-      .. code-block:: bash
-
-         $ sudo apt install datalad
-
-   .. todo::
-
-      - maybe update Step 6 to use ``pip3`` to install DataLad and git-annex.
-
+  - `7zip <https://7-zip.de/download.html>`_ is a dependency of DataLad and
+    not installed by default on Windows 10. Please make sure to download and
+    install it.
 
 Initial configuration
 ^^^^^^^^^^^^^^^^^^^^^

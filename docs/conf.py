@@ -50,6 +50,8 @@ autorunrecord_env = {
     # maintain the PATH to keep all installed software functional
     'PATH': os.environ['PATH'],
     'GIT_EDITOR': 'vim',
+    # prevent progress bars - makes for ugly runrecords. See https://github.com/datalad-handbook/book/issues/390
+    'DATALAD_UI_PROGRESSBAR': 'none',
 }
 if 'CAST_DIR' in os.environ:
     autorunrecord_env['CAST_DIR'] = os.environ['CAST_DIR']

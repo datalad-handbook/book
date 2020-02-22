@@ -440,8 +440,8 @@ correct dataset now:
    $ git annex whereis TLCL.pdf
 
 But more than showing you how it can be done, if necessary, this paragraph
-hopefully convinced you that moving files across dataset boundaries is not a
-good idea. It can be a confusing and potentially "file-content-losing"-dangerous
+hopefully convinced you that moving files across dataset boundaries is not
+convenient. It can be a confusing and potentially "file-content-losing"-dangerous
 process, but it also dissociates a file from its provenance that is captured
 in its previous dataset, with no machine-readable way to learn about the move
 easily. Let's quickly clean up by moving the file back:

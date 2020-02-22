@@ -289,6 +289,15 @@ latex_elements = {
 \setcounter{tocdepth}{1}
 \usepackage{xcolor}
 \setcounter{secnumdepth}{0}
+\newsavebox{\selvestebox}
+\newenvironment{colbox}[1]
+  {\newcommand\colboxcolor{#1}%
+   \begin{lrbox}{\selvestebox}%
+   \begin{minipage}{\dimexpr\columnwidth-2\fboxsep\relax}}
+  {\end{minipage}\end{lrbox}%
+   \begin{center}
+   \colorbox[HTML]{\colboxcolor}{\usebox{\selvestebox}}
+   \end{center}}
 """,
 }
 

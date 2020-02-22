@@ -38,9 +38,9 @@ the following DataLad extensions are available:
        :command:`crawl-init`/:command:`crawl` commands, this extension
        allows to automate creation of DataLad datasets from resources
        available online, and efficiently keep them
-       up-to-date. Majority of datasets on `datasets.datalad.org
-       <http://datasets.datalad.org/>`_ are created and updated using
-       this extension functionality.
+       up-to-date. The majority of datasets in :term:`the DataLad superdataset ///`
+       on `datasets.datalad.org <http://datasets.datalad.org/>`_ are created and
+       updated using this extension functionality.
 
        .. todo::
 

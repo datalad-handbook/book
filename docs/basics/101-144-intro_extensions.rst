@@ -32,6 +32,20 @@ the following DataLad extensions are available:
        the ability to transparently execute commands in containerized
        computational environments. The section :ref:`containersrun` demonstrates
        how this extension can be used, as well as the usecase :ref:`usecase_reproduce_neuroimg`.
+   * - `DataLad Crawler <http://docs.datalad.org/projects/crawler/en/latest/>`_
+     - One of the initial goals behind DataLad was to provide access
+       to already existing data resources. With
+       :command:`crawl-init`/:command:`crawl` commands, this extension
+       allows to automate creation of DataLad datasets from resources
+       available online, and efficiently keep them
+       up-to-date. The majority of datasets in :term:`the DataLad superdataset ///`
+       on `datasets.datalad.org <http://datasets.datalad.org/>`_ are created and
+       updated using this extension functionality.
+
+       .. todo::
+
+          contribute a section or a demo, e.g. based on `existing one <http://docs.datalad.org/projects/crawler/en/latest/demos/track_data_from_webpage.html>`__
+
    * - `DataLad Neuroimaging <https://datalad-neuroimaging.readthedocs.io/en/latest/>`_
      - Metadata extraction support for a range of standards common to
        neuroimaging data. The usecase :ref:`usecase_reproduce_neuroimg` demonstrates
@@ -56,4 +70,11 @@ such as in
 
    $ pip install datalad-container
 
-Afterwards, the new DataLad functionality the extension provides is readily available.
+Afterwards, the new DataLad functionality the extension provides is
+readily available.
+
+Some extensions could also be available from the
+software distribution (e.g., NeuroDebian or conda) you used to install
+DataLad itself.  Visit `github.com/datalad/datalad-extensions/
+<https://github.com/datalad/datalad-extensions/>`_ to review available
+versions and their status.

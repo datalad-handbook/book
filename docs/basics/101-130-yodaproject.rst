@@ -126,7 +126,7 @@ section below:
    also be used with other programming languages, such as Matlab, via standard
    system calls.
 
-   Even if you don't know or like Python, you can just copy-paste the code
+   Even if you do not know or like Python, you can just copy-paste the code
    and follow along -- the high-level YODA principles demonstrated in this
    section generalize across programming languages.
 

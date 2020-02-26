@@ -470,6 +470,44 @@ books, or the cropped logos from chapter :ref:`chapter_run`::
    $ datalad get books/TLCL.pdf
    get(ok): /home/some/other/user/DataLad-101/books/TLCL.pdf (file) [from dropbox-for-friends]
 
+
+Use GitHub for sharing content
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+GitHub supports `Git Large File Storage <https://github.com/git-lfs/git-lfs>`_
+(Git LFS) for managing data files using Git.  Free GitHub subscription allows up
+to `1GB of free storage and up to 1GB of bandwidth monthly <https://help.github.com/en/github/managing-large-files/about-storage-and-bandwidth-usage>`_.
+As such, it might be sufficient for some use cases, and could be configured
+quite easily.  Similarly to the steps above, we need first to create a repository
+on GitHub if it does not already exist::
+
+    $ datalad create-sibling-github test-github-lfs
+    .: github(-) [https://github.com/yarikoptic/test-github-lfs.git (git)]
+    'https://github.com/yarikoptic/test-github-lfs.git' configured as sibling 'github' for <Dataset path=/tmp/test-github-lfs>
+
+and then initialize special remote of type ``git-lfs``, pointing to the same GitHub
+repository::
+
+    $ git annex initremote github-lfs type=git-lfs url=https://github.com/yarikoptic/test-github-lfs encryption=none embedcreds=no
+
+With this single step it becomes possible to transfer contents to GitHub::
+
+    $ git annex copy --to=github-lfs file.dat
+    copy file.dat (to github-lfs...)
+    ok
+    (recording state in git...)
+
+and the entire dataset to the same GitHub repository::
+
+    $ datalad publish --to=github
+    [INFO   ] Publishing <Dataset path=/tmp/test-github-lfs> to github
+    publish(ok): . (dataset) [pushed to github: ['[new branch]', '[new branch]']]
+
+Because special remote URL coincides with the regular remote URL on GitHub,
+``siblings enable`` enable will not even be necessary when datalad is installed
+from GitHub.
+
+
 Built-in data export
 ^^^^^^^^^^^^^^^^^^^^
 

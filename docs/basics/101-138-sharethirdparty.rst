@@ -121,11 +121,13 @@ file content from the remote, third party storage.
 .. findoutmore:: What is a special remote
 
    A special-remote is an extension to Git’s concept of remotes, and can
-   enable :term:`git-annex` to transfer data to and from places that are not Git
+   enable :term:`git-annex` to transfer data from and possibly to places that are not Git
    repositories (e.g., cloud services or external machines such as an HPC
-   system). Don’t envision a special-remote as a physical place or location
-   – a special-remote is just a protocol that defines the underlying transport
-   of your files to and from a specific location.
+   system). For example, *s3* special remote uploads and downloads content
+   to AWS S3, *web* special remote downloads files from the web, *datalad-archive*
+   extracts files from the annexed archives, etc. Don’t envision a special-remote
+   as merely a physical place or location – a special-remote is a protocol that
+   defines the underlying transport of your files to and/or from a specific location.
 
 As an example, let's walk through all necessary steps to publish ``DataLad-101``
 to **Dropbox**. If you instead are interested in learning how to set up a public

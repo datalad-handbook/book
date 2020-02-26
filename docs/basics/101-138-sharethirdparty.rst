@@ -250,7 +250,8 @@ to such sources conveniently under the hood.
 
   This is a wrapper around `rclone <https://rclone.or>`__ that makes any
   destination supported by rclone usable with :term:`git-annex`. If you are on
-  a recent version of Debian or Ubuntu, you alternatively can get it more
+  a recent version of Debian or Ubuntu
+  (or enable `NeuroDebian <http://neuro.debian.org>`_ repository), you alternatively can get it more
   conveniently via your package manager with ``sudo apt-get install git-annex-remote-rclone``.
 
 - Copy the path to this repository into your ``$PATH`` variable. If the

@@ -109,7 +109,7 @@ to service -- this is inconvenient, but inevitable given the
 differences between the various third party infrastructures.
 The general workflow, however, is the same:
 
-#. Implement the appropriate Git-annex *special-remote* (different
+#. Initialize the appropriate Git-annex *special-remote* (different
    from service to service).
 #. Push annexed file content to the third-party service to use it as a storage provider
 #. Share the dataset (repository) via GitHub/GitLab/... for others to install from

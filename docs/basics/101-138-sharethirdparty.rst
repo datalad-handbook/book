@@ -477,14 +477,22 @@ Apart from flexibly configurable special remotes that allow publishing
 annexed content to a variety of third party infrastructure, DataLad also has
 some build-in support for "exporting" data to other services.
 
-One example is the command :command:`export-to-figshare`. Running
-this command allows you to publish the dataset to
-`Figshare <https://figshare.com/>`_. The main difference is
-that this moves data out of version control and decentralized tracking,
+One example is the command :command:`export-archive`. Running
+this command would produce a ``.tar.gz`` file with the content of your dataset,
+which you could later upload to any data hosting portal manually. This moves
+data out of version control and decentralized tracking,
 and essentially "throws it over the wall". This means, while your data (also
-the annexed data) will be available for download on Figshare, none of the
+the annexed data) will be available for download from where you share it, none of the
 special features a DataLad dataset provides will be available, such as its
 history or configurations.
+
+Another example is :command:`export-to-figshare`. Running this command allows
+you to publish the dataset to `Figshare <https://figshare.com/>`_.  As the
+:command:`export-archive` is used by it to prepare content for upload to
+Figshare, annexed files also will be annotated as available from the archive on
+Figshare using ``datalad-archive`` special remote.  As a result, if you publish
+your Figshare dataset and share your DataLad dataset on GitHub, users will still
+be able to fetch content from the tarball shared on Figshare via DataLad.
 
 .. rubric:: Footnotes
 

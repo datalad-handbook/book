@@ -603,7 +603,7 @@ section.
 
       $ cd ../mock_user && mv onemoredir/DataLad-101 .
       $ rm -r onemoredir
-      $ cd ../DataLad-101 &&  sed -i 's/..\/mock_user\/onemoredir\/DataLad-101/..\/mock_user\/DataLad-101/' .git/config
+      $ cd ../DataLad-101 && sed -i 's/..\/mock_user\/onemoredir\/DataLad-101/..\/mock_user\/DataLad-101/' .git/config
 
 
 Getting contents out of git-annex

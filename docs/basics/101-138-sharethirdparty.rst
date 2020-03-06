@@ -505,7 +505,7 @@ and the entire dataset to the same GitHub repository::
     publish(ok): . (dataset) [pushed to github: ['[new branch]', '[new branch]']]
 
 Because special remote URL coincides with the regular remote URL on GitHub,
-``siblings enable`` enable will not even be necessary when datalad is installed
+``siblings enable`` will not even be necessary when datalad is installed
 from GitHub.
 
 

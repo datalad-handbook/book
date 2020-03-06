@@ -120,7 +120,7 @@ additional note in ``notes.txt``.
    "convert -resize 400x400 recordings/longnow/.datalad/feed_metadata/logo_salt.jpg recordings/salt_logo_small.jpg"
 
 With this flag, DataLad considers the specification of inputs and outputs to be "explicit".
-It doesn't warn if the repository is dirty, but importantly, it
+It does not warn if the repository is dirty, but importantly, it
 **only** saves modifications to the *listed outputs* (which is a problem in the
 vast amount of cases where one does not exactly know which outputs are produced).
 

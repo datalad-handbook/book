@@ -368,7 +368,7 @@ that is: The symlink, as information about file availability, but no file
 content. Anyone who attempts to :command:`datalad get` a file from a dataset clone
 if its contents were not published will fail.
 
-.. findoutmore:: What if I don't want to share a dataset with everyone, or only some files of it?
+.. findoutmore:: What if I do not want to share a dataset with everyone, or only some files of it?
 
    There are a number of ways to restrict access to your dataset or individual
    files of your dataset. One is via choice of (third party) hosting service
@@ -380,9 +380,9 @@ if its contents were not published will fail.
    infrastructure you may achieve this by invitations/permissions/... options
    of the respective service.
 
-   If it is individual files that you don't want to share, you can selectively
+   If it is individual files that you do not want to share, you can selectively
    publish the contents of all files you want others to have, and withhold the data
-   of the files you don't want to share. This can be done by providing paths
+   of the files you do not want to share. This can be done by providing paths
    to the data that should be published, and the ``--transfer-data auto`` option.
 
    Let's say you have a dataset with three files:

@@ -340,7 +340,7 @@ dependency is served first:
 .. code-block:: bash
    :emphasize-lines: 2
 
-   $ datalad publish --to github --transfer-data all
+   $ datalad push --to github --transfer-data all
    [INFO   ] Transferring data to configured publication dependency: 'dropbox-for-friends'
    [INFO   ] Publishing <Dataset path=/home/me/dl-101/DataLad-101> data to dropbox-for-friends
    publish(ok): books/TLCL.pdf (file)
@@ -410,13 +410,13 @@ if its contents were not published will fail.
 
    .. code-block:: bash
 
-      $ datalad publish --to github --transfer-data auto experiment.txt
+      $ datalad push --to github --transfer-data auto experiment.txt
 
    only meta data about file availability of ``subject_1.dat`` and ``subject_2.dat``
    exists, but as these files' annexed data is not published, a :command:`datalad get`
-   will fail. Note, though, that :command:`publish` will publish the complete
+   will fail. Note, though, that :command:`push` will publish the complete
    dataset history (unless you specify a commit range with the ``--since`` option
-   -- see the `manual <http://docs.datalad.org/en/latest/generated/man/datalad-publish.html>`_
+   -- see the `manual <http://docs.datalad.org/en/latest/generated/man/datalad-push.html>`_
    for more information).
 
 
@@ -500,7 +500,7 @@ With this single step it becomes possible to transfer contents to GitHub::
 
 and the entire dataset to the same GitHub repository::
 
-    $ datalad publish --to=github
+    $ datalad push --to=github
     [INFO   ] Publishing <Dataset path=/tmp/test-github-lfs> to github
     publish(ok): . (dataset) [pushed to github: ['[new branch]', '[new branch]']]
 

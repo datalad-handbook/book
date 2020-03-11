@@ -91,12 +91,12 @@ and you can type "yes" to continue::
     .: gin(-) [git@gin.g-node.org:/adswa/DataLad-101.git (git)]
 
 
-Afterwards, you can publish your dataset with :command:`datalad publish`. As the
+Afterwards, you can publish your dataset with :command:`datalad push`. As the
 repository on GIN supports a dataset annex, there is no publication dependency
 to an external data hosting service necessary, and the dataset contents
 stored in Git and in git-annex are published to the same place::
 
-   $ datalad publish --to gin --transfer-data all
+   $ datalad push --to gin
     [INFO   ] Publishing <Dataset path=/home/me/dl-101/DataLad-101> data to gin
     publish(ok): books/TLCL.pdf (file)
     publish(ok): books/bash_guide.pdf (file)
@@ -185,7 +185,7 @@ Handily, the :command:`datalad subdatasets` command saved this change to the
 Afterwards, publish these changes to ``gin`` and see for yourself how this fixed
 the problem::
 
-   $ datalad publish --to gin --transfer-data all
+   $ datalad push --to gin
    [INFO   ] Publishing <Dataset path=/home/me/dl-101/DataLad-101> data to gin
    [INFO   ] Publishing <Dataset path=/home/me/dl-101/DataLad-101> to gin
 

@@ -664,22 +664,22 @@ Verify that this worked by listing the siblings of the dataset:
 
    Creating a sibling on GitHub will create a new empty repository under the
    account that you provide and set up a *remote* to this repository. Upon a
-   :command:`datalad publish` to this sibling, your datasets history
+   :command:`datalad push` to this sibling, your datasets history
    will be pushed there.
 
-   .. index:: ! datalad command; publish
+   .. index:: ! datalad command; push
 
 On GitHub, you will see a new, empty repository with the name
 ``midtermproject``. However, the repository does not yet contain
 any of your dataset's history or files. This requires *publishing* the current
-state of the dataset to this :term:`sibling` with the :command:`datalad publish`
-(:manpage:`datalad-publish` manual) command. The :command:`datalad publish` command
+state of the dataset to this :term:`sibling` with the :command:`datalad push`
+(:manpage:`datalad-push` manual) command. The :command:`datalad push` command
 will make the last saved state of your dataset available to the :term:`sibling`
 you provide with the ``--to`` option.
 
 .. code-block:: bash
 
-   $ datalad publish --to github
+   $ datalad push --to github
    [INFO   ] Publishing <Dataset path=/home/me/dl-101/DataLad-101/midterm_project> to github
    publish(ok): . (dataset) [pushed to github: ['[new branch]', '[new branch]']]
    action summary:
@@ -687,7 +687,7 @@ you provide with the ``--to`` option.
 
 .. gitusernote::
 
-   The :command:`datalad publish` uses ``git push``, and ``git annex copy`` under
+   The :command:`datalad push` uses ``git push``, and ``git annex copy`` under
    the hood. Publication targets need to either be configured remote Git repositories,
    or git-annex special remotes (if they support data upload).
 

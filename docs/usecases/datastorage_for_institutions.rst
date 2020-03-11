@@ -118,7 +118,7 @@ Beyond this, upon creation of an analysis project, the associated GitLab project
 is automatically configured as a remote with a publication dependency on the
 data store, thus enabling vastly simplified data publication routines and
 backups of pristine results: After computing their results, a
-:command:`datalad publish` is all it takes to backup and share ones scientific
+:command:`datalad push` is all it takes to backup and share ones scientific
 insights. Thus, even with a complex setup of data store, compute infrastructure,
 and repository hosting, configurations adjusted to the compute infrastructure
 can be distributed and used to mitigate any potential remaining technical overhead.
@@ -225,7 +225,7 @@ and collaboration on DataLad datasets.
 The high-level workflow overview is as follows: Create a dataset,
 use the :command:`datalad create-sibling-ria` command to establish a connection
 to an either pre-existing or not-yet-existing RIA store, publish dataset contents
-with :command:`datalad publish`, (let others) clone the dataset from the
+with :command:`datalad push`, (let others) clone the dataset from the
 RIA store, and (let others) publish and pull updates. In the
 case of large, institute-wide datasets, a RIA store (or multiple RIA stores)
 can serve as a central storage location that enables fine-grained data access to
@@ -423,7 +423,7 @@ exist), and configure a sibling to allow publishing to the RIA store and updatin
 from it.
 With special remote capabilities enabled, the command will automatically create
 and link the git-annex special remote. With the sibling and special remote set up,
-upon an invocation of :command:`datalad publish --to <sibling> --transfer-data all`,
+upon an invocation of :command:`datalad push --to <sibling>`,
 the complete dataset contents, including annexed contents, will be published
 to the RIA store, with no further setup or configuration required [#f6]_.
 
@@ -481,7 +481,7 @@ the link to its git-annex ria-remote special remote was automatically named
 ``server_backup-ria``.
 
 Once the sibling to the RIA store and the special remote link to the RIA store
-are created, a :command:`datalad publish --to <sibling> --transfer-data all`
+are created, a :command:`datalad push --to <sibling>`
 publishes the dataset to the RIA store. With the git-annex special remote
 capabilities enabled as in the example above, annexed contents will be published
 automatically.
@@ -643,7 +643,7 @@ fully configured and set up analysis dataset afterwards:
    $ datalad create -c inm7 <PATH>
 
 Working in this dataset will require only :command:`datalad save` and
-:command:`datalad publish` commands, and configurations ensure that the projects
+:command:`datalad push` commands, and configurations ensure that the projects
 history and results are published where they need to be: The RIA store, for storing
 and archiving the project including data, and GitLab, for exposing the projects
 progress to the outside and ease collaboration or supervision. Users do not need
@@ -670,7 +670,7 @@ researchers are able to focus on science and face barely any technical overhead 
 data management. As file content for analyses is obtained *on demand*
 via :command:`datalad get`, researchers selectively obtain only those data they
 need instead of having complete copies of datasets as before, and thus save disk
-space. Upon :command:`datalad publish`, computed results and project histories
+space. Upon :command:`datalad push`, computed results and project histories
 can be pushed to the data store and the institute's GitLab instance, and be thus
 backed-up and accessible for collaborators or supervisors. Easy-to-reobtain input
 data can safely be dropped to free disk space on the compute cluster. Sensible

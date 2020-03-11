@@ -300,7 +300,7 @@ Using a Remote Indexed Archive Store for dataset hosting
 All datasets were built on a scientific compute cluster. In this location, however,
 datasets would only be accessible to users with an account on this system.
 Subsequently, therefore, everything was published with
-:command:`datalad publish` to the publicly available
+:command:`datalad push` to the publicly available
 `store.datalad.org <http://store.datalad.org/>`_, a remote indexed archive (RIA)
 store.
 

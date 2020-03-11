@@ -118,14 +118,30 @@ The "submit a question link" on `DataLad's GitHub page <https://github.com/datal
 page prefills a neurostars form with a template for a question for a good
 starting point if you want to have more guidance or encounter writer's block.
 
+Common warnings and errors
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Common git-annex warnings and errors
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+A lot of output you will see while working with DataLad originates from warnings
+or errors by DataLad or git-annex.
+Some of these outputs can be wordy and not trivial to comprehend - and even if
+everything works, some warnings can be hard to understand.
+This following section will list some common git-annex warnings and errors and
+attempts to explain them. If you encounter warnings or errors that you would
+like to see explained in this book, please let us know by
+`filing an issue <https://github.com/datalad-handbook/book/issues/new`_.
 
-A lot of output you will see while working with DataLad originates from
-git-annex. It's outputs can be wordy and not trivial to comprehend even if
-everything works. This following section will list some common git-annex
-warnings and errors and attempts to explain them.
+Output produced by DataLad
+""""""""""""""""""""""""""
+
+If you have not configured your Git identity, you will see warnings like this
+when running any DataLad command::
+
+   [WARNING] It is highly recommended to configure git first (set both user.name and user.email) before using DataLad.
+
+To set your Git identity, go back to section :ref:`installconfig`.
+
+Output produced by git-annex
+""""""""""""""""""""""""""""
 
 Upon installation of a dataset, you may see::
 
@@ -145,13 +161,6 @@ data from, you are fine.
       [INFO   ] Submodule HEAD got detached. Resetting branch master to point to 046713bb. Original location was 47e53498
 
 
-.. todo::
-
-   Another one from a missing git config::
-
-      [WARNING] It is highly recommended to configure git first (set both user.name and user.email) before using DataLad. Failed to verify that git is configured: CommandError: command '['git', 'config', 'user.name']' failed with exitcode 1
-      | Failed to run ['git', 'config', 'user.name'] under None. Exit code=1. out= err= [cmd.py:run:552]CommandError: command '['git', 'config', 'user.email']' failed with exitcode 1
-      | Failed to run ['git', 'config', 'user.email'] under None. Exit code=1. out= err= [cmd.py:run:552].  Some operations might fail or not perform correctly.
 
 .. todo::
 

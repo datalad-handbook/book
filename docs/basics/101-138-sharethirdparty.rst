@@ -340,7 +340,7 @@ dependency is served first:
 .. code-block:: bash
    :emphasize-lines: 2
 
-   $ datalad push --to github --transfer-data all
+   $ datalad push --to github
    [INFO   ] Transferring data to configured publication dependency: 'dropbox-for-friends'
    [INFO   ] Publishing <Dataset path=/home/me/dl-101/DataLad-101> data to dropbox-for-friends
    publish(ok): books/TLCL.pdf (file)
@@ -382,14 +382,16 @@ if its contents were not published will fail.
 
    If it is individual files that you do not want to share, you can selectively
    publish the contents of all files you want others to have, and withhold the data
-   of the files you do not want to share. This can be done by providing paths
-   to the data that should be published, and the ``--transfer-data auto`` option.
+   of the files you do not want to share. This can be done by publishing only
+   selected files by providing paths, or overriding default push behavior with
+   the ``-f/--force`` option. In the latter case, specifying ``-f no-datatransfer``
+   would for example not push any annexed contents.
 
    Let's say you have a dataset with three files:
 
    - ``experiment.txt``
    - ``subject_1.dat``
-   - ``subject_2.data``
+   - ``subject_2.dat``
 
    Consider that all of these files are annexed. While the information in
    ``experiment.txt`` is fine for everyone to see, ``subject_1.dat`` and
@@ -410,7 +412,7 @@ if its contents were not published will fail.
 
    .. code-block:: bash
 
-      $ datalad push --to github --transfer-data auto experiment.txt
+      $ datalad push --to github experiment.txt
 
    only meta data about file availability of ``subject_1.dat`` and ``subject_2.dat``
    exists, but as these files' annexed data is not published, a :command:`datalad get`

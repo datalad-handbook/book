@@ -101,22 +101,14 @@ and you can type "yes" to continue::
 Afterwards, you can publish your dataset with :command:`datalad push`. As the
 repository on GIN supports a dataset annex, there is no publication dependency
 to an external data hosting service necessary, and the dataset contents
-stored in Git and in git-annex are published to the same place::
+stored in Git and in git-annex are published to the same place:
 
-   $ datalad push --to gin
-    [INFO   ] Publishing <Dataset path=/home/me/dl-101/DataLad-101> data to gin
-    publish(ok): books/TLCL.pdf (file)
-    publish(ok): books/bash_guide.pdf (file)
-    publish(ok): books/byte-of-python.pdf (file)
-    publish(ok): books/progit.pdf (file)
-    publish(ok): recordings/interval_logo_small.jpg (file)
-    publish(ok): recordings/salt_logo_small.jpg (file)
-    [INFO   ] Publishing <Dataset path=/home/me/dl-101/DataLad-101> to gin
-    Fetching gin (counting objects):  [...]
-    publish(ok): . (dataset) [pushed to gin: ['5ea3394..f9a941f', '[new branch]']]
-    action summary:
-      publish (ok: 7)
 
+ .. runrecord:: _examples/DL-101-139-102
+    :language: console
+    :workdir: dl-101/DataLad-101
+
+    $ datalad push --to gin
 
 If you refresh the GIN web interface afterwards, you will find all of your dataset
 -- including annexed contents! -- on GIN. What is especially cool is that the
@@ -168,13 +160,13 @@ can be done via the ``set-property <NAME> <VALUE>`` option of
 :command:`datalad subdatasets` [#f3]_ (replace the URL shown here with the URL
 your dataset was published to -- likely, you only need to change the user name):
 
-.. runrecord:: _examples/DL-101-139-102
+.. runrecord:: _examples/DL-101-139-103
    :language: console
    :workdir: dl-101/DataLad-101
 
    $ datalad subdatasets --contains midterm_project --set-property url https://github.com/adswa/midtermproject
 
-.. runrecord:: _examples/DL-101-139-103
+.. runrecord:: _examples/DL-101-139-104
    :language: console
    :workdir: dl-101/DataLad-101
 
@@ -183,18 +175,20 @@ your dataset was published to -- likely, you only need to change the user name):
 Handily, the :command:`datalad subdatasets` command saved this change to the
 ``.gitmodules`` file automatically and the state of the dataset is clean:
 
-.. runrecord:: _examples/DL-101-139-104
+.. runrecord:: _examples/DL-101-139-105
    :language: console
    :workdir: dl-101/DataLad-101
 
    $ datalad status
 
 Afterwards, publish these changes to ``gin`` and see for yourself how this fixed
-the problem::
+the problem:
+
+.. runrecord:: _examples/DL-101-139-106
+   :language: console
+   :workdir: dl-101/DataLad-101
 
    $ datalad push --to gin
-   [INFO   ] Publishing <Dataset path=/home/me/dl-101/DataLad-101> data to gin
-   [INFO   ] Publishing <Dataset path=/home/me/dl-101/DataLad-101> to gin
 
 If the subdataset was not published before, you could publish the subdataset to
 a location of your choice, and modify the ``.gitmodules`` entry accordingly.

@@ -678,13 +678,11 @@ state of the dataset to this :term:`sibling` with the :command:`datalad push`
 will make the last saved state of your dataset available to the :term:`sibling`
 you provide with the ``--to`` option.
 
-.. code-block:: bash
+.. runrecord:: _examples/DL-101-130-118
+   :language: console
+   :workdir: dl-101/DataLad-101/midterm_project
 
    $ datalad push --to github
-   [INFO   ] Publishing <Dataset path=/home/me/dl-101/DataLad-101/midterm_project> to github
-   publish(ok): . (dataset) [pushed to github: ['[new branch]', '[new branch]']]
-   action summary:
-     publish (ok: 1)
 
 .. gitusernote::
 

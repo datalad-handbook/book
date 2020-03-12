@@ -90,6 +90,13 @@ and you can type "yes" to continue::
     [WARNING] Failed to determine if gin carries annex.
     .: gin(-) [git@gin.g-node.org:/adswa/DataLad-101.git (git)]
 
+.. ifconfig:: internal
+
+    .. runrecord:: _examples/DL-101-139-101
+       :language: console
+       :workdir: dl-101/DataLad-101
+       :realcommand: python -c "from datalad.core.distributed.tests.test_push import mk_push_target; from datalad.api import Dataset as ds; mk_push_target(ds=ds('/home/me/dl-101/DataLad-101'), name='gin', path='/home/me/pushes/DataLad-101', annex=True, bare=True)"
+
 
 Afterwards, you can publish your dataset with :command:`datalad push`. As the
 repository on GIN supports a dataset annex, there is no publication dependency

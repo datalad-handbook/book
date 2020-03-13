@@ -1,4 +1,4 @@
 $ git log -n 3 --oneline
-d2bb1ec [DATALAD] Recorded changes
-c2c4282 add container and execute analysis within container
-71c53f5 finished my midterm project!
+b07afbc [DATALAD] Recorded changes
+b96ba14 save cropped logos to Git
+b52a714 content removed from git annex

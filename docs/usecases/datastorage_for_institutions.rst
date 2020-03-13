@@ -184,7 +184,7 @@ with no domain knowledge about data contents.
 One aspect of the problem are disk-space unaware computing workflows. Researchers
 make and keep numerous copies of data in their home directory and perform
 computationally expensive analyses on the headnode of a compute cluster because
-they don't know better, and/or want to do it in the easiest way possible.
+they do not know better, and/or want to do it in the easiest way possible.
 A general change for the better can be achieved by imposing sensible limitations
 and restrictions on what can be done at which scale:
 Data from the RIA store (``$DATA``) is accessible to researchers for exploration

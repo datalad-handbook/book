@@ -1,7 +1,7 @@
 $ git log -p -n 1
-commit 87fde6aa2aa9e696730d4ffcf4313a2b5cb9a790
+commit 4bf7418ceacc3deb3c533c75b4c030b272cb644a
 Author: Elena Piscopia <elena@example.net>
-Date:   Thu Jan 9 07:52:00 2020 +0100
+Date:   Mon Feb 17 08:50:04 2020 +0100
 
     [DATALAD RUNCMD] create a list of podcast titles
     
@@ -9,7 +9,7 @@ Date:   Thu Jan 9 07:52:00 2020 +0100
     {
      "chain": [],
      "cmd": "bash code/list_titles.sh > recordings/podcasts.tsv",
-     "dsid": "71f03bec-32ac-11ea-b7a4-e86a64c8054c",
+     "dsid": "ed80af32-5159-11ea-a727-6533dd7bb2c6",
      "exit": 0,
      "extra_inputs": [],
      "inputs": [],

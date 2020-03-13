@@ -5,7 +5,7 @@ Tell me what you are and I tell you where to start
 
 The DataLad Handbook has grown into an extensive document. Depending on your
 use case for DataLad, you may not want to read *all* of the content there is.
-This section tries to be your guide through the handbook.
+This section tries to be your guide.
 
 .. figure:: ../artwork/src/user_types.svg
 
@@ -46,7 +46,10 @@ you encountered a problem. If you're dealing with file system operations,
 :ref:`filesystem` could be a resource to help you, and for all things configuration,
 the chapter :ref:`chapter_config` is your place to go to. If you are confused by
 symlinks or "permission denied" error in your dataset, checkout section
-:ref:`symlink` for some Basics on :term:`git-annex`.
+:ref:`symlink` for some Basics on :term:`git-annex`. The "Quick search" bar at
+the sidebar can also help to navigate to relevant sections, and the
+`index <http://handbook.datalad.org/en/latest/genindex.html>`_ at the end of the
+book can show you where all commands mentioned in the handbook are introduced.
 
 If you're seeking help with regard to large datasets, checkout section
 
@@ -54,8 +57,10 @@ If you're seeking help with regard to large datasets, checkout section
 
    write section on scaling up
 
-If none of this helps, don't hesitate to file an issue or post your question
-to `Neurostars.org <https://neurostars.org>`_. We are happy to help!
+If none of this helps, don't hesitate to file an
+`issue <https://github.com/datalad/datalad/issues>`_ or post your question
+to `Neurostars.org <https://neurostars.org>`_. We are happy to help, and
+appreciate bug reports!
 
 
 **4** The impatient
@@ -65,6 +70,7 @@ to `Neurostars.org <https://neurostars.org>`_. We are happy to help!
 
 Umm, sure. In principle, you can jump through the Basics and checkout precisely
 the sections you need, even though not all things will become clear.
+Its best to keep the :ref:`cheat` near by.
 
 You want to know how to set-up and share an analysis
 with DataLad? Reading chapters :ref:`chapter_datasets`, :ref:`chapter_gitannex`,
@@ -107,7 +113,7 @@ DataLad. The section
 
 can show you how to use DataLad's rclone helper for special remotes.
 The usecase :ref:`usecase_datastore` introduces the concept of a
-;term:`Remote Indexed Archive (RIA) store`. Still not enough?
+:term:`Remote Indexed Archive (RIA) store`. Still not enough?
 We're happy to consider your
 `feature request <https://github.com/datalad-handbook/book/issues/new>`_ for new
 handbook content, but also your pull request with your addition or use case.

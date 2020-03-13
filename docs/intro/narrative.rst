@@ -53,11 +53,11 @@ When copying code snippets into your own terminal, do not copy the leading
 ``$`` -- this only indicates that the line is a command, and would lead to an
 error when executed.
 
-The book is split in two different parts. The upcoming chapters
+The book is split into different parts. The upcoming chapters
 are the *Basics* that intend to show you the core DataLad functionality
 and challenge you to use it. If you want to learn how to use DataLad, it is
 recommended to start with this part and read it from start to end.
-In the chapter *use cases* you will find concrete examples of
+In the part *use cases*, you will find concrete examples of
 DataLad applications for general inspiration -- this is the second part of this book.
 If you want to get an overview of what is possible with DataLad, this section will
 show you in a concise and non-technical manner.

@@ -3,6 +3,8 @@
 An automatically reproducible analysis of public neuroimaging data
 ------------------------------------------------------------------
 
+.. index:: ! Usecase; Reproducible Neuroimaging
+
 This use case sketches the basics of an analysis that can be
 automatically reproduced by anyone:
 

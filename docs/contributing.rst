@@ -5,7 +5,8 @@ Contributing
 
 Thanks for being curious about contributing!
 We greatly appreciate and welcome contributions to this book, be it in the form
-of an `issue <https://github.com/datalad-handbook/book/issues/new>`_, a pull request,
+of an `issue <https://github.com/datalad-handbook/book/issues/new>`_, quick
+`feedback on DataLad's usability <https://forms.gle/FkNEc7HVaZU5RTYP6>`_, a pull request,
 or a discussion you had with anyone on the team via a non-GitHub communication channel!
 To find out how we acknowledge contributions, please read the paragraph
 :ref:`acknowledge` at the bottom of
@@ -281,6 +282,39 @@ Use Cases
   #. *Step-by-Step*: More detailed illustration on how the "DataLad approach" can
      be implemented, ideally with concrete code examples.
 
+Intersphinx mapping
+"""""""""""""""""""
+
+The handbook tries to provide stable references to commands, concepts,
+and use cases for
+`Intersphinx Mappings <https://www.sphinx-doc.org/en/master/usage/extensions/intersphinx.html>`_.
+This can help to robust-ify links -- instead of long URLs that are dependent
+on file or section titles, or references to numbered sections (both can break
+easily), intersphinx references are meant to stick to contents and reliably point
+to it via a mapping in the `index <http://handbook.datalad.org/en/latest/genindex.html>`_
+under ``Symbols``. An example intersphinx mapping is done
+`in DataLad <https://github.com/datalad/datalad/pull/4046>`_.
+
+The references take the following shape: ``.. _1-001:``
+
+The leading integer indicates the category of reference:
+
+.. code-block:: bash
+
+   1: Command references
+   2: Concept references
+   3: Usecase references
+
+The later integers are consecutively numbered in order of creation. If you want
+to create a new reference, just create a reference one integer higher than the
+previously highest. The currently existing intersphinx references are:
+
+- 1-001: :ref:`1-001`
+- 1-002: :ref:`1-002`
+- 2-001: :ref:`2-001`
+- 2-002: :ref:`2-002`
+- 2-003: :ref:`2-003`
+- 3-001: :ref:`3-001`
 
 .. _acknowledge:
 

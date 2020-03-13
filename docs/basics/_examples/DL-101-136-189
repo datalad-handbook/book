@@ -1,0 +1,9 @@
+$ mv TLCL.pdf ../books
+$ cd ../
+$ datalad save -r -m "move book back from midterm_project"
+add(ok): midterm_project (file)
+add(ok): books/TLCL.pdf (file)
+save(ok): . (dataset)
+action summary:
+  add (ok: 2)
+  save (notneeded: 3, ok: 1)

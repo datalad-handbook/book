@@ -82,6 +82,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/AlexandreHutton"><img src="https://avatars3.githubusercontent.com/u/50920802?v=4" width="100px;" alt=""/><br /><sub><b>Alexandre Hutton</b></sub></a><br /><a href="#content-AlexandreHutton" title="Content">🖋</a> <a href="https://github.com/datalad-handbook/book/issues?q=author%3AAlexandreHutton" title="Bug reports">🐛</a></td>
     <td align="center"><a href="https://github.com/sarah1989"><img src="https://avatars3.githubusercontent.com/u/3898779?v=4" width="100px;" alt=""/><br /><sub><b>Sarah Oliveira</b></sub></a><br /><a href="https://github.com/datalad-handbook/book/pulls?q=is%3Apr+reviewed-by%3Asarah1989" title="Reviewed Pull Requests">👀</a> <a href="#ideas-sarah1989" title="Ideas, Planning, & Feedback">🤔</a></td>
   </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/dorianps"><img src="https://avatars3.githubusercontent.com/u/9083517?v=4" width="100px;" alt=""/><br /><sub><b>dorianps</b></sub></a><br /><a href="#ideas-dorianps" title="Ideas, Planning, & Feedback">🤔</a> <a href="#talk-dorianps" title="Talks">📢</a></td>
+  </tr>
 </table>
 
 <!-- markdownlint-enable -->

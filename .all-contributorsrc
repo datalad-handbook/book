@@ -251,6 +251,15 @@
         "review",
         "ideas"
       ]
+    },
+    {
+      "login": "dorianps",
+      "name": "dorianps",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/9083517?v=4",
+      "profile": "https://github.com/dorianps",
+      "contributions": [
+        "ideas"
+      ]
     }
   ],
   "contributorsPerLine": 7,

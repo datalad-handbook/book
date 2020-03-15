@@ -1,26 +1,8 @@
 $ datalad push --to gin
 [INFO] Start enumerating objects 
-[INFO] Finished enumerating objects 
 [INFO] Start counting objects 
-[INFO]  
-[INFO]  
-[INFO]  
-[INFO]  
-[INFO]  
-[INFO]  
-[INFO] Finished counting objects 
 [INFO] Start compressing objects 
-[INFO]  
-[INFO]  
-[INFO]  
-[INFO]  
-[INFO] Finished compressing objects 
 [INFO] Start writing objects 
-[INFO]  
-[INFO]  
-[INFO]  
-[INFO] 331 bytes | 331.00 KiB/s 
-[INFO] Finished writing objects 
-publish(ok): . (dataset) [refs/heads/master->gin:refs/heads/master 41196cd..cef5171]
+publish(ok): . (dataset) [refs/heads/master->gin:refs/heads/master 426ad78..8cf2de1]
 action summary:
   publish (notneeded: 1, ok: 1)

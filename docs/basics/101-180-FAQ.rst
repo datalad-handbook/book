@@ -202,6 +202,34 @@ A subsequent :command:`datalad save` in the dataset will annex the content
 again.
 
 
+How can I check whether all file content is present locally?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+In order to check if all the files in a dataset have their file contents locally
+available, you can ask git-annex:
+
+.. code-block:: bash
+
+   $ git annex find --not --in=here
+
+Any file that does not have its contents locally available will be listed.
+If there are subdatasets you want to recurse into, use the following command
+
+.. code-block:: bash
+
+   $ git submodule foreach --quiet --recursive \
+    'git annex find --not --in=here --format=$displaypath/$\\{file\\}\\n'
+
+Alternatively, to get very comprehensive output, you can use
+
+.. code-block:: bash
+
+   $ datalad -f json status --recursive --annex availability
+
+The output will be returned as json, and the key ``has_content`` indicates local
+content availability (``true`` or ``false``).
+
+
 Is there Python 2 support for DataLad?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 No, Python 2 support has been dropped in

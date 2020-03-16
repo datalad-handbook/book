@@ -655,11 +655,12 @@ configure this repository as a sibling of the dataset:
 
 Verify that this worked by listing the siblings of the dataset:
 
-.. runrecord:: _examples/DL-101-130-117
-   :language: console
-   :workdir: dl-101/DataLad-101/midterm_project
+.. code-block:: bash
 
-   $ datalad siblings
+   $ datalad create-sibling-github -d . midtermproject
+   [WARNING] Failed to determine if github carries annex.
+   .: here(+) [git]
+   .: github(-) [https://github.com/adswa/midtermproject.git (git)]
 
 .. gitusernote::
 

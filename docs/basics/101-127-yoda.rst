@@ -424,7 +424,7 @@ YODA principles.
          check out `this section <https://the-turing-way.netlify.com/reproducible_environments/06/containers#Containers_section>`_
          in the wonderful book `The Turing Way <https://the-turing-way.netlify.com/introduction/introduction>`_,
          a comprehensive guide to reproducible data science, or read about it in
-         section :ref:`yoda_project`.
+         section :ref:`containersrun`.
 
 .. [#f3] This directory structure is very comprehensive, and displays many best-practices for
          reproducible data science. For example,

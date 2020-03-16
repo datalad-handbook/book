@@ -1,16 +1,15 @@
-.. _chapter_help:
+.. _chapter_thirdparty:
 
-**VIII - Help yourself**
-------------------------
+**VIII - Third party infrastructure**
+-------------------------------------
 
-.. figure:: ../artwork/src/help.svg
+.. figure:: ../artwork/src/clouds.svg
 
 .. toctree::
    :maxdepth: 1
    :numbered:
-   :caption: Dealing with problems, filesystems, and version histories
+   :caption: Leverage third party services to share datasets
 
-   101-135-intro
-   101-136-filesystem
-   101-137-history
-   101-135-help
+   101-138-sharethirdparty
+   101-139-gin
+   101-140-summary

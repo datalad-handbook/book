@@ -549,6 +549,10 @@ be able to fetch content from the tarball shared on Figshare via DataLad.
          is disabled by default, and to enable it you would need to have administrative
          access to the server and client side of your GitLab instance. Find out more
          `here <https://docs.gitlab.com/ee/administration/git_annex.html>`_.
+         Alternatively, GitHub can integrate with
+         `GitLFS <https://git-lfs.github.com/>`_, a non-free, centralized service
+         that allows to store large file contents. The last paragraph in this
+         section shows an example on how to use their free trial version.
 
 .. [#f2] ``rclone`` is a useful special-remote for this example, because
          you can not only use it for Dropbox, but also for many other

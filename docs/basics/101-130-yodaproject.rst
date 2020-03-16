@@ -675,9 +675,36 @@ On GitHub, you will see a new, empty repository with the name
 ``midtermproject``. However, the repository does not yet contain
 any of your dataset's history or files. This requires *publishing* the current
 state of the dataset to this :term:`sibling` with the :command:`datalad push`
-(:manpage:`datalad-push` manual) command. The :command:`datalad push` command
-will make the last saved state of your dataset available to the :term:`sibling`
-you provide with the ``--to`` option.
+(:manpage:`datalad-push` manual) command.
+
+.. note::
+
+    Publishing is one of the remaining big concepts that this handbook tries to
+    convey. However, publishing is a complex concept that encompasses a large
+    proportion of the previous handbook content as a prerequisite. In order to be
+    not too overwhelmingly detailed, the upcoming sections will approach
+    :command:`push` from a "learning-by-doing" perspective:
+    You will see a first :command:`push` to GitHub below, and the findoutmore at
+    the end of this section will already give a practical glimpse into the
+    difference between annexed contents and contents stored in Git when pushed
+    to GitHub. The chapter :ref:`chapter_thirdparty` will extend on this,
+    but the section
+
+    .. todo::
+
+       write and link
+
+    will finally combine and link all the previous contents to give a comprehensive
+    and detailed wrap up of the concept of publishing datasets. In this section,
+    you will also find a detailed overview on how :command:`push` works and which
+    options are available. If you are impatient or need an overview on publishing,
+    feel free to skip ahead. If you have time to follow along, reading the next
+    sections will get you towards a complete picture of publishing a bit more
+    small-stepped and gently.
+    For now, we will start with learning by doing, and
+    the fundamental basics of :command:`datalad push`: The command
+    will make the last saved state of your dataset available (i.e., publish it)
+    to the :term:`sibling` you provide with the ``--to`` option.
 
 .. runrecord:: _examples/DL-101-130-118
    :language: console
@@ -685,17 +712,15 @@ you provide with the ``--to`` option.
 
    $ datalad push --to github
 
-.. gitusernote::
-
-   The :command:`datalad push` uses ``git push``, and ``git annex copy`` under
-   the hood. Publication targets need to either be configured remote Git repositories,
-   or git-annex special remotes (if they support data upload).
-
-Here is one important detail, though: By default, your tags will not be published.
+Thus, you have now published your dataset's history to a public place for others
+to see and clone. Below we will explore how this may look and feel for others.
+There is one important detail first, though: By default, your tags will not be published.
+Thus, the tag ``ready4analysis`` is not pushed to GitHub, and currently this
+version identifier is unavailable to anyone else but you.
 The reason for this is that tags are viral -- they can be removed locally, and old
 published tags can cause confusion or unwanted changes. In order to publish a tag,
-an additional :command:`git push` with the ``--tags`` option to the
-sibling would be required:
+an additional :command:`git push` (yes, we need to push with Git, not DataLad here)
+with the ``--tags`` option is required:
 
 .. code-block:: bash
 
@@ -744,7 +769,11 @@ reproduce your data science project easily from scratch!
 
       $ datalad get prediction_report.csv pairwise_relationships.png
 
-   Why is that? The file content of these files is managed by git-annex, and
+   Why is that? This is the first detail of publishing datasets we will dive into.
+   When publishing dataset content to GitHub with :command:`datalad push`, it is
+   the dataset's *history*, i.e., everything that is stored in Git, that is
+   published. The file *content* of these particular files, though, is managed
+   by :term:`git-annex` and not stored in Git, and
    thus only information about the file name and location is known to Git.
    Because GitHub does not host large data for free, annexed file content always
    needs to be deposited somewhere else (e.g., a web server) to make it
@@ -778,6 +807,12 @@ reproduce your data science project easily from scratch!
 
     .. figure:: ../artwork/src/reproduced.svg
        :width: 50%
+
+.. gitusernote::
+
+   The :command:`datalad push` uses ``git push``, and ``git annex copy`` under
+   the hood. Publication targets need to either be configured remote Git repositories,
+   or git-annex special remotes (if they support data upload).
 
 
 .. only:: adminmode

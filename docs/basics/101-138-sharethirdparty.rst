@@ -104,6 +104,13 @@ very familiar with.
 Setting up 3rd party services to host your data
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+.. note::
+
+   The tutorial below is functional, but there is work towards a wrapper
+   function to ease creating and working with rclone-based special remotes:
+   https://github.com/datalad/datalad/pull/4162.
+   Once finished, this section will be updated accordingly.
+
 In this paragraph you will see how a third party service can be configured
 to host your data. Note that the *exact* procedures are different from service
 to service -- this is inconvenient, but inevitable given the

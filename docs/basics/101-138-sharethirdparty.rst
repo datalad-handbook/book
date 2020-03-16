@@ -17,8 +17,9 @@ know about two common setups for sharing datasets:
 Users on a common, shared computational infrastructure such as an :term:`SSH server`
 can share datasets via simple installations with paths.
 
-Without access to the same computer, it is possible to :command:`publish` datasets
-to :term:`GitHub` or :term:`GitLab`. You have already done this when you shared
+Without access to the same computer, it is possible to :command:`push` datasets
+to :term:`GitHub` or :term:`GitLab` to publish them.
+You have already done this when you shared
 your ``midterm_project`` dataset via :term:`GitHub`. However, this section
 demonstrated that the files stored in :term:`git-annex` (such as the results of
 your analysis, ``pairwise_comparisons.png`` and ``prediction_report.csv``) are not

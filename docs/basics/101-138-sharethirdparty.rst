@@ -376,59 +376,6 @@ that is: The symlink, as information about file availability, but no file
 content. Anyone who attempts to :command:`datalad get` a file from a dataset clone
 if its contents were not published will fail.
 
-.. findoutmore:: What if I do not want to share a dataset with everyone, or only some files of it?
-
-   There are a number of ways to restrict access to your dataset or individual
-   files of your dataset. One is via choice of (third party) hosting service
-   for annexed file contents.
-   If you chose a service only selected people have access to, and publish annexed
-   contents exclusively there, then only those selected people can perform a
-   successful :command:`datalad get`. On shared file systems you may achieve
-   this via :term:`permissions` for certain groups or users, and for third party
-   infrastructure you may achieve this by invitations/permissions/... options
-   of the respective service.
-
-   If it is individual files that you do not want to share, you can selectively
-   publish the contents of all files you want others to have, and withhold the data
-   of the files you do not want to share. This can be done by publishing only
-   selected files by providing paths, or overriding default push behavior with
-   the ``-f/--force`` option. In the latter case, specifying ``-f no-datatransfer``
-   would for example not push any annexed contents.
-
-   Let's say you have a dataset with three files:
-
-   - ``experiment.txt``
-   - ``subject_1.dat``
-   - ``subject_2.dat``
-
-   Consider that all of these files are annexed. While the information in
-   ``experiment.txt`` is fine for everyone to see, ``subject_1.dat`` and
-   ``subject_2.dat`` contain personal and potentially identifying data that
-   can not be shared. Nevertheless, you want collaborators to know that these
-   files exist. The use case
-
-   .. todo::
-
-      Write use case "external researcher without data access"
-
-   details such a scenario and demonstrates how external collaborators (with whom data
-   can not be shared) can develop scripts against the directory structure and
-   file names of a dataset, submit those scripts to the data owners, and thus still perform an
-   analysis despite not having access to the data.
-
-   By publishing only the file contents of ``experiment.txt`` with
-
-   .. code-block:: bash
-
-      $ datalad push --to github experiment.txt
-
-   only meta data about file availability of ``subject_1.dat`` and ``subject_2.dat``
-   exists, but as these files' annexed data is not published, a :command:`datalad get`
-   will fail. Note, though, that :command:`push` will publish the complete
-   dataset history (unless you specify a commit range with the ``--since`` option
-   -- see the `manual <http://docs.datalad.org/en/latest/generated/man/datalad-push.html>`_
-   for more information).
-
 
 From the perspective of whom you share your dataset with...
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

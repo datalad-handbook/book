@@ -43,8 +43,8 @@ and name, and selecting a user name and password, you should upload your
    All this takes is a single command in the terminal. The resulting files are
    text files that look like someone spilled alphabet soup in them, but constitute
    a secure password procedure.
-   You keep the private key on your own machine (the system you are connecting from
-   , and that **only you have access to**),
+   You keep the private key on your own machine (the system you are connecting from,
+   and that **only you have access to**),
    and copy the public key to the system or service you are connecting to.
    On the remote system or service, you make the public key an *authorized key* to
    allow authentication via the SSH key pair instead of your password. This
@@ -52,7 +52,7 @@ and name, and selecting a user name and password, you should upload your
    to achieve.
    You should protect your SSH keys on your machine with a passphrase to prevent
    others -- e.g., in case of theft -- to log in to servers or services with
-   SSH authentication [#f1]_, and configure an ``ssh agent``
+   SSH authentication [#f2]_, and configure an ``ssh agent``
    to handle this passphrase for you with a single command. How to do all of this
    is detailed in the above tutorial.
 

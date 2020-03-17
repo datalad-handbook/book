@@ -179,6 +179,18 @@ in the ``roommate`` sibling or push to a non-checked out branch in the ``roommat
 sibling.
 
 
+**Detached HEADs**
+
+One warning that you may encounter during an installation of a dataset is::
+
+    [INFO   ] Submodule HEAD got detached. Resetting branch master to point to 046713bb. Original location was 47e53498
+
+Even though "detached HEAD" sounds slightly worrisome, this is merely an information
+and does not require an action from your side. It is related to
+`Git submodules <https://git-scm.com/book/en/v2/Git-Tools-Submodules>`_ (the underlying
+Git concept for subdatasets), and informs you about the current state a
+subdataset is saved in the superdataset you have just cloned.
+
 Output produced by git-annex
 """"""""""""""""""""""""""""
 

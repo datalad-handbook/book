@@ -204,12 +204,13 @@ content from the remote "origin", because it is not usable. This can have
 many reasons, but as long as there are other remotes you can access the
 data from, you are fine.
 
+Speaking of remotes that are not available, this will probably be one of the most
+commonly occurring git-annex errors to see - failing :command:`datalad get` calls
+because remotes are not available:
 
 .. todo::
 
-   Another type of warning you may encounter during installation is::
-
-      [INFO   ] Submodule HEAD got detached. Resetting branch master to point to 046713bb. Original location was 47e53498
+    paste some "please make these remotes available output"
 
 
 

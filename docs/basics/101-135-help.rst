@@ -194,15 +194,38 @@ subdataset is saved in the superdataset you have just cloned.
 Output produced by git-annex
 """"""""""""""""""""""""""""
 
+**Unusable annexes**
+
 Upon installation of a dataset, you may see::
 
    [INFO    ]     Remote origin not usable by git-annex; setting annex-ignore
-   [INFO    ]     This could be a problem with the git-annex installation on the remote. Please make sure that git-annex-shell is available in PATH when you ssh into the remote. Once you have fixed the git-annex installation, run: git annex enableremote origin
+   [INFO    ]     This could be a problem with the git-annex installation on the
+   remote. Please make sure that git-annex-shell is available in PATH when you
+   ssh into the remote. Once you have fixed the git-annex installation,
+   run: git annex enableremote origin
 
 This warning lets you know that git-annex will not attempt to download
-content from the remote "origin", because it is not usable. This can have
+content from the :term:`remote` "origin". This can have
 many reasons, but as long as there are other remotes you can access the
 data from, you are fine.
+
+A similar warning message may appear when adding a sibling that is a pure Git
+:term:`remote`, for example a repository on GitHub::
+
+   [INFO ] Failed to enable annex remote github, could be a pure git or not
+   accessible
+   [WARNING] Failed to determine if github carries annex. Remote was marked by
+   annex as annex-ignore. Edit .git/config to reset if you think that was done
+   by mistake due to absent connection etc
+
+These messages indicate that the sibling ``github`` does not carry an annex.
+Thus, annexed file contents can not be pushed to this sibling. This happens
+if the sibling indeed does not have an annex (which would be true, for example,
+for siblings on :term:`GitHub`, :term:`GitLab`, :term:`Bitbucket`, ..., and
+would not require any further action or worry), or
+if the remote could not be reached, e.g., due to a missing internet
+connection (in which case you could set the key ``annex-ignore`` in
+``.git/config`` to ``false``).
 
 Speaking of remotes that are not available, this will probably be one of the most
 commonly occurring git-annex errors to see - failing :command:`datalad get` calls

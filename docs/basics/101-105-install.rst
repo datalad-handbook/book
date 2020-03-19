@@ -112,7 +112,7 @@ chapters in this handbook will demonstrate how useful this information can be.
    In the case of installing datasets into existing datasets you however need
    to adjust the paths that are given with the ``-d/--dataset`` option:
    ``-d`` needs to specify the path to the root of the dataset. This is
-   important to keep in mind whenever you don't execute the :command:`clone` command
+   important to keep in mind whenever you do not execute the :command:`clone` command
    from the root of this dataset. Luckily, there is a shortcut: ``-d^`` will always
    point to root of the top-most dataset. For example, if you navigate into ``recordings``
    the command would be::
@@ -225,7 +225,7 @@ For this, we supply an additional option to :command:`datalad status`. Make sure
 Woah! More than 200 files, totaling more than 15 GB?
 You begin to appreciate that DataLad did not
 download all of this data right away! That would have taken hours given the crappy
-internet connection in the lecture hall, and you aren't even sure whether your
+internet connection in the lecture hall, and you are not even sure whether your
 hard drive has much space left...
 
 

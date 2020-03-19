@@ -1,3 +1,8 @@
+.. only:: html
+
+    .. figure:: artwork/src/enter.svg
+       :width: 60%
+
 ################
 **Introduction**
 ################
@@ -12,9 +17,15 @@
    intro/howto
    intro/executive_summary
 
-################################
-**Basics 1** -- DataLad datasets
-################################
+.. only:: html
+
+   .. figure:: artwork/src/basics.svg
+      :width: 60%
+      :target: http://handbook.datalad.org/en/latest/basics/intro.html
+
+##########
+**Basics**
+##########
 
 .. toctree::
    :hidden:
@@ -22,140 +33,28 @@
    basics/intro.rst
 
 .. toctree::
-   :maxdepth: 1
-   :caption: Exploring DataLad's core data structure
+   :maxdepth: 2
+   :caption: Learn all about DataLad
 
-   basics/101-101-create
-   basics/101-102-populate
-   basics/101-103-modify
-   basics/101-105-install
-   basics/101-106-nesting
-   basics/101-107-summary
+   basics/basics1toc
+   basics/basics2toc
+   basics/basics3toc
+   basics/basics4toc
+   basics/basics5toc
+   basics/basics6toc
+   basics/basics7toc
+   basics/basics8toc
+   basics/basics9toc
+   basics/basics10toc
 
+.. only:: html
 
-#############################
-**Basics 2** -- Datalad, Run!
-#############################
-
-.. toctree::
-   :maxdepth: 1
-   :caption: How DataLad records provenance of dataset modifications
-
-   basics/101-108-run
-   basics/101-109-rerun
-   basics/101-110-run2
-   basics/101-112-run4
-   basics/101-113-summary
-
-
-#########################################
-**Basics 3** -- Under the hood: git-annex
-#########################################
-
-.. toctree::
-   :maxdepth: 1
-   :caption: A closer look at how and why things work
-
-   basics/101-114-txt2git
-   basics/101-115-symlinks
-
-#############################
-**Basics 4** -- Collaboration
-#############################
-
-.. toctree::
-   :maxdepth: 1
-   :caption: Sharing on shared file systems
-
-   basics/101-116-sharelocal
-   basics/101-117-sharelocal2
-   basics/101-118-sharelocal3
-   basics/101-119-sharelocal4
-   basics/101-121-siblings
-   basics/101-120-summary
-
-#############################################
-**Basics 5** -- Tuning datasets to your needs
-#############################################
-
-.. toctree::
-   :maxdepth: 1
-   :caption: Various types and methods for dataset configurations
-
-   basics/101-122-config
-   basics/101-123-config2
-   basics/101-124-procedures
-   basics/101-125-summary
-
-
-#############################################
-**Basics 6** -- Make the most out of datasets
-#############################################
-
-.. toctree::
-   :maxdepth: 1
-   :caption: Organizational principles and best practices for reproducible data analyses
-
-   basics/101-126-intro
-   basics/101-127-yoda
-   basics/101-130-yodaproject
-   basics/101-128-summary_yoda
-
-
-################################
-**Basics 7** -- One step further
-################################
-
-.. toctree::
-   :maxdepth: 1
-   :caption: Advanced nesting and "extended" reproducibility
-
-   basics/101-132-advancednesting
-   basics/101-133-containersrun
-   basics/101-134-summary
-
-
-#############################
-**Basics 8** -- Help yourself
-#############################
-
-.. toctree::
-   :maxdepth: 1
-   :caption: Dealing with problems, filesystems, and version histories
-
-   basics/101-135-intro
-   basics/101-136-filesystem
-   basics/101-137-history
-   basics/101-135-help
-
-
-#######################################
-**Basics 9** Third party infrastructure
-#######################################
-
-.. toctree::
-   :maxdepth: 1
-   :caption: Leverage third party services to share datasets
-
-   basics/101-138-sharethirdparty
-   basics/101-139-gin
-   basics/101-140-summary
-
-
-################################
-**Basics 10** -- Further options
-################################
-
-.. toctree::
-   :maxdepth: 1
-   :caption: Small pieces of advice and helpful additional options
-
-   basics/101-179-gitignore
-   basics/101-144-intro_extensions
-   basics/101-145-hooks
+   .. figure:: artwork/src/usecases.svg
+      :width: 60%
+      :target: http://handbook.datalad.org/en/latest/usecases/intro.html
 
 #############
-**Use Cases**
+**Use cases**
 #############
 
 .. toctree::
@@ -165,6 +64,7 @@
 
 .. toctree::
    :maxdepth: 1
+   :numbered:
    :caption: Hands-on real-world applications with step-by-step recipes...
 
    usecases/collaborative_data_management
@@ -172,7 +72,9 @@
    usecases/reproducible-paper
    usecases/supervision
    usecases/reproducible_neuroimaging_analysis
+   usecases/HCP_dataset
    usecases/datastorage_for_institutions
+
 
 ########
 Appendix
@@ -209,7 +111,9 @@ Code lists from chapters
 ..
   stuff that we do not need or show at the moment
 
-.. toctree::
-   :hidden:
+.. only:: adminmode
 
-   usecases/datasets
+    .. toctree::
+       :hidden:
+
+       usecases/datasets

@@ -50,6 +50,8 @@ autorunrecord_env = {
     # maintain the PATH to keep all installed software functional
     'PATH': os.environ['PATH'],
     'GIT_EDITOR': 'vim',
+    # prevent progress bars - makes for ugly runrecords. See https://github.com/datalad-handbook/book/issues/390
+    'DATALAD_UI_PROGRESSBAR': 'none',
 }
 if 'CAST_DIR' in os.environ:
     autorunrecord_env['CAST_DIR'] = os.environ['CAST_DIR']
@@ -278,25 +280,26 @@ latex_show_urls = 'footnote'
 latex_elements = {
     'papersize': 'a4',
     'pointsize': '11pt',
-    'figure_align': 'tbp',
+    'figure_align': 'H',
+    'extraclassoptions': 'openany,oneside',
+    'fncychap' : r'\usepackage[Bjarne]{fncychap}',
+    'passoptionstopackages': r'\PassOptionsToPackage{svgnames}{xcolor}',
     'preamble': r"""
 \usepackage{charter}
 \usepackage[defaultsans]{lato}
 \usepackage{inconsolata}
-\setcounter{tocdepth}{0}
+\setcounter{tocdepth}{1}
 \usepackage{xcolor}
-\newsavebox\mytempbox
-\definecolor{sphinxnoteBgColor}{RGB}{255, 193, 84}
-\renewenvironment{sphinxnote}[1]
-   {\begin{lrbox}{\mytempbox}\begin{minipage}{\columnwidth}%
-    \begin{sphinxlightbox}\sphinxstrong{#1} }
-   {\end{sphinxlightbox}\end{minipage}\end{lrbox}%
-    \colorbox{sphinxnoteBgColor}{\usebox{\mytempbox}}}
-\renewenvironment{sphinximportant}[2]
-   {\begin{lrbox}{\mytempbox}\begin{minipage}{\columnwidth}%
-    \begin{sphinxlightbox}\sphinxstrong{#1} }
-   {\end{sphinxlightbox}\end{minipage}\end{lrbox}%
-    \colorbox{sphinxnoteBgColor}{\usebox{\mytempbox}}}
+\setcounter{secnumdepth}{0}
+\newsavebox{\selvestebox}
+\newenvironment{colbox}[1]
+  {\newcommand\colboxcolor{#1}%
+   \begin{lrbox}{\selvestebox}%
+   \begin{minipage}{\dimexpr\columnwidth-2\fboxsep\relax}}
+  {\end{minipage}\end{lrbox}%
+   \begin{center}
+   \colorbox[HTML]{\colboxcolor}{\usebox{\selvestebox}}
+   \end{center}}
 """,
 }
 

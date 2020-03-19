@@ -241,6 +241,25 @@
         "content",
         "bug"
       ]
+    },
+    {
+      "login": "sarah1989",
+      "name": "Sarah Oliveira",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/3898779?v=4",
+      "profile": "https://github.com/sarah1989",
+      "contributions": [
+        "review",
+        "ideas"
+      ]
+    },
+    {
+      "login": "dorianps",
+      "name": "dorianps",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/9083517?v=4",
+      "profile": "https://github.com/dorianps",
+      "contributions": [
+        "ideas"
+      ]
     }
   ],
   "contributorsPerLine": 7,

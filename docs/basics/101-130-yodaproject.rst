@@ -82,6 +82,31 @@ section below:
     As shown above, the only required parameter for a Dataset is the ``path`` to
     its location, and this location may or may not exist yet.
 
+    Stand-alone functions have a ``dataset=`` argument, corresponding to the
+    ``-d/--dataset`` option in their command-line equivalent. You can specify
+    the ``dataset=`` argument with a path (string) to your dataset (such as
+    ``dataset='.'`` for the current directory, or ``dataset='path/to/ds'`` to
+    another location). Alternatively, you can pass a ``Dataset`` instance to it::
+
+        >>> from datalad.api import save, Dataset
+        # use save with dataset specified as a path
+        >>> save(dataset='path/to/dataset/')
+        # use save with dataset specified as a dataset instance
+        >>> ds = Dataset('path/to/dataset')
+        >>> save(dataset=ds, message="saving all modifications")
+        # use save as a dataset method (no dataset argument)
+        >>> ds.save(message="saving all modifications")
+
+    .. note::
+
+        At the moment, ``dataset`` argument handling is not fully consistent
+        across commands. When executing commands outside of the dataset in question,
+        ``path`` arguments are sometimes interpreted as relative from the
+        ``dataset`` path, and sometimes as relative from the location the command
+        is executed from. You can get consistent behavior (paths relative to the
+        dataset root) by using ``Dataset`` methods or passing ``Dataset`` instances to
+        the commands instead of specifying paths (strings) for ``dataset=``.
+
     **Use cases for DataLad's Python API**
 
     "Why should one use the Python API? Can we not do everything necessary via the
@@ -101,7 +126,7 @@ section below:
    also be used with other programming languages, such as Matlab, via standard
    system calls.
 
-   Even if you don't know or like Python, you can just copy-paste the code
+   Even if you do not know or like Python, you can just copy-paste the code
    and follow along -- the high-level YODA principles demonstrated in this
    section generalize across programming languages.
 
@@ -470,6 +495,14 @@ But what is still missing is a human readable description of your dataset.
 The YODA procedure kindly placed a ``README.md`` file into the root of your
 dataset that you can use for this [#f4]_.
 
+.. note::
+
+   If you plan to share your own datasets with people that are unfamiliar with
+   DataLad, it may be helpful to give a short explanation of what a DataLad
+   dataset is and what it can do. For this, you can use a ready-made text
+   block that the handbook provides. To find this textblock, go to
+   :ref:`dataset_textblock`.
+
 .. runrecord:: _examples/DL-101-130-113
    :language: console
    :workdir: dl-101/DataLad-101/midterm_project
@@ -514,7 +547,7 @@ reason why the ``README.md`` in the root of the dataset was easily modifiable [#
 
 .. findoutmore:: Saving contents with Git regardless of configuration with --to-git
 
-   .. index:: datalad command; save --to-git
+   .. index:: ! datalad command; save --to-git
 
    The ``yoda`` procedure in ``midterm_project`` applied a different configuration
    within ``.gitattributes`` than the ``text2git`` procedure did in ``DataLad-101``.
@@ -567,6 +600,11 @@ syllabus, this should be done via :term:`GitHub`.
    .. figure:: ../artwork/src/screenshot_submodule.png
       :alt: The input dataset is linked
 
+.. _publishtogithub:
+
+Publishing the dataset to GitHub
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 .. note::
 
    The upcoming part requires a GitHub account. If you do not have one you
@@ -590,8 +628,7 @@ Luckily, DataLad can make all of this very easy with the
 command (or, for `GitLab <https://about.gitlab.com/>`_, :command:`datalad create-sibling-gitlab`,
 :manpage:`datalad-create-sibling-gitlab` manual).
 
-.. index:: ! datalad command; create-sibling-github
-.. index:: ! datalad command; create-sibling-gitlab
+.. index:: ! datalad command; create-sibling-github, ! datalad command; create-sibling-gitlab
 
 The command takes a repository name and GitHub authentication credentials
 (either in the command line call with options ``github-login <NAME>`` and
@@ -630,7 +667,7 @@ Verify that this worked by listing the siblings of the dataset:
    :command:`datalad publish` to this sibling, your datasets history
    will be pushed there.
 
-   .. index:: datalad command; publish
+   .. index:: ! datalad command; publish
 
 On GitHub, you will see a new, empty repository with the name
 ``midtermproject``. However, the repository does not yet contain

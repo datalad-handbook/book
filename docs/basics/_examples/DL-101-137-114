@@ -1,2 +1,2 @@
 $ ls -l apdffile.pdf
-lrwxrwxrwx 1 adina adina 122 Jan  9 07:53 apdffile.pdf -> .git/annex/objects/fm/4p/MD5E-s1842--62b2153a03cb38eacfe7a1aca718453d.pdf/MD5E-s1842--62b2153a03cb38eacfe7a1aca718453d.pdf
+lrwxrwxrwx 1 adina adina 122 Feb 17 08:53 apdffile.pdf -> .git/annex/objects/xg/GF/MD5E-s1842--c4613feb0218f5589ccf5de9fd5a7d7c.pdf/MD5E-s1842--c4613feb0218f5589ccf5de9fd5a7d7c.pdf

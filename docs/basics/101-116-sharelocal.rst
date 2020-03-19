@@ -28,10 +28,6 @@ help facilitate collaboration without requiring ultimate trust and
 reliability of all participants. Essentially, with a shared dataset,
 collaborators can look and use your dataset without ever touching it.
 
-
-.. figure:: ../artwork/src/collaboration_sketch.svg
-   :width: 70%
-
 To demonstrate how to share a DataLad dataset on a common file system,
 we will pretend that your personal computer
 can be accessed by other users. Let's say that
@@ -241,7 +237,7 @@ the file and is accessible, though, git-annex will get the content.
 Therefore, for the books in your dataset, retrieving contents works because you
 and your room mate share the same file system. If you'd share the dataset
 with anyone without access to your file system, ``datalad get`` would not
-work, because it can't access your files.
+work, because it can not access your files.
 
 But there is one book that does not suffer from this restriction:
 The ``bash_guide.pdf``.
@@ -453,7 +449,7 @@ Save this note.
          potentially large amounts of subdatasets to be cloned.
          The configuration is called ``datalad-recursiveinstall = skip`` and it is
          made on a subdataset specific basis to the ``.gitmodules`` file of the superdataset.
-         The chapter "Tuning datasets to your needs", starting in section :ref:`config`,
+         The chapter :ref:`chapter_config`,
          will talk about the details of configurations and the ``.gitmodules`` file.
          Below, however, is a minimally functional example on how to apply the configuration
          and how it works:

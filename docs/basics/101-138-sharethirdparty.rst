@@ -3,6 +3,14 @@
 Beyond shared infrastructure
 ----------------------------
 
+.. note::
+
+   If you plan to share your own datasets with people that are unfamiliar with
+   DataLad, it may be helpful to give a short explanation of what a DataLad
+   dataset is and what it can do. For this, you can use a ready-made text
+   block that the handbook provides. To find this textblock, go to
+   :ref:`dataset_textblock`.
+
 From the sections :ref:`sharelocal1` and :ref:`yoda_project` you already
 know about two common setups for sharing datasets:
 
@@ -101,7 +109,7 @@ to service -- this is inconvenient, but inevitable given the
 differences between the various third party infrastructures.
 The general workflow, however, is the same:
 
-#. Implement the appropriate Git-annex *special-remote* (different
+#. Initialize the appropriate Git-annex *special-remote* (different
    from service to service).
 #. Push annexed file content to the third-party service to use it as a storage provider
 #. Share the dataset (repository) via GitHub/GitLab/... for others to install from
@@ -113,11 +121,13 @@ file content from the remote, third party storage.
 .. findoutmore:: What is a special remote
 
    A special-remote is an extension to Git’s concept of remotes, and can
-   enable :term:`git-annex` to transfer data to and from places that are not Git
+   enable :term:`git-annex` to transfer data from and possibly to places that are not Git
    repositories (e.g., cloud services or external machines such as an HPC
-   system). Don’t envision a special-remote as a physical place or location
-   – a special-remote is just a protocol that defines the underlying transport
-   of your files to and from a specific location.
+   system). For example, *s3* special remote uploads and downloads content
+   to AWS S3, *web* special remote downloads files from the web, *datalad-archive*
+   extracts files from the annexed archives, etc. Don’t envision a special-remote
+   as merely a physical place or location – a special-remote is a protocol that
+   defines the underlying transport of your files to and/or from a specific location.
 
 As an example, let's walk through all necessary steps to publish ``DataLad-101``
 to **Dropbox**. If you instead are interested in learning how to set up a public
@@ -240,7 +250,8 @@ to such sources conveniently under the hood.
 
   This is a wrapper around `rclone <https://rclone.or>`__ that makes any
   destination supported by rclone usable with :term:`git-annex`. If you are on
-  a recent version of Debian or Ubuntu, you alternatively can get it more
+  a recent version of Debian or Ubuntu
+  (or enable `NeuroDebian <http://neuro.debian.org>`_ repository), you alternatively can get it more
   conveniently via your package manager with ``sudo apt-get install git-annex-remote-rclone``.
 
 - Copy the path to this repository into your ``$PATH`` variable. If the
@@ -357,7 +368,7 @@ that is: The symlink, as information about file availability, but no file
 content. Anyone who attempts to :command:`datalad get` a file from a dataset clone
 if its contents were not published will fail.
 
-.. findoutmore:: What if I don't want to share a dataset with everyone, or only some files of it?
+.. findoutmore:: What if I do not want to share a dataset with everyone, or only some files of it?
 
    There are a number of ways to restrict access to your dataset or individual
    files of your dataset. One is via choice of (third party) hosting service
@@ -369,9 +380,9 @@ if its contents were not published will fail.
    infrastructure you may achieve this by invitations/permissions/... options
    of the respective service.
 
-   If it is individual files that you don't want to share, you can selectively
+   If it is individual files that you do not want to share, you can selectively
    publish the contents of all files you want others to have, and withhold the data
-   of the files you don't want to share. This can be done by providing paths
+   of the files you do not want to share. This can be done by providing paths
    to the data that should be published, and the ``--transfer-data auto`` option.
 
    Let's say you have a dataset with three files:
@@ -455,10 +466,48 @@ to "enable" this special remote (inside of the installed ``DataLad-101``)::
    .: dropbox-for-friends(?) [git]
 
 And once this is done, you can get any annexed file contents, for example the
-books, or the cropped logos from chapter "DataLad, Run!"::
+books, or the cropped logos from chapter :ref:`chapter_run`::
 
    $ datalad get books/TLCL.pdf
    get(ok): /home/some/other/user/DataLad-101/books/TLCL.pdf (file) [from dropbox-for-friends]
+
+
+Use GitHub for sharing content
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+GitHub supports `Git Large File Storage <https://github.com/git-lfs/git-lfs>`_
+(Git LFS) for managing data files using Git.  Free GitHub subscription allows up
+to `1GB of free storage and up to 1GB of bandwidth monthly <https://help.github.com/en/github/managing-large-files/about-storage-and-bandwidth-usage>`_.
+As such, it might be sufficient for some use cases, and could be configured
+quite easily.  Similarly to the steps above, we need first to create a repository
+on GitHub if it does not already exist::
+
+    $ datalad create-sibling-github test-github-lfs
+    .: github(-) [https://github.com/yarikoptic/test-github-lfs.git (git)]
+    'https://github.com/yarikoptic/test-github-lfs.git' configured as sibling 'github' for <Dataset path=/tmp/test-github-lfs>
+
+and then initialize special remote of type ``git-lfs``, pointing to the same GitHub
+repository::
+
+    $ git annex initremote github-lfs type=git-lfs url=https://github.com/yarikoptic/test-github-lfs encryption=none embedcreds=no
+
+With this single step it becomes possible to transfer contents to GitHub::
+
+    $ git annex copy --to=github-lfs file.dat
+    copy file.dat (to github-lfs...)
+    ok
+    (recording state in git...)
+
+and the entire dataset to the same GitHub repository::
+
+    $ datalad publish --to=github
+    [INFO   ] Publishing <Dataset path=/tmp/test-github-lfs> to github
+    publish(ok): . (dataset) [pushed to github: ['[new branch]', '[new branch]']]
+
+Because special remote URL coincides with the regular remote URL on GitHub,
+``siblings enable`` will not even be necessary when datalad is installed
+from GitHub.
+
 
 Built-in data export
 ^^^^^^^^^^^^^^^^^^^^
@@ -467,14 +516,22 @@ Apart from flexibly configurable special remotes that allow publishing
 annexed content to a variety of third party infrastructure, DataLad also has
 some build-in support for "exporting" data to other services.
 
-One example is the command :command:`export-to-figshare`. Running
-this command allows you to publish the dataset to
-`Figshare <https://figshare.com/>`_. The main difference is
-that this moves data out of version control and decentralized tracking,
+One example is the command :command:`export-archive`. Running
+this command would produce a ``.tar.gz`` file with the content of your dataset,
+which you could later upload to any data hosting portal manually. This moves
+data out of version control and decentralized tracking,
 and essentially "throws it over the wall". This means, while your data (also
-the annexed data) will be available for download on Figshare, none of the
+the annexed data) will be available for download from where you share it, none of the
 special features a DataLad dataset provides will be available, such as its
 history or configurations.
+
+Another example is :command:`export-to-figshare`. Running this command allows
+you to publish the dataset to `Figshare <https://figshare.com/>`_.  As the
+:command:`export-archive` is used by it to prepare content for upload to
+Figshare, annexed files also will be annotated as available from the archive on
+Figshare using ``datalad-archive`` special remote.  As a result, if you publish
+your Figshare dataset and share your DataLad dataset on GitHub, users will still
+be able to fetch content from the tarball shared on Figshare via DataLad.
 
 .. rubric:: Footnotes
 

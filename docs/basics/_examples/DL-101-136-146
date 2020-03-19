@@ -1,4 +1,3 @@
 $ cd ../mock_user && mv onemoredir/DataLad-101 .
 $ rm -r onemoredir
-$ cd ../DataLad-101 && git reset --hard master
-HEAD is now at c2c4282 add container and execute analysis within container
+$ cd ../DataLad-101 &&  sed -i 's/..\/mock_user\/onemoredir\/DataLad-101/..\/mock_user\/DataLad-101/' .git/config

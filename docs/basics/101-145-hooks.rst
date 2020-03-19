@@ -1,7 +1,11 @@
+.. index:: ! 2-003
+.. _2-003:
 .. _hooks:
 
 DataLad's result hooks
 ^^^^^^^^^^^^^^^^^^^^^^
+
+.. index:: ! result hooks, ! hooks
 
 If you are particularly keen on automating tasks in your datasets, you may be
 interested in running DataLad commands automatically as soon

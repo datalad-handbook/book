@@ -192,7 +192,7 @@ Glossary
 
    remote
       Git-terminology: A repository (and thus also :term:`DataLad dataset`) that a given repository
-      tracks.
+      tracks. A :term:`sibling` is DataLad's equivalent to a remote.
 
    Remote Indexed Archive (RIA) store
       A Remote Indexed Archive (RIA) Store is a flexible and scalable dataset storage
@@ -248,7 +248,8 @@ Glossary
 
    sibling
       DataLad concept: A dataset clone that a given :term:`DataLad dataset` knows about. Changes can be
-      retrieved and pushed between a dataset and its sibling.
+      retrieved and pushed between a dataset and its sibling. It is the
+      equivalent of a :term:`remote` in Git.
 
    submodule
       Git concept: a submodule is a Git repository embedded inside another Git repository. A

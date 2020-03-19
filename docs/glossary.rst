@@ -54,7 +54,7 @@ Glossary
 
    commit message
       Git concept: A concise summary of changes you should attach to a :command:`datalad save` command. This summary will
-      show up in your :term:`Datalad dataset` history.
+      show up in your :term:`DataLad dataset` history.
 
    DataLad dataset
       A DataLad dataset is a Git repository that may or may not have a data annex that is used to

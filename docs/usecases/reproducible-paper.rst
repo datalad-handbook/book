@@ -171,7 +171,7 @@ These two preparations can be seen in this excerpt from the Python script:
 
 .. code-block:: python
 
-   # import Datalads API
+   # import DataLads API
    from datalad.api import get
 
    # note that the datapath is relative

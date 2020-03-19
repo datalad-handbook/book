@@ -190,7 +190,18 @@ Windows 10
 """"""""""
 
 There are two ways to get DataLad on Windows 10: one is within Windows itself,
-the other is using WSL, the Windows Subsystem for Linux.
+the other is using WSL, the Windows Subsystem for Linux. We recommend the
+former, but information on how to use the WSL can be found here:
+
+.. container:: toggle
+
+   .. container:: header
+
+      Using the Windows Subsystem for Linux
+
+   You can find out how to install the Windows Subsystem for Linux at
+   `ubuntu.com/wsl <https://ubuntu.com/wsl>`_. Afterwards, proceed with your
+   installation as described in the installation instructions for Linux.
 
 Note: Using Windows itself comes with some downsides.
 In general, DataLad can feel a bit sluggish on Windows systems. This is because of
@@ -256,6 +267,7 @@ touch if you want to help.
   - `7zip <https://7-zip.de/download.html>`_ is a dependency of DataLad and
     not installed by default on Windows 10. Please make sure to download and
     install it.
+
 
 Initial configuration
 ^^^^^^^^^^^^^^^^^^^^^

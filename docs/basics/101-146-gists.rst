@@ -11,7 +11,12 @@ non-trivial tasks in datasets. Often, they are not limited to single commands of
 the version control tools you know, but combine helpful other command line
 tools and general Unix command line magic. Just like
 `GitHub gists <https://gist.github.com/>`_, its a collection of lightweight
-and easily accessible tips and tricks.
+and easily accessible tips and tricks. For a more basic command overview,
+take a look at the :ref:`cheat`.
+
+If there are tips you want to share, or if there is a question you would like
+to see answered here, please
+`get in touch <https://github.com/datalad-handbook/book/issues/new>`_.
 
 How can I check whether all file content is present locally?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -88,7 +93,7 @@ Or all
 
 
 Getting single file sizes prior to downloading from the Python API and the CLI
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 For a single file, :command:`datalad status --annex -- myfile` will report on
 the size of the file prior to a :command:`datalad get`.

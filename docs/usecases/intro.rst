@@ -22,6 +22,7 @@ the solutions they demonstrate.
 - :ref:`usecase_student_supervision`
 - :ref:`usecase_reproduce_neuroimg`
 - :ref:`usecase_datastore`
+- :ref:`usecase_extending_data_ecosystem`
 
 Contributing
 ^^^^^^^^^^^^

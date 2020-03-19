@@ -18,6 +18,8 @@ If there are tips you want to share, or if there is a question you would like
 to see answered here, please
 `get in touch <https://github.com/datalad-handbook/book/issues/new>`_.
 
+.. figure:: ../artwork/src/gists.svg
+
 How can I check whether all file content is present locally?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 

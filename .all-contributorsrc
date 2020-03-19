@@ -260,6 +260,16 @@
       "contributions": [
         "ideas"
       ]
+    },
+    {
+      "login": "hbaagil",
+      "name": "hbaagil",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/61992500?v=4",
+      "profile": "https://github.com/hbaagil",
+      "contributions": [
+        "userTesting",
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,

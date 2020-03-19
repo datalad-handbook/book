@@ -36,6 +36,11 @@ Glossary
    bash
       A Unix shell and command language.
 
+   Bitbucket
+      Bitbucket is an online platform where one can store and share version
+      controlled projects using Git (and thus also DataLad project), similar
+      to :term:`GitHub` or :term:`GitLab`. See `bitbucket.org <https://bitbucket.org.com/>`_.
+
    branch
       Git concept: A lightweight, independent history streak of your dataset. Branches can contain less,
       more, or changed files compared to other branches, and one can :term:`merge` the changes

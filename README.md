@@ -84,6 +84,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   </tr>
   <tr>
     <td align="center"><a href="https://github.com/dorianps"><img src="https://avatars3.githubusercontent.com/u/9083517?v=4" width="100px;" alt=""/><br /><sub><b>dorianps</b></sub></a><br /><a href="#ideas-dorianps" title="Ideas, Planning, & Feedback">🤔</a></td>
+    <td align="center"><a href="https://github.com/hbaagil"><img src="https://avatars3.githubusercontent.com/u/61992500?v=4" width="100px;" alt=""/><br /><sub><b>hbaagil</b></sub></a><br /><a href="#userTesting-hbaagil" title="User Testing">📓</a> <a href="https://github.com/datalad-handbook/book/issues?q=author%3Ahbaagil" title="Bug reports">🐛</a></td>
   </tr>
 </table>
 

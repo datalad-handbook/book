@@ -12,7 +12,9 @@ the version control tools you know, but combine helpful other command line
 tools and general Unix command line magic. Just like
 `GitHub gists <https://gist.github.com/>`_, its a collection of lightweight
 and easily accessible tips and tricks. For a more basic command overview,
-take a look at the :ref:`cheat`.
+take a look at the :ref:`cheat`. The
+`tips collection of git-annex <https://git-annex.branchable.com/tips/>`_ is also
+a very valuable resource.
 
 If there are tips you want to share, or if there is a question you would like
 to see answered here, please

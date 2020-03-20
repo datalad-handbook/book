@@ -3,6 +3,8 @@
 **VI - Make the most out of datasets**
 --------------------------------------
 
+.. index:: ! Chapter; 6. Data analysis (YODA)
+
 .. figure:: ../img/yoda.svg
    :alt: A very cute YODA
 

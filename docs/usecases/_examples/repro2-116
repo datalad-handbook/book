@@ -17,5 +17,5 @@ add(ok): sub-02/onsets/run-1/scramble.txt (file)
 save(ok): . (dataset)
 action summary:
   add (ok: 6)
-  get (ok: 1)
+  get (notneeded: 1, ok: 1)
   save (notneeded: 1, ok: 1)

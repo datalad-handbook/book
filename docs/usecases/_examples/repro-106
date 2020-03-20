@@ -1,4 +1,6 @@
 $ datalad -C inputs/ds000001 status --annex
 $ datalad -C inputs/ds000002 status --annex
 130 annex'd files (2.3 GB recorded total size)
+nothing to save, working tree clean
 274 annex'd files (2.7 GB recorded total size)
+nothing to save, working tree clean

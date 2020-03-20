@@ -1,6 +1,6 @@
 $ git log -- inputs
-commit 11e965bf003cd81a6e56e8d7156d3ca168344a7a
+commit cd1e076aaf09f73a9372b8416d4a2eb3396ef3d6
 Author: Elena Piscopia <elena@example.net>
-Date:   Mon Nov 4 07:18:51 2019 +0100
+Date:   Fri Mar 20 15:13:00 2020 +0100
 
     [DATALAD] Recorded changes

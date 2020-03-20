@@ -19,42 +19,42 @@ INFO: Doing conversion using dcm2niix
 INFO: Converting ./sub-02/func/sub-02_task-oneback_run-01_bold (5460 DICOMs) -> ./sub-02/func . Converter: dcm2niix . Output types: ('nii.gz', 'dicom')
 INFO: Generating grammar tables from /usr/lib/python3.5/lib2to3/Grammar.txt
 INFO: Generating grammar tables from /usr/lib/python3.5/lib2to3/PatternGrammar.txt
-191104-06:18:32,507 nipype.workflow INFO:
-	 [Node] Setting-up "convert" in "/tmp/dcm2niixmh_hdu97/convert".
-INFO: [Node] Setting-up "convert" in "/tmp/dcm2niixmh_hdu97/convert".
-191104-06:18:33,408 nipype.workflow INFO:
+200320-15:12:36,96 nipype.workflow INFO:
+	 [Node] Setting-up "convert" in "/tmp/dcm2niix65j9ys2w/convert".
+INFO: [Node] Setting-up "convert" in "/tmp/dcm2niix65j9ys2w/convert".
+200320-15:12:37,62 nipype.workflow INFO:
 	 [Node] Running "convert" ("nipype.interfaces.dcm2nii.Dcm2niix"), a CommandLine Interface with command:
-dcm2niix -b y -z y -x n -t n -m n -f func -o . -s n -v n /tmp/dcm2niixmh_hdu97/convert
+dcm2niix -b y -z y -x n -t n -m n -f func -o . -s n -v n /tmp/dcm2niix65j9ys2w/convert
 INFO: [Node] Running "convert" ("nipype.interfaces.dcm2nii.Dcm2niix"), a CommandLine Interface with command:
-dcm2niix -b y -z y -x n -t n -m n -f func -o . -s n -v n /tmp/dcm2niixmh_hdu97/convert
-191104-06:18:35,136 nipype.interface INFO:
-	 stdout 2019-11-04T06:18:35.136549:Chris Rorden's dcm2niiX version v1.0.20180622 GCC6.3.0 (64-bit Linux)
-INFO: stdout 2019-11-04T06:18:35.136549:Chris Rorden's dcm2niiX version v1.0.20180622 GCC6.3.0 (64-bit Linux)
-191104-06:18:35,136 nipype.interface INFO:
-	 stdout 2019-11-04T06:18:35.136549:Found 5460 DICOM file(s)
-INFO: stdout 2019-11-04T06:18:35.136549:Found 5460 DICOM file(s)
-191104-06:18:35,137 nipype.interface INFO:
-	 stdout 2019-11-04T06:18:35.136549:swizzling 3rd and 4th dimensions (XYTZ -> XYZT), assuming interslice distance is 3.300000
-INFO: stdout 2019-11-04T06:18:35.136549:swizzling 3rd and 4th dimensions (XYTZ -> XYZT), assuming interslice distance is 3.300000
-191104-06:18:35,137 nipype.interface INFO:
-	 stdout 2019-11-04T06:18:35.136549:Warning: Images sorted by instance number  [0020,0013](1..5460), but AcquisitionTime [0008,0032] suggests a different order (160423..160223) 
-INFO: stdout 2019-11-04T06:18:35.136549:Warning: Images sorted by instance number  [0020,0013](1..5460), but AcquisitionTime [0008,0032] suggests a different order (160423..160223) 
-191104-06:18:35,137 nipype.interface INFO:
-	 stdout 2019-11-04T06:18:35.136549:Using RWVSlope:RWVIntercept = 4.00757:0
-INFO: stdout 2019-11-04T06:18:35.136549:Using RWVSlope:RWVIntercept = 4.00757:0
-191104-06:18:35,137 nipype.interface INFO:
-	 stdout 2019-11-04T06:18:35.136549: Philips Scaling Values RS:RI:SS = 4.00757:0:0.0132383 (see PMC3998685)
-INFO: stdout 2019-11-04T06:18:35.136549: Philips Scaling Values RS:RI:SS = 4.00757:0:0.0132383 (see PMC3998685)
-191104-06:18:35,137 nipype.interface INFO:
-	 stdout 2019-11-04T06:18:35.136549:Convert 5460 DICOM as ./func (80x80x35x156)
-INFO: stdout 2019-11-04T06:18:35.136549:Convert 5460 DICOM as ./func (80x80x35x156)
-191104-06:18:35,766 nipype.interface INFO:
-	 stdout 2019-11-04T06:18:35.766125:compress: "/usr/bin/pigz" -n -f -6 "./func.nii"
-INFO: stdout 2019-11-04T06:18:35.766125:compress: "/usr/bin/pigz" -n -f -6 "./func.nii"
-191104-06:18:35,766 nipype.interface INFO:
-	 stdout 2019-11-04T06:18:35.766125:Conversion required 2.303359 seconds (1.707004 for core code).
-INFO: stdout 2019-11-04T06:18:35.766125:Conversion required 2.303359 seconds (1.707004 for core code).
-191104-06:18:35,926 nipype.workflow INFO:
+dcm2niix -b y -z y -x n -t n -m n -f func -o . -s n -v n /tmp/dcm2niix65j9ys2w/convert
+200320-15:12:39,138 nipype.interface INFO:
+	 stdout 2020-03-20T15:12:39.137863:Chris Rorden's dcm2niiX version v1.0.20180622 GCC6.3.0 (64-bit Linux)
+INFO: stdout 2020-03-20T15:12:39.137863:Chris Rorden's dcm2niiX version v1.0.20180622 GCC6.3.0 (64-bit Linux)
+200320-15:12:39,138 nipype.interface INFO:
+	 stdout 2020-03-20T15:12:39.137863:Found 5460 DICOM file(s)
+INFO: stdout 2020-03-20T15:12:39.137863:Found 5460 DICOM file(s)
+200320-15:12:39,138 nipype.interface INFO:
+	 stdout 2020-03-20T15:12:39.137863:swizzling 3rd and 4th dimensions (XYTZ -> XYZT), assuming interslice distance is 3.300000
+INFO: stdout 2020-03-20T15:12:39.137863:swizzling 3rd and 4th dimensions (XYTZ -> XYZT), assuming interslice distance is 3.300000
+200320-15:12:39,138 nipype.interface INFO:
+	 stdout 2020-03-20T15:12:39.137863:Warning: Images sorted by instance number  [0020,0013](1..5460), but AcquisitionTime [0008,0032] suggests a different order (160423..160223)
+INFO: stdout 2020-03-20T15:12:39.137863:Warning: Images sorted by instance number  [0020,0013](1..5460), but AcquisitionTime [0008,0032] suggests a different order (160423..160223)
+200320-15:12:39,138 nipype.interface INFO:
+	 stdout 2020-03-20T15:12:39.137863:Using RWVSlope:RWVIntercept = 4.00757:0
+INFO: stdout 2020-03-20T15:12:39.137863:Using RWVSlope:RWVIntercept = 4.00757:0
+200320-15:12:39,138 nipype.interface INFO:
+	 stdout 2020-03-20T15:12:39.137863: Philips Scaling Values RS:RI:SS = 4.00757:0:0.0132383 (see PMC3998685)
+INFO: stdout 2020-03-20T15:12:39.137863: Philips Scaling Values RS:RI:SS = 4.00757:0:0.0132383 (see PMC3998685)
+200320-15:12:39,138 nipype.interface INFO:
+	 stdout 2020-03-20T15:12:39.137863:Convert 5460 DICOM as ./func (80x80x35x156)
+INFO: stdout 2020-03-20T15:12:39.137863:Convert 5460 DICOM as ./func (80x80x35x156)
+200320-15:12:39,871 nipype.interface INFO:
+	 stdout 2020-03-20T15:12:39.871452:compress: "/usr/bin/pigz" -n -f -6 "./func.nii"
+INFO: stdout 2020-03-20T15:12:39.871452:compress: "/usr/bin/pigz" -n -f -6 "./func.nii"
+200320-15:12:39,871 nipype.interface INFO:
+	 stdout 2020-03-20T15:12:39.871452:Conversion required 2.745272 seconds (2.055807 for core code).
+INFO: stdout 2020-03-20T15:12:39.871452:Conversion required 2.745272 seconds (2.055807 for core code).
+200320-15:12:40,41 nipype.workflow INFO:
 	 [Node] Finished "convert".
 INFO: [Node] Finished "convert".
 INFO: Populating template files under ./

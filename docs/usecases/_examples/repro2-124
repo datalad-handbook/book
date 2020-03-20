@@ -2,7 +2,9 @@ $ datalad rerun --branch verify --onto ready4analysis --since ready4analysis
 [INFO] == Command start (output follows) ===== 
 [INFO] == Command exit (modification check follows) ===== 
 [INFO] Making sure inputs are available (this may take some time) 
-[INFO] Cloning /home/me/usecases/repro2/glm_analysis/../localizer_scans into '/home/me/usecases/repro2/glm_analysis/inputs/rawdata' 
+[INFO] Cloning dataset to <Dataset path=/home/me/usecases/repro2/glm_analysis/inputs/rawdata>
+[INFO] Attempting to clone from /home/me/usecases/repro2/glm_analysis/../localizer_scans to /home/me/usecases/repro2/glm_analysis/inputs/rawdata
+[INFO] Completed clone attempts for <Dataset path=/home/me/usecases/repro2/glm_analysis/inputs/rawdata>
 [INFO] == Command start (output follows) ===== 
 To view the FEAT progress and final report, point your web browser at /home/me/usecases/repro2/glm_analysis/sub-02/1stlvl_glm.feat/report_log.html
 [INFO] == Command exit (modification check follows) ===== 
@@ -51,21 +53,21 @@ add(ok): sub-02/1stlvl_glm.feat/example_func.nii.gz (file)
 add(ok): sub-02/1stlvl_glm.feat/filtered_func_data.nii.gz (file)
 add(ok): sub-02/1stlvl_glm.feat/lmax_zstat1.txt (file)
 add(ok): sub-02/1stlvl_glm.feat/logs/feat0 (file)
-add(ok): sub-02/1stlvl_glm.feat/logs/feat0_init.e23257 (file)
-add(ok): sub-02/1stlvl_glm.feat/logs/feat0_init.o23257 (file)
+add(ok): sub-02/1stlvl_glm.feat/logs/feat0_init.e1317190 (file)
+add(ok): sub-02/1stlvl_glm.feat/logs/feat0_init.o1317190 (file)
 add(ok): sub-02/1stlvl_glm.feat/logs/feat1 (file)
 add(ok): sub-02/1stlvl_glm.feat/logs/feat1a_init (file)
 add(ok): sub-02/1stlvl_glm.feat/logs/feat2_pre (file)
-add(ok): sub-02/1stlvl_glm.feat/logs/feat2_pre.e23337 (file)
-add(ok): sub-02/1stlvl_glm.feat/logs/feat2_pre.o23337 (file)
-add(ok): sub-02/1stlvl_glm.feat/logs/feat3_film.e23776 (file)
-add(ok): sub-02/1stlvl_glm.feat/logs/feat3_film.o23776 (file)
+add(ok): sub-02/1stlvl_glm.feat/logs/feat2_pre.e1317270 (file)
+add(ok): sub-02/1stlvl_glm.feat/logs/feat2_pre.o1317270 (file)
+add(ok): sub-02/1stlvl_glm.feat/logs/feat3_film.e1317941 (file)
+add(ok): sub-02/1stlvl_glm.feat/logs/feat3_film.o1317941 (file)
 add(ok): sub-02/1stlvl_glm.feat/logs/feat3_stats (file)
 add(ok): sub-02/1stlvl_glm.feat/logs/feat4_post (file)
-add(ok): sub-02/1stlvl_glm.feat/logs/feat4_post.e24201 (file)
-add(ok): sub-02/1stlvl_glm.feat/logs/feat4_post.o24201 (file)
-add(ok): sub-02/1stlvl_glm.feat/logs/feat5_stop.e24833 (file)
-add(ok): sub-02/1stlvl_glm.feat/logs/feat5_stop.o24833 (file)
+add(ok): sub-02/1stlvl_glm.feat/logs/feat4_post.e1318304 (file)
+add(ok): sub-02/1stlvl_glm.feat/logs/feat4_post.o1318304 (file)
+add(ok): sub-02/1stlvl_glm.feat/logs/feat5_stop.e1318936 (file)
+add(ok): sub-02/1stlvl_glm.feat/logs/feat5_stop.o1318936 (file)
 add(ok): sub-02/1stlvl_glm.feat/logs/feat9 (file)
 add(ok): sub-02/1stlvl_glm.feat/mask.nii.gz (file)
 add(ok): sub-02/1stlvl_glm.feat/mc/disp.png (file)
@@ -356,5 +358,5 @@ add(ok): sub-02/1stlvl_glm.feat/tsplot/tsplotc_zstat1p.png (file)
 save(ok): . (dataset)
 action summary:
   add (ok: 345)
-  get (notneeded: 3, ok: 1)
+  get (notneeded: 4, ok: 1)
   save (notneeded: 1, ok: 2)

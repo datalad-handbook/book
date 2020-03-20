@@ -1,8 +1,13 @@
-$ datalad install -d . \
-  --source ../localizer_scans \
+$ datalad clone -d . \
+  ../localizer_scans \
   inputs/rawdata
-[INFO] Cloning ../localizer_scans into '/home/me/usecases/repro2/glm_analysis/inputs/rawdata' 
+[INFO] Cloning dataset to <Dataset path=/home/me/usecases/repro2/glm_analysis/inputs/rawdata>
+[INFO] Attempting to clone from ../localizer_scans to /home/me/usecases/repro2/glm_analysis/inputs/rawdata
+[INFO] Completed clone attempts for <Dataset path=/home/me/usecases/repro2/glm_analysis/inputs/rawdata>
 install(ok): inputs/rawdata (dataset)
+add(ok): inputs/rawdata (file)
+add(ok): .gitmodules (file)
+save(ok): . (dataset)
 action summary:
   add (ok: 2)
   install (ok: 1)

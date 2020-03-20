@@ -625,7 +625,7 @@ records where they were obtained from:
    :language: console
    :workdir: usecases/repro2/glm_analysis
 
-   $ datalad download-url  --path code \
+   $ datalad download-url  --path code/ \
      https://raw.githubusercontent.com/myyoda/ohbm2018-training/master/section23/scripts/events2ev3.sh \
      https://raw.githubusercontent.com/myyoda/ohbm2018-training/master/section23/scripts/ffa_design.fsf
 

@@ -18,14 +18,14 @@ commands. For example, you created the simple ``podcasts.tsv``
 file that listed all titles and speaker names of the longnow
 podcasts.
 
-Given that you learned to created "proper" :command:`datalad run` commands,
+Given that you learned to create "proper" :command:`datalad run` commands,
 complete with ``--input`` and ``--output`` specification,
 anyone should be able to :command:`datalad rerun` these commits
 easily. This is what you want to try now.
 
 You begin to think about which :command:`datalad run` commit would be
 the most useful one to take a look at. The creation of
-``podcasts.tsv`` was a bit lame -- at this point in time, you
+``podcasts.tsv`` was a bit dull -- at this point in time, you
 didn't yet know about ``--input`` and ``--output`` arguments,
 and the resulting output is present anyway because text files
 like this ``.tsv`` file are stored in Git.
@@ -42,7 +42,7 @@ want to run by taking a look into the history of the dataset
 .. runrecord:: _examples/DL-101-118-101
    :language: console
    :workdir: dl-101/DataLad-101
-   :caption: More cool things on shared datasets: rerunning run commands
+   :notes: More cool things on shared datasets: rerunning run commands
    :cast: 04_collaboration
 
    # navigate into the shared copy
@@ -52,7 +52,7 @@ want to run by taking a look into the history of the dataset
    :language: console
    :workdir: dl-101/mock_user/DataLad-101
    :emphasize-lines: 4
-   :caption: find the shasum
+   :notes: find the shasum
    :cast: 04_collaboration
 
    # lets view the history
@@ -67,7 +67,7 @@ command:
    :language: console
    :workdir: dl-101/mock_user/DataLad-101
    :realcommand: echo "$ datalad rerun $(git rev-parse HEAD~1)" && datalad rerun $(git rev-parse HEAD~1)
-   :caption: plug the shasum into a rerun command
+   :notes: plug the shasum into a rerun command
    :cast: 04_collaboration
 
 "This was so easy!" you exclaim. DataLad retrieved the missing
@@ -80,3 +80,14 @@ successfully.
 Your room mate now not only knows how exactly the resized file
 came into existence, but he can also reproduce your exact steps to
 create it. "This is as reproducible as it can be!" you think in awe.
+
+
+.. only:: adminmode
+
+    Add a tag at the section end.
+
+      .. runrecord:: _examples/DL-101-118-104
+         :language: console
+         :workdir: dl-101/DataLad-101
+
+         $ git branch sct_retrace_and_reenact

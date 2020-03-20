@@ -1,0 +1,15 @@
+$ cd ../
+$ tree -d
+$ cd midterm_project
+.
+├── books
+├── code
+├── midterm_project
+│   ├── code
+│   └── input
+└── recordings
+    └── longnow
+        ├── Long_Now__Conversations_at_The_Interval
+        └── Long_Now__Seminars_About_Long_term_Thinking
+
+9 directories

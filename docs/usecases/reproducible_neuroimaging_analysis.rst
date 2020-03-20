@@ -3,6 +3,8 @@
 An automatically and computationally reproducible neuroimaging analysis from scratch
 ------------------------------------------------------------------------------------
 
+.. index:: ! Usecase; Reproducible Neuroimaging
+
 This use case sketches the basics of a portable analysis that can be
 automatically computationally reproduced, starting from the
 acquisition of a neuroimaging dataset with a magnetic resonance imaging (MRI)
@@ -810,3 +812,4 @@ The outcome of this usecase can be found as a dataset on Github
 
 .. [#f2] To re-read everything about the YODA principles, checkout out section
          :ref:`yoda`.
+

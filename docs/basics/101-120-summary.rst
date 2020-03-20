@@ -8,21 +8,15 @@ to share, update, and collaborate on a DataLad dataset on a shared file system.
 Thus, you have glimpsed into the principles and advantages of
 sharing a dataset with a simple example.
 
-* To obtain a dataset, one has to :command:`datalad install` this
-  dataset. Note that this requires the appropriate permissions
-  in real-world examples.
-  Note further that subdatasets will not be installed by default --
-  you will have to do a plain :command:`datalad install PATH/TO/SUBDATASET`,
-  or specify the ``-r``/``--recursive`` option in the install command:
-  :command:`datalad install -s ../DataLad-101 -r` with a decent
-  ``recursion-limit`` choice.
-
-* On a common or share file system, :command:`datalad install` takes a path
-  as the ``-s``/``--source`` option.
+* To obtain a dataset, one can also use :command:`datalad clone` with a path.
+  Potential subdatasets will not be installed right away. As they are registered in
+  the superdataset, you can do :command:`datalad get -n/--no-data`,
+  or specify the ``-r``/``--recursive`` (``datalad get -n -r <subds>``)
+  with a decent ``-R/--recursion-limit`` choice to install them afterwards.
 
 * The configuration of the original dataset determines which types
-  of files will have their content available right after installation
-  of the dataset, and which types of files need to be retrieved via
+  of files will have their content available right after the installation of
+  the dataset, and which types of files need to be retrieved via
   :command:`datalad get`: Any file content stored in :term:`Git` will be available
   right away, while all file content that is ``annexed`` only has
   small metadata about its availability attached to it. The original
@@ -35,7 +29,7 @@ sharing a dataset with a simple example.
   file content sources.
 
 * :command:`git annex whereis PATH` will list all locations known to contain file
-  content for a particular file. This location is where :term:`Git-annex`
+  content for a particular file. This location is where :term:`git-annex`
   will attempt to retrieve file content from, and it is described with the
   ``--description`` provided during a :command:`datalad create`. It is a very
   helpful command to find out where file content resides, and how many
@@ -51,7 +45,7 @@ sharing a dataset with a simple example.
   these changes into the dataset copy.
 
 * Thus, using DataLad, data can be easily shared and kept up to date
-  with only two commands: :command:`datalad install` and :command:`datalad update`.
+  with only two commands: :command:`datalad clone` and :command:`datalad update`.
 
 * By configuring a dataset as a :term:`sibling`, collaboration becomes easy.
 
@@ -75,6 +69,8 @@ Simultaneously, you have observed dataset properties you already knew
 but you have also seen novel aspects of a dataset -- for example that
 subdatasets are not automatically installed by default, how
 :command:`git annex whereis` can help you find out where file content might be stored,
+how useful commands that capture provenance about the origin or creation of files
+(such as :command:`datalad run` or :command:`datalad download-url`) are,
 or how a shared dataset can be updated to reflect changes that were made
 to the original dataset.
 

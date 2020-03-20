@@ -1,4 +1,8 @@
-$ datalad status
-untracked: Gitjoke1.txt (file)
-untracked: Gitjoke2.txt (file)
-untracked: Gitjoke3.txt (file)
+$ datalad save -m "rename the book"
+delete(ok): books/TLCL.pdf (file)
+add(ok): books/The_Linux_Command_Line.pdf (file)
+save(ok): . (dataset)
+action summary:
+  add (ok: 1)
+  delete (ok: 1)
+  save (ok: 1)

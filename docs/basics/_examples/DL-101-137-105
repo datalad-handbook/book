@@ -1,0 +1,30 @@
+$ git log -p -1
+commit b07afbce9dc01f43a27b9b16562ebfb4cb11a1bd
+Author: Elena Piscopia <elena@example.net>
+Date:   Mon Feb 17 08:53:01 2020 +0100
+
+    [DATALAD] Recorded changes
+
+diff --git a/Gitjoke1.txt b/Gitjoke1.txt
+new file mode 100644
+index 0000000..d7e1359
+--- /dev/null
++++ b/Gitjoke1.txt
+@@ -0,0 +1 @@
++Git knows what you did last summer!
+diff --git a/Gitjoke2.txt b/Gitjoke2.txt
+new file mode 100644
+index 0000000..51beecb
+--- /dev/null
++++ b/Gitjoke2.txt
+@@ -0,0 +1,3 @@
++Knock knock. Who's there? Git.
++Git-who?
++Sorry, 'who' is not a git command - did you mean 'show'?
+diff --git a/Gitjoke3.txt b/Gitjoke3.txt
+new file mode 100644
+index 0000000..7b83d95
+--- /dev/null
++++ b/Gitjoke3.txt
+@@ -0,0 +1 @@
++In Soviet Russia, git commits YOU!

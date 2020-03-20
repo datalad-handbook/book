@@ -1,4 +1,5 @@
-$ datalad status
-untracked: Gitjoke1.txt (file)
-untracked: Gitjoke3.txt (file)
-untracked: apdffile.pdf (file)
+$ mv notes.txt midterm_project/notes.txt
+$ datalad status -r
+ modified: midterm_project (dataset)
+untracked: midterm_project/notes.txt (file)
+  deleted: notes.txt (file)

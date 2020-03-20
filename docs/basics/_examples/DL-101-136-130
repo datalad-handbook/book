@@ -1,5 +1,3 @@
+$ cp books/TLCL.pdf copyofTLCL.pdf
 $ datalad status
-untracked: Gitjoke1.txt (file)
-untracked: Gitjoke3.txt (file)
-untracked: apdffile.pdf (file)
- modified: Gitjoke2.txt (file)
+untracked: copyofTLCL.pdf (file)

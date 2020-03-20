@@ -1,0 +1,3 @@
+$ git log -n 2 --oneline
+2996ac2 save my favorite Git joke
+b96ba14 save cropped logos to Git

@@ -1,0 +1,12 @@
+$ git log -2
+commit 2996ac291b15780dd9a255dc7f162d07e21d9294
+Author: Elena Piscopia <elena@example.net>
+Date:   Mon Feb 17 08:53:02 2020 +0100
+
+    save my favorite Git joke
+
+commit b96ba145e614e6fa12f2dae9bf9260ee8678ca5d
+Author: Elena Piscopia <elena@example.net>
+Date:   Mon Feb 17 08:52:42 2020 +0100
+
+    save cropped logos to Git

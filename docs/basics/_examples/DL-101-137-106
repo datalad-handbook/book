@@ -1,0 +1,4 @@
+$ git log -n 3 --oneline
+b07afbc [DATALAD] Recorded changes
+b96ba14 save cropped logos to Git
+b52a714 content removed from git annex

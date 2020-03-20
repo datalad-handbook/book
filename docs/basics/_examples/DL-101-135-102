@@ -2,123 +2,205 @@ $ datalad wtf
 # WTF
 ## configuration <SENSITIVE, report disabled by configuration>
 ## datalad 
-  - version: 0.12.0rc5.dev183
-  - full_version: 0.12.0rc5.dev183-g8166
+  - full_version: 0.12.2.dev166-g68f26
+  - version: 0.12.2.dev166
 ## dataset 
+  - id: ed80af32-5159-11ea-a727-6533dd7bb2c6
+  - metadata: <SENSITIVE, report disabled by configuration>
   - path: /home/me/dl-101/DataLad-101
   - repo: AnnexRepo
-  - metadata: <SENSITIVE, report disabled by configuration>
 ## dependencies 
-  - tqdm: 4.32.2
-  - cmd:annex: 7.20190708+git36-g32d526164-1~ndall+1
-  - cmd:git: 2.20.1
-  - cmd:bundled-git: 2.20.1
-  - cmd:system-git: 2.20.1
-  - cmd:system-ssh: 7.9p1
   - appdirs: 1.4.3
   - boto: 2.49.0
-  - git: 2.1.12
-  - gitdb: 0.6.4
+  - cmd:7z: 16.02
+  - cmd:annex: 7.20190819+git2-g908476a9b-1~ndall+1
+  - cmd:bundled-git: 2.20.1
+  - cmd:git: 2.20.1
+  - cmd:system-git: 2.25.0
+  - cmd:system-ssh: 8.1p1
+  - exifread: 2.1.2
+  - git: 3.0.5
+  - gitdb: 2.0.5
   - humanize: 0.5.1
   - iso8601: 0.1.12
   - keyring: 19.0.2
   - keyrings.alt: 3.1.1
   - msgpack: 0.6.1
+  - mutagen: 1.43.0
   - requests: 2.22.0
-  - scrapy: 1.7.3
+  - scrapy: 1.7.4
+  - tqdm: 4.32.2
   - wrapt: 1.11.2
 ## environment 
-  - LANGUAGE: en_US:en
-  - LANG: en_US.UTF-8
   - GIT_AUTHOR_EMAIL: elena@example.net
-  - GIT_EDITOR: vim
-  - LC_CTYPE: en_US.UTF-8
   - GIT_AUTHOR_NAME: Elena Piscopia
-  - PATH: /home/mih/env/datalad3-dev/bin:/usr/local/bin:/usr/bin:/bin:/usr/games:/home/mih/bin:/home/mih/bin/pycharm/bin
+  - GIT_EDITOR: vim
   - GIT_PYTHON_GIT_EXECUTABLE: /usr/lib/git-annex.linux/git
-## extensions 
-  - crawler: 
+  - LANG: en_US.UTF-8
+  - LANGUAGE: en_US:en
+  - LC_CTYPE: en_US.UTF-8
+  - PATH: /home/adina/env/handbook/bin:/home/adina/Documents/freesurfer/bin:/home/adina/Documents/freesurfer/fsfast/bin:/home/adina/Documents/freesurfer/tktools:/usr/share/fsl/5.0/bin:/usr/lib/fsl/5.0:/home/adina/Documents/freesurfer/mni/bin:/usr/share/fsl/5.0/5.0/bin:/home/adina/.local/bin:/home/adina/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/home/adina/.dotfiles/bin:/usr/local/go/bin:/home/adina/work/bin
+## extensions
+  - container:
+    - description: Containerized environments
+    - entrypoints:
+      - datalad_container.containers_add.ContainersAdd:
+        - class: ContainersAdd
+        - load_error: None
+        - module: datalad_container.containers_add
+        - names:
+          - containers-add
+          - containers_add
+      - datalad_container.containers_list.ContainersList:
+        - class: ContainersList
+        - load_error: None
+        - module: datalad_container.containers_list
+        - names:
+          - containers-list
+          - containers_list
+      - datalad_container.containers_remove.ContainersRemove:
+        - class: ContainersRemove
+        - load_error: None
+        - module: datalad_container.containers_remove
+        - names:
+          - containers-remove
+          - containers_remove
+      - datalad_container.containers_run.ContainersRun:
+        - class: ContainersRun
+        - load_error: None
+        - module: datalad_container.containers_run
+        - names:
+          - containers-run
+          - containers_run
     - load_error: None
+    - module: datalad_container
+    - version: 0.5.0
+  - crawler:
     - description: Crawl web resources
-    - module: datalad_crawler
-    - version: 0.4.1
     - entrypoints: 
       - datalad_crawler.crawl.Crawl: 
-        - module: datalad_crawler.crawl
         - class: Crawl
+        - load_error: None
+        - module: datalad_crawler.crawl
         - names: 
           - crawl
-        - load_error: None
       - datalad_crawler.crawl_init.CrawlInit: 
-        - module: datalad_crawler.crawl_init
         - class: CrawlInit
+        - load_error: None
+        - module: datalad_crawler.crawl_init
         - names: 
           - crawl-init
           - crawl_init
-        - load_error: None
-  - metalad: 
     - load_error: None
-    - description: DataLad semantic metadata command suite
-    - module: datalad_metalad
-    - version: 0.2.0
+    - module: datalad_crawler
+    - version: 0.4.4
+  - hirni:
+    - description: HIRNI workflows
     - entrypoints: 
+      - datalad_hirni.commands.dicom2spec.Dicom2Spec:
+        - class: Dicom2Spec
+        - load_error: None
+        - module: datalad_hirni.commands.dicom2spec
+        - names: 
+          - hirni-dicom2spec
+          - hirni_dicom2spec
+      - datalad_hirni.commands.import_dicoms.ImportDicoms:
+        - class: ImportDicoms
+        - load_error: None
+        - module: datalad_hirni.commands.import_dicoms
+        - names: 
+          - hirni-import-dcm
+          - hirni_import_dcm
+      - datalad_hirni.commands.spec2bids.Spec2Bids:
+        - class: Spec2Bids
+        - load_error: None
+        - module: datalad_hirni.commands.spec2bids
+        - names: 
+          - hirni-spec2bids
+          - hirni_spec2bids
+      - datalad_hirni.commands.spec4anything.Spec4Anything:
+        - class: Spec4Anything
+        - load_error: None
+        - module: datalad_hirni.commands.spec4anything
+        - names: 
+          - hirni-spec4anything
+          - hirni_spec4anything
+    - load_error: None
+    - module: datalad_hirni
+    - version: 0.0.4
+  - metalad:
+    - description: DataLad semantic metadata command suite
+    - entrypoints: 
+      - datalad_metalad.aggregate.Aggregate:
+        - class: Aggregate
+        - load_error: None
+        - module: datalad_metalad.aggregate
+        - names:
+          - meta-aggregate
+          - meta_aggregate
       - datalad_metalad.dump.Dump: 
-        - module: datalad_metalad.dump
         - class: Dump
+        - load_error: None
+        - module: datalad_metalad.dump
         - names: 
           - meta-dump
           - meta_dump
-        - load_error: None
       - datalad_metalad.extract.Extract: 
-        - module: datalad_metalad.extract
         - class: Extract
+        - load_error: None
+        - module: datalad_metalad.extract
         - names: 
           - meta-extract
           - meta_extract
-        - load_error: None
-      - datalad_metalad.aggregate.Aggregate: 
-        - module: datalad_metalad.aggregate
-        - class: Aggregate
-        - names: 
-          - meta-aggregate
-          - meta_aggregate
-        - load_error: None
-  - container: 
     - load_error: None
-    - description: Containerized environments
-    - module: datalad_container
-    - version: 0.5.0
-    - entrypoints: 
-      - datalad_container.containers_list.ContainersList: 
-        - module: datalad_container.containers_list
-        - class: ContainersList
-        - names: 
-          - containers-list
-          - containers_list
+    - module: datalad_metalad
+    - version: 0.2.0
+  - neuroimaging:
+    - description: Neuroimaging tools
+    - entrypoints:
+      - datalad_neuroimaging.bids2scidata.BIDS2Scidata:
+        - class: BIDS2Scidata
         - load_error: None
-      - datalad_container.containers_remove.ContainersRemove: 
-        - module: datalad_container.containers_remove
-        - class: ContainersRemove
+        - module: datalad_neuroimaging.bids2scidata
         - names: 
-          - containers-remove
-          - containers_remove
+          - bids2scidata
+    - load_error: None
+    - module: datalad_neuroimaging
+    - version: 0.2.3
+  - ria:
+    - description: Helper for the remote indexed archive (RIA) special remote
+    - entrypoints:
+      - ria_remote.create_sibling_ria.CreateSiblingRia:
+        - class: CreateSiblingRia
         - load_error: None
-      - datalad_container.containers_add.ContainersAdd: 
-        - module: datalad_container.containers_add
-        - class: ContainersAdd
-        - names: 
-          - containers-add
-          - containers_add
+        - module: ria_remote.create_sibling_ria
+        - names:
+          - create-sibling-ria
+          - create_sibling_ria
+      - ria_remote.export_archive.ExportArchive:
+        - class: ExportArchive
         - load_error: None
-      - datalad_container.containers_run.ContainersRun: 
-        - module: datalad_container.containers_run
-        - class: ContainersRun
-        - names: 
-          - containers-run
-          - containers_run
+        - module: ria_remote.export_archive
+        - names:
+          - ria-export-archive
+          - ria_export_archive
+    - load_error: None
+    - module: ria_remote
+    - version: 0.7+90.g31bcf57
+  - webapp:
+    - description: Generic web app support
+    - entrypoints:
+      - datalad_webapp.WebApp:
+        - class: WebApp
         - load_error: None
+        - module: datalad_webapp
+        - names:
+          - webapp
+          - webapp
+    - load_error: None
+    - module: datalad_webapp
+    - version: 0.2
 ## git-annex 
-  - version: 7.20190708+git36-g32d526164-1~ndall+1
   - build flags: 
     - Assistant
     - Webapp
@@ -193,6 +275,8 @@ $ datalad wtf
     - MD5
     - WORM
     - URL
+  - local repository version: 5
+  - operating system: linux x86_64
   - remote types: 
     - git
     - gcrypt
@@ -208,9 +292,9 @@ $ datalad wtf
     - tahoe
     - glacier
     - ddar
+    - git-lfs
     - hook
     - external
-  - operating system: linux x86_64
   - supported repository versions: 
     - 5
     - 7
@@ -222,70 +306,90 @@ $ datalad wtf
     - 4
     - 5
     - 6
-  - local repository version: 5
+  - version: 7.20190819+git2-g908476a9b-1~ndall+1
 ## location 
   - path: /home/me/dl-101/DataLad-101
   - type: dataset
 ## metadata_extractors 
-  - metalad_annex: 
-    - module: datalad_metalad.extractors.annex
-    - version: None
+  - annex:
     - load_error: None
-  - metalad_core: 
-    - module: datalad_metalad.extractors.core
-    - version: None
-    - load_error: None
-  - metalad_custom: 
-    - module: datalad_metalad.extractors.custom
-    - version: None
-    - load_error: None
-  - metalad_runprov: 
-    - module: datalad_metalad.extractors.runprov
-    - version: None
-    - load_error: None
-  - annex: 
     - module: datalad.metadata.extractors.annex
     - version: None
+  - audio:
     - load_error: None
-  - audio: 
     - module: datalad.metadata.extractors.audio
-    - load_error: No module named 'mutagen' [audio.py:<module>:17]
-  - datacite: 
+    - version: None
+  - bids:
+    - load_error: None
+    - module: datalad_neuroimaging.extractors.bids
+    - version: None
+  - datacite:
+    - load_error: None
     - module: datalad.metadata.extractors.datacite
     - version: None
+  - datalad_core:
     - load_error: None
-  - datalad_core: 
     - module: datalad.metadata.extractors.datalad_core
     - version: None
+  - datalad_rfc822:
     - load_error: None
-  - datalad_rfc822: 
     - module: datalad.metadata.extractors.datalad_rfc822
     - version: None
+  - dicom:
     - load_error: None
-  - exif: 
+    - module: datalad_neuroimaging.extractors.dicom
+    - version: None
+  - exif:
+    - load_error: None
     - module: datalad.metadata.extractors.exif
-    - load_error: No module named 'exifread' [exif.py:<module>:16]
-  - frictionless_datapackage: 
+    - version: None
+  - frictionless_datapackage:
+    - load_error: None
     - module: datalad.metadata.extractors.frictionless_datapackage
     - version: None
+  - image:
     - load_error: None
-  - image: 
     - module: datalad.metadata.extractors.image
-    - load_error: No module named 'PIL' [image.py:<module>:16]
+    - version: None
+  - metalad_annex:
+    - load_error: None
+    - module: datalad_metalad.extractors.annex
+    - version: None
+  - metalad_core:
+    - load_error: None
+    - module: datalad_metalad.extractors.core
+    - version: None
+  - metalad_custom:
+    - load_error: None
+    - module: datalad_metalad.extractors.custom
+    - version: None
+  - metalad_runprov:
+    - load_error: None
+    - module: datalad_metalad.extractors.runprov
+    - version: None
+  - nidm:
+    - load_error: None
+    - module: datalad_neuroimaging.extractors.nidm
+    - version: None
+  - nifti1:
+    - load_error: None
+    - module: datalad_neuroimaging.extractors.nifti1
+    - version: None
   - xmp: 
+    - load_error: None
     - module: datalad.metadata.extractors.xmp
-    - load_error: No module named 'libxmp' [xmp.py:<module>:20]
+    - version: None
 ## python 
-  - version: 3.7.3
   - implementation: CPython
+  - version: 3.7.3
 ## system 
-  - type: posix
-  - name: Linux
-  - release: 4.19.0-5-amd64
-  - version: #1 SMP Debian 4.19.37-5 (2019-06-19)
-  - distribution: debian/10.0
-  - max_path_length: 283
+  - distribution: debian/bullseye/sid
   - encoding: 
     - default: utf-8
     - filesystem: utf-8
     - locale.prefered: UTF-8
+  - max_path_length: 283
+  - name: Linux
+  - release: 5.4.0-3-amd64
+  - type: posix
+  - version: #1 SMP Debian 5.4.13-1 (2020-01-19)

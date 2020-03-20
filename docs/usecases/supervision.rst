@@ -3,6 +3,8 @@
 Student supervision in a research project
 -----------------------------------------
 
+.. index:: ! Usecase; Student supervision
+
 This use case will demonstrate a workflow that uses DataLad tools and principles
 to assist in technical aspects of supervising research projects with computational
 components.
@@ -25,7 +27,7 @@ The Challenge
 Megan is a graduate student and does an internship in a lab
 at a partnering research institution. As she already has experience in data analysis,
 and the time of her supervisor is limited, she is given a research question
-to work on autonomously. The data is already collected, and everyone involved
+to work on autonomously. The data are already collected, and everyone involved
 is certain that Megan will be fine performing the analyses she has
 experience with. Her supervisor confidently proposes the research project as a
 conference talk Megan should give at the end of her stay. Megan is excited about the
@@ -41,7 +43,7 @@ to a lab in Japan soon, and is very busy preparing this stay and coordinating
 other projects. However, everyone is confident that Megan will be just fine.
 The IT office issues an account on the computational cluster for her,
 and the postdoc that collected the data points her to the directories in which
-the data is stored.
+the data are stored.
 
 When she starts, Megan realizes that she has no experience with the
 Linux-based operating system running on the compute cluster. She knows very well how
@@ -81,7 +83,7 @@ data take an hour to meet and talk about the upcoming project. To ease the techn
 complexities for a new student like Megan on an unfamiliar computational infrastructure,
 they talk about the YODA principles, basic DataLad commands, and
 set up a project dataset for Megan to work in. Inside of this dataset, the original
-data is installed as a subdataset, code is tracked with Git, and the appropriate software
+data are cloned as a subdataset, code is tracked with Git, and the appropriate software
 is provided with a containerized image tracked in the dataset.
 Megan can adopt the version control workflow and data
 analysis principles very fast and is thankful for the brief but sufficient introduction.
@@ -103,10 +105,10 @@ Step-by-Step
 ^^^^^^^^^^^^
 
 Megan's supervisor is excited that she comes to visit the lab and trusts her to be a diligent,
-organized, and capable researcher. But he also doesn't have much time for a lengthy introduction
+organized, and capable researcher. But he also does not have much time for a lengthy introduction
 to technical aspects unrelated to the project, interactive teaching, or in-person supervision.
 Megan in turn is a competent student and eager to learn new things, but she
-doesn't have experience with DataLad, version control, or the computational cluster.
+does not have experience with DataLad, version control, or the computational cluster.
 
 As a first step, therefore, her supervisor and the postdoc prepare a preconfigured
 dataset in a dedicated directory everyone involved in the project has access to:
@@ -118,13 +120,13 @@ dataset in a dedicated directory everyone involved in the project has access to:
 All data that this lab generates or uses is a standalone DataLad dataset that lives
 in a dedicated ``data\`` directory on a server. To give Megan access to the data without
 endangering or potentially modifying the pristine data kept in there, complying to the
-YODA principles, they install the data she is supposed to analyze as a subdataset:
+YODA principles, they clone the data she is supposed to analyze as a subdataset:
 
 .. code-block:: bash
 
    $ cd project-megan
-   $ datalad install -d . \
-     --source /home/data/ABC-project \
+   $ datalad clone -d . \
+     /home/data/ABC-project \
      data/ABC-project
 
     [INFO   ] Cloning /home/data/ABC-project [1 other candidates] into '/home/projects/project-megan/data/ABC-project'
@@ -213,15 +215,15 @@ Megan finishes her analysis well ahead of time and can prepare her talk.
 Together with her supervisor she decides which figures look good and
 which results are important. All results that are deemed irrelevant can be dropped
 to keep the dataset lean, but could be recomputed as their provenance was tracked.
-Finally, the data analysis project is installed as an input into a new dataset
+Finally, the data analysis project is cloned as an input into a new dataset
 created for collaborative paper-writing on the analysis:
 
 .. code-block:: bash
 
    $ datalad create megans-paper
    $ cd megans-paper
-   $ datalad install -d . \
-     --source /home/projects/project-megan \
+   $ datalad clone -d . \
+     /home/projects/project-megan \
      analysis
 
    [INFO   ] Cloning /home/projects/project-megan [1 other candidates] into '/home/paper/megans-paper'

@@ -1,0 +1,45 @@
+$ git log -p -n 1
+commit c7a17ea4eab9d1f338c1031a6e160f6ce3e275e9
+Author: Elena Piscopia <elena@example.net>
+Date:   Mon Feb 17 08:52:22 2020 +0100
+
+    [DATALAD RUNCMD] rerun analysis in container
+    
+    === Do not change lines below ===
+    {
+     "chain": [],
+     "cmd": "singularity exec .datalad/environments/midterm-software/image python3 code/script.py",
+     "dsid": "3a233abc-515a-11ea-a727-6533dd7bb2c6",
+     "exit": 0,
+     "extra_inputs": [
+      ".datalad/environments/midterm-software/image"
+     ],
+     "inputs": [
+      "input/iris.csv"
+     ],
+     "outputs": [
+      "prediction_report.csv",
+      "pairwise_relationships.png"
+     ],
+     "pwd": "."
+    }
+    ^^^ Do not change lines above ^^^
+
+diff --git a/pairwise_relationships.png b/pairwise_relationships.png
+index 7a8e02e..6e06b18 120000
+--- a/pairwise_relationships.png
++++ b/pairwise_relationships.png
+@@ -1 +1 @@
+-.git/annex/objects/3p/63/MD5E-s174822--9c3ff04d3e50f86034651c2df2dd720f.png/MD5E-s174822--9c3ff04d3e50f86034651c2df2dd720f.png
+\ No newline at end of file
++.git/annex/objects/xZ/pk/MD5E-s175447--1f7f416d7c317c1f6208a940aa50c700.png/MD5E-s175447--1f7f416d7c317c1f6208a940aa50c700.png
+\ No newline at end of file
+diff --git a/prediction_report.csv b/prediction_report.csv
+index 42d194b..b46a2d5 120000
+--- a/prediction_report.csv
++++ b/prediction_report.csv
+@@ -1 +1 @@
+-.git/annex/objects/8q/6M/MD5E-s345--a88cab39b1a5ec59ace322225cc88bc9.csv/MD5E-s345--a88cab39b1a5ec59ace322225cc88bc9.csv
+\ No newline at end of file
++.git/annex/objects/VF/27/MD5E-s347--7d984f53676358222aa7aa55980f205b.csv/MD5E-s347--7d984f53676358222aa7aa55980f205b.csv
+\ No newline at end of file

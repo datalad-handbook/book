@@ -4,6 +4,7 @@
 General prerequisites
 *********************
 
+.. index:: ! Terminal, ! Shell, ! Command Line
 
 DataLad uses command-line arguments in a *terminal*. This means that there is no graphical
 user interface with buttons to click on, but a set of commands and options users type into
@@ -109,7 +110,7 @@ The Prompt
 When you first login on the command line, you are greeted with "the prompt",
 and it will likely look similar to this:
 
-``adina@munnin: ~$``
+``adina@muninn: ~$``
 
 This says I am the user adina on the machine muninn and I am in the folder ``~``,
 which is shorthand for the current user's home folder (in this case ``/home/adina``).
@@ -118,6 +119,8 @@ The ``$`` sign indicates that the prompt is interactive and awaiting user input.
 In this handbook, we will use ``$`` as a shorthand for the prompt, to allow
 the reader to quickly differentiate between lines containing commands vs the
 output of those commands.
+
+.. index:: ! paths
 
 Paths
 =====
@@ -231,7 +234,7 @@ Religious wars have been fought over which is "the best" editor. From the smolde
 this is the breakdown:
 
 ``nano``
-    Easy to use; medium features. If you don't know which to use, start with this.
+    Easy to use; medium features. If you do not know which to use, start with this.
 ``vim``
     Powerful and light; lots of features and many plugins; steep learning curve.
     Two resources to help get the most out of vim are the vimtutor program
@@ -268,6 +271,8 @@ To determine what shell you're in, run the following:
 
    $ echo $SHELL
    usr/bin/bash
+
+.. index:: ! tab completion
 
 Tab Completion
 ==============

@@ -1,29 +1,10 @@
-
-$ git cat-file --textconv 1e4f296a5843c8cc9260b872fd3f89d4f9a06c88:notes.txt
-One can create a new dataset with 'datalad create [--description] PATH'.
-The dataset is created empty
-
-The command "datalad save [-m] PATH" saves the file
-(modifications) to history. Note to self:
-Always use informative, concise commit messages.
-
-The command 'datalad install [--source] PATH'
-installs a dataset from e.g., a URL or a path.
-If you install a dataset into an existing
-dataset (as a subdataset), remember to specify the
-root of the superdataset with the '-d' option.
-
-There are two useful functions to display changes between two
-states of a dataset: "datalad diff -f/--from COMMIT -t/--to COMMIT"
-and "git diff COMMIT COMMIT", where COMMIT is a shasum of a commit
-in the history.
-
-The datalad run command can record the impact a script or command has on a Dataset.
-In its simplest form, datalad run only takes a commit message and the command that
-should be executed.
-
-Any datalad run command can be re-executed by using its commit shasum as an argument
-in datalad rerun CHECKSUM. DataLad will take information from the run record of the original
-commit, and re-execute it. If no changes happen with a rerun, the command will not be written
-to history. Note: you can also rerun a datalad rerun command!
-
+$ datalad save -r -m "moved notes.txt from root of top-ds to midterm subds"
+add(ok): notes.txt (file)
+save(ok): midterm_project (dataset)
+delete(ok): notes.txt (file)
+add(ok): midterm_project (file)
+save(ok): . (dataset)
+action summary:
+  add (ok: 2)
+  delete (ok: 1)
+  save (notneeded: 2, ok: 2)

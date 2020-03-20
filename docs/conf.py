@@ -24,6 +24,9 @@ authors = [
         (Path(__file__).parent.parent / '.all-contributorsrc').open()).get(
             'contributors', [])
 ]
+# make sure mih is last author
+authors.append(authors.pop(authors.index('Michael Hanke')))
+
 
 # autorunrecord setup (extension used to run and capture the output of
 # examples)
@@ -47,6 +50,8 @@ autorunrecord_env = {
     # maintain the PATH to keep all installed software functional
     'PATH': os.environ['PATH'],
     'GIT_EDITOR': 'vim',
+    # prevent progress bars - makes for ugly runrecords. See https://github.com/datalad-handbook/book/issues/390
+    'DATALAD_UI_PROGRESSBAR': 'none',
 }
 if 'CAST_DIR' in os.environ:
     autorunrecord_env['CAST_DIR'] = os.environ['CAST_DIR']
@@ -119,6 +124,7 @@ release = version
 exclude_patterns = [
     '_build',
     '_themes/*.rst',  # Excluded due to README.rst in _themes/
+    '**/*admin', # useful for executing, but not showing code
 ]
 
 # The reST default role (used for this markup: `text`) to use for all documents.
@@ -274,12 +280,26 @@ latex_show_urls = 'footnote'
 latex_elements = {
     'papersize': 'a4',
     'pointsize': '11pt',
-    'figure_align': 'tbp',
+    'figure_align': 'H',
+    'extraclassoptions': 'openany,oneside',
+    'fncychap' : r'\usepackage[Bjarne]{fncychap}',
+    'passoptionstopackages': r'\PassOptionsToPackage{svgnames}{xcolor}',
     'preamble': r"""
 \usepackage{charter}
 \usepackage[defaultsans]{lato}
 \usepackage{inconsolata}
-\setcounter{tocdepth}{0}
+\setcounter{tocdepth}{1}
+\usepackage{xcolor}
+\setcounter{secnumdepth}{0}
+\newsavebox{\selvestebox}
+\newenvironment{colbox}[1]
+  {\newcommand\colboxcolor{#1}%
+   \begin{lrbox}{\selvestebox}%
+   \begin{minipage}{\dimexpr\columnwidth-2\fboxsep\relax}}
+  {\end{minipage}\end{lrbox}%
+   \begin{center}
+   \colorbox[HTML]{\colboxcolor}{\usebox{\selvestebox}}
+   \end{center}}
 """,
 }
 

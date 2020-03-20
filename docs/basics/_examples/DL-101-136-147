@@ -1,4 +1,3 @@
-$ datalad status
-untracked: Gitjoke1.txt (file)
-untracked: Gitjoke3.txt (file)
-untracked: apdffile.pdf (file)
+$ git annex unannex recordings/*logo_small.jpg
+unannex recordings/interval_logo_small.jpg ok
+unannex recordings/salt_logo_small.jpg ok

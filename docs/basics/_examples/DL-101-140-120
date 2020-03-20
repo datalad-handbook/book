@@ -1,4 +1,0 @@
-$ mv TLCL.pdf ../TLCL.pdf
-$ datalad status
-untracked: /home/me/dl-101/DataLad-101/TLCL.pdf (symlink)
-  deleted: /home/me/dl-101/DataLad-101/books/TLCL.pdf (symlink)

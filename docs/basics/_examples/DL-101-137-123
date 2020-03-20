@@ -1,0 +1,39 @@
+$ cat notes.txt
+One can create a new dataset with 'datalad create [--description] PATH'.
+The dataset is created empty
+
+The command "datalad save [-m] PATH" saves the file
+(modifications) to history. Note to self:
+Always use informative, concise commit messages.
+
+The command 'datalad clone URL/PATH [PATH]'
+installs a dataset from e.g., a URL or a path.
+If you install a dataset into an existing
+dataset (as a subdataset), remember to specify the
+root of the superdataset with the '-d' option.
+
+There are two useful functions to display changes between two
+states of a dataset: "datalad diff -f/--from COMMIT -t/--to COMMIT"
+and "git diff COMMIT COMMIT", where COMMIT is a shasum of a commit
+in the history.
+
+The datalad run command can record the impact a script or command has on a Dataset.
+In its simplest form, datalad run only takes a commit message and the command that
+should be executed.
+
+Any datalad run command can be re-executed by using its commit shasum as an argument
+in datalad rerun CHECKSUM. DataLad will take information from the run record of the original
+commit, and re-execute it. If no changes happen with a rerun, the command will not be written
+to history. Note: you can also rerun a datalad rerun command!
+
+You should specify all files that a command takes as input with an -i/--input flag. These
+files will be retrieved prior to the command execution. Any content that is modified or
+produced by the command should be specified with an -o/--output flag. Upon a run or rerun
+of the command, the contents of these files will get unlocked so that they can be modified.
+
+Important! If the dataset is not "clean" (a datalad status output is empty),
+datalad run will not work - you will have to save modifications present in your
+dataset.
+A suboptimal alternative is the --explicit flag,
+used to record only those changes done
+to the files listed with --output flags.

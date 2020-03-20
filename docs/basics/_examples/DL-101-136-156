@@ -1,0 +1,3 @@
+$ git reset --hard HEAD~1
+warning: unable to rmdir 'longnow': Directory not empty
+HEAD is now at 31ee306 move book back from midterm_project

@@ -120,14 +120,14 @@ ran by `ReproNim <https://www.repronim.org/>`_.
           :workdir: usecases/repro
 
           $ cd demo
-          $ datalad install -d . -s ///openfmri/ds000001 inputs/ds000001
+          $ datalad clone -d . ///openfmri/ds000001 inputs/ds000001
 
        .. runrecord:: _examples/repro-103
           :language: console
           :workdir: usecases/repro
 
           $ cd demo
-          $ datalad install -d . -s ///openfmri/ds000002 inputs/ds000002
+          $ datalad clone -d . ///openfmri/ds000002 inputs/ds000002
 
        Both datasets are now registered as subdatasets, and their precise versions
        (e.g. in the form of the commit shasum of the lastest commit) are on record:
@@ -430,8 +430,8 @@ they are the raw inputs of the analysis, we store them in a directory we call
    :language: console
    :workdir: usecases/repro2/localizer_scans
 
-   $ datalad install --dataset . \
-    --source https://github.com/datalad/example-dicom-functional.git  \
+   $ datalad clone --dataset . \
+    https://github.com/datalad/example-dicom-functional.git  \
     inputs/rawdata
 
 The :command:`datalad subdatasets` reports the installed dataset to be indeed
@@ -582,8 +582,8 @@ We install ``localizer_scans`` by providing its path as a ``--source`` to
    :language: console
    :workdir: usecases/repro2/glm_analysis
 
-   $ datalad install -d . \
-     --source ../localizer_scans \
+   $ datalad clone -d . \
+     ../localizer_scans \
      inputs/rawdata
 
 :command:`datalad subdatasets` reports the number of installed subdatasets

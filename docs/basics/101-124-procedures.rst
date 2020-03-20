@@ -404,7 +404,7 @@ Finally, make a note about running procedures inside of ``notes.txt``:
    :workdir: dl-101/DataLad-101
    :language: console
 
-   $ datalad save -m "add note on DataLads procedures"
+   $ datalad save -m "add note on DataLad's procedures"
 
 
 .. only:: adminmode

@@ -46,6 +46,7 @@
    basics/basics8toc
    basics/basics9toc
    basics/basics10toc
+   basics/basics11toc
 
 .. only:: html
 

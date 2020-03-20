@@ -1,0 +1,8 @@
+.. _hirni:
+
+DataLad for Hirnis
+==================
+
+- Narrative: There is a global pandemic and universities are closed.
+- Introduce extension
+- Installation

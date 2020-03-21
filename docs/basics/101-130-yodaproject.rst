@@ -643,7 +643,8 @@ configure this repository as a sibling of the dataset:
     .. runrecord:: _examples/DL-101-130-116
        :language: console
        :workdir: dl-101/DataLad-101/midterm_project
-       :realcommand: datalad --log-level critical siblings add -d . --name github --url https://github.com/adswa/midtermproject.git
+       :realcommand: python -c "from datalad.core.distributed.tests.test_push import mk_push_target; from datalad.api import Dataset as ds; mk_push_target(ds=ds('/home/me/dl-101/DataLad-101/midterm_project'), name='github', path='/home/me/pushes/midtermproject', annex=False, bare=True)"
+
 
 .. code-block:: bash
 
@@ -654,40 +655,39 @@ configure this repository as a sibling of the dataset:
 
 Verify that this worked by listing the siblings of the dataset:
 
-.. runrecord:: _examples/DL-101-130-117
-   :language: console
-   :workdir: dl-101/DataLad-101/midterm_project
+.. code-block:: bash
 
-   $ datalad siblings
+   $ datalad create-sibling-github -d . midtermproject
+   [WARNING] Failed to determine if github carries annex.
+   .: here(+) [git]
+   .: github(-) [https://github.com/adswa/midtermproject.git (git)]
 
 .. gitusernote::
 
    Creating a sibling on GitHub will create a new empty repository under the
    account that you provide and set up a *remote* to this repository. Upon a
-   :command:`datalad publish` to this sibling, your datasets history
+   :command:`datalad push` to this sibling, your datasets history
    will be pushed there.
 
-   .. index:: ! datalad command; publish
+   .. index:: ! datalad command; push
 
 On GitHub, you will see a new, empty repository with the name
 ``midtermproject``. However, the repository does not yet contain
 any of your dataset's history or files. This requires *publishing* the current
-state of the dataset to this :term:`sibling` with the :command:`datalad publish`
-(:manpage:`datalad-publish` manual) command. The :command:`datalad publish` command
+state of the dataset to this :term:`sibling` with the :command:`datalad push`
+(:manpage:`datalad-push` manual) command. The :command:`datalad push` command
 will make the last saved state of your dataset available to the :term:`sibling`
 you provide with the ``--to`` option.
 
-.. code-block:: bash
+.. runrecord:: _examples/DL-101-130-118
+   :language: console
+   :workdir: dl-101/DataLad-101/midterm_project
 
-   $ datalad publish --to github
-   [INFO   ] Publishing <Dataset path=/home/me/dl-101/DataLad-101/midterm_project> to github
-   publish(ok): . (dataset) [pushed to github: ['[new branch]', '[new branch]']]
-   action summary:
-     publish (ok: 1)
+   $ datalad push --to github
 
 .. gitusernote::
 
-   The :command:`datalad publish` uses ``git push``, and ``git annex copy`` under
+   The :command:`datalad push` uses ``git push``, and ``git annex copy`` under
    the hood. Publication targets need to either be configured remote Git repositories,
    or git-annex special remotes (if they support data upload).
 
@@ -748,12 +748,7 @@ reproduce your data science project easily from scratch!
    thus only information about the file name and location is known to Git.
    Because GitHub does not host large data for free, annexed file content always
    needs to be deposited somewhere else (e.g., a web server) to make it
-   accessible via :command:`datalad get`. A later section
-
-   .. todo::
-
-      link 3rd party infra section
-
+   accessible via :command:`datalad get`. The chapter :ref:`chapter_thirdparty`
    will demonstrate how this can be done. For this dataset, it is not
    necessary to make the outputs available, though: Because all provenance
    on their creation was captured, we can simply recompute them with the

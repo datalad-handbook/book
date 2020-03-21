@@ -475,6 +475,7 @@ please `get in touch <https://github.com/datalad-handbook/book/issues/new>`_.
 
       - maybe update Step 6 to use ``pip3`` to install DataLad and git-annex.
 
+.. _installconfig:
 
 Initial configuration
 ^^^^^^^^^^^^^^^^^^^^^

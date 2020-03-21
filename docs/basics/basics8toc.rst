@@ -3,6 +3,8 @@
 **VIII - Help yourself**
 ------------------------
 
+.. index:: ! Chapter; 8. Help yourself
+
 .. figure:: ../artwork/src/help.svg
 
 .. toctree::
@@ -14,3 +16,4 @@
    101-136-filesystem
    101-137-history
    101-135-help
+   101-146-gists

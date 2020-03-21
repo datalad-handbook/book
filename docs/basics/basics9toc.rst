@@ -3,6 +3,8 @@
 **IX - Third party infrastructure**
 -----------------------------------
 
+.. index:: ! Chapter; 9. Third party infrastructure
+
 .. figure:: ../artwork/src/clouds.svg
 
 .. toctree::

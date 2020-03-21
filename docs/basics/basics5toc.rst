@@ -5,6 +5,8 @@
 **V - Tuning datasets to your needs**
 -------------------------------------
 
+.. index:: ! Chapter; 5. Configuration
+
 .. figure:: ../artwork/src/settings.svg
 
 .. toctree::

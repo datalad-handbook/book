@@ -3,6 +3,8 @@
 **VIII - Help yourself**
 ------------------------
 
+.. index:: ! Chapter; 8. Help yourself
+
 .. figure:: ../artwork/src/help.svg
 
 .. toctree::

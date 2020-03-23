@@ -135,6 +135,30 @@ simple ``code-block::`` directives are sufficient.
 (foldable sections that contain content that goes beyond the basics). Make use
 of them, if applicable to your contribution.
 
+**Push targets:**  In order to be executable, :command:`datalad push` commands
+that appear to push to siblings on webhosting sites (such as :term:`GitHub` or
+:term:`Gin`) actually push to locally set up push targets. Those push targets
+can be created and added as a sibling by using the ``makepushtarget`` option of
+the ``runrecord`` directive. It needs the following arguments, specified as a
+Python dictionary:
+
+- ``ds_path``: A path to the dataset that should get a sibling (required)
+- ``name``: The name of the sibling (required)
+- ``push_path``: A path to where the push target should be created (required)
+- ``annex``: Should the push target have an annex or not (default: False)
+- ``bare``: Should the push target be a bare repository (default: True)
+
+Here is an example ``runrecord`` that creates a sibling called ``github`` and creates
+a bare pure Git repository to push to under ``/home/me/pushes/midterm_project``:
+
+.. code-block:: rst
+
+   .. runrecord:: _examples/DL-101-130-116
+      :language: console
+      :workdir: dl-101/DataLad-101/midterm_project
+      :makepushtarget: {"ds_path" : "/home/me/dl-101/DataLad-101/midterm_project", "name" : "github", "push_path" : "/home/me/pushes/midtermproject", "annex" : "False", "bare" : "True"}
+
+
 **Creating live code demos out of runrecord directives**:
 The book has the capability to turn code snippets into a script that the tool
 `cast_live <https://github.com/datalad/datalad/blob/master/tools/cast_live>`_

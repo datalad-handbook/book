@@ -719,8 +719,7 @@ Thus, the tag ``ready4analysis`` is not pushed to GitHub, and currently this
 version identifier is unavailable to anyone else but you.
 The reason for this is that tags are viral -- they can be removed locally, and old
 published tags can cause confusion or unwanted changes. In order to publish a tag,
-an additional :command:`git push` (yes, we need to push with Git, not DataLad here)
-with the ``--tags`` option is required:
+an additional :command:`git push` [#f6]_ with the ``--tags`` option is required:
 
 .. code-block:: bash
 
@@ -869,3 +868,21 @@ reproduce your data science project easily from scratch!
 .. [#f5] Such a token can be obtained, for example, using the command line
          GitHub interface (https://github.com/sociomantic/git-hub) by running:
          ``git hub setup`` (if no 2FA is used).
+
+.. [#f6] Note that this is a :command:`git push`, not :command:`datalad push`.
+         Tags could be pushed upon a :command:`datalad push`, though, if one
+         configures (what kind of) tags to be pushed. This would need to be done
+         on a per-sibling basis in ``.git/config`` in the ``remote.*.push``
+         configuration. If you had a :term:`sibling` "github", the following
+         configuration would push all tags that start with a ``v`` upon a
+         :command:`datalad push --to github`::
+
+            $ git config --local remote.github.push 'refs/tags/v*'
+
+         This configuration would result in the following entry in ``.git/config``::
+
+            [remote "github"]
+                  url = git@github.com/adswa/midtermproject.git
+                  fetch = +refs/heads/*:refs/remotes/github/*
+                  annex-ignore = true
+                  push = refs/tags/v*

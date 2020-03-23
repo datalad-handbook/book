@@ -1,0 +1,112 @@
+.. _gists:
+
+Gists
+=====
+
+
+The more complex and larger your DataLad project, the more difficult it is to do
+efficient housekeeping.
+This section is a selection of code snippets tuned to perform specific,
+non-trivial tasks in datasets. Often, they are not limited to single commands of
+the version control tools you know, but combine helpful other command line
+tools and general Unix command line magic. Just like
+`GitHub gists <https://gist.github.com/>`_, its a collection of lightweight
+and easily accessible tips and tricks. For a more basic command overview,
+take a look at the :ref:`cheat`. The
+`tips collection of git-annex <https://git-annex.branchable.com/tips/>`_ is also
+a very valuable resource.
+
+If there are tips you want to share, or if there is a question you would like
+to see answered here, please
+`get in touch <https://github.com/datalad-handbook/book/issues/new>`_.
+
+.. figure:: ../artwork/src/gists.svg
+
+How can I check whether all file content is present locally?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+In order to check if all the files in a dataset have their file contents locally
+available, you can ask git-annex:
+
+.. code-block:: bash
+
+   $ git annex find --not --in=here
+
+Any file that does not have its contents locally available will be listed.
+If there are subdatasets you want to recurse into, use the following command
+
+.. code-block:: bash
+
+   $ git submodule foreach --quiet --recursive \
+    'git annex find --not --in=here --format=$displaypath/$\\{file\\}\\n'
+
+Alternatively, to get very comprehensive output, you can use
+
+.. code-block:: bash
+
+   $ datalad -f json status --recursive --annex availability
+
+The output will be returned as json, and the key ``has_content`` indicates local
+content availability (``true`` or ``false``). To filter through it, the command
+line tool `jq <https://stedolan.github.io/jq/>`_ works well::
+
+   $ datalad -f json status --recursive --annex all | jq '. | select(.has_content == true).path'
+
+
+How can I drop annex files from all past commits?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If there is annexed file content that is not used anymore (i.e., data in the
+annex that no files in any branch point to anymore such as corrupt files),
+you can find out about it and remove this file content out of your dataset
+(i.e., completely and irrecoverably delete it) with git-annex's commands
+:command:`git annex unused` and :command:`git annex dropunused``.
+
+Find out which file contents are unused (not referenced by any current branch):
+
+.. code-block:: bash
+
+   $ git annex unused
+    unused . (checking for unused data...)
+      Some annexed data is no longer used by any files in the repository.
+        NUMBER  KEY
+        1       SHA256-s86050597--6ae2688bc533437766a48aa19f2c06be14d1bab9c70b468af445d4f07b65f41e
+        2       SHA1-s14--f1358ec1873d57350e3dc62054dc232bc93c2bd1
+      (To see where data was previously used, try: git log --stat -S'KEY')
+      (To remove unwanted data: git-annex dropunused NUMBER)
+    ok
+
+Remove a single unused file by specifying its number in the listing above:
+
+.. code-block:: bash
+
+   $ git annex dropunused 1
+    dropunused 1 ok
+
+Or a range of unused data with
+
+.. code-block:: bash
+
+   $ git annex dropunused 1-1000
+
+Or all
+
+.. code-block:: bash
+
+   $ git annex dropunused all
+
+
+Getting single file sizes prior to downloading from the Python API and the CLI
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+For a single file, :command:`datalad status --annex -- myfile` will report on
+the size of the file prior to a :command:`datalad get`.
+
+If you want to do it in Python, try this approach:
+
+.. code-block:: python
+
+   import datalad.api as dl
+
+   ds = dl.Dataset("/path/to/some/dataset")
+   results = ds.status(path=<path or list of paths>, annex="basic", result_renderer=None)

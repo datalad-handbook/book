@@ -1,7 +1,9 @@
 .. _chapter_furtheroptions:
 
-**X - Further options**
------------------------
+**X - Advanced options**
+------------------------
+
+.. index:: ! Chapter; 10. Advanced Options
 
 .. figure:: ../artwork/src/further.svg
 

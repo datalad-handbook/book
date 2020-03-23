@@ -64,7 +64,7 @@ superdataset:
    $ mkdir code
    $ tree -d
 
-Inside of ``Datalad-101/code``, create a simple shell script ``list_titles.sh``.
+Inside of ``DataLad-101/code``, create a simple shell script ``list_titles.sh``.
 This script will carry out a simple task:
 It will loop through the file names of the ``.mp3`` files and
 write out speaker names and talk titles in a very basic fashion.

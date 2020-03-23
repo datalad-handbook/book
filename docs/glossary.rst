@@ -36,6 +36,11 @@ Glossary
    bash
       A Unix shell and command language.
 
+   Bitbucket
+      Bitbucket is an online platform where one can store and share version
+      controlled projects using Git (and thus also DataLad project), similar
+      to :term:`GitHub` or :term:`GitLab`. See `bitbucket.org <https://bitbucket.org.com/>`_.
+
    branch
       Git concept: A lightweight, independent history streak of your dataset. Branches can contain less,
       more, or changed files compared to other branches, and one can :term:`merge` the changes
@@ -54,7 +59,7 @@ Glossary
 
    commit message
       Git concept: A concise summary of changes you should attach to a :command:`datalad save` command. This summary will
-      show up in your :term:`Datalad dataset` history.
+      show up in your :term:`DataLad dataset` history.
 
    DataLad dataset
       A DataLad dataset is a Git repository that may or may not have a data annex that is used to
@@ -101,6 +106,13 @@ Glossary
    git-annex
       A distributed file synchronization system, enabling sharing and synchronizing collections
       of large files. It allows managing files with :term:`Git`, without checking the file content into Git.
+
+   git-annex branch
+      A :term:`branch` in your dataset if it contains an :term:`annex`.  It is
+      completely unconnected to any other branches in your dataset, and contains
+      different types of log files. The contents of this branch are used for
+      git-annex internal tracking of the dataset and its annexed contents.
+      It is managed by :term:`git-annex`, and you should not temper with it.
 
    Git config file
       A file in which :term:`Git` stores configuration option. Such a file usually exists on
@@ -190,7 +202,7 @@ Glossary
 
    remote
       Git-terminology: A repository (and thus also :term:`DataLad dataset`) that a given repository
-      tracks.
+      tracks. A :term:`sibling` is DataLad's equivalent to a remote.
 
    Remote Indexed Archive (RIA) store
       A Remote Indexed Archive (RIA) Store is a flexible and scalable dataset storage
@@ -246,7 +258,8 @@ Glossary
 
    sibling
       DataLad concept: A dataset clone that a given :term:`DataLad dataset` knows about. Changes can be
-      retrieved and pushed between a dataset and its sibling.
+      retrieved and pushed between a dataset and its sibling. It is the
+      equivalent of a :term:`remote` in Git.
 
    submodule
       Git concept: a submodule is a Git repository embedded inside another Git repository. A

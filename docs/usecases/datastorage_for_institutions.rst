@@ -5,7 +5,7 @@
 Building a scalable data storage for scientific computing
 ---------------------------------------------------------
 
-.. index:: ! Remote Indexed Archive (RIA) store
+.. index:: ! Usecase; Remote Indexed Archive (RIA) store
 
 Research can require enormous amounts of data. Such data needs to be accessed by
 multiple people at the same time, and is used across a diverse range of

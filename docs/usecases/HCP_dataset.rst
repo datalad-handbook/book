@@ -3,6 +3,8 @@
 Scaling up: Managing 80TB and 15 million files from the HCP release
 -------------------------------------------------------------------
 
+.. index:: ! Usecase; Scaling up: 80TB and 15 million files
+
 This usecase outlines how a large data collection can be version controlled
 and published in an accessible manner with DataLad in a remote indexed
 archive (RIA) data store. Using the

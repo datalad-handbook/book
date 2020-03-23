@@ -359,7 +359,7 @@ was applied.
    .. todo::
 
       It might be helpful to have (or reference) a table with all available
-      procedures and a short explanation. Maybe on the cheatsheet.
+      procedures and a short explanation. Maybe on the cheat sheet.
 
 Summing up, DataLad's :command:`run-procedure` command is a handy tool
 with useful existing procedures but much flexibility for your own

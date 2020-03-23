@@ -17,6 +17,7 @@ snowballstemmer
 Sphinx==2.1.2
 sphinx-sitemap
 sphinxcontrib-websupport
+sphinx-notfound-page
 urllib3
 sphinxcontrib-svg2pdfconverter
 sphinxcontrib-plantuml

@@ -104,6 +104,13 @@ very familiar with.
 Setting up 3rd party services to host your data
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+.. note::
+
+   The tutorial below is functional, but there is work towards a wrapper
+   function to ease creating and working with rclone-based special remotes:
+   https://github.com/datalad/datalad/pull/4162.
+   Once finished, this section will be updated accordingly.
+
 In this paragraph you will see how a third party service can be configured
 to host your data. Note that the *exact* procedures are different from service
 to service -- this is inconvenient, but inevitable given the
@@ -369,59 +376,6 @@ that is: The symlink, as information about file availability, but no file
 content. Anyone who attempts to :command:`datalad get` a file from a dataset clone
 if its contents were not published will fail.
 
-.. findoutmore:: What if I do not want to share a dataset with everyone, or only some files of it?
-
-   There are a number of ways to restrict access to your dataset or individual
-   files of your dataset. One is via choice of (third party) hosting service
-   for annexed file contents.
-   If you chose a service only selected people have access to, and publish annexed
-   contents exclusively there, then only those selected people can perform a
-   successful :command:`datalad get`. On shared file systems you may achieve
-   this via :term:`permissions` for certain groups or users, and for third party
-   infrastructure you may achieve this by invitations/permissions/... options
-   of the respective service.
-
-   If it is individual files that you do not want to share, you can selectively
-   publish the contents of all files you want others to have, and withhold the data
-   of the files you do not want to share. This can be done by publishing only
-   selected files by providing paths, or overriding default push behavior with
-   the ``-f/--force`` option. In the latter case, specifying ``-f no-datatransfer``
-   would for example not push any annexed contents.
-
-   Let's say you have a dataset with three files:
-
-   - ``experiment.txt``
-   - ``subject_1.dat``
-   - ``subject_2.dat``
-
-   Consider that all of these files are annexed. While the information in
-   ``experiment.txt`` is fine for everyone to see, ``subject_1.dat`` and
-   ``subject_2.dat`` contain personal and potentially identifying data that
-   can not be shared. Nevertheless, you want collaborators to know that these
-   files exist. The use case
-
-   .. todo::
-
-      Write use case "external researcher without data access"
-
-   details such a scenario and demonstrates how external collaborators (with whom data
-   can not be shared) can develop scripts against the directory structure and
-   file names of a dataset, submit those scripts to the data owners, and thus still perform an
-   analysis despite not having access to the data.
-
-   By publishing only the file contents of ``experiment.txt`` with
-
-   .. code-block:: bash
-
-      $ datalad push --to github experiment.txt
-
-   only meta data about file availability of ``subject_1.dat`` and ``subject_2.dat``
-   exists, but as these files' annexed data is not published, a :command:`datalad get`
-   will fail. Note, though, that :command:`push` will publish the complete
-   dataset history (unless you specify a commit range with the ``--since`` option
-   -- see the `manual <http://docs.datalad.org/en/latest/generated/man/datalad-push.html>`_
-   for more information).
-
 
 From the perspective of whom you share your dataset with...
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -542,6 +496,10 @@ be able to fetch content from the tarball shared on Figshare via DataLad.
          is disabled by default, and to enable it you would need to have administrative
          access to the server and client side of your GitLab instance. Find out more
          `here <https://docs.gitlab.com/ee/administration/git_annex.html>`_.
+         Alternatively, GitHub can integrate with
+         `GitLFS <https://git-lfs.github.com/>`_, a non-free, centralized service
+         that allows to store large file contents. The last paragraph in this
+         section shows an example on how to use their free trial version.
 
 .. [#f2] ``rclone`` is a useful special-remote for this example, because
          you can not only use it for Dropbox, but also for many other

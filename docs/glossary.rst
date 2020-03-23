@@ -186,6 +186,16 @@ Glossary
       a digital resource. It provides a critical foundation for assessing authenticity, enables trust,
       and allows reproducibility.
 
+   publication dependency
+      DataLad concept: An existing :term:`sibling` is linked to a new sibling
+      so that the existing sibling is always published prior to the new sibling.
+      The existing sibling could be a :term:`special remote` to publish file
+      contents stored in the dataset :term:`annex` automatically with every
+      :command:`datalad push` to the new sibling. Publication dependencies can be
+      set with the option ``publish-depends`` in the commands
+      :command:`datalad siblings`, :command:`datalad create-sibling`, and
+      :command:`datalad create-sibling-github/gitlab`.
+
    relative path
       A path related to the present working directory. Relative paths never start with ``/``.
       Example: ``../Pictures/xkcd-webcomics/530.png``. See also :term:`absolute path`.

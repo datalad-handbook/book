@@ -23,7 +23,9 @@ for yourself why and how software containers can go hand-in-hand with DataLad:
 - A software container encapsulates a complete software environment, independent
   from the environment of the computer it runs on. This allows you to create or
   use secluded software and also share it together with your analysis to ensure
-  computational reproducibility.
+  computational reproducibility. The DataLad extension
+  `datalad containers <http://docs.datalad.org/projects/container/en/latest/>`_
+  can make this possible.
 
 - The command :command:`datalad containers-add` registers an Image from a path or
   url to your dataset.

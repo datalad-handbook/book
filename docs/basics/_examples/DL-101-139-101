@@ -1,1 +1,16 @@
-
+$ python3 /home/me/makepushtarget.py '/home/me/dl-101/DataLad-101' 'gin' '/home/me/pushes/DataLad-101' True True
+[ERROR] sibling is already known: gin, use `configure` instead? [add-sibling(/home/me/dl-101/DataLad-101)]
+Traceback (most recent call last):
+  File "/home/me/makepushtarget.py", line 39, in <module>
+    bare=bare)
+  File "/home/adina/repos/datalad/datalad/core/distributed/tests/test_push.py", line 95, in mk_push_target
+    ds.siblings('add', name=name, url=path, result_renderer=None)
+  File "/home/adina/repos/datalad/datalad/distribution/dataset.py", line 498, in apply_func
+    return f(**kwargs)
+  File "/home/adina/repos/datalad/datalad/interface/utils.py", line 492, in eval_func
+    return return_func(generator_func)(*args, **kwargs)
+  File "/home/adina/repos/datalad/datalad/interface/utils.py", line 480, in return_func
+    results = list(results)
+  File "/home/adina/repos/datalad/datalad/interface/utils.py", line 467, in generator_func
+    msg="Command did not complete successfully")
+datalad.support.exceptions.IncompleteResultsError: Command did not complete successfully [{'action': 'add-sibling', 'path': '/home/me/dl-101/DataLad-101', 'type': 'sibling', 'refds': '/home/me/dl-101/DataLad-101', 'status': 'error', 'message': ('sibling is already known: %s, use `configure` instead?', 'gin'), 'name': 'gin'}]

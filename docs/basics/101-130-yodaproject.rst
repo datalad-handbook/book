@@ -642,8 +642,8 @@ configure this repository as a sibling of the dataset:
 
     .. runrecord:: _examples/DL-101-130-116
        :language: console
-       :workdir: dl-101/DataLad-101/midterm_project
-       :realcommand: python -c "from datalad.core.distributed.tests.test_push import mk_push_target; from datalad.api import Dataset as ds; mk_push_target(ds=ds('/home/me/dl-101/DataLad-101/midterm_project'), name='github', path='/home/me/pushes/midtermproject', annex=False, bare=True)"
+
+       $ python3 /home/me/makepushtarget.py '/home/me/dl-101/DataLad-101/midterm_project' 'github' '/home/me/pushes/midterm_project' False True
 
 
 .. code-block:: bash

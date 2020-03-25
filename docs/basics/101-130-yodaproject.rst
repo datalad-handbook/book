@@ -688,12 +688,7 @@ state of the dataset to this :term:`sibling` with the :command:`datalad push`
     the end of this section will already give a practical glimpse into the
     difference between annexed contents and contents stored in Git when pushed
     to GitHub. The chapter :ref:`chapter_thirdparty` will extend on this,
-    but the section
-
-    .. todo::
-
-       write and link
-
+    but the section :ref:`push`
     will finally combine and link all the previous contents to give a comprehensive
     and detailed wrap up of the concept of publishing datasets. In this section,
     you will also find a detailed overview on how :command:`push` works and which

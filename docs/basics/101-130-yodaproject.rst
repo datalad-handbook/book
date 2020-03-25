@@ -657,7 +657,7 @@ Verify that this worked by listing the siblings of the dataset:
 
 .. code-block:: bash
 
-   $ datalad create-sibling-github -d . midtermproject
+   $ datalad siblings
    [WARNING] Failed to determine if github carries annex.
    .: here(+) [git]
    .: github(-) [https://github.com/adswa/midtermproject.git (git)]

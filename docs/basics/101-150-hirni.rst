@@ -3,6 +3,58 @@
 DataLad for Hirnis
 ==================
 
-- Narrative: There is a global pandemic and universities are closed.
-- Introduce extension
-- Installation
+Neuroimaging studies that use data acquired with
+`functional magnetic resonance imaging (fMRI) <https://en.wikipedia.org/wiki/Functional_magnetic_resonance_imaging>`_
+have complex :term:`provenance`. Over the course of its life, the
+data usually undergoes several transformations. From the standardized medical
+imaging data formats (usually **D**\igital **I**\maging and **CO**\mmunications in
+**M**\edicine (`DICOM <https://en.wikipedia.org/wiki/DICOM>`_) files)
+and directory structures that are produced by the MRI scanner, it is converted
+to file types for scientific analyses (usually
+`NIfTI <https://nifti.nimh.nih.gov/nifti-1/documentation/hbm_nifti_2004.pdf>`_ )
+and renamed and restructured to ease data analysis and data sharing. This is
+a complex and multi-stepped process. It requires the use of specialized
+software or custom scripts, and is especially difficult if there are complex
+study protocols or additional data to consider in the conversions.
+
+It is even more difficult, however, to retrace the series of steps that were done
+to get the data into an analyzable format and structure. Often, conversion
+and restructuring are done "by hand" in successive, unconnected steps, and
+scripts, software, and raw data used for creating the final analysis dataset
+are kept in a different location than where the result ends up. Thus, the study
+dataset that is structured and converted for analysis is disconnected from its
+source, and it is difficult to reconstruct what was done, redo the process, or
+repeat it with slight alterations, for example a slightly changed naming scheme.
+
+DataLad and one of its extensions, ``datalad hirni``, can help to bind
+and structure all parts of a neuroimaging study together: (Raw) data, metadata,
+code, and computational environments. If used correctly, these two tools allow
+to create completely provenance-captured neuroimaging studies - from the
+acquisition of the raw data and conversion and data structuring, up to the
+analysis - as version controlled and linked DataLad datasets.
+
+The conceptual idea behind this is captured in this graphic:
+
+.. todo::
+
+   Figure of hirni workflow
+
+
+This chapter steps through the basics of this process, and shows an example
+
+The extension
+^^^^^^^^^^^^^
+
+``hirni`` is a neuroimaging specific extension for DataLad. What it adds to the
+version control and dataset linkage capabilities of DataLad is a fully
+provenance-tracked, web-client assisted meta-data driven conversion of raw
+DICOM data into NifTI format and subsequent data structuring and renaming that
+complies to standards such as `BIDS <https://bids.neuroimaging.io/>`_.
+This allows a full traceback from an analysis-ready study dataset to the raw
+acquisition data, and, importantly, allows do redo the conversion automatically
+or adjust it to new standards.
+
+As all :term:`DataLad extension`\s, `datalad-hirni` comes as a pip-installable
+Python package::
+
+    $ pip install datalad-hirni

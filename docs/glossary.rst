@@ -65,6 +65,11 @@ Glossary
       A DataLad dataset is a Git repository that may or may not have a data annex that is used to
       manage data referenced in a dataset. In practice, most DataLad datasets will come with an annex.
 
+   DataLad extension
+      Python packages that equip DataLad with specialized commands. The section
+      :ref:`extensions_intro` gives and overview of available extensions and links
+      to Handbook chapters that contain demonstrations.
+
    DataLad subdataset
       A DataLad dataset contained within a different DataLad dataset (the parent or :term:`DataLad superdataset`).
 

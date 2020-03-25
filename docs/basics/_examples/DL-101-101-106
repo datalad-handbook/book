@@ -1,0 +1,22 @@
+$ cat << EOT >> /home/me/makepushtarget.py
+
+#!/usr/bin/python3
+
+from datalad.core.distributed.tests.test_push import mk_push_target
+from datalad.api import Dataset as ds
+import sys
+
+ds_path = sys.argv[1]
+name = sys.argv[2]
+path = sys.argv[3]
+annex = sys.argv[4]
+bare = sys.argv[4]
+
+if __name__ == '__main__':
+    mk_push_target(ds=ds(ds_path),
+                   name=name,
+                   path=path,
+                   annex=annex,
+                   bare=bare)
+
+EOT

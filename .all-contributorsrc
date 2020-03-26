@@ -272,6 +272,15 @@
         "userTesting",
         "bug"
       ]
+    },
+    {
+      "login": "glatard",
+      "name": "Tristan Glatard",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/5174953?v=4",
+      "profile": "https://github.com/glatard",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,

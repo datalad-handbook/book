@@ -12,3 +12,4 @@
    :caption: DataLad has extensions adjusted to standard neuroimaging workflows. Here, we'll introduce them
 
    101-150-hirni
+   101-151-basics

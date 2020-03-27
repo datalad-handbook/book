@@ -1,0 +1,69 @@
+.. _hirnibasics:
+
+The Basic Hirni Workflow
+------------------------
+
+A ``hirni`` workflow comprises of two steps:
+
+1. The generation of a *Study dataset* with the raw acquisition data
+2. The conversion of the raw data into a BIDS-compliant dataset
+
+Ideally, the first step is an ongoing routine during the data acquisition phase of
+the study: With each new participant scanned and tested, their data is imported
+into a continuously growing studydataset.
+Once step one is accomplished, the second step is only a single command, and the
+result is a BIDS-compliant dataset with complete provenance, back to the raw
+data from the MR scanner.
+
+During the second step, ``hirni`` relies completely on *specifications* for the
+conversion: Which DICOM files constitute a NifTi file? Which modality is it?
+What type of task was used? Shall the subject identifier be anonymized, or
+shall a T1 weighted image file be defaced? These specifications are generated from
+DICOM metadata or specified with arguments, but they can also be manually created,
+extended, or edited.
+
+The study that this demonstrations is based on is the
+`1000BRAINS <https://www.fz-juelich.de/inm/inm-1/EN/Forschung/1000_Gehirne_Studie/1000_Gehirne_Studie_node.html>`_
+study -- a large neuroimaging study comprising 1000 subjects. The data is
+acquired with an ??? MRI scanner and stored on an
+`XNAT server <https://www.xnat.org/about/>`_.
+
+.. findoutmore:: On some basics of DICOMs and DICOM to NifTi conversion
+
+   DICOM (Digital Imaging and Communications in Medicine) is an international
+   standard to transmit, store, process, and display medical imaging information.
+   It incorporates standards for many imaging modalities, among them magnetic
+   resonance imaging (MRI), and includes protocols for image exchange, compression,
+   and visualization.
+
+   DICOM differs from other image formats in that it groups information into data sets,
+   i.e., collections of information. A DICOM file consists of a *header* and image
+   data sets packed into a single file. The information within the header is organized
+   as a constant and standardized series of *tags* (a two-number code) that describe
+   properties of the data. By extracting data from these tags one can access important
+   information regarding the subject demographics, device, imaging sequence, and
+   image specifics (e.g., dimensions of the image, slice thickness, slice order).
+   Apart rom the actual image data, DICOM files therefore encompass also vast
+   amounts of metadata.
+
+   This, however, makes DICOM also large and complex.
+   Therefore, imaging data is transformed into simpler image formats that retain only
+   a limited, relevant set of the images' metadata. The most common and widely
+   adapted format for this is NifTi.
+   It consists of fixed length header data with metadata about the
+   image, and the image data. The metadata contains at least the image matrix
+   dimensions, the spatial resolution, the pixel depth, and the photometric
+   interpretation, and enables software applications to recognize and correctly
+   open the associated image.
+
+
+
+
+In order to transform DICOMs to NifTi files, DICOM files need to be sorted into
+series, i.e., sets of DICOM images acquired together. In many cases, these
+series will be available as DICOM tarballs from the MRI scanner. Depending
+on the length of data acquisition, such a tarball can contain thousands of
+DICOM files for a single subject. Specialized
+tools such as `dcm2niix <https://www.nitrc.org/plugins/mwiki/index.php/dcm2nii:MainPage>`_
+can extract the header metadata, sort images into volumes, and stack the images
+of a series to create the NifTi image.

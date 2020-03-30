@@ -1,7 +1,7 @@
 .. _gobig:
 
 Going big with DataLad
-^^^^^^^^^^^^^^^^^^^^^^
+----------------------
 
 All chapters throughout the Basics demonstrated "household quantity" examples.
 Version controlling or analyzing data in datasets with a total size of up to a
@@ -11,14 +11,20 @@ this section to learn how to properly scale up. As a general rule, consider this
 section relevant once you have a usecase in which you would go substantially
 beyond 100k files in a single dataset.
 
-The contents of this section exist thanks to some pioneers that took a leap and
+The introduction in this sections illustrates the basic caveats when scaling up,
+and points to benchmarks, rules of thumb, and general solutions.
+Upcoming sections demonstrate how one can attempt
+large-scale analyses with DataLad, and how to fix things up when dataset sizes
+got out of hand.
+
+The contents of this chapter exist thanks to some pioneers that took a leap and
 deep-dived into gigantic data management challenges. You can read up on some
 of them in the usecases :ref:`usecase_HCP_dataset` and :ref:`usecase_datastore`.
 Based on what we have learned so far from these endeavours,
-this section encompasses general principles, advice, and benchmarks.
+this chapter encompasses principles, advice, and points of reference.
 
-Why scaling up can become difficult
-===================================
+Why scaling up Git repos can become difficult
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 You already know that :term:`Git` does not scale well with *large* files.
 As a Git repository stores every version of every file that is added to it,
@@ -28,12 +34,8 @@ repository, this can not only have a devastating impact on the time it takes
 to clone, fetch, or pull (from) a repository, but also on regular within-repository
 operations, such as checking the state of the repository or switching branches.
 Using :term:`git-annex` (either directly, or by using DataLad) can eliminate this
-issue, but there are more factors that prevent scaling up.
-To quote directly from :term:`git-annex`'s
-`documentation <https://git-annex.branchable.com/tips/Repositories_with_large_number_of_files/>`_,
-"just as Git does not scale well with large files, it can also become painful to
-work with when you have a large *number* of files." One reason for this is
-that Git performs a large amount of
+issue, but there is a second factor that can prevent scaling up with Git: The
+number of files. One reason for this is that Git performs a large amount of
 `stat system calls <https://en.wikipedia.org/wiki/Stat_(system_call)>`_
 (used in :command:`git add` and :command:`git commit`). A Git
 repository with more than a million (albeit tiny) files thus
@@ -48,8 +50,9 @@ Given that DataLad builds up on Git, having datasets with large amounts of files
 can lead to
 `painfully slow operations <https://github.com/datalad/datalad/issues/3869>`_.
 As a general rule of thumb, we will consider single datasets with 100k files or
-more for this section. Starting at about this size we can begin to see issues.
-Benchmarks with DataLad datasets with varying, but large amounts of tiny files
+more as "big" for the rest of this chapter. Starting at about this size we can
+begin to see performance issues in datasets.
+Benchmarking in DataLad datasets with varying, but large amounts of tiny files
 on different file systems and different git-annex repository versions show that
 a mere :command:`datalad save` or :command:`datalad status` command
 can take from 15 minutes up to several hours. Its neither fun nor feasible to
@@ -95,7 +98,7 @@ Tool-specific and smaller advice
   This can help to set expectations and give useful comparisons of file systems
   or software versions.
 - git-annex offers a range of tricks to further improve performance in large
-  datasets. Its `thin-mode`. For example, it may be useful to not use a
+  datasets. For example, it may be useful to not use a
   standalone git-annex build, but a native git-annex binary (see
   `this comment <https://github.com/datalad/datalad/issues/3869#issuecomment-557598390>`_)
 

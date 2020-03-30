@@ -1,20 +1,21 @@
 .. _hirni:
 
-DataLad for Hirnis
-==================
+DataLad for Hirnis: From DICOM files to BIDS datasets
+-----------------------------------------------------
 
 Neuroimaging studies that use data acquired with
 `functional magnetic resonance imaging (fMRI) <https://en.wikipedia.org/wiki/Functional_magnetic_resonance_imaging>`_
 have complex :term:`provenance`. Over the course of the study, the
 data usually undergoes several transformations. From the standardized medical
 imaging data formats (usually `DICOM <https://en.wikipedia.org/wiki/DICOM>`_ files)
-and directory structures that are produced by the MRI scanner (usually
+and from directory structures that are produced by the MRI scanner (usually
 *acquisition*-wise archives), the data is
 
 - converted to file types used for scientific analyses (usually
   `NIfTI <https://nifti.nimh.nih.gov/nifti-1/documentation/hbm_nifti_2004.pdf>`_),
 - joined with other acquired data such as physiological or behavioral measures,
-  renamed and structured into an data collection to ease data analysis and data sharing, and
+  renamed, and structured into a BIDS compliant datasets to ease data analysis
+  and data sharing, and
 - (pre)processed, analyzed, and aggregated into the results of the study.
 
 Usually, the main focus for provenance capture and reproducibility lies on the
@@ -44,39 +45,43 @@ DataLad Hirni
 What it adds to the version control and dataset linkage capabilities of DataLad is a fully
 provenance-tracked, web-client assisted, meta-data driven conversion of raw
 DICOM data into NifTI format, with data structuring and renaming that
-complies to standards such as `BIDS <https://bids.neuroimaging.io/>`_ .
+complies to the `BIDS <https://bids.neuroimaging.io/>`_  standard.
 
 In conjunction, DataLad and ``hirni`` can bind
 and structure all parts of a neuroimaging study together: (Raw) data, metadata,
 code, and computational environments. If used correctly, these two tools allow
 to create completely provenance-captured neuroimaging studies -- from the
-acquisition of the raw data and conversion and data structuring, up to the
+acquisition of the raw data and conversion to BIDS, up to the
 analysis -- as version controlled and linked DataLad datasets.
 This allows a full traceback from an analysis-ready study dataset to the raw
 acquisition data, and, importantly, allows to redo the conversion automatically
 or adjust it to new standards.
 
+.. note::
+
+   ``hirni`` has dependencies to other DataLad extensions. By installing ``hirni``,
+   the extensions ``datalad-metalad``, ``datalad-neuroimaging``, ``datalad-container``,
+   and ``datalad-webapp`` will be automatically installed as well.
+
 This chapter steps through the basics of the process of creating an entirely
 provenance-captured study: How one gets from the raw data from an MRI scanner to
-a converted, structured DataLad dataset in a reproducible fashion, and subsequently
-use this dataset for analyses.
-The fundamental process is outlined below, and the upcoming sections demonstrate
-the process in detail.
+a converted, BIDS-compliant DataLad dataset in a reproducible fashion, and subsequently
+use this dataset for analyses. The fundamental process is outlined below:
 
 .. figure:: ../artwork/src/hirni_overview.svg
    :alt: A conceptual overview of DataLad hirni
    :align: left
 
-   The rightmost analysis dataset originated from a complex sequence of steps:
-   An MRI scanner acquired imaging data and deposited them in a scanner data base
-   (lower left). DICOM and other acquired data were imported into a collection
-   of data from the study, the study dataset, produced by ``hirni``.
+   Imaging data from an MRI scanner is deposited as acquisition-wise DICOM tarballs
+   in a scanner data base (lower left).
+   With the help of ``hirni`` commands, a *study dataset* is created.
+   DICOM and other acquired data are *imported* into the study dataset.
    Based on the study dataset, a meta-data driven, semi-automatic conversion to
-   directory structure and naming standards (such as BIDS) is performed.
+   a BIDS compliant dataset is performed.
    This process is fully provenance-captured and reproducible: Code, software,
    inputs, and conversion rules are captured as :term:`run record`\s.
-   Converted and restructured study data as well as extracted meta data becomes
-   the foundation of the analysis dataset. As all of the components of this process
+   The resulting BIDS dataset and the extracted meta data can become
+   the input of subsequent analyses. As all of the components of this process
    are linked DataLad datasets, it is possible to trace back from the analysis
    result to the raw data.
 

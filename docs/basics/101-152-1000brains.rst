@@ -1,0 +1,13 @@
+.. _1000_brains:
+
+An example dataset conversion
+------------------------------
+
+In order to demonstrate the conversion process, this chapter will introduce ``hirni`` with
+one example conversion of a large neuroimaging study.
+The study that this demonstrations is based on is the
+`1000BRAINS <https://www.fz-juelich.de/inm/inm-1/EN/Forschung/1000_Gehirne_Studie/1000_Gehirne_Studie_node.html>`_
+study -- a large neuroimaging study that consists of 1000 subjects in total.
+Acquisitions include resting state and task-based fMRI data as well as neuropsychological
+assessments, psychological questionnaires, and genom sequencing data. The MRI data is
+acquired with an ??? MRI scanner and stored on an `XNAT server <https://www.xnat.org/about/>`_.

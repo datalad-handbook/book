@@ -71,7 +71,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/LisaWiersch96"><img src="https://avatars3.githubusercontent.com/u/57354773?v=4" width="100px;" alt=""/><br /><sub><b>Lisa Wiersch</b></sub></a><br /><a href="https://github.com/datalad-handbook/book/issues?q=author%3ALisaWiersch96" title="Bug reports">🐛</a></td>
     <td align="center"><a href="https://github.com/jbpoline"><img src="https://avatars0.githubusercontent.com/u/275048?v=4" width="100px;" alt=""/><br /><sub><b>Jean-Baptiste Poline</b></sub></a><br /><a href="#content-jbpoline" title="Content">🖋</a></td>
     <td align="center"><a href="https://github.com/NevenaK"><img src="https://avatars2.githubusercontent.com/u/57677812?v=4" width="100px;" alt=""/><br /><sub><b>Nevena Kraljevic</b></sub></a><br /><a href="#userTesting-NevenaK" title="User Testing">📓</a></td>
-    <td align="center"><a href="https://github.com/aqw"><img src="https://avatars0.githubusercontent.com/u/765557?v=4" width="100px;" alt=""/><br /><sub><b>Alex Waite</b></sub></a><br /><a href="https://github.com/datalad-handbook/book/pulls?q=is%3Apr+reviewed-by%3Aaqw" title="Reviewed Pull Requests">👀</a></td>
+    <td align="center"><a href="https://github.com/aqw"><img src="https://avatars0.githubusercontent.com/u/765557?v=4" width="100px;" alt=""/><br /><sub><b>Alex Waite</b></sub></a><br /><a href="https://github.com/datalad-handbook/book/pulls?q=is%3Apr+reviewed-by%3Aaqw" title="Reviewed Pull Requests">👀</a> <a href="https://github.com/datalad-handbook/book/issues?q=author%3Aaqw" title="Bug reports">🐛</a> <a href="#ideas-aqw" title="Ideas, Planning, & Feedback">🤔</a></td>
   </tr>
   <tr>
     <td align="center"><a href="https://github.com/lilikapa"><img src="https://avatars3.githubusercontent.com/u/14184487?v=4" width="100px;" alt=""/><br /><sub><b>Lya K. Paas</b></sub></a><br /><a href="https://github.com/datalad-handbook/book/issues?q=author%3Alilikapa" title="Bug reports">🐛</a> <a href="https://github.com/datalad-handbook/book/commits?author=lilikapa" title="Code">💻</a></td>
@@ -85,6 +85,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   <tr>
     <td align="center"><a href="https://github.com/dorianps"><img src="https://avatars3.githubusercontent.com/u/9083517?v=4" width="100px;" alt=""/><br /><sub><b>dorianps</b></sub></a><br /><a href="#ideas-dorianps" title="Ideas, Planning, & Feedback">🤔</a></td>
     <td align="center"><a href="https://github.com/hbaagil"><img src="https://avatars3.githubusercontent.com/u/61992500?v=4" width="100px;" alt=""/><br /><sub><b>hbaagil</b></sub></a><br /><a href="#userTesting-hbaagil" title="User Testing">📓</a> <a href="https://github.com/datalad-handbook/book/issues?q=author%3Ahbaagil" title="Bug reports">🐛</a></td>
+    <td align="center"><a href="https://github.com/glatard"><img src="https://avatars0.githubusercontent.com/u/5174953?v=4" width="100px;" alt=""/><br /><sub><b>Tristan Glatard</b></sub></a><br /><a href="https://github.com/datalad-handbook/book/issues?q=author%3Aglatard" title="Bug reports">🐛</a></td>
   </tr>
 </table>
 

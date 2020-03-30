@@ -8,6 +8,11 @@
 ################
 
 .. toctree::
+   :hidden:
+
+   intro/user_types
+
+.. toctree::
    :maxdepth: 1
    :caption: What DataLad and the handbook are all about
 

@@ -3,6 +3,8 @@
 **VII - One step further**
 --------------------------
 
+.. index:: ! Chapter; 7. Software container
+
 .. figure:: ../artwork/src/forward.svg
 
 .. toctree::

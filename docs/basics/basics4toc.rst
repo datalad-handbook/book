@@ -3,6 +3,8 @@
 **IV - Collaboration**
 ----------------------
 
+.. index:: ! Chapter; 4. Collaboration
+
 .. figure:: ../artwork/src/collaboration_sketch.svg
    :width: 70%
 

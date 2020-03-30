@@ -3,6 +3,8 @@
 Scaling up: Managing 80TB and 15 million files from the HCP release
 -------------------------------------------------------------------
 
+.. index:: ! Usecase; Scaling up: 80TB and 15 million files
+
 This usecase outlines how a large data collection can be version controlled
 and published in an accessible manner with DataLad in a remote indexed
 archive (RIA) data store. Using the
@@ -300,7 +302,7 @@ Using a Remote Indexed Archive Store for dataset hosting
 All datasets were built on a scientific compute cluster. In this location, however,
 datasets would only be accessible to users with an account on this system.
 Subsequently, therefore, everything was published with
-:command:`datalad publish` to the publicly available
+:command:`datalad push` to the publicly available
 `store.datalad.org <http://store.datalad.org/>`_, a remote indexed archive (RIA)
 store.
 

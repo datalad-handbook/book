@@ -3,6 +3,8 @@
 **I - DataLad datasets**
 ------------------------
 
+.. index:: ! Chapter; 1. DataLad datasets
+
 .. figure:: ../artwork/src/datasets.svg
 
 .. toctree::

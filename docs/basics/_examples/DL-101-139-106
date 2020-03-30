@@ -1,0 +1,8 @@
+$ datalad push --to gin
+[INFO] Start enumerating objects 
+[INFO] Start counting objects 
+[INFO] Start compressing objects 
+[INFO] Start writing objects 
+publish(ok): . (dataset) [refs/heads/master->gin:refs/heads/master 426ad78..8cf2de1]
+action summary:
+  publish (notneeded: 1, ok: 1)

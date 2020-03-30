@@ -276,13 +276,36 @@ You can find out more about the details of this process below.
    record their headers' metadata. For this metadata extraction, the ``dicom``
    :term:`extractor` of ``datalad-neuroimaging`` is used. Together with
    ``datalad-metalad``, this extractor can record metadata from standard DICOM files,
-   and among other things group together DICOM files that belong to an image series,
-   i.e., a single sequence within the acquisition.
+   and among other things, group together DICOM files that belong to an image series,
+   i.e., a single sequence within the acquisition. This metadata extraction is therefore
+   crucial for the upcoming conversion.
 
+   The resulting metadata is aggregated into the study dataset [#f5]_. The study dataset
+   will thus receive the DICOM metadata required for the conversion directly
+   at the time of the DICOM import.
 
+   In addition, an acquisition-specific ``studyspec.json`` is created inside of the
+   acquisition subdirectory. This file contains pointers to the location of the
+   data within the acquisition's subdataset.
+   Based on this file ...
 
-   The basis of this command is a :command:`datalad add-archive-content`
-   (:manpage:`datalad-add-archvie-content` manual) command. It
+   .. todo::
+
+      continue here
+
+   The basis of the import and data handling is a :command:`datalad add-archive-content`
+   (:manpage:`datalad-add-archive-content` manual) command. This command -- together
+   with the way the data import is performed -- helps to save disk space in the
+   study dataset: The ``tar.gz`` archive is saved in its compressed form into a
+   :term:`branch` of the subdataset, and is extracted into the ``master`` branch
+   of the dataset. From the DICOM files in ``master``, metadata can be extracted.
+   With :command:`datalad add-archive-content`, the archive in the dataset branch
+   is treated like a :term:`special remote`: On demand, individual files from
+   ``master`` could be retrieved from the tarball. Because this ensures one available
+   source for the data, the file content of the DICOMs in ``master`` can be dropped
+   right after metadata aggregation. Thus, instead of large, extracted DICOMs,
+   the subdatasets only contains the compressed tarball. while ensuring that
+   DICOM files can nevertheless be reobtained from the archive on demand.
 
 In order to transform DICOMs to NifTi files, DICOM files need to be sorted into
 series, i.e., sets of DICOM images acquired together. In many cases, these

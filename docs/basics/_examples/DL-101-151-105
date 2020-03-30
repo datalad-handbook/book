@@ -1,0 +1,15 @@
+$ cat dataset_description.json | jq
+{
+  "Acknowledgements": "",
+  "Authors": [],
+  "BIDSVersion": "1.1.1",
+  "DatasetDOI": "",
+  "Ethics": "",
+  "Funding": "",
+  "HowToAcknowledge": "",
+  "License": "",
+  "Name": "",
+  "Power": "",
+  "Preregistration": "",
+  "ReferencesAndLinks": []
+}

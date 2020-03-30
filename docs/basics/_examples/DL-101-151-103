@@ -1,0 +1,14 @@
+$ tree -L 3
+.
+├── code
+│   └── hirni-toolbox
+│       ├── analyses
+│       ├── converters
+│       ├── data-retrieval
+│       ├── postprocessing
+│       └── procedures
+├── dataset_description.json
+├── README
+└── studyspec.json
+
+7 directories, 3 files

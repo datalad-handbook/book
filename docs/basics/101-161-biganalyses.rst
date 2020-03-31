@@ -10,9 +10,11 @@ analyses scripts suddenly dump vast amounts of output.
 Certain analysis software can create myriads of files. A standard
 `FEAT analysis <https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FEAT/UserGuide>`_ [#f1]_
 in `FSL <https://fsl.fmrib.ox.ac.uk/fsl/fslwiki>`_, for example, can easily output
-several dozens of directories and up to hundreds of result files per subject.
-If this software runs on a substantially sized input dataset, the results may be
-overwhelming.
+several dozens of directories and up to thousands of result files per subject.
+Maybe your own custom scripts are writing out many files as outputs, too.
+Regardless of why a lot of files are produced by an analyses, if the analysis
+or software in question runs on a substantially sized input dataset, the results
+may overwhelm the capacities of a single dataset.
 
 This section demonstrates some tips on how to prevent swamping your datasets
 with files. Note: If you accidentally got stuck with an overflowing dataset,
@@ -24,25 +26,43 @@ Solution: Subdatasets
 To stick to the example of FEAT, here is a quick overview on what this software
 does: It is modelling neuroimaging data based on general linear modelling (GLM),
 and creates web page analyses reports, color activation images, time-course plots
-of data and model, preprocessed intermediated data, images with filtered data,
-statistical output images, colour rendered output images, log files, and many more.
+of data and model, preprocessed intermediate data, images with filtered data,
+statistical output images, colour rendered output images, log files, and many more
+-- in short: A LOT of files.
 Plenty of these outputs are text-based, but there are also many sizable files.
 Depending on the type of analyses that is run, not all types of outputs
-will be relevant. At the end of the analysis, one usually has subject-specific
-directories with many subdirectories filled with result files, log files,
-intermediate and preprocessed files, and "higher-level" group directories that
-aggregate results over subjects.
+will be relevant. At the end of the analysis, one usually has session-,
+subject-specific, or aggregated "group" directories with many subdirectories
+filled with log files, intermediate and preprocessed files, and results for all
+levels of the analysis.
 
-With such a setup, the output directories (subjects, grouplevel) can be
+In such a setup, the output directories (be it on a session/run, subject, or group
+level) are predictably named, or custom nameable. In order to not flood a single
+dataset, therefore, one can pre-create appropriate subdatasets of the necessary
+granularity and have them filled by their analyses.
+But this approach is by no means limited to analyses with certain software, and
+can be automated. For scripting languages other than Python or shell, standard
+system calls can create output directories as DataLad subdatasets right away,
+Python scripts can use DataLad's Python API [#f2]_. Thus, if you write analyses
+scripts yourself, you can take care of subdataset creation right in the script.
+
+As it is easy to link datasets and operate (e.g., save, clone) across dataset
+hierarchies, splitting datasets into a hierarchy of datasets
+does not have many downsides. One substantial disadvantage, though, is that
+on their own, results in subdirectories don't have meaningful provenance
+attached. The information about what script or software created them is attached
+to the superdataset. Should only the subdataset be cloned or inspected, the information
+on how it was generated is not found.
 
 Solutions without creating subdatasets
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 It is also possible to scale up without going through the complexities of
-creating several subdatasets. It involves compromising, though.
+creating several subdatasets, or tuning your scaling beyond the creation of
+subdatasets. It involves more thought, or compromising, though.
 The following section highlights a few caveats to bear in mind if you attempt
-a big analyses in single-level datasets, and outlines solutions that do not
-involve subdatasets. If you have something to add, please
+a big analyses in single-level datasets, and outlines solutions that may not
+need to involve subdatasets. If you have something to add, please
 `get in touch <https://github.com/datalad-handbook/book/issues/new/>`_.
 
 Too many files
@@ -79,7 +99,7 @@ Too many files in Git
 **Caveat**: Drown Git because of configurations.
 
 **Example**: If your dataset is configured with a configuration such as ``text2git`` or if
-you have modified your ``.gitattributes`` file [#f2]_ to store files below a certain
+you have modified your ``.gitattributes`` file [#f3]_ to store files below a certain
 size of certain types in :term:`Git` instead of :term:`git-annex`, an
 excess of sudden text files can still be overwhelming in terms of total file size.
 Several thousand, or tens of thousand, text files may still add up to several GB
@@ -122,4 +142,7 @@ in size even if they are each small in size.
 .. [#f1] FEAT is a software tool for model-based fMRI data analysis and part of of
          `FSL <https://fsl.fmrib.ox.ac.uk/fsl/fslwiki>`_.
 
-.. [#f2] Read up on these configurations in the chapter :ref:`chapter_config`.
+.. [#f2] Read more about DataLad's Python API in the first hidden section in
+         :ref:`yoda_project`.
+
+.. [#f3] Read up on these configurations in the chapter :ref:`chapter_config`.

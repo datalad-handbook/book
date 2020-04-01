@@ -13,9 +13,9 @@ and from directory structures that are produced by the MRI scanner (usually
 
 - converted to file types used for scientific analyses (usually
   `NIfTI <https://nifti.nimh.nih.gov/nifti-1/documentation/hbm_nifti_2004.pdf>`_),
-- joined with other acquired data such as physiological or behavioral measures,
-  renamed, and structured into a BIDS compliant datasets to ease data analysis
-  and data sharing, and
+- renamed and structured into a `BIDS <https://bids.neuroimaging.io/>`_ compliant
+  datasets to ease data analysis and data sharing,
+- joined with other acquired data, e.g. physiological or behavioral measures, and
 - (pre)processed, analyzed, and aggregated into the results of the study.
 
 Usually, the main focus for provenance capture and reproducibility lies on the
@@ -24,15 +24,16 @@ conversion from raw data into usable formats and directory structures. This is a
 complex, non-trivial, and multi-stepped process: It requires the
 use of specialized software or custom scripts, is especially difficult if there
 are complex study protocols or additional data types to consider, and regularly does
-not include considerations for provenance capture or reproducibility. Often, conversion
-and restructuring are done "by hand" in successive, unconnected steps.
-This makes it difficult to retrace the series of steps that were done to get
-raw DICOMs and other study data into an analyzable format and structure.
-Scripts, software, and raw data used for creating the final analysis dataset
-are often kept in a different location than where the analysis dataset ends up.
-Thus, the analysis dataset, structured and converted for further processing,
-is disconnected from its source.
-These complexities make the very first, fundamental aspect of a neuroimaging study
+not include considerations for provenance capture or reproducibility. As conversion
+and restructuring are often done "by hand" in successive, unconnected steps,
+it is difficult to retrace the series of steps that were done to get
+raw DICOMs and other study data into an analyzable format.
+And as scripts, software, and raw data used for creating the final analysis dataset
+are often kept in a different location than where the analysis dataset ends up,
+the analysis dataset is disconnected from its source.
+
+These complexities make the very first, fundamental step of a neuroimaging study,
+converting DICOMs into a BIDS compliant dataset,
 tedious, intransparent, and potentially irreproducible. It can be a frustrating,
 time consuming process, and it can be difficult to reconstruct what was done,
 redo the process, or repeat it with slight alterations, such as a changed file

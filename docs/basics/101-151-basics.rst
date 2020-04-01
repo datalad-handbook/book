@@ -17,7 +17,7 @@ Once step one is accomplished, the second step is a single command, and the
 result is a BIDS-compliant dataset with complete provenance reaching all the
 way back to the raw data from the MR scanner.
 
-During the second step, ``hirni`` relies completely on conversion-relevant
+During the conversion step, ``hirni`` relies completely on conversion-relevant
 metadata and *specifications* for the conversion:
 Which DICOM files constitute a NifTi file? Which modality is it?
 What type of task was used? Shall the subject identifier be anonymized, or
@@ -57,26 +57,31 @@ If you want to read up on this, take a look at the hidden section below.
    a limited, relevant set of the images' metadata. The most common and widely
    adapted format for this is NifTi.
    It consists of fixed length header data with metadata about the
-   image, and the image data. The metadata contains at least the image matrix
+   image, and the image data. One NifTi file is an aggregation of several DICOM
+   files, and its header data needs to be extracted or inferred from the correct
+   DICOM tags. The NifTi header metadata contains at least the image matrix
    dimensions, the spatial resolution, the pixel depth, and the photometric
    interpretation, and enables software applications to recognize and correctly
    open the associated image.
 
-   DICOMs are usually grouped into acquisition-wise tarballs. This means that the
+   DICOMs are usually grouped into *acquisition*-wise tarballs. This means that the
    scanner produces and deposits one ``.tar.gz`` archive with all DICOMs that
    were acquired together into a scanner database, such as an
    `XNAT server <https://www.xnat.org/about/>`_. Depending on the length and type
    of data acquisition, such a tarball can contain thousands of DICOM files for
    a single subject. One acquisition usually consist of
-   data from several *MRI sequences*: A typical MRI study collects anatomical
-   images (T1 weighted), and study-specific data such as task-based and/or
-   resting state fMRI data, `diffusion-weighted MRI data <https://en.wikipedia.org/wiki/Diffusion_MRI>`_,
+   data from several *MRI sequences*: In a single acquisition, a typical MRI
+   study collects anatomical images, and study-specific data such as task-based and/or
+   resting state fMRI data,
+   `diffusion-weighted MRI data <https://en.wikipedia.org/wiki/Diffusion_MRI>`_,
    `MR angiography <https://en.wikipedia.org/wiki/Magnetic_resonance_angiography>`_,
-   or other `sequences <https://en.wikipedia.org/wiki/MRI_sequence>`_ in a single
-   acquisition. All DICOM files that belong to the same sequence are called
+   or other `sequences <https://en.wikipedia.org/wiki/MRI_sequence>`_.
+   All DICOM files that belong to the same sequence are called
    an *image series*. Thus, an acquisition tarball contains several image series
    that constitute data from different sequences, acquired in one session for a
-   single subject. During conversion, each image series needs to be identified,
+   single subject. Usually, the DICOM identifier in the DICOM header contains
+   information on which files belong to the same series and in which order.
+   During conversion, each image series needs to be identified,
    sorted, and stacked into a NifTI file for the given sequence type.
 
 Step 1: Creation of a study dataset
@@ -133,7 +138,7 @@ Furthermore, ``cfg_hirni`` created a subdirectory ``code/`` and installed the
       $ datalad subdatasets
 
    The toolbox is ``hirni``\s collection of tools for the tasks you may want it
-   to perform for you. For this, it references a number of potentially relevant
+   to perform for you. For this, it references potentially relevant
    code and software for neuroimaging data.
 
    A collection of procedures in ``procedures/`` references
@@ -143,19 +148,22 @@ Furthermore, ``cfg_hirni`` created a subdirectory ``code/`` and installed the
    The potentially required software for these procedures (such as
    `FSL <https://fsl.fmrib.ox.ac.uk/fsl/fslwiki>`_, `heudiconv <https://github.com/nipy/heudiconv>`_,
    ...) is distributed alongside the procedures as Singularity images that can
-   will retrieved automatically if needed [#f3]_.
+   be retrieved automatically if the procedures that require them are used [#f3]_.
 
    You can find the toolbox dataset on GitHub at
-   `github.com/psychoinformatics-de/hirni-toolbox <https://github.com/psychoinformatics-de/hirni-toolbox>`_.
+   `github.com/psychoinformatics-de/hirni-toolbox <https://github.com/psychoinformatics-de/hirni-toolbox>`_
+   if you want to take a closer look.
 
 Initial dataset information
 """""""""""""""""""""""""""
 
-Even if you don't have DICOM data yet, you can already curate metadata about your
-study into the study dataset. This helps to capture information that you now know
-from the top of your head, but that you would later need to dig through old documents
-for to find out about. You can, however, also get to this step at any later point
-in time.
+Let's say you have just started to prepare your neuroimaging study.
+Even if you havn't acquired a single DICOM file yet, you can already curate
+general metadata about your study into the study dataset. This helps to capture
+information that you now know from the top of your head, but that you would
+later need to dig through old documents for to find out about.
+You can, however, also get to this step at any later point in time, or tackle it
+if you are already sitting on a pile of acquired DICOM data.
 
 It is recommended to describe your study for humans in the ``README`` file, and fill
 out missing values in ``dataset_description.json``. For the ``README``, you can
@@ -174,7 +182,12 @@ a command line JSON processor that prettifies the output):
 Most of the fields will be straightforward to answer for you, and you should input
 values for them into the empty strings or JSON lists the template provides.
 You can either do this with an editor of your choice and save your changes with
-:command:`datalad save` afterwards, or use ``hirni``\s webUI for assistance.
+:command:`datalad save` afterwards, or use ``hirni``\s webUI for assistance. If
+you do it by hand and are not too familiar with JSON, be mindful to not create
+invalid JSON by accidentally removing commas or forgetting about quotes!
+There are helpful commandline
+tools such as `jq <https://stedolan.github.io/jq/>`_ or webtools such as
+`JSONlint <https://jsonlint.com/>`_ to help verify whether your files stayed valid.
 
 .. findoutmore:: Using the webUI
 
@@ -204,10 +217,6 @@ You can either do this with an editor of your choice and save your changes with
    file and concludes with a ``datalad save``, using the commit message
    ``"[HIRNI] Add specification snippet for: dataset_description.json"``
 
-.. todo::
-
-   Do it for 1000 brains
-
 Importing DICOMs
 """"""""""""""""
 
@@ -235,32 +244,43 @@ dataset. A DICOM acquisition import takes the following structure in your study 
    ├── README
    └── studyspec.json
 
-There will be one subdirectory per acquisition tarball. In the above example,
-there is one acquisition, and it is represented in the subdirectory ``acquisition1``.
-Inside of this subdirectory, there will be at minimum a ``studyspec.json`` file
-with the specifications of this acquisition, and a ``dicoms/`` subdataset that
-contains the extracted DICOMs of the acquisition.
-Optionally, other study relevant data such as the
-acquisition protocol or physiological data can be added.
+Let's decipher that:
+
+- There will be one subdirectory per acquisition tarball. In the above example,
+  there is one acquisition, and it is represented in the subdirectory ``acquisition1``.
+- Inside of this subdirectory, there will be at minimum a ``studyspec.json`` file
+  with the specifications of this acquisition, and a ``dicoms/`` subdataset that
+  contains the extracted DICOMs of the acquisition.
+- Optionally, other study relevant data such as the
+  acquisition protocol or physiological data can be added.
 
 .. index:: ! datalad command; hirni-import-dcm
 
-To get to this structure, DICOMs are imported with the :command:`datalad hirni-import-dcm`
+This structure is automatically created if ``hirni`` is pointed to the DICOM
+tarball with the :command:`datalad hirni-import-dcm`
 command. This command needs a path or url to a DICOM tarball of one acquisition,
 and an acquisition ID that will become the subdirectory name. In the file hierarchy
 above, this acquisition ID was ``acquisition1``.
 Additionally, the command can take a few specifications that will be relevant for
 conversion as optional command line arguments: You can specify the subject identifier as used
 during scanning with the ``--subject`` option, and an anonymized ID (such as ``001``)
-that this subject should be identified with with the ``--anon-subject`` option.
-Note that some information can be inferred from DICOM headers if
+that this subject should be identified with in the final BIDS dataset
+with the ``--anon-subject`` option.
+Note that *some* of this information can be inferred from DICOM headers if
 it was correctly filled in during scanning, for example the acquisition ID and
 the subject identifier.
 
-To import the first acquisition of the first subject, your command may look as
-follows::
+To import the first acquisition of the first subject, you run a command similar
+to this one inside of your study dataset::
 
    $ datalad hirni-import-dcm --anon-subject 001 path/to/DICOMs.tar.gz acquisition1
+
+Throughout your data acquisition, or -- if everything is already acquired -- in
+one go afterwards, you import all acquisitions of the study into your study
+dataset.
+
+Semi-automatic metadata extraction and conversion specification
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 Ultimately, the :command:`datalad hirni-import-dcm` serves only one goal:
 Collect all relevant information from the DICOM headers to enable the conversion.
@@ -272,26 +292,22 @@ You can find out more about the details of this process below.
    :command:`datalad hirni-import-dcm` executes a cascade of DataLad commands
    that have not yet received much attention in the handbook.
 
-   Ultimately, DICOMs are only extracted from the tarball archive to
-   record their headers' metadata. For this metadata extraction, the ``dicom``
+   Ultimately, DICOMs are only extracted from the tarball archive to access and
+   query their headers' metadata. For this metadata extraction, the ``dicom``
    :term:`extractor` of ``datalad-neuroimaging`` is used. Together with
    ``datalad-metalad``, this extractor can record metadata from standard DICOM files,
-   and among other things, group together DICOM files that belong to an image series,
+   and, among other things, group together DICOM files that belong to an image series,
    i.e., a single sequence within the acquisition. This metadata extraction is therefore
    crucial for the upcoming conversion.
 
-   The resulting metadata is aggregated into the study dataset [#f5]_. The study dataset
+   The resulting metadata is *aggregated* into the study dataset [#f5]_. The study dataset
    will thus receive the DICOM metadata required for the conversion directly
    at the time of the DICOM import.
 
    In addition, an acquisition-specific ``studyspec.json`` is created inside of the
    acquisition subdirectory. This file contains pointers to the location of the
-   data within the acquisition's subdataset.
-   Based on this file ...
-
-   .. todo::
-
-      continue here
+   data within the acquisition's subdataset, and is a specification file that
+   can be used for custom or yet missing conversion-relevant information.
 
    The basis of the import and data handling is a :command:`datalad add-archive-content`
    (:manpage:`datalad-add-archive-content` manual) command. This command -- together
@@ -301,10 +317,12 @@ You can find out more about the details of this process below.
    of the dataset. From the DICOM files in ``master``, metadata can be extracted.
    With :command:`datalad add-archive-content`, the archive in the dataset branch
    is treated like a :term:`special remote`: On demand, individual files from
-   ``master`` could be retrieved from the tarball. Because this ensures one available
-   source for the data, the file content of the DICOMs in ``master`` can be dropped
+   ``master`` could be re-retrieved from the tarball. Therefore, the archive in
+   the seperate branch is essentially a compressed DICOM storage.
+   Because this ensures one available source for the data, the (larger) file
+   content of the extracted DICOMs in ``master`` can be dropped
    right after metadata aggregation. Thus, instead of large, extracted DICOMs,
-   the subdatasets only contains the compressed tarball. while ensuring that
+   the subdatasets only contains the compressed tarball, while ensuring that
    DICOM files can nevertheless be reobtained from the archive on demand.
 
 In order to transform DICOMs to NifTi files, DICOM files need to be sorted into

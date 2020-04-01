@@ -135,7 +135,7 @@ it will also not be recorded in the history.
 
 In the dataset's history,
 we can see that a new :command:`datalad run` was recorded. This action is
-committed by Datalad under the original commit message of the ``run``
+committed by DataLad under the original commit message of the ``run``
 command, and looks just like the previous :command:`datalad run` commit apart
 from the execution time.
 

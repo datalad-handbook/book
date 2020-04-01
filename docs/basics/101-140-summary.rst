@@ -27,10 +27,11 @@ you store your data and thus who can get access.
   section :ref:`sharethirdparty` walked you through how this can be done with
   `Dropbox <https://dropbox.com>`_.
 
-- The ``--transfer-data`` option of :command:`datalad publish` allows to either
-  publish ``all`` or ``none`` of the annexed contents of your dataset. With
-  ``--transfer-data auto`` and a path to files, directories, or subdatasets you
-  can publish only selected contents' data.
+- The ``-f/--force`` option of :command:`datalad push` allows to override
+  automatic decision making on to-be-published contents. If it isn't specified,
+  DataLad will attempt to figure out itself which and how dataset contents
+  shall be published. With a path to files, directories, or subdatasets you
+  can also publish only selected contents' data.
 
 
 .. figure:: ../artwork/src/going_up.svg

@@ -997,6 +997,31 @@ Finally, let's clean up:
 
    $ git reset --hard HEAD~2
 
+Deleting content stored in Git
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+It is much harder to delete dataset content that is stored in Git compared to
+content stored in git-annex.
+Operations such as ``rm`` or ``git rm`` remove the file from the *worktree*,
+but not from its history, and they can be brought back to life just as annexed
+contents that were solely ``rm``\'ed. There is also no straightforward
+Git equivalent of ``drop``.
+To accomplish a complete removal of a file from a dataset, we recommend the external tool
+`git-filter-repo <https://github.com/newren/git-filter-repo>`_.
+It is a powerful and potentially very dangerous tool to rewrite Git history.
+
+Usually, removing files stored in Git completely
+is not a common or recommended operation, as it involves quite aggressive
+rewriting of the dataset history. Sometimes, however, sensitive files, for example
+private :term:`SSH key`\s or passwords, or too many or too large files are
+accidentally saved into Git, and *need* to get out of the dataset history.
+The command ``git-filter-repo <path-specification> --force`` will "filter-out",
+i.e., remove all files **but the ones specified** in ``<path-specification>``
+from the datasets history. The section :ref:`cleanup` shows an example
+invocation. If you want to use it, however, make sure to attempt it in a dataset
+clone or with its ``--dry-run`` flag first. It is easy to loose dataset history
+and files with this tool.
+
 Uninstalling or deleting subdatasets
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 

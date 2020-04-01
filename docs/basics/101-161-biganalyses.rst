@@ -3,7 +3,8 @@
 Calculate in greater numbers
 ----------------------------
 
-When creating and populating datasets yourself it may be easy to introduce
+When creating and populating datasets yourself it may be easy to monitor the
+overall size of the dataset and its file number, and introduce
 subdatasets whenever and where ever necessary. It may not be as straightforward
 when you are not population datasets yourself, but when *software* or
 analyses scripts suddenly dump vast amounts of output.
@@ -12,13 +13,13 @@ Certain analysis software can create myriads of files. A standard
 in `FSL <https://fsl.fmrib.ox.ac.uk/fsl/fslwiki>`_, for example, can easily output
 several dozens of directories and up to thousands of result files per subject.
 Maybe your own custom scripts are writing out many files as outputs, too.
-Regardless of why a lot of files are produced by an analyses, if the analysis
+Regardless of *why* a lot of files are produced by an analyses, if the analysis
 or software in question runs on a substantially sized input dataset, the results
 may overwhelm the capacities of a single dataset.
 
 This section demonstrates some tips on how to prevent swamping your datasets
-with files. Note: If you accidentally got stuck with an overflowing dataset,
-first checkout section :ref:`cleanup`.
+with files. If you already accidentally got stuck with an overflowing dataset,
+checkout section :ref:`cleanup` first.
 
 Solution: Subdatasets
 ^^^^^^^^^^^^^^^^^^^^^
@@ -40,11 +41,13 @@ In such a setup, the output directories (be it on a session/run, subject, or gro
 level) are predictably named, or custom nameable. In order to not flood a single
 dataset, therefore, one can pre-create appropriate subdatasets of the necessary
 granularity and have them filled by their analyses.
-But this approach is by no means limited to analyses with certain software, and
+This approach is by no means limited to analyses with certain software, and
 can be automated. For scripting languages other than Python or shell, standard
 system calls can create output directories as DataLad subdatasets right away,
-Python scripts can use DataLad's Python API [#f2]_. Thus, if you write analyses
-scripts yourself, you can take care of subdataset creation right in the script.
+Python scripts can even use DataLad's Python API [#f2]_.
+Thus, you can create scripts that take care of subdataset creation, or, if you
+write analysis scripts yourself, you can take care of subdataset creation right
+in the scripts that are computing and saving your results.
 
 As it is easy to link datasets and operate (e.g., save, clone) across dataset
 hierarchies, splitting datasets into a hierarchy of datasets
@@ -125,16 +128,9 @@ in size even if they are each small in size.
   ``.gitignore`` file and saving this change will keep these files out of
   version control.
 
+.. todo::
 
-
-
-
-
-
-
-
-
-
+   Add more caveats and examples
 
 
 .. rubric:: Footnotes

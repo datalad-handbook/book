@@ -284,30 +284,39 @@ Semi-automatic metadata extraction and conversion specification
 
 Ultimately, the :command:`datalad hirni-import-dcm` serves only one goal:
 Collect all relevant information from the DICOM headers to enable the conversion.
-This information is stored as aggregated metadata in ``.datalad/metadata`` [#f5]_.
+This information is stored as aggregated metadata from the subdataset
+in ``.datalad/metadata`` [#f5]_, and as acquisition-wise specifications in
+``<acquisition-ID>/studyspec.json``.
 You can find out more about the details of this process below.
 
 .. findoutmore:: Internals of this command
 
-   :command:`datalad hirni-import-dcm` executes a cascade of DataLad commands
-   that have not yet received much attention in the handbook.
+   :command:`datalad hirni-import-dcm` executes a number of commands in order to
+   prepare the conversion of the study dataset.
 
    Ultimately, DICOMs are only extracted from the tarball archive to access and
-   query their headers' metadata. For this metadata extraction, the ``dicom``
+   query their headers' metadata. For some of this metadata extraction, the ``dicom``
    :term:`extractor` of ``datalad-neuroimaging`` is used. Together with
    ``datalad-metalad``, this extractor can record metadata from standard DICOM files,
    and, among other things, group together DICOM files that belong to an image series,
-   i.e., a single sequence within the acquisition. This metadata extraction is therefore
-   crucial for the upcoming conversion.
+   i.e., a single sequence within the acquisition.
+   The resulting metadata is *aggregated* into the study dataset [#f5]_.
 
-   The resulting metadata is *aggregated* into the study dataset [#f5]_. The study dataset
-   will thus receive the DICOM metadata required for the conversion directly
-   at the time of the DICOM import.
+   Beyond that, ``hirni``\s own metadata command :command:`hirni-dicom2spec` is
+   executed and prepopulated an acquisition-specific ``studyspec.json`` file
+   inside of the acquisition subdirectory. This file contains specifications
+   for later structuring and naming
+   of converted data to BIDS-compliant structures, such as the task name.
+   Unlike the metadata mentioned above, metadata in ``studyspec.json`` files can and
+   should be manually edited to insert custom or yet missing conversion-relevant
+   information later. During DICOM import this file is prepopulated with relevant
+   fields, and prefills fields with available metadata where available,
+   for example about the location and version of the files and any BIDS-relevant
+   information that is available from the DICOM headers.
 
-   In addition, an acquisition-specific ``studyspec.json`` is created inside of the
-   acquisition subdirectory. This file contains pointers to the location of the
-   data within the acquisition's subdataset, and is a specification file that
-   can be used for custom or yet missing conversion-relevant information.
+   All of this metadata extraction is therefore crucial for the upcoming conversion.
+   and the study dataset will receive a large chunk of the DICOM metadata
+   required for the conversion directly at the time of the DICOM import.
 
    The basis of the import and data handling is a :command:`datalad add-archive-content`
    (:manpage:`datalad-add-archive-content` manual) command. This command -- together

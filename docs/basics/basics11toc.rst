@@ -1,7 +1,7 @@
 .. _chapter_hirni:
 
-**Extensions for Neuroimaging**
--------------------------------
+**XI Extensions for Neuroimaging**
+----------------------------------
 
 .. figure:: ../artwork/src/science.svg
 

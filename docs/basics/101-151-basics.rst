@@ -436,6 +436,37 @@ findoutmore will shed some light on them.
 
          $ {"anon-subject":{"approved":false,"value":"001"},"bids-acquisition":{"approved":false,"value":null},"bids-contrast-enhancement":{"approved":false,"value":null},"bids-direction":{"approved":false,"value":null},"bids-echo":{"approved":false,"value":null},"bids-modality":{"approved":false,"value":"bold"},"bids-reconstruction-algorithm":{"approved":false,"value":null},"bids-run":{"approved":false,"value":"01"},"bids-session":{"approved":false,"value":null},"bids-task":{"approved":false,"value":"oneback"},"comment":{"approved":false,"value":""},"dataset-id":"2f2a44d8-7271-11ea-861d-f9fd9dd57046","dataset-refcommit":"64644f46a471424df817dd5001f72b223c6f7a33","description":{"approved":false,"value":"func_task-oneback_run-1"},"id":{"approved":false,"value":401},"location":"dicoms","procedures":[{"on-anonymize":{"approved":false,"value":false},"procedure-call":{"approved":false,"value":null},"procedure-name":{"approved":false,"value":"hirni-dicom-converter"}}],"subject":{"approved":false,"value":"02"},"type":"dicomseries:all"}
 
+   Specifications
+
+
+Adding other data
+"""""""""""""""""
+
+Neuroimaging studies usually encompass more than only imaging data. Depending
+on the study, there may be measures from additional modalities (such as
+physiological or behavioral data), stimulation protocols, acquisition protocols
+from the scanner, or other digital data.
+
+As it is part of each acquisition, this additional data should be added into
+each acquisition subdirectory. It does not need to follow any particular
+structure, but in order to be part of the conversion (i.e., added to the
+BIDS-compliant dataset in the correct subject and session directories, named
+correctly and BIDS-compliant, and potentially processed in a file-specific
+way), it needs to get a specification.
+There are commands to *help* with that, but there is no fully automated
+specification derivation for additional data. Here is a sketch of how the
+process looks like:
+
+In order to add additional data, simply copy it into the acquisition subdirectory
+(not into the ``dicoms/`` subdataset!). Afterwards, save the addition with
+:command:`datalad save` and a helpful commit message.
+
+Next, add a specification about the additional data to the ``studyspec.json``
+file of this acquisition. In principle, this specification is information on
+*where* additional data lies, and *what* should be done with it. Prior to
+seeing how it is done, let's take a look at some finished examples:
+
+
 
 Conversion
 """"""""""

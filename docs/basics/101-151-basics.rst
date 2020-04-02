@@ -377,6 +377,65 @@ Durign DICOM import, the command ``hirni-dicom2spec`` generated so called
 ``studyspec.json`` file.
 A specification snippet defines a list of procedures and how exactly they are called.
 
+Specifications are fundamental to ``hirni`` and indispensable for a successful
+conversion. But they are also quite hard to get a good grasp on. This
+findoutmore will shed some light on them.
+
+.. findoutmore:: On specifications
+
+   Specifications are defined in ``studyspec.json`` files. These files contain
+   specification snippets as one line of JSON stream.
+
+   .. findoutmore:: Some fundamentals of JSON and JSON stream
+
+      JSON (JavaScript Object Notation) is easy to read when it is formatted
+      nicely (for example with `jq <https://stedolan.github.io/jq/>`_): In JSON,
+      data is stored in ``key-value`` pairs (such as ``{"name":"Joanna"}``), and
+      separated by commas. Curly braces (``{}``)
+      hold *objects* (dictionaries), such as
+
+      .. code-block:: JSON
+
+         {
+          "person": {
+             "name": "Joanna",
+             "role": "data scientist"
+             }
+          }
+
+      and square brackets (``[]``) hold *arrays* (lists), as in
+
+      .. code-block:: JSON
+
+         {
+          "employees":[
+           {
+            "name": "Joanna",
+            "role": "data scientist"
+            },
+            {
+             "name": "Anna",
+             "role": "software developer"
+            },
+            {
+              "name": "Peter",
+              "role": "marketing analyst"
+            }
+           ]
+         }
+
+      JSON has the inconvenient side effect that a single mistake in the document
+      (e.g., a missing comma, or misplaced bracket) invalidates the whole document.
+      Therefore, specifications are written in JSON streaming format.
+      In JSON stream, the JSON essentially contains fewer linebreaks. Each
+      line contains one valid JSON dictionary. This format allows per-line processing,
+      and guarantees that all valid lines can be processed, even if the document
+      contains some invalid lines. Here is an example of one specification snippet
+      (this one belongs to the DICOMs of an acquisition). It is represented as
+      a nested JSON dictionary and is one long line of text::
+
+         $ {"anon-subject":{"approved":false,"value":"001"},"bids-acquisition":{"approved":false,"value":null},"bids-contrast-enhancement":{"approved":false,"value":null},"bids-direction":{"approved":false,"value":null},"bids-echo":{"approved":false,"value":null},"bids-modality":{"approved":false,"value":"bold"},"bids-reconstruction-algorithm":{"approved":false,"value":null},"bids-run":{"approved":false,"value":"01"},"bids-session":{"approved":false,"value":null},"bids-task":{"approved":false,"value":"oneback"},"comment":{"approved":false,"value":""},"dataset-id":"2f2a44d8-7271-11ea-861d-f9fd9dd57046","dataset-refcommit":"64644f46a471424df817dd5001f72b223c6f7a33","description":{"approved":false,"value":"func_task-oneback_run-1"},"id":{"approved":false,"value":401},"location":"dicoms","procedures":[{"on-anonymize":{"approved":false,"value":false},"procedure-call":{"approved":false,"value":null},"procedure-name":{"approved":false,"value":"hirni-dicom-converter"}}],"subject":{"approved":false,"value":"02"},"type":"dicomseries:all"}
+
 
 Conversion
 """"""""""

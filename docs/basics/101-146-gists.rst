@@ -122,3 +122,27 @@ is is stored in the dataset report of :command:`datalad wtf` under the key ``rep
 Here is a one-liner to get this info::
 
    $ datalad -f'{infos[dataset][repo]}' wtf
+
+
+How can I back-up datasets?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+In order to back-up datasets you can publish them to a
+:term:`Remote Indexed Archive (RIA) store` or to a sibling dataset. The former
+solution does not require Git, git-annex, or DataLad to be installed on the
+machine that the back-up is pushed to, the latter does require them.
+
+To find out more about RIA stores, checkout the usecase :ref:`usecase_datastore`.
+A sketch of how to implement a sibling for backups is below:
+
+.. code-block:: bash
+
+   # create a back up sibling
+   datalad create-sibling --annex-wanted anything -r myserver:/path/to/backup
+   # publish a full backup
+   datalad publish --to=myserver -r
+   # subsequently, publish updates to be backed up with
+   datalad publish --to=myserver -r --since= --missing=inherit
+
+For an in-depth explanation and example take a look at the
+`GitHub issue that raised this question <https://github.com/datalad/datalad/issues/4369>`_.

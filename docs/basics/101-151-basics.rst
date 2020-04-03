@@ -372,10 +372,9 @@ specifications are necessary.
    be the case though, and would compromise anonymity also in non-version control
    setups.
 
-Durign DICOM import, the command ``hirni-dicom2spec`` generated so called
+During DICOM import, the command ``hirni-dicom2spec`` generated so called
 *specification snippets* from DICOM metadata and stored them in the
 ``studyspec.json`` file.
-A specification snippet defines a list of procedures and how exactly they are called.
 
 Specifications are fundamental to ``hirni`` and indispensable for a successful
 conversion. But they are also quite hard to get a good grasp on. This
@@ -383,6 +382,24 @@ findoutmore will shed some light on them.
 
 .. findoutmore:: On specifications
 
+   Specifications describe *data entities* of the study dataset. An entity is
+   not necessarily a single file or directory, but any study dataset content
+   that is one logical unit that should be processed in the same way, such as a
+   DICOM series (which likely is a subset of the data in ``dicoms/``), all
+   respiratory traces inside of a ``physio/`` subdirectory, or a single
+   ``events.txt`` stimulation log file for the acquisition.
+
+   For each data entity, a specification snippet defines how it should be
+   converted (in other words: treated). Note that "conversion" does not exclusively
+   refer to a DICOM to NifTi conversion - in ``hirni``\s terms, a conversion is
+   any action that is undertaken with a file in the study dataset to get it into
+   the form it should take in the BIDS dataset. This could be a simple action
+   such as copying or renaming a file, but also complex, multistepped processes,
+   for example defacing.
+
+   Reading, understanding, and creating specification snippets requires some
+   pre-existing knowledge on certain topics, and an understanding of the data
+   and its properties.
    Specifications are defined in ``studyspec.json`` files. These files contain
    specification snippets as one line of JSON stream.
 
@@ -436,7 +453,262 @@ findoutmore will shed some light on them.
 
          $ {"anon-subject":{"approved":false,"value":"001"},"bids-acquisition":{"approved":false,"value":null},"bids-contrast-enhancement":{"approved":false,"value":null},"bids-direction":{"approved":false,"value":null},"bids-echo":{"approved":false,"value":null},"bids-modality":{"approved":false,"value":"bold"},"bids-reconstruction-algorithm":{"approved":false,"value":null},"bids-run":{"approved":false,"value":"01"},"bids-session":{"approved":false,"value":null},"bids-task":{"approved":false,"value":"oneback"},"comment":{"approved":false,"value":""},"dataset-id":"2f2a44d8-7271-11ea-861d-f9fd9dd57046","dataset-refcommit":"64644f46a471424df817dd5001f72b223c6f7a33","description":{"approved":false,"value":"func_task-oneback_run-1"},"id":{"approved":false,"value":401},"location":"dicoms","procedures":[{"on-anonymize":{"approved":false,"value":false},"procedure-call":{"approved":false,"value":null},"procedure-name":{"approved":false,"value":"hirni-dicom-converter"}}],"subject":{"approved":false,"value":"02"},"type":"dicomseries:all"}
 
-   Specifications
+      When processed, conversions are executed in the order of the specification
+      snippets.
+
+   A specification snippet defines a list of :term:`run procedure`\s and how
+   exactly they are called. If you don't know what a procedure is, yet, please
+   give section :ref:`procedures` a quick read to get an initial overview.
+   Additionally, it contains fields to define potentially
+   relevant BIDS terms about the data. If you are not familiar with the general
+   naming scheme in BIDS, please head over to `bids.neuroimaging.io <https://bids.neuroimaging.io/>`_
+   and take a look at the basic logic behind file names.
+   Below, you can see the a single specification
+   snippet, formatted into JSON for better readability. It is a snippet that would
+   be generated automatically during DICOM import for one DICOM series:
+
+   .. findoutmore:: see the formatted snippet
+
+      .. code-block:: JSON
+
+         {
+          "anon-subject": {
+            "approved": false,
+            "value": "001"
+          },
+          "bids-acquisition": {
+            "approved": false,
+            "value": null
+          },
+          "bids-contrast-enhancement": {
+            "approved": false,
+            "value": null
+          },
+          "bids-direction": {
+            "approved": false,
+            "value": null
+          },
+          "bids-echo": {
+            "approved": false,
+            "value": null
+          },
+          "bids-modality": {
+            "approved": false,
+            "value": "bold"
+          },
+          "bids-reconstruction-algorithm": {
+            "approved": false,
+            "value": null
+          },
+          "bids-run": {
+            "approved": false,
+            "value": "01"
+          },
+          "bids-session": {
+            "approved": false,
+            "value": null
+          },
+          "bids-task": {
+            "approved": false,
+            "value": "oneback"
+          },
+          "comment": {
+            "approved": false,
+            "value": ""
+          },
+          "dataset-id": "2f2a44d8-7271-11ea-861d-f9fd9dd57046",
+          "dataset-refcommit": "64644f46a471424df817dd5001f72b223c6f7a33",
+          "description": {
+            "approved": false,
+            "value": "func_task-oneback_run-1"
+          },
+          "id": {
+            "approved": false,
+            "value": 401
+          },
+          "location": "dicoms",
+          "procedures": [
+            {
+              "on-anonymize": {
+                "approved": false,
+                "value": false
+              },
+              "procedure-call": {
+                "approved": false,
+                "value": null
+              },
+              "procedure-name": {
+                "approved": false,
+                "value": "hirni-dicom-converter"
+              }
+            }
+          ],
+          "subject": {
+            "approved": false,
+            "value": "02"
+          },
+          "type": "dicomseries:all"
+          "uid": "1.2.0260.1.3680043.2.1143.53213523436472938475829384762332",
+        }
+
+   .. todo::
+
+      NOTE: UUID IS NOT CLEAR YET!
+
+   This snipppet consists of a number of nested dictionaries. A few are potentially
+   relevant BIDS terms, such as ``bids-acquisition``, or ``bids-run``. Not all of
+   them will apply to your study, but they are in the template to allow their use
+   should they be relevant. A few of them are prefilled with values that were
+   derived from DICOM headers, such as
+
+   .. code-block::
+
+       [...]
+       "bids-modality": {
+         "approved": false,
+         "value": "bold"
+       },
+       "bids-run": {
+         "approved": false,
+         "value": "01"
+       },
+       "bids-task": {
+         "approved": false,
+         "value": "oneback"
+       },
+       [...]
+
+   Another dictionary is the ``anon-subject`` object. It contains the value
+   provided with the :command:`hirni-import-dcm` call in the ``--anon-subject``
+   flag. There also is a ``subject`` dictionary. Its value was either specified
+   in :command:`hirni-import-dcm` or derived from DICOM headers. The information
+   in these dictionaries will be used to create a *virtual* BIDS term ``bids-subject``
+   depending on whether subject names should be anonymized. If the
+   ``--anonymize`` flag is set during conversion, the ``anon-subject`` ID will
+   be used in file names instead of the ``subject`` ID.
+
+   .. code-block::
+
+      "anon-subject": {
+        "approved": false,
+        "value": "001"
+      },
+     [...]
+      "subject": {
+        "approved": false,
+        "value": "02"
+      },
+
+
+   Three name-value pairs define the dataset ID of the data entity the
+   snippet refers to, a path to the entity relative to the location of the
+   specfile, and the latest commit (the ``refcommit``).
+   This serves to capture the provenance of the input data and its version:
+
+   .. code-block::
+
+      "dataset-id": "2f2a44d8-7271-11ea-861d-f9fd9dd57046",
+      "dataset-refcommit": "64644f46a471424df817dd5001f72b223c6f7a33",
+      [...]
+      "location": "dicoms",
+
+   A ``type`` key contains ...
+
+   .. todo::
+
+      NOTES FOLLOW
+      - per snippet.
+      - special meaning for DICOMs,
+      - for all other data it is an arbitrary field that allows to group snippets in a specification file.
+      - can be used category to match entries of entire specification against,
+      - conversion execution can be limited to specification snippets of a particular type. (one can try out a conversion like this).
+      - default value: "generic file"
+
+      uid for dicoms is the series identifier NOT CLEAR YET - VIDEO IS INCONSISTENT.
+      - The conversion with heudiconv acts on a complete dicom subdataset, i.e.
+      potentially on several image series at once (HOW DOES THIS CHANGE WITH NEW
+      FEATURES?)
+
+   .. code-block::
+
+      "type": "dicomseries:all"
+      "uid": "1.2.0260.1.3680043.2.1143.53213523436472938475829384762332",
+
+   Finally, a list holds a number of dictionaries that define the procedure(s) that
+   are to be performed on the DICOMs when this snippet is processed and how those
+   procedures are to be executed:
+
+   .. code-block::
+
+      "procedures": [
+       {
+         "on-anonymize": {
+           "approved": false,
+           "value": false
+         },
+         "procedure-call": {
+           "approved": false,
+           "value": null
+         },
+         "procedure-name": {
+           "approved": false,
+           "value": "hirni-dicom-converter"
+         }
+       }
+      ],
+
+   One of the dictionaries is the procedure name (``procedure-name``). This
+   name refers to a :term:`run procedure`. Most of those procedures are part of
+   the hirni toolbox and exist under ``code/toolbox/procedures``. Another
+   dictionary is the procedure call (``procedure-call``). This defines how the
+   procedure should be called - this can be preconfigured, set to a default, or
+   edited manually. In the example above, no specific call format is necessary,
+   but a separate findoutmore will go into the details of the syntax for procedure
+   calls and demonstrate how they work. For some data, the ``on-anonymize``
+   dictionary is included as a switch that determines whether the procedure runs
+   during conversion if ``--anonymize`` is specified (???? IS THIS CORRECT?).
+
+   Each dictionary has a boolean ``approve`` field. This exists for the webUI
+
+   .. todo::
+
+      ... COULDNT TRY THIS YET, DIDNT WORK
+
+MORE NOTES:
+- available procedures: copy-converter (copies a file
+
+.. findoutmore:: Formatting procedure calls
+
+   .. todo::
+
+      - replacements: script = procedure call, ds = dataset it is called upon,
+        and all other keys in the given snippet in double curly brackets
+
+      - procedures: Should all use datalad run or datalad containers-run
+
+.. findoutmore:: Rules
+
+   Rules are configurations that apply settings that influence the behavior
+   of ``hirni`` or its underlying tools. They can be set for different scopes
+   (applying on a system-, user-, or dataset-level), and if a configuration exists
+   on two or more levels with different values, more specific scopes take
+   precedence over more general scopes.
+
+   Rules are implemented as Python classes. In order to write your own set of
+   rules, you will need to create a Python file that contains them. In order to
+   apply the rules, you need to add them -- just like the configurations
+   introduced in chapter :ref:`chapter_config` -- with :command:`git config` on
+   a scope level of your choice. The key of the configuration is
+   ``datalad.hirni.dicom2spec.rule`` and its value is an absolute path to your
+   Python file.
+
+   In order to write a rule, write a Python class with the help of the
+   template file that ``hirni`` provides at....
+
+   .. todo::
+
+      AARRRGHHH oh my god, lets stick with "Rules exist, their documentation can be
+      summarized in the word TODO, have fun dying"
 
 
 Adding other data
@@ -448,7 +720,11 @@ physiological or behavioral data), stimulation protocols, acquisition protocols
 from the scanner, or other digital data.
 
 As it is part of each acquisition, this additional data should be added into
-each acquisition subdirectory. It does not need to follow any particular
+each acquisition subdirectory.
+In order to add additional data, simply copy it into the acquisition subdirectory
+(not into the ``dicoms/`` subdataset!). Afterwards, save the addition with
+:command:`datalad save` and a helpful commit message.
+It does not need to follow any particular
 structure, but in order to be part of the conversion (i.e., added to the
 BIDS-compliant dataset in the correct subject and session directories, named
 correctly and BIDS-compliant, and potentially processed in a file-specific
@@ -457,29 +733,61 @@ There are commands to *help* with that, but there is no fully automated
 specification derivation for additional data. Here is a sketch of how the
 process looks like:
 
-In order to add additional data, simply copy it into the acquisition subdirectory
-(not into the ``dicoms/`` subdataset!). Afterwards, save the addition with
-:command:`datalad save` and a helpful commit message.
+.. todo::
 
-Next, add a specification about the additional data to the ``studyspec.json``
-file of this acquisition. In principle, this specification is information on
-*where* additional data lies, and *what* should be done with it. Prior to
-seeing how it is done, let's take a look at some finished examples:
+   Sketch how to do a specification
+
+
 
 
 
 Conversion
 """"""""""
 
+At this point, you should have a study dataset that contains all MRI acquisitions
+that are relevant to you, additional data, and appropriate specifications in
+various ``studyspec.json`` files. In order to get from a study dataset to a
+BIDS compliant dataset, create an empty dataset. To denote that this dataset
+will be the final, BIDS-converted dataset, we call it ``BIDS`` in this example.
 
-In order to transform DICOMs to NifTi files, DICOM files need to be sorted into
-series, i.e., sets of DICOM images acquired together. In many cases, these
-series will be available as DICOM tarballs from the MRI scanner. Depending
-on the length of data acquisition, such a tarball can contain thousands of
-DICOM files for a single subject. Specialized
-tools such as `dcm2niix <https://www.nitrc.org/plugins/mwiki/index.php/dcm2nii:MainPage>`_
-can extract the header metadata, sort images into volumes, and stack the images
-of a series to create the NifTi image.
+.. runrecord:: _examples/DL-101-151-110
+   :workdir: dl-101
+   :language: console
+
+   $ datalad create BIDS
+
+This dataset is currently completely disconnected from the study dataset. In order
+to link it, install the study dataset as a subdataset of ``BIDS``:
+
+.. runrecord:: _examples/DL-101-151-111
+   :workdir: dl-101
+   :language: console
+
+   $ cd BIDS
+   $ datalad clone -d . ../mystudy
+
+Finally, inside of ``BIDS``, call the :command:`hirni-spec2bids` command.
+If called without any arguments, the command will consult all specification
+files in the study dataset and convert everything according to the specification
+snippets it finds. If it is called with the ``--anonymize`` option, it will
+perform the conversion anonymized. By default, this means that the ``anon-subject``
+IDs are used in file names, and that all paths that are recorded during the
+conversion are encrypted.
+
+.. todo::
+
+   what is a sidecar? Find out, add to run chapter. https://en.wikipedia.org/wiki/Sidecar_file
+
+Lastly, the ``--only-type`` flag allows to limit the conversion to executing
+only those snippets that match the given type. This allows you to convert only
+subsets of your study dataset, or check whether a single or small set of
+conversions works as you intend it to work without converting all of the dataset.
+
+.. todo::
+
+   - talk a bit about heudiconv and the software it uses?
+   - how can we get images defaces? or MRIQC to run? is it part of the defaults?
+   - do a conversion in a runrecord
 
 
 .. rubric:: Footnotes

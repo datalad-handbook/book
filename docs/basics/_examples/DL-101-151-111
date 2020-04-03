@@ -1,0 +1,13 @@
+$ cd BIDS
+$ datalad clone -d . ../mystudy
+[INFO] Cloning dataset to <Dataset path=/home/me/dl-101/BIDS/mystudy> 
+[INFO] Attempting to clone from ../mystudy to /home/me/dl-101/BIDS/mystudy 
+[INFO] Completed clone attempts for <Dataset path=/home/me/dl-101/BIDS/mystudy> 
+install(ok): mystudy (dataset)
+add(ok): mystudy (file)
+add(ok): .gitmodules (file)
+save(ok): . (dataset)
+action summary:
+  add (ok: 2)
+  install (ok: 1)
+  save (ok: 1)

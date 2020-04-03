@@ -110,3 +110,15 @@ If you want to do it in Python, try this approach:
 
    ds = dl.Dataset("/path/to/some/dataset")
    results = ds.status(path=<path or list of paths>, annex="basic", result_renderer=None)
+
+
+How can I check whether a dataset contains an annex?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Datasets can be either GitRepos (i.e., sole Git repositories; this happens when
+they are created with the ``--no-annex`` flag, for example), or AnnexRepos
+(i.e., datasets that contain an annex). Information on what kind of repository it
+is is stored in the dataset report of :command:`datalad wtf` under the key ``repo``.
+Here is a one-liner to get this info::
+
+   $ datalad -f'{infos[dataset][repo]}' wtf

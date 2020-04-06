@@ -1,5 +1,80 @@
 .. _1000_brains:
 
 An example dataset conversion
-------------------------------
+-----------------------------
 
+This section demonstrates a concrete conversion for a full, complex neuroimaging
+study, the first phase of the `studyforrest project <http://www.studyforrest.org/>`_.
+
+
+Studyforrest phase 1
+^^^^^^^^^^^^^^^^^^^^
+
+The studyforrest project is a large neuroscientific project to study the human
+brain under the influence of stimuli that resemble the complexity of a natural
+enviroment more closely than standard, simplified MRI experiments. It encompasses
+a range of data collections centered on the feature-rich movie Forrest Gump.
+The first phase of the project was `published in 2014 <http://www.nature.com/articles/sdata20143>`_.
+It comprises of fMRI recordings of 20 participants in a 7T MR scanner during
+prolonged stimulation with an auditory-only version of Forrest Gump, and a large
+number of auxilliary data: several other MRI modalities (T1, T2, diffusion weighted
+images, susceptibility-weighted images, angiography data; in part acquired on a
+3T machine), measurements to assess technical and physiological noise components
+such as cardiac response, respiratory traces, and motion estimates, and all
+source code for the implemented procedures.
+
+In addition to the audio movie, a 7T acquisition with music stimulation from the
+same subjects was added,
+
+.. todo::
+
+   What exactly comprises the phase 1 dataset? release_history.txt is substantial!
+
+Data overview
+"""""""""""""
+
+The audio movie was presented in eight approximately 15 minute long segments,
+split into two sessions with 4 segments each and a flexible break in between.
+
+.. todo::
+
+   outline the directory structure of the raw dataset
+
+
+
+Data "suboptimalities"
+""""""""""""""""""""""
+
+The study is a very complex one: There are multiple acquisitions and sessions, multiple
+acquired modalities, and a large amount of auxiliary data. This on its own
+makes restructuring a large effort. However, as the acquisition is quite complex,
+not everything went smooth during scanning. The following problems were discovered
+in the raw data:
+
+- subject 5 and 20 had aborted runs
+
+.. todo::
+
+   figure out problems. Bens script has them, but I can't access the script
+
+While the exact ways in which the acquisitions had problems are idiosyncratic,
+it is normal that neuroimaging studies contain aborted runs, or similar issues.
+The conversion section below shows how the studyforrest problems were customly
+addressed as an example on how to deal with such problems
+
+Conversion
+^^^^^^^^^^
+
+.. todo::
+
+   demonstrate conversion concretely, maybe on a single subject.
+
+
+Resources
+^^^^^^^^^
+
+- Read up on the full study-forrest project at `studyforrest.org <http://studyforrest.org/>`_
+- Read the phase 1 publication in Nature Scientific data: `www.nature.com/articles/sdata20143 <http://www.nature.com/articles/sdata20143>`_
+- Get the data as a DataLad dataset from TODO
+
+.. rubric:: Footnotes

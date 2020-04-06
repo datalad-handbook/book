@@ -13,5 +13,5 @@
 
    101-150-hirni
    101-151-basics
-   101-152-1000brains
+   101-152-phase1
    101-153-summary

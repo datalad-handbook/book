@@ -7,16 +7,22 @@ DataLad can download files via the ``http``, ``https``, ``ftp``, and ``s3``
 protocol from various data storage solutions via its downloading commands
 (:command:`datalad download-url`, :command:`datalad addurls`,
 :command:`datalad get`).
-*Authentication* during such retrieval is the process by which is verified that
-someone is who they claim they are, for example via a username and password
-combination. If data retrieval from a storage solution requires authentication,
-DataLad provides an interface to query, request, and store the most common
-type of credentials that are necessary to authenticate, for a range of
-authentication types.
+If data retrieval from a storage solution requires *authentication*,
+i.e., for example via a username and password combination, DataLad provides an
+interface to query, request, and store the most common type of credentials that
+are necessary to authenticate, for a range of authentication types.
 There are a number of natively supported types of authentication and out-of-the
 box access to a broad range of access providers, from common solutions such as
 `S3 <https://aws.amazon.com/s3/?nc1=h_ls>`_ to special purpose solutions, such as
-`LORIS <https://loris.ca/>`_. For any supported access type that requires
+`LORIS <https://loris.ca/>`_. However, beyond natively supported services,
+custom data access can be configured as long as the required authentication
+and credential type are supported. This makes DataLad even more flexible for
+retrieving data.
+
+Basic process
+^^^^^^^^^^^^^
+
+For any supported access type that requires
 authentication, the procedure is always the same:
 Upon first access via any downloading command, users will be prompted for their
 credentials from the command line. Subsequent downloads handle authentication
@@ -47,10 +53,11 @@ With a data access configuration in place, commands such as
 :command:`datalad download-url` or :command:`datalad addurls` can work with urls
 the point to the location of the data to be retrieved, and
 :command:`datalad get` is enabled to retrieve file contents from these sources.
+
 The configuration can either be done in the terminal upon a prompt from the
 command line when a download fails due to a missing provider configuration as
 shown above, or by placing a configuration file for the required data access into
-``.datalad/providers``.
+``.datalad/providers/<provider-name>.cfg``.
 The following information is needed: An arbitrary name that the data access is
 identified with, a regular expression that can match a url one would want to
 download from, an authentication type, and a credential type. The example
@@ -111,4 +118,68 @@ below:
 
 In the dataset that this file was placed into, downloading commands
 that point to ``https://example.com/~myuser/protected/<path>`` will ask (once) for
-the user's user name and password, and subsequently store these credentials
+the user's user name and password, and subsequently store these credentials.
+
+If the file is generated "on the fly" from the terminal, it will prompt for
+exactly the same information as specified in the example above and write the
+required ``.cfg`` based on the given information. Here is how that would look like::
+
+   $ datalad download-url  https://example.com/~myuser/protected/my_protected_file
+    [INFO   ] Downloading 'https://example.com/~myuser/protected/my_protected_file' into '/tmp/ds/'
+    Authenticated access to https://example.com/~myuser/protected/my_protected_file has failed.
+    Would you like to setup a new provider configuration to access url? (choices: [yes], no): yes
+
+    New provider name
+    Unique name to identify 'provider' for https://example.com/~myuser/protected/my_protected_file [https://example.com]: my-webserver
+
+    New provider regular expression
+    A (Python) regular expression to specify for which URLs this provider
+    should be used [https://example\.com/\~myuser/protected/my_protected_file]:
+    https://example.com/~myuser/protected/.*
+
+    Authentication type
+    What authentication type to use (choices: aws-s3, bearer_token, html_form,
+    http_auth, http_basic_auth, http_digest_auth, loris-token, nda-s3, none, xnat):
+    http_basic_auth
+
+    Credential
+    What type of credential should be used? (choices: aws-s3, loris-token, nda-s3,
+    token, [user_password]):
+    user_password
+
+    Save provider configuration file
+    Following configuration will be written to /home/me/.config/datalad/providers/my-webserver.cfg:
+    # Provider configuration file created to initially access
+    # https://example.com/~myuser/protected/my_protected_file
+
+    [provider:my-webserver]
+    url_re = https://example.com/~myuser/protected/.*
+    authentication_type = http_basic_auth
+    # Note that you might need to specify additional fields specific to the
+    # authenticator.  Fow now "look into the docs/source" of <class 'datalad.downloaders.http.HTTPBasicAuthAuthenticator'>
+    # http_basic_auth_
+    credential = my-webserver
+
+    [credential:my-webserver]
+    # If known, specify URL or email to how/where to request credentials
+    # url = ???
+    type = user_password
+     (choices: [yes], no):
+    yes
+
+    You need to authenticate with 'my-webserver' credentials.
+    user: <user name>
+
+    password: <password>
+    password (repeat): <password>
+    [INFO   ] http session: Authenticating into session for https://example.com/~myuser/protected/my_protected_file
+    https://example.com/~myuser/protected/my_protected_file:   0%| | 0.00/611k                                                                                                                                                                                                                                                 download_url(ok): /tmp/xnat2/0015911870_1.3.12.2.1107.5.2.32.35135.2011102112040130362336780.dcm (file)
+    add(ok): my_protected_file (file)
+    save(ok): . (dataset)
+    action summary:
+      add (ok: 1)
+      download_url (ok: 1)
+      save (ok: 1)
+
+Subsequently, all downloads from ``https://example.com/~myuser/protected/*`` will
+succeed.

@@ -104,29 +104,38 @@ with DataLad can only succeed if a "provider configuration", i.e., a configurati
 how to access the data, for this specific webserver with information on how to
 authenticate exists.
 
-"Provider configurations" are small text files that exist on a per-dataset level
-in ``.datalad/providers/<name>.cfg``. They can be created and saved to the dataset
+"Provider configurations" are small text files that either exist on a per-dataset
+level in ``.datalad/providers/<name>.cfg``, or on a user-level in
+``~/.config/datalad/providers/<name>.cfg``. They can be created and saved
 by hand, or configured "on the fly" from the command line upon unsuccessful
 download attempts. A configuration file follows a similar structure as the example
 below:
 
 .. code-block:: bash
 
-   [provider:example.com]
+   [provider:my-webserver]
    url_re = https://example.com/~myuser/protected/.*
-   credential = example.com/~myuser
+   credential = my-webserver
    authentication_type = http_basic_auth
 
-   [credential:example.com/~myuser]
+   [credential:my-webserver]
    type = user_password
 
-In the dataset that this file was placed into, downloading commands
-that point to ``https://example.com/~myuser/protected/<path>`` will ask (once) for
+For a *local* [#f1]_, i.e., dataset-specific, configuration, place the file into
+``.datalad/providers/my-webserver.cfg``. Subsequently, in the dataset that
+this file was placed into, downloading commands that point to
+``https://example.com/~myuser/protected/<path>`` will ask (once) for
 the user's user name and password, and subsequently store these credentials.
+In order to make it a *global* configuration,
+i.e., enable downloads from the webserver from within all datasets of the user,
+place the file into the users home directory under
+``~/.config/datalad/providers/my-webserver.cfg``.
 
 If the file is generated "on the fly" from the terminal, it will prompt for
 exactly the same information as specified in the example above and write the
-required ``.cfg`` based on the given information. Here is how that would look like::
+required ``.cfg`` based on the given information. Note that this will configure
+data access *globally*, i.e., it will place the file under
+``~/.config/datalad/providers/<name>.cfg``. Here is how that would look like::
 
    $ datalad download-url  https://example.com/~myuser/protected/my_protected_file
     [INFO   ] Downloading 'https://example.com/~myuser/protected/my_protected_file' into '/tmp/ds/'
@@ -186,5 +195,11 @@ required ``.cfg`` based on the given information. Here is how that would look li
       download_url (ok: 1)
       save (ok: 1)
 
-Subsequently, all downloads from ``https://example.com/~myuser/protected/*`` will
-succeed.
+Subsequently, all downloads from ``https://example.com/~myuser/protected/*``
+by the user will succeed. If something went wrong during this interactive
+configuration, delete or edit the file at ``~/.config/datalad/providers/<name>.cfg``.
+
+.. rubric:: Footnotes
+
+.. [#f1] To re-read on configurations and their scope, check out chapter
+         :ref:`chapter_config` again.

@@ -8,7 +8,7 @@ protocol from various data storage solutions via its downloading commands
 (:command:`datalad download-url`, :command:`datalad addurls`,
 :command:`datalad get`).
 If data retrieval from a storage solution requires *authentication*,
-i.e., for example via a username and password combination, DataLad provides an
+for example via a username and password combination, DataLad provides an
 interface to query, request, and store the most common type of credentials that
 are necessary to authenticate, for a range of authentication types.
 There are a number of natively supported types of authentication and out-of-the
@@ -58,10 +58,14 @@ The configuration can either be done in the terminal upon a prompt from the
 command line when a download fails due to a missing provider configuration as
 shown above, or by placing a configuration file for the required data access into
 ``.datalad/providers/<provider-name>.cfg``.
-The following information is needed: An arbitrary name that the data access is
-identified with, a regular expression that can match a url one would want to
-download from, an authentication type, and a credential type. The example
-below sheds some light one this.
+The following information is needed:
+
+- An arbitrary name that the data access is identified with,
+- a regular expression that can match a url one would want to download from,
+- an authentication type, and
+- a credential type.
+
+The example below sheds some light one this.
 
 .. findoutmore:: Which authentication and credential types are possible?
 

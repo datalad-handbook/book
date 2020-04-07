@@ -279,6 +279,10 @@ Throughout your data acquisition, or -- if everything is already acquired -- in
 one go afterwards, you import all acquisitions of the study into your study
 dataset.
 
+.. todo::
+
+   ``--properties`` option
+
 Semi-automatic metadata extraction and conversion specification
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 

@@ -4,70 +4,231 @@ An example dataset conversion
 -----------------------------
 
 This section demonstrates a concrete conversion for a full, complex neuroimaging
-study, the first phase of the `studyforrest project <http://www.studyforrest.org/>`_.
+study: The first phase of the `studyforrest project <http://www.studyforrest.org/>`_,
+a large neuroscientific project to study the human brain under the influence
+of complex and naturalistic stimuli. The project was started in 2014 and
+encompasses a range of data collections centered on the feature-rich movie
+Forrest Gump. The corresponding data description paper for the phase 1 data release
+`can be found here <http://www.nature.com/articles/sdata20143>`_.
 
+Originally, when it was published, the phase 1 data was converted to the
+`OpenFMRI <https://openfmri.org/data-organization-old/>`_ standard, the
+predecessor of BIDS. A BIDS compliant version of the dataset was yet missing,
+however. Here we describe how the complete conversion from the original raw
+data was done using ``hirni``, six years after the data acquisition.
 
 Studyforrest phase 1
 ^^^^^^^^^^^^^^^^^^^^
 
-The studyforrest project is a large neuroscientific project to study the human
-brain under the influence of stimuli that resemble the complexity of a natural
-enviroment more closely than standard, simplified MRI experiments. It encompasses
-a range of data collections centered on the feature-rich movie Forrest Gump.
-The first phase of the project was `published in 2014 <http://www.nature.com/articles/sdata20143>`_.
-It comprises of fMRI recordings of 20 participants in a 7T MR scanner during
-prolonged stimulation with an auditory-only version of Forrest Gump, and a large
-number of auxilliary data: several other MRI modalities (T1, T2, diffusion weighted
+The core aspect of the first phase are task-based fMRI acquisitions of N = 20
+participants listening to an audio movie version of Forrest Gump in a 7T MR scanner.
+In addition, a large number of auxiliary data was collected and included in the
+data release: several other MRI modalities (T1, T2, diffusion weighted
 images, susceptibility-weighted images, angiography data; in part acquired on a
 3T machine), measurements to assess technical and physiological noise components
 such as cardiac response, respiratory traces, and motion estimates, and all
-source code for the implemented procedures.
-
-In addition to the audio movie, a 7T acquisition with music stimulation from the
-same subjects was added,
-
-.. todo::
-
-   What exactly comprises the phase 1 dataset? release_history.txt is substantial!
+source code for the implemented procedures. The subsection below introduces the
+various parts and peculiarities of the data.
 
 Data overview
 """""""""""""
 
 The audio movie was presented in eight approximately 15 minute long segments,
-split into two sessions with 4 segments each and a flexible break in between.
+split into two sessions with 4 segments (runs) each and a flexible break in between.
+This splits the task-based MRI acquisition and the auxiliary respiratory trace
+and cardiac acquisitions into 8 runs, split into two acquisitions.
+All other MRI modalities were acquired in a separate session, mostly using a
+different 3T MRI scanner.
+
+The DICOM data thus exists
 
 .. todo::
 
-   outline the directory structure of the raw dataset
+   - outline the directory structure of the raw dataset
+   - where are other imaging modalities? Are they part of the phase1 release?
 
 
+Idiosyncrasies of the data
+""""""""""""""""""""""""""
 
-Data "suboptimalities"
-""""""""""""""""""""""
+Overall, the study is quite complex: There are multiple acquisitions and sessions, multiple
+acquired modalities, scanner peculiarities, and a large amount of auxiliary data.
+Moreover, as everyone involved in the acquisition is human, not everything went
+smooth and error-free during scanning. This makes a conversion a large and
+complex effort, regardless of by which means it is attempted.
 
-The study is a very complex one: There are multiple acquisitions and sessions, multiple
-acquired modalities, and a large amount of auxiliary data. This on its own
-makes restructuring a large effort. However, as the acquisition is quite complex,
-not everything went smooth during scanning. The following problems were discovered
-in the raw data:
+The following findoutmore gives an overview of some of the problems and
+peculiarities of the data. Don't memorize it -- it is only valid for the
+usecase of converting this particular dataset. Instead, it is meant to show
+how a conversion can be adjusted to fit the idiosyncrasies of complex studies.
+The take home message should be that picture-perfect study acquisitions are rare,
+and reproducible conversions into BIDS-compliant datasets are possible by taking
+the special cases that they contain into account.
 
-- subject 5 and 20 had aborted runs
+.. findoutmore:: Peculiarities
+
+   Here is an overview of the various ways in which the acquired raw data was not
+   a picture-perfect raw dataset. The conversion process later attended to all of
+   these issues.
+
+   #. For this particular 7T MR scanner, the raw DICOM data came in two different
+      flavors: Standard DICOMS, and DICOMS that included motion correction done by
+      the scanner, both in the same acquisition. For the conversion, only motion
+      corrected image series were to be considered.
+
+   #. Among the acquisitions of study participants, the raw data also contains data
+      for phantom images, and irrelevant pilot acquisitions. The pilot acquisitions
+      should not be included in the finished BIDS dataset, and as phantom
+      acquisitions do not have any other data (e.g., physiological acquisitions)
+      attached, their conversion routines will need to be adjusted.
+
+   #. In total, 4 runs were aborted and had to be restarted. For these runs,
+      associated physio files were in turn mislabeled. One subject, for example,
+      aborted the acquisition during run 3. Therefore, 9 instead of 8 physio files
+      were saved (with number 3 belonging to a non-considered, aborted run). In
+      response, the physio files 4-9 had to be renamed to 3-8, and physio file
+      3 got an ``aborted`` identifier.
+
+   #. TODO: DEFACING
+
+   While the exact ways in which the acquisitions had problems are idiosyncratic,
+   it is normal that neuroimaging studies contain aborted runs, misspecified DICOM
+   metadata, or similar issues.
+   The conversion section below shows how the studyforrest problems were customly
+   addressed, both as an example on how to deal with the particular encountered
+   problems, and as a showcase that demonstrates that conversions of non-perfect
+   raw data sets is possible.
+
 
 .. todo::
 
-   figure out problems. Bens script has them, but I can't access the script
+   Figure out all of the data peculiarities
 
-While the exact ways in which the acquisitions had problems are idiosyncratic,
-it is normal that neuroimaging studies contain aborted runs, or similar issues.
-The conversion section below shows how the studyforrest problems were customly
-addressed as an example on how to deal with such problems
+   - what does cut_reference_volume.py do, why is it relevant?
+
+
 
 Conversion
 ^^^^^^^^^^
 
+Unlike outlined in section :ref:`hirnibasics`, the conversion efforts for this
+dataset were not gradually undertaken during the acquisition of the data, but 6 years
+after the DICOMs left the scanner. Therefore, DICOMs were not gradually added
+to a study dataset, but the complete study data was imported at once.
+In order to not have a human import all data with the similar, repetitive commands,
+a bash script was prepared to do it. This script executed a complete ``hirni`` workflow,
+and contained all of the relevant adjustments for the data peculiarities.
+
+Because it contains potentially identifying information such as certain unanonymized
+subject IDs, the original script can not be shared. Below, however, the script
+is explained step-by-step.
+
+As a first step, a studydataset is created, and ``hirni``\s ``setup_study_dataset``
+procedure is run:
+
+.. code-block:: bash
+
+   $ datalad create phase1_raw
+   $ cd phase1_raw
+   $ datalad run-procedure setup_study_dataset
+
+The study description was added with a helper script.
+
+.. code-block:: bash
+
+        {
+            "Name": "Forrest Gump movie annotation",
+            "BIDSVersion": '1.1.1',
+            "License": 'PDDL',
+            "Authors": [],
+            "Acknowledgements": "",
+            "HowToAcknowledge": "",
+            "Funding": "",
+            "ReferencesAndLinks": [
+                "Hanke, M., Baumgartner, F.J., Ibe, P., Kaule, F.R., Pollmann, S., Speck, O., Zinke, W. & Stadler, J. (2014). A high-resolution 7-Tesla fMRI dataset from complex natural stimulation with an audio movie. Scientific Data, 1. doi:10.1038/sdata.2014.3",
+                "Labs, A., Reich, T., Schulenburg, H., Boennen, M., Gehrke, M., Golz, M., Hartings, B., Hoffmann, N., Keil, S., Perlow, M., Peukmann, A. K., Rabe, L. N., von Sobbe, F.-R. & Hanke, M. (2015). Portrayed emotions in the movie Forrest Gump. F1000Research, 4:92. http://f1000research.com/articles/4-92 10.12688/f1000research.6230.1"
+                ]
+        }
+
 .. todo::
 
-   demonstrate conversion concretely, maybe on a single subject.
+   - Add the correct information, once done.
+   - Make it valid JSON to enable Syntax highlighting.
+   - add stuff about the helper script
+
+- add a comprehensive README
+
+.. findoutmore:: README contents
+
+   .. code-block:: md
+
+        Dataset content overview
+        ========================
+
+        This is an overview of the dataset content.
+
+   .. todo::
+
+      Add finished README, current one is outdated.
+
+The session protocols for the first and second audio-movie acquisition (the first
+last 4 runs) are copied into the root of the study dataset, as well as the code
+that was used to create the movie segments and the questionnaires in between runs.
+
+7T DICOM data is imported with :command:`datalad hirni_import_dcm`. Inside of the
+bash script, this is done in a for loop over subjects and acquisitions.
+Special cases (phantom scans, mislabeled acquisitions) are attended in this loop.
+The code block below gives an overview of this in pseudo-code:
+
+.. code-block:: bash
+
+   for dir in path/to/7T_data/*; do
+       for tarball in $(ls ${dir}/raw/dicom/* | sort); do
+
+           # get variables to use in hirni_import_dcm call
+           sub=$(basename ${dir})           # sub will be the subject ID
+           fn=$(basename ${tarball})        # fn will be ?? TODO ??
+           acq=${fn:0:9}                    # acq will be ?? TODO ??
+
+           # fix special cases
+           if [[ ${fn} == "<mislabeled_acq>.tar.gz" ]]
+           then acq="<corrected_acq>"
+           fi
+
+           # handle phantom scans
+           if [[ ${fn} == "<phantom_scan>.tar.gz" ]]
+           then acq="phantom_1"
+           fi
+
+           # add anonymized subject IDs (relies on 'anon_id' script that matches
+           # subject IDs to anonymized subject IDs
+           if [[ ${sub} == "phantom" ]]
+           then anon="--anon-subject phantom"
+           else anon="--anon-subject $(code/creation/anon_id ${sub})"
+           fi
+
+           # import DICOMs with hirni, supply relevant bids terms with --properties
+           datalad hirni-import-dcm --subject ${sub} ${anon} --properties '{"bids-task": "aomovie"}' ${tarball} ${acq}
+
+           # edit the specification of each acquisition to ignore
+           # non-motion-corrected files with a helper script
+           code/creation/ignore_non_moco.py ${acq}/studyspec.json
+
+           # edit the specification of each acquisition for fslroi procedure
+           # with helper script
+           code/creation/cut_reference_volume.py ${acq}/studyspec.json
+
+           # save the edited acquisition file
+           datalad save ${acq}/studyspec.json -m "Edit dicomseries specification for acquisition ${acq}"
+
+
+
+.. todo::
+
+   - check whether the hirni-import-dcm call is still correct. I suspect it lacks
+     an ``--anon-subject`` option
+
+   - demonstrate conversion concretely, maybe on a single subject?
 
 
 Resources

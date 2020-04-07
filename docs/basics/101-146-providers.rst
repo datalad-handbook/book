@@ -38,11 +38,11 @@ the entered credentials stay valid.
 
 If a particular storage solution requires authentication but it is not known
 to DataLad yet, the download will fail. Here is how this looks like if data is
-retrieved from a server that requires HTTP authentication, but is not configured
-for data access::
+retrieved from a server that requires HTTP authentication, but DataLad -- or the
+dataset -- lacks a configuration for data access about this server::
 
    $ datalad download-url  https://example.com/myuser/protected/path/to/file
-     [INFO   ] Downloading 'https://example.com/myuser/protected/path/to/file' into 'local/path/file'
+     [INFO   ] Downloading 'https://example.com/myuser/protected/path/to/file' into 'local/path/'
      Authenticated access to https://example.com/myuser/protected/path/to/file has failed.
      Would you like to setup a new provider configuration to access url? (choices: [yes], no): yes
 
@@ -130,7 +130,8 @@ required ``.cfg`` based on the given information. Here is how that would look li
     Would you like to setup a new provider configuration to access url? (choices: [yes], no): yes
 
     New provider name
-    Unique name to identify 'provider' for https://example.com/~myuser/protected/my_protected_file [https://example.com]: my-webserver
+    Unique name to identify 'provider' for https://example.com/~myuser/protected/my_protected_file [https://example.com]:
+    my-webserver
 
     New provider regular expression
     A (Python) regular expression to specify for which URLs this provider

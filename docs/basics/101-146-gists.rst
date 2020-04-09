@@ -146,3 +146,37 @@ A sketch of how to implement a sibling for backups is below:
 
 For an in-depth explanation and example take a look at the
 `GitHub issue that raised this question <https://github.com/datalad/datalad/issues/4369>`_.
+
+
+Retrieve partial content from a hierarchy of datasets
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+In order to :command:`get` dataset content across a range of subdatasets, a bit
+of UNIX command line foo can increase the efficiency of your command.
+
+Example: consider retrieving all ``ribbon.nii.gz`` files for all subjects in the
+`HCP open access dataset <https://github.com/datalad-datasets/human-connectome-project-openaccess>`_
+(a dataset with about 4500 subdatasets -- read on more about it in
+:ref:`usecase_HCP_dataset`).
+If all subject-subdatasets are installed (e.g., with ``datalad get -n -r`` for
+a recursive installation without file retrieval), :term:`globbing` with the
+shell works fine::
+
+   $ datalad get HCP1200/*/T1W/ribbon.nii.gz
+
+
+If the subdatasets are not yet installed, globbing will not work, because the
+shell can't expand non-existent paths. As an alternative, you can pipe the output
+of an (arbitrarily complex) :command:`datalad search` command into
+:command:`datalad get`::
+
+   $ datalad -f '{path}' -c datalad.search.index-egrep-documenttype=all search 'path:.*T1w.*\.nii.gz' | xargs -n 100 datalad get
+
+However, if you know the file locations within the dataset hierarchy and they
+are predictably named and consistent, you can create a file containing all paths to
+be retrieved and pipe that into :command:`get` as well::
+
+   # create file with all file paths
+   $ for sub in HCP1200/*; do echo ${sub}/T1w/ribbons.nii.gz; done > toget.txt
+   # pipe it into datalad get
+   $ cat toget.txt | xargs -n 100 datalad get

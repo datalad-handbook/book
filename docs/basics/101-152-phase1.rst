@@ -34,7 +34,7 @@ Data overview
 """""""""""""
 
 The audio movie was presented in eight approximately 15 minute long segments,
-split into two sessions with 4 segments (runs) each and a flexible break in between.
+split into two sessions with 4 segments each and a flexible break in between.
 This splits the task-based MRI acquisition and the auxiliary respiratory trace
 and cardiac acquisitions into 8 runs, split into two acquisitions.
 All other MRI modalities were acquired in a separate session, mostly using a
@@ -116,15 +116,21 @@ dataset were not gradually undertaken during the acquisition of the data, but 6 
 after the DICOMs left the scanner. Therefore, DICOMs were not gradually added
 to a study dataset, but the complete study data was imported at once.
 In order to not have a human import all data with the similar, repetitive commands,
-a bash script was prepared to do it. This script executed a complete ``hirni`` workflow,
-and contained all of the relevant adjustments for the data peculiarities.
+a bash script was prepared to do it. This script executed a complete ``hirni``
+workflow, with standard command line calls as one would do them from the
+command line, but nested into for loops and if conditions to increase the
+efficiency, and adjusted to the data peculiarities.
+Certain tasks that are usually done by hand (e.g., metadata curation for the
+``dataset_description.json`` file) was performed by helper scripts that were
+called from within the bash script. This approach automated the complete
+study dataset creation and conversion. It is nevertheless perfectly possible
+to perform all of these actions stepwise from the command line.
+Because the script contains potentially identifying information such as certain
+unanonymized subject IDs, the original script can not be shared. Below, however,
+the script is explained step-by-step.
 
-Because it contains potentially identifying information such as certain unanonymized
-subject IDs, the original script can not be shared. Below, however, the script
-is explained step-by-step.
-
-As a first step, a studydataset is created, and ``hirni``\s ``setup_study_dataset``
-procedure is run:
+**Study dataset creation:** As a first step, a study dataset is created, and
+``hirni``\s ``setup_study_dataset`` procedure is run:
 
 .. code-block:: bash
 
@@ -132,9 +138,68 @@ procedure is run:
    $ cd phase1_raw
    $ datalad run-procedure setup_study_dataset
 
-The study description was added with a helper script.
+Some of the peculiarities of the data were adjusted to with custom Python
+helper scripts. These helper scripts dealt with adjusting ``study_spec.json``
+files or adding relevant information or configurations for conversion to them.
+They were created as a set of scripts inside a DataLad dataset, and this dataset
+was installed as a subdataset into ``code/creation`` to make it available
+inside of the study dataset.
 
-.. code-block:: bash
+**Study metadata curation:** As a next step, human-readable descriptions are created.
+For one, by adding the README file of the original release into the study dataset,
+and by curating study metadata into ``dataset_description.json``.
+The addition of a study description was the first application for a helper script.
+You can find out more about this helper in the findoutmore below.
+
+.. findoutmore:: How did this helper look like?
+
+    To add the study description, the bash script called a helper script::
+
+       $ code/creation/create_description.py
+
+    The helper script ``create_description.py`` is a short Python script and simply
+    dumps a bunch of JSON into ``dataset_description.json``:
+
+    .. code-block:: Python
+
+       #!/usr/bin/env python
+
+       import datalad.support.json_py as json_py
+       if __name__ == '__main__':
+
+           description = {
+           "Name": "Forrest Gump movie annotation",
+           "BIDSVersion": '1.1.1',
+           "License": 'PDDL',
+           # "Authors": [],
+           # Acknowledgements
+           # HowToAcknowledge
+           # Funding
+           "ReferencesAndLinks": [
+               "Hanke, M., Baumgartner, F.J., Ibe, P., Kaule, F.R., Pollmann, S., Speck, O.,"
+               "Zinke, W. & Stadler, J. (2014). A high-resolution 7-Tesla fMRI dataset from"
+               "complex natural stimulation with an audio movie. Scientific Data, 1."
+               "doi:10.1038/sdata.2014.3",
+               "Labs, A., Reich, T., Schulenburg, H., Boennen, M., Gehrke, M., Golz, M.,"
+               "Hartings, B., Hoffmann, N., Keil, S., Perlow, M., Peukmann, A. K., Rabe, L. N.,"
+               "von Sobbe, F.-R. & Hanke, M. (2015). Portrayed emotions in the movie \u201cForrest"
+               "Gump\u201d. F1000Research, 4:92."
+               "url:http://f1000research.com/articles/4-92"
+               "doi:10.12688/f1000research.6230.1"],
+           # DatasetDOI
+           # from studymetadata_edit (hirni webapp); no reference to thos keys in BIDS:
+           # Ethics
+           # Preregistration
+           # Power
+           json_py.dump(description, "./dataset_description.json")
+
+    .. todo::
+
+       Update to final version
+
+    When this script runs, this is how ``dataset_description.json`` looks like:
+
+    .. code-block:: bash
 
         {
             "Name": "Forrest Gump movie annotation",
@@ -150,13 +215,10 @@ The study description was added with a helper script.
                 ]
         }
 
-.. todo::
+    .. todo::
 
-   - Add the correct information, once done.
-   - Make it valid JSON to enable Syntax highlighting.
-   - add stuff about the helper script
-
-- add a comprehensive README
+        - Add the correct information, once done.
+        - Make it valid JSON to enable Syntax highlighting.
 
 .. findoutmore:: README contents
 
@@ -171,18 +233,25 @@ The study description was added with a helper script.
 
       Add finished README, current one is outdated.
 
-The session protocols for the first and second audio-movie acquisition (the first
-last 4 runs) are copied into the root of the study dataset, as well as the code
-that was used to create the movie segments and the questionnaires in between runs.
+In addition, the session protocols for the first and second audio-movie
+acquisition (the first last 4 runs) are copied into the root of the study
+dataset, as well as the code that was used to create the movie segments and the
+questionnaires in between runs.
 
+**DICOM imports for functional data:**
 7T DICOM data is imported with :command:`datalad hirni_import_dcm`. Inside of the
-bash script, this is done in a for loop over subjects and acquisitions.
-Special cases (phantom scans, mislabeled acquisitions) are attended in this loop.
-The code block below gives an overview of this in pseudo-code:
+bash script, this is done in a for loop over subjects and acquisitions. Within
+this first for loop, all MR data from the audio movie task and the associated
+auxiliary (physiological) data is imported, and all relevant adjustments to file
+names or specifications are made: Special cases (phantom scans, mislabeled
+acquisitions) are attended either right in the script or with helper scripts.
+The code blocks below give an overview of this in pseudo-code, split into
+functional units (add functional MRI data, edit ``studyspec.json`` files, add
+physiological data, edit ``studyspec.json`` files):
 
 .. code-block:: bash
 
-   for dir in path/to/7T_data/*; do
+   for dir in path/to/7T_data/*; do         # loop over subject dicom directories
        for tarball in $(ls ${dir}/raw/dicom/* | sort); do
 
            # get variables to use in hirni_import_dcm call
@@ -200,15 +269,30 @@ The code block below gives an overview of this in pseudo-code:
            then acq="phantom_1"
            fi
 
-           # add anonymized subject IDs (relies on 'anon_id' script that matches
-           # subject IDs to anonymized subject IDs
+           # add anonymized subject IDs (relies on 'anon_id' script that
+           # matches subject IDs to anonymized subject IDs
            if [[ ${sub} == "phantom" ]]
            then anon="--anon-subject phantom"
            else anon="--anon-subject $(code/creation/anon_id ${sub})"
            fi
 
-           # import DICOMs with hirni, supply relevant bids terms with --properties
+           # import DICOMs with hirni, supply relevant bids terms
+           # (task name) with --properties
            datalad hirni-import-dcm --subject ${sub} ${anon} --properties '{"bids-task": "aomovie"}' ${tarball} ${acq}
+
+**Specification adjustments for functional data:**
+Some general or case-by-case peculiarities of the data required adjustments to
+the ``studyspec.json`` files of each acquistion. These adjustments were performed
+in the same bash for loop as the :command:`hirni-import-dcm` command, and relied
+on helper scripts. The code block below continues the bash for loop from above,
+and findoutmores afterwards shed light on the helper scripts.
+
+.. code-block:: bash
+
+   for dir in path/to/7T_data/*; do         # loop over subject dicom directories
+       for tarball in $(ls ${dir}/raw/dicom/* | sort); do
+
+           [...dicom imports...]
 
            # edit the specification of each acquisition to ignore
            # non-motion-corrected files with a helper script
@@ -221,14 +305,101 @@ The code block below gives an overview of this in pseudo-code:
            # save the edited acquisition file
            datalad save ${acq}/studyspec.json -m "Edit dicomseries specification for acquisition ${acq}"
 
+.. todo::
+
+   Add info about ignore_non_moco and cut_reference_volume helper
+
+**Auxiliary data additions:**
+As a next step, auxiliary data is added to the acquisition subdirectories. This,
+again, is part of the for loop across subjects and acquisitions.
+
+.. code-block:: bash
+
+   for dir in path/to/7T_data/*; do         # loop over subject dicom directories
+       for tarball in $(ls ${dir}/raw/dicom/* | sort); do
+
+           [...dicom imports...]
+           [...specification edits...]
+
+           # don't add auxiliary data for phantom scans
+           if [[ ${sub} == "phantom" ]]
+           then
+               # phantom acquisition has nothing but dicoms
+               continue
+           fi
+
+
+           mkdir -p ${acq}/physio
+
+           # special cases with missing acquisition IDs
+           if [[ ${acq} == "<special_case>" ]]
+           then
+               cp </path/to/misnamed/file> <path/to/correct/filename>
+               [...]
+           elif [[ ${acq} == "other_special_case" ]]
+           then
+               [...]
+           fi
+
+           # general rule
+           for physiofile in </path/to/correcly/named/physiofiles/*.txt>; do
+               cp ${physiofile} ${acq}/physio/
+           done
+
+           # save additions of physio files
+           datalad save -m "Add physiological data for acquisition ${acq}"  ${acq}/physio
+
+           # create specification for physio files. Special cases: Some files
+           # were acquired with 200 instead of 100Hz sampling rate
+
+           # TODO ADINA: is that run correct? Only two physio runs??
+           run=1
+           for physiofile in $(ls ${acq}/physio/* | sort); do
+             freq=100
+             if [[ $(basename ${physiofile}) = *200Hz* ]]; then
+               freq=200
+             fi
+             datalad hirni-spec4anything ${physiofile} --properties "{\"procedures\": {\"procedure-name\": \"hirni-physiobox-converter\"}, \"bids-run\": \"0${run}\", \"sampling-frequency\": \"${freq}\", \"type\": \"physio_file\"}"
+             run=$((run + 1))
+           done
+
+         done
+       done
 
 
 .. todo::
 
    - check whether the hirni-import-dcm call is still correct. I suspect it lacks
      an ``--anon-subject`` option
+   - figure out why there are only two physio runs (see todo in code block
 
    - demonstrate conversion concretely, maybe on a single subject?
+
+**Further modalities:**
+Apart from functional data, a number of other modalities were acquired. They
+exist as separate DICOM series, as they were collected in a separate acquisition
+with a different scanner. These files are imported next, and they, too, are imported
+by looping across subjects and acquisitions:
+
+.. code-block:: bash
+
+   for dir in /path/to/anatomical/data/*; do            # loop over subjects
+     for tarball in $(ls ${dir}/raw/dicom/* | sort); do
+       sub=$(basename ${dir})
+       fn=$(basename ${tarball})
+       # determine acquisition ID here instead of letting hirni-import-dcm derive
+       # it from DICOM metadata, in order to reuse it for further imports
+       acq=${fn:0:9}
+
+       # import the dicom tarball and create specs:
+       datalad hirni-import-dcm --subject ${sub} --anon-subject $(code/creation/anon_id ${sub}) ${tarball} ${acq}
+
+       # ignore pilot acquisitions
+       if [[ ${acq} == "pilot" ]]
+       then
+           datalad remove ${acq}/studyspec.json -m "Ignore pilot acquisition"
+           continue
+       fi
 
 
 Resources

@@ -715,6 +715,37 @@ MORE NOTES:
       AARRRGHHH oh my god, lets stick with "Rules exist, their documentation can be
       summarized in the word TODO, have fun dying"
 
+   Notes from April 9th call: Building custom rules
+
+   - rules are based on extracted dicom metadata, DICOMs themselves are not needed.
+   - specifications in studyspec.json are based on rules
+   - The dicom2spec command applies the rules - no reimporting is necessary, just
+     rerun dicom2spec with updated rules
+   - datalad hirni comes with a custom rules template (in Github repository). Copy the
+     template into some place. Configure datalad to use these rules whenever
+     dicom2spec is used. ben does it with a local configuration:
+     git config dataladhirni.dicom2spec.rules <path/to/python file>
+   - check whether this worked by adding a pdb statement into the rule python file
+   - how do rules work: We are specifying a class, the attribute at the end of the file
+     tells hirni which the rule is (if there are several classes)
+   - class needs at least 2 methods, constructor and call method. whenever an object
+     of this class is generated it gets DICOM metadata for the entire aq that
+     dicom2spec was called on
+   - dicommetadata is a list of dictionaries with extracted DICOM header fields
+   - rules are applied per image series (call method is called once per image series).
+     whenever call method is called, it should return a list of dictionaries that goes into the
+     specification.
+   - any number of keys is possible. The special stuff about the virtual bids-subject
+     key.
+   - invalidation of particular image series: This can be done scanner-manufacturer-wise
+   - specification dicts is the specification file (each dict in this list will be a line
+     in the studyspec file)
+   - guess functions in standard rules work on protocol name
+   - the approved key is added automatically by hirni depending on what call method
+     returns. aproved is false by default. webui can distinguish false and true
+     values. all false will show the fields as editable and asks for approval, all
+     trues
+   - no procedure definition in dicom2spec
 
 Adding other data
 """""""""""""""""

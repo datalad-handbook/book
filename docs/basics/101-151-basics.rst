@@ -12,7 +12,8 @@ A ``hirni`` workflow comprises of two steps:
 Ideally, the first step is an ongoing routine during the data acquisition phase of
 the study: With each new participant scanned and tested, their data is imported
 into a continuously growing study dataset. It is also possible to start
-the first step only after all data is collected, though.
+the first step only after all data is collected, though, and the next section
+demonstrates this on a concrete example.
 Once step one is accomplished, the second step is a single command, and the
 result is a BIDS-compliant dataset with complete provenance reaching all the
 way back to the raw data from the MR scanner.

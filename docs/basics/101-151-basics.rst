@@ -220,6 +220,18 @@ tools such as `jq <https://stedolan.github.io/jq/>`_ or webtools such as
    file and concludes with a ``datalad save``, using the commit message
    ``"[HIRNI] Add specification snippet for: dataset_description.json"``
 
+   There are two advantages to using the webUI: For one, it will write valid JSON.
+   And secondly, as the webUI is only ever used by humans, data that is curated
+   via this web tool has a label of confidence attached to it. This is not yet
+   relevant for ``dataset_description.json``, but for editing ``studyspec.json``
+   files later. In their JSON dictionaries, an ``"approved": "true"`` key will
+   indicate if any information was given by a human and alter the webUI's
+   handling of this information piece afterwards.
+
+   Using the webUI for acquisition metadata will have a slightly more complex
+   layout, but a separate findoutmore further down in this section will shed
+   light on it.
+
 Importing DICOMs
 """"""""""""""""
 

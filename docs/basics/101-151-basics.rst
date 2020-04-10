@@ -349,25 +349,27 @@ You can find out more about the details of this process below.
    for example about the location and version of the files and any BIDS-relevant
    information that is available from the DICOM headers.
 
-   All of this metadata extraction is therefore crucial for the upcoming conversion.
+   All of this metadata extraction is therefore crucial for the upcoming conversion,
    and the study dataset will receive a large chunk of the DICOM metadata
    required for the conversion directly at the time of the DICOM import.
 
-   The basis of the import and data handling is a :command:`datalad add-archive-content`
-   (:manpage:`datalad-add-archive-content` manual) command. This command -- together
-   with the way the data import is performed -- helps to save disk space in the
-   study dataset: The ``tar.gz`` archive is saved in its compressed form into a
-   :term:`branch` of the subdataset, and is extracted into the ``master`` branch
-   of the dataset. From the DICOM files in ``master``, metadata can be extracted.
-   With :command:`datalad add-archive-content`, the archive in the dataset branch
-   is treated like a :term:`special remote`: On demand, individual files from
-   ``master`` could be re-retrieved from the tarball. Therefore, the archive in
-   the seperate branch is essentially a compressed DICOM storage.
-   Because this ensures one available source for the data, the (larger) file
-   content of the extracted DICOMs in ``master`` can be dropped
-   right after metadata aggregation. Thus, instead of large, extracted DICOMs,
-   the subdatasets only contains the compressed tarball, while ensuring that
-   DICOM files can nevertheless be reobtained from the archive on demand.
+   .. findoutmore:: Beyond metadata: Disk space savings
+
+      The basis of the import and data handling is a :command:`datalad add-archive-content`
+      (:manpage:`datalad-add-archive-content` manual) command. This command -- together
+      with the way the data import is performed -- helps to save disk space in the
+      study dataset: The ``tar.gz`` archive is saved in its compressed form into a
+      :term:`branch` of the subdataset, and is extracted into the ``master`` branch
+      of the dataset. From the DICOM files in ``master``, metadata can be extracted.
+      With :command:`datalad add-archive-content`, the archive in the dataset branch
+      is treated like a :term:`special remote`: On demand, individual files from
+      ``master`` could be re-retrieved from the tarball. Therefore, the archive in
+      the separate branch is essentially a compressed DICOM storage.
+      Because this ensures one available source for the data, the (larger) file
+      content of the extracted DICOMs in ``master`` can be dropped automatically
+      right after metadata aggregation. Thus, instead of large, extracted DICOMs,
+      the subdatasets only contains the compressed tarball, while ensuring that
+      DICOM files can nevertheless be re-obtained from the archive on demand.
 
 However, not all relevant information can be inferred from the DICOM headers.
 Sometimes, DICOM headers contain false information, too, or acquisitions contain

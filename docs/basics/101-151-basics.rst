@@ -11,8 +11,9 @@ A ``hirni`` workflow comprises of two steps:
 
 Ideally, the first step is an ongoing routine during the data acquisition phase of
 the study: With each new participant scanned and tested, their data is imported
-into a continuously growing study dataset. It is also possible to start
-the first step only after all data is collected, though, and the next section
+into a continuously growing study dataset. This section demonstrates this
+continuous type of ``hirni`` workflow. But it is also possible to start
+the first step only after all data is collected, and the next section
 demonstrates this on a concrete example.
 Once step one is accomplished, the second step is a single command, and the
 result is a BIDS-compliant dataset with complete provenance reaching all the
@@ -99,7 +100,7 @@ In the beginning, it is a regular DataLad dataset:
 
 By installing ``hirni``, DataLad got access to a new :term:`run procedure` [#f1]_:
 ``cfg_hirni``. This procedure can create a study dataset skeleton inside of
-``mystudy``, thus preparing ``mystudy`` to become our *study dataset*.
+``mystudy``, thus preparing ``mystudy`` to become the *study dataset*.
 
 .. runrecord:: _examples/DL-101-151-102
    :language: console
@@ -164,7 +165,8 @@ general metadata about your study into the study dataset. This helps to capture
 information that you now know from the top of your head, but that you would
 later need to dig through old documents for to find out about.
 You can, however, also get to this step at any later point in time, or tackle it
-if you are already sitting on a pile of acquired DICOM data.
+if you are already sitting on a pile of acquired DICOM data, as will be demonstrated
+in the upcoming section.
 
 It is recommended to describe your study for humans in the ``README`` file, and fill
 out missing values in ``dataset_description.json``. For the ``README``, you can

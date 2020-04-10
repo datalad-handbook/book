@@ -411,9 +411,10 @@ specifications are necessary.
 
 During DICOM import, the command ``hirni-dicom2spec`` generated so called
 *specification snippets* from DICOM metadata and stored them in the
-``studyspec.json`` file.
-
-Specifications are fundamental to ``hirni`` and indispensable for a successful
+``studyspec.json`` file. In this file also all additionally specified metadata
+such as anonymized subject IDs are stored. Put simple, all these specifications
+are merely information about DICOM data.
+They are fundamental to ``hirni`` and indispensable for a successful
 conversion. But they are also quite hard to get a good grasp on. This
 findoutmore will shed some light on them.
 
@@ -723,29 +724,165 @@ MORE NOTES:
 
       - procedures: Should all use datalad run or datalad containers-run
 
-.. findoutmore:: Rules
+.. findoutmore:: Custom rules for DICOM metadata extraction
 
-   Rules are configurations that apply settings that influence the behavior
-   of ``hirni`` or its underlying tools. They can be set for different scopes
-   (applying on a system-, user-, or dataset-level), and if a configuration exists
-   on two or more levels with different values, more specific scopes take
-   precedence over more general scopes.
+   Rules are configurations that apply settings that teach ``hirni``\s
+   :command:`hirni-dicom2spec` command about *custom* DICOM header fields to extract
+   and store inside of ``studyspec.json`` files. By creating custom rules, automatic
+   metadata extraction for these fields is triggered whenever a
+   :command:`hirni-dicom2spec` or :command:`hirni-import-dcm` command is run.
+   This allows to add custom metadata from DICOM headers to the specification
+   files.
 
-   Rules are implemented as Python classes. In order to write your own set of
-   rules, you will need to create a Python file that contains them. In order to
-   apply the rules, you need to add them -- just like the configurations
-   introduced in chapter :ref:`chapter_config` -- with :command:`git config` on
-   a scope level of your choice. The key of the configuration is
-   ``datalad.hirni.dicom2spec.rule`` and its value is an absolute path to your
-   Python file.
+   .. note::
 
-   In order to write a rule, write a Python class with the help of the
-   template file that ``hirni`` provides at....
+      Please be aware that the metadata extraction does not rely on a new
+      :command:`hirni-import-dcm` command. Let's say you imported DICOMs, and
+      created custom rules afterwards. It is not necessary to re-import the
+      DICOMs -- simply run a single :command:`hirni-import-dcm` call (shown in
+      detail later in this findoutmore). Do also note that after one initial
+      :command:`hirni-import-dcm` command, no actual DICOM content is needed.
+      :command:`hirni-dicom2spec` acts solely upon the extracted DICOM metadata.
+
+   Existing rules for hirni can for example infer the subject name or the order
+   of images in a DICOM series, and whatever rules extract is written to the
+   ``studyspec.json`` file of the acquisition. Because :command:`hirni-dicom2spec`
+   only deals with DICOM metadata, all information that this command extracts
+   will be given to `HeuDiConv <https://github.com/nipy/heudiconv>`_ for
+   DICOM conversion.
 
    .. todo::
 
-      AARRRGHHH oh my god, lets stick with "Rules exist, their documentation can be
-      summarized in the word TODO, have fun dying"
+      find out how heuristics for heudiconv are derived from this
+
+   Rules are implemented as `Python classes <https://docs.python.org/3/tutorial/classes.html>`_.
+   In order to write your own set of
+   rules, you will need to create a Python file that contains them. In order to
+   apply the rules, you need to add them -- just like the configurations
+   introduced in chapter :ref:`chapter_config` -- with :command:`git config` on
+   a scope level of your choice.
+
+   **Writing rules:**
+
+   .. note::
+
+      Writing rules is a very advanced aspect of using ``hirni`` and should
+      not be a standard step in the workflow. It can be useful if you want to
+      achieve custom DICOM conversions, but it requires some proficiency with
+      Python and experience with all underlying tools.
+
+   In order to write a rule, write a Python class with the help of the
+   template file that ``hirni`` provides
+   `in its source code <https://github.com/psychoinformatics-de/datalad-hirni/blob/master/datalad_hirni/resources/rules/custom_rules_template.py>`_.
+   Each rule is a class with at least a *constructor* (the ``__init__``) and
+   a *call* method:
+
+   .. code-block:: Python
+
+      class MyDICOM2SpecRules(object):
+
+          def __init__(self, dicommetadata):
+              """
+              Parameter
+              ----------
+              dicommetadata: list of dict
+                  dicom metadata as extracted by datalad; one dict per image series
+              """
+              self._dicom_series = dicommetadata
+
+          def __call__(self, subject=None, anon_subject=None, session=None):
+              """
+              Parameters
+              ----------
+              Returns
+              -------
+              list of tuple (dict, bool)
+              """
+              spec_dicts = []
+              for dicom_dict in self._dicom_series:
+                  spec_dicts.append((self._rules(dicom_dict,
+                                                 subject=subject,
+                                                 anon_subject=anon_subject,
+                                                 session=session),
+                                     self.series_is_valid(dicom_dict)
+                                     )
+                                    )
+              return spec_dicts
+
+          def _rules(self, series_dict, subject=None, anon_subject=None,
+                     session=None):
+
+              return {'description': series_dict['SeriesDescription']
+                      if "SeriesDescription" in series_dict else '',
+
+                      'comment': 'I actually have no clue',
+                      'subject': series_dict['PatientID'] if not subject else subject,
+                      'anon-subject': anon_subject if anon_subject else None,
+                      'bids-session': session if session else None
+                      }
+
+          def series_is_valid(self, series_dict):
+
+              return series_dict['ProtocolName'] != 'ExamCard'
+
+
+      __datalad_hirni_rules = MyDICOM2SpecRules
+
+   Usually, you don't need to touch the constructor. In it, the extracted metadata
+   from the DICOMs (``dicommetadata``) is automatically made available to the class.
+   Because it is now a class attribute (``self._dicom_series``), this metadata
+   can be queried in the ``call`` method.
+
+   ``dicommetadata`` is a list of dictionaries with extracted DICOM header fields
+   that can be queried with standard Python operations (as shown in ``_rules()``).
+   What the call method needs to return is a list of dictionaries with metadata that
+   will be written into the ``studyspec.json`` file of the acquisition  (``spec_dicts``).
+
+   The small function ``series_is_valid`` is used to determine whether a DICOM
+   series is valid. Note that this needs a manufacturer-specific approach. For
+   Siemens scanners, a series is invalid if the DICOM header field ``ProtocolName``
+   is ``ExamCard``. If this happens, the rule template above would mark the
+   series as invalid, but this function needs to be adjusted or removed, depending
+   on the scanner type used for your acquisitions. To get a hang on querying
+   metadata and writing rules, it can be helpful to use debugging tools such
+   as `pdb breakpoints <https://docs.python.org/3/library/pdb.html#pdb.set_trace>`_
+   when you start implementing your rule.
+
+   Because a single Python script can contain several classes, the
+   variable ``__datalad_hirni_rules`` at the end of the file needs to be given
+   all classes that contain relevant rules.
+
+   **Adding rules:**
+   Once custom rules are written, ``hirni`` needs to know where the scripts for
+   these rules lie. This is done via :command:`git config`. The key of the
+   configuration is  ``datalad.hirni.dicom2spec.rule`` and its value is an absolute
+   path to the Python file containing the rules::
+
+      $ git config --local --add datalad.hirni.dicom2spec.rule "/home/me/myrules.py"
+
+   Rules can be set for different scopes (applying on a system-, user-, or
+   dataset-level), and if a configuration exists on two or more levels with
+   different values, more specific scopes take precedence over more general scopes
+   [#f6]_.
+
+   In order to extract metadata with newly added rules (if :command:`hirni-import-dcm`
+   was run once at any point before) one can call :command:`hirni-dicom2spec`
+   like this::
+
+      $ datalad hirni-dicom2spec -s <path/to/studyspec.json> <path/to/dicoms>
+
+   If you are in one acquisition subdirectory, this would work::
+
+      $ datalad hirni-dicom2spec -s studyspec.json .
+
+   .. note::
+
+      Do note that upon re-invocing :command:`hirni-dicom2spec` the existing
+      specification snippets in ``studyspec.json`` will be overwritten! Therefore,
+      don't do costly editing with the webUI if you intend to run
+      :command:`hirni-dicom2spec` again.
+
+
 
    Notes from April 9th call: Building custom rules
 
@@ -886,3 +1023,6 @@ conversions works as you intend it to work without converting all of the dataset
 
          introduces DataLad's metadata capabilities and demonstrates the metadata
          aggregation process in detail.
+
+.. [#f6] Re-read about configurations and how to set them in the chapter
+         :ref:`chapter_config`.

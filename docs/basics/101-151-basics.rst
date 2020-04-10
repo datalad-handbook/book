@@ -276,14 +276,33 @@ tarball with the :command:`datalad hirni-import-dcm`
 command. This command needs a path or url to a DICOM tarball of one acquisition,
 and an acquisition ID that will become the subdirectory name. In the file hierarchy
 above, this acquisition ID was ``acquisition1``.
-Additionally, the command can take a few specifications that will be relevant for
-conversion as optional command line arguments: You can specify the subject identifier as used
+
+The only purpose of importing DICOMs into the study dataset at this point is
+to extract their conversion-relevant metadata: Which DICOMs constitute an image
+series, what subject was scanned, which task was performed? A lot of meta data
+can be automatically extracted, but in addition to the DICOM
+tarball the command can also take specifications for such metadata as
+optional command line arguments. This is helpful if DICOMs don't have comprehensive
+header information, if it is information that is not part of the DICOM header
+(such as (potentially) the subject ID, and certainly the anonymized subject ID),
+or if it is non-standard metadata, such as newly added BIDS terms that would
+not be detected automatically by ``hirni`` (see the hidden section on rules to
+find out how to teach ``hirni`` about any DICOM metadata though). To curate
+metadata during import from the command line, you can specify the subject identifier as used
 during scanning with the ``--subject`` option, and an anonymized ID (such as ``001``)
 that this subject should be identified with in the final BIDS dataset
-with the ``--anon-subject`` option.
-Note that *some* of this information can be inferred from DICOM headers if
-it was correctly filled in during scanning, for example the acquisition ID and
-the subject identifier.
+with the ``--anon-subject`` option. If there are other BIDS-relevant metadata
+terms about this acquisition, you can include them with the ``--properties``
+option and a JSON dictionary as in this example:
+``--properties '{"bids-task": "oneback"}'``
+
+.. note::
+
+   *Some* of this information can be inferred from DICOM headers if
+   it was correctly filled in during scanning, for example the acquisition ID and
+   the subject identifier. In principle, any information from the DICOM headers
+   can be extracted automatically, but it might require custom *rules*. A later
+   findoutmore will elaborate on rules and how to customize them.
 
 To import the first acquisition of the first subject, you run a command similar
 to this one inside of your study dataset::
@@ -294,9 +313,6 @@ Throughout your data acquisition, or -- if everything is already acquired -- in
 one go afterwards, you import all acquisitions of the study into your study
 dataset.
 
-.. todo::
-
-   ``--properties`` option
 
 Semi-automatic metadata extraction and conversion specification
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

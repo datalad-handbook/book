@@ -622,22 +622,25 @@ findoutmore will shed some light on them.
       [...]
       "location": "dicoms",
 
-   A ``type`` key contains ...
+   With the exception of DICOM data entities, a snippet's ``type`` key contains
+   an arbitrary label (by default: ``generic file``).
+   This label can be used as a "category" to group related
+   specification snippets together. For example, all stimulation log files could
+   get the ``type`` label "events". During the conversion step, using command
+   line options, conversion can be limited to only specification snippets of a
+   particular ``type`` label. This can be useful to test whether conversion routines
+   work on a subset of the data, for example, or to simply convert only some parts
+   of a study dataset.
+
+   Only for DICOMs ``type`` keys have a special meaning
 
    .. todo::
 
-      NOTES FOLLOW
-      - per snippet.
-      - special meaning for DICOMs,
-      - for all other data it is an arbitrary field that allows to group snippets in a specification file.
-      - can be used category to match entries of entire specification against,
-      - conversion execution can be limited to specification snippets of a particular type. (one can try out a conversion like this).
-      - default value: "generic file"
-
-      uid for dicoms is the series identifier NOT CLEAR YET - VIDEO IS INCONSISTENT.
+      - what is the type key for DICOMs?
+      - uid for dicoms is the series identifier NOT CLEAR YET - VIDEO IS INCONSISTENT.
       - The conversion with heudiconv acts on a complete dicom subdataset, i.e.
-      potentially on several image series at once (HOW DOES THIS CHANGE WITH NEW
-      FEATURES?)
+        potentially on several image series at once (HOW DOES THIS CHANGE WITH NEW
+        FEATURES?)
 
    .. code-block::
 
@@ -646,7 +649,8 @@ findoutmore will shed some light on them.
 
    Finally, a list holds a number of dictionaries that define the procedure(s) that
    are to be performed on the DICOMs when this snippet is processed and how those
-   procedures are to be executed:
+   procedures are to be executed. This is how it looks like by default for a
+   DICOM series:
 
    .. code-block::
 
@@ -682,7 +686,23 @@ findoutmore will shed some light on them.
 
    .. todo::
 
-      ... COULDNT TRY THIS YET, DIDNT WORK
+      - the approved key is added automatically by hirni depending on what call method
+        returns. aproved is false by default. webui can distinguish false and true
+        values. all false will show the fields as editable and asks for approval, all
+        trues
+      - no procedure definition in dicom2spec
+
+Procedures
+""""""""""
+
+The fundamental conversion mechanism relies on DataLad's :term:`run procedure`\s.
+Each specification snippets does not only define metadata about the data
+entity, but also how this data entity shall be treated during conversion -- from
+simple operations such as "copying and renaming" up to complex procedures
+such as defacing. The findoutmore above already showed some example procedure
+definitions, but there is more information about procedures to be known:
+
+
 
 MORE NOTES:
 - available procedures: copy-converter (copies a file
@@ -801,14 +821,19 @@ MORE NOTES:
       __datalad_hirni_rules = MyDICOM2SpecRules
 
    Usually, you don't need to touch the constructor. In it, the extracted metadata
-   from the DICOMs (``dicommetadata``) is automatically made available to the class.
+   from the entire DICOM acquisition (``dicommetadata``) is automatically made
+   available to the class.
    Because it is now a class attribute (``self._dicom_series``), this metadata
-   can be queried in the ``call`` method.
+   can be queried in the ``call`` method. During execution, the newly generated
+   rules will be applied to all DICOM series in the acquisition, and each of these
+   calls will create one specification snippet in the ``studyspec.json`` file.
 
    ``dicommetadata`` is a list of dictionaries with extracted DICOM header fields
    that can be queried with standard Python operations (as shown in ``_rules()``).
+   Any number of keys is possible.
    What the call method needs to return is a list of dictionaries with metadata that
-   will be written into the ``studyspec.json`` file of the acquisition  (``spec_dicts``).
+   will be written into the ``studyspec.json`` file of the acquisition (``spec_dicts``)
+   per DICOM series.
 
    The small function ``series_is_valid`` is used to determine whether a DICOM
    series is valid. Note that this needs a manufacturer-specific approach. For
@@ -821,7 +846,7 @@ MORE NOTES:
    when you start implementing your rule.
 
    Because a single Python script can contain several classes, the
-   variable ``__datalad_hirni_rules`` at the end of the file needs to be given
+   attribute ``__datalad_hirni_rules`` at the end of the file needs to be given
    all classes that contain relevant rules.
 
    **Adding rules:**

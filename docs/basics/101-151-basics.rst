@@ -377,37 +377,9 @@ image series from failed MRI sequences that should not be converted. And while
 ``hirni``\s conversion *can* incorporate special procedures such as anonymizing
 subject identifiers or defacing anatomical images, it still needs a human decision
 to do so. For these and similar cases that require human input, manual
-specifications are necessary.
-
-.. findoutmore:: Why anonymizing measures should be done during the conversion
-
-   Basic ethical practices in science and the General Data Protection Regulation
-   (GDPR) of the European Union require that potentially identifying information
-   of subjects' data needs to be anonymized to protect the identity and privacy
-   rights of research participants.
-
-   MRI data contains a lot of identifiable data. DICOM headers can contain names
-   or birth dates of participants, and even subject identifiers can allow
-   guestimates about the participants.
-   Actual raw DICOM data from neuroimaging studies also contains faces -- a
-   *very* identifying piece of information about a person. None of this information
-   is therefore allowed be distributed to people that did not conduct the original
-   study: In order to comply to ethical and privacy requirements, datasets with
-   neuroimaging data need to be anonymized. Usually, this requires anonymous
-   subject identifiers (ascending zero-padded integers for simultaneous
-   BIDS-compliance, for example) and "face-stripping", i.e., defacing steps that
-   erase the facial parts of the MRI images. But if this is only done after the
-   initial conversion to an analysis dataset, version control features lead to
-   potential privacy breaches: If unanonymized data is once part of the resulting
-   BIDS dataset, it stays in its history (unless someone aggressively rewrites
-   the history -- which is discouraged as it threatens provenance).
-   If the conversion takes care of anonymizing data right away,
-   though, only anonymized files are saved in the BIDS-compliant analysis dataset.
-   This way, the advantages of provenance and version control can be achieved
-   without sacrificing participants privacy. Do note though that this is only
-   true if the raw DICOM data is **not** made available -- this should never
-   be the case though, and would compromise anonymity also in non-version control
-   setups.
+specifications are necessary. The next few paragraphs and findoutmores in this
+section will elaborate on the details of specifications, and demonstrate how they
+can be edited.
 
 During DICOM import, the command ``hirni-dicom2spec`` generated so called
 *specification snippets* from DICOM metadata and stored them in the
@@ -943,11 +915,48 @@ process looks like:
    Sketch how to do a specification
 
 
+Anonymization
+"""""""""""""
+
+.. todo::
+
+   - list which procedures are available and what they do
+   - foreshadow how they can be called
+
+.. findoutmore:: Why anonymizing measures should be done during the conversion
+
+   Basic ethical practices in science and the General Data Protection Regulation
+   (GDPR) of the European Union require that potentially identifying information
+   of subjects' data needs to be anonymized to protect the identity and privacy
+   rights of research participants.
+
+   MRI data contains a lot of identifiable data. DICOM headers can contain names
+   or birth dates of participants, and even subject identifiers can allow
+   guestimates about the participants.
+   Actual raw DICOM data from neuroimaging studies also contains faces -- a
+   *very* identifying piece of information about a person. None of this information
+   is therefore allowed be distributed to people that did not conduct the original
+   study: In order to comply to ethical and privacy requirements, datasets with
+   neuroimaging data need to be anonymized. Usually, this requires anonymous
+   subject identifiers (ascending zero-padded integers for simultaneous
+   BIDS-compliance, for example) and "face-stripping", i.e., defacing steps that
+   erase the facial parts of the MRI images. But if this is only done after the
+   initial conversion to an analysis dataset, version control features lead to
+   potential privacy breaches: If unanonymized data is once part of the resulting
+   BIDS dataset, it stays in its history (unless someone aggressively rewrites
+   the history -- which is discouraged as it threatens provenance).
+   If the conversion takes care of anonymizing data right away,
+   though, only anonymized files are saved in the BIDS-compliant analysis dataset.
+   This way, the advantages of provenance and version control can be achieved
+   without sacrificing participants privacy. Do note though that this is only
+   true if the raw DICOM data is **not** made available -- this should never
+   be the case though, and would compromise anonymity also in non-version control
+   setups.
 
 
 
-Conversion
-""""""""""
+Step 2: Conversion
+^^^^^^^^^^^^^^^^^^
 
 At this point, you should have a study dataset that contains all MRI acquisitions
 that are relevant to you, additional data, and appropriate specifications in

@@ -829,7 +829,7 @@ into Git, either by adding a rule to ``.gitattributes``, or with
 Deleting (annexed) files/directories
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Removing files from a dataset is possible in two different ways:
+Removing annexed file content from a dataset is possible in two different ways:
 Either by removing the file from the current state of the repository
 (which Git calls the *worktree*) but keeping the content in the history
 of the dataset, or by removing content entirely from a dataset and its
@@ -908,19 +908,23 @@ Removing annexed content entirely
 
 .. index:: ! datalad command; drop
 
-A different command to remove file content entirely and irreversibly from a repository is
+The command to remove file content entirely and irreversibly from a repository is
 the :command:`datalad drop` command (:manpage:`datalad-drop` manual).
-One use case for this is to make a repository more lean. Think about a
+This command will delete the content stored in the annex of the dataset,
+and can be very helpful to make a dataset more lean if the file content is
+either irrelevant or can be retrieved from other sources easily. Think about a
 situation in which a very large result file is computed by default
-in some analysis, but is not relevant for any project, and one may want to remove it.
+in some analysis, but is not relevant for any project, and can thus be removed.
+Or if only the results of an analysis need to be kept, but the file contents from
+its input datasets can be dropped at these input datasets are backed-up else
+where. Because the command works on annexed contents, it will drop file *content*
+from a dataset, but it will retain the symlink for this file (as this symlink
+is stored in Git).
 
+:command:`drop` can take any number of files.
 If an entire dataset is specified, all file content in sub-*directories* is
 dropped automatically, but for content in sub-*datasets* to be dropped, the
 ``-r/--recursive`` flag has to be included.
-
-
-The command will drop file content or directory content from a dataset,
-but will retain a symlink for this file.
 By default, DataLad will not drop any content that does not have at least
 one verified remote copy that the content could be retrieved from again.
 It is possible to drop the downloaded image, because thanks to
@@ -992,6 +996,31 @@ Finally, let's clean up:
    :cast: 03_git_annex_basics
 
    $ git reset --hard HEAD~2
+
+Deleting content stored in Git
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+It is much harder to delete dataset content that is stored in Git compared to
+content stored in git-annex.
+Operations such as ``rm`` or ``git rm`` remove the file from the *worktree*,
+but not from its history, and they can be brought back to life just as annexed
+contents that were solely ``rm``\'ed. There is also no straightforward
+Git equivalent of ``drop``.
+To accomplish a complete removal of a file from a dataset, we recommend the external tool
+`git-filter-repo <https://github.com/newren/git-filter-repo>`_.
+It is a powerful and potentially very dangerous tool to rewrite Git history.
+
+Usually, removing files stored in Git completely
+is not a common or recommended operation, as it involves quite aggressive
+rewriting of the dataset history. Sometimes, however, sensitive files, for example
+private :term:`SSH key`\s or passwords, or too many or too large files are
+accidentally saved into Git, and *need* to get out of the dataset history.
+The command ``git-filter-repo <path-specification> --force`` will "filter-out",
+i.e., remove all files **but the ones specified** in ``<path-specification>``
+from the datasets history. The section :ref:`cleanup` shows an example
+invocation. If you want to use it, however, make sure to attempt it in a dataset
+clone or with its ``--dry-run`` flag first. It is easy to loose dataset history
+and files with this tool.
 
 Uninstalling or deleting subdatasets
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

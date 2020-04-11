@@ -35,6 +35,17 @@ requested data will be downloaded, and all subsequent retrievals via
 :command:`get` will authenticate automatically, without user input, as long as
 the entered credentials stay valid.
 
+.. findoutmore:: How does the authentication work?
+
+   Passwords, user names, tokens, or any other login information is stored in
+   your system's (encrypted) `keyring <https://en.wikipedia.org/wiki/GNOME_Keyring>`_.
+   It is a built-in credential store, used in all major operating systems, and
+   can store credentials securely.
+   DataLad uses the `Python keyring <https://keyring.readthedocs.io/en/latest/>`_
+   package to access the keyring. In addition to a standard interface to the
+   keyring, this library also has useful special purpose backends that come in
+   handy in corner cases such as HPC/cluster computing, where no interactive
+   sessions are available.
 
 If a particular storage solution requires authentication but it is not known
 to DataLad yet, the download will fail. Here is how this looks like if data is

@@ -31,7 +31,7 @@ of data and model, preprocessed intermediate data, images with filtered data,
 statistical output images, colour rendered output images, log files, and many more
 -- in short: A LOT of files.
 Plenty of these outputs are text-based, but there are also many sizable files.
-Depending on the type of analyses that is run, not all types of outputs
+Depending on the type of analysis, not all types of outputs
 will be relevant. At the end of the analysis, one usually has session-,
 subject-specific, or aggregated "group" directories with many subdirectories
 filled with log files, intermediate and preprocessed files, and results for all

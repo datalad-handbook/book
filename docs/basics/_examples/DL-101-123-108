@@ -1,0 +1,12 @@
+$ git diff
+diff --git a/.gitmodules b/.gitmodules
+index 37b3468..c6b1b68 100644
+--- a/.gitmodules
++++ b/.gitmodules
+@@ -1,5 +1,5 @@
+ [submodule "recordings/longnow"]
+ 	path = recordings/longnow
+-	url = https://github.com/datalad-datasets/longnow-podcasts.git
++	url = git@github.com:datalad-datasets/longnow-podcasts.git
+	branch = master
+ 	datalad-id = b3ca2718-8901-11e8-99aa-a0369f7c647e

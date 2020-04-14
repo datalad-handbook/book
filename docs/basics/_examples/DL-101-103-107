@@ -1,7 +1,7 @@
 $ git log -p -n 2
-commit 5f98f2b0582fab3a7033dfcdffaa13995404be8a
+commit 12ced25277c47d5f52946937ef28df87e61b3d42
 Author: Elena Piscopia <elena@example.net>
-Date:   Tue Nov 12 15:05:06 2019 +0100
+Date:   Mon Feb 17 08:49:29 2020 +0100
 
     add note on datalad save
 
@@ -18,9 +18,9 @@ index 3a7a1fe..bfa64d7 100644
 +Always use informative, concise commit messages.
 +
 
-commit b72b237b63a26391d4eeccd077d33100e334a506
+commit 63d50c8818d6982bd158b14e34e1601db03c6a6e
 Author: Elena Piscopia <elena@example.net>
-Date:   Tue Nov 12 15:05:05 2019 +0100
+Date:   Mon Feb 17 08:49:28 2020 +0100
 
     Add notes on datalad create
 

@@ -1,4 +1,4 @@
-alabaster
+alabaster >= 0.7.11
 Babel
 certifi
 chardet
@@ -14,10 +14,12 @@ pytz
 requests
 six
 snowballstemmer
-Sphinx
+Sphinx==2.1.2
 sphinx-sitemap
 sphinxcontrib-websupport
+sphinx-notfound-page
 urllib3
 sphinxcontrib-svg2pdfconverter
 sphinxcontrib-plantuml
--e git://github.com/mih/autorunrecord.git@cf6a545152f49f0f9e59d3d66d8ffe1bdb46c823#egg=autorunrecord
+-e git://github.com/mih/autorunrecord.git@e114becf6e34d1f04eeb2ed05f1af1fbaf0d1abf#egg=autorunrecord
+-e git+https://github.com/datalad-handbook/book.git@a98245149850cf369e03c6d70113953a2e64e198#egg=dataladhandbook_support

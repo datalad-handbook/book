@@ -1,3 +1,4 @@
 $ git reset --hard HEAD~1
 $ datalad status
-HEAD is now at 110f3d9 add note on DataLads procedures
+HEAD is now at 95dac60 add container and execute analysis within container
+nothing to save, working tree clean

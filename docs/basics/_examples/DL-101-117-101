@@ -1,4 +1,4 @@
-# navigate back into the installed copy of DataLad-101
+# navigate back into the clone of DataLad-101
 $ cd ../mock_user/DataLad-101
 # navigate into the subdirectory
 $ cd recordings/longnow
@@ -6,7 +6,7 @@ $ cd recordings/longnow
 $ git annex whereis Long_Now__Seminars_About_Long_term_Thinking/2003_11_15__Brian_Eno__The_Long_Now.mp3
 whereis Long_Now__Seminars_About_Long_term_Thinking/2003_11_15__Brian_Eno__The_Long_Now.mp3 (3 copies) 
   	00000000-0000-0000-0000-000000000001 -- web
-	11ec6b34-3c78-4e53-a38b-5286feb14b49 -- me@muninn:~/dl-101/DataLad-101/recordings/longnow [origin]
+	4804d934-ff46-4834-939b-fc60ef612113 -- me@muninn:~/dl-101/DataLad-101/recordings/longnow [origin]
    	da3bf937-5bd2-43ea-a07b-bcbe71f3b875 -- mih@medusa:/tmp/seminars-on-longterm-thinking
 
   web: http://podcast.longnow.org/salt/redirect/salt-020031114-eno-podcast.mp3

@@ -1,0 +1,16 @@
+$ cd midtermproject
+$ datalad get input/iris.csv
+[INFO] Cloning dataset to <Dataset path=/home/me/dl-101/midtermproject/input>
+[INFO] Attempting to clone from https://github.com/adswa/midtermproject.git/input to /home/me/dl-101/midtermproject/input
+[INFO] Attempting to clone from https://github.com/adswa/midtermproject.git/input/.git to /home/me/dl-101/midtermproject/input
+[INFO] Attempting to clone from https://github.com/datalad-handbook/iris_data.git to /home/me/dl-101/midtermproject/input
+[INFO] Start enumerating objects
+[INFO] Start counting objects
+[INFO] Start compressing objects
+[INFO] Completed clone attempts for <Dataset path=/home/me/dl-101/midtermproject/input>
+[INFO]   Remote origin not usable by git-annex; setting annex-ignore 
+install(ok): /home/me/dl-101/midtermproject/input (dataset) [Installed subdataset in order to get /home/me/dl-101/midtermproject/input/iris.csv]
+get(ok): input/iris.csv (file) [from web...]
+action summary:
+  get (ok: 1)
+  install (ok: 1)

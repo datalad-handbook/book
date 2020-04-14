@@ -1,0 +1,15 @@
+$ git log -p -n 1
+commit 8d3b831c9850ec783870c26d516db78ac4a5d1d1
+Author: Elena Piscopia <elena@example.net>
+Date:   Mon Feb 17 08:49:26 2020 +0100
+
+    add beginners guide on bash
+
+diff --git a/books/bash_guide.pdf b/books/bash_guide.pdf
+new file mode 120000
+index 0000000..00ca6bd
+--- /dev/null
++++ b/books/bash_guide.pdf
+@@ -0,0 +1 @@
++../.git/annex/objects/WF/Gq/MD5E-s1198170--0ab2c121bcf68d7278af266f6a399c5f.pdf/MD5E-s1198170--0ab2c121bcf68d7278af266f6a399c5f.pdf
+\ No newline at end of file

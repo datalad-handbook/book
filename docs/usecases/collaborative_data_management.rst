@@ -3,6 +3,8 @@
 A typical collaborative data management workflow
 ------------------------------------------------
 
+.. index:: ! Usecase; Collaboration
+
 This use case sketches the basics of a common, collaborative
 data management workflow for an analysis:
 
@@ -38,7 +40,7 @@ The DataLad Approach
 Bob creates his analysis project as a DataLad dataset. Complying with
 the `YODA principles <http://handbook.datalad.org/en/latest/basics/101-123-yoda.html>`_,
 he creates his scripts in a dedicated
-``code/`` directory, and installs the open dataset as a standalone
+``code/`` directory, and clones the open dataset as a standalone
 DataLad subdataset within a dedicated subdirectory.
 To collaborate with his senior grad
 student Alice, he shares the dataset on the lab's SSH server, and they
@@ -64,7 +66,7 @@ to be a YODA dataset right at the time of creation:
    $ datalad create -c yoda --description "my 1st phd project on work computer" myanalysis
 
 After creation, there already is a ``code/`` directory, and all of its
-inputs are version-controlled by :term:`Git` instead of :term:`Git-annex`
+inputs are version-controlled by :term:`Git` instead of :term:`git-annex`
 thanks to the yoda procedure:
 
 .. runrecord:: _examples/collab-102
@@ -82,8 +84,8 @@ make it easier to keep his analysis organized and share it later.
 The dataset that Bob wants to work with is structural brain imaging data from the
 `studyforrest project <http://studyforrest.org/>`_, a public
 data resource that the original authors share as a DataLad dataset through
-:term:`Github`. This means that Bob can simply install the relevant dataset from this
-service and into his own dataset. To do that, he installs it as a subdataset
+:term:`GitHub`. This means that Bob can simply clone the relevant dataset from this
+service and into his own dataset. To do that, he clones it as a subdataset
 into a directory he calls ``src/`` as he wants to make it obvious which parts
 of his analysis steps and code require 3rd party data:
 
@@ -91,13 +93,13 @@ of his analysis steps and code require 3rd party data:
    :workdir: usecases/collab/myanalysis
    :language: console
 
-   $ datalad install -d . --source https://github.com/psychoinformatics-de/studyforrest-data-structural.git src/forrest_structural
+   $ datalad clone -d . https://github.com/psychoinformatics-de/studyforrest-data-structural.git src/forrest_structural
 
 Now that he executed this command, Bob has access to the entire dataset
 content, and the precise version of the dataset got linked to his top-level dataset
 ``myanalysis``. However, no data was actually downloaded (yet). Bob very much
 appreciates that DataLad datasets primarily contain information on a dataset’s
-content and where to obtain it: the installation above was done rather
+content and where to obtain it: Cloning above was done rather
 quickly, and will still be relatively lean even for a dataset that contains
 several hundred GBs of data. He knows that his script can obtain the
 relevant data he needs on demand if he wraps it into a :command:`datalad run`
@@ -115,7 +117,7 @@ To save this progress, he runs frequent :command:`datalad save` commands:
 Once Bob's analysis is finished, he can wrap it into :command:`datalad run`.
 To ease execution, he first makes his script executable by adding a :term:`shebang`
 that specifies Python as an interpreter at the start of his script, and giving it
-executable permissions:
+executable :term:`permissions`:
 
 .. runrecord:: _examples/collab-105
    :workdir: usecases/collab/myanalysis
@@ -143,14 +145,14 @@ saving all outputs.
 Some time later, Bob needs help with his analysis. He turns to his senior
 grad student Alice for help. Alice and Bob both work on the same computing server.
 Bob has told Alice in which directory he keeps his analysis dataset, and
-the directory is configured to have permissions that allow for
+the directory is configured to have :term:`permissions` that allow for
 read-access for all lab-members, so Alice can obtain Bob’s work directly
 from his home directory:
 
 .. runrecord:: _examples/collab-107
    :workdir: usecases/collab
    :language: console
-   :realcommand: echo "$ datalad install -r --source "$BOBS_HOME/myanalysis" bobs_analysis" && datalad install -r --source "myanalysis" bobs_analysis
+   :realcommand: echo "$ datalad clone "$BOBS_HOME/myanalysis" bobs_analysis" && datalad clone "myanalysis" bobs_analysis
 
 .. runrecord:: _examples/collab-108
    :workdir: usecases/collab
@@ -160,7 +162,7 @@ from his home directory:
    $ cd bobs_analysis
    # ... make contributions, and save them
    $ [...]
-   $ datalad save -m "your welcome, bob"
+   $ datalad save -m "you're welcome, bob"
 
 
 Alice can get the studyforrest data Bob used as an input as well as the
@@ -201,7 +203,7 @@ Bob can publish his version to it.
 
 .. code-block:: bash
 
-    $ datalad publish -r --to public .
+    $ datalad push -r --to public .
 
 This workflow allowed Bob to obtain data, collaborate with Alice, and publish
 or share his dataset with others easily -- he cannot wait for his next project,

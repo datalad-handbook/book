@@ -27,16 +27,13 @@ as the ascii-cast on `dataset nesting <https://www.datalad.org/for/git-users>`_.
 Because he found this very helpful in understanding dataset
 nesting concepts, he decided to download the ``shell`` script
 that was `used to generate this example <https://raw.githubusercontent.com/datalad/datalad.org/7e8e39b1f08d0a54ab521586f27ee918b4441d69/content/asciicast/seamless_nested_repos.sh>`_
-from Github, and saves it in the ``code/`` directory.
-
-.. index:: ! datalad command; download-url
+from GitHub, and saved it in the ``code/`` directory.
 
 He does it using the datalad command :command:`datalad download-url`
-(:manpage:`datalad-download-url` manual)
-that he also read about on the datalad homepage.
-This command will download a file just as ``wget``, but it can
-also take a commit message and will save the download
-right to the history!
+that you experienced in section :ref:`createDS` already: This command will
+download a file just as ``wget``, but it can also take a commit message
+and will save the download right to the history of the dataset that you specify,
+while recording its origin as provenance information.
 
 Navigate into your dataset copy in ``mock_user/DataLad-101``,
 and run the following command
@@ -52,6 +49,7 @@ and run the following command
 
    # download the shell script and save it in your code/ directory
    $ datalad download-url \
+     -d . \
      -m "Include nesting demo from datalad website" \
      -O code/nested_repos.sh \
      https://raw.githubusercontent.com/datalad/datalad.org/7e8e39b1f08d0a54ab521586f27ee918b4441d69/content/asciicast/seamless_nested_repos.sh
@@ -78,7 +76,7 @@ here:
    :notes: the ds copy has a change the original ds does not have:
    :cast: 04_collaboration
 
-   $ git log -1 -p
+   $ git log -n 1 -p
 
 Suddenly, your room mate has a file change that you do not have.
 His dataset evolved.
@@ -132,11 +130,7 @@ Also, do not forget to give a name to your dataset's sibling. Without the ``-s``
 name of a sibling if no name is given will be the host name of the specified URL,
 but as you provide a path and not a URL, there is no host name to take as a default.
 
-.. todo::
-
-   remove this once https://github.com/datalad/datalad/issues/3553 is fixed
-
-As you can see in the command output, the addition of a sibling succeeded:
+As you can see in the command output, the addition of a :term:`sibling` succeeded:
 ``roommate(+)[../mock_user/DataLad-101]`` means that your room mate's dataset
 is now known to your own dataset as "roommate"
 
@@ -190,7 +184,7 @@ the ``--merge`` option.
 
    $ datalad update -s roommate
 
-Note that we supplied the siblings name with the ``-s``/``--name`` option.
+Note that we supplied the sibling's name with the ``-s``/``--name`` option.
 This is good practice, and allows you to be precise in where you want to get
 updates from. It would have worked without the specification (just as a bare
 :command:`datalad update --merge` worked for your room mate), because there is only
@@ -340,3 +334,14 @@ Create a note about this, and save it.
 
    EOT
    $ datalad save -m "Add note on adding siblings"
+
+.. only:: adminmode
+
+   Add a tag at the section end.
+
+     .. runrecord:: _examples/DL-101-121-114
+        :language: console
+        :workdir: dl-101/DataLad-101
+
+
+        $ git branch sct_networking

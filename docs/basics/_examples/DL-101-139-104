@@ -1,0 +1,11 @@
+$ cat .gitmodules
+[submodule "recordings/longnow"]
+	path = recordings/longnow
+	url = https://github.com/datalad-datasets/longnow-podcasts.git
+	branch = master
+	datalad-id = b3ca2718-8901-11e8-99aa-a0369f7c647e
+[submodule "midterm_project"]
+	path = midterm_project
+	url = https://github.com/adswa/midtermproject
+	branch = master
+	datalad-id = 933e9fb6-647d-11ea-8652-27eb4f93a5dc

@@ -1,0 +1,10 @@
+$ cd iris_data
+$ datalad download-url https://gist.githubusercontent.com/netj/8836201/raw/6f9306ad21398ea43cba4f7d537619d0e07d5ae3/iris.csv
+[INFO] Downloading 'https://gist.githubusercontent.com/netj/8836201/raw/6f9306ad21398ea43cba4f7d537619d0e07d5ae3/iris.csv' into '/home/me/dl-101/iris_data/'
+download_url(ok): /home/me/dl-101/iris_data/iris.csv (file)
+add(ok): iris.csv (file)
+save(ok): . (dataset)
+action summary:
+  add (ok: 1)
+  download_url (ok: 1)
+  save (ok: 1)

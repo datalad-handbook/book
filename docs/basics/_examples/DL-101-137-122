@@ -1,14 +1,21 @@
 
-$ git checkout 327fd8340f54ee432b96653cbabb7bc35ab21369
-Note: checking out '327fd8340f54ee432b96653cbabb7bc35ab21369'.
+$ git checkout a1f2c3f97f0d7236a741ce074d8136eca23dd53f
+warning: unable to rmdir 'midterm_project': Directory not empty
+Note: switching to 'a1f2c3f97f0d7236a741ce074d8136eca23dd53f'.
 
 You are in 'detached HEAD' state. You can look around, make experimental
 changes and commit them, and you can discard any commits you make in this
-state without impacting any branches by performing another checkout.
+state without impacting any branches by switching back to a branch.
 
 If you want to create a new branch to retain commits you create, you may
-do so (now or later) by using -b with the checkout command again. Example:
+do so (now or later) by using -c with the switch command. Example:
 
-  git checkout -b <new-branch-name>
+  git switch -c <new-branch-name>
 
-HEAD is now at 327fd83 add note on basic datalad run and datalad rerun
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at a1f2c3f add note on clean datasets

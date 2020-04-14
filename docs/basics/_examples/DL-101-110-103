@@ -13,5 +13,5 @@ add(ok): recordings/salt_logo_small.jpg (file)
 save(ok): . (dataset)
 action summary:
   add (ok: 1)
-  get (ok: 1)
+  get (notneeded: 1, ok: 1)
   save (notneeded: 1, ok: 1)

@@ -3,6 +3,8 @@
 Writing a reproducible paper
 ----------------------------
 
+.. index:: ! Usecase; reproducible paper
+
 This use case demonstrates how to use nested DataLad datasets to create a fully
 reproducible paper by linking
 
@@ -40,7 +42,7 @@ by hand, he finally submits the paper. Trying to stand with his values of
 open and reproducible science, he struggles to bundle all scripts, algorithm code, and data
 he used in a shareable form, and frankly, with all the extra time this manuscript took
 him so far, he lacks motivation and time. In the end, he writes a three page long README
-file in his Github code repository, includes his email for data requests, and
+file in his GitHub code repository, includes his email for data requests, and
 secretly hopes that no-one will want to recompute his results, because by now even he
 himself forgot which script ran on which dataset and what data was fixed in which way,
 or whether he was careful enough to copy all of the results correctly. In the review process,
@@ -56,14 +58,14 @@ dataset, he creates several subdirectories to collate everything that is relevan
 the manuscript: Data, code, a manuscript backbone without results.
 ``code/`` contains a Python script that he uses for validation analyses, and
 prior to computing results, the script
-attempts to download the data should the files need to be obtained using DataLads Python API.
+attempts to download the data should the files need to be obtained using DataLad's Python API.
 ``data/`` contains a separate DataLad subdataset for every dataset he uses. An
 ``algorithm/`` directory is a DataLad dataset containing a clone of his software repository,
 and within it, in the directory ``test/data/``, are additional DataLad subdatasets that
 contain the data he used for testing.
 Lastly, the DataLad superdataset contains a ``LaTeX`` ``.tex`` file with the text of the manuscript.
 When everything is set up, a single command line call triggers (optional) data retrieval
-from Github repositories of the datasets, computation of
+from GitHub repositories of the datasets, computation of
 results and figures, automatic embedding of results and figures into his manuscript
 upon computation, and PDF compiling.
 When he notices the error in his script, his manuscript is recompiled and updated
@@ -72,7 +74,7 @@ he updates the respective DataLad dataset
 to the fixed state while preserving the history of the data repository.
 
 
-He makes his superdataset a public repository on Github, and anyone who clones it can obtain the
+He makes his superdataset a public repository on GitHub, and anyone who clones it can obtain the
 data automatically and recompute and recompile the full manuscript with all results.
 Steve never had more confidence in his research results and proudly submits his manuscript.
 During review, the color scheme update in his algorithm sourcecode is integrated with a simple
@@ -83,7 +85,7 @@ itself with the new figures.
 .. note::
    The actual manuscript this use case is based on can be found
    `here <https://github.com/psychoinformatics-de/paper-remodnav/>`_:
-   https://github.com/psychoinformatics-de/paper-remodnav/. :command:`datalad install`
+   https://github.com/psychoinformatics-de/paper-remodnav/. :command:`datalad clone`
    the repository and follow the few instructions in the README to experience the
    DataLad approach described above.
 
@@ -129,21 +131,21 @@ live in the ``data/`` directory.
 To populate the DataLad dataset, add all the
 data collections you want to perform analyses on as individual DataLad subdatasets within
 ``data/``.
-In this example, all data collections are already DataLad datasets or git repositories and hosted on Github.
-:command:`datalad install` therefore installs them as subdatasets. ``-s`` specifies the source,
-and ``-d ../`` registers them as subdatasets to the superdataset [#f2]_.
+In this example, all data collections are already DataLad datasets or git repositories and hosted on GitHub.
+:command:`datalad clone` therefore installs them as subdatasets, with ``-d ../``
+registering them as subdatasets to the superdataset [#f2]_.
 
 .. code-block:: bash
 
    $ cd data
-   # install existing git repositories with data (-s specifies the source, in this case, Github repositories)
+   # clone existing git repositories with data (-s specifies the source, in this case, GitHub repositories)
    # -d points to the root of the superdataset
-   datalad install -d ../ -s https://github.com/psychoinformatics-de/studyforrest-data-phase2.git
+   datalad clone -d ../ https://github.com/psychoinformatics-de/studyforrest-data-phase2.git
 
    [INFO   ] Cloning https://github.com/psychoinformatics-de/studyforrest-data-phase2.git [1 other candidates] into '/home/adina/repos/testing/algorithm-paper/data/raw_eyegaze'
    install(ok): /home/adina/repos/testing/algorithm-paper/data/raw_eyegaze (dataset)
 
-   $ datalad install -d ../ -s git@github.com:psychoinformatics-de/studyforrest-data-eyemovementlabels.git
+   $ datalad clone -d ../ git@github.com:psychoinformatics-de/studyforrest-data-eyemovementlabels.git
 
    [INFO   ] Cloning git@github.com:psychoinformatics-de/studyforrest-data-eyemovementlabels.git into '/home/adina/repos/testing/algorithm-paper/data/studyforrest-data-eyemovementlabels'
    Cloning (compressing objects):  45% 1.80k/4.00k [00:01<00:01, 1.29k objects/s
@@ -152,7 +154,7 @@ and ``-d ../`` registers them as subdatasets to the superdataset [#f2]_.
 Any script we need for the analysis should live inside ``code/``. During script writing, save any changes
 to you want to record in your history with :command:`datalad save`.
 
-The eventual outcome of this work is a Github repository that anyone can use to get the data
+The eventual outcome of this work is a GitHub repository that anyone can use to get the data
 and recompute all results
 when running the script after cloning and setting up the necessary software.
 This requires minor preparation:
@@ -169,7 +171,7 @@ These two preparations can be seen in this excerpt from the Python script:
 
 .. code-block:: python
 
-   # import Datalads API
+   # import DataLad's API
    from datalad.api import get
 
    # note that the datapath is relative
@@ -183,13 +185,13 @@ These two preparations can be seen in this excerpt from the Python script:
    get(dataset='.', path=data)
 
 
-Lastly, :command:`datalad install` the software repository as a subdataset in the
+Lastly, :command:`datalad clone` the software repository as a subdataset in the
 root of the superdataset [#f3]_.
 
 .. code-block:: bash
 
    # in the root of ``algorithm-paper`` run
-   $ datalad install -d . -s git@github.com:psychoinformatics-de/remodnav.git
+   $ datalad clone -d . git@github.com:psychoinformatics-de/remodnav.git
 
 This repository has also subdatasets in which the datasets used for testing live (``tests/data/``):
 
@@ -380,6 +382,8 @@ Upon compilation of the ``.tex`` file into a PDF, the results of the
 computations captured with ``\newcommand`` definitions are inserted into the respective part
 of the manuscript.
 
+.. index:: ! Make
+
 The last step is to automate this procedure. So far, the script would need to be executed
 with a command line call, and the PDF compilation would require another commandline call.
 One way to automate this process are `Makefiles <https://en.wikipedia.org/wiki/Make_(software)>`_.
@@ -446,6 +450,6 @@ Any questions can be asked by `opening an issue <https://github.com/psychoinform
 
 .. [#f1] You can read up on the YODA principles again in section :ref:`yoda`
 
-.. [#f2] You can read up on installing datasets as subdatasets again in section :ref:`installds`.
+.. [#f2] You can read up on cloning datasets as subdatasets again in section :ref:`installds`.
 
-.. [#f3] Note that the software repository may just as well be installed within ``data/``.
+.. [#f3] Note that the software repository may just as well be cloned into ``data/``.

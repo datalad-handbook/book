@@ -1,7 +1,7 @@
 $ git log -p -n 1
-commit 9a6fb63c12113788948a72bc0b44c1aac4e69466
+commit 44aa3e27dfd88183567f22a6a835e042171391f0
 Author: Elena Piscopia <elena@example.net>
-Date:   Tue Nov 12 15:05:02 2019 +0100
+Date:   Mon Feb 17 08:49:12 2020 +0100
 
     add books on Python and Unix to read later
 
@@ -15,9 +15,9 @@ index 0000000..4c84b61
 \ No newline at end of file
 diff --git a/books/byte-of-python.pdf b/books/byte-of-python.pdf
 new file mode 120000
-index 0000000..9a812a0
+index 0000000..58c0629
 --- /dev/null
 +++ b/books/byte-of-python.pdf
 @@ -0,0 +1 @@
-+../.git/annex/objects/ZZ/f1/MD5E-s4407669--32e6b03a08a6edda12ad42eb7bb06a5c.pdf/MD5E-s4407669--32e6b03a08a6edda12ad42eb7bb06a5c.pdf
++../.git/annex/objects/F1/Wz/MD5E-s4242644--f4e1c8ebfb5c89a69ff6d268eb2e63e3.pdf/MD5E-s4242644--f4e1c8ebfb5c89a69ff6d268eb2e63e3.pdf
 \ No newline at end of file

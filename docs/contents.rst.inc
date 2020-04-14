@@ -52,6 +52,7 @@
    basics/basics9toc
    basics/basics10toc
    basics/basics12toc
+   basics/basics_ukb_toc
 
 .. only:: html
 

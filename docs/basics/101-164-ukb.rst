@@ -1,0 +1,48 @@
+.. _ukintro:
+
+Being FAIR at scale
+-------------------
+
+FAIR data analysis projects need ...
+
+.. todo::
+
+   Detail core aspects of FAIR data projects
+
+This chapter is a write-up about a gigantic data analysis usecase: Preprocessing
+the `UKBiobank dataset <https://www.ukbiobank.ac.uk/>`_ with open software
+tools in a FAIR fashion on a super computer.
+
+
+The UKBiobank data
+^^^^^^^^^^^^^^^^^^
+
+The UKBiobank project is a large long-term study that is collecting longitudinal
+data on about 500.000 volunteers for a duration of at least 30 years, starting in 2006.
+It aims to study the influence of genetic predispositions and environmental factors
+on the development of diseases, and collects and distributes a variety of health
+and life style related data.
+Among other data, the UKBiobank dataset contains genetic data from blood samples,
+data on cognitive function, mental health, diet, and physical activity of participants,
+and some participant data is also linked to health records from general
+practitioners and hospitals.
+In 2014, a subset of the sample was recruited for collecting additional imaging
+data as part of the `MRI Imaging study <https://www.ukbiobank.ac.uk/scanning-study-launches/>`_.
+In total, 100.000 participants brains will be scanned in the wake of this addition,
+making the imaging study component the largest brain imaging study ever conducted.
+By now, data from several ten thousand participants was already released.
+
+.. todo::
+
+   What exactly is in the UKB data?
+
+
+Difficulties for data analysis
+
+Difficulties for data analysis stem from two different aspects. For one, and
+primarily, the size of the dataset is enormous, both in size and in number of
+files.
+Compressed data alone amounts to ??? GB per participant.
+When processed
+When complete, the 100.000 participant directories will surpass the
+64k subdirectory limit of common file systems.

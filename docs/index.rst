@@ -17,6 +17,13 @@ The DataLad Handbook
 **Welcome to the DataLad handbook!**
 ------------------------------------
 
+.. important::
+
+   You are viewing the **INM-7-specific** version of the handbook. Most content
+   will be identical, but if you didn't end up here intentionally, it's best
+   to read the **public version** of the handbook at
+   `handbook.datalad.org <http://handbook.datalad.org/en/latest/>`_.
+
 This handbook is a living resource about why and -- more importantly -- *how* to
 use DataLad. It aims to provide novices and advanced users of all backgrounds
 with both the basics of DataLad and start-to-end use cases of specific

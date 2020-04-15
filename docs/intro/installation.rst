@@ -162,7 +162,33 @@ command line calls:
 #. Open a new session on JURECA. You should now have access to the software you just
    installed on JUDAC.
 
+Configurations on JURECA und JUDAC
+""""""""""""""""""""""""""""""""""
 
+In order to use DataLad, it is highly recommended to configure your Git identity.
+While it is not strictly *necessary*, it makes sense to do it in a way that is
+shared between the two HPC systems as well.
+
+On any of the two systems, provide your Name and e-mail address to the
+:command:`git config` command::
+
+   $ git config --global --add user.name "Bob McBobFace"
+   $ git config --global --add user.email bob@example.com
+
+This will create a ``.gitconfig`` file in your ``$HOME`` directory. Just as
+done with the ``.bashrc`` file, move this file into the ``shared/`` directory,
+and create a symlink in its place::
+
+   $ mv .gitconfig shared/
+   $ ln -s shared/.gitconfig .gitconfig
+   $ logout
+   # log into the other machine
+   $ ssh <user-ID>@<jureca|judac>.fz-juelich.de
+   # create a symlink to the shared .gitconfig file
+   $ ln -s shared/.gitconfig .gitconfig
+
+Afterwards, you are done, and ready to use DataLad on the HPC systems of the
+JSC.
 
 
 Standard installation instructions

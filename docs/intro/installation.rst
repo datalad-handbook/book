@@ -162,6 +162,27 @@ command line calls:
 #. Open a new session on JURECA. You should now have access to the software you just
    installed on JUDAC.
 
+.. findoutmore:: Troubleshooting inode quotas
+
+   The inode limit from the JSC is quite strict. If you receive an e-mail that
+   you have exceeded your quota, here is what you can do:
+
+   * Verify that it is inode limitations that you ran into by running
+     ``jutil user dataquota -u <user-ID>``. Check the table columns "inode-usage"
+     and "inode-<soft|hard>-limit".
+   * Check that your installation does not consume more inodes than expected. On JURECA,
+     ``cd`` into the ``shared/`` directory and run the ``ncdu`` command. Once
+     the command finished scanning, press ``c`` and confirm that your
+     ``miniconda3`` directory consumes about 40k inodes.
+   * Remove caches and unused packages by running ``conda clean --all`` to reduce
+     the inode usage by a few thousand.
+   * On JURECA, run ``ncdu`` in your ``$HOME`` directory to check whether there
+     are other directories that consume many inodes.
+
+   The installation takes up almost all available inodes, so be aware that you can
+   only have a few thousand files in any of the two systems ``$HOME`` directories.
+
+
 Configurations on JURECA und JUDAC
 """"""""""""""""""""""""""""""""""
 

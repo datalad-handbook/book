@@ -1,0 +1,20 @@
+$ datalad push --to gin
+[INFO] Start enumerating objects 
+[INFO] Start counting objects 
+[INFO] Start compressing objects 
+[INFO] Start writing objects 
+[INFO] Start resolving deltas 
+[INFO] Start enumerating objects 
+[INFO] Start counting objects 
+[INFO] Start compressing objects 
+[INFO] Start writing objects 
+[INFO] Start resolving deltas 
+publish(ok): . (dataset) [refs/heads/master->gin:refs/heads/master [new branch]]
+copy(ok): books/TLCL.pdf (file) [to gin...]
+copy(ok): books/bash_guide.pdf (file) [to gin...]
+copy(ok): books/byte-of-python.pdf (file) [to gin...]
+copy(ok): books/progit.pdf (file) [to gin...]
+publish(ok): . (dataset) [refs/heads/git-annex->gin:refs/heads/git-annex d45607e..98ae0cb]
+action summary:
+  copy (ok: 4)
+  publish (ok: 2)

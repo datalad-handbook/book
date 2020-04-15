@@ -13,7 +13,7 @@ This section is a concise demonstration of what a DataLad dataset is,
 showcased on a dataset from the field of neuroimaging.
 A DataLad dataset is the core data type of DataLad. We will explore the concepts
 of it with one public example dataset, the studyforrest phase 2 data (studyforrest.org).
-Note that this is just one type and use of a Datalad dataset, and you throughout there are
+Note that this is just one type and use of a DataLad dataset, and you throughout there are
 many more flavors of using DataLad datasets in the basics or in upcoming use cases.
 
 Please follow along and run the commands below in your own terminal for
@@ -44,7 +44,7 @@ all of these changes can be written to your DataLad datasets history.
 .. gitusernote::
 
    A DataLad dataset is a Git repository. Large file content in the
-   dataset in the annex is tracked with Git-annex. An ``ls -a``
+   dataset in the annex is tracked with git-annex. An ``ls -a``
    reveals that Git is secretly working in the background:
 
    .. runrecord:: _examples/dataset3

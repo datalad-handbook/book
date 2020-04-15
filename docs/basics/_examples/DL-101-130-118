@@ -1,0 +1,14 @@
+$ datalad push --to github
+[INFO] Start enumerating objects 
+[INFO] Start counting objects 
+[INFO] Start compressing objects 
+[INFO] Start writing objects 
+[INFO] Start enumerating objects 
+[INFO] Start counting objects 
+[INFO] Start compressing objects 
+[INFO] Start writing objects 
+publish(ok): . (dataset) [refs/heads/master->github:refs/heads/master [new branch]]
+publish(ok): . (dataset) [refs/heads/git-annex->github:refs/heads/git-annex [new branch]]
+action summary:
+  copy (notneeded: 1)
+  publish (ok: 2)

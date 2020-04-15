@@ -25,7 +25,8 @@
         "test",
         "bug",
         "example",
-        "question"
+        "question",
+        "a11y"
       ]
     },
     {
@@ -64,7 +65,8 @@
         "tool",
         "test",
         "talk",
-        "userTesting"
+        "userTesting",
+        "a11y"
       ]
     },
     {
@@ -173,11 +175,118 @@
       "contributions": [
         "userTesting"
       ]
+    },
+    {
+      "login": "aqw",
+      "name": "Alex Waite",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/765557?v=4",
+      "profile": "https://github.com/aqw",
+      "contributions": [
+        "review",
+        "bug",
+        "ideas"
+      ]
+    },
+    {
+      "login": "lilikapa",
+      "name": "Lya K. Paas",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/14184487?v=4",
+      "profile": "https://github.com/lilikapa",
+      "contributions": [
+        "bug",
+        "code"
+      ]
+    },
+    {
+      "login": "nhjjreuter",
+      "name": "Niels Reuter",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/24777116?v=4",
+      "profile": "https://github.com/nhjjreuter",
+      "contributions": [
+        "content"
+      ]
+    },
+    {
+      "login": "pvavra",
+      "name": "Peter Vavra",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/5610129?v=4",
+      "profile": "https://github.com/pvavra",
+      "contributions": [
+        "ideas",
+        "userTesting"
+      ]
+    },
+    {
+      "login": "TobiasKadelka",
+      "name": "Tobias Kadelka",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/49553687?v=4",
+      "profile": "https://github.com/TobiasKadelka",
+      "contributions": [
+        "userTesting"
+      ]
+    },
+    {
+      "login": "PeerHerholz",
+      "name": "Peer Herholz",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/20129524?v=4",
+      "profile": "http://peerherholz.github.io",
+      "contributions": [
+        "ideas"
+      ]
+    },
+    {
+      "login": "AlexandreHutton",
+      "name": "Alexandre Hutton",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/50920802?v=4",
+      "profile": "https://github.com/AlexandreHutton",
+      "contributions": [
+        "content",
+        "bug"
+      ]
+    },
+    {
+      "login": "sarah1989",
+      "name": "Sarah Oliveira",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/3898779?v=4",
+      "profile": "https://github.com/sarah1989",
+      "contributions": [
+        "review",
+        "ideas"
+      ]
+    },
+    {
+      "login": "dorianps",
+      "name": "dorianps",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/9083517?v=4",
+      "profile": "https://github.com/dorianps",
+      "contributions": [
+        "ideas"
+      ]
+    },
+    {
+      "login": "hbaagil",
+      "name": "hbaagil",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/61992500?v=4",
+      "profile": "https://github.com/hbaagil",
+      "contributions": [
+        "userTesting",
+        "bug"
+      ]
+    },
+    {
+      "login": "glatard",
+      "name": "Tristan Glatard",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/5174953?v=4",
+      "profile": "https://github.com/glatard",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,
   "projectName": "book",
   "projectOwner": "datalad-handbook",
   "repoType": "github",
-  "repoHost": "https://github.com"
+  "repoHost": "https://github.com",
+  "skipCi": true
 }

@@ -3,18 +3,14 @@
 How to get help
 ---------------
 
-After all of the DataLad-101 lectures and tutorials so far,
-you really begin to appreciate the pre-crafted examples the
-lecturer provided the students with.
-
-"Nothing really goes wrong, and if so, it's intended", you
-acknowledge. "But how does this prepare me for life after
-the course? I've seen a lot of different errors and know many
-caveats and principles already, but I certainly will mess
-something up at one point, and how will I get help then?"
-
+All DataLad errors or problems you encounter during ``DataLad-101`` are intentional
+and serve illustrative purposes. But what if you run into any DataLad errors
+outside of this course?
 Fortunately, the syllabus has a whole section on that, and on
 one lazy, warm summer-afternoon you flip through it.
+
+.. figure:: ../artwork/src/reading.svg
+   :width: 50%
 
 You realize that you already know the most important things:
 The number one advice on how to get help is
@@ -65,7 +61,7 @@ The output below shows an excerpt.
    $ datalad wtf
 
 This lengthy output will report all information that might
-be relevant -- from DataLad to :term:`Git-annex` or Python
+be relevant -- from DataLad to :term:`git-annex` or Python
 up to your operating system.
 
 The second step, finding and reading the help page of the command
@@ -82,7 +78,7 @@ as an excerpt here):
 .. runrecord:: _examples/DL-101-135-103
    :language: console
    :workdir: dl-101/DataLad-101
-   :lines: 1-40
+   :lines: 1-60
 
    $ datalad get --help
 
@@ -114,48 +110,132 @@ Include
   steps necessary to reproduce it.
 
 - *technical details* -- what version of DataLad are you using, what version
-  of Git-annex, and which Git-annex repository type, what is your operating
+  of git-annex, and which git-annex repository type, what is your operating
   system and -- if applicable -- Python version? :command:`datalad wtf` is your friend
   to find all of this information.
 
-The "submit a question link" on `DataLad's Github page <https://github.com/datalad/datalad#support>`_
+The "submit a question link" on `DataLad's GitHub page <https://github.com/datalad/datalad#support>`_
 page prefills a neurostars form with a template for a question for a good
 starting point if you want to have more guidance or encounter writer's block.
 
+Common warnings and errors
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Common Git-annex warnings and errors
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+A lot of output you will see while working with DataLad originates from warnings
+or errors by DataLad, git-annex, or Git.
+Some of these outputs can be wordy and not trivial to comprehend - and even if
+everything works, some warnings can be hard to understand.
+This following section will list some common git-annex warnings and errors and
+attempts to explain them. If you encounter warnings or errors that you would
+like to see explained in this book, please let us know by
+`filing an issue <https://github.com/datalad-handbook/book/issues/new>`_.
 
-A lot of output you will see while working with DataLad originates from
-Git-annex. It's outputs can be wordy and not trivial to comprehend even if
-everything works. This following section will list some common Git-annex
-warnings and errors and attempts to explain them.
+Output produced by Git
+""""""""""""""""""""""
+
+**Unset Git identity**
+
+If you have not configured your Git identity, you will
+see warnings like this when running any DataLad command::
+
+   [WARNING] It is highly recommended to configure git first (set both user.name and user.email) before using DataLad.
+
+To set your Git identity, go back to section :ref:`installconfig`.
+
+
+**Rejected pushes**
+
+One error you can run into when publishing dataset contents is that your
+:command:`datalad push` to a sibling is rejected.
+One example is this::
+
+   $ datalad push --to public
+    [ERROR  ] refs/heads/master->public:refs/heads/master [rejected] (non-fast-forward) [publish(/home/me/dl-101/DataLad-101)]
+
+This example is an attempt to push a local dataset to its sibling on GitHub. The
+push is rejected because it is a ``non-fast-forward`` merge situation. Usually,
+this means that the sibling contains changes that your local dataset does not yet
+know about. It can be fixed by updating from the sibling first with a
+:command:`datalad update --merge`.
+
+Here is a different push rejection::
+
+   $ datalad push --to roommate
+    publish(ok): . (dataset) [refs/heads/git-annex->roommate:refs/heads/git-annex 023a541..59a6f8d]
+    [ERROR  ] refs/heads/master->roommate:refs/heads/master [remote rejected] (branch is currently checked out) [publish(/home/me/dl-101/DataLad-101)]
+    publish(error): . (dataset) [refs/heads/master->roommate:refs/heads/master [remote rejected] (branch is currently checked out)]
+    action summary:
+      publish (error: 1, ok: 1)
+
+As you can see, the :term:`git-annex branch` was pushed successfully, but updating
+the ``master`` branch was rejected: ``[remote rejected] (branch is currently checked out) [publish(/home/me/dl-101/DataLad-101)]``.
+In this particular case, this is because it was an attempt to push from ``DataLad-101``
+to the ``roommate`` sibling that was created in chapter :ref:`chapter_collaboration`.
+This is a special case of pushing, because it - in technical terms - is a push
+to a non-bare repository. Unlike :term:`bare Git repositories`, non-bare
+repositories can not be pushed to at all times. To fix this, you either want to
+`checkout another branch <https://git-scm.com/docs/git-checkout>`_
+in the ``roommate`` sibling or push to a non-checked out branch in the ``roommate``
+sibling.
+
+
+**Detached HEADs**
+
+One warning that you may encounter during an installation of a dataset is::
+
+    [INFO   ] Submodule HEAD got detached. Resetting branch master to point to 046713bb. Original location was 47e53498
+
+Even though "detached HEAD" sounds slightly worrisome, this is merely an information
+and does not require an action from your side. It is related to
+`Git submodules <https://git-scm.com/book/en/v2/Git-Tools-Submodules>`_ (the underlying
+Git concept for subdatasets), and informs you about the current state a
+subdataset is saved in the superdataset you have just cloned.
+
+Output produced by git-annex
+""""""""""""""""""""""""""""
+
+**Unusable annexes**
 
 Upon installation of a dataset, you may see::
 
    [INFO    ]     Remote origin not usable by git-annex; setting annex-ignore
-   [INFO    ]     This could be a problem with the git-annex installation on the remote. Please make sure that git-annex-shell is available in PATH when you ssh into the remote. Once you have fixed the git-annex installation, run: git annex enableremote origin
+   [INFO    ]     This could be a problem with the git-annex installation on the
+   remote. Please make sure that git-annex-shell is available in PATH when you
+   ssh into the remote. Once you have fixed the git-annex installation,
+   run: git annex enableremote origin
 
-This warning lets you know that Git-annex will not attempt to download
-content from the remote "origin", because it is not usable. This can have
+This warning lets you know that git-annex will not attempt to download
+content from the :term:`remote` "origin". This can have
 many reasons, but as long as there are other remotes you can access the
 data from, you are fine.
 
+A similar warning message may appear when adding a sibling that is a pure Git
+:term:`remote`, for example a repository on GitHub::
+
+   [INFO ] Failed to enable annex remote github, could be a pure git or not
+   accessible
+   [WARNING] Failed to determine if github carries annex. Remote was marked by
+   annex as annex-ignore. Edit .git/config to reset if you think that was done
+   by mistake due to absent connection etc
+
+These messages indicate that the sibling ``github`` does not carry an annex.
+Thus, annexed file contents can not be pushed to this sibling. This happens
+if the sibling indeed does not have an annex (which would be true, for example,
+for siblings on :term:`GitHub`, :term:`GitLab`, :term:`Bitbucket`, ..., and
+would not require any further action or worry), or
+if the remote could not be reached, e.g., due to a missing internet
+connection (in which case you could set the key ``annex-ignore`` in
+``.git/config`` to ``false``).
+
+Speaking of remotes that are not available, this will probably be one of the most
+commonly occurring git-annex errors to see - failing :command:`datalad get` calls
+because remotes are not available:
 
 .. todo::
 
-   Another type of warning you may encounter during installation is::
-
-      [INFO   ] Submodule HEAD got detached. Resetting branch master to point to 046713bb. Original location was 47e53498
+    paste some "please make these remotes available output"
 
 
-.. todo::
-
-   Another one from a missing git config::
-
-      [WARNING] It is highly recommended to configure git first (set both user.name and user.email) before using DataLad. Failed to verify that git is configured: CommandError: command '['git', 'config', 'user.name']' failed with exitcode 1
-      | Failed to run ['git', 'config', 'user.name'] under None. Exit code=1. out= err= [cmd.py:run:552]CommandError: command '['git', 'config', 'user.email']' failed with exitcode 1
-      | Failed to run ['git', 'config', 'user.email'] under None. Exit code=1. out= err= [cmd.py:run:552].  Some operations might fail or not perform correctly.
 
 .. todo::
 

@@ -1,0 +1,4 @@
+$ git checkout .gitmodules
+$ datalad status
+Updated 1 path from the index
+nothing to save, working tree clean

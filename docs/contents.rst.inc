@@ -1,129 +1,76 @@
-############
-Introduction
-############
+.. only:: html
+
+    .. figure:: artwork/src/enter.svg
+       :width: 60%
+
+################
+**Introduction**
+################
+
+.. toctree::
+   :hidden:
+
+   intro/user_types
 
 .. toctree::
    :maxdepth: 1
-   :caption: What DataLad is all about
+   :caption: What DataLad and the handbook are all about
 
    intro/philosophy
    intro/narrative
    intro/installation
    intro/howto
+   intro/executive_summary
 
+.. only:: html
 
-################
-DataLad datasets
-################
+   .. figure:: artwork/src/basics.svg
+      :width: 60%
+      :target: http://handbook.datalad.org/en/latest/basics/intro.html
 
-.. toctree::
-   :maxdepth: 1
-   :caption: Exploring DataLad's core data structure
-
-   basics/101-101-create
-   basics/101-102-populate
-   basics/101-103-modify
-   basics/101-105-install
-   basics/101-106-nesting
-   basics/101-107-summary
-
-
-#############
-Datalad, Run!
-#############
+##########
+**Basics**
+##########
 
 .. toctree::
-   :maxdepth: 1
-   :caption: How DataLad records provenance of dataset modifications
+   :hidden:
 
-   basics/101-108-run
-   basics/101-109-rerun
-   basics/101-110-run2
-   basics/101-112-run4
-   basics/101-113-summary
-
-
-#########################
-Under the hood: Git-annex
-#########################
+   basics/intro.rst
 
 .. toctree::
-   :maxdepth: 1
-   :caption: A closer look at how and why things work
+   :maxdepth: 2
+   :caption: Learn all about DataLad
 
-   basics/101-114-txt2git
-   basics/101-115-symlinks
+   basics/basics1toc
+   basics/basics2toc
+   basics/basics3toc
+   basics/basics4toc
+   basics/basics5toc
+   basics/basics6toc
+   basics/basics7toc
+   basics/basics8toc
+   basics/basics9toc
+   basics/basics10toc
+   basics/basics12toc
+
+.. only:: html
+
+   .. figure:: artwork/src/usecases.svg
+      :width: 60%
+      :target: http://handbook.datalad.org/en/latest/usecases/intro.html
 
 #############
-Collaboration
+**Use cases**
 #############
 
 .. toctree::
-   :maxdepth: 1
-   :caption: Sharing on shared file systems
+   :hidden:
 
-   basics/101-116-sharelocal
-   basics/101-117-sharelocal2
-   basics/101-118-sharelocal3
-   basics/101-119-sharelocal4
-   basics/101-121-siblings
-   basics/101-120-summary
-
-#############################
-Tuning datasets to your needs
-#############################
+   usecases/intro
 
 .. toctree::
    :maxdepth: 1
-   :caption: Various types and methods for dataset configurations
-
-   basics/101-125-config
-   basics/101-126-config2
-   basics/101-127-procedures
-   basics/101-128-summary
-
-#############
-Help yourself
-#############
-
-.. toctree::
-   :maxdepth: 1
-   :caption: What to do if things go wrong
-
-   basics/101-135-help
-   basics/101-136-filesystem
-   basics/101-137-history
-   basics/101-180-FAQ
-
-#############################
-Make the most out of datasets
-#############################
-
-.. toctree::
-   :maxdepth: 1
-   :caption: Organizational principles and best practices for data analyses
-
-   basics/101-122-intro
-   basics/101-123-yoda
-   basics/101-124-summary
-
-
-###############
-Further options
-###############
-
-.. toctree::
-   :maxdepth: 1
-   :caption: Small pieces of advice and helpful additional options
-
-   basics/101-179-gitignore
-
-#########
-Use Cases
-#########
-
-.. toctree::
-   :maxdepth: 1
+   :numbered:
    :caption: Hands-on real-world applications with step-by-step recipes...
 
    usecases/collaborative_data_management
@@ -131,6 +78,8 @@ Use Cases
    usecases/reproducible-paper
    usecases/supervision
    usecases/reproducible_neuroimaging_analysis
+   usecases/HCP_dataset
+   usecases/datastorage_for_institutions
 
 
 ####################
@@ -154,10 +103,25 @@ Appendix
    :caption: Further information and references
 
    glossary
+   basics/101-180-FAQ
+   basics/101-136-cheatsheet
    contributing
-   code_from_casts/01_dataset_basics_code
-   code_from_casts/02_reproducible_execution_code
+   teaching
+   acknowledgements
 
+
+########################
+Code lists from chapters
+########################
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Easy access to copy-paste snippets for workshops
+
+   code_from_chapters/intro
+   code_from_chapters/01_dataset_basics_code
+   code_from_chapters/02_reproducible_execution_code
+   code_from_chapters/10_yoda_code
 
 * :ref:`genindex`
 * :ref:`search`
@@ -165,7 +129,9 @@ Appendix
 ..
   stuff that we do not need or show at the moment
 
-.. toctree::
-   :hidden:
+.. only:: adminmode
 
-   usecases/datasets
+    .. toctree::
+       :hidden:
+
+       usecases/datasets

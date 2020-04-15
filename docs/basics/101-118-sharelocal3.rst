@@ -18,14 +18,14 @@ commands. For example, you created the simple ``podcasts.tsv``
 file that listed all titles and speaker names of the longnow
 podcasts.
 
-Given that you learned to created "proper" :command:`datalad run` commands,
+Given that you learned to create "proper" :command:`datalad run` commands,
 complete with ``--input`` and ``--output`` specification,
 anyone should be able to :command:`datalad rerun` these commits
 easily. This is what you want to try now.
 
 You begin to think about which :command:`datalad run` commit would be
 the most useful one to take a look at. The creation of
-``podcasts.tsv`` was a bit lame -- at this point in time, you
+``podcasts.tsv`` was a bit dull -- at this point in time, you
 didn't yet know about ``--input`` and ``--output`` arguments,
 and the resulting output is present anyway because text files
 like this ``.tsv`` file are stored in Git.
@@ -80,3 +80,14 @@ successfully.
 Your room mate now not only knows how exactly the resized file
 came into existence, but he can also reproduce your exact steps to
 create it. "This is as reproducible as it can be!" you think in awe.
+
+
+.. only:: adminmode
+
+    Add a tag at the section end.
+
+      .. runrecord:: _examples/DL-101-118-104
+         :language: console
+         :workdir: dl-101/DataLad-101
+
+         $ git branch sct_retrace_and_reenact

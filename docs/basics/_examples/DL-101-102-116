@@ -1,0 +1,6 @@
+$ git log --oneline
+8d3b831 add beginners guide on bash
+393f24f add reference book about git
+44aa3e2 add books on Python and Unix to read later
+c74e2b7 Instruct annex to add text files to Git
+dbaf9fa [DATALAD] new dataset

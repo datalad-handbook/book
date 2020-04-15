@@ -1,0 +1,225 @@
+.. _gin:
+
+Dataset hosting on GIN
+----------------------
+
+`GIN <https://gin.g-node.org/G-Node/Info/wiki>`__ (G-Node infrastructure) is a
+free data management system designed for comprehensive and reproducible management
+of scientific data. It is a web-based repository store and provides
+fine-grained access control to share data. :term:`GIN` builds up on :term:`Git` and
+:term:`git-annex`, and is an easy alternative to other third-party services to host
+and share your DataLad datasets [#f1]_.
+
+Prerequisites
+^^^^^^^^^^^^^
+
+In order to use GIN for hosting and sharing your datasets, you need to
+
+- register
+- upload your public :term:`SSH key` for SSH access
+- create an empty repository on GIN and publish your dataset to it
+
+Once you have `registered <https://gin.g-node.org/user/sign_up>`_
+an account on the GIN server by providing your e-mail address, affiliation,
+and name, and selecting a user name and password, you should upload your
+:term:`SSH key` to allow SSH access.
+
+.. findoutmore:: What is an SSH key and how can I create one?
+
+   An SSH key is an access credential in the :term:`SSH` protocol that can be used
+   to login from one system to remote servers and services, such as from your private
+   computer to an :term:`SSH server`. For repository hosting services such as :term:`GIN`,
+   :term:`GitHub`, or :term:`GitLab`, it can be used to connect and authenticate
+   without supplying your username or password for each action.
+
+   This `tutorial by GitHub <https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent>`_
+   is a detailed step-by-step instruction to generate and use SSH keys for authentication,
+   and it also shows you how to add your public SSH key to your GitHub account
+   so that you can install or clone datasets or Git repositories via ``SSH`` (in addition
+   to the ``http`` protocol), and the same procedure applies to GitLab and Gin.
+
+   Don't be intimidated if you have never done this before -- it is fast and easy:
+   First, you need to create a private and a public key (an SSH key pair).
+   All this takes is a single command in the terminal. The resulting files are
+   text files that look like someone spilled alphabet soup in them, but constitute
+   a secure password procedure.
+   You keep the private key on your own machine (the system you are connecting from,
+   and that **only you have access to**),
+   and copy the public key to the system or service you are connecting to.
+   On the remote system or service, you make the public key an *authorized key* to
+   allow authentication via the SSH key pair instead of your password. This
+   either takes a single command in the terminal, or a few clicks in a web interface
+   to achieve.
+   You should protect your SSH keys on your machine with a passphrase to prevent
+   others -- e.g., in case of theft -- to log in to servers or services with
+   SSH authentication [#f2]_, and configure an ``ssh agent``
+   to handle this passphrase for you with a single command. How to do all of this
+   is detailed in the above tutorial.
+
+To do this, visit the settings of your user account. On the left hand side, select
+the tab "SSH Keys", and click the button "Add Key":
+
+.. figure:: ../artwork/src/GIN_SSH_1.png
+
+You should copy the contents of your public key file into the field labeled
+``content``, and enter an arbitrary but informative ``Key Name``, such as
+"My private work station". Afterwards, you are done!
+
+
+Publishing your dataset to GIN
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To publish an existing dataset to GIN, create a new, empty repository on GIN first.
+Unlike with :command:`datalad create-sibling-github` (that does this step automatically
+for you on :term:`GitHub`), this needs to be done via the web interface:
+
+.. figure:: ../artwork/src/GIN_newrepo.png
+
+Afterwards, add this repository as a sibling of your dataset. To do this, use the
+:command:`datalad siblings add` command and the SSH URL of the repository as shown below.
+Note that since this is the first time you will be connecting to the GIN server
+via SSH, you will likely be asked to confirm to connect. This is a safety measure,
+and you can type "yes" to continue::
+
+    $ datalad siblings add -d . --name gin --url git@gin.g-node.org:/adswa/DataLad-101.git
+
+    The authenticity of host 'gin.g-node.org (141.84.41.219)' can't be established.
+    ECDSA key fingerprint is SHA256:E35RRG3bhoAm/WD+0dqKpFnxJ9+yi0uUiFLi+H/lkdU.
+    Are you sure you want to continue connecting (yes/no)? yes
+    [INFO   ] Failed to enable annex remote gin, could be a pure git or not accessible
+    [WARNING] Failed to determine if gin carries annex.
+    .: gin(-) [git@gin.g-node.org:/adswa/DataLad-101.git (git)]
+
+.. ifconfig:: internal
+
+    .. runrecord:: _examples/DL-101-139-101
+       :language: console
+       :workdir: dl-101/DataLad-101
+       :realcommand: python -c "from datalad.core.distributed.tests.test_push import mk_push_target; from datalad.api import Dataset as ds; mk_push_target(ds=ds('/home/me/dl-101/DataLad-101'), name='gin', path='/home/me/pushes/DataLad-101', annex=True, bare=True)"
+
+
+Afterwards, you can publish your dataset with :command:`datalad push`. As the
+repository on GIN supports a dataset annex, there is no publication dependency
+to an external data hosting service necessary, and the dataset contents
+stored in Git and in git-annex are published to the same place:
+
+
+ .. runrecord:: _examples/DL-101-139-102
+    :language: console
+    :workdir: dl-101/DataLad-101
+
+    $ datalad push --to gin
+
+If you refresh the GIN web interface afterwards, you will find all of your dataset
+-- including annexed contents! -- on GIN. What is especially cool is that the
+GIN web interface (unlike :term:`GitHub`) can even preview your annexed contents.
+
+.. figure:: ../artwork/src/GIN_dl101_repo.png
+
+
+.. _subdspublishing:
+
+Subdataset publishing
+^^^^^^^^^^^^^^^^^^^^^
+Just as the input subdataset ``iris_data`` in your published ``midterm_project``
+was referencing its source on :term:`GitHub`, the ``longnow`` subdataset in your
+published ``DataLad-101`` dataset directly references the original
+dataset on :term:`GitHub`. If you click onto ``recordings`` and then ``longnow``, you will
+be redirected to the podcast's original dataset.
+
+The subdataset ``midterm_project``, however, is not successfully referenced. If
+you click on it, you would get to a 404 Error page. The crucial difference between this
+subdataset and the longnow dataset is its entry in the ``.gitmodules`` file of
+``DataLad-101``:
+
+.. code-block:: bash
+   :emphasize-lines: 4, 8
+
+   $ cat .gitmodules
+   [submodule "recordings/longnow"]
+           path = recordings/longnow
+           url = https://github.com/datalad-datasets/longnow-podcasts.git
+           datalad-id = b3ca2718-8901-11e8-99aa-a0369f7c647e
+   [submodule "midterm_project"]
+           path = midterm_project
+           url = ./midterm_project
+           datalad-id = e5a3d370-223d-11ea-af8b-e86a64c8054c
+
+While the podcast subdataset is referenced with a valid URL to GitHub, the midterm
+project's URL is a relative path from the root of the superdataset. This is because
+the ``longnow`` subdataset was installed with :command:`datalad clone -d .`
+(that records the source of the subdataset), and the ``midterm_project`` dataset
+was created as a subdataset with :command:`datalad create -d . midterm_project`.
+Since there is no repository at
+``https://gin.g-node.org/<USER>/DataLad-101/midterm_project`` (which this submodule
+entry would resolve to), accessing the subdataset fails.
+
+However, since you have already published this dataset (to GitHub), you could
+update the submodule entry and provide the accessible GitHub URL instead. This
+can be done via the ``set-property <NAME> <VALUE>`` option of
+:command:`datalad subdatasets` [#f3]_ (replace the URL shown here with the URL
+your dataset was published to -- likely, you only need to change the user name):
+
+.. runrecord:: _examples/DL-101-139-103
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ datalad subdatasets --contains midterm_project --set-property url https://github.com/adswa/midtermproject
+
+.. runrecord:: _examples/DL-101-139-104
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ cat .gitmodules
+
+Handily, the :command:`datalad subdatasets` command saved this change to the
+``.gitmodules`` file automatically and the state of the dataset is clean:
+
+.. runrecord:: _examples/DL-101-139-105
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ datalad status
+
+Afterwards, publish these changes to ``gin`` and see for yourself how this fixed
+the problem:
+
+.. runrecord:: _examples/DL-101-139-106
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ datalad push --to gin
+
+If the subdataset was not published before, you could publish the subdataset to
+a location of your choice, and modify the ``.gitmodules`` entry accordingly.
+
+Sharing the dataset
+^^^^^^^^^^^^^^^^^^^
+
+Once your dataset is published, you can point collaborators and friends to it.
+The "Collaboration" tab under Settings lets you set fine-grained access rights,
+and it is possible to share datasets with collaborators that are not registered
+on GIN.
+
+
+.. rubric:: Footnotes
+
+.. [#f1] GIN looks and feels similar to GitHub, and among a number advantages, it can
+         assign a :term:`DOI` to your dataset, making it cite-able. Moreover, its
+         `web interface <https://gin.g-node.org/G-Node/Info/wiki/WebInterface>`_
+         and `client <https://gin.g-node.org/G-Node/Info/wiki/GinUsageTutorial>`_ are
+         useful tools with a variety of features that are worthwhile to check out, as well.
+
+.. [#f2] Your private SSH key is incredibly valuable, and it is important to keep
+         it secret!
+         Anyone who gets your private key has access to anything that the public key
+         is protecting. If the private key does not have a passphrase, simply copying
+         this file grants a person access!
+
+.. [#f3] Alternatively, you can configure the siblings url with :command:`git config`::
+
+           $ git config -f .gitmodules --replace-all  submodule.midterm_project.url https://github.com/adswa/midtermproject
+
+         Remember, though, that this command modifies ``.gitmodules`` *without*
+         an automatic, subsequent :command:`save`, so that you will have to save
+         this change manually.

@@ -1,0 +1,7 @@
+$ git config -f .gitmodules --replace-all submodule.midterm_project.url https://github.com/datalad-handbook/midterm_project
+$ datalad save -m "SERVICE COMMIT - IGNORE. This commit only serves to appropriately reference the subdataset in the public showroom dataset"
+add(ok): .gitmodules (file)
+save(ok): . (dataset)
+action summary:
+  add (ok: 1)
+  save (ok: 1)

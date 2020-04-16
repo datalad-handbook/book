@@ -83,7 +83,7 @@
 
 
 ####################
-Use Cases: INM-7 FZJ
+**Use Cases: INM-7**
 ####################
 
 .. toctree::

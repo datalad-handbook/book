@@ -91,9 +91,7 @@ Use Cases: INM-7 FZJ
    :caption: Exemplary data management at the Juelich Research Center
 
    usecases/JSCcomputing
-   usecases/inm7_analysis_project
-   usecases/inm7_hammerpants
-   usecases/inm7_jsc_data
+
 
 ########
 Appendix

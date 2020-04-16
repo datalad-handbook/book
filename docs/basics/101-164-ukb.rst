@@ -13,6 +13,31 @@ This chapter is a write-up about a gigantic data analysis usecase: Preprocessing
 the `UKBiobank dataset <https://www.ukbiobank.ac.uk/>`_ with open software
 tools in a FAIR fashion on a super computer.
 
+Plan of action
+^^^^^^^^^^^^^^
+
+.. todo::
+
+   outline a sketch of employed procedures:
+
+   - UKBiobank data is retrieved and version controlled with the datalad ukbiobank extension,
+     and assembled to a complete superdataset.
+     - Challenge: BIDS conformity needs to be assured
+     - Challenge: simulations are required to test whether tools scale
+     - Challenge: Disk usage and inode usage limitation (this makes DataLad actually required!)
+     - Challenge: Store/Dataset layout that is within file system subdirectory limits
+   - data transfer to a supercomputer for computing
+     - Challenge: RIA store layout, data transfer times?
+     - ria-export
+   - FAIR processing: using software containers and singularity to preprocess the
+     data with full provenance capture
+     - Challenge: software installation on a supercomputer
+   - fMRIprep
+     - Challenge: BIDS conformity
+     - Challenge: inode consumption during computing
+   - CAT preprocessing?
+   - output storage
+     - Challenge: setting up scalable, robust storage solution to assemble the outputs
 
 The UKBiobank data
 ^^^^^^^^^^^^^^^^^^
@@ -38,11 +63,19 @@ By now, data from several ten thousand participants was already released.
 
 
 Difficulties for data analysis
+""""""""""""""""""""""""""""""
 
-Difficulties for data analysis stem from two different aspects. For one, and
-primarily, the size of the dataset is enormous, both in size and in number of
-files.
-Compressed data alone amounts to ??? GB per participant.
-When processed
-When complete, the 100.000 participant directories will surpass the
-64k subdirectory limit of common file systems.
+Difficulties for data analysis are plenty fold. For one, and primarily, the
+size of the dataset is enormous, both in size and in number of files.
+Depending on the selected data records (more on this in the next section) and
+employed preprocessing procedures, raw data and initially preprocessed data alone
+take up several hundred TB, and millions of inodes. Especially inode usage is
+limited on the employed supercomputer.
+Furthermore, when the imaging component of the study is complete and released,
+the 100.000 participant directories will surpass the 64k subdirectory limit of
+common file systems.
+
+.. todo::
+
+   outline all difficulties briefly, follow layout of the plan of action where
+   possible

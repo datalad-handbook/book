@@ -160,7 +160,7 @@ an SSH key as detailed above, and cloning via the SSH url:
 
    $ datalad clone git@gin.g-node.org:/adswa/DataLad-101.git
 
-.. findoutmore:: How do I now if my repository is private?
+.. findoutmore:: How do I know if my repository is private?
 
    Private repos are marked with a lock sign. To make it public, untick the
    "Private" box, found under "Settings":

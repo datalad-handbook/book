@@ -128,6 +128,48 @@ GIN web interface (unlike :term:`GitHub`) can even preview your annexed contents
 
 .. figure:: ../artwork/src/GIN_dl101_repo.png
 
+.. _access:
+
+Sharing and accessing the dataset
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Once your dataset is published, you can point collaborators and friends to it.
+
+If it is a **public** repository, retrieving the dataset and getting access to
+all published data contents (in a read-only fashion) is done by cloning the
+repository's ``https`` url. This does not require a user account on Gin.
+
+.. runrecord:: _examples/DL-101-139-107
+   :language: console
+   :workdir: dl-101/clone_of_dl-101
+
+   $ datalad clone https://gin.g-node.org/adswa/DataLad-101
+
+Subsequently, :command:`datalad get` calls will be able to retrieve all annexed
+file contents that have been published to the repository.
+
+If it is a **private** dataset, cloning the dataset from Gin requires a user
+name and password for anyone you want to share your dataset with.
+The "Collaboration" tab under Settings lets you set fine-grained access rights,
+and it is possible to share datasets with collaborators that are not registered
+on GIN with provided Guest accounts.
+In order to get access to annexed contents, cloning *requires* setting up
+an SSH key as detailed above, and cloning via the SSH url:
+
+.. code-block:: bash
+
+   $ datalad clone git@gin.g-node.org:/adswa/DataLad-101.git
+
+.. findoutmore:: How do I now if my repository is private?
+
+   Private repos are marked with a lock sign. To make it public, untick the
+   "Private" box, found under "Settings":
+
+   .. figure:: ../artwork/src/GIN_private.png
+
+In order to publish changes to a Gin repository, the repository needs
+to be cloned via its SSH url.
+
 
 .. _subdspublishing:
 
@@ -205,13 +247,6 @@ the problem:
 If the subdataset was not published before, you could publish the subdataset to
 a location of your choice, and modify the ``.gitmodules`` entry accordingly.
 
-Sharing the dataset
-^^^^^^^^^^^^^^^^^^^
-
-Once your dataset is published, you can point collaborators and friends to it.
-The "Collaboration" tab under Settings lets you set fine-grained access rights,
-and it is possible to share datasets with collaborators that are not registered
-on GIN.
 
 
 .. rubric:: Footnotes

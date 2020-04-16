@@ -26,6 +26,11 @@ In order to use GIN for hosting and sharing your datasets, you need to
 - upload your public :term:`SSH key` for SSH access
 - create an empty repository on GIN and publish your dataset to it
 
+.. todo::
+
+   Revise this last step once there is a ``datalad create-sibling-gin``
+   command: https://github.com/datalad/datalad/issues/2680
+
 Once you have `registered <https://gin.g-node.org/user/sign_up>`_
 an account on the GIN server by providing your e-mail address, affiliation,
 and name, and selecting a user name and password, you should upload your

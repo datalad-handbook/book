@@ -46,9 +46,15 @@ If you want to read up on this, take a look at the hidden section below.
 
    DICOM differs from other image formats in that it groups information into data sets,
    i.e., collections of information. A DICOM file consists of a *header* and
-   *image data sets*. The information within the header is organized
+   *image data sets*. Usually, each DICOM file encodes a single 2D slice of the
+   brain image, and what will later be a single 3D brain image is several dozen or
+   even several hundred of individual DICOM files when it leaves the scanner.
+   The information within the DICOM header is organized
    as a constant and standardized series of *tags* (two-number codes) that describe
-   properties of the data. By extracting data from these tags one can access important
+   properties of the data. Depending on the tag, the associated data could either
+   be provided by the scanner automatically, or filled in by the person that
+   conducted the acquisition during scanning.
+   By extracting data from these tags one can access important
    information regarding the subject demographics, device, imaging sequence, and
    image specifics (e.g., dimensions of the image, slice thickness, or slice order).
    Apart from the actual image data, DICOM files therefore encompass also vast
@@ -387,8 +393,8 @@ During DICOM import, the command ``hirni-dicom2spec`` generated so called
 such as anonymized subject IDs are stored. Put simple, all these specifications
 are merely information about DICOM data.
 They are fundamental to ``hirni`` and indispensable for a successful
-conversion. But they are also quite hard to get a good grasp on. This
-findoutmore will shed some light on them.
+conversion. But they are also quite hard to get a good grasp on. If you want
+to get a detailed picture, this findoutmore will shed some light on them.
 
 .. findoutmore:: On specifications
 
@@ -692,6 +698,47 @@ findoutmore will shed some light on them.
         trues
       - no procedure definition in dicom2spec
 
+It is important to check and potentially edit the specification that were derived
+during the DICOM import. For this, just as for the dataset description, the
+WebUI is useful.
+
+.. findoutmore:: Editing acquisition metadata with the WebUI
+
+   In order to use the WebUI to edit study metadata, start it with the same
+   command as used before::
+
+      $ datalad webapp -d . hirni
+
+   This time, select the field "Edit acquisition metadata", and select the
+   acquisition you want to edit or check from the drop-down menu.
+
+   **General overview:**
+   The WebUI now displays a more complex layout. There is one field for
+   each JSON dictionary in the specification snippet of the DICOM series.
+   It allows adding or editing descriptions or deleting fields all together,
+   and it allows to tick an information to mark it as "approved".
+   Apart from metadata fields that describe the nature of the data, there also
+   is a large input field for procedures for each DICOM series.
+
+
+   **Editing or adding BIDS relevant metadata:**
+
+   .. todo::
+
+       - difference betwen dicomseries:all and dicom series?
+       - what does delete do? when should I use it?
+
+   **Selecting procedures:**
+   Adding procedures, for example defacing, can be done by selecting an
+   available procedure from the drop-down menu. This menu will list all available
+   procedures on your system, and those added by hirni are usually identified
+   with a ``hirni-`` prefix (apart from the ``<copy|move>-converter`` procedures,
+   and the ``fslroi`` procedure).
+
+  .. todo::
+
+     - procedure call: do all procedures have default calls?
+
 Procedures
 """"""""""
 
@@ -702,10 +749,17 @@ simple operations such as "copying and renaming" up to complex procedures
 such as defacing. The findoutmore above already showed some example procedure
 definitions, but there is more information about procedures to be known:
 
+The available procedures are the following:
+
+- ``copy-converter``: Copy a file
+- ``hirni-dicom-converter``: Convert DICOMs to NifTis (automatically selected for
+  all DICOM series)
+- ``hirni_mridefacer``: Deface images during the conversion
+- ``hirni-physiobox-converter``: TODO
+- ``move-converter``: TODO rename a file?
+- ``fslroi``: TODO
 
 
-MORE NOTES:
-- available procedures: copy-converter (copies a file
 
 .. findoutmore:: Formatting procedure calls
 

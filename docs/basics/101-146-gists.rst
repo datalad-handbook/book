@@ -22,6 +22,32 @@ to see answered here, please
 
 .. figure:: ../artwork/src/gists.svg
 
+Parallelize subdataset processing
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+DataLad can not yet parallelize processes that are performed
+independently over a large number of subdatasets. Pushing across a dataset
+hierarchy or creating `RIA siblings <../usecases/datastore_for_institutions.html>`_
+for all subdatasets of a superdataset, for example, is performed one after the other.
+Unix however, has a few tools such as `xargs <https://en.wikipedia.org/wiki/Xargs>`_
+or the ``parallel`` tool of `moreutils <https://joeyh.name/code/moreutils/>`_
+that can assist.
+
+Here is an example of pushing all subdatasets (and their respective subdatasets)
+recursively to their (identically named) siblings:
+
+.. code-block:: bash
+
+   $ datalad -f '{path}' subdatasets | xargs -n 1 -P 10 datalad push -r --to <sibling-name> -d
+
+``datalad -f '{path}' subdatasets`` discovers the paths of all subdatasets,
+and ``xargs`` hands them individually (``-n 1``) to a (recursive) :command:`datalad push`,
+but performs 10 of these operations in parallel (``-P 10``), thus achieving
+parallelization.
+Operations like this can safely be attempted for all commands that are independent
+across subdatasets.
+
+
 How can I check whether all file content is present locally?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 

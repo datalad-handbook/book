@@ -50,8 +50,29 @@
    basics/basics7toc
    basics/basics8toc
    basics/basics9toc
-   basics/basics10toc
-   basics/basics12toc
+
+.. only:: html
+
+   .. figure:: artwork/src/advanced.svg
+      :width: 60%
+      :target: http://handbook.datalad.org/en/latest/beyond_basics/intro.html
+
+############
+**Advanced**
+############
+
+
+.. toctree::
+   :hidden:
+
+   beyond_basics/intro.rst
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Beyond the Basics
+
+   beyond_basics/basics10toc
+   beyond_basics/basics12toc
 
 .. only:: html
 

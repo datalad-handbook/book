@@ -7,9 +7,9 @@ In the last four sections, we demonstrated how to create a proper :command:`data
 command, and discovered the concept of *locked* content.
 
 * :command:`datalad run` records and saves the changes a command makes in a dataset. That means
-  that modifications to existing content or new content is associated with a specific command
+  that modifications to existing content or new content are associated with a specific command
   and saved to the dataset's history. Essentially, :command:`datalad run` helps you to keep
-  track of what you do in your dataset.
+  track of what you do in your dataset by capturing all :term:`provenance`.
 
 * A :command:`datalad run` command generates a ``run record`` in the commit. This :term:`run record` can be used
   by datalad to re-execute a command with :command:`datalad rerun SHASUM`, where SHASUM is the
@@ -20,9 +20,9 @@ command, and discovered the concept of *locked* content.
 
 * With any :command:`datalad run`, specify a commit message, and whenever appropriate, specify its inputs
   to the executed command (using the ``-i``/``--input`` flag) and/or its output (using the ``-o``/
-  ``--output`` flag). The full command structure is:
+  ``--output`` flag). The full command structure is::
 
-:command:`datalad run -m "commit message here" --input "path/to/input/" --output "path/to/output" "command"`
+     $ datalad run -m "commit message here" --input "path/to/input/" --output "path/to/output" "command"
 
 * Anything specified as ``input`` will be retrieved if necessary with a :command:`datalad get` prior to command
   execution. Anything specified as ``output`` will be ``unlocked`` prior to modifications.

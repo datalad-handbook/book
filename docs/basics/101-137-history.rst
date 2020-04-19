@@ -14,6 +14,9 @@ it is possible to look at previous states of the data, or revert changes --
 even years after they happened -- thanks to the underlying version control
 system :term:`Git`.
 
+.. figure:: ../artwork/src/versioncontrol.svg
+   :width: 70%
+
 To get a glimpse into how to work with the history of a dataset, today's lecture
 has an external Git-expert as a guest lecturer.
 "I do not have enough time to go through all the details in only
@@ -149,7 +152,7 @@ DataLad in the editor)!
 
       pick 8503f26 Add note on adding siblings
       pick 23f0a52 add note on configurations and git config
-      pick c42cba4 add note on DataLads procedures
+      pick c42cba4 add note on DataLad's procedures
 
       # Rebase b259ce8..c42cba4 onto b259ce8 (3 commands)
       #
@@ -225,8 +228,28 @@ in your dataset -- just not written to the history anymore. Let's
 try this to get a feel for it.
 
 The COMMIT in the command can either be a hash or a reference
-with the HEAD pointer. Let's stay with the hash, and reset to the
-commit prior to saving the Gitjokes.
+with the HEAD pointer.
+
+.. findoutmore:: Git terminology: branches and HEADs?
+
+   A Git repository (and thus any DataLad dataset) is built up as a tree of
+   commits. A *branch* is a named pointer (reference) to a commit, and allows you
+   to isolate developments. The default branch is called ``master``. ``HEAD`` is
+   a pointer to the branch you are currently on, and thus to the last commit
+   in the given branch.
+
+   .. figure:: ../artwork/src/git_branch_HEAD.png
+
+   Using ``HEAD``, you can identify the most recent commit, or count backwards
+   starting from the most recent commit. ``HEAD~1`` is the ancestor of the most
+   recent commit, i.e., one commit back (``f30ab`` in the figure above). Apart from
+   the notation ``HEAD~N``, there is also ``HEAD^N`` used to count backwards, but
+   less frequently used and of importance primarily in the case of *merge*
+   commits.
+   `This post <https://stackoverflow.com/questions/2221658/whats-the-difference-between-head-and-head-in-git>`__
+   explains the details well.
+
+Let's stay with the hash, and reset to the commit prior to saving the Gitjokes.
 
 First, find out the shasum, and afterwards, reset it.
 
@@ -277,7 +300,7 @@ to track:
 
    $ datalad save -m "save my favorite Git joke" Gitjoke2.txt
 
-Finally, lets check how the history looks afterwards:
+Finally, let's check how the history looks afterwards:
 
 .. runrecord:: _examples/DL-101-137-112
    :workdir: dl-101/DataLad-101
@@ -301,8 +324,8 @@ annexed would revert the save of the symlink into Git, but it will
 not revert the *annexing* of the file.
 Thus, what will be left in the dataset is an untracked symlink.
 
-To undo an accidental save that annexed a file, the annexed file
-has to be "unannexed" first with a :command:`datalad unlock` command.
+To undo an accidental save of that annexed a file, the annexed file
+has to be "unlocked" first with a :command:`datalad unlock` command.
 
 We will simulate such a situation by creating a PDF file that
 gets annexed with an accidental :command:`datalad save`:
@@ -560,7 +583,7 @@ but also a modification to ``notes.txt``:
    :language: console
    :workdir: dl-101/DataLad-101
 
-   $ cat << EOT > notes.txt
+   $ cat << EOT >> notes.txt
 
    Git has many handy tools to go back in forth in
    time and work with the history of datasets.
@@ -738,6 +761,18 @@ clean dataset state with no untracked files or modifications.
 
 Finally, if you want, apply you're new knowledge about reverting commits
 to remove the ``Gitjoke2.txt`` file.
+
+
+.. only:: adminmode
+
+   Add a tag at the section end.
+
+     .. runrecord:: _examples/DL-101-137-160
+        :language: console
+        :workdir: dl-101/DataLad-101
+
+        $ git branch sct_back_and_forth_in_time
+
 
 .. rubric:: Footnotes
 

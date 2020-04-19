@@ -1,7 +1,7 @@
 $ git log --oneline
-7c4eb2c Provide project description
-41bebc1 [DATALAD RUNCMD] analyze iris data with classification analysis
-60250f0 add script for kNN classification and plotting
-23be05e [DATALAD] Recorded changes
-3d05185 Apply YODA dataset setup
-8aceb01 [DATALAD] new dataset
+c5edf51 Provide project description
+2ce757f [DATALAD RUNCMD] analyze iris data with classification analysis
+8147ae7 add script for kNN classification and plotting
+c70fe0a [DATALAD] Recorded changes
+539b789 Apply YODA dataset setup
+4db5c90 [DATALAD] new dataset

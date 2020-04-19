@@ -1,7 +1,6 @@
 $ git status
 On branch master
 Changes to be committed:
-  (use "git reset HEAD <file>..." to unstage)
-
+  (use "git restore --staged <file>..." to unstage)
 	renamed:    TLCL.pdf -> The_Linux_Command_Line.pdf
 

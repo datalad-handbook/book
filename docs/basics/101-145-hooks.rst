@@ -1,0 +1,197 @@
+.. index:: ! 2-003
+.. _2-003:
+.. _hooks:
+
+DataLad's result hooks
+^^^^^^^^^^^^^^^^^^^^^^
+
+.. index:: ! result hooks, ! hooks
+
+If you are particularly keen on automating tasks in your datasets, you may be
+interested in running DataLad commands automatically as soon
+as previous commands are executed and resulted in particular outcomes or states.
+For example, you may want to automatically :command:`unlock` all dataset contents
+right after an installation in one go. However, you'd also want to make sure that
+the :command:`install` command was *successful* before attempting an
+:command:`unlock`. Therefore, you would like to automatically
+run the :command:`datalad unlock .` command right after the :command:`datalad install`
+command, *but only* if the previous :command:`install` command was successful.
+
+Such automation allows for flexible and yet automatic responses to the results
+of DataLad commands, and can be done with DataLad's *result hooks*.
+Generally speaking, `hooks <https://en.wikipedia.org/wiki/Hooking>`__ intercept
+function calls or events and allow to extend the functionality of a program.
+DataLad's result hooks are calls to other DataLad commands after the command
+resulted in a specified result -- such as a successful install.
+
+To understand how hooks can be used and defined, we have to briefly mention
+DataLad's *command result evaluations*. Whenever a DataLad
+command is executed, an internal evaluation generates a *report* on the status
+and result of the command. To get a glimpse into such an evaluation, you can call
+any DataLad command with the ``datalad`` option
+``-f/--output-format <default, json, json_pp, tailored, '<template>'>`` to
+return the command result evaluations with a specific formatting. Here is how this
+can look like for a :command:`datalad create`::
+
+   $ datalad -f json_pp create somedataset
+    [INFO   ] Creating a new annex repo at /tmp/somedataset
+    {
+      "action": "create",
+      "path": "/tmp/somedataset",
+      "refds": null,
+      "status": "ok",
+      "type": "dataset"
+    }
+
+Internally, this is useful for final result
+rendering, error detection, and logging. However, by using hooks, you can
+utilize these evaluations for your own purposes and "hook" in more commands
+whenever an evaluation fulfills your criteria.
+
+To be able to specify matching criteria, you need to be aware of the potential
+criteria you can match against. The evaluation report is a dictionary with
+``key:value`` pairs. The following table provides an overview on some of the
+available keys and their possible values [#f1]_:
+
+.. list-table::
+   :widths: 50 100
+   :header-rows: 1
+
+   * - Key name
+     - Values
+   * - ``action``
+     - ``get``, ``install``, ``drop``, ``status``, ... (any command's name)
+   * - ``type``
+     - ``file``, ``dataset``, ``symlink``, ``directory``
+   * - ``status``
+     - ``ok``, ``notneeded``, ``impossible``, ``error``
+   * - ``path``
+     - The path the previous command operated on
+
+These key-value pairs provide the basis to define matching rules that -- once met --
+can trigger the execution of custom hooks.
+To define a hook based on certain command results, two configuration variables
+need to be set:
+
+.. code-block:: bash
+
+   datalad.result-hook.<name>.match-json
+
+and
+
+.. code-block:: bash
+
+   datalad.result-hook.<name>.call-json
+
+Here is what you need to know about these variables:
+
+- The ``<name>`` part of the configurations is the same for both variables, and can be
+  an arbitrarily [#f2]_ chosen name that serves as an identifier for the hook you are
+  defining.
+
+- The first configuration variable, ``datalad.result-hook.<name>.match-json``, defines
+  the requirements that a result evaluation needs to match in order to trigger the hook.
+
+- The second configuration variable, ``datalad.result-hook.<name>.call-json``, defines
+  what the hook execution comprises. It can be any DataLad command of your choice.
+
+And here is how to set the values for these variables:
+
+- When set via the :command:`git config` command, the value for
+  ``datalad.result-hook.<name>.match-json`` needs to be specified as
+  a JSON-encoded dictionary with any number of keys, such as
+
+  .. code-block:: bash
+
+     {"type": "file", "action": "get", "status": "notneeded"}
+
+  This translates to: "Match a "not-needed" after :command:`datalad get` of a file."
+  If all specified values in the keys in this dictionary match the values of the
+  same keys in the result evaluation, the hook is executed. Apart from ``==``
+  evaluations, ``in``, ``not in``, and ``!=`` are supported. To make use of such
+  operations, the test value needs to be wrapped into a list, with the first item
+  being the operation, and the second value the test value, such as
+
+  .. code-block:: bash
+
+     {"type": ["in", ["file", "directory"]], "action": "get", "status": "notneeded"}
+
+  This translates to:  "Match a "not-needed" after :command:`datalad get` of a file or directory."
+  Another example is
+
+  .. code-block:: bash
+
+     {"type":"dataset","action":"install","status":["eq", "ok"]}
+
+  which translates to: "Match a successful installation of a dataset".
+
+- The value for ``datalad.result-hook.<name>.call-json`` is specified in its
+  Python notation, and its options -- when set via the :command:`git config`
+  command -- are specified as a JSON-encoded dictionary
+  with keyword arguments. Conveniently, a number of string substitutions are
+  supported: a ``dsarg`` argument expands to the ``dataset`` given to the initial
+  command the hook operates on, and any key from the result evaluation can be
+  expanded to the respective value in the result dictionary. Curly braces need to
+  be escaped by doubling them.
+  This is not the easiest specification there is, but its also not as hard as it
+  may sound. Here is how this could look like for a :command:`datalad unlock`::
+
+     $ unlock {{"dataset": "{dsarg}", "path": "{path}"}}
+
+  This translates to "unlock the path the previous command operated on, in the
+  dataset the previous command operated on". Another example is this run command::
+
+     $ FIXME run  {{"cmd": "cp ~/templates/standard-readme.txt {path}/README", "dataset": "{dsarg}", "explicit": true}}
+
+  This translate to "execute a run command in the dataset the previous command operated
+  on. In this run command, copy a README template file from ``~/Templates/standard-readme.txt``
+  and place it into the newly created dataset." A final example is this::
+
+     $ run_procedure {{"dataset":"{path}","spec":"cfg_metadatatypes bids"}}
+
+  This hook will run the procedure ``cfg_metadatatypes`` with the argument ``bids``
+  and thus set the standard metadata extractor to be bids.
+
+
+As these variables are configuration variables, they can be set via
+:command:`git config` -- either for the dataset (``--local``), or the
+user (``--global``) [#f3]_::
+
+    $ git config --global --add datalad.result-hook.readme.call-json 'run {{"cmd":"cp ~/Templates/standard-readme.txt {path}/README", "outputs":["{path}/README"], "dataset":"{path}","explicit":true}}'
+    $ git config --global --add datalad.result-hook.readme.match-json '{"type": "dataset","action":"create","status":"ok"}'
+
+Here is what this writes to the ``~/.gitconfig`` file::
+
+    [datalad "result-hook.readme"]
+        call-json = run {{\"cmd\":\"cp ~/Templates/standard-readme.txt {path}/README\", \"outputs\":[\"{path}/READ>
+        match-json = {\"type\": \"dataset\",\"action\":\"create\",\"status\":\"ok\"}
+
+Note how characters such as quotation marks are automatically escaped via
+backslashes. If you want to set the variables "by hand" with an editor instead
+of using :command:`git config`, pay close attention to escape them as well.
+
+Given this configuration in the global ``~/.gitconfig`` file, the
+"``readme``" hook would be executed whenever you successfully create a new dataset
+with :command:`datalad create`. The "``readme``" hook would then automatically copy a
+file, ``~/Templates/standard-readme.txt`` (this could be a standard README template
+you defined), into the new dataset.
+
+
+.. rubric:: Footnotes
+
+
+.. [#f1] The key-value table provides a selection of available key-value pairs, but
+         the set of possible key-value pairs is potentially unlimited, as any
+         third-party extension could introduce new keys, for example. If in doubt,
+         use the ``-f/--output-format`` option with the command of your choice to
+         explore how your matching criteria may look like.
+
+.. [#f2] It only needs to be compatible with :command:`git config`. This means that
+         it for example should not contain any dots (``.``).
+
+.. [#f3] To re-read about the :command:`git config` command and other configurations
+         of DataLad and its underlying tools, go back to the chapter on Configurations,
+         starting with :ref:`config`.
+         **Note that hooks are only read from Git's config files, not .datalad/config!**
+         Else, this would pose a severe security risk, as it would allow installed datasets to
+         alter DataLad commands to perform arbitrary executions on a system.

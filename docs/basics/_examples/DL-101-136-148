@@ -1,0 +1,23 @@
+$ git log -p -n 1
+commit b52a71418c9b561ca8571fdfce0b89e634d9b199
+Author: Elena Piscopia <elena@example.net>
+Date:   Mon Feb 17 08:52:42 2020 +0100
+
+    content removed from git annex
+
+diff --git a/recordings/interval_logo_small.jpg b/recordings/interval_logo_small.jpg
+deleted file mode 120000
+index f4d6fd6..0000000
+--- a/recordings/interval_logo_small.jpg
++++ /dev/null
+@@ -1 +0,0 @@
+-../.git/annex/objects/36/jF/MD5E-s100877--0fea9537f9fe255d827e4401a7d539e7.jpg/MD5E-s100877--0fea9537f9fe255d827e4401a7d539e7.jpg
+\ No newline at end of file
+diff --git a/recordings/salt_logo_small.jpg b/recordings/salt_logo_small.jpg
+deleted file mode 120000
+index 55ada0f..0000000
+--- a/recordings/salt_logo_small.jpg
++++ /dev/null
+@@ -1 +0,0 @@
+-../.git/annex/objects/xJ/4G/MD5E-s260607--4e695af0f3e8e836fcfc55f815940059.jpg/MD5E-s260607--4e695af0f3e8e836fcfc55f815940059.jpg
+\ No newline at end of file

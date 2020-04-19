@@ -1,0 +1,26 @@
+$ git log -n 1 -p
+commit 48c34a2f551b67edf4f65573ac6f85ca8776b2c2
+Author: Elena Piscopia <elena@example.net>
+Date:   Mon Feb 17 08:52:16 2020 +0100
+
+    [DATALAD] Configure containerized environment 'midterm-software'
+
+diff --git a/.datalad/config b/.datalad/config
+index 18fe28f..dc29cf7 100644
+--- a/.datalad/config
++++ b/.datalad/config
+@@ -1,2 +1,6 @@
+ [datalad "dataset"]
+	id = 3a233abc-515a-11ea-a727-6533dd7bb2c6
++[datalad "containers.midterm-software"]
++	updateurl = shub://adswa/resources:1
++	image = .datalad/environments/midterm-software/image
++	cmdexec = singularity exec {img} {cmd}
+diff --git a/.datalad/environments/midterm-software/image b/.datalad/environments/midterm-software/image
+new file mode 120000
+index 0000000..800282a
+--- /dev/null
++++ b/.datalad/environments/midterm-software/image
+@@ -0,0 +1 @@
++../../../.git/annex/objects/zJ/8f/MD5E-s232214559--49dcb6ac1a5787636c9897c4d4df7e10/MD5E-s232214559--49dcb6ac1a5787636c9897c4d4df7e10
+\ No newline at end of file

@@ -21,6 +21,9 @@ the first student in your lecturer's office hours.
 "Oh, you're really attentive. This is a great question!" our lecturer starts
 to explain.
 
+.. figure:: ../artwork/src/teacher.svg
+   :width: 70%
+
 Do you remember that we created the ``DataLad-101`` dataset with a
 specific configuration template? It was the ``-c text2git`` option we
 provided in the beginning of :ref:`createDS`. It is because of this configuration
@@ -91,6 +94,6 @@ and improve our understanding a slight bit further.
 
 .. rubric:: Footnotes
 
-.. [#f1] If you can't wait to read about ``.gitattributes`` and other
-         configuration files, jump ahead to chapter "Tuning datasets to your needs",
+.. [#f1] If you cannot wait to read about ``.gitattributes`` and other
+         configuration files, jump ahead to chapter :ref:`chapter_config`,
          starting with section :ref:`config`.

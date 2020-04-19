@@ -3,6 +3,8 @@
 Configurations to go
 --------------------
 
+.. index:: ! procedures, run-procedures
+
 The past two sections should have given you a comprehensive
 overview on the different configuration options the tools
 Git, git-annex, and DataLad provide. They not only
@@ -360,7 +362,7 @@ was applied.
       procedures and a short explanation. Maybe on the cheatsheet.
 
 Summing up, DataLad's :command:`run-procedure` command is a handy tool
-with useful existing procedures but much flexibility for own
+with useful existing procedures but much flexibility for your own
 DIY procedure scripts. With the information of the last three sections
 you should be able to write and understand necessary configurations,
 but you can also rely on existing, preconfigured templates in the
@@ -374,7 +376,10 @@ with the help of a procedure.
 Especially in the case of trainees and new users, applying procedures
 instead of doing relevant routines "by hand" can help to ease
 working with the dataset, as the use case :ref:`usecase_student_supervision`
-showcases.
+showcases. Other than by users, procedures can also be triggered to automatically
+run after any command execution if a command results matches a specific
+requirement. If you are interested in finding out more about this, read on in
+section :ref:`hooks`.
 
 Finally, make a note about running procedures inside of ``notes.txt``:
 
@@ -399,7 +404,19 @@ Finally, make a note about running procedures inside of ``notes.txt``:
    :workdir: dl-101/DataLad-101
    :language: console
 
-   $ datalad save -m "add note on DataLads procedures"
+   $ datalad save -m "add note on DataLad's procedures"
+
+
+.. only:: adminmode
+
+    Add a tag at the section end.
+
+      .. runrecord:: _examples/DL-101-124-112
+         :language: console
+         :workdir: dl-101/DataLad-101
+
+         $ git branch sct_configurations_to_go
+
 
 .. rubric:: Footnotes
 

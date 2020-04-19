@@ -1,3 +1,5 @@
+.. index:: ! 2-002
+.. _2-002:
 .. _symlink:
 
 Data integrity
@@ -5,9 +7,10 @@ Data integrity
 
 So far, we mastered quite a number of challenges: Creating and populating a dataset with
 large and small files, modifying content and saving the changes to history, installing
-datasets, installing subdatasets within datasets, and recording the impact of commands
-on a dataset with the run and re-run commands.
-We further took note that when we modified content in ``notes.txt`` or ``list_files.py``,
+datasets, even as subdatasets within datasets, recording the impact of commands
+on a dataset with the run and re-run commands, and capturing plenty of
+:term:`provenance` on the way.
+We further noticed that when we modified content in ``notes.txt`` or ``list_files.py``,
 the modified content was in a *text file*. We learned that
 this precise type of file, in conjunction with the initial configuration template
 ``text2git`` we gave to :command:`datalad create`, is meaningful: As the textfile is
@@ -42,7 +45,7 @@ this looks weird, if not worse: intimidating, wrong, or broken.
 First of all: no, **it is all fine**. But let's start with the basics of what is displayed
 here to understand it.
 
-The small ``->`` symbol connecting one path (the books name) to another path (the weird
+The small ``->`` symbol connecting one path (the book's name) to another path (the weird
 sequence of characters ending in ``.pdf``) is what is called a
 *symbolic link* (short: :term:`symlink`) or *softlink*.
 It is a term for any file that contains a reference to another file or directory as
@@ -50,7 +53,7 @@ a :term:`relative path` or :term:`absolute path`.
 If you use Windows, you are familiar with a related concept: a shortcut.
 
 This means that the files that are in the locations in which you saved content
-to and are named as you named your files (e.g., ``TLCL.pdf``),
+and are named as you named your files (e.g., ``TLCL.pdf``),
 do *not actually contain your files' content*:
 they just point to the place where the actual file content resides.
 
@@ -128,7 +131,7 @@ object tree. Within the object tree, git-annex handles file content tracking,
 and is busy creating and maintaining appropriate symlinks so that your data
 can be version controlled just as any text file.
 
-This comes with a two very important advantages:
+This comes with two very important advantages:
 
 One, should you have copies of the
 same data in different places of your dataset, the symlinks of these files
@@ -139,7 +142,7 @@ is only one single piece of data in your object tree. This, depending on
 how much identical file content lies in different parts of your dataset,
 can save you much disk space and time.
 
-The second advantage is a
+The second advantage is less intuitive but clear for users familiar with Git.
 
 .. gitusernote::
 
@@ -156,14 +159,14 @@ out the hidden section below.
 
 The second is that it should now be clear to you why the ``.git`` directory
 should not be deleted or in any way modified by hand. This place is where
-your data is stored, and you can trust git-annex to be better able to
+your data are stored, and you can trust git-annex to be better able to
 work with the paths in the object tree than you or any other human are.
 
 Lastly, understanding that annexed files in your dataset are symlinked
 will be helpful to understand how common file system operations such as
 moving, renaming, or copying content translate to dataset modifications
 in certain situations. Later in this book we will have a section on how
-to manage the file system in a datalad dataset (:ref:`filesystem`).
+to manage the file system in a DataLad dataset (:ref:`filesystem`).
 
 
 .. findoutmore:: more about paths, checksums, object trees, and data integrity
@@ -176,7 +179,7 @@ to manage the file system in a datalad dataset (:ref:`filesystem`).
    checksums. And they are quite readable -- just not for humans, but git-annex.
    Understanding the next section is completely irrelevant for the
    subsequent sections of the book. But it can help to establish trust in that
-   your data is safely stored and tracked, and it can get certainly helpful
+   your data are safely stored and tracked, and it can get certainly helpful
    should you be one of those people that always want to understand
    things in depth. Also, certain file management operations
    can be messy -- for example, when you attempt to move a subdirectory
@@ -204,7 +207,7 @@ to manage the file system in a datalad dataset (:ref:`filesystem`).
 
    The important aspect of a hash function is that it
    will generate the same hash for the same file content, but once file content
-   changes, the generated hash will also look differently. If two files are
+   changes, the generated hash will also look different. If two files are
    turned into identical character strings, the content in these files is thus
    identical. Therefore, if two files have the same symlink, and thus
    link the same file in the object-tree, they are identical in content.
@@ -223,7 +226,7 @@ to manage the file system in a datalad dataset (:ref:`filesystem`).
    operating systems (Windows) need this information.
    The key is also one of the subdirectory names in the path. This subdirectory
    adds an important feature to the :term:`object-tree`: It revokes the users
-   permissions to modify it.
+   :term:`permissions` to modify it.
    This two-level structure is implemented because it helps to prevent
    accidental deletions and changes, and this information will be helpful
    to understand some file system management operations (see section
@@ -283,6 +286,8 @@ to manage the file system in a datalad dataset (:ref:`filesystem`).
 Broken symlinks
 ^^^^^^^^^^^^^^^
 
+.. index:: ! broken symlink, ! symlink (broken)
+
 Whenever a symlink points to a non-existent target, this symlink is called
 *broken*, and opening the symlink would not work as it does not resolve. The
 section :ref:`filesystem` will give a thorough demonstration of how symlinks can
@@ -291,7 +296,7 @@ troublesome, most types of broken symlinks you will encounter can be fixed,
 or are not problematic. At this point, you actually have already seen broken
 symlinks: Back in section :ref:`installds` we explored
 the file hierarchy in an installed subdataset that contained many annexed
-``mp3`` files. Upon installation, the annexed files were not present locally.
+``mp3`` files. Upon the initial :command:`datalad clone`, the annexed files were not present locally.
 Instead, their symlinks (stored in Git) existed and allowed to explore which
 file's contents could be retrieved. These symlinks point to nothing, though, as
 the content isn't yet present locally, and are thus *broken*. This state,

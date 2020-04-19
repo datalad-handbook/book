@@ -1,12 +1,12 @@
 Code from chapter: 02_reproducible_execution
 --------------------------------------------
 
-Code snippet 37::
+Code snippet 40::
 
    cd DataLad-101 && mkdir code && tree -d
 
 
-Code snippet 38::
+Code snippet 41::
 
    cat << EOT > code/list_titles.sh
    for i in recordings/longnow/Long_Now__Seminars*/*.mp3; do
@@ -22,42 +22,42 @@ Code snippet 38::
    EOT
 
 
-Code snippet 39::
+Code snippet 42::
 
    datalad status
 
 
-Code snippet 40::
-
-   datalad save -m "Add simple script to write a list of podcast speakers and titles"
-
-
-Code snippet 41::
-
-   datalad run -m "create a list of podcast titles" "bash code/list_titles.sh > recordings/podcasts.tsv"
-
-
-Code snippet 42::
-
-   git log -p -n 1
-
-
 Code snippet 43::
 
-   datalad run -m "Try again to create a list of podcast titles" "bash code/list_titles.sh > recordings/podcasts.tsv"
+   datalad save -m "Add short script to write a list of podcast speakers and titles"
 
 
 Code snippet 44::
 
-   git log --oneline
+   datalad run -m "create a list of podcast titles" "bash code/list_titles.sh > recordings/podcasts.tsv"
 
 
 Code snippet 45::
 
-   less recordings/podcasts.tsv
+   git log -p -n 1
 
 
 Code snippet 46::
+
+   datalad run -m "Try again to create a list of podcast titles" "bash code/list_titles.sh > recordings/podcasts.tsv"
+
+
+Code snippet 47::
+
+   git log --oneline
+
+
+Code snippet 48::
+
+   less recordings/podcasts.tsv
+
+
+Code snippet 49::
 
    cat << EOT >| code/list_titles.sh
    for i in recordings/longnow/Long_Now*/*.mp3; do
@@ -73,42 +73,42 @@ Code snippet 46::
    EOT
 
 
-Code snippet 47::
+Code snippet 50::
 
    datalad status
 
 
-Code snippet 48::
+Code snippet 51::
 
    datalad save -m "BF: list both directories content" code/list_titles.sh
 
 
-Code snippet 49::
+Code snippet 52::
 
    git log -n 2
 
 
-Code snippet 50::
+Code snippet 53::
 
    echo "$ datalad rerun $(git rev-parse HEAD~1)" && datalad rerun $(git rev-parse HEAD~1)
 
 
-Code snippet 51::
+Code snippet 54::
 
    git log -n 1
 
 
-Code snippet 52::
+Code snippet 55::
 
    datalad diff --to HEAD~1
 
 
-Code snippet 53::
+Code snippet 56::
 
    git diff HEAD~1
 
 
-Code snippet 54::
+Code snippet 57::
 
    cat << EOT >> notes.txt
    There are two useful functions to display changes between two
@@ -119,17 +119,17 @@ Code snippet 54::
    EOT
 
 
-Code snippet 55::
+Code snippet 58::
 
    datalad save -m "add note datalad and git diff"
 
 
-Code snippet 56::
+Code snippet 59::
 
    git log -- recordings/podcasts.tsv
 
 
-Code snippet 57::
+Code snippet 60::
 
    cat << EOT >> notes.txt
    The datalad run command can record the impact a script or command has on a Dataset.
@@ -144,58 +144,58 @@ Code snippet 57::
    EOT
 
 
-Code snippet 58::
+Code snippet 61::
 
    datalad save -m "add note on basic datalad run and datalad rerun"
 
 
-Code snippet 59::
+Code snippet 62::
 
    ls recordings/longnow/.datalad/feed_metadata/*jpg
 
 
-Code snippet 60::
+Code snippet 63::
 
    datalad run -m "Resize logo for slides" \
    "convert -resize 400x400 recordings/longnow/.datalad/feed_metadata/logo_salt.jpg recordings/salt_logo_small.jpg"
 
 
-Code snippet 61::
+Code snippet 64::
 
    datalad run --input "recordings/longnow/.datalad/feed_metadata/logo_salt.jpg" "convert -resize 400x400 recordings/longnow/.datalad/feed_metadata/logo_salt.jpg recordings/salt_logo_small.jpg"
 
 
-Code snippet 62::
+Code snippet 65::
 
    datalad run --input "recordings/longnow/.datalad/feed_metadata/logo_salt.jpg" "convert -resize 450x450 recordings/longnow/.datalad/feed_metadata/logo_salt.jpg recordings/salt_logo_small.jpg"
 
 
-Code snippet 63::
+Code snippet 66::
 
    datalad unlock recordings/salt_logo_small.jpg
 
 
-Code snippet 64::
+Code snippet 67::
 
    datalad status
 
 
-Code snippet 65::
+Code snippet 68::
 
    convert -resize 450x450 recordings/longnow/.datalad/feed_metadata/logo_salt.jpg recordings/salt_logo_small.jpg
 
 
-Code snippet 66::
+Code snippet 69::
 
    datalad save -m "resized picture by hand"
 
 
-Code snippet 67::
+Code snippet 70::
 
    datalad run --input "recordings/longnow/.datalad/feed_metadata/logo_interval.jpg" --output "recordings/interval_logo_small.jpg" "convert -resize 450x450 recordings/longnow/.datalad/feed_metadata/logo_interval.jpg recordings/interval_logo_small.jpg"
 
 
-Code snippet 68::
+Code snippet 71::
 
    cat << EOT >> notes.txt
    You should specify all files that a command takes as input with an -i/--input flag. These
@@ -204,24 +204,6 @@ Code snippet 68::
    of the command, the contents of these files will get unlocked so that they can be modified.
 
    EOT
-
-
-Code snippet 69::
-
-   datalad run -m "Resize logo for slides" \
-   --input "recordings/longnow/.datalad/feed_metadata/logo_interval.jpg" \
-   --output "recordings/interval_logo_small.jpg" \
-   "convert -resize 400x400 recordings/longnow/.datalad/feed_metadata/logo_interval.jpg recordings/interval_logo_small.jpg"
-
-
-Code snippet 70::
-
-   datalad status
-
-
-Code snippet 71::
-
-   datalad save -m "add additional notes on run options"
 
 
 Code snippet 72::
@@ -234,6 +216,24 @@ Code snippet 72::
 
 Code snippet 73::
 
+   datalad status
+
+
+Code snippet 74::
+
+   datalad save -m "add additional notes on run options"
+
+
+Code snippet 75::
+
+   datalad run -m "Resize logo for slides" \
+   --input "recordings/longnow/.datalad/feed_metadata/logo_interval.jpg" \
+   --output "recordings/interval_logo_small.jpg" \
+   "convert -resize 400x400 recordings/longnow/.datalad/feed_metadata/logo_interval.jpg recordings/interval_logo_small.jpg"
+
+
+Code snippet 76::
+
    cat << EOT >> notes.txt
    Important! If the dataset is not "clean" (a datalad status output is empty),
    datalad run will not work - you will have to save modifications present in your
@@ -241,7 +241,7 @@ Code snippet 73::
    EOT
 
 
-Code snippet 74::
+Code snippet 77::
 
    datalad run -m "Resize logo for slides" \
    --input "recordings/longnow/.datalad/feed_metadata/logo_salt.jpg" \
@@ -250,12 +250,12 @@ Code snippet 74::
    "convert -resize 400x400 recordings/longnow/.datalad/feed_metadata/logo_salt.jpg recordings/salt_logo_small.jpg"
 
 
-Code snippet 75::
+Code snippet 78::
 
    datalad status
 
 
-Code snippet 76::
+Code snippet 79::
 
    cat << EOT >> notes.txt
    A suboptimal alternative is the --explicit flag,
@@ -265,11 +265,11 @@ Code snippet 76::
    EOT
 
 
-Code snippet 77::
+Code snippet 80::
 
    datalad save -m "add note on clean datasets"
 
 
-Code snippet 78::
+Code snippet 81::
 
    git log -p -n 2

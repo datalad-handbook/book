@@ -1,7 +1,11 @@
+.. index:: ! 2-001
+.. _2-001:
 .. _yoda:
 
 YODA: Best practices for data analyses in a dataset
 ---------------------------------------------------
+
+.. index:: ! YODA principles
 
 The last requirement for the midterm projects reads "needs to comply to the
 YODA principles".
@@ -200,8 +204,8 @@ could be an analysis dataset created by a statistician for a scientific
 project, and it could be shared between collaborators or
 with others during development of the project. In this
 superdataset, code is created that operates on input data to
-compute outputs, and the code and outputs are captured, version-
-controlled, and linked to the input data. Each input data in turn
+compute outputs, and the code and outputs are captured,
+version-controlled, and linked to the input data. Each input data in turn
 is a (potentially nested) subdataset, but this is not visible
 in the directory hierarchy.
 Figure 3 in comparison emphasizes a process view on a project and
@@ -235,7 +239,7 @@ Its good to have data, but its even better if you and anyone you
 collaborate or share the project or its components with can find
 out where the data came from, or how it
 is dependent on or linked to other data. Therefore, this principle
-aims to attach this information to the components of
+aims to attach this information, the data's :term:`provenance`, to the components of
 your data analysis project.
 
 Luckily, this is a no-brainer with DataLad, because the core data structure
@@ -244,11 +248,11 @@ up to now fulfill this principle.
 
 If data components of a project are DataLad datasets, they can
 be included in an analysis superdataset as subdatasets. Thanks to
-:command:`datalad install`, information on the source of these subdatasets
+:command:`datalad clone`, information on the source of these subdatasets
 is stored in the history of the analysis superdataset, and they can even be
 updated from those sources if the original data dataset gets extended or changed.
 If you are including a file, for example code from GitHub,
-the :command:`datalad download-url` command (introduced in section :ref:`sibling`)
+the :command:`datalad download-url` command (introduced in section :ref:`populate`)
 will record the source of it safely in the dataset's history. And if you add anything to your dataset,
 from simple incremental coding progress in your analysis scripts up to
 files that a colleague sent you via email, a plain :command:`datalad save`
@@ -277,7 +281,7 @@ be established between components of your dataset. Scripts inside of
 your ``code/`` directory should point to data not as :term:`absolute path`\s
 that would only work on your system, but instead as :term:`relative path`\s
 that will work in any shared copy of your dataset. The next section
-on DataLad's Python API will show concrete examples of this.
+demonstrates a YODA data analysis project and will show concrete examples of this.
 
 Lastly, this principle also includes *moving*, *sharing*, and *publishing* your
 datasets or its components.
@@ -334,13 +338,6 @@ and, importantly, can be shared together with the dataset in the
 form of a software container.
 
 
-
-.. figure:: ../img/yoda.svg
-   :figwidth: 30%
-   :alt: A very cute YODA
-
-   “Feel the force!”
-
 With this last principle, your dataset collects and stores provenance
 of all the contents you created in the wake of your analysis project.
 This established trust in your results, and enables others to understand
@@ -359,8 +356,8 @@ to your dataset:
 
    $ datalad create -c yoda "my_analysis"
 
-   [INFO   ] Creating a new annex repo at /home/adina/repos/testing/my_analysis
-   create(ok): /home/adina/repos/testing/my_analysis (dataset)
+   [INFO   ] Creating a new annex repo at /home/me/repos/testing/my_analysis
+   create(ok): /home/me/repos/testing/my_analysis (dataset)
    [INFO   ] Running procedure cfg_yoda
    [INFO   ] == Command start (output follows) =====
    [INFO   ] == Command exit (modification check follows) =====
@@ -426,7 +423,8 @@ YODA principles.
          about containerized computational environments for reproducible data science,
          check out `this section <https://the-turing-way.netlify.com/reproducible_environments/06/containers#Containers_section>`_
          in the wonderful book `The Turing Way <https://the-turing-way.netlify.com/introduction/introduction>`_,
-         a comprehensive guide to reproducible data science.
+         a comprehensive guide to reproducible data science, or read about it in
+         section :ref:`containersrun`.
 
 .. [#f3] This directory structure is very comprehensive, and displays many best-practices for
          reproducible data science. For example,

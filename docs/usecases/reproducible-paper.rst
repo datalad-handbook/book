@@ -3,6 +3,8 @@
 Writing a reproducible paper
 ----------------------------
 
+.. index:: ! Usecase; reproducible paper
+
 This use case demonstrates how to use nested DataLad datasets to create a fully
 reproducible paper by linking
 
@@ -56,7 +58,7 @@ dataset, he creates several subdirectories to collate everything that is relevan
 the manuscript: Data, code, a manuscript backbone without results.
 ``code/`` contains a Python script that he uses for validation analyses, and
 prior to computing results, the script
-attempts to download the data should the files need to be obtained using DataLads Python API.
+attempts to download the data should the files need to be obtained using DataLad's Python API.
 ``data/`` contains a separate DataLad subdataset for every dataset he uses. An
 ``algorithm/`` directory is a DataLad dataset containing a clone of his software repository,
 and within it, in the directory ``test/data/``, are additional DataLad subdatasets that
@@ -83,7 +85,7 @@ itself with the new figures.
 .. note::
    The actual manuscript this use case is based on can be found
    `here <https://github.com/psychoinformatics-de/paper-remodnav/>`_:
-   https://github.com/psychoinformatics-de/paper-remodnav/. :command:`datalad install`
+   https://github.com/psychoinformatics-de/paper-remodnav/. :command:`datalad clone`
    the repository and follow the few instructions in the README to experience the
    DataLad approach described above.
 
@@ -130,20 +132,20 @@ To populate the DataLad dataset, add all the
 data collections you want to perform analyses on as individual DataLad subdatasets within
 ``data/``.
 In this example, all data collections are already DataLad datasets or git repositories and hosted on GitHub.
-:command:`datalad install` therefore installs them as subdatasets. ``-s`` specifies the source,
-and ``-d ../`` registers them as subdatasets to the superdataset [#f2]_.
+:command:`datalad clone` therefore installs them as subdatasets, with ``-d ../``
+registering them as subdatasets to the superdataset [#f2]_.
 
 .. code-block:: bash
 
    $ cd data
-   # install existing git repositories with data (-s specifies the source, in this case, GitHub repositories)
+   # clone existing git repositories with data (-s specifies the source, in this case, GitHub repositories)
    # -d points to the root of the superdataset
-   datalad install -d ../ -s https://github.com/psychoinformatics-de/studyforrest-data-phase2.git
+   datalad clone -d ../ https://github.com/psychoinformatics-de/studyforrest-data-phase2.git
 
    [INFO   ] Cloning https://github.com/psychoinformatics-de/studyforrest-data-phase2.git [1 other candidates] into '/home/adina/repos/testing/algorithm-paper/data/raw_eyegaze'
    install(ok): /home/adina/repos/testing/algorithm-paper/data/raw_eyegaze (dataset)
 
-   $ datalad install -d ../ -s git@github.com:psychoinformatics-de/studyforrest-data-eyemovementlabels.git
+   $ datalad clone -d ../ git@github.com:psychoinformatics-de/studyforrest-data-eyemovementlabels.git
 
    [INFO   ] Cloning git@github.com:psychoinformatics-de/studyforrest-data-eyemovementlabels.git into '/home/adina/repos/testing/algorithm-paper/data/studyforrest-data-eyemovementlabels'
    Cloning (compressing objects):  45% 1.80k/4.00k [00:01<00:01, 1.29k objects/s
@@ -169,7 +171,7 @@ These two preparations can be seen in this excerpt from the Python script:
 
 .. code-block:: python
 
-   # import Datalads API
+   # import DataLad's API
    from datalad.api import get
 
    # note that the datapath is relative
@@ -183,13 +185,13 @@ These two preparations can be seen in this excerpt from the Python script:
    get(dataset='.', path=data)
 
 
-Lastly, :command:`datalad install` the software repository as a subdataset in the
+Lastly, :command:`datalad clone` the software repository as a subdataset in the
 root of the superdataset [#f3]_.
 
 .. code-block:: bash
 
    # in the root of ``algorithm-paper`` run
-   $ datalad install -d . -s git@github.com:psychoinformatics-de/remodnav.git
+   $ datalad clone -d . git@github.com:psychoinformatics-de/remodnav.git
 
 This repository has also subdatasets in which the datasets used for testing live (``tests/data/``):
 
@@ -380,6 +382,8 @@ Upon compilation of the ``.tex`` file into a PDF, the results of the
 computations captured with ``\newcommand`` definitions are inserted into the respective part
 of the manuscript.
 
+.. index:: ! Make
+
 The last step is to automate this procedure. So far, the script would need to be executed
 with a command line call, and the PDF compilation would require another commandline call.
 One way to automate this process are `Makefiles <https://en.wikipedia.org/wiki/Make_(software)>`_.
@@ -446,6 +450,6 @@ Any questions can be asked by `opening an issue <https://github.com/psychoinform
 
 .. [#f1] You can read up on the YODA principles again in section :ref:`yoda`
 
-.. [#f2] You can read up on installing datasets as subdatasets again in section :ref:`installds`.
+.. [#f2] You can read up on cloning datasets as subdatasets again in section :ref:`installds`.
 
-.. [#f3] Note that the software repository may just as well be installed within ``data/``.
+.. [#f3] Note that the software repository may just as well be cloned into ``data/``.

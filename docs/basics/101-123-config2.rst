@@ -20,6 +20,8 @@ section by looking into it.
 ``.gitattributes``
 ^^^^^^^^^^^^^^^^^^
 
+.. index:: ! Config files; .gitattributes
+
 This file lies right in the root of your superdataset:
 
 .. runrecord:: _examples/DL-101-123-101
@@ -131,7 +133,9 @@ in the root ``.gitattributes`` file.
 ``.gitmodules``
 ^^^^^^^^^^^^^^^
 
-On last configuration file we want to look at is the ``.gitmodules`` file.
+.. index:: ! Config files; .gitmodules
+
+On last configuration file that Git creates is the ``.gitmodules`` file.
 There is one right in the root of your dataset:
 
 .. runrecord:: _examples/DL-101-123-104
@@ -149,17 +153,31 @@ another Git repository, i.e., the super- and subdataset principles.
 Upon sharing your dataset, the information about subdatasets and where to retrieve
 them from is stored and shared with this file.
 
+Back in section :ref:`sharelocal1` you may have already seen one additional
+configuration option in a footnote: The ``datalad-recursiveinstall`` key. This key
+is defined on a per subdataset basis, and if set to "``skip``", the given subdataset
+will not be recursively installed unless it is explicitly specified as a path to
+:command:`datalad get [-n/--no-data] -r`. If you are a maintainer of a superdataset
+with monstrous amounts of subdatasets, you can set this option and share it together
+with the dataset to prevent an accidental, large recursive installation in
+particularly deeply nested subdatasets.
+
 
 
 ``.datalad/config``
 ^^^^^^^^^^^^^^^^^^^
+
+.. index:: ! Config files; .datalad/config
 
 DataLad adds a repository-specific configuration file as well.
 It can be found in the ``.datalad`` directory, and just like ``.gitattributes``
 and ``.gitmodules`` it is version controlled and is thus shared together with
 the dataset. One can configure
 `many options <http://docs.datalad.org/en/latest/generated/datalad.config.html>`_,
-but currently, our ``.datalad/config`` file only stores a dataset ID:
+but currently, our ``.datalad/config`` file only stores a :term:`dataset ID`.
+This ID serves to identify a dataset as a unit, across its entire history and flavors.
+In a geeky way, this is your dataset's social security number: It will only exist
+one time on this planet.
 
 .. runrecord:: _examples/DL-101-123-105
    :language: console
@@ -177,7 +195,7 @@ behavior that was specifically configured.
 Writing to configuration files other than ``.git/config``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-"Didn't you say that knowing git :command:`git config` command is already
+"Didn't you say that knowing the :command:`git config` command is already
 half of what I need to know?" you ask. "Now there are three other configuration
 files, and I do not know with which command I can write into these files."
 
@@ -201,7 +219,7 @@ Let's try this:
    $ git config --file=.gitmodules --replace-all submodule."recordings/longnow".url "git@github.com:datalad-datasets/longnow-podcasts.git"
 
 This command will replace the submodule's https URL with an SSH URL.
-The later is often used if someone has an *SSH key pair* and added the
+The latter is often used if someone has an *SSH key pair* and added the
 public key to their GitHub account (you can read more about this
 `here <https://help.github.com/en/articles/which-remote-url-should-i-use>`_).
 We will revert this change shortly, but use it to show the difference between
@@ -240,6 +258,8 @@ has to be edited by hand, with an editor of your choice.
 Environment variables
 ^^^^^^^^^^^^^^^^^^^^^
 
+.. index:: ! environment variable
+
 An :term:`environment variable` is a variable set up in your shell
 that affects the way the shell or certain software works -- for example
 the environment variables ``HOME``, ``PWD``, or ``PATH`` [#f4]_.
@@ -257,7 +277,7 @@ of setting the ``user.name`` configuration in a configuration file.
 Git, git-annex, and DataLad have more environment variables than anyone would want to
 remember. `Here <https://git-scm.com/book/en/v2/Git-Internals-Environment-Variables>`__
 is a good overview on Git's most useful available environment variables for a start.
-All of DataLad's configuration options can be easily translated to their
+All of DataLad's configuration options can be translated to their
 associated environment variables. Any environment variable with a name that starts with ``DATALAD_``
 will be available as the corresponding ``datalad.`` configuration variable,
 replacing any ``__`` (two underscores) with a hyphen, then any ``_`` (single underscore)
@@ -270,7 +290,7 @@ Summary
 This has been an intense lecture, you have to admit. One definite
 take-away from it has been that you now know a second reason why the hidden
 ``.git`` and ``.datalad`` directory contents and also the contents of ``.gitmodules`` and
-``.gitattributes`` should not be carelessly tempered with -- they contain all of
+``.gitattributes`` should not be carelessly tampered with -- they contain all of
 the repositories configurations.
 
 But you now also know how to modify these configurations with enough
@@ -321,6 +341,17 @@ Write a note about configurations in datasets into ``notes.txt``.
 
    $ datalad save -m "add note on configurations and git config"
 
+.. only:: adminmode
+
+   Add a tag at the section end.
+
+     .. runrecord:: _examples/DL-101-123-112
+        :language: console
+        :workdir: dl-101/DataLad-101
+
+        $ git branch sct_more_on_DYI_configurations
+
+
 .. rubric:: Footnotes
 
 .. [#f1] When opening any file on a UNIX system, the file does not need to have a file
@@ -331,9 +362,9 @@ Write a note about configurations in datasets into ``notes.txt``.
          has MIME type ``text/plain`` as does a bash script (``.sh``), a Python
          script has MIME type ``text/x-python``, a ``.jpg`` file is ``image/jpg``, and
          a ``.pdf`` file has MIME type ``application/pdf``. You can find out the MIME type
-         of a file by running:
+         of a file by running::
 
-            file --mime-type path/to/file
+            $ file --mime-type path/to/file
 
 .. [#f2] Specifying annex.largefiles in your .gitattributes file will make the configuration
          "portable" -- shared copies of your dataset will retain these configurations.
@@ -341,7 +372,7 @@ Write a note about configurations in datasets into ``notes.txt``.
          specified in there take precendence over rules in ``.gitattributes``. You can set
          them using the :command:`git config` command::
 
-            git config annex.largefiles 'largerthan=100kb and not (include=*.c or include=*.h)'
+            $ git config annex.largefiles 'largerthan=100kb and not (include=*.c or include=*.h)'
 
          The above command annexes files larger than 100KB, and will never annex files with a
          ``.c`` or ``.h`` extension.
@@ -349,8 +380,11 @@ Write a note about configurations in datasets into ``notes.txt``.
 .. [#f3] Should you ever need to, this file is also where one would change the git-annex
          backend in order to store new files with a new backend. Switching the backend of
          *all* files (new as well as existing ones) requires the :command:`git annex migrate`
+         command
          (see `the documentation <https://git-annex.branchable.com/git-annex-migrate/>`_ for
          more information on this command).
+
+.. index:: ! environment variable
 
 .. [#f4] **Some more on environment variables**:
          Names of environment variables are often all-uppercase. While the ``$`` is not part of

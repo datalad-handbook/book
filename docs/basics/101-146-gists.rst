@@ -165,10 +165,17 @@ A sketch of how to implement a sibling for backups is below:
 
    # create a back up sibling
    datalad create-sibling --annex-wanted anything -r myserver:/path/to/backup
-   # publish a full backup
+   # publish a full backup of the current branch
    datalad publish --to=myserver -r
    # subsequently, publish updates to be backed up with
    datalad publish --to=myserver -r --since= --missing=inherit
+
+In order to push not only the current branch, but refs, add the option
+``--publish-by-default "refs/*"`` to the :command:`create-sibling` call.
+Should you want to back up all annexed data, even past versions of files, use
+:command:`git annex sync` to push to the sibling::
+
+   $ git annex sync --all --content <sibling-name>
 
 For an in-depth explanation and example take a look at the
 `GitHub issue that raised this question <https://github.com/datalad/datalad/issues/4369>`_.

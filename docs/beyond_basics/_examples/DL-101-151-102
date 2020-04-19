@@ -1,0 +1,17 @@
+$ cd mystudy
+$ datalad run-procedure cfg_hirni
+[INFO] Running procedure cfg_hirni 
+[INFO] == Command start (output follows) ===== 
+[WARNING] Found no aggregated metadata info file /home/me/dl-101/mystudy/.datalad/metadata/aggregate_v1.json. You will likely need to either update the dataset from its original location or reaggregate metadata locally. 
+[WARNING] Dataset at . contains no aggregated metadata on this path [metadata(/home/me/dl-101/mystudy)] 
+[WARNING] Could not obtain dataset metadata, proceeding without 
+[INFO] Cloning dataset to <Dataset path=/home/me/dl-101/mystudy/code/hirni-toolbox> 
+[INFO] Attempting to clone from https://github.com/psychoinformatics-de/hirni-toolbox.git to /home/me/dl-101/mystudy/code/hirni-toolbox 
+[INFO] Start enumerating objects 
+[INFO] Start counting objects 
+[INFO] Start compressing objects 
+[INFO] Start receiving objects 
+[INFO] Start resolving deltas 
+[INFO] Completed clone attempts for <Dataset path=/home/me/dl-101/mystudy/code/hirni-toolbox> 
+[INFO]   Remote origin not usable by git-annex; setting annex-ignore 
+[INFO] == Command exit (modification check follows) ===== 

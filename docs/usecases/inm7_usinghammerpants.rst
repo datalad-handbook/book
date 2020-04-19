@@ -1,4 +1,4 @@
-.. _inm7usecase_hammerpants:
+.. _inm7usecase_usinghammerpants:
 
 Using the INM-7 Hammerpants data store
 --------------------------------------
@@ -267,7 +267,7 @@ is kept, so that it can be re-obtained automatically.
          sections starting from :ref:`installds`.
 
 .. [#f4] A general example analysis that makes use of DataLad functions within scripts is in
-         section :ref:`yodaproject`.
+         section :ref:`yoda_project`.
 
 .. [#f5] To re-read about the :command:`datalad run` command, checkout the chapter
          "DataLad, Run!", starting with section :ref:`run`.

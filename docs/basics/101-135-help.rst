@@ -241,22 +241,7 @@ because remotes are not available:
 
     paste some "please make these remotes available output"
 
-Filesystem related warnings
-"""""""""""""""""""""""""""
 
-The unix command ``PWD`` ("print working directory") does not resolve symlinks by
-default, but Python's ``getcwd`` ("get current working directory") function does.
-When ``PWD`` and the current working directory differ, the current working
-directory is used instead of ``PWD``, and this is announced with a warning
-similar to this:
-
-.. code-block::
-
-   [WARNING] realpath of PWD=</some/path/to/symlinked/file> is </resolved/path/to/symlinked/file> whenever os.getcwd()=<path/to/dataset>.
-   From now on will be returning os.getcwd(). Directory symlinks in the paths will be resolved.
-
-There is no action to be taken based on this warning. Usually, everything should
-be fine.
 
 .. todo::
 

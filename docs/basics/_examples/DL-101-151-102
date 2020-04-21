@@ -1,0 +1,2 @@
+$ git config -f .datalad/config --add datalad.metadata.nativetype frictionless_datapackage
+error: could not lock config file .datalad/config: No such file or directory

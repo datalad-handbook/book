@@ -1,16 +1,15 @@
-.. _chapter_furtheroptions:
+.. _chapter_metadata:
 
-**X - Further options**
------------------------
+**X - DataLad's metadata capabilities**
+---------------------------------------
 
-.. figure:: ../artwork/src/further.svg
-
+.. figure:: ../artwork/src/metadata.svg
 
 .. toctree::
-   :numbered:
    :maxdepth: 1
-   :caption: Small pieces of advice and helpful additional options
+   :numbered:
+   :caption: Search and create meta data descriptions of datasets
 
-   101-179-gitignore
-   101-144-intro_extensions
-   101-145-hooks
+   101-150-search
+   101-151-metadata
+   101-153-summary

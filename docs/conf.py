@@ -50,6 +50,8 @@ autorunrecord_env = {
     # maintain the PATH to keep all installed software functional
     'PATH': os.environ['PATH'],
     'GIT_EDITOR': 'vim',
+    # prevent progress bars - makes for ugly runrecords. See https://github.com/datalad-handbook/book/issues/390
+    'DATALAD_UI_PROGRESSBAR': 'none',
 }
 if 'CAST_DIR' in os.environ:
     autorunrecord_env['CAST_DIR'] = os.environ['CAST_DIR']
@@ -79,6 +81,7 @@ extensions = [
     'sphinxcontrib.rsvgconverter',
     'sphinxcontrib.plantuml',
     'dataladhandbook_support',
+    'notfound.extension',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -203,7 +206,7 @@ html_title = 'The DataLad Handbook'
 # The name of an image file (within the static path) to use as favicon of the
 # docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
 # pixels large.
-#html_favicon = None
+html_favicon = 'favicon/favicon.ico'
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
@@ -289,6 +292,15 @@ latex_elements = {
 \setcounter{tocdepth}{1}
 \usepackage{xcolor}
 \setcounter{secnumdepth}{0}
+\newsavebox{\selvestebox}
+\newenvironment{colbox}[1]
+  {\newcommand\colboxcolor{#1}%
+   \begin{lrbox}{\selvestebox}%
+   \begin{minipage}{\dimexpr\columnwidth-2\fboxsep\relax}}
+  {\end{minipage}\end{lrbox}%
+   \begin{center}
+   \colorbox[HTML]{\colboxcolor}{\usebox{\selvestebox}}
+   \end{center}}
 """,
 }
 

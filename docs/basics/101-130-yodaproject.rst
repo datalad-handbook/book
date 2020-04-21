@@ -82,6 +82,31 @@ section below:
     As shown above, the only required parameter for a Dataset is the ``path`` to
     its location, and this location may or may not exist yet.
 
+    Stand-alone functions have a ``dataset=`` argument, corresponding to the
+    ``-d/--dataset`` option in their command-line equivalent. You can specify
+    the ``dataset=`` argument with a path (string) to your dataset (such as
+    ``dataset='.'`` for the current directory, or ``dataset='path/to/ds'`` to
+    another location). Alternatively, you can pass a ``Dataset`` instance to it::
+
+        >>> from datalad.api import save, Dataset
+        # use save with dataset specified as a path
+        >>> save(dataset='path/to/dataset/')
+        # use save with dataset specified as a dataset instance
+        >>> ds = Dataset('path/to/dataset')
+        >>> save(dataset=ds, message="saving all modifications")
+        # use save as a dataset method (no dataset argument)
+        >>> ds.save(message="saving all modifications")
+
+    .. note::
+
+        At the moment, ``dataset`` argument handling is not fully consistent
+        across commands. When executing commands outside of the dataset in question,
+        ``path`` arguments are sometimes interpreted as relative from the
+        ``dataset`` path, and sometimes as relative from the location the command
+        is executed from. You can get consistent behavior (paths relative to the
+        dataset root) by using ``Dataset`` methods or passing ``Dataset`` instances to
+        the commands instead of specifying paths (strings) for ``dataset=``.
+
     **Use cases for DataLad's Python API**
 
     "Why should one use the Python API? Can we not do everything necessary via the
@@ -101,7 +126,7 @@ section below:
    also be used with other programming languages, such as Matlab, via standard
    system calls.
 
-   Even if you don't know or like Python, you can just copy-paste the code
+   Even if you do not know or like Python, you can just copy-paste the code
    and follow along -- the high-level YODA principles demonstrated in this
    section generalize across programming languages.
 
@@ -618,7 +643,8 @@ configure this repository as a sibling of the dataset:
     .. runrecord:: _examples/DL-101-130-116
        :language: console
        :workdir: dl-101/DataLad-101/midterm_project
-       :realcommand: datalad --log-level critical siblings add -d . --name github --url https://github.com/adswa/midtermproject.git
+       :realcommand: python -c "from datalad.core.distributed.tests.test_push import mk_push_target; from datalad.api import Dataset as ds; mk_push_target(ds=ds('/home/me/dl-101/DataLad-101/midterm_project'), name='github', path='/home/me/pushes/midtermproject', annex=False, bare=True)"
+
 
 .. code-block:: bash
 
@@ -629,48 +655,71 @@ configure this repository as a sibling of the dataset:
 
 Verify that this worked by listing the siblings of the dataset:
 
-.. runrecord:: _examples/DL-101-130-117
-   :language: console
-   :workdir: dl-101/DataLad-101/midterm_project
+.. code-block:: bash
 
-   $ datalad siblings
+   $ datalad create-sibling-github -d . midtermproject
+   [WARNING] Failed to determine if github carries annex.
+   .: here(+) [git]
+   .: github(-) [https://github.com/adswa/midtermproject.git (git)]
 
 .. gitusernote::
 
    Creating a sibling on GitHub will create a new empty repository under the
    account that you provide and set up a *remote* to this repository. Upon a
-   :command:`datalad publish` to this sibling, your datasets history
+   :command:`datalad push` to this sibling, your datasets history
    will be pushed there.
 
-   .. index:: ! datalad command; publish
+   .. index:: ! datalad command; push
 
 On GitHub, you will see a new, empty repository with the name
 ``midtermproject``. However, the repository does not yet contain
 any of your dataset's history or files. This requires *publishing* the current
-state of the dataset to this :term:`sibling` with the :command:`datalad publish`
-(:manpage:`datalad-publish` manual) command. The :command:`datalad publish` command
-will make the last saved state of your dataset available to the :term:`sibling`
-you provide with the ``--to`` option.
+state of the dataset to this :term:`sibling` with the :command:`datalad push`
+(:manpage:`datalad-push` manual) command.
 
-.. code-block:: bash
+.. note::
 
-   $ datalad publish --to github
-   [INFO   ] Publishing <Dataset path=/home/me/dl-101/DataLad-101/midterm_project> to github
-   publish(ok): . (dataset) [pushed to github: ['[new branch]', '[new branch]']]
-   action summary:
-     publish (ok: 1)
+    Publishing is one of the remaining big concepts that this handbook tries to
+    convey. However, publishing is a complex concept that encompasses a large
+    proportion of the previous handbook content as a prerequisite. In order to be
+    not too overwhelmingly detailed, the upcoming sections will approach
+    :command:`push` from a "learning-by-doing" perspective:
+    You will see a first :command:`push` to GitHub below, and the findoutmore at
+    the end of this section will already give a practical glimpse into the
+    difference between annexed contents and contents stored in Git when pushed
+    to GitHub. The chapter :ref:`chapter_thirdparty` will extend on this,
+    but the section
 
-.. gitusernote::
+    .. todo::
 
-   The :command:`datalad publish` uses ``git push``, and ``git annex copy`` under
-   the hood. Publication targets need to either be configured remote Git repositories,
-   or git-annex special remotes (if they support data upload).
+       write and link
 
-Here is one important detail, though: By default, your tags will not be published.
+    will finally combine and link all the previous contents to give a comprehensive
+    and detailed wrap up of the concept of publishing datasets. In this section,
+    you will also find a detailed overview on how :command:`push` works and which
+    options are available. If you are impatient or need an overview on publishing,
+    feel free to skip ahead. If you have time to follow along, reading the next
+    sections will get you towards a complete picture of publishing a bit more
+    small-stepped and gently.
+    For now, we will start with learning by doing, and
+    the fundamental basics of :command:`datalad push`: The command
+    will make the last saved state of your dataset available (i.e., publish it)
+    to the :term:`sibling` you provide with the ``--to`` option.
+
+.. runrecord:: _examples/DL-101-130-118
+   :language: console
+   :workdir: dl-101/DataLad-101/midterm_project
+
+   $ datalad push --to github
+
+Thus, you have now published your dataset's history to a public place for others
+to see and clone. Below we will explore how this may look and feel for others.
+There is one important detail first, though: By default, your tags will not be published.
+Thus, the tag ``ready4analysis`` is not pushed to GitHub, and currently this
+version identifier is unavailable to anyone else but you.
 The reason for this is that tags are viral -- they can be removed locally, and old
 published tags can cause confusion or unwanted changes. In order to publish a tag,
-an additional :command:`git push` with the ``--tags`` option to the
-sibling would be required:
+an additional :command:`git push` [#f6]_ with the ``--tags`` option is required:
 
 .. code-block:: bash
 
@@ -719,16 +768,15 @@ reproduce your data science project easily from scratch!
 
       $ datalad get prediction_report.csv pairwise_relationships.png
 
-   Why is that? The file content of these files is managed by git-annex, and
+   Why is that? This is the first detail of publishing datasets we will dive into.
+   When publishing dataset content to GitHub with :command:`datalad push`, it is
+   the dataset's *history*, i.e., everything that is stored in Git, that is
+   published. The file *content* of these particular files, though, is managed
+   by :term:`git-annex` and not stored in Git, and
    thus only information about the file name and location is known to Git.
    Because GitHub does not host large data for free, annexed file content always
    needs to be deposited somewhere else (e.g., a web server) to make it
-   accessible via :command:`datalad get`. A later section
-
-   .. todo::
-
-      link 3rd party infra section
-
+   accessible via :command:`datalad get`. The chapter :ref:`chapter_thirdparty`
    will demonstrate how this can be done. For this dataset, it is not
    necessary to make the outputs available, though: Because all provenance
    on their creation was captured, we can simply recompute them with the
@@ -758,6 +806,12 @@ reproduce your data science project easily from scratch!
 
     .. figure:: ../artwork/src/reproduced.svg
        :width: 50%
+
+.. gitusernote::
+
+   The :command:`datalad push` uses ``git push``, and ``git annex copy`` under
+   the hood. Publication targets need to either be configured remote Git repositories,
+   or git-annex special remotes (if they support data upload).
 
 
 .. only:: adminmode
@@ -814,3 +868,21 @@ reproduce your data science project easily from scratch!
 .. [#f5] Such a token can be obtained, for example, using the command line
          GitHub interface (https://github.com/sociomantic/git-hub) by running:
          ``git hub setup`` (if no 2FA is used).
+
+.. [#f6] Note that this is a :command:`git push`, not :command:`datalad push`.
+         Tags could be pushed upon a :command:`datalad push`, though, if one
+         configures (what kind of) tags to be pushed. This would need to be done
+         on a per-sibling basis in ``.git/config`` in the ``remote.*.push``
+         configuration. If you had a :term:`sibling` "github", the following
+         configuration would push all tags that start with a ``v`` upon a
+         :command:`datalad push --to github`::
+
+            $ git config --local remote.github.push 'refs/tags/v*'
+
+         This configuration would result in the following entry in ``.git/config``::
+
+            [remote "github"]
+                  url = git@github.com/adswa/midtermproject.git
+                  fetch = +refs/heads/*:refs/remotes/github/*
+                  annex-ignore = true
+                  push = refs/tags/v*

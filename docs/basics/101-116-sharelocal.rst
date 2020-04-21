@@ -237,7 +237,7 @@ the file and is accessible, though, git-annex will get the content.
 Therefore, for the books in your dataset, retrieving contents works because you
 and your room mate share the same file system. If you'd share the dataset
 with anyone without access to your file system, ``datalad get`` would not
-work, because it can't access your files.
+work, because it can not access your files.
 
 But there is one book that does not suffer from this restriction:
 The ``bash_guide.pdf``.

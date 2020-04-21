@@ -1,0 +1,5 @@
+$ mv books/TLCL.pdf midterm_project
+$ datalad status -r
+  deleted: books/TLCL.pdf (symlink)
+ modified: midterm_project (dataset)
+untracked: midterm_project/TLCL.pdf (symlink)

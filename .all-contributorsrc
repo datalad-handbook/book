@@ -182,7 +182,9 @@
       "avatar_url": "https://avatars0.githubusercontent.com/u/765557?v=4",
       "profile": "https://github.com/aqw",
       "contributions": [
-        "review"
+        "review",
+        "bug",
+        "ideas"
       ]
     },
     {
@@ -248,7 +250,36 @@
       "avatar_url": "https://avatars3.githubusercontent.com/u/3898779?v=4",
       "profile": "https://github.com/sarah1989",
       "contributions": [
-        "review"
+        "review",
+        "ideas"
+      ]
+    },
+    {
+      "login": "dorianps",
+      "name": "dorianps",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/9083517?v=4",
+      "profile": "https://github.com/dorianps",
+      "contributions": [
+        "ideas"
+      ]
+    },
+    {
+      "login": "hbaagil",
+      "name": "hbaagil",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/61992500?v=4",
+      "profile": "https://github.com/hbaagil",
+      "contributions": [
+        "userTesting",
+        "bug"
+      ]
+    },
+    {
+      "login": "glatard",
+      "name": "Tristan Glatard",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/5174953?v=4",
+      "profile": "https://github.com/glatard",
+      "contributions": [
+        "bug"
       ]
     }
   ],

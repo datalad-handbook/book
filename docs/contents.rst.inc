@@ -50,7 +50,7 @@
    basics/basics7toc
    basics/basics8toc
    basics/basics9toc
-   basics/basics10toc
+   basics/basics-metadata
 
 
 .. only:: html

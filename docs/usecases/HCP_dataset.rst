@@ -345,7 +345,7 @@ A RIA store is used, because -- among other advantages -- its layout makes the
 store flexible and scalable. With datasets of sizes like the HCP project,
 especially scalability becomes an important factor. If you are interested in
 finding out why, you can find more technical details on RIA stores, their advantages,
-and even how to create and use one yourself in the use case :ref:`usecase_datastore`.
+and even how to create and use one yourself in the section :ref:`riastore`.
 
 
 Making the datasets accessible

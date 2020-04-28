@@ -52,7 +52,7 @@ and some participant data is also linked to health records from general
 practitioners and hospitals.
 In 2014, a subset of the sample was recruited for collecting additional imaging
 data as part of the `MRI Imaging study <https://www.ukbiobank.ac.uk/scanning-study-launches/>`_.
-In total, 100.000 participants brains will be scanned in the wake of this addition,
+In total, 100.000 participant's brains will be scanned in the wake of this addition,
 making the imaging study component the largest brain imaging study ever conducted.
 By now, data from several ten thousand participants is already released.
 
@@ -82,7 +82,7 @@ Plan of action & difficulties for data analysis
 The UKBiobank dataset is too large for standard scientific clusters. At the time
 this project was carried out, data of 40.000 subjects was released. The
 compressed, downloaded raw data in NifTI format was expected to take up about
-80TB of space, and standard preprocessing procedures performed on this data
+72TB of space, and standard preprocessing procedures performed on this data
 would add derivatives of roughly 3 times the size of the original data. When
 projecting these size demands linearly to the complete set of 100.000 participants,
 the total space required for only the derivatives (no actual analyses yet)
@@ -141,7 +141,9 @@ and `DAGman <https://research.cs.wisc.edu/htcondor/dagman/dagman.html>`_ (a
 meta-scheduler for HTCondor) on a conventional-scale scientific compute
 cluster (the cluster ``juseless`` [#f3]_ of the
 `INM-7 <https://www.fz-juelich.de/inm/inm-7/EN/UeberUns/ueberUns_node.html>`__)
-and transferred to the Data Access server JUDAC via :term:`SSH`. In order to
+and transferred to the Data Access server JUDAC via :term:`SSH`. To not exhaust
+inodes with the raw data alone, the data needed to be exported into the RIA
+stores on JUDAC as archives. During the computations, also in order to
 not exhaust inodes, UKBiobank data needed to be temporarily staged on
 ``scratch/`` directories of the supercomputer, and transferred back into dedicated
 RIA stores for derived outputs.
@@ -179,6 +181,9 @@ RIA stores for derived outputs.
 
      - Challenge: setting up scalable, robust storage solution to assemble the outputs
 
+The upcoming sections detail how each of these challenges were addressed.
+Eventually, however, this project achieved a completely provenance-tracked and
+FAIR preprocessing workflow on exa-scale.
 
 .. rubric:: Footnotes
 

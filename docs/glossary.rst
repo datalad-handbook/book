@@ -94,6 +94,11 @@ Glossary
    ephemeral clone
       TODO
 
+   force-push
+      Git concept; Enforcing a :command:`git push` command with the ``--force``
+      option. Find out more in the
+      `documentation of git push <https://git-scm.com/docs/git-push#Documentation/git-push.txt---force>`_.
+
    GIN
       A web-based repository store for data management that you can use to host and
       share datasets. Find out more about GIN `here <https://gin.g-node.org/G-Node/Info/wiki>`__.

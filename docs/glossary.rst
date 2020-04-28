@@ -113,11 +113,13 @@ Glossary
       of large files. It allows managing files with :term:`Git`, without checking the file content into Git.
 
    git-annex branch
-      A :term:`branch` in your dataset if it contains an :term:`annex`.  It is
-      completely unconnected to any other branches in your dataset, and contains
-      different types of log files. The contents of this branch are used for
-      git-annex internal tracking of the dataset and its annexed contents.
-      It is managed by :term:`git-annex`, and you should not temper with it.
+      This :term:`branch` exists in your dataset if the dataset contains
+      an :term:`annex`.  The git-annex branch is completely unconnected to any
+      other branch in your dataset, and contains different types of log files.
+      Its contents are used for git-annex's internal tracking of the dataset
+      and its annexed contents.
+      The branch is managed by :term:`git-annex`, and you should not temper with
+      it unless you absolutely know what you are doing.
 
    Git config file
       A file in which :term:`Git` stores configuration option. Such a file usually exists on

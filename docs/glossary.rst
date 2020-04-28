@@ -237,6 +237,12 @@ Glossary
       to and from places that are not :term:`Git` repositories (e.g., a cloud service or
       external machines such as HPC systems).
 
+   squash
+      Git concept; Squashing is a Git operation which rewrites history by taking
+      a range of commits and squash them into a single commit. For more information
+      on rewriting Git history, checkout section :ref:`history` and the
+      `documentation <https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History>`_.
+
    SSH
       Secure shell (SSH) is a network protocol to link one machine (computer),
       the *client*, to a different local or remote machine, the *server*. See also: :term:`SSH server`.

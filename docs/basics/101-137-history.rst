@@ -152,7 +152,7 @@ DataLad in the editor)!
 
       pick 8503f26 Add note on adding siblings
       pick 23f0a52 add note on configurations and git config
-      pick c42cba4 add note on DataLads procedures
+      pick c42cba4 add note on DataLad's procedures
 
       # Rebase b259ce8..c42cba4 onto b259ce8 (3 commands)
       #

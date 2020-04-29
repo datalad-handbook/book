@@ -8,7 +8,14 @@ free data management system designed for comprehensive and reproducible manageme
 of scientific data. It is a web-based repository store and provides
 fine-grained access control to share data. :term:`GIN` builds up on :term:`Git` and
 :term:`git-annex`, and is an easy alternative to other third-party services to host
-and share your DataLad datasets [#f1]_.
+and share your DataLad datasets [#f1]_. It allows to share datasets and their
+contents with selected collaborators or making them publicly and anonymously
+available.
+
+.. note::
+
+   If you reached this section to find out how to access a DataLad dataset
+   shared on Gin, please skip to the section :ref:`access`.
 
 Prerequisites
 ^^^^^^^^^^^^^
@@ -18,6 +25,11 @@ In order to use GIN for hosting and sharing your datasets, you need to
 - register
 - upload your public :term:`SSH key` for SSH access
 - create an empty repository on GIN and publish your dataset to it
+
+.. todo::
+
+   Revise this last step once there is a ``datalad create-sibling-gin``
+   command: https://github.com/datalad/datalad/issues/2680
 
 Once you have `registered <https://gin.g-node.org/user/sign_up>`_
 an account on the GIN server by providing your e-mail address, affiliation,
@@ -43,8 +55,8 @@ and name, and selecting a user name and password, you should upload your
    All this takes is a single command in the terminal. The resulting files are
    text files that look like someone spilled alphabet soup in them, but constitute
    a secure password procedure.
-   You keep the private key on your own machine (the system you are connecting from
-   , and that **only you have access to**),
+   You keep the private key on your own machine (the system you are connecting from,
+   and that **only you have access to**),
    and copy the public key to the system or service you are connecting to.
    On the remote system or service, you make the public key an *authorized key* to
    allow authentication via the SSH key pair instead of your password. This
@@ -52,7 +64,7 @@ and name, and selecting a user name and password, you should upload your
    to achieve.
    You should protect your SSH keys on your machine with a passphrase to prevent
    others -- e.g., in case of theft -- to log in to servers or services with
-   SSH authentication [#f1]_, and configure an ``ssh agent``
+   SSH authentication [#f2]_, and configure an ``ssh agent``
    to handle this passphrase for you with a single command. How to do all of this
    is detailed in the above tutorial.
 
@@ -90,32 +102,73 @@ and you can type "yes" to continue::
     [WARNING] Failed to determine if gin carries annex.
     .: gin(-) [git@gin.g-node.org:/adswa/DataLad-101.git (git)]
 
+.. ifconfig:: internal
 
-Afterwards, you can publish your dataset with :command:`datalad publish`. As the
+    .. runrecord:: _examples/DL-101-139-101
+       :language: console
+       :workdir: dl-101/DataLad-101
+       :realcommand: python -c "from datalad.core.distributed.tests.test_push import mk_push_target; from datalad.api import Dataset as ds; mk_push_target(ds=ds('/home/me/dl-101/DataLad-101'), name='gin', path='/home/me/pushes/DataLad-101', annex=True, bare=True)"
+
+
+Afterwards, you can publish your dataset with :command:`datalad push`. As the
 repository on GIN supports a dataset annex, there is no publication dependency
 to an external data hosting service necessary, and the dataset contents
-stored in Git and in git-annex are published to the same place::
+stored in Git and in git-annex are published to the same place:
 
-   $ datalad publish --to gin --transfer-data all
-    [INFO   ] Publishing <Dataset path=/home/me/dl-101/DataLad-101> data to gin
-    publish(ok): books/TLCL.pdf (file)
-    publish(ok): books/bash_guide.pdf (file)
-    publish(ok): books/byte-of-python.pdf (file)
-    publish(ok): books/progit.pdf (file)
-    publish(ok): recordings/interval_logo_small.jpg (file)
-    publish(ok): recordings/salt_logo_small.jpg (file)
-    [INFO   ] Publishing <Dataset path=/home/me/dl-101/DataLad-101> to gin
-    Fetching gin (counting objects):  [...]
-    publish(ok): . (dataset) [pushed to gin: ['5ea3394..f9a941f', '[new branch]']]
-    action summary:
-      publish (ok: 7)
 
+ .. runrecord:: _examples/DL-101-139-102
+    :language: console
+    :workdir: dl-101/DataLad-101
+
+    $ datalad push --to gin
 
 If you refresh the GIN web interface afterwards, you will find all of your dataset
 -- including annexed contents! -- on GIN. What is especially cool is that the
 GIN web interface (unlike :term:`GitHub`) can even preview your annexed contents.
 
 .. figure:: ../artwork/src/GIN_dl101_repo.png
+
+.. _access:
+
+Sharing and accessing the dataset
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Once your dataset is published, you can point collaborators and friends to it.
+
+If it is a **public** repository, retrieving the dataset and getting access to
+all published data contents (in a read-only fashion) is done by cloning the
+repository's ``https`` url. This does not require a user account on Gin.
+
+.. runrecord:: _examples/DL-101-139-107
+   :language: console
+   :workdir: dl-101/clone_of_dl-101
+
+   $ datalad clone https://gin.g-node.org/adswa/DataLad-101
+
+Subsequently, :command:`datalad get` calls will be able to retrieve all annexed
+file contents that have been published to the repository.
+
+If it is a **private** dataset, cloning the dataset from Gin requires a user
+name and password for anyone you want to share your dataset with.
+The "Collaboration" tab under Settings lets you set fine-grained access rights,
+and it is possible to share datasets with collaborators that are not registered
+on GIN with provided Guest accounts.
+In order to get access to annexed contents, cloning *requires* setting up
+an SSH key as detailed above, and cloning via the SSH url:
+
+.. code-block:: bash
+
+   $ datalad clone git@gin.g-node.org:/adswa/DataLad-101.git
+
+.. findoutmore:: How do I know if my repository is private?
+
+   Private repos are marked with a lock sign. To make it public, untick the
+   "Private" box, found under "Settings":
+
+   .. figure:: ../artwork/src/GIN_private.png
+
+In order to publish changes to a Gin repository, the repository needs
+to be cloned via its SSH url.
 
 
 .. _subdspublishing:
@@ -161,13 +214,13 @@ can be done via the ``set-property <NAME> <VALUE>`` option of
 :command:`datalad subdatasets` [#f3]_ (replace the URL shown here with the URL
 your dataset was published to -- likely, you only need to change the user name):
 
-.. runrecord:: _examples/DL-101-139-102
+.. runrecord:: _examples/DL-101-139-103
    :language: console
    :workdir: dl-101/DataLad-101
 
    $ datalad subdatasets --contains midterm_project --set-property url https://github.com/adswa/midtermproject
 
-.. runrecord:: _examples/DL-101-139-103
+.. runrecord:: _examples/DL-101-139-104
    :language: console
    :workdir: dl-101/DataLad-101
 
@@ -176,29 +229,24 @@ your dataset was published to -- likely, you only need to change the user name):
 Handily, the :command:`datalad subdatasets` command saved this change to the
 ``.gitmodules`` file automatically and the state of the dataset is clean:
 
-.. runrecord:: _examples/DL-101-139-104
+.. runrecord:: _examples/DL-101-139-105
    :language: console
    :workdir: dl-101/DataLad-101
 
    $ datalad status
 
 Afterwards, publish these changes to ``gin`` and see for yourself how this fixed
-the problem::
+the problem:
 
-   $ datalad publish --to gin --transfer-data all
-   [INFO   ] Publishing <Dataset path=/home/me/dl-101/DataLad-101> data to gin
-   [INFO   ] Publishing <Dataset path=/home/me/dl-101/DataLad-101> to gin
+.. runrecord:: _examples/DL-101-139-106
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ datalad push --to gin
 
 If the subdataset was not published before, you could publish the subdataset to
 a location of your choice, and modify the ``.gitmodules`` entry accordingly.
 
-Sharing the dataset
-^^^^^^^^^^^^^^^^^^^
-
-Once your dataset is published, you can point collaborators and friends to it.
-The "Collaboration" tab under Settings lets you set fine-grained access rights,
-and it is possible to share datasets with collaborators that are not registered
-on GIN.
 
 
 .. rubric:: Footnotes

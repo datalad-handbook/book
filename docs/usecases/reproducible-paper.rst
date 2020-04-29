@@ -58,7 +58,7 @@ dataset, he creates several subdirectories to collate everything that is relevan
 the manuscript: Data, code, a manuscript backbone without results.
 ``code/`` contains a Python script that he uses for validation analyses, and
 prior to computing results, the script
-attempts to download the data should the files need to be obtained using DataLads Python API.
+attempts to download the data should the files need to be obtained using DataLad's Python API.
 ``data/`` contains a separate DataLad subdataset for every dataset he uses. An
 ``algorithm/`` directory is a DataLad dataset containing a clone of his software repository,
 and within it, in the directory ``test/data/``, are additional DataLad subdatasets that
@@ -171,7 +171,7 @@ These two preparations can be seen in this excerpt from the Python script:
 
 .. code-block:: python
 
-   # import Datalads API
+   # import DataLad's API
    from datalad.api import get
 
    # note that the datapath is relative

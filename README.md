@@ -1,9 +1,9 @@
 [![Build Status](https://travis-ci.org/datalad-handbook/book.svg?branch=master)](https://travis-ci.org/datalad-handbook/book) [![Documentation Status](https://readthedocs.org/projects/datalad-handbook/badge/?version=latest)](http://handbook.datalad.org/en/latest/?badge=latest)
-[![All Contributors](https://img.shields.io/badge/all_contributors-19-orange.svg?style=flat-square)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-21-orange.svg?style=flat-square)](#contributors)
 [![DOI](https://zenodo.org/badge/192547315.svg)](https://zenodo.org/badge/latestdoi/192547315)
 [![made-with-datalad](https://www.datalad.org/badges/made_with.svg)](https://datalad.org)
 
-# The Datalad handbook :orange_book:
+# The DataLad handbook :orange_book:
 
 This is a living resource on why and - more importantly - *how* to use [DataLad](http://www.datalad.org).
 The rendered version is [here](http://handbook.datalad.org): http://handbook.datalad.org, and is currently
@@ -71,7 +71,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/LisaWiersch96"><img src="https://avatars3.githubusercontent.com/u/57354773?v=4" width="100px;" alt=""/><br /><sub><b>Lisa Wiersch</b></sub></a><br /><a href="https://github.com/datalad-handbook/book/issues?q=author%3ALisaWiersch96" title="Bug reports">🐛</a></td>
     <td align="center"><a href="https://github.com/jbpoline"><img src="https://avatars0.githubusercontent.com/u/275048?v=4" width="100px;" alt=""/><br /><sub><b>Jean-Baptiste Poline</b></sub></a><br /><a href="#content-jbpoline" title="Content">🖋</a></td>
     <td align="center"><a href="https://github.com/NevenaK"><img src="https://avatars2.githubusercontent.com/u/57677812?v=4" width="100px;" alt=""/><br /><sub><b>Nevena Kraljevic</b></sub></a><br /><a href="#userTesting-NevenaK" title="User Testing">📓</a></td>
-    <td align="center"><a href="https://github.com/aqw"><img src="https://avatars0.githubusercontent.com/u/765557?v=4" width="100px;" alt=""/><br /><sub><b>Alex Waite</b></sub></a><br /><a href="https://github.com/datalad-handbook/book/pulls?q=is%3Apr+reviewed-by%3Aaqw" title="Reviewed Pull Requests">👀</a></td>
+    <td align="center"><a href="https://github.com/aqw"><img src="https://avatars0.githubusercontent.com/u/765557?v=4" width="100px;" alt=""/><br /><sub><b>Alex Waite</b></sub></a><br /><a href="https://github.com/datalad-handbook/book/pulls?q=is%3Apr+reviewed-by%3Aaqw" title="Reviewed Pull Requests">👀</a> <a href="https://github.com/datalad-handbook/book/issues?q=author%3Aaqw" title="Bug reports">🐛</a> <a href="#ideas-aqw" title="Ideas, Planning, & Feedback">🤔</a></td>
   </tr>
   <tr>
     <td align="center"><a href="https://github.com/lilikapa"><img src="https://avatars3.githubusercontent.com/u/14184487?v=4" width="100px;" alt=""/><br /><sub><b>Lya K. Paas</b></sub></a><br /><a href="https://github.com/datalad-handbook/book/issues?q=author%3Alilikapa" title="Bug reports">🐛</a> <a href="https://github.com/datalad-handbook/book/commits?author=lilikapa" title="Code">💻</a></td>
@@ -80,6 +80,12 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/TobiasKadelka"><img src="https://avatars1.githubusercontent.com/u/49553687?v=4" width="100px;" alt=""/><br /><sub><b>Tobias Kadelka</b></sub></a><br /><a href="#userTesting-TobiasKadelka" title="User Testing">📓</a></td>
     <td align="center"><a href="http://peerherholz.github.io"><img src="https://avatars0.githubusercontent.com/u/20129524?v=4" width="100px;" alt=""/><br /><sub><b>Peer Herholz</b></sub></a><br /><a href="#ideas-PeerHerholz" title="Ideas, Planning, & Feedback">🤔</a></td>
     <td align="center"><a href="https://github.com/AlexandreHutton"><img src="https://avatars3.githubusercontent.com/u/50920802?v=4" width="100px;" alt=""/><br /><sub><b>Alexandre Hutton</b></sub></a><br /><a href="#content-AlexandreHutton" title="Content">🖋</a> <a href="https://github.com/datalad-handbook/book/issues?q=author%3AAlexandreHutton" title="Bug reports">🐛</a></td>
+    <td align="center"><a href="https://github.com/sarah1989"><img src="https://avatars3.githubusercontent.com/u/3898779?v=4" width="100px;" alt=""/><br /><sub><b>Sarah Oliveira</b></sub></a><br /><a href="https://github.com/datalad-handbook/book/pulls?q=is%3Apr+reviewed-by%3Asarah1989" title="Reviewed Pull Requests">👀</a> <a href="#ideas-sarah1989" title="Ideas, Planning, & Feedback">🤔</a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/dorianps"><img src="https://avatars3.githubusercontent.com/u/9083517?v=4" width="100px;" alt=""/><br /><sub><b>dorianps</b></sub></a><br /><a href="#ideas-dorianps" title="Ideas, Planning, & Feedback">🤔</a></td>
+    <td align="center"><a href="https://github.com/hbaagil"><img src="https://avatars3.githubusercontent.com/u/61992500?v=4" width="100px;" alt=""/><br /><sub><b>hbaagil</b></sub></a><br /><a href="#userTesting-hbaagil" title="User Testing">📓</a> <a href="https://github.com/datalad-handbook/book/issues?q=author%3Ahbaagil" title="Bug reports">🐛</a></td>
+    <td align="center"><a href="https://github.com/glatard"><img src="https://avatars0.githubusercontent.com/u/5174953?v=4" width="100px;" alt=""/><br /><sub><b>Tristan Glatard</b></sub></a><br /><a href="https://github.com/datalad-handbook/book/issues?q=author%3Aglatard" title="Bug reports">🐛</a></td>
   </tr>
 </table>
 

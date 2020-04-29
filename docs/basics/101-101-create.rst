@@ -8,7 +8,7 @@ In order to follow along and organize course content, let us create
 a directory on our computer to collate the materials, assignments, and
 notes in.
 
-Since this is ``DataLad-101``, let's do it as a :term:`Datalad dataset`.
+Since this is ``DataLad-101``, let's do it as a :term:`DataLad dataset`.
 You might associate the term "dataset" with a large spreadsheet containing
 variables and data.
 But for DataLad, a dataset is the core data type:
@@ -64,7 +64,7 @@ Currently, it seems empty.
    :language: console
    :workdir: dl-101
    :cast: 01_dataset_basics
-   :notes: Datalad informs about what it is doing during a command. At the end is a summary, in this case it is ok. What is inside of a newly created dataset? We list contents with ls.
+   :notes: DataLad informs about what it is doing during a command. At the end is a summary, in this case it is ok. What is inside of a newly created dataset? We list contents with ls.
 
    $ cd DataLad-101
    $ ls    # ls does not show any output, because the dataset is empty.
@@ -127,7 +127,7 @@ an informative commit message yourself.
       :workdir: dl-101/DataLad-101
       :emphasize-lines: 4-6
       :cast: 01_dataset_basics
-      :notes: Datalad, git-annex, and git create hidden files and directories in your dataset. Make sure to not delete them!
+      :notes: DataLad, git-annex, and git create hidden files and directories in your dataset. Make sure to not delete them!
 
       $ ls -a # show also hidden files
 

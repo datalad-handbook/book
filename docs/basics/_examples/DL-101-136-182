@@ -1,0 +1,10 @@
+$ datalad save -r -m "move annexed file around"
+add(ok): TLCL.pdf (file)
+save(ok): midterm_project (dataset)
+delete(ok): books/TLCL.pdf (file)
+add(ok): midterm_project (file)
+save(ok): . (dataset)
+action summary:
+  add (ok: 2)
+  delete (ok: 1)
+  save (notneeded: 2, ok: 2)

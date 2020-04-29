@@ -112,7 +112,7 @@ chapters in this handbook will demonstrate how useful this information can be.
    In the case of installing datasets into existing datasets you however need
    to adjust the paths that are given with the ``-d/--dataset`` option:
    ``-d`` needs to specify the path to the root of the dataset. This is
-   important to keep in mind whenever you don't execute the :command:`clone` command
+   important to keep in mind whenever you do not execute the :command:`clone` command
    from the root of this dataset. Luckily, there is a shortcut: ``-d^`` will always
    point to root of the top-most dataset. For example, if you navigate into ``recordings``
    the command would be::
@@ -126,7 +126,7 @@ chapters in this handbook will demonstrate how useful this information can be.
   
      datalad clone https://github.com/datalad-datasets/longnow-podcasts.git
 
-   anywhere outside of your ``Datalad-101`` dataset to install the podcast dataset into a new directory
+   anywhere outside of your ``DataLad-101`` dataset to install the podcast dataset into a new directory
    called ``longnow-podcasts``. You could even do this inside of an existing dataset.
    However, whenever you install datasets into of other datasets, the ``-d/--dataset``
    option is necessary to not only install the dataset, but also *register* it
@@ -225,7 +225,7 @@ For this, we supply an additional option to :command:`datalad status`. Make sure
 Woah! More than 200 files, totaling more than 15 GB?
 You begin to appreciate that DataLad did not
 download all of this data right away! That would have taken hours given the crappy
-internet connection in the lecture hall, and you aren't even sure whether your
+internet connection in the lecture hall, and you are not even sure whether your
 hard drive has much space left...
 
 
@@ -270,7 +270,7 @@ has a nice summary:
    :language: console
    :workdir: dl-101/DataLad-101/recordings/longnow
    :cast: 01_dataset_basics
-   :notes: Datalad status can also summarize how much of the content is already present locally:
+   :notes: DataLad status can also summarize how much of the content is already present locally:
 
    $ datalad status --annex all
 
@@ -291,7 +291,7 @@ DataLad's fancy progress bars.
    Long_Now__Seminars_About_Long_term_Thinking/2004_01_10__George_Dyson__There_s_Plenty_of_Room_at_the_Top__Long_term_Thinking_About_Large_scale_Computing.mp3
 
 Note that any data that is already retrieved (the first file) is not downloaded again.
-Datalad summarizes the outcome of the execution of ``get`` in the end and informs
+DataLad summarizes the outcome of the execution of ``get`` in the end and informs
 that the download of one file was ``notneeded`` and the retrieval of the other files was ``ok``.
 
 

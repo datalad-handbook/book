@@ -401,6 +401,16 @@ by looping across subjects and acquisitions:
            continue
        fi
 
+Summary
+^^^^^^^
+In fairness, this bash script was probably not the shortest or most intuitive
+bash script you have ever seen. However, it contained a single ``hirni`` workflow
+that was able to fully reproducibly BIDSify a highly complex neuroimaging study
+acquired many years ago. Running ``hirni``, be it programmatically as in this
+section, or step-wise, as in the section before, is not trivial, but so is no
+alternative that could be used for a conversion.  The huge advantage that
+``hirni`` brings to the table is the complete, machine-reproducible provenance
+record it creates.
 
 Resources
 ^^^^^^^^^

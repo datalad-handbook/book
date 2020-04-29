@@ -967,6 +967,41 @@ write your own rules for custom metadata extraction.
       don't do costly editing with the webUI if you intend to run
       :command:`hirni-dicom2spec` again.
 
+   .. todo::
+
+      find out how heuristics for heudiconv are derived from this
+
+
+Procedures
+""""""""""
+
+The fundamental conversion mechanism relies on DataLad's :term:`run procedure`\s.
+Each specification snippets does not only define metadata about the data
+entity, but also how this data entity shall be treated during conversion -- from
+simple operations such as "copying and renaming" up to complex procedures
+such as defacing. The findoutmore above already showed some example procedure
+definitions, but there is more information about procedures to be known:
+
+The available procedures are the following:
+
+- ``copy-converter``: Copy a file
+- ``hirni-dicom-converter``: Convert DICOMs to NIfTIs (automatically selected for
+  all DICOM series)
+- ``hirni_mridefacer``: Deface images during the conversion
+- ``hirni-physiobox-converter``: TODO
+- ``move-converter``: TODO rename a file?
+- ``fslroi``: TODO
+
+
+
+.. findoutmore:: Formatting procedure calls
+
+   .. todo::
+
+      - replacements: script = procedure call, ds = dataset it is called upon,
+        and all other keys in the given snippet in double curly brackets
+
+      - procedures: Should all use datalad run or datalad containers-run
 
 
 Adding other data
@@ -1034,7 +1069,14 @@ Anonymization
    be the case though, and would compromise anonymity also in non-version control
    setups.
 
-
+Now, after you have imported the DICOM data and all additional data from the first
+acquisition, and checked, edited, and/or extended the specification snippets in
+``studyspec.json``, **repeat this process for every new acquisition you do.**
+If you prepare your study dataset during an ongoing study, this routine can become
+a habit easily, and integrates well into any integrity checks or transfer actions
+you would do to newly acquired data anyway. If you however already have a large pile
+of acquisitions, the upcoming sections details a scripted, programmatic way that
+saves you repetitive labour.
 
 Step 2: Conversion
 ------------------
@@ -1069,14 +1111,12 @@ perform the conversion anonymized. By default, this means that the ``anon-subjec
 IDs are used in file names, and that all paths that are recorded during the
 conversion are encrypted.
 
-.. todo::
-
-   what is a sidecar? Find out, add to run chapter. https://en.wikipedia.org/wiki/Sidecar_file
-
 Lastly, the ``--only-type`` flag allows to limit the conversion to executing
 only those snippets that match the given type. This allows you to convert only
 subsets of your study dataset, or check whether a single or small set of
 conversions works as you intend it to work without converting all of the dataset.
+You can find information on this in the findoutmore on specifications further up
+in this section.
 
 .. todo::
 

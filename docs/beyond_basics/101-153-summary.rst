@@ -17,3 +17,12 @@ easier and reproducible.
 - Technically, ``hirni`` and its general approach are not limited to neuroimaging.
   If you are willing to invest time and thought, ``hirni``\s routines can
   accomplish conversions to other standards or structures.
+
+Now what can I do with it?
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Reproducibly BIDSify all the neuroimaging studies!
+
+.. todo::
+
+   Find the marie kondo "BIDS sparks joy" meme from twitter again and add it

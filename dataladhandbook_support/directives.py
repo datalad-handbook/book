@@ -24,6 +24,7 @@ def depart_gitusernote_html(self, node):
 
 def visit_gitusernote_latex(self, node):
     # wrap the Gitusernote in a colored box (defined in conf.py preamble)
+    #import pdb; pdb.set_trace()
     self.body.append('\n\n\\begin{colbox}{C9C0BB}\n'
                      '\n\n\\sphinxstrong{\\textcolor{purple}{Note for Git users:}}\n\n')
 
@@ -62,12 +63,13 @@ class FindOutMore(BaseAdmonition):
         # but we throw away the title, because we want to mark
         # it up as a 'header' further down
         del docnodes[0][0]
+        import pdb; pdb.set_trace()
         # now put the entire admonition structure into a container
         # that we assign the necessary class to make it 'toggle-able'
         # in HTML
         # outer container
         toggle = nodes.container(
-            'toogle',
+            'toggle',
             # header line with 'Find out more' prefix
             nodes.container(
                 'label',
@@ -90,7 +92,29 @@ class FindOutMore(BaseAdmonition):
             # functional assigned in CSS instead (maybe streamline later)
             classes=['toggle', 'findoutmore'],
         )
+      #  import pdb; pdb.set_trace()
         return [toggle]
+
+
+    def visit_findoutmore(self, node):
+        import pdb;
+        pdb.set_trace()
+        self.visit.admonition(node)
+
+
+    def depart_findoutmore(self, node):
+        self.depart_admonition(node)
+
+
+    def visit_findoutmore_latex(self, node):
+        import pdb;
+        pdb.set_trace()
+        self.body.append('\n\n\\begin{colbox}{C9C0BB}\n'
+                         '\n\n\\sphinxstrong{\\textcolor{purple}{Note for Git users:}}\n\n')
+
+
+    def depart_findoutmore_latex(self, node):
+        node.self.append('\n\n\\end{colbox}')
 
 
 def setup(app):
@@ -99,6 +123,17 @@ def setup(app):
         html=(visit_gitusernote_html, depart_gitusernote_html),
         latex=(visit_gitusernote_latex, depart_gitusernote_latex),
     )
+    app.add_node(
+        FindOutMore,
+        html=(FindOutMore.visit_findoutmore, FindOutMore.depart_findoutmore),
+        latex=(FindOutMore.visit_findoutmore_latex, FindOutMore.depart_findoutmore_latex))
+    #app.add_directive('findoutmorenode', FindOutMore)
+
+    #app.add_node(
+   #     FindOutMore,
+       # html=(visit_findoutmore_html, depart_findoutmore_html),
+       # latex=(visit_findoutmore_latex, depart_findoutmore_latex)
+  #  )
     app.add_directive('gitusernote', GitUserNote)
     app.add_directive('findoutmore', FindOutMore)
 

@@ -324,7 +324,48 @@ Semi-automatic metadata extraction and conversion specification
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 Ultimately, the :command:`datalad hirni-import-dcm` serves only one goal:
-Collect all relevant information from the DICOM headers to enable the conversion.
+Collect all relevant information from the DICOM headers to enable the conversion
+from DICOM to NIfTI with the underlying tools ``hirni`` uses: ``heudiconv``,
+which itself is using `dcm2niix <https://github.com/rordenlab/dcm2niix>`_ internally.
+
+.. findoutmore:: Underlying tools for DICOM conversions
+
+   ``hirni`` uses established tools under the hood to perform the conversion from
+   DICOM to BIDS-compliant NIfTI files. For this, it relies on
+   `heudiconv <https://heudiconv.readthedocs.io/en/latest/?badge=latest>`__, which exploits
+   `dcm2niix <https://github.com/rordenlab/dcm2niix>`_ for the data conversion,
+   and allows organizing data into structured directory layouts such as BIDS.
+   ``hirni``\s aim is to ease and automate the use of these tools more.
+
+   **dcm2niix**: ``dcm2niix`` is an established and fast command line tool to
+   convert DICOM to NIfTI.
+   A typical dcm2niix call points the software to a directory with DICOM images,
+   specifies an output directory, and a file name for the output file. The software
+   can generate associated ``json`` files with additional scan information such
+   as slice timing that are relevant for BIDS compliance.
+
+   **heudiconv**: ``heudiconv`` is a tool to convert and structure DICOM data.
+   It uses ``dcm2niix`` for conversion, adds additional functionality for
+   heuristics-based directory layouts and naming schemes with BIDS assistance,
+   and integrates with DataLad. Running ``heudiconv`` on DICOM images can produce
+   a DataLad dataset with NifTI files in BIDS compliant directory structures and
+   their BIDS-relevant DICOM-metadata in accompanying ``json`` files, if done correctly.
+   Using ``heudiconv`` involves two steps:
+   Firstly, generating *heuristics* that define file and directory name templates for
+   DICOM image series (a semi-automatic process that involves editing generated
+   Python scripts), and secondly, for each subject and session, converting
+   the DICOMs specified in the heuristic into NifTI files following naming
+   conventions also specified in the heuristics. A short tutorial can be found
+   `here <https://nipy.org/heudiconv>`_.
+
+   Ultimately, ``hirni`` will use the DICOM metadata in each acquisition's
+   ``studyspec.json`` file to call ``heudiconv`` for each subject and session
+   with appropriate heuristics in a single conversion call. It is not necessary
+   to know ``heudiconv`` to understand how ``hirni`` works, but knowing
+   ``heudiconv`` can help to see how ``hirni`` makes conversions from raw to
+   BIDS data easier.
+
+
 This information is stored as aggregated metadata from the subdataset
 in ``.datalad/metadata`` [#f5]_, and as acquisition-wise specifications in
 ``<acquisition-ID>/studyspec.json``.

@@ -428,31 +428,52 @@ specifications are necessary. The next few paragraphs and findoutmores in this
 section will elaborate on the details of specifications, and demonstrate how they
 can be edited.
 
+Specifications
+""""""""""""""
+
 During DICOM import, the command ``hirni-dicom2spec`` generated so called
 *specification snippets* from DICOM metadata and stored them in the
-``studyspec.json`` file. In this file also all additionally specified metadata
-such as anonymized subject IDs are stored. Put simple, all these specifications
-are merely information about DICOM data.
-They are fundamental to ``hirni`` and indispensable for a successful
-conversion. But they are also quite hard to get a good grasp on. If you want
+``studyspec.json`` *specification* file. Specifications describe *data entities*
+of the study dataset. An entity is not necessarily a single file or directory,
+but any study dataset content that is one logical unit that should be processed
+in the same way, such as a DICOM series (which likely is a subset of the data in
+``dicoms/``), all respiratory traces inside of a ``physio/`` subdirectory, or a
+single ``events.txt`` stimulation log file for the acquisition.
+
+Ultimately, the specification file will store all relevant information for the
+conversion process for the given acquisition.
+At this point in time, after the DICOM import, it contains
+only automatically extracted DICOM related metadata, and manually specified
+DICOM metadata such as anonymized subject IDs. Just prior to the conversion,
+however, the ``studyspec.json`` will contain all relevant metadata on all relevant
+files in the acquisition subdirectory as a collection of specification snippets.
+
+Put into simple terms, for each data entity, a specification snippet in the specification file defines how it should be
+converted (in other words: treated). Note that "conversion" does not exclusively
+refer to a DICOM to NIfTI conversion -- in ``hirni``\s terms, a conversion is
+any action that is undertaken with an entity in the study dataset to get it into
+the form it should take in the BIDS dataset. This could be a simple action
+such as copying or renaming a file, but also complex, multistepped processes,
+for example defacing, or, in the case of DICOM series, conversion to NIfTI files.
+
+In more technical terms, specification snippets define a list of
+:term:`run procedure`\s and how exactly they are called. There is one run-procedure
+that handles defacing, for example, and the specification snippet merely matches
+the procedure to be performed to the data entity it should run on (and potentially
+specify additional options). If you don't know what a procedure is, yet, please
+give section :ref:`procedures` a quick read to get an initial overview. The upcoming
+paragraph on procedures will elaborate a bit more, as well.
+In addition to *procedures*, specification snippets also contain fields to define
+potentially relevant BIDS terms about the data. If you are not familiar with the general
+naming scheme in BIDS, please head over to `bids.neuroimaging.io <https://bids.neuroimaging.io/>`_
+and take a look at the basic logic behind file names.
+
+Specifications, therefore, are fundamental to ``hirni`` and indispensable for a successful
+conversion. But they are also quite hard to get a good grasp on and look confusing
+when you open them up in an editor instead of in the webUI. If you want
 to get a detailed picture, this findoutmore will shed some light on them.
 
 .. findoutmore:: On specifications
-
-   Specifications describe *data entities* of the study dataset. An entity is
-   not necessarily a single file or directory, but any study dataset content
-   that is one logical unit that should be processed in the same way, such as a
-   DICOM series (which likely is a subset of the data in ``dicoms/``), all
-   respiratory traces inside of a ``physio/`` subdirectory, or a single
-   ``events.txt`` stimulation log file for the acquisition.
-
-   For each data entity, a specification snippet defines how it should be
-   converted (in other words: treated). Note that "conversion" does not exclusively
-   refer to a DICOM to NifTi conversion - in ``hirni``\s terms, a conversion is
-   any action that is undertaken with a file in the study dataset to get it into
-   the form it should take in the BIDS dataset. This could be a simple action
-   such as copying or renaming a file, but also complex, multistepped processes,
-   for example defacing.
 
    Reading, understanding, and creating specification snippets requires some
    pre-existing knowledge on certain topics, and an understanding of the data
@@ -511,15 +532,9 @@ to get a detailed picture, this findoutmore will shed some light on them.
          $ {"anon-subject":{"approved":false,"value":"001"},"bids-acquisition":{"approved":false,"value":null},"bids-contrast-enhancement":{"approved":false,"value":null},"bids-direction":{"approved":false,"value":null},"bids-echo":{"approved":false,"value":null},"bids-modality":{"approved":false,"value":"bold"},"bids-reconstruction-algorithm":{"approved":false,"value":null},"bids-run":{"approved":false,"value":"01"},"bids-session":{"approved":false,"value":null},"bids-task":{"approved":false,"value":"oneback"},"comment":{"approved":false,"value":""},"dataset-id":"2f2a44d8-7271-11ea-861d-f9fd9dd57046","dataset-refcommit":"64644f46a471424df817dd5001f72b223c6f7a33","description":{"approved":false,"value":"func_task-oneback_run-1"},"id":{"approved":false,"value":401},"location":"dicoms","procedures":[{"on-anonymize":{"approved":false,"value":false},"procedure-call":{"approved":false,"value":null},"procedure-name":{"approved":false,"value":"hirni-dicom-converter"}}],"subject":{"approved":false,"value":"02"},"type":"dicomseries:all"}
 
       When processed, conversions are executed in the order of the specification
-      snippets.
+      snippets. But worry not -- it is only in advanced use cases that you would
+      write a snippet by hand.
 
-   A specification snippet defines a list of :term:`run procedure`\s and how
-   exactly they are called. If you don't know what a procedure is, yet, please
-   give section :ref:`procedures` a quick read to get an initial overview.
-   Additionally, it contains fields to define potentially
-   relevant BIDS terms about the data. If you are not familiar with the general
-   naming scheme in BIDS, please head over to `bids.neuroimaging.io <https://bids.neuroimaging.io/>`_
-   and take a look at the basic logic behind file names.
    Below, you can see the a single specification
    snippet, formatted into JSON for better readability. It is a snippet that would
    be generated automatically during DICOM import for one DICOM series:
@@ -608,14 +623,10 @@ to get a detailed picture, this findoutmore will shed some light on them.
           "uid": "1.2.0260.1.3680043.2.1143.53213523436472938475829384762332",
         }
 
-   .. todo::
-
-      NOTE: UUID IS NOT CLEAR YET!
-
    This snipppet consists of a number of nested dictionaries. A few are potentially
    relevant BIDS terms, such as ``bids-acquisition``, or ``bids-run``. Not all of
    them will apply to your study, but they are in the template to allow their use
-   should they be relevant. A few of them are prefilled with values that were
+   should they be relevant. A few of them are pre-filled with values that were
    derived from DICOM headers, such as
 
    .. code-block::
@@ -669,17 +680,24 @@ to get a detailed picture, this findoutmore will shed some light on them.
       [...]
       "location": "dicoms",
 
-   With the exception of DICOM data entities, a snippet's ``type`` key contains
-   an arbitrary label (by default: ``generic file``).
-   This label can be used as a "category" to group related
-   specification snippets together. For example, all stimulation log files could
-   get the ``type`` label "events". During the conversion step, using command
-   line options, conversion can be limited to only specification snippets of a
-   particular ``type`` label. This can be useful to test whether conversion routines
-   work on a subset of the data, for example, or to simply convert only some parts
-   of a study dataset.
+   The key ``uid`` and ``type`` are two different means to refer to the data
+   entity. For DICOM series, the ``uid`` is a unique identifier of the DICOM
+   series. The type key is a "category" indication for the given data entity.
+   It has a special purpose for DICOM conversion and should not be changed for
+   DICOM entities, but it can be a helpful trick in all other data entity
+   instances.
 
-   Only for DICOMs ``type`` keys have a special meaning
+   .. findoutmore:: Utilizing the type key
+
+       With the exception of DICOM data entities, a snippet's ``type`` key contains
+       an arbitrary label (by default: ``generic file``).
+       This label can be used as a "category" to group related
+       specification snippets together. For example, all stimulation log files could
+       get the ``type`` label "events". During the conversion step, using command
+       line options, conversion can be limited to only specification snippets of a
+       particular ``type`` label. This can be useful to test whether conversion routines
+       work on a subset of the data, for example, or to simply convert only some parts
+       of a study dataset.
 
    .. todo::
 
@@ -718,18 +736,21 @@ to get a detailed picture, this findoutmore will shed some light on them.
        }
       ],
 
-   One of the dictionaries is the procedure name (``procedure-name``). This
-   name refers to a :term:`run procedure`. Most of those procedures are part of
-   the hirni toolbox and exist under ``code/toolbox/procedures``. Another
-   dictionary is the procedure call (``procedure-call``). This defines how the
-   procedure should be called - this can be preconfigured, set to a default, or
-   edited manually. In the example above, no specific call format is necessary,
-   but a separate findoutmore will go into the details of the syntax for procedure
-   calls and demonstrate how they work. For some data, the ``on-anonymize``
+   One of the dictionaries is the procedure name (``procedure-name``), in this
+   case the ``hirni-dicom-converter`` that is part of toolbox and exists under
+   ``code/toolbox/procedures``. Another
+   dictionary is the procedure call (``procedure-call``), which defines how the
+   procedure should be called -- this can be preconfigured, set to a default, or
+   edited manually. For ``hirni-dicom-converter``, no specific call format is
+   necessary. For some data, the ``on-anonymize``
    dictionary is included as a switch that determines whether the procedure runs
    during conversion if ``--anonymize`` is specified (???? IS THIS CORRECT?).
 
-   Each dictionary has a boolean ``approve`` field. This exists for the webUI
+   You may have noticed that each dictionary has a boolean ``approve`` field.
+   This exists for the webUI:
+   By default, all approve fields are false and thus editable from the webUI.
+   Any value can be marked as "approved" in the webUI, however, which prevents
+   the value from being edited further.
 
    .. todo::
 

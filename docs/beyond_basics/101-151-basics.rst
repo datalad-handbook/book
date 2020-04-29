@@ -55,7 +55,7 @@ If you want to read up on this, take a look at the hidden section below.
    be provided by the scanner automatically, or filled in by the person that
    conducted the acquisition during scanning.
    By extracting data from these tags one can access important
-   information regarding the subject demographics, device, imaging sequence, and
+   information regarding the participant's demographics, device, imaging sequence, and
    image specifics (e.g., dimensions of the image, slice thickness, or slice order).
    Apart from the actual image data, DICOM files therefore encompass also vast
    amounts of metadata.

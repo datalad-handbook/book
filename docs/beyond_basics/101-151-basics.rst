@@ -1,7 +1,7 @@
 .. _hirnibasics:
 
 The Basic Hirni Workflow
-------------------------
+========================
 
 A ``hirni`` workflow comprises of two steps:
 
@@ -93,7 +93,7 @@ If you want to read up on this, take a look at the hidden section below.
    sorted, and stacked into a NifTI file for the given sequence type.
 
 Step 1: Creation of a study dataset
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-----------------------------------
 
 Once ``hirni`` is installed, we can create a standard dataset.
 In the beginning, it is a regular DataLad dataset:
@@ -163,7 +163,7 @@ Furthermore, ``cfg_hirni`` created a subdirectory ``code/`` and installed the
    if you want to take a closer look.
 
 Initial dataset information
-"""""""""""""""""""""""""""
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Let's say you have just started to prepare your neuroimaging study.
 Even if you havn't acquired a single DICOM file yet, you can already curate
@@ -239,7 +239,7 @@ tools such as `jq <https://stedolan.github.io/jq/>`_ or webtools such as
    light on it.
 
 Importing DICOMs
-""""""""""""""""
+^^^^^^^^^^^^^^^^
 
 As soon as the first acquisition exists, DICOM data can be imported into the study
 dataset. A DICOM acquisition import takes the following structure in your study dataset:
@@ -977,7 +977,7 @@ The available procedures are the following:
 
 
 Adding other data
-"""""""""""""""""
+^^^^^^^^^^^^^^^^^
 
 Neuroimaging studies usually encompass more than only imaging data. Depending
 on the study, there may be measures from additional modalities (such as
@@ -1044,7 +1044,7 @@ Anonymization
 
 
 Step 2: Conversion
-^^^^^^^^^^^^^^^^^^
+------------------
 
 At this point, you should have a study dataset that contains all MRI acquisitions
 that are relevant to you, additional data, and appropriate specifications in

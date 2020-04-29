@@ -752,17 +752,11 @@ to get a detailed picture, this findoutmore will shed some light on them.
    Any value can be marked as "approved" in the webUI, however, which prevents
    the value from being edited further.
 
-   .. todo::
-
-      - the approved key is added automatically by hirni depending on what call method
-        returns. aproved is false by default. webui can distinguish false and true
-        values. all false will show the fields as editable and asks for approval, all
-        trues
-      - no procedure definition in dicom2spec
-
-It is important to check and potentially edit the specification that were derived
-during the DICOM import. For this, just as for the dataset description, the
-WebUI is useful.
+But rather than understanding the format in which specifications are stored and
+defined, it is  more important to check and potentially edit the specification
+that were derived during the DICOM import. For this, just as for the dataset
+description, the WebUI is useful. For easier readability, this is explained in
+the findoutmore below.
 
 .. findoutmore:: Editing acquisition metadata with the WebUI
 
@@ -797,45 +791,34 @@ WebUI is useful.
    with a ``hirni-`` prefix (apart from the ``<copy|move>-converter`` procedures,
    and the ``fslroi`` procedure).
 
-  .. todo::
-
-     - procedure call: do all procedures have default calls?
-
-Procedures
-""""""""""
-
-The fundamental conversion mechanism relies on DataLad's :term:`run procedure`\s.
-Each specification snippets does not only define metadata about the data
-entity, but also how this data entity shall be treated during conversion -- from
-simple operations such as "copying and renaming" up to complex procedures
-such as defacing. The findoutmore above already showed some example procedure
-definitions, but there is more information about procedures to be known:
-
-The available procedures are the following:
-
-- ``copy-converter``: Copy a file
-- ``hirni-dicom-converter``: Convert DICOMs to NifTis (automatically selected for
-  all DICOM series)
-- ``hirni_mridefacer``: Deface images during the conversion
-- ``hirni-physiobox-converter``: TODO
-- ``move-converter``: TODO rename a file?
-- ``fslroi``: TODO
-
-
-
-.. findoutmore:: Formatting procedure calls
-
    .. todo::
 
-      - replacements: script = procedure call, ds = dataset it is called upon,
-        and all other keys in the given snippet in double curly brackets
+      - procedure call: do all procedures have default calls?
 
-      - procedures: Should all use datalad run or datalad containers-run
+Finally, if at this point you are wondering where all of the metadata came from,
+or how you may include DICOM metadata field you are currently missing, read up on
+the *rules* ``hirni`` uses to extract metadata and find out how to potentially
+write your own rules for custom metadata extraction.
 
-.. findoutmore:: Custom rules for DICOM metadata extraction
+.. findoutmore:: ADVANCED: Custom rules for DICOM metadata extraction
 
-   Rules are configurations that apply settings that teach ``hirni``\s
-   :command:`hirni-dicom2spec` command about *custom* DICOM header fields to extract
+   In order to know which DICOM metadata fields are relevant and meaningful,
+   ``hirni`` uses a set of *rules* to query the aggregated DICOM metadata and store
+   what it finds in the appropriate specification snippet structure. This is triggered
+   with the :command:`hirni-dicom2spec` command that is part of
+   :command:`hirni-import-dicom` but also a standalone command to extract DICOM
+   metadata at any point after a DICOM import.
+   Existing rules can for example infer the subject name or the order
+   of images in a DICOM series, and whatever rules extract is written to the
+   ``studyspec.json`` file of the acquisition. Eventually, all DICOM metadata
+   that this command extracts will be given to
+   `HeuDiConv <https://github.com/nipy/heudiconv>`_ for DICOM conversion.
+   If ``hirni`` does not extract a specific metadata field automatically, *custom*
+   rules can be added to enable :command:`hirni-dicom2spec` to read and use their
+   their contents.
+
+   Broadly speaking, custom rules are configurations that apply settings that teach
+   ``hirni``\s :command:`hirni-dicom2spec` command about custom DICOM header fields to extract
    and store inside of ``studyspec.json`` files. By creating custom rules, automatic
    metadata extraction for these fields is triggered whenever a
    :command:`hirni-dicom2spec` or :command:`hirni-import-dcm` command is run.
@@ -851,17 +834,6 @@ The available procedures are the following:
       detail later in this findoutmore). Do also note that after one initial
       :command:`hirni-import-dcm` command, no actual DICOM content is needed.
       :command:`hirni-dicom2spec` acts solely upon the extracted DICOM metadata.
-
-   Existing rules for hirni can for example infer the subject name or the order
-   of images in a DICOM series, and whatever rules extract is written to the
-   ``studyspec.json`` file of the acquisition. Because :command:`hirni-dicom2spec`
-   only deals with DICOM metadata, all information that this command extracts
-   will be given to `HeuDiConv <https://github.com/nipy/heudiconv>`_ for
-   DICOM conversion.
-
-   .. todo::
-
-      find out how heuristics for heudiconv are derived from this
 
    Rules are implemented as `Python classes <https://docs.python.org/3/tutorial/classes.html>`_.
    In order to write your own set of

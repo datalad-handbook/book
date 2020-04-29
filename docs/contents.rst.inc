@@ -8,11 +8,6 @@
 ################
 
 .. toctree::
-   :hidden:
-
-   intro/user_types
-
-.. toctree::
    :maxdepth: 1
    :caption: What DataLad and the handbook are all about
 
@@ -117,7 +112,7 @@ Appendix
    contributing
    teaching
    acknowledgements
-
+   intro/user_types
 
 ########################
 Code lists from chapters

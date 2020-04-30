@@ -10,9 +10,6 @@ Installation and configuration
   version, you can get information on your version of DataLad by typing
   ``datalad --version`` into your terminal.
 
-Install DataLad
-^^^^^^^^^^^^^^^
-
 The content in this chapter is largely based on the information given on the
 `DataLad website <https://www.datalad.org/get_datalad.html>`_
 and the `DataLad documentation <http://docs.datalad.org/en/latest/gettingstarted.html>`_.
@@ -32,6 +29,184 @@ exist, and they need to be installed separately, if needed.
 .. figure:: ../artwork/src/install.svg
    :width: 70%
 
+Installation instructions for the JSC (JURECA and JUDAC)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Read this if you want to use DataLad at the JSC.
+
+Software installation
+"""""""""""""""""""""
+
+One common INM-7 use case for DataLad is using DataLad in conjunction with
+the ``datalad-containers`` extension on `JUDAC <https://www.fz-juelich.de/ias/jsc/EN/Expertise/Datamanagement/JUDAC/JUDAC_node.html>`_
+and `JURECA <https://www.fz-juelich.de/ias/jsc/EN/Expertise/Supercomputers/JURECA/JURECA_node.html>`_.
+Due to `inode limitations <https://www.fz-juelich.de/SharedDocs/FAQs/IAS/JSC/EN/JUST/FAQ_01_Data_limitiations.html?nn=1765188>`_,
+the installation of all relevant software needs to create as few files as possible.
+Else, a default installation on these two systems will exhaust a user's inode
+limit completely, preventing the creation of any additional files.
+In order to avoid this, the installation needs to proceed in a way that is shared
+between JURECA and JUDAC:
+
+#. Once you have a `JuDoor <https://judoor.fz-juelich.de/login>`_ account, log
+   into JUDAC::
+
+      $ ssh <user-ID>@judac.fz-juelich.de
+
+#. Download the latest Miniconda installer and install it into the ``shared/``
+   directory. While you have separate ``$HOME`` directories on both HPC systems,
+   ``shared/`` is a directory that both systems can access::
+
+      $ wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O shared/Miniconda3-latest-Linux-x86_64.sh
+      $ bash shared/Miniconda3-latest-Linux-x86_64.sh -p ~/shared/miniconda3
+      # An interactive installer will ask you to read and agree to the
+      # license terms, and will ask you to confirm the installation location.
+      # reply "yes" when asked whether to perform a conda init
+
+#. Open a new shell. Install all required software via ``conda``::
+
+   $ conda install -c conda-forge datalad datalad-container p7zip
+
+Subsequently, DataLad and all relevant software should be available on JUDAC,
+and you should be able to run any DataLad command from the terminal.
+This is because the final part of the Miniconda installation should have
+adjusted your ``.bashrc`` file such that ``conda`` and all software installed
+via ``conda install`` is accessible from the command line.
+
+.. findoutmore:: What's this modification exactly?
+
+   It looks like this:
+
+   .. code-block:: bash
+
+      $ cat .bashrc
+      [...]
+      #
+      # >>> conda initialize >>>
+      # !! Contents within this block are managed by 'conda init' !!
+      __conda_setup="$('/p/home/jusers/<user-ID>/judac/shared/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+      if [ $? -eq 0 ]; then
+          eval "$__conda_setup"
+      else
+          if [ -f "/p/home/jusers/<user-ID>/judac/shared/miniconda3/etc/profile.d/conda.sh" ]; then
+              . "/p/home/jusers/<user-ID>/judac/shared/miniconda3/etc/profile.d/conda.sh"
+          else
+              export PATH="/p/home/jusers/<user-ID>/judac/shared/miniconda3/bin:$PATH"
+          fi
+      fi
+      unset __conda_setup
+      # <<< conda initialize <<<
+
+   It may look a bit messy if you are unfamiliar with bash, but worry not -- it
+   simply points your shell to the location of all conda-installed programs so
+   that their commands become available to you.
+
+To get everything to work on JURECA as well requires that your ``.bashrc`` file on
+JURECA gets the same modifications. This is some extra work, but done in a few
+command line calls:
+
+#. Adjust paths in the ``.bashrc`` file to remove ``judac/`` with the stream
+   editor `sed <https://www.gnu.org/software/sed/manual/sed.html>`_::
+
+      $ sed -i 's/judac\/shared\/miniconda3\//shared\/miniconda3\//' .bashrc
+
+#. Move the ``.bashrc`` file into ``shared/``, and create a :term:`symlink` in its
+   place::
+
+      $ mv .bashrc shared/
+      # create a symlink
+      $ ln -s shared/.bashrc .bashrc
+
+#. Log out of JUDAC and log into JURECA from your local machine::
+
+      $ ssh <user-ID>@jureca.fz-juelich.de
+
+#. Make sure that your ``.bashrc`` on JURECA does not contain any precious
+   content. It should look something like this::
+
+      $ cat .bashrc
+      # ******************************************************************************
+      # bash environment file in $HOME
+      # Please see:
+      # http://www.fz-juelich.de/ias/jsc/EN/Expertise/Datamanagement/OnlineStorage/JUST/FAQ/just-FAQ_node.html
+      # for more information and possible modifications to this file
+      # ******************************************************************************
+
+      # Source global definitions: Copied from CentOS 7 /etc/skel/.bashrc
+      if [ -f /etc/bashrc ]; then
+              . /etc/bashrc
+      fi
+
+   .. findoutmore:: What if it contains other content than this?
+
+      The content in the ``.bashrc`` file above is not precious, because the
+      ``.bashrc`` file you placed into shared should already contain them.
+      If there is more, e.g., configurations you made yourself, make sure that
+      you copy and paste them into the ``.bashrc`` file in ``shared/``.
+      Usually, there should be no need to adjust paths.
+
+#. Remove the ``.bashrc`` file and symlink the ``.bashrc`` file in ``shared/`` instead::
+
+   $ rm .bashrc
+   $ ln -s shared/.bashrc .bashrc
+
+#. Open a new session on JURECA. You should now have access to the software you just
+   installed on JUDAC.
+
+.. findoutmore:: Troubleshooting inode quotas
+
+   The inode limit from the JSC is quite strict. If you receive an e-mail that
+   you have exceeded your quota, here is what you can do:
+
+   * Verify that it is inode limitations that you ran into by running
+     ``jutil user dataquota -u <user-ID>``. Check the table columns "inode-usage"
+     and "inode-<soft|hard>-limit".
+   * Check that your installation does not consume more inodes than expected. On JURECA,
+     ``cd`` into the ``shared/`` directory and run the ``ncdu`` command. Once
+     the command finished scanning, press ``c`` and confirm that your
+     ``miniconda3`` directory consumes about 40k inodes.
+   * Remove caches and unused packages by running ``conda clean --all`` to reduce
+     the inode usage by a few thousand.
+   * On JURECA, run ``ncdu`` in your ``$HOME`` directory to check whether there
+     are other directories that consume many inodes.
+
+   The installation takes up almost all available inodes, so be aware that you can
+   only have a few thousand files in any of the two systems ``$HOME`` directories.
+
+
+Configurations on JURECA und JUDAC
+""""""""""""""""""""""""""""""""""
+
+In order to use DataLad, it is highly recommended to configure your Git identity.
+While it is not strictly *necessary*, it makes sense to do it in a way that is
+shared between the two HPC systems as well.
+
+On any of the two systems, provide your Name and e-mail address to the
+:command:`git config` command::
+
+   $ git config --global --add user.name "Bob McBobFace"
+   $ git config --global --add user.email bob@example.com
+
+This will create a ``.gitconfig`` file in your ``$HOME`` directory. Just as
+done with the ``.bashrc`` file, move this file into the ``shared/`` directory,
+and create a symlink in its place::
+
+   $ mv .gitconfig shared/
+   $ ln -s shared/.gitconfig .gitconfig
+   $ logout
+   # log into the other machine
+   $ ssh <user-ID>@<jureca|judac>.fz-juelich.de
+   # create a symlink to the shared .gitconfig file
+   $ ln -s shared/.gitconfig .gitconfig
+
+Afterwards, you are done, and ready to use DataLad on the HPC systems of the
+JSC.
+
+
+Standard installation instructions
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Read this, if you want to install DataLad on your own computer, or any system
+that is not part of the JSC.
 
 Linux: (Neuro)Debian, Ubuntu, and similar systems
 """""""""""""""""""""""""""""""""""""""""""""""""

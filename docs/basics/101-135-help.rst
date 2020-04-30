@@ -176,7 +176,13 @@ to a non-bare repository. Unlike :term:`bare Git repositories`, non-bare
 repositories can not be pushed to at all times. To fix this, you either want to
 `checkout another branch <https://git-scm.com/docs/git-checkout>`_
 in the ``roommate`` sibling or push to a non-checked out branch in the ``roommate``
-sibling.
+sibling. Alternatively, you can configure ``roommate`` to receive the push with
+Git's ``receive.denyCurrentBranch`` configuration key. By default, this configuration
+is set to ``refuse``. Setting it to ``updateInstead``
+with ``git config receive.denyCurrentBranch updateInstead`` will allow updating
+the checked out branch. See ``git config``\s
+`man page entry <https://git-scm.com/docs/git-config#Documentation/git-config.txt-receivedenyCurrentBranch>`_
+on ``receive.denyCurrentBranch`` for more.
 
 
 **Detached HEADs**

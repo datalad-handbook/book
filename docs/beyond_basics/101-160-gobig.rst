@@ -85,6 +85,50 @@ smooth. For a direct comparison between working with nested datasets and nested
 Git repositories, take a look at
 `this demo <https://youtu.be/Yrg6DgOcbPE?t=350>`_.
 
+**How far does this scale?**
+In preparation for assembling a complete UKBiobank dataset, simulations of
+datasets with 40k and 100k subdatasets ran successfully.
+
+.. findoutmore:: How do simulations like this work?
+
+   With shell scripts such as this::
+
+      #!/bin/bash
+      set -x
+
+      # build a dummy subdataset to be referenced 40k times:
+      datalad create dummy_sub
+      echo "whatever" > dummy_sub/some_file
+      datalad save -d dummy_sub
+
+      sub_id=$(datalad -f "{infos[dataset][id]}"  wtf -d dummy_sub)
+      sub_commit=$(git -C dummy_sub show --no-patch --format=%H)
+
+
+      # the actual super dataset and use some config procedure to get
+      # an initial history
+      datalad create -c yoda dummy_super_40k
+
+      cd dummy_super_40k
+
+      for ((i=1;i<=100000;i++)); do
+          git config -f .gitmodules "submodule.sub$i.path" "sub$i";
+          git config -f .gitmodules "submodule.sub$i.url" ../dummy_sub;
+          git config -f .gitmodules "submodule.sub$i.datalad-id" "$sub_id";
+          git update-index --add --replace --cacheinfo 160000 "$sub_commit" "sub$i";
+      done;
+
+      git add .gitmodules
+      git commit -m "Add submodules"
+
+   Note that this way of simulating subdatasets is speedier and simplified,
+   because instead of cloning subdatasets, it makes use of Git's
+   `update-index <https://git-scm.com/docs/git-update-index>`_ command and records the
+   subdatasets by committing manual changes to ``.gitmodules``.
+
+Do note, however, that these numbers of subdatasets may well exhaust your file
+system's subdirectory limit (commonly at 64k).
+
 Tool-specific and smaller advice
 ================================
 

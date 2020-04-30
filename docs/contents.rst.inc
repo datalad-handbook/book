@@ -72,7 +72,7 @@
    :caption: Beyond the Basics
 
    beyond_basics/basics-advancedoptions
-   beyond_basics/basics11toc
+   beyond_basics/advanced-hirni
    beyond_basics/basics-scaling
 
 .. only:: html

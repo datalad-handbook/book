@@ -51,16 +51,6 @@ between JURECA and JUDAC:
    into JUDAC::
 
       $ ssh <user-ID>@judac.fz-juelich.de
-        ################################################################################
-        #                           Welcome to JuDAC                                   #
-        #                          Juelich Data Access                                 #
-        #------------------------------------------------------------------------------#
-        #              Information about the system, latest changes,                   #
-        #                       user documentation and FAQs:                           #
-        #                http://www.fz-juelich.de/ias/jsc/judac                        #
-        #------------------------------------------------------------------------------#
-        ################################################################################
-        Last login: Tue Feb  4 16:36:10 2020 from bnbnb29.ime.kfa-juelich.de
 
 #. Download the latest Miniconda installer and install it into the ``shared/``
    directory. While you have separate ``$HOME`` directories on both HPC systems,

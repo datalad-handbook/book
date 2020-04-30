@@ -19,9 +19,10 @@ The DataLad Handbook
 
 .. important::
 
-   You are viewing the **INM-7-specific** version of the handbook. Most content
-   will be identical, but if you didn't end up here intentionally, it's best
-   to read the **public version** of the handbook at
+   You are viewing the
+   `INM-7 <https://www.fz-juelich.de/inm/inm-7/EN/Home/home_node.html>`_-specific
+   version of the handbook. Most content will be identical, but if you didn't end
+   up here intentionally, it's best to read the **public version** of the handbook at
    `handbook.datalad.org <http://handbook.datalad.org/en/latest/>`_.
 
 This handbook is a living resource about why and -- more importantly -- *how* to

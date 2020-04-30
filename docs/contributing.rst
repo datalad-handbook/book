@@ -105,7 +105,7 @@ of this dataset, which is very useful if some code relies on working with previo
 created content or dataset history. Build code snippets that add to these working directories
 by using the ``runrecord`` directive. Commands wrapped in these will write the output
 of a command into example files stored inside of the DataLad Handbook repository clone
-in ``docs/PART/_examples`` (where ``PART`` is ``basics`` or ``usecases``).
+in ``docs/PART/_examples`` (where ``PART`` is ``basics``, ``beyond_basics``, or ``usecases``).
 Make sure to name these files according to the following
 schema, because they are executed *sequentially*:
 ``_examples/DL-101-1<nr-of-section>-1<nr-of-example>``, e.g.,
@@ -209,7 +209,7 @@ other workflow suites you best.
 Desired structure of the book
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The book consists of three major parts: Introduction, Basics, and Use Cases,
+The book consists of four major parts: Introduction, Basics, Beyond Basics, and Use Cases,
 plus an appendix. Purpose and desired content of these parts are outlined
 below. When contributing to one of these sections, please make sure that your
 contribution stays in the scope of the respective section.
@@ -233,8 +233,15 @@ Basics
 """"""
 
 - This part contains hands-on-style content on skills that are crucial for
-  using DataLad productively. Any non-essential information is not in basics,
-  but collected in an appendix.
+  using DataLad productively. It aims to be a continuous tutorial after which
+  readers are able to perform the following tasks:
+
+  - Create and populate own datasets from scratch
+  - Consume existing datasets
+  - Share datasets on shared an third party infrastructure and collaborate
+  - Execute commands or scripts (computationally) reproducible
+  - Configure datasets or DataLad operations as needed
+  - Use DataLad's metadata capabilities
 
 - The order of topics in this part is determined by the order in which they
   become relevant for a novice DataLad user.
@@ -242,6 +249,22 @@ Basics
 - Content should be written in a way that explicitly encourages executing the
   shown commands, up to simple challenges (such as: "find out who the author of
   the first commit in the installed subdataset XY is").
+
+Beyond Basics
+"""""""""""""
+
+- This part goes beyond the Basics and is a place for documenting advanced or
+  special purpose commands or workflows. Examples for this sections are: Introductions
+  to special-purpose extensions, hands-on technical documentation such as "how to
+  write your own DataLad extension", or rarely encountered use cases for DataLad,
+  such as datasets for large-scale projects.
+
+- This section contains chapters that are disconnected from each other, and not
+  related to any narrative. Readers are encouraged to read chapters or sections
+  that fit their needs in whichever order they prefer.
+
+- Care should be taken to not turn content that could be a usecase into an
+  advanced chapter.
 
 
 Use Cases

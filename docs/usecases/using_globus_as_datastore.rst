@@ -1,7 +1,9 @@
-.. _usecase_extending_data_ecosystem:
+.. _usecase_using_globus_as_datastore:
 
-Extending the data ecosystem
-----------------------------
+Using Globus as a data store for the Canadian Open Neuroscience Portal
+----------------------------------------------------------------------
+
+.. index:: ! Usecase; Using Globus as data store
 
 This use case sketches the basic steps to gain access to existing datasets
 distributed across the `Globus <https://www.globus.org/>`_ network via Datalad
@@ -35,7 +37,6 @@ datasets across multiple locations are reduce the need of replicating data
 
 The Datalad Approach
 ^^^^^^^^^^^^^^^^^^^^
-
 CONP makes use of Datalad as a data management tool to enable efficient analysis
 and work on datasets: Datalad minimizes the computational cost of holding full storage of
 datasets versions, it allows files in a dataset to be distributed across
@@ -73,9 +74,11 @@ thanks to the ability of git-annex and Datalad to interface with special remote 
 across the web and request access to data !
 
 
-Globus as git-annex data store
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Step-by-Step
+^^^^^^^^^^^^
 
+Globus as git-annex data store
+""""""""""""""""""""""""""""""
 A remote data store exists thanks to git-annex (which DataLad builds upon):
 Git-annex uses a key-value pair to reference files. In the git-annex object tree,
 large files in datasets are stored as values while the key is generated from their
@@ -109,9 +112,8 @@ guidelines specifying the standard communication protocol can be found here:
 https://git-annex.branchable.com/design/external_special_remote_protocol/
 
 
-Step-by-Step
-^^^^^^^^^^^^
-
+An example using Globus
+"""""""""""""""""""""""
 It always starts with a dataset:
 
 .. code-block:: bash
@@ -126,14 +128,13 @@ by running the setup
 
    $ pip install git-annex-remote-globus
    # if first time
-   $ git-annex-remore-globus setup
+   $ git-annex-remote-globus setup
 
-We can see that most of the files in the dataset are annexed, highlighted in red. You can check
-the symlink for a given file by running
+We can see that most of the files in the dataset are annexed. You can check the symlink for a given file by running
 
 .. code-block:: bash
 
-   $ ls ll path/to/file
+   $ ls -l path/to/file
 
 At this point we have to enable the globus remote and after that, we can try to download the file
 
@@ -141,7 +142,7 @@ At this point we have to enable the globus remote and after that, we can try to 
 
    $ git annex enableremote globus
    $ datalad get path/to/file
-   $ ls ll path/to/file
+   $ ls -l path/to/file
 
 
 Downloaded!

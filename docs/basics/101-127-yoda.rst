@@ -204,8 +204,8 @@ could be an analysis dataset created by a statistician for a scientific
 project, and it could be shared between collaborators or
 with others during development of the project. In this
 superdataset, code is created that operates on input data to
-compute outputs, and the code and outputs are captured, version-
-controlled, and linked to the input data. Each input data in turn
+compute outputs, and the code and outputs are captured,
+version-controlled, and linked to the input data. Each input data in turn
 is a (potentially nested) subdataset, but this is not visible
 in the directory hierarchy.
 Figure 3 in comparison emphasizes a process view on a project and
@@ -424,7 +424,7 @@ YODA principles.
          check out `this section <https://the-turing-way.netlify.com/reproducible_environments/06/containers#Containers_section>`_
          in the wonderful book `The Turing Way <https://the-turing-way.netlify.com/introduction/introduction>`_,
          a comprehensive guide to reproducible data science, or read about it in
-         section :ref:`yoda_project`.
+         section :ref:`containersrun`.
 
 .. [#f3] This directory structure is very comprehensive, and displays many best-practices for
          reproducible data science. For example,

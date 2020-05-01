@@ -7,6 +7,8 @@ This section answers frequently asked questions about high-level DataLad
 concepts or commands. If you have a question you want to see answered in here,
 `please create an issue <https://github.com/datalad-handbook/book/issues/new>`_
 or a `pull request <http://handbook.datalad.org/en/latest/contributing.html>`_.
+For a series of specialized command snippets for various use cases, please see
+section :ref:`gists`.
 
 What is Git?
 ^^^^^^^^^^^^

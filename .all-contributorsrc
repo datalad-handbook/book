@@ -182,7 +182,9 @@
       "avatar_url": "https://avatars0.githubusercontent.com/u/765557?v=4",
       "profile": "https://github.com/aqw",
       "contributions": [
-        "review"
+        "review",
+        "bug",
+        "ideas"
       ]
     },
     {
@@ -268,6 +270,15 @@
       "profile": "https://github.com/hbaagil",
       "contributions": [
         "userTesting",
+        "bug"
+      ]
+    },
+    {
+      "login": "glatard",
+      "name": "Tristan Glatard",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/5174953?v=4",
+      "profile": "https://github.com/glatard",
+      "contributions": [
         "bug"
       ]
     }

@@ -1,0 +1,7 @@
+$ datalad push --to roommate
+[INFO] Start enumerating objects 
+[INFO] Start counting objects 
+[INFO] Start compressing objects 
+[INFO] Start writing objects 
+[ERROR] refs/heads/master->roommate:refs/heads/master [remote rejected] (branch is currently checked out) [publish(/home/me/dl-101/DataLad-101)] 
+publish(error): . (dataset) [refs/heads/master->roommate:refs/heads/master [remote rejected] (branch is currently checked out)]

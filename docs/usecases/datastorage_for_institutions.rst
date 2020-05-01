@@ -5,7 +5,7 @@
 Building a scalable data storage for scientific computing
 ---------------------------------------------------------
 
-.. index:: ! Remote Indexed Archive (RIA) store
+.. index:: ! Usecase; Remote Indexed Archive (RIA) store
 
 Research can require enormous amounts of data. Such data needs to be accessed by
 multiple people at the same time, and is used across a diverse range of
@@ -118,7 +118,7 @@ Beyond this, upon creation of an analysis project, the associated GitLab project
 is automatically configured as a remote with a publication dependency on the
 data store, thus enabling vastly simplified data publication routines and
 backups of pristine results: After computing their results, a
-:command:`datalad publish` is all it takes to backup and share ones scientific
+:command:`datalad push` is all it takes to backup and share ones scientific
 insights. Thus, even with a complex setup of data store, compute infrastructure,
 and repository hosting, configurations adjusted to the compute infrastructure
 can be distributed and used to mitigate any potential remaining technical overhead.
@@ -225,7 +225,7 @@ and collaboration on DataLad datasets.
 The high-level workflow overview is as follows: Create a dataset,
 use the :command:`datalad create-sibling-ria` command to establish a connection
 to an either pre-existing or not-yet-existing RIA store, publish dataset contents
-with :command:`datalad publish`, (let others) clone the dataset from the
+with :command:`datalad push`, (let others) clone the dataset from the
 RIA store, and (let others) publish and pull updates. In the
 case of large, institute-wide datasets, a RIA store (or multiple RIA stores)
 can serve as a central storage location that enables fine-grained data access to
@@ -423,7 +423,7 @@ exist), and configure a sibling to allow publishing to the RIA store and updatin
 from it.
 With special remote capabilities enabled, the command will automatically create
 and link the git-annex special remote. With the sibling and special remote set up,
-upon an invocation of :command:`datalad publish --to <sibling> --transfer-data all`,
+upon an invocation of :command:`datalad push --to <sibling>`,
 the complete dataset contents, including annexed contents, will be published
 to the RIA store, with no further setup or configuration required [#f6]_.
 
@@ -453,10 +453,10 @@ required arguments.
 RIA stores can be used under different types of file transfer protocols.
 Depending on the file transfer protocol, the looks of the ``ria+`` URL can differ:
 
-- :term:`SSH`: ``ria+ssh://[user@]hostname:/absolute/path/to/ria-store``
+- :term:`SSH`: ``ria+ssh://[user@]hostname/absolute/path/to/ria-store``
 - Local file system: ``ria+file:///absolute/path/to/ria-store``
 - :term:`http` (e.g., to a RIA store like `store.datalad.org <http://store.datalad.org/>`_):
-  ``ria+http://store.datalad.org:/absolute/path/to/ria-store``
+  ``ria+http://store.datalad.org/absolute/path/to/ria-store``
 
 Note that it is required to specify an :term:`absolute path` in the URL. Here is
 how one could store a dataset in a RIA store (which can, but does not need to
@@ -465,7 +465,7 @@ exist yet) on an :term:`SSH server` from within an existing dataset:
 .. code-block:: bash
 
    $ datalad create-sibling-ria -s server_backup \
-     ria+ssh://user@some.server.edu:/home/user/scratch/myriastore
+     ria+ssh://user@some.server.edu/home/user/scratch/myriastore
    [INFO   ] create siblings 'server_backup' and 'server_backup-ria' ...
    [INFO   ] Fetching updates for <Dataset path=/tmp/my_dataset>
    [INFO   ] Configure additional publication dependency on "server_backup-ria"
@@ -481,7 +481,7 @@ the link to its git-annex ria-remote special remote was automatically named
 ``server_backup-ria``.
 
 Once the sibling to the RIA store and the special remote link to the RIA store
-are created, a :command:`datalad publish --to <sibling> --transfer-data all`
+are created, a :command:`datalad push --to <sibling>`
 publishes the dataset to the RIA store. With the git-annex special remote
 capabilities enabled as in the example above, annexed contents will be published
 automatically.
@@ -575,7 +575,7 @@ this, check out the hidden section below.
       archive-id=ae5713fa-48ee-11ea-b341-d0c637c523bc \
       autoenable=true encryption=none externaltype=ria \
       name=backup_server-ria type=external \
-      url=ria+ssh://bob@some.server.edu:/data/datasets/RIAstore timestamp=1581000354.064541765s
+      url=ria+ssh://bob@some.server.edu/data/datasets/RIAstore timestamp=1581000354.064541765s
 
    In general, it is recommended to keep ``ria+`` URLs as generic and widely
    applicable as needed for the user base of the RIA store. However, in cases
@@ -584,11 +584,11 @@ this, check out the hidden section below.
    a configuration allows individual users to specify alternative URLs with
    the key ``url.<new_RIA_base>.insteadOf``::
 
-      $ git config url."ria+ssh://bob@some.server.edu:/data/datasets/RIAstore".insteadOf "ria+ssh://alice@some.server.edu:/data/datasets/RIAstore"
+      $ git config url."ria+ssh://bob@some.server.edu/data/datasets/RIAstore".insteadOf "ria+ssh://alice@some.server.edu/data/datasets/RIAstore"
 
    With this configuration, all URLs beginning with
-   ``ria+ssh://bob@some.server.edu:/data/datasets/RIAstore`` will be dynamically
-   rewritten to start with ``ria+ssh://alice@some.server.edu:/data/datasets/RIAstore``
+   ``ria+ssh://bob@some.server.edu/data/datasets/RIAstore`` will be dynamically
+   rewritten to start with ``ria+ssh://alice@some.server.edu/data/datasets/RIAstore``
    and allow Alice to retrieve files successfully.
    Thus, by configuring ``url.<base>.insteadOf``, URL mismatches can be fixed
    fast.
@@ -643,7 +643,7 @@ fully configured and set up analysis dataset afterwards:
    $ datalad create -c inm7 <PATH>
 
 Working in this dataset will require only :command:`datalad save` and
-:command:`datalad publish` commands, and configurations ensure that the projects
+:command:`datalad push` commands, and configurations ensure that the projects
 history and results are published where they need to be: The RIA store, for storing
 and archiving the project including data, and GitLab, for exposing the projects
 progress to the outside and ease collaboration or supervision. Users do not need
@@ -670,7 +670,7 @@ researchers are able to focus on science and face barely any technical overhead 
 data management. As file content for analyses is obtained *on demand*
 via :command:`datalad get`, researchers selectively obtain only those data they
 need instead of having complete copies of datasets as before, and thus save disk
-space. Upon :command:`datalad publish`, computed results and project histories
+space. Upon :command:`datalad push`, computed results and project histories
 can be pushed to the data store and the institute's GitLab instance, and be thus
 backed-up and accessible for collaborators or supervisors. Easy-to-reobtain input
 data can safely be dropped to free disk space on the compute cluster. Sensible

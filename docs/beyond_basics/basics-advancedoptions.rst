@@ -1,7 +1,9 @@
 .. _chapter_furtheroptions:
 
-**X - Further options**
------------------------
+**X - Advanced options**
+------------------------
+
+.. index:: ! Chapter; 10. Advanced Options
 
 .. figure:: ../artwork/src/further.svg
 
@@ -14,3 +16,4 @@
    101-179-gitignore
    101-144-intro_extensions
    101-145-hooks
+   101-146-providers

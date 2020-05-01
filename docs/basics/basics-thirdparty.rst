@@ -1,7 +1,9 @@
 .. _chapter_thirdparty:
 
-**IX - Third party infrastructure**
------------------------------------
+**VIII - Third party infrastructure**
+-------------------------------------
+
+.. index:: ! Chapter; 8. Third party infrastructure
 
 .. figure:: ../artwork/src/clouds.svg
 
@@ -12,4 +14,6 @@
 
    101-138-sharethirdparty
    101-139-gin
+   101-141-push
    101-140-summary
+

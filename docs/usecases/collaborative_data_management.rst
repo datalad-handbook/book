@@ -203,7 +203,7 @@ Bob can publish his version to it.
 
 .. code-block:: bash
 
-    $ datalad publish -r --to public .
+    $ datalad push -r --to public .
 
 This workflow allowed Bob to obtain data, collaborate with Alice, and publish
 or share his dataset with others easily -- he cannot wait for his next project,

@@ -222,3 +222,22 @@ be retrieved and pipe that into :command:`get` as well::
    $ for sub in HCP1200/*; do echo ${sub}/T1w/ribbons.nii.gz; done > toget.txt
    # pipe it into datalad get
    $ cat toget.txt | xargs -n 100 datalad get
+
+.. _speedystatus:
+
+Speed up status reports in large datasets
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+In datasets with deep dataset hierarchies or large numbers of files,
+:command:`datalad status` calls can be expensive. Handily,
+the command provides options that can boost performance by limiting what is being
+tested and reported. In order to speed up subdataset state state evaluation,
+``-e/--eval-subdataset-state`` can be set ``commit`` or ``no``. Instead of checking
+recursively for uncommitted modifications in subdatasets, this would lead ``status``
+to only compare the most recent commit :term:`shasum` in the subdataset against
+the recorded subdataset state in the superdataset (``commit``), or skip subdataset
+state evaluation completely (``no``). In order to speed up file type evaluation,
+the option ``-t/--report-filetype`` can be set to ``raw``. This skips an evaluation
+on whether symlinks are pointers to annexed file (upon which, if true, the symlink
+would be reported as type "file"). Instead, all symlinks will be reported as
+being of type "symlink".

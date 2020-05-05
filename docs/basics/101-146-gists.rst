@@ -44,6 +44,13 @@ recursively to their (identically named) siblings:
 and ``xargs`` hands them individually (``-n 1``) to a (recursive) :command:`datalad push`,
 but performs 10 of these operations in parallel (``-P 10``), thus achieving
 parallelization.
+
+Here is an example of cross-dataset download parallelization:
+
+.. code-block:: bash
+
+   $ datalad -f '{path}' subdatasets | xargs -n 1 -P 10 datalad get -d
+
 Operations like this can safely be attempted for all commands that are independent
 across subdatasets.
 

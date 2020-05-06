@@ -257,6 +257,21 @@ Glossary
    SSH server
       An remote or local computer that users can log into using the :term:`SSH` protocol.
 
+   stdin
+      Unix concept: One of the three `standard input/output streams <https://en.wikipedia.org/wiki/Standard_streams>`_
+      in programming. Standard input (``stdin``) is a stream from which a program
+      reads its input data.
+
+   stderr
+      Unix concept: One of the three `standard input/output streams <https://en.wikipedia.org/wiki/Standard_streams>`_
+      in programming. Standard error (``stderr``) is a stream to which a program
+      outputs error messages, independent from standard output.
+
+   stdout
+      Unix concept: One of the three `standard input/output streams <https://en.wikipedia.org/wiki/Standard_streams>`_
+      in programming. Standard output (``stdout``) is a stream to which a program
+      writes its output data.
+
    symlink
       A symbolic link (also symlink or soft link) is a reference to another file or path in the form
       of a relative path. Windows users are familiar with a similar concept: shortcuts.

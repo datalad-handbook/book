@@ -166,7 +166,7 @@ in both directions: Researchers can pull datasets from the store, push new
 datasets to it, or update (certain) existing datasets. ``$DATA`` is the one location
 in which experienced data management personnel ensures back-up and archival, performs
 house-keeping, and handles :term:`permissions`, and is thus were pristine raw
-data is stored or analyses code or results from ``$COMPUTE`` and ``$HOME`` should
+data is stored or analysis code or results from ``$COMPUTE`` and ``$HOME`` should
 end up in. This aids organization, and allows a central management of back-ups
 and archival, potentially by data stewards or similar data management personnel
 with no domain knowledge about data contents.

@@ -449,6 +449,8 @@ throughout the dataset hierarchy.
 With this in place, anyone can clone the top most dataset from GitHub, and --
 given they have valid credentials -- get any file in the HCP dataset hierarchy.
 
+.. _copyfile:
+
 Parallel operations and subsampled datasets
 """""""""""""""""""""""""""""""""""""""""""
 
@@ -818,7 +820,7 @@ following findoutmore details how this is done.
 Summary
 """""""
 
-This usecase dmkaeemonstrated how it is possible to version control and distribute
+This usecase demonstrated how it is possible to version control and distribute
 datasets of sizes that would otherwise be unmanageably large for version control
 systems. With the public HCP dataset available as a DataLad dataset, data access
 is simplified, data analysis that use the HCP data can link it (in precise versions)

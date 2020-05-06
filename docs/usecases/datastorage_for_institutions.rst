@@ -35,7 +35,7 @@ as simple as possible. It elaborates on
    describes the RIA data storage and workflow implementation as done in INM-7,
    research centre Juelich, Germany.
 
-   **Note further**: Building a RIA store requires **DataLad version 0.12.3**
+   **Note further**: Building a RIA store requires **DataLad version 0.13.0**
    or higher.
 
 

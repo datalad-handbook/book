@@ -1,0 +1,14 @@
+$ find HCP1200/130518/T1w -maxdepth 1 -name T1w*.nii.gz \
+ | sed -e 's#\(HCP1200\)\(.*\)#\1\2\x0../dataset-to-copy-to\2#' \
+ | datalad copy-file -d ../dataset-to-copy-to -r --specs-from -
+copy_file(ok): HCP1200/130518/T1w/T1w_acpc_dc.nii.gz [/home/me/usecases/HCP/dataset-to-copy-to/130518/T1w/T1w_acpc_dc.nii.gz]
+copy_file(ok): HCP1200/130518/T1w/T1w_acpc_dc_restore_1.25.nii.gz [/home/me/usecases/HCP/dataset-to-copy-to/130518/T1w/T1w_acpc_dc_restore_1.25.nii.gz]
+copy_file(ok): HCP1200/130518/T1w/T1wDividedByT2w.nii.gz [/home/me/usecases/HCP/dataset-to-copy-to/130518/T1w/T1wDividedByT2w.nii.gz]
+copy_file(ok): HCP1200/130518/T1w/T1wDividedByT2w_ribbon.nii.gz [/home/me/usecases/HCP/dataset-to-copy-to/130518/T1w/T1wDividedByT2w_ribbon.nii.gz]
+copy_file(ok): HCP1200/130518/T1w/T1w_acpc_dc_restore_brain.nii.gz [/home/me/usecases/HCP/dataset-to-copy-to/130518/T1w/T1w_acpc_dc_restore_brain.nii.gz]
+copy_file(ok): HCP1200/130518/T1w/T1w_acpc_dc_restore.nii.gz [/home/me/usecases/HCP/dataset-to-copy-to/130518/T1w/T1w_acpc_dc_restore.nii.gz]
+copy_file(ok): HCP1200/130518/T1w/T1w_acpc_dc_restore_1.05.nii.gz [/home/me/usecases/HCP/dataset-to-copy-to/130518/T1w/T1w_acpc_dc_restore_1.05.nii.gz]
+save(ok): . (dataset)
+action summary:
+  copy_file (ok: 7)
+  save (ok: 1)

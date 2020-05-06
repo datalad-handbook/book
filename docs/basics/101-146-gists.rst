@@ -190,6 +190,7 @@ Should you want to back up all annexed data, even past versions of files, use
 For an in-depth explanation and example take a look at the
 `GitHub issue that raised this question <https://github.com/datalad/datalad/issues/4369>`_.
 
+.. _retrieveHCP:
 
 Retrieve partial content from a hierarchy of (uninstalled) datasets
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

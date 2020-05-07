@@ -69,8 +69,8 @@ $ datalad get -n -r HCP1200/130*
 [INFO] Attempting to clone from http://store.datalad.org/411/a7f1a-38ff-11ea-8d6e-002590496000 to /home/me/usecases/HCP/hcp/HCP1200/130316 
 [INFO] Completed clone attempts for Dataset(/home/me/usecases/HCP/hcp/HCP1200/130316) 
 [INFO] Failed to get annex.uuid configuration of repository origin
-| Instead, got: "core.repositoryformatversion\n0\NULcore.filemode\ntrue\NULcore.bare\ntrue\NUL" 
-[INFO] This is unexpected; please check the network transport! 
+| Instead, got: "core.repositoryformatversion\n0\NULcore.filemode\ntrue\NULcore.bare\ntrue\NUL"
+| This is unexpected; please check the network transport!
 [INFO] Installing Dataset(/home/me/usecases/HCP/hcp) to get /home/me/usecases/HCP/hcp/HCP1200/130316 recursively 
 [INFO] Cloning dataset to Dataset(/home/me/usecases/HCP/hcp/HCP1200/130316/MNINonLinear) 
 [INFO] Attempting to clone from http://store.datalad.org/411/a7f1a-38ff-11ea-8d6e-002590496000/MNINonLinear to /home/me/usecases/HCP/hcp/HCP1200/130316/MNINonLinear 

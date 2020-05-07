@@ -451,11 +451,17 @@ given they have valid credentials -- get any file in the HCP dataset hierarchy.
 
 .. _copyfile:
 
-Parallel operations and subsampled datasets
-"""""""""""""""""""""""""""""""""""""""""""
+Parallel operations and subsampled datasets using datalad copy-file
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-One downside to gigantic datasets is the time it takes to retrieve all of it.
-Some tricks can help to mitigate this.
+At this point in time, the HCP dataset is single, published superdataset with
+~4500 subdatasets that are hosted in a :term:`remote indexed archive (RIA) store`
+at `store.datalad.org <http://store.datalad.org/>`_.
+This makes the HCP data accessible via DataLad and its download easier.
+One downside to gigantic nested datasets like this one, though, is the time it
+takes to retrieve all of it. Some tricks can help to mitigate this: Contents
+can either be retrieved in parallel, or, in the case of general need for subsets
+of the dataset, subsampled datasets can be created with :command:`datalad copy-file`.
 
 If the complete HCP dataset is required, subdataset installation and data retrieval
 can be sped up by parallelizing. The gists :ref:`parallelize` and
@@ -481,7 +487,7 @@ following findoutmore details how this is done.
    :command:`datalad copy-file` requires DataLad version ``0.13.0`` or higher.
 
 
-.. findoutmore:: How to create subsampled datasets
+.. findoutmore:: How to create subsampled datasets with datalad copy-file
 
    For a structural connectivity subset of the HCP dataset, only eleven files
    per subject are relevant::
@@ -517,12 +523,14 @@ following findoutmore details how this is done.
    Access to the files inside of the subsampled dataset works via valid AWS
    credentials just as it does for the full dataset. In order to understand
    how it was done for the dataset in question, the first findoutmore below starts by
-   explaining the basics of :command:`datalad copy-file`. The second then detail
+   explaining the basics of :command:`datalad copy-file`. The second then details
    the process that led to the finished subsampled dataset.
 
    .. findoutmore:: The Basics of copy-file
 
-      Let's start by cloning a dataset to work with:
+      This short demonstration gives an overview of the functionality of
+      :command:`datalad copy-file`- Feel free to follow along by copy-pasting the
+      commands into your terminal. Let's start by cloning a dataset to work with:
 
       .. runrecord:: _examples/HCP-1
          :language: console
@@ -626,7 +634,7 @@ following findoutmore details how this is done.
            -d dataset-to-copy-to \
            -t dataset-to-copy-to/130114/T1w/Diffusion
 
-      Here is how the dataset looks like at the moment:
+      Here is how the dataset that we copied files into looks like at the moment:
 
       .. runrecord:: _examples/HCP-11
          :language: console
@@ -652,9 +660,9 @@ following findoutmore details how this is done.
       :term:`stdin` with the option ``--specs-from <source>``. In the case of
       specifications from a file, ``<source>`` is a path to this file.
 
-      In order to use ``stdin`` (e.g., the output of a ``find`` command, piped
-      into a :command:`datalad copy-file` command with a
-      `pipe (|) <https://en.wikipedia.org/wiki/Pipeline_(Unix)>`_) for specification,
+      In order to use ``stdin`` for specification, such as the output of a
+      ``find`` command that is piped into :command:`datalad copy-file` with a
+      `Unix pipe (|) <https://en.wikipedia.org/wiki/Pipeline_(Unix)>`_,
       ``<source>`` needs to be a dash (``-``). Below is examplary ``find`` command:
 
       .. runrecord:: _examples/HCP-13
@@ -687,7 +695,7 @@ following findoutmore details how this is done.
       (``-t ../dataset-to-copy-to/130013/T1w/``) or a destination path could be
       given.
 
-      .. findoutmore:: how to specify files with source and destination paths for specs-from
+      .. findoutmore:: how to specify files with source and destination paths for --specs-from
 
          To only specify source paths (i.e., paths to files or directories that
          should be copied), simply create a file or a command like ``find`` that
@@ -710,7 +718,7 @@ following findoutmore details how this is done.
          upon first sight. Here is what this command does:
 
          - In general, :term:`sed`\'s :command:`s` (substitute) command will take a
-           string specified between the first set of ``#``\s (``\(HCP1200\)\(.*\)``)
+           string specified between the first set of ``#``\'s (``\(HCP1200\)\(.*\)``)
            and replace it with what is between the second and third ``#``
            (``\1\2\x0\2``).
          - The first part splits the paths ``find`` returns (such as
@@ -746,13 +754,17 @@ following findoutmore details how this is done.
              | sed -e 's#\(HCP1200\)\(.*\)#\1\2\x0../dataset-to-copy-to\2#' \
              | datalad copy-file -d ../dataset-to-copy-to -r --specs-from -
 
+      Now that you know the basics of :command:`datalad copy-file`, the upcoming
+      findoutmore on how the actual dataset was created will be much easier to
+      understand.
+
    .. findoutmore:: Copying reproducibly
 
       .. note::
 
          You should have read the previous findoutmore!
 
-      To capture the provenance of subsample dataset creation, the :command:`copy-file`
+      To capture the provenance of subsampled dataset creation, the :command:`copy-file`
       command can be wrapped into a :command:`datalad run` call. Here is a
       sketch on how it was done:
 
@@ -770,7 +782,7 @@ following findoutmore details how this is done.
            git@github.com:datalad-datasets/human-connectome-project-openaccess.git \
            .hcp
 
-      **Step 3:** Install all subdataset of the full dataset
+      **Step 3:** Install all subdataset of the full dataset with ``datalad get -n -r``
 
       **Step 4:** Inside of the new dataset, draft a ``find`` command that returns
       all desired files, and a subsequent ``sed`` substitution command that returns
@@ -813,9 +825,19 @@ following findoutmore details how this is done.
                   | sed -e 's#\(\.hcp/HCP1200\)\(.*\)#\1\2\x00.\2#' \
                   | datalad copy-file -r --specs-from -"
 
-      **Step 6:** Publish the dataset to :term:`GitHub` or similar hosting services
-      to allow others to clone it easily and get fast access to a subset of files.
+      **Step 6:** Publish the dataset to a RIA store and to :term:`GitHub` or
+      similar hosting services to allow others to clone it easily and get fast
+      access to a subset of files.
 
+   Afterwards, the slimmed down structural connectivity dataset can be installed
+   completely within seconds. Because of the reduced amount of files it contains,
+   it is easier to transform the data into BIDS format. Such a conversion can be
+   done on a different :term:`branch` of the dataset. Because RIA stores allow
+   cloning of datasets in specific versions (such as a branch or tag as an
+   identifier), a single command can clone a BIDS-ified, slimmed down HCP dataset
+   for structural connectivity analyses::
+
+       $ datalad clone ria+http://store.datalad.org#~hcp-structural-connectivity@bids
 
 Summary
 """""""

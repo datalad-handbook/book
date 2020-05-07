@@ -326,7 +326,7 @@ Note that it is always required to specify an :term:`absolute path` in the URL!
       submodule path of the subdataset in ``.gitmodules`` to point to a published
       subdataset on GitHub:
 
-      .. runrecord:: _examples/DL-101-141-101
+      .. runrecord:: _examples/DL-101-147-101
          :language: console
          :workdir: dl-101/DataLad-101
 
@@ -339,7 +339,7 @@ Note that it is always required to specify an :term:`absolute path` in the URL!
       we will remove the reference to the published dataset prior to this
       demonstration and replace it with the path it was originally referenced under.
 
-      .. runrecord:: _examples/DL-101-141-102
+      .. runrecord:: _examples/DL-101-147-102
          :language: console
          :workdir: dl-101/DataLad-101
 

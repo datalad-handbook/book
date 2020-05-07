@@ -17,10 +17,10 @@ with :command:`datalad push`, (let others) clone the dataset from the RIA store,
 and (let others) publish and pull updates.
 Beyond storage and collaboration, RIA stores also have useful features for
 simplified or automated maintenance: They can (as a whole or in parts) be
-(automatically) managed or queried. Within a RIA store, it is possible to perform
+(automatically) managed or queried, it is possible to perform
 (automated) searches for dataset dependencies, remove unused or orphaned dataset
-contents, or do any query that Git allows across a range of datasets. This makes
-maintenance possible that does not require expert or domain knowledge about
+contents, or do any query that Git allows across a range of datasets. This enables
+maintenance that does not require expert or domain knowledge about
 the data inside of the datasets, and makes RIA stores suitable solutions
 for setups that require centralized data management. In the case of datasets
 shared between members of an institute or organization, for example, a RIA store
@@ -32,16 +32,17 @@ location for all datasets.
 On technical level, RIA stores are flat, file-system based repository
 representations of any number of datasets, and they can exist on all standard computing
 infrastructure, be it personal computers, servers or compute clusters, or even
-super computing infrastructure. Conveniently, RIA stores do not require that
-DataLad or :term:`git-annex` are installed -- it is possible to set up a RIA store on
-a machine without a DataLad installation and publish datasets to or clone
-datasets from the store onto a machine that has DataLad and its underlying tools
-installed.
-There is no data bases involved in a RIA store, the RIA stores can be flexibly
-extended with new datasets at any time, and the dataset representation inside
-of a datastore is independent of static dataset names or directory hierarchies.
-The only requirements for a machine to host a RIA store are sufficient
-disk space for the amount of datasets and potentially the program `7zip <https://www.7-zip.org/>`_.
+super computing infrastructure.
+RIA stored are not based on data bases, they can be flexibly extended with new
+datasets at any time, and the dataset representation inside of a datastore is
+independent of static dataset names or directory hierarchies.
+Conveniently, RIA stores do not even require that DataLad or :term:`git-annex`
+are installed -- it is possible to set up a RIA store on a machine without a
+DataLad installation. Only the machines that datasets are published into the
+store from or clone dataset from the store need to have DataLad and its underlying
+tools installed. The only requirements for a machine to host a RIA store are
+sufficient disk space for the amount of datasets and potentially the program
+`7zip <https://www.7-zip.org/>`_.
 
 If this sounds like a useful feature for your usecase, this section introduces
 the concept and commands of DataLad's RIA stores.
@@ -58,10 +59,11 @@ Technical details
 RIA stores can be created or extended with a single command inside of any
 dataset. DataLad datasets can subsequently be published into the datastore as a
 means of backing up a dataset or creating a dataset sibling to collaborate on
-with others. Alternatively, datasets can be cloned from a RIA store just as from
-any other dataset location.
-But prior to introducing the user-facing commands, this section starts
-by explaining the layout and general concept of a RIA store.
+with others. Alternatively, datasets can be cloned and updated from a RIA store
+just as from any other dataset location.
+The subsection :ref:`riaworkflows` a few paragraphs down will demonstrate RIA-store
+related functionality. But prior to introducing the user-facing commands, this
+section starts by explaining the layout and general concept of a RIA store.
 
 Layout
 """"""
@@ -282,99 +284,310 @@ stored as archives to save disk space.
 
    link to ukb chapter as example
 
+.. _riaworkflows:
+
 RIA store workflows
 ^^^^^^^^^^^^^^^^^^^
 
+Creating or publishing to RIA stores
+""""""""""""""""""""""""""""""""""""
+
 .. index:: ! datalad command; create-sibling-ria
 
-A RIA store can be created or extended by running the :command:`datalad create-sibling-ria`
-command (:manpage:`datalad-create-sibling-ria` manual) in an existing dataset.
-Supply a sibling name of your choice with the ``-s/--sibling`` option, and specify
-the location of the store as a ``ria+`` URL. Beyond this, there are no further
-required arguments.
+A dataset can be published into an existing or not yet existing RIA store by
+running the :command:`datalad create-sibling-ria` command
+(:manpage:`datalad-create-sibling-ria` manual).
+Just like the :command:`datalad siblings add` command, an arbitrary sibling name
+(with the ``-s/--name`` option) and a URL to the location of the store (as a
+positional argument) need to be specified. In the case of RIA stores, the URL
+takes the form of a ``ria+`` URL, and the looks of this URL are dependent
+on where the RIA store (should) exists, or rather, which file transfer protocol
+(``SSH`` or ``file``) is used:
 
-.. findoutmore:: What about optional arguments?
+- A URL to an :term:`SSH`\-accessible server has a ``ria+ssh://`` prefix, followed
+  by user and hostname specification and an **absolute** path:
+  ``ria+ssh://[user@]hostname:/absolute/path/to/ria-store``
+- A URL to a store on a local file system has a ``ria+file://`` prefix,
+  followed by an **absolute** path: ``ria+file:///absolute/path/to/ria-store``
 
-   - unless it is explicitly given via ``--ria-remote-name``, the
-     ria-remote special remote will have the same sibling name suffixed with ``-ria``.
-   - Special remote capabilities of a RIA store can be disabled at the time of
-     RIA store creation by using the option ``--no-storage-sibling``
-   - :term:`Permissions` in the RIA store can be configured via ``--shared``. It
-     will default to multi-user access, but can take any specification of
-     the :command:`git init --shared` argument (find out more in the
-     `documentation <https://git-scm.com/docs/git-init>`__ of the command).
+Note that it is always required to specify an :term:`absolute path` in the URL!
 
-RIA stores can be used under different types of file transfer protocols.
-Depending on the file transfer protocol, the looks of the ``ria+`` URL can differ:
+To demonstrate the basic process, we will create a RIA store on a local file
+system to publish the ``DataLad-101`` dataset from the handbooks "Basics"
+section to. In the example below, the RIA sibling gets the name ``ria-backup``.
+The URL uses the ``file`` protocol and points with an absolute path to the not
+yet existing directory ``myriastore``.
 
-- :term:`SSH`: ``ria+ssh://[user@]hostname:/absolute/path/to/ria-store``
-- Local file system: ``ria+file:///absolute/path/to/ria-store``
-- :term:`http` (e.g., to a RIA store like `store.datalad.org <http://store.datalad.org/>`_):
-  ``ria+http://store.datalad.org:/absolute/path/to/ria-store``
+.. runrecord:: _examples/DL-101-147-101
+   :language: console
+   :workdir: dl-101/DataLad-101
 
-Note that it is required to specify an :term:`absolute path` in the URL. Here is
-how one could store a dataset in a RIA store (which can, but does not need to
-exist yet) on an :term:`SSH server` from within an existing dataset:
+   # inside of the dataset DataLad-101
+   $ datalad create-sibling-ria -s ria-backup ria+file:///home/me/myriastore
 
-.. code-block:: bash
+Afterwards, the dataset has two additional siblings: ``ria-backup``, and
+``ria-backup-storage``.
 
-   $ datalad create-sibling-ria -s server_backup \
-     ria+ssh://user@some.server.edu:/home/user/scratch/myriastore
-   [INFO   ] create siblings 'server_backup' and 'server_backup-ria' ...
-   [INFO   ] Fetching updates for <Dataset path=/tmp/my_dataset>
-   [INFO   ] Configure additional publication dependency on "server_backup-ria"
-   create-sibling-ria(ok): /tmp/my_dataset (dataset)
+.. runrecord:: _examples/DL-101-147-102
+   :language: console
+   :workdir: dl-101/DataLad-101
+   :emphasize-lines: 5-6
 
    $ datalad siblings
-    .: here(+) [git]
-    .: server_backup(-) [ (git)]
-    .: server_backup-ria(+) [ria]
 
-The sibling name of the store in the example above is ``server_backup``, and
-the link to its storage sibling was automatically named
-``server_backup-ria``.
+The storage sibling is the git-annex ora-remote and is set up automatically
+unless :command:`create-sibling-ria` is run with the ``--no-storage-sibling``
+flag. By default, it has the name of the RIA sibling, suffixed with ``-storage``,
+but alternative names can be supplied with the ``--storage-name`` option.
 
-.. todo::
 
-   Check whether this naming is still the case after the RF
 
-Once the sibling to the RIA store and the special remote link to the RIA store
-are created, a :command:`datalad push --to <sibling>`
-publishes the dataset to the RIA store. With the git-annex special remote
-capabilities enabled as in the example above, annexed contents will be published
-automatically.
+.. findoutmore:: Take a look into the store
 
-To clone a dataset from the RIA store, the RIA URL needs to be passed to the
-:command:`datalad clone` command, following a similar scheme as outlined above:
+    Right after running this command, a RIA store has been created in the specified
+    location:
 
-- A ``ria+`` identifier for a RIA URL, followed by a protocol specification and
-  a path to the RIA store (identical to the URL before).
-- A ``#`` sign,
-- The :term:`dataset ID`,
-- (Optionally) a ``@`` followed by a version identifier such as a tag or a branch
-  name.
+    .. runrecord:: _examples/DL-101-147-103
+       :language: console
+       :workdir: dl-101/DataLad-101
 
-Here is how to clone a dataset with the ID ``1d368e0a-439e-11ea-b341-d0c637c523bc``
-in the version identified by the tag ``ready4analysis`` from a RIA store on a
-webserver:
+       $ tree /home/me/myriastore
 
-.. code-block:: bash
+    Note that there is one dataset represented in the RIA store. The two-directory
+    structure it is represented under corresponds to the dataset ID of ``DataLad-101``:
 
-   $ datalad clone \
-     ria+http://store.datalad.org#d1ca308e-3d17-11ea-bf3b-f0d5bf7b5561@ready4analysis \
-     mydataset
+    .. runrecord:: _examples/DL-101-147-104
+       :language: console
+       :workdir: dl-101/DataLad-101
 
-.. note::
+       # The dataset ID is stored in .datalad/config
+       $ cat .datalad/config
 
-   When cloning from a RIA store with a RIA URL, the optional path with a dataset
-   name becomes more important than usually. It is still optional, but without
-   an explicit target dataset name (``mydataset``), the clone would be called
-   ``1d368e0a-439e-11ea-b341-d0c637c523bc``.
+In order to publish the dataset's history and all its contents into the RIA store,
+a single :command:`datalad push` to the RIA sibling suffices:
 
-.. todo::
+.. runrecord:: _examples/DL-101-147-105
+   :language: console
+   :workdir: dl-101/DataLad-101
 
-   This should be outdated by the time the refactoring is done.
-   Update
+   $ datalad push --to ria-backup
+
+.. findoutmore:: Take another look into the store
+
+    Now that dataset contents have been pushed to the RIA store, the bare repository
+    contains them:
+
+    .. runrecord:: _examples/DL-101-147-106
+       :language: console
+       :workdir: dl-101/DataLad-101
+
+       $ tree /home/me/myriastore
+
+A second dataset can be added and published to the store in the very same way.
+As a demonstration, we'll do it for the ``midterm_project`` subdataset:
+
+.. runrecord:: _examples/DL-101-147-107
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ cd midterm_project
+   $ datalad create-sibling-ria -s ria-backup ria+file:///home/me/myriastore
+
+.. runrecord:: _examples/DL-101-147-108
+   :language: console
+   :workdir: dl-101/DataLad-101/midterm_project
+
+   $ datalad push --to ria-backup
+
+.. findoutmore:: Take a look into the RIA store after a second dataset has been added
+
+    With creating a RIA sibling to the RIA store and publishing the contents of
+    the ``midterm_project`` subdataset to the store, a second dataset has been
+    added to the datastore. Note how it is represented on the same hierarchy
+    level as the previous dataset, underneath its dataset ID:
+
+
+    .. runrecord:: _examples/DL-101-147-110
+       :language: console
+       :workdir: dl-101/DataLad-101/midterm_project
+
+       $ cat .datalad/config
+
+    .. runrecord:: _examples/DL-101-147-109
+       :language: console
+       :workdir: dl-101/DataLad-101
+
+       $ tree /home/me/myriastore
+
+
+Cloning and updating from RIA stores
+""""""""""""""""""""""""""""""""""""
+
+Cloning from RIA stores is done via :command:`datalad clone` from a ``ria+`` URL,
+suffixed with a dataset identifier.
+Depending on the protocol being used, the looks of the URL differ. Note that
+that read-only access from RIA store (i.e., cloning, updating, and getting data,
+but no push access) is possible via the ``http`` protocol as well:
+
+- A URL to a RIA store on an :term:`SSH`\-accessible server takes the
+  same format as before: ``ria+ssh://[user@]hostname:/absolute/path/to/ria-store``
+- A URL to a RIA store on a local file system also looks like during sibling
+  creation: ``ria+file:///absolute/path/to/ria-store``
+- A URL for read access to a store via :term:`http` (e.g., to a RIA store like
+  `store.datalad.org <http://store.datalad.org/>`_, through which the
+  `HCP dataset is published <../usecases/HCP_dataset.html>`_) looks like this:
+  ``ria+http://store.datalad.org:/absolute/path/to/ria-store``
+
+The appropriate ``ria+`` URL needs to be suffixed with a ``#`` sign and a dataset
+identifier. One way this can be done is via the dataset ID.
+Here is how to clone the ``DataLad-101`` dataset from the RIA store using its
+dataset ID:
+
+.. runrecord:: _examples/DL-101-147-120
+   :language: console
+   :workdir: dl-101
+   :realcommand: echo "$ datalad clone ria+file:///home/me/myriastore#$(datalad -C DataLad-101 -f'{infos[dataset][id]}' wtf) myclone" && datalad clone ria+file:///home/me/myriastore#$(datalad -C DataLad-101 -f'{infos[dataset][id]}' wtf) myclone
+
+There are two downsides to this method: For one, it is hard to type, remember, and
+know the dataset ID of a desired dataset. Secondly, if no additional path is given to
+:command:`datalad clone`, the dataset clone would be named after its ID.
+An alternative, therefore, is to use an *alias* for the dataset. This is an
+alternative dataset identifier that a dataset in a RIA store can be configured
+with.
+
+.. findoutmore:: Configure an alias for a dataset
+
+   In order to define an alias for an individual dataset in a store, one needs
+   to create an ``alias/`` directory in the root of the datastore and place
+   a :term:`symlink` of the desired name to the dataset inside of it. Here is how it is
+   done, for the midterm project dataset:
+
+   .. runrecord:: _examples/DL-101-147-121
+      :language: console
+      :workdir: dl-101
+
+      $ mkdir /home/me/myriastore/alias
+
+   Afterwards, place a :term:`symlink` inside of it:
+
+   .. runrecord:: _examples/DL-101-147-122
+      :language: console
+      :workdir: dl-101
+      :realcommand: echo "$ ln -s /home/me/myriastore/$(datalad -C DataLad-101/midterm_project -f'{infos[dataset][id]}' wtf | sed 's/^\(...\)\(.*\)/\1\/\2/') /home/me/myriastore/alias/midterm_project" && ln -s /home/me/myriastore/$(datalad -C DataLad-101/midterm_project -f'{infos[dataset][id]}' wtf | sed 's/^\(...\)\(.*\)/\1\/\2/') /home/me/myriastore/alias/midterm_project
+
+   Here is how it looks like inside of this directory:
+
+   .. runrecord:: _examples/DL-101-147-123
+      :language: console
+      :workdir: dl-101
+
+      $ tree /home/me/myriastore/alias
+
+   Afterwards, the alias name, prefixed with a ``~``, can be used as a dataset
+   identifier:
+
+   .. runrecord:: _examples/DL-101-147-124
+      :language: console
+      :workdir: dl-101
+
+      datalad clone ria+file:///home/me/myriastore#~midterm_project
+
+The dataset clone behaves just like any other dataset clone. Contents stored in
+:term:`Git` are present right after cloning, while the contents of annexed files
+is not yet retrieved from the store and can be obtained with a :command:`datalad get`.
+
+.. runrecord:: _examples/DL-101-147-125
+   :language: console
+   :workdir: dl-101
+
+   $ cd myclone
+   $ tree
+
+.. runrecord:: _examples/DL-101-147-126
+   :language: console
+   :workdir: dl-101/myclone
+
+   $ datalad get books/progit.pdf
+
+Just as expected, the subdataset is not pre-installed. DataLad cleverly handles
+subdataset installations from RIA stores in the background, though. Instead of
+specifying a ``ria+`` URL, the location of the subdataset in the RIA store is
+discovered and used automatically:
+
+.. runrecord:: _examples/DL-101-147-127
+   :language: console
+   :workdir: dl-101/myclone
+
+   $ datalad get -n midterm_project
+
+More technical insights into this are outlined in the findoutmore below:
+
+.. findoutmore:: On cloning datasets with subdatasets from RIA stores
+
+   The usecase :ref:`usecase_HCP_dataset`
+   details a RIA-store based publication of a large dataset, split into a nested
+   dataset hierarchy with about 4500 subdatasets in total. But how can links to
+   subdatasets work, if datasets in a RIA store are stored in a flat hierarchy,
+   with no nesting?
+
+   The key to this lies in flexibly regenerating subdataset's URLs based on their
+   ID and a path to the RIA store. The :command:`datalad get` command is
+   capable of generating RIA URLs to subdatasets on its own, if the higher level
+   dataset containts a ``datalad get`` configuration on ``subdataset-source-candidate-origin``
+   that points to the RIA store the subdataset is published in. Here is how the
+   ``.datalad/config`` configuration looks like for the top-level dataset of the
+   `HCP dataset <https://github.com/datalad-datasets/human-connectome-project-openaccess>`_::
+
+      [datalad "get"]
+          subdataset-source-candidate-origin = "ria+http://store.datalad.org#{id}"
+
+   With this configuration, a :command:`datalad get` can use the URL and insert
+   the dataset ID in question into the ``{id}`` placeholder to clone directly
+   from the RIA store.
+
+   The configuration either needs to be done by hand with a :command:`git config`
+   command [#f7]_, or exists automatically in ``.git/config`` if the dataset is
+   cloned from a RIA store.
+
+
+Beyond straightforward access to datasets, RIA stores also allow very fine-grained
+cloning operations: Datasets in RIA stores can be cloned in specific versions.
+
+.. findoutmore:: Cloning specific dataset versions
+
+   Optionally, datasets can be cloned in a specific version, such as a :term:`tag`
+   or :term:`branch` by appending ``@<version-identifier>`` after the dataset ID
+   or the dataset alias.
+   Here is how to clone a dataset with the ID ``1d368e0a-439e-11ea-b341-d0c637c523bc``
+   in the version identified by the tag ``ready4analysis`` from a RIA store on a
+   webserver:
+
+   .. code-block:: bash
+
+      $ datalad clone \
+        ria+http://store.datalad.org#d1ca308e-3d17-11ea-bf3b-f0d5bf7b5561@ready4analysis \
+        mydataset
+
+Updating datasets works with the :command:`datalad update` and :command:`datalad update --merge`
+commands introduced in chapter :ref:`chapter_collaboration`.
+
+Permission management
+"""""""""""""""""""""
+
+In order to limit access or give access to datasets in datastores, permissions can be set
+at the time of RIA sibling creation with the ``--shared`` option.
+If it is given, this option configures the permissions in the RIA store for
+multi-users access. Possible values for this option are identical to those of
+``git init --shared`` and are described in its
+`documentation <https://git-scm.com/docs/git-init#Documentation/git-init.txt---sharedfalsetrueumaskgroupallworldeverybody0xxx>`__.
+In order for the dataset to be accessible to everyone, for example, ``all``
+could be specified. If access should be limited to a particular Unix
+`group <https://en.wikipedia.org/wiki/File_system_permissions#Traditional_Unix_permissions>`_
+(``--shared group``), the group name needs to be specified with the
+``--group`` option.
+
+
+
 
 Be aware of one caveat:
 If the RIA store has special remote capabilities, depending on whether a RIA
@@ -456,32 +669,7 @@ this, check out the hidden section below.
    fast.
 
 
-.. findoutmore:: On cloning datasets with subdatasets from RIA stores
 
-   The usecase :ref:`usecase_HCP_dataset`
-   details a RIA-store based publication of a large dataset, split into a nested
-   dataset hierarchy with about 4500 subdatasets in total. But how can links to
-   subdatasets work, if datasets in a RIA store are stored in a flat hierarchy,
-   with no nesting?
-
-   The key to this lies in flexibly regenerating subdataset's URLs based on their
-   ID and a path to the RIA store. The :command:`datalad get` command is
-   capable of generating RIA URLs to subdatasets on its own, if the higher level
-   dataset containts a ``datalad get`` configuration on ``subdataset-source-candidate-origin``
-   that points to the RIA store the subdataset is published in. Here is how the
-   ``.datalad/config`` configuration looks like for the top-level dataset of the
-   `HCP dataset <https://github.com/datalad-datasets/human-connectome-project-openaccess>`_::
-
-      [datalad "get"]
-          subdataset-source-candidate-origin = "ria+http://store.datalad.org#{id}"
-
-   With this configuration, a :command:`datalad get` can use the URL and insert
-   the dataset ID in question into the ``{id}`` placeholder to clone directly
-   from the RIA store.
-
-   The configuration either needs to be done by hand with a :command:`git config`
-   command [#f7]_, or exists automatically in ``.git/config`` if the dataset is
-   cloned from a RIA store.
 
 **Configurations can hide the technical layers**
 

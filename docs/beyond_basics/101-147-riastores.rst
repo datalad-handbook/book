@@ -702,3 +702,6 @@ procedures.
 
 .. [#f6] To re-read about publication dependencies and why this is relevant to
          annexed contents in the dataset, checkout section :ref:`sharethirdparty`.
+
+.. [#f7] To re-read on configuring datasets with the :command:`git config`, go
+         back to sections :ref:`config` and :ref:`config2`.

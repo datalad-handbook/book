@@ -1,0 +1,11 @@
+# inside of the dataset DataLad-101
+$ datalad create-sibling-ria -s ria-backup ria+file:///home/me/myriastore
+[INFO] Start checking pre-existing sibling configuration Dataset(/home/me/dl-101/DataLad-101) 
+[INFO] Discovered sibling here in dataset at /home/me/dl-101/DataLad-101 
+[INFO] Discovered sibling gin in dataset at /home/me/dl-101/DataLad-101 
+[INFO] Discovered sibling roommate in dataset at /home/me/dl-101/DataLad-101 
+[INFO] Finished checking pre-existing sibling configuration Dataset(/home/me/dl-101/DataLad-101) 
+[INFO] create siblings 'ria-backup' and 'ria-backup-storage' ... 
+[INFO] Fetching updates for Dataset(/home/me/dl-101/DataLad-101) 
+[INFO] Configure additional publication dependency on "ria-backup-storage" 
+create-sibling-ria(ok): /home/me/dl-101/DataLad-101 (dataset)

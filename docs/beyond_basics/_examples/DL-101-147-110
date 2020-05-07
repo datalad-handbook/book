@@ -1,0 +1,14 @@
+$ datalad push --to ria-backup
+[INFO] Start enumerating objects 
+[INFO] Start counting objects 
+[INFO] Start compressing objects 
+[INFO] Start writing objects 
+[INFO] Start enumerating objects 
+[INFO] Start counting objects 
+[INFO] Start compressing objects 
+[INFO] Start writing objects 
+copy(ok): .datalad/environments/midterm-software/image (file) [to ria-backup-storage...]
+copy(ok): pairwise_relationships.png (file) [to ria-backup-storage...]
+copy(ok): prediction_report.csv (file) [to ria-backup-storage...]
+publish(ok): . (dataset) [refs/heads/master->ria-backup:refs/heads/master [new branch]]
+publish(ok): . (dataset) [refs/heads/git-annex->ria-backup:refs/heads/git-annex [new branch]]

@@ -1,0 +1,36 @@
+$ tree /home/me/myriastore
+/home/me/myriastore
+├── 07c
+│   └── 74330-9069-11ea-96fe-833ef2c0cd3b
+│       ├── annex
+│       │   └── objects
+│       ├── archives
+│       ├── branches
+│       ├── config
+│       ├── description
+│       ├── HEAD
+│       ├── hooks
+│       │   ├── applypatch-msg.sample
+│       │   ├── commit-msg.sample
+│       │   ├── fsmonitor-watchman.sample
+│       │   ├── post-update.sample
+│       │   ├── pre-applypatch.sample
+│       │   ├── pre-commit.sample
+│       │   ├── prepare-commit-msg.sample
+│       │   ├── pre-push.sample
+│       │   ├── pre-rebase.sample
+│       │   ├── pre-receive.sample
+│       │   └── update.sample
+│       ├── info
+│       │   └── exclude
+│       ├── objects
+│       │   ├── info
+│       │   └── pack
+│       ├── refs
+│       │   ├── heads
+│       │   └── tags
+│       └── ria-layout-version
+├── error_logs
+└── ria-layout-version
+
+15 directories, 17 files

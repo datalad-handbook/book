@@ -312,13 +312,49 @@ on where the RIA store (should) exists, or rather, which file transfer protocol
 
 Note that it is always required to specify an :term:`absolute path` in the URL!
 
+.. note::
+
+   The upcoming demonstration of RIA stores uses the ``DataLad-101`` dataset
+   the was created throughout the Basics of this handbook.
+   If you want to execute these code snippets on a ``DataLad-101``
+   dataset you created, there is one modification that needs to be done first:
+
+   .. findoutmore:: If necessary, adjust the submodule path!
+
+      Back in :ref:`subdspublishing`, in order to appropriately reference and link
+      subdatasets on hostings sites such as :term:`GitHub`, we adjusted the
+      submodule path of the subdataset in ``.gitmodules`` to point to a published
+      subdataset on GitHub:
+
+      .. runrecord:: _examples/DL-101-141-101
+         :language: console
+         :workdir: dl-101/DataLad-101
+
+         # in DataLad-101
+         $ cat .gitmodules
+
+      Later in this demonstration we would like to publish the subdataset to a
+      RIA store and retrieve it automatically from this store -- retrieval is only
+      attempted from a store, however, if no other working source is known. Therefore,
+      we will remove the reference to the published dataset prior to this
+      demonstration and replace it with the path it was originally referenced under.
+
+      .. runrecord:: _examples/DL-101-141-102
+         :language: console
+         :workdir: dl-101/DataLad-101
+
+         # in DataLad-101
+         $ datalad subdatasets --contains midterm_project --set-property url ./midterm_project
+
+
 To demonstrate the basic process, we will create a RIA store on a local file
 system to publish the ``DataLad-101`` dataset from the handbooks "Basics"
 section to. In the example below, the RIA sibling gets the name ``ria-backup``.
 The URL uses the ``file`` protocol and points with an absolute path to the not
 yet existing directory ``myriastore``.
 
-.. runrecord:: _examples/DL-101-147-101
+
+.. runrecord:: _examples/DL-101-147-103
    :language: console
    :workdir: dl-101/DataLad-101
 
@@ -328,7 +364,7 @@ yet existing directory ``myriastore``.
 Afterwards, the dataset has two additional siblings: ``ria-backup``, and
 ``ria-backup-storage``.
 
-.. runrecord:: _examples/DL-101-147-102
+.. runrecord:: _examples/DL-101-147-104
    :language: console
    :workdir: dl-101/DataLad-101
    :emphasize-lines: 5-6
@@ -347,7 +383,7 @@ but alternative names can be supplied with the ``--storage-name`` option.
     Right after running this command, a RIA store has been created in the specified
     location:
 
-    .. runrecord:: _examples/DL-101-147-103
+    .. runrecord:: _examples/DL-101-147-105
        :language: console
        :workdir: dl-101/DataLad-101
 
@@ -356,7 +392,7 @@ but alternative names can be supplied with the ``--storage-name`` option.
     Note that there is one dataset represented in the RIA store. The two-directory
     structure it is represented under corresponds to the dataset ID of ``DataLad-101``:
 
-    .. runrecord:: _examples/DL-101-147-104
+    .. runrecord:: _examples/DL-101-147-106
        :language: console
        :workdir: dl-101/DataLad-101
 
@@ -366,7 +402,7 @@ but alternative names can be supplied with the ``--storage-name`` option.
 In order to publish the dataset's history and all its contents into the RIA store,
 a single :command:`datalad push` to the RIA sibling suffices:
 
-.. runrecord:: _examples/DL-101-147-105
+.. runrecord:: _examples/DL-101-147-107
    :language: console
    :workdir: dl-101/DataLad-101
 
@@ -377,7 +413,7 @@ a single :command:`datalad push` to the RIA sibling suffices:
     Now that dataset contents have been pushed to the RIA store, the bare repository
     contains them:
 
-    .. runrecord:: _examples/DL-101-147-106
+    .. runrecord:: _examples/DL-101-147-108
        :language: console
        :workdir: dl-101/DataLad-101
 
@@ -386,14 +422,14 @@ a single :command:`datalad push` to the RIA sibling suffices:
 A second dataset can be added and published to the store in the very same way.
 As a demonstration, we'll do it for the ``midterm_project`` subdataset:
 
-.. runrecord:: _examples/DL-101-147-107
+.. runrecord:: _examples/DL-101-147-109
    :language: console
    :workdir: dl-101/DataLad-101
 
    $ cd midterm_project
    $ datalad create-sibling-ria -s ria-backup ria+file:///home/me/myriastore
 
-.. runrecord:: _examples/DL-101-147-108
+.. runrecord:: _examples/DL-101-147-110
    :language: console
    :workdir: dl-101/DataLad-101/midterm_project
 
@@ -407,13 +443,13 @@ As a demonstration, we'll do it for the ``midterm_project`` subdataset:
     level as the previous dataset, underneath its dataset ID:
 
 
-    .. runrecord:: _examples/DL-101-147-110
+    .. runrecord:: _examples/DL-101-147-111
        :language: console
        :workdir: dl-101/DataLad-101/midterm_project
 
        $ cat .datalad/config
 
-    .. runrecord:: _examples/DL-101-147-109
+    .. runrecord:: _examples/DL-101-147-112
        :language: console
        :workdir: dl-101/DataLad-101
 

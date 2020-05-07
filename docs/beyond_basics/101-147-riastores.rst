@@ -545,6 +545,17 @@ is not yet retrieved from the store and can be obtained with a :command:`datalad
 
    $ datalad get books/progit.pdf
 
+
+.. findoutmore:: What about creating RIA stores and cloning from RIA stores with different protocols
+
+   Consider setting up and populating a RIA store on a server via the ``file``
+   protocol, but cloning a dataset from that store to a local computer via
+   ``SSH`` protocol. Will this be a problem for file content retrieval?
+   No, in all standard situations, DataLad will adapt to this. Upon cloning
+   the dataset with a different protocol than it was created under,
+   enabling the special remote will initially fail, but DataLad will adaptively
+   try out other protocols to enable the ora-remote and retrieve file contents.
+
 Just as expected, the subdataset is not pre-installed. DataLad cleverly handles
 subdataset installations from RIA stores in the background, though. Instead of
 specifying a ``ria+`` URL, the location of the subdataset in the RIA store is
@@ -594,18 +605,23 @@ cloning operations: Datasets in RIA stores can be cloned in specific versions.
    Optionally, datasets can be cloned in a specific version, such as a :term:`tag`
    or :term:`branch` by appending ``@<version-identifier>`` after the dataset ID
    or the dataset alias.
-   Here is how to clone a dataset with the ID ``1d368e0a-439e-11ea-b341-d0c637c523bc``
-   in the version identified by the tag ``ready4analysis`` from a RIA store on a
-   webserver:
+   Here is how to clone the `BIDS <https://bids.neuroimaging.io/>`_ version of the
+   `structural preprocessed subset of the HCP dataset <https://github.com/datalad-datasets/hcp-structural-preprocessed>`_
+   that exists on the branch ``bids``:
 
    .. code-block:: bash
 
-      $ datalad clone \
-        ria+http://store.datalad.org#d1ca308e-3d17-11ea-bf3b-f0d5bf7b5561@ready4analysis \
-        mydataset
+      $ datalad clone ria+http://store.datalad.org#~hcp-structural-preprocessed@bids
+
+   If you are interested in finding out how this dataset came into existence,
+   checkout the use case :ref:`usecase_HCP_dataset`.
 
 Updating datasets works with the :command:`datalad update` and :command:`datalad update --merge`
-commands introduced in chapter :ref:`chapter_collaboration`.
+commands introduced in chapter :ref:`chapter_collaboration`. And because a
+RIA store hosts :term:`bare Git repositories`, collaborating becomes
+easy. Anyone with access can clone the dataset from the store, add changes, and
+push them back -- this is the same workflow as for datasets hosted on sites such
+as :term:`GitHub`, :term:`GitLab`, or :term:`Gin`.
 
 Permission management
 """""""""""""""""""""
@@ -616,98 +632,15 @@ If it is given, this option configures the permissions in the RIA store for
 multi-users access. Possible values for this option are identical to those of
 ``git init --shared`` and are described in its
 `documentation <https://git-scm.com/docs/git-init#Documentation/git-init.txt---sharedfalsetrueumaskgroupallworldeverybody0xxx>`__.
-In order for the dataset to be accessible to everyone, for example, ``all``
+In order for the dataset to be accessible to everyone, for example, ``--shared all``
 could be specified. If access should be limited to a particular Unix
 `group <https://en.wikipedia.org/wiki/File_system_permissions#Traditional_Unix_permissions>`_
 (``--shared group``), the group name needs to be specified with the
 ``--group`` option.
 
 
-
-
-Be aware of one caveat:
-If the RIA store has special remote capabilities, depending on whether a RIA
-store is created and used over the same protocol or not, or if URLs with
-user names or other individual information were used, additional configurations
-may be necessary to ensure that not only cloning datasets from the store, but
-also *file retrieval* from the special remote afterwards is functional.
-Problems that can arise with this stem from :term:`git-annex`\'s internal
-representation of the special remote that is constructed once the RIA siblings
-are created. While the problem seems obvious once known and relates to mismatching
-protocol or log-in specifications for file retrieval, finding it can be tedious
-as it is hidden in :term:`git-annex` internal files. To find out more about
-this, check out the hidden section below.
-
-.. findoutmore:: Configuring appropriate protocols, store locations, or log-ins for special remote access
-
-   At the time of the creation of the ``-ria`` sibling, the ``ria+`` URL specification
-   is used by :term:`git-annex` to save availability-location information about
-   all files that are published to the RIA store: :term:`git-annex`
-   records where file contents are stored from the ``ria+`` URL used in the
-   :command:`create-sibling-ria` command. At sibling creation, the ``ria+`` URL
-   is resolved to a proper URL -- an http or SSH URL, or an absolute path, depending
-   on whether the :term:`http`, :term:`ssh`, or file protocol is used in the
-   ``ria+`` URL specification -- and stored in the file ``remote.log`` in the
-   git-annex :term:`branch` of the repository.
-
-   This information on file content location allows to retrieve files from the
-   RIA store, and it is propagated into all clones of the dataset. Usually, this
-   allows anyone to not only clone datasets, but also get their contents. If the
-   protocol or -- in the case of an SSH protocol -- user name to an
-   :term:`SSH server` does not apply to a specific user or clone, though,
-   file retrieval from the special remote will be impossible.
-   To illustrate how such a problem can arise, consider the following examples:
-
-   1) A RIA store is set up on a shared compute cluster. A dataset gets published
-   into the store via file protocol from a different location on the server. The
-   URL about where file contents can be retrieved from will be an :term:`absolute path`
-   on the server. If a dataset gets cloned from outside of the server
-   (via SSH), the absolute path does not resolve on the new system and a
-   :command:`datalad get` command fails.
-
-   2) User Bob publishes a dataset to a RIA store on a shared :term:`SSH server`
-   from his local machine. When specifying the ``+ria`` URL, he uses the SSH protocol,
-   but needs to use his user name (bob@some.server.edu) to log in. When Alice
-   clones Bob's dataset from the store to her local machine, she uses the correct
-   protocol (SSH), but a :command:`datalad get` command tries to log into
-   the server under Bob's user account, which fails.
-
-   The information about the remote location is stored in the file ``remote.log``
-   in the git-annex :term:`branch` of each dataset. We can take a look at it
-   with the :command:`git cat-file` command. Below we exemplify how this would
-   look to Alice in the example of user Bob, who created a RIA sibling on a
-   shared server, but used his user name for login:
-
-   .. code-block:: bash
-      :emphasize-lines: 6
-
-      git cat-file -p git-annex:remote.log
-      d585ec1c-a8b9-4eb9-a276-4ffc4c645f81 \
-      archive-id=ae5713fa-48ee-11ea-b341-d0c637c523bc \
-      autoenable=true encryption=none externaltype=ria \
-      name=backup_server-ria type=external \
-      url=ria+ssh://bob@some.server.edu:/data/datasets/RIAstore timestamp=1581000354.064541765s
-
-   In general, it is recommended to keep ``ria+`` URLs as generic and widely
-   applicable as needed for the user base of the RIA store. However, in cases
-   where some store serves a large number of repositories, and serves them with
-   multiple access methods, and some users need to use different access methods,
-   a configuration allows individual users to specify alternative URLs with
-   the key ``url.<new_RIA_base>.insteadOf``::
-
-      $ git config url."ria+ssh://bob@some.server.edu:/data/datasets/RIAstore".insteadOf "ria+ssh://alice@some.server.edu:/data/datasets/RIAstore"
-
-   With this configuration, all URLs beginning with
-   ``ria+ssh://bob@some.server.edu:/data/datasets/RIAstore`` will be dynamically
-   rewritten to start with ``ria+ssh://alice@some.server.edu:/data/datasets/RIAstore``
-   and allow Alice to retrieve files successfully.
-   Thus, by configuring ``url.<base>.insteadOf``, URL mismatches can be fixed
-   fast.
-
-
-
-
-**Configurations can hide the technical layers**
+Configurations and tricks to hide technical layers
+""""""""""""""""""""""""""""""""""""""""""""""""""
 
 In order to spare users knowing about RIA stores, custom configurations can
 be distributed via DataLad's run-procedures to simplify workflows further and
@@ -717,15 +650,24 @@ repository with a publication dependency to the RIA store to ease publishing
 data or cloning the dataset. The usecase :ref:`usecase_datastore` details the
 setup of RIA stores in a scientific institute and demonstrates this example.
 
-To ease repository access, the datasets stored in a RIA store can be installed
-under human-readable names in a single superdataset. Cloning the superdataset
-exposes the underlying datasets under a non-dataset-ID name.
-User can thus get data from datasets hosted in a datastore without any
-knowledge about the dataset IDs or the need to construct ``ria+`` URLs.
-A concrete example for this is described in the usecase :ref:`usecase_HCP_dataset`.
-While :command:`datalad get` will retrieve file or subdataset contents from the
-RIA store, users will not need to bother where the data actually comes from.
+To ease repository access beyond using aliases, the datasets stored in a RIA
+store can be installed under human-readable names in a single superdataset.
+Cloning the superdataset exposes the underlying datasets under a non-dataset-ID name.
+Users can thus get data from datasets hosted in a datastore without any
+knowledge about the dataset IDs or the need to construct ``ria+`` URLs, just as
+it was done in the usecases :ref:`usecase_HCP_dataset` and :ref:`usecase_datastore`.
+From a user's perspective, the RIA store would thus stay completely hidden.
 
+
+Summary
+^^^^^^^
+
+RIA stores are useful, lean, and undemanding storage locations for DataLad datasets.
+Their properties make them suitable solutions to back-up, central data management,
+or collaboration use cases. They can be set up with minimal effort, and the few
+technical details a user may face such as cloning from :term:`dataset ID`\s can
+be hidden with minimal configurations of the store like aliases or custom
+procedures.
 
 
 .. rubric:: Footnotes
@@ -755,11 +697,8 @@ RIA store, users will not need to bother where the data actually comes from.
          shows how this feature can come in handy.
 
 .. [#f5] Special remote capabilities of a RIA store can be disabled at the time of RIA
-         store creation by passing the option ``--no-ria-remote`` to the
+         store creation by passing the option ``--no-storage-sibling`` to the
          :command:`datalad create-sibling-ria` command.
 
 .. [#f6] To re-read about publication dependencies and why this is relevant to
          annexed contents in the dataset, checkout section :ref:`sharethirdparty`.
-
-.. [#f7] To re-read on configuring datasets with the :command:`git config`, go
-         back to sections :ref:`config` and :ref:`config2`.

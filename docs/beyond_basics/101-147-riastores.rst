@@ -9,7 +9,7 @@ DataLad installed, :term:`remote indexed archive (RIA) store`\s, dataset storage
 locations that allow for access to and collaboration on DataLad datasets, may be
 a suitable solution.
 
-The high-level workflow overview is as follows: Create a dataset,
+For working with RIA stores, the high-level workflow overview is as follows: Create a dataset,
 use the :command:`datalad create-sibling-ria` command to establish a connection
 to an either pre-existing or not-yet-existing RIA store, and use a range of
 standard protocols (``file``, ``http``, or ``ssh``) to publish dataset contents
@@ -227,7 +227,7 @@ special remote (but works remotely and uses the ``hashdir_mixed`` [#f2]_ keystor
 layout). Thanks to the git-annex ora-remote, RIA stores can have regular
 git-annex key storage and retrieval of keys from (compressed) 7z archives in
 the RIA store works. Put simple, annexed contents of datasets can only be
-push into RIA stores with git-annex ora-remotes.
+pushed into RIA stores if the have a git-annex ora-remote.
 
 
 Certain applications will not require special remote features. The usecase
@@ -289,6 +289,11 @@ stored as archives to save disk space.
 RIA store workflows
 ^^^^^^^^^^^^^^^^^^^
 
+The user facing commands for interactions with a RIA store are barely different
+from standard DataLad workflows. The paragraphs below detail how to create and
+populate a RIA store, how to clone datasets and retrieve data from it, and also
+how to handle permissions or hide technicalities.
+
 Creating or publishing to RIA stores
 """"""""""""""""""""""""""""""""""""
 
@@ -329,6 +334,7 @@ Note that it is always required to specify an :term:`absolute path` in the URL!
       .. runrecord:: _examples/DL-101-147-101
          :language: console
          :workdir: dl-101/DataLad-101
+         :emphasize-lines: 9
 
          # in DataLad-101
          $ cat .gitmodules
@@ -367,7 +373,6 @@ Afterwards, the dataset has two additional siblings: ``ria-backup``, and
 .. runrecord:: _examples/DL-101-147-104
    :language: console
    :workdir: dl-101/DataLad-101
-   :emphasize-lines: 5-6
 
    $ datalad siblings
 
@@ -411,7 +416,10 @@ a single :command:`datalad push` to the RIA sibling suffices:
 .. findoutmore:: Take another look into the store
 
     Now that dataset contents have been pushed to the RIA store, the bare repository
-    contains them:
+    contains them, although their representation is not human-readable. But worry
+    not -- this representation only exists in the RIA store. When cloning this
+    dataset from the RIA store, the clone will be in its standard human-readable
+    format.
 
     .. runrecord:: _examples/DL-101-147-108
        :language: console
@@ -463,7 +471,7 @@ Cloning from RIA stores is done via :command:`datalad clone` from a ``ria+`` URL
 suffixed with a dataset identifier.
 Depending on the protocol being used, the looks of the URL differ. Note that
 that read-only access from RIA store (i.e., cloning, updating, and getting data,
-but no push access) is possible via the ``http`` protocol as well:
+but no push access) is possible also via the ``http`` protocol:
 
 - A URL to a RIA store on an :term:`SSH`\-accessible server takes the
   same format as before: ``ria+ssh://[user@]hostname:/absolute/path/to/ria-store``
@@ -498,13 +506,16 @@ with.
    a :term:`symlink` of the desired name to the dataset inside of it. Here is how it is
    done, for the midterm project dataset:
 
+   First, create an ``alias/`` directory in the store:
+
    .. runrecord:: _examples/DL-101-147-121
       :language: console
       :workdir: dl-101
 
       $ mkdir /home/me/myriastore/alias
 
-   Afterwards, place a :term:`symlink` inside of it:
+   Afterwards, place a :term:`symlink` with a name of your choice to the dataset
+   inside of it. Here, we create a symlink called ``midterm_project``:
 
    .. runrecord:: _examples/DL-101-147-122
       :language: console
@@ -528,7 +539,10 @@ with.
 
       datalad clone ria+file:///home/me/myriastore#~midterm_project
 
-The dataset clone behaves just like any other dataset clone. Contents stored in
+   This makes it easier for others to clone the dataset and will provide a sensible
+   default name for the clone if no additional path is provided in the command.
+
+The dataset clone is just like any other dataset clone. Contents stored in
 :term:`Git` are present right after cloning, while the contents of annexed files
 is not yet retrieved from the store and can be obtained with a :command:`datalad get`.
 
@@ -538,6 +552,8 @@ is not yet retrieved from the store and can be obtained with a :command:`datalad
 
    $ cd myclone
    $ tree
+
+To demonstrate file retrieval from the store, let's get an annexed file:
 
 .. runrecord:: _examples/DL-101-147-126
    :language: console
@@ -556,10 +572,11 @@ is not yet retrieved from the store and can be obtained with a :command:`datalad
    enabling the special remote will initially fail, but DataLad will adaptively
    try out other protocols to enable the ora-remote and retrieve file contents.
 
-Just as expected, the subdataset is not pre-installed. DataLad cleverly handles
-subdataset installations from RIA stores in the background, though. Instead of
-specifying a ``ria+`` URL, the location of the subdataset in the RIA store is
-discovered and used automatically:
+Just as expected, the subdatasets are not pre-installed. How will subdataset installation
+work for datasets that exist in a RIA store as well, like ``midterm_project``?
+Just as with any other subdataset! DataLad cleverly handles subdataset
+installations from RIA stores in the background: The location of the subdataset
+in the RIA store is discovered and used automatically:
 
 .. runrecord:: _examples/DL-101-147-127
    :language: console
@@ -567,7 +584,8 @@ discovered and used automatically:
 
    $ datalad get -n midterm_project
 
-More technical insights into this are outlined in the findoutmore below:
+More technical insights into the automatic ``ria+`` URL generation are outlined
+in the findoutmore below:
 
 .. findoutmore:: On cloning datasets with subdatasets from RIA stores
 
@@ -592,9 +610,9 @@ More technical insights into this are outlined in the findoutmore below:
    the dataset ID in question into the ``{id}`` placeholder to clone directly
    from the RIA store.
 
-   The configuration either needs to be done by hand with a :command:`git config`
-   command [#f7]_, or exists automatically in ``.git/config`` if the dataset is
-   cloned from a RIA store.
+   This configuration is automatically added to a dataset that is cloned from a
+   RIA store, but it can also be done by hand with a :command:`git config`
+   command [#f7]_.
 
 
 Beyond straightforward access to datasets, RIA stores also allow very fine-grained
@@ -607,7 +625,7 @@ cloning operations: Datasets in RIA stores can be cloned in specific versions.
    or the dataset alias.
    Here is how to clone the `BIDS <https://bids.neuroimaging.io/>`_ version of the
    `structural preprocessed subset of the HCP dataset <https://github.com/datalad-datasets/hcp-structural-preprocessed>`_
-   that exists on the branch ``bids``:
+   that exists on the branch ``bids`` of this dataset:
 
    .. code-block:: bash
 
@@ -642,15 +660,17 @@ could be specified. If access should be limited to a particular Unix
 Configurations and tricks to hide technical layers
 """"""""""""""""""""""""""""""""""""""""""""""""""
 
-In order to spare users knowing about RIA stores, custom configurations can
+In setups with a central, DataLad-centric datamanagement, in order to spare
+users knowing about RIA stores, custom configurations can
 be distributed via DataLad's run-procedures to simplify workflows further and
-hide the technical layers of the RIA setup. Custom procedures could not only
-perform a sibling setup in a RIA store, but also create an associated GitLab
-repository with a publication dependency to the RIA store to ease publishing
-data or cloning the dataset. The usecase :ref:`usecase_datastore` details the
-setup of RIA stores in a scientific institute and demonstrates this example.
+hide the technical layers of the RIA setup. For example, custom procedures provided
+at dataset creation could automatically perform a sibling setup in a RIA store,
+and also create an associated GitLab repository with a publication dependency to
+the RIA store to ease publishing data or cloning the dataset.
+The usecase :ref:`usecase_datastore` details the setup of RIA stores in a
+scientific institute and demonstrates this example.
 
-To ease repository access beyond using aliases, the datasets stored in a RIA
+To simplify repository access beyond using aliases, the datasets stored in a RIA
 store can be installed under human-readable names in a single superdataset.
 Cloning the superdataset exposes the underlying datasets under a non-dataset-ID name.
 Users can thus get data from datasets hosted in a datastore without any
@@ -658,6 +678,9 @@ knowledge about the dataset IDs or the need to construct ``ria+`` URLs, just as
 it was done in the usecases :ref:`usecase_HCP_dataset` and :ref:`usecase_datastore`.
 From a user's perspective, the RIA store would thus stay completely hidden.
 
+Standard maintenance tasks by data stewards with knowledge about RIA stores and
+access to it can be performed easily or even in an automated fashion. The
+usecase :ref:`usecase_datastore` showcases some examples of those operations.
 
 Summary
 ^^^^^^^

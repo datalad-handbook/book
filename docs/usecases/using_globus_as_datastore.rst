@@ -130,19 +130,33 @@ by running the setup
    # if first time
    $ git-annex-remote-globus setup
 
-We can see that most of the files in the dataset are annexed. You can check the symlink for a given file by running
+We can see that most of the files in the dataset are annexed. You can check the symlink does not enable access to the file
 
 .. code-block:: bash
 
-   $ ls -l path/to/file
+   $ ls -l NeuroMap_data/cortex/mask/mask.mat
+    cortex/mask/mask.mat -> ../../../.git/annex/objects/object.mat
+
+   $ cat NeuroMap_data/cortex/mask/mask.mat
+     NeuroMap_data/cortex/mask/mask.mat: No such file or directory
+
 
 At this point we have to enable the globus remote and after that, we can try to download the file
 
 .. code-block:: bash
 
    $ git annex enableremote globus
-   $ datalad get path/to/file
-   $ ls -l path/to/file
+    enableremote globus ok
+    (recording state in git...)
+
+   $ datalad get NeuroMap_data/cortex/mask/mask.mat
+    get(ok): NeuroMap_data/cortex/mask/mask.mat (file) [from globus...]
+
+   $ ls -l NeuroMap_data/cortex/mask/mask.mat
+    cortex/mask/mask.mat -> ../../../.git/annex/objects/object.mat
+
+   $ cat NeuroMap_data/cortex/mask/mask.mat
+    # you can now access the file !
 
 
 Downloaded!

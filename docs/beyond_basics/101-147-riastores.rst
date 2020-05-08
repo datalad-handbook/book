@@ -4,48 +4,14 @@ Remote Indexed Archives for dataset storage and backup
 ------------------------------------------------------
 
 If DataLad datasets should be backed-up, made available for collaborations
-with others, or stored in a central location or on systems that do not have
-DataLad installed, :term:`remote indexed archive (RIA) store`\s, dataset storage
+with others, or stored or managed in a central location,
+:term:`remote indexed archive (RIA) store`\s, dataset storage
 locations that allow for access to and collaboration on DataLad datasets, may be
-a suitable solution.
-
-For working with RIA stores, the high-level workflow overview is as follows: Create a dataset,
-use the :command:`datalad create-sibling-ria` command to establish a connection
-to an either pre-existing or not-yet-existing RIA store, and use a range of
-standard protocols (``file``, ``http``, or ``ssh``) to publish dataset contents
-with :command:`datalad push`, (let others) clone the dataset from the RIA store,
-and (let others) publish and pull updates.
-Beyond storage and collaboration, RIA stores also have useful features for
-simplified or automated maintenance: They can (as a whole or in parts) be
-(automatically) managed or queried, it is possible to perform
-(automated) searches for dataset dependencies, remove unused or orphaned dataset
-contents, or do any query that Git allows across a range of datasets. This enables
-maintenance that does not require expert or domain knowledge about
-the data inside of the datasets, and makes RIA stores suitable solutions
-for setups that require centralized data management. In the case of datasets
-shared between members of an institute or organization, for example, a RIA store
-(or multiple RIA stores) can serve as a central storage location that enables
-fine-grained data access to everyone who needs it, and as a storage and back-up
-location for all datasets.
-
-
-On technical level, RIA stores are flat, file-system based repository
+a suitable solution. They are flat, flexible, file-system based repository
 representations of any number of datasets, and they can exist on all standard computing
 infrastructure, be it personal computers, servers or compute clusters, or even
-super computing infrastructure.
-RIA stored are not based on data bases, they can be flexibly extended with new
-datasets at any time, and the dataset representation inside of a datastore is
-independent of static dataset names or directory hierarchies.
-Conveniently, RIA stores do not even require that DataLad or :term:`git-annex`
-are installed -- it is possible to set up a RIA store on a machine without a
-DataLad installation. Only the machines that datasets are published into the
-store from or clone dataset from the store need to have DataLad and its underlying
-tools installed. The only requirements for a machine to host a RIA store are
-sufficient disk space for the amount of datasets and potentially the program
-`7zip <https://www.7-zip.org/>`_.
-
-If this sounds like a useful feature for your usecase, this section introduces
-the concept and commands of DataLad's RIA stores.
+super computing infrastructure -- even on machines that do not have DataLad
+installed.
 
 .. note::
 

@@ -161,7 +161,7 @@ Let us now put some content inside.
        :language: console
        :workdir: dl-101/DataLad-101
 
-       $ cat << EOT >> /home/me/makepushtarget.py
+       $ cat << EOT >| /home/me/makepushtarget.py
 
        #!/usr/bin/python3
 
@@ -173,7 +173,7 @@ Let us now put some content inside.
        name = sys.argv[2]
        path = sys.argv[3]
        annex = sys.argv[4]
-       bare = sys.argv[4]
+       bare = sys.argv[5]
 
        if __name__ == '__main__':
            mk_push_target(ds=ds(ds_path),

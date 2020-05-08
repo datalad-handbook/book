@@ -54,6 +54,17 @@ DataLad and all of its software dependencies (including the git-annex-standalone
 The command above will also upgrade existing installations to the most recent
 available version.
 
+Linux: CentOS, Redhat, Fedora, or similar systems
+"""""""""""""""""""""""""""""""""""""""""""""""""
+
+For CentOS, Redhat, Fedora, or similar distributions, there is an rpm
+git-annex-standalone available
+`here <https://git-annex.branchable.com/install/rpm_standalone/>`_.
+Subsequently, DataLad can be installed via ``pip``.
+
+Alternatively, DataLad can be installed together with :term:`Git` and
+:term:`git-annex` via ``conda`` as outlined in the section below.
+
 
 Linux-machines with no root access (e.g. HPC systems)
 """""""""""""""""""""""""""""""""""""""""""""""""""""

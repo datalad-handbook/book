@@ -69,10 +69,13 @@ information about where to obtain annexed file contents from such that
 :command:`datalad get` works.
 
 This tutorial showcases how this can be done, and shows the basics of how
-datasets can be shared via a third party infrastructure. A much easier
-alternative using another third party infrastructure is introduced in the next
-section, :ref:`gin`, using the free G-Node infrastructure. If you prefer this as an
-easier start, feel free to skip ahead.
+datasets can be shared via a third party infrastructure.
+
+.. note::
+
+   A much easier alternative using another third party infrastructure is
+   introduced in the next section, :ref:`gin`, using the free G-Node
+   infrastructure. If you prefer this as an easier start, feel free to skip ahead.
 
 From your perspective (as someone who wants to share data), you will
 need to
@@ -341,6 +344,20 @@ Therefore, instead of "only" publishing to this GitHub repository (as done in se
 publishing to GitHub dependent on the ``dropbox-for-friends`` sibling
 (that has a remote data annex), so that annexed contents are published
 there first.
+
+.. note::
+
+   Note that the publication dependency is only established for your own dataset,
+   it is not shared with clones of the dataset. Internally, this configuration
+   is a key value pair in the section of your remote in ``.git/config``:
+
+   .. code-block:: bash
+
+      [remote "github"]
+         annex-ignore = true
+         url = https://github.com/<user-name>/DataLad-101.git
+         fetch = +refs/heads/*:refs/remotes/github/*
+         datalad-publish-depends = dropbox-for-friends
 
 With this setup, we can publish the dataset to GitHub. Note how the publication
 dependency is served first:

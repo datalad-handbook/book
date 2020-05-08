@@ -1,3 +1,5 @@
+.. _gitignore:
+
 How to hide content from DataLad
 --------------------------------
 

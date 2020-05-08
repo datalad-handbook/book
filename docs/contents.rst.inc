@@ -41,16 +41,38 @@
    :maxdepth: 2
    :caption: Learn all about DataLad
 
-   basics/basics1toc
-   basics/basics2toc
-   basics/basics3toc
-   basics/basics4toc
-   basics/basics5toc
-   basics/basics6toc
-   basics/basics7toc
-   basics/basics8toc
-   basics/basics9toc
-   basics/basics10toc
+   basics/basics-datasets
+   basics/basics-run
+   basics/basics-annex
+   basics/basics-collaboration
+   basics/basics-configuration
+   basics/basics-yoda
+   basics/basics-containers
+   basics/basics-thirdparty
+   basics/basics-help
+
+.. only:: html
+
+   .. figure:: artwork/src/advanced.svg
+      :width: 60%
+      :target: http://handbook.datalad.org/en/latest/beyond_basics/intro.html
+
+############
+**Advanced**
+############
+
+
+.. toctree::
+   :hidden:
+
+   beyond_basics/intro.rst
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Beyond the Basics
+
+   beyond_basics/basics-advancedoptions
+   beyond_basics/basics-scaling
 
 .. only:: html
 

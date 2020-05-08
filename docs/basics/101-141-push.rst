@@ -125,9 +125,6 @@ targets are configured throughout the dataset hierarchy.
    :command:`git push -u <sibling> <branch>` syntax.
 
 
-
-
-
 Setting access control via publishing
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 

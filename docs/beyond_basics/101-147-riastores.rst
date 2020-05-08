@@ -34,11 +34,15 @@ section starts by explaining the layout and general concept of a RIA store.
 Layout
 """"""
 
-The layout of a RIA store is different from a typical dataset layout. If one were
-to take a look inside of a RIA store as it is set up by default, one would see a
-directory that contains a flat subdirectory tree with datasets represented as
-:term:`bare Git repositories` and an annex.
-The first level of subdirectories in this tree consists of the first three
+RIA stores store DataLad datasets. Both the layout of the RIA store and the layout
+of the datasets in the RIA store are different from typical dataset layouts, though.
+If one were to take a look inside of a RIA store as it is set up by default, one
+would see a directory that contains a flat subdirectory tree with datasets
+represented as :term:`bare Git repositories` and an annex. Usually, looking inside
+of RIA stores is not necessary for RIA-related workflows, but it can help to
+grasp the concept of these stores.
+
+The first level of subdirectories in this RIA store tree consists of the first three
 characters of the :term:`dataset ID`\s of the datasets that lie in the store,
 and the second level of subdatasets contains the remaining characters of the
 dataset IDs.
@@ -98,11 +102,17 @@ highlighted:
     ├── error_logs
     └── ria-layout-version
 
-Beyond datasets, the RIA store only contains the directory ``error_logs``
-for error logging and the file ``ria-layout-version`` [#f2]_ for a specification of the
-dataset tree layout in the store (last two lines in the code block above).
 If a second dataset gets published to the RIA store, it will be represented in a
-similar tree structure under its dataset ID.
+similar tree structure underneath its individual dataset ID.
+If *subdatasets* of a dataset are published into a RIA store, they are not
+represented *underneath* their superdataset, but are stored on the same hierarchy
+level as any other dataset. Thus, the dataset representation in a RIA store is
+completely flat [#f2]_.
+With this hierarchy-free setup, the location of a particular dataset in the RIA
+store is only dependent on its :term:`dataset ID`. As the dataset ID is universally
+unique, gets assigned to a dataset at the time of creation, and does not change across
+the life time of a dataset, no two different datasets could have the same location
+in a RIA store.
 
 The directory underneath the two dataset-ID-based subdirectories contains a
 *bare git repository* (highlighted above as well) that is a :term:`clone` of the
@@ -118,6 +128,10 @@ dataset.
    are and how to use them
    `here <https://git-scm.com/book/en/v2/Git-on-the-Server-Getting-Git-on-a-Server>`__.
 
+   Note that bare Git repositories can be cloned, and the clone of a bare Git repository
+   will have a checkout and a worktree, thus resuming the shape that you are
+   familiar with.
+
 Inside of the bare :term:`Git` repository, the ``annex`` directory -- just as in
 any standard dataset or repository -- contains the dataset's keystore (object
 tree) under ``annex/objects`` [#f3]_. In conjunction, keystore and bare Git
@@ -125,25 +139,15 @@ repository are the original dataset -- just differently represented, with no
 *working tree*, i.e., directory hierarchy that exists in the original dataset,
 and without the name it was created under, but stored under its dataset ID instead.
 
-If necessary, the keystores can be (compressed) `7zipped <https://www.7-zip.org/>`_
+If necessary, the keystores (annex) can be (compressed) `7zipped <https://www.7-zip.org/>`_
 archives (``archives/``), either for compression gains, or for use on HPC-systems with
 `inode <https://en.wikipedia.org/wiki/Inode>`_ limitations [#f4]_.
-Despite being 7zipped, those archives could be indexed and support
+Despite being 7zipped, those archives can be indexed and support
 relatively fast random read access. Thus, the entire key store can be put into an
 archive, re-using the exact same directory structure, and remains fully
-accessible while only using a handful of inodes (about 25), regardless of file
-number and size, if the dataset contains only annexed files.
-
-Any new dataset is added to the RIA store underneath its individual dataset ID.
-If *subdatasets* of a dataset are published into a RIA store, they are not
-represented *underneath* their superdataset, but are stored on the same hierarchy
-level as any other dataset. Thus, the dataset representation in a RIA store is
-completely flat.
-With this hierarchy-free setup, the location of a particular dataset in the RIA
-store is only dependent on its :term:`dataset ID`. As the dataset ID is universally
-unique, gets assigned to a dataset at the time of creation, and does not change across
-the life time of a dataset, no two different datasets could have the same location
-in a RIA store.
+accessible while only using a handful of inodes, regardless of file
+number and size. If the dataset contains only annexed files, a complete dataset
+can be represented in about 25 inodes.
 
 Taking all of the above information together, on an infrastructural level,
 a RIA store is fully self-contained, and is a plain file system storage, not a
@@ -193,7 +197,7 @@ special remote (but works remotely and uses the ``hashdir_mixed`` [#f2]_ keystor
 layout). Thanks to the git-annex ora-remote, RIA stores can have regular
 git-annex key storage and retrieval of keys from (compressed) 7z archives in
 the RIA store works. Put simple, annexed contents of datasets can only be
-pushed into RIA stores if the have a git-annex ora-remote.
+pushed into RIA stores if they have a git-annex ora-remote.
 
 
 Certain applications will not require special remote features. The usecase
@@ -215,7 +219,7 @@ configuration required [#f6]_.
 Advantages of RIA stores
 """"""""""""""""""""""""
 Storing datasets in RIA stores has a number of advantages that align well with
-the demands of large datasets and scientific compute infrastructure, but are also
+the demands of central dataset management on shared compute infrastructure, but are also
 well suited for most back-up and storage applications.
 In a RIA store layout, the first two levels of subdirectories can host any
 number of keystores and bare repositories. As datasets are identified via ID and
@@ -242,7 +246,7 @@ A few examples are:
   `garbage collection (gc) <https://git-scm.com/docs/git-gc>`_ command.
 
 The usecase :ref:`usecase_datastore` demonstrates the advantages of this in a
-large scientific institute.
+large scientific institute with central data management.
 Due to the git-annex ora-remote special remote, datasets can be exported and
 stored as archives to save disk space.
 
@@ -320,7 +324,7 @@ Note that it is always required to specify an :term:`absolute path` in the URL!
 
 
 To demonstrate the basic process, we will create a RIA store on a local file
-system to publish the ``DataLad-101`` dataset from the handbooks "Basics"
+system to publish the ``DataLad-101`` dataset from the handbook's "Basics"
 section to. In the example below, the RIA sibling gets the name ``ria-backup``.
 The URL uses the ``file`` protocol and points with an absolute path to the not
 yet existing directory ``myriastore``.
@@ -429,6 +433,8 @@ As a demonstration, we'll do it for the ``midterm_project`` subdataset:
 
        $ tree /home/me/myriastore
 
+Thus, in order to create and populate RIA stores, only the commands
+:command:`datalad create-sibling-ria` and :command:`datalad push` are required.
 
 Cloning and updating from RIA stores
 """"""""""""""""""""""""""""""""""""
@@ -460,7 +466,7 @@ dataset ID:
 
 There are two downsides to this method: For one, it is hard to type, remember, and
 know the dataset ID of a desired dataset. Secondly, if no additional path is given to
-:command:`datalad clone`, the dataset clone would be named after its ID.
+:command:`datalad clone`, the resulting dataset clone would be named after its ID.
 An alternative, therefore, is to use an *alias* for the dataset. This is an
 alternative dataset identifier that a dataset in a RIA store can be configured
 with.
@@ -665,7 +671,10 @@ procedures.
          remaining ID characters as the next subdirectory) exists to avoid exhausting
          file system limits on the number of files/folders within a directory.
 
-.. [#f2] The ``ria-layout-version`` is important because it identifies whether
+.. [#f2] Beyond datasets, the RIA store only contains the directory ``error_logs``
+         for error logging and the file ``ria-layout-version`` for a specification of the
+         dataset tree layout in the store (last two lines in the code block above).
+         The ``ria-layout-version`` is important because it identifies whether
          the keystore uses git-annex's ``hashdirlower`` (git-annex's default for
          bare repositories) or ``hashdirmixed`` layout (which is necessary to
          allow symlinked annexes, relevant for :term:`ephemeral clone`\s). To read

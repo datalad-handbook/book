@@ -101,6 +101,12 @@ option. Several different modes are possible:
 - ``all``: The final mode, ``all``, combines modes ``gitpush`` and ``datatransfer``,
   thus attempting to really get your dataset contents published.
 
+:command:`datalad push` can publish available subdatasets recursively if the
+``-r/--recursive`` flag is specified. Note that this requires that all subdatasets
+that should be published have sibling names identical to the sibling specified in
+the top-level :command:`push` command, or that appropriate default publication
+targets are configured throughout the dataset hierarchy.
+
 .. findoutmore:: Details on push for Gitusers
 
    The commands :command:`git push` and :command:`datalad push` appear similar,

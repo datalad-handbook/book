@@ -48,7 +48,12 @@ or storage of datasets [#f1]_, or a regular clone [#f2]_.
      or :command:`create-siblings-gitlab` (for GitLab), or
      :command:`create-sibling-ria` (for a remote indexed archive dataset store [#f1]_).
      Note that :command:`create-sibling-ria` can add an existing store as a sibling
-     or create a new one from scratch
+     or create a new one from scratch.
+
+   - Create a sibling on a local or SSH accessible Unix machine with
+     :command:`datalad create-sibling` (:manpage:`datalad-create-sibling`
+     manual).
+
 
 In order to publish dataset content, DataLad needs to know to which sibling
 content shall be pushed. This can be specified with the ``--to`` option directly

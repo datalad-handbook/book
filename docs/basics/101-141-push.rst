@@ -5,6 +5,13 @@ The sections :ref:`yoda_project`, :ref:`sharethirdparty`, and :ref:`gin` have ea
 shown you crucial aspects of the functions of dataset publishing with
 :command:`datalad push`. This section wraps them all together.
 
+.. note::
+
+   :command:`datalad push` requires DataLad version ``0.13.0`` or higher.
+   Older DataLad versions need to use the :command:`datalad publish` command.
+   For details into ``datalad publish``, please check out the hidden section at
+   the end of this page.
+
 The general overview
 ^^^^^^^^^^^^^^^^^^^^
 

@@ -182,6 +182,53 @@ dataset history (unless you specify a commit range with the ``--since`` option
 -- see the `manual <http://docs.datalad.org/en/latest/generated/man/datalad-push.html>`_
 for more information).
 
+.. findoutmore:: On the datalad publish command
+
+   Starting with DataLad version ``0.13.0``, :command:`datalad push` was introduced
+   and became an alternative to :command:`datalad publish`, which will be
+   removed in a future DataLad release.
+
+   By default, :command:`datalad publish` publishes the last saved state of the
+   dataset (i.e., its Git history) to a specified sibling:
+
+   .. code-block:: bash
+
+      $ datalad publish --to <sibling>
+
+   Like :command:`push`, it supports recursive publishing across dataset
+   hierarchies (if all datasets have appropriately configured default publication
+   targets or identical sibling names) with the ``-r/--recursive`` flag, and it
+   supports the ``--since`` option.
+
+   Main differences to :command:`push` lie in :command:`publish`\s ``--transfer-data``
+   option that can be specified with either ``all``, ``auto`` or ``none`` and
+   determines whether and how annexed contents should be published if the sibling
+   carries an annex: ``none`` will transfer only Git history and no annexed
+   data, ``auto`` relies on configurations of the sibling, and ``all`` will
+   publish all annexed contents.
+
+   By default, when using a plain ``datalad publish --to <sibling>`` with no path
+   specification or ``--transfer-data`` option, :command:`publish` will be used
+   in ``auto`` mode.
+   In practice, this default will most likely lead to the same outcome as when
+   specifying ``none``: only your datasets history, but no annexed contents
+   will be published.
+
+   .. gitusernote::
+
+       On a technical level, the ``auto`` option leads to adding ``auto`` to the underlying
+       ``git annex copy`` command, which in turn publishes annexed contents based on the
+       `git-annex preferred content configuration <https://git-annex.branchable.com/git-annex-preferred-content/>`_
+       of the sibling.
+
+   In order to publish all annexed contents, one needs to specify ``--transfer-data all``.
+   Alternatively, adding paths to the ``publish`` call will publish the specified
+   annexed content (unless ``--transfer-data none`` is explicitly added).
+   As yet another alternative, one needs to add appropriate configuration for :term:`git-annex`,
+   that :command:`publish` can rely on in ``auto`` mode. These configurations
+   allow fine-grained specifications of up to file type or individual file level.
+   More information on these configurations can be found in
+   `git-annex's documentation <https://git-annex.branchable.com/git-annex-preferred-content/>`__.
 
 .. rubric:: Footnotes
 

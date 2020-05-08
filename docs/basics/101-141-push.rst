@@ -42,7 +42,8 @@ or storage of datasets [#f1]_, or a regular clone [#f2]_.
         # to a clone on an SSH-accessible machine
         $ datalad siblings add --name server-sibling --url [user@]hostname:/path/to/sibling/ds
 
-   - Create a sibling from scratch, right from within your repository:
+   - Create a sibling on an external hosting service from scratch, right from
+     within your repository:
      This can be done with the commands :command:`create-sibling-github` (for GitHub)
      or :command:`create-siblings-gitlab` (for GitLab), or
      :command:`create-sibling-ria` (for a remote indexed archive dataset store [#f1]_).

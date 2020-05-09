@@ -83,26 +83,37 @@ option. Several different modes are possible:
 - ``all``: The final mode, ``all``, combines modes ``gitpush`` and ``datatransfer``,
   thus attempting to really get your dataset contents published.
 
-.. findoutmore:: Details on push for Gitusers
+.. Findoutmore:: Pushing more than the current branch
 
-   The commands :command:`git push` and :command:`datalad push` appear similar,
-   but there are crucial differences between them. Depending on how well you
-   know Git, and how complex your DataLad workflows are, you should be aware of
-   them to pick the correct command for your use case.
+   If you have more than one :term:`branch` in your
+   dataset, a :command:`datalad push --to <sibling>` will by default only push
+   the current :term:`branch`, *unless* you provide configurations that alter
+   this default. Here are two ways in which this can be achieved:
 
-   If you have more than one :term:`branch` in your dataset, a
-   :command:`datalad push --to <sibling>` will update all branches that the
-   sibling already has. In other words, :command:`push` honors Git's
-   configuration of upstream branches, so whenever there is any branch
-   configured for push, it will push those, and all of them.
-   If you only want to push a single branch, you will need
-   to `configure push targets <https://git-scm.com/docs/git-push>`_ , or use
-   :command:`git push <sibling> <branch>`/
-   :command:`git push -u <sibling> <branch>` syntax.
+   **Option 1:** Setting the ``push.default`` configuration variable from
+   ``simple`` (the default) to ``matching`` will configure the dataset such that
+   :command:`push` pushes *all* branches to the sibling.
+   A concrete example: On a dataset level, this can be done using
 
+   .. code-block:: bash
 
+       $ git config --local push.default matching
 
+   **Option 2:**
+   `Tweaking the default push refspec <https://git-scm.com/book/en/v2/Git-Internals-The-Refspec>`_ for the dataset allows to
+   select a range of branches that should be pushed. The link above gives a
+   thorough introduction into the refspec. For a hands-on example, consider how it is done for
+   `the published DataLad-101 dataset <https://github.com/datalad-handbook/DataLad-101>`_:
 
+   The published version of the handbook is known to the local handbook dataset
+   as a :term:`remote` called ``public``, and each section of the book is identified
+   with a custom branch name that corresponds to the section name. Whenever an
+   update to the public dataset is pushed, apart from pushing only the ``master``
+   branch, all branches starting with the section identifier ``sct`` are pushed
+   automatically as well. This configuration was achieved by specifying these branches
+   (using :term:`globbing` with ``*``) in the ``push`` specification of this :term:`remote`::
+
+      $ git config --local remote.public.push 'refs/heads/sct*'
 
 Setting access control via publishing
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

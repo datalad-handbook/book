@@ -5,73 +5,124 @@ Using Globus as a data store for the Canadian Open Neuroscience Portal
 
 .. index:: ! Usecase; Using Globus as data store
 
-This use case sketches the basic steps to gain access to existing datasets
-distributed across the `Globus <https://www.globus.org/>`_ network via Datalad
-and git-annex. It elaborates on
+This use case shows how the `Canadian Open Neuroscience Portal (CONP) <https://conp.ca/>`_
+disseminates data as DataLad datasets using the `Globus <https://www.globus.org/>`_
+network with :term:`git-annex`, a custom git-annex :term:`special remote`, and
+Datalad. It demonstrates
 
 #. How to enable the git-annex `Globus special remote  <https://github.com/CONP-PCNO/git-annex-remote-globus>`_
-   to access files content from `Globus.org <https://www.globus.org/>`_ ,
-#. How disk-space aware computing can be eased by DataLad and git-annex
-#. How to work with large datasets distributed across systems avoiding unnecessary
-   replication and maintaining a light-weight approach
-
+   to access files content from `Globus.org <https://www.globus.org/>`_,
+#. The workflows used to access datasets via the
+   `Canadian Open Neuroscience Portal (CONP) <https://conp.ca/>`_,
+#. An example of disk-space aware computing with large datasets distributed
+   across systems that avoids unnecessary replication, eased by DataLad and
+   :term:`git-annex`.
 
 The Challenge
 ^^^^^^^^^^^^^
+
 Every day, researchers from different fields strive to advance present
 state-of-the-art scientific knowledge by generating and publishing novel
 results. Crucially, they must share such results with the scientific
 community to enable other researchers to further build on existing data
 and avoid duplicating work.
 
-Therefore, it is common practice for researchers to both download and
-publish research content in a dataset format via a publicly available
-portal, the `Canadian Open Neuroscience Portal (CONP) <https://conp.ca/>`_,
-which provides them with a vast dataset repository. Managing the scientific data
-ecosystem is extremely challenging given the amount of new data generated
-every day. CONP must take a strategic solution to allow researchers to dynamically
-work on present data, upload new versions and generate additional work. Such
-system must be flexible, dynamic and light-weight. It would be very useful to distribute
-datasets across multiple locations are reduce the need of replicating data
+The `Canadian Open Neuroscience Portal (CONP) <https://conp.ca/>`_ is a publicly
+available platform that aims to remove the technical barriers to practicing open science
+and improve the accessibility and reusability of neuroscience research to accelerate
+the pace of discovery. To this end, the platform will provide a unified interface
+that -- among other things -- enables sharing and open dissemination of both neuroscience
+data and methods to the global community.
+Managing the scientific data ecosystem is extremely challenging given
+the amount of new data generated every day, however.
+CONP must take a strategic solution to allow researchers to
 
+- dynamically work on present data,
+- upload new versions of the data, and
+- generate additional scientific work.
+
+An underlying data management system to achieve this must be flexible, dynamic
+and light-weight. It would need to have the ability to easily distribute datasets
+across multiple locations to reduce the need of re-collecting or replicating
+data that is similar to already existing datasets.
 
 The Datalad Approach
 ^^^^^^^^^^^^^^^^^^^^
+
 CONP makes use of Datalad as a data management tool to enable efficient analysis
 and work on datasets: Datalad minimizes the computational cost of holding full storage of
 datasets versions, it allows files in a dataset to be distributed across
-multiple download sources and to be retrieved on need. Datalad is built
-on top of `Git <https://github.com/>`_ and `git-annex <https://git-annex.branchable.com/>`_
-which provide data version control. In particular, git-annex is a useful
-Git extension tool to manage datasets in a lightweight fashion. It works
-by generating and storing symbolic links (symlinks) of very large files
-that cannot be stored in Git due to size limits, hence dramatically reducing
-storage space. Git-annex requests access to the primary data source storing
-those files, also called `special remote <https://git-annex.branchable.com/special_remotes/>`_,
-to retrieve actual files content, only on user need.
+multiple download sources, and to be retrieved on demand only to save disk space.
+Therefore, it is common practice for researchers to both download and
+publish research content in a dataset format via a CONP, which provides them
+with a vast dataset repository.
 
+.. findoutmore:: Basic principles of DataLad for new readers
+
+    If you are new to DataLad, the introduction of the handbook and the chapter
+    :ref:`chapter_datasets` can give you a good idea of what DataLad and its
+    underlying tools can to, as well as a hands-on demonstration. This findoutmore,
+    in the meantime, sketches a high-level overview of the principles behind DataLad's
+    data sharing capacities.
+
+    Datalad is built on top of `Git <https://git-scm.com/>`_ and
+    `git-annex <https://git-annex.branchable.com/>`_, and enables data version
+    control. A one-page overview can be found in section :ref:`executive_summary`.
+
+    :term:`git-annex` is a useful tool that extends Git with the ability to manage
+    repositories in a lightweight fashion even if they contain large amounts of
+    data. One main principle of git-annex lies storing data that should not be
+    stored in Git (e.g., due to size limits) in an :term:`annex`. In its place, it
+    generates symbolic links (:term:`symlink`\s) to these *annexed* files that encode
+    their file content. Only the symlinks are committed into :term:`Git` while
+    :term:`git-annex` handles data management in the annex. A detailed explanation
+    of this process can be found in the section :ref:`symlink`, but the outcome
+    of it is a light-weight Git repository that can be cloned fast and yet contains
+    access to arbitrarily large data managed by :term:`git-annex`.
+
+    In the case of data sharing procedures, annexed data can be stored in various
+    third party hosting services configured as
+    `special remotes <https://git-annex.branchable.com/special_remotes/>`_.
+    When retrieving data, :term:`git-annex` requests access to the primary data
+    source storing those files to retrieve actual files content when the user
+    needs it.
+
+The workflows for users to get data are straightforward:
 Users log into the CONP portal and install Datalad datasets with
-``datalad install -r <dataset>`` to access annexed files (as mentioned
-above, large files replaced by their symlinks). To request content, they simply
-download those files locally in their filesystem using ``datalad get path/to/file``.
-So simple! Behind the hood, git-annex must have a connection established with
-the primary data source, the ‘special remote’ providing the requested files content.
-In some cases, files are stored in `Globus.org <https://www.globus.org/>`_,
-or more specifically in so called ‘endpoints’, hence locations in Globus.org where
-files get uploaded by their owners or get transferred to. Globus is an efficient
-transfer files system suitable for researchers to share and transfer files between
-endpoints that can be private or public. Therefore, when users download annexed files,
-Globus communicates with git-annex to provide access to files content. Given this
-functionality, we can say that Globus works as a data store for git-annex, or in
-other words it is configured to work as a special remote for git-annex. This is
-possible via the git-annex backend interface implementation for Globus
-called `git-annex-globus-remote <https://github.com/CONP-PCNO/git-annex-remote-globus>`_.
+``datalad install -r <dataset>``. This gives them access to the annexed files
+(as mentioned in the findoutmore above, large files replaced by their symlinks).
+To request the content of the annexed files, they simply download those files
+locally in their filesystem using ``datalad get path/to/file``. So simple!
 
-To sum up, CONP makes available a variety of datasets and provides them to researchers
-as Datalad datasets, given the advantageous Datalad functionalities. In this way,
-researchers have access to a wide research data ecosystem without need of data replication
-thanks to the ability of git-annex and Datalad to interface with special remote locations
-across the web and request access to data !
+On a technical level, under the hood, :term:`git-annex` needs to have a connection
+established with the primary data source, the :term:`special remote`, that hosts
+and provides the requested files' contents.
+In some cases, annexed files are stored in `Globus.org <https://www.globus.org/>`__.
+Globus is an efficient transfer files system suitable for researchers to share
+and transfer files between so called *endpoints*, locations in Globus.org where
+files get uploaded by their owners or get transferred to, that can be either
+private or public. Annexed file contents are stored in such
+`Globus endpoints <https://docs.globus.org/faq/globus-connect-endpoints/#what_is_an_endpoint>`_.
+Therefore, when users download annexed files, Globus communicates with git-annex
+to provide access to files content. Given this functionality, we can say that
+Globus works as a data store for git-annex, or in technical terms, that Globus is
+configured to work as a :term:`special remote` for git-annex. This is
+possible via the git-annex backend interface implementation for Globus
+called `git-annex-globus-remote <https://github.com/CONP-PCNO/git-annex-remote-globus>`_
+developed by CONP.
+In conjunction, CONP and the git-annex-globus-remote constitute the building
+blocks that enable access to datasets and its data: CONP hosts small-sized
+datasets, and Globus.org is the data store that (large) file content can be
+retrieved from.
+
+To sum up, CONP makes a variety of datasets available and provides them to researchers
+as Datalad datasets that have the regular, advantageous Datalad functionality.
+All of this exists thanks to the ability of git-annex and Datalad to interface with
+special remote locations across the web such as `Globus.org <https://www.globus.org>`__
+to request access to data.
+In this way, researchers have access to a wide research data ecosystem and can use
+and reuse existing data, thus reducing the need of data replication.
+
 
 
 Step-by-Step
@@ -80,16 +131,17 @@ Step-by-Step
 Globus as git-annex data store
 """"""""""""""""""""""""""""""
 A remote data store exists thanks to git-annex (which DataLad builds upon):
-Git-annex uses a key-value pair to reference files. In the git-annex object tree,
+git-annex uses a key-value pair to reference files. In the git-annex object tree,
 large files in datasets are stored as values while the key is generated from their
 contents and is checked into Git. The key is used to reference the location of the value
-in the object tree. The object tree (or keystore) with the data contents can
+in the object tree [#f1]_. The :term:`object-tree` (or keystore) with the data contents can
 be located anywhere – its location only needs to be encoded using a special remote.
-Therefore, thanks to the git-annex-globus-remote interface, Globus.org provides
-git-annex with locations information to retrieve values and access files content
-with the corresponding keys. To ultimately enable end users’ access to data,
-git annex registers Globus locations assigning them to Globus-specific URLs,
-such as `globus://datadet_id/path/to/file`, where each Globus URL is associated
+Therefore, thanks to the `git-annex-globus-remote <https://github.com/CONP-PCNO/git-annex-remote-globus>`_
+interface, Globus.org provides git-annex with location information to retrieve
+values and access files content with the corresponding keys.
+To ultimately enable end users’ access to data,
+git-annex registers Globus locations by assigning them to Globus-specific URLs,
+such as ``globus://dataset_id/path/to/file``. Each Globus URL is associated
 with a the key corresponding to the given file. The use of a Globus URL protocol
 is a fictitious mean to assign each file of the dataset a unique location and
 source and therefore, it is a wrapper for additional validation that is performed
@@ -100,29 +152,35 @@ Registration of Globus URLs in git-annex is among the configuration procedures
 carried out on an administrative, system-wide level, and users will only deal
 with direct easy access of desired files.
 
-Therefore, Globus is configured to receive request for data access from the git-annex
-side and to respond back if data is available. Currently, git-annex-globus-remote
-only supports data download operations but it could potentially be useful for additional
-functionalities. When the globus-remote get initialized for the first time, the user
-has to authenticate to Globus.org using ORCHiD, Gmail or a specific Globus accounts:
-this step will enable git-annex to then initialize the globus-remote and establish the
-communication process. To use globus-remote, instructions are available here:
-https://github.com/CONP-PCNO/git-annex-remote-globus. To implement a special remote,
-guidelines specifying the standard communication protocol can be found here:
-https://git-annex.branchable.com/design/external_special_remote_protocol/
+With this, Globus is configured to receive data access requests from git-annex
+and to respond back if data is available. Currently, the git-annex-globus-remote
+only supports data *download* operations. In the future, it could be useful for
+additional functionality as well.
+When the globus special remote gets initialized for the first time, the user
+has to authenticate to Globus.org using `ORCID <https://orcid.org/>`_ ,
+`Gmail <https://mail.google.com>`_ or a specific Globus account.
+This step will enable git-annex to then initialize the globus special remote and
+establish the communication process. Instructions to use the globus special remote
+are available at `github.com/CONP-PCNO/git-annex-remote-globus <https://github.com/CONP-PCNO/git-annex-remote-globus>`_.
+Guidelines specifying the standard communication protocol to implement a custom
+special remote can be found at
+`git-annex.branchable.com/design/external_special_remote_protocol <https://git-annex.branchable.com/design/external_special_remote_protocol/>`_.
 
 
-An example using Globus
-"""""""""""""""""""""""
-It always starts with a dataset:
+An example using Globus from a user perspective
+"""""""""""""""""""""""""""""""""""""""""""""""
+It always starts with a dataset, installed with either :command:`datalad install`
+or :command:`datalad clone`.
 
 .. code-block:: bash
 
    $ datalad install -r <dataset>
    $ cd <dataset>
 
-Now we need to install the globus-special-remote, then authenticate to Globus.org if it is the first time
-by running the setup
+In order to get access to annexed data stored on Globus.org, users need to
+install the globus-special-remote. If it is the first time using
+Globus, users will need to authenticate to Globus.org by running the
+``git-annex-remote-globus setup`` command:
 
 .. code-block:: bash
 
@@ -130,24 +188,36 @@ by running the setup
    # if first time
    $ git-annex-remote-globus setup
 
-We can see that most of the files in the dataset are annexed. You can check the symlink does not enable access to the file
+After the installation of a dataset, we can see that most of the files in the
+dataset are annexed: Listing a file with ``ls -l`` will reveal a :term:`symlink`
+to the dataset's annex.
 
 .. code-block:: bash
 
    $ ls -l NeuroMap_data/cortex/mask/mask.mat
     cortex/mask/mask.mat -> ../../../.git/annex/objects/object.mat
 
+However, without having any content downloaded yet, the symlink currently points
+into a void, and tools will not be able to open the file as its contents
+are not yet locally available.
+
+.. code-block:: bash
+
    $ cat NeuroMap_data/cortex/mask/mask.mat
      NeuroMap_data/cortex/mask/mask.mat: No such file or directory
 
-
-At this point we have to enable the globus remote and after that, we can try to download the file
+However, data retrieval is easy. At first, users have to enable the globus remote.
 
 .. code-block:: bash
 
    $ git annex enableremote globus
     enableremote globus ok
     (recording state in git...)
+
+After that, they can download any file, directory, or complete dataset using
+:command:`datalad get`:
+
+.. code-block:: bash
 
    $ datalad get NeuroMap_data/cortex/mask/mask.mat
     get(ok): NeuroMap_data/cortex/mask/mask.mat (file) [from globus...]
@@ -159,8 +229,25 @@ At this point we have to enable the globus remote and after that, we can try to 
     # you can now access the file !
 
 
-Downloaded!
+Downloaded! Researchers could now use this dataset to replicate previous analyses
+and further build on present data to bring scientific knowledge forward.
+CONP thus makes a variety of datasets flexibly available and helps to disseminate
+data. The on-demand availability of files in datasets can help scientists to
+save disk space. For this, they could get only those data files that they need
+instead of obtaining complete copies of the dataset, or they could locally
+:command:`drop` data that is hosted and thus easily re-available on Globus.org
+after their analyses are done.
 
-This dataset could now be used for any researcher to replicate previous analyses and further
-build on present data to bring scientific knowledge forward !
 
+Resources
+^^^^^^^^^
+
+The ``README`` at `github.com/CONP-PCNO/git-annex-remote-globus <https://github.com/CONP-PCNO/git-annex-remote-globus>`_
+provides an excellent and in-depth overview of how to install and use
+the git-annex special remote for Globus.org.
+
+
+.. rubric:: Footnotes
+
+.. [#f1] More details on how :term:`git-annex` handles data underneath the hood and
+         how the :term:`object-tree` works can be found in section :ref:`symlink`.

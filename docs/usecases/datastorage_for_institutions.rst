@@ -453,10 +453,10 @@ required arguments.
 RIA stores can be used under different types of file transfer protocols.
 Depending on the file transfer protocol, the looks of the ``ria+`` URL can differ:
 
-- :term:`SSH`: ``ria+ssh://[user@]hostname:/absolute/path/to/ria-store``
+- :term:`SSH`: ``ria+ssh://[user@]hostname/absolute/path/to/ria-store``
 - Local file system: ``ria+file:///absolute/path/to/ria-store``
 - :term:`http` (e.g., to a RIA store like `store.datalad.org <http://store.datalad.org/>`_):
-  ``ria+http://store.datalad.org:/absolute/path/to/ria-store``
+  ``ria+http://store.datalad.org/absolute/path/to/ria-store``
 
 Note that it is required to specify an :term:`absolute path` in the URL. Here is
 how one could store a dataset in a RIA store (which can, but does not need to
@@ -465,7 +465,7 @@ exist yet) on an :term:`SSH server` from within an existing dataset:
 .. code-block:: bash
 
    $ datalad create-sibling-ria -s server_backup \
-     ria+ssh://user@some.server.edu:/home/user/scratch/myriastore
+     ria+ssh://user@some.server.edu/home/user/scratch/myriastore
    [INFO   ] create siblings 'server_backup' and 'server_backup-ria' ...
    [INFO   ] Fetching updates for <Dataset path=/tmp/my_dataset>
    [INFO   ] Configure additional publication dependency on "server_backup-ria"
@@ -575,7 +575,7 @@ this, check out the hidden section below.
       archive-id=ae5713fa-48ee-11ea-b341-d0c637c523bc \
       autoenable=true encryption=none externaltype=ria \
       name=backup_server-ria type=external \
-      url=ria+ssh://bob@some.server.edu:/data/datasets/RIAstore timestamp=1581000354.064541765s
+      url=ria+ssh://bob@some.server.edu/data/datasets/RIAstore timestamp=1581000354.064541765s
 
    In general, it is recommended to keep ``ria+`` URLs as generic and widely
    applicable as needed for the user base of the RIA store. However, in cases
@@ -584,11 +584,11 @@ this, check out the hidden section below.
    a configuration allows individual users to specify alternative URLs with
    the key ``url.<new_RIA_base>.insteadOf``::
 
-      $ git config url."ria+ssh://bob@some.server.edu:/data/datasets/RIAstore".insteadOf "ria+ssh://alice@some.server.edu:/data/datasets/RIAstore"
+      $ git config url."ria+ssh://bob@some.server.edu/data/datasets/RIAstore".insteadOf "ria+ssh://alice@some.server.edu/data/datasets/RIAstore"
 
    With this configuration, all URLs beginning with
-   ``ria+ssh://bob@some.server.edu:/data/datasets/RIAstore`` will be dynamically
-   rewritten to start with ``ria+ssh://alice@some.server.edu:/data/datasets/RIAstore``
+   ``ria+ssh://bob@some.server.edu/data/datasets/RIAstore`` will be dynamically
+   rewritten to start with ``ria+ssh://alice@some.server.edu/data/datasets/RIAstore``
    and allow Alice to retrieve files successfully.
    Thus, by configuring ``url.<base>.insteadOf``, URL mismatches can be fixed
    fast.

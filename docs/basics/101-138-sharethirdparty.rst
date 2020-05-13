@@ -345,6 +345,20 @@ publishing to GitHub dependent on the ``dropbox-for-friends`` sibling
 (that has a remote data annex), so that annexed contents are published
 there first.
 
+.. note::
+
+   Note that the publication dependency is only established for your own dataset,
+   it is not shared with clones of the dataset. Internally, this configuration
+   is a key value pair in the section of your remote in ``.git/config``:
+
+   .. code-block:: bash
+
+      [remote "github"]
+         annex-ignore = true
+         url = https://github.com/<user-name>/DataLad-101.git
+         fetch = +refs/heads/*:refs/remotes/github/*
+         datalad-publish-depends = dropbox-for-friends
+
 With this setup, we can publish the dataset to GitHub. Note how the publication
 dependency is served first:
 

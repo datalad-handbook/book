@@ -14,6 +14,6 @@
    :caption: Small pieces of advice and helpful additional options
 
    101-179-gitignore
-   101-144-intro_extensions
+   ../extension_pkgs
    101-145-hooks
    101-146-providers

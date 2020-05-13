@@ -63,7 +63,7 @@ class FindOutMore(BaseAdmonition):
         # but we throw away the title, because we want to mark
         # it up as a 'header' further down
         del docnodes[0][0]
-        import pdb; pdb.set_trace()
+        #import pdb; pdb.set_trace()
         # now put the entire admonition structure into a container
         # that we assign the necessary class to make it 'toggle-able'
         # in HTML

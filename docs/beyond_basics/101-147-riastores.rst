@@ -441,15 +441,14 @@ Cloning and updating from RIA stores
 
 Cloning from RIA stores is done via :command:`datalad clone` from a ``ria+`` URL,
 suffixed with a dataset identifier.
-Depending on the protocol being used, the looks of the URL differ. Note that
-that read-only access from RIA store (i.e., cloning, updating, and getting data,
-but no push access) is possible also via the ``http`` protocol:
+Depending on the protocol being used, the URLs are composed similarly to during
+sibling creation:
 
 - A URL to a RIA store on an :term:`SSH`\-accessible server takes the
   same format as before: ``ria+ssh://[user@]hostname:/absolute/path/to/ria-store``
 - A URL to a RIA store on a local file system also looks like during sibling
   creation: ``ria+file:///absolute/path/to/ria-store``
-- A URL for read access to a store via :term:`http` (e.g., to a RIA store like
+- A URL for read (without annex) access to a store via :term:`http` (e.g., to a RIA store like
   `store.datalad.org <http://store.datalad.org/>`_, through which the
   `HCP dataset is published <../usecases/HCP_dataset.html>`_) looks like this:
   ``ria+http://store.datalad.org:/absolute/path/to/ria-store``

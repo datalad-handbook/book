@@ -465,6 +465,12 @@ repository::
 
     $ git annex initremote github-lfs type=git-lfs url=https://github.com/yarikoptic/test-github-lfs encryption=none embedcreds=no
 
+If you would like to compress data in Git LFS, you need to take a detour via
+encryption during :command:`git annex initremote` -- this has compression as a
+convenient side effect. Here is an example initialization::
+
+   $ git annex initremote --force github-lfs type=git-lfs url=https://github.com/yarikoptic/test-github-lfs encryption=shared
+
 With this single step it becomes possible to transfer contents to GitHub::
 
     $ git annex copy --to=github-lfs file.dat

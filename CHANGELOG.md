@@ -44,12 +44,16 @@ and Michael Hanke -- thank you!
 - A new [chapter on scaling up with DataLad](http://handbook.datalad.org/en/latest/beyond_basics/basics-scaling.html) was added ([#414][])
 - A [section on configuring custom data access](http://handbook.datalad.org/en/latest/beyond_basics/101-146-providers.html) was added to the chapter
   ["Advanced Options"](http://handbook.datalad.org/en/latest/beyond_basics/basics-advancedoptions.html)([#440][])
-
+- The [extension overview](http://handbook.datalad.org/en/latest/extension_pkgs.html)
+  has been updated to a complete overview ([#477][])
 #### Usecases
 
 - A new Usecase
   [Scaling Up: Managing 80TB and 15 Million files from the HCP release](http://handbook.datalad.org/en/latest/usecases/datastorage_for_institutions.html)
   was added ([#225][])
+- Giulia Ippoliti contributed the Usecase
+  [Using Globus as a data store for the Canadian Open Neuroscience Portal](http://handbook.datalad.org/en/latest/usecases/using_globus_as_datastore.html)
+  (opened in [#421][], merged as [#479][])
 
 #### Miscellaneous additions
 
@@ -189,6 +193,7 @@ Alpha stage release with handbook content covering most of the core commands.
 [#414]: https://github.com/datalad-handbook/book/pull/414
 [#417]: https://github.com/datalad-handbook/book/pull/417
 [#418]: https://github.com/datalad-handbook/book/pull/418
+[#421]: https://github.com/datalad-handbook/book/pull/421
 [#435]: https://github.com/datalad-handbook/book/pull/435
 [#440]: https://github.com/datalad-handbook/book/pull/440
 [#445]: https://github.com/datalad-handbook/book/pull/445
@@ -196,3 +201,5 @@ Alpha stage release with handbook content covering most of the core commands.
 [#457]: https://github.com/datalad-handbook/book/pull/457
 [#463]: https://github.com/datalad-handbook/book/pull/463
 [#450]: https://github.com/datalad-handbook/book/pull/450
+[#477]: https://github.com/datalad-handbook/book/pull/477
+[#479]: https://github.com/datalad-handbook/book/pull/479

@@ -14,7 +14,4 @@ copy(ok): books/TLCL.pdf (file) [to gin...]
 copy(ok): books/bash_guide.pdf (file) [to gin...]
 copy(ok): books/byte-of-python.pdf (file) [to gin...]
 copy(ok): books/progit.pdf (file) [to gin...]
-publish(ok): . (dataset) [refs/heads/git-annex->gin:refs/heads/git-annex d45607e..98ae0cb]
-action summary:
-  copy (ok: 4)
-  publish (ok: 2)
+publish(ok): . (dataset) [refs/heads/git-annex->gin:refs/heads/git-annex 9df4d51..2285f9d]

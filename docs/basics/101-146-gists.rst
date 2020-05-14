@@ -213,3 +213,25 @@ be retrieved and pipe that into :command:`get` as well::
    $ for sub in HCP1200/*; do echo ${sub}/T1w/ribbons.nii.gz; done > toget.txt
    # pipe it into datalad get
    $ cat toget.txt | xargs -n 100 datalad get
+
+
+Squashing git-annex history
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+A large number of commits in the :term:`git-annex branch` (think: thousands
+rather than hundreds) can inflate your repository and increase the size of the
+``.git`` directory, which can lead to slower cloning operations.
+There are, however, ways to shrink the commit history in the annex branch.
+
+In order to :term:`squash` the entire git-annex history into a single commit, run
+
+.. code-block:: bash
+
+   $ git annex forget --drop-dead --force
+
+Afterwards, if your dataset has a sibling, the branch needs to be
+:term:`force-push`\ed. If you attempt an operation to shrink your git-annex
+history, also checkout
+`this thread <https://git-annex.branchable.com/forum/safely_dropping_git-annex_history/>`_
+for more information on shrinking git-annex's history and helpful safeguards and
+potential caveats.

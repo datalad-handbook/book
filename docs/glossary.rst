@@ -94,6 +94,11 @@ Glossary
    ephemeral clone
       TODO
 
+   force-push
+      Git concept; Enforcing a :command:`git push` command with the ``--force``
+      option. Find out more in the
+      `documentation of git push <https://git-scm.com/docs/git-push#Documentation/git-push.txt---force>`_.
+
    GIN
       A web-based repository store for data management that you can use to host and
       share datasets. Find out more about GIN `here <https://gin.g-node.org/G-Node/Info/wiki>`__.
@@ -108,11 +113,13 @@ Glossary
       of large files. It allows managing files with :term:`Git`, without checking the file content into Git.
 
    git-annex branch
-      A :term:`branch` in your dataset if it contains an :term:`annex`.  It is
-      completely unconnected to any other branches in your dataset, and contains
-      different types of log files. The contents of this branch are used for
-      git-annex internal tracking of the dataset and its annexed contents.
-      It is managed by :term:`git-annex`, and you should not temper with it.
+      This :term:`branch` exists in your dataset if the dataset contains
+      an :term:`annex`.  The git-annex branch is completely unconnected to any
+      other branch in your dataset, and contains different types of log files.
+      Its contents are used for git-annex's internal tracking of the dataset
+      and its annexed contents.
+      The branch is managed by :term:`git-annex`, and you should not temper with
+      it unless you absolutely know what you are doing.
 
    Git config file
       A file in which :term:`Git` stores configuration option. Such a file usually exists on
@@ -229,6 +236,12 @@ Glossary
       git-annex concept: A protocol that defines the underlying transport of annexed files
       to and from places that are not :term:`Git` repositories (e.g., a cloud service or
       external machines such as HPC systems).
+
+   squash
+      Git concept; Squashing is a Git operation which rewrites history by taking
+      a range of commits and squash them into a single commit. For more information
+      on rewriting Git history, checkout section :ref:`history` and the
+      `documentation <https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History>`_.
 
    SSH
       Secure shell (SSH) is a network protocol to link one machine (computer),

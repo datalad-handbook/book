@@ -22,6 +22,9 @@ to see answered here, please
 
 .. figure:: ../artwork/src/gists.svg
 
+
+.. _parallelize:
+
 Parallelize subdataset processing
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -44,6 +47,13 @@ recursively to their (identically named) siblings:
 and ``xargs`` hands them individually (``-n 1``) to a (recursive) :command:`datalad push`,
 but performs 10 of these operations in parallel (``-P 10``), thus achieving
 parallelization.
+
+Here is an example of cross-dataset download parallelization:
+
+.. code-block:: bash
+
+   $ datalad -f '{path}' subdatasets | xargs -n 1 -P 10 datalad get -d
+
 Operations like this can safely be attempted for all commands that are independent
 across subdatasets.
 
@@ -180,9 +190,10 @@ Should you want to back up all annexed data, even past versions of files, use
 For an in-depth explanation and example take a look at the
 `GitHub issue that raised this question <https://github.com/datalad/datalad/issues/4369>`_.
 
+.. _retrieveHCP:
 
-Retrieve partial content from a hierarchy of datasets
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Retrieve partial content from a hierarchy of (uninstalled) datasets
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 In order to :command:`get` dataset content across a range of subdatasets, a bit
 of UNIX command line foo can increase the efficiency of your command.
@@ -197,7 +208,7 @@ shell works fine::
 
    $ datalad get HCP1200/*/T1W/ribbon.nii.gz
 
-
+The Gist :ref:`parallelize` can show you how to parallelize this.
 If the subdatasets are not yet installed, globbing will not work, because the
 shell can't expand non-existent paths. As an alternative, you can pipe the output
 of an (arbitrarily complex) :command:`datalad search` command into

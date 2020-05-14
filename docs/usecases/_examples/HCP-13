@@ -1,0 +1,8 @@
+$ cd hcp
+$ find HCP1200/130013/T1w/ -maxdepth 1 -name T1w*.nii.gz
+HCP1200/130013/T1w/T1w_acpc_dc.nii.gz
+HCP1200/130013/T1w/T1w_acpc_dc_restore_1.25.nii.gz
+HCP1200/130013/T1w/T1wDividedByT2w.nii.gz
+HCP1200/130013/T1w/T1wDividedByT2w_ribbon.nii.gz
+HCP1200/130013/T1w/T1w_acpc_dc_restore_brain.nii.gz
+HCP1200/130013/T1w/T1w_acpc_dc_restore.nii.gz

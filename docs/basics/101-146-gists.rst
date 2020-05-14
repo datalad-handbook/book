@@ -227,8 +227,7 @@ In order to :term:`squash` the entire git-annex history into a single commit, ru
 
 .. code-block:: bash
 
-   $ git checkout git-annex
-   $ git reset $(git commit-tree HEAD^{tree} -m "A new start")
+   $ git annex forget --drop-dead --force
 
 Afterwards, if your dataset has a sibling, the branch needs to be
 :term:`force-push`\ed. If you attempt an operation to shrink your git-annex

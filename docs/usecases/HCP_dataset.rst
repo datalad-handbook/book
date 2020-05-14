@@ -579,7 +579,7 @@ following findoutmore details how this is done.
       Providing the ``-d/--dataset`` argument instead of a target directory or a
       destination path leads to the file being saved in the new dataset.
       If a target directory or a destination path is given for a file, the copied
-      file will be untracked:
+      file will be not be saved:
 
       .. runrecord:: _examples/HCP-5
          :language: console
@@ -587,7 +587,7 @@ following findoutmore details how this is done.
 
          $ datalad copy-file hcp/HCP1200/130013/T1w/Diffusion/bvecs -t dataset-to-copy-to
 
-      Note how the file is untracked afterwards:
+      Note how the file is added, but not saved afterwards:
 
       .. runrecord:: _examples/HCP-6
          :language: console

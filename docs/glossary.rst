@@ -261,7 +261,7 @@ Glossary
       Git concept; Squashing is a Git operation which rewrites history by taking
       a range of commits and squash them into a single commit. For more information
       on rewriting Git history, checkout section :ref:`history` and the
-      `documentation <https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History>`_.
+      `documentation <https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History>`__.
 
    SSH
       Secure shell (SSH) is a network protocol to link one machine (computer),

@@ -1,3 +1,1 @@
-
-[INFO] Failed to enable annex remote github, could be a pure git or not accessible
-[WARNING] Failed to determine if github carries annex.
+$ python3 /home/me/makepushtarget.py '/home/me/dl-101/DataLad-101/midterm_project' 'github' '/home/me/pushes/midterm_project' False True

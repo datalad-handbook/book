@@ -1,0 +1,3 @@
+$ cd dataset-to-copy-to
+$ datalad status
+    added: bvecs (file)

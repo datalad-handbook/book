@@ -101,6 +101,7 @@
    usecases/reproducible_neuroimaging_analysis
    usecases/HCP_dataset
    usecases/datastorage_for_institutions
+   usecases/using_globus_as_datastore
 
 
 ########

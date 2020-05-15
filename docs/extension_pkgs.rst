@@ -18,6 +18,15 @@ explicitly). The installation is done with
 standard Python package managers, such as :term:`pip`, and beyond installation
 of the package, no additional setup is required.
 
+.. note::
+
+   DataLad extensions listed here are of various maturity levels. Check out their
+   documentation and the sections or chapters associated with an extension to
+   find out more about them. We are working on content to describe each of the
+   extensions, but this is not a high priority at the given time.
+   Contributions of sections, chapters, or demonstrations for extensions
+   that do not yet have one in the handbook are highly welcomed.
+
 Among others (a full list can be found on `PyPi <https://pypi.org/search/?q=datalad>`_),
 the following DataLad extensions are available:
 
@@ -50,6 +59,14 @@ the following DataLad extensions are available:
      - Metadata extraction support for a range of standards common to
        neuroimaging data. The usecase :ref:`usecase_reproduce_neuroimg` demonstrates
        how this extension can be used.
+   * - `DataLad Hirni <http://docs.datalad.org/projects/hirni/en/latest/>`_
+     - A neuroimaging specific extension to allow reproducible DICOM to BIDS
+       conversion of (f)MRI data. The chapter ... introduces this extension.
+
+       .. todo::
+
+          link hirni chapter once done
+
    * - `DataLad Metalad <http://docs.datalad.org/projects/metalad/en/latest/>`_
      - Equips DataLad with an alternative command suite and advanced tooling
        for metadata handling (extraction, aggregation, reporting).
@@ -57,6 +74,32 @@ the following DataLad extensions are available:
        .. todo::
 
           once section on metadata is done, link it here
+
+   * - `DataLad XNAT <https://github.com/datalad/datalad-xnat>`_
+     - Equips DataLad with a set of commands to track
+       `XNAT <https://www.xnat.org/>`_ projects.
+       An alternative, more basic method to retrieve data from an XNAT server is
+       outlined in section :ref:`providers`.
+   * - `DataLad UKBiobank <https://github.com/datalad/datalad-ukbiobank>`_
+     - Equips DataLad with a set of commands to obtain and monitor imaging data
+       releases of the `UKBiobank <https://www.ukbiobank.ac.uk//>`_.
+       An introduction can be found in chapter
+
+       .. todo::
+
+          link UKB chapter once done
+
+   * - `DataLad htcondor <https://github.com/datalad/datalad-htcondor>`_
+     - Enhances DataLad with the ability for remote execution via the job
+       scheduler `HTCondor <https://research.cs.wisc.edu/htcondor/>`_.
+
+   * - `DataLad's Git-remote-clone <https://github.com/datalad/git-remote-rclone>`_ helper
+     - Enables DataLad to push and pull to all third party providers with no native Git
+       support that are supported by `rclone <https://rclone.org/>`_.
+
+       .. todo::
+
+          Rewrite Third Party chapter to use this helper
 
 To install a DataLad extension, use
 

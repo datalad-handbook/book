@@ -53,12 +53,11 @@ def depart_findoutmore_html(self, node):
 
 
 def visit_findoutmore_latex(self, node):
-    self.body.append('START')
+    self.body.append('\n\n\\ruleline{Findoutmore}\n')
 
 
 def depart_findoutmore_latex(self, node):
-    self.body.append('FINISH')
-
+    self.body.append('\n\n\\ruleline{Findoutmore}\n')
 
 class FindOutMore(BaseAdmonition):
     """findoutmore RST directive

@@ -301,6 +301,7 @@ latex_elements = {
    \begin{center}
    \colorbox[HTML]{\colboxcolor}{\usebox{\selvestebox}}
    \end{center}}
+\newcommand*\ruleline[1]{\par\noindent\raisebox{.8ex}{\makebox[\linewidth]{\hrulefill\hspace{1ex}\raisebox{-.8ex}{#1}\hspace{1ex}\hrulefill}}}
 """,
 }
 

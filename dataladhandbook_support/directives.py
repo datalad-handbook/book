@@ -39,6 +39,27 @@ class GitUserNote(BaseAdmonition):
     node_class = gitusernote
 
 
+class findoutmore(nodes.container):
+    """Custom "findoutmore" container."""
+    pass
+
+
+def visit_findoutmore_html(self, node):
+    self.visit_container(node)
+
+
+def depart_findoutmore_html(self, node):
+    self.depart_container(node)
+
+
+def visit_findoutmore_latex(self, node):
+    self.body.append('START')
+
+
+def depart_findoutmore_latex(self, node):
+    self.body.append('FINISH')
+
+
 class FindOutMore(BaseAdmonition):
     """findoutmore RST directive
 
@@ -66,7 +87,7 @@ class FindOutMore(BaseAdmonition):
         # that we assign the necessary class to make it 'toggle-able'
         # in HTML
         # outer container
-        toggle = nodes.container(
+        toggle = findoutmore(
             'toogle',
             # header line with 'Find out more' prefix
             nodes.container(
@@ -100,6 +121,11 @@ def setup(app):
         latex=(visit_gitusernote_latex, depart_gitusernote_latex),
     )
     app.add_directive('gitusernote', GitUserNote)
+    app.add_node(
+        findoutmore,
+        html=(visit_findoutmore_html, depart_findoutmore_html),
+        latex=(visit_findoutmore_latex, depart_findoutmore_latex),
+    )
     app.add_directive('findoutmore', FindOutMore)
 
 # vim: set expandtab shiftwidth=4 softtabstop=4 :

@@ -140,6 +140,8 @@ Tool-specific and smaller advice
   datasets. For example, it may be useful to not use a
   standalone git-annex build, but a native git-annex binary (see
   `this comment <https://github.com/datalad/datalad/issues/3869#issuecomment-557598390>`_)
+- Status reports in datasets with large amounts of files and/or subdatasets can
+  be expensive. Check out the Gist :ref:`speedystatus` for solutions.
 
 .. todo::
 

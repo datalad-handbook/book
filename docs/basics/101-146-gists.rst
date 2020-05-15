@@ -57,9 +57,8 @@ Here is an example of cross-dataset download parallelization:
 Operations like this can safely be attempted for all commands that are independent
 across subdatasets.
 
-
-How can I check whether all file content is present locally?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Check whether all file content is present locally
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 In order to check if all the files in a dataset have their file contents locally
 available, you can ask git-annex:
@@ -89,8 +88,8 @@ line tool `jq <https://stedolan.github.io/jq/>`_ works well::
    $ datalad -f json status --recursive --annex all | jq '. | select(.has_content == true).path'
 
 
-How can I drop annex files from all past commits?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Drop annexed files from all past commits
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If there is annexed file content that is not used anymore (i.e., data in the
 annex that no files in any branch point to anymore such as corrupt files),
@@ -148,8 +147,8 @@ If you want to do it in Python, try this approach:
    results = ds.status(path=<path or list of paths>, annex="basic", result_renderer=None)
 
 
-How can I check whether a dataset contains an annex?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Check whether a dataset contains an annex
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Datasets can be either GitRepos (i.e., sole Git repositories; this happens when
 they are created with the ``--no-annex`` flag, for example), or AnnexRepos
@@ -160,8 +159,8 @@ Here is a one-liner to get this info::
    $ datalad -f'{infos[dataset][repo]}' wtf
 
 
-How can I back-up datasets?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Backing-up datasets
+^^^^^^^^^^^^^^^^^^^
 
 In order to back-up datasets you can publish them to a
 :term:`Remote Indexed Archive (RIA) store` or to a sibling dataset. The former
@@ -225,6 +224,24 @@ be retrieved and pipe that into :command:`get` as well::
    # pipe it into datalad get
    $ cat toget.txt | xargs -n 100 datalad get
 
+.. _speedystatus:
+
+Speed up status reports in large datasets
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+In datasets with deep dataset hierarchies or large numbers of files,
+:command:`datalad status` calls can be expensive. Handily,
+the command provides options that can boost performance by limiting what is being
+tested and reported. In order to speed up subdataset state state evaluation,
+``-e/--eval-subdataset-state`` can be set ``commit`` or ``no``. Instead of checking
+recursively for uncommitted modifications in subdatasets, this would lead ``status``
+to only compare the most recent commit :term:`shasum` in the subdataset against
+the recorded subdataset state in the superdataset (``commit``), or skip subdataset
+state evaluation completely (``no``). In order to speed up file type evaluation,
+the option ``-t/--report-filetype`` can be set to ``raw``. This skips an evaluation
+on whether symlinks are pointers to annexed file (upon which, if true, the symlink
+would be reported as type "file"). Instead, all symlinks will be reported as
+being of type "symlink".
 
 Squashing git-annex history
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^

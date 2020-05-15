@@ -465,6 +465,12 @@ repository::
 
     $ git annex initremote github-lfs type=git-lfs url=https://github.com/yarikoptic/test-github-lfs encryption=none embedcreds=no
 
+If you would like to compress data in Git LFS, you need to take a detour via
+encryption during :command:`git annex initremote` -- this has compression as a
+convenient side effect. Here is an example initialization::
+
+   $ git annex initremote --force github-lfs type=git-lfs url=https://github.com/yarikoptic/test-github-lfs encryption=shared
+
 With this single step it becomes possible to transfer contents to GitHub::
 
     $ git annex copy --to=github-lfs file.dat
@@ -478,9 +484,14 @@ and the entire dataset to the same GitHub repository::
     [INFO   ] Publishing <Dataset path=/tmp/test-github-lfs> to github
     publish(ok): . (dataset) [pushed to github: ['[new branch]', '[new branch]']]
 
-Because special remote URL coincides with the regular remote URL on GitHub,
+Because the special remote URL coincides with the regular remote URL on GitHub,
 ``siblings enable`` will not even be necessary when datalad is installed
 from GitHub.
+
+.. note::
+
+   Unfortunately, it is impossible to :command:`drop` contents from Git LFS:
+   `help.github.com/en/github/managing-large-files <https://help.github.com/en/github/managing-large-files/removing-files-from-git-large-file-storage#git-lfs-objects-in-your-repository>`_
 
 
 Built-in data export

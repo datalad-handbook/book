@@ -189,6 +189,7 @@ Should you want to back up all annexed data, even past versions of files, use
 For an in-depth explanation and example take a look at the
 `GitHub issue that raised this question <https://github.com/datalad/datalad/issues/4369>`_.
 
+.. _retrieveHCP:
 
 Retrieve partial content from a hierarchy of (uninstalled) datasets
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -241,3 +242,24 @@ the option ``-t/--report-filetype`` can be set to ``raw``. This skips an evaluat
 on whether symlinks are pointers to annexed file (upon which, if true, the symlink
 would be reported as type "file"). Instead, all symlinks will be reported as
 being of type "symlink".
+
+Squashing git-annex history
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+A large number of commits in the :term:`git-annex branch` (think: thousands
+rather than hundreds) can inflate your repository and increase the size of the
+``.git`` directory, which can lead to slower cloning operations.
+There are, however, ways to shrink the commit history in the annex branch.
+
+In order to :term:`squash` the entire git-annex history into a single commit, run
+
+.. code-block:: bash
+
+   $ git annex forget --drop-dead --force
+
+Afterwards, if your dataset has a sibling, the branch needs to be
+:term:`force-push`\ed. If you attempt an operation to shrink your git-annex
+history, also checkout
+`this thread <https://git-annex.branchable.com/forum/safely_dropping_git-annex_history/>`_
+for more information on shrinking git-annex's history and helpful safeguards and
+potential caveats.

@@ -282,5 +282,5 @@ Finally, save this note.
 
 .. rubric:: Footnotes
 
-.. [#f1] The section :ref:`history` will elaborate more on common :term:`git` commands
+.. [#f1] The section :ref:`history` will elaborate more on common :term:`Git` commands
          and terminology.

@@ -609,7 +609,7 @@ section.
 Getting contents out of git-annex
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Files in your dataset can either be handled by :term:`Git` or :term:`Git-annex`.
+Files in your dataset can either be handled by :term:`Git` or :term:`git-annex`.
 Self-made or predefined configurations to ``.gitattributes``, defaults, or the
 ``--to-git`` option to :command:`datalad save` allow you to control which tool
 does what on up to single-file basis. Accidentally though, you may give a file of yours

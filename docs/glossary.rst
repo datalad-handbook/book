@@ -45,7 +45,7 @@ Glossary
 
    commit message
       Git concept: A concise summary of changes you should attach to a :command:`datalad save` command. This summary will
-      show up in your :term:`Datalad dataset` history.
+      show up in your :term:`DataLad dataset` history.
 
    DataLad dataset
       A DataLad dataset is a Git repository that may or may not have a data annex that is used to
@@ -250,7 +250,7 @@ Glossary
       identification is not only unambiguous and unique on a system, but indeed *universally*
       unique -- no UUID exists twice anywhere *on the planet*.
       Every DataLad dataset has a UUID that identifies a dataset uniquely as a whole across
-      its entire history and flavors called :term:`Dataset ID` that looks similar to
+      its entire history and flavors called :term:`dataset ID` that looks similar to
       this ``0828ac72-f7c8-11e9-917f-a81e84238a11``. This dataset ID will only exist once,
       identifying only one particular dataset on the planet. Note that this does not
       require all UUIDs to be known in some central database -- the fact that no UUID

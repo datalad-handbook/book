@@ -27,7 +27,7 @@ Even experts will *constantly* seek help to find out which Git command to
 use, and how to use it.", he reassures with a wink.
 
 The basis of working with the history is to *look at it* with tools such
-as :term:`tig`, :term:`gitk`, or simply the :command:`git log` command.
+as :term:`tig`, :term:`Gitk`, or simply the :command:`git log` command.
 The most important information in an entry (commit) in the history is
 the :term:`shasum` (or hash) associated with it.
 This hash is how dataset modifications in the history are identified,

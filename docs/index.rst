@@ -14,6 +14,21 @@ The DataLad Handbook
       :alt: Virtual directory tree of a nested DataLad dataset
 
 
+.. important::
+
+   **PLEASE NOTE:** This is an archived version of the DataLad handbook
+   corresponding to its **0.12.0 release** (January 2020), which in turn was
+   corresponding to the 0.12.0 release of DataLad.
+   This handbook version is **not** a complete documentation of all
+   functionality in DataLad 0.12.0, but the state the handbook was in at this
+   time. Find the latest released version of the handbook at
+   `handbook.datalad.org/en/stable <http://handbook.datalad.org/en/stable/>`_,
+   and its most recent version (including general fixes, visual improvements,
+   and additions of existing commands or workflows based on existing functionality) at
+   `handbook.datalad.org/en/latest <http://handbook.datalad.org/en/latest/>`_.
+   The `CHANGELOG <https://github.com/datalad-handbook/book/blob/master/CHANGELOG.md>`_
+   summarizes the contents and additions that happened between Handbook versions.
+
 **Welcome to the DataLad handbook!**
 ------------------------------------
 

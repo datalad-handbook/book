@@ -87,7 +87,9 @@ does not store the downloaded books in its history yet. Let's change this by
 (:manpage:`datalad-save` manual).
 
 This time, it is your turn to specify a helpful :term:`commit message`
-with the ``-m`` option:
+with the ``-m`` option (although the DataLad command is :command:'datalad save', we talk
+about commit messages because :command:'datalad save' ultimatively uses the command
+:command:'git commit' to do its work):
 
 .. runrecord:: _examples/DL-101-102-106
    :language: console
@@ -176,7 +178,7 @@ in the same commit. And ... what happens if I have files I do not want to track?
 :command:`datalad save -m "some commit message"` would save all of what is currently
 untracked or modified in the dataset into the history!"
 
-Regarding your first remark, you're absolutely right with that!
+Regarding your first remark, you're absolutely right!
 It is good practice to save only those changes
 together that belong together. We do not want to squish completely unrelated changes
 into the same spot of our history, because it would get very nasty should we want to
@@ -263,7 +265,7 @@ from a URL (following any URL-scheme from https, http, or ftp or s3) and save it
 into the dataset together with a human-readable commit message and a hidden,
 machine-readable record of the origin of the content. This saves you time,
 and captures :term:`provenance` information about the data you add to your dataset.
-To experience this, lets add a final book,
+To experience this, let's add a final book,
 `a beginner’s guide to bash <http://www.tldp.org/LDP/Bash-Beginners-Guide/Bash-Beginners-Guide.pdf>`_,
 to the dataset. We provide the command with a URL, a pointer to the dataset the
 file should be saved in (``.`` denotes "current directory"), and a commit message.

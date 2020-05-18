@@ -13,7 +13,7 @@ start already!"
 all of the ``DataLad-101`` course dataset. Sharing datasets was
 something you wanted to look into soon, anyway.
 
-This is one exciting aspect of DataLad datasets has yet been missing
+This is one exciting aspect of DataLad datasets that has yet been missing
 from this course: How does one share a dataset?
 In this section, we will cover the simplest way of sharing a dataset:
 on a local or shared file system, via an *installation* with a path as
@@ -433,7 +433,7 @@ Save this note.
 .. gitusernote::
 
    A dataset that is installed from an existing source, e.g., a path or URL,
-   it the DataLad equivalent of a *clone* in Git.
+   is the DataLad equivalent of a *clone* in Git.
 
 
 .. only:: adminmode

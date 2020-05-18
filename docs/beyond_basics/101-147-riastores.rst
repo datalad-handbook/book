@@ -22,7 +22,7 @@ installed.
 Technical details
 ^^^^^^^^^^^^^^^^^
 
-RIA stores can be created or extended with a single command inside of any
+RIA stores can be created or extended with a single command from within any
 dataset. DataLad datasets can subsequently be published into the datastore as a
 means of backing up a dataset or creating a dataset sibling to collaborate on
 with others. Alternatively, datasets can be cloned and updated from a RIA store
@@ -269,10 +269,12 @@ Creating or publishing to RIA stores
 
 .. index:: ! datalad command; create-sibling-ria
 
-A dataset can be published into an existing or not yet existing RIA store by
+A dataset can be added into an existing or not yet existing RIA store by
 running the :command:`datalad create-sibling-ria` command
-(:manpage:`datalad-create-sibling-ria` manual).
-Just like the :command:`datalad siblings add` command, an arbitrary sibling name
+(:manpage:`datalad-create-sibling-ria` manual), and subsequently published into
+the store using :command:`datalad push`.
+Just like the :command:`datalad siblings add` command,
+for :command:`datalad create-sibling-ria`, an arbitrary sibling name
 (with the ``-s/--name`` option) and a URL to the location of the store (as a
 positional argument) need to be specified. In the case of RIA stores, the URL
 takes the form of a ``ria+`` URL, and the looks of this URL are dependent
@@ -539,9 +541,10 @@ To demonstrate file retrieval from the store, let's get an annexed file:
    protocol, but cloning a dataset from that store to a local computer via
    ``SSH`` protocol. Will this be a problem for file content retrieval?
    No, in all standard situations, DataLad will adapt to this. Upon cloning
-   the dataset with a different protocol than it was created under,
+   the dataset with a different URL than it was created under,
    enabling the special remote will initially fail, but DataLad will adaptively
-   try out other protocols to enable the ora-remote and retrieve file contents.
+   try out other URLs (including changes in hostname, path, or protocol) to
+   enable the ora-remote and retrieve file contents.
 
 Just as expected, the subdatasets are not pre-installed. How will subdataset installation
 work for datasets that exist in a RIA store as well, like ``midterm_project``?
@@ -569,7 +572,7 @@ in the findoutmore below:
    The key to this lies in flexibly regenerating subdataset's URLs based on their
    ID and a path to the RIA store. The :command:`datalad get` command is
    capable of generating RIA URLs to subdatasets on its own, if the higher level
-   dataset containts a ``datalad get`` configuration on ``subdataset-source-candidate-origin``
+   dataset contains a ``datalad get`` configuration on ``subdataset-source-candidate-origin``
    that points to the RIA store the subdataset is published in. Here is how the
    ``.datalad/config`` configuration looks like for the top-level dataset of the
    `HCP dataset <https://github.com/datalad-datasets/human-connectome-project-openaccess>`_::

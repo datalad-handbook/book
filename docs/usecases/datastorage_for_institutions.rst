@@ -230,7 +230,7 @@ case of large, institute-wide datasets, a RIA store (or multiple RIA stores)
 can serve as a central storage location that enables fine-grained data access to
 everyone who needs it, and as a storage and back-up location for all analyses datasets.
 Beyond constituting central storage locations, RIA stores also ease dataset
-maintance and queries:
+maintenance and queries:
 If all datasets of an institute are kept in a single RIA store, questions such
 as "Which projects use this data as their input?", "In which projects was the
 student with this Git identity involved?", "Give me a complete research log

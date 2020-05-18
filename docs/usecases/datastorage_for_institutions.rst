@@ -264,7 +264,7 @@ the RIA setup:
 A `custom procedure <https://jugit.fz-juelich.de/inm7/infrastructure/inm7-datalad/blob/master/inm7_datalad/resources/procedures/cfg_inm7.py>`_
 performs the relevant sibling setup with a fully configured link to the RIA store,
 and, on top of it, also creates an associated repository with a publication
-dependency on the RIA store to an institute's GitLab instance [#f4]_.
+dependency on the RIA store to an institute's GitLab instance [#f1]_.
 With a procedure like this in place system-wide, an individual researcher only
 needs to call the procedure right at the time of dataset creation, and has a
 fully configured and set up analysis dataset afterwards:
@@ -320,32 +320,7 @@ reproducible.
 
 .. rubric:: Footnotes
 
-.. [#f1] The two-level structure (3 ID characters as one subdirectory, the
-         remaining ID characters as the next subdirectory) exists to avoid exhausting
-         file system limits on the number of files/folders within a directory.
-
-.. [#f2] The ``ria-layout-version`` is important because it identifies whether
-         the keystore uses git-annex's ``hashdirlower`` (git-annex's default for
-         bare repositories) or ``hashdirmixed`` layout (which is necessary to
-         allow symlinked annexes, relevant for :term:`ephemeral clone`\s). To read
-         more about hashing in the key store, take a look at
-         `the docs <https://git-annex.branchable.com/internals/hashing/>`_.
-
-.. [#f3] To re-read about how git-annex's object tree works, check out section
-         :ref:`symlink`, and pay close attention to the hidden section.
-         Additionally, you can find much background information in git-annex's
-         `documentation <https://git-annex.branchable.com/internals/>`_.
-
-.. [#f4] To re-read about DataLad's run-procedures, check out section
+.. [#f1] To re-read about DataLad's run-procedures, check out section
          :ref:`procedures`. You can find the source code of the procedure
          `on GitLab <https://jugit.fz-juelich.de/inm7/infrastructure/inm7-datalad/blob/master/inm7_datalad/resources/procedures/cfg_inm7.py>`_.
 
-.. [#f5] Special remote capabilities of a RIA store can be disabled at the time of RIA
-         store creation by passing the option ``--no-storage-sibling`` to the
-         :command:`datalad create-sibling-ria` command.
-
-.. [#f6] To re-read about publication dependencies and why this is relevant to
-         annexed contents in the dataset, checkout section :ref:`sharethirdparty`.
-
-.. [#f7] To re-read on configuring datasets with the :command:`git config`, go
-         back to sections :ref:`config` and :ref:`config2`.

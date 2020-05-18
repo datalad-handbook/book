@@ -22,6 +22,7 @@ the solutions they demonstrate.
 - :ref:`usecase_student_supervision`
 - :ref:`usecase_reproduce_neuroimg`
 - :ref:`usecase_datastore`
+- :ref:`usecase_using_globus_as_datastore`
 
 Contributing
 ^^^^^^^^^^^^

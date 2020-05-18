@@ -642,8 +642,8 @@ configure this repository as a sibling of the dataset:
 
     .. runrecord:: _examples/DL-101-130-116
        :language: console
-       :workdir: dl-101/DataLad-101/midterm_project
-       :realcommand: python -c "from datalad.core.distributed.tests.test_push import mk_push_target; from datalad.api import Dataset as ds; mk_push_target(ds=ds('/home/me/dl-101/DataLad-101/midterm_project'), name='github', path='/home/me/pushes/midtermproject', annex=False, bare=True)"
+
+       $ python3 /home/me/makepushtarget.py '/home/me/dl-101/DataLad-101/midterm_project' 'github' '/home/me/pushes/midterm_project' False True
 
 
 .. code-block:: bash
@@ -657,7 +657,7 @@ Verify that this worked by listing the siblings of the dataset:
 
 .. code-block:: bash
 
-   $ datalad create-sibling-github -d . midtermproject
+   $ datalad siblings
    [WARNING] Failed to determine if github carries annex.
    .: here(+) [git]
    .: github(-) [https://github.com/adswa/midtermproject.git (git)]
@@ -688,12 +688,7 @@ state of the dataset to this :term:`sibling` with the :command:`datalad push`
     the end of this section will already give a practical glimpse into the
     difference between annexed contents and contents stored in Git when pushed
     to GitHub. The chapter :ref:`chapter_thirdparty` will extend on this,
-    but the section
-
-    .. todo::
-
-       write and link
-
+    but the section :ref:`push`
     will finally combine and link all the previous contents to give a comprehensive
     and detailed wrap up of the concept of publishing datasets. In this section,
     you will also find a detailed overview on how :command:`push` works and which

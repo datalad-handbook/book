@@ -8,13 +8,7 @@
 ################
 
 .. toctree::
-   :hidden:
-
-   intro/user_types
-
-.. toctree::
    :maxdepth: 1
-   :caption: What DataLad and the handbook are all about
 
    intro/philosophy
    intro/narrative
@@ -101,6 +95,7 @@
    usecases/reproducible_neuroimaging_analysis
    usecases/HCP_dataset
    usecases/datastorage_for_institutions
+   usecases/using_globus_as_datastore
 
 
 ########
@@ -117,7 +112,7 @@ Appendix
    contributing
    teaching
    acknowledgements
-
+   intro/user_types
 
 ########################
 Code lists from chapters

@@ -51,7 +51,8 @@ the sidebar can also help to navigate to relevant sections, and the
 `index <http://handbook.datalad.org/en/latest/genindex.html>`_ at the end of the
 book can show you where all commands mentioned in the handbook are introduced.
 
-If you're seeking help with regard to large datasets, checkout section
+If you're seeking help with regard to large datasets you might want to take a look at
+Use case :ref:`usecase_HCP_dataset`.
 
 .. todo::
 
@@ -70,7 +71,7 @@ appreciate bug reports!
 
 Umm, sure. In principle, you can jump through the Basics and checkout precisely
 the sections you need, even though not all things will become clear.
-Its best to keep the :ref:`cheat` near by.
+It's best to keep the :ref:`cheat` near by.
 
 You want to know how to set-up and share an analysis
 with DataLad? Reading chapters :ref:`chapter_datasets`, :ref:`chapter_gitannex`,

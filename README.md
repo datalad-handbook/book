@@ -83,9 +83,11 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/sarah1989"><img src="https://avatars3.githubusercontent.com/u/3898779?v=4" width="100px;" alt=""/><br /><sub><b>Sarah Oliveira</b></sub></a><br /><a href="https://github.com/datalad-handbook/book/pulls?q=is%3Apr+reviewed-by%3Asarah1989" title="Reviewed Pull Requests">👀</a> <a href="#ideas-sarah1989" title="Ideas, Planning, & Feedback">🤔</a></td>
   </tr>
   <tr>
-    <td align="center"><a href="https://github.com/dorianps"><img src="https://avatars3.githubusercontent.com/u/9083517?v=4" width="100px;" alt=""/><br /><sub><b>dorianps</b></sub></a><br /><a href="#ideas-dorianps" title="Ideas, Planning, & Feedback">🤔</a></td>
-    <td align="center"><a href="https://github.com/hbaagil"><img src="https://avatars3.githubusercontent.com/u/61992500?v=4" width="100px;" alt=""/><br /><sub><b>hbaagil</b></sub></a><br /><a href="#userTesting-hbaagil" title="User Testing">📓</a> <a href="https://github.com/datalad-handbook/book/issues?q=author%3Ahbaagil" title="Bug reports">🐛</a></td>
+    <td align="center"><a href="https://github.com/dorianps"><img src="https://avatars3.githubusercontent.com/u/9083517?v=4" width="100px;" alt=""/><br /><sub><b>Dorian Pustina</b></sub></a><br /><a href="#ideas-dorianps" title="Ideas, Planning, & Feedback">🤔</a></td>
+    <td align="center"><a href="https://github.com/hbaagil"><img src="https://avatars3.githubusercontent.com/u/61992500?v=4" width="100px;" alt=""/><br /><sub><b>Hamzah Hamid Baagil</b></sub></a><br /><a href="#userTesting-hbaagil" title="User Testing">📓</a> <a href="https://github.com/datalad-handbook/book/issues?q=author%3Ahbaagil" title="Bug reports">🐛</a></td>
     <td align="center"><a href="https://github.com/glatard"><img src="https://avatars0.githubusercontent.com/u/5174953?v=4" width="100px;" alt=""/><br /><sub><b>Tristan Glatard</b></sub></a><br /><a href="https://github.com/datalad-handbook/book/issues?q=author%3Aglatard" title="Bug reports">🐛</a></td>
+    <td align="center"><a href="https://github.com/gi114"><img src="https://avatars0.githubusercontent.com/u/17640807?v=4" width="100px;" alt=""/><br /><sub><b>Giulia Ippoliti</b></sub></a><br /><a href="#content-gi114" title="Content">🖋</a> <a href="#example-gi114" title="Examples">💡</a></td>
+    <td align="center"><a href="https://github.com/christian-monch"><img src="https://avatars3.githubusercontent.com/u/17925232?v=4" width="100px;" alt=""/><br /><sub><b>Christian Mönch</b></sub></a><br /><a href="#content-christian-monch" title="Content">🖋</a></td>
   </tr>
 </table>
 

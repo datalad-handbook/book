@@ -1,9 +1,18 @@
+.. _push:
+
 Overview: Publishing datasets
 -----------------------------
 
 The sections :ref:`yoda_project`, :ref:`sharethirdparty`, and :ref:`gin` have each
 shown you crucial aspects of the functions of dataset publishing with
 :command:`datalad push`. This section wraps them all together.
+
+.. note::
+
+   :command:`datalad push` requires DataLad version ``0.13.0`` or higher.
+   Older DataLad versions need to use the :command:`datalad publish` command.
+   For details into ``datalad publish``, please check out the hidden section at
+   the end of this page.
 
 The general overview
 ^^^^^^^^^^^^^^^^^^^^
@@ -26,16 +35,27 @@ or storage of datasets [#f1]_, or a regular clone [#f2]_.
 .. findoutmore:: all of the ways to configure siblings
 
    - Add an existing repository as a sibling with the :command:`datalad siblings`
-     command. Here is an example::
+     command. Here are common examples::
 
+        # to a remote repository
         $ datalad siblings add --name github-repo --url <url.to.github>
+        # to a local path
+        $ datalad siblings add --name local-sibling --url /path/to/sibling/ds
+        # to a clone on an SSH-accessible machine
+        $ datalad siblings add --name server-sibling --url [user@]hostname:/path/to/sibling/ds
 
-   - Create a sibling from scratch, right from within your repository:
+   - Create a sibling on an external hosting service from scratch, right from
+     within your repository:
      This can be done with the commands :command:`create-sibling-github` (for GitHub)
      or :command:`create-siblings-gitlab` (for GitLab), or
      :command:`create-sibling-ria` (for a remote indexed archive dataset store [#f1]_).
      Note that :command:`create-sibling-ria` can add an existing store as a sibling
-     or create a new one from scratch
+     or create a new one from scratch.
+
+   - Create a sibling on a local or SSH accessible Unix machine with
+     :command:`datalad create-sibling` (:manpage:`datalad-create-sibling`
+     manual).
+
 
 In order to publish dataset content, DataLad needs to know to which sibling
 content shall be pushed. This can be specified with the ``--to`` option directly
@@ -83,26 +103,44 @@ option. Several different modes are possible:
 - ``all``: The final mode, ``all``, combines modes ``gitpush`` and ``datatransfer``,
   thus attempting to really get your dataset contents published.
 
-.. findoutmore:: Details on push for Gitusers
 
-   The commands :command:`git push` and :command:`datalad push` appear similar,
-   but there are crucial differences between them. Depending on how well you
-   know Git, and how complex your DataLad workflows are, you should be aware of
-   them to pick the correct command for your use case.
+:command:`datalad push` can publish available subdatasets recursively if the
+``-r/--recursive`` flag is specified. Note that this requires that all subdatasets
+that should be published have sibling names identical to the sibling specified in
+the top-level :command:`push` command, or that appropriate default publication
+targets are configured throughout the dataset hierarchy.
 
-   If you have more than one :term:`branch` in your dataset, a
-   :command:`datalad push --to <sibling>` will update all branches that the
-   sibling already has. In other words, :command:`push` honors Git's
-   configuration of upstream branches, so whenever there is any branch
-   configured for push, it will push those, and all of them.
-   If you only want to push a single branch, you will need
-   to `configure push targets <https://git-scm.com/docs/git-push>`_ , or use
-   :command:`git push <sibling> <branch>`/
-   :command:`git push -u <sibling> <branch>` syntax.
+.. Findoutmore:: Pushing more than the current branch
 
+   If you have more than one :term:`branch` in your
+   dataset, a :command:`datalad push --to <sibling>` will by default only push
+   the current :term:`branch`, *unless* you provide configurations that alter
+   this default. Here are two ways in which this can be achieved:
 
+   **Option 1:** Setting the ``push.default`` configuration variable from
+   ``simple`` (the default) to ``matching`` will configure the dataset such that
+   :command:`push` pushes *all* branches to the sibling.
+   A concrete example: On a dataset level, this can be done using
 
+   .. code-block:: bash
 
+       $ git config --local push.default matching
+
+   **Option 2:**
+   `Tweaking the default push refspec <https://git-scm.com/book/en/v2/Git-Internals-The-Refspec>`_ for the dataset allows to
+   select a range of branches that should be pushed. The link above gives a
+   thorough introduction into the refspec. For a hands-on example, consider how it is done for
+   `the published DataLad-101 dataset <https://github.com/datalad-handbook/DataLad-101>`_:
+
+   The published version of the handbook is known to the local handbook dataset
+   as a :term:`remote` called ``public``, and each section of the book is identified
+   with a custom branch name that corresponds to the section name. Whenever an
+   update to the public dataset is pushed, apart from pushing only the ``master``
+   branch, all branches starting with the section identifier ``sct`` are pushed
+   automatically as well. This configuration was achieved by specifying these branches
+   (using :term:`globbing` with ``*``) in the ``push`` specification of this :term:`remote`::
+
+      $ git config --local remote.public.push 'refs/heads/sct*'
 
 Setting access control via publishing
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -158,6 +196,53 @@ dataset history (unless you specify a commit range with the ``--since`` option
 -- see the `manual <http://docs.datalad.org/en/latest/generated/man/datalad-push.html>`_
 for more information).
 
+.. findoutmore:: On the datalad publish command
+
+   Starting with DataLad version ``0.13.0``, :command:`datalad push` was introduced
+   and became an alternative to :command:`datalad publish`, which will be
+   removed in a future DataLad release.
+
+   By default, :command:`datalad publish` publishes the last saved state of the
+   dataset (i.e., its Git history) to a specified sibling:
+
+   .. code-block:: bash
+
+      $ datalad publish --to <sibling>
+
+   Like :command:`push`, it supports recursive publishing across dataset
+   hierarchies (if all datasets have appropriately configured default publication
+   targets or identical sibling names) with the ``-r/--recursive`` flag, and it
+   supports the ``--since`` option.
+
+   Main differences to :command:`push` lie in :command:`publish`\s ``--transfer-data``
+   option that can be specified with either ``all``, ``auto`` or ``none`` and
+   determines whether and how annexed contents should be published if the sibling
+   carries an annex: ``none`` will transfer only Git history and no annexed
+   data, ``auto`` relies on configurations of the sibling, and ``all`` will
+   publish all annexed contents.
+
+   By default, when using a plain ``datalad publish --to <sibling>`` with no path
+   specification or ``--transfer-data`` option, :command:`publish` will be used
+   in ``auto`` mode.
+   In practice, this default will most likely lead to the same outcome as when
+   specifying ``none``: only your datasets history, but no annexed contents
+   will be published.
+
+   .. gitusernote::
+
+       On a technical level, the ``auto`` option leads to adding ``auto`` to the underlying
+       ``git annex copy`` command, which in turn publishes annexed contents based on the
+       `git-annex preferred content configuration <https://git-annex.branchable.com/git-annex-preferred-content/>`_
+       of the sibling.
+
+   In order to publish all annexed contents, one needs to specify ``--transfer-data all``.
+   Alternatively, adding paths to the ``publish`` call will publish the specified
+   annexed content (unless ``--transfer-data none`` is explicitly added).
+   As yet another alternative, one needs to add appropriate configuration for :term:`git-annex`,
+   that :command:`publish` can rely on in ``auto`` mode. These configurations
+   allow fine-grained specifications of up to file type or individual file level.
+   More information on these configurations can be found in
+   `git-annex's documentation <https://git-annex.branchable.com/git-annex-preferred-content/>`__.
 
 .. rubric:: Footnotes
 

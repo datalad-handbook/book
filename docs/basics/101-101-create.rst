@@ -119,7 +119,7 @@ an informative commit message yourself.
    :command:`datalad create` uses :command:`git init` and :command:`git-annex init`. Therefore,
    the DataLad dataset is a Git repository.
    Large file content in the
-   dataset in the annex is tracked with git-annex. An ``ls -a``
+   dataset is tracked with git-annex. An ``ls -a``
    reveals that Git has secretly done its work:
 
    .. runrecord:: _examples/DL-101-101-104
@@ -151,3 +151,35 @@ Let us now put some content inside.
 
 .. [#f1] A tool we can recommend as an alternative to :command:`git log` is :term:`tig`.
          Once installed, exchange any ``git log`` command you see here with the single word ``tig``.
+
+
+.. ifconfig:: internal
+
+    create a script to help make push targets
+
+    .. runrecord:: _examples/DL-101-101-106
+       :language: console
+       :workdir: dl-101/DataLad-101
+
+       $ cat << EOT >| /home/me/makepushtarget.py
+
+       #!/usr/bin/python3
+
+       from datalad.core.distributed.tests.test_push import mk_push_target
+       from datalad.api import Dataset as ds
+       import sys
+
+       ds_path = sys.argv[1]
+       name = sys.argv[2]
+       path = sys.argv[3]
+       annex = sys.argv[4]
+       bare = sys.argv[5]
+
+       if __name__ == '__main__':
+           mk_push_target(ds=ds(ds_path),
+                          name=name,
+                          path=path,
+                          annex=annex,
+                          bare=bare)
+
+       EOT

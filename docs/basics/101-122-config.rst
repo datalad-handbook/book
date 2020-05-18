@@ -82,7 +82,7 @@ Git config files
 The user name and email configuration
 is a *user-specific* configuration (called *global*
 configuration by Git), and therefore applies to your user account.
-Where ever on your computer *you* run a Git, git-annex, or DataLad
+Wherever on your computer *you* run a Git, git-annex, or DataLad
 command, this global configuration will
 associate the name and email address you supplied in
 the :command:`git config` commands above with this action.

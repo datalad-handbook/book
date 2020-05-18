@@ -223,7 +223,7 @@ Glossary
    Remote Indexed Archive (RIA) store
       A Remote Indexed Archive (RIA) Store is a flexible and scalable dataset storage
       solution, useful for collaborative, back-up, or storage workflows. Read more
-      about RIA stores in the usecase :ref:`usecase_datastore`.
+      about RIA stores in the section :ref:`riastore`.
 
    run procedure
       DataLad concept: An executable (such as a script) that can be called with the

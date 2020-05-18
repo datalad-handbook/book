@@ -1,0 +1,2 @@
+$ datalad get books/progit.pdf
+get(ok): books/progit.pdf (file) [from ria-backup-storage...]

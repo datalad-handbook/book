@@ -17,3 +17,4 @@
    ../extension_pkgs
    101-145-hooks
    101-146-providers
+   101-147-riastores

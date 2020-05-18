@@ -87,9 +87,9 @@ does not store the downloaded books in its history yet. Let's change this by
 (:manpage:`datalad-save` manual).
 
 This time, it is your turn to specify a helpful :term:`commit message`
-with the ``-m`` option (although the DataLad command is :command:'datalad save', we talk
-about commit messages because :command:'datalad save' ultimatively uses the command
-:command:'git commit' to do its work):
+with the ``-m`` option (although the DataLad command is :command:`datalad save`, we talk
+about commit messages because :command:`datalad save` ultimatively uses the command
+:command:`git commit` to do its work):
 
 .. runrecord:: _examples/DL-101-102-106
    :language: console

@@ -711,6 +711,14 @@ and the dataset will contain a complete record all the way from the input BIDS
 dataset to the GLM results. The BIDS subdataset in turn has a
 complete record of all processing down from the raw DICOMs onwards.
 
+.. note::
+
+   See how many files were created and added in this computation of a single
+   participant? If your study has many participants, analyses like the one above
+   could inflate your dataset. Please check out the chapter :ref:`chapter_gobig`.
+   in particular the section :ref:`big_analysis` for tips and tricks on how to
+   create analyses datasets that scale.
+
 
 Archive data and results
 """"""""""""""""""""""""

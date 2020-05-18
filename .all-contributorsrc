@@ -291,6 +291,15 @@
         "content",
         "example"
       ]
+    },
+    {
+      "login": "christian-monch",
+      "name": "Christian Mönch",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/17925232?v=4",
+      "profile": "https://github.com/christian-monch",
+      "contributions": [
+        "content"
+      ]
     }
   ],
   "contributorsPerLine": 7,

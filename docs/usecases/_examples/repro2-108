@@ -1,0 +1,15 @@
+$ datalad run -m "Import stimulation events" \
+  --input inputs/rawdata/events.tsv \
+  --output sub-02/func/sub-02_task-oneback_run-01_events.tsv \
+  cp {inputs} {outputs}
+[INFO] Making sure inputs are available (this may take some time)
+[INFO] == Command start (output follows) =====
+[INFO] == Command exit (modification check follows) =====
+unlock(ok): sub-02/func/sub-02_task-oneback_run-01_events.tsv (file)
+add(ok): sub-02/func/sub-02_task-oneback_run-01_events.tsv (file)
+save(ok): . (dataset)
+action summary:
+  add (ok: 1)
+  get (notneeded: 3)
+  save (notneeded: 1, ok: 1)
+  unlock (ok: 1)

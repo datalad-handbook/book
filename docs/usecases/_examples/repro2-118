@@ -1,0 +1,2 @@
+$ datalad save --version-tag ready4analysis
+save(ok): . (dataset)

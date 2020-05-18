@@ -1,0 +1,5 @@
+# check that we are now on the new `verify` branch
+$ git branch
+  git-annex
+  master
+* verify

@@ -1,0 +1,6 @@
+$ git log -- inputs
+commit 721add9dec06817845a62a30e1dcc50cc4bbc61e
+Author: Elena Piscopia <elena@example.net>
+Date:   Mon May 18 07:49:22 2020 +0200
+
+    [DATALAD] Recorded changes

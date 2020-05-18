@@ -53,11 +53,14 @@ def depart_findoutmore_html(self, node):
 
 
 def visit_findoutmore_latex(self, node):
-    self.body.append('\n\n\\ruleline{Findoutmore}\n')
+    self.body.append('\\begin{colortext}\n'
+                     '\n\\ruleline{Findoutmore}')
+    #import pdb; pdb.set_trace()
 
 
 def depart_findoutmore_latex(self, node):
-    self.body.append('\n\n\\ruleline{Findoutmore}\n')
+    self.body.append('\n\n\\ruleline{-}\n'
+                     '\\end{colortext}')
 
 class FindOutMore(BaseAdmonition):
     """findoutmore RST directive

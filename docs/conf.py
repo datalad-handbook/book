@@ -273,7 +273,7 @@ latex_documents = [
 
 # The name of an image file (relative to this directory) to place at the top of
 # the title page.
-latex_logo = None
+latex_logo = '_static/logo_small.png'
 
 latex_toplevel_sectioning = 'part'
 latex_show_pagerefs = True
@@ -301,6 +301,8 @@ latex_elements = {
    \begin{center}
    \colorbox[HTML]{\colboxcolor}{\usebox{\selvestebox}}
    \end{center}}
+\newcommand*\ruleline[1]{\par\noindent\raisebox{.8ex}{\makebox[\linewidth]{\hrulefill\hspace{1ex}\raisebox{-.8ex}{#1}\hspace{1ex}\hrulefill}}}
+\newenvironment{colortext}{\color{orange}}{\ignorespacesafterend}
 """,
 }
 

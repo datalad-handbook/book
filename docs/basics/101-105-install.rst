@@ -71,7 +71,7 @@ to be installed lives on :term:`GitHub`, at
 `https://github.com/datalad-datasets/longnow-podcasts.git <https://github.com/datalad-datasets/longnow-podcasts.git>`_,
 and we can give its GitHub URL as the  first positional argument.
 Optionally, the command also takes as second positional argument a path to the *destination*,
---a path to where we want to install the dataset to-- In this case it is ``recordings/longnow``.
+-- a path to where we want to install the dataset to. In this case it is ``recordings/longnow``.
 Because we are installing a dataset (the podcasts) into an existing dataset (the ``DataLad-101``
 dataset), we also supply a ``-d/--dataset`` flag to the command.
 This specifies the dataset to perform the operation on, and allows us to install

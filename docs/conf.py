@@ -267,13 +267,13 @@ latex_documents = [
       'index',
       'dataladhandbook.tex',
       u'The DataLad Handbook',
-      u' \\and '.join(a.replace(' ', '~') for a in authors),
+      u'',
       'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
 # the title page.
-latex_logo = '_static/logo_small.png'
+latex_logo = '../artwork/logo.pdf'
 
 latex_toplevel_sectioning = 'part'
 latex_show_pagerefs = True
@@ -282,8 +282,29 @@ latex_elements = {
     'papersize': 'a4',
     'pointsize': '11pt',
     'figure_align': 'H',
+    'maketitle': r"""
+\begin{titlepage}
+\raggedleft
+\rule{1pt}{\textheight}
+\hspace{0.05\textwidth}
+\parbox[b]{0.75\textwidth}{
+\includegraphics[width=0.75\textwidth]{logo.pdf}\\
+{\Huge\textbf{The handbook}}\hfill{\footnotesize %s}\\[1\baselineskip]
+{\Large Introduction \textbullet\ Advanced topics \textbullet\ Use cases}\\[2\baselineskip]
+{\Large\textsc{Adina~Wagner \& Michael~Hanke}\\[1\baselineskip]
+{\small \textit{with}}\\[1\baselineskip]
+{
+\raggedright
+%s\\
+}}
+}
+\end{titlepage}
+""" % (
+        release,
+        ', '.join('\\mbox{%s}' % a for a in authors[1:-1]),
+    ),
     'extraclassoptions': 'openany,oneside',
-    'fncychap' : r'\usepackage[Bjarne]{fncychap}',
+    'fncychap': r'\usepackage[Bjarne]{fncychap}',
     'passoptionstopackages': r'\PassOptionsToPackage{svgnames}{xcolor}',
     'preamble': r"""
 \usepackage{charter}

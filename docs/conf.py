@@ -289,8 +289,17 @@ latex_elements = {
 \usepackage{charter}
 \usepackage[defaultsans]{lato}
 \usepackage{inconsolata}
+
+% nice boxes
+\usepackage[skins,breakable]{tcolorbox}
+\tcbset{enhanced}
+
 \setcounter{tocdepth}{1}
 \usepackage{xcolor}
+\definecolor{dataladyellow}{HTML}{FFA200}
+\definecolor{dataladblue}{HTML}{7FD5FF}
+\definecolor{dataladgray}{HTML}{333333}
+
 \setcounter{secnumdepth}{0}
 \newsavebox{\selvestebox}
 \newenvironment{colbox}[1]

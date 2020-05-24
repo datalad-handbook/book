@@ -1,0 +1,5 @@
+# switch back to the master branch and remove the `verify` branch
+$ git checkout master
+$ git branch -D verify
+Switched to branch 'master'
+Deleted branch verify (was eeac9a0).

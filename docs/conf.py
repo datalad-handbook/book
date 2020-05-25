@@ -279,7 +279,7 @@ latex_toplevel_sectioning = 'part'
 latex_show_pagerefs = True
 latex_show_urls = 'footnote'
 latex_elements = {
-    'papersize': 'a4',
+    'papersize': 'a4paper',
     'pointsize': '11pt',
     'figure_align': 'H',
     'maketitle': r"""

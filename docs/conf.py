@@ -303,7 +303,7 @@ latex_elements = {
         release,
         ', '.join('\\mbox{%s}' % a for a in authors[1:-1]),
     ),
-    'extraclassoptions': 'openany,oneside',
+    'extraclassoptions': 'openany,twoside',
     'fncychap': r'\usepackage[Bjarne]{fncychap}',
     'passoptionstopackages': r'\PassOptionsToPackage{svgnames}{xcolor}',
     'preamble': r"""

@@ -1,7 +1,7 @@
 .. _chapter_furtheroptions:
 
-**X - Advanced options**
-------------------------
+Advanced options
+----------------
 
 .. index:: ! Chapter; 10. Advanced Options
 
@@ -9,7 +9,6 @@
 
 
 .. toctree::
-   :numbered:
    :maxdepth: 1
    :caption: Small pieces of advice and helpful additional options
 

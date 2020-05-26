@@ -2,8 +2,8 @@
 .. _1-002:
 .. _chapter_run:
 
-**II - DataLad, Run!**
-----------------------
+DataLad, Run!
+-------------
 
 .. index:: ! Chapter; 2. DataLad Run
 
@@ -12,7 +12,6 @@
 
 .. toctree::
    :maxdepth: 1
-   :numbered:
    :caption: How DataLad records provenance of dataset modifications
 
    101-108-run

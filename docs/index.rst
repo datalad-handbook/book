@@ -1,26 +1,17 @@
+:orphan:
 
 .. meta::
-   :description: Some summary
+   :description: The home of the DataLad handbook
 
+.. image:: img/datalad-animated.gif
+   :scale: 100%
+   :alt: Virtual directory tree of a nested DataLad dataset
 
-####################
-The DataLad Handbook
-####################
+============
+The Handbook
+============
 
-.. only:: html
-
-   .. figure:: img/datalad-animated.gif
-      :scale: 100%
-      :alt: Virtual directory tree of a nested DataLad dataset
-
-
-**Welcome to the DataLad handbook!**
-------------------------------------
-
-.. only:: latex
-
-   **Welcome!**
-
+**Welcome!**
 
 This handbook is a living resource about why and -- more importantly -- *how* to
 use DataLad. It aims to provide novices and advanced users of all backgrounds
@@ -35,17 +26,9 @@ Before you read on, please note that the handbook is based on **DataLad version 
 but the section :ref:`install` will set you up with what you need if you currently do
 not have DataLad 0.12 or higher installed.
 
-.. only:: html
-
-   If you're new here, please start the handbook `here <intro/philosophy.html>`_.
-   Alternatively, try to identify with one of several user-types in this
-   `user specific guide to the handbook <intro/user_types.html>`_.
-
-.. only:: latex
-
-   If you're new here, please start the handbook in the section :ref:`philo`.
-   Alternatively, try to identify with one of several user-types in the section
-   :ref:`usertypes`.
+If you're new here, please start the handbook `here <intro/philosophy.html>`_.
+Alternatively, try to identify with one of several user-types in this
+`user specific guide to the handbook <intro/user_types.html>`_.
 
 .. important::
 
@@ -53,4 +36,82 @@ not have DataLad 0.12 or higher installed.
    If you would be willing to provide feedback on its contents, please
    `get in touch <https://github.com/datalad-handbook/book/issues/new>`_.
 
-.. include:: contents.rst.inc
+
+.. image:: artwork/src/enter.svg
+   :width: 60%
+   :align: center
+
+.. toctree::
+   :maxdepth: 2
+   :caption: What this is all about
+
+   intro/intro
+
+.. image:: artwork/src/basics.svg
+   :width: 60%
+   :align: center
+
+.. toctree::
+   :maxdepth: 3
+   :caption: The fundamentals of DataLad
+
+   basics/intro
+
+.. image:: artwork/src/advanced.svg
+   :width: 60%
+   :align: center
+
+.. toctree::
+   :maxdepth: 3
+   :caption: Beyond the Basics
+
+   beyond_basics/intro.rst
+
+.. image:: artwork/src/usecases.svg
+   :width: 60%
+   :align: center
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Hands-on real-world applications with step-by-step recipes
+
+   usecases/intro
+
+########
+Appendix
+########
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Further information and references
+
+   glossary
+   basics/101-180-FAQ
+   basics/101-136-cheatsheet
+   contributing
+   teaching
+   acknowledgements
+   intro/user_types
+
+########################
+Code lists from chapters
+########################
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Easy access to copy-paste snippets for workshops
+
+   code_from_chapters/intro
+   code_from_chapters/01_dataset_basics_code
+   code_from_chapters/02_reproducible_execution_code
+   code_from_chapters/10_yoda_code
+
+..
+  stuff that we do not need or show at the moment
+
+.. only:: adminmode
+
+    .. toctree::
+       :hidden:
+
+       usecases/datasets

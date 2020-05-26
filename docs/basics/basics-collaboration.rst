@@ -1,7 +1,7 @@
 .. _chapter_collaboration:
 
-**IV - Collaboration**
-----------------------
+Collaboration
+-------------
 
 .. index:: ! Chapter; 4. Collaboration
 
@@ -10,7 +10,6 @@
 
 .. toctree::
    :maxdepth: 1
-   :numbered:
    :caption: Sharing on shared file systems
 
    101-116-sharelocal

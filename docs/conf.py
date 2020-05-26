@@ -264,7 +264,7 @@ htmlhelp_basename = 'dataladhandbookdoc'
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
   (
-      'index',
+      'book_main',
       'dataladhandbook.tex',
       u'The DataLad Handbook',
       u'',
@@ -321,7 +321,7 @@ latex_elements = {
 \definecolor{dataladblue}{HTML}{7FD5FF}
 \definecolor{dataladgray}{HTML}{333333}
 
-\setcounter{secnumdepth}{0}
+\setcounter{secnumdepth}{1}
 \newsavebox{\selvestebox}
 \newenvironment{colbox}[1]
   {\newcommand\colboxcolor{#1}%

@@ -25,10 +25,10 @@ Solution: Subdatasets
 ^^^^^^^^^^^^^^^^^^^^^
 
 To stick to the example of FEAT, here is a quick overview on what this software
-does: It is modelling neuroimaging data based on general linear modelling (GLM),
+does: It is modeling neuroimaging data based on general linear modeling (GLM),
 and creates web page analyses reports, color activation images, time-course plots
 of data and model, preprocessed intermediate data, images with filtered data,
-statistical output images, colour rendered output images, log files, and many more
+statistical output images, color rendered output images, log files, and many more
 -- in short: A LOT of files.
 Plenty of these outputs are text-based, but there are also many sizable files.
 Depending on the type of analysis, not all types of outputs
@@ -86,7 +86,7 @@ general quality control is done.
   relevance to you. These files will not be version controlled or saved to your
   dataset. Section :ref:`gitignore` can tell you more about this. Be mindful, though:
   Having too many files in a single directory can still be problematic for your
-  file system. A concrete example: Consider your analyses create logfiles that
+  file system. A concrete example: Consider your analyses create log files that
   are not precious enough to be version controlled. Adding ``logs/*`` to your
   ``.gitignore`` file and saving this change will keep these files out of
   version control.
@@ -114,7 +114,7 @@ in size even if they are each small in size.
   rules for directories that you generate these files in or for patterns that
   match file names that do not need to be in Git. This way, these files will be
   put under git-annex's version control. A concrete example: Consider that your
-  analyses output a few thousand textfiles into all ``sub-*/correlations/``
+  analyses output a few thousand text files into all ``sub-*/correlations/``
   directories in your dataset. Appending
   ``sub-*/correlations/* annex.largefiles=anything`` to ``.gitattributes`` and
   saving this change will store all of in the dataset's annex instead of in Git.
@@ -123,7 +123,7 @@ in size even if they are each small in size.
   relevance to you. These files will not be version controlled or saved to your
   dataset. Section :ref:`gitignore` can tell you more about this. Be mindful, though:
   Having too many files in a single directory can still be problematic for your
-  file system. A concrete example: Consider your analyses create logfiles that
+  file system. A concrete example: Consider your analyses create log files that
   are not precious enough to be version controlled. Adding ``logs/*`` to your
   ``.gitignore`` file and saving this change will keep these files out of
   version control.

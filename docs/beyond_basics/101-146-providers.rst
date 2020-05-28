@@ -99,12 +99,12 @@ The example below sheds some light one this.
 Example: Data access to a server that requires basic HTTP authentication
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Consider a private `Apache webserver <https://httpd.apache.org/>`_ with an
+Consider a private `Apache web server <https://httpd.apache.org/>`_ with an
 ``.htaccess`` file that configures a range of allowed users to access a certain
 protected directory on this server via
 `basic HTTP authentication <https://en.wikipedia.org/wiki/Basic_access_authentication>`_.
 If opened in a browser, such a setup would prompt visitors of this directory on
-the webserver for their username and password, and only grant access if valid
+the web server for their username and password, and only grant access if valid
 credentials are entered. Unauthenticated requests cause ``401 Unauthorized Status``
 responses.
 
@@ -112,7 +112,7 @@ By default, when DataLad attempts to retrieve files from this protected director
 the authentication and credential type that are required are unknown to DataLad
 and authentication fails. An attempt to download or get a file from this directory
 with DataLad can only succeed if a "provider configuration", i.e., a configuration
-how to access the data, for this specific webserver with information on how to
+how to access the data, for this specific web server with information on how to
 authenticate exists.
 
 "Provider configurations" are small text files that either exist on a per-dataset
@@ -138,7 +138,7 @@ this file was placed into, downloading commands that point to
 ``https://example.com/~myuser/protected/<path>`` will ask (once) for
 the user's user name and password, and subsequently store these credentials.
 In order to make it a *global* configuration,
-i.e., enable downloads from the webserver from within all datasets of the user,
+i.e., enable downloads from the web server from within all datasets of the user,
 place the file into the users home directory under
 ``~/.config/datalad/providers/my-webserver.cfg``.
 

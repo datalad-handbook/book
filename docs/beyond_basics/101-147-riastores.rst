@@ -158,7 +158,7 @@ software requirements (see below). Access to datasets in the store can be manage
 by using file system :term:`permissions`.
 With these attributes, a RIA store is a suitable solution for a number of
 usecases (back-up, single or multi-user dataset storage, central point for
-collaborative workflows, ...), be that on private workstations, webservers,
+collaborative workflows, ...), be that on private workstations, web servers,
 compute clusters, or other IT infrastructure.
 
 .. findoutmore:: Software Requirements
@@ -223,7 +223,7 @@ the demands of central dataset management on shared compute infrastructure, but 
 well suited for most back-up and storage applications.
 In a RIA store layout, the first two levels of subdirectories can host any
 number of keystores and bare repositories. As datasets are identified via ID and
-stored *next to eachother* underneath the top-level RIA store directory, the
+stored *next to each other* underneath the top-level RIA store directory, the
 store is completely flexible and extendable, and regardless of the number or
 nature of datasets inside of the store, a RIA store keeps a homogeneous directory
 structure. This aids the handling of large numbers of repositories, because
@@ -542,7 +542,7 @@ To demonstrate file retrieval from the store, let's get an annexed file:
    ``SSH`` protocol. Will this be a problem for file content retrieval?
    No, in all standard situations, DataLad will adapt to this. Upon cloning
    the dataset with a different URL than it was created under,
-   enabling the special remote will initially fail, but DataLad will adaptively
+   enabling the special remote will initially fail, but DataLad will adaptive
    try out other URLs (including changes in hostname, path, or protocol) to
    enable the ora-remote and retrieve file contents.
 
@@ -634,7 +634,7 @@ could be specified. If access should be limited to a particular Unix
 Configurations and tricks to hide technical layers
 """"""""""""""""""""""""""""""""""""""""""""""""""
 
-In setups with a central, DataLad-centric datamanagement, in order to spare
+In setups with a central, DataLad-centric data management, in order to spare
 users knowing about RIA stores, custom configurations can
 be distributed via DataLad's run-procedures to simplify workflows further and
 hide the technical layers of the RIA setup. For example, custom procedures provided

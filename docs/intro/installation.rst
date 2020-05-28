@@ -5,7 +5,8 @@ Installation and configuration
 
 .. note::
 
-  The handbook is written for DataLad version 0.12.
+  The handbook is written for DataLad version 0.12 or higher. The higher the
+  version, the better, but it should be at least DataLad 0.12.0.
   If you already have DataLad installed but are unsure whether it is the correct
   version, you can get information on your version of DataLad by typing
   ``datalad --version`` into your terminal.

@@ -33,6 +33,12 @@ exist, and they need to be installed separately, if needed.
 .. figure:: ../artwork/src/install.svg
    :width: 70%
 
+.. runrecord:: _examples/thisisatest
+   :language: console
+   :workdir: dl-101
+
+   $ echo "Let's fail!" > newfile
+   $ cat newfile
 
 Linux: (Neuro)Debian, Ubuntu, and similar systems
 """""""""""""""""""""""""""""""""""""""""""""""""

@@ -1,8 +1,18 @@
 Redirection
 -----------
 
-This page exists for redirection purposes.
-**You will be redirected to your target page in a few seconds.**
+This page exists for redirection purposes only.
+
+..
+   Include a named paragraph in the page, where the javascript code below will
+   place any message.
+
+.. raw:: html
+
+   <p id="message"><strong>
+     You will be redirected to your target page in a few seconds.
+   </strong></p>
+
 
 
 .. figure:: artwork/src/redirection.svg
@@ -20,14 +30,6 @@ Alternatively, try searching in the "Quick Search" at the left-hand side, or
 scan the handbook's front page at `handbook.datalad.org <http://handbook.datalad.org/en/latest/>`_
 for directions.
 
-
-..
-   Include a named paragraph in the page, where the javascript code below will
-   place any message.
-
-.. raw:: html
-
-   <p id="message"></p>
 
 ..
    This defines a mapping of redirect codes to their present URLs

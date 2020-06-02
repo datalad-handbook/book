@@ -9,7 +9,7 @@ This page exists for redirection purposes only.
 
 .. raw:: html
 
-   <p id="message"><strong>
+   <p><strong id="successmessage">
      You will be redirected to your target page in a few seconds.
    </strong></p>
 
@@ -53,7 +53,7 @@ for directions.
    <script>
    redirect = redirects.get(window.location.href.replace(/.*\?/, ""));
    if (redirect == undefined) {
-     document.getElementById("message").innerHTML = "Whoops - redirection went wrong, we are lost!"
+     document.getElementById("successmessage").innerHTML = "Whoops - redirection went wrong, we are lost!"
    } else {
      window.location.replace(window.location.href.replace(/r.html\?.*/, redirect))
    }

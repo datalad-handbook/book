@@ -94,3 +94,11 @@ progress::-webkit-progress-value {
 progress::-webkit-progress-bar {
   background: #ffa200;
 }
+
+.redirect {
+  font-family: monospace, monospace;
+}
+
+.redirect::before {
+  content: "↷ "
+}

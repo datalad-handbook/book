@@ -92,7 +92,6 @@ Appendix
    teaching
    acknowledgements
    intro/user_types
-   r
 
 ########################
 Code lists from chapters
@@ -116,3 +115,4 @@ Code lists from chapters
        :hidden:
 
        usecases/datasets
+       r

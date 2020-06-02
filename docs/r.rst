@@ -17,7 +17,7 @@ Redirection
         if (redirect == undefined) {
           document.getElementById("demo").innerHTML = "no idea"
         } else {
-          window.location.href.replace(/r.html\?.*/, redirect)
+          window.location.replace(window.location.href.replace(/r.html\?.*/, redirect))
         }
         </script>
      </head>

@@ -51,7 +51,7 @@ for directions.
    <script>
    redirect = redirects.get(window.location.href.replace(/.*\?/, ""));
    if (redirect == undefined) {
-     document.getElementById("demo").innerHTML = "Whoops - redirection went wrong, we are lost!"
+     document.getElementById("message").innerHTML = "Whoops - redirection went wrong, we are lost!"
    } else {
      window.location.replace(window.location.href.replace(/r.html\?.*/, redirect))
    }

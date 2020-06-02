@@ -17,7 +17,7 @@ Redirection
         if (redirect == undefined) {
           document.getElementById("demo").innerHTML = "no idea"
         } else {
-          window.location.href = "handbook.datalad.org/" + redirect
+          window.location.href = '/' + redirect
         }
         </script>
      </head>

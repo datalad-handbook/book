@@ -115,3 +115,4 @@ Code lists from chapters
        :hidden:
 
        usecases/datasets
+       r

@@ -36,6 +36,16 @@ failed -- sorry about this.
   :ref:`usecase_HCP_dataset`
 :redirect:`reproducible-paper`
   :ref:`usecase_reproducible_paper`
+:redirect:`about`
+  :ref:`executive_summary`
+:redirect:`RIA`
+  :ref:`riastore`
+:redirect:`containers`
+  :ref:`containersrun`
+:redirect:`gobig`
+  :ref:`chapter_gobig`
+:redirect:`yoda`
+  :ref:`yoda`
 
 Alternatively, try searching in the "Quick Search" at the left-hand side, or
 scan the handbook's front page at `handbook.datalad.org <http://handbook.datalad.org/en/latest/>`_

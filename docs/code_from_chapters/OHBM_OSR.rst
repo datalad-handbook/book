@@ -1,3 +1,5 @@
+.. _OHBMOSR2020:
+
 OHBM 2020 Open Science Room: Reproducible Research Objects with DataLad
 -----------------------------------------------------------------------
 

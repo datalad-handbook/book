@@ -4,6 +4,7 @@ OHBM 2020 Open Science Room: Reproducible Research Objects with DataLad
 -----------------------------------------------------------------------
 
 This is a detailed write-up of the OHBM Open Science Room demonstration on Reproducible Research Objects with DataLad.
+You can find the slides `here <https://docs.google.com/presentation/d/1KzSJv9j-NwGOZv3dwuM4bgaDQmDbjIQvp8eQ3cOfysw/edit?usp=sharing>`_.
 If you have attended the talk and are looking for resources to read up on in your own pace, then you're correct here.
 You will find the code snippets executed in the talk together with detailed background descriptions and references to the appropriate handbook chapters.
 If you're new to DataLad and want to find out more, the DataLad handbook could be exactly what you need.

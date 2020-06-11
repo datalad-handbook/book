@@ -5,7 +5,7 @@ Make the most out of datasets
 
 .. index:: ! Chapter; 6. Data analysis (YODA)
 
-.. figure:: ../img/yoda.svg
+.. figure:: ../artwork/src/img/yoda.svg
    :alt: A very cute YODA
 
    “Feel the force!”

@@ -27,10 +27,19 @@ Step 1: Setting up a dataset
 
 When using DataLad, everything happens in datasets, DataLad's core data structure.
 You can find out more about datasets in the section :ref:`chapter_datasets`.
-Reading this chapter is absolutely required if haven't yet heard of DataLad as it introduces and demonstrates common features (dataset nesting, dataset installation, data retrieval) you should be aware of in order to follow the demonstration.
+
+.. note::
+
+    Reading this chapter is absolutely required if haven't yet heard of DataLad as it introduces and demonstrates common features (dataset nesting, dataset installation, data retrieval) you should be aware of in order to follow the demonstration.
+
 In short, a dataset is a directory on your computer that is managed by DataLad,
 and a git/git-annex repository.
-Datasets can version control their contents, they can be shared and installed, and they can be nested in order to link them.
+Datasets can
+
+- version control their contents,
+- they can be shared and installed, and
+- they can be nested in order to link them.
+
 The :command:`datalad create <path>` creates a new dataset:
 
 .. code-block:: bash
@@ -50,9 +59,8 @@ One of the analysis components for this and most other workflows is data.
 DataLad makes it easy to "install" data as if it would be software, and the Datalad 0.13 release comes with some even more exiting features for data consumption than what DataLad can already do.
 
 For example, the human connectome project (HCP) data exists as a datalad dataset on :term:`Github` now. You can find and install it at `github.com/datalad-datasets/human-connectome-project-openaccess <https://github.com/datalad-datasets/human-connectome-project-openaccess>`_.
-If interested in the creation of this dataset, the usecase :ref:`usecase_hcp_dataset` may be useful.
-Beyond access to the full HCP data, there are also subsets of the HCP data being created and transform into BIDS-like formats.
-The newly introduced feature of RIA stores makes it possible to install these HCP data subsets in specific versions, for example BIDS formatted.
+If you are interested in the creation of this dataset, the usecase :ref:`usecase_hcp_dataset` will talk about the details.
+Beyond access to the full HCP data, there are also subsets of the HCP data being created and transformed into BIDS-like formats, and the newly introduced feature of RIA stores makes it possible to install these HCP data subsets in specific versions, for example BIDS formatted.
 You can read up on this new feature in the section :ref:`riastore`.
 Here is how to install the "structural preprocessed" subset of the HCP dataset that has been transformed into a bids like format from a public datalad RIA store into a directory called ``.source``:
 
@@ -68,6 +76,11 @@ Here is how to install the "structural preprocessed" subset of the HCP dataset t
       add (ok: 2)
       install (ok: 1)
       save (ok: 1)
+
+.. findoutmore:: Why is it called ".source"?
+
+   By installing data into a hidden directory (anything that starts with a ``.``), the input data is linked, but doesn't show up at first sight when browsing the dataset.
+   This is not a requirement, but helpful if you want to be extraordinarily organized.
 
 Step 3: Space for outputs
 """""""""""""""""""""""""
@@ -103,7 +116,9 @@ Containerized pipelines can be linked to datasets.
 One can either create such a toolbox dataset from scratch, or consume pre-existing containers from `github.com/ReproNim/containers <https://github.com/ReproNim/containers>`_.
 `This ReproNim Webinar <https://www.youtube.com/watch?v=ix3lC6HGo-Q&feature=youtu.be>`_ walks through a complete workflow, if you are interested in more details on how to use them.
 
-Here is how to create a custom fmriprep toolbox: First, create a dataset for it:
+Here is how to create a custom fmriprep toolbox:
+
+First, create a dataset for it:
 
 .. code-block:: bash
 
@@ -153,7 +168,7 @@ Step 5: Running an analysis
 """""""""""""""""""""""""""
 
 With containerized pipeline and data set up, the :command:`datalad containers-run` command can be used to execute fmriprep preprocessing on the data.
-This command will retrieve and use the container linked inside the toolbox, retrieve any input data that specified with the ``--input`` flag(s), and execute the final command inside of the container (the ``{cmd}`` placeholder in the call format specification will be replaced by it).
+This command will retrieve and use the container linked inside the toolbox, retrieve any input data that is specified with the ``--input`` flag(s), and execute the final command inside of the container (the ``{cmd}`` placeholder in the call format specification will be replaced by it).
 In the example below, a single subject is preprocessed:
 
 .. code-block:: bash
@@ -196,7 +211,7 @@ Step 7: Result retrieval
 """"""""""""""""""""""""
 
 From GIN, you or others can now access this dataset without having an account on Gin via anonymous HTTP access.
-For this, :command:`datalad clone` only needs the ``https`` url of the dataset, found in the webbrowsers address bar..
+For this, :command:`datalad clone` only needs the ``https`` url of the dataset, found in the webbrowsers address bar.
 You can take a look at the data for yourself, if you want to:
 
 .. code-block:: bash
@@ -204,3 +219,15 @@ You can take a look at the data for yourself, if you want to:
    $ datalad clone https://gin.g-node.org/adswa/OSRdemo
    # retrieve data using datalad get
    $ datalad get fmriprep
+
+
+Tada! We're done!
+
+Hopefully, this workflow gave you an idea of how DataLad can be helpful in reproducible and open workflows.
+It wouldn't be surprising if you are feeling a bit overwhelmed from this dense write-up.
+This workflow was a very concise write-up of a large amount of many basic and advanced principles and commands of DataLad.
+But if you found it intriguing and want to learn more, then stay right here in the handbook and find out more about DataLad.
+At the end of the "Basics" part of this book, you should have all of the knowledge you need to perform a similar workflow on your own.
+If you're also reading into the linked sections from the "Advanced" and "Usecases" part of the handbook, you will have a thorough understanding of everything that has happened in this workflow.
+
+If you run into problems or have questions, `don't hesitate to get in touch <https://github.com/datalad-handbook/book/issues/new/choose>`_.

@@ -35,6 +35,8 @@ failed -- sorry about this.
   :ref:`executive_summary`
 :redirect:`containers`
   :ref:`containersrun`
+:redirect:`extensions`
+  :ref:`extensions_intro`
 :redirect:`GIN`
   :ref:`gin`
 :redirect:`gobig`

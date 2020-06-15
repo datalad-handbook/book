@@ -1,7 +1,7 @@
 .. _extensions_intro:
 
-DataLad's extensions
---------------------
+DataLad extensions
+------------------
 
 .. index:: ! extensions
 

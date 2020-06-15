@@ -28,22 +28,23 @@ failed -- sorry about this.
 **Here are some links that may take you to where you need to go:**
 
 ..
-   This defines a mapping of redirect codes to their present URLs
+   This defines a mapping of redirect codes to their present URLs.
+   Please keep sorted by redirection label.
 
+:redirect:`about`
+  :ref:`executive_summary`
+:redirect:`containers`
+  :ref:`containersrun`
 :redirect:`GIN`
   :ref:`gin`
+:redirect:`gobig`
+  :ref:`chapter_gobig`
 :redirect:`HCP-dataset`
   :ref:`usecase_HCP_dataset`
 :redirect:`reproducible-paper`
   :ref:`usecase_reproducible_paper`
-:redirect:`about`
-  :ref:`executive_summary`
 :redirect:`RIA`
   :ref:`riastore`
-:redirect:`containers`
-  :ref:`containersrun`
-:redirect:`gobig`
-  :ref:`chapter_gobig`
 :redirect:`yoda`
   :ref:`yoda`
 

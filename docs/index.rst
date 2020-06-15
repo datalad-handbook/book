@@ -3,7 +3,7 @@
 .. meta::
    :description: The home of the DataLad handbook
 
-.. image:: img/datalad-animated.gif
+.. image:: artwork/src/img/datalad-animated.gif
    :scale: 100%
    :alt: Virtual directory tree of a nested DataLad dataset
 

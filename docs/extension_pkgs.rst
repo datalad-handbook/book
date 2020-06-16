@@ -101,6 +101,14 @@ the following DataLad extensions are available:
 
           Rewrite Third Party chapter to use this helper
 
+   * - `DataLad's OSF <https://github.com/datalad/datalad-osf>`_
+     - A DataLad extension to interface and work with the `Open Science Framework
+       <https://osf.io/>`_.
+
+       .. todo::
+
+          Expand description once done.
+
 To install a DataLad extension, use
 
 .. code-block:: bash

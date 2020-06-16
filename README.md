@@ -12,6 +12,8 @@ under initial development.
 The handbook is a practical, hands-on crashcourse to learn and experience DataLad.
 You do not need to be a programmer, computer scientist, or Linux-crank. If you have never touched your computer's shell before, you will be fine. Regardless of your background and personal use cases for DataLad, the handbook will show you the principles of DataLad, and from chapter 1 onwards you will be using them.
 
+Find more general information about the idea behind the handbook in the [poster presented at the 2020 OHBM](artwork/OHBM_2020.pdf) or [dive straight into your DataLad adventure](https://handbook.datalad.org).
+
 ## Contributing
 
 Contributions in any form - pull requests, issues, content requests/ideas, ... are always welcome.

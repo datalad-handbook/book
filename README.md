@@ -91,6 +91,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/gi114"><img src="https://avatars0.githubusercontent.com/u/17640807?v=4" width="100px;" alt=""/><br /><sub><b>Giulia Ippoliti</b></sub></a><br /><a href="#content-gi114" title="Content">🖋</a> <a href="#example-gi114" title="Examples">💡</a></td>
     <td align="center"><a href="https://github.com/christian-monch"><img src="https://avatars3.githubusercontent.com/u/17925232?v=4" width="100px;" alt=""/><br /><sub><b>Christian Mönch</b></sub></a><br /><a href="#content-christian-monch" title="Content">🖋</a></td>
     <td align="center"><a href="https://github.com/ayrustogaru"><img src="https://avatars1.githubusercontent.com/u/35329371?v=4" width="100px;" alt=""/><br /><sub><b>Togaru Surya Teja</b></sub></a><br /><a href="#content-ayrustogaru" title="Content">🖋</a></td>
+    <td align="center"><a href="https://github.com/DorienHuijser"><img src="https://avatars1.githubusercontent.com/u/58177697?v=4" width="100px;" alt=""/><br /><sub><b>Dorien Huijser</b></sub></a><br /><a href="https://github.com/datalad-handbook/book/issues?q=author%3ADorienHuijser" title="Bug reports">🐛</a> <a href="#userTesting-DorienHuijser" title="User Testing">📓</a></td>
   </tr>
 </table>
 

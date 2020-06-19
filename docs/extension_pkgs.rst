@@ -101,13 +101,14 @@ the following DataLad extensions are available:
 
           Rewrite Third Party chapter to use this helper
 
-   * - `DataLad OSF <https://github.com/datalad/datalad-osf>`_
-     - A DataLad extension to interface and work with the `Open Science Framework
-       <https://osf.io/>`_.
+   * - `DataLad OSF <http://docs.datalad.org/projects/osf/en/latest/>`_
+     - Enables DataLad to interface and work with the `Open Science Framework
+       <https://osf.io/>`_. Use it to publish your dataset's data to an OSF
+       project, thus utilizing the OSF for dataset storage and sharing.
 
        .. todo::
 
-          Expand description once done.
+          Contribute a usecase or a demo when done.
 
 To install a DataLad extension, use
 

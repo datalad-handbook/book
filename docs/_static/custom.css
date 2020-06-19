@@ -110,7 +110,7 @@ progress::-webkit-progress-bar {
 }
 
 .windowsworkarounds .header.open:before {
-    content: "⇧ Windows-Workaround: ";
+    content: "⇧ 💻 Windows-Workaround: ";
     color: #00a4ef;
     font-weight: bold;
 }

@@ -300,6 +300,25 @@
       "contributions": [
         "content"
       ]
+    },
+    {
+      "login": "ayrustogaru",
+      "name": "Togaru Surya Teja",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/35329371?v=4",
+      "profile": "https://github.com/ayrustogaru",
+      "contributions": [
+        "content"
+      ]
+    },
+    {
+      "login": "DorienHuijser",
+      "name": "Dorien Huijser",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/58177697?v=4",
+      "profile": "https://github.com/DorienHuijser",
+      "contributions": [
+        "bug",
+        "userTesting"
+      ]
     }
   ],
   "contributorsPerLine": 7,

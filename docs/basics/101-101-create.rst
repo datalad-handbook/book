@@ -49,7 +49,7 @@ Let's start:
    Hey there!
    If you are using **Windows 10** with a **native** (i.e., not `Windows Subsystem for Linux (WSL) <https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux>`_-based) installation of DataLad and its underlying tools, starting into this narrative will be slightly different.
 
-   We're really sorry about that - as foreshadowed in section :ref:`install`, Windows comes with a range of file system issues.
+   We're really sorry about that - as foreshadowed in section :ref:`install`, Windows comes with a range of file system issues, and one of them concerns the very first command.
 
    Instead of running ``datalad create -c text2git DataLad-101``, please remove the configuration ``-c text2git`` from the command and run only ``datalad create DataLad-101``::
 
@@ -64,7 +64,44 @@ Let's start:
       create(ok): C:\Users\mih\DataLad (dataset)
 
    This creates the ``DataLad-101`` dataset without the ``text2git`` configuration (which is problematic on Windows).
-   Other parts of the handbook that are influenced by this will be marked with a similar "Windows Workaround" note.
+
+   In its place, we will need to create a configuration by hand.
+   For now, please just follow the instructions given here and paste the following lines of text into the (hidden) ``.gitattributes`` file in your dataset.
+   The details of and reason for this will become clear in chapter 5, :ref:`chapter_config`.
+
+   Here are lines that need to be appended to the existing lines in ``.gitattributes`` and will mimic the configuration ``-c text2git`` would apply::
+
+     *.txt annex.largefiles=nothing
+     code/** annex.largefiles=nothing
+
+   You can achieve this by copy-pasting the following code snippets into your terminal (but you can also add them using a text editor of your choice):
+
+   .. code-block::
+
+      $ echo\ >> .gitattributes && echo *.txt annex.largefiles=nothing >> .gitattributes && echo code/** annex.largefiles=nothing >> .gitattributes
+
+   Afterwards, these should be the contents of ``.gitattributes``:
+
+   .. code-block::
+
+      $ cat .gitattributes
+        * annex.backend=MD5E
+        **/.git* annex.largefiles=nothing
+        *.txt annex.largefiles=nothing
+        code/** annex.largefiles=nothing
+
+
+   Lastly, run this piece of code to save your changes:
+
+   .. code-block:: bash
+
+      $ datalad save -m "Windows-workaround: custom config to place text into Git" .gitattributes
+
+   This should set you up with everything you need for most of the Basics.
+   Other parts of the handbook that are influenced by this workaround will be marked with a similar "Windows Workaround" note, but for the majority of upcoming content, you should be good.
+
+   Note: Please **do not** execute the upcoming :command:`datalad create` command below.
+   Instead, start coding along with the ``cd`` command afterwards.
 
 .. runrecord:: _examples/DL-101-101-101
    :language: console

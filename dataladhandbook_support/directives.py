@@ -23,13 +23,22 @@ def depart_gitusernote_html(self, node):
 
 
 def visit_gitusernote_latex(self, node):
-    # wrap the Gitusernote in a colored box (defined in conf.py preamble)
-    self.body.append('\n\n\\begin{colbox}{C9C0BB}\n'
-                     '\n\n\\sphinxstrong{\\textcolor{purple}{Note for Git users:}}\n\n')
+    self.body.append("""
+    \\begin{tcolorbox}[
+        enhanced,
+        breakable,
+        drop lifted shadow,
+        sharp corners,
+        title=Note for Git users,
+        coltitle=dataladgray,
+        colbacktitle=dataladblue,
+        colframe=dataladblue!70!black,
+        fonttitle=\\bfseries]
+    """)
 
 
 def depart_gitusernote_latex(self, node):
-    self.body.append("\n\n\\end{colbox}")
+    self.body.append('\n\n\\end{tcolorbox}\n')
 
 
 class GitUserNote(BaseAdmonition):
@@ -53,14 +62,23 @@ def depart_findoutmore_html(self, node):
 
 
 def visit_findoutmore_latex(self, node):
-    self.body.append('\\begin{colortext}\n'
-                     '\n\\ruleline{Findoutmore}')
-    #import pdb; pdb.set_trace()
+    self.body.append("""
+    \\begin{tcolorbox}[
+        enhanced,
+        breakable,
+        drop lifted shadow,
+        sharp corners,
+        title=Find out more,
+        coltitle=dataladgray,
+        colbacktitle=dataladyellow,
+        colframe=dataladyellow!70!black,
+        fonttitle=\\bfseries]
+    """)
 
 
 def depart_findoutmore_latex(self, node):
-    self.body.append('\n\n\\ruleline{-}\n'
-                     '\\end{colortext}')
+    self.body.append('\n\n\\end{tcolorbox}\n')
+
 
 class FindOutMore(BaseAdmonition):
     """findoutmore RST directive
@@ -92,15 +110,10 @@ class FindOutMore(BaseAdmonition):
         toggle = findoutmore(
             'toogle',
             # header line with 'Find out more' prefix
-            nodes.container(
-                'label',
-                nodes.paragraph(
-                    'title', '',
-                    nodes.strong('strong', 'Find out more: '),
-                    # place actual admonition title we removed
-                    # above
-                    nodes.Text(self.arguments[0]),
-                ),
+            nodes.paragraph(
+                # place actual admonition title we removed
+                # above
+                'title', self.arguments[0],
                 # add (CSS) class
                 classes=['header'],
             ),

@@ -16,6 +16,8 @@ clean-examples:
     # wipe out bare push repos
 	@chmod +w -R /home/me/pushes; rm -vrf /home/me/pushes
 	@rm -vrf /home/me/makepushtarget.py
+	# wipe out the RIA store
+	@rm -vrf /home/me/myriastore
 
 # wipe out usecases
 clean-usecases:
@@ -35,3 +37,5 @@ clean:
     # wipe out bare push repos
 	@chmod +w -R /home/me/pushes; rm -vrf /home/me/pushes
 	@rm -vrf /home/me/makepushtarget.py
+	# wipe out the RIA store
+	@rm -vrf /home/me/myriastore

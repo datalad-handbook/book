@@ -5,7 +5,8 @@ Installation and configuration
 
 .. note::
 
-  The handbook is written for DataLad version 0.12.
+  The handbook is written for DataLad version 0.12 or higher. The higher the
+  version, the better, but it should be at least DataLad 0.12.0.
   If you already have DataLad installed but are unsure whether it is the correct
   version, you can get information on your version of DataLad by typing
   ``datalad --version`` into your terminal.
@@ -18,7 +19,7 @@ The content in this chapter is largely based on the information given on the
 and the `DataLad documentation <http://docs.datalad.org/en/latest/gettingstarted.html>`_.
 
 Beyond DataLad itself, the installation requires Python, :term:`Git`,
-:term:`git-annex`, and potentially Pythons package manager ``pip``.
+:term:`git-annex`, and potentially Python's package manager ``pip``.
 The instructions below detail how to install
 each of these components for different common operating systems. Please
 `file an issue <https://github.com/datalad-handbook/book/issues/new>`_
@@ -162,10 +163,10 @@ a user's home directory:
         /Users/awagner/Library/Python/3.7/bin
 
 
-Using Pythons package manager ``pip``
-"""""""""""""""""""""""""""""""""""""
+Using Python's package manager ``pip``
+""""""""""""""""""""""""""""""""""""""
 
-DataLad can be installed via Pythons package manager
+DataLad can be installed via Python's package manager
 `pip <https://pip.pypa.io/en/stable/>`_.
 ``pip`` comes with Python distributions, e.g., the Python distributions
 downloaded from `python.org <https://www.python.org>`_. When downloading

@@ -196,7 +196,7 @@ and click on the small, floating ``v:latest`` element at the lower
 right-hand side, the ``Edit`` option will take you straight to an editor that
 lets you make your changes and submit a pull request.
 
-.. figure:: img/contrib.png
+.. figure:: artwork/src/img/contrib.png
    :figwidth: 100%
    :alt: Access the GitHub interface to submit a pull request right from within
          Readthedocs.

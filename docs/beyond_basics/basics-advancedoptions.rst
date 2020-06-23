@@ -1,7 +1,7 @@
 .. _chapter_furtheroptions:
 
-**X - Advanced options**
-------------------------
+Advanced options
+----------------
 
 .. index:: ! Chapter; 10. Advanced Options
 
@@ -9,7 +9,6 @@
 
 
 .. toctree::
-   :numbered:
    :maxdepth: 1
    :caption: Small pieces of advice and helpful additional options
 
@@ -17,3 +16,4 @@
    ../extension_pkgs
    101-145-hooks
    101-146-providers
+   101-147-riastores

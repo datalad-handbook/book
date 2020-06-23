@@ -21,7 +21,7 @@ irrelevant for you.
 
 Note that there is no way to ``drop`` the files as they are in Git instead of
 git-annex. Removing
-the files with plain filesystem (``rm``, ``git rm``) operation also does not
+the files with plain file system (``rm``, ``git rm``) operation also does not
 shrink your dataset. The files are snapshot and even though they don't exist in
 the current state of your dataset anymore, they still exist -- and thus clutter
 -- your datasets history. In order to *really* get committed files out of Git,
@@ -72,7 +72,7 @@ structure similar to this exemplary run-wise FEAT analysis output structure:
        └── tsplot
 
 Each of such ``sub-*`` directories contains about 3000 files, and the majority of
-them are irrelevant textfiles in ``tsplot/``.
+them are irrelevant text files in ``tsplot/``.
 In order to remove them for all subjects and runs from the dataset history,
 the following command can be used::
 

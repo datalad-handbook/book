@@ -1,0 +1,12 @@
+$ datalad run \
+ -m "FSL FEAT analysis config script" \
+ --output sub-02/1stlvl_design.fsf \
+ bash -c 'sed -e "s,##BASEPATH##,{pwd},g" -e "s,##SUB##,sub-02,g" \
+ code/ffa_design.fsf > {outputs}'
+[INFO] == Command start (output follows) =====
+[INFO] == Command exit (modification check follows) =====
+add(ok): sub-02/1stlvl_design.fsf (file)
+save(ok): . (dataset)
+action summary:
+  add (ok: 1)
+  save (notneeded: 1, ok: 1)

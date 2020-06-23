@@ -1,7 +1,7 @@
 .. _chapter_help:
 
-**IX - Help yourself**
-----------------------
+Help yourself
+-------------
 
 .. index:: ! Chapter; 9. Help yourself
 
@@ -9,7 +9,6 @@
 
 .. toctree::
    :maxdepth: 1
-   :numbered:
    :caption: Dealing with problems, filesystems, and version histories
 
    101-135-intro

@@ -247,8 +247,8 @@ for more information).
 .. rubric:: Footnotes
 
 .. [#f1]  RIA siblings are filesystem-based, scalable storage solutions for
-          DataLad datasets. You can find out more about them in the usecase
-          :ref:`usecase_datastore`.
+          DataLad datasets. You can find out more about them in the section
+          :ref:`riastore`.
 
 .. [#f2] If you are unfamiliar with Git, please be aware that cloning a dataset
          to a different place and subsequently pushing to it can lead to Git

@@ -1,13 +1,12 @@
 .. _chapter_gobig:
 
-**XI - Go big or go home**
---------------------------
+Go big or go home
+-----------------
 
 .. figure:: ../artwork/src/gobig.svg
 
 
 .. toctree::
-   :numbered:
    :maxdepth: 1
    :caption: Beyond "household quantity" datasets
 

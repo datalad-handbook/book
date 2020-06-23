@@ -1,7 +1,19 @@
 $ datalad rerun
 [INFO] Making sure inputs are available (this may take some time) 
-[INFO] Cloning http://datasets.datalad.org/openfmri/ds000001/.git into '/home/me/usecases/repro/demo/inputs/ds000001' 
-[INFO] Cloning http://datasets.datalad.org/openfmri/ds000002/.git into '/home/me/usecases/repro/demo/inputs/ds000002' 
+[INFO] Cloning dataset to Dataset(/home/me/usecases/repro/demo/inputs/ds000001)
+[INFO] Attempting to clone from http://datasets.datalad.org/openfmri/ds000001/.git to /home/me/usecases/repro/demo/inputs/ds000001
+[INFO] Start counting objects
+[INFO] Start compressing objects
+[INFO] Start receiving objects
+[INFO] Start resolving deltas
+[INFO] Completed clone attempts for Dataset(/home/me/usecases/repro/demo/inputs/ds000001)
+[INFO] Cloning dataset to Dataset(/home/me/usecases/repro/demo/inputs/ds000002)
+[INFO] Attempting to clone from http://datasets.datalad.org/openfmri/ds000002/.git to /home/me/usecases/repro/demo/inputs/ds000002
+[INFO] Start counting objects
+[INFO] Start compressing objects
+[INFO] Start receiving objects
+[INFO] Start resolving deltas
+[INFO] Completed clone attempts for Dataset(/home/me/usecases/repro/demo/inputs/ds000002)
 [INFO] == Command start (output follows) ===== 
 action summary:
   get (notneeded: 4)

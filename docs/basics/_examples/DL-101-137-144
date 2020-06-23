@@ -1,5 +1,5 @@
 
-$ git revert da91ec2afa1f84eca68487d2e4c7e327b9383b11
-[master e0453db] Revert "did a bad modification"
- Date: Mon Feb 17 08:53:06 2020 +0100
+$ git revert afce2cf307abadc6c4958fc98ea596942a2b6466
+[master aab27f8] Revert "did a bad modification"
+ Date: Tue Jun 23 21:06:33 2020 +0200
  1 file changed, 1 deletion(-)

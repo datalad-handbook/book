@@ -2,11 +2,10 @@
 $ cd ../DataLad-101
 # attempt a datalad update
 $ datalad update
-[INFO] Fetching updates for <Dataset path=/home/me/dl-101/DataLad-101> 
-[ERROR] Cmd('/usr/lib/git-annex.linux/git') failed due to: exit code(128)
-|   cmdline: /usr/lib/git-annex.linux/git fetch --progress --prune --recurse-submodules=no -v roommate
-|   stderr: 'fatal: '../mock_user/DataLad-101' does not appear to be a git repository
-| fatal: Could not read from remote repository.
-| 
-| Please make sure you have the correct access rights
-| and the repository exists.' [cmd.py:wait:415] (GitCommandError) 
+[INFO] Fetching updates for Dataset(/home/me/dl-101/DataLad-101)
+CommandError: 'git fetch --verbose --progress --prune --recurse-submodules=no roommate' failed with exitcode 128 under /home/me/dl-101/DataLad-101
+fatal: '../mock_user/DataLad-101' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.

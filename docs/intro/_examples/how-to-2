@@ -1,4 +1,4 @@
 $ ls -lh output.txt    # note that short options can be combined!
 # or alternatively
 $ ls -l --human-readable output.txt
--rw-r--r-- 1 adina adina 24M Feb 17 08:54 output.txt
+-rw-r--r-- 1 adina adina 24M Jun 23 21:06 output.txt

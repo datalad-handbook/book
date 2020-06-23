@@ -62,6 +62,8 @@ and Michael Hanke -- thank you!
 - Various improvements to the PDF version of the handbook ([#367][])
 - Major toctree restructuring: Chapter-wise toctrees ([#367][]), robustified URLs ([#457][])
 - Addition of short, README-ready explanations of DataLad datasets for published projects ([#370][])
+- Redirections are now possible, using a ``?<label>`` element after ``handbook.datalad.org/r.html`` ([#518][])
+- (Almost) complete correspondence between HTML and PDF part, chapter, and section labeling ([#500][])
 
 ## v0.12 (Jan. 11 2020) -- A good weekend read
 
@@ -203,3 +205,5 @@ Alpha stage release with handbook content covering most of the core commands.
 [#450]: https://github.com/datalad-handbook/book/pull/450
 [#477]: https://github.com/datalad-handbook/book/pull/477
 [#479]: https://github.com/datalad-handbook/book/pull/479
+[#500]: https://github.com/datalad-handbook/book/pull/500
+[#518]: https://github.com/datalad-handbook/book/pull/518

@@ -87,6 +87,9 @@ Glossary
    Debian
       A common Linux distribution. `More information here <https://www.debian.org/index.en.html>`__.
 
+   debugging
+      Finding and resolving problems within a computer program.
+
    DOI
       A digital object identifier (DOI) is a character string used to permanently identify
       a resource and link to in on the web. A DOI will always refer to the one resource
@@ -159,6 +162,9 @@ Glossary
 
    https
       Hypertext Transfer Protocol Secure; A protocol for file transfer over a network.
+
+   logging
+      Automatic protocol creation of software processes, for example in order to gain insights into errors.
 
    master
       Git concept: The default :term:`branch` in a dataset.

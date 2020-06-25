@@ -425,7 +425,7 @@ Finally, make a note about running procedures inside of ``notes.txt``:
          can be name conflicts. The order of precedence in such cases is:
          user-level, system-level, dataset, DataLad extension, DataLad, i.e.,
          local procedures take precedence over those coming from "outside" via
-         datasets or datalad extensions.
+         datasets or DataLad extensions.
          If procedures in a higher-level dataset and a subdataset have the same
          name, the procedure closer to the dataset ``run-procedure`` is
          operating on takes precedence.

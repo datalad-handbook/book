@@ -118,6 +118,98 @@ The "submit a question link" on `DataLad's GitHub page <https://github.com/datal
 page prefills a neurostars form with a template for a question for a good
 starting point if you want to have more guidance or encounter writer's block.
 
+Debugging like a DataLad-developer
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If you have read a command's help from start to end, checked all software versions twice, even `asked colleagues to reproduce your problem (unsuccessfully) <https://xkcd.com/2083/>`_, and you still don't have any clue what is going on, then welcome to the debugging section!
+
+.. figure:: ../artwork/src/debug.svg
+   :figwidth: 50%
+
+   It's not as bad as this
+
+It is not always straightforward to see *why* a particular DataLad command has failed.
+Given that operations with DataLad can be quite complicated, and could involve complexities such as different forms of authentication, different file systems, interactions with the environment, configurations, and other software, and *much* more, there are what may feel like an infinite amount of sources for the problem at hand.
+The resulting error message, however, may not display the underlying cause correctly because the error message of whichever process failed is not propagated into the final result report.
+Thus, you may end up with an uninformative ``Unable to access these remotes`` error in the result summary, when the underlying issue is a `certificate error <https://github.com/datalad/datalad/issues/4651#issuecomment-649180205>`_.
+
+In situations where there is no obvious reason for a command to fail, it can be helpful -- either for yourself or for further information to paste into :term:`GitHub` issues -- to start `debugging <https://xkcd.com/1722/>`_, or *logging* at a higher granularity than is the default.
+This allows you to gain more insights into the actions DataLad and its underlying tools are taking, where *exactly* they fail, and to even play around with the program at the state of the failure.
+
+:term:`Debugging` and :term:`logging` are not as complex as these terms may sound if you have never consciously debugged.
+Procedurally, it can be as easy as adding an additional flag to a command call.
+
+.. _logging:
+
+Logging
+"""""""
+
+In order to gain more insights into the steps performed by a program and capture as many details as possible for troubleshooting an error, you can turn to :term:`logging`.
+Logging simply refers to the fact that DataLad and its underlying tools tell you what they are doing.
+During your usual command execution, they already do this: Messages printed to your terminal preceded by ``[INFO]``, for example, are log messages (in this case, on the ``info`` level).
+If these messages are not giving (enough) hints about what went wrong (or, the other way around: if they are giving you too much information and you are annoyed by the amount of text your terminal is flooded with), you can adjust the logging *level* or the logging *granularity* to have DataLad tell you more or less details.
+
+.. findoutmore:: Log levels
+
+   Log levels provide the means to adjust how much information you want, and are described in human readable terms, ordered by the severity of the failures or problems reported.
+   The following log levels can be chosen from:
+
+   - **critical**: Only catastrophes are reported. Currently, there is nothing inside of DataLad that would log at this level, so setting the log level to *critical* will result in getting no details at all, not even about errors or failures.
+   - **error**: With this log level you will receive reports on any errors that occurred within the program during command execution.
+   - **warning**: At this log level, the command execution will report on usual situations and anything that *might* be a problem, in addition to report anything from the *error* log level. This is the default log level.
+   - **info**: This log level will include reports by the program that indicate normal behavior and serve to keep you up to date about the current state of things, in additions to warning and error logging messages.
+   - **debug**: This log level is the most useful to troubleshoot a problem, and results in DataLad telling you *absolutely everything* it possibly can.
+
+   By default, the log level is set to ``warning``. Raising the log level (e.g, to ``error``) will decrease the amount of information and output you will receive, while lowering it (e.g., to ``info``) will increase it.
+
+.. findoutmore:: Logging granularity
+
+   Other than log *levels*, you can also adjust the amount of information provided with numerical granularity. Instead of specifying a log level, provide an integer <10, with higher values denoting more debugging information.
+
+Setting a log level can be done in the form of an :term:`environment variable`, a configuration, or with the ``-l``/``--log-level`` flag appended directly after the main :command:`datalad` command.
+To get extensive information on what :command:`datalad status` does underneath the hood, your command could look like this:
+
+.. runrecord:: _examples/DL-101-135-105
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ datalad --log-level debug status
+
+.. findoutmore:: ... and how does it look when using environment variables or configurations?
+
+   The log level can also be set (for different scopes) using the ``datalad.log.level`` configuration variable, or the corresponding environment variable ``DATALAD_LOG_LEVEL``.
+
+   To set the log level for a single command, for example, set it in front of the command::
+
+       $ DATALAD_LOG_LEVEL=debug datalad status
+
+   And to set the log level for the rest of the shell session, export it::
+
+       $ export DATALAD_LOG_LEVEL=debug
+       $ datalad status
+       $ ...
+
+   You can find out a bit more on environment variable :ref:`in this footnote <envvars>`.
+
+   The configuration variable can be used to set the log level on a user (global) or system-wide level with the :command:`git config` command::
+
+      $ git config --global datalad.log.level debug
+
+This output is extensive and detailed, but it precisely shows the sequence of commands and arguments that are run prior to a failure or crash, and all additional information that is reported with the log levels ``info`` or ``debug`` can be very helpful to find out what is wrong.
+Even if the vast amount of detail in output generated with ``debug`` logging appears overwhelming, it can make sense to find out at which point an execution stalls, and to forward all information into any potential GitHub issue you will be creating.
+
+.. _debug:
+
+Debugging
+"""""""""
+
+If the additional level of detail provided by logging messages is not enough, you can go further with actual :term:`debugging`.
+For this, add the ``--dbg`` or ``--idbg`` flag to the main :command:`datalad` command, as in ``datalad --dbg status``.
+Adding this flag will enter a `Python <https://docs.python.org/3/library/pdb.html>`_ or `IPython debugger <https://ipython.org/>`_ when something unexpectedly crashes.
+This allows you to debug the program right when it fails, inspect available variables and their values, or step back and forth through the source code.
+Note that debugging experience is not a prerequisite when using DataLad -- although it is `an exciting life skill <https://www.monkeyuser.com/2017/step-by-step-debugging/>`_.
+`The official Python docs <https://docs.python.org/3/library/pdb.html#debugger-commands>`_ provide a good overview on the available debugger commands.
+
 Common warnings and errors
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 

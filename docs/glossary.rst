@@ -89,6 +89,7 @@ Glossary
 
    debugging
       Finding and resolving problems within a computer program.
+      To learn about debugging a failed execution of a DataLad command, take a look at the section :ref:`debug`.
 
    DOI
       A digital object identifier (DOI) is a character string used to permanently identify
@@ -164,7 +165,7 @@ Glossary
       Hypertext Transfer Protocol Secure; A protocol for file transfer over a network.
 
    logging
-      Automatic protocol creation of software processes, for example in order to gain insights into errors.
+      Automatic protocol creation of software processes, for example in order to gain insights into errors. To learn about logging to troubleshoot problems or remove or increase the amount of information printed to your terminal during the execution of a DataLad command, take a look at the section :ref:`logging`.
 
    master
       Git concept: The default :term:`branch` in a dataset.

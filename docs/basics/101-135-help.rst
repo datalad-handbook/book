@@ -138,6 +138,7 @@ This allows you to gain more insights into the actions DataLad and its underlyin
 
 :term:`Debugging` and :term:`logging` are not as complex as these terms may sound if you have never consciously debugged.
 Procedurally, it can be as easy as adding an additional flag to a command call.
+The paragraphs below start with the general concepts, and collect concrete debugging strategies for different problems. If you have advice to add, please `get in touch <https://github.com/datalad-handbook/book/issues>`_.
 
 .. _logging:
 
@@ -209,6 +210,29 @@ Adding this flag will enter a `Python <https://docs.python.org/3/library/pdb.htm
 This allows you to debug the program right when it fails, inspect available variables and their values, or step back and forth through the source code.
 Note that debugging experience is not a prerequisite when using DataLad -- although it is `an exciting life skill <https://www.monkeyuser.com/2017/step-by-step-debugging/>`_.
 `The official Python docs <https://docs.python.org/3/library/pdb.html#debugger-commands>`_ provide a good overview on the available debugger commands.
+
+Debugging example: DataLad get
+""""""""""""""""""""""""""""""
+
+It is common for :command:`datalad get` errors to originate in :term:`git-annex`, the software used by DataLad to transfer data. Here are a few suggestions to debug them:
+
+- Take a deep breath, or preferably a walk in a nice park :)
+- Check that you are using a recent version of git-annex
+   - ``git-annex version`` returns the version of git-annex on the first line of its input, and it is also reported in the output of :command:`datalad wtf`.
+   - The version number contains the release date of the version in use. For instance, git-annex version: ``8.20200330-g971791563`` was released on 30 March 2020.
+   - If the version that you are using is older than a few months, consider updating using the instructions `here <http://handbook.datalad.org/en/latest/intro/installation.html>`_.
+- Try to download the file using ``git-annex get -v -d <file_name>``. If this doesn't succeed, the DataLad command may not succeed. Options ``-d`` and ``-v`` are here to provide as much verbosity in error messages as possible
+- Read the output of :term:`git-annex`, identify the error, breathe again, and solve the issue!
+
+.. list-table:: Examples of possible issues
+   :header-rows: 1
+
+   * - git-annex error
+     - A solution that worked once
+   * - ``Last exception was: Could not find a suitable TLS CA certificate bundle, invalid path: /etc/pki/tls/certs/ca-bundle.crt [adapters.py:cert_verify:227]``
+     - unset environment variable ``CURL_CA_BUNDLE``
+   * - Permission denied when writing file
+     - Download to a writeable file system
 
 Common warnings and errors
 ^^^^^^^^^^^^^^^^^^^^^^^^^^

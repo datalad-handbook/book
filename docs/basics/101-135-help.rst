@@ -135,12 +135,12 @@ Given that operations with DataLad can be quite complicated, and could involve c
 The resulting error message, however, may not display the underlying cause correctly because the error message of whichever process failed is not propagated into the final result report.
 Thus, you may end up with an uninformative ``Unable to access these remotes`` error in the result summary, when the underlying issue is a `certificate error <https://github.com/datalad/datalad/issues/4651#issuecomment-649180205>`_.
 
-In situations where there is no obvious reason for a command to fail, it can be helpful -- either for yourself or for further information to paste into :term:`GitHub` issues -- to start `debugging <https://xkcd.com/1722/>`_, or *logging* at a higher granularity than is the default.
+In situations where there is no obvious reason for a command to fail, it can be helpful -- either for yourself or for further information to paste into :term:`GitHub` issues -- to start `debugging <https://xkcd.com/1722/>`_, or *logging at a higher granularity* than is the default.
 This allows you to gain more insights into the actions DataLad and its underlying tools are taking, where *exactly* they fail, and to even play around with the program at the state of the failure.
 
 :term:`Debugging` and :term:`logging` are not as complex as these terms may sound if you have never consciously debugged.
-Procedurally, it can be as easy as adding an additional flag to a command call.
-The paragraphs below start with the general concepts, and collect concrete debugging strategies for different problems. If you have advice to add, please `get in touch <https://github.com/datalad-handbook/book/issues>`_.
+Procedurally, it can be as easy as adding an additional flag to a command call, and cognitively, it can be as easy as engaging your visual system in a visual search task for the color red or the word "error", or reading more DataLad output that you're used to.
+The paragraphs below start with the general concepts, and collect concrete debugging strategies for different problems. If you have advice to add, please `get in touch <https://github.com/datalad-handbook/book/issues>`__.
 
 .. _logging:
 
@@ -148,9 +148,15 @@ Logging
 """""""
 
 In order to gain more insights into the steps performed by a program and capture as many details as possible for troubleshooting an error, you can turn to :term:`logging`.
-Logging simply refers to the fact that DataLad and its underlying tools tell you what they are doing.
-During your usual command execution, they already do this: Messages printed to your terminal preceded by ``[INFO]``, for example, are log messages (in this case, on the ``info`` level).
-If these messages are not giving (enough) hints about what went wrong (or, the other way around: if they are giving you too much information and you are annoyed by the amount of text your terminal is flooded with), you can adjust the logging *level* or the logging *granularity* to have DataLad tell you more or less details.
+Logging simply refers to the fact that DataLad and its underlying tools tell you what they are doing:
+This information can be coarse, such as a mere ``[INFO] Downloading <some_url> into <some_target>``, or fine-grained, such as ``[DEBUG] Resolved dataset for status reporting: <dataset>``.
+The :term:`log level` in brackets at the beginning of the line indicates how many details DataLad shares with you.
+
+Note that :term:`logging` is not a sealed book, and happens automatically during the execution of any DataLad command.
+While you were reading the handbook, you have seen a lot of log messages already.
+Anything printed to your terminal preceded by ``[INFO]``, for example, is a log message (in this case, on the ``info`` level).
+When you are *consciously* logging, you simply set the log-level to the desired amount of information, or increase the amount of verbosity until the output gives you a hint of what went wrong.
+Likewise, adjusting the log-level also works the other way around, and lets you *decrease* the amount of information you receive in your terminal.
 
 .. findoutmore:: Log levels
 
@@ -199,7 +205,11 @@ To get extensive information on what :command:`datalad status` does underneath t
       $ git config --global datalad.log.level debug
 
 This output is extensive and detailed, but it precisely shows the sequence of commands and arguments that are run prior to a failure or crash, and all additional information that is reported with the log levels ``info`` or ``debug`` can be very helpful to find out what is wrong.
-Even if the vast amount of detail in output generated with ``debug`` logging appears overwhelming, it can make sense to find out at which point an execution stalls, and to forward all information into any potential GitHub issue you will be creating.
+Even if the vast amount of detail in output generated with ``debug`` logging appears overwhelming, it can make sense to find out at which point an execution stalls, whether arguments, commands, or datasets reported in the debug output are what you expect them to be, and to forward all information into any potential GitHub issue you will be creating.
+
+Finally, other than logging with a DataLad command, it sometimes can be useful to turn to :term:`git-annex` or :term:`Git` for logging.
+For failing :command:`datalad get` calls, it may be useful to retry the retrieval using :command:`git annex get -d -v <file>`, where ``-d`` (debug) and ``-v`` (verbose) increase the amount of detail about the command execution and failure.
+In rare cases where you suspect something might be wrong with Git, setting the environment variables ``GIT_TRACE`` and ``GIT_TRACE_SETUP`` to ``2`` prior to running a Git command will give you debugging output.
 
 .. _debug:
 
@@ -211,11 +221,16 @@ For this, add the ``--dbg`` or ``--idbg`` flag to the main :command:`datalad` co
 Adding this flag will enter a `Python <https://docs.python.org/3/library/pdb.html>`_ or `IPython debugger <https://ipython.org/>`_ when something unexpectedly crashes.
 This allows you to debug the program right when it fails, inspect available variables and their values, or step back and forth through the source code.
 Note that debugging experience is not a prerequisite when using DataLad -- although it is `an exciting life skill <https://www.monkeyuser.com/2017/step-by-step-debugging/>`_.
-`The official Python docs <https://docs.python.org/3/library/pdb.html#debugger-commands>`_ provide a good overview on the available debugger commands.
+`The official Python docs <https://docs.python.org/3/library/pdb.html#debugger-commands>`_ provide a good overview on the available debugger commands if you are interested in learning more about this.
 
-Debugging example: DataLad get
-""""""""""""""""""""""""""""""
+Debugging examples
+""""""""""""""""""
 
+This section collects errors and their solutions from real GitHub issues.
+They may not be applicable for the problem you are currently facing, but seeing other's troubleshooting strategies may be helpful nevertheless.
+If you are interested in getting your error and solution described here, please `get in touch <https://github.com/datalad-handbook/book/issues>`_.
+
+:command:`datalad get`:
 It is common for :command:`datalad get` errors to originate in :term:`git-annex`, the software used by DataLad to transfer data. Here are a few suggestions to debug them:
 
 - Take a deep breath, or preferably a walk in a nice park :)

@@ -118,6 +118,8 @@ The "submit a question link" on `DataLad's GitHub page <https://github.com/datal
 page prefills a neurostars form with a template for a question for a good
 starting point if you want to have more guidance or encounter writer's block.
 
+.. index:: Debugging
+
 Debugging like a DataLad-developer
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 

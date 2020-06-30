@@ -167,6 +167,9 @@ Glossary
    logging
       Automatic protocol creation of software processes, for example in order to gain insights into errors. To learn about logging to troubleshoot problems or remove or increase the amount of information printed to your terminal during the execution of a DataLad command, take a look at the section :ref:`logging`.
 
+   log level
+      Adjusts the amount of verbosity during :term:`logging`.
+
    master
       Git concept: The default :term:`branch` in a dataset.
 

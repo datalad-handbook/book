@@ -28,7 +28,7 @@ The shell (sometimes also called a terminal, console, or CLI) is an interactive,
 text based interface. If you have used Matlab or IPython, then you are already familiar
 with the basics of a command line interface.
 
-.. figure:: ../img/shell.png
+.. figure:: ../artwork/src/img/shell.png
    :figwidth: 50%
    :alt: A z-shell on a Debian system
 

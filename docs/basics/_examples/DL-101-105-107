@@ -1,4 +1,2 @@
 $ datalad get Long_Now__Seminars_About_Long_term_Thinking/2003_11_15__Brian_Eno__The_Long_Now.mp3
 get(ok): Long_Now__Seminars_About_Long_term_Thinking/2003_11_15__Brian_Eno__The_Long_Now.mp3 (file) [from web...]
-Tried to get 1 file that had no content yet. Successfully obtained 1. 
-/home/me/dl-101/DataLad-101/recordings/longnow/Long_Now__Seminars_About_Long_term_Thinking/2003_11_15__Brian_Eno__The_Long_Now.mp3 [file] ... ok

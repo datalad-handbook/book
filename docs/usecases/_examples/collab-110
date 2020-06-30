@@ -1,4 +1,10 @@
 $ datalad update -s alice --merge
-[INFO] Fetching updates for <Dataset path=/home/me/usecases/collab/myanalysis> 
-[INFO] Applying updates to <Dataset path=/home/me/usecases/collab/myanalysis> 
+[INFO] Fetching updates for Dataset(/home/me/usecases/collab/myanalysis)
+[INFO] Start enumerating objects
+[INFO] Start counting objects
+[INFO] Start compressing objects
+merge(ok): . (dataset) [Merged alice/master]
 update(ok): . (dataset)
+action summary:
+  merge (ok: 1)
+  update (ok: 1)

@@ -1,6 +1,7 @@
 [![Build Status](https://travis-ci.org/datalad-handbook/book.svg?branch=master)](https://travis-ci.org/datalad-handbook/book) [![Documentation Status](https://readthedocs.org/projects/datalad-handbook/badge/?version=latest)](http://handbook.datalad.org/en/latest/?badge=latest)
-[![All Contributors](https://img.shields.io/badge/all_contributors-21-orange.svg?style=flat-square)](#contributors)
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 [![DOI](https://zenodo.org/badge/192547315.svg)](https://zenodo.org/badge/latestdoi/192547315)
+<!-- ALL-CONTRIBUTORS-BADGE:END --> 
 [![made-with-datalad](https://www.datalad.org/badges/made_with.svg)](https://datalad.org)
 
 # The DataLad handbook :orange_book:

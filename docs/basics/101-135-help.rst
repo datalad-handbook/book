@@ -238,7 +238,7 @@ It is common for :command:`datalad get` errors to originate in :term:`git-annex`
    - ``git-annex version`` returns the version of git-annex on the first line of its input, and it is also reported in the output of :command:`datalad wtf`.
    - The version number contains the release date of the version in use. For instance, git-annex version: ``8.20200330-g971791563`` was released on 30 March 2020.
    - If the version that you are using is older than a few months, consider updating using the instructions `here <http://handbook.datalad.org/en/latest/intro/installation.html>`_.
-- Try to download the file using ``git-annex get -v -d <file_name>``. If this doesn't succeed, the DataLad command may not succeed. Options ``-d`` and ``-v`` are here to provide as much verbosity in error messages as possible
+- Try to download the file using ``git-annex get -v -d <file_name>``. If this doesn't succeed, the DataLad command may not succeed. Options ``-d/--debug`` and ``-v`` are here to provide as much verbosity in error messages as possible
 - Read the output of :term:`git-annex`, identify the error, breathe again, and solve the issue!
 
 .. list-table:: Examples of possible issues
@@ -246,10 +246,35 @@ It is common for :command:`datalad get` errors to originate in :term:`git-annex`
 
    * - git-annex error
      - A solution that worked once
-   * - ``Last exception was: Could not find a suitable TLS CA certificate bundle, invalid path: /etc/pki/tls/certs/ca-bundle.crt [adapters.py:cert_verify:227]``
-     - unset environment variable ``CURL_CA_BUNDLE``
+   * - .. code-block::
+
+           Last exception was:
+           Could not find a suitable TLS CA
+           certificate bundle, invalid path:
+           /etc/pki/tls/certs/ca-bundle.crt
+           [adapters.py:cert_verify:227]
+
+     - Unset environment variable ``CURL_CA_BUNDLE``
    * - Permission denied when writing file
      - Download to a writeable file system
+   * - File retrieval from an Amazon S3 bucket failed during a system call in a MATLAB session:
+
+       .. code-block:: bash
+
+          >> system('datalad -C mytest \
+                     get 100206/T1w/T1w_acpc_dc.nii.gz')
+            [...]
+            git-annex: get: 1 failed
+
+     - MATLAB massively overrides the ``LD_LIBRARY_PATH`` setting.
+       This can lead to a number of issues, among them SSL certification errors.
+       Prefixing the :command:`datalad get` command with
+
+       .. code-block:: bash
+
+          !LD_LIBRARY_PATH= datalad get [....]
+
+       can solve this.
 
 Common warnings and errors
 ^^^^^^^^^^^^^^^^^^^^^^^^^^

@@ -22,6 +22,7 @@ associated usecases.
    basics-scaling
    basics-retrospective
    basics-specialpurpose
+   basics-hpc
 
 .. figure:: /artwork/src/hero.svg
    :width: 70%

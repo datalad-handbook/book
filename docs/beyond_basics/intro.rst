@@ -20,6 +20,7 @@ associated usecases.
 
    basics-advancedoptions
    basics-scaling
+   basics-hpc
 
 .. figure:: /artwork/src/hero.svg
    :width: 70%

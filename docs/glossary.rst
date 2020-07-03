@@ -61,6 +61,9 @@ Glossary
       Git concept: A concise summary of changes you should attach to a :command:`datalad save` command. This summary will
       show up in your :term:`DataLad dataset` history.
 
+   compute node
+      A compute node is an individual computer, part of a :term:`high-performance computing (HPC)` or :term:`high-throughput computing (HTC)` cluster.
+
    DataLad dataset
       A DataLad dataset is a Git repository that may or may not have a data annex that is used to
       manage data referenced in a dataset. In practice, most DataLad datasets will come with an annex.
@@ -101,7 +104,10 @@ Glossary
       will use its associated value for their execution.
 
    ephemeral clone
-      TODO
+      dataset clones that share the annex with the dataset they were cloned from, without :term:`git-annex` being aware of it.
+      On a technical level, this is achieved via symlinks.
+      They can be created with the ``--reckless ephemeral`` option of :command:`datalad clone`.
+
 
    force-push
       Git concept; Enforcing a :command:`git push` command with the ``--force``
@@ -153,6 +159,13 @@ Glossary
       that ``ls *.txt`` will list all ``.txt`` files in the current directory.
       You can read about more about Pattern Matching in
       `Bash's Docs <https://www.gnu.org/savannah-checkouts/gnu/bash/manual/bash.html#Pattern-Matching>`_.
+
+   high-performance computing (HPC)
+      Aggregating computing power from a bond of computers in a way that delivers higher performance than a typical desktop computer in order to solve computing tasks that require high computing power or demand a lot of disk space or memory.
+
+
+   high-throughput computing (HTC)
+      A computing environment build from a bond of computers and tuned to deliver large amounts of computational power to allow parallel processing of independent computational jobs. For more information, see `this Wikipedia entry <https://en.wikipedia.org/wiki/High-throughput_computing>`_.
 
    http
       Hypertext Transfer Protocol; A protocol for file transfer over a network.

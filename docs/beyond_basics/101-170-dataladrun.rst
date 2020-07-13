@@ -340,7 +340,7 @@ The concrete calling/submission of this script is shown in the paragraph :ref:`j
 Job submission
 """"""""""""""
 
-With this script set up, job submission boils down to invoking the script for each participant with a participant identifier that determines on which subject the job runs, and setting two environment variables - one the job ID that determines the branch name that is created, and one that points to a lockfile created beforehand once in ``.git``.
+With this script set up, job submission boils down to invoking the script for each participant with a participant identifier that determines on which subject the job runs, and setting two environment variables -- one the job ID that determines the branch name that is created, and one that points to a lockfile created beforehand once in ``.git``.
 Job scheduler such as HTCondor have syntax that can identify subject IDs from consistently named directories, for example, and the submit file is thus lean.
 
 You can find the submit file used in this analyses in the findoutmore below.

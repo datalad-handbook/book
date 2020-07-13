@@ -360,5 +360,8 @@ Glossary
       Here is help: `A vim tutorial <https://www.openvim.com/>`_ and
       `how to configure the default editor for git <https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration>`_.
 
+   WSL
+      The Windows Subsystem for Linux, a compatibility layer for running Linux destributions on recent versions of Windows. Find out more `here <https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux>`__.
+
    zsh
       A Unix shell.

@@ -173,7 +173,7 @@ As you can see, the :term:`git-annex branch` was pushed successfully, but updati
 the ``master`` branch was rejected: ``[remote rejected] (branch is currently checked out) [publish(/home/me/dl-101/DataLad-101)]``.
 In this particular case, this is because it was an attempt to push from ``DataLad-101``
 to the ``roommate`` sibling that was created in chapter :ref:`chapter_collaboration`.
-This is a special case of pushing, because it - in technical terms - is a push
+This is a special case of pushing, because it -- in technical terms -- is a push
 to a non-bare repository. Unlike :term:`bare Git repositories`, non-bare
 repositories can not be pushed to at all times. To fix this, you either want to
 `checkout another branch <https://git-scm.com/docs/git-checkout>`_

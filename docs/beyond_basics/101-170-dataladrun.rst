@@ -3,6 +3,10 @@
 DataLad-centric analysis with job scheduling and parallel computing
 -------------------------------------------------------------------
 
+.. note::
+
+   It is advised to read the previous chapter :ref:`chapter_gobig` prior to this one
+
 This section is a write-up of how DataLad can be used on a scientific computational cluster with a job scheduler for reproducible and FAIR data analyses at scale.
 More concretely, it shows an example of containerized `fMRIprep <https://fmriprep.readthedocs.io/>`_ preprocessing on the `eNKI <http://fcon_1000.projects.nitrc.org/indi/enhanced/>`_ neuroimaging dataset, scheduled with `HTCondor <https://research.cs.wisc.edu/htcondor/>`_.
 While the choice of containerized pipeline and job scheduler are specific in this example, the general setup is generic and could be used with any containerized pipeline and any job scheduling system.

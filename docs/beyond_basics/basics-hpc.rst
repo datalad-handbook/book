@@ -9,4 +9,5 @@ Computing on clusters
    :maxdepth: 1
    :caption: Strategies for high performance computing with DataLad
 
+   101-169-cluster
    101-170-dataladrun

@@ -316,6 +316,8 @@ this means that the sibling contains changes that your local dataset does not ye
 know about. It can be fixed by updating from the sibling first with a
 :command:`datalad update --merge`.
 
+.. _nonbarepush:
+
 Here is a different push rejection::
 
    $ datalad push --to roommate

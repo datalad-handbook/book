@@ -320,7 +320,9 @@ latex_elements = {
 \definecolor{dataladyellow}{HTML}{FFA200}
 \definecolor{dataladblue}{HTML}{7FD5FF}
 \definecolor{dataladgray}{HTML}{333333}
-
+\definecolor{windowsblue}{HTML}{00A4EF}
+\definecolor{windowsgreen}{HTML}{66CC33}
+\definecolor{windowsyellow}{HTML}{FFCC00}
 \setcounter{secnumdepth}{1}
 \newsavebox{\selvestebox}
 \newenvironment{colbox}[1]

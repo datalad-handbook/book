@@ -14,7 +14,7 @@ beyond 100k files in a single dataset.
 The contents of this chapter exist thanks to some pioneers that took a leap and
 deep-dived into gigantic data management challenges. You can read up on some
 of them in the usecases :ref:`usecase_HCP_dataset` and :ref:`usecase_datastore`.
-Based on what we have learned so far from these endeavours,
+Based on what we have learned so far from these endeavors,
 this chapter encompasses principles, advice, and points of reference.
 
 The introduction in this section illustrates the basic caveats when scaling up,
@@ -46,7 +46,7 @@ can lead to
 As a general rule of thumb, we will consider single datasets with 100k files or
 more as "big" for the rest of this chapter. Starting at about this size we can
 begin to see performance issues in datasets.
-Benchmarking in DataLad datasets with varying, but large amounts of tiny files
+Bench marking in DataLad datasets with varying, but large amounts of tiny files
 on different file systems and different git-annex repository versions show that
 a mere :command:`datalad save` or :command:`datalad status` command
 can take from 15 minutes up to several hours. Its neither fun nor feasible to
@@ -140,6 +140,8 @@ Tool-specific and smaller advice
   datasets. For example, it may be useful to not use a
   standalone git-annex build, but a native git-annex binary (see
   `this comment <https://github.com/datalad/datalad/issues/3869#issuecomment-557598390>`_)
+- Status reports in datasets with large amounts of files and/or subdatasets can
+  be expensive. Check out the Gist :ref:`speedystatus` for solutions.
 
 .. todo::
 

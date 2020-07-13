@@ -1,7 +1,7 @@
 .. _chapter_thirdparty:
 
-**VIII - Third party infrastructure**
--------------------------------------
+Third party infrastructure
+--------------------------
 
 .. index:: ! Chapter; 8. Third party infrastructure
 
@@ -9,7 +9,6 @@
 
 .. toctree::
    :maxdepth: 1
-   :numbered:
    :caption: Leverage third party services to share datasets
 
    101-138-sharethirdparty

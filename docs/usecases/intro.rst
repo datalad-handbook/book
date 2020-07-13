@@ -1,7 +1,8 @@
 .. _usecase-intro:
 
-Usecases
---------
+#############
+**Use cases**
+#############
 
 In this part of the book you will find concrete examples of DataLad applications for general
 inspiration. You can get an overview of what is possible by browsing through them,
@@ -13,15 +14,20 @@ the solutions they demonstrate.
 .. figure:: ../artwork/src/recipe.svg
    :width: 70%
 
+.. toctree::
+   :maxdepth: 1
+   :caption: Hands-on real-world applications with step-by-step recipes...
 
-**Use case overview:**
+   collaborative_data_management
+   provenance_tracking
+   reproducible-paper
+   supervision
+   reproducible_neuroimaging_analysis
+   HCP_dataset
+   datastorage_for_institutions
+   using_globus_as_datastore
 
-- :ref:`usecase_collab`
-- :ref:`usecase_provenance_tracking`
-- :ref:`usecase_reproducible_paper`
-- :ref:`usecase_student_supervision`
-- :ref:`usecase_reproduce_neuroimg`
-- :ref:`usecase_datastore`
+
 
 Contributing
 ^^^^^^^^^^^^

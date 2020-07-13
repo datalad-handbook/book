@@ -1,7 +1,8 @@
-.. advaced-intro:
+.. advanced-intro:
 
-Beyond the Basics
------------------
+############
+**Advanced**
+############
 
 There is more to DataLad than the Basics. Equipped with the fundamental building
 blocks and broad DataLad expertise, you can continue to this advanced section
@@ -13,6 +14,13 @@ graduated. There is no need to read the chapters of this book sequentially. Rath
 find chapters that match your interest and usecase, and read its sections and
 associated usecases.
 
+.. toctree::
+   :maxdepth: 2
+   :numbered:
 
-.. figure:: ../artwork/src/hero.svg
+   basics-advancedoptions
+   basics-scaling
+   basics_ukb_toc
+
+.. figure:: /artwork/src/hero.svg
    :width: 70%

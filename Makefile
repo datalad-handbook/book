@@ -15,6 +15,9 @@ clean-examples:
 	@for d in $$(git grep ':workdir:' -- docs | cut -d ':' -f 4- | sort | uniq|cut -d '/' -f 1 | uniq | sed 's/usecases//'); do chmod +w -R /home/me/$$d; rm -vrf /home/me/$$d ; done
     # wipe out bare push repos
 	@chmod +w -R /home/me/pushes; rm -vrf /home/me/pushes
+	@rm -vrf /home/me/makepushtarget.py
+	# wipe out the RIA store
+	@rm -vrf /home/me/myriastore
 
 # wipe out usecases
 clean-usecases:
@@ -31,3 +34,8 @@ clean:
 	@find docs -name _examples -type d | xargs rm -vrf
 	# also wipe the workdirs, otherwise a rebuild will lead to chaos
 	@for d in $$(git grep ':workdir:' -- docs | cut -d ':' -f 4- | sort | uniq|cut -d '/' -f 1 | uniq); do chmod +w -R /home/me/$$d; rm -vrf /home/me/$$d ; done
+    # wipe out bare push repos
+	@chmod +w -R /home/me/pushes; rm -vrf /home/me/pushes
+	@rm -vrf /home/me/makepushtarget.py
+	# wipe out the RIA store
+	@rm -vrf /home/me/myriastore

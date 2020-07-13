@@ -1,18 +1,17 @@
 .. _chapter_yoda:
 
-**VI - Make the most out of datasets**
---------------------------------------
+Make the most out of datasets
+-----------------------------
 
 .. index:: ! Chapter; 6. Data analysis (YODA)
 
-.. figure:: ../img/yoda.svg
+.. figure:: ../artwork/src/img/yoda.svg
    :alt: A very cute YODA
 
    “Feel the force!”
 
 .. toctree::
    :maxdepth: 1
-   :numbered:
    :caption: Organizational principles and best practices for reproducible data analyses
 
    101-126-intro

@@ -1,7 +1,7 @@
 .. _chapter_datasets:
 
-**I - DataLad datasets**
-------------------------
+DataLad datasets
+----------------
 
 .. index:: ! Chapter; 1. DataLad datasets
 
@@ -9,7 +9,6 @@
 
 .. toctree::
    :maxdepth: 1
-   :numbered:
    :caption: Exploring DataLad's core data structure: Datasets!
 
    101-101-create

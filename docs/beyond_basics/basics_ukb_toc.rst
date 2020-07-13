@@ -1,13 +1,12 @@
 .. _chapter_ukb:
 
-**XIII - FAIR processing at scale**
------------------------------------
+FAIR processing at scale
+------------------------
 
 .. figure:: ../artwork/src/cluster.svg
 
 
 .. toctree::
-   :numbered:
    :maxdepth: 1
    :caption: Taming the UKBiobank dataset
 

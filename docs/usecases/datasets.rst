@@ -141,7 +141,7 @@ The figure below illustrates dataset nesting in a neuroimaging context
 schematically:
 
 
-.. figure:: ../img/virtual_dirtree.svg
+.. figure:: ../artwork/src/img/virtual_dirtree.svg
    :alt: Virtual directory tree of a nested DataLad dataset
 
 Creating your own dataset yourself

@@ -256,7 +256,7 @@
     },
     {
       "login": "dorianps",
-      "name": "dorianps",
+      "name": "Dorian Pustina",
       "avatar_url": "https://avatars3.githubusercontent.com/u/9083517?v=4",
       "profile": "https://github.com/dorianps",
       "contributions": [
@@ -265,7 +265,7 @@
     },
     {
       "login": "hbaagil",
-      "name": "hbaagil",
+      "name": "Hamzah Hamid Baagil",
       "avatar_url": "https://avatars3.githubusercontent.com/u/61992500?v=4",
       "profile": "https://github.com/hbaagil",
       "contributions": [
@@ -279,7 +279,46 @@
       "avatar_url": "https://avatars0.githubusercontent.com/u/5174953?v=4",
       "profile": "https://github.com/glatard",
       "contributions": [
-        "bug"
+        "bug",
+        "content"
+      ]
+    },
+    {
+      "login": "gi114",
+      "name": "Giulia Ippoliti",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/17640807?v=4",
+      "profile": "https://github.com/gi114",
+      "contributions": [
+        "content",
+        "example"
+      ]
+    },
+    {
+      "login": "christian-monch",
+      "name": "Christian Mönch",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/17925232?v=4",
+      "profile": "https://github.com/christian-monch",
+      "contributions": [
+        "content"
+      ]
+    },
+    {
+      "login": "ayrustogaru",
+      "name": "Togaru Surya Teja",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/35329371?v=4",
+      "profile": "https://github.com/ayrustogaru",
+      "contributions": [
+        "content"
+      ]
+    },
+    {
+      "login": "DorienHuijser",
+      "name": "Dorien Huijser",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/58177697?v=4",
+      "profile": "https://github.com/DorienHuijser",
+      "contributions": [
+        "bug",
+        "userTesting"
       ]
     }
   ],

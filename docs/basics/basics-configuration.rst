@@ -2,8 +2,8 @@
 .. _2-004:
 .. _chapter_config:
 
-**V - Tuning datasets to your needs**
--------------------------------------
+Tuning datasets to your needs
+-----------------------------
 
 .. index:: ! Chapter; 5. Configuration
 
@@ -11,7 +11,6 @@
 
 .. toctree::
    :maxdepth: 1
-   :numbered:
    :caption: Various options and methods for dataset configurations
 
    101-122-config

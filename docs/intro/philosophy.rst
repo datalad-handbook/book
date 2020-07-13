@@ -36,9 +36,9 @@ related to the evolution of digital objects.
 
 It is **not only keeping track of code**, it is
 **not only keeping track of data**, it is
-**not only making sharing, retrieving and linking (meta-)data easy**,
+**not only making sharing, retrieving and linking data (and metadata) easy**,
 but it assists with the combination of all things
-necessary in the digitial workflow of data and science.
+necessary in the digital workflow of data and science.
 
 As built-in, but *optional* features, DataLad yields FAIR resources -- for example
 :term:`metadata` and :term:`provenance` -- and anything (or everything)
@@ -68,7 +68,7 @@ version of a common naming standard and the data files are thus renamed.  It may
 be easy to change data, but it can be difficult to revert a change, get
 information on previous states of this data, or even simply find out how a piece
 of data came into existence. This latter aspect, the :term:`provenance` of data
--- information on its lineage and *how* it came to be in its current state, -- is
+-- information on its lineage and *how* it came to be in its current state -- is
 often key to understanding or establishing trust in data.  In collaborative
 fields that work with small-sized data such as Wikipedia pages or software
 development, :term:`version control` tools are established and indispensable. These

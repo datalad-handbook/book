@@ -70,15 +70,14 @@ can be a URL or a path to a local directory, or an SSH server [#f1]_. The datase
 to be installed lives on :term:`GitHub`, at
 `https://github.com/datalad-datasets/longnow-podcasts.git <https://github.com/datalad-datasets/longnow-podcasts.git>`_,
 and we can give its GitHub URL as the  first positional argument.
-Optionally, the command also takes a second positional path as an argument --
-to the *destination*, i.e., a path to where we want to install the dataset to --
-in this case it is ``recordings/longnow``.
+Optionally, the command also takes as second positional argument a path to the *destination*,
+-- a path to where we want to install the dataset to. In this case it is ``recordings/longnow``.
 Because we are installing a dataset (the podcasts) into an existing dataset (the ``DataLad-101``
 dataset), we also supply a ``-d/--dataset`` flag to the command.
 This specifies the dataset to perform the operation on, and allows us to install
 the podcasts as a *subdataset* of ``DataLad-101``. Because we are in the root
 of the ``DataLad-101`` dataset, the pointer to the dataset is a ``.`` (which is Unix'
-way for saying "current directory").
+way of saying "current directory").
 
 As before with long commands, we line break the code below with a ``\``. You can
 copy it as it is presented here into your terminal, but in your own work you
@@ -389,8 +388,8 @@ history from first to most recent commit):
 But that's not all. The seminar series is ongoing, and more recordings can get added
 to the original repository shared on GitHub.
 Because an installed dataset knows the dataset it was installed from,
-you local dataset clone can be updated from its origin, and thus get the new recordings,
-should there be some. later in this handbook, we will see examples of this.
+your local dataset clone can be updated from its origin, and thus get the new recordings,
+should there be some. Later in this handbook, we will see examples of this.
 
 Now you can not only create datasets and work with them locally, you can also consume
 existing datasets by installing them. Because that's cool, and because you will use this

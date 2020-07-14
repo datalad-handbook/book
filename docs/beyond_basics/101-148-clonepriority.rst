@@ -32,7 +32,7 @@ Cloning ``DataLad-101`` recursively with ``midterm_project`` thus works when clo
 
 Back in section :ref:`gin`, this problem was fixed by replacing the relative path in ``.gitmodules`` with the URL to the dataset sibling on GitHub.
 But a more convenient solution would be to have several known locations for subdatasets that are attempted in succession -- if cloning from a local path fails, try the GitHub URL, and then the RIA store, and so forth.
-Therefore, other than the ``.gitmodules`` entry, a dataset can encode other clone candidate sources also with a configuration.
+Therefore, other than the ``.gitmodules`` entry, a dataset can encode other clone candidate sources  with a configuration variable as well.
 Here is an overview on where subdataset clone candidates can be found:
 
 #. Without any additional configuration, a subdataset is either registered underneath its superdataset with a relative path (if it was originally created in this dataset), or from the path or URL it was originally installed from. This is recorded in the ``.gitmodules`` file of the superdataset.
@@ -73,7 +73,7 @@ Note that in the case where no cost is provided together with the candidate name
 
     - ``500`` for the superdatasets' remote URL + submodule path
     - ``600`` for the configured submodule URL in ``.gitmodules``
-    - ``700`` for any unprioritized 'datalad.get.subdataset-source-candidate' config
+    - ``700`` for any unprioritized ``datalad.get.subdataset-source-candidate`` config
     - ``900`` for the local subdataset path
 
 

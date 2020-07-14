@@ -9,7 +9,7 @@ This sections outlines the basic steps to do so, and offers examples as well as 
 Important: Your safety net
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Chances are high that you are reading this section of the handbook after you stumbled across DataLad and were amazed by its features, and you're now looking for a quick way to get going.
+Chances are high that you are reading this section of the handbook after you stumbled across DataLad and were intrigued by its features, and you're now looking for a quick way to get going.
 If you haven't read much of the handbook, but are now planning to DataLad-ify the gigantic project you have been working on for the past months or years, this first paragraph is warning, advice, and a call for safety nets to prevent unexpected misery that can arise from transitioning to a new tool.
 Because while DataLad *can* do amazing things, you shouldn't blindly trust it to do everything *you* think it can or should do, but gain some familiarity with it.
 
@@ -25,8 +25,8 @@ If you're really pressed for time because your dog is sick, your toddler keeps e
 
    To become confident in using DataLad, sections :ref:`help`, :ref:`filesystem` can be very useful. Depending on your aim, :ref:`chapter_collaboration` (for collaborative workflows), :ref:`chapter_thirdparty` (for data sharing), or :ref:`chapter_yoda` (for data analysis) may contain the relevant background for you.
 
-Prior to transforming your project, **we recommend to create a copy of it**.
-We don't believe there is much that can go wrong from the software-side of things, but data is precious, so if its your first time using DataLad, better be safe than sorry.
+Prior to transforming your project, regardless of how advanced of a user you are, **we recommend to create a copy of it**.
+We don't believe there is much that can go wrong from the software-side of things, but data is precious and backups a necessity, so better be safe than sorry.
 
 Step 1: Planning
 ^^^^^^^^^^^^^^^^
@@ -47,7 +47,7 @@ Transforming a directory into a dataset is done with :command:`datalad create --
 The ``-f``/``--force`` option enforces dataset creation in non-empty directories.
 Consider :ref:`applying procedures <procedures>` with ``-c <procedure-name>`` do apply configurations that suit your use case.
 
-.. findoutmore:: What is my directory is already a Git repository?
+.. findoutmore:: What if my directory is already a Git repository?
 
    If you want to transform a Git repository to a DataLad dataset, a :command:`datalad create -f` is the way to go, too, and completely safe.
    Your Git history will stay intact and will not be tempered with.
@@ -60,7 +60,7 @@ If you want to transform a series of nested directories into nested datasets, co
    Two simple questions can help you make a decision:
 
    #. Do you have independently reusable components in your directory, for example data from several studies, or data and code/results? If yes, make each individual component a dataset.
-   #. How large is each individual component? If it exceeds 100-200k files, split it up into smaller datasets. The decision on where to place subdataset boundaries can be guided by the existing directory structure or by common access patterns, for example based on data type (raw, processed, ...) or subject association. One straightforward organization may be a top-level superdataset and subject-specific subdatasets, mimicking the structure chosen in the use case :ref:`usecase_HCP_dataset`.
+   #. How large is each individual component? If it exceeds 100k files, split it up into smaller datasets. The decision on where to place subdataset boundaries can be guided by the existing directory structure or by common access patterns, for example based on data type (raw, processed, ...) or subject association. One straightforward organization may be a top-level superdataset and subject-specific subdatasets, mimicking the structure chosen in the use case :ref:`usecase_HCP_dataset`.
 
 You can automate this with :term:`bash` loops, if you want.
 
@@ -88,7 +88,7 @@ You can automate this with :term:`bash` loops, if you want.
             ├── anat
             └── func
 
-   Consider further that you want to transform all ``sub-*`` directories into individual datasets.
+   Consider further that you have transformed the toplevel ``study`` directory into a dataset and now want to transform all ``sub-*`` directories into further subdatasets, registered in ``study``.
    Here is a line that would do this for the example above::
 
       $ for dir in study/sub-0{1,2,3,4,5}; do datalad -C $dir create --force; done
@@ -130,7 +130,7 @@ Summary
 ^^^^^^^
 
 Existing projects and analysis can be DataLad-ified with a few standard commands.
-Be mindful about dataset sizes and whether you save contents into Git or git-annex, though, as these choices could potentially spoil your dataset experience.
+Be mindful about dataset sizes and whether you save contents into Git or git-annex, though, as these choices could potentially spoil your DataLad experience.
 The sections :ref:`filesystem` and :ref:`cleanup` can help you to undo unwanted changes, but its better to do things right instead of having to fix them up.
 If you can, read up on the DataLad Basics to understand what you are doing, and create a backup in case things go not as planned in your first attempts.
 

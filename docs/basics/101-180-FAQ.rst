@@ -144,6 +144,7 @@ DataLad dataset by running::
 inside of it. Afterwards, you may want to tweak settings in ``.gitattributes``
 according to your needs (see sections :ref:`config` and :ref:`config2` for
 additional insights on this).
+The chapter :ref:`chapter_retro` guides you through transitioning an existing project into DataLad.
 
 How can I cite DataLad?
 ^^^^^^^^^^^^^^^^^^^^^^^

@@ -165,15 +165,15 @@ Likewise, adjusting the log-level also works the other way around, and lets you 
 
    - **critical**: Only catastrophes are reported. Currently, there is nothing inside of DataLad that would log at this level, so setting the log level to *critical* will result in getting no details at all, not even about errors or failures.
    - **error**: With this log level you will receive reports on any errors that occurred within the program during command execution.
-   - **warning**: At this log level, the command execution will report on usual situations and anything that *might* be a problem, in addition to report anything from the *error* log level. This is the default log level.
+   - **warning**: At this log level, the command execution will report on usual situations and anything that *might* be a problem, in addition to report anything from the *error* log level. .
    - **info**: This log level will include reports by the program that indicate normal behavior and serve to keep you up to date about the current state of things, in additions to warning and error logging messages.
-   - **debug**: This log level is the most useful to troubleshoot a problem, and results in DataLad telling you *absolutely everything* it possibly can.
+   - **debug**: This log level is very useful to troubleshoot a problem, and results in DataLad telling you *a lot* it possibly can.
 
-   By default, the log level is set to ``warning``. Raising the log level (e.g, to ``error``) will decrease the amount of information and output you will receive, while lowering it (e.g., to ``info``) will increase it.
+   Other than log *levels*, you can also adjust the amount of information provided with numerical granularity. Instead of specifying a log level, provide an integer between 1 and 9, with lower values denoting more debugging information.
 
-.. findoutmore:: Logging granularity
+   Raising the log level (e.g, to ``error``, or ``9`) will decrease the amount of information and output you will receive, while lowering it (e.g., to ``debug`` or ``1``) will increase it.
 
-   Other than log *levels*, you can also adjust the amount of information provided with numerical granularity. Instead of specifying a log level, provide an integer <10, with higher values denoting more debugging information.
+
 
 Setting a log level can be done in the form of an :term:`environment variable`, a configuration, or with the ``-l``/``--log-level`` flag appended directly after the main :command:`datalad` command.
 To get extensive information on what :command:`datalad status` does underneath the hood, your command could look like this:

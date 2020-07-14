@@ -386,6 +386,8 @@ Write a note about configurations in datasets into ``notes.txt``.
 
 .. index:: ! environment variable
 
+.. _envvars:
+
 .. [#f4] **Some more on environment variables**:
          Names of environment variables are often all-uppercase. While the ``$`` is not part of
          the name of the environment variable, it is necessary to *refer* to the environment

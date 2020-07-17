@@ -92,6 +92,7 @@ Appendix
    teaching
    acknowledgements
    intro/user_types
+   OHBMposter
 
 ########################
 Code lists from chapters

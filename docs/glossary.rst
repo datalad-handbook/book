@@ -87,6 +87,10 @@ Glossary
    Debian
       A common Linux distribution. `More information here <https://www.debian.org/index.en.html>`__.
 
+   debugging
+      Finding and resolving problems within a computer program.
+      To learn about debugging a failed execution of a DataLad command, take a look at the section :ref:`debug`.
+
    DOI
       A digital object identifier (DOI) is a character string used to permanently identify
       a resource and link to in on the web. A DOI will always refer to the one resource
@@ -97,8 +101,8 @@ Glossary
       enables DataLad to extract and aggregate special types of metadata.
 
    environment variable
-      A variable made up of a name/value pair. Programs using a given environment variable
-      will use its associated value for their execution.
+      A variable made up of a name/value pair. Programs using a given environment variable will use its associated value for their execution.
+      You can find out a bit more on environment variable :ref:`in this footnote <envvars>`.
 
    ephemeral clone
       TODO
@@ -159,6 +163,12 @@ Glossary
 
    https
       Hypertext Transfer Protocol Secure; A protocol for file transfer over a network.
+
+   logging
+      Automatic protocol creation of software processes, for example in order to gain insights into errors. To learn about logging to troubleshoot problems or remove or increase the amount of information printed to your terminal during the execution of a DataLad command, take a look at the section :ref:`logging`.
+
+   log level
+      Adjusts the amount of verbosity during :term:`logging`.
 
    master
       Git concept: The default :term:`branch` in a dataset.
@@ -359,6 +369,9 @@ Glossary
       but ended up in it accidentally: press ``ESC`` ``:`` ``q`` ``!`` ``Enter`` to exit without saving.
       Here is help: `A vim tutorial <https://www.openvim.com/>`_ and
       `how to configure the default editor for git <https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration>`_.
+
+   WSL
+      The Windows Subsystem for Linux, a compatibility layer for running Linux destributions on recent versions of Windows. Find out more `here <https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux>`__.
 
    zsh
       A Unix shell.

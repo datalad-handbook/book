@@ -1,4 +1,4 @@
-.. advaced-intro:
+.. advanced-intro:
 
 ############
 **Advanced**

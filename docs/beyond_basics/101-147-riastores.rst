@@ -515,6 +515,9 @@ with.
    This makes it easier for others to clone the dataset and will provide a sensible
    default name for the clone if no additional path is provided in the command.
 
+   Note that it is even possible to create "aliases of an aliases" -- symlinking an existing alias-symlink (in the example above ``midterm_project``) under another name in the ``alias/`` directory is no problem.
+   This could be useful if the same dataset needs to be accessible via several aliases, or to safeguard against common spelling errors in alias names.
+
 The dataset clone is just like any other dataset clone. Contents stored in
 :term:`Git` are present right after cloning, while the contents of annexed files
 is not yet retrieved from the store and can be obtained with a :command:`datalad get`.

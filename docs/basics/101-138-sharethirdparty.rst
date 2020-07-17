@@ -60,6 +60,7 @@ web server, but also a third party services cloud storage such as
 `Figshare <https://figshare.com/>`_,
 `owncloud <https://owncloud.org/>`_,
 `sciebo <https://sciebo.de/>`_,
+the `Open Science Framework (OSF) <https://osf.io/>`__  (requires the `datalad-osf extension <http://docs.datalad.org/projects/osf/en/latest/index.html>`_),
 or many more. The key to achieve this lies within :term:`git-annex`.
 
 In order to use third party services for file storage, you need to configure the
@@ -73,9 +74,15 @@ datasets can be shared via a third party infrastructure.
 
 .. note::
 
-   A much easier alternative using another third party infrastructure is
-   introduced in the next section, :ref:`gin`, using the free G-Node
-   infrastructure. If you prefer this as an easier start, feel free to skip ahead.
+   There are two easier and free alternatives to what is outlined in this section:
+
+   - Using the free G-Node Infrastructure :term:`Gin`, a repository hosting service with support for dataset annexes.
+     The :ref:`next section <gin>` introduces how to use this third party infrastructure, and you can skip ahead if you prefer an easier start.
+
+   - Using the ``datalad-osf`` extension to publish datasets and their file contents to the free `Open Science Framework (OSF) <https://osf.io/>`__.
+     This alternative differs from what is outlined in this chapter, but its `documentation <http://docs.datalad.org/projects/osf/en/latest/index.html>`_ provides detailed tutorials and use cases.
+
+   If you are interested in learning how to set up a special remote, or are bound to a different third party provider than :term:`Gin` or the OSF, please read on in this section.
 
 From your perspective (as someone who wants to share data), you will
 need to

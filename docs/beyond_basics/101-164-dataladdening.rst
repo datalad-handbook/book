@@ -108,13 +108,14 @@ Make sure to run :command:`datalad status` frequently.
 
    - large files, in particular binary files should almost always go into :term:`git-annex`. If you have pure data dataset made up of large files, put it into the dataset annex.
    - small files, especially if they are text files and undergo frequent modifications (e.g., code, manuscripts, notes) are best put under version control by :term:`Git`.
-   - If you plan to publish a dataset to a repository hosting site without annex support such as :term:`GitHub` or :term:`GitLab`, and do not intend to set up third party storage for annexed contents, be aware that only contents placed in Git will be available to others after cloning your repository. At the same time, be mindful of file size limits the services impose. The largest file size GitHub allows is 100MB -- a dataset with files exceeding 100MB in size in Git will be rejected by GitHub. :term:`Gin` is an alternative hosting service with annex support.
+   - If you plan to publish a dataset to a repository hosting site without annex support such as :term:`GitHub` or :term:`GitLab`, and do not intend to set up third party storage for annexed contents, be aware that only contents placed in Git will be available to others after cloning your repository. At the same time, be mindful of file size limits the services impose. The largest file size GitHub allows is 100MB -- a dataset with files exceeding 100MB in size in Git will be rejected by GitHub. :term:`Gin` is an alternative hosting service with annex support, and the `Open Science Framework (OSF) <https://readthedocs.org/projects/datalad-osf/>`_ may also be a suitable option to share datasets including their annexed files.
 
-   You can find guidance on how to create configurations for your dataset (which need to be in place and save prior to saving contents!) in the chapter :ref:`chapter_config`, in particular section :ref:`config2`.
+   You can find guidance on how to create configurations for your dataset (which need to be in place and saved prior to saving contents!) in the chapter :ref:`chapter_config`, in particular section :ref:`config2`.
 
 .. note::
 
    Be mindful during saving if you have a directory that should hold more, yet uncreated datasets down its hierarchy, as a plain ``datalad save`` will save *all* files and directories to the dataset!
+   Its best to first create all subdatasets, and only then save their contents.
 
 If you are operating in a hierarchy of datasets, running a recursive save from the top-most dataset (``datalad save -r``) will save you time: All contents are saved to their respective datasets, all subdatasets are registered to their respective superdatasets.
 

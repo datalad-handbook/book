@@ -45,7 +45,7 @@ Step 2: Dataset creation
 
 Transforming a directory into a dataset is done with :command:`datalad create --force`.
 The ``-f``/``--force`` option enforces dataset creation in non-empty directories.
-Consider :ref:`applying procedures <procedures>` with ``-c <procedure-name>`` do apply configurations that suit your use case.
+Consider :ref:`applying procedures <procedures>` with ``-c <procedure-name>`` to apply configurations that suit your use case.
 
 .. findoutmore:: What if my directory is already a Git repository?
 
@@ -91,7 +91,7 @@ You can automate this with :term:`bash` loops, if you want.
    Consider further that you have transformed the toplevel ``study`` directory into a dataset and now want to transform all ``sub-*`` directories into further subdatasets, registered in ``study``.
    Here is a line that would do this for the example above::
 
-      $ for dir in study/sub-0{1,2,3,4,5}; do datalad -C $dir create --force; done
+      $ for dir in study/sub-0{1,2,3,4,5}; do datalad -C $dir create -d^. --force .; done
 
 Step 3: Saving dataset contents
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -116,7 +116,7 @@ Make sure to run :command:`datalad status` frequently.
 
    Be mindful during saving if you have a directory that should hold more, yet uncreated datasets down its hierarchy, as a plain ``datalad save`` will save *all* files and directories to the dataset!
 
-If you are operating in a hierarchy of datasets, running a recursive save from the top-most dataset (``datalad save -d . -r``) will save you time: All contents are saved to their respective datasets, all subdatasets are registered to their respective superdatasets.
+If you are operating in a hierarchy of datasets, running a recursive save from the top-most dataset (``datalad save -r``) will save you time: All contents are saved to their respective datasets, all subdatasets are registered to their respective superdatasets.
 
 
 Step 4: Rerunning analyses reproducibly

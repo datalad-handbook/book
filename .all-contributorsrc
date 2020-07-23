@@ -320,6 +320,15 @@
         "bug",
         "userTesting"
       ]
+    },
+    {
+      "login": "arokem",
+      "name": "Ariel Rokem",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/118582?v=4",
+      "profile": "http://arokem.org",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,

@@ -303,15 +303,14 @@ the content isn't yet present locally, and are thus *broken*. This state,
 however, is not problematic at all. Once the content is retrieved via
 :command:`datalad get`, the symlink is functional again.
 
-Nevertheless, it may be important to know that some file managers (e.g., OSX's
-Finder) may not display broken symlinks. In these cases, it will be
-impossible to browse and explore the file hierarchy of not-yet-retrieved
-files with the file manager. You can make sure to always be able to see the
-file hierarchy in two seperate ways: Upgrade your file manager to display
-file types in a DataLad datasets (e.g., the
-`git-annex-turtle extension <https://github.com/andrewringler/git-annex-turtle>`_
-for Finder). Alternatively, use the :command:`ls` command in a terminal instead
-of a file manager GUI.
+Nevertheless, it may be important to know that some tools that you would expect to work in a dataset with not yet retrieved file contents can encounter unintuitive problems.
+Some **file managers** (e.g., OSX's Finder) may not display broken symlinks.
+In these cases, it will be impossible to browse and explore the file hierarchy of not-yet-retrieved files with the file manager.
+You can make sure to always be able to see the file hierarchy in two separate ways:
+Upgrade your file manager to display file types in a DataLad datasets (e.g., the `git-annex-turtle extension <https://github.com/andrewringler/git-annex-turtle>`_ for Finder).
+Alternatively, use the :command:`ls` command in a terminal instead of a file manager GUI.
+Other tools may be more more specialized, smaller, or domain-specific, and may fail to correctly work with broken symlinks, or display appropriate error messages when handling them (such as the `BIDS Validator <https://github.com/bids-standard/bids-validator>`_, used in the neuroimaging community).
+When encountering unexpected behavior or failures, try to keep in mind that a dataset without retrieved content appears to be a pile of broken symlinks to a range of tools, and check whether data retrieval fixes the problem.
 
 Finally, if you are still in the ``books/`` directory, go back into the root of
 the superdataset.

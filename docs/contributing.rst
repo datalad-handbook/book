@@ -347,7 +347,8 @@ Acknowledging Contributors
 If you have helped this project, we would like to acknowledge your contribution in the
 `GitHub repository <https://github.com/datalad-handbook/book>`_ in our README with
 `allcontributors.org <https://allcontributors.org/>`_, and the project's
-`.zenodo <https://github.com/datalad-handbook/book/blob/master/.zenodo.json>`_ and
+`.zenodo <https://github.com/datalad-handbook/book/blob/master/.zenodo.json>`_ 
+(you can add yourself as second-to-last, i.e. just above Michael) and
 `CONTRIBUTORS.md <https://github.com/datalad-handbook/book/blob/master/CONTRIBUTORS.md>`_
 files. The `allcontributors bot <https://github.com/all-contributors>`_ will give credit
 for `various types of contributions <https://allcontributors.org/docs/en/emoji-key>`_.

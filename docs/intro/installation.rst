@@ -16,7 +16,7 @@ Install DataLad
 
 The content in this chapter is largely based on the information given on the
 `DataLad website <https://www.datalad.org/get_datalad.html>`_
-and the `DataLad documentation <http://docs.datalad.org/en/latest/gettingstarted.html>`_.
+and the `DataLad documentation <http://docs.datalad.org/en/stable/>`_.
 
 Beyond DataLad itself, the installation requires Python, :term:`Git`,
 :term:`git-annex`, and potentially Python's package manager ``pip``.

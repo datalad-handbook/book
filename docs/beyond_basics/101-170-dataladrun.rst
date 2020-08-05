@@ -91,6 +91,7 @@ At the beginning of this endeavour, two important analysis components already ex
 Following the :ref:`YODA principles <yoda>`, each of these components is a standalone dataset.
 While the input dataset creation is straightforwards, some thinking went into the creation of containerized pipeline dataset to set it up in a way that allows it to be installed as a subdataset and invoked from the superdataset.
 If you are interested in this, find the details in the findoutmore below.
+Also note that there is a large collection of pre-existing container datasets available at `github.com/ReproNim/containers <https://github.com/ReproNim/containers>`_.
 
 .. findoutmore:: pipeline dataset creation
 
@@ -176,18 +177,20 @@ Therefore, the strategy is to create throw-away dataset clone for all jobs.
 
     One way to do this are :term:`ephemeral clone`\s, an alternative is to make :term:`git-annex` disregard the datasets annex completely using ``git annex dead here``.
 
-Using throw-away clones involves a build-up and tear-down routine for each job: Clone the analysis dataset hierarchy into a temporary location, run the computation, push the results, remove temporary dataset [#f4]_.
+Using throw-away clones involves a build-up and tear-down routine for each job but works well since datasets are by nature made for collaboration [#f7]_: Clone the analysis dataset hierarchy into a temporary location, run the computation, push the results, remove temporary dataset [#f4]_.
+
 All of this is done in a single script, which will be submitted as a job.
 
-To give you a first idea, a sketch of this is below in a :term:`bash` (shell) script.
+To give you a first idea, a sketch of this is in the :term:`bash` (shell) script below.
 Using `shell <https://en.wikipedia.org/wiki/Shell_script>`_ as the language for this script is a straight-forward choice as it allows you to script the DataLad workflow just as you would type it into your terminal, but other languages (e.g., using :ref:`DataLad's Python API <python>` or system calls in languages such as Matlab) would work as well.
 Fine-tuning and the complete script are shown in the findoutmore afterwards::
 
-   # everything is running under /tmp inside a compute job, /tmp is a performant local filesystem
+   # everything is running under /tmp inside a compute job,
+   # /tmp is job-specific local filesystem not shared between jobs
    $ cd /tmp
 
    # clone the superdataset
-   $ datalad clone /data/project/enki/superds ds
+   $ datalad clone /data/project/enki/super ds
    $ cd ds
 
    # get first-level subdatasets (-R1 = --recursion-limit 1)
@@ -227,7 +230,7 @@ Fine-tuning and the complete script are shown in the findoutmore afterwards::
    # job handler should clean up workspace
 
 Pending a few yet missing safe guards against concurrency issues and to enable re-running computations, such a script can be submitted to any job scheduler with a subject ID and a job ID as identifiers for the fMRIprep run and branch names.
-The concrete calling/submission of this script is shown in the paragraph :ref:`jobsubmit`, but on a procedural level, this workflow sketch takes care
+The concrete calling/submission of this script is shown in the paragraph :ref:`jobsubmit`, but on a procedural level, this workflow sketch takes care of everything that needs to be done apart from combining all computed results afterwards.
 
 .. findoutmore:: Fine-tuning: Enable re-running and safe-guard concurrency issues
 
@@ -335,26 +338,28 @@ The concrete calling/submission of this script is shown in the paragraph :ref:`j
 
         # job handler should clean up workspace
 
+Pending modifications to paths provided in clone locations, the above script and dataset setup is generic enough to be run on different systems and with different job schedulers.
+
 .. _jobsubmit:
 
 Job submission
 """"""""""""""
 
-With this script set up, job submission boils down to invoking the script for each participant with a participant identifier that determines on which subject the job runs, and setting two environment variables -- one the job ID that determines the branch name that is created, and one that points to a lockfile created beforehand once in ``.git``.
-Job scheduler such as HTCondor have syntax that can identify subject IDs from consistently named directories, for example, and the submit file is thus lean.
+Job submission now only boils down to invoking the script for each participant with a participant identifier that determines on which subject the job runs, and setting two environment variables -- one the job ID that determines the branch name that is created, and one that points to a lockfile created beforehand once in ``.git``.
+Job scheduler such as HTCondor have syntax that can identify subject IDs from consistently named directories, for example, and the submit file can thus be lean even though it queues up more than 1000 jobs.
 
 You can find the submit file used in this analyses in the findoutmore below.
 
-.. findoutmore:: HTCondor submit file fmriprep_all_participants.submit
+.. findoutmore:: HTCondor submit file
+
+   The following submit file was created and saved in ``code/fmriprep_all_participants.submit``:
 
    .. code-block:: bash
 
       universe       = vanilla
-      # this is currently necessary, because otherwise the
-      # bundles git in git-annex-standalone breaks
-      # but it should be removed eventually
       get_env        = True
-      # resource requirements for each job
+      # resource requirements for each job, determined by
+      # investigating the demands of a single test job
       request_cpus   = 1
       request_memory = 20G
       request_disk   = 210G
@@ -373,21 +378,83 @@ You can find the submit file used in this analyses in the findoutmore below.
       # number of matching subdirectories
       queue subid matching dirs sourcedata/sub-*
 
-All it takes to submit is a single ``condor_submit fmriprep_all_participants.submit``.
+All it takes to submit is a single ``condor_submit <submit_file>``.
 
 Merging results
 """""""""""""""
 
 Once all jobs have finished, the results lie in individual branches of the output datasets.
-In this concrete example, the subdatasets ``fmriprep`` and ``freesurfer`` will each have 1300 branches that hold individual job results.
+In this concrete example, the subdatasets ``fmriprep`` and ``freesurfer`` will each have more than 1000 branches that hold individual job results.
 The only thing left to do now is merging all of these branches into :term:`master` -- and potentially solve any merge conflicts that arise.
+Usually, merging branches is done using the ``git merge`` command with a branch specification.
+For example, in order to merge one job branch into the :term:`master` :term:`branch`, one would need to be on ``master`` and run ``git merge <job branch name>``.
+Given that the subdatasets each contain >1000 branches, and that each ``merge`` would lead to a commit, in order to not inflate the history of the dataset with hundreds of merge commits, two `Octopus merges <https://git-scm.com/docs/git-merge#Documentation/git-merge.txt-octopus>`_ were done - one in each subdataset (``fmriprep`` and ``freesurfer``).
 
-TODO - need to ask mih how he did it and how merge conflicts were solved.
+.. findoutmore:: What is an octopus merge?
 
-Recomputing results
-"""""""""""""""""""
+   Usually a commit that arises from a merge has two *parent* commits: The *first parent* is the branch the merge is being performed from, in the example above, ``master``. The *second parent* is the branch that was merged into the first.
 
-TODO
+
+   However, ``git merge`` is capable of merging more than two branches simultaneously if more than a single branch name is given to the command.
+   The resulting merge commit has as many parent as were involved in the merge.
+   If a commit has more than two parents, if is affectionately called an "Octopus" merge.
+
+   Octopus merges require merge-conflict-free situations, and will not be carried out whenever manual resolution of conflicts is needed.
+
+The merge command can be assembled quickly.
+As all result branches were named ``job-<JOBID>``, a complete list of branches is obtained with the following command::
+
+   $ git branch -l | grep 'job-' | tr -d ' '
+
+This command line call translates to: "list all branches, of all branches, show me those that contain ``job-``, and remove (``tr -d``) all whitespace.
+This can be given to ``git merge`` as in
+
+.. code-block:: bash
+
+   $ git merge -m "Merge results from job cluster XY" $(git branch -l | grep 'job-' | tr -d ' ')
+
+**Merging with merge conflicts**
+
+When attempting an octopus merge like the one above and a merge conflict arises, the merge is aborted automatically. This is what it looks like::
+
+   $ git merge -m "Merge results from job cluster 107890" $(git branch -l | grep 'job-' | tr -d ' ')
+    Fast-forwarding to: job-107890.0
+    Trying simple merge with job-107890.1
+    Simple merge did not work, trying automatic merge.
+    ERROR: logs/CITATION.md: Not merging symbolic link changes.
+    fatal: merge program failed
+    Automated merge did not work.
+    Should not be doing an octopus.
+    Merge with strategy octopus failed.
+
+This merge conflict arose in the ``fmriprep`` subdataset an originated from the fact that each job generated a ``CITATION.md`` file with minimal individual changes.
+
+.. findoutmore:: How to fix this?
+
+   As the file ``CITATION.md`` does not contain meaningful changes between jobs, one of the files was kept (e.g., copied into a temporary location, or brought back to life afterwards with ``git cat-file``), and all ``CITATION.md`` files of all branches were deleted prior to the merge.
+   Here is a bash loop that would do exactly that::
+
+       $ for b in $(git branch -l | grep 'job-' | tr -d ' ');
+            do ( git checkout -b m$b $b && git rm logs/CITATION.md && git commit --amend --no-edit ) ;
+          done
+
+   Afterwards, the merge command succeeds
+
+**Merging without merge conflicts**
+
+If no merge conflicts arise and the octopus merge is successful, all results are aggregated in the ``master`` branch.
+The commit log looks like a work of modern art when visualized with tools such as :term:`tig`:
+
+.. figure:: ../artwork/src/octopusmerge_tig.png
+
+
+Summary
+"""""""
+
+Once all jobs are computed in parallel and the resulting branches merged, the superdataset is populated with two subdatasets that hold the preprocessing results.
+Each result contains a machine-readable record of provenance on when, how, and by whom it was computed.
+From this point, the results in the subdatasets can be used for further analysis, while a record of how they were preprocessed is attached to them.
+
 
 
 .. rubric:: Footnotes
@@ -403,3 +470,5 @@ TODO
 .. [#f5]  The brackets around the commands are called *command grouping* in bash, and yield a subshell environment: `www.gnu.org/software/bash/manual/html_node/Command-Grouping.html <https://www.gnu.org/software/bash/manual/html_node/Command-Grouping.html>`_.
 
 .. [#f6] To find out why a different branch is required to enable easy pushing back to the original dataset, please checkout the explanation on :ref:`pushing to non-bare repositories <nonbarepush>` in the section on :ref:`help`.
+
+.. [#f7] For an analogy, consider a group of software developers: Instead of adding code changes to the main :term:`branch` of a repository, they develop in their own repository clones and on dedicated, individual feature branches. This allows them to integrate their changes back into the original repository with as little conflict as possible.

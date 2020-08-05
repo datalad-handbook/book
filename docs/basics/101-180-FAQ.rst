@@ -443,13 +443,16 @@ MEG, EEG, iEEG, and ECoG data. It publishes hosted data as DataLad datasets on
 obtain the datasets just as any other DataLad datasets with :command:`datalad clone`
 or :command:`datalad install`.
 
+.. _bidsvalidator:
+
 BIDS validator issues in datasets with missing file content
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 As outlined in section :ref:`symlink`, all unretrieved files in datasets are broken symlinks.
 This is desired, and not a problem per se, but some tools, among them the `BIDS validator <https://github.com/bids-standard/bids-validator>`_, can be confused by this.
 Should you attempt to validate a dataset in which all or some file contents are missing, for example after cloning a dataset or after dropping file contents, the validator may fail to report on the validity of the complete dataset or the specific unretrieved files.
-To fix this, re-do the validation after retrieving all necessary file contents.
+If you aim for a complete validation of your dataset, re-do the validation after retrieving all necessary file contents.
+If you only aim to validate file names and structure, invoke the bids validator with the additional flags ``--ignoreNiftiHeaders`` and  ``--ignoreSymlinks``.
 
 
 What is the git-annex branch?

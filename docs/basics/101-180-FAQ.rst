@@ -122,6 +122,11 @@ users can install directly from GitHub and seemingly also obtain large file
 content from GitHub. GitHub is also capable of resolving submodule/subdataset
 links to other GitHub repos, which makes for a nice UI.
 
+Does DataLad scale to large dataset sizes?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+In general, yes. The largest dataset managed by DataLad at this point is the `Human Connectome Project <http://www.humanconnectomeproject.org/>`_ data, encompassing 80 Terabytes of data in 15 million files, and larger projects (up to 500TB) are currently actively worked on.
+The chapter :ref:`chapter_gobig` is a guide to "beyond-household-quantity datasets".
 
 What is the difference between a superdataset, a subdataset, and a dataset?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -144,6 +149,7 @@ DataLad dataset by running::
 inside of it. Afterwards, you may want to tweak settings in ``.gitattributes``
 according to your needs (see sections :ref:`config` and :ref:`config2` for
 additional insights on this).
+The chapter :ref:`chapter_retro` guides you through transitioning an existing project into DataLad.
 
 How can I cite DataLad?
 ^^^^^^^^^^^^^^^^^^^^^^^

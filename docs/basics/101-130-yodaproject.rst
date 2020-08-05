@@ -851,7 +851,7 @@ reproduce your data science project easily from scratch!
          .. code-block:: bash
 
             # install the Python packages from PyPi via pip
-            pip install seaborn, pandas, sklearn
+            pip install seaborn pandas sklearn
 
 .. [#f4] Note that all ``README.md`` files the YODA procedure created are
          version controlled by Git, not git-annex, thanks to the

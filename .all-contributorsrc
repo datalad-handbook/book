@@ -320,6 +320,35 @@
         "bug",
         "userTesting"
       ]
+    },
+    {
+      "login": "arokem",
+      "name": "Ariel Rokem",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/118582?v=4",
+      "profile": "http://arokem.org",
+      "contributions": [
+        "bug"
+      ]
+    },
+    {
+      "login": "Remi-Gau",
+      "name": "Remi Gau",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/6961185?v=4",
+      "profile": "https://remi-gau.github.io/",
+      "contributions": [
+        "bug",
+        "ideas",
+        "maintenance"
+      ]
+    },
+    {
+      "login": "judithbomba",
+      "name": "Judith Bomba",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/68907896?v=4",
+      "profile": "https://github.com/judithbomba",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,

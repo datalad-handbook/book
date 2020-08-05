@@ -235,7 +235,7 @@ or results.
 P2: Record where you got it from, and where it is now
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Its good to have data, but its even better if you and anyone you
+It is good to have data, but it is even better if you and anyone you
 collaborate or share the project or its components with can find
 out where the data came from, or how it
 is dependent on or linked to other data. Therefore, this principle

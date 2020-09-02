@@ -112,6 +112,10 @@ Glossary
       option. Find out more in the
       `documentation of git push <https://git-scm.com/docs/git-push#Documentation/git-push.txt---force>`_.
 
+   fork
+      Git concept on repository hosting sites (GitHub, GitLab, Gin, ...)
+      A fork is a copy of a repository on a web-based Git repository hosting site. Find out more `here <https://docs.github.com/en/github/getting-started-with-github/fork-a-repo>`__.
+
    GIN
       A web-based repository store for data management that you can use to host and
       share datasets. Find out more about GIN `here <https://gin.g-node.org/G-Node/Info/wiki>`__.

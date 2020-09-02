@@ -443,6 +443,7 @@ MEG, EEG, iEEG, and ECoG data. It publishes hosted data as DataLad datasets on
 obtain the datasets just as any other DataLad datasets with :command:`datalad clone`
 or :command:`datalad install`.
 
+.. _gitannexbranch:
 
 What is the git-annex branch?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

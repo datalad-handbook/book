@@ -1,0 +1,10 @@
+$ git commit -m "initialize dvc"
+[master 41d597c] initialize dvc
+ 7 files changed, 131 insertions(+)
+ create mode 100644 .dvc/.gitignore
+ create mode 100644 .dvc/config
+ create mode 100644 .dvc/plots/confusion.json
+ create mode 100644 .dvc/plots/default.json
+ create mode 100644 .dvc/plots/scatter.json
+ create mode 100644 .dvc/plots/smooth.json
+ create mode 100644 .dvcignore

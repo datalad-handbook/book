@@ -1,0 +1,4 @@
+# create a directory
+$ mkdir ../dvc-remote
+# go back to DVC (we were in DVC-Datalad)
+$ cd ../DVC

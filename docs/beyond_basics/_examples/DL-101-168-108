@@ -1,0 +1,13 @@
+# download the data
+$ curl -s https://s3.amazonaws.com/fast-ai-imageclas/imagenette2-160.tgz \
+          -O imagenette2-160.tgz
+# extract it
+$ tar -xzf imagenette2-160.tgz
+# move it into the directories in both repositories
+$ cp -r imagenette2-160/train DVC-DataLad/data/raw/
+$ cp -r imagenette2-160/val DVC-DataLad/data/raw/
+$ cp -r imagenette2-160/train DVC/data/raw/
+$ cp -r imagenette2-160/val DVC/data/raw/
+# remove the archive and extracted folder
+$ rm -rf imagenette2-160
+$ rm imagenette2-160.tgz

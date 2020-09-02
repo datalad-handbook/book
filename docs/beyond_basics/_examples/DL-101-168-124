@@ -1,0 +1,3 @@
+$ cd DVC-2
+$ dvc fetch data/raw/val.dvc
+3925 files fetched

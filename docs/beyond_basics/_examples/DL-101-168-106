@@ -1,0 +1,19 @@
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	new file:   .dvc/.gitignore
+	new file:   .dvc/config
+	new file:   .dvc/plots/confusion.json
+	new file:   .dvc/plots/default.json
+	new file:   .dvc/plots/scatter.json
+	new file:   .dvc/plots/smooth.json
+	new file:   .dvcignore
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	data/raw/train/
+	data/raw/val/
+

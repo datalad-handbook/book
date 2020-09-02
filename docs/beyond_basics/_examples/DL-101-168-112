@@ -1,0 +1,5 @@
+$ git commit -m "control data with DVC"
+[master 54832ab] control data with DVC
+ 3 files changed, 8 insertions(+)
+ create mode 100644 data/raw/train.dvc
+ create mode 100644 data/raw/val.dvc

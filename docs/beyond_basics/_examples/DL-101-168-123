@@ -1,0 +1,4 @@
+# clone the repo into a new location for demonstration purposes:
+$ cd ../
+$ git clone git@github.com:datalad-handbook/data-version-control.git DVC-2
+Cloning into 'DVC-2'...

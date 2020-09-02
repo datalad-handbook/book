@@ -170,6 +170,11 @@ Glossary
    log level
       Adjusts the amount of verbosity during :term:`logging`.
 
+   Makefile
+      Makefiles are recipes on how to create a digital object for the build automation tool `Make <https://en.wikipedia.org/wiki/Make_(software)>`_.
+      They are used to build programs, but also to manage projects where some files must be automatically updated from others whenever the others change.
+      An example of a Makefile is shown in the usecase :ref:`usecase_reproducible_paper`.
+
    master
       Git concept: The default :term:`branch` in a dataset.
 

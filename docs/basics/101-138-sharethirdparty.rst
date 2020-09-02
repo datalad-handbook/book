@@ -57,7 +57,7 @@ web server, but also a third party services cloud storage such as
 `Google <https://google.com>`_,
 `Amazon S3 buckets <https://aws.amazon.com/s3/?nc1=h_ls>`_,
 `Box.com <https://www.box.com/en-gb/home>`_,
-`Figshare <https://figshare.com/>`_,
+`Figshare <https://figshare.com/>`__,
 `owncloud <https://owncloud.org/>`_,
 `sciebo <https://sciebo.de/>`_,
 or many more. The key to achieve this lies within :term:`git-annex`.
@@ -497,6 +497,7 @@ books, or the cropped logos from chapter :ref:`chapter_run`::
    $ datalad get books/TLCL.pdf
    get(ok): /home/some/other/user/DataLad-101/books/TLCL.pdf (file) [from dropbox-for-friends]
 
+.. _gitlfs:
 
 Use GitHub for sharing content
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -545,6 +546,7 @@ from GitHub.
    Unfortunately, it is impossible to :command:`drop` contents from Git LFS:
    `help.github.com/en/github/managing-large-files <https://help.github.com/en/github/managing-large-files/removing-files-from-git-large-file-storage#git-lfs-objects-in-your-repository>`_
 
+.. _figshare:
 
 Built-in data export
 ^^^^^^^^^^^^^^^^^^^^
@@ -563,7 +565,7 @@ special features a DataLad dataset provides will be available, such as its
 history or configurations.
 
 Another example is :command:`export-to-figshare`. Running this command allows
-you to publish the dataset to `Figshare <https://figshare.com/>`_.  As the
+you to publish the dataset to `Figshare <https://figshare.com/>`__.  As the
 :command:`export-archive` is used by it to prepare content for upload to
 Figshare, annexed files also will be annotated as available from the archive on
 Figshare using ``datalad-archive`` special remote.  As a result, if you publish
@@ -577,7 +579,7 @@ be able to fetch content from the tarball shared on Figshare via DataLad.
          access to the server and client side of your GitLab instance. Find out more
          `here <https://docs.gitlab.com/ee/administration/git_annex.html>`_.
          Alternatively, GitHub can integrate with
-         `GitLFS <https://git-lfs.github.com/>`_, a non-free, centralized service
+         `GitLFS <https://git-lfs.github.com/>`__, a non-free, centralized service
          that allows to store large file contents. The last paragraph in this
          section shows an example on how to use their free trial version.
 

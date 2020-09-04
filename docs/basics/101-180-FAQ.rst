@@ -388,6 +388,12 @@ that it appears similar to git-annex.
 A more elaborate delineation from related solutions can be found in the DataLad
 `developer documentation <http://docs.datalad.org/en/latest/related.html>`_.
 
+What is the difference between DataLad and DVC?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+`DVC <https://dvc.org/>`_ is a version control system for machine learning projects.
+We have compared the two tools in a dedicated handbook section, :ref:`dvc`.
+
 DataLad version-controls my large files -- great. But how much is saved in total?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 

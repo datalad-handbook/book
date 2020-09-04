@@ -3,52 +3,68 @@
 DataLad versus DVC
 ------------------
 
-`DVC (Data Version Control) <https://dvc.org/>`__ is an "open-source version control system for machine learning projects".
+`DVC (Data Version Control) <https://dvc.org/>`__ is a "version control system for machine learning projects".
 It has a number of similarities to DataLad, but it is also distinct in many ways.
-This section compares the two tools and demonstrates how `standard DVC workflows for data versioning and analysis execution <https://realpython.com/python-data-version-control/>`_ would be implemented with DataLad for a side-by-side comparison of the tools.
-This section assumes familiarity with DataLad, but footnotes in each section point to the relevant chapter for readers that haven't used DataLad yet.
+This section compares the two tools and demonstrates how `standard DVC workflows for data versioning, data sharing, and analysis execution <https://realpython.com/python-data-version-control/>`_ would be implemented with DataLad for a side-by-side comparison of the tools.
+Some familiarity with DataLad can be helpful, but if you have never used DataLad, footnotes in each section can point you relevant chapters for more insights on a command or concept.
+If you have never used DVC, `their technical docs <https://dvc.org/doc/command-reference>`_ or `collection of third-party tutorials <https://github.com/iterative/dvc.org/issues/1749>`_ can be of help for further questions.
 
-The DVC workflows showcased here are based on a `DVC tutorial <https://realpython.com/python-data-version-control/>`_.
-Over the course of the tutorial...
+The workflows showcased here are based on a `DVC tutorial <https://realpython.com/python-data-version-control/>`__.
+This tutorial consists of the following steps:
 
-- a data set with pictures of 10 classes of objects (`Imagenette <https://github.com/fastai/imagenette>`_) is version controlled with DVC
+- A data set with pictures of 10 classes of objects (`Imagenette <https://github.com/fastai/imagenette>`_) is version controlled with DVC
 - the data is pushed to a "storage remote" on a local path
 - the data is analyzed using various ML models in DVC pipelines
 
-Below, these steps are split apart and recreated with DataLad for a direct comparison.
-You can code along if you want to (all relevant steps are included in the Findoutmore sections), or only browse through the direct comparisons of DVC and DataLad commands shown below.
+Below, we demonstrate each step with DVC according to the tutorial, and then recreate them with DataLad for a direct comparison.
+If you want to, you can code along, or only browse through the direct comparisons of DVC and DataLad commands.
+
+.. admonition:: If you are not a Git user
+
+   DVC relies heavily on Git workflows.
+   Understanding the DVC workflows requires a solid understanding of :term:`branch`\es, Git's concepts of `Working tree, Index ("Staging Area"), and Repository <https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository>`_, and some basic Git commands such as ``add``, ``commit``, and ``checkout``.
+   `The Turing Way <https://the-turing-way.netlify.app/welcome.html>`_ has an excellent `chapter on version control with Git <https://the-turing-way.netlify.app/reproducible-research/vcs.html>`_ if you want to catch up on some basics first.
+
+.. gitusernote::
+
+   Be mindful: DVC comes with a range of commands and concepts that have the same names, but differ in functionality to their Git namesake.
+   Make sure to read the `DVC documentation <https://dvc.org/doc/command-reference>`_ for each command to get more information on what it does.
 
 Setup
 ^^^^^
 
-The tutorial comes with a pre-made repository that is structured for DVC machine learning analyses which needs to be :term:`fork`\ed and cloned [#f1]_.
+The `DVC tutorial <https://realpython.com/python-data-version-control/>`_ comes with a pre-made repository that is structured for DVC machine learning analyses. If you want to code along, it needs to be :term:`fork`\ed (requires a GitHub account) and cloned from your own fork [#f1]_.
 Here, we're cloning the repository twice to show a DVC and DataLad workflow in parallel.
+The original DVC workflow will be executed in ``DVC``, and a corresponding DataLad workflow in ``DVC-DataLad``.
 
 
 .. runrecord:: _examples/DL-101-168-101
    :workdir: DVCvsDL
    :language: console
 
+   ### DVC
    # please clone this repository from your own fork when coding along
-   $ git clone git@github.com:datalad-handbook/data-version-control.git DVC
+   $ git clone https://github.com/datalad-handbook/data-version-control.git DVC
 
 .. runrecord:: _examples/DL-101-168-102
    :workdir: DVCvsDL
    :language: console
 
+   ### DVC-DATALAD
    # this clone will be used for DataLad-based workflows
-   $ git clone git@github.com:datalad-handbook/data-version-control.git DVC-DataLad
+   $ git clone https://github.com/datalad-handbook/data-version-control.git DVC-DataLad
 
-The resulting Git repository is already pre-structured in a way that aids DVC ML analyses e.g., with ``model`` and ``metrics`` directories and a set of Python scripts for a machine learning analysis:
+The resulting Git repository is already pre-structured in a way that aids DVC ML analyses e.g., with ``model`` and ``metrics`` directories and a set of Python scripts for a machine learning analysis.
 
 .. runrecord:: _examples/DL-101-168-103
    :workdir: DVCvsDL
    :language: console
 
+   ### DVC
    $ cd DVC
    $ tree
 
-.. findoutmore:: Required software and data
+.. findoutmore:: Required software for coding along
 
    In order to code along, `DVC <https://dvc.org/doc/install>`__, `scikitlearn <https://scikit-learn.org/stable/>`_, `scikit-image <https://scikit-image.org/>`_, `pandas <https://pandas.pydata.org/>`_, and `numpy <https://numpy.org/>`_ are required.
    All tools are available via `pip <https://pypi.org/project/pip/>`_ or `conda <https://docs.conda.io/en/latest/>`_.
@@ -57,20 +73,22 @@ The resulting Git repository is already pre-structured in a way that aids DVC ML
 Version controlling data
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
+In the first part of the tutorial, the directory tree will be populated with data that should be version controlled.
+
 Although the implementation of version control for (large) data is very different between DataLad and DVC, the underlying concept is very similar:
 (Large) data is stored outside of :term:`Git` -- :term:`Git` only tracks information on where this data can be found.
 
 In DataLad datasets, (large) data is handled by :term:`git-annex`.
 Data content is `hashed <https://en.wikipedia.org/wiki/Hash_function>`_ and only the hash (represented as the original file name) is stored in Git [#f2]_.
 Actual data is stored in the :term:`annex` of the dataset, and annexed data can be transferred from and to a `large number of storage solutions <https://git-annex.branchable.com/special_remotes/>`_ using either DataLad or git-annex commands.
-Information on where data is available from is stored in an internal representation of git-annex (see the FAQ on :ref:`gitannexbranch` for more information).
+Information on where data is available from is :ref:`stored in an internal representation of git-annex <gitannexbranch>`.
 
 In DVC repositories, (large) data is also supposed to be stored in external remotes such as Google Drive.
 But instead of an internal representation of where files are available from, DVC repositories have one ``.dvc`` text file for each data file or directory given to DVC.
-The ``.dvc`` files contain information on the path in the repository, where the associated data file is available from, and a hash, and it should be stored in :term:`Git`.
+The ``.dvc`` files contain information on the path to the data in the repository, where the associated data file is available from, and a hash, and users are supposed to store them in :term:`Git`.
 
 
-.. findoutmore:: Download data
+.. findoutmore:: Download data for coding along
 
    The data used in the tutorial is the "Imagenette" dataset and can be `downloaded from an Amazon S3 bucket <https://s3.amazonaws.com/fast-ai-imageclas/imagenette2-160.tgz>`_.
    Download the data and extract it into the ``data/raw/`` directory in both repositories.
@@ -94,57 +112,67 @@ The ``.dvc`` files contain information on the path in the repository, where the 
       $ rm imagenette2-160.tgz
 
 
-DVC
-"""
+DVC workflow
+""""""""""""
 
-Prior to saving the data, DVC needs to be initialized:
+Prior to adding the data to DVC, a "DVC project" needs to be initialized in the Git repository:
 
 .. runrecord:: _examples/DL-101-168-105
    :workdir: DVCvsDL
    :language: console
 
+   ### DVC
    $ cd DVC
    $ dvc init
 
-This populates the repository with a range of `staged <https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository>`_ files that need to be committed:
+This populates the repository with a range of `staged <https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository>`_ files -- most of them are internal directories and files for DVC's configuration.
 
 .. runrecord:: _examples/DL-101-168-106
    :workdir: DVCvsDL/DVC
    :language: console
 
+   ### DVC
    $ git status
+
+As they are only *staged* but not *committed*, we need to commit them (into Git), as ``dvc init`` instructs to do:
 
 .. runrecord:: _examples/DL-101-168-107
    :workdir: DVCvsDL/DVC
    :language: console
 
+   ### DVC
    $ git commit -m "initialize dvc"
 
 
-Now the directories can be placed under version control by DVC:
+:command:`dvc add` is used to put the data directories in ``data/raw`` under version control.
+It can place files or complete directories under version control by DVC.
 
 .. runrecord:: _examples/DL-101-168-109
    :workdir: DVCvsDL/DVC
    :language: console
 
+   ### DVC
    $ dvc add data/raw/train
    $ dvc add data/raw/val
 
-Afterwards, the data is copied into a cache in ``.dvc/cache`` (a non-human readable directory based based on hashes), the added directories are placed in a ``.gitignore`` [#f3]_ file, and two ``.dvc`` files, ``train.dvc`` and ``val.dvc``, are created [#f4]_.
+At this point, the data is copied into a *cache* in ``.dvc/cache`` (a non-human readable directory structure based on hashes), added to a ``.gitignore`` [#f3]_ file to become invisible to Git, and two ``.dvc`` files, ``train.dvc`` and ``val.dvc``, are created [#f4]_.
 :command:`git status` shows these changes:
 
 .. runrecord:: _examples/DL-101-168-110
    :workdir: DVCvsDL/DVC
    :language: console
 
+   ### DVC
    $ git status
 
-The modified ``.gitignore`` file and the untracked ``.dvc`` files need yet to be added to Git:
+In order to complete the version control worklow, Git needs to know about the ``.dvc`` files, and forget about the data directories.
+For this, the modified ``.gitignore`` file and the untracked ``.dvc`` files need to be added to Git:
 
 .. runrecord:: _examples/DL-101-168-111
    :workdir: DVCvsDL/DVC
    :language: console
 
+   ### DVC
    $ git add --all
 
 Finally, we commit.
@@ -153,181 +181,235 @@ Finally, we commit.
    :workdir: DVCvsDL/DVC
    :language: console
 
+   ### DVC
    $ git commit -m "control data with DVC"
 
 The data is now version controlled with DVC.
 
-**How are modifications represented?**
-When adding the directories, they were hashed, and this hash is stored in the respective ``.dvc`` file.
-If any file inside of the directory changes (to generate a modification below, one file was deleted), this hash would change, and the directory would be shown as "changed". Note that this requires the :command:`dvc status` command -- :command:`git status` will not be able to detect changes as this directory is git-ignored::
+.. findoutmore:: How does DVC represent modifications to data?
 
-   # if one or more files in the val/ data changes, dvc status reports a change
-   $ dvc status
-   data/raw/val.dvc:
-       changed outs:
-           modified:           data/raw/val
+    When adding the data directories, they (i.e., the complete directory) were hashed, and this hash is stored in the respective ``.dvc`` file.
+    If any file inside of the directory changes, this hash would change, and the :command:`dvc status` command would report the directory to be "changed".
+    To demonstrate this, we pretend to accidentally delete a single file::
 
-DataLad
-"""""""
+       # if one or more files in the val/ data changes, dvc status reports a change
+       $ dvc status
+       data/raw/val.dvc:
+           changed outs:
+               modified:           data/raw/val
 
-The data was already copied into the ``DVC-DataLad`` repository in the findoutmore above, so the only thing left to do is running :command:`datalad save` to version control them [#f5]_.
-(Note that this strays from the :ref:`YODA principles <yoda>`, but we're aiming to stay close to the DVC tutorial.)
+    **Important**: Detecting a data modification **requires** the :command:`dvc status` command -- :command:`git status` will not be able to detect changes as this directory as it is git-ignored!
+
+DataLad workflow
+""""""""""""""""
+
+Just as DVC initialized a DVC project in the Git repository, DataLad needs to create a dataset first.
+This is done with ``datalad create --force``.
 
 .. runrecord:: _examples/DL-101-168-113
    :workdir: DVCvsDL/DVC
    :language: console
-   :lines: 1-6, 13396-13400
 
+   ### DVC-DataLad
    $ cd ../DVC-DataLad
-   $ datalad save -m "add data"
+   $ datalad create --force -c text2git
 
-**How are modifications represented?**
-As DataLad always tracks files individually, :command:`datalad status` or :command:`git status` will show modifications on the level of individual files::
-
-    $ datalad status
-      deleted: /home/me/DVCvsDL/DVC-DataLad/data/raw/val/n01440764/n01440764_12021.JPEG
-
-Sharing data
-^^^^^^^^^^^^
-
-The general mechanisms with which DVC and DataLad share data is also similar: Large data is not kept in Git repository hosting services, but needs to go somewhere where potentially large files can be stored.
-DVC uses the term "data remote" to refer to external storage locations for (large) data, whereas DataLad would refer to them as (storage-) :term:`sibling`\s.
-
-Both DVC and DataLad support a range of hosting solutions, from local paths and SSH servers to providers such as S3 or GDrive.
-For DVS, every remote they support is pre-implemented, which reduces the amount of available services (a list is `here <https://dvc.org/doc/command-reference/remote/add>`_), but results in a convenient, streamlined procedure for adding remotes based on URL schemes.
-DataLad, on the other hand, has more storage options (such as :ref:`DropBox <sharethirdparty>`, `the Open Science Framework (OSF) <http://docs.datalad.org/projects/osf/en/latest/>`_, :ref:`Git LFS <gitlfs>`, :ref:`Figshare <figshare>`, :ref:`GIN <gin>`, or :ref:`RIA stores <riastore>`), but depending on selected storage provider, the procedure to add a sibling may differ.
-In addition, DataLad is able to store complete datasets (annexed data *and* Git repository) in certain services (e.g., OSF, GIN, GitHub if used with GitLFS, Dropbox, ...), enabling a clone from for example Google Drive.
-
-The `DVC tutorial <https://realpython.com/python-data-version-control>`__ demonstrates data sharing via a local data remote -- a similar procedure for DataLad is shown in the chapter :ref:`sharelocal1`.
-
-DVC
-"""
-
-**Step 1: Set up a remote**
-
-As a first step, there needs to exist a directory to use as a remote:
+Afterwards, :command:`datalad save` version controls the new data [#f5]_
+(Note that this strays from DataLad's :ref:`YODA principles <yoda>`, but we're aiming to stay close to the DVC tutorial -- in a DataLad-centric workflow, data would become a standalone, reusable dataset that would be linked as a subdataset).
 
 .. runrecord:: _examples/DL-101-168-114
    :workdir: DVCvsDL/DVC-DataLad
    :language: console
+   :lines: 1-6, 13396-13400
 
-   # create a directory
-   $ mkdir ../dvc-remote
-   # go back to DVC (we were in DVC-Datalad)
-   $ cd ../DVC
+   ### DVC-DataLad
+   $ datalad save -m "add data"
 
-Afterwards, it can be added as a remote using :command:`dvc remote add`.
-The ``-d`` option sets it as the default remote, which simplifies pushing later on:
+.. findoutmore:: How does DataLad represent modifications to data?
 
-.. runrecord:: _examples/DL-101-168-115
-   :workdir: DVCvsDL/DVC
-   :language: console
+    As DataLad always tracks files individually, :command:`datalad status` (or, alternatively, :command:`git status` or :command:`git annex status`) will show modifications on the level of individual files::
 
-   $ dvc remote add -d remote_storage ../dvc_remote
+        $ datalad status
+          deleted: /home/me/DVCvsDL/DVC-DataLad/data/raw/val/n01440764/n01440764_12021.JPEG (symlink)
 
-The location of the remote is written into a config file:
+        $ git status
+          On branch master
+          Your branch is ahead of 'origin/master' by 2 commits.
+            (use "git push" to publish your local commits)
 
-.. runrecord:: _examples/DL-101-168-116
-   :workdir: DVCvsDL/DVC
-   :language: console
+          Changes not staged for commit:
+            (use "git add/rm <file>..." to update what will be committed)
+            (use "git restore <file>..." to discard changes in working directory)
+              deleted:    data/raw/val/n01440764/n01440764_12021.JPEG
 
-   $ cat .dvc/config
-
-Note, though, that this config file is modified and still needs to be added and committed!
-
-.. runrecord:: _examples/DL-101-168-117
-   :workdir: DVCvsDL/DVC
-   :language: console
-
-   $ git status
-
-.. runrecord:: _examples/DL-101-168-118
-   :workdir: DVCvsDL/DVC
-   :language: console
-
-   $ git add .dvc/config
-   $ git commit -m "add local remote"
-
-**Step 2: Push data to the remote**
-
-Once the remote is set up, the data that is managed by DVC can be pushed from the cache to the remote.
-During this operation, all data for which ``.dvc`` files exist will be copied from the cache (``.dvc/cache``) to the remote storage.
-
-.. runrecord:: _examples/DL-101-168-119
-   :workdir: DVCvsDL/DVC
-   :language: console
-
-   $ dvc push
+        $ git annex status
+          D data/raw/val/n01440764/n01440764_12021.JPEG
 
 
-**Step 3: Push Git history**
+Sharing data
+^^^^^^^^^^^^
 
-Note that all changes that were committed to :term:`Git` still need to be pushed to a Git repository hosting service.
+In the second part of the tutorial, the versioned data is transferred to a local directory to demonstrate data sharing.
+
+The general mechanisms with which DVC and DataLad share data is similar: (Large) data is kept somewhere where potentially large files can be stored. They can be retrieved on demand as the location information is stored in Git.
+DVC uses the term "data remote" to refer to external storage locations for (large) data, whereas DataLad would refer to them as (storage-) :term:`sibling`\s.
+
+Both DVC and DataLad support a range of hosting solutions, from local paths and SSH servers to providers such as S3 or GDrive.
+For DVS, every remote they support is pre-implemented, which reduces the amount of available services (a list is `here <https://dvc.org/doc/command-reference/remote/add>`_), but results in a convenient, streamlined procedure for adding remotes based on URL schemes.
+DataLad, on the other hand, has more storage options (in addition for example :ref:`DropBox <sharethirdparty>`, `the Open Science Framework (OSF) <http://docs.datalad.org/projects/osf/en/latest/>`_, :ref:`Git LFS <gitlfs>`, :ref:`Figshare <figshare>`, :ref:`GIN <gin>`, or :ref:`RIA stores <riastore>`), but depending on selected storage provider, the procedure to add a sibling may differ.
+In addition, DataLad is able to store complete datasets (annexed data *and* Git repository) in certain services (e.g., OSF, GIN, GitHub if used with GitLFS, Dropbox, ...), enabling a clone from for example Google Drive, and while DVC can never keep data in Git repository hosting services, DataLad can do this if the hosting service supports hosting annexed data (default on :term:`Gin` and possible with :term:`GitHub`, :term:`GitLab` or :term:`BitBucket` if used with `GitLFS <https://git-lfs.github.com/>`_).
+
+
+DVC workflow
+""""""""""""
+
+**Step 1: Set up a remote**
+
+
+The `DVC tutorial <https://realpython.com/python-data-version-control>`__ demonstrates data sharing via a local data remote [#f6]_.
+As a first step, there needs to exist a directory to use as a remote, so we will create a new directory:
 
 .. runrecord:: _examples/DL-101-168-120
-   :workdir: DVCvsDL/DVC
+   :workdir: DVCvsDL/DVC-DataLad
    :language: console
 
-   # this will only work if you have cloned from your own fork
-   $ git push origin master
+   ### DVC
+   # go back to DVC (we were in DVC-Datalad)
+   $ cd ../DVC
+   # create a directory somewhere else
+   $ mkdir ../dvc-remote
 
-**Step 4: Data retrieval**
-
-In order to demonstrate data retrieval, let's delete the ``val/`` data.
-Do note that this change would also not be detected by :command:`git status`, only :command:`dvc status`:
+Afterwards, the new, empty directory can be added as a data remote using :command:`dvc remote add`.
+The ``-d`` option sets it as the default remote, which simplifies pushing later on:
 
 .. runrecord:: _examples/DL-101-168-121
    :workdir: DVCvsDL/DVC
    :language: console
 
-   $ rm -rf data/raw/val
+   ### DVC
+   $ dvc remote add -d remote_storage ../dvc_remote
 
-At this point, there are two ways to get the data back: For one, a copy of it still resides in the cache of the repository.
-This data can be copied back to ``val/`` using :command:`dvc checkout`:
+The location of the remote is written into a config file:
 
 .. runrecord:: _examples/DL-101-168-122
    :workdir: DVCvsDL/DVC
    :language: console
 
-   $ dvc checkout data/raw/val.dvc
+   ### DVC
+   $ cat .dvc/config
 
-To demonstrate the second way, let's look at a repository with an empty cache.
-In order to this this, we clone this repository from GitHub into a new location.
+Note that ``dvc remote add`` only *modifies* the config file, and it still needs to be added and committed to Git:
 
 .. runrecord:: _examples/DL-101-168-123
    :workdir: DVCvsDL/DVC
    :language: console
 
+   ### DVC
+   $ git status
+
+.. runrecord:: _examples/DL-101-168-124
+   :workdir: DVCvsDL/DVC
+   :language: console
+
+   ### DVC
+   $ git add .dvc/config
+   $ git commit -m "add local remote"
+
+.. gitusernote::
+
+   The DVC and Git concepts of a "remote" are related, but not identical.
+   Therefore, DVC remotes are invisible to :command:`git remote`, and likewise, Git :term:`remote`\s are invisible to the :command:`dvc remote list` command.
+
+**Step 2: Push data to the remote**
+
+Once the remote is set up, the data that is managed by DVC can be pushed from the *cache* of the project to the remote.
+During this operation, all data for which ``.dvc`` files exist will be copied from ``.dvc/cache`` to the remote storage.
+
+.. runrecord:: _examples/DL-101-168-125
+   :workdir: DVCvsDL/DVC
+   :language: console
+
+   ### DVC
+   $ dvc push
+
+**Step 3: Push Git history**
+
+At this point, all changes that were committed to :term:`Git` (such as the ``.dvc`` files) still need to be pushed to a Git repository hosting service.
+
+.. runrecord:: _examples/DL-101-168-126
+   :workdir: DVCvsDL/DVC
+   :language: console
+
+   ### DVC
+   # this will only work if you have cloned from your own fork
+   $ git push origin master
+
+**Step 4: Data retrieval**
+
+In DVC projects, there are several ways to retrieve data into its original location or the project cache.
+In order to demonstrate this, we start by deleting a data directory (in its original location, ``data/raw/val/``).
+
+.. runrecord:: _examples/DL-101-168-127
+   :workdir: DVCvsDL/DVC
+   :language: console
+
+   ### DVC
+   $ rm -rf data/raw/val
+
+.. gitusernote::
+
+   Do note that this deletion would not be detected by :command:`git status` -- you have to use :command:`dvc status` instead.
+
+At this point, a copy of the data still resides in the cache of the repository.
+This data is copied back to ``val/`` with the :command:`dvc checkout` command:
+
+.. runrecord:: _examples/DL-101-168-128
+   :workdir: DVCvsDL/DVC
+   :language: console
+
+   ### DVC
+   $ dvc checkout data/raw/val.dvc
+
+If the cache of the repository would be empty, the data can be re-retrieved into the cache from the data remote.
+To demonstrate this, let's look at a repository with an empty cache by cloning this repository from GitHub into a new location.
+
+.. runrecord:: _examples/DL-101-168-129
+   :workdir: DVCvsDL/DVC
+   :language: console
+
+   ### DVC
    # clone the repo into a new location for demonstration purposes:
    $ cd ../
    $ git clone git@github.com:datalad-handbook/data-version-control.git DVC-2
 
-To retrieve the data from the remote that was added and repopulate the cache, :command:`dvc fetch` is used:
+Retrieving the data from the data remote to repopulate the cache is done with the :command:`dvc fetch` command:
 
-.. runrecord:: _examples/DL-101-168-124
+.. runrecord:: _examples/DL-101-168-130
    :workdir: DVCvsDL
    :language: console
 
+   ### DVC
    $ cd DVC-2
    $ dvc fetch data/raw/val.dvc
 
-Afterwards, :command:`dvc checkout` will copy the files from the cached back to ``val/``.
-Alternatively, :command:`dvc pull` performs ``fetch`` and ``checkout`` in a single command.
+Afterwards, another :command:`dvc checkout` will copy the files from the cached back to ``val/``.
+Alternatively, the command :command:`dvc pull` performs ``fetch`` (get data into the cache) and ``checkout`` (copy data from the cache to its original location) in a single command.
 
-DataLad
-"""""""
+DataLad workflow
+""""""""""""""""
 
 DataLad has no direct equivalent of storing only annexed data in a local sibling (instead, it will push everything, including the Git aspect of the dataset).
-Let's take a look at it nevertheless.
+Let's take a look at it.
 
 **Step 1: Set up the sibling**
 
 First, we need to create a sibling:
 
-.. runrecord:: _examples/DL-101-168-125
+.. runrecord:: _examples/DL-101-168-131
    :workdir: DVCvsDL
    :language: console
 
+   ### DVC-DataLad
    $ cd DVC-DataLad
    $ datalad create-sibling --name my-sibling ../datalad-sibling
 
@@ -335,10 +417,12 @@ First, we need to create a sibling:
 
 Afterwards, the dataset contents can be pushed using :command:`datalad push`.
 
-.. runrecord:: _examples/DL-101-168-125
+.. runrecord:: _examples/DL-101-168-132
    :workdir: DVCvsDL/DVC-DataLad
    :language: console
+   :lines: 1-6, 26794-26804
 
+   ### DVC-DataLad
    $ datalad push --to my-sibling
 
 This pushed all of the annexed data and the Git history of the dataset.
@@ -346,66 +430,480 @@ This pushed all of the annexed data and the Git history of the dataset.
 **Step 3: Retrieve the data**
 
 To demonstrate data retrieval, the data in ``val/`` can be dropped using :command:`datalad drop`.
-Afterwards
+Afterwards, a :command:`datalad get` will reobtain it from the local sibling.
+
+.. runrecord:: _examples/DL-101-168-133
+   :workdir: DVCvsDL/DVC-DataLad
+   :language: console
+   :lines: 1-2, 3928-3930
+
+   ### DVC-DataLad
+   $ datalad drop data/raw/val
+
+.. runrecord:: _examples/DL-101-168-134
+   :workdir: DVCvsDL/DVC-DataLad
+   :language: console
+   :lines: 1-2, 3928-3930
+
+   ### DVC-DataLad
+   $ datalad get data/raw/val
 
 Data analysis
 ^^^^^^^^^^^^^
 
-DVC is tuned towards machine learning analyses and comes with convenience commands to build, compare, and reproduce machine learning pipelines
-To get detailed insights into the analysis that is used in this tutorial, checkout the original post at `Realpython.org <https://realpython.com/python-data-version-control>`_.
+DVC is tuned towards machine learning analyses and comes with convenience commands and workflow managing to build, compare, and reproduce machine learning pipelines.
+The tutorial therefore runs an SGD classifier and a random forrest classifier on the data and compares the two models.
+For this, the pre-existing preparation, training, and evaluation scripts are used on the data we have downloaded and version controlled in the previous steps.
+DVC has means to transform such a structured ML analysis into a workflow, reproduce this workflow on demand, and compare it across different models or parametrizations.
+
+For a general overview, we will rush through the analysis:
+In short, it consists of three steps, each associated with a script.
+``src/prepare.py`` will create two csv files with mappings of file names in ``train/`` and ``val/`` to image categories.
+Later, these files will be used to train and test the classifiers.
+``src/train.py`` loads the training CSV file prepared in the previous stage, trains a classifier on the training data, and saves the classifier into the ``model/`` directory as ``model.joblib``.
+The final script, ``src/evaluate.py`` is used to evaluate the trained classifier on the validation data and write the accuracy of the classification into the file ``metrics/accuracy.json``.
+There are more detailed insights and explanations of the actual analysis code in the `Tutorial <https://realpython.com/python-data-version-control>`_ if you're interested in finding out more.
+
+For workflow management, DVC has the concept of a "DVC pipeline".
+A pipeline consists of multiple stages and is executed using a :command:`dvc run` command.
+Each stage has three components: "deps", "outs", and "command".
+Each of the scripts in the repository will be represented by a stage in the DVC pipeline.
+
+DataLad does not have any workflow management functions.
+The closest to it are :command:`datalad run` to record any command execution or analysis, :command:`datalad rerun` to recompute such an analysis, and :command:`datalad containers-run` to perform and record a command execution or analysis inside of a tracked software container.
+
+DVC workflow
+""""""""""""
+
+**Model 1: SGD classifier**
+
+Each model will be analyzed in a different branch of the repository.
+Therefore, we start by creating a new branch.
+
+.. runrecord:: _examples/DL-101-168-135
+   :workdir: DVCvsDL/DVC-DataLad
+   :language: console
+
+   ### DVC
+   $ cd ../DVC
+   $ git checkout -b sgd-pipeline
+
+The first stage in the pipeline is data preparation (performed by the script ``prepare.py``).
+The following command sets up the stage:
+
+.. runrecord:: _examples/DL-101-168-136
+   :workdir: DVCvsDL/DVC
+   :language: console
+
+   ### DVC
+   $ dvc run -n prepare \
+     -d src/prepare.py -d data/raw \
+     -o data/prepared/train.csv -o data/prepared/test.csv \
+     python src/prepare.py
+
+The ``-n`` parameter gives the stage a name, the ``-d`` parameter passes the dependencies -- the raw data -- to the command, and the ``-o`` parameter defines the outputs of the command -- the CSV files that ``prepare.py`` will create.
+``python src/prepare.py`` is the command that will be executed in the stage.
+
+The resulting changes can be added to Git:
+
+.. runrecord:: _examples/DL-101-168-137
+   :workdir: DVCvsDL/DVC
+   :language: console
+
+   ### DVC
+   $ git add dvc.yaml data/prepared/.gitignore dvc.lock
+
+This command runs the command, and also creates two `YAML <https://en.wikipedia.org/wiki/YAML>`_ files, ``dvc.yaml`` and ``dvc.lock``.
+They contain the pipeline description, which currently comprises of the first stage:
+
+.. runrecord:: _examples/DL-101-168-138
+   :workdir: DVCvsDL/DVC
+   :language: console
+
+   ### DVC
+   $ cat dvc.yaml
+
+The lock file tracks the versions of all relevant files via MD5 hashes.
+This allows DVC to track all dependencies and outputs and detect if any of these files change.
+
+.. runrecord:: _examples/DL-101-168-139
+   :workdir: DVCvsDL/DVC
+   :language: console
+
+   ### DVC
+   $ cat dvc.lock
+
+The command also added the results from the stage, ``train.csv`` and ``test.csv`` into a ``.gitignore`` file.
+
+The next pipeline stage is training, in which ``train.py`` will be used to train a classifier on the data.
+Initially, this classifier is an SGD classifier.
+The following command sets it up:
+
+.. runrecord:: _examples/DL-101-168-140
+   :workdir: DVCvsDL/DVC
+   :language: console
+
+   $ dvc run -n train \
+      -d src/train.py -d data/prepared/train.csv \
+      -o model/model.joblib \
+      python src/train.py
+
+Afterwards, ``train.py`` has been executed, and the pipelines have been updated with a second stage.
+The resulting changes can be added to Git:
+
+.. runrecord:: _examples/DL-101-168-141
+   :workdir: DVCvsDL/DVC
+   :language: console
+
+   ### DVC
+   $ git add dvc.yaml model/.gitignore dvc.lock
+
+Finally, we create the last stage, model evaluation.
+The following command sets it up:
+
+.. runrecord:: _examples/DL-101-168-142
+   :workdir: DVCvsDL/DVC
+   :language: console
+
+   $ dvc run -n evaluate \
+            -d src/evaluate.py -d model/model.joblib \
+            -M metrics/accuracy.json \
+            python src/evaluate.py
+
+.. runrecord:: _examples/DL-101-168-143
+   :workdir: DVCvsDL/DVC
+   :language: console
+
+   ### DVC
+   $ git add dvc.yaml dvc.lock
+
+Instead of "outs", this final stage uses the ``-M`` flag to denote a "metric".
+This type of flag can be used if floating-point or integer values that summarize model performance (e.g. accuracies, receiver operating characteristics, or area under the curve values) are saved in hierarchical files (JSON, YAML).
+DVC can then read from these files to display model performances and comparisons:
+
+.. runrecord:: _examples/DL-101-168-144
+   :workdir: DVCvsDL/DVC
+   :language: console
+
+   ### DVC
+   $ dvc metrics show
+
+The complete pipeline now consists of preparation, training, and evaluation.
+It now needs to be committed, tagged, and pushed:
+
+.. runrecord:: _examples/DL-101-168-145
+   :workdir: DVCvsDL/DVC
+   :language: console
+
+   ### DVC
+   $ git add --all
+   $ git commit -m "Add SGD pipeline"
+   $ dvc commit
+   $ git push --set-upstream origin sgd-pipeline
+   $ git tag -a sgd-pipeline -m "Trained SGD as DVC pipeline."
+   $ git push origin --tags
+   $ dvc push
+
+**Model 2: random forrest classifier**
+
+In order to explore a second model, a random forrest classifier, we start with a new branch.
+
+.. runrecord:: _examples/DL-101-168-150
+   :workdir: DVCvsDL/DVC
+   :language: console
+
+   ### DVC
+   $ git checkout -b random_forrest
+
+To switch from SGD to a random forrest classifier, a few lines of code within ``train.py`` need to be changed.
+The following `here doc <https://en.wikipedia.org/wiki/Here_document>`_ changes the script accordingly (changes are highlighted):
+
+.. runrecord:: _examples/DL-101-168-151
+   :workdir: DVCvsDL/DVC
+   :language: console
+   :emphasize-lines: 10, 37-38
+
+   ### DVC
+   $ cat << EOT >| src/train.py
+   from joblib import dump
+   from pathlib import Path
+
+   import numpy as np
+   import pandas as pd
+   from skimage.io import imread_collection
+   from skimage.transform import resize
+   from sklearn.ensemble import RandomForestClassifier
+
+   def load_images(data_frame, column_name):
+       filelist = data_frame[column_name].to_list()
+       image_list = imread_collection(filelist)
+       return image_list
+
+   def load_labels(data_frame, column_name):
+       label_list = data_frame[column_name].to_list()
+       return label_list
+
+   def preprocess(image):
+       resized = resize(image, (100, 100, 3))
+       reshaped = resized.reshape((1, 30000))
+       return reshaped
+
+   def load_data(data_path):
+       df = pd.read_csv(data_path)
+       labels = load_labels(data_frame=df, column_name="label")
+       raw_images = load_images(data_frame=df, column_name="filename")
+       processed_images = [preprocess(image) for image in raw_images]
+       data = np.concatenate(processed_images, axis=0)
+       return data, labels
+
+   def main(repo_path):
+       train_csv_path = repo_path / "data/prepared/train.csv"
+       train_data, labels = load_data(train_csv_path)
+       rf = RandomForestClassifier()
+       trained_model = rf.fit(train_data, labels)
+       dump(trained_model, repo_path / "model/model.joblib")
+
+   if __name__ == "__main__":
+       repo_path = Path(__file__).parent.parent
+       main(repo_path)
+   EOT
+
+Afterwards, since ``train.py`` is changed, :command:`dvc status` will realize that one dependency of the pipeline stage "train" has changed:
 
 
+.. runrecord:: _examples/DL-101-168-152
+   :workdir: DVCvsDL/DVC
+   :language: console
 
-DVC
-"""
+   ### DVC
+   $ dvc status
+
+Since the code change (stage 2) will likely affect the metric (stage 3), its best to reproduce the whole chain.
+You can reproduce a complete DVC pipeline file with the :command:`dvc repro <stagename>` command:
+
+.. runrecord:: _examples/DL-101-168-153
+   :workdir: DVCvsDL/DVC
+   :language: console
+
+   ### DVC
+   $ dvc repro evaluate
+
+DVC will check the dependencies of the pipeline and re-executes the commands that need to be executed again.
+Compared to the branch ``sgd_pipeline``, the workspace in the current ``random_forrest`` branch contains a changed script (``src/train.py``), a changed trained classifier (``model/model.joblib``), and a changed metric (``metric/accuracy.json``).
+All these changes need to be committed, tagged, and pushed now.
+
+.. runrecord:: _examples/DL-101-168-154
+   :workdir: DVCvsDL/DVC
+   :language: console
+
+   ### DVC
+   $ git add --all
+   $ git commit -m "Train Random Forrest classifier"
+   $ dvc commit
+   $ git push --set-upstream origin random-forest
+   $ git tag -a random-forest -m "Random Forest classifier with 80.99% accuracy."
+   $ git push origin --tags
+   $ dvc push
+
+At this point, you can compare metrics across multiple tags:
+
+.. runrecord:: _examples/DL-101-168-155
+   :workdir: DVCvsDL/DVC
+   :language: console
+
+   ### DVC
+   $ dvc metrics show -T
+
+Done!
+
+DataLad workflow
+""""""""""""""""
+
+For a direct comparison to DVC, we'll try to mimic the DVC workflow as closely as it is possible with DataLad.
+
+**Model 1: SGD classifier**
+
+.. runrecord:: _examples/DL-101-168-160
+   :workdir: DVCvsDL/DVC
+   :language: console
+
+   ### DVC-DataLad
+   $ cd ../DVC-DataLad
+
+As there is no workflow manager in DataLad [#f7]_, each script execution needs to be done separately.
+To record the execution, get all relevant inputs, and recompute outputs at later points, we can set up a :command:`datalad run` call [#f8]_.
+Later on, we can rerun a range of :command:`datalad run` calls at once to recompute the relevant aspects of the analysis-
+If complex software is involved, you could also compose a :command:`datalad containers-run` call [#f9]_ and have that reran, but we'll stay basic here.
+
+Let's start with data preparation.
+Instead of creating a pipeline stage and giving it a name, we attach a meaningful commit message.
+
+.. runrecord:: _examples/DL-101-168-161
+   :workdir: DVCvsDL/DVC-DataLad
+   :language: console
+
+   ### DVC-DataLad
+   $ datalad run --message "Prepare the train and testing data" \
+      --input "data/raw/*" \
+      --output "data/prepared/*" \
+      python src/prepare.py
+
+The results of this computation are automatically saved and associated with their inputs and command execution.
+This information isn't stored in a separate file, but in the Git history, and saved with the commit message we have attached to the :command:`run` command.
+
+To stay close to the DVC tutorial, we will also work with tags to identify analysis versions, but DataLad could also use a range of other identifiers, for example commit hashes, to identify this computation.
+As we at this point have set up our data and are ready for the analysis, we will name the first tag "ready-for-analysis".
+This can be done with :command:`git tag`, but also with :command:`datalad save`.
+
+.. runrecord:: _examples/DL-101-168-162
+   :workdir: DVCvsDL/DVC-DataLad
+   :language: console
+
+   ### DVC-DataLad
+   $ datalad save --version-tag ready-for-analysis
+
+Let's continue with training by running ``src/train.py`` on the prepared data.
+
+.. runrecord:: _examples/DL-101-168-163
+   :workdir: DVCvsDL/DVC-DataLad
+   :language: console
+
+   ### DVC-DataLad
+   $ datalad run --message "Train an SGD classifier" \
+      --input "data/prepared/*" \
+      --output "model/model.joblib" \
+      python src/train.py
+
+As before, the results of this computations are saved, an the Git history connects computation, results, and inputs.
+
+As a last step, we evaluate the first model:
+
+.. runrecord:: _examples/DL-101-168-164
+   :workdir: DVCvsDL/DVC-DataLad
+   :language: console
+
+   ### DVC-DataLad
+   $ datalad run --message "Evaluate SGD classifier model" \
+      --input "model/model.joblib" \
+      --output "metrics/accuracy.json" \
+      python src/evaluate.py
+
+At this point, the first accuracy metric is saved in ``metrics/accuracy.json``.
+Let's add a tag to declare that it belongs to the SGD classifier.
+
+.. runrecord:: _examples/DL-101-168-165
+   :workdir: DVCvsDL/DVC-DataLad
+   :language: console
+
+   ### DVC-DataLad
+   $ datalad save --version-tag SGD
+
+Let's now change the training script to use a random forrest classifier as before:
+
+.. runrecord:: _examples/DL-101-168-166
+   :workdir: DVCvsDL/DVC-DataLad
+   :language: console
+   :emphasize-lines: 10, 38-39
+
+   ### DVC-DataLad
+   $ cat << EOT >| src/train.py
+   from joblib import dump
+   from pathlib import Path
+
+   import numpy as np
+   import pandas as pd
+   from skimage.io import imread_collection
+   from skimage.transform import resize
+   from sklearn.ensemble import RandomForestClassifier
+
+   def load_images(data_frame, column_name):
+       filelist = data_frame[column_name].to_list()
+       image_list = imread_collection(filelist)
+       return image_list
+
+   def load_labels(data_frame, column_name):
+       label_list = data_frame[column_name].to_list()
+       return label_list
+
+   def preprocess(image):
+       resized = resize(image, (100, 100, 3))
+       reshaped = resized.reshape((1, 30000))
+       return reshaped
+
+   def load_data(data_path):
+       df = pd.read_csv(data_path)
+       labels = load_labels(data_frame=df, column_name="label")
+       raw_images = load_images(data_frame=df, column_name="filename")
+       processed_images = [preprocess(image) for image in raw_images]
+       data = np.concatenate(processed_images, axis=0)
+       return data, labels
+
+   def main(repo_path):
+       train_csv_path = repo_path / "data/prepared/train.csv"
+       train_data, labels = load_data(train_csv_path)
+       rf = RandomForestClassifier()
+       trained_model = rf.fit(train_data, labels)
+       dump(trained_model, repo_path / "model/model.joblib")
+
+   if __name__ == "__main__":
+       repo_path = Path(__file__).parent.parent
+       main(repo_path)
+   EOT
+
+We need to save this change:
+
+.. runrecord:: _examples/DL-101-168-167
+   :workdir: DVCvsDL/DVC-DataLad
+   :language: console
+
+   $ datalad save -m "Switch to random forrest classification" src/train.py
+
+Afterwards, we can rerun all run records between the tags ``ready-for-analysis`` and ``SGD`` using :command:`datalad rerun`.
+We could automatically compute this on a different branch if we wanted to by using the ``branch`` option:
+
+.. runrecord:: _examples/DL-101-168-168
+   :workdir: DVCvsDL/DVC-DataLad
+   :language: console
+
+   $ datalad rerun --branch="randomforrest" -m "Recompute classification with random forrest classifier" ready-for-analysis..SGD
+
+Done!
+The difference in accuracies between models could now for example be compared with a ``git diff``:
 
 
+.. runrecord:: _examples/DL-101-168-169
+   :workdir: DVCvsDL/DVC-DataLad
+   :language: console
 
-DataLad
-"""""""
+   $ git diff SGD -- metrics/accuracy.json
 
+Even though there is no one-to-one correspondence between a DVC and a DataLad workflow, a DVC workflow can also be implemented with DataLad.
 
+.. only:: adminmode
 
-- only for DVC, "dvc remote add". Given an installation with the respective DVC additions, DVC has convenience URL format identifiers. Authentication is usually handled upon the first usage of the remote, and credentials are stored inside of the repository in a json file
+   We need to clean up -- reset the state of the "data version control" repo to its original state, force push
 
+   .. runrecord:: _examples/DL-101-168-190
+      :workdir: DVCvsDL/DVC
+      :language: console
 
-
+      $ git checkout master
+      $ git reset --hard b796ba195447268ebc51e20a778fb2db9f11e341
+      $ git push --force origin master
+      # delete the branches
+      $ git push origin :random_forrest :sgd-pipeline
 
 Summary
 ^^^^^^^
 
-DataLad and DVC aim to solve the same problems: Generic workflows for distributing data alongside of code and enabling reproducible analyses.
+DataLad and DVC aim to solve the same problems: Version control data, sharing data, and enabling reproducible analyses.
 DataLad provides generic solutions to these issues, while DVC is tuned for machine-learning pipelines.
-Despite their similar purpose, the looks, feels and functions of both tools are different, and its a personal decision which one you want to use. Here are some core comparison metrics -- if you know more, please `let us know about them <https://github.com/datalad-handbook/book/issues/new>`_.
+Despite their similar purpose, the looks, feels and functions of both tools are different, and its a personal decision which one you feel more comfortable with.
 
 Using DVS requires solid knowledge of Git, because DVC workflows heavily rely on effective Git practices, such as branching, tags, and ``.gitignore`` files.
-But despite the reliance on Git, DVC barely integrates with Git -- changes done to files in DVC can not be detected by Git and vice versa, DVC and Git have a separate concept of remotes, and DVC recreates many Git commands for anything that is managed by it.
+But despite the reliance on Git, DVC barely integrates with Git -- changes done to files in DVC can not be detected by Git and vice versa, DVC and Git aspects of a repository have to be handled in parallel by the user, and DVC and Git have distinct command functions and concepts that nevertheless share the same name.
 Thus, DVC users need to master Git *and* DVS workflows and intertwine them correctly.
-
-DataLad users, on the other hand, need to familiarize themselves with peculiarities of git-annex such as symlinks in order to use DataLad confidently.
-Both tools integrate with a variety of third party storage providers for data hosting, and both have functionality to reproduce data analyses -- DVC by creating and using ML-style analysis pipelines in a way that resembles :term:`Makefile`\s, DataLad by connecting any result with associated input, software, and execution.
-
-.. list-table::
-   :widths:  20 50 50
-   :header-rows: 1
-   :stub-columns: 1
-
-   * - metric
-     - DVC
-     - DataLad
-   * - API
-     - command-line tool
-     - command-line tool, Python API
-   * - Software Base
-     - Git
-     - Git and git-annex
-   * - Required Git proficiency
-     - High: mimics Git commands, relies heavily on Git workflows, meant to be used alongside Git commands
-     - None or Any: can be used alongside to Git or git-annex, but introduces an alternative command set
-   * - Organizational principles
-     - Analyses are structured in ML-typical "stages" (e.g., train, test)
-     - Analyses are structured in reusable, logical components (see :ref:`YODA <yoda>`)
-
+In return, DVC provides users with workflow management and reporting tuned to machine learning analyses.
 
 .. rubric:: Footnotes
 
@@ -415,6 +913,14 @@ Both tools integrate with a variety of third party storage providers for data ho
 
 .. [#f3] You can read more about ``.gitignore`` files in the section :ref:`gitignore`
 
-.. [#f4] If you are curious about why data is duplicated in a cache or why the paths to the data are placed into a ``.gitignore`` file, this section in the `DVC tutorial <https://realpython.com/python-data-version-control/#tracking-files>`__ has more insights on the internals of this process:
+.. [#f4] If you are curious about why data is duplicated in a cache or why the paths to the data are placed into a ``.gitignore`` file, this section in the `DVC tutorial <https://realpython.com/python-data-version-control/#tracking-files>`__ has more insights on the internals of this process.
 
 .. [#f5] The sections :ref:`populate` and :ref:`modify` introduce the concepts of saving and modifying files in DataLad datasets.
+
+.. [#f6] A similar procedure for sharing data on a local file system for DataLad is shown in the chapter :ref:`sharelocal1`.
+
+.. [#f7] yet.
+
+.. [#f8] To re-read about :command:`datalad run` and :command:`datalad rerun`, checkout chapter :ref:`chapter_run`.
+
+.. [#f9] To re-read about joining code, execution, data, results and software environment in a re-executable record with :command:`datalad container-run`, checkout section :ref:`containersrun`.

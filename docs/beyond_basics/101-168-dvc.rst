@@ -5,7 +5,7 @@ DataLad versus DVC
 
 `DVC (Data Version Control) <https://dvc.org/>`__ is a "version control system for machine learning projects".
 It has a number of similarities to DataLad, but it is also distinct in many ways.
-This section compares the two tools and demonstrates how `standard DVC workflows for data versioning, data sharing, and analysis execution <https://realpython.com/python-data-version-control/>`_ would be implemented with DataLad for a side-by-side comparison of the tools.
+This section compares the two tools and demonstrates how `standard DVC workflows for data versioning, data sharing, and analysis execution <https://realpython.com/python-data-version-control/>`_ would be implemented with DataLad for a side-by-side comparison of the tools in DVCs domain of operation.
 Some familiarity with DataLad can be helpful, but if you have never used DataLad, footnotes in each section can point you relevant chapters for more insights on a command or concept.
 If you have never used DVC, `their technical docs <https://dvc.org/doc/command-reference>`_ or `collection of third-party tutorials <https://github.com/iterative/dvc.org/issues/1749>`_ can be of help for further questions.
 

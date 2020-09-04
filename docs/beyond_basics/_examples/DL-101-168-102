@@ -1,3 +1,4 @@
+### DVC-DATALAD
 # this clone will be used for DataLad-based workflows
-$ git clone git@github.com:datalad-handbook/data-version-control.git DVC-DataLad
+$ git clone https://github.com/datalad-handbook/data-version-control.git DVC-DataLad
 Cloning into 'DVC-DataLad'...

@@ -1,3 +1,5 @@
-$ cd DVC-2
-$ dvc fetch data/raw/val.dvc
-3925 files fetched
+### DVC
+$ git add .dvc/config
+$ git commit -m "add local remote"
+[master 44e9bab] add local remote
+ 1 file changed, 4 insertions(+)

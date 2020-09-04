@@ -1,0 +1,14 @@
+### DVC-DataLad
+$ datalad run --message "Evaluate SGD classifier model" \
+   --input "model/model.joblib" \
+   --output "metrics/accuracy.json" \
+   python src/evaluate.py
+[INFO] Making sure inputs are available (this may take some time) 
+[INFO] == Command start (output follows) ===== 
+[INFO] == Command exit (modification check follows) ===== 
+add(ok): /home/me/DVCvsDL/DVC-DataLad/metrics/accuracy.json (file)
+save(ok): /home/me/DVCvsDL/DVC-DataLad (dataset)
+action summary:
+  add (ok: 1)
+  get (notneeded: 1)
+  save (ok: 1)

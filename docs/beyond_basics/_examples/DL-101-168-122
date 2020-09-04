@@ -1,2 +1,6 @@
-$ dvc checkout data/raw/val.dvc
-A	data/raw/val/
+### DVC
+$ cat .dvc/config
+[core]
+    remote = remote_storage
+['remote "remote_storage"']
+    url = ../../dvc_remote

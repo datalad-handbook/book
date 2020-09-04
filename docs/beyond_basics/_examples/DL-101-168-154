@@ -1,0 +1,15 @@
+### DVC
+$ git add --all
+$ git commit -m "Train Random Forrest classifier"
+$ dvc commit
+$ git push --set-upstream origin random-forest
+$ git tag -a random-forest -m "Random Forest classifier with 80.99% accuracy."
+$ git push origin --tags
+$ dvc push
+[random_forrest 6c6b626] Train Random Forrest classifier
+ 3 files changed, 8 insertions(+), 14 deletions(-)
+error: src refspec random-forest does not match any
+error: failed to push some refs to 'https://github.com/datalad-handbook/data-version-control.git'
+To https://github.com/datalad-handbook/data-version-control.git
+ * [new tag]         random-forest -> random-forest
+1 file pushed

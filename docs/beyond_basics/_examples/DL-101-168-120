@@ -1,4 +1,5 @@
-# this will only work if you have cloned from your own fork
-$ git push origin master
-To github.com:datalad-handbook/data-version-control.git
-   b796ba1..376b3d8  master -> master
+### DVC
+# go back to DVC (we were in DVC-Datalad)
+$ cd ../DVC
+# create a directory somewhere else
+$ mkdir ../dvc-remote

@@ -1,0 +1,14 @@
+### DVC
+$ cat dvc.lock
+prepare:
+  cmd: python src/prepare.py
+  deps:
+  - path: data/raw
+    md5: a8a5252d9b14ab2c1be283822a86981a.dir
+  - path: src/prepare.py
+    md5: ef804f358e00edcfe52c865b471f8f55
+  outs:
+  - path: data/prepared/test.csv
+    md5: 536fe137c83d7119c45f5d978335425b
+  - path: data/prepared/train.csv
+    md5: 0bad47e2449d20d62df6fd9fdbeaa32b

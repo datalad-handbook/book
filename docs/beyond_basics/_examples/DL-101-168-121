@@ -1,1 +1,3 @@
-$ rm -rf data/raw/val
+### DVC
+$ dvc remote add -d remote_storage ../dvc_remote
+Setting 'remote_storage' as a default remote.

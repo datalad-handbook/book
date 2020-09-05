@@ -1,7 +1,7 @@
 .. _dvc:
 
-DataLad versus DVC
-------------------
+DataLad as DVC
+--------------
 
 `DVC (Data Version Control) <https://dvc.org/>`__ is a "version control system for machine learning projects".
 It has a number of similarities to DataLad, but it is also distinct in many ways.

@@ -5,7 +5,7 @@ DataLad as DVC
 
 `DVC (Data Version Control) <https://dvc.org/>`__ is a "version control system for machine learning projects".
 It has a number of similarities to DataLad, but it is also distinct in many ways.
-This section compares the two tools and demonstrates how `standard DVC workflows for data versioning, data sharing, and analysis execution <https://realpython.com/python-data-version-control/>`_ would be implemented with DataLad for a side-by-side comparison of the tools in DVCs domain of operation.
+This section compares the two tools and demonstrates `workflows for data versioning, data sharing, and analysis execution <https://realpython.com/python-data-version-control/>`_ in the context of a machine learning project with DVC and DataLad.
 Some familiarity with DataLad can be helpful, but if you have never used DataLad, footnotes in each section can point you relevant chapters for more insights on a command or concept.
 If you have never used DVC, `their technical docs <https://dvc.org/doc/command-reference>`_ or `collection of third-party tutorials <https://github.com/iterative/dvc.org/issues/1749>`_ can be of help for further questions.
 
@@ -34,9 +34,6 @@ Setup
 ^^^^^
 
 The `DVC tutorial <https://realpython.com/python-data-version-control/>`_ comes with a pre-made repository that is structured for DVC machine learning analyses. If you want to code along, it needs to be :term:`fork`\ed (requires a GitHub account) and cloned from your own fork [#f1]_.
-Here, we're cloning the repository twice to show a DVC and DataLad workflow in parallel.
-The original DVC workflow will be executed in ``DVC``, and a corresponding DataLad workflow in ``DVC-DataLad``.
-
 
 .. runrecord:: _examples/DL-101-168-101
    :workdir: DVCvsDL
@@ -46,6 +43,8 @@ The original DVC workflow will be executed in ``DVC``, and a corresponding DataL
    # please clone this repository from your own fork when coding along
    $ git clone https://github.com/datalad-handbook/data-version-control.git DVC
 
+The resulting Git repository is already pre-structured in a way that aids DVC ML analyses e.g., with ``model`` and ``metrics`` directories and a set of Python scripts for a machine learning analysis.
+
 .. runrecord:: _examples/DL-101-168-102
    :workdir: DVCvsDL
    :language: console
@@ -54,7 +53,8 @@ The original DVC workflow will be executed in ``DVC``, and a corresponding DataL
    # this clone will be used for DataLad-based workflows
    $ git clone https://github.com/datalad-handbook/data-version-control.git DVC-DataLad
 
-The resulting Git repository is already pre-structured in a way that aids DVC ML analyses e.g., with ``model`` and ``metrics`` directories and a set of Python scripts for a machine learning analysis.
+For a comparison, we will recreate a similarly structured DataLad dataset.
+For greater compliance with DataLad's :ref:`YODA principles <yoda>`, the dataset structure will differ marginally in that scripts will be kept in ``code/`` instead of ``src``.
 
 .. runrecord:: _examples/DL-101-168-103
    :workdir: DVCvsDL
@@ -155,7 +155,7 @@ It can place files or complete directories under version control by DVC.
    $ dvc add data/raw/train
    $ dvc add data/raw/val
 
-At this point, the data is copied into a *cache* in ``.dvc/cache`` (a non-human readable directory structure based on hashes), added to a ``.gitignore`` [#f3]_ file to become invisible to Git, and two ``.dvc`` files, ``train.dvc`` and ``val.dvc``, are created [#f4]_.
+With this command, the data is copied into a *cache* in ``.dvc/cache`` (a non-human readable directory structure based on hashes), added to a ``.gitignore`` [#f3]_ file to become invisible to Git, and two ``.dvc`` files, ``train.dvc`` and ``val.dvc``, are created [#f4]_.
 :command:`git status` shows these changes:
 
 .. runrecord:: _examples/DL-101-168-110
@@ -203,8 +203,10 @@ The data is now version controlled with DVC.
 DataLad workflow
 """"""""""""""""
 
-Just as DVC initialized a DVC project in the Git repository, DataLad needs to create a dataset first.
-This is done with ``datalad create --force``.
+DataLad has means to get data or data archives from web sources and store their origin.
+This has several advantages: The original S3 bucket is known and stored as a location to re-retrieve the data from.
+This enables reliable data access for yourself and others that you share the dataset with.
+The data is also automatically extracted, saved, and thus put under version control.
 
 .. runrecord:: _examples/DL-101-168-113
    :workdir: DVCvsDL/DVC

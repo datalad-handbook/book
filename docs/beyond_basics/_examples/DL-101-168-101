@@ -1,4 +1,4 @@
 ### DVC
 # please clone this repository from your own fork when coding along
-$ git clone https://github.com/datalad-handbook/data-version-control.git DVC
+$ git clone git@github.com:datalad-handbook/data-version-control.git DVC
 Cloning into 'DVC'...

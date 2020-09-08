@@ -3,11 +3,18 @@
 DataLad as DVC
 --------------
 
-`DVC (Data Version Control) <https://dvc.org/>`__ is a "version control system for machine learning projects".
-It has a number of similarities to DataLad, but it is also distinct in many ways.
+Machine learning analysis are complex:
+Beyond data preparation and general scripting, they typically consist of training and optimizing several different machine learning models and comparing them based on performance metrics.
+This complexity can jeopardize reproducibility -- its hard to remember or figure out which model was trained on which version of what data and which has been the ideal optimization.
+But just like any data analysis project, machine learning projects can become easier to understand and reproduce if they are intuitively structured, appropriately version controlled, and if analyses executions are captured with enough (ideally machine-readable and re-executable) provenance.
+
+.. figure:: ../artwork/src/ML.svg
+
+DataLad provides the functionality to achieve this, and :ref:`previous <yoda>` :ref:`sections <containersrun>` have given some demonstrations on how to do it.
+But in the context of machine learning analyses, other domain-specific tools and workflows exist, too.
+One of the most well-known is `DVC (Data Version Control) <https://dvc.org/>`__, a "version control system for machine learning projects".
 This section compares the two tools and demonstrates `workflows for data versioning, data sharing, and analysis execution <https://realpython.com/python-data-version-control/>`_ in the context of a machine learning project with DVC and DataLad.
-Some familiarity with DataLad can be helpful, but if you have never used DataLad, footnotes in each section can point you relevant chapters for more insights on a command or concept.
-If you have never used DVC, `their technical docs <https://dvc.org/doc/command-reference>`_ or `collection of third-party tutorials <https://github.com/iterative/dvc.org/issues/1749>`_ can be of help for further questions.
+While they share a number of similarities and goals, their respective workflows are quite distinct.
 
 The workflows showcased here are based on a `DVC tutorial <https://realpython.com/python-data-version-control/>`__.
 This tutorial consists of the following steps:
@@ -16,8 +23,10 @@ This tutorial consists of the following steps:
 - the data is pushed to a "storage remote" on a local path
 - the data is analyzed using various ML models in DVC pipelines
 
-Below, we demonstrate each step with DVC according to the tutorial, and then recreate them with DataLad for a direct comparison.
+Below, we demonstrate each step with DVC according to their tutorial, and then recreate a corresponding DataLad workflow for a direct comparison.
 If you want to, you can code along, or only browse through the direct comparisons of DVC and DataLad commands.
+Some familiarity with DataLad can be helpful, but if you have never used DataLad, footnotes in each section can point you relevant chapters for more insights on a command or concept.
+If you have never used DVC, `their technical docs <https://dvc.org/doc/command-reference>`_ or `collection of third-party tutorials <https://github.com/iterative/dvc.org/issues/1749>`_ can be of help for further questions.
 
 .. admonition:: If you are not a Git user
 
@@ -33,7 +42,7 @@ If you want to, you can code along, or only browse through the direct comparison
 Setup
 ^^^^^
 
-The `DVC tutorial <https://realpython.com/python-data-version-control/>`_ comes with a pre-made repository that is structured for DVC machine learning analyses. If you want to code along, it needs to be :term:`fork`\ed (requires a GitHub account) and cloned from your own fork [#f1]_.
+The `DVC tutorial <https://realpython.com/python-data-version-control/>`_ comes with a pre-made repository that is structured for DVC machine learning analyses. If you want to code along, `the repository <https://github.com/datalad-handbook/data-version-control.git>`_ needs to be :term:`fork`\ed (requires a GitHub account) and cloned from your own fork [#f1]_.
 
 .. runrecord:: _examples/DL-101-168-101
    :workdir: DVCvsDL
@@ -41,27 +50,49 @@ The `DVC tutorial <https://realpython.com/python-data-version-control/>`_ comes 
 
    ### DVC
    # please clone this repository from your own fork when coding along
-   $ git clone https://github.com/datalad-handbook/data-version-control.git DVC
+   $ git clone git@github.com:datalad-handbook/data-version-control.git DVC
 
-The resulting Git repository is already pre-structured in a way that aids DVC ML analyses e.g., with ``model`` and ``metrics`` directories and a set of Python scripts for a machine learning analysis.
+The resulting Git repository is already pre-structured in a way that aids DVC ML analyses: It has the directories ``model`` and ``metrics``, and a set of Python scripts for a machine learning analysis in ``src/``.
 
 .. runrecord:: _examples/DL-101-168-102
    :workdir: DVCvsDL
    :language: console
 
-   ### DVC-DATALAD
-   # this clone will be used for DataLad-based workflows
-   $ git clone https://github.com/datalad-handbook/data-version-control.git DVC-DataLad
+   ### DVC
+   $ tree DVC
 
 For a comparison, we will recreate a similarly structured DataLad dataset.
 For greater compliance with DataLad's :ref:`YODA principles <yoda>`, the dataset structure will differ marginally in that scripts will be kept in ``code/`` instead of ``src``.
+We create the dataset with two configurations, ``yoda`` and ``text2git`` [#f2]_.
 
 .. runrecord:: _examples/DL-101-168-103
    :workdir: DVCvsDL
    :language: console
 
-   ### DVC
-   $ cd DVC
+   ### DVC-DataLad
+   $ datalad create -c text2git -c yoda DVC-DataLad
+   $ cd DVC-DataLad
+   $ mkdir -p data/{raw,prepared} model metrics
+
+Afterwards, we make sure to get the same scripts.
+
+.. runrecord:: _examples/DL-101-168-104
+   :workdir: DVCvsDL/DVC-DataLad
+   :language: console
+
+   ### DVC-DataLad
+   # get the scripts
+   $ datalad download-url -m "download scripts for ML analysis" \
+     https://raw.githubusercontent.com/datalad-handbook/data-version-control/master/src/{train,prepare,evaluate}.py \
+     -O 'code/'
+
+Here's the final directory structure:
+
+.. runrecord:: _examples/DL-101-168-105
+   :workdir: DVCvsDL/DVC-DataLad
+   :language: console
+
+   ### DVC-DataLad
    $ tree
 
 .. findoutmore:: Required software for coding along
@@ -79,7 +110,7 @@ Although the implementation of version control for (large) data is very differen
 (Large) data is stored outside of :term:`Git` -- :term:`Git` only tracks information on where this data can be found.
 
 In DataLad datasets, (large) data is handled by :term:`git-annex`.
-Data content is `hashed <https://en.wikipedia.org/wiki/Hash_function>`_ and only the hash (represented as the original file name) is stored in Git [#f2]_.
+Data content is `hashed <https://en.wikipedia.org/wiki/Hash_function>`_ and only the hash (represented as the original file name) is stored in Git [#f3]_.
 Actual data is stored in the :term:`annex` of the dataset, and annexed data can be transferred from and to a `large number of storage solutions <https://git-annex.branchable.com/special_remotes/>`_ using either DataLad or git-annex commands.
 Information on where data is available from is :ref:`stored in an internal representation of git-annex <gitannexbranch>`.
 
@@ -88,66 +119,62 @@ But instead of an internal representation of where files are available from, DVC
 The ``.dvc`` files contain information on the path to the data in the repository, where the associated data file is available from, and a hash, and users are supposed to store them in :term:`Git`.
 
 
-.. findoutmore:: Download data for coding along
-
-   The data used in the tutorial is the "Imagenette" dataset and can be `downloaded from an Amazon S3 bucket <https://s3.amazonaws.com/fast-ai-imageclas/imagenette2-160.tgz>`_.
-   Download the data and extract it into the ``data/raw/`` directory in both repositories.
-
-   .. runrecord:: _examples/DL-101-168-108
-      :workdir: DVCvsDL
-      :language: console
-
-      # download the data
-      $ curl -s https://s3.amazonaws.com/fast-ai-imageclas/imagenette2-160.tgz \
-                -O imagenette2-160.tgz
-      # extract it
-      $ tar -xzf imagenette2-160.tgz
-      # move it into the directories in both repositories
-      $ cp -r imagenette2-160/train DVC-DataLad/data/raw/
-      $ cp -r imagenette2-160/val DVC-DataLad/data/raw/
-      $ cp -r imagenette2-160/train DVC/data/raw/
-      $ cp -r imagenette2-160/val DVC/data/raw/
-      # remove the archive and extracted folder
-      $ rm -rf imagenette2-160
-      $ rm imagenette2-160.tgz
-
-
 DVC workflow
 """"""""""""
 
-Prior to adding the data to DVC, a "DVC project" needs to be initialized in the Git repository:
+Prior to adding and version controlling data, a "DVC project" needs to be initialized in the Git repository:
 
-.. runrecord:: _examples/DL-101-168-105
-   :workdir: DVCvsDL
+.. runrecord:: _examples/DL-101-168-106
+   :workdir: DVCvsDL/DVC-DataLad
    :language: console
 
    ### DVC
-   $ cd DVC
+   $ cd ../DVC
    $ dvc init
 
 This populates the repository with a range of `staged <https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository>`_ files -- most of them are internal directories and files for DVC's configuration.
-
-.. runrecord:: _examples/DL-101-168-106
-   :workdir: DVCvsDL/DVC
-   :language: console
-
-   ### DVC
-   $ git status
-
-As they are only *staged* but not *committed*, we need to commit them (into Git), as ``dvc init`` instructs to do:
 
 .. runrecord:: _examples/DL-101-168-107
    :workdir: DVCvsDL/DVC
    :language: console
 
    ### DVC
+   $ git status
+
+As they are only *staged* but not *committed*, we need to commit them (into Git):
+
+.. runrecord:: _examples/DL-101-168-108
+   :workdir: DVCvsDL/DVC
+   :language: console
+
+   ### DVC
    $ git commit -m "initialize dvc"
 
-
-:command:`dvc add` is used to put the data directories in ``data/raw`` under version control.
-It can place files or complete directories under version control by DVC.
+Afterwards, the DVC project is set up ready to version control data.
+In the tutorial, data comes from the "Imagenette" dataset.
+First, the data needs to be `downloaded from an Amazon S3 bucket <https://s3.amazonaws.com/fast-ai-imageclas/imagenette2-160.tgz>`_ as a compressed tarball and extracted into the ``data/raw/`` directory of the repository.
 
 .. runrecord:: _examples/DL-101-168-109
+   :workdir: DVCvsDL/DVC
+   :language: console
+
+   ### DVC
+   # download the data
+   $ curl -s https://s3.amazonaws.com/fast-ai-imageclas/imagenette2-160.tgz \
+             -O imagenette2-160.tgz
+   # extract it
+   $ tar -xzf imagenette2-160.tgz
+   # move it into the directories
+   $ cp -r imagenette2-160/train data/raw/
+   $ cp -r imagenette2-160/val data/raw/
+   # remove the archive and extracted folder
+   $ rm -rf imagenette2-160
+   $ rm imagenette2-160.tgz
+
+
+The data directories in ``data/raw`` are then version controlled with the :command:`dvc add` command that can place files or complete directories under version control by DVC.
+
+.. runrecord:: _examples/DL-101-168-110
    :workdir: DVCvsDL/DVC
    :language: console
 
@@ -155,20 +182,21 @@ It can place files or complete directories under version control by DVC.
    $ dvc add data/raw/train
    $ dvc add data/raw/val
 
-With this command, the data is copied into a *cache* in ``.dvc/cache`` (a non-human readable directory structure based on hashes), added to a ``.gitignore`` [#f3]_ file to become invisible to Git, and two ``.dvc`` files, ``train.dvc`` and ``val.dvc``, are created [#f4]_.
+Here is what has happened after running this command:
+The data is copied into a *cache* in ``.dvc/cache`` (a non-human readable directory structure based on hashes), the data is added to a ``.gitignore`` [#f4]_ file to become invisible to Git, and two ``.dvc`` files, ``train.dvc`` and ``val.dvc``, are created [#f5]_.
 :command:`git status` shows these changes:
 
-.. runrecord:: _examples/DL-101-168-110
+.. runrecord:: _examples/DL-101-168-111
    :workdir: DVCvsDL/DVC
    :language: console
 
    ### DVC
    $ git status
 
-In order to complete the version control worklow, Git needs to know about the ``.dvc`` files, and forget about the data directories.
+In order to complete the version control workflow, Git needs to know about the ``.dvc`` files, and forget about the data directories.
 For this, the modified ``.gitignore`` file and the untracked ``.dvc`` files need to be added to Git:
 
-.. runrecord:: _examples/DL-101-168-111
+.. runrecord:: _examples/DL-101-168-112
    :workdir: DVCvsDL/DVC
    :language: console
 
@@ -177,7 +205,7 @@ For this, the modified ``.gitignore`` file and the untracked ``.dvc`` files need
 
 Finally, we commit.
 
-.. runrecord:: _examples/DL-101-168-112
+.. runrecord:: _examples/DL-101-168-113
    :workdir: DVCvsDL/DVC
    :language: console
 
@@ -204,28 +232,37 @@ DataLad workflow
 """"""""""""""""
 
 DataLad has means to get data or data archives from web sources and store their origin.
-This has several advantages: The original S3 bucket is known and stored as a location to re-retrieve the data from.
+This has several advantages:
+For one, the original S3 bucket is known and stored as a location to re-retrieve the data from.
 This enables reliable data access for yourself and others that you share the dataset with.
-The data is also automatically extracted, saved, and thus put under version control.
+Beyond this, the data is also automatically extracted and saved, and thus put under version control.
+Note that this strays slightly from DataLad's :ref:`YODA principles <yoda>`: in a DataLad-centric workflow, data would become a standalone, reusable dataset that would be linked as a subdataset.
+Here, we stick to the project organization of DVC though.
 
-.. runrecord:: _examples/DL-101-168-113
+
+.. runrecord:: _examples/DL-101-168-114
    :workdir: DVCvsDL/DVC
    :language: console
 
    ### DVC-DataLad
    $ cd ../DVC-DataLad
-   $ datalad create --force -c text2git
+   # datalad > 13.4 needs the configuration option -c datalad.runtime.use-patool=1
+   $ datalad -c datalad.runtime.use-patool=1 download-url \
+     --archive \
+     --message "Download Imagenette dataset" \
+     'https://s3.amazonaws.com/fast-ai-imageclas/imagenette2-160.tgz' \
+     -O 'data/raw/'
 
-Afterwards, :command:`datalad save` version controls the new data [#f5]_
-(Note that this strays from DataLad's :ref:`YODA principles <yoda>`, but we're aiming to stay close to the DVC tutorial -- in a DataLad-centric workflow, data would become a standalone, reusable dataset that would be linked as a subdataset).
+At this point, the data is already version controlled [#f6]_, but the directory structure doesn't resemble that of the DVC dataset yet.
 
-.. runrecord:: _examples/DL-101-168-114
+.. runrecord:: _examples/DL-101-168-115
    :workdir: DVCvsDL/DVC-DataLad
    :language: console
    :lines: 1-6, 13396-13400
 
    ### DVC-DataLad
-   $ datalad save -m "add data"
+   $ mv data/raw/imagenette2-160/* data/raw/ && rmdir data/raw/imagenette2-160
+   $ datalad save -m "Move data into preferred locations"
 
 .. findoutmore:: How does DataLad represent modifications to data?
 
@@ -268,7 +305,7 @@ DVC workflow
 **Step 1: Set up a remote**
 
 
-The `DVC tutorial <https://realpython.com/python-data-version-control>`__ demonstrates data sharing via a local data remote [#f6]_.
+The `DVC tutorial <https://realpython.com/python-data-version-control>`__ demonstrates data sharing via a local data remote [#f7]_.
 As a first step, there needs to exist a directory to use as a remote, so we will create a new directory:
 
 .. runrecord:: _examples/DL-101-168-120
@@ -400,14 +437,43 @@ Alternatively, the command :command:`dvc pull` performs ``fetch`` (get data into
 DataLad workflow
 """"""""""""""""
 
-DataLad has no direct equivalent of storing only annexed data in a local sibling (instead, it will push everything, including the Git aspect of the dataset).
+Because the S3 bucket of the raw data is known and stored in the dataset, it strictly speaking isn't necessary to create a storage sibling to push the data to -- DataLad already treats the original S3 bucket as storage.
+Currently, the dataset can thus be shared via :term:`GitHub` or similar hosting services, and the data can be retrieved using :command:`datalad get`.
+
+.. findoutmore:: Really?
+
+   Sure.
+   Let's demonstrate this.
+   First, we create a sibling on GitHub for this dataset and push its contents to the sibling:
+
+   .. code-block:: bash
+
+      ### DVC-DataLad
+      $ cd ../DVC-DataLad
+      $ datalad create-sibling-github DVC-DataLad --organization datalad-handbook
+      TODO
+
+   Next, we can clone this dataset, and retrieve the files:
+
+   .. runrecord:: _examples/DL-101-168-131
+      :workdir: DVCvsDL
+      :language: console
+
+      ### DVC-DataLad
+      # outside of a dataset
+      #$ datalad clone ...
+      TODO
+
+Here's an example of pushing a dataset to a local sibling nevertheless:
+DataLad has no direct equivalent of storing *only* annexed data in a local sibling.
+instead, it will push everything, including the Git aspect of the dataset.
 Let's take a look at it.
 
 **Step 1: Set up the sibling**
 
 First, we need to create a sibling:
 
-.. runrecord:: _examples/DL-101-168-131
+.. runrecord:: _examples/DL-101-168-140
    :workdir: DVCvsDL
    :language: console
 
@@ -419,22 +485,20 @@ First, we need to create a sibling:
 
 Afterwards, the dataset contents can be pushed using :command:`datalad push`.
 
-.. runrecord:: _examples/DL-101-168-132
+.. runrecord:: _examples/DL-101-168-141
    :workdir: DVCvsDL/DVC-DataLad
    :language: console
-   :lines: 1-6, 26794-26804
 
    ### DVC-DataLad
-   $ datalad push --to my-sibling
+   $ datalad publish --to my-sibling
 
 This pushed all of the annexed data and the Git history of the dataset.
 
 **Step 3: Retrieve the data**
 
-To demonstrate data retrieval, the data in ``val/`` can be dropped using :command:`datalad drop`.
-Afterwards, a :command:`datalad get` will reobtain it from the local sibling.
+The data in the dataset (complete directories or individual files) can be dropped using :command:`datalad drop`, and reobtained using :command:`datalad get`.
 
-.. runrecord:: _examples/DL-101-168-133
+.. runrecord:: _examples/DL-101-168-142
    :workdir: DVCvsDL/DVC-DataLad
    :language: console
    :lines: 1-2, 3928-3930
@@ -442,7 +506,7 @@ Afterwards, a :command:`datalad get` will reobtain it from the local sibling.
    ### DVC-DataLad
    $ datalad drop data/raw/val
 
-.. runrecord:: _examples/DL-101-168-134
+.. runrecord:: _examples/DL-101-168-143
    :workdir: DVCvsDL/DVC-DataLad
    :language: console
    :lines: 1-2, 3928-3930
@@ -482,7 +546,7 @@ DVC workflow
 Each model will be analyzed in a different branch of the repository.
 Therefore, we start by creating a new branch.
 
-.. runrecord:: _examples/DL-101-168-135
+.. runrecord:: _examples/DL-101-168-150
    :workdir: DVCvsDL/DVC-DataLad
    :language: console
 
@@ -493,7 +557,7 @@ Therefore, we start by creating a new branch.
 The first stage in the pipeline is data preparation (performed by the script ``prepare.py``).
 The following command sets up the stage:
 
-.. runrecord:: _examples/DL-101-168-136
+.. runrecord:: _examples/DL-101-168-151
    :workdir: DVCvsDL/DVC
    :language: console
 
@@ -508,7 +572,7 @@ The ``-n`` parameter gives the stage a name, the ``-d`` parameter passes the dep
 
 The resulting changes can be added to Git:
 
-.. runrecord:: _examples/DL-101-168-137
+.. runrecord:: _examples/DL-101-168-152
    :workdir: DVCvsDL/DVC
    :language: console
 
@@ -518,7 +582,7 @@ The resulting changes can be added to Git:
 This command runs the command, and also creates two `YAML <https://en.wikipedia.org/wiki/YAML>`_ files, ``dvc.yaml`` and ``dvc.lock``.
 They contain the pipeline description, which currently comprises of the first stage:
 
-.. runrecord:: _examples/DL-101-168-138
+.. runrecord:: _examples/DL-101-168-153
    :workdir: DVCvsDL/DVC
    :language: console
 
@@ -528,7 +592,7 @@ They contain the pipeline description, which currently comprises of the first st
 The lock file tracks the versions of all relevant files via MD5 hashes.
 This allows DVC to track all dependencies and outputs and detect if any of these files change.
 
-.. runrecord:: _examples/DL-101-168-139
+.. runrecord:: _examples/DL-101-168-154
    :workdir: DVCvsDL/DVC
    :language: console
 
@@ -541,7 +605,7 @@ The next pipeline stage is training, in which ``train.py`` will be used to train
 Initially, this classifier is an SGD classifier.
 The following command sets it up:
 
-.. runrecord:: _examples/DL-101-168-140
+.. runrecord:: _examples/DL-101-168-155
    :workdir: DVCvsDL/DVC
    :language: console
 
@@ -553,7 +617,7 @@ The following command sets it up:
 Afterwards, ``train.py`` has been executed, and the pipelines have been updated with a second stage.
 The resulting changes can be added to Git:
 
-.. runrecord:: _examples/DL-101-168-141
+.. runrecord:: _examples/DL-101-168-156
    :workdir: DVCvsDL/DVC
    :language: console
 
@@ -563,7 +627,7 @@ The resulting changes can be added to Git:
 Finally, we create the last stage, model evaluation.
 The following command sets it up:
 
-.. runrecord:: _examples/DL-101-168-142
+.. runrecord:: _examples/DL-101-168-157
    :workdir: DVCvsDL/DVC
    :language: console
 
@@ -572,7 +636,7 @@ The following command sets it up:
             -M metrics/accuracy.json \
             python src/evaluate.py
 
-.. runrecord:: _examples/DL-101-168-143
+.. runrecord:: _examples/DL-101-168-158
    :workdir: DVCvsDL/DVC
    :language: console
 
@@ -583,7 +647,7 @@ Instead of "outs", this final stage uses the ``-M`` flag to denote a "metric".
 This type of flag can be used if floating-point or integer values that summarize model performance (e.g. accuracies, receiver operating characteristics, or area under the curve values) are saved in hierarchical files (JSON, YAML).
 DVC can then read from these files to display model performances and comparisons:
 
-.. runrecord:: _examples/DL-101-168-144
+.. runrecord:: _examples/DL-101-168-159
    :workdir: DVCvsDL/DVC
    :language: console
 
@@ -593,7 +657,7 @@ DVC can then read from these files to display model performances and comparisons
 The complete pipeline now consists of preparation, training, and evaluation.
 It now needs to be committed, tagged, and pushed:
 
-.. runrecord:: _examples/DL-101-168-145
+.. runrecord:: _examples/DL-101-168-160
    :workdir: DVCvsDL/DVC
    :language: console
 
@@ -610,7 +674,7 @@ It now needs to be committed, tagged, and pushed:
 
 In order to explore a second model, a random forrest classifier, we start with a new branch.
 
-.. runrecord:: _examples/DL-101-168-150
+.. runrecord:: _examples/DL-101-168-161
    :workdir: DVCvsDL/DVC
    :language: console
 
@@ -620,7 +684,7 @@ In order to explore a second model, a random forrest classifier, we start with a
 To switch from SGD to a random forrest classifier, a few lines of code within ``train.py`` need to be changed.
 The following `here doc <https://en.wikipedia.org/wiki/Here_document>`_ changes the script accordingly (changes are highlighted):
 
-.. runrecord:: _examples/DL-101-168-151
+.. runrecord:: _examples/DL-101-168-162
    :workdir: DVCvsDL/DVC
    :language: console
    :emphasize-lines: 10, 37-38
@@ -673,7 +737,7 @@ The following `here doc <https://en.wikipedia.org/wiki/Here_document>`_ changes 
 Afterwards, since ``train.py`` is changed, :command:`dvc status` will realize that one dependency of the pipeline stage "train" has changed:
 
 
-.. runrecord:: _examples/DL-101-168-152
+.. runrecord:: _examples/DL-101-168-163
    :workdir: DVCvsDL/DVC
    :language: console
 
@@ -683,7 +747,7 @@ Afterwards, since ``train.py`` is changed, :command:`dvc status` will realize th
 Since the code change (stage 2) will likely affect the metric (stage 3), its best to reproduce the whole chain.
 You can reproduce a complete DVC pipeline file with the :command:`dvc repro <stagename>` command:
 
-.. runrecord:: _examples/DL-101-168-153
+.. runrecord:: _examples/DL-101-168-164
    :workdir: DVCvsDL/DVC
    :language: console
 
@@ -694,7 +758,7 @@ DVC will check the dependencies of the pipeline and re-executes the commands tha
 Compared to the branch ``sgd_pipeline``, the workspace in the current ``random_forrest`` branch contains a changed script (``src/train.py``), a changed trained classifier (``model/model.joblib``), and a changed metric (``metric/accuracy.json``).
 All these changes need to be committed, tagged, and pushed now.
 
-.. runrecord:: _examples/DL-101-168-154
+.. runrecord:: _examples/DL-101-168-165
    :workdir: DVCvsDL/DVC
    :language: console
 
@@ -709,7 +773,7 @@ All these changes need to be committed, tagged, and pushed now.
 
 At this point, you can compare metrics across multiple tags:
 
-.. runrecord:: _examples/DL-101-168-155
+.. runrecord:: _examples/DL-101-168-166
    :workdir: DVCvsDL/DVC
    :language: console
 
@@ -725,22 +789,22 @@ For a direct comparison to DVC, we'll try to mimic the DVC workflow as closely a
 
 **Model 1: SGD classifier**
 
-.. runrecord:: _examples/DL-101-168-160
+.. runrecord:: _examples/DL-101-168-170
    :workdir: DVCvsDL/DVC
    :language: console
 
    ### DVC-DataLad
    $ cd ../DVC-DataLad
 
-As there is no workflow manager in DataLad [#f7]_, each script execution needs to be done separately.
-To record the execution, get all relevant inputs, and recompute outputs at later points, we can set up a :command:`datalad run` call [#f8]_.
+As there is no workflow manager in DataLad [#f8]_, each script execution needs to be done separately.
+To record the execution, get all relevant inputs, and recompute outputs at later points, we can set up a :command:`datalad run` call [#f9]_.
 Later on, we can rerun a range of :command:`datalad run` calls at once to recompute the relevant aspects of the analysis-
-If complex software is involved, you could also compose a :command:`datalad containers-run` call [#f9]_ and have that reran, but we'll stay basic here.
+If complex software is involved, you could also compose a :command:`datalad containers-run` call [#f10]_ and have that reran, but we'll stay basic here.
 
 Let's start with data preparation.
 Instead of creating a pipeline stage and giving it a name, we attach a meaningful commit message.
 
-.. runrecord:: _examples/DL-101-168-161
+.. runrecord:: _examples/DL-101-168-171
    :workdir: DVCvsDL/DVC-DataLad
    :language: console
 
@@ -748,7 +812,7 @@ Instead of creating a pipeline stage and giving it a name, we attach a meaningfu
    $ datalad run --message "Prepare the train and testing data" \
       --input "data/raw/*" \
       --output "data/prepared/*" \
-      python src/prepare.py
+      python code/prepare.py
 
 The results of this computation are automatically saved and associated with their inputs and command execution.
 This information isn't stored in a separate file, but in the Git history, and saved with the commit message we have attached to the :command:`run` command.
@@ -757,16 +821,16 @@ To stay close to the DVC tutorial, we will also work with tags to identify analy
 As we at this point have set up our data and are ready for the analysis, we will name the first tag "ready-for-analysis".
 This can be done with :command:`git tag`, but also with :command:`datalad save`.
 
-.. runrecord:: _examples/DL-101-168-162
+.. runrecord:: _examples/DL-101-168-172
    :workdir: DVCvsDL/DVC-DataLad
    :language: console
 
    ### DVC-DataLad
    $ datalad save --version-tag ready-for-analysis
 
-Let's continue with training by running ``src/train.py`` on the prepared data.
+Let's continue with training by running ``code/train.py`` on the prepared data.
 
-.. runrecord:: _examples/DL-101-168-163
+.. runrecord:: _examples/DL-101-168-173
    :workdir: DVCvsDL/DVC-DataLad
    :language: console
 
@@ -774,13 +838,13 @@ Let's continue with training by running ``src/train.py`` on the prepared data.
    $ datalad run --message "Train an SGD classifier" \
       --input "data/prepared/*" \
       --output "model/model.joblib" \
-      python src/train.py
+      python code/train.py
 
 As before, the results of this computations are saved, an the Git history connects computation, results, and inputs.
 
 As a last step, we evaluate the first model:
 
-.. runrecord:: _examples/DL-101-168-164
+.. runrecord:: _examples/DL-101-168-174
    :workdir: DVCvsDL/DVC-DataLad
    :language: console
 
@@ -788,12 +852,12 @@ As a last step, we evaluate the first model:
    $ datalad run --message "Evaluate SGD classifier model" \
       --input "model/model.joblib" \
       --output "metrics/accuracy.json" \
-      python src/evaluate.py
+      python code/evaluate.py
 
 At this point, the first accuracy metric is saved in ``metrics/accuracy.json``.
 Let's add a tag to declare that it belongs to the SGD classifier.
 
-.. runrecord:: _examples/DL-101-168-165
+.. runrecord:: _examples/DL-101-168-175
    :workdir: DVCvsDL/DVC-DataLad
    :language: console
 
@@ -802,13 +866,13 @@ Let's add a tag to declare that it belongs to the SGD classifier.
 
 Let's now change the training script to use a random forrest classifier as before:
 
-.. runrecord:: _examples/DL-101-168-166
+.. runrecord:: _examples/DL-101-168-176
    :workdir: DVCvsDL/DVC-DataLad
    :language: console
    :emphasize-lines: 10, 38-39
 
    ### DVC-DataLad
-   $ cat << EOT >| src/train.py
+   $ cat << EOT >| code/train.py
    from joblib import dump
    from pathlib import Path
 
@@ -854,16 +918,16 @@ Let's now change the training script to use a random forrest classifier as befor
 
 We need to save this change:
 
-.. runrecord:: _examples/DL-101-168-167
+.. runrecord:: _examples/DL-101-168-177
    :workdir: DVCvsDL/DVC-DataLad
    :language: console
 
-   $ datalad save -m "Switch to random forrest classification" src/train.py
+   $ datalad save -m "Switch to random forrest classification" code/train.py
 
 Afterwards, we can rerun all run records between the tags ``ready-for-analysis`` and ``SGD`` using :command:`datalad rerun`.
 We could automatically compute this on a different branch if we wanted to by using the ``branch`` option:
 
-.. runrecord:: _examples/DL-101-168-168
+.. runrecord:: _examples/DL-101-168-178
    :workdir: DVCvsDL/DVC-DataLad
    :language: console
 
@@ -873,7 +937,7 @@ Done!
 The difference in accuracies between models could now for example be compared with a ``git diff``:
 
 
-.. runrecord:: _examples/DL-101-168-169
+.. runrecord:: _examples/DL-101-168-179
    :workdir: DVCvsDL/DVC-DataLad
    :language: console
 
@@ -909,20 +973,23 @@ In return, DVC provides users with workflow management and reporting tuned to ma
 
 .. rubric:: Footnotes
 
+
 .. [#f1] Instructions on :term:`fork`\ing and cloning the repo are in the README of the repository: `github.com/realpython/data-version-control <https://github.com/realpython/data-version-control>`_.
 
-.. [#f2] To re-read about how :term:`git-annex` handles versioning of (large) files, go back to section :ref:`symlink`.
+.. [#f2] The two procedures provide the dataset with useful structures and configurations for its purpose: ``yoda`` creates a dataset structure with a ``code`` directory and makes sure that everything kept in ``code`` will be committed to :term:`Git` (thus allowing for direct sharing of code). ``text2git`` makes sure that any other text file in the dataset will be stored in Git as well. The sections :ref:`text2git` and :ref:`yodaproc` explain the two configurations in detail.
 
-.. [#f3] You can read more about ``.gitignore`` files in the section :ref:`gitignore`
+.. [#f3] To re-read about how :term:`git-annex` handles versioning of (large) files, go back to section :ref:`symlink`.
 
-.. [#f4] If you are curious about why data is duplicated in a cache or why the paths to the data are placed into a ``.gitignore`` file, this section in the `DVC tutorial <https://realpython.com/python-data-version-control/#tracking-files>`__ has more insights on the internals of this process.
+.. [#f4] You can read more about ``.gitignore`` files in the section :ref:`gitignore`
 
-.. [#f5] The sections :ref:`populate` and :ref:`modify` introduce the concepts of saving and modifying files in DataLad datasets.
+.. [#f5] If you are curious about why data is duplicated in a cache or why the paths to the data are placed into a ``.gitignore`` file, this section in the `DVC tutorial <https://realpython.com/python-data-version-control/#tracking-files>`__ has more insights on the internals of this process.
 
-.. [#f6] A similar procedure for sharing data on a local file system for DataLad is shown in the chapter :ref:`sharelocal1`.
+.. [#f6] The sections :ref:`populate` and :ref:`modify` introduce the concepts of saving and modifying files in DataLad datasets.
 
-.. [#f7] yet.
+.. [#f7] A similar procedure for sharing data on a local file system for DataLad is shown in the chapter :ref:`sharelocal1`.
 
-.. [#f8] To re-read about :command:`datalad run` and :command:`datalad rerun`, checkout chapter :ref:`chapter_run`.
+.. [#f8] yet.
 
-.. [#f9] To re-read about joining code, execution, data, results and software environment in a re-executable record with :command:`datalad container-run`, checkout section :ref:`containersrun`.
+.. [#f9] To re-read about :command:`datalad run` and :command:`datalad rerun`, checkout chapter :ref:`chapter_run`.
+
+.. [#f10] To re-read about joining code, execution, data, results and software environment in a re-executable record with :command:`datalad container-run`, checkout section :ref:`containersrun`.

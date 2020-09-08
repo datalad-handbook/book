@@ -343,6 +343,8 @@ of all the contents you created in the wake of your analysis project.
 This established trust in your results, and enables others to understand
 where files derive from.
 
+.. _yodaproc:
+
 The YODA procedure
 ^^^^^^^^^^^^^^^^^^
 

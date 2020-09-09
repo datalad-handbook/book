@@ -3,10 +3,10 @@
 Reproducible machine learning analyses: DataLad as DVC
 ------------------------------------------------------
 
-Machine learning analysis are complex:
+Machine learning analyses are complex:
 Beyond data preparation and general scripting, they typically consist of training and optimizing several different machine learning models and comparing them based on performance metrics.
-This complexity can jeopardize reproducibility -- its hard to remember or figure out which model was trained on which version of what data and which has been the ideal optimization.
-But just like any data analysis project, machine learning projects can become easier to understand and reproduce if they are intuitively structured, appropriately version controlled, and if analyses executions are captured with enough (ideally machine-readable and re-executable) provenance.
+This complexity can jeopardize reproducibility -- it is hard to remember or figure out which model was trained on which version of what data and which has been the ideal optimization.
+But just like any data analysis project, machine learning projects can become easier to understand and reproduce if they are intuitively structured, appropriately version controlled, and if analysis executions are captured with enough (ideally machine-readable and re-executable) provenance.
 
 .. figure:: ../artwork/src/ML.svg
 
@@ -21,23 +21,23 @@ This tutorial consists of the following steps:
 
 - A data set with pictures of 10 classes of objects (`Imagenette <https://github.com/fastai/imagenette>`_) is version controlled with DVC
 - the data is pushed to a "storage remote" on a local path
-- the data is analyzed using various ML models in DVC pipelines
+- the data are analyzed using various ML models in DVC pipelines
 
-This handbook section is structured in the form of a comparison.
-We demonstrate each step with DVC according to their tutorial, and then recreate a corresponding DataLad workflow for a direct comparison.
-If you want to, you can code along, or only browse through the direct comparisons of DVC and DataLad commands.
+This handbook section demonstrates how DataLad could be used as an alternative to DVC.
+We demonstrate each step with DVC according to their tutorial, and then recreate a corresponding DataLad workflow.
+If you want to, you can code along, or simply read through the presentation of DVC and DataLad commands.
 Some familiarity with DataLad can be helpful, but if you have never used DataLad, footnotes in each section can point you relevant chapters for more insights on a command or concept.
-If you have never used DVC, `their technical docs <https://dvc.org/doc/command-reference>`_ or `collection of third-party tutorials <https://github.com/iterative/dvc.org/issues/1749>`_ can be of help for further questions.
+If you have never used DVC, `its technical docs <https://dvc.org/doc/command-reference>`_ or `collection of third-party tutorials <https://github.com/iterative/dvc.org/issues/1749>`_ can answer further questions.
 
 .. admonition:: If you are not a Git user
 
    DVC relies heavily on Git workflows.
    Understanding the DVC workflows requires a solid understanding of :term:`branch`\es, Git's concepts of `Working tree, Index ("Staging Area"), and Repository <https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository>`_, and some basic Git commands such as ``add``, ``commit``, and ``checkout``.
-   `The Turing Way <https://the-turing-way.netlify.app/welcome.html>`_ has an excellent `chapter on version control with Git <https://the-turing-way.netlify.app/reproducible-research/vcs.html>`_ if you want to catch up on some basics first.
+   `The Turing Way <https://the-turing-way.netlify.app/welcome.html>`_ has an excellent `chapter on version control with Git <https://the-turing-way.netlify.app/reproducible-research/vcs.html>`_ if you want to catch up on those basics first.
 
 .. gitusernote::
 
-   Be mindful: DVC comes with a range of commands and concepts that have the same names, but differ in functionality to their Git namesake.
+   Be mindful: DVC (as DataLad) comes with a range of commands and concepts that have the same names, but differ in functionality to their Git namesake.
    Make sure to read the `DVC documentation <https://dvc.org/doc/command-reference>`_ for each command to get more information on what it does.
 
 Setup
@@ -63,7 +63,7 @@ The resulting Git repository is already pre-structured in a way that aids DVC ML
    $ tree DVC
 
 For a comparison, we will recreate a similarly structured DataLad dataset.
-For greater compliance with DataLad's :ref:`YODA principles <yoda>`, the dataset structure will differ marginally in that scripts will be kept in ``code/`` instead of ``src``.
+For greater compliance with DataLad's :ref:`YODA principles <yoda>`, the dataset structure will differ marginally in that scripts will be kept in ``code/`` instead of ``src/``.
 We create the dataset with two configurations, ``yoda`` and ``text2git`` [#f2]_.
 
 .. runrecord:: _examples/DL-101-168-103
@@ -98,7 +98,7 @@ Here's the final directory structure:
 
 .. findoutmore:: Required software for coding along
 
-   In order to code along, `DVC <https://dvc.org/doc/install>`__, `scikitlearn <https://scikit-learn.org/stable/>`_, `scikit-image <https://scikit-image.org/>`_, `pandas <https://pandas.pydata.org/>`_, and `numpy <https://numpy.org/>`_ are required.
+   In order to code along, `DVC <https://dvc.org/doc/install>`__, `scikit-learn <https://scikit-learn.org/stable/>`_, `scikit-image <https://scikit-image.org/>`_, `pandas <https://pandas.pydata.org/>`_, and `numpy <https://numpy.org/>`_ are required.
    All tools are available via `pip <https://pypi.org/project/pip/>`_ or `conda <https://docs.conda.io/en/latest/>`_.
    We recommend to install them in a `virtual environment <https://realpython.com/python-data-version-control/#set-up-your-working-environment>`_ -- the DVC tutorial has `step-by-step instructions <https://realpython.com/python-data-version-control/#set-up-your-working-environment>`_.
 
@@ -116,8 +116,8 @@ Actual data is stored in the :term:`annex` of the dataset, and annexed data can 
 Information on where data is available from is :ref:`stored in an internal representation of git-annex <gitannexbranch>`.
 
 In DVC repositories, (large) data is also supposed to be stored in external remotes such as Google Drive.
-But instead of an internal representation of where files are available from, DVC repositories have one ``.dvc`` text file for each data file or directory given to DVC.
-The ``.dvc`` files contain information on the path to the data in the repository, where the associated data file is available from, and a hash, and users are supposed to store them in :term:`Git`.
+For internal representation of where files are available from, DVC uses one ``.dvc`` text file for each data file or directory given to DVC.
+The ``.dvc`` files contain information on the path to the data in the repository, where the associated data file is available from, and a hash, and those files should be committed to :term:`Git`.
 
 
 DVC workflow
@@ -151,7 +151,7 @@ As they are only *staged* but not *committed*, we need to commit them (into Git)
    ### DVC
    $ git commit -m "initialize dvc"
 
-Afterwards, the DVC project is set up ready to version control data.
+The DVC project is now ready to version control data.
 In the tutorial, data comes from the "Imagenette" dataset.
 First, the data needs to be `downloaded from an Amazon S3 bucket <https://s3.amazonaws.com/fast-ai-imageclas/imagenette2-160.tgz>`_ as a compressed tarball and extracted into the ``data/raw/`` directory of the repository.
 
@@ -183,8 +183,8 @@ The data directories in ``data/raw`` are then version controlled with the :comma
    $ dvc add data/raw/train
    $ dvc add data/raw/val
 
-Here is what has happened after running this command:
-The data is copied into a *cache* in ``.dvc/cache`` (a non-human readable directory structure based on hashes), the data is added to a ``.gitignore`` [#f4]_ file to become invisible to Git, and two ``.dvc`` files, ``train.dvc`` and ``val.dvc``, are created [#f5]_.
+Here is what this command has accomplished:
+The data files were copied into a *cache* in ``.dvc/cache`` (a non-human readable directory structure based on hashes similar to `.git/annex/objects` used by `git-annex`), data file names were added to a ``.gitignore`` [#f4]_ file to become invisible to Git, and two ``.dvc`` files, ``train.dvc`` and ``val.dvc``, were created [#f5]_.
 :command:`git status` shows these changes:
 
 .. runrecord:: _examples/DL-101-168-111
@@ -217,8 +217,8 @@ The data is now version controlled with DVC.
 
 .. findoutmore:: How does DVC represent modifications to data?
 
-    When adding the data directories, they (i.e., the complete directory) were hashed, and this hash is stored in the respective ``.dvc`` file.
-    If any file inside of the directory changes, this hash would change, and the :command:`dvc status` command would report the directory to be "changed".
+    When adding data directories, they (i.e., the complete directory) are hashed, and this hash is stored in the respective ``.dvc`` file.
+    If any file in the directory changes, this hash would change, and the :command:`dvc status` command would report the directory to be "changed".
     To demonstrate this, we pretend to accidentally delete a single file::
 
        # if one or more files in the val/ data changes, dvc status reports a change
@@ -232,12 +232,12 @@ The data is now version controlled with DVC.
 DataLad workflow
 """"""""""""""""
 
-DataLad has means to get data or data archives from web sources and store their origin.
+DataLad has means to get data or data archives from web sources and store this availability information within :term:`git-annex`.
 This has several advantages:
 For one, the original S3 bucket is known and stored as a location to re-retrieve the data from.
 This enables reliable data access for yourself and others that you share the dataset with.
 Beyond this, the data is also automatically extracted and saved, and thus put under version control.
-Note that this strays slightly from DataLad's :ref:`YODA principles <yoda>`: in a DataLad-centric workflow, data would become a standalone, reusable dataset that would be linked as a subdataset.
+Note that this strays slightly from DataLad's :ref:`YODA principles <yoda>` in a DataLad-centric workflow, where data should become a standalone, reusable dataset that would be linked as a subdataset into a study/analysis specific dataset.
 Here, we stick to the project organization of DVC though.
 
 
@@ -247,7 +247,7 @@ Here, we stick to the project organization of DVC though.
 
    ### DVC-DataLad
    $ cd ../DVC-DataLad
-   # datalad > 13.4 needs the configuration option -c datalad.runtime.use-patool=1
+   # 0.12.2 <= datalad < 0.13.4  needs the configuration option -c datalad.runtime.use-patool=1 to handle .tgz
    $ datalad -c datalad.runtime.use-patool=1 download-url \
      --archive \
      --message "Download Imagenette dataset" \
@@ -309,12 +309,12 @@ Sharing data
 
 In the second part of the tutorial, the versioned data is transferred to a local directory to demonstrate data sharing.
 
-The general mechanisms with which DVC and DataLad share data is similar: (Large) data is kept somewhere where potentially large files can be stored. They can be retrieved on demand as the location information is stored in Git.
+The general mechanisms of DVC and DataLad data sharing are similar: (Large) data files are kept somewhere where potentially large files can be stored. They can be retrieved on demand as the location information is stored in Git.
 DVC uses the term "data remote" to refer to external storage locations for (large) data, whereas DataLad would refer to them as (storage-) :term:`sibling`\s.
 
 Both DVC and DataLad support a range of hosting solutions, from local paths and SSH servers to providers such as S3 or GDrive.
-For DVC, every remote they support is pre-implemented, which reduces the amount of available services (a list is `here <https://dvc.org/doc/command-reference/remote/add>`_), but results in a convenient, streamlined procedure for adding remotes based on URL schemes.
-DataLad, on the other hand, has more storage options (in addition for example :ref:`DropBox <sharethirdparty>`, `the Open Science Framework (OSF) <http://docs.datalad.org/projects/osf/en/latest/>`_, :ref:`Git LFS <gitlfs>`, :ref:`Figshare <figshare>`, :ref:`GIN <gin>`, or :ref:`RIA stores <riastore>`), but depending on selected storage provider, the procedure to add a sibling may differ.
+For DVC, every supported remote is pre-implemented, which restricts the number of available services (a list is `here <https://dvc.org/doc/command-reference/remote/add>`_), but results in a convenient, streamlined procedure for adding remotes based on URL schemes.
+DataLad, largely thanks to "external special remotes" mechanism of git-annex, has more storage options (in addition for example :ref:`DropBox <sharethirdparty>`, `the Open Science Framework (OSF) <http://docs.datalad.org/projects/osf/en/latest/>`_, :ref:`Git LFS <gitlfs>`, :ref:`Figshare <figshare>`, :ref:`GIN <gin>`, or :ref:`RIA stores <riastore>`), but depending on selected storage provider, the procedure to add a sibling may differ.
 In addition, DataLad is able to store complete datasets (annexed data *and* Git repository) in certain services (e.g., OSF, GIN, GitHub if used with GitLFS, Dropbox, ...), enabling a clone from for example Google Drive, and while DVC can never keep data in Git repository hosting services, DataLad can do this if the hosting service supports hosting annexed data (default on :term:`Gin` and possible with :term:`GitHub`, :term:`GitLab` or :term:`BitBucket` if used with `GitLFS <https://git-lfs.github.com/>`_).
 
 
@@ -419,7 +419,7 @@ In order to demonstrate this, we start by deleting a data directory (in its orig
    Do note that this deletion would not be detected by :command:`git status` -- you have to use :command:`dvc status` instead.
 
 At this point, a copy of the data still resides in the cache of the repository.
-This data is copied back to ``val/`` with the :command:`dvc checkout` command:
+These data are copied back to ``val/`` with the :command:`dvc checkout` command:
 
 .. runrecord:: _examples/DL-101-168-128
    :workdir: DVCvsDL/DVC
@@ -450,8 +450,13 @@ Retrieving the data from the data remote to repopulate the cache is done with th
    $ cd DVC-2
    $ dvc fetch data/raw/val.dvc
 
-Afterwards, another :command:`dvc checkout` will copy the files from the cached back to ``val/``.
+Afterwards, another :command:`dvc checkout` will copy the files from the cache back to ``val/``.
 Alternatively, the command :command:`dvc pull` performs ``fetch`` (get data into the cache) and ``checkout`` (copy data from the cache to its original location) in a single command.
+
+Unless DVC is used on a small subset of file systems (trfs, XFS, OCFS2, or APFS), copying data between its original location and the cache is the default.
+This results in a "built-in data duplication" on most current file systems [#f8]_.
+An alternative is to switch from copies to :term:`symlink`\s (as done by :term:`git-annex`) or `hardlinks <https://en.wikipedia.org/wiki/Hard_link>`_.
+
 
 DataLad workflow
 """"""""""""""""
@@ -506,8 +511,8 @@ Here's an example of pushing a dataset to a local sibling nevertheless:
 
 **Step 1: Set up the sibling**
 
-DataLad has no direct equivalent of storing *only* annexed data in a local sibling.
-instead, it will push everything, including the Git aspect of the dataset.
+The easiest way to share data is via a local sibling [#f7]_.
+This won't share only annexed data, but it instead will push everything, including the Git aspect of the dataset.
 First, we need to create a local sibling:
 
 .. runrecord:: _examples/DL-101-168-140
@@ -527,7 +532,7 @@ Afterwards, the dataset contents can be pushed using :command:`datalad push`.
    :language: console
 
    ### DVC-DataLad
-   $ datalad publish --to my-sibling
+   $ datalad push --to my-sibling
 
 This pushed all of the annexed data and the Git history of the dataset.
 
@@ -554,14 +559,14 @@ The data in the dataset (complete directories or individual files) can be droppe
 Data analysis
 ^^^^^^^^^^^^^
 
-DVC is tuned towards machine learning analyses and comes with convenience commands and workflow managing to build, compare, and reproduce machine learning pipelines.
+DVC is tuned towards machine learning analyses and comes with convenience commands and workflow management to build, compare, and reproduce machine learning pipelines.
 The tutorial therefore runs an SGD classifier and a random forrest classifier on the data and compares the two models.
 For this, the pre-existing preparation, training, and evaluation scripts are used on the data we have downloaded and version controlled in the previous steps.
 DVC has means to transform such a structured ML analysis into a workflow, reproduce this workflow on demand, and compare it across different models or parametrizations.
 
 In this general overview, we will only rush through the analysis:
 In short, it consists of three steps, each associated with a script.
-``src/prepare.py`` will create two ``.csv`` files with mappings of file names in ``train/`` and ``val/`` to image categories.
+``src/prepare.py`` creates two ``.csv`` files with mappings of file names in ``train/`` and ``val/`` to image categories.
 Later, these files will be used to train and test the classifiers.
 ``src/train.py`` loads the training CSV file prepared in the previous stage, trains a classifier on the training data, and saves the classifier into the ``model/`` directory as ``model.joblib``.
 The final script, ``src/evaluate.py`` is used to evaluate the trained classifier on the validation data and write the accuracy of the classification into the file ``metrics/accuracy.json``.
@@ -573,7 +578,7 @@ Each stage has three components: "deps", "outs", and "command".
 Each of the scripts in the repository will be represented by a stage in the DVC pipeline.
 
 DataLad does not have any workflow management functions.
-The closest to it are :command:`datalad run` to record any command execution or analysis, :command:`datalad rerun` to recompute such an analysis, and :command:`datalad containers-run` to perform and record a command execution or analysis inside of a tracked software container.
+The closest to it are :command:`datalad run` to record any command execution or analysis, :command:`datalad rerun` to recompute such an analysis, and :command:`datalad containers-run` to perform and record a command execution or analysis inside of a tracked software container [#f10]_.
 
 DVC workflow
 """"""""""""
@@ -791,7 +796,7 @@ You can reproduce a complete DVC pipeline file with the :command:`dvc repro <sta
    ### DVC
    $ dvc repro evaluate
 
-DVC will check the dependencies of the pipeline and re-executes the commands that need to be executed again.
+DVC checks the dependencies of the pipeline and re-executes commands that need to be executed again.
 Compared to the branch ``sgd_pipeline``, the workspace in the current ``random_forrest`` branch contains a changed script (``src/train.py``), a changed trained classifier (``model/model.joblib``), and a changed metric (``metric/accuracy.json``).
 All these changes need to be committed, tagged, and pushed now.
 
@@ -833,10 +838,11 @@ For a direct comparison to DVC, we'll try to mimic the DVC workflow as closely a
    ### DVC-DataLad
    $ cd ../DVC-DataLad
 
-As there is no workflow manager in DataLad [#f8]_, each script execution needs to be done separately.
-To record the execution, get all relevant inputs, and recompute outputs at later points, we can set up a :command:`datalad run` call [#f9]_.
+As there is no workflow manager in DataLad [#f9]_, each script execution needs to be done separately.
+To record the execution, get all relevant inputs, and recompute outputs at later points, we can set up a :command:`datalad run` call [#f10]_.
 Later on, we can rerun a range of :command:`datalad run` calls at once to recompute the relevant aspects of the analysis.
-If complex software is involved, you could also compose a :command:`datalad containers-run` call [#f10]_ and have that reran, but we'll stay basic here.
+To harmonize execution and to assist with reproducibility of the results, we generally recommend to create a container (Docker or Singularity), add it to the repository as well, and use :command:`datalad containers-run` call [#f11]_ and have that reran, but we'll stay basic here.
+
 
 Let's start with data preparation.
 Instead of creating a pipeline stage and giving it a name, we attach a meaningful commit message.
@@ -1003,10 +1009,10 @@ Summary
 DataLad and DVC aim to solve the same problems: Version control data, sharing data, and enabling reproducible analyses.
 DataLad provides generic solutions to these issues, while DVC is tuned for machine-learning pipelines.
 Despite their similar purpose, the looks, feels and functions of both tools are different, and its a personal decision which one you feel more comfortable with.
-Using DVS requires solid knowledge of Git, because DVC workflows heavily rely on effective Git practices, such as branching, tags, and ``.gitignore`` files.
+Using DVC requires solid knowledge of Git, because DVC workflows heavily rely on effective Git practices, such as branching, tags, and ``.gitignore`` files.
 But despite the reliance on Git, DVC barely integrates with Git -- changes done to files in DVC can not be detected by Git and vice versa, DVC and Git aspects of a repository have to be handled in parallel by the user, and DVC and Git have distinct command functions and concepts that nevertheless share the same name.
-Thus, DVC users need to master Git *and* DVS workflows and intertwine them correctly.
-In return, DVC provides users with workflow management and reporting tuned to machine learning analyses.
+Thus, DVC users need to master Git *and* DVC workflows and intertwine them correctly.
+In return, DVC provides users with workflow management and reporting tuned to machine learning analyses. It also provides a somewhat more lightweight and uniform across operating and file systems approach to "data version control" than git-annex used by DataLad.
 
 .. rubric:: Footnotes
 
@@ -1025,8 +1031,11 @@ In return, DVC provides users with workflow management and reporting tuned to ma
 
 .. [#f7] A similar procedure for sharing data on a local file system for DataLad is shown in the chapter :ref:`sharelocal1`.
 
-.. [#f8] yet.
+.. [#f8] In DataLad datasets, data duplication is usually avoided as :term:`git-annex` uses :term:`symlink`\s. Only on file systems that lack support for symlinks or for removing write :term:`permissions` from files (so called "crippled file systems" such as ``/sdcard`` on Android, FAT or NTFS) git-annex needs to duplicate data.
 
-.. [#f9] To re-read about :command:`datalad run` and :command:`datalad rerun`, checkout chapter :ref:`chapter_run`.
+.. [#f9] yet.
 
-.. [#f10] To re-read about joining code, execution, data, results and software environment in a re-executable record with :command:`datalad container-run`, checkout section :ref:`containersrun`.
+.. [#f10] To re-read about :command:`datalad run` and :command:`datalad rerun`, checkout chapter :ref:`chapter_run`.
+
+.. [#f11] To re-read about joining code, execution, data, results and software environment in a re-executable record with :command:`datalad container-run`, checkout section :ref:`containersrun`.
+

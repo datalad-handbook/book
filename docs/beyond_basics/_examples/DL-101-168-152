@@ -1,5 +1,2 @@
 ### DVC
-$ dvc status
-train:
-	changed deps:
-		modified:           src/train.py
+$ git add dvc.yaml data/prepared/.gitignore dvc.lock

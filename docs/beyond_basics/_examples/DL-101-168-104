@@ -1,0 +1,19 @@
+### DVC-DataLad
+# get the scripts
+$ datalad download-url -m "download scripts for ML analysis" \
+  https://raw.githubusercontent.com/datalad-handbook/data-version-control/master/src/{train,prepare,evaluate}.py \
+  -O 'code/'
+[INFO] Downloading 'https://raw.githubusercontent.com/datalad-handbook/data-version-control/master/src/train.py' into '/home/me/DVCvsDL/DVC-DataLad/code/' 
+download_url(ok): /home/me/DVCvsDL/DVC-DataLad/code/train.py (file)
+[INFO] Downloading 'https://raw.githubusercontent.com/datalad-handbook/data-version-control/master/src/prepare.py' into '/home/me/DVCvsDL/DVC-DataLad/code/' 
+download_url(ok): /home/me/DVCvsDL/DVC-DataLad/code/prepare.py (file)
+[INFO] Downloading 'https://raw.githubusercontent.com/datalad-handbook/data-version-control/master/src/evaluate.py' into '/home/me/DVCvsDL/DVC-DataLad/code/' 
+download_url(ok): /home/me/DVCvsDL/DVC-DataLad/code/evaluate.py (file)
+add(ok): /home/me/DVCvsDL/DVC-DataLad/code/evaluate.py (file)
+add(ok): /home/me/DVCvsDL/DVC-DataLad/code/prepare.py (file)
+add(ok): /home/me/DVCvsDL/DVC-DataLad/code/train.py (file)
+save(ok): /home/me/DVCvsDL/DVC-DataLad (dataset)
+action summary:
+  add (ok: 3)
+  download_url (ok: 3)
+  save (ok: 1)

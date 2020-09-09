@@ -1,11 +1,15 @@
 ### DVC
-$ git commit -m "initialize dvc"
-[master 087f125] initialize dvc
- 7 files changed, 131 insertions(+)
- create mode 100644 .dvc/.gitignore
- create mode 100644 .dvc/config
- create mode 100644 .dvc/plots/confusion.json
- create mode 100644 .dvc/plots/default.json
- create mode 100644 .dvc/plots/scatter.json
- create mode 100644 .dvc/plots/smooth.json
- create mode 100644 .dvcignore
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	new file:   .dvc/.gitignore
+	new file:   .dvc/config
+	new file:   .dvc/plots/confusion.json
+	new file:   .dvc/plots/default.json
+	new file:   .dvc/plots/scatter.json
+	new file:   .dvc/plots/smooth.json
+	new file:   .dvcignore
+

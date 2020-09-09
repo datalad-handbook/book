@@ -1,5 +1,0 @@
-$ cat .dvc/config
-[core]
-    remote = remote_storage
-['remote "remote_storage"']
-    url = ../../dvc_remote

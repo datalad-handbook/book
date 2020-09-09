@@ -1,5 +1,5 @@
-### DVC
-$ cat << EOT >| src/train.py
+### DVC-DataLad
+$ cat << EOT >| code/train.py
 from joblib import dump
 from pathlib import Path
 

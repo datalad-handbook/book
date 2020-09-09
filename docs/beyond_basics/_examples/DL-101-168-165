@@ -1,3 +1,14 @@
-### DVC-DataLad
-$ datalad save --version-tag SGD
-save(ok): /home/me/DVCvsDL/DVC-DataLad (dataset)
+### DVC
+$ git add --all
+$ git commit -m "Train Random Forrest classifier"
+$ dvc commit
+$ git push --set-upstream origin random-forest
+$ git tag -a random-forest -m "Random Forest classifier with 80.99% accuracy."
+$ git push origin --tags
+$ dvc push
+[random_forrest ff5b449] Train Random Forrest classifier
+ 3 files changed, 8 insertions(+), 14 deletions(-)
+Everything up-to-date
+fatal: tag 'random-forest' already exists
+Everything up-to-date
+1 file pushed

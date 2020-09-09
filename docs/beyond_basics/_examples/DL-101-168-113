@@ -1,9 +1,6 @@
-### DVC-DataLad
-$ cd ../DVC-DataLad
-$ datalad create --force -c text2git
-[INFO] Creating a new annex repo at /home/me/DVCvsDL/DVC-DataLad 
-[INFO] Remote origin not usable by git-annex; setting annex-ignore 
-[INFO] Running procedure cfg_text2git 
-[INFO] == Command start (output follows) ===== 
-[INFO] == Command exit (modification check follows) ===== 
-create(ok): /home/me/DVCvsDL/DVC-DataLad (dataset)
+### DVC
+$ git commit -m "control data with DVC"
+[master 60067f9] control data with DVC
+ 3 files changed, 8 insertions(+)
+ create mode 100644 data/raw/train.dvc
+ create mode 100644 data/raw/val.dvc

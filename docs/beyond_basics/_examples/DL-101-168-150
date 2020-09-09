@@ -1,3 +1,4 @@
 ### DVC
-$ git checkout -b random_forrest
-Switched to a new branch 'random_forrest'
+$ cd ../DVC
+$ git checkout -b sgd-pipeline
+Switched to a new branch 'sgd-pipeline'

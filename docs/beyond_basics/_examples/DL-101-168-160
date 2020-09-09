@@ -1,2 +1,23 @@
-### DVC-DataLad
-$ cd ../DVC-DataLad
+### DVC
+$ git add --all
+$ git commit -m "Add SGD pipeline"
+$ dvc commit
+$ git push --set-upstream origin sgd-pipeline
+$ git tag -a sgd-pipeline -m "Trained SGD as DVC pipeline."
+$ git push origin --tags
+$ dvc push
+[sgd-pipeline 67fc8cb] Add SGD pipeline
+ 5 files changed, 60 insertions(+)
+ create mode 100644 dvc.lock
+ create mode 100644 dvc.yaml
+ create mode 100644 metrics/accuracy.json
+error: src refspec sgd-pipeline matches more than one
+error: failed to push some refs to 'github.com:datalad-handbook/data-version-control.git'
+fatal: tag 'sgd-pipeline' already exists
+Received disconnect from 140.82.121.3 port 22:11: Bye Bye
+Disconnected from 140.82.121.3 port 22
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+3 files pushed

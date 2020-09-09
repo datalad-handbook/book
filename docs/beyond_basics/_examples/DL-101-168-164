@@ -1,14 +1,16 @@
-### DVC-DataLad
-$ datalad run --message "Evaluate SGD classifier model" \
-   --input "model/model.joblib" \
-   --output "metrics/accuracy.json" \
-   python src/evaluate.py
-[INFO] Making sure inputs are available (this may take some time) 
-[INFO] == Command start (output follows) ===== 
-[INFO] == Command exit (modification check follows) ===== 
-add(ok): /home/me/DVCvsDL/DVC-DataLad/metrics/accuracy.json (file)
-save(ok): /home/me/DVCvsDL/DVC-DataLad (dataset)
-action summary:
-  add (ok: 1)
-  get (notneeded: 1)
-  save (ok: 1)
+### DVC
+$ dvc repro evaluate
+'data/raw/val.dvc' didn't change, skipping
+'data/raw/train.dvc' didn't change, skipping
+Stage 'prepare' didn't change, skipping
+Running stage 'train' with command:
+	python src/train.py
+Updating lock file 'dvc.lock'
+
+Running stage 'evaluate' with command:
+	python src/evaluate.py
+Updating lock file 'dvc.lock'
+
+To track the changes with git, run:
+
+	git add dvc.lock

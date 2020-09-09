@@ -1,11 +1,17 @@
 ### DVC-DataLad
-$ cd DVC-DataLad
-$ datalad create-sibling --name my-sibling ../datalad-sibling
-[INFO] Considering to create a target dataset /home/me/DVCvsDL/DVC-DataLad at /home/me/DVCvsDL/datalad-sibling of localhost 
-[INFO] Fetching updates for Dataset(/home/me/DVCvsDL/DVC-DataLad) 
+# outside of a dataset
+$ datalad clone git@github.com:datalad-handbook/DVC-DataLad.git DVC-DataLad-2
+$ cd DVC-DataLad-2
+[INFO] Cloning dataset to Dataset(/home/me/DVCvsDL/DVC-DataLad-2) 
+[INFO] Attempting to clone from git@github.com:datalad-handbook/DVC-DataLad.git to /home/me/DVCvsDL/DVC-DataLad-2 
 [INFO] Start enumerating objects 
 [INFO] Start counting objects 
 [INFO] Start compressing objects 
-[INFO] Adjusting remote git configuration 
-[INFO] Running post-update hooks in all created siblings 
-create_sibling(ok): /home/me/DVCvsDL/DVC-DataLad (dataset)
+[INFO] Start receiving objects 
+[INFO] Start resolving deltas 
+[INFO] Completed clone attempts for Dataset(/home/me/DVCvsDL/DVC-DataLad-2) 
+[INFO] Scanning for unlocked files (this may take some time) 
+[INFO] Unable to parse git config from origin 
+[INFO] Remote origin does not have git-annex installed; setting annex-ignore
+|   This could be a problem with the git-annex installation on the remote. Please make sure that git-annex-shell is available in PATH when you ssh into the remote. Once you have fixed the git-annex installation, run: git annex enableremote origin 
+install(ok): /home/me/DVCvsDL/DVC-DataLad-2 (dataset)

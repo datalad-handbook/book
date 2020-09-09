@@ -1,20 +1,19 @@
 ### DVC
-$ git status
-On branch master
-Your branch is up to date with 'origin/master'.
+$ cd ../DVC
+$ dvc init
 
-Changes to be committed:
-  (use "git restore --staged <file>..." to unstage)
-	new file:   .dvc/.gitignore
-	new file:   .dvc/config
-	new file:   .dvc/plots/confusion.json
-	new file:   .dvc/plots/default.json
-	new file:   .dvc/plots/scatter.json
-	new file:   .dvc/plots/smooth.json
-	new file:   .dvcignore
+You can now commit the changes to git.
 
-Untracked files:
-  (use "git add <file>..." to include in what will be committed)
-	data/raw/train/
-	data/raw/val/
++---------------------------------------------------------------------+
+|                                                                     |
+|        DVC has enabled anonymous aggregate usage analytics.         |
+|     Read the analytics documentation (and how to opt-out) here:     |
+|              https://dvc.org/doc/user-guide/analytics               |
+|                                                                     |
++---------------------------------------------------------------------+
 
+What's next?
+------------
+- Check out the documentation: https://dvc.org/doc
+- Get help and share ideas: https://dvc.org/chat
+- Star us on GitHub: https://github.com/iterative/dvc

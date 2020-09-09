@@ -1,2 +1,0 @@
-### DVC
-$ git add dvc.yaml data/prepared/.gitignore dvc.lock

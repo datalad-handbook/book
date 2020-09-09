@@ -1,6 +1,0 @@
-$ datalad save -m "Switch to random forrest classification" src/train.py
-add(ok): /home/me/DVCvsDL/DVC-DataLad/src/train.py (file)
-save(ok): /home/me/DVCvsDL/DVC-DataLad (dataset)
-action summary:
-  add (ok: 1)
-  save (ok: 1)

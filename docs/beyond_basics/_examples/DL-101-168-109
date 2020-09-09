@@ -1,11 +1,12 @@
 ### DVC
-$ dvc add data/raw/train
-$ dvc add data/raw/val
-
-To track the changes with git, run:
-
-	git add data/raw/.gitignore data/raw/train.dvc
-
-To track the changes with git, run:
-
-	git add data/raw/val.dvc data/raw/.gitignore
+# download the data
+$ curl -s https://s3.amazonaws.com/fast-ai-imageclas/imagenette2-160.tgz \
+          -O imagenette2-160.tgz
+# extract it
+$ tar -xzf imagenette2-160.tgz
+# move it into the directories
+$ cp -r imagenette2-160/train data/raw/
+$ cp -r imagenette2-160/val data/raw/
+# remove the archive and extracted folder
+$ rm -rf imagenette2-160
+$ rm imagenette2-160.tgz

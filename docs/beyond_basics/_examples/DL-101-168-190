@@ -1,13 +1,16 @@
 $ git checkout master
 $ git reset --hard b796ba195447268ebc51e20a778fb2db9f11e341
 $ git push --force origin master
-# delete the branches
+# delete the branches and tags
 $ git push origin :random_forrest :sgd-pipeline
+$ git tag -d random-forrest sgd-pipeline
 Switched to branch 'master'
 Your branch is up to date with 'origin/master'.
 HEAD is now at b796ba1 Merge pull request #2 from KristijanIvancic/master
-To https://github.com/datalad-handbook/data-version-control.git
- + 44e9bab...b796ba1 master -> master (forced update)
+To github.com:datalad-handbook/data-version-control.git
+ + adbaee9...b796ba1 master -> master (forced update)
 error: unable to delete 'random_forrest': remote ref does not exist
 error: dst refspec sgd-pipeline matches more than one
-error: failed to push some refs to 'https://github.com/datalad-handbook/data-version-control.git'
+error: failed to push some refs to 'github.com:datalad-handbook/data-version-control.git'
+error: tag 'random-forrest' not found.
+Deleted tag 'sgd-pipeline' (was f6ba502)

@@ -1,4 +1,16 @@
-### DVC-DATALAD
-# this clone will be used for DataLad-based workflows
-$ git clone https://github.com/datalad-handbook/data-version-control.git DVC-DataLad
-Cloning into 'DVC-DataLad'...
+### DVC
+$ tree DVC
+DVC
+├── data
+│   ├── prepared
+│   └── raw
+├── LICENSE
+├── metrics
+├── model
+├── README.md
+└── src
+    ├── evaluate.py
+    ├── prepare.py
+    └── train.py
+
+6 directories, 5 files

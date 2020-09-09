@@ -1,2 +1,9 @@
-### DVC
-$ git add dvc.yaml model/.gitignore dvc.lock
+### DVC-DataLad
+$ datalad publish --to my-sibling
+[INFO] Publishing Dataset(/home/me/DVCvsDL/DVC-DataLad) to my-sibling 
+[INFO] Start enumerating objects 
+[INFO] Start counting objects 
+[INFO] Start compressing objects 
+[INFO] Start writing objects 
+[INFO] Start resolving deltas 
+publish(ok): /home/me/DVCvsDL/DVC-DataLad (dataset) [pushed to my-sibling: ['6afeac804..c6b99789a', '[new branch]']]

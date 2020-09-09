@@ -474,7 +474,7 @@ Currently, the dataset can thus be shared via :term:`GitHub` or similar hosting 
        .: github(-) [https://github.com/datalad-handbook/DVC-DataLad.git (git)]
        'https://github.com/datalad-handbook/DVC-DataLad.git' configured as sibling 'github' for Dataset(/home/me/DVCvsDL/DVC-DataLad)
       $ datalad push --to github
-        Update availability for 'github':  75%|▊| 3.00/4.00 [00:00<00:00, 28.9k Steps/s]Username for 'https://github.com': <user>
+        Update availability for 'github': [...] [00:00<00:00, 28.9k Steps/s]Username for 'https://github.com': <user>
         Password for 'https://adswa@github.com': <password>
         publish(ok): /home/me/DVCvsDL/DVC-DataLad (dataset) [refs/heads/master->github:refs/heads/master [new branch]]
         publish(ok): /home/me/DVCvsDL/DVC-DataLad (dataset) [refs/heads/git-annex->github:refs/heads/git-annex [new branch]]

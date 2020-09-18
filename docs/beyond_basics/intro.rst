@@ -21,6 +21,7 @@ associated usecases.
    basics-advancedoptions
    basics-scaling
    basics-retrospective
+   basics-specialpurpose
 
 .. figure:: /artwork/src/hero.svg
    :width: 70%

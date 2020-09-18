@@ -1,0 +1,11 @@
+### DVC
+$ cat dvc.yaml
+stages:
+  prepare:
+    cmd: python src/prepare.py
+    deps:
+    - data/raw
+    - src/prepare.py
+    outs:
+    - data/prepared/test.csv
+    - data/prepared/train.csv

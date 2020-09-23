@@ -1,0 +1,8 @@
+$ datalad containers-add software --url shub://adswa/python-ml:1
+add(ok): /home/me/usecases/ml-project/.datalad/config (file)
+save(ok): /home/me/usecases/ml-project (dataset)
+containers_add(ok): /home/me/usecases/ml-project/.datalad/environments/software/image (file)
+action summary:
+  add (ok: 1)
+  containers_add (ok: 1)
+  save (ok: 1)

@@ -1,0 +1,16 @@
+$ cd ml-project
+$ mkdir -p data
+# install the dataset into data/
+$ datalad clone -d . ../imagenette data/raw
+[INFO] Cloning dataset to Dataset(/home/me/usecases/ml-project/data/raw) 
+[INFO] Attempting to clone from ../imagenette to /home/me/usecases/ml-project/data/raw 
+[INFO] Completed clone attempts for Dataset(/home/me/usecases/ml-project/data/raw) 
+[INFO] Scanning for unlocked files (this may take some time) 
+install(ok): /home/me/usecases/ml-project/data/raw (dataset)
+add(ok): /home/me/usecases/ml-project/data/raw (file)
+add(ok): /home/me/usecases/ml-project/.gitmodules (file)
+save(ok): /home/me/usecases/ml-project (dataset)
+action summary:
+  add (ok: 2)
+  install (ok: 1)
+  save (ok: 1)

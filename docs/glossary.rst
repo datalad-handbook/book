@@ -61,6 +61,12 @@ Glossary
       Git concept: A concise summary of changes you should attach to a :command:`datalad save` command. This summary will
       show up in your :term:`DataLad dataset` history.
 
+   conda
+      A package, dependency, and environment management system for a number of programming languages.
+      Find out more at `docs.conda.io <https://docs.conda.io/en/latest/>`_.
+      It overlaps with :term:`pip` in functionality, but it is advised to not use both tools simultaneously for package management.
+
+
    DataLad dataset
       A DataLad dataset is a Git repository that may or may not have a data annex that is used to
       manage data referenced in a dataset. In practice, most DataLad datasets will come with an annex.
@@ -378,6 +384,12 @@ Glossary
       but ended up in it accidentally: press ``ESC`` ``:`` ``q`` ``!`` ``Enter`` to exit without saving.
       Here is help: `A vim tutorial <https://www.openvim.com/>`_ and
       `how to configure the default editor for git <https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration>`_.
+
+   virtual environment
+      A specific Python installation with packages of your choice, kept in a self-contained directory tree, and not interfering with the system-wide installations.
+      Virtual environments are an easy solution to create several different Python environments and come in handy if you want to have a cleanly structured software setup and several applications with software requirements that would conflict with each other in a single system: You can have one virtual environment with package A in version X, and a second one with package A in version Y.
+      There are several tools that create virtual environments such as the built-in ``venv`` module, the ``virtualenv`` module, or :term:`conda`.
+      Virtual environments are light-weight and you can switch between them fast.
 
    WSL
       The Windows Subsystem for Linux, a compatibility layer for running Linux destributions on recent versions of Windows. Find out more `here <https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux>`__.

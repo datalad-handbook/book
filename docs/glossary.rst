@@ -66,6 +66,14 @@ Glossary
       Find out more at `docs.conda.io <https://docs.conda.io/en/latest/>`_.
       It overlaps with :term:`pip` in functionality, but it is advised to not use both tools simultaneously for package management.
 
+   container recipe
+       A text file template that lists all required components of the computational environment that a :term:`software container` should contain.
+        It is made by a human user.
+
+   container image
+       Container images are *built* from :term:`container recipe` files.
+       They are a static filesystem inside a file, populated with the software specified in the recipe, and some initial configuration.
+
 
    DataLad dataset
       A DataLad dataset is a Git repository that may or may not have a data annex that is used to
@@ -96,6 +104,15 @@ Glossary
    debugging
       Finding and resolving problems within a computer program.
       To learn about debugging a failed execution of a DataLad command, take a look at the section :ref:`debug`.
+
+   Docker
+       `Docker <https://www.docker.com/>`_ is a containerization software that can package software into :term:`software container`\s, similar to :term:`Singularity`.
+       Find out more on `Wikipedia <https://en.wikipedia.org/wiki/Docker_(software)>`__.
+
+   Docker-Hub
+       `Docker Hub <https://hub.docker.com/>`_ is a library for :term:`Docker` :term:`container image`\s.
+       Among other things, it hosts and builds Docker container images.
+       You can can *pull* :term:`container image`\s built from a publicly shared :term:`container recipe` from it.
 
    DOI
       A digital object identifier (DOI) is a character string used to permanently identify
@@ -334,6 +351,24 @@ Glossary
       retrieved and pushed between a dataset and its sibling. It is the
       equivalent of a :term:`remote` in Git.
 
+   Singularity
+      `Singularity <https://sylabs.io/docs/>`_ is a containerization software that can package software into :term:`software container`\s.
+      It is a useful alternative to :term:`Docker` as it can run on shared computational infrastructure.
+      Find out more on `Wikipedia <https://en.wikipedia.org/wiki/Singularity_(software)>`__.
+
+   Singularity-Hub
+       `singularity-hub.org <https://singularity-hub.org/>`_ is a Singularity container portal.
+       Among other things, it hosts and builds Singularity container images.
+       You can can *pull* :term:`container image`\s built from a publicly shared :term:`container recipe` from it.
+
+   software container
+       Computational containers are cut-down virtual machines that allow you to package software libraries and their dependencies in precise versions into a bundle that can be shared with others.
+       They are running instances of a :term:`container image`.
+       On your own and other's machines, the container constitutes a secluded software environment that contains the exact software environment that you specified but does not effect any software outside of the container.
+       Unlike virtual machines, software containers do not have their own operating system and instead use basic services of the underlying operating system of the computer they run on (in a read-only fashion).
+       This makes them lightweight and portable.
+       By sharing software environments with containers, such as :term:`Docker` or :term:`Singularity` containers, others (and also yourself) have easy access to software without the need to modify the software environment of the machine the container runs on.
+
    submodule
       Git concept: a submodule is a Git repository embedded inside another Git repository. A
       :term:`DataLad subdataset` is known as a submodule in the :term:`Git config file`.
@@ -342,7 +377,6 @@ Glossary
       Also known as command-line completion. A common shell feature in which
       the program automatically fills in partially types commands upon
       pressing the ``TAB`` key.
-
 
    tag
       Git concept: A mark on a commit that can help to identify commits. You can attach

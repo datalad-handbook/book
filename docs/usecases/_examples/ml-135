@@ -1,4 +1,4 @@
 $ git checkout master
 $ cat accuracy.json
 Switched to branch 'master'
-{"accuracy": 0.697084917617237}
+{"accuracy": 0.7896070975918885}

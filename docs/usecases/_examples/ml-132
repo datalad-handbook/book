@@ -1,8 +1,6 @@
 $ datalad save -m "Switch to random forest classification" --version-tag "random-forest" code/train.py
 add(ok): /home/me/usecases/ml-project/code/train.py (file)
 save(ok): /home/me/usecases/ml-project (dataset)
-[ERROR] cannot tag this version: fatal: tag 'random-forest' already exists [save(/home/me/usecases/ml-project)] 
-save(error): /home/me/usecases/ml-project (dataset) [cannot tag this version: fatal: tag 'random-forest' already exists]
 action summary:
   add (ok: 1)
-  save (error: 1, ok: 1)
+  save (ok: 1)

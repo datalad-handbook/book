@@ -298,11 +298,14 @@ To capture all provenance and perform the computation in the correct software en
    :language: console
    :cast: usecase_ml
    :workdir: usecases/ml-project
-   :lines: 1-10, 13404-13412
+   :lines: 1-10, 2715-2723
 
    $ datalad containers-run -n software \
      -m "Prepare the data for categories golf balls and parachutes" \
-     --input 'data/raw/imagenette2-160/*' \
+     --input 'data/raw/imagenette2-160/train/n03445777' \
+     --input 'data/raw/imagenette2-160/val/n03445777' \
+     --input 'data/raw/imagenette2-160/train/n03888257' \
+     --input 'data/raw/imagenette2-160/val/n03888257' \
      --output 'data/train.csv' \
      --output 'data/test.csv' \
      "python3 code/prepare.py"
@@ -505,7 +508,7 @@ One was to do this is to specify a range between the two tags, but likewise, com
 
    $ datalad rerun -m "Recompute classification with more iterations" ready4analysis..SGD-100
 
-Any better? Mhh, maybe a different classifier does the job better.
+Any better? Mhh, not so much. Maybe a different classifier does the job better.
 Let's switch from SGD to a `random forest classification <https://en.wikipedia.org/wiki/Random_forest>`_.
 The code block below writes the relevant changes (highlighted) into the script.
 

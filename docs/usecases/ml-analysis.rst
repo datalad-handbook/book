@@ -447,7 +447,8 @@ Afterwards, we can train the first model:
 
    $ datalad containers-run -n software \
      -m "Train an SGD classifier on the data" \
-     --input 'data/raw/imagenette2-160/train/*' \
+     --input 'data/raw/imagenette2-160/train/n03445777' \
+     --input 'data/raw/imagenette2-160/train/n03888257' \
      --output 'model.joblib' \
      "python3 code/train.py"
 
@@ -460,7 +461,8 @@ And finally, we're ready to find out how well the model did and run the last scr
 
    $ datalad containers-run -n software \
      -m "Evaluate SGD classifier on test data" \
-     --input 'data/raw/imagenette2-160/val/*' \
+     --input 'data/raw/imagenette2-160/val/n03445777' \
+     --input 'data/raw/imagenette2-160/val/n03888257' \
      --output 'accuracy.json' \
      "python3 code/evaluate.py"
 

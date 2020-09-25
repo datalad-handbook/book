@@ -232,6 +232,14 @@ such purposes:
 
         will *pull* available updates and integrate them in one go.
 
+        Find out what has been done
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+        DataLad datasets contain their history in the ``git log``.
+        By running ``git log`` (or a tool that displays Git history) in the dataset or on
+        specific files, you can find out what has been done to the dataset or to individual files
+        by whom, and when.
+
         More information
         ^^^^^^^^^^^^^^^^
 
@@ -309,6 +317,13 @@ such purposes:
 
         will *pull* available updates and integrate them in one go.
 
+        ### Find out what has been done
+
+        DataLad datasets contain their history in the ``git log``.
+        By running ``git log`` (or a tool that displays Git history) in the dataset or on
+        specific files, you can find out what has been done to the dataset or to individual files
+        by whom, and when.
+
         ### More information
 
         More information on DataLad and how to use it can be found in the DataLad Handbook at
@@ -363,6 +378,13 @@ such purposes:
    "fetch" updates and store them on a different branch (by default
    'remotes/origin/master'). Running 'datalad update --merge' will "pull"
    available updates and integrate them in one go.
+
+   Find out what has been done
+
+   DataLad datasets contain their history in the Git log.
+   By running 'git log' (or a tool that displays Git history) in the dataset or on
+   specific files, you can find out what has been done to the dataset or to individual files
+   by whom, and when.
 
    More information
 

@@ -2,7 +2,7 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3608611.svg)](https://doi.org/10.5281/zenodo.3608611)
 [![made-with-datalad](https://www.datalad.org/badges/made_with.svg)](https://datalad.org)
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-30-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-32-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END --> 
 
 # The DataLad handbook :orange_book:
@@ -98,6 +98,8 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   <tr>
     <td align="center"><a href="http://arokem.org"><img src="https://avatars1.githubusercontent.com/u/118582?v=4" width="100px;" alt=""/><br /><sub><b>Ariel Rokem</b></sub></a><br /><a href="https://github.com/datalad-handbook/book/issues?q=author%3Aarokem" title="Bug reports">🐛</a></td>
     <td align="center"><a href="https://remi-gau.github.io/"><img src="https://avatars3.githubusercontent.com/u/6961185?v=4" width="100px;" alt=""/><br /><sub><b>Remi Gau</b></sub></a><br /><a href="https://github.com/datalad-handbook/book/issues?q=author%3ARemi-Gau" title="Bug reports">🐛</a> <a href="#ideas-Remi-Gau" title="Ideas, Planning, & Feedback">🤔</a> <a href="#maintenance-Remi-Gau" title="Maintenance">🚧</a></td>
+    <td align="center"><a href="https://github.com/judithbomba"><img src="https://avatars1.githubusercontent.com/u/68907896?v=4" width="100px;" alt=""/><br /><sub><b>Judith Bomba</b></sub></a><br /><a href="https://github.com/datalad-handbook/book/issues?q=author%3Ajudithbomba" title="Bug reports">🐛</a></td>
+    <td align="center"><a href="http://khinsen.net/"><img src="https://avatars2.githubusercontent.com/u/94934?v=4" width="100px;" alt=""/><br /><sub><b>Konrad Hinsen</b></sub></a><br /><a href="https://github.com/datalad-handbook/book/issues?q=author%3Akhinsen" title="Bug reports">🐛</a></td>
   </tr>
 </table>
 

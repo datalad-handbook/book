@@ -35,6 +35,8 @@ failed -- sorry about this.
   :ref:`executive_summary`
 :redirect:`containers`
   :ref:`containersrun`
+:redirect:`dl-for-ml`
+  :ref:`dvc`
 :redirect:`extensions`
   :ref:`extensions_intro`
 :redirect:`GIN`

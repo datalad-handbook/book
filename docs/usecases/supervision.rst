@@ -159,12 +159,8 @@ configures her Git identity with the help of her supervisor, and is
 given an introduction to the most important DataLad commands relevant to her,
 :command:`datalad save` [#f2]_, :command:`datalad containers-run` [#f3]_,
 and :command:`datalad rerun` [#f4]_.
-For reference, they also give her the `cheat sheet <TODO: link>`_ and the link
+For reference, they also give her the :ref:`cheat sheet <cheat>` and the link
 to the DataLad handbook as a resource if she has further questions.
-
-.. todo::
-
-   link cheat sheet once it exists
 
 To make the analysis reproducible, they spent the final part of the meeting
 on adding the labs default singularity image to the dataset.

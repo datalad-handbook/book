@@ -1,0 +1,21 @@
+$ datalad rerun --branch="randomforrest" -m "Recompute classification with random forrest classifier" ready-for-analysis..SGD
+[INFO] checkout commit e228e11; 
+[INFO] run commit 076981f; (Train an SGD clas...) 
+[INFO] Making sure inputs are available (this may take some time) 
+unlock(ok): /home/me/DVCvsDL/DVC-DataLad/model/model.joblib (file)
+[INFO] == Command start (output follows) ===== 
+[INFO] == Command exit (modification check follows) ===== 
+add(ok): /home/me/DVCvsDL/DVC-DataLad/model/model.joblib (file)
+save(ok): /home/me/DVCvsDL/DVC-DataLad (dataset)
+[INFO] run commit c5053b8; (Evaluate SGD clas...) 
+[INFO] Making sure inputs are available (this may take some time) 
+[INFO] == Command start (output follows) ===== 
+[INFO] == Command exit (modification check follows) ===== 
+add(ok): /home/me/DVCvsDL/DVC-DataLad/code/__pycache__/train.cpython-38.pyc (file)
+add(ok): /home/me/DVCvsDL/DVC-DataLad/metrics/accuracy.json (file)
+save(ok): /home/me/DVCvsDL/DVC-DataLad (dataset)
+action summary:
+  add (ok: 3)
+  get (notneeded: 3)
+  save (ok: 2)
+  unlock (notneeded: 2, ok: 1)

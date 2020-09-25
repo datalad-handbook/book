@@ -340,6 +340,24 @@
         "ideas",
         "maintenance"
       ]
+    },
+    {
+      "login": "judithbomba",
+      "name": "Judith Bomba",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/68907896?v=4",
+      "profile": "https://github.com/judithbomba",
+      "contributions": [
+        "bug"
+      ]
+    },
+    {
+      "login": "khinsen",
+      "name": "Konrad Hinsen",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/94934?v=4",
+      "profile": "http://khinsen.net/",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,

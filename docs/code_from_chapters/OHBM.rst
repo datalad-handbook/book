@@ -489,7 +489,7 @@ Here is how this works: First, I attach a software container to my dataset using
 and a url or path where to find this container, here it is singularity hub. This
 records the software in the dataset::
 
-   datalad containers-add software --url shub://adswa/resources:1
+   datalad containers-add software --url shub://adswa/resources:2
 
 Note: You need to have `singularity <https://sylabs.io/guides/3.5/user-guide/>`_
 installed to run this!

@@ -108,6 +108,8 @@ Code lists from chapters
    code_from_chapters/10_yoda_code
    code_from_chapters/OHBM
    code_from_chapters/OHBM_OSR.rst
+   code_from_chapters/MPI_code
+
 ..
   stuff that we do not need or show at the moment
 

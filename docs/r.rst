@@ -55,6 +55,8 @@ failed -- sorry about this.
   :ref:`OHBMOSR2020`
 :redirect:`OHBM2020poster`
   :ref:`ohbm2020poster`
+:redirect:`openneuro`
+  :ref:`openneuro`
 
 Alternatively, try searching in the "Quick Search" at the left-hand side, or
 scan the handbook's front page at `handbook.datalad.org <http://handbook.datalad.org/en/latest/>`_

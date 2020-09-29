@@ -1,7 +1,7 @@
 .. _openneuro:
 
-Accessing OpenNeuro datasets via DataLad
-----------------------------------------
+OpenNeuro Quickstart Guide: Accessing OpenNeuro datasets via DataLad
+--------------------------------------------------------------------
 
 `OpenNeuro <https://openneuro.org/>`__ is a free and open platform for sharing neuroimaging data MRI, MEG, EEG, iEEG, and ECoG data.
 Researchers can upload their own data to share it with others and also download others shared data from OpenNeuro with various methods.

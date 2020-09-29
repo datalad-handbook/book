@@ -7,6 +7,7 @@ OpenNeuro Quickstart Guide: Accessing OpenNeuro datasets via DataLad
 Researchers can upload their own data to share it with others and also download others shared data from OpenNeuro with various methods.
 
 .. figure:: ../artwork/src/openneuro.png
+   :target: https://openneuro.org/
 
 Among other downloading options, OpenNeuro publishes its hosted data as DataLad datasets on :term:`GitHub` and each dataset can be installed with DataLad, as a DataLad dataset.
 If you want to find out about this option, this section contains basic insights and commands to get you started even if you haven't used DataLad before.

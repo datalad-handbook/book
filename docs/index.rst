@@ -93,6 +93,7 @@ Appendix
    acknowledgements
    intro/user_types
    OHBMposter
+   usecases/openneuro
 
 ########################
 Code lists from chapters

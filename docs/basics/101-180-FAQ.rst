@@ -423,6 +423,7 @@ DataLad version-controls my large files -- great. But how much is saved in total
 
    this.
 
+.. _copydata:
 
 How can I copy data out of a DataLad dataset?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -471,6 +472,7 @@ MEG, EEG, iEEG, and ECoG data. It publishes hosted data as DataLad datasets on
 obtain the datasets just as any other DataLad datasets with :command:`datalad clone`
 or :command:`datalad install`.
 
+There is more info about this in the :ref:`OpenNeuro Quickstart Guide <openneuro>`.
 
 .. _bidsvalidator:
 

@@ -423,6 +423,7 @@ DataLad version-controls my large files -- great. But how much is saved in total
 
    this.
 
+.. _copydata:
 
 How can I copy data out of a DataLad dataset?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

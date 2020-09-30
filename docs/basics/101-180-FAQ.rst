@@ -232,6 +232,14 @@ such purposes:
 
         will *pull* available updates and integrate them in one go.
 
+        Find out what has been done
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+        DataLad datasets contain their history in the ``git log``.
+        By running ``git log`` (or a tool that displays Git history) in the dataset or on
+        specific files, you can find out what has been done to the dataset or to individual files
+        by whom, and when.
+
         More information
         ^^^^^^^^^^^^^^^^
 
@@ -309,6 +317,13 @@ such purposes:
 
         will *pull* available updates and integrate them in one go.
 
+        ### Find out what has been done
+
+        DataLad datasets contain their history in the ``git log``.
+        By running ``git log`` (or a tool that displays Git history) in the dataset or on
+        specific files, you can find out what has been done to the dataset or to individual files
+        by whom, and when.
+
         ### More information
 
         More information on DataLad and how to use it can be found in the DataLad Handbook at
@@ -364,6 +379,13 @@ such purposes:
    'remotes/origin/master'). Running 'datalad update --merge' will "pull"
    available updates and integrate them in one go.
 
+   Find out what has been done
+
+   DataLad datasets contain their history in the Git log.
+   By running 'git log' (or a tool that displays Git history) in the dataset or on
+   specific files, you can find out what has been done to the dataset or to individual files
+   by whom, and when.
+
    More information
 
    More information on DataLad and how to use it can be found in the DataLad Handbook at
@@ -401,6 +423,7 @@ DataLad version-controls my large files -- great. But how much is saved in total
 
    this.
 
+.. _copydata:
 
 How can I copy data out of a DataLad dataset?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -449,7 +472,22 @@ MEG, EEG, iEEG, and ECoG data. It publishes hosted data as DataLad datasets on
 obtain the datasets just as any other DataLad datasets with :command:`datalad clone`
 or :command:`datalad install`.
 
+There is more info about this in the :ref:`OpenNeuro Quickstart Guide <openneuro>`.
+
+.. _bidsvalidator:
+
+BIDS validator issues in datasets with missing file content
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+As outlined in section :ref:`symlink`, all unretrieved files in datasets are broken symlinks.
+This is desired, and not a problem per se, but some tools, among them the `BIDS validator <https://github.com/bids-standard/bids-validator>`_, can be confused by this.
+Should you attempt to validate a dataset in which all or some file contents are missing, for example after cloning a dataset or after dropping file contents, the validator may fail to report on the validity of the complete dataset or the specific unretrieved files.
+If you aim for a complete validation of your dataset, re-do the validation after retrieving all necessary file contents.
+If you only aim to validate file names and structure, invoke the bids validator with the additional flags ``--ignoreNiftiHeaders`` and  ``--ignoreSymlinks``.
+
+
 .. _gitannexbranch:
+
 
 What is the git-annex branch?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

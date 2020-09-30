@@ -34,7 +34,7 @@ Glossary
        -Server>`__.
 
    bash
-      A Unix shell and command language.
+      A Unix :term:`shell` and command language.
 
    Bitbucket
       Bitbucket is an online platform where one can store and share version
@@ -294,6 +294,9 @@ Glossary
       Instead of ``python code/myscript.py`` one can just run ``code/myscript`` if ``myscript`` has
       executable :term:`permissions` and a correctly specified shebang.
 
+   shell
+      A command line language and programming language. See also :term:`terminal`.
+
    special remote
       git-annex concept: A protocol that defines the underlying transport of annexed files
       to and from places that are not :term:`Git` repositories (e.g., a cloud service or
@@ -393,6 +396,11 @@ Glossary
    tig
       A text-mode interface for git that allows you to easily browse through your commit history.
       It is not part of git and needs to be installed. Find out more `here <https://jonas.github.io/tig/>`_.
+
+   terminal
+      The terminal (sometimes also called a shell, console, or CLI) is an interactive, text based interface that allows you to access your computer's functionality.
+      The most common command-line shells use :term:`bash` or c-shell.
+      You can get a short intro to the terminal and useful commands in the section :ref:`howto`.
 
    Ubuntu
       A common Linux distribution. `More information here <https://ubuntu.com>`__.

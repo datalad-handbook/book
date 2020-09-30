@@ -71,7 +71,7 @@ In a second step, a classifier needs to be trained on the labeled test data.
 It learns which features are to be associated with which class attribute.
 In a final step, the trained classifier classifies the test data, and its results are evaluated against the true labels.
 
-Below, we will go through a image classification analysis on the `Imagenette dataset <https://github.com/fastai/imagenette>`_, a smaller subset of the `Imagenet dataset <http://www.image-net.org/>`_, one of the most widely used large scale dataset for bench-marking Image Classification algorithms. In contains images from ten categories (tench (a type of fish), English springer (a type of dog), cassette player, chain saw, church, French horn, garbage truck, gas pump, golf ball, parachute).
+Below, we will go through a image classification analysis on the `Imagenette dataset <https://github.com/fastai/imagenette>`_, a smaller subset of the `Imagenet dataset <http://www.image-net.org/>`_, one of the most widely used large scale dataset for bench-marking Image Classification algorithms. It contains images from ten categories (tench (a type of fish), English springer (a type of dog), cassette player, chain saw, church, French horn, garbage truck, gas pump, golf ball, parachute).
 We will prepare a subset of the data, and train and evaluate different types of classifier.
 The analysis is based on `this tutorial <https://realpython.com/python-data-version-control/>`_.
 
@@ -98,7 +98,7 @@ The Imagenette dataset can be downloaded as an archive from Amazon, and the :com
    $ datalad -c datalad.runtime.use-patool=1 download-url \
      --archive \
      --message "Download Imagenette dataset" \
-     'https://s3.amazonaws.com/fast-ai-imageclas/imagenette2-160.tgz' \
+     'https://s3.amazonaws.com/fast-ai-imageclas/imagenette2-160.tgz'
 
 Next, let's create an analysis dataset.
 For a pre-structured and pre-configured starting point, the dataset can be created with the ``yoda`` and ``text2git`` :term:`run procedure`\s [#f3]_.

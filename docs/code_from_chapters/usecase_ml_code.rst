@@ -160,7 +160,7 @@ This makes cloning fast and datasets lightweight::
 On demand, content for files, directories, or the complete dataset can be downloaded using :command:`datalad get`.
 The snippet below uses :term:`globbing` to get the content of all books that start with a "D"::
 
-    run 'datalad get D*'
+    datalad get D*
 
 This works because DataLad datasets track where file contents are available from.
 If the origin of a file (such as a web source) is known, you can drop file *content* to free up disk space, but you retain access via :command:`datalad get`::
@@ -314,7 +314,7 @@ For this demonstration, there is a published analysis dataset that resembles the
 `github.com/adswa/my_analysis <https://github.com/adswa/myanalysis>`_.
 This dataset can be cloned, and the analysis within it can be automatically rerun::
 
-   cd /demo
+   cd ../
    datalad clone git@github.com:adswa/myanalysis.git analysis_clone
 
 

@@ -482,6 +482,15 @@ Thus, we preconfigure and prestructure the dataset with a few configurations:
    cd ../
    datalad create -c text2git -c yoda ml-project
 
+It can also be useful to add use case specific ``.gitignore`` files to datasets.
+``.gitignore`` files can keep files from being version controlled by any tool, which is helpful in keeping a clean dataset state even though certain tools create temporary or useless files (such as ``.DSStore`` under macos, ``.$ICON`` files under Windows, ``.idea/`` directories when using PyCharm, ``__pycache__`` files, and so forth).
+The chapter :ref:`gitignore` has more insights on how these files work.
+Thankfully, there are thousands of useful premade templates for various applications, and below we're downloading a comprehensive ``.gitignore`` file for Python projects::
+
+   datalad download-url -m "Add Python project .gitignore template" \
+     https://raw.githubusercontent.com/toptal/gitignore/master/templates/Python.gitignore \
+     -O .gitignore
+
 Next, the input dataset is installed as a subdataset from the local path::
 
    cd ml-project

@@ -553,10 +553,10 @@ And we can save it, optionally with a version tag::
 
 
 We prepare the data using :command:`datalad containers-run` to ensure that all relevant Python libraries are installed.
-To keep execution time in this example short, we only specify the subset of the data that the above script uses as an input::
+To keep execution time in this example short, we only specify the subset of the data that the above script uses as an input, and we use the ``datalad.runtime.max-annex-jobs`` configuration to parallelize execution::
 
 
-   datalad containers-run -n software \
+   datalad -c datalad.runtime.max-annex-jobs=5 containers-run -n software \
      -m "Prepare the data for categories golf balls and parachutes" \
      --input 'data/raw/imagenette2-160/train/n03445777' \
      --input 'data/raw/imagenette2-160/val/n03445777' \

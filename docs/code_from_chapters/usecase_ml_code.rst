@@ -511,51 +511,35 @@ In order to link the correct software environment to the data we add a prepared 
 Prepare the data
 """"""""""""""""
 
-This workflow uses a script to create labeled sets of training and validation data -- for the sake of this example, only two categories or ten are labeled.
-The script will read out file names from the input data, and create csv files that map file names to image categories::
+This workflow uses a script to create labeled sets of training and validation data -- for the sake of this example, only two categories of ten are labeled.
+The script will read out file names from the input data, and create CSV files that map file names to image categories::
 
    cat << EOT > code/prepare.py
    #!/usr/bin/env python3
 
-   import pandas as pd
    from pathlib import Path
 
    FOLDERS_TO_LABELS = {"n03445777": "golf ball",
                         "n03888257": "parachute"}
 
 
-   def get_files_and_labels(source_path):
-       images = []
-       labels = []
-       for image_path in source_path.rglob("*/*.JPEG"):
-           filename = image_path
-           folder = image_path.parent.name
-           if folder in FOLDERS_TO_LABELS:
-               images.append(filename)
-               label = FOLDERS_TO_LABELS[folder]
-               labels.append(label)
-       return images, labels
-
-
-   def save_as_csv(filenames, labels, destination):
-       data_dictionary = {"filename": filenames, "label": labels}
-       data_frame = pd.DataFrame(data_dictionary)
-       data_frame.to_csv(destination)
-
-
-   def main(repo_path):
-       data_path = repo_path / "data"
-       train_path = data_path / "raw/imagenette2-160/train"
-       test_path = data_path / "raw/imagenette2-160/val"
-       train_files, train_labels = get_files_and_labels(train_path)
-       test_files, test_labels = get_files_and_labels(test_path)
-       save_as_csv(train_files, train_labels, data_path / "train.csv")
-       save_as_csv(test_files, test_labels, data_path / "test.csv")
+   def files2labels(source, label, out):
+       for image_path in source.rglob("*.JPEG"):
+           out.write('{},{}\n'.format(image_path, label))
 
 
    if __name__ == "__main__":
-       repo_path = Path(__file__).parent.parent
-       main(repo_path)
+       data_path = Path('data')
+       fileheader = 'filename,label\n'
+       for part, labelfname in (('train', 'train.csv'),
+                                ('val', 'test.csv')):
+           with Path('data', labelfname).open('w') as labelfile:
+               labelfile.write(fileheader)
+               for imgfolder, label in FOLDERS_TO_LABELS.items():
+                   files2labels(
+                       Path('data', 'raw', 'imagenette2-160', part, imgfolder),
+                       label,
+                       labelfile)
    EOT
 
 This yields a new, untracked file::

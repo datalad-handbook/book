@@ -193,8 +193,6 @@ As long as there is one location that data is available from (a dataset on a sha
 If you want to try it with large amounts of data, checkout `datasets.datalad.org <http://datasets.datalad.org/>`_, a collection of more than 200TB of open data.
 
 
-
-
 Dataset nesting
 ^^^^^^^^^^^^^^^
 
@@ -301,17 +299,22 @@ To understand fully what ``--output`` does, please read chapters :ref:`chapter_r
     --output "pairwise_relationships.png" \
     "python3 code/script.py"
 
-Datalad creates a commit in my history.
+.. admonition:: software note
+
+   In order to execute the above script successfully you will need to run it in an environment that has the Python packages pandas, scikit-learn, datalad, and seaborn installed.
+   If you're thinking "WTF, it is SO inconvenient that I have to create the software environment to make this run", wait until the next section.
+
+Datalad creates a commit in the dataset history.
 This commit has the commit message as a human readable summary of what was done, it contains the produced output, and it has a machine readable record that contains information on the
 input data, the results, and the command that was run to create this result::
 
+   # take a look at the most recent entry in git log
    git log -n 1
 
 This machine readable record is particularly helpful, because one can now instruct datalad to ``rerun`` this command so that you don't have to memorize what had been done, and people you share the dataset with don't need to ask you how this result was produced, by can simply let DataLad tell them.
 
 This is done with the ``datalad rerun`` command.
-For this demonstration, there is a published analysis dataset that resembles the one created here fully at
-`github.com/adswa/my_analysis <https://github.com/adswa/myanalysis>`_.
+For this demonstration, there is a published analysis dataset that resembles the one created here fully at `github.com/adswa/my_analysis <https://github.com/adswa/myanalysis>`_.
 This dataset can be cloned, and the analysis within it can be automatically rerun::
 
    cd ../
@@ -327,6 +330,48 @@ If given to ``datalad rerun <hash>``, DataLad will read the machine readable rec
 This allows others to very easily rerun computations, but it also spares yourself the need to remember how a script was executed, and results can simply be asked where they came from::
 
    git log pairwise_relationships.png
+
+Computational reproducibility
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Its fantastic to have means to recompute a command automatically, but the ability to re-execute a command is often not enough.
+If you don't have the required Python packages available, or in a wrong version, running the script and computing the results will fail.
+In order to be *computationally* reproducible the run record does not only need to link code, command, and data, but also encapsulate the *software* that is necessary for a computation::
+
+   cd ../myanalysis
+
+The way this can be done is with a :term:`DataLad extension` called ``datalad containers``.
+You can install this extension with :term:`pip` by running ``pip install datalad-containers``.
+This extension allows to attach :term:`software container`\s such as :term:`Singularity` or :term:`Docker` :term:`container image`\s to the dataset and execute commands inside of these containers.
+Thus, the dataset can share share data, code, code execution, and software.
+
+Here is how this works: First, attach a software container to the dataset using ``datalad containers-add``.
+This command needs a name for the container (here it is called ``software``, but you can go for any name -- how about "take-this-one-mom"?), and a URL or path where to find the container.
+Here, it is a URL that points to :term:`Singularity-hub` (but :term:`Docker-Hub`, with a ``docker://<user>/<container>:<version>`` URL, would work fine, too).
+This records a pre-created software environment with the required Python packages in the dataset::
+
+   datalad containers-add software --url shub://adswa/resources:2
+
+Note: You need to have `singularity <https://sylabs.io/guides/3.5/user-guide/>`_ installed to run this!
+
+.. findoutmore:: Why Singularity and not Docker?
+
+   :term:`Singularity`, unlike :term:`Docker`, can be deployed on shared compute infrastructure such as computational clusters as it does not require or grant `superuser privileges <https://en.wikipedia.org/wiki/Superuser>`_ ("sudo rights") to users that use a container.
+   Docker is not deployed on HPC systems is because it grants users those sudo rights, and on multi-user systems users should not have those privileges, as it would enable them to temper with other's or shared data and resources, posing a severe security threat.
+   Singularity is capable of working with both Docker and Singularity containers, though.
+
+Afterwards, rerun the analysis in the software container with the ``datalad containers-run`` command.
+This container works just as the run command before, with the additional ``-n/--name`` option that is needed to specify the container name.
+If you were to rerun such an analysis, DataLad would not only retrieve the input data but also the software container::
+
+   datalad containers-run -m "rerun analysis in container" \
+   --container-name software \
+   --input "input/iris.csv" \
+   --output "prediction_report.csv" \
+   --output "pairwise_relationships.png" \
+   "python3 code/script.py"
+
+You can read more about this command and containers in general in the section :ref:`containersrun`.
 
 
 An ML-themed example
@@ -351,6 +396,7 @@ Create an input dataset
 
 First of all, we create a new dataset from scratch to put the Imagenette data inside::
 
+   cd ../
    datalad create imagenette
 
 Afterwards, we can download the Imagenette data and save it in the dataset.

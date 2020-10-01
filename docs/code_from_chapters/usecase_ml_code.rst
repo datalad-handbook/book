@@ -633,7 +633,7 @@ Let's save it::
    datalad save -m "Add SGD classification script" code/train.py
 
 The next script loads the trained classifier from disk and evaluates it on the validation data.
-To evaluate the model performance, it calculates the accuracy of the prediction, i.e., the proportion of correctly labeled images, prints it to the terminal, and saves it into a json file in the superdataset::
+To evaluate the model performance, it calculates the accuracy of the prediction, i.e., the proportion of correctly labeled images, prints it to the terminal, and saves it into a JSON file in the superdataset::
 
    cat << EOT > code/evaluate.py
 

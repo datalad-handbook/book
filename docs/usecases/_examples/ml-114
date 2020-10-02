@@ -1,0 +1,6 @@
+$ datalad save -m "Add script to evaluate model performance" --version-tag "ready4analysis" code/evaluate.py
+add(ok): /home/me/usecases/ml-project/code/evaluate.py (file)
+save(ok): /home/me/usecases/ml-project (dataset)
+action summary:
+  add (ok: 1)
+  save (ok: 1)

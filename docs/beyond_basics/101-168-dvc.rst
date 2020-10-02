@@ -25,6 +25,7 @@ This tutorial consists of the following steps:
 
 This handbook section demonstrates how DataLad could be used as an alternative to DVC.
 We demonstrate each step with DVC according to their tutorial, and then recreate a corresponding DataLad workflow.
+The usecase :ref:`usecase_ML` demonstrates a similar analysis in a completely DataLad-centric fashion.
 If you want to, you can code along, or simply read through the presentation of DVC and DataLad commands.
 Some familiarity with DataLad can be helpful, but if you have never used DataLad, footnotes in each section can point you relevant chapters for more insights on a command or concept.
 If you have never used DVC, `its technical docs <https://dvc.org/doc/command-reference>`_ or `collection of third-party tutorials <https://github.com/iterative/dvc.org/issues/1749>`_ can answer further questions.

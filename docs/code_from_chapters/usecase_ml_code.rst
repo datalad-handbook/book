@@ -340,8 +340,8 @@ In order to be *computationally* reproducible the run record does not only need 
 
    cd ../myanalysis
 
-The way this can be done is with a :term:`DataLad extension` called ``datalad containers``.
-You can install this extension with :term:`pip` by running ``pip install datalad-containers``.
+The way this can be done is with a :term:`DataLad extension` called ``datalad container``.
+You can install this extension with :term:`pip` by running ``pip install datalad-container``.
 This extension allows to attach :term:`software container`\s such as :term:`Singularity` or :term:`Docker` :term:`container image`\s to the dataset and execute commands inside of these containers.
 Thus, the dataset can share share data, code, code execution, and software.
 

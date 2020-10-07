@@ -248,8 +248,8 @@ Here, we stick to the project organization of DVC though.
 
    ### DVC-DataLad
    $ cd ../DVC-DataLad
-   # 0.12.2 <= datalad < 0.13.4  needs the configuration option -c datalad.runtime.use-patool=1 to handle .tgz
-   $ datalad -c datalad.runtime.use-patool=1 download-url \
+   # Requires >= 0.13.4!
+   $ datalad download-url \
      --archive \
      --message "Download Imagenette dataset" \
      'https://s3.amazonaws.com/fast-ai-imageclas/imagenette2-160.tgz' \

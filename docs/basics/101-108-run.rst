@@ -184,7 +184,7 @@ Let's take a look into the history:
    :notes: Let's now check what has been written into the history. (runrecord)
    :cast: 02_reproducible_execution
 
-   $ git log -p -n 1
+   $ git log -p -n 1   # On Windows, you may just want to type "git log".
 
 The commit message we have supplied with ``-m`` directly after :command:`datalad run` appears
 in our history as a short summary.

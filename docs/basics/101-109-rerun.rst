@@ -168,6 +168,12 @@ and another state from the dataset's history (a commit specified with
 ``-t``/``--to``). Let's do a :command:`datalad diff` between the current state
 of the dataset and the previous commit (called "``HEAD~1``" in Git terminology [#f1]_):
 
+.. windowsworkarounds:: datalad diff will not provide meaningful information in most usecases
+
+   While this example works on Unix file systems, it will not provide the same output on Windows.
+   This is due to different file handling on Windows.
+   When executing this command, you will see *all* files being modified between the most recent and the second-most recent commit.
+   On a technical level, this is correct given the underlying file handling on Windows, but it isn't useful for users at all.
 
 .. runrecord:: _examples/DL-101-109-108
    :language: console

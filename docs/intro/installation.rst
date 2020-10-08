@@ -204,14 +204,16 @@ Windows 10
 """"""""""
 
 There are two ways to get DataLad on Windows 10: one is within Windows itself,
-the other is using WSL, the Windows Subsystem for Linux. We recommend the
-former, but information on how to use the WSL can be found here:
+the other is using WSL2, the Windows Subsystem for Linux, version 2.
+With the Windows Subsystem for Linux, you will be able to use a Unix system despite being on Windows.
+You need to have a recent build of Windows 10 in order to get WSL2 - we do not recommend WSL1.
+Information on how to install WSL2 can be found here:
 
 .. container:: toggle
 
    .. container:: header
 
-      Using the Windows Subsystem for Linux
+      Using the Windows Subsystem 2 for Linux
 
    You can find out how to install the Windows Subsystem for Linux at
    `ubuntu.com/wsl <https://ubuntu.com/wsl>`_. Afterwards, proceed with your
@@ -227,13 +229,8 @@ work, and that terminal output can look different from what is displayed in the
 code examples of the book.
 If you are a Windows user and want to help improve the handbook for Windows users,
 please `get in touch <https://github.com/datalad-handbook/book/issues/new>`_.
+Expandable notes, "``Windows-Workaround``\s", contain important information, alternative commands, or warnings, and if you are proceeding with a native Windows 10 system you should be close attention to them.
 
-Note: This installation method will get you a working version of
-DataLad, but be aware that many Unix commands shown in the book
-examples will not work for you, and DataLad-related output might
-look different from what we can show in this book. Please
-`get in touch <https://github.com/datalad-handbook/book/issues/new>`__
-touch if you want to help.
 
 - **Step 1**: Install Conda
 

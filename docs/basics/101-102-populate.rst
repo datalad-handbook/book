@@ -341,9 +341,10 @@ Well done! Your ``DataLad-101`` dataset and its history are slowly growing.
 .. rubric:: Footnotes
 
 .. [#f1] ``tree`` is a Unix command to list file system content. If it is not yet installed,
-   you can get it with your native package manager (e.g.,
-   ``apt`` or ``brew``). For example, if you use OSX, ``brew install tree``
-   will get you this tool.
+   you can get it with your native package manager (e.g.,  ``apt``, ``brew``, or conda).
+   For example, if you use OSX, ``brew install tree``  will get you this tool.
+   On Windows, if you have the Miniconda-based installation described in :ref:`install`, you can install the ``m2-base`` package (``conda install m2-base``), which contains tree along with many other Unix-like commands.
+
 .. [#f2] ``wget`` is a Unix command for non-interactively downloading files from the
    web. If it is not yet installed, you can get it with your native package manager (e.g.,
    ``apt`` or ``brew``). For example, if you use OSX, ``brew install wget``

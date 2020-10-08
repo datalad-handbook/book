@@ -292,6 +292,20 @@ Note that we line break the command with ``\`` signs. You can copy them as they
 are presented here into your terminal, but in your own work you can write commands
 like this into a single line.
 
+.. windowsworkarounds:: Windows shells can't handle multi-line commands
+
+   In Unix shells, ``\`` can be used to split a command into several lines, for example to aid readability.
+   Windows does not support this.
+   It instead uses the ``^`` character::
+
+     $ datalad download-url http://www.tldp.org/LDP/Bash-Beginners-Guide/Bash-Beginners-Guide.pdf ^
+     --dataset . ^
+     -m "add beginners guide on bash" ^
+     -O books/bash_guide.pdf
+
+   You will either need to copy multi-line commands into a single line, or use ``^`` (make sure that there is **no space** afterwards) instead of ``\``.
+
+
 .. runrecord:: _examples/DL-101-102-112
    :language: console
    :workdir: dl-101/DataLad-101

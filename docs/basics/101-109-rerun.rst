@@ -31,6 +31,22 @@ in the ``Long_Now__Conversations_at_The_Interval/`` directory.
 Let's fix this in the script. Replace the contents in ``code/list_titles.sh``
 with the following, fixed script:
 
+.. windowsworkarounds:: Here's a script adjustment for Windows users
+
+   Please use an editor of your choice to replace the contents of ``list_titles.sh`` inside of the ``code`` directory with the following::
+
+       for i in recordings/longnow/Long_Now*/*.mp3; do
+          # get the filename
+          base=$(basename "$i");
+          # strip the extension
+          base=${base%.mp3};
+          # date as yyyy-mm-dd
+          printf "${base%%__*}\t" | tr '_' '-';
+          # name and title without underscores
+          printf "${base#*__}\n" | tr '_' ' ';
+       done
+
+
 .. runrecord:: _examples/DL-101-109-102
    :language: console
    :workdir: dl-101/DataLad-101

@@ -157,6 +157,21 @@ specifying inputs even though they are already present will not do any harm.
 If outputs already exist...
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+.. windowsworkarounds:: Good news! Here is something that is easier on Windows
+
+   The section below describes something that is very confusing for people that have just started with DataLad: Some files in a dataset can't be modified, and if one tries, it results in a "permission denied" error.
+   Why is that?
+   The remainder of this section and the upcoming chapter :ref:`chapter_gitannex` contain a procedural explanation.
+   However: It is only the case on non-Windows systems.
+   The "unlocking" that is necessary on all other systems to modify a file is already done on Windows.
+   Thus, all files in your dataset will be readily modifiable, sparing you the need to adjust to the unexpected behavior that is described below.
+   While it is easier, it isn't a "more useful" behavior, though.
+   A different Windows-Workaround section in the next chapter will highlight how it rather is a suboptimal workaround.
+
+   Please don't skip the next section -- it is useful to know how datasets behave on other systems.
+   Just be mindful that you will not encounter the errors that the handbook displays next.
+   And while this all sounds quite cryptic and vague, an upcoming Windows-Workaround will provide more information.
+
 Looking at the resulting image, you wonder whether 400x400 might be a tiny bit to small.
 Maybe we should try to resize it to 450x450, and see whether that looks better?
 
@@ -222,6 +237,12 @@ There is a DataLad command that takes care of unlocking file content,
 and thus making locked files modifiable again: :command:`datalad unlock`
 (:manpage:`datalad-unlock` manual).
 Let us check out what it does:
+
+.. windowsworkarounds:: What happens if I run this on Windows?
+
+   Nothing. All of the files in your dataset are always unlocked, and actually *can* not be locked at all.
+   Consequently, there will be nothing to show for ``datalad status`` afterwards (as shown a few paragraphs below).
+   This is due to a file system limitation, and will be explained in more detail in chapter :ref:`chapter_gitannex`.
 
 .. runrecord:: _examples/DL-101-111-101
    :language: console
@@ -297,6 +318,12 @@ the ``-o``/``--output`` option.
 
 In order to execute :command:`datalad run` with both the ``-i``/``--input`` and ``-o``/``--output``
 flag and see their magic, let's crop the second logo, ``logo_interval.jpg``:
+
+.. windowsworkarounds:: Wait, would I need to specify outputs, too?
+
+   Given that nothing in your dataset is locked, is there a *need* for you to bother with creating ``--output`` flags?
+   Not for you personally, if you only stay on your Windows machine.
+   However, you will be doing others that you share your dataset with a favour if they are not using Windows -- should you or others want to rerun a run record, ``--output`` flags will make it work on all operating systems.
 
 .. runrecord:: _examples/DL-101-111-105
    :language: console

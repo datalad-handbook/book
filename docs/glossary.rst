@@ -11,7 +11,12 @@ Glossary
       Example: ``/home/user/Pictures/xkcd-webcomics/530.png``. See also :term:`relative path`.
 
    adjusted branch
-      (git-annex term) TODO
+      git-annex concept: a special :term:`branch` in a dataset.
+      Adjusted branches refer to a different, existing branch that is not adjusted.
+      The adjusted branch is called "adjusted/<branchname>(unlocked)" and on an the adjusted branch", all files handled by :term:`git-annex` are not locked --
+      They will stay "unlocked" and thus modifiable.
+      Instead of referencing data in the :term:`annex` with a :term:`symlink`, unlocked files need to be copies of the data in the annex.
+      Adjusted branches primarily exist as the default branch on so-called :term:`crippled filesystem`\s such as Windows.
 
    annex
       Git annex concept: a different word for :term:`object-tree`.
@@ -73,6 +78,9 @@ Glossary
    container image
        Container images are *built* from :term:`container recipe` files.
        They are a static filesystem inside a file, populated with the software specified in the recipe, and some initial configuration.
+
+   crippled filesystem
+      git-annex concept: A file system that does not allow making symlinks or removing write :term:`permissions` from files. Examples for this are `FAT <https://en.wikipedia.org/wiki/Design_of_the_FAT_file_system>`_ (likely used by your USB sticks) or `NTFS <https://en.wikipedia.org/wiki/NTFS>`_ (used on Windows systems of the last three decades).
 
 
    DataLad dataset

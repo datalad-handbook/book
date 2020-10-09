@@ -19,7 +19,7 @@ Glossary
       Adjusted branches primarily exist as the default branch on so-called :term:`crippled filesystem`\s such as Windows.
 
    annex
-      Git annex concept: a different word for :term:`object-tree`.
+      git-annex concept: a different word for :term:`object-tree`.
 
    annex UUID
        A :term:`UUID` assigned to an annex of each individual :term:`clone` of a dataset repository.

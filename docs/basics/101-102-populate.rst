@@ -44,7 +44,7 @@ or run the following commands [#f2]_ to download the books right from the termin
 
       $ cd books
       $ curl -L https://sourceforge.net/projects/linuxcommand/files/TLCL/19.01/TLCL-19.01.pdf/download -o TLCL.pdf
-      $ curl -L https://edisciplinas.usp.br/pluginfile.php/3252353/mod_resource/content/1/b_Swaroop_Byte_of_python.pdf -o byte-of-python.pdf
+      $ curl -L https://homepages.uc.edu/~becktl/byte_of_python.pdf -o byte-of-python.pdf
       $ cd ../
 
 .. runrecord:: _examples/DL-101-102-103
@@ -56,7 +56,7 @@ or run the following commands [#f2]_ to download the books right from the termin
 
    $ cd books
    $ wget https://sourceforge.net/projects/linuxcommand/files/TLCL/19.01/TLCL-19.01.pdf/download -O TLCL.pdf
-   $ wget https://edisciplinas.usp.br/pluginfile.php/3252353/mod_resource/content/1/b_Swaroop_Byte_of_python.pdf -O byte-of-python.pdf
+   $ wget https://homepages.uc.edu/~becktl/byte_of_python.pdf -O byte-of-python.pdf
    # get back into the root of the dataset
    $ cd ../
 

@@ -5,30 +5,26 @@
 Data integrity
 --------------
 
-So far, we mastered quite a number of challenges: Creating and populating a dataset with
-large and small files, modifying content and saving the changes to history, installing
-datasets, even as subdatasets within datasets, recording the impact of commands
-on a dataset with the run and re-run commands, and capturing plenty of
-:term:`provenance` on the way.
-We further noticed that when we modified content in ``notes.txt`` or ``list_files.py``,
-the modified content was in a *text file*. We learned that
-this precise type of file, in conjunction with the initial configuration template
-``text2git`` we gave to :command:`datalad create`, is meaningful: As the textfile is
-stored in Git and not git-annex, no content unlocking is necessary.
-As we saw within the demonstrations of :command:`datalad run`,
-modifying content of non-text files, such as ``.jpg``\s, requires
--- spoiler: at least in our current type of dataset --
-the additional step of *unlocking* file content, either by hand with the :command:`datalad unlock`
-command, or within :command:`datalad run` using the ``-o``/``--output`` flag.
+So far, we mastered quite a number of challenges:
+Creating and populating a dataset with large and small files, modifying content and saving the changes to history, installing datasets, even as subdatasets within datasets, recording the impact of commands on a dataset with the run and re-run commands, and capturing plenty of :term:`provenance` on the way.
+We further noticed that when we modified content in ``notes.txt`` or ``list_files.py``, the modified content was in a *text file*.
+We learned that this precise type of file, in conjunction with the initial configuration template ``text2git`` we gave to :command:`datalad create`, is meaningful:
+As the text file is stored in Git and not git-annex, no content unlocking is necessary.
+As we saw within the demonstrations of :command:`datalad run`, modifying content of non-text files, such as ``.jpg``\s, requires -- spoiler: at least in our current type of dataset and if you are not on Windows -- the additional step of *unlocking* file content, either by hand with the :command:`datalad unlock` command, or within :command:`datalad run` using the ``-o``/``--output`` flag.
 
-There is one detail about DataLad datasets that we have not covered yet. Its both
-a crucial aspect to understanding certain aspects of a dataset, but it is also a
-potential source of confusion that we want to eradicate.
+There is one detail about DataLad datasets that we have not covered yet.
+Its both a crucial aspect to understanding certain aspects of a dataset, but it is also a potential source of confusion that we want to eradicate.
 
-You might have noticed already that an ``ls -l`` or ``tree`` command in your dataset shows small
-arrows and quite cryptic paths following each non-text file. Maybe your shell also
-displays these files in a different color than text files when listing
-them. We'll take a look together, using the ``books/`` directory as an example:
+You might have noticed already that an ``ls -l`` or ``tree`` command in your dataset shows small arrows and quite cryptic paths following each non-text file.
+Maybe your shell also displays these files in a different color than text files when listing them.
+We'll take a look together, using the ``books/`` directory as an example:
+
+.. windowsworkarounds:: This will look different to you
+
+   First of all, the ``tree`` equivalent provided by :term:`conda`\s ``m2-base`` package doesn't list individual files, only directories.
+   And, secondly, even if you list the individual files (e.g., with ``ls -l``), you would not see the :term:`symlink`\s shown below.
+   Due to insufficient support of symlinks on Windows, git-annex does not use them.
+   Please read on for a basic understanding of how git-annex usually works -- a Windows-Workaround at the end of this section will then highlight the difference in functionality on Windows.
 
 .. runrecord:: _examples/DL-101-115-101
    :language: console

@@ -84,12 +84,10 @@ modifications are performed outside of a :command:`datalad run`.
 
 But there comes the second, tricky part: There are ways to get rid of locking and
 unlocking within git-annex, using so-called :term:`adjusted branch`\es.
-This functionality is dependent on the git-annex
-version one has installed, the git-annex version of the repository, and a
-use-case dependent comparison of the pros and cons. BUT: it is possible,
-and in many cases useful, and in later sections we will see how to use this
-feature. The next lecture, in any way, will guide us deeper into git-annex,
-and improve our understanding a slight bit further.
+This functionality is dependent on the git-annex version one has installed, the git-annex version of the repository, and a use-case dependent comparison of the pros and cons.
+On Windows systems, this *adjusted mode* is even the *only* mode of operation.
+In later sections we will see how to use this feature.
+The next lecture, in any way, will guide us deeper into git-annex, and improve our understanding a slight bit further.
 
 
 .. rubric:: Footnotes

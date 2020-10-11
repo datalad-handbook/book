@@ -377,6 +377,8 @@ Well done! Your ``DataLad-101`` dataset and its history are slowly growing.
    you can get it with your native package manager (e.g.,  ``apt``, ``brew``, or conda).
    For example, if you use OSX, ``brew install tree``  will get you this tool.
    On Windows, if you have the Miniconda-based installation described in :ref:`install`, you can install the ``m2-base`` package (``conda install m2-base``), which contains tree along with many other Unix-like commands.
+   Note that this tree works slightly different than its Unix equivalent - it will only display directories, not files, and it doesn't accept common options or flags.
+   It will also display *hidden* directories, i.e., those that start with a ``.`` (dot).
 
 .. [#f2] ``wget`` is a Unix command for non-interactively downloading files from the
    web. If it is not yet installed, you can get it with your native package manager (e.g.,

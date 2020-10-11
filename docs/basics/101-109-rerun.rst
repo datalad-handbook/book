@@ -244,6 +244,12 @@ other tools than from the machine-readable ``run record``.
 For example, to find out who (or what) created or modified a file,
 give the file path to :command:`git log` (prefixed by ``--``):
 
+.. windowsworkarounds:: use "git log master -- recordings/podcasts.tsv"
+
+   A previous Windows-Workaround already advised to append ``master``, the common "default :term:`branch`", to any command that starts with ``git log``.
+   Here, the last part of the command specifies a file (``-- recordings/podcasts.tsv``).
+   Please append ``master`` to ``git log``, prior to the file specification.
+
 .. runrecord:: _examples/DL-101-109-112
    :language: console
    :workdir: dl-101/DataLad-101

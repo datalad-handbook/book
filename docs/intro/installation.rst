@@ -249,35 +249,31 @@ Expandable notes, "``Windows-Workaround``\s", contain important information, alt
 
 - **Step 2**: Install Git
 
-  - In the ``Anaconda prompt``, run::
-
-       conda install -c conda-forge git
-
-    Note: Is has to be from ``conda-forge``, the anaconda version does not
-    provide the ``cp`` command.
+  - If you haven't installed :term:`Git` yet, please download and install the latest release from `git-scm.com/ <https://git-scm.com/>`_.
 
 - **Step 3**: Install git-annex
 
-  - Obtain the current git-annex versions installer
-    `from here <https://downloads.kitenet.net/git-annex/windows/current/>`_.
-    Save the file, and double click the downloaded
-    :command:`git-annex-installer.exe` in your Downloads.
+  - Obtain the current git-annex versions installer `from here <https://downloads.kitenet.net/git-annex/windows/current/>`_.
+    Save the file, and double click the downloaded :command:`git-annex-installer.exe` in your Downloads.
 
   - During installation, you will be prompted to "Choose Install Location".
-    **Install it into the miniconda Library directory**, e.g.
-    ``C:\Users\me\Miniconda3\Library``.
+    **Install it into the directory in which Git is installed**, e.g., ``C:\Program Files (x86)\Git``.
+    Usually, :term:`git-annex` will set the correct installation location automatically, and warn if it doesn't find a Git installation where it expects one to be.
 
 - **Step 4**: Install DataLad via pip
 
   - ``pip`` was installed by ``miniconda``. In the ``Anaconda prompt``, run::
 
-       pip install datalad~=0.12
+       pip install datalad
 
-- **Step 5**: Install 7zip
+- **Step 5**: Install 7zip and Unix tools
 
-  - `7zip <https://7-zip.de/download.html>`_ is a dependency of DataLad and
-    not installed by default on Windows 10. Please make sure to download and
-    install it.
+  - `7zip <https://7-zip.de/download.html>`_ is a dependency of DataLad and not installed by default on Windows 10.
+    Please make sure to download and install it.
+    Please also make sure that it is available in your ``PATH`` environment variable: ``Environment Variables`` -> ``User Variables`` -> ``path`` -> ``edit`` -> ``new`` -> add the path: ``C:\ProgramFiles\7-zip``) -> ``OK``. Lastly, within ``C:\ProgramFiles\7-zip``, copy the ``7z.exe`` file into ``C:\Users\<user>\Miniconda3\Library\usr\bin\``.
+  - Many Unix command-line tools such as ``cp`` or ``tree`` are not available by default.
+    You can get a good set of tools by installing :term:`conda`\s ``m2-base`` package via ``conda install m2-base`` in an Anaconda prompt.
+
 
 .. _installconfig:
 

@@ -656,6 +656,10 @@ configure this repository as a sibling of the dataset:
 
        $ python3 /home/me/makepushtarget.py '/home/me/dl-101/DataLad-101/midterm_project' 'github' '/home/me/pushes/midterm_project' False True
 
+.. windowsworkarounds:: Your shell will not display user name or password
+
+   Don't be confused if you are prompted for your GitHub user name and password, but can't seem to type -- The terminal protects your private information by not displaying what you type.
+   Simply type in what is requested, and press enter.
 
 .. code-block:: bash
 

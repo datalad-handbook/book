@@ -226,6 +226,14 @@ do a ``diff`` between the branch (your drawer) and the dataset as it
 is currently in front of you (your desk). We will do the latter, and leave
 the former for a different lecture:
 
+.. windowsworkarounds:: Please use datalad diff --from master --to remotes/roommate/master
+
+   Please use the following command instead::
+
+      datalad diff --from master --to remotes/roommate/master
+
+   This syntax specifies the :term:`master` :term:`branch` as a starting point for the comparison instead of the current ``adjusted/master(unlocked)`` branch.
+
 .. runrecord:: _examples/DL-101-121-108
    :language: console
    :workdir: dl-101/DataLad-101
@@ -237,6 +245,14 @@ the former for a different lecture:
 This shows us that there is an additional file, and it also shows us
 that there is a difference in ``notes.txt``! Let's ask
 :command:`git diff` to show us what the differences in detail:
+
+.. windowsworkarounds:: Please use git diff master..remotes/roommate/master
+
+   Please use the following command instead::
+
+     git diff master..remotes/roommate/master
+
+   This is :term:`Git`\s syntax for specifying a comparison between two :term:`branch`\es.
 
 .. runrecord:: _examples/DL-101-121-109
    :language: console

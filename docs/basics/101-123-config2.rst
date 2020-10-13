@@ -24,6 +24,18 @@ section by looking into it.
 
 This file lies right in the root of your superdataset:
 
+.. windowsworkarounds:: Your file contents are slightly different
+
+   Windows users had to modify the ``.gitattributes`` file at the start of the Basics.
+   Instead of a line that contains "``mimencoding``", There should be the following two lines::
+
+      *.txt annex.largefiles=nothing
+      code/** annex.largefiles=nothing
+
+   This workaround was necessary because the default way of identifying file types (such as text files or binary files) as implemented by the ``text2git`` configuration option relies on a process called "mimeencoding" [#f1]_ -- a method to identify file types without only looking at their extension.
+   Windows does not support mimeencoding, and hence we had to explicitly add directories or file extensions for files that should not get annexed.
+   Please read on for more insights into the largefiles rules in ``.gitattributes``.
+
 .. runrecord:: _examples/DL-101-123-101
    :language: console
    :workdir: dl-101/DataLad-101
@@ -41,7 +53,7 @@ The first row, ``* annex.backend=MD5E``, therefore translates to "Everything in 
 directory should be hashed with a MD5E hash function".
 But what is the rest? We'll start with the last row::
 
-   * annex.largefiles=(not(mimetype=text/*))
+   * annex.largefiles=((mimeencoding=binary)and(largerthan=0))
 
 Uhhh, cryptic. The lecturer explains:
 
@@ -61,8 +73,8 @@ behavior can be defined based on
 by simply telling git-annex by writing such rules."
 
 What you can see in this ``.gitattributes`` file is a rule based on **file types**:
-With ``(not(mimetype=text/*))`` [#f1]_, the ``text2git`` configuration template
-configured git-annex to regard all files of type text **not** as a large file.
+With ``(mimeencoding=binary))`` [#f1]_, the ``text2git`` configuration template
+configured git-annex to regard all files of type "binary" as a large file.
 Thanks to this little line, your text files are not annexed, but stored
 directly in Git.
 

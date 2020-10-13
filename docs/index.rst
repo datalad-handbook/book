@@ -94,6 +94,7 @@ Appendix
    intro/user_types
    OHBMposter
    usecases/openneuro
+   intro/windows
 
 ########################
 Code lists from chapters

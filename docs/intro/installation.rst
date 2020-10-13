@@ -206,7 +206,7 @@ Windows 10
 There are two ways to get DataLad on Windows 10: one is within Windows itself,
 the other is using WSL2, the Windows Subsystem for Linux, version 2.
 With the Windows Subsystem for Linux, you will be able to use a Unix system despite being on Windows.
-You need to have a recent build of Windows 10 in order to get WSL2 - we do not recommend WSL1.
+You need to have a recent build of Windows 10 in order to get WSL2 -- we do not recommend WSL1.
 Information on how to install WSL2 can be found here:
 
 .. container:: toggle
@@ -220,13 +220,14 @@ Information on how to install WSL2 can be found here:
    installation as described in the installation instructions for Linux.
 
 Note: Using Windows itself comes with some downsides.
+We have created a dedicated page, :ref:`ohnowindows` with an explanation and overview.
 In general, DataLad can feel a bit sluggish on Windows systems. This is because of
 a range of filesystem issues that also affect the version control system :term:`Git` itself,
 which DataLad relies on. The core functionality of DataLad works, and you should
-be able to follow the contents covered in this book.
+be able to follow most contents covered in this book.
 You will notice, however, that some Unix commands displayed in examples may not
 work, and that terminal output can look different from what is displayed in the
-code examples of the book.
+code examples of the book, and that some dependencies for additional functionality are not available for Windows.
 If you are a Windows user and want to help improve the handbook for Windows users,
 please `get in touch <https://github.com/datalad-handbook/book/issues/new>`_.
 Expandable notes, "``Windows-Workaround``\s", contain important information, alternative commands, or warnings, and if you are proceeding with a native Windows 10 system you should be close attention to them.

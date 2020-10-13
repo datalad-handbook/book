@@ -450,6 +450,17 @@ re-execution with :command:`datalad rerun` easy.
    -- an upcoming section on ``datalad containers-run`` will allow you to
    perform the analysis without changing with your Python software-setup.
 
+.. windowsworkarounds:: You may need to use "python", not "python3"
+
+   If executing the code below returns an exit code of 9009, there may be no ``python3`` -- instead, it is called soley ``python``.
+   Please run the following instead (adjusted for line breaks, you should be able to copy-paste this as a whole)::
+
+      datalad run -m "analyze iris data with classification analysis" ^
+       --input "input/iris.csv" ^
+       --output "prediction_report.csv" ^
+       --output "pairwise_relationships.png" ^
+       "python code/script.py"
+
 .. runrecord:: _examples/DL-101-130-111
    :language: console
    :workdir: dl-101/DataLad-101/midterm_project

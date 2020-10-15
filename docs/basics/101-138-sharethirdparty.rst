@@ -259,18 +259,12 @@ to such sources conveniently under the hood.
    q) Quit config
    e/n/d/r/c/s/q> q
 
-- Once this is done, ``git clone`` the
-  `git-annex-remote-rclone <https://github.com/DanielDent/git-annex-remote-rclone>`_
-  repository to your machine (do not clone it into ``DataLad-101`` but somewhere
-  else on your computer)::
+- Once this is done, install ``git-annex-remote-rclone``.
+  It is a wrapper around `rclone <https://rclone.or>`__ that makes any   destination supported by rclone usable with :term:`git-annex`.
+  If you are on a recent version of Debian or Ubuntu (or enable `NeuroDebian <http://neuro.debian.org>`_ repository), you can get it conveniently via your package manager, e.g., with ``sudo apt-get install git-annex-remote-rclone``.
+  Alternatively, ``git clone`` the `git-annex-remote-rclone <https://github.com/DanielDent/git-annex-remote-rclone>`_ repository to your machine (do not clone it into ``DataLad-101`` but somewhere else on your computer)::
 
      $ git clone https://github.com/DanielDent/git-annex-remote-rclone.git
-
-  This is a wrapper around `rclone <https://rclone.or>`__ that makes any
-  destination supported by rclone usable with :term:`git-annex`. If you are on
-  a recent version of Debian or Ubuntu
-  (or enable `NeuroDebian <http://neuro.debian.org>`_ repository), you alternatively can get it more
-  conveniently via your package manager with ``sudo apt-get install git-annex-remote-rclone``.
 
 - Copy the path to this repository into your ``$PATH`` variable. If the
   clone is in ``/home/user-bob/repos``, the command would look like this [#f3]_::
@@ -278,19 +272,18 @@ to such sources conveniently under the hood.
    $ export PATH="/home/user-bob/repos/git-annex-remote-rclone:$PATH"
 
 - Finally, in the dataset you want to share, run the :command:`git annex initremote` command.
-  Give the remote a name (it is ``dropbox-for-friends`` here), and specify the name of
-  the remote you configured with ``rclone`` with the ``target`` parameters:
+  Give the remote a name (it is ``dropbox-for-friends`` here), and specify the name of  the remote you configured with ``rclone`` with the ``target`` parameters:
 
 .. code-block:: bash
 
-   $ git annex initremote dropbox-for-friends type=external externaltype=rclone chunk=50MiB encryption=none target=dropbox-for-friends
+   $ git annex initremote dropbox-for-friends type=external externaltype=rclone chunk=50MiB encryption=none target=dropbox-for-friends prefix=my_awesome_dataset
 
    initremote dropbox-for-friends ok
    (recording state in git...)
 
 What has happened up to this point is that we have configured Dropbox
 as a third-party storage service for the annexed contents in the dataset.
-On a conceptual, dataset level, your Dropbox folder is now a :term:`sibling`:
+On a conceptual, dataset level, your Dropbox folder is now a :term:`sibling` -- the sibling name is the first positional argument after ``initremote``, i.e., "dropbox-for-friends":
 
 .. code-block:: bash
 
@@ -299,8 +292,9 @@ On a conceptual, dataset level, your Dropbox folder is now a :term:`sibling`:
     .: dropbox-for-friends(+) [rclone]
     .: roommate(+) [../mock_user/DataLad-101 (git)]
 
-On Dropbox, a new folder, ``git-annex`` will be created for your annexed files.
-However, this is not the location you would refer your friend or a collaborator to.
+On Dropbox, a new folder will be created for your annexed files.
+By default, this folder will be called ``git-annex``, but it can be configured using the ``--prefix=<whatitshouldbecalled>`` option, as done above.
+However, this directory on Dropbox is not the location you would refer your friend or a collaborator to.
 The representation of the files in the special-remote is not human-readable --
 it is a tree of annex objects, and thus looks like a bunch of very weirdly named
 folders and files to anyone.

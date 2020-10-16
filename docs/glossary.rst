@@ -34,7 +34,7 @@ Glossary
        -Server>`__.
 
    bash
-      A Unix shell and command language.
+      A Unix :term:`shell` and command language.
 
    Bitbucket
       Bitbucket is an online platform where one can store and share version
@@ -61,9 +61,28 @@ Glossary
       Git concept: A concise summary of changes you should attach to a :command:`datalad save` command. This summary will
       show up in your :term:`DataLad dataset` history.
 
+   conda
+      A package, dependency, and environment management system for a number of programming languages.
+      Find out more at `docs.conda.io <https://docs.conda.io/en/latest/>`_.
+      It overlaps with :term:`pip` in functionality, but it is advised to not use both tools simultaneously for package management.
+
+   container recipe
+       A text file template that lists all required components of the computational environment that a :term:`software container` should contain.
+        It is made by a human user.
+
+   container image
+       Container images are *built* from :term:`container recipe` files.
+       They are a static filesystem inside a file, populated with the software specified in the recipe, and some initial configuration.
+
+
    DataLad dataset
       A DataLad dataset is a Git repository that may or may not have a data annex that is used to
       manage data referenced in a dataset. In practice, most DataLad datasets will come with an annex.
+
+   DataLad extension
+      Python packages that equip DataLad with specialized commands. The section
+      :ref:`extensions_intro` gives and overview of available extensions and links
+      to Handbook chapters that contain demonstrations.
 
    DataLad subdataset
       A DataLad dataset contained within a different DataLad dataset (the parent or :term:`DataLad superdataset`).
@@ -82,17 +101,43 @@ Glossary
    Debian
       A common Linux distribution. `More information here <https://www.debian.org/index.en.html>`__.
 
+   debugging
+      Finding and resolving problems within a computer program.
+      To learn about debugging a failed execution of a DataLad command, take a look at the section :ref:`debug`.
+
+   Docker
+       `Docker <https://www.docker.com/>`_ is a containerization software that can package software into :term:`software container`\s, similar to :term:`Singularity`.
+       Find out more on `Wikipedia <https://en.wikipedia.org/wiki/Docker_(software)>`__.
+
+   Docker-Hub
+       `Docker Hub <https://hub.docker.com/>`_ is a library for :term:`Docker` :term:`container image`\s.
+       Among other things, it hosts and builds Docker container images.
+       You can can *pull* :term:`container image`\s built from a publicly shared :term:`container recipe` from it.
+
    DOI
       A digital object identifier (DOI) is a character string used to permanently identify
       a resource and link to in on the web. A DOI will always refer to the one resource
       it was assigned to, and only that one.
 
+   extractor
+      DataLad concept: A metadata extractor of the :term:`DataLad extension` ``datalad-metalad``
+      enables DataLad to extract and aggregate special types of metadata.
+
    environment variable
-      A variable made up of a name/value pair. Programs using a given environment variable
-      will use its associated value for their execution.
+      A variable made up of a name/value pair. Programs using a given environment variable will use its associated value for their execution.
+      You can find out a bit more on environment variable :ref:`in this footnote <envvars>`.
 
    ephemeral clone
       TODO
+
+   force-push
+      Git concept; Enforcing a :command:`git push` command with the ``--force``
+      option. Find out more in the
+      `documentation of git push <https://git-scm.com/docs/git-push#Documentation/git-push.txt---force>`_.
+
+   fork
+      Git concept on repository hosting sites (GitHub, GitLab, Gin, ...)
+      A fork is a copy of a repository on a web-based Git repository hosting site. Find out more `here <https://docs.github.com/en/github/getting-started-with-github/fork-a-repo>`__.
 
    GIN
       A web-based repository store for data management that you can use to host and
@@ -108,11 +153,13 @@ Glossary
       of large files. It allows managing files with :term:`Git`, without checking the file content into Git.
 
    git-annex branch
-      A :term:`branch` in your dataset if it contains an :term:`annex`.  It is
-      completely unconnected to any other branches in your dataset, and contains
-      different types of log files. The contents of this branch are used for
-      git-annex internal tracking of the dataset and its annexed contents.
-      It is managed by :term:`git-annex`, and you should not temper with it.
+      This :term:`branch` exists in your dataset if the dataset contains
+      an :term:`annex`.  The git-annex branch is completely unconnected to any
+      other branch in your dataset, and contains different types of log files.
+      Its contents are used for git-annex's internal tracking of the dataset
+      and its annexed contents.
+      The branch is managed by :term:`git-annex`, and you should not temper with
+      it unless you absolutely know what you are doing.
 
    Git config file
       A file in which :term:`Git` stores configuration option. Such a file usually exists on
@@ -143,6 +190,17 @@ Glossary
 
    https
       Hypertext Transfer Protocol Secure; A protocol for file transfer over a network.
+
+   logging
+      Automatic protocol creation of software processes, for example in order to gain insights into errors. To learn about logging to troubleshoot problems or remove or increase the amount of information printed to your terminal during the execution of a DataLad command, take a look at the section :ref:`logging`.
+
+   log level
+      Adjusts the amount of verbosity during :term:`logging`.
+
+   Makefile
+      Makefiles are recipes on how to create a digital object for the build automation tool `Make <https://en.wikipedia.org/wiki/Make_(software)>`_.
+      They are used to build programs, but also to manage projects where some files must be automatically updated from others whenever the others change.
+      An example of a Makefile is shown in the usecase :ref:`usecase_reproducible_paper`.
 
    master
       Git concept: The default :term:`branch` in a dataset.
@@ -207,11 +265,22 @@ Glossary
    Remote Indexed Archive (RIA) store
       A Remote Indexed Archive (RIA) Store is a flexible and scalable dataset storage
       solution, useful for collaborative, back-up, or storage workflows. Read more
-      about RIA stores in the usecase :ref:`usecase_datastore`.
+      about RIA stores in the section :ref:`riastore`.
+
+   run procedure
+      DataLad concept: An executable (such as a script) that can be called with the
+      :command:`datalad run-procedure` command and performs modifications or routine
+      tasks in datasets. Procedures can be written by users, or come with DataLad and
+      its extensions. Find out more in section :ref:`procedures`
 
    run record
       A command summary of a :command:`datalad run` command, generated by DataLad and included
       in the commit message.
+
+   sed
+      A Unix stream editor to parse and transform text. Find out more
+      `here <https://en.wikipedia.org/wiki/Sed>`__ and in its
+      `documentation <https://www.gnu.org/software/sed/manual/sed.html>`_.
 
    shasum
       A hexadecimal number, 40 digits long, that is produced by a secure hash algorithm, and
@@ -225,10 +294,19 @@ Glossary
       Instead of ``python code/myscript.py`` one can just run ``code/myscript`` if ``myscript`` has
       executable :term:`permissions` and a correctly specified shebang.
 
+   shell
+      A command line language and programming language. See also :term:`terminal`.
+
    special remote
       git-annex concept: A protocol that defines the underlying transport of annexed files
       to and from places that are not :term:`Git` repositories (e.g., a cloud service or
       external machines such as HPC systems).
+
+   squash
+      Git concept; Squashing is a Git operation which rewrites history by taking
+      a range of commits and squash them into a single commit. For more information
+      on rewriting Git history, checkout section :ref:`history` and the
+      `documentation <https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History>`__.
 
    SSH
       Secure shell (SSH) is a network protocol to link one machine (computer),
@@ -252,6 +330,21 @@ Glossary
    SSH server
       An remote or local computer that users can log into using the :term:`SSH` protocol.
 
+   stdin
+      Unix concept: One of the three `standard input/output streams <https://en.wikipedia.org/wiki/Standard_streams>`_
+      in programming. Standard input (``stdin``) is a stream from which a program
+      reads its input data.
+
+   stderr
+      Unix concept: One of the three `standard input/output streams <https://en.wikipedia.org/wiki/Standard_streams>`_
+      in programming. Standard error (``stderr``) is a stream to which a program
+      outputs error messages, independent from standard output.
+
+   stdout
+      Unix concept: One of the three `standard input/output streams <https://en.wikipedia.org/wiki/Standard_streams>`_
+      in programming. Standard output (``stdout``) is a stream to which a program
+      writes its output data.
+
    symlink
       A symbolic link (also symlink or soft link) is a reference to another file or path in the form
       of a relative path. Windows users are familiar with a similar concept: shortcuts.
@@ -261,6 +354,24 @@ Glossary
       retrieved and pushed between a dataset and its sibling. It is the
       equivalent of a :term:`remote` in Git.
 
+   Singularity
+      `Singularity <https://sylabs.io/docs/>`_ is a containerization software that can package software into :term:`software container`\s.
+      It is a useful alternative to :term:`Docker` as it can run on shared computational infrastructure.
+      Find out more on `Wikipedia <https://en.wikipedia.org/wiki/Singularity_(software)>`__.
+
+   Singularity-Hub
+       `singularity-hub.org <https://singularity-hub.org/>`_ is a Singularity container portal.
+       Among other things, it hosts and builds Singularity container images.
+       You can can *pull* :term:`container image`\s built from a publicly shared :term:`container recipe` from it.
+
+   software container
+       Computational containers are cut-down virtual machines that allow you to package software libraries and their dependencies in precise versions into a bundle that can be shared with others.
+       They are running instances of a :term:`container image`.
+       On your own and other's machines, the container constitutes a secluded software environment that contains the exact software environment that you specified but does not effect any software outside of the container.
+       Unlike virtual machines, software containers do not have their own operating system and instead use basic services of the underlying operating system of the computer they run on (in a read-only fashion).
+       This makes them lightweight and portable.
+       By sharing software environments with containers, such as :term:`Docker` or :term:`Singularity` containers, others (and also yourself) have easy access to software without the need to modify the software environment of the machine the container runs on.
+
    submodule
       Git concept: a submodule is a Git repository embedded inside another Git repository. A
       :term:`DataLad subdataset` is known as a submodule in the :term:`Git config file`.
@@ -269,7 +380,6 @@ Glossary
       Also known as command-line completion. A common shell feature in which
       the program automatically fills in partially types commands upon
       pressing the ``TAB`` key.
-
 
    tag
       Git concept: A mark on a commit that can help to identify commits. You can attach
@@ -286,6 +396,11 @@ Glossary
    tig
       A text-mode interface for git that allows you to easily browse through your commit history.
       It is not part of git and needs to be installed. Find out more `here <https://jonas.github.io/tig/>`_.
+
+   terminal
+      The terminal (sometimes also called a shell, console, or CLI) is an interactive, text based interface that allows you to access your computer's functionality.
+      The most common command-line shells use :term:`bash` or c-shell.
+      You can get a short intro to the terminal and useful commands in the section :ref:`howto`.
 
    Ubuntu
       A common Linux distribution. `More information here <https://ubuntu.com>`__.
@@ -311,6 +426,15 @@ Glossary
       but ended up in it accidentally: press ``ESC`` ``:`` ``q`` ``!`` ``Enter`` to exit without saving.
       Here is help: `A vim tutorial <https://www.openvim.com/>`_ and
       `how to configure the default editor for git <https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration>`_.
+
+   virtual environment
+      A specific Python installation with packages of your choice, kept in a self-contained directory tree, and not interfering with the system-wide installations.
+      Virtual environments are an easy solution to create several different Python environments and come in handy if you want to have a cleanly structured software setup and several applications with software requirements that would conflict with each other in a single system: You can have one virtual environment with package A in version X, and a second one with package A in version Y.
+      There are several tools that create virtual environments such as the built-in ``venv`` module, the ``virtualenv`` module, or :term:`conda`.
+      Virtual environments are light-weight and you can switch between them fast.
+
+   WSL
+      The Windows Subsystem for Linux, a compatibility layer for running Linux destributions on recent versions of Windows. Find out more `here <https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux>`__.
 
    zsh
       A Unix shell.

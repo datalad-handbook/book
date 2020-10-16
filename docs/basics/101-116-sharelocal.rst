@@ -13,11 +13,18 @@ start already!"
 all of the ``DataLad-101`` course dataset. Sharing datasets was
 something you wanted to look into soon, anyway.
 
-This is one exciting aspect of DataLad datasets has yet been missing
+This is one exciting aspect of DataLad datasets that has yet been missing
 from this course: How does one share a dataset?
 In this section, we will cover the simplest way of sharing a dataset:
 on a local or shared file system, via an *installation* with a path as
 a source.
+
+.. note::
+
+   Interested in sharing datasets *publicly*? Read this chapter to get a feel
+   for all relevant basic concepts of sharing datasets. Afterwards, head over
+   to chapter :ref:`chapter_thirdparty` to find out how to share a dataset
+   on third-party infrastructure.
 
 In this scenario multiple people can access the very same files at the
 same time, often on the same machine (e.g., a shared workstation, or
@@ -426,7 +433,7 @@ Save this note.
 .. gitusernote::
 
    A dataset that is installed from an existing source, e.g., a path or URL,
-   it the DataLad equivalent of a *clone* in Git.
+   is the DataLad equivalent of a *clone* in Git.
 
 
 .. only:: adminmode

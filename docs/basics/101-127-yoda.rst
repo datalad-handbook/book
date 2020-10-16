@@ -190,7 +190,7 @@ The usecase :ref:`usecase_reproducible_paper` contains a step-by-step instructio
 how to build and share such a reproducible paper, if you want to learn
 more.
 
-.. figure:: ../img/dataset_modules.svg
+.. figure:: ../artwork/src/img/dataset_modules.svg
    :figwidth: 100%
    :alt: Modular structure of a data analysis project
 
@@ -235,7 +235,7 @@ or results.
 P2: Record where you got it from, and where it is now
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Its good to have data, but its even better if you and anyone you
+It is good to have data, but it is even better if you and anyone you
 collaborate or share the project or its components with can find
 out where the data came from, or how it
 is dependent on or linked to other data. Therefore, this principle
@@ -269,7 +269,7 @@ because you already know how to install and nest datasets within datasets.
 reproducible analysis concepts as being obvious", you think with a grin.
 
 
-.. figure:: ../img/data_origin.svg
+.. figure:: ../artwork/src/img/data_origin.svg
    :figwidth: 50%
    :alt: Datasets are installed as subdatasets
 
@@ -297,7 +297,7 @@ and results within a dataset, and share everything together. In conjunction
 with principle 1, this means that you can distribute your analysis projects
 (or parts of it) in a comprehensible form.
 
-.. figure:: ../img/decentralized_publishing.svg
+.. figure:: ../artwork/src/img/decentralized_publishing.svg
    :figwidth: 100%
    :alt: A full data analysis workflow complying with YODA principles
 
@@ -342,6 +342,8 @@ With this last principle, your dataset collects and stores provenance
 of all the contents you created in the wake of your analysis project.
 This established trust in your results, and enables others to understand
 where files derive from.
+
+.. _yodaproc:
 
 The YODA procedure
 ^^^^^^^^^^^^^^^^^^

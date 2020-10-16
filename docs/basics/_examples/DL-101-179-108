@@ -1,4 +1,0 @@
-$ datalad siblings add -d . --name public --url git@github.com:datalad-handbook/midterm_project.git
-[INFO] Failed to enable annex remote public, could be a pure git or not accessible 
-[WARNING] Failed to determine if public carries annex. Remote was marked by annex as annex-ignore.  Edit .git/config to reset if you think that was done by mistake due to absent connection etc 
-.: public(-) [git@github.com:datalad-handbook/midterm_project.git (git)]

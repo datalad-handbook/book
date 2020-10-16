@@ -25,11 +25,13 @@ In order to learn about procedures in general, let's demystify
 what the ``text2git`` procedure exactly is: It is
 nothing more than a simple script that
 
-- writes the relevant configuration (``annex_largefiles = '(not(mimetype=text/*))'``,
-  i.e., "Do not put anything that is a text file in the annex")
-  to the ``.gitattributes`` file of a dataset, and
-- saves this modification with the commit message
-  "Instruct annex to add text files to Git".
+- writes the relevant configuration (``annex_largefiles = '((mimeencoding=binary)and(largerthan=0))'``,  i.e., "Do not put anything that is a text file in the annex") to the ``.gitattributes`` file of a dataset, and
+- saves this modification with the commit message "Instruct annex to add text files to Git".
+
+.. windowsworkarounds:: Why this configuration does not work for Windows users
+
+   If you're on a **Windows 10** machine with a **native** (i.e., non :term:`WSL` based installation) of DataLad and its underlying software, the ``text2git`` configuration will lead to errors upon a :command:`datalad save`.
+   This is because MagicMime (used in ``mimeencoding=binary`` to determine the file type of any given file by searching for `magic numbers <https://en.wikipedia.org/wiki/List_of_file_signatures>`_) is not natively available on Windows.
 
 This particular procedure lives in a script called
 ``cfg_text2git`` in the sourcecode of DataLad. The amount of code
@@ -37,10 +39,11 @@ in this script is not large, and the relevant lines of code
 are highlighted:
 
 .. code-block:: bash
-   :emphasize-lines: 11, 17-18
+   :emphasize-lines: 12, 16-17
 
     import sys
     import os.path as op
+
     from datalad.distribution.dataset import require_dataset
 
     ds = require_dataset(
@@ -49,16 +52,13 @@ are highlighted:
         purpose='configuration')
 
     # the relevant configuration:
-    annex_largefiles = '(not(mimetype=text/*))'
-    # check existing configurations:
+    annex_largefiles = '((mimeencoding=binary)and(largerthan=0))'
     attrs = ds.repo.get_gitattributes('*')
-    # if not already an existing configuration, configure git-annex with the above rule
     if not attrs.get('*', {}).get(
             'annex.largefiles', None) == annex_largefiles:
         ds.repo.set_gitattributes([
             ('*', {'annex.largefiles': annex_largefiles})])
 
-    # this saves and commits the changed .gitattributes file
     git_attributes_file = op.join(ds.path, '.gitattributes')
     ds.save(
         git_attributes_file,
@@ -425,7 +425,7 @@ Finally, make a note about running procedures inside of ``notes.txt``:
          can be name conflicts. The order of precedence in such cases is:
          user-level, system-level, dataset, DataLad extension, DataLad, i.e.,
          local procedures take precedence over those coming from "outside" via
-         datasets or datalad extensions.
+         datasets or DataLad extensions.
          If procedures in a higher-level dataset and a subdataset have the same
          name, the procedure closer to the dataset ``run-procedure`` is
          operating on takes precedence.

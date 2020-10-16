@@ -70,15 +70,14 @@ can be a URL or a path to a local directory, or an SSH server [#f1]_. The datase
 to be installed lives on :term:`GitHub`, at
 `https://github.com/datalad-datasets/longnow-podcasts.git <https://github.com/datalad-datasets/longnow-podcasts.git>`_,
 and we can give its GitHub URL as the  first positional argument.
-Optionally, the command also takes a second positional path as an argument --
-to the *destination*, i.e., a path to where we want to install the dataset to --
-in this case it is ``recordings/longnow``.
+Optionally, the command also takes as second positional argument a path to the *destination*,
+-- a path to where we want to install the dataset to. In this case it is ``recordings/longnow``.
 Because we are installing a dataset (the podcasts) into an existing dataset (the ``DataLad-101``
 dataset), we also supply a ``-d/--dataset`` flag to the command.
 This specifies the dataset to perform the operation on, and allows us to install
 the podcasts as a *subdataset* of ``DataLad-101``. Because we are in the root
 of the ``DataLad-101`` dataset, the pointer to the dataset is a ``.`` (which is Unix'
-way for saying "current directory").
+way of saying "current directory").
 
 As before with long commands, we line break the code below with a ``\``. You can
 copy it as it is presented here into your terminal, but in your own work you
@@ -300,7 +299,74 @@ that the download of one file was ``notneeded`` and the retrieval of the other f
    :command:`datalad get` uses :command:`git annex get` underneath the hood.
 
 
-You have now experienced how easy it is to obtain shared data with DataLad.
+Keep whatever you like
+^^^^^^^^^^^^^^^^^^^^^^
+
+"Oh shit, oh shit, oh shit..." you hear from right behind you. Your fellow student
+apparently downloaded the *full* dataset accidentally. "Is there a way to get rid
+of file contents in dataset, too?", they ask. "Yes", the lecturer responds,
+"you can remove file contents by using :command:`datalad drop`. This is
+really helpful to save disk space for data you can easily re-obtain, for example".
+
+.. index:: datalad command; drop
+
+The :command:`datalad drop` command (:manpage:`datalad drop` manual) will remove
+file contents completely from your dataset.
+You should only use this command to remove contents that you can :command:`get`
+again, or generate again (for example with next chapter's :command:`datalad run`
+command), or that you really do not need anymore.
+
+Let's remove the content of one of the files that we have downloaded, and check
+what this does to the total size of the dataset. Here is the current aount of
+retrieved data in this dataset:
+
+.. runrecord:: _examples/DL-101-105-110
+   :language: console
+   :workdir: dl-101/DataLad-101/recordings/longnow
+
+   $ datalad status --annex all
+
+We drop a single recording that's content we previously downloaded with
+:command:`get` ...
+
+.. runrecord:: _examples/DL-101-105-111
+   :language: console
+   :workdir: dl-101/DataLad-101/recordings/longnow
+
+   $ datalad drop Long_Now__Seminars_About_Long_term_Thinking/2004_01_10__George_Dyson__There_s_Plenty_of_Room_at_the_Top__Long_term_Thinking_About_Large_scale_Computing.mp3
+
+... and check the size of the dataset again:
+
+.. runrecord:: _examples/DL-101-105-112
+   :language: console
+   :workdir: dl-101/DataLad-101/recordings/longnow
+
+   $ datalad status --annex all
+
+Dropping the file content of one ``mp3`` file saved roughly 40MB of disk space.
+Whenever you need the recording again, it is easy to re-retrieve it:
+
+.. runrecord:: _examples/DL-101-105-113
+   :language: console
+   :workdir: dl-101/DataLad-101/recordings/longnow
+
+   $ datalad get Long_Now__Seminars_About_Long_term_Thinking/2004_01_10__George_Dyson__There_s_Plenty_of_Room_at_the_Top__Long_term_Thinking_About_Large_scale_Computing.mp3
+
+Re-obtained!
+
+This was only a quick digression into :command:`datalad drop`. The main principles
+of this command will become clear after chapter
+:ref:`chapter_gitannex`, and its precise use is shown in the paragraph on
+`removing file contents <101-136-filesystem.html#removing-annexed-content-entirely>`_.
+At this point in time, however, you already know that datasets allow you do
+:command:`drop` file contents flexibly. If you want to, you could have more
+podcasts (or other data) on your computer than you have disk space available
+by using DataLad datasets -- and that really is a cool feature to have.
+
+Dataset archeology
+^^^^^^^^^^^^^^^^^^
+
+You have now experienced how easy it is to (re-)obtain shared data with DataLad.
 But beyond only sharing the *data* in the dataset, when sharing or installing
 a DataLad dataset, all copies also include the datasets *history*.
 
@@ -308,7 +374,7 @@ For example, we can find out who created the dataset in the first place
 (the output shows an excerpt of ``git log --reverse``, which displays the
 history from first to most recent commit):
 
-.. runrecord:: _examples/DL-101-105-110
+.. runrecord:: _examples/DL-101-105-114
    :language: console
    :workdir: dl-101/DataLad-101/recordings/longnow
    :emphasize-lines: 3
@@ -322,15 +388,15 @@ history from first to most recent commit):
 But that's not all. The seminar series is ongoing, and more recordings can get added
 to the original repository shared on GitHub.
 Because an installed dataset knows the dataset it was installed from,
-you local dataset clone can be updated from its origin, and thus get the new recordings,
-should there be some. later in this handbook, we will see examples of this.
+your local dataset clone can be updated from its origin, and thus get the new recordings,
+should there be some. Later in this handbook, we will see examples of this.
 
 Now you can not only create datasets and work with them locally, you can also consume
 existing datasets by installing them. Because that's cool, and because you will use this
 command frequently, make a note of it into your ``notes.txt``, and :command:`datalad save` the
 modification.
 
-.. runrecord:: _examples/DL-101-105-111
+.. runrecord:: _examples/DL-101-105-115
    :language: console
    :workdir: dl-101/DataLad-101/recordings/longnow
    :cast: 01_dataset_basics
@@ -364,7 +430,7 @@ modification.
 
    Add a tag at the section end.
 
-     .. runrecord:: _examples/DL-101-105-112
+     .. runrecord:: _examples/DL-101-105-116
         :language: console
         :workdir: dl-101/DataLad-101
 

@@ -5,17 +5,17 @@ Installation and configuration
 
 .. note::
 
-  The handbook is written for DataLad version 0.12.
+  The handbook is written for DataLad version 0.12 or higher. The higher the
+  version, the better, but it should be at least DataLad 0.12.0.
   If you already have DataLad installed but are unsure whether it is the correct
   version, you can get information on your version of DataLad by typing
   ``datalad --version`` into your terminal.
 
 The content in this chapter is largely based on the information given on the
 `DataLad website <https://www.datalad.org/get_datalad.html>`_
-and the `DataLad documentation <http://docs.datalad.org/en/latest/gettingstarted.html>`_.
+and the `DataLad documentation <http://docs.datalad.org/en/stable/>`_.
 
-Beyond DataLad itself, the installation requires Python, :term:`Git`,
-:term:`git-annex`, and potentially Pythons package manager ``pip``.
+Beyond DataLad itself, the installation requires Python, :term:`Git`, and :term:`git-annex`, and may require Python's package manager ``pip`` and `p7zip/7-Zip <https://7-zip.org/>`_.
 The instructions below detail how to install
 each of these components for different common operating systems. Please
 `file an issue <https://github.com/datalad-handbook/book/issues/new>`_
@@ -220,7 +220,7 @@ Also, should you be confused by the name:
 enabling this repository will not do any harm if your field is not neuroscience.
 
 The following command installs
-DataLad and all of its software dependencies (including the git-annex-standalone package):
+DataLad and all of its software dependencies (including the git-annex-standalone package and `p7zip <http://p7zip.sourceforge.net/>`_):
 
 .. code-block:: bash
 
@@ -254,7 +254,7 @@ can be installed with `Miniconda <https://docs.conda.io/en/latest/miniconda.html
   # acknowledge license, keep everything at default
   $ conda install -c conda-forge datalad
 
-This should install :term:`Git`, :term:`git-annex`, and DataLad.
+This should install :term:`Git`, :term:`git-annex`, `p7zip <http://p7zip.sourceforge.net/>`_ and DataLad.
 The installer automatically configures the shell to make conda-installed
 tools accessible, so no further configuration is necessary.
 
@@ -336,18 +336,20 @@ a user's home directory:
         /sbin
         /Users/awagner/Library/Python/3.7/bin
 
+Note that ``pip`` is not able to install the `p7zip <http://p7zip.sourceforge.net/>`_ dependency.
+Please install it if it isn't yet installed -- it is available via ``brew``.
 
-Using Pythons package manager ``pip``
-"""""""""""""""""""""""""""""""""""""
+Using Python's package manager ``pip``
+""""""""""""""""""""""""""""""""""""""
 
-DataLad can be installed via Pythons package manager
+DataLad can be installed via Python's package manager
 `pip <https://pip.pypa.io/en/stable/>`_.
 ``pip`` comes with Python distributions, e.g., the Python distributions
 downloaded from `python.org <https://www.python.org>`_. When downloading
 Python, make sure to chose a recent Python **3** distribution.
 
 If you have Python and ``pip`` set up,
-to automatically install DataLad and its software dependencies, type
+to automatically install DataLad and most of its software dependencies, type
 
 .. code-block:: bash
 
@@ -360,17 +362,18 @@ a user's home directory:
 
    $ pip install --user datalad~=0.12
 
-An existing installation can be upgraded with ``pip install -U datalad``.
+``pip`` is not able to install the `7-zip <https://7-zip.org/>`_ dependency.
+Please install a flavor of 7-zip that is appropriate for your operating system (such as `p7zip <http://p7zip.sourceforge.net/>`_ for Linux or macOS) if it isn't yet installed.
 
-In addition, it is necessary to have a current version of :term:`git-annex` installed which is
+In addition, it is necessary to have a current version of :term:`git-annex` installed which is also
 not set up automatically by using the ``pip`` method.
 You can find detailed installation instructions on how to do this
 `here <https://git-annex.branchable.com/install/>`__.
-
 For Windows, extract the provided EXE installer into an existing Git
 installation directory (e.g. ``C:\\Program Files\Git``). If done
 this way, no ``PATH`` variable manipulation is necessary.
 
+An existing installation can be upgraded with ``pip install -U datalad``.
 
 Windows 10
 """"""""""

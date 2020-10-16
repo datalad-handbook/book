@@ -1,0 +1,11 @@
+### DVC
+$ dvc metrics show -T
+workspace:
+	metrics/accuracy.json:
+		accuracy: 0.8136882129277566
+random-forest:
+	metrics/accuracy.json:
+		accuracy: 0.8187579214195184
+sgd-pipeline:
+	metrics/accuracy.json:
+		accuracy: 0.7427122940430925

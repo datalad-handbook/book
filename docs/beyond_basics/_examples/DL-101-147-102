@@ -1,0 +1,3 @@
+# in DataLad-101
+$ datalad subdatasets --contains midterm_project --set-property url ./midterm_project
+subdataset(ok): midterm_project (dataset)

@@ -305,7 +305,7 @@ stimulus types (Images, Dots, and Videos). The latter event and stimulus are omi
 better readability of the ``.tex`` excerpt. Here is how this table looks like in the manuscript
 (cropped to match the ``.tex`` snippet):
 
-.. figure:: ../img/remodnav.png
+.. figure:: ../artwork/src/img/remodnav.png
 
 It might appear tedious to write scripts that output results for such tables with individual names.
 However, ``print()`` statements to fill those tables can utilize Pythons string concatenation methods
@@ -357,7 +357,7 @@ in the actual manuscript, if you want!). This was step number 1 of 4.
 
    This figure looks like this in the manuscript:
 
-   .. figure:: ../img/remodnav2.png
+   .. figure:: ../artwork/src/img/remodnav2.png
 
 For step 2 and 3, the print statements need to be captured and bound to the ``.tex`` file.
 The `tee <https://en.wikipedia.org/wiki/Tee_(command)>`_ command can write all of the output to

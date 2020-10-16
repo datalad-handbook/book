@@ -28,6 +28,18 @@
     background: #eee;
 }
 
+.findoutmore .header:before {
+    content: "⇩ Find out more: ";
+    color: #ffa200;
+    font-weight: bold;
+}
+
+.findoutmore .header.open:before {
+    content: "⇧ Find out more: ";
+    color: #ffa200;
+    font-weight: bold;
+}
+
 /* make TODOslook plain and stand out at the same time
  * TODOs should not be a frequent feature in the handbook */
 div.admonition-todo {
@@ -81,4 +93,24 @@ progress::-webkit-progress-value {
 
 progress::-webkit-progress-bar {
   background: #ffa200;
+}
+
+.redirect {
+  font-family: monospace, monospace;
+}
+
+.redirect::before {
+  content: "↷ "
+}
+
+.windowsworkarounds .header:before {
+    content: "⇩ 💻 Windows-Workaround: ";
+    color: #00a4ef;
+    font-weight: bold;
+}
+
+.windowsworkarounds .header.open:before {
+    content: "⇧ 💻 Windows-Workaround: ";
+    color: #00a4ef;
+    font-weight: bold;
 }

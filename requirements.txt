@@ -21,5 +21,6 @@ sphinx-notfound-page
 urllib3
 sphinxcontrib-svg2pdfconverter
 sphinxcontrib-plantuml
--e git://github.com/mih/autorunrecord.git@e114becf6e34d1f04eeb2ed05f1af1fbaf0d1abf#egg=autorunrecord
--e git+https://github.com/datalad-handbook/book.git@a98245149850cf369e03c6d70113953a2e64e198#egg=dataladhandbook_support
+-e git://github.com/mih/autorunrecord.git@master#egg=autorunrecord
+# install our own directives
+-e .

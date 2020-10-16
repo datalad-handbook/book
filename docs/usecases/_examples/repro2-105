@@ -1,0 +1,2 @@
+$ datalad containers-list
+heudiconv -> .datalad/environments/heudiconv/image

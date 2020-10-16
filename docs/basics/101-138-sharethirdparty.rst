@@ -475,16 +475,14 @@ enable the special remote.
 For this,  this person first needs to install and configure ``rclone``
 as well: Since ``rclone`` is the protocol with which
 annexed data can be transferred from and to Dropbox, anyone who needs annexed
-data from Dropbox needs this special remote. Therefore, the first steps are
+data from Dropbox needs *this* special remote. Therefore, the first steps are
 the same as before:
 
 - `Install <https://rclone.org/install/>`__ ``rclone`` (as described above).
-- Run ``rclone config`` to configure ``rclone`` to work with Dropbox (as described
-  above). It is important to name the remote "dropbox-for-friends" (i.e., give it the
-  same name as the one configured in the dataset).
-- ``git clone`` the
-  `git-annex-remote-rclone <https://github.com/DanielDent/git-annex-remote-rclone>`_
-  repository and copy the path into your ``$PATH`` variable (as described above).
+- Run ``rclone config`` to configure ``rclone`` to work with Dropbox (as described above). **It is important to name the remote identically** - in the example above, it would need to be "dropbox-for-friends".
+  This means: You need to communicate the name of your special remote to your friend, and they have to give it the same name as the one configured in the dataset).
+  (There are efforts towards extracting this information automatically from datasets, but for the time being, this is an important detail to keep in mind).
+- install `git-annex-remote-rclone <https://github.com/DanielDent/git-annex-remote-rclone>`_ (as described above).
 
 After this is done, you can execute what DataLad's output message suggests
 to "enable" this special remote (inside of the installed ``DataLad-101``)::

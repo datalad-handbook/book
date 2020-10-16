@@ -8,8 +8,9 @@ DataLad-centric analysis with job scheduling and parallel computing
    It is advised to read the previous chapter :ref:`chapter_gobig` prior to this one
 
 This section is a write-up of how DataLad can be used on a scientific computational cluster with a job scheduler for reproducible and FAIR data analyses at scale.
-More concretely, it shows an example of containerized `fMRIprep <https://fmriprep.readthedocs.io/>`_ preprocessing on the `eNKI <http://fcon_1000.projects.nitrc.org/indi/enhanced/>`_ neuroimaging dataset, scheduled with `HTCondor <https://research.cs.wisc.edu/htcondor/>`_.
-While the choice of containerized pipeline and job scheduler are specific in this example, the general setup is generic and could be used with any containerized pipeline and any job scheduling system.
+It showcases the general principles behind parallel processing of DataLad-centric workflows with containerized pipelines.
+This section lays the groundwork to the next section, a walkthrough through a more complex real life example of containerized `fMRIprep <https://fmriprep.readthedocs.io/>`_ preprocessing on the `eNKI <http://fcon_1000.projects.nitrc.org/indi/enhanced/>`_ neuroimaging dataset, scheduled with `HTCondor <https://research.cs.wisc.edu/htcondor/>`_.
+While this chapter demonstrates specific containerized pipelines and job schedulers, the general setup is generic and could be used with any containerized pipeline and any job scheduling system.
 
 Why job scheduling?
 ^^^^^^^^^^^^^^^^^^^
@@ -31,328 +32,280 @@ If a large analysis can be split into many independent jobs, using a job schedul
    The job scheduler takes the submitted jobs, *queues* them up in a central queue, and monitors the available compute resources (i.e., :term:`compute node`\s) of the cluster.
    As soon as a computational resource is free, it matches a job from the queue to the available resource and computes the job on this node.
    Usually, a single submission queues up multiple (dozens, hundreds, or thousands of) jobs.
+   If you are interested in a tutorial for HTCondor, checkout the `INM-7 HTcondor Tutorial <https://jugit.fz-juelich.de/inm7/training/htcondor>`_.
 
 Where are the difficulties in parallel computing with DataLad?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 In order to capture as much provenance as possible, analyses are best ran with a :command:`datalad run` or :command:`datalad containers-run` command, as these commands can capture and link all relevant components of an analysis, starting from code and results to input data and computational environment.
 
-Note, though, that when parallelizing jobs and computing them with provenance capture, *each individual job* needs to be wrapped in a ``run`` command, and not only the submission of the jobs to the job scheduler -- and this requires multiple parallel ``run`` commands on the same dataset.
+Note, though, that when parallelizing jobs and computing them with provenance capture, *each individual job* needs to be wrapped in a ``run`` command, not only the submission of the jobs to the job scheduler -- and this requires multiple parallel ``run`` commands on the same dataset.
 Multiple simultaneous ``datalad (containers-)run`` invocations in the same dataset are, however, problematic:
 
 - Operations carried out during one :command:`run` command can lead to modifications that prevent a second, slightly later ``run`` command from being started
-- The :command:`datalad save` command at the end of of :command:`datalad run` could save modifications that originate from a different job, leading to mis-associated provenance
+- The :command:`datalad save` command at the end of :command:`datalad run` could save modifications that originate from a different job, leading to mis-associated provenance
 - A number of *concurrency issues*, unwanted interactions of processes when they run simultaneously, can arise and lead to internal command failures
 
 Some of these problems can be averted by invoking the ``(containers-)run`` command with the ``--explicit`` [#f1]_ flag.
 This doesn't solve all of the above problems, though, and may not be applicable to the computation at hand -- for example because all jobs write to a similar file or the result files are not known beforehand.
-Below, a complete, largely platform and scheduling-system agnostic containerized analysis workflow is outlined that addressed the outlined problems.
+Below, you can find a complete, largely platform and scheduling-system agnostic containerized analysis workflow that addressed the outlined problems.
 
-Processing FAIRly *and* in parallel
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Processing FAIRly *and* in parallel -- General workflow
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. note::
 
     FAIR *and* parallel processing requires out-of-the-box thinking, and many creative approaches can lead to success.
-    Here is **one** approach that led to a provenance-tracked, computationally reproducible, and parallel preprocessing workflow, but many more can work.
+    Here is **one** approach that leads to a provenance-tracked, computationally reproducible, and parallel preprocessing workflow, but many more can work.
     `We are eager to hear about yours <https://github.com/datalad-handbook/book/issues/new/>`_.
 
-**General background**: We need to preprocess data from 1300 participants with a containerized pipeline.
-All data lies in a single dataset.
-The preprocessing results will encompass several TB and about half a million files, and will therefore need to be split into two result datasets.
+**General setup**: The overall setup consists of a data analysis with a containerized pipeline (i.e., a software container that performs a single or a set of analyses).
+Results will be aggregated into a top-level analysis dataset while the input dataset and a "pipeline" dataset (with a configured software container) exist as subdatasets.
+The analysis is carried out on a computational cluster that uses a job scheduling system to distribute compute jobs.
+
+The "creative" bits involved in this parallelized processing workflow boil down to the following tricks:
+
+- Individual jobs (for example subject-specific analyses) are computed in **throw-away dataset clones** to avoid unwanted interactions between parallel jobs.
+- Beyond computing in job-specific, temporary locations, individual job results are also saved into uniquely identified :term:`branch`\es to enable simple **pushing back of the results** into the target dataset.
+- The jobs constitute a complete DataLad-centric workflow in the form of a simple bash script, including dataset build-up and tear-down routines in a throw-away location, result computation, and result publication back to the target dataset.
+  Thus, instead of submitting a ``datalad run`` command to the job scheduler, **the job submission is a single script**, and this submission is easily adapted to various job scheduling call formats.
+- Right after successful completion of all jobs, the target dataset contains as many :term:`branch`\es as jobs, with each branch containing the results of one job.
+  A manual :term:`merge` aggregates all results into the :term:`master` branch of the dataset.
 
 The keys to the success of this workflow lie in
 
-- creating it completely *job-scheduling* and *platform agnostic*, such that the workflow can be deployed as a subject-specific job anywhere, with any job scheduling system, and ...
-- instead of computing job results in the same dataset over all jobs, temporary, :term:`ephemeral clone`\s are created to hold individual, subject-specific results, and those results are pushed back into the target dataset in the end.
+- creating it completely *job-scheduling* and *platform agnostic*, such that the workflow can be deployed as a subject/...-specific job anywhere, with any job scheduling system, and ...
+- instead of computing job results in the same dataset over all jobs, temporary clones are created to hold individual, job-specific results, and those results are pushed back into the target dataset in the end ...
+- while all dataset components (input data, containerized pipeline) are reusable and the results completely provenance-tracked.
 
-The "creative" bits involved in this parallelized processing workflow boiled down to the following tricks:
+Step-by-Step
+""""""""""""
 
-- Individual jobs (in this case, subject-specific analyses) are computed in throw-away dataset clones to avoid unwanted interactions between ``save`` commands.
-- Moreover, beyond computing in job-specific, temporary locations, individual job results are also saved into uniquely identified :term:`branch`\es to enable simple pushing back of the results into the target dataset [#f6]_.
-- The jobs constitute a complete DataLad-centric workflow in the form of a simple bash script, including dataset build-up and tear-down routines in a throw-away location, result computation, and result publication back to the target dataset. Thus, instead of submitting a ``datalad run`` command to the job scheduler, the job submission is a single script, and this submission is easily adapted to various job scheduling call formats.
-- Right after successful job termination, the target dataset contains as many :term:`branch`\es as jobs, with each branch containing the results of one job. A manual :term:`merge` aggregates all results into the :term:`master` branch of the dataset.
+To get an idea of the general setup of parallel provenance-tracked computations, consider a data analysis dataset...
 
-Walkthrough
-^^^^^^^^^^^
+.. code-block:: bash
 
-The goal of the following analysis was standard preprocessing using `fMRIprep <https://fmriprep.readthedocs.io/>`_ on neuroimaging data of 1300 subjects in the `eNKI <http://fcon_1000.projects.nitrc.org/indi/enhanced/>`_ dataset.
-In order to associate input data, containerized pipeline, and outputs, the analysis was carried out in a DataLad dataset and with the :command:`datalad containers-run` command.
-Here's a walkthrough of what was done and how.
+    $ datalad create parallel_analysis
+    [INFO   ] Creating a new annex repo at /tmp/parallel_analysis
+    [INFO   ] Scanning for unlocked files (this may take some time)
+    create(ok): /tmp/parallel_analysis (dataset)
+    $ cd parallel_analysis
 
-Starting point: Datasets for software and input data
-""""""""""""""""""""""""""""""""""""""""""""""""""""
+... with input data as a subdataset ...
 
-At the beginning of this endeavour, two important analysis components already exist as DataLad datasets:
+.. code-block:: bash
 
-1. The input data
-2. The containerized pipeline
+    $ datalad clone -d . /path/to/my/rawdata
+    [INFO   ] Scanning for unlocked files (this may take some time)
+    install(ok): /tmp/parallel_analysis/rawdata (dataset)
+    add(ok): /tmp/parallel_analysis/rawdata (file)
+    add(ok): /tmp/parallel_analysis/.gitmodules (file)
+    save(ok): /tmp/parallel_analysis (dataset)
+    action summary:
+      add (ok: 2)
+      install (ok: 1)
+      save (ok: 1)
 
-Following the :ref:`YODA principles <yoda>`, each of these components is a standalone dataset.
-While the input dataset creation is straightforwards, some thinking went into the creation of containerized pipeline dataset to set it up in a way that allows it to be installed as a subdataset and invoked from the superdataset.
-If you are interested in this, find the details in the findoutmore below.
-Also note that there is a large collection of pre-existing container datasets available at `github.com/ReproNim/containers <https://github.com/ReproNim/containers>`_.
+... and a dataset with a containerized pipeline (for example from the `ReproNim container-collection <https://github.com/repronim/containers>`_ [#f2]_) as another subdataset:
 
-.. findoutmore:: pipeline dataset creation
+.. findoutmore:: Why do I add the pipeline as a subdataset?
 
-   We start with a dataset (called ``pipelines`` in this example)::
+   You could also add and configure the container using ``datalad containers-add`` to the top-most dataset.
+   This solution makes the container less usable, though.
+   If you have more than one application for a container, keeping it as a standalone dataset can guarantee easier reuse.
+   For an example on how to create such a dataset yourself, please checkout the Findoutmore in  :ref:`pipelineenki` in the real-life walkthrough in the next section.
 
-       $ datalad create pipelines
-         [INFO   ] Creating a new annex repo at /data/projects/enki/pipelines
-         create(ok): /data/projects/enki/pipelines (dataset)
-       $ cd pipelines
+.. code-block::
 
-   As one of tools used in the pipeline, `freesurfer <https://surfer.nmr.mgh.harvard.edu/>`_, requires a license file, this license file needs to be added into the dataset.
-   Only then can this dataset be moved around flexibly and also to different machines.
-   In order to have the license file available right away, it is saved ``--to-git`` and not annexed [#f2]_::
+   $ datalad clone -d . https://github.com/ReproNim/containers.git
+    [INFO   ] Scanning for unlocked files (this may take some time)
+    install(ok): /tmp/parallel_analysis/containers (dataset)
+    add(ok): /tmp/parallel_analysis/containers (file)
+    add(ok): /tmp/parallel_analysis/.gitmodules (file)
+    save(ok): /tmp/parallel_analysis (dataset)
+    action summary:
+      add (ok: 2)
+      install (ok: 1)
+      save (ok: 1)
 
-       $ cp <location/to/fs-license.txt> .
-       $ datalad save --to-git -m "add freesurfer license file" fs-license.txt
+The analysis aims to process the ``rawdata`` with a pipeline from ``containers`` and collect the outcomes in the toplevel ``parallel_analysis`` dataset -- FAIRly and in parallel, using ``datalad containers-run``.
 
-   Finally, we add a container with the pipeline to the dataset using :command:`datalad containers-add` [#f3]_.
-   The important part is the configuration of the container -- it has to be done in a way that makes the container usable in any superdataset the pipeline dataset.
+One way to conceptualize the workflow is by taking the perspective of a single compute job.
+This job consists of whatever you may want to parallelize over.
 
-   Depending on how the container/pipeline needs to be called, the configuration differs.
-   In the case of an fMRIprep run, we want to be able to invoke the container from a superdataset.
-   The superdataset contains input data and ``pipelines`` dataset as subdatasets, and will collect all of the results.
-   Thus, these are arguments we want to supply the invocation with (following `fMRIprep's documentation <https://fmriprep.org/en/stable/usage.html>`_) during a ``containers-run`` command::
+.. findoutmore:: What are common analysis types to parallelize over?
 
-        $ datalad containers-run \
-        [...]
-        <BIDS_dir> <output_dir> <analysis_level> \
-        --n_cpus <N> \
-        --participant-label <ID> \
-        [...]
+   The key to using a job scheduler and parallelization is to break down an analysis into smaller, loosely coupled computing tasks that can be distributed across a compute cluster.
+   Among common analysis setups that are suitable for parallelization are computations that can be split into several analysis that each run on one subset of the data -- such one or some out of many subjects, acquisitions, or files.
+   The large computation "preprocess 200 subjects" can be split into 200 times the job "preprocess 1 subject", for example.
+   Commonly parallelized computations are also analyses that need to be ran with a range of different parameters, where each parameter configuration can constitute one job.
+   The latter type of parallelization is for example the case in simulation studies.
 
-   Note how this list does not include bind-mounts of the necessary directories or of the freesurfer license -- this makes the container invocation convenient and easy for any user.
-   Starting an fMRIprep run requires only a ``datalad containers-run`` with all of the desired fMRIprep options.
+Say your raw data contains continuous moisture measurements in the Arctic, taken over the course of 10 years.
+Each file in your dataset contains the data of a single day.
+You are interested in a daily aggregate, and are therefore parallelizing across files -- each compute job will run an analysis pipeline on one datafile.
 
-   This convenience for the user requires that all of the bind-mounts should be taken care of -- in a generic way -- in the container call specification, though.
-   Here is how this is done::
+What you will submit as a job with a job scheduler is not a ``datalad containers-run`` call, but a shell script that contains all relevant data analysis steps.
+Using `shell <https://en.wikipedia.org/wiki/Shell_script>`_ as the language for this script is a straight-forward choice as it allows you to script the DataLad workflow just as you would type it into your terminal, but other languages (e.g., using :ref:`DataLad's Python API <python>` or system calls in languages such as Matlab) would work as well.
 
-       $ datalad containers-add fmriprep \
-         --url TODO \
-         --call-fmt singularity run --cleanenv -B "$PWD" {img} {cmd} --fs-license-file "$PWD/{img_dspath}/freesurfer_license.txt"
+**Building the job**:
 
-   During a :command:`datalad containers-run` command, the ``--call-fmt`` specification will be used to call the container.
-   The placeholders ``{img}`` and ``{cmd}`` will be replaced with the container (``{img}``) and the command given to ``datalad containers-run`` (``{cmd}``).
-   Thus, the ``--cleanenv`` flag (`recommended by fMRIprep <https://fmriprep.org/en/stable/singularity.html#handling-environment-variables>`_) as well as bind-mounts are handled prior to the container invocation, and the ``--fs-license-file`` option with a path to the license file within the container is appended to the command.
-   Bind-mounting the working directory (``-B "$PWD"``) makes sure to bind mount the directory from which the container is being called, which should be the superdataset that contains input data and ``pipelines`` subdataset.
-   With these bind-mounts, input data and the freesurfer license file within ``pipelines`` are available in the container.
-
-   With such a setup, the ``pipelines`` dataset can be installed in any dataset and will work out of the box.
-
-Analysis dataset setup
-""""""""""""""""""""""
-
-An analysis dataset consists of the following components:
-
-- input data as a subdataset
-- ``pipelines`` container dataset as a subdataset
-- subdatasets to hold the results
-
-Following the benchmarks and tips in the chapter :ref:`chapter_gobig`, the amount of files produced by fMRIprep on 1300 subjects requires two datasets to hold them.
-In this particular computation, following the naming scheme and structure of fMRIpreps output directories, one subdataset is created for the `freesurfer <https://surfer.nmr.mgh.harvard.edu/>`_ results of fMRIprep in a subdataset called ``freesurfer``, and one for the minimally preprocessed input data in a subdataset called ``fmriprep``.
-
-Here is an overview of the directory structure in the superdataset::
-
-    superds
-    ├── code                # directory
-    │   └── pipelines       # subdataset with fMRIprep
-    ├── fmriprep            # subdataset for results
-    ├── freesurfer          # subdataset for results
-    └── sourcedata          # subdataset with BIDS-formatted data
-        ├── sourcedata      # subdataset with raw data
-        ├── sub-A00008326   # directory
-        ├── sub-...
-
-
-Workflow script
-"""""""""""""""
-
-The general complexity of concurrent ``datalad (containers-)run`` commands arises when they are carried out in the same dataset.
-Therefore, the strategy is to create throw-away dataset clone for all jobs.
+``datalad (containers-)run`` does not support concurrent execution in the *same* dataset clone.
+The solution is as easy as it is stubborn: We simply create one throw-away dataset clone for each job.
 
 .. findoutmore:: how does one create throw-away clones?
 
     One way to do this are :term:`ephemeral clone`\s, an alternative is to make :term:`git-annex` disregard the datasets annex completely using ``git annex dead here``.
+    The latter is more appropriate for this context -- we could use an ephemeral clone, but that might deposit data of failed jobs at the origin location, if the job runs on a shared filesystem -- let's stay self-contained.
 
-Using throw-away clones involves a build-up and tear-down routine for each job but works well since datasets are by nature made for collaboration [#f7]_: Clone the analysis dataset hierarchy into a temporary location, run the computation, push the results, remove temporary dataset [#f4]_.
+Using throw-away clones involves a build-up, result-push, and tear-down routine for each job but this works well since datasets are by nature made for such decentralized, collaborative workflows.
+We treat cluster compute nodes like contributors to the analyses that clone the analysis dataset hierarchy into a temporary location, run the computation, push the results, and remove their temporary dataset again [#f3]_.
+All of this routine is done in a single script, which will be submitted as a job.
+Here, we build the general structure of this script.
 
-All of this is done in a single script, which will be submitted as a job.
+The compute job clones the dataset to a unique place, so that it can run a containers-run command inside it without interfering with any other job.
+The first part of the script is therefore to navigate to a unique location, and clone the analysis dataset to it.
 
-To give you a first idea, a sketch of this is in the :term:`bash` (shell) script below.
-Using `shell <https://en.wikipedia.org/wiki/Shell_script>`_ as the language for this script is a straight-forward choice as it allows you to script the DataLad workflow just as you would type it into your terminal, but other languages (e.g., using :ref:`DataLad's Python API <python>` or system calls in languages such as Matlab) would work as well.
-Fine-tuning and the complete script are shown in the findoutmore afterwards::
+.. findoutmore:: How can I get a unique location?
 
-   # everything is running under /tmp inside a compute job,
-   # /tmp is job-specific local filesystem not shared between jobs
+   On common HTCondor setups, ``/tmp`` directories in individual jobs are job-specific local Filesystem not shared between jobs -- i.e., unique locations!
+   An alternative is to create a unique temporary directory, e.g., with the ``mktemp -d`` command on Unix systems.
+
+.. code-block:: bash
+
+   # go into unique location
    $ cd /tmp
-
-   # clone the superdataset
-   $ datalad clone /data/project/enki/super ds
+   # clone the analysis dataset
+   $ datalad clone /path/to/parallel_analysis ds
    $ cd ds
 
-   # get first-level subdatasets (-R1 = --recursion-limit 1)
-   $ datalad get -n -r -R1 .
+This dataset clone is *temporary*: It will exist over the course of one analysis/job only, but before it is being purged, all of the results it computed will be pushed to the original dataset.
+This requires a safe-guard: If the original dataset receives the results from the dataset clone, it knows about the clone and its state.
+In order to protect the results from accidental synchronization upon deletion of the linked dataset clone, the clone should be created as a "trow-away clone" right from the start.
+By running ``git annex dead here``, :term:`git-annex` disregards the clone, preventing the deletion of data in the clone to affect the original dataset.
 
-   # make git-annex disregard the clones - they are meant to be thrown away
-   $ git submodule foreach --recursive git annex dead here
+.. code-block:: bash
 
-   # checkout unique branches (names derived from job IDs) in both subdatasets
-   # to enable pushing the results without interference from other jobs
-   $ git -C fmriprep checkout -b "job-$JOBID"
-   $ git -C freesurfer checkout -b "job-$JOBID"
+   $ git annex dead here
 
-   # call fmriprep with datalad containers-run. Use all relevant fMRIprep
-   # arguments for your usecase
+The ``datalad push`` to the original clone location of a dataset needs to be prepared carefully.
+The job computes one result of many and saves it, thus creating new data and a new entry with the run-record in the dataset history.
+But each job is unaware of the results and :term:`commit`\s produced by other branches.
+Should all jobs push back the results to the original place (the :term:`master` :term:`branch` of the original dataset), the individual jobs would conflict with each other or, worse, overwrite each other (if you don't have the default push configuration of Git).
+
+The general procedure and standard :term:`Git` workflow for collaboration, therefore, is to create a change on a different, unique :term:`branch`, push this different branch, and integrate the changes into the original master branch via a :term:`merge` in the original dataset [#f4]_.
+
+In order to do this, prior to executing the analysis, the script will *checkout* a unique new branch in the analysis dataset.
+The most convenient name for the branch is the Job-ID, an identifier under which the job scheduler runs an individual job.
+This makes it easy to associate a result (via its branch) with the log, error, or output files that the job scheduler produces [#f5]_, and the real-life example will demonstrate these advantages more concretely.
+
+.. code-block:: bash
+
+   # git checkout -b <name> creates a new branch and checks it out
+   $ git checkout -b "job-$JOBID"
+
+Importantly, the ``$JOB-ID`` isn't hardcoded into the script but it can be given to the script as an environment or input variable at the time of job submission.
+The code snippet above uses a bash environment variable (``$JOBID``).
+It will be defined in the job submission -- this is shown and explained in detail in the respective paragraph below.
+
+Next, its ``time for the containers-run`` command.
+The invocation will depend on the container and dataset configuration (both of which are demonstrated in the real-life example in the next section), and below, we pretend that the pipeline invocation only needs an input file and an output file.
+These input file is specified via a bash variables (``$inputfile``) that will be defined in the script and provided at the time of job submission via command line argument from the job scheduler, and the output file name is based on the input file name.
+
+.. code-block:: bash
+
    $ datalad containers-run \
-      -m "fMRIprep $subid" \
+      -m "Computing results for $inputfile" \
       --explicit \
-      -o freesurfer -o fmriprep \
-      -i "$1" \
-      -n code/pipelines/fmriprep \
-      sourcedata . participant \
-      --n_cpus 1 \
-      --skip-bids-validation \
-      -w .git/tmp/wdir \
-      --participant-label "$subid" \
-      --random-seed 12345 \
-      --skull-strip-fixed-seed \
-      --md-only-boilerplate \
-      --output-spaces MNI152NLin6Asym \
-      --use-aroma \
-      --cifti-output
+      --output "aggregate_${inputfile}" \
+      --input "rawdata/$inputfile" \
+      -n code/containers/mycontainer \
+      '{inputs}' '{outputs}'
 
-   # push back the results
-   $ datalad push -d fmriprep --to origin
-   $ datalad push -d freesurfer --to origin
-   # job handler should clean up workspace
+After the ``containers-run`` execution in the script, the results can be pushed back to the dataset :term:`sibling` ``origin`` [#f6]_::
 
-Pending a few yet missing safe guards against concurrency issues and to enable re-running computations, such a script can be submitted to any job scheduler with a subject ID and a job ID as identifiers for the fMRIprep run and branch names.
-The concrete calling/submission of this script is shown in the paragraph :ref:`jobsubmit`, but on a procedural level, this workflow sketch takes care of everything that needs to be done apart from combining all computed results afterwards.
+   $ datalad push --to origin
 
-.. findoutmore:: Fine-tuning: Enable re-running and safe-guard concurrency issues
 
-   Two important fine-tunings are missing:
-   For one, cloning and pushing *can* still run into concurrency issues in the case when one job clones the original dataset while another job is currently pushing into this dataset.
-   Therefore, a trick can make sure that no two clone or push commands are executed at the same time.
+Pending a few yet missing safe guards against concurrency issues and the definition job-specific (environment) variables, such a script can be submitted to any job scheduler with identifiers for input files, output files, and a job ID as identifiers for the branch names.
+This workflow sketch takes care of everything that needs to be done apart from combining all computed results afterwards.
+
+.. findoutmore:: Fine-tuning: Safe-guard concurrency issues
+
+   An important fine-tuning is missing:
+   Cloning and pushing *can* still run into concurrency issues in the case when one job clones the original dataset while another job is currently pushing its results into this dataset.
+   Therefore, a trick can make sure that no two clone or push commands are executed at *exactly* the same time.
    This trick uses `file locking <https://en.wikipedia.org/wiki/File_locking>`_, in particular the tool `flock <https://www.tutorialspoint.com/unix_system_calls/flock.htm>`_, to prevent exactly concurrent processes.
-   This is done by prepending ``clone`` and ``push`` commands with ``flock --verbose $DSLOCKFILE``, where ``$DSLOCKFILE`` is a textfile placed into ``.git/`` at the time of job submission (further details in the submit file in the next section)
+   This is done by prepending ``clone`` and ``push`` commands with ``flock --verbose $DSLOCKFILE``, where ``$DSLOCKFILE`` is a text file placed into ``.git/`` at the time of job submission, provided via environment variable (see below and the paragraph "Job submission").
+   This is a non-trivial process, but luckily, you don't need to understand file locking or ``flock`` in order to follow along -- just make sure that you copy the usage of ``$DSLOCKFILE`` in the script and in the job submission.
 
-   The second issue concerns the ability to rerun a computation quickly:
-   If fMRIprep finds preexisting results, it will fail to run.
-   Therefore, all outputs of a job are attempted to be removed before the jobs is started [#f5]_::
+.. findoutmore:: Variable definition
 
-        (cd fmriprep && rm -rf logs "$subid" "$subid.html" dataset_description.json desc-*.tsv)
-        (cd freesurfer && rm -rf fsaverage "$subid")
+   There are two ways to define variables that a script can use:
+   The first is by defining environment variables, and passing this environment to the compute job.
+   This can be done in the job submission file.
+   To set and pass down the job-ID and a lock file in HTCondor, one can supply the following line in the job submission file::
 
-   With this in place, the only things missing are a :term:`shebang` at the top of the script, and some shell settings for robust scripting with verbose log files (``set -e -u -x``).
-   You can find the full script with rich comments in the next findoutmore.
+      environment = "JOBID=$(Cluster).$(Process) DSLOCKFILE=$ENV(PWD)/.git/datalad_lock"
 
-.. findoutmore:: See the complete bash script
+   The second way is via shell script command line arguments.
+   Everything that is given as a command line argument to the script can be accessed in the script in the order of their appearance via ``$``.
+   A script invoked with ``bash myscript.sh <inputfile> <parameter> <argument>`` can access ``inputfile`` with ``$1``, ``parameter`` with ``$2``, and ``<argument>`` with ``$3``.
+   If the job scheduler takes care of iterating through input file names, the relevant input variable for the simplistic example could thus be defined in the script as follows::
 
-   This script is placed in ``code/fmriprep_participant_job``:
+      inputfile=$1
 
-   .. code-block:: bash
+With fine tuning and variable definitions in place, the only things missing are a :term:`shebang` at the top of the script, and some shell settings for robust scripting with verbose log files (``set -e -u -x``).
+Here's how the full general script looks like.
 
-        #!/bin/bash
+.. code-block:: bash
 
-        # fail whenever something is fishy, use -x to get verbose logfiles
-        set -e -u -x
+    #!/bin/bash
 
-        # we pass in "sourcedata/sub-...", extract subject id from it
-        subid=$(basename $1)
+    # fail whenever something is fishy, use -x to get verbose logfiles
+    set -e -u -x
 
-        # this is all running under /tmp inside a compute job, /tmp is a performant
-        # local filesystem
-        cd /tmp
-        # get the output dataset, which includes the inputs as well
-        # flock makes sure that this does not interfere with another job
-        # finishing at the same time, and pushing its results back
-        # importantly, we clone from the location that we want to push the
-        # results too
-        flock --verbose $DSLOCKFILE \
-            datalad clone /data/project/enki/super ds
+    # we pass arbitrary arguments via job scheduler and can use them as variables
+    fileid=$1
+    ...
 
-        # all following actions are performed in the context of the superdataset
-        cd ds
-        # obtain all first-level subdatasets:
-        # dataset with fmriprep singularity container and pre-configured
-        # pipeline call; also get the output dataset to prep them for output
-        # consumption, we need to tune them for this particular job, sourcedata
-        # important: because we will push additions to the result datasets back
-        # at the end of the job, the installation of these result datasets
-        # must happen from the location we want to push back too
-        datalad get -n -r -R1 .
-        # let git-annex know that we do not want to remember any of these clones
-        # (we could have used an --ephemeral clone, but that might deposite data
-        # of failed jobs at the origin location, if the job runs on a shared
-        # filesystem -- let's stay self-contained)
-        git submodule foreach --recursive git annex dead here
+    # go into unique location
+    cd /tmp
+    # clone the analysis dataset. flock makes sure that this does not interfere
+    # with another job finishing and pushing results back at the same time
+    flock --verbose $DSLOCKFILE datalad clone /path/to/parallel_analysis ds
+    cd ds
+    # announce the clone to be temporary
+    git annex dead here
+    # checkout a unique branch
+    git checkout -b "job-$JOBID"
+    # run the job
+    datalad containers-run \
+      -m "Computing data $inputfile" \
+      --explicit \
+      --output "aggregate_${inputfile}" \
+      --input "rawdata/$inputfile" \
+      -n code/containers/mycontainer \
+      '{inputs}' '{outputs}'
+    # push, with filelocking as a safe-guard
+    flock --verbose $DSLOCKFILE datalad push --to origin
 
-        # checkout new branches in both subdatasets
-        # this enables us to store the results of this job, and push them back
-        # without interference from other jobs
-        git -C fmriprep checkout -b "job-$JOBID"
-        git -C freesurfer checkout -b "job-$JOBID"
-        # create workdir for fmriprep inside to simplify singularity call
-        # PWD will be available in the container
-        mkdir -p .git/tmp/wdir
-        # pybids (inside fmriprep) gets angry when it sees dangling symlinks
-        # of .json files -- wipe them out, spare only those that belong to
-        # the participant we want to process in this job
-        find sourcedata -mindepth 2 -name '*.json' -a ! -wholename "$1"/'*' -delete
+    # Done - job handler should clean up workspace
 
-        # next one is important to get job-reruns correct. We remove all anticipated
-        # output, such that fmriprep isn't confused by the presence of stale
-        # symlinks. Otherwise we would need to obtain and unlock file content.
-        # But that takes some time, for no reason other than being discarded
-        # at the end
-        (cd fmriprep && rm -rf logs "$subid" "$subid.html" dataset_description.json desc-*.tsv)
-        (cd freesurfer && rm -rf fsaverage "$subid")
+Its a short script that encapsulates a complete workflow.
+Think of it as the sequence of necessary DataLad commands you would need to do in order to compute a job.
+You can save this script into your analysis dataset, e.g., as ``code/analysis_job.sh``
 
-        # the meat of the matter, add actual parameterization after --participant-label
-        datalad containers-run \
-          -m "fMRIprep $subid" \
-          --explicit \
-          -o freesurfer -o fmriprep \
-          -i "$1" \
-          -n code/pipelines/fmriprep \
-          sourcedata . participant \
-          --n_cpus 1 \
-          --skip-bids-validation \
-          -w .git/tmp/wdir \
-          --participant-label "$subid" \
-          --random-seed 12345 \
-          --skull-strip-fixed-seed \
-          --md-only-boilerplate \
-          --output-spaces MNI152NLin6Asym \
-          --use-aroma \
-          --cifti-output
-        # selectively push outputs only
-        # ignore root dataset, despite recorded changes, needs coordinated
-        # merge at receiving end
-        flock --verbose $DSLOCKFILE datalad push -d fmriprep --to origin
-        flock --verbose $DSLOCKFILE datalad push -d freesurfer --to origin
+**Job submission**:
 
-        # job handler should clean up workspace
-
-Pending modifications to paths provided in clone locations, the above script and dataset setup is generic enough to be run on different systems and with different job schedulers.
-
-.. _jobsubmit:
-
-Job submission
-""""""""""""""
-
-Job submission now only boils down to invoking the script for each participant with a participant identifier that determines on which subject the job runs, and setting two environment variables -- one the job ID that determines the branch name that is created, and one that points to a lockfile created beforehand once in ``.git``.
-Job scheduler such as HTCondor have syntax that can identify subject IDs from consistently named directories, for example, and the submit file can thus be lean even though it queues up more than 1000 jobs.
-
-You can find the submit file used in this analyses in the findoutmore below.
+Job submission now only boils down to invoking the script for each participant with the relevant command line arguments (e.g., input and output files for the our artificial example) and the necessary environment variables (e.g., the job ID that determines the branch name that is created, and one that points to a lockfile created beforehand once in ``.git``).
+Job scheduler such as HTCondor can typically do this with automatic variables.
+They for example have syntax that can identify subject IDs or consecutive file numbers from consistently named directory structure, access the job ID, loop through a predefined list of values or parameters, or use various forms of pattern matching.
+Examples of this are demonstrated `here <https://jugit.fz-juelich.de/inm7/training/htcondor/-/blob/master/03_define_jobs.md>`_.
+Thus, the submit file takes care of defining hundreds or thousands of variables, but can still be lean even though it queues up hundreds or thousands of jobs.
+Here is a submit file that could be employed:
 
 .. findoutmore:: HTCondor submit file
-
-   The following submit file was created and saved in ``code/fmriprep_all_participants.submit``:
 
    .. code-block:: bash
 
@@ -364,7 +317,7 @@ You can find the submit file used in this analyses in the findoutmore below.
       request_memory = 20G
       request_disk   = 210G
 
-      executable     = $ENV(PWD)/code/fmriprep_participant_job
+      executable     = $ENV(PWD)/code/analysis_job.sh
 
       # the job expects to environment variables for labeling and synchronization
       environment = "JOBID=$(Cluster).$(Process) DSLOCKFILE=$ENV(PWD)/.git/datalad_lock"
@@ -372,28 +325,24 @@ You can find the submit file used in this analyses in the findoutmore below.
       output = $ENV(PWD)/../logs/$(Cluster).$(Process).out
       error  = $ENV(PWD)/../logs/$(Cluster).$(Process).err
       arguments = $(subid)
-      # find all participants, based on the subdirectory names in the source dataset
-      # each relative path to such a subdirectory with become the value of `subid`
-      # and another job is queued. Will queue a total number of jobs matching the
-      # number of matching subdirectories
-      queue subid matching dirs sourcedata/sub-*
+      # find all input data, based on the file names in the source dataset.
+      # Each relative path to such a file name will become the value of `inputfile`
+      # This will queue as many jobs as file names match the pattern
+      queue inputfile matching files rawdata/acquisition_*_.txt
 
 All it takes to submit is a single ``condor_submit <submit_file>``.
 
-Merging results
-"""""""""""""""
 
-Once all jobs have finished, the results lie in individual branches of the output datasets.
-In this concrete example, the subdatasets ``fmriprep`` and ``freesurfer`` will each have more than 1000 branches that hold individual job results.
+**Merging results**:
+Once all jobs are finished, the results lie in individual branches of the original dataset.
 The only thing left to do now is merging all of these branches into :term:`master` -- and potentially solve any merge conflicts that arise.
 Usually, merging branches is done using the ``git merge`` command with a branch specification.
 For example, in order to merge one job branch into the :term:`master` :term:`branch`, one would need to be on ``master`` and run ``git merge <job branch name>``.
-Given that the subdatasets each contain >1000 branches, and that each ``merge`` would lead to a commit, in order to not inflate the history of the dataset with hundreds of merge commits, two `Octopus merges <https://git-scm.com/docs/git-merge#Documentation/git-merge.txt-octopus>`_ were done - one in each subdataset (``fmriprep`` and ``freesurfer``).
+Given that the parallel job execution could have created thousands of branches, and that each ``merge`` would lead to a commit, in order to not inflate the history of the dataset with hundreds of :term:`merge` commits, one can do a single `Octopus merges <https://git-scm.com/docs/git-merge#Documentation/git-merge.txt-octopus>`_ of all branches at once.
 
 .. findoutmore:: What is an octopus merge?
 
    Usually a commit that arises from a merge has two *parent* commits: The *first parent* is the branch the merge is being performed from, in the example above, ``master``. The *second parent* is the branch that was merged into the first.
-
 
    However, ``git merge`` is capable of merging more than two branches simultaneously if more than a single branch name is given to the command.
    The resulting merge commit has as many parent as were involved in the merge.
@@ -402,73 +351,30 @@ Given that the subdatasets each contain >1000 branches, and that each ``merge`` 
    Octopus merges require merge-conflict-free situations, and will not be carried out whenever manual resolution of conflicts is needed.
 
 The merge command can be assembled quickly.
-As all result branches were named ``job-<JOBID>``, a complete list of branches is obtained with the following command::
+If all result branches were named ``job-<JOBID>``, a complete list of branches is obtained with the following command::
 
    $ git branch -l | grep 'job-' | tr -d ' '
 
-This command line call translates to: "list all branches, of all branches, show me those that contain ``job-``, and remove (``tr -d``) all whitespace.
-This can be given to ``git merge`` as in
+This command line call translates to: "list all branches. Of those branches, show me those that contain ``job-``, and remove (``tr -d``) all whitespace."
+This call can be given to ``git merge`` as in
 
 .. code-block:: bash
 
    $ git merge -m "Merge results from job cluster XY" $(git branch -l | grep 'job-' | tr -d ' ')
 
-**Merging with merge conflicts**
-
-When attempting an octopus merge like the one above and a merge conflict arises, the merge is aborted automatically. This is what it looks like::
-
-   $ git merge -m "Merge results from job cluster 107890" $(git branch -l | grep 'job-' | tr -d ' ')
-    Fast-forwarding to: job-107890.0
-    Trying simple merge with job-107890.1
-    Simple merge did not work, trying automatic merge.
-    ERROR: logs/CITATION.md: Not merging symbolic link changes.
-    fatal: merge program failed
-    Automated merge did not work.
-    Should not be doing an octopus.
-    Merge with strategy octopus failed.
-
-This merge conflict arose in the ``fmriprep`` subdataset an originated from the fact that each job generated a ``CITATION.md`` file with minimal individual changes.
-
-.. findoutmore:: How to fix this?
-
-   As the file ``CITATION.md`` does not contain meaningful changes between jobs, one of the files was kept (e.g., copied into a temporary location, or brought back to life afterwards with ``git cat-file``), and all ``CITATION.md`` files of all branches were deleted prior to the merge.
-   Here is a bash loop that would do exactly that::
-
-       $ for b in $(git branch -l | grep 'job-' | tr -d ' ');
-            do ( git checkout -b m$b $b && git rm logs/CITATION.md && git commit --amend --no-edit ) ;
-          done
-
-   Afterwards, the merge command succeeds
-
-**Merging without merge conflicts**
-
-If no merge conflicts arise and the octopus merge is successful, all results are aggregated in the ``master`` branch.
-The commit log looks like a work of modern art when visualized with tools such as :term:`tig`:
-
-.. figure:: ../artwork/src/octopusmerge_tig.png
-
-
-Summary
-"""""""
-
-Once all jobs are computed in parallel and the resulting branches merged, the superdataset is populated with two subdatasets that hold the preprocessing results.
-Each result contains a machine-readable record of provenance on when, how, and by whom it was computed.
-From this point, the results in the subdatasets can be used for further analysis, while a record of how they were preprocessed is attached to them.
-
-
+Voilà -- the results of all provenance-tracked job executions merged into the original dataset.
+If you are interested in seeing this workflow applied in a real analysis, read on into the next section, :ref:`hcpenki`.
 
 .. rubric:: Footnotes
 
 .. [#f1] To re-read about :command:`datalad run`'s ``--explicit`` option, take a look into the section :ref:`run5`.
 
-.. [#f2] If the distinction between annexed and unannexed files is new to you, please read section :ref:`symlink`
+.. [#f2] The `ReproNim container-collection <https://github.com/repronim/containers>`_ is a DataLad dataset that contains a range of preconfigured containers for neuroimaging.
 
-.. [#f3] Note that this requires the ``datalad containers`` extension. Find an overview of all datalad extensions in :ref:`extensions_intro`.
+.. [#f3] Clean-up routines can, in the case of common job schedulers, be taken care of by performing everything in compute node specific ``/tmp`` directories that are wiped clean after job termination.
 
-.. [#f4] Clean-up routines can, in the case of common job schedulers, be taken care of by performing everything in compute node specific ``/tmp`` directories that are wiped clean after job termination.
+.. [#f4] For an analogy, consider a group of software developers: Instead of adding code changes to the main :term:`branch` of a repository, they develop in their own repository clones and on dedicated, individual feature branches. This allows them to integrate their changes back into the original repository with as little conflict as possible. To find out why a different branch is required to enable easy pushing back to the original dataset, please checkout the explanation on :ref:`pushing to non-bare repositories <nonbarepush>` in the section on :ref:`help`.
 
-.. [#f5]  The brackets around the commands are called *command grouping* in bash, and yield a subshell environment: `www.gnu.org/software/bash/manual/html_node/Command-Grouping.html <https://www.gnu.org/software/bash/manual/html_node/Command-Grouping.html>`_.
+.. [#f5] Job schedulers can commonly produce log, error, and output files and it is advisable to save them for each job. Usually, job schedulers make it convenient to save them with a job-ID as an identifier. An example of this for HTCondor is shown in the Findoutmore in :ref:`jobsubmit`.
 
-.. [#f6] To find out why a different branch is required to enable easy pushing back to the original dataset, please checkout the explanation on :ref:`pushing to non-bare repositories <nonbarepush>` in the section on :ref:`help`.
-
-.. [#f7] For an analogy, consider a group of software developers: Instead of adding code changes to the main :term:`branch` of a repository, they develop in their own repository clones and on dedicated, individual feature branches. This allows them to integrate their changes back into the original repository with as little conflict as possible.
+.. [#f6] When a dataset is cloned from any location, this original location is by default known as the :term:`sibling`/:term:`remote` ``origin`` to the clone.

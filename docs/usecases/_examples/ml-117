@@ -1,0 +1,1 @@
+$ sed -i 's/SGDClassifier(max_iter=10)/SGDClassifier(max_iter=100)/g' code/train.py

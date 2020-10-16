@@ -1,0 +1,3 @@
+### DVC
+$ dvc checkout data/raw/val.dvc
+A	data/raw/val/

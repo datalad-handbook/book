@@ -2,6 +2,6 @@ $ cat .datalad/config
 [datalad "dataset"]
 	id = 49864bd6-9069-11ea-96fe-833ef2c0cd3b
 [datalad "containers.midterm-software"]
-	updateurl = shub://adswa/resources:1
+	updateurl = shub://adswa/resources:2
 	image = .datalad/environments/midterm-software/image
 	cmdexec = singularity exec {img} {cmd}

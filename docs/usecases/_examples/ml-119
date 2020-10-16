@@ -1,0 +1,6 @@
+$ datalad save -m "Increase the amount of iterations to 100" --version-tag "SGD-100" code/train.py
+add(ok): /home/me/usecases/ml-project/code/train.py (file)
+save(ok): /home/me/usecases/ml-project (dataset)
+action summary:
+  add (ok: 1)
+  save (ok: 1)

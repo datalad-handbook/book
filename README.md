@@ -1,7 +1,9 @@
 [![Build Status](https://travis-ci.org/datalad-handbook/book.svg?branch=master)](https://travis-ci.org/datalad-handbook/book) [![Documentation Status](https://readthedocs.org/projects/datalad-handbook/badge/?version=latest)](http://handbook.datalad.org/en/latest/?badge=latest)
-[![All Contributors](https://img.shields.io/badge/all_contributors-21-orange.svg?style=flat-square)](#contributors)
-[![DOI](https://zenodo.org/badge/192547315.svg)](https://zenodo.org/badge/latestdoi/192547315)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3608611.svg)](https://doi.org/10.5281/zenodo.3608611)
 [![made-with-datalad](https://www.datalad.org/badges/made_with.svg)](https://datalad.org)
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-32-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END --> 
 
 # The DataLad handbook :orange_book:
 
@@ -87,11 +89,17 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   <tr>
     <td align="center"><a href="https://github.com/dorianps"><img src="https://avatars3.githubusercontent.com/u/9083517?v=4" width="100px;" alt=""/><br /><sub><b>Dorian Pustina</b></sub></a><br /><a href="#ideas-dorianps" title="Ideas, Planning, & Feedback">🤔</a></td>
     <td align="center"><a href="https://github.com/hbaagil"><img src="https://avatars3.githubusercontent.com/u/61992500?v=4" width="100px;" alt=""/><br /><sub><b>Hamzah Hamid Baagil</b></sub></a><br /><a href="#userTesting-hbaagil" title="User Testing">📓</a> <a href="https://github.com/datalad-handbook/book/issues?q=author%3Ahbaagil" title="Bug reports">🐛</a></td>
-    <td align="center"><a href="https://github.com/glatard"><img src="https://avatars0.githubusercontent.com/u/5174953?v=4" width="100px;" alt=""/><br /><sub><b>Tristan Glatard</b></sub></a><br /><a href="https://github.com/datalad-handbook/book/issues?q=author%3Aglatard" title="Bug reports">🐛</a></td>
+    <td align="center"><a href="https://github.com/glatard"><img src="https://avatars0.githubusercontent.com/u/5174953?v=4" width="100px;" alt=""/><br /><sub><b>Tristan Glatard</b></sub></a><br /><a href="https://github.com/datalad-handbook/book/issues?q=author%3Aglatard" title="Bug reports">🐛</a> <a href="#content-glatard" title="Content">🖋</a></td>
     <td align="center"><a href="https://github.com/gi114"><img src="https://avatars0.githubusercontent.com/u/17640807?v=4" width="100px;" alt=""/><br /><sub><b>Giulia Ippoliti</b></sub></a><br /><a href="#content-gi114" title="Content">🖋</a> <a href="#example-gi114" title="Examples">💡</a></td>
     <td align="center"><a href="https://github.com/christian-monch"><img src="https://avatars3.githubusercontent.com/u/17925232?v=4" width="100px;" alt=""/><br /><sub><b>Christian Mönch</b></sub></a><br /><a href="#content-christian-monch" title="Content">🖋</a></td>
     <td align="center"><a href="https://github.com/ayrustogaru"><img src="https://avatars1.githubusercontent.com/u/35329371?v=4" width="100px;" alt=""/><br /><sub><b>Togaru Surya Teja</b></sub></a><br /><a href="#content-ayrustogaru" title="Content">🖋</a></td>
     <td align="center"><a href="https://github.com/DorienHuijser"><img src="https://avatars1.githubusercontent.com/u/58177697?v=4" width="100px;" alt=""/><br /><sub><b>Dorien Huijser</b></sub></a><br /><a href="https://github.com/datalad-handbook/book/issues?q=author%3ADorienHuijser" title="Bug reports">🐛</a> <a href="#userTesting-DorienHuijser" title="User Testing">📓</a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="http://arokem.org"><img src="https://avatars1.githubusercontent.com/u/118582?v=4" width="100px;" alt=""/><br /><sub><b>Ariel Rokem</b></sub></a><br /><a href="https://github.com/datalad-handbook/book/issues?q=author%3Aarokem" title="Bug reports">🐛</a></td>
+    <td align="center"><a href="https://remi-gau.github.io/"><img src="https://avatars3.githubusercontent.com/u/6961185?v=4" width="100px;" alt=""/><br /><sub><b>Remi Gau</b></sub></a><br /><a href="https://github.com/datalad-handbook/book/issues?q=author%3ARemi-Gau" title="Bug reports">🐛</a> <a href="#ideas-Remi-Gau" title="Ideas, Planning, & Feedback">🤔</a> <a href="#maintenance-Remi-Gau" title="Maintenance">🚧</a></td>
+    <td align="center"><a href="https://github.com/judithbomba"><img src="https://avatars1.githubusercontent.com/u/68907896?v=4" width="100px;" alt=""/><br /><sub><b>Judith Bomba</b></sub></a><br /><a href="https://github.com/datalad-handbook/book/issues?q=author%3Ajudithbomba" title="Bug reports">🐛</a></td>
+    <td align="center"><a href="http://khinsen.net/"><img src="https://avatars2.githubusercontent.com/u/94934?v=4" width="100px;" alt=""/><br /><sub><b>Konrad Hinsen</b></sub></a><br /><a href="https://github.com/datalad-handbook/book/issues?q=author%3Akhinsen" title="Bug reports">🐛</a></td>
   </tr>
 </table>
 

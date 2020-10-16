@@ -1224,12 +1224,8 @@ how to handle your datasets files and directories well and worry-free.
 .. rubric:: Footnotes
 
 .. [#f1] If you want to learn more about the Git-specific concepts of *worktree*,
-         *staging area*/*index* or *HEAD*, check out section ...
-
-         .. todo::
-
-            Write a section on this high-level Git stuff. Maybe in draft of
-            section on Git history...
+         *staging area*/*index* or *HEAD*, the upcoming section :ref:`history` will
+         talk briefly about them and demonstrate helpful commands.
 
 .. [#f2] Or rather: split -- basically, the file is getting a fresh new start.
          Think of it as some sort of witness-protection program with complete

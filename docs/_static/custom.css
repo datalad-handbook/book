@@ -102,3 +102,15 @@ progress::-webkit-progress-bar {
 .redirect::before {
   content: "↷ "
 }
+
+.windowsworkarounds .header:before {
+    content: "⇩ 💻 Windows-Workaround: ";
+    color: #00a4ef;
+    font-weight: bold;
+}
+
+.windowsworkarounds .header.open:before {
+    content: "⇧ 💻 Windows-Workaround: ";
+    color: #00a4ef;
+    font-weight: bold;
+}

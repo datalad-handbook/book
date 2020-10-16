@@ -19,6 +19,12 @@ clean-examples:
 	# wipe out the RIA store
 	@rm -vrf /home/me/myriastore
 
+# do not touch whats in the DataLad narrative, only certain unrelated wdirs and examples
+clean-DVC:
+	# wipe out the DVC comparison
+	@find docs/beyond_basics/_examples -name DL-101-168* -type f | xargs rm -vrf
+	@chmod +w -R /home/me/DVCvsDL; rm -vrf /home/me/DVCvsDL
+
 # wipe out usecases
 clean-usecases:
 	# check if we have something like .xsession or a .bashrc
@@ -39,3 +45,5 @@ clean:
 	@rm -vrf /home/me/makepushtarget.py
 	# wipe out the RIA store
 	@rm -vrf /home/me/myriastore
+	# wipe out the DVC comparison
+	@chmod +w -R /home/me/DVCvsDL; rm -vrf /home/me/DVCvsDL

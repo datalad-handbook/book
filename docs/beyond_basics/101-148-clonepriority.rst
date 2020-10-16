@@ -54,7 +54,7 @@ Importantly, it should not only be configured as one alternative, but it should 
 
 .. note::
 
-   The most likely use case for such a scenario is in the case of centrally managed data with data administrators that provide and manage the data for its users.
+   The most likely use case for such a scenario is in the case of centrally managed data with data administrators that provide and manage the data for their users.
 
 The priority of subdataset clone locations is configured by attaching a *cost* to a source candidate ``<name>``.
 The cost is a three digit value (range ``000-999``), and the lower the cost of a candidate, the higher its priority, i.e., the candidate with the lowest cost is attempted first.
@@ -80,12 +80,22 @@ Note that in the case where no cost is provided together with the candidate name
 With the ``datalad.get.subdataset-source-candidate`` configuration any number of (differently named) clone candidates can be set and prioritized.
 This allows precise access control over subdataset clone locations, and can -- depending on how many subdataset locations are known and functional -- speed up dataset installation.
 
-.. note::
 
-   Do note how the clone candidate configuration did not specify a concrete dataset in the RIA store, but used the ``{id}`` placeholder, which will expand to the subdataset's :term:`dataset ID` upon cloning.
-   This ensures that the clone locations point to the same RIA store, but stay flexible and dataset-specific.
-   You could configure a specific path or URL as a clone location, but this configuration is applied to *all* subdatasets.
-   Thus, whenever more than one subdataset exists in a superdataset, make sure to not provide a clone candidate configuration to a single, particular subdataset, as this could jeopardize the clone location of any other subdataset
+Placeholders
+^^^^^^^^^^^^
+
+Instead of adding configurations with precise URLs you can also make use of templates with placeholders to configure clone locations more flexibly.
+A placeholder takes the form ``{placeholdername}`` and can reference any property that can be inferred from the parent dataset's knowledge about the target superset, specifically any subdataset information that exists as a key-value pair within ``.gitmodules``.
+For convenience, an existing `datalad-id` record is made available under the shortened name `id`.
+In all likelihood, the list of available placeholders will be expanded in the future.
+Do you have a usecase and need a specific placeholder?
+`Reach out to us <https://github.com/datalad/datalad/issues/new>`_, we may be able to add the placeholders you need!
+
+When could this be useful?
+For an example, consider how the clone candidate configuration above did not specify a concrete dataset in the RIA store, but used the ``{id}`` placeholder, which will expand to the subdataset's :term:`dataset ID` upon cloning.
+This ensures that the clone locations point to the same RIA store, but stay flexible and dataset-specific.
+You could configure a specific path or URL as a clone location, but this configuration is applied to *all* subdatasets.
+Thus, whenever more than one subdataset exists in a superdataset, make sure to not provide a clone candidate configuration to a single, particular subdataset, as this could jeopardize the clone location of any other subdataset.
 
 
 .. rubric:: Footnotes

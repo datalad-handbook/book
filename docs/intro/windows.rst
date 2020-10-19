@@ -94,7 +94,7 @@ Are there feasible alternatives?
 If you want to use DataLad, but fear problems when on Windows, what is there that you can do?
 Should you switch your operating system?
 
-Its quite easy to say "Just use Linux" when you have no experience, support, or spare time and are hence reluctant to completely overhaul your operating system and reduce your productivity while you get a hang on it -- or if you rely on software that is native to Windows, such as Microsoft or Adobe products.
+Its quite easy to say "Just use Linux" but tough to do when you have no experience, support, or spare time and are hence reluctant to completely overhaul your operating system and reduce your productivity while you get a hang on it -- or if you rely on software that is native to Windows, such as Microsoft or Adobe products.
 Its also easy to say "Just use a Mac, its much more user-friendly *and* Unix-based" when an Apple product is a very expensive investment that only few people can or want to afford.
 Its a bit like recommending a MatLab user (proprietary, expensive, closed-source software) to switch to Python, R, Julia, or a similar open source alternative.
 Yes, there are real benefits to it that make the change worthwhile to many, but that doesn't change the fact that it is effortful and may be frustrating.
@@ -132,7 +132,7 @@ The Linux distribution(s) of your choice becomes an icon on your task bar, and y
 It does not support graphical user (GUI) interfaces or applications.
 So while common Linux distributions have GUIs for various software, in WSL2 you will only be able to use a terminal.
 Also, it is important to know that `older versions of WSL did not allow accessing or modifying Linux files via Windows <https://devblogs.microsoft.com/commandline/do-not-change-linux-files-using-windows-apps-and-tools/>`_.
-Recent versions (starting with Windows 10 version 1903) `allow accessing Linux files with Windows tools <https://devblogs.microsoft.com/commandline/whats-new-for-wsl-in-windows-10-version-1903/>`_, although some tweaking (explained in chapter :ref:`chapter-gitannex`) is necessary.
+Recent versions (starting with Windows 10 version 1903) `allow accessing Linux files with Windows tools <https://devblogs.microsoft.com/commandline/whats-new-for-wsl-in-windows-10-version-1903/>`_, although some tweaking, explained in :ref:`wslfiles`, is necessary.
 
 **How do I start?**
 Microsoft has detailed installation instructions `here <https://docs.microsoft.com/en-us/windows/wsl/install-win10>`_.

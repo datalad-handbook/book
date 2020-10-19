@@ -344,6 +344,32 @@ Alternatively, use the :command:`ls` command in a terminal instead of a file man
 Other tools may be more more specialized, smaller, or domain-specific, and may fail to correctly work with broken symlinks, or display unhelpful error messages when handling them, or require additional flags to modify their behavior (such as the :ref:`BIDS Validator <bidsvalidator>`, used in the neuroimaging community).
 When encountering unexpected behavior or failures, try to keep in mind that a dataset without retrieved content appears to be a pile of broken symlinks to a range of tools, consult a tools documentation with regard to symlinks, and check whether data retrieval fixes persisting problems.
 
+.. _wslfiles:
+
+Cross-OS filesharing with symlinks (WSL2 only)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Are you using DataLad on the Windows Subsystem for Linux?
+If so, please take a look into the Findoutmore below.
+
+.. findoutmore:: Accessing symlinked files from your Windows system
+
+   If you are using WSL2 you have access to a Linux kernel and POSIX filesystem, including symlink support.
+   Your DataLad experience has therefore been exactly as it has been for macOS or Linux users.
+   But one thing that bears the need for additional information is sharing files in dataset between your Linux and Windows system.
+
+   Its fantastic that files created under Linux can be shared to Windows and used by Windows tools.
+   Usually, you should be able to open an explorer and type ``\\wsl$\<distro>\<path>`` in the address bar to navigate to files under Linux, or type ``explorer.exe`` into the WSL2 terminal.
+   Some core limitations of Windows can't still be overcome, though: Windows usually isn't capable of handling symlinks.
+   So while WSL2 can expose your dataset filled with symlinked files to Windows, your Windows tools can fail to open them.
+   How can this be fixed?
+
+   Whenever you need to work with files from your datasets under Windows, you should *unlock* with ``datalad unlock``.
+   This operation copies the file from the annex back to its original location, and thus removes the symlink (and also returns write :term:`permissions` to the file).
+   Alternatively, use `git-annex adjust --unlock <https://git-annex.branchable.com/git-annex-adjust/>`_ to switch to a new dataset :term:`branch` in which all files are unlocked.
+   The branch is called ``adjusted/<branchname>(unlocked)`` (e.g., if the original branch name was ``master``, the new, adjusted branch will be called ``adjusted/master(unlocked)``).
+   You can switch back to your original branch using ``git checkout <branchname>``.
+
 Finally, if you are still in the ``books/`` directory, go back into the root of
 the superdataset.
 

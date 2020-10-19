@@ -1,5 +1,9 @@
 $ git log --oneline --graph --decorate
-* a6623bff (HEAD -> master, origin/master, origin/HEAD) [DATALAD] dataset aggregate metadata update
+*   b5306e2e (HEAD -> master, origin/master, origin/HEAD) Merge pull request #15 from adswa/ENH/README
+|\
+| * 45a110f7 use standard textblock to explain DataLad datasets in README
+|/
+* a6623bff [DATALAD] dataset aggregate metadata update
 * 72d535d5 Enable DataLad metadata extractors
 * 9c15094e [DATALAD] new dataset
 * d97455f5 [DATALAD] Set default backend for all files to be MD5E

@@ -1,0 +1,17 @@
+### DVC-DataLad
+$ tree
+.
+├── CHANGELOG.md
+├── code
+│   ├── evaluate.py
+│   ├── prepare.py
+│   ├── README.md
+│   └── train.py
+├── data
+│   ├── prepared
+│   └── raw
+├── metrics
+├── model
+└── README.md
+
+6 directories, 6 files

@@ -73,16 +73,26 @@ will let you master a given task and get along comfortably.
 Having the basics will be your multi-purpose swiss army knife.
 But if you want to have the special knowledge for a very peculiar type
 of problem set or that extra increase in skill or understanding,
-you'll have to do a detour into some of the *hidden* parts of the book:
+you'll have to do a detour into some of the "hidden" parts of the book:
 When there are command options or explanations that go beyond basics and
-best practices, we hide them in foldable book sections in order
+best practices, we hide them in special book sections in order
 to not be too distracting for anyone only interested in the basics.
 You can decide for yourself whether you want to check them out:
 
-.. findoutmore:: Click here to show/hide further commands
+.. only:: html
 
-    Sections like this contain content that goes beyond the basics
-    necessary to complete a challenge.
+   .. findoutmore:: Click here to show/hide further commands
+
+       Sections like this contain content that goes beyond the basics
+       necessary to complete a challenge.
+
+.. only:: latex
+
+   .. findoutmore:: Information on further commands
+
+       Sections like this contain content that goes beyond the basics
+       necessary to complete a challenge.
+
 
 Note further that...
 
@@ -95,6 +105,14 @@ Note further that...
    to follow this book. You will, though, encounter Git commands throughout
    the book when there is no better alternative, and executing those commands will
    suffice to follow along.
+
+If you are a Windows 10 user with a native (i.e., not `Windows Subsystem for Linux (WSL) <https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux>`_-based DataLad installation, pay close attention to the special notes in
+
+.. windowsworkarounds:: For Windows users only
+
+   A range of file system issues can affect the behavior of DataLad or its underlying tools on Windows 10.
+   If necessary, the handbook provides workarounds for problems, explanations, or at least apologies for those inconveniences.
+   If you want to help us make the handbook or DataLad better for Windows users, please `get in touch <https://github.com/datalad-handbook/book/issues/new/>`_ -- every little improvement or bug report can help.
 
 Apart from core DataLad commands (introduced in the *Basics* part of this book),
 DataLad also comes with many extensions and advanced commands not (yet) referenced

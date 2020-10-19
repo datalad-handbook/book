@@ -1,0 +1,19 @@
+### DVC-DataLad
+$ cd ../DVC-DataLad
+# datalad > 13.4 needs the configuration option -c datalad.runtime.use-patool=1
+$ datalad -c datalad.runtime.use-patool=1 download-url \
+  --archive \
+  --message "Download Imagenette dataset" \
+  'https://s3.amazonaws.com/fast-ai-imageclas/imagenette2-160.tgz' \
+  -O 'data/raw/'
+[INFO] Downloading 'https://s3.amazonaws.com/fast-ai-imageclas/imagenette2-160.tgz' into '/home/me/DVCvsDL/DVC-DataLad/data/raw/' 
+download_url(ok): /home/me/DVCvsDL/DVC-DataLad/data/raw/imagenette2-160.tgz (file)
+add(ok): /home/me/DVCvsDL/DVC-DataLad/data/raw/imagenette2-160.tgz (file)
+save(ok): /home/me/DVCvsDL/DVC-DataLad (dataset)
+[INFO] Adding content of the archive /home/me/DVCvsDL/DVC-DataLad/data/raw/imagenette2-160.tgz into annex AnnexRepo(/home/me/DVCvsDL/DVC-DataLad) 
+[INFO] Initiating special remote datalad-archives 
+[INFO] Finished adding /home/me/DVCvsDL/DVC-DataLad/data/raw/imagenette2-160.tgz: Files processed: 13394, renamed: 13394, +annex: 13394 
+action summary:
+  add (ok: 1)
+  download_url (ok: 1)
+  save (ok: 1)

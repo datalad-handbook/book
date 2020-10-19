@@ -1,0 +1,162 @@
+.. _gobig:
+
+Going big with DataLad
+----------------------
+
+All chapters throughout the Basics demonstrated "household quantity" examples.
+Version controlling or analyzing data in datasets with a total size of up to a
+few hundred GB, with some tens of thousands of files at maximum? Usually, this
+should work fine. If you want to go beyond this scale, however, you should read
+this section to learn how to properly scale up. As a general rule, consider this
+section relevant once you have a usecase in which you would go substantially
+beyond 100k files in a single dataset.
+
+The contents of this chapter exist thanks to some pioneers that took a leap and
+deep-dived into gigantic data management challenges. You can read up on some
+of them in the usecases :ref:`usecase_HCP_dataset` and :ref:`usecase_datastore`.
+Based on what we have learned so far from these endeavors,
+this chapter encompasses principles, advice, and points of reference.
+
+The introduction in this section illustrates the basic caveats when scaling up,
+and points to benchmarks, rules of thumb, and general solutions.
+Upcoming sections demonstrate how one can attempt
+large-scale analyses with DataLad, and how to fix things up when dataset sizes
+got out of hand.
+
+Why scaling up Git repos can become difficult
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+You already know that :term:`Git` does not scale well with *large* files.
+As a Git repository stores every version of every file that is added to it,
+large files that undergo regular modifications can inflate the size of a·project
+significantly. Depending on how many large files are added to a pure Git
+repository, this can not only have a devastating impact on the time it takes
+to clone, fetch, or pull (from) a repository, but also on regular within-repository
+operations, such as checking the state of the repository or switching branches.
+Using :term:`git-annex` (either directly, or by using DataLad) can eliminate this
+issue, but there is a second factor that can prevent scaling up with Git: The
+*number* of files. One reason for this is that Git performs a large amount of
+`stat system calls <https://en.wikipedia.org/wiki/Stat_(system_call)>`_
+(used in :command:`git add` and :command:`git commit`). Repositories can thus
+suffer greatly if they are swamped with files [#f1]_.
+
+Given that DataLad builds up on Git, having datasets with large amounts of files
+can lead to
+`painfully slow operations <https://github.com/datalad/datalad/issues/3869>`_.
+As a general rule of thumb, we will consider single datasets with 100k files or
+more as "big" for the rest of this chapter. Starting at about this size we can
+begin to see performance issues in datasets.
+Bench marking in DataLad datasets with varying, but large amounts of tiny files
+on different file systems and different git-annex repository versions show that
+a mere :command:`datalad save` or :command:`datalad status` command
+can take from 15 minutes up to several hours. Its neither fun nor feasible to
+work with performance drops like this -- so how can this be avoided?
+
+General advice: Use several subdatasets
+=======================================
+
+The general set-up for publishing or version controlling data in a scalable
+way is to make use of subdatasets. Instead of a single dataset with 1 million
+files, have 20, for example, with 50.000 files each, and link them as subdataset.
+This will split the amount of files that need to be handled across several datasets,
+and, at the same time, it also alleviates strain on the file system that would arise
+if large amounts of files are kept in single directories.
+
+How would that look like for a large scale dataset? In the use case
+:ref:`usecase_HCP_dataset`, 80 million files with neuroscientific data from about
+1200 participants are split into roughly 4500 subdatasets based on directory
+structure. Each participant directory is a subdataset, and it contains several
+more subdatasets, depending on how much data modalities are available. A similar
+approach was chosen for the
+`Datalad UKbiobank extension <https://github.com/datalad/datalad-ukbiobank>`_
+that can enable to obtain and version control imaging releases of the up to
+100000 participants of the `UKbiobank project <https://www.ukbiobank.ac.uk/>`_.
+
+**"But why use DataLad for this?"**
+In principle, using many instead of a single repository/dataset for large amounts
+of files is a measure that can be implemented with any of the tools involved,
+be it Git, git-annex, or DataLad. What makes using DataLad well-suited
+for such a scaling approach and distinguishes it from Git and git-annex, is that
+it is way easier to link datasets and to operate across subdataset boundaries
+recursively with the nesting capabilities [#f2]_ of DataLad.
+Git provides functionality for nested repositories (so-called submodules,
+also used by DataLad underneath the hood), but the workflows are by far not as
+smooth. For a direct comparison between working with nested datasets and nested
+Git repositories, take a look at
+`this demo <https://youtu.be/Yrg6DgOcbPE?t=350>`_.
+
+**How far does this scale?**
+In preparation for assembling a complete UKBiobank dataset, simulations of
+datasets with 40k and 100k subdatasets ran successfully.
+
+.. findoutmore:: How do simulations like this work?
+
+   With shell scripts such as this::
+
+      #!/bin/bash
+      set -x
+
+      # build a dummy subdataset to be referenced 40k times:
+      datalad create dummy_sub
+      echo "whatever" > dummy_sub/some_file
+      datalad save -d dummy_sub
+
+      sub_id=$(datalad -f "{infos[dataset][id]}"  wtf -d dummy_sub)
+      sub_commit=$(git -C dummy_sub show --no-patch --format=%H)
+
+
+      # the actual super dataset and use some config procedure to get
+      # an initial history
+      datalad create -c yoda dummy_super_40k
+
+      cd dummy_super_40k
+
+      for ((i=1;i<=100000;i++)); do
+          git config -f .gitmodules "submodule.sub$i.path" "sub$i";
+          git config -f .gitmodules "submodule.sub$i.url" ../dummy_sub;
+          git config -f .gitmodules "submodule.sub$i.datalad-id" "$sub_id";
+          git update-index --add --replace --cacheinfo 160000 "$sub_commit" "sub$i";
+      done;
+
+      git add .gitmodules
+      git commit -m "Add submodules"
+
+   Note that this way of simulating subdatasets is speedier and simplified,
+   because instead of cloning subdatasets, it makes use of Git's
+   `update-index <https://git-scm.com/docs/git-update-index>`_ command and records the
+   subdatasets by committing manual changes to ``.gitmodules``.
+
+Do note, however, that these numbers of subdatasets may well exhaust your file
+system's subdirectory limit (commonly at 64k).
+
+Tool-specific and smaller advice
+================================
+
+- If you are interested in up-to-date performance benchmarks, take a look at
+  `www.datalad.org/test_fs_analysis.html <https://www.datalad.org/test_fs_analysis.html>`_.
+  This can help to set expectations and give useful comparisons of file systems
+  or software versions.
+- git-annex offers a range of tricks to further improve performance in large
+  datasets. For example, it may be useful to not use a
+  standalone git-annex build, but a native git-annex binary (see
+  `this comment <https://github.com/datalad/datalad/issues/3869#issuecomment-557598390>`_)
+- Status reports in datasets with large amounts of files and/or subdatasets can
+  be expensive. Check out the Gist :ref:`speedystatus` for solutions.
+
+.. todo::
+
+   More here
+
+
+.. rubric:: Footnotes
+
+.. [#f1] For example: A Git repository with more than a million (albeit tiny) files
+        `takes hours and hours to merely create <https://www.monperrus.net/martin/one-million-files-on-git-and-github>`_,
+        if standard Git workflows are used.
+        `This post <https://breckyunits.com/building-a-treebase-with-6-point-5-million-files.html>`_
+        contains an entertaining description of what happens if one attempts to create
+        a Git repository with 6.5 million files -- up to the point when some Git
+        commands stop working.
+
+.. [#f2] To reread on nesting DataLad datasets, check out sections :ref:`nesting`
+         and :ref:`nesting2`

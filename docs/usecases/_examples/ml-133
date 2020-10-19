@@ -1,0 +1,25 @@
+$ datalad rerun --branch="randomforest" -m "Recompute classification with random forest classifier" ready4analysis..SGD-100
+[INFO] checkout commit f53ee20;
+[INFO] run commit 7ebd32e; (Train an SGD clas...)
+[INFO] Making sure inputs are available (this may take some time) 
+unlock(ok): /home/me/usecases/ml-project/model.joblib (file)
+[INFO] == Command start (output follows) ===== 
+[INFO] == Command exit (modification check follows) ===== 
+add(ok): /home/me/usecases/ml-project/model.joblib (file)
+save(ok): /home/me/usecases/ml-project (dataset)
+[INFO] run commit 3bd8b18; (Evaluate SGD clas...)
+[INFO] Making sure inputs are available (this may take some time) 
+[INFO] == Command start (output follows) ===== 
+{'accuracy': 0.8035487959442332}
+[INFO] == Command exit (modification check follows) ===== 
+add(ok): /home/me/usecases/ml-project/accuracy.json (file)
+add(ok): /home/me/usecases/ml-project/code/__pycache__/train.cpython-37.pyc (file)
+save(ok): /home/me/usecases/ml-project (dataset)
+[INFO] skip-or-pick commit e96943a; e96943a does not have a command; skipping or cherry picking
+run(ok): /home/me/usecases/ml-project (dataset) [e96943a does not have a command; skipping]
+action summary:
+  add (ok: 3)
+  get (notneeded: 8)
+  run (ok: 1)
+  save (notneeded: 2, ok: 2)
+  unlock (notneeded: 2, ok: 1)

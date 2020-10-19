@@ -303,7 +303,9 @@ version control it was in (i.e., from one ``.git`` directory into a different
 one). From the perspective of the first subdataset, the file will be deleted,
 and from the perspective of the receiving dataset, the file will be added to
 the dataset, but straight out of nowhere, with none of its potential history
-from its original dataset attached to it.
+from its original dataset attached to it. Before moving a file, consider whether
+*copying* it (outlined in the next but one paragraph) might be a more suitable
+alternative.
 
 If you are willing to sacrifice [#f2]_ the file's history and move it to a
 different dataset, the procedure differs between annexed files, and files
@@ -444,7 +446,9 @@ hopefully convinced you that moving files across dataset boundaries is not
 convenient. It can be a confusing and potentially "file-content-losing"-dangerous
 process, but it also dissociates a file from its provenance that is captured
 in its previous dataset, with no machine-readable way to learn about the move
-easily. Let's quickly clean up by moving the file back:
+easily. A better alternative may be copying files with the :command:`datalad copy-file`
+command introduced in detail in :ref:`copyfile`, and demonstrated in the next
+but one paragraph. Let's quickly clean up by moving the file back:
 
 .. runrecord:: _examples/DL-101-136-188
    :language: console
@@ -543,6 +547,74 @@ Finally, let's clean up:
    :cast: 03_git_annex_basics
 
    $ git reset --hard HEAD~1
+
+.. _copyfileFS:
+
+Copying files across dataset boundaries
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. note::
+
+   :command:`datalad copy-file` requires DataLad version ``0.13.0`` or higher.
+
+Instead of moving files across dataset boundaries, *copying* them is an easier
+and -- **beginning with DataLad version 0.13.0** -- actually supported method.
+The DataLad command that can be used for this is :command:`datalad copy-file`
+(:manpage:`datalad-copy-file` manual). This command allows to copy files
+(from any dataset or non-dataset location, annexed or not annexed) into a dataset.
+If the file is copied from a dataset and is annexed, its availability metadata
+is added to the new dataset as well, and there is no need for unannex'ing the
+or even retrieving its file contents. Let's see this in action for a file
+stored in Git, and a file stored in annex:
+
+.. runrecord:: _examples/DL-101-136-135
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ datalad copy-file notes.txt midterm_project -d midterm_project
+
+.. runrecord:: _examples/DL-101-136-136
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ datalad copy-file books/bash_guide.pdf midterm_project -d midterm_project
+
+Both files have been successfully transferred and saved to the subdataset, and
+no unannexing was necessary.
+Note, though, that ``notes.txt`` was annexed in the subdataset, as this subdataset
+was not configured with the ``text2git`` :term:`run procedure`.
+
+.. runrecord:: _examples/DL-101-136-137
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ tree midterm_project
+
+The subdataset has two new commits as :command:`datalad copy-file` can take care
+of saving changes in the copied-to dataset, and thus the new subdataset state
+would need to be saved in the superdataset.
+
+.. runrecord:: _examples/DL-101-136-138
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ datalad status -r
+
+Still, just as when we *moved* files across dataset boundaries, the files'
+provenance record is lost:
+
+.. runrecord:: _examples/DL-101-136-139
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ cd midterm_project
+   $ git log notes.txt
+
+Nevertheless, copying files with :command:`datalad copy-file` is easier and safer
+than moving them with standard Unix commands, especially so for annexed files.
+A more detailed introduction to :command:`datalad copy-file` and a concrete
+usecase can currently be found in :ref:`copyfile`.
+
 
 Moving/renaming a subdirectory or subdataset
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1152,12 +1224,8 @@ how to handle your datasets files and directories well and worry-free.
 .. rubric:: Footnotes
 
 .. [#f1] If you want to learn more about the Git-specific concepts of *worktree*,
-         *staging area*/*index* or *HEAD*, check out section ...
-
-         .. todo::
-
-            Write a section on this high-level Git stuff. Maybe in draft of
-            section on Git history...
+         *staging area*/*index* or *HEAD*, the upcoming section :ref:`history` will
+         talk briefly about them and demonstrate helpful commands.
 
 .. [#f2] Or rather: split -- basically, the file is getting a fresh new start.
          Think of it as some sort of witness-protection program with complete

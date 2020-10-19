@@ -1,0 +1,280 @@
+$ tree /home/me/myriastore
+/home/me/myriastore
+├── 07c
+│   └── 74330-9069-11ea-96fe-833ef2c0cd3b
+│       ├── annex
+│       │   └── objects
+│       │       ├── F1
+│       │       │   └── Wz
+│       │       │       └── MD5E-s4242644--f4e1c8ebfb5c89a69ff6d268eb2e63e3.pdf
+│       │       │           └── MD5E-s4242644--f4e1c8ebfb5c89a69ff6d268eb2e63e3.pdf
+│       │       ├── G6
+│       │       │   └── Gj
+│       │       │       └── MD5E-s12465653--05cd7ed561d108c9bcf96022bc78a92c.pdf
+│       │       │           └── MD5E-s12465653--05cd7ed561d108c9bcf96022bc78a92c.pdf
+│       │       ├── jf
+│       │       │   └── 3M
+│       │       │       └── MD5E-s2120211--06d1efcb05bb2c55cd039dab3fb28455.pdf
+│       │       │           └── MD5E-s2120211--06d1efcb05bb2c55cd039dab3fb28455.pdf
+│       │       └── WF
+│       │           └── Gq
+│       │               └── MD5E-s1198170--0ab2c121bcf68d7278af266f6a399c5f.pdf
+│       │                   └── MD5E-s1198170--0ab2c121bcf68d7278af266f6a399c5f.pdf
+│       ├── archives
+│       ├── branches
+│       ├── config
+│       ├── description
+│       ├── HEAD
+│       ├── hooks
+│       │   ├── applypatch-msg.sample
+│       │   ├── commit-msg.sample
+│       │   ├── fsmonitor-watchman.sample
+│       │   ├── post-update.sample
+│       │   ├── pre-applypatch.sample
+│       │   ├── pre-commit.sample
+│       │   ├── prepare-commit-msg.sample
+│       │   ├── pre-push.sample
+│       │   ├── pre-rebase.sample
+│       │   ├── pre-receive.sample
+│       │   └── update.sample
+│       ├── info
+│       │   └── exclude
+│       ├── objects
+│       │   ├── info
+│       │   └── pack
+│       │       ├── pack-409dd939dfa96072f004f939868d0fcbc41dd767.idx
+│       │       ├── pack-409dd939dfa96072f004f939868d0fcbc41dd767.pack
+│       │       ├── pack-b0874468fd957dcd4a602a730aabaceeaef42afa.idx
+│       │       └── pack-b0874468fd957dcd4a602a730aabaceeaef42afa.pack
+│       ├── ora-remote-33f4615c-dddd-4f49-9e81-2c357e427f63
+│       │   └── transfer
+│       ├── refs
+│       │   ├── heads
+│       │   │   ├── git-annex
+│       │   │   └── master
+│       │   └── tags
+│       └── ria-layout-version
+├── 498
+│   └── 64bd6-9069-11ea-96fe-833ef2c0cd3b
+│       ├── annex
+│       │   └── objects
+│       │       ├── VF
+│       │       │   └── 27
+│       │       │       └── MD5E-s347--7d984f53676358222aa7aa55980f205b.csv
+│       │       │           └── MD5E-s347--7d984f53676358222aa7aa55980f205b.csv
+│       │       ├── xZ
+│       │       │   └── pk
+│       │       │       └── MD5E-s175447--1f7f416d7c317c1f6208a940aa50c700.png
+│       │       │           └── MD5E-s175447--1f7f416d7c317c1f6208a940aa50c700.png
+│       │       └── zJ
+│       │           └── 8f
+│       │               └── MD5E-s232214559--49dcb6ac1a5787636c9897c4d4df7e10
+│       │                   └── MD5E-s232214559--49dcb6ac1a5787636c9897c4d4df7e10
+│       ├── archives
+│       ├── branches
+│       ├── config
+│       ├── description
+│       ├── HEAD
+│       ├── hooks
+│       │   ├── applypatch-msg.sample
+│       │   ├── commit-msg.sample
+│       │   ├── fsmonitor-watchman.sample
+│       │   ├── post-update.sample
+│       │   ├── pre-applypatch.sample
+│       │   ├── pre-commit.sample
+│       │   ├── prepare-commit-msg.sample
+│       │   ├── pre-push.sample
+│       │   ├── pre-rebase.sample
+│       │   ├── pre-receive.sample
+│       │   └── update.sample
+│       ├── info
+│       │   └── exclude
+│       ├── objects
+│       │   ├── 01
+│       │   │   └── 6a67d14e520cbd435f178f3647e92d65cc41e6
+│       │   ├── 03
+│       │   │   └── 9aaa442e10f3d941861bf415c232ef79623ff8
+│       │   ├── 07
+│       │   │   └── 9d97c367520b1291fe2b4c6abeb862371b02ab
+│       │   ├── 09
+│       │   │   └── f265aa5fb7f8335e71eca38ea3765c55422ade
+│       │   ├── 0b
+│       │   │   └── 9c1e2db0a572806c59e331eb9659520f9b84b8
+│       │   ├── 11
+│       │   │   └── 9ff044791a6e5fbe8d98bab341001d97e9feb7
+│       │   ├── 16
+│       │   │   └── 24268838a9df78c6b45067d3e51a54cd24265c
+│       │   ├── 17
+│       │   │   └── 79c7a04c92b5063882079ac7c939b16737cf8f
+│       │   ├── 1b
+│       │   │   ├── 884a75d32efbcf9e470c79aad44b36d5212fcd
+│       │   │   └── e7f989909d57adc3cbf391a003eb180b9201d4
+│       │   ├── 1e
+│       │   │   └── d9d2f6b504b19c0f01816178233c68835f758c
+│       │   ├── 20
+│       │   │   └── b7722d57db1eb57a1f23c2a2195a6924991d76
+│       │   ├── 25
+│       │   │   ├── e586ecfb4e7f5c4e721a27aa89a91328fbb0b3
+│       │   │   └── fce1e390322c8c6c5730abf664dcc1fa4a9482
+│       │   ├── 26
+│       │   │   └── 058d30d26912dc073d04e4d941a7aa58f56a8e
+│       │   ├── 28
+│       │   │   ├── 5b49c93e70d2f424a1587c4bee0839aef04ce0
+│       │   │   └── b0b472bd0803c463b92835a5354eb6dd9ed87d
+│       │   ├── 2d
+│       │   │   ├── a25fc76e159a7282fb15ddccfd283bb8209adc
+│       │   │   └── aafe9f4c2197f3a71e6ba57ccb38537a3ffee1
+│       │   ├── 2e
+│       │   │   ├── 8b77a098853cb47ef3aa8ff9bb9434f3b490a9
+│       │   │   └── dc2849d6d80079e0dd4654ea2d2be588535b5d
+│       │   ├── 30
+│       │   │   └── ddc631b6be71192d54c59a0332f50e9712e039
+│       │   ├── 34
+│       │   │   ├── 328e2631ce2083fab97fe14a74f323436e9b10
+│       │   │   └── adffd2533a202c50ffddc4c704735cbd85ac7e
+│       │   ├── 35
+│       │   │   └── 26135630732215ca9ac3e6685de7749d08194b
+│       │   ├── 36
+│       │   │   └── 65051e51d9cf1a394810796e3f8860d307eb4e
+│       │   ├── 41
+│       │   │   └── e377d4a16c9d9d0a0ccd759e4a97b9fe1c842c
+│       │   ├── 42
+│       │   │   └── d194b1b34e12bf285dffeb4805bc1d69f537a8
+│       │   ├── 43
+│       │   │   └── 4a2c841e0afb5889a56c9d681f1e368e1cba95
+│       │   ├── 44
+│       │   │   └── ae8d678b8457faaa9f61d48dfdf1ed352726ec
+│       │   ├── 45
+│       │   │   └── 61c9262bb471ee71d29e2d7bdc293984f49968
+│       │   ├── 46
+│       │   │   └── aa9052a302b33fed9f4b8b7cb6c42a7cbb468b
+│       │   ├── 49
+│       │   │   └── 0c2273d9e84484a2975168f26cf74fb6f67e3e
+│       │   ├── 4b
+│       │   │   └── 825dc642cb6eb9a060e54bf8d69288fbee4904
+│       │   ├── 4d
+│       │   │   └── f64f42f48b1a4967db997220bbf0f0dd8cfa87
+│       │   ├── 54
+│       │   │   └── 582be6c832e9fd930093888449c7402672b4f2
+│       │   ├── 5b
+│       │   │   └── 2146b6a5b2cd63e18d88e2a89842d302513fcd
+│       │   ├── 5e
+│       │   │   └── 19ac4ced001dd4dcd6ce35402a4d6faf2063b4
+│       │   ├── 5f
+│       │   │   └── 760a2bffeec5a70bb57556b317a56260171ee5
+│       │   ├── 67
+│       │   │   ├── 01d6df9a2ff757d18a527221bcc0495ab23871
+│       │   │   └── 9b57f861f0bdda966c050cfa255c4ef845169f
+│       │   ├── 6c
+│       │   │   └── ad10336e597e4a116b08238ecd14e9736601b1
+│       │   ├── 6d
+│       │   │   └── aecfb63901745da4092a65d6845595aaba159d
+│       │   ├── 6e
+│       │   │   └── 06b1855a8f46cb0e75e463d494d4925e7d7ee8
+│       │   ├── 75
+│       │   │   └── ed15d4e993800cd3941834b320307473aeec2f
+│       │   ├── 76
+│       │   │   └── 5aa87cb2195464eaaf6111d6fc05a9858088b3
+│       │   ├── 7a
+│       │   │   └── 8e02e5fe51410a762028bb580d312c726acc04
+│       │   ├── 7b
+│       │   │   └── 30b1622e25b5caec3aa14b3f134963bef5c303
+│       │   ├── 80
+│       │   │   └── 0282a43f30b90c404a5013a66176e42660f7dd
+│       │   ├── 84
+│       │   │   └── a246e40bee01cb7874214aec54f2647fe9ae4e
+│       │   ├── 86
+│       │   │   ├── 25fb149e1a9f75078aa07ff99731bf53a28e39
+│       │   │   ├── 5f587d62f77a67bc668ac19f0dbde14a9ba5a3
+│       │   │   └── fcfb86393bb514a81fa8f2e566c258b5ba3c30
+│       │   ├── 91
+│       │   │   └── 492d48edfb8fca8c69cf2d954fc513bf127048
+│       │   ├── 92
+│       │   │   └── b29f29f48ae0de816b1b482c5e25af6b050c9a
+│       │   ├── 94
+│       │   │   └── b570eac65b1d11c79fed128d3e95ffeff6ef92
+│       │   ├── 95
+│       │   │   └── 9a71b5b3546cb2218aa592bf597f72d12b3341
+│       │   ├── 96
+│       │   │   ├── 4e52c11eab853d85eeb253fe8770bf654a6c6d
+│       │   │   └── aab3752c464da88a1a9288dd3c02285ee0b882
+│       │   ├── 97
+│       │   │   └── 55c04f77cbf8be067a6885522bac2a90d906b7
+│       │   ├── a3
+│       │   │   └── 0b54dacb69f02c8235e577d50030fa3a7ff817
+│       │   ├── a9
+│       │   │   └── 1de06229ed56b3dd48b1e28723594c50b61c6f
+│       │   ├── aa
+│       │   │   └── 4dd0adc688b3bca67067faa8fd37121f786acb
+│       │   ├── ab
+│       │   │   ├── 192239fd08666c72e4e97a4563d5c4b749e3e1
+│       │   │   └── a0db2ba59d95c681d7024c512d902c5ff58359
+│       │   ├── b1
+│       │   │   └── bfb8febf9f78beb91b898e67f2431e0c8e2299
+│       │   ├── b4
+│       │   │   └── 6a2d5a30bbe8e012cab29849675a7633aa5afc
+│       │   ├── b5
+│       │   │   └── 40820107ca5718dc0f196a08edf3729239bfef
+│       │   ├── b9
+│       │   │   ├── 73796f0bf3393e4ae3744d958f971a99764568
+│       │   │   └── e8811d4f0c5d9231eec689bbd54f110d901ec9
+│       │   ├── bb
+│       │   │   └── 587281e08622cec88d67a9dcb97763ecc48535
+│       │   ├── bd
+│       │   │   └── 519d3db8032b5e41601791510a384d22039c2f
+│       │   ├── bf
+│       │   │   └── c49c8259c178003cfc12620587daa77382dab1
+│       │   ├── c3
+│       │   │   └── aaefef9a2470b31ba9213350046ff7cde75737
+│       │   ├── c6
+│       │   │   └── 2daca519a2e572150adb1af280de9e974fba89
+│       │   ├── c7
+│       │   │   └── 005ee38bdb77d377914330261eb7ee5e67c9f1
+│       │   ├── ca
+│       │   │   ├── 5f02fbeebb08100a0249854417092427c9809e
+│       │   │   └── 7219c669044afccbf4a8315dfe9172c4c68867
+│       │   ├── cc
+│       │   │   └── 974ed68198ef0208477ad155de9d5ad8bb3c71
+│       │   ├── d1
+│       │   │   └── 5e9004b0bb3398fcdd2a8499f878428bb0599a
+│       │   ├── d4
+│       │   │   └── 2ab9b01c97fead21e3fac008af6c3e10c7993f
+│       │   ├── d8
+│       │   │   └── ccf5e3c852fa4550147f8bd81f2b1a500f10ec
+│       │   ├── db
+│       │   │   ├── 8309b345037bd6a185f47c3b22d31d429a8d6e
+│       │   │   ├── b20986e68cf44f5798e4eea295a82d440e4097
+│       │   │   └── daef1da3d90b63b0e8d3dcc5670ff53908e3d0
+│       │   ├── dc
+│       │   │   └── cb06641e0bd0799f8cdaf9d5eb592b218afb75
+│       │   ├── e4
+│       │   │   └── 1d09b048b806266b3b6f575bf42f4d1f90ff4c
+│       │   ├── e6
+│       │   │   └── 9de29bb2d1d6434b8b29ae775ad8c2e48c5391
+│       │   ├── e8
+│       │   │   └── e4cb494b5b94e27f6c8784ffd26eb9aefff120
+│       │   ├── ed
+│       │   │   └── 56908ba436877436cd3538026cad42e551799d
+│       │   ├── f0
+│       │   │   ├── 0c32701c59d74813aade92baa6c6471c5ecf64
+│       │   │   └── eb8b04fd93d0d26e2d1b1b166b883804766656
+│       │   ├── f4
+│       │   │   └── 65c12605f751c160a4de805c675cba32f7ff52
+│       │   ├── fc
+│       │   │   └── f71e65253fed692b965d6f508624c5916429e6
+│       │   ├── fe
+│       │   │   └── 2f7b920392320c2f3930c659f5095a4c0d0ea9
+│       │   ├── info
+│       │   └── pack
+│       ├── ora-remote-f5b5c7a3-7e00-4b1b-92a0-eb7687831c82
+│       │   └── transfer
+│       ├── refs
+│       │   ├── heads
+│       │   │   ├── git-annex
+│       │   │   └── master
+│       │   └── tags
+│       └── ria-layout-version
+├── error_logs
+└── ria-layout-version
+
+133 directories, 143 files

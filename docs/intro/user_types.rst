@@ -51,7 +51,8 @@ the sidebar can also help to navigate to relevant sections, and the
 `index <http://handbook.datalad.org/en/latest/genindex.html>`_ at the end of the
 book can show you where all commands mentioned in the handbook are introduced.
 
-If you're seeking help with regard to large datasets, checkout section
+If you're seeking help with regard to large datasets you might want to take a look at
+Use case :ref:`usecase_HCP_dataset`.
 
 .. todo::
 
@@ -70,14 +71,14 @@ appreciate bug reports!
 
 Umm, sure. In principle, you can jump through the Basics and checkout precisely
 the sections you need, even though not all things will become clear.
-Its best to keep the :ref:`cheat` near by.
+It's best to keep the :ref:`cheat` near by.
 
 You want to know how to set-up and share an analysis
 with DataLad? Reading chapters :ref:`chapter_datasets`, :ref:`chapter_gitannex`,
 :ref:`chapter_yoda` and chapter :ref:`chapter_thirdparty` should work for you.
 
 You want to use DataLad as a back-up or dataset storage solution? Go to
-section :ref:`usecase_datastore`.
+section :ref:`riastore` and usecase :ref:`usecase_datastore`.
 
 
 **5** The data publisher
@@ -93,7 +94,7 @@ Afterwards, jump to chapter :ref:`chapter_thirdparty`.
 Depending on the amount of data, it may make sense to read about an example
 of a large dataset (80TB/15 million files) in the usecase :ref:`usecase_HCP_dataset`,
 and about the possibility of a :term:`Remote Indexed Archive (RIA) store` in the
-usecase :ref:`usecase_datastore`.
+section :ref:`riastore` and the usecase :ref:`usecase_datastore`.
 
 
 **6** The advanced user
@@ -112,7 +113,7 @@ DataLad. The section
    write chapter on rclone feature
 
 can show you how to use DataLad's rclone helper for special remotes.
-The usecase :ref:`usecase_datastore` introduces the concept of a
+The section :ref:`riastore` introduces the concept of a
 :term:`Remote Indexed Archive (RIA) store`. Still not enough?
 We're happy to consider your
 `feature request <https://github.com/datalad-handbook/book/issues/new>`_ for new

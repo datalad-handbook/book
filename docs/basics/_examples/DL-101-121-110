@@ -1,4 +1,7 @@
 $ datalad update --merge -s roommate
-[INFO] Fetching updates for <Dataset path=/home/me/dl-101/DataLad-101> 
-[INFO] Applying updates to <Dataset path=/home/me/dl-101/DataLad-101> 
+[INFO] Fetching updates for Dataset(/home/me/dl-101/DataLad-101)
+merge(ok): . (dataset) [Merged roommate/master]
 update(ok): . (dataset)
+action summary:
+  merge (ok: 1)
+  update (ok: 1)

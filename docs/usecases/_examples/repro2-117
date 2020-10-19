@@ -1,0 +1,8 @@
+$ datalad containers-add fsl --url shub://mih/ohbm2018-training:fsl
+add(ok): .datalad/config (file)
+save(ok): . (dataset)
+containers_add(ok): /home/me/usecases/repro2/glm_analysis/.datalad/environments/fsl/image (file)
+action summary:
+  add (ok: 1)
+  containers_add (ok: 1)
+  save (ok: 1)

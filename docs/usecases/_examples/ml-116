@@ -1,0 +1,17 @@
+$ datalad containers-run -n software \
+  -m "Evaluate SGD classifier on test data" \
+  --input 'data/raw/imagenette2-160/val/n03445777' \
+  --input 'data/raw/imagenette2-160/val/n03888257' \
+  --output 'accuracy.json' \
+  "python3 code/evaluate.py"
+[INFO] Making sure inputs are available (this may take some time) 
+[INFO] == Command start (output follows) ===== 
+{'accuracy': 0.7401774397972116}
+[INFO] == Command exit (modification check follows) ===== 
+add(ok): /home/me/usecases/ml-project/accuracy.json (file)
+add(ok): /home/me/usecases/ml-project/code/__pycache__/train.cpython-37.pyc (file)
+save(ok): /home/me/usecases/ml-project (dataset)
+action summary:
+  add (ok: 2)
+  get (notneeded: 4)
+  save (notneeded: 1, ok: 1)

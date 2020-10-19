@@ -32,7 +32,7 @@ Below is a short list of optional readings. We decide to download them (they
 are all free, in total about 15 MB), and save them in ``DataLad-101/books``.
 
 - Additional reading about the command line: `The Linux Command Line <https://sourceforge.net/projects/linuxcommand/files/TLCL/19.01/TLCL-19.01.pdf/download>`_
-- An intro to Python: `A byte of Python <https://edisciplinas.usp.br/pluginfile.php/3252353/mod_resource/content/1/b_Swaroop_Byte_of_python.pdf>`_
+- An intro to Python: `A byte of Python <https://github.com/swaroopch/byte-of-python/releases/download/v14558db59a326ba99eda0da6c4548c48ccb4cd0f/byte-of-python.pdf>`_
 
 You can either visit the links and save them in ``books/``,
 or run the following commands [#f2]_ to download the books right from the terminal:
@@ -40,7 +40,7 @@ or run the following commands [#f2]_ to download the books right from the termin
 .. runrecord:: _examples/DL-101-102-103
    :language: console
    :workdir: dl-101/DataLad-101
-   :realcommand: cd books && wget -nv https://sourceforge.net/projects/linuxcommand/files/TLCL/19.01/TLCL-19.01.pdf/download -O TLCL.pdf && wget -nv https://edisciplinas.usp.br/pluginfile.php/3252353/mod_resource/content/1/b_Swaroop_Byte_of_python.pdf -O byte-of-python.pdf && cd ../
+   :realcommand: cd books && wget -nv https://sourceforge.net/projects/linuxcommand/files/TLCL/19.01/TLCL-19.01.pdf/download -O TLCL.pdf && wget -nv https://github.com/swaroopch/byte-of-python/releases/download/v14558db59a326ba99eda0da6c4548c48ccb4cd0f/byte-of-python.pdf -O byte-of-python.pdf && cd ../
    :cast: 01_dataset_basics
    :notes: We use wget to download a few books from the web. CAVE: longish realcommand!
 
@@ -87,7 +87,9 @@ does not store the downloaded books in its history yet. Let's change this by
 (:manpage:`datalad-save` manual).
 
 This time, it is your turn to specify a helpful :term:`commit message`
-with the ``-m`` option:
+with the ``-m`` option (although the DataLad command is :command:`datalad save`, we talk
+about commit messages because :command:`datalad save` ultimatively uses the command
+:command:`git commit` to do its work):
 
 .. runrecord:: _examples/DL-101-102-106
    :language: console
@@ -176,7 +178,7 @@ in the same commit. And ... what happens if I have files I do not want to track?
 :command:`datalad save -m "some commit message"` would save all of what is currently
 untracked or modified in the dataset into the history!"
 
-Regarding your first remark, you're absolutely right with that!
+Regarding your first remark, you're absolutely right!
 It is good practice to save only those changes
 together that belong together. We do not want to squish completely unrelated changes
 into the same spot of our history, because it would get very nasty should we want to
@@ -263,7 +265,7 @@ from a URL (following any URL-scheme from https, http, or ftp or s3) and save it
 into the dataset together with a human-readable commit message and a hidden,
 machine-readable record of the origin of the content. This saves you time,
 and captures :term:`provenance` information about the data you add to your dataset.
-To experience this, lets add a final book,
+To experience this, let's add a final book,
 `a beginner’s guide to bash <http://www.tldp.org/LDP/Bash-Beginners-Guide/Bash-Beginners-Guide.pdf>`_,
 to the dataset. We provide the command with a URL, a pointer to the dataset the
 file should be saved in (``.`` denotes "current directory"), and a commit message.

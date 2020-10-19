@@ -7,8 +7,18 @@ DataLad cheat sheet
 
 .. index:: ! Cheatsheet
 
-Click on the image below to obtain a PDF version of the cheat sheet. Individual
-sections are linked to chapters or technical docs.
+.. only:: html
 
-.. figure:: ../artwork/src/datalad-cheatsheet_p1.png
-   :target: https://github.com/datalad-handbook/artwork/raw/master/src/datalad-cheatsheet.pdf
+   Click on the image below to obtain a PDF version of the cheat sheet. Individual
+   sections are linked to chapters or technical docs.
+
+   .. figure:: ../artwork/src/datalad-cheatsheet_p1.png
+      :target: https://github.com/datalad-handbook/artwork/raw/master/src/datalad-cheatsheet.pdf
+
+.. only:: latex
+
+   .. figure:: ../artwork/src/datalad-cheatsheet_p1.png
+      :width: 80%
+
+      A high-resolution version of this cheatsheet is available for download
+      at https://github.com/datalad-handbook/artwork/raw/master/src/datalad-cheatsheet.pdf

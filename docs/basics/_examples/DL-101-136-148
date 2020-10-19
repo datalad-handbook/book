@@ -1,7 +1,7 @@
 $ git log -p -n 1
-commit b52a71418c9b561ca8571fdfce0b89e634d9b199
+commit 676981cee9b352581ac724a07bbb2a61f6eadd45
 Author: Elena Piscopia <elena@example.net>
-Date:   Mon Feb 17 08:52:42 2020 +0100
+Date:   Tue Jun 23 21:06:13 2020 +0200
 
     content removed from git annex
 

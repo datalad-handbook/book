@@ -35,6 +35,8 @@ failed -- sorry about this.
   :ref:`executive_summary`
 :redirect:`containers`
   :ref:`containersrun`
+:redirect:`dl-for-ml`
+  :ref:`dvc`
 :redirect:`extensions`
   :ref:`extensions_intro`
 :redirect:`GIN`
@@ -53,6 +55,12 @@ failed -- sorry about this.
   :ref:`OHBMOSR2020`
 :redirect:`OHBM2020poster`
   :ref:`ohbm2020poster`
+:redirect:`ml-usecase`
+  :ref:`usecase_ML`
+:redirect:`openneuro`
+  :ref:`openneuro`
+:redirect:`FZJmlcode`
+  :ref:`mlcode`
 
 Alternatively, try searching in the "Quick Search" at the left-hand side, or
 scan the handbook's front page at `handbook.datalad.org <http://handbook.datalad.org/en/latest/>`_

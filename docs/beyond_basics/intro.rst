@@ -20,6 +20,7 @@ associated usecases.
 
    basics-advancedoptions
    basics-scaling
+   basics-hpc
    basics-retrospective
    basics-specialpurpose
 

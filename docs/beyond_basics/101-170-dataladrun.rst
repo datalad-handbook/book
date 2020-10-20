@@ -3,14 +3,21 @@
 DataLad-centric analysis with job scheduling and parallel computing
 -------------------------------------------------------------------
 
+There are data analyses that consist of running a handful of scripts on a handful of files.
+Those analyses can be done in a couple of minutes or hours on your private computer.
+But there are also analyses that are so large -- either in terms of computations, or with regard to the amount of data that they are run on -- that it would takes days or even weeks to complete them.
+The latter type of analyses typically requires a compute cluster, a job scheduler, and parallelization.
+The question is: How can they become as reproducible and provenance tracked as the simplistic, singular analysis that were showcased in the handbook so far, and that comfortably fitted on a private computer?
+
 .. note::
 
    It is advised to read the previous chapter :ref:`chapter_gobig` prior to this one
 
 This section is a write-up of how DataLad can be used on a scientific computational cluster with a job scheduler for reproducible and FAIR data analyses at scale.
 It showcases the general principles behind parallel processing of DataLad-centric workflows with containerized pipelines.
-This section lays the groundwork to the next section, a walkthrough through a more complex real life example of containerized `fMRIprep <https://fmriprep.readthedocs.io/>`_ preprocessing on the `eNKI <http://fcon_1000.projects.nitrc.org/indi/enhanced/>`_ neuroimaging dataset, scheduled with `HTCondor <https://research.cs.wisc.edu/htcondor/>`_.
 While this chapter demonstrates specific containerized pipelines and job schedulers, the general setup is generic and could be used with any containerized pipeline and any job scheduling system.
+
+This section lays the groundwork to the next section, a walk-through through a real life example of containerized `fMRIprep <https://fmriprep.readthedocs.io/>`_ preprocessing on the `eNKI <http://fcon_1000.projects.nitrc.org/indi/enhanced/>`_ neuroimaging dataset, scheduled with `HTCondor <https://research.cs.wisc.edu/htcondor/>`_.
 
 Why job scheduling?
 ^^^^^^^^^^^^^^^^^^^
@@ -18,7 +25,7 @@ Why job scheduling?
 On scientific compute clusters, job scheduling systems such as `HTCondor <https://research.cs.wisc.edu/htcondor/>`_ or `slurm <https://slurm.schedmd.com/overview.html>`_ are used to distribute computational jobs across the available computing infrastructure and manage the overall workload of the cluster.
 This allows for efficient and fair use of available resources across a group of users, and it brings the potential for highly parallelized computations of jobs and thus vastly faster analyses.
 
-Consider one common way to use a job scheduler: processing all subjects of a dataset independently and as parallel as the current workload of the compute cluster allows instead of serially (i.e., "one after the other").
+Consider one common way to use a job scheduler: processing all subjects of a dataset independently and as parallel as the current workload of the compute cluster allows -- instead of serially "one after the other".
 In such a setup, each subject-specific analysis becomes a single job, and the job scheduler fits as many jobs as it can on available :term:`compute node`\s.
 If a large analysis can be split into many independent jobs, using a job scheduler to run them in parallel thus yields great performance advantages in addition to fair compute resource distribution across all users.
 
@@ -32,15 +39,16 @@ If a large analysis can be split into many independent jobs, using a job schedul
    The job scheduler takes the submitted jobs, *queues* them up in a central queue, and monitors the available compute resources (i.e., :term:`compute node`\s) of the cluster.
    As soon as a computational resource is free, it matches a job from the queue to the available resource and computes the job on this node.
    Usually, a single submission queues up multiple (dozens, hundreds, or thousands of) jobs.
-   If you are interested in a tutorial for HTCondor, checkout the `INM-7 HTcondor Tutorial <https://jugit.fz-juelich.de/inm7/training/htcondor>`_.
+   If you are interested in a tutorial for HTCondor, checkout the `INM-7 HTCondor Tutorial <https://jugit.fz-juelich.de/inm7/training/htcondor>`_.
 
 Where are the difficulties in parallel computing with DataLad?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 In order to capture as much provenance as possible, analyses are best ran with a :command:`datalad run` or :command:`datalad containers-run` command, as these commands can capture and link all relevant components of an analysis, starting from code and results to input data and computational environment.
 
-Note, though, that when parallelizing jobs and computing them with provenance capture, *each individual job* needs to be wrapped in a ``run`` command, not only the submission of the jobs to the job scheduler -- and this requires multiple parallel ``run`` commands on the same dataset.
-Multiple simultaneous ``datalad (containers-)run`` invocations in the same dataset are, however, problematic:
+But in order to compute parallel jobs with provenance capture, *each individual job* needs to be wrapped in a ``run`` command, not only the submission of the jobs to the job scheduler.
+This requires multiple parallel ``run`` commands on the same dataset.
+But: Multiple simultaneous ``datalad (containers-)run`` invocations in the same dataset are problematic.
 
 - Operations carried out during one :command:`run` command can lead to modifications that prevent a second, slightly later ``run`` command from being started
 - The :command:`datalad save` command at the end of :command:`datalad run` could save modifications that originate from a different job, leading to mis-associated provenance
@@ -67,7 +75,7 @@ The "creative" bits involved in this parallelized processing workflow boil down 
 
 - Individual jobs (for example subject-specific analyses) are computed in **throw-away dataset clones** to avoid unwanted interactions between parallel jobs.
 - Beyond computing in job-specific, temporary locations, individual job results are also saved into uniquely identified :term:`branch`\es to enable simple **pushing back of the results** into the target dataset.
-- The jobs constitute a complete DataLad-centric workflow in the form of a simple bash script, including dataset build-up and tear-down routines in a throw-away location, result computation, and result publication back to the target dataset.
+- The jobs constitute a complete DataLad-centric workflow in the form of a simple **bash script**, including dataset build-up and tear-down routines in a throw-away location, result computation, and result publication back to the target dataset.
   Thus, instead of submitting a ``datalad run`` command to the job scheduler, **the job submission is a single script**, and this submission is easily adapted to various job scheduling call formats.
 - Right after successful completion of all jobs, the target dataset contains as many :term:`branch`\es as jobs, with each branch containing the results of one job.
   A manual :term:`merge` aggregates all results into the :term:`master` branch of the dataset.
@@ -81,7 +89,7 @@ The keys to the success of this workflow lie in
 Step-by-Step
 """"""""""""
 
-To get an idea of the general setup of parallel provenance-tracked computations, consider a data analysis dataset...
+To get an idea of the general setup of parallel provenance-tracked computations, consider a :ref:`YODA-compliant <yoda>` data analysis dataset...
 
 .. code-block:: bash
 
@@ -108,13 +116,6 @@ To get an idea of the general setup of parallel provenance-tracked computations,
 
 ... and a dataset with a containerized pipeline (for example from the `ReproNim container-collection <https://github.com/repronim/containers>`_ [#f2]_) as another subdataset:
 
-.. findoutmore:: Why do I add the pipeline as a subdataset?
-
-   You could also add and configure the container using ``datalad containers-add`` to the top-most dataset.
-   This solution makes the container less usable, though.
-   If you have more than one application for a container, keeping it as a standalone dataset can guarantee easier reuse.
-   For an example on how to create such a dataset yourself, please checkout the Findoutmore in  :ref:`pipelineenki` in the real-life walkthrough in the next section.
-
 .. code-block::
 
    $ datalad clone -d . https://github.com/ReproNim/containers.git
@@ -128,25 +129,32 @@ To get an idea of the general setup of parallel provenance-tracked computations,
       install (ok: 1)
       save (ok: 1)
 
+.. findoutmore:: Why do I add the pipeline as a subdataset?
+
+   You could also add and configure the container using ``datalad containers-add`` to the top-most dataset.
+   This solution makes the container less usable, though.
+   If you have more than one application for a container, keeping it as a standalone dataset can guarantee easier reuse.
+   For an example on how to create such a dataset yourself, please checkout the Findoutmore in  :ref:`pipelineenki` in the real-life walk-through in the next section.
+
+
 The analysis aims to process the ``rawdata`` with a pipeline from ``containers`` and collect the outcomes in the toplevel ``parallel_analysis`` dataset -- FAIRly and in parallel, using ``datalad containers-run``.
 
 One way to conceptualize the workflow is by taking the perspective of a single compute job.
 This job consists of whatever you may want to parallelize over.
+For an arbitrary example, say your raw data contains continuous moisture measurements in the Arctic, taken over the course of 10 years.
+Each file in your dataset contains the data of a single day.
+You are interested in a daily aggregate, and are therefore parallelizing across files -- each compute job will run an analysis pipeline on one datafile.
 
 .. findoutmore:: What are common analysis types to parallelize over?
 
    The key to using a job scheduler and parallelization is to break down an analysis into smaller, loosely coupled computing tasks that can be distributed across a compute cluster.
-   Among common analysis setups that are suitable for parallelization are computations that can be split into several analysis that each run on one subset of the data -- such one or some out of many subjects, acquisitions, or files.
+   Among common analysis setups that are suitable for parallelization are computations that can be split into several analysis that each run on one subset of the data -- such as one (or some) out of many subjects, acquisitions, or files.
    The large computation "preprocess 200 subjects" can be split into 200 times the job "preprocess 1 subject", for example.
-   Commonly parallelized computations are also analyses that need to be ran with a range of different parameters, where each parameter configuration can constitute one job.
-   The latter type of parallelization is for example the case in simulation studies.
-
-Say your raw data contains continuous moisture measurements in the Arctic, taken over the course of 10 years.
-Each file in your dataset contains the data of a single day.
-You are interested in a daily aggregate, and are therefore parallelizing across files -- each compute job will run an analysis pipeline on one datafile.
+   In simulation studies, a commonly parallelized task concerns analyses that need to be ran with a range of different parameters, where each parameter configuration can constitute one job.
 
 What you will submit as a job with a job scheduler is not a ``datalad containers-run`` call, but a shell script that contains all relevant data analysis steps.
-Using `shell <https://en.wikipedia.org/wiki/Shell_script>`_ as the language for this script is a straight-forward choice as it allows you to script the DataLad workflow just as you would type it into your terminal, but other languages (e.g., using :ref:`DataLad's Python API <python>` or system calls in languages such as Matlab) would work as well.
+Using `shell <https://en.wikipedia.org/wiki/Shell_script>`_ as the language for this script is a straight-forward choice as it allows you to script the DataLad workflow just as you would type it into your terminal.
+Other languages (e.g., using :ref:`DataLad's Python API <python>` or system calls in languages such as Matlab) would work as well, though.
 
 **Building the job**:
 
@@ -156,19 +164,20 @@ The solution is as easy as it is stubborn: We simply create one throw-away datas
 .. findoutmore:: how does one create throw-away clones?
 
     One way to do this are :term:`ephemeral clone`\s, an alternative is to make :term:`git-annex` disregard the datasets annex completely using ``git annex dead here``.
-    The latter is more appropriate for this context -- we could use an ephemeral clone, but that might deposit data of failed jobs at the origin location, if the job runs on a shared filesystem -- let's stay self-contained.
+    The latter is more appropriate for this context -- we could use an ephemeral clone, but that might deposit data of failed jobs at the origin location, if the job runs on a shared filesystem.
 
-Using throw-away clones involves a build-up, result-push, and tear-down routine for each job but this works well since datasets are by nature made for such decentralized, collaborative workflows.
-We treat cluster compute nodes like contributors to the analyses that clone the analysis dataset hierarchy into a temporary location, run the computation, push the results, and remove their temporary dataset again [#f3]_.
-All of this routine is done in a single script, which will be submitted as a job.
-Here, we build the general structure of this script.
+Using throw-away clones involves a build-up, result-push, and tear-down routine for each job.
+It sounds complex and tedious, but this actually works well since datasets are by nature made for such decentralized, collaborative workflows.
+We treat cluster compute nodes like contributors to the analyses: They clone the analysis dataset hierarchy into a temporary location, run the computation, push the results, and remove their temporary dataset again [#f3]_.
+The complete routine is done in a single script, which will be submitted as a job.
+Here, we build the general structure of this script, piece by piece.
 
-The compute job clones the dataset to a unique place, so that it can run a containers-run command inside it without interfering with any other job.
+The compute job clones the dataset to a unique place, so that it can run a ``containers-run`` command inside it without interfering with any other job.
 The first part of the script is therefore to navigate to a unique location, and clone the analysis dataset to it.
 
 .. findoutmore:: How can I get a unique location?
 
-   On common HTCondor setups, ``/tmp`` directories in individual jobs are job-specific local Filesystem not shared between jobs -- i.e., unique locations!
+   On common HTCondor setups, ``/tmp`` directories in individual jobs are a job-specific local Filesystem that are not shared between jobs -- i.e., unique locations!
    An alternative is to create a unique temporary directory, e.g., with the ``mktemp -d`` command on Unix systems.
 
 .. code-block:: bash
@@ -181,7 +190,7 @@ The first part of the script is therefore to navigate to a unique location, and 
 
 This dataset clone is *temporary*: It will exist over the course of one analysis/job only, but before it is being purged, all of the results it computed will be pushed to the original dataset.
 This requires a safe-guard: If the original dataset receives the results from the dataset clone, it knows about the clone and its state.
-In order to protect the results from accidental synchronization upon deletion of the linked dataset clone, the clone should be created as a "trow-away clone" right from the start.
+In order to protect the results from someone accidentally synchronizing (updating) the dataset from its linked dataset after is has been deleted, the clone should be created as a "trow-away clone" right from the start.
 By running ``git annex dead here``, :term:`git-annex` disregards the clone, preventing the deletion of data in the clone to affect the original dataset.
 
 .. code-block:: bash
@@ -189,7 +198,7 @@ By running ``git annex dead here``, :term:`git-annex` disregards the clone, prev
    $ git annex dead here
 
 The ``datalad push`` to the original clone location of a dataset needs to be prepared carefully.
-The job computes one result of many and saves it, thus creating new data and a new entry with the run-record in the dataset history.
+The job computes *one* result (out of of many results) and saves it, thus creating new data and a new entry with the run-record in the dataset history.
 But each job is unaware of the results and :term:`commit`\s produced by other branches.
 Should all jobs push back the results to the original place (the :term:`master` :term:`branch` of the original dataset), the individual jobs would conflict with each other or, worse, overwrite each other (if you don't have the default push configuration of Git).
 
@@ -205,11 +214,11 @@ This makes it easy to associate a result (via its branch) with the log, error, o
    $ git checkout -b "job-$JOBID"
 
 Importantly, the ``$JOB-ID`` isn't hardcoded into the script but it can be given to the script as an environment or input variable at the time of job submission.
-The code snippet above uses a bash environment variable (``$JOBID``).
+The code snippet above uses a bash :term:`environment variable` (``$JOBID``, as indicated by the all-upper-case variable name with a leading ``$``).
 It will be defined in the job submission -- this is shown and explained in detail in the respective paragraph below.
 
-Next, its ``time for the containers-run`` command.
-The invocation will depend on the container and dataset configuration (both of which are demonstrated in the real-life example in the next section), and below, we pretend that the pipeline invocation only needs an input file and an output file.
+Next, its time for the :command:`containers-run` command.
+The invocation will depend on the container and dataset configuration (both of which are demonstrated in the real-life example in the next section), and below, we pretend that the container invocation only needs an input file and an output file.
 These input file is specified via a bash variables (``$inputfile``) that will be defined in the script and provided at the time of job submission via command line argument from the job scheduler, and the output file name is based on the input file name.
 
 .. code-block:: bash
@@ -227,7 +236,7 @@ After the ``containers-run`` execution in the script, the results can be pushed 
    $ datalad push --to origin
 
 
-Pending a few yet missing safe guards against concurrency issues and the definition job-specific (environment) variables, such a script can be submitted to any job scheduler with identifiers for input files, output files, and a job ID as identifiers for the branch names.
+Pending a few yet missing safe guards against concurrency issues and the definition of job-specific (environment) variables, such a script can be submitted to any job scheduler with identifiers for input files, output files, and a job ID as identifiers for the branch names.
 This workflow sketch takes care of everything that needs to be done apart from combining all computed results afterwards.
 
 .. findoutmore:: Fine-tuning: Safe-guard concurrency issues
@@ -242,7 +251,7 @@ This workflow sketch takes care of everything that needs to be done apart from c
 .. findoutmore:: Variable definition
 
    There are two ways to define variables that a script can use:
-   The first is by defining environment variables, and passing this environment to the compute job.
+   The first is by defining :term:`environment variable`\s, and passing this environment to the compute job.
    This can be done in the job submission file.
    To set and pass down the job-ID and a lock file in HTCondor, one can supply the following line in the job submission file::
 
@@ -294,11 +303,11 @@ Here's how the full general script looks like.
 
 Its a short script that encapsulates a complete workflow.
 Think of it as the sequence of necessary DataLad commands you would need to do in order to compute a job.
-You can save this script into your analysis dataset, e.g., as ``code/analysis_job.sh``
+You can save this script into your analysis dataset, e.g., as ``code/analysis_job.sh``, and make it executable (such that it is executed automatically by the program specified in the :term:`shebang`)using ``chmod +x code/analysis_job.sh``.
 
 **Job submission**:
 
-Job submission now only boils down to invoking the script for each participant with the relevant command line arguments (e.g., input and output files for the our artificial example) and the necessary environment variables (e.g., the job ID that determines the branch name that is created, and one that points to a lockfile created beforehand once in ``.git``).
+Job submission now only boils down to invoking the script for each participant with the relevant command line arguments (e.g., input files for our artificial example) and the necessary environment variables (e.g., the job ID that determines the branch name that is created, and one that points to a lockfile created beforehand once in ``.git``).
 Job scheduler such as HTCondor can typically do this with automatic variables.
 They for example have syntax that can identify subject IDs or consecutive file numbers from consistently named directory structure, access the job ID, loop through a predefined list of values or parameters, or use various forms of pattern matching.
 Examples of this are demonstrated `here <https://jugit.fz-juelich.de/inm7/training/htcondor/-/blob/master/03_define_jobs.md>`_.
@@ -324,11 +333,27 @@ Here is a submit file that could be employed:
       log    = $ENV(PWD)/../logs/$(Cluster).$(Process).log
       output = $ENV(PWD)/../logs/$(Cluster).$(Process).out
       error  = $ENV(PWD)/../logs/$(Cluster).$(Process).err
-      arguments = $(subid)
+      arguments = $(inputfile)
       # find all input data, based on the file names in the source dataset.
-      # Each relative path to such a file name will become the value of `inputfile`
+      # The pattern matching below finds all *files* that match the path
+      # "rawdata/acquisition_*.txt".
+      # Each relative path to such a file name will become the value of `inputfile`,
+      # the argument given to the executable (the shell script).
       # This will queue as many jobs as file names match the pattern
       queue inputfile matching files rawdata/acquisition_*_.txt
+
+   How would the first few jobs look like that this submit file queues up?
+   It would send out the commands
+
+   .. code-block:: bash
+
+      ./code/analysis_job.sh rawdata/acquisition_day1year1_.txt
+      ./code/analysis_job.sh rawdata/acquisition_day2year1_.txt
+      [...]
+
+   and each of them are send to a compute node with at least 1 CPU, 20GB of RAM and 210GB of disk space.
+   The log, output, and error files are saved under a HTCondor-specific Process and Cluster ID in a log file directory (which would need to be created for HTCondor!).
+   Two environment variables, ``JOBID`` (defined from HTCondor-specific Process and Cluster IDs) and ``DSLOCKFILE`` (for file locking), will be defined on the compute node.
 
 All it takes to submit is a single ``condor_submit <submit_file>``.
 

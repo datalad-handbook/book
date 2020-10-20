@@ -1,16 +1,25 @@
 .. _hcpenki:
 
 Walkthrough: Parallel ENKI preprocessing with fMRIprep
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+------------------------------------------------------
 
 The previous section has been an overview on parallel, provenance-tracked computations in DataLad datasets.
 While the general workflow entails a complete setup, its usually easier to understand it by seeing it applied to a concrete usecase.
 Its even more informative if that usecase includes some complexities that do not exist in the "picture-perfect" example but are likely to arise in real life.
 Therefore, the following walk-through in this section is a write-up of an existing and successfully executed analysis.
 
-Its goal was standard data preprocessing using `fMRIprep <https://fmriprep.readthedocs.io/>`_ on neuroimaging data of 1300 subjects in the `eNKI <http://fcon_1000.projects.nitrc.org/indi/enhanced/>`_ dataset.
-In order to associate input data, containerized pipeline, and outputs, the analysis was carried out in a DataLad dataset and with the :command:`datalad containers-run` command.
-The pipeline dataset was created with a custom configuration to make it generalizable, and, due to the additional complexity of a large quantity of results, the output was collected in subdatasets.
+The analysis
+^^^^^^^^^^^^
+
+The analysis goal was standard data preprocessing using `fMRIprep <https://fmriprep.readthedocs.io/>`_ on neuroimaging data of 1300 subjects in the `eNKI <http://fcon_1000.projects.nitrc.org/indi/enhanced/>`_ dataset.
+This computational task is ideal for parallelization: Each subject can be preprocessed individually, each preprocessing takes between 6 and 8 hours per subject, resulting in 1300x7h of serial computing, but only about 7 hours of computing time when executed completely in parallel, and
+fMRIprep is a containerized pipeline that can be pointed to a specific subject to preprocess.
+
+ENKI was transformed into a DataLad dataset beforehand, and to set up the analysis, the fMRIprep container was placed -- with a custom configuration to make it generalizable -- into a new dataset called ``pipeline``.
+Both of these datasets, input data and ``pipeline`` dataset, became subdataset of a data analysis superdataset.
+In order to associate input data, containerized pipeline, and outputs, the analysis was carried out in a toplevel analysis DataLad dataset and with the :command:`datalad containers-run` command.
+Finally, as an additional complexity, due to the additional complexity of a large quantity of results, the output was collected in subdatasets.
+
 
 .. _pipelineenki:
 
@@ -36,7 +45,7 @@ Also note that there is a large collection of pre-existing container datasets av
          create(ok): /data/projects/enki/pipelines (dataset)
        $ cd pipelines
 
-   As one of tools used in the pipeline, `freesurfer <https://surfer.nmr.mgh.harvard.edu/>`_, requires a license file, this license file needs to be added into the dataset.
+   As one of tools used in fMRIprep's the pipeline, `freesurfer <https://surfer.nmr.mgh.harvard.edu/>`_, requires a license file, this license file needs to be added into the dataset.
    Only then can this dataset be moved around flexibly and also to different machines.
    In order to have the license file available right away, it is saved ``--to-git`` and not annexed [#f1]_::
 
@@ -47,7 +56,7 @@ Also note that there is a large collection of pre-existing container datasets av
    The important part is the configuration of the container -- it has to be done in a way that makes the container usable in any superdataset the pipeline dataset.
 
    Depending on how the container/pipeline needs to be called, the configuration differs.
-   In the case of an fMRIprep run, we want to be able to invoke the container from a superdataset.
+   In the case of an fMRIprep run, we want to be able to invoke the container from a data analysis superdataset.
    The superdataset contains input data and ``pipelines`` dataset as subdatasets, and will collect all of the results.
    Thus, these are arguments we want to supply the invocation with (following `fMRIprep's documentation <https://fmriprep.org/en/stable/usage.html>`_) during a ``containers-run`` command::
 
@@ -179,8 +188,8 @@ At this point, the workflow misses a tweak that is necessary in fMRIprep to enab
 
    If you want to make sure that your dataset is set up in a way that you have the ability to rerun a computation quickly, the following fMRIprep-specific consideration is important:
    If fMRIprep finds preexisting results, it will fail to run.
-   Therefore, all outputs of a job need to be removed before the jobs is started [#f3]_.
-   We can simply add an attempt to do this in the script::
+   Therefore, all outputs of a job need to be removed before the job is started [#f3]_.
+   We can simply add an attempt to do this in the script (it wouldn't do any harm if there is nothing to be removed)::
 
         (cd fmriprep && rm -rf logs "$subid" "$subid.html" dataset_description.json desc-*.tsv)
         (cd freesurfer && rm -rf fsaverage "$subid")
@@ -324,28 +333,9 @@ Merging results
 Once all jobs have finished, the results lie in individual branches of the output datasets.
 In this concrete example, the subdatasets ``fmriprep`` and ``freesurfer`` will each have more than 1000 branches that hold individual job results.
 The only thing left to do now is merging all of these branches into :term:`master` -- and potentially solve any merge conflicts that arise.
-Usually, merging branches is done using the ``git merge`` command with a branch specification.
-For example, in order to merge one job branch into the :term:`master` :term:`branch`, one would need to be on ``master`` and run ``git merge <job branch name>``.
-Given that the subdatasets each contain >1000 branches, and that each ``merge`` would lead to a commit, in order to not inflate the history of the dataset with hundreds of merge commits, two `Octopus merges <https://git-scm.com/docs/git-merge#Documentation/git-merge.txt-octopus>`_ were done - one in each subdataset (``fmriprep`` and ``freesurfer``).
+As explained in the previous section, the necessary merging was done with `Octopus merges <https://git-scm.com/docs/git-merge#Documentation/git-merge.txt-octopus>`_  -- one in each subdataset (``fmriprep`` and ``freesurfer``).
 
-.. findoutmore:: What is an octopus merge?
-
-   Usually a commit that arises from a merge has two *parent* commits: The *first parent* is the branch the merge is being performed from, in the example above, ``master``. The *second parent* is the branch that was merged into the first.
-
-
-   However, ``git merge`` is capable of merging more than two branches simultaneously if more than a single branch name is given to the command.
-   The resulting merge commit has as many parent as were involved in the merge.
-   If a commit has more than two parents, if is affectionately called an "Octopus" merge.
-
-   Octopus merges require merge-conflict-free situations, and will not be carried out whenever manual resolution of conflicts is needed.
-
-The merge command can be assembled quickly.
-As all result branches were named ``job-<JOBID>``, a complete list of branches is obtained with the following command::
-
-   $ git branch -l | grep 'job-' | tr -d ' '
-
-This command line call translates to: "list all branches, of all branches, show me those that contain ``job-``, and remove (``tr -d``) all whitespace.
-This can be given to ``git merge`` as in
+The merge command was assembled with the trick introduced in the previous section, based on job-ID-named branches:
 
 .. code-block:: bash
 

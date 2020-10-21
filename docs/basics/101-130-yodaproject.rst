@@ -634,7 +634,7 @@ The two commands have different arguments and options.
 Here, we look at :command:`datalad create-sibling-github`.
 The command takes a repository name and GitHub authentication credentials
 (either in the command line call with options ``github-login <NAME>`` and
-``github-passwd <PASSWORD>``, with an *oauth* token stored in the Git
+``github-passwd <PASSWORD>``, with an *oauth* `token <https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/creating-a-personal-access-token>`_ stored in the Git
 configuration [#f5]_, or interactively). Based on the credentials and the
 repository name, it will create a new, empty repository on GitHub, and
 configure this repository as a sibling of the dataset:

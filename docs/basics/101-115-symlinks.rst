@@ -10,7 +10,7 @@ large and small files, modifying content and saving the changes to history, inst
 datasets, even as subdatasets within datasets, recording the impact of commands
 on a dataset with the run and re-run commands, and capturing plenty of
 :term:`provenance` on the way.
-We further noticed that when we modified content in ``notes.txt`` or ``list_files.py``,
+We further noticed that when we modified content in ``notes.txt`` or ``list_titles.sh``,
 the modified content was in a *text file*. We learned that
 this precise type of file, in conjunction with the initial configuration template
 ``text2git`` we gave to :command:`datalad create`, is meaningful: As the textfile is

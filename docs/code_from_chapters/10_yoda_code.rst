@@ -123,7 +123,7 @@ Code snippet 136::
 Code snippet 137::
 
    # we are in the midterm_project subdataset
-   datalad containers-add midterm-software --url shub://adswa/resources:1
+   datalad containers-add midterm-software --url shub://adswa/resources:2
 
 
 Code snippet 138::

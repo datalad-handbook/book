@@ -65,6 +65,7 @@ Subsequently, DataLad can be installed via ``pip``.
 Alternatively, DataLad can be installed together with :term:`Git` and
 :term:`git-annex` via ``conda`` as outlined in the section below.
 
+.. _norootinstall:
 
 Linux-machines with no root access (e.g. HPC systems)
 """""""""""""""""""""""""""""""""""""""""""""""""""""

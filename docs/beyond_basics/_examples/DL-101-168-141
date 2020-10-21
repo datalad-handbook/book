@@ -1,5 +1,5 @@
 ### DVC-DataLad
-$ datalad publish --to my-sibling
+$ datalad push --to my-sibling
 [INFO] Publishing Dataset(/home/me/DVCvsDL/DVC-DataLad) to my-sibling 
 [INFO] Start enumerating objects 
 [INFO] Start counting objects 

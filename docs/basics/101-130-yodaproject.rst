@@ -614,7 +614,7 @@ Publishing the dataset to GitHub
      if you want to.
    - Or exchange the command ``create-sibling-github`` with
      ``create-sibling-gitlab`` if you have a GitLab account instead of a GitHub
-     account.
+     account (checkout `the documentation <http://docs.datalad.org/en/stable/generated/man/datalad-create-sibling-gitlab.html>`_ for differences in invocation beforehand, though).
    - Decide to not follow along.
 
 For this, you need to
@@ -630,6 +630,8 @@ command (or, for `GitLab <https://about.gitlab.com/>`_, :command:`datalad create
 
 .. index:: ! datalad command; create-sibling-github, ! datalad command; create-sibling-gitlab
 
+The two commands have different arguments and options.
+Here, we look at :command:`datalad create-sibling-github`.
 The command takes a repository name and GitHub authentication credentials
 (either in the command line call with options ``github-login <NAME>`` and
 ``github-passwd <PASSWORD>``, with an *oauth* token stored in the Git
@@ -863,6 +865,9 @@ reproduce your data science project easily from scratch!
 .. [#f5] Such a token can be obtained, for example, using the command line
          GitHub interface (https://github.com/sociomantic/git-hub) by running:
          ``git hub setup`` (if no 2FA is used).
+         It is useful to do this, so here's help: Clone the `GitHub repository <https://github.com/sociomantic/git-hub>`_ to your local computer.
+         Decide whether you want to build a Debian package to install, or install the single-file Python script distributed in the repository.
+         Make sure that all `requirements <https://github.com/sociomantic-tsunami/git-hub#dependencies>`_ for your preferred version are installed , and run either ``make deb`` followed by ``sudo dpkg -i deb/git-hub*all.deb`` or ``make install``.
 
 .. [#f6] Note that this is a :command:`git push`, not :command:`datalad push`.
          Tags could be pushed upon a :command:`datalad push`, though, if one

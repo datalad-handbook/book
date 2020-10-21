@@ -249,6 +249,7 @@ to manage the file system in a DataLad dataset (:ref:`filesystem`).
       :cast: 03_git_annex_basics
 
       # compare it to the checksum (here of type md5sum) of the PDF file and the subdirectory name
+      # for macOS/OSX user, use md5 instead of md5sum
       $ md5sum TLCL.pdf
 
    There are different hash functions available. Depending on which is used,

@@ -41,6 +41,12 @@ This section will give a quick overview on what containers are and
 demonstrate how ``datalad-containers`` helps to capture full provenance of an
 analysis by linking containers to datasets and analyses.
 
+.. note::
+
+   In order to run the commands in this section, the `datalad-containers`
+   extension needs to be installed separately, simply with 
+   `pip install datalad-container`.
+
 Containers
 ^^^^^^^^^^
 

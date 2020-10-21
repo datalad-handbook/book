@@ -6,7 +6,7 @@ Calculate in greater numbers
 When creating and populating datasets yourself it may be easy to monitor the
 overall size of the dataset and its file number, and introduce
 subdatasets whenever and where ever necessary. It may not be as straightforward
-when you are not population datasets yourself, but when *software* or
+when you are not populating datasets yourself, but when *software* or
 analyses scripts suddenly dump vast amounts of output.
 Certain analysis software can create myriads of files. A standard
 `FEAT analysis <https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FEAT/UserGuide>`_ [#f1]_

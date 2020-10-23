@@ -66,6 +66,9 @@ Glossary
       Git concept: A concise summary of changes you should attach to a :command:`datalad save` command. This summary will
       show up in your :term:`DataLad dataset` history.
 
+   compute node
+      A compute node is an individual computer, part of a :term:`high-performance computing (HPC)` or :term:`high-throughput computing (HTC)` cluster.
+
    conda
       A package, dependency, and environment management system for a number of programming languages.
       Find out more at `docs.conda.io <https://docs.conda.io/en/latest/>`_.
@@ -81,7 +84,6 @@ Glossary
 
    crippled filesystem
       git-annex concept: A file system that does not allow making symlinks or removing write :term:`permissions` from files. Examples for this are `FAT <https://en.wikipedia.org/wiki/Design_of_the_FAT_file_system>`_ (likely used by your USB sticks) or `NTFS <https://en.wikipedia.org/wiki/NTFS>`_ (used on Windows systems of the last three decades).
-
 
    DataLad dataset
       A DataLad dataset is a Git repository that may or may not have a data annex that is used to
@@ -136,7 +138,10 @@ Glossary
       You can find out a bit more on environment variable :ref:`in this footnote <envvars>`.
 
    ephemeral clone
-      TODO
+      dataset clones that share the annex with the dataset they were cloned from, without :term:`git-annex` being aware of it.
+      On a technical level, this is achieved via symlinks.
+      They can be created with the ``--reckless ephemeral`` option of :command:`datalad clone`.
+
 
    force-push
       Git concept; Enforcing a :command:`git push` command with the ``--force``
@@ -192,6 +197,13 @@ Glossary
       that ``ls *.txt`` will list all ``.txt`` files in the current directory.
       You can read about more about Pattern Matching in
       `Bash's Docs <https://www.gnu.org/savannah-checkouts/gnu/bash/manual/bash.html#Pattern-Matching>`_.
+
+   high-performance computing (HPC)
+      Aggregating computing power from a bond of computers in a way that delivers higher performance than a typical desktop computer in order to solve computing tasks that require high computing power or demand a lot of disk space or memory.
+
+
+   high-throughput computing (HTC)
+      A computing environment build from a bond of computers and tuned to deliver large amounts of computational power to allow parallel processing of independent computational jobs. For more information, see `this Wikipedia entry <https://en.wikipedia.org/wiki/High-throughput_computing>`_.
 
    http
       Hypertext Transfer Protocol; A protocol for file transfer over a network.

@@ -173,14 +173,14 @@ name to give to the container, and a path or url to a container Image:
    :notes: Computational reproducibility: add a software container
 
    # we are in the midterm_project subdataset
-   $ datalad containers-add midterm-software --url shub://adswa/resources:1
+   $ datalad containers-add midterm-software --url shub://adswa/resources:2
 
 .. findoutmore:: How do I add an Image from Dockerhub, or a local container?
 
    Should the Image you want to use lie on Dockerhub, specify the ``--url``
    option prefixed with ``docker://`` instead of ``shub://`` like this::
 
-      datalad containers-add midterm-software --url docker://adswa/resources:1
+      datalad containers-add midterm-software --url docker://adswa/resources:2
 
    If you want to add a container that exists locally, specify the path to it
    like this::

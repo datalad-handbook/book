@@ -90,12 +90,13 @@ Both of these tools share core terminology:
   an Image built from a publicly shared recipe from the *Hub* of the tool you are using.
 
 **Hub**
-  A storage resource to share and consume images. There is
+  A storage resource to share and consume images. Among the most popular registries are
   `Singularity-Hub <https://singularity-hub.org/>`_ and
   `Docker-Hub <https://hub.docker.com/>`_. Both are optional, additional services
   not required to use software containers, but a convenient way to share recipes
   and have imaged built from them by a service (instead of building them
   manually and locally).
+  Another large container registry is `Amazon ECR <https://aws.amazon.com/ecr/>`_ which hosts Docker Images.
 
 Note that as of now, the ``datalad-containers`` extension supports
 Singularity and Docker images.
@@ -175,12 +176,19 @@ name to give to the container, and a path or url to a container Image:
    # we are in the midterm_project subdataset
    $ datalad containers-add midterm-software --url shub://adswa/resources:2
 
-.. findoutmore:: How do I add an Image from Dockerhub, or a local container?
+.. findoutmore:: How do I add an Image from Dockerhub, Amazon ECR, or a local container?
 
    Should the Image you want to use lie on Dockerhub, specify the ``--url``
-   option prefixed with ``docker://`` instead of ``shub://`` like this::
+   option prefixed with ``docker://`` or ``dhub://`` instead of ``shub://`` like this::
 
       datalad containers-add midterm-software --url docker://adswa/resources:2
+
+   If your Image exists on Amazon ECR, use a ``dhub://`` prefix followed by the AWS ECR URL as in
+
+.. code-block:: bash
+
+       datalad containers-add --url dhub://12345678.dkr.ecr.us-west-2.amazonaws.com/maze-code/data-import:latest data-import
+
 
    If you want to add a container that exists locally, specify the path to it
    like this::

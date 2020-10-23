@@ -261,6 +261,10 @@ Expandable notes, "``Windows-Workaround``\s", contain important information, alt
     **Install it into the directory in which Git is installed**, e.g., ``C:\Program Files (x86)\Git``.
     Usually, :term:`git-annex` will set the correct installation location automatically, and warn if it doesn't find a Git installation where it expects one to be.
 
+  - To verify that the build of git-annex works in your Windows system, you are encouraged to run the test suite before using git-annex on real data.
+    After installation, run ``git annex test`` in the command line.
+    There will be a lot of output; the important thing is that it should end with "All tests passed".
+
 - **Step 4**: Install DataLad via pip
 
   - ``pip`` was installed by ``miniconda``. In the ``Anaconda prompt``, run::

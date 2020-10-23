@@ -276,8 +276,8 @@ Expandable notes, "``Windows-Workaround``\s", contain important information, alt
 
   - `7zip <https://7-zip.de/download.html>`_ is a dependency of DataLad and not installed by default on Windows 10.
     Please make sure to download and install it.
-    Please also make sure that it is available in your ``PATH`` environment variable: ``Environment Variables`` -> ``User Variables`` -> ``path`` -> ``edit`` -> ``new`` -> add the path: ``C:\ProgramFiles\7-zip``) -> ``OK``. Lastly, within ``C:\ProgramFiles\7-zip``, copy the ``7z.exe`` file into ``C:\Users\<user>\Miniconda3\Library\usr\bin\``.
-  - Many Unix command-line tools such as ``cp`` or ``tree`` are not available by default.
+    Please also make sure that it is available in your ``PATH`` environment variable: ``Environment Variables`` -> ``User Variables`` -> ``path`` -> ``edit`` -> ``new`` -> add the path: ``C:\ProgramFiles\7-zip``) -> ``OK``.
+  - Many Unix command-line tools such as ``cp`` are not available by default.
     You can get a good set of tools by installing :term:`conda`\s ``m2-base`` package via ``conda install m2-base`` in an Anaconda prompt.
 
 

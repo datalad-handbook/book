@@ -412,15 +412,15 @@ When using the terminal command ``cp`` [#f1]_, it is sufficient to use the
 ``-L``/``--dereference`` option. This will follow symbolic links, and make
 sure that content gets moved instead of symlinks.
 Remember that if you are copying some annexed content out of a dataset without
-unlocking it first, you will only have "read" access on the files you have just 
+unlocking it first, you will only have "read" :term:`permissions` on the files you have just 
 copied. Therefore you can :
 - either unlock the files before copying them out, 
 - or copy them and then use the command ``chmod`` to be able to edit the file.
 
-```
-# this will give you 'write' permission on the file
-chmod +w filename
-```
+.. code-block:: bash
+
+   # this will give you 'write' permission on the file
+   $ chmod +w filename
 .. todo::
 
    add a link to very simple tuto on chmod

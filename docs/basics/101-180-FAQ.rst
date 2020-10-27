@@ -421,10 +421,9 @@ copied. Therefore you can :
 
    # this will give you 'write' permission on the file
    $ chmod +w filename
-.. todo::
-
-   add a link to very simple tuto on chmod
-
+   
+If you are not familiar with how the ``chmod`` works (or if you forgot - let's be honest we
+all google it sometimes), this is `a nice tutorial < https://bids.github.io/2015-06-04-berkeley/shell/07-perm.html>`_ . 
 
 With tools other than ``cp`` (e.g., graphical file managers), to copy or move
 annexed content, make sure it is *unlocked* first:

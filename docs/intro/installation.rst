@@ -233,8 +233,14 @@ If you are a Windows user and want to help improve the handbook for Windows user
 please `get in touch <https://github.com/datalad-handbook/book/issues/new>`_.
 Expandable notes, "``Windows-Workaround``\s", contain important information, alternative commands, or warnings, and if you are proceeding with a native Windows 10 system you should be close attention to them.
 
+- **Step 1**: Install Git
 
-- **Step 1**: Install Conda
+  - If you haven't installed :term:`Git` yet, please download and install the latest release from `git-scm.com/ <https://git-scm.com/>`_.
+
+  - During installation, you will be asked to "Select Components".
+    In order to get a slightly nicer visual experience, tick the box at "Use a TrueType font in all console windows"
+
+- **Step 2**: Install Conda
 
   - Go to https://docs.conda.io/en/latest/miniconda.html and pick the
     latest Python 3 installer. Miniconda is a free, minimal installer for
@@ -249,34 +255,13 @@ Expandable notes, "``Windows-Workaround``\s", contain important information, alt
     a preconfigured terminal shell. Find it by searching for "Anaconda prompt"
     in your search bar.
 
-- **Step 2**: Install Git
 
-  - If you haven't installed :term:`Git` yet, please download and install the latest release from `git-scm.com/ <https://git-scm.com/>`_.
+- **Step 3**: Install DataLad and its dependencies
 
-- **Step 3**: Install git-annex
+  - Enter an Anaconda prompt, and install DataLad and its dependencies by running ``conda install -c conda-forge datalad``
 
-  - Obtain the current git-annex versions installer `from here <https://downloads.kitenet.net/git-annex/windows/current/>`_.
-    Save the file, and double click the downloaded :command:`git-annex-installer.exe` in your Downloads.
+- **Step 4**: Optional - Install Unix tools
 
-  - During installation, you will be prompted to "Choose Install Location".
-    **Install it into the directory in which Git is installed**, e.g., ``C:\Program Files (x86)\Git``.
-    Usually, :term:`git-annex` will set the correct installation location automatically, and warn if it doesn't find a Git installation where it expects one to be.
-
-  - To verify that the build of git-annex works in your Windows system, you are encouraged to run the test suite before using git-annex on real data.
-    After installation, run ``git annex test`` in the command line.
-    There will be a lot of output; the important thing is that it should end with "All tests passed".
-
-- **Step 4**: Install DataLad via pip
-
-  - ``pip`` was installed by ``miniconda``. In the ``Anaconda prompt``, run::
-
-       pip install datalad
-
-- **Step 5**: Install 7zip and Unix tools
-
-  - `7zip <https://7-zip.de/download.html>`_ is a dependency of DataLad and not installed by default on Windows 10.
-    Please make sure to download and install it.
-    Please also make sure that it is available in your ``PATH`` environment variable: ``Environment Variables`` -> ``User Variables`` -> ``path`` -> ``edit`` -> ``new`` -> add the path: ``C:\ProgramFiles\7-zip``) -> ``OK``.
   - Many Unix command-line tools such as ``cp`` are not available by default.
     You can get a good set of tools by installing :term:`conda`\s ``m2-base`` package via ``conda install m2-base`` in an Anaconda prompt.
 

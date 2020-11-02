@@ -107,7 +107,7 @@ manager ``pip`` as described below. ``pip`` should already be installed by
 default. Recent macOS versions may have ``pip3`` instead of ``pip`` -- use
 :term:`tab completion` to find out which is installed. If it is ``pip3``, run::
 
-   $ pip3 install datalad~=0.12
+   $ pip3 install datalad
 
 instead of the code snippets in the section below.
 
@@ -116,7 +116,7 @@ a user's home directory:
 
 .. code-block:: bash
 
-   $ pip3 install --user datalad~=0.12
+   $ pip3 install --user datalad
 
 
 .. findoutmore:: If something is not on PATH...
@@ -179,14 +179,14 @@ to automatically install DataLad and most of its software dependencies, type
 
 .. code-block:: bash
 
-   $ pip install datalad~=0.12
+   $ pip install datalad
 
 If this results in a ``permission denied`` error, install DataLad into
 a user's home directory:
 
 .. code-block:: bash
 
-   $ pip install --user datalad~=0.12
+   $ pip install --user datalad
 
 ``pip`` is not able to install the `7-zip <https://7-zip.org/>`_ dependency.
 Please install a flavor of 7-zip that is appropriate for your operating system (such as `p7zip <http://p7zip.sourceforge.net/>`_ for Linux or macOS) if it isn't yet installed.

@@ -1,11 +1,39 @@
-.. _inm7checklist:
+.. _inm7checklistfmriprep_:
 
-Checklist for the impatient: Preprocess a DataLad dataset with fMRIprep
------------------------------------------------------------------------
+Checklists for the impatient: Preprocess a DataLad dataset with fMRIprep
+------------------------------------------------------------------------
 
-Let's say you have a BIDS-structured DataLad dataset with input data that you want to preprocess with `fMRIprep <https://fmriprep.readthedocs.io/>`_ using HTCondor, but you can't be bothered to read and understand more than a few pages of user documentation.
-Here is a step-by-step bullet point instruction that may get you to where you want to be, but doesn't enforce any learning upon you.
-It will only work if the data you want to preprocess is already a DataLad dataset and in a BIDS-compliant structure.
+Let's say you have a BIDS-structured DataLad dataset with input data that you want to preprocess with `fMRIprep <https://fmriprep.readthedocs.io/>`_ using HTCondor.
+Here is a step-by-step bullet point instruction that contains all required steps -- in the case of a fully-standard-no-special-cases analysis setup, with all necessary preparations, e.g., input dataset creation and BIDS validation, being done already.
+It may get you to where you want to be, but is doomed to fail when your analysis does not align completely with the set up that this example work with, and it will in all likelihood not enable you to understand and solve the task that you are facing yourself if need be.
+
+.. admonition:: Requirements and implicit assumptions
+
+   The following must be true about your data analysis. Else, adjustments are necessary:
+
+   - The data that you want to preprocess (i.e., your ``sourcedata``) is a DataLad dataset.
+     If not, read the first three chapters of the Basics and the section :ref:`dataladdening`, and turn it into a dataset.
+   - You want to preprocess the data with `fMRIprep <https://fmriprep.readthedocs.io/>`_.
+   - ``sourcedata`` is BIDS-compliant, at least BIDS-compliant enough that fMRIprep is able to run with no fatal errors.
+     If not, go the `BIDS starterkit <https://github.com/bids-standard/bids-starter-kit>`_ to read about it, contact the INM-7 data management people, and provide information about what you need -- they can help you get started.
+   - The scripts assume that your project is in a `project folder <https://docs.inm7.de/cluster/data/>`_ (e.g., ``/data/project/fancyproject/fmripreppreprocessinganalyis`` where ``fancyproject`` is your `project folder <https://docs.inm7.de/cluster/data/>`_ and ``fmripreppreprocessinganalysis`` is the data analysis that you will create.
+     If your data analysis is somewhere else (e.g., some subdirectories down in the project folder), you need to adjust absolute paths that point to it in the workflow script.
+
+
+.. findoutmore:: How much do I need to learn in order to understand everything that is going?
+
+   A lot.
+   That is not to say that it is an inhumane and needlessly complicated effort.
+   We're scientists, trying to do a complicated task not only somewhat, but also well.
+   The goal is that an analysis of yours can be discovered in a decade by someone who does not know you and has no means of reaching you, ever, but that this person is able to understand and hopefully even recompute what you have done in a matter of minutes, from information that your analysis privides on its own.
+   `While this is be the way science should function, this task is yet something to be commonly accomplished <https://www.nature.com/articles/d41586-020-02462-7>`_.
+   DataLad can help with this complex task.
+   But it comes at the expense of learning to use the tool.
+   If you want to learn, there are enough resources.
+   Read the :ref:`basics-intro` of the handbook, understand as much as you can, ask about things you don't understand.
+
+To adjust the commands in the checklist to your own data analysis endeavour, please replace any place holder (enclosed in ``<`` and ``>``) with your own information.
+
 
 .. admonition:: Placeholders
 
@@ -14,6 +42,7 @@ It will only work if the data you want to preprocess is already a DataLad datase
    - ``projectfolder``: This is your 1TB project folder under ``/data/project/`` on juseless
    - ``processed``: This is an arbitrary name that you call the folder to hold preprocessing results
    - ``BIDS``: This is your BIDS-compliant input data in a DataLad dataset
+
 
 1. Create an analysis dataset
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -36,7 +65,7 @@ Finally, create a new directory ``logs`` outside of the analysis dataset -- this
 
 .. code-block:: bash
 
-   $ mkdir ../logs
+   $ mkdir logs
 
 2. Install your BIDS compliant input dataset as a subdataset
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -84,112 +113,111 @@ If you don't want to do this, here are a few benchmarks:
 - preprocessing of ``HCP_structural_preprocessed`` data results in about 400 files per subject
 - UKBiobank preprocessing leads to about 450 files per subject
 
-For small datasets (200k files or less)
-"""""""""""""""""""""""""""""""""""""""
+.. findoutmore:: For small datasets (200k files or less)
 
-If you expect fewer than 200k output files, take the workflow script below, replace the placeholders with the required information, and save it as ``fmriprep_participant_job`` into the ``code/`` directory.
+    If you expect fewer than 200k output files, take the workflow script below, replace the placeholders with the required information, and save it as ``fmriprep_participant_job`` into the ``code/`` directory.
 
-.. code-block:: bash
+    .. code-block:: bash
 
-      #!/bin/bash
-      set -e -u -x
+          #!/bin/bash
+          set -e -u -x
 
-      subid=$(basename $1)
+          subid=$(basename $1)
 
-      cd /tmp
-      flock --verbose $DSLOCKFILE datalad clone /data/project/<projectfolder>/<processed> ds
+          cd /tmp
+          flock --verbose $DSLOCKFILE datalad clone /data/project/<projectfolder>/<processed> ds
 
-      cd ds
-      datalad get -n -r -R1 .
-      git annex dead here
+          cd ds
+          datalad get -n -r -R1 .
+          git annex dead here
 
-      git checkout -b "job-$JOBID"
+          git checkout -b "job-$JOBID"
 
-      mkdir -p .git/tmp/wdir
-      find sourcedata -mindepth 2 -name '*.json' -a ! -wholename "$1"/'*' -delete
+          mkdir -p .git/tmp/wdir
+          find sourcedata -mindepth 2 -name '*.json' -a ! -wholename "$1"/'*' -delete
 
-      # add your required fMRIprep parametrization
-      datalad containers-run \
-        -m "fMRIprep $subid" \
-        --explicit \
-        -o freesurfer -o fmriprep \
-        -i "$1" \
-        -n code/pipelines/fmriprep \
-        sourcedata . participant \
-        --n_cpus 1 \
-        --skip-bids-validation \
-        -w .git/tmp/wdir \
-        --participant-label "$subid" \
-        --random-seed 12345 \
-        --skull-strip-fixed-seed \
-        --md-only-boilerplate \
-        --output-spaces MNI152NLin6Asym \
-        --use-aroma \
-        --cifti-output
-      # selectively push outputs only
-      # ignore root dataset, despite recorded changes, needs coordinated
-      # merge at receiving end
-      flock --verbose $DSLOCKFILE datalad push --to origin
+          # add your required fMRIprep parametrization
+          datalad containers-run \
+            -m "fMRIprep $subid" \
+            --explicit \
+            -o freesurfer -o fmriprep \
+            -i "$1" \
+            -n code/pipelines/fmriprep \
+            sourcedata . participant \
+            --n_cpus 1 \
+            --skip-bids-validation \
+            -w .git/tmp/wdir \
+            --participant-label "$subid" \
+            --random-seed 12345 \
+            --skull-strip-fixed-seed \
+            --md-only-boilerplate \
+            --output-spaces MNI152NLin6Asym \
+            --use-aroma \
+            --cifti-output
+          # selectively push outputs only
+          # ignore root dataset, despite recorded changes, needs coordinated
+          # merge at receiving end
+          flock --verbose $DSLOCKFILE datalad push --to origin
 
-Save the addition of this workflow file::
 
-   $ datalad save -m "added fmriprep preprocessing workflow" code/fmriprep_participant_job
+.. findoutmore:: For large datasets
 
-For large datasets
-""""""""""""""""""
+    If you expect more than 200k result files, first create two subdatasets::
 
-If you expect more than 200k result files, first create two subdatasets::
+        $ datalad create -d . fmriprep
+        $ datalad create -d . freesurfer
 
-    $ datalad create -d . fmriprep
-    $ datalad create -d . freesurfer
+    If you run ``datalad subdatasets`` afterwards in the root of your dataset you should see four subdatasets listed.
+    Then, take the workflow script below, replace the placeholders with the required information, and save it as ``fmriprep_participant_job`` into the ``code/`` directory.
 
-If you run ``datalad subdatasets`` afterwards in the root of your dataset you should see four subdatasets listed.
-Then, take the workflow script below, replace the placeholders with the required information, and save it as ``fmriprep_participant_job`` into the ``code/`` directory.
+    .. code-block:: bash
 
-.. code-block:: bash
+          #!/bin/bash
+          set -e -u -x
 
-      #!/bin/bash
-      set -e -u -x
+          subid=$(basename $1)
 
-      subid=$(basename $1)
+          cd /tmp
+          flock --verbose $DSLOCKFILE datalad clone /data/project/<projectfolder>/<processed> ds
 
-      cd /tmp
-      flock --verbose $DSLOCKFILE datalad clone /data/project/<projectfolder>/<processed> ds
+          cd ds
+          datalad get -n -r -R1 .
+          git submodule foreach --recursive git annex dead here
 
-      cd ds
-      datalad get -n -r -R1 .
-      git submodule foreach --recursive git annex dead here
+          git -C fmriprep checkout -b "job-$JOBID"
+          git -C freesurfer checkout -b "job-$JOBID"
 
-      git -C fmriprep checkout -b "job-$JOBID"
-      git -C freesurfer checkout -b "job-$JOBID"
+          mkdir -p .git/tmp/wdir
+          find sourcedata -mindepth 2 -name '*.json' -a ! -wholename "$1"/'*' -delete
 
-      mkdir -p .git/tmp/wdir
-      find sourcedata -mindepth 2 -name '*.json' -a ! -wholename "$1"/'*' -delete
+          (cd fmriprep && rm -rf logs "$subid" "$subid.html" dataset_description.json desc-*.tsv)
+          (cd freesurfer && rm -rf fsaverage "$subid")
 
-      (cd fmriprep && rm -rf logs "$subid" "$subid.html" dataset_description.json desc-*.tsv)
-      (cd freesurfer && rm -rf fsaverage "$subid")
+          # add your required fMRIprep parametrization
+          datalad containers-run \
+            -m "fMRIprep $subid" \
+            --explicit \
+            -o freesurfer -o fmriprep \
+            -i "$1" \
+            -n code/pipelines/fmriprep \
+            sourcedata . participant \
+            --n_cpus 1 \
+            --skip-bids-validation \
+            -w .git/tmp/wdir \
+            --participant-label "$subid" \
+            --random-seed 12345 \
+            --skull-strip-fixed-seed \
+            --md-only-boilerplate \
+            --output-spaces MNI152NLin6Asym \
+            --use-aroma \
+            --cifti-output
 
-      # add your required fMRIprep parametrization
-      datalad containers-run \
-        -m "fMRIprep $subid" \
-        --explicit \
-        -o freesurfer -o fmriprep \
-        -i "$1" \
-        -n code/pipelines/fmriprep \
-        sourcedata . participant \
-        --n_cpus 1 \
-        --skip-bids-validation \
-        -w .git/tmp/wdir \
-        --participant-label "$subid" \
-        --random-seed 12345 \
-        --skull-strip-fixed-seed \
-        --md-only-boilerplate \
-        --output-spaces MNI152NLin6Asym \
-        --use-aroma \
-        --cifti-output
+          flock --verbose $DSLOCKFILE datalad push -d fmriprep --to origin
+          flock --verbose $DSLOCKFILE datalad push -d freesurfer --to origin
 
-      flock --verbose $DSLOCKFILE datalad push -d fmriprep --to origin
-      flock --verbose $DSLOCKFILE datalad push -d freesurfer --to origin
+Then, make the script executable::
+
+   $ chmod +x code/fmriprep_participant_job
 
 Save the addition of this workflow file::
 
@@ -238,4 +266,49 @@ In the root of your dataset, run
 
    condor_submit code/fmriprep_all_participants.submit
 
-7.
+7. Monitor the job
+^^^^^^^^^^^^^^^^^^
+
+Use `standard HTCondor commands <https://docs.inm7.de/htcondor/commands/>`_ to monitor your job, and check on it if it is ``held``.
+
+.. findoutmore:: What kind of content can I expect in which file?
+
+   - ``*.log`` files: You will find no DataLad-related output in this file, only information from HTCondor
+   - ``*.out`` files: You will find messages such as successful datalad operation result summaries (``get(ok)``, ``install(ok)``, ...) and workflow output from fmriprep. Here is an example::
+
+        install(ok): /tmp/ds (dataset)
+        flock: getting lock took 3.562222 seconds
+        flock: executing datalad
+        update(ok):../../ /tmp/ds/code/pipelines (dataset)
+        configure-sibling(ok):../../ /tmp/ds/code/pipelines (sibling)
+        install(ok): /tmp/ds/code/pipelines (dataset)
+        update(ok):../ /tmp/ds/sourcedata (dataset)
+        configure-sibling(ok):../ /tmp/ds/sourcedata (sibling)
+        install(ok): /tmp/ds/sourcedata (dataset)
+        action summary:
+          configure-sibling (ok: 2)
+          install (ok: 2)
+          update (ok: 2)
+        dead here ok
+        (recording state in git...)
+        get(ok): /tmp/ds/sourcedata/sub-A00010893/ses-DS2/anat/sub-A00010893_ses-DS2_T1w.nii.gz (file) [from inm7-storage...]
+        get(ok): /tmp/ds/sourcedata/sub-A00010893/ses-DS2/dwi/sub-A00010893_ses-DS2_dwi.bval (file) [from inm7-storage...]
+        get(ok): /tmp/ds/sourcedata/sub-A00010893/ses-DS2/dwi/sub-A00010893_ses-DS2_dwi.bvec (file) [from inm7-storage...]
+        get(ok): /tmp/ds/sourcedata/sub-A00010893/ses-DS2/dwi/sub-A00010893_ses-DS2_dwi.nii.gz (file) [from inm7-storage...]
+        get(ok): /tmp/ds/sourcedata/sub-A00010893/ses-DS2/func/sub-A00010893_ses-DS2_task-breathhold_acq-1400_bold.nii.gz (file) [from inm7-storage...]
+        get(ok): /tmp/ds/sourcedata/sub-A00010893/ses-DS2/func/sub-A00010893_ses-DS2_task-checkerboard_acq-1400_bold.nii.gz (file) [from inm7-storage...]
+        get(ok): /tmp/ds/sourcedata/sub-A00010893/ses-DS2/func/sub-A00010893_ses-DS2_task-checkerboard_acq-645_bold.nii.gz (file) [from inm7-storage...]
+        get(ok): /tmp/ds/sourcedata/sub-A00010893/ses-DS2/func/sub-A00010893_ses-DS2_task-rest_acq-1400_bold.nii.gz (file) [from inm7-storage...]
+        get(ok): /tmp/ds/sourcedata/sub-A00010893/ses-DS2/func/sub-A00010893_ses-DS2_task-rest_acq-645_bold.nii.gz (file) [from inm7-storage...]
+        get(ok): /tmp/ds/sourcedata/sub-A00010893/ses-DS2/func/sub-A00010893_ses-DS2_task-rest_acq-cap_bold.nii.gz (file) [from inm7-storage...]
+        get(ok): /tmp/ds/sourcedata/sub-A00010893 (directory)
+        get(ok): /tmp/ds/code/pipelines/.datalad/environments/fmriprep/image (file) [from origin-2...]
+        201023-12:36:57,535 nipype.workflow IMPORTANT:
+
+            Running fMRIPREP version 20.1.1:
+              * BIDS dataset path: /tmp/ds/sourcedata.
+              * Participant list: ['A00010893'].
+              * Run identifier: 20201023-123648_216eb011-9b7f-4f2b-8d43-482bf4795041.
+              * Output spaces: MNI152NLin6Asym:res-native.
+              * Pre-run FreeSurfer's SUBJECTS_DIR: /tmp/ds/freesurfer.
+        201023-12:37:33,593 nipype.workflow INFO:

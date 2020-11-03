@@ -1,0 +1,393 @@
+.. _hcpenki:
+
+Walkthrough: Parallel ENKI preprocessing with fMRIprep
+------------------------------------------------------
+
+The previous section has been an overview on parallel, provenance-tracked computations in DataLad datasets.
+While the general workflow entails a complete setup, its usually easier to understand it by seeing it applied to a concrete usecase.
+Its even more informative if that usecase includes some complexities that do not exist in the "picture-perfect" example but are likely to arise in real life.
+Therefore, the following walk-through in this section is a write-up of an existing and successfully executed analysis.
+
+The analysis
+^^^^^^^^^^^^
+
+The analysis goal was standard data preprocessing using `fMRIprep <https://fmriprep.readthedocs.io/>`_ on neuroimaging data of 1300 subjects in the `eNKI <http://fcon_1000.projects.nitrc.org/indi/enhanced/>`_ dataset.
+This computational task is ideal for parallelization: Each subject can be preprocessed individually, each preprocessing takes between 6 and 8 hours per subject, resulting in 1300x7h of serial computing, but only about 7 hours of computing time when executed completely in parallel, and
+fMRIprep is a containerized pipeline that can be pointed to a specific subject to preprocess.
+
+ENKI was transformed into a DataLad dataset beforehand, and to set up the analysis, the fMRIprep container was placed -- with a custom configuration to make it generalizable -- into a new dataset called ``pipeline``.
+Both of these datasets, input data and ``pipeline`` dataset, became subdataset of a data analysis superdataset.
+In order to associate input data, containerized pipeline, and outputs, the analysis was carried out in a toplevel analysis DataLad dataset and with the :command:`datalad containers-run` command.
+Finally, as an additional complexity, due to the additional complexity of a large quantity of results, the output was collected in subdatasets.
+
+
+.. _pipelineenki:
+
+Starting point: Datasets for software and input data
+""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+At the beginning of this endeavour, two important analysis components already exist as DataLad datasets:
+
+1. The input data
+2. The containerized pipeline
+
+Following the :ref:`YODA principles <yoda>`, each of these components is a standalone dataset.
+While the input dataset creation is straightforwards, some thinking went into the creation of containerized pipeline dataset to set it up in a way that allows it to be installed as a subdataset and invoked from the superdataset.
+If you are interested in this, find the details in the findoutmore below.
+Also note that there is a large collection of pre-existing container datasets available at `github.com/ReproNim/containers <https://github.com/ReproNim/containers>`_.
+
+.. findoutmore:: pipeline dataset creation
+
+   We start with a dataset (called ``pipelines`` in this example)::
+
+       $ datalad create pipelines
+         [INFO   ] Creating a new annex repo at /data/projects/enki/pipelines
+         create(ok): /data/projects/enki/pipelines (dataset)
+       $ cd pipelines
+
+   As one of tools used in fMRIprep's the pipeline, `freesurfer <https://surfer.nmr.mgh.harvard.edu/>`_, requires a license file, this license file needs to be added into the dataset.
+   Only then can this dataset be moved around flexibly and also to different machines.
+   In order to have the license file available right away, it is saved ``--to-git`` and not annexed [#f1]_::
+
+       $ cp <location/to/fs-license.txt> .
+       $ datalad save --to-git -m "add freesurfer license file" fs-license.txt
+
+   Finally, we add a container with the pipeline to the dataset using :command:`datalad containers-add` [#f2]_.
+   The important part is the configuration of the container -- it has to be done in a way that makes the container usable in any superdataset the pipeline dataset.
+
+   Depending on how the container/pipeline needs to be called, the configuration differs.
+   In the case of an fMRIprep run, we want to be able to invoke the container from a data analysis superdataset.
+   The superdataset contains input data and ``pipelines`` dataset as subdatasets, and will collect all of the results.
+   Thus, these are arguments we want to supply the invocation with (following `fMRIprep's documentation <https://fmriprep.org/en/stable/usage.html>`_) during a ``containers-run`` command::
+
+        $ datalad containers-run \
+        [...]
+        <BIDS_dir> <output_dir> <analysis_level> \
+        --n_cpus <N> \
+        --participant-label <ID> \
+        [...]
+
+   Note how this list does not include bind-mounts of the necessary directories or of the freesurfer license -- this makes the container invocation convenient and easy for any user.
+   Starting an fMRIprep run requires only a ``datalad containers-run`` with all of the desired fMRIprep options.
+
+   This convenience for the user requires that all of the bind-mounts should be taken care of -- in a generic way -- in the container call specification, though.
+   Here is how this is done::
+
+       $ datalad containers-add fmriprep \
+         --url /data/project/singularity/fmriprep-20.2.0.simg \
+         --call-fmt singularity run --cleanenv -B "$PWD" {img} {cmd} --fs-license-file "$PWD/{img_dspath}/freesurfer_license.txt"
+
+   During a :command:`datalad containers-run` command, the ``--call-fmt`` specification will be used to call the container.
+   The placeholders ``{img}`` and ``{cmd}`` will be replaced with the container (``{img}``) and the command given to ``datalad containers-run`` (``{cmd}``).
+   Thus, the ``--cleanenv`` flag (`recommended by fMRIprep <https://fmriprep.org/en/stable/singularity.html#handling-environment-variables>`_) as well as bind-mounts are handled prior to the container invocation, and the ``--fs-license-file`` option with a path to the license file within the container is appended to the command.
+   Bind-mounting the working directory (``-B "$PWD"``) makes sure to bind mount the directory from which the container is being called, which should be the superdataset that contains input data and ``pipelines`` subdataset.
+   With these bind-mounts, input data and the freesurfer license file within ``pipelines`` are available in the container.
+
+   With such a setup, the ``pipelines`` dataset can be installed in any dataset and will work out of the box.
+
+Analysis dataset setup
+""""""""""""""""""""""
+
+The size of the input dataset and the nature of preprocessing results with fMRIprep constitute an additional complexity:
+Based on the amount of input data and test runs of fMRIprep on single subjects, we estimated that the preprocessing results from fMRIprep would encompass several TB in size and about half a million files.
+This amount of files is too large to be stored in a single dataset, though, and results will therefore need to be split into two result datasets.
+These will be included as direct subdatasets of the toplevel analysis dataset.
+This is inconvenient -- it separates results (in the result subdatasets) from their provenance (the run-records in the top-level dataset) -- but inevitable given the dataset size.
+A final analysis dataset will consist of the following components:
+
+- input data as a subdataset
+- ``pipelines`` container dataset as a subdataset
+- subdatasets to hold the results
+
+Following the benchmarks and tips in the chapter :ref:`chapter_gobig`, the amount of files produced by fMRIprep on 1300 subjects requires two datasets to hold them.
+In this particular computation, following the naming scheme and structure of fMRIpreps output directories, one subdataset is created for the `freesurfer <https://surfer.nmr.mgh.harvard.edu/>`_ results of fMRIprep in a subdataset called ``freesurfer``, and one for the minimally preprocessed input data in a subdataset called ``fmriprep``.
+
+Here is an overview of the directory structure in the superdataset::
+
+    superds
+    ├── code                # directory
+    │   └── pipelines       # subdataset with fMRIprep
+    ├── fmriprep            # subdataset for results
+    ├── freesurfer          # subdataset for results
+    └── sourcedata          # subdataset with BIDS-formatted data
+        ├── sourcedata      # subdataset with raw data
+        ├── sub-A00008326   # directory
+        ├── sub-...
+
+When running fMRIprep on a smaller set of subjects, or a containerized pipeline that produces fewer files, saving results into subdatasets isn't necessary.
+
+Workflow script
+"""""""""""""""
+
+Based on the general principles introduced in the previous section, there is a sketch of the workflow  in the :term:`bash` (shell) script below.
+It still lacks ``fMRIprep`` specific fine-tuning -- the complete script is shown in the findoutmore afterwards.
+This initial sketch serves to highlight key differences and adjustments due to the complexity and size of the analysis, explained below and highlighted in the script as well:
+
+* **Getting subdatasets**: The empty result subdatasets wouldn't be installed in the clone automatically -- ``datalad get -n -r -R1 .`` installs all first-level subdatasets so that they are available to be populated with results.
+* **recursive throw-away clones**: In the simpler general workflow, we ran ``git annex dead here`` in the topmost dataset.
+  This dataset contains the results within subdatasets.
+  In order to make them "throw-away" as well, the ``git annex dead here`` configuration needs to be applied recursively for all datasets with ``git submodule foreach --recursive git annex dead here``.
+* **Checkout unique branches in the subdataset**: Since the results will be pushed from the subdatasets, it is in there that unique branches need to be checked out.
+  We're using ``git -C <path>`` to apply a command in dataset under ``path``.
+* **Complex container call**: The ``containers-run`` command is more complex because it supplies all desired ``fMRIprep`` arguments.
+* **Push the subdatasets only**: We only need to push the results, i.e., there is one push per each subdataset.
+
+.. code-block:: bash
+   :emphasize-lines: 10, 13, 19-20, 24, 43-44
+
+   # everything is running under /tmp inside a compute job,
+   # /tmp is job-specific local filesystem not shared between jobs
+   $ cd /tmp
+
+   # clone the superdataset with locking
+   $ flock --verbose $DSLOCKFILE datalad clone /data/project/enki/super ds
+   $ cd ds
+
+   # get first-level subdatasets (-R1 = --recursion-limit 1)
+   $ datalad get -n -r -R1 .
+
+   # make git-annex disregard the clones - they are meant to be thrown away
+   $ git submodule foreach --recursive git annex dead here
+
+   # checkout unique branches (names derived from job IDs) in both subdatasets
+   # to enable pushing the results without interference from other jobs
+   # In a setup with no subdatasets, "-C <subds-name>" would be stripped,
+   # and a new branch would be checked out in the superdataset instead.
+   $ git -C fmriprep checkout -b "job-$JOBID"
+   $ git -C freesurfer checkout -b "job-$JOBID"
+
+   # call fmriprep with datalad containers-run. Use all relevant fMRIprep
+   # arguments for your usecase
+   $ datalad containers-run \
+      -m "fMRIprep $subid" \
+      --explicit \
+      -o freesurfer -o fmriprep \
+      -i "$1" \
+      -n code/pipelines/fmriprep \
+      sourcedata . participant \
+      --n_cpus 1 \
+      --skip-bids-validation \
+      -w .git/tmp/wdir \
+      --participant-label "$subid" \
+      --random-seed 12345 \
+      --skull-strip-fixed-seed \
+      --md-only-boilerplate \
+      --output-spaces MNI152NLin6Asym \
+      --use-aroma \
+      --cifti-output
+
+   # push back the results
+   $ flock --verbose $DSLOCKFILE datalad push -d fmriprep --to origin
+   $ flock --verbose $DSLOCKFILE datalad push -d freesurfer --to origin
+   # job handler should clean up workspace
+
+Just like the general script from the last section, this script can be submitted to any job scheduler -- here with a subject ID as a ``$subid`` command line variable and a job ID as environment variable as identifiers for the fMRIprep run and branch names.
+At this point, the workflow misses a tweak that is necessary in fMRIprep to enable re-running computations.
+
+.. findoutmore:: Fine-tuning: Enable re-running
+
+   If you want to make sure that your dataset is set up in a way that you have the ability to rerun a computation quickly, the following fMRIprep-specific consideration is important:
+   If fMRIprep finds preexisting results, it will fail to run.
+   Therefore, all outputs of a job need to be removed before the job is started [#f3]_.
+   We can simply add an attempt to do this in the script (it wouldn't do any harm if there is nothing to be removed)::
+
+        (cd fmriprep && rm -rf logs "$subid" "$subid.html" dataset_description.json desc-*.tsv)
+        (cd freesurfer && rm -rf fsaverage "$subid")
+
+   With this in place, the only things missing are a :term:`shebang` at the top of the script, and some shell settings for robust scripting with verbose log files (``set -e -u -x``).
+   You can find the full script with rich comments in the next findoutmore.
+
+.. findoutmore:: See the complete bash script
+
+   This script is placed in ``code/fmriprep_participant_job``:
+
+   .. code-block:: bash
+
+        #!/bin/bash
+
+        # fail whenever something is fishy, use -x to get verbose logfiles
+        set -e -u -x
+
+        # we pass in "sourcedata/sub-...", extract subject id from it
+        subid=$(basename $1)
+
+        # this is all running under /tmp inside a compute job, /tmp is a performant
+        # local filesystem
+        cd /tmp
+        # get the output dataset, which includes the inputs as well
+        # flock makes sure that this does not interfere with another job
+        # finishing at the same time, and pushing its results back
+        # importantly, we clone from the location that we want to push the
+        # results too
+        flock --verbose $DSLOCKFILE \
+            datalad clone /data/project/enki/super ds
+
+        # all following actions are performed in the context of the superdataset
+        cd ds
+        # obtain all first-level subdatasets:
+        # dataset with fmriprep singularity container and pre-configured
+        # pipeline call; also get the output dataset to prep them for output
+        # consumption, we need to tune them for this particular job, sourcedata
+        # important: because we will push additions to the result datasets back
+        # at the end of the job, the installation of these result datasets
+        # must happen from the location we want to push back too
+        datalad get -n -r -R1 .
+        # let git-annex know that we do not want to remember any of these clones
+        # (we could have used an --ephemeral clone, but that might deposite data
+        # of failed jobs at the origin location, if the job runs on a shared
+        # filesystem -- let's stay self-contained)
+        git submodule foreach --recursive git annex dead here
+
+        # checkout new branches in both subdatasets
+        # this enables us to store the results of this job, and push them back
+        # without interference from other jobs
+        git -C fmriprep checkout -b "job-$JOBID"
+        git -C freesurfer checkout -b "job-$JOBID"
+        # create workdir for fmriprep inside to simplify singularity call
+        # PWD will be available in the container
+        mkdir -p .git/tmp/wdir
+        # pybids (inside fmriprep) gets angry when it sees dangling symlinks
+        # of .json files -- wipe them out, spare only those that belong to
+        # the participant we want to process in this job
+        find sourcedata -mindepth 2 -name '*.json' -a ! -wholename "$1"'*' -delete
+
+        # next one is important to get job-reruns correct. We remove all anticipated
+        # output, such that fmriprep isn't confused by the presence of stale
+        # symlinks. Otherwise we would need to obtain and unlock file content.
+        # But that takes some time, for no reason other than being discarded
+        # at the end
+        (cd fmriprep && rm -rf logs "$subid" "$subid.html" dataset_description.json desc-*.tsv)
+        (cd freesurfer && rm -rf fsaverage "$subid")
+
+        # the meat of the matter, add actual parameterization after --participant-label
+        datalad containers-run \
+          -m "fMRIprep $subid" \
+          --explicit \
+          -o freesurfer -o fmriprep \
+          -i "$1" \
+          -n code/pipelines/fmriprep \
+          sourcedata . participant \
+          --n_cpus 1 \
+          --skip-bids-validation \
+          -w .git/tmp/wdir \
+          --participant-label "$subid" \
+          --random-seed 12345 \
+          --skull-strip-fixed-seed \
+          --md-only-boilerplate \
+          --output-spaces MNI152NLin6Asym \
+          --use-aroma \
+          --cifti-output
+        # selectively push outputs only
+        # ignore root dataset, despite recorded changes, needs coordinated
+        # merge at receiving end
+        flock --verbose $DSLOCKFILE datalad push -d fmriprep --to origin
+        flock --verbose $DSLOCKFILE datalad push -d freesurfer --to origin
+
+        # job handler should clean up workspace
+
+Pending modifications to paths provided in clone locations, the above script and dataset setup is generic enough to be run on different systems and with different job schedulers.
+
+.. _jobsubmit:
+
+Job submission
+""""""""""""""
+
+Job submission now only boils down to invoking the script for each participant with a participant identifier that determines on which subject the job runs, and setting two environment variables -- one the job ID that determines the branch name that is created, and one that points to a lockfile created beforehand once in ``.git``.
+Job scheduler such as HTCondor have syntax that can identify subject IDs from consistently named directories, for example, and the submit file can thus be lean even though it queues up more than 1000 jobs.
+
+You can find the submit file used in this analyses in the findoutmore below.
+
+.. findoutmore:: HTCondor submit file
+
+   The following submit file was created and saved in ``code/fmriprep_all_participants.submit``:
+
+   .. code-block:: bash
+
+      universe       = vanilla
+      get_env        = True
+      # resource requirements for each job, determined by
+      # investigating the demands of a single test job
+      request_cpus   = 1
+      request_memory = 20G
+      request_disk   = 210G
+
+      executable     = $ENV(PWD)/code/fmriprep_participant_job
+
+      # the job expects to environment variables for labeling and synchronization
+      environment = "JOBID=$(Cluster).$(Process) DSLOCKFILE=$ENV(PWD)/.git/datalad_lock"
+      log    = $ENV(PWD)/../logs/$(Cluster).$(Process).log
+      output = $ENV(PWD)/../logs/$(Cluster).$(Process).out
+      error  = $ENV(PWD)/../logs/$(Cluster).$(Process).err
+      arguments = $(subid)
+      # find all participants, based on the subdirectory names in the source dataset
+      # each relative path to such a subdirectory with become the value of `subid`
+      # and another job is queued. Will queue a total number of jobs matching the
+      # number of matching subdirectories
+      queue subid matching dirs sourcedata/sub-*
+
+All it takes to submit is a single ``condor_submit <submit_file>``.
+
+Merging results
+"""""""""""""""
+
+Once all jobs have finished, the results lie in individual branches of the output datasets.
+In this concrete example, the subdatasets ``fmriprep`` and ``freesurfer`` will each have more than 1000 branches that hold individual job results.
+The only thing left to do now is merging all of these branches into :term:`master` -- and potentially solve any merge conflicts that arise.
+As explained in the previous section, the necessary merging was done with `Octopus merges <https://git-scm.com/docs/git-merge#Documentation/git-merge.txt-octopus>`_  -- one in each subdataset (``fmriprep`` and ``freesurfer``).
+
+The merge command was assembled with the trick introduced in the previous section, based on job-ID-named branches:
+
+.. code-block:: bash
+
+   $ git merge -m "Merge results from job cluster XY" $(git branch -l | grep 'job-' | tr -d ' ')
+
+**Merging with merge conflicts**
+
+When attempting an octopus merge like the one above and a merge conflict arises, the merge is aborted automatically. This is what it looks like::
+
+   $ git merge -m "Merge results from job cluster 107890" $(git branch -l | grep 'job-' | tr -d ' ')
+    Fast-forwarding to: job-107890.0
+    Trying simple merge with job-107890.1
+    Simple merge did not work, trying automatic merge.
+    ERROR: logs/CITATION.md: Not merging symbolic link changes.
+    fatal: merge program failed
+    Automated merge did not work.
+    Should not be doing an octopus.
+    Merge with strategy octopus failed.
+
+This merge conflict arose in the ``fmriprep`` subdataset an originated from the fact that each job generated a ``CITATION.md`` file with minimal individual changes.
+
+.. findoutmore:: How to fix this?
+
+   As the file ``CITATION.md`` does not contain meaningful changes between jobs, one of the files was kept (e.g., copied into a temporary location, or brought back to life afterwards with ``git cat-file``), and all ``CITATION.md`` files of all branches were deleted prior to the merge.
+   Here is a bash loop that would do exactly that::
+
+       $ for b in $(git branch -l | grep 'job-' | tr -d ' ');
+            do ( git checkout -b m$b $b && git rm logs/CITATION.md && git commit --amend --no-edit ) ;
+          done
+
+   Afterwards, the merge command succeeds
+
+**Merging without merge conflicts**
+
+If no merge conflicts arise and the octopus merge is successful, all results are aggregated in the ``master`` branch.
+The commit log looks like a work of modern art when visualized with tools such as :term:`tig`:
+
+.. figure:: ../artwork/src/octopusmerge_tig.png
+
+
+Summary
+"""""""
+
+Once all jobs are computed in parallel and the resulting branches merged, the superdataset is populated with two subdatasets that hold the preprocessing results.
+Each result contains a machine-readable record of provenance on when, how, and by whom it was computed.
+From this point, the results in the subdatasets can be used for further analysis, while a record of how they were preprocessed is attached to them.
+
+
+.. rubric:: Footnotes
+
+.. [#f1] If the distinction between annexed and unannexed files is new to you, please read section :ref:`symlink`
+
+.. [#f2] Note that this requires the ``datalad containers`` extension. Find an overview of all datalad extensions in :ref:`extensions_intro`.
+
+.. [#f3]  The brackets around the commands are called *command grouping* in bash, and yield a subshell environment: `www.gnu.org/software/bash/manual/html_node/Command-Grouping.html <https://www.gnu.org/software/bash/manual/html_node/Command-Grouping.html>`_.

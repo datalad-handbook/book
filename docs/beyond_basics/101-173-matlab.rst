@@ -1,0 +1,9 @@
+.. _inm7checklistmatlab_:
+
+Checklists for the impatient: Process a DataLad dataset with MatLab
+-------------------------------------------------------------------
+
+.. todo::
+
+   Find someone who would like to play a matlab analysis through with me.
+   Maybe Susanne or Nevena.

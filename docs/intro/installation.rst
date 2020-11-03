@@ -217,8 +217,8 @@ Information on how to install WSL2 can be found here:
       Using the Windows Subsystem 2 for Linux
 
    You can find out how to install the Windows Subsystem for Linux at
-   `ubuntu.com/wsl <https://ubuntu.com/wsl>`_. Afterwards, proceed with your
-   installation as described in the installation instructions for Linux.
+   `docs.microsoft.com <https://docs.microsoft.com/en-us/windows/wsl/install-win10>`_.
+   Afterwards, proceed with your installation as described in the installation instructions for Linux.
 
 Note: Using Windows itself comes with some downsides.
 We have created a dedicated page, :ref:`ohnowindows` with an explanation and overview.

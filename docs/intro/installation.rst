@@ -238,7 +238,8 @@ Expandable notes, "``Windows-Workaround``\s", contain important information, alt
   - If you haven't installed :term:`Git` yet, please download and install the latest release from `git-scm.com/ <https://git-scm.com/>`_.
 
   - During installation, you will be asked to "Select Components".
-    In order to get a slightly nicer visual experience, tick the box at "Use a TrueType font in all console windows"
+    In order to get a slightly nicer visual experience, tick the box at "Use a TrueType font in all console windows".
+    Afterwards, you can open a Git bash, a :term:`terminal` that is nicer than standard Windows terminals.
 
 - **Step 2**: Install Conda
 
@@ -248,12 +249,13 @@ Expandable notes, "``Windows-Workaround``\s", contain important information, alt
     Python, depending packages, and a number of useful packages such as
     `pip <https://pip.pypa.io/en/stable/>`_.
 
-  - During installation, keep everything on default. In particular, do
-    not add anything to ``PATH``.
-
-  - From now on, any further action must take place in the ``Anaconda prompt``,
-    a preconfigured terminal shell. Find it by searching for "Anaconda prompt"
-    in your search bar.
+  - Using the Git Bash shell for DataLad makes a nicer and more visually appealing experience.
+    If you want to be able to do this, make sure that Miniconda is available from within your Git bash.
+    One way to achieve this is to `tick "Add Anaconda to my PATH environment variables" during installation <https://www.earthdatascience.org/workshops/setup-earth-analytics-python/setup-git-bash-conda/>`_.
+    You can test if you succeeded by opening a new Git bash and typing ``conda`` -- if this shows you a help message, you're good.
+    Alternatively, you can use the ``Anaconda prompt``, a preconfigured terminal shell installed with Miniconda, as a terminal.
+    Find it by searching for "Anaconda prompt" in your search bar.
+    From now on, any further action must either take place in the ``Anaconda prompt``, or the Git Bash.
 
 
 - **Step 3**: Install DataLad and its dependencies
@@ -264,6 +266,9 @@ Expandable notes, "``Windows-Workaround``\s", contain important information, alt
 
   - Many Unix command-line tools such as ``cp`` are not available by default.
     You can get a good set of tools by installing :term:`conda`\s ``m2-base`` package via ``conda install m2-base`` in an Anaconda prompt.
+    **NOTE**: We're currently `investigating whether m2-base may cause problems <https://github.com/ContinuumIO/anaconda-issues/issues/12124>`_ -- use with caution.
+
+
 
 
 .. _installconfig:

@@ -37,6 +37,16 @@ are all free, in total about 15 MB), and save them in ``DataLad-101/books``.
 You can either visit the links and save them in ``books/``,
 or run the following commands [#f2]_ to download the books right from the terminal:
 
+.. windowsworkarounds:: You may want to use curl instead of wget
+
+   Many versions of Windows do not ship with the tool ``wget``.
+   You can install it, but it may be easier to use the pre-installed ``curl`` command::
+
+      $ cd books
+      $ curl -L https://sourceforge.net/projects/linuxcommand/files/TLCL/19.01/TLCL-19.01.pdf/download -o TLCL.pdf
+      $ curl -L https://homepages.uc.edu/~becktl/byte_of_python.pdf -o byte-of-python.pdf
+      $ cd ../
+
 .. runrecord:: _examples/DL-101-102-103
    :language: console
    :workdir: dl-101/DataLad-101
@@ -46,7 +56,7 @@ or run the following commands [#f2]_ to download the books right from the termin
 
    $ cd books
    $ wget https://sourceforge.net/projects/linuxcommand/files/TLCL/19.01/TLCL-19.01.pdf/download -O TLCL.pdf
-   $ wget https://edisciplinas.usp.br/pluginfile.php/3252353/mod_resource/content/1/b_Swaroop_Byte_of_python.pdf -O byte-of-python.pdf
+   $ wget https://homepages.uc.edu/~becktl/byte_of_python.pdf -O byte-of-python.pdf
    # get back into the root of the dataset
    $ cd ../
 
@@ -188,6 +198,15 @@ Luckily, we can point :command:`datalad save` to exactly the changes we want it 
 Let's try this by adding yet another book, a good reference work about git,
 `Pro Git <https://git-scm.com/book/en/v2>`_:
 
+.. windowsworkarounds:: You may want to use curl instead of wget
+
+   Many versions of Windows do not ship with the tool ``wget``.
+   You can install it, but it may be easier to use the pre-installed ``curl`` command::
+
+      $ cd books
+      $ curl -L https://github.com/progit/progit2/releases/download/2.1.154/progit.pdf -o progit.pdf
+      $ cd ../
+
 .. runrecord:: _examples/DL-101-102-108
    :language: console
    :workdir: dl-101/DataLad-101
@@ -273,6 +292,20 @@ Note that we line break the command with ``\`` signs. You can copy them as they
 are presented here into your terminal, but in your own work you can write commands
 like this into a single line.
 
+.. windowsworkarounds:: Windows shells can't handle multi-line commands
+
+   In Unix shells, ``\`` can be used to split a command into several lines, for example to aid readability.
+   Windows does not support this.
+   It instead uses the ``^`` character::
+
+     $ datalad download-url http://www.tldp.org/LDP/Bash-Beginners-Guide/Bash-Beginners-Guide.pdf ^
+     --dataset . ^
+     -m "add beginners guide on bash" ^
+     -O books/bash_guide.pdf
+
+   You will either need to copy multi-line commands into a single line, or use ``^`` (make sure that there is **no space** afterwards) instead of ``\``.
+
+
 .. runrecord:: _examples/DL-101-102-112
    :language: console
    :workdir: dl-101/DataLad-101
@@ -341,9 +374,12 @@ Well done! Your ``DataLad-101`` dataset and its history are slowly growing.
 .. rubric:: Footnotes
 
 .. [#f1] ``tree`` is a Unix command to list file system content. If it is not yet installed,
-   you can get it with your native package manager (e.g.,
-   ``apt`` or ``brew``). For example, if you use OSX, ``brew install tree``
-   will get you this tool.
+   you can get it with your native package manager (e.g.,  ``apt``, ``brew``, or conda).
+   For example, if you use OSX, ``brew install tree``  will get you this tool.
+   On Windows, if you have the Miniconda-based installation described in :ref:`install`, you can install the ``m2-base`` package (``conda install m2-base``), which contains tree along with many other Unix-like commands.
+   Note that this tree works slightly different than its Unix equivalent - it will only display directories, not files, and it doesn't accept common options or flags.
+   It will also display *hidden* directories, i.e., those that start with a ``.`` (dot).
+
 .. [#f2] ``wget`` is a Unix command for non-interactively downloading files from the
    web. If it is not yet installed, you can get it with your native package manager (e.g.,
    ``apt`` or ``brew``). For example, if you use OSX, ``brew install wget``

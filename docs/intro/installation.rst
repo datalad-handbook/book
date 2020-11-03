@@ -107,7 +107,7 @@ manager ``pip`` as described below. ``pip`` should already be installed by
 default. Recent macOS versions may have ``pip3`` instead of ``pip`` -- use
 :term:`tab completion` to find out which is installed. If it is ``pip3``, run::
 
-   $ pip3 install datalad~=0.12
+   $ pip3 install datalad
 
 instead of the code snippets in the section below.
 
@@ -116,7 +116,7 @@ a user's home directory:
 
 .. code-block:: bash
 
-   $ pip3 install --user datalad~=0.12
+   $ pip3 install --user datalad
 
 
 .. findoutmore:: If something is not on PATH...
@@ -179,14 +179,14 @@ to automatically install DataLad and most of its software dependencies, type
 
 .. code-block:: bash
 
-   $ pip install datalad~=0.12
+   $ pip install datalad
 
 If this results in a ``permission denied`` error, install DataLad into
 a user's home directory:
 
 .. code-block:: bash
 
-   $ pip install --user datalad~=0.12
+   $ pip install --user datalad
 
 ``pip`` is not able to install the `7-zip <https://7-zip.org/>`_ dependency.
 Please install a flavor of 7-zip that is appropriate for your operating system (such as `p7zip <http://p7zip.sourceforge.net/>`_ for Linux or macOS) if it isn't yet installed.
@@ -205,38 +205,43 @@ Windows 10
 """"""""""
 
 There are two ways to get DataLad on Windows 10: one is within Windows itself,
-the other is using WSL, the Windows Subsystem for Linux. We recommend the
-former, but information on how to use the WSL can be found here:
+the other is using WSL2, the Windows Subsystem for Linux, version 2.
+With the Windows Subsystem for Linux, you will be able to use a Unix system despite being on Windows.
+You need to have a recent build of Windows 10 in order to get WSL2 -- we do not recommend WSL1.
+Information on how to install WSL2 can be found here:
 
 .. container:: toggle
 
    .. container:: header
 
-      Using the Windows Subsystem for Linux
+      Using the Windows Subsystem 2 for Linux
 
    You can find out how to install the Windows Subsystem for Linux at
-   `ubuntu.com/wsl <https://ubuntu.com/wsl>`_. Afterwards, proceed with your
-   installation as described in the installation instructions for Linux.
+   `docs.microsoft.com <https://docs.microsoft.com/en-us/windows/wsl/install-win10>`_.
+   Afterwards, proceed with your installation as described in the installation instructions for Linux.
 
 Note: Using Windows itself comes with some downsides.
+We have created a dedicated page, :ref:`ohnowindows` with an explanation and overview.
 In general, DataLad can feel a bit sluggish on Windows systems. This is because of
 a range of filesystem issues that also affect the version control system :term:`Git` itself,
 which DataLad relies on. The core functionality of DataLad works, and you should
-be able to follow the contents covered in this book.
+be able to follow most contents covered in this book.
 You will notice, however, that some Unix commands displayed in examples may not
 work, and that terminal output can look different from what is displayed in the
-code examples of the book.
+code examples of the book, and that some dependencies for additional functionality are not available for Windows.
 If you are a Windows user and want to help improve the handbook for Windows users,
 please `get in touch <https://github.com/datalad-handbook/book/issues/new>`_.
+Expandable notes, "``Windows-Workaround``\s", contain important information, alternative commands, or warnings, and if you are proceeding with a native Windows 10 system you should be close attention to them.
 
-Note: This installation method will get you a working version of
-DataLad, but be aware that many Unix commands shown in the book
-examples will not work for you, and DataLad-related output might
-look different from what we can show in this book. Please
-`get in touch <https://github.com/datalad-handbook/book/issues/new>`__
-touch if you want to help.
+- **Step 1**: Install Git
 
-- **Step 1**: Install Conda
+  - If you haven't installed :term:`Git` yet, please download and install the latest release from `git-scm.com/ <https://git-scm.com/>`_.
+
+  - During installation, you will be asked to "Select Components".
+    In order to get a slightly nicer visual experience, tick the box at "Use a TrueType font in all console windows".
+    Afterwards, you can open a Git bash, a :term:`terminal` that is nicer than standard Windows terminals.
+
+- **Step 2**: Install Conda
 
   - Go to https://docs.conda.io/en/latest/miniconda.html and pick the
     latest Python 3 installer. Miniconda is a free, minimal installer for
@@ -244,44 +249,27 @@ touch if you want to help.
     Python, depending packages, and a number of useful packages such as
     `pip <https://pip.pypa.io/en/stable/>`_.
 
-  - During installation, keep everything on default. In particular, do
-    not add anything to ``PATH``.
+  - Using the Git Bash shell for DataLad makes a nicer and more visually appealing experience.
+    If you want to be able to do this, make sure that Miniconda is available from within your Git bash.
+    One way to achieve this is to `tick "Add Anaconda to my PATH environment variables" during installation <https://www.earthdatascience.org/workshops/setup-earth-analytics-python/setup-git-bash-conda/>`_.
+    You can test if you succeeded by opening a new Git bash and typing ``conda`` -- if this shows you a help message, you're good.
+    Alternatively, you can use the ``Anaconda prompt``, a preconfigured terminal shell installed with Miniconda, as a terminal.
+    Find it by searching for "Anaconda prompt" in your search bar.
+    From now on, any further action must either take place in the ``Anaconda prompt``, or the Git Bash.
 
-  - From now on, any further action must take place in the ``Anaconda prompt``,
-    a preconfigured terminal shell. Find it by searching for "Anaconda prompt"
-    in your search bar.
 
-- **Step 2**: Install Git
+- **Step 3**: Install DataLad and its dependencies
 
-  - In the ``Anaconda prompt``, run::
+  - Enter an Anaconda prompt, and install DataLad and its dependencies by running ``conda install -c conda-forge datalad``
 
-       conda install -c conda-forge git
+- **Step 4**: Optional - Install Unix tools
 
-    Note: Is has to be from ``conda-forge``, the anaconda version does not
-    provide the ``cp`` command.
+  - Many Unix command-line tools such as ``cp`` are not available by default.
+    You can get a good set of tools by installing :term:`conda`\s ``m2-base`` package via ``conda install m2-base`` in an Anaconda prompt.
+    **NOTE**: We're currently `investigating whether m2-base may cause problems <https://github.com/ContinuumIO/anaconda-issues/issues/12124>`_ -- use with caution.
 
-- **Step 3**: Install git-annex
 
-  - Obtain the current git-annex versions installer
-    `from here <https://downloads.kitenet.net/git-annex/windows/current/>`_.
-    Save the file, and double click the downloaded
-    :command:`git-annex-installer.exe` in your Downloads.
 
-  - During installation, you will be prompted to "Choose Install Location".
-    **Install it into the miniconda Library directory**, e.g.
-    ``C:\Users\me\Miniconda3\Library``.
-
-- **Step 4**: Install DataLad via pip
-
-  - ``pip`` was installed by ``miniconda``. In the ``Anaconda prompt``, run::
-
-       pip install datalad~=0.12
-
-- **Step 5**: Install 7zip
-
-  - `7zip <https://7-zip.de/download.html>`_ is a dependency of DataLad and
-    not installed by default on Windows 10. Please make sure to download and
-    install it.
 
 .. _installconfig:
 

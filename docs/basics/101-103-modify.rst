@@ -57,6 +57,16 @@ terminal to write this note from the terminal (without any editor) into ``notes.
 Running the command below will create ``notes.txt`` in the
 root of your ``DataLad-101`` dataset:
 
+.. windowsworkarounds:: Heredocs don't work under Windows
+
+   Heredocs rely on Unix-type redirection and multi-line commands -- neither of which are supported on Windows.
+   Instead of executing heredocs, please open up an editor and paste and save the text into it.
+
+   The relevant text in the snippet below would be::
+
+      One can create a new dataset with 'datalad create [--description] PATH'.
+      The dataset is created empty
+
 .. runrecord:: _examples/DL-101-103-101
    :language: console
    :workdir: dl-101/DataLad-101

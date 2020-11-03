@@ -5,30 +5,26 @@
 Data integrity
 --------------
 
-So far, we mastered quite a number of challenges: Creating and populating a dataset with
-large and small files, modifying content and saving the changes to history, installing
-datasets, even as subdatasets within datasets, recording the impact of commands
-on a dataset with the run and re-run commands, and capturing plenty of
-:term:`provenance` on the way.
-We further noticed that when we modified content in ``notes.txt`` or ``list_files.py``,
-the modified content was in a *text file*. We learned that
-this precise type of file, in conjunction with the initial configuration template
-``text2git`` we gave to :command:`datalad create`, is meaningful: As the textfile is
-stored in Git and not git-annex, no content unlocking is necessary.
-As we saw within the demonstrations of :command:`datalad run`,
-modifying content of non-text files, such as ``.jpg``\s, requires
--- spoiler: at least in our current type of dataset --
-the additional step of *unlocking* file content, either by hand with the :command:`datalad unlock`
-command, or within :command:`datalad run` using the ``-o``/``--output`` flag.
+So far, we mastered quite a number of challenges:
+Creating and populating a dataset with large and small files, modifying content and saving the changes to history, installing datasets, even as subdatasets within datasets, recording the impact of commands on a dataset with the run and re-run commands, and capturing plenty of :term:`provenance` on the way.
+We further noticed that when we modified content in ``notes.txt`` or ``list_files.py``, the modified content was in a *text file*.
+We learned that this precise type of file, in conjunction with the initial configuration template ``text2git`` we gave to :command:`datalad create`, is meaningful:
+As the text file is stored in Git and not git-annex, no content unlocking is necessary.
+As we saw within the demonstrations of :command:`datalad run`, modifying content of non-text files, such as ``.jpg``\s, requires -- spoiler: at least in our current type of dataset and if you are not on Windows -- the additional step of *unlocking* file content, either by hand with the :command:`datalad unlock` command, or within :command:`datalad run` using the ``-o``/``--output`` flag.
 
-There is one detail about DataLad datasets that we have not covered yet. Its both
-a crucial aspect to understanding certain aspects of a dataset, but it is also a
-potential source of confusion that we want to eradicate.
+There is one detail about DataLad datasets that we have not covered yet.
+Its both a crucial aspect to understanding certain aspects of a dataset, but it is also a potential source of confusion that we want to eradicate.
 
-You might have noticed already that an ``ls -l`` or ``tree`` command in your dataset shows small
-arrows and quite cryptic paths following each non-text file. Maybe your shell also
-displays these files in a different color than text files when listing
-them. We'll take a look together, using the ``books/`` directory as an example:
+You might have noticed already that an ``ls -l`` or ``tree`` command in your dataset shows small arrows and quite cryptic paths following each non-text file.
+Maybe your shell also displays these files in a different color than text files when listing them.
+We'll take a look together, using the ``books/`` directory as an example:
+
+.. windowsworkarounds:: This will look different to you
+
+   First of all, the ``tree`` equivalent provided by :term:`conda`\s ``m2-base`` package doesn't list individual files, only directories.
+   And, secondly, even if you list the individual files (e.g., with ``ls -l``), you would not see the :term:`symlink`\s shown below.
+   Due to insufficient support of symlinks on Windows, git-annex does not use them.
+   Please read on for a basic understanding of how git-annex usually works -- a Windows-Workaround at the end of this section will then highlight the difference in functionality on Windows.
 
 .. runrecord:: _examples/DL-101-115-101
    :language: console
@@ -50,7 +46,7 @@ sequence of characters ending in ``.pdf``) is what is called a
 *symbolic link* (short: :term:`symlink`) or *softlink*.
 It is a term for any file that contains a reference to another file or directory as
 a :term:`relative path` or :term:`absolute path`.
-If you use Windows, you are familiar with a related concept: a shortcut.
+If you use Windows, you are familiar with a related, although more basic concept: a shortcut.
 
 This means that the files that are in the locations in which you saved content
 and are named as you named your files (e.g., ``TLCL.pdf``),
@@ -88,6 +84,42 @@ in the path, and in its place
 creates a symlink with the original file name, pointing to the new location.
 This process is often referred to as a file being *annexed*, and the object
 tree is also known as the *annex* of a dataset.
+
+.. windowsworkarounds:: What happens on Windows?
+
+   Windows has insufficient support for :term:`symlink`\s and revoking write :term:`permissions` on files.
+   Therefore, :term:`git-annex` classifies it as a :term:`crippled filesystem` and has to stray from its default behavior.
+   While git-annex on Unix-based file operating systems stores data in the annex and creates a symlink in the data's original place, on Windows it moves data into the :term:`annex` and creates a *copy* of the data in its original place.
+
+   **Why is that?**
+   Data *needs* to be in the annex for version control and transport logistics -- the annex is able to store all previous versions of the data, and manage the transport to other storage locations if you want to publish your dataset.
+   But as the Findoutmore at the end of this section will show, the :term:`annex` is a non-human readable tree structure, and data thus also needs to exist in its original location.
+   Thus, it exists in both places: its moved into the annex, and copied back into its original location.
+   Once you edit an annexed file, the most recent version of the file is available in its original location, and past versions are stored and readily available in the annex.
+   If you reset your dataset to a previous state (as is shown in the section :ref:`history`), the respective version of your data is taken from the annex and copied to replace the newer version, and vice versa.
+
+   **But doesn't a copy mean data duplication?**
+   Yes, absolutely!
+   And that is a big downside to DataLad and :term:`git-annex` on Windows.
+   If you have a dataset with annexed file contents (be that a dataset you created and populated yourself, or one that you cloned and got file contents with ``datalad get`` from), it will take up more space than on a Unix-based system.
+   How much more?
+   Every file that exists in your file hierarchy exists twice.
+   A fresh dataset with one version of each file is thus twice as big as it would be on a Linux computer.
+   Any past version of data does not exist in duplication.
+
+   **Step-by-step demonstration**:
+   Let's take a concrete example to explain the last point in more detail.
+   How much space, do you think, is taken up in your dataset by the resized ``salt_logo_small.jpg`` image?
+   As a reminder: It exists in two versions, a 400 by 400 pixel version (about 250Kb in size), and a 450 by 450 pixel version (about 310Kb in size).
+   The 400 by 400 pixel version is the most recent one.
+   The answer is: about 810Kb (~0.1Mb).
+   The most recent 400x400px version exists twice (in the annex and as a copy), and the 450x450px copy exists once in the annex.
+   If you would reset your dataset to the state when we created the 450x450px version, this file would instead exist twice.
+
+   **Can I at least get unused or irrelevant data out of the dataset?**
+   Yes, either with convenience commands (e.g., ``git annex unused`` followed by ``git annex dropunused``), or by explicitly using ``drop`` on files (or there past versions) that you don't want to keep anymore.
+   Alternatively, you can transfer data you don't need but want to preserve to a different storage location.
+   Later parts of the handbook will demonstrate each of these alternatives.
 
 For a demonstration that this file path is not complete gibberish,
 take the target path of any of the book's symlinks and
@@ -311,6 +343,32 @@ Upgrade your file manager to display file types in a DataLad datasets (e.g., the
 Alternatively, use the :command:`ls` command in a terminal instead of a file manager GUI.
 Other tools may be more more specialized, smaller, or domain-specific, and may fail to correctly work with broken symlinks, or display unhelpful error messages when handling them, or require additional flags to modify their behavior (such as the :ref:`BIDS Validator <bidsvalidator>`, used in the neuroimaging community).
 When encountering unexpected behavior or failures, try to keep in mind that a dataset without retrieved content appears to be a pile of broken symlinks to a range of tools, consult a tools documentation with regard to symlinks, and check whether data retrieval fixes persisting problems.
+
+.. _wslfiles:
+
+Cross-OS filesharing with symlinks (WSL2 only)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Are you using DataLad on the Windows Subsystem for Linux?
+If so, please take a look into the Findoutmore below.
+
+.. findoutmore:: Accessing symlinked files from your Windows system
+
+   If you are using WSL2 you have access to a Linux kernel and POSIX filesystem, including symlink support.
+   Your DataLad experience has therefore been exactly as it has been for macOS or Linux users.
+   But one thing that bears the need for additional information is sharing files in dataset between your Linux and Windows system.
+
+   Its fantastic that files created under Linux can be shared to Windows and used by Windows tools.
+   Usually, you should be able to open an explorer and type ``\\wsl$\<distro>\<path>`` in the address bar to navigate to files under Linux, or type ``explorer.exe`` into the WSL2 terminal.
+   Some core limitations of Windows can't still be overcome, though: Windows usually isn't capable of handling symlinks.
+   So while WSL2 can expose your dataset filled with symlinked files to Windows, your Windows tools can fail to open them.
+   How can this be fixed?
+
+   Whenever you need to work with files from your datasets under Windows, you should *unlock* with ``datalad unlock``.
+   This operation copies the file from the annex back to its original location, and thus removes the symlink (and also returns write :term:`permissions` to the file).
+   Alternatively, use `git-annex adjust --unlock <https://git-annex.branchable.com/git-annex-adjust/>`_ to switch to a new dataset :term:`branch` in which all files are unlocked.
+   The branch is called ``adjusted/<branchname>(unlocked)`` (e.g., if the original branch name was ``master``, the new, adjusted branch will be called ``adjusted/master(unlocked)``).
+   You can switch back to your original branch using ``git checkout <branchname>``.
 
 Finally, if you are still in the ``books/`` directory, go back into the root of
 the superdataset.

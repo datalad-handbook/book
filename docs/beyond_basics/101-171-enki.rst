@@ -249,7 +249,7 @@ At this point, the workflow misses a tweak that is necessary in fMRIprep to enab
         # pybids (inside fmriprep) gets angry when it sees dangling symlinks
         # of .json files -- wipe them out, spare only those that belong to
         # the participant we want to process in this job
-        find sourcedata -mindepth 2 -name '*.json' -a ! -wholename "$1"/'*' -delete
+        find sourcedata -mindepth 2 -name '*.json' -a ! -wholename "$1"'*' -delete
 
         # next one is important to get job-reruns correct. We remove all anticipated
         # output, such that fmriprep isn't confused by the presence of stale

@@ -134,7 +134,7 @@ If you don't want to do this, here are a few benchmarks:
           git checkout -b "job-$JOBID"
 
           mkdir -p .git/tmp/wdir
-          find sourcedata -mindepth 2 -name '*.json' -a ! -wholename "$1"/'*' -delete
+          find sourcedata -mindepth 2 -name '*.json' -a ! -wholename "$1"'*' -delete
 
           # add your required fMRIprep parametrization
           datalad containers-run \
@@ -188,7 +188,7 @@ If you don't want to do this, here are a few benchmarks:
           git -C freesurfer checkout -b "job-$JOBID"
 
           mkdir -p .git/tmp/wdir
-          find sourcedata -mindepth 2 -name '*.json' -a ! -wholename "$1"/'*' -delete
+          find sourcedata -mindepth 2 -name '*.json' -a ! -wholename "$1"'*' -delete
 
           (cd fmriprep && rm -rf logs "$subid" "$subid.html" dataset_description.json desc-*.tsv)
           (cd freesurfer && rm -rf fsaverage "$subid")

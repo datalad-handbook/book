@@ -42,7 +42,7 @@ To adjust the commands in the checklist to your own data analysis endeavour, ple
    - ``projectfolder``: This is your 1TB project folder under ``/data/project/`` on juseless
    - ``processed``: This is an arbitrary name that you call the folder to hold preprocessing results
    - ``BIDS``: This is your BIDS-compliant input data in a DataLad dataset
-
+   - ``cluster``: This is the cluster ID HTCondor assigns to your jobs (you will see it once your jobs are submitted)
 
 1. Create an analysis dataset
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -67,8 +67,8 @@ Finally, create a new directory ``logs`` outside of the analysis dataset -- this
 
    $ mkdir logs
 
-2. Install your BIDS compliant input dataset as a subdataset
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Install your BIDS compliant input dataset as a subdataset
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Go into your newly created dataset::
 
@@ -82,8 +82,8 @@ If you decide to go for a different name you will need to exchange the word "sou
 
    $ datalad clone -d . path/to/<BIDS> sourcedata
 
-3. Install an fMRIprep container dataset as a subdataset
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Install an fMRIprep container dataset as a subdataset
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 There is a preconfigured container dataset with fMRIprep available on juseless.
 You should install it as a subdataset.
@@ -94,8 +94,8 @@ You should install it as a subdataset.
 
 You can find out how to create such a container dataset and its configuration in paragraph :ref:`pipelineenki` of the previous section.
 
-4. Build a workflow script
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+Build a workflow script
+^^^^^^^^^^^^^^^^^^^^^^^
 
 Due to concurrency issues, parallel execution can't happen in the same dataset.
 Therefore, you need to create a workflow script that handles individual job execution in a temporary location on the compute node and push its results back to your dataset.
@@ -223,8 +223,8 @@ Save the addition of this workflow file::
 
    $ datalad save -m "added fmriprep preprocessing workflow" code/fmriprep_participant_job
 
-5. Build a HTCondor submit file
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Build a HTCondor submit file
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 To be able to submit the jobs, create a file called ``code/fmriprep_all_participants.submit`` with the following contents:
 
@@ -257,8 +257,8 @@ Save the addition of this submit file::
 
    $ datalad save -m "added fmriprep preprocessing workflow" code/fmriprep_all_participants.submit
 
-6. Submit the job
-^^^^^^^^^^^^^^^^^
+Submit the job
+^^^^^^^^^^^^^^
 
 In the root of your dataset, run
 
@@ -266,15 +266,30 @@ In the root of your dataset, run
 
    condor_submit code/fmriprep_all_participants.submit
 
-7. Monitor the job
-^^^^^^^^^^^^^^^^^^
+Monitor the job
+^^^^^^^^^^^^^^^
 
-Use `standard HTCondor commands <https://docs.inm7.de/htcondor/commands/>`_ to monitor your job, and check on it if it is ``held``.
+Use `standard HTCondor commands <https://docs.inm7.de/htcondor/commands/>`_ to monitor your job.
+Your jobs should be listed as either "idle" (awaiting to be ran), or "run"::
 
-.. findoutmore:: What kind of content can I expect in which file?
 
-   - ``*.log`` files: You will find no DataLad-related output in this file, only information from HTCondor
-   - ``*.out`` files: You will find messages such as successful datalad operation result summaries (``get(ok)``, ``install(ok)``, ...) and workflow output from fmriprep. Here is an example::
+    -- Schedd: head1.htc.inm7.de : <10.0.8.10:9618?... @ 11/03/20 10:07:19
+    OWNER BATCH_NAME    SUBMITTED   DONE   RUN    IDLE  TOTAL JOB_IDS
+    adina ID: 323991  11/3  08:16      _   151     303   454  323991.0
+
+If they are being ``held``, you should check on them (see the `INM-7 docs <https://docs.inm7.de/htcondor/commands/>`_ for info and commands).
+
+HTCondor will also write log files into your project directory in ``/data/project/<projectfolder>/logs``.
+You should examine the contents of those files to monitor jobs and troubleshoot problems.
+The Findoutmores below detail what type of content can be expected in each file.
+
+.. findoutmore:: What kind of content can I expect in log files?
+
+   ``*.log`` files will contain no DataLad-related output, only information from HTCondor
+
+.. findoutmore:: What kind of content can I expect in out files?
+
+   ``out`` files contain messages such as successful datalad operation result summaries (``get(ok)``, ``install(ok)``, ...) and workflow output from fmriprep. Here is an example::
 
         install(ok): /tmp/ds (dataset)
         flock: getting lock took 3.562222 seconds
@@ -312,3 +327,129 @@ Use `standard HTCondor commands <https://docs.inm7.de/htcondor/commands/>`_ to m
               * Output spaces: MNI152NLin6Asym:res-native.
               * Pre-run FreeSurfer's SUBJECTS_DIR: /tmp/ds/freesurfer.
         201023-12:37:33,593 nipype.workflow INFO:
+        [...]
+
+.. findoutmore:: What kind of content can I expect in err files?
+
+   ``*.err`` files will contain any message that is sent to the `"stderr" output stream <https://en.wikipedia.org/wiki/Standard_streams#Standard_error_(stderr)>`_.
+   With the setup detailed in this checklist, there are three different things that could end up in those files:
+
+       - fMRIprep tracebacks. Those are actual, troublesome errors that require action
+       - log messages from DataLad. In most cases, those message are fine and do not require action.
+       - log messages from the script. In most cases, those message are fine and do not require action.
+
+   fMRIprep will send Python tracebacks into this file.
+   If this happens, the pipeline has crashed, and you should investigate the error.
+   Here is an example::
+
+        You are using fMRIPrep-20.1.1, and a newer version of fMRIPrep is available: 20.2.0.
+        Please check out our documentation about how and when to upgrade:
+        https://fmriprep.readthedocs.io/en/latest/faq.html#upgrading
+        Process Process-2:
+        Traceback (most recent call last):
+          File "/usr/local/miniconda/lib/python3.7/multiprocessing/process.py", line 297, in _bootstrap
+            self.run()
+          File "/usr/local/miniconda/lib/python3.7/multiprocessing/process.py", line 99, in run
+            self._target(*self._args, **self._kwargs)
+          File "/usr/local/miniconda/lib/python3.7/site-packages/fmriprep/cli/workflow.py", line 84, in build_workflow
+            retval["workflow"] = init_fmriprep_wf()
+          File "/usr/local/miniconda/lib/python3.7/site-packages/fmriprep/workflows/base.py", line 64, in init_fmriprep_wf
+            single_subject_wf = init_single_subject_wf(subject_id)
+          File "/usr/local/miniconda/lib/python3.7/site-packages/fmriprep/workflows/base.py", line 292, in init_single_subject_wf
+            func_preproc_wf = init_func_preproc_wf(bold_file)
+          File "/usr/local/miniconda/lib/python3.7/site-packages/fmriprep/workflows/bold/base.py", line 261, in init_func_preproc_wf
+            tr=metadata.get("RepetitionTime")),
+          File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/interfaces/base/core.py", line 611, in __init__
+            from_file=from_file, resource_monitor=resource_monitor, **inputs
+          File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/interfaces/base/core.py", line 183, in __init__
+            self.inputs = self.input_spec(**inputs)
+          File "/usr/local/miniconda/lib/python3.7/site-packages/nipype/interfaces/base/specs.py", line 66, in __init__
+            super(BaseTraitedSpec, self).__init__(**kwargs)
+          File "/usr/local/miniconda/lib/python3.7/site-packages/traits/trait_handlers.py", line 172, in error
+            value )
+        traits.trait_errors.TraitError: The 'tr' trait of a FunctionalSummaryInputSpec instance must be a float, but a value of None <class 'NoneType'> was specified.
+
+   DataLad will send all of its logging messages, i.e., messages that start with ``[INFO]``, ``[WARNING]``, or ``[ERROR]`` into this file.
+   Unless it is an error message, the presence of DataLad log messages in the ``*.err`` files is not worrisome, but only a byproduct of how Unix systems handle input and output communication.
+   In most cases, you will see ``[INFO]`` messages that state the progress of the task at hand.
+   Note that there is also one ``ConnectionOpenFailedError`` included as an INFO message -- while this looks like trouble, its only an information that using first of several clone targets has not worked out::
+
+        [INFO] Cloning dataset to Dataset(/tmp/ds)
+        [INFO] Attempting to clone from /data/project/enki/processed to /tmp/ds
+        [INFO] Completed clone attempts for Dataset(/tmp/ds)
+        + cd ds
+        + datalad get -n -r -R1 .
+        [INFO] Installing Dataset(/tmp/ds) to get /tmp/ds recursively
+        [INFO] Cloning dataset to Dataset(/tmp/ds/code/pipelines)
+        [INFO] Attempting to clone from /data/project/enki/processed/code/pipelines to /tmp/ds/code/pipelines
+        [INFO] Completed clone attempts for Dataset(/tmp/ds/code/pipelines)
+        [INFO] Cloning dataset to Dataset(/tmp/ds/fmriprep)
+        [INFO] Attempting to clone from /data/project/enki/processed/fmriprep to /tmp/ds/fmriprep
+        [INFO] Completed clone attempts for Dataset(/tmp/ds/fmriprep)
+        [INFO] Cloning dataset to Dataset(/tmp/ds/freesurfer)
+        [INFO] Attempting to clone from /data/project/enki/processed/freesurfer to /tmp/ds/freesurfer
+        [INFO] Completed clone attempts for Dataset(/tmp/ds/freesurfer)
+        [INFO] Cloning dataset to Dataset(/tmp/ds/sourcedata)
+        [INFO] Attempting to clone from /data/project/enki/processed/sourcedata to /tmp/ds/sourcedata
+        [INFO] Start check out things
+        [INFO] Completed clone attempts for Dataset(/tmp/ds/sourcedata)
+        [INFO] hanke4@judac.fz-juelich.de: Permission denied (publickey).
+        [INFO] ConnectionOpenFailedError: 'ssh -fN -o ControlMaster=auto -o ControlPersist=15m -o ControlPath=/home/mih/.cache/datalad/sockets/64c612f8 judac.fz-juelich.de' failed with exitcode 255 [Failed to open SSH connection (could not start ControlMaster process)]
+        + git submodule foreach --recursive git annex dead here
+        + git -C fmriprep checkout -b job-107890.1168
+        Switched to a new branch 'job-107890.1168'
+        + git -C freesurfer checkout -b job-107890.1168
+        Switched to a new branch 'job-107890.1168'
+        + mkdir -p .git/tmp/wdir
+        + find sourcedata -mindepth 2 -name '*.json' -a '!' -wholename 'sourcedata/sub-A00081239/*' -delete
+        + cd fmriprep
+        + rm -rf logs sub-A00081239 sub-A00081239.html dataset_description.json desc-aparcaseg_dseg.tsv desc-aseg_dseg.tsv
+        + cd freesurfer
+        + rm -rf fsaverage sub-A00081239
+        + datalad containers-run -m 'fMRIprep sub-A00081239' --explicit -o freesurfer -o fmriprep -i sourcedata/sub-A00081239/ -n code/pipelines/fmriprep sourcedata . participant --n_cpus 1 --skip-bids-validation -w .git/tmp/wdir --participant-label sub-A00081239 --random-seed 12345 --skull-strip-fixed-seed --md-only-boilerplate --output-spaces MNI152NLin6Asym --use-aroma --cifti-output
+        [INFO] Making sure inputs are available (this may take some time)
+        [INFO] == Command start (output follows) =====
+        [INFO] == Command exit (modification check follows) =====
+        + flock --verbose /data/project/enki/processed/.git/datalad_lock datalad push -d fmriprep --to origin
+        [INFO] Determine push target
+        [INFO] Push refspecs
+        [INFO] Start enumerating objects
+        [INFO] Start counting objects
+        [INFO] Start compressing objects
+        [INFO] Start writing objects
+        [INFO] Start resolving deltas
+        [INFO] Finished
+        [INFO] Transfer data
+        [INFO] Start annex operation
+        [INFO] sub-A00081239.html
+        [INFO] sub-A00081239/anat/sub-A00081239_desc-aparcaseg_dseg.nii.gz
+        [...]
+
+   Note that the ``fmriprep_participant_job`` script's log messages are also included in the script.
+   Those are the lines that start with a ``+`` and simply log which line of workflow script is presently executed.
+
+
+
+Merge the results
+^^^^^^^^^^^^^^^^^
+
+fMRIprep writes out a ``CITATION.md`` file in each job.
+These files contain a general summary, such as the number of sessions that have been processed.
+If those differ between subjects, a straight :term:`merge` will fail.
+You can safely try it out first, though (the command would abort if it can't perform the operation)::
+
+   git merge -m "Merge results from job cluster <cluster>" $(git branch -l | grep 'job-' | tr -d ' ')
+
+If this fails, copy the contents of one ``CITATION.md`` file into the :term:`master` branch::
+
+    TODO - catfile command
+
+Afterwards, delete the ``CITATION.md`` files in all branches with the following command::
+
+   for b in $(git branch -l | grep 'job-' | tr -d ' ');
+     do ( git checkout -b m$b $b && git rm logs/CITATION.md && git commit --amend --no-edit ) ;
+   done
+
+Lastly, repeat the merge command from above::
+
+   git merge -m "Merge results from job cluster <cluster>" $(git branch -l | grep 'job-' | tr -d ' ')

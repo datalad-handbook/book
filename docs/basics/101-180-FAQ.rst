@@ -440,6 +440,20 @@ dataset.
 When using the terminal command ``cp`` [#f1]_, it is sufficient to use the
 ``-L``/``--dereference`` option. This will follow symbolic links, and make
 sure that content gets moved instead of symlinks.
+Remember that if you are copying some annexed content out of a dataset without
+unlocking it first, you will only have "read" :term:`permissions` on the files you have just 
+copied. Therefore you can :
+- either unlock the files before copying them out, 
+- or copy them and then use the command ``chmod`` to be able to edit the file.
+
+.. code-block:: bash
+
+   # this will give you 'write' permission on the file
+   $ chmod +w filename
+   
+If you are not familiar with how the ``chmod`` works (or if you forgot - let's be honest we
+all google it sometimes), this is `a nice tutorial <https://bids.github.io/2015-06-04-berkeley/shell/07-perm.html>`_ . 
+
 With tools other than ``cp`` (e.g., graphical file managers), to copy or move
 annexed content, make sure it is *unlocked* first:
 After a :command:`datalad unlock` copying and moving contents will work fine.

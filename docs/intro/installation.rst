@@ -260,7 +260,7 @@ Expandable notes, "``Windows-Workaround``\s", contain important information, alt
 
 - **Step 3**: Install DataLad and its dependencies
 
-  - Enter an Anaconda prompt, and install DataLad and its dependencies by running ``conda install -c conda-forge datalad``
+  - Enter an Anaconda prompt or your Git bash, and install DataLad and its dependencies by running ``conda install -c conda-forge datalad``
 
 - **Step 4**: Optional - Install Unix tools
 

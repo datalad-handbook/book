@@ -47,7 +47,7 @@ Let's start:
 .. windowsworkarounds:: Windows-Users need to start here instead
 
    Hey there!
-   If you are using **Windows 10** with a **native** (i.e., not `Windows Subsystem for Linux (WSL) <https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux>`_-based) installation of DataLad and its underlying tools, starting into this narrative will be slightly different.
+   If you are using **Windows 10** with a **native** (i.e., not `Windows Subsystem for Linux (WSL) <https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux>`_-based) installation of DataLad and its underlying tools, and you are **not using** the custom :term:`git-annex` installer from ` http://datasets.datalad.org/datalad/packages/windows/ < http://datasets.datalad.org/datalad/packages/windows/ >`_ starting into this narrative will be slightly different.
 
    We're really sorry about that - as foreshadowed in section :ref:`install`, Windows comes with a range of file system issues, and one of them concerns the very first command.
 

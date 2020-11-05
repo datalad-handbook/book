@@ -26,7 +26,7 @@ This file lies right in the root of your superdataset:
 
 .. windowsworkarounds:: Your file contents are slightly different
 
-   Windows users had to modify the ``.gitattributes`` file at the start of the Basics.
+   Windows users that did not use the custom :term:`git-annex` installer from ` http://datasets.datalad.org/datalad/packages/windows/ <http://datasets.datalad.org/datalad/packages/windows/ >`_ had to modify the ``.gitattributes`` file at the start of the Basics.
    Instead of a line that contains "``mimencoding``", There should be the following two lines::
 
       *.txt annex.largefiles=nothing

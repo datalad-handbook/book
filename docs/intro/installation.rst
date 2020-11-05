@@ -268,7 +268,13 @@ Expandable notes, "``Windows-Workaround``\s", contain important information, alt
     You can get a good set of tools by installing :term:`conda`\s ``m2-base`` package via ``conda install m2-base`` in an Anaconda prompt.
     **NOTE**: We're currently `investigating whether m2-base may cause problems <https://github.com/ContinuumIO/anaconda-issues/issues/12124>`_ -- use with caution.
 
+.. admonition:: git-annex on Windows
 
+   One of DataLad's core dependencies is :term:`git-annex`.
+   For the longest time, git-annex installers for Windows lacked support for `mimeencoding <https://en.wikipedia.org/wiki/MIME>`_.
+   Without mimeencoding, a standard DataLad procedure, the ``text2git`` configuration (it will be introduced in the very first section of the Basics), is not functional, and you will find "Windowsworkarounds" to deal with this.
+   We recently started to build git-annex with support for mimeencoding ourselves, though.
+   At the moment, we are working on packaging up Windows-specific DataLad distributions with this version of :term:`git-annex`, but for the time being, you can find the standalone git-annex installer for Windows with mimeencoding at `http://datasets.datalad.org/datalad/packages/windows/ <http://datasets.datalad.org/datalad/packages/windows/>`_.
 
 
 .. _installconfig:

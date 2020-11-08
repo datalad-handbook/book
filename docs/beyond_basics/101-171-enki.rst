@@ -335,7 +335,8 @@ In this concrete example, the subdatasets ``fmriprep`` and ``freesurfer`` will e
 The only thing left to do now is merging all of these branches into :term:`master` -- and potentially solve any merge conflicts that arise.
 As explained in the previous section, the necessary merging was done with `Octopus merges <https://git-scm.com/docs/git-merge#Documentation/git-merge.txt-octopus>`_  -- one in each subdataset (``fmriprep`` and ``freesurfer``).
 
-The merge command was assembled with the trick introduced in the previous section, based on job-ID-named branches:
+The merge command was assembled with the trick introduced in the previous section, based on job-ID-named branches.
+Importantly, this needs to be carried out inside of the subdatasets, i.e., within ``fmriprep`` and ``freesurfer``.
 
 .. code-block:: bash
 
@@ -343,8 +344,9 @@ The merge command was assembled with the trick introduced in the previous sectio
 
 **Merging with merge conflicts**
 
-When attempting an octopus merge like the one above and a merge conflict arises, the merge is aborted automatically. This is what it looks like::
+When attempting an octopus merge like the one above and a merge conflict arises, the merge is aborted automatically. This is what it looks like in ``fmriprep/``, in which all jobs created a slightly different ``CITATION.md`` file::
 
+   $ cd fmriprep
    $ git merge -m "Merge results from job cluster 107890" $(git branch -l | grep 'job-' | tr -d ' ')
     Fast-forwarding to: job-107890.0
     Trying simple merge with job-107890.1
@@ -355,18 +357,36 @@ When attempting an octopus merge like the one above and a merge conflict arises,
     Should not be doing an octopus.
     Merge with strategy octopus failed.
 
-This merge conflict arose in the ``fmriprep`` subdataset an originated from the fact that each job generated a ``CITATION.md`` file with minimal individual changes.
+This merge conflict is in prinicple helpful -- since there are multiple different ``CITATION.md`` files in each branch, Git refuses to randomly pick one that it likes to keep, and instead aborts so that the user can intervene.
 
 .. findoutmore:: How to fix this?
 
-   As the file ``CITATION.md`` does not contain meaningful changes between jobs, one of the files was kept (e.g., copied into a temporary location, or brought back to life afterwards with ``git cat-file``), and all ``CITATION.md`` files of all branches were deleted prior to the merge.
+   As the file ``CITATION.md`` does not contain meaningful changes between jobs, one of the files is kept as a backup (e.g., copied into a temporary location, or brought back to life afterwards with ``git cat-file``), then all ``CITATION.md`` files of all branches deleted prior to the merge, and the back-up ``CITATION.md`` file is copied and saved into the dataset as a last step.
+   
+   .. code-block:: bash
+   
+      # First, checkout any job branch
+      $ git checkout job-<insert-number>
+      # then, copy the file out of the dataset (here, its copied into your home directory)
+      $ cp logs/CITATION.md ~/CITATION.md
+      # checkout master again
+      $ git checkout master
+   
+   Then, remove all CITATION.md files from the last commit.
    Here is a bash loop that would do exactly that::
 
        $ for b in $(git branch -l | grep 'job-' | tr -d ' ');
             do ( git checkout -b m$b $b && git rm logs/CITATION.md && git commit --amend --no-edit ) ;
           done
 
-   Afterwards, the merge command succeeds
+   Afterwards, merge the results::
+   
+      $ git merge -m "Merge results from job cluster XY" $(git branch -l | grep 'mjob-' | tr -d ' ')
+
+   Finally, move the back-up file into the dataset::
+   
+      $ mv ~/CITATION.md logs/
+      $ datalad save -m "Add CITATION file from one job" logs/CITATION.md
 
 **Merging without merge conflicts**
 

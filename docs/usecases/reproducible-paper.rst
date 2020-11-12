@@ -18,6 +18,7 @@ for data analysis projects [#f1]_. The resulting superdataset can be publicly
 shared, data can be obtained effortlessly on demand by anyone that has the superdataset,
 and results and paper can be generated and recomputed everywhere on demand.
 
+A template to start your own reproducible paper with the same set up can be found `on GitHub <https://github.com/datalad-handbook/repro-paper-sketch/>`__.
 
 The Challenge
 ^^^^^^^^^^^^^
@@ -88,6 +89,8 @@ itself with the new figures.
    https://github.com/psychoinformatics-de/paper-remodnav/. :command:`datalad clone`
    the repository and follow the few instructions in the README to experience the
    DataLad approach described above.
+
+   There is also a slimmed down template that uses the analysis demonstrated in :ref:`yoda_project` and packages it up into a reproducible paper using the same tools: `github.com/datalad-handbook/repro-paper-sketch/ <https://github.com/datalad-handbook/repro-paper-sketch/>`_.
 
 
 Step-by-Step

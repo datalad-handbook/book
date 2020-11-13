@@ -367,6 +367,17 @@
       "contributions": [
         "bug"
       ]
+    },
+    {
+      "login": "m-wierzba",
+      "name": "Małgorzata Wierzba",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/31971177?v=4",
+      "profile": "https://github.com/m-wierzba",
+      "contributions": [
+        "userTesting",
+        "review",
+        "tutorial"
+      ]
     }
   ],
   "contributorsPerLine": 7,

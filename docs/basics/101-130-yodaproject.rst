@@ -138,6 +138,11 @@ of the flowers in centimeters. It is often used in introductory data science
 courses for statistical classification techniques in machine learning, and
 widely available -- a perfect dataset for your midterm project!
 
+.. admonition:: Turn data analysis into dynamically generated documents
+
+   Beyond the contents of this section, we have transformed the example analysis also into a template to write a reproducible paper, following the use case :ref:`usecase_reproducible_paper`.
+   If you're interested in checking that out, please head over to `github.com/datalad-handbook/repro-paper-sketch/ <https://github.com/datalad-handbook/repro-paper-sketch/>`_.
+
 Raw data as a modular, independent entity
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 

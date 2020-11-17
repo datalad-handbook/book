@@ -1,7 +1,7 @@
 .. _mpiberlin:
 
-An introduction to at the MPI Berlin
-------------------------------------
+An introduction to DataLad at the MPI Berlin
+--------------------------------------------
 
 This code contains code-along snippets to copy and paste into your own terminal, as well as additional references to useful chapters if you want to read up about a specific command elsewhere in the DataLad Handbook.
 

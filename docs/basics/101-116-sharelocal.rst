@@ -266,7 +266,7 @@ file from. Thus, for this book, your room mate is always able to obtain it
 dataset. Quite useful, this provenance, right?
 
 Let's now turn to the fact that the subdataset ``longnow`` contains neither
-file content nor file metadata information to explore the contents of the 
+file content nor file metadata information to explore the contents of the
 dataset: there are no subdirectories or any files under ``recordings/longnow/``.
 This is behavior that you have not observed until now.
 
@@ -541,7 +541,7 @@ Save this note.
                 └── subsubds2
 
             # save in the superdataset
-            datalad save -m "add a few sub and subsub datasets"
+            $ datalad save -m "add a few sub and subsub datasets"
             add(ok): subds1 (file)
             add(ok): subds2 (file)
             save(ok): . (dataset)
@@ -588,7 +588,7 @@ Save this note.
             4 directories, 0 files
 
             # but if provided with an explicit path, subsubds of subds1 are cloned:
-            $  datalad get -n -r subds1 && tree
+            $ datalad get -n -r subds1 && tree
             [INFO   ] Cloning /tmp/superds/subds1 into '/tmp/clone_of_superds/subds1'
             install(ok): /tmp/clone_of_superds/subds1 (dataset) [Installed subdataset in order to get /tmp/clone_of_superds/subds1]
             [INFO   ] Installing <Dataset path=/tmp/clone_of_superds> underneath /tmp/clone_of_superds/subds1 recursively

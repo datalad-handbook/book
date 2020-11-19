@@ -82,7 +82,12 @@ extensions = [
     'sphinxcontrib.plantuml',
     'dataladhandbook_support',
     'notfound.extension',
+    'sphinx_copybutton',
 ]
+
+# configure sphinx-copybutton
+copybutton_prompt_text = r"\$ "
+copybutton_prompt_is_regexp = True
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']

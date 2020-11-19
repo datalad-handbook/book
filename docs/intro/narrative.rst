@@ -54,7 +54,7 @@ When copying code snippets into your own terminal, do not copy the leading
 error when executed.
 
 Instead of copying manually, you can also click on the clipboard icon at the top
-right of each code snippet (it looks a bit like this: ⎘).
+right of each code snippet.
 Clicking on that icon will copy all relevant lines from the code snippet,
 and will drop all comments and the ``$`` automatically.
 

@@ -112,6 +112,7 @@ Code lists from chapters
    code_from_chapters/OHBM_OSR.rst
    code_from_chapters/usecase_ml_code
    code_from_chapters/MPI_code
+   code_from_chapters/DLBasicsMPI
 
 ..
   stuff that we do not need or show at the moment

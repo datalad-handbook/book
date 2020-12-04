@@ -388,6 +388,15 @@
         "infra",
         "tool"
       ]
+    },
+    {
+      "login": "josephmje",
+      "name": "Michael Joseph",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/22102194?v=4",
+      "profile": "https://github.com/josephmje",
+      "contributions": [
+        "ideas"
+      ]
     }
   ],
   "contributorsPerLine": 7,

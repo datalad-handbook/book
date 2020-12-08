@@ -105,7 +105,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://www.stefanappelhoff.com"><img src="https://avatars1.githubusercontent.com/u/9084751?v=4" width="100px;" alt=""/><br /><sub><b>Stefan Appelhoff</b></sub></a><br /><a href="#infra-sappelhoff" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="#tool-sappelhoff" title="Tools">🔧</a></td>
   </tr>
   <tr>
-    <td align="center"><a href="https://github.com/josephmje"><img src="https://avatars1.githubusercontent.com/u/22102194?v=4" width="100px;" alt=""/><br /><sub><b>Michael Joseph</b></sub></a><br /><a href="#ideas-josephmje" title="Ideas, Planning, & Feedback">🤔</a></td>
+    <td align="center"><a href="https://github.com/josephmje"><img src="https://avatars1.githubusercontent.com/u/22102194?v=4" width="100px;" alt=""/><br /><sub><b>Michael Joseph</b></sub></a><br /><a href="#ideas-josephmje" title="Ideas, Planning, & Feedback">🤔</a> <a href="#content-josephmje" title="Content">🖋</a> <a href="https://github.com/datalad-handbook/book/issues?q=author%3Ajosephmje" title="Bug reports">🐛</a></td>
   </tr>
 </table>
 

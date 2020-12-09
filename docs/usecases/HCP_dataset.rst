@@ -417,21 +417,29 @@ retrieve data right away.
    In case one misenters their AWS credentials or needs to reset them,
    this can easily be done using the `Python keyring <https://keyring.readthedocs.io/en/latest/>`_
    package. For more information on ``keyring`` and DataLad's authetication
-   process, see the Basic process section in the :ref:`providers`: page.
+   process, see the *Basic process* section in :ref:`providers`.
 
    After launching Python, import the ``keyring`` package and use the 
    ``set_password()`` function. This function takes 3 arguments:
+
    * ``system``: "datalad-hcp-s3" in this case
-   * ``username``: "key_id" if modifying the AWS access key ID and 
-     "secret_id" if modifying the secret access key
+   * ``username``: "key_id" if modifying the AWS access key ID or "secret_id" if modifying the secret access key
    * ``password``: the access key itself
 
    .. code-block:: python 
 
       import keyring
 
-      keyring.set_password("datalad-hcp-s3", "key_id", <credential>)
-      keyring.set_password("datalad-hcp-s3", "secret_id", <credential>)
+      keyring.set_password("datalad-hcp-s3", "key_id", <password>)
+      keyring.set_password("datalad-hcp-s3", "secret_id", <password>)
+
+   Alternatively, one can set their credentials using environment variables.
+   For more details on this method, :ref:`see this footnote <envvars>`.
+
+   .. code-block:: bash
+
+      $ export DATALAD_hcp_s3_key_id=<password>
+      $ export DATALAD_hcp_s3_secret_id=<password>
 
 Internally, DataLad cleverly manages the crucial aspects of data retrieval:
 Linking registered subdatasets to the correct dataset in the RIA store. If you

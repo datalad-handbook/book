@@ -651,7 +651,23 @@ Here, we look at :command:`datalad create-sibling-github`.
 The command takes a repository name and GitHub authentication credentials
 (either in the command line call with options ``github-login <NAME>`` and
 ``github-passwd <PASSWORD>``, with an *oauth* `token <https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/creating-a-personal-access-token>`_ stored in the Git
-configuration [#f5]_, or interactively). Based on the credentials and the
+configuration, or interactively).
+
+.. admonition:: GitHub deprecates its User Password authentication
+
+   GitHub `decided to deprecate user-password authentication <https://developer.github.com/changes/2020-02-14-deprecating-password-auth/>`_ and will only support authentication via personal access token from November 13th 2020 onwards.
+   Upcoming changes in DataLad's API will reflect this change starting with DataLad version ``0.13.6`` by removing the ``github-passwd`` argument.
+
+   To ensure successful authentication, please create a personal access token at `github.com/settings/tokens <https://github.com/settings/tokens>`_ [#f5]_, and either
+
+   * configure Git's "``hub.oauthtoken``" config variable [#f7]_ with your token as in::
+
+        git config --global --add hub.oauthtoken cd2a3bd530...454f73b5a4
+
+   * supply the token with the argument ``--github-login <TOKEN>`` from the command line,
+   * or supply the token from the command line when queried interactively for it
+
+Based on the credentials and the
 repository name, it will create a new, empty repository on GitHub, and
 configure this repository as a sibling of the dataset:
 
@@ -663,9 +679,9 @@ configure this repository as a sibling of the dataset:
 
        $ python3 /home/me/makepushtarget.py '/home/me/dl-101/DataLad-101/midterm_project' 'github' '/home/me/pushes/midterm_project' False True
 
-.. windowsworkarounds:: Your shell will not display user name or password
+.. windowsworkarounds:: Your shell will not display credentials
 
-   Don't be confused if you are prompted for your GitHub user name and password, but can't seem to type -- The terminal protects your private information by not displaying what you type.
+   Don't be confused if you are prompted for your GitHub credentials, but can't seem to type -- The terminal protects your private information by not displaying what you type.
    Simply type in what is requested, and press enter.
 
 .. code-block:: bash
@@ -882,10 +898,9 @@ reproduce your data science project easily from scratch!
          configured your dataset. If you want to re-read the full chapter on
          configurations and run-procedures, start with section :ref:`config`.
 
-.. [#f5] Such a token can be obtained, for example, using the command line
-         GitHub interface (https://github.com/sociomantic/git-hub) by running:
-         ``git hub setup`` (if no 2FA is used).
-         It is useful to do this, so here's help: Clone the `GitHub repository <https://github.com/sociomantic/git-hub>`_ to your local computer.
+.. [#f5] Instead of using GitHub's WebUI you could also obtain a token using the command line GitHub interface (https://github.com/sociomantic/git-hub) by running ``git hub setup`` (if no 2FA is used).
+         If you decide to use the command line interface, here is help on how to use it:
+         Clone the `GitHub repository <https://github.com/sociomantic/git-hub>`_ to your local computer.
          Decide whether you want to build a Debian package to install, or install the single-file Python script distributed in the repository.
          Make sure that all `requirements <https://github.com/sociomantic-tsunami/git-hub#dependencies>`_ for your preferred version are installed , and run either ``make deb`` followed by ``sudo dpkg -i deb/git-hub*all.deb`` or ``make install``.
 
@@ -906,3 +921,5 @@ reproduce your data science project easily from scratch!
                   fetch = +refs/heads/*:refs/remotes/github/*
                   annex-ignore = true
                   push = refs/tags/v*
+
+.. [#f7] To re-read about Git's configurations and the ``git config`` command, please take a look at the section :ref:`config`.

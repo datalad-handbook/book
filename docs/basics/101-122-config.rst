@@ -322,7 +322,7 @@ editor configuration, should they have included one in their config file.
 Instead, upon a :command:`datalad clone`, a new config file will be created.
 
 
-This means, however, that configurations that should "stick" to a dataset
+This means, however, that configurations that should "stick" to a dataset [#f5]_
 need to be defined in different files -- files that are version controlled.
 The next section will talk about them.
 
@@ -362,3 +362,8 @@ The next section will talk about them.
 
 .. [#f4] A UUID is a universally unique identifier -- a 128-bit number
          that unambiguously identifies information.
+
+.. [#f5] Please note that not all configurations can be written to files other than ``.git/config``.
+         Some of the files introduced in the next section will not be queried by Git, and in principle, it is a good thing that one can not share arbitrary configurations together with a dataset, as this could be a potential security threat.
+         In those cases where you need dataset clones to inherit certain non-sticky configurations, it is advised to write a custom procedure and distribute it together with the dataset.
+         The next two sections contain concrete usecases and tutorials.

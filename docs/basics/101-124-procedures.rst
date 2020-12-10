@@ -30,7 +30,7 @@ nothing more than a simple script that
 
 .. windowsworkarounds:: Why this configuration does not work for Windows users
 
-   If you're on a **Windows 10** machine with a **native** (i.e., non :term:`WSL` based installation) of DataLad and its underlying software, the ``text2git`` configuration will lead to errors upon a :command:`datalad save`.
+   If you're on a **Windows 10** machine with a **native** (i.e., non :term:`WSL` based installation) of DataLad and did **not** use the custom :term:`git-annex` installer from `http://datasets.datalad.org/datalad/packages/windows/ <http://datasets.datalad.org/datalad/packages/windows/>`_ at the start of the Basics, the ``text2git`` configuration will lead to errors upon a :command:`datalad save`.
    This is because MagicMime (used in ``mimeencoding=binary`` to determine the file type of any given file by searching for `magic numbers <https://en.wikipedia.org/wiki/List_of_file_signatures>`_) is not natively available on Windows.
 
 This particular procedure lives in a script called
@@ -188,7 +188,7 @@ was applied.
    Procedures can come with DataLad or its extensions, but anyone can
    write their own ones in addition, and deploy them on individual machines,
    or ship them within DataLad datasets. This allows to
-   automate routine configurations or tasks in a dataset.
+   automate routine configurations or tasks in a dataset, or share configurations that would otherwise not "stick" to the dataset.
    Some general rules for creating a custom procedure are outlined
    below:
 

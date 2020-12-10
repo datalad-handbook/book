@@ -26,7 +26,7 @@ This file lies right in the root of your superdataset:
 
 .. windowsworkarounds:: Your file contents are slightly different
 
-   Windows users that did not use the custom :term:`git-annex` installer from ` http://datasets.datalad.org/datalad/packages/windows/ <http://datasets.datalad.org/datalad/packages/windows/ >`_ had to modify the ``.gitattributes`` file at the start of the Basics.
+   Windows users that did not use the custom :term:`git-annex` installer from `http://datasets.datalad.org/datalad/packages/windows/ <http://datasets.datalad.org/datalad/packages/windows/>`_ had to modify the ``.gitattributes`` file at the start of the Basics.
    Instead of a line that contains "``mimencoding``", There should be the following two lines::
 
       *.txt annex.largefiles=nothing
@@ -202,7 +202,7 @@ will take precedence over configurations that can be distributed with a dataset.
 Otherwise, dataset updates with :command:`datalad update` (or, for Git-users,
 :command:`git pull`) could suddenly and unintentionally alter local DataLad
 behavior that was specifically configured.
-
+Also, :term:`Git` and :term:`git-annex` will not query this file for configurations, so please store only sticky options that are specific to DataLad (i.e., under the ``datalad.*`` namespace) in it.
 
 Writing to configuration files other than ``.git/config``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

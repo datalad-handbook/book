@@ -158,7 +158,7 @@ as well as information on where subdataset boundaries are,
 to store them in. With the help of a few bash commands, this task can be
 automated, and with the help of a `job scheduler <https://en.wikipedia.org/wiki/Job_scheduler>`_,
 it can also be parallelized.
-As soon as files are downloaded and saved to a datasets, their content can be
+As soon as files are downloaded and saved to a dataset, their content can be
 dropped with :command:`datalad drop`: The origin of the file was successfully
 recorded, and a :command:`datalad get` can now retrieve file contents on demand.
 Thus, shortly after a complete download of the HCP project data, the datasets in
@@ -211,8 +211,8 @@ hidden section below.
    in the dataset of subject ``100206``. For :command:`datalad addurls`, the
    column headers serve as placeholders for fields in each row.
    If this table excerpt is given to a :command:`datalad addurls` call as shown
-   below, it will create a dataset and download and save the files in precise
-   versions in it::
+   below, it will create a dataset and download and save the precise version of each file
+   in it::
 
       $ datalad addurls -d <Subject-ID> <TABLE> '{original_url}?versionId={version}' '{filename}'
 
@@ -363,8 +363,8 @@ available and accessible from one central point, the only thing missing is a
 single superdataset.
 
 For this, a new dataset, ``human-connectome-project-openaccess``, was created.
-It contains a ``README`` file with short instructions how to use it,
-a text-based copy of the HCP projects data usage agreement, -- and each subject
+It contains a ``README`` file with short instructions on how to use it,
+a text-based copy of the HCP project's data usage agreement, -- and each subject
 dataset as a subdataset. The ``.gitmodules`` file [#f1]_ of this superdataset
 thus is impressive. Here is an excerpt::
 
@@ -389,7 +389,7 @@ For each subdataset (named after subject IDs), there is one entry (note that
 individual ``url``\s of the subdatasets are pointless and not needed: As will be
 demonstrated shortly, DataLad resolves each subdataset ID from the common store
 automatically).
-Thus, this superdatasets combines all individual datasets to the original HCP dataset
+Thus, this superdataset combines all individual datasets to the original HCP dataset
 structure. This (and only this) superdataset is published to a public :term:`GitHub`
 repository that anyone can :command:`datalad clone` [#f4]_.
 
@@ -406,19 +406,48 @@ other public DataLad dataset: One needs to :command:`clone` the repository
 and use :command:`datalad get [-n] [-r] PATH` to retrieve any file, directory,
 or subdataset (content). But because the data will be downloaded from the HCP's
 AWS S3 bucket, users will need to create an account at
-`db.humanconnectome.org <http://db.humanconnectome.org>`_ to agree to the projects
+`db.humanconnectome.org <http://db.humanconnectome.org>`_ to agree to the project's
 data usage terms and get credentials. When performing the first :command:`datalad
 get` for file contents, DataLad will prompt for these credentials interactively
 from the terminal. Once supplied, all subsequent :command:`get` commands will
 retrieve data right away.
 
+.. findoutmore:: Resetting AWS credentials
+
+   In case one misenters their AWS credentials or needs to reset them,
+   this can easily be done using the `Python keyring <https://keyring.readthedocs.io/en/latest/>`_
+   package. For more information on ``keyring`` and DataLad's authetication
+   process, see the *Basic process* section in :ref:`providers`.
+
+   After launching Python, import the ``keyring`` package and use the 
+   ``set_password()`` function. This function takes 3 arguments:
+
+   * ``system``: "datalad-hcp-s3" in this case
+   * ``username``: "key_id" if modifying the AWS access key ID or "secret_id" if modifying the secret access key
+   * ``password``: the access key itself
+
+   .. code-block:: python 
+
+      import keyring
+
+      keyring.set_password("datalad-hcp-s3", "key_id", <password>)
+      keyring.set_password("datalad-hcp-s3", "secret_id", <password>)
+
+   Alternatively, one can set their credentials using environment variables.
+   For more details on this method, :ref:`see this footnote <envvars>`.
+
+   .. code-block:: bash
+
+      $ export DATALAD_hcp_s3_key_id=<password>
+      $ export DATALAD_hcp_s3_secret_id=<password>
+
 Internally, DataLad cleverly manages the crucial aspects of data retrieval:
 Linking registered subdatasets to the correct dataset in the RIA store. If you
-inspect the GitHub repository, you will find that the subdatasets links in it
-will not resolve if you click on them, because none of the subdatasets was
+inspect the GitHub repository, you will find that the subdataset links in it
+will not resolve if you click on them, because none of the subdatasets were
 published to GitHub [#f5]_, but lie in the RIA store instead.
 Dataset or file content retrieval will nevertheless work automatically with
-:command:`datalad get`: Each ``.gitmodule`` entry lists the subdatasets
+:command:`datalad get`: Each ``.gitmodule`` entry lists the subdataset's
 dataset ID. Based on a configuration of "subdataset-source-candidates" in
 ``.datalad/config`` of the superdataset, the subdataset ID is assembled to a
 RIA URL that retrieves the correct dataset from the store by :command:`get`:
@@ -433,7 +462,7 @@ RIA URL that retrieves the correct dataset from the store by :command:`get`:
         subdataset-source-candidate-origin = "ria+http://store.datalad.org#{id}"
 
 This configuration allows :command:`get` to flexibly generate RIA URLs from the
-base URL in the config file and the dataset ID's listed in ``.gitmodules``. In
+base URL in the config file and the dataset IDs listed in ``.gitmodules``. In
 the superdataset, it needed to be done "by hand" via the :command:`git config`
 command.
 Because the configuration should be shared together with the dataset, the
@@ -454,7 +483,7 @@ given they have valid credentials -- get any file in the HCP dataset hierarchy.
 Parallel operations and subsampled datasets using datalad copy-file
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-At this point in time, the HCP dataset is single, published superdataset with
+At this point in time, the HCP dataset is a single, published superdataset with
 ~4500 subdatasets that are hosted in a :term:`remote indexed archive (RIA) store`
 at `store.datalad.org <http://store.datalad.org/>`_.
 This makes the HCP data accessible via DataLad and its download easier.
@@ -465,7 +494,7 @@ of the dataset, subsampled datasets can be created with :command:`datalad copy-f
 
 If the complete HCP dataset is required, subdataset installation and data retrieval
 can be sped up by parallelizing. The gists :ref:`parallelize` and
-:ref:`retrieveHCP` can shed some light on how to this.
+:ref:`retrieveHCP` can shed some light on how to do this.
 
 .. index:: ! datalad command; copy-file
 
@@ -529,7 +558,7 @@ following findoutmore details how this is done.
    .. findoutmore:: The Basics of copy-file
 
       This short demonstration gives an overview of the functionality of
-      :command:`datalad copy-file`- Feel free to follow along by copy-pasting the
+      :command:`datalad copy-file` - Feel free to follow along by copy-pasting the
       commands into your terminal. Let's start by cloning a dataset to work with:
 
       .. runrecord:: _examples/HCP-1
@@ -596,7 +625,7 @@ following findoutmore details how this is done.
          $ cd dataset-to-copy-to
          $ datalad status
 
-      Providing a second path as a destination path allows to copy the file under
+      Providing a second path as a destination path allows one to copy the file under
       a different name, but it will also not save the new file in the destination
       dataset unless ``-d/--dataset`` is specified as well:
 
@@ -643,7 +672,7 @@ following findoutmore details how this is done.
          $ tree dataset-to-copy-to
 
       Importantly, all of the copied files had yet unretrieved contents. The
-      copy-file process, however, also copied the files availability metadata to
+      copy-file process, however, also copied the files' availability metadata to
       their new location. Retrieving file contents works just as it would in the
       full HCP dataset via :command:`datalad get` (the authentication step is
       omitted in the output below):
@@ -663,7 +692,7 @@ following findoutmore details how this is done.
       In order to use ``stdin`` for specification, such as the output of a
       ``find`` command that is piped into :command:`datalad copy-file` with a
       `Unix pipe (|) <https://en.wikipedia.org/wiki/Pipeline_(Unix)>`_,
-      ``<source>`` needs to be a dash (``-``). Below is examplary ``find`` command:
+      ``<source>`` needs to be a dash (``-``). Below is an example ``find`` command:
 
       .. runrecord:: _examples/HCP-13
          :language: console
@@ -695,7 +724,7 @@ following findoutmore details how this is done.
       (``-t ../dataset-to-copy-to/130013/T1w/``) or a destination path could be
       given.
 
-      .. findoutmore:: how to specify files with source and destination paths for --specs-from
+      .. findoutmore:: How to specify files with source and destination paths for ``--specs-from``
 
          To only specify source paths (i.e., paths to files or directories that
          should be copied), simply create a file or a command like ``find`` that

@@ -31,6 +31,8 @@ failed -- sorry about this.
    This defines a mapping of redirect codes to their present URLs.
    Please keep sorted by redirection label.
 
+:redirect:`ABCD`
+  :ref:`abcd`
 :redirect:`about`
   :ref:`executive_summary`
 :redirect:`containers`

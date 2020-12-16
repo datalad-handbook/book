@@ -49,6 +49,8 @@ failed -- sorry about this.
   :ref:`chapter_gobig`
 :redirect:`HCP-dataset`
   :ref:`usecase_HCP_dataset`
+:redirect:`install`
+  :ref:`install`
 :redirect:`reproducible-paper`
   :ref:`usecase_reproducible_paper`
 :redirect:`RIA`

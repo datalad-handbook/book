@@ -52,7 +52,7 @@ The `DVC tutorial <https://realpython.com/python-data-version-control/>`_ comes 
 
    ### DVC
    # please clone this repository from your own fork when coding along
-   $ git clone git@github.com:datalad-handbook/data-version-control.git DVC
+   $ git clone https://github.com/datalad-handbook/data-version-control DVC
 
 The resulting Git repository is already pre-structured in a way that aids DVC ML analyses: It has the directories ``model`` and ``metrics``, and a set of Python scripts for a machine learning analysis in ``src/``.
 
@@ -439,7 +439,7 @@ To demonstrate this, let's look at a repository with an empty cache by cloning t
    ### DVC
    # clone the repo into a new location for demonstration purposes:
    $ cd ../
-   $ git clone git@github.com:datalad-handbook/data-version-control.git DVC-2
+   $ git clone https://github.com/datalad-handbook/data-version-control DVC-2
 
 Retrieving the data from the data remote to repopulate the cache is done with the :command:`dvc fetch` command:
 
@@ -494,7 +494,7 @@ Currently, the dataset can thus be shared via :term:`GitHub` or similar hosting 
 
       ### DVC-DataLad
       # outside of a dataset
-      $ datalad clone git@github.com:datalad-handbook/DVC-DataLad.git DVC-DataLad-2
+      $ datalad clone https://github.com/datalad-handbook/DVC-DataLad.git DVC-DataLad-2
       $ cd DVC-DataLad-2
 
    .. runrecord:: _examples/DL-101-168-132

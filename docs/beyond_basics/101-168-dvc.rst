@@ -54,6 +54,24 @@ The `DVC tutorial <https://realpython.com/python-data-version-control/>`_ comes 
    # please clone this repository from your own fork when coding along
    $ git clone https://github.com/datalad-handbook/data-version-control DVC
 
+.. only:: adminmode
+
+    We need to reconfigure the remote origin to a local push target to simulate pushing back.
+    First, rename origin:
+
+    .. runrecord:: _examples/DL-101-168-102a
+       :language: console
+       :workdir: DVCvsDL/DVC
+
+       $ git remote rename origin github
+
+    Then, create a local pushtarget under the remote name origin
+
+    .. runrecord:: _examples/DL-101-168-102b
+       :language: console
+
+       $ python3 /home/me/makepushtarget.py '/home/me/DVCvsDL/DVC' 'origin' '/home/me/pushes/data-version-control' True True
+
 The resulting Git repository is already pre-structured in a way that aids DVC ML analyses: It has the directories ``model`` and ``metrics``, and a set of Python scripts for a machine learning analysis in ``src/``.
 
 .. runrecord:: _examples/DL-101-168-102
@@ -994,16 +1012,18 @@ Even though there is no one-to-one correspondence between a DVC and a DataLad wo
 
    We need to clean up -- reset the state of the "data version control" repo to its original state, force push
 
+   DISABLED, NOT NECESSARY WITH A CHANGE TO A LOCAL PUSH TARGET
+
    .. runrecord:: _examples/DL-101-168-190
       :workdir: DVCvsDL/DVC
       :language: console
 
-      $ git checkout master
-      $ git reset --hard b796ba195447268ebc51e20a778fb2db9f11e341
-      $ git push --force origin master
-      # delete the branches and tags
-      $ git push origin :random_forrest :sgd-pipeline
-      $ git tag -d random-forrest sgd-pipeline
+      #$ git checkout master
+      #$ git reset --hard b796ba195447268ebc51e20a778fb2db9f11e341
+      #$ git push --force origin master
+      ## delete the branches and tags
+      #$ git push origin :random_forrest :sgd-pipeline
+      #$ git tag -d random-forrest sgd-pipeline
 
 Summary
 ^^^^^^^

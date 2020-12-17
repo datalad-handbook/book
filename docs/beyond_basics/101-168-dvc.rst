@@ -257,6 +257,7 @@ Here, we stick to the project organization of DVC though.
 
 At this point, the data is already version controlled [#f6]_, but the directory structure doesn't resemble that of the DVC dataset yet -- the extracted directory adds one unnecessary directory layer::
 
+    $ tree
     .
     ├── code
     │   └── [...]

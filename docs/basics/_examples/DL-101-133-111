@@ -1,7 +1,7 @@
 $ git log -p -n 1
-commit 9aaf66ad6ab1e38241e70e7de64e6017084f770a
+commit 31470ec8e4684c32e21e35a5968a41d1c6b19618
 Author: Elena Piscopia <elena@example.net>
-Date:   Tue Jun 23 21:05:56 2020 +0200
+Date:   Fri Dec 18 15:14:51 2020 +0100
 
     [DATALAD RUNCMD] rerun analysis in container
     
@@ -9,7 +9,7 @@ Date:   Tue Jun 23 21:05:56 2020 +0200
     {
      "chain": [],
      "cmd": "singularity exec .datalad/environments/midterm-software/image python3 code/script.py",
-     "dsid": "5f313adc-b584-11ea-90a2-3119e6b9cf19",
+     "dsid": "1a39abf2-3795-4796-a70f-818ecc4041f9",
      "exit": 0,
      "extra_inputs": [
       ".datalad/environments/midterm-software/image"
@@ -26,20 +26,11 @@ Date:   Tue Jun 23 21:05:56 2020 +0200
     ^^^ Do not change lines above ^^^
 
 diff --git a/pairwise_relationships.png b/pairwise_relationships.png
-index 7a8e02e..6e06b18 120000
+index b4eda5a..6779254 120000
 --- a/pairwise_relationships.png
 +++ b/pairwise_relationships.png
 @@ -1 +1 @@
--.git/annex/objects/3p/63/MD5E-s174822--9c3ff04d3e50f86034651c2df2dd720f.png/MD5E-s174822--9c3ff04d3e50f86034651c2df2dd720f.png
+-.git/annex/objects/Vz/f2/MD5E-s181905--427f730d601b6a61d65e98dc76912cef.png/MD5E-s181905--427f730d601b6a61d65e98dc76912cef.png
 \ No newline at end of file
-+.git/annex/objects/xZ/pk/MD5E-s175447--1f7f416d7c317c1f6208a940aa50c700.png/MD5E-s175447--1f7f416d7c317c1f6208a940aa50c700.png
-\ No newline at end of file
-diff --git a/prediction_report.csv b/prediction_report.csv
-index 42d194b..b46a2d5 120000
---- a/prediction_report.csv
-+++ b/prediction_report.csv
-@@ -1 +1 @@
--.git/annex/objects/8q/6M/MD5E-s345--a88cab39b1a5ec59ace322225cc88bc9.csv/MD5E-s345--a88cab39b1a5ec59ace322225cc88bc9.csv
-\ No newline at end of file
-+.git/annex/objects/VF/27/MD5E-s347--7d984f53676358222aa7aa55980f205b.csv/MD5E-s347--7d984f53676358222aa7aa55980f205b.csv
++.git/annex/objects/M8/26/MD5E-s183836--180aa76139de881db6d1ddac828c2668.png/MD5E-s183836--180aa76139de881db6d1ddac828c2668.png
 \ No newline at end of file

@@ -1,7 +1,7 @@
 $ git show ready4analysis
-commit 95685fcc1bb0a356a3fe3e39d243df0a739f0e00
+commit b51c0bcd8c5687845a53f113eec3a956fa3f5dc1
 Author: Elena Piscopia <elena@example.net>
-Date:   Tue Jun 23 21:04:38 2020 +0200
+Date:   Fri Dec 18 15:13:33 2020 +0100
 
     add script for kNN classification and plotting
 

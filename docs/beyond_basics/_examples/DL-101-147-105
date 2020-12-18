@@ -1,7 +1,7 @@
 $ tree /home/me/myriastore
 /home/me/myriastore
-├── 07c
-│   └── 74330-9069-11ea-96fe-833ef2c0cd3b
+├── 2f2
+│   └── f9709-47ef-4144-b363-ca76eb3da3b7
 │       ├── annex
 │       │   └── objects
 │       ├── archives
@@ -16,6 +16,7 @@ $ tree /home/me/myriastore
 │       │   ├── post-update.sample
 │       │   ├── pre-applypatch.sample
 │       │   ├── pre-commit.sample
+│       │   ├── pre-merge-commit.sample
 │       │   ├── prepare-commit-msg.sample
 │       │   ├── pre-push.sample
 │       │   ├── pre-rebase.sample
@@ -33,4 +34,4 @@ $ tree /home/me/myriastore
 ├── error_logs
 └── ria-layout-version
 
-15 directories, 17 files
+15 directories, 18 files

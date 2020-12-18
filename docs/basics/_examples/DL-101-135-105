@@ -1,5 +1,5 @@
 $ datalad --log-level debug status
-[DEBUG] Command line args 1st pass. Parsed: Namespace() Unparsed: ['status'] 
+[DEBUG] Command line args 1st pass for DataLad 0.13.6.dev19-g5140e. Parsed: Namespace() Unparsed: ['status']
 [DEBUG] Discovering plugins 
 [DEBUG] Building doc for <class 'datalad.core.local.status.Status'> 
 [DEBUG] Parsing known args among ['/home/adina/env/handbook/bin/datalad', '--log-level', 'debug', 'status'] 
@@ -14,8 +14,9 @@ $ datalad --log-level debug status
 [DEBUG] Query repo: ['git', 'ls-tree', 'HEAD', '-z', '-r', '--full-tree', '-l'] 
 [DEBUG] Done query repo: ['git', 'ls-tree', 'HEAD', '-z', '-r', '--full-tree', '-l'] 
 [DEBUG] Initiating a new process for BatchedCommand(cmd=['git', 'cat-file', '--batch'], output_proc=<function>, path='/home/me/dl-101/DataLad-101') 
-[DEBUG] Closing stdin of <subprocess.Popen object at 0x7ff4bcd847b8> and waiting process to finish 
-[DEBUG] Process <subprocess.Popen object at 0x7ff4bcd847b8> has finished 
+[DEBUG] Closing stderr of <subprocess.Popen object at 0x7f34749f36d0>
+[DEBUG] Closing stdin of <subprocess.Popen object at 0x7f34749f36d0> and waiting process to finish
+[DEBUG] Process <subprocess.Popen object at 0x7f34749f36d0> has finished
 [DEBUG] Done AnnexRepo(/home/me/dl-101/DataLad-101).get_content_info(...) 
 [DEBUG] GitRepo(/home/me/dl-101/DataLad-101/midterm_project).get_content_info(...) 
 [DEBUG] Query repo: ['git', 'ls-files', '--stage', '-z', '-d', '-m', '--exclude-standard', '-o', '--directory', '--no-empty-directory'] 

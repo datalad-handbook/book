@@ -9,7 +9,7 @@ $ tree
 │   └── list_titles.sh
 ├── notes.txt
 └── recordings
-    ├── interval_logo_small.jpg -> ../.git/annex/objects/36/jF/MD5E-s100877--0fea9537f9fe255d827e4401a7d539e7.jpg/MD5E-s100877--0fea9537f9fe255d827e4401a7d539e7.jpg
+    ├── interval_logo_small.jpg -> ../.git/annex/objects/jx/KK/MD5E-s100593--c4b4290cb5d616154e80cddee76cb756.jpg/MD5E-s100593--c4b4290cb5d616154e80cddee76cb756.jpg
     ├── longnow
     │   ├── Long_Now__Conversations_at_The_Interval
     │   │   ├── 2017_06_09__How_Digital_Memory_Is_Shaping_Our_Future__Abby_Smith_Rumsey.mp3 -> ../.git/annex/objects/8j/kQ/MD5E-s66305442--c723d53d207e6d82dd64c3909a6a93b0.mp3/MD5E-s66305442--c723d53d207e6d82dd64c3909a6a93b0.mp3

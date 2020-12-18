@@ -1,12 +1,12 @@
 $ git log
-commit a50e5c92a7fbe805284a4d85c8986155bf5fe60d
+commit 235c11463ee133a115420783a888070468fcf566
 Author: Elena Piscopia <elena@example.net>
-Date:   Tue Jun 23 21:02:42 2020 +0200
+Date:   Fri Dec 18 15:11:24 2020 +0100
 
     Instruct annex to add text files to Git
 
-commit c76005349f18dd0fe3eacad01deb433bee4e9f27
+commit 56368580676f003f1c8ede15d59fd2ecdcd97850
 Author: Elena Piscopia <elena@example.net>
-Date:   Tue Jun 23 21:02:41 2020 +0200
+Date:   Fri Dec 18 15:11:24 2020 +0100
 
     [DATALAD] new dataset

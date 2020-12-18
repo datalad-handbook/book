@@ -615,6 +615,14 @@ than moving them with standard Unix commands, especially so for annexed files.
 A more detailed introduction to :command:`datalad copy-file` and a concrete
 usecase can currently be found in :ref:`copyfile`.
 
+Let's clean up:
+
+.. runrecord:: _examples/DL-101-136-140
+   :language: console
+   :workdir: dl-101/DataLad-101/midterm_project
+
+   $ git reset --hard HEAD~2
+
 
 Moving/renaming a subdirectory or subdataset
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -627,7 +635,7 @@ to clean up afterwards, just as in the examples above. Make sure to
 
 Let's for example rename the ``books`` directory:
 
-.. runrecord:: _examples/DL-101-136-150
+.. runrecord:: _examples/DL-101-136-151
    :language: console
    :workdir: dl-101/DataLad-101
    :notes: renaming and moving subdirectories and subdatasets can be a minefield, but is usually okay: let's change the name of books to readings
@@ -636,7 +644,7 @@ Let's for example rename the ``books`` directory:
    $ mv books/ readings
    $ datalad status
 
-.. runrecord:: _examples/DL-101-136-151
+.. runrecord:: _examples/DL-101-136-152
    :language: console
    :workdir: dl-101/DataLad-101
    :notes: a save rectifies everything
@@ -649,7 +657,7 @@ the name) the directory would work in the
 same fashion, and a :command:`datalad save` would fix broken symlinks afterwards.
 Let's quickly clean this up:
 
-.. runrecord:: _examples/DL-101-136-152
+.. runrecord:: _examples/DL-101-136-153
    :language: console
    :workdir: dl-101/DataLad-101
    :notes: (quickly clean up)
@@ -660,7 +668,7 @@ Let's quickly clean this up:
 But let's now try to move the ``longnow`` subdataset into the root of the
 superdataset:
 
-.. runrecord:: _examples/DL-101-136-153
+.. runrecord:: _examples/DL-101-136-154
    :language: console
    :workdir: dl-101/DataLad-101
    :notes: But what about renaming or moving a subdataset? Let's move longnow into the root of the dataset
@@ -669,7 +677,7 @@ superdataset:
    $ mv recordings/longnow .
    $ datalad status
 
-.. runrecord:: _examples/DL-101-136-154
+.. runrecord:: _examples/DL-101-136-155
    :language: console
    :workdir: dl-101/DataLad-101
    :notes: a save will work and rectify things ...
@@ -677,7 +685,7 @@ superdataset:
 
    $ datalad save -m "moved subdataset"
 
-.. runrecord:: _examples/DL-101-136-155
+.. runrecord:: _examples/DL-101-136-156
    :language: console
    :workdir: dl-101/DataLad-101
    :cast: 03_git_annex_basics
@@ -692,7 +700,7 @@ around. For now we'll clean up in a somewhat "hacky" way: Reverting, and
 moving remaining subdataset contents back to their original place by hand
 to take care of the unwanted changes the commit reversal introduced.
 
-.. runrecord:: _examples/DL-101-136-156
+.. runrecord:: _examples/DL-101-136-157
    :language: console
    :workdir: dl-101/DataLad-101
    :notes: BUT reverting such a commit in the history can be tricky atm:
@@ -700,7 +708,7 @@ to take care of the unwanted changes the commit reversal introduced.
 
    $ git reset --hard HEAD~1
 
-.. runrecord:: _examples/DL-101-136-157
+.. runrecord:: _examples/DL-101-136-158
    :language: console
    :workdir: dl-101/DataLad-101
    :notes: we have to move the remaining subdataset contents back to the original place
@@ -757,7 +765,7 @@ section.
    sibling is registered in ``.git/config`` in a "submodule" section.
    Let's look at how our sibling "roommate" is registered there:
 
-   .. runrecord:: _examples/DL-101-136-140
+   .. runrecord:: _examples/DL-101-136-141
       :language: console
       :workdir: dl-101/DataLad-101
       :emphasize-lines: 15-16
@@ -769,7 +777,7 @@ section.
    what happens if we move the dataset such that the path does not point
    to the dataset anymore:
 
-   .. runrecord:: _examples/DL-101-136-141
+   .. runrecord:: _examples/DL-101-136-142
       :language: console
       :workdir: dl-101/DataLad-101
 
@@ -784,7 +792,7 @@ section.
    ``../mock_user/onemoredir/DataLad-101``. The path specified in
    the configuration file is thus wrong now.
 
-   .. runrecord:: _examples/DL-101-136-142
+   .. runrecord:: _examples/DL-101-136-143
       :language: console
       :workdir: dl-101/mock_user
 
@@ -808,7 +816,7 @@ section.
    Below, we are using the stream editor `sed <https://en.wikipedia.org/wiki/Sed>`_
    for this operation.
 
-   .. runrecord:: _examples/DL-101-136-143
+   .. runrecord:: _examples/DL-101-136-144
       :language: console
       :workdir: dl-101/DataLad-101
 
@@ -816,7 +824,7 @@ section.
 
    This is how the file looks now:
 
-   .. runrecord:: _examples/DL-101-136-144
+   .. runrecord:: _examples/DL-101-136-145
       :language: console
       :workdir: dl-101/DataLad-101
       :emphasize-lines: 16
@@ -825,7 +833,7 @@ section.
 
    Let's try to update now:
 
-   .. runrecord:: _examples/DL-101-136-145
+   .. runrecord:: _examples/DL-101-136-146
       :workdir: dl-101/DataLad-101
       :language: console
 
@@ -839,7 +847,7 @@ section.
    To clean up, we'll redo the move of the dataset and the
    modification in ``.git/config``.
 
-   .. runrecord:: _examples/DL-101-136-146
+   .. runrecord:: _examples/DL-101-136-147
       :language: console
       :workdir: dl-101/DataLad-101
 
@@ -873,7 +881,7 @@ To get contents out of the dataset's annex you need to *unannex* them. This is
 done with the git-annex command :command:`git annex unannex`. Let's see how it
 works:
 
-.. runrecord:: _examples/DL-101-136-147
+.. runrecord:: _examples/DL-101-136-148
    :language: console
    :workdir: dl-101/DataLad-101
 
@@ -881,7 +889,7 @@ works:
 
 Your dataset's history records the unannexing of the files.
 
-.. runrecord:: _examples/DL-101-136-148
+.. runrecord:: _examples/DL-101-136-149
    :language: console
    :workdir: dl-101/DataLad-101
 
@@ -891,7 +899,7 @@ Once files have been unannexed, they are "untracked" again, and you can save the
 into Git, either by adding a rule to ``.gitattributes``, or with
 :command:`datalad save --to-git`:
 
-.. runrecord:: _examples/DL-101-136-149
+.. runrecord:: _examples/DL-101-136-150
    :language: console
    :workdir: dl-101/DataLad-101
 

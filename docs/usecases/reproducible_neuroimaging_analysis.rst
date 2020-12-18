@@ -403,7 +403,7 @@ For this use case, two DataLad extensions are required:
 
 You can install them via ``pip`` like this::
 
-   $ pip install datalad-neuroimaging, datalad-container
+   $ pip install datalad-neuroimaging datalad-container
 
 Data Preparation
 """"""""""""""""

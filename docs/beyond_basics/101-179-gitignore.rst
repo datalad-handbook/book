@@ -207,13 +207,13 @@ your dataset to be messy, if you want to be.
       :language: console
       :workdir: dl-101/DataLad-101
 
-      $ datalad siblings add -d . --name public --url git@github.com:datalad-handbook/DataLad-101.git
+      $ datalad siblings add -d . --name public --url https://github.com/datalad-handbook/DataLad-101.git
 
    .. runrecord:: _examples/DL-101-179-108
       :language: console
       :workdir: dl-101/DataLad-101/midterm_project
 
-      $ datalad siblings add -d . --name public --url git@github.com:datalad-handbook/midterm_project.git
+      $ datalad siblings add -d . --name public --url https://github.com/datalad-handbook/midterm_project.git
 
    .. runrecord:: _examples/DL-101-179-109
       :language: console

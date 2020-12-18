@@ -6,7 +6,10 @@ $ datalad clone -d . https://github.com/datalad-handbook/iris_data.git input/
 [INFO] Start enumerating objects
 [INFO] Start counting objects
 [INFO] Start compressing objects
+[INFO] Start receiving objects
+[INFO] Start resolving deltas
 [INFO] Completed clone attempts for Dataset(/home/me/dl-101/DataLad-101/midterm_project/input)
+[INFO] Scanning for unlocked files (this may take some time)
 [INFO] Remote origin not usable by git-annex; setting annex-ignore
 install(ok): input (dataset)
 add(ok): input (file)

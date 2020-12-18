@@ -1,13 +1,9 @@
 $ tree /home/me/myriastore
 /home/me/myriastore
-├── 07c
-│   └── 74330-9069-11ea-96fe-833ef2c0cd3b
+├── 2f2
+│   └── f9709-47ef-4144-b363-ca76eb3da3b7
 │       ├── annex
 │       │   └── objects
-│       │       ├── F1
-│       │       │   └── Wz
-│       │       │       └── MD5E-s4242644--f4e1c8ebfb5c89a69ff6d268eb2e63e3.pdf
-│       │       │           └── MD5E-s4242644--f4e1c8ebfb5c89a69ff6d268eb2e63e3.pdf
 │       │       ├── G6
 │       │       │   └── Gj
 │       │       │       └── MD5E-s12465653--05cd7ed561d108c9bcf96022bc78a92c.pdf
@@ -16,10 +12,14 @@ $ tree /home/me/myriastore
 │       │       │   └── 3M
 │       │       │       └── MD5E-s2120211--06d1efcb05bb2c55cd039dab3fb28455.pdf
 │       │       │           └── MD5E-s2120211--06d1efcb05bb2c55cd039dab3fb28455.pdf
-│       │       └── WF
-│       │           └── Gq
-│       │               └── MD5E-s1198170--0ab2c121bcf68d7278af266f6a399c5f.pdf
-│       │                   └── MD5E-s1198170--0ab2c121bcf68d7278af266f6a399c5f.pdf
+│       │       ├── WF
+│       │       │   └── Gq
+│       │       │       └── MD5E-s1198170--0ab2c121bcf68d7278af266f6a399c5f.pdf
+│       │       │           └── MD5E-s1198170--0ab2c121bcf68d7278af266f6a399c5f.pdf
+│       │       └── z1
+│       │           └── Q8
+│       │               └── MD5E-s4208954--ab3a8c2f6b76b18b43c5949e0661e266.pdf
+│       │                   └── MD5E-s4208954--ab3a8c2f6b76b18b43c5949e0661e266.pdf
 │       ├── archives
 │       ├── branches
 │       ├── config
@@ -32,6 +32,7 @@ $ tree /home/me/myriastore
 │       │   ├── post-update.sample
 │       │   ├── pre-applypatch.sample
 │       │   ├── pre-commit.sample
+│       │   ├── pre-merge-commit.sample
 │       │   ├── prepare-commit-msg.sample
 │       │   ├── pre-push.sample
 │       │   ├── pre-rebase.sample
@@ -42,11 +43,9 @@ $ tree /home/me/myriastore
 │       ├── objects
 │       │   ├── info
 │       │   └── pack
-│       │       ├── pack-409dd939dfa96072f004f939868d0fcbc41dd767.idx
-│       │       ├── pack-409dd939dfa96072f004f939868d0fcbc41dd767.pack
-│       │       ├── pack-b0874468fd957dcd4a602a730aabaceeaef42afa.idx
-│       │       └── pack-b0874468fd957dcd4a602a730aabaceeaef42afa.pack
-│       ├── ora-remote-33f4615c-dddd-4f49-9e81-2c357e427f63
+│       │       ├── pack-63ec2224a286b6dcbe5b8b1b7bfb69dbe2bd9b60.idx
+│       │       └── pack-63ec2224a286b6dcbe5b8b1b7bfb69dbe2bd9b60.pack
+│       ├── ora-remote-8d35c213-90ee-45d0-bc57-5ebccf2d3426
 │       │   └── transfer
 │       ├── refs
 │       │   ├── heads
@@ -57,4 +56,4 @@ $ tree /home/me/myriastore
 ├── error_logs
 └── ria-layout-version
 
-29 directories, 27 files
+29 directories, 26 files

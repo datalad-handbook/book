@@ -3,9 +3,9 @@ $ datalad run -m "Resize logo for slides" \
 --output "recordings/interval_logo_small.jpg" \
 "convert -resize 400x400 recordings/longnow/.datalad/feed_metadata/logo_interval.jpg recordings/interval_logo_small.jpg"
 [INFO] Making sure inputs are available (this may take some time) 
+unlock(ok): recordings/interval_logo_small.jpg (file)
 [INFO] == Command start (output follows) ===== 
 [INFO] == Command exit (modification check follows) ===== 
-unlock(ok): recordings/interval_logo_small.jpg (file)
 add(ok): recordings/interval_logo_small.jpg (file)
 save(ok): . (dataset)
 action summary:

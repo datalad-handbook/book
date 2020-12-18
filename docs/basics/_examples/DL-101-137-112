@@ -1,12 +1,12 @@
 $ git log -2
-commit bb02715c2326bf6fece5f11b3e1925794eccb9ba
+commit 80dd87b4c8a92a7ba0f2820cccca4ea7b4c98aaf
 Author: Elena Piscopia <elena@example.net>
-Date:   Tue Jun 23 21:06:29 2020 +0200
+Date:   Fri Dec 18 15:15:28 2020 +0100
 
     save my favorite Git joke
 
-commit b0d5d0236c3e99dde55c170e6201323c7835298d
+commit 9099ff224d071c7b03f7e8aa7baf499a356e2ee9
 Author: Elena Piscopia <elena@example.net>
-Date:   Tue Jun 23 21:06:15 2020 +0200
+Date:   Fri Dec 18 15:15:09 2020 +0100
 
-    Added flower mosaic from wikimedia
+    save cropped logos to Git

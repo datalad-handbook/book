@@ -1,4 +1,4 @@
 $ git log -n 3 --oneline
-ed8d3cb [DATALAD] Recorded changes
-bb02715 save my favorite Git joke
-b0d5d02 Added flower mosaic from wikimedia
+95f06af [DATALAD] Recorded changes
+80dd87b save my favorite Git joke
+9099ff2 save cropped logos to Git

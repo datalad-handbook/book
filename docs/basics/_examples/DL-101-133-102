@@ -1,6 +1,6 @@
 $ cat .datalad/config
 [datalad "dataset"]
-	id = 5f313adc-b584-11ea-90a2-3119e6b9cf19
+	id = 1a39abf2-3795-4796-a70f-818ecc4041f9
 [datalad "containers.midterm-software"]
 	updateurl = shub://adswa/resources:2
 	image = .datalad/environments/midterm-software/image

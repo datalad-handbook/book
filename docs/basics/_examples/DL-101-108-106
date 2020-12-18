@@ -1,7 +1,7 @@
-$ git log -p -n 1
-commit eee1356bb7e8f921174e404c6df6aadcc1f158f0
+$ git log -p -n 1   # On Windows, you may just want to type "git log".
+commit 84dc0f4829c0bba9aace66ca8d07bcaeae6f7488
 Author: Elena Piscopia <elena@example.net>
-Date:   Tue Jun 23 21:03:48 2020 +0200
+Date:   Fri Dec 18 15:12:38 2020 +0100
 
     [DATALAD RUNCMD] create a list of podcast titles
     
@@ -9,7 +9,7 @@ Date:   Tue Jun 23 21:03:48 2020 +0200
     {
      "chain": [],
      "cmd": "bash code/list_titles.sh > recordings/podcasts.tsv",
-     "dsid": "1cdc8632-b584-11ea-90a2-3119e6b9cf19",
+     "dsid": "2f2f9709-47ef-4144-b363-ca76eb3da3b7",
      "exit": 0,
      "extra_inputs": [],
      "inputs": [],

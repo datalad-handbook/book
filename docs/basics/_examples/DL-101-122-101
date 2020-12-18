@@ -5,14 +5,17 @@ $ cat .git/config
 	bare = false
 	logallrefupdates = true
 [annex]
-	uuid = b2ff89c4-11a8-49b2-8fe5-e28fcd9cf621
-	version = 5
+	uuid = 82cdbc6d-37a5-4552-a513-40335d194347
+	version = 8
 	backends = MD5E
+[filter "annex"]
+	smudge = git-annex smudge -- %f
+	clean = git-annex smudge --clean -- %f
 [submodule "recordings/longnow"]
 	url = https://github.com/datalad-datasets/longnow-podcasts.git
 	active = true
 [remote "roommate"]
 	url = ../mock_user/DataLad-101
 	fetch = +refs/heads/*:refs/remotes/roommate/*
-	annex-uuid = e86f131b-c6f3-4bf9-91d1-f47f0117fee7
+	annex-uuid = ab9807a7-a92e-4a8f-a7f8-f6764fad050c
 	annex-ignore = false

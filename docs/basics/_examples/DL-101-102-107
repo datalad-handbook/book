@@ -1,7 +1,7 @@
 $ git log -p -n 1
-commit da1610a8597da3cbcb16c0b4afefcb9df12de97a
+commit 93b13c2f0526d4bd5efd57b2421c1dc5a30a07e1
 Author: Elena Piscopia <elena@example.net>
-Date:   Tue Jun 23 21:02:49 2020 +0200
+Date:   Fri Dec 18 15:11:30 2020 +0100
 
     add books on Python and Unix to read later
 

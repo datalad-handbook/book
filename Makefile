@@ -12,9 +12,9 @@ clean-examples:
 	@[ -n "$$(ls -a /home/me/.x* /home/me/.*rc 2>/dev/null)" ] && echo "/home/me looks like a real HOME dir. Refusing to bring chaos" && exit 1 || true
 	@find docs -name _examples -type d | sed 's/docs\/usecases\/_examples//' |xargs rm -vrf
 	# also wipe the workdirs, otherwise a rebuild will lead to chaos
-	@for d in $$(git grep ':workdir:' -- docs | cut -d ':' -f 4- | sort | uniq|cut -d '/' -f 1 | uniq | sed 's/usecases//'); do chmod +w -R /home/me/$$d; rm -vrf /home/me/$$d ; done
+	@for d in $$(git grep ':workdir:' -- docs | cut -d ':' -f 4- | sort | uniq|cut -d '/' -f 1 | uniq | sed 's/usecases//' | sed 's/DVCvsDL//'); do chmod +w -R /home/me/$$d; rm -vrf /home/me/$$d ; done
     # wipe out bare push repos
-	@chmod +w -R /home/me/pushes; rm -vrf /home/me/pushes
+	@chmod +w -R /home/me/pushes/{DataLad-101,midterm_project}; rm -vrf /home/me/pushes/{DataLad-101,midterm_project}
 	@rm -vrf /home/me/makepushtarget.py
 	# wipe out the RIA store
 	@rm -vrf /home/me/myriastore
@@ -24,6 +24,7 @@ clean-DVC:
 	# wipe out the DVC comparison
 	@find docs/beyond_basics/_examples -name DL-101-168* -type f | xargs rm -vrf
 	@chmod +w -R /home/me/DVCvsDL; rm -vrf /home/me/DVCvsDL
+	@chmod +w -R /home/me/pushes/data-version-control; rm -vrf /home/me/pushes/data-version-control
 
 # wipe out usecases
 clean-usecases:

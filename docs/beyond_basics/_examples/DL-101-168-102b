@@ -1,0 +1,1 @@
+$ python3 /home/me/makepushtarget.py '/home/me/DVCvsDL/DVC' 'origin' '/home/me/pushes/data-version-control' True True

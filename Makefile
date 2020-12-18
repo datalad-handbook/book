@@ -14,7 +14,7 @@ clean-examples:
 	# also wipe the workdirs, otherwise a rebuild will lead to chaos
 	@for d in $$(git grep ':workdir:' -- docs | cut -d ':' -f 4- | sort | uniq|cut -d '/' -f 1 | uniq | sed 's/usecases//' | sed 's/DVCvsDL//'); do chmod +w -R /home/me/$$d; rm -vrf /home/me/$$d ; done
     # wipe out bare push repos
-	@chmod +w -R /home/me/pushes/{DataLad-101,midterm_project}; rm -vrf /home/me/pushes/{DataLad-101,midterm_project}
+	@chmod +w -R /home/me/pushes/DataLad-101 /home/me/pushes/midterm_project; rm -vrf /home/me/pushes/DataLad-101 /home/me/pushes/midterm_project
 	@rm -vrf /home/me/makepushtarget.py
 	# wipe out the RIA store
 	@rm -vrf /home/me/myriastore

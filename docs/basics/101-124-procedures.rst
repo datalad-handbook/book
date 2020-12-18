@@ -342,7 +342,7 @@ was applied.
       $ cat example2  && echo '' && cat somedir/example
 
    .. runrecord:: _examples/DL-101-124-109
-      :workdir:  procs/somedataset
+      :workdir: procs/somedataset
       :language: console
 
       $ git config -f .datalad/config datalad.procedures.example.help "A toy example"

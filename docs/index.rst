@@ -113,6 +113,7 @@ Code lists from chapters
    code_from_chapters/usecase_ml_code
    code_from_chapters/MPI_code
    code_from_chapters/DLBasicsMPI
+   code_from_chapters/ABCD
 
 ..
   stuff that we do not need or show at the moment

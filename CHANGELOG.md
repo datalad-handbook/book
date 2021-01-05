@@ -3,7 +3,52 @@
 All notable changes to this project between releases will be documented in this
 file.
 
-## v0.13 (XX. XX. 2020) -- Towards a tetralogy!
+## v0.14 (January XX 2021) -- slightly less dreadfulness for Windows users
+
+Handbook release matching the release of DataLad v0.14.0.
+Like the software release, this handbook release improves the situation on/for Windows systems starkly from what we had before.
+With contributions from Tristan Glatard, Ariel Rokem, Remi Gau, Surya Teja Togaru, Judith Bomba, Konrad Hinsen, Wu Jianxiao, Małgorzata Wierzba, Stefan Appelhoff, and Michael Joseph -- thank you!
+
+### Refactoring or deletions
+
+- Overhaul Windows installation instructions ([#588][])
+- Adjustments for GitHub's user-password deprecation ([#626][]), ([#592][])
+
+### Additions
+
+#### Introduction
+
+- git-annex installations with custom built git-annex with MagicMime support ([#603][])
+- A quick-start guide for OpenNeuro ([#585][])
+
+#### Basics
+
+- Disambiguation on configurations ([#627][]) with thanks to John Lee for the issue at datalad
+- A new section on how to debug and troubleshoot problems - with thanks to Tristan Glatard for the idea and contributions ([#538][])
+
+#### Advanced
+
+- A chapter on large-scale fair processing with parallel datalad-run calls ([#591][])
+- A new section on configuring subdataset clone candidates and their priority ([#548][])
+- A new chapter/section that compares the tool DVC to DataLad ([#569][])
+
+#### Usecases
+
+- Addition of a machine-learning application with DataLad ([#581][])
+- Addition on Human Connectome Project (HCP) AWS credentials (thanks to Michael Joseph) ([#622][])
+- Addition of a hands-on tutorial for reproducible papers ([#608][]), with thanks to Małgorzata Wierzba for feedback and contributions
+
+#### Miscellaneous additions
+
+- A variety of code lists and introductions ([#630][]), ([#613][])
+- A few new permalinks: git-lfs ([#624][]), MPIB intro ([#614][])
+- A new expandable section "Windows workaround" for Windows-specific notes and explanations([#532][])
+- Large amount of Windows adjustments in the Basics ([#588][])
+- FAQs on copying locked files out of datasets, and on caveats with the BIDS validator - with thanks to Remi Gau ([#570][]), ([#562][])
+- The handbook's GitHub repository received a welcome bot (with thanks to The Turing Way project for CC-BY illustrations), and a "Discussions" Forum
+- The handbook's frontpage links to the cheat sheet with a nice illustration ([#578][])
+
+## v0.13 (June 23rd 2020) -- Towards a tetralogy!
 
 Handbook release matching the release of DataLad v0.13.0
 With contributions from Dorian Pustina, Sarah Oliveira, Tristan Glatard,
@@ -207,3 +252,24 @@ Alpha stage release with handbook content covering most of the core commands.
 [#479]: https://github.com/datalad-handbook/book/pull/479
 [#500]: https://github.com/datalad-handbook/book/pull/500
 [#518]: https://github.com/datalad-handbook/book/pull/518
+[#532]: https://github.com/datalad-handbook/book/pull/532
+[#548]: https://github.com/datalad-handbook/book/pull/548
+[#562]: https://github.com/datalad-handbook/book/pull/562
+[#569]: https://github.com/datalad-handbook/book/pull/569
+[#570]: https://github.com/datalad-handbook/book/pull/570
+[#578]: https://github.com/datalad-handbook/book/pull/578
+[#581]: https://github.com/datalad-handbook/book/pull/581
+[#585]: https://github.com/datalad-handbook/book/pull/585
+[#588]: https://github.com/datalad-handbook/book/pull/588
+[#591]: https://github.com/datalad-handbook/book/pull/591
+[#592]: https://github.com/datalad-handbook/book/pull/592
+[#603]: https://github.com/datalad-handbook/book/pull/603
+[#608]: https://github.com/datalad-handbook/book/pull/608
+[#613]: https://github.com/datalad-handbook/book/pull/613
+[#614]: https://github.com/datalad-handbook/book/pull/614
+[#622]: https://github.com/datalad-handbook/book/pull/622
+[#624]: https://github.com/datalad-handbook/book/pull/624
+[#626]: https://github.com/datalad-handbook/book/pull/626
+[#627]: https://github.com/datalad-handbook/book/pull/627
+[#630]: https://github.com/datalad-handbook/book/pull/630
+

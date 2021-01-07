@@ -92,6 +92,7 @@ The Imagenette dataset can be downloaded as an archive from Amazon, and the :com
    :language: console
    :cast: usecase_ml
    :workdir: usecases
+   :realcommand: cd imagenette && datalad download-url --archive --message "Download Imagenette dataset" 'https://s3.amazonaws.com/fast-ai-imageclas/imagenette2-160.tgz' && sleep 15
 
    $ cd imagenette
    # 0.12.2 <= datalad < 0.13.4  needs the configuration option -c datalad.runtime.use-patool=1 to handle .tgz

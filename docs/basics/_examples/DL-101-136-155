@@ -1,8 +1,12 @@
 $ datalad save -m "moved subdataset"
+[INFO] Total: starting
+[INFO]
 delete(ok): recordings/longnow (file)
 add(ok): longnow (file)
 add(ok): .gitmodules (file)
+[INFO] Total: processed result for /home/me/dl-101/DataLad-101
 save(ok): . (dataset)
+[INFO] Total: done
 action summary:
   add (ok: 2)
   delete (ok: 1)

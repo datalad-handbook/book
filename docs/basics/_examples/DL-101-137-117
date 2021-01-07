@@ -1,4 +1,4 @@
 $ git log -n 3 --oneline
-95f06af [DATALAD] Recorded changes
-80dd87b save my favorite Git joke
-9099ff2 save cropped logos to Git
+c0d65b1 [DATALAD] Recorded changes
+f0a0a86 save my favorite Git joke
+61e9c86 save cropped logos to Git

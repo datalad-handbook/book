@@ -6,9 +6,13 @@ $ datalad run --message "Prepare the train and testing data" \
 [INFO] Making sure inputs are available (this may take some time) 
 [INFO] == Command start (output follows) ===== 
 [INFO] == Command exit (modification check follows) ===== 
-add(ok): /home/me/DVCvsDL/DVC-DataLad/data/prepared/test.csv (file)
-add(ok): /home/me/DVCvsDL/DVC-DataLad/data/prepared/train.csv (file)
-save(ok): /home/me/DVCvsDL/DVC-DataLad (dataset)
+[INFO] Total: starting
+[INFO]
+add(ok): data/prepared/test.csv (file)
+add(ok): data/prepared/train.csv (file)
+[INFO] Total: processed result for /home/me/DVCvsDL/DVC-DataLad
+save(ok): . (dataset)
+[INFO] Total: done
 action summary:
   add (ok: 2)
   get (notneeded: 2)

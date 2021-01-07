@@ -1,6 +1,10 @@
 $ datalad save -m "Provide project description" README.md
+[INFO] Total: starting
+[INFO]
 add(ok): README.md (file)
+[INFO] Total: processed result for /home/me/dl-101/DataLad-101/midterm_project
 save(ok): . (dataset)
+[INFO] Total: done
 action summary:
   add (ok: 1)
   save (ok: 1)

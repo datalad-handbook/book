@@ -1,9 +1,16 @@
 $ datalad save -r -m "move annexed file around"
+[INFO] Total: starting
+[INFO]
+[INFO] Total: processed result for /home/me/dl-101/DataLad-101/recordings/longnow
+[INFO] Total: processed result for /home/me/dl-101/DataLad-101/midterm_project/input
 add(ok): TLCL.pdf (file)
+[INFO] Total: processed result for /home/me/dl-101/DataLad-101/midterm_project
 save(ok): midterm_project (dataset)
 delete(ok): books/TLCL.pdf (file)
 add(ok): midterm_project (file)
+[INFO] Total: processed result for /home/me/dl-101/DataLad-101
 save(ok): . (dataset)
+[INFO] Total: done
 action summary:
   add (ok: 2)
   delete (ok: 1)

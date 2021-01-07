@@ -9,8 +9,13 @@ $ datalad run -m "Resize logo for slides" \
 get(ok): recordings/longnow/.datalad/feed_metadata/logo_salt.jpg (file) [from web...]
 [INFO] == Command start (output follows) ===== 
 [INFO] == Command exit (modification check follows) ===== 
+[INFO] Total: starting
+[INFO]
+[INFO] Total: processed result for /home/me/dl-101/DataLad-101/recordings/longnow
 add(ok): recordings/salt_logo_small.jpg (file)
+[INFO] Total: processed result for /home/me/dl-101/DataLad-101
 save(ok): . (dataset)
+[INFO] Total: done
 action summary:
   add (ok: 1)
   get (notneeded: 1, ok: 1)

@@ -2,13 +2,6 @@ $ datalad push --to github
 [INFO] Determine push target
 [INFO] Push refspecs
 [INFO] Transfer data
-[INFO] Start annex operation
-[INFO] Start annex action: {'command': 'copy', 'note': 'to github...', 'key': 'MD5E-s181905--427f730d601b6a61d65e98dc76912cef.png', 'file': 'pairwise_relationships.png'}
-[INFO] 18.01%
-[INFO] Finished annex action: {'command': 'copy', 'note': 'to github...', 'key': 'MD5E-s181905--427f730d601b6a61d65e98dc76912cef.png', 'file': 'pairwise_relationships.png'}
-[INFO] pairwise_relationships.png
-[INFO] 100%
-[INFO] Finished annex copy
 copy(ok): pairwise_relationships.png (file) [to github...]
 copy(ok): prediction_report.csv (file) [to github...]
 [INFO] Update availability information
@@ -16,6 +9,6 @@ copy(ok): prediction_report.csv (file) [to github...]
 [INFO] Start counting objects 
 [INFO] Start compressing objects 
 [INFO] Start writing objects 
-publish(ok): . (dataset) [refs/heads/git-annex->github:refs/heads/git-annex 3747034..8a017c9]
+publish(ok): . (dataset) [refs/heads/git-annex->github:refs/heads/git-annex 3d91e37..e8fdcc1]
 publish(ok): . (dataset) [refs/heads/master->github:refs/heads/master [new branch]]
 [INFO] Finished push of Dataset(/home/me/dl-101/DataLad-101/midterm_project)

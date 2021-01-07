@@ -10,9 +10,17 @@ $ datalad remove -m "remove obsolete subds" -d . cloud
 [INFO] Scanning for unlocked files (this may take some time)
 [INFO] Remote origin not usable by git-annex; setting annex-ignore
 install(ok): /home/me/dl-101/DataLad-101/cloud (dataset) [Installed subdataset in order to get /home/me/dl-101/DataLad-101/cloud]
+[INFO] Total: starting
+[INFO]
+[INFO] Total: processed result for /home/me/dl-101/DataLad-101/cloud
+[INFO] Total: done
 uninstall(ok): cloud (dataset)
 remove(ok): cloud (dataset)
+[INFO] Total: starting
+[INFO]
+[INFO] Total: processed result for /home/me/dl-101/DataLad-101
 save(ok): . (dataset)
+[INFO] Total: done
 action summary:
   drop (notneeded: 1)
   remove (ok: 1)

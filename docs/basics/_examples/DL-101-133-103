@@ -1,19 +1,18 @@
 $ git log -n 1 -p
-commit 649e16f3de566b6765dd82e45bcaa6b9dbea83fe
+commit c272b4591cc5893e0c7113b9bdd1f61a3576fbf8
 Author: Elena Piscopia <elena@example.net>
-Date:   Fri Dec 18 15:14:44 2020 +0100
+Date:   Tue Jan 5 17:39:19 2021 +0100
 
     [DATALAD] Configure containerized environment 'midterm-software'
 
 diff --git a/.datalad/config b/.datalad/config
-index 077ec47..f097072 100644
+index f2503ec..d0a4d02 100644
 --- a/.datalad/config
 +++ b/.datalad/config
-@@ -1,2 +1,6 @@
+@@ -1,2 +1,5 @@
  [datalad "dataset"]
-	id = 1a39abf2-3795-4796-a70f-818ecc4041f9
+	id = e9c2c274-5ed0-4ea8-a3db-7313b66e82d1
 +[datalad "containers.midterm-software"]
-+	updateurl = shub://adswa/resources:2
 +	image = .datalad/environments/midterm-software/image
 +	cmdexec = singularity exec {img} {cmd}
 diff --git a/.datalad/environments/midterm-software/image b/.datalad/environments/midterm-software/image

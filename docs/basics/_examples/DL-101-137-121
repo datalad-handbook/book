@@ -1,21 +1,21 @@
 $ git log -n 20 --oneline
-80dd87b save my favorite Git joke
-9099ff2 save cropped logos to Git
-a0c2284 move book back from midterm_project
-2b09cd5 move book into midterm_project
-7286de7 add container and execute analysis within container
-aec6251 finished my midterm project
-d4d3ad4 [DATALAD] Recorded changes
-e451252 add note on DataLad's procedures
-3cb1dbd add note on configurations and git config
-2815196 Add note on adding siblings
-5b7db47 Merge remote-tracking branch 'roommate/master'
-cf4d1c5 Include nesting demo from datalad website
-6df9702 add note about datalad update
-7a34aad add note on git annex whereis
-3084e5f add note about cloning from paths and recursive datalad get
-bc4a5a2 add note on clean datasets
-8827a33 [DATALAD RUNCMD] Resize logo for slides
-78ecd53 [DATALAD RUNCMD] Resize logo for slides
-adf4847 add additional notes on run options
-5c7c893 [DATALAD RUNCMD] convert -resize 450x450 recordings/longn...
+f0a0a86 save my favorite Git joke
+61e9c86 save cropped logos to Git
+b631945 move book back from midterm_project
+79e3330 move book into midterm_project
+cca3b0b add container and execute analysis within container
+3d0cafc finished my midterm project
+bf10a54 [DATALAD] Recorded changes
+1e73e8e add note on DataLad's procedures
+3918a29 add note on configurations and git config
+8df39ae Add note on adding siblings
+2749d57 Merge remote-tracking branch 'roommate/master'
+b87a089 Include nesting demo from datalad website
+38316ee add note about datalad update
+ceffb3c add note on git annex whereis
+d9e6211 add note about cloning from paths and recursive datalad get
+5770c9f add note on clean datasets
+cfb3349 [DATALAD RUNCMD] Resize logo for slides
+ef418a7 [DATALAD RUNCMD] Resize logo for slides
+0156df1 add additional notes on run options
+02faa66 [DATALAD RUNCMD] convert -resize 450x450 recordings/longn...

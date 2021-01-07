@@ -1,12 +1,13 @@
 $ tree /home/me/myriastore
 /home/me/myriastore
-├── 2f2
-│   └── f9709-47ef-4144-b363-ca76eb3da3b7
+├── 844
+│   └── 7815f-9db7-4e49-ad47-9eb2a7bcc7c1
 │       ├── annex
 │       │   └── objects
 │       ├── archives
 │       ├── branches
 │       ├── config
+│       ├── config.dataladlock
 │       ├── description
 │       ├── HEAD
 │       ├── hooks
@@ -34,4 +35,4 @@ $ tree /home/me/myriastore
 ├── error_logs
 └── ria-layout-version
 
-15 directories, 18 files
+15 directories, 19 files

@@ -1,7 +1,7 @@
 
-$ git checkout 8827a33c9b577832cf0dc6bc50c5804b36f28640
+$ git checkout cfb3349eda1ec237ff1ab52e36875fd39cba8bcc
 warning: unable to rmdir 'midterm_project': Directory not empty
-Note: switching to '8827a33c9b577832cf0dc6bc50c5804b36f28640'.
+Note: switching to 'cfb3349eda1ec237ff1ab52e36875fd39cba8bcc'.
 
 You are in 'detached HEAD' state. You can look around, make experimental
 changes and commit them, and you can discard any commits you make in this
@@ -18,4 +18,4 @@ Or undo this operation with:
 
 Turn off this advice by setting config variable advice.detachedHead to false
 
-HEAD is now at 8827a33 [DATALAD RUNCMD] Resize logo for slides
+HEAD is now at cfb3349 [DATALAD RUNCMD] Resize logo for slides

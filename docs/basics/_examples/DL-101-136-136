@@ -1,5 +1,9 @@
 $ datalad copy-file books/bash_guide.pdf midterm_project -d midterm_project
 copy_file(ok): /home/me/dl-101/DataLad-101/books/bash_guide.pdf [/home/me/dl-101/DataLad-101/midterm_project/bash_guide.pdf]
+[INFO] Total: starting
+[INFO]
+[INFO] Total: processed result for /home/me/dl-101/DataLad-101/midterm_project
+[INFO] Total: done
 save(ok): . (dataset)
 action summary:
   copy_file (ok: 1)

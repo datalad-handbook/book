@@ -1,5 +1,9 @@
 ### DVC-DataLad
 $ datalad drop data/raw/val
+[INFO] Total: starting
+[INFO]
+[INFO] Total: processed result for /home/me/DVCvsDL/DVC-DataLad
+[INFO] Total: done
 drop(ok): /home/me/DVCvsDL/DVC-DataLad/data/raw/val/n01440764/ILSVRC2012_val_00009111.JPEG (file)
 drop(ok): /home/me/DVCvsDL/DVC-DataLad/data/raw/val/n01440764/ILSVRC2012_val_00009191.JPEG (file)
 drop(ok): /home/me/DVCvsDL/DVC-DataLad/data/raw/val/n01440764/ILSVRC2012_val_00017472.JPEG (file)
@@ -3925,6 +3929,5 @@ drop(ok): /home/me/DVCvsDL/DVC-DataLad/data/raw/val/n03888257/n03888257_9770.JPE
 drop(ok): /home/me/DVCvsDL/DVC-DataLad/data/raw/val/n03888257/n03888257_9771.JPEG (file)
 drop(ok): /home/me/DVCvsDL/DVC-DataLad/data/raw/val/n03888257/n03888257_9812.JPEG (file)
 drop(ok): /home/me/DVCvsDL/DVC-DataLad/data/raw/val/n03888257/n03888257_9932.JPEG (file)
-drop(ok): /home/me/DVCvsDL/DVC-DataLad/data/raw/val (directory)
 action summary:
-  drop (ok: 3926)
+  drop (ok: 3925)

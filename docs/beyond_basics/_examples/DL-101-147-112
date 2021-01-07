@@ -1,56 +1,7 @@
 $ tree /home/me/myriastore
 /home/me/myriastore
-├── 1a3
-│   └── 9abf2-3795-4796-a70f-818ecc4041f9
-│       ├── annex
-│       │   └── objects
-│       │       ├── 8q
-│       │       │   └── 6M
-│       │       │       └── MD5E-s345--a88cab39b1a5ec59ace322225cc88bc9.csv
-│       │       │           └── MD5E-s345--a88cab39b1a5ec59ace322225cc88bc9.csv
-│       │       ├── M8
-│       │       │   └── 26
-│       │       │       └── MD5E-s183836--180aa76139de881db6d1ddac828c2668.png
-│       │       │           └── MD5E-s183836--180aa76139de881db6d1ddac828c2668.png
-│       │       └── VX
-│       │           └── Gg
-│       │               └── MD5E-s218554399--4d4507faa39a0dd41c3144e4738b7b3d
-│       │                   └── MD5E-s218554399--4d4507faa39a0dd41c3144e4738b7b3d
-│       ├── archives
-│       ├── branches
-│       ├── config
-│       ├── description
-│       ├── HEAD
-│       ├── hooks
-│       │   ├── applypatch-msg.sample
-│       │   ├── commit-msg.sample
-│       │   ├── fsmonitor-watchman.sample
-│       │   ├── post-update.sample
-│       │   ├── pre-applypatch.sample
-│       │   ├── pre-commit.sample
-│       │   ├── pre-merge-commit.sample
-│       │   ├── prepare-commit-msg.sample
-│       │   ├── pre-push.sample
-│       │   ├── pre-rebase.sample
-│       │   ├── pre-receive.sample
-│       │   └── update.sample
-│       ├── info
-│       │   └── exclude
-│       ├── objects
-│       │   ├── info
-│       │   └── pack
-│       │       ├── pack-12ac703c297f7dc88f5344b6453a69338fa554b3.idx
-│       │       └── pack-12ac703c297f7dc88f5344b6453a69338fa554b3.pack
-│       ├── ora-remote-4e1b290d-2053-4d78-8da3-256d20738551
-│       │   └── transfer
-│       ├── refs
-│       │   ├── heads
-│       │   │   ├── git-annex
-│       │   │   └── master
-│       │   └── tags
-│       └── ria-layout-version
-├── 2f2
-│   └── f9709-47ef-4144-b363-ca76eb3da3b7
+├── 844
+│   └── 7815f-9db7-4e49-ad47-9eb2a7bcc7c1
 │       ├── annex
 │       │   └── objects
 │       │       ├── G6
@@ -72,6 +23,7 @@ $ tree /home/me/myriastore
 │       ├── archives
 │       ├── branches
 │       ├── config
+│       ├── config.dataladlock
 │       ├── description
 │       ├── HEAD
 │       ├── hooks
@@ -92,9 +44,59 @@ $ tree /home/me/myriastore
 │       ├── objects
 │       │   ├── info
 │       │   └── pack
-│       │       ├── pack-63ec2224a286b6dcbe5b8b1b7bfb69dbe2bd9b60.idx
-│       │       └── pack-63ec2224a286b6dcbe5b8b1b7bfb69dbe2bd9b60.pack
-│       ├── ora-remote-8d35c213-90ee-45d0-bc57-5ebccf2d3426
+│       │       ├── pack-b412dd184e51c4b90b5122c032ef8b37e5907d07.idx
+│       │       └── pack-b412dd184e51c4b90b5122c032ef8b37e5907d07.pack
+│       ├── ora-remote-83411d3a-f155-4128-8af2-234357d3373c
+│       │   └── transfer
+│       ├── refs
+│       │   ├── heads
+│       │   │   ├── git-annex
+│       │   │   └── master
+│       │   └── tags
+│       └── ria-layout-version
+├── e9c
+│   └── 2c274-5ed0-4ea8-a3db-7313b66e82d1
+│       ├── annex
+│       │   └── objects
+│       │       ├── 8q
+│       │       │   └── 6M
+│       │       │       └── MD5E-s345--a88cab39b1a5ec59ace322225cc88bc9.csv
+│       │       │           └── MD5E-s345--a88cab39b1a5ec59ace322225cc88bc9.csv
+│       │       ├── M8
+│       │       │   └── 26
+│       │       │       └── MD5E-s183836--180aa76139de881db6d1ddac828c2668.png
+│       │       │           └── MD5E-s183836--180aa76139de881db6d1ddac828c2668.png
+│       │       └── VX
+│       │           └── Gg
+│       │               └── MD5E-s218554399--4d4507faa39a0dd41c3144e4738b7b3d
+│       │                   └── MD5E-s218554399--4d4507faa39a0dd41c3144e4738b7b3d
+│       ├── archives
+│       ├── branches
+│       ├── config
+│       ├── config.dataladlock
+│       ├── description
+│       ├── HEAD
+│       ├── hooks
+│       │   ├── applypatch-msg.sample
+│       │   ├── commit-msg.sample
+│       │   ├── fsmonitor-watchman.sample
+│       │   ├── post-update.sample
+│       │   ├── pre-applypatch.sample
+│       │   ├── pre-commit.sample
+│       │   ├── pre-merge-commit.sample
+│       │   ├── prepare-commit-msg.sample
+│       │   ├── pre-push.sample
+│       │   ├── pre-rebase.sample
+│       │   ├── pre-receive.sample
+│       │   └── update.sample
+│       ├── info
+│       │   └── exclude
+│       ├── objects
+│       │   ├── info
+│       │   └── pack
+│       │       ├── pack-6115d38764c99e28bbc070040c9405d2b36a107a.idx
+│       │       └── pack-6115d38764c99e28bbc070040c9405d2b36a107a.pack
+│       ├── ora-remote-453bcca6-3b1a-4b1f-88ea-08fca3e9ec7f
 │       │   └── transfer
 │       ├── refs
 │       │   ├── heads
@@ -105,4 +107,4 @@ $ tree /home/me/myriastore
 ├── error_logs
 └── ria-layout-version
 
-54 directories, 50 files
+54 directories, 52 files

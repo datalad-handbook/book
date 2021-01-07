@@ -1,6 +1,10 @@
 $ datalad save -m "BF: list both directories content" code/list_titles.sh
+[INFO] Total: starting
+[INFO]
 add(ok): code/list_titles.sh (file)
+[INFO] Total: processed result for /home/me/dl-101/DataLad-101
 save(ok): . (dataset)
+[INFO] Total: done
 action summary:
   add (ok: 1)
   save (ok: 1)

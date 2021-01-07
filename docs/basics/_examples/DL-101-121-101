@@ -9,8 +9,12 @@ $ datalad download-url \
   https://raw.githubusercontent.com/datalad/datalad.org/7e8e39b1f08d0a54ab521586f27ee918b4441d69/content/asciicast/seamless_nested_repos.sh
 [INFO] Downloading 'https://raw.githubusercontent.com/datalad/datalad.org/7e8e39b1f08d0a54ab521586f27ee918b4441d69/content/asciicast/seamless_nested_repos.sh' into '/home/me/dl-101/mock_user/DataLad-101/code/nested_repos.sh'
 download_url(ok): /home/me/dl-101/mock_user/DataLad-101/code/nested_repos.sh (file)
+[INFO] Total: starting
+[INFO]
 add(ok): code/nested_repos.sh (file)
+[INFO] Total: processed result for /home/me/dl-101/mock_user/DataLad-101
 save(ok): . (dataset)
+[INFO] Total: done
 action summary:
   add (ok: 1)
   download_url (ok: 1)

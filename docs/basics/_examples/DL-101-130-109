@@ -1,6 +1,10 @@
 $ datalad save -m "add script for kNN classification and plotting" --version-tag ready4analysis code/script.py
+[INFO] Total: starting
+[INFO]
 add(ok): code/script.py (file)
+[INFO] Total: processed result for /home/me/dl-101/DataLad-101/midterm_project
 save(ok): . (dataset)
+[INFO] Total: done
 action summary:
   add (ok: 1)
   save (ok: 1)

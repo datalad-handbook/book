@@ -11,8 +11,12 @@ to remotes/origin/master
 
 EOT
 $ datalad save -m "Add note on adding siblings"
+[INFO] Total: starting
+[INFO]
 add(ok): notes.txt (file)
+[INFO] Total: processed result for /home/me/dl-101/DataLad-101
 save(ok): . (dataset)
+[INFO] Total: done
 action summary:
   add (ok: 1)
   save (ok: 1)

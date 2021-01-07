@@ -1,16 +1,12 @@
 
-$ datalad rerun f80670f5199e6ae0d7ad4053600866b61e928100
-[INFO] run commit f80670f; (blur image)
+$ datalad rerun 07c54f00b79baaa80b9653674db7f3d5bf1605a5
+[INFO] run commit 07c54f0; (blur image)
 [INFO] Making sure inputs are available (this may take some time) 
 unlock(ok): st-bernard-displaced.jpg (file)
 [INFO] == Command start (output follows) ===== 
 [INFO] == Command exit (modification check follows) ===== 
-[INFO] Total: starting
-[INFO]
 add(ok): st-bernard-displaced.jpg (file)
-[INFO] Total: processed result for /home/me/usecases/provenance/artproject
 save(ok): . (dataset)
-[INFO] Total: done
 action summary:
   add (ok: 1)
   get (notneeded: 1)

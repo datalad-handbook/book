@@ -7,10 +7,6 @@ copy_file(ok): HCP1200/130013/T1w/T1wDividedByT2w.nii.gz [/home/me/usecases/HCP/
 copy_file(ok): HCP1200/130013/T1w/T1wDividedByT2w_ribbon.nii.gz [/home/me/usecases/HCP/dataset-to-copy-to/T1wDividedByT2w_ribbon.nii.gz]
 copy_file(ok): HCP1200/130013/T1w/T1w_acpc_dc_restore_brain.nii.gz [/home/me/usecases/HCP/dataset-to-copy-to/T1w_acpc_dc_restore_brain.nii.gz]
 copy_file(ok): HCP1200/130013/T1w/T1w_acpc_dc_restore.nii.gz [/home/me/usecases/HCP/dataset-to-copy-to/T1w_acpc_dc_restore.nii.gz]
-[INFO] Total: starting
-[INFO]
-[INFO] Total: processed result for /home/me/usecases/HCP/dataset-to-copy-to
-[INFO] Total: done
 save(ok): . (dataset)
 action summary:
   copy_file (ok: 6)

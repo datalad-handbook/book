@@ -2,12 +2,8 @@ $ cd bobs_analysis
 # ... make contributions, and save them
 $ [...]
 $ datalad save -m "you're welcome, bob"
-[INFO] Total: starting
-[INFO]
 add(ok): code/run_analysis.py (file)
-[INFO] Total: processed result for /home/me/usecases/collab/bobs_analysis
 save(ok): . (dataset)
-[INFO] Total: done
 action summary:
   add (ok: 1)
   save (ok: 1)

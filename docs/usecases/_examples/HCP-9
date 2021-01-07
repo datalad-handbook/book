@@ -1,6 +1,2 @@
 $ datalad save
-[INFO] Total: starting
-[INFO]
-[INFO] Total: processed result for /home/me/usecases/HCP/dataset-to-copy-to
 save(ok): . (dataset)
-[INFO] Total: done

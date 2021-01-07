@@ -5,13 +5,8 @@ $ datalad run \
  code/ffa_design.fsf > {outputs}'
 [INFO] == Command start (output follows) =====
 [INFO] == Command exit (modification check follows) =====
-[INFO] Total: starting
-[INFO]
-[INFO] Total: processed result for /home/me/usecases/repro2/glm_analysis/inputs/rawdata
 add(ok): sub-02/1stlvl_design.fsf (file)
-[INFO] Total: processed result for /home/me/usecases/repro2/glm_analysis
 save(ok): . (dataset)
-[INFO] Total: done
 action summary:
   add (ok: 1)
   save (notneeded: 1, ok: 1)

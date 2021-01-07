@@ -10,13 +10,9 @@ $ datalad clone -d . https://github.com/psychoinformatics-de/studyforrest-data-s
 [INFO] Scanning for unlocked files (this may take some time)
 [INFO] Remote origin not usable by git-annex; setting annex-ignore
 install(ok): src/forrest_structural (dataset)
-[INFO] Total: starting
-[INFO]
 add(ok): src/forrest_structural (file)
 add(ok): .gitmodules (file)
-[INFO] Total: processed result for /home/me/usecases/collab/myanalysis
 save(ok): . (dataset)
-[INFO] Total: done
 action summary:
   add (ok: 2)
   install (ok: 1)

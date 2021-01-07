@@ -9,9 +9,6 @@ get(ok): inputs/rawdata/sub-02/func/sub-02_task-oneback_run-01_bold.nii.gz (file
 [INFO] == Command start (output follows) =====
 To view the FEAT progress and final report, point your web browser at /home/me/usecases/repro2/glm_analysis/sub-02/1stlvl_glm.feat/report_log.html
 [INFO] == Command exit (modification check follows) =====
-[INFO] Total: starting
-[INFO]
-[INFO] Total: processed result for /home/me/usecases/repro2/glm_analysis/inputs/rawdata
 add(ok): sub-02/1stlvl_glm.feat/.files/fsl.css (file)
 add(ok): sub-02/1stlvl_glm.feat/.files/images/3.1r.jpg (file)
 add(ok): sub-02/1stlvl_glm.feat/.files/images/3.jpg (file)
@@ -54,21 +51,21 @@ add(ok): sub-02/1stlvl_glm.feat/example_func.nii.gz (file)
 add(ok): sub-02/1stlvl_glm.feat/filtered_func_data.nii.gz (file)
 add(ok): sub-02/1stlvl_glm.feat/lmax_zstat1.txt (file)
 add(ok): sub-02/1stlvl_glm.feat/logs/feat0 (file)
-add(ok): sub-02/1stlvl_glm.feat/logs/feat0_init.e203587 (file)
-add(ok): sub-02/1stlvl_glm.feat/logs/feat0_init.o203587 (file)
+add(ok): sub-02/1stlvl_glm.feat/logs/feat0_init.e551723 (file)
+add(ok): sub-02/1stlvl_glm.feat/logs/feat0_init.o551723 (file)
 add(ok): sub-02/1stlvl_glm.feat/logs/feat1 (file)
 add(ok): sub-02/1stlvl_glm.feat/logs/feat1a_init (file)
 add(ok): sub-02/1stlvl_glm.feat/logs/feat2_pre (file)
-add(ok): sub-02/1stlvl_glm.feat/logs/feat2_pre.e203670 (file)
-add(ok): sub-02/1stlvl_glm.feat/logs/feat2_pre.o203670 (file)
-add(ok): sub-02/1stlvl_glm.feat/logs/feat3_film.e204225 (file)
-add(ok): sub-02/1stlvl_glm.feat/logs/feat3_film.o204225 (file)
+add(ok): sub-02/1stlvl_glm.feat/logs/feat2_pre.e551836 (file)
+add(ok): sub-02/1stlvl_glm.feat/logs/feat2_pre.o551836 (file)
+add(ok): sub-02/1stlvl_glm.feat/logs/feat3_film.e552731 (file)
+add(ok): sub-02/1stlvl_glm.feat/logs/feat3_film.o552731 (file)
 add(ok): sub-02/1stlvl_glm.feat/logs/feat3_stats (file)
 add(ok): sub-02/1stlvl_glm.feat/logs/feat4_post (file)
-add(ok): sub-02/1stlvl_glm.feat/logs/feat4_post.e204673 (file)
-add(ok): sub-02/1stlvl_glm.feat/logs/feat4_post.o204673 (file)
-add(ok): sub-02/1stlvl_glm.feat/logs/feat5_stop.e205305 (file)
-add(ok): sub-02/1stlvl_glm.feat/logs/feat5_stop.o205305 (file)
+add(ok): sub-02/1stlvl_glm.feat/logs/feat4_post.e553243 (file)
+add(ok): sub-02/1stlvl_glm.feat/logs/feat4_post.o553243 (file)
+add(ok): sub-02/1stlvl_glm.feat/logs/feat5_stop.e553877 (file)
+add(ok): sub-02/1stlvl_glm.feat/logs/feat5_stop.o553877 (file)
 add(ok): sub-02/1stlvl_glm.feat/logs/feat9 (file)
 add(ok): sub-02/1stlvl_glm.feat/mask.nii.gz (file)
 add(ok): sub-02/1stlvl_glm.feat/mc/disp.png (file)
@@ -356,9 +353,7 @@ add(ok): sub-02/1stlvl_glm.feat/tsplot/tsplot_zstat1p.png (file)
 add(ok): sub-02/1stlvl_glm.feat/tsplot/tsplotc_zstat1.png (file)
 add(ok): sub-02/1stlvl_glm.feat/tsplot/tsplotc_zstat1.txt (file)
 add(ok): sub-02/1stlvl_glm.feat/tsplot/tsplotc_zstat1p.png (file)
-[INFO] Total: processed result for /home/me/usecases/repro2/glm_analysis
 save(ok): . (dataset)
-[INFO] Total: done
 action summary:
   add (ok: 344)
   get (notneeded: 4, ok: 1)

@@ -5,13 +5,9 @@ $ datalad download-url  --path code/ \
 download_url(ok): /home/me/usecases/repro2/glm_analysis/code/events2ev3.sh (file)
 [INFO] Downloading 'https://raw.githubusercontent.com/myyoda/ohbm2018-training/master/section23/scripts/ffa_design.fsf' into '/home/me/usecases/repro2/glm_analysis/code/'
 download_url(ok): /home/me/usecases/repro2/glm_analysis/code/ffa_design.fsf (file)
-[INFO] Total: starting
-[INFO]
 add(ok): code/events2ev3.sh (file)
 add(ok): code/ffa_design.fsf (file)
-[INFO] Total: processed result for /home/me/usecases/repro2/glm_analysis
 save(ok): . (dataset)
-[INFO] Total: done
 action summary:
   add (ok: 2)
   download_url (ok: 2)

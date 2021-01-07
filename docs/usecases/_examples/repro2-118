@@ -1,6 +1,2 @@
 $ datalad save --version-tag ready4analysis
-[INFO] Total: starting
-[INFO]
-[INFO] Total: processed result for /home/me/usecases/repro2/glm_analysis
 save(ok): . (dataset)
-[INFO] Total: done

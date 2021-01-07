@@ -1,9 +1,5 @@
 $ datalad containers-add fsl --url shub://mih/ohbm2018-training:fsl
 [INFO] Initiating special remote datalad
-[INFO] Total: starting
-[INFO]
-[INFO] Total: processed result for /home/me/usecases/repro2/glm_analysis
-[INFO] Total: done
 add(ok): .datalad/config (file)
 save(ok): . (dataset)
 containers_add(ok): /home/me/usecases/repro2/glm_analysis/.datalad/environments/fsl/image (file)

@@ -8,18 +8,13 @@ get(ok): inputs/rawdata/sub-02/func/sub-02_task-oneback_run-01_events.tsv (file)
 sub-02
 1
 [INFO] == Command exit (modification check follows) =====
-[INFO] Total: starting
-[INFO]
-[INFO] Total: processed result for /home/me/usecases/repro2/glm_analysis/inputs/rawdata
 add(ok): sub-02/onsets/run-1/body.txt (file)
 add(ok): sub-02/onsets/run-1/face.txt (file)
 add(ok): sub-02/onsets/run-1/house.txt (file)
 add(ok): sub-02/onsets/run-1/object.txt (file)
 add(ok): sub-02/onsets/run-1/scene.txt (file)
 add(ok): sub-02/onsets/run-1/scramble.txt (file)
-[INFO] Total: processed result for /home/me/usecases/repro2/glm_analysis
 save(ok): . (dataset)
-[INFO] Total: done
 action summary:
   add (ok: 6)
   get (notneeded: 1, ok: 1)

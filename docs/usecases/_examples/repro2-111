@@ -6,13 +6,9 @@ $ datalad clone -d . \
 [INFO] Completed clone attempts for Dataset(/home/me/usecases/repro2/glm_analysis/inputs/rawdata)
 [INFO] Scanning for unlocked files (this may take some time)
 install(ok): inputs/rawdata (dataset)
-[INFO] Total: starting
-[INFO]
 add(ok): inputs/rawdata (file)
 add(ok): .gitmodules (file)
-[INFO] Total: processed result for /home/me/usecases/repro2/glm_analysis
 save(ok): . (dataset)
-[INFO] Total: done
 action summary:
   add (ok: 2)
   install (ok: 1)

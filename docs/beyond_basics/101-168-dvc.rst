@@ -520,7 +520,7 @@ Currently, the dataset can thus be shared via :term:`GitHub` or similar hosting 
    .. runrecord:: _examples/DL-101-168-132
       :workdir: DVCvsDL/DVC-DataLad-2
       :language: console
-      :lines: 1-4, 3930-3932
+      :lines: 1-4, 3929-
 
       ### DVC-DataLad
       $ datalad get data/raw/val
@@ -564,7 +564,7 @@ The data in the dataset (complete directories or individual files) can be droppe
 .. runrecord:: _examples/DL-101-168-142
    :workdir: DVCvsDL/DVC-DataLad
    :language: console
-   :lines: 1-2, 3928-3930
+   :lines: 1-2, 3926-
 
    ### DVC-DataLad
    $ datalad drop data/raw/val

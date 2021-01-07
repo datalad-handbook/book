@@ -7,13 +7,9 @@ $ datalad clone -d . ../imagenette data/raw
 [INFO] Completed clone attempts for Dataset(/home/me/usecases/ml-project/data/raw) 
 [INFO] Scanning for unlocked files (this may take some time) 
 install(ok): data/raw (dataset)
-[INFO] Total: starting
-[INFO]
 add(ok): data/raw (file)
 add(ok): .gitmodules (file)
-[INFO] Total: processed result for /home/me/usecases/ml-project
 save(ok): . (dataset)
-[INFO] Total: done
 action summary:
   add (ok: 2)
   install (ok: 1)

@@ -6,16 +6,11 @@ $ datalad containers-run -n software \
   "python3 code/evaluate.py"
 [INFO] Making sure inputs are available (this may take some time) 
 [INFO] == Command start (output follows) ===== 
-{'accuracy': 0.7858048162230672}
+{'accuracy': 0.7566539923954373}
 [INFO] == Command exit (modification check follows) ===== 
-[INFO] Total: starting
-[INFO]
-[INFO] Total: processed result for /home/me/usecases/ml-project/data/raw
 add(ok): accuracy.json (file)
 add(ok): code/__pycache__/train.cpython-37.pyc (file)
-[INFO] Total: processed result for /home/me/usecases/ml-project
 save(ok): . (dataset)
-[INFO] Total: done
 action summary:
   add (ok: 2)
   get (notneeded: 4)

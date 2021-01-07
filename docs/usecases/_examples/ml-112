@@ -1,10 +1,6 @@
 $ datalad save -m "Add SGD classification script" code/train.py
-[INFO] Total: starting
-[INFO]
 add(ok): code/train.py (file)
-[INFO] Total: processed result for /home/me/usecases/ml-project
 save(ok): . (dataset)
-[INFO] Total: done
 action summary:
   add (ok: 1)
   save (ok: 1)

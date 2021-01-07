@@ -565,7 +565,7 @@ following findoutmore details how this is done.
          :language: console
          :workdir: usecases/HCP
 
-         $ datalad clone git@github.com:datalad-datasets/human-connectome-project-openaccess.git hcp
+         $ datalad clone https://github.com/datalad-datasets/human-connectome-project-openaccess.git hcp
 
       In order to use :command:`copy-file`, we need to install a few subdatasets.
       We will install 9 subject subdatasets recursively. Note that we don't
@@ -808,7 +808,7 @@ following findoutmore details how this is done.
       .. code-block:: bash
 
          $ datalad clone -d . \
-           git@github.com:datalad-datasets/human-connectome-project-openaccess.git \
+           https://github.com/datalad-datasets/human-connectome-project-openaccess.git \
            .hcp
 
       **Step 3:** Install all subdataset of the full dataset with ``datalad get -n -r``

@@ -7,12 +7,8 @@ $ datalad run -m "Resize logo for slides" \
 unlock(ok): recordings/salt_logo_small.jpg (file)
 [INFO] == Command start (output follows) ===== 
 [INFO] == Command exit (modification check follows) ===== 
-[INFO] Total: starting
-[INFO]
 add(ok): recordings/salt_logo_small.jpg (file)
-[INFO] Total: processed result for /home/me/dl-101/DataLad-101
 save(ok): . (dataset)
-[INFO] Total: done
 action summary:
   add (ok: 1)
   get (notneeded: 2)

@@ -12,6 +12,6 @@ copy(ok): books/progit.pdf (file) [to gin...]
 [INFO] Start compressing objects 
 [INFO] Start writing objects 
 [INFO] Start resolving deltas 
-publish(ok): . (dataset) [refs/heads/git-annex->gin:refs/heads/git-annex 2b43ed3..dffbbfb]
+publish(ok): . (dataset) [refs/heads/git-annex->gin:refs/heads/git-annex 24925eb..21413cc]
 publish(ok): . (dataset) [refs/heads/master->gin:refs/heads/master [new branch]]
 [INFO] Finished push of Dataset(/home/me/dl-101/DataLad-101)

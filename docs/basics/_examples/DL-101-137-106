@@ -1,4 +1,4 @@
 $ git log -n 3 --oneline
-2e36fe8 [DATALAD] Recorded changes
-61e9c86 save cropped logos to Git
-b631945 move book back from midterm_project
+3e53af9 [DATALAD] Recorded changes
+0258c88 save cropped logos to Git
+f961824 move book back from midterm_project

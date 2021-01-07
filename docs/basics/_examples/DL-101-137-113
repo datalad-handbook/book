@@ -2,14 +2,10 @@
 $ convert xc:none -page Letter apdffile.pdf
 # accidentally save it
 $ datalad save
-[INFO] Total: starting
-[INFO]
 add(ok): Gitjoke1.txt (file)
 add(ok): Gitjoke3.txt (file)
 add(ok): apdffile.pdf (file)
-[INFO] Total: processed result for /home/me/dl-101/DataLad-101
 save(ok): . (dataset)
-[INFO] Total: done
 action summary:
   add (ok: 3)
   save (ok: 1)

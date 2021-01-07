@@ -1,7 +1,7 @@
 $ tree /home/me/myriastore
 /home/me/myriastore
-├── 844
-│   └── 7815f-9db7-4e49-ad47-9eb2a7bcc7c1
+├── caa
+│   └── 69d63-37da-4d6b-91e6-beab3f6f1d06
 │       ├── annex
 │       │   └── objects
 │       │       ├── G6
@@ -44,9 +44,9 @@ $ tree /home/me/myriastore
 │       ├── objects
 │       │   ├── info
 │       │   └── pack
-│       │       ├── pack-b412dd184e51c4b90b5122c032ef8b37e5907d07.idx
-│       │       └── pack-b412dd184e51c4b90b5122c032ef8b37e5907d07.pack
-│       ├── ora-remote-83411d3a-f155-4128-8af2-234357d3373c
+│       │       ├── pack-bab0865d13375783a100a23885ce4dbd97870771.idx
+│       │       └── pack-bab0865d13375783a100a23885ce4dbd97870771.pack
+│       ├── ora-remote-963a0bdd-5ac1-4a6d-ad90-86fbcfe60fd3
 │       │   └── transfer
 │       ├── refs
 │       │   ├── heads

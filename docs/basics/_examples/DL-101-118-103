@@ -1,18 +1,13 @@
 
-$ datalad rerun cfb3349eda1ec237ff1ab52e36875fd39cba8bcc
-[INFO] run commit cfb3349; (Resize logo for s...)
+$ datalad rerun 9d412b0b3227a31d3147d728ee351c1cb99f19f0
+[INFO] run commit 9d412b0; (Resize logo for s...)
 [INFO] Making sure inputs are available (this may take some time) 
 get(ok): recordings/longnow/.datalad/feed_metadata/logo_salt.jpg (file) [from origin...]
 [WARNING] no content present; cannot unlock [unlock(/home/me/dl-101/mock_user/DataLad-101/recordings/salt_logo_small.jpg)] 
 remove(ok): recordings/salt_logo_small.jpg
 [INFO] == Command start (output follows) ===== 
 [INFO] == Command exit (modification check follows) ===== 
-[INFO] Total: starting
-[INFO]
-[INFO] Total: processed result for /home/me/dl-101/mock_user/DataLad-101/recordings/longnow
 add(ok): recordings/salt_logo_small.jpg (file)
-[INFO] Total: processed result for /home/me/dl-101/mock_user/DataLad-101
-[INFO] Total: done
 action summary:
   add (ok: 1)
   get (notneeded: 1, ok: 1)

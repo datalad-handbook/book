@@ -1,11 +1,7 @@
 $ datalad save -m "rename the book"
-[INFO] Total: starting
-[INFO]
 delete(ok): books/TLCL.pdf (file)
 add(ok): books/The_Linux_Command_Line.pdf (file)
-[INFO] Total: processed result for /home/me/dl-101/DataLad-101
 save(ok): . (dataset)
-[INFO] Total: done
 action summary:
   add (ok: 1)
   delete (ok: 1)

@@ -1,185 +1,185 @@
 $ datalad --log-level debug status
-[DEBUG] Command line args 1st pass for DataLad 0.13.6.dev641-gd996e. Parsed: Namespace() Unparsed: ['status']
+[DEBUG] Command line args 1st pass for DataLad 0.13.7.dev640-g60e3e. Parsed: Namespace() Unparsed: ['status']
 [DEBUG] Discovering plugins 
 [DEBUG] Building doc for <class 'datalad.core.local.status.Status'> 
 [DEBUG] Parsing known args among ['/home/adina/env/handbook/bin/datalad', '--log-level', 'debug', 'status'] 
 [DEBUG] Async run ['git', '--git-dir=', 'config', '-z', '-l', '--show-origin']
 [DEBUG] Launching process ['git', '--git-dir=', 'config', '-z', '-l', '--show-origin']
-[DEBUG] Process 39572 started
-[DEBUG] Waiting for process 39572 to complete
-[DEBUG] Process 39572 exited with return code 0
+[DEBUG] Process 422059 started
+[DEBUG] Waiting for process 422059 to complete
+[DEBUG] Process 422059 exited with return code 0
 [DEBUG] Determined class of decorated function: <class 'datalad.core.local.status.Status'> 
 [DEBUG] Resolved dataset for status reporting: /home/me/dl-101/DataLad-101 
 [DEBUG] Async run ['git', 'config', '-z', '-l', '--show-origin']
 [DEBUG] Launching process ['git', 'config', '-z', '-l', '--show-origin']
-[DEBUG] Process 39574 started
-[DEBUG] Waiting for process 39574 to complete
-[DEBUG] Process 39574 exited with return code 0
+[DEBUG] Process 422061 started
+[DEBUG] Waiting for process 422061 to complete
+[DEBUG] Process 422061 exited with return code 0
 [DEBUG] Async run ['git', 'config', '-z', '-l', '--show-origin', '--file', '/home/me/dl-101/DataLad-101/.datalad/config']
 [DEBUG] Launching process ['git', 'config', '-z', '-l', '--show-origin', '--file', '/home/me/dl-101/DataLad-101/.datalad/config']
-[DEBUG] Process 39576 started
-[DEBUG] Waiting for process 39576 to complete
-[DEBUG] Process 39576 exited with return code 0
+[DEBUG] Process 422063 started
+[DEBUG] Waiting for process 422063 to complete
+[DEBUG] Process 422063 exited with return code 0
 [DEBUG] query AnnexRepo(/home/me/dl-101/DataLad-101).diffstatus() for paths: None 
 [DEBUG] Async run ['git', 'rev-parse', '--quiet', '--verify', 'HEAD^{commit}']
 [DEBUG] Launching process ['git', 'rev-parse', '--quiet', '--verify', 'HEAD^{commit}']
-[DEBUG] Process 39578 started
-[DEBUG] Waiting for process 39578 to complete
-[DEBUG] Process 39578 exited with return code 0
+[DEBUG] Process 422065 started
+[DEBUG] Waiting for process 422065 to complete
+[DEBUG] Process 422065 exited with return code 0
 [DEBUG] AnnexRepo(/home/me/dl-101/DataLad-101).get_content_info(...) 
 [DEBUG] Query repo: ['ls-files', '--stage', '-z', '--exclude-standard', '-o', '--directory', '--no-empty-directory']
 [DEBUG] Async run ['git', 'ls-files', '--stage', '-z', '--exclude-standard', '-o', '--directory', '--no-empty-directory']
 [DEBUG] Launching process ['git', 'ls-files', '--stage', '-z', '--exclude-standard', '-o', '--directory', '--no-empty-directory']
-[DEBUG] Process 39580 started
-[DEBUG] Waiting for process 39580 to complete
-[DEBUG] Process 39580 exited with return code 0
+[DEBUG] Process 422067 started
+[DEBUG] Waiting for process 422067 to complete
+[DEBUG] Process 422067 exited with return code 0
 [DEBUG] Done query repo: ['ls-files', '--stage', '-z', '--exclude-standard', '-o', '--directory', '--no-empty-directory']
 [DEBUG] Done AnnexRepo(/home/me/dl-101/DataLad-101).get_content_info(...) 
 [DEBUG] Async run ['git', 'ls-files', '-z', '-m']
 [DEBUG] Launching process ['git', 'ls-files', '-z', '-m']
-[DEBUG] Process 39582 started
-[DEBUG] Waiting for process 39582 to complete
-[DEBUG] Process 39582 exited with return code 0
+[DEBUG] Process 422069 started
+[DEBUG] Waiting for process 422069 to complete
+[DEBUG] Process 422069 exited with return code 0
 [DEBUG] AnnexRepo(/home/me/dl-101/DataLad-101).get_content_info(...) 
 [DEBUG] Query repo: ['ls-tree', 'HEAD', '-z', '-r', '--full-tree', '-l']
 [DEBUG] Async run ['git', 'ls-tree', 'HEAD', '-z', '-r', '--full-tree', '-l']
 [DEBUG] Launching process ['git', 'ls-tree', 'HEAD', '-z', '-r', '--full-tree', '-l']
-[DEBUG] Process 39584 started
-[DEBUG] Waiting for process 39584 to complete
-[DEBUG] Process 39584 exited with return code 0
+[DEBUG] Process 422071 started
+[DEBUG] Waiting for process 422071 to complete
+[DEBUG] Process 422071 exited with return code 0
 [DEBUG] Done query repo: ['ls-tree', 'HEAD', '-z', '-r', '--full-tree', '-l']
 [DEBUG] Initiating a new process for BatchedCommand(cmd=['git', 'cat-file', '--batch'], output_proc=<function>, path='/home/me/dl-101/DataLad-101') 
-[DEBUG] Closing stderr of <subprocess.Popen object at 0x7f4c54dfa2e0>
-[DEBUG] Closing stdin of <subprocess.Popen object at 0x7f4c54dfa2e0> and waiting process to finish
-[DEBUG] Process <subprocess.Popen object at 0x7f4c54dfa2e0> has finished
+[DEBUG] Closing stderr of <subprocess.Popen object at 0x7f4af7119fd0>
+[DEBUG] Closing stdin of <subprocess.Popen object at 0x7f4af7119fd0> and waiting process to finish
+[DEBUG] Process <subprocess.Popen object at 0x7f4af7119fd0> has finished
 [DEBUG] Done AnnexRepo(/home/me/dl-101/DataLad-101).get_content_info(...) 
 [DEBUG] Async run ['git', 'config', '-z', '-l', '--show-origin']
 [DEBUG] Launching process ['git', 'config', '-z', '-l', '--show-origin']
-[DEBUG] Process 39587 started
-[DEBUG] Waiting for process 39587 to complete
-[DEBUG] Process 39587 exited with return code 0
+[DEBUG] Process 422074 started
+[DEBUG] Waiting for process 422074 to complete
+[DEBUG] Process 422074 exited with return code 0
 [DEBUG] Async run ['git', 'config', '-z', '-l', '--show-origin', '--file', '/home/me/dl-101/DataLad-101/midterm_project/.datalad/config']
 [DEBUG] Launching process ['git', 'config', '-z', '-l', '--show-origin', '--file', '/home/me/dl-101/DataLad-101/midterm_project/.datalad/config']
-[DEBUG] Process 39589 started
-[DEBUG] Waiting for process 39589 to complete
-[DEBUG] Process 39589 exited with return code 0
+[DEBUG] Process 422076 started
+[DEBUG] Waiting for process 422076 to complete
+[DEBUG] Process 422076 exited with return code 0
 [DEBUG] Async run ['git', 'symbolic-ref', 'HEAD']
 [DEBUG] Launching process ['git', 'symbolic-ref', 'HEAD']
-[DEBUG] Process 39591 started
-[DEBUG] Waiting for process 39591 to complete
-[DEBUG] Process 39591 exited with return code 0
+[DEBUG] Process 422078 started
+[DEBUG] Waiting for process 422078 to complete
+[DEBUG] Process 422078 exited with return code 0
 [DEBUG] Async run ['git', 'rev-parse', '--quiet', '--verify', 'HEAD^{commit}']
 [DEBUG] Launching process ['git', 'rev-parse', '--quiet', '--verify', 'HEAD^{commit}']
-[DEBUG] Process 39593 started
-[DEBUG] Waiting for process 39593 to complete
-[DEBUG] Process 39593 exited with return code 0
+[DEBUG] Process 422080 started
+[DEBUG] Waiting for process 422080 to complete
+[DEBUG] Process 422080 exited with return code 0
 [DEBUG] AnnexRepo(/home/me/dl-101/DataLad-101/midterm_project).get_content_info(...)
 [DEBUG] Query repo: ['ls-files', '--stage', '-z', '--exclude-standard', '-o', '--directory', '--no-empty-directory']
 [DEBUG] Async run ['git', 'ls-files', '--stage', '-z', '--exclude-standard', '-o', '--directory', '--no-empty-directory']
 [DEBUG] Launching process ['git', 'ls-files', '--stage', '-z', '--exclude-standard', '-o', '--directory', '--no-empty-directory']
-[DEBUG] Process 39595 started
-[DEBUG] Waiting for process 39595 to complete
-[DEBUG] Process 39595 exited with return code 0
+[DEBUG] Process 422082 started
+[DEBUG] Waiting for process 422082 to complete
+[DEBUG] Process 422082 exited with return code 0
 [DEBUG] Done query repo: ['ls-files', '--stage', '-z', '--exclude-standard', '-o', '--directory', '--no-empty-directory']
 [DEBUG] Done AnnexRepo(/home/me/dl-101/DataLad-101/midterm_project).get_content_info(...)
 [DEBUG] Async run ['git', 'ls-files', '-z', '-m']
 [DEBUG] Launching process ['git', 'ls-files', '-z', '-m']
-[DEBUG] Process 39597 started
-[DEBUG] Waiting for process 39597 to complete
-[DEBUG] Process 39597 exited with return code 0
+[DEBUG] Process 422084 started
+[DEBUG] Waiting for process 422084 to complete
+[DEBUG] Process 422084 exited with return code 0
 [DEBUG] AnnexRepo(/home/me/dl-101/DataLad-101/midterm_project).get_content_info(...)
 [DEBUG] Query repo: ['ls-tree', 'HEAD', '-z', '-r', '--full-tree', '-l']
 [DEBUG] Async run ['git', 'ls-tree', 'HEAD', '-z', '-r', '--full-tree', '-l']
 [DEBUG] Launching process ['git', 'ls-tree', 'HEAD', '-z', '-r', '--full-tree', '-l']
-[DEBUG] Process 39599 started
-[DEBUG] Waiting for process 39599 to complete
-[DEBUG] Process 39599 exited with return code 0
+[DEBUG] Process 422086 started
+[DEBUG] Waiting for process 422086 to complete
+[DEBUG] Process 422086 exited with return code 0
 [DEBUG] Done query repo: ['ls-tree', 'HEAD', '-z', '-r', '--full-tree', '-l']
 [DEBUG] Done AnnexRepo(/home/me/dl-101/DataLad-101/midterm_project).get_content_info(...)
 [DEBUG] Async run ['git', 'config', '-z', '-l', '--show-origin']
 [DEBUG] Launching process ['git', 'config', '-z', '-l', '--show-origin']
-[DEBUG] Process 39601 started
-[DEBUG] Waiting for process 39601 to complete
-[DEBUG] Process 39601 exited with return code 0
+[DEBUG] Process 422088 started
+[DEBUG] Waiting for process 422088 to complete
+[DEBUG] Process 422088 exited with return code 0
 [DEBUG] Async run ['git', 'config', '-z', '-l', '--show-origin', '--file', '/home/me/dl-101/DataLad-101/midterm_project/input/.datalad/config']
 [DEBUG] Launching process ['git', 'config', '-z', '-l', '--show-origin', '--file', '/home/me/dl-101/DataLad-101/midterm_project/input/.datalad/config']
-[DEBUG] Process 39603 started
-[DEBUG] Waiting for process 39603 to complete
-[DEBUG] Process 39603 exited with return code 0
+[DEBUG] Process 422090 started
+[DEBUG] Waiting for process 422090 to complete
+[DEBUG] Process 422090 exited with return code 0
 [DEBUG] Async run ['git', 'symbolic-ref', 'HEAD']
 [DEBUG] Launching process ['git', 'symbolic-ref', 'HEAD']
-[DEBUG] Process 39605 started
-[DEBUG] Waiting for process 39605 to complete
-[DEBUG] Process 39605 exited with return code 0
+[DEBUG] Process 422092 started
+[DEBUG] Waiting for process 422092 to complete
+[DEBUG] Process 422092 exited with return code 0
 [DEBUG] Async run ['git', 'rev-parse', '--quiet', '--verify', 'HEAD^{commit}']
 [DEBUG] Launching process ['git', 'rev-parse', '--quiet', '--verify', 'HEAD^{commit}']
-[DEBUG] Process 39607 started
-[DEBUG] Waiting for process 39607 to complete
-[DEBUG] Process 39607 exited with return code 0
+[DEBUG] Process 422094 started
+[DEBUG] Waiting for process 422094 to complete
+[DEBUG] Process 422094 exited with return code 0
 [DEBUG] AnnexRepo(/home/me/dl-101/DataLad-101/midterm_project/input).get_content_info(...)
 [DEBUG] Query repo: ['ls-files', '--stage', '-z', '--exclude-standard', '-o', '--directory', '--no-empty-directory']
 [DEBUG] Async run ['git', 'ls-files', '--stage', '-z', '--exclude-standard', '-o', '--directory', '--no-empty-directory']
 [DEBUG] Launching process ['git', 'ls-files', '--stage', '-z', '--exclude-standard', '-o', '--directory', '--no-empty-directory']
-[DEBUG] Process 39609 started
-[DEBUG] Waiting for process 39609 to complete
-[DEBUG] Process 39609 exited with return code 0
+[DEBUG] Process 422096 started
+[DEBUG] Waiting for process 422096 to complete
+[DEBUG] Process 422096 exited with return code 0
 [DEBUG] Done query repo: ['ls-files', '--stage', '-z', '--exclude-standard', '-o', '--directory', '--no-empty-directory']
 [DEBUG] Done AnnexRepo(/home/me/dl-101/DataLad-101/midterm_project/input).get_content_info(...)
 [DEBUG] Async run ['git', 'ls-files', '-z', '-m']
 [DEBUG] Launching process ['git', 'ls-files', '-z', '-m']
-[DEBUG] Process 39611 started
-[DEBUG] Waiting for process 39611 to complete
-[DEBUG] Process 39611 exited with return code 0
+[DEBUG] Process 422098 started
+[DEBUG] Waiting for process 422098 to complete
+[DEBUG] Process 422098 exited with return code 0
 [DEBUG] AnnexRepo(/home/me/dl-101/DataLad-101/midterm_project/input).get_content_info(...)
 [DEBUG] Query repo: ['ls-tree', 'HEAD', '-z', '-r', '--full-tree', '-l']
 [DEBUG] Async run ['git', 'ls-tree', 'HEAD', '-z', '-r', '--full-tree', '-l']
 [DEBUG] Launching process ['git', 'ls-tree', 'HEAD', '-z', '-r', '--full-tree', '-l']
-[DEBUG] Process 39613 started
-[DEBUG] Waiting for process 39613 to complete
-[DEBUG] Process 39613 exited with return code 0
+[DEBUG] Process 422100 started
+[DEBUG] Waiting for process 422100 to complete
+[DEBUG] Process 422100 exited with return code 0
 [DEBUG] Done query repo: ['ls-tree', 'HEAD', '-z', '-r', '--full-tree', '-l']
 [DEBUG] Done AnnexRepo(/home/me/dl-101/DataLad-101/midterm_project/input).get_content_info(...)
 [DEBUG] Async run ['git', 'config', '-z', '-l', '--show-origin']
 [DEBUG] Launching process ['git', 'config', '-z', '-l', '--show-origin']
-[DEBUG] Process 39615 started
-[DEBUG] Waiting for process 39615 to complete
-[DEBUG] Process 39615 exited with return code 0
+[DEBUG] Process 422102 started
+[DEBUG] Waiting for process 422102 to complete
+[DEBUG] Process 422102 exited with return code 0
 [DEBUG] Async run ['git', 'config', '-z', '-l', '--show-origin', '--file', '/home/me/dl-101/DataLad-101/recordings/longnow/.datalad/config']
 [DEBUG] Launching process ['git', 'config', '-z', '-l', '--show-origin', '--file', '/home/me/dl-101/DataLad-101/recordings/longnow/.datalad/config']
-[DEBUG] Process 39617 started
-[DEBUG] Waiting for process 39617 to complete
-[DEBUG] Process 39617 exited with return code 0
+[DEBUG] Process 422104 started
+[DEBUG] Waiting for process 422104 to complete
+[DEBUG] Process 422104 exited with return code 0
 [DEBUG] Async run ['git', 'symbolic-ref', 'HEAD']
 [DEBUG] Launching process ['git', 'symbolic-ref', 'HEAD']
-[DEBUG] Process 39619 started
-[DEBUG] Waiting for process 39619 to complete
-[DEBUG] Process 39619 exited with return code 0
+[DEBUG] Process 422106 started
+[DEBUG] Waiting for process 422106 to complete
+[DEBUG] Process 422106 exited with return code 0
 [DEBUG] Async run ['git', 'rev-parse', '--quiet', '--verify', 'HEAD^{commit}']
 [DEBUG] Launching process ['git', 'rev-parse', '--quiet', '--verify', 'HEAD^{commit}']
-[DEBUG] Process 39621 started
-[DEBUG] Waiting for process 39621 to complete
-[DEBUG] Process 39621 exited with return code 0
+[DEBUG] Process 422108 started
+[DEBUG] Waiting for process 422108 to complete
+[DEBUG] Process 422108 exited with return code 0
 [DEBUG] AnnexRepo(/home/me/dl-101/DataLad-101/recordings/longnow).get_content_info(...)
 [DEBUG] Query repo: ['ls-files', '--stage', '-z', '--exclude-standard', '-o', '--directory', '--no-empty-directory']
 [DEBUG] Async run ['git', 'ls-files', '--stage', '-z', '--exclude-standard', '-o', '--directory', '--no-empty-directory']
 [DEBUG] Launching process ['git', 'ls-files', '--stage', '-z', '--exclude-standard', '-o', '--directory', '--no-empty-directory']
-[DEBUG] Process 39623 started
-[DEBUG] Waiting for process 39623 to complete
-[DEBUG] Process 39623 exited with return code 0
+[DEBUG] Process 422110 started
+[DEBUG] Waiting for process 422110 to complete
+[DEBUG] Process 422110 exited with return code 0
 [DEBUG] Done query repo: ['ls-files', '--stage', '-z', '--exclude-standard', '-o', '--directory', '--no-empty-directory']
 [DEBUG] Done AnnexRepo(/home/me/dl-101/DataLad-101/recordings/longnow).get_content_info(...)
 [DEBUG] Async run ['git', 'ls-files', '-z', '-m']
 [DEBUG] Launching process ['git', 'ls-files', '-z', '-m']
-[DEBUG] Process 39625 started
-[DEBUG] Waiting for process 39625 to complete
-[DEBUG] Process 39625 exited with return code 0
+[DEBUG] Process 422112 started
+[DEBUG] Waiting for process 422112 to complete
+[DEBUG] Process 422112 exited with return code 0
 [DEBUG] AnnexRepo(/home/me/dl-101/DataLad-101/recordings/longnow).get_content_info(...)
 [DEBUG] Query repo: ['ls-tree', 'HEAD', '-z', '-r', '--full-tree', '-l']
 [DEBUG] Async run ['git', 'ls-tree', 'HEAD', '-z', '-r', '--full-tree', '-l']
 [DEBUG] Launching process ['git', 'ls-tree', 'HEAD', '-z', '-r', '--full-tree', '-l']
-[DEBUG] Process 39627 started
-[DEBUG] Waiting for process 39627 to complete
-[DEBUG] Process 39627 exited with return code 0
+[DEBUG] Process 422114 started
+[DEBUG] Waiting for process 422114 to complete
+[DEBUG] Process 422114 exited with return code 0
 [DEBUG] Done query repo: ['ls-tree', 'HEAD', '-z', '-r', '--full-tree', '-l']
 [DEBUG] Done AnnexRepo(/home/me/dl-101/DataLad-101/recordings/longnow).get_content_info(...)
 nothing to save, working tree clean

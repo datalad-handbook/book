@@ -1,11 +1,7 @@
 $ datalad save -m "add books on Python and Unix to read later"
-[INFO] Total: starting
-[INFO]
 add(ok): books/TLCL.pdf (file)
 add(ok): books/byte-of-python.pdf (file)
-[INFO] Total: processed result for /home/me/dl-101/DataLad-101
 save(ok): . (dataset)
-[INFO] Total: done
 action summary:
   add (ok: 2)
   save (ok: 1)

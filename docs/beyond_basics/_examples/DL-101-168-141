@@ -13403,6 +13403,6 @@ copy(ok): data/raw/val/n03888257/n03888257_9932.JPEG (file) [to my-sibling...]
 [INFO] Start compressing objects 
 [INFO] Start writing objects 
 [INFO] Start resolving deltas 
-publish(ok): . (dataset) [refs/heads/git-annex->my-sibling:refs/heads/git-annex 923ea0f1a..bb309604f]
+publish(ok): . (dataset) [refs/heads/git-annex->my-sibling:refs/heads/git-annex 18d54e472..4855299be]
 publish(ok): . (dataset) [refs/heads/master->my-sibling:refs/heads/master [new branch]]
 [INFO] Finished push of Dataset(/home/me/DVCvsDL/DVC-DataLad)

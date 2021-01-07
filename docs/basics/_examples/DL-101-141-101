@@ -12,7 +12,7 @@ copy(ok): books/byte-of-python.pdf (file) [to roommate...]
 [INFO] Start writing objects 
 [INFO] Start resolving deltas
 [INFO] Finished
-publish(ok): . (dataset) [refs/heads/git-annex->roommate:refs/heads/git-annex 37aedf7..eccf586]
+publish(ok): . (dataset) [refs/heads/git-annex->roommate:refs/heads/git-annex 5b4ce4a..35519f3]
 [ERROR] refs/heads/master->roommate:refs/heads/master [remote rejected] (branch is currently checked out) [publish(/home/me/dl-101/DataLad-101)] 
 publish(error): . (dataset) [refs/heads/master->roommate:refs/heads/master [remote rejected] (branch is currently checked out)]
 [INFO] Finished push of Dataset(/home/me/dl-101/DataLad-101)

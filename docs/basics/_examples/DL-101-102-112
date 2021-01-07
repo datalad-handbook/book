@@ -4,12 +4,8 @@ $ datalad download-url http://www.tldp.org/LDP/Bash-Beginners-Guide/Bash-Beginne
   -O books/bash_guide.pdf
 [INFO] Downloading 'http://www.tldp.org/LDP/Bash-Beginners-Guide/Bash-Beginners-Guide.pdf' into '/home/me/dl-101/DataLad-101/books/bash_guide.pdf'
 download_url(ok): /home/me/dl-101/DataLad-101/books/bash_guide.pdf (file)
-[INFO] Total: starting
-[INFO]
 add(ok): books/bash_guide.pdf (file)
-[INFO] Total: processed result for /home/me/dl-101/DataLad-101
 save(ok): . (dataset)
-[INFO] Total: done
 action summary:
   add (ok: 1)
   download_url (ok: 1)

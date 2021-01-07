@@ -1,10 +1,6 @@
 $ datalad save -m "add note datalad and git diff"
-[INFO] Total: starting
-[INFO]
 add(ok): notes.txt (file)
-[INFO] Total: processed result for /home/me/dl-101/DataLad-101
 save(ok): . (dataset)
-[INFO] Total: done
 action summary:
   add (ok: 1)
   save (ok: 1)

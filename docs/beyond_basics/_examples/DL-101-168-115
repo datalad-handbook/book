@@ -1,8 +1,6 @@
 ### DVC-DataLad
 $ mv data/raw/imagenette2-160/* data/raw/ && rmdir data/raw/imagenette2-160
 $ datalad save -m "Move data into preferred locations"
-[INFO] Total: starting
-[INFO]
 delete(ok): data/raw/imagenette2-160/train/n01440764/ILSVRC2012_val_00000293.JPEG (file)
 delete(ok): data/raw/imagenette2-160/train/n01440764/ILSVRC2012_val_00002138.JPEG (file)
 delete(ok): data/raw/imagenette2-160/train/n01440764/ILSVRC2012_val_00003014.JPEG (file)
@@ -26791,9 +26789,7 @@ add(ok): data/raw/val/n03888257/n03888257_9770.JPEG (file)
 add(ok): data/raw/val/n03888257/n03888257_9771.JPEG (file)
 add(ok): data/raw/val/n03888257/n03888257_9812.JPEG (file)
 add(ok): data/raw/val/n03888257/n03888257_9932.JPEG (file)
-[INFO] Total: processed result for /home/me/DVCvsDL/DVC-DataLad
 save(ok): . (dataset)
-[INFO] Total: done
 action summary:
   add (ok: 13394)
   delete (ok: 13394)

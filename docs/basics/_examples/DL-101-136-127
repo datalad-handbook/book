@@ -1,16 +1,9 @@
 $ datalad save -r -m "moved notes.txt from root of top-ds to midterm subds"
-[INFO] Total: starting
-[INFO]
-[INFO] Total: processed result for /home/me/dl-101/DataLad-101/recordings/longnow
-[INFO] Total: processed result for /home/me/dl-101/DataLad-101/midterm_project/input
 add(ok): notes.txt (file)
-[INFO] Total: processed result for /home/me/dl-101/DataLad-101/midterm_project
 save(ok): midterm_project (dataset)
 delete(ok): notes.txt (file)
 add(ok): midterm_project (file)
-[INFO] Total: processed result for /home/me/dl-101/DataLad-101
 save(ok): . (dataset)
-[INFO] Total: done
 action summary:
   add (ok: 2)
   delete (ok: 1)

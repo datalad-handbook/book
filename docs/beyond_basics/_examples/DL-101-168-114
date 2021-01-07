@@ -8,12 +8,8 @@ $ datalad download-url \
   -O 'data/raw/'
 [INFO] Downloading 'https://s3.amazonaws.com/fast-ai-imageclas/imagenette2-160.tgz' into '/home/me/DVCvsDL/DVC-DataLad/data/raw/' 
 download_url(ok): /home/me/DVCvsDL/DVC-DataLad/data/raw/imagenette2-160.tgz (file)
-[INFO] Total: starting
-[INFO]
 add(ok): data/raw/imagenette2-160.tgz (file)
-[INFO] Total: processed result for /home/me/DVCvsDL/DVC-DataLad
 save(ok): . (dataset)
-[INFO] Total: done
 [INFO] Adding content of the archive /home/me/DVCvsDL/DVC-DataLad/data/raw/imagenette2-160.tgz into annex AnnexRepo(/home/me/DVCvsDL/DVC-DataLad) 
 [INFO] Initiating special remote datalad-archives 
 [INFO] Finished adding /home/me/DVCvsDL/DVC-DataLad/data/raw/imagenette2-160.tgz: Files processed: 13394, renamed: 13394, +annex: 13394 

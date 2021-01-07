@@ -1,10 +1,6 @@
 $ datalad save -d . -m "finished my midterm project" midterm_project
-[INFO] Total: starting
-[INFO]
 add(ok): midterm_project (file)
-[INFO] Total: processed result for /home/me/dl-101/DataLad-101
 save(ok): . (dataset)
-[INFO] Total: done
 action summary:
   add (ok: 1)
   save (ok: 1)

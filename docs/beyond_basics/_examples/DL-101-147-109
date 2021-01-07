@@ -2,8 +2,8 @@ $ cd midterm_project
 $ datalad create-sibling-ria -s ria-backup ria+file:///home/me/myriastore
 [INFO] Start checking pre-existing sibling configuration Dataset(/home/me/dl-101/DataLad-101/midterm_project) 
 [INFO] Discovered sibling here in dataset at /home/me/dl-101/DataLad-101/midterm_project 
-[INFO] Discovered sibling datalad in dataset at /home/me/dl-101/DataLad-101/midterm_project
 [INFO] Discovered sibling github in dataset at /home/me/dl-101/DataLad-101/midterm_project 
+[INFO] Discovered sibling datalad in dataset at /home/me/dl-101/DataLad-101/midterm_project
 [INFO] Finished checking pre-existing sibling configuration Dataset(/home/me/dl-101/DataLad-101/midterm_project) 
 [INFO] create siblings 'ria-backup' and 'ria-backup-storage' ... 
 [INFO] Fetching updates for Dataset(/home/me/dl-101/DataLad-101/midterm_project) 

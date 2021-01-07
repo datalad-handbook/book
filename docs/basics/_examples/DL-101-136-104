@@ -1,7 +1,7 @@
 $ git log -n 1 -p
-commit 7c459ae081ab76e3826823406f96b5463b0c26b3
+commit 39819c73727e512561f1e19414e8fcebc58822df
 Author: Elena Piscopia <elena@example.net>
-Date:   Tue Jan 5 17:39:33 2021 +0100
+Date:   Thu Jan 7 10:15:14 2021 +0100
 
     rename the book
 

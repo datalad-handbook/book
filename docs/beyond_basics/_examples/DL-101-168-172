@@ -1,7 +1,3 @@
 ### DVC-DataLad
 $ datalad save --version-tag ready-for-analysis
-[INFO] Total: starting
-[INFO]
-[INFO] Total: processed result for /home/me/DVCvsDL/DVC-DataLad
 save(ok): . (dataset)
-[INFO] Total: done

@@ -1,9 +1,5 @@
 ### DVC-DataLad
 $ datalad drop data/raw/val
-[INFO] Total: starting
-[INFO]
-[INFO] Total: processed result for /home/me/DVCvsDL/DVC-DataLad
-[INFO] Total: done
 drop(ok): /home/me/DVCvsDL/DVC-DataLad/data/raw/val/n01440764/ILSVRC2012_val_00009111.JPEG (file)
 drop(ok): /home/me/DVCvsDL/DVC-DataLad/data/raw/val/n01440764/ILSVRC2012_val_00009191.JPEG (file)
 drop(ok): /home/me/DVCvsDL/DVC-DataLad/data/raw/val/n01440764/ILSVRC2012_val_00017472.JPEG (file)

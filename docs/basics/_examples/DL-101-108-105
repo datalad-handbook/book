@@ -1,13 +1,8 @@
 $ datalad run -m "create a list of podcast titles" "bash code/list_titles.sh > recordings/podcasts.tsv"
 [INFO] == Command start (output follows) ===== 
 [INFO] == Command exit (modification check follows) ===== 
-[INFO] Total: starting
-[INFO]
-[INFO] Total: processed result for /home/me/dl-101/DataLad-101/recordings/longnow
 add(ok): recordings/podcasts.tsv (file)
-[INFO] Total: processed result for /home/me/dl-101/DataLad-101
 save(ok): . (dataset)
-[INFO] Total: done
 action summary:
   add (ok: 1)
   save (notneeded: 1, ok: 1)

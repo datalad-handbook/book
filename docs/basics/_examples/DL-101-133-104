@@ -9,14 +9,9 @@ unlock(ok): pairwise_relationships.png (file)
 unlock(ok): prediction_report.csv (file)
 [INFO] == Command start (output follows) =====
 [INFO] == Command exit (modification check follows) =====
-[INFO] Total: starting
-[INFO]
-[INFO] Total: processed result for /home/me/dl-101/DataLad-101/midterm_project/input
 add(ok): pairwise_relationships.png (file)
 add(ok): prediction_report.csv (file)
-[INFO] Total: processed result for /home/me/dl-101/DataLad-101/midterm_project
 save(ok): . (dataset)
-[INFO] Total: done
 action summary:
   add (ok: 2)
   get (notneeded: 4)

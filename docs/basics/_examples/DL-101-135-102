@@ -8,10 +8,10 @@ $ datalad wtf
     - config_file: /home/me/.local/share/python_keyring/keyringrc.cfg
     - data_root: /home/me/.local/share/python_keyring
 ## datalad 
-  - full_version: 0.13.6.dev641-gd996e
-  - version: 0.13.6.dev641
+  - full_version: 0.13.7.dev640-g60e3e
+  - version: 0.13.7.dev640
 ## dataset 
-  - id: 8447815f-9db7-4e49-ad47-9eb2a7bcc7c1
+  - id: caa69d63-37da-4d6b-91e6-beab3f6f1d06
   - metadata: <SENSITIVE, report disabled by configuration>
   - path: /home/me/dl-101/DataLad-101
   - repo: AnnexRepo

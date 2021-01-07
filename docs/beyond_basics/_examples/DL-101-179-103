@@ -1,10 +1,6 @@
 $ datalad save -m "add something to ignore" .gitignore
-[INFO] Total: starting
-[INFO]
 add(ok): .gitignore (file)
-[INFO] Total: processed result for /home/me/dl-101/DataLad-101
 save(ok): . (dataset)
-[INFO] Total: done
 action summary:
   add (ok: 1)
   save (ok: 1)

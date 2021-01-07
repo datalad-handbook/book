@@ -1,17 +1,10 @@
 $ mv TLCL.pdf ../books
 $ cd ../
 $ datalad save -r -m "move book back from midterm_project"
-[INFO] Total: starting
-[INFO]
-[INFO] Total: processed result for /home/me/dl-101/DataLad-101/recordings/longnow
-[INFO] Total: processed result for /home/me/dl-101/DataLad-101/midterm_project/input
-[INFO] Total: processed result for /home/me/dl-101/DataLad-101/midterm_project
 save(ok): midterm_project (dataset)
 add(ok): midterm_project (file)
 add(ok): books/TLCL.pdf (file)
-[INFO] Total: processed result for /home/me/dl-101/DataLad-101
 save(ok): . (dataset)
-[INFO] Total: done
 action summary:
   add (ok: 2)
   save (notneeded: 2, ok: 2)

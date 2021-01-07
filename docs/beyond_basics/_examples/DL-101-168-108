@@ -1,6 +1,6 @@
 ### DVC
 $ git commit -m "initialize dvc"
-[master 6f33e02] initialize dvc
+[master 70ddd09] initialize dvc
  7 files changed, 131 insertions(+)
  create mode 100644 .dvc/.gitignore
  create mode 100644 .dvc/config

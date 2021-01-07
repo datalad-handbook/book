@@ -9,14 +9,10 @@ download_url(ok): /home/me/DVCvsDL/DVC-DataLad/code/train.py (file)
 download_url(ok): /home/me/DVCvsDL/DVC-DataLad/code/prepare.py (file)
 [INFO] Downloading 'https://raw.githubusercontent.com/datalad-handbook/data-version-control/master/src/evaluate.py' into '/home/me/DVCvsDL/DVC-DataLad/code/' 
 download_url(ok): /home/me/DVCvsDL/DVC-DataLad/code/evaluate.py (file)
-[INFO] Total: starting
-[INFO]
 add(ok): code/evaluate.py (file)
 add(ok): code/prepare.py (file)
 add(ok): code/train.py (file)
-[INFO] Total: processed result for /home/me/DVCvsDL/DVC-DataLad
 save(ok): . (dataset)
-[INFO] Total: done
 action summary:
   add (ok: 3)
   download_url (ok: 3)

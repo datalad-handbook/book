@@ -1,4 +1,4 @@
 ### DVC
 $ dvc metrics show
 	metrics/accuracy.json:
-		accuracy: 0.6134347275031685
+		accuracy: 0.7262357414448669

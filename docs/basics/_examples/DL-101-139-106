@@ -7,5 +7,5 @@ $ datalad push --to gin
 [INFO] Start counting objects 
 [INFO] Start compressing objects 
 [INFO] Start writing objects 
-publish(ok): . (dataset) [refs/heads/master->gin:refs/heads/master 31ab235..fdb33b8]
+publish(ok): . (dataset) [refs/heads/master->gin:refs/heads/master 9db0888..a27cdee]
 [INFO] Finished push of Dataset(/home/me/dl-101/DataLad-101)

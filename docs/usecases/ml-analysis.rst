@@ -95,7 +95,7 @@ The Imagenette dataset can be downloaded as an archive from Amazon, and the :com
 
    $ cd imagenette
    # 0.12.2 <= datalad < 0.13.4  needs the configuration option -c datalad.runtime.use-patool=1 to handle .tgz
-   $ datalad -c datalad.runtime.use-patool=1 download-url \
+   $ datalad download-url \
      --archive \
      --message "Download Imagenette dataset" \
      'https://s3.amazonaws.com/fast-ai-imageclas/imagenette2-160.tgz'
@@ -107,10 +107,7 @@ These configurations create a ``code/`` directory, place some place-holding ``RE
 .. windowsworkarounds:: Note for Windows-Users
 
    Hey there!
-   If you are using **Windows 10** with a **native** (i.e., not `Windows Subsystem for Linux (WSL) <https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux>`_-based) installation of DataLad and its underlying tools, you need to do a work-around here.
-
-   We're really sorry about that -- as foreshadowed in section :ref:`install`, Windows comes with a range of file system issues, and one of them concerns the ``text2git`` configuration.
-   This configuration detects file types (such as text files, or image files) based on their `MIME type <https://www.howtogeek.com/192628/mime-types-explained-why-linux-and-mac-os-x-dont-need-file-extensions/>`_, but Windows lacks MIME type support, unfortunately.
+   If you are using **Windows 10** (not `Windows Subsystem for Linux (WSL) <https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux>`_) **without the custom-built git-annex** installer mentioned in the installation section, you need a work-around.
 
    Instead of running ``datalad create -c text2git -c yoda ml-project``, please remove the configuration ``-c text2git`` from the command and run only ``datalad create -c yoda  ml-project``::
 

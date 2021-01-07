@@ -3,11 +3,16 @@ $ datalad run -m "Import stimulation events" \
   --output sub-02/func/sub-02_task-oneback_run-01_events.tsv \
   cp {inputs} {outputs}
 [INFO] Making sure inputs are available (this may take some time)
+unlock(ok): sub-02/func/sub-02_task-oneback_run-01_events.tsv (file)
 [INFO] == Command start (output follows) =====
 [INFO] == Command exit (modification check follows) =====
-unlock(ok): sub-02/func/sub-02_task-oneback_run-01_events.tsv (file)
+[INFO] Total: starting
+[INFO]
+[INFO] Total: processed result for /home/me/usecases/repro2/localizer_scans/inputs/rawdata
 add(ok): sub-02/func/sub-02_task-oneback_run-01_events.tsv (file)
+[INFO] Total: processed result for /home/me/usecases/repro2/localizer_scans
 save(ok): . (dataset)
+[INFO] Total: done
 action summary:
   add (ok: 1)
   get (notneeded: 3)

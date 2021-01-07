@@ -8,9 +8,13 @@ $ datalad clone --dataset . \
 [INFO] Start resolving deltas
 [INFO] Completed clone attempts for Dataset(/home/me/usecases/repro2/localizer_scans/inputs/rawdata)
 install(ok): inputs/rawdata (dataset)
+[INFO] Total: starting
+[INFO]
 add(ok): inputs/rawdata (file)
 add(ok): .gitmodules (file)
+[INFO] Total: processed result for /home/me/usecases/repro2/localizer_scans
 save(ok): . (dataset)
+[INFO] Total: done
 action summary:
   add (ok: 2)
   install (ok: 1)

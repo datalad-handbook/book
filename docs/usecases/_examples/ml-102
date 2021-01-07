@@ -3,11 +3,15 @@ $ cd imagenette
 $ datalad -c datalad.runtime.use-patool=1 download-url \
   --archive \
   --message "Download Imagenette dataset" \
-  'https://s3.amazonaws.com/fast-ai-imageclas/imagenette2-160.tgz' \
+  'https://s3.amazonaws.com/fast-ai-imageclas/imagenette2-160.tgz'
 [INFO] Downloading 'https://s3.amazonaws.com/fast-ai-imageclas/imagenette2-160.tgz' into '/home/me/usecases/imagenette/' 
 download_url(ok): /home/me/usecases/imagenette/imagenette2-160.tgz (file)
-add(ok): /home/me/usecases/imagenette/imagenette2-160.tgz (file)
-save(ok): /home/me/usecases/imagenette (dataset)
+[INFO] Total: starting
+[INFO]
+add(ok): imagenette2-160.tgz (file)
+[INFO] Total: processed result for /home/me/usecases/imagenette
+save(ok): . (dataset)
+[INFO] Total: done
 [INFO] Adding content of the archive /home/me/usecases/imagenette/imagenette2-160.tgz into annex AnnexRepo(/home/me/usecases/imagenette) 
 [INFO] Initiating special remote datalad-archives 
 [INFO] Finished adding /home/me/usecases/imagenette/imagenette2-160.tgz: Files processed: 13394, +annex: 13394 

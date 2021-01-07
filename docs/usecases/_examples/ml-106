@@ -1,6 +1,11 @@
 $ datalad containers-add software --url shub://adswa/python-ml:1
-add(ok): /home/me/usecases/ml-project/.datalad/config (file)
-save(ok): /home/me/usecases/ml-project (dataset)
+[INFO] Initiating special remote datalad
+[INFO] Total: starting
+[INFO]
+[INFO] Total: processed result for /home/me/usecases/ml-project
+[INFO] Total: done
+add(ok): .datalad/config (file)
+save(ok): . (dataset)
 containers_add(ok): /home/me/usecases/ml-project/.datalad/environments/software/image (file)
 action summary:
   add (ok: 1)

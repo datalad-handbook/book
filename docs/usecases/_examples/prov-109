@@ -1,2 +1,2 @@
 $ git log -1 --oneline HEAD
-14a43c2 [DATALAD RUNCMD] blur image
+f80670f [DATALAD RUNCMD] blur image

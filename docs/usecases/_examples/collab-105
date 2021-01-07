@@ -1,7 +1,11 @@
 $ chmod +x code/run_analysis.py
 $ datalad save -m "make script executable"
+[INFO] Total: starting
+[INFO]
 add(ok): code/run_analysis.py (file)
+[INFO] Total: processed result for /home/me/usecases/collab/myanalysis
 save(ok): . (dataset)
+[INFO] Total: done
 action summary:
   add (ok: 1)
   save (ok: 1)

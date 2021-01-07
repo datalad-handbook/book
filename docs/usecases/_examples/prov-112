@@ -1,19 +1,35 @@
 $ datalad rerun --since= --onto= --branch=replay
+[INFO] checkout commit de008f2;
+[INFO] run commit 0cd344e; (extract st-bernar...)
 [INFO] Making sure inputs are available (this may take some time) 
 [INFO] == Command start (output follows) ===== 
 [INFO] == Command exit (modification check follows) ===== 
-[INFO] Making sure inputs are available (this may take some time) 
-[INFO] == Command start (output follows) ===== 
-[INFO] == Command exit (modification check follows) ===== 
-[INFO] Making sure inputs are available (this may take some time) 
-[INFO] == Command start (output follows) ===== 
-[INFO] == Command exit (modification check follows) ===== 
+[INFO] Total: starting
+[INFO]
 add(ok): st-bernard.jpg (file)
+[INFO] Total: processed result for /home/me/usecases/provenance/artproject
 save(ok): . (dataset)
+[INFO] Total: done
+[INFO] run commit c624118; (extract pimpernel)
+[INFO] Making sure inputs are available (this may take some time) 
+[INFO] == Command start (output follows) ===== 
+[INFO] == Command exit (modification check follows) ===== 
+[INFO] Total: starting
+[INFO]
 add(ok): pimpernel.jpg (file)
+[INFO] Total: processed result for /home/me/usecases/provenance/artproject
 save(ok): . (dataset)
+[INFO] Total: done
+[INFO] run commit f80670f; (blur image)
+[INFO] Making sure inputs are available (this may take some time) 
+[INFO] == Command start (output follows) ===== 
+[INFO] == Command exit (modification check follows) ===== 
+[INFO] Total: starting
+[INFO]
 add(ok): st-bernard-displaced.jpg (file)
+[INFO] Total: processed result for /home/me/usecases/provenance/artproject
 save(ok): . (dataset)
+[INFO] Total: done
 action summary:
   add (ok: 3)
   get (notneeded: 3)

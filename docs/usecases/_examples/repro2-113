@@ -1,4 +1,8 @@
 $ datalad run-procedure cfg_yoda
 [INFO] Running procedure cfg_yoda
 [INFO] == Command start (output follows) =====
+[INFO] Total: starting
+[INFO]
+[INFO] Total: processed result for /home/me/usecases/repro2/glm_analysis
+[INFO] Total: done
 [INFO] == Command exit (modification check follows) =====

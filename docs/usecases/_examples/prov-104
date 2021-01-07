@@ -5,8 +5,12 @@ $ datalad run -m "extract st-bernard lily" \
 [INFO] Making sure inputs are available (this may take some time) 
 [INFO] == Command start (output follows) ===== 
 [INFO] == Command exit (modification check follows) ===== 
+[INFO] Total: starting
+[INFO]
 add(ok): st-bernard.jpg (file)
+[INFO] Total: processed result for /home/me/usecases/provenance/artproject
 save(ok): . (dataset)
+[INFO] Total: done
 action summary:
   add (ok: 1)
   get (notneeded: 1)

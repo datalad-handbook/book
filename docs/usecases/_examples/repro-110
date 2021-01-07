@@ -1,7 +1,7 @@
 $ git show --stat
-commit 27ca92d1ec7a0ba8185bfe444a4a31a73b82f555
+commit 03515a4ba2304d0a1164ae75eaefe5efcbb84054
 Author: Elena Piscopia <elena@example.net>
-Date:   Tue Jun 23 20:45:32 2020 +0200
+Date:   Thu Jan 7 08:46:49 2021 +0100
 
     [DATALAD RUNCMD] run brain extract workflow
     
@@ -9,7 +9,7 @@ Date:   Tue Jun 23 20:45:32 2020 +0200
     {
      "chain": [],
      "cmd": "bash -e code/brain_extraction.sh inputs/ds000001/sub-01/anat/sub-01_T1w.nii.gz inputs/ds000002/sub-01/anat/sub-01_T1w.nii.gz",
-     "dsid": "a89af03a-b581-11ea-90a2-3119e6b9cf19",
+     "dsid": "4face493-d7cf-4336-921b-a59c68f3ef48",
      "exit": 0,
      "extra_inputs": [],
      "inputs": [

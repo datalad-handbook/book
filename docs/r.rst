@@ -35,6 +35,8 @@ failed -- sorry about this.
   :ref:`abcd`
 :redirect:`about`
   :ref:`executive_summary`
+:redirect:`clone-priority`
+  :ref:`cloneprio`
 :redirect:`containers`
   :ref:`containersrun`
 :redirect:`dl-for-ml`

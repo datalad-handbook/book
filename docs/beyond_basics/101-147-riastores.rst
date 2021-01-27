@@ -202,10 +202,12 @@ pushed into RIA stores if they have a git-annex ora-remote.
 
 Certain applications will not require special remote features. The usecase
 :ref:`usecase_HCP_dataset`
-shows an example where git-annex key storage is explicitly not wanted. For most
-storage or back-up scenarios, special remote capabilities are useful, though,
-and thus the default [#f5]_.
-The :command:`datalad create-sibling-ria` command will automatically create a
+shows an example where git-annex key storage is explicitly not wanted.
+Other applications may require *only* the special remote, such as cases where Git isn't installed on the RIA store hosting infrastructure.
+For most storage or back-up scenarios, special remote capabilities are useful, though,
+and thus the default.
+
+By default, the :command:`datalad create-sibling-ria` command will automatically create a
 dataset representation in a RIA store (and set up the RIA store, if it does not
 exist), and configure a sibling to allow publishing to the RIA store and updating
 from it.
@@ -215,6 +217,10 @@ With the sibling and special remote set up, upon an invocation of
 :command:`datalad push --to <sibling>`, the complete dataset contents, including
 annexed contents, will be published to the RIA store, with no further setup or
 configuration required [#f6]_.
+
+To disable the storage sibling completely, invoke :command:`datalad create-sibling-ria` with the argument ``--storage-sibling=off``.
+Note that DataLad versions ``<0.14`` need to use the flag ``--no-storage-sibling``, which is deprecated starting with DataLad ``0.14.0``.
+To create a RIA store with *only* special remote storage, starting from DataLad version ``0.14.0`` you can invoke :command:`datalad create-sibling-ria` with the argument ``--storage-sibling=only``.
 
 Advantages of RIA stores
 """"""""""""""""""""""""
@@ -348,9 +354,9 @@ Afterwards, the dataset has two additional siblings: ``ria-backup``, and
 
    $ datalad siblings
 
-The storage sibling is the git-annex ora-remote and is set up automatically
-unless :command:`create-sibling-ria` is run with the ``--storage-sibling=off``
-flag. By default, it has the name of the RIA sibling, suffixed with ``-storage``,
+The storage sibling is the git-annex ora-remote and is set up automatically --
+unless :command:`create-sibling-ria` is run with ``--storage-sibling=off`` (in DataLad versions ``>0.14.``) or ``--no-storage-sibling`` (in versions ``<0.14``).
+By default, it has the name of the RIA sibling, suffixed with ``-storage``,
 but alternative names can be supplied with the ``--storage-name`` option.
 
 
@@ -698,10 +704,6 @@ procedures.
             Link UKBiobank on supercomputer usecase once ready
 
          shows how this feature can come in handy.
-
-.. [#f5] Special remote capabilities of a RIA store can be disabled at the time of RIA
-         store creation by passing the option ``--storage-sibling=off`` to the
-         :command:`datalad create-sibling-ria` command.
 
 .. [#f6] To re-read about publication dependencies and why this is relevant to
          annexed contents in the dataset, checkout section :ref:`sharethirdparty`.

@@ -362,7 +362,7 @@ as if the file was generated at once, instead of successively over the course:
 The process is a bit more complex for annexed files. Let's do it wrong, first:
 What happens if we move an annexed file in the same way as ``notes.txt``?
 
-.. runrecord:: _examples/DL-101-136-181
+.. runrecord:: _examples/DL-101-136-130
    :language: console
    :workdir: dl-101/DataLad-101
    :notes: move an annexed file wrongly
@@ -371,7 +371,7 @@ What happens if we move an annexed file in the same way as ``notes.txt``?
    $ mv books/TLCL.pdf midterm_project
    $ datalad status -r
 
-.. runrecord:: _examples/DL-101-136-182
+.. runrecord:: _examples/DL-101-136-131
    :language: console
    :workdir: dl-101/DataLad-101
    :notes: save - wrong way still
@@ -386,7 +386,7 @@ still in the annex of the top-level dataset, ``DataLad-101``), but its symlink t
 was stored in Git. After moving the file, the symlink is broken, and git-annex
 has no way of finding out where the file content could be:
 
-.. runrecord:: _examples/DL-101-136-183
+.. runrecord:: _examples/DL-101-136-132
    :language: console
    :workdir: dl-101/DataLad-101
    :notes: demonstrate broken symlink with git-annex-whereis
@@ -397,7 +397,7 @@ has no way of finding out where the file content could be:
 
 Let's rewind, and find out how to do it correctly:
 
-.. runrecord:: _examples/DL-101-136-184
+.. runrecord:: _examples/DL-101-136-133
    :language: console
    :workdir: dl-101/DataLad-101/midterm_project
    :notes: undo wrong moving of annex file
@@ -410,7 +410,7 @@ Let's rewind, and find out how to do it correctly:
 The crucial step to remember is to get the annexed file out of the annex prior
 to moving it. For this, we need to fall back to git-annex commands:
 
-.. runrecord:: _examples/DL-101-136-185
+.. runrecord:: _examples/DL-101-136-134
    :language: console
    :workdir: dl-101/DataLad-101
    :notes: unannex file
@@ -423,7 +423,7 @@ to moving it. For this, we need to fall back to git-annex commands:
 Afterwards, a (recursive) :command:`save` commits the removal of the book from
 DataLad-101, and adds the file content into the annex of ``midterm_project``:
 
-.. runrecord:: _examples/DL-101-136-186
+.. runrecord:: _examples/DL-101-136-135
    :language: console
    :workdir: dl-101/DataLad-101
    :notes: save annex file after moving it to subdataset
@@ -433,7 +433,7 @@ DataLad-101, and adds the file content into the annex of ``midterm_project``:
 Even though you did split the file's history, at least its content is in the
 correct dataset now:
 
-.. runrecord:: _examples/DL-101-136-187
+.. runrecord:: _examples/DL-101-136-136
    :language: console
    :workdir: dl-101/DataLad-101
    :notes: show that moving after unannex worked with git annex whereis
@@ -450,7 +450,7 @@ easily. A better alternative may be copying files with the :command:`datalad cop
 command introduced in detail in :ref:`copyfile`, and demonstrated in the next
 but one paragraph. Let's quickly clean up by moving the file back:
 
-.. runrecord:: _examples/DL-101-136-188
+.. runrecord:: _examples/DL-101-136-137
    :language: console
    :workdir: dl-101/DataLad-101/midterm_project
    :notes: move file back
@@ -458,7 +458,7 @@ but one paragraph. Let's quickly clean up by moving the file back:
    # in midterm_project
    $ git annex unannex TLCL.pdf
 
-.. runrecord:: _examples/DL-101-136-189
+.. runrecord:: _examples/DL-101-136-138
    :language: console
    :workdir: dl-101/DataLad-101/midterm_project
    :notes: move file back
@@ -474,7 +474,7 @@ Copying files
 Let's create a copy of an annexed file, using the Unix
 command ``cp`` to copy.
 
-.. runrecord:: _examples/DL-101-136-130
+.. runrecord:: _examples/DL-101-136-140
    :language: console
    :workdir: dl-101/DataLad-101
    :notes: renaming and moving was fine, how about copying?
@@ -486,7 +486,7 @@ command ``cp`` to copy.
 That's expected. The copy shows up as a new, untracked
 file. Let's save it:
 
-.. runrecord:: _examples/DL-101-136-131
+.. runrecord:: _examples/DL-101-136-141
    :language: console
    :workdir: dl-101/DataLad-101
    :notes: status says there's an untracked file, let's save it
@@ -495,7 +495,7 @@ file. Let's save it:
 
    $ datalad save -m "add copy of TLCL.pdf"
 
-.. runrecord:: _examples/DL-101-136-132
+.. runrecord:: _examples/DL-101-136-142
    :language: console
    :workdir: dl-101/DataLad-101
    :notes: That's it!
@@ -518,7 +518,7 @@ That's it.
 
    Let's check that out:
 
-   .. runrecord:: _examples/DL-101-136-133
+   .. runrecord:: _examples/DL-101-136-143
       :language: console
       :workdir: dl-101/DataLad-101
       :notes: A cool thing is that the two identical files link to the same place in the object tree
@@ -540,7 +540,7 @@ That's it.
 
 Finally, let's clean up:
 
-.. runrecord:: _examples/DL-101-136-134
+.. runrecord:: _examples/DL-101-136-144
    :language: console
    :workdir: dl-101/DataLad-101
    :notes: (reset history)
@@ -567,13 +567,13 @@ is added to the new dataset as well, and there is no need for unannex'ing the
 or even retrieving its file contents. Let's see this in action for a file
 stored in Git, and a file stored in annex:
 
-.. runrecord:: _examples/DL-101-136-135
+.. runrecord:: _examples/DL-101-136-145
    :language: console
    :workdir: dl-101/DataLad-101
 
    $ datalad copy-file notes.txt midterm_project -d midterm_project
 
-.. runrecord:: _examples/DL-101-136-136
+.. runrecord:: _examples/DL-101-136-146
    :language: console
    :workdir: dl-101/DataLad-101
 
@@ -584,7 +584,7 @@ no unannexing was necessary.
 Note, though, that ``notes.txt`` was annexed in the subdataset, as this subdataset
 was not configured with the ``text2git`` :term:`run procedure`.
 
-.. runrecord:: _examples/DL-101-136-137
+.. runrecord:: _examples/DL-101-136-147
    :language: console
    :workdir: dl-101/DataLad-101
 
@@ -594,7 +594,7 @@ The subdataset has two new commits as :command:`datalad copy-file` can take care
 of saving changes in the copied-to dataset, and thus the new subdataset state
 would need to be saved in the superdataset.
 
-.. runrecord:: _examples/DL-101-136-138
+.. runrecord:: _examples/DL-101-136-148
    :language: console
    :workdir: dl-101/DataLad-101
 
@@ -603,7 +603,7 @@ would need to be saved in the superdataset.
 Still, just as when we *moved* files across dataset boundaries, the files'
 provenance record is lost:
 
-.. runrecord:: _examples/DL-101-136-139
+.. runrecord:: _examples/DL-101-136-149
    :language: console
    :workdir: dl-101/DataLad-101
 
@@ -617,7 +617,7 @@ usecase can currently be found in :ref:`copyfile`.
 
 Let's clean up:
 
-.. runrecord:: _examples/DL-101-136-140
+.. runrecord:: _examples/DL-101-136-150
    :language: console
    :workdir: dl-101/DataLad-101/midterm_project
 
@@ -765,7 +765,7 @@ section.
    sibling is registered in ``.git/config`` in a "submodule" section.
    Let's look at how our sibling "roommate" is registered there:
 
-   .. runrecord:: _examples/DL-101-136-141
+   .. runrecord:: _examples/DL-101-136-160
       :language: console
       :workdir: dl-101/DataLad-101
       :emphasize-lines: 15-16
@@ -777,7 +777,7 @@ section.
    what happens if we move the dataset such that the path does not point
    to the dataset anymore:
 
-   .. runrecord:: _examples/DL-101-136-142
+   .. runrecord:: _examples/DL-101-136-161
       :language: console
       :workdir: dl-101/DataLad-101
 
@@ -792,7 +792,7 @@ section.
    ``../mock_user/onemoredir/DataLad-101``. The path specified in
    the configuration file is thus wrong now.
 
-   .. runrecord:: _examples/DL-101-136-143
+   .. runrecord:: _examples/DL-101-136-162
       :language: console
       :workdir: dl-101/mock_user
 
@@ -816,7 +816,7 @@ section.
    Below, we are using the stream editor `sed <https://en.wikipedia.org/wiki/Sed>`_
    for this operation.
 
-   .. runrecord:: _examples/DL-101-136-144
+   .. runrecord:: _examples/DL-101-136-163
       :language: console
       :workdir: dl-101/DataLad-101
 
@@ -824,16 +824,15 @@ section.
 
    This is how the file looks now:
 
-   .. runrecord:: _examples/DL-101-136-145
+   .. runrecord:: _examples/DL-101-136-164
       :language: console
       :workdir: dl-101/DataLad-101
-      :emphasize-lines: 16
 
       $ cat .git/config
 
    Let's try to update now:
 
-   .. runrecord:: _examples/DL-101-136-146
+   .. runrecord:: _examples/DL-101-136-165
       :workdir: dl-101/DataLad-101
       :language: console
 
@@ -847,7 +846,7 @@ section.
    To clean up, we'll redo the move of the dataset and the
    modification in ``.git/config``.
 
-   .. runrecord:: _examples/DL-101-136-147
+   .. runrecord:: _examples/DL-101-136-166
       :language: console
       :workdir: dl-101/DataLad-101
 
@@ -881,7 +880,7 @@ To get contents out of the dataset's annex you need to *unannex* them. This is
 done with the git-annex command :command:`git annex unannex`. Let's see how it
 works:
 
-.. runrecord:: _examples/DL-101-136-148
+.. runrecord:: _examples/DL-101-136-167
    :language: console
    :workdir: dl-101/DataLad-101
 
@@ -889,7 +888,7 @@ works:
 
 Your dataset's history records the unannexing of the files.
 
-.. runrecord:: _examples/DL-101-136-149
+.. runrecord:: _examples/DL-101-136-168
    :language: console
    :workdir: dl-101/DataLad-101
 
@@ -899,7 +898,7 @@ Once files have been unannexed, they are "untracked" again, and you can save the
 into Git, either by adding a rule to ``.gitattributes``, or with
 :command:`datalad save --to-git`:
 
-.. runrecord:: _examples/DL-101-136-150
+.. runrecord:: _examples/DL-101-136-169
    :language: console
    :workdir: dl-101/DataLad-101
 
@@ -1115,7 +1114,7 @@ This command can be used to uninstall any number of
 *subdatasets*. Note though that only subdatasets can be uninstalled; the command
 will error if given a sub-*directory*, a file, or a top-level dataset.
 
-.. runrecord:: _examples/DL-101-136-160
+.. runrecord:: _examples/DL-101-136-181
    :language: console
    :workdir: dl-101/DataLad-101
    :notes: To get rid of subdatasets one can either uninstall or remove them. let's clone one to see:
@@ -1128,7 +1127,7 @@ will error if given a sub-*directory*, a file, or a top-level dataset.
 
 To uninstall the dataset, use
 
-.. runrecord:: _examples/DL-101-136-161
+.. runrecord:: _examples/DL-101-136-182
    :language: console
    :workdir: dl-101/DataLad-101
    :notes: uninstall uninstalls the dataset, but it is still registered in the superdataset. a dl install will get the dataset again!
@@ -1150,13 +1149,20 @@ flag, a path to the subdataset to be removed, and optionally a commit message
 To remove a subdataset, we will install the uninstalled subdataset again, and
 subsequently remove it with the :command:`datalad remove` command:
 
-.. runrecord:: _examples/DL-101-136-163
+.. runrecord:: _examples/DL-101-136-183
    :language: console
    :workdir: dl-101/DataLad-101
    :notes: to completely remove the dataset, use datalad remove
    :cast: 03_git_annex_basics
 
    $ datalad get -n cloud
+
+.. runrecord:: _examples/DL-101-136-184
+   :language: console
+   :workdir: dl-101/DataLad-101
+   :notes: to completely remove the dataset, use datalad remove
+   :cast: 03_git_annex_basics
+
    # delete the subdataset
    $ datalad remove -m "remove obsolete subds" -d . cloud
 
@@ -1167,7 +1173,7 @@ superdataset -- you need to execute the command from a higher-level directory.
 
 Finally, after this last piece of information, let's clean up:
 
-.. runrecord:: _examples/DL-101-136-164
+.. runrecord:: _examples/DL-101-136-185
    :language: console
    :workdir: dl-101/DataLad-101
    :notes: (clean up)

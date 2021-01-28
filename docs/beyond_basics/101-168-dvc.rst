@@ -542,7 +542,7 @@ First, we need to create a local sibling:
 
    ### DVC-DataLad
    $ cd DVC-DataLad
-   $ datalad create-sibling --name my-sibling ../datalad-sibling
+   $ datalad create-sibling --name mysibling ../datalad-sibling
 
 **Step 2: Push the data**
 
@@ -553,7 +553,7 @@ Afterwards, the dataset contents can be pushed using :command:`datalad push`.
    :language: console
 
    ### DVC-DataLad
-   $ datalad push --to my-sibling
+   $ datalad push --to mysibling
 
 This pushed all of the annexed data and the Git history of the dataset.
 

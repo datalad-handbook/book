@@ -1171,15 +1171,6 @@ Note that for both commands a pointer to the *current directory* will not work.
 the command is executed in a subdataset instead of the top-level
 superdataset -- you need to execute the command from a higher-level directory.
 
-Finally, after this last piece of information, let's clean up:
-
-.. runrecord:: _examples/DL-101-136-185
-   :language: console
-   :workdir: dl-101/DataLad-101
-   :notes: (clean up)
-   :cast: 03_git_annex_basics
-
-   $ git reset --hard HEAD~2
 
 Deleting a superdataset
 ^^^^^^^^^^^^^^^^^^^^^^^

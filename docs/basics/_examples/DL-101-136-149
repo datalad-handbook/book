@@ -1,7 +1,7 @@
 $ git log -p -n 1
-commit a0c22840f7c12587956293af0fcc8f36b43c9f0b
+commit 8d5f509ed7de4698deb49d41b536c17c96bee3f1
 Author: Elena Piscopia <elena@example.net>
-Date:   Fri Dec 18 15:15:02 2020 +0100
+Date:   Thu Jan 28 09:02:03 2021 +0100
 
     move book back from midterm_project
 
@@ -14,9 +14,9 @@ index 0000000..4c84b61
 +../.git/annex/objects/jf/3M/MD5E-s2120211--06d1efcb05bb2c55cd039dab3fb28455.pdf/MD5E-s2120211--06d1efcb05bb2c55cd039dab3fb28455.pdf
 \ No newline at end of file
 diff --git a/midterm_project b/midterm_project
-index eeaa6be..551d2ee 160000
+index 3d1d17c..fcd2e5a 160000
 --- a/midterm_project
 +++ b/midterm_project
 @@ -1 +1 @@
--Subproject commit eeaa6be22762ea464829f57208d34e5872f043c8
-+Subproject commit 551d2ee9b41fa084e8dc27e7d554b744159baba3
+-Subproject commit 3d1d17c2c392c65a613489f6b927b4d2952d24bc
++Subproject commit fcd2e5a178cb5694d3243efcbc738433556aaac0

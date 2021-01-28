@@ -1,10 +1,14 @@
 $ datalad rerun --since= --onto= --branch=replay
+[INFO] checkout commit 3daccb9;
+[INFO] run commit c40f6b9; (extract st-bernar...)
 [INFO] Making sure inputs are available (this may take some time) 
 [INFO] == Command start (output follows) ===== 
 [INFO] == Command exit (modification check follows) ===== 
+[INFO] run commit 3c1f25b; (extract pimpernel)
 [INFO] Making sure inputs are available (this may take some time) 
 [INFO] == Command start (output follows) ===== 
 [INFO] == Command exit (modification check follows) ===== 
+[INFO] run commit 66a4725; (blur image)
 [INFO] Making sure inputs are available (this may take some time) 
 [INFO] == Command start (output follows) ===== 
 [INFO] == Command exit (modification check follows) ===== 

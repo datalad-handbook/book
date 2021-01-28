@@ -1,5 +1,5 @@
 $ datalad save -r -m "move annexed file around"
-add(ok): TLCL.pdf (file)
+add(ok): TLCL.pdf (file) [  TLCL.pdf is a git-annex symlink. Its content is not available in this repository. (Maybe TLCL.pdf was copied from another repository?)]
 save(ok): midterm_project (dataset)
 delete(ok): books/TLCL.pdf (file)
 add(ok): midterm_project (file)

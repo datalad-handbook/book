@@ -1,21 +1,23 @@
 $ datalad rerun -m "Recompute classification with more iterations" ready4analysis..SGD-100
-[INFO] run commit 7ebd32e; (Train an SGD clas...)
-[INFO] Making sure inputs are available (this may take some time) 
-unlock(ok): /home/me/usecases/ml-project/model.joblib (file)
-[INFO] == Command start (output follows) ===== 
-[INFO] == Command exit (modification check follows) ===== 
-add(ok): /home/me/usecases/ml-project/model.joblib (file)
-save(ok): /home/me/usecases/ml-project (dataset)
-[INFO] run commit 3bd8b18; (Evaluate SGD clas...)
+[INFO] run commit 158ff67; (Train an SGD clas...)
 [INFO] Making sure inputs are available (this may take some time) 
 [INFO] == Command start (output follows) ===== 
-{'accuracy': 0.7655259822560203}
+/usr/local/lib/python3.7/dist-packages/sklearn/linear_model/_stochastic_gradient.py:573: ConvergenceWarning: Maximum number of iteration reached before convergence. Consider increasing max_iter to improve the fit.
+  ConvergenceWarning)
 [INFO] == Command exit (modification check follows) ===== 
-add(ok): /home/me/usecases/ml-project/accuracy.json (file)
-add(ok): /home/me/usecases/ml-project/code/__pycache__/train.cpython-37.pyc (file)
-save(ok): /home/me/usecases/ml-project (dataset)
-[INFO] skip-or-pick commit e96943a; e96943a does not have a command; skipping or cherry picking
-run(ok): /home/me/usecases/ml-project (dataset) [e96943a does not have a command; skipping]
+[INFO] run commit 5ce0433; (Evaluate SGD clas...)
+[INFO] Making sure inputs are available (this may take some time) 
+[INFO] == Command start (output follows) ===== 
+{'accuracy': 0.7566539923954373}
+[INFO] == Command exit (modification check follows) ===== 
+[INFO] skip-or-pick commit c20502b; c20502b does not have a command; skipping or cherry picking
+unlock(ok): model.joblib (file)
+add(ok): model.joblib (file)
+save(ok): . (dataset)
+add(ok): accuracy.json (file)
+add(ok): code/__pycache__/train.cpython-37.pyc (file)
+save(ok): . (dataset)
+run(ok): /home/me/usecases/ml-project (dataset) [c20502b does not have a command; skipping]
 action summary:
   add (ok: 3)
   get (notneeded: 8)

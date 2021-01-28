@@ -1,5 +1,6 @@
 
-$ datalad rerun 14a43c23e30c9a57e09655e9b7c714ba2aa33e73
+$ datalad rerun 66a4725f38e6cede5c4eb04cac2771bb2ff179a6
+[INFO] run commit 66a4725; (blur image)
 [INFO] Making sure inputs are available (this may take some time) 
 [INFO] == Command start (output follows) ===== 
 [INFO] == Command exit (modification check follows) ===== 

@@ -1,7 +1,7 @@
 $ git log -n 1
-commit 690d26059c51a3f73fbd1a0680e3b7caf483557a
+commit d3acec9bbb11ccac39a8ef4cde71e74c5f685219
 Author: Elena Piscopia <elena@example.net>
-Date:   Mon May 18 07:49:20 2020 +0200
+Date:   Thu Jan 28 09:44:55 2021 +0100
 
     [DATALAD RUNCMD] Import stimulation events
 
@@ -9,7 +9,7 @@ Date:   Mon May 18 07:49:20 2020 +0200
     {
      "chain": [],
      "cmd": "cp '{inputs}' '{outputs}'",
-     "dsid": "126b62e8-98cb-11ea-b8a1-1371662818ca",
+     "dsid": "e1b34ab6-3bfb-4ed3-84f5-d859aa6c0523",
      "exit": 0,
      "extra_inputs": [],
      "inputs": [

@@ -1,10 +1,14 @@
 $ datalad rerun --branch verify --onto ready4analysis --since ready4analysis
+[INFO] checkout commit 2d6efbe;
+[INFO] run commit 731c69c; (FSL FEAT analysis...)
 [INFO] == Command start (output follows) =====
 [INFO] == Command exit (modification check follows) =====
+[INFO] run commit 1c9a5ad; (sub-02 1st-level GLM)
 [INFO] Making sure inputs are available (this may take some time)
 [INFO] Cloning dataset to Dataset(/home/me/usecases/repro2/glm_analysis/inputs/rawdata)
-[INFO] Attempting to clone from /home/me/usecases/repro2/glm_analysis/../localizer_scans to /home/me/usecases/repro2/glm_analysis/inputs/rawdata
+[INFO] Attempting to clone from ../localizer_scans to /home/me/usecases/repro2/glm_analysis/inputs/rawdata
 [INFO] Completed clone attempts for Dataset(/home/me/usecases/repro2/glm_analysis/inputs/rawdata)
+[INFO] Scanning for unlocked files (this may take some time)
 [INFO] == Command start (output follows) =====
 To view the FEAT progress and final report, point your web browser at /home/me/usecases/repro2/glm_analysis/sub-02/1stlvl_glm.feat/report_log.html
 [INFO] == Command exit (modification check follows) =====
@@ -53,21 +57,21 @@ add(ok): sub-02/1stlvl_glm.feat/example_func.nii.gz (file)
 add(ok): sub-02/1stlvl_glm.feat/filtered_func_data.nii.gz (file)
 add(ok): sub-02/1stlvl_glm.feat/lmax_zstat1.txt (file)
 add(ok): sub-02/1stlvl_glm.feat/logs/feat0 (file)
-add(ok): sub-02/1stlvl_glm.feat/logs/feat0_init.e299367 (file)
-add(ok): sub-02/1stlvl_glm.feat/logs/feat0_init.o299367 (file)
+add(ok): sub-02/1stlvl_glm.feat/logs/feat0_init.e360546 (file)
+add(ok): sub-02/1stlvl_glm.feat/logs/feat0_init.o360546 (file)
 add(ok): sub-02/1stlvl_glm.feat/logs/feat1 (file)
 add(ok): sub-02/1stlvl_glm.feat/logs/feat1a_init (file)
 add(ok): sub-02/1stlvl_glm.feat/logs/feat2_pre (file)
-add(ok): sub-02/1stlvl_glm.feat/logs/feat2_pre.e299450 (file)
-add(ok): sub-02/1stlvl_glm.feat/logs/feat2_pre.o299450 (file)
-add(ok): sub-02/1stlvl_glm.feat/logs/feat3_film.e299957 (file)
-add(ok): sub-02/1stlvl_glm.feat/logs/feat3_film.o299957 (file)
+add(ok): sub-02/1stlvl_glm.feat/logs/feat2_pre.e360627 (file)
+add(ok): sub-02/1stlvl_glm.feat/logs/feat2_pre.o360627 (file)
+add(ok): sub-02/1stlvl_glm.feat/logs/feat3_film.e361108 (file)
+add(ok): sub-02/1stlvl_glm.feat/logs/feat3_film.o361108 (file)
 add(ok): sub-02/1stlvl_glm.feat/logs/feat3_stats (file)
 add(ok): sub-02/1stlvl_glm.feat/logs/feat4_post (file)
-add(ok): sub-02/1stlvl_glm.feat/logs/feat4_post.e300332 (file)
-add(ok): sub-02/1stlvl_glm.feat/logs/feat4_post.o300332 (file)
-add(ok): sub-02/1stlvl_glm.feat/logs/feat5_stop.e300964 (file)
-add(ok): sub-02/1stlvl_glm.feat/logs/feat5_stop.o300964 (file)
+add(ok): sub-02/1stlvl_glm.feat/logs/feat4_post.e361887 (file)
+add(ok): sub-02/1stlvl_glm.feat/logs/feat4_post.o361887 (file)
+add(ok): sub-02/1stlvl_glm.feat/logs/feat5_stop.e362519 (file)
+add(ok): sub-02/1stlvl_glm.feat/logs/feat5_stop.o362519 (file)
 add(ok): sub-02/1stlvl_glm.feat/logs/feat9 (file)
 add(ok): sub-02/1stlvl_glm.feat/mask.nii.gz (file)
 add(ok): sub-02/1stlvl_glm.feat/mc/disp.png (file)

@@ -1,3 +1,3 @@
 $ git log -n 2 --oneline
-80dd87b save my favorite Git joke
-9099ff2 save cropped logos to Git
+b15e6bb save my favorite Git joke
+98ea633 [DATALAD] Recorded changes

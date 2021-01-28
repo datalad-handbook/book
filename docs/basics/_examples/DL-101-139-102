@@ -20,10 +20,9 @@ $ datalad push --to gin
 [INFO] Start writing objects 
 [INFO] Start resolving deltas 
 [INFO] Finished push of Dataset(/home/me/dl-101/DataLad-101)
-publish(ok): . (dataset) [refs/heads/master->gin:refs/heads/master [new branch]]
 copy(ok): books/TLCL.pdf (file) [to gin...]
 copy(ok): books/bash_guide.pdf (file) [to gin...]
 copy(ok): books/byte-of-python.pdf (file) [to gin...]
 copy(ok): books/progit.pdf (file) [to gin...]
-copy(ok): flowers.jpg (file) [to gin...]
-publish(ok): . (dataset) [refs/heads/git-annex->gin:refs/heads/git-annex fa73e9b..adc3814]
+publish(ok): . (dataset) [refs/heads/git-annex->gin:refs/heads/git-annex 303c38d..9428ba8]
+publish(ok): . (dataset) [refs/heads/master->gin:refs/heads/master [new branch]]

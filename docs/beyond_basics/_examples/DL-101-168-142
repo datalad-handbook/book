@@ -3925,6 +3925,5 @@ drop(ok): /home/me/DVCvsDL/DVC-DataLad/data/raw/val/n03888257/n03888257_9770.JPE
 drop(ok): /home/me/DVCvsDL/DVC-DataLad/data/raw/val/n03888257/n03888257_9771.JPEG (file)
 drop(ok): /home/me/DVCvsDL/DVC-DataLad/data/raw/val/n03888257/n03888257_9812.JPEG (file)
 drop(ok): /home/me/DVCvsDL/DVC-DataLad/data/raw/val/n03888257/n03888257_9932.JPEG (file)
-drop(ok): /home/me/DVCvsDL/DVC-DataLad/data/raw/val (directory)
 action summary:
-  drop (ok: 3926)
+  drop (ok: 3925)

@@ -1,3 +1,3 @@
 $ git log -n 2 --oneline
-9099ff2 save cropped logos to Git
-a0c2284 move book back from midterm_project
+98ea633 [DATALAD] Recorded changes
+5667408 save cropped logos to Git

@@ -1,7 +1,7 @@
 $ git log -n 1
-commit a2f447edfe927f101c6c6324da414c3f4c2eba35
+commit 0245a911a7b1b117231ac0781893e0afcd108eb7
 Author: Elena Piscopia <elena@example.net>
-Date:   Mon May 18 07:49:25 2020 +0200
+Date:   Thu Jan 28 09:45:01 2021 +0100
 
     [DATALAD] Download URLs
 

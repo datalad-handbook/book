@@ -1,5 +1,5 @@
 
-$ git cat-file --textconv 8827a33c9b577832cf0dc6bc50c5804b36f28640:notes.txt
+$ git cat-file --textconv d90257ed4a1f4336c245bc6539e19e837683d154:notes.txt
 One can create a new dataset with 'datalad create [--description] PATH'.
 The dataset is created empty
 
@@ -32,3 +32,9 @@ files will be retrieved prior to the command execution. Any content that is modi
 produced by the command should be specified with an -o/--output flag. Upon a run or rerun
 of the command, the contents of these files will get unlocked so that they can be modified.
 
+Important! If the dataset is not "clean" (a datalad status output is empty),
+datalad run will not work - you will have to save modifications present in your
+dataset.
+A suboptimal alternative is the --explicit flag,
+used to record only those changes done
+to the files listed with --output flags.

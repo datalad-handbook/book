@@ -1,12 +1,12 @@
 $ git log -2
-commit 80dd87b4c8a92a7ba0f2820cccca4ea7b4c98aaf
+commit b15e6bbddfdf37e6ae43c5431b64cad390f4a40b
 Author: Elena Piscopia <elena@example.net>
-Date:   Fri Dec 18 15:15:28 2020 +0100
+Date:   Thu Jan 28 09:02:28 2021 +0100
 
     save my favorite Git joke
 
-commit 9099ff224d071c7b03f7e8aa7baf499a356e2ee9
+commit 98ea633d47be302d2abfcdfd4e244c48669ddaa6
 Author: Elena Piscopia <elena@example.net>
-Date:   Fri Dec 18 15:15:09 2020 +0100
+Date:   Thu Jan 28 09:02:20 2021 +0100
 
-    save cropped logos to Git
+    [DATALAD] Recorded changes

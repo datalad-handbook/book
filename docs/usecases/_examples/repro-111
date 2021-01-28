@@ -1,4 +1,5 @@
 $ datalad rerun
+[INFO] run commit 3418f69; (run brain extract...)
 [INFO] Making sure inputs are available (this may take some time) 
 [INFO] == Command start (output follows) ===== 
 action summary:
@@ -18,4 +19,4 @@ action summary:
   add (ok: 4)
   get (notneeded: 4)
   save (notneeded: 3)
-  unlock (notneeded: 4, ok: 4)
+  unlock (ok: 4)

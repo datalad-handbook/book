@@ -9,7 +9,6 @@ $ datalad download-url \
 [INFO] Initiating special remote datalad-archives 
 [INFO] Finished adding /home/me/usecases/imagenette/imagenette2-160.tgz: Files processed: 13394, +annex: 13394 
 download_url(ok): /home/me/usecases/imagenette/imagenette2-160.tgz (file)
-add(ok): imagenette2-160.tgz (file)
 save(ok): . (dataset)
 action summary:
   add (ok: 1)

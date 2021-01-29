@@ -1,4 +1,4 @@
 $ git log --oneline HEAD~3..HEAD
-3c1f25b [DATALAD RUNCMD] extract pimpernel
-c40f6b9 [DATALAD RUNCMD] extract st-bernard lily
-3daccb9 Added flower mosaic from wikimedia
+ee60856 [DATALAD RUNCMD] extract pimpernel
+604e0ec [DATALAD RUNCMD] extract st-bernard lily
+8abceb1 Added flower mosaic from wikimedia

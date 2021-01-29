@@ -1,10 +1,10 @@
 
-$ datalad rerun 66a4725f38e6cede5c4eb04cac2771bb2ff179a6
-[INFO] run commit 66a4725; (blur image)
+$ datalad rerun 548ba71b3f319d7f88b85ba899081245c567b31c
+[INFO] run commit 548ba71; (blur image)
 [INFO] Making sure inputs are available (this may take some time) 
+unlock(ok): st-bernard-displaced.jpg (file)
 [INFO] == Command start (output follows) ===== 
 [INFO] == Command exit (modification check follows) ===== 
-unlock(ok): st-bernard-displaced.jpg (file)
 add(ok): st-bernard-displaced.jpg (file)
 save(ok): . (dataset)
 action summary:

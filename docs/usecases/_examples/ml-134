@@ -1,10 +1,10 @@
 $ git diff master -- accuracy.json
 diff --git a/accuracy.json b/accuracy.json
-index 0690de4..cdf07fd 100644
+index 8e62cc5..41634f2 100644
 --- a/accuracy.json
 +++ b/accuracy.json
 @@ -1 +1 @@
--{"accuracy": 0.7566539923954373}
+-{"accuracy": 0.7477820025348543}
 \ No newline at end of file
-+{"accuracy": 0.8098859315589354}
++{"accuracy": 0.8086185044359949}
 \ No newline at end of file

@@ -92,7 +92,7 @@ The Imagenette dataset can be downloaded as an archive from Amazon, and the :com
    :language: console
    :cast: usecase_ml
    :workdir: usecases
-   :realcommand: cd imagenette && datalad download-url --archive --message "Download Imagenette dataset" 'https://s3.amazonaws.com/fast-ai-imageclas/imagenette2-160.tgz' && sleep 15
+   :realcommand: cd imagenette && datalad download-url --archive --message "Download Imagenette dataset" 'https://s3.amazonaws.com/fast-ai-imageclas/imagenette2-160.tgz' | grep -v '^\(copy\|get\|drop\|add\|delete\)(ok):.*(file)$' && sleep 15
 
    $ cd imagenette
    # 0.12.2 <= datalad < 0.13.4  needs the configuration option -c datalad.runtime.use-patool=1 to handle .tgz
@@ -296,7 +296,7 @@ To capture all provenance and perform the computation in the correct software en
    :language: console
    :cast: usecase_ml
    :workdir: usecases/ml-project
-   :lines: 1-10, 2715-2723
+   :realcommand: datalad containers-run -n software -m "Prepare the data for categories golf balls and parachutes" --input 'data/raw/imagenette2-160/train/n03445777' --input 'data/raw/imagenette2-160/val/n03445777' --input 'data/raw/imagenette2-160/train/n03888257'     --input 'data/raw/imagenette2-160/val/n03888257' --output 'data/train.csv' --output 'data/test.csv' "python3 code/prepare.py" | grep -v '^\(copy\|get\|drop\|add\|delete\)(ok):.*(file)'
 
    $ datalad containers-run -n software \
      -m "Prepare the data for categories golf balls and parachutes" \
@@ -442,6 +442,7 @@ Afterwards, we can train the first model:
    :language: console
    :cast: usecase_ml
    :workdir: usecases/ml-project
+   :realcommand: datalad containers-run -n software -m "Train an SGD classifier on the data" --input 'data/raw/imagenette2-160/train/n03445777' --input 'data/raw/imagenette2-160/train/n03888257' --output 'model.joblib'  "python3 code/train.py" | grep -v '^\(copy\|get\|drop\|add\|delete\)(ok):.*(file)$'
 
    $ datalad containers-run -n software \
      -m "Train an SGD classifier on the data" \
@@ -456,6 +457,7 @@ And finally, we're ready to find out how well the model did and run the last scr
    :language: console
    :cast: usecase_ml
    :workdir: usecases/ml-project
+   :realcommand:  datalad containers-run -n software -m "Evaluate SGD classifier on test data" --input 'data/raw/imagenette2-160/val/n03445777' --input 'data/raw/imagenette2-160/val/n03888257' --output 'accuracy.json' "python3 code/evaluate.py" | grep -v '^\(copy\|get\|drop\|add\|delete\)(ok):.*(file)$'
 
    $ datalad containers-run -n software \
      -m "Evaluate SGD classifier on test data" \

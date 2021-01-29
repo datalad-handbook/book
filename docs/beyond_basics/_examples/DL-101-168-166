@@ -2,7 +2,7 @@
 $ dvc metrics show -T
 workspace:
 	metrics/accuracy.json:
-		accuracy: 0.8111533586818758
+		accuracy: 0.8073510773130546
 random-forest:
 	metrics/accuracy.json:
 		accuracy: 0.8187579214195184

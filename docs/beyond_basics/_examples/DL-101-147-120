@@ -1,7 +1,7 @@
 
-$ datalad clone ria+file:///home/me/myriastore#f419f95b-a70d-48ee-9a84-7133bc178fb4 myclone
+$ datalad clone ria+file:///home/me/myriastore#c8774a5b-c857-4751-bce4-e58c6be73349 myclone
 [INFO] Cloning dataset to Dataset(/home/me/dl-101/myclone) 
-[INFO] Attempting to clone from file:///home/me/myriastore/f41/9f95b-a70d-48ee-9a84-7133bc178fb4 to /home/me/dl-101/myclone
+[INFO] Attempting to clone from file:///home/me/myriastore/c87/74a5b-c857-4751-bce4-e58c6be73349 to /home/me/dl-101/myclone
 [INFO] Completed clone attempts for Dataset(/home/me/dl-101/myclone) 
 [INFO] Scanning for unlocked files (this may take some time)
 [INFO] Configure additional publication dependency on "ria-backup-storage" 

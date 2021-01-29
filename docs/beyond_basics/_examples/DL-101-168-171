@@ -11,5 +11,5 @@ add(ok): data/prepared/train.csv (file)
 save(ok): . (dataset)
 action summary:
   add (ok: 2)
-  get (notneeded: 2)
+  get (notneeded: 1, ok: 3926)
   save (ok: 1)

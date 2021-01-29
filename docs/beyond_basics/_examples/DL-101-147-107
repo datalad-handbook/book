@@ -4,6 +4,10 @@ $ datalad push --to ria-backup
 [INFO] Determine push target
 [INFO] Push refspecs
 [INFO] Transfer data
+copy(ok): books/TLCL.pdf (file) [to ria-backup-storage...]
+copy(ok): books/bash_guide.pdf (file) [to ria-backup-storage...]
+copy(ok): books/byte-of-python.pdf (file) [to ria-backup-storage...]
+copy(ok): books/progit.pdf (file) [to ria-backup-storage...]
 [INFO] Transfer data
 [INFO] Update availability information
 [INFO] Start enumerating objects 
@@ -11,11 +15,7 @@ $ datalad push --to ria-backup
 [INFO] Start compressing objects 
 [INFO] Start writing objects 
 [INFO] Start resolving deltas 
-[INFO] Finished push of Dataset(/home/me/dl-101/DataLad-101)
-[INFO] Finished push of Dataset(/home/me/dl-101/DataLad-101)
-copy(ok): books/TLCL.pdf (file) [to ria-backup-storage...]
-copy(ok): books/bash_guide.pdf (file) [to ria-backup-storage...]
-copy(ok): books/byte-of-python.pdf (file) [to ria-backup-storage...]
-copy(ok): books/progit.pdf (file) [to ria-backup-storage...]
 publish(ok): . (dataset) [refs/heads/master->ria-backup:refs/heads/master [new branch]]
 publish(ok): . (dataset) [refs/heads/git-annex->ria-backup:refs/heads/git-annex [new branch]]
+[INFO] Finished push of Dataset(/home/me/dl-101/DataLad-101)
+[INFO] Finished push of Dataset(/home/me/dl-101/DataLad-101)

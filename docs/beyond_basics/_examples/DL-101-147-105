@@ -1,8 +1,7 @@
 $ tree /home/me/myriastore
 /home/me/myriastore
-├── error_logs
-├── f41
-│   └── 9f95b-a70d-48ee-9a84-7133bc178fb4
+├── c87
+│   └── 74a5b-c857-4751-bce4-e58c6be73349
 │       ├── annex
 │       │   └── objects
 │       ├── archives
@@ -33,6 +32,7 @@ $ tree /home/me/myriastore
 │       │   ├── heads
 │       │   └── tags
 │       └── ria-layout-version
+├── error_logs
 └── ria-layout-version
 
 15 directories, 19 files

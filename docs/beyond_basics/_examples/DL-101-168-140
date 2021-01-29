@@ -1,6 +1,6 @@
 ### DVC-DataLad
 $ cd DVC-DataLad
-$ datalad create-sibling --name my-sibling ../datalad-sibling
+$ datalad create-sibling --name mysibling ../datalad-sibling
 [INFO] Considering to create a target dataset /home/me/DVCvsDL/DVC-DataLad at /home/me/DVCvsDL/datalad-sibling of localhost 
 [INFO] Fetching updates for Dataset(/home/me/DVCvsDL/DVC-DataLad) 
 [INFO] Start enumerating objects 

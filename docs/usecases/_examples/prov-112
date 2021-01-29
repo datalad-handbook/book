@@ -1,17 +1,21 @@
 $ datalad rerun --since= --onto= --branch=replay
-[INFO] Making sure inputs are available (this may take some time) 
-[INFO] == Command start (output follows) ===== 
-[INFO] == Command exit (modification check follows) ===== 
-[INFO] Making sure inputs are available (this may take some time) 
-[INFO] == Command start (output follows) ===== 
-[INFO] == Command exit (modification check follows) ===== 
+[INFO] checkout commit 8abceb1;
+[INFO] run commit 604e0ec; (extract st-bernar...)
 [INFO] Making sure inputs are available (this may take some time) 
 [INFO] == Command start (output follows) ===== 
 [INFO] == Command exit (modification check follows) ===== 
 add(ok): st-bernard.jpg (file)
 save(ok): . (dataset)
+[INFO] run commit ee60856; (extract pimpernel)
+[INFO] Making sure inputs are available (this may take some time) 
+[INFO] == Command start (output follows) ===== 
+[INFO] == Command exit (modification check follows) ===== 
 add(ok): pimpernel.jpg (file)
 save(ok): . (dataset)
+[INFO] run commit 548ba71; (blur image)
+[INFO] Making sure inputs are available (this may take some time) 
+[INFO] == Command start (output follows) ===== 
+[INFO] == Command exit (modification check follows) ===== 
 add(ok): st-bernard-displaced.jpg (file)
 save(ok): . (dataset)
 action summary:

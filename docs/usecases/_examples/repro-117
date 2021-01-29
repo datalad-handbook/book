@@ -1,26 +1,27 @@
 $ datalad rerun
+[INFO] run commit e396a25; (run brain extract...)
 [INFO] Making sure inputs are available (this may take some time) 
 [INFO] Cloning dataset to Dataset(/home/me/usecases/repro/demo/inputs/ds000001)
+[INFO] Attempting to clone from http://datasets.datalad.org/openfmri/ds000001 to /home/me/usecases/repro/demo/inputs/ds000001
 [INFO] Attempting to clone from http://datasets.datalad.org/openfmri/ds000001/.git to /home/me/usecases/repro/demo/inputs/ds000001
+[INFO] Start enumerating objects
 [INFO] Start counting objects
 [INFO] Start compressing objects
 [INFO] Start receiving objects
 [INFO] Start resolving deltas
 [INFO] Completed clone attempts for Dataset(/home/me/usecases/repro/demo/inputs/ds000001)
+[INFO] Scanning for unlocked files (this may take some time)
+install(ok): inputs/ds000001 (dataset) [Installed subdataset in order to get /home/me/usecases/repro/demo/inputs/ds000001]
 [INFO] Cloning dataset to Dataset(/home/me/usecases/repro/demo/inputs/ds000002)
+[INFO] Attempting to clone from http://datasets.datalad.org/openfmri/ds000002 to /home/me/usecases/repro/demo/inputs/ds000002
 [INFO] Attempting to clone from http://datasets.datalad.org/openfmri/ds000002/.git to /home/me/usecases/repro/demo/inputs/ds000002
+[INFO] Start enumerating objects
 [INFO] Start counting objects
 [INFO] Start compressing objects
 [INFO] Start receiving objects
 [INFO] Start resolving deltas
 [INFO] Completed clone attempts for Dataset(/home/me/usecases/repro/demo/inputs/ds000002)
-[INFO] == Command start (output follows) ===== 
-action summary:
-  get (notneeded: 4)
-Processing inputs/ds000001/sub-01/anat/sub-01_T1w.nii.gz
-Processing inputs/ds000002/sub-01/anat/sub-01_T1w.nii.gz
-[INFO] == Command exit (modification check follows) ===== 
-install(ok): inputs/ds000001 (dataset) [Installed subdataset in order to get /home/me/usecases/repro/demo/inputs/ds000001]
+[INFO] Scanning for unlocked files (this may take some time)
 install(ok): inputs/ds000002 (dataset) [Installed subdataset in order to get /home/me/usecases/repro/demo/inputs/ds000002]
 get(ok): inputs/ds000001/sub-01/anat/sub-01_T1w.nii.gz (file) [from web...]
 get(ok): inputs/ds000002/sub-01/anat/sub-01_T1w.nii.gz (file) [from web...]
@@ -28,6 +29,12 @@ unlock(ok): sub-001/anat.nii.gz (file)
 unlock(ok): sub-001/anat_mask.nii.gz (file)
 unlock(ok): sub-002/anat.nii.gz (file)
 unlock(ok): sub-002/anat_mask.nii.gz (file)
+[INFO] == Command start (output follows) =====
+action summary:
+  get (notneeded: 4)
+Processing inputs/ds000001/sub-01/anat/sub-01_T1w.nii.gz
+Processing inputs/ds000002/sub-01/anat/sub-01_T1w.nii.gz
+[INFO] == Command exit (modification check follows) =====
 add(ok): sub-001/anat.nii.gz (file)
 add(ok): sub-001/anat_mask.nii.gz (file)
 add(ok): sub-002/anat.nii.gz (file)
@@ -37,4 +44,4 @@ action summary:
   get (notneeded: 2, ok: 2)
   install (ok: 2)
   save (notneeded: 3)
-  unlock (notneeded: 4, ok: 4)
+  unlock (ok: 4)

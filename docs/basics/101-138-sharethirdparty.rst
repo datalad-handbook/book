@@ -34,6 +34,8 @@ However, not always do two or more parties share the same server, have access to
 the same systems, or share something that can be recomputed quickly, but need to
 actually share datasets with data, including the annexed contents.
 
+.. figure:: ../artwork/src/publishing/startingpoint.svg
+
 Leveraging third party infrastructure
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -68,6 +70,8 @@ service of your choice and *publish* the annexed contents to it. Afterwards,
 the published dataset (e.g., via :term:`GitHub` or :term:`GitLab`) stores the
 information about where to obtain annexed file contents from such that
 :command:`datalad get` works.
+
+.. figure:: ../artwork/src/publishing/publishing_network_publishparts2.svg
 
 This tutorial showcases how this can be done, and shows the basics of how
 datasets can be shared via a third party infrastructure.

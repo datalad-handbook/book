@@ -1,4 +1,4 @@
 $ git log -n 3 --oneline
-5814941 [DATALAD] Recorded changes
-9099ff2 save cropped logos to Git
-a0c2284 move book back from midterm_project
+41548e1 [DATALAD] Recorded changes
+703eb7b remove obsolete subds
+79e0595 [DATALAD] modified subdataset properties

@@ -12,6 +12,8 @@ and share your DataLad datasets [#f1]_. It allows to share datasets and their
 contents with selected collaborators or making them publicly and anonymously
 available.
 
+.. figure:: ../artwork/src/publishing/publishing_network_publishgin.svg
+
 .. note::
 
    If you reached this section to find out how to access a DataLad dataset

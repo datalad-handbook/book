@@ -297,7 +297,7 @@ This move needs to be saved.
 .. runrecord:: _examples/DL-101-168-115
    :workdir: DVCvsDL/DVC-DataLad
    :language: console
-   :lines: 1-3, 26792-26796
+   :realcommand: mv data/raw/imagenette2-160/* data/raw/ && rmdir data/raw/imagenette2-160 && datalad save -m "Move data into preferred locations" | grep -v '^\(copy\|get\|drop\|add\|delete\)(ok):.*(file)'
 
    ### DVC-DataLad
    $ mv data/raw/imagenette2-160/* data/raw/ && rmdir data/raw/imagenette2-160
@@ -454,7 +454,7 @@ To demonstrate this, let's look at a repository with an empty cache by cloning t
 .. runrecord:: _examples/DL-101-168-129
    :workdir: DVCvsDL/DVC
    :language: console
-   :realcommand: git clone /home/me/pushes/data-version-control DVC-2
+   :realcommand: cd ../ && git clone /home/me/pushes/data-version-control DVC-2
 
    ### DVC
    # clone the repo into a new location for demonstration purposes:
@@ -520,7 +520,7 @@ Currently, the dataset can thus be shared via :term:`GitHub` or similar hosting 
    .. runrecord:: _examples/DL-101-168-132
       :workdir: DVCvsDL/DVC-DataLad-2
       :language: console
-      :lines: 1-4, 3930-3932
+      :realcommand: datalad get data/raw/val | grep -v '^\(copy\|get\|drop\|add\|delete\)(ok):.*(file)'
 
       ### DVC-DataLad
       $ datalad get data/raw/val
@@ -542,7 +542,7 @@ First, we need to create a local sibling:
 
    ### DVC-DataLad
    $ cd DVC-DataLad
-   $ datalad create-sibling --name my-sibling ../datalad-sibling
+   $ datalad create-sibling --name mysibling ../datalad-sibling
 
 **Step 2: Push the data**
 
@@ -551,9 +551,10 @@ Afterwards, the dataset contents can be pushed using :command:`datalad push`.
 .. runrecord:: _examples/DL-101-168-141
    :workdir: DVCvsDL/DVC-DataLad
    :language: console
+   :realcommand: datalad push --to mysibling | grep -v '^\(copy\|get\|drop\|add\|delete\)(ok):.*(file)'
 
    ### DVC-DataLad
-   $ datalad push --to my-sibling
+   $ datalad push --to mysibling
 
 This pushed all of the annexed data and the Git history of the dataset.
 
@@ -564,7 +565,7 @@ The data in the dataset (complete directories or individual files) can be droppe
 .. runrecord:: _examples/DL-101-168-142
    :workdir: DVCvsDL/DVC-DataLad
    :language: console
-   :lines: 1-2, 3928-3930
+   :realcommand: datalad drop data/raw/val | grep -v '^\(copy\|get\|drop\|add\|delete\)(ok):.*(file)'
 
    ### DVC-DataLad
    $ datalad drop data/raw/val
@@ -572,7 +573,7 @@ The data in the dataset (complete directories or individual files) can be droppe
 .. runrecord:: _examples/DL-101-168-143
    :workdir: DVCvsDL/DVC-DataLad
    :language: console
-   :lines: 1-2, 3928-3930
+   :realcommand:  datalad get data/raw/val | grep -v '^\(copy\|get\|drop\|add\|delete\)(ok):.*(file)'
 
    ### DVC-DataLad
    $ datalad get data/raw/val
@@ -871,6 +872,7 @@ Instead of creating a pipeline stage and giving it a name, we attach a meaningfu
 .. runrecord:: _examples/DL-101-168-171
    :workdir: DVCvsDL/DVC-DataLad
    :language: console
+   :realcommand: datalad run --message "Prepare the train and testing data" --input "data/raw/*" --output "data/prepared/*" python code/prepare.py | grep -v '^\(copy\|get\|drop\|add\|delete\)(ok):.*(file)'
 
    ### DVC-DataLad
    $ datalad run --message "Prepare the train and testing data" \

@@ -1,2 +1,28 @@
-$ git reset --hard HEAD~2
-HEAD is now at 98ea633 [DATALAD] Recorded changes
+$ cat .git/config
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+	editor = nano
+[annex]
+	uuid = 95c315c1-f3a5-411a-ad87-e594b92bf9da
+	version = 8
+	backends = MD5E
+[filter "annex"]
+	smudge = git-annex smudge -- %f
+	clean = git-annex smudge --clean -- %f
+[submodule "recordings/longnow"]
+	active = true
+	url = https://github.com/datalad-datasets/longnow-podcasts.git
+[remote "roommate"]
+	url = ../mock_user/onemoredir/DataLad-101
+	fetch = +refs/heads/*:refs/remotes/roommate/*
+	annex-uuid = c9dab8de-7445-4c0b-94b1-dde183b91035
+	annex-ignore = false
+[submodule "midterm_project"]
+	active = true
+	url = ./midterm_project
+[submodule "longnow"]
+	active = true
+	url = https://github.com/datalad-datasets/longnow-podcasts.git

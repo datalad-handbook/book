@@ -1,0 +1,7 @@
+$ datalad save --to-git -m "save cropped logos to Git" recordings/*jpg
+add(ok): recordings/interval_logo_small.jpg (file)
+add(ok): recordings/salt_logo_small.jpg (file)
+save(ok): . (dataset)
+action summary:
+  add (ok: 2)
+  save (ok: 1)

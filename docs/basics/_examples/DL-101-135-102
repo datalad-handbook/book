@@ -11,7 +11,7 @@ $ datalad wtf
   - full_version: 0.14.0rc1.dev10-g1b221
   - version: 0.14.0rc1.dev10
 ## dataset 
-  - id: f419f95b-a70d-48ee-9a84-7133bc178fb4
+  - id: c8774a5b-c857-4751-bce4-e58c6be73349
   - metadata: <SENSITIVE, report disabled by configuration>
   - path: /home/me/dl-101/DataLad-101
   - repo: AnnexRepo
@@ -26,6 +26,8 @@ $ datalad wtf
   - cmd:system-git: 2.29.2
   - cmd:system-ssh: 8.4p1
   - exifread: 2.3.2
+  - git: 3.1.12
+  - gitdb: 4.0.5
   - humanize: 3.2.0
   - iso8601: 0.1.13
   - keyring: 21.8.0

@@ -1,2 +1,3 @@
-$ git reset --hard HEAD~2
-HEAD is now at fcd2e5a move book back from midterm_project
+$ cp books/TLCL.pdf copyofTLCL.pdf
+$ datalad status
+untracked: copyofTLCL.pdf (file)

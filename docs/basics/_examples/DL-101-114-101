@@ -1,24 +1,24 @@
 $ git log --reverse --oneline
-60102c9 [DATALAD] new dataset
-da0227b Instruct annex to add text files to Git
-94be96c add books on Python and Unix to read later
-76126ea add reference book about git
-7071805 add beginners guide on bash
-d7a844f Add notes on datalad create
-4172bf6 add note on datalad save
-e705f5a [DATALAD] Recorded changes
-aaa0cdb [DATALAD] modified subdataset properties
-d43485e Add note on datalad clone
-c7e5fee Add short script to write a list of podcast speakers and titles
-4b746d3 [DATALAD RUNCMD] create a list of podcast titles
-9593d4a BF: list both directories content
-2016cdf [DATALAD RUNCMD] create a list of podcast titles
-07f2003 add note datalad and git diff
-6c95db4 add note on basic datalad run and datalad rerun
-da845e9 [DATALAD RUNCMD] convert -resize 400x400 recordings/longn...
-d25b49d resized picture by hand
-be2844d [DATALAD RUNCMD] convert -resize 450x450 recordings/longn...
-6a10caa add additional notes on run options
-6da050f [DATALAD RUNCMD] Resize logo for slides
-a9751b0 [DATALAD RUNCMD] Resize logo for slides
-d90257e add note on clean datasets
+a82a9ce [DATALAD] new dataset
+dcc11c1 Instruct annex to add text files to Git
+4e85396 add books on Python and Unix to read later
+84674e3 add reference book about git
+d841737 add beginners guide on bash
+708e6f8 Add notes on datalad create
+b10d56a add note on datalad save
+8dca46c [DATALAD] Recorded changes
+4b7923f [DATALAD] modified subdataset properties
+a6bb5da Add note on datalad clone
+15398ed Add short script to write a list of podcast speakers and titles
+ee3c90f [DATALAD RUNCMD] create a list of podcast titles
+fa3e98a BF: list both directories content
+b5919c5 [DATALAD RUNCMD] create a list of podcast titles
+b6566aa add note datalad and git diff
+27a3df9 add note on basic datalad run and datalad rerun
+cc0854a [DATALAD RUNCMD] convert -resize 400x400 recordings/longn...
+5db13d3 resized picture by hand
+d5b8506 [DATALAD RUNCMD] convert -resize 450x450 recordings/longn...
+5adbb4b add additional notes on run options
+3211533 [DATALAD RUNCMD] Resize logo for slides
+9518f3b [DATALAD RUNCMD] Resize logo for slides
+eb8ce32 add note on clean datasets

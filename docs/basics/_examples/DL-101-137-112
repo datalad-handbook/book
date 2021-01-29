@@ -1,12 +1,12 @@
 $ git log -2
-commit b15e6bbddfdf37e6ae43c5431b64cad390f4a40b
+commit f58dfd70c516b953c9490f121991bba28b196756
 Author: Elena Piscopia <elena@example.net>
-Date:   Thu Jan 28 09:02:28 2021 +0100
+Date:   Fri Jan 29 08:41:16 2021 +0100
 
     save my favorite Git joke
 
-commit 98ea633d47be302d2abfcdfd4e244c48669ddaa6
+commit 703eb7beac9276c8021a092cddd8d1a6a0a17cb3
 Author: Elena Piscopia <elena@example.net>
-Date:   Thu Jan 28 09:02:20 2021 +0100
+Date:   Fri Jan 29 08:41:13 2021 +0100
 
-    [DATALAD] Recorded changes
+    remove obsolete subds

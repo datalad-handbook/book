@@ -1,5 +1,0 @@
-$ cd midterm_project
-$ git annex whereis TLCL.pdf
-whereis TLCL.pdf (1 copy) 
-	d3e917a3-4121-446d-a2d6-7eb7e15ae054 -- me@muninn:~/dl-101/DataLad-101/midterm_project [here]
-ok

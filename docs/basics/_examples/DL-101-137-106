@@ -1,4 +1,4 @@
 $ git log -n 3 --oneline
-5f963fd [DATALAD] Recorded changes
-98ea633 [DATALAD] Recorded changes
-5667408 save cropped logos to Git
+41548e1 [DATALAD] Recorded changes
+703eb7b remove obsolete subds
+79e0595 [DATALAD] modified subdataset properties

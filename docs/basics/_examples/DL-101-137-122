@@ -1,7 +1,7 @@
 
-$ git checkout d90257ed4a1f4336c245bc6539e19e837683d154
+$ git checkout bb90383fb200b56ac382f5f5b666e4f465d2d8a8
 warning: unable to rmdir 'midterm_project': Directory not empty
-Note: switching to 'd90257ed4a1f4336c245bc6539e19e837683d154'.
+Note: switching to 'bb90383fb200b56ac382f5f5b666e4f465d2d8a8'.
 
 You are in 'detached HEAD' state. You can look around, make experimental
 changes and commit them, and you can discard any commits you make in this
@@ -18,4 +18,4 @@ Or undo this operation with:
 
 Turn off this advice by setting config variable advice.detachedHead to false
 
-HEAD is now at d90257e add note on clean datasets
+HEAD is now at bb90383 add note on git annex whereis

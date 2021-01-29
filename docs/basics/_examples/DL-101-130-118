@@ -2,13 +2,13 @@ $ datalad push --to github
 [INFO] Determine push target
 [INFO] Push refspecs
 [INFO] Transfer data
+copy(ok): pairwise_relationships.png (file) [to github...]
+copy(ok): prediction_report.csv (file) [to github...]
 [INFO] Update availability information
 [INFO] Start enumerating objects 
 [INFO] Start counting objects 
 [INFO] Start compressing objects 
 [INFO] Start writing objects 
-[INFO] Finished push of Dataset(/home/me/dl-101/DataLad-101/midterm_project)
-copy(ok): pairwise_relationships.png (file) [to github...]
-copy(ok): prediction_report.csv (file) [to github...]
-publish(ok): . (dataset) [refs/heads/git-annex->github:refs/heads/git-annex 51f2cb3..dfa3924]
+publish(ok): . (dataset) [refs/heads/git-annex->github:refs/heads/git-annex a277b87..b96abd3]
 publish(ok): . (dataset) [refs/heads/master->github:refs/heads/master [new branch]]
+[INFO] Finished push of Dataset(/home/me/dl-101/DataLad-101/midterm_project)

@@ -32,10 +32,18 @@ Alternatively, try to identify with one of several user-types in this
 
 .. important::
 
-   The handbook is currently in beta stage.
-   If you would be willing to provide feedback on its contents, please
-   `get in touch <https://github.com/datalad-handbook/book/issues/new>`_.
-
+   **PLEASE NOTE:** This is an archived version of the DataLad handbook
+   corresponding to its **0.13 version** (June 2020-February 2021), which in turn was
+   corresponding to the 0.13.x series of DataLad.
+   This handbook version is **not** a complete documentation of all
+   functionality in DataLad 0.13, but the state the handbook was in at this
+   time. Find the latest released version of the handbook at
+   `handbook.datalad.org/en/stable <http://handbook.datalad.org/en/stable/>`_,
+   and its most recent version (including general fixes, visual improvements,
+   and additions of existing commands or workflows based on existing functionality) at
+   `handbook.datalad.org/en/latest <http://handbook.datalad.org/en/latest/>`_.
+   The `CHANGELOG <https://github.com/datalad-handbook/book/blob/master/CHANGELOG.md>`_
+   summarizes the contents and additions that happened between Handbook versions.
 
 .. image:: artwork/src/enter.svg
    :width: 60%

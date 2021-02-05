@@ -402,6 +402,35 @@ because remotes are not available:
     paste some "please make these remotes available output"
 
 
+asyncio errors at DataLad import
+""""""""""""""""""""""""""""""""
+
+While we weren't yet able to pinpoint the exact cause or fix, we have observed errors of the `asyncio <https://docs.python.org/3/library/asyncio.html>`_ library in IPython sessions and Jupyter Notebooks after an import of DataLad that read along the lines of
+
+.. code-block:: bash
+
+   RuntimeError: Cannot run the event loop while another loop is running
+
+or
+
+.. code-block:: bash
+
+   RuntimeError: There is no current event loop in thread 'MainThread'.
+
+When you encounter these errors, please make sure to upgrade to the most recent version of DataLad.
+If the issue persists, although it is not a proper fix, a workaround exists for Jupyter.
+It requires the Python package `nest-asyncio <https://pypi.org/project/nest-asyncio/>`_, and an import of this package prior to importing DataLad.
+
+.. code-block:: bash
+
+   >>> import nest_asyncio
+   >>> nest_asyncio.apply()
+
+   >>> import datalad
+
+
+
+
 
 .. todo::
 

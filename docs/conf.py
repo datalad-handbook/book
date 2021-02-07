@@ -282,6 +282,19 @@ latex_elements = {
     'papersize': 'a4paper',
     'pointsize': '11pt',
     'figure_align': 'H',
+    'sphinxsetup': r"""
+VerbatimColor={named}{OldLace},%
+TitleColor={named}{DarkGoldenrod},%
+hintBorderColor={named}{LightCoral},%
+attentionborder=3pt,%
+attentionBorderColor={named}{Crimson},%
+attentionBgColor={named}{FloralWhite},%
+noteborder=2pt,%
+noteBorderColor={named}{Orange},%
+cautionborder=3pt,%
+cautionBorderColor={named}{Cyan},%
+cautionBgColor={named}{LightCyan}%
+""",
     'maketitle': r"""
 \begin{titlepage}
 \raggedleft

@@ -283,7 +283,9 @@ latex_elements = {
     'pointsize': '11pt',
     'figure_align': 'H',
     'sphinxsetup': r"""
-VerbatimColor={named}{OldLace},%
+verbatimwithframe=false,%
+VerbatimColor={rgb}{1,1,1},%
+VerbatimHighlightColor={named}{OldLace},%
 TitleColor={named}{DarkGoldenrod},%
 hintBorderColor={named}{LightCoral},%
 attentionborder=3pt,%

@@ -21,6 +21,7 @@ to see answered here, please
 `get in touch <https://github.com/datalad-handbook/book/issues/new>`_.
 
 .. figure:: ../artwork/src/gists.svg
+   :width: 50%
 
 
 .. _parallelize:

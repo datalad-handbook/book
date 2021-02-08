@@ -239,6 +239,7 @@ with the HEAD pointer.
    in the given branch.
 
    .. figure:: ../artwork/src/git_branch_HEAD.png
+      :width: 50%
 
    Using ``HEAD``, you can identify the most recent commit, or count backwards
    starting from the most recent commit. ``HEAD~1`` is the ancestor of the most

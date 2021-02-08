@@ -9,7 +9,7 @@ By attaching *costs* to subdataset clone candidates, one can gain precise contro
 This can create a more flawless and less error-prone user experience as well as speedier dataset installations.
 
 .. figure:: ../artwork/src/origin.svg
-   :figwidth: 50%
+   :width: 50%
 
 
 Clone candidates

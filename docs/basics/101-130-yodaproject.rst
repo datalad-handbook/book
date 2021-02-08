@@ -295,7 +295,7 @@ dataset, as is its ``input/`` subdataset:
 
 .. figure:: ../artwork/src/virtual_dstree_dl101_midterm.svg
    :alt: Overview of (linked) datasets in DataLad-101.
-   :figwidth: 100%
+   :width: 50%
 
 
 

@@ -112,7 +112,9 @@ the figure below illustrates the current state of the dataset
 and nesting schematically:
 
 .. figure:: ../artwork/src/virtual_dstree_dl101.svg
-   :alt: Virtual directory tree of a nested DataLad dataset
+   :width: 70%
+
+   Virtual directory tree of a nested DataLad dataset
 
 Thus, without being consciously aware of it, by taking advantage of dataset
 nesting, we took a dataset ``longnow`` and installed it as a

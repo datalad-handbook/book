@@ -13,6 +13,9 @@ contents with selected collaborators or making them publicly and anonymously
 available.
 
 .. figure:: ../artwork/src/publishing/publishing_network_publishgin.svg
+   :width: 80%
+
+   Some repository hosting services such as Gin have annex support, and can thus hold the complete dataset. This makes publishing datasets very easy.
 
 .. note::
 
@@ -89,6 +92,8 @@ for you on :term:`GitHub`), this needs to be done via the web interface:
 
 .. figure:: ../artwork/src/GIN_newrepo.png
 
+   Create a new repository on Gin using the web interface.
+
 Afterwards, add this repository as a sibling of your dataset. To do this, use the
 :command:`datalad siblings add` command and the SSH URL of the repository as shown below.
 Note that since this is the first time you will be connecting to the GIN server
@@ -129,6 +134,8 @@ If you refresh the GIN web interface afterwards, you will find all of your datas
 GIN web interface (unlike :term:`GitHub`) can even preview your annexed contents.
 
 .. figure:: ../artwork/src/GIN_dl101_repo.png
+
+   A published dataset in a Gin repository at gin.g-node.org.
 
 .. _access:
 
@@ -178,6 +185,8 @@ an SSH key as detailed above, and cloning via the SSH url:
    "Private" box, found under "Settings":
 
    .. figure:: ../artwork/src/GIN_private.png
+
+      Private Gin repository are marked. They can be made public in the settings.
 
 In order to publish changes to a Gin repository, the repository needs
 to be cloned via its SSH url.

@@ -35,7 +35,7 @@ you store your data and thus who can get access.
 
 
 .. figure:: ../artwork/src/going_up.svg
-   :width: 70%
+   :width: 40%
 
 
 Now what can I do with it?

@@ -35,6 +35,9 @@ the same systems, or share something that can be recomputed quickly, but need to
 actually share datasets with data, including the annexed contents.
 
 .. figure:: ../artwork/src/publishing/startingpoint.svg
+   :width: 70%
+
+   An overview of all elements potentially included in a publication workflow.
 
 Leveraging third party infrastructure
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -72,6 +75,9 @@ information about where to obtain annexed file contents from such that
 :command:`datalad get` works.
 
 .. figure:: ../artwork/src/publishing/publishing_network_publishparts2.svg
+   :width: 80%
+
+   Schematic difference between the Git and git-annex aspect of your dataset, and where each part *usually* gets published to.
 
 This tutorial showcases how this can be done, and shows the basics of how
 datasets can be shared via a third party infrastructure.

@@ -170,7 +170,6 @@ To demonstrate this further, consider the following: In my home directory
 .. code-block:: bash
 
    $ tree
-
    └── home
        └── adina
             └── awesome_datalad_project
@@ -178,19 +177,9 @@ To demonstrate this further, consider the following: In my home directory
                    ├── code
                └── sub-01
                    └── bold3T
-               └── sub-02
-                   └── bold3T
                ├── ...
                └── sub-xx
                    └── bold3T
-           └── structural
-               └── sub-01
-                   └── anat
-               └── sub-02
-                   └── anat
-               ├── ...
-               └── sub-xx
-                   └── anat
 
 Now let's say I want to change from my home directory ``/home/adina`` into the ``code/``
 folder of the project. I could use absolute paths:

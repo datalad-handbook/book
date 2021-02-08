@@ -423,6 +423,8 @@ command. This is due to its different format that does not comply to the
 ``section.variable.value`` structure of all other configuration files. This file, therefore,
 has to be edited by hand, with an editor of your choice.
 
+.. _envvars:
+
 Environment variables
 ^^^^^^^^^^^^^^^^^^^^^
 
@@ -430,7 +432,7 @@ Environment variables
 
 An :term:`environment variable` is a variable set up in your shell
 that affects the way the shell or certain software works -- for example
-the environment variables ``HOME``, ``PWD``, or ``PATH`` [#f4]_.
+the environment variables ``HOME``, ``PWD``, or ``PATH``.
 Configuration options that determine the behavior of Git, git-annex, and
 DataLad that could be defined in a configuration file can also be set (or overridden)
 by the associated environment variables of these configuration options.
@@ -451,6 +453,28 @@ will be available as the corresponding ``datalad.`` configuration variable,
 replacing any ``__`` (two underscores) with a hyphen, then any ``_`` (single underscore)
 with a dot, and finally converting all letters to lower case. The ``datalad.log.level``
 configuration option thus is the environment variable ``DATALAD_LOG_LEVEL``.
+
+.. findoutmore:: Some more general information on environment variables
+
+     Names of environment variables are often all-uppercase. While the ``$`` is not part of
+     the name of the environment variable, it is necessary to *refer* to the environment
+     variable: To reference the value of the environment variable ``HOME`` for example you would
+     need to use ``echo $HOME`` and not ``echo HOME``. However, environment variables are
+     set without a leading ``$``. There are several ways to set an environment variable
+     (note that there are no spaces before and after the ``=`` !), leading to different
+     levels of availability of the variable:
+
+     - ``THEANSWER=42 <command>`` makes the variable ``THEANSWER`` available for the process in ``<command>``.
+       For example, ``DATALAD_LOG_LEVEL=debug datalad get <file>`` will execute the :command:`datalad get`
+       command (and only this one) with the log level set to "debug".
+     - ``export THEANSWER=42`` makes the variable ``THEANSWER`` available for other processes in the
+       same session, but it will not be available to other shells.
+     - ``echo 'export THEANSWER=42' >> ~/.bashrc`` will write the variable definition in the
+       ``.bashrc`` file and thus available to all future shells of the user (i.e., this will make
+       the variable permanent for the user)
+
+     To list all of the configured environment variables, type ``env`` into your terminal.
+
 
 Summary
 ^^^^^^^
@@ -551,27 +575,3 @@ Write a note about configurations in datasets into ``notes.txt``.
          command
          (see `the documentation <https://git-annex.branchable.com/git-annex-migrate/>`_ for
          more information on this command).
-
-.. index:: ! environment variable
-
-.. _envvars:
-
-.. [#f4] **Some more on environment variables**:
-         Names of environment variables are often all-uppercase. While the ``$`` is not part of
-         the name of the environment variable, it is necessary to *refer* to the environment
-         variable: To reference the value of the environment variable ``HOME`` for example you would
-         need to use ``echo $HOME`` and not ``echo HOME``. However, environment variables are
-         set without a leading ``$``. There are several ways to set an environment variable
-         (note that there are no spaces before and after the ``=`` !), leading to different
-         levels of availability of the variable:
-
-         - ``THEANSWER=42 <command>`` makes the variable ``THEANSWER`` available for the process in ``<command>``.
-           For example, ``DATALAD_LOG_LEVEL=debug datalad get <file>`` will execute the :command:`datalad get`
-           command (and only this one) with the log level set to "debug".
-         - ``export THEANSWER=42`` makes the variable ``THEANSWER`` available for other processes in the
-           same session, but it will not be available to other shells.
-         - ``echo 'export THEANSWER=42' >> ~/.bashrc`` will write the variable definition in the
-           ``.bashrc`` file and thus available to all future shells of the user (i.e., this will make
-           the variable permanent for the user)
-
-         To list all of the configured environment variables, type ``env`` into your terminal.

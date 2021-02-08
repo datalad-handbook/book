@@ -437,7 +437,7 @@ How did your ``notes.txt`` file look at this point?
    :language: console
    :workdir: dl-101/DataLad-101
 
-   $ cat notes.txt
+   $ tail notes.txt
 
 Neat, isn't it? By checking out a commit shasum you can explore a previous
 state of a datasets history. And this does not only apply to simple text
@@ -469,7 +469,7 @@ The contents of ``notes.txt`` will now be the most recent version again:
    :language: console
    :workdir: dl-101/DataLad-101
 
-   $ cat notes.txt
+   $ tail notes.txt
 
 ... Wow! You traveled back and forth in time!
 But an even more magical way to see the contents of files in previous

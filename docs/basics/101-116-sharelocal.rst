@@ -175,8 +175,7 @@ let's query git-annex where its content is stored:
    $ git annex whereis books/TLCL.pdf
 
 Oh, another :term:`shasum`! This time however not in a symlink...
-"That's hard to read -- what is it?" your room mate asks.
-Luckily, there is a more human-readable piece of text next to it. You can
+"That's hard to read -- what is it?" your room mate asks. You can
 recognize a path to the dataset on your computer, prefixed with the user
 and hostname of your computer. "This", you exclaim, excited about your own realization,
 "is my dataset's location I'm sharing it from!"

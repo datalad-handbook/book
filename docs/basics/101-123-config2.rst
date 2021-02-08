@@ -165,14 +165,170 @@ another Git repository, i.e., the super- and subdataset principles.
 Upon sharing your dataset, the information about subdatasets and where to retrieve
 them from is stored and shared with this file.
 
-Back in section :ref:`sharelocal1` you may have already seen one additional
-configuration option in a footnote: The ``datalad-recursiveinstall`` key. This key
-is defined on a per subdataset basis, and if set to "``skip``", the given subdataset
-will not be recursively installed unless it is explicitly specified as a path to
-:command:`datalad get [-n/--no-data] -r`. If you are a maintainer of a superdataset
-with monstrous amounts of subdatasets, you can set this option and share it together
-with the dataset to prevent an accidental, large recursive installation in
-particularly deeply nested subdatasets.
+Section :ref:`sharelocal1` already mentioned one additional configuration option in a footnote: The ``datalad-recursiveinstall`` key.
+This key is defined on a per subdataset basis, and if set to "``skip``", the given subdataset will not be recursively installed unless it is explicitly specified as a path to :command:`datalad get [-n/--no-data] -r`.
+If you are a maintainer of a superdataset with monstrous amounts of subdatasets, you can set this option and share it together with the dataset to prevent an accidental, large recursive installation in particularly deeply nested subdatasets.
+Below is a minimally functional example on how to apply the configuration and how it works:
+
+Let's create a dataset hierarchy to work with (note that we concatenate multiple commands into a single line using bash's "and" ``&&`` operator):
+
+.. code-block:: bash
+
+    # create a superdataset with two subdatasets
+    $ datalad create superds && cd superds && datalad create -d . subds1 && datalad create -d . subds2
+    [INFO   ] Creating a new annex repo at /tmp/superds
+    create(ok): /tmp/superds (dataset)
+    [INFO   ] Creating a new annex repo at /tmp/superds/subds1
+    add(ok): subds1 (file)
+    add(ok): .gitmodules (file)
+    save(ok): . (dataset)
+    create(ok): subds1 (dataset)
+    action summary:
+      add (ok: 2)
+      create (ok: 1)
+      save (ok: 1)
+    [INFO   ] Creating a new annex repo at /tmp/superds/subds2
+    add(ok): subds2 (file)
+    add(ok): .gitmodules (file)
+    save(ok): . (dataset)
+    create(ok): subds2 (dataset)
+    action summary:
+      add (ok: 2)
+      create (ok: 1)
+      save (ok: 1)
+
+Next, we create subdatasets in the subdatasets:
+
+.. code-block:: bash
+
+    # create two subdatasets in subds1
+    $ cd subds1 && datalad create -d . subsubds1 && datalad create -d . subsubds2 && cd ../
+    [INFO   ] Creating a new annex repo at /tmp/superds/subds1/subsubds1
+    add(ok): subsubds1 (file)
+    add(ok): .gitmodules (file)
+    save(ok): . (dataset)
+    create(ok): subsubds1 (dataset)
+    action summary:
+      add (ok: 2)
+      create (ok: 1)
+      save (ok: 1)
+    [INFO   ] Creating a new annex repo at /tmp/superds/subds1/subsubds2
+    add(ok): subsubds2 (file)
+    add(ok): .gitmodules (file)
+    save(ok): . (dataset)
+    create(ok): subsubds2 (dataset)
+    action summary:
+      add (ok: 2)
+      create (ok: 1)
+      save (ok: 1)
+
+
+    # create two subdatasets in subds2
+    $ cd subds2 && datalad create -d . subsubds1 && datalad create -d . subsubds2
+    [INFO   ] Creating a new annex repo at /tmp/superds/subds2/subsubds1
+    add(ok): subsubds1 (file)
+    add(ok): .gitmodules (file)
+    save(ok): . (dataset)
+    create(ok): subsubds1 (dataset)
+    action summary:
+      add (ok: 2)
+      create (ok: 1)
+      save (ok: 1)
+    [INFO   ] Creating a new annex repo at /tmp/superds/subds2/subsubds2
+    add(ok): subsubds2 (file)
+    add(ok): .gitmodules (file)
+    save(ok): . (dataset)
+    create(ok): subsubds2 (dataset)
+    action summary:
+      add (ok: 2)
+      create (ok: 1)
+      save (ok: 1)
+
+Here is the directory structure:
+
+.. code-block:: bash
+
+    $ cd ../ && tree
+    .
+    ├── subds1
+    │   ├── subsubds1
+    │   └── subsubds2
+    └── subds2
+        ├── subsubds1
+        └── subsubds2
+
+    # save in the superdataset
+    datalad save -m "add a few sub and subsub datasets"
+    add(ok): subds1 (file)
+    add(ok): subds2 (file)
+    save(ok): . (dataset)
+    action summary:
+      add (ok: 2)
+      save (ok: 1)
+
+Now, we can apply the ``datalad-recursiveinstall`` configuration to skip recursive installations for subds1
+
+.. code-block:: bash
+
+    $ git config -f .gitmodules --add submodule.subds1.datalad-recursiveinstall skip
+
+    # save this configuration
+    $ datalad save -m "prevent recursion into subds1, unless explicitly given as path"
+    add(ok): .gitmodules (file)
+    save(ok): . (dataset)
+    action summary:
+      add (ok: 1)
+      save (ok: 1)
+
+If the dataset is cloned, and someone runs a recursive :command:`datalad get`, the subdatasets of ``subds1`` will not be installed, the subdatasets of ``subds2``, however, will be.
+
+.. code-block:: bash
+
+    # clone the dataset somewhere else
+    $ cd ../ && datalad clone superds clone_of_superds
+    [INFO   ] Cloning superds into '/tmp/clone_of_superds'
+    install(ok): /tmp/clone_of_superds (dataset)
+
+    # recursively get all contents (without data)
+    $ cd clone_of_superds && datalad get -n -r .
+    [INFO   ] Installing <Dataset path=/tmp/clone_of_superds> underneath /tmp/clone_of_superds recursively
+    [INFO   ] Cloning /tmp/superds/subds2 into '/tmp/clone_of_superds/subds2'
+    get(ok): /tmp/clone_of_superds/subds2 (dataset)
+    [INFO   ] Cloning /tmp/superds/subds2/subsubds1 into '/tmp/clone_of_superds/subds2/subsubds1'
+    get(ok): /tmp/clone_of_superds/subds2/subsubds1 (dataset)
+    [INFO   ] Cloning /tmp/superds/subds2/subsubds2 into '/tmp/clone_of_superds/subds2/subsubds2'
+    get(ok): /tmp/clone_of_superds/subds2/subsubds2 (dataset)
+    action summary:
+      get (ok: 3)
+
+    # only subsubds of subds2 are installed, not of subds1:
+    $ tree
+    .
+    ├── subds1
+    └── subds2
+        ├── subsubds1
+        └── subsubds2
+
+    4 directories, 0 files
+
+Nevertheless, if ``subds1`` is provided with an explicit path, its subdataset ``subsubds`` will be cloned, essentially overriding the configuration:
+
+.. code-block:: bash
+
+    $  datalad get -n -r subds1 && tree
+    [INFO   ] Cloning /tmp/superds/subds1 into '/tmp/clone_of_superds/subds1'
+    install(ok): /tmp/clone_of_superds/subds1 (dataset) [Installed subdataset in order to get /tmp/clone_of_superds/subds1]
+    [INFO   ] Installing <Dataset path=/tmp/clone_of_superds> underneath /tmp/clone_of_superds/subds1 recursively
+    .
+    ├── subds1
+    │   ├── subsubds1
+    │   └── subsubds2
+    └── subds2
+        ├── subsubds1
+        └── subsubds2
+
+    6 directories, 0 files
+
 
 
 
@@ -267,6 +423,8 @@ command. This is due to its different format that does not comply to the
 ``section.variable.value`` structure of all other configuration files. This file, therefore,
 has to be edited by hand, with an editor of your choice.
 
+.. _envvars:
+
 Environment variables
 ^^^^^^^^^^^^^^^^^^^^^
 
@@ -274,7 +432,7 @@ Environment variables
 
 An :term:`environment variable` is a variable set up in your shell
 that affects the way the shell or certain software works -- for example
-the environment variables ``HOME``, ``PWD``, or ``PATH`` [#f4]_.
+the environment variables ``HOME``, ``PWD``, or ``PATH``.
 Configuration options that determine the behavior of Git, git-annex, and
 DataLad that could be defined in a configuration file can also be set (or overridden)
 by the associated environment variables of these configuration options.
@@ -295,6 +453,28 @@ will be available as the corresponding ``datalad.`` configuration variable,
 replacing any ``__`` (two underscores) with a hyphen, then any ``_`` (single underscore)
 with a dot, and finally converting all letters to lower case. The ``datalad.log.level``
 configuration option thus is the environment variable ``DATALAD_LOG_LEVEL``.
+
+.. findoutmore:: Some more general information on environment variables
+
+     Names of environment variables are often all-uppercase. While the ``$`` is not part of
+     the name of the environment variable, it is necessary to *refer* to the environment
+     variable: To reference the value of the environment variable ``HOME`` for example you would
+     need to use ``echo $HOME`` and not ``echo HOME``. However, environment variables are
+     set without a leading ``$``. There are several ways to set an environment variable
+     (note that there are no spaces before and after the ``=`` !), leading to different
+     levels of availability of the variable:
+
+     - ``THEANSWER=42 <command>`` makes the variable ``THEANSWER`` available for the process in ``<command>``.
+       For example, ``DATALAD_LOG_LEVEL=debug datalad get <file>`` will execute the :command:`datalad get`
+       command (and only this one) with the log level set to "debug".
+     - ``export THEANSWER=42`` makes the variable ``THEANSWER`` available for other processes in the
+       same session, but it will not be available to other shells.
+     - ``echo 'export THEANSWER=42' >> ~/.bashrc`` will write the variable definition in the
+       ``.bashrc`` file and thus available to all future shells of the user (i.e., this will make
+       the variable permanent for the user)
+
+     To list all of the configured environment variables, type ``env`` into your terminal.
+
 
 Summary
 ^^^^^^^
@@ -395,27 +575,3 @@ Write a note about configurations in datasets into ``notes.txt``.
          command
          (see `the documentation <https://git-annex.branchable.com/git-annex-migrate/>`_ for
          more information on this command).
-
-.. index:: ! environment variable
-
-.. _envvars:
-
-.. [#f4] **Some more on environment variables**:
-         Names of environment variables are often all-uppercase. While the ``$`` is not part of
-         the name of the environment variable, it is necessary to *refer* to the environment
-         variable: To reference the value of the environment variable ``HOME`` for example you would
-         need to use ``echo $HOME`` and not ``echo HOME``. However, environment variables are
-         set without a leading ``$``. There are several ways to set an environment variable
-         (note that there are no spaces before and after the ``=`` !), leading to different
-         levels of availability of the variable:
-
-         - ``THEANSWER=42 <command>`` makes the variable ``THEANSWER`` available for the process in ``<command>``.
-           For example, ``DATALAD_LOG_LEVEL=debug datalad get <file>`` will execute the :command:`datalad get`
-           command (and only this one) with the log level set to "debug".
-         - ``export THEANSWER=42`` makes the variable ``THEANSWER`` available for other processes in the
-           same session, but it will not be available to other shells.
-         - ``echo 'export THEANSWER=42' >> ~/.bashrc`` will write the variable definition in the
-           ``.bashrc`` file and thus available to all future shells of the user (i.e., this will make
-           the variable permanent for the user)
-
-         To list all of the configured environment variables, type ``env`` into your terminal.

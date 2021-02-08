@@ -295,7 +295,7 @@ dataset, as is its ``input/`` subdataset:
 
 .. figure:: ../artwork/src/virtual_dstree_dl101_midterm.svg
    :alt: Overview of (linked) datasets in DataLad-101.
-   :figwidth: 100%
+   :width: 50%
 
 
 
@@ -417,6 +417,7 @@ point with the ``--version-tag`` option of :command:`datalad save`.
 
    .. runrecord:: _examples/DL-101-130-110
       :workdir: dl-101/DataLad-101/midterm_project
+      :lines: 1-13
       :language: console
 
       $ git show ready4analysis

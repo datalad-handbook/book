@@ -4,6 +4,7 @@ Computing on clusters
 ---------------------
 
 .. figure:: ../artwork/src/cluster.svg
+   :width: 50%
 
 .. toctree::
    :maxdepth: 1

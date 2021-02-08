@@ -8,7 +8,7 @@ DataLad, Run!
 .. index:: ! Chapter; 2. DataLad Run
 
 .. figure:: ../artwork/src/keeptrack.svg
-   :width: 80%
+   :width: 50%
 
 .. toctree::
    :maxdepth: 1

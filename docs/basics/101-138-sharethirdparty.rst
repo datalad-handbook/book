@@ -35,6 +35,9 @@ the same systems, or share something that can be recomputed quickly, but need to
 actually share datasets with data, including the annexed contents.
 
 .. figure:: ../artwork/src/publishing/startingpoint.svg
+   :width: 70%
+
+   An overview of all elements potentially included in a publication workflow.
 
 Leveraging third party infrastructure
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -72,6 +75,9 @@ information about where to obtain annexed file contents from such that
 :command:`datalad get` works.
 
 .. figure:: ../artwork/src/publishing/publishing_network_publishparts2.svg
+   :width: 80%
+
+   Schematic difference between the Git and git-annex aspect of your dataset, and where each part *usually* gets published to.
 
 This tutorial showcases how this can be done, and shows the basics of how
 datasets can be shared via a third party infrastructure.
@@ -390,14 +396,6 @@ dependency is served first:
 
 Afterwards, your dataset can be found on GitHub, and ``cloned`` or ``installed``.
 
-The option ``--transfer-data`` determines how publishing annexed contents should
-be handled. With the option ``all``, *all* annexed contents are published to the
-third-party data storage.
-``--transfer-data none``, however, only publishes information stored in Git --
-that is: The symlink, as information about file availability, but no file
-content. Anyone who attempts to :command:`datalad get` a file from a dataset clone
-if its contents were not published will fail.
-
 
 .. findoutmore:: What if I do not want to share a dataset with everyone, or only some files of it?
 
@@ -414,7 +412,7 @@ if its contents were not published will fail.
    If it is individual files that you do not want to share, you can selectively
    publish the contents of all files you want others to have, and withhold the data
    of the files you do not want to share. This can be done by providing paths
-   to the data that should be published, and the ``--transfer-data auto`` option.
+   to the data that should be published, or a `git-annex-wanted <https://git-annex.branchable.com/git-annex-wanted/>`_ configuration and the ``--data auto`` option.
 
    Let's say you have a dataset with three files:
 
@@ -426,28 +424,18 @@ if its contents were not published will fail.
    ``experiment.txt`` is fine for everyone to see, ``subject_1.dat`` and
    ``subject_2.dat`` contain personal and potentially identifying data that
    can not be shared. Nevertheless, you want collaborators to know that these
-   files exist. The use case
-
-   .. todo::
-
-      Write use case "external researcher without data access"
-
-   details such a scenario and demonstrates how external collaborators (with whom data
-   can not be shared) can develop scripts against the directory structure and
-   file names of a dataset, submit those scripts to the data owners, and thus still perform an
-   analysis despite not having access to the data.
-
+   files exist.
    By publishing only the file contents of ``experiment.txt`` with
 
    .. code-block:: bash
 
-      $ datalad publish --to github --transfer-data auto experiment.txt
+      $ datalad push --to github experiment.txt
 
    only meta data about file availability of ``subject_1.dat`` and ``subject_2.dat``
    exists, but as these files' annexed data is not published, a :command:`datalad get`
-   will fail. Note, though, that :command:`publish` will publish the complete
+   will fail. Note, though, that :command:`push` will publish the complete
    dataset history (unless you specify a commit range with the ``--since`` option
-   -- see the `manual <http://docs.datalad.org/en/latest/generated/man/datalad-publish.html>`_
+   -- see the `manual <http://docs.datalad.org/en/latest/generated/man/datalad-push.html>`_
    for more information).
 
 

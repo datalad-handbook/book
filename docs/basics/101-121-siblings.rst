@@ -72,7 +72,7 @@ here:
 .. runrecord:: _examples/DL-101-121-103
    :language: console
    :workdir: dl-101/mock_user/DataLad-101
-   :lines: 1-30
+   :lines: 1-13
    :notes: the ds copy has a change the original ds does not have:
    :cast: 04_collaboration
 
@@ -244,7 +244,7 @@ the former for a different lecture:
 
 This shows us that there is an additional file, and it also shows us
 that there is a difference in ``notes.txt``! Let's ask
-:command:`git diff` to show us what the differences in detail:
+:command:`git diff` to show us what the differences in detail (note that it is a shortened excerpt, cut in the middle to reduce its length):
 
 .. windowsworkarounds:: Please use git diff master..remotes/roommate/master
 
@@ -258,6 +258,7 @@ that there is a difference in ``notes.txt``! Let's ask
    :language: console
    :workdir: dl-101/DataLad-101
    :notes: also git diff
+   :lines: 1-18, 67-78
    :cast: 04_collaboration
 
    $ git diff remotes/roommate/master

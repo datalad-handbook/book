@@ -335,7 +335,7 @@ cautionBgColor={named}{LightCyan}%
 \definecolor{dataladyellow}{HTML}{FFA200}
 \definecolor{dataladblue}{HTML}{7FD5FF}
 \definecolor{dataladgray}{HTML}{333333}
-\definecolor{windowsblue}{HTML}{00A4EF}
+\definecolor{windowsblue}{HTML}{126e12}
 \definecolor{windowsgreen}{HTML}{66CC33}
 \definecolor{windowsyellow}{HTML}{FFCC00}
 \setcounter{secnumdepth}{1}

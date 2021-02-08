@@ -4,7 +4,7 @@ Better late than never
 ----------------------
 
 .. figure:: ../artwork/src/late.svg
-
+   :width: 50%
 
 .. toctree::
    :maxdepth: 1

@@ -126,7 +126,7 @@ Debugging like a DataLad-developer
 If you have read a command's help from start to end, checked all software versions twice, even `asked colleagues to reproduce your problem (unsuccessfully) <https://xkcd.com/2083/>`_, and you still don't have any clue what is going on, then welcome to the debugging section!
 
 .. figure:: ../artwork/src/debug.svg
-   :figwidth: 50%
+   :width: 50%
 
    It's not as bad as this
 
@@ -181,6 +181,7 @@ To get extensive information on what :command:`datalad status` does underneath t
 .. runrecord:: _examples/DL-101-135-105
    :language: console
    :workdir: dl-101/DataLad-101
+   :lines: 1-15, 170-
 
    $ datalad --log-level debug status
 

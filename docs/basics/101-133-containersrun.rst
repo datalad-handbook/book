@@ -185,15 +185,14 @@ name to give to the container, and a path or url to a container Image:
 
    If your Image exists on Amazon ECR, use a ``dhub://`` prefix followed by the AWS ECR URL as in
 
-.. code-block:: bash
+   .. code-block:: bash
 
-       datalad containers-add --url dhub://12345678.dkr.ecr.us-west-2.amazonaws.com/maze-code/data-import:latest data-import
-
+          datalad containers-add --url dhub://12345678.dkr.ecr.us-west-2.amazonaws.com/maze-code/data-import:latest data-import
 
    If you want to add a container that exists locally, specify the path to it
    like this::
 
-      datalad containers-add midterm-software --url path/to/container
+       datalad containers-add midterm-software --url path/to/container
 
 This command downloaded the container from Singularity Hub, added it to
 the ``midterm_project`` dataset, and recorded basic information on the

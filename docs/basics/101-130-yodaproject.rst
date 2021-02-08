@@ -417,6 +417,7 @@ point with the ``--version-tag`` option of :command:`datalad save`.
 
    .. runrecord:: _examples/DL-101-130-110
       :workdir: dl-101/DataLad-101/midterm_project
+      :lines: 1-13
       :language: console
 
       $ git show ready4analysis

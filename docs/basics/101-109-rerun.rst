@@ -12,7 +12,7 @@ Let's actually take a look into this file now:
 .. runrecord:: _examples/DL-101-109-101
    :language: console
    :workdir: dl-101/DataLad-101
-   :lines: 1-30
+   :lines: 1-15
    :notes: The script produced a simple list of podcast titles. let's take a look into our output file. What's cool is that is was created in a way that the code and output are linked:
    :cast: 02_reproducible_execution
 
@@ -198,6 +198,7 @@ diff view by pressing ``q``):
    :workdir: dl-101/DataLad-101
    :notes: The git diff command has even more insights:
    :cast: 02_reproducible_execution
+   :lines: 1-20
 
    $ git diff HEAD~1
 

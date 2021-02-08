@@ -287,7 +287,7 @@ running the above command (excerpt):
 .. runrecord:: _examples/DL-101-116-108
    :language: console
    :workdir: dl-101/mock_user/DataLad-101
-   :lines: 1-30
+   :lines: 1-20
    :notes: what has changed? --> file metadata information!
    :cast: 04_collaboration
 

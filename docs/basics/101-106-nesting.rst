@@ -69,6 +69,7 @@ subdataset's history:
 .. runrecord:: _examples/DL-101-106-102
    :language: console
    :workdir: dl-101/DataLad-101
+   :lines: 1-9
    :emphasize-lines: 3
    :cast: 01_dataset_basics
    :notes: We can find this shasum in the subdatasets history: it's the most recent change

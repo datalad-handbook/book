@@ -22,19 +22,20 @@ the first student in your lecturer's office hours.
 to explain.
 
 .. figure:: ../artwork/src/teacher.svg
-   :width: 70%
+   :width: 50%
 
 Do you remember that we created the ``DataLad-101`` dataset with a
 specific configuration template? It was the ``-c text2git`` option we
 provided in the beginning of :ref:`createDS`. It is because of this configuration
 that we can modify ``notes.txt`` without unlocking its content first.
 
-The second commit message in our datasets history summarizes this:
+The second commit message in our datasets history summarizes this (outputs are shortened):
 
 .. runrecord:: _examples/DL-101-114-101
    :language: console
    :workdir: dl-101
    :emphasize-lines: 3
+   :lines: 1-10
    :realcommand: cd DataLad-101 && git log --reverse --oneline
    :notes: Confusing: Why could we modify the tsv file without unlocking? The reason is in the dataset configuration with text2git
    :cast: 03_git_annex_basics

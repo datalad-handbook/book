@@ -25,4 +25,4 @@ associated usecases.
    basics-specialpurpose
 
 .. figure:: /artwork/src/hero.svg
-   :width: 70%
+   :width: 50%

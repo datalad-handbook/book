@@ -23,6 +23,6 @@ For the best experience, try reading the Basics chapter sequentially.
    basics-help
 
 .. figure:: /artwork/src/building_blocks.svg
-   :width: 70%
+   :width: 50%
 
 

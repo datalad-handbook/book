@@ -6,6 +6,7 @@ Third party infrastructure
 .. index:: ! Chapter; 8. Third party infrastructure
 
 .. figure:: ../artwork/src/clouds.svg
+   :width: 50%
 
 .. toctree::
    :maxdepth: 1

@@ -51,7 +51,6 @@ common shape a data science project may take after a while:
     │   ├── data_updated/
     │   │    └── dataset1/
     │   │        ├── datafile_a
-
     │   ├── dataset1/
     │   │   ├── datafile_a
     │   ├── outputs/

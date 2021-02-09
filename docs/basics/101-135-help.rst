@@ -78,13 +78,14 @@ as an excerpt here):
 .. runrecord:: _examples/DL-101-135-103
    :language: console
    :workdir: dl-101/DataLad-101
-   :lines: 1-60
+   :lines: 1-28, 72-108
 
    $ datalad get --help
 
 This for example is the help page on :command:`datalad get`
 (the same you would find in the `documentation <docs.datalad.org>`__,
-but in your terminal). It contains a command description, a list
+but in your terminal, here - for brevity - slightly cut).
+It contains a command description, a list
 of all the available options with a short explanation of them, and
 example commands. The paragraph *Options* shows all
 optional flags, and all required parts of

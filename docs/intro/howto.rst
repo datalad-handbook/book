@@ -29,7 +29,7 @@ text based interface. If you have used Matlab or IPython, then you are already f
 with the basics of a command line interface.
 
 .. figure:: ../artwork/src/img/shell.png
-   :figwidth: 50%
+   :width: 50%
    :alt: A z-shell on a Debian system
 
    A terminal window in a standard desktop environment.

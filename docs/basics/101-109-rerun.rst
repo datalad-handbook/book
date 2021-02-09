@@ -82,7 +82,8 @@ We can use the shorthand "BF" to denote "Bug fix" in the commit message.
    :workdir: dl-101/DataLad-101
    :cast: 02_reproducible_execution
 
-   $ datalad save -m "BF: list both directories content" code/list_titles.sh
+   $ datalad save -m "BF: list both directories content" \
+     code/list_titles.sh
 
 What we *could* do is run the same :command:`datalad run` command as before to recreate
 the file, but now with all of the contents:
@@ -90,7 +91,8 @@ the file, but now with all of the contents:
 .. code-block:: bash
 
    # do not execute this!
-   $ datalad run -m "create a list of podcast titles" "bash code/list_titles.sh > recordings/podcasts.tsv"
+   $ datalad run -m "create a list of podcast titles" \
+     "bash code/list_titles.sh > recordings/podcasts.tsv"
 
 However, think about any situation where the command would be longer than this,
 or that is many months past the first execution. It would not be easy to remember
@@ -282,13 +284,14 @@ But prior to that, make a note about :command:`datalad run` and :command:`datala
    :cast: 02_reproducible_execution
 
    $ cat << EOT >> notes.txt
-   The datalad run command can record the impact a script or command has on a Dataset.
-   In its simplest form, datalad run only takes a commit message and the command that
-   should be executed.
+   The datalad run command can record the impact a script or command has
+   on a Dataset. In its simplest form, datalad run only takes a commit
+   message and the command that should be executed.
 
-   Any datalad run command can be re-executed by using its commit shasum as an argument
-   in datalad rerun CHECKSUM. DataLad will take information from the run record of the original
-   commit, and re-execute it. If no changes happen with a rerun, the command will not be written
+   Any datalad run command can be re-executed by using its commit shasum
+   as an argument in datalad rerun CHECKSUM. DataLad will take
+   information from the run record of the original commit, and re-execute
+   it. If no changes happen with a rerun, the command will not be written
    to history. Note: you can also rerun a datalad rerun command!
 
    EOT

@@ -410,11 +410,10 @@ modification.
    # in the root of DataLad-101:
    $ cd ../../
    $ cat << EOT >> notes.txt
-   The command 'datalad clone URL/PATH [PATH]'
-   installs a dataset from e.g., a URL or a path.
-   If you install a dataset into an existing
-   dataset (as a subdataset), remember to specify the
-   root of the superdataset with the '-d' option.
+   The command 'datalad clone URL/PATH [PATH]' installs a dataset from
+   e.g., a URL or a path. If you install a dataset into an existing
+   dataset (as a subdataset), remember to specify the root of the
+   superdataset with the '-d' option.
 
    EOT
    $ datalad save -m "Add note on datalad clone"

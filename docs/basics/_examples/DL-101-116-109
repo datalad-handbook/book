@@ -2,23 +2,21 @@
 $ cd ../../DataLad-101
 # write the note
 $ cat << EOT >> notes.txt
-A source to install a dataset from can also be a path,
-for example as in "datalad clone ../DataLad-101".
+A source to install a dataset from can also be a path, for example as
+in "datalad clone ../DataLad-101".
 
-Just as in creating datasets, you can add a
-description on the location of the new dataset clone
-with the -D/--description option.
+Just as in creating datasets, you can add a description on the
+location of the new dataset clone with the -D/--description option.
 
-Note that subdatasets will not be installed by default,
-but are only registered in the superdataset -- you will
-have to do a "datalad get -n PATH/TO/SUBDATASET"
-to install the subdataset for file availability meta data.
-The -n/--no-data options prevents that file contents are
-also downloaded.
+Note that subdatasets will not be installed by default, but are only
+registered in the superdataset -- you will have to do a
+"datalad get -n PATH/TO/SUBDATASET" to install the subdataset for file
+availability meta data. The -n/--no-data options prevents that file
+contents are also downloaded.
 
 Note that a recursive "datalad get" would install all further
-registered subdatasets underneath a subdataset, so a safer
-way to proceed is to set a decent --recursion-limit:
+registered subdatasets underneath a subdataset, so a safer way to
+proceed is to set a decent --recursion-limit:
 "datalad get -n -r --recursion-limit 2 <subds>"
 
 EOT

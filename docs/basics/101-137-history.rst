@@ -587,15 +587,12 @@ but also a modification to ``notes.txt``:
 
    $ cat << EOT >> notes.txt
 
-   Git has many handy tools to go back in forth in
-   time and work with the history of datasets.
-   Among many other things you can rewrite commit
-   messages, undo changes, or look at previous versions
-   of datasets. A superb resource to find out more about
-   this and practice such Git operations is this
-   chapter in the Pro-git book:
+   Git has many handy tools to go back in forth in time and work with the
+   history of datasets. Among many other things you can rewrite commit
+   messages, undo changes, or look at previous versions of datasets.
+   A superb resource to find out more about this and practice such Git
+   operations is this chapter in the Pro-git book:
    https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History
-
    EOT
 
 .. runrecord:: _examples/DL-101-137-143

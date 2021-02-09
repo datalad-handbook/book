@@ -339,15 +339,14 @@ Create a note about this, and save it.
    :cast: 04_collaboration
 
    $ cat << EOT >> notes.txt
-   To update from a dataset with a shared history, you
-   need to add this dataset as a sibling to your dataset.
-   "Adding a sibling" means providing DataLad with info about
-   the location of a dataset, and a name for it. Afterwards,
-   a "datalad update --merge -s name" will integrate the changes
-   made to the sibling into the dataset.
-   A safe step in between is to do a "datalad update -s name"
-   and checkout the changes with "git/datalad diff"
-   to remotes/origin/master
+   To update from a dataset with a shared history, you need to add this
+   dataset as a sibling to your dataset. "Adding a sibling" means
+   providing DataLad with info about the location of a dataset, and a
+   name for it.
+   Afterwards, a "datalad update --merge -s name" will integrate the
+   changes made to the sibling into the dataset. A safe step in between
+   is to do a "datalad update -s name" and checkout the changes with
+   "git/datalad diff" to remotes/origin/master
 
    EOT
    $ datalad save -m "Add note on adding siblings"

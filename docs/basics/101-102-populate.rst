@@ -55,8 +55,8 @@ or run the following commands [#f2]_ to download the books right from the termin
    :notes: We use wget to download a few books from the web. CAVE: longish realcommand!
 
    $ cd books
-   $ wget https://sourceforge.net/projects/linuxcommand/files/TLCL/19.01/TLCL-19.01.pdf/download -O TLCL.pdf
-   $ wget https://homepages.uc.edu/~becktl/byte_of_python.pdf -O byte-of-python.pdf
+   $ wget -q https://sourceforge.net/projects/linuxcommand/files/TLCL/19.01/TLCL-19.01.pdf/download -O TLCL.pdf
+   $ wget -q https://homepages.uc.edu/~becktl/byte_of_python.pdf -O byte-of-python.pdf
    # get back into the root of the dataset
    $ cd ../
 
@@ -215,7 +215,7 @@ Let's try this by adding yet another book, a good reference work about git,
    :notes: Its inconvenient that we saved two books together - we should have saved them as independent modifications of the dataset. To see how single modifications can be saved, let's download another book
 
    $ cd books
-   $ wget https://github.com/progit/progit2/releases/download/2.1.154/progit.pdf
+   $ wget -q https://github.com/progit/progit2/releases/download/2.1.154/progit.pdf
    $ cd ../
 
 :command:`datalad status` shows that there is a new untracked file:

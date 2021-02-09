@@ -121,7 +121,8 @@ This registers your room mate's ``DataLad-101`` as a "sibling" (we will call it
 
    $ cd ../../DataLad-101
    # add a sibling
-   $ datalad siblings add -d . --name roommate --url ../mock_user/DataLad-101
+   $ datalad siblings add -d . \
+     --name roommate --url ../mock_user/DataLad-101
 
 There are a few confusing parts about this command: For one, do not be surprised
 about the ``--url`` argument -- it's called "URL" but it can be a path as well.
@@ -339,15 +340,14 @@ Create a note about this, and save it.
    :cast: 04_collaboration
 
    $ cat << EOT >> notes.txt
-   To update from a dataset with a shared history, you
-   need to add this dataset as a sibling to your dataset.
-   "Adding a sibling" means providing DataLad with info about
-   the location of a dataset, and a name for it. Afterwards,
-   a "datalad update --merge -s name" will integrate the changes
-   made to the sibling into the dataset.
-   A safe step in between is to do a "datalad update -s name"
-   and checkout the changes with "git/datalad diff"
-   to remotes/origin/master
+   To update from a dataset with a shared history, you need to add this
+   dataset as a sibling to your dataset. "Adding a sibling" means
+   providing DataLad with info about the location of a dataset, and a
+   name for it.
+   Afterwards, a "datalad update --merge -s name" will integrate the
+   changes made to the sibling into the dataset. A safe step in between
+   is to do a "datalad update -s name" and checkout the changes with
+   "git/datalad diff" to remotes/origin/master
 
    EOT
    $ datalad save -m "Add note on adding siblings"

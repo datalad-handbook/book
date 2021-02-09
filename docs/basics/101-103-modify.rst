@@ -116,9 +116,9 @@ to accomplish this, but you can take any editor of your choice.
    :notes: Now let's start to modify this text file by adding more notes to it. Think about this being a code file that you add functions to:
 
    $ cat << EOT >> notes.txt
-   The command "datalad save [-m] PATH" saves the file
-   (modifications) to history. Note to self:
-   Always use informative, concise commit messages.
+   The command "datalad save [-m] PATH" saves the file (modifications) to
+   history.
+   Note to self: Always use informative, concise commit messages.
 
    EOT
 

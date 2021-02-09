@@ -35,17 +35,23 @@ are all free, in total about 15 MB), and save them in ``DataLad-101/books``.
 - An intro to Python: `A byte of Python <https://github.com/swaroopch/byte-of-python/releases/download/v14558db59a326ba99eda0da6c4548c48ccb4cd0f/byte-of-python.pdf>`_
 
 You can either visit the links and save them in ``books/``,
-or run the following commands [#f2]_ to download the books right from the terminal:
+or run the following commands [#f2]_ to download the books right from the terminal.
+Note that we line break the command with ``\`` signs. You can copy them as they
+are presented here into your terminal, but in your own work you can write commands
+like this into a single line.
 
-.. windowsworkarounds:: You may want to use curl instead of wget
+.. windowsworkarounds:: Windows terminals other than Git Bash can't handle multi-line commands
 
-   Many versions of Windows do not ship with the tool ``wget``.
-   You can install it, but it may be easier to use the pre-installed ``curl`` command::
+   In Unix shells, ``\`` can be used to split a command into several lines, for example to aid readability.
+   Standard Windows terminals (inlcuding the Anaconda prompt) do not support this.
+   They instead use the ``^`` character::
 
-      $ cd books
-      $ curl -L https://sourceforge.net/projects/linuxcommand/files/TLCL/19.01/TLCL-19.01.pdf/download -o TLCL.pdf
-      $ curl -L https://homepages.uc.edu/~becktl/byte_of_python.pdf -o byte-of-python.pdf
-      $ cd ../
+     $ datalad download-url http://www.tldp.org/LDP/Bash-Beginners-Guide/Bash-Beginners-Guide.pdf ^
+     --dataset . ^
+     -m "add beginners guide on bash" ^
+     -O books/bash_guide.pdf
+
+   If you are not using the Git Bash, you will either need to copy multi-line commands into a single line, or use ``^`` (make sure that there is **no space** afterwards) instead of ``\``.
 
 .. runrecord:: _examples/DL-101-102-103
    :language: console
@@ -55,10 +61,25 @@ or run the following commands [#f2]_ to download the books right from the termin
    :notes: We use wget to download a few books from the web. CAVE: longish realcommand!
 
    $ cd books
-   $ wget https://sourceforge.net/projects/linuxcommand/files/TLCL/19.01/TLCL-19.01.pdf/download -O TLCL.pdf
-   $ wget https://homepages.uc.edu/~becktl/byte_of_python.pdf -O byte-of-python.pdf
+   $ wget -q https://sourceforge.net/projects/linuxcommand/files/TLCL/19.01/TLCL-19.01.pdf/download \
+     -O TLCL.pdf
+   $ wget -q https://homepages.uc.edu/~becktl/byte_of_python.pdf \
+     -O byte-of-python.pdf
    # get back into the root of the dataset
    $ cd ../
+
+.. windowsworkarounds:: You may want to use curl instead of wget
+
+   Many versions of Windows do not ship with the tool ``wget``.
+   You can install it, but it may be easier to use the pre-installed ``curl`` command::
+
+      $ cd books
+      $ curl -L https://sourceforge.net/projects/linuxcommand/files/TLCL/19.01/TLCL-19.01.pdf/download \
+        -o TLCL.pdf
+      $ curl -L https://homepages.uc.edu/~becktl/byte_of_python.pdf \
+        -o byte-of-python.pdf
+      $ cd ../
+
 
 Let's see what happened. First of all, in the root of ``DataLad-101``, show the directory
 structure with tree:
@@ -204,7 +225,8 @@ Let's try this by adding yet another book, a good reference work about git,
    You can install it, but it may be easier to use the pre-installed ``curl`` command::
 
       $ cd books
-      $ curl -L https://github.com/progit/progit2/releases/download/2.1.154/progit.pdf -o progit.pdf
+      $ curl -L https://github.com/progit/progit2/releases/download/2.1.154/progit.pdf \
+        -o progit.pdf
       $ cd ../
 
 .. runrecord:: _examples/DL-101-102-108
@@ -215,7 +237,7 @@ Let's try this by adding yet another book, a good reference work about git,
    :notes: Its inconvenient that we saved two books together - we should have saved them as independent modifications of the dataset. To see how single modifications can be saved, let's download another book
 
    $ cd books
-   $ wget https://github.com/progit/progit2/releases/download/2.1.154/progit.pdf
+   $ wget -q https://github.com/progit/progit2/releases/download/2.1.154/progit.pdf
    $ cd ../
 
 :command:`datalad status` shows that there is a new untracked file:
@@ -288,23 +310,6 @@ To experience this, let's add a final book,
 `a beginner’s guide to bash <http://www.tldp.org/LDP/Bash-Beginners-Guide/Bash-Beginners-Guide.pdf>`_,
 to the dataset. We provide the command with a URL, a pointer to the dataset the
 file should be saved in (``.`` denotes "current directory"), and a commit message.
-Note that we line break the command with ``\`` signs. You can copy them as they
-are presented here into your terminal, but in your own work you can write commands
-like this into a single line.
-
-.. windowsworkarounds:: Windows terminals other than Git Bash can't handle multi-line commands
-
-   In Unix shells, ``\`` can be used to split a command into several lines, for example to aid readability.
-   Standard Windows terminals (inlcuding the Anaconda prompt) do not support this.
-   They instead use the ``^`` character::
-
-     $ datalad download-url http://www.tldp.org/LDP/Bash-Beginners-Guide/Bash-Beginners-Guide.pdf ^
-     --dataset . ^
-     -m "add beginners guide on bash" ^
-     -O books/bash_guide.pdf
-
-   If you are not using the Git Bash, you will either need to copy multi-line commands into a single line, or use ``^`` (make sure that there is **no space** afterwards) instead of ``\``.
-
 
 .. runrecord:: _examples/DL-101-102-112
    :language: console

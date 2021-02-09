@@ -331,7 +331,8 @@ done with the ``publish-depends <sibling>`` option.
 
 .. code-block:: bash
 
-   $ datalad create-sibling-github -d . DataLad-101 --publish-depends dropbox-for-friends
+   $ datalad create-sibling-github -d . DataLad-101 \
+     --publish-depends dropbox-for-friends
      [INFO   ] Configure additional publication dependency on "dropbox-for-friends"
      .: github(-) [https://github.com/<user-name>/DataLad-101.git (git)]
      'https://github.com/<user-name>/DataLad-101.git' configured as sibling 'github' for <Dataset path=/home/me/dl-101/DataLad-101>
@@ -479,7 +480,8 @@ the same as before:
 After this is done, you can execute what DataLad's output message suggests
 to "enable" this special remote (inside of the installed ``DataLad-101``)::
 
-   $ datalad siblings -d "/Users/awagner/Documents/DataLad-101" enable -s dropbox-for-friends
+   $ datalad siblings -d "/Users/awagner/Documents/DataLad-101" \
+     enable -s dropbox-for-friends
    .: dropbox-for-friends(?) [git]
 
 And once this is done, you can get any annexed file contents, for example the

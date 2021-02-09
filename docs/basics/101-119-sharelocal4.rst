@@ -36,7 +36,7 @@ installation in ``../mock_user/DataLad-101``:
    :notes: On updating dataset. How do we get the updated notes from the original dataset?
    :cast: 04_collaboration
 
-   # we are inside the installed copy and view the last 15 lines of notes.txt
+   # Inside the installed copy, view the last 15 lines of notes.txt
    $ tail notes.txt
 
 But the original intention of sharing the dataset with

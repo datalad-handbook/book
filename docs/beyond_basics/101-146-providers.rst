@@ -52,7 +52,8 @@ to DataLad yet, the download will fail. Here is how this looks like if data is
 retrieved from a server that requires HTTP authentication, but DataLad -- or the
 dataset -- lacks a configuration for data access about this server::
 
-   $ datalad download-url  https://example.com/myuser/protected/path/to/file
+   $ datalad download-url  \
+     https://example.com/myuser/protected/path/to/file
      [INFO   ] Downloading 'https://example.com/myuser/protected/path/to/file' into 'local/path/'
      Authenticated access to https://example.com/myuser/protected/path/to/file has failed.
      Would you like to setup a new provider configuration to access url? (choices: [yes], no): yes

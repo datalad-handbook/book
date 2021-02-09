@@ -121,7 +121,8 @@ This registers your room mate's ``DataLad-101`` as a "sibling" (we will call it
 
    $ cd ../../DataLad-101
    # add a sibling
-   $ datalad siblings add -d . --name roommate --url ../mock_user/DataLad-101
+   $ datalad siblings add -d . \
+     --name roommate --url ../mock_user/DataLad-101
 
 There are a few confusing parts about this command: For one, do not be surprised
 about the ``--url`` argument -- it's called "URL" but it can be a path as well.

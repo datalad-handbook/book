@@ -199,7 +199,8 @@ data access *globally*, i.e., it will place the file under
     password: <password>
     password (repeat): <password>
     [INFO   ] http session: Authenticating into session for https://example.com/~myuser/protected/my_protected_file
-    https://example.com/~myuser/protected/my_protected_file:   0%| | 0.00/611k                                                                                                                                                                                                                                                 download_url(ok): /tmp/xnat2/0015911870_1.3.12.2.1107.5.2.32.35135.2011102112040130362336780.dcm (file)
+    https://example.com/~myuser/protected/my_protected_file:   0%| | 0.00/611k
+    download_url(ok): /https://example.com/~myuser/protected/my_protected_file (file)
     add(ok): my_protected_file (file)
     save(ok): . (dataset)
     action summary:

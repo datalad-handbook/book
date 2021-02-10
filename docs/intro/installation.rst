@@ -48,7 +48,7 @@ The easiest way to do this is to open a terminal and type "python" to open a min
 If this fails, or reports a Python version with a leading ``2``, such as ``Python 2.7.18``, try typing ``python3`` (which some systems use to disambiguate between Python 2 and Python 3).
 If this fails, too, you need to obtain a recent release of Python 3.
 
-If you are on Windows, please note that you should **not** install Python via the Windows store, even if it opens after you typed ``python`` as this version requires additional configurations by hand (in particular of your ``$PATH`` :term:`environment variable`.
+If you are on Windows, please note that you should **not** install Python via the Windows store, even if it opens after you typed ``python``, as this version requires additional configurations by hand (in particular of your ``$PATH`` :term:`environment variable`).
 Please instead check the Windows section at the end of the page for more convenient alternatives.
 
 .. findoutmore:: Python 2, Python 3, what's the difference?
@@ -56,6 +56,13 @@ Please instead check the Windows section at the end of the page for more conveni
    Python 2 is an outdated, in technical terms "deprecated", version of Python.
    Although it still exist as the default Python version on many systems, it is no longer maintained since 2020, and thus, most software has dropped support for Python 2.
    If you only run Python 2 on your system, most Python software, including DataLad, will be incompatible, and hence unusable, resulting in errors during installation and execution.
+
+   But does that mean that you should uninstall Python 2?
+   **No**.
+   Keep it installed, especially if you are using Linux or MacOS.
+   Python 2 existed for 20 years and numerous software has been written in it.
+   It is quite likely that some basic operating system components or legacy software on your computer is depending on it, and uninstalling a preinstalled Python 2 from your system will likely render it unusable.
+   Install Python 3, and have both versions coexist peacefully.
 
 Regardless of your operating system, we recommend installing Python via `Miniconda <https://docs.conda.io/en/latest/miniconda.html>`_, a minimal Python installer.
 To install it from the command line, run

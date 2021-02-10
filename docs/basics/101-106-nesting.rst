@@ -69,6 +69,7 @@ subdataset's history:
 .. runrecord:: _examples/DL-101-106-102
    :language: console
    :workdir: dl-101/DataLad-101
+   :lines: 1-9
    :emphasize-lines: 3
    :cast: 01_dataset_basics
    :notes: We can find this shasum in the subdatasets history: it's the most recent change
@@ -111,7 +112,9 @@ the figure below illustrates the current state of the dataset
 and nesting schematically:
 
 .. figure:: ../artwork/src/virtual_dstree_dl101.svg
-   :alt: Virtual directory tree of a nested DataLad dataset
+   :width: 70%
+
+   Virtual directory tree of a nested DataLad dataset
 
 Thus, without being consciously aware of it, by taking advantage of dataset
 nesting, we took a dataset ``longnow`` and installed it as a

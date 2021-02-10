@@ -350,9 +350,9 @@ Cross-OS filesharing with symlinks (WSL2 only)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Are you using DataLad on the Windows Subsystem for Linux?
-If so, please take a look into the Findoutmore below.
+If so, please take a look into the Windows-Workaround below.
 
-.. findoutmore:: Accessing symlinked files from your Windows system
+.. windowsworkarounds:: Accessing symlinked files from your Windows system
 
    If you are using WSL2 you have access to a Linux kernel and POSIX filesystem, including symlink support.
    Your DataLad experience has therefore been exactly as it has been for macOS or Linux users.

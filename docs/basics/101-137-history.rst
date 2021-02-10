@@ -239,6 +239,7 @@ with the HEAD pointer.
    in the given branch.
 
    .. figure:: ../artwork/src/git_branch_HEAD.png
+      :width: 50%
 
    Using ``HEAD``, you can identify the most recent commit, or count backwards
    starting from the most recent commit. ``HEAD~1`` is the ancestor of the most
@@ -437,7 +438,7 @@ How did your ``notes.txt`` file look at this point?
    :language: console
    :workdir: dl-101/DataLad-101
 
-   $ cat notes.txt
+   $ tail notes.txt
 
 Neat, isn't it? By checking out a commit shasum you can explore a previous
 state of a datasets history. And this does not only apply to simple text
@@ -469,17 +470,18 @@ The contents of ``notes.txt`` will now be the most recent version again:
    :language: console
    :workdir: dl-101/DataLad-101
 
-   $ cat notes.txt
+   $ tail notes.txt
 
 ... Wow! You traveled back and forth in time!
 But an even more magical way to see the contents of files in previous
 versions is Git's :command:`cat-file` command: Among many other things, it lets
 you read a file's contents as of any point in time in the history, without a
-prior :command:`git checkout`:
+prior :command:`git checkout` (note that the output is shortened for brevity and shows only the last few lines of the file):
 
 .. runrecord:: _examples/DL-101-137-127
    :language: console
    :workdir: dl-101/DataLad-101
+   :lines: 1, 48-
    :realcommand: echo "$ git cat-file --textconv $(git rev-parse HEAD~15):notes.txt" && git cat-file --textconv $(git rev-parse HEAD~15):notes.txt
 
 The cat-file command is very versatile, and
@@ -585,15 +587,12 @@ but also a modification to ``notes.txt``:
 
    $ cat << EOT >> notes.txt
 
-   Git has many handy tools to go back in forth in
-   time and work with the history of datasets.
-   Among many other things you can rewrite commit
-   messages, undo changes, or look at previous versions
-   of datasets. A superb resource to find out more about
-   this and practice such Git operations is this
-   chapter in the Pro-git book:
+   Git has many handy tools to go back in forth in time and work with the
+   history of datasets. Among many other things you can rewrite commit
+   messages, undo changes, or look at previous versions of datasets.
+   A superb resource to find out more about this and practice such Git
+   operations is this chapter in the Pro-git book:
    https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History
-
    EOT
 
 .. runrecord:: _examples/DL-101-137-143

@@ -161,7 +161,8 @@ command from the root of ``DataLad-101``.
    :notes: The datalad run command records a command's impact on a dataset. We try it in the most simple way:
    :cast: 02_reproducible_execution
 
-   $ datalad run -m "create a list of podcast titles" "bash code/list_titles.sh > recordings/podcasts.tsv"
+   $ datalad run -m "create a list of podcast titles" \
+     "bash code/list_titles.sh > recordings/podcasts.tsv"
 
 .. findoutmore:: Why is there a "notneeded" in the command summary?
 
@@ -228,7 +229,8 @@ command as before, and check whether anything in your log changes:
    :notes: A run command that does not result in changes (no modifcations, no additional files) will not produce a record in the dataset history. So what happens if we do the same again?
    :cast: 02_reproducible_execution
 
-   $ datalad run -m "Try again to create a list of podcast titles" "bash code/list_titles.sh > recordings/podcasts.tsv"
+   $ datalad run -m "Try again to create a list of podcast titles" \
+     "bash code/list_titles.sh > recordings/podcasts.tsv"
 
 .. runrecord:: _examples/DL-101-108-108
    :language: console

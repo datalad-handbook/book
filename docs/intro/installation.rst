@@ -17,8 +17,9 @@ Install DataLad
 The content in this chapter is largely based on the information given on the
 `DataLad website <https://www.datalad.org/get_datalad.html>`_
 and the `DataLad documentation <http://docs.datalad.org/en/stable/>`_.
+Python installation instructions are largely based on instructions from the `2020 OHBM hackathon <https://ohbm.github.io/hackathon2020/logistics/>`_.
 
-Beyond DataLad itself, the installation requires Python, :term:`Git`, and :term:`git-annex`, and may require Python's package manager ``pip`` and `p7zip/7-Zip <https://7-zip.org/>`_.
+Beyond DataLad itself, the installation requires Python 3, :term:`Git`, and :term:`git-annex`, and may require Python's package manager ``pip`` and `p7zip/7-Zip <https://7-zip.org/>`_.
 The instructions below detail how to install
 each of these components for different common operating systems. Please
 `file an issue <https://github.com/datalad-handbook/book/issues/new>`_
@@ -32,6 +33,48 @@ exist, and they need to be installed separately, if needed.
 .. figure:: ../artwork/src/install.svg
    :width: 70%
 
+Python 3 (all operating systems)
+""""""""""""""""""""""""""""""""
+
+You should make sure that you have Python 3 installed on your system.
+The easiest way to do this is to open a terminal and type "python" to open a minimalistic Python session::
+
+   $ python
+   Python 3.9.1+ (default, Jan 20 2021, 14:49:22)
+   [GCC 10.2.1 20210110] on linux
+   Type "help", "copyright", "credits" or "license" for more information.
+   >>>
+
+If this fails, or reports a Python version with a leading ``2``, such as ``Python 2.7.18``, try typing ``python3`` (which some systems use to disambiguate between Python 2 and Python 3).
+If this fails, too, you need to obtain a recent release of Python 3.
+
+If you are on Windows, please note that you should **not** install Python via the Windows store, even if it opens after you typed ``python``, as this version requires additional configurations by hand (in particular of your ``$PATH`` :term:`environment variable`).
+Please instead check the Windows section at the end of the page for more convenient alternatives.
+
+.. findoutmore:: Python 2, Python 3, what's the difference?
+
+   Python 2 is an outdated, in technical terms "deprecated", version of Python.
+   Although it still exist as the default Python version on many systems, it is no longer maintained since 2020, and thus, most software has dropped support for Python 2.
+   If you only run Python 2 on your system, most Python software, including DataLad, will be incompatible, and hence unusable, resulting in errors during installation and execution.
+
+   But does that mean that you should uninstall Python 2?
+   **No**.
+   Keep it installed, especially if you are using Linux or MacOS.
+   Python 2 existed for 20 years and numerous software has been written in it.
+   It is quite likely that some basic operating system components or legacy software on your computer is depending on it, and uninstalling a preinstalled Python 2 from your system will likely render it unusable.
+   Install Python 3, and have both versions coexist peacefully.
+
+Regardless of your operating system, we recommend installing Python via `Miniconda <https://docs.conda.io/en/latest/miniconda.html>`_, a minimal Python installer.
+To install it from the command line, run
+
+.. code-block:: bash
+
+   $ wget https://repo.anaconda.com/miniconda/Miniconda3-latest-<YOUR-OS>-x86_64.sh
+   $ bash Miniconda3-latest-<YOUR-OS>-x86_64.sh
+
+In the above call, replace ``<YOUR-OS>`` with an identifier for your operating system, such as "Linux" or "MacOSX" (if you are on Windows, please read the Windows-specific instructions).
+During the installation, you will need to accept a license agreement (press Enter to scroll down, and type "yes" and Enter to accept), confirm the installation into the default directory, and you should respond "yes" to the prompt ``“Do you wish the installer to initialize Miniconda3 by running conda init? [yes|no]”``.
+Afterwards, you can remove the installation script by running ``rm ./Miniconda3-latest-*-x86_64.sh``.
 
 Linux: (Neuro)Debian, Ubuntu, and similar systems
 """""""""""""""""""""""""""""""""""""""""""""""""
@@ -71,7 +114,7 @@ Linux-machines with no root access (e.g. HPC systems)
 """""""""""""""""""""""""""""""""""""""""""""""""""""
 
 If you want to install DataLad on a machine you do not have root access to, DataLad
-can be installed with `Miniconda <https://docs.conda.io/en/latest/miniconda.html>`_.
+can be installed with `Miniconda <https://docs.conda.io/en/latest/miniconda.html>`__.
 
 .. code-block:: bash
 

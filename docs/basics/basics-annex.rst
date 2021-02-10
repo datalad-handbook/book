@@ -6,6 +6,7 @@ Under the hood: git-annex
 .. index:: ! Chapter; 3. git-annex
 
 .. figure:: ../artwork/src/security.svg
+   :width: 50%
 
 A closer look at how and why things work
 

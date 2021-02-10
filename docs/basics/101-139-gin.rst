@@ -13,6 +13,9 @@ contents with selected collaborators or making them publicly and anonymously
 available.
 
 .. figure:: ../artwork/src/publishing/publishing_network_publishgin.svg
+   :width: 80%
+
+   Some repository hosting services such as Gin have annex support, and can thus hold the complete dataset. This makes publishing datasets very easy.
 
 .. note::
 
@@ -89,13 +92,18 @@ for you on :term:`GitHub`), this needs to be done via the web interface:
 
 .. figure:: ../artwork/src/GIN_newrepo.png
 
+   Create a new repository on Gin using the web interface.
+
 Afterwards, add this repository as a sibling of your dataset. To do this, use the
 :command:`datalad siblings add` command and the SSH URL of the repository as shown below.
+Note that since this is the first time you will be connecting to the GIN server
 Note that since this is the first time you will be connecting to the GIN server
 via SSH, you will likely be asked to confirm to connect. This is a safety measure,
 and you can type "yes" to continue::
 
-    $ datalad siblings add -d . --name gin --url git@gin.g-node.org:/adswa/DataLad-101.git
+    $ datalad siblings add -d . \
+      --name gin \
+      --url git@gin.g-node.org:/adswa/DataLad-101.git
 
     The authenticity of host 'gin.g-node.org (141.84.41.219)' can't be established.
     ECDSA key fingerprint is SHA256:E35RRG3bhoAm/WD+0dqKpFnxJ9+yi0uUiFLi+H/lkdU.
@@ -129,6 +137,8 @@ If you refresh the GIN web interface afterwards, you will find all of your datas
 GIN web interface (unlike :term:`GitHub`) can even preview your annexed contents.
 
 .. figure:: ../artwork/src/GIN_dl101_repo.png
+
+   A published dataset in a Gin repository at gin.g-node.org.
 
 .. _access:
 
@@ -178,6 +188,8 @@ an SSH key as detailed above, and cloning via the SSH url:
    "Private" box, found under "Settings":
 
    .. figure:: ../artwork/src/GIN_private.png
+
+      Private Gin repository are marked. They can be made public in the settings.
 
 In order to publish changes to a Gin repository, the repository needs
 to be cloned via its SSH url.
@@ -230,7 +242,8 @@ your dataset was published to -- likely, you only need to change the user name):
    :language: console
    :workdir: dl-101/DataLad-101
 
-   $ datalad subdatasets --contains midterm_project --set-property url https://github.com/adswa/midtermproject
+   $ datalad subdatasets --contains midterm_project \
+     --set-property url https://github.com/adswa/midtermproject
 
 .. runrecord:: _examples/DL-101-139-104
    :language: console

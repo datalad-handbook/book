@@ -51,7 +51,6 @@ common shape a data science project may take after a while:
     │   ├── data_updated/
     │   │    └── dataset1/
     │   │        ├── datafile_a
-
     │   ├── dataset1/
     │   │   ├── datafile_a
     │   ├── outputs/
@@ -191,7 +190,7 @@ how to build and share such a reproducible paper, if you want to learn
 more.
 
 .. figure:: ../artwork/src/img/dataset_modules.svg
-   :figwidth: 100%
+   :width: 100%
    :alt: Modular structure of a data analysis project
 
    Data are modular components that can be re-used easily.
@@ -270,7 +269,7 @@ reproducible analysis concepts as being obvious", you think with a grin.
 
 
 .. figure:: ../artwork/src/img/data_origin.svg
-   :figwidth: 50%
+   :width: 50%
    :alt: Datasets are installed as subdatasets
 
    Schematic illustration of two standalone data datasets installed as subdatasets

@@ -94,9 +94,9 @@ to a :command:`datalad run`:
    :cast: 02_reproducible_execution
 
    $ cat << EOT >> notes.txt
-   Important! If the dataset is not "clean" (a datalad status output is empty),
-   datalad run will not work - you will have to save modifications present in your
-   dataset.
+   Important! If the dataset is not "clean" (a datalad status output is
+   empty), datalad run will not work - you will have to save
+   modifications present in your dataset.
    EOT
 
 
@@ -150,9 +150,8 @@ Add an additional note on the ``--explicit`` flag, and finally save your changes
    :cast: 02_reproducible_execution
 
    $ cat << EOT >> notes.txt
-   A suboptimal alternative is the --explicit flag,
-   used to record only those changes done
-   to the files listed with --output flags.
+   A suboptimal alternative is the --explicit flag, used to record only
+   those changes done to the files listed with --output flags.
 
    EOT
 

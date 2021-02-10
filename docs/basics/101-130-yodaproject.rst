@@ -271,7 +271,9 @@ by installing it as a subdataset. Make sure to install it as a subdataset of
 
    $ cd midterm_project
    # we are in midterm_project, thus -d . points to the root of it.
-   $ datalad clone -d . https://github.com/datalad-handbook/iris_data.git input/
+   $ datalad clone -d . \
+     https://github.com/datalad-handbook/iris_data.git \
+     input/
 
 Note that we did not keep its original name, ``iris_data``, but rather provided
 a path with a new name, ``input``, because this much more intuitively comprehensible.
@@ -295,7 +297,7 @@ dataset, as is its ``input/`` subdataset:
 
 .. figure:: ../artwork/src/virtual_dstree_dl101_midterm.svg
    :alt: Overview of (linked) datasets in DataLad-101.
-   :figwidth: 100%
+   :width: 50%
 
 
 
@@ -405,7 +407,9 @@ point with the ``--version-tag`` option of :command:`datalad save`.
    :cast: 10_yoda
    :notes: Save the analysis to the history
 
-   $ datalad save -m "add script for kNN classification and plotting" --version-tag ready4analysis code/script.py
+   $ datalad save -m "add script for kNN classification and plotting" \
+     --version-tag ready4analysis \
+     code/script.py
 
 .. findoutmore:: What is a tag?
 
@@ -417,6 +421,7 @@ point with the ``--version-tag`` option of :command:`datalad save`.
 
    .. runrecord:: _examples/DL-101-130-110
       :workdir: dl-101/DataLad-101/midterm_project
+      :lines: 1-13
       :language: console
 
       $ git show ready4analysis

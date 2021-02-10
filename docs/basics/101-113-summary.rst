@@ -29,7 +29,7 @@ command, and discovered the concept of *locked* content.
 
 .. figure:: ../artwork/src/run.svg
    :alt: Schematic illustration of datalad run.
-   :figwidth: 100%
+   :width: 70%
 
    Overview of ``datalad run``.
 

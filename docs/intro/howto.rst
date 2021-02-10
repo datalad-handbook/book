@@ -29,7 +29,7 @@ text based interface. If you have used Matlab or IPython, then you are already f
 with the basics of a command line interface.
 
 .. figure:: ../artwork/src/img/shell.png
-   :figwidth: 50%
+   :width: 50%
    :alt: A z-shell on a Debian system
 
    A terminal window in a standard desktop environment.
@@ -170,7 +170,6 @@ To demonstrate this further, consider the following: In my home directory
 .. code-block:: bash
 
    $ tree
-
    └── home
        └── adina
             └── awesome_datalad_project
@@ -178,19 +177,9 @@ To demonstrate this further, consider the following: In my home directory
                    ├── code
                └── sub-01
                    └── bold3T
-               └── sub-02
-                   └── bold3T
                ├── ...
                └── sub-xx
                    └── bold3T
-           └── structural
-               └── sub-01
-                   └── anat
-               └── sub-02
-                   └── anat
-               ├── ...
-               └── sub-xx
-                   └── anat
 
 Now let's say I want to change from my home directory ``/home/adina`` into the ``code/``
 folder of the project. I could use absolute paths:

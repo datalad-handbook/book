@@ -282,6 +282,21 @@ latex_elements = {
     'papersize': 'a4paper',
     'pointsize': '11pt',
     'figure_align': 'H',
+    'sphinxsetup': r"""
+verbatimwithframe=false,%
+VerbatimColor={rgb}{1,1,1},%
+VerbatimHighlightColor={named}{OldLace},%
+TitleColor={named}{DarkGoldenrod},%
+hintBorderColor={named}{LightCoral},%
+attentionborder=3pt,%
+attentionBorderColor={named}{Crimson},%
+attentionBgColor={named}{FloralWhite},%
+noteborder=2pt,%
+noteBorderColor={named}{Orange},%
+cautionborder=3pt,%
+cautionBorderColor={named}{Cyan},%
+cautionBgColor={named}{LightCyan}%
+""",
     'maketitle': r"""
 \begin{titlepage}
 \raggedleft
@@ -320,7 +335,7 @@ latex_elements = {
 \definecolor{dataladyellow}{HTML}{FFA200}
 \definecolor{dataladblue}{HTML}{7FD5FF}
 \definecolor{dataladgray}{HTML}{333333}
-\definecolor{windowsblue}{HTML}{00A4EF}
+\definecolor{windowsblue}{HTML}{126e12}
 \definecolor{windowsgreen}{HTML}{66CC33}
 \definecolor{windowsyellow}{HTML}{FFCC00}
 \setcounter{secnumdepth}{1}

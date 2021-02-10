@@ -356,10 +356,6 @@ was applied.
 
       $ datalad run-procedure --help-proc example
 
-   .. todo::
-
-      It might be helpful to have (or reference) a table with all available
-      procedures and a short explanation. Maybe on the cheatsheet.
 
 Summing up, DataLad's :command:`run-procedure` command is a handy tool
 with useful existing procedures but much flexibility for your own
@@ -389,14 +385,15 @@ Finally, make a note about running procedures inside of ``notes.txt``:
 
    $ cat << EOT >> notes.txt
    It can be useful to use pre-configured procedures that can apply
-   configurations, create files or file hierarchies, or perform
-   arbitrary tasks in datasets. They can be shipped with DataLad,
-   its extensions, or datasets, and you can even write your own
-   procedures and distribute them. The "datalad run-procedure"
-   command is used to apply such a procedure to a dataset. Procedures
-   shipped with DataLad or its extensions starting with a "cfg" prefix
-   can also be applied at the creation of a dataset with
-   "datalad create -c <PROC-NAME> <PATH>" (omitting the "cfg" prefix).
+   configurations, create files or file hierarchies, or perform arbitrary
+   tasks in datasets. They can be shipped with DataLad, its extensions,
+   or datasets, and you can even write your own procedures and distribute
+   them.
+   The "datalad run-procedure" command is used to apply such a procedure
+   to a dataset. Procedures shipped with DataLad or its extensions
+   starting with a "cfg" prefix can also be applied at the creation of a
+   dataset with "datalad create -c <PROC-NAME> <PATH>" (omitting the
+   "cfg" prefix).
 
    EOT
 

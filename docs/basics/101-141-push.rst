@@ -30,7 +30,7 @@ and files stored with :term:`git-annex`, to a known dataset :term:`sibling`.
 In order to publish a dataset, the dataset needs to have a sibling to push to.
 This, for instance, can be a :term:`GitHub`, :term:`GitLab`, or :term:`Gin`
 repository, but it can also be a Remote Indexed Archive (RIA) store for backup
-or storage of datasets [#f1]_, or a regular clone [#f2]_.
+or storage of datasets [#f1]_, or a regular clone.
 
 .. findoutmore:: all of the ways to configure siblings
 
@@ -142,6 +142,22 @@ targets are configured throughout the dataset hierarchy.
 
       $ git config --local remote.public.push 'refs/heads/sct*'
 
+Pushing errors
+^^^^^^^^^^^^^^
+
+If you are unfamiliar with Git, please be aware that cloning a dataset to a different place and subsequently pushing to it can lead to Git error messages if changes are pushed to a currently checked out :term:`branch` of the sibling (in technical Git terms: When pushing to a checked-out branch of a non-bare repository remote).
+As an example, consider what happens if we attempt a :command:`datalad push` to the sibling ``roommate`` that we created in the chapter :ref:`chapter_collaboration`:
+
+.. runrecord:: _examples/DL-101-141-101
+   :language: console
+   :workdir: dl-101/DataLad-101
+
+   $ datalad push --to roommate
+
+Publishing fails with the error message ``[remote rejected] (branch is currently checked out)``.
+This can be prevented with  `configuration settings <https://github.blog/2015-02-06-git-2-3-has-been-released/>`_ in Git versions 2.3 or higher, or by pushing to a branch of the sibling that is currently not checked-out.
+For more information on this, and other error messages during push, please checkout the section :ref:`help`.
+
 Setting access control via publishing
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -250,24 +266,3 @@ for more information).
           DataLad datasets. You can find out more about them in the section
           :ref:`riastore`.
 
-.. [#f2] If you are unfamiliar with Git, please be aware that cloning a dataset
-         to a different place and subsequently pushing to it can lead to Git
-         error messages if changes are pushed to a currently checked out
-         :term:`branch` of the sibling (in technical Git terms: When pushing to
-         a checked-out branch of a non-bare repository remote).
-         As an example, consider what happens
-         if we attempt a :command:`datalad push` to the sibling ``roommate``
-         that we created in the chapter :ref:`chapter_collaboration`:
-
-         .. runrecord:: _examples/DL-101-141-101
-            :language: console
-            :workdir: dl-101/DataLad-101
-
-            $ datalad push --to roommate
-
-         Publishing fails with the error message
-         ``[remote rejected] (branch is currently checked out)``.
-         This can be prevented with
-         `configuration settings <https://github.blog/2015-02-06-git-2-3-has-been-released/>`_
-         in Git versions 2.3 or higher, or by pushing to a branch of the sibling
-         that is currently not checked-out.

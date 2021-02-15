@@ -24,17 +24,19 @@ def depart_gitusernote_html(self, node):
 
 def visit_gitusernote_latex(self, node):
     self.body.append("""
-    \\begin{tcolorbox}[
+    \\begin{{tcolorbox}}[
         enhanced,
-        breakable,
-        drop lifted shadow,
-        sharp corners,
-        title=Note for Git users,
+        ribbon git,
+        title={{{title}}},
         coltitle=dataladgray,
         colbacktitle=dataladblue,
-        colframe=dataladblue!70!black,
-        fonttitle=\\bfseries]
-    """)
+        colframe=dataladblue!70!black]
+    """.format(
+        title=node.children[0].astext(),
+    ))
+    # we have used the title for the colorbox header
+    # already, do not duplicate in the body
+    del node.children[0]
 
 
 def depart_gitusernote_latex(self, node):
@@ -63,17 +65,19 @@ def depart_findoutmore_html(self, node):
 
 def visit_findoutmore_latex(self, node):
     self.body.append("""
-    \\begin{tcolorbox}[
+    \\begin{{tcolorbox}}[
         enhanced,
-        breakable,
-        drop lifted shadow,
-        sharp corners,
-        title=Find out more,
+        ribbon more,
+        title={{{title}}},
         coltitle=dataladgray,
         colbacktitle=dataladyellow,
-        colframe=dataladyellow!70!black,
-        fonttitle=\\bfseries]
-    """)
+        colframe=dataladyellow!70!black]
+    """.format(
+        title=node.children[0].astext(),
+    ))
+    # we have used the title for the colorbox header
+    # already, do not duplicate in the body
+    del node.children[0]
 
 
 def depart_findoutmore_latex(self, node):
@@ -188,17 +192,20 @@ def depart_windowsworkarounds_html(self, node):
 
 def visit_windowsworkarounds_latex(self, node):
     self.body.append("""
-    \\begin{tcolorbox}[
+    \\begin{{tcolorbox}}[
         enhanced,
-        breakable,
-        drop lifted shadow,
-        sharp corners,
-        title=Windows Workaround,
+        ribbon win,
+        title={{{title}}},
         coltitle=dataladgray,
         colbacktitle=windowsgreen,
-        colframe=windowsblue!70!black,
-        fonttitle=\\bfseries]
-    """)
+        colframe=windowsgreen!70!black]
+    """.format(
+        title=node.children[0].astext(),
+    ))
+    # we have used the title for the colorbox header
+    # already, do not duplicate in the body
+    del node.children[0]
+
 
 
 def depart_windowsworkarounds_latex(self, node):

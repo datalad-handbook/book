@@ -259,6 +259,7 @@ htmlhelp_basename = 'dataladhandbookdoc'
 
 
 # -- Options for LaTeX output --------------------------------------------------
+latex_engine = 'pdflatex'
 
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
@@ -274,6 +275,11 @@ latex_documents = [
 # The name of an image file (relative to this directory) to place at the top of
 # the title page.
 latex_logo = '../artwork/logo.pdf'
+latex_additional_files = [
+    '../artwork/git_boxicon.pdf',
+    '../artwork/more_boxicon.pdf',
+    '../artwork/win_boxicon.pdf',
+]
 
 latex_toplevel_sectioning = 'part'
 latex_show_pagerefs = True
@@ -327,8 +333,30 @@ cautionBgColor={named}{LightCyan}%
 \usepackage{inconsolata}
 
 % nice boxes
-\usepackage[skins,breakable]{tcolorbox}
-\tcbset{enhanced}
+\usepackage[skins,breakable,many]{tcolorbox}
+\tcbset{breakable}
+\tcbset{drop lifted shadow}
+\tcbset{sharp corners}
+\tcbset{fonttitle=\bfseries}
+
+\tcbset{%
+ribbon win/.style={overlay={
+  \begin{scope}[shift={([xshift=-5mm,yshift=-3mm]frame.north west)}]
+    \path(0,0) node[inner sep=0] {\includegraphics{win_boxicon}};
+  \end{scope}}]}
+}
+\tcbset{%
+ribbon git/.style={overlay={
+  \begin{scope}[shift={([xshift=-5mm,yshift=-3mm]frame.north west)}]
+    \path(0,0) node[inner sep=0] {\includegraphics{git_boxicon}};
+  \end{scope}}]}
+}
+\tcbset{%
+ribbon more/.style={overlay={
+  \begin{scope}[shift={([xshift=-5mm,yshift=-3mm]frame.north west)}]
+    \path(0,0) node[inner sep=0] {\includegraphics{more_boxicon}};
+  \end{scope}}]}
+}
 
 \setcounter{tocdepth}{1}
 \usepackage{xcolor}

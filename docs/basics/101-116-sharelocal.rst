@@ -427,7 +427,7 @@ Save this note.
 
    $ datalad save -m "add note about cloning from paths and recursive datalad get"
 
-.. gitusernote::
+.. gitusernote:: Get a clone
 
    A dataset that is installed from an existing source, e.g., a path or URL,
    is the DataLad equivalent of a *clone* in Git.

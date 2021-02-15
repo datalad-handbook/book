@@ -194,7 +194,7 @@ human-readable summary of that action.
 
     - it should be obvious: do not say nasty things about other people
 
-.. gitusernote::
+.. gitusernote:: There is no staging area in DataLad
 
    Just as in Git, new files are not tracked from their creation on, but only when
    explicitly added to Git (in Git terms with an initial :command:`git add`). But different

@@ -36,7 +36,7 @@ If you have never used DVC, `its technical docs <https://dvc.org/doc/command-ref
    Understanding the DVC workflows requires a solid understanding of :term:`branch`\es, Git's concepts of `Working tree, Index ("Staging Area"), and Repository <https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository>`_, and some basic Git commands such as ``add``, ``commit``, and ``checkout``.
    `The Turing Way <https://the-turing-way.netlify.app/welcome.html>`_ has an excellent `chapter on version control with Git <https://the-turing-way.netlify.app/reproducible-research/vcs.html>`_ if you want to catch up on those basics first.
 
-.. gitusernote::
+.. gitusernote:: Terminology
 
    Be mindful: DVC (as DataLad) comes with a range of commands and concepts that have the same names, but differ in functionality to their Git namesake.
    Make sure to read the `DVC documentation <https://dvc.org/doc/command-reference>`_ for each command to get more information on what it does.
@@ -393,7 +393,7 @@ Note that ``dvc remote add`` only *modifies* the config file, and it still needs
    $ git add .dvc/config
    $ git commit -m "add local remote"
 
-.. gitusernote::
+.. gitusernote:: Remotes
 
    The DVC and Git concepts of a "remote" are related, but not identical.
    Therefore, DVC remotes are invisible to :command:`git remote`, and likewise, Git :term:`remote`\s are invisible to the :command:`dvc remote list` command.
@@ -434,7 +434,7 @@ In order to demonstrate this, we start by deleting a data directory (in its orig
    ### DVC
    $ rm -rf data/raw/val
 
-.. gitusernote::
+.. gitusernote:: Status
 
    Do note that this deletion would not be detected by :command:`git status` -- you have to use :command:`dvc status` instead.
 

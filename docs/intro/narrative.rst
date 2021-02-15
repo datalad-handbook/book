@@ -89,7 +89,7 @@ You can decide for yourself whether you want to check them out:
 
 .. only:: latex
 
-   .. findoutmore:: Information on further commands
+   .. findoutmore:: For curious minds
 
        Sections like this contain content that goes beyond the basics
        necessary to complete a challenge.
@@ -97,7 +97,7 @@ You can decide for yourself whether you want to check them out:
 
 Note further that...
 
-.. gitusernote::
+.. gitusernote:: For (future) Git experts
 
    DataLad uses :term:`Git` and :term:`git-annex` underneath the hood. Readers that
    are familiar with these tools can find occasional notes on how a DataLad

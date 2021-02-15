@@ -132,7 +132,7 @@ chapters in this handbook will demonstrate how useful this information can be.
    automatically into the higher level *superdataset*. The upcoming section will
    elaborate on this.
 
-.. gitusernote::
+.. gitusernote:: Clone internals
 
    The :command:`datalad clone` command uses :command:`git clone`.
    A dataset that is installed from an existing source, e.g., a path or URL,
@@ -299,7 +299,7 @@ DataLad summarizes the outcome of the execution of ``get`` in the end and inform
 that the download of one file was ``notneeded`` and the retrieval of the other files was ``ok``.
 
 
-.. gitusernote::
+.. gitusernote:: Get internals
 
    :command:`datalad get` uses :command:`git annex get` underneath the hood.
 

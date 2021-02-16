@@ -343,19 +343,38 @@ cautionBgColor={named}{LightCyan}%
 ribbon win/.style={overlay={
   \begin{scope}[shift={([xshift=-5mm,yshift=-3mm]frame.north west)}]
     \path(0,0) node[inner sep=0] {\includegraphics{win_boxicon}};
-  \end{scope}}]}
+  \end{scope}}}
 }
 \tcbset{%
 ribbon git/.style={overlay={
   \begin{scope}[shift={([xshift=-5mm,yshift=-3mm]frame.north west)}]
     \path(0,0) node[inner sep=0] {\includegraphics{git_boxicon}};
-  \end{scope}}]}
+  \end{scope}}}
 }
 \tcbset{%
 ribbon more/.style={overlay={
   \begin{scope}[shift={([xshift=-5mm,yshift=-3mm]frame.north west)}]
     \path(0,0) node[inner sep=0] {\includegraphics{more_boxicon}};
-  \end{scope}}]}
+  \end{scope}}}
+}
+
+\newtcolorbox[list inside=windowsworkarounds]{windowsworkaround}[1]{%
+  enhanced, ribbon win, title={#1},
+  coltitle=dataladgray,
+  colbacktitle=windowsgreen,
+  colframe=windowsgreen!70!black
+}
+\newtcolorbox[list inside=gitusernotes]{gitusernote}[1]{%
+  enhanced, ribbon git, title={#1},
+  coltitle=dataladgray,
+  colbacktitle=dataladblue,
+  colframe=dataladblue!70!black
+}
+\newtcolorbox[list inside=findoutmores]{findoutmore}[1]{%
+  enhanced, ribbon more, title={#1},
+  coltitle=dataladgray,
+  colbacktitle=dataladyellow,
+  colframe=dataladyellow!70!black
 }
 
 \setcounter{tocdepth}{1}

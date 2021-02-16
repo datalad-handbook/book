@@ -30,6 +30,8 @@ def _make_toggle(admonition, docnodes, cls, classes):
         # not 100% necessary, as 'findoutmore' could get that
         # functional assigned in CSS instead (maybe streamline later)
         classes=['toggle'] + classes,
+        ids=docnodes[0].attributes.get('ids'),
+        names=docnodes[0].attributes.get('names'),
     )
 
 

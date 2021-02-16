@@ -4,6 +4,16 @@ from docutils import nodes
 from docutils.parsers.rst.directives.admonitions import BaseAdmonition
 
 
+def _get_counted_boxstart(label, title):
+    return \
+        "\\begin{{{label}}}" \
+        "[label={{{label}counter}}]" \
+        "{{\\thetcbcounter\\ {title}}}\n".format(
+            label=label,
+            title=title,
+        )
+
+
 class gitusernote(nodes.Admonition, nodes.Element):
     """Custom "gitusernote" admonition."""
 
@@ -23,9 +33,10 @@ def depart_gitusernote_html(self, node):
 
 
 def visit_gitusernote_latex(self, node):
-    self.body.append("\\begin{{gitusernote}}{{{title}}}\n".format(
-        title=node.children[0].astext(),
-    ))
+    self.body.append(
+        _get_counted_boxstart(
+            'gitusernote',
+            node.children[0].astext()))
     # we have used the title for the colorbox header
     # already, do not duplicate in the body
     del node.children[0]
@@ -56,9 +67,10 @@ def depart_findoutmore_html(self, node):
 
 
 def visit_findoutmore_latex(self, node):
-    self.body.append("\\begin{{findoutmore}}{{{title}}}\n".format(
-        title=node.children[0].astext(),
-    ))
+    self.body.append(
+        _get_counted_boxstart(
+            'findoutmore',
+            node.children[0].astext()))
     # we have used the title for the colorbox header
     # already, do not duplicate in the body
     del node.children[0]
@@ -175,9 +187,10 @@ def depart_windowsworkarounds_html(self, node):
 
 
 def visit_windowsworkarounds_latex(self, node):
-    self.body.append("\\begin{{windowsworkaround}}{{{title}}}\n".format(
-        title=node.children[0].astext(),
-    ))
+    self.body.append(
+        _get_counted_boxstart(
+            'windowsworkaround',
+            node.children[0].astext()))
     # we have used the title for the colorbox header
     # already, do not duplicate in the body
     del node.children[0]

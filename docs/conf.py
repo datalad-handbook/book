@@ -358,23 +358,32 @@ ribbon more/.style={overlay={
   \end{scope}}}
 }
 
-\newtcolorbox[list inside=windowsworkarounds]{windowsworkaround}[1]{%
-  enhanced, ribbon win, title={#1},
-  coltitle=dataladgray,
-  colbacktitle=windowsgreen,
-  colframe=windowsgreen!70!black
+\newtcolorbox[%
+  auto counter,
+  number within=chapter,
+  list inside=windowsworkarounds]{windowsworkaround}[2][]{%
+    enhanced, ribbon win, title={#2},
+    coltitle=dataladgray,
+    colbacktitle=windowsgreen,
+    colframe=windowsgreen!70!black, #1
 }
-\newtcolorbox[list inside=gitusernotes]{gitusernote}[1]{%
-  enhanced, ribbon git, title={#1},
-  coltitle=dataladgray,
-  colbacktitle=dataladblue,
-  colframe=dataladblue!70!black
+\newtcolorbox[%
+  auto counter,
+  number within=chapter,
+  list inside=gitusernotes]{gitusernote}[2][]{%
+    enhanced, ribbon git, title={#2},
+    coltitle=dataladgray,
+    colbacktitle=dataladblue,
+    colframe=dataladblue!70!black, #1
 }
-\newtcolorbox[list inside=findoutmores]{findoutmore}[1]{%
-  enhanced, ribbon more, title={#1},
-  coltitle=dataladgray,
-  colbacktitle=dataladyellow,
-  colframe=dataladyellow!70!black
+\newtcolorbox[
+  auto counter,
+  number within=chapter,
+  list inside=findoutmores]{findoutmore}[2][]{%
+    enhanced, ribbon more, title={#2},
+    coltitle=dataladgray,
+    colbacktitle=dataladyellow,
+    colframe=dataladyellow!70!black, #1
 }
 
 \setcounter{tocdepth}{1}

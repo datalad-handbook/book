@@ -38,8 +38,8 @@ def _make_toggle(admonition, docnodes, cls, classes):
 def _get_counted_boxstart(label, title):
     return \
         "\\begin{{{label}}}" \
-        "[label={{{label}counter}}]" \
-        "{{\\thetcbcounter\\ {title}}}\n".format(
+        "[label={{{label}counter}},before title={{\\thetcbcounter\\ }}]" \
+        "{{{title}}}\n".format(
             label=label,
             title=title,
         )

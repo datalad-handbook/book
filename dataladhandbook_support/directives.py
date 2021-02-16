@@ -4,6 +4,35 @@ from docutils import nodes
 from docutils.parsers.rst.directives.admonitions import BaseAdmonition
 
 
+def _make_toggle(admonition, docnodes, cls, classes):
+    # throw away the title, because we want to mark
+    # it up as a 'header' further down
+    del docnodes[0][0]
+    # now put the entire admonition structure into a container
+    # that we assign the necessary class to make it 'toggle-able'
+    # in HTML
+    # outer container
+    return cls(
+        'toogle',
+        # header line with 'Find out more' prefix
+        nodes.paragraph(
+            # place actual admonition title we removed
+            # above
+            'title', admonition.arguments[0],
+            # add (CSS) class
+            classes=['header'],
+        ),
+        # place the rest of the admonition structure after the header,
+        # but still inside the container
+        *docnodes[0].children,
+        # properly identify as 'findoutmore' to enable easy custom
+        # styling, and also tag with 'toggle'. The later is actually
+        # not 100% necessary, as 'findoutmore' could get that
+        # functional assigned in CSS instead (maybe streamline later)
+        classes=['toggle'] + classes,
+    )
+
+
 def _get_counted_boxstart(label, title):
     return \
         "\\begin{{{label}}}" \
@@ -98,34 +127,9 @@ class FindOutMore(BaseAdmonition):
     required_arguments = 1
 
     def run(self):
-        # this uses the admonition code for RST parsion
-        docnodes = super(FindOutMore, self).run()
-        # but we throw away the title, because we want to mark
-        # it up as a 'header' further down
-        del docnodes[0][0]
-        # now put the entire admonition structure into a container
-        # that we assign the necessary class to make it 'toggle-able'
-        # in HTML
-        # outer container
-        toggle = findoutmore(
-            'toogle',
-            # header line with 'Find out more' prefix
-            nodes.paragraph(
-                # place actual admonition title we removed
-                # above
-                'title', self.arguments[0],
-                # add (CSS) class
-                classes=['header'],
-            ),
-            # place the rest of the admonition structure after the header,
-            # but still inside the container
-            *docnodes[0].children,
-            # properly identify as 'findoutmore' to enable easy custom
-            # styling, and also tag with 'toggle'. The later is actually
-            # not 100% necessary, as 'findoutmore' could get that
-            # functional assigned in CSS instead (maybe streamline later)
-            classes=['toggle', 'findoutmore'],
-        )
+        # this uses the admonition code for RST parsing
+        toggle = _make_toggle(
+            self, super(FindOutMore, self).run(), findoutmore, ['findoutmore'])
         return [toggle]
 
 
@@ -142,34 +146,12 @@ class WindowsWorkArounds(BaseAdmonition):
     required_arguments = 1
 
     def run(self):
-        # this uses the admonition code for RST parsion
-        docnodes = super(WindowsWorkArounds, self).run()
-        # but we throw away the title, because we want to mark
-        # it up as a 'header' further down
-        del docnodes[0][0]
-        # now put the entire admonition structure into a container
-        # that we assign the necessary class to make it 'toggle-able'
-        # in HTML
-        # outer container
-        toggle = windowsworkarounds(
-            'toogle',
-            # header line with 'Windows Workaround' prefix
-            nodes.paragraph(
-                # place actual admonition title we removed
-                # above
-                'title', self.arguments[0],
-                # add (CSS) class
-                classes=['header'],
-            ),
-            # place the rest of the admonition structure after the header,
-            # but still inside the container
-            *docnodes[0].children,
-            # properly identify as 'windowsworkarounds' to enable easy custom
-            # styling, and also tag with 'toggle'. The later is actually
-            # not 100% necessary, as 'windowsworkarounds' could get that
-            # functional assigned in CSS instead (maybe streamline later)
-            classes=['toggle', 'windowsworkarounds'],
-        )
+        # this uses the admonition code for RST parsing
+        toggle = _make_toggle(
+            self,
+            super(WindowsWorkArounds, self).run(),
+            windowsworkarounds,
+            ['windowsworkarounds'])
         return [toggle]
 
 

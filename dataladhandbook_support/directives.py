@@ -45,6 +45,19 @@ def _get_counted_boxstart(label, title):
         )
 
 
+def _add_label(body, node):
+    """If we can construct a latex label for a node, add to body"""
+    parent_docname = node.parent.attributes.get('docname')
+    node_id = [i for i in node.attributes.get('ids') or []]
+    node_id = node_id[0] if len(node_id) else None
+    # build the same form that sphinx does
+    label = '\\detokenize{{{parent}:{id}}}'.format(
+        parent=parent_docname, id=node_id) \
+        if parent_docname and node_id else ''
+    if label:
+        body.append('\\label{{{}}}\n'.format(label))
+
+
 class gitusernote(nodes.Admonition, nodes.Element):
     """Custom "gitusernote" admonition."""
 
@@ -68,6 +81,7 @@ def visit_gitusernote_latex(self, node):
         _get_counted_boxstart(
             'gitusernote',
             node.children[0].astext()))
+    _add_label(self.body, node)
     # we have used the title for the colorbox header
     # already, do not duplicate in the body
     del node.children[0]
@@ -102,6 +116,7 @@ def visit_findoutmore_latex(self, node):
         _get_counted_boxstart(
             'findoutmore',
             node.children[0].astext()))
+    _add_label(self.body, node)
     # we have used the title for the colorbox header
     # already, do not duplicate in the body
     del node.children[0]
@@ -175,6 +190,7 @@ def visit_windowsworkarounds_latex(self, node):
         _get_counted_boxstart(
             'windowsworkaround',
             node.children[0].astext()))
+    _add_label(self.body, node)
     # we have used the title for the colorbox header
     # already, do not duplicate in the body
     del node.children[0]

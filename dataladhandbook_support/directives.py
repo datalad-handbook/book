@@ -23,15 +23,7 @@ def depart_gitusernote_html(self, node):
 
 
 def visit_gitusernote_latex(self, node):
-    self.body.append("""
-    \\begin{{tcolorbox}}[
-        enhanced,
-        ribbon git,
-        title={{{title}}},
-        coltitle=dataladgray,
-        colbacktitle=dataladblue,
-        colframe=dataladblue!70!black]
-    """.format(
+    self.body.append("\\begin{{gitusernote}}{{{title}}}\n".format(
         title=node.children[0].astext(),
     ))
     # we have used the title for the colorbox header
@@ -40,7 +32,7 @@ def visit_gitusernote_latex(self, node):
 
 
 def depart_gitusernote_latex(self, node):
-    self.body.append('\n\n\\end{tcolorbox}\n')
+    self.body.append('\n\n\\end{gitusernote}\n')
 
 
 class GitUserNote(BaseAdmonition):
@@ -64,15 +56,7 @@ def depart_findoutmore_html(self, node):
 
 
 def visit_findoutmore_latex(self, node):
-    self.body.append("""
-    \\begin{{tcolorbox}}[
-        enhanced,
-        ribbon more,
-        title={{{title}}},
-        coltitle=dataladgray,
-        colbacktitle=dataladyellow,
-        colframe=dataladyellow!70!black]
-    """.format(
+    self.body.append("\\begin{{findoutmore}}{{{title}}}\n".format(
         title=node.children[0].astext(),
     ))
     # we have used the title for the colorbox header
@@ -81,7 +65,7 @@ def visit_findoutmore_latex(self, node):
 
 
 def depart_findoutmore_latex(self, node):
-    self.body.append('\n\n\\end{tcolorbox}\n')
+    self.body.append('\n\n\\end{findoutmore}\n')
 
 
 class FindOutMore(BaseAdmonition):
@@ -191,15 +175,7 @@ def depart_windowsworkarounds_html(self, node):
 
 
 def visit_windowsworkarounds_latex(self, node):
-    self.body.append("""
-    \\begin{{tcolorbox}}[
-        enhanced,
-        ribbon win,
-        title={{{title}}},
-        coltitle=dataladgray,
-        colbacktitle=windowsgreen,
-        colframe=windowsgreen!70!black]
-    """.format(
+    self.body.append("\\begin{{windowsworkaround}}{{{title}}}\n".format(
         title=node.children[0].astext(),
     ))
     # we have used the title for the colorbox header
@@ -207,10 +183,8 @@ def visit_windowsworkarounds_latex(self, node):
     del node.children[0]
 
 
-
 def depart_windowsworkarounds_latex(self, node):
-    self.body.append('\n\n\\end{tcolorbox}\n')
-
+    self.body.append('\n\n\\end{windowsworkaround}\n')
 
 
 def setup(app):

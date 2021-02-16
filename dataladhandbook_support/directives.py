@@ -4,6 +4,60 @@ from docutils import nodes
 from docutils.parsers.rst.directives.admonitions import BaseAdmonition
 
 
+def _make_toggle(admonition, docnodes, cls, classes):
+    # throw away the title, because we want to mark
+    # it up as a 'header' further down
+    del docnodes[0][0]
+    # now put the entire admonition structure into a container
+    # that we assign the necessary class to make it 'toggle-able'
+    # in HTML
+    # outer container
+    return cls(
+        'toogle',
+        # header line with 'Find out more' prefix
+        nodes.paragraph(
+            # place actual admonition title we removed
+            # above
+            'title', admonition.arguments[0],
+            # add (CSS) class
+            classes=['header'],
+        ),
+        # place the rest of the admonition structure after the header,
+        # but still inside the container
+        *docnodes[0].children,
+        # properly identify as 'findoutmore' to enable easy custom
+        # styling, and also tag with 'toggle'. The later is actually
+        # not 100% necessary, as 'findoutmore' could get that
+        # functional assigned in CSS instead (maybe streamline later)
+        classes=['toggle'] + classes,
+        ids=docnodes[0].attributes.get('ids'),
+        names=docnodes[0].attributes.get('names'),
+    )
+
+
+def _get_counted_boxstart(label, title):
+    return \
+        "\\begin{{{label}}}" \
+        "[label={{{label}counter}},before title={{\\thetcbcounter\\ }}]" \
+        "{{{title}}}\n".format(
+            label=label,
+            title=title,
+        )
+
+
+def _add_label(body, node):
+    """If we can construct a latex label for a node, add to body"""
+    parent_docname = node.parent.attributes.get('docname')
+    node_id = [i for i in node.attributes.get('ids') or []]
+    node_id = node_id[0] if len(node_id) else None
+    # build the same form that sphinx does
+    label = '\\detokenize{{{parent}:{id}}}'.format(
+        parent=parent_docname, id=node_id) \
+        if parent_docname and node_id else ''
+    if label:
+        body.append('\\label{{{}}}\n'.format(label))
+
+
 class gitusernote(nodes.Admonition, nodes.Element):
     """Custom "gitusernote" admonition."""
 
@@ -23,9 +77,11 @@ def depart_gitusernote_html(self, node):
 
 
 def visit_gitusernote_latex(self, node):
-    self.body.append("\\begin{{gitusernote}}{{{title}}}\n".format(
-        title=node.children[0].astext(),
-    ))
+    self.body.append(
+        _get_counted_boxstart(
+            'gitusernote',
+            node.children[0].astext()))
+    _add_label(self.body, node)
     # we have used the title for the colorbox header
     # already, do not duplicate in the body
     del node.children[0]
@@ -56,9 +112,11 @@ def depart_findoutmore_html(self, node):
 
 
 def visit_findoutmore_latex(self, node):
-    self.body.append("\\begin{{findoutmore}}{{{title}}}\n".format(
-        title=node.children[0].astext(),
-    ))
+    self.body.append(
+        _get_counted_boxstart(
+            'findoutmore',
+            node.children[0].astext()))
+    _add_label(self.body, node)
     # we have used the title for the colorbox header
     # already, do not duplicate in the body
     del node.children[0]
@@ -86,34 +144,9 @@ class FindOutMore(BaseAdmonition):
     required_arguments = 1
 
     def run(self):
-        # this uses the admonition code for RST parsion
-        docnodes = super(FindOutMore, self).run()
-        # but we throw away the title, because we want to mark
-        # it up as a 'header' further down
-        del docnodes[0][0]
-        # now put the entire admonition structure into a container
-        # that we assign the necessary class to make it 'toggle-able'
-        # in HTML
-        # outer container
-        toggle = findoutmore(
-            'toogle',
-            # header line with 'Find out more' prefix
-            nodes.paragraph(
-                # place actual admonition title we removed
-                # above
-                'title', self.arguments[0],
-                # add (CSS) class
-                classes=['header'],
-            ),
-            # place the rest of the admonition structure after the header,
-            # but still inside the container
-            *docnodes[0].children,
-            # properly identify as 'findoutmore' to enable easy custom
-            # styling, and also tag with 'toggle'. The later is actually
-            # not 100% necessary, as 'findoutmore' could get that
-            # functional assigned in CSS instead (maybe streamline later)
-            classes=['toggle', 'findoutmore'],
-        )
+        # this uses the admonition code for RST parsing
+        toggle = _make_toggle(
+            self, super(FindOutMore, self).run(), findoutmore, ['findoutmore'])
         return [toggle]
 
 
@@ -130,34 +163,12 @@ class WindowsWorkArounds(BaseAdmonition):
     required_arguments = 1
 
     def run(self):
-        # this uses the admonition code for RST parsion
-        docnodes = super(WindowsWorkArounds, self).run()
-        # but we throw away the title, because we want to mark
-        # it up as a 'header' further down
-        del docnodes[0][0]
-        # now put the entire admonition structure into a container
-        # that we assign the necessary class to make it 'toggle-able'
-        # in HTML
-        # outer container
-        toggle = windowsworkarounds(
-            'toogle',
-            # header line with 'Windows Workaround' prefix
-            nodes.paragraph(
-                # place actual admonition title we removed
-                # above
-                'title', self.arguments[0],
-                # add (CSS) class
-                classes=['header'],
-            ),
-            # place the rest of the admonition structure after the header,
-            # but still inside the container
-            *docnodes[0].children,
-            # properly identify as 'windowsworkarounds' to enable easy custom
-            # styling, and also tag with 'toggle'. The later is actually
-            # not 100% necessary, as 'windowsworkarounds' could get that
-            # functional assigned in CSS instead (maybe streamline later)
-            classes=['toggle', 'windowsworkarounds'],
-        )
+        # this uses the admonition code for RST parsing
+        toggle = _make_toggle(
+            self,
+            super(WindowsWorkArounds, self).run(),
+            windowsworkarounds,
+            ['windowsworkarounds'])
         return [toggle]
 
 
@@ -175,9 +186,11 @@ def depart_windowsworkarounds_html(self, node):
 
 
 def visit_windowsworkarounds_latex(self, node):
-    self.body.append("\\begin{{windowsworkaround}}{{{title}}}\n".format(
-        title=node.children[0].astext(),
-    ))
+    self.body.append(
+        _get_counted_boxstart(
+            'windowsworkaround',
+            node.children[0].astext()))
+    _add_label(self.body, node)
     # we have used the title for the colorbox header
     # already, do not duplicate in the body
     del node.children[0]

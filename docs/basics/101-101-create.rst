@@ -189,7 +189,7 @@ Even though these commits were produced by DataLad,
 in most other cases, you will have to create the commit and
 an informative commit message yourself.
 
-.. gitusernote::
+.. gitusernote:: Create internals
 
    :command:`datalad create` uses :command:`git init` and :command:`git-annex init`. Therefore,
    the DataLad dataset is a Git repository.

@@ -176,7 +176,7 @@ can save you much disk space and time.
 
 The second advantage is less intuitive but clear for users familiar with Git.
 
-.. gitusernote::
+.. gitusernote:: Speedy branch switches
 
    Small symlinks can be written very very fast when switching branches,
    as opposed to copying and deleting huge data files.

@@ -705,7 +705,7 @@ Verify that this worked by listing the siblings of the dataset:
    .: here(+) [git]
    .: github(-) [https://github.com/adswa/midtermproject.git (git)]
 
-.. gitusernote::
+.. gitusernote:: Create-sibling-github internals
 
    Creating a sibling on GitHub will create a new empty repository under the
    account that you provide and set up a *remote* to this repository. Upon a
@@ -845,7 +845,7 @@ reproduce your data science project easily from scratch!
     .. figure:: ../artwork/src/reproduced.svg
        :width: 50%
 
-.. gitusernote::
+.. gitusernote:: Push internals
 
    The :command:`datalad push` uses ``git push``, and ``git annex copy`` under
    the hood. Publication targets need to either be configured remote Git repositories,

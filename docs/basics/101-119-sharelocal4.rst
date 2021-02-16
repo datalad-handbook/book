@@ -127,7 +127,7 @@ a Git-user and know about branches and merging you can read the
 ``Note for Git-users`` below. However, a thorough explanation
 and demonstration will be in the next section.
 
-.. gitusernote::
+.. gitusernote:: Update internals
 
    :command:`datalad update` is the DataLad equivalent of a :command:`git fetch`,
    :command:`datalad update --merge` is the DataLad equivalent of a

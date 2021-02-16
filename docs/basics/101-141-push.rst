@@ -21,7 +21,7 @@ The general overview
 It is capable of publishing all dataset content, i.e., files stored in :term:`Git`,
 and files stored with :term:`git-annex`, to a known dataset :term:`sibling`.
 
-.. gitusernote::
+.. gitusernote:: Push internals
 
    The :command:`datalad push` uses ``git push``, and ``git annex copy`` under
    the hood. Publication targets need to either be configured remote Git repositories,
@@ -244,7 +244,7 @@ for more information).
    specifying ``none``: only your datasets history, but no annexed contents
    will be published.
 
-   .. gitusernote::
+   .. gitusernote:: Impact of auto-mode on git-annex
 
        On a technical level, the ``auto`` option leads to adding ``auto`` to the underlying
        ``git annex copy`` command, which in turn publishes annexed contents based on the

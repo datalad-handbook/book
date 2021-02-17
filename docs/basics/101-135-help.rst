@@ -243,6 +243,7 @@ It is common for :command:`datalad get` errors to originate in :term:`git-annex`
 - Try to download the file using ``git-annex get -v -d <file_name>``. If this doesn't succeed, the DataLad command may not succeed. Options ``-d/--debug`` and ``-v`` are here to provide as much verbosity in error messages as possible
 - Read the output of :term:`git-annex`, identify the error, breathe again, and solve the issue!
 
+.. tabularcolumns:: \Y{.5}\Y{.5}
 .. list-table:: Examples of possible issues
    :header-rows: 1
 

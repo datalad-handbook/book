@@ -467,7 +467,7 @@ epub_exclude_files = [
 # Allow duplicate toc entries.
 #epub_tocdup = True
 
-todo_include_todos = True
+todo_include_todos = False
 
 intersphinx_mapping = {
     'python': ('https://docs.python.org/3', None),

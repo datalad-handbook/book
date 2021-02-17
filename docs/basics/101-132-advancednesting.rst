@@ -52,9 +52,11 @@ this *in the superdataset* in order to have a clean superdataset status.
 
 This point in time in DataLad-101 is a convenient moment to dive a bit deeper
 into the functions of the :command:`datalad status` command. If you are
-interested in this, checkout the hidden section below.
+interested in this, checkout the :ref:`dedicated Findoutmore <fom_status>`.
 
 .. findoutmore:: More on datalad status
+   :name: fom_status
+   :float:
 
    First of all, let's start with a quick overview of the different content *types*
    and content *states* various :command:`datalad status` commands in the course

@@ -86,6 +86,8 @@ This process is often referred to as a file being *annexed*, and the object
 tree is also known as the *annex* of a dataset.
 
 .. windowsworkarounds:: What happens on Windows?
+   :name: woa_objecttree
+   :float:
 
    Windows has insufficient support for :term:`symlink`\s and revoking write :term:`permissions` on files.
    Therefore, :term:`git-annex` classifies it as a :term:`crippled filesystem` and has to stray from its default behavior.
@@ -202,6 +204,7 @@ to manage the file system in a DataLad dataset (:ref:`filesystem`).
 
 
 .. findoutmore:: more about paths, checksums, object trees, and data integrity
+   :name: fom_objecttree
 
    But why does the target path to the object tree needs to be so cryptic?
    Does someone want to create

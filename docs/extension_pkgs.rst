@@ -30,19 +30,19 @@ of the package, no additional setup is required.
 Among others (a full list can be found on `PyPi <https://pypi.org/search/?q=datalad>`_),
 the following DataLad extensions are available:
 
-.. tabularcolumns:: \Y{.33}\Y{.66}
+.. tabularcolumns:: \Y{.2}\Y{.8}
 .. list-table::
    :widths: 50 100
    :header-rows: 1
 
    * - Extension name
      - Description
-   * - `DataLad Container <http://docs.datalad.org/projects/container/en/latest/>`_
+   * - `container <http://docs.datalad.org/projects/container/en/latest/>`_
      - Equips DataLad's :command:`run`/:command:`rerun` functionality with
        the ability to transparently execute commands in containerized
        computational environments. The section :ref:`containersrun` demonstrates
        how this extension can be used, as well as the usecase :ref:`usecase_reproduce_neuroimg`.
-   * - `DataLad Crawler <http://docs.datalad.org/projects/crawler/en/latest/>`_
+   * - `crawler <http://docs.datalad.org/projects/crawler/en/latest/>`_
      - One of the initial goals behind DataLad was to provide access
        to already existing data resources. With
        :command:`crawl-init`/:command:`crawl` commands, this extension
@@ -52,64 +52,68 @@ the following DataLad extensions are available:
        on `datasets.datalad.org <http://datasets.datalad.org/>`_ are created and
        updated using this extension functionality.
 
-       .. todo::
-
-          contribute a section or a demo, e.g. based on `existing one <http://docs.datalad.org/projects/crawler/en/latest/demos/track_data_from_webpage.html>`__
-
-   * - `DataLad Neuroimaging <https://datalad-neuroimaging.readthedocs.io/en/latest/>`_
+   * - `neuroimaging <https://datalad-neuroimaging.readthedocs.io/en/latest/>`_
      - Metadata extraction support for a range of standards common to
        neuroimaging data. The usecase :ref:`usecase_reproduce_neuroimg` demonstrates
        how this extension can be used.
-   * - `DataLad Hirni <http://docs.datalad.org/projects/hirni/en/latest/>`_
+   * - `hirni <http://docs.datalad.org/projects/hirni/en/latest/>`_
      - A neuroimaging specific extension to allow reproducible DICOM to BIDS
        conversion of (f)MRI data. The chapter ... introduces this extension.
 
-       .. todo::
-
-          link hirni chapter once done
-
-   * - `DataLad Metalad <http://docs.datalad.org/projects/metalad/en/latest/>`_
+   * - `metalad <http://docs.datalad.org/projects/metalad/en/latest/>`_
      - Equips DataLad with an alternative command suite and advanced tooling
        for metadata handling (extraction, aggregation, reporting).
 
-       .. todo::
-
-          once section on metadata is done, link it here
-
-   * - `DataLad XNAT <https://github.com/datalad/datalad-xnat>`_
+   * - `xnat <https://github.com/datalad/datalad-xnat>`__
      - Equips DataLad with a set of commands to track
        `XNAT <https://www.xnat.org/>`_ projects.
        An alternative, more basic method to retrieve data from an XNAT server is
        outlined in section :ref:`providers`.
-   * - `DataLad UKBiobank <https://github.com/datalad/datalad-ukbiobank>`_
+   * - `ukbiobank <https://github.com/datalad/datalad-ukbiobank>`__
      - Equips DataLad with a set of commands to obtain and monitor imaging data
        releases of the `UKBiobank <https://www.ukbiobank.ac.uk//>`_.
        An introduction can be found in chapter
 
-       .. todo::
-
-          link UKB chapter once done
-
-   * - `DataLad htcondor <https://github.com/datalad/datalad-htcondor>`_
+   * - `htcondor <https://github.com/datalad/datalad-htcondor>`__
      - Enhances DataLad with the ability for remote execution via the job
        scheduler `HTCondor <https://research.cs.wisc.edu/htcondor/>`_.
 
-   * - `DataLad's Git-remote-clone <https://github.com/datalad/git-remote-rclone>`_ helper
+   * - `rclone-remote <https://github.com/datalad/git-remote-rclone>`_
      - Enables DataLad to push and pull to all third party providers with no native Git
        support that are supported by `rclone <https://rclone.org/>`_.
 
-       .. todo::
-
-          Rewrite Third Party chapter to use this helper
-
-   * - `DataLad OSF <http://docs.datalad.org/projects/osf/en/latest/>`_
+   * - `osf <http://docs.datalad.org/projects/osf/en/latest/>`_
      - Enables DataLad to interface and work with the `Open Science Framework
        <https://osf.io/>`_. Use it to publish your dataset's data to an OSF
        project, thus utilizing the OSF for dataset storage and sharing.
 
-       .. todo::
 
-          Contribute a usecase or a demo when done.
+
+.. todo::
+
+  contribute a section or a demo, e.g. based on `existing one <http://docs.datalad.org/projects/crawler/en/latest/demos/track_data_from_webpage.html>`__
+
+.. todo::
+
+  link hirni chapter once done
+
+
+.. todo::
+
+  once section on metadata is done, link it here
+
+.. todo::
+
+  link UKB chapter once done
+
+.. todo::
+
+  Rewrite Third Party chapter to use this helper
+
+.. todo::
+
+  Contribute a usecase or a demo when done.
+
 
 To install a DataLad extension, use
 

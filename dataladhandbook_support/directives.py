@@ -63,6 +63,9 @@ def _make_toggle(admonition, docnodes, cls, classes):
 
 def _get_counted_boxstart(label, node):
     title = node.children[0].astext()
+    # we have used the title for the colorbox header
+    # already, do not duplicate in the body
+    del node.children[0]
     return \
         "\\begin{{{label}}}" \
         "[label={{{label}counter}},before title={{\\thetcbcounter\\ }}]" \
@@ -106,9 +109,6 @@ def depart_gitusernote_html(self, node):
 def visit_gitusernote_latex(self, node):
     self.body.append(_get_counted_boxstart('gitusernote', node))
     _add_label(self.body, node)
-    # we have used the title for the colorbox header
-    # already, do not duplicate in the body
-    del node.children[0]
 
 
 def depart_gitusernote_latex(self, node):
@@ -138,9 +138,6 @@ def depart_findoutmore_html(self, node):
 def visit_findoutmore_latex(self, node):
     self.body.append(_get_counted_boxstart('findoutmore', node))
     _add_label(self.body, node)
-    # we have used the title for the colorbox header
-    # already, do not duplicate in the body
-    del node.children[0]
 
 
 def depart_findoutmore_latex(self, node):
@@ -188,9 +185,6 @@ def depart_windowsworkarounds_html(self, node):
 def visit_windowsworkarounds_latex(self, node):
     self.body.append(_get_counted_boxstart('windowsworkaround', node))
     _add_label(self.body, node)
-    # we have used the title for the colorbox header
-    # already, do not duplicate in the body
-    del node.children[0]
 
 
 def depart_windowsworkarounds_latex(self, node):

@@ -30,12 +30,13 @@ def _make_toggle(admonition, docnodes, cls, classes):
         # not 100% necessary, as 'findoutmore' could get that
         # functional assigned in CSS instead (maybe streamline later)
         classes=['toggle'] + classes,
-        ids=docnodes[0].attributes.get('ids'),
-        names=docnodes[0].attributes.get('names'),
+        # propagate all other attributes
+        **{k: v for k, v in docnodes[0].attributes.items() if k != 'classes'}
     )
 
 
-def _get_counted_boxstart(label, title):
+def _get_counted_boxstart(label, node):
+    title = node.children[0].astext()
     return \
         "\\begin{{{label}}}" \
         "[label={{{label}counter}},before title={{\\thetcbcounter\\ }}]" \
@@ -77,10 +78,7 @@ def depart_gitusernote_html(self, node):
 
 
 def visit_gitusernote_latex(self, node):
-    self.body.append(
-        _get_counted_boxstart(
-            'gitusernote',
-            node.children[0].astext()))
+    self.body.append(_get_counted_boxstart('gitusernote', node))
     _add_label(self.body, node)
     # we have used the title for the colorbox header
     # already, do not duplicate in the body
@@ -112,10 +110,7 @@ def depart_findoutmore_html(self, node):
 
 
 def visit_findoutmore_latex(self, node):
-    self.body.append(
-        _get_counted_boxstart(
-            'findoutmore',
-            node.children[0].astext()))
+    self.body.append(_get_counted_boxstart('findoutmore', node))
     _add_label(self.body, node)
     # we have used the title for the colorbox header
     # already, do not duplicate in the body
@@ -186,10 +181,7 @@ def depart_windowsworkarounds_html(self, node):
 
 
 def visit_windowsworkarounds_latex(self, node):
-    self.body.append(
-        _get_counted_boxstart(
-            'windowsworkaround',
-            node.children[0].astext()))
+    self.body.append(_get_counted_boxstart('windowsworkaround', node))
     _add_label(self.body, node)
     # we have used the title for the colorbox header
     # already, do not duplicate in the body

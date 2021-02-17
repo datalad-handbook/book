@@ -186,15 +186,8 @@ independent dataset from scratch in the hidden section below.
       $ datalad create iris_data
 
    and subsequently got the data from a publicly available
-   `GitHub Gist <https://gist.github.com/netj/8836201>`_ with a
+   `GitHub Gist <https://gist.github.com/netj/8836201>`_, a code snippet or other short standalone information (more on Gists `here <https://help.github.com/en/github/writing-on-github/creating-gists#about-gists>`__), with a
    :command:`datalad download-url` command:
-
-    .. findoutmore:: What are GitHub Gists?
-
-       GitHub Gists are a particular service offered by GitHub that allow users
-       to share pieces of code snippets and other short/small standalone
-       information. Find out more on Gists
-       `here <https://help.github.com/en/github/writing-on-github/creating-gists#about-gists>`__.
 
     .. runrecord:: _examples/DL-101-130-102
        :workdir: dl-101

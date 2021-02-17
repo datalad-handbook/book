@@ -329,6 +329,7 @@ cautionBgColor={named}{LightCyan}%
     'passoptionstopackages': r'\PassOptionsToPackage{svgnames}{xcolor}',
     'preamble': r"""
 \usepackage[labelfont=bf,singlelinecheck=false]{caption}
+\renewcommand{\sphinxstyletheadfamily}{\bfseries}
 \usepackage{charter}
 \usepackage[defaultsans]{lato}
 \usepackage{inconsolata}

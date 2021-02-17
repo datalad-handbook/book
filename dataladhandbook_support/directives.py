@@ -66,12 +66,19 @@ def _get_counted_boxstart(label, node):
     # we have used the title for the colorbox header
     # already, do not duplicate in the body
     del node.children[0]
+    float_args = ''
+    if 'float' in node.attributes:
+        flt = node.attributes['float']
+        float_args = ', float, floatplacement={}'.format(flt) \
+            if flt else ', float'
     return \
         "\\begin{{{label}}}" \
-        "[label={{{label}counter}},before title={{\\thetcbcounter\\ }}]" \
+        "[label={{{label}counter}}," \
+        " before title={{\\thetcbcounter\\ }}{float_args}]" \
         "{{{title}}}\n".format(
             label=label,
             title=title,
+            float_args=float_args,
         )
 
 

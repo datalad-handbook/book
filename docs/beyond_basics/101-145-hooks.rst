@@ -50,11 +50,16 @@ whenever an evaluation fulfills your criteria.
 
 To be able to specify matching criteria, you need to be aware of the potential
 criteria you can match against. The evaluation report is a dictionary with
-``key:value`` pairs. The following table provides an overview on some of the
-available keys and their possible values [#f1]_:
+``key:value`` pairs. :numref:`table-result-keyvalues` provides an overview on
+some of the available keys and their possible values.
 
 .. tabularcolumns:: \Y{.33}\Y{.66}
-.. list-table::
+.. list-table:: Common result keys and their values. This is only a selection of
+    available key-value pairs. The actual set of possible key-value pairs is
+    potentially unlimited, as any third-party extension could introduce new keys,
+    for example. If in doubt, use the ``-f/--output-format`` option with the
+    command of your choice to explore how your matching criteria may look like.
+   :name: table-result-keyvalues
    :widths: 50 100
    :header-rows: 1
 
@@ -179,13 +184,6 @@ you defined), into the new dataset.
 
 
 .. rubric:: Footnotes
-
-
-.. [#f1] The key-value table provides a selection of available key-value pairs, but
-         the set of possible key-value pairs is potentially unlimited, as any
-         third-party extension could introduce new keys, for example. If in doubt,
-         use the ``-f/--output-format`` option with the command of your choice to
-         explore how your matching criteria may look like.
 
 .. [#f2] It only needs to be compatible with :command:`git config`. This means that
          it for example should not contain any dots (``.``).

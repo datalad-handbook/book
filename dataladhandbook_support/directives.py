@@ -2,6 +2,32 @@
 
 from docutils import nodes
 from docutils.parsers.rst.directives.admonitions import BaseAdmonition
+from docutils.parsers.rst.directives import unchanged
+
+
+class HandbookAdmonition(BaseAdmonition):
+    """RST directive
+    """
+    node_class = nodes.admonition
+    # empty is no allowed
+    has_content = True
+    # needs at least a one word titel
+    required_arguments = 1
+    option_spec = {
+        'name': unchanged,
+        'float': unchanged,
+    }
+    hba_cls = None
+    hba_label = None
+
+    def run(self):
+        # this uses the admonition code for RST parsing
+        toggle = _make_toggle(
+            self,
+            super().run(),
+            self.hba_cls,
+            [self.hba_label])
+        return [toggle]
 
 
 def _make_toggle(admonition, docnodes, cls, classes):
@@ -30,18 +56,29 @@ def _make_toggle(admonition, docnodes, cls, classes):
         # not 100% necessary, as 'findoutmore' could get that
         # functional assigned in CSS instead (maybe streamline later)
         classes=['toggle'] + classes,
-        ids=docnodes[0].attributes.get('ids'),
-        names=docnodes[0].attributes.get('names'),
+        # propagate all other attributes
+        **{k: v for k, v in docnodes[0].attributes.items() if k != 'classes'}
     )
 
 
-def _get_counted_boxstart(label, title):
+def _get_counted_boxstart(label, node):
+    title = node.children[0].astext()
+    # we have used the title for the colorbox header
+    # already, do not duplicate in the body
+    del node.children[0]
+    float_args = ''
+    if 'float' in node.attributes:
+        flt = node.attributes['float']
+        float_args = ', float, floatplacement={}'.format(flt) \
+            if flt else ', float'
     return \
         "\\begin{{{label}}}" \
-        "[label={{{label}counter}},before title={{\\thetcbcounter\\ }}]" \
+        "[label={{{label}counter}}," \
+        " before title={{\\thetcbcounter\\ }}{float_args}]" \
         "{{{title}}}\n".format(
             label=label,
             title=title,
+            float_args=float_args,
         )
 
 
@@ -77,14 +114,8 @@ def depart_gitusernote_html(self, node):
 
 
 def visit_gitusernote_latex(self, node):
-    self.body.append(
-        _get_counted_boxstart(
-            'gitusernote',
-            node.children[0].astext()))
+    self.body.append(_get_counted_boxstart('gitusernote', node))
     _add_label(self.body, node)
-    # we have used the title for the colorbox header
-    # already, do not duplicate in the body
-    del node.children[0]
 
 
 def depart_gitusernote_latex(self, node):
@@ -112,21 +143,15 @@ def depart_findoutmore_html(self, node):
 
 
 def visit_findoutmore_latex(self, node):
-    self.body.append(
-        _get_counted_boxstart(
-            'findoutmore',
-            node.children[0].astext()))
+    self.body.append(_get_counted_boxstart('findoutmore', node))
     _add_label(self.body, node)
-    # we have used the title for the colorbox header
-    # already, do not duplicate in the body
-    del node.children[0]
 
 
 def depart_findoutmore_latex(self, node):
     self.body.append('\n\n\\end{findoutmore}\n')
 
 
-class FindOutMore(BaseAdmonition):
+class FindOutMore(HandbookAdmonition):
     """findoutmore RST directive
 
     The idea here is to use an admonition to parse the RST,
@@ -137,44 +162,23 @@ class FindOutMore(BaseAdmonition):
     something completely different -- without having to change
     content and markup in the book sources.
     """
-    node_class = nodes.admonition
-    # empty is no allowed
-    has_content = True
-    # needs at least a one word titel
-    required_arguments = 1
-
-    def run(self):
-        # this uses the admonition code for RST parsing
-        toggle = _make_toggle(
-            self, super(FindOutMore, self).run(), findoutmore, ['findoutmore'])
-        return [toggle]
-
-
-class WindowsWorkArounds(BaseAdmonition):
-    """windowsworkaround RST directive
-
-    This is identical to the FindOutMore directive, and allows a custom markup
-    for notes targeted at Windows users
-    """
-    node_class = nodes.admonition
-    # empty is no allowed
-    has_content = True
-    # needs at least a one word titel
-    required_arguments = 1
-
-    def run(self):
-        # this uses the admonition code for RST parsing
-        toggle = _make_toggle(
-            self,
-            super(WindowsWorkArounds, self).run(),
-            windowsworkarounds,
-            ['windowsworkarounds'])
-        return [toggle]
+    hba_cls = findoutmore
+    hba_label = 'findoutmore'
 
 
 class windowsworkarounds(nodes.container):
     """Custom "windowsworkarounds" container."""
     pass
+
+
+class WindowsWorkArounds(HandbookAdmonition):
+    """windowsworkaround RST directive
+
+    This is identical to the FindOutMore directive, and allows a custom markup
+    for notes targeted at Windows users
+    """
+    hba_cls = windowsworkarounds
+    hba_label = 'windowsworkarounds'
 
 
 def visit_windowsworkarounds_html(self, node):
@@ -186,14 +190,8 @@ def depart_windowsworkarounds_html(self, node):
 
 
 def visit_windowsworkarounds_latex(self, node):
-    self.body.append(
-        _get_counted_boxstart(
-            'windowsworkaround',
-            node.children[0].astext()))
+    self.body.append(_get_counted_boxstart('windowsworkaround', node))
     _add_label(self.body, node)
-    # we have used the title for the colorbox header
-    # already, do not duplicate in the body
-    del node.children[0]
 
 
 def depart_windowsworkarounds_latex(self, node):

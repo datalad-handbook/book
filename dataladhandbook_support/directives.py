@@ -2,6 +2,32 @@
 
 from docutils import nodes
 from docutils.parsers.rst.directives.admonitions import BaseAdmonition
+from docutils.parsers.rst.directives import unchanged
+
+
+class HandbookAdmonition(BaseAdmonition):
+    """RST directive
+    """
+    node_class = nodes.admonition
+    # empty is no allowed
+    has_content = True
+    # needs at least a one word titel
+    required_arguments = 1
+    option_spec = {
+        'name': unchanged,
+        'float': unchanged,
+    }
+    hba_cls = None
+    hba_label = None
+
+    def run(self):
+        # this uses the admonition code for RST parsing
+        toggle = _make_toggle(
+            self,
+            super().run(),
+            self.hba_cls,
+            [self.hba_label])
+        return [toggle]
 
 
 def _make_toggle(admonition, docnodes, cls, classes):
@@ -121,7 +147,7 @@ def depart_findoutmore_latex(self, node):
     self.body.append('\n\n\\end{findoutmore}\n')
 
 
-class FindOutMore(BaseAdmonition):
+class FindOutMore(HandbookAdmonition):
     """findoutmore RST directive
 
     The idea here is to use an admonition to parse the RST,
@@ -132,44 +158,23 @@ class FindOutMore(BaseAdmonition):
     something completely different -- without having to change
     content and markup in the book sources.
     """
-    node_class = nodes.admonition
-    # empty is no allowed
-    has_content = True
-    # needs at least a one word titel
-    required_arguments = 1
-
-    def run(self):
-        # this uses the admonition code for RST parsing
-        toggle = _make_toggle(
-            self, super(FindOutMore, self).run(), findoutmore, ['findoutmore'])
-        return [toggle]
-
-
-class WindowsWorkArounds(BaseAdmonition):
-    """windowsworkaround RST directive
-
-    This is identical to the FindOutMore directive, and allows a custom markup
-    for notes targeted at Windows users
-    """
-    node_class = nodes.admonition
-    # empty is no allowed
-    has_content = True
-    # needs at least a one word titel
-    required_arguments = 1
-
-    def run(self):
-        # this uses the admonition code for RST parsing
-        toggle = _make_toggle(
-            self,
-            super(WindowsWorkArounds, self).run(),
-            windowsworkarounds,
-            ['windowsworkarounds'])
-        return [toggle]
+    hba_cls = findoutmore
+    hba_label = 'findoutmore'
 
 
 class windowsworkarounds(nodes.container):
     """Custom "windowsworkarounds" container."""
     pass
+
+
+class WindowsWorkArounds(HandbookAdmonition):
+    """windowsworkaround RST directive
+
+    This is identical to the FindOutMore directive, and allows a custom markup
+    for notes targeted at Windows users
+    """
+    hba_cls = windowsworkarounds
+    hba_label = 'windowsworkarounds'
 
 
 def visit_windowsworkarounds_html(self, node):

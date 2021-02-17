@@ -402,6 +402,7 @@ a single :command:`datalad push` to the RIA sibling suffices:
     .. runrecord:: _examples/DL-101-147-108
        :language: console
        :workdir: dl-101/DataLad-101
+       :lines: 1-25, 38-
 
        $ tree /home/me/myriastore
 
@@ -426,7 +427,7 @@ As a demonstration, we'll do it for the ``midterm_project`` subdataset:
     With creating a RIA sibling to the RIA store and publishing the contents of
     the ``midterm_project`` subdataset to the store, a second dataset has been
     added to the datastore. Note how it is represented on the same hierarchy
-    level as the previous dataset, underneath its dataset ID:
+    level as the previous dataset, underneath its dataset ID (note that the output is cut off for readability):
 
 
     .. runrecord:: _examples/DL-101-147-111
@@ -438,6 +439,7 @@ As a demonstration, we'll do it for the ``midterm_project`` subdataset:
     .. runrecord:: _examples/DL-101-147-112
        :language: console
        :workdir: dl-101/DataLad-101
+       :lines: 1-25, 38-58
 
        $ tree /home/me/myriastore
 

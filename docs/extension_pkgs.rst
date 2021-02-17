@@ -30,6 +30,7 @@ of the package, no additional setup is required.
 Among others (a full list can be found on `PyPi <https://pypi.org/search/?q=datalad>`_),
 the following DataLad extensions are available:
 
+.. tabularcolumns:: \Y{.33}\Y{.66}
 .. list-table::
    :widths: 50 100
    :header-rows: 1

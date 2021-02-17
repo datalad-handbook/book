@@ -53,6 +53,7 @@ criteria you can match against. The evaluation report is a dictionary with
 ``key:value`` pairs. The following table provides an overview on some of the
 available keys and their possible values [#f1]_:
 
+.. tabularcolumns:: \Y{.33}\Y{.66}
 .. list-table::
    :widths: 50 100
    :header-rows: 1

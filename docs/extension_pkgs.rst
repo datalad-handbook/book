@@ -34,7 +34,7 @@ of the package, no additional setup is required.
    :widths: 50 100
    :header-rows: 1
 
-   * - Extension name
+   * - Name
      - Description
    * - `container <http://docs.datalad.org/projects/container/en/latest/>`_
      - Equips DataLad's :command:`run`/:command:`rerun` functionality with

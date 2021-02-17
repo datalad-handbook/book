@@ -328,6 +328,7 @@ cautionBgColor={named}{LightCyan}%
     'fncychap': r'\usepackage[Bjarne]{fncychap}',
     'passoptionstopackages': r'\PassOptionsToPackage{svgnames}{xcolor}',
     'preamble': r"""
+\usepackage[labelfont=bf,singlelinecheck=false]{caption}
 \usepackage{charter}
 \usepackage[defaultsans]{lato}
 \usepackage{inconsolata}

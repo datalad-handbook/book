@@ -7,7 +7,7 @@ DataLad extensions
 
 The commands DataLad provides cover a broad range of domain-agnostic use cases.
 However, there are extension packages that can add (domain-specific)
-functionality and new commands. :numref:`datalad-extensions` lists a number of
+functionality and new commands. :numref:`table-datalad-extensions` lists a number of
 available extensions.
 
 Such extensions are shipped as separate Python packages, and are *not* included in
@@ -30,7 +30,7 @@ of the package, no additional setup is required.
 
 .. tabularcolumns:: \Y{.2}\Y{.8}
 .. list-table:: Selection of available DataLad extensions. A more up-to-date list can be found on `PyPi <https://pypi.org/search/?q=datalad>`__
-   :name: datalad-extensions
+   :name: table-datalad-extensions
    :widths: 50 100
    :header-rows: 1
 

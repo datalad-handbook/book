@@ -455,6 +455,7 @@ with a dot, and finally converting all letters to lower case. The ``datalad.log.
 configuration option thus is the environment variable ``DATALAD_LOG_LEVEL``.
 
 .. findoutmore:: Some more general information on environment variables
+   :name: fom_envvar
 
      Names of environment variables are often all-uppercase. While the ``$`` is not part of
      the name of the environment variable, it is necessary to *refer* to the environment

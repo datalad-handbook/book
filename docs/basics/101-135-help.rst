@@ -241,10 +241,11 @@ It is common for :command:`datalad get` errors to originate in :term:`git-annex`
    - The version number contains the release date of the version in use. For instance, git-annex version: ``8.20200330-g971791563`` was released on 30 March 2020.
    - If the version that you are using is older than a few months, consider updating using the instructions `here <http://handbook.datalad.org/en/latest/intro/installation.html>`_.
 - Try to download the file using ``git-annex get -v -d <file_name>``. If this doesn't succeed, the DataLad command may not succeed. Options ``-d/--debug`` and ``-v`` are here to provide as much verbosity in error messages as possible
-- Read the output of :term:`git-annex`, identify the error, breathe again, and solve the issue!
+- Read the output of :term:`git-annex`, identify the error, breathe again, and solve the issue! :numref:`table-gitannex-errors` list a few common or tricky ones.
 
 .. tabularcolumns:: \Y{.5}\Y{.5}
-.. list-table:: Examples of possible issues
+.. list-table:: Examples of possible git-annex issues.
+   :name: table-gitannex-errors
    :header-rows: 1
 
    * - git-annex error

@@ -200,7 +200,7 @@ To get extensive information on what :command:`datalad status` does underneath t
        $ datalad status
        $ ...
 
-   You can find out a bit more on environment variable :ref:`in this footnote <envvars>`.
+   You can find out a bit more on environment variable :ref:`in this Findoutmore <fom-envvar>`.
 
    The configuration variable can be used to set the log level on a user (global) or system-wide level with the :command:`git config` command::
 

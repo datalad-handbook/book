@@ -12,10 +12,11 @@ In principle, you can prepare YODA-compliant data analyses in any programming
 language of your choice. But because you are already familiar with
 the `Python <https://www.python.org/>`__ programming language, you decide
 to script your analysis in Python. Delighted, you find out that there is even
-a Python API for DataLad's functionality that you can read about in the hidden
-section below:
+a Python API for DataLad's functionality that you can read about in :ref:`a Findoutmore <fom-pythonapi>`.
 
 .. findoutmore:: DataLad's Python API
+   :name: fom-pythonapi
+   :float:
 
     .. _python:
 
@@ -159,9 +160,11 @@ For the purpose of this analysis, the DataLad handbook provides an ``iris_data``
 dataset at `https://github.com/datalad-handbook/iris_data <https://github.com/datalad-handbook/iris_data>`_.
 
 You can either use this provided input dataset, or find out how to create an
-independent dataset from scratch in the hidden section below.
+independent dataset from scratch in a :ref:`dedicated Findoutmore <fom-iris>`.
 
 .. findoutmore:: Creating an independent input dataset
+   :name: fom-iris
+   :float:
 
    If you acquire your own data for a data analysis, it will not magically exist as a
    DataLad dataset that you can simply install from somewhere -- you'll have
@@ -186,15 +189,8 @@ independent dataset from scratch in the hidden section below.
       $ datalad create iris_data
 
    and subsequently got the data from a publicly available
-   `GitHub Gist <https://gist.github.com/netj/8836201>`_ with a
+   `GitHub Gist <https://gist.github.com/netj/8836201>`_, a code snippet or other short standalone information (more on Gists `here <https://help.github.com/en/github/writing-on-github/creating-gists#about-gists>`__), with a
    :command:`datalad download-url` command:
-
-    .. findoutmore:: What are GitHub Gists?
-
-       GitHub Gists are a particular service offered by GitHub that allow users
-       to share pieces of code snippets and other short/small standalone
-       information. Find out more on Gists
-       `here <https://help.github.com/en/github/writing-on-github/creating-gists#about-gists>`__.
 
     .. runrecord:: _examples/DL-101-130-102
        :workdir: dl-101
@@ -765,9 +761,11 @@ an additional :command:`git push` [#f6]_ with the ``--tags`` option is required:
 
 Yay! Consider your midterm project submitted! Others can now install your
 dataset and check out your data science project -- and even better: they can
-reproduce your data science project easily from scratch!
+reproduce your data science project easily from scratch (take a look into the :ref:`Findoutmore <fom-midtermclone>` to see how)!
 
 .. findoutmore:: On the looks and feels of this published dataset
+   :name: fom-midtermclone
+   :float:
 
    Now that you have created and published such a YODA-compliant dataset, you
    are understandably excited how this dataset must look and feel for others.

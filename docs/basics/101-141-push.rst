@@ -243,13 +243,7 @@ for more information).
    In practice, this default will most likely lead to the same outcome as when
    specifying ``none``: only your datasets history, but no annexed contents
    will be published.
-
-   .. gitusernote:: Impact of auto-mode on git-annex
-
-       On a technical level, the ``auto`` option leads to adding ``auto`` to the underlying
-       ``git annex copy`` command, which in turn publishes annexed contents based on the
-       `git-annex preferred content configuration <https://git-annex.branchable.com/git-annex-preferred-content/>`_
-       of the sibling.
+   On a technical level, the ``auto`` option leads to adding ``auto`` to the underlying ``git annex copy`` command, which in turn publishes annexed contents based on the `git-annex preferred content configuration <https://git-annex.branchable.com/git-annex-preferred-content/>`_ of the sibling.
 
    In order to publish all annexed contents, one needs to specify ``--transfer-data all``.
    Alternatively, adding paths to the ``publish`` call will publish the specified

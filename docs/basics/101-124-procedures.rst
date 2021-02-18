@@ -75,7 +75,7 @@ only modify ``.gitattributes``, but can also populate a dataset
 with particular content, or automate routine tasks such as
 synchronizing dataset content with certain siblings.
 What makes them a particularly versatile and flexible tool is
-that anyone can write their own procedures. If a workflow is
+that anyone can write their own procedures (find a tutorial :ref:`here <fom-procedures>`. If a workflow is
 a standard in a team and needs to be applied often, turning it into
 a script can save time and effort. By pointing DataLad
 to the location the procedures reside in they can be applied, and by
@@ -184,6 +184,8 @@ was applied.
 
 
 .. findoutmore:: Write your own procedures
+   :name: fom-procedures
+   :float:
 
    Procedures can come with DataLad or its extensions, but anyone can
    write their own ones in addition, and deploy them on individual machines,

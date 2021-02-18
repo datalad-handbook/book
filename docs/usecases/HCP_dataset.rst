@@ -434,7 +434,7 @@ retrieve data right away.
       keyring.set_password("datalad-hcp-s3", "secret_id", <password>)
 
    Alternatively, one can set their credentials using environment variables.
-   For more details on this method, :ref:`see this footnote <envvars>`.
+   For more details on this method, :ref:`see this Findoutmore <fom-envvar>`.
 
    .. code-block:: bash
 

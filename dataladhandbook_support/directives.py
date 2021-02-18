@@ -198,6 +198,32 @@ def depart_windowsworkarounds_latex(self, node):
     self.body.append('\n\n\\end{windowsworkaround}\n')
 
 
+class importantnote(nodes.container):
+    pass
+
+
+class ImportantNote(HandbookAdmonition):
+    hba_cls = importantnote
+    hba_label = 'importantnote'
+
+
+def visit_importantnote_html(self, node):
+    self.visit_container(node)
+
+
+def depart_importantnote_html(self, node):
+    self.depart_container(node)
+
+
+def visit_importantnote_latex(self, node):
+    self.body.append(_get_counted_boxstart('importantnote', node))
+    _add_label(self.body, node)
+
+
+def depart_importantnote_latex(self, node):
+    self.body.append('\n\n\\end{importantnote}\n')
+
+
 def setup(app):
     app.add_node(
         gitusernote,
@@ -217,5 +243,11 @@ def setup(app):
         latex=(visit_windowsworkarounds_latex, depart_windowsworkarounds_latex),
     )
     app.add_directive('windowsworkarounds', WindowsWorkArounds)
+    app.add_node(
+        importantnote,
+        html=(visit_importantnote_html, depart_importantnote_html),
+        latex=(visit_importantnote_latex, depart_importantnote_latex),
+    )
+    app.add_directive('importantnote', ImportantNote)
 
 # vim: set expandtab shiftwidth=4 softtabstop=4 :

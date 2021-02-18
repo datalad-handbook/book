@@ -418,7 +418,7 @@ modification.
    EOT
    $ datalad save -m "Add note on datalad clone"
 
-.. note::
+.. importantnote:: Empty files can be confusing
 
   Listing files directly after the installation of a dataset will
   work if done in a terminal with ``ls``.

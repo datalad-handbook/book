@@ -328,6 +328,8 @@ cautionBgColor={named}{LightCyan}%
     'fncychap': r'\usepackage[Bjarne]{fncychap}',
     'passoptionstopackages': r'\PassOptionsToPackage{svgnames}{xcolor}',
     'preamble': r"""
+\usepackage[labelfont=bf,singlelinecheck=false]{caption}
+\renewcommand{\sphinxstyletheadfamily}{\bfseries}
 \usepackage{charter}
 \usepackage[defaultsans]{lato}
 \usepackage{inconsolata}
@@ -406,6 +408,10 @@ ribbon more/.style={overlay={
    \end{center}}
 \newcommand*\ruleline[1]{\par\noindent\raisebox{.8ex}{\makebox[\linewidth]{\hrulefill\hspace{1ex}\raisebox{-.8ex}{#1}\hspace{1ex}\hrulefill}}}
 \newenvironment{colortext}{\color{orange}}{\ignorespacesafterend}
+
+
+\numberwithin{table}{chapter}
+\numberwithin{figure}{chapter}
 """,
 }
 
@@ -467,7 +473,7 @@ epub_exclude_files = [
 # Allow duplicate toc entries.
 #epub_tocdup = True
 
-todo_include_todos = True
+todo_include_todos = False
 
 intersphinx_mapping = {
     'python': ('https://docs.python.org/3', None),

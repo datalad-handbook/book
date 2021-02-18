@@ -175,7 +175,7 @@ the directory ``books/``, and thanks to that commit message we have a nice
 human-readable summary of that action.
 
 .. findoutmore:: DOs and DON'Ts for commit messages
-   :name: fom_commitmessage
+   :name: fom-commitmessage
    :float:
 
     **DOs**

@@ -12,10 +12,10 @@ In principle, you can prepare YODA-compliant data analyses in any programming
 language of your choice. But because you are already familiar with
 the `Python <https://www.python.org/>`__ programming language, you decide
 to script your analysis in Python. Delighted, you find out that there is even
-a Python API for DataLad's functionality that you can read about in :ref:`a Findoutmore <fom_pythonapi>`.
+a Python API for DataLad's functionality that you can read about in :ref:`a Findoutmore <fom-pythonapi>`.
 
 .. findoutmore:: DataLad's Python API
-   :name: fom_pythonapi
+   :name: fom-pythonapi
    :float:
 
     .. _python:
@@ -160,10 +160,10 @@ For the purpose of this analysis, the DataLad handbook provides an ``iris_data``
 dataset at `https://github.com/datalad-handbook/iris_data <https://github.com/datalad-handbook/iris_data>`_.
 
 You can either use this provided input dataset, or find out how to create an
-independent dataset from scratch in a :ref:`dedicated Findoutmore <fom_iris>`.
+independent dataset from scratch in a :ref:`dedicated Findoutmore <fom-iris>`.
 
 .. findoutmore:: Creating an independent input dataset
-   :name: fom_iris
+   :name: fom-iris
    :float:
 
    If you acquire your own data for a data analysis, it will not magically exist as a
@@ -761,10 +761,10 @@ an additional :command:`git push` [#f6]_ with the ``--tags`` option is required:
 
 Yay! Consider your midterm project submitted! Others can now install your
 dataset and check out your data science project -- and even better: they can
-reproduce your data science project easily from scratch (take a look into the :ref:`Findoutmore <fom_midtermclone>` to see how)!
+reproduce your data science project easily from scratch (take a look into the :ref:`Findoutmore <fom-midtermclone>` to see how)!
 
 .. findoutmore:: On the looks and feels of this published dataset
-   :name: fom_midtermclone
+   :name: fom-midtermclone
    :float:
 
    Now that you have created and published such a YODA-compliant dataset, you

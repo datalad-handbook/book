@@ -182,7 +182,7 @@ This initial sketch serves to highlight key differences and adjustments due to t
    # job handler should clean up workspace
 
 Just like the general script from the last section, this script can be submitted to any job scheduler -- here with a subject ID as a ``$subid`` command line variable and a job ID as environment variable as identifiers for the fMRIprep run and branch names.
-At this point, the workflow misses a tweak that is necessary in fMRIprep to enable re-running computations  (the complete file is in :ref:`this Findoutmore <fom_enki>`.
+At this point, the workflow misses a tweak that is necessary in fMRIprep to enable re-running computations  (the complete file is in :ref:`this Findoutmore <fom-enki>`.
 
 .. findoutmore:: Fine-tuning: Enable re-running
 
@@ -195,10 +195,10 @@ At this point, the workflow misses a tweak that is necessary in fMRIprep to enab
         (cd freesurfer && rm -rf fsaverage "$subid")
 
    With this in place, the only things missing are a :term:`shebang` at the top of the script, and some shell settings for robust scripting with verbose log files (``set -e -u -x``).
-   You can find the full script with rich comments in :ref:`this Findoutmore <fom_enki>`.
+   You can find the full script with rich comments in :ref:`this Findoutmore <fom-enki>`.
 
 .. findoutmore:: See the complete bash script
-   :name: fom_enki
+   :name: fom-enki
    :float: p
 
    This script is placed in ``code/fmriprep_participant_job``.
@@ -300,10 +300,10 @@ Job submission
 Job submission now only boils down to invoking the script for each participant with a participant identifier that determines on which subject the job runs, and setting two environment variables -- one the job ID that determines the branch name that is created, and one that points to a lockfile created beforehand once in ``.git``.
 Job scheduler such as HTCondor have syntax that can identify subject IDs from consistently named directories, for example, and the submit file can thus be lean even though it queues up more than 1000 jobs.
 
-You can find the submit file used in this analyses in :ref:`this Findoutmore <fom_condor>`.
+You can find the submit file used in this analyses in :ref:`this Findoutmore <fom-condor>`.
 
 .. findoutmore:: HTCondor submit file
-   :name: fom_condor
+   :name: fom-condor
    :float:
 
    The following submit file was created and saved in ``code/fmriprep_all_participants.submit``:

@@ -135,7 +135,7 @@ Glossary
 
    environment variable
       A variable made up of a name/value pair. Programs using a given environment variable will use its associated value for their execution.
-      You can find out a bit more on environment variable :ref:`in this Findoutmore <fom_envvar>`.
+      You can find out a bit more on environment variable :ref:`in this Findoutmore <fom-envvar>`.
 
    ephemeral clone
       dataset clones that share the annex with the dataset they were cloned from, without :term:`git-annex` being aware of it.

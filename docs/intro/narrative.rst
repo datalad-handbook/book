@@ -53,7 +53,7 @@ in the example below (it shows the creation of a DataLad dataset):
 When copying code snippets into your own terminal, do not copy the leading
 ``$`` -- this only indicates that the line is a command, and would lead to an
 error when executed.
-Don't worry :ref:`if you do not want to code along <fom_lazy>`, though.
+Don't worry :ref:`if you do not want to code along <fom-lazy>`, though.
 
 The book is split into different parts. The upcoming chapters
 are the *Basics* that intend to show you the core DataLad functionality
@@ -91,7 +91,7 @@ You can decide for yourself whether you want to check them out:
 .. only:: latex
 
    .. findoutmore:: For curious minds
-      :name: fom_intro
+      :name: fom-intro
 
        Sections like this contain content that goes beyond the basics
        necessary to complete a challenge.
@@ -199,7 +199,7 @@ share and publish with DataLad.
    :width: 70%
 
 .. findoutmore:: I can not/do not want to code along...
-   :name: fom_lazy
+   :name: fom-lazy
    :float:
 
    If you do not want to follow along and only read, there is a showroom dataset

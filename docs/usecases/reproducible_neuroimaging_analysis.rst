@@ -698,6 +698,7 @@ is wrapped into a ``datalad containers-run`` command with appropriate
 .. runrecord:: _examples/repro2-120
    :language: console
    :workdir: usecases/repro2/glm_analysis
+   :lines: 1-12, 356-
 
    $ datalad containers-run --container-name fsl -m "sub-02 1st-level GLM" \
      --input sub-02/1stlvl_design.fsf \
@@ -777,6 +778,7 @@ time steps.
 .. runrecord:: _examples/repro2-124
    :language: console
    :workdir: usecases/repro2/glm_analysis
+   :lines: 1-17, 362-
 
    $ datalad rerun --branch verify --onto ready4analysis --since ready4analysis
 

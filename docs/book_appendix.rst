@@ -16,6 +16,7 @@ Appendix
 .. raw:: latex
 
    \chapter{Boxes, Figures, Tables}
+   \tcblistof[\section]{importantnotes}{List of important notes}
    \tcblistof[\section]{gitusernotes}{List of notes for Git users}
    \tcblistof[\section]{findoutmores}{List of info boxes}
    \tcblistof[\section]{windowsworkarounds}{List of Windows workarounds}

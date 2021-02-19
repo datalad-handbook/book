@@ -277,6 +277,7 @@ latex_documents = [
 latex_logo = '../artwork/logo.pdf'
 latex_additional_files = [
     '../artwork/git_boxicon.pdf',
+    '../artwork/important_boxicon.pdf',
     '../artwork/more_boxicon.pdf',
     '../artwork/win_boxicon.pdf',
 ]
@@ -334,6 +335,14 @@ cautionBgColor={named}{LightCyan}%
 \usepackage[defaultsans]{lato}
 \usepackage{inconsolata}
 
+\usepackage{xcolor}
+\definecolor{dataladyellow}{HTML}{FFA200}
+\definecolor{dataladblue}{HTML}{7FD5FF}
+\definecolor{dataladgray}{HTML}{333333}
+\definecolor{windowsblue}{HTML}{126e12}
+\definecolor{windowsgreen}{HTML}{66CC33}
+\definecolor{windowsyellow}{HTML}{FFCC00}
+
 % nice boxes
 \usepackage[skins,breakable,many]{tcolorbox}
 \tcbset{breakable}
@@ -357,6 +366,12 @@ ribbon git/.style={overlay={
 ribbon more/.style={overlay={
   \begin{scope}[shift={([xshift=-5mm,yshift=-3mm]frame.north west)}]
     \path(0,0) node[inner sep=0] {\includegraphics{more_boxicon}};
+  \end{scope}}}
+}
+\tcbset{%
+ribbon important/.style={overlay={
+  \begin{scope}[shift={([xshift=-5mm,yshift=-3mm]frame.north west)}]
+    \path(0,0) node[inner sep=0] {\includegraphics{important_boxicon}};
   \end{scope}}}
 }
 
@@ -387,28 +402,18 @@ ribbon more/.style={overlay={
     colbacktitle=dataladyellow,
     colframe=dataladyellow!70!black, #1
 }
+\newtcolorbox[
+  auto counter,
+  number within=chapter,
+  list inside=importantnotes]{importantnote}[2][]{%
+    enhanced, ribbon important, title={#2},
+    coltitle=white,
+    colbacktitle=dataladgray,
+    colframe=dataladgray!70!black, #1
+}
 
 \setcounter{tocdepth}{1}
-\usepackage{xcolor}
-\definecolor{dataladyellow}{HTML}{FFA200}
-\definecolor{dataladblue}{HTML}{7FD5FF}
-\definecolor{dataladgray}{HTML}{333333}
-\definecolor{windowsblue}{HTML}{126e12}
-\definecolor{windowsgreen}{HTML}{66CC33}
-\definecolor{windowsyellow}{HTML}{FFCC00}
 \setcounter{secnumdepth}{1}
-\newsavebox{\selvestebox}
-\newenvironment{colbox}[1]
-  {\newcommand\colboxcolor{#1}%
-   \begin{lrbox}{\selvestebox}%
-   \begin{minipage}{\dimexpr\columnwidth-2\fboxsep\relax}}
-  {\end{minipage}\end{lrbox}%
-   \begin{center}
-   \colorbox[HTML]{\colboxcolor}{\usebox{\selvestebox}}
-   \end{center}}
-\newcommand*\ruleline[1]{\par\noindent\raisebox{.8ex}{\makebox[\linewidth]{\hrulefill\hspace{1ex}\raisebox{-.8ex}{#1}\hspace{1ex}\hrulefill}}}
-\newenvironment{colortext}{\color{orange}}{\ignorespacesafterend}
-
 
 \numberwithin{table}{chapter}
 \numberwithin{figure}{chapter}

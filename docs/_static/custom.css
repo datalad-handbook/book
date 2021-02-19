@@ -65,6 +65,7 @@ div.gitusernote {
     border: 3px solid #5d9bbb;
     box-shadow: 5px 5px 15px 0px #111;
     padding: 5px 10px 5px 10px;
+    margin-bottom: 15px;
 }
 div.gitusernote .header {
     background-color: #7fd5ff;
@@ -83,6 +84,7 @@ div.importantnote {
     border: 3px solid #232323;
     box-shadow: 5px 5px 15px 0px #111;
     padding: 5px 10px 5px 10px;
+    margin-bottom: 15px;
 }
 div.importantnote .header {
     background-color: #333;
@@ -97,6 +99,7 @@ div.windowsworkarounds {
     border: 3px solid #509f26;
     box-shadow: 5px 5px 15px 0px #111;
     padding: 5px 10px 5px 10px;
+    margin-bottom: 15px;
 }
 div.windowsworkarounds .header {
     background-color: #66cc33;

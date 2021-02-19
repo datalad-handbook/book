@@ -29,9 +29,8 @@ If you're new here, please start the handbook `here <intro/philosophy.html>`_.
 Alternatively, try to identify with one of several user-types in this
 `user specific guide to the handbook <intro/user_types.html>`_.
 
-.. important::
+.. importantnote:: The handbook is currently in beta stage.
 
-   The handbook is currently in beta stage.
    If you would be willing to provide feedback on its contents, please
    `get in touch <https://github.com/datalad-handbook/book/issues/new>`_.
 

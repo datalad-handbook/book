@@ -414,18 +414,6 @@ ribbon important/.style={overlay={
 
 \setcounter{tocdepth}{1}
 \setcounter{secnumdepth}{1}
-\newsavebox{\selvestebox}
-\newenvironment{colbox}[1]
-  {\newcommand\colboxcolor{#1}%
-   \begin{lrbox}{\selvestebox}%
-   \begin{minipage}{\dimexpr\columnwidth-2\fboxsep\relax}}
-  {\end{minipage}\end{lrbox}%
-   \begin{center}
-   \colorbox[HTML]{\colboxcolor}{\usebox{\selvestebox}}
-   \end{center}}
-\newcommand*\ruleline[1]{\par\noindent\raisebox{.8ex}{\makebox[\linewidth]{\hrulefill\hspace{1ex}\raisebox{-.8ex}{#1}\hspace{1ex}\hrulefill}}}
-\newenvironment{colortext}{\color{orange}}{\ignorespacesafterend}
-
 
 \numberwithin{table}{chapter}
 \numberwithin{figure}{chapter}

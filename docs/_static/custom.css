@@ -28,15 +28,28 @@
     background: #eee;
 }
 
-.findoutmore .header:before {
-    content: "⇩ Find out more: ";
-    color: #ffa200;
+div.findoutmore {
+    background-color: #f3f3f3;
+    border: 3px solid #b37100;
+    box-shadow: 5px 5px 15px 0px #111;
+    padding: 5px 10px 5px 10px;
+    margin-bottom: 15px;
+}
+div.findoutmore .header {
+    background-color: #ffa200;
+    border: 0px solid #000;
+    margin: -6px -11px -6px -11px;
+    padding: 5px 10px 5px 10px;
+    color: #ffffff;
+}
+div.findoutmore .header:before {
+    content: "⤵ Find out more: ";
+    color: #333;
     font-weight: bold;
 }
-
-.findoutmore .header.open:before {
-    content: "⇧ Find out more: ";
-    color: #ffa200;
+div.findoutmore .header.open:before {
+    content: "⤴ Find out more: ";
+    color: #333;
     font-weight: bold;
 }
 
@@ -47,13 +60,63 @@ div.admonition-todo {
     border: 1px solid red;
 }
 
-/* relatively intense look for Git-note admonitions.
- * idea is to clearly set them apart from the normal
- * content, because they should be completely optional */
 div.gitusernote {
-    background-color: rgba(62, 44, 0, 0.2);
-    border: 2px solid rgba(241, 80, 47, 1);
-    border-style: groove;
+    background-color: #f3f3f3;
+    border: 3px solid #5d9bbb;
+    box-shadow: 5px 5px 15px 0px #111;
+    padding: 5px 10px 5px 10px;
+}
+div.gitusernote .header {
+    background-color: #7fd5ff;
+    border: 0px solid #000;
+    margin: -6px -11px -6px -11px;
+    padding: 5px 10px 5px 10px;
+}
+div.gitusernote .header:before {
+    content: "🦾 Git user note: ";
+    color: #333;
+    font-weight: bold;
+}
+
+div.importantnote {
+    background-color: #f3f3f3;
+    border: 3px solid #232323;
+    box-shadow: 5px 5px 15px 0px #111;
+    padding: 5px 10px 5px 10px;
+}
+div.importantnote .header {
+    background-color: #333;
+    border: 0px solid #000;
+    margin: -6px -11px -6px -11px;
+    padding: 5px 10px 5px 10px;
+    color: #ffffff;
+}
+
+div.windowsworkarounds {
+    background-color: #f3f3f3;
+    border: 3px solid #509f26;
+    box-shadow: 5px 5px 15px 0px #111;
+    padding: 5px 10px 5px 10px;
+}
+div.windowsworkarounds .header {
+    background-color: #66cc33;
+    border: 0px solid #000;
+    margin: -6px -11px -6px -11px;
+    padding: 5px 10px 5px 10px;
+    color: #ffffff;
+}
+div.importantnote .header:before {
+    content: "⚠ ";
+}
+div.windowsworkarounds .header:before {
+    content: "⤵ Windows-Workaround: ";
+    color: #333;
+    font-weight: bold;
+}
+div.windowsworkarounds .header.open:before {
+    content: "⤴ Windows-Workaround: ";
+    color: #333;
+    font-weight: bold;
 }
 
 div.sphinxsidebar {
@@ -103,14 +166,3 @@ progress::-webkit-progress-bar {
   content: "↷ "
 }
 
-.windowsworkarounds .header:before {
-    content: "⇩ 💻 Windows-Workaround: ";
-    color: #00a4ef;
-    font-weight: bold;
-}
-
-.windowsworkarounds .header.open:before {
-    content: "⇧ 💻 Windows-Workaround: ";
-    color: #00a4ef;
-    font-weight: bold;
-}

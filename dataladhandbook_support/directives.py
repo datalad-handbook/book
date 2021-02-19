@@ -19,10 +19,13 @@ class HandbookAdmonition(BaseAdmonition):
     }
     hba_cls = None
     hba_label = None
+    # whether an admonition should be allowed to be displayed
+    # in a toggle container (HTML only)
+    toggle = True
 
     def run(self):
         # this uses the admonition code for RST parsing
-        toggle = _make_toggle(
+        toggle = _make_std_nodes(
             self,
             super().run(),
             self.hba_cls,
@@ -30,7 +33,7 @@ class HandbookAdmonition(BaseAdmonition):
         return [toggle]
 
 
-def _make_toggle(admonition, docnodes, cls, classes):
+def _make_std_nodes(admonition, docnodes, cls, classes):
     # throw away the title, because we want to mark
     # it up as a 'header' further down
     del docnodes[0][0]
@@ -39,7 +42,7 @@ def _make_toggle(admonition, docnodes, cls, classes):
     # in HTML
     # outer container
     return cls(
-        'toogle',
+        'handbookbox',
         # header line with 'Find out more' prefix
         nodes.paragraph(
             # place actual admonition title we removed
@@ -55,7 +58,7 @@ def _make_toggle(admonition, docnodes, cls, classes):
         # styling, and also tag with 'toggle'. The later is actually
         # not 100% necessary, as 'findoutmore' could get that
         # functional assigned in CSS instead (maybe streamline later)
-        classes=['toggle'] + classes,
+        classes=(['toggle'] if admonition.toggle else []) + classes,
         # propagate all other attributes
         **{k: v for k, v in docnodes[0].attributes.items() if k != 'classes'}
     )
@@ -100,17 +103,11 @@ class gitusernote(nodes.Admonition, nodes.Element):
 
 
 def visit_gitusernote_html(self, node):
-    # it is a simple div with a dedicated CSS class assigned
-    self.body.append(
-        self.starttag(
-            node, 'div', CLASS=('admonition ' + 'gitusernote')))
-    node.insert(0, nodes.title(
-        'first',
-        'Note for Git users'))
+    self.visit_container(node)
 
 
 def depart_gitusernote_html(self, node):
-    self.depart_admonition(node)
+    self.depart_container(node)
 
 
 def visit_gitusernote_latex(self, node):
@@ -122,11 +119,13 @@ def depart_gitusernote_latex(self, node):
     self.body.append('\n\n\\end{gitusernote}\n')
 
 
-class GitUserNote(BaseAdmonition):
+class GitUserNote(HandbookAdmonition):
     """
     An admonition mentioning things to look at as reference.
     """
-    node_class = gitusernote
+    hba_cls = gitusernote
+    hba_label = 'gitusernote'
+    toggle = False
 
 
 class findoutmore(nodes.container):
@@ -205,6 +204,7 @@ class importantnote(nodes.container):
 class ImportantNote(HandbookAdmonition):
     hba_cls = importantnote
     hba_label = 'importantnote'
+    toggle = False
 
 
 def visit_importantnote_html(self, node):

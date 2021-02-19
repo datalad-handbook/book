@@ -40,7 +40,6 @@ div.findoutmore .header {
     border: 0px solid #000;
     margin: -6px -11px -6px -11px;
     padding: 5px 10px 5px 10px;
-    color: #ffffff;
 }
 div.findoutmore .header:before {
     content: "⤵ Find out more: ";

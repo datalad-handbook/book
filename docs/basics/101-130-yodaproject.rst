@@ -607,14 +607,14 @@ syllabus, this should be done via :term:`GitHub`.
    content from GitHub. GitHub can also resolve subdataset links to other GitHub
    repositories, which lets you navigate through nested datasets in the web-interface.
 
-   .. figure:: ../artwork/src/screenshot_midtermproject.png
+   .. image:: ../artwork/src/screenshot_midtermproject.png
       :alt: The midterm project repository, published to GitHub
 
    The above screenshot shows the linkage between the analysis project you will create
    and its subdataset. Clicking on the subdataset (highlighted) will take you to the iris dataset
    the handbook provides, shown below.
 
-   .. figure:: ../artwork/src/screenshot_submodule.png
+   .. image:: ../artwork/src/screenshot_submodule.png
       :alt: The input dataset is linked
 
 .. _publishtogithub:
@@ -840,7 +840,7 @@ reproduce your data science project easily from scratch (take a look into the :r
    Proud of your midterm project you can not wait to use those principles the
    next time again.
 
-    .. figure:: ../artwork/src/reproduced.svg
+    .. image:: ../artwork/src/reproduced.svg
        :width: 50%
 
 .. gitusernote:: Push internals

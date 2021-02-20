@@ -288,7 +288,7 @@ latex_show_urls = 'footnote'
 latex_elements = {
     'papersize': 'a4paper',
     'pointsize': '11pt',
-    'figure_align': 'H',
+    'figure_align': 'htbp',
     'sphinxsetup': r"""
 verbatimwithframe=false,%
 VerbatimColor={rgb}{1,1,1},%
@@ -334,6 +334,9 @@ cautionBgColor={named}{LightCyan}%
 \usepackage{charter}
 \usepackage[defaultsans]{lato}
 \usepackage{inconsolata}
+
+% make sure all float stay in their respective chapter
+%\usepackage[chapter]{placeins}
 
 \usepackage{xcolor}
 \definecolor{dataladyellow}{HTML}{FFA200}

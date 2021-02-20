@@ -187,9 +187,7 @@ an SSH key as detailed above, and cloning via the SSH url:
    Private repos are marked with a lock sign. To make it public, untick the
    "Private" box, found under "Settings":
 
-   .. figure:: ../artwork/src/GIN_private.png
-
-      Private Gin repository are marked. They can be made public in the settings.
+   .. image:: ../artwork/src/GIN_private.png
 
 In order to publish changes to a Gin repository, the repository needs
 to be cloned via its SSH url.

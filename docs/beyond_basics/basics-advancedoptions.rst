@@ -18,3 +18,4 @@ Advanced options
    101-146-providers
    101-147-riastores
    101-148-clonepriority
+   101-149-copyfile

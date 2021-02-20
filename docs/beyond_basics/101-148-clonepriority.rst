@@ -52,7 +52,7 @@ The topmost superdataset is published to a human-readable and accessible locatio
 In order to be able to retrieve subdataset *data* from the subdatasets after cloning the hierarchy of datasets, the RIA store with the storage special remote needs to be configured as a clone candidate.
 Importantly, it should not only be configured as one alternative, but it should be configured as the first location to try to clone from -- else, cloning from the wrong RIA store could succeed and prevent any configured second clone candidate location from being tried.
 
-.. note::
+.. importantnote:: Use case for clone priorities
 
    The most likely use case for such a scenario is in the case of centrally managed data with data administrators that provide and manage the data for their users.
 

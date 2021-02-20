@@ -15,7 +15,7 @@ Workflow description
 The software demonstration at the OHBM open science room is part of the open workflows theme.
 Therefore, this demonstration performed a complete data consumption, data analysis, and data publication routine.
 
-.. note::
+.. importantnote:: Workflow software requirements
 
    This workflow requires DataLad version 0.13 or higher.
    In particular, this version requirement stems from the :term:`remote indexed archive (RIA) store` used in this demonstration.
@@ -27,10 +27,6 @@ Step 1: Setting up a dataset
 
 When using DataLad, everything happens in datasets, DataLad's core data structure.
 You can find out more about datasets in the section :ref:`chapter_datasets`.
-
-.. note::
-
-    Reading this chapter is absolutely required if haven't yet heard of DataLad as it introduces and demonstrates common features (dataset nesting, dataset installation, data retrieval) you should be aware of in order to follow the demonstration.
 
 In short, a dataset is a directory on your computer that is managed by DataLad,
 and a git/git-annex repository.

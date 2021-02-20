@@ -17,7 +17,7 @@ available.
 
    Some repository hosting services such as Gin have annex support, and can thus hold the complete dataset. This makes publishing datasets very easy.
 
-.. note::
+.. importantnote:: Go further for dataset access from GIN
 
    If you reached this section to find out how to access a DataLad dataset
    shared on Gin, please skip to the section :ref:`access`.

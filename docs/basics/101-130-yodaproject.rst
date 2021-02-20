@@ -98,15 +98,6 @@ a Python API for DataLad's functionality that you can read about in :ref:`a Find
         # use save as a dataset method (no dataset argument)
         >>> ds.save(message="saving all modifications")
 
-    .. note::
-
-        At the moment, ``dataset`` argument handling is not fully consistent
-        across commands. When executing commands outside of the dataset in question,
-        ``path`` arguments are sometimes interpreted as relative from the
-        ``dataset`` path, and sometimes as relative from the location the command
-        is executed from. You can get consistent behavior (paths relative to the
-        dataset root) by using ``Dataset`` methods or passing ``Dataset`` instances to
-        the commands instead of specifying paths (strings) for ``dataset=``.
 
     **Use cases for DataLad's Python API**
 
@@ -121,7 +112,7 @@ a Python API for DataLad's functionality that you can read about in :ref:`a Find
     ~200ms, this means that there is the potential for substantial speed-up when
     doing many calls to the API, and using a persistent Dataset object instance.
 
-.. note::
+.. importantnote:: Use DataLad in languages other than Python
 
    While there is a dedicated API for Python, DataLad's functions can of course
    also be used with other programming languages, such as Matlab, via standard
@@ -441,7 +432,7 @@ simply executing the script would work as well -- thanks to DataLad's Python API
 But using :command:`datalad run` will capture full provenance, and will make
 re-execution with :command:`datalad rerun` easy.
 
-.. note::
+.. importantnote:: Additional software requirements: pandas, seaborn, sklearn
 
    Note that you need to have the following Python packages installed to run the
    analysis [#f3]_:
@@ -512,7 +503,7 @@ But what is still missing is a human readable description of your dataset.
 The YODA procedure kindly placed a ``README.md`` file into the root of your
 dataset that you can use for this [#f4]_.
 
-.. note::
+.. importantnote:: Template for introduction to DataLad
 
    If you plan to share your own datasets with people that are unfamiliar with
    DataLad, it may be helpful to give a short explanation of what a DataLad
@@ -622,7 +613,7 @@ syllabus, this should be done via :term:`GitHub`.
 Publishing the dataset to GitHub
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. note::
+.. importantnote:: Demo needs a GitHub account or alternative
 
    The upcoming part requires a GitHub account. If you do not have one you
    can either
@@ -716,7 +707,7 @@ any of your dataset's history or files. This requires *publishing* the current
 state of the dataset to this :term:`sibling` with the :command:`datalad push`
 (:manpage:`datalad-push` manual) command.
 
-.. note::
+.. importantnote:: Learn how to push "on the job"
 
     Publishing is one of the remaining big concepts that this handbook tries to
     convey. However, publishing is a complex concept that encompasses a large

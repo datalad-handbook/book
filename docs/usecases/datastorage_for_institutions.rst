@@ -27,7 +27,7 @@ as simple as possible. It elaborates on
 #. How to reduce technical complexities for users and encourage reproducible,
    version-controlled, and scalable scientific workflows.
 
-.. note::
+.. importantnote:: Use case target audience
 
    This usecase is technical in nature and aimed at IT/data management
    personnel seeking insights into the technical implementation and
@@ -136,7 +136,7 @@ implementation of a RIA store, and the workflow requirements and incentives for
 researchers. Both of them are aimed at making scientific analyses on a
 compute cluster scale and can be viewed as complimentary but independent.
 
-.. note::
+.. importantnote:: Note on the generality of the described setup
 
    Some hardware-specific implementation details are unique to the real-world
    example this usecase is based on, and are not a requirement. In this particular

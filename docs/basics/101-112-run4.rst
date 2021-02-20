@@ -124,7 +124,7 @@ It does not warn if the repository is dirty, but importantly, it
 **only** saves modifications to the *listed outputs* (which is a problem in the
 vast amount of cases where one does not exactly know which outputs are produced).
 
-.. note::
+.. importantnote:: Put explicit first!
 
    The ``--explicit`` flag has to be given anywhere *prior* to the command that
    should be run -- the command needs to be the last element of a

@@ -13,7 +13,7 @@ infrastructure, be it personal computers, servers or compute clusters, or even
 super computing infrastructure -- even on machines that do not have DataLad
 installed.
 
-.. note::
+.. importantnote:: RIA availability
 
    Setting up and interacting with RIA stores requires DataLad version ``0.13.0``
    or higher. In order to understand this section, some knowledge on Git-internals
@@ -295,40 +295,41 @@ on where the RIA store (should) exists, or rather, which file transfer protocol
 
 Note that it is always required to specify an :term:`absolute path` in the URL!
 
-.. note::
+.. importantnote:: If you code along, make sure to check the next findoutmore!
 
    The upcoming demonstration of RIA stores uses the ``DataLad-101`` dataset
    the was created throughout the Basics of this handbook.
    If you want to execute these code snippets on a ``DataLad-101``
-   dataset you created, there is one modification that needs to be done first:
+   dataset you created, the modification described in the findoutmore below
+   needs to be done first.
 
-   .. findoutmore:: If necessary, adjust the submodule path!
+.. findoutmore:: If necessary, adjust the submodule path!
 
-      Back in :ref:`subdspublishing`, in order to appropriately reference and link
-      subdatasets on hostings sites such as :term:`GitHub`, we adjusted the
-      submodule path of the subdataset in ``.gitmodules`` to point to a published
-      subdataset on GitHub:
+   Back in :ref:`subdspublishing`, in order to appropriately reference and link
+   subdatasets on hostings sites such as :term:`GitHub`, we adjusted the
+   submodule path of the subdataset in ``.gitmodules`` to point to a published
+   subdataset on GitHub:
 
-      .. runrecord:: _examples/DL-101-147-101
-         :language: console
-         :workdir: dl-101/DataLad-101
-         :emphasize-lines: 9
+   .. runrecord:: _examples/DL-101-147-101
+      :language: console
+      :workdir: dl-101/DataLad-101
+      :emphasize-lines: 9
 
-         # in DataLad-101
-         $ cat .gitmodules
+      # in DataLad-101
+      $ cat .gitmodules
 
-      Later in this demonstration we would like to publish the subdataset to a
-      RIA store and retrieve it automatically from this store -- retrieval is only
-      attempted from a store, however, if no other working source is known. Therefore,
-      we will remove the reference to the published dataset prior to this
-      demonstration and replace it with the path it was originally referenced under.
+   Later in this demonstration we would like to publish the subdataset to a
+   RIA store and retrieve it automatically from this store -- retrieval is only
+   attempted from a store, however, if no other working source is known. Therefore,
+   we will remove the reference to the published dataset prior to this
+   demonstration and replace it with the path it was originally referenced under.
 
-      .. runrecord:: _examples/DL-101-147-102
-         :language: console
-         :workdir: dl-101/DataLad-101
+   .. runrecord:: _examples/DL-101-147-102
+      :language: console
+      :workdir: dl-101/DataLad-101
 
-         # in DataLad-101
-         $ datalad subdatasets --contains midterm_project --set-property url ./midterm_project
+      # in DataLad-101
+      $ datalad subdatasets --contains midterm_project --set-property url ./midterm_project
 
 
 To demonstrate the basic process, we will create a RIA store on a local file

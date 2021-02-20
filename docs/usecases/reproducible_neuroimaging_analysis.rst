@@ -712,7 +712,7 @@ and the dataset will contain a complete record all the way from the input BIDS
 dataset to the GLM results. The BIDS subdataset in turn has a
 complete record of all processing down from the raw DICOMs onwards.
 
-.. note::
+.. importantnote:: Many files need more planning
 
    See how many files were created and added in this computation of a single
    participant? If your study has many participants, analyses like the one above

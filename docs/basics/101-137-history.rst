@@ -238,7 +238,7 @@ with the HEAD pointer.
    a pointer to the branch you are currently on, and thus to the last commit
    in the given branch.
 
-   .. figure:: ../artwork/src/git_branch_HEAD.png
+   .. image:: ../artwork/src/git_branch_HEAD.png
       :width: 50%
 
    Using ``HEAD``, you can identify the most recent commit, or count backwards

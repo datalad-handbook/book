@@ -310,8 +310,9 @@ cautionBgColor={named}{LightCyan}%
 \rule{1pt}{\textheight}
 \hspace{0.05\textwidth}
 \parbox[b]{0.75\textwidth}{
+\hfill{\footnotesize %s}\\[1\baselineskip]
 \includegraphics[width=0.75\textwidth]{logo.pdf}\\
-{\Huge\textbf{The handbook}}\hfill{\footnotesize %s}\\[1\baselineskip]
+{\Huge\textbf{Handbook}}\\
 {\Large Introduction \textbullet\ Advanced topics \textbullet\ Use cases}\\[2\baselineskip]
 {\Large\textsc{Adina~Wagner \& Michael~Hanke}\\[1\baselineskip]
 {\small \textit{with}}\\[1\baselineskip]

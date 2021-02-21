@@ -1,0 +1,8 @@
+$ datalad copy-file \
+   hcp/HCP1200/130013/T1w/Diffusion/bvals  \
+   -d dataset-to-copy-to
+copy_file(ok): /home/me/dl-101/HPC/hcp/HCP1200/130013/T1w/Diffusion/bvals [/home/me/dl-101/HPC/dataset-to-copy-to/bvals]
+save(ok): . (dataset)
+action summary:
+  copy_file (ok: 1)
+  save (ok: 1)

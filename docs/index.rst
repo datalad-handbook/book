@@ -5,7 +5,7 @@
 
 .. image:: artwork/src/img/datalad-animated.gif
    :scale: 100%
-   :alt: Virtual directory tree of a nested DataLad dataset
+   :alt: Animated DataLad logo
 
 ============
 The Handbook

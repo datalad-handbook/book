@@ -83,7 +83,8 @@ update of the ``algorithm/`` subdataset, and upon command-line invocation his ma
 itself with the new figures.
 
 
-.. note::
+.. importantnote:: Take a look at the real manuscript dataset
+
    The actual manuscript this use case is based on can be found
    `here <https://github.com/psychoinformatics-de/paper-remodnav/>`_:
    https://github.com/psychoinformatics-de/paper-remodnav/. :command:`datalad clone`

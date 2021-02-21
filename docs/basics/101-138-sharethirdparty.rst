@@ -82,7 +82,7 @@ information about where to obtain annexed file contents from such that
 This tutorial showcases how this can be done, and shows the basics of how
 datasets can be shared via a third party infrastructure.
 
-.. note::
+.. importantnote:: Free publication service alternatives
 
    There are two easier and free alternatives to what is outlined in this section:
 
@@ -124,7 +124,7 @@ very familiar with.
 Setting up 3rd party services to host your data
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. note::
+.. importantnote:: There is work in progress
 
    The tutorial below is functional, but there is work towards a wrapper
    function to ease creating and working with rclone-based special remotes:
@@ -357,7 +357,7 @@ publishing to GitHub dependent on the ``dropbox-for-friends`` sibling
 (that has a remote data annex), so that annexed contents are published
 there first.
 
-.. note::
+.. importantnote:: Publication dependencies are strictly local configuration
 
    Note that the publication dependency is only established for your own dataset,
    it is not shared with clones of the dataset. Internally, this configuration
@@ -534,7 +534,7 @@ Because the special remote URL coincides with the regular remote URL on GitHub,
 ``siblings enable`` will not even be necessary when datalad is installed
 from GitHub.
 
-.. note::
+.. importantnote:: No drop from LFS
 
    Unfortunately, it is impossible to :command:`drop` contents from Git LFS:
    `help.github.com/en/github/managing-large-files <https://help.github.com/en/github/managing-large-files/removing-files-from-git-large-file-storage#git-lfs-objects-in-your-repository>`_

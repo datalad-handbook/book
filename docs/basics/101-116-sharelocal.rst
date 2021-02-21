@@ -19,7 +19,7 @@ In this section, we will cover the simplest way of sharing a dataset:
 on a local or shared file system, via an *installation* with a path as
 a source.
 
-.. note::
+.. importantnote:: More on public data sharing
 
    Interested in sharing datasets *publicly*? Read this chapter to get a feel
    for all relevant basic concepts of sharing datasets. Afterwards, head over

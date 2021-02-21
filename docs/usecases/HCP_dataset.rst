@@ -171,10 +171,8 @@ hidden section below.
 
 .. findoutmore:: How exactly did the datasets came to be?
 
-   .. note::
-
-      All code and tables necessary to generate the HCP datasets can be found on
-      GitHub at `github.com/TobiasKadelka/build_hcp <https://github.com/TobiasKadelka/build_hcp>`_.
+   All code and tables necessary to generate the HCP datasets can be found on
+   GitHub at `github.com/TobiasKadelka/build_hcp <https://github.com/TobiasKadelka/build_hcp>`_.
 
    The :command:`datalad addurls` command is capable of building all necessary nested
    subject datasets automatically, it only needs an appropriate specification of
@@ -254,15 +252,13 @@ hidden section below.
    command, the public S3 bucket can be queried and the command will output the
    relevant information.
 
-   .. note::
-
-      The :command:`datalad ls` command is a rather old command and less user-friendly
-      than other commands demonstrated in the handbook. One problem for automation
-      is that the command is made for interactive use, and it outputs information in
-      a non-structured fashion. In order to retrieve the relevant information,
-      a custom Python script was used to split its output and extract it. This
-      script can be found in the GitHub repository as
-      `code/create_subject_table.py <https://github.com/TobiasKadelka/build_hcp/blob/master/code/create_subject_table.py>`_.
+   The :command:`datalad ls` command is a rather old command and less user-friendly
+   than other commands demonstrated in the handbook. One problem for automation
+   is that the command is made for interactive use, and it outputs information in
+   a non-structured fashion. In order to retrieve the relevant information,
+   a custom Python script was used to split its output and extract it. This
+   script can be found in the GitHub repository as
+   `code/create_subject_table.py <https://github.com/TobiasKadelka/build_hcp/blob/master/code/create_subject_table.py>`_.
 
    **How to schedule datalad addurls commands for all tables**
 
@@ -396,7 +392,7 @@ repository that anyone can :command:`datalad clone` [#f4]_.
 Data retrieval and interacting with the repository
 """"""""""""""""""""""""""""""""""""""""""""""""""
 
-.. note::
+.. importantnote:: HCP dataset version requirements
 
    Using this dataset requires DataLad version 0.12.2 or higher. Upgrading
    an existing DataLad installation is detailed in section :ref:`install`.

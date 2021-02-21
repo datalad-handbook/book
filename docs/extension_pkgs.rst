@@ -19,11 +19,12 @@ explicitly). The installation is done with
 standard Python package managers, such as :term:`pip`, and beyond installation
 of the package, no additional setup is required.
 
-.. note::
+DataLad extensions listed here are of various maturity levels. Check out their
+documentation and the sections or chapters associated with an extension to
+find out more about them.
 
-   DataLad extensions listed here are of various maturity levels. Check out their
-   documentation and the sections or chapters associated with an extension to
-   find out more about them. We are working on content to describe each of the
+.. todo::
+   We are working on content to describe each of the
    extensions, but this is not a high priority at the given time.
    Contributions of sections, chapters, or demonstrations for extensions
    that do not yet have one in the handbook are highly welcomed.

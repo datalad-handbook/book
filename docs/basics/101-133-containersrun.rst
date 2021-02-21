@@ -104,7 +104,7 @@ Singularity furthermore is compatible with Docker -- you can use
 Docker Images as a basis for Singularity Images, or run Docker Images with
 Singularity (even without having Docker installed).
 
-.. note::
+.. importantnote:: Additional requirement: Singularity
 
    In order to use Singularity containers (and thus ``datalad containers``), you have to
    `install <https://singularity.lbl.gov/docs-installation>`_ the software singularity.

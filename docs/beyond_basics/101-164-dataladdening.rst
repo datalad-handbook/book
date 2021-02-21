@@ -112,7 +112,7 @@ Make sure to run :command:`datalad status` frequently.
 
    You can find guidance on how to create configurations for your dataset (which need to be in place and saved prior to saving contents!) in the chapter :ref:`chapter_config`, in particular section :ref:`config2`.
 
-.. note::
+.. importantnote:: Create desired subdatasets first
 
    Be mindful during saving if you have a directory that should hold more, yet uncreated datasets down its hierarchy, as a plain ``datalad save`` will save *all* files and directories to the dataset!
    Its best to first create all subdatasets, and only then save their contents.

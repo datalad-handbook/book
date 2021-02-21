@@ -12,7 +12,7 @@ can be captured with DataLad by
 #. perform changes to this data file and
 #. capture provenance for all of this
 
-.. note::
+.. importantnote:: How to become a Git pro
 
    This section uses advanced Git commands and concepts on the side
    that are not covered in the book. If you want to learn more about

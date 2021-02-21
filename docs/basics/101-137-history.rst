@@ -135,13 +135,11 @@ DataLad in the editor)!
    ``git rebase -i HEAD~3`` for example lets you apply changes to the
    any number of commit messages within the last three commits.
 
-   .. note::
-
-      Be aware that an interactive rebase lets you *rewrite* history.
-      This can lead to confusion or worse if the history you are rewriting
-      is shared with others, e.g., in a collaborative project. Be also aware
-      that rewriting history that is *pushed*/*published* (e.g., to GitHub)
-      will require a force-push!
+   Be aware that an interactive rebase lets you *rewrite* history.
+   This can lead to confusion or worse if the history you are rewriting
+   is shared with others, e.g., in a collaborative project. Be also aware
+   that rewriting history that is *pushed*/*published* (e.g., to GitHub)
+   will require a force-push!
 
    Running this command gives you a list of the N most recent commits
    in your text editor (which may be :term:`vim`!), sorted with

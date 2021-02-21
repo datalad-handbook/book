@@ -9,7 +9,7 @@ But there are also analyses that are so large -- either in terms of computations
 The latter type of analyses typically requires a compute cluster, a job scheduler, and parallelization.
 The question is: How can they become as reproducible and provenance tracked as the simplistic, singular analysis that were showcased in the handbook so far, and that comfortably fitted on a private computer?
 
-.. note::
+.. importantnote:: Reading prerequisit for distributed computing
 
    It is advised to read the previous chapter :ref:`chapter_gobig` prior to this one
 
@@ -61,7 +61,7 @@ Below, you can find a complete, largely platform and scheduling-system agnostic 
 Processing FAIRly *and* in parallel -- General workflow
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. note::
+.. importantnote:: FAIR and parallel: more than one way to do it
 
     FAIR *and* parallel processing requires out-of-the-box thinking, and many creative approaches can lead to success.
     Here is **one** approach that leads to a provenance-tracked, computationally reproducible, and parallel preprocessing workflow, but many more can work.

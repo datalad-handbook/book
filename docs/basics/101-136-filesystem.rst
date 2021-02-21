@@ -541,7 +541,7 @@ Finally, let's clean up:
 Copying files across dataset boundaries
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. note::
+.. importantnote:: copy-file availability
 
    :command:`datalad copy-file` requires DataLad version ``0.13.0`` or higher.
 

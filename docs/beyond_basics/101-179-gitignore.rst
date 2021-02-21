@@ -152,7 +152,7 @@ your dataset to be messy, if you want to be.
    subdirectories of your dataset. The rules in these nested ``.gitignore`` files only
    apply to the files under the directory where they are located.
 
-.. note::
+.. importantnote:: Implications of git-ignored outputs for re-running
 
    Note one caveat: If a command creates an output that is git-ignored,
    (e.g. anything inside of ``tmp/`` in our dataset), a subsequent command

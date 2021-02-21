@@ -3,7 +3,7 @@
 Installation and configuration
 ------------------------------
 
-.. note::
+.. importantnote:: DataLad version requirement
 
   The handbook is written for DataLad version 0.12 or higher. The higher the
   version, the better, but it should be at least DataLad 0.12.0.

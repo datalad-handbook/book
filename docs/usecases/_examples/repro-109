@@ -1,7 +1,7 @@
 $ datalad run -m "run brain extract workflow" \
-  --input "inputs/ds*/sub-01/anat/sub-01_T1w.nii.gz" \
-  --output "sub-*/anat" \
-  bash -e code/brain_extraction.sh inputs/ds*/sub-01/anat/sub-01_T1w.nii.gz
+ --input "inputs/ds*/sub-01/anat/sub-01_T1w.nii.gz" \
+ --output "sub-*/anat" \
+ bash -e code/brain_extraction.sh inputs/ds*/sub-01/anat/sub-01_T1w.nii.gz
 [INFO] Making sure inputs are available (this may take some time) 
 get(ok): inputs/ds000001/sub-01/anat/sub-01_T1w.nii.gz (file) [from web...]
 get(ok): inputs/ds000002/sub-01/anat/sub-01_T1w.nii.gz (file) [from web...]

@@ -22,6 +22,7 @@ the solutions they demonstrate.
    provenance_tracking
    reproducible-paper
    supervision
+   reproducible_neuroimaging_analysis_simple
    reproducible_neuroimaging_analysis
    HCP_dataset
    datastorage_for_institutions

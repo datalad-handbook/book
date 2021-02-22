@@ -335,6 +335,7 @@ cautionBgColor={named}{LightCyan}%
 \usepackage{charter}
 \usepackage[defaultsans]{lato}
 \usepackage{inconsolata}
+\usepackage[hang,flushmargin,multiple]{footmisc}
 
 % make sure all float stay in their respective chapter
 %\usepackage[chapter]{placeins}

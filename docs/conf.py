@@ -422,6 +422,10 @@ ribbon important/.style={overlay={
 
 \numberwithin{table}{chapter}
 \numberwithin{figure}{chapter}
+
+% natural spacing between (long) numbers and titles in
+% any TOC
+\renewcommand{\numberline}[1]{#1~}
 """,
 }
 

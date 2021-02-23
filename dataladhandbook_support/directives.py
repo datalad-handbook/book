@@ -76,8 +76,7 @@ def _get_counted_boxstart(label, node):
             if flt else ', float'
     return \
         "\\begin{{{label}}}" \
-        "[label={{{label}counter}}," \
-        " before title={{\\thetcbcounter\\ }}{float_args}]" \
+        "[before title={{\\thetcbcounter\\ }}{float_args}]" \
         "{{{title}}}\n".format(
             label=label,
             title=title,

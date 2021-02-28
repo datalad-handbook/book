@@ -265,7 +265,7 @@ work, and that terminal output can look different from what is displayed in the
 code examples of the book, and that some dependencies for additional functionality are not available for Windows.
 If you are a Windows user and want to help improve the handbook for Windows users,
 please `get in touch <https://github.com/datalad-handbook/book/issues/new>`_.
-Expandable notes, "``Windows-Workaround``\s", contain important information, alternative commands, or warnings, and if you are proceeding with a native Windows 10 system you should be close attention to them.
+Dedicated boxes, "``Windows-Workaround``\s", contain important information, alternative commands, or warnings, and if you are proceeding with a native Windows 10 system you should be close attention to them.
 
 - **Step 1**: Install Git
 

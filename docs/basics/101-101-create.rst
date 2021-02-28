@@ -185,7 +185,7 @@ written to the history therefore states that a new dataset was created,
 and the second commit is related to the ``-c text2git`` option (which
 uses a configuration template to instruct DataLad to store text files
 in Git, but more on this later).
-Even though these commits were produced by DataLad,
+While these commits were produced and described by DataLad,
 in most other cases, you will have to create the commit and
 an informative commit message yourself.
 

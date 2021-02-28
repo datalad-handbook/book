@@ -297,11 +297,12 @@ Dedicated boxes, "``Windows-Workaround``\s", contain important information, alte
   - Enter an Anaconda prompt or your Git bash, and install DataLad and its dependencies by running ``conda install -c conda-forge datalad``
   
 - **Step 4**: Install git-annex (temporarily necessary)
-  One of DataLad's core dependencies is :term:`git-annex`.
-  For the longest time, git-annex installers for Windows lacked support for `mimeencoding <https://en.wikipedia.org/wiki/MIME>`_.
-  Without mimeencoding, a standard DataLad procedure, the ``text2git`` configuration (it will be introduced in the very first section of the Basics), is not functional, and you will find "Windowsworkarounds" to deal with this.
-  We recently started to build git-annex with support for mimeencoding ourselves, though.
-  At the moment, we are working on packaging up Windows-specific DataLad distributions with this version of :term:`git-annex`, but for the time being, you can find the standalone git-annex installer for Windows with mimeencoding at `http://datasets.datalad.org/datalad/packages/windows/ <http://datasets.datalad.org/datalad/packages/windows/>`_.
+
+  - One of DataLad's core dependencies is :term:`git-annex`.
+    For the longest time, git-annex installers for Windows lacked support for `mimeencoding <https://en.wikipedia.org/wiki/MIME>`_.
+    Without mimeencoding, a standard DataLad procedure, the ``text2git`` configuration (it will be introduced in the very first section of the Basics), is not functional.
+    Therefore, we started to build git-annex with support for mimeencoding ourselves.
+    You can find the standalone git-annex installer for Windows with mimeencoding at `http://datasets.datalad.org/datalad/packages/windows/ <http://datasets.datalad.org/datalad/packages/windows/>`_.
 
 - Optional - Install Unix tools
 

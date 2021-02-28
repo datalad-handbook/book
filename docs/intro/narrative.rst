@@ -12,7 +12,7 @@ you to fire up your terminal and follow along.
 **If you are interested in learning how to use DataLad, this handbook is for you.**
 
 You do not need to be a programmer, computer scientist, or Linux-crank.
-If you have never touched your computers shell before, you will be fine.
+If you have never touched your computer's shell before, you will be fine.
 No knowledge about :term:`Git` or :term:`git-annex` is required or necessary.
 Regardless of your background and personal use cases for DataLad, the
 handbook will show you the principles of DataLad, and from chapter 1 onwards

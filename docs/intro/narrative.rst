@@ -77,7 +77,7 @@ But if you want to have the special knowledge for a very peculiar type
 of problem set or that extra increase in skill or understanding,
 you'll have to do a detour into some of the "hidden" parts of the book:
 When there are command options or explanations that go beyond basics and
-best practices, we hide them in special book sections in order
+best practices, we put them in special boxes in order
 to not be too distracting for anyone only interested in the basics.
 You can decide for yourself whether you want to check them out:
 

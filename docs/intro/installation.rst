@@ -251,17 +251,8 @@ There are two ways to get DataLad on Windows 10: one is within Windows itself,
 the other is using WSL2, the Windows Subsystem for Linux, version 2.
 With the Windows Subsystem for Linux, you will be able to use a Unix system despite being on Windows.
 You need to have a recent build of Windows 10 in order to get WSL2 -- we do not recommend WSL1.
-Information on how to install WSL2 can be found here:
-
-.. container:: toggle
-
-   .. container:: header
-
-      Using the Windows Subsystem 2 for Linux
-
-   You can find out how to install the Windows Subsystem for Linux at
-   `docs.microsoft.com <https://docs.microsoft.com/en-us/windows/wsl/install-win10>`_.
-   Afterwards, proceed with your installation as described in the installation instructions for Linux.
+Information on how to install WSL2 can be found at `docs.microsoft.com <https://docs.microsoft.com/en-us/windows/wsl/install-win10>`_.
+Afterwards, proceed with your installation as described in the installation instructions for Linux.
 
 Note: Using Windows itself comes with some downsides.
 We have created a dedicated page, :ref:`ohnowindows` with an explanation and overview.

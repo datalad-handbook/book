@@ -61,7 +61,7 @@ DataLad stores what it calls a *subproject commit* of the subdataset.
 The cryptic character sequence in this line is the :term:`shasum` we have briefly
 mentioned before, and it is
 how DataLad internally identifies files and changes to files. Exactly this
-shasum is what describes the state of the subdataset.
+:term:`shasum` is what describes the state of the subdataset.
 
 Navigate back into ``longnow`` and try to find the highlighted shasum in the
 subdataset's history:

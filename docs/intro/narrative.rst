@@ -205,7 +205,7 @@ share and publish with DataLad.
    If you do not want to follow along and only read, there is a showroom dataset
    of the complete DataLad-101 project at
    `github.com/datalad-handbook/DataLad-101 <https://github.com/datalad-handbook/DataLad-101>`_.
-   This dataset contains a separate branch for each section that introduced changes
+   This dataset contains a separate :term:`branch` for each section that introduced changes
    in the repository. The branches have the names of the sections, e.g.,
    ``sct_create_a_dataset`` marks the repository state at the end of the first section
    in the first chapter. You can checkout a branch with `git checkout <branch-name>`

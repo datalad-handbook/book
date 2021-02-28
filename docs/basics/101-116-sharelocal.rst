@@ -348,6 +348,7 @@ with the first subdataset::
   datalad get -n -r --recursion-limit 1 <subds>
 
 .. findoutmore:: datalad clone versus datalad install
+   :name: fom_clonevsinstall
 
    You may remember from section :ref:`installds` that DataLad has two commands to obtain datasets,
    :command:`datalad clone` and :command:`datalad install`.

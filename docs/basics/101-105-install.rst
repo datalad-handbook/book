@@ -61,7 +61,7 @@ There are two commands that can be used to obtain a dataset: :command:`datalad i
 (:manpage:`datalad-install` manual) and :command:`datalad clone` (:manpage:`datalad-clone`
 manual). Throughout this handbook, we will use :command:`datalad clone` to obtain
 datasets. The command has a less complex structure but slightly simplified behavior,
-and a hidden section in section :ref:`sharelocal1` will elaborate on the differences
+and :ref:`the Findoutmore <fom_clonevsinstall>` in section :ref:`sharelocal1` will elaborate on the differences
 between the two commands.
 Let's install the longnow podcasts in this new directory with :command:`datalad clone`.
 

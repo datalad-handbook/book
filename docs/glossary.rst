@@ -52,7 +52,7 @@ Glossary
       a branch contains into another branch.
 
    checksum
-      TODO
+      An alternative term to :term:`shasum`.
 
    clone
       Git concept: A copy of a :term:`Git` repository. In Git-terminology, all "installed" datasets

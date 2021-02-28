@@ -45,13 +45,13 @@ this excerpt.
 .. runrecord:: _examples/DL-101-106-101
    :language: console
    :workdir: dl-101/DataLad-101
-   :lines: 1, 23-46
-   :emphasize-lines: 25
+   :lines: 1, 22-62
+   :emphasize-lines: 41
    :realcommand: git log -p
    :cast: 01_dataset_basics
    :notes: The superdataset only stores the version of the subdataset.  Let's take a look into how the superdataset's history looks like
 
-   $ git log -p -n 2
+   $ git log -p -n 3
 
 We have highlighted the important part of this rather long commit summary.
 Note that you can not see any ``.mp3``\s being added to the dataset,

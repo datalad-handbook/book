@@ -49,7 +49,7 @@ If this fails, or reports a Python version with a leading ``2``, such as ``Pytho
 If this fails, too, you need to obtain a recent release of Python 3.
 
 If you are on Windows, please note that you should **not** install Python via the Windows store, even if it opens after you typed ``python``, as this version requires additional configurations by hand (in particular of your ``$PATH`` :term:`environment variable`).
-Please instead check the Windows section at the end of the page for more convenient alternatives.
+Please instead check the Windows section at the end of the section for more convenient alternatives.
 
 .. findoutmore:: Python 2, Python 3, what's the difference?
 

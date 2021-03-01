@@ -217,16 +217,6 @@ Luckily, we can point :command:`datalad save` to exactly the changes we want it 
 Let's try this by adding yet another book, a good reference work about git,
 `Pro Git <https://git-scm.com/book/en/v2>`_:
 
-.. windowsworkarounds:: You may want to use curl instead of wget
-
-   Many versions of Windows do not ship with the tool ``wget``.
-   You can install it, but it may be easier to use the pre-installed ``curl`` command::
-
-      $ cd books
-      $ curl -L https://github.com/progit/progit2/releases/download/2.1.154/progit.pdf \
-        -o progit.pdf
-      $ cd ../
-
 .. runrecord:: _examples/DL-101-102-108
    :language: console
    :workdir: dl-101/DataLad-101

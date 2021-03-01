@@ -238,7 +238,7 @@ Let's try this by adding yet another book, a good reference work about git,
 
    $ datalad status
 
-Let's :command:`datalad save` precisely this file by specifying its path after the commit message:
+Let's give :command:`datalad save` precisely this file by specifying its path after the commit message:
 
 .. runrecord:: _examples/DL-101-102-110
    :language: console

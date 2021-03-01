@@ -105,7 +105,7 @@ But now, let's see how *changing* tracked content works.
 Modify this file by adding another note. After all, you already know how to use
 :command:`datalad save`, so write a short summary on that as well.
 
-Again, the example below uses Unix commands (``cat`` and redirecting, this time however
+Again, the example below uses Unix commands (``cat`` and redirection, this time however
 with ``>>`` to *append* new content to the existing file)
 to accomplish this, but you can take any editor of your choice.
 

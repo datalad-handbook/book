@@ -305,7 +305,8 @@ file should be saved in (``.`` denotes "current directory"), and a commit messag
    :cast: 01_dataset_basics
    :notes: finally, datalad-download-url
 
-   $ datalad download-url http://www.tldp.org/LDP/Bash-Beginners-Guide/Bash-Beginners-Guide.pdf \
+   $ datalad download-url \
+     http://www.tldp.org/LDP/Bash-Beginners-Guide/Bash-Beginners-Guide.pdf \
      --dataset . \
      -m "add beginners guide on bash" \
      -O books/bash_guide.pdf

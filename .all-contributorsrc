@@ -400,6 +400,16 @@
         "content",
         "bug"
       ]
+    },
+    {
+      "login": "tamaracha",
+      "name": "Tamara Cook",
+      "avatar_url": "https://avatars.githubusercontent.com/u/10754072?v=4",
+      "profile": "https://github.com/tamaracha",
+      "contributions": [
+        "review",
+        "infra"
+      ]
     }
   ],
   "contributorsPerLine": 7,

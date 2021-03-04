@@ -14,11 +14,6 @@ Installation and configuration
 Install DataLad
 ^^^^^^^^^^^^^^^
 
-The content in this chapter is largely based on the information given on the
-`DataLad website <https://www.datalad.org/get_datalad.html>`_
-and the `DataLad documentation <http://docs.datalad.org/en/stable/>`_.
-Python installation instructions are largely based on instructions from the `2020 OHBM hackathon <https://ohbm.github.io/hackathon2020/logistics/>`_.
-
 Beyond DataLad itself, the installation requires Python 3, :term:`Git`, and :term:`git-annex`, and may require Python's package manager ``pip`` and `p7zip/7-Zip <https://7-zip.org/>`_.
 The instructions below detail how to install
 each of these components for different common operating systems. Please

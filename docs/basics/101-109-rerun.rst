@@ -102,7 +102,7 @@ Luckily, a fellow student remembered the DataLad way of re-executing
 a ``run`` command, and he's eager to show it to you.
 
 "In order to re-execute a :command:`datalad run` command,
-find the commit and use its shasum (or a tag, or anything else that Git
+find the commit and use its :term:`shasum` (or a :term:`tag`, or anything else that Git
 understands) as an argument for the
 :command:`datalad rerun` command (:manpage:`datalad-rerun` manual)! That's it!",
 he says happily.

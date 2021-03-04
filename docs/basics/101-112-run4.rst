@@ -44,7 +44,7 @@ unsaved modifications present in ``DataLad-101``.
 But why is this a problem?
 
 By default, at the end of a :command:`datalad run` is a :command:`datalad save`.
-Remember the section on :ref:`populate`: A general :command:`datalad save` without
+Remember the section :ref:`populate`: A general :command:`datalad save` without
 a path specification will save *all* of the modified or untracked
 contents to the dataset.
 

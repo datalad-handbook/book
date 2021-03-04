@@ -14,16 +14,15 @@ Installation and configuration
 Install DataLad
 ^^^^^^^^^^^^^^^
 
-Beyond DataLad itself, the installation requires Python 3, :term:`Git`, and :term:`git-annex`, and may require Python's package manager ``pip`` and `p7zip/7-Zip <https://7-zip.org/>`_.
-The instructions below detail how to install
-each of these components for different common operating systems. Please
-`file an issue <https://github.com/datalad-handbook/book/issues/new>`_
-if you encounter problems.
+In general, the DataLad installation requires Python 3, :term:`Git`, and
+:term:`git-annex`, and  `7-Zip <https://7-zip.org/>`_ for some
+functionality. The instructions below detail how to install the core DataLad
+tool and its dependencies on common operating systems. They do not cover the
+various :ref:`DataLad extensions <extensions_intro>` that need to be installed
+separately, if desired.
 
-Note that while these installation instructions will provide you with the core
-DataLad tool, many
-`extensions <http://docs.datalad.org/en/latest/index.html#extension-packages>`_
-exist, and they need to be installed separately, if needed.
+Please `file an issue <https://github.com/datalad-handbook/book/issues/new>`_,
+if you encounter problems installing DataLad.
 
 .. figure:: ../artwork/src/install.svg
    :width: 70%

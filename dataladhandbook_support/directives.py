@@ -256,7 +256,7 @@ def setup(app):
         html=(visit_findoutmore_html, depart_findoutmore_html),
         latex=(visit_findoutmore_latex, depart_findoutmore_latex),
     )
-    app.add_directive('findoutmore', FindOutMore)
+    app.add_directive('find-out-more', FindOutMore)
     app.add_node(
         windowsworkarounds,
         html=(visit_windowsworkarounds_html, depart_windowsworkarounds_html),

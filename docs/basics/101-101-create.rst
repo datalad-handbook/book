@@ -28,7 +28,7 @@ Note the command structure of :command:`datalad create` (optional bits are enclo
 
   datalad create [--description "..."] [-c <config options>] PATH
 
-.. findoutmore:: What is the description option?
+.. find-out-more:: What is the description option?
 
    The optional ``--description`` flag allows you to provide a short description of
    the *location* of your dataset, for example with

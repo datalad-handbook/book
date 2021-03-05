@@ -36,7 +36,7 @@ While the input dataset creation is straightforwards, some thinking went into th
 If you are interested in this, find the details in the findoutmore below.
 Also note that there is a large collection of pre-existing container datasets available at `github.com/ReproNim/containers <https://github.com/ReproNim/containers>`_.
 
-.. findoutmore:: pipeline dataset creation
+.. find-out-more:: pipeline dataset creation
 
    We start with a dataset (called ``pipelines`` in this example)::
 
@@ -184,7 +184,7 @@ This initial sketch serves to highlight key differences and adjustments due to t
 Just like the general script from the last section, this script can be submitted to any job scheduler -- here with a subject ID as a ``$subid`` command line variable and a job ID as environment variable as identifiers for the fMRIprep run and branch names.
 At this point, the workflow misses a tweak that is necessary in fMRIprep to enable re-running computations  (the complete file is in :ref:`this Findoutmore <fom-enki>`.
 
-.. findoutmore:: Fine-tuning: Enable re-running
+.. find-out-more:: Fine-tuning: Enable re-running
 
    If you want to make sure that your dataset is set up in a way that you have the ability to rerun a computation quickly, the following fMRIprep-specific consideration is important:
    If fMRIprep finds preexisting results, it will fail to run.
@@ -197,7 +197,7 @@ At this point, the workflow misses a tweak that is necessary in fMRIprep to enab
    With this in place, the only things missing are a :term:`shebang` at the top of the script, and some shell settings for robust scripting with verbose log files (``set -e -u -x``).
    You can find the full script with rich comments in :ref:`this Findoutmore <fom-enki>`.
 
-.. findoutmore:: See the complete bash script
+.. find-out-more:: See the complete bash script
    :name: fom-enki
    :float: p
 
@@ -302,7 +302,7 @@ Job scheduler such as HTCondor have syntax that can identify subject IDs from co
 
 You can find the submit file used in this analyses in :ref:`this Findoutmore <fom-condor>`.
 
-.. findoutmore:: HTCondor submit file
+.. find-out-more:: HTCondor submit file
    :name: fom-condor
    :float:
 
@@ -366,7 +366,7 @@ When attempting an octopus merge like the one above and a merge conflict arises,
 
 This merge conflict is in prinicple helpful -- since there are multiple different ``CITATION.md`` files in each branch, Git refuses to randomly pick one that it likes to keep, and instead aborts so that the user can intervene.
 
-.. findoutmore:: How to fix this?
+.. find-out-more:: How to fix this?
 
    As the file ``CITATION.md`` does not contain meaningful changes between jobs, one of the files is kept as a backup (e.g., copied into a temporary location, or brought back to life afterwards with ``git cat-file``), then all ``CITATION.md`` files of all branches deleted prior to the merge, and the back-up ``CITATION.md`` file is copied and saved into the dataset as a last step.
    

@@ -337,7 +337,7 @@ and loops to keep the code within a few lines for a full table, such as
 Running the python script will hence print plenty of LaTeX commands to your screen (try it out
 in the actual manuscript, if you want!). This was step number 1 of 4.
 
-.. findoutmore:: How about figures?
+.. find-out-more:: How about figures?
 
    To include figures, the figures just need to be saved into a dedicated location (for example
    a directory ``img/``) and included into the ``.tex`` file with standard ``LaTeX`` syntax.

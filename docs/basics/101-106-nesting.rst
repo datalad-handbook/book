@@ -88,7 +88,7 @@ This is what is meant by "the top-level DataLad dataset (the *superdataset*) onl
 Importantly, once we learn how to make use of the history of a dataset,
 we can set subdatasets to previous states, or *update* them.
 
-.. findoutmore:: Do I have to navigate into the subdataset to see it's history?
+.. find-out-more:: Do I have to navigate into the subdataset to see it's history?
 
    Previously, we used :command:`cd` to navigate into the subdataset, and
    subsequently opened the Git log. This is necessary, because a :command:`git log`

@@ -108,7 +108,7 @@ Alternatively, there is also a way to save the name change
 only using Git tools only, outlined in the following hidden
 section. If you are a Git user, you will be very familiar with it.
 
-.. findoutmore:: Renaming with Git tools
+.. find-out-more:: Renaming with Git tools
 
    Git has built-in commands that provide a solution in two steps.
 
@@ -244,7 +244,7 @@ Therefore, in general, whenever moving or renaming a file,
 especially between directories, a ``datalad save`` is
 the best option to turn to.
 
-.. findoutmore:: Why a move between directories is actually a content change
+.. find-out-more:: Why a move between directories is actually a content change
 
    Let's see how this shows up in the dataset history:
 
@@ -497,7 +497,7 @@ file. Let's save it:
 
 That's it.
 
-.. findoutmore:: Symlinks!
+.. find-out-more:: Symlinks!
 
    If you have read the additional content in the section
    :ref:`symlink`, you know that the same file content
@@ -743,7 +743,7 @@ the dataset will break the linkage between the datasets. This can
 be fixed easily though. We can try this in the following hidden
 section.
 
-.. findoutmore:: If a renamed/moved dataset is a sibling...
+.. find-out-more:: If a renamed/moved dataset is a sibling...
 
    As section :ref:`config` explains, each
    sibling is registered in ``.git/config`` in a "submodule" section.

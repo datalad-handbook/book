@@ -134,7 +134,7 @@ Image is built from the recipe via Singularity hub.
 If you're curious how to create a Singularity Image, the hidden
 section below has some pointers:
 
-.. findoutmore:: How to make a Singularity Image
+.. find-out-more:: How to make a Singularity Image
 
    Singularity containers are build from Image files, often
    called "recipes", that hold a "definition" of the software container and its
@@ -176,7 +176,7 @@ name to give to the container, and a path or url to a container Image:
    # we are in the midterm_project subdataset
    $ datalad containers-add midterm-software --url shub://adswa/resources:2
 
-.. findoutmore:: How do I add an Image from Dockerhub, Amazon ECR, or a local container?
+.. find-out-more:: How do I add an Image from Dockerhub, Amazon ECR, or a local container?
 
    Should the Image you want to use lie on Dockerhub, specify the ``--url``
    option prefixed with ``docker://`` or ``dhub://`` instead of ``shub://`` like this::
@@ -199,7 +199,7 @@ the ``midterm_project`` dataset, and recorded basic information on the
 container under its name "midterm-software" in the dataset's configuration at
 ``.datalad/config``.
 
-.. findoutmore:: What has been added to .datalad/config?
+.. find-out-more:: What has been added to .datalad/config?
 
    .. runrecord:: _examples/DL-101-133-102
       :language: console
@@ -276,7 +276,7 @@ The complete command's structure looks like this::
 .. index:: ! datalad command; containers-remove
 .. index:: ! datalad command; containers-list
 
-.. findoutmore:: How can I list available containers or remove them?
+.. find-out-more:: How can I list available containers or remove them?
 
    The command :command:`datalad containers-list` will list all containers in
    the current dataset:

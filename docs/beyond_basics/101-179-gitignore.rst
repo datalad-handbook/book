@@ -119,7 +119,7 @@ As expected, the file does not show up as untracked -- it is being
 ignored! Therefore, a ``.gitignore`` file can give you a space inside of
 your dataset to be messy, if you want to be.
 
-.. findoutmore:: Rules for .gitignore files
+.. find-out-more:: Rules for .gitignore files
 
    Here are some general rules for the patterns you can put into a ``.gitignore``
    file, taken from the book `Pro Git <https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository#_ignoring>`_ :
@@ -160,7 +160,7 @@ your dataset to be messy, if you want to be.
    commands a ran in succession. The second command will fail if re-ran on its own,
    however.
 
-.. findoutmore:: Globally ignoring files
+.. find-out-more:: Globally ignoring files
 
    Its not only possible to define files or patterns for files to ignore inside
    of individual datasets, but to also set global specifications to have every

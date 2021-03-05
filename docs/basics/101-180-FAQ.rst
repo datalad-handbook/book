@@ -169,7 +169,7 @@ DataLad datasets in your dataset's ``README`` (or similar) file. Below, we
 provide a standard text block that you can use (and adapt as you wish) for
 such purposes:
 
-.. findoutmore:: Textblock in .rst format:
+.. find-out-more:: Textblock in .rst format:
 
    .. code-block:: rst
 
@@ -248,7 +248,7 @@ such purposes:
         chapter "DataLad datasets" can help you to familiarize yourself with the
         concept of a dataset.
 
-.. findoutmore:: Textblock in markdown format
+.. find-out-more:: Textblock in markdown format
 
    .. code-block:: md
 
@@ -330,7 +330,7 @@ such purposes:
         [handbook.datalad.org](http://handbook.datalad.org/en/latest/index.html). The chapter
         "DataLad datasets" can help you to familiarize yourself with the concept of a dataset.
 
-.. findoutmore:: Textblock without formatting
+.. find-out-more:: Textblock without formatting
 
    DataLad datasets and how to use them
 

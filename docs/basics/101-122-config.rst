@@ -192,7 +192,7 @@ a value, one can configure Git, git-annex, and DataLad.
 of Git, depending on the scope (local, global, system-wide)
 specified in the command.
 
-.. findoutmore:: If things go wrong
+.. find-out-more:: If things go wrong
 
    If something goes wrong during the :command:`git config` command,
    for example you end up having two keys of the same name because you
@@ -248,7 +248,7 @@ Nevertheless, it might be helpful to get an overview about the meaning of the
 remaining sections in that file, and the following hidden section can give
 you a glimpse of this.
 
-.. findoutmore:: More on this config file
+.. find-out-more:: More on this config file
 
    The second section of ``.git/config`` is a git-annex configuration.
    As mentioned above, git-annex will use the

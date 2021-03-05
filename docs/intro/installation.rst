@@ -51,7 +51,7 @@ If this fails, too, you need to obtain a recent release of Python 3.
 If you are on Windows, please note that you should **not** install Python via the Windows store, even if it opens after you typed ``python``, as this version requires additional configurations by hand (in particular of your ``$PATH`` :term:`environment variable`).
 Please instead check the Windows section at the end of the page for more convenient alternatives.
 
-.. findoutmore:: Python 2, Python 3, what's the difference?
+.. find-out-more:: Python 2, Python 3, what's the difference?
 
    Python 2 is an outdated, in technical terms "deprecated", version of Python.
    Although it still exist as the default Python version on many systems, it is no longer maintained since 2020, and thus, most software has dropped support for Python 2.
@@ -145,7 +145,7 @@ The easiest way to do this is in one go via ``brew``::
 If git-annex is installed already (via brew), DataLad can also be installed via Pythons package manager ``pip`` (see paragraph on pip), which should already be installed by default on your system.
 Recent macOS versions may use ``pip3`` instead of ``pip`` -- use :term:`tab completion` to find out which is installed.
 
-.. findoutmore:: If something is not on PATH...
+.. find-out-more:: If something is not on PATH...
 
     Recent macOS versions may warn after installation that scripts were installed
     into locations that were not on ``PATH``::

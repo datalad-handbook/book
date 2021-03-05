@@ -130,7 +130,12 @@ about commit messages because :command:`datalad save` ultimatively uses the comm
 
    $ datalad save -m "add books on Python and Unix to read later"
 
-.. find-out-more:: "Oh no! I forgot the -m option!"
+If you ever forget to specify a message, or made a typo, not all is lost. A
+:find-out-more:`explains how to amend a saved state <fom-amend-save>`.
+
+.. find-out-more:: "Oh no! I forgot the -m option for datalad-save!"
+   :name: fom-amend-save
+   :float:
 
    If you forget to specify a commit message with the ``-m`` option, DataLad will write
    ``[DATALAD] Recorded changes`` as a commit message into your history.
@@ -172,11 +177,12 @@ pager, navigate with up and down arrow keys and leave the log by typing ``q``:
 Now this might look a bit cryptic (and honestly, tig [#f3]_ makes it look prettier).
 But this tells us the date and time in which a particular author added two PDFs to
 the directory ``books/``, and thanks to that commit message we have a nice
-human-readable summary of that action.
+human-readable summary of that action. A :find-out-more:`explains what makes
+a good message <fom-commit-message-guidance>`.
 
 .. find-out-more:: DOs and DON'Ts for commit messages
-   :name: fom-commitmessage
-   :float:
+   :name: fom-commit-message-guidance
+   :float: tbp
 
     **DOs**
 
@@ -262,19 +268,21 @@ Let's :command:`datalad save` precisely this file by specifying its path after t
 
    $ datalad save -m "add reference book about git" books/progit.pdf
 
+Regarding your second remark, you're right that a :command:`datalad save` without a
+path specification would write all of the currently untracked files or modifications
+to the history. But check the :find-out-more:`on how to tell it otherwise <fom-save-updated-only>`.
 
-.. find-out-more:: Some more on save
+.. find-out-more:: How to save already tracked dataset components only?
+   :name: fom-save-updated-only
+   :float:
 
-   Regarding your second remark, you're right that a :command:`datalad save` without a
-   path specification would write all of the currently untracked files or modifications
-   to the history.
-   There are some ways to mitigate this: A :command:`datalad save -m "concise message" --updated`
-   (or the shorter form of ``--updated``, ``-u``) will only write *modifications* to the
-   history, not untracked files. Later, we will also see ``.gitignore`` files that let
-   you hide content from version control.
-   However, it is good practice to safely store away modifications or new content.
-   This improves your dataset and workflow, and will be a requirement for executing
-   certain commands.
+   A :command:`datalad save -m "concise message" --updated` (or the shorter
+   form of ``--updated``, ``-u``) will only write *modifications* to the
+   history, not untracked files. Later, we will also see ``.gitignore`` files
+   that let you hide content from version control.  However, it is good
+   practice to safely store away modifications or new content.  This improves
+   your dataset and workflow, and will be a requirement for executing certain
+   commands.
 
 A :command:`datalad status` should now be empty, and our dataset's history should look like this:
 

@@ -279,6 +279,7 @@ latex_additional_files = [
     '../artwork/git_boxicon.pdf',
     '../artwork/important_boxicon.pdf',
     '../artwork/more_boxicon.pdf',
+    '../artwork/more_boxicon_inline.pdf',
     '../artwork/win_boxicon.pdf',
 ]
 
@@ -426,6 +427,9 @@ ribbon important/.style={overlay={
 % natural spacing between (long) numbers and titles in
 % any TOC
 \renewcommand{\numberline}[1]{#1~}
+
+
+\newcommand{\findoutmoreiconinline}{\raisebox{-.1em}{\includegraphics[height=.9em]{more_boxicon_inline}}~}
 """,
 }
 

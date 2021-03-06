@@ -112,7 +112,7 @@ To demonstrate this, we make two unrelated changes: adding a new file (a comic d
 
    wget https://imgs.xkcd.com/comics/compiling.png
 
-.. windowsworkarounds:: Windows users may not have wget
+.. windows-wit:: Windows users may not have wget
 
    If the ``wget`` command above fails for you, you could
 

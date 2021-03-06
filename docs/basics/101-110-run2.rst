@@ -56,7 +56,7 @@ resized image will be saved.
 To resize one image to 400x400 px, the command would thus be
 ``convert -resize 400x400 path/to/file.jpg path/to/newfilename.jpg``.
 
-.. windowsworkarounds:: Tool installation
+.. windows-wit:: Tool installation
 
    `ImageMagick <https://imagemagick.org/index.php>`_ is not installed on Windows systems by default.
    To use it, you need to install it, using the provided `Windows Binary Release on the Download page <https://imagemagick.org/script/download.php>`_.
@@ -157,7 +157,7 @@ specifying inputs even though they are already present will not do any harm.
 If outputs already exist...
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. windowsworkarounds:: Good news! Here is something that is easier on Windows
+.. windows-wit:: Good news! Here is something that is easier on Windows
 
    The section below describes something that is very confusing for people that have just started with DataLad: Some files in a dataset can't be modified, and if one tries, it results in a "permission denied" error.
    Why is that?
@@ -238,7 +238,7 @@ and thus making locked files modifiable again: :command:`datalad unlock`
 (:manpage:`datalad-unlock` manual).
 Let us check out what it does:
 
-.. windowsworkarounds:: What happens if I run this on Windows?
+.. windows-wit:: What happens if I run this on Windows?
 
    Nothing. All of the files in your dataset are always unlocked, and actually *can* not be locked at all.
    Consequently, there will be nothing to show for ``datalad status`` afterwards (as shown a few paragraphs below).
@@ -319,7 +319,7 @@ the ``-o``/``--output`` option.
 In order to execute :command:`datalad run` with both the ``-i``/``--input`` and ``-o``/``--output``
 flag and see their magic, let's crop the second logo, ``logo_interval.jpg``:
 
-.. windowsworkarounds:: Wait, would I need to specify outputs, too?
+.. windows-wit:: Wait, would I need to specify outputs, too?
 
    Given that nothing in your dataset is locked, is there a *need* for you to bother with creating ``--output`` flags?
    Not for you personally, if you only stay on your Windows machine.

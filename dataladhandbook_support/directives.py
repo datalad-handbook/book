@@ -200,12 +200,6 @@ class importantnote(nodes.container):
     pass
 
 
-class ImportantNote(HandbookAdmonition):
-    hba_cls = importantnote
-    hba_label = 'importantnote'
-    toggle = False
-
-
 def visit_importantnote_html(self, node):
     self.visit_container(node)
 
@@ -223,6 +217,33 @@ def depart_importantnote_latex(self, node):
     self.body.append('\n\n\\end{importantnote}\n')
 
 
+class ImportantNote(HandbookAdmonition):
+    hba_cls = importantnote
+    hba_label = 'importantnote'
+    toggle = False
+
+
+class findoutmoreref(nodes.inline):
+    pass
+
+
+def visit_findoutmoreref_html(self, node):
+    self.visit_inline(node)
+    self.body.append('Find-out-more ')
+
+
+def depart_findoutmoreref_html(self, node):
+    self.depart_inline(node)
+
+
+def visit_findoutmoreref_latex(self, node):
+    self.body.append('{\\findoutmoreiconinline}Find-out-more ')
+
+
+def depart_findoutmoreref_latex(self, node):
+    pass
+
+
 def setup(app):
     app.add_node(
         gitusernote,
@@ -235,7 +256,7 @@ def setup(app):
         html=(visit_findoutmore_html, depart_findoutmore_html),
         latex=(visit_findoutmore_latex, depart_findoutmore_latex),
     )
-    app.add_directive('findoutmore', FindOutMore)
+    app.add_directive('find-out-more', FindOutMore)
     app.add_node(
         windowsworkarounds,
         html=(visit_windowsworkarounds_html, depart_windowsworkarounds_html),
@@ -248,5 +269,10 @@ def setup(app):
         latex=(visit_importantnote_latex, depart_importantnote_latex),
     )
     app.add_directive('importantnote', ImportantNote)
+    app.add_node(
+        findoutmoreref,
+        html=(visit_findoutmoreref_html, depart_findoutmoreref_html),
+        latex=(visit_findoutmoreref_latex, depart_findoutmoreref_latex),
+    )
 
 # vim: set expandtab shiftwidth=4 softtabstop=4 :

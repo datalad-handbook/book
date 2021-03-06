@@ -42,12 +42,12 @@ div.findoutmore .header {
     padding: 5px 10px 5px 10px;
 }
 div.findoutmore .header:before {
-    content: "⤵ Find out more: ";
+    content: "⤵ Find-out-more: ";
     color: #333;
     font-weight: bold;
 }
 div.findoutmore .header.open:before {
-    content: "⤴ Find out more: ";
+    content: "⤴ Find-out-more: ";
     color: #333;
     font-weight: bold;
 }

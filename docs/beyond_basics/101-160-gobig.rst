@@ -90,7 +90,7 @@ Git repositories, take a look at
 In preparation for assembling a complete UKBiobank dataset, simulations of
 datasets with 40k and 100k subdatasets ran successfully.
 
-.. findoutmore:: How do simulations like this work?
+.. find-out-more:: How do simulations like this work?
 
    With shell scripts such as this::
 

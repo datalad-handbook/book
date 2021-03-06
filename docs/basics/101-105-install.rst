@@ -104,7 +104,7 @@ also recorded where this dataset came from, thus capturing its *origin* as
 chapters in this handbook will demonstrate how useful this information can be.
 
 
-.. findoutmore:: Do I have to install from the root of datasets?
+.. find-out-more:: Do I have to install from the root of datasets?
 
    No. Instead of from the *root* of the ``DataLad-101`` dataset, you could have also
    installed the dataset from within the ``recordings``, or ``books`` directory.
@@ -118,7 +118,7 @@ chapters in this handbook will demonstrate how useful this information can be.
 
      datalad clone -d^ https://github.com/datalad-datasets/longnow-podcasts.git longnow
 
-.. findoutmore:: What if I do not install into an existing dataset?
+.. find-out-more:: What if I do not install into an existing dataset?
 
    If you do not install into an existing dataset, you only need to omit the ``-d/--dataset``
    option. You can try::

@@ -73,7 +73,7 @@ Here is how to install the "structural preprocessed" subset of the HCP dataset t
       install (ok: 1)
       save (ok: 1)
 
-.. findoutmore:: Why is it called ".source"?
+.. find-out-more:: Why is it called ".source"?
 
    By installing data into a hidden directory (anything that starts with a ``.``), the input data is linked, but doesn't show up at first sight when browsing the dataset.
    This is not a requirement, but helpful if you want to be extraordinarily organized.
@@ -96,7 +96,7 @@ In the demonstration, empty, pre-created datasets (``fmriprep`` for fmriprep out
    $ datalad clone -d . git@gin.g-node.org:/adswa/OSRfmriprep.git fmriprep
    $ datalad clone -d . git@gin.g-node.org:/adswa/OSRfreesurfer.git freesurfer
 
-.. findoutmore:: Why install empty datasets?
+.. find-out-more:: Why install empty datasets?
 
    The choice to install empty datasets was a convenience hack for easy publishing routines.
    At the end of the workflow, a recursive :command:`datalad push` was able to publish all results and the complete hierarchy of datasets in one go.
@@ -152,7 +152,7 @@ In the code block below, the dataset is installed from a local path.
 
    $ datalad clone -d . ~/fmriprep_toolbox .tools
 
-.. findoutmore:: Could I share such a toolbox dataset?
+.. find-out-more:: Could I share such a toolbox dataset?
 
    Note that unlike the ``fmriprep`` and ``freesurfer`` subdatasets, this subdataset of ``OSRdemo`` will not be pushed anywhere public when the results are published later.
    This is because it does not have a sibling on :term:`Gin` or a similar web-based hosting service.

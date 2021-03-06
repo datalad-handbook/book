@@ -180,7 +180,7 @@ recognize a path to the dataset on your computer, prefixed with the user
 and hostname of your computer. "This", you exclaim, excited about your own realization,
 "is my dataset's location I'm sharing it from!"
 
-.. findoutmore:: What is this location, and what if I provided a description?
+.. find-out-more:: What is this location, and what if I provided a description?
 
    Back in the very first section of the Basics, :ref:`createDS`, a hidden
    section mentioned the ``--description`` option of :command:`datalad create`.
@@ -347,7 +347,7 @@ with the first subdataset::
 
   datalad get -n -r --recursion-limit 1 <subds>
 
-.. findoutmore:: datalad clone versus datalad install
+.. find-out-more:: datalad clone versus datalad install
 
    You may remember from section :ref:`installds` that DataLad has two commands to obtain datasets,
    :command:`datalad clone` and :command:`datalad install`.

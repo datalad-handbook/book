@@ -115,7 +115,7 @@ Here's the final directory structure:
    ### DVC-DataLad
    $ tree
 
-.. findoutmore:: Required software for coding along
+.. find-out-more:: Required software for coding along
 
    In order to code along, `DVC <https://dvc.org/doc/install>`__, `scikit-learn <https://scikit-learn.org/stable/>`_, `scikit-image <https://scikit-image.org/>`_, `pandas <https://pandas.pydata.org/>`_, and `numpy <https://numpy.org/>`_ are required.
    All tools are available via `pip <https://pypi.org/project/pip/>`_ or `conda <https://docs.conda.io/en/latest/>`_.
@@ -234,7 +234,7 @@ Finally, we commit.
 
 The data is now version controlled with DVC.
 
-.. findoutmore:: How does DVC represent modifications to data?
+.. find-out-more:: How does DVC represent modifications to data?
 
     When adding data directories, they (i.e., the complete directory) are hashed, and this hash is stored in the respective ``.dvc`` file.
     If any file in the directory changes, this hash would change, and the :command:`dvc status` command would report the directory to be "changed".
@@ -303,7 +303,7 @@ This move needs to be saved.
    $ mv data/raw/imagenette2-160/* data/raw/ && rmdir data/raw/imagenette2-160
    $ datalad save -m "Move data into preferred locations"
 
-.. findoutmore:: How does DataLad represent modifications to data?
+.. find-out-more:: How does DataLad represent modifications to data?
 
     As DataLad always tracks files individually, :command:`datalad status` (or, alternatively, :command:`git status` or :command:`git annex status`) will show modifications on the level of individual files::
 
@@ -485,7 +485,7 @@ DataLad workflow
 Because the S3 bucket of the raw data is known and stored in the dataset, it strictly speaking isn't necessary to create a storage sibling to push the data to -- DataLad already treats the original S3 bucket as storage.
 Currently, the dataset can thus be shared via :term:`GitHub` or similar hosting services, and the data can be retrieved using :command:`datalad get`.
 
-.. findoutmore:: Really?
+.. find-out-more:: Really?
 
    Sure.
    Let's demonstrate this.

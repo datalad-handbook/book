@@ -34,7 +34,7 @@ life-threatening. The command
 all files **but the ones specified** in ``<path-specification>`` from the datasets
 history. Before you use it, please make sure to read its help page thoroughly.
 
-.. findoutmore:: Installing git-filter-repo
+.. find-out-more:: Installing git-filter-repo
 
    ``git-filter-repo`` is not part of Git but needs to be installed separately.
    Its `GitHub repository <https://github.com/newren/git-filter-repo>`_ contains

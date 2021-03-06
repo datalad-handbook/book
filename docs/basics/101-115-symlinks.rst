@@ -203,7 +203,7 @@ in certain situations. Later in this book we will have a section on how
 to manage the file system in a DataLad dataset (:ref:`filesystem`).
 
 
-.. findoutmore:: more about paths, checksums, object trees, and data integrity
+.. find-out-more:: more about paths, checksums, object trees, and data integrity
    :name: fom-objecttree
 
    But why does the target path to the object tree needs to be so cryptic?

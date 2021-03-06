@@ -118,7 +118,7 @@ The directory underneath the two dataset-ID-based subdirectories contains a
 *bare git repository* (highlighted above as well) that is a :term:`clone` of the
 dataset.
 
-.. findoutmore:: What is a bare Git repository?
+.. find-out-more:: What is a bare Git repository?
 
    A bare Git repository is a repository that contains the contents of the ``.git``
    directory of regular DataLad datasets or Git repositories, but no worktree
@@ -161,7 +161,7 @@ usecases (back-up, single or multi-user dataset storage, central point for
 collaborative workflows, ...), be that on private workstations, web servers,
 compute clusters, or other IT infrastructure.
 
-.. findoutmore:: Software Requirements
+.. find-out-more:: Software Requirements
 
    On the RIA store hosting infrastructure, only 7z is to be installed, if the
    archive feature is desired. Specifically, no :term:`Git`, no :term:`git-annex`,
@@ -181,7 +181,7 @@ is by default a :term:`git-annex` ORA-remote (optional remote access) special re
 of a dataset. This allows to not only store the history of a dataset, but also
 all annexed contents.
 
-.. findoutmore:: What is a special remote?
+.. find-out-more:: What is a special remote?
 
    A `special-remote <https://git-annex.branchable.com/special_remotes/>`_ is an
    extension to Git's concept of remotes, and can enable git-annex to transfer
@@ -303,7 +303,7 @@ Note that it is always required to specify an :term:`absolute path` in the URL!
    dataset you created, the modification described in the findoutmore below
    needs to be done first.
 
-.. findoutmore:: If necessary, adjust the submodule path!
+.. find-out-more:: If necessary, adjust the submodule path!
 
    Back in :ref:`subdspublishing`, in order to appropriately reference and link
    subdatasets on hostings sites such as :term:`GitHub`, we adjusted the
@@ -362,7 +362,7 @@ but alternative names can be supplied with the ``--storage-name`` option.
 
 
 
-.. findoutmore:: Take a look into the store
+.. find-out-more:: Take a look into the store
 
     Right after running this command, a RIA store has been created in the specified
     location:
@@ -392,7 +392,7 @@ a single :command:`datalad push` to the RIA sibling suffices:
 
    $ datalad push --to ria-backup
 
-.. findoutmore:: Take another look into the store
+.. find-out-more:: Take another look into the store
 
     Now that dataset contents have been pushed to the RIA store, the bare repository
     contains them, although their representation is not human-readable. But worry
@@ -423,7 +423,7 @@ As a demonstration, we'll do it for the ``midterm_project`` subdataset:
 
    $ datalad push --to ria-backup
 
-.. findoutmore:: Take a look into the RIA store after a second dataset has been added
+.. find-out-more:: Take a look into the RIA store after a second dataset has been added
 
     With creating a RIA sibling to the RIA store and publishing the contents of
     the ``midterm_project`` subdataset to the store, a second dataset has been
@@ -481,7 +481,7 @@ An alternative, therefore, is to use an *alias* for the dataset. This is an
 alternative dataset identifier that a dataset in a RIA store can be configured
 with.
 
-.. findoutmore:: Configure an alias for a dataset
+.. find-out-more:: Configure an alias for a dataset
 
    In order to define an alias for an individual dataset in a store, one needs
    to create an ``alias/`` directory in the root of the datastore and place
@@ -547,7 +547,7 @@ To demonstrate file retrieval from the store, let's get an annexed file:
    $ datalad get books/progit.pdf
 
 
-.. findoutmore:: What about creating RIA stores and cloning from RIA stores with different protocols
+.. find-out-more:: What about creating RIA stores and cloning from RIA stores with different protocols
 
    Consider setting up and populating a RIA store on a server via the ``file``
    protocol, but cloning a dataset from that store to a local computer via
@@ -573,7 +573,7 @@ in the RIA store is discovered and used automatically:
 More technical insights into the automatic ``ria+`` URL generation are outlined
 in the findoutmore below:
 
-.. findoutmore:: On cloning datasets with subdatasets from RIA stores
+.. find-out-more:: On cloning datasets with subdatasets from RIA stores
 
    The usecase :ref:`usecase_HCP_dataset`
    details a RIA-store based publication of a large dataset, split into a nested
@@ -604,7 +604,7 @@ in the findoutmore below:
 Beyond straightforward access to datasets, RIA stores also allow very fine-grained
 cloning operations: Datasets in RIA stores can be cloned in specific versions.
 
-.. findoutmore:: Cloning specific dataset versions
+.. find-out-more:: Cloning specific dataset versions
 
    Optionally, datasets can be cloned in a specific version, such as a :term:`tag`
    or :term:`branch` by appending ``@<version-identifier>`` after the dataset ID

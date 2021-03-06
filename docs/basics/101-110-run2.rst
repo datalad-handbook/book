@@ -143,7 +143,7 @@ that :command:`datalad get` will only retrieve content if
 it is not yet present, all input already downloaded will not be downloaded again -- so
 specifying inputs even though they are already present will not do any harm.
 
-.. findoutmore:: What if there are several inputs?
+.. find-out-more:: What if there are several inputs?
 
    Often, a command needs several inputs. In principle, every input gets its own ``-i``/``--input``
    flag. However, you can make use of :term:`globbing`. For example,
@@ -305,7 +305,7 @@ command execution. Therefore, whenever the output of a :command:`datalad run` co
 exists and is tracked, it should be specified as an argument in
 the ``-o``/``--output`` option.
 
-.. findoutmore:: But what if I have a lot of outputs?
+.. find-out-more:: But what if I have a lot of outputs?
 
    The use case here is simplistic -- a single file gets modified.
    But there are commands and tools that create full directories with
@@ -418,7 +418,7 @@ the placeholder ``{outputs}`` will expand to the path given as ``--output``.
 This means instead of writing the full paths in the command, you can simply reuse
 the ``--input`` and ``--output`` specification done before.
 
-.. findoutmore:: What if I have multiple inputs or outputs?
+.. find-out-more:: What if I have multiple inputs or outputs?
 
    If multiple values are specified, e.g., as in
 
@@ -463,7 +463,7 @@ the ``--input`` and ``--output`` specification done before.
    can be accessed with an integer index, e.g., ``{inputs[0]}`` for the very first
    input.
 
-.. findoutmore:: ... wait, what if I need a curly bracket in my datalad run call?
+.. find-out-more:: ... wait, what if I need a curly bracket in my datalad run call?
 
    If your command call involves a ``{`` or ``}`` character, you will need to escape
    this brace character by doubling it, i.e., ``{{`` or ``}}``.

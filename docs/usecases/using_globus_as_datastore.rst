@@ -57,7 +57,7 @@ Therefore, it is common practice for researchers to both download and
 publish research content in a dataset format via a CONP, which provides them
 with a vast dataset repository.
 
-.. findoutmore:: Basic principles of DataLad for new readers
+.. find-out-more:: Basic principles of DataLad for new readers
 
     If you are new to DataLad, the introduction of the handbook and the chapter
     :ref:`chapter_datasets` can give you a good idea of what DataLad and its

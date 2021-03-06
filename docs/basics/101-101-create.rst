@@ -102,7 +102,7 @@ We can see two :term:`commit`\s in the history of the repository.
 Each of them is identified by a unique 40 character sequence, called a
 :term:`shasum`.
 
-.. windowsworkarounds:: Your Git log may be more extensive - use "git log main" or "git log master" instead!
+.. windows-wit:: Your Git log may be more extensive - use "git log master" instead!
 
    The output of ``git log`` shown in the handbook and the output you will see in your own datasets when executing the same commands may not always match -- many times you might see commits about a "git-annex adjusted branch" in your history.
    This is expected, and if you want to read up more about this, please progress on to chapter 3 and afterwards take a look at `this part of git-annex documentation <https://git-annex.branchable.com/design/adjusted_branches/>`_.

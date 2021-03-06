@@ -19,7 +19,7 @@ You might have noticed already that an ``ls -l`` or ``tree`` command in your dat
 Maybe your shell also displays these files in a different color than text files when listing them.
 We'll take a look together, using the ``books/`` directory as an example:
 
-.. windowsworkarounds:: This will look different to you
+.. windows-wit:: This will look different to you
 
    First of all, the ``tree`` equivalent provided by :term:`conda`\s ``m2-base`` package doesn't list individual files, only directories.
    And, secondly, even if you list the individual files (e.g., with ``ls -l``), you would not see the :term:`symlink`\s shown below.
@@ -85,7 +85,7 @@ creates a symlink with the original file name, pointing to the new location.
 This process is often referred to as a file being *annexed*, and the object
 tree is also known as the *annex* of a dataset.
 
-.. windowsworkarounds:: What happens on Windows?
+.. windows-wit:: What happens on Windows?
    :name: woa_objecttree
    :float:
 
@@ -307,7 +307,7 @@ Cross-OS filesharing with symlinks (WSL2 only)
 Are you using DataLad on the Windows Subsystem for Linux?
 If so, please take a look into the Windows-Workaround below.
 
-.. windowsworkarounds:: Accessing symlinked files from your Windows system
+.. windows-wit:: Accessing symlinked files from your Windows system
 
    If you are using WSL2 you have access to a Linux kernel and POSIX filesystem, including symlink support.
    Your DataLad experience has therefore been exactly as it has been for macOS or Linux users.

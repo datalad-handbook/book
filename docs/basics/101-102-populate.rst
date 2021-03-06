@@ -36,14 +36,16 @@ are all free, in total about 15 MB), and save them in ``DataLad-101/books``.
 
 You can either visit the links and save them in ``books/``,
 or run the following commands [#f2]_ to download the books right from the terminal.
-Note that we line break the command with ``\`` signs. You can copy them as they
-are presented here into your terminal, but in your own work you can write commands
-like this into a single line.
+Note that we line break the command with ``\`` signs. In your own work you can write
+commands like this into a single line. If you copy them into your terminal as they
+are presented here, make sure to check the :windows-wit:`on peculiarities of its terminals
+<ww-no-multiline-commands>`.
 
-.. windowsworkarounds:: Windows terminals other than Git Bash can't handle multi-line commands
+.. windows-wit:: Terminals other than Git Bash can't handle multi-line commands
+   :name: ww-no-multiline-commands
 
    In Unix shells, ``\`` can be used to split a command into several lines, for example to aid readability.
-   Standard Windows terminals (inlcuding the Anaconda prompt) do not support this.
+   Standard Windows terminals (including the Anaconda prompt) do not support this.
    They instead use the ``^`` character::
 
      $ wget -q https://sourceforge.net/projects/linuxcommand/files/TLCL/19.01/TLCL-19.01.pdf/download ^
@@ -66,7 +68,12 @@ like this into a single line.
    # get back into the root of the dataset
    $ cd ../
 
-.. windowsworkarounds:: You may want to use curl instead of wget
+Some machines will not have :command:`wget` available by default, but any command that can
+download a file can work as an alternative. See the :windows-wit:`for the popular alternative
+curl <ww-curl-instead-wget>`.
+
+.. windows-wit:: You can use curl instead of wget
+   :name: ww-curl-instead-wget
 
    Many versions of Windows do not ship with the tool ``wget``.
    You can install it, but it may be easier to use the pre-installed ``curl`` command::

@@ -111,7 +111,7 @@ Note further that...
 
 If you are a Windows 10 user with a native (i.e., not `Windows Subsystem for Linux (WSL) <https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux>`_-based DataLad installation, pay close attention to the special notes in
 
-.. windowsworkarounds:: For Windows users only
+.. windows-wit:: For Windows users only
 
    A range of file system issues can affect the behavior of DataLad or its underlying tools on Windows 10.
    If necessary, the handbook provides workarounds for problems, explanations, or at least apologies for those inconveniences.

@@ -57,7 +57,7 @@ terminal to write this note from the terminal (without any editor) into ``notes.
 Running the command below will create ``notes.txt`` in the
 root of your ``DataLad-101`` dataset:
 
-.. windowsworkarounds:: Heredocs don't work under non-Git-Bash Windows terminals
+.. windows-wit:: Heredocs don't work under non-Git-Bash Windows terminals
 
    Heredocs rely on Unix-type redirection and multi-line commands -- which is not supported on most native Windows terminals or the Anaconda prompt on Windows.
    If you are using an Anaconda prompt or a Windows terminal other than Git Bash, instead of executing heredocs, please open up an editor and paste and save the text into it.

@@ -51,7 +51,7 @@ If this fails, too, you need to obtain a recent release of Python 3.
 If you are on Windows, please note that you should **not** install Python via the Windows store, even if it opens after you typed ``python``, as this version requires additional configurations by hand (in particular of your ``$PATH`` :term:`environment variable`).
 Please instead check the Windows section at the end of the section for more convenient alternatives.
 
-.. findoutmore:: Python 2, Python 3, what's the difference?
+.. find-out-more:: Python 2, Python 3, what's the difference?
 
    Python 2 is an outdated, in technical terms "deprecated", version of Python.
    Although it still exist as the default Python version on many systems, it is no longer maintained since 2020, and thus, most software has dropped support for Python 2.
@@ -132,37 +132,20 @@ To update an existing installation with conda, use ``conda update datalad``.
 macOS/OSX
 """""""""
 
-A common way to install packages on OS X is via the
-`homebrew <https://brew.sh/>`_ package manager.
+DataLad is available from pip, but also OS X's `homebrew <https://brew.sh/>`_ package manager.
 First, install the homebrew package manager. Note that prior
 to the installation, `Xcode <https://apps.apple.com/us/app/xcode/id497799835>`_
 needs to be installed from the Mac App Store.
-Homebrew then can be installed using the command following the
-instructions on their webpage (linked above).
 
-Next, `install git-annex <https://git-annex.branchable.com/install/OSX/>`_. The
-easiest way to do this is via ``brew``::
+Next, install datalad and `git-annex <https://git-annex.branchable.com/install/OSX/>`_.
+The easiest way to do this is in one go via ``brew``::
 
-   $ brew install git-annex
+   $ brew install datalad
 
-Once git-annex is available, DataLad can be installed via Pythons package
-manager ``pip`` as described below. ``pip`` should already be installed by
-default. Recent macOS versions may have ``pip3`` instead of ``pip`` -- use
-:term:`tab completion` to find out which is installed. If it is ``pip3``, run::
+If git-annex is installed already (via brew), DataLad can also be installed via Pythons package manager ``pip`` (see paragraph on pip), which should already be installed by default on your system.
+Recent macOS versions may use ``pip3`` instead of ``pip`` -- use :term:`tab completion` to find out which is installed.
 
-   $ pip3 install datalad
-
-instead of the code snippets in the section below.
-
-If this results in a ``permission denied`` error, install DataLad into
-a user's home directory:
-
-.. code-block:: bash
-
-   $ pip3 install --user datalad
-
-
-.. findoutmore:: If something is not on PATH...
+.. find-out-more:: If something is not on PATH...
 
     Recent macOS versions may warn after installation that scripts were installed
     into locations that were not on ``PATH``::
@@ -205,8 +188,7 @@ a user's home directory:
         /sbin
         /Users/awagner/Library/Python/3.7/bin
 
-Note that ``pip`` is not able to install the `p7zip <http://p7zip.sourceforge.net/>`_ dependency.
-Please install it if it isn't yet installed -- it is available via ``brew``.
+Finally, install the `p7zip <http://p7zip.sourceforge.net/>`_ dependency -- it is available via ``brew`` as well.
 
 Using Python's package manager ``pip``
 """"""""""""""""""""""""""""""""""""""
@@ -230,6 +212,12 @@ a user's home directory:
 .. code-block:: bash
 
    $ pip install --user datalad
+
+On some systems, in particular macOS, you may need to call ``pip3`` instead of ``pip``::
+
+   $ pip3 install datalad
+   # or, in case of a "permission denied error":
+   $ pip3 install --user datalad
 
 ``pip`` is not able to install the `7-zip <https://7-zip.org/>`_ dependency.
 Please install a flavor of 7-zip that is appropriate for your operating system (such as `p7zip <http://p7zip.sourceforge.net/>`_ for Linux or macOS) if it isn't yet installed.

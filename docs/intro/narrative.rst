@@ -83,14 +83,14 @@ You can decide for yourself whether you want to check them out:
 
 .. only:: html
 
-   .. findoutmore:: Click here to show/hide further commands
+   .. find-out-more:: Click here to show/hide further commands
 
        Sections like this contain content that goes beyond the basics
        necessary to complete a challenge.
 
 .. only:: latex
 
-   .. findoutmore:: For curious minds
+   .. find-out-more:: For curious minds
       :name: fom-intro
 
        Sections like this contain content that goes beyond the basics
@@ -198,7 +198,7 @@ share and publish with DataLad.
 .. figure:: ../artwork/src/student.svg
    :width: 70%
 
-.. findoutmore:: I can not/do not want to code along...
+.. find-out-more:: I can not/do not want to code along...
    :name: fom-lazy
    :float:
 

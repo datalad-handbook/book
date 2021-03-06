@@ -169,7 +169,7 @@ At the end of this step, there is one nested dataset per subject in the HCP data
 release. If you are interested in the details of this process, checkout the
 hidden section below.
 
-.. findoutmore:: How exactly did the datasets came to be?
+.. find-out-more:: How exactly did the datasets came to be?
 
    All code and tables necessary to generate the HCP datasets can be found on
    GitHub at `github.com/TobiasKadelka/build_hcp <https://github.com/TobiasKadelka/build_hcp>`_.
@@ -319,7 +319,7 @@ and identified via their :term:`dataset ID`.
 The :command:`datalad clone` command can understand this layout and install
 datasets from a RIA store based on their ID.
 
-.. findoutmore:: How would a datalad clone from a RIA store look like?
+.. find-out-more:: How would a datalad clone from a RIA store look like?
 
    In order to get a dataset from a RIA store, :command:`datalad clone` needs
    a RIA URL. It is build from the following components:
@@ -408,7 +408,7 @@ get` for file contents, DataLad will prompt for these credentials interactively
 from the terminal. Once supplied, all subsequent :command:`get` commands will
 retrieve data right away.
 
-.. findoutmore:: Resetting AWS credentials
+.. find-out-more:: Resetting AWS credentials
 
    In case one misenters their AWS credentials or needs to reset them,
    this can easily be done using the `Python keyring <https://keyring.readthedocs.io/en/latest/>`_

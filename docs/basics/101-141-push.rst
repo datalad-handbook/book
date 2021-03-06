@@ -32,7 +32,7 @@ This, for instance, can be a :term:`GitHub`, :term:`GitLab`, or :term:`Gin`
 repository, but it can also be a Remote Indexed Archive (RIA) store for backup
 or storage of datasets [#f1]_, or a regular clone.
 
-.. findoutmore:: all of the ways to configure siblings
+.. find-out-more:: all of the ways to configure siblings
 
    - Add an existing repository as a sibling with the :command:`datalad siblings`
      command. Here are common examples::
@@ -110,7 +110,7 @@ that should be published have sibling names identical to the sibling specified i
 the top-level :command:`push` command, or that appropriate default publication
 targets are configured throughout the dataset hierarchy.
 
-.. Findoutmore:: Pushing more than the current branch
+.. find-out-more:: Pushing more than the current branch
 
    If you have more than one :term:`branch` in your
    dataset, a :command:`datalad push --to <sibling>` will by default only push
@@ -212,7 +212,7 @@ dataset history (unless you specify a commit range with the ``--since`` option
 -- see the `manual <http://docs.datalad.org/en/latest/generated/man/datalad-push.html>`_
 for more information).
 
-.. findoutmore:: On the datalad publish command
+.. find-out-more:: On the datalad publish command
 
    Starting with DataLad version ``0.13.0``, :command:`datalad push` was introduced
    and became an alternative to :command:`datalad publish`, which will be

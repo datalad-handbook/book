@@ -41,7 +41,7 @@ an account on the GIN server by providing your e-mail address, affiliation,
 and name, and selecting a user name and password, you should upload your
 :term:`SSH key` to allow SSH access.
 
-.. findoutmore:: What is an SSH key and how can I create one?
+.. find-out-more:: What is an SSH key and how can I create one?
 
    An SSH key is an access credential in the :term:`SSH` protocol that can be used
    to login from one system to remote servers and services, such as from your private
@@ -182,7 +182,7 @@ an SSH key as detailed above, and cloning via the SSH url:
 
    $ datalad clone git@gin.g-node.org:/adswa/DataLad-101.git
 
-.. findoutmore:: How do I know if my repository is private?
+.. find-out-more:: How do I know if my repository is private?
 
    Private repos are marked with a lock sign. To make it public, untick the
    "Private" box, found under "Settings":

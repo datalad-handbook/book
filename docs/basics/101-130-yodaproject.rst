@@ -14,7 +14,7 @@ the `Python <https://www.python.org/>`__ programming language, you decide
 to script your analysis in Python. Delighted, you find out that there is even
 a Python API for DataLad's functionality that you can read about in :ref:`a Findoutmore <fom-pythonapi>`.
 
-.. findoutmore:: DataLad's Python API
+.. find-out-more:: DataLad's Python API
    :name: fom-pythonapi
    :float:
 
@@ -153,7 +153,7 @@ dataset at `https://github.com/datalad-handbook/iris_data <https://github.com/da
 You can either use this provided input dataset, or find out how to create an
 independent dataset from scratch in a :ref:`dedicated Findoutmore <fom-iris>`.
 
-.. findoutmore:: Creating an independent input dataset
+.. find-out-more:: Creating an independent input dataset
    :name: fom-iris
    :float:
 
@@ -398,7 +398,7 @@ point with the ``--version-tag`` option of :command:`datalad save`.
      --version-tag ready4analysis \
      code/script.py
 
-.. findoutmore:: What is a tag?
+.. find-out-more:: What is a tag?
 
    :term:`tag`\s are markers that you can attach to commits in your dataset history.
    They can have any name, and can help you and others to identify certain commits
@@ -553,7 +553,7 @@ Note that one feature of the YODA procedure was that it configured certain files
 root of the dataset) to be saved in Git instead of git-annex. This was the
 reason why the ``README.md`` in the root of the dataset was easily modifiable [#f4]_.
 
-.. findoutmore:: Saving contents with Git regardless of configuration with --to-git
+.. find-out-more:: Saving contents with Git regardless of configuration with --to-git
 
    .. index:: ! datalad command; save --to-git
 
@@ -581,7 +581,7 @@ everything you did easily.
 The only thing left to do is to hand in your assignment. According to the
 syllabus, this should be done via :term:`GitHub`.
 
-.. findoutmore:: What is GitHub?
+.. find-out-more:: What is GitHub?
 
    GitHub is a web based hosting service for Git repositories. Among many
    different other useful perks it adds features that allow collaboration on
@@ -754,7 +754,7 @@ Yay! Consider your midterm project submitted! Others can now install your
 dataset and check out your data science project -- and even better: they can
 reproduce your data science project easily from scratch (take a look into the :ref:`Findoutmore <fom-midtermclone>` to see how)!
 
-.. findoutmore:: On the looks and feels of this published dataset
+.. find-out-more:: On the looks and feels of this published dataset
    :name: fom-midtermclone
    :float:
 

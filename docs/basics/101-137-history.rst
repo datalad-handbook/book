@@ -119,7 +119,7 @@ Try running the :command:`git commit --amend` command right now and give
 the commit a new commit message (you can just delete the one created by
 DataLad in the editor)!
 
-.. findoutmore:: Changing the commit messages of not-the-most-recent commits
+.. find-out-more:: Changing the commit messages of not-the-most-recent commits
 
    The :command:`git commit --amend` commands will let you
    rewrite the commit message of the most recent commit. If you
@@ -228,7 +228,7 @@ try this to get a feel for it.
 The COMMIT in the command can either be a hash or a reference
 with the HEAD pointer.
 
-.. findoutmore:: Git terminology: branches and HEADs?
+.. find-out-more:: Git terminology: branches and HEADs?
 
    A Git repository (and thus any DataLad dataset) is built up as a tree of
    commits. A *branch* is a named pointer (reference) to a commit, and allows you
@@ -628,7 +628,7 @@ The command looks like this:
 where ``SHASUM`` specifies the commit hash of the modification that should
 be reverted.
 
-.. findoutmore:: Reverting more than a single commit
+.. find-out-more:: Reverting more than a single commit
 
    Alternatively, you can also specify a range of commits modify commits, for
    example like this::

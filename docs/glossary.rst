@@ -76,7 +76,7 @@ Glossary
 
    container recipe
        A text file template that lists all required components of the computational environment that a :term:`software container` should contain.
-        It is made by a human user.
+       It is made by a human user.
 
    container image
        Container images are *built* from :term:`container recipe` files.

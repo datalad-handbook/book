@@ -146,7 +146,7 @@ If the above steps are implemented, others can :command:`install` or
 :command:`clone` your shared dataset, and :command:`get` or :command:`pull` large
 file content from the remote, third party storage.
 
-.. findoutmore:: What is a special remote
+.. find-out-more:: What is a special remote
 
    A special-remote is an extension to Git’s concept of remotes, and can
    enable :term:`git-annex` to transfer data from and possibly to places that are not Git
@@ -398,7 +398,7 @@ dependency is served first:
 Afterwards, your dataset can be found on GitHub, and ``cloned`` or ``installed``.
 
 
-.. findoutmore:: What if I do not want to share a dataset with everyone, or only some files of it?
+.. find-out-more:: What if I do not want to share a dataset with everyone, or only some files of it?
 
    There are a number of ways to restrict access to your dataset or individual
    files of your dataset. One is via choice of (third party) hosting service

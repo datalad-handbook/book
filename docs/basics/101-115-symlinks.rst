@@ -176,11 +176,11 @@ how much identical file content lies in different parts of your dataset,
 can save you much disk space and time.
 
 The second advantage is less intuitive but clear for users familiar with Git.
+Small symlinks can be written very very fast when switching :term:`branches`, as opposed to copying and deleting huge data files.
 
 .. gitusernote:: Speedy branch switches
 
-   Small symlinks can be written very very fast when switching branches,
-   as opposed to copying and deleting huge data files.
+   Switching branches fast, even when they track vasts amounts of data, lets you work with data with the same routines as in software development.
 
 This leads to a few conclusions:
 

@@ -185,10 +185,9 @@ Small symlinks can be written very very fast when switching :term:`branches`, as
 This leads to a few conclusions:
 
 The first is that you should not be worried
-to see cryptic looking symlinks in your repository -- this is how it should
-look. If you are interested in why these paths look so weird, and what all
-of this has to do with data integrity, you can check
-out the hidden section below.
+to see cryptic looking symlinks in your repository -- this is how it should look.
+If you are interested in why these paths look so weird, and what all of this has to do with data integrity, you can check out the :fom:`fom-objecttree`.
+Its additional information can help to establish trust in that your data are safely stored and tracked, and understanding more about the object tree and knowing bits of the git-annex basics can make you more confident in working with your datasets.
 
 The second is that it should now be clear to you why the ``.git`` directory
 should not be deleted or in any way modified by hand. This place is where

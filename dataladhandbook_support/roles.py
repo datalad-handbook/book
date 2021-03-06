@@ -1,7 +1,10 @@
 # -*- coding: utf-8 -*-
 
 from docutils.parsers.rst import roles
-from .directives import findoutmoreref
+from .directives import (
+    findoutmoreref,
+    windowswitref,
+)
 from sphinx.roles import (
     XRefRole,
 )
@@ -35,8 +38,15 @@ class FindOutMoreRole(HandbookRefRole):
     refnodeclsname = 'findoutmoreref'
 
 
+class WindowsWitRole(HandbookRefRole):
+    """:windows-wit: ref"""
+    refnodecls = windowswitref
+    refnodeclsname = 'windowswitref'
+
+
 hb_roles = {
     'find-out-more': FindOutMoreRole(),
+    'windows-wit': WindowsWitRole(),
 }
 
 

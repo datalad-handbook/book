@@ -447,7 +447,7 @@ re-execution with :command:`datalad rerun` easy.
    -- an upcoming section on ``datalad containers-run`` will allow you to
    perform the analysis without changing with your Python software-setup.
 
-.. windowsworkarounds:: You may need to use "python", not "python3"
+.. windows-wit:: You may need to use "python", not "python3"
 
    If executing the code below returns an exit code of 9009, there may be no ``python3`` -- instead, it is called soley ``python``.
    Please run the following instead (adjusted for line breaks, you should be able to copy-paste this as a whole)::
@@ -671,7 +671,7 @@ configure this repository as a sibling of the dataset:
 
        $ python3 /home/me/makepushtarget.py '/home/me/dl-101/DataLad-101/midterm_project' 'github' '/home/me/pushes/midterm_project' False True
 
-.. windowsworkarounds:: Your shell will not display credentials
+.. windows-wit:: Your shell will not display credentials
 
    Don't be confused if you are prompted for your GitHub credentials, but can't seem to type -- The terminal protects your private information by not displaying what you type.
    Simply type in what is requested, and press enter.

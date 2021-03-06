@@ -140,7 +140,7 @@ chapters in this handbook will demonstrate how useful this information can be.
 
 Here is the repository structure:
 
-.. windowsworkarounds:: tree -d may fail
+.. windows-wit:: tree -d may fail
 
    If you have installed :term:`conda`\s ``m2-base` package for access to Unix commands such as tree, you will have the tree command.
    However, this version of tree does not support the use of any command flags, so please just run ``tree`` instead of ``tree -d``.

@@ -384,7 +384,7 @@ ribbon important/.style={overlay={
 \newtcolorbox[%
   auto counter,
   number within=chapter,
-  list inside=windowsworkarounds]{windowsworkaround}[2][]{%
+  list inside=windowswits]{windowswit}[2][]{%
     enhanced, ribbon win, title={#2},
     coltitle=dataladgray,
     colbacktitle=windowsgreen,
@@ -430,6 +430,7 @@ ribbon important/.style={overlay={
 
 
 \newcommand{\findoutmoreiconinline}{\raisebox{-.1em}{\includegraphics[height=.9em]{more_boxicon_inline}}~}
+\newcommand{\windowswiticoninline}{\raisebox{-.3em}{\includegraphics[height=1.2em]{win_boxicon}}~}
 """,
 }
 

@@ -71,7 +71,7 @@ write out speaker names and talk titles in a very basic fashion.
 The content of this script is written below -- the ``cat`` command
 will write it into the script.
 
-.. windowsworkarounds:: Here's a script for Windows users
+.. windows-wit:: Here's a script for Windows users
 
    Please use an editor of your choice to create a file ``list_titles.sh`` inside of the ``code`` directory.
    These should be the contents::

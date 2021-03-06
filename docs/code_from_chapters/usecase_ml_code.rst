@@ -102,7 +102,7 @@ Let's make another change to the dataset, by adding a new file (a webcomic, down
 
    wget https://imgs.xkcd.com/comics/compiling.png
 
-.. windowsworkarounds:: Windows users may not have wget
+.. windows-wit:: Windows users may not have wget
 
    If the ``wget`` command above fails for you, you could
 
@@ -425,7 +425,7 @@ Next, we set up and configure a dataset for the analysis.
 Given that code is frequently modified and should be easily editable, and would be useful to share right away if desired, it makes sense to keep it stored in Git.
 Thus, we preconfigure and prestructure the dataset with a few configurations:
 
-.. windowsworkarounds:: Cave! The text2git configuration does not work!
+.. windows-wit:: Cave! The text2git configuration does not work!
 
    If you are using **Windows 10** with a **native** (i.e., not `Windows Subsystem for Linux (WSL) <https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux>`_-based) installation of DataLad and its underlying tools, you need to do a work-around here.
 

@@ -164,36 +164,36 @@ class FindOutMore(HandbookAdmonition):
     hba_label = 'findoutmore'
 
 
-class windowsworkarounds(nodes.container):
-    """Custom "windowsworkarounds" container."""
+class windowswit(nodes.container):
+    """Custom "windowswit" container."""
     pass
 
 
-class WindowsWorkArounds(HandbookAdmonition):
-    """windowsworkaround RST directive
+class WindowsWit(HandbookAdmonition):
+    """windows-wit RST directive
 
     This is identical to the FindOutMore directive, and allows a custom markup
     for notes targeted at Windows users
     """
-    hba_cls = windowsworkarounds
-    hba_label = 'windowsworkarounds'
+    hba_cls = windowswit
+    hba_label = 'windows-wit'
 
 
-def visit_windowsworkarounds_html(self, node):
+def visit_windowswit_html(self, node):
     self.visit_container(node)
 
 
-def depart_windowsworkarounds_html(self, node):
+def depart_windowswit_html(self, node):
     self.depart_container(node)
 
 
-def visit_windowsworkarounds_latex(self, node):
-    self.body.append(_get_counted_boxstart('windowsworkaround', node))
+def visit_windowswit_latex(self, node):
+    self.body.append(_get_counted_boxstart('windowswit', node))
     _add_label(self.body, node)
 
 
-def depart_windowsworkarounds_latex(self, node):
-    self.body.append('\n\n\\end{windowsworkaround}\n')
+def depart_windowswit_latex(self, node):
+    self.body.append('\n\n\\end{windowswit}\n')
 
 
 class importantnote(nodes.container):
@@ -244,6 +244,27 @@ def depart_findoutmoreref_latex(self, node):
     pass
 
 
+class windowswitref(nodes.inline):
+    pass
+
+
+def visit_windowswitref_html(self, node):
+    self.visit_inline(node)
+    self.body.append('Windows-wit ')
+
+
+def depart_windowswitref_html(self, node):
+    self.depart_inline(node)
+
+
+def visit_windowswitref_latex(self, node):
+    self.body.append('{\\windowswiticoninline}Windows-wit ')
+
+
+def depart_windowswitref_latex(self, node):
+    pass
+
+
 def setup(app):
     app.add_node(
         gitusernote,
@@ -258,11 +279,11 @@ def setup(app):
     )
     app.add_directive('find-out-more', FindOutMore)
     app.add_node(
-        windowsworkarounds,
-        html=(visit_windowsworkarounds_html, depart_windowsworkarounds_html),
-        latex=(visit_windowsworkarounds_latex, depart_windowsworkarounds_latex),
+        windowswit,
+        html=(visit_windowswit_html, depart_windowswit_html),
+        latex=(visit_windowswit_latex, depart_windowswit_latex),
     )
-    app.add_directive('windowsworkarounds', WindowsWorkArounds)
+    app.add_directive('windows-wit', WindowsWit)
     app.add_node(
         importantnote,
         html=(visit_importantnote_html, depart_importantnote_html),
@@ -273,6 +294,11 @@ def setup(app):
         findoutmoreref,
         html=(visit_findoutmoreref_html, depart_findoutmoreref_html),
         latex=(visit_findoutmoreref_latex, depart_findoutmoreref_latex),
+    )
+    app.add_node(
+        windowswitref,
+        html=(visit_windowswitref_html, depart_windowswitref_html),
+        latex=(visit_windowswitref_latex, depart_windowswitref_latex),
     )
 
 # vim: set expandtab shiftwidth=4 softtabstop=4 :

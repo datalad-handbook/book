@@ -28,15 +28,8 @@ systems. They do not cover the various :ref:`DataLad extensions
    :float: tbp
 
    DataLad requires Python 3.6, or a more recent version, to be installed on
-   your system. Python 2 is an outdated, in technical terms "deprecated",
-   version of Python.  Although it still exist as the default Python version on
-   many systems, it is no longer maintained since 2020, and thus, most software
-   has dropped support for Python 2.  If you only run Python 2 on your system,
-   most Python software, including DataLad, will be incompatible, and hence
-   unusable, resulting in errors during installation and execution.
-
-   The easiest way to verify that this is the case is to open a terminal and
-   type :command:`python` to start a Python session::
+   your system. The easiest way to verify that this is the case is to open a
+   terminal and type :command:`python` to start a Python session::
 
      $ python
      Python 3.9.1+ (default, Jan 20 2021, 14:49:22)
@@ -53,9 +46,16 @@ systems. They do not cover the various :ref:`DataLad extensions
    `Windows 10`_ installation instructions, and *do not* install Python via the
    Windows Store.
 
-   But does that mean that you should uninstall Python 2?  **No**.  Keep it
+   Python 2 is an outdated, in technical terms "deprecated", version of Python.
+   Although it still exist as the default Python version on many systems, it is
+   no longer maintained since 2020, and thus, most software has dropped support
+   for Python 2.  If you only run Python 2 on your system, most Python
+   software, including DataLad, will be incompatible, and hence unusable,
+   resulting in errors during installation and execution.
+
+   But does that mean that you should uninstall Python 2?  **No**!  Keep it
    installed, especially if you are using Linux or MacOS.  Python 2 existed for
-   20 years and numerous software has been written in it.  It is quite likely
+   20 years and numerous software has been written for it.  It is quite likely
    that some basic operating system components or legacy software on your
    computer is depending on it, and uninstalling a preinstalled Python 2 from
    your system will likely render it unusable.  Install Python 3, and have both

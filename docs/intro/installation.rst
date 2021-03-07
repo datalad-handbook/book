@@ -177,7 +177,7 @@ look different from what is displayed in the code examples of the book, and
 that some dependencies for additional functionality are not available for
 Windows.  If you are a Windows user and want to help improve the handbook for
 Windows users, please `get in touch
-<https://github.com/datalad-handbook/book/issues/new>`_.  Expandable notes,
+<https://github.com/datalad-handbook/book/issues/new>`_.  Dedicated notes,
 "``Windows-wit``\s", contain important information, alternative commands, or
 warnings. If you on a native Windows 10 system, you should pay close
 attention to them.

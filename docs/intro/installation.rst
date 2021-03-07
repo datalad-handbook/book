@@ -49,7 +49,7 @@ If this fails, or reports a Python version with a leading ``2``, such as ``Pytho
 If this fails, too, you need to obtain a recent release of Python 3.
 
 If you are on Windows, please note that you should **not** install Python via the Windows store, even if it opens after you typed ``python``, as this version requires additional configurations by hand (in particular of your ``$PATH`` :term:`environment variable`).
-Please instead check the Windows section at the end of the page for more convenient alternatives.
+Please instead check the Windows section at the end of the section for more convenient alternatives.
 
 .. find-out-more:: Python 2, Python 3, what's the difference?
 
@@ -239,17 +239,8 @@ There are two ways to get DataLad on Windows 10: one is within Windows itself,
 the other is using WSL2, the Windows Subsystem for Linux, version 2.
 With the Windows Subsystem for Linux, you will be able to use a Unix system despite being on Windows.
 You need to have a recent build of Windows 10 in order to get WSL2 -- we do not recommend WSL1.
-Information on how to install WSL2 can be found here:
-
-.. container:: toggle
-
-   .. container:: header
-
-      Using the Windows Subsystem 2 for Linux
-
-   You can find out how to install the Windows Subsystem for Linux at
-   `docs.microsoft.com <https://docs.microsoft.com/en-us/windows/wsl/install-win10>`_.
-   Afterwards, proceed with your installation as described in the installation instructions for Linux.
+Information on how to install WSL2 can be found at `docs.microsoft.com <https://docs.microsoft.com/en-us/windows/wsl/install-win10>`_.
+Afterwards, proceed with your installation as described in the installation instructions for Linux.
 
 Note: Using Windows itself comes with some downsides.
 We have created a dedicated page, :ref:`ohnowindows` with an explanation and overview.
@@ -262,7 +253,7 @@ work, and that terminal output can look different from what is displayed in the
 code examples of the book, and that some dependencies for additional functionality are not available for Windows.
 If you are a Windows user and want to help improve the handbook for Windows users,
 please `get in touch <https://github.com/datalad-handbook/book/issues/new>`_.
-Expandable notes, "``Windows-Workaround``\s", contain important information, alternative commands, or warnings, and if you are proceeding with a native Windows 10 system you should be close attention to them.
+Dedicated boxes, "``Windows-Workaround``\s", contain important information, alternative commands, or warnings, and if you are proceeding with a native Windows 10 system you should be close attention to them.
 
 - **Step 1**: Install Git
 
@@ -294,11 +285,12 @@ Expandable notes, "``Windows-Workaround``\s", contain important information, alt
   - Enter an Anaconda prompt or your Git bash, and install DataLad and its dependencies by running ``conda install -c conda-forge datalad``
   
 - **Step 4**: Install git-annex (temporarily necessary)
-  One of DataLad's core dependencies is :term:`git-annex`.
-  For the longest time, git-annex installers for Windows lacked support for `mimeencoding <https://en.wikipedia.org/wiki/MIME>`_.
-  Without mimeencoding, a standard DataLad procedure, the ``text2git`` configuration (it will be introduced in the very first section of the Basics), is not functional, and you will find "Windows-wits" to deal with this.
-  We recently started to build git-annex with support for mimeencoding ourselves, though.
-  At the moment, we are working on packaging up Windows-specific DataLad distributions with this version of :term:`git-annex`, but for the time being, you can find the standalone git-annex installer for Windows with mimeencoding at `http://datasets.datalad.org/datalad/packages/windows/ <http://datasets.datalad.org/datalad/packages/windows/>`_.
+
+  - One of DataLad's core dependencies is :term:`git-annex`.
+    For the longest time, git-annex installers for Windows lacked support for `mimeencoding <https://en.wikipedia.org/wiki/MIME>`_.
+    Without mimeencoding, a standard DataLad procedure, the ``text2git`` configuration (it will be introduced in the very first section of the Basics), is not functional.
+    Therefore, we started to build git-annex with support for mimeencoding ourselves.
+    You can find the standalone git-annex installer for Windows with mimeencoding at `http://datasets.datalad.org/datalad/packages/windows/ <http://datasets.datalad.org/datalad/packages/windows/>`_.
 
 - Optional - Install Unix tools
 

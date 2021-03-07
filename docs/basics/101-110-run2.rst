@@ -145,7 +145,7 @@ specifying inputs even though they are already present will not do any harm.
 
 .. find-out-more:: What if there are several inputs?
 
-   Often, a command needs several inputs. In principle, every input gets its own ``-i``/``--input``
+   Often, a command needs several inputs. In principle, every input (which could be files, directories, or subdatasets) gets its own ``-i``/``--input``
    flag. However, you can make use of :term:`globbing`. For example,
 
    .. code-block:: bash
@@ -162,8 +162,8 @@ If outputs already exist...
    The section below describes something that is very confusing for people that have just started with DataLad: Some files in a dataset can't be modified, and if one tries, it results in a "permission denied" error.
    Why is that?
    The remainder of this section and the upcoming chapter :ref:`chapter_gitannex` contain a procedural explanation.
-   However: It is only the case on non-Windows systems.
-   The "unlocking" that is necessary on all other systems to modify a file is already done on Windows.
+   However: This doesn't happen on Windows.
+   The "unlocking" that is necessary on almost all other systems to modify a file is already done on Windows.
    Thus, all files in your dataset will be readily modifiable, sparing you the need to adjust to the unexpected behavior that is described below.
    While it is easier, it isn't a "more useful" behavior, though.
    A different Windows-Workaround section in the next chapter will highlight how it rather is a suboptimal workaround.
@@ -205,7 +205,7 @@ The tool complains that it is "unable to open" the image, because the "Permissio
 
 We have not seen anything like this before, and we need to turn to our lecturer for help.
 Confused about what we might have
-done wrong, we raise our hand to ask the instructor for help.
+done wrong, we raise our hand to ask the instructor.
 Knowingly, she smiles, and tells you about how DataLad protects content given
 to it:
 
@@ -312,8 +312,8 @@ the ``-o``/``--output`` option.
    many files as an output, for example
    `FSL <https://fsl.fmrib.ox.ac.uk/fsl/fslwiki>`_, a neuro-imaging tool.
    The easiest way to specify this type of output
-   is the directory name and a :term:`globbing` character, such as
-   ``-o directory/*``. And, just as for ``-i``/``--input``, you could use
+   is by supplying the directory name, or the directory name and a :term:`globbing` character, such as
+   ``-o directory/*.dat``. And, just as for ``-i``/``--input``, you could use
    multiple ``--output`` specifications.
 
 In order to execute :command:`datalad run` with both the ``-i``/``--input`` and ``-o``/``--output``

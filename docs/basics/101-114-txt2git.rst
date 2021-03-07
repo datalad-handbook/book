@@ -72,7 +72,7 @@ Here it gets tricky. To begin with the most important, and most straight-forward
 It is not possible to store
 large files in Git. This is because Git would very quickly run into severe performance
 issues. For this reason, :term:`GitHub`, a well-known hosting site for projects using Git,
-for example does not allow files larger than 100MB of size.
+for example does not allow files larger than a few dozen MB of size.
 
 For now, we have solved the mystery of why text files can be modified
 without unlocking, and this is a small

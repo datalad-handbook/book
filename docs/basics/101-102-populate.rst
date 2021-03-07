@@ -48,10 +48,8 @@ are presented here, make sure to check the :windows-wit:`on peculiarities of its
    Standard Windows terminals (including the Anaconda prompt) do not support this.
    They instead use the ``^`` character::
 
-     $ datalad download-url http://www.tldp.org/LDP/Bash-Beginners-Guide/Bash-Beginners-Guide.pdf ^
-     --dataset . ^
-     -m "add beginners guide on bash" ^
-     -O books/bash_guide.pdf
+     $ wget -q https://sourceforge.net/projects/linuxcommand/files/TLCL/19.01/TLCL-19.01.pdf/download ^
+     -O TLCL.pdf
 
    If you are not using the Git Bash, you will either need to copy multi-line commands into a single line, or use ``^`` (make sure that there is **no space** afterwards) instead of ``\``.
 
@@ -199,8 +197,6 @@ a good message <fom-commit-message-guidance>`.
 
     - Often, a title line is not enough to express your changes and reasoning behind it. In this case, add a body to your commit message by hitting enter twice (before closing the quotation marks), and continue writing a brief summary of the changes after a blank line. This summary should explain "what" has been done and "why", but not "how". Close the quotation marks, and hit enter to save the change with your message.
 
-    - here you can find more guidelines: https://gist.github.com/robertpainsi/b632364184e70900af4ab688decf6f53
-
     **DON'Ts**
 
     - passive voice is hard to read afterwards
@@ -255,7 +251,7 @@ Let's try this by adding yet another book, a good reference work about git,
 
    $ datalad status
 
-Let's :command:`datalad save` precisely this file by specifying its path after the commit message:
+Let's give :command:`datalad save` precisely this file by specifying its path after the commit message:
 
 .. runrecord:: _examples/DL-101-102-110
    :language: console
@@ -324,7 +320,8 @@ file should be saved in (``.`` denotes "current directory"), and a commit messag
    :cast: 01_dataset_basics
    :notes: finally, datalad-download-url
 
-   $ datalad download-url http://www.tldp.org/LDP/Bash-Beginners-Guide/Bash-Beginners-Guide.pdf \
+   $ datalad download-url \
+     http://www.tldp.org/LDP/Bash-Beginners-Guide/Bash-Beginners-Guide.pdf \
      --dataset . \
      -m "add beginners guide on bash" \
      -O books/bash_guide.pdf

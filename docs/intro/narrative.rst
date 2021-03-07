@@ -12,7 +12,7 @@ you to fire up your terminal and follow along.
 **If you are interested in learning how to use DataLad, this handbook is for you.**
 
 You do not need to be a programmer, computer scientist, or Linux-crank.
-If you have never touched your computers shell before, you will be fine.
+If you have never touched your computer's shell before, you will be fine.
 No knowledge about :term:`Git` or :term:`git-annex` is required or necessary.
 Regardless of your background and personal use cases for DataLad, the
 handbook will show you the principles of DataLad, and from chapter 1 onwards
@@ -77,7 +77,7 @@ But if you want to have the special knowledge for a very peculiar type
 of problem set or that extra increase in skill or understanding,
 you'll have to do a detour into some of the "hidden" parts of the book:
 When there are command options or explanations that go beyond basics and
-best practices, we hide them in special book sections in order
+best practices, we put them in special boxes in order
 to not be too distracting for anyone only interested in the basics.
 You can decide for yourself whether you want to check them out:
 
@@ -205,7 +205,7 @@ share and publish with DataLad.
    If you do not want to follow along and only read, there is a showroom dataset
    of the complete DataLad-101 project at
    `github.com/datalad-handbook/DataLad-101 <https://github.com/datalad-handbook/DataLad-101>`_.
-   This dataset contains a separate branch for each section that introduced changes
+   This dataset contains a separate :term:`branch` for each section that introduced changes
    in the repository. The branches have the names of the sections, e.g.,
    ``sct_create_a_dataset`` marks the repository state at the end of the first section
    in the first chapter. You can checkout a branch with `git checkout <branch-name>`

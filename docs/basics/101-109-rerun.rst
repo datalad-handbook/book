@@ -102,7 +102,7 @@ Luckily, a fellow student remembered the DataLad way of re-executing
 a ``run`` command, and he's eager to show it to you.
 
 "In order to re-execute a :command:`datalad run` command,
-find the commit and use its shasum (or a tag, or anything else that Git
+find the commit and use its :term:`shasum` (or a :term:`tag`, or anything else that Git
 understands) as an argument for the
 :command:`datalad rerun` command (:manpage:`datalad-rerun` manual)! That's it!",
 he says happily.
@@ -177,11 +177,11 @@ of the dataset and the previous commit (called "``HEAD~1``" in Git terminology [
    When executing this command, you will see *all* files being modified between the most recent and the second-most recent commit.
    On a technical level, this is correct given the underlying file handling on Windows, and chapter :ref:`chapter_gitannex` will shed light on why that is.
 
-   For now, to get the same output as shown in the code snippet below, use the following command::
+   For now, to get the same output as shown in the code snippet below, use the following command where ``main`` (or ``master``) is the name of your default branch::
 
-      datalad diff --from master --to HEAD~1
+      datalad diff --from main --to HEAD~1
 
-   The ``--from`` argument specifies a different starting point for the comparison - the :term:`master` :term:`branch`, which would be the starting point on most Unix-based systems.
+   The ``--from`` argument specifies a different starting point for the comparison - the ``main`` or :term:`master` :term:`branch`, which would be the starting point on most Unix-based systems.
 
 .. runrecord:: _examples/DL-101-109-108
    :language: console
@@ -255,9 +255,9 @@ give the file path to :command:`git log` (prefixed by ``--``):
 
 .. windows-wit:: use "git log master -- recordings/podcasts.tsv"
 
-   A previous Windows-Workaround already advised to append ``master``, the common "default :term:`branch`", to any command that starts with ``git log``.
+   A previous Windows-Workaround already advised to append ``main`` or ``master``, the common "default :term:`branch`", to any command that starts with ``git log``.
    Here, the last part of the command specifies a file (``-- recordings/podcasts.tsv``).
-   Please append ``master`` to ``git log``, prior to the file specification.
+   Please append ``main`` or ``master`` to ``git log``, prior to the file specification.
 
 .. runrecord:: _examples/DL-101-109-112
    :language: console

@@ -297,7 +297,7 @@ Linux: CentOS, Redhat, Fedora, or similar systems
 
 For CentOS, Redhat, Fedora, or similar distributions, there is an `RPM package
 for git-annex <https://git-annex.branchable.com/install/rpm_standalone/>`_.  A
-suitable version of Python and :term:`Git`, should come with the operating
+suitable version of Python and :term:`Git` should come with the operating
 system, although some servers may run fairly old releases.
 
 DataLad itself can be installed via ``pip``:

@@ -46,9 +46,9 @@ failed -- sorry about this.
 :redirect:`GIN`
   :ref:`gin`
 :redirect:`gobig`
-  :ref:`gitlfs`
-:redirect:`LFS`
   :ref:`chapter_gobig`
+:redirect:`LFS`
+  :ref:`gitlfs`
 :redirect:`HCP-dataset`
   :ref:`usecase_HCP_dataset`
 :redirect:`install`

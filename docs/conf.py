@@ -338,6 +338,8 @@ cautionBgColor={named}{LightCyan}%
 \usepackage{inconsolata}
 \usepackage[hang,flushmargin,multiple]{footmisc}
 
+% make sure that loooong URLs always break
+\usepackage{xurl}
 % make sure all float stay in their respective chapter
 %\usepackage[chapter]{placeins}
 

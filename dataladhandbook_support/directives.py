@@ -237,7 +237,7 @@ def depart_findoutmoreref_html(self, node):
 
 
 def visit_findoutmoreref_latex(self, node):
-    self.body.append('{\\findoutmoreiconinline}Find-out-more ')
+    self.body.append('{\\findoutmoreiconinline}\sphinxcrossref{Find-out-more }')
 
 
 def depart_findoutmoreref_latex(self, node):
@@ -258,7 +258,7 @@ def depart_windowswitref_html(self, node):
 
 
 def visit_windowswitref_latex(self, node):
-    self.body.append('{\\windowswiticoninline}Windows-wit ')
+    self.body.append('{\\windowswiticoninline}\sphinxcrossref{Windows-wit }')
 
 
 def depart_windowswitref_latex(self, node):

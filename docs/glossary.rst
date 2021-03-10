@@ -1,8 +1,9 @@
 
+.. _glossary:
+
 ********
 Glossary
 ********
-
 
 .. glossary::
 

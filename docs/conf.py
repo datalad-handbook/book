@@ -433,6 +433,9 @@ ribbon important/.style={overlay={
 
 \newcommand{\findoutmoreiconinline}{\raisebox{-.1em}{\includegraphics[height=.9em]{more_boxicon_inline}}~}
 \newcommand{\windowswiticoninline}{\raisebox{-.3em}{\includegraphics[height=1.2em]{win_boxicon}}~}
+
+% make :term: references visually distinct in a print
+\renewcommand{\sphinxtermref}[1]{\textsc{#1}}
 """,
 }
 

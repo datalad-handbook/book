@@ -38,13 +38,13 @@ find out more about them.
    * - Name
      - Description
 
-   * - `container <http://docs.datalad.org/projects/container/en/latest/>`_
+   * - `container <http://docs.datalad.org/projects/container>`_
      - Equips DataLad's :command:`run`/:command:`rerun` functionality with
        the ability to transparently execute commands in containerized
        computational environments. The section :ref:`containersrun` demonstrates
        how this extension can be used, as well as the usecase :ref:`usecase_reproduce_neuroimg`.
 
-   * - `crawler <http://docs.datalad.org/projects/crawler/en/latest/>`_
+   * - `crawler <http://docs.datalad.org/projects/crawler>`_
      - One of the initial goals behind DataLad was to provide access
        to already existing data resources. With
        :command:`crawl-init`/:command:`crawl` commands, this extension
@@ -54,7 +54,7 @@ find out more about them.
        on `datasets.datalad.org <http://datasets.datalad.org/>`_ are created and
        updated using this extension functionality.
 
-   * - `hirni <http://docs.datalad.org/projects/hirni/en/latest/>`_
+   * - `hirni <http://docs.datalad.org/projects/hirni>`_
      - A neuroimaging specific extension to allow reproducible DICOM to BIDS
        conversion of (f)MRI data. The chapter ... introduces this extension.
 
@@ -62,19 +62,19 @@ find out more about them.
      - Enhances DataLad with the ability for remote execution via the job
        scheduler `HTCondor <https://research.cs.wisc.edu/htcondor/>`_.
 
-   * - `metalad <http://docs.datalad.org/projects/metalad/en/latest/>`_
+   * - `metalad <http://docs.datalad.org/projects/metalad>`_
      - Equips DataLad with an alternative command suite and advanced tooling
        for metadata handling (extraction, aggregation, reporting).
 
    * - `mihextras <https://datalad-mihextras.readthedocs.io>`_
      - Special-interest commands and previews for future DataLad additions.
 
-   * - `neuroimaging <https://datalad-neuroimaging.readthedocs.io/en/latest/>`_
+   * - `neuroimaging <https://datalad-neuroimaging.readthedocs.io>`_
      - Metadata extraction support for a range of standards common to
        neuroimaging data. The usecase :ref:`usecase_reproduce_neuroimg` demonstrates
        how this extension can be used.
 
-   * - `osf <http://docs.datalad.org/projects/osf/en/latest/>`_
+   * - `osf <http://docs.datalad.org/projects/osf>`_
      - Enables DataLad to interface and work with the `Open Science Framework
        <https://osf.io/>`_. Use it to publish your dataset's data to an OSF
        project, thus utilizing the OSF for dataset storage and sharing.

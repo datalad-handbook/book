@@ -66,6 +66,9 @@ find out more about them.
      - Equips DataLad with an alternative command suite and advanced tooling
        for metadata handling (extraction, aggregation, reporting).
 
+   * - `mihextras <https://datalad-mihextras.readthedocs.io>`_
+     - Special-interest commands and previews for future DataLad additions.
+
    * - `neuroimaging <https://datalad-neuroimaging.readthedocs.io/en/latest/>`_
      - Metadata extraction support for a range of standards common to
        neuroimaging data. The usecase :ref:`usecase_reproduce_neuroimg` demonstrates

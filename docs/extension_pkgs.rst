@@ -37,11 +37,13 @@ find out more about them.
 
    * - Name
      - Description
+
    * - `container <http://docs.datalad.org/projects/container/en/latest/>`_
      - Equips DataLad's :command:`run`/:command:`rerun` functionality with
        the ability to transparently execute commands in containerized
        computational environments. The section :ref:`containersrun` demonstrates
        how this extension can be used, as well as the usecase :ref:`usecase_reproduce_neuroimg`.
+
    * - `crawler <http://docs.datalad.org/projects/crawler/en/latest/>`_
      - One of the initial goals behind DataLad was to provide access
        to already existing data resources. With
@@ -52,41 +54,42 @@ find out more about them.
        on `datasets.datalad.org <http://datasets.datalad.org/>`_ are created and
        updated using this extension functionality.
 
-   * - `neuroimaging <https://datalad-neuroimaging.readthedocs.io/en/latest/>`_
-     - Metadata extraction support for a range of standards common to
-       neuroimaging data. The usecase :ref:`usecase_reproduce_neuroimg` demonstrates
-       how this extension can be used.
    * - `hirni <http://docs.datalad.org/projects/hirni/en/latest/>`_
      - A neuroimaging specific extension to allow reproducible DICOM to BIDS
        conversion of (f)MRI data. The chapter ... introduces this extension.
-
-   * - `metalad <http://docs.datalad.org/projects/metalad/en/latest/>`_
-     - Equips DataLad with an alternative command suite and advanced tooling
-       for metadata handling (extraction, aggregation, reporting).
-
-   * - `xnat <https://github.com/datalad/datalad-xnat>`__
-     - Equips DataLad with a set of commands to track
-       `XNAT <https://www.xnat.org/>`_ projects.
-       An alternative, more basic method to retrieve data from an XNAT server is
-       outlined in section :ref:`providers`.
-   * - `ukbiobank <https://github.com/datalad/datalad-ukbiobank>`__
-     - Equips DataLad with a set of commands to obtain and monitor imaging data
-       releases of the `UKBiobank <https://www.ukbiobank.ac.uk//>`_.
-       An introduction can be found in chapter
 
    * - `htcondor <https://github.com/datalad/datalad-htcondor>`__
      - Enhances DataLad with the ability for remote execution via the job
        scheduler `HTCondor <https://research.cs.wisc.edu/htcondor/>`_.
 
-   * - `rclone-remote <https://github.com/datalad/git-remote-rclone>`_
-     - Enables DataLad to push and pull to all third party providers with no native Git
-       support that are supported by `rclone <https://rclone.org/>`_.
+   * - `metalad <http://docs.datalad.org/projects/metalad/en/latest/>`_
+     - Equips DataLad with an alternative command suite and advanced tooling
+       for metadata handling (extraction, aggregation, reporting).
+
+   * - `neuroimaging <https://datalad-neuroimaging.readthedocs.io/en/latest/>`_
+     - Metadata extraction support for a range of standards common to
+       neuroimaging data. The usecase :ref:`usecase_reproduce_neuroimg` demonstrates
+       how this extension can be used.
 
    * - `osf <http://docs.datalad.org/projects/osf/en/latest/>`_
      - Enables DataLad to interface and work with the `Open Science Framework
        <https://osf.io/>`_. Use it to publish your dataset's data to an OSF
        project, thus utilizing the OSF for dataset storage and sharing.
 
+   * - `rclone-remote <https://github.com/datalad/git-remote-rclone>`_
+     - Enables DataLad to push and pull to all third party providers with no native Git
+       support that are supported by `rclone <https://rclone.org/>`_.
+
+   * - `ukbiobank <https://github.com/datalad/datalad-ukbiobank>`__
+     - Equips DataLad with a set of commands to obtain and monitor imaging data
+       releases of the `UKBiobank <https://www.ukbiobank.ac.uk//>`_.
+       An introduction can be found in chapter
+
+   * - `xnat <https://github.com/datalad/datalad-xnat>`__
+     - Equips DataLad with a set of commands to track
+       `XNAT <https://www.xnat.org/>`_ projects.
+       An alternative, more basic method to retrieve data from an XNAT server is
+       outlined in section :ref:`providers`.
 
 
 .. todo::

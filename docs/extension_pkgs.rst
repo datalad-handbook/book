@@ -5,19 +5,19 @@ DataLad extensions
 
 .. index:: ! extensions
 
-The commands DataLad provides cover a broad range of domain-agnostic use cases.
-However, there are extension packages that can add (domain-specific)
-functionality and new commands. :numref:`table-datalad-extensions` lists a number of
-available extensions.
+DataLad's commands cover a broad range of domain-agnostic use cases.  However,
+there are extension packages that can add specialized functionality with
+additional commands. :numref:`table-datalad-extensions` lists a number of
+such extensions.
 
-Such extensions are shipped as separate Python packages, and are *not* included in
-DataLad itself. Instead, users with the need for a particular extension can
-install the extension package -- either on top of DataLad if DataLad is already
-installed, or on its own (the extension will then pull in DataLad core
-automatically, with no need to first or simultaneously install DataLad itself
-explicitly). The installation is done with
-standard Python package managers, such as :term:`pip`, and beyond installation
-of the package, no additional setup is required.
+DataLad extensions are shipped as separate Python packages, and are *not*
+included in DataLad itself. Instead, users needing a particular extension can
+install the extension package -- either on top of DataLad, if already
+installed, or on its own. In the latter case, the extension will then pull in
+DataLad core automatically, with no need to first or simultaneously install
+DataLad itself explicitly. The installation is done with standard Python
+package managers, such as :term:`pip`, and beyond installation of the package,
+no additional setup is required.
 
 DataLad extensions listed here are of various maturity levels. Check out their
 documentation and the sections or chapters associated with an extension to
@@ -130,8 +130,8 @@ such as in
 Afterwards, the new DataLad functionality the extension provides is
 readily available.
 
-Some extensions could also be available from the
-software distribution (e.g., NeuroDebian or conda) you used to install
-DataLad itself.  Visit `github.com/datalad/datalad-extensions/
-<https://github.com/datalad/datalad-extensions/>`_ to review available
-versions and their status.
+Some extensions could also be available from the software distribution (e.g.,
+NeuroDebian or conda) you used to install DataLad itself.  Visit
+`github.com/datalad/datalad-extensions/
+<https://github.com/datalad/datalad-extensions/>`_ to review available versions
+and their status.

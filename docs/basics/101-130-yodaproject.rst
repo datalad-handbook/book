@@ -12,7 +12,7 @@ In principle, you can prepare YODA-compliant data analyses in any programming
 language of your choice. But because you are already familiar with
 the `Python <https://www.python.org/>`__ programming language, you decide
 to script your analysis in Python. Delighted, you find out that there is even
-a Python API for DataLad's functionality that you can read about in :ref:`a Findoutmore <fom-pythonapi>`.
+a Python API for DataLad's functionality that you can read about in :ref:`a Findoutmore on DataLad in Python<fom-pythonapi>`.
 
 .. findoutmore:: DataLad's Python API
    :name: fom-pythonapi

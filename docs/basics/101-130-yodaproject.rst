@@ -130,7 +130,7 @@ of the flowers in centimeters. It is often used in introductory data science
 courses for statistical classification techniques in machine learning, and
 widely available -- a perfect dataset for your midterm project!
 
-.. admonition:: Turn data analysis into dynamically generated documents
+.. importantnote:: Turn data analysis into dynamically generated documents
 
    Beyond the contents of this section, we have transformed the example analysis also into a template to write a reproducible paper, following the use case :ref:`usecase_reproducible_paper`.
    If you're interested in checking that out, please head over to `github.com/datalad-handbook/repro-paper-sketch/ <https://github.com/datalad-handbook/repro-paper-sketch/>`_.
@@ -645,7 +645,7 @@ The command takes a repository name and GitHub authentication credentials
 ``github-passwd <PASSWORD>``, with an *oauth* `token <https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/creating-a-personal-access-token>`_ stored in the Git
 configuration, or interactively).
 
-.. admonition:: GitHub deprecates its User Password authentication
+.. importantnote:: GitHub deprecates its User Password authentication
 
    GitHub `decided to deprecate user-password authentication <https://developer.github.com/changes/2020-02-14-deprecating-password-auth/>`_ and will only support authentication via personal access token from November 13th 2020 onwards.
    Upcoming changes in DataLad's API will reflect this change starting with DataLad version ``0.13.6`` by removing the ``github-passwd`` argument.

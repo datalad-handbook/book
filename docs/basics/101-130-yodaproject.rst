@@ -892,11 +892,11 @@ reproduce your data science project easily from scratch (take a look into the :r
          configured your dataset. If you want to re-read the full chapter on
          configurations and run-procedures, start with section :ref:`config`.
 
-.. [#f5] Instead of using GitHub's WebUI you could also obtain a token using the command line GitHub interface (https://github.com/sociomantic/git-hub) by running ``git hub setup`` (if no 2FA is used).
+.. [#f5] Instead of using GitHub's WebUI you could also obtain a token using the command line GitHub interface (https://github.com/sociomantic-tsunami/git-hub) by running ``git hub setup`` (if no 2FA is used).
          If you decide to use the command line interface, here is help on how to use it:
-         Clone the `GitHub repository <https://github.com/sociomantic/git-hub>`_ to your local computer.
+         Clone the `GitHub repository <https://github.com/sociomantic-tsunami/git-hub>`_ to your local computer.
          Decide whether you want to build a Debian package to install, or install the single-file Python script distributed in the repository.
-         Make sure that all `requirements <https://github.com/sociomantic-tsunami/git-hub#dependencies>`_ for your preferred version are installed , and run either ``make deb`` followed by ``sudo dpkg -i deb/git-hub*all.deb`` or ``make install``.
+         Make sure that all `requirements <https://github.com/sociomantic-tsunami/git-hub#dependencies>`_ for your preferred version are installed , and run either ``make deb`` followed by ``sudo dpkg -i deb/git-hub*all.deb``, or ``make install``.
 
 .. [#f6] Note that this is a :command:`git push`, not :command:`datalad push`.
          Tags could be pushed upon a :command:`datalad push`, though, if one

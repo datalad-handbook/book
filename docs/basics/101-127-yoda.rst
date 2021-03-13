@@ -356,7 +356,7 @@ and by means of which command.
 
 With another DataLad command one can even go one step further:
 The command :command:`datalad containers-run` (it will be introduced in
-a later part of the book) performs a command execution within
+section :ref:`containersrun`) performs a command execution within
 a configured containerized environment. Thus, not only inputs,
 outputs, command, time, and author, but also the *software environment*
 are captured as provenance of a dataset component such as a results file,

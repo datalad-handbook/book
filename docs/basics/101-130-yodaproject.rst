@@ -445,7 +445,7 @@ re-execution with :command:`datalad rerun` easy.
    snippets to copy and paste. However, if you do not want to install any
    Python packages, do not execute the remaining code examples in this section
    -- an upcoming section on ``datalad containers-run`` will allow you to
-   perform the analysis without changing with your Python software-setup.
+   perform the analysis without changing your Python software-setup.
 
 .. windowsworkarounds:: You may need to use "python", not "python3"
 
@@ -673,7 +673,7 @@ configure this repository as a sibling of the dataset:
 
 .. windowsworkarounds:: Your shell will not display credentials
 
-   Don't be confused if you are prompted for your GitHub credentials, but can't seem to type -- The terminal protects your private information by not displaying what you type.
+   Don't be confused if you are prompted for your GitHub credentials, but can't seem to type -- the terminal protects your private information by not displaying what you type.
    Simply type in what is requested, and press enter.
 
 .. code-block:: bash

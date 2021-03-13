@@ -180,9 +180,8 @@ file, you would replace ``--add`` with ``--replace-all`` such as in::
    git config --local --replace-all core.editor "vim"
 
 to configure :term:`vim` to be your default editor.
-
-(Note that while being a good toy example, it is not a common thing to
-configure repository-specific editors)
+Note that while being a good toy example, it is not a common thing to
+configure repository-specific editors.
 
 This example demonstrated the structure of a :command:`git config`
 command. By specifying the ``name`` option with ``section.variable``

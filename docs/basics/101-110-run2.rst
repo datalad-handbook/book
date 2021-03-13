@@ -56,7 +56,7 @@ resized image will be saved.
 To resize one image to 400x400 px, the command would thus be
 ``convert -resize 400x400 path/to/file.jpg path/to/newfilename.jpg``.
 
-.. windowsworkarounds:: Tool installation
+.. windows-wit:: Tool installation
 
    `ImageMagick <https://imagemagick.org/index.php>`_ is not installed on Windows systems by default.
    To use it, you need to install it, using the provided `Windows Binary Release on the Download page <https://imagemagick.org/script/download.php>`_.
@@ -143,9 +143,9 @@ that :command:`datalad get` will only retrieve content if
 it is not yet present, all input already downloaded will not be downloaded again -- so
 specifying inputs even though they are already present will not do any harm.
 
-.. findoutmore:: What if there are several inputs?
+.. find-out-more:: What if there are several inputs?
 
-   Often, a command needs several inputs. In principle, every input gets its own ``-i``/``--input``
+   Often, a command needs several inputs. In principle, every input (which could be files, directories, or subdatasets) gets its own ``-i``/``--input``
    flag. However, you can make use of :term:`globbing`. For example,
 
    .. code-block:: bash
@@ -157,13 +157,13 @@ specifying inputs even though they are already present will not do any harm.
 If outputs already exist...
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. windowsworkarounds:: Good news! Here is something that is easier on Windows
+.. windows-wit:: Good news! Here is something that is easier on Windows
 
    The section below describes something that is very confusing for people that have just started with DataLad: Some files in a dataset can't be modified, and if one tries, it results in a "permission denied" error.
    Why is that?
    The remainder of this section and the upcoming chapter :ref:`chapter_gitannex` contain a procedural explanation.
-   However: It is only the case on non-Windows systems.
-   The "unlocking" that is necessary on all other systems to modify a file is already done on Windows.
+   However: This doesn't happen on Windows.
+   The "unlocking" that is necessary on almost all other systems to modify a file is already done on Windows.
    Thus, all files in your dataset will be readily modifiable, sparing you the need to adjust to the unexpected behavior that is described below.
    While it is easier, it isn't a "more useful" behavior, though.
    A different Windows-Workaround section in the next chapter will highlight how it rather is a suboptimal workaround.
@@ -205,7 +205,7 @@ The tool complains that it is "unable to open" the image, because the "Permissio
 
 We have not seen anything like this before, and we need to turn to our lecturer for help.
 Confused about what we might have
-done wrong, we raise our hand to ask the instructor for help.
+done wrong, we raise our hand to ask the instructor.
 Knowingly, she smiles, and tells you about how DataLad protects content given
 to it:
 
@@ -238,7 +238,7 @@ and thus making locked files modifiable again: :command:`datalad unlock`
 (:manpage:`datalad-unlock` manual).
 Let us check out what it does:
 
-.. windowsworkarounds:: What happens if I run this on Windows?
+.. windows-wit:: What happens if I run this on Windows?
 
    Nothing. All of the files in your dataset are always unlocked, and actually *can* not be locked at all.
    Consequently, there will be nothing to show for ``datalad status`` afterwards (as shown a few paragraphs below).
@@ -305,21 +305,21 @@ command execution. Therefore, whenever the output of a :command:`datalad run` co
 exists and is tracked, it should be specified as an argument in
 the ``-o``/``--output`` option.
 
-.. findoutmore:: But what if I have a lot of outputs?
+.. find-out-more:: But what if I have a lot of outputs?
 
    The use case here is simplistic -- a single file gets modified.
    But there are commands and tools that create full directories with
    many files as an output, for example
    `FSL <https://fsl.fmrib.ox.ac.uk/fsl/fslwiki>`_, a neuro-imaging tool.
    The easiest way to specify this type of output
-   is the directory name and a :term:`globbing` character, such as
-   ``-o directory/*``. And, just as for ``-i``/``--input``, you could use
+   is by supplying the directory name, or the directory name and a :term:`globbing` character, such as
+   ``-o directory/*.dat``. And, just as for ``-i``/``--input``, you could use
    multiple ``--output`` specifications.
 
 In order to execute :command:`datalad run` with both the ``-i``/``--input`` and ``-o``/``--output``
 flag and see their magic, let's crop the second logo, ``logo_interval.jpg``:
 
-.. windowsworkarounds:: Wait, would I need to specify outputs, too?
+.. windows-wit:: Wait, would I need to specify outputs, too?
 
    Given that nothing in your dataset is locked, is there a *need* for you to bother with creating ``--output`` flags?
    Not for you personally, if you only stay on your Windows machine.
@@ -418,7 +418,7 @@ the placeholder ``{outputs}`` will expand to the path given as ``--output``.
 This means instead of writing the full paths in the command, you can simply reuse
 the ``--input`` and ``--output`` specification done before.
 
-.. findoutmore:: What if I have multiple inputs or outputs?
+.. find-out-more:: What if I have multiple inputs or outputs?
 
    If multiple values are specified, e.g., as in
 
@@ -463,7 +463,7 @@ the ``--input`` and ``--output`` specification done before.
    can be accessed with an integer index, e.g., ``{inputs[0]}`` for the very first
    input.
 
-.. findoutmore:: ... wait, what if I need a curly bracket in my datalad run call?
+.. find-out-more:: ... wait, what if I need a curly bracket in my datalad run call?
 
    If your command call involves a ``{`` or ``}`` character, you will need to escape
    this brace character by doubling it, i.e., ``{{`` or ``}}``.

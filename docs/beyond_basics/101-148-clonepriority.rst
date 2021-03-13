@@ -67,7 +67,7 @@ Such a configuration will ensure that the first location any subdataset is attem
 Only if the dataset is not found in there under its ID, other sources are tried.
 Note that in the case where no cost is provided together with the candidate name, a default cost of ``700`` is used.
 
-.. findoutmore:: What are the "default" costs for preexisting clone candidates?
+.. find-out-more:: What are the "default" costs for preexisting clone candidates?
 
    The following list provides and overview of which locations are attempted for cloning and their associated costs:
 

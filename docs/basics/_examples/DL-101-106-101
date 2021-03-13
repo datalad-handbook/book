@@ -1,4 +1,4 @@
-$ git log -p -n 2
+$ git log -p -n 3
 commit a6bb5da795f77cad1711f5a20b6d966ca7f4cdbb
 Author: Elena Piscopia <elena@example.net>
 Date:   Fri Jan 29 08:38:33 2021 +0100

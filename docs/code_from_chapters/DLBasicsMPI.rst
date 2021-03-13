@@ -109,7 +109,7 @@ Let's make another change to the dataset, by adding a new file (a webcomic, down
 
    wget https://imgs.xkcd.com/comics/compiling.png
 
-.. windowsworkarounds:: Windows users may not have wget
+.. windows-wit:: Windows users may not have wget
 
    If the ``wget`` command above fails for you, you could
 
@@ -368,7 +368,7 @@ This records a pre-created software environment with the required Python package
 
 Note: You need to have `singularity <https://sylabs.io/guides/3.5/user-guide/>`_ installed to run this!
 
-.. findoutmore:: Why Singularity and not Docker?
+.. find-out-more:: Why Singularity and not Docker?
 
    :term:`Singularity`, unlike :term:`Docker`, can be deployed on shared compute infrastructure such as computational clusters as it does not require or grant `superuser privileges <https://en.wikipedia.org/wiki/Superuser>`_ ("sudo rights") to users that use a container.
    Docker is not deployed on HPC systems is because it grants users those sudo rights, and on multi-user systems users should not have those privileges, as it would enable them to temper with other's or shared data and resources, posing a severe security threat.
@@ -439,7 +439,7 @@ Next, we set up and configure a dataset for the analysis.
 Given that code is frequently modified and should be easily editable, and would be useful to share right away if desired, it makes sense to keep it stored in Git.
 Thus, we preconfigure and prestructure the dataset with a few configurations:
 
-.. windowsworkarounds:: Cave! The text2git configuration does not work!
+.. windows-wit:: Cave! The text2git configuration does not work!
 
    If you are using **Windows 10** with a **native** (i.e., not `Windows Subsystem for Linux (WSL) <https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux>`_-based) installation of DataLad and its underlying tools, you need to do a work-around here.
 

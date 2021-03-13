@@ -191,7 +191,7 @@ a value, one can configure Git, git-annex, and DataLad.
 of Git, depending on the scope (local, global, system-wide)
 specified in the command.
 
-.. findoutmore:: If things go wrong during Git config
+.. find-out-more:: If things go wrong during Git config
 
    If something goes wrong during the :command:`git config` command,
    for example you end up having two keys of the same name because you
@@ -246,7 +246,7 @@ to de-mystify the :command:`git config` command and the configuration files.
 Nevertheless, it might be helpful to get an overview about the meaning of the
 remaining sections in that file, and the :ref:`that disects this config file further <fom_gitconfig>`  can give you a glimpse of this.
 
-.. findoutmore:: Disecting a Git config file further
+.. find-out-more:: Disecting a Git config file further
    :name: fom_gitconfig
    :float:
 

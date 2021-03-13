@@ -105,7 +105,7 @@ Next, let's create an analysis dataset.
 For a pre-structured and pre-configured starting point, the dataset can be created with the ``yoda`` and ``text2git`` :term:`run procedure`\s [#f3]_.
 These configurations create a ``code/`` directory, place some place-holding ``README`` files in appropriate places, and make sure that all text files, e.g. scripts or evaluation results, are kept in :term:`Git` to allow for easier modifications.
 
-.. windowsworkarounds:: Note for Windows-Users
+.. windows-wit:: Note for Windows-Users
 
    Hey there!
    If you are using **Windows 10** (not `Windows Subsystem for Linux (WSL) <https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux>`_) **without the custom-built git-annex** installer mentioned in the installation section, you need a work-around.

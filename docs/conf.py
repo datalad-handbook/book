@@ -279,6 +279,7 @@ latex_additional_files = [
     '../artwork/git_boxicon.pdf',
     '../artwork/important_boxicon.pdf',
     '../artwork/more_boxicon.pdf',
+    '../artwork/more_boxicon_inline.pdf',
     '../artwork/win_boxicon.pdf',
 ]
 
@@ -337,6 +338,8 @@ cautionBgColor={named}{LightCyan}%
 \usepackage{inconsolata}
 \usepackage[hang,flushmargin,multiple]{footmisc}
 
+% make sure that loooong URLs always break
+\usepackage{xurl}
 % make sure all float stay in their respective chapter
 %\usepackage[chapter]{placeins}
 
@@ -383,7 +386,7 @@ ribbon important/.style={overlay={
 \newtcolorbox[%
   auto counter,
   number within=chapter,
-  list inside=windowsworkarounds]{windowsworkaround}[2][]{%
+  list inside=windowswits]{windowswit}[2][]{%
     enhanced, ribbon win, title={#2},
     coltitle=dataladgray,
     colbacktitle=windowsgreen,
@@ -426,6 +429,13 @@ ribbon important/.style={overlay={
 % natural spacing between (long) numbers and titles in
 % any TOC
 \renewcommand{\numberline}[1]{#1~}
+
+
+\newcommand{\findoutmoreiconinline}{\raisebox{-.1em}{\includegraphics[height=.9em]{more_boxicon_inline}}~}
+\newcommand{\windowswiticoninline}{\raisebox{-.3em}{\includegraphics[height=1.2em]{win_boxicon}}~}
+
+% make :term: references visually distinct in a print
+\renewcommand{\sphinxtermref}[1]{\textsc{#1}}
 """,
 }
 

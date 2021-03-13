@@ -147,7 +147,7 @@ is now known to your own dataset as "roommate"
 This command will list all known siblings of the dataset. You can see it
 in the resulting list with the name "roommate" you have given to it.
 
-.. findoutmore:: What if I mistyped the name or want to remove the sibling?
+.. find-out-more:: What if I mistyped the name or want to remove the sibling?
 
    You can remove a sibling using :command:`datalad siblings remove -s roommate`
 
@@ -227,7 +227,7 @@ do a ``diff`` between the branch (your drawer) and the dataset as it
 is currently in front of you (your desk). We will do the latter, and leave
 the former for a different lecture:
 
-.. windowsworkarounds:: Please use datalad diff --from master --to remotes/roommate/master
+.. windows-wit:: Please use datalad diff --from master --to remotes/roommate/master
 
    Please use the following command instead::
 
@@ -247,7 +247,7 @@ This shows us that there is an additional file, and it also shows us
 that there is a difference in ``notes.txt``! Let's ask
 :command:`git diff` to show us what the differences in detail (note that it is a shortened excerpt, cut in the middle to reduce its length):
 
-.. windowsworkarounds:: Please use git diff master..remotes/roommate/master
+.. windows-wit:: Please use git diff master..remotes/roommate/master
 
    Please use the following command instead::
 

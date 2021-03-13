@@ -36,20 +36,20 @@ are all free, in total about 15 MB), and save them in ``DataLad-101/books``.
 
 You can either visit the links and save them in ``books/``,
 or run the following commands [#f2]_ to download the books right from the terminal.
-Note that we line break the command with ``\`` signs. You can copy them as they
-are presented here into your terminal, but in your own work you can write commands
-like this into a single line.
+Note that we line break the command with ``\`` signs. In your own work you can write
+commands like this into a single line. If you copy them into your terminal as they
+are presented here, make sure to check the :windows-wit:`on peculiarities of its terminals
+<ww-no-multiline-commands>`.
 
-.. windowsworkarounds:: Windows terminals other than Git Bash can't handle multi-line commands
+.. windows-wit:: Terminals other than Git Bash can't handle multi-line commands
+   :name: ww-no-multiline-commands
 
    In Unix shells, ``\`` can be used to split a command into several lines, for example to aid readability.
-   Standard Windows terminals (inlcuding the Anaconda prompt) do not support this.
+   Standard Windows terminals (including the Anaconda prompt) do not support this.
    They instead use the ``^`` character::
 
-     $ datalad download-url http://www.tldp.org/LDP/Bash-Beginners-Guide/Bash-Beginners-Guide.pdf ^
-     --dataset . ^
-     -m "add beginners guide on bash" ^
-     -O books/bash_guide.pdf
+     $ wget -q https://sourceforge.net/projects/linuxcommand/files/TLCL/19.01/TLCL-19.01.pdf/download ^
+     -O TLCL.pdf
 
    If you are not using the Git Bash, you will either need to copy multi-line commands into a single line, or use ``^`` (make sure that there is **no space** afterwards) instead of ``\``.
 
@@ -68,7 +68,12 @@ like this into a single line.
    # get back into the root of the dataset
    $ cd ../
 
-.. windowsworkarounds:: You may want to use curl instead of wget
+Some machines will not have :command:`wget` available by default, but any command that can
+download a file can work as an alternative. See the :windows-wit:`for the popular alternative
+curl <ww-curl-instead-wget>`.
+
+.. windows-wit:: You can use curl instead of wget
+   :name: ww-curl-instead-wget
 
    Many versions of Windows do not ship with the tool ``wget``.
    You can install it, but it may be easier to use the pre-installed ``curl`` command::
@@ -130,7 +135,12 @@ about commit messages because :command:`datalad save` ultimatively uses the comm
 
    $ datalad save -m "add books on Python and Unix to read later"
 
-.. findoutmore:: "Oh no! I forgot the -m option!"
+If you ever forget to specify a message, or made a typo, not all is lost. A
+:find-out-more:`explains how to amend a saved state <fom-amend-save>`.
+
+.. find-out-more:: "Oh no! I forgot the -m option for datalad-save!"
+   :name: fom-amend-save
+   :float:
 
    If you forget to specify a commit message with the ``-m`` option, DataLad will write
    ``[DATALAD] Recorded changes`` as a commit message into your history.
@@ -172,11 +182,12 @@ pager, navigate with up and down arrow keys and leave the log by typing ``q``:
 Now this might look a bit cryptic (and honestly, tig [#f3]_ makes it look prettier).
 But this tells us the date and time in which a particular author added two PDFs to
 the directory ``books/``, and thanks to that commit message we have a nice
-human-readable summary of that action.
+human-readable summary of that action. A :find-out-more:`explains what makes
+a good message <fom-commit-message-guidance>`.
 
-.. findoutmore:: DOs and DON'Ts for commit messages
-   :name: fom-commitmessage
-   :float:
+.. find-out-more:: DOs and DON'Ts for commit messages
+   :name: fom-commit-message-guidance
+   :float: tbp
 
     **DOs**
 
@@ -185,8 +196,6 @@ human-readable summary of that action.
     - it should be in imperative voice, e.g., "Add notes from lecture 2"
 
     - Often, a title line is not enough to express your changes and reasoning behind it. In this case, add a body to your commit message by hitting enter twice (before closing the quotation marks), and continue writing a brief summary of the changes after a blank line. This summary should explain "what" has been done and "why", but not "how". Close the quotation marks, and hit enter to save the change with your message.
-
-    - here you can find more guidelines: https://gist.github.com/robertpainsi/b632364184e70900af4ab688decf6f53
 
     **DON'Ts**
 
@@ -221,16 +230,6 @@ Luckily, we can point :command:`datalad save` to exactly the changes we want it 
 Let's try this by adding yet another book, a good reference work about git,
 `Pro Git <https://git-scm.com/book/en/v2>`_:
 
-.. windowsworkarounds:: You may want to use curl instead of wget
-
-   Many versions of Windows do not ship with the tool ``wget``.
-   You can install it, but it may be easier to use the pre-installed ``curl`` command::
-
-      $ cd books
-      $ curl -L https://github.com/progit/progit2/releases/download/2.1.154/progit.pdf \
-        -o progit.pdf
-      $ cd ../
-
 .. runrecord:: _examples/DL-101-102-108
    :language: console
    :workdir: dl-101/DataLad-101
@@ -252,7 +251,7 @@ Let's try this by adding yet another book, a good reference work about git,
 
    $ datalad status
 
-Let's :command:`datalad save` precisely this file by specifying its path after the commit message:
+Let's give :command:`datalad save` precisely this file by specifying its path after the commit message:
 
 .. runrecord:: _examples/DL-101-102-110
    :language: console
@@ -262,19 +261,21 @@ Let's :command:`datalad save` precisely this file by specifying its path after t
 
    $ datalad save -m "add reference book about git" books/progit.pdf
 
+Regarding your second remark, you're right that a :command:`datalad save` without a
+path specification would write all of the currently untracked files or modifications
+to the history. But check the :find-out-more:`on how to tell it otherwise <fom-save-updated-only>`.
 
-.. findoutmore:: Some more on save
+.. find-out-more:: How to save already tracked dataset components only?
+   :name: fom-save-updated-only
+   :float:
 
-   Regarding your second remark, you're right that a :command:`datalad save` without a
-   path specification would write all of the currently untracked files or modifications
-   to the history.
-   There are some ways to mitigate this: A :command:`datalad save -m "concise message" --updated`
-   (or the shorter form of ``--updated``, ``-u``) will only write *modifications* to the
-   history, not untracked files. Later, we will also see ``.gitignore`` files that let
-   you hide content from version control.
-   However, it is good practice to safely store away modifications or new content.
-   This improves your dataset and workflow, and will be a requirement for executing
-   certain commands.
+   A :command:`datalad save -m "concise message" --updated` (or the shorter
+   form of ``--updated``, ``-u``) will only write *modifications* to the
+   history, not untracked files. Later, we will also see ``.gitignore`` files
+   that let you hide content from version control.  However, it is good
+   practice to safely store away modifications or new content.  This improves
+   your dataset and workflow, and will be a requirement for executing certain
+   commands.
 
 A :command:`datalad status` should now be empty, and our dataset's history should look like this:
 
@@ -319,7 +320,8 @@ file should be saved in (``.`` denotes "current directory"), and a commit messag
    :cast: 01_dataset_basics
    :notes: finally, datalad-download-url
 
-   $ datalad download-url http://www.tldp.org/LDP/Bash-Beginners-Guide/Bash-Beginners-Guide.pdf \
+   $ datalad download-url \
+     http://www.tldp.org/LDP/Bash-Beginners-Guide/Bash-Beginners-Guide.pdf \
      --dataset . \
      -m "add beginners guide on bash" \
      -O books/bash_guide.pdf

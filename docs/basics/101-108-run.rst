@@ -71,7 +71,7 @@ write out speaker names and talk titles in a very basic fashion.
 The content of this script is written below -- the ``cat`` command
 will write it into the script.
 
-.. windowsworkarounds:: Here's a script for Windows users
+.. windows-wit:: Here's a script for Windows users
 
    Please use an editor of your choice to create a file ``list_titles.sh`` inside of the ``code`` directory.
    These should be the contents::
@@ -164,7 +164,7 @@ command from the root of ``DataLad-101``.
    $ datalad run -m "create a list of podcast titles" \
      "bash code/list_titles.sh > recordings/podcasts.tsv"
 
-.. findoutmore:: Why is there a "notneeded" in the command summary?
+.. find-out-more:: Why is there a "notneeded" in the command summary?
 
    If you have stumbled across the command execution summary
    ``save (notneeded: 1, ok: 1)`` and wondered what is "notneeded":

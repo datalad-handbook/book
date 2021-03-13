@@ -61,7 +61,7 @@ There are two commands that can be used to obtain a dataset: :command:`datalad i
 (:manpage:`datalad-install` manual) and :command:`datalad clone` (:manpage:`datalad-clone`
 manual). Throughout this handbook, we will use :command:`datalad clone` to obtain
 datasets. The command has a less complex structure but slightly simplified behavior,
-and a hidden section in section :ref:`sharelocal1` will elaborate on the differences
+and :ref:`the Findoutmore <fom_clonevsinstall>` in section :ref:`sharelocal1` will elaborate on the differences
 between the two commands.
 Let's install the longnow podcasts in this new directory with :command:`datalad clone`.
 
@@ -104,7 +104,7 @@ also recorded where this dataset came from, thus capturing its *origin* as
 chapters in this handbook will demonstrate how useful this information can be.
 
 
-.. findoutmore:: Do I have to install from the root of datasets?
+.. find-out-more:: Do I have to install from the root of datasets?
 
    No. Instead of from the *root* of the ``DataLad-101`` dataset, you could have also
    installed the dataset from within the ``recordings``, or ``books`` directory.
@@ -118,7 +118,7 @@ chapters in this handbook will demonstrate how useful this information can be.
 
      datalad clone -d^ https://github.com/datalad-datasets/longnow-podcasts.git longnow
 
-.. findoutmore:: What if I do not install into an existing dataset?
+.. find-out-more:: What if I do not install into an existing dataset?
 
    If you do not install into an existing dataset, you only need to omit the ``-d/--dataset``
    option. You can try::
@@ -140,9 +140,9 @@ chapters in this handbook will demonstrate how useful this information can be.
 
 Here is the repository structure:
 
-.. windowsworkarounds:: tree -d may fail
+.. windows-wit:: tree -d may fail
 
-   If you have installed :term:`conda`\s ``m2-base` package for access to Unix commands such as tree, you will have the tree command.
+   If you have installed :term:`conda`\s ``m2-base`` package for access to Unix commands such as tree, you will have the tree command.
    However, this version of tree does not support the use of any command flags, so please just run ``tree`` instead of ``tree -d``.
 
 .. runrecord:: _examples/DL-101-105-103

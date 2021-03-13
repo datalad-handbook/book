@@ -1,8 +1,9 @@
 
+.. _glossary:
+
 ********
 Glossary
 ********
-
 
 .. glossary::
 
@@ -52,7 +53,7 @@ Glossary
       a branch contains into another branch.
 
    checksum
-      TODO
+      An alternative term to :term:`shasum`.
 
    clone
       Git concept: A copy of a :term:`Git` repository. In Git-terminology, all "installed" datasets
@@ -223,7 +224,7 @@ Glossary
       An example of a Makefile is shown in the usecase :ref:`usecase_reproducible_paper`.
 
    master
-      Git concept: The default :term:`branch` in a dataset.
+      Git concept: For the longest time, ``master`` was the name of the default :term:`branch` in a dataset. More recently, the name ``main`` is used. If you are not sure, you can find out if your default branch is ``main`` or ``master`` by running ``git branch``.
 
    merge
       Git concept: to integrate the changes of one :term:`branch`/:term:`sibling`/ ... into

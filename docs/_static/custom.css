@@ -42,12 +42,12 @@ div.findoutmore .header {
     padding: 5px 10px 5px 10px;
 }
 div.findoutmore .header:before {
-    content: "⤵ Find out more: ";
+    content: "⤵ Find-out-more: ";
     color: #333;
     font-weight: bold;
 }
 div.findoutmore .header.open:before {
-    content: "⤴ Find out more: ";
+    content: "⤴ Find-out-more: ";
     color: #333;
     font-weight: bold;
 }
@@ -93,14 +93,14 @@ div.importantnote .header {
     color: #ffffff;
 }
 
-div.windowsworkarounds {
+div.windows-wit {
     background-color: #f3f3f3;
     border: 3px solid #509f26;
     box-shadow: 5px 5px 15px 0px #111;
     padding: 5px 10px 5px 10px;
     margin-bottom: 15px;
 }
-div.windowsworkarounds .header {
+div.windows-wit .header {
     background-color: #66cc33;
     border: 0px solid #000;
     margin: -6px -11px -6px -11px;
@@ -109,13 +109,13 @@ div.windowsworkarounds .header {
 div.importantnote .header:before {
     content: "⚠ ";
 }
-div.windowsworkarounds .header:before {
-    content: "⤵ Windows-Workaround: ";
+div.windows-wit .header:before {
+    content: "⤵ Windows-wit: ";
     color: #333;
     font-weight: bold;
 }
-div.windowsworkarounds .header.open:before {
-    content: "⤴ Windows-Workaround: ";
+div.windows-wit .header.open:before {
+    content: "⤴ Windows-wit: ";
     color: #333;
     font-weight: bold;
 }

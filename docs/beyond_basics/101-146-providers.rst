@@ -35,7 +35,7 @@ requested data will be downloaded, and all subsequent retrievals via
 :command:`get` will authenticate automatically, without user input, as long as
 the entered credentials stay valid.
 
-.. findoutmore:: How does the authentication work?
+.. find-out-more:: How does the authentication work?
 
    Passwords, user names, tokens, or any other login information is stored in
    your system's (encrypted) `keyring <https://en.wikipedia.org/wiki/GNOME_Keyring>`_.
@@ -79,7 +79,7 @@ The following information is needed:
 
 The example below sheds some light one this.
 
-.. findoutmore:: Which authentication and credential types are possible?
+.. find-out-more:: Which authentication and credential types are possible?
 
    When configuring custom data access, credential and authentication type
    are required information. Below, we list the most common choices for these fields.

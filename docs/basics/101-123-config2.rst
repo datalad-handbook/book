@@ -24,18 +24,6 @@ section by looking into it.
 
 This file lies right in the root of your superdataset:
 
-.. windowsworkarounds:: Your file contents are slightly different
-
-   Windows users that did not use the custom :term:`git-annex` installer from `http://datasets.datalad.org/datalad/packages/windows/ <http://datasets.datalad.org/datalad/packages/windows/>`_ had to modify the ``.gitattributes`` file at the start of the Basics.
-   Instead of a line that contains "``mimencoding``", There should be the following two lines::
-
-      *.txt annex.largefiles=nothing
-      code/** annex.largefiles=nothing
-
-   This workaround was necessary because the default way of identifying file types (such as text files or binary files) as implemented by the ``text2git`` configuration option relies on a process called "mimeencoding" [#f1]_ -- a method to identify file types without only looking at their extension.
-   Windows does not support mimeencoding, and hence we had to explicitly add directories or file extensions for files that should not get annexed.
-   Please read on for more insights into the largefiles rules in ``.gitattributes``.
-
 .. runrecord:: _examples/DL-101-123-101
    :language: console
    :workdir: dl-101/DataLad-101

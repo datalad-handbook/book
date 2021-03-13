@@ -28,11 +28,6 @@ nothing more than a simple script that
 - writes the relevant configuration (``annex_largefiles = '((mimeencoding=binary)and(largerthan=0))'``,  i.e., "Do not put anything that is a text file in the annex") to the ``.gitattributes`` file of a dataset, and
 - saves this modification with the commit message "Instruct annex to add text files to Git".
 
-.. windowsworkarounds:: Why this configuration does not work for Windows users
-
-   If you're on a **Windows 10** machine with a **native** (i.e., non :term:`WSL` based installation) of DataLad and did **not** use the custom :term:`git-annex` installer from `http://datasets.datalad.org/datalad/packages/windows/ <http://datasets.datalad.org/datalad/packages/windows/>`_ at the start of the Basics, the ``text2git`` configuration will lead to errors upon a :command:`datalad save`.
-   This is because MagicMime (used in ``mimeencoding=binary`` to determine the file type of any given file by searching for `magic numbers <https://en.wikipedia.org/wiki/List_of_file_signatures>`_) is not natively available on Windows.
-
 This particular procedure lives in a script called
 ``cfg_text2git`` in the sourcecode of DataLad. The amount of code
 in this script is not large, and the relevant lines of code

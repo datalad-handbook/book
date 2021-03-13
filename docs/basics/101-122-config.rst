@@ -244,16 +244,18 @@ or values in there are irrelevant for understanding the book, your dataset,
 or DataLad, and can just be left as they are. The previous section merely served
 to de-mystify the :command:`git config` command and the configuration files.
 Nevertheless, it might be helpful to get an overview about the meaning of the
-remaining sections in that file, and the following hidden section can give
-you a glimpse of this.
+remaining sections in that file, and the :ref:`that disects this config file further <fom_gitconfig>`  can give you a glimpse of this.
 
-.. findoutmore:: More on this config file
+.. findoutmore:: Disecting a Git config file further
+   :name: fom_gitconfig
+   :float:
 
+   Let's walk through the Git config file of ``DataLad-101``:
    The second section of ``.git/config`` is a git-annex configuration.
    As mentioned above, git-annex will use the
    :term:`Git config file` for some of its configurations.
    For example, it lists the repository as a
-   "version 5 repository", and gives the dataset its own git-annex
+   "version 8 repository", and gives the dataset its own git-annex
    UUID. While the "annex-uuid" [#f4]_ looks like yet another cryptic
    random string of characters, you have seen a UUID like this before:
    A :command:`git annex whereis` displays information about where the

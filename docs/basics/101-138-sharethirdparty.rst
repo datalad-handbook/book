@@ -3,7 +3,7 @@
 Beyond shared infrastructure
 ----------------------------
 
-.. admonition:: There can never be "too much" documentation
+.. importantnote:: There can never be "too much" documentation
 
    If you plan to share your own datasets with people that are unfamiliar with
    DataLad, it may be helpful to give a short explanation of what a DataLad

@@ -197,9 +197,11 @@ name to give to the container, and a path or url to a container Image:
 This command downloaded the container from Singularity Hub, added it to
 the ``midterm_project`` dataset, and recorded basic information on the
 container under its name "midterm-software" in the dataset's configuration at
-``.datalad/config``.
+``.datalad/config``. You can find out more about them in a dedicated :ref:`find-out-more on these additional configurations <fom-containerconfig>`.
 
-.. find-out-more:: What has been added to .datalad/config?
+.. find-out-more:: What changes in .datalad/config when one adds a container?
+   :name: fom-containerconfig
+   :float:
 
    .. runrecord:: _examples/DL-101-133-102
       :language: console

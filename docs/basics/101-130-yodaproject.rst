@@ -29,11 +29,6 @@ a Python API for DataLad's functionality that you can read about in :ref:`a Find
     to the command line, and it is immensely useful when creating reproducible
     data analyses."
 
-    This short section will give you an overview on DataLad's Python API and explore
-    how to make use of it in an analysis project. Together with the previous
-    section on the YODA principles, it is a good basis for a data analysis midterm project
-    in Python.
-
     All of DataLad's user-oriented commands are exposed via ``datalad.api``.
     Thus, any command can be imported as a stand-alone command like this::
 

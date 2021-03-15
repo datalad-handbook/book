@@ -214,7 +214,7 @@ was applied.
      .. code-block:: bash
 
         [datalad "procedures.<NAME>"]
-           help = "This is a string to describe what the procedure does"
+           help = This is a string to describe what the procedure does
 
    - By default, on GNU/Linux systems, DataLad will search for system-wide procedures
      (i.e., procedures on the *system* level) in ``/etc/xdg/datalad/procedures``,
@@ -252,8 +252,8 @@ was applied.
       .. code-block:: bash
 
          [datalad "procedures.<NAME>"]
-            help = "This is a string to describe what the procedure does"
-            call-format = "python {script} {ds} {somearg1} {somearg2}"
+            help = This is a string to describe what the procedure does
+            call-format = python {script} {ds} {somearg1} {somearg2}
 
     - By convention, procedures should leave a dataset in a clean state.
 

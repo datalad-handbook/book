@@ -558,7 +558,7 @@ special features a DataLad dataset provides will be available, such as its
 history or configurations.
 
 Another example is :command:`export-to-figshare`. Running this command allows
-you to publish the dataset to `Figshare <https://figshare.com/>`__.  As the
+you to publish the dataset to `Figshare <https://figshare.com/>`__.  As the command
 :command:`export-archive` is used by it to prepare content for upload to
 Figshare, annexed files also will be annotated as available from the archive on
 Figshare using ``datalad-archive`` special remote.  As a result, if you publish

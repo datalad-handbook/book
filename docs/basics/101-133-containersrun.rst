@@ -142,7 +142,7 @@ section below has some pointers:
    `singularity documentation <https://sylabs.io/guides/3.4/user-guide/build_a_container.html>`_
    has its own tutorial on how to build such Images from scratch.
    An alternative to writing the Image file by hand is to use
-   `Neurodocker <https://github.com/kaczmarj/neurodocker#singularity>`_. This
+   `Neurodocker <https://github.com/ReproNim/neurodocker#singularity>`_. This
    command-line program can help you generate custom Singularity recipes (and
    also ``Dockerfiles``, from which Docker Images are build). A wonderful tutorial
    on how to use Neurodocker is
@@ -197,9 +197,11 @@ name to give to the container, and a path or url to a container Image:
 This command downloaded the container from Singularity Hub, added it to
 the ``midterm_project`` dataset, and recorded basic information on the
 container under its name "midterm-software" in the dataset's configuration at
-``.datalad/config``.
+``.datalad/config``. You can find out more about them in a dedicated :ref:`find-out-more on these additional configurations <fom-containerconfig>`.
 
-.. find-out-more:: What has been added to .datalad/config?
+.. find-out-more:: What changes in .datalad/config when one adds a container?
+   :name: fom-containerconfig
+   :float:
 
    .. runrecord:: _examples/DL-101-133-102
       :language: console
@@ -219,6 +221,14 @@ container under its name "midterm-software" in the dataset's configuration at
    :command:`datalad containers-run` command) and plug it into a
    :command:`singularity exec` command. The mode of calling Singularity,
    namely ``exec``, means that the command will be executed inside of the container.
+
+   You can configure this call format by modifying it in the config file, or calling :command:`datalad containers-add` with the option ``--call-fmt <alternative format>``.
+   This can be useful to, for example, automatically bind-mount the current working directory in the container.
+   In the alternative call format, the placeholders ``{img}``, ``{cmd}``, and ``{img_dspath}`` (a relative path to the dataset containing the image) are available.
+   In all other cases with variables that use curly brackets, you need to escape them with another curly bracket.
+   Here is an example call format that bind-mounts the current working directory (and thus the dataset) automatically::
+
+      datalad containers-add --call-fmt 'singularity exec -B {{pwd}} --cleanenv {img} {cmd}'
 
    Note that the Image is saved under ``.datalad/environments`` and the
    configuration is done in ``.datalad/config`` -- as these files are version

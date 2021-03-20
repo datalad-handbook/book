@@ -12,7 +12,7 @@ In principle, you can prepare YODA-compliant data analyses in any programming
 language of your choice. But because you are already familiar with
 the `Python <https://www.python.org/>`__ programming language, you decide
 to script your analysis in Python. Delighted, you find out that there is even
-a Python API for DataLad's functionality that you can read about in :ref:`a Findoutmore <fom-pythonapi>`.
+a Python API for DataLad's functionality that you can read about in :ref:`a Findoutmore on DataLad in Python<fom-pythonapi>`.
 
 .. find-out-more:: DataLad's Python API
    :name: fom-pythonapi
@@ -28,11 +28,6 @@ a Python API for DataLad's functionality that you can read about in :ref:`a Find
     This feature can help to automate dataset operations, provides an alternative
     to the command line, and it is immensely useful when creating reproducible
     data analyses."
-
-    This short section will give you an overview on DataLad's Python API and explore
-    how to make use of it in an analysis project. Together with the previous
-    section on the YODA principles, it is a good basis for a data analysis midterm project
-    in Python.
 
     All of DataLad's user-oriented commands are exposed via ``datalad.api``.
     Thus, any command can be imported as a stand-alone command like this::
@@ -130,7 +125,7 @@ of the flowers in centimeters. It is often used in introductory data science
 courses for statistical classification techniques in machine learning, and
 widely available -- a perfect dataset for your midterm project!
 
-.. admonition:: Turn data analysis into dynamically generated documents
+.. importantnote:: Turn data analysis into dynamically generated documents
 
    Beyond the contents of this section, we have transformed the example analysis also into a template to write a reproducible paper, following the use case :ref:`usecase_reproducible_paper`.
    If you're interested in checking that out, please head over to `github.com/datalad-handbook/repro-paper-sketch/ <https://github.com/datalad-handbook/repro-paper-sketch/>`_.
@@ -445,7 +440,7 @@ re-execution with :command:`datalad rerun` easy.
    snippets to copy and paste. However, if you do not want to install any
    Python packages, do not execute the remaining code examples in this section
    -- an upcoming section on ``datalad containers-run`` will allow you to
-   perform the analysis without changing with your Python software-setup.
+   perform the analysis without changing your Python software-setup.
 
 .. windows-wit:: You may need to use "python", not "python3"
 
@@ -645,7 +640,7 @@ The command takes a repository name and GitHub authentication credentials
 ``github-passwd <PASSWORD>``, with an *oauth* `token <https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/creating-a-personal-access-token>`_ stored in the Git
 configuration, or interactively).
 
-.. admonition:: GitHub deprecates its User Password authentication
+.. importantnote:: GitHub deprecates its User Password authentication
 
    GitHub `decided to deprecate user-password authentication <https://developer.github.com/changes/2020-02-14-deprecating-password-auth/>`_ and will only support authentication via personal access token from November 13th 2020 onwards.
    Upcoming changes in DataLad's API will reflect this change starting with DataLad version ``0.13.6`` by removing the ``github-passwd`` argument.
@@ -673,7 +668,7 @@ configure this repository as a sibling of the dataset:
 
 .. windows-wit:: Your shell will not display credentials
 
-   Don't be confused if you are prompted for your GitHub credentials, but can't seem to type -- The terminal protects your private information by not displaying what you type.
+   Don't be confused if you are prompted for your GitHub credentials, but can't seem to type -- the terminal protects your private information by not displaying what you type.
    Simply type in what is requested, and press enter.
 
 .. code-block:: bash
@@ -714,7 +709,7 @@ state of the dataset to this :term:`sibling` with the :command:`datalad push`
     proportion of the previous handbook content as a prerequisite. In order to be
     not too overwhelmingly detailed, the upcoming sections will approach
     :command:`push` from a "learning-by-doing" perspective:
-    You will see a first :command:`push` to GitHub below, and the findoutmore at
+    You will see a first :command:`push` to GitHub below, and the :ref: find-out-more on the published dataset <fom-midtermclone>`
     the end of this section will already give a practical glimpse into the
     difference between annexed contents and contents stored in Git when pushed
     to GitHub. The chapter :ref:`chapter_thirdparty` will extend on this,
@@ -892,11 +887,11 @@ reproduce your data science project easily from scratch (take a look into the :r
          configured your dataset. If you want to re-read the full chapter on
          configurations and run-procedures, start with section :ref:`config`.
 
-.. [#f5] Instead of using GitHub's WebUI you could also obtain a token using the command line GitHub interface (https://github.com/sociomantic/git-hub) by running ``git hub setup`` (if no 2FA is used).
+.. [#f5] Instead of using GitHub's WebUI you could also obtain a token using the command line GitHub interface (https://github.com/sociomantic-tsunami/git-hub) by running ``git hub setup`` (if no 2FA is used).
          If you decide to use the command line interface, here is help on how to use it:
-         Clone the `GitHub repository <https://github.com/sociomantic/git-hub>`_ to your local computer.
+         Clone the `GitHub repository <https://github.com/sociomantic-tsunami/git-hub>`_ to your local computer.
          Decide whether you want to build a Debian package to install, or install the single-file Python script distributed in the repository.
-         Make sure that all `requirements <https://github.com/sociomantic-tsunami/git-hub#dependencies>`_ for your preferred version are installed , and run either ``make deb`` followed by ``sudo dpkg -i deb/git-hub*all.deb`` or ``make install``.
+         Make sure that all `requirements <https://github.com/sociomantic-tsunami/git-hub#dependencies>`_ for your preferred version are installed , and run either ``make deb`` followed by ``sudo dpkg -i deb/git-hub*all.deb``, or ``make install``.
 
 .. [#f6] Note that this is a :command:`git push`, not :command:`datalad push`.
          Tags could be pushed upon a :command:`datalad push`, though, if one

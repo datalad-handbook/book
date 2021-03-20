@@ -147,7 +147,7 @@ And here is how to set the values for these variables:
   This translates to "unlock the path the previous command operated on, in the
   dataset the previous command operated on". Another example is this run command::
 
-     $ FIXME run  {{"cmd": "cp ~/templates/standard-readme.txt {path}/README", "dataset": "{dsarg}", "explicit": true}}
+     $ run  {{"cmd": "cp ~/Templates/standard-readme.txt {path}/README", "dataset": "{dsarg}", "explicit": true}}
 
   This translate to "execute a run command in the dataset the previous command operated
   on. In this run command, copy a README template file from ``~/Templates/standard-readme.txt``

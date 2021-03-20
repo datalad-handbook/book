@@ -282,8 +282,7 @@ name: enabling this repository will not do any harm if your field is not
 neuroscience.
 
 Whichever repository you end up using, the following command installs DataLad
-and all of its software dependencies (including :term:`git-annex` and `p7zip
-<http://p7zip.sourceforge.net/>`_):
+and all of its software dependencies (including :term:`git-annex` and `p7zip <http://p7zip.sourceforge.net/>`_):
 
 .. code-block:: bash
 
@@ -295,8 +294,7 @@ available version.
 Linux: CentOS, Redhat, Fedora, or similar systems
 """""""""""""""""""""""""""""""""""""""""""""""""
 
-For CentOS, Redhat, Fedora, or similar distributions, there is an `RPM package
-for git-annex <https://git-annex.branchable.com/install/rpm_standalone/>`_.  A
+For CentOS, Redhat, Fedora, or similar distributions, there is an `RPM package for git-annex <https://git-annex.branchable.com/install/rpm_standalone/>`_.  A
 suitable version of Python and :term:`Git` should come with the operating
 system, although some servers may run fairly old releases.
 

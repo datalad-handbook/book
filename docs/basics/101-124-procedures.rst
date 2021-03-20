@@ -28,11 +28,6 @@ nothing more than a simple script that
 - writes the relevant configuration (``annex_largefiles = '((mimeencoding=binary)and(largerthan=0))'``,  i.e., "Do not put anything that is a text file in the annex") to the ``.gitattributes`` file of a dataset, and
 - saves this modification with the commit message "Instruct annex to add text files to Git".
 
-.. windows-wit:: Why this configuration does not work for Windows users
-
-   If you're on a **Windows 10** machine with a **native** (i.e., non :term:`WSL` based installation) of DataLad and did **not** use the custom :term:`git-annex` installer from `http://datasets.datalad.org/datalad/packages/windows/ <http://datasets.datalad.org/datalad/packages/windows/>`_ at the start of the Basics, the ``text2git`` configuration will lead to errors upon a :command:`datalad save`.
-   This is because MagicMime (used in ``mimeencoding=binary`` to determine the file type of any given file by searching for `magic numbers <https://en.wikipedia.org/wiki/List_of_file_signatures>`_) is not natively available on Windows.
-
 This particular procedure lives in a script called
 ``cfg_text2git`` in the sourcecode of DataLad. The amount of code
 in this script is not large, and the relevant lines of code
@@ -75,10 +70,11 @@ only modify ``.gitattributes``, but can also populate a dataset
 with particular content, or automate routine tasks such as
 synchronizing dataset content with certain siblings.
 What makes them a particularly versatile and flexible tool is
-that anyone can write their own procedures (find a tutorial :ref:`here <fom-procedures>`. If a workflow is
-a standard in a team and needs to be applied often, turning it into
-a script can save time and effort. By pointing DataLad
-to the location the procedures reside in they can be applied, and by
+that anyone can write their own procedures.
+If a workflow is a standard in a team and needs to be applied often, turning it into
+a script can save time and effort.
+To learn how to do this, read the :ref:`with a tutorial on writing own procedures <fom-procedures>`.
+By pointing DataLad to the location the procedures reside in they can be applied, and by
 including them in a dataset they can even be shared.
 And even if the script is simple, it is very handy to have preconfigured
 procedures that can be run in a single command line call. In the

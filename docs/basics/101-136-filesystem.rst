@@ -112,8 +112,7 @@ section. If you are a Git user, you will be very familiar with it.
 
    Git has built-in commands that provide a solution in two steps.
 
-   If you have followed along with the previous :command:`datalad save`
-   (which you should have), let's revert the renaming of the the files:
+   If you have followed along with the previous :command:`datalad save`, let's revert the renaming of the the files:
 
    .. runrecord:: _examples/DL-101-136-105
       :language: console
@@ -243,6 +242,9 @@ After a ``datalad save``, the symlink is fixed again.
 Therefore, in general, whenever moving or renaming a file,
 especially between directories, a ``datalad save`` is
 the best option to turn to.
+Therefore, while it might be startling
+if you've moved a file and can not open it directly afterwards, everything
+will be rectified by :command:`datalad save` as well.
 
 .. find-out-more:: Why a move between directories is actually a content change
 
@@ -263,17 +265,14 @@ the best option to turn to.
    and feels like a move on the file system for you is actually a
    move plus a content change for Git.
 
-   An additional piece of background information: A :command:`datalad save` command
-   internally uses a :command:`git commit` to save changes to a dataset.
+
+.. gitusernote:: git annex fix
+
+   A :command:`datalad save` command internally uses a :command:`git commit` to save changes to a dataset.
    :command:`git commit` in turn triggers a :command:`git annex fix`
    command. This git-annex command fixes up links that have become broken
    to again point to annexed content, and is responsible for cleaning up
    what needs to be cleaned up. Thanks, git-annex!
-
-
-Therefore, while it might be startling
-if you've moved a file and can not open it directly afterwards, everything
-will be rectified by :command:`datalad save` as well.
 
 Finally, let's clean up:
 
@@ -854,8 +853,8 @@ Consider you intend to share the cropped ``.png`` images you created from the
 or :term:`GitLab`, these files would not be available to others, because annexed
 dataset contents can not be published to these services.
 Even though you could find a third party service of your choice
-and publish your dataset *and* the annexed data (section :ref:`sharethirdparty`
-will demonstrate how this can be done), you're feeling lazy today. And since it
+and publish your dataset *and* the annexed data (see section :ref:`sharethirdparty`),
+you're feeling lazy today. And since it
 is only two files, and they are quite small, you decide to store them in Git --
 this way, the files would be available without configuring an external data
 store.

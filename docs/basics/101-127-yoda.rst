@@ -142,8 +142,7 @@ computational environments, results, ...) in dedicated directories. For example:
   project for each analysis, instead of conflating them.
 
 This, for example, would be a directory structure from the root of a
-superdataset of a very comprehensive [#f3]_
-data analysis project complying to the YODA principles:
+superdataset of a very comprehensive data analysis project complying to the YODA principles:
 
 .. code-block:: bash
 
@@ -171,6 +170,34 @@ data analysis project complying to the YODA principles:
     ├── HOWTO.md
     └── README.md
 
+You can get a few non-DataLad related advice for structuring your directories in the :ref:`on best practices for analysis organization <fom-yodaproject>`.
+
+.. find-out-more:: More best practices for organizing contents in directories
+   :name: fom-yodaproject
+   :float:
+
+   The exemplary YODA directory structure is very comprehensive, and displays many best-practices for
+   reproducible data science. For example,
+
+   #. Within ``code/``, it is best practice to add **tests** for the code.
+      These tests can be run to check whether the code still works.
+
+   #. It is even better to further use automated computing, for example
+      `continuous integration (CI) systems <https://en.wikipedia.org/wiki/Continuous_integration>`_,
+      to test the functionality of your functions and scripts automatically.
+      If relevant, the setup for continuous integration frameworks (such as
+      `Travis <https://travis-ci.org>`_) lives outside of ``code/``,
+      in a dedicated ``ci/`` directory.
+
+   #. Include **documents for fellow humans**: Notes in a README.md or a HOWTO.md,
+      or even proper documentation (for example using  in a dedicated ``docs/`` directory.
+      Within these documents, include all relevant metadata for your analysis. If you are
+      conducting a scientific study, this might be authorship, funding,
+      change log, etc.
+
+   If writing tests for analysis scripts or using continuous integration
+   is a new idea for you, but you want to learn more, check out
+   `this chapter on testing <https://the-turing-way.netlify.com/testing/testing.html>`_.
 
 There are many advantages to this modular way of organizing contents.
 Having input data as independent components that are not altered (only
@@ -329,7 +356,7 @@ and by means of which command.
 
 With another DataLad command one can even go one step further:
 The command :command:`datalad containers-run` (it will be introduced in
-a later part of the book) performs a command execution within
+section :ref:`containersrun`) performs a command execution within
 a configured containerized environment. Thus, not only inputs,
 outputs, command, time, and author, but also the *software environment*
 are captured as provenance of a dataset component such as a results file,
@@ -426,30 +453,6 @@ YODA principles.
          in the wonderful book `The Turing Way <https://the-turing-way.netlify.com/introduction/introduction>`_,
          a comprehensive guide to reproducible data science, or read about it in
          section :ref:`containersrun`.
-
-.. [#f3] This directory structure is very comprehensive, and displays many best-practices for
-         reproducible data science. For example,
-
-            #. Within ``code/``, it is best practice to add **tests** for the code.
-               These tests can be run to check whether the code still works.
-
-            #. It is even better to further use automated computing, for example
-               `continuous integration (CI) systems <https://en.wikipedia.org/wiki/Continuous_integration>`_,
-               to test the functionality of your functions and scripts automatically.
-               If relevant, the setup for continuous integration frameworks (such as
-               `Travis <https://travis-ci.org>`_) lives outside of ``code/``,
-               in a dedicated ``ci/`` directory.
-
-            #. Include **documents for fellow humans**: Notes in a README.md or a HOWTO.md,
-               or even proper documentation (for example using  in a dedicated ``docs/`` directory.
-               Within these documents, include all relevant metadata for your analysis. If you are
-               conducting a scientific study, this might be authorship, funding,
-               change log, etc.
-
-         If writing tests for analysis scripts or using continuous integration
-         is a new idea for you, but you want to learn more, check out
-         `this excellent chapter on testing <https://the-turing-way.netlify.com/testing/testing.html#Acceptance_testing>`_
-         in the book `The Turing Way <https://the-turing-way.netlify.com/introduction/introduction>`_.
 
 .. [#f4] Substitute unfeasible with *wasteful*, *impractical*, or simply *stupid* if preferred.
 

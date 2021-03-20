@@ -24,18 +24,6 @@ section by looking into it.
 
 This file lies right in the root of your superdataset:
 
-.. windows-wit:: Your file contents are slightly different
-
-   Windows users that did not use the custom :term:`git-annex` installer from `http://datasets.datalad.org/datalad/packages/windows/ <http://datasets.datalad.org/datalad/packages/windows/>`_ had to modify the ``.gitattributes`` file at the start of the Basics.
-   Instead of a line that contains "``mimencoding``", There should be the following two lines::
-
-      *.txt annex.largefiles=nothing
-      code/** annex.largefiles=nothing
-
-   This workaround was necessary because the default way of identifying file types (such as text files or binary files) as implemented by the ``text2git`` configuration option relies on a process called "mimeencoding" [#f1]_ -- a method to identify file types without only looking at their extension.
-   Windows does not support mimeencoding, and hence we had to explicitly add directories or file extensions for files that should not get annexed.
-   Please read on for more insights into the largefiles rules in ``.gitattributes``.
-
 .. runrecord:: _examples/DL-101-123-101
    :language: console
    :workdir: dl-101/DataLad-101
@@ -457,24 +445,24 @@ configuration option thus is the environment variable ``DATALAD_LOG_LEVEL``.
 .. find-out-more:: Some more general information on environment variables
    :name: fom-envvar
 
-     Names of environment variables are often all-uppercase. While the ``$`` is not part of
-     the name of the environment variable, it is necessary to *refer* to the environment
-     variable: To reference the value of the environment variable ``HOME`` for example you would
-     need to use ``echo $HOME`` and not ``echo HOME``. However, environment variables are
-     set without a leading ``$``. There are several ways to set an environment variable
-     (note that there are no spaces before and after the ``=`` !), leading to different
-     levels of availability of the variable:
+   Names of environment variables are often all-uppercase. While the ``$`` is not part of
+   the name of the environment variable, it is necessary to *refer* to the environment
+   variable: To reference the value of the environment variable ``HOME`` for example you would
+   need to use ``echo $HOME`` and not ``echo HOME``. However, environment variables are
+   set without a leading ``$``. There are several ways to set an environment variable
+   (note that there are no spaces before and after the ``=`` !), leading to different
+   levels of availability of the variable:
 
-     - ``THEANSWER=42 <command>`` makes the variable ``THEANSWER`` available for the process in ``<command>``.
-       For example, ``DATALAD_LOG_LEVEL=debug datalad get <file>`` will execute the :command:`datalad get`
-       command (and only this one) with the log level set to "debug".
-     - ``export THEANSWER=42`` makes the variable ``THEANSWER`` available for other processes in the
-       same session, but it will not be available to other shells.
-     - ``echo 'export THEANSWER=42' >> ~/.bashrc`` will write the variable definition in the
-       ``.bashrc`` file and thus available to all future shells of the user (i.e., this will make
-       the variable permanent for the user)
+   - ``THEANSWER=42 <command>`` makes the variable ``THEANSWER`` available for the process in ``<command>``.
+     For example, ``DATALAD_LOG_LEVEL=debug datalad get <file>`` will execute the :command:`datalad get`
+     command (and only this one) with the log level set to "debug".
+   - ``export THEANSWER=42`` makes the variable ``THEANSWER`` available for other processes in the
+     same session, but it will not be available to other shells.
+   - ``echo 'export THEANSWER=42' >> ~/.bashrc`` will write the variable definition in the
+     ``.bashrc`` file and thus available to all future shells of the user (i.e., this will make
+     the variable permanent for the user)
 
-     To list all of the configured environment variables, type ``env`` into your terminal.
+   To list all of the configured environment variables, type ``env`` into your terminal.
 
 
 Summary

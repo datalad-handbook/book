@@ -11,8 +11,7 @@ shown you crucial aspects of the functions of dataset publishing with
 
    :command:`datalad push` requires DataLad version ``0.13.0`` or higher.
    Older DataLad versions need to use the :command:`datalad publish` command.
-   For details into ``datalad publish``, please check out the hidden section at
-   the end of this page.
+   For details into ``datalad publish``, please check out the :ref:`find-out-more on the difference between the two commands <fom-publish>` at the end of this page.
 
 The general overview
 ^^^^^^^^^^^^^^^^^^^^
@@ -66,8 +65,7 @@ from the command line::
 If you have more than one :term:`branch` in your dataset, note that a
 :command:`datalad push` command will by default update all branches that both
 the sibling and the dataset share. If such advanced aspects of pushing are
-relevant for your workflow, please check out the hidden section at the end of
-this paragraph.
+relevant for your workflow, please check out the :ref:`find-out-more about this <fom-push-branch>`.
 
 By default, :command:`push` will make the last saved state of the dataset
 available. Consequently, if the sibling is in the same state as the dataset,
@@ -78,20 +76,29 @@ of dataset contents are going to be published. With a sibling that has a
 or a sibling that contains an annex (such as a Gin repository or a
 :term:`Remote Indexed Archive (RIA) store`), both the contents
 stored in Git (i.e., a dataset's history) as well as file contents stored in
-git-annex will be published.
-
+git-annex will be published unless dataset configurations overrule this.
 Alternatively, one can enforce particular operations or push a subset of dataset
 contents. For one, when specifying a path in the :command:`datalad push` command,
 only data or changes for those paths are considered for a push.
-Additionally, one can select a particular mode of operation with the ``-f/--force``
-option. Several different modes are possible:
+Additionally, one can select a particular mode of operation with the ``-data`` option.
+Several different modes are possible:
 
-- ``no-datatransfer``: With this option, annexed contents are not published. This
+- ``nothing``: With this option, annexed contents are not published. This
   means that the sibling will have information on the annexed files' names, but
   file contents will not be available, and thus ``datalad get`` calls in the
   sibling would fail.
-- ``datatransfer``: With this option, the underlying ``git annex copy`` call to
-  publish file contents is evoked without a ``--fast`` option. Usually, the
+- ``anything``: Transfer all annexed contents.
+- ``auto``: With this option, the decision which data is transferred is based on configurations that can determine rules on a per-file and per-sibling level.
+  On a technical level, the ``git annex copy`` call to publish file contents is called with its ``--auto`` option.
+  With this option, only data that satisfies specific git-annex configurations gets transferred.
+  Those configurations could be ``numcopies`` settings (the number of copies available at different remotes), or ``wanted`` settings (preferred contents for a specific remote), and need to be created by a user [#f2]_ with git-annex commands. If you have files you want to keep private, or do not need published, these configurations are very useful.
+- ``auto-if-wanted`` (Default): Unless a ``wanted`` or ``numcopies`` configuration exists in the dataset, all content are published. Should a ``wanted`` or ``numcopies`` configuration exist, the command enables ``--auto`` in the underlying ``git annex copy`` call.
+
+Beyond different modes of transferring data, the ``-f/--force`` option allows to force specific publishing operations with three different modes.
+Be careful when using it, as its modes possibly overrule safety protections or optimizations:
+
+- ``checkdatapresent``: With this option, the underlying ``git annex copy`` call to
+  publish file contents is invoked without a ``--fast`` option. Usually, the
   ``--fast`` option increases the speed of the operation, as it disables a check
   whether the sibling already has content. This however, might skip copying content
   in some cases. Therefore, ``--force datatransfer`` is a slower, but more fail-safe
@@ -100,8 +107,7 @@ option. Several different modes are possible:
   this option - it will push all branches that are known to the sibling, and if
   the changes on these branches are conflicting with the changes that exist in
   the sibling, the changes that exist in the sibling will be overwritten.
-- ``all``: The final mode, ``all``, combines modes ``gitpush`` and ``datatransfer``,
-  thus attempting to really get your dataset contents published.
+- ``all``: The final mode, ``all``, combines all force modes -- thus attempting to really get your dataset contents published by any means.
 
 
 :command:`datalad push` can publish available subdatasets recursively if the
@@ -111,6 +117,8 @@ the top-level :command:`push` command, or that appropriate default publication
 targets are configured throughout the dataset hierarchy.
 
 .. find-out-more:: Pushing more than the current branch
+   :name: fom-push-branch
+   :float:
 
    If you have more than one :term:`branch` in your
    dataset, a :command:`datalad push --to <sibling>` will by default only push
@@ -175,8 +183,8 @@ If it is individual files that you do not want to share, you can selectively
 publish the contents of all files you want others to have, and withhold the data
 of the files you do not want to share. This can be done by publishing only
 selected files by providing paths, or overriding default push behavior with
-the ``-f/--force`` option. In the latter case, specifying ``-f no-datatransfer``
-would for example not push any annexed contents.
+the ``--data`` option and git-annex ``wanted`` configurations.
+Specifying ``--data nothing`` would for example not push any annexed contents.
 
 Let's say you have a dataset with three files:
 
@@ -187,17 +195,11 @@ Let's say you have a dataset with three files:
 Consider that all of these files are annexed. While the information in
 ``experiment.txt`` is fine for everyone to see, ``subject_1.dat`` and
 ``subject_2.dat`` contain personal and potentially identifying data that
-can not be shared. Nevertheless, you want collaborators to know that these
-files exist. The use case
-
-.. todo::
-
-  Write use case "external researcher without data access"
-
-details such a scenario and demonstrates how external collaborators (with whom data
-can not be shared) can develop scripts against the directory structure and
-file names of a dataset, submit those scripts to the data owners, and thus still perform an
-analysis despite not having access to the data.
+can not be shared. Nevertheless, you want collaborators (with whom data
+can not be shared) to know that these files exist, for example such that
+they can develop scripts against the directory structure and
+file names of a dataset, submit those scripts to the data owners,
+and thus still perform an analysis despite not having access to the data.
 
 By publishing only the file contents of ``experiment.txt`` with
 
@@ -213,6 +215,8 @@ dataset history (unless you specify a commit range with the ``--since`` option
 for more information).
 
 .. find-out-more:: On the datalad publish command
+   :float:
+   :name: fom-publish
 
    Starting with DataLad version ``0.13.0``, :command:`datalad push` was introduced
    and became an alternative to :command:`datalad publish`, which will be
@@ -248,15 +252,11 @@ for more information).
    In order to publish all annexed contents, one needs to specify ``--transfer-data all``.
    Alternatively, adding paths to the ``publish`` call will publish the specified
    annexed content (unless ``--transfer-data none`` is explicitly added).
-   As yet another alternative, one needs to add appropriate configuration for :term:`git-annex`,
-   that :command:`publish` can rely on in ``auto`` mode. These configurations
-   allow fine-grained specifications of up to file type or individual file level.
-   More information on these configurations can be found in
-   `git-annex's documentation <https://git-annex.branchable.com/git-annex-preferred-content/>`__.
+   As yet another alternative, one needs to add the same configuration for :term:`git-annex` that the option ``--auto`` of :command:`push` need.
 
 .. rubric:: Footnotes
 
 .. [#f1]  RIA siblings are filesystem-based, scalable storage solutions for
           DataLad datasets. You can find out more about them in the section
           :ref:`riastore`.
-
+.. [#f2] For information on the ``numcopies`` and ``wanted`` settings of git-annex see its documentation at `git-annex.branchable.com/git-annex-wanted/ <https://git-annex.branchable.com/git-annex-wanted/>`_ and `git-annex.branchable.com/git-annex-numcopies/ <https://git-annex.branchable.com/git-annex-numcopies/>`_.

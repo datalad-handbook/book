@@ -113,15 +113,17 @@ is not very helpful.
 Changing the commit message of the most recent commit can be done with
 the command :command:`git commit --amend`. Running this command will open
 an editor (the default, as configured in Git), and allow you
-to change the commit message.
+to change the commit message. Make sure to read the :ref:`find-out-more on changing other than the most recent commit <fom-rebase1>` in case you want to improve the commit message of more commits than only the latest.
 
 Try running the :command:`git commit --amend` command right now and give
 the commit a new commit message (you can just delete the one created by
 DataLad in the editor)!
 
 .. find-out-more:: Changing the commit messages of not-the-most-recent commits
+   :name: fom-rebase1
+   :float:
 
-   The :command:`git commit --amend` commands will let you
+   The :command:`git commit --amend` command will let you
    rewrite the commit message of the most recent commit. If you
    however need to rewrite commit messages of older commits, you
    can do so during a so-called "interactive rebase" [#f4]_. The command
@@ -202,7 +204,7 @@ want to achieve is to keep all of the files and their contents
 in the dataset, but get them out of the history into an
 *untracked* state again, and save them *individually* afterwards.
 
-.. important::
+.. importantnote:: Untracking is different for Git versus git-annex!
 
    Note that this is a case with *text files* (stored in Git)! For
    accidental annexing of files, please make sure to check out
@@ -716,7 +718,7 @@ overview on the necessary steps, and a pointer to a more comprehensive guide.
   to read the instructions Git is giving you -- they are a useful guide.
 - Also, it is reassuring to remember that you can always get out of
   a merge conflict by aborting the operation that led to it (e.g.,
-  ``git rebase --abort``.
+  ``git rebase --abort``).
 - To actually solve a merge conflict, you will have to edit files: In the
   documents the merge conflict applies to, Git marks the sections it needs
   help with with markers that consists of ``>``, ``<``, and ``=``

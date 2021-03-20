@@ -204,7 +204,7 @@ want to achieve is to keep all of the files and their contents
 in the dataset, but get them out of the history into an
 *untracked* state again, and save them *individually* afterwards.
 
-.. important::
+.. importantnote:: Untracking is different for Git versus git-annex!
 
    Note that this is a case with *text files* (stored in Git)! For
    accidental annexing of files, please make sure to check out

@@ -206,7 +206,7 @@ Subdataset publishing
 Just as the input subdataset ``iris_data`` in your published ``midterm_project``
 was referencing its source on :term:`GitHub`, the ``longnow`` subdataset in your
 published ``DataLad-101`` dataset directly references the original
-dataset on :term:`GitHub`. If you click onto ``recordings`` and then ``longnow``, you will
+dataset on :term:`GitHub`. If you click onto ``recordings`` and then ``longnow`` in GIN's webinterface, you will
 be redirected to the podcast's original dataset.
 
 The subdataset ``midterm_project``, however, is not successfully referenced. If

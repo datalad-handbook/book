@@ -65,8 +65,7 @@ from the command line::
 If you have more than one :term:`branch` in your dataset, note that a
 :command:`datalad push` command will by default update all branches that both
 the sibling and the dataset share. If such advanced aspects of pushing are
-relevant for your workflow, please check out the hidden section at the end of
-this paragraph.
+relevant for your workflow, please check out the :ref:`find-out-more about this <fom-push-branch>`.
 
 By default, :command:`push` will make the last saved state of the dataset
 available. Consequently, if the sibling is in the same state as the dataset,
@@ -110,6 +109,8 @@ the top-level :command:`push` command, or that appropriate default publication
 targets are configured throughout the dataset hierarchy.
 
 .. find-out-more:: Pushing more than the current branch
+   :name: fom-push-branch
+   :float:
 
    If you have more than one :term:`branch` in your
    dataset, a :command:`datalad push --to <sibling>` will by default only push

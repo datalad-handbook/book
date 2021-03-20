@@ -100,7 +100,6 @@ for you on :term:`GitHub`), this needs to be done via the web interface:
 Afterwards, add this repository as a sibling of your dataset. To do this, use the
 :command:`datalad siblings add` command and the SSH URL of the repository as shown below.
 Note that since this is the first time you will be connecting to the GIN server
-Note that since this is the first time you will be connecting to the GIN server
 via SSH, you will likely be asked to confirm to connect. This is a safety measure,
 and you can type "yes" to continue::
 

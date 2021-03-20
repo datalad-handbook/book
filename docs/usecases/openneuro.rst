@@ -38,6 +38,11 @@ Afterwards, you can browse the dataset for files that you need and obtain them w
      action summary:
         get (ok: 1)
 
+Likewise, you can get datasets from OpenNeuro (and legacy datasets from OpenNeuro's predecessor `OpenfMRI <https://openfmri.org/>`_) via :term:`the Datalad superdataset ///`::
+
+   $ datalad clone ///openneuro/ds002336
+   # you can also install legacy datasets from openfMRI
+   $ datalad clone ///openfmri/ds000030
 
 What's DataLad and why should I use it to do this?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

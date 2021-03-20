@@ -127,12 +127,11 @@ repository on GIN supports a dataset annex, there is no publication dependency
 to an external data hosting service necessary, and the dataset contents
 stored in Git and in git-annex are published to the same place:
 
+.. runrecord:: _examples/DL-101-139-102
+   :language: console
+   :workdir: dl-101/DataLad-101
 
- .. runrecord:: _examples/DL-101-139-102
-    :language: console
-    :workdir: dl-101/DataLad-101
-
-    $ datalad push --to gin
+   $ datalad push --to gin
 
 If you refresh the GIN web interface afterwards, you will find all of your dataset
 -- including annexed contents! -- on GIN. What is especially cool is that the

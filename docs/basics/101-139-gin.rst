@@ -78,6 +78,9 @@ the tab "SSH Keys", and click the button "Add Key":
 
 .. figure:: ../artwork/src/GIN_SSH_1.png
 
+   Upload your SSH key to GIN
+
+
 You should copy the contents of your public key file into the field labeled
 ``content``, and enter an arbitrary but informative ``Key Name``, such as
 "My private work station". Afterwards, you are done!

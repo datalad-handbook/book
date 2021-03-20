@@ -718,7 +718,7 @@ overview on the necessary steps, and a pointer to a more comprehensive guide.
   to read the instructions Git is giving you -- they are a useful guide.
 - Also, it is reassuring to remember that you can always get out of
   a merge conflict by aborting the operation that led to it (e.g.,
-  ``git rebase --abort``.
+  ``git rebase --abort``).
 - To actually solve a merge conflict, you will have to edit files: In the
   documents the merge conflict applies to, Git marks the sections it needs
   help with with markers that consists of ``>``, ``<``, and ``=``

@@ -113,15 +113,17 @@ is not very helpful.
 Changing the commit message of the most recent commit can be done with
 the command :command:`git commit --amend`. Running this command will open
 an editor (the default, as configured in Git), and allow you
-to change the commit message.
+to change the commit message. Make sure to read the :ref:`find-out-more on changing other than the most recent commit <fom-rebase1>` in case you want to improve the commit message of more commits than only the latest.
 
 Try running the :command:`git commit --amend` command right now and give
 the commit a new commit message (you can just delete the one created by
 DataLad in the editor)!
 
 .. find-out-more:: Changing the commit messages of not-the-most-recent commits
+   :name: fom-rebase1
+   :float:
 
-   The :command:`git commit --amend` commands will let you
+   The :command:`git commit --amend` command will let you
    rewrite the commit message of the most recent commit. If you
    however need to rewrite commit messages of older commits, you
    can do so during a so-called "interactive rebase" [#f4]_. The command

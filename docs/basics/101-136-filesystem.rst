@@ -242,6 +242,9 @@ After a ``datalad save``, the symlink is fixed again.
 Therefore, in general, whenever moving or renaming a file,
 especially between directories, a ``datalad save`` is
 the best option to turn to.
+Therefore, while it might be startling
+if you've moved a file and can not open it directly afterwards, everything
+will be rectified by :command:`datalad save` as well.
 
 .. find-out-more:: Why a move between directories is actually a content change
 
@@ -262,10 +265,6 @@ the best option to turn to.
    and feels like a move on the file system for you is actually a
    move plus a content change for Git.
 
-
-Therefore, while it might be startling
-if you've moved a file and can not open it directly afterwards, everything
-will be rectified by :command:`datalad save` as well.
 
 .. gitusernote:: git annex fix
 

@@ -184,6 +184,9 @@ an SSH key as detailed above, and cloning via the SSH url:
 
    $ datalad clone git@gin.g-node.org:/adswa/DataLad-101.git
 
+Likewise, in order to publish changes back to a Gin repository, the repository needs
+to be cloned via its SSH url.
+
 .. find-out-more:: How do I know if my repository is private?
    :name: fom-private-gin
    :float:
@@ -191,10 +194,9 @@ an SSH key as detailed above, and cloning via the SSH url:
    Private repos are marked with a lock sign. To make it public, untick the
    "Private" box, found under "Settings":
 
-   .. image:: ../artwork/src/GIN_private.png
+   .. figure:: ../artwork/src/GIN_private.png
 
-In order to publish changes to a Gin repository, the repository needs
-to be cloned via its SSH url.
+
 
 
 .. _subdspublishing:

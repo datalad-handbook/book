@@ -262,17 +262,18 @@ the best option to turn to.
    and feels like a move on the file system for you is actually a
    move plus a content change for Git.
 
-   An additional piece of background information: A :command:`datalad save` command
-   internally uses a :command:`git commit` to save changes to a dataset.
-   :command:`git commit` in turn triggers a :command:`git annex fix`
-   command. This git-annex command fixes up links that have become broken
-   to again point to annexed content, and is responsible for cleaning up
-   what needs to be cleaned up. Thanks, git-annex!
-
 
 Therefore, while it might be startling
 if you've moved a file and can not open it directly afterwards, everything
 will be rectified by :command:`datalad save` as well.
+
+.. gitusernote:: git annex fix
+
+   A :command:`datalad save` command internally uses a :command:`git commit` to save changes to a dataset.
+   :command:`git commit` in turn triggers a :command:`git annex fix`
+   command. This git-annex command fixes up links that have become broken
+   to again point to annexed content, and is responsible for cleaning up
+   what needs to be cleaned up. Thanks, git-annex!
 
 Finally, let's clean up:
 

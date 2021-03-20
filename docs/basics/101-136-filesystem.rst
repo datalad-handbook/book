@@ -853,8 +853,8 @@ Consider you intend to share the cropped ``.png`` images you created from the
 or :term:`GitLab`, these files would not be available to others, because annexed
 dataset contents can not be published to these services.
 Even though you could find a third party service of your choice
-and publish your dataset *and* the annexed data (section :ref:`sharethirdparty`
-will demonstrate how this can be done), you're feeling lazy today. And since it
+and publish your dataset *and* the annexed data (see section :ref:`sharethirdparty`),
+you're feeling lazy today. And since it
 is only two files, and they are quite small, you decide to store them in Git --
 this way, the files would be available without configuring an external data
 store.

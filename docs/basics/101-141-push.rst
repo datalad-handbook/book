@@ -195,17 +195,11 @@ Let's say you have a dataset with three files:
 Consider that all of these files are annexed. While the information in
 ``experiment.txt`` is fine for everyone to see, ``subject_1.dat`` and
 ``subject_2.dat`` contain personal and potentially identifying data that
-can not be shared. Nevertheless, you want collaborators to know that these
-files exist. The use case
-
-.. todo::
-
-  Write use case "external researcher without data access"
-
-details such a scenario and demonstrates how external collaborators (with whom data
-can not be shared) can develop scripts against the directory structure and
-file names of a dataset, submit those scripts to the data owners, and thus still perform an
-analysis despite not having access to the data.
+can not be shared. Nevertheless, you want collaborators (with whom data
+can not be shared) to know that these files exist, for example such that
+they can develop scripts against the directory structure and
+file names of a dataset, submit those scripts to the data owners,
+and thus still perform an analysis despite not having access to the data.
 
 By publishing only the file contents of ``experiment.txt`` with
 

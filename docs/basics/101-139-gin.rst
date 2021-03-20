@@ -227,7 +227,7 @@ subdataset and the longnow dataset is its entry in the ``.gitmodules`` file of
            url = ./midterm_project
            datalad-id = e5a3d370-223d-11ea-af8b-e86a64c8054c
 
-While the podcast subdataset is referenced with a valid URL to GitHub, the midterm
+While the longnow subdataset is referenced with a valid URL to GitHub, the midterm
 project's URL is a relative path from the root of the superdataset. This is because
 the ``longnow`` subdataset was installed with :command:`datalad clone -d .`
 (that records the source of the subdataset), and the ``midterm_project`` dataset

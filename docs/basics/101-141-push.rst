@@ -252,11 +252,7 @@ for more information).
    In order to publish all annexed contents, one needs to specify ``--transfer-data all``.
    Alternatively, adding paths to the ``publish`` call will publish the specified
    annexed content (unless ``--transfer-data none`` is explicitly added).
-   As yet another alternative, one needs to add appropriate configuration for :term:`git-annex`,
-   that :command:`publish` can rely on in ``auto`` mode. These configurations
-   allow fine-grained specifications of up to file type or individual file level.
-   More information on these configurations can be found in
-   `git-annex's documentation <https://git-annex.branchable.com/git-annex-preferred-content/>`__.
+   As yet another alternative, one needs to add the same configuration for :term:`git-annex` that the option ``--auto`` of :command:`push` need.
 
 .. rubric:: Footnotes
 

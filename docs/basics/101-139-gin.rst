@@ -176,6 +176,7 @@ name and password for anyone you want to share your dataset with.
 The "Collaboration" tab under Settings lets you set fine-grained access rights,
 and it is possible to share datasets with collaborators that are not registered
 on GIN with provided Guest accounts.
+If you are unsure if your dataset is private, :ref:`this find-out-more shows you how to find out <fom-private-gin>`.
 In order to get access to annexed contents, cloning *requires* setting up
 an SSH key as detailed above, and cloning via the SSH url:
 
@@ -184,6 +185,8 @@ an SSH key as detailed above, and cloning via the SSH url:
    $ datalad clone git@gin.g-node.org:/adswa/DataLad-101.git
 
 .. find-out-more:: How do I know if my repository is private?
+   :name: fom-private-gin
+   :float:
 
    Private repos are marked with a lock sign. To make it public, untick the
    "Private" box, found under "Settings":

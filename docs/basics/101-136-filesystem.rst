@@ -112,8 +112,7 @@ section. If you are a Git user, you will be very familiar with it.
 
    Git has built-in commands that provide a solution in two steps.
 
-   If you have followed along with the previous :command:`datalad save`
-   (which you should have), let's revert the renaming of the the files:
+   If you have followed along with the previous :command:`datalad save`, let's revert the renaming of the the files:
 
    .. runrecord:: _examples/DL-101-136-105
       :language: console

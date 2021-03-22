@@ -24,7 +24,7 @@ We'll take a look together, using the ``books/`` directory as an example:
    First of all, the ``tree`` equivalent provided by :term:`conda`\s ``m2-base`` package doesn't list individual files, only directories.
    And, secondly, even if you list the individual files (e.g., with ``ls -l``), you would not see the :term:`symlink`\s shown below.
    Due to insufficient support of symlinks on Windows, git-annex does not use them.
-   Please read on for a basic understanding of how git-annex usually works -- a Windows-Workaround at the end of this section will then highlight the difference in functionality on Windows.
+   Please read on for a basic understanding of how git-annex usually works -- a Windows Wit at the end of this section will then highlight the difference in functionality on Windows.
 
 .. runrecord:: _examples/DL-101-115-101
    :language: console
@@ -299,13 +299,26 @@ Alternatively, use the :command:`ls` command in a terminal instead of a file man
 Other tools may be more more specialized, smaller, or domain-specific, and may fail to correctly work with broken symlinks, or display unhelpful error messages when handling them, or require additional flags to modify their behavior (such as the :ref:`BIDS Validator <bidsvalidator>`, used in the neuroimaging community).
 When encountering unexpected behavior or failures, try to keep in mind that a dataset without retrieved content appears to be a pile of broken symlinks to a range of tools, consult a tools documentation with regard to symlinks, and check whether data retrieval fixes persisting problems.
 
+
+Finally, if you are still in the ``books/`` directory, go back into the root of
+the superdataset.
+
+.. runrecord:: _examples/DL-101-115-106
+   :workdir: dl-101/DataLad-101/books
+   :language: console
+   :notes: understanding how symlinks work will help you with everyday file management operations.
+   :cast: 03_git_annex_basics
+
+   $ cd ../
+
+
 .. _wslfiles:
 
 Cross-OS filesharing with symlinks (WSL2 only)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Are you using DataLad on the Windows Subsystem for Linux?
-If so, please take a look into the Windows-Workaround below.
+If so, please take a look into the Windows Wit below.
 
 .. windows-wit:: Accessing symlinked files from your Windows system
 
@@ -324,17 +337,6 @@ If so, please take a look into the Windows-Workaround below.
    Alternatively, use `git-annex adjust --unlock <https://git-annex.branchable.com/git-annex-adjust/>`_ to switch to a new dataset :term:`branch` in which all files are unlocked.
    The branch is called ``adjusted/<branchname>(unlocked)`` (e.g., if the original branch name was ``main``, the new, adjusted branch will be called ``adjusted/main(unlocked)``).
    You can switch back to your original branch using ``git checkout <branchname>``.
-
-Finally, if you are still in the ``books/`` directory, go back into the root of
-the superdataset.
-
-.. runrecord:: _examples/DL-101-115-106
-   :workdir: dl-101/DataLad-101/books
-   :language: console
-   :notes: understanding how symlinks work will help you with everyday file management operations.
-   :cast: 03_git_annex_basics
-
-   $ cd ../
 
 .. rubric:: Footnotes
 

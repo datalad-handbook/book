@@ -170,7 +170,7 @@ If outputs already exist...
 
    Please don't skip the next section -- it is useful to know how datasets behave on other systems.
    Just be mindful that you will not encounter the errors that the handbook displays next.
-   And while this all sounds quite cryptic and vague, an upcoming Windows-Workaround will provide more information.
+   And while this all sounds quite cryptic and vague, an upcoming Windows Wit will provide more information.
 
 Looking at the resulting image, you wonder whether 400x400 might be a tiny bit to small.
 Maybe we should try to resize it to 450x450, and see whether that looks better?

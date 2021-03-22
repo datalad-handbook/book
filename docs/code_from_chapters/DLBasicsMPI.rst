@@ -439,58 +439,6 @@ Next, we set up and configure a dataset for the analysis.
 Given that code is frequently modified and should be easily editable, and would be useful to share right away if desired, it makes sense to keep it stored in Git.
 Thus, we preconfigure and prestructure the dataset with a few configurations:
 
-.. windows-wit:: Cave! The text2git configuration does not work!
-
-   If you are using **Windows 10** with a **native** (i.e., not `Windows Subsystem for Linux (WSL) <https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux>`_-based) installation of DataLad and its underlying tools, you need to do a work-around here.
-
-   We're really sorry about that -- as foreshadowed in section :ref:`install`, Windows comes with a range of file system issues, and one of them concerns the ``text2git`` configuration.
-   This configuration detects file types (such as text files, or image files) based on their `MIME type <https://www.howtogeek.com/192628/mime-types-explained-why-linux-and-mac-os-x-dont-need-file-extensions/>`_, but Windows lacks MIME type support, unfortunately.
-
-   Instead of running ``datalad create -c text2git -c yoda ml-project``, please remove the configuration ``-c text2git`` from the command and run only ``datalad create -c yoda  ml-project``::
-
-      $ datalad create -c yoda ml-project
-      [INFO] Creating a new annex repo at C:\Users\mih\ml-project
-      [INFO] Detected a filesystem without fifo support.
-      [INFO] Disabling ssh connection caching.
-      [INFO] Detected a crippled filesystem.
-      [INFO] Scanning for unlocked files (this may take some time)
-      [INFO] Entering an adjusted branch where files are unlocked as this filesystem does not support locked files.
-      [INFO] Switched to branch 'adjusted/master(unlocked)'
-      [INFO] Running procedure cfg_yoda
-      [INFO] == Command start (output follows) =====
-      [INFO] == Command exit (modification check follows) =====
-      create(ok): C:\Users\mih\ml-project (dataset)
-
-   Instead of the ``text2git`` configuration, you need to create a configuration by hand by pasting the following lines of text into the (hidden) ``.gitattributes`` file in your newly created dataset.
-   :ref:`chapter_config` can explain the details of this procedure.
-
-   Here are lines that need to be appended to the existing lines in ``.gitattributes`` and will mimic the configuration ``-c text2git`` would apply::
-
-     *.json annex.largefiles=nothing
-
-   You can achieve this by copy-pasting the following code snippets into your terminal (but you can also add them using a text editor of your choice):
-
-   .. code-block::
-
-      $ echo\ >> .gitattributes && echo *.json annex.largefiles=nothing >> .gitattributes
-
-   Afterwards, these should be the contents of ``.gitattributes``:
-
-   .. code-block::
-
-      $ cat .gitattributes
-        * annex.backend=MD5E
-        **/.git* annex.largefiles=nothing
-        CHANGELOG.md annex.largefiles=nothing
-        README.md annex.largefiles=nothing
-        *.json annex.largefiles=nothing
-
-   Lastly, run this piece of code to save your changes:
-
-   .. code-block:: bash
-
-      $ datalad save -m "Windows-workaround: custom config to place text into Git" .gitattributes
-
 .. code-block:: bash
 
    cd ../

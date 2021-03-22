@@ -299,6 +299,19 @@ Alternatively, use the :command:`ls` command in a terminal instead of a file man
 Other tools may be more more specialized, smaller, or domain-specific, and may fail to correctly work with broken symlinks, or display unhelpful error messages when handling them, or require additional flags to modify their behavior (such as the :ref:`BIDS Validator <bidsvalidator>`, used in the neuroimaging community).
 When encountering unexpected behavior or failures, try to keep in mind that a dataset without retrieved content appears to be a pile of broken symlinks to a range of tools, consult a tools documentation with regard to symlinks, and check whether data retrieval fixes persisting problems.
 
+
+Finally, if you are still in the ``books/`` directory, go back into the root of
+the superdataset.
+
+.. runrecord:: _examples/DL-101-115-106
+   :workdir: dl-101/DataLad-101/books
+   :language: console
+   :notes: understanding how symlinks work will help you with everyday file management operations.
+   :cast: 03_git_annex_basics
+
+   $ cd ../
+
+
 .. _wslfiles:
 
 Cross-OS filesharing with symlinks (WSL2 only)
@@ -324,17 +337,6 @@ If so, please take a look into the Windows Wit below.
    Alternatively, use `git-annex adjust --unlock <https://git-annex.branchable.com/git-annex-adjust/>`_ to switch to a new dataset :term:`branch` in which all files are unlocked.
    The branch is called ``adjusted/<branchname>(unlocked)`` (e.g., if the original branch name was ``main``, the new, adjusted branch will be called ``adjusted/main(unlocked)``).
    You can switch back to your original branch using ``git checkout <branchname>``.
-
-Finally, if you are still in the ``books/`` directory, go back into the root of
-the superdataset.
-
-.. runrecord:: _examples/DL-101-115-106
-   :workdir: dl-101/DataLad-101/books
-   :language: console
-   :notes: understanding how symlinks work will help you with everyday file management operations.
-   :cast: 03_git_annex_basics
-
-   $ cd ../
 
 .. rubric:: Footnotes
 

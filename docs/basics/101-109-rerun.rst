@@ -255,7 +255,7 @@ give the file path to :command:`git log` (prefixed by ``--``):
 
 .. windows-wit:: use "git log master -- recordings/podcasts.tsv"
 
-   A previous Windows-Workaround already advised to append ``main`` or ``master``, the common "default :term:`branch`", to any command that starts with ``git log``.
+   A previous Windows Wit already advised to append ``main`` or ``master``, the common "default :term:`branch`", to any command that starts with ``git log``.
    Here, the last part of the command specifies a file (``-- recordings/podcasts.tsv``).
    Please append ``main`` or ``master`` to ``git log``, prior to the file specification.
 

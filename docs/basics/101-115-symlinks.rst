@@ -24,7 +24,7 @@ We'll take a look together, using the ``books/`` directory as an example:
    First of all, the ``tree`` equivalent provided by :term:`conda`\s ``m2-base`` package doesn't list individual files, only directories.
    And, secondly, even if you list the individual files (e.g., with ``ls -l``), you would not see the :term:`symlink`\s shown below.
    Due to insufficient support of symlinks on Windows, git-annex does not use them.
-   Please read on for a basic understanding of how git-annex usually works -- a Windows-Workaround at the end of this section will then highlight the difference in functionality on Windows.
+   Please read on for a basic understanding of how git-annex usually works -- a Windows Wit at the end of this section will then highlight the difference in functionality on Windows.
 
 .. runrecord:: _examples/DL-101-115-101
    :language: console
@@ -305,7 +305,7 @@ Cross-OS filesharing with symlinks (WSL2 only)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Are you using DataLad on the Windows Subsystem for Linux?
-If so, please take a look into the Windows-Workaround below.
+If so, please take a look into the Windows Wit below.
 
 .. windows-wit:: Accessing symlinked files from your Windows system
 

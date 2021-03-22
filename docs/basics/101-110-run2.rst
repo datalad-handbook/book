@@ -166,7 +166,7 @@ If outputs already exist...
    The "unlocking" that is necessary on almost all other systems to modify a file is already done on Windows.
    Thus, all files in your dataset will be readily modifiable, sparing you the need to adjust to the unexpected behavior that is described below.
    While it is easier, it isn't a "more useful" behavior, though.
-   A different Windows-Workaround section in the next chapter will highlight how it rather is a suboptimal workaround.
+   A different Windows Wit in the next chapter will highlight how it rather is a suboptimal workaround.
 
    Please don't skip the next section -- it is useful to know how datasets behave on other systems.
    Just be mindful that you will not encounter the errors that the handbook displays next.

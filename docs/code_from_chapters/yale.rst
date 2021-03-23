@@ -346,3 +346,5 @@ You can query an individual file how it came to be...
 
    datalad rerun
 
+If this has intrigued you, you're at the right place to learn more about DataLad.
+Checkout the :ref:`Basics <basics-intro>` of the handbook, or take a closer look into specific :ref:`usecases <usecase-intro>`.

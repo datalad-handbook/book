@@ -304,22 +304,45 @@ This allows you to drop and re-obtain this file at any point, and makes it easie
 Finally, we need to register a software container to the dataset.
 Importantly, this container does not need to contain the analysis script.
 It just needs the correct software that the script requires -- in this case, a Python 3 environment with nilearn installed.
+
+.. find-out-more:: Creating a Singularity container with Neurodocker and Singularity Hub
+
+   In order to create this Singularity image, you first need a recipe.
+   `Neurodocker <https://github.com/ReproNim/neurodocker>`_ makes this really easy.
+   Here's the command used for minimal nilearn :term:`container recipe`::
+
+      docker run --rm repronim/neurodocker:latest generate singularity \
+      --base=debian:stretch --pkg-manager=apt \ 130 !
+      --install git \
+      --miniconda create_env=neuro \
+                  pip_install='nilearn matplotlib' \
+      --entrypoint "/neurodocker/startup.sh python"
+
+   The resulting recipe can be saved into a Git repository or DataLad dataset, and `Singularity Hub <https://singularity-hub.org/>`_ can be used to build and host the :term:`container image`.
+   Alternatively, a ``sudo singularity build <container-name> <recipe>`` build the image locally, and you can add it from a path to your dataset.
+
 Let's add this container to the dataset using :command:`datalad containers-add`::
 
-   datalad containers-add nilearn --url TODO
+   datalad containers-add nilearn \
+    --url shub://adswa/nilearn-container:latest \
+    --call-fmt "singularity exec {img} {cmd}
 
 Finally, call :command:`containers-run` to execute the script inside
 of the container.
 Here's how this looks like::
 
    datalad containers-run -m "Compute brain mask" \
+    -n nilearn \
     --input input/sub-02 \
     --output figures/ \
     --output sub-02* \
     "python code/get_brainmask.py"
 
-The provenance that was recorded can be rerun using ``datalad rerun``:
+You can query an individual file how it came to be...
+
+   git log sub-02_brain-mask.nii.gz
+
+... and the computation can be redone automatically based on the recorded provenance using ``datalad rerun``::
 
    datalad rerun
 
-# TODO push, clone, and rerun

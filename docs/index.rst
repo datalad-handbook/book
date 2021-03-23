@@ -112,7 +112,7 @@ Code lists from chapters
    code_from_chapters/MPI_code
    code_from_chapters/DLBasicsMPI
    code_from_chapters/ABCD
-
+   code_from_chapters/yale
 ..
   stuff that we do not need or show at the moment
 

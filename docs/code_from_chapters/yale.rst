@@ -325,7 +325,7 @@ Let's add this container to the dataset using :command:`datalad containers-add`:
 
    datalad containers-add nilearn \
     --url shub://adswa/nilearn-container:latest \
-    --call-fmt "singularity exec {img} {cmd}
+    --call-fmt "singularity exec {img} {cmd}"
 
 Finally, call :command:`containers-run` to execute the script inside
 of the container.
@@ -333,9 +333,9 @@ Here's how this looks like::
 
    datalad containers-run -m "Compute brain mask" \
     -n nilearn \
-    --input input/sub-02 \
+    --input input/sub-02/func/sub-02_task-oneback_run-01_bold.nii.gz \
     --output figures/ \
-    --output sub-02* \
+    --output "sub-02*" \
     "python code/get_brainmask.py"
 
 You can query an individual file how it came to be...

@@ -321,7 +321,8 @@ It just needs the correct software that the script requires -- in this case, a P
    The resulting recipe can be saved into a Git repository or DataLad dataset, and `Singularity Hub <https://singularity-hub.org/>`_ can be used to build and host the :term:`container image`.
    Alternatively, a ``sudo singularity build <container-name> <recipe>`` build the image locally, and you can add it from a path to your dataset.
 
-Let's add this container to the dataset using :command:`datalad containers-add`::
+Let's add this container to the dataset using :command:`datalad containers-add`.
+Note how we explicitly define how the container should be called - the placeholders ``{img}`` and ``{cmd}`` will expand to the container image and the supplied command when this container is called::
 
    datalad containers-add nilearn \
     --url shub://adswa/nilearn-container:latest \

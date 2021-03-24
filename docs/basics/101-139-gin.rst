@@ -154,6 +154,8 @@ repository's ``https`` url. This does not require a user account on Gin.
 
 .. importantnote:: Take the URL in the browser, not the copy-paste URL
 
+   .. index:: ! datalad command; clone
+
    Please note that you need to use the browser URL of the repository, not the copy-paste URL on the upper right hand side of the repository if you want to get anonymous HTTPS access!
    The two URLs differ only by a ``.git`` extension:
 
@@ -170,6 +172,8 @@ repository's ``https`` url. This does not require a user account on Gin.
 
 Subsequently, :command:`datalad get` calls will be able to retrieve all annexed
 file contents that have been published to the repository.
+
+.. index:: ! datalad command; clone
 
 If it is a **private** dataset, cloning the dataset from Gin requires a user
 name and password for anyone you want to share your dataset with.

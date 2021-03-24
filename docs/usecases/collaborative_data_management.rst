@@ -76,6 +76,8 @@ thanks to the yoda procedure:
    $ cd myanalysis
    $ tree
 
+.. index:: ! datalad command; clone
+
 Bob knows that a DataLad dataset can contain other datasets. He also knows that
 as any content of a dataset is tracked and its precise state is recorded,
 this is a powerful method to specify and later resolve data dependencies,

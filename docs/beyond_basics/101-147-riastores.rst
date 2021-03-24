@@ -449,6 +449,8 @@ As a demonstration, we'll do it for the ``midterm_project`` subdataset:
 Thus, in order to create and populate RIA stores, only the commands
 :command:`datalad create-sibling-ria` and :command:`datalad push` are required.
 
+.. index:: ! datalad command; clone
+
 Cloning and updating from RIA stores
 """"""""""""""""""""""""""""""""""""
 

@@ -81,6 +81,8 @@ home directory. Furthermore, let's for now disregard anything about
 :term:`permissions`. In a real-world example you likely would not be able to read and write
 to a different user's directories, but we will talk about permissions later.
 
+.. index:: ! datalad command; clone
+
 After creation, navigate into ``mock_user`` and install the dataset ``DataLad-101``.
 To do this, use :command:`datalad clone`, and provide a path to your original
 dataset. Here is how it looks like:
@@ -131,6 +133,8 @@ on first sight: They are symlinks pointing to some location in the
 object tree. To reassure your room mate that everything is fine you
 quickly explain to him the concept of a symlink and the :term:`object-tree`
 of :term:`git-annex`.
+
+.. index:: ! datalad command; clone
 
 "But why does the PDF not open when I try to open it?" he repeats.
 True, these files cannot be opened. This mimics our experience when
@@ -349,6 +353,8 @@ with the first subdataset::
 
 .. find-out-more:: datalad clone versus datalad install
    :name: fom_clonevsinstall
+
+   .. index:: ! datalad command; clone
 
    You may remember from section :ref:`installds` that DataLad has two commands to obtain datasets,
    :command:`datalad clone` and :command:`datalad install`.

@@ -46,6 +46,8 @@ and making simple modifications *locally*.
 Furthermore, we have discovered the basics of installing a published DataLad dataset,
 and experienced the concept of modular nesting datasets.
 
+.. index:: ! datalad command; clone
+
 * A published dataset can be installed with the :command:`datalad clone` command::
 
      $ datalad clone [--dataset PATH] SOURCE-PATH/URL [DESTINATION PATH]

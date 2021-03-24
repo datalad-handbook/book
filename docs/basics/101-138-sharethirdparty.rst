@@ -319,8 +319,10 @@ be managed and accessed via DataLad/git-annex.
 To actually share your dataset with someone, you need to *publish* it to Github,
 Gitlab, or a similar hosting service.
 
+.. index:: ! datalad command; create-sibling-github
+
 You could, for example, create a sibling of the ``DataLad-101`` dataset
-on GitHub with the command :command:`datalad-sibling-github`.
+on GitHub with the command :command:`create-sibling-github`.
 This will create a new GitHub repository called "DataLad-101" under your account,
 and configure this repository as a :term:`sibling` of your dataset
 called ``github`` (exactly like you have done in :ref:`yoda_project`
@@ -490,6 +492,7 @@ books, or the cropped logos from chapter :ref:`chapter_run`::
    $ datalad get books/TLCL.pdf
    get(ok): /home/some/other/user/DataLad-101/books/TLCL.pdf (file) [from dropbox-for-friends]
 
+.. index:: ! datalad command; create-sibling-github
 .. _gitlfs:
 
 Use GitHub for sharing content

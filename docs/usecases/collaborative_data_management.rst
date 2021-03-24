@@ -188,6 +188,8 @@ command:
    $ datalad update -s alice --merge
 
 
+.. index:: ! datalad command; create-sibling
+
 Finally, when Bob is ready to share his results with the world or a remote
 collaborator, he makes his dataset available by uploading them to a webserver
 via SSH. Bob does so by creating a sibling for the dataset on the server, to

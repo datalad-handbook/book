@@ -10,8 +10,8 @@ The additional text references additional resources and explanations if you want
 Introduction & set-up
 ^^^^^^^^^^^^^^^^^^^^^
 
-In order to code along, you should have a recent DataLad version, e.g., ``0.14.0`` or higher, installed, and you should have a configured :term:`Git` identity.
-If you need them, installation, updating, and configuration instructions are in the section :ref:`install`.
+In order to code along, you should have a recent DataLad version, e.g., ``0.14.0``, installed, you should have a configured :term:`Git` identity, and you should install the :term:`DataLad extension` "datalad-container".
+If you need them, installation, updating, and configuration instructions for DataLad and Git are in the section :ref:`install`.
 If you are unsure about your version of DataLad, you can check it using the following command::
 
    datalad --version
@@ -24,6 +24,15 @@ If you are unsure if you have configured your Git identity already, you can chec
    git config --get user.email
 
 If nothing is returned, you need to configure your :term:`Git` identity.
+
+In order to install ``datalad-container``, use a package manager such as :term:`pip`::
+
+   pip install datalad-container
+
+Beyond software usage, this tutorial will show you how to publish data.
+For this, we will be using gin.g-node.org, a free dataset hosting service.
+If you want to code along to this part of the tutorial, you may want to create a free user account and upload your :term:`SSH key` -- but worry not, you can also do this at a later stage, too.
+
 
 How to use DataLad
 ------------------
@@ -67,7 +76,7 @@ After creating it, the dataset is a new directory, and you can "change directori
 
    cd bids-data
 
-The "text2git" procedure pre-created a useful dataset configuration that will make version control workflows with files of varying sizes easier.
+The "text2git" procedure pre-created a useful dataset configuration that will make version control workflows with files of varying sizes and types easier.
 
 Version control
 ^^^^^^^^^^^^^^^
@@ -77,7 +86,7 @@ DataLad datasets use two established version control tools: :term:`Git` and :ter
 Thanks to those tools, datasets can version control their contents, regardless of size.
 Let's start small, and just create a ``README``::
 
-   echo "# A BIDS structured dataset for my input data" > README
+   echo "# A BIDS structured dataset for my input data" > README.md
 
 :command:`datalad status` can report on the state of a dataset.
 As we added a new file, the README show up as being "untracked" if you run it::
@@ -91,9 +100,25 @@ Such a :term:`commit message` makes it easier for others and your later self to 
 
    datalad save -m "Add a short README"
 
+Let us modify this file further::
+
+   echo "Contains functional data of one subject who underwent a localizer task" >> README.md
+
+As the file now differs from its last known state, it shows up as being "modified"::
+
+   datalad status
+
+Again, a :command:`datalad save` will save these dataset modifications::
+
+   datalad save -m "Add information on the dataset contents to the README"
 
 Note that ``datalad save`` will save **all** modifications in a dataset at once!
 If you have several modified files, you can supply a path to the file or files you want to save.
+Importantly, you can version control data of any size - yes, even if the data reaches the size of the `human connectome project <https://github.com/datalad-datasets/human-connectome-project-openaccess>`_, of the `UK Biobank <https://github.com/datalad/datalad-ukbiobank>`_, or even larger.
+
+With each saved change, you build up a dataset history. Tools such as :command:`git log` allow you to interrogate this history, and if you want to, you can use this history to find out what has been done in a dataset, reset it to previous states, and much more::
+
+   git log
 
 
 Data consumption & transport
@@ -137,7 +162,16 @@ You retain access to the file via :command:`datalad get`::
 
 This mechanism gives you access to data without the necessity to store all of the data locally.
 As long as there is one location that data is available from (a dataset on a shared cluster, a web source, cloud storage, a USB-stick, ...) and this source is known, there is no need for storing data when it is not in use.
-If you want to try it with large amounts of data, checkout `datasets.datalad.org <http://datasets.datalad.org/>`_, a collection of more than 200TB of open data (also called :term:`The DataLad superdataset ///` because it is a dataset hierarchy that includes a large range of public datasets and can be obtained by running ``datalad clone \\\``).
+If you want to try it with large amounts of data, checkout `datasets.datalad.org <http://datasets.datalad.org/>`_, a collection of more than 200TB of open data (also called :term:`The DataLad superdataset ///` because it is a dataset hierarchy that includes a large range of public datasets and can be obtained by running ``datalad clone ///``).
+
+.. importantnote:: In fact, use your DataLad skills right now!
+
+   In order to prepare the next session by Dr. David Keator, please clone the `adhd200 Brown <http://fcon_1000.projects.nitrc.org/indi/adhd200/>`_ dataset and retrieve all of its data (1.4GB in total)::
+
+      # make sure to do this in a different directory
+      datalad clone ///adhd200/RawDataBIDS/Brown
+      cd Brown
+      datalad get .
 
 Dataset nesting
 ^^^^^^^^^^^^^^^

@@ -38,7 +38,7 @@ How to use DataLad
 ------------------
 
 DataLad is a command line tool and it has a Python API.
-Whenever used, it is thus operated it in your :term:`terminal` using the command line (as done above), or used it in scripts such as shell scripts, Python scripts, Jupyter Notebooks, and so forth.
+It is operated in your :term:`terminal` using the command line (as done above), or used it in scripts such as shell scripts, Python scripts, Jupyter Notebooks, and so forth.
 This is how you would import DataLad's Python API::
 
    ipython       # if not installed, use python
@@ -56,13 +56,13 @@ Here is an example with R::
 DataLad datasets
 ^^^^^^^^^^^^^^^^
 
-Everything we're doing happens in or involves DataLad datasets.
+All actions we do happen in or involve DataLad datasets.
 Creating a dataset from scratch is done with the ``datalad create`` command.
 
 .. find-out-more:: How can I turn an existing directory into a dataset?
 
-   By navigating into the dataset, and running :command:`datalad create -f .` (with the ``-f/--force`` option).
-   You can take a look into the section :ref:`dataladdening` on more info on how to transform existing directories into DataLad datasets.
+   By navigating into a directory, and running :command:`datalad create -f .` (with the ``-f/--force`` option).
+   Section :ref:`dataladdening` provides more info on how to transform existing directories into DataLad datasets.
    It is advised, though, to first learn a bit of DataLad Basics first, so stay tuned.
 
 
@@ -72,7 +72,7 @@ With the -c option, datasets can be configured in a certain way at the time of c
 
    datalad create -c text2git bids-data
 
-After creating it, the dataset is a new directory, and you can "change directories" (``cd``) inside it::
+``bids-data`` dataset is now a new directory, and you can "change directories" (``cd``) inside it::
 
    cd bids-data
 
@@ -93,9 +93,9 @@ As we added a new file, the README show up as being "untracked" if you run it::
 
    datalad status
 
-In order to save a modification in a dataset one needs to use the :command:`datalad save` command.
-:command:`datalad save` will save the current status of your dataset: It will save both modifications to known files and yet untracked files.
-The ``-m/--message`` option lets you attach a concise summary of your change.
+In order to save a modification in a dataset use the :command:`datalad save` command.
+:command:`datalad save` will save the current state of your dataset: It will save both modifications to known files and yet untracked files.
+The ``-m/--message`` option lets you attach a concise summary of your changes.
 Such a :term:`commit message` makes it easier for others and your later self to understand a dataset's history::
 
    datalad save -m "Add a short README"
@@ -108,11 +108,11 @@ As the file now differs from its last known state, it shows up as being "modifie
 
    datalad status
 
-Again, a :command:`datalad save` will save these dataset modifications::
+Again, :command:`datalad save` will save these dataset modifications::
 
    datalad save -m "Add information on the dataset contents to the README"
 
-Note that ``datalad save`` will save **all** modifications in a dataset at once!
+Note that ``datalad save`` will save **all** modifications in the dataset at once!
 If you have several modified files, you can supply a path to the file or files you want to save.
 Importantly, you can version control data of any size - yes, even if the data reaches the size of the `human connectome project <https://github.com/datalad-datasets/human-connectome-project-openaccess>`_, of the `UK Biobank <https://github.com/datalad/datalad-ukbiobank>`_, or even larger.
 
@@ -124,7 +124,7 @@ With each saved change, you build up a dataset history. Tools such as :command:`
 Data consumption & transport
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Datasets can be installed from local paths or remote URLs using :command:`datalad clone`.
+Individual datasets can be installed from local paths or remote URLs using :command:`datalad clone`.
 Cloning is a fast operation, and the resulting dataset typically takes up only a fraction of the total size of the data that it tracks::
 
    cd ../
@@ -147,11 +147,11 @@ This makes cloning fast and datasets lightweight::
       datalad status --annex
 
 On demand, content for files, directories, or the complete dataset can be downloaded using :command:`datalad get`.
-The snippet below uses :term:`globbing` to get the content of all nifti files for a localization task of one subject, but you could also get a full directory, a single file, all files, etc.::
+The snippet below uses :term:`globbing` to get the content of all NIfTI files for a localization task of one subject, but you could also get a full directory, a single file, all files, etc.::
 
    datalad get sub-01/ses-localizer/func/sub-01_ses-localizer_task-objectcategories_run-*.nii.gz
 
-This works because DataLad datasets track where file contents are available from.
+This works because DataLad datasets contain information on where file contents are available from.
 If the origin of a file (such as a web source) is known, you can drop file *content* to free up disk space::
 
    datalad drop sub-01/ses-localizer/func/sub-01_ses-localizer_task-objectcategories_run-4_bold.nii.gz
@@ -161,8 +161,8 @@ You retain access to the file via :command:`datalad get`::
    datalad get sub-01/ses-localizer/func/sub-01_ses-localizer_task-objectcategories_run-4_bold.nii.gz
 
 This mechanism gives you access to data without the necessity to store all of the data locally.
-As long as there is one location that data is available from (a dataset on a shared cluster, a web source, cloud storage, a USB-stick, ...) and this source is known, there is no need for storing data when it is not in use.
-If you want to try it with large amounts of data, checkout `datasets.datalad.org <http://datasets.datalad.org/>`_, a collection of more than 200TB of open data (also called :term:`The DataLad superdataset ///` because it is a dataset hierarchy that includes a large range of public datasets and can be obtained by running ``datalad clone ///``).
+As long as there is one location where data is available from (a dataset on a shared cluster, a web source, cloud storage, a USB-stick, ...) and this source is known, there is no need for storing data when it is not in use.
+If you want to try it with large amount of data, checkout `datasets.datalad.org <http://datasets.datalad.org/>`_, a collection of more than 200TB of open data (also called :term:`The DataLad superdataset ///` because it is a dataset hierarchy that includes a large range of public datasets and can be obtained by running ``datalad clone ///``).
 
 .. importantnote:: In fact, use your DataLad skills right now!
 
@@ -179,7 +179,7 @@ Dataset nesting
 Datasets can be nested in superdataset-subdataset hierarchies.
 
 This overcomes scaling issues.
-Some dataset that we work with including ABCD become incredibly large, and when they exceed a few 100k files version control tools can struggle and break.
+Some datasets that we work with, including ABCD, become incredibly large, and when they exceed a few 100k files version control tools can struggle and break.
 By nesting datasets, you can overcome this and split a dataset into manageable pieces.
 If you are interested in finding out more, take a look into the usecase :ref:`usecase_HCP_dataset` or the chapter :ref:`chapter_gobig`.
 
@@ -206,12 +206,12 @@ they are the raw inputs of the analysis, we store them in a directory we call
     inputs/rawdata
 
 Prior to performing actual computations, the data needs to be
-transformed into appropriate formats (NIFTI) and standardized to an intuitive
+transformed into appropriate formats (NIfTI) and standardized to an intuitive
 layout (BIDS).
 For the task at hand, the `ReproIn <https://github.com/ReproNim/reproin>`_ suite
 is the software of choice. It is build on
 `HeudiConv <https://heudiconv.readthedocs.io/en/latest/>`_, and beyond converting
-DICOMs to NIFTI, it also provides assistance in converting a raw data set to the
+DICOMs to NIfTI, it also provides assistance in converting a raw data set to the
 BIDS standard, and it integrates with DataLad to place converted and original
 data under version control, while automatically annotating files with
 sensitive information (e.g., non-defaced anatomicals, etc).
@@ -222,7 +222,7 @@ need to investigate an issue, and to capture *full* provenance of the
 transformation process, we can use a software container that contains the
 relevant software setup.
 A ready-made container collection of `singularity <http://singularity.lbl.gov/>`_
-images is available from `ReproNim <https://repronim.org/>`_ as a dataset at
+images is available from `ReproNim <https://repronim.org/>`_ as a DataLad dataset at
 `github.com/ReproNim/containers/ <https://github.com/ReproNim/containers/>`_.
 It can be installed as a subdataset::
 

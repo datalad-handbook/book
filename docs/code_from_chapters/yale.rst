@@ -221,8 +221,7 @@ able to go back to it at a later stage should we have the
 need to investigate an issue, and to capture *full* provenance of the
 transformation process, we can use a software container that contains the
 relevant software setup.
-A ready-made container collection of `singularity <http://singularity.lbl.gov/>`_
-images is available from `ReproNim <https://repronim.org/>`_ as a DataLad dataset at
+A ready-made container collection of container images is available from `ReproNim <https://repronim.org/>`_ as a DataLad dataset at
 `github.com/ReproNim/containers/ <https://github.com/ReproNim/containers/>`_.
 It can be installed as a subdataset::
 
@@ -339,9 +338,12 @@ Finally, we need to register a software container to the dataset.
 Importantly, this container does not need to contain the analysis script.
 It just needs the correct software that the script requires -- in this case, a Python 3 environment with nilearn installed.
 
+At this point in the tutorial, you should have created your own Docker container with the necessary Python environment.
+In addition to this Docker container, we're also providing a `singularity <http://singularity.lbl.gov/>`_ image. Singularity is a useful alternative to Docker, because, unlike Docker, it can be run on shared computational infrastructure such as HPC systems without posing a security risk.
+
 .. find-out-more:: Creating a Singularity container with Neurodocker and Singularity Hub
 
-   In order to create this Singularity image, you first need a recipe.
+   In order to create a Singularity image, you first need a recipe.
    `Neurodocker <https://github.com/ReproNim/neurodocker>`_ makes this really easy.
    Here's the command used for minimal nilearn :term:`container recipe`::
 
@@ -356,6 +358,14 @@ It just needs the correct software that the script requires -- in this case, a P
    Alternatively, a ``sudo singularity build <container-name> <recipe>`` build the image locally, and you can add it from a path to your dataset.
 
 Let's add this container to the dataset using :command:`datalad containers-add`.
+Decide for yourself whether you want to use the Docker image or the Singularity image.
+
+**Docker**: For Docker, run the following command, or, if you want, replace the url with your own container::
+
+   datalad containers-add nilearn \
+    --url dhub://djarecka/nilearn:yale
+
+**Singularity**: For Singularity, run the following command, which pulls a Singularity image from :term:`Singularity-hub`.
 Note how we explicitly define how the container should be called - the placeholders ``{img}`` and ``{cmd}`` will expand to the container image and the supplied command when this container is called::
 
    datalad containers-add nilearn \

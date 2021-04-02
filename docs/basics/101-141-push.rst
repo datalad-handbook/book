@@ -33,6 +33,10 @@ or storage of datasets [#f1]_, or a regular clone.
 
 .. find-out-more:: all of the ways to configure siblings
 
+   .. index:: ! datalad command; create-sibling-github
+   .. index:: ! datalad command; create-sibling-gitlab
+   .. index:: ! datalad command; create-sibling-ria
+
    - Add an existing repository as a sibling with the :command:`datalad siblings`
      command. Here are common examples::
 

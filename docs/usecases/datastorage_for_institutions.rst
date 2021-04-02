@@ -219,6 +219,8 @@ requiring expert or domain knowledge about the data. At its core, it is a flat,
 file-system based repository representation of any number of datasets, limited
 only by disk-space constrains of the machine it lies on.
 
+.. index:: ! datalad command; create-sibling-ria
+
 Put simply, a RIA store is a dataset storage location that allows for access to
 and collaboration on DataLad datasets.
 The high-level workflow overview is as follows: Create a dataset,

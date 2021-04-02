@@ -603,6 +603,7 @@ syllabus, this should be done via :term:`GitHub`.
    .. image:: ../artwork/src/screenshot_submodule.png
       :alt: The input dataset is linked
 
+.. index:: ! datalad command; create-sibling-github
 .. _publishtogithub:
 
 Publishing the dataset to GitHub
@@ -626,12 +627,12 @@ For this, you need to
 - configure this GitHub repository to be a :term:`sibling` of the ``midterm_project`` dataset,
 - and *publish* your dataset to GitHub.
 
+.. index:: ! datalad command; create-sibling-gitlab
+
 Luckily, DataLad can make all of this very easy with the
 :command:`datalad create-sibling-github` (:manpage:`datalad-create-sibling-github` manual)
 command (or, for `GitLab <https://about.gitlab.com/>`_, :command:`datalad create-sibling-gitlab`,
 :manpage:`datalad-create-sibling-gitlab` manual).
-
-.. index:: ! datalad command; create-sibling-github, ! datalad command; create-sibling-gitlab
 
 The two commands have different arguments and options.
 Here, we look at :command:`datalad create-sibling-github`.

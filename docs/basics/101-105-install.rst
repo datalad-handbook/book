@@ -1,3 +1,4 @@
+.. index:: ! datalad command; clone
 .. _installds:
 
 Install datasets

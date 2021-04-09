@@ -384,10 +384,24 @@ Make a note of this behavior in your ``notes.txt`` file.
    EOT
 
 
+Save yourself the preparation time
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. importantnote:: version requirement for --assume-ready
+
+   The option ``--assume-ready`` was introduced with DataLad version 0.14.1.
+
+Its generally good practice to specify ``--input`` and ``--output`` even if your input files are already retrieved and your output files unlocked -- it makes sure that a recomputation can succeed, even if inputs are not yet retrieved, or if output needs to be unlocked.
+However, the internal preparation steps of checking that inputs exist or that outputs are unlocked can take a bit of time, especially if it involves checking a large number of files.
+
+Starting with **datalad version 0.14.1**, you can make use of the ``--assume-ready`` argument of :command:`datalad run` if you want to avoid the expense of unnecessary preparation steps.
+Depending on whether your inputs are already retrieved, your outputs already unlocked (or not needed to be unlocked), or both, specify ``--assume-ready`` with the argument ``inputs``, ``outputs`` or ``both`` and save yourself a few seconds, without sacrificing the ability to rerun your command under conditions in which the preparation would be necessary.
+
+
 Placeholders
 ^^^^^^^^^^^^
 
-Just after writing this note, you have to relax your fingers a bit. "Man, this was
+Just after writing the note, you had to relax your fingers a bit. "Man, this was
 so much typing. Not only did I need to specify the inputs and outputs, I also had
 to repeat all of these lengthy paths in the command line call..." you think.
 

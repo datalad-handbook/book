@@ -41,6 +41,8 @@ failed -- sorry about this.
   :ref:`cloneprio`
 :redirect:`containers`
   :ref:`containersrun`
+:redirect:`dataladdening`
+  :ref:`dataladdening`
 :redirect:`dl-for-ml`
   :ref:`dvc`
 :redirect:`extensions`
@@ -59,6 +61,8 @@ failed -- sorry about this.
   :ref:`usecase_reproducible_paper`
 :redirect:`RIA`
   :ref:`riastore`
+:redirect:`runhpc`
+  :ref:`runhpc`
 :redirect:`yoda`
   :ref:`yoda`
 :redirect:`OHBM2020`

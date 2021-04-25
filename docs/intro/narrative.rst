@@ -99,8 +99,8 @@ You can decide for yourself whether you want to check them out:
    .. find-out-more:: For curious minds
       :name: fom-intro
 
-       Sections like this contain content that goes beyond the basics
-       necessary to complete a challenge.
+      Sections like this contain content that goes beyond the basics
+      necessary to complete a challenge.
 
 
 Note further that...

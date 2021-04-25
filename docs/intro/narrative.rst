@@ -87,6 +87,8 @@ best practices, we put them in special boxes in order
 to not be too distracting for anyone only interested in the basics.
 You can decide for yourself whether you want to check them out:
 
+"Find-out-more" boxes contain general additional information:
+
 .. only:: html
 
    .. find-out-more:: Click here to show/hide further commands
@@ -103,19 +105,18 @@ You can decide for yourself whether you want to check them out:
       necessary to complete a challenge.
 
 
-Note further that...
+"Git user notes" elaborate on technical details from under the hood:
 
 .. gitusernote:: For (future) Git experts
 
    DataLad uses :term:`Git` and :term:`git-annex` underneath the hood. Readers that
-   are familiar with these tools can find occasional notes on how a DataLad
-   command links to a Git(-annex) command or concept in boxes like this.
+   are familiar with these tools can find occasional notes on how a DataLad   command links to a Git(-annex) command or concept in boxes like this.
    There is, however, absolutely no knowledge of Git or git-annex necessary
    to follow this book. You will, though, encounter Git commands throughout
    the book when there is no better alternative, and executing those commands will
    suffice to follow along.
 
-If you are a Windows 10 user with a native (i.e., not `Windows Subsystem for Linux (WSL) <https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux>`_-based DataLad installation, pay close attention to the special notes in
+If you are a Windows 10 user with a native (i.e., not `Windows Subsystem for Linux (WSL) <https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux>`_-based DataLad installation, pay close attention to the special notes in so-called "Windows-Wits":
 
 .. windows-wit:: For Windows users only
 

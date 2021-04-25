@@ -4,7 +4,7 @@
 General prerequisites
 *********************
 
-.. index:: ! Terminal, ! Shell, ! Command Line
+.. index:: ! terminal, ! shell, ! command Line
 
 DataLad uses command-line arguments in a *terminal*. This means that there is no graphical
 user interface with buttons to click on, but a set of commands and options users type into

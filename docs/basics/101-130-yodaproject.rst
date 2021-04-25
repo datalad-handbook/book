@@ -740,11 +740,31 @@ Thus, the tag ``ready4analysis`` is not pushed to GitHub, and currently this
 version identifier is unavailable to anyone else but you.
 The reason for this is that tags are viral -- they can be removed locally, and old
 published tags can cause confusion or unwanted changes. In order to publish a tag,
-an additional :command:`git push` [#f6]_ with the ``--tags`` option is required:
+an additional :command:`git push`  with the ``--tags`` option is required:
 
 .. code-block:: bash
 
    $ git push github --tags
+
+.. gitusernote:: Pushing tags
+
+    Note that this is a :command:`git push`, not :command:`datalad push`.
+    Tags could be pushed upon a :command:`datalad push`, though, if one
+    configures (what kind of) tags to be pushed. This would need to be done
+    on a per-sibling basis in ``.git/config`` in the ``remote.*.push``
+    configuration. If you had a :term:`sibling` "github", the following
+    configuration would push all tags that start with a ``v`` upon a
+    :command:`datalad push --to github`::
+
+       $ git config --local remote.github.push 'refs/tags/v*'
+
+    This configuration would result in the following entry in ``.git/config``::
+
+       [remote "github"]
+             url = git@github.com/adswa/midtermproject.git
+             fetch = +refs/heads/*:refs/remotes/github/*
+             annex-ignore = true
+             push = refs/tags/v*
 
 Yay! Consider your midterm project submitted! Others can now install your
 dataset and check out your data science project -- and even better: they can
@@ -893,23 +913,5 @@ reproduce your data science project easily from scratch (take a look into the :r
          Clone the `GitHub repository <https://github.com/sociomantic-tsunami/git-hub>`_ to your local computer.
          Decide whether you want to build a Debian package to install, or install the single-file Python script distributed in the repository.
          Make sure that all `requirements <https://github.com/sociomantic-tsunami/git-hub#dependencies>`_ for your preferred version are installed , and run either ``make deb`` followed by ``sudo dpkg -i deb/git-hub*all.deb``, or ``make install``.
-
-.. [#f6] Note that this is a :command:`git push`, not :command:`datalad push`.
-         Tags could be pushed upon a :command:`datalad push`, though, if one
-         configures (what kind of) tags to be pushed. This would need to be done
-         on a per-sibling basis in ``.git/config`` in the ``remote.*.push``
-         configuration. If you had a :term:`sibling` "github", the following
-         configuration would push all tags that start with a ``v`` upon a
-         :command:`datalad push --to github`::
-
-            $ git config --local remote.github.push 'refs/tags/v*'
-
-         This configuration would result in the following entry in ``.git/config``::
-
-            [remote "github"]
-                  url = git@github.com/adswa/midtermproject.git
-                  fetch = +refs/heads/*:refs/remotes/github/*
-                  annex-ignore = true
-                  push = refs/tags/v*
 
 .. [#f7] To re-read about Git's configurations and the ``git config`` command, please take a look at the section :ref:`config`.

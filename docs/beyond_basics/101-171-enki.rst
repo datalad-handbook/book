@@ -202,7 +202,9 @@ At this point, the workflow misses a tweak that is necessary in fMRIprep to enab
    :float: p
 
    This script is placed in ``code/fmriprep_participant_job``.
-   For technical reasons (rending or the handbook), we break it into several blocks of code::
+   For technical reasons (rendering of the handbook), we break it into several blocks of code:
+
+   .. code-block:: bash
 
       #!/bin/bash
 
@@ -254,11 +256,11 @@ At this point, the workflow misses a tweak that is necessary in fMRIprep to enab
       # the participant we want to process in this job
       find sourcedata -mindepth 2 -name '*.json' -a ! -wholename "$1"'*' -delete
 
-      # next one is important to get job-reruns correct. We remove all anticipated
-      # output, such that fmriprep isn't confused by the presence of stale
-      # symlinks. Otherwise we would need to obtain and unlock file content.
-      # But that takes some time, for no reason other than being discarded
-      # at the end
+      # next one is important to get job-reruns correct. We remove all
+      # anticipated output, such that fmriprep isn't confused by the presence
+      # of stale symlinks. Otherwise we would need to obtain and unlock file
+      # content. But that takes some time, for no reason other than being
+      # discarded at the end
       (cd fmriprep && rm -rf logs "$subid" "$subid.html" dataset_description.json desc-*.tsv)
       (cd freesurfer && rm -rf fsaverage "$subid")
 

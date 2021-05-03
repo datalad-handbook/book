@@ -11,6 +11,7 @@ fine-grained access control to share data. :term:`GIN` builds up on :term:`Git` 
 and share your DataLad datasets [#f1]_. It allows to share datasets and their
 contents with selected collaborators or making them publicly and anonymously
 available.
+:ref:`And even if you prefer to expose and share your datasets via GitHub, you can still use Gin to host your data <ginbts>`.
 
 .. figure:: ../artwork/src/publishing/publishing_network_publishgin.svg
    :width: 80%
@@ -280,7 +281,37 @@ the problem:
 If the subdataset was not published before, you could publish the subdataset to
 a location of your choice, and modify the ``.gitmodules`` entry accordingly.
 
+.. _ginbts:
 
+Using Gin as a data source behind the scenes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Even if you do not want to point collaborators to yet another hosting site but want to be able to expose your datasets via services they use and know already (such as GitHub or GitLab), Gin can be very useful:
+You can let Gin perform data hosting in the background by using it as an "autoenabled data source" that a dataset :term:`sibling` (even if it is published to GitHub or GitLab) can retrieve data from.
+You will need to have a Gin account and SSH key setup, so please take a look at the first part of this section if you do not yet know how to do this.
+
+Then, follow these steps:
+
+- First, create a new repository on Gin (see step by step instructions above).
+- In your to-be-published dataset, add this repository as a sibling, but also as a "common data source". Make sure to configure a :term:`SSH` URL as a ``--pushurl`` but a :term:`HTTPS` URL as a ``url``, and pay close attention that the ``name <name>`` and ``--as-common-datasrc <name>`` arguments differ.
+  Here is the command::
+
+     $ datalad siblings add \
+      -d . \
+      --name gin-update \
+      --pushurl git@gin.g-node.org:/studyforrest/aggregate-fmri-timeseries.git
+      --url https://gin.g-node.org/studyforrest/aggregate-fmri-timeseries.git \
+      --as-common-datasrc gin
+
+- Locally, run ``git config --unset-all remote.gin-update.annex-ignore`` to prevent :term:`git-annex` from ignoring this new dataset
+- Push your data to the repository on Gin (``datalad push --to gin-update``)
+- Publish your dataset to GitHub/GitLab/..., or update and existing published dataset (``datalad push``)
+
+Afterwards, :command:`datalad get` retrieves files from Gin, even if the dataset has been cloned from GitHub.
+
+.. gitusernote:: siblings as a common data source
+
+   The argument ``as-common-datasrc <name>`` configures a sibling as a common data source -- in technical terms, as an auto-enabled git-annex special remote.
 
 .. rubric:: Footnotes
 

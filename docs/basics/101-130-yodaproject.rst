@@ -710,8 +710,8 @@ state of the dataset to this :term:`sibling` with the :command:`datalad push`
     proportion of the previous handbook content as a prerequisite. In order to be
     not too overwhelmingly detailed, the upcoming sections will approach
     :command:`push` from a "learning-by-doing" perspective:
-    You will see a first :command:`push` to GitHub below, and the :ref: find-out-more on the published dataset <fom-midtermclone>`
-    the end of this section will already give a practical glimpse into the
+    You will see a first :command:`push` to GitHub below, and the :ref:`Findoutmore on the published dataset <fom-midtermclone>`
+    at the end of this section will already give a practical glimpse into the
     difference between annexed contents and contents stored in Git when pushed
     to GitHub. The chapter :ref:`chapter_thirdparty` will extend on this,
     but the section :ref:`push`

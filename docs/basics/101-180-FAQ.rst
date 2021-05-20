@@ -156,7 +156,7 @@ How can I cite DataLad?
 
 There is no official paper on DataLad (yet). To cite it, please use the latest
 `zenodo <https://zenodo.org>`_ entry found here:
-`https://zenodo.org/record/3512712 <https://zenodo.org/record/3512712>`_.
+https://zenodo.org/record/808846.
 
 .. _dataset_textblock:
 

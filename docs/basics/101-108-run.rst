@@ -98,9 +98,7 @@ will write it into the script.
    Hidden file extensions can be a confusing source of errors, because some Windows editors (for example Notepad) automatically add a ``.txt`` extension to your files -- when you save the script above under the name ``list_titles.sh``, your editor may add an extension (``list_titles.sh.txt``), and the file explorer displays your file as ``list_titles.sh`` (hiding the ``.txt`` extension).
 
    To prevent confusion, configure the file explorer to always show you the file extension.
-   For this, open the Explorer, click on the "View" tab, and tick the box "File name extensions":
-
-   .. figure:: ../artwork/src/fileextensionswindows.png
+   For this, open the Explorer, click on the "View" tab, and tick the box "File name extensions".
 
    Beyond this, double check the correct naming of your file, ideally in the terminal.
 

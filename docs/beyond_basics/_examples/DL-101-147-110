@@ -4,10 +4,6 @@ $ datalad push --to ria-backup
 [INFO] Determine push target
 [INFO] Push refspecs
 [INFO] Transfer data
-[INFO] Start annex operation
-[INFO] .datalad/environments/midterm-software/image
-[INFO] pairwise_relationships.png
-[INFO] Finished annex copy
 copy(ok): .datalad/environments/midterm-software/image (file) [to ria-backup-storage...]
 copy(ok): pairwise_relationships.png (file) [to ria-backup-storage...]
 copy(ok): prediction_report.csv (file) [to ria-backup-storage...]

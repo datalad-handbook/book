@@ -1,6 +1,6 @@
-$ datalad clone git@github.com:datalad-datasets/human-connectome-project-openaccess.git hcp
+$ datalad clone https://github.com/datalad-datasets/human-connectome-project-openaccess.git hcp
 [INFO] Cloning dataset to Dataset(/home/me/usecases/HCP/hcp) 
-[INFO] Attempting to clone from git@github.com:datalad-datasets/human-connectome-project-openaccess.git to /home/me/usecases/HCP/hcp 
+[INFO] Attempting to clone from https://github.com/datalad-datasets/human-connectome-project-openaccess.git to /home/me/usecases/HCP/hcp
 [INFO] Start enumerating objects 
 [INFO] Start counting objects 
 [INFO] Start compressing objects 

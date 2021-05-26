@@ -6,7 +6,7 @@ Collaboration
 .. index:: ! Chapter; 4. Collaboration
 
 .. figure:: ../artwork/src/collaboration_sketch.svg
-   :width: 70%
+   :width: 50%
 
 .. toctree::
    :maxdepth: 1

@@ -25,3 +25,12 @@ sphinxcontrib-plantuml
 -e git://github.com/mih/autorunrecord.git@master#egg=autorunrecord
 # install our own directives
 -e .
+# install python packages that are relevant to build all handbook examples
+datalad-container
+datalad-hirni
+nose
+seaborn
+pandas
+sklearn
+scikit-image
+dvc

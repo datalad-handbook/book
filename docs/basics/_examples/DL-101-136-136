@@ -1,6 +1,5 @@
-$ datalad copy-file books/bash_guide.pdf midterm_project -d midterm_project
-copy_file(ok): /home/me/dl-101/DataLad-101/books/bash_guide.pdf [/home/me/dl-101/DataLad-101/midterm_project/bash_guide.pdf]
-save(ok): . (dataset)
-action summary:
-  copy_file (ok: 1)
-  save (ok: 1)
+$ cd midterm_project
+$ git annex whereis TLCL.pdf
+whereis TLCL.pdf (1 copy)
+	67733c25-a3a7-4a83-80fa-2abac8224967 -- me@muninn:~/dl-101/DataLad-101/midterm_project [here]
+ok

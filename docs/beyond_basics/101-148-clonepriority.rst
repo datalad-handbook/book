@@ -1,3 +1,4 @@
+.. index:: ! datalad command; clone
 .. _cloneprio:
 
 Prioritizing subdataset clone locations
@@ -9,7 +10,7 @@ By attaching *costs* to subdataset clone candidates, one can gain precise contro
 This can create a more flawless and less error-prone user experience as well as speedier dataset installations.
 
 .. figure:: ../artwork/src/origin.svg
-   :figwidth: 50%
+   :width: 50%
 
 
 Clone candidates
@@ -52,7 +53,7 @@ The topmost superdataset is published to a human-readable and accessible locatio
 In order to be able to retrieve subdataset *data* from the subdatasets after cloning the hierarchy of datasets, the RIA store with the storage special remote needs to be configured as a clone candidate.
 Importantly, it should not only be configured as one alternative, but it should be configured as the first location to try to clone from -- else, cloning from the wrong RIA store could succeed and prevent any configured second clone candidate location from being tried.
 
-.. note::
+.. importantnote:: Use case for clone priorities
 
    The most likely use case for such a scenario is in the case of centrally managed data with data administrators that provide and manage the data for their users.
 
@@ -67,7 +68,7 @@ Such a configuration will ensure that the first location any subdataset is attem
 Only if the dataset is not found in there under its ID, other sources are tried.
 Note that in the case where no cost is provided together with the candidate name, a default cost of ``700`` is used.
 
-.. findoutmore:: What are the "default" costs for preexisting clone candidates?
+.. find-out-more:: What are the "default" costs for preexisting clone candidates?
 
    The following list provides and overview of which locations are attempted for cloning and their associated costs:
 

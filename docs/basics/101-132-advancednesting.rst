@@ -52,9 +52,11 @@ this *in the superdataset* in order to have a clean superdataset status.
 
 This point in time in DataLad-101 is a convenient moment to dive a bit deeper
 into the functions of the :command:`datalad status` command. If you are
-interested in this, checkout the hidden section below.
+interested in this, checkout the :ref:`dedicated Findoutmore <fom-status>`.
 
-.. findoutmore:: More on datalad status
+.. find-out-more:: More on datalad status
+   :name: fom-status
+   :float:
 
    First of all, let's start with a quick overview of the different content *types*
    and content *states* various :command:`datalad status` commands in the course
@@ -178,7 +180,7 @@ dataset, i.e., ``DataLad-101``, as the dataset to save to:
 
    $ datalad save -d . -m "finished my midterm project" midterm_project
 
-.. findoutmore:: More on how save can operate on nested datasets
+.. find-out-more:: More on how save can operate on nested datasets
 
    In a superdataset with subdatasets, :command:`datalad save` by default
    tries to figure out on its own which dataset's history of all available

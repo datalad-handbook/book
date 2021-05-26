@@ -83,7 +83,8 @@ update of the ``algorithm/`` subdataset, and upon command-line invocation his ma
 itself with the new figures.
 
 
-.. note::
+.. importantnote:: Take a look at the real manuscript dataset
+
    The actual manuscript this use case is based on can be found
    `here <https://github.com/psychoinformatics-de/paper-remodnav/>`_:
    https://github.com/psychoinformatics-de/paper-remodnav/. :command:`datalad clone`
@@ -336,7 +337,7 @@ and loops to keep the code within a few lines for a full table, such as
 Running the python script will hence print plenty of LaTeX commands to your screen (try it out
 in the actual manuscript, if you want!). This was step number 1 of 4.
 
-.. findoutmore:: How about figures?
+.. find-out-more:: How about figures?
 
    To include figures, the figures just need to be saved into a dedicated location (for example
    a directory ``img/``) and included into the ``.tex`` file with standard ``LaTeX`` syntax.
@@ -360,7 +361,7 @@ in the actual manuscript, if you want!). This was step number 1 of 4.
 
    This figure looks like this in the manuscript:
 
-   .. figure:: ../artwork/src/img/remodnav2.png
+   .. image:: ../artwork/src/img/remodnav2.png
 
 For step 2 and 3, the print statements need to be captured and bound to the ``.tex`` file.
 The `tee <https://en.wikipedia.org/wiki/Tee_(command)>`_ command can write all of the output to

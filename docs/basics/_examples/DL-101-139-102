@@ -1,29 +1,17 @@
 $ datalad push --to gin
 [INFO] Determine push target
 [INFO] Push refspecs
-[INFO] Start enumerating objects 
-[INFO] Start counting objects 
-[INFO] Start compressing objects 
-[INFO] Start writing objects 
-[INFO] Start resolving deltas 
 [INFO] Transfer data
-[INFO] Start annex operation
-[INFO] books/TLCL.pdf
-[INFO] books/bash_guide.pdf
-[INFO] books/byte-of-python.pdf
-[INFO] books/progit.pdf
-[INFO] Finished annex copy
+copy(ok): books/TLCL.pdf (file) [to gin...]
+copy(ok): books/bash_guide.pdf (file) [to gin...]
+copy(ok): books/byte-of-python.pdf (file) [to gin...]
+copy(ok): books/progit.pdf (file) [to gin...]
 [INFO] Update availability information
 [INFO] Start enumerating objects 
 [INFO] Start counting objects 
 [INFO] Start compressing objects 
 [INFO] Start writing objects 
 [INFO] Start resolving deltas 
-[INFO] Finished push of Dataset(/home/me/dl-101/DataLad-101)
+publish(ok): . (dataset) [refs/heads/git-annex->gin:refs/heads/git-annex feaf075..87d636d]
 publish(ok): . (dataset) [refs/heads/master->gin:refs/heads/master [new branch]]
-copy(ok): books/TLCL.pdf (file) [to gin...]
-copy(ok): books/bash_guide.pdf (file) [to gin...]
-copy(ok): books/byte-of-python.pdf (file) [to gin...]
-copy(ok): books/progit.pdf (file) [to gin...]
-copy(ok): flowers.jpg (file) [to gin...]
-publish(ok): . (dataset) [refs/heads/git-annex->gin:refs/heads/git-annex fa73e9b..adc3814]
+[INFO] Finished push of Dataset(/home/me/dl-101/DataLad-101)

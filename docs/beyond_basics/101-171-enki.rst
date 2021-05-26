@@ -36,7 +36,7 @@ While the input dataset creation is straightforwards, some thinking went into th
 If you are interested in this, find the details in the findoutmore below.
 Also note that there is a large collection of pre-existing container datasets available at `github.com/ReproNim/containers <https://github.com/ReproNim/containers>`_.
 
-.. findoutmore:: pipeline dataset creation
+.. find-out-more:: pipeline dataset creation
 
    We start with a dataset (called ``pipelines`` in this example)::
 
@@ -182,9 +182,9 @@ This initial sketch serves to highlight key differences and adjustments due to t
    # job handler should clean up workspace
 
 Just like the general script from the last section, this script can be submitted to any job scheduler -- here with a subject ID as a ``$subid`` command line variable and a job ID as environment variable as identifiers for the fMRIprep run and branch names.
-At this point, the workflow misses a tweak that is necessary in fMRIprep to enable re-running computations.
+At this point, the workflow misses a tweak that is necessary in fMRIprep to enable re-running computations  (the complete file is in :ref:`this Findoutmore <fom-enki>`.
 
-.. findoutmore:: Fine-tuning: Enable re-running
+.. find-out-more:: Fine-tuning: Enable re-running
 
    If you want to make sure that your dataset is set up in a way that you have the ability to rerun a computation quickly, the following fMRIprep-specific consideration is important:
    If fMRIprep finds preexisting results, it will fail to run.
@@ -195,95 +195,102 @@ At this point, the workflow misses a tweak that is necessary in fMRIprep to enab
         (cd freesurfer && rm -rf fsaverage "$subid")
 
    With this in place, the only things missing are a :term:`shebang` at the top of the script, and some shell settings for robust scripting with verbose log files (``set -e -u -x``).
-   You can find the full script with rich comments in the next findoutmore.
+   You can find the full script with rich comments in :ref:`this Findoutmore <fom-enki>`.
 
-.. findoutmore:: See the complete bash script
+.. find-out-more:: See the complete bash script
+   :name: fom-enki
+   :float: p
 
-   This script is placed in ``code/fmriprep_participant_job``:
+   This script is placed in ``code/fmriprep_participant_job``.
+   For technical reasons (rendering of the handbook), we break it into several blocks of code:
 
    .. code-block:: bash
 
-        #!/bin/bash
+      #!/bin/bash
 
-        # fail whenever something is fishy, use -x to get verbose logfiles
-        set -e -u -x
+      # fail whenever something is fishy, use -x to get verbose logfiles
+      set -e -u -x
 
-        # we pass in "sourcedata/sub-...", extract subject id from it
-        subid=$(basename $1)
+      # we pass in "sourcedata/sub-...", extract subject id from it
+      subid=$(basename $1)
 
-        # this is all running under /tmp inside a compute job, /tmp is a performant
-        # local filesystem
-        cd /tmp
-        # get the output dataset, which includes the inputs as well
-        # flock makes sure that this does not interfere with another job
-        # finishing at the same time, and pushing its results back
-        # importantly, we clone from the location that we want to push the
-        # results too
-        flock --verbose $DSLOCKFILE \
-            datalad clone /data/project/enki/super ds
+      # this is all running under /tmp inside a compute job, /tmp is a performant
+      # local filesystem
+      cd /tmp
+      # get the output dataset, which includes the inputs as well
+      # flock makes sure that this does not interfere with another job
+      # finishing at the same time, and pushing its results back
+      # importantly, we clone from the location that we want to push the
+      # results too
+      flock --verbose $DSLOCKFILE \
+          datalad clone /data/project/enki/super ds
 
-        # all following actions are performed in the context of the superdataset
-        cd ds
-        # obtain all first-level subdatasets:
-        # dataset with fmriprep singularity container and pre-configured
-        # pipeline call; also get the output dataset to prep them for output
-        # consumption, we need to tune them for this particular job, sourcedata
-        # important: because we will push additions to the result datasets back
-        # at the end of the job, the installation of these result datasets
-        # must happen from the location we want to push back too
-        datalad get -n -r -R1 .
-        # let git-annex know that we do not want to remember any of these clones
-        # (we could have used an --ephemeral clone, but that might deposite data
-        # of failed jobs at the origin location, if the job runs on a shared
-        # filesystem -- let's stay self-contained)
-        git submodule foreach --recursive git annex dead here
+      # all following actions are performed in the context of the superdataset
+      cd ds
+      # obtain all first-level subdatasets:
+      # dataset with fmriprep singularity container and pre-configured
+      # pipeline call; also get the output dataset to prep them for output
+      # consumption, we need to tune them for this particular job, sourcedata
+      # important: because we will push additions to the result datasets back
+      # at the end of the job, the installation of these result datasets
+      # must happen from the location we want to push back too
+      datalad get -n -r -R1 .
+      # let git-annex know that we do not want to remember any of these clones
+      # (we could have used an --ephemeral clone, but that might deposite data
+      # of failed jobs at the origin location, if the job runs on a shared
+      # filesystem -- let's stay self-contained)
+      git submodule foreach --recursive git annex dead here
 
-        # checkout new branches in both subdatasets
-        # this enables us to store the results of this job, and push them back
-        # without interference from other jobs
-        git -C fmriprep checkout -b "job-$JOBID"
-        git -C freesurfer checkout -b "job-$JOBID"
-        # create workdir for fmriprep inside to simplify singularity call
-        # PWD will be available in the container
-        mkdir -p .git/tmp/wdir
-        # pybids (inside fmriprep) gets angry when it sees dangling symlinks
-        # of .json files -- wipe them out, spare only those that belong to
-        # the participant we want to process in this job
-        find sourcedata -mindepth 2 -name '*.json' -a ! -wholename "$1"'*' -delete
+   .. code-block:: bash
 
-        # next one is important to get job-reruns correct. We remove all anticipated
-        # output, such that fmriprep isn't confused by the presence of stale
-        # symlinks. Otherwise we would need to obtain and unlock file content.
-        # But that takes some time, for no reason other than being discarded
-        # at the end
-        (cd fmriprep && rm -rf logs "$subid" "$subid.html" dataset_description.json desc-*.tsv)
-        (cd freesurfer && rm -rf fsaverage "$subid")
+      # checkout new branches in both subdatasets
+      # this enables us to store the results of this job, and push them back
+      # without interference from other jobs
+      git -C fmriprep checkout -b "job-$JOBID"
+      git -C freesurfer checkout -b "job-$JOBID"
+      # create workdir for fmriprep inside to simplify singularity call
+      # PWD will be available in the container
+      mkdir -p .git/tmp/wdir
+      # pybids (inside fmriprep) gets angry when it sees dangling symlinks
+      # of .json files -- wipe them out, spare only those that belong to
+      # the participant we want to process in this job
+      find sourcedata -mindepth 2 -name '*.json' -a ! -wholename "$1"'*' -delete
 
-        # the meat of the matter, add actual parameterization after --participant-label
-        datalad containers-run \
-          -m "fMRIprep $subid" \
-          --explicit \
-          -o freesurfer -o fmriprep \
-          -i "$1" \
-          -n code/pipelines/fmriprep \
-          sourcedata . participant \
-          --n_cpus 1 \
-          --skip-bids-validation \
-          -w .git/tmp/wdir \
-          --participant-label "$subid" \
-          --random-seed 12345 \
-          --skull-strip-fixed-seed \
-          --md-only-boilerplate \
-          --output-spaces MNI152NLin6Asym \
-          --use-aroma \
-          --cifti-output
-        # selectively push outputs only
-        # ignore root dataset, despite recorded changes, needs coordinated
-        # merge at receiving end
-        flock --verbose $DSLOCKFILE datalad push -d fmriprep --to origin
-        flock --verbose $DSLOCKFILE datalad push -d freesurfer --to origin
+      # next one is important to get job-reruns correct. We remove all
+      # anticipated output, such that fmriprep isn't confused by the presence
+      # of stale symlinks. Otherwise we would need to obtain and unlock file
+      # content. But that takes some time, for no reason other than being
+      # discarded at the end
+      (cd fmriprep && rm -rf logs "$subid" "$subid.html" dataset_description.json desc-*.tsv)
+      (cd freesurfer && rm -rf fsaverage "$subid")
 
-        # job handler should clean up workspace
+   .. code-block:: bash
+
+      # the meat of the matter, add actual parameterization after --participant-label
+      datalad containers-run \
+        -m "fMRIprep $subid" \
+        --explicit \
+        -o freesurfer -o fmriprep \
+        -i "$1" \
+        -n code/pipelines/fmriprep \
+        sourcedata . participant \
+        --n_cpus 1 \
+        --skip-bids-validation \
+        -w .git/tmp/wdir \
+        --participant-label "$subid" \
+        --random-seed 12345 \
+        --skull-strip-fixed-seed \
+        --md-only-boilerplate \
+        --output-spaces MNI152NLin6Asym \
+        --use-aroma \
+        --cifti-output
+      # selectively push outputs only
+      # ignore root dataset, despite recorded changes, needs coordinated
+      # merge at receiving end
+      flock --verbose $DSLOCKFILE datalad push -d fmriprep --to origin
+      flock --verbose $DSLOCKFILE datalad push -d freesurfer --to origin
+
+      # job handler should clean up workspace
 
 Pending modifications to paths provided in clone locations, the above script and dataset setup is generic enough to be run on different systems and with different job schedulers.
 
@@ -295,9 +302,11 @@ Job submission
 Job submission now only boils down to invoking the script for each participant with a participant identifier that determines on which subject the job runs, and setting two environment variables -- one the job ID that determines the branch name that is created, and one that points to a lockfile created beforehand once in ``.git``.
 Job scheduler such as HTCondor have syntax that can identify subject IDs from consistently named directories, for example, and the submit file can thus be lean even though it queues up more than 1000 jobs.
 
-You can find the submit file used in this analyses in the findoutmore below.
+You can find the submit file used in this analyses in :ref:`this Findoutmore <fom-condor>`.
 
-.. findoutmore:: HTCondor submit file
+.. find-out-more:: HTCondor submit file
+   :name: fom-condor
+   :float:
 
    The following submit file was created and saved in ``code/fmriprep_all_participants.submit``:
 
@@ -359,7 +368,7 @@ When attempting an octopus merge like the one above and a merge conflict arises,
 
 This merge conflict is in prinicple helpful -- since there are multiple different ``CITATION.md`` files in each branch, Git refuses to randomly pick one that it likes to keep, and instead aborts so that the user can intervene.
 
-.. findoutmore:: How to fix this?
+.. find-out-more:: How to fix this?
 
    As the file ``CITATION.md`` does not contain meaningful changes between jobs, one of the files is kept as a backup (e.g., copied into a temporary location, or brought back to life afterwards with ``git cat-file``), then all ``CITATION.md`` files of all branches deleted prior to the merge, and the back-up ``CITATION.md`` file is copied and saved into the dataset as a last step.
    

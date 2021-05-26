@@ -3,9 +3,9 @@ $ datalad run -m "run first part of analysis workflow" \
   --output results.txt \
   "code/run_analysis.py"
 [INFO] Making sure inputs are available (this may take some time) 
+get(ok): src/forrest_structural/sub-01/anat/sub-01_T1w.nii.gz (file) [from mddatasrc...]
 [INFO] == Command start (output follows) ===== 
 [INFO] == Command exit (modification check follows) ===== 
-get(ok): src/forrest_structural/sub-01/anat/sub-01_T1w.nii.gz (file) [from mddatasrc...]
 action summary:
   get (notneeded: 1, ok: 1)
   save (notneeded: 2)

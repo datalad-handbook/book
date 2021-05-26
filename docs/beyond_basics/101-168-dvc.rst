@@ -36,7 +36,7 @@ If you have never used DVC, `its technical docs <https://dvc.org/doc/command-ref
    Understanding the DVC workflows requires a solid understanding of :term:`branch`\es, Git's concepts of `Working tree, Index ("Staging Area"), and Repository <https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository>`_, and some basic Git commands such as ``add``, ``commit``, and ``checkout``.
    `The Turing Way <https://the-turing-way.netlify.app/welcome.html>`_ has an excellent `chapter on version control with Git <https://the-turing-way.netlify.app/reproducible-research/vcs.html>`_ if you want to catch up on those basics first.
 
-.. gitusernote::
+.. gitusernote:: Terminology
 
    Be mindful: DVC (as DataLad) comes with a range of commands and concepts that have the same names, but differ in functionality to their Git namesake.
    Make sure to read the `DVC documentation <https://dvc.org/doc/command-reference>`_ for each command to get more information on what it does.
@@ -115,7 +115,7 @@ Here's the final directory structure:
    ### DVC-DataLad
    $ tree
 
-.. findoutmore:: Required software for coding along
+.. find-out-more:: Required software for coding along
 
    In order to code along, `DVC <https://dvc.org/doc/install>`__, `scikit-learn <https://scikit-learn.org/stable/>`_, `scikit-image <https://scikit-image.org/>`_, `pandas <https://pandas.pydata.org/>`_, and `numpy <https://numpy.org/>`_ are required.
    All tools are available via `pip <https://pypi.org/project/pip/>`_ or `conda <https://docs.conda.io/en/latest/>`_.
@@ -234,7 +234,7 @@ Finally, we commit.
 
 The data is now version controlled with DVC.
 
-.. findoutmore:: How does DVC represent modifications to data?
+.. find-out-more:: How does DVC represent modifications to data?
 
     When adding data directories, they (i.e., the complete directory) are hashed, and this hash is stored in the respective ``.dvc`` file.
     If any file in the directory changes, this hash would change, and the :command:`dvc status` command would report the directory to be "changed".
@@ -297,13 +297,13 @@ This move needs to be saved.
 .. runrecord:: _examples/DL-101-168-115
    :workdir: DVCvsDL/DVC-DataLad
    :language: console
-   :lines: 1-3, 26792-26796
+   :realcommand: mv data/raw/imagenette2-160/* data/raw/ && rmdir data/raw/imagenette2-160 && datalad save -m "Move data into preferred locations" | grep -v '^\(copy\|get\|drop\|add\|delete\)(ok):.*(file)'
 
    ### DVC-DataLad
    $ mv data/raw/imagenette2-160/* data/raw/ && rmdir data/raw/imagenette2-160
    $ datalad save -m "Move data into preferred locations"
 
-.. findoutmore:: How does DataLad represent modifications to data?
+.. find-out-more:: How does DataLad represent modifications to data?
 
     As DataLad always tracks files individually, :command:`datalad status` (or, alternatively, :command:`git status` or :command:`git annex status`) will show modifications on the level of individual files::
 
@@ -393,7 +393,7 @@ Note that ``dvc remote add`` only *modifies* the config file, and it still needs
    $ git add .dvc/config
    $ git commit -m "add local remote"
 
-.. gitusernote::
+.. gitusernote:: Remotes
 
    The DVC and Git concepts of a "remote" are related, but not identical.
    Therefore, DVC remotes are invisible to :command:`git remote`, and likewise, Git :term:`remote`\s are invisible to the :command:`dvc remote list` command.
@@ -434,7 +434,7 @@ In order to demonstrate this, we start by deleting a data directory (in its orig
    ### DVC
    $ rm -rf data/raw/val
 
-.. gitusernote::
+.. gitusernote:: Status
 
    Do note that this deletion would not be detected by :command:`git status` -- you have to use :command:`dvc status` instead.
 
@@ -454,7 +454,7 @@ To demonstrate this, let's look at a repository with an empty cache by cloning t
 .. runrecord:: _examples/DL-101-168-129
    :workdir: DVCvsDL/DVC
    :language: console
-   :realcommand: git clone /home/me/pushes/data-version-control DVC-2
+   :realcommand: cd ../ && git clone /home/me/pushes/data-version-control DVC-2
 
    ### DVC
    # clone the repo into a new location for demonstration purposes:
@@ -485,7 +485,9 @@ DataLad workflow
 Because the S3 bucket of the raw data is known and stored in the dataset, it strictly speaking isn't necessary to create a storage sibling to push the data to -- DataLad already treats the original S3 bucket as storage.
 Currently, the dataset can thus be shared via :term:`GitHub` or similar hosting services, and the data can be retrieved using :command:`datalad get`.
 
-.. findoutmore:: Really?
+.. find-out-more:: Really?
+
+   .. index:: ! datalad command; create-sibling-github
 
    Sure.
    Let's demonstrate this.
@@ -520,7 +522,7 @@ Currently, the dataset can thus be shared via :term:`GitHub` or similar hosting 
    .. runrecord:: _examples/DL-101-168-132
       :workdir: DVCvsDL/DVC-DataLad-2
       :language: console
-      :lines: 1-4, 3930-3932
+      :realcommand: datalad get data/raw/val | grep -v '^\(copy\|get\|drop\|add\|delete\)(ok):.*(file)'
 
       ### DVC-DataLad
       $ datalad get data/raw/val
@@ -532,6 +534,8 @@ Here's an example of pushing a dataset to a local sibling nevertheless:
 
 **Step 1: Set up the sibling**
 
+.. index:: ! datalad command; create-sibling
+
 The easiest way to share data is via a local sibling [#f7]_.
 This won't share only annexed data, but it instead will push everything, including the Git aspect of the dataset.
 First, we need to create a local sibling:
@@ -542,7 +546,7 @@ First, we need to create a local sibling:
 
    ### DVC-DataLad
    $ cd DVC-DataLad
-   $ datalad create-sibling --name my-sibling ../datalad-sibling
+   $ datalad create-sibling --name mysibling ../datalad-sibling
 
 **Step 2: Push the data**
 
@@ -551,9 +555,10 @@ Afterwards, the dataset contents can be pushed using :command:`datalad push`.
 .. runrecord:: _examples/DL-101-168-141
    :workdir: DVCvsDL/DVC-DataLad
    :language: console
+   :realcommand: datalad push --to mysibling | grep -v '^\(copy\|get\|drop\|add\|delete\)(ok):.*(file)'
 
    ### DVC-DataLad
-   $ datalad push --to my-sibling
+   $ datalad push --to mysibling
 
 This pushed all of the annexed data and the Git history of the dataset.
 
@@ -564,7 +569,7 @@ The data in the dataset (complete directories or individual files) can be droppe
 .. runrecord:: _examples/DL-101-168-142
    :workdir: DVCvsDL/DVC-DataLad
    :language: console
-   :lines: 1-2, 3928-3930
+   :realcommand: datalad drop data/raw/val | grep -v '^\(copy\|get\|drop\|add\|delete\)(ok):.*(file)'
 
    ### DVC-DataLad
    $ datalad drop data/raw/val
@@ -572,7 +577,7 @@ The data in the dataset (complete directories or individual files) can be droppe
 .. runrecord:: _examples/DL-101-168-143
    :workdir: DVCvsDL/DVC-DataLad
    :language: console
-   :lines: 1-2, 3928-3930
+   :realcommand:  datalad get data/raw/val | grep -v '^\(copy\|get\|drop\|add\|delete\)(ok):.*(file)'
 
    ### DVC-DataLad
    $ datalad get data/raw/val
@@ -871,6 +876,7 @@ Instead of creating a pipeline stage and giving it a name, we attach a meaningfu
 .. runrecord:: _examples/DL-101-168-171
    :workdir: DVCvsDL/DVC-DataLad
    :language: console
+   :realcommand: datalad run --message "Prepare the train and testing data" --input "data/raw/*" --output "data/prepared/*" python code/prepare.py | grep -v '^\(copy\|get\|drop\|add\|delete\)(ok):.*(file)'
 
    ### DVC-DataLad
    $ datalad run --message "Prepare the train and testing data" \

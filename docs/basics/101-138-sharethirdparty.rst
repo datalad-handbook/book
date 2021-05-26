@@ -3,7 +3,7 @@
 Beyond shared infrastructure
 ----------------------------
 
-.. admonition:: There can never be "too much" documentation
+.. importantnote:: There can never be "too much" documentation
 
    If you plan to share your own datasets with people that are unfamiliar with
    DataLad, it may be helpful to give a short explanation of what a DataLad
@@ -33,6 +33,11 @@ others can just recompute your results instead of :command:`datalad get`\ting th
 However, not always do two or more parties share the same server, have access to
 the same systems, or share something that can be recomputed quickly, but need to
 actually share datasets with data, including the annexed contents.
+
+.. figure:: ../artwork/src/publishing/startingpoint.svg
+   :width: 70%
+
+   An overview of all elements potentially included in a publication workflow.
 
 Leveraging third party infrastructure
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -69,10 +74,15 @@ the published dataset (e.g., via :term:`GitHub` or :term:`GitLab`) stores the
 information about where to obtain annexed file contents from such that
 :command:`datalad get` works.
 
+.. figure:: ../artwork/src/publishing/publishing_network_publishparts2.svg
+   :width: 80%
+
+   Schematic difference between the Git and git-annex aspect of your dataset, and where each part *usually* gets published to.
+
 This tutorial showcases how this can be done, and shows the basics of how
 datasets can be shared via a third party infrastructure.
 
-.. note::
+.. importantnote:: Free publication service alternatives
 
    There are two easier and free alternatives to what is outlined in this section:
 
@@ -114,7 +124,7 @@ very familiar with.
 Setting up 3rd party services to host your data
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. note::
+.. importantnote:: There is work in progress
 
    The tutorial below is functional, but there is work towards a wrapper
    function to ease creating and working with rclone-based special remotes:
@@ -136,7 +146,7 @@ If the above steps are implemented, others can :command:`install` or
 :command:`clone` your shared dataset, and :command:`get` or :command:`pull` large
 file content from the remote, third party storage.
 
-.. findoutmore:: What is a special remote
+.. find-out-more:: What is a special remote
 
    A special-remote is an extension to Git’s concept of remotes, and can
    enable :term:`git-annex` to transfer data from and possibly to places that are not Git
@@ -309,8 +319,10 @@ be managed and accessed via DataLad/git-annex.
 To actually share your dataset with someone, you need to *publish* it to Github,
 Gitlab, or a similar hosting service.
 
+.. index:: ! datalad command; create-sibling-github
+
 You could, for example, create a sibling of the ``DataLad-101`` dataset
-on GitHub with the command :command:`datalad-sibling-github`.
+on GitHub with the command :command:`create-sibling-github`.
 This will create a new GitHub repository called "DataLad-101" under your account,
 and configure this repository as a :term:`sibling` of your dataset
 called ``github`` (exactly like you have done in :ref:`yoda_project`
@@ -321,7 +333,8 @@ done with the ``publish-depends <sibling>`` option.
 
 .. code-block:: bash
 
-   $ datalad create-sibling-github -d . DataLad-101 --publish-depends dropbox-for-friends
+   $ datalad create-sibling-github -d . DataLad-101 \
+     --publish-depends dropbox-for-friends
      [INFO   ] Configure additional publication dependency on "dropbox-for-friends"
      .: github(-) [https://github.com/<user-name>/DataLad-101.git (git)]
      'https://github.com/<user-name>/DataLad-101.git' configured as sibling 'github' for <Dataset path=/home/me/dl-101/DataLad-101>
@@ -346,7 +359,7 @@ publishing to GitHub dependent on the ``dropbox-for-friends`` sibling
 (that has a remote data annex), so that annexed contents are published
 there first.
 
-.. note::
+.. importantnote:: Publication dependencies are strictly local configuration
 
    Note that the publication dependency is only established for your own dataset,
    it is not shared with clones of the dataset. Internally, this configuration
@@ -386,16 +399,8 @@ dependency is served first:
 
 Afterwards, your dataset can be found on GitHub, and ``cloned`` or ``installed``.
 
-The option ``--transfer-data`` determines how publishing annexed contents should
-be handled. With the option ``all``, *all* annexed contents are published to the
-third-party data storage.
-``--transfer-data none``, however, only publishes information stored in Git --
-that is: The symlink, as information about file availability, but no file
-content. Anyone who attempts to :command:`datalad get` a file from a dataset clone
-if its contents were not published will fail.
 
-
-.. findoutmore:: What if I do not want to share a dataset with everyone, or only some files of it?
+.. find-out-more:: What if I do not want to share a dataset with everyone, or only some files of it?
 
    There are a number of ways to restrict access to your dataset or individual
    files of your dataset. One is via choice of (third party) hosting service
@@ -410,7 +415,7 @@ if its contents were not published will fail.
    If it is individual files that you do not want to share, you can selectively
    publish the contents of all files you want others to have, and withhold the data
    of the files you do not want to share. This can be done by providing paths
-   to the data that should be published, and the ``--transfer-data auto`` option.
+   to the data that should be published, or a `git-annex-wanted <https://git-annex.branchable.com/git-annex-wanted/>`_ configuration and the ``--data auto`` option.
 
    Let's say you have a dataset with three files:
 
@@ -422,28 +427,18 @@ if its contents were not published will fail.
    ``experiment.txt`` is fine for everyone to see, ``subject_1.dat`` and
    ``subject_2.dat`` contain personal and potentially identifying data that
    can not be shared. Nevertheless, you want collaborators to know that these
-   files exist. The use case
-
-   .. todo::
-
-      Write use case "external researcher without data access"
-
-   details such a scenario and demonstrates how external collaborators (with whom data
-   can not be shared) can develop scripts against the directory structure and
-   file names of a dataset, submit those scripts to the data owners, and thus still perform an
-   analysis despite not having access to the data.
-
+   files exist.
    By publishing only the file contents of ``experiment.txt`` with
 
    .. code-block:: bash
 
-      $ datalad publish --to github --transfer-data auto experiment.txt
+      $ datalad push --to github experiment.txt
 
    only meta data about file availability of ``subject_1.dat`` and ``subject_2.dat``
    exists, but as these files' annexed data is not published, a :command:`datalad get`
-   will fail. Note, though, that :command:`publish` will publish the complete
+   will fail. Note, though, that :command:`push` will publish the complete
    dataset history (unless you specify a commit range with the ``--since`` option
-   -- see the `manual <http://docs.datalad.org/en/latest/generated/man/datalad-publish.html>`_
+   -- see the `manual <http://docs.datalad.org/en/latest/generated/man/datalad-push.html>`_
    for more information).
 
 
@@ -487,7 +482,8 @@ the same as before:
 After this is done, you can execute what DataLad's output message suggests
 to "enable" this special remote (inside of the installed ``DataLad-101``)::
 
-   $ datalad siblings -d "/Users/awagner/Documents/DataLad-101" enable -s dropbox-for-friends
+   $ datalad siblings -d "/Users/awagner/Documents/DataLad-101" \
+     enable -s dropbox-for-friends
    .: dropbox-for-friends(?) [git]
 
 And once this is done, you can get any annexed file contents, for example the
@@ -496,6 +492,7 @@ books, or the cropped logos from chapter :ref:`chapter_run`::
    $ datalad get books/TLCL.pdf
    get(ok): /home/some/other/user/DataLad-101/books/TLCL.pdf (file) [from dropbox-for-friends]
 
+.. index:: ! datalad command; create-sibling-github
 .. _gitlfs:
 
 Use GitHub for sharing content
@@ -540,7 +537,7 @@ Because the special remote URL coincides with the regular remote URL on GitHub,
 ``siblings enable`` will not even be necessary when datalad is installed
 from GitHub.
 
-.. note::
+.. importantnote:: No drop from LFS
 
    Unfortunately, it is impossible to :command:`drop` contents from Git LFS:
    `help.github.com/en/github/managing-large-files <https://help.github.com/en/github/managing-large-files/removing-files-from-git-large-file-storage#git-lfs-objects-in-your-repository>`_
@@ -564,7 +561,7 @@ special features a DataLad dataset provides will be available, such as its
 history or configurations.
 
 Another example is :command:`export-to-figshare`. Running this command allows
-you to publish the dataset to `Figshare <https://figshare.com/>`__.  As the
+you to publish the dataset to `Figshare <https://figshare.com/>`__.  As the command
 :command:`export-archive` is used by it to prepare content for upload to
 Figshare, annexed files also will be annotated as available from the archive on
 Figshare using ``datalad-archive`` special remote.  As a result, if you publish

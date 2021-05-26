@@ -78,13 +78,14 @@ as an excerpt here):
 .. runrecord:: _examples/DL-101-135-103
    :language: console
    :workdir: dl-101/DataLad-101
-   :lines: 1-60
+   :lines: 1-28, 72-108
 
    $ datalad get --help
 
 This for example is the help page on :command:`datalad get`
 (the same you would find in the `documentation <docs.datalad.org>`__,
-but in your terminal). It contains a command description, a list
+but in your terminal, here - for brevity - slightly cut).
+It contains a command description, a list
 of all the available options with a short explanation of them, and
 example commands. The paragraph *Options* shows all
 optional flags, and all required parts of
@@ -126,7 +127,7 @@ Debugging like a DataLad-developer
 If you have read a command's help from start to end, checked all software versions twice, even `asked colleagues to reproduce your problem (unsuccessfully) <https://xkcd.com/2083/>`_, and you still don't have any clue what is going on, then welcome to the debugging section!
 
 .. figure:: ../artwork/src/debug.svg
-   :figwidth: 50%
+   :width: 50%
 
    It's not as bad as this
 
@@ -158,7 +159,7 @@ Anything printed to your terminal preceded by ``[INFO]``, for example, is a log 
 When you are *consciously* logging, you simply set the log-level to the desired amount of information, or increase the amount of verbosity until the output gives you a hint of what went wrong.
 Likewise, adjusting the log-level also works the other way around, and lets you *decrease* the amount of information you receive in your terminal.
 
-.. findoutmore:: Log levels
+.. find-out-more:: Log levels
 
    Log levels provide the means to adjust how much information you want, and are described in human readable terms, ordered by the severity of the failures or problems reported.
    The following log levels can be chosen from:
@@ -171,7 +172,7 @@ Likewise, adjusting the log-level also works the other way around, and lets you 
 
    Other than log *levels*, you can also adjust the amount of information provided with numerical granularity. Instead of specifying a log level, provide an integer between 1 and 9, with lower values denoting more debugging information.
 
-   Raising the log level (e.g, to ``error``, or ``9`) will decrease the amount of information and output you will receive, while lowering it (e.g., to ``debug`` or ``1``) will increase it.
+   Raising the log level (e.g, to ``error``, or ``9``) will decrease the amount of information and output you will receive, while lowering it (e.g., to ``debug`` or ``1``) will increase it.
 
 
 
@@ -181,10 +182,11 @@ To get extensive information on what :command:`datalad status` does underneath t
 .. runrecord:: _examples/DL-101-135-105
    :language: console
    :workdir: dl-101/DataLad-101
+   :lines: 1-15, 170-
 
    $ datalad --log-level debug status
 
-.. findoutmore:: ... and how does it look when using environment variables or configurations?
+.. find-out-more:: ... and how does it look when using environment variables or configurations?
 
    The log level can also be set (for different scopes) using the ``datalad.log.level`` configuration variable, or the corresponding environment variable ``DATALAD_LOG_LEVEL``.
 
@@ -198,7 +200,7 @@ To get extensive information on what :command:`datalad status` does underneath t
        $ datalad status
        $ ...
 
-   You can find out a bit more on environment variable :ref:`in this footnote <envvars>`.
+   You can find out a bit more on environment variable :ref:`in this Findoutmore <fom-envvar>`.
 
    The configuration variable can be used to set the log level on a user (global) or system-wide level with the :command:`git config` command::
 
@@ -239,9 +241,11 @@ It is common for :command:`datalad get` errors to originate in :term:`git-annex`
    - The version number contains the release date of the version in use. For instance, git-annex version: ``8.20200330-g971791563`` was released on 30 March 2020.
    - If the version that you are using is older than a few months, consider updating using the instructions `here <http://handbook.datalad.org/en/latest/intro/installation.html>`_.
 - Try to download the file using ``git-annex get -v -d <file_name>``. If this doesn't succeed, the DataLad command may not succeed. Options ``-d/--debug`` and ``-v`` are here to provide as much verbosity in error messages as possible
-- Read the output of :term:`git-annex`, identify the error, breathe again, and solve the issue!
+- Read the output of :term:`git-annex`, identify the error, breathe again, and solve the issue! :numref:`table-gitannex-errors` list a few common or tricky ones.
 
-.. list-table:: Examples of possible issues
+.. tabularcolumns:: \Y{.5}\Y{.5}
+.. list-table:: Examples of possible git-annex issues.
+   :name: table-gitannex-errors
    :header-rows: 1
 
    * - git-annex error
@@ -397,40 +401,66 @@ Speaking of remotes that are not available, this will probably be one of the mos
 commonly occurring git-annex errors to see - failing :command:`datalad get` calls
 because remotes are not available:
 
+Other errors
+^^^^^^^^^^^^
+
+Sometimes, registered subdatasets URLs have an :term:`SSH` instead of :term:`https` address, for example ``git@github.com:datalad-datasets/longnow-podcasts.git`` instead of ``https://github.com/datalad-datasets/longnow-podcasts.git``.
+If one does not have an SSH key configured for the required service (e.g., GitHub, or a server), installing or getting the subdataset and its contents fails, with messages starting similar to this::
+
+   [INFO   ] Cloning https://github.com/psychoinformatics-de/paper-remodnav.git/remodnav [2 other candidates] into '/home/homeGlobal/adina/paper-remodnav/remodnav'
+   Permission denied (publickey).
+
+If you encounter these errors, make sure to create and/or upload an SSH key (see section :ref:`Gin` for an example) as necessary, or reconfigure/edit the URL into a HTTPS URL.
+
+
+**git-annex as the default branch on GitHub**
+
+If you publish a dataset to :term:`GitHub`, but the resulting repository seems to consist of cryptic directories instead of your actual file names and directories, GitHub may have made the :term:`git-annex branch` the default.
+
+.. figure:: ../artwork/src/defaultgitannex.png
+
+To find out more about this and how to fix it, please take a look at the corresponding :ref:`FAQ <gitannexdefault>`.
+
+asyncio errors at DataLad import
+""""""""""""""""""""""""""""""""
+
+DataLad's internal command runner uses `asyncio
+<https://docs.python.org/3/library/asyncio.html>`_. This can lead to
+an error when DataLad is used within a script or application that
+itself uses asyncio. To summarize the problem with a `quote from
+Python's bug tracker <https://bugs.python.org/issue33523#msg349561>`_:
+"you can't call async code from sync code that's being called from
+async code".
+
+Jupyter Notebooks are probably the most likely place that you'll run
+into this error (`ipykernel issue 548
+<https://github.com/ipython/ipykernel/issues/548>`_). When importing
+``datalad``, you'll see this:
+
+.. code-block:: bash
+
+   RuntimeError: Cannot run the event loop while another loop is running
+
+The `nest-asyncio <https://pypi.org/project/nest-asyncio/>`_ package
+provides a workaround:
+
+.. code-block:: bash
+
+   >>> import nest_asyncio
+   >>> nest_asyncio.apply()
+
+   >>> import datalad
+
+
+
+
+
 .. todo::
 
     paste some "please make these remotes available output"
 
 
 
-.. todo::
-
-   If one does not have an SSH key configured, e.g., on a server (from remodnav paper on brainbfast)::
-
-      [INFO   ] Cloning https://github.com/psychoinformatics-de/paper-remodnav.git/remodnav [2 other candidates] into '/home/homeGlobal/adina/paper-remodnav/remodnav'
-      Permission denied (publickey).
-      [WARNING] Failed to run cmd ['ssh', '-fN', '-o', 'ControlMaster=auto', '-o', 'ControlPersist=15m', '-o', 'ControlPath="/home/homeGlobal/adina/.cache/datalad/sockets/6ca483de"', 'git@github.com']. Exit code=255
-      | stdout: None
-      | stderr: None
-      [ERROR  ] Failed to clone from any candidate source URL. Encountered errors per each url were: (OrderedDict([('https://github.com/psychoinformatics-de/paper-remodnav.git/remodnav', "Cmd('/usr/lib/git-annex.linux/git') failed due to: exit code(128)\n  cmdline: /usr/lib/git-annex.linux/git clone --progress -v https://github.com/psychoinformatics-de/paper-remodnav.git/remodnav /home/homeGlobal/adina/paper-remodnav/remodnav [cmd.py:wait:412]"), ('https://github.com/psychoinformatics-de/paper-remodnav.git/remodnav/.git', "Cmd('/usr/lib/git-annex.linux/git') failed due to: exit code(128)\n  cmdline: /usr/lib/git-annex.linux/git clone --progress -v https://github.com/psychoinformatics-de/paper-remodnav.git/remodnav/.git /home/homeGlobal/adina/paper-remodnav/remodnav [cmd.py:wait:412]"), ('git@github.com:psychoinformatics-de/remodnav.git', "Cmd('/usr/lib/git-annex.linux/git') failed due to: exit code(128)\n  cmdline: /usr/lib/git-annex.linux/git clone --progress -v git@github.com:psychoinformatics-de/remodnav.git /home/homeGlobal/adina/paper-remodnav/remodnav [cmd.py:wait:412]")]),) [install(/home/homeGlobal/adina/paper-remodnav/remodnav)]
-      [ERROR  ] Installation of subdatasets /home/homeGlobal/adina/paper-remodnav/remodnav failed with exception: InstallFailedError:
-      Failed to install dataset from any of: ['https://github.com/psychoinformatics-de/paper-remodnav.git/remodnav', 'git@github.com:psychoinformatics-de/remodnav.git'] [get.py:_install_subds_from_flexible_source:184] [install(/home/homeGlobal/adina/paper-remodnav/remodnav)]
-      Traceback (most recent call last):
-        File "code/mk_figuresnstats.py", line 811, in <module>
-          savefigs(args.figure, args.stats)
-        File "code/mk_figuresnstats.py", line 410, in savefigs
-          stat)
-        File "code/mk_figuresnstats.py", line 274, in confusion
-          load_anderson(stimtype, finame)
-        File "code/mk_figuresnstats.py", line 28, in load_anderson
-          get(fname)
-        File "/home/homeGlobal/adina/env/remodnav/lib/python3.5/site-packages/datalad/interface/utils.py", line 492, in eval_func
-          return return_func(generator_func)(*args, **kwargs)
-        File "/home/homeGlobal/adina/env/remodnav/lib/python3.5/site-packages/datalad/interface/utils.py", line 480, in return_func
-          results = list(results)
-        File "/home/homeGlobal/adina/env/remodnav/lib/python3.5/site-packages/datalad/interface/utils.py", line 468, in generator_func
-          msg="Command did not complete successfully")
-      datalad.support.exceptions.IncompleteResultsError: Command did not complete successfully [{'type': 'dataset', 'status': 'error', 'action': 'install', 'message': ('Installation of subdatasets %s failed with exception: %s', '/home/homeGlobal/adina/paper-remodnav/remodnav', "InstallFailedError: \nFailed to install dataset from any of: ['https://github.com/psychoinformatics-de/paper-remodnav.git/remodnav', 'git@github.com:psychoinformatics-de/remodnav.git'] [get.py:_install_subds_from_flexible_source:184]"), 'path': '/home/homeGlobal/adina/paper-remodnav/remodnav'}]
 
 
 .. rubric:: Footnotes

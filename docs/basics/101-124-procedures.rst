@@ -28,11 +28,6 @@ nothing more than a simple script that
 - writes the relevant configuration (``annex_largefiles = '((mimeencoding=binary)and(largerthan=0))'``,  i.e., "Do not put anything that is a text file in the annex") to the ``.gitattributes`` file of a dataset, and
 - saves this modification with the commit message "Instruct annex to add text files to Git".
 
-.. windowsworkarounds:: Why this configuration does not work for Windows users
-
-   If you're on a **Windows 10** machine with a **native** (i.e., non :term:`WSL` based installation) of DataLad and did **not** use the custom :term:`git-annex` installer from `http://datasets.datalad.org/datalad/packages/windows/ <http://datasets.datalad.org/datalad/packages/windows/>`_ at the start of the Basics, the ``text2git`` configuration will lead to errors upon a :command:`datalad save`.
-   This is because MagicMime (used in ``mimeencoding=binary`` to determine the file type of any given file by searching for `magic numbers <https://en.wikipedia.org/wiki/List_of_file_signatures>`_) is not natively available on Windows.
-
 This particular procedure lives in a script called
 ``cfg_text2git`` in the sourcecode of DataLad. The amount of code
 in this script is not large, and the relevant lines of code
@@ -75,10 +70,11 @@ only modify ``.gitattributes``, but can also populate a dataset
 with particular content, or automate routine tasks such as
 synchronizing dataset content with certain siblings.
 What makes them a particularly versatile and flexible tool is
-that anyone can write their own procedures. If a workflow is
-a standard in a team and needs to be applied often, turning it into
-a script can save time and effort. By pointing DataLad
-to the location the procedures reside in they can be applied, and by
+that anyone can write their own procedures.
+If a workflow is a standard in a team and needs to be applied often, turning it into
+a script can save time and effort.
+To learn how to do this, read the :ref:`with a tutorial on writing own procedures <fom-procedures>`.
+By pointing DataLad to the location the procedures reside in they can be applied, and by
 including them in a dataset they can even be shared.
 And even if the script is simple, it is very handy to have preconfigured
 procedures that can be run in a single command line call. In the
@@ -149,14 +145,14 @@ could thus be applied within a :command:`datalad create` as
 - ``datalad create -c yoda <DSname>``
 - ``datalad create -c text2git <DSname>``
 
-.. findoutmore:: Applying multiple procedures
+.. find-out-more:: Applying multiple procedures
 
    If you want to apply several configurations at once, feel free to do so,
    for example like this::
 
       $ datalad create -c yoda -c text2git
 
-.. findoutmore:: Applying procedures in subdatasets
+.. find-out-more:: Applying procedures in subdatasets
 
    Procedures can be applied in datasets on any level in the dataset hierarchy, i.e.,
    also in subdatasets. Note, though, that a subdataset will show up as being
@@ -183,7 +179,9 @@ files into Git -- only those text files created *after* the configuration
 was applied.
 
 
-.. findoutmore:: Write your own procedures
+.. find-out-more:: Write your own procedures
+   :name: fom-procedures
+   :float:
 
    Procedures can come with DataLad or its extensions, but anyone can
    write their own ones in addition, and deploy them on individual machines,
@@ -212,7 +210,7 @@ was applied.
      .. code-block:: bash
 
         [datalad "procedures.<NAME>"]
-           help = "This is a string to describe what the procedure does"
+           help = This is a string to describe what the procedure does
 
    - By default, on GNU/Linux systems, DataLad will search for system-wide procedures
      (i.e., procedures on the *system* level) in ``/etc/xdg/datalad/procedures``,
@@ -250,8 +248,8 @@ was applied.
       .. code-block:: bash
 
          [datalad "procedures.<NAME>"]
-            help = "This is a string to describe what the procedure does"
-            call-format = "python {script} {ds} {somearg1} {somearg2}"
+            help = This is a string to describe what the procedure does
+            call-format = python {script} {ds} {somearg1} {somearg2}
 
     - By convention, procedures should leave a dataset in a clean state.
 
@@ -356,10 +354,6 @@ was applied.
 
       $ datalad run-procedure --help-proc example
 
-   .. todo::
-
-      It might be helpful to have (or reference) a table with all available
-      procedures and a short explanation. Maybe on the cheatsheet.
 
 Summing up, DataLad's :command:`run-procedure` command is a handy tool
 with useful existing procedures but much flexibility for your own
@@ -389,14 +383,15 @@ Finally, make a note about running procedures inside of ``notes.txt``:
 
    $ cat << EOT >> notes.txt
    It can be useful to use pre-configured procedures that can apply
-   configurations, create files or file hierarchies, or perform
-   arbitrary tasks in datasets. They can be shipped with DataLad,
-   its extensions, or datasets, and you can even write your own
-   procedures and distribute them. The "datalad run-procedure"
-   command is used to apply such a procedure to a dataset. Procedures
-   shipped with DataLad or its extensions starting with a "cfg" prefix
-   can also be applied at the creation of a dataset with
-   "datalad create -c <PROC-NAME> <PATH>" (omitting the "cfg" prefix).
+   configurations, create files or file hierarchies, or perform arbitrary
+   tasks in datasets. They can be shipped with DataLad, its extensions,
+   or datasets, and you can even write your own procedures and distribute
+   them.
+   The "datalad run-procedure" command is used to apply such a procedure
+   to a dataset. Procedures shipped with DataLad or its extensions
+   starting with a "cfg" prefix can also be applied at the creation of a
+   dataset with "datalad create -c <PROC-NAME> <PATH>" (omitting the
+   "cfg" prefix).
 
    EOT
 

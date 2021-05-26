@@ -264,6 +264,7 @@ htmlhelp_basename = 'dataladhandbookdoc'
 
 
 # -- Options for LaTeX output --------------------------------------------------
+latex_engine = 'pdflatex'
 
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
@@ -279,6 +280,13 @@ latex_documents = [
 # The name of an image file (relative to this directory) to place at the top of
 # the title page.
 latex_logo = '../artwork/logo.pdf'
+latex_additional_files = [
+    '../artwork/git_boxicon.pdf',
+    '../artwork/important_boxicon.pdf',
+    '../artwork/more_boxicon.pdf',
+    '../artwork/more_boxicon_inline.pdf',
+    '../artwork/win_boxicon.pdf',
+]
 
 latex_toplevel_sectioning = 'part'
 latex_show_pagerefs = True
@@ -286,15 +294,31 @@ latex_show_urls = 'footnote'
 latex_elements = {
     'papersize': 'a4paper',
     'pointsize': '11pt',
-    'figure_align': 'H',
+    'figure_align': 'htbp',
+    'sphinxsetup': r"""
+verbatimwithframe=false,%
+VerbatimColor={rgb}{1,1,1},%
+VerbatimHighlightColor={named}{OldLace},%
+TitleColor={named}{DarkGoldenrod},%
+hintBorderColor={named}{LightCoral},%
+attentionborder=3pt,%
+attentionBorderColor={named}{Crimson},%
+attentionBgColor={named}{FloralWhite},%
+noteborder=2pt,%
+noteBorderColor={named}{Orange},%
+cautionborder=3pt,%
+cautionBorderColor={named}{Cyan},%
+cautionBgColor={named}{LightCyan}%
+""",
     'maketitle': r"""
 \begin{titlepage}
 \raggedleft
 \rule{1pt}{\textheight}
 \hspace{0.05\textwidth}
 \parbox[b]{0.75\textwidth}{
+\hfill{\footnotesize %s}\\[1\baselineskip]
 \includegraphics[width=0.75\textwidth]{logo.pdf}\\
-{\Huge\textbf{The handbook}}\hfill{\footnotesize %s}\\[1\baselineskip]
+{\Huge\textbf{Handbook}}\\
 {\Large Introduction \textbullet\ Advanced topics \textbullet\ Use cases}\\[2\baselineskip]
 {\Large\textsc{Adina~Wagner \& Michael~Hanke}\\[1\baselineskip]
 {\small \textit{with}}\\[1\baselineskip]
@@ -312,34 +336,111 @@ latex_elements = {
     'fncychap': r'\usepackage[Bjarne]{fncychap}',
     'passoptionstopackages': r'\PassOptionsToPackage{svgnames}{xcolor}',
     'preamble': r"""
+\usepackage[labelfont=bf,singlelinecheck=false]{caption}
+\renewcommand{\sphinxstyletheadfamily}{\bfseries}
 \usepackage{charter}
 \usepackage[defaultsans]{lato}
 \usepackage{inconsolata}
+\usepackage[hang,flushmargin,multiple]{footmisc}
 
-% nice boxes
-\usepackage[skins,breakable]{tcolorbox}
-\tcbset{enhanced}
+% make sure that loooong URLs always break
+\usepackage{xurl}
+% make sure all float stay in their respective chapter
+%\usepackage[chapter]{placeins}
 
-\setcounter{tocdepth}{1}
 \usepackage{xcolor}
 \definecolor{dataladyellow}{HTML}{FFA200}
 \definecolor{dataladblue}{HTML}{7FD5FF}
 \definecolor{dataladgray}{HTML}{333333}
-\definecolor{windowsblue}{HTML}{00A4EF}
+\definecolor{windowsblue}{HTML}{126e12}
 \definecolor{windowsgreen}{HTML}{66CC33}
 \definecolor{windowsyellow}{HTML}{FFCC00}
+
+% nice boxes
+\usepackage[skins,breakable,many]{tcolorbox}
+\tcbset{breakable}
+\tcbset{drop lifted shadow}
+\tcbset{sharp corners}
+\tcbset{fonttitle=\bfseries}
+
+\tcbset{%
+ribbon win/.style={overlay={
+  \begin{scope}[shift={([xshift=-5mm,yshift=-3mm]frame.north west)}]
+    \path(0,0) node[inner sep=0] {\includegraphics{win_boxicon}};
+  \end{scope}}}
+}
+\tcbset{%
+ribbon git/.style={overlay={
+  \begin{scope}[shift={([xshift=-5mm,yshift=-3mm]frame.north west)}]
+    \path(0,0) node[inner sep=0] {\includegraphics{git_boxicon}};
+  \end{scope}}}
+}
+\tcbset{%
+ribbon more/.style={overlay={
+  \begin{scope}[shift={([xshift=-5mm,yshift=-3mm]frame.north west)}]
+    \path(0,0) node[inner sep=0] {\includegraphics{more_boxicon}};
+  \end{scope}}}
+}
+\tcbset{%
+ribbon important/.style={overlay={
+  \begin{scope}[shift={([xshift=-5mm,yshift=-3mm]frame.north west)}]
+    \path(0,0) node[inner sep=0] {\includegraphics{important_boxicon}};
+  \end{scope}}}
+}
+
+\newtcolorbox[%
+  auto counter,
+  number within=chapter,
+  list inside=windowswits]{windowswit}[2][]{%
+    enhanced, ribbon win, title={#2},
+    coltitle=dataladgray,
+    colbacktitle=windowsgreen,
+    colframe=windowsgreen!70!black, #1
+}
+\newtcolorbox[%
+  auto counter,
+  number within=chapter,
+  list inside=gitusernotes]{gitusernote}[2][]{%
+    enhanced, ribbon git, title={#2},
+    coltitle=dataladgray,
+    colbacktitle=dataladblue,
+    colframe=dataladblue!70!black, #1
+}
+\newtcolorbox[
+  auto counter,
+  number within=chapter,
+  list inside=findoutmores]{findoutmore}[2][]{%
+    enhanced, ribbon more, title={#2},
+    coltitle=dataladgray,
+    colbacktitle=dataladyellow,
+    colframe=dataladyellow!70!black, #1
+}
+\newtcolorbox[
+  auto counter,
+  number within=chapter,
+  list inside=importantnotes]{importantnote}[2][]{%
+    enhanced, ribbon important, title={#2},
+    coltitle=white,
+    colbacktitle=dataladgray,
+    colframe=dataladgray!70!black, #1
+}
+
+\setcounter{tocdepth}{1}
 \setcounter{secnumdepth}{1}
-\newsavebox{\selvestebox}
-\newenvironment{colbox}[1]
-  {\newcommand\colboxcolor{#1}%
-   \begin{lrbox}{\selvestebox}%
-   \begin{minipage}{\dimexpr\columnwidth-2\fboxsep\relax}}
-  {\end{minipage}\end{lrbox}%
-   \begin{center}
-   \colorbox[HTML]{\colboxcolor}{\usebox{\selvestebox}}
-   \end{center}}
-\newcommand*\ruleline[1]{\par\noindent\raisebox{.8ex}{\makebox[\linewidth]{\hrulefill\hspace{1ex}\raisebox{-.8ex}{#1}\hspace{1ex}\hrulefill}}}
-\newenvironment{colortext}{\color{orange}}{\ignorespacesafterend}
+
+\numberwithin{table}{chapter}
+\numberwithin{figure}{chapter}
+
+% natural spacing between (long) numbers and titles in
+% any TOC
+\renewcommand{\numberline}[1]{#1~}
+
+
+\newcommand{\findoutmoreiconinline}{\raisebox{-.1em}{\includegraphics[height=.9em]{more_boxicon_inline}}~}
+\newcommand{\windowswiticoninline}{\raisebox{-.3em}{\includegraphics[height=1.2em]{win_boxicon}}~}
+
+% make :term: references visually distinct in a print
+\renewcommand{\sphinxtermref}[1]{\textsc{#1}}
 """,
 }
 
@@ -401,7 +502,7 @@ epub_exclude_files = [
 # Allow duplicate toc entries.
 #epub_tocdup = True
 
-todo_include_todos = True
+todo_include_todos = False
 
 intersphinx_mapping = {
     'python': ('https://docs.python.org/3', None),

@@ -1,9 +1,10 @@
-$ datalad copy-file notes.txt midterm_project -d midterm_project
-[INFO] Copying non-annexed file or copy into non-annex dataset: /home/me/dl-101/DataLad-101/notes.txt -> AnnexRepo(/home/me/dl-101/DataLad-101/midterm_project) 
-copy_file(ok): /home/me/dl-101/DataLad-101/notes.txt
-add(ok): notes.txt (file)
+$ datalad save -r -m "move book into midterm_project"
+add(ok): TLCL.pdf (file)
+save(ok): midterm_project (dataset)
+delete(ok): books/TLCL.pdf (file)
+add(ok): midterm_project (file)
 save(ok): . (dataset)
 action summary:
-  add (ok: 1)
-  copy_file (ok: 1)
-  save (ok: 1)
+  add (ok: 2)
+  delete (ok: 1)
+  save (notneeded: 2, ok: 2)

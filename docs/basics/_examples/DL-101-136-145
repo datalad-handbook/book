@@ -1,28 +1,9 @@
-$ cat .git/config
-[core]
-	repositoryformatversion = 0
-	filemode = true
-	bare = false
-	logallrefupdates = true
-	editor = nano
-[annex]
-	uuid = 82cdbc6d-37a5-4552-a513-40335d194347
-	version = 8
-	backends = MD5E
-[filter "annex"]
-	smudge = git-annex smudge -- %f
-	clean = git-annex smudge --clean -- %f
-[submodule "recordings/longnow"]
-	url = https://github.com/datalad-datasets/longnow-podcasts.git
-	active = true
-[remote "roommate"]
-	url = ../mock_user/onemoredir/DataLad-101
-	fetch = +refs/heads/*:refs/remotes/roommate/*
-	annex-uuid = ab9807a7-a92e-4a8f-a7f8-f6764fad050c
-	annex-ignore = false
-[submodule "midterm_project"]
-	url = /home/me/dl-101/DataLad-101/midterm_project
-	active = true
-[submodule "longnow"]
-	url = https://github.com/datalad-datasets/longnow-podcasts.git
-	active = true
+$ datalad copy-file notes.txt midterm_project -d midterm_project
+[INFO] Copying non-annexed file or copy into non-annex dataset: /home/me/dl-101/DataLad-101/notes.txt -> AnnexRepo(/home/me/dl-101/DataLad-101/midterm_project)
+copy_file(ok): /home/me/dl-101/DataLad-101/notes.txt
+add(ok): notes.txt (file)
+save(ok): . (dataset)
+action summary:
+  add (ok: 1)
+  copy_file (ok: 1)
+  save (ok: 1)

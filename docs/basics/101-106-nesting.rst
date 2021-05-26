@@ -45,13 +45,13 @@ this excerpt.
 .. runrecord:: _examples/DL-101-106-101
    :language: console
    :workdir: dl-101/DataLad-101
-   :lines: 1, 23-46
-   :emphasize-lines: 25
+   :lines: 1, 22-62
+   :emphasize-lines: 41
    :realcommand: git log -p
    :cast: 01_dataset_basics
    :notes: The superdataset only stores the version of the subdataset.  Let's take a look into how the superdataset's history looks like
 
-   $ git log -p -n 2
+   $ git log -p -n 3
 
 We have highlighted the important part of this rather long commit summary.
 Note that you can not see any ``.mp3``\s being added to the dataset,
@@ -61,7 +61,7 @@ DataLad stores what it calls a *subproject commit* of the subdataset.
 The cryptic character sequence in this line is the :term:`shasum` we have briefly
 mentioned before, and it is
 how DataLad internally identifies files and changes to files. Exactly this
-shasum is what describes the state of the subdataset.
+:term:`shasum` is what describes the state of the subdataset.
 
 Navigate back into ``longnow`` and try to find the highlighted shasum in the
 subdataset's history:
@@ -69,6 +69,7 @@ subdataset's history:
 .. runrecord:: _examples/DL-101-106-102
    :language: console
    :workdir: dl-101/DataLad-101
+   :lines: 1-9
    :emphasize-lines: 3
    :cast: 01_dataset_basics
    :notes: We can find this shasum in the subdatasets history: it's the most recent change
@@ -87,7 +88,7 @@ This is what is meant by "the top-level DataLad dataset (the *superdataset*) onl
 Importantly, once we learn how to make use of the history of a dataset,
 we can set subdatasets to previous states, or *update* them.
 
-.. findoutmore:: Do I have to navigate into the subdataset to see it's history?
+.. find-out-more:: Do I have to navigate into the subdataset to see it's history?
 
    Previously, we used :command:`cd` to navigate into the subdataset, and
    subsequently opened the Git log. This is necessary, because a :command:`git log`
@@ -111,7 +112,9 @@ the figure below illustrates the current state of the dataset
 and nesting schematically:
 
 .. figure:: ../artwork/src/virtual_dstree_dl101.svg
-   :alt: Virtual directory tree of a nested DataLad dataset
+   :width: 70%
+
+   Virtual directory tree of a nested DataLad dataset
 
 Thus, without being consciously aware of it, by taking advantage of dataset
 nesting, we took a dataset ``longnow`` and installed it as a

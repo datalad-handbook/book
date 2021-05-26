@@ -36,8 +36,8 @@ installation in ``../mock_user/DataLad-101``:
    :notes: On updating dataset. How do we get the updated notes from the original dataset?
    :cast: 04_collaboration
 
-   # we are inside the installed copy
-   $ cat notes.txt
+   # Inside the installed copy, view the last 15 lines of notes.txt
+   $ tail notes.txt
 
 But the original intention of sharing the dataset with
 your room mate was to give him access to your notes.
@@ -80,7 +80,8 @@ the previously missing changes are now present:
    :notes: let's check whether the updates are there
    :cast: 04_collaboration
 
-   $ cat notes.txt
+   # view the last 15 lines of notes.txt
+   $ tail notes.txt
 
 Wohoo, the contents are here!
 
@@ -126,7 +127,7 @@ a Git-user and know about branches and merging you can read the
 ``Note for Git-users`` below. However, a thorough explanation
 and demonstration will be in the next section.
 
-.. gitusernote::
+.. gitusernote:: Update internals
 
    :command:`datalad update` is the DataLad equivalent of a :command:`git fetch`,
    :command:`datalad update --merge` is the DataLad equivalent of a

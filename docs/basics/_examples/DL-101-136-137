@@ -1,15 +1,3 @@
-$ tree midterm_project
-midterm_project
-├── bash_guide.pdf -> .git/annex/objects/WF/Gq/MD5E-s1198170--0ab2c121bcf68d7278af266f6a399c5f.pdf/MD5E-s1198170--0ab2c121bcf68d7278af266f6a399c5f.pdf
-├── CHANGELOG.md
-├── code
-│   ├── README.md
-│   └── script.py
-├── input
-│   └── iris.csv -> .git/annex/objects/qz/Jg/MD5E-s3975--341a3b5244f213282b7b0920b729c592.csv/MD5E-s3975--341a3b5244f213282b7b0920b729c592.csv
-├── notes.txt -> .git/annex/objects/W4/w9/MD5E-s5075--c59ea2194d50f9d0ddebcc257343d31f.txt/MD5E-s5075--c59ea2194d50f9d0ddebcc257343d31f.txt
-├── pairwise_relationships.png -> .git/annex/objects/M8/26/MD5E-s183836--180aa76139de881db6d1ddac828c2668.png/MD5E-s183836--180aa76139de881db6d1ddac828c2668.png
-├── prediction_report.csv -> .git/annex/objects/8q/6M/MD5E-s345--a88cab39b1a5ec59ace322225cc88bc9.csv/MD5E-s345--a88cab39b1a5ec59ace322225cc88bc9.csv
-└── README.md
-
-2 directories, 9 files
+# in midterm_project
+$ git annex unannex TLCL.pdf
+unannex TLCL.pdf ok

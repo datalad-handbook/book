@@ -104,7 +104,7 @@ Singularity furthermore is compatible with Docker -- you can use
 Docker Images as a basis for Singularity Images, or run Docker Images with
 Singularity (even without having Docker installed).
 
-.. note::
+.. importantnote:: Additional requirement: Singularity
 
    In order to use Singularity containers (and thus ``datalad containers``), you have to
    `install <https://singularity.lbl.gov/docs-installation>`_ the software singularity.
@@ -134,7 +134,7 @@ Image is built from the recipe via Singularity hub.
 If you're curious how to create a Singularity Image, the hidden
 section below has some pointers:
 
-.. findoutmore:: How to make a Singularity Image
+.. find-out-more:: How to make a Singularity Image
 
    Singularity containers are build from Image files, often
    called "recipes", that hold a "definition" of the software container and its
@@ -142,7 +142,7 @@ section below has some pointers:
    `singularity documentation <https://sylabs.io/guides/3.4/user-guide/build_a_container.html>`_
    has its own tutorial on how to build such Images from scratch.
    An alternative to writing the Image file by hand is to use
-   `Neurodocker <https://github.com/kaczmarj/neurodocker#singularity>`_. This
+   `Neurodocker <https://github.com/ReproNim/neurodocker#singularity>`_. This
    command-line program can help you generate custom Singularity recipes (and
    also ``Dockerfiles``, from which Docker Images are build). A wonderful tutorial
    on how to use Neurodocker is
@@ -176,7 +176,7 @@ name to give to the container, and a path or url to a container Image:
    # we are in the midterm_project subdataset
    $ datalad containers-add midterm-software --url shub://adswa/resources:2
 
-.. findoutmore:: How do I add an Image from Dockerhub, Amazon ECR, or a local container?
+.. find-out-more:: How do I add an Image from Dockerhub, Amazon ECR, or a local container?
 
    Should the Image you want to use lie on Dockerhub, specify the ``--url``
    option prefixed with ``docker://`` or ``dhub://`` instead of ``shub://`` like this::
@@ -185,22 +185,23 @@ name to give to the container, and a path or url to a container Image:
 
    If your Image exists on Amazon ECR, use a ``dhub://`` prefix followed by the AWS ECR URL as in
 
-.. code-block:: bash
+   .. code-block:: bash
 
-       datalad containers-add --url dhub://12345678.dkr.ecr.us-west-2.amazonaws.com/maze-code/data-import:latest data-import
-
+          datalad containers-add --url dhub://12345678.dkr.ecr.us-west-2.amazonaws.com/maze-code/data-import:latest data-import
 
    If you want to add a container that exists locally, specify the path to it
    like this::
 
-      datalad containers-add midterm-software --url path/to/container
+       datalad containers-add midterm-software --url path/to/container
 
 This command downloaded the container from Singularity Hub, added it to
 the ``midterm_project`` dataset, and recorded basic information on the
 container under its name "midterm-software" in the dataset's configuration at
-``.datalad/config``.
+``.datalad/config``. You can find out more about them in a dedicated :ref:`find-out-more on these additional configurations <fom-containerconfig>`.
 
-.. findoutmore:: What has been added to .datalad/config?
+.. find-out-more:: What changes in .datalad/config when one adds a container?
+   :name: fom-containerconfig
+   :float:
 
    .. runrecord:: _examples/DL-101-133-102
       :language: console
@@ -220,6 +221,14 @@ container under its name "midterm-software" in the dataset's configuration at
    :command:`datalad containers-run` command) and plug it into a
    :command:`singularity exec` command. The mode of calling Singularity,
    namely ``exec``, means that the command will be executed inside of the container.
+
+   You can configure this call format by modifying it in the config file, or calling :command:`datalad containers-add` with the option ``--call-fmt <alternative format>``.
+   This can be useful to, for example, automatically bind-mount the current working directory in the container.
+   In the alternative call format, the placeholders ``{img}``, ``{cmd}``, and ``{img_dspath}`` (a relative path to the dataset containing the image) are available.
+   In all other cases with variables that use curly brackets, you need to escape them with another curly bracket.
+   Here is an example call format that bind-mounts the current working directory (and thus the dataset) automatically::
+
+      datalad containers-add --call-fmt 'singularity exec -B {{pwd}} --cleanenv {img} {cmd}'
 
    Note that the Image is saved under ``.datalad/environments`` and the
    configuration is done in ``.datalad/config`` -- as these files are version
@@ -277,7 +286,7 @@ The complete command's structure looks like this::
 .. index:: ! datalad command; containers-remove
 .. index:: ! datalad command; containers-list
 
-.. findoutmore:: How can I list available containers or remove them?
+.. find-out-more:: How can I list available containers or remove them?
 
    The command :command:`datalad containers-list` will list all containers in
    the current dataset:

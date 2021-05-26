@@ -338,7 +338,8 @@
       "contributions": [
         "bug",
         "ideas",
-        "maintenance"
+        "maintenance",
+        "review"
       ]
     },
     {
@@ -398,6 +399,26 @@
         "ideas",
         "content",
         "bug"
+      ]
+    },
+    {
+      "login": "tamaracha",
+      "name": "Tamara Cook",
+      "avatar_url": "https://avatars.githubusercontent.com/u/10754072?v=4",
+      "profile": "https://github.com/tamaracha",
+      "contributions": [
+        "review",
+        "infra"
+      ]
+    },
+    {
+      "login": "jsheunis",
+      "name": "Stephan Heunis",
+      "avatar_url": "https://avatars.githubusercontent.com/u/10141237?v=4",
+      "profile": "https://jsheunis.github.io/",
+      "contributions": [
+        "bug",
+        "maintenance"
       ]
     }
   ],

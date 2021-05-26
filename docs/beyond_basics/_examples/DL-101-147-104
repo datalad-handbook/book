@@ -1,6 +1,6 @@
 $ datalad siblings
 .: here(+) [git]
-.: gin(+) [/home/me/pushes/DataLad-101 (git)]
-.: ria-backup-storage(+) [ora]
-.: ria-backup(-) [/home/me/myriastore/2f2/f9709-47ef-4144-b363-ca76eb3da3b7 (git)]
 .: roommate(+) [../mock_user/DataLad-101 (git)]
+.: ria-backup-storage(+) [ora]
+.: gin(+) [/home/me/pushes/DataLad-101 (git)]
+.: ria-backup(-) [/home/me/myriastore/c87/74a5b-c857-4751-bce4-e58c6be73349 (git)]

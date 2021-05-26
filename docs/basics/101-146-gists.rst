@@ -21,6 +21,7 @@ to see answered here, please
 `get in touch <https://github.com/datalad-handbook/book/issues/new>`_.
 
 .. figure:: ../artwork/src/gists.svg
+   :width: 50%
 
 
 .. _parallelize:
@@ -161,6 +162,8 @@ Here is a one-liner to get this info::
 
 Backing-up datasets
 ^^^^^^^^^^^^^^^^^^^
+
+.. index:: ! datalad command; create-sibling
 
 In order to back-up datasets you can publish them to a
 :term:`Remote Indexed Archive (RIA) store` or to a sibling dataset. The former

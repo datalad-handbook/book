@@ -49,7 +49,7 @@ DataLad datasets
 Everything we're doing happens in or involves DataLad datasets.
 Creating a dataset from scratch is done with the ``datalad create`` command.
 
-.. findoutmore:: How can I turn an existing directory into a dataset?
+.. find-out-more:: How can I turn an existing directory into a dataset?
 
    By navigating into the dataset, and running :command:`datalad create -f .` (with the ``-f/--force`` option).
    You can take a look into the section :ref:`dataladdening` on more info on how to transform existing directories into DataLad datasets.
@@ -112,7 +112,7 @@ To demonstrate this, we make two unrelated changes: adding a new file (a comic d
 
    wget https://imgs.xkcd.com/comics/compiling.png
 
-.. windowsworkarounds:: Windows users may not have wget
+.. windows-wit:: Windows users may not have wget
 
    If the ``wget`` command above fails for you, you could
 
@@ -172,7 +172,7 @@ This makes cloning fast and datasets lightweight::
    # print the size of the directory in human readable sizes
    du -sh
 
-.. findoutmore:: How large can it get actually?
+.. find-out-more:: How large can it get actually?
 
    Cloned datasets can have a lot of file contents.
    ``datalad status`` can report on how much data actually is accessible with the ``--annex`` and ``--annex all`` options::
@@ -407,7 +407,7 @@ This records a pre-created software environment with the required Python package
 
    You need to have a software that can work with software containers -- either `singularity <https://sylabs.io/guides/3.5/user-guide/>`_ or `Docker <https://www.docker.com/>`_!
 
-.. findoutmore:: Why may Singularity be a better choice than Docker?
+.. find-out-more:: Why may Singularity be a better choice than Docker?
 
    :term:`Singularity`, unlike :term:`Docker`, can be deployed on shared compute infrastructure such as computational clusters as it does not require or grant `superuser privileges <https://en.wikipedia.org/wiki/Superuser>`_ ("sudo rights") to users that use a container.
    Docker is not deployed on HPC systems is because it grants users those sudo rights, and on multi-user systems users should not have those privileges, as it would enable them to temper with other's or shared data and resources, posing a severe security threat.

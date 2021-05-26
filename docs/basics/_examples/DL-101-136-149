@@ -1,22 +1,7 @@
-$ git log -p -n 1
-commit a0c22840f7c12587956293af0fcc8f36b43c9f0b
+$ cd midterm_project
+$ git log notes.txt
+commit 878119843d6410bae9e1159846ffb5ee6a2ff86b
 Author: Elena Piscopia <elena@example.net>
-Date:   Fri Dec 18 15:15:02 2020 +0100
+Date:   Fri Jan 29 08:40:51 2021 +0100
 
-    move book back from midterm_project
-
-diff --git a/books/TLCL.pdf b/books/TLCL.pdf
-new file mode 120000
-index 0000000..4c84b61
---- /dev/null
-+++ b/books/TLCL.pdf
-@@ -0,0 +1 @@
-+../.git/annex/objects/jf/3M/MD5E-s2120211--06d1efcb05bb2c55cd039dab3fb28455.pdf/MD5E-s2120211--06d1efcb05bb2c55cd039dab3fb28455.pdf
-\ No newline at end of file
-diff --git a/midterm_project b/midterm_project
-index eeaa6be..551d2ee 160000
---- a/midterm_project
-+++ b/midterm_project
-@@ -1 +1 @@
--Subproject commit eeaa6be22762ea464829f57208d34e5872f043c8
-+Subproject commit 551d2ee9b41fa084e8dc27e7d554b744159baba3
+    [DATALAD] Recorded changes

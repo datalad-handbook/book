@@ -113,15 +113,17 @@ is not very helpful.
 Changing the commit message of the most recent commit can be done with
 the command :command:`git commit --amend`. Running this command will open
 an editor (the default, as configured in Git), and allow you
-to change the commit message.
+to change the commit message. Make sure to read the :ref:`find-out-more on changing other than the most recent commit <fom-rebase1>` in case you want to improve the commit message of more commits than only the latest.
 
 Try running the :command:`git commit --amend` command right now and give
 the commit a new commit message (you can just delete the one created by
 DataLad in the editor)!
 
-.. findoutmore:: Changing the commit messages of not-the-most-recent commits
+.. find-out-more:: Changing the commit messages of not-the-most-recent commits
+   :name: fom-rebase1
+   :float:
 
-   The :command:`git commit --amend` commands will let you
+   The :command:`git commit --amend` command will let you
    rewrite the commit message of the most recent commit. If you
    however need to rewrite commit messages of older commits, you
    can do so during a so-called "interactive rebase" [#f4]_. The command
@@ -135,13 +137,11 @@ DataLad in the editor)!
    ``git rebase -i HEAD~3`` for example lets you apply changes to the
    any number of commit messages within the last three commits.
 
-   .. note::
-
-      Be aware that an interactive rebase lets you *rewrite* history.
-      This can lead to confusion or worse if the history you are rewriting
-      is shared with others, e.g., in a collaborative project. Be also aware
-      that rewriting history that is *pushed*/*published* (e.g., to GitHub)
-      will require a force-push!
+   Be aware that an interactive rebase lets you *rewrite* history.
+   This can lead to confusion or worse if the history you are rewriting
+   is shared with others, e.g., in a collaborative project. Be also aware
+   that rewriting history that is *pushed*/*published* (e.g., to GitHub)
+   will require a force-push!
 
    Running this command gives you a list of the N most recent commits
    in your text editor (which may be :term:`vim`!), sorted with
@@ -204,7 +204,7 @@ want to achieve is to keep all of the files and their contents
 in the dataset, but get them out of the history into an
 *untracked* state again, and save them *individually* afterwards.
 
-.. important::
+.. importantnote:: Untracking is different for Git versus git-annex!
 
    Note that this is a case with *text files* (stored in Git)! For
    accidental annexing of files, please make sure to check out
@@ -230,7 +230,7 @@ try this to get a feel for it.
 The COMMIT in the command can either be a hash or a reference
 with the HEAD pointer.
 
-.. findoutmore:: Git terminology: branches and HEADs?
+.. find-out-more:: Git terminology: branches and HEADs?
 
    A Git repository (and thus any DataLad dataset) is built up as a tree of
    commits. A *branch* is a named pointer (reference) to a commit, and allows you
@@ -238,7 +238,8 @@ with the HEAD pointer.
    a pointer to the branch you are currently on, and thus to the last commit
    in the given branch.
 
-   .. figure:: ../artwork/src/git_branch_HEAD.png
+   .. image:: ../artwork/src/git_branch_HEAD.png
+      :width: 50%
 
    Using ``HEAD``, you can identify the most recent commit, or count backwards
    starting from the most recent commit. ``HEAD~1`` is the ancestor of the most
@@ -437,7 +438,7 @@ How did your ``notes.txt`` file look at this point?
    :language: console
    :workdir: dl-101/DataLad-101
 
-   $ cat notes.txt
+   $ tail notes.txt
 
 Neat, isn't it? By checking out a commit shasum you can explore a previous
 state of a datasets history. And this does not only apply to simple text
@@ -469,17 +470,18 @@ The contents of ``notes.txt`` will now be the most recent version again:
    :language: console
    :workdir: dl-101/DataLad-101
 
-   $ cat notes.txt
+   $ tail notes.txt
 
 ... Wow! You traveled back and forth in time!
 But an even more magical way to see the contents of files in previous
 versions is Git's :command:`cat-file` command: Among many other things, it lets
 you read a file's contents as of any point in time in the history, without a
-prior :command:`git checkout`:
+prior :command:`git checkout` (note that the output is shortened for brevity and shows only the last few lines of the file):
 
 .. runrecord:: _examples/DL-101-137-127
    :language: console
    :workdir: dl-101/DataLad-101
+   :lines: 1, 48-
    :realcommand: echo "$ git cat-file --textconv $(git rev-parse HEAD~15):notes.txt" && git cat-file --textconv $(git rev-parse HEAD~15):notes.txt
 
 The cat-file command is very versatile, and
@@ -585,15 +587,12 @@ but also a modification to ``notes.txt``:
 
    $ cat << EOT >> notes.txt
 
-   Git has many handy tools to go back in forth in
-   time and work with the history of datasets.
-   Among many other things you can rewrite commit
-   messages, undo changes, or look at previous versions
-   of datasets. A superb resource to find out more about
-   this and practice such Git operations is this
-   chapter in the Pro-git book:
+   Git has many handy tools to go back in forth in time and work with the
+   history of datasets. Among many other things you can rewrite commit
+   messages, undo changes, or look at previous versions of datasets.
+   A superb resource to find out more about this and practice such Git
+   operations is this chapter in the Pro-git book:
    https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History
-
    EOT
 
 .. runrecord:: _examples/DL-101-137-143
@@ -631,7 +630,7 @@ The command looks like this:
 where ``SHASUM`` specifies the commit hash of the modification that should
 be reverted.
 
-.. findoutmore:: Reverting more than a single commit
+.. find-out-more:: Reverting more than a single commit
 
    Alternatively, you can also specify a range of commits modify commits, for
    example like this::
@@ -719,7 +718,7 @@ overview on the necessary steps, and a pointer to a more comprehensive guide.
   to read the instructions Git is giving you -- they are a useful guide.
 - Also, it is reassuring to remember that you can always get out of
   a merge conflict by aborting the operation that led to it (e.g.,
-  ``git rebase --abort``.
+  ``git rebase --abort``).
 - To actually solve a merge conflict, you will have to edit files: In the
   documents the merge conflict applies to, Git marks the sections it needs
   help with with markers that consists of ``>``, ``<``, and ``=``

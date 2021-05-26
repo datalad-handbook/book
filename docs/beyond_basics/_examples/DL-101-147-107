@@ -4,11 +4,6 @@ $ datalad push --to ria-backup
 [INFO] Determine push target
 [INFO] Push refspecs
 [INFO] Transfer data
-[INFO] Start annex operation
-[INFO] books/TLCL.pdf
-[INFO] books/bash_guide.pdf
-[INFO] books/byte-of-python.pdf
-[INFO] Finished annex copy
 copy(ok): books/TLCL.pdf (file) [to ria-backup-storage...]
 copy(ok): books/bash_guide.pdf (file) [to ria-backup-storage...]
 copy(ok): books/byte-of-python.pdf (file) [to ria-backup-storage...]

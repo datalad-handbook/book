@@ -112,8 +112,8 @@ this in the original ``DataLad-101`` directory, and do not forget to save it.
    # write the note
    $ cat << EOT >> notes.txt
    The command "git annex whereis PATH" lists the repositories that have
-   the file content of an annexed file. When using "datalad get" to retrieve
-   file content, those repositories will be queried.
+   the file content of an annexed file. When using "datalad get" to
+   retrieve file content, those repositories will be queried.
 
    EOT
 

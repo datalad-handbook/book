@@ -1,8 +1,9 @@
 
+.. _glossary:
+
 ********
 Glossary
 ********
-
 
 .. glossary::
 
@@ -52,7 +53,7 @@ Glossary
       a branch contains into another branch.
 
    checksum
-      TODO
+      An alternative term to :term:`shasum`.
 
    clone
       Git concept: A copy of a :term:`Git` repository. In Git-terminology, all "installed" datasets
@@ -76,7 +77,7 @@ Glossary
 
    container recipe
        A text file template that lists all required components of the computational environment that a :term:`software container` should contain.
-        It is made by a human user.
+       It is made by a human user.
 
    container image
        Container images are *built* from :term:`container recipe` files.
@@ -135,7 +136,7 @@ Glossary
 
    environment variable
       A variable made up of a name/value pair. Programs using a given environment variable will use its associated value for their execution.
-      You can find out a bit more on environment variable :ref:`in this footnote <envvars>`.
+      You can find out a bit more on environment variable :ref:`in this Findoutmore <fom-envvar>`.
 
    ephemeral clone
       dataset clones that share the annex with the dataset they were cloned from, without :term:`git-annex` being aware of it.
@@ -223,7 +224,7 @@ Glossary
       An example of a Makefile is shown in the usecase :ref:`usecase_reproducible_paper`.
 
    master
-      Git concept: The default :term:`branch` in a dataset.
+      Git concept: For the longest time, ``master`` was the name of the default :term:`branch` in a dataset. More recently, the name ``main`` is used. If you are not sure, you can find out if your default branch is ``main`` or ``master`` by running ``git branch``.
 
    merge
       Git concept: to integrate the changes of one :term:`branch`/:term:`sibling`/ ... into

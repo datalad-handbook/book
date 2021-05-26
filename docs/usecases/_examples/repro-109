@@ -1,16 +1,16 @@
 $ datalad run -m "run brain extract workflow" \
-  --input "inputs/ds*/sub-01/anat/sub-01_T1w.nii.gz" \
-  --output "sub-*/anat" \
-  bash -e code/brain_extraction.sh inputs/ds*/sub-01/anat/sub-01_T1w.nii.gz
+ --input "inputs/ds*/sub-01/anat/sub-01_T1w.nii.gz" \
+ --output "sub-*/anat" \
+ bash -e code/brain_extraction.sh inputs/ds*/sub-01/anat/sub-01_T1w.nii.gz
 [INFO] Making sure inputs are available (this may take some time) 
+get(ok): inputs/ds000001/sub-01/anat/sub-01_T1w.nii.gz (file) [from web...]
+get(ok): inputs/ds000002/sub-01/anat/sub-01_T1w.nii.gz (file) [from web...]
 [INFO] == Command start (output follows) ===== 
 action summary:
   get (notneeded: 4)
 Processing inputs/ds000001/sub-01/anat/sub-01_T1w.nii.gz
 Processing inputs/ds000002/sub-01/anat/sub-01_T1w.nii.gz
 [INFO] == Command exit (modification check follows) ===== 
-get(ok): inputs/ds000001/sub-01/anat/sub-01_T1w.nii.gz (file) [from web...]
-get(ok): inputs/ds000002/sub-01/anat/sub-01_T1w.nii.gz (file) [from web...]
 add(ok): sub-001/anat.nii.gz (file)
 add(ok): sub-001/anat_mask.nii.gz (file)
 add(ok): sub-002/anat.nii.gz (file)

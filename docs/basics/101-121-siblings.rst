@@ -72,7 +72,7 @@ here:
 .. runrecord:: _examples/DL-101-121-103
    :language: console
    :workdir: dl-101/mock_user/DataLad-101
-   :lines: 1-30
+   :lines: 1-13
    :notes: the ds copy has a change the original ds does not have:
    :cast: 04_collaboration
 
@@ -92,7 +92,7 @@ No, luckily, it's simpler and less convoluted. What we have to
 do is to *register* a datalad :term:`sibling`: A reference to our room mate's
 dataset in our own, original dataset.
 
-.. gitusernote::
+.. gitusernote:: Remote siblings
 
    Git repositories can configure clones of a dataset as *remotes* in
    order to fetch, pull, or push from and to them. A :command:`datalad sibling`
@@ -121,7 +121,8 @@ This registers your room mate's ``DataLad-101`` as a "sibling" (we will call it
 
    $ cd ../../DataLad-101
    # add a sibling
-   $ datalad siblings add -d . --name roommate --url ../mock_user/DataLad-101
+   $ datalad siblings add -d . \
+     --name roommate --url ../mock_user/DataLad-101
 
 There are a few confusing parts about this command: For one, do not be surprised
 about the ``--url`` argument -- it's called "URL" but it can be a path as well.
@@ -146,7 +147,7 @@ is now known to your own dataset as "roommate"
 This command will list all known siblings of the dataset. You can see it
 in the resulting list with the name "roommate" you have given to it.
 
-.. findoutmore:: What if I mistyped the name or want to remove the sibling?
+.. find-out-more:: What if I mistyped the name or want to remove the sibling?
 
    You can remove a sibling using :command:`datalad siblings remove -s roommate`
 
@@ -226,7 +227,7 @@ do a ``diff`` between the branch (your drawer) and the dataset as it
 is currently in front of you (your desk). We will do the latter, and leave
 the former for a different lecture:
 
-.. windowsworkarounds:: Please use datalad diff --from master --to remotes/roommate/master
+.. windows-wit:: Please use datalad diff --from master --to remotes/roommate/master
 
    Please use the following command instead::
 
@@ -244,9 +245,9 @@ the former for a different lecture:
 
 This shows us that there is an additional file, and it also shows us
 that there is a difference in ``notes.txt``! Let's ask
-:command:`git diff` to show us what the differences in detail:
+:command:`git diff` to show us what the differences in detail (note that it is a shortened excerpt, cut in the middle to reduce its length):
 
-.. windowsworkarounds:: Please use git diff master..remotes/roommate/master
+.. windows-wit:: Please use git diff master..remotes/roommate/master
 
    Please use the following command instead::
 
@@ -258,6 +259,7 @@ that there is a difference in ``notes.txt``! Let's ask
    :language: console
    :workdir: dl-101/DataLad-101
    :notes: also git diff
+   :lines: 1-18, 67-78
    :cast: 04_collaboration
 
    $ git diff remotes/roommate/master
@@ -338,15 +340,14 @@ Create a note about this, and save it.
    :cast: 04_collaboration
 
    $ cat << EOT >> notes.txt
-   To update from a dataset with a shared history, you
-   need to add this dataset as a sibling to your dataset.
-   "Adding a sibling" means providing DataLad with info about
-   the location of a dataset, and a name for it. Afterwards,
-   a "datalad update --merge -s name" will integrate the changes
-   made to the sibling into the dataset.
-   A safe step in between is to do a "datalad update -s name"
-   and checkout the changes with "git/datalad diff"
-   to remotes/origin/master
+   To update from a dataset with a shared history, you need to add this
+   dataset as a sibling to your dataset. "Adding a sibling" means
+   providing DataLad with info about the location of a dataset, and a
+   name for it.
+   Afterwards, a "datalad update --merge -s name" will integrate the
+   changes made to the sibling into the dataset. A safe step in between
+   is to do a "datalad update -s name" and checkout the changes with
+   "git/datalad diff" to remotes/origin/master
 
    EOT
    $ datalad save -m "Add note on adding siblings"

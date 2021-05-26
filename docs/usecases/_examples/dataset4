@@ -3,7 +3,7 @@ $ git log --oneline --graph --decorate
 |\
 | * 45a110f7 use standard textblock to explain DataLad datasets in README
 |/
-* a6623bff [DATALAD] dataset aggregate metadata update
+* a6623bff (mddatasrc/master) [DATALAD] dataset aggregate metadata update
 * 72d535d5 Enable DataLad metadata extractors
 * 9c15094e [DATALAD] new dataset
 * d97455f5 [DATALAD] Set default backend for all files to be MD5E
@@ -47,7 +47,7 @@ $ git log --oneline --graph --decorate
 |\  
 | * 7d9ca569 Update tests for repository changes
 | * 61edd658 Update changelog
-| * 0944930c Add (converted) in-lab eye-tracking sample
+| * 0944930c (mddatasrc/synced/master) Add (converted) in-lab eye-tracking sample
 | * e6f3bfec Update eyetracking data conversion code for in-lab sample
 | * d93ed6e3 Reference lab eyetracking raw data repository as submodule
 | * f792983e BIDS-compliant meta data

@@ -9,7 +9,7 @@ But there are also analyses that are so large -- either in terms of computations
 The latter type of analyses typically requires a compute cluster, a job scheduler, and parallelization.
 The question is: How can they become as reproducible and provenance tracked as the simplistic, singular analysis that were showcased in the handbook so far, and that comfortably fitted on a private computer?
 
-.. note::
+.. importantnote:: Reading prerequisit for distributed computing
 
    It is advised to read the previous chapter :ref:`chapter_gobig` prior to this one
 
@@ -29,7 +29,7 @@ Consider one common way to use a job scheduler: processing all subjects of a dat
 In such a setup, each subject-specific analysis becomes a single job, and the job scheduler fits as many jobs as it can on available :term:`compute node`\s.
 If a large analysis can be split into many independent jobs, using a job scheduler to run them in parallel thus yields great performance advantages in addition to fair compute resource distribution across all users.
 
-.. findoutmore:: How is a job scheduler used?
+.. find-out-more:: How is a job scheduler used?
 
    Depending on the job scheduler your system is using, the looks of your typical job scheduling differ, but the general principle is the same.
 
@@ -61,7 +61,7 @@ Below, you can find a complete, largely platform and scheduling-system agnostic 
 Processing FAIRly *and* in parallel -- General workflow
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. note::
+.. importantnote:: FAIR and parallel: more than one way to do it
 
     FAIR *and* parallel processing requires out-of-the-box thinking, and many creative approaches can lead to success.
     Here is **one** approach that leads to a provenance-tracked, computationally reproducible, and parallel preprocessing workflow, but many more can work.
@@ -129,7 +129,7 @@ To get an idea of the general setup of parallel provenance-tracked computations,
       install (ok: 1)
       save (ok: 1)
 
-.. findoutmore:: Why do I add the pipeline as a subdataset?
+.. find-out-more:: Why do I add the pipeline as a subdataset?
 
    You could also add and configure the container using ``datalad containers-add`` to the top-most dataset.
    This solution makes the container less usable, though.
@@ -145,7 +145,7 @@ For an arbitrary example, say your raw data contains continuous moisture measure
 Each file in your dataset contains the data of a single day.
 You are interested in a daily aggregate, and are therefore parallelizing across files -- each compute job will run an analysis pipeline on one datafile.
 
-.. findoutmore:: What are common analysis types to parallelize over?
+.. find-out-more:: What are common analysis types to parallelize over?
 
    The key to using a job scheduler and parallelization is to break down an analysis into smaller, loosely coupled computing tasks that can be distributed across a compute cluster.
    Among common analysis setups that are suitable for parallelization are computations that can be split into several analysis that each run on one subset of the data -- such as one (or some) out of many subjects, acquisitions, or files.
@@ -161,7 +161,7 @@ Other languages (e.g., using :ref:`DataLad's Python API <python>` or system call
 ``datalad (containers-)run`` does not support concurrent execution in the *same* dataset clone.
 The solution is as easy as it is stubborn: We simply create one throw-away dataset clone for each job.
 
-.. findoutmore:: how does one create throw-away clones?
+.. find-out-more:: how does one create throw-away clones?
 
     One way to do this are :term:`ephemeral clone`\s, an alternative is to make :term:`git-annex` disregard the datasets annex completely using ``git annex dead here``.
     The latter is more appropriate for this context -- we could use an ephemeral clone, but that might deposit data of failed jobs at the origin location, if the job runs on a shared filesystem.
@@ -175,7 +175,7 @@ Here, we build the general structure of this script, piece by piece.
 The compute job clones the dataset to a unique place, so that it can run a ``containers-run`` command inside it without interfering with any other job.
 The first part of the script is therefore to navigate to a unique location, and clone the analysis dataset to it.
 
-.. findoutmore:: How can I get a unique location?
+.. find-out-more:: How can I get a unique location?
 
    On common HTCondor setups, ``/tmp`` directories in individual jobs are a job-specific local Filesystem that are not shared between jobs -- i.e., unique locations!
    An alternative is to create a unique temporary directory, e.g., with the ``mktemp -d`` command on Unix systems.
@@ -239,7 +239,7 @@ After the ``containers-run`` execution in the script, the results can be pushed 
 Pending a few yet missing safe guards against concurrency issues and the definition of job-specific (environment) variables, such a script can be submitted to any job scheduler with identifiers for input files, output files, and a job ID as identifiers for the branch names.
 This workflow sketch takes care of everything that needs to be done apart from combining all computed results afterwards.
 
-.. findoutmore:: Fine-tuning: Safe-guard concurrency issues
+.. find-out-more:: Fine-tuning: Safe-guard concurrency issues
 
    An important fine-tuning is missing:
    Cloning and pushing *can* still run into concurrency issues in the case when one job clones the original dataset while another job is currently pushing its results into this dataset.
@@ -248,7 +248,7 @@ This workflow sketch takes care of everything that needs to be done apart from c
    This is done by prepending ``clone`` and ``push`` commands with ``flock --verbose $DSLOCKFILE``, where ``$DSLOCKFILE`` is a text file placed into ``.git/`` at the time of job submission, provided via environment variable (see below and the paragraph "Job submission").
    This is a non-trivial process, but luckily, you don't need to understand file locking or ``flock`` in order to follow along -- just make sure that you copy the usage of ``$DSLOCKFILE`` in the script and in the job submission.
 
-.. findoutmore:: Variable definition
+.. find-out-more:: Variable definition
 
    There are two ways to define variables that a script can use:
    The first is by defining :term:`environment variable`\s, and passing this environment to the compute job.
@@ -314,7 +314,7 @@ Examples of this are demonstrated `here <https://jugit.fz-juelich.de/inm7/traini
 Thus, the submit file takes care of defining hundreds or thousands of variables, but can still be lean even though it queues up hundreds or thousands of jobs.
 Here is a submit file that could be employed:
 
-.. findoutmore:: HTCondor submit file
+.. find-out-more:: HTCondor submit file
 
    .. code-block:: bash
 
@@ -365,7 +365,7 @@ Usually, merging branches is done using the ``git merge`` command with a branch 
 For example, in order to merge one job branch into the :term:`master` :term:`branch`, one would need to be on ``master`` and run ``git merge <job branch name>``.
 Given that the parallel job execution could have created thousands of branches, and that each ``merge`` would lead to a commit, in order to not inflate the history of the dataset with hundreds of :term:`merge` commits, one can do a single `Octopus merges <https://git-scm.com/docs/git-merge#Documentation/git-merge.txt-octopus>`_ of all branches at once.
 
-.. findoutmore:: What is an octopus merge?
+.. find-out-more:: What is an octopus merge?
 
    Usually a commit that arises from a merge has two *parent* commits: The *first parent* is the branch the merge is being performed from, in the example above, ``master``. The *second parent* is the branch that was merged into the first.
 

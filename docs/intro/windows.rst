@@ -27,7 +27,7 @@ Windows-Deficiencies
 Windows works fundamentally different than macOS or Linux-based operating systems.
 This results in missing dependencies, altered behavior, and inconvenient workarounds.
 Beyond this, Windows uses a different file system than Unix based systems.
-Given that DataLad is a data management software, it is heavily affected by this, and the Basics part of the handbook is filled with "Windows-Workarounds", expandable sections that highlight different behavior on native Windows installations of DataLad, or provide adjusted commands -- nevertheless, standard DataLad operations on Windows can be much slower than on other operating systems.
+Given that DataLad is a data management software, it is heavily affected by this, and the Basics part of the handbook is filled with "Windows-Wits", dedicated sections that highlight different behavior on native Windows installations of DataLad, or provide adjusted commands -- nevertheless, standard DataLad operations on Windows can be much slower than on other operating systems.
 
 A major annoyance and problem is that some tools that DataLad or :term:`datalad extension`\s use are not available on Windows.
 If you are interested in adding :term:`software container`\s to your DataLad dataset (with the ``datalad-container`` extension), for example, you will likely not be able to do so on a native Windows computer -- :term:`Singularity`, a widely used containerization software, doesn't exit for Windows, and while there *is* some support for :term:`Docker` on Windows, it does not apply to most private computers [#f1]_.

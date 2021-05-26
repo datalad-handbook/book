@@ -56,7 +56,7 @@ want to run by taking a look into the history of the dataset
    :cast: 04_collaboration
 
    # lets view the history
-   $ git log --oneline
+   $ git log --oneline -n 10
 
 Ah, there it is, the second most recent commit.
 Just as already done in section :ref:`run2`,

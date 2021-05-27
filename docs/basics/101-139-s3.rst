@@ -114,7 +114,7 @@ with :command:`datalad create --force`, and lastly save the dataset with :comman
    [INFO   ] Creating a new annex repo at /Users/jsheunis/Documents/neuro-data-s3
    [INFO   ] Scanning for unlocked files (this may take some time)
    create(ok): /Users/jsheunis/Documents/neuro-data-s3 (dataset)
-   $ datalad save
+   $ datalad save -m "Add public data"
    add(ok): dataset_description.json (file)
    add(ok): participants.tsv (file)
    add(ok): sub-01/anat/sub-01_T1w.nii.gz (file)

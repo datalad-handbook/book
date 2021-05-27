@@ -50,7 +50,7 @@ Key" or access existing credentials. Take note to copy both the "Access Key ID" 
    Create a new AWS access key from "My Security Credentials"
 
 To ensure that your access key details are known when initializing the special
-remote, export them in your shell:
+remote, export them as :term:`environment variable`\s in your shell:
 
 .. code-block:: bash
 

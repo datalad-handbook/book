@@ -418,7 +418,9 @@
       "profile": "https://jsheunis.github.io/",
       "contributions": [
         "bug",
-        "maintenance"
+        "maintenance",
+        "content",
+        "example"
       ]
     }
   ],

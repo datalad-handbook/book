@@ -363,6 +363,7 @@ are captured as provenance of a dataset component such as a results file,
 and, importantly, can be shared together with the dataset in the
 form of a software container.
 
+Tip: Make use of ``datalad run``'s ``--dry-run`` option to craft your run-command (see :ref:`dryrun`)!
 
 With this last principle, your dataset collects and stores provenance
 of all the contents you created in the wake of your analysis project.

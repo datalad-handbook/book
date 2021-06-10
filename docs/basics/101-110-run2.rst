@@ -483,6 +483,18 @@ the ``--input`` and ``--output`` specification done before.
    this brace character by doubling it, i.e., ``{{`` or ``}}``.
 
 
+.. _dryrun:
+
+Dry-running your run call
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+:command:`datalad run` commands can become confusing and long, especially when you make heavy use of placeholders or wrap a complex bash commands.
+To better anticipate what you will be running, or help debug a failed command, you can make use of the ``--dry-run``  flag of ``datalad run``.
+This option needs a mode specification (``--dry-run=basic`` or ``dry-run=command``), followed by the ``run`` command you want to execute, and it will decipher the commands elements:
+The mode ``command`` will display the command that is about to be ran.
+The mode ``basic`` will report a few important details about the execution:
+Apart from displaying the command that will be ran, you will learn *where* the command runs, what its *inputs* are (helpful if your ``--input`` specification includes a :term:`globbing` term), and what its *outputs* are.
+
 .. only:: adminmode
 
     Add a tag at the section end.

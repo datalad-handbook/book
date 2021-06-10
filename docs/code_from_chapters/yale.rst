@@ -348,7 +348,7 @@ In addition to this Docker container, we're also providing a `singularity <http:
    Here's the command used for minimal nilearn :term:`container recipe`::
 
       docker run --rm repronim/neurodocker:latest generate singularity \
-      --base=debian:stretch --pkg-manager=apt \ 130 !
+      --base=debian:stretch --pkg-manager=apt \
       --install git \
       --miniconda create_env=neuro \
                   pip_install='nilearn matplotlib' \

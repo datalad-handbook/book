@@ -2,7 +2,7 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3608611.svg)](https://doi.org/10.5281/zenodo.3608611)
 [![made-with-datalad](https://www.datalad.org/badges/made_with.svg)](https://datalad.org)
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-38-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-39-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END --> 
 
 # The DataLad handbook :orange_book:
@@ -108,6 +108,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/josephmje"><img src="https://avatars1.githubusercontent.com/u/22102194?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Michael Joseph</b></sub></a><br /><a href="#ideas-josephmje" title="Ideas, Planning, & Feedback">🤔</a> <a href="#content-josephmje" title="Content">🖋</a> <a href="https://github.com/datalad-handbook/book/issues?q=author%3Ajosephmje" title="Bug reports">🐛</a></td>
     <td align="center"><a href="https://github.com/tamaracha"><img src="https://avatars.githubusercontent.com/u/10754072?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Tamara Cook</b></sub></a><br /><a href="https://github.com/datalad-handbook/book/pulls?q=is%3Apr+reviewed-by%3Atamaracha" title="Reviewed Pull Requests">👀</a> <a href="#infra-tamaracha" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a></td>
     <td align="center"><a href="https://jsheunis.github.io/"><img src="https://avatars.githubusercontent.com/u/10141237?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Stephan Heunis</b></sub></a><br /><a href="https://github.com/datalad-handbook/book/issues?q=author%3Ajsheunis" title="Bug reports">🐛</a> <a href="#maintenance-jsheunis" title="Maintenance">🚧</a> <a href="#content-jsheunis" title="Content">🖋</a> <a href="#example-jsheunis" title="Examples">💡</a></td>
+    <td align="center"><a href="http://cni.lin-magdeburg.de"><img src="https://avatars.githubusercontent.com/u/9048375?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Joerg Stadler</b></sub></a><br /><a href="https://github.com/datalad-handbook/book/issues?q=author%3Acni-md" title="Bug reports">🐛</a></td>
   </tr>
 </table>
 

@@ -45,6 +45,7 @@ Where are the difficulties in parallel computing with DataLad?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 In order to capture as much provenance as possible, analyses are best ran with a :command:`datalad run` or :command:`datalad containers-run` command, as these commands can capture and link all relevant components of an analysis, starting from code and results to input data and computational environment.
+Tip: Make use of ``datalad run``'s ``--dry-run`` option to craft your run-command (see :ref:`dryrun`)!
 
 But in order to compute parallel jobs with provenance capture, *each individual job* needs to be wrapped in a ``run`` command, not only the submission of the jobs to the job scheduler.
 This requires multiple parallel ``run`` commands on the same dataset.

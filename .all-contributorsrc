@@ -418,7 +418,18 @@
       "profile": "https://jsheunis.github.io/",
       "contributions": [
         "bug",
-        "maintenance"
+        "maintenance",
+        "content",
+        "example"
+      ]
+    },
+    {
+      "login": "cni-md",
+      "name": "Joerg Stadler",
+      "avatar_url": "https://avatars.githubusercontent.com/u/9048375?v=4",
+      "profile": "http://cni.lin-magdeburg.de",
+      "contributions": [
+        "bug"
       ]
     }
   ],

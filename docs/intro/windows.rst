@@ -49,6 +49,11 @@ Usually, Windows users aren't bothered much by this, but DataLad is a command li
 Are you a Windows user and have tips for setting up a decent terminal?
 `Please tell us, we're eager to learn from you <https://github.com/datalad/datalad>`_.
 
+Sadly, even the non-commandline parts of Windows bear inconveniences.
+Windows' File Explorer does not display common file extensions by default, and some editors (such as notepad) add their own file extensions to files, even when they already have an extension.
+This can cause confusion.
+
+
 Unfortunately, issues that affect Windows itself are out of our hands.
 We can adapt to limitations, but in many cases it is not possible to overcome them.
 That sucks, and we're really sorry for this.

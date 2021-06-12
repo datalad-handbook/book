@@ -18,7 +18,7 @@ Sphinx==2.1.2
 sphinx-sitemap
 sphinxcontrib-websupport
 sphinx-notfound-page
--e git://github.com/executablebooks/sphinx-copybutton.git@master#egg=sphinx-copybutton
+sphinx-copybutton==0.3.2
 urllib3
 sphinxcontrib-svg2pdfconverter
 sphinxcontrib-plantuml

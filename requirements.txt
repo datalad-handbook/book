@@ -18,7 +18,7 @@ Sphinx==2.1.2
 sphinx-sitemap
 sphinxcontrib-websupport
 sphinx-notfound-page
-sphinx-copybutton==0.3.2
+sphinx-copybutton<0.4
 urllib3
 sphinxcontrib-svg2pdfconverter
 sphinxcontrib-plantuml

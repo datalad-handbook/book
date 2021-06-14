@@ -167,7 +167,9 @@ If you want to share your dataset with users that are not already familiar with
 DataLad, it is helpful to include some information on how to interact with
 DataLad datasets in your dataset's ``README`` (or similar) file. Below, we
 provide a standard text block that you can use (and adapt as you wish) for
-such purposes:
+such purposes.
+If you do not want to copy-and-paste these snippets yourself, you can run
+:command:`datalad add-readme` in your dataset, and have it added automatically.
 
 .. find-out-more:: Textblock in .rst format:
 

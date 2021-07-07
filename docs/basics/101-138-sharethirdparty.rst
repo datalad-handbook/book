@@ -549,7 +549,7 @@ Built-in data export
 
 Apart from flexibly configurable special remotes that allow publishing
 annexed content to a variety of third party infrastructure, DataLad also has
-some build-in support for "exporting" data to other services.
+some built-in support for "exporting" data to other services.
 
 One example is the command :command:`export-archive`. Running
 this command would produce a ``.tar.gz`` file with the content of your dataset,

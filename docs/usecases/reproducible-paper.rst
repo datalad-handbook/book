@@ -298,7 +298,7 @@ to fill tables with unique names with minimal work, for example like this (excer
        AL versus RA        & \kappaALRAimgSac & \kappaALRAdotsSac \\
        AL versus MN        & \kappaALMNimgSac & \kappaALMNdotsSac \\
        \noalign{\smallskip}
-       % [..] more content ommitted
+       % [..] more content omitted
      \end{tabular*}
    \end{table}
 

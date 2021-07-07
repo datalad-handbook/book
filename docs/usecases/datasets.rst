@@ -121,7 +121,7 @@ Dataset Nesting
 ===============
 
 Within DataLad datasets one can *nest* other DataLad
-datasets arbitralily deep. This does not seem particulary spectacular -
+datasets arbitrarily deep. This does not seem particularly spectacular -
 after all, any directory on a filesystem can have other directories inside it.
 The possibility for nested Datasets, however, is one of many advantages
 DataLad datasets have:
@@ -150,7 +150,7 @@ Creating your own dataset yourself
 Anyone can create, populate, and optionally share a *new* DataLad dataset.
 A new DataLad dataset is always created empty, even if the target
 directory already contains additional files or directories. After creation,
-arbitralily large amounts of data can be added. Once files are added and
+arbitrarily large amounts of data can be added. Once files are added and
 saved to the dataset, any changes done to these data files can be saved
 to the history.
 

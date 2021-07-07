@@ -126,5 +126,5 @@ handbook content, but also your pull request with your addition or use case.
 "I came here to teach!"
 
 Awesome! There are instructions in section :ref:`teach`, and the
-`companion repository at github.com/datalad-handbook/course <https://github.com/datalad-handbook/couse>`_
+`companion repository at github.com/datalad-handbook/course <https://github.com/datalad-handbook/course>`_
 contains slides, code casts, and tools for teaching.

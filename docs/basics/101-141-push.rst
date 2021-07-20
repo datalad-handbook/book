@@ -67,9 +67,9 @@ from the command line::
    $ datalad push --to <sibling>
 
 If you have more than one :term:`branch` in your dataset, note that a
-:command:`datalad push` command will by default update all branches that both
-the sibling and the dataset share. If such advanced aspects of pushing are
-relevant for your workflow, please check out the :ref:`find-out-more about this <fom-push-branch>`.
+:command:`datalad push` command will by default update only the current branch.
+If updating multiple branches is relevant for your workflow, please check out
+the :ref:`find-out-more about this <fom-push-branch>`.
 
 By default, :command:`push` will make the last saved state of the dataset
 available. Consequently, if the sibling is in the same state as the dataset,
@@ -108,9 +108,8 @@ Be careful when using it, as its modes possibly overrule safety protections or o
   in some cases. Therefore, ``--force datatransfer`` is a slower, but more fail-safe
   option to publish annexed file contents.
 - ``gitpush``: This option triggers a ``git push --force``. Be very careful using
-  this option - it will push all branches that are known to the sibling, and if
-  the changes on these branches are conflicting with the changes that exist in
-  the sibling, the changes that exist in the sibling will be overwritten.
+  this option! If the changes on the dataset conflict with the changes that exist
+  in the sibling, the changes in the sibling will be overwritten.
 - ``all``: The final mode, ``all``, combines all force modes -- thus attempting to really get your dataset contents published by any means.
 
 

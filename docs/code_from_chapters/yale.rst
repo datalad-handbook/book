@@ -291,7 +291,7 @@ It is now a known sibling dataset to which you can publish data::
 
    datalad siblings
 
-Note that Gin is a particularily handy hosting service because it has annex support.
+Note that Gin is a particularly handy hosting service because it has annex support.
 This means that you can publish your complete dataset, including all data, to it in one command::
 
    datalad push --to gin

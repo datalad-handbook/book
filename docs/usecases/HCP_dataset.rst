@@ -412,7 +412,7 @@ retrieve data right away.
 
    In case one misenters their AWS credentials or needs to reset them,
    this can easily be done using the `Python keyring <https://keyring.readthedocs.io/en/latest/>`_
-   package. For more information on ``keyring`` and DataLad's authetication
+   package. For more information on ``keyring`` and DataLad's authentication
    process, see the *Basic process* section in :ref:`providers`.
 
    After launching Python, import the ``keyring`` package and use the 

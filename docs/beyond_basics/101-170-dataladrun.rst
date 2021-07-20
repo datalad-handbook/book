@@ -9,7 +9,7 @@ But there are also analyses that are so large -- either in terms of computations
 The latter type of analyses typically requires a compute cluster, a job scheduler, and parallelization.
 The question is: How can they become as reproducible and provenance tracked as the simplistic, singular analysis that were showcased in the handbook so far, and that comfortably fitted on a private computer?
 
-.. importantnote:: Reading prerequisit for distributed computing
+.. importantnote:: Reading prerequisite for distributed computing
 
    It is advised to read the previous chapter :ref:`chapter_gobig` prior to this one
 

@@ -724,7 +724,7 @@ overview on the necessary steps, and a pointer to a more comprehensive guide.
   signs and commit shasums or branch names.
   There will be two marked parts, and you have to delete the one you do not
   want to keep, as well as all markers.
-- Afterwards, run ``git add <path/to/file`` and finally a ``git commit``.
+- Afterwards, run ``git add <path/to/file>`` and finally a ``git commit``.
 
 An excellent resource on how to deal with merge conflicts is
 `this post <https://help.github.com/en/articles/resolving-a-merge-conflict-using-the-command-line>`_.

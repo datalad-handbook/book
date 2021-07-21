@@ -757,7 +757,7 @@ clean dataset state with no untracked files or modifications.
 
    $ datalad status
 
-Finally, if you want, apply you're new knowledge about reverting commits
+Finally, if you want, apply your new knowledge about reverting commits
 to remove the ``Gitjoke2.txt`` file.
 
 

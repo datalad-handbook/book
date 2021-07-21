@@ -632,8 +632,7 @@ be reverted.
 
 .. find-out-more:: Reverting more than a single commit
 
-   Alternatively, you can also specify a range of commits modify commits, for
-   example like this::
+   You can also specify a range of commits like this::
 
       $ git revert OLDER_SHASUM..NEWERSHASUM
 

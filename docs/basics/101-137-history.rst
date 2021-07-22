@@ -218,11 +218,11 @@ Specifying the command::
 
    git reset --mixed COMMIT
 
-will preserve all changes made to files until the specified
-commit in the dataset, but remove them from the datasets history.
-This means the commits *until* ``COMMIT`` (not *including* ``COMMIT``)
-will not be in your history anymore, and instead "untracked files" or
-"unsaved changes". In other words, the modifications
+will preserve all changes made to files since the specified
+commit in the dataset but remove them from the dataset's history.
+This means all commits *since* ``COMMIT`` (but *not including* ``COMMIT``)
+will not be in your history anymore and become "untracked files" or
+"unsaved changes" instead. In other words, the modifications
 you made in these commits that are "undone" will still be present
 in your dataset -- just not written to the history anymore. Let's
 try this to get a feel for it.
@@ -632,8 +632,7 @@ be reverted.
 
 .. find-out-more:: Reverting more than a single commit
 
-   Alternatively, you can also specify a range of commits modify commits, for
-   example like this::
+   You can also specify a range of commits like this::
 
       $ git revert OLDER_SHASUM..NEWERSHASUM
 
@@ -725,7 +724,7 @@ overview on the necessary steps, and a pointer to a more comprehensive guide.
   signs and commit shasums or branch names.
   There will be two marked parts, and you have to delete the one you do not
   want to keep, as well as all markers.
-- Afterwards, run ``git add <path/to/file`` and finally a ``git commit``.
+- Afterwards, run ``git add <path/to/file>`` and finally a ``git commit``.
 
 An excellent resource on how to deal with merge conflicts is
 `this post <https://help.github.com/en/articles/resolving-a-merge-conflict-using-the-command-line>`_.
@@ -758,7 +757,7 @@ clean dataset state with no untracked files or modifications.
 
    $ datalad status
 
-Finally, if you want, apply you're new knowledge about reverting commits
+Finally, if you want, apply your new knowledge about reverting commits
 to remove the ``Gitjoke2.txt`` file.
 
 

@@ -1,0 +1,24 @@
+name: Monthly link check
+on:
+  schedule:
+    - cron: "00 12 1 1-12 *"
+
+jobs:
+  bookbuild:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+        with:
+          submodules: true
+      - name: Set up environment
+        uses: actions/setup-python@v1
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          pip install -e .
+          sudo apt-get install texlive-latex-recommended texlive-fonts-recommended texlive-fonts-extra texlive-latex-extra latexmk librsvg2-bin
+      - name: Build docs
+        run: |
+          make linkcheck
+

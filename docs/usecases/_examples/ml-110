@@ -10,6 +10,10 @@ $ datalad containers-run -n software \
 [INFO] Making sure inputs are available (this may take some time) 
 [INFO] == Command start (output follows) =====
 [INFO] == Command exit (modification check follows) ===== 
+get(ok): data/raw/imagenette2-160/val/n03445777 (directory)
+get(ok): data/raw/imagenette2-160/val/n03888257 (directory)
+get(ok): data/raw/imagenette2-160/train/n03445777 (directory)
+get(ok): data/raw/imagenette2-160/train/n03888257 (directory)
 save(ok): . (dataset)
 action summary:
   add (ok: 2)

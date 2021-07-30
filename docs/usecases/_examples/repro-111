@@ -1,5 +1,5 @@
 $ datalad rerun
-[INFO] run commit 66d7a20; (run brain extract...) 
+[INFO] run commit 4392782; (run brain extract...)
 [INFO] Making sure inputs are available (this may take some time) 
 unlock(ok): sub-001/anat.nii.gz (file)
 unlock(ok): sub-001/anat_mask.nii.gz (file)

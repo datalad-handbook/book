@@ -1,10 +1,5 @@
 # view the last 15 lines of notes.txt
 $ tail notes.txt
-Note that subdatasets will not be installed by default, but are only
-registered in the superdataset -- you will have to do a
-"datalad get -n PATH/TO/SUBDATASET" to install the subdataset for file
-availability meta data. The -n/--no-data options prevents that file
-contents are also downloaded.
 
 Note that a recursive "datalad get" would install all further
 registered subdatasets underneath a subdataset, so a safer way to

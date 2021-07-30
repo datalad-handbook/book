@@ -7,6 +7,3 @@ $ datalad run \
 [INFO] == Command exit (modification check follows) =====
 add(ok): sub-02/1stlvl_design.fsf (file)
 save(ok): . (dataset)
-action summary:
-  add (ok: 1)
-  save (notneeded: 1, ok: 1)

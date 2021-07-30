@@ -1,6 +1,6 @@
 $ git log -- inputs
-commit a17b9e7f5be398871792ca3980a3843a1b7f1803
+commit 05703a378ad34120fcb5cf6556446b78da8a98a8
 Author: Elena Piscopia <elena@example.net>
-Date:   Fri Jan 29 09:25:49 2021 +0100
+Date:   Thu Jul 29 10:15:40 2021 +0200
 
-    [DATALAD] Recorded changes
+    [DATALAD] Added subdataset

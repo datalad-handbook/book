@@ -751,7 +751,7 @@ section.
    .. runrecord:: _examples/DL-101-136-160
       :language: console
       :workdir: dl-101/DataLad-101
-      :emphasize-lines: 15-16
+      :emphasize-lines: 18-19
 
       $ cat .git/config
 

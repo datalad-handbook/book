@@ -7,7 +7,7 @@ $ datalad containers-run -n software \
 [INFO] Making sure inputs are available (this may take some time) 
 [INFO] == Command start (output follows) ===== 
 [INFO] == Command exit (modification check follows) ===== 
-{'accuracy': 0.6121673003802282}
+{'accuracy': 0.752851711026616}
 save(ok): . (dataset)
 action summary:
   add (ok: 2)

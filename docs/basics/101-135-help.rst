@@ -182,7 +182,7 @@ To get extensive information on what :command:`datalad status` does underneath t
 .. runrecord:: _examples/DL-101-135-105
    :language: console
    :workdir: dl-101/DataLad-101
-   :lines: 1-15, 170-
+   :lines: 1-15, 85-
 
    $ datalad --log-level debug status
 

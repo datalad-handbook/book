@@ -1,5 +1,5 @@
 $ datalad rerun
-[INFO] run commit 66d7a20; (run brain extract...) 
+[INFO] run commit 4392782; (run brain extract...)
 [INFO] Making sure inputs are available (this may take some time) 
 [INFO] Cloning dataset to Dataset(/home/me/usecases/repro/demo/inputs/ds000001) 
 [INFO] Attempting to clone from http://datasets.datalad.org/openfmri/ds000001 to /home/me/usecases/repro/demo/inputs/ds000001 
@@ -10,7 +10,7 @@ $ datalad rerun
 [INFO] Start receiving objects 
 [INFO] Start resolving deltas 
 [INFO] Completed clone attempts for Dataset(/home/me/usecases/repro/demo/inputs/ds000001) 
-[INFO] Scanning for unlocked files (this may take some time) 
+[INFO] scanning for unlocked files (this may take some time)
 install(ok): inputs/ds000001 (dataset) [Installed subdataset in order to get /home/me/usecases/repro/demo/inputs/ds000001]
 [INFO] Cloning dataset to Dataset(/home/me/usecases/repro/demo/inputs/ds000002) 
 [INFO] Attempting to clone from http://datasets.datalad.org/openfmri/ds000002 to /home/me/usecases/repro/demo/inputs/ds000002 
@@ -21,7 +21,7 @@ install(ok): inputs/ds000001 (dataset) [Installed subdataset in order to get /ho
 [INFO] Start receiving objects 
 [INFO] Start resolving deltas 
 [INFO] Completed clone attempts for Dataset(/home/me/usecases/repro/demo/inputs/ds000002) 
-[INFO] Scanning for unlocked files (this may take some time) 
+[INFO] scanning for unlocked files (this may take some time)
 install(ok): inputs/ds000002 (dataset) [Installed subdataset in order to get /home/me/usecases/repro/demo/inputs/ds000002]
 get(ok): inputs/ds000001/sub-01/anat/sub-01_T1w.nii.gz (file) [from web...]
 get(ok): inputs/ds000002/sub-01/anat/sub-01_T1w.nii.gz (file) [from web...]

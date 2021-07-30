@@ -1,4 +1,5 @@
-$ datalad save -m "BF: list both directories content" code/list_titles.sh
+$ datalad save -m "BF: list both directories content" \
+  code/list_titles.sh
 add(ok): code/list_titles.sh (file)
 save(ok): . (dataset)
 action summary:

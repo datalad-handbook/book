@@ -8,8 +8,3 @@ unlock(ok): sub-02/func/sub-02_task-oneback_run-01_events.tsv (file)
 [INFO] == Command exit (modification check follows) =====
 add(ok): sub-02/func/sub-02_task-oneback_run-01_events.tsv (file)
 save(ok): . (dataset)
-action summary:
-  add (ok: 1)
-  get (notneeded: 3)
-  save (notneeded: 1, ok: 1)
-  unlock (ok: 1)

@@ -16,7 +16,3 @@ add(ok): sub-001/anat_mask.nii.gz (file)
 add(ok): sub-002/anat.nii.gz (file)
 add(ok): sub-002/anat_mask.nii.gz (file)
 save(ok): . (dataset)
-action summary:
-  add (ok: 4)
-  get (notneeded: 2, ok: 2)
-  save (notneeded: 2, ok: 1)

@@ -8,10 +8,10 @@ $ datalad wtf
     - config_file: /home/me/.config/python_keyring/keyringrc.cfg
     - data_root: /home/me/.local/share/python_keyring
 ## datalad 
-  - full_version: 0.14.0rc1.dev10-g1b221
-  - version: 0.14.0rc1.dev10
+  - full_version: 0.14.6+27.gec839bcf5
+  - version: 0.14.6+27.gec839bcf5
 ## dataset 
-  - id: c8774a5b-c857-4751-bce4-e58c6be73349
+  - id: 8e04afb0-af85-4070-be29-858d30d85017
   - metadata: <SENSITIVE, report disabled by configuration>
   - path: /home/me/dl-101/DataLad-101
   - repo: AnnexRepo
@@ -20,10 +20,10 @@ $ datalad wtf
   - appdirs: 1.4.4
   - boto: 2.49.0
   - cmd:7z: 16.02
-  - cmd:annex: 8.20201127
+  - cmd:annex: 8.20210223
   - cmd:bundled-git: UNKNOWN
-  - cmd:git: 2.29.2
-  - cmd:system-git: 2.29.2
+  - cmd:git: 2.30.2
+  - cmd:system-git: 2.30.2
   - cmd:system-ssh: 8.4p1
   - exifread: 2.3.2
   - git: 3.1.12
@@ -43,7 +43,7 @@ $ datalad wtf
   - LANG: en_US.UTF-8
   - LANGUAGE: en_US:en
   - LC_CTYPE: en_US.UTF-8
-  - PATH: /home/adina/env/handbook2/bin:/home/adina/.dotfiles/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/X11R6/bin:/usr/local/games:/usr/games:/home/adina/.local/bin:/home/adina/bin:/snap/bin
+  - PATH: /home/adina/env/handbook2/bin:/home/adina/.dotfiles/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/X11R6/bin:/usr/local/games:/usr/games:/home/adina/.local/bin:/home/adina/bin:/snap/bin:/home/adina/repos/latexrun/:/home/adina/node_modules/.bin
 ## extensions
   - container:
     - description: Containerized environments
@@ -79,6 +79,17 @@ $ datalad wtf
     - load_error: None
     - module: datalad_container
     - version: 1.1.2
+  - deprecated:
+    - description: Deprecated functionality
+    - entrypoints:
+      - datalad_deprecated.ls.Ls:
+        - class: Ls
+        - load_error: None
+        - module: datalad_deprecated.ls
+        - names:
+    - load_error: None
+    - module: datalad_deprecated
+    - version: 0+untagged.30.gb6bf80c
   - hirni:
     - description: HIRNI workflows
     - entrypoints: 
@@ -152,6 +163,26 @@ $ datalad wtf
     - load_error: None
     - module: datalad_neuroimaging
     - version: 0.3.1
+  - osf:
+    - description: DataLad extension for OSF support
+    - entrypoints:
+      - datalad_osf.create_sibling_osf.CreateSiblingOSF:
+        - class: CreateSiblingOSF
+        - load_error: None
+        - module: datalad_osf.create_sibling_osf
+        - names:
+          - create-sibling-osf
+          - create_sibling_osf
+      - datalad_osf.credentials.OSFCredentials:
+        - class: OSFCredentials
+        - load_error: None
+        - module: datalad_osf.credentials
+        - names:
+          - osf-credentials
+          - osf_credentials
+    - load_error: None
+    - module: datalad_osf
+    - version: 0.2.1
   - webapp:
     - description: Generic web app support
     - entrypoints:
@@ -260,6 +291,7 @@ $ datalad wtf
     - ddar
     - git-lfs
     - httpalso
+    - borg
     - hook
     - external
   - supported repository versions: 
@@ -273,18 +305,18 @@ $ datalad wtf
     - 5
     - 6
     - 7
-  - version: 8.20201127
+  - version: 8.20210223
 ## location 
   - path: /home/me/dl-101/DataLad-101
   - type: dataset
 ## metadata_extractors 
-  - annex (datalad 0.13.6):
-    - distribution: datalad 0.13.6
+  - annex (datalad 0.14.4):
+    - distribution: datalad 0.14.4
     - load_error: None
     - module: datalad.metadata.extractors.annex
     - version: None
-  - audio (datalad 0.13.6):
-    - distribution: datalad 0.13.6
+  - audio (datalad 0.14.4):
+    - distribution: datalad 0.14.4
     - load_error: None
     - module: datalad.metadata.extractors.audio
     - version: None
@@ -293,18 +325,18 @@ $ datalad wtf
     - load_error: None
     - module: datalad_neuroimaging.extractors.bids
     - version: None
-  - datacite (datalad 0.13.6):
-    - distribution: datalad 0.13.6
+  - datacite (datalad 0.14.4):
+    - distribution: datalad 0.14.4
     - load_error: None
     - module: datalad.metadata.extractors.datacite
     - version: None
-  - datalad_core (datalad 0.13.6):
-    - distribution: datalad 0.13.6
+  - datalad_core (datalad 0.14.4):
+    - distribution: datalad 0.14.4
     - load_error: None
     - module: datalad.metadata.extractors.datalad_core
     - version: None
-  - datalad_rfc822 (datalad 0.13.6):
-    - distribution: datalad 0.13.6
+  - datalad_rfc822 (datalad 0.14.4):
+    - distribution: datalad 0.14.4
     - load_error: None
     - module: datalad.metadata.extractors.datalad_rfc822
     - version: None
@@ -313,18 +345,18 @@ $ datalad wtf
     - load_error: None
     - module: datalad_neuroimaging.extractors.dicom
     - version: None
-  - exif (datalad 0.13.6):
-    - distribution: datalad 0.13.6
+  - exif (datalad 0.14.4):
+    - distribution: datalad 0.14.4
     - load_error: None
     - module: datalad.metadata.extractors.exif
     - version: None
-  - frictionless_datapackage (datalad 0.13.6):
-    - distribution: datalad 0.13.6
+  - frictionless_datapackage (datalad 0.14.4):
+    - distribution: datalad 0.14.4
     - load_error: None
     - module: datalad.metadata.extractors.frictionless_datapackage
     - version: None
-  - image (datalad 0.13.6):
-    - distribution: datalad 0.13.6
+  - image (datalad 0.14.4):
+    - distribution: datalad 0.14.4
     - load_error: None
     - module: datalad.metadata.extractors.image
     - version: None
@@ -358,23 +390,23 @@ $ datalad wtf
     - load_error: None
     - module: datalad_neuroimaging.extractors.nifti1
     - version: None
-  - xmp (datalad 0.13.6):
-    - distribution: datalad 0.13.6
+  - xmp (datalad 0.14.4):
+    - distribution: datalad 0.14.4
     - load_error: None
     - module: datalad.metadata.extractors.xmp
     - version: None
 ## metadata_indexers
 ## python 
   - implementation: CPython
-  - version: 3.9.1+
+  - version: 3.9.2
 ## system 
-  - distribution: debian/99/sid
+  - distribution: debian/11/bullseye
   - encoding: 
     - default: utf-8
     - filesystem: utf-8
     - locale.prefered: UTF-8
   - max_path_length: 283
   - name: Linux
-  - release: 5.10.0-1-amd64
+  - release: 5.10.0-7-amd64
   - type: posix
-  - version: #1 SMP Debian 5.10.4-1 (2020-12-31)
+  - version: #1 SMP Debian 5.10.40-1 (2021-05-28)

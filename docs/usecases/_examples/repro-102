@@ -9,12 +9,14 @@ $ datalad clone -d . ///openfmri/ds000001 inputs/ds000001
 [INFO] Start receiving objects 
 [INFO] Start resolving deltas 
 [INFO] Completed clone attempts for Dataset(/home/me/usecases/repro/demo/inputs/ds000001) 
-[INFO] Scanning for unlocked files (this may take some time) 
+[INFO] scanning for unlocked files (this may take some time)
 install(ok): inputs/ds000001 (dataset)
 add(ok): inputs/ds000001 (file)
 add(ok): .gitmodules (file)
 save(ok): . (dataset)
+add(ok): .gitmodules (file)
+save(ok): . (dataset)
 action summary:
-  add (ok: 2)
+  add (ok: 3)
   install (ok: 1)
-  save (ok: 1)
+  save (ok: 2)

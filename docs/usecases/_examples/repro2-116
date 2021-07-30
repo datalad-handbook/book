@@ -15,7 +15,3 @@ add(ok): sub-02/onsets/run-1/object.txt (file)
 add(ok): sub-02/onsets/run-1/scene.txt (file)
 add(ok): sub-02/onsets/run-1/scramble.txt (file)
 save(ok): . (dataset)
-action summary:
-  add (ok: 6)
-  get (notneeded: 1, ok: 1)
-  save (notneeded: 1, ok: 1)

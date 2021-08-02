@@ -107,7 +107,7 @@ Singularity (even without having Docker installed).
 .. importantnote:: Additional requirement: Singularity
 
    In order to use Singularity containers (and thus ``datalad containers``), you have to
-   `install <https://singularity.lbl.gov/docs-installation>`_ the software singularity.
+   `install <https://sylabs.io/guides/3.0/user-guide/installation.html>`_ the software singularity.
 
 Using ``datalad containers``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -142,7 +142,7 @@ section below has some pointers:
    `singularity documentation <https://sylabs.io/guides/3.4/user-guide/build_a_container.html>`_
    has its own tutorial on how to build such Images from scratch.
    An alternative to writing the Image file by hand is to use
-   `Neurodocker <https://github.com/ReproNim/neurodocker#singularity>`_. This
+   `Neurodocker <https://github.com/ReproNim/neurodocker>`_. This
    command-line program can help you generate custom Singularity recipes (and
    also ``Dockerfiles``, from which Docker Images are build). A wonderful tutorial
    on how to use Neurodocker is

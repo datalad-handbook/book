@@ -63,8 +63,8 @@ web server, but also a third party services cloud storage such as
 `Amazon S3 buckets <https://aws.amazon.com/s3/?nc1=h_ls>`_,
 `Box.com <https://www.box.com/en-gb/home>`_,
 `Figshare <https://figshare.com/>`__,
-`owncloud <https://owncloud.org/>`_,
-`sciebo <https://sciebo.de/>`_,
+`owncloud <https://owncloud.com>`_,
+`sciebo <https://hochschulcloud.nrw>`_,
 the `Open Science Framework (OSF) <https://osf.io/>`__  (requires the `datalad-osf extension <http://docs.datalad.org/projects/osf/en/latest/index.html>`_),
 or many more. The key to achieve this lies within :term:`git-annex`.
 
@@ -270,8 +270,8 @@ to such sources conveniently under the hood.
    e/n/d/r/c/s/q> q
 
 - Once this is done, install ``git-annex-remote-rclone``.
-  It is a wrapper around `rclone <https://rclone.or>`__ that makes any   destination supported by rclone usable with :term:`git-annex`.
-  If you are on a recent version of Debian or Ubuntu (or enable `NeuroDebian <http://neuro.debian.org>`_ repository), you can get it conveniently via your package manager, e.g., with ``sudo apt-get install git-annex-remote-rclone``.
+  It is a wrapper around `rclone <https://rclone.org>`__ that makes any   destination supported by rclone usable with :term:`git-annex`.
+  If you are on a recent version of Debian or Ubuntu (or enable `NeuroDebian <https://neuro.debian.net>`_ repository), you can get it conveniently via your package manager, e.g., with ``sudo apt-get install git-annex-remote-rclone``.
   Alternatively, ``git clone`` the `git-annex-remote-rclone <https://github.com/DanielDent/git-annex-remote-rclone>`_ repository to your machine (do not clone it into ``DataLad-101`` but somewhere else on your computer)::
 
      $ git clone https://github.com/DanielDent/git-annex-remote-rclone.git
@@ -500,7 +500,7 @@ Use GitHub for sharing content
 
 GitHub supports `Git Large File Storage <https://github.com/git-lfs/git-lfs>`_
 (Git LFS) for managing data files using Git.  Free GitHub subscription allows up
-to `1GB of free storage and up to 1GB of bandwidth monthly <https://help.github.com/en/github/managing-large-files/about-storage-and-bandwidth-usage>`_.
+to `1GB of free storage and up to 1GB of bandwidth monthly <https://docs.github.com/en/github/managing-large-files/versioning-large-files/about-storage-and-bandwidth-usage>`_.
 As such, it might be sufficient for some use cases, and could be configured
 quite easily.  Similarly to the steps above, we need first to create a repository
 on GitHub if it does not already exist::
@@ -540,7 +540,7 @@ from GitHub.
 .. importantnote:: No drop from LFS
 
    Unfortunately, it is impossible to :command:`drop` contents from Git LFS:
-   `help.github.com/en/github/managing-large-files <https://help.github.com/en/github/managing-large-files/removing-files-from-git-large-file-storage#git-lfs-objects-in-your-repository>`_
+   `help.github.com/en/github/managing-large-files <https://docs.github.com/en/github/managing-large-files/versioning-large-files/removing-files-from-git-large-file-storage#git-lfs-objects-in-your-repository>`_
 
 .. _figshare:
 

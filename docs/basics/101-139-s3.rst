@@ -361,6 +361,6 @@ Congrats!
    If you decide to use the command line interface, here is help on how to use it:
    Clone the `GitHub repository <https://github.com/sociomantic-tsunami/git-hub>`_ to your local computer.
    Decide whether you want to build a Debian package to install, or install the single-file Python script distributed in the repository.
-   Make sure that all `requirements <https://github.com/sociomantic-tsunami/git-hub#dependencies>`_ for your preferred version are installed , and run either ``make deb`` followed by ``sudo dpkg -i deb/git-hub*all.deb``, or ``make install``.
+   Make sure that all `requirements <https://github.com/sociomantic-tsunami/git-hub>`_ for your preferred version are installed , and run either ``make deb`` followed by ``sudo dpkg -i deb/git-hub*all.deb``, or ``make install``.
 
 .. [#f7] To re-read about Git's configurations and the ``git config`` command, please take a look at the section :ref:`config`.

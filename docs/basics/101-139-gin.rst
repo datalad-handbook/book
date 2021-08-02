@@ -50,7 +50,7 @@ and name, and selecting a user name and password, you should upload your
    :term:`GitHub`, or :term:`GitLab`, it can be used to connect and authenticate
    without supplying your username or password for each action.
 
-   This `tutorial by GitHub <https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent>`_
+   This `tutorial by GitHub <https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent>`_
    is a detailed step-by-step instruction to generate and use SSH keys for authentication,
    and it also shows you how to add your public SSH key to your GitHub account
    so that you can install or clone datasets or Git repositories via ``SSH`` (in addition

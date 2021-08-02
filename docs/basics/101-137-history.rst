@@ -728,7 +728,7 @@ overview on the necessary steps, and a pointer to a more comprehensive guide.
 - Afterwards, run ``git add <path/to/file`` and finally a ``git commit``.
 
 An excellent resource on how to deal with merge conflicts is
-`this post <https://help.github.com/en/articles/resolving-a-merge-conflict-using-the-command-line>`_.
+`this post <https://docs.github.com/en/github/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line>`_.
 
 Summary
 ^^^^^^^

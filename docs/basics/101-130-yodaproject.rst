@@ -175,7 +175,7 @@ independent dataset from scratch in a :ref:`dedicated Findoutmore <fom-iris>`.
       $ datalad create iris_data
 
    and subsequently got the data from a publicly available
-   `GitHub Gist <https://gist.github.com/netj/8836201>`_, a code snippet or other short standalone information (more on Gists `here <https://help.github.com/en/github/writing-on-github/creating-gists#about-gists>`__), with a
+   `GitHub Gist <https://gist.github.com/netj/8836201>`_, a code snippet or other short standalone information (more on Gists `here <https://docs.github.com/en/github/writing-on-github/editing-and-sharing-content-with-gists/creating-gists#about-gists>`__), with a
    :command:`datalad download-url` command:
 
     .. runrecord:: _examples/DL-101-130-102
@@ -638,7 +638,7 @@ The two commands have different arguments and options.
 Here, we look at :command:`datalad create-sibling-github`.
 The command takes a repository name and GitHub authentication credentials
 (either in the command line call with options ``github-login <NAME>`` and
-``github-passwd <PASSWORD>``, with an *oauth* `token <https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/creating-a-personal-access-token>`_ stored in the Git
+``github-passwd <PASSWORD>``, with an *oauth* `token <https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token>`_ stored in the Git
 configuration, or interactively).
 
 .. importantnote:: GitHub deprecates its User Password authentication
@@ -918,6 +918,6 @@ reproduce your data science project easily from scratch (take a look into the :r
          If you decide to use the command line interface, here is help on how to use it:
          Clone the `GitHub repository <https://github.com/sociomantic-tsunami/git-hub>`_ to your local computer.
          Decide whether you want to build a Debian package to install, or install the single-file Python script distributed in the repository.
-         Make sure that all `requirements <https://github.com/sociomantic-tsunami/git-hub#dependencies>`_ for your preferred version are installed , and run either ``make deb`` followed by ``sudo dpkg -i deb/git-hub*all.deb``, or ``make install``.
+         Make sure that all `requirements <https://github.com/sociomantic-tsunami/git-hub>`_ for your preferred version are installed , and run either ``make deb`` followed by ``sudo dpkg -i deb/git-hub*all.deb``, or ``make install``.
 
 .. [#f7] To re-read about Git's configurations and the ``git config`` command, please take a look at the section :ref:`config`.

@@ -224,7 +224,7 @@ to manage the file system in a DataLad dataset (:ref:`filesystem`).
    Furthermore, if two files have identical hashes, the content in these files is identical.
    Consequently, if two files have the same symlink, and thus link the same file in the object-tree, they are identical in content.
    This can save disk space if a dataset contains many identical files: Copies of the same data only need one instance of that content in the object tree, and all copies will symlink to it.
-   If you want to read more about the computer science basics about about hashes check out the Wikipedia page `here <https://en.wikipedia.org/wiki/Hash_function>`_.
+   If you want to read more about the computer science basics about hashes check out the Wikipedia page `here <https://en.wikipedia.org/wiki/Hash_function>`_.
 
    .. runrecord:: _examples/DL-101-115-104
       :language: console

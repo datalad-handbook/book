@@ -7,7 +7,7 @@ Data integrity
 
 So far, we mastered quite a number of challenges:
 Creating and populating a dataset with large and small files, modifying content and saving the changes to history, installing datasets, even as subdatasets within datasets, recording the impact of commands on a dataset with the run and re-run commands, and capturing plenty of :term:`provenance` on the way.
-We further noticed that when we modified content in ``notes.txt`` or ``list_files.py``, the modified content was in a *text file*.
+We further noticed that when we modified content in ``notes.txt`` or ``list_titles.sh``, the modified content was in a *text file*.
 We learned that this precise type of file, in conjunction with the initial configuration template ``text2git`` we gave to :command:`datalad create`, is meaningful:
 As the text file is stored in Git and not git-annex, no content unlocking is necessary.
 As we saw within the demonstrations of :command:`datalad run`, modifying content of non-text files, such as ``.jpg``\s, typically requires the additional step of *unlocking* file content, either by hand with the :command:`datalad unlock` command, or within :command:`datalad run` using the ``-o``/``--output`` flag.
@@ -58,7 +58,7 @@ get to why this is relevant and useful shortly. First, however,
 where exactly are the contents of the files you created or saved?
 
 The start of the link path is ``../.git``. The section :ref:`createDS` contained
-a note that strongly advised that you to not temper with
+a note that strongly advised that you to not tamper with
 (or in the worst case, delete) the ``.git``
 repository in the root of any dataset. One reason
 why you should not do this is because *this* ``.git`` directory is where all of your file content
@@ -224,7 +224,7 @@ to manage the file system in a DataLad dataset (:ref:`filesystem`).
    Furthermore, if two files have identical hashes, the content in these files is identical.
    Consequently, if two files have the same symlink, and thus link the same file in the object-tree, they are identical in content.
    This can save disk space if a dataset contains many identical files: Copies of the same data only need one instance of that content in the object tree, and all copies will symlink to it.
-   If you want to read more about the computer science basics about about hashes check out the Wikipedia page `here <https://en.wikipedia.org/wiki/Hash_function>`_.
+   If you want to read more about the computer science basics about hashes check out the Wikipedia page `here <https://en.wikipedia.org/wiki/Hash_function>`_.
 
    .. runrecord:: _examples/DL-101-115-104
       :language: console

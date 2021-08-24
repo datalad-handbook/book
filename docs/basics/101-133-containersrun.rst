@@ -370,5 +370,5 @@ in the usecase :ref:`usecase_reproduce_neuroimg`.
 .. [#f2] The main reason why Docker is not deployed on HPC systems is because
          it grants users "`superuser privileges <https://en.wikipedia.org/wiki/Superuser>`_".
          On multi-user systems such as HPC, users should not have those
-         privileges, as it would enable them to temper with other's or shared
+         privileges, as it would enable them to tamper with other's or shared
          data and resources, posing a severe security threat.

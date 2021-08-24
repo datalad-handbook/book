@@ -323,7 +323,7 @@ again, or generate again (for example with next chapter's :command:`datalad run`
 command), or that you really do not need anymore.
 
 Let's remove the content of one of the files that we have downloaded, and check
-what this does to the total size of the dataset. Here is the current aount of
+what this does to the total size of the dataset. Here is the current amount of
 retrieved data in this dataset:
 
 .. runrecord:: _examples/DL-101-105-110

@@ -172,7 +172,7 @@ Glossary
       other branch in your dataset, and contains different types of log files.
       Its contents are used for git-annex's internal tracking of the dataset
       and its annexed contents.
-      The branch is managed by :term:`git-annex`, and you should not temper with
+      The branch is managed by :term:`git-annex`, and you should not tamper with
       it unless you absolutely know what you are doing.
 
    Git config file

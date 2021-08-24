@@ -519,7 +519,7 @@ was obtained from web-sources (e.g., with :command:`datalad download-url`), a
 the known remotes of the dataset and their description, if they have one.
 You can find out much more about the ``git-annex`` branch and its contents in the
 `documentation <https://git-annex.branchable.com/internals/>`_.
-This branch, however, is managed by git-annex, and you should not temper with it.
+This branch, however, is managed by git-annex, and you should not tamper with it.
 
 .. _gitannexdefault:
 

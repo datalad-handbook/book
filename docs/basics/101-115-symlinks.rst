@@ -58,7 +58,7 @@ get to why this is relevant and useful shortly. First, however,
 where exactly are the contents of the files you created or saved?
 
 The start of the link path is ``../.git``. The section :ref:`createDS` contained
-a note that strongly advised that you to not temper with
+a note that strongly advised that you to not tamper with
 (or in the worst case, delete) the ``.git``
 repository in the root of any dataset. One reason
 why you should not do this is because *this* ``.git`` directory is where all of your file content

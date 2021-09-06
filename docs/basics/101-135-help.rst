@@ -417,7 +417,7 @@ If you encounter these errors, make sure to create and/or upload an SSH key (see
 
 If you publish a dataset to :term:`GitHub`, but the resulting repository seems to consist of cryptic directories instead of your actual file names and directories, GitHub may have made the :term:`git-annex branch` the default.
 
-.. figure:: ../artwork/src/defaultgitannex.png
+.. figure:: ../artwork/src/defaultgitannex_light.png
 
 To find out more about this and how to fix it, please take a look at the corresponding :ref:`FAQ <gitannexdefault>`.
 

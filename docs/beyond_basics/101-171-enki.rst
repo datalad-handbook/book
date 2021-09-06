@@ -79,7 +79,7 @@ Also note that there is a large collection of pre-existing container datasets av
 
    During a :command:`datalad containers-run` command, the ``--call-fmt`` specification will be used to call the container.
    The placeholders ``{img}`` and ``{cmd}`` will be replaced with the container (``{img}``) and the command given to ``datalad containers-run`` (``{cmd}``).
-   Thus, the ``--cleanenv`` flag (`recommended by fMRIprep <https://fmriprep.org/en/stable/singularity.html#handling-environment-variables>`_) as well as bind-mounts are handled prior to the container invocation, and the ``--fs-license-file`` option with a path to the license file within the container is appended to the command.
+   Thus, the ``--cleanenv`` flag as well as bind-mounts are handled prior to the container invocation, and the ``--fs-license-file`` option with a path to the license file within the container is appended to the command.
    Bind-mounting the working directory (``-B "$PWD"``) makes sure to bind mount the directory from which the container is being called, which should be the superdataset that contains input data and ``pipelines`` subdataset.
    With these bind-mounts, input data and the freesurfer license file within ``pipelines`` are available in the container.
 

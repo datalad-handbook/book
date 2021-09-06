@@ -294,13 +294,14 @@ Then, follow these steps:
 
 - First, create a new repository on Gin (see step by step instructions above).
 - In your to-be-published dataset, add this repository as a sibling, but also as a "common data source". Make sure to configure a :term:`SSH` URL as a ``--pushurl`` but a :term:`HTTPS` URL as a ``url``, and pay close attention that the ``name <name>`` and ``--as-common-datasrc <name>`` arguments differ.
+  Please also note that the :term:`HTTPS` URL written after ``--url`` DOES NOT have the ``.git`` suffix.
   Here is the command::
 
      $ datalad siblings add \
       -d . \
       --name gin-update \
-      --pushurl git@gin.g-node.org:/studyforrest/aggregate-fmri-timeseries.git
-      --url https://gin.g-node.org/studyforrest/aggregate-fmri-timeseries.git \
+      --pushurl git@gin.g-node.org:/studyforrest/aggregate-fmri-timeseries.git \
+      --url https://gin.g-node.org/studyforrest/aggregate-fmri-timeseries \
       --as-common-datasrc gin
 
 - Locally, run ``git config --unset-all remote.gin-update.annex-ignore`` to prevent :term:`git-annex` from ignoring this new dataset

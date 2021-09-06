@@ -570,10 +570,10 @@ be able to fetch content from the tarball shared on Figshare via DataLad.
 
 .. rubric:: Footnotes
 
-.. [#f1] :term:`GitLab`, on the other hand, provides a git-annex configuration. It
+.. [#f1] Older versions of :term:`GitLab`, on the other hand, provide a git-annex configuration. It
          is disabled by default, and to enable it you would need to have administrative
          access to the server and client side of your GitLab instance. Find out more
-         `here <https://docs.gitlab.com/ee/administration/git_annex.html>`_.
+         `here <https://docs.gitlab.com/12.10/ee/administration/git_annex.html>`_.
          Alternatively, GitHub can integrate with
          `GitLFS <https://git-lfs.github.com/>`__, a non-free, centralized service
          that allows to store large file contents. The last paragraph in this

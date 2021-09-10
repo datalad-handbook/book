@@ -390,8 +390,10 @@ ribbon important/.style={overlay={
   \end{scope}}}
 }
 
+\newcounter{HandbookWIN}[chapter]
+\renewcommand\theHandbookWIN{W\arabic{chapter}.\arabic{HandbookWIN}}
 \newtcolorbox[%
-  auto counter,
+  use counter*=HandbookWIN,
   number within=chapter,
   list inside=windowswits]{windowswit}[2][]{%
     enhanced, ribbon win, title={#2},
@@ -399,8 +401,10 @@ ribbon important/.style={overlay={
     colbacktitle=windowsgreen,
     colframe=windowsgreen!70!black, #1
 }
+\newcounter{HandbookGIT}[chapter]
+\renewcommand\theHandbookGIT{G\arabic{chapter}.\arabic{HandbookGIT}}
 \newtcolorbox[%
-  auto counter,
+  use counter*=HandbookGIT,
   number within=chapter,
   list inside=gitusernotes]{gitusernote}[2][]{%
     enhanced, ribbon git, title={#2},
@@ -408,8 +412,10 @@ ribbon important/.style={overlay={
     colbacktitle=dataladblue,
     colframe=dataladblue!70!black, #1
 }
+\newcounter{HandbookFOM}[chapter]
+\renewcommand\theHandbookFOM{M\arabic{chapter}.\arabic{HandbookFOM}}
 \newtcolorbox[
-  auto counter,
+  use counter*=HandbookFOM,
   number within=chapter,
   list inside=findoutmores]{findoutmore}[2][]{%
     enhanced, ribbon more, title={#2},
@@ -417,8 +423,9 @@ ribbon important/.style={overlay={
     colbacktitle=dataladyellow,
     colframe=dataladyellow!70!black, #1
 }
+% unnumbered, they are short and placed at the exact position
+% must change we there are in-text references
 \newtcolorbox[
-  auto counter,
   number within=chapter,
   list inside=importantnotes]{importantnote}[2][]{%
     enhanced, ribbon important, title={#2},

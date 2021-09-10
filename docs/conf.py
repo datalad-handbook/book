@@ -350,6 +350,9 @@ cautionBgColor={named}{LightCyan}%
 % make sure all float stay in their respective chapter
 %\usepackage[chapter]{placeins}
 
+% make enough room for the auto-generated header content
+\setlength{\headheight}{13.6pt}
+
 \usepackage{xcolor}
 \definecolor{dataladyellow}{HTML}{FFA200}
 \definecolor{dataladblue}{HTML}{7FD5FF}

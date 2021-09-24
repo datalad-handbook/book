@@ -3,8 +3,24 @@
 Beyond shared infrastructure
 ----------------------------
 
+Data sharing potentially involves a number of different elements:
+
+.. figure:: ../artwork/src/publishing/startingpoint.svg
+   :width: 60%
+
+   An overview of all elements potentially included in a publication workflow.
+
 Users on a common, shared computational infrastructure such as an :term:`SSH server`
-can share datasets via simple installations with paths.
+can share datasets via simple installations with paths, without any involvement of third party storage providers or repository hosting services:
+
+|pic1|  |pic2|
+
+.. |pic1| image:: ../artwork/src/publishing/clone_local.svg
+   :width: 45%
+
+.. |pic2| image:: ../artwork/src/publishing/clone_server.svg
+   :width: 45%
+
 But at some point in a dataset's life, you may want to share it with people that
 can't access the computer or server your dataset lives on, store it on other infrastructure
 to save diskspace, or create a backup.
@@ -36,12 +52,6 @@ The section :ref:`gitlfs` talks about using the centralized, for-pay service
 section :ref:`figshare` shows built-in dataset export to services such as
 `figshare.com <https://figshare.com/>`__.
 
-
-
-.. figure:: ../artwork/src/publishing/startingpoint.svg
-   :width: 70%
-
-   An overview of all elements potentially included in a publication workflow.
 
 .. importantnote:: There can never be "too much" documentation
 
@@ -153,6 +163,10 @@ data is as easy as with any public DataLad dataset.
 While you have to invest some setup effort in the beginning, once this
 is done, the workflows of yours and others are the same that you are already
 very familiar with.
+
+.. figure:: ../artwork/src/publishing/clone_url.svg
+   :width: 60%
+
 
 If you are interested in learning how to set up different services as special remotes, you can take a look at the sections :ref:`s3`, :ref:`dropbox` or :ref:`gitlfs` for concrete examples with DataLad datasets, and the general section :ref:`share_hostingservice` on setting up dataset siblings.
 In addition, there are step-by-step walk-throughs in the documentation of git-annex for services such as `S3 <https://git-annex.branchable.com/tips/public_Amazon_S3_remote/>`_, `Google Cloud Storage <https://git-annex.branchable.com/tips/using_Google_Cloud_Storage/>`_,

@@ -1,9 +1,9 @@
 .. _push:
 
-Overview: Publishing datasets
------------------------------
+Overview: The datalad push command
+----------------------------------
 
-The sections :ref:`yoda_project`, :ref:`sharethirdparty`, and :ref:`gin` have each
+Previous sections on publishing DataLad datasets  have each
 shown you crucial aspects of the functions of dataset publishing with
 :command:`datalad push`. This section wraps them all together.
 

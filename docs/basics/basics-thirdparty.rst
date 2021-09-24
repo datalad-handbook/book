@@ -17,6 +17,7 @@ Third party infrastructure
    101-139-s3
    101-139-gitlfs
    101-139-gin
+   101-139-figshare
    101-141-push
    101-140-summary
 

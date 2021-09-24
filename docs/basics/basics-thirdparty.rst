@@ -13,6 +13,7 @@ Third party infrastructure
    :caption: Leverage third party services to share datasets
 
    101-138-sharethirdparty
+   101-139-hostingservices
    101-139-dropbox
    101-139-s3
    101-139-gitlfs

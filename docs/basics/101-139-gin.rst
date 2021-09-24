@@ -1,7 +1,7 @@
 .. _gin:
 
-Dataset hosting on GIN
-----------------------
+Walk-through: Dataset hosting on GIN
+------------------------------------
 
 `GIN <https://gin.g-node.org/G-Node/Info/wiki>`__ (G-Node infrastructure) is a
 free data management system designed for comprehensive and reproducible management

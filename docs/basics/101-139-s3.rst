@@ -1,7 +1,7 @@
 .. _s3:
 
-Amazon S3 as a special remote
------------------------------
+Walk-through: Amazon S3 as a special remote
+-------------------------------------------
 
 `Amazon S3 <https://aws.amazon.com/s3/>`_ (or Amazon Simple Storage Service) is a
 popular service by `Amazon Web Services <https://aws.amazon.com/>`_ (AWS) that

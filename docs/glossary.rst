@@ -223,6 +223,9 @@ Glossary
       They are used to build programs, but also to manage projects where some files must be automatically updated from others whenever the others change.
       An example of a Makefile is shown in the usecase :ref:`usecase_reproducible_paper`.
 
+   manpage
+      Abbreviation of "manual page". For most Unix programs, the command ``man <program-name>`` will open a :term:`pager` with this commands documentation. If you have installed DataLad as a Debian package, ``man`` will allow you to open DataLad manpages in your terminal.
+
    master
       Git concept: For the longest time, ``master`` was the name of the default :term:`branch` in a dataset. More recently, the name ``main`` is used. If you are not sure, you can find out if your default branch is ``main`` or ``master`` by running ``git branch``.
 
@@ -243,6 +246,9 @@ Glossary
    object-tree
       git-annex concept: The place where :term:`git-annex` stores available file contents. Files that are annexed get
       a :term:`symlink` added to :term:`Git` that points to the file content. A different word for :term:`annex`.
+
+   pager
+      A `terminal paper <https://en.wikipedia.org/wiki/Terminal_pager>`_ is a program to view file contents in the :term:`terminal`. Popular examples are the programs ``less`` and ``more``. Some terminal output can be opened automatically in a pager, for example the output of a :command:`git log` command. You can use the arrow keys to navigate and scroll in the pager, and the letter ``q`` to exit it.
 
    permissions
       Access rights assigned by most file systems that determine whether a user can view (``read permission``),

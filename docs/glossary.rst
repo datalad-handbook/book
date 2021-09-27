@@ -233,6 +233,9 @@ Glossary
       Git concept: to integrate the changes of one :term:`branch`/:term:`sibling`/ ... into
       a different branch.
 
+   merge request
+     See :term:`pull request`.
+
    metadata
       "Data about data": Information about one or more aspects of data used to summarize
       basic information, for example means of create of the data, creator or author, size,
@@ -280,6 +283,10 @@ Glossary
       set with the option ``publish-depends`` in the commands
       :command:`datalad siblings`, :command:`datalad create-sibling`, and
       :command:`datalad create-sibling-github/gitlab`.
+
+
+   pull request
+      Also known as :term:`merge request`. Contributions to Git repositories/DataLad datasets can be proposed to be :term:`merge`\d into the dataset by "requesting a pull/update" from the dataset maintainer to obtain a proposed change from a dataset clone or sibling. It is implemented as a feature in repository hosting sites such as :term:`GitHub`, :term:`Gin`, or :term:`GitLab`.
 
    relative path
       A path related to the present working directory. Relative paths never start with ``/``.

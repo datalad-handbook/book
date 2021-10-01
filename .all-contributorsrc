@@ -451,6 +451,15 @@
       "contributions": [
         "bug"
       ]
+    },
+    {
+      "login": "mslw",
+      "name": "Michał Szczepanik",
+      "avatar_url": "https://avatars.githubusercontent.com/u/11985212?v=4",
+      "profile": "https://github.com/mslw",
+      "contributions": [
+        "review"
+      ]
     }
   ],
   "contributorsPerLine": 7,

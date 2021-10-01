@@ -117,25 +117,25 @@ Please consult the ``python-gitlab`` `documentation <https://python-gitlab.readt
 .. code-block::
 
 	[global]
-	default = jugit
+	default = gitlab
 	ssl_verify = true
 	timeout = 5
 
-	[jugit]
-	url = https://jugit.fz-juelich.de
+	[gitlab]
+	url = https://gitlab.myinstance.com
 	private_token = <super-secret-token>
 	api_version = 4
 
-This configures the default GitLab instance (here, we have called it ``jugit``) with a specific base URL and the user's personal access token for authentication.
+This configures the default GitLab instance (here, we have called it ``gitlab``) with a specific base URL and the user's personal access token for authentication.
 Note that you will need to generate and retrieve your own personal access token under the profile settings of the gitlab instance of your choice (see the :ref:`paragraph on authentication tokens below for more information <token>`).
-With this configuration, the ``--site`` parameter can identify the GitLab instance by its name ``jugit``.
+With this configuration, the ``--site`` parameter can identify the GitLab instance by its name ``gitlab``.
 If you have an :term:`SSH key` configured, it is useful to specify ``--access`` as ``ssh`` -- this saves you the need to authenticate with every ``push``:
 
 .. code-block:: bash
 
    $ datalad create-sibling-gitlab \
      -d . \              	# current dataset
-     --site jugit \      	# to the configured GitLab instance
+     --site gitlab \      	# to the configured GitLab instance
      --project DataLad-101 \	# repository name
      --layout flat \
      --access ssh 		# optional, but useful
@@ -146,8 +146,8 @@ If you have an :term:`SSH key` configured, it is useful to specify ``--access`` 
 	  create_sibling_gitlab (ok: 1)
    $ datalad siblings
      here(+) [git]
-	 jugit(-) [git@jugit.fz-juelich.de:adswa/DataLad-101.git (git)]
-   $ datalad push --to jugit
+	 jugit(-) [git@gitlab.myinstance.com:<user>/<repo>.git (git)]
+   $ datalad push --to gitlab
 	publish(ok): . (dataset)
 	action summary:
 	  publish (ok: 1)

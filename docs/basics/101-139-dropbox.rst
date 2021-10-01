@@ -13,7 +13,7 @@ the many publicly available DataLad datasets such as the ``longnow`` podcasts.
 
 
 As an example, let's walk through all necessary steps to publish the ``DataLad-101`` dataset to GitHub, and its file contents to **Dropbox**.
-To make this as convenient as possible, we will also set up a publication dependency between the two.
+To make this as convenient as possible, we will also set up a :term:`publication dependency` between the two.
 
 To set up Dropbox as a third party storage provide you need to configure a special-remote called
 `rclone <https://github.com/DanielDent/git-annex-remote-rclone>`__.

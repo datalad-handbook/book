@@ -21,6 +21,7 @@ Thus, make sure to always manage sensitive files with :term:`git-annex`, even if
 Having the file annexed allows you to specifically not share its contents, even when you make your dataset publicly available.
 However, it is highly important to realize that while annexed file's *contents* are not saved into Git, annex file's *names* are.
 If private information such as a medical patients non-anonymized ID or other potentially identifying information becomes a part of the file name, this information is exposed in the Git history of the dataset.
+Keep in mind that this applies even if you renamed the file.
 
 .. find-out-more:: Help! I accidentally saved sensitive information to Git!
 

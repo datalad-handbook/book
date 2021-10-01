@@ -38,7 +38,7 @@ which annexed file contents can be retrieved via :command:`datalad get`.
 
 The upcoming section :ref:`gin` shows you one of the most easy ways to publish your
 dataset publicly or for selected collaborators and friends.
-If you don't want to dive in to all the details on dataset sharing, it is save to
+If you don't want to dive in to all the details on dataset sharing, it is safe to
 directly skip ahead to this section, and have your dataset published in only a few minutes.
 
 Other sections in this chapter will showcase a variety of ways to publish datasets
@@ -51,7 +51,8 @@ The section :ref:`gitlfs` talks about using the centralized, for-pay service
 `Git LFS <https://git-lfs.github.com/>`_ for sharing dataset content on GitHub, and the
 section :ref:`figshare` shows built-in dataset export to services such as
 `figshare.com <https://figshare.com/>`__.
-
+If you want a walk-through for a different service, or if you maybe even want to share
+your own walk-through, please `get in touch <https://github.com/datalad-handbook/book/issues/new>`_.
 
 .. importantnote:: There can never be "too much" documentation
 
@@ -124,15 +125,15 @@ The hosting services can be all kinds of private, institutional, or commercial s
    A special-remote is an extension to Git’s concept of remotes, and can
    enable :term:`git-annex` to transfer data from and possibly to places that are not Git
    repositories (e.g., cloud services or external machines such as an HPC
-   system). For example, *s3* special remote uploads and downloads content
-   to AWS S3, *web* special remote downloads files from the web, *datalad-archive*
+   system). For example, an *s3* special remote uploads and downloads content
+   to AWS S3, a *web* special remote downloads files from the web, and *datalad-archive*
    extracts files from the annexed archives, etc. Don’t envision a special-remote
    as merely a physical place or location – a special-remote is a protocol that
    defines the underlying transport of your files to and/or from a specific location.
 
 To register a special remote in your dataset and use it for file storage, you need to configure the service of your choice and *publish* the annexed contents to it. Afterwards, the published dataset (e.g., via :term:`GitHub` or :term:`GitLab`) stores the information about where to obtain annexed file contents from such that
 :command:`datalad get` works.
-Once you have configured the service of your choice, DataLad makes it easy to push different dataset contents exactly where they need to be automatically via a :term:`publication dependency`.
+Once you have configured the service of your choice, you can push your datasets Git history to the repository hosting service and the annexed contents to the special remote. But DataLad also makes it easy to push these different dataset contents exactly where they need to be automatically via a :term:`publication dependency`.
 
 Exemplary walk-throughs for `Dropbox <https://dropbox.com>`_, `Amazon S3 buckets <https://aws.amazon.com/s3/?nc1=h_ls>`_, and `Git LFS  <https://github.com/git-lfs/git-lfs>`__ can be found in the upcoming sections in this chapter.
 But the general workflow looks as follows:
@@ -214,7 +215,7 @@ The creative case: Ensuring availability using only repository hosting
 When you only want to use pure Git repository hosting services without annex support, you can still allow others to obtain (some) file contents with some creativity:
 
 For one, you can use commands such as :command:`datalad download-url` (:manpage:`datalad-download` manual) or :command:`datalad addurls` (:manpage:`datalad-addurls` manual) to retrieve files from web sources and register their location automatically.
-The first Chapter :ref:`chapter_datasets` demonstrates :command:`download-url`, and the usecase :ref:`usecase_HCP_dataset` demonstrates `addurls` on a large scale.
+The first Chapter :ref:`chapter_datasets` demonstrates :command:`download-url`, and the usecase :ref:`usecase_HCP_dataset` demonstrates ``addurls`` on a large scale.
 
 Other than this, you can rely on digital provenance in the form of :term:`run record`\s that allow consumers of your dataset to recompute a result instead of :command:`datalad get`\ing it.
 The midterm-project example in section :ref:`yoda_project` has been an example for this.

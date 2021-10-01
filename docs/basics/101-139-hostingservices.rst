@@ -16,7 +16,7 @@ As outlined in a number of sections before, Git repository hosting sites typical
 Depending on whether or not an annex is supported, you can push either only your Git history to the sibling, or the complete dataset including annexed file contents.
 You can find out whether a sibling on a remote hosting services carries an annex or not by running the :command:`datalad siblings` command.
 A ``+``, ``-``, or ``?`` sign in parenthesis indicates whether the sibling carries an annex, does not carry an annex, or whether this information isn't yet known.
-In the example below you can see that a public GitHub repository `<https://github/psychoinformatics/studyforrest-data-phase2>`_ does not carry an annex on ``github``, but that the annexed data are served from an additional sibling ``mddatasrc`` (a :term:`special remote`).
+In the example below you can see that a public GitHub repository `<https://github/psychoinformatics/studyforrest-data-phase2>`_ does not carry an annex on ``github`` (the sibling ``origin``), but that the annexed data are served from an additional sibling ``mddatasrc`` (a :term:`special remote` with annex support).
 Even though the dataset sibling on GitHub does not serve the data, it constitutes a simple, findable access point to retrieve the dataset, and can be used to provide updates and fixes via :term:`pull request`\s, issues, etc.
 
 .. code-block:: bash
@@ -157,7 +157,9 @@ If you have an :term:`SSH key` configured, it is useful to specify ``--access`` 
 The command :command:`datalad create-sibling-github` requires a personal access token from GitHub (see the :ref:`paragraph on authentication tokens below for more information <token>`).
 When you are using it for the first time, you should be queried interactively for it.
 Subsequently, your token should be stored internally.
-If you have an :term:`SSH key` configured, it is useful to specify ``--access-protocol`` as ``ssh`` -- this saves you the need to authenticate with every ``push``.
+
+By default, the URL that is set up for you is an :term:`HTTPS` URL.
+If you have an :term:`SSH key` configured, it is useful to specify ``--access-protocol`` as ``ssh`` -- with this the :term:`SSH` URL is configured, saving you the need to authenticate with every ``push``.
 
 .. code-block:: bash
 
@@ -207,7 +209,11 @@ Each command is slightly tuned towards the peculiarities of each particular plat
 Other streamlined arguments, such as ``--recursive`` or ``--publish-depends`` allow you to perform more complex configurations, for example publication of dataset hierarchies or connections to :term:`special remote`\s. Upcoming walk-throughs will demonstrate them.
 
 Self-hosted repository services, e.g., Gogs or Gitea instances, have an additional required argument, the ``--api`` flag.
-It needs to point to the URL of the instance, for example ``datalad create-sibling-gogs my_repo_on_gogs  --api "https://try.gogs.io"``
+It needs to point to the URL of the instance, for example
+
+.. code-block:: bash
+
+   $ datalad create-sibling-gogs my_repo_on_gogs  --api "https://try.gogs.io"
 
 
 .. _token:
@@ -258,7 +264,7 @@ Should you employ GitHub workflows, for example, a token without "workflow" scop
 
 
 .. [#f1] Many repository hosting services have useful features to make your work citeable.
-         For example, :term:`gin` is able to assign a :term:`DOI` to your dataset, and GitHub allows ``CITATION.cff`` files.
+         For example, :term:`gin` is able to assign a :term:`DOI` to your dataset, and GitHub allows ``CITATION.cff`` files. At the same time, archival services such as `Zenodo <https://zenodo.org/>`_ often integrate with published repositories, allowing you to preserve your dataset with them.
 
 .. [#f2] Your private SSH key is incredibly valuable, and it is important to keep
          it secret!

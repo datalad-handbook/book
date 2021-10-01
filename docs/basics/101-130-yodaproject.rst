@@ -641,7 +641,7 @@ The command takes a repository name and GitHub authentication credentials
 ``github-passwd <PASSWORD>``, with an *oauth* `token <https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token>`_ stored in the Git
 configuration, or interactively).
 
-.. importantnote:: GitHub deprecates its User Password authentication
+.. importantnote:: GitHub deprecated User Password authentication
 
    GitHub `decided to deprecate user-password authentication <https://developer.github.com/changes/2020-02-14-deprecating-password-auth/>`_ and will only support authentication via personal access token from November 13th 2020 onwards.
    Upcoming changes in DataLad's API will reflect this change starting with DataLad version ``0.13.6`` by removing the ``github-passwd`` argument.
@@ -649,12 +649,8 @@ configuration, or interactively).
 
    To ensure successful authentication, please create a personal access token at `github.com/settings/tokens <https://github.com/settings/tokens>`_ [#f5]_, and either
 
-   * configure Git's "``hub.oauthtoken``" config variable [#f7]_ with your token as in::
-
-        git config --global --add hub.oauthtoken cd2a3bd530...454f73b5a4
-
    * supply the token with the argument ``--github-login <TOKEN>`` from the command line,
-   * or supply the token from the command line when queried interactively for it
+   * or supply the token from the command line when queried for a password
 
 Based on the credentials and the
 repository name, it will create a new, empty repository on GitHub, and

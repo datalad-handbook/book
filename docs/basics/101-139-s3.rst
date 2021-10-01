@@ -274,12 +274,8 @@ on GitHub, which required preconfigured GitHub authentication details.
 
    To ensure successful authentication, please create a personal access token at `github.com/settings/tokens <https://github.com/settings/tokens>`_ [#f5]_, and either
 
-   * configure Git's "``hub.oauthtoken``" config variable [#f7]_ with your token as in::
-
-        git config --global --add hub.oauthtoken cd2a3bd530...454f73b5a4
-
    * supply the token with the argument ``--github-login <TOKEN>`` from the command line,
-   * or supply the token from the command line when queried interactively for it
+   * or supply the token from the command line when queried for a password
 
 
 The creation of the sibling (named ``github``) can also be confirmed with :command:`datalad siblings`:
@@ -430,5 +426,3 @@ I needs to be invoked with three positional arguments, the path to the :term:`Da
    Clone the `GitHub repository <https://github.com/sociomantic-tsunami/git-hub>`_ to your local computer.
    Decide whether you want to build a Debian package to install, or install the single-file Python script distributed in the repository.
    Make sure that all `requirements <https://github.com/sociomantic-tsunami/git-hub>`_ for your preferred version are installed , and run either ``make deb`` followed by ``sudo dpkg -i deb/git-hub*all.deb``, or ``make install``.
-
-.. [#f7] To re-read about Git's configurations and the ``git config`` command, please take a look at the section :ref:`config`.

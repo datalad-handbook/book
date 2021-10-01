@@ -37,13 +37,18 @@ How to add a sibling on a Git repository hosting site: The manual way
 #. Create a new repository via the webinterface of the hosting service of your choice.
    It does not need to have the same name as your local dataset, but it helps to associate local dataset and remote siblings.
 
-.. figure:: ../artwork/src/GIN_newrepo.png
+.. find-out-more:: The webinterface for Gin
 
-   Webinterface of :term:`gin` during the creation of a new repository.
+	.. figure:: ../artwork/src/GIN_newrepo.png
 
-#. Afterwards, copy the :term:`SSH` URL of the repository. Usually, repository hosting services will provide you with a convenient way to copy it to your clipboard. An SSH URL takes the following form: ``git@<hosting-service>:/<user>/<repo-name>.git``. Note that almost all services will require you to use the SSH URL to your repository in order to do :command:`push` operations, so make sure to take the :term:`SSH` and not the :term:`HTTPS` URL.
+	   Webinterface of :term:`gin` during the creation of a new repository.
 
-#. Make sure to have an :term:`SSH key` set up. This usually requires generating an SSH key pair if you do not have one yet, and uploading the public key to the repository hosting service.
+.. find-out-more:: The webinterface of GitHub
+
+	.. figure:: ../artwork/src/newrepo-github.png
+
+		Webinterface of :term:`github` during the creation of a new repository.
+
 
 .. _sshkey:
 

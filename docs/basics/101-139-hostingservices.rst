@@ -25,7 +25,7 @@ Even though the dataset sibling on GitHub does not serve the data, it constitute
     $ datalad siblings
     .: here(+) [git]
     .: mddatasrc(+) [http://psydata.ovgu.de/studyforrest/phase2/.git (git)]
-    .: upstream(-) [git@github.com:psychoinformatics-de/studyforrest-data-phase2.git (git)]
+    .: origin(-) [git@github.com:psychoinformatics-de/studyforrest-data-phase2.git (git)]
 
 
 There are multiple ways to create a dataset sibling on a repository hosting site to push your dataset to.

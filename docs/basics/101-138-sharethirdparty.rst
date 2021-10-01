@@ -252,5 +252,4 @@ In this case, take a look at the advanced section :ref:`riastore`.
          `here <https://docs.gitlab.com/12.10/ee/administration/git_annex.html>`_.
          Alternatively, GitHub can integrate with
          `GitLFS <https://git-lfs.github.com/>`__, a non-free, centralized service
-         that allows to store large file contents. The last paragraph in this
-         section shows an example on how to use their free trial version.
+         that allows to store large file contents. :ref:`gitlfs` shows an example on how to use their free trial version.

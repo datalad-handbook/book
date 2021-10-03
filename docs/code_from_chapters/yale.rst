@@ -221,7 +221,7 @@ able to go back to it at a later stage should we have the
 need to investigate an issue, and to capture *full* provenance of the
 transformation process, we can use a software container that contains the
 relevant software setup.
-A ready-made container collection of container images is available from `ReproNim <https://repronim.org/>`_ as a DataLad dataset at
+A ready-made container collection of container images is available from `ReproNim <www.repronim.org>`_ as a DataLad dataset at
 `github.com/ReproNim/containers/ <https://github.com/ReproNim/containers/>`_.
 It can be installed as a subdataset::
 

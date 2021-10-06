@@ -16,7 +16,7 @@ body:
     attributes:
       label: Operating system
       description: What operating system do you use? What version?
-      placeholder: |
+      value: |
         - Windows 
         - MacOs 
         - Linux
@@ -34,7 +34,7 @@ body:
       label: Browser
       description:
         "If relevant, mention the browser you use and its version [e.g., 22]."
-      placeholder: |
+      value: |
         - Chrome 
         - Safari 
         - Firefox

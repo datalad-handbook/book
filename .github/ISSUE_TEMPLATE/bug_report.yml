@@ -1,0 +1,48 @@
+name: Bug report
+
+title: "[BUG] "
+
+description: Create a report to help us improve
+
+labels: ["bug"]
+
+body:
+  - type: textarea
+    attributes:
+      label: Current behavior
+      description: What does not work?
+
+  - type: textarea
+    attributes:
+      label: Operating system
+      description: What operating system do you use? What version?
+      value: |
+        - Windows 
+        - MacOs 
+        - Linux
+        - ...
+
+  - type: textarea
+    attributes:
+      label: DataLad information
+      description:
+        What version of DataLad and git-annex do you use? Consider providing the
+        output of a ``datalad wtf``.
+
+  - type: textarea
+    attributes:
+      label: Browser
+      description:
+        "If relevant, mention the browser you use and its version [e.g., 22]."
+      value: |
+        - Chrome 
+        - Safari 
+        - Firefox
+        - Opera
+        - Edge
+        - ...
+
+  - type: textarea
+    attributes:
+      label: Additional context
+      description: Add any other context about the problem here.

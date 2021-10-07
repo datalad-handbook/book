@@ -78,9 +78,11 @@ woman to receive a PhD. Do not worry, this does not mess with your own Git ident
    $ HOME=/home/me git config --global user.name "Elena Piscopia"
    $ HOME=/home/me git config --global user.email "elena@example.net"
 
-Once this is configured, you can build the book locally by running ``make`` in the root
+Once this is configured, you can build the book locally by running ``make build`` in the root
 of the repository, and open it in your browser, for example with
 ``firefox docs/_build/html/index.html``.
+
+In case you need to remove the build files, you can just run make ``clean-build``.
 
 .. _directive:
 
@@ -338,6 +340,17 @@ previously highest. The currently existing intersphinx references are:
 - 2-002: :ref:`2-002`
 - 2-003: :ref:`2-003`
 - 3-001: :ref:`3-001`
+
+Tweaking the CSS of the book
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The custom CSS of the book is controlled by the file ``docs/_static/custom.css``. 
+If you have build the book locally by running `make build`, 
+you can directly tweak the custom CSS file in ``docs/_build/html/_static/custom.css`` 
+to view the changes without having to rebuild the book. 
+But once you have found the proper CSS style you are happy with 
+make sure to save and commit those changes in ``docs/_static/custom.css``
+
 
 .. _acknowledge:
 

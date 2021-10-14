@@ -7,6 +7,9 @@ SHELL := /bin/bash
 %:
 	cd docs && make $@
 
+clean-build:
+	rm -rf docs/_build 
+
 # wipe out all recorded examples
 clean-examples:
 	# check if we have something like .xsession or a .bashrc

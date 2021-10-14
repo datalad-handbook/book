@@ -92,6 +92,9 @@ div.importantnote .header {
     padding: 5px 10px 5px 10px;
     color: #ffffff;
 }
+div.importantnote ul {
+    padding: 0 0 0 16px;
+}
 
 div.windows-wit {
     background-color: #f3f3f3;

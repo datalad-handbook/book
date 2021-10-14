@@ -340,7 +340,9 @@
         "ideas",
         "maintenance",
         "review",
-        "infra"
+        "infra",
+        "code",
+        "design"
       ]
     },
     {

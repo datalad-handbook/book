@@ -2,7 +2,7 @@ alabaster >= 0.7.11
 Babel
 certifi
 chardet
-docutils
+docutils<0.18
 idna
 imagesize
 Jinja2

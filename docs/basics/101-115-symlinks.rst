@@ -186,7 +186,7 @@ This leads to a few conclusions:
 
 The first is that you should not be worried
 to see cryptic looking symlinks in your repository -- this is how it should look.
-You can read the :ref:find-out-more:` on why these paths look so weird <fom-objecttree>` and what all of this has to do with data integrity, if you want to.
+You can read the :ref:`find-out-more on why these paths look so weird <fom-objecttree>` and what all of this has to do with data integrity, if you want to.
 Its additional information that can help to establish trust in that your data are safely stored and tracked, and understanding more about the object tree and knowing bits of the git-annex basics can make you more confident in working with your datasets.
 
 The second is that it should now be clear to you why the ``.git`` directory

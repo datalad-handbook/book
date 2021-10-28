@@ -318,7 +318,7 @@ the dataset, these configurations will also be shared together with the dataset.
 ``.git/config``, however, behaves just as your global or system-wide configurations.
 These configurations are in effect on a system, or for a user, or for a dataset,
 but are not shared.
-A :command:`datalad clone` command of someone's dataset will not get your their
+A :command:`datalad clone` command of someone's dataset will not get your
 editor configuration, should they have included one in their config file.
 Instead, upon a :command:`datalad clone`, a new config file will be created.
 

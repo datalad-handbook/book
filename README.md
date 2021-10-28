@@ -2,7 +2,7 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3608611.svg)](https://doi.org/10.5281/zenodo.3608611)
 [![made-with-datalad](https://www.datalad.org/badges/made_with.svg)](https://datalad.org)
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-42-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-43-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END --> 
 
 # The DataLad handbook :orange_book:
@@ -112,6 +112,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://orcid.org/0000-0003-4652-3758"><img src="https://avatars.githubusercontent.com/u/7570456?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Sin Kim</b></sub></a><br /><a href="https://github.com/datalad-handbook/book/issues?q=author%3AAKSoo" title="Bug reports">🐛</a> <a href="#content-AKSoo" title="Content">🖋</a></td>
     <td align="center"><a href="https://github.com/oesteban"><img src="https://avatars.githubusercontent.com/u/598470?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Oscar Esteban</b></sub></a><br /><a href="https://github.com/datalad-handbook/book/issues?q=author%3Aoesteban" title="Bug reports">🐛</a></td>
     <td align="center"><a href="https://github.com/mslw"><img src="https://avatars.githubusercontent.com/u/11985212?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Michał Szczepanik</b></sub></a><br /><a href="https://github.com/datalad-handbook/book/pulls?q=is%3Apr+reviewed-by%3Amslw" title="Reviewed Pull Requests">👀</a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/eort"><img src="https://avatars.githubusercontent.com/u/8819465?v=4?s=100" width="100px;" alt=""/><br /><sub><b>eort</b></sub></a><br /><a href="https://github.com/datalad-handbook/book/issues?q=author%3Aeort" title="Bug reports">🐛</a></td>
   </tr>
 </table>
 

@@ -88,7 +88,7 @@ How to add a sibling on a Git repository hosting site: The manual way
 #. Use the URL to add the repository as a sibling. There are two commands that allow you to do that; both require you give the sibling a name of your choice (common name choices are ``upstream``, or a short-cut for your user name or the hosting platform, but its completely up to you to decide):
 
    #. ``git remote add <name> <url>``
-   #. ``datalad siblings-add --dataset . --name <name> --url <url>``
+   #. ``datalad siblings add --dataset . --name <name> --url <url>``
 
 #. Push your dataset to the new sibling: ``datalad push --to <name>``
 

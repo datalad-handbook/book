@@ -79,7 +79,6 @@ extensions = [
     'sphinx.ext.doctest',
     'sphinxcontrib.autorunrecord',
     'sphinxcontrib.rsvgconverter',
-    'sphinxcontrib.plantuml',
     'dataladhandbook_support',
     'notfound.extension',
     'sphinx_copybutton',

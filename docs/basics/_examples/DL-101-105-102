@@ -6,7 +6,7 @@ $ datalad clone --dataset . \
 [INFO] Start receiving objects 
 [INFO] Start resolving deltas 
 [INFO] Completed clone attempts for Dataset(/home/me/dl-101/DataLad-101/recordings/longnow) 
-[INFO] Scanning for unlocked files (this may take some time)
+[INFO] scanning for unlocked files (this may take some time)
 [INFO] Remote origin not usable by git-annex; setting annex-ignore 
 install(ok): recordings/longnow (dataset)
 add(ok): recordings/longnow (file)

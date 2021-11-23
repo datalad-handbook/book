@@ -339,7 +339,10 @@
         "bug",
         "ideas",
         "maintenance",
-        "review"
+        "review",
+        "infra",
+        "code",
+        "design"
       ]
     },
     {
@@ -387,7 +390,8 @@
       "profile": "https://www.stefanappelhoff.com",
       "contributions": [
         "infra",
-        "tool"
+        "tool",
+        "bug"
       ]
     },
     {
@@ -441,6 +445,34 @@
         "bug",
         "content",
         "review"
+      ]
+    },
+    {
+      "login": "oesteban",
+      "name": "Oscar Esteban",
+      "avatar_url": "https://avatars.githubusercontent.com/u/598470?v=4",
+      "profile": "https://github.com/oesteban",
+      "contributions": [
+        "bug"
+      ]
+    },
+    {
+      "login": "mslw",
+      "name": "Michał Szczepanik",
+      "avatar_url": "https://avatars.githubusercontent.com/u/11985212?v=4",
+      "profile": "https://github.com/mslw",
+      "contributions": [
+        "review",
+        "bug"
+      ]
+    },
+    {
+      "login": "eort",
+      "name": "eort",
+      "avatar_url": "https://avatars.githubusercontent.com/u/8819465?v=4",
+      "profile": "https://github.com/eort",
+      "contributions": [
+        "bug"
       ]
     }
   ],

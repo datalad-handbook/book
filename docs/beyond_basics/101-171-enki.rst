@@ -3,6 +3,15 @@
 Walkthrough: Parallel ENKI preprocessing with fMRIprep
 ------------------------------------------------------
 
+.. importantnote:: This workflow has an update!
+
+   The workflow below is valid and working, but over many months and a few very large scale projects we have improved it with a more flexible and scalable setup.
+   Currently, this work can be found as a comprehensive tutorial and bootstrapping script on GitHub (`github.com/psychoinformatics-de/fairly-big-processing-workflow <https://github.com/psychoinformatics-de/fairly-big-processing-workflow>`_), and a corresponding show case implementation with fMRIprep (`github.com/psychoinformatics-de/fairly-big-processing-workflow-tutorial <https://github.com/psychoinformatics-de/fairly-big-processing-workflow-tutorial>`_).
+   Also, there is an accompanying preprint with more high-level descriptions of the workflow at `www.biorxiv.org/content/10.1101/2021.10.12.464122v1 <https://www.biorxiv.org/content/10.1101/2021.10.12.464122v1>`_.
+   Its main advantages over the workflow below lie in a distributed (and thus independent) setup of all involved dataset locations; built-in support for two kinds of job schedulers (HTCondor, SLURM); enhanced scalability (tested on 42k datasets of the `UK Biobank dataset <https://www.ukbiobank.ac.uk/>`_; and use of :term:`Remote Indexed Archive (RIA) store`\s that provide support for additional security or technical features.
+   Its advised to use the updated workflow over the one below.
+   In the future, this chapter will be updated with an implementation of the updated workflow.
+
 The previous section has been an overview on parallel, provenance-tracked computations in DataLad datasets.
 While the general workflow entails a complete setup, its usually easier to understand it by seeing it applied to a concrete usecase.
 Its even more informative if that usecase includes some complexities that do not exist in the "picture-perfect" example but are likely to arise in real life.
@@ -79,7 +88,7 @@ Also note that there is a large collection of pre-existing container datasets av
 
    During a :command:`datalad containers-run` command, the ``--call-fmt`` specification will be used to call the container.
    The placeholders ``{img}`` and ``{cmd}`` will be replaced with the container (``{img}``) and the command given to ``datalad containers-run`` (``{cmd}``).
-   Thus, the ``--cleanenv`` flag (`recommended by fMRIprep <https://fmriprep.org/en/stable/singularity.html#handling-environment-variables>`_) as well as bind-mounts are handled prior to the container invocation, and the ``--fs-license-file`` option with a path to the license file within the container is appended to the command.
+   Thus, the ``--cleanenv`` flag as well as bind-mounts are handled prior to the container invocation, and the ``--fs-license-file`` option with a path to the license file within the container is appended to the command.
    Bind-mounting the working directory (``-B "$PWD"``) makes sure to bind mount the directory from which the container is being called, which should be the superdataset that contains input data and ``pipelines`` subdataset.
    With these bind-mounts, input data and the freesurfer license file within ``pipelines`` are available in the container.
 

@@ -10,55 +10,55 @@ INFO: Filtering out 0 dicoms based on their filename
 WARNING: dcmstack without support of pydicom >= 1.0 is detected. Adding a plug
 INFO: Generated sequence info for 1 studies with 1 entries total
 INFO: Processing sequence infos to deduce study/session
-INFO: Study session for {'subject': '02', 'locator': 'Hanke/Stadler/0083_transrep2', 'session': None}
+INFO: Study session for {'locator': 'Hanke/Stadler/0083_transrep2', 'session': None, 'subject': '02'}
 INFO: Need to process 1 study sessions
-INFO: PROCESSING STARTS: {'subject': '02', 'outdir': '/tmp/heudiconv.sub-02/', 'session': None}
+INFO: PROCESSING STARTS: {'outdir': '/tmp/heudiconv.sub-02/', 'session': None, 'subject': '02'}
 INFO: Processing 1 pre-sorted seqinfo entries
-INFO: Reloading existing filegroup.json because /tmp/heudiconv.sub-02/.heudiconv/02/02.edit.txt exists
+INFO: Processing 1 seqinfo entries
 INFO: Doing conversion using dcm2niix
 INFO: Converting ./sub-02/func/sub-02_task-oneback_run-01_bold (5460 DICOMs) -> ./sub-02/func . Converter: dcm2niix . Output types: ('nii.gz', 'dicom')
 INFO: Generating grammar tables from /usr/lib/python3.5/lib2to3/Grammar.txt
 INFO: Generating grammar tables from /usr/lib/python3.5/lib2to3/PatternGrammar.txt
-210129-09:25:24,293 nipype.workflow INFO:
-	 [Node] Setting-up "convert" in "/tmp/dcm2niixrdeba9tg/convert".
-INFO: [Node] Setting-up "convert" in "/tmp/dcm2niixrdeba9tg/convert".
-210129-09:25:25,302 nipype.workflow INFO:
+210729-10:15:13,343 nipype.workflow INFO:
+	 [Node] Setting-up "convert" in "/tmp/dcm2niixn_ufbfmu/convert".
+INFO: [Node] Setting-up "convert" in "/tmp/dcm2niixn_ufbfmu/convert".
+210729-10:15:14,429 nipype.workflow INFO:
 	 [Node] Running "convert" ("nipype.interfaces.dcm2nii.Dcm2niix"), a CommandLine Interface with command:
-dcm2niix -b y -z y -x n -t n -m n -f func -o . -s n -v n /tmp/dcm2niixrdeba9tg/convert
+dcm2niix -b y -z y -x n -t n -m n -f func -o . -s n -v n /tmp/dcm2niixn_ufbfmu/convert
 INFO: [Node] Running "convert" ("nipype.interfaces.dcm2nii.Dcm2niix"), a CommandLine Interface with command:
-dcm2niix -b y -z y -x n -t n -m n -f func -o . -s n -v n /tmp/dcm2niixrdeba9tg/convert
-210129-09:25:27,330 nipype.interface INFO:
-	 stdout 2021-01-29T09:25:27.330511:Chris Rorden's dcm2niiX version v1.0.20180622 GCC6.3.0 (64-bit Linux)
-INFO: stdout 2021-01-29T09:25:27.330511:Chris Rorden's dcm2niiX version v1.0.20180622 GCC6.3.0 (64-bit Linux)
-210129-09:25:27,330 nipype.interface INFO:
-	 stdout 2021-01-29T09:25:27.330511:Found 5460 DICOM file(s)
-INFO: stdout 2021-01-29T09:25:27.330511:Found 5460 DICOM file(s)
-210129-09:25:27,330 nipype.interface INFO:
-	 stdout 2021-01-29T09:25:27.330511:swizzling 3rd and 4th dimensions (XYTZ -> XYZT), assuming interslice distance is 3.300000
-INFO: stdout 2021-01-29T09:25:27.330511:swizzling 3rd and 4th dimensions (XYTZ -> XYZT), assuming interslice distance is 3.300000
-210129-09:25:27,330 nipype.interface INFO:
-	 stdout 2021-01-29T09:25:27.330511:Warning: Images sorted by instance number  [0020,0013](1..5460), but AcquisitionTime [0008,0032] suggests a different order (160423..160223)
-INFO: stdout 2021-01-29T09:25:27.330511:Warning: Images sorted by instance number  [0020,0013](1..5460), but AcquisitionTime [0008,0032] suggests a different order (160423..160223)
-210129-09:25:27,331 nipype.interface INFO:
-	 stdout 2021-01-29T09:25:27.330511:Using RWVSlope:RWVIntercept = 4.00757:0
-INFO: stdout 2021-01-29T09:25:27.330511:Using RWVSlope:RWVIntercept = 4.00757:0
-210129-09:25:27,331 nipype.interface INFO:
-	 stdout 2021-01-29T09:25:27.330511: Philips Scaling Values RS:RI:SS = 4.00757:0:0.0132383 (see PMC3998685)
-INFO: stdout 2021-01-29T09:25:27.330511: Philips Scaling Values RS:RI:SS = 4.00757:0:0.0132383 (see PMC3998685)
-210129-09:25:27,331 nipype.interface INFO:
-	 stdout 2021-01-29T09:25:27.330511:Convert 5460 DICOM as ./func (80x80x35x156)
-INFO: stdout 2021-01-29T09:25:27.330511:Convert 5460 DICOM as ./func (80x80x35x156)
-210129-09:25:28,136 nipype.interface INFO:
-	 stdout 2021-01-29T09:25:28.136901:compress: "/usr/bin/pigz" -n -f -6 "./func.nii"
-INFO: stdout 2021-01-29T09:25:28.136901:compress: "/usr/bin/pigz" -n -f -6 "./func.nii"
-210129-09:25:28,137 nipype.interface INFO:
-	 stdout 2021-01-29T09:25:28.136901:Conversion required 2.769549 seconds (2.006018 for core code).
-INFO: stdout 2021-01-29T09:25:28.136901:Conversion required 2.769549 seconds (2.006018 for core code).
-210129-09:25:28,331 nipype.workflow INFO:
+dcm2niix -b y -z y -x n -t n -m n -f func -o . -s n -v n /tmp/dcm2niixn_ufbfmu/convert
+210729-10:15:16,883 nipype.interface INFO:
+	 stdout 2021-07-29T10:15:16.883127:Chris Rorden's dcm2niiX version v1.0.20180622 GCC6.3.0 (64-bit Linux)
+INFO: stdout 2021-07-29T10:15:16.883127:Chris Rorden's dcm2niiX version v1.0.20180622 GCC6.3.0 (64-bit Linux)
+210729-10:15:16,883 nipype.interface INFO:
+	 stdout 2021-07-29T10:15:16.883127:Found 5460 DICOM file(s)
+INFO: stdout 2021-07-29T10:15:16.883127:Found 5460 DICOM file(s)
+210729-10:15:16,883 nipype.interface INFO:
+	 stdout 2021-07-29T10:15:16.883127:swizzling 3rd and 4th dimensions (XYTZ -> XYZT), assuming interslice distance is 3.300000
+INFO: stdout 2021-07-29T10:15:16.883127:swizzling 3rd and 4th dimensions (XYTZ -> XYZT), assuming interslice distance is 3.300000
+210729-10:15:16,883 nipype.interface INFO:
+	 stdout 2021-07-29T10:15:16.883127:Warning: Images sorted by instance number  [0020,0013](1..5460), but AcquisitionTime [0008,0032] suggests a different order (160423..160223)
+INFO: stdout 2021-07-29T10:15:16.883127:Warning: Images sorted by instance number  [0020,0013](1..5460), but AcquisitionTime [0008,0032] suggests a different order (160423..160223)
+210729-10:15:16,883 nipype.interface INFO:
+	 stdout 2021-07-29T10:15:16.883127:Using RWVSlope:RWVIntercept = 4.00757:0
+INFO: stdout 2021-07-29T10:15:16.883127:Using RWVSlope:RWVIntercept = 4.00757:0
+210729-10:15:16,883 nipype.interface INFO:
+	 stdout 2021-07-29T10:15:16.883127: Philips Scaling Values RS:RI:SS = 4.00757:0:0.0132383 (see PMC3998685)
+INFO: stdout 2021-07-29T10:15:16.883127: Philips Scaling Values RS:RI:SS = 4.00757:0:0.0132383 (see PMC3998685)
+210729-10:15:16,883 nipype.interface INFO:
+	 stdout 2021-07-29T10:15:16.883127:Convert 5460 DICOM as ./func (80x80x35x156)
+INFO: stdout 2021-07-29T10:15:16.883127:Convert 5460 DICOM as ./func (80x80x35x156)
+210729-10:15:17,731 nipype.interface INFO:
+	 stdout 2021-07-29T10:15:17.731699:compress: "/usr/bin/pigz" -n -f -6 "./func.nii"
+INFO: stdout 2021-07-29T10:15:17.731699:compress: "/usr/bin/pigz" -n -f -6 "./func.nii"
+210729-10:15:17,731 nipype.interface INFO:
+	 stdout 2021-07-29T10:15:17.731699:Conversion required 3.229892 seconds (2.427477 for core code).
+INFO: stdout 2021-07-29T10:15:17.731699:Conversion required 3.229892 seconds (2.427477 for core code).
+210729-10:15:17,918 nipype.workflow INFO:
 	 [Node] Finished "convert".
 INFO: [Node] Finished "convert".
 INFO: Populating template files under ./
-INFO: PROCESSING DONE: {'subject': '02', 'outdir': '/tmp/heudiconv.sub-02/', 'session': None}
+INFO: PROCESSING DONE: {'outdir': '/tmp/heudiconv.sub-02/', 'session': None, 'subject': '02'}
 [INFO] == Command exit (modification check follows) =====
 add(ok): CHANGES (file)
 add(ok): README (file)

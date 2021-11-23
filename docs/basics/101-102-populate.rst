@@ -124,7 +124,7 @@ does not store the downloaded books in its history yet. Let's change this by
 
 This time, it is your turn to specify a helpful :term:`commit message`
 with the ``-m`` option (although the DataLad command is :command:`datalad save`, we talk
-about commit messages because :command:`datalad save` ultimatively uses the command
+about commit messages because :command:`datalad save` ultimately uses the command
 :command:`git commit` to do its work):
 
 .. runrecord:: _examples/DL-101-102-106
@@ -310,7 +310,7 @@ into the dataset together with a human-readable commit message and a hidden,
 machine-readable record of the origin of the content. This saves you time,
 and captures :term:`provenance` information about the data you add to your dataset.
 To experience this, let's add a final book,
-`a beginner’s guide to bash <http://www.tldp.org/LDP/Bash-Beginners-Guide/Bash-Beginners-Guide.pdf>`_,
+`a beginner’s guide to bash <https://tldp.org/LDP/Bash-Beginners-Guide/Bash-Beginners-Guide.pdf>`_,
 to the dataset. We provide the command with a URL, a pointer to the dataset the
 file should be saved in (``.`` denotes "current directory"), and a commit message.
 

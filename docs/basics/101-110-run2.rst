@@ -119,7 +119,7 @@ prior to running the command.
 .. runrecord:: _examples/DL-101-110-103
    :language: console
    :workdir: dl-101/DataLad-101
-   :emphasize-lines: 8, 11, 16
+   :emphasize-lines: 8, 11, 13
    :realcommand: datalad run --input "recordings/longnow/.datalad/feed_metadata/logo_salt.jpg" "convert -resize 400x400 recordings/longnow/.datalad/feed_metadata/logo_salt.jpg recordings/salt_logo_small.jpg"
    :notes: The problem is that the content (logo) is not yet retrieved. The --input option makes sure that all content is retrieved prior to command execution.
    :cast: 02_reproducible_execution
@@ -313,8 +313,10 @@ the ``-o``/``--output`` option.
    `FSL <https://fsl.fmrib.ox.ac.uk/fsl/fslwiki>`_, a neuro-imaging tool.
    The easiest way to specify this type of output
    is by supplying the directory name, or the directory name and a :term:`globbing` character, such as
-   ``-o directory/*.dat``. And, just as for ``-i``/``--input``, you could use
-   multiple ``--output`` specifications.
+   ``-o directory/*.dat``.
+   This would unlock all files with a ``.dat`` extension inside of ``directory``.
+   To glob for files in multiple levels of directories, set one ``*`` per level, for example ``-o directory/*/*``.
+   And, just as for ``-i``/``--input``, you could use multiple ``--output`` specifications.
 
 In order to execute :command:`datalad run` with both the ``-i``/``--input`` and ``-o``/``--output``
 flag and see their magic, let's crop the second logo, ``logo_interval.jpg``:
@@ -328,7 +330,7 @@ flag and see their magic, let's crop the second logo, ``logo_interval.jpg``:
 .. runrecord:: _examples/DL-101-111-105
    :language: console
    :workdir: dl-101/DataLad-101
-   :emphasize-lines: 14, 19
+   :emphasize-lines: 14, 16
    :realcommand: datalad run --input "recordings/longnow/.datalad/feed_metadata/logo_interval.jpg" --output "recordings/interval_logo_small.jpg" "convert -resize 450x450 recordings/longnow/.datalad/feed_metadata/logo_interval.jpg recordings/interval_logo_small.jpg"
    :notes: but it is way easier to just use the --output option of datalad run: it takes care of unlocking if necessary
    :cast: 02_reproducible_execution

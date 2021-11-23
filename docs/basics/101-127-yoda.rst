@@ -197,7 +197,7 @@ You can get a few non-DataLad related advice for structuring your directories in
 
    If writing tests for analysis scripts or using continuous integration
    is a new idea for you, but you want to learn more, check out
-   `this chapter on testing <https://the-turing-way.netlify.com/testing/testing.html>`_.
+   `this chapter on testing <https://the-turing-way.netlify.app/reproducible-research/testing>`_.
 
 There are many advantages to this modular way of organizing contents.
 Having input data as independent components that are not altered (only
@@ -450,8 +450,8 @@ YODA principles.
 
 .. [#f2] If you want to learn more about Docker and Singularity, or general information
          about containerized computational environments for reproducible data science,
-         check out `this section <https://the-turing-way.netlify.com/reproducible_environments/06/containers#Containers_section>`_
-         in the wonderful book `The Turing Way <https://the-turing-way.netlify.com/introduction/introduction>`_,
+         check out `this section <https://the-turing-way.netlify.app/reproducible-research/renv/renv-containers.html>`_
+         in the wonderful book `The Turing Way <https://the-turing-way.netlify.app/welcome>`_,
          a comprehensive guide to reproducible data science, or read about it in
          section :ref:`containersrun`.
 

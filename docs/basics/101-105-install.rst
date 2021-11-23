@@ -69,7 +69,7 @@ Let's install the longnow podcasts in this new directory with :command:`datalad 
 The command takes a location of an existing dataset to clone. This *source*
 can be a URL or a path to a local directory, or an SSH server [#f1]_. The dataset
 to be installed lives on :term:`GitHub`, at
-`https://github.com/datalad-datasets/longnow-podcasts.git <https://github.com/datalad-datasets/longnow-podcasts.git>`_,
+`https://github.com/datalad-datasets/longnow-podcasts.git <https://github.com/datalad-datasets/longnow-podcasts>`_,
 and we can give its GitHub URL as the  first positional argument.
 Optionally, the command also takes as second positional argument a path to the *destination*,
 -- a path to where we want to install the dataset to. In this case it is ``recordings/longnow``.
@@ -323,7 +323,7 @@ again, or generate again (for example with next chapter's :command:`datalad run`
 command), or that you really do not need anymore.
 
 Let's remove the content of one of the files that we have downloaded, and check
-what this does to the total size of the dataset. Here is the current aount of
+what this does to the total size of the dataset. Here is the current amount of
 retrieved data in this dataset:
 
 .. runrecord:: _examples/DL-101-105-110
@@ -450,8 +450,8 @@ modification.
 
 .. [#f2] The longnow podcasts are lectures and conversations on long-term thinking produced by
          the LongNow foundation and we can wholeheartedly recommend them for their worldly
-         wisdoms and compelling, thoughtful ideas. Subscribe to the podcasts at http://longnow.org/seminars/podcast.
-         Support the foundation by becoming a member: https://longnow.org/membership. http://longnow.org
+         wisdoms and compelling, thoughtful ideas. Subscribe to the podcasts at https://longnow.org/seminars/podcast.
+         Support the foundation by becoming a member: https://longnow.org/membership. https://longnow.org
 
 .. [#f3] You can also upgrade your file manager to display file types in a
          DataLad datasets (e.g., with the

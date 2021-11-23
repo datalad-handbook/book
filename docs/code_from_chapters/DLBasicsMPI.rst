@@ -371,7 +371,7 @@ Note: You need to have `singularity <https://sylabs.io/guides/3.5/user-guide/>`_
 .. find-out-more:: Why Singularity and not Docker?
 
    :term:`Singularity`, unlike :term:`Docker`, can be deployed on shared compute infrastructure such as computational clusters as it does not require or grant `superuser privileges <https://en.wikipedia.org/wiki/Superuser>`_ ("sudo rights") to users that use a container.
-   Docker is not deployed on HPC systems is because it grants users those sudo rights, and on multi-user systems users should not have those privileges, as it would enable them to temper with other's or shared data and resources, posing a severe security threat.
+   Docker is not deployed on HPC systems is because it grants users those sudo rights, and on multi-user systems users should not have those privileges, as it would enable them to tamper with other's or shared data and resources, posing a severe security threat.
    Singularity is capable of working with both Docker and Singularity containers, though.
 
 Afterwards, rerun the analysis in the software container with the ``datalad containers-run`` command.

@@ -7,7 +7,7 @@ $ datalad download-url \
 [INFO] Downloading 'https://s3.amazonaws.com/fast-ai-imageclas/imagenette2-160.tgz' into '/home/me/usecases/imagenette/' 
 [INFO] Adding content of the archive /home/me/usecases/imagenette/imagenette2-160.tgz into annex AnnexRepo(/home/me/usecases/imagenette) 
 [INFO] Initiating special remote datalad-archives 
-[INFO] Finished adding /home/me/usecases/imagenette/imagenette2-160.tgz: Files processed: 13394, +annex: 13394 
+[INFO] Finished adding /home/me/usecases/imagenette/imagenette2-160.tgz: Files processed: 13397, +annex: 13397
 download_url(ok): /home/me/usecases/imagenette/imagenette2-160.tgz (file)
 save(ok): . (dataset)
 action summary:

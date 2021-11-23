@@ -46,7 +46,7 @@ this excerpt.
    :language: console
    :workdir: dl-101/DataLad-101
    :lines: 1, 22-62
-   :emphasize-lines: 41
+   :emphasize-lines: 40
    :realcommand: git log -p
    :cast: 01_dataset_basics
    :notes: The superdataset only stores the version of the subdataset.  Let's take a look into how the superdataset's history looks like

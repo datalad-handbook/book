@@ -3,13 +3,22 @@
 DataLad-centric analysis with job scheduling and parallel computing
 -------------------------------------------------------------------
 
+.. importantnote:: This workflow has an update!
+
+   The workflow below is valid and working, but over many months and a few very large scale projects we have improved it with a more flexible and scalable setup.
+   Currently, this work can be found as a comprehensive tutorial and bootstrapping script on GitHub (`github.com/psychoinformatics-de/fairly-big-processing-workflow <https://github.com/psychoinformatics-de/fairly-big-processing-workflow>`_), and a corresponding show case implementation with fMRIprep (`github.com/psychoinformatics-de/fairly-big-processing-workflow-tutorial <https://github.com/psychoinformatics-de/fairly-big-processing-workflow-tutorial>`_).
+   Also, there is an accompanying preprint with more high-level descriptions of the workflow at `www.biorxiv.org/content/10.1101/2021.10.12.464122v1 <https://www.biorxiv.org/content/10.1101/2021.10.12.464122v1>`_.
+   Its main advantages over the workflow below lie in a distributed (and thus independent) setup of all involved dataset locations; built-in support for two kinds of job schedulers (HTCondor, SLURM); enhanced scalability (tested on 42k datasets of the `UK Biobank dataset <https://www.ukbiobank.ac.uk/>`_; and use of :term:`Remote Indexed Archive (RIA) store`\s that provide support for additional security or technical features.
+   Its advised to use the updated workflow over the one below.
+   In the future, this chapter will be updated with an implementation of the updated workflow.
+
 There are data analyses that consist of running a handful of scripts on a handful of files.
 Those analyses can be done in a couple of minutes or hours on your private computer.
 But there are also analyses that are so large -- either in terms of computations, or with regard to the amount of data that they are run on -- that it would takes days or even weeks to complete them.
 The latter type of analyses typically requires a compute cluster, a job scheduler, and parallelization.
 The question is: How can they become as reproducible and provenance tracked as the simplistic, singular analysis that were showcased in the handbook so far, and that comfortably fitted on a private computer?
 
-.. importantnote:: Reading prerequisit for distributed computing
+.. importantnote:: Reading prerequisite for distributed computing
 
    It is advised to read the previous chapter :ref:`chapter_gobig` prior to this one
 

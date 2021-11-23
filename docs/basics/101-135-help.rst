@@ -14,7 +14,7 @@ one lazy, warm summer-afternoon you flip through it.
 
 You realize that you already know the most important things:
 The number one advice on how to get help is
-`"Read the error message." <http://poster.keepcalmandposters.com/default/5986752_keep_calm_and_read_the_error_message.png>`_.
+`"Read the error message." <https://poster.keepcalmandposters.com/default/5986752_keep_calm_and_read_the_error_message.png>`_.
 The second advice it
 `"I'm not kidding: Read the error message <https://images.app.goo.gl/GWQ82AAJnx1dWtWx6>`_.
 The third advice, finally, says
@@ -115,7 +115,7 @@ Include
   system and -- if applicable -- Python version? :command:`datalad wtf` is your friend
   to find all of this information.
 
-The "submit a question link" on `DataLad's GitHub page <https://github.com/datalad/datalad#support>`_
+The "submit a question link" on `DataLad's GitHub page <https://neurostars.org/new-topic?body=-%20Please%20describe%20the%20problem.%0A-%20What%20steps%20will%20reproduce%20the%20problem%3F%0A-%20What%20version%20of%20DataLad%20are%20you%20using%20%28run%20%60datalad%20--version%60%29%3F%20On%20what%20operating%20system%20%28consider%20running%20%60datalad%20plugin%20wtf%60%29%3F%0A-%20Please%20provide%20any%20additional%20information%20below.%0A-%20Have%20you%20had%20any%20luck%20using%20DataLad%20before%3F%20%28Sometimes%20we%20get%20tired%20of%20reading%20bug%20reports%20all%20day%20and%20a%20lil%27%20positive%20end%20note%20does%20wonders%29&tags=datalad>`_
 page prefills a neurostars form with a template for a question for a good
 starting point if you want to have more guidance or encounter writer's block.
 
@@ -182,7 +182,7 @@ To get extensive information on what :command:`datalad status` does underneath t
 .. runrecord:: _examples/DL-101-135-105
    :language: console
    :workdir: dl-101/DataLad-101
-   :lines: 1-15, 170-
+   :lines: 1-15, 85-
 
    $ datalad --log-level debug status
 

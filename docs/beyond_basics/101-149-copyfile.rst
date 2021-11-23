@@ -248,9 +248,9 @@ Let's now see a :command:`copy-file` from :term:`stdin` in action:
    :language: console
    :workdir: dl-101/HPC/hcp
 
-	$ find HCP1200/130518/T1w -maxdepth 1 -name T1w*.nii.gz \
-	 | sed -e 's#\(HCP1200\)\(.*\)#\1\2\x0../dataset-to-copy-to\2#' \
-	 | datalad copy-file -d ../dataset-to-copy-to -r --specs-from -
+   $ find HCP1200/130518/T1w -maxdepth 1 -name T1w*.nii.gz \
+    | sed -e 's#\(HCP1200\)\(.*\)#\1\2\x0../dataset-to-copy-to\2#' \
+    | datalad copy-file -d ../dataset-to-copy-to -r --specs-from -
 
 Done!
 A complex looking command with regular expressions and unix pipes, but it does powerful things in only a single line.

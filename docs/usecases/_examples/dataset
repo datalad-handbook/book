@@ -3,9 +3,10 @@ $ datalad install https://github.com/psychoinformatics-de/studyforrest-data-phas
 [INFO] Attempting to clone from https://github.com/psychoinformatics-de/studyforrest-data-phase2.git to /home/me/usecases/studyforrest/studyforrest-data-phase2
 [INFO] Start enumerating objects
 [INFO] Start counting objects
+[INFO] Start compressing objects
 [INFO] Start receiving objects
 [INFO] Start resolving deltas
 [INFO] Completed clone attempts for Dataset(/home/me/usecases/studyforrest/studyforrest-data-phase2)
-[INFO] Scanning for unlocked files (this may take some time)
+[INFO] scanning for unlocked files (this may take some time)
 [INFO] Remote origin not usable by git-annex; setting annex-ignore
 install(ok): /home/me/usecases/studyforrest/studyforrest-data-phase2 (dataset)

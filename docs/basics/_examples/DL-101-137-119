@@ -1,3 +1,3 @@
 $ git log -n 2 --oneline
-f58dfd7 save my favorite Git joke
-703eb7b remove obsolete subds
+81609fc save my favorite Git joke
+8dc1281 remove obsolete subds

@@ -6,7 +6,7 @@ Contributing to DataLad
 
 DataLad is free and open source software.
 Everyone can contribute in various forms -- feature requests, questions, artwork, tutorials, code patches, bug reports, ... even follows, likes, or retweets on `Twitter <https://twitter.com/datalad>`_, or discussions in our `matrix chatroom <https://app.element.io/#/room/%23datalad:matrix.org>`_.
-We would delighted to hear from you in any form.
+We would be delighted to hear from you in any form.
 
 .. figure:: ../artwork/src/join.svg
    :width: 50%

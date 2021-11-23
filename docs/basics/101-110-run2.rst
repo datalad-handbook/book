@@ -313,8 +313,10 @@ the ``-o``/``--output`` option.
    `FSL <https://fsl.fmrib.ox.ac.uk/fsl/fslwiki>`_, a neuro-imaging tool.
    The easiest way to specify this type of output
    is by supplying the directory name, or the directory name and a :term:`globbing` character, such as
-   ``-o directory/*.dat``. And, just as for ``-i``/``--input``, you could use
-   multiple ``--output`` specifications.
+   ``-o directory/*.dat``.
+   This would unlock all files with a ``.dat`` extension inside of ``directory``.
+   To glob for files in multiple levels of directories, set one ``*`` per level, for example ``-o directory/*/*``.
+   And, just as for ``-i``/``--input``, you could use multiple ``--output`` specifications.
 
 In order to execute :command:`datalad run` with both the ``-i``/``--input`` and ``-o``/``--output``
 flag and see their magic, let's crop the second logo, ``logo_interval.jpg``:

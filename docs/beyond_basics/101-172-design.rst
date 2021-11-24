@@ -1,0 +1,13 @@
+.. _design:
+
+DataLad's internal design
+-------------------------
+
+
+.. figure:: ../artwork/src/design.svg
+   :width: 50%
+
+The handbook should have provided plenty of insights into common usage patterns for DataLad.
+When approaching the software not from a user perspective, but from a developer angle, you can find further information on the design principles and internal code structure in DataLad's Design Documents.
+These documents are part of the developer docs at `docs.datalad.org <http://docs.datalad.org>`_ and constitute an ongoing effort to document and harmonize the development rules and processes.
+Head over to `docs.datalad.org/design/index.html <http://docs.datalad.org/en/stable/design/index.html>`_ to find out more.

@@ -41,6 +41,8 @@ If you have never used DVC, `its technical docs <https://dvc.org/doc/command-ref
    Be mindful: DVC (as DataLad) comes with a range of commands and concepts that have the same names, but differ in functionality to their Git namesake.
    Make sure to read the `DVC documentation <https://dvc.org/doc/command-reference>`_ for each command to get more information on what it does.
 
+.. importantnote:: Running this tutorial requires DataLad version 0.13.4 or higher
+
 Setup
 ^^^^^
 
@@ -172,7 +174,8 @@ As they are only *staged* but not *committed*, we need to commit them (into Git)
 
 The DVC project is now ready to version control data.
 In the tutorial, data comes from the "Imagenette" dataset.
-First, the data needs to be `downloaded from an Amazon S3 bucket <https://s3.amazonaws.com/fast-ai-imageclas/imagenette2-160.tgz>`_ as a compressed tarball and extracted into the ``data/raw/`` directory of the repository.
+This data is available `from an Amazon S3 bucket <https://s3.amazonaws.com/fast-ai-imageclas/imagenette2-160.tgz>`_ as a compressed tarball, but to keep the download fast, there is a smaller two-category version of it on the :term:`Open Science Framework (OSF)`.
+We'll download it and extract it into the ``data/raw/`` directory of the repository.
 
 .. runrecord:: _examples/DL-101-168-109
    :workdir: DVCvsDL/DVC
@@ -180,15 +183,13 @@ First, the data needs to be `downloaded from an Amazon S3 bucket <https://s3.ama
 
    ### DVC
    # download the data
-   $ curl -s https://s3.amazonaws.com/fast-ai-imageclas/imagenette2-160.tgz \
-             -O imagenette2-160.tgz
+   $ wget https://osf.io/d6qbz/download -O imagenette2-160.tgz
    # extract it
    $ tar -xzf imagenette2-160.tgz
    # move it into the directories
-   $ cp -r imagenette2-160/train data/raw/
-   $ cp -r imagenette2-160/val data/raw/
+   $ cp -r train data/raw/
+   $ cp -r val data/raw/
    # remove the archive and extracted folder
-   $ rm -rf imagenette2-160
    $ rm imagenette2-160.tgz
 
 
@@ -266,11 +267,10 @@ Here, we stick to the project organization of DVC though.
 
    ### DVC-DataLad
    $ cd ../DVC-DataLad
-   # Requires >= 0.13.4!
    $ datalad download-url \
      --archive \
      --message "Download Imagenette dataset" \
-     'https://s3.amazonaws.com/fast-ai-imageclas/imagenette2-160.tgz' \
+     https://osf.io/d6qbz/download \
      -O 'data/raw/'
 
 At this point, the data is already version controlled [#f6]_, but the directory structure doesn't resemble that of the DVC dataset yet -- the extracted directory adds one unnecessary directory layer::
@@ -293,15 +293,6 @@ At this point, the data is already version controlled [#f6]_, but the directory 
 
 To make the scripts work, we move the raw data up one level.
 This move needs to be saved.
-
-.. runrecord:: _examples/DL-101-168-115
-   :workdir: DVCvsDL/DVC-DataLad
-   :language: console
-   :realcommand: mv data/raw/imagenette2-160/* data/raw/ && rmdir data/raw/imagenette2-160 && datalad save -m "Move data into preferred locations" | grep -v '^\(copy\|get\|drop\|add\|delete\)(ok):.*(file)'
-
-   ### DVC-DataLad
-   $ mv data/raw/imagenette2-160/* data/raw/ && rmdir data/raw/imagenette2-160
-   $ datalad save -m "Move data into preferred locations"
 
 .. find-out-more:: How does DataLad represent modifications to data?
 

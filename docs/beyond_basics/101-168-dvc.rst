@@ -43,6 +43,8 @@ If you have never used DVC, `its technical docs <https://dvc.org/doc/command-ref
 
 .. importantnote:: Running this tutorial requires DataLad version 0.13.4 or higher
 
+   Running this tutorial requires DataLad version 0.13.4 or higher
+
 Setup
 ^^^^^
 
@@ -183,12 +185,12 @@ We'll download it and extract it into the ``data/raw/`` directory of the reposit
 
    ### DVC
    # download the data
-   $ wget https://osf.io/d6qbz/download -O imagenette2-160.tgz
+   $ wget -q https://osf.io/d6qbz/download -O imagenette2-160.tgz
    # extract it
    $ tar -xzf imagenette2-160.tgz
    # move it into the directories
-   $ cp -r train data/raw/
-   $ cp -r val data/raw/
+   $ mv train data/raw/
+   $ mv val data/raw/
    # remove the archive and extracted folder
    $ rm imagenette2-160.tgz
 
@@ -281,11 +283,10 @@ At this point, the data is already version controlled [#f6]_, but the directory 
     │   └── [...]
     ├── data
     │   └── raw
-    │         └── imagenette-160
-    │              ├── train
-    │              │   ├──[...]
-    │              └── val
-    │                  ├── [...]
+    │          ├── train
+    │          │   ├──[...]
+    │          └── val
+    │              ├── [...]
     ├── metrics
     └── model
 
@@ -515,7 +516,7 @@ Currently, the dataset can thus be shared via :term:`GitHub` or similar hosting 
       :language: console
       :realcommand: datalad get data/raw/val | grep -v '^\(copy\|get\|drop\|add\|delete\)(ok):.*(file)'
 
-      ### DVC-DataLad
+      ### DVC-DataLad2
       $ datalad get data/raw/val
 
    The data was retrieved by re-downloading the original archive from S3 and extracting the required files.

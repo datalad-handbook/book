@@ -191,8 +191,8 @@ We'll download it and extract it into the ``data/raw/`` directory of the reposit
    # move it into the directories
    $ mv train data/raw/
    $ mv val data/raw/
-   # remove the archive and extracted folder
-   $ rm imagenette2-160.tgz
+   # remove the archive
+   $ rm -rf imagenette2-160.tgz
 
 
 The data directories in ``data/raw`` are then version controlled with the :command:`dvc add` command that can place files or complete directories under version control by DVC.

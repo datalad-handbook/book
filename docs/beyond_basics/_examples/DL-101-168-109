@@ -6,5 +6,5 @@ $ tar -xzf imagenette2-160.tgz
 # move it into the directories
 $ mv train data/raw/
 $ mv val data/raw/
-# remove the archive and extracted folder
-$ rm imagenette2-160.tgz
+# remove the archive
+$ rm -rf imagenette2-160.tgz

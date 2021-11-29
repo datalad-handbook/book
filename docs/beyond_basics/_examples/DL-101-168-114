@@ -10,7 +10,7 @@ download_url(ok): /home/me/DVCvsDL/DVC-DataLad/data/raw/imagenette2-160.tgz (fil
 add(ok): data/raw/imagenette2-160.tgz (file)
 save(ok): . (dataset)
 [INFO] Adding content of the archive /home/me/DVCvsDL/DVC-DataLad/data/raw/imagenette2-160.tgz into annex AnnexRepo(/home/me/DVCvsDL/DVC-DataLad) 
-[INFO] Initiating special remote datalad-archives 
+[INFO] Initiating special remote datalad-archives
 [INFO] Finished adding /home/me/DVCvsDL/DVC-DataLad/data/raw/imagenette2-160.tgz: Files processed: 2701, renamed: 2701, +annex: 2701
 [INFO] Finished extraction
 add-archive-content(ok): /home/me/DVCvsDL/DVC-DataLad (dataset)

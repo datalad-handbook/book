@@ -135,6 +135,12 @@ Git-annex:
     This will download a recent git-annex, and configure it for your Git installation.
     The admin command prompt can be closed afterwards, all other steps do not need it.
 
+    For performance improvements, we recommend to also set the following git-annex configuration:
+
+    .. code-block:: bat
+
+      > git config --global filter.annex.process "git-annex filter-process"
+
 DataLad:
     With Python, Git, and git-annex installed, DataLad can be installed, and later also
     upgraded using :command:`pip` by running:

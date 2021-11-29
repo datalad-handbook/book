@@ -1,13 +1,13 @@
 $ datalad rerun --branch="randomforrest" -m "Recompute classification with random forrest classifier" ready-for-analysis..SGD
-[INFO] checkout commit 7854e1a;
-[INFO] run commit b997d05; (Train an SGD clas...)
+[INFO] checkout commit 2f50499;
+[INFO] run commit 152599e; (Train an SGD clas...)
 [INFO] Making sure inputs are available (this may take some time) 
 unlock(ok): model/model.joblib (file)
 [INFO] == Command start (output follows) ===== 
 [INFO] == Command exit (modification check follows) ===== 
 add(ok): model/model.joblib (file)
 save(ok): . (dataset)
-[INFO] run commit d991bf9; (Evaluate SGD clas...)
+[INFO] run commit fbc0ddf; (Evaluate SGD clas...)
 [INFO] Making sure inputs are available (this may take some time) 
 [INFO] == Command start (output follows) ===== 
 [INFO] == Command exit (modification check follows) ===== 

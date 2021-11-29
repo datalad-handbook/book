@@ -3,7 +3,6 @@ $ datalad create -c text2git -c yoda DVC-DataLad
 $ cd DVC-DataLad
 $ mkdir -p data/{raw,prepared} model metrics
 [INFO] Creating a new annex repo at /home/me/DVCvsDL/DVC-DataLad 
-[INFO] Scanning for unlocked files (this may take some time) 
 [INFO] Running procedure cfg_text2git 
 [INFO] == Command start (output follows) ===== 
 [INFO] == Command exit (modification check follows) ===== 

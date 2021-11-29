@@ -1,5 +1,7 @@
-### DVC-DataLad
+### DVC-DataLad2
 $ datalad get data/raw/val
-[INFO] To obtain some keys we need to fetch an archive of size 98.9 MB 
+[INFO] To obtain some keys we need to fetch an archive of size 15.1 MB
+[INFO] datalad-archives special remote is using an extraction cache under /home/me/DVCvsDL/DVC-DataLad-2/.git/datalad/tmp/archives/8f2938add6. Remove it with DataLad's 'clean' command to save disk space.
+get(ok): data/raw/val (directory)
 action summary:
-  get (ok: 3926)
+  get (ok: 790)

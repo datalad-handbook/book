@@ -29,8 +29,8 @@ def save_as_csv(filenames, labels, destination):
 
 def main(repo_path):
     data_path = repo_path / "data"
-    train_path = data_path / "raw/imagenette2-160/train"
-    test_path = data_path / "raw/imagenette2-160/val"
+    train_path = data_path / "raw/train"
+    test_path = data_path / "raw/val"
     train_files, train_labels = get_files_and_labels(train_path)
     test_files, test_labels = get_files_and_labels(test_path)
     save_as_csv(train_files, train_labels, data_path / "train.csv")

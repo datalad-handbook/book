@@ -250,6 +250,9 @@ Glossary
       git-annex concept: The place where :term:`git-annex` stores available file contents. Files that are annexed get
       a :term:`symlink` added to :term:`Git` that points to the file content. A different word for :term:`annex`.
 
+   Open Science Framework (OSF)
+      An open source software project that facilitates open collaboration in science research.
+
    pager
       A `terminal paper <https://en.wikipedia.org/wiki/Terminal_pager>`_ is a program to view file contents in the :term:`terminal`. Popular examples are the programs ``less`` and ``more``. Some terminal output can be opened automatically in a pager, for example the output of a :command:`git log` command. You can use the arrow keys to navigate and scroll in the pager, and the letter ``q`` to exit it.
 

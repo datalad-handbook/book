@@ -95,7 +95,7 @@ dataset. Here is how it looks like:
 
 
    $ cd mock_user
-   $ datalad clone ../DataLad-101 --description "DataLad-101 in mock_user"
+   $ datalad clone --description "DataLad-101 in mock_user" ../DataLad-101
 
 This will install your dataset ``DataLad-101`` into your room mate's home
 directory. Note that we have given this new

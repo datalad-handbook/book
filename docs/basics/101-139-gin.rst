@@ -261,20 +261,27 @@ You will need to have a Gin account and SSH key setup, so please take a look at 
 Then, follow these steps:
 
 - First, create a new repository on Gin (see step by step instructions above).
-- In your to-be-published dataset, add this repository as a sibling, but also as a "common data source". Make sure to configure a :term:`SSH` URL as a ``--pushurl`` but a :term:`HTTPS` URL as a ``url``, and pay close attention that the ``name <name>`` and ``--as-common-datasrc <name>`` arguments differ.
+- In your to-be-published dataset, add this repository as a sibling, this time setting `--url` and `--pushurl` arguments explicitly. Make sure to configure a :term:`SSH` URL as a ``--pushurl`` but a :term:`HTTPS` URL as a ``url``.
   Please also note that the :term:`HTTPS` URL written after ``--url`` DOES NOT have the ``.git`` suffix.
   Here is the command::
 
      $ datalad siblings add \
       -d . \
-      --name gin-update \
+      --name gin \
       --pushurl git@gin.g-node.org:/studyforrest/aggregate-fmri-timeseries.git \
       --url https://gin.g-node.org/studyforrest/aggregate-fmri-timeseries \
-      --as-common-datasrc gin
 
-- Locally, run ``git config --unset-all remote.gin-update.annex-ignore`` to prevent :term:`git-annex` from ignoring this new dataset
-- Push your data to the repository on Gin (``datalad push --to gin-update``)
-- Publish your dataset to GitHub/GitLab/..., or update and existing published dataset (``datalad push``)
+- Locally, run ``git config --unset-all remote.gin.annex-ignore`` to prevent :term:`git-annex` from ignoring this new dataset
+- Push your data to the repository on Gin (``datalad push --to gin``). This pushes the actual state of the repository, including content, but also adjusts the :term:`git-annex` configuration.
+- Configure this sibling as a "common data source". Use the same name as previously in ``--name`` (to indicate which sibling you are configuring) and give a new, different, name after ``--as-common-datasrc``::
+
+   $ datalad siblings configure \
+      --name gin \
+      --as-common-datasrc gin-src
+
+- Push to the repository on Gin again (``datalad push --to gin``) to make the configuration change known to the Gin sibling.
+
+- Publish your dataset to GitHub/GitLab/..., or update an existing published dataset (``datalad push``)
 
 Afterwards, :command:`datalad get` retrieves files from Gin, even if the dataset has been cloned from GitHub.
 

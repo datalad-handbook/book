@@ -93,6 +93,7 @@ Appendix
    OHBMposter
    usecases/openneuro
    intro/windows
+   intro/filenaming
 
 ########################
 Code lists from chapters

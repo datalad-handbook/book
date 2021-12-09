@@ -4,25 +4,21 @@ How to name a file: Interoperability considerations
 ---------------------------------------------------
 
 One of the most fundamental data management tasks is naming files.
-This may sound mundane --- "yeah, I guess I can't manage data if it doesn't have a file name, but what's the big deal? I already know that `I shouldn't use spaces in file names <https://superuser.com/questions/29111/what-technical-reasons-exist-for-not-using-space-characters-in-file-names>`_!".
 
 .. figure:: https://imgs.xkcd.com/comics/documents.png
 
-On the other hand, some people take it so seriously, they're getting to the edge of `bikeshedding <https://en.wiktionary.org/wiki/bikeshedding>`_: "If I start each file name with the ISO 8601 date format of its first modification, I can sort them particularly easily!"
-But between the two extremes, there's a surprising amount of *interoperability* considerations in order to create file names that work on your own and also anyone else's machine.
+This may sound mundane to some --- "yeah, I guess I can't manage data if it doesn't have a file name, but what's the big deal? I already know that `I shouldn't use spaces in file names <https://superuser.com/questions/29111/what-technical-reasons-exist-for-not-using-space-characters-in-file-names>`_".
+Other people take it to the edge of `bikeshedding <https://en.wiktionary.org/wiki/bikeshedding>`_ an beyond: "Let's start each file name with the ISO 8601 date format of its first modification for better sorting!"
+But between the two extremes, there are a surprising amount of *interoperability* considerations --- practices and tips to ensure cross-platform compatibility --- in order to create file names that work on your own as well as on anyone else's machine.
 
-Why might that be important?
-If you have files, directories, or repositories, you may at some point share them with friends, colleagues, or the entire internet.
-Ideally, your goal is that the files in question can successfully make it to other people's computers, and can be used for their intended purpose.
-Having a completely fail-safe file name is the first step in ensuring this.
+This matters because the files, directories, or repositories that you may at some point share with friends, colleagues, or the entire internet should successfully make it to those other people's computers, and on those computers they should be usable for their intended purpose.
+As you will see in some examples below, having a completely fail-safe file name is the first step in ensuring this.
 Coincidentally, a short deep-dive into interoperability hacks for file names will probably also teach you some fascinating facts about your own or other operating systems, file systems, or common tools that you may not have known yet.
-So let's get started!
 
 Oh no, normalization!
 ^^^^^^^^^^^^^^^^^^^^^
 
-Different operating systems, file systems, or tools normalize names given to files.
-Here's how this can go wrong:
+Different operating systems, file systems, or tools normalize names given to files, and this can go wrong in many ways:
 
 Don't create files that differ only in case
 ===========================================
@@ -68,33 +64,32 @@ The others may have an extra bit of fun in their lives when software can not han
 
 Even though certain names look identical across file system or operating systems, their underlying unicode character sequences can differ.
 For example, the character "é" can be represented as the single Unicode character u+00E9 (latin small letter e with acute), or as the two Unicode characters u+0065 and u+0301 (the letter "e" plus a combining acute symbol).
-This is called `canonical equivalence <https://en.wikipedia.org/wiki/Unicode_equivalence>`_ and can be very confusing because while file names are visually indistinguishable, certain tools, operating systems, or file systems can normalize their underlying unicode differently and cause errors in the process.
-It becomes a problem, potentially even leading to permanent data loss, when for example `one tool or filesystem won't recognize a file anymore that has been normalized by a different tool or filesystem <https://web.archive.org/web/20100109162824/http://forums.macosxhints.com/archive/index.php/t-99344.html>`_.
+This is called `canonical equivalence <https://en.wikipedia.org/wiki/Unicode_equivalence>`_ and can be  confusing: While file names are visually indistinguishable, certain tools, operating systems, or file systems can normalize their underlying unicode differently and cause errors in the process.
+It becomes a problem, potentially even leading to permanent data loss, when `one tool or filesystem won't recognize a file anymore that has been normalized by a different tool or filesystem <https://web.archive.org/web/20100109162824/http://forums.macosxhints.com/archive/index.php/t-99344.html>`_.
 
 Apple's HFS Plus filesystem always normalizes file names to a `fully decomposed form <https://developer.apple.com/library/archive/technotes/tn/tn1150.html#UnicodeSubtleties>`_.
 "é" would be represented as two Unicode characters u+0065 and u+0301, in that order.
 Windows treats filenames as opaque character sequences and will store and return the encoded bytes exactly as provided.
 Linux and other common Unix systems are generally similar to Windows in storing and returning opaque byte streams, but this behavior is technically dependent on the filesystem.
 And utilities used for file management, transfer, and archiving may ignore this issue, apply an arbitrary normalization form, or allow the user to control how normalization is applied.
-
-Having special characters in your file names thus is a bit like the nerd and data management version of russian roulette.
+Having special characters in your file names thus is a bit like a data management version of russian roulette.
 Most things will likely be fine, but at some point, with some tool, sharing to some system, things could just blow up.
 
 Illegal in certain systems
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-While normalization differences between systems may make it impossible to disambiguate files or represent them differently, there are also file names that aren't allowed, and could not make their way to certain operating systems.
-Here's what to keep in mind:
+While normalization differences between systems may make it impossible to disambiguate different files or cause different representations of identical files, there are also file names that aren't allowed.
+And places that ban certain file names will not be able to create, receive, or use such such files.
 
 Avoid illegal characters
 ========================
 
 Different operating system disallow certain characters in file names, and things will be messy if you were to share a file with a character that works on your machine with a machine that regards it as illegal.
+Let's start easy and with characters that you can actually find on your keyboard:
 
-Let's start with characters that you can actually find on your keyboard:
 On Unix systems, the forward slash ``/`` can not be used in file names.
 This is because this character is used to denote directory boundaries.
-On Windows systems, there is a handful of characters:
+On Windows systems, on the other hand, there is quite a long list of characters:
 
 .. code-block::
 
@@ -108,20 +103,24 @@ On Windows systems, there is a handful of characters:
     ? (question mark)
     * (asterisk)
 
-In addition, its also not possible to end a file name with a period (``.``) or a space.
-Especially Unix users can thus inadvertently create files that a Windows system couldn't handle.
-And what does it mean in practice?
-A repository or dataset with a file with invalid characters likely fails to be cloned.
-If a file with an invalid character exists on the non-default :term:`branch`, the branch likely can't be checked out.
-So having invalid characters in your files is 1) a considerably convoluted way of keeping a Git repository private from that one co-worker who uses Windows, but mostly 2) a `major interoperability hassle <https://dwheeler.com/essays/fixing-unix-linux-filenames.html>`_.
+And in addition, its also not possible to end a file name with a period (``.``) or a space on Windows.
 
-But now for illegal characters that you can't find on your keyboard: Control characters.
-Those are characters that do not represent written symbols, but cause certain other actions.
-The ASCII code `7 (bell) <https://en.wikipedia.org/wiki/Bell_character>`_ for example can cause the device to emit a warning.
-On Unix systems, its illegal to use the `0 (NUL) <https://en.wikipedia.org/wiki/Null_character>`_ control character in a file name.
-On Windows systems, its also illegal to use any control character between ``0-31``.
-Relevant in the case that, you know, you wanted to have a file with non-printable characters.
-Why not, right?
+Especially Unix users can thus inadvertently create files that a Windows system couldn't handle.
+But in the case of files with illegal names being committed into Git repositories, the consequences are actually more sever than just a single file that can't be used or copied.
+A dataset with a file with invalid characters likely fails to be cloned, because a checkout of that file will fail.
+If a file with an invalid character exists on the non-default :term:`branch`, then that branch likely can't be checked out.
+So while having invalid characters in your files is 1) a considerably convoluted way of keeping a Git repository private from that one co-worker who uses Windows, it is mostly 2) a `major interoperability hassle <https://dwheeler.com/essays/fixing-unix-linux-filenames.html>`_, even more so in the context of version control.
+
+
+.. find-out-more:: What about file names with "invisible" characters?
+
+	There are also illegal characters that you can't find on your keyboard: Control characters.
+	Those are characters that do not represent written symbols, but cause particular actions on a system.
+	The ASCII code `7 (bell) <https://en.wikipedia.org/wiki/Bell_character>`_, for example, can cause the device to emit a warning.
+	On Unix systems, its illegal to use the `0 (NUL) <https://en.wikipedia.org/wiki/Null_character>`_ control character in a file name.
+	On Windows systems, its also illegal to use any control character between ``0-31``.
+	Relevant in the case that, you know, you wanted to have a file with non-printable characters.
+	Why not, right?
 
 Avoid illegal file names
 ========================
@@ -162,6 +161,12 @@ In theory, a file name with a hyphen can clash with a command line argument, and
 If you were to create a file called ``-n`` on a Unix system, an ``ls`` or ``cat`` on this file (unless you would add a ``./`` prefix to indicate a file in the current directory) would behave different than expected, parametrizing the command line tool instead of displaying any file information.
 Because this can be a security hazard, for example leading to remote code execution, `Git will refuse to operate on submodules that start with a hyphen (CVE-2018-17456) <https://www.exploit-db.com/exploits/45631>`_.
 
+Other hassles
+=============
+
+While it is technically not illegal, try to keep the ``%`` symbol out of file names.
+Tools that try to handle a name with it may mistake it as an escape urlencoded sequence and behave unpredictably.
+
 Resources
 ^^^^^^^^^
 
@@ -170,6 +175,7 @@ Much information and some general structure of this page is taken from `RFC 8493
 The links used throughout this overview provide details and further information for particular issues.
 A good general overview on how to name files can be found at `psychoinformatics-de.github.io/rdm-course/02-structuring-data/index.html <https://psychoinformatics-de.github.io/rdm-course/02-structuring-data/index.html>`_.
 
+Do you know more? `We're eager to include your advice <github.com/datalad-handbook/book/issues/new/>`_!
 
 .. rubric:: Footnotes
 

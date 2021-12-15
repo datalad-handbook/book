@@ -2,7 +2,7 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3608611.svg)](https://doi.org/10.5281/zenodo.3608611)
 [![made-with-datalad](https://www.datalad.org/badges/made_with.svg)](https://datalad.org)
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-43-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-44-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END --> 
 
 # The DataLad handbook :orange_book:
@@ -115,6 +115,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   </tr>
   <tr>
     <td align="center"><a href="https://github.com/eort"><img src="https://avatars.githubusercontent.com/u/8819465?v=4?s=100" width="100px;" alt=""/><br /><sub><b>eort</b></sub></a><br /><a href="https://github.com/datalad-handbook/book/issues?q=author%3Aeort" title="Bug reports">🐛</a></td>
+    <td align="center"><a href="https://github.com/Myrskyta"><img src="https://avatars.githubusercontent.com/u/17908599?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Myrskyta</b></sub></a><br /><a href="https://github.com/datalad-handbook/book/issues?q=author%3AMyrskyta" title="Bug reports">🐛</a></td>
   </tr>
 </table>
 

@@ -475,6 +475,15 @@
       "contributions": [
         "bug"
       ]
+    },
+    {
+      "login": "Myrskyta",
+      "name": "Myrskyta",
+      "avatar_url": "https://avatars.githubusercontent.com/u/17908599?v=4",
+      "profile": "https://github.com/Myrskyta",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,

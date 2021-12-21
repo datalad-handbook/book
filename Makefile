@@ -17,7 +17,7 @@ clean-examples:
 	@find docs/*/_examples -name 'DL*' | sed 's/docs\/usecases\/_examples//' | sed 's/docs\/beyond_basics\/_examples\/DL-101-168-[0-9]*[a,b]*//' |xargs rm -vrf
 	# also wipe the workdirs, otherwise a rebuild will lead to chaos
 	@for d in $$(git grep ':workdir:' -- docs | cut -d ':' -f 4- | sort | uniq|cut -d '/' -f 1 | uniq | sed 's/usecases//' | sed 's/DVCvsDL//'); do chmod +w -R /home/me/$$d; rm -vrf /home/me/$$d ; done
-    # wipe out bare push repos
+	# wipe out bare push repos
 	@chmod +w -R /home/me/pushes/DataLad-101 /home/me/pushes/midterm_project; rm -vrf /home/me/pushes/DataLad-101 /home/me/pushes/midterm_project
 	@rm -vrf /home/me/makepushtarget.py
 	# wipe out the RIA store
@@ -45,7 +45,7 @@ clean:
 	@find docs -name _examples -type d | xargs rm -vrf
 	# also wipe the workdirs, otherwise a rebuild will lead to chaos
 	@for d in $$(git grep ':workdir:' -- docs | cut -d ':' -f 4- | sort | uniq|cut -d '/' -f 1 | uniq); do chmod +w -R /home/me/$$d; rm -vrf /home/me/$$d ; done
-    # wipe out bare push repos
+	# wipe out bare push repos
 	@chmod +w -R /home/me/pushes; rm -vrf /home/me/pushes
 	@rm -vrf /home/me/makepushtarget.py
 	# wipe out the RIA store

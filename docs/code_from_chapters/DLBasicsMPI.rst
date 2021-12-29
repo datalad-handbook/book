@@ -45,7 +45,7 @@ Creating a dataset is done with the ``datalad create`` command.
 This command only needs a name, and it will subsequently create a new directory under this name and instruct DataLad to manage it.
 Here, the command also has an additional option, the ``-c yoda`` option.
 With the -c option, datasets can be configured in a certain way at the time of creation.
-You can find out about the details of the yoda configuration in the datalad handbook in sections :ref:`procedures`, but in general this configuration is a very useful standard configuration for datasets for data analysis, as it preconfigures a dataset according to the :ref:`yoda princples <yoda>`::
+You can find out about the details of the yoda configuration in the datalad handbook in sections :ref:`procedures`, but in general this configuration is a very useful standard configuration for datasets for data analysis, as it preconfigures a dataset according to the :ref:`yoda principles <yoda>`::
 
    datalad create -c yoda myanalysis
 

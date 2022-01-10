@@ -90,6 +90,12 @@ copybutton_prompt_is_regexp = True
 copybutton_line_continuation_character = "\\"
 copybutton_here_doc_delimiter = "EOT"
 
+# Linkcheck settings
+linkcheck_ignore = [
+    # refuses to find the anchor
+    'https://app.element.io/#/room/%23datalad:matrix.org',
+]
+
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 

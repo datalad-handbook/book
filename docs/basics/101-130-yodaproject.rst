@@ -175,7 +175,7 @@ independent dataset from scratch in a :ref:`dedicated Findoutmore <fom-iris>`.
       $ datalad create iris_data
 
    and subsequently got the data from a publicly available
-   `GitHub Gist <https://gist.github.com/netj/8836201>`_, a code snippet or other short standalone information (more on Gists `here <https://help.github.com/en/github/writing-on-github/creating-gists#about-gists>`__), with a
+   `GitHub Gist <https://gist.github.com/netj/8836201>`_, a code snippet or other short standalone information (more on Gists `here <https://docs.github.com/en/github/writing-on-github/editing-and-sharing-content-with-gists/creating-gists#about-gists>`__), with a
    :command:`datalad download-url` command:
 
     .. runrecord:: _examples/DL-101-130-102
@@ -444,7 +444,7 @@ re-execution with :command:`datalad rerun` easy.
 
 .. windows-wit:: You may need to use "python", not "python3"
 
-   If executing the code below returns an exit code of 9009, there may be no ``python3`` -- instead, it is called soley ``python``.
+   If executing the code below returns an exit code of 9009, there may be no ``python3`` -- instead, it is called solely ``python``.
    Please run the following instead (adjusted for line breaks, you should be able to copy-paste this as a whole)::
 
       datalad run -m "analyze iris data with classification analysis" ^
@@ -638,22 +638,19 @@ The two commands have different arguments and options.
 Here, we look at :command:`datalad create-sibling-github`.
 The command takes a repository name and GitHub authentication credentials
 (either in the command line call with options ``github-login <NAME>`` and
-``github-passwd <PASSWORD>``, with an *oauth* `token <https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/creating-a-personal-access-token>`_ stored in the Git
+``github-passwd <PASSWORD>``, with an *oauth* `token <https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token>`_ stored in the Git
 configuration, or interactively).
 
-.. importantnote:: GitHub deprecates its User Password authentication
+.. importantnote:: GitHub deprecated User Password authentication
 
    GitHub `decided to deprecate user-password authentication <https://developer.github.com/changes/2020-02-14-deprecating-password-auth/>`_ and will only support authentication via personal access token from November 13th 2020 onwards.
    Upcoming changes in DataLad's API will reflect this change starting with DataLad version ``0.13.6`` by removing the ``github-passwd`` argument.
+   Starting with DataLad ``0.16.0``, a new set of commands for interactions with a variety of hosting services will be introduced (for more information, see section :ref:`share_hostingservice`).
 
    To ensure successful authentication, please create a personal access token at `github.com/settings/tokens <https://github.com/settings/tokens>`_ [#f5]_, and either
 
-   * configure Git's "``hub.oauthtoken``" config variable [#f7]_ with your token as in::
-
-        git config --global --add hub.oauthtoken cd2a3bd530...454f73b5a4
-
    * supply the token with the argument ``--github-login <TOKEN>`` from the command line,
-   * or supply the token from the command line when queried interactively for it
+   * or supply the token from the command line when queried for a password
 
 Based on the credentials and the
 repository name, it will create a new, empty repository on GitHub, and
@@ -918,6 +915,6 @@ reproduce your data science project easily from scratch (take a look into the :r
          If you decide to use the command line interface, here is help on how to use it:
          Clone the `GitHub repository <https://github.com/sociomantic-tsunami/git-hub>`_ to your local computer.
          Decide whether you want to build a Debian package to install, or install the single-file Python script distributed in the repository.
-         Make sure that all `requirements <https://github.com/sociomantic-tsunami/git-hub#dependencies>`_ for your preferred version are installed , and run either ``make deb`` followed by ``sudo dpkg -i deb/git-hub*all.deb``, or ``make install``.
+         Make sure that all `requirements <https://github.com/sociomantic-tsunami/git-hub>`_ for your preferred version are installed , and run either ``make deb`` followed by ``sudo dpkg -i deb/git-hub*all.deb``, or ``make install``.
 
 .. [#f7] To re-read about Git's configurations and the ``git config`` command, please take a look at the section :ref:`config`.

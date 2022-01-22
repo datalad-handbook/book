@@ -64,7 +64,7 @@ Let's see how this affects a :command:`datalad get`:
 .. runrecord:: _examples/DL-101-117-103
    :language: console
    :workdir: dl-101/mock_user/DataLad-101/recordings/longnow
-   :notes: Get a file thats present in original and one that is not
+   :notes: Get a file that is present in original and one that is not
    :cast: 04_collaboration
 
    # get the first file

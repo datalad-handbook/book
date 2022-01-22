@@ -1,7 +1,7 @@
 .. _gin:
 
-Dataset hosting on GIN
-----------------------
+Walk-through: Dataset hosting on GIN
+------------------------------------
 
 `GIN <https://gin.g-node.org/G-Node/Info/wiki>`__ (G-Node infrastructure) is a
 free data management system designed for comprehensive and reproducible management
@@ -40,40 +40,8 @@ In order to use GIN for hosting and sharing your datasets, you need to
 Once you have `registered <https://gin.g-node.org/user/sign_up>`_
 an account on the GIN server by providing your e-mail address, affiliation,
 and name, and selecting a user name and password, you should upload your
-:term:`SSH key` to allow SSH access.
-
-.. find-out-more:: What is an SSH key and how can I create one?
-
-   An SSH key is an access credential in the :term:`SSH` protocol that can be used
-   to login from one system to remote servers and services, such as from your private
-   computer to an :term:`SSH server`. For repository hosting services such as :term:`GIN`,
-   :term:`GitHub`, or :term:`GitLab`, it can be used to connect and authenticate
-   without supplying your username or password for each action.
-
-   This `tutorial by GitHub <https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent>`_
-   is a detailed step-by-step instruction to generate and use SSH keys for authentication,
-   and it also shows you how to add your public SSH key to your GitHub account
-   so that you can install or clone datasets or Git repositories via ``SSH`` (in addition
-   to the ``http`` protocol), and the same procedure applies to GitLab and Gin.
-
-   Don't be intimidated if you have never done this before -- it is fast and easy:
-   First, you need to create a private and a public key (an SSH key pair).
-   All this takes is a single command in the terminal. The resulting files are
-   text files that look like someone spilled alphabet soup in them, but constitute
-   a secure password procedure.
-   You keep the private key on your own machine (the system you are connecting from,
-   and that **only you have access to**),
-   and copy the public key to the system or service you are connecting to.
-   On the remote system or service, you make the public key an *authorized key* to
-   allow authentication via the SSH key pair instead of your password. This
-   either takes a single command in the terminal, or a few clicks in a web interface
-   to achieve.
-   You should protect your SSH keys on your machine with a passphrase to prevent
-   others -- e.g., in case of theft -- to log in to servers or services with
-   SSH authentication [#f2]_, and configure an ``ssh agent``
-   to handle this passphrase for you with a single command. How to do all of this
-   is detailed in the above tutorial.
-
+:term:`SSH key` to allow SSH access
+(you can find an explanation of what SSH keys are and how you can create one in :ref:`this Findoutmore <fom-sshkey>` in the general section :ref:`share_hostingservice`).
 To do this, visit the settings of your user account. On the left hand side, select
 the tab "SSH Keys", and click the button "Add Key":
 
@@ -293,19 +261,27 @@ You will need to have a Gin account and SSH key setup, so please take a look at 
 Then, follow these steps:
 
 - First, create a new repository on Gin (see step by step instructions above).
-- In your to-be-published dataset, add this repository as a sibling, but also as a "common data source". Make sure to configure a :term:`SSH` URL as a ``--pushurl`` but a :term:`HTTPS` URL as a ``url``, and pay close attention that the ``name <name>`` and ``--as-common-datasrc <name>`` arguments differ.
+- In your to-be-published dataset, add this repository as a sibling, this time setting `--url` and `--pushurl` arguments explicitly. Make sure to configure a :term:`SSH` URL as a ``--pushurl`` but a :term:`HTTPS` URL as a ``url``.
+  Please also note that the :term:`HTTPS` URL written after ``--url`` DOES NOT have the ``.git`` suffix.
   Here is the command::
 
      $ datalad siblings add \
       -d . \
-      --name gin-update \
-      --pushurl git@gin.g-node.org:/studyforrest/aggregate-fmri-timeseries.git
-      --url https://gin.g-node.org/studyforrest/aggregate-fmri-timeseries.git \
-      --as-common-datasrc gin
+      --name gin \
+      --pushurl git@gin.g-node.org:/studyforrest/aggregate-fmri-timeseries.git \
+      --url https://gin.g-node.org/studyforrest/aggregate-fmri-timeseries \
 
-- Locally, run ``git config --unset-all remote.gin-update.annex-ignore`` to prevent :term:`git-annex` from ignoring this new dataset
-- Push your data to the repository on Gin (``datalad push --to gin-update``)
-- Publish your dataset to GitHub/GitLab/..., or update and existing published dataset (``datalad push``)
+- Locally, run ``git config --unset-all remote.gin.annex-ignore`` to prevent :term:`git-annex` from ignoring this new dataset
+- Push your data to the repository on Gin (``datalad push --to gin``). This pushes the actual state of the repository, including content, but also adjusts the :term:`git-annex` configuration.
+- Configure this sibling as a "common data source". Use the same name as previously in ``--name`` (to indicate which sibling you are configuring) and give a new, different, name after ``--as-common-datasrc``::
+
+   $ datalad siblings configure \
+      --name gin \
+      --as-common-datasrc gin-src
+
+- Push to the repository on Gin again (``datalad push --to gin``) to make the configuration change known to the Gin sibling.
+
+- Publish your dataset to GitHub/GitLab/..., or update an existing published dataset (``datalad push``)
 
 Afterwards, :command:`datalad get` retrieves files from Gin, even if the dataset has been cloned from GitHub.
 
@@ -320,12 +296,6 @@ Afterwards, :command:`datalad get` retrieves files from Gin, even if the dataset
          `web interface <https://gin.g-node.org/G-Node/Info/wiki/WebInterface>`_
          and `client <https://gin.g-node.org/G-Node/Info/wiki/GinUsageTutorial>`_ are
          useful tools with a variety of features that are worthwhile to check out, as well.
-
-.. [#f2] Your private SSH key is incredibly valuable, and it is important to keep
-         it secret!
-         Anyone who gets your private key has access to anything that the public key
-         is protecting. If the private key does not have a passphrase, simply copying
-         this file grants a person access!
 
 .. [#f3] Alternatively, you can configure the siblings url with :command:`git config`::
 

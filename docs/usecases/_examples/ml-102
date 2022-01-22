@@ -3,14 +3,17 @@ $ cd imagenette
 $ datalad download-url \
   --archive \
   --message "Download Imagenette dataset" \
-  'https://s3.amazonaws.com/fast-ai-imageclas/imagenette2-160.tgz'
-[INFO] Downloading 'https://s3.amazonaws.com/fast-ai-imageclas/imagenette2-160.tgz' into '/home/me/usecases/imagenette/' 
+  'https://osf.io/d6qbz/download'
+[INFO] Downloading 'https://osf.io/d6qbz/download' into '/home/me/usecases/imagenette/'
 [INFO] Adding content of the archive /home/me/usecases/imagenette/imagenette2-160.tgz into annex AnnexRepo(/home/me/usecases/imagenette) 
 [INFO] Initiating special remote datalad-archives 
-[INFO] Finished adding /home/me/usecases/imagenette/imagenette2-160.tgz: Files processed: 13397, +annex: 13397
+[INFO] Finished adding /home/me/usecases/imagenette/imagenette2-160.tgz: Files processed: 2701, +annex: 2701
+[INFO] Finished extraction
 download_url(ok): /home/me/usecases/imagenette/imagenette2-160.tgz (file)
 save(ok): . (dataset)
+add-archive-content(ok): /home/me/usecases/imagenette (dataset)
 action summary:
   add (ok: 1)
+  add-archive-content (ok: 1)
   download_url (ok: 1)
   save (ok: 1)

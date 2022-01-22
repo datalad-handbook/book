@@ -154,9 +154,9 @@ The chapter :ref:`chapter_retro` guides you through transitioning an existing pr
 How can I cite DataLad?
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-There is no official paper on DataLad (yet). To cite it, please use the latest
-`zenodo <https://zenodo.org>`_ entry found here:
-https://zenodo.org/record/808846.
+Please cite the official paper on DataLad:
+
+Halchenko et al., (2021). DataLad: distributed system for joint management of code, data, and their relationship. Journal of Open Source Software, 6(63), 3262, `https://doi.org/10.21105/joss.03262 <https://doi.org/10.21105/joss.03262>`_.
 
 .. _dataset_textblock:
 
@@ -519,7 +519,7 @@ was obtained from web-sources (e.g., with :command:`datalad download-url`), a
 the known remotes of the dataset and their description, if they have one.
 You can find out much more about the ``git-annex`` branch and its contents in the
 `documentation <https://git-annex.branchable.com/internals/>`_.
-This branch, however, is managed by git-annex, and you should not temper with it.
+This branch, however, is managed by git-annex, and you should not tamper with it.
 
 .. _gitannexdefault:
 

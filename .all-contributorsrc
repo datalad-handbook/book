@@ -339,7 +339,10 @@
         "bug",
         "ideas",
         "maintenance",
-        "review"
+        "review",
+        "infra",
+        "code",
+        "design"
       ]
     },
     {
@@ -387,7 +390,8 @@
       "profile": "https://www.stefanappelhoff.com",
       "contributions": [
         "infra",
-        "tool"
+        "tool",
+        "bug"
       ]
     },
     {
@@ -428,6 +432,64 @@
       "name": "Joerg Stadler",
       "avatar_url": "https://avatars.githubusercontent.com/u/9048375?v=4",
       "profile": "http://cni.lin-magdeburg.de",
+      "contributions": [
+        "bug"
+      ]
+    },
+    {
+      "login": "AKSoo",
+      "name": "Sin Kim",
+      "avatar_url": "https://avatars.githubusercontent.com/u/7570456?v=4",
+      "profile": "https://orcid.org/0000-0003-4652-3758",
+      "contributions": [
+        "bug",
+        "content",
+        "review"
+      ]
+    },
+    {
+      "login": "oesteban",
+      "name": "Oscar Esteban",
+      "avatar_url": "https://avatars.githubusercontent.com/u/598470?v=4",
+      "profile": "https://github.com/oesteban",
+      "contributions": [
+        "bug"
+      ]
+    },
+    {
+      "login": "mslw",
+      "name": "Michał Szczepanik",
+      "avatar_url": "https://avatars.githubusercontent.com/u/11985212?v=4",
+      "profile": "https://github.com/mslw",
+      "contributions": [
+        "review",
+        "bug",
+        "content"
+      ]
+    },
+    {
+      "login": "eort",
+      "name": "eort",
+      "avatar_url": "https://avatars.githubusercontent.com/u/8819465?v=4",
+      "profile": "https://github.com/eort",
+      "contributions": [
+        "bug"
+      ]
+    },
+    {
+      "login": "Myrskyta",
+      "name": "Myrskyta",
+      "avatar_url": "https://avatars.githubusercontent.com/u/17908599?v=4",
+      "profile": "https://github.com/Myrskyta",
+      "contributions": [
+        "bug"
+      ]
+    },
+    {
+      "login": "tguiot",
+      "name": "Thomas Guiot",
+      "avatar_url": "https://avatars.githubusercontent.com/u/17005998?v=4",
+      "profile": "https://github.com/tguiot",
       "contributions": [
         "bug"
       ]

@@ -79,10 +79,16 @@ extensions = [
     'sphinx.ext.doctest',
     'sphinxcontrib.autorunrecord',
     'sphinxcontrib.rsvgconverter',
-    'sphinxcontrib.plantuml',
     'dataladhandbook_support',
     'notfound.extension',
+    'sphinx_copybutton',
 ]
+
+# configure sphinx-copybutton
+copybutton_prompt_text = r"\$ "
+copybutton_prompt_is_regexp = True
+copybutton_line_continuation_character = "\\"
+copybutton_here_doc_delimiter = "EOT"
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -343,6 +349,9 @@ cautionBgColor={named}{LightCyan}%
 % make sure all float stay in their respective chapter
 %\usepackage[chapter]{placeins}
 
+% make enough room for the auto-generated header content
+\setlength{\headheight}{13.6pt}
+
 \usepackage{xcolor}
 \definecolor{dataladyellow}{HTML}{FFA200}
 \definecolor{dataladblue}{HTML}{7FD5FF}
@@ -383,8 +392,10 @@ ribbon important/.style={overlay={
   \end{scope}}}
 }
 
+\newcounter{HandbookWIN}[chapter]
+\renewcommand\theHandbookWIN{W\arabic{chapter}.\arabic{HandbookWIN}}
 \newtcolorbox[%
-  auto counter,
+  use counter*=HandbookWIN,
   number within=chapter,
   list inside=windowswits]{windowswit}[2][]{%
     enhanced, ribbon win, title={#2},
@@ -392,8 +403,10 @@ ribbon important/.style={overlay={
     colbacktitle=windowsgreen,
     colframe=windowsgreen!70!black, #1
 }
+\newcounter{HandbookGIT}[chapter]
+\renewcommand\theHandbookGIT{G\arabic{chapter}.\arabic{HandbookGIT}}
 \newtcolorbox[%
-  auto counter,
+  use counter*=HandbookGIT,
   number within=chapter,
   list inside=gitusernotes]{gitusernote}[2][]{%
     enhanced, ribbon git, title={#2},
@@ -401,8 +414,10 @@ ribbon important/.style={overlay={
     colbacktitle=dataladblue,
     colframe=dataladblue!70!black, #1
 }
+\newcounter{HandbookFOM}[chapter]
+\renewcommand\theHandbookFOM{M\arabic{chapter}.\arabic{HandbookFOM}}
 \newtcolorbox[
-  auto counter,
+  use counter*=HandbookFOM,
   number within=chapter,
   list inside=findoutmores]{findoutmore}[2][]{%
     enhanced, ribbon more, title={#2},
@@ -410,8 +425,9 @@ ribbon important/.style={overlay={
     colbacktitle=dataladyellow,
     colframe=dataladyellow!70!black, #1
 }
+% unnumbered, they are short and placed at the exact position
+% must change we there are in-text references
 \newtcolorbox[
-  auto counter,
   number within=chapter,
   list inside=importantnotes]{importantnote}[2][]{%
     enhanced, ribbon important, title={#2},

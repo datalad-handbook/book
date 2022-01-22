@@ -5,7 +5,7 @@
 
 .. image:: artwork/src/img/datalad-animated.gif
    :scale: 100%
-   :alt: Virtual directory tree of a nested DataLad dataset
+   :alt: Animated DataLad logo
 
 ============
 The Handbook
@@ -30,17 +30,15 @@ part of this book will teach you. If you want to know what is possible, the
 the `companion repository <https://github.com/datalad-handbook/course>`_ provides
 `free and open source teaching material <teaching.html>`_ tailored to the handbook.
 
-Before you read on, please note that the handbook is based on **DataLad version 0.12**,
-but the section :ref:`install` will set you up with what you need if you currently do
-not have DataLad 0.12 or higher installed.
+Before you read on, please note that the handbook is based on **at least** DataLad version **0.12**, and the higher your version of DataLad is, the better.
+The section :ref:`install` will set you up with what you need if you currently do not have DataLad 0.12 or higher installed.
 
 If you're new here, please start the handbook `here <intro/philosophy.html>`_.
 Alternatively, try to identify with one of several user-types in this
 `user specific guide to the handbook <intro/user_types.html>`_.
 
-.. important::
+.. importantnote:: The handbook is currently in beta stage.
 
-   The handbook is currently in beta stage.
    If you would be willing to provide feedback on its contents, please
    `get in touch <https://github.com/datalad-handbook/book/issues/new>`_.
 
@@ -102,6 +100,8 @@ Appendix
    intro/user_types
    OHBMposter
    usecases/openneuro
+   intro/windows
+   intro/filenaming
 
 ########################
 Code lists from chapters
@@ -119,7 +119,9 @@ Code lists from chapters
    code_from_chapters/OHBM_OSR.rst
    code_from_chapters/usecase_ml_code
    code_from_chapters/MPI_code
-
+   code_from_chapters/DLBasicsMPI
+   code_from_chapters/ABCD
+   code_from_chapters/yale
 ..
   stuff that we do not need or show at the moment
 

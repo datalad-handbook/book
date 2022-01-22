@@ -66,7 +66,7 @@ short at this point in time. Let's check it out nevertheless.
 
 This history exists thanks to Git. Therefore, you can access the history of a
 dataset with any tool that shows you git
-history. We'll stay basic and just use gits build-in ``git log`` command, but you
+history. We'll stay basic and just use gits built-in ``git log`` command, but you
 could also use tools with graphical user interfaces if you want to, for example
 :term:`tig`::
 
@@ -150,7 +150,7 @@ its the only change in the dataset, there is no need to provide a path::
 
    datalad save -m "Add notes on datalad create"
 
-Let's now add another note to modifiy this file::
+Let's now add another note to modify this file::
 
    cat << EOT >> notes.txt
    The command "datalad save [-m] PATH" saves the file
@@ -183,7 +183,7 @@ First, create a new subdirectory to be organized::
 
 Afterwards, I'll install the dataset I am interested in, either from a path or
 a URL. The dataset I want to install lives on GitHub, so in order to get it, I
-will privide its URL to the datalad clone command. I'm also attaching a path to
+will provide its URL to the datalad clone command. I'm also attaching a path to
 where I want to have it installed to this call. Importantly I am installing this
 dataset as a subdataset of DataLad-101, in other words I will nest the two
 datasets inside of each other. This is done with the --dataset flag::
@@ -322,7 +322,7 @@ contributed a fix that changed the data::
 
 But because I can link subdatasets in precise version I can
 consciously decide and openly record which version of the data I am using or
-even test how much my results change by resetting the subdataset to an ealier
+even test how much my results change by resetting the subdataset to an earlier
 state or updating the dataset to a more recent version.
 
 Reproducible analyses

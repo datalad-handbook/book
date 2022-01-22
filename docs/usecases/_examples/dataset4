@@ -1,9 +1,40 @@
 $ git log --oneline --graph --decorate
-*   b5306e2e (HEAD -> master, origin/master, origin/HEAD) Merge pull request #15 from adswa/ENH/README
+* 01ed4601 (HEAD -> master, origin/master, origin/HEAD) Fix  author list (all git & paper authors)
+*   974614cb Merge pull request #21 from psychoinformatics-de/christian-monch-patch-1
 |\
-| * 45a110f7 use standard textblock to explain DataLad datasets in README
+| * 547c519c Add authors revealed by git-log
 |/
-* a6623bff [DATALAD] dataset aggregate metadata update
+*   72f835ad Merge remote-tracking branch 'github/master'
+|\
+| *   fb36de08 Merge pull request #20 from psychoinformatics-de/christian-moench-gin-datacite
+| |\
+| | * 01c8b100 Create datacite.yml
+| |/
+| *   ad5a3a36 Merge pull request #19 from psychoinformatics-de/eyetracking
+| |\
+| | * 27f83cff BIDS: ignore physio side car file that the BIDSvalidator does not like
+| | * 72f43807 BIDS: Add a bidsignore file for non-compliant but useful raw eyelink data
+| | * 1b2b084b DOC: BIDS-Futureproof eyetracking sidecar files
+| |/
+| *   5e11f82b Merge pull request #16 from adswa/hiddensubds
+| |\
+| | * 999d558c Add recursiveinstall skip configuration for private sourcedataset
+* | | 8946d0db Merge remote-tracking branch 'github/master'
+|\| |
+| * |   d6b6e39c Merge pull request #18 from loj/ds_description
+| |\ \
+| | * | 66c13b79 update dataset_description.json to be BIDS compliant
+| |/ /
+| * |   b5306e2e Merge pull request #15 from adswa/ENH/README
+| |\ \
+| | |/
+| |/|
+| | * 45a110f7 use standard textblock to explain DataLad datasets in README
+| |/
+* | 55d39446 Update subdataset location
+* | 81e2f8d0 Updata dataset configuration by create --force
+|/
+* a6623bff (mddatasrc/master) [DATALAD] dataset aggregate metadata update
 * 72d535d5 Enable DataLad metadata extractors
 * 9c15094e [DATALAD] new dataset
 * d97455f5 [DATALAD] Set default backend for all files to be MD5E
@@ -47,7 +78,7 @@ $ git log --oneline --graph --decorate
 |\  
 | * 7d9ca569 Update tests for repository changes
 | * 61edd658 Update changelog
-| * 0944930c Add (converted) in-lab eye-tracking sample
+| * 0944930c (mddatasrc/synced/master) Add (converted) in-lab eye-tracking sample
 | * e6f3bfec Update eyetracking data conversion code for in-lab sample
 | * d93ed6e3 Reference lab eyetracking raw data repository as submodule
 | * f792983e BIDS-compliant meta data

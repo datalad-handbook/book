@@ -38,7 +38,7 @@ The DataLad Approach
 ^^^^^^^^^^^^^^^^^^^^
 
 Bob creates his analysis project as a DataLad dataset. Complying with
-the `YODA principles <http://handbook.datalad.org/en/latest/basics/101-123-yoda.html>`_,
+the :ref:`YODA principles <yoda>`,
 he creates his scripts in a dedicated
 ``code/`` directory, and clones the open dataset as a standalone
 DataLad subdataset within a dedicated subdirectory.
@@ -75,6 +75,8 @@ thanks to the yoda procedure:
 
    $ cd myanalysis
    $ tree
+
+.. index:: ! datalad command; clone
 
 Bob knows that a DataLad dataset can contain other datasets. He also knows that
 as any content of a dataset is tracked and its precise state is recorded,
@@ -187,6 +189,8 @@ command:
 
    $ datalad update -s alice --merge
 
+
+.. index:: ! datalad command; create-sibling
 
 Finally, when Bob is ready to share his results with the world or a remote
 collaborator, he makes his dataset available by uploading them to a webserver

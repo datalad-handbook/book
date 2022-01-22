@@ -31,24 +31,40 @@ failed -- sorry about this.
    This defines a mapping of redirect codes to their present URLs.
    Please keep sorted by redirection label.
 
+:redirect:`ABCD`
+  :ref:`abcd`
 :redirect:`about`
   :ref:`executive_summary`
+:redirect:`cheatsheet`
+  :ref:`cheat`
+:redirect:`clone-priority`
+  :ref:`cloneprio`
 :redirect:`containers`
   :ref:`containersrun`
+:redirect:`dataladdening`
+  :ref:`dataladdening`
 :redirect:`dl-for-ml`
   :ref:`dvc`
 :redirect:`extensions`
   :ref:`extensions_intro`
+:redirect:`filenaming`
+  :ref:`filenaming`
 :redirect:`GIN`
   :ref:`gin`
 :redirect:`gobig`
   :ref:`chapter_gobig`
+:redirect:`LFS`
+  :ref:`gitlfs`
 :redirect:`HCP-dataset`
   :ref:`usecase_HCP_dataset`
+:redirect:`install`
+  :ref:`install`
 :redirect:`reproducible-paper`
   :ref:`usecase_reproducible_paper`
 :redirect:`RIA`
   :ref:`riastore`
+:redirect:`runhpc`
+  :ref:`runhpc`
 :redirect:`yoda`
   :ref:`yoda`
 :redirect:`OHBM2020`
@@ -61,6 +77,10 @@ failed -- sorry about this.
   :ref:`openneuro`
 :redirect:`FZJmlcode`
   :ref:`mlcode`
+:redirect:`MPIBerlin`
+  :ref:`mpiberlin`
+:redirect:`Yale`
+  :ref:`yale`
 
 Alternatively, try searching in the "Quick Search" at the left-hand side, or
 scan the handbook's front page at `handbook.datalad.org <http://handbook.datalad.org/en/latest/>`_

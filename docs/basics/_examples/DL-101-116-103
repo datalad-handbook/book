@@ -10,7 +10,7 @@ $ tree
 │   └── list_titles.sh
 ├── notes.txt
 └── recordings
-    ├── interval_logo_small.jpg -> ../.git/annex/objects/36/jF/MD5E-s100877--0fea9537f9fe255d827e4401a7d539e7.jpg/MD5E-s100877--0fea9537f9fe255d827e4401a7d539e7.jpg
+    ├── interval_logo_small.jpg -> ../.git/annex/objects/jx/KK/MD5E-s100593--c4b4290cb5d616154e80cddee76cb756.jpg/MD5E-s100593--c4b4290cb5d616154e80cddee76cb756.jpg
     ├── longnow
     ├── podcasts.tsv
     └── salt_logo_small.jpg -> ../.git/annex/objects/xJ/4G/MD5E-s260607--4e695af0f3e8e836fcfc55f815940059.jpg/MD5E-s260607--4e695af0f3e8e836fcfc55f815940059.jpg

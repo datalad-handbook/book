@@ -71,6 +71,37 @@ write out speaker names and talk titles in a very basic fashion.
 The content of this script is written below -- the ``cat`` command
 will write it into the script.
 
+.. windows-wit:: Here's a script for Windows users
+
+   Please use an editor of your choice to create a file ``list_titles.sh`` inside of the ``code`` directory.
+   These should be the contents::
+
+       for i in recordings/longnow/Long_Now__Seminars*/*.mp3; do
+          # get the filename
+          base=$(basename "$i");
+          # strip the extension
+          base=${base%.mp3};
+          # date as yyyy-mm-dd
+          printf "${base%%__*}\t" | tr '_' '-';
+          # name and title without underscores
+          printf "${base#*__}\n" | tr '_' ' ';
+       done
+
+   Note that this is not identical to the one below -- it lacks a few ``\`` characters, which is a meaningful difference.
+
+.. windows-wit:: Be mindful of hidden extensions when creating files!
+
+   By default, Windows does not show common file extensions when you view directory contents with a file explorer.
+   Instead, it only displays the base of the file name and indicates the file type with the display icon.
+   You can see if this is the case for you, too, by opening the ``books\`` directory in a file explorer, and checking if the file extension (``.pdf``) is a part of the file name displayed underneath its PDF icon.
+
+   Hidden file extensions can be a confusing source of errors, because some Windows editors (for example Notepad) automatically add a ``.txt`` extension to your files -- when you save the script above under the name ``list_titles.sh``, your editor may add an extension (``list_titles.sh.txt``), and the file explorer displays your file as ``list_titles.sh`` (hiding the ``.txt`` extension).
+
+   To prevent confusion, configure the file explorer to always show you the file extension.
+   For this, open the Explorer, click on the "View" tab, and tick the box "File name extensions".
+
+   Beyond this, double check the correct naming of your file, ideally in the terminal.
+
 .. runrecord:: _examples/DL-101-108-102
    :language: console
    :workdir: dl-101/DataLad-101
@@ -143,9 +174,10 @@ command from the root of ``DataLad-101``.
    :notes: The datalad run command records a command's impact on a dataset. We try it in the most simple way:
    :cast: 02_reproducible_execution
 
-   $ datalad run -m "create a list of podcast titles" "bash code/list_titles.sh > recordings/podcasts.tsv"
+   $ datalad run -m "create a list of podcast titles" \
+     "bash code/list_titles.sh > recordings/podcasts.tsv"
 
-.. findoutmore:: Why is there a "notneeded" in the command summary?
+.. find-out-more:: Why is there a "notneeded" in the command summary?
 
    If you have stumbled across the command execution summary
    ``save (notneeded: 1, ok: 1)`` and wondered what is "notneeded":
@@ -166,7 +198,7 @@ Let's take a look into the history:
    :notes: Let's now check what has been written into the history. (runrecord)
    :cast: 02_reproducible_execution
 
-   $ git log -p -n 1
+   $ git log -p -n 1   # On Windows, you may just want to type "git log".
 
 The commit message we have supplied with ``-m`` directly after :command:`datalad run` appears
 in our history as a short summary.
@@ -207,10 +239,11 @@ command as before, and check whether anything in your log changes:
 .. runrecord:: _examples/DL-101-108-107
    :language: console
    :workdir: dl-101/DataLad-101
-   :notes: A run command that does not result in changes (no modifcations, no additional files) will not produce a record in the dataset history. So what happens if we do the same again?
+   :notes: A run command that does not result in changes (no modifications, no additional files) will not produce a record in the dataset history. So what happens if we do the same again?
    :cast: 02_reproducible_execution
 
-   $ datalad run -m "Try again to create a list of podcast titles" "bash code/list_titles.sh > recordings/podcasts.tsv"
+   $ datalad run -m "Try again to create a list of podcast titles" \
+     "bash code/list_titles.sh > recordings/podcasts.tsv"
 
 .. runrecord:: _examples/DL-101-108-108
    :language: console

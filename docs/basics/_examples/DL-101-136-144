@@ -1,25 +1,2 @@
-$ cat .git/config
-[core]
-	repositoryformatversion = 0
-	filemode = true
-	bare = false
-	logallrefupdates = true
-	editor = nano
-[annex]
-	uuid = b2ff89c4-11a8-49b2-8fe5-e28fcd9cf621
-	version = 5
-	backends = MD5E
-[submodule "recordings/longnow"]
-	url = https://github.com/datalad-datasets/longnow-podcasts.git
-	active = true
-[remote "roommate"]
-	url = ../mock_user/onemoredir/DataLad-101
-	fetch = +refs/heads/*:refs/remotes/roommate/*
-	annex-uuid = e86f131b-c6f3-4bf9-91d1-f47f0117fee7
-	annex-ignore = false
-[submodule "midterm_project"]
-	url = /home/me/dl-101/DataLad-101/midterm_project
-	active = true
-[submodule "longnow"]
-	url = https://github.com/datalad-datasets/longnow-podcasts.git
-	active = true
+$ git reset --hard HEAD~1
+HEAD is now at 324a09b move book back from midterm_project

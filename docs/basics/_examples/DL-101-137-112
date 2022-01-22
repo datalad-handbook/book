@@ -1,12 +1,12 @@
 $ git log -2
-commit bb02715c2326bf6fece5f11b3e1925794eccb9ba
+commit 81609fc44c66a0f3bcec4c7a5910181dc8c08d6c
 Author: Elena Piscopia <elena@example.net>
-Date:   Tue Jun 23 21:06:29 2020 +0200
+Date:   Thu Jul 29 16:25:38 2021 +0200
 
     save my favorite Git joke
 
-commit b0d5d0236c3e99dde55c170e6201323c7835298d
+commit 8dc1281daa00a661e1c6387632b638e945e2f6a6
 Author: Elena Piscopia <elena@example.net>
-Date:   Tue Jun 23 21:06:15 2020 +0200
+Date:   Thu Jul 29 16:25:35 2021 +0200
 
-    Added flower mosaic from wikimedia
+    remove obsolete subds

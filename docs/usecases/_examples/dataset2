@@ -2,6 +2,7 @@ $ cd studyforrest-data-phase2
 $ ls # output below is only an excerpt from ls
 CHANGES
 code
+datacite.yml
 dataset_description.json
 ISSUES
 LICENSE

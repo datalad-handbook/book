@@ -1,8 +1,10 @@
 $ ls -a # show also hidden files (excerpt)
 .
 ..
+.bidsignore
 CHANGES
 code
+datacite.yml
 .datalad
 dataset_description.json
 .git

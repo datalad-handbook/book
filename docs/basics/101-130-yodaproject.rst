@@ -12,10 +12,11 @@ In principle, you can prepare YODA-compliant data analyses in any programming
 language of your choice. But because you are already familiar with
 the `Python <https://www.python.org/>`__ programming language, you decide
 to script your analysis in Python. Delighted, you find out that there is even
-a Python API for DataLad's functionality that you can read about in the hidden
-section below:
+a Python API for DataLad's functionality that you can read about in :ref:`a Findoutmore on DataLad in Python<fom-pythonapi>`.
 
-.. findoutmore:: DataLad's Python API
+.. find-out-more:: DataLad's Python API
+   :name: fom-pythonapi
+   :float:
 
     .. _python:
 
@@ -27,11 +28,6 @@ section below:
     This feature can help to automate dataset operations, provides an alternative
     to the command line, and it is immensely useful when creating reproducible
     data analyses."
-
-    This short section will give you an overview on DataLad's Python API and explore
-    how to make use of it in an analysis project. Together with the previous
-    section on the YODA principles, it is a good basis for a data analysis midterm project
-    in Python.
 
     All of DataLad's user-oriented commands are exposed via ``datalad.api``.
     Thus, any command can be imported as a stand-alone command like this::
@@ -97,15 +93,6 @@ section below:
         # use save as a dataset method (no dataset argument)
         >>> ds.save(message="saving all modifications")
 
-    .. note::
-
-        At the moment, ``dataset`` argument handling is not fully consistent
-        across commands. When executing commands outside of the dataset in question,
-        ``path`` arguments are sometimes interpreted as relative from the
-        ``dataset`` path, and sometimes as relative from the location the command
-        is executed from. You can get consistent behavior (paths relative to the
-        dataset root) by using ``Dataset`` methods or passing ``Dataset`` instances to
-        the commands instead of specifying paths (strings) for ``dataset=``.
 
     **Use cases for DataLad's Python API**
 
@@ -120,7 +107,7 @@ section below:
     ~200ms, this means that there is the potential for substantial speed-up when
     doing many calls to the API, and using a persistent Dataset object instance.
 
-.. note::
+.. importantnote:: Use DataLad in languages other than Python
 
    While there is a dedicated API for Python, DataLad's functions can of course
    also be used with other programming languages, such as Matlab, via standard
@@ -138,6 +125,11 @@ of the flowers in centimeters. It is often used in introductory data science
 courses for statistical classification techniques in machine learning, and
 widely available -- a perfect dataset for your midterm project!
 
+.. importantnote:: Turn data analysis into dynamically generated documents
+
+   Beyond the contents of this section, we have transformed the example analysis also into a template to write a reproducible paper, following the use case :ref:`usecase_reproducible_paper`.
+   If you're interested in checking that out, please head over to `github.com/datalad-handbook/repro-paper-sketch/ <https://github.com/datalad-handbook/repro-paper-sketch/>`_.
+
 Raw data as a modular, independent entity
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -154,9 +146,11 @@ For the purpose of this analysis, the DataLad handbook provides an ``iris_data``
 dataset at `https://github.com/datalad-handbook/iris_data <https://github.com/datalad-handbook/iris_data>`_.
 
 You can either use this provided input dataset, or find out how to create an
-independent dataset from scratch in the hidden section below.
+independent dataset from scratch in a :ref:`dedicated Findoutmore <fom-iris>`.
 
-.. findoutmore:: Creating an independent input dataset
+.. find-out-more:: Creating an independent input dataset
+   :name: fom-iris
+   :float:
 
    If you acquire your own data for a data analysis, it will not magically exist as a
    DataLad dataset that you can simply install from somewhere -- you'll have
@@ -181,15 +175,8 @@ independent dataset from scratch in the hidden section below.
       $ datalad create iris_data
 
    and subsequently got the data from a publicly available
-   `GitHub Gist <https://gist.github.com/netj/8836201>`_ with a
+   `GitHub Gist <https://gist.github.com/netj/8836201>`_, a code snippet or other short standalone information (more on Gists `here <https://docs.github.com/en/github/writing-on-github/editing-and-sharing-content-with-gists/creating-gists#about-gists>`__), with a
    :command:`datalad download-url` command:
-
-    .. findoutmore:: What are GitHub Gists?
-
-       GitHub Gists are a particular service offered by GitHub that allow users
-       to share pieces of code snippets and other short/small standalone
-       information. Find out more on Gists
-       `here <https://help.github.com/en/github/writing-on-github/creating-gists#about-gists>`__.
 
     .. runrecord:: _examples/DL-101-130-102
        :workdir: dl-101
@@ -266,7 +253,9 @@ by installing it as a subdataset. Make sure to install it as a subdataset of
 
    $ cd midterm_project
    # we are in midterm_project, thus -d . points to the root of it.
-   $ datalad clone -d . https://github.com/datalad-handbook/iris_data.git input/
+   $ datalad clone -d . \
+     https://github.com/datalad-handbook/iris_data.git \
+     input/
 
 Note that we did not keep its original name, ``iris_data``, but rather provided
 a path with a new name, ``input``, because this much more intuitively comprehensible.
@@ -290,7 +279,7 @@ dataset, as is its ``input/`` subdataset:
 
 .. figure:: ../artwork/src/virtual_dstree_dl101_midterm.svg
    :alt: Overview of (linked) datasets in DataLad-101.
-   :figwidth: 100%
+   :width: 50%
 
 
 
@@ -400,9 +389,11 @@ point with the ``--version-tag`` option of :command:`datalad save`.
    :cast: 10_yoda
    :notes: Save the analysis to the history
 
-   $ datalad save -m "add script for kNN classification and plotting" --version-tag ready4analysis code/script.py
+   $ datalad save -m "add script for kNN classification and plotting" \
+     --version-tag ready4analysis \
+     code/script.py
 
-.. findoutmore:: What is a tag?
+.. find-out-more:: What is a tag?
 
    :term:`tag`\s are markers that you can attach to commits in your dataset history.
    They can have any name, and can help you and others to identify certain commits
@@ -412,6 +403,7 @@ point with the ``--version-tag`` option of :command:`datalad save`.
 
    .. runrecord:: _examples/DL-101-130-110
       :workdir: dl-101/DataLad-101/midterm_project
+      :lines: 1-13
       :language: console
 
       $ git show ready4analysis
@@ -435,7 +427,7 @@ simply executing the script would work as well -- thanks to DataLad's Python API
 But using :command:`datalad run` will capture full provenance, and will make
 re-execution with :command:`datalad rerun` easy.
 
-.. note::
+.. importantnote:: Additional software requirements: pandas, seaborn, sklearn
 
    Note that you need to have the following Python packages installed to run the
    analysis [#f3]_:
@@ -448,7 +440,18 @@ re-execution with :command:`datalad rerun` easy.
    snippets to copy and paste. However, if you do not want to install any
    Python packages, do not execute the remaining code examples in this section
    -- an upcoming section on ``datalad containers-run`` will allow you to
-   perform the analysis without changing with your Python software-setup.
+   perform the analysis without changing your Python software-setup.
+
+.. windows-wit:: You may need to use "python", not "python3"
+
+   If executing the code below returns an exit code of 9009, there may be no ``python3`` -- instead, it is called solely ``python``.
+   Please run the following instead (adjusted for line breaks, you should be able to copy-paste this as a whole)::
+
+      datalad run -m "analyze iris data with classification analysis" ^
+       --input "input/iris.csv" ^
+       --output "prediction_report.csv" ^
+       --output "pairwise_relationships.png" ^
+       "python code/script.py"
 
 .. runrecord:: _examples/DL-101-130-111
    :language: console
@@ -495,7 +498,7 @@ But what is still missing is a human readable description of your dataset.
 The YODA procedure kindly placed a ``README.md`` file into the root of your
 dataset that you can use for this [#f4]_.
 
-.. note::
+.. importantnote:: Template for introduction to DataLad
 
    If you plan to share your own datasets with people that are unfamiliar with
    DataLad, it may be helpful to give a short explanation of what a DataLad
@@ -545,7 +548,7 @@ Note that one feature of the YODA procedure was that it configured certain files
 root of the dataset) to be saved in Git instead of git-annex. This was the
 reason why the ``README.md`` in the root of the dataset was easily modifiable [#f4]_.
 
-.. findoutmore:: Saving contents with Git regardless of configuration with --to-git
+.. find-out-more:: Saving contents with Git regardless of configuration with --to-git
 
    .. index:: ! datalad command; save --to-git
 
@@ -573,7 +576,7 @@ everything you did easily.
 The only thing left to do is to hand in your assignment. According to the
 syllabus, this should be done via :term:`GitHub`.
 
-.. findoutmore:: What is GitHub?
+.. find-out-more:: What is GitHub?
 
    GitHub is a web based hosting service for Git repositories. Among many
    different other useful perks it adds features that allow collaboration on
@@ -590,22 +593,23 @@ syllabus, this should be done via :term:`GitHub`.
    content from GitHub. GitHub can also resolve subdataset links to other GitHub
    repositories, which lets you navigate through nested datasets in the web-interface.
 
-   .. figure:: ../artwork/src/screenshot_midtermproject.png
+   .. image:: ../artwork/src/screenshot_midtermproject.png
       :alt: The midterm project repository, published to GitHub
 
    The above screenshot shows the linkage between the analysis project you will create
    and its subdataset. Clicking on the subdataset (highlighted) will take you to the iris dataset
    the handbook provides, shown below.
 
-   .. figure:: ../artwork/src/screenshot_submodule.png
+   .. image:: ../artwork/src/screenshot_submodule.png
       :alt: The input dataset is linked
 
+.. index:: ! datalad command; create-sibling-github
 .. _publishtogithub:
 
 Publishing the dataset to GitHub
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. note::
+.. importantnote:: Demo needs a GitHub account or alternative
 
    The upcoming part requires a GitHub account. If you do not have one you
    can either
@@ -614,7 +618,7 @@ Publishing the dataset to GitHub
      if you want to.
    - Or exchange the command ``create-sibling-github`` with
      ``create-sibling-gitlab`` if you have a GitLab account instead of a GitHub
-     account.
+     account (checkout `the documentation <http://docs.datalad.org/en/stable/generated/man/datalad-create-sibling-gitlab.html>`_ for differences in invocation beforehand, though).
    - Decide to not follow along.
 
 For this, you need to
@@ -623,17 +627,32 @@ For this, you need to
 - configure this GitHub repository to be a :term:`sibling` of the ``midterm_project`` dataset,
 - and *publish* your dataset to GitHub.
 
+.. index:: ! datalad command; create-sibling-gitlab
+
 Luckily, DataLad can make all of this very easy with the
 :command:`datalad create-sibling-github` (:manpage:`datalad-create-sibling-github` manual)
 command (or, for `GitLab <https://about.gitlab.com/>`_, :command:`datalad create-sibling-gitlab`,
 :manpage:`datalad-create-sibling-gitlab` manual).
 
-.. index:: ! datalad command; create-sibling-github, ! datalad command; create-sibling-gitlab
-
+The two commands have different arguments and options.
+Here, we look at :command:`datalad create-sibling-github`.
 The command takes a repository name and GitHub authentication credentials
 (either in the command line call with options ``github-login <NAME>`` and
-``github-passwd <PASSWORD>``, with an *oauth* token stored in the Git
-configuration [#f5]_, or interactively). Based on the credentials and the
+``github-passwd <PASSWORD>``, with an *oauth* `token <https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token>`_ stored in the Git
+configuration, or interactively).
+
+.. importantnote:: GitHub deprecated User Password authentication
+
+   GitHub `decided to deprecate user-password authentication <https://developer.github.com/changes/2020-02-14-deprecating-password-auth/>`_ and will only support authentication via personal access token from November 13th 2020 onwards.
+   Upcoming changes in DataLad's API will reflect this change starting with DataLad version ``0.13.6`` by removing the ``github-passwd`` argument.
+   Starting with DataLad ``0.16.0``, a new set of commands for interactions with a variety of hosting services will be introduced (for more information, see section :ref:`share_hostingservice`).
+
+   To ensure successful authentication, please create a personal access token at `github.com/settings/tokens <https://github.com/settings/tokens>`_ [#f5]_, and either
+
+   * supply the token with the argument ``--github-login <TOKEN>`` from the command line,
+   * or supply the token from the command line when queried for a password
+
+Based on the credentials and the
 repository name, it will create a new, empty repository on GitHub, and
 configure this repository as a sibling of the dataset:
 
@@ -645,6 +664,10 @@ configure this repository as a sibling of the dataset:
 
        $ python3 /home/me/makepushtarget.py '/home/me/dl-101/DataLad-101/midterm_project' 'github' '/home/me/pushes/midterm_project' False True
 
+.. windows-wit:: Your shell will not display credentials
+
+   Don't be confused if you are prompted for your GitHub credentials, but can't seem to type -- the terminal protects your private information by not displaying what you type.
+   Simply type in what is requested, and press enter.
 
 .. code-block:: bash
 
@@ -662,7 +685,7 @@ Verify that this worked by listing the siblings of the dataset:
    .: here(+) [git]
    .: github(-) [https://github.com/adswa/midtermproject.git (git)]
 
-.. gitusernote::
+.. gitusernote:: Create-sibling-github internals
 
    Creating a sibling on GitHub will create a new empty repository under the
    account that you provide and set up a *remote* to this repository. Upon a
@@ -677,15 +700,15 @@ any of your dataset's history or files. This requires *publishing* the current
 state of the dataset to this :term:`sibling` with the :command:`datalad push`
 (:manpage:`datalad-push` manual) command.
 
-.. note::
+.. importantnote:: Learn how to push "on the job"
 
     Publishing is one of the remaining big concepts that this handbook tries to
     convey. However, publishing is a complex concept that encompasses a large
     proportion of the previous handbook content as a prerequisite. In order to be
     not too overwhelmingly detailed, the upcoming sections will approach
     :command:`push` from a "learning-by-doing" perspective:
-    You will see a first :command:`push` to GitHub below, and the findoutmore at
-    the end of this section will already give a practical glimpse into the
+    You will see a first :command:`push` to GitHub below, and the :ref:`Findoutmore on the published dataset <fom-midtermclone>`
+    at the end of this section will already give a practical glimpse into the
     difference between annexed contents and contents stored in Git when pushed
     to GitHub. The chapter :ref:`chapter_thirdparty` will extend on this,
     but the section :ref:`push`
@@ -709,22 +732,50 @@ state of the dataset to this :term:`sibling` with the :command:`datalad push`
 
 Thus, you have now published your dataset's history to a public place for others
 to see and clone. Below we will explore how this may look and feel for others.
+
+.. importantnote:: Cave! Your default branch may be git-annex
+
+   If your published dataset looks weird, with cryptic directories names instead of file names, GitHub may have made the :term:`git-annex branch` your repositories' default branch.
+   Learn how to fix this in the  corresponding :ref:`FAQ <gitannexdefault>`.
+
 There is one important detail first, though: By default, your tags will not be published.
 Thus, the tag ``ready4analysis`` is not pushed to GitHub, and currently this
 version identifier is unavailable to anyone else but you.
 The reason for this is that tags are viral -- they can be removed locally, and old
 published tags can cause confusion or unwanted changes. In order to publish a tag,
-an additional :command:`git push` [#f6]_ with the ``--tags`` option is required:
+an additional :command:`git push`  with the ``--tags`` option is required:
 
 .. code-block:: bash
 
    $ git push github --tags
 
+.. gitusernote:: Pushing tags
+
+    Note that this is a :command:`git push`, not :command:`datalad push`.
+    Tags could be pushed upon a :command:`datalad push`, though, if one
+    configures (what kind of) tags to be pushed. This would need to be done
+    on a per-sibling basis in ``.git/config`` in the ``remote.*.push``
+    configuration. If you had a :term:`sibling` "github", the following
+    configuration would push all tags that start with a ``v`` upon a
+    :command:`datalad push --to github`::
+
+       $ git config --local remote.github.push 'refs/tags/v*'
+
+    This configuration would result in the following entry in ``.git/config``::
+
+       [remote "github"]
+             url = git@github.com/adswa/midtermproject.git
+             fetch = +refs/heads/*:refs/remotes/github/*
+             annex-ignore = true
+             push = refs/tags/v*
+
 Yay! Consider your midterm project submitted! Others can now install your
 dataset and check out your data science project -- and even better: they can
-reproduce your data science project easily from scratch!
+reproduce your data science project easily from scratch (take a look into the :ref:`Findoutmore <fom-midtermclone>` to see how)!
 
-.. findoutmore:: On the looks and feels of this published dataset
+.. find-out-more:: On the looks and feels of this published dataset
+   :name: fom-midtermclone
+   :float:
 
    Now that you have created and published such a YODA-compliant dataset, you
    are understandably excited how this dataset must look and feel for others.
@@ -799,10 +850,10 @@ reproduce your data science project easily from scratch!
    Proud of your midterm project you can not wait to use those principles the
    next time again.
 
-    .. figure:: ../artwork/src/reproduced.svg
+    .. image:: ../artwork/src/reproduced.svg
        :width: 50%
 
-.. gitusernote::
+.. gitusernote:: Push internals
 
    The :command:`datalad push` uses ``git push``, and ``git annex copy`` under
    the hood. Publication targets need to either be configured remote Git repositories,
@@ -860,24 +911,10 @@ reproduce your data science project easily from scratch!
          configured your dataset. If you want to re-read the full chapter on
          configurations and run-procedures, start with section :ref:`config`.
 
-.. [#f5] Such a token can be obtained, for example, using the command line
-         GitHub interface (https://github.com/sociomantic/git-hub) by running:
-         ``git hub setup`` (if no 2FA is used).
+.. [#f5] Instead of using GitHub's WebUI you could also obtain a token using the command line GitHub interface (https://github.com/sociomantic-tsunami/git-hub) by running ``git hub setup`` (if no 2FA is used).
+         If you decide to use the command line interface, here is help on how to use it:
+         Clone the `GitHub repository <https://github.com/sociomantic-tsunami/git-hub>`_ to your local computer.
+         Decide whether you want to build a Debian package to install, or install the single-file Python script distributed in the repository.
+         Make sure that all `requirements <https://github.com/sociomantic-tsunami/git-hub>`_ for your preferred version are installed , and run either ``make deb`` followed by ``sudo dpkg -i deb/git-hub*all.deb``, or ``make install``.
 
-.. [#f6] Note that this is a :command:`git push`, not :command:`datalad push`.
-         Tags could be pushed upon a :command:`datalad push`, though, if one
-         configures (what kind of) tags to be pushed. This would need to be done
-         on a per-sibling basis in ``.git/config`` in the ``remote.*.push``
-         configuration. If you had a :term:`sibling` "github", the following
-         configuration would push all tags that start with a ``v`` upon a
-         :command:`datalad push --to github`::
-
-            $ git config --local remote.github.push 'refs/tags/v*'
-
-         This configuration would result in the following entry in ``.git/config``::
-
-            [remote "github"]
-                  url = git@github.com/adswa/midtermproject.git
-                  fetch = +refs/heads/*:refs/remotes/github/*
-                  annex-ignore = true
-                  push = refs/tags/v*
+.. [#f7] To re-read about Git's configurations and the ``git config`` command, please take a look at the section :ref:`config`.

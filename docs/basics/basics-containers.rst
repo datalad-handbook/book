@@ -6,6 +6,7 @@ One step further
 .. index:: ! Chapter; 7. Software container
 
 .. figure:: ../artwork/src/forward.svg
+   :width: 50%
 
 .. toctree::
    :maxdepth: 1

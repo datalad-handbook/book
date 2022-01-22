@@ -18,6 +18,7 @@ for data analysis projects [#f1]_. The resulting superdataset can be publicly
 shared, data can be obtained effortlessly on demand by anyone that has the superdataset,
 and results and paper can be generated and recomputed everywhere on demand.
 
+A template to start your own reproducible paper with the same set up can be found `on GitHub <https://github.com/datalad-handbook/repro-paper-sketch/>`__.
 
 The Challenge
 ^^^^^^^^^^^^^
@@ -82,12 +83,15 @@ update of the ``algorithm/`` subdataset, and upon command-line invocation his ma
 itself with the new figures.
 
 
-.. note::
+.. importantnote:: Take a look at the real manuscript dataset
+
    The actual manuscript this use case is based on can be found
    `here <https://github.com/psychoinformatics-de/paper-remodnav/>`_:
    https://github.com/psychoinformatics-de/paper-remodnav/. :command:`datalad clone`
    the repository and follow the few instructions in the README to experience the
    DataLad approach described above.
+
+   There is also a slimmed down template that uses the analysis demonstrated in :ref:`yoda_project` and packages it up into a reproducible paper using the same tools: `github.com/datalad-handbook/repro-paper-sketch/ <https://github.com/datalad-handbook/repro-paper-sketch/>`_.
 
 
 Step-by-Step
@@ -294,7 +298,7 @@ to fill tables with unique names with minimal work, for example like this (excer
        AL versus RA        & \kappaALRAimgSac & \kappaALRAdotsSac \\
        AL versus MN        & \kappaALMNimgSac & \kappaALMNdotsSac \\
        \noalign{\smallskip}
-       % [..] more content ommitted
+       % [..] more content omitted
      \end{tabular*}
    \end{table}
 
@@ -333,7 +337,7 @@ and loops to keep the code within a few lines for a full table, such as
 Running the python script will hence print plenty of LaTeX commands to your screen (try it out
 in the actual manuscript, if you want!). This was step number 1 of 4.
 
-.. findoutmore:: How about figures?
+.. find-out-more:: How about figures?
 
    To include figures, the figures just need to be saved into a dedicated location (for example
    a directory ``img/``) and included into the ``.tex`` file with standard ``LaTeX`` syntax.
@@ -357,7 +361,7 @@ in the actual manuscript, if you want!). This was step number 1 of 4.
 
    This figure looks like this in the manuscript:
 
-   .. figure:: ../artwork/src/img/remodnav2.png
+   .. image:: ../artwork/src/img/remodnav2.png
 
 For step 2 and 3, the print statements need to be captured and bound to the ``.tex`` file.
 The `tee <https://en.wikipedia.org/wiki/Tee_(command)>`_ command can write all of the output to

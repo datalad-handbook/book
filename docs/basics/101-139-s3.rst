@@ -1,0 +1,428 @@
+.. _s3:
+
+Walk-through: Amazon S3 as a special remote
+-------------------------------------------
+
+`Amazon S3 <https://aws.amazon.com/s3/>`_ (or Amazon Simple Storage Service) is a
+popular service by `Amazon Web Services <https://aws.amazon.com/>`_ (AWS) that
+provides object storage through a web service interface. An S3 bucket can be 
+configured as a :term:`git-annex` :term:`special remote`, allowing it to be used
+as a DataLad publication target. This means that you can use Amazon S3 to store your
+annexed data contents and allow users to install your full dataset with DataLad
+from a publicly available repository service such as GitHub.
+
+.. find-out-more:: What is a special remote
+
+   A special-remote is an extension to Git’s concept of remotes, and can
+   enable :term:`git-annex` to transfer data from and possibly to places that are not Git
+   repositories (e.g., cloud services or external machines such as an HPC
+   system). For example, *s3* special remote uploads and downloads content
+   to AWS S3, *web* special remote downloads files from the web, *datalad-archive*
+   extracts files from the annexed archives, etc. Don’t envision a special-remote
+   as merely a physical place or location – a special-remote is a protocol that
+   defines the underlying transport of your files to and/or from a specific location.
+
+In this section, we provide a walkthrough on how to set up Amazon S3 for hosting
+your DataLad dataset, and how to access this data locally from GitHub.
+
+Prerequisites
+^^^^^^^^^^^^^
+In order to use Amazon S3 for hosting your datasets, and to follow the steps below, you need to:
+
+- Signup for an `AWS account <https://aws.amazon.com/>`_
+- Verify your account
+- Find your AWS access key
+- Signup for a `GitHub account <https://github.com/join>`_
+- Install `wget <https://www.gnu.org/software/wget/>`_ in order to download sample data
+- Optional: install the `AWS Command Line Interface <https://aws.amazon.com/cli/>`_
+
+The `AWS signup <https://aws.amazon.com/>`_ procedure requires you to provide your
+e-mail address, physical address, and credit card details before verification is possible. 
+
+.. importantnote:: AWS account usage can incur costs
+
+   While Amazon provides `Free Tier <https://aws.amazon.com/free/>`_ access to its services,
+   it can still potentially result in costs if usage exceeds `Free Tier Limits <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/free-tier-limits.html>`_.
+   Be sure to take note of these limits, or set up `automatic tracking alerts <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/tracking-free-tier-usage.html>`_
+   to be notified before incurring unnecessary costs.
+
+
+To find your AWS access key, log in to the `AWS Console <https://console.aws.amazon.com/>`_,
+open the dropdown menu at your username (top right), and select "My Security
+Credentials". A new page will open with several options, including "Access keys
+(access key ID and secret access key)" from where you can select "Create New Access
+Key" or access existing credentials. Take note to copy both the "Access Key ID" and
+"Secret Access Key".
+
+.. figure:: ../artwork/src/aws_s3_create_access_key.png
+
+   Create a new AWS access key from "My Security Credentials"
+
+To ensure that your access key details are known when initializing the special
+remote, export them as :term:`environment variable`\s in your shell:
+
+.. code-block:: bash
+
+   $ export AWS_ACCESS_KEY_ID="<your-access-key-ID>"
+   $ export AWS_SECRET_ACCESS_KEY"<your-secret-access-key>"
+
+In order to work directly with AWS via your command-line shell, you can
+`install the AWS CLI <https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html>`_.
+However, that is not required for this walkthrough.
+
+Lastly, to publish your data repository to GitHub, from which users will be able do install
+the complete dataset, you will need a `GitHub account <https://github.com/join>`_.
+
+Your DataLad dataset
+^^^^^^^^^^^^^^^^^^^^
+
+If you already have a small DataLad dataset to practice with, feel free to use it
+during the rest of the walkthrough. If you do not have data, no problem! As a general
+introduction, the steps below will download a small public neuroimaging dataset,
+and transform it into a DataLad dataset. We'll use the `MoAEpilot <https://www.fil.ion.ucl.ac.uk/spm/data/auditory/>`_
+dataset containing anatomical and functional images from a single subject, as well as some metadata.
+
+In the first step, we create a new directory called ``neuro-data-s3``, we download and extract the data,
+and then we move the extracted contents into our new directory:
+
+.. code-block:: bash
+
+   $ cd <wherever-you-want-to-create-the-dataset>
+   $ mkdir neuro-data-s3 && \
+   wget https://www.fil.ion.ucl.ac.uk/spm/download/data/MoAEpilot/MoAEpilot.bids.zip -O neuro-data-s3.zip && \
+   unzip neuro-data-s3.zip -d neuro-data-s3 && \
+   rm neuro-data-s3.zip && \
+   cd neuro-data-s3 && \
+   mv MoAEpilot/* . && \
+   rm -R MoAEpilot
+
+   --2021-06-01 09:32:25--  https://www.fil.ion.ucl.ac.uk/spm/download/data/MoAEpilot/MoAEpilot.bids.zip
+   Resolving www.fil.ion.ucl.ac.uk (www.fil.ion.ucl.ac.uk)... 193.62.66.18
+   Connecting to www.fil.ion.ucl.ac.uk (www.fil.ion.ucl.ac.uk)|193.62.66.18|:443... connected.
+   HTTP request sent, awaiting response... 200 OK
+   Length: 30176409 (29M) [application/zip]
+   Saving to: ‘neuro-data-s3.zip’
+
+   neuro-data-s3.zip                                       100%[=============================================================================================================================>]  28.78M  55.3MB/s    in 0.5s
+
+   2021-06-01 09:32:25 (55.3 MB/s) - ‘neuro-data-s3.zip’ saved [30176409/30176409]
+
+   Archive:  neuro-data-s3.zip
+      creating: neuro-data-s3/MoAEpilot/
+   inflating: neuro-data-s3/MoAEpilot/task-auditory_bold.json
+   inflating: neuro-data-s3/MoAEpilot/README
+   inflating: neuro-data-s3/MoAEpilot/dataset_description.json
+   inflating: neuro-data-s3/MoAEpilot/CHANGES
+      creating: neuro-data-s3/MoAEpilot/sub-01/
+      creating: neuro-data-s3/MoAEpilot/sub-01/func/
+   inflating: neuro-data-s3/MoAEpilot/sub-01/func/sub-01_task-auditory_events.tsv
+   inflating: neuro-data-s3/MoAEpilot/sub-01/func/sub-01_task-auditory_bold.nii
+      creating: neuro-data-s3/MoAEpilot/sub-01/anat/
+   inflating: neuro-data-s3/MoAEpilot/sub-01/anat/sub-01_T1w.nii
+
+Now we can view the directory tree to see the dataset content:
+
+.. code-block:: bash
+
+   $ tree
+   .
+   ├── CHANGES
+   ├── README
+   ├── dataset_description.json
+   ├── sub-01
+   │   ├── anat
+   │   │   └── sub-01_T1w.nii
+   │   └── func
+   │       ├── sub-01_task-auditory_bold.nii
+   │       └── sub-01_task-auditory_events.tsv
+   └── task-auditory_bold.json
+
+The next step is to ensure that this is a valid DataLad dataset,
+with ``main`` as the default branch.
+
+.. importantnote:: Ensure main is set as default branch for newly-created repositories
+
+  Any new dataset configured with ``master`` instead of ``main`` as the default branch will get
+  ``git-annex`` configured to be the default displayed branch when it is pushed to GitHub.
+  See  :ref:`this FAQ for more information <gitannexdefault>`. This can be prevented by:
+
+  * `a user/organization setting on GitHub about default branches <https://github.blog/changelog/2020-08-26-set-the-default-branch-for-newly-created-repositories/>`_
+  * setting ``main`` as the default branch by changing your global ``git config``::
+
+      git config --global init.defaultBranch main
+
+We can turn our ``neuro-data-s3`` directory into a DataLad dataset with the
+:command:`datalad create --force` command. After that, we save the dataset with :command:`datalad save`:
+
+.. code-block:: bash
+
+   $ datalad create --force --description "neuro data to host on s3"
+   [INFO   ] Creating a new annex repo at /Users/jsheunis/Documents/neuro-data-s3
+   [INFO   ] Scanning for unlocked files (this may take some time)
+   create(ok): /Users/jsheunis/Documents/neuro-data-s3 (dataset)
+
+   $ datalad save -m "Add public data"
+   add(ok): CHANGES (file)
+   add(ok): README (file)
+   add(ok): dataset_description.json (file)
+   add(ok): sub-01/anat/sub-01_T1w.nii (file)
+   add(ok): sub-01/func/sub-01_task-auditory_bold.nii (file)
+   add(ok): sub-01/func/sub-01_task-auditory_events.tsv (file)
+   add(ok): task-auditory_bold.json (file)
+   save(ok): . (dataset)
+   action summary:
+   add (ok: 7)
+   save (ok: 1)
+
+Initialize the S3 special remote
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The steps below have been adapted from instructions provided on `git-annex documentation <https://git-annex.branchable.com/tips/public_Amazon_S3_remote/>`_.
+
+By initializing the special remote, what actually happens in the background
+is that a :term:`sibling` is added to the DataLad dataset. This can be verified
+by running :command:`datalad siblings` before and after initializing the special
+remote. Before, the only "sibling" is the actual DataLad dataset:
+
+.. code-block:: bash
+
+   $ datalad siblings
+   .: here(+) [git]
+
+To initialize a public S3 bucket as a special remote, we run :command:`git annex initremote`
+with several options, for which `git-annex documentation on S3 <https://git-annex.branchable.com/special_remotes/S3/>`_
+provides detailed information. Be sure to select a unique bucket name
+that adheres to Amazon S3's `bucket naming rules <https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html>`_.
+You can declare the bucket name (in this example "sample-neurodata-public") as a variable since
+it will be used again later.
+
+.. code-block:: bash
+
+   $ BUCKET=sample-neurodata-public
+   $ git annex initremote public-s3 type=S3 encryption=none \
+   bucket=$BUCKET public=yes datacenter=EU autoenable=true
+   initremote public-s3 (checking bucket...) (creating bucket in EU...) ok
+   (recording state in git...)
+
+The options used in this example include:
+
+- ``public-s3``: the name we select for our special remote, so that git-annex and DataLad can identify it
+- ``type=S3``: the type of special remote (git-annex can work with many `special remote types <https://git-annex.branchable.com/special_remotes/>`_)
+- ``encryption=none``: no encryption (alternatively enable ``encryption=shared``, meaning files will be encrypted on S3, and anyone with a clone of the git repository will be able to download and decrypt them)
+- ``bucket=$BUCKET``: the name of the bucket to be created on S3 (using the declared variable)
+- ``public=yes``: Set to "yes" to allow public read access to files sent to the S3 remote
+- ``datacenter=EU``: specify where the data will be located; here we set "EU" which is EU/Ireland a.k.a. ``eu-west-1`` (defaults to "US" if not specified)
+- ``autoenable=true``: git-annex will attempt to enable the special remote when it is run in a new clone, implying that users won't have to run extra steps when installing the dataset with DataLad
+
+After :command:`git annex initremote` has successfully initialized the special remote,
+you can run :command:`datalad siblings` to see that a sibling has been added:
+
+.. code-block:: bash
+
+   $ datalad siblings
+   .: here(+) [git]
+   .: public-s3(+) [git]
+
+You can also visit the `S3 Console <https://console.aws.amazon.com/s3/>`_ and navigate
+to "Buckets" to see your newly created bucket. It should only have a single 
+``annex-uuid`` file as content, since no actual file content has been pushed yet.
+
+.. figure:: ../artwork/src/aws_s3_bucket_empty.png
+
+   A newly created public S3 bucket
+
+Lastly, for git-annex to be able to download files from the bucket without requiring your
+AWS credentials, it needs to know where to find the bucket. We do this by setting the bucket
+URL, which takes a standard format incorporating the bucket name and location (see the code blocl below).
+Alternatively, this URL can also be copied from your AWS console.
+
+.. code-block:: bash
+
+   $ git annex enableremote public-s3 \
+   publicurl="https://$BUCKET.s3-eu-west-1.amazonaws.com"
+   enableremote public-s3 ok
+   (recording state in git...)
+
+
+Publish the dataset
+^^^^^^^^^^^^^^^^^^^
+
+The special remote is ready, and now we want to give people seamless access to the
+DataLad dataset. A common way to do this is to create a sibling of the dataset on
+GitHub using :command:`create-sibling-github`. In order to link the contents in the
+S3 special remote to the GitHub sibling, we also need to configure a publication
+dependency to the ``public-s3`` sibling, which is done with the ``publish-depends <sibling>``
+option. For consistency, we'll give the GitHub repository the same name as the dataset name. 
+
+.. code-block:: bash
+
+   $ datalad create-sibling-github -d . neuro-data-s3 \
+   --publish-depends public-s3
+   [INFO   ] Configure additional publication dependency on "public-s3"
+   .: github(-) [https://github.com/jsheunis/sample-neuro-data.git (git)]
+   'https://github.com/jsheunis/sample-neuro-data.git' configured as sibling 'github' for Dataset(/Users/jsheunis/Documents/neuro-data-s3)
+
+Notice that by creating this sibling, DataLad created an actual (empty) dataset repository
+on GitHub, which required preconfigured GitHub authentication details.
+
+.. importantnote:: GitHub deprecated its User Password authentication
+
+   GitHub `decided to deprecate user-password authentication <https://developer.github.com/changes/2020-02-14-deprecating-password-auth/>`_ and
+   only supports authentication via personal access token from November 13th 2020 onwards. Changes in DataLad's API reflect this change starting
+   with DataLad version ``0.13.6`` by removing the ``github-passwd`` argument.
+   Starting with DataLad ``0.16.0``, a new set of commands for interactions with a variety of hosting services will be introduced (for more information, see section :ref:`share_hostingservice`).
+
+   To ensure successful authentication, please create a personal access token at `github.com/settings/tokens <https://github.com/settings/tokens>`_ [#f5]_, and either
+
+   * supply the token with the argument ``--github-login <TOKEN>`` from the command line,
+   * or supply the token from the command line when queried for a password
+
+
+The creation of the sibling (named ``github``) can also be confirmed with :command:`datalad siblings`:
+
+.. code-block:: bash
+
+   $ datalad siblings
+   .: here(+) [git]
+   .: public-s3(+) [git]
+   .: github(-) [https://github.com/jsheunis/neuro-data-s3.git (git)]
+
+The next step is to actually push the file content to where it needs to be in order
+to allow others to access the data. We do this with :command:`datalad push --to github`.
+The ``--to github`` specifies which sibling to push the dataset to, but because of the
+publication dependency DataLad will push the annexed contents to the special remote first.
+
+.. code-block:: bash
+
+   $ datalad push --to github
+   copy(ok): CHANGES (file) [to public-s3...]
+   copy(ok): README (file) [to public-s3...]
+   copy(ok): dataset_description.json (file) [to public-s3...]
+   copy(ok): sub-01/anat/sub-01_T1w.nii (file) [to public-s3...]
+   copy(ok): sub-01/func/sub-01_task-auditory_bold.nii (file) [to public-s3...]
+   copy(ok): sub-01/func/sub-01_task-auditory_events.tsv (file) [to public-s3...]
+   copy(ok): task-auditory_bold.json (file) [to public-s3...]
+   publish(ok): . (dataset) [refs/heads/main->github:refs/heads/main [new branch]]
+   publish(ok): . (dataset) [refs/heads/git-annex->github:refs/heads/git-annex [new branch]]
+
+You can now view the annexed file content (with MD5 hashes as filenames) in the
+`S3 bucket <https://console.aws.amazon.com/s3/>`_:
+
+.. figure:: ../artwork/src/aws_s3_bucket_full.png
+
+   The public S3 bucket with annexed file content pushed
+
+Lastly, the GitHub repository will also show the newly pushed dataset (with
+the "files" being symbolic links to the annexed content on the S3 remote):
+
+.. figure:: ../artwork/src/aws_s3_github_repo.png
+
+   The public GitHub repository with the DataLad dataset
+
+
+Test the setup!
+^^^^^^^^^^^^^^^
+
+You have now successfully created a DataLad dataset with an AWS S3 special remote for
+annexed file content and with a public GitHub sibling from which the dataset can be accessed.
+Users can now :command:`datalad clone` the dataset using the GitHub repository URL:
+
+.. code-block:: bash
+
+   $ cd /tmp
+   $ datalad clone https://github.com/<enter-your-your-organization-or-account-name-here>/neuro-data-s3.git
+   [INFO   ] Scanning for unlocked files (this may take some time)
+   [INFO   ] Remote origin not usable by git-annex; setting annex-ignore
+   install(ok): /tmp/neuro-data-s3 (dataset)
+
+   $ cd neuro-data-s3
+   $ datalad get . -r
+   [INFO   ] Installing Dataset(/tmp/neuro-data-s3) to get /tmp/neuro-data-s3 recursively
+   get(ok): CHANGES (file) [from public-s3...]
+   get(ok): README (file) [from public-s3...]
+   get(ok): dataset_description.json (file) [from public-s3...]
+   get(ok): sub-01/anat/sub-01_T1w.nii (file) [from public-s3...]
+   get(ok): sub-01/func/sub-01_task-auditory_bold.nii (file) [from public-s3...]
+   get(ok): sub-01/func/sub-01_task-auditory_events.tsv (file) [from public-s3...]
+   get(ok): task-auditory_bold.json (file) [from public-s3...]
+   action summary:
+   get (ok: 7)
+
+The results of running the code above show that DataLad could :command:`install` the dataset correctly
+and :command:`get` all annexed file content successfully from the ``public-s3`` sibling.
+
+Congrats!
+
+
+Advanced examples
+^^^^^^^^^^^^^^^^^
+
+When there is a lot to upload, automation is your friend.
+Below, we try to collect a few real world examples that go beyond toy examples.
+Do you have one and want to share it with the world as well? Please `get in touch <https://github.com/datalad-handbook/book/issues/new>`_!
+
+Automated uploads of dataset hierarchies
+""""""""""""""""""""""""""""""""""""""""
+
+The script below is a quick-and-dirty solution to the task of exporting a hierarchy of datasets to an S3 bucket.
+I needs to be invoked with three positional arguments, the path to the :term:`DataLad superdataset`, the S3 bucket name, and a prefix.
+
+.. code-block:: bash
+
+	#!/bin/bash
+
+	set -eu
+
+	export PS4='> '
+	set -x
+
+	topds="$1"
+	bucket="$2"
+	prefix="$3"
+
+	# TEMP
+	srname="${bucket}5"
+
+	topdsfull=$PWD/$topds/
+
+	if ! git annex version | grep 8.2021 ; then
+		echo "E: need recent git annex. check what you have"
+		exit 1
+	fi
+
+	{ echo "$topdsfull"; datalad -f '{path}' subdatasets -r -d "$topds"; } | \
+	while read ds; do
+		relds=$(relpath "$ds" "$topdsfull")
+		fileprefix="$prefix/$relds/"
+		fileprefix=$(python -c "import os,sys; print(os.path.normpath(sys.argv[1]))" "$fileprefix")
+		echo $relds;
+		(
+			cd "$ds";
+			# TODO: make sure that there is no ./ or // in fileprefix
+			if ! git remote | grep -q "$srname"; then
+				git annex initremote --debug "$srname" \
+					type=S3 \
+					autoenable=true \
+					bucket=$bucket \
+					encryption=none \
+					exporttree=yes \
+					"fileprefix=$fileprefix/" \
+					host=s3.amazonaws.com \
+					partsize=1GiB \
+					port=80 \
+					"publicurl=https://s3.amazonaws.com/$bucket" \
+					public=yes \
+					versioning=yes
+			fi
+			git annex export --to "$srname" --jobs 6 master
+
+		)
+	done
+
+
+
+.. [#f5] Instead of using GitHub's WebUI you could also obtain a token using the command line GitHub interface (https://github.com/sociomantic-tsunami/git-hub) by running ``git hub setup`` (if no 2FA is used).
+   If you decide to use the command line interface, here is help on how to use it:
+   Clone the `GitHub repository <https://github.com/sociomantic-tsunami/git-hub>`_ to your local computer.
+   Decide whether you want to build a Debian package to install, or install the single-file Python script distributed in the repository.
+   Make sure that all `requirements <https://github.com/sociomantic-tsunami/git-hub>`_ for your preferred version are installed , and run either ``make deb`` followed by ``sudo dpkg -i deb/git-hub*all.deb``, or ``make install``.

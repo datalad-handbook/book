@@ -4,11 +4,14 @@ $ datalad clone -d . \
 [INFO] Cloning dataset to Dataset(/home/me/usecases/repro2/glm_analysis/inputs/rawdata)
 [INFO] Attempting to clone from ../localizer_scans to /home/me/usecases/repro2/glm_analysis/inputs/rawdata
 [INFO] Completed clone attempts for Dataset(/home/me/usecases/repro2/glm_analysis/inputs/rawdata)
+[INFO] scanning for unlocked files (this may take some time)
 install(ok): inputs/rawdata (dataset)
 add(ok): inputs/rawdata (file)
 add(ok): .gitmodules (file)
 save(ok): . (dataset)
+add(ok): .gitmodules (file)
+save(ok): . (dataset)
 action summary:
-  add (ok: 2)
+  add (ok: 3)
   install (ok: 1)
-  save (ok: 1)
+  save (ok: 2)

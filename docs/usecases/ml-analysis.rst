@@ -71,7 +71,7 @@ In a second step, a classifier needs to be trained on the labeled test data.
 It learns which features are to be associated with which class attribute.
 In a final step, the trained classifier classifies the test data, and its results are evaluated against the true labels.
 
-Below, we will go through a image classification analysis on the `Imagenette dataset <https://github.com/fastai/imagenette>`_, a smaller subset of the `Imagenet dataset <http://www.image-net.org/>`_, one of the most widely used large scale dataset for bench-marking Image Classification algorithms. It contains images from ten categories (tench (a type of fish), English springer (a type of dog), cassette player, chain saw, church, French horn, garbage truck, gas pump, golf ball, parachute).
+Below, we will go through a image classification analysis on a few categories in the `Imagenette dataset <https://github.com/fastai/imagenette>`_, a smaller subset of the `Imagenet dataset <http://www.image-net.org/>`_, one of the most widely used large scale dataset for bench-marking Image Classification algorithms. It contains images from ten categories (tench (a type of fish), English springer (a type of dog), cassette player, chain saw, church, French horn, garbage truck, gas pump, golf ball, parachute).
 We will prepare a subset of the data, and train and evaluate different types of classifier.
 The analysis is based on `this tutorial <https://realpython.com/python-data-version-control/>`_.
 
@@ -86,31 +86,31 @@ This complies to the :ref:`YODA principles <yoda>` and helps to keep the input d
 
    $ datalad create imagenette
 
-The Imagenette dataset can be downloaded as an archive from Amazon, and the :command:`datalad download-url --archive` not only extracts and saves the data from its S3 URL, but also registers the datasets origin such that it can re-retrieved on demand from the S3 bucket.
+The original Imagenette dataset contains 10 image categories can be downloaded as an archive from Amazon (`s3.amazonaws.com/fast-ai-imageclas/imagenette2-160.tgz <https://s3.amazonaws.com/fast-ai-imageclas/imagenette2-160.tgz>`_), but for this tutorial we're using a subset of this dataset with only two categories.
+It is available as an archive from the :term:`Open Science Framework (OSF)`.
+The :command:`datalad download-url --archive` not only extracts and saves the data, but also registers the datasets origin such that it can re-retrieved on demand from its original location.
 
 .. runrecord:: _examples/ml-102
    :language: console
    :cast: usecase_ml
    :workdir: usecases
+   :realcommand: cd imagenette && datalad download-url --archive --message "Download Imagenette dataset" 'https://osf.io/d6qbz/download' | grep -v '^\(copy\|get\|drop\|add\|delete\)(ok):.*(file)$' && sleep 15
 
    $ cd imagenette
    # 0.12.2 <= datalad < 0.13.4  needs the configuration option -c datalad.runtime.use-patool=1 to handle .tgz
-   $ datalad -c datalad.runtime.use-patool=1 download-url \
+   $ datalad download-url \
      --archive \
      --message "Download Imagenette dataset" \
-     'https://s3.amazonaws.com/fast-ai-imageclas/imagenette2-160.tgz'
+     'https://osf.io/d6qbz/download'
 
 Next, let's create an analysis dataset.
 For a pre-structured and pre-configured starting point, the dataset can be created with the ``yoda`` and ``text2git`` :term:`run procedure`\s [#f3]_.
 These configurations create a ``code/`` directory, place some place-holding ``README`` files in appropriate places, and make sure that all text files, e.g. scripts or evaluation results, are kept in :term:`Git` to allow for easier modifications.
 
-.. windowsworkarounds:: Note for Windows-Users
+.. windows-wit:: Note for Windows-Users
 
    Hey there!
-   If you are using **Windows 10** with a **native** (i.e., not `Windows Subsystem for Linux (WSL) <https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux>`_-based) installation of DataLad and its underlying tools, you need to do a work-around here.
-
-   We're really sorry about that -- as foreshadowed in section :ref:`install`, Windows comes with a range of file system issues, and one of them concerns the ``text2git`` configuration.
-   This configuration detects file types (such as text files, or image files) based on their `MIME type <https://www.howtogeek.com/192628/mime-types-explained-why-linux-and-mac-os-x-dont-need-file-extensions/>`_, but Windows lacks MIME type support, unfortunately.
+   If you are using **Windows 10** (not `Windows Subsystem for Linux (WSL) <https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux>`_) **without the custom-built git-annex** installer mentioned in the installation section, you need a work-around.
 
    Instead of running ``datalad create -c text2git -c yoda ml-project``, please remove the configuration ``-c text2git`` from the command and run only ``datalad create -c yoda  ml-project``::
 
@@ -203,7 +203,7 @@ At this point, with input data and software set-up, we can start with the first 
 The imagenette dataset is structured in ``train/`` and ``val/`` folder, and each folder contains one sub-folder per image category.
 To prepare the dataset for training and testing a classifier, we create a mapping between file names and image categories.
 
-Let's start small and only use two categories, "golf balls" (subdirectory "n03445777") and "parachutes" (subdirectory "n03888257").
+In this example we only use two categories, "golf balls" (subdirectory ``n03445777``) and "parachutes" (subdirectory ``n03888257``).
 The following script creates two files, ``data/train.csv`` and ``data/test.csv`` from the input data.
 Each contains file names and category associations for the files in those subdirectories.
 Note how, in accordance to the :ref:`YODA principles <yoda>`, the script only contains :term:`relative path`\s to make the dataset portable.
@@ -244,8 +244,8 @@ Note how, in accordance to the :ref:`YODA principles <yoda>`, the script only co
 
    def main(repo_path):
        data_path = repo_path / "data"
-       train_path = data_path / "raw/imagenette2-160/train"
-       test_path = data_path / "raw/imagenette2-160/val"
+       train_path = data_path / "raw/train"
+       test_path = data_path / "raw/val"
        train_files, train_labels = get_files_and_labels(train_path)
        test_files, test_labels = get_files_and_labels(test_path)
        save_as_csv(train_files, train_labels, data_path / "train.csv")
@@ -298,14 +298,14 @@ To capture all provenance and perform the computation in the correct software en
    :language: console
    :cast: usecase_ml
    :workdir: usecases/ml-project
-   :lines: 1-10, 2715-2723
+   :realcommand: datalad containers-run -n software -m "Prepare the data for categories golf balls and parachutes" --input 'data/raw/train/n03445777' --input 'data/raw/val/n03445777' --input 'data/raw/train/n03888257'     --input 'data/raw/val/n03888257' --output 'data/train.csv' --output 'data/test.csv' "python3 code/prepare.py" | grep -v '^\(copy\|get\|drop\|add\|delete\)(ok):.*(file)'
 
    $ datalad containers-run -n software \
      -m "Prepare the data for categories golf balls and parachutes" \
-     --input 'data/raw/imagenette2-160/train/n03445777' \
-     --input 'data/raw/imagenette2-160/val/n03445777' \
-     --input 'data/raw/imagenette2-160/train/n03888257' \
-     --input 'data/raw/imagenette2-160/val/n03888257' \
+     --input 'data/raw/train/n03445777' \
+     --input 'data/raw/val/n03445777' \
+     --input 'data/raw/train/n03888257' \
+     --input 'data/raw/val/n03888257' \
      --output 'data/train.csv' \
      --output 'data/test.csv' \
      "python3 code/prepare.py"
@@ -444,11 +444,12 @@ Afterwards, we can train the first model:
    :language: console
    :cast: usecase_ml
    :workdir: usecases/ml-project
+   :realcommand: datalad containers-run -n software -m "Train an SGD classifier on the data" --input 'data/raw/train/n03445777' --input 'data/raw/train/n03888257' --output 'model.joblib'  "python3 code/train.py" | grep -v '^\(copy\|get\|drop\|add\|delete\)(ok):.*(file)$'
 
    $ datalad containers-run -n software \
      -m "Train an SGD classifier on the data" \
-     --input 'data/raw/imagenette2-160/train/n03445777' \
-     --input 'data/raw/imagenette2-160/train/n03888257' \
+     --input 'data/raw/train/n03445777' \
+     --input 'data/raw/train/n03888257' \
      --output 'model.joblib' \
      "python3 code/train.py"
 
@@ -458,11 +459,12 @@ And finally, we're ready to find out how well the model did and run the last scr
    :language: console
    :cast: usecase_ml
    :workdir: usecases/ml-project
+   :realcommand:  datalad containers-run -n software -m "Evaluate SGD classifier on test data" --input 'data/raw/val/n03445777' --input 'data/raw/val/n03888257' --output 'accuracy.json' "python3 code/evaluate.py" | grep -v '^\(copy\|get\|drop\|add\|delete\)(ok):.*(file)$'
 
    $ datalad containers-run -n software \
      -m "Evaluate SGD classifier on test data" \
-     --input 'data/raw/imagenette2-160/val/n03445777' \
-     --input 'data/raw/imagenette2-160/val/n03888257' \
+     --input 'data/raw/val/n03445777' \
+     --input 'data/raw/val/n03888257' \
      --output 'accuracy.json' \
      "python3 code/evaluate.py"
 

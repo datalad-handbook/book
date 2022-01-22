@@ -1,29 +1,28 @@
 $ git log -p -n 2
-commit ae1402e7236dfe942e117b8ffda60d1ce2de900f
+commit 41ea4e6443051c04cc0727adad8a66213a6440fd
 Author: Elena Piscopia <elena@example.net>
-Date:   Tue Jun 23 21:04:04 2020 +0200
+Date:   Thu Jul 29 16:21:54 2021 +0200
 
     add note on clean datasets
 
 diff --git a/notes.txt b/notes.txt
-index b94942f..dea6ce7 100644
+index 6a465f0..e2829b2 100644
 --- a/notes.txt
 +++ b/notes.txt
-@@ -30,3 +30,10 @@ files will be retrieved prior to the command execution. Any content that is modi
- produced by the command should be specified with an -o/--output flag. Upon a run or rerun
- of the command, the contents of these files will get unlocked so that they can be modified.
+@@ -32,3 +32,9 @@ should be specified with an -o/--output flag. Upon a run or rerun of
+ the command, the contents of these files will get unlocked so that
+ they can be modified.
  
-+Important! If the dataset is not "clean" (a datalad status output is empty),
-+datalad run will not work - you will have to save modifications present in your
-+dataset.
-+A suboptimal alternative is the --explicit flag,
-+used to record only those changes done
-+to the files listed with --output flags.
++Important! If the dataset is not "clean" (a datalad status output is
++empty), datalad run will not work - you will have to save
++modifications present in your dataset.
++A suboptimal alternative is the --explicit flag, used to record only
++those changes done to the files listed with --output flags.
 +
 
-commit 3dfc1b5e90d35241b6399cd9d9100a0bba185817
+commit 4753f3f58f6cb9b2a70f71ad56fd0173c453853f
 Author: Elena Piscopia <elena@example.net>
-Date:   Tue Jun 23 21:04:04 2020 +0200
+Date:   Thu Jul 29 16:21:52 2021 +0200
 
     [DATALAD RUNCMD] Resize logo for slides
     
@@ -31,7 +30,7 @@ Date:   Tue Jun 23 21:04:04 2020 +0200
     {
      "chain": [],
      "cmd": "convert -resize 400x400 recordings/longnow/.datalad/feed_metadata/logo_salt.jpg recordings/salt_logo_small.jpg",
-     "dsid": "1cdc8632-b584-11ea-90a2-3119e6b9cf19",
+     "dsid": "8e04afb0-af85-4070-be29-858d30d85017",
      "exit": 0,
      "extra_inputs": [],
      "inputs": [

@@ -1,8 +1,9 @@
 
+.. _glossary:
+
 ********
 Glossary
 ********
-
 
 .. glossary::
 
@@ -11,10 +12,15 @@ Glossary
       Example: ``/home/user/Pictures/xkcd-webcomics/530.png``. See also :term:`relative path`.
 
    adjusted branch
-      (git-annex term) TODO
+      git-annex concept: a special :term:`branch` in a dataset.
+      Adjusted branches refer to a different, existing branch that is not adjusted.
+      The adjusted branch is called "adjusted/<branchname>(unlocked)" and on an the adjusted branch", all files handled by :term:`git-annex` are not locked --
+      They will stay "unlocked" and thus modifiable.
+      Instead of referencing data in the :term:`annex` with a :term:`symlink`, unlocked files need to be copies of the data in the annex.
+      Adjusted branches primarily exist as the default branch on so-called :term:`crippled filesystem`\s such as Windows.
 
    annex
-      Git annex concept: a different word for :term:`object-tree`.
+      git-annex concept: a different word for :term:`object-tree`.
 
    annex UUID
        A :term:`UUID` assigned to an annex of each individual :term:`clone` of a dataset repository.
@@ -39,7 +45,7 @@ Glossary
    Bitbucket
       Bitbucket is an online platform where one can store and share version
       controlled projects using Git (and thus also DataLad project), similar
-      to :term:`GitHub` or :term:`GitLab`. See `bitbucket.org <https://bitbucket.org.com/>`_.
+      to :term:`GitHub` or :term:`GitLab`. See `bitbucket.org <https://bitbucket.org/>`_.
 
    branch
       Git concept: A lightweight, independent history streak of your dataset. Branches can contain less,
@@ -47,7 +53,7 @@ Glossary
       a branch contains into another branch.
 
    checksum
-      TODO
+      An alternative term to :term:`shasum`.
 
    clone
       Git concept: A copy of a :term:`Git` repository. In Git-terminology, all "installed" datasets
@@ -61,6 +67,9 @@ Glossary
       Git concept: A concise summary of changes you should attach to a :command:`datalad save` command. This summary will
       show up in your :term:`DataLad dataset` history.
 
+   compute node
+      A compute node is an individual computer, part of a :term:`high-performance computing (HPC)` or :term:`high-throughput computing (HTC)` cluster.
+
    conda
       A package, dependency, and environment management system for a number of programming languages.
       Find out more at `docs.conda.io <https://docs.conda.io/en/latest/>`_.
@@ -68,12 +77,14 @@ Glossary
 
    container recipe
        A text file template that lists all required components of the computational environment that a :term:`software container` should contain.
-        It is made by a human user.
+       It is made by a human user.
 
    container image
        Container images are *built* from :term:`container recipe` files.
        They are a static filesystem inside a file, populated with the software specified in the recipe, and some initial configuration.
 
+   crippled filesystem
+      git-annex concept: A file system that does not allow making symlinks or removing write :term:`permissions` from files. Examples for this are `FAT <https://en.wikipedia.org/wiki/Design_of_the_FAT_file_system>`_ (likely used by your USB sticks) or `NTFS <https://en.wikipedia.org/wiki/NTFS>`_ (used on Windows systems of the last three decades).
 
    DataLad dataset
       A DataLad dataset is a Git repository that may or may not have a data annex that is used to
@@ -125,10 +136,13 @@ Glossary
 
    environment variable
       A variable made up of a name/value pair. Programs using a given environment variable will use its associated value for their execution.
-      You can find out a bit more on environment variable :ref:`in this footnote <envvars>`.
+      You can find out a bit more on environment variable :ref:`in this Findoutmore <fom-envvar>`.
 
    ephemeral clone
-      TODO
+      dataset clones that share the annex with the dataset they were cloned from, without :term:`git-annex` being aware of it.
+      On a technical level, this is achieved via symlinks.
+      They can be created with the ``--reckless ephemeral`` option of :command:`datalad clone`.
+
 
    force-push
       Git concept; Enforcing a :command:`git push` command with the ``--force``
@@ -158,7 +172,7 @@ Glossary
       other branch in your dataset, and contains different types of log files.
       Its contents are used for git-annex's internal tracking of the dataset
       and its annexed contents.
-      The branch is managed by :term:`git-annex`, and you should not temper with
+      The branch is managed by :term:`git-annex`, and you should not tamper with
       it unless you absolutely know what you are doing.
 
    Git config file
@@ -185,6 +199,13 @@ Glossary
       You can read about more about Pattern Matching in
       `Bash's Docs <https://www.gnu.org/savannah-checkouts/gnu/bash/manual/bash.html#Pattern-Matching>`_.
 
+   high-performance computing (HPC)
+      Aggregating computing power from a bond of computers in a way that delivers higher performance than a typical desktop computer in order to solve computing tasks that require high computing power or demand a lot of disk space or memory.
+
+
+   high-throughput computing (HTC)
+      A computing environment build from a bond of computers and tuned to deliver large amounts of computational power to allow parallel processing of independent computational jobs. For more information, see `this Wikipedia entry <https://en.wikipedia.org/wiki/High-throughput_computing>`_.
+
    http
       Hypertext Transfer Protocol; A protocol for file transfer over a network.
 
@@ -202,12 +223,18 @@ Glossary
       They are used to build programs, but also to manage projects where some files must be automatically updated from others whenever the others change.
       An example of a Makefile is shown in the usecase :ref:`usecase_reproducible_paper`.
 
+   manpage
+      Abbreviation of "manual page". For most Unix programs, the command ``man <program-name>`` will open a :term:`pager` with this commands documentation. If you have installed DataLad as a Debian package, ``man`` will allow you to open DataLad manpages in your terminal.
+
    master
-      Git concept: The default :term:`branch` in a dataset.
+      Git concept: For the longest time, ``master`` was the name of the default :term:`branch` in a dataset. More recently, the name ``main`` is used. If you are not sure, you can find out if your default branch is ``main`` or ``master`` by running ``git branch``.
 
    merge
       Git concept: to integrate the changes of one :term:`branch`/:term:`sibling`/ ... into
       a different branch.
+
+   merge request
+     See :term:`pull request`.
 
    metadata
       "Data about data": Information about one or more aspects of data used to summarize
@@ -222,6 +249,12 @@ Glossary
    object-tree
       git-annex concept: The place where :term:`git-annex` stores available file contents. Files that are annexed get
       a :term:`symlink` added to :term:`Git` that points to the file content. A different word for :term:`annex`.
+
+   Open Science Framework (OSF)
+      An open source software project that facilitates open collaboration in science research.
+
+   pager
+      A `terminal paper <https://en.wikipedia.org/wiki/Terminal_pager>`_ is a program to view file contents in the :term:`terminal`. Popular examples are the programs ``less`` and ``more``. Some terminal output can be opened automatically in a pager, for example the output of a :command:`git log` command. You can use the arrow keys to navigate and scroll in the pager, and the letter ``q`` to exit it.
 
    permissions
       Access rights assigned by most file systems that determine whether a user can view (``read permission``),
@@ -253,6 +286,10 @@ Glossary
       set with the option ``publish-depends`` in the commands
       :command:`datalad siblings`, :command:`datalad create-sibling`, and
       :command:`datalad create-sibling-github/gitlab`.
+
+
+   pull request
+      Also known as :term:`merge request`. Contributions to Git repositories/DataLad datasets can be proposed to be :term:`merge`\d into the dataset by "requesting a pull/update" from the dataset maintainer to obtain a proposed change from a dataset clone or sibling. It is implemented as a feature in repository hosting sites such as :term:`GitHub`, :term:`Gin`, or :term:`GitLab`.
 
    relative path
       A path related to the present working directory. Relative paths never start with ``/``.

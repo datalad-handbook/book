@@ -1,3 +1,15 @@
-$ git annex unannex recordings/*logo_small.jpg
-unannex recordings/interval_logo_small.jpg ok
-unannex recordings/salt_logo_small.jpg ok
+$ tree midterm_project
+midterm_project
+├── bash_guide.pdf -> .git/annex/objects/WF/Gq/MD5E-s1198170--0ab2c121bcf68d7278af266f6a399c5f.pdf/MD5E-s1198170--0ab2c121bcf68d7278af266f6a399c5f.pdf
+├── CHANGELOG.md
+├── code
+│   ├── README.md
+│   └── script.py
+├── input
+│   └── iris.csv -> .git/annex/objects/qz/Jg/MD5E-s3975--341a3b5244f213282b7b0920b729c592.csv/MD5E-s3975--341a3b5244f213282b7b0920b729c592.csv
+├── notes.txt -> .git/annex/objects/mf/wJ/MD5E-s5074--99d027490a2f9a9c49cffc2c34b55d5c.txt/MD5E-s5074--99d027490a2f9a9c49cffc2c34b55d5c.txt
+├── pairwise_relationships.png -> .git/annex/objects/q1/gp/MD5E-s261062--025dc493ec2da6f9f79eb1ce8512cbec.png/MD5E-s261062--025dc493ec2da6f9f79eb1ce8512cbec.png
+├── prediction_report.csv -> .git/annex/objects/8q/6M/MD5E-s345--a88cab39b1a5ec59ace322225cc88bc9.csv/MD5E-s345--a88cab39b1a5ec59ace322225cc88bc9.csv
+└── README.md
+
+2 directories, 9 files

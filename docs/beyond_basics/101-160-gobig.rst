@@ -22,6 +22,7 @@ and points to benchmarks, rules of thumb, and general solutions.
 Upcoming sections demonstrate how one can attempt
 large-scale analyses with DataLad, and how to fix things up when dataset sizes
 got out of hand.
+The upcoming chapter :ref:`chapter_hpc`, finally, extends this chapter with advice and examples from large scale analyses on computational clusters.
 
 Why scaling up Git repos can become difficult
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -89,7 +90,7 @@ Git repositories, take a look at
 In preparation for assembling a complete UKBiobank dataset, simulations of
 datasets with 40k and 100k subdatasets ran successfully.
 
-.. findoutmore:: How do simulations like this work?
+.. find-out-more:: How do simulations like this work?
 
    With shell scripts such as this::
 

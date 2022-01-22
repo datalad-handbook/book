@@ -20,8 +20,10 @@ associated usecases.
 
    basics-advancedoptions
    basics-scaling
+   basics-hpc
    basics-retrospective
    basics-specialpurpose
+   basics-dataladinternals
 
 .. figure:: /artwork/src/hero.svg
-   :width: 70%
+   :width: 50%

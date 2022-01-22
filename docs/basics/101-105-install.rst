@@ -1,3 +1,4 @@
+.. index:: ! datalad command; clone
 .. _installds:
 
 Install datasets
@@ -61,14 +62,14 @@ There are two commands that can be used to obtain a dataset: :command:`datalad i
 (:manpage:`datalad-install` manual) and :command:`datalad clone` (:manpage:`datalad-clone`
 manual). Throughout this handbook, we will use :command:`datalad clone` to obtain
 datasets. The command has a less complex structure but slightly simplified behavior,
-and a hidden section in section :ref:`sharelocal1` will elaborate on the differences
+and :ref:`the Findoutmore <fom_clonevsinstall>` in section :ref:`sharelocal1` will elaborate on the differences
 between the two commands.
 Let's install the longnow podcasts in this new directory with :command:`datalad clone`.
 
 The command takes a location of an existing dataset to clone. This *source*
 can be a URL or a path to a local directory, or an SSH server [#f1]_. The dataset
 to be installed lives on :term:`GitHub`, at
-`https://github.com/datalad-datasets/longnow-podcasts.git <https://github.com/datalad-datasets/longnow-podcasts.git>`_,
+`https://github.com/datalad-datasets/longnow-podcasts.git <https://github.com/datalad-datasets/longnow-podcasts>`_,
 and we can give its GitHub URL as the  first positional argument.
 Optionally, the command also takes as second positional argument a path to the *destination*,
 -- a path to where we want to install the dataset to. In this case it is ``recordings/longnow``.
@@ -104,7 +105,7 @@ also recorded where this dataset came from, thus capturing its *origin* as
 chapters in this handbook will demonstrate how useful this information can be.
 
 
-.. findoutmore:: Do I have to install from the root of datasets?
+.. find-out-more:: Do I have to install from the root of datasets?
 
    No. Instead of from the *root* of the ``DataLad-101`` dataset, you could have also
    installed the dataset from within the ``recordings``, or ``books`` directory.
@@ -118,7 +119,7 @@ chapters in this handbook will demonstrate how useful this information can be.
 
      datalad clone -d^ https://github.com/datalad-datasets/longnow-podcasts.git longnow
 
-.. findoutmore:: What if I do not install into an existing dataset?
+.. find-out-more:: What if I do not install into an existing dataset?
 
    If you do not install into an existing dataset, you only need to omit the ``-d/--dataset``
    option. You can try::
@@ -132,13 +133,18 @@ chapters in this handbook will demonstrate how useful this information can be.
    automatically into the higher level *superdataset*. The upcoming section will
    elaborate on this.
 
-.. gitusernote::
+.. gitusernote:: Clone internals
 
    The :command:`datalad clone` command uses :command:`git clone`.
    A dataset that is installed from an existing source, e.g., a path or URL,
    is the DataLad equivalent of a *clone* in Git.
 
 Here is the repository structure:
+
+.. windows-wit:: tree -d may fail
+
+   If you have installed :term:`conda`\s ``m2-base`` package for access to Unix commands such as tree, you will have the tree command.
+   However, this version of tree does not support the use of any command flags, so please just run ``tree`` instead of ``tree -d``.
 
 .. runrecord:: _examples/DL-101-105-103
    :language: console
@@ -294,7 +300,7 @@ DataLad summarizes the outcome of the execution of ``get`` in the end and inform
 that the download of one file was ``notneeded`` and the retrieval of the other files was ``ok``.
 
 
-.. gitusernote::
+.. gitusernote:: Get internals
 
    :command:`datalad get` uses :command:`git annex get` underneath the hood.
 
@@ -317,7 +323,7 @@ again, or generate again (for example with next chapter's :command:`datalad run`
 command), or that you really do not need anymore.
 
 Let's remove the content of one of the files that we have downloaded, and check
-what this does to the total size of the dataset. Here is the current aount of
+what this does to the total size of the dataset. Here is the current amount of
 retrieved data in this dataset:
 
 .. runrecord:: _examples/DL-101-105-110
@@ -405,16 +411,15 @@ modification.
    # in the root of DataLad-101:
    $ cd ../../
    $ cat << EOT >> notes.txt
-   The command 'datalad clone URL/PATH [PATH]'
-   installs a dataset from e.g., a URL or a path.
-   If you install a dataset into an existing
-   dataset (as a subdataset), remember to specify the
-   root of the superdataset with the '-d' option.
+   The command 'datalad clone URL/PATH [PATH]' installs a dataset from
+   e.g., a URL or a path. If you install a dataset into an existing
+   dataset (as a subdataset), remember to specify the root of the
+   superdataset with the '-d' option.
 
    EOT
    $ datalad save -m "Add note on datalad clone"
 
-.. note::
+.. importantnote:: Empty files can be confusing
 
   Listing files directly after the installation of a dataset will
   work if done in a terminal with ``ls``.
@@ -445,8 +450,8 @@ modification.
 
 .. [#f2] The longnow podcasts are lectures and conversations on long-term thinking produced by
          the LongNow foundation and we can wholeheartedly recommend them for their worldly
-         wisdoms and compelling, thoughtful ideas. Subscribe to the podcasts at http://longnow.org/seminars/podcast.
-         Support the foundation by becoming a member: https://longnow.org/membership. http://longnow.org
+         wisdoms and compelling, thoughtful ideas. Subscribe to the podcasts at https://longnow.org/seminars/podcast.
+         Support the foundation by becoming a member: https://longnow.org/membership. https://longnow.org
 
 .. [#f3] You can also upgrade your file manager to display file types in a
          DataLad datasets (e.g., with the

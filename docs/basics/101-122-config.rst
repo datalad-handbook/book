@@ -180,9 +180,8 @@ file, you would replace ``--add`` with ``--replace-all`` such as in::
    git config --local --replace-all core.editor "vim"
 
 to configure :term:`vim` to be your default editor.
-
-(Note that while being a good toy example, it is not a common thing to
-configure repository-specific editors)
+Note that while being a good toy example, it is not a common thing to
+configure repository-specific editors.
 
 This example demonstrated the structure of a :command:`git config`
 command. By specifying the ``name`` option with ``section.variable``
@@ -192,7 +191,7 @@ a value, one can configure Git, git-annex, and DataLad.
 of Git, depending on the scope (local, global, system-wide)
 specified in the command.
 
-.. findoutmore:: If things go wrong
+.. find-out-more:: If things go wrong during Git config
 
    If something goes wrong during the :command:`git config` command,
    for example you end up having two keys of the same name because you
@@ -245,16 +244,18 @@ or values in there are irrelevant for understanding the book, your dataset,
 or DataLad, and can just be left as they are. The previous section merely served
 to de-mystify the :command:`git config` command and the configuration files.
 Nevertheless, it might be helpful to get an overview about the meaning of the
-remaining sections in that file, and the following hidden section can give
-you a glimpse of this.
+remaining sections in that file, and the :ref:`that disects this config file further <fom_gitconfig>`  can give you a glimpse of this.
 
-.. findoutmore:: More on this config file
+.. find-out-more:: Disecting a Git config file further
+   :name: fom_gitconfig
+   :float:
 
+   Let's walk through the Git config file of ``DataLad-101``:
    The second section of ``.git/config`` is a git-annex configuration.
    As mentioned above, git-annex will use the
    :term:`Git config file` for some of its configurations.
    For example, it lists the repository as a
-   "version 5 repository", and gives the dataset its own git-annex
+   "version 8 repository", and gives the dataset its own git-annex
    UUID. While the "annex-uuid" [#f4]_ looks like yet another cryptic
    random string of characters, you have seen a UUID like this before:
    A :command:`git annex whereis` displays information about where the
@@ -317,12 +318,12 @@ the dataset, these configurations will also be shared together with the dataset.
 ``.git/config``, however, behaves just as your global or system-wide configurations.
 These configurations are in effect on a system, or for a user, or for a dataset,
 but are not shared.
-A :command:`datalad clone` command of someone's dataset will not get your their
+A :command:`datalad clone` command of someone's dataset will not get you their
 editor configuration, should they have included one in their config file.
 Instead, upon a :command:`datalad clone`, a new config file will be created.
 
 
-This means, however, that configurations that should "stick" to a dataset
+This means, however, that configurations that should "stick" to a dataset [#f5]_
 need to be defined in different files -- files that are version controlled.
 The next section will talk about them.
 
@@ -345,20 +346,23 @@ The next section will talk about them.
 .. [#f3] If your default editor is :term:`vim` and you do not like this, now can be the time
          to change it! Chose either of two options:
 
-         1) Open up the file with an editor for your choice (e.g.,
-         `nano <https://www.howtogeek.com/howto/42980/the-beginners-guide-to-nano-the-linux-command-line-text-editor/>`_)::
+         1) Open up the file with an editor for your choice (e.g., `nano <https://www.howtogeek.com/howto/42980/the-beginners-guide-to-nano-the-linux-command-line-text-editor/>`_), and either paste the following configuration or edit it if it already exists:
 
-             nano ~/.gitconfig
-
-         and either paste the following configuration or edit it if it already exists::
+         .. code-block:: bash
 
             [core]
                 editor = nano
 
+         2) Run the following command, but exchange ``nano`` with an editor of your choice:
 
-         2) run the following command, but exchange ``nano`` with an editor of your choice::
+         .. code-block:: bash
 
-             git config --global --add core.editor "nano"
+            $ git config --global --add core.editor "nano"
 
 .. [#f4] A UUID is a universally unique identifier -- a 128-bit number
          that unambiguously identifies information.
+
+.. [#f5] Please note that not all configurations can be written to files other than ``.git/config``.
+         Some of the files introduced in the next section will not be queried by Git, and in principle, it is a good thing that one can not share arbitrary configurations together with a dataset, as this could be a potential security threat.
+         In those cases where you need dataset clones to inherit certain non-sticky configurations, it is advised to write a custom procedure and distribute it together with the dataset.
+         The next two sections contain concrete usecases and tutorials.

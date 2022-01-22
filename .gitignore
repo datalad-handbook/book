@@ -1,9 +1,13 @@
 docs/_build
+.ignored
 .idea
 
 # Ignore irrelevant files from the Sublime Text editor
 *.sublime-workspace
 *.sublime-project
+
+# Ignore irrelevant files from the VS code editor
+.vscode/
 
 # Ignore .hgignore for contributors using Mercurial.
 .hgignore

@@ -64,7 +64,7 @@ Let's see how this affects a :command:`datalad get`:
 .. runrecord:: _examples/DL-101-117-103
    :language: console
    :workdir: dl-101/mock_user/DataLad-101/recordings/longnow
-   :notes: Get a file thats present in original and one that is not
+   :notes: Get a file that is present in original and one that is not
    :cast: 04_collaboration
 
    # get the first file
@@ -112,8 +112,8 @@ this in the original ``DataLad-101`` directory, and do not forget to save it.
    # write the note
    $ cat << EOT >> notes.txt
    The command "git annex whereis PATH" lists the repositories that have
-   the file content of an annexed file. When using "datalad get" to retrieve
-   file content, those repositories will be queried.
+   the file content of an annexed file. When using "datalad get" to
+   retrieve file content, those repositories will be queried.
 
    EOT
 

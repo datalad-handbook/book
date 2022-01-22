@@ -1,12 +1,13 @@
 $ tree /home/me/myriastore
 /home/me/myriastore
-├── 07c
-│   └── 74330-9069-11ea-96fe-833ef2c0cd3b
+├── 8e0
+│   └── 4afb0-af85-4070-be29-858d30d85017
 │       ├── annex
 │       │   └── objects
 │       ├── archives
 │       ├── branches
 │       ├── config
+│       ├── config.dataladlock
 │       ├── description
 │       ├── HEAD
 │       ├── hooks
@@ -16,10 +17,12 @@ $ tree /home/me/myriastore
 │       │   ├── post-update.sample
 │       │   ├── pre-applypatch.sample
 │       │   ├── pre-commit.sample
+│       │   ├── pre-merge-commit.sample
 │       │   ├── prepare-commit-msg.sample
 │       │   ├── pre-push.sample
 │       │   ├── pre-rebase.sample
 │       │   ├── pre-receive.sample
+│       │   ├── push-to-checkout.sample
 │       │   └── update.sample
 │       ├── info
 │       │   └── exclude
@@ -33,4 +36,4 @@ $ tree /home/me/myriastore
 ├── error_logs
 └── ria-layout-version
 
-15 directories, 17 files
+15 directories, 20 files

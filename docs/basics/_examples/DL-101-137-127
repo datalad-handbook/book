@@ -1,59 +1,62 @@
 
-$ git cat-file --textconv e242f12ab75215d8cea61fd4c775cf0f6c79848b:notes.txt
+$ git cat-file --textconv 401df53b3e9a7a4523e51a5faa33e2572a6cdb2c:notes.txt
 One can create a new dataset with 'datalad create [--description] PATH'.
 The dataset is created empty
 
-The command "datalad save [-m] PATH" saves the file
-(modifications) to history. Note to self:
-Always use informative, concise commit messages.
+The command "datalad save [-m] PATH" saves the file (modifications) to
+history.
+Note to self: Always use informative, concise commit messages.
 
-The command 'datalad clone URL/PATH [PATH]'
-installs a dataset from e.g., a URL or a path.
-If you install a dataset into an existing
-dataset (as a subdataset), remember to specify the
-root of the superdataset with the '-d' option.
+The command 'datalad clone URL/PATH [PATH]' installs a dataset from
+e.g., a URL or a path. If you install a dataset into an existing
+dataset (as a subdataset), remember to specify the root of the
+superdataset with the '-d' option.
 
 There are two useful functions to display changes between two
 states of a dataset: "datalad diff -f/--from COMMIT -t/--to COMMIT"
 and "git diff COMMIT COMMIT", where COMMIT is a shasum of a commit
 in the history.
 
-The datalad run command can record the impact a script or command has on a Dataset.
-In its simplest form, datalad run only takes a commit message and the command that
-should be executed.
+The datalad run command can record the impact a script or command has
+on a Dataset. In its simplest form, datalad run only takes a commit
+message and the command that should be executed.
 
-Any datalad run command can be re-executed by using its commit shasum as an argument
-in datalad rerun CHECKSUM. DataLad will take information from the run record of the original
-commit, and re-execute it. If no changes happen with a rerun, the command will not be written
+Any datalad run command can be re-executed by using its commit shasum
+as an argument in datalad rerun CHECKSUM. DataLad will take
+information from the run record of the original commit, and re-execute
+it. If no changes happen with a rerun, the command will not be written
 to history. Note: you can also rerun a datalad rerun command!
 
-You should specify all files that a command takes as input with an -i/--input flag. These
-files will be retrieved prior to the command execution. Any content that is modified or
-produced by the command should be specified with an -o/--output flag. Upon a run or rerun
-of the command, the contents of these files will get unlocked so that they can be modified.
+You should specify all files that a command takes as input with an
+-i/--input flag. These files will be retrieved prior to the command
+execution. Any content that is modified or produced by the command
+should be specified with an -o/--output flag. Upon a run or rerun of
+the command, the contents of these files will get unlocked so that
+they can be modified.
 
-Important! If the dataset is not "clean" (a datalad status output is empty),
-datalad run will not work - you will have to save modifications present in your
-dataset.
-A suboptimal alternative is the --explicit flag,
-used to record only those changes done
-to the files listed with --output flags.
+Important! If the dataset is not "clean" (a datalad status output is
+empty), datalad run will not work - you will have to save
+modifications present in your dataset.
+A suboptimal alternative is the --explicit flag, used to record only
+those changes done to the files listed with --output flags.
 
-A source to install a dataset from can also be a path,
-for example as in "datalad clone ../DataLad-101".
+A source to install a dataset from can also be a path, for example as
+in "datalad clone ../DataLad-101".
 
-Just as in creating datasets, you can add a
-description on the location of the new dataset clone
-with the -D/--description option.
+Just as in creating datasets, you can add a description on the
+location of the new dataset clone with the -D/--description option.
 
-Note that subdatasets will not be installed by default,
-but are only registered in the superdataset -- you will
-have to do a "datalad get -n PATH/TO/SUBDATASET"
-to install the subdataset for file availability meta data.
-The -n/--no-data options prevents that file contents are
-also downloaded.
+Note that subdatasets will not be installed by default, but are only
+registered in the superdataset -- you will have to do a
+"datalad get -n PATH/TO/SUBDATASET" to install the subdataset for file
+availability meta data. The -n/--no-data options prevents that file
+contents are also downloaded.
 
 Note that a recursive "datalad get" would install all further
-registered subdatasets underneath a subdataset, so a safer
-way to proceed is to set a decent --recursion-limit:
+registered subdatasets underneath a subdataset, so a safer way to
+proceed is to set a decent --recursion-limit:
 "datalad get -n -r --recursion-limit 2 <subds>"
+
+The command "git annex whereis PATH" lists the repositories that have
+the file content of an annexed file. When using "datalad get" to
+retrieve file content, those repositories will be queried.

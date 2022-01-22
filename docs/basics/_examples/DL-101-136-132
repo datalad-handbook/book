@@ -1,15 +1,4 @@
-$ git log -n 1 -p
-commit 93496d22ea5dd04091ef5fd8c6cb12fbb5b91282
-Author: Elena Piscopia <elena@example.net>
-Date:   Tue Jun 23 21:06:08 2020 +0200
-
-    add copy of TLCL.pdf
-
-diff --git a/copyofTLCL.pdf b/copyofTLCL.pdf
-new file mode 120000
-index 0000000..34328e2
---- /dev/null
-+++ b/copyofTLCL.pdf
-@@ -0,0 +1 @@
-+.git/annex/objects/jf/3M/MD5E-s2120211--06d1efcb05bb2c55cd039dab3fb28455.pdf/MD5E-s2120211--06d1efcb05bb2c55cd039dab3fb28455.pdf
-\ No newline at end of file
+$ cd midterm_project
+$ git annex whereis TLCL.pdf
+whereis TLCL.pdf (0 copies) failed
+git-annex: whereis: 1 failed

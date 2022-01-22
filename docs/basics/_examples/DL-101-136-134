@@ -1,2 +1,8 @@
-$ git reset --hard HEAD~1
-HEAD is now at a1c3597 move book back from midterm_project
+$ git annex unlock books/TLCL.pdf
+$ mv books/TLCL.pdf midterm_project
+$ datalad status -r
+unlock books/TLCL.pdf ok
+(recording state in git...)
+  deleted: books/TLCL.pdf (file)
+ modified: midterm_project (dataset)
+untracked: midterm_project/TLCL.pdf (file)

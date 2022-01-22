@@ -43,7 +43,7 @@ to only save those modifications that are specified in the ``--output``
 argument.
 
 Beyond these tricks, there are two ways to leave *untracked* content unaffected
-by a :command:`datalad save`. One is the ``-u/--untracked`` option of
+by a :command:`datalad save`. One is the ``-u/--updated`` option of
 :command:`datalad save`::
 
    $ datalad save -m "my commit message here" -u/--updated
@@ -119,7 +119,7 @@ As expected, the file does not show up as untracked -- it is being
 ignored! Therefore, a ``.gitignore`` file can give you a space inside of
 your dataset to be messy, if you want to be.
 
-.. findoutmore:: Rules for .gitignore files
+.. find-out-more:: Rules for .gitignore files
 
    Here are some general rules for the patterns you can put into a ``.gitignore``
    file, taken from the book `Pro Git <https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository#_ignoring>`_ :
@@ -152,7 +152,7 @@ your dataset to be messy, if you want to be.
    subdirectories of your dataset. The rules in these nested ``.gitignore`` files only
    apply to the files under the directory where they are located.
 
-.. note::
+.. importantnote:: Implications of git-ignored outputs for re-running
 
    Note one caveat: If a command creates an output that is git-ignored,
    (e.g. anything inside of ``tmp/`` in our dataset), a subsequent command
@@ -160,7 +160,7 @@ your dataset to be messy, if you want to be.
    commands a ran in succession. The second command will fail if re-ran on its own,
    however.
 
-.. findoutmore:: Globally ignoring files
+.. find-out-more:: Globally ignoring files
 
    Its not only possible to define files or patterns for files to ignore inside
    of individual datasets, but to also set global specifications to have every
@@ -207,13 +207,13 @@ your dataset to be messy, if you want to be.
       :language: console
       :workdir: dl-101/DataLad-101
 
-      $ datalad siblings add -d . --name public --url git@github.com:datalad-handbook/DataLad-101.git
+      $ datalad siblings add -d . --name public --url https://github.com/datalad-handbook/DataLad-101.git
 
    .. runrecord:: _examples/DL-101-179-108
       :language: console
       :workdir: dl-101/DataLad-101/midterm_project
 
-      $ datalad siblings add -d . --name public --url git@github.com:datalad-handbook/midterm_project.git
+      $ datalad siblings add -d . --name public --url https://github.com/datalad-handbook/midterm_project.git
 
    .. runrecord:: _examples/DL-101-179-109
       :language: console

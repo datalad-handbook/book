@@ -1,7 +1,2 @@
-$ mv books/ readings
-$ datalad status
-untracked: readings (directory)
-  deleted: books/TLCL.pdf (symlink)
-  deleted: books/bash_guide.pdf (symlink)
-  deleted: books/byte-of-python.pdf (symlink)
-  deleted: books/progit.pdf (symlink)
+$ git reset --hard HEAD~2
+HEAD is now at a3cd3ca move book back from midterm_project

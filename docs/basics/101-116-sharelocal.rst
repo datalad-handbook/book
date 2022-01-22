@@ -19,7 +19,7 @@ In this section, we will cover the simplest way of sharing a dataset:
 on a local or shared file system, via an *installation* with a path as
 a source.
 
-.. note::
+.. importantnote:: More on public data sharing
 
    Interested in sharing datasets *publicly*? Read this chapter to get a feel
    for all relevant basic concepts of sharing datasets. Afterwards, head over
@@ -81,6 +81,8 @@ home directory. Furthermore, let's for now disregard anything about
 :term:`permissions`. In a real-world example you likely would not be able to read and write
 to a different user's directories, but we will talk about permissions later.
 
+.. index:: ! datalad command; clone
+
 After creation, navigate into ``mock_user`` and install the dataset ``DataLad-101``.
 To do this, use :command:`datalad clone`, and provide a path to your original
 dataset. Here is how it looks like:
@@ -93,7 +95,7 @@ dataset. Here is how it looks like:
 
 
    $ cd mock_user
-   $ datalad clone ../DataLad-101 --description "DataLad-101 in mock_user"
+   $ datalad clone --description "DataLad-101 in mock_user" ../DataLad-101
 
 This will install your dataset ``DataLad-101`` into your room mate's home
 directory. Note that we have given this new
@@ -131,6 +133,8 @@ on first sight: They are symlinks pointing to some location in the
 object tree. To reassure your room mate that everything is fine you
 quickly explain to him the concept of a symlink and the :term:`object-tree`
 of :term:`git-annex`.
+
+.. index:: ! datalad command; clone
 
 "But why does the PDF not open when I try to open it?" he repeats.
 True, these files cannot be opened. This mimics our experience when
@@ -175,13 +179,12 @@ let's query git-annex where its content is stored:
    $ git annex whereis books/TLCL.pdf
 
 Oh, another :term:`shasum`! This time however not in a symlink...
-"That's hard to read -- what is it?" your room mate asks.
-Luckily, there is a more human-readable piece of text next to it. You can
+"That's hard to read -- what is it?" your room mate asks. You can
 recognize a path to the dataset on your computer, prefixed with the user
 and hostname of your computer. "This", you exclaim, excited about your own realization,
 "is my dataset's location I'm sharing it from!"
 
-.. findoutmore:: What is this location, and what if I provided a description?
+.. find-out-more:: What is this location, and what if I provided a description?
 
    Back in the very first section of the Basics, :ref:`createDS`, a hidden
    section mentioned the ``--description`` option of :command:`datalad create`.
@@ -288,7 +291,7 @@ running the above command (excerpt):
 .. runrecord:: _examples/DL-101-116-108
    :language: console
    :workdir: dl-101/mock_user/DataLad-101
-   :lines: 1-30
+   :lines: 1-20
    :notes: what has changed? --> file metadata information!
    :cast: 04_collaboration
 
@@ -348,7 +351,10 @@ with the first subdataset::
 
   datalad get -n -r --recursion-limit 1 <subds>
 
-.. findoutmore:: datalad clone versus datalad install
+.. find-out-more:: datalad clone versus datalad install
+   :name: fom_clonevsinstall
+
+   .. index:: ! datalad command; clone
 
    You may remember from section :ref:`installds` that DataLad has two commands to obtain datasets,
    :command:`datalad clone` and :command:`datalad install`.
@@ -400,23 +406,21 @@ Write this note in "your own" (the original) ``DataLad-101`` dataset, though!
    $ cd ../../DataLad-101
    # write the note
    $ cat << EOT >> notes.txt
-   A source to install a dataset from can also be a path,
-   for example as in "datalad clone ../DataLad-101".
+   A source to install a dataset from can also be a path, for example as
+   in "datalad clone ../DataLad-101".
 
-   Just as in creating datasets, you can add a
-   description on the location of the new dataset clone
-   with the -D/--description option.
+   Just as in creating datasets, you can add a description on the
+   location of the new dataset clone with the -D/--description option.
 
-   Note that subdatasets will not be installed by default,
-   but are only registered in the superdataset -- you will
-   have to do a "datalad get -n PATH/TO/SUBDATASET"
-   to install the subdataset for file availability meta data.
-   The -n/--no-data options prevents that file contents are
-   also downloaded.
+   Note that subdatasets will not be installed by default, but are only
+   registered in the superdataset -- you will have to do a
+   "datalad get -n PATH/TO/SUBDATASET" to install the subdataset for file
+   availability meta data. The -n/--no-data options prevents that file
+   contents are also downloaded.
 
    Note that a recursive "datalad get" would install all further
-   registered subdatasets underneath a subdataset, so a safer
-   way to proceed is to set a decent --recursion-limit:
+   registered subdatasets underneath a subdataset, so a safer way to
+   proceed is to set a decent --recursion-limit:
    "datalad get -n -r --recursion-limit 2 <subds>"
 
    EOT
@@ -430,7 +434,7 @@ Save this note.
 
    $ datalad save -m "add note about cloning from paths and recursive datalad get"
 
-.. gitusernote::
+.. gitusernote:: Get a clone
 
    A dataset that is installed from an existing source, e.g., a path or URL,
    is the DataLad equivalent of a *clone* in Git.
@@ -454,150 +458,4 @@ Save this note.
          cloned recursively, unless explicitly given to the command with a path. With
          this configuration, a superdataset's maintainer can safeguard users and prevent
          potentially large amounts of subdatasets to be cloned.
-         The configuration is called ``datalad-recursiveinstall = skip`` and it is
-         made on a subdataset specific basis to the ``.gitmodules`` file of the superdataset.
-         The chapter :ref:`chapter_config`,
-         will talk about the details of configurations and the ``.gitmodules`` file.
-         Below, however, is a minimally functional example on how to apply the configuration
-         and how it works:
-
-         .. code-block:: bash
-
-            # create a superdataset with two subdatasets
-            $ datalad create superds && cd superds && datalad create -d . subds1 && datalad create -d . subds2
-            [INFO   ] Creating a new annex repo at /tmp/superds
-            create(ok): /tmp/superds (dataset)
-            [INFO   ] Creating a new annex repo at /tmp/superds/subds1
-            add(ok): subds1 (file)
-            add(ok): .gitmodules (file)
-            save(ok): . (dataset)
-            create(ok): subds1 (dataset)
-            action summary:
-              add (ok: 2)
-              create (ok: 1)
-              save (ok: 1)
-            [INFO   ] Creating a new annex repo at /tmp/superds/subds2
-            add(ok): subds2 (file)
-            add(ok): .gitmodules (file)
-            save(ok): . (dataset)
-            create(ok): subds2 (dataset)
-            action summary:
-              add (ok: 2)
-              create (ok: 1)
-              save (ok: 1)
-
-
-            # create two subdatasets in subds1
-            $ cd subds1 && datalad create -d . subsubds1 && datalad create -d . subsubds2 && cd ../
-            [INFO   ] Creating a new annex repo at /tmp/superds/subds1/subsubds1
-            add(ok): subsubds1 (file)
-            add(ok): .gitmodules (file)
-            save(ok): . (dataset)
-            create(ok): subsubds1 (dataset)
-            action summary:
-              add (ok: 2)
-              create (ok: 1)
-              save (ok: 1)
-            [INFO   ] Creating a new annex repo at /tmp/superds/subds1/subsubds2
-            add(ok): subsubds2 (file)
-            add(ok): .gitmodules (file)
-            save(ok): . (dataset)
-            create(ok): subsubds2 (dataset)
-            action summary:
-              add (ok: 2)
-              create (ok: 1)
-              save (ok: 1)
-
-
-            # create two subdatasets in subds2
-            $ cd subds2 && datalad create -d . subsubds1 && datalad create -d . subsubds2
-            [INFO   ] Creating a new annex repo at /tmp/superds/subds2/subsubds1
-            add(ok): subsubds1 (file)
-            add(ok): .gitmodules (file)
-            save(ok): . (dataset)
-            create(ok): subsubds1 (dataset)
-            action summary:
-              add (ok: 2)
-              create (ok: 1)
-              save (ok: 1)
-            [INFO   ] Creating a new annex repo at /tmp/superds/subds2/subsubds2
-            add(ok): subsubds2 (file)
-            add(ok): .gitmodules (file)
-            save(ok): . (dataset)
-            create(ok): subsubds2 (dataset)
-            action summary:
-              add (ok: 2)
-              create (ok: 1)
-              save (ok: 1)
-
-            # here is the directory structure:
-            $ cd ../ && tree
-            .
-            ├── subds1
-            │   ├── subsubds1
-            │   └── subsubds2
-            └── subds2
-                ├── subsubds1
-                └── subsubds2
-
-            # save in the superdataset
-            datalad save -m "add a few sub and subsub datasets"
-            add(ok): subds1 (file)
-            add(ok): subds2 (file)
-            save(ok): . (dataset)
-            action summary:
-              add (ok: 2)
-              save (ok: 1)
-
-            # apply the configuration to skip recursive installations for subds1
-            $ git config -f .gitmodules --add submodule.subds1.datalad-recursiveinstall skip
-
-            # save this configuration
-            $ datalad save -m "prevent recursion into subds1, unless explicitly given as path"
-            add(ok): .gitmodules (file)
-            save(ok): . (dataset)
-            action summary:
-              add (ok: 1)
-              save (ok: 1)
-
-            # clone the dataset somewhere else
-            $ cd ../ && datalad clone superds clone_of_superds
-            [INFO   ] Cloning superds into '/tmp/clone_of_superds'
-            install(ok): /tmp/clone_of_superds (dataset)
-
-            # recursively get all contents (without data)
-            $ cd clone_of_superds && datalad get -n -r .
-            [INFO   ] Installing <Dataset path=/tmp/clone_of_superds> underneath /tmp/clone_of_superds recursively
-            [INFO   ] Cloning /tmp/superds/subds2 into '/tmp/clone_of_superds/subds2'
-            get(ok): /tmp/clone_of_superds/subds2 (dataset)
-            [INFO   ] Cloning /tmp/superds/subds2/subsubds1 into '/tmp/clone_of_superds/subds2/subsubds1'
-            get(ok): /tmp/clone_of_superds/subds2/subsubds1 (dataset)
-            [INFO   ] Cloning /tmp/superds/subds2/subsubds2 into '/tmp/clone_of_superds/subds2/subsubds2'
-            get(ok): /tmp/clone_of_superds/subds2/subsubds2 (dataset)
-            action summary:
-              get (ok: 3)
-
-            # only subsubds of subds2 are installed, not of subds1:
-            $ tree
-            .
-            ├── subds1
-            └── subds2
-                ├── subsubds1
-                └── subsubds2
-
-            4 directories, 0 files
-
-            # but if provided with an explicit path, subsubds of subds1 are cloned:
-            $  datalad get -n -r subds1 && tree
-            [INFO   ] Cloning /tmp/superds/subds1 into '/tmp/clone_of_superds/subds1'
-            install(ok): /tmp/clone_of_superds/subds1 (dataset) [Installed subdataset in order to get /tmp/clone_of_superds/subds1]
-            [INFO   ] Installing <Dataset path=/tmp/clone_of_superds> underneath /tmp/clone_of_superds/subds1 recursively
-            .
-            ├── subds1
-            │   ├── subsubds1
-            │   └── subsubds2
-            └── subds2
-                ├── subsubds1
-                └── subsubds2
-
-            6 directories, 0 files
+         You can learn more about this configuration in the section :ref:`config2`.

@@ -12,7 +12,7 @@ you to fire up your terminal and follow along.
 **If you are interested in learning how to use DataLad, this handbook is for you.**
 
 You do not need to be a programmer, computer scientist, or Linux-crank.
-If you have never touched your computers shell before, you will be fine.
+If you have never touched your computer's shell before, you will be fine.
 No knowledge about :term:`Git` or :term:`git-annex` is required or necessary.
 Regardless of your background and personal use cases for DataLad, the
 handbook will show you the principles of DataLad, and from chapter 1 onwards
@@ -34,6 +34,12 @@ workflows to more advanced commands, and you will see your skills increase
 with each. While learning, it will be easy to
 **find use cases in your own work for the commands you come across**.
 
+.. only:: latex
+
+   Throughout the book numerous *terms* for concepts and technical components
+   are used. They are all defined in a :ref:`glossary`, and are printed
+   in small-caps, such as :term:`Git`, or :term:`commit message`.
+
 As the handbook is to be a practical guide it includes as many hands-on examples
 as we can fit into it. Code snippets look like this, and you should
 **copy them into your own terminal to try them out**, but you can also
@@ -43,7 +49,8 @@ in the example below (it shows the creation of a DataLad dataset):
 
 .. code-block:: bash
 
-   # this is a comment used for additional explanations. Anything preceded by $ is a command to try.
+   # this is a comment used for additional explanations.
+   # Anything preceded by $ is a command to try.
    # if the line starts with neither # nor $, its the output of a command
    $ datalad create myfirstrepo
    [INFO   ] Creating a new annex repo at /home/adina/DataLad-101
@@ -52,6 +59,12 @@ in the example below (it shows the creation of a DataLad dataset):
 When copying code snippets into your own terminal, do not copy the leading
 ``$`` -- this only indicates that the line is a command, and would lead to an
 error when executed.
+Don't worry :ref:`if you do not want to code along <fom-lazy>`, though.
+
+Instead of copying manually, you can also click on the clipboard icon at the top
+right of each code snippet.
+Clicking on that icon will copy all relevant lines from the code snippet,
+and will drop all comments and the ``$`` automatically.
 
 The book is split into different parts. The upcoming chapters
 are the *Basics* that intend to show you the core DataLad functionality
@@ -75,40 +88,42 @@ But if you want to have the special knowledge for a very peculiar type
 of problem set or that extra increase in skill or understanding,
 you'll have to do a detour into some of the "hidden" parts of the book:
 When there are command options or explanations that go beyond basics and
-best practices, we hide them in special book sections in order
+best practices, we put them in special boxes in order
 to not be too distracting for anyone only interested in the basics.
 You can decide for yourself whether you want to check them out:
 
+"Find-out-more" boxes contain general additional information:
+
 .. only:: html
 
-   .. findoutmore:: Click here to show/hide further commands
+   .. find-out-more:: Click here to show/hide further commands
 
        Sections like this contain content that goes beyond the basics
        necessary to complete a challenge.
 
 .. only:: latex
 
-   .. findoutmore:: Information on further commands
+   .. find-out-more:: For curious minds
+      :name: fom-intro
 
-       Sections like this contain content that goes beyond the basics
-       necessary to complete a challenge.
+      Sections like this contain content that goes beyond the basics
+      necessary to complete a challenge.
 
 
-Note further that...
+"Git user notes" elaborate on technical details from under the hood:
 
-.. gitusernote::
+.. gitusernote:: For (future) Git experts
 
    DataLad uses :term:`Git` and :term:`git-annex` underneath the hood. Readers that
-   are familiar with these tools can find occasional notes on how a DataLad
-   command links to a Git(-annex) command or concept in boxes like this.
+   are familiar with these tools can find occasional notes on how a DataLad   command links to a Git(-annex) command or concept in boxes like this.
    There is, however, absolutely no knowledge of Git or git-annex necessary
    to follow this book. You will, though, encounter Git commands throughout
    the book when there is no better alternative, and executing those commands will
    suffice to follow along.
 
-If you are a Windows 10 user with a native (i.e., not `Windows Subsystem for Linux (WSL) <https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux>`_-based DataLad installation, pay close attention to the special notes in
+If you are a Windows 10 user with a native (i.e., not `Windows Subsystem for Linux (WSL) <https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux>`_-based DataLad installation, pay close attention to the special notes in so-called "Windows-Wits":
 
-.. windowsworkarounds:: For Windows users only
+.. windows-wit:: For Windows users only
 
    A range of file system issues can affect the behavior of DataLad or its underlying tools on Windows 10.
    If necessary, the handbook provides workarounds for problems, explanations, or at least apologies for those inconveniences.
@@ -169,7 +184,7 @@ things you will know how to do, and understand why doing them is useful:
 After having read this handbook, you will find it easy to create, build up, and
 share intuitively structured and version-controlled data projects that
 fulfill high standards for reproducibility and FAIRness. You are able to
-decide for yourself how deep you want to delve into the DataLad world 
+decide for yourself how deep you want to delve into the DataLad world
 based on your individual use cases, and with every section you will learn
 more about state-of-the-art data management.
 
@@ -195,12 +210,14 @@ share and publish with DataLad.
 .. figure:: ../artwork/src/student.svg
    :width: 70%
 
-.. findoutmore:: I can not/do not want to code along...
+.. find-out-more:: I can not/do not want to code along...
+   :name: fom-lazy
+   :float:
 
    If you do not want to follow along and only read, there is a showroom dataset
    of the complete DataLad-101 project at
    `github.com/datalad-handbook/DataLad-101 <https://github.com/datalad-handbook/DataLad-101>`_.
-   This dataset contains a separate branch for each section that introduced changes
+   This dataset contains a separate :term:`branch` for each section that introduced changes
    in the repository. The branches have the names of the sections, e.g.,
    ``sct_create_a_dataset`` marks the repository state at the end of the first section
    in the first chapter. You can checkout a branch with `git checkout <branch-name>`

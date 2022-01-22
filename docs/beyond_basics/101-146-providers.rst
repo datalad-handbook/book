@@ -35,7 +35,7 @@ requested data will be downloaded, and all subsequent retrievals via
 :command:`get` will authenticate automatically, without user input, as long as
 the entered credentials stay valid.
 
-.. findoutmore:: How does the authentication work?
+.. find-out-more:: How does the authentication work?
 
    Passwords, user names, tokens, or any other login information is stored in
    your system's (encrypted) `keyring <https://en.wikipedia.org/wiki/GNOME_Keyring>`_.
@@ -52,7 +52,8 @@ to DataLad yet, the download will fail. Here is how this looks like if data is
 retrieved from a server that requires HTTP authentication, but DataLad -- or the
 dataset -- lacks a configuration for data access about this server::
 
-   $ datalad download-url  https://example.com/myuser/protected/path/to/file
+   $ datalad download-url  \
+     https://example.com/myuser/protected/path/to/file
      [INFO   ] Downloading 'https://example.com/myuser/protected/path/to/file' into 'local/path/'
      Authenticated access to https://example.com/myuser/protected/path/to/file has failed.
      Would you like to setup a new provider configuration to access url? (choices: [yes], no): yes
@@ -78,7 +79,7 @@ The following information is needed:
 
 The example below sheds some light one this.
 
-.. findoutmore:: Which authentication and credential types are possible?
+.. find-out-more:: Which authentication and credential types are possible?
 
    When configuring custom data access, credential and authentication type
    are required information. Below, we list the most common choices for these fields.
@@ -198,7 +199,8 @@ data access *globally*, i.e., it will place the file under
     password: <password>
     password (repeat): <password>
     [INFO   ] http session: Authenticating into session for https://example.com/~myuser/protected/my_protected_file
-    https://example.com/~myuser/protected/my_protected_file:   0%| | 0.00/611k                                                                                                                                                                                                                                                 download_url(ok): /tmp/xnat2/0015911870_1.3.12.2.1107.5.2.32.35135.2011102112040130362336780.dcm (file)
+    https://example.com/~myuser/protected/my_protected_file:   0%| | 0.00/611k
+    download_url(ok): /https://example.com/~myuser/protected/my_protected_file (file)
     add(ok): my_protected_file (file)
     save(ok): . (dataset)
     action summary:

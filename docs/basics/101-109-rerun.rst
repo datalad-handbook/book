@@ -12,7 +12,7 @@ Let's actually take a look into this file now:
 .. runrecord:: _examples/DL-101-109-101
    :language: console
    :workdir: dl-101/DataLad-101
-   :lines: 1-30
+   :lines: 1-15
    :notes: The script produced a simple list of podcast titles. let's take a look into our output file. What's cool is that is was created in a way that the code and output are linked:
    :cast: 02_reproducible_execution
 
@@ -30,6 +30,22 @@ listed the talks in the SALT series (the
 in the ``Long_Now__Conversations_at_The_Interval/`` directory.
 Let's fix this in the script. Replace the contents in ``code/list_titles.sh``
 with the following, fixed script:
+
+.. windows-wit:: Here's a script adjustment for Windows users
+
+   Please use an editor of your choice to replace the contents of ``list_titles.sh`` inside of the ``code`` directory with the following::
+
+       for i in recordings/longnow/Long_Now*/*.mp3; do
+          # get the filename
+          base=$(basename "$i");
+          # strip the extension
+          base=${base%.mp3};
+          # date as yyyy-mm-dd
+          printf "${base%%__*}\t" | tr '_' '-';
+          # name and title without underscores
+          printf "${base#*__}\n" | tr '_' ' ';
+       done
+
 
 .. runrecord:: _examples/DL-101-109-102
    :language: console
@@ -66,7 +82,8 @@ We can use the shorthand "BF" to denote "Bug fix" in the commit message.
    :workdir: dl-101/DataLad-101
    :cast: 02_reproducible_execution
 
-   $ datalad save -m "BF: list both directories content" code/list_titles.sh
+   $ datalad save -m "BF: list both directories content" \
+     code/list_titles.sh
 
 What we *could* do is run the same :command:`datalad run` command as before to recreate
 the file, but now with all of the contents:
@@ -74,7 +91,8 @@ the file, but now with all of the contents:
 .. code-block:: bash
 
    # do not execute this!
-   $ datalad run -m "create a list of podcast titles" "bash code/list_titles.sh > recordings/podcasts.tsv"
+   $ datalad run -m "create a list of podcast titles" \
+     "bash code/list_titles.sh > recordings/podcasts.tsv"
 
 However, think about any situation where the command would be longer than this,
 or that is many months past the first execution. It would not be easy to remember
@@ -84,7 +102,7 @@ Luckily, a fellow student remembered the DataLad way of re-executing
 a ``run`` command, and he's eager to show it to you.
 
 "In order to re-execute a :command:`datalad run` command,
-find the commit and use its shasum (or a tag, or anything else that Git
+find the commit and use its :term:`shasum` (or a :term:`tag`, or anything else that Git
 understands) as an argument for the
 :command:`datalad rerun` command (:manpage:`datalad-rerun` manual)! That's it!",
 he says happily.
@@ -152,6 +170,18 @@ and another state from the dataset's history (a commit specified with
 ``-t``/``--to``). Let's do a :command:`datalad diff` between the current state
 of the dataset and the previous commit (called "``HEAD~1``" in Git terminology [#f1]_):
 
+.. windows-wit:: please use datalad diff --from master --to HEAD~1
+
+   While this example works on Unix file systems, it will not provide the same output on Windows.
+   This is due to different file handling on Windows.
+   When executing this command, you will see *all* files being modified between the most recent and the second-most recent commit.
+   On a technical level, this is correct given the underlying file handling on Windows, and chapter :ref:`chapter_gitannex` will shed light on why that is.
+
+   For now, to get the same output as shown in the code snippet below, use the following command where ``main`` (or ``master``) is the name of your default branch::
+
+      datalad diff --from main --to HEAD~1
+
+   The ``--from`` argument specifies a different starting point for the comparison - the ``main`` or :term:`master` :term:`branch`, which would be the starting point on most Unix-based systems.
 
 .. runrecord:: _examples/DL-101-109-108
    :language: console
@@ -170,6 +200,7 @@ diff view by pressing ``q``):
    :workdir: dl-101/DataLad-101
    :notes: The git diff command has even more insights:
    :cast: 02_reproducible_execution
+   :lines: 1-20
 
    $ git diff HEAD~1
 
@@ -222,6 +253,12 @@ other tools than from the machine-readable ``run record``.
 For example, to find out who (or what) created or modified a file,
 give the file path to :command:`git log` (prefixed by ``--``):
 
+.. windows-wit:: use "git log master -- recordings/podcasts.tsv"
+
+   A previous Windows Wit already advised to append ``main`` or ``master``, the common "default :term:`branch`", to any command that starts with ``git log``.
+   Here, the last part of the command specifies a file (``-- recordings/podcasts.tsv``).
+   Please append ``main`` or ``master`` to ``git log``, prior to the file specification.
+
 .. runrecord:: _examples/DL-101-109-112
    :language: console
    :workdir: dl-101/DataLad-101
@@ -247,13 +284,14 @@ But prior to that, make a note about :command:`datalad run` and :command:`datala
    :cast: 02_reproducible_execution
 
    $ cat << EOT >> notes.txt
-   The datalad run command can record the impact a script or command has on a Dataset.
-   In its simplest form, datalad run only takes a commit message and the command that
-   should be executed.
+   The datalad run command can record the impact a script or command has
+   on a Dataset. In its simplest form, datalad run only takes a commit
+   message and the command that should be executed.
 
-   Any datalad run command can be re-executed by using its commit shasum as an argument
-   in datalad rerun CHECKSUM. DataLad will take information from the run record of the original
-   commit, and re-execute it. If no changes happen with a rerun, the command will not be written
+   Any datalad run command can be re-executed by using its commit shasum
+   as an argument in datalad rerun CHECKSUM. DataLad will take
+   information from the run record of the original commit, and re-execute
+   it. If no changes happen with a rerun, the command will not be written
    to history. Note: you can also rerun a datalad rerun command!
 
    EOT

@@ -1,4 +1,4 @@
 # The dataset ID is stored in .datalad/config
 $ cat .datalad/config
 [datalad "dataset"]
-	id = 07c74330-9069-11ea-96fe-833ef2c0cd3b
+	id = 8e04afb0-af85-4070-be29-858d30d85017

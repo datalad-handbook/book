@@ -1,3 +1,6 @@
-$ cd ../mock_user && mv onemoredir/DataLad-101 .
-$ rm -r onemoredir
-$ cd ../DataLad-101 && sed -i 's/..\/mock_user\/onemoredir\/DataLad-101/..\/mock_user\/DataLad-101/' .git/config
+$ datalad copy-file books/bash_guide.pdf midterm_project -d midterm_project
+copy_file(ok): /home/me/dl-101/DataLad-101/books/bash_guide.pdf [/home/me/dl-101/DataLad-101/midterm_project/bash_guide.pdf]
+save(ok): . (dataset)
+action summary:
+  copy_file (ok: 1)
+  save (ok: 1)

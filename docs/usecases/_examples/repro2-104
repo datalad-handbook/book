@@ -1,4 +1,5 @@
 $ datalad containers-add heudiconv --url shub://ReproNim/ohbm2018-training:heudiconvn
+[INFO] Initiating special remote datalad
 add(ok): .datalad/config (file)
 save(ok): . (dataset)
 containers_add(ok): /home/me/usecases/repro2/localizer_scans/.datalad/environments/heudiconv/image (file)

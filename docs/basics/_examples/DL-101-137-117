@@ -1,4 +1,4 @@
 $ git log -n 3 --oneline
-ed8d3cb [DATALAD] Recorded changes
-bb02715 save my favorite Git joke
-b0d5d02 Added flower mosaic from wikimedia
+8c792b6 [DATALAD] Recorded changes
+81609fc save my favorite Git joke
+8dc1281 remove obsolete subds

@@ -27,7 +27,7 @@ you store your data and thus who can get access.
   section :ref:`sharethirdparty` walked you through how this can be done with
   `Dropbox <https://dropbox.com>`_.
 
-- The ``-f/--force`` option of :command:`datalad push` allows to override
+- The ``--data`` and ``--force`` options of :command:`datalad push` allows to override
   automatic decision making on to-be-published contents. If it isn't specified,
   DataLad will attempt to figure out itself which and how dataset contents
   shall be published. With a path to files, directories, or subdatasets you
@@ -35,7 +35,7 @@ you store your data and thus who can get access.
 
 
 .. figure:: ../artwork/src/going_up.svg
-   :width: 70%
+   :width: 40%
 
 
 Now what can I do with it?
@@ -49,7 +49,7 @@ costs will likely influence your choice of service.
 
 .. rubric:: Footnotes
 
-.. [#f1] :term:`GitLab` does provide a git-annex configuration, but it is disabled
+.. [#f1] Older versions of :term:`GitLab` provide a git-annex configuration, but it is disabled
          by default, and to enable it you would need to have administrative
          access to the server and client side of your GitLab instance. Find out more
-         `here <https://docs.gitlab.com/ee/administration/git_annex.html>`_.
+         `here <https://docs.gitlab.com/12.10/ee/administration/git_annex.html>`_.

@@ -35,7 +35,23 @@ are all free, in total about 15 MB), and save them in ``DataLad-101/books``.
 - An intro to Python: `A byte of Python <https://github.com/swaroopch/byte-of-python/releases/download/v14558db59a326ba99eda0da6c4548c48ccb4cd0f/byte-of-python.pdf>`_
 
 You can either visit the links and save them in ``books/``,
-or run the following commands [#f2]_ to download the books right from the terminal:
+or run the following commands [#f2]_ to download the books right from the terminal.
+Note that we line break the command with ``\`` signs. In your own work you can write
+commands like this into a single line. If you copy them into your terminal as they
+are presented here, make sure to check the :windows-wit:`on peculiarities of its terminals
+<ww-no-multiline-commands>`.
+
+.. windows-wit:: Terminals other than Git Bash can't handle multi-line commands
+   :name: ww-no-multiline-commands
+
+   In Unix shells, ``\`` can be used to split a command into several lines, for example to aid readability.
+   Standard Windows terminals (including the Anaconda prompt) do not support this.
+   They instead use the ``^`` character::
+
+     $ wget -q https://sourceforge.net/projects/linuxcommand/files/TLCL/19.01/TLCL-19.01.pdf/download ^
+     -O TLCL.pdf
+
+   If you are not using the Git Bash, you will either need to copy multi-line commands into a single line, or use ``^`` (make sure that there is **no space** afterwards) instead of ``\``.
 
 .. runrecord:: _examples/DL-101-102-103
    :language: console
@@ -45,10 +61,30 @@ or run the following commands [#f2]_ to download the books right from the termin
    :notes: We use wget to download a few books from the web. CAVE: longish realcommand!
 
    $ cd books
-   $ wget https://sourceforge.net/projects/linuxcommand/files/TLCL/19.01/TLCL-19.01.pdf/download -O TLCL.pdf
-   $ wget https://edisciplinas.usp.br/pluginfile.php/3252353/mod_resource/content/1/b_Swaroop_Byte_of_python.pdf -O byte-of-python.pdf
+   $ wget -q https://sourceforge.net/projects/linuxcommand/files/TLCL/19.01/TLCL-19.01.pdf/download \
+     -O TLCL.pdf
+   $ wget -q https://homepages.uc.edu/~becktl/byte_of_python.pdf \
+     -O byte-of-python.pdf
    # get back into the root of the dataset
    $ cd ../
+
+Some machines will not have :command:`wget` available by default, but any command that can
+download a file can work as an alternative. See the :windows-wit:`for the popular alternative
+curl <ww-curl-instead-wget>`.
+
+.. windows-wit:: You can use curl instead of wget
+   :name: ww-curl-instead-wget
+
+   Many versions of Windows do not ship with the tool ``wget``.
+   You can install it, but it may be easier to use the pre-installed ``curl`` command::
+
+      $ cd books
+      $ curl -L https://sourceforge.net/projects/linuxcommand/files/TLCL/19.01/TLCL-19.01.pdf/download \
+        -o TLCL.pdf
+      $ curl -L https://homepages.uc.edu/~becktl/byte_of_python.pdf \
+        -o byte-of-python.pdf
+      $ cd ../
+
 
 Let's see what happened. First of all, in the root of ``DataLad-101``, show the directory
 structure with tree:
@@ -88,7 +124,7 @@ does not store the downloaded books in its history yet. Let's change this by
 
 This time, it is your turn to specify a helpful :term:`commit message`
 with the ``-m`` option (although the DataLad command is :command:`datalad save`, we talk
-about commit messages because :command:`datalad save` ultimatively uses the command
+about commit messages because :command:`datalad save` ultimately uses the command
 :command:`git commit` to do its work):
 
 .. runrecord:: _examples/DL-101-102-106
@@ -99,7 +135,12 @@ about commit messages because :command:`datalad save` ultimatively uses the comm
 
    $ datalad save -m "add books on Python and Unix to read later"
 
-.. findoutmore:: "Oh no! I forgot the -m option!"
+If you ever forget to specify a message, or made a typo, not all is lost. A
+:find-out-more:`explains how to amend a saved state <fom-amend-save>`.
+
+.. find-out-more:: "Oh no! I forgot the -m option for datalad-save!"
+   :name: fom-amend-save
+   :float:
 
    If you forget to specify a commit message with the ``-m`` option, DataLad will write
    ``[DATALAD] Recorded changes`` as a commit message into your history.
@@ -141,9 +182,12 @@ pager, navigate with up and down arrow keys and leave the log by typing ``q``:
 Now this might look a bit cryptic (and honestly, tig [#f3]_ makes it look prettier).
 But this tells us the date and time in which a particular author added two PDFs to
 the directory ``books/``, and thanks to that commit message we have a nice
-human-readable summary of that action.
+human-readable summary of that action. A :find-out-more:`explains what makes
+a good message <fom-commit-message-guidance>`.
 
-.. findoutmore:: DOs and DON'Ts for commit messages
+.. find-out-more:: DOs and DON'Ts for commit messages
+   :name: fom-commit-message-guidance
+   :float: tbp
 
     **DOs**
 
@@ -153,8 +197,6 @@ human-readable summary of that action.
 
     - Often, a title line is not enough to express your changes and reasoning behind it. In this case, add a body to your commit message by hitting enter twice (before closing the quotation marks), and continue writing a brief summary of the changes after a blank line. This summary should explain "what" has been done and "why", but not "how". Close the quotation marks, and hit enter to save the change with your message.
 
-    - here you can find more guidelines: https://gist.github.com/robertpainsi/b632364184e70900af4ab688decf6f53
-
     **DON'Ts**
 
     - passive voice is hard to read afterwards
@@ -163,7 +205,7 @@ human-readable summary of that action.
 
     - it should be obvious: do not say nasty things about other people
 
-.. gitusernote::
+.. gitusernote:: There is no staging area in DataLad
 
    Just as in Git, new files are not tracked from their creation on, but only when
    explicitly added to Git (in Git terms with an initial :command:`git add`). But different
@@ -196,7 +238,7 @@ Let's try this by adding yet another book, a good reference work about git,
    :notes: Its inconvenient that we saved two books together - we should have saved them as independent modifications of the dataset. To see how single modifications can be saved, let's download another book
 
    $ cd books
-   $ wget https://github.com/progit/progit2/releases/download/2.1.154/progit.pdf
+   $ wget -q https://github.com/progit/progit2/releases/download/2.1.154/progit.pdf
    $ cd ../
 
 :command:`datalad status` shows that there is a new untracked file:
@@ -209,7 +251,7 @@ Let's try this by adding yet another book, a good reference work about git,
 
    $ datalad status
 
-Let's :command:`datalad save` precisely this file by specifying its path after the commit message:
+Let's give :command:`datalad save` precisely this file by specifying its path after the commit message:
 
 .. runrecord:: _examples/DL-101-102-110
    :language: console
@@ -219,19 +261,21 @@ Let's :command:`datalad save` precisely this file by specifying its path after t
 
    $ datalad save -m "add reference book about git" books/progit.pdf
 
+Regarding your second remark, you're right that a :command:`datalad save` without a
+path specification would write all of the currently untracked files or modifications
+to the history. But check the :find-out-more:`on how to tell it otherwise <fom-save-updated-only>`.
 
-.. findoutmore:: Some more on save
+.. find-out-more:: How to save already tracked dataset components only?
+   :name: fom-save-updated-only
+   :float:
 
-   Regarding your second remark, you're right that a :command:`datalad save` without a
-   path specification would write all of the currently untracked files or modifications
-   to the history.
-   There are some ways to mitigate this: A :command:`datalad save -m "concise message" --updated`
-   (or the shorter form of ``--updated``, ``-u``) will only write *modifications* to the
-   history, not untracked files. Later, we will also see ``.gitignore`` files that let
-   you hide content from version control.
-   However, it is good practice to safely store away modifications or new content.
-   This improves your dataset and workflow, and will be a requirement for executing
-   certain commands.
+   A :command:`datalad save -m "concise message" --updated` (or the shorter
+   form of ``--updated``, ``-u``) will only write *modifications* to the
+   history, not untracked files. Later, we will also see ``.gitignore`` files
+   that let you hide content from version control.  However, it is good
+   practice to safely store away modifications or new content.  This improves
+   your dataset and workflow, and will be a requirement for executing certain
+   commands.
 
 A :command:`datalad status` should now be empty, and our dataset's history should look like this:
 
@@ -266,12 +310,9 @@ into the dataset together with a human-readable commit message and a hidden,
 machine-readable record of the origin of the content. This saves you time,
 and captures :term:`provenance` information about the data you add to your dataset.
 To experience this, let's add a final book,
-`a beginner’s guide to bash <http://www.tldp.org/LDP/Bash-Beginners-Guide/Bash-Beginners-Guide.pdf>`_,
+`a beginner’s guide to bash <https://tldp.org/LDP/Bash-Beginners-Guide/Bash-Beginners-Guide.pdf>`_,
 to the dataset. We provide the command with a URL, a pointer to the dataset the
 file should be saved in (``.`` denotes "current directory"), and a commit message.
-Note that we line break the command with ``\`` signs. You can copy them as they
-are presented here into your terminal, but in your own work you can write commands
-like this into a single line.
 
 .. runrecord:: _examples/DL-101-102-112
    :language: console
@@ -279,7 +320,8 @@ like this into a single line.
    :cast: 01_dataset_basics
    :notes: finally, datalad-download-url
 
-   $ datalad download-url http://www.tldp.org/LDP/Bash-Beginners-Guide/Bash-Beginners-Guide.pdf \
+   $ datalad download-url \
+     http://www.tldp.org/LDP/Bash-Beginners-Guide/Bash-Beginners-Guide.pdf \
      --dataset . \
      -m "add beginners guide on bash" \
      -O books/bash_guide.pdf
@@ -341,9 +383,12 @@ Well done! Your ``DataLad-101`` dataset and its history are slowly growing.
 .. rubric:: Footnotes
 
 .. [#f1] ``tree`` is a Unix command to list file system content. If it is not yet installed,
-   you can get it with your native package manager (e.g.,
-   ``apt`` or ``brew``). For example, if you use OSX, ``brew install tree``
-   will get you this tool.
+   you can get it with your native package manager (e.g.,  ``apt``, ``brew``, or conda).
+   For example, if you use OSX, ``brew install tree``  will get you this tool.
+   On Windows, if you have the Miniconda-based installation described in :ref:`install`, you can install the ``m2-base`` package (``conda install m2-base``), which contains tree along with many other Unix-like commands.
+   Note that this tree works slightly different than its Unix equivalent - it will only display directories, not files, and it doesn't accept common options or flags.
+   It will also display *hidden* directories, i.e., those that start with a ``.`` (dot).
+
 .. [#f2] ``wget`` is a Unix command for non-interactively downloading files from the
    web. If it is not yet installed, you can get it with your native package manager (e.g.,
    ``apt`` or ``brew``). For example, if you use OSX, ``brew install wget``

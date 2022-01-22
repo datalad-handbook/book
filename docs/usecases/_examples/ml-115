@@ -1,7 +1,7 @@
 $ datalad containers-run -n software \
   -m "Train an SGD classifier on the data" \
-  --input 'data/raw/imagenette2-160/train/n03445777' \
-  --input 'data/raw/imagenette2-160/train/n03888257' \
+  --input 'data/raw/train/n03445777' \
+  --input 'data/raw/train/n03888257' \
   --output 'model.joblib' \
   "python3 code/train.py"
 [INFO] Making sure inputs are available (this may take some time) 
@@ -9,8 +9,7 @@ $ datalad containers-run -n software \
 /usr/local/lib/python3.7/dist-packages/sklearn/linear_model/_stochastic_gradient.py:573: ConvergenceWarning: Maximum number of iteration reached before convergence. Consider increasing max_iter to improve the fit.
   ConvergenceWarning)
 [INFO] == Command exit (modification check follows) ===== 
-add(ok): /home/me/usecases/ml-project/model.joblib (file)
-save(ok): /home/me/usecases/ml-project (dataset)
+save(ok): . (dataset)
 action summary:
   add (ok: 1)
   get (notneeded: 4)

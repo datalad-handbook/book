@@ -17,7 +17,7 @@ If you're a DataLad novice, we highly recommend that you read through the :ref:`
 This part of the book provides you with a solid understanding of DataLad's functionality and a playground to experience working with DataLad.
 If you're really pressed for time because your dog is sick, your toddler keeps eating your papers and your boss is behind you with a whip, the findoutmore below summarizes the most important sections from the Basics for you to read:
 
-.. findoutmore:: The Basics for the impatient
+.. find-out-more:: The Basics for the impatient
 
    To get a general idea about DataLad, please read sections :ref:`philo` and :ref:`executive_summary` from the introduction (reading time: 15 min).
 
@@ -47,14 +47,14 @@ Transforming a directory into a dataset is done with :command:`datalad create --
 The ``-f``/``--force`` option enforces dataset creation in non-empty directories.
 Consider :ref:`applying procedures <procedures>` with ``-c <procedure-name>`` to apply configurations that suit your use case.
 
-.. findoutmore:: What if my directory is already a Git repository?
+.. find-out-more:: What if my directory is already a Git repository?
 
    If you want to transform a Git repository to a DataLad dataset, a :command:`datalad create -f` is the way to go, too, and completely safe.
-   Your Git history will stay intact and will not be tempered with.
+   Your Git history will stay intact and will not be tampered with.
 
 If you want to transform a series of nested directories into nested datasets, continue with :command:`datalad create -f` commands in all further subdirectories.
 
-.. findoutmore:: One or many datasets?
+.. find-out-more:: One or many datasets?
 
    In deciding how many datasets you need, try to follow the benchmarks in chapter :ref:`chapter_gobig` and the yoda principles in section :ref:`yoda`.
    Two simple questions can help you make a decision:
@@ -64,7 +64,7 @@ If you want to transform a series of nested directories into nested datasets, co
 
 You can automate this with :term:`bash` loops, if you want.
 
-.. findoutmore:: Example bash loops
+.. find-out-more:: Example bash loops
 
    Consider a directory structure that follows a naming standard such as `BIDS <https://bids.neuroimaging.io/>`_::
 
@@ -100,7 +100,7 @@ Any existing content in your newly created dataset(s) still needs to be saved in
 This can be done with the :command:`datalad save` command -- either "in one go" using a plain ``datalad save`` (saves all untracked files and modifications to a dataset -- by default into the dataset annex), or step-by-step by attaching paths to the ``save`` command.
 Make sure to run :command:`datalad status` frequently.
 
-.. findoutmore:: Save things to Git or to git-annex?
+.. find-out-more:: Save things to Git or to git-annex?
 
    By default, all dataset contents are saved into :term:`git-annex`.
    Depending on your data and use case, this may or may not be useful for all files.
@@ -112,7 +112,7 @@ Make sure to run :command:`datalad status` frequently.
 
    You can find guidance on how to create configurations for your dataset (which need to be in place and saved prior to saving contents!) in the chapter :ref:`chapter_config`, in particular section :ref:`config2`.
 
-.. note::
+.. importantnote:: Create desired subdatasets first
 
    Be mindful during saving if you have a directory that should hold more, yet uncreated datasets down its hierarchy, as a plain ``datalad save`` will save *all* files and directories to the dataset!
    Its best to first create all subdatasets, and only then save their contents.

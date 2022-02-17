@@ -14,6 +14,7 @@ Advanced options
 
    101-179-gitignore
    ../extension_pkgs
+   ../extension_create
    101-145-hooks
    101-146-providers
    101-147-riastores

@@ -71,3 +71,4 @@ according to your own specifications:
 8. **Publish your extension**, e.g. on GitHub.
 9.  **Activate/link external services**, such as Appveyor for continuous
     integration, or `Read The Docs <https://readthedocs.org/>`_ for documentation.
+10.  If you've written an extension that provides important functionality for you or your community, consider **registering your extension** at `github.com/datalad/datalad-extensions <https://github.com/datalad/datalad-extensions>`_ in order to test your extension's functionality against future DataLad releases and ensure interoperability across software versions. Ideally, `open an issue <https://github.com/datalad/datalad-extensions/issues/new>`_ to get in touch with the DataLad developers about this.  

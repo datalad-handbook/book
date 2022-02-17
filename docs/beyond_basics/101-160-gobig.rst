@@ -134,7 +134,7 @@ Tool-specific and smaller advice
 ================================
 
 - If you are interested in up-to-date performance benchmarks, take a look at
-  `www.datalad.org/test_fs_analysis.html <https://github.com/datalad/benchmarking/blob/master/test_fs_analysis.ipynb>`_.
+  `www.datalad.org/test_fs_analysis.html <https://www.datalad.org/test_fs_analysis.html>`_.
   This can help to set expectations and give useful comparisons of file systems
   or software versions.
 - git-annex offers a range of tricks to further improve performance in large

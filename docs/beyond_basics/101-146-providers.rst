@@ -295,6 +295,16 @@ This provider configuration should contain the following:
 Importantly, the ``type`` key should specify ``git``, the ``provider:<name>`` name should match the name of the provider configuration filename, the ``url_re`` should be a regular expression that can match the credential URL in your ``.gitconfig`` file, and the ``credential`` value should be the same string as the ``[credential:<credential>]`` name.
 With this setup, a ``datalad download-url`` succeeds, authenticating via the Git credential helper.
 
+.. gitusernote:: Git authenticating via DataLad's credential system
+
+   Not only can DataLad use Git's credential system, Git can also query credentials from DataLad.
+   This requires DataLad version ``0.16`` or higher, and a Git configuration pointing to the credential helper ``git-credential-datalad`` for a given URL scheme:
+
+   .. code-block:: bash
+
+      [credential "https://*data.example.com"]
+         helper = "datalad"
+
 To find out more about DataLad's integration with Git's credential system, take a look into the more technical documentation at `docs.datalad.org/credentials.html <http://docs.datalad.org/credentials.html>`_ and `docs.datalad.org/design/credentials.html <http://docs.datalad.org/design/credentials.html>`_.
 
 .. rubric:: Footnotes

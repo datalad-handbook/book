@@ -300,6 +300,11 @@ on where the RIA store (should) exists, or rather, which file transfer protocol
 - A URL to a store on a local file system has a ``ria+file://`` prefix,
   followed by an **absolute** path: ``ria+file:///absolute/path/to/ria-store``
 
+.. find-out-more:: RIA stores with HTTP access
+
+   Setting up RIA store with access via HTTP requires additional server-side configurations for Git.
+   `Git's http-backend documentation <https://git-scm.com/docs/git-http-backend>`_ can point you the relevant configurations for your webserver and usecase.
+
 Note that it is always required to specify an :term:`absolute path` in the URL!
 
 .. importantnote:: If you code along, make sure to check the next findoutmore!

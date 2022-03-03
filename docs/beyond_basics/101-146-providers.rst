@@ -242,7 +242,7 @@ In order to centralize and automate authentication, a system-wide Git configurat
 This credential helper for host ``https://cool-dataset.ds.research-center.de`` points to an executable, ``/usr/local/bin/research-center_datastore_pw``, which determines, for example by querying a password database, whether the given user has access or not.
 If they have, it returns the user name and password required for authentication to the Git process that tried to access the server.
 
-Beginning with DataLad version ``0.16``, DataLad's own credential management can interface with Git's by the same mechanism of provider configurations.
+Beginning with DataLad version ``0.16``, DataLad's own credential management can interface with Git's by its aforementioned mechanism of provider configurations.
 A basic mock example can illustrate the necessary steps to set this up.
 
 Here is a short list of preparations if you want to try this out for yourself:

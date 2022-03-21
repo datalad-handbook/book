@@ -330,7 +330,7 @@ For this, we use its https URL - even if you do not have an account on Gin, you 
 
    cd myanalysis
    datalad clone -d . \
-    https://gin.g-node.org/adswa/bidsdata \
+    https://gin.g-node.org/adswa/bids-data \
     input
 
 Now that we have input data, let's get a script to analyze it.

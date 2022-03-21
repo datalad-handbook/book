@@ -35,7 +35,7 @@ If you want to code along to this part of the tutorial, you may want to create a
 
 
 How to use DataLad
-------------------
+^^^^^^^^^^^^^^^^^^
 
 DataLad is a command line tool and it has a Python API.
 It is operated in your :term:`terminal` using the command line (as done above), or used it in scripts such as shell scripts, Python scripts, Jupyter Notebooks, and so forth.

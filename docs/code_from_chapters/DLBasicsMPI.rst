@@ -20,7 +20,7 @@ You should also have a configured :term:`Git` identity. Here is how you set it::
    git config --global --add user.email "bob@example.com"
 
 How to use DataLad
-------------------
+^^^^^^^^^^^^^^^^^^
 
 DataLad is a command line tool and it has a Python API.
 Whenever used, it is thus operated it in a :term:`terminal` using the command line (as done above), or used it in scripts such as shell scripts, Python scripts, Jupyter Notebooks, and so forth.

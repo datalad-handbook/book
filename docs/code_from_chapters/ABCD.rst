@@ -25,7 +25,7 @@ If you are unsure if you have configured your Git identity already, you can chec
 If nothing is returned, you need to configure your :term:`Git` identity.
 
 How to use DataLad
-------------------
+^^^^^^^^^^^^^^^^^^
 
 DataLad is a command line tool and it has a Python API.
 Whenever used, it is thus operated it in your :term:`terminal` using the command line (as done above), or used it in scripts such as shell scripts, Python scripts, Jupyter Notebooks, and so forth.

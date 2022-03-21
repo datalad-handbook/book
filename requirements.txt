@@ -21,6 +21,6 @@ sphinx-notfound-page
 sphinx-copybutton<0.4
 urllib3
 sphinxcontrib-svg2pdfconverter
--e git://github.com/mih/autorunrecord.git@master#egg=autorunrecord
+-e git+https://github.com/mih/autorunrecord.git@master#egg=autorunrecord
 # install our own directives
 -e .

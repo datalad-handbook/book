@@ -493,6 +493,15 @@
       "contributions": [
         "bug"
       ]
+    },
+    {
+      "login": "jhpb7",
+      "name": "jhpb7",
+      "avatar_url": "https://avatars.githubusercontent.com/u/101269419?v=4",
+      "profile": "https://github.com/jhpb7",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,

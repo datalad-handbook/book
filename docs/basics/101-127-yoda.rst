@@ -234,7 +234,7 @@ compute outputs, and the code and outputs are captured,
 version-controlled, and linked to the input data. Each input data in turn
 is a (potentially nested) subdataset, but this is not visible
 in the directory hierarchy.
-Figure  in comparison emphasizes a process view on a project and
+Figure 6.2, in comparison, emphasizes a process view on a project and
 the nested structure of input subdataset:
 You can see how the preprocessed data that serves as an input for
 the analysis datasets evolves from raw data to

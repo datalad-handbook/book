@@ -13,7 +13,7 @@ As the text file is stored in Git and not git-annex, no content unlocking is nec
 As we saw within the demonstrations of :command:`datalad run`, modifying content of non-text files, such as ``.jpg``\s, typically requires the additional step of *unlocking* file content, either by hand with the :command:`datalad unlock` command, or within :command:`datalad run` using the ``-o``/``--output`` flag.
 
 There is one detail about DataLad datasets that we have not covered yet.
-It's both a crucial aspect to understanding certain aspects of a dataset, but it is also a potential source of confusion that we want to eradicate.
+It is a crucial component to understanding certain aspects of a dataset, but it is also a potential source of confusion that we want to eradicate.
 
 You might have noticed already that an ``ls -l`` or ``tree`` command in your dataset shows small arrows and quite cryptic paths following each non-text file.
 Maybe your shell also displays these files in a different color than text files when listing them.

@@ -3,6 +3,47 @@
 All notable changes to this project between releases will be documented in this
 file.
 
+## v0.16 (April 13 2022) -- Spring cleaning
+
+Handbook release matching the release of DataLad v0.16.0.
+This release contains a number of updates for respective changes in DataLad ``0.16``'s API, including the overhaul of existing commands, reimplementations of commands, and additional commands.
+
+It includes contributions the new contributors @eort, @mslw, @tguiot, @jhpb7 and @eltociear, as well as contributions from established contributors @jsheunis, @mih, @adswa, @yarikoptic, and @Remi-Gau.
+
+
+### Refactoring or deletions
+
+
+### Additions
+
+#### Introduction
+
+- Installation instructions on Windows now recommend git-annex'es filter-process configuration for performance improvements ([#791][])
+
+#### Basics
+
+- The chapter on publishing datasets was overhauled and now includes a general overview of publishing routines and hosting service differences. ([#762][])
+- Content on ``datalad run`` now mentions its superglob abilities ([#692][]) and how to glob across directories hierarchies with earlier datalad versions ([#785][])
+- A few fixes and improvements to the section on publishing datasets to Gin  ([#793][])
+
+#### Advanced
+
+- The enki walkthrough links the FAIRly big paper and tutorial as an improved alternative ([#783][])
+- A new chapter contains a section on contributing to DataLad and DataLad's design docs  ([#782][])
+- A new section guides through the process of creating your own extensions  ([#812][])
+- The section on configuring additional data providers now includes content on DataLad 0.16's credential integration with Git  ([#814][])
+
+#### Usecases
+
+- A new general section on how to create interoperable file names was added  ([#796][])
+
+#### Miscellaneous additions
+
+- The GitHub project of the handbook now uses templates for easier issue generation. ([#768][])
+- A number of CSS improvements fix the rendering of bullet points ([#770][])
+- The ML usecase was minified to speed up builds ([#790][])
+- A new code list for the DGPA workshop was added  ([#820][])
+
 ## v0.15 (November 25 2021) -- LaTeX improvements
 
 Handbook release matching the release of DataLad v0.15.0.

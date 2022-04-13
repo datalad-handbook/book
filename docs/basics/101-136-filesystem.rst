@@ -990,7 +990,7 @@ dropped automatically, but for content in sub-*datasets* to be dropped, the
 By default, DataLad will not drop any content that does not have at least
 one verified remote copy that the content could be retrieved from again.
 It is possible to drop the downloaded image, because thanks to
-:command:`datalad download-url` its original location in the web in known:
+:command:`datalad download-url` its original location in the web is known:
 
 .. runrecord:: _examples/DL-101-136-175
    :language: console
@@ -1079,9 +1079,9 @@ private :term:`SSH key`\s or passwords, or too many or too large files are
 accidentally saved into Git, and *need* to get out of the dataset history.
 The command ``git-filter-repo <path-specification> --force`` will "filter-out",
 i.e., remove all files **but the ones specified** in ``<path-specification>``
-from the datasets history. The section :ref:`cleanup` shows an example
+from the dataset's history. The section :ref:`cleanup` shows an example
 invocation. If you want to use it, however, make sure to attempt it in a dataset
-clone or with its ``--dry-run`` flag first. It is easy to loose dataset history
+clone or with its ``--dry-run`` flag first. It is easy to lose dataset history
 and files with this tool.
 
 Uninstalling or deleting subdatasets

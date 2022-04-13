@@ -1,5 +1,2 @@
 $ datalad uninstall cloud
 uninstall(ok): cloud (dataset)
-action summary:
-  drop (notneeded: 1)
-  uninstall (ok: 1)

@@ -1,16 +1,16 @@
 $ git log -15 --oneline
-8dc1281 remove obsolete subds
-64abc8d [DATALAD] modified subdataset properties
-072fbda [DATALAD] Recorded changes
-9d34329 save cropped logos to Git
-324a09b move book back from midterm_project
-ce929ad move book into midterm_project
-1fae7c2 add container and execute analysis within container
-4d216b8 finished my midterm project
-35ca35c [DATALAD] Recorded changes
-2d253b4 add note on DataLad's procedures
-cf02939 add note on configurations and git config
-d58f5ba Add note on adding siblings
-67a7a5e Merge remote-tracking branch 'roommate/master'
-e75e2df Include nesting demo from datalad website
-4069dac add note about datalad update
+92faed1 remove obsolete subds
+65ccbd8 [DATALAD] Added subdataset
+da54eba save cropped logos to Git
+40556de move book back from midterm_project
+d6713d9 move book into midterm_project
+f14e38a add container and execute analysis within container
+6224cba finished my midterm project
+b3cb09b [DATALAD] Recorded changes
+23f54ef add note on DataLad's procedures
+e0ac99c add note on configurations and git config
+792e798 Add note on adding siblings
+8fe47cf Merge remote-tracking branch 'roommate/master'
+33dfaee Include nesting demo from datalad website
+252d826 add note about datalad update
+dec6ef9 add note on git annex whereis

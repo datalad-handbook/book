@@ -6,7 +6,7 @@ $ git push --set-upstream origin sgd-pipeline
 $ git tag -a sgd-pipeline -m "Trained SGD as DVC pipeline."
 $ git push origin --tags
 $ dvc push
-[sgd-pipeline 0268557] Add SGD pipeline
+[sgd-pipeline 0e786a7] Add SGD pipeline
  5 files changed, 71 insertions(+)
  create mode 100644 dvc.lock
  create mode 100644 dvc.yaml

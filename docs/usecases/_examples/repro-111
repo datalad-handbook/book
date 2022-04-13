@@ -1,5 +1,5 @@
 $ datalad rerun
-[INFO] run commit 4392782; (run brain extract...)
+[INFO] run commit 1223bc4; (run brain extract...)
 [INFO] Making sure inputs are available (this may take some time) 
 unlock(ok): sub-001/anat.nii.gz (file)
 unlock(ok): sub-001/anat_mask.nii.gz (file)
@@ -11,6 +11,7 @@ action summary:
 Processing inputs/ds000001/sub-01/anat/sub-01_T1w.nii.gz
 Processing inputs/ds000002/sub-01/anat/sub-01_T1w.nii.gz
 [INFO] == Command exit (modification check follows) ===== 
+run(ok): /home/me/usecases/repro/demo (dataset) [bash -e code/brain_extraction.sh inputs/...]
 add(ok): sub-001/anat.nii.gz (file)
 add(ok): sub-001/anat_mask.nii.gz (file)
 add(ok): sub-002/anat.nii.gz (file)
@@ -18,5 +19,6 @@ add(ok): sub-002/anat_mask.nii.gz (file)
 action summary:
   add (ok: 4)
   get (notneeded: 4)
+  run (ok: 1)
   save (notneeded: 3)
   unlock (ok: 4)

@@ -1,2 +1,2 @@
 $ datalad diff -t master -f replay
- modified: st-bernard-displaced.jpg (file)
+ modified: st-bernard-displaced.jpg (symlink)

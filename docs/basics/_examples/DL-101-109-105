@@ -1,13 +1,13 @@
 $ git log -n 2
-commit 85330eaca98a1e1a6a6fa0a5d8118c1cf08cb9eb
+commit 10ef9300372277b5de12f37c7d99d98e66815b1f
 Author: Elena Piscopia <elena@example.net>
-Date:   Thu Jul 29 16:21:37 2021 +0200
+Date:   Wed Apr 13 10:41:30 2022 +0200
 
     BF: list both directories content
 
-commit f0aab98d14a86fbe1100d991fe6fc46ef95e39c6
+commit 2851d5c4c04281cbc7acabbea25878af693e427e
 Author: Elena Piscopia <elena@example.net>
-Date:   Thu Jul 29 16:21:34 2021 +0200
+Date:   Wed Apr 13 10:41:27 2022 +0200
 
     [DATALAD RUNCMD] create a list of podcast titles
     
@@ -15,7 +15,7 @@ Date:   Thu Jul 29 16:21:34 2021 +0200
     {
      "chain": [],
      "cmd": "bash code/list_titles.sh > recordings/podcasts.tsv",
-     "dsid": "8e04afb0-af85-4070-be29-858d30d85017",
+     "dsid": "3503e51d-96c9-40e3-814d-4b0e719e72eb",
      "exit": 0,
      "extra_inputs": [],
      "inputs": [],

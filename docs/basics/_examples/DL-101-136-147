@@ -1,6 +1,6 @@
 $ tree midterm_project
 midterm_project
-├── bash_guide.pdf -> .git/annex/objects/WF/Gq/MD5E-s1198170--0ab2c121bcf68d7278af266f6a399c5f.pdf/MD5E-s1198170--0ab2c121bcf68d7278af266f6a399c5f.pdf
+├── bash_guide.pdf -> .git/annex/objects/31/wQ/SHA256E-s1198170--d08f2c7b8492c574239ca3be131fb8cffe39e36262d6b24a20cb5abae4d4402c.pdf/SHA256E-s1198170--d08f2c7b8492c574239ca3be131fb8cffe39e36262d6b24a20cb5abae4d4402c.pdf
 ├── CHANGELOG.md
 ├── code
 │   ├── README.md

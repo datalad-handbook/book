@@ -1,7 +1,7 @@
 $ git log -p -n 2
-commit 41ea4e6443051c04cc0727adad8a66213a6440fd
+commit 993e896299cc0ee9538ac997d9a22ec6e1e29dd3
 Author: Elena Piscopia <elena@example.net>
-Date:   Thu Jul 29 16:21:54 2021 +0200
+Date:   Wed Apr 13 10:41:47 2022 +0200
 
     add note on clean datasets
 
@@ -20,9 +20,9 @@ index 6a465f0..e2829b2 100644
 +those changes done to the files listed with --output flags.
 +
 
-commit 4753f3f58f6cb9b2a70f71ad56fd0173c453853f
+commit 603752cd9bce646518bbfb3a77b4127d649f82b9
 Author: Elena Piscopia <elena@example.net>
-Date:   Thu Jul 29 16:21:52 2021 +0200
+Date:   Wed Apr 13 10:41:46 2022 +0200
 
     [DATALAD RUNCMD] Resize logo for slides
     
@@ -30,7 +30,7 @@ Date:   Thu Jul 29 16:21:52 2021 +0200
     {
      "chain": [],
      "cmd": "convert -resize 400x400 recordings/longnow/.datalad/feed_metadata/logo_salt.jpg recordings/salt_logo_small.jpg",
-     "dsid": "8e04afb0-af85-4070-be29-858d30d85017",
+     "dsid": "3503e51d-96c9-40e3-814d-4b0e719e72eb",
      "exit": 0,
      "extra_inputs": [],
      "inputs": [

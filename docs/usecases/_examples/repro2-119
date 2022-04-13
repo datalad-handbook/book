@@ -5,5 +5,6 @@ $ datalad run \
  code/ffa_design.fsf > {outputs}'
 [INFO] == Command start (output follows) =====
 [INFO] == Command exit (modification check follows) =====
+run(ok): /home/me/usecases/repro2/glm_analysis (dataset) [bash -c 'sed -e "s,##BASEPATH##,/home/me...]
 add(ok): sub-02/1stlvl_design.fsf (file)
 save(ok): . (dataset)

@@ -1,7 +1,7 @@
 # inside of the dataset DataLad-101
-# don't use --new-store-ok with datalad < 0.16
-$ datalad create-sibling-ria -s ria-backup --new-store-ok ria+file:///home/me/myriastore
-[INFO] Start checking pre-existing sibling configuration Dataset(/home/me/dl-101/DataLad-101) 
+# do not use --new-store-ok with datalad < 0.16
+$ datalad create-sibling-ria -s ria-backup --new-store-ok "ria+file:///home/me/myriastore"
+[INFO] Start checking pre-existing sibling configuration Dataset(/home/me/dl-101/DataLad-101)
 [INFO] Discovered sibling here in dataset at /home/me/dl-101/DataLad-101 
 [INFO] Discovered sibling gin in dataset at /home/me/dl-101/DataLad-101
 [INFO] Discovered sibling roommate in dataset at /home/me/dl-101/DataLad-101 

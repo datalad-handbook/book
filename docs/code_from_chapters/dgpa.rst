@@ -1,20 +1,30 @@
-.. _yale:
+.. _dgpa:
 
-An introduction to DataLad for Yale
------------------------------------
+An introduction to DataLad at the ReproNim DGPA workshop
+--------------------------------------------------------
 
-Welcome to this introduction to DataLad.
-If you have all relevant software installed, open up a terminal on your computer and copy-paste the code snippets in this section into your terminal to code along.
-The additional text references additional resources and explanations if you want to find out more about a workflow, command or concepts.
+Welcome to this introduction to DataLad during the ReproNim-DGPA workshop!
+
+.. image:: https://www.repronim.org/images/logo-square-256.png
+   :align: center
+
+On this website you will find the code from the live demonstrations together with a few additional pointers and explanations, so that you can work through the materials at any later point or in your own time or find out more about a workflow, command or concepts.
+If you have all relevant software installed, open up a terminal on your computer and copy-paste the code snippets in this section into your terminal to code along (if you hover above the right corner of a snippet, you can copy it into your clipboard).
 
 Introduction & set-up
 ^^^^^^^^^^^^^^^^^^^^^
 
-In order to code along, you should have a recent DataLad version, e.g., ``0.14.0``, installed, you should have a configured :term:`Git` identity, and you should install the :term:`DataLad extension` "datalad-container".
+In order to code along, you should have ...
+
+* a recent DataLad version, e.g., ``0.15.5`` installed (you may have done that before the workshop already),
+
 If you need them, installation, updating, and configuration instructions for DataLad and Git are in the section :ref:`install`.
 If you are unsure about your version of DataLad, you can check it using the following command::
 
    datalad --version
+
+
+* a configured :term:`Git` identity (you may have done this during the introduction to version control with Git)
 
 If you are unsure if you have configured your Git identity already, you can check if your name and email are printed to the terminal when you run
 
@@ -23,15 +33,20 @@ If you are unsure if you have configured your Git identity already, you can chec
    git config --get user.name
    git config --get user.email
 
-If nothing is returned, you need to configure your :term:`Git` identity.
+If nothing is returned, you need to configure your :term:`Git` identity (:ref:`install` shows you how).
+
+* the :term:`DataLad extension` `"datalad-container" <http://docs.datalad.org/projects/container/en/latest/>`_ installed
 
 In order to install ``datalad-container``, use a package manager such as :term:`pip`::
 
    pip install datalad-container
 
+* an SSH key and account on `gin.g-node.org <https://gin.g-node.org>`_
+
 Beyond software usage, this tutorial will show you how to publish data.
-For this, we will be using gin.g-node.org, a free dataset hosting service.
+For this, we will be using :term:`Gin`, a free dataset hosting service.
 If you want to code along to this part of the tutorial, you may want to create a free user account and upload your :term:`SSH key` -- but worry not, you can also do this at a later stage, too.
+Detailed instructions are in section :ref:`gin`.
 
 
 How to use DataLad
@@ -116,7 +131,7 @@ Note that ``datalad save`` will save **all** modifications in the dataset at onc
 If you have several modified files, you can supply a path to the file or files you want to save.
 Importantly, you can version control data of any size - yes, even if the data reaches the size of the `human connectome project <https://github.com/datalad-datasets/human-connectome-project-openaccess>`_, of the `UK Biobank <https://github.com/datalad/datalad-ukbiobank>`_, or even larger.
 
-With each saved change, you build up a dataset history. Tools such as :command:`git log` allow you to interrogate this history, and if you want to, you can use this history to find out what has been done in a dataset, reset it to previous states, and much more::
+With each saved change, you build up a dataset history. Tools such as :command:`git log` or :term:`tig` allow you to interrogate this history, and if you want to, you can use this history to find out what has been done in a dataset, reset it to previous states, and much more::
 
    git log
 
@@ -162,16 +177,7 @@ You retain access to the file via :command:`datalad get`::
 
 This mechanism gives you access to data without the necessity to store all of the data locally.
 As long as there is one location where data is available from (a dataset on a shared cluster, a web source, cloud storage, a USB-stick, ...) and this source is known, there is no need for storing data when it is not in use.
-If you want to try it with large amount of data, checkout `datasets.datalad.org <http://datasets.datalad.org/>`_, a collection of more than 200TB of open data (also called :term:`The DataLad superdataset ///` because it is a dataset hierarchy that includes a large range of public datasets and can be obtained by running ``datalad clone ///``).
-
-.. importantnote:: In fact, use your DataLad skills right now!
-
-   In order to prepare the next session by Dr. David Keator, please clone the `adhd200 Brown <http://fcon_1000.projects.nitrc.org/indi/adhd200/>`_ dataset and retrieve all of its data (1.4GB in total)::
-
-      # make sure to do this in a different directory
-      datalad clone ///adhd200/RawDataBIDS/Brown
-      cd Brown
-      datalad get .
+If you want to try it with large amount of data, checkout `github.com/OpenNeuroDatasets <https://github.com/OpenNeuroDatasets>`_ (a collection of all neuroimaging datasets from `OpenNeuro <https://openneuro.org>`_), or `datasets.datalad.org <http://datasets.datalad.org/>`_, a collection of almost 500TB of open data (also called :term:`The DataLad superdataset ///` because it is a dataset hierarchy that includes a large range of public datasets and can be obtained by running ``datalad clone ///``).
 
 Dataset nesting
 ^^^^^^^^^^^^^^^
@@ -179,7 +185,7 @@ Dataset nesting
 Datasets can be nested in superdataset-subdataset hierarchies.
 
 This overcomes scaling issues.
-Some datasets that we work with, including ABCD, become incredibly large, and when they exceed a few 100k files version control tools can struggle and break.
+Sometimes datasets that we work with become incredibly large, and when they exceed a few 100k files version control tools can struggle and break.
 By nesting datasets, you can overcome this and split a dataset into manageable pieces.
 If you are interested in finding out more, take a look into the usecase :ref:`usecase_HCP_dataset` or the chapter :ref:`chapter_gobig`.
 
@@ -196,7 +202,7 @@ For this example, we use a number of publicly available DICOM files. Luckily,
 at the time of data acquisition, these DICOMs were already equipped with the
 relevant metadata: Their headers contain all necessary information to
 identify the purpose of individual scans and encode essential properties to
-create a BIDS compliant dataset from them. The DICOMs are stored on Github
+create a BIDS compliant dataset from them. The DICOMs are stored on GitHub
 (as a Git repository), so they can be installed as a subdataset. As
 they are the raw inputs of the analysis, we store them in a directory we call
 ``inputs/raw``::
@@ -281,11 +287,15 @@ a convenient way is `Gin <https://gin.g-node.org>`_, a free hosting service for 
 First, you need to head over to `gin.g-node.org <https://gin.g-node.org/>`__, log in, and upload an :term:`SSH key`. Then, under your user account, create a new repository, and copy it's SSH URL.
 A step by step instruction with screenshots is in the section :ref:`gin`.
 
+.. importantnote:: The 0.16 release will have a convenience command
+
+   The upcoming DataLad ``0.16`` release comes with a set of commands that automatically create new repositories on your favourite hosting service for you, for example :command:`datalad create-sibling-gin`. For more information on how to create repositories either manually or automatically, take a look at :ref:`share_hostingservice`.
+
 You can register this URL as a sibling dataset to your own dataset using :command:`datalad siblings add`::
 
    datalad siblings add -d . \
     --name gin \
-    --url git@gin.g-node.org:/adswa/bids-data.git
+    --url git@gin.g-node.org:/adswa/bidsdata.git
 
 It is now a known sibling dataset to which you can publish data::
 
@@ -341,7 +351,7 @@ It just needs the correct software that the script requires -- in this case, a P
 At this point in the tutorial, you should have created your own Docker container with the necessary Python environment.
 In addition to this Docker container, we're also providing a `singularity <http://singularity.lbl.gov/>`_ image. Singularity is a useful alternative to Docker, because, unlike Docker, it can be run on shared computational infrastructure such as HPC systems without posing a security risk.
 
-.. find-out-more:: Creating a Singularity container with Neurodocker and Singularity Hub
+.. find-out-more:: Creating a Singularity container with Neurodocker
 
    In order to create a Singularity image, you first need a recipe.
    `Neurodocker <https://github.com/ReproNim/neurodocker>`_ makes this really easy.
@@ -354,8 +364,8 @@ In addition to this Docker container, we're also providing a `singularity <http:
                   pip_install='nilearn matplotlib' \
       --entrypoint "/neurodocker/startup.sh python"
 
-   The resulting recipe can be saved into a Git repository or DataLad dataset, and `Singularity Hub <https://singularity-hub.org/>`_ can be used to build and host the :term:`container image`.
-   Alternatively, a ``sudo singularity build <container-name> <recipe>`` build the image locally, and you can add it from a path to your dataset.
+   The resulting recipe can be saved into a Git repository or DataLad dataset.
+   A ``sudo singularity build <container-name> <recipe>`` builds the image locally, and you can add it from a path to your dataset.
 
 Let's add this container to the dataset using :command:`datalad containers-add`.
 Decide for yourself whether you want to use the Docker image or the Singularity image.
@@ -383,7 +393,7 @@ Here's how this looks like::
     --output "sub-02*" \
     "python code/get_brainmask.py"
 
-You can query an individual file how it came to be...
+You can query an individual file how it came to be...::
 
    git log sub-02_brain-mask.nii.gz
 

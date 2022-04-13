@@ -535,7 +535,7 @@ This is related to GitHub's decision to make ``main`` `the default branch for ne
 
 To fix this for present and/or future datasets, the default branch can be configured to a branch name of your choice on a repository- or organizational level `via GitHub's web-interface <https://github.blog/changelog/2020-08-26-set-the-default-branch-for-newly-created-repositories/>`_.
 Alternatively, you can rename existing ``master`` branches into ``main`` using ``git branch -m master main`` (but beware of unforeseen consequences - your collaborators may try to ``update`` the ``master`` branch but fail, continuous integration workflows could still try to use ``master``, etc.).
-Lastly, you can initialize new datasets with ``main`` instead of ``master`` -- either with a global Git configuration [#f2]_ for ``init.defaultBranch``, or by using the ``--initial-branch`` option of ``datalad create``.
+Lastly, you can initialize new datasets with ``main`` instead of ``master`` -- either with a global Git configuration [#f2]_ for ``init.defaultBranch`` (``git config --global init.defaultBranch main``), or by passing the ``--initial-branch <branchname>`` option via ``datalad create`` by appending ``--initial-branch main`` to the command (``datalad create mydataset --initial-branch main``) [#f3]_.
 
 .. rubric:: Footnotes
 
@@ -543,3 +543,5 @@ Lastly, you can initialize new datasets with ``main`` instead of ``master`` -- e
          ``mc`` can also follow symlinks.
 
 .. [#f2] See the section :ref:`config` for more info on configurations
+
+.. [#f3] ``--initial-branch`` is not one of ``datalad create``'s parameters, but a parameter of a ``git init`` call. You can specify any of ``git init``'s parameters as the last arguments of ``datalad create`` (after the ``PATH``) and it will be passed to ``git init``.

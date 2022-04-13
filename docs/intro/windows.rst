@@ -19,11 +19,6 @@ This page summarizes core downsides and deficiencies of Windows, DataLad on Wind
 Windows-Deficiencies
 ^^^^^^^^^^^^^^^^^^^^
 
-.. admonition:: Updates
-
-   We have succeeded in building git-annex with MagicMime for mimeencoding (that's a good thing).
-   While we're working on packaging everything into a single, conda-based DataLad installation bundle, you can find a standalone git-annex installer at `http://datasets.datalad.org/datalad/packages/windows/ <http://datasets.datalad.org/datalad/packages/windows/>`_.
-
 Windows works fundamentally different than macOS or Linux-based operating systems.
 This results in missing dependencies, altered behavior, and inconvenient workarounds.
 Beyond this, Windows uses a different file system than Unix based systems.

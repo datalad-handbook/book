@@ -1013,8 +1013,10 @@ remaining symlink will fail, but the content can be obtained easily again with
    $ datalad get flowers.jpg
 
 If a file has no verified remote copies, DataLad will only drop its
-content if the ``--nocheck`` option is specified. We will demonstrate
-this by generating a random PDF file:
+content if the user enforces it.
+DataLad versions prior to ``0.16`` need to enforce dropping using the ``--nocheck`` option, while DataLad version ``0.16`` and up need to enforce dropping using the ``--reckless [MODE]`` option, where ``[MODE]`` is either ``modification`` (drop despite unsaved modifications) ``availability`` (drop even though no other copy is known) ``undead`` (only for datasets; would drop a dataset without announcing its death to linked dataset clones) or ``kill`` (no safety checks at all are run).
+While the ``--reckless`` parameter sounds more complex, it ensures a safer operation than the previous ``--nocheck`` implementation.
+We will demonstrate this by generating a random PDF file:
 
 .. runrecord:: _examples/DL-101-136-177
    :workdir: dl-101/DataLad-101
@@ -1035,15 +1037,15 @@ DataLad will safeguard dropping content that it can not retrieve again:
 
    $ datalad drop a.pdf
 
-But with the ``--nocheck`` flag it will work:
+But with ``--nocheck`` (for ``<0.16``) or ``--reckless availability`` (for ``0.16`` and higher) it will work:
 
 .. runrecord:: _examples/DL-101-136-179
    :workdir: dl-101/DataLad-101
    :language: console
-   :notes: the --nocheck flag lets us drop content anyway. This content is gone forever now, though!
+   :notes: the --nocheck/--reckless flag lets us drop content anyway. This content is gone forever now, though!
    :cast: 03_git_annex_basics
 
-   $ datalad drop --nocheck a.pdf
+   $ datalad drop --reckless availability a.pdf
 
 Note though that this file content is irreversibly gone now, and
 even going back in time in the history of the dataset will not bring it
@@ -1186,8 +1188,8 @@ Afterwards, ``rm -rf <dataset>`` will succeed.
 However, instead of ``rm -rf``, a faster way to remove a dataset is using
 :command:`datalad remove`: Run ``datalad remove <dataset>`` outside of the
 superdataset to remove a top-level dataset with all its contents. Likely,
-both ``--nocheck`` and ``--recursive`` flags are necessary
-to remove content that does not have verified remotes, and to traverse into subdatasets.
+both  ``--recursive`` and ``--nocheck`` (for DataLad versions ``<0.16``) or ``--reckless [availabilty|undead|kill]`` (for DataLad versions ``0.16`` and higher) flags are necessary
+to traverse into subdatasets and to remove content that does not have verified remotes.
 
 Be aware though that both ways to delete a dataset will
 irretrievably delete the dataset, it's contents, and it's history.

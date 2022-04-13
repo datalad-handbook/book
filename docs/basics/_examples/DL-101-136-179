@@ -1,2 +1,2 @@
-$ datalad drop --nocheck a.pdf
+$ datalad drop --reckless availability a.pdf
 drop(ok): a.pdf (file)

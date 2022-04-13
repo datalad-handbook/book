@@ -202,7 +202,7 @@ For this example, we use a number of publicly available DICOM files. Luckily,
 at the time of data acquisition, these DICOMs were already equipped with the
 relevant metadata: Their headers contain all necessary information to
 identify the purpose of individual scans and encode essential properties to
-create a BIDS compliant dataset from them. The DICOMs are stored on Github
+create a BIDS compliant dataset from them. The DICOMs are stored on GitHub
 (as a Git repository), so they can be installed as a subdataset. As
 they are the raw inputs of the analysis, we store them in a directory we call
 ``inputs/raw``::

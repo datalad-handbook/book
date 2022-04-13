@@ -30,12 +30,6 @@ In order to use GIN for hosting and sharing your datasets, you need to
 
 - register
 - upload your public :term:`SSH key` for SSH access
-- create an empty repository on GIN and publish your dataset to it
-
-.. todo::
-
-   Revise this last step once there is a ``datalad create-sibling-gin``
-   command: https://github.com/datalad/datalad/issues/2680
 
 Once you have `registered <https://gin.g-node.org/user/sign_up>`_
 an account on the GIN server by providing your e-mail address, affiliation,
@@ -58,9 +52,12 @@ You should copy the contents of your public key file into the field labeled
 Publishing your dataset to GIN
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To publish an existing dataset to GIN, create a new, empty repository on GIN first.
-Unlike with :command:`datalad create-sibling-github` (that does this step automatically
-for you on :term:`GitHub`), this needs to be done via the web interface:
+.. index:: ! datalad command; create-sibling-gin
+
+As outlined in the section :ref:`share_hostingservice`, there are two ways in which you can publish your dataset to Gin.
+Either by 1) creating a new, empty repository on GIN via the web interface, or 2), if you use DataLad version ``0.16`` or higher, via the :command:`create-sibling-gin` command (:manpage:`datalad-create-sibling-gin` manual).
+
+**1) via webinterface:** If you choose to create a new repository via Gin's web interface, make sure to not initialize it with a README:
 
 .. figure:: ../artwork/src/GIN_newrepo.png
 
@@ -90,6 +87,10 @@ and you can type "yes" to continue::
 
        $ python3 /home/me/makepushtarget.py '/home/me/dl-101/DataLad-101' 'gin' '/home/me/pushes/DataLad-101' True True
 
+**2) via command-line:**
+If you choose to use the :command:`create-sibling-gin` command, supply the command with a name for the repository, and optionally add a ``-s/--siblingname [NAME]`` parameter (if unconfigured it will be ``gin``), and ``--access-protocol [https|ssh|https-ssh]`` (ideally ``ssh``).
+The command has a number of additional useful parameters, so make sure to take a look at  :manpage:`datalad-create-sibling-gin`.
+
 
 Afterwards, you can publish your dataset with :command:`datalad push`. As the
 repository on GIN supports a dataset annex, there is no publication dependency
@@ -102,9 +103,8 @@ stored in Git and in git-annex are published to the same place:
 
    $ datalad push --to gin
 
-If you refresh the GIN web interface afterwards, you will find all of your dataset
--- including annexed contents! -- on GIN. What is especially cool is that the
-GIN web interface (unlike :term:`GitHub`) can even preview your annexed contents.
+On the GIN web interface  you will find all of your dataset -- including annexed contents!
+What is especially cool is that the GIN web interface (unlike :term:`GitHub`) can even preview your annexed contents.
 
 .. figure:: ../artwork/src/GIN_dl101_repo.png
 

@@ -6,6 +6,7 @@ $ datalad create-sibling --name mysibling ../datalad-sibling
 [INFO] Start enumerating objects 
 [INFO] Start counting objects 
 [INFO] Start compressing objects 
+update(ok): . (dataset)
 [INFO] Adjusting remote git configuration 
 [INFO] Running post-update hooks in all created siblings 
 create_sibling(ok): /home/me/DVCvsDL/DVC-DataLad (dataset)

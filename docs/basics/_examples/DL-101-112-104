@@ -6,10 +6,6 @@ $ datalad run -m "Resize logo for slides" \
 unlock(ok): recordings/interval_logo_small.jpg (file)
 [INFO] == Command start (output follows) ===== 
 [INFO] == Command exit (modification check follows) ===== 
+run(ok): /home/me/dl-101/DataLad-101 (dataset) [convert -resize 400x400 recordings/longn...]
 add(ok): recordings/interval_logo_small.jpg (file)
 save(ok): . (dataset)
-action summary:
-  add (ok: 1)
-  get (notneeded: 2)
-  save (notneeded: 1, ok: 1)
-  unlock (ok: 1)

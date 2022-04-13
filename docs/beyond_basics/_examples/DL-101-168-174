@@ -6,10 +6,7 @@ $ datalad run --message "Evaluate SGD classifier model" \
 [INFO] Making sure inputs are available (this may take some time) 
 [INFO] == Command start (output follows) ===== 
 [INFO] == Command exit (modification check follows) ===== 
+run(ok): /home/me/DVCvsDL/DVC-DataLad (dataset) [python code/evaluate.py]
 add(ok): code/__pycache__/train.cpython-39.pyc (file)
 add(ok): metrics/accuracy.json (file)
 save(ok): . (dataset)
-action summary:
-  add (ok: 2)
-  get (notneeded: 1)
-  save (ok: 1)

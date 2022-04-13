@@ -6,3 +6,4 @@ $ datalad run -m "run first part of analysis workflow" \
 get(ok): src/forrest_structural/sub-01/anat/sub-01_T1w.nii.gz (file) [from mddatasrc...]
 [INFO] == Command start (output follows) ===== 
 [INFO] == Command exit (modification check follows) ===== 
+run(ok): /home/me/usecases/collab/myanalysis (dataset) [code/run_analysis.py]

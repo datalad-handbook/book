@@ -11,4 +11,4 @@ Updating lock file 'dvc.lock'
 
 To track the changes with git, run:
 
-	git add dvc.yaml model/.gitignore dvc.lock
+	git add model/.gitignore dvc.yaml dvc.lock

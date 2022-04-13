@@ -16,7 +16,12 @@ installed.
 .. importantnote:: RIA availability
 
    Setting up and interacting with RIA stores requires DataLad version ``0.13.0``
-   or higher. In order to understand this section, some knowledge on Git-internals
+   or higher.
+
+   Note a breaking API change of :command:`create-sibling-ria` in DataLad versions ``>0.16.0``:
+   A new store isn't set up unless ``--new-store-ok`` is passed.
+
+   In order to understand this section, some knowledge on Git-internals
    and overcoming any fear of how checksums and UUIDs look can be helpful.
 
 Technical details
@@ -209,9 +214,9 @@ and thus the default.
 
 .. index:: ! datalad command; create-sibling-ria
 
-By default, the :command:`datalad create-sibling-ria` command will automatically create a
-dataset representation in a RIA store (and set up the RIA store, if it does not
-exist), and configure a sibling to allow publishing to the RIA store and updating
+The command :command:`datalad create-sibling-ria` can both create datasets in RIA stores and the RIA stores themselves.
+With DataLad versions lower than ``0.16.0``, :command:`datalad create-sibling-ria` sets up a new RIA store if it does not find one under the provided URL, but starting with ``0.16.0``, one needs to pass the parameter ``--new-store-ok`` in order to set up a new store.
+By default, the command will automatically create a dataset representation in a RIA store and configure a sibling to allow publishing to the RIA store and updating
 from it.
 With special remote capabilities enabled, the command will automatically create
 the special remote as a ``storage-sibling`` and link it to the RIA-sibling.
@@ -295,6 +300,11 @@ on where the RIA store (should) exists, or rather, which file transfer protocol
 - A URL to a store on a local file system has a ``ria+file://`` prefix,
   followed by an **absolute** path: ``ria+file:///absolute/path/to/ria-store``
 
+.. find-out-more:: RIA stores with HTTP access
+
+   Setting up RIA store with access via HTTP requires additional server-side configurations for Git.
+   `Git's http-backend documentation <https://git-scm.com/docs/git-http-backend>`_ can point you the relevant configurations for your webserver and usecase.
+
 Note that it is always required to specify an :term:`absolute path` in the URL!
 
 .. importantnote:: If you code along, make sure to check the next findoutmore!
@@ -339,6 +349,7 @@ system to publish the ``DataLad-101`` dataset from the handbook's "Basics"
 section to. In the example below, the RIA sibling gets the name ``ria-backup``.
 The URL uses the ``file`` protocol and points with an absolute path to the not
 yet existing directory ``myriastore``.
+When you are using DataLad version ``0.16`` or higher, make sure that the ``--new-store-ok`` parameter is set to allow the creation of a new store.
 
 
 .. runrecord:: _examples/DL-101-147-103
@@ -346,7 +357,8 @@ yet existing directory ``myriastore``.
    :workdir: dl-101/DataLad-101
 
    # inside of the dataset DataLad-101
-   $ datalad create-sibling-ria -s ria-backup ria+file:///home/me/myriastore
+   # don't use --new-store-ok with datalad < 0.16
+   $ datalad create-sibling-ria -s ria-backup --new-store-ok "ria+file:///home/me/myriastore"
 
 Afterwards, the dataset has two additional siblings: ``ria-backup``, and
 ``ria-backup-storage``.

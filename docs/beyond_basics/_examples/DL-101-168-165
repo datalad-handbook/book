@@ -6,7 +6,7 @@ $ git push --set-upstream origin random-forest
 $ git tag -a random-forest -m "Random Forest classifier with 80.99% accuracy."
 $ git push origin --tags
 $ dvc push
-[random_forrest 6890032] Train Random Forrest classifier
+[random_forrest e6abe0f] Train Random Forrest classifier
  3 files changed, 11 insertions(+), 17 deletions(-)
 Everything up-to-date
 fatal: tag 'random-forest' already exists

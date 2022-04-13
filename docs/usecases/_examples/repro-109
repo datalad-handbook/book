@@ -11,6 +11,7 @@ action summary:
 Processing inputs/ds000001/sub-01/anat/sub-01_T1w.nii.gz
 Processing inputs/ds000002/sub-01/anat/sub-01_T1w.nii.gz
 [INFO] == Command exit (modification check follows) ===== 
+run(ok): /home/me/usecases/repro/demo (dataset) [bash -e code/brain_extraction.sh inputs/...]
 add(ok): sub-001/anat.nii.gz (file)
 add(ok): sub-001/anat_mask.nii.gz (file)
 add(ok): sub-002/anat.nii.gz (file)

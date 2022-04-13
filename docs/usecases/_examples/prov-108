@@ -5,9 +5,6 @@ $ datalad run -m "blur image" \
 [INFO] Making sure inputs are available (this may take some time) 
 [INFO] == Command start (output follows) ===== 
 [INFO] == Command exit (modification check follows) ===== 
+run(ok): /home/me/usecases/provenance/artproject (dataset) [convert -spread 10 st-bernard.jpg st-ber...]
 add(ok): st-bernard-displaced.jpg (file)
 save(ok): . (dataset)
-action summary:
-  add (ok: 1)
-  get (notneeded: 1)
-  save (ok: 1)

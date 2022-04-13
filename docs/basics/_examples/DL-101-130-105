@@ -11,13 +11,15 @@ $ datalad clone -d . \
 [INFO] Start receiving objects
 [INFO] Start resolving deltas
 [INFO] Completed clone attempts for Dataset(/home/me/dl-101/DataLad-101/midterm_project/input)
-[INFO] scanning for unlocked files (this may take some time)
 [INFO] Remote origin not usable by git-annex; setting annex-ignore
+[INFO] https://github.com/datalad-handbook/iris_data.git/config download failed: Not Found
 install(ok): input (dataset)
 add(ok): input (file)
 add(ok): .gitmodules (file)
 save(ok): . (dataset)
+add(ok): .gitmodules (file)
+save(ok): . (dataset)
 action summary:
-  add (ok: 2)
+  add (ok: 3)
   install (ok: 1)
-  save (ok: 1)
+  save (ok: 2)

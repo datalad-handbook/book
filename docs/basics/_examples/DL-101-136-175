@@ -1,2 +1,2 @@
 $ datalad drop flowers.jpg
-drop(ok): /home/me/dl-101/DataLad-101/flowers.jpg (file) [checking https://upload.wikimedia.org/wikipedia/commons/a/a5/Flower_poster_2.jpg...]
+drop(ok): flowers.jpg (file)

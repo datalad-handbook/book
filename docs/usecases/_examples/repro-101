@@ -1,7 +1,10 @@
 $ datalad create -c yoda demo
 [INFO] Creating a new annex repo at /home/me/usecases/repro/demo 
-[INFO] Scanning for unlocked files (this may take some time) 
 [INFO] Running procedure cfg_yoda 
 [INFO] == Command start (output follows) ===== 
 [INFO] == Command exit (modification check follows) ===== 
+run(ok): /home/me/usecases/repro/demo (dataset) [/home/adina/env/handbook2/bin/python /ho...]
 create(ok): /home/me/usecases/repro/demo (dataset)
+action summary:
+  create (ok: 1)
+  run (ok: 1)

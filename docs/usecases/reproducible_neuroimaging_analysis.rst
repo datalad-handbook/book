@@ -167,6 +167,7 @@ to the ``localizer_scans`` superdataset. We are giving it the name
 .. runrecord:: _examples/repro2-104
    :language: console
    :workdir: usecases/repro2/localizer_scans
+   :realcommand: datalad containers-add heudiconv --call-fmt 'singularity exec -B {{pwd}} {img} {cmd}'  --url shub://ReproNim/ohbm2018-training:heudiconvn
 
    $ datalad containers-add heudiconv --url shub://ReproNim/ohbm2018-training:heudiconvn
 
@@ -199,8 +200,7 @@ produces very wordy output.
 
    $ datalad containers-run -m "Convert sub-02 DICOMs into BIDS" \
      --container-name heudiconv \
-     heudiconv -f reproin -s 02 -c dcm2niix -b -l "" --minmeta -a . \
-     -o /tmp/heudiconv.sub-02 --files inputs/rawdata/dicoms
+     'heudiconv -f reproin -s 02 -c dcm2niix -b -l "" --minmeta -a . -o /tmp/heudiconv.sub-02 --files inputs/rawdata/dicoms'
 
 Find out what changed after this command by comparing the most recent commit
 by DataLad (i.e., ``HEAD``) to the previous one (i.e., ``HEAD~1``) with
@@ -356,6 +356,7 @@ version we require:
 .. runrecord:: _examples/repro2-117
    :workdir: usecases/repro2/glm_analysis
    :language: console
+   :realcommand: datalad containers-add fsl --call-fmt 'singularity exec -B {{pwd}} {img} {cmd}'  --url shub://mih/ohbm2018-training:fsl
 
    $ datalad containers-add fsl --url shub://mih/ohbm2018-training:fsl
 

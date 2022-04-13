@@ -196,6 +196,7 @@ If used with a public url, for example to :term:`Singularity-Hub`, others that y
    :language: console
    :cast: usecase_ml
    :workdir: usecases/ml-project
+   :realcommand: datalad containers-add software --call-fmt 'singularity exec -B {{pwd}} --cleanenv {img} {cmd}' --url shub://adswa/python-ml:1
 
    $ datalad containers-add software --url shub://adswa/python-ml:1
 

@@ -18,3 +18,6 @@ publish(ok): . (dataset) [refs/heads/master->ria-backup:refs/heads/master [new b
 publish(ok): . (dataset) [refs/heads/git-annex->ria-backup:refs/heads/git-annex [new branch]]
 [INFO] Finished push of Dataset(/home/me/dl-101/DataLad-101/midterm_project)
 [INFO] Finished push of Dataset(/home/me/dl-101/DataLad-101/midterm_project)
+action summary:
+  copy (ok: 3)
+  publish (ok: 2)

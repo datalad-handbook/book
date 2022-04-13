@@ -1,10 +1,11 @@
 $ tail notes.txt
+registered in the superdataset -- you will have to do a
+"datalad get -n PATH/TO/SUBDATASET" to install the subdataset for file
+availability meta data. The -n/--no-data options prevents that file
+contents are also downloaded.
 
 Note that a recursive "datalad get" would install all further
 registered subdatasets underneath a subdataset, so a safer way to
 proceed is to set a decent --recursion-limit:
 "datalad get -n -r --recursion-limit 2 <subds>"
 
-The command "git annex whereis PATH" lists the repositories that have
-the file content of an annexed file. When using "datalad get" to
-retrieve file content, those repositories will be queried.

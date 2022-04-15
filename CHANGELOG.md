@@ -3,6 +3,83 @@
 All notable changes to this project between releases will be documented in this
 file.
 
+## v0.16 (April 13 2022) -- Spring cleaning
+
+Handbook release matching the release of DataLad v0.16.0.
+This release contains a number of updates for respective changes in DataLad ``0.16``'s API, including the overhaul of existing commands, reimplementations of commands, and additional commands.
+
+It includes contributions the new contributors @eort, @mslw, @tguiot, @jhpb7 and @eltociear, as well as contributions from established contributors @jsheunis, @mih, @adswa, @yarikoptic, and @Remi-Gau.
+
+
+### Refactoring or deletions
+
+
+### Additions
+
+#### Introduction
+
+- Installation instructions on Windows now recommend git-annex'es filter-process configuration for performance improvements ([#791][])
+
+#### Basics
+
+- The chapter on publishing datasets was overhauled and now includes a general overview of publishing routines and hosting service differences. ([#762][])
+- Content on ``datalad run`` now mentions its superglob abilities ([#692][]) and how to glob across directories hierarchies with earlier datalad versions ([#785][])
+- A few fixes and improvements to the section on publishing datasets to Gin  ([#793][])
+
+#### Advanced
+
+- The enki walkthrough links the FAIRly big paper and tutorial as an improved alternative ([#783][])
+- A new chapter contains a section on contributing to DataLad and DataLad's design docs  ([#782][])
+- A new section guides through the process of creating your own extensions  ([#812][])
+- The section on configuring additional data providers now includes content on DataLad 0.16's credential integration with Git  ([#814][])
+
+#### Usecases
+
+- A new general section on how to create interoperable file names was added  ([#796][])
+
+#### Miscellaneous additions
+
+- The GitHub project of the handbook now uses templates for easier issue generation. ([#768][])
+- A number of CSS improvements fix the rendering of bullet points ([#770][])
+- The ML usecase was minified to speed up builds ([#790][])
+- A new code list for the DGPA workshop was added  ([#820][])
+
+## v0.15 (November 25 2021) -- LaTeX improvements
+
+Handbook release matching the release of DataLad v0.15.0.
+This release contains major improvements of the handbook's LaTeX backbone.
+
+With thanks to the new contributors @oesteban, @AKSoo, and @jsheunis, and established contributors @eknahm, @kyleam, @RemiGau, @bpoldrack, @yarikoptic, @effigies @sappelhof, @lilikapa, @arokem
+
+### Refactoring or deletions
+
+- The deprecated --no-storage-sibling parameter was removed from the RIA store chapter ([#641][])
+
+### Additions
+
+#### Introduction
+
+- The installation instructions were updated for Python ([#651][]) and Mac ([#675][]), and overall improved ([#682][])
+
+#### Basics
+
+- The help section was extended with a note on asyncio-related errors in Jupyter ([#646][]) and information on line-endings and and autocrfl true configurations for windows users ([#723][])
+- The section on publishing with Gin was amended with content on using Gin as an autoenabled special remote ([#707][])
+- The chapter on run now mentions its ``--assume-ready`` and ``--dry-run` parameter ([#699][])`, ([#724][])
+- There now is a FAQ on how to fix GitHub displaying the git-annex branch as the default ([#722][])
+- A new chapter on Publishing to S3 walks through publishing to a public S3 bucket ([#721][])
+
+#### Miscellaneous additions
+
+- A wide range of improvements in the LaTeX rendering of the handbook ([#647][]), ([#648][]), ([#650][]), ([#655][]), ([#656][]), ([#657][]), ([#658][]), ([#658][]), ([#660][]), ([#661][]), ([#662][]), ([#663][]), ([#665][]), ([#666][]), ([#679][]), ([#684][]), ([#685][]), ([#694][]), ([#759][])
+- A number of textual changes to improve the PDF rendering of the handbook ([#48][]), ([#669][]), ([#670][]), ([#671][]), ([#678][]), ([#680][]), ([#691][]), ([#704][])
+- New artwork ([#667][]), ([#672][]),
+- A new code list for a Repronim Workshop in Yale ([#693][])
+- Continuous integration was migrated to GitHub actions ([#703][])
+- The Zenodo record now resolves to the latest version ([#717][])
+- The code blocks now have copy-buttons ([#615][])
+- A monthly linkchecker was implemented to better catch unresolving URLs ([#743][])
+
 ## v0.14 (January XX 2021) -- slightly less dreadfulness for Windows users
 
 Handbook release matching the release of DataLad v0.14.0.
@@ -267,9 +344,51 @@ Alpha stage release with handbook content covering most of the core commands.
 [#608]: https://github.com/datalad-handbook/book/pull/608
 [#613]: https://github.com/datalad-handbook/book/pull/613
 [#614]: https://github.com/datalad-handbook/book/pull/614
+[#615]: https://github.com/datalad-handbook/book/pull/615
 [#622]: https://github.com/datalad-handbook/book/pull/622
 [#624]: https://github.com/datalad-handbook/book/pull/624
 [#626]: https://github.com/datalad-handbook/book/pull/626
 [#627]: https://github.com/datalad-handbook/book/pull/627
 [#630]: https://github.com/datalad-handbook/book/pull/630
-
+[#641]: https://github.com/datalad-handbook/book/pull/641
+[#646]: https://github.com/datalad-handbook/book/pull/646
+[#647]: https://github.com/datalad-handbook/book/pull/647
+[#648]: https://github.com/datalad-handbook/book/pull/648
+[#650]: https://github.com/datalad-handbook/book/pull/650
+[#651]: https://github.com/datalad-handbook/book/pull/651
+[#655]: https://github.com/datalad-handbook/book/pull/655
+[#656]: https://github.com/datalad-handbook/book/pull/656
+[#657]: https://github.com/datalad-handbook/book/pull/657
+[#658]: https://github.com/datalad-handbook/book/pull/658
+[#659]: https://github.com/datalad-handbook/book/pull/659
+[#660]: https://github.com/datalad-handbook/book/pull/660
+[#661]: https://github.com/datalad-handbook/book/pull/661
+[#662]: https://github.com/datalad-handbook/book/pull/662
+[#663]: https://github.com/datalad-handbook/book/pull/663
+[#665]: https://github.com/datalad-handbook/book/pull/665
+[#666]: https://github.com/datalad-handbook/book/pull/666
+[#667]: https://github.com/datalad-handbook/book/pull/667
+[#669]: https://github.com/datalad-handbook/book/pull/669
+[#670]: https://github.com/datalad-handbook/book/pull/670
+[#671]: https://github.com/datalad-handbook/book/pull/671
+[#672]: https://github.com/datalad-handbook/book/pull/672
+[#675]: https://github.com/datalad-handbook/book/pull/675
+[#678]: https://github.com/datalad-handbook/book/pull/678
+[#679]: https://github.com/datalad-handbook/book/pull/679
+[#682]: https://github.com/datalad-handbook/book/pull/682
+[#684]: https://github.com/datalad-handbook/book/pull/684
+[#685]: https://github.com/datalad-handbook/book/pull/685
+[#694]: https://github.com/datalad-handbook/book/pull/694
+[#759]: https://github.com/datalad-handbook/book/pull/759
+[#680]: https://github.com/datalad-handbook/book/pull/680
+[#691]: https://github.com/datalad-handbook/book/pull/691
+[#693]: https://github.com/datalad-handbook/book/pull/693
+[#703]: https://github.com/datalad-handbook/book/pull/703
+[#704]: https://github.com/datalad-handbook/book/pull/704
+[#707]: https://github.com/datalad-handbook/book/pull/707
+[#717]: https://github.com/datalad-handbook/book/pull/717
+[#721]: https://github.com/datalad-handbook/book/pull/721
+[#722]: https://github.com/datalad-handbook/book/pull/722
+[#723]: https://github.com/datalad-handbook/book/pull/723
+[#724]: https://github.com/datalad-handbook/book/pull/724
+[#743]: https://github.com/datalad-handbook/book/pull/743

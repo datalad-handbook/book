@@ -29,10 +29,22 @@ If you're new here, please start the handbook `here <intro/philosophy.html>`_.
 Alternatively, try to identify with one of several user-types in this
 `user specific guide to the handbook <intro/user_types.html>`_.
 
-.. importantnote:: The handbook is currently in beta stage.
+.. importantnote:: This handbook version belongs to version 0.15.
 
+   **PLEASE NOTE:** This is an archived version of the DataLad handbook
    If you would be willing to provide feedback on its contents, please
-   `get in touch <https://github.com/datalad-handbook/book/issues/new>`_.
+   corresponding to its **0.15 version** (September 2021 - April 2022), which in turn was
+   corresponding to the 0.15.x series of DataLad.
+
+   This handbook version is **not** a complete documentation of all
+   functionality in DataLad 0.15, but the state the handbook was in at this
+   time. Find the latest released version of the handbook at
+   `handbook.datalad.org/en/stable <http://handbook.datalad.org/en/stable/>`_,
+   and its most recent version (including general fixes, visual improvements,
+   and additions of existing commands or workflows based on existing functionality) at
+   `handbook.datalad.org/en/latest <http://handbook.datalad.org/en/latest/>`_.
+   The `CHANGELOG <https://github.com/datalad-handbook/book/blob/master/CHANGELOG.md>`_
+   summarizes the contents and additions that happened between Handbook versions.
 
 
 .. image:: artwork/src/enter.svg

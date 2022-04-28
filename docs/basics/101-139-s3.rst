@@ -63,8 +63,8 @@ remote, export them as :term:`environment variable`\s in your shell:
 
 .. code-block:: bash
 
-   $ export AWS_ACCESS_KEY_ID="<your-access-key-ID>"
-   $ export AWS_SECRET_ACCESS_KEY"<your-secret-access-key>"
+   $ export AWS_ACCESS_KEY_ID="your-access-key-ID"
+   $ export AWS_SECRET_ACCESS_KEY="your-secret-access-key"
 
 In order to work directly with AWS via your command-line shell, you can
 `install the AWS CLI <https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html>`_.

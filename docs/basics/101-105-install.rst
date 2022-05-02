@@ -363,7 +363,7 @@ Re-obtained!
 This was only a quick digression into :command:`datalad drop`. The main principles
 of this command will become clear after chapter
 :ref:`chapter_gitannex`, and its precise use is shown in the paragraph on
-`removing file contents <101-136-filesystem.html#removing-annexed-content-entirely>`_.
+:ref:`removing file contents <remove>`.
 At this point in time, however, you already know that datasets allow you do
 :command:`drop` file contents flexibly. If you want to, you could have more
 podcasts (or other data) on your computer than you have disk space available

@@ -21,7 +21,6 @@ DataLad. A *dataset* is a directory on a computer that DataLad manages.
 .. figure:: ../artwork/src/dataset.svg
    :alt: Create DataLad datasets
    :width: 70%
-   :target: ../basics/101-101-create.html
 
 You can create new, empty datasets from scratch and populate them,
 or transform existing directories into datasets.
@@ -35,7 +34,6 @@ version control arbitrarily large files in datasets.
 .. figure:: ../artwork/src/local_wf.svg
    :alt: Version control arbitrarily large contents
    :width: 70%
-   :target: ../basics/101-107-summary.html
 
 Thus, you can keep track of revisions of data of any size, and view, interact with or
 restore any version of your dataset's history.
@@ -52,7 +50,6 @@ collaboration and data sharing.
 .. figure:: ../artwork/src/collaboration.svg
    :alt: Consume and collaborate
    :width: 130%
-   :target: ../basics/101-120-summary.html
 
 Additionally, you can get access to publicly available open
 data collections with :term:`the DataLad superdataset ///`.
@@ -68,7 +65,6 @@ a hierarchy of datasets, and it is the basis for advanced provenance capture abi
 .. figure:: ../artwork/src/linkage_subds.svg
    :alt: Dataset nesting
    :width: 100%
-   :target: ../basics/101-106-nesting.html
 
 Full provenance capture and reproducibility
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -81,7 +77,6 @@ environments).
 .. figure:: ../artwork/src/reproducible_execution.svg
    :alt: provenance capture
    :width: 100%
-   :target: ../basics/101-113-summary.html
 
 You or your collaborators can thus re-obtain or reproducibly recompute content
 with a single command, and make use of extensive provenance of dataset content

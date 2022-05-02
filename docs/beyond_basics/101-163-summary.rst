@@ -27,6 +27,6 @@ some thought, and in some instances compromise, though.
 Now what can I do with it?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Go big, if you want to. `Distribute 80TB of files <../usecases/HCP_dataset.html>`_
+Go big, if you want to. :ref:`Distribute 80TB of files <usecase_HCP_dataset>`
 or `more <https://github.com/datalad/datalad-ukbiobank>`_, or version control
 large analyses with minimized performance loss of your version control tools.

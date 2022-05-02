@@ -22,7 +22,7 @@ Start by reading sections :ref:`executive_summary` to get a high-level overview
 about DataLad's functionality, and continue with section :ref:`philo` for
 a short introduction to the fundamental principles of the software.
 Afterwards, you may want to skim through the different
-`usecases <../usecases/intro>`_ to see whether one catches your attention.
+:ref:`usecases <usecase-intro>` to see whether one catches your attention.
 The :ref:`cheat`, finally, can give you concrete command overviews.
 
 **2** Eager to try all of the things!

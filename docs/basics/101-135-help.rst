@@ -83,7 +83,7 @@ as an excerpt here):
    $ datalad get --help
 
 This for example is the help page on :command:`datalad get`
-(the same you would find in the `documentation <docs.datalad.org>`__,
+(the same you would find in the `documentation <http://docs.datalad.org>`__,
 but in your terminal, here - for brevity - slightly cut).
 It contains a command description, a list
 of all the available options with a short explanation of them, and

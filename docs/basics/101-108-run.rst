@@ -42,7 +42,7 @@ to generate a text file that lists speaker and title
 name instead.
 
 To do this, we're following a best practice that will reappear in the
-later section on `YODA principles <101-127-yoda.html>`_: Collecting all
+later section on :ref:`YODA principles <yoda>`: Collecting all
 additional scripts that work with content of a subdataset *outside*
 of this subdataset, in a dedicated ``code/`` directory,
 and collating the output of the execution of these scripts

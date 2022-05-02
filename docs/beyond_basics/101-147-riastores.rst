@@ -477,7 +477,7 @@ sibling creation:
   creation: ``ria+file:///absolute/path/to/ria-store``
 - A URL for read (without annex) access to a store via :term:`http` (e.g., to a RIA store like
   `store.datalad.org <http://store.datalad.org/>`_, through which the
-  `HCP dataset is published <../usecases/HCP_dataset.html>`_) looks like this:
+  :ref:`HCP dataset is published <usecase_HCP_dataset>`) looks like this:
   ``ria+http://store.datalad.org:/absolute/path/to/ria-store``
 
 The appropriate ``ria+`` URL needs to be suffixed with a ``#`` sign and a dataset

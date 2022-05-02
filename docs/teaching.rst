@@ -53,7 +53,7 @@ course repository), and provide a path to the demo you want to run::
 
    $ cast_live casts/01_dataset_basics
 
-For existing code demos, the chapter `Code from chapters <code_from_chapters/intro.html>`_
+For existing code demos, the chapter :ref:`Code from chapters <codecasts>`
 contains numbered lists of code snippets to allow your audience to copy-paste what
 you execute to follow along.
 

@@ -309,7 +309,7 @@ To compute the analysis you create the following Python script inside of ``code/
 .. runrecord:: _examples/DL-101-130-107
    :language: console
    :workdir: dl-101/DataLad-101/midterm_project
-   :emphasize-lines: 5, 10, 13, 22, 41
+   :emphasize-lines: 11-13, 23, 42
    :cast: 10_yoda
    :notes: Let's create code for an analysis
 
@@ -360,15 +360,29 @@ To compute the analysis you create the following Python script inside of ``code/
 
 This script will
 
-- import DataLad's functionality and expose it as ``dl.<COMMAND>``
-- make sure to install the linked subdataset and retrieve the data with
-  :command:`datalad get` (l. 12) prior to reading it in, and
-- save the resulting figure (l. 21) and ``.csv`` file (l. 40) into the root of
-  ``midterm_project/``. Note how this helps to fulfil YODA principle 1 on modularity:
+- take three positional arguments: The input data, a path to save a figure under, and path to save the final prediction report under. By including these input and output specifications in a :command:`datalad run` command when we run the analysis, we can ensure that input data is retrieved prior to the script execution, and that as much actionable provenance as possible is recorded [#f5]_.
+- read in the data, perform the analysis, and save the resulting figure and ``.csv`` prediction report into the root of ``midterm_project/``. Note how this helps to fulfil YODA principle 1 on modularity:
   Results are stored outside of the pristine input subdataset.
-- Note further how all paths (to input data and output files) are *relative*, such that the
-  ``midterm_project`` analysis is completely self-contained within the dataset,
-  contributing to fulfill the second YODA principle.
+
+A short help text explains how the script shall be used:
+
+.. code-block:: bash
+
+   python code/script.py -h                                                  2 !
+   usage: script.py [-h] data output_figure output_report
+
+   Analyze iris data
+
+   positional arguments:
+      data           Input data (CSV) to process
+      output_figure  Output figure path
+      output_report  Output report path
+
+   optional arguments:
+   -h, --help     show this help message and exit
+
+The script execution would thus be ``python3 code/script.py <path-to-input> <path-to-figure-output> <path-to-report-output>``.
+When parametrizing the input and output path parameters, we just need make sure that all paths  are *relative*, such that the ``midterm_project`` analysis is completely self-contained within the dataset, contributing to fulfill the second YODA principle.
 
 Let's run a quick :command:`datalad status`...
 
@@ -422,8 +436,7 @@ point with the ``--version-tag`` option of :command:`datalad save`.
 
 Finally, with your directory structure being modular and intuitive,
 the input data installed, the script ready, and the dataset status clean,
-you can wrap the execution of the script (which is a simple
-``python3 code/script.py``) in a :command:`datalad run` command. Note that
+you can wrap the execution of the script in a :command:`datalad run` command. Note that
 simply executing the script would work as well -- thanks to DataLad's Python API.
 But using :command:`datalad run` will capture full provenance, and will make
 re-execution with :command:`datalad rerun` easy.
@@ -648,7 +661,7 @@ configuration, or interactively).
    Upcoming changes in DataLad's API will reflect this change starting with DataLad version ``0.13.6`` by removing the ``github-passwd`` argument.
    Starting with DataLad ``0.16.0``, a new set of commands for interactions with a variety of hosting services will be introduced (for more information, see section :ref:`share_hostingservice`).
 
-   To ensure successful authentication, please create a personal access token at `github.com/settings/tokens <https://github.com/settings/tokens>`_ [#f5]_, and either
+   To ensure successful authentication, please create a personal access token at `github.com/settings/tokens <https://github.com/settings/tokens>`_ [#f6]_, and either
 
    * supply the token with the argument ``--github-login <TOKEN>`` from the command line,
    * or supply the token from the command line when queried for a password
@@ -912,10 +925,12 @@ reproduce your data science project easily from scratch (take a look into the :r
          configured your dataset. If you want to re-read the full chapter on
          configurations and run-procedures, start with section :ref:`config`.
 
-.. [#f5] Instead of using GitHub's WebUI you could also obtain a token using the command line GitHub interface (https://github.com/sociomantic-tsunami/git-hub) by running ``git hub setup`` (if no 2FA is used).
+
+.. [#f5]  Alternatively, if you were to use DataLad's Python API, you could import and expose it as ``dl.<COMMAND>`` and ``dl.get()`` the relevant files. This however, would not record them as provenance in the dataset's history.
+
+.. [#f6] Instead of using GitHub's WebUI you could also obtain a token using the command line GitHub interface (https://github.com/sociomantic-tsunami/git-hub) by running ``git hub setup`` (if no 2FA is used).
          If you decide to use the command line interface, here is help on how to use it:
          Clone the `GitHub repository <https://github.com/sociomantic-tsunami/git-hub>`_ to your local computer.
          Decide whether you want to build a Debian package to install, or install the single-file Python script distributed in the repository.
          Make sure that all `requirements <https://github.com/sociomantic-tsunami/git-hub>`_ for your preferred version are installed , and run either ``make deb`` followed by ``sudo dpkg -i deb/git-hub*all.deb``, or ``make install``.
 
-.. [#f7] To re-read about Git's configurations and the ``git config`` command, please take a look at the section :ref:`config`.

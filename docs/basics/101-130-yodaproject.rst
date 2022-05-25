@@ -289,7 +289,7 @@ YODA-compliant analysis scripts
 Now that you have an ``input/`` directory with data, and a ``code/`` directory
 (created by the YODA procedure) for your scripts, it is time to work on the script
 for your analysis. Within ``midterm_project``, the ``code/`` directory is where
-you want to place your scripts. Finally you can try out the Python API of DataLad!
+you want to place your scripts.
 
 But first, you plan your research question. You decide to do a
 classification analysis with a k-nearest neighbors algorithm [#f2]_. The iris
@@ -315,26 +315,27 @@ To compute the analysis you create the following Python script inside of ``code/
 
    $ cat << EOT > code/script.py
 
+   import argparse
    import pandas as pd
    import seaborn as sns
-   import datalad.api as dl
    from sklearn import model_selection
    from sklearn.neighbors import KNeighborsClassifier
    from sklearn.metrics import classification_report
 
-   data = "input/iris.csv"
-
-   # make sure that the data are obtained (get will also install linked sub-ds!):
-   dl.get(data)
+   parser = argparse.ArgumentParser(description="Analyze iris data")
+   parser.add_argument('data', help="Input data (CSV) to process")
+   parser.add_argument('output_figure', help="Output figure path")
+   parser.add_argument('output_report', help="Output report path")
+   args = parser.parse_args()
 
    # prepare the data as a pandas dataframe
-   df = pd.read_csv(data)
+   df = pd.read_csv(args.data)
    attributes = ["sepal_length", "sepal_width", "petal_length","petal_width", "class"]
    df.columns = attributes
 
    # create a pairplot to plot pairwise relationships in the dataset
    plot = sns.pairplot(df, hue='class', palette='muted')
-   plot.savefig('pairwise_relationships.png')
+   plot.savefig(args.output_figure)
 
    # perform a K-nearest-neighbours classification with scikit-learn
    # Step 1: split data in test and training dataset (20:80)
@@ -353,7 +354,7 @@ To compute the analysis you create the following Python script inside of ``code/
 
    # Step 3: Save the classification report
    report = classification_report(Y_test, predictions, output_dict=True)
-   df_report = pd.DataFrame(report).transpose().to_csv('prediction_report.csv')
+   df_report = pd.DataFrame(report).transpose().to_csv(args.output_report)
 
    EOT
 
@@ -449,8 +450,8 @@ re-execution with :command:`datalad rerun` easy.
 
       datalad run -m "analyze iris data with classification analysis" ^
        --input "input/iris.csv" ^
-       --output "prediction_report.csv" ^
        --output "pairwise_relationships.png" ^
+       --output "prediction_report.csv" ^
        "python code/script.py"
 
 .. runrecord:: _examples/DL-101-130-111
@@ -461,9 +462,9 @@ re-execution with :command:`datalad rerun` easy.
 
    $ datalad run -m "analyze iris data with classification analysis" \
      --input "input/iris.csv" \
-     --output "prediction_report.csv" \
      --output "pairwise_relationships.png" \
-     "python3 code/script.py"
+     --output "prediction_report.csv" \
+     "python3 code/script.py {inputs} {outputs}"
 
 As the successful command summary indicates, your analysis seems to work! Two
 files were created and saved to the dataset: ``pairwise_relationships.png``

@@ -217,7 +217,7 @@ Notice that all commits are marked as equivalent (=) except the ‘random spread
 
    $ git log --oneline --left-right --cherry-mark master...replay
 
-Rob can continue processing images, and will turn in a sucessful art project.
+Rob can continue processing images, and will turn in a successful art project.
 Long after he finishes high school, he finds his dataset on his old computer
 again and remembers this small project fondly.
 

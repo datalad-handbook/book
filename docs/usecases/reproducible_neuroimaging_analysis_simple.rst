@@ -14,7 +14,7 @@ that can be automatically computationally reproduced by anyone:
 #. The final dataset can be kept as lightweight as possible by dropping input that can be easily re-obtained.
 #. A complete reproduction of the computation (including input retrieval), is possible with a single :command:`datalad rerun` command.
 
-This use case is a specialization of :ref:`usecase_reproducible_paper`, and a simpler verison of :ref:`usecase_reproduce_neuroimg`:
+This use case is a specialization of :ref:`usecase_reproducible_paper`, and a simpler version of :ref:`usecase_reproduce_neuroimg`:
 It is a data analysis that requires and creates large data files, uses specialized analysis software, and is fully automated using solely DataLad commands and tools.
 While exact data types, analysis methods, and software mentioned in this use case belong to the scientific field of neuroimaging, the basic workflow is domain-agnostic.
 
@@ -68,7 +68,7 @@ The two datasets, `ds000001 <https://legacy.openfmri.org/dataset/ds000001/>`_ an
    $ cd demo
    $ datalad clone -d . ///openfmri/ds000002 inputs/ds000002
 
-Both datasets are now registered as subdatasets, and their precise versions (e.g. in the form of the commit shasum of the lastest commit) are on record:
+Both datasets are now registered as subdatasets, and their precise versions (e.g. in the form of the commit shasum of the latest commit) are on record:
 
 .. runrecord:: _examples/repro-104
    :language: console

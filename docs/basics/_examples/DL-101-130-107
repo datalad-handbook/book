@@ -1,25 +1,26 @@
 $ cat << EOT > code/script.py
 
+import argparse
 import pandas as pd
 import seaborn as sns
-import datalad.api as dl
 from sklearn import model_selection
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import classification_report
 
-data = "input/iris.csv"
-
-# make sure that the data are obtained (get will also install linked sub-ds!):
-dl.get(data)
+parser = argparse.ArgumentParser(description="Analyze iris data")
+parser.add_argument('data', help="Input data (CSV) to process")
+parser.add_argument('output_figure', help="Output figure path")
+parser.add_argument('output_report', help="Output report path")
+args = parser.parse_args()
 
 # prepare the data as a pandas dataframe
-df = pd.read_csv(data)
+df = pd.read_csv(args.data)
 attributes = ["sepal_length", "sepal_width", "petal_length","petal_width", "class"]
 df.columns = attributes
 
 # create a pairplot to plot pairwise relationships in the dataset
 plot = sns.pairplot(df, hue='class', palette='muted')
-plot.savefig('pairwise_relationships.png')
+plot.savefig(args.output_figure)
 
 # perform a K-nearest-neighbours classification with scikit-learn
 # Step 1: split data in test and training dataset (20:80)
@@ -38,6 +39,6 @@ predictions = knn.predict(X_test)
 
 # Step 3: Save the classification report
 report = classification_report(Y_test, predictions, output_dict=True)
-df_report = pd.DataFrame(report).transpose().to_csv('prediction_report.csv')
+df_report = pd.DataFrame(report).transpose().to_csv(args.output_report)
 
 EOT

@@ -19,11 +19,6 @@ This page summarizes core downsides and deficiencies of Windows, DataLad on Wind
 Windows-Deficiencies
 ^^^^^^^^^^^^^^^^^^^^
 
-.. admonition:: Updates
-
-   We have suceeded in building git-annex with MagicMime for mimeencoding (that's a good thing).
-   While we're working on packaging everything into a single, conda-based DataLad installation bundle, you can find a standalone git-annex installer at ` http://datasets.datalad.org/datalad/packages/windows/ <http://datasets.datalad.org/datalad/packages/windows/>`_.
-
 Windows works fundamentally different than macOS or Linux-based operating systems.
 This results in missing dependencies, altered behavior, and inconvenient workarounds.
 Beyond this, Windows uses a different file system than Unix based systems.
@@ -48,6 +43,11 @@ For example, its :term:`tab completion` is deemed inefficient by many, it takes 
 Usually, Windows users aren't bothered much by this, but DataLad is a command line tool, and with a command line that is difficult to use, command line tools become difficult to use, too.
 Are you a Windows user and have tips for setting up a decent terminal?
 `Please tell us, we're eager to learn from you <https://github.com/datalad/datalad>`_.
+
+Sadly, even the non-commandline parts of Windows bear inconveniences.
+Windows' File Explorer does not display common file extensions by default, and some editors (such as notepad) add their own file extensions to files, even when they already have an extension.
+This can cause confusion.
+
 
 Unfortunately, issues that affect Windows itself are out of our hands.
 We can adapt to limitations, but in many cases it is not possible to overcome them.

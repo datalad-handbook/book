@@ -45,8 +45,12 @@ failed -- sorry about this.
   :ref:`dataladdening`
 :redirect:`dl-for-ml`
   :ref:`dvc`
+:redirect:`dgpa`
+  :ref:`dgpa`
 :redirect:`extensions`
   :ref:`extensions_intro`
+:redirect:`filenaming`
+  :ref:`filenaming`
 :redirect:`GIN`
   :ref:`gin`
 :redirect:`gobig`

@@ -377,7 +377,7 @@ Let's try this:
 This command will replace the submodule's https URL with an SSH URL.
 The latter is often used if someone has an *SSH key pair* and added the
 public key to their GitHub account (you can read more about this
-`here <https://help.github.com/en/articles/which-remote-url-should-i-use>`_).
+`here <https://docs.github.com/en/get-started/getting-started-with-git/about-remote-repositories>`_).
 We will revert this change shortly, but use it to show the difference between
 a :command:`git config` on a ``.git/config`` file and on a version controlled file:
 
@@ -548,7 +548,7 @@ Write a note about configurations in datasets into ``notes.txt``.
 .. [#f2] Specifying annex.largefiles in your .gitattributes file will make the configuration
          "portable" -- shared copies of your dataset will retain these configurations.
          You could however also set largefiles rules in your ``.git/config`` file. Rules
-         specified in there take precendence over rules in ``.gitattributes``. You can set
+         specified in there take precedence over rules in ``.gitattributes``. You can set
          them using the :command:`git config` command::
 
             $ git config annex.largefiles 'largerthan=100kb and not (include=*.c or include=*.h)'

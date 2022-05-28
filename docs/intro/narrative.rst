@@ -61,6 +61,11 @@ When copying code snippets into your own terminal, do not copy the leading
 error when executed.
 Don't worry :ref:`if you do not want to code along <fom-lazy>`, though.
 
+Instead of copying manually, you can also click on the clipboard icon at the top
+right of each code snippet.
+Clicking on that icon will copy all relevant lines from the code snippet,
+and will drop all comments and the ``$`` automatically.
+
 The book is split into different parts. The upcoming chapters
 are the *Basics* that intend to show you the core DataLad functionality
 and challenge you to use it. If you want to learn how to use DataLad, it is
@@ -179,7 +184,7 @@ things you will know how to do, and understand why doing them is useful:
 After having read this handbook, you will find it easy to create, build up, and
 share intuitively structured and version-controlled data projects that
 fulfill high standards for reproducibility and FAIRness. You are able to
-decide for yourself how deep you want to delve into the DataLad world 
+decide for yourself how deep you want to delve into the DataLad world
 based on your individual use cases, and with every section you will learn
 more about state-of-the-art data management.
 

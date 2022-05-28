@@ -14,6 +14,7 @@ jobs:
         run: |
           pip install -r requirements.txt
           pip install -e .
+          sudo apt-get update
           sudo apt-get install texlive-latex-recommended texlive-fonts-recommended texlive-fonts-extra texlive-latex-extra latexmk librsvg2-bin
       - name: Build docs
         run: |

@@ -38,7 +38,7 @@ The DataLad Approach
 ^^^^^^^^^^^^^^^^^^^^
 
 Bob creates his analysis project as a DataLad dataset. Complying with
-the `YODA principles <http://handbook.datalad.org/en/latest/basics/101-123-yoda.html>`_,
+the :ref:`YODA principles <yoda>`,
 he creates his scripts in a dedicated
 ``code/`` directory, and clones the open dataset as a standalone
 DataLad subdataset within a dedicated subdirectory.

@@ -95,7 +95,7 @@ dataset. Here is how it looks like:
 
 
    $ cd mock_user
-   $ datalad clone ../DataLad-101 --description "DataLad-101 in mock_user"
+   $ datalad clone --description "DataLad-101 in mock_user" ../DataLad-101
 
 This will install your dataset ``DataLad-101`` into your room mate's home
 directory. Note that we have given this new
@@ -205,7 +205,7 @@ and hostname of your computer. "This", you exclaim, excited about your own reali
    increases. If you have only one other dataset it may be easy to
    remember what and where it is. But once you have one back-up
    of your dataset on a USB-Stick, one dataset shared with
-   `Dropbox <dropbox.com>`_, and a third one on your institutions
+   `Dropbox <https://www.dropbox.com>`_, and a third one on your institutions
    :term:`GitLab` instance you will be grateful for the descriptions
    you provided these locations with.
 

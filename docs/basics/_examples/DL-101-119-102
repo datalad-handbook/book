@@ -4,7 +4,9 @@ $ datalad update --merge
 [INFO] Start counting objects
 [INFO] Start compressing objects
 merge(ok): . (dataset) [Merged origin/master]
+update.annex_merge(ok): . (dataset) [Merged annex branch]
 update(ok): . (dataset)
 action summary:
   merge (ok: 1)
   update (ok: 1)
+  update.annex_merge (ok: 1)

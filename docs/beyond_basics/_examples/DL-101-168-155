@@ -4,11 +4,11 @@ $ dvc run -n train \
    python src/train.py
 Running stage 'train' with command:
 	python src/train.py
-/home/adina/env/handbook2/lib/python3.9/site-packages/sklearn/linear_model/_stochastic_gradient.py:574: ConvergenceWarning: Maximum number of iteration reached before convergence. Consider increasing max_iter to improve the fit.
+/home/adina/env/handbook2/lib/python3.9/site-packages/sklearn/linear_model/_stochastic_gradient.py:570: ConvergenceWarning: Maximum number of iteration reached before convergence. Consider increasing max_iter to improve the fit.
   warnings.warn("Maximum number of iteration reached before "
 Adding stage 'train' in 'dvc.yaml'
 Updating lock file 'dvc.lock'
 
 To track the changes with git, run:
 
-	git add dvc.yaml model/.gitignore dvc.lock
+	git add model/.gitignore dvc.yaml dvc.lock

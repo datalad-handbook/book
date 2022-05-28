@@ -107,7 +107,7 @@ Singularity (even without having Docker installed).
 .. importantnote:: Additional requirement: Singularity
 
    In order to use Singularity containers (and thus ``datalad containers``), you have to
-   `install <https://singularity.lbl.gov/docs-installation>`_ the software singularity.
+   `install <https://sylabs.io/guides/3.0/user-guide/installation.html>`_ the software singularity.
 
 Using ``datalad containers``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -142,7 +142,7 @@ section below has some pointers:
    `singularity documentation <https://sylabs.io/guides/3.4/user-guide/build_a_container.html>`_
    has its own tutorial on how to build such Images from scratch.
    An alternative to writing the Image file by hand is to use
-   `Neurodocker <https://github.com/ReproNim/neurodocker#singularity>`_. This
+   `Neurodocker <https://github.com/ReproNim/neurodocker>`_. This
    command-line program can help you generate custom Singularity recipes (and
    also ``Dockerfiles``, from which Docker Images are build). A wonderful tutorial
    on how to use Neurodocker is
@@ -246,6 +246,20 @@ container under its name "midterm-software" in the dataset's configuration at
 
       $ git log -n 1 -p
 
+Such configurations can, among other things, be important to ensure correct container invocation on specific systems or across systems.
+One example is *bind-mounting* directories into containers, i.e., making a specific directory and its contents available inside a container.
+Different containerization software (versions) or configurations of those determine *default bind-mounts* on a given system.
+Thus, depending on the system and the location of the dataset on this system, a shared dataset may be automatically bind-mounted or not.
+To ensure that the dataset is correctly bind-mounted on all systems, let's add a call-format specification with a bind-mount to the current working directory following the information in the :ref:`find-out-more on additional container configurations <fom-containerconfig>`.
+
+.. runrecord:: _examples/DL-101-133-104
+   :language: console
+   :workdir: dl-101/DataLad-101/midterm_project
+   :cast: 10_yoda
+
+   $ git config -f .datalad/config datalad.containers.midterm-software.cmdexec 'singularity exec -B {{pwd}} {img} {cmd}'
+   $ datalad save -m "Modify the container call format to bind-mount the working directory"
+
 Now that we have a complete computational environment linked to the ``midterm_project``
 dataset, we can execute commands in this environment. Let us for example try to repeat
 the :command:`datalad run` command from the section :ref:`yoda_project` as a
@@ -261,7 +275,7 @@ The previous ``run`` command looked like this::
 
 How would it look like as a ``containers-run`` command?
 
-.. runrecord:: _examples/DL-101-133-104
+.. runrecord:: _examples/DL-101-133-105
    :language: console
    :workdir: dl-101/DataLad-101/midterm_project
    :cast: 10_yoda
@@ -370,5 +384,5 @@ in the usecase :ref:`usecase_reproduce_neuroimg`.
 .. [#f2] The main reason why Docker is not deployed on HPC systems is because
          it grants users "`superuser privileges <https://en.wikipedia.org/wiki/Superuser>`_".
          On multi-user systems such as HPC, users should not have those
-         privileges, as it would enable them to temper with other's or shared
+         privileges, as it would enable them to tamper with other's or shared
          data and resources, posing a severe security threat.

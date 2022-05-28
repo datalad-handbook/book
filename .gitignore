@@ -6,6 +6,9 @@ docs/_build
 *.sublime-workspace
 *.sublime-project
 
+# Ignore irrelevant files from the VS code editor
+.vscode/
+
 # Ignore .hgignore for contributors using Mercurial.
 .hgignore
 

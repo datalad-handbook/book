@@ -1,7 +1,7 @@
 $ tree /home/me/myriastore
 /home/me/myriastore
-├── c87
-│   └── 74a5b-c857-4751-bce4-e58c6be73349
+├── 350
+│   └── 3e51d-96c9-40e3-814d-4b0e719e72eb
 │       ├── annex
 │       │   └── objects
 │       ├── archives
@@ -22,6 +22,7 @@ $ tree /home/me/myriastore
 │       │   ├── pre-push.sample
 │       │   ├── pre-rebase.sample
 │       │   ├── pre-receive.sample
+│       │   ├── push-to-checkout.sample
 │       │   └── update.sample
 │       ├── info
 │       │   └── exclude
@@ -35,4 +36,4 @@ $ tree /home/me/myriastore
 ├── error_logs
 └── ria-layout-version
 
-15 directories, 19 files
+15 directories, 20 files

@@ -25,7 +25,7 @@ If you are unsure if you have configured your Git identity already, you can chec
 If nothing is returned, you need to configure your :term:`Git` identity.
 
 How to use DataLad
-------------------
+^^^^^^^^^^^^^^^^^^
 
 DataLad is a command line tool and it has a Python API.
 Whenever used, it is thus operated it in your :term:`terminal` using the command line (as done above), or used it in scripts such as shell scripts, Python scripts, Jupyter Notebooks, and so forth.
@@ -237,7 +237,7 @@ This is done with the ``-d/--dataset`` option of :command:`datalad clone`::
 
    datalad clone -d . git@github.com:datalad-handbook/iris_data.git input/
 
-This dataset has been linked in a precise version to the dataset, and it has preserved its complete history (if you are on a native Windows installation, please run ``git show master`` instead -- the reason for this is explained in the `first chapter of the handbook <createDS>`_)::
+This dataset has been linked in a precise version to the dataset, and it has preserved its complete history (if you are on a native Windows installation, please run ``git show master`` instead -- the reason for this is explained in the :ref:`first chapter of the handbook <createDS>`)::
 
    # this shows details of the last entry in your dataset history
    git show
@@ -410,7 +410,7 @@ This records a pre-created software environment with the required Python package
 .. find-out-more:: Why may Singularity be a better choice than Docker?
 
    :term:`Singularity`, unlike :term:`Docker`, can be deployed on shared compute infrastructure such as computational clusters as it does not require or grant `superuser privileges <https://en.wikipedia.org/wiki/Superuser>`_ ("sudo rights") to users that use a container.
-   Docker is not deployed on HPC systems is because it grants users those sudo rights, and on multi-user systems users should not have those privileges, as it would enable them to temper with other's or shared data and resources, posing a severe security threat.
+   Docker is not deployed on HPC systems is because it grants users those sudo rights, and on multi-user systems users should not have those privileges, as it would enable them to tamper with other's or shared data and resources, posing a severe security threat.
    Singularity is capable of working with both Docker and Singularity containers, though.
 
 Afterwards, rerun the analysis in the software container with the ``datalad containers-run`` command.

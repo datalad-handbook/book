@@ -1,11 +1,13 @@
 
-$ datalad rerun ee3c90f1a89b46e4383d4bda1c3663aa6b08fdaa
-[INFO] run commit ee3c90f; (create a list of ...)
+$ datalad rerun 2851d5c4c04281cbc7acabbea25878af693e427e
+[INFO] run commit 2851d5c; (create a list of ...)
 [INFO] == Command start (output follows) ===== 
 [INFO] == Command exit (modification check follows) ===== 
+run(ok): /home/me/dl-101/DataLad-101 (dataset) [bash code/list_titles.sh > recordings/po...]
 add(ok): recordings/podcasts.tsv (file)
 save(ok): . (dataset)
 action summary:
   add (ok: 1)
+  run (ok: 1)
   save (notneeded: 1, ok: 1)
   unlock (notneeded: 1)

@@ -1,26 +1,26 @@
 $ git log -p -n 2
-commit b10d56ac7fe26d8b82dcef272ca3babb45fdfdff
+commit 0d60b583a3a49f29cdc9b0c8e12eed9f45dd266b
 Author: Elena Piscopia <elena@example.net>
-Date:   Fri Jan 29 08:37:55 2021 +0100
+Date:   Wed Apr 13 10:39:44 2022 +0200
 
     add note on datalad save
 
 diff --git a/notes.txt b/notes.txt
-index 3a7a1fe..bfa64d7 100644
+index 3a7a1fe..0142412 100644
 --- a/notes.txt
 +++ b/notes.txt
 @@ -1,3 +1,7 @@
  One can create a new dataset with 'datalad create [--description] PATH'.
  The dataset is created empty
  
-+The command "datalad save [-m] PATH" saves the file
-+(modifications) to history. Note to self:
-+Always use informative, concise commit messages.
++The command "datalad save [-m] PATH" saves the file (modifications) to
++history.
++Note to self: Always use informative, concise commit messages.
 +
 
-commit 708e6f81961d94943f88fcc9d59d965139889c13
+commit 95b614ea1de1cb0d33139e64f446bb16beabcf74
 Author: Elena Piscopia <elena@example.net>
-Date:   Fri Jan 29 08:37:54 2021 +0100
+Date:   Wed Apr 13 10:39:43 2022 +0200
 
     Add notes on datalad create
 

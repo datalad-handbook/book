@@ -42,7 +42,7 @@ to generate a text file that lists speaker and title
 name instead.
 
 To do this, we're following a best practice that will reappear in the
-later section on `YODA principles <101-127-yoda.html>`_: Collecting all
+later section on :ref:`YODA principles <yoda>`: Collecting all
 additional scripts that work with content of a subdataset *outside*
 of this subdataset, in a dedicated ``code/`` directory,
 and collating the output of the execution of these scripts
@@ -88,6 +88,19 @@ will write it into the script.
        done
 
    Note that this is not identical to the one below -- it lacks a few ``\`` characters, which is a meaningful difference.
+
+.. windows-wit:: Be mindful of hidden extensions when creating files!
+
+   By default, Windows does not show common file extensions when you view directory contents with a file explorer.
+   Instead, it only displays the base of the file name and indicates the file type with the display icon.
+   You can see if this is the case for you, too, by opening the ``books\`` directory in a file explorer, and checking if the file extension (``.pdf``) is a part of the file name displayed underneath its PDF icon.
+
+   Hidden file extensions can be a confusing source of errors, because some Windows editors (for example Notepad) automatically add a ``.txt`` extension to your files -- when you save the script above under the name ``list_titles.sh``, your editor may add an extension (``list_titles.sh.txt``), and the file explorer displays your file as ``list_titles.sh`` (hiding the ``.txt`` extension).
+
+   To prevent confusion, configure the file explorer to always show you the file extension.
+   For this, open the Explorer, click on the "View" tab, and tick the box "File name extensions".
+
+   Beyond this, double check the correct naming of your file, ideally in the terminal.
 
 .. runrecord:: _examples/DL-101-108-102
    :language: console
@@ -226,7 +239,7 @@ command as before, and check whether anything in your log changes:
 .. runrecord:: _examples/DL-101-108-107
    :language: console
    :workdir: dl-101/DataLad-101
-   :notes: A run command that does not result in changes (no modifcations, no additional files) will not produce a record in the dataset history. So what happens if we do the same again?
+   :notes: A run command that does not result in changes (no modifications, no additional files) will not produce a record in the dataset history. So what happens if we do the same again?
    :cast: 02_reproducible_execution
 
    $ datalad run -m "Try again to create a list of podcast titles" \

@@ -1,11 +1,4 @@
 $ tail notes.txt
-The git config --list --show-origin command is a useful tool to give
-an overview over existing configurations. Particularly important may
-be the .gitattributes file, in which one can set rules for git-annex
-about which files should be version-controlled with Git instead of
-being annexed.
-
-It can be useful to use pre-configured procedures that can apply
 configurations, create files or file hierarchies, or perform arbitrary
 tasks in datasets. They can be shipped with DataLad, its extensions,
 or datasets, and you can even write your own procedures and distribute

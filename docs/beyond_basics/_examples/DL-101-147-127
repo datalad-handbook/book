@@ -1,7 +1,6 @@
 $ datalad get -n midterm_project
 [INFO] Cloning dataset to Dataset(/home/me/dl-101/myclone/midterm_project) 
-[INFO] Attempting to clone from file:///home/me/myriastore/b77/92b2a-1b50-4ebc-b2ca-63885017aeac to /home/me/dl-101/myclone/midterm_project
+[INFO] Attempting to clone from file:///home/me/myriastore/80d/e3c79-8e75-453b-9eac-71a36c6e77a5 to /home/me/dl-101/myclone/midterm_project
 [INFO] Completed clone attempts for Dataset(/home/me/dl-101/myclone/midterm_project) 
-[INFO] Scanning for unlocked files (this may take some time)
 [INFO] Configure additional publication dependency on "ria-backup-storage" 
 install(ok): /home/me/dl-101/myclone/midterm_project (dataset) [Installed subdataset in order to get /home/me/dl-101/myclone/midterm_project]

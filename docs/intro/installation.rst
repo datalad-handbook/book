@@ -137,6 +137,12 @@ Git-annex:
     This will download a recent git-annex, and configure it for your Git installation.
     The admin command prompt can be closed afterwards, all other steps do not need it.
 
+    For performance improvements, we recommend to also set the following git-annex configuration:
+
+    .. code-block:: bat
+
+      > git config --global filter.annex.process "git-annex filter-process"
+
 DataLad:
     With Python, Git, and git-annex installed, DataLad can be installed, and later also
     upgraded using :command:`pip` by running:
@@ -184,9 +190,10 @@ Windows users, please `get in touch
 warnings. If you on a native Windows 10 system, you should pay close
 attention to them.
 
+.. _mac:
 
-Mac OSX
-"""""""
+Mac OSX (non-M1)
+""""""""""""""""
 
 Modern Macs come with a compatible Python 3 version installed by default. The
 :find-out-more:`on Python versions <fom-py2v3>` has instructions on how to
@@ -265,6 +272,15 @@ Python's package manager <fom-macosx-pip>`.
            /sbin
            /Users/MYUSERNAME/Library/Python/3.7/bin
 
+M1 Mac OSX
+""""""""""
+
+As of April 2022, :term:`git-annex` isn't yet available from the `homebrew <https://brew.sh>`_ package manager for M1 Macs, complicating the installation process.
+Our current recommendations are:
+
+#. Check `formulae.brew.sh/formula/git-annex#default <https://formulae.brew.sh/formula/git-annex#default>`_ if there is bottle installation support provided for Apple Silicon. If there is, rely on the installation instructions for :ref:`mac` instead, and consider `opening an issue <https://github.com/datalad-handbook/book/issues/new>`_ to let us know about this.
+#. Perform a manual installation of git-annex. `This step-by-step instruction <https://github.com/fraimondo/csguide-hands-on#problem-3--git-annex-on-m1-mac>`_ has been successfully used to obtain fully functional git-annex installations (with thanks to Fede Raimondo and Vera Komeyer).
+#. Install DataLad as a Python package, using either :ref:`conda` or :ref:`pipinstall`.
 
 Linux: (Neuro)Debian, Ubuntu, and similar systems
 """""""""""""""""""""""""""""""""""""""""""""""""
@@ -316,6 +332,7 @@ Linux-machines with no root access (e.g. HPC systems)
 
 The most convenient user-based installation can be achieved via Conda_.
 
+.. _conda:
 
 Conda
 """""
@@ -326,7 +343,7 @@ offers a convenient way to bootstrap a DataLad installation. Importantly, it
 does not require admin/root access to a system.
 
 `Detailed, platform-specific installation instruction
-<https://conda.io/projects/conda/user-guide/install/index.html>`_ are available
+<https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html>`_ are available
 in the Conda documentation. In short: download and run the installer, or, from
 the command line, run
 
@@ -382,6 +399,7 @@ To update an existing installation with conda, use:
 The `DataLad installer`_ also supports setting up a Conda environment, in case
 a suitable Python version is already available.
 
+.. _pipinstall:
 
 Using Python's package manager ``pip``
 """"""""""""""""""""""""""""""""""""""

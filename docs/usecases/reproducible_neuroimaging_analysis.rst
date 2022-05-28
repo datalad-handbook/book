@@ -86,7 +86,7 @@ Step-by-Step
 The first part of this Step-by-Step guide details how to computationally
 reproducibly and automatically reproducibly perform data preparation from raw
 `DICOM <https://www.dicomstandard.org/>`_ files to BIDS-compliant
-`NifTi <https://nifti.nimh.nih.gov/>`_ images. The actual analysis, a
+`NIfTI <https://nifti.nimh.nih.gov/>`_ images. The actual analysis, a
 first-level GLM for a localization task, is performed in the second part. A
 final paragraph shows how to prepare the dataset for the afterlife.
 
@@ -141,7 +141,7 @@ Given that we have obtained *raw* data, this data is not yet ready for data
 analysis. Prior to performing actual computations, the data needs to be
 transformed into appropriate formats and standardized to an intuitive layout.
 For neuroimaging, a useful transformation is a transformation from
-DICOMs into the NifTi format, a format specifically designed for scientific
+DICOMs into the NIfTI format, a format specifically designed for scientific
 analyses of brain images. An intuitive layout is the BIDS standard.
 Performing these transformations and standardizations, however, requires
 software. For the task at hand, `HeudiConv <https://heudiconv.readthedocs.io/en/latest/>`_,
@@ -167,6 +167,7 @@ to the ``localizer_scans`` superdataset. We are giving it the name
 .. runrecord:: _examples/repro2-104
    :language: console
    :workdir: usecases/repro2/localizer_scans
+   :realcommand: datalad containers-add heudiconv --call-fmt 'singularity exec -B {{pwd}} {img} {cmd}'  --url shub://ReproNim/ohbm2018-training:heudiconvn
 
    $ datalad containers-add heudiconv --url shub://ReproNim/ohbm2018-training:heudiconvn
 
@@ -199,8 +200,7 @@ produces very wordy output.
 
    $ datalad containers-run -m "Convert sub-02 DICOMs into BIDS" \
      --container-name heudiconv \
-     heudiconv -f reproin -s 02 -c dcm2niix -b -l "" --minmeta -a . \
-     -o /tmp/heudiconv.sub-02 --files inputs/rawdata/dicoms
+     'heudiconv -f reproin -s 02 -c dcm2niix -b -l "" --minmeta -a . -o /tmp/heudiconv.sub-02 --files inputs/rawdata/dicoms'
 
 Find out what changed after this command by comparing the most recent commit
 by DataLad (i.e., ``HEAD``) to the previous one (i.e., ``HEAD~1``) with
@@ -212,7 +212,7 @@ by DataLad (i.e., ``HEAD``) to the previous one (i.e., ``HEAD~1``) with
 
    $ datalad diff -f HEAD~1
 
-As expected, DICOM files of one subject were converted into NifTi files,
+As expected, DICOM files of one subject were converted into NIfTI files,
 **and** the outputs follow the BIDS standard's layout and naming conventions!
 But what's even better is that this action and the relevant software
 environment was fully recorded.
@@ -251,7 +251,7 @@ Analysis execution
 """"""""""""""""""
 
 Since the raw data are reproducibly prepared in BIDS standard we can now go
-further an conduct an analysis. For this example, we will implement a very
+further and conduct an analysis. For this example, we will implement a very
 basic first-level GLM analysis using `FSL <http://fsl.fmrib.ox.ac.uk/>`__
 that takes only a few minutes to run. As before, we will capture all provenance:
 inputs, computational environments, code, and outputs.
@@ -356,6 +356,7 @@ version we require:
 .. runrecord:: _examples/repro2-117
    :workdir: usecases/repro2/glm_analysis
    :language: console
+   :realcommand: datalad containers-add fsl --call-fmt 'singularity exec -B {{pwd}} {img} {cmd}'  --url shub://mih/ohbm2018-training:fsl
 
    $ datalad containers-add fsl --url shub://mih/ohbm2018-training:fsl
 

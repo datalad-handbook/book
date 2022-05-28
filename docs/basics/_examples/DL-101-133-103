@@ -1,25 +1,25 @@
 $ git log -n 1 -p
-commit 2e7743790902959b7bc2830a04966fbebac843c8
+commit 10897b805d55e1ff30918452220ec8c78264bc10
 Author: Elena Piscopia <elena@example.net>
-Date:   Fri Jan 29 08:40:28 2021 +0100
+Date:   Wed Apr 13 10:46:59 2022 +0200
 
     [DATALAD] Configure containerized environment 'midterm-software'
 
 diff --git a/.datalad/config b/.datalad/config
-index ca87514..073e2b1 100644
+index f398088..4512ac6 100644
 --- a/.datalad/config
 +++ b/.datalad/config
 @@ -1,2 +1,5 @@
  [datalad "dataset"]
-	id = b7792b2a-1b50-4ebc-b2ca-63885017aeac
+	id = 80de3c79-8e75-453b-9eac-71a36c6e77a5
 +[datalad "containers.midterm-software"]
 +	image = .datalad/environments/midterm-software/image
 +	cmdexec = singularity exec {img} {cmd}
 diff --git a/.datalad/environments/midterm-software/image b/.datalad/environments/midterm-software/image
 new file mode 120000
-index 0000000..33ae324
+index 0000000..75c8b41
 --- /dev/null
 +++ b/.datalad/environments/midterm-software/image
 @@ -0,0 +1 @@
-+../../../.git/annex/objects/VX/Gg/MD5E-s218554399--4d4507faa39a0dd41c3144e4738b7b3d/MD5E-s218554399--4d4507faa39a0dd41c3144e4738b7b3d
++../../../.git/annex/objects/F1/K3/MD5E-s230694943--944b0300fab145c7ebbd86078498b393/MD5E-s230694943--944b0300fab145c7ebbd86078498b393
 \ No newline at end of file

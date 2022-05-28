@@ -21,13 +21,10 @@ mid-term project? Its a bit unfair that I can get your work,
 but you can not get mine."
 
 Consider, for example, that your room mate might have googled about DataLad
-a bit. On the `datalad homepage <https://www.datalad.org/>`_
-he might have found very useful additional information, such
-as the ascii-cast on `dataset nesting <https://www.datalad.org/for/git-users>`_.
+a bit. In the depths of the web, he might have found useful additional information, such
+a script on `dataset nesting <https://raw.githubusercontent.com/datalad/datalad.org/7e8e39b1f08d0a54ab521586f27ee918b4441d69/content/asciicast/seamless_nested_repos.sh>`_.
 Because he found this very helpful in understanding dataset
-nesting concepts, he decided to download the ``shell`` script
-that was `used to generate this example <https://raw.githubusercontent.com/datalad/datalad.org/7e8e39b1f08d0a54ab521586f27ee918b4441d69/content/asciicast/seamless_nested_repos.sh>`_
-from GitHub, and saved it in the ``code/`` directory.
+nesting concepts, he decided to download it `from GitHub <https://raw.githubusercontent.com/datalad/datalad.org/7e8e39b1f08d0a54ab521586f27ee918b4441d69/content/asciicast/seamless_nested_repos.sh>`_, and saved it in the ``code/`` directory.
 
 He does it using the datalad command :command:`datalad download-url`
 that you experienced in section :ref:`createDS` already: This command will
@@ -309,7 +306,7 @@ directory and also peek into the history:
 .. runrecord:: _examples/DL-101-121-112
    :language: console
    :lines: 1-6
-   :emphasize-lines: 2, 4
+   :emphasize-lines: 2, 3
    :workdir: dl-101/DataLad-101
    :notes: and here is the summary in the log
    :cast: 04_collaboration

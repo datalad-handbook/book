@@ -43,7 +43,7 @@ to only save those modifications that are specified in the ``--output``
 argument.
 
 Beyond these tricks, there are two ways to leave *untracked* content unaffected
-by a :command:`datalad save`. One is the ``-u/--untracked`` option of
+by a :command:`datalad save`. One is the ``-u/--updated`` option of
 :command:`datalad save`::
 
    $ datalad save -m "my commit message here" -u/--updated

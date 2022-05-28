@@ -1,0 +1,8 @@
+# install python packages that are relevant to build all handbook examples
+datalad-container
+nose
+seaborn
+pandas
+sklearn
+scikit-image
+dvc

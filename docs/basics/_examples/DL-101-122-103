@@ -6,9 +6,8 @@ $ cat .git/config
 	logallrefupdates = true
 	editor = nano
 [annex]
-	uuid = 95c315c1-f3a5-411a-ad87-e594b92bf9da
+	uuid = eb3b0dd8-303c-4285-b8fd-bbd46fe395c1
 	version = 8
-	backends = MD5E
 [filter "annex"]
 	smudge = git-annex smudge -- %f
 	clean = git-annex smudge --clean -- %f
@@ -18,5 +17,5 @@ $ cat .git/config
 [remote "roommate"]
 	url = ../mock_user/DataLad-101
 	fetch = +refs/heads/*:refs/remotes/roommate/*
-	annex-uuid = c9dab8de-7445-4c0b-94b1-dde183b91035
+	annex-uuid = a125c678-ac04-46cf-bf34-1c718b1b0b63
 	annex-ignore = false

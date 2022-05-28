@@ -7,13 +7,13 @@ Data integrity
 
 So far, we mastered quite a number of challenges:
 Creating and populating a dataset with large and small files, modifying content and saving the changes to history, installing datasets, even as subdatasets within datasets, recording the impact of commands on a dataset with the run and re-run commands, and capturing plenty of :term:`provenance` on the way.
-We further noticed that when we modified content in ``notes.txt`` or ``list_files.py``, the modified content was in a *text file*.
+We further noticed that when we modified content in ``notes.txt`` or ``list_titles.sh``, the modified content was in a *text file*.
 We learned that this precise type of file, in conjunction with the initial configuration template ``text2git`` we gave to :command:`datalad create`, is meaningful:
 As the text file is stored in Git and not git-annex, no content unlocking is necessary.
 As we saw within the demonstrations of :command:`datalad run`, modifying content of non-text files, such as ``.jpg``\s, typically requires the additional step of *unlocking* file content, either by hand with the :command:`datalad unlock` command, or within :command:`datalad run` using the ``-o``/``--output`` flag.
 
 There is one detail about DataLad datasets that we have not covered yet.
-Its both a crucial aspect to understanding certain aspects of a dataset, but it is also a potential source of confusion that we want to eradicate.
+It is a crucial component to understanding certain aspects of a dataset, but it is also a potential source of confusion that we want to eradicate.
 
 You might have noticed already that an ``ls -l`` or ``tree`` command in your dataset shows small arrows and quite cryptic paths following each non-text file.
 Maybe your shell also displays these files in a different color than text files when listing them.
@@ -58,7 +58,7 @@ get to why this is relevant and useful shortly. First, however,
 where exactly are the contents of the files you created or saved?
 
 The start of the link path is ``../.git``. The section :ref:`createDS` contained
-a note that strongly advised that you to not temper with
+a note that strongly advised that you to not tamper with
 (or in the worst case, delete) the ``.git``
 repository in the root of any dataset. One reason
 why you should not do this is because *this* ``.git`` directory is where all of your file content
@@ -119,7 +119,7 @@ tree is also known as the *annex* of a dataset.
    If you would reset your dataset to the state when we created the 450x450px version, this file would instead exist twice.
 
    **Can I at least get unused or irrelevant data out of the dataset?**
-   Yes, either with convenience commands (e.g., ``git annex unused`` followed by ``git annex dropunused``), or by explicitly using ``drop`` on files (or there past versions) that you don't want to keep anymore.
+   Yes, either with convenience commands (e.g., ``git annex unused`` followed by ``git annex dropunused``), or by explicitly using ``drop`` on files (or their past versions) that you don't want to keep anymore.
    Alternatively, you can transfer data you don't need but want to preserve to a different storage location.
    Later parts of the handbook will demonstrate each of these alternatives.
 
@@ -186,8 +186,8 @@ This leads to a few conclusions:
 
 The first is that you should not be worried
 to see cryptic looking symlinks in your repository -- this is how it should look.
-You can read the :find-out-more:` on why these paths look so weird <fom-objecttree>` and what all of this has to do with data integrity, if you want to.
-Its additional information that can help to establish trust in that your data are safely stored and tracked, and understanding more about the object tree and knowing bits of the git-annex basics can make you more confident in working with your datasets.
+You can read the :ref:`find-out-more on why these paths look so weird <fom-objecttree>` and what all of this has to do with data integrity, if you want to.
+It's additional information that can help to establish trust in that your data are safely stored and tracked, and understanding more about the object tree and knowing bits of the git-annex basics can make you more confident in working with your datasets.
 
 The second is that it should now be clear to you why the ``.git`` directory
 should not be deleted or in any way modified by hand. This place is where
@@ -224,7 +224,7 @@ to manage the file system in a DataLad dataset (:ref:`filesystem`).
    Furthermore, if two files have identical hashes, the content in these files is identical.
    Consequently, if two files have the same symlink, and thus link the same file in the object-tree, they are identical in content.
    This can save disk space if a dataset contains many identical files: Copies of the same data only need one instance of that content in the object tree, and all copies will symlink to it.
-   If you want to read more about the computer science basics about about hashes check out the Wikipedia page `here <https://en.wikipedia.org/wiki/Hash_function>`_.
+   If you want to read more about the computer science basics about hashes check out the Wikipedia page `here <https://en.wikipedia.org/wiki/Hash_function>`_.
 
    .. runrecord:: _examples/DL-101-115-104
       :language: console
@@ -294,7 +294,7 @@ Nevertheless, it may be important to know that some tools that you would expect 
 Some **file managers** (e.g., OSX's Finder) may not display broken symlinks.
 In these cases, it will be impossible to browse and explore the file hierarchy of not-yet-retrieved files with the file manager.
 You can make sure to always be able to see the file hierarchy in two separate ways:
-Upgrade your file manager to display file types in a DataLad datasets (e.g., the `git-annex-turtle extension <https://github.com/andrewringler/git-annex-turtle>`_ for Finder).
+Upgrade your file manager to display file types in DataLad datasets (e.g., the `git-annex-turtle extension <https://github.com/andrewringler/git-annex-turtle>`_ for Finder).
 Alternatively, use the :command:`ls` command in a terminal instead of a file manager GUI.
 Other tools may be more more specialized, smaller, or domain-specific, and may fail to correctly work with broken symlinks, or display unhelpful error messages when handling them, or require additional flags to modify their behavior (such as the :ref:`BIDS Validator <bidsvalidator>`, used in the neuroimaging community).
 When encountering unexpected behavior or failures, try to keep in mind that a dataset without retrieved content appears to be a pile of broken symlinks to a range of tools, consult a tools documentation with regard to symlinks, and check whether data retrieval fixes persisting problems.

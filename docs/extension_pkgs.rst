@@ -54,10 +54,6 @@ find out more about them.
        on `datasets.datalad.org <http://datasets.datalad.org/>`_ are created and
        updated using this extension functionality.
 
-   * - `hirni <http://docs.datalad.org/projects/hirni>`_
-     - A neuroimaging specific extension to allow reproducible DICOM to BIDS
-       conversion of (f)MRI data. The chapter ... introduces this extension.
-
    * - `htcondor <https://github.com/datalad/datalad-htcondor>`__
      - Enhances DataLad with the ability for remote execution via the job
        scheduler `HTCondor <https://research.cs.wisc.edu/htcondor/>`_.

@@ -10,6 +10,7 @@ $ cd DVC-DataLad-2
 [INFO] Start receiving objects 
 [INFO] Start resolving deltas 
 [INFO] Completed clone attempts for Dataset(/home/me/DVCvsDL/DVC-DataLad-2) 
-[INFO] Scanning for unlocked files (this may take some time) 
+[INFO] scanning for annexed files (this may take some time)
 [INFO] Remote origin not usable by git-annex; setting annex-ignore
+[INFO] https://github.com/datalad-handbook/DVC-DataLad.git/config download failed: Not Found
 install(ok): /home/me/DVCvsDL/DVC-DataLad-2 (dataset)

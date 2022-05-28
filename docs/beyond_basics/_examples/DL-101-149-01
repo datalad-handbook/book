@@ -6,5 +6,6 @@ $ datalad clone https://github.com/datalad-datasets/human-connectome-project-ope
 [INFO] Start compressing objects 
 [INFO] Start receiving objects 
 [INFO] Start resolving deltas 
+[INFO] Finished
 [INFO] Completed clone attempts for Dataset(/home/me/dl-101/HPC/hcp) 
 install(ok): /home/me/dl-101/HPC/hcp (dataset)

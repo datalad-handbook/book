@@ -247,10 +247,9 @@ In this case, take a look at the advanced section :ref:`riastore`.
 
 .. [#f2] In addition to not storing annexed data, most Git repository hosting services also have a size limit for files kept in Git. So while you could *theoretically* commit a sizable file into Git, this would not only negatively impact the performance of your dataset as Git doesn't handle large files well, but it would also `prevent your dataset to be published to a Git repository hosting service like GitHub <https://docs.github.com/en/repositories/working-with-files/managing-large-files/about-large-files-on-github>`_.
 
-.. [#f5] Older versions of :term:`GitLab`, on the other hand, provide a git-annex configuration. It
+.. [#f5] Old versions of :term:`GitLab`, on the other hand, provide a git-annex configuration. It
          is disabled by default, and to enable it you would need to have administrative
-         access to the server and client side of your GitLab instance. Find out more
-         `here <https://docs.gitlab.com/12.10/ee/administration/git_annex.html>`_.
+         access to the server and client side of your GitLab instance.
          Alternatively, GitHub can integrate with
          `GitLFS <https://git-lfs.github.com/>`__, a non-free, centralized service
          that allows to store large file contents. :ref:`gitlfs` shows an example on how to use their free trial version.

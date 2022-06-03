@@ -92,7 +92,7 @@ The example below sheds some light one this.
    of DataLad.
 
    For authentication, the most common supported solutions are ``'html_form'``,
-   ``'http_auth'`` (   `http and html form-based authentication <https://en.wikipedia.org/wiki/HTTP%2BHTML_form-based_authentication>`_),
+   ``'http_auth'`` (   `http and html form-based authentication <https://www.javaxt.com/wiki/Tutorials/Javascript/Form_Based_HTTP_Authentication>`_),
    ``'http_basic_auth'`` (`http basic access <https://en.wikipedia.org/wiki/Basic_access_authentication>`_),
    ``'http_digest_auth'`` (   `digest access authentication <https://en.wikipedia.org/wiki/Digest_access_authentication>`_),
    ``'bearer_token'`` (`http bearer token authentication <https://tools.ietf.org/html/rfc6750>`_)

@@ -51,5 +51,4 @@ costs will likely influence your choice of service.
 
 .. [#f1] Older versions of :term:`GitLab` provide a git-annex configuration, but it is disabled
          by default, and to enable it you would need to have administrative
-         access to the server and client side of your GitLab instance. Find out more
-         `here <https://docs.gitlab.com/12.10/ee/administration/git_annex.html>`_.
+         access to the server and client side of your GitLab instance.

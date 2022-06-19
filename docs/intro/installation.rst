@@ -278,6 +278,7 @@ Our current recommendations are:
 
 #. Check `formulae.brew.sh/formula/git-annex#default <https://formulae.brew.sh/formula/git-annex#default>`_ if there is bottle installation support provided for Apple Silicon. If there is, rely on the installation instructions for :ref:`mac` instead, and consider `opening an issue <https://github.com/datalad-handbook/book/issues/new>`_ to let us know about this.
 #. Perform a manual installation of git-annex. `This step-by-step instruction <https://github.com/fraimondo/csguide-hands-on#problem-3--git-annex-on-m1-mac>`_ has been successfully used to obtain fully functional git-annex installations (with thanks to Fede Raimondo and Vera Komeyer).
+#. Perform a command line installation of git-annex via homebrew. The step-by-step instructions can be found `here <https://gist.github.com/Arshitha/45026e56b71ae35446af2239f98dcb4b>`_.
 #. Install DataLad as a Python package, using either :ref:`conda` or :ref:`pipinstall`.
 
 Linux: (Neuro)Debian, Ubuntu, and similar systems

@@ -2,7 +2,7 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3608611.svg)](https://doi.org/10.5281/zenodo.3608611)
 [![made-with-datalad](https://www.datalad.org/badges/made_with.svg)](https://datalad.org)
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-47-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-48-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END --> 
 
 # The DataLad handbook :orange_book:
@@ -119,6 +119,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/tguiot"><img src="https://avatars.githubusercontent.com/u/17005998?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Thomas Guiot</b></sub></a><br /><a href="https://github.com/datalad-handbook/book/issues?q=author%3Atguiot" title="Bug reports">🐛</a></td>
     <td align="center"><a href="https://github.com/jhpb7"><img src="https://avatars.githubusercontent.com/u/101269419?v=4?s=100" width="100px;" alt=""/><br /><sub><b>jhpb7</b></sub></a><br /><a href="https://github.com/datalad-handbook/book/issues?q=author%3Ajhpb7" title="Bug reports">🐛</a></td>
     <td align="center"><a href="https://bandism.net/"><img src="https://avatars.githubusercontent.com/u/22633385?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Ikko Ashimine</b></sub></a><br /><a href="https://github.com/datalad-handbook/book/issues?q=author%3Aeltociear" title="Bug reports">🐛</a></td>
+    <td align="center"><a href="http://cmn.nimh.nih.gov/dsst"><img src="https://avatars.githubusercontent.com/u/10297203?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Arshitha Basavaraj</b></sub></a><br /><a href="#content-Arshitha" title="Content">🖋</a></td>
   </tr>
 </table>
 

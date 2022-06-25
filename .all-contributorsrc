@@ -511,6 +511,15 @@
       "contributions": [
         "bug"
       ]
+    },
+    {
+      "login": "Arshitha",
+      "name": "Arshitha Basavaraj",
+      "avatar_url": "https://avatars.githubusercontent.com/u/10297203?v=4",
+      "profile": "http://cmn.nimh.nih.gov/dsst",
+      "contributions": [
+        "content"
+      ]
     }
   ],
   "contributorsPerLine": 7,

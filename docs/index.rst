@@ -115,6 +115,7 @@ Code lists from chapters
    code_from_chapters/ABCD
    code_from_chapters/yale
    code_from_chapters/dgpa
+   code_from_chapters/neurohackademy
 ..
   stuff that we do not need or show at the moment
 

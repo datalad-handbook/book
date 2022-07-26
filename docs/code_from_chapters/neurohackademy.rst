@@ -397,7 +397,7 @@ Importantly, ``datalad get`` can find information where that dataset came from a
 
 In order to permanently wipe a subdataset, you need ``remove`` (which internally uses a destructively parametrized ``drop``). ``remove`` is the antagonist to ``clone``, and will leave no trace of the dataset::
 
-   datalad remove -d input
+   datalad remove input
 
 However, both commands have built-in security checks.
 They require that dropped files can be re-obtained to prevent accidental data loss, and that removed datasets could be re-cloned in their most recent version from other places, i.e., that there is a sibling that has all revisions that exist locally.

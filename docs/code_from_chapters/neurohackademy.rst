@@ -366,6 +366,11 @@ Data publication
 Afterwards, you could publish your analysis for others to consume or collaborate with you.
 You can choose from a variety of places, and even if the amount of data you want to share is sizeable, you will likely find a free solution to do it the chapter :ref:`chapter_thirdparty`.
 
+If the annexed files in your repository, e.g., the nilearn tutorial, the figures, or the brain mask file, contain appropriate provenance to either reobtain them from public sources, or provenance to recompute them automatically, you could even skip the publication of annexed data, and use repository hosting services without support for annexed contents only.
+For example, if you have a GitHub account and an SSH key setup for it on the JupyterHub, you could run ``datalad create-sibling-github my-analysis`` followed by a ``datalad push`` to create a :term:`sibling` repository on GitHub and publish the Git part of your repository to it.
+
+To get an overview on publishing datasets, however, you best go to :ref:`sharethirdparty` first, or view one of the many data publication tutorials on `YouTube <https://youtu.be/WwSp22zVwV8>`_.
+
 .. figure:: ../artwork/src/publishing/startingpoint.svg
 
 
@@ -373,7 +378,7 @@ Cleaning up
 ^^^^^^^^^^^
 
 The lecture wouldn't have the term "data management" in its title if we were to leave clutter in your home directory.
-This gives us the chance to take a look at how to remove files or datasets, which, given that there are version control tools at work that protect your data, can be a challenging task (Spoiler: if you ``rm`` a file and save the deletion, the file can be brought back to life easily).
+This gives us the chance to take a look at how to remove files or datasets, which, given that there are version control tools at work that protect your data, can be a challenging task (Spoiler: if you ``rm`` a file and save the deletion, the file can be brought back to life easily, and an ``rm -rf`` on a dataset with annexed files will cause an explosion of permission errors).
 
 Two commands, :command:`datalad drop` and :command:`datalad remove`, come into play for this.
 ``datalad drop`` is the antagonist of :command:`datalad get`. By default, everything that ``drop`` does can be undone with a ``get``.
@@ -413,3 +418,6 @@ Likewise, removing the top level dataset with ``remove`` will fail the availabil
 But it can be overriden the very same way::
 
    datalad remove -d my-analysis --reckless availability
+
+And with this, we're done!
+Thanks for following along, and reach out with any questions you might have!

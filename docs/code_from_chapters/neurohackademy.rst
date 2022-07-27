@@ -367,7 +367,7 @@ Afterwards, you could publish your analysis for others to consume or collaborate
 You can choose from a variety of places, and even if the amount of data you want to share is sizeable, you will likely find a free solution to do it the chapter :ref:`chapter_thirdparty`.
 
 If the annexed files in your repository, e.g., the nilearn tutorial, the figures, or the brain mask file, contain appropriate provenance to either reobtain them from public sources, or provenance to recompute them automatically, you could even skip the publication of annexed data, and use repository hosting services without support for annexed contents only.
-For example, if you have a GitHub account and an SSH key setup for it on the JupyterHub, you could run ``datalad create-sibling-github my-analysis`` followed by a ``datalad push`` to create a :term:`sibling` repository on GitHub and publish the Git part of your repository to it.
+For example, if you have a GitHub account and an SSH key setup for it on the JupyterHub, you could run ``datalad create-sibling-github --access-protocol ssh my-analysis`` followed by a ``datalad push`` to create a :term:`sibling` repository on GitHub and publish the Git part of your repository to it.
 
 To get an overview on publishing datasets, however, you best go to :ref:`sharethirdparty` first, or view one of the many data publication tutorials on `YouTube <https://youtu.be/WwSp22zVwV8>`_.
 

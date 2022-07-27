@@ -332,7 +332,7 @@ These flags have two purposes: For one, they add provenance information on input
 
    datalad run -m "Compute brain mask" \
      --input input/sub-02/func/sub-02_task-oneback_run-01_bold.nii.gz \
-     --output figures/ \
+     --output "figures/*" \
      --output "sub-02*" \
      "python code/get_brainmask.py"
 
@@ -344,7 +344,7 @@ These flags have two purposes: For one, they add provenance information on input
 	   datalad containers-run -m "Compute brain mask" \
 		-n nilearn \
 		--input input/sub-02/func/sub-02_task-oneback_run-01_bold.nii.gz \
-		--output figures/ \
+		--output "figures/*" \
 		--output "sub-02*" \
 		"python code/get_brainmask.py"
 

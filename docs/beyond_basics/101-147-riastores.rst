@@ -307,6 +307,9 @@ on where the RIA store (should) exists, or rather, which file transfer protocol
 
 Note that it is always required to specify an :term:`absolute path` in the URL!
 
+In addition, as a convenience for cloning, you can supply an ``--alias`` parameter
+with a name under which the dataset can later be cloned from the dataset.
+
 .. importantnote:: If you code along, make sure to check the next findoutmore!
 
    The upcoming demonstration of RIA stores uses the ``DataLad-101`` dataset
@@ -358,7 +361,7 @@ When you are using DataLad version ``0.16`` or higher, make sure that the ``--ne
 
    # inside of the dataset DataLad-101
    # do not use --new-store-ok with datalad < 0.16
-   $ datalad create-sibling-ria -s ria-backup --new-store-ok "ria+file:///home/me/myriastore"
+   $ datalad create-sibling-ria -s ria-backup --alias dl-101 --new-store-ok "ria+file:///home/me/myriastore"
 
 Afterwards, the dataset has two additional siblings: ``ria-backup``, and
 ``ria-backup-storage``.
@@ -495,22 +498,28 @@ know the dataset ID of a desired dataset. Secondly, if no additional path is giv
 :command:`datalad clone`, the resulting dataset clone would be named after its ID.
 An alternative, therefore, is to use an *alias* for the dataset. This is an
 alternative dataset identifier that a dataset in a RIA store can be configured
-with.
+with - either with a parameter at the time of running ``datalad create-sibling-ria``
+as done above, or manually afterwards. For example, given that the dataset also has
+an alias ``dl-101``, the above call would simplify to
 
-.. find-out-more:: Configure an alias for a dataset
+.. code-block:: bash
+
+   $ datalad clone ria+file:///home/me/myriastore#~dl-101
+
+.. find-out-more:: Configure an alias for a dataset manually
 
    In order to define an alias for an individual dataset in a store, one needs
    to create an ``alias/`` directory in the root of the datastore and place
    a :term:`symlink` of the desired name to the dataset inside of it. Here is how it is
    done, for the midterm project dataset:
 
-   First, create an ``alias/`` directory in the store:
+   First, create an ``alias/`` directory in the store, if it doesn't yet exist:
 
    .. runrecord:: _examples/DL-101-147-121
       :language: console
       :workdir: dl-101
+      :realcommand: echo "$ mkdir /home/me/myriastore/alias"
 
-      $ mkdir /home/me/myriastore/alias
 
    Afterwards, place a :term:`symlink` with a name of your choice to the dataset
    inside of it. Here, we create a symlink called ``midterm_project``:
@@ -520,7 +529,7 @@ with.
       :workdir: dl-101
       :realcommand: echo "$ ln -s /home/me/myriastore/$(datalad -C DataLad-101/midterm_project -f'{infos[dataset][id]}' wtf | sed 's/^\(...\)\(.*\)/\1\/\2/') /home/me/myriastore/alias/midterm_project" && ln -s /home/me/myriastore/$(datalad -C DataLad-101/midterm_project -f'{infos[dataset][id]}' wtf | sed 's/^\(...\)\(.*\)/\1\/\2/') /home/me/myriastore/alias/midterm_project
 
-   Here is how it looks like inside of this directory:
+   Here is how it looks like inside of this directory. You can see both the automatically created alias as well as the newly manually created one:
 
    .. runrecord:: _examples/DL-101-147-123
       :language: console

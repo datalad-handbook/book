@@ -1,6 +1,6 @@
 
-$ datalad rerun 603752cd9bce646518bbfb3a77b4127d649f82b9
-[INFO] run commit 603752c; (Resize logo for s...)
+$ datalad rerun 72629d81bea4d6ff8ff39fc66260e34bccc1866f
+[INFO] run commit 72629d8; (Resize logo for s...)
 [INFO] Making sure inputs are available (this may take some time) 
 get(ok): recordings/longnow/.datalad/feed_metadata/logo_salt.jpg (file) [from web...]
 run.remove(ok): recordings/salt_logo_small.jpg (file) [Removed file]

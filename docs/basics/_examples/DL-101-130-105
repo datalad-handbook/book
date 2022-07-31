@@ -14,7 +14,7 @@ $ datalad clone -d . \
 [INFO] Remote origin not usable by git-annex; setting annex-ignore
 [INFO] https://github.com/datalad-handbook/iris_data.git/config download failed: Not Found
 install(ok): input (dataset)
-add(ok): input (file)
+add(ok): input (dataset)
 add(ok): .gitmodules (file)
 save(ok): . (dataset)
 add(ok): .gitmodules (file)

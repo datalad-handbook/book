@@ -9,7 +9,7 @@ $ datalad clone --dataset . \
 [INFO] Remote origin not usable by git-annex; setting annex-ignore 
 [INFO] https://github.com/datalad-datasets/longnow-podcasts.git/config download failed: Not Found
 install(ok): recordings/longnow (dataset)
-add(ok): recordings/longnow (file)
+add(ok): recordings/longnow (dataset)
 add(ok): .gitmodules (file)
 save(ok): . (dataset)
 add(ok): .gitmodules (file)

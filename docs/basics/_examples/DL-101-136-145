@@ -1,5 +1,5 @@
 $ datalad copy-file notes.txt midterm_project -d midterm_project
-[INFO] Copying non-annexed file or copy into non-annex dataset: /home/me/dl-101/DataLad-101/notes.txt -> <datalad.local.copy_file._CachedRepo object at 0x7fe75541be20>
+[INFO] Copying non-annexed file or copy into non-annex dataset: /home/me/dl-101/DataLad-101/notes.txt -> <datalad.local.copy_file._CachedRepo object at 0x7fdc66d21af0>
 copy_file(ok): /home/me/dl-101/DataLad-101/notes.txt
 add(ok): notes.txt (file)
 save(ok): . (dataset)

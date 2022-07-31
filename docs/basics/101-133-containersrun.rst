@@ -269,9 +269,9 @@ The previous ``run`` command looked like this::
 
    $ datalad run -m "analyze iris data with classification analysis" \
      --input "input/iris.csv" \
-     --output "prediction_report.csv" \
      --output "pairwise_relationships.png" \
-     "python3 code/script.py"
+     --output "prediction_report.csv" \
+     "python3 code/script.py {inputs} {outputs}"
 
 How would it look like as a ``containers-run`` command?
 
@@ -284,9 +284,9 @@ How would it look like as a ``containers-run`` command?
    $ datalad containers-run -m "rerun analysis in container" \
      --container-name midterm-software \
      --input "input/iris.csv" \
-     --output "prediction_report.csv" \
      --output "pairwise_relationships.png" \
-     "python3 code/script.py"
+     --output "prediction_report.csv" \
+     "python3 code/script.py {inputs} {outputs}"
 
 Almost exactly like a :command:`datalad run` command! The only additional parameter
 is ``container-name``. At this point, though, the ``--container-name``

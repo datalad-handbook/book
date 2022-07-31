@@ -186,8 +186,8 @@ your dataset to be messy, if you want to be.
       $ git config --global core.excludesfile ~/.gitignore_global
 
    Git -- and consequently DataLad -- will not bother you about any of the files
-   or file types you have specified. Following snippet defines a typical
-   collection of ignores to be defined across different platforms
+   or file types you have specified. The following snippet defines a typical
+   collection of ignored files to be defined across different platforms, and should work on Unix-like systems (like MacOS and Linux distributions).
 
    .. code-block:: bash
 

@@ -1,7 +1,7 @@
 # inside of the dataset DataLad-101
-# don't use --new-store-ok with datalad < 0.16
+# do not use --new-store-ok with datalad < 0.16
 $ datalad create-sibling-ria -s ria-backup --new-store-ok "ria+file:///home/me/myriastore"
-[INFO] Creating a new RIA store at /home/me/myriastore
+[INFO] Creating a new RIA store at /home/me/myriastore 
 [INFO] create siblings 'ria-backup' and 'ria-backup-storage' ... 
 [INFO] Fetching updates for Dataset(/home/me/dl-101/DataLad-101) 
 update(ok): . (dataset)

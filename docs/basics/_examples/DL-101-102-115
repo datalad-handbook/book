@@ -1,7 +1,7 @@
 $ git log -p -n 1
-commit da75663ba7058b6fb91b3eea2c726ad067976531
+commit dc4b5b1277099b9c07871f9e3073ab9cad014ac5
 Author: Elena Piscopia <elena@example.net>
-Date:   Wed Apr 13 10:39:39 2022 +0200
+Date:   Sun Jul 31 14:27:30 2022 -0700
 
     add beginners guide on bash
 

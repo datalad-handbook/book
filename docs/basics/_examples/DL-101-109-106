@@ -1,6 +1,6 @@
 
-$ datalad rerun 2851d5c4c04281cbc7acabbea25878af693e427e
-[INFO] run commit 2851d5c; (create a list of ...)
+$ datalad rerun 94394ebbcef403d4e347e9390d7a9944027da0b2
+[INFO] run commit 94394eb; (create a list of ...)
 [INFO] == Command start (output follows) ===== 
 [INFO] == Command exit (modification check follows) ===== 
 run(ok): /home/me/dl-101/DataLad-101 (dataset) [bash code/list_titles.sh > recordings/po...]

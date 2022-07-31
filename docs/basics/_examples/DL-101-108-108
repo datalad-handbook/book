@@ -1,12 +1,12 @@
 $ git log --oneline
-2851d5c [DATALAD RUNCMD] create a list of podcast titles
-e95b03d Add short script to write a list of podcast speakers and titles
-fafd797 Add note on datalad clone
-d94c9e2 [DATALAD] Added subdataset
-0d60b58 add note on datalad save
-95b614e Add notes on datalad create
-da75663 add beginners guide on bash
-c0949c0 add reference book about git
-0605893 add books on Python and Unix to read later
-9cca5af Instruct annex to add text files to Git
-ecd080c [DATALAD] new dataset
+94394eb [DATALAD RUNCMD] create a list of podcast titles
+317aee6 Add short script to write a list of podcast speakers and titles
+19b09ea Add note on datalad clone
+85b3495 [DATALAD] Added subdataset
+f9ac9b9 add note on datalad save
+873bc1d Add notes on datalad create
+dc4b5b1 add beginners guide on bash
+0d3093f add reference book about git
+f128b0c add books on Python and Unix to read later
+9e67b9d Instruct annex to add text files to Git
+3b64de2 [DATALAD] new dataset

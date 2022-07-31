@@ -357,7 +357,7 @@ When you are using DataLad version ``0.16`` or higher, make sure that the ``--ne
    :workdir: dl-101/DataLad-101
 
    # inside of the dataset DataLad-101
-   # don't use --new-store-ok with datalad < 0.16
+   # do not use --new-store-ok with datalad < 0.16
    $ datalad create-sibling-ria -s ria-backup --new-store-ok "ria+file:///home/me/myriastore"
 
 Afterwards, the dataset has two additional siblings: ``ria-backup``, and

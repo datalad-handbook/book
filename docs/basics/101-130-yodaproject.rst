@@ -465,7 +465,7 @@ re-execution with :command:`datalad rerun` easy.
        --input "input/iris.csv" ^
        --output "pairwise_relationships.png" ^
        --output "prediction_report.csv" ^
-       "python code/script.py"
+       "python code/script.py {inputs} {outputs}"
 
 .. runrecord:: _examples/DL-101-130-111
    :language: console

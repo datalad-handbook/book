@@ -1,4 +1,3 @@
 $ cd ..
 $ datalad create dataset-to-copy-to
-[INFO] Creating a new annex repo at /home/me/dl-101/HPC/dataset-to-copy-to 
 create(ok): /home/me/dl-101/HPC/dataset-to-copy-to (dataset)

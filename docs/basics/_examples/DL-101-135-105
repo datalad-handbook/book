@@ -1,14 +1,14 @@
 $ datalad --log-level debug status
-[DEBUG] Command line args 1st pass for DataLad 0.16.1+1.g4aff4a290.dirty. Parsed: Namespace() Unparsed: ['status']
+[DEBUG] Command line args 1st pass for DataLad 0.17.2+35.gdf0395ef2.dirty. Parsed: Namespace() Unparsed: ['status']
 [DEBUG] Building doc for <class 'datalad.core.local.status.Status'> 
-[DEBUG] Parsing known args among ['/home/adina/env/handbook2/bin/datalad', '--log-level', 'debug', 'status']
+[DEBUG] Parsing known args among ['/home/adina/env/handbook/bin/datalad', '--log-level', 'debug', 'status']
 [DEBUG] Determined class of decorated function: <class 'datalad.core.local.status.Status'> 
 [DEBUG] Resolved dataset to report status: /home/me/dl-101/DataLad-101
 [DEBUG] Run ['git', 'config', '-z', '-l', '--show-origin'] (cwd=/home/me/dl-101/DataLad-101)
 [DEBUG] Finished ['git', 'config', '-z', '-l', '--show-origin'] with status 0
 [DEBUG] Run ['git', 'config', '-z', '-l', '--show-origin', '--file', '/home/me/dl-101/DataLad-101/.datalad/config'] (cwd=/home/me/dl-101/DataLad-101)
 [DEBUG] Finished ['git', 'config', '-z', '-l', '--show-origin', '--file', '/home/me/dl-101/DataLad-101/.datalad/config'] with status 0
-[DEBUG] query AnnexRepo(/home/me/dl-101/DataLad-101).diffstatus() for paths: None 
+[DEBUG] Querying AnnexRepo(/home/me/dl-101/DataLad-101).diffstatus() for paths: None
 [DEBUG] Run ['git', '-c', 'diff.ignoreSubmodules=none', 'rev-parse', '--quiet', '--verify', 'HEAD^{commit}'] (cwd=/home/me/dl-101/DataLad-101)
 [DEBUG] AnnexRepo(/home/me/dl-101/DataLad-101).get_content_info(...) 
 [DEBUG] Query repo: ['ls-files', '--stage', '-z', '--exclude-standard', '-o', '--directory', '--no-empty-directory']

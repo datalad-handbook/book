@@ -1,7 +1,7 @@
 $ cd midterm_project
 $ git log notes.txt
-commit 2dc6bf8472ba85810895fba657552492e5cb8bf8
+commit 753fdc3e02a9d3a9c62a1e8f69efc6f0fdcf0d1c
 Author: Elena Piscopia <elena@example.net>
-Date:   Wed Apr 13 10:47:27 2022 +0200
+Date:   Sun Jul 31 14:46:59 2022 -0700
 
     [DATALAD] Recorded changes

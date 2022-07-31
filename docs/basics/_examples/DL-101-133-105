@@ -1,12 +1,15 @@
 $ datalad containers-run -m "rerun analysis in container" \
   --container-name midterm-software \
   --input "input/iris.csv" \
-  --output "prediction_report.csv" \
   --output "pairwise_relationships.png" \
-  "python3 code/script.py"
+  --output "prediction_report.csv" \
+  "python3 code/script.py {inputs} {outputs}"
 [INFO] Making sure inputs are available (this may take some time) 
+[INFO] Unlocking files
 unlock(ok): pairwise_relationships.png (file)
 unlock(ok): prediction_report.csv (file)
+[INFO] Recording unlocked state in git
+[INFO] Completed unlocking files
 [INFO] == Command start (output follows) ===== 
 [INFO] == Command exit (modification check follows) ===== 
 run(ok): /home/me/dl-101/DataLad-101/midterm_project (dataset) [singularity exec -B /home/me/dl-101/Data...]

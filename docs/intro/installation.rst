@@ -190,8 +190,8 @@ attention to them.
 
 .. _mac:
 
-Mac OSX (non-M1)
-""""""""""""""""
+Mac (incl. M1)
+""""""""""""""
 
 Modern Macs come with a compatible Python 3 version installed by default. The
 :find-out-more:`on Python versions <fom-py2v3>` has instructions on how to
@@ -270,15 +270,6 @@ Python's package manager <fom-macosx-pip>`.
            /sbin
            /Users/MYUSERNAME/Library/Python/3.7/bin
 
-M1 Mac OSX
-""""""""""
-
-As of April 2022, :term:`git-annex` isn't yet available from the `homebrew <https://brew.sh>`_ package manager for M1 Macs, complicating the installation process.
-Our current recommendations are:
-
-#. Check `formulae.brew.sh/formula/git-annex#default <https://formulae.brew.sh/formula/git-annex#default>`_ if there is bottle installation support provided for Apple Silicon. If there is, rely on the installation instructions for :ref:`mac` instead, and consider `opening an issue <https://github.com/datalad-handbook/book/issues/new>`_ to let us know about this.
-#. Perform a manual installation of git-annex. `This step-by-step instruction <https://github.com/fraimondo/csguide-hands-on#problem-3--git-annex-on-m1-mac>`_ has been successfully used to obtain fully functional git-annex installations (with thanks to Fede Raimondo and Vera Komeyer) - Alternatively, because this method has not worked for everyone, you can perform a command line installation of git-annex via homebrew. The step-by-step instructions can be found `here <https://gist.github.com/Arshitha/45026e56b71ae35446af2239f98dcb4b>`_ (with thanks to Arshitha Basavaraj).
-#. Install DataLad as a Python package, using either :ref:`conda` or :ref:`pipinstall`.
 
 Linux: (Neuro)Debian, Ubuntu, and similar systems
 """""""""""""""""""""""""""""""""""""""""""""""""

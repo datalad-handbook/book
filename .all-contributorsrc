@@ -529,6 +529,16 @@
       "contributions": [
         "userTesting"
       ]
+    },
+    {
+      "login": "complexbrains",
+      "name": "Isil Bilgin",
+      "avatar_url": "https://avatars.githubusercontent.com/u/45263281?v=4",
+      "profile": "https://twitter.com/complexbrains",
+      "contributions": [
+        "bug",
+        "maintenance"
+      ]
     }
   ],
   "contributorsPerLine": 7,

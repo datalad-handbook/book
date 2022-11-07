@@ -139,7 +139,7 @@ of them, if applicable to your contribution.
 
 **Creating live code demos out of runrecord directives**:
 The book has the capability to turn code snippets into a script that the tool
-`cast_live <https://github.com/datalad/datalad/blob/master/tools/cast_live>`_
+`cast_live <https://github.com/datalad/screencaster>`_
 can use to cast and execute it in a demonstration shell. This feature is
 intended for educational courses and other types of demonstrations. The
 following prerequisites exist:

@@ -117,9 +117,9 @@ Git:
 
 
 Git-annex:
-    The most convenient way to deploy git-annex is via the `DataLad installer`_.
-    Once
-    Python is available, it can be installed with the Python package manager
+    There are two convenient ways to install git-annex. The first is `downloading the installer from git-annex' homepage <https://git-annex.branchable.com/install/Windows/>`_. The other is to deploy git-annex is via the `DataLad installer`_.
+    The latter option requires the installation of the datalad-installer, Once
+    Python is available, it can be done with the Python package manager
     :command:`pip`. Open a command prompt and run:
 
     .. code-block:: bat
@@ -130,12 +130,12 @@ Git-annex:
 
     .. code-block:: bat
 
-      > datalad-installer git-annex -m datalad/packages
+      > datalad-installer git-annex -m datalad:release
 
     This will download a recent git-annex, and configure it for your Git installation.
     The admin command prompt can be closed afterwards, all other steps do not need it.
 
-    For performance improvements, we recommend to also set the following git-annex configuration:
+    For performance improvements, regardless of which installation method you chose, we recommend to also set the following git-annex configuration:
 
     .. code-block:: bat
 

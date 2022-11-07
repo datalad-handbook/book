@@ -227,7 +227,7 @@ able to go back to it at a later stage should we have the
 need to investigate an issue, and to capture *full* provenance of the
 transformation process, we can use a software container that contains the
 relevant software setup.
-A ready-made container collection of container images is available from `ReproNim <www.repronim.org>`_ as a DataLad dataset at
+A ready-made container collection of container images is available from `ReproNim <https://www.repronim.org/>`_ as a DataLad dataset at
 `github.com/ReproNim/containers/ <https://github.com/ReproNim/containers/>`_.
 It can be installed as a subdataset::
 
@@ -334,7 +334,7 @@ For this, we use its https URL - even if you do not have an account on Gin, you 
     input
 
 Now that we have input data, let's get a script to analyze it.
-You could write your own script, but here we'll use a pre-existing one to extract a brain mask from the data, based on a `Nilearn tutorial <https://nilearn.github.io/auto_examples/01_plotting/plot_visualization.html#sphx-glr-auto-examples-01-plotting-plot-visualization-py>`_.
+You could write your own script, but here we'll use a pre-existing one to extract a brain mask from the data, based on a `Nilearn tutorial <https://nilearn.github.io/stable/auto_examples/01_plotting/plot_visualization.html#sphx-glr-auto-examples-01-plotting-plot-visualization-py>`_.
 This script is available from `GitHub <https://raw.githubusercontent.com/datalad-handbook/resources/master/get_brainmask.py>`_.
 While you can add and save any file into your dataset, it is often useful to know where files came from.
 If you add a file from a web-source into your dataset, you can use the command ``datalad download-url`` in order to download the file, save it together with a commit message into the dataset, and record its origin internally.

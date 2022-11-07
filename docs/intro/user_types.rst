@@ -32,7 +32,7 @@ The :ref:`cheat`, finally, can give you concrete command overviews.
 
 Awesome, and Welcome! The complete :ref:`basics-intro` part of the book was
 written for you. If you read it from start to end, you will become a DataLad
-expert. Don't forget to `install <installation>`_ DataLad first, though.
+expert. Don't forget to :ref:`install <install>` DataLad first, though.
 And if the Basics are not enough, continue right into the :ref:`usecase-intro`
 afterwards.
 

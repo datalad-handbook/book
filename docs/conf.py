@@ -96,6 +96,8 @@ linkcheck_ignore = [
     'https://app.element.io/#/room/%23datalad:matrix.org',
     # we seem to run into rate limits
     'https://twitter.com/datalad',
+    # maybe a user-agent issue? github.com/sphinx-doc/sphinx//issues/10343
+    'https://github.com/datalad/datalad-extension-template/generate',
 ]
 
 # Add any paths that contain templates here, relative to this directory.

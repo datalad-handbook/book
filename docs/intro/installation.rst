@@ -376,7 +376,7 @@ To update an existing installation with conda, use:
 
 .. code-block:: bash
 
-  $ conda update datalad
+  $ conda update -c conda-forge datalad
 
 .. windows-wit:: Install Unix command-line tools on Windows with Conda
 

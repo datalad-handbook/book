@@ -539,6 +539,15 @@
         "bug",
         "maintenance"
       ]
+    },
+    {
+      "login": "jkosciessa",
+      "name": "Julian Kosciessa",
+      "avatar_url": "https://avatars.githubusercontent.com/u/40263608?v=4",
+      "profile": "http://juliankosciessa.eu",
+      "contributions": [
+        "content"
+      ]
     }
   ],
   "contributorsPerLine": 7,
@@ -546,5 +555,6 @@
   "projectOwner": "datalad-handbook",
   "repoType": "github",
   "repoHost": "https://github.com",
-  "skipCi": true
+  "skipCi": true,
+  "commitConvention": "angular"
 }

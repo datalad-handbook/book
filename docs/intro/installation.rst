@@ -130,7 +130,7 @@ Git-annex:
 
     .. code-block:: bat
 
-      > datalad-installer git-annex -m datalad:release
+      > datalad-installer git-annex -m datalad/git-annex:release
 
     This will download a recent git-annex, and configure it for your Git installation.
     The admin command prompt can be closed afterwards, all other steps do not need it.

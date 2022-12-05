@@ -60,7 +60,7 @@ downloaded into ``books/``. Instead,
 DataLad stores what it calls a *subproject commit* of the subdataset.
 The cryptic character sequence in this line is the :term:`shasum` we have briefly
 mentioned before, and it is
-how DataLad internally identifies files and changes to files. Exactly this
+how DataLad internally identifies files and changes to files in the subdataset. Exactly, this
 :term:`shasum` is what describes the state of the subdataset.
 
 Navigate back into ``longnow`` and try to find the highlighted shasum in the
@@ -85,7 +85,7 @@ of the subdatasets evolution.
 This is what is meant by "the top-level DataLad dataset (the *superdataset*) only stores
 *which version* of the subdataset is currently used".
 
-Importantly, once we learn how to make use of the history of a dataset,
+Importantly, once we have learnt how to make use of the history of a dataset,
 we can set subdatasets to previous states, or *update* them.
 
 .. find-out-more:: Do I have to navigate into the subdataset to see it's history?
@@ -108,8 +108,7 @@ we can set subdatasets to previous states, or *update* them.
 In the upcoming sections, we'll experience the perks of dataset nesting
 frequently, and everything that might seem vague at this point will become
 clearer. To conclude this demonstration,
-the figure below illustrates the current state of the dataset
-and nesting schematically:
+the figure below illustrates the current state of our dataset, ``DataLad-101``, with its nested subdataset.
 
 .. figure:: ../artwork/src/virtual_dstree_dl101.svg
    :width: 70%

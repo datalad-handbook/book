@@ -183,12 +183,12 @@ Here you can see another import feature of DataLad datasets
 and the :command:`datalad clone` command:
 Upon installation of a DataLad dataset, DataLad retrieves only small files
 (for example text files or markdown files) and (small) metadata
-about the dataset. It does not, however, download any large files
-(yet). The metadata exposes the dataset's file hierarchy
+about the dataset. It does not yet download the content of any large file.
+The metadata exposes the dataset's file hierarchy
 for exploration (note how you are able to list the dataset contents with ``ls``),
-and downloading only this metadata speeds up the installation of a DataLad dataset
-of many TB in size to a few seconds. Just now, after installing, the dataset is
-small in size:
+and the postponing of the downloading of the contents of large files speeds up
+the installation of a large DataLad dataset, often in size of many TBs, to just a few seconds.
+Just now, after installing, the dataset is small in size:
 
 .. runrecord:: _examples/DL-101-105-105
    :language: console
@@ -202,10 +202,10 @@ small in size:
 This is tiny indeed!
 
 If you executed the previous ``ls`` command in your own terminal, you might have seen
-the ``.mp3`` files highlighted in a different color than usually.
+the ``.mp3`` files highlighted in a different color than the usual.
 On your computer, try to open one of the ``.mp3`` files.
-You will notice that you cannot open any of the audio files.
-This is not your fault: *None of these files exist on your computer yet*.
+You will notice that it cannot be opened.
+This is not your fault: *None of the ``.mp3`` files really exist on your computer yet.*.
 
 Wait, what?
 

@@ -21,7 +21,7 @@ installed by others, should you want that, for example. Therefore, not only acce
 data becomes fast and easy, but also *sharing*."
 "That's so cool!", you think. "Exam preparation will be a piece of cake if all of us
 can share our mid-term and final projects easily!"
-"But today, let's only focus on how to install a dataset", she continuous.
+"But today, let's only focus on how to install a dataset", she continues.
 "Damn it! Can we not have longer lectures?", you think and set alarms to all of the
 upcoming lecture dates in your calendar.
 There is so much exciting stuff to come, you can not miss a single one.

@@ -20,7 +20,7 @@ The possibility for nested Datasets, however, is one of many advantages
 DataLad datasets have:
 
 One aspect of nested datasets is that any lower-level DataLad dataset
-(the *subdataset*) has a stand-alone
+(*subdataset*) has a stand-alone
 history. The top-level DataLad dataset (the *superdataset*) only stores
 *which version* of the subdataset is currently used.
 

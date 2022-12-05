@@ -183,7 +183,7 @@ Here you can see another import feature of DataLad datasets
 and the :command:`datalad clone` command:
 Upon installation of a DataLad dataset, DataLad retrieves only small files
 (for example text files or markdown files) and (small) metadata
-information about the dataset. It does not, however, download any large files
+about the dataset. It does not, however, download any large files
 (yet). The metadata exposes the dataset's file hierarchy
 for exploration (note how you are able to list the dataset contents with ``ls``),
 and downloading only this metadata speeds up the installation of a DataLad dataset

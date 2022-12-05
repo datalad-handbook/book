@@ -206,10 +206,6 @@ Next, install datalad and its dependencies::
 
    $ brew install datalad
 
-Likewise, the optional, but recommended, `p7zip
-<http://p7zip.sourceforge.net/>`_ dependency can be installed via
-:command:`brew` as well.
-
 Alternatively, you can exclusively use :command:`brew` for DataLad's non-Python
 dependencies, and then check the :find-out-more:`on how to install DataLad via
 Python's package manager <fom-macosx-pip>`.

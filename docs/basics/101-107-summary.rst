@@ -13,8 +13,8 @@ and making simple modifications *locally*.
     datalad create --description "here is a description" -c text2git PATH
 
 * Thanks to :term:`Git` and :term:`git-annex`, the dataset has a history to track files and their
-  modifications. Built-in Git tools (:command:`git log`) or external tools (such as ``tig``) allow to explore
-  the history.
+  modifications. Built-in Git tools (:command:`git log`) or external tools (such as ``tig``) allow
+  the exploration of the history.
 
 * The :command:`datalad save` command records the current state of the dataset to the history. Make it a habit
   to specify a concise commit message to summarize the change. If several unrelated modifications
@@ -59,21 +59,20 @@ and experienced the concept of modular nesting datasets.
   the dataset will be installed into the current directory, with the original name of the
   dataset.
 
-* If a dataset is installed inside of a dataset as a subdataset, the
-  ``--dataset``/``-d`` option needs to specify the root of the superdataset.
+* If a dataset is installed inside of another dataset as a subdataset, the
+  ``--dataset``/``-d`` option needs to specify the root of the containing dataset, the superdataset.
 
 * The source can be a URL (for example of a GitHub repository, as in section :ref:`installds`), but also
   paths, or open data collections.
 
-* After :command:`datalad clone`, only small files and metadata about file availability are present locally.
-  To retrieve actual file content of larger files, :command:`datalad get PATH` downloads large file
-  content on demand.
+* After :command:`datalad clone`, only small files and the metadata about file availability are present locally.
+  The contents of large files are to be retrieved, on demand, via the :command:`datalad get` command.
 
 * :command:`datalad status --annex` or :command:`datalad status --annex all` are helpful to determine
   total repository size and the amount of data that is present locally.
 
-* Remember: Super- and subdatasets have standalone histories. A superdataset only stores
-  which version of the subdataset is currently used.
+* Remember: Super- and subdatasets have standalone histories. A superdataset stores the currently used
+  version of a contained subdataset through an identifier.
 
 
 Now what I can do with that?

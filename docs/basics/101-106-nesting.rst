@@ -21,7 +21,7 @@ DataLad datasets have:
 
 One aspect of nested datasets is that any DataLad dataset, super- or sub-, has a stand-alone history.
 The top-level DataLad dataset (the *superdataset*) stores the currently used version of a *subdataset*
-only through a reference.
+only through an identifier.
 
 Let's dive into that.
 Remember how we had to navigate into ``recordings/longnow`` to see the history,
@@ -58,7 +58,7 @@ as was previously the case when we :command:`datalad save`\d PDFs that we
 downloaded into ``books/``. Instead,
 DataLad stores what it calls a *subproject commit* of the subdataset.
 The cryptic character sequence in this line is the :term:`shasum` we have briefly
-mentioned before, and it is the reference that
+mentioned before, and it is the identifier that
 DataLad internally used to identify the files and the changes to the files in the subdataset. Exactly, this
 :term:`shasum` is what identifies the state of the subdataset.
 
@@ -82,7 +82,7 @@ would show you the full shasum). Thus, your dataset does not only know the origi
 of its subdataset, but also its version, i.e., it has an identifier of the stage
 of the subdatasets evolution.
 This is what is meant by "the top-level DataLad dataset (the *superdataset*) stores
-the currently used version of a *subdataset* only through a reference".
+the currently used version of a *subdataset* only through an identifier".
 
 Importantly, once we have learnt how to make use of the history of a dataset,
 we can set subdatasets to previous states, or *update* them.

@@ -79,8 +79,8 @@ subdataset's history:
 We can see that it is the most recent commit shasum of the subdataset
 (albeit we can see only the first seven characters here -- a :command:`git log`
 would show you the full shasum). Thus, your dataset does not only know the origin
-of its subdataset, but also its version, i.e., it has an identifier of the stage
-of the subdatasets evolution.
+of its subdataset but also which version of the subdataset to use,
+i.e., it has the identifier of the stage/version in the subdataset's evolution to be used.
 This is what is meant by "the top-level DataLad dataset (the *superdataset*) stores
 the currently used version of a *subdataset* only through an identifier".
 

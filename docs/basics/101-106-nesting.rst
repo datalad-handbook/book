@@ -19,10 +19,9 @@ after all, any directory on a file system can have other directories inside of i
 The possibility for nested Datasets, however, is one of many advantages
 DataLad datasets have:
 
-One aspect of nested datasets is that any lower-level DataLad dataset
-(*subdataset*) has a stand-alone
-history. The top-level DataLad dataset (the *superdataset*) only stores
-*which version* of the subdataset is currently used.
+One aspect of nested datasets is that any DataLad dataset, super- or sub-, has a stand-alone history.
+The top-level DataLad dataset (the *superdataset*) stores the currently used version of a *subdataset*
+only through a reference.
 
 Let's dive into that.
 Remember how we had to navigate into ``recordings/longnow`` to see the history,
@@ -82,8 +81,8 @@ We can see that it is the most recent commit shasum of the subdataset
 would show you the full shasum). Thus, your dataset does not only know the origin
 of its subdataset, but also its version, i.e., it has an identifier of the stage
 of the subdatasets evolution.
-This is what is meant by "the top-level DataLad dataset (the *superdataset*) only stores
-*which version* of the subdataset is currently used".
+This is what is meant by "the top-level DataLad dataset (the *superdataset*) stores
+the currently used version of a *subdataset* only through a reference".
 
 Importantly, once we have learnt how to make use of the history of a dataset,
 we can set subdatasets to previous states, or *update* them.

@@ -19,10 +19,10 @@ after all, any directory on a file system can have other directories inside of i
 The possibility for nested Datasets, however, is one of many advantages
 DataLad datasets have:
 
-One aspect of nested datasets is that any lower-level DataLad dataset
-(the *subdataset*) has a stand-alone
+One aspect of nested datasets is that any DataLad dataset
+(*subdataset* or *superdataset*) keeps their stand-alone
 history. The top-level DataLad dataset (the *superdataset*) only stores
-*which version* of the subdataset is currently used.
+*which version* of the subdataset is currently used through an identifier.
 
 Let's dive into that.
 Remember how we had to navigate into ``recordings/longnow`` to see the history,
@@ -59,9 +59,10 @@ as was previously the case when we :command:`datalad save`\d PDFs that we
 downloaded into ``books/``. Instead,
 DataLad stores what it calls a *subproject commit* of the subdataset.
 The cryptic character sequence in this line is the :term:`shasum` we have briefly
-mentioned before, and it is
-how DataLad internally identifies files and changes to files. Exactly this
-:term:`shasum` is what describes the state of the subdataset.
+mentioned before, and it is the identifier that
+DataLad internally used to identify the files and the changes to the files in the subdataset. Exactly, this
+:term:`shasum` is what identifies the state of the subdataset.
+
 
 Navigate back into ``longnow`` and try to find the highlighted shasum in the
 subdataset's history:
@@ -83,7 +84,8 @@ would show you the full shasum). Thus, your dataset does not only know the origi
 of its subdataset, but also its version, i.e., it has an identifier of the stage
 of the subdatasets evolution.
 This is what is meant by "the top-level DataLad dataset (the *superdataset*) only stores
-*which version* of the subdataset is currently used".
+*which version* of the subdataset is currently used through an identifier".
+
 
 Importantly, once we learn how to make use of the history of a dataset,
 we can set subdatasets to previous states, or *update* them.

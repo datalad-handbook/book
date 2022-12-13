@@ -14,4 +14,5 @@ DataLad Extensions
    :caption: A glimpse into the DataLad ecosystem
 
    ../extension_pkgs
+   101-180-next.rst
    ../extension_create

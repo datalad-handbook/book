@@ -108,8 +108,7 @@ we can set subdatasets to previous states, or *update* them.
 In the upcoming sections, we'll experience the perks of dataset nesting
 frequently, and everything that might seem vague at this point will become
 clearer. To conclude this demonstration,
-the figure below illustrates the current state of the dataset
-and nesting schematically:
+the figure below illustrates the current state of our dataset, ``DataLad-101``, with its nested subdataset.
 
 .. figure:: ../artwork/src/virtual_dstree_dl101.svg
    :width: 70%

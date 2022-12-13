@@ -126,7 +126,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <tr>
       <td align="center"><a href="https://twitter.com/complexbrains"><img src="https://avatars.githubusercontent.com/u/45263281?v=4?s=100" width="100px;" alt="Isil Bilgin"/><br /><sub><b>Isil Bilgin</b></sub></a><br /><a href="https://github.com/datalad-handbook/book/issues?q=author%3Acomplexbrains" title="Bug reports">🐛</a> <a href="#maintenance-complexbrains" title="Maintenance">🚧</a></td>
       <td align="center"><a href="http://juliankosciessa.eu"><img src="https://avatars.githubusercontent.com/u/40263608?v=4?s=100" width="100px;" alt="Julian Kosciessa"/><br /><sub><b>Julian Kosciessa</b></sub></a><br /><a href="#content-jkosciessa" title="Content">🖋</a></td>
-      <td align="center"><a href="https://github.com/candleindark"><img src="https://avatars.githubusercontent.com/u/12135617?v=4?s=100" width="100px;" alt="Isaac To"/><br /><sub><b>Isaac To</b></sub></a><br /><a href="#maintenance-candleindark" title="Maintenance">🚧</a></td>
+      <td align="center"><a href="https://github.com/candleindark"><img src="https://avatars.githubusercontent.com/u/12135617?v=4?s=100" width="100px;" alt="Isaac To"/><br /><sub><b>Isaac To</b></sub></a><br /><a href="#maintenance-candleindark" title="Maintenance">🚧</a> <a href="#content-candleindark" title="Content">🖋</a> <a href="https://github.com/datalad-handbook/book/issues?q=author%3Acandleindark" title="Bug reports">🐛</a></td>
     </tr>
   </tbody>
 </table>

@@ -15,4 +15,5 @@ DataLad Extensions
 
    ../extension_pkgs
    101-180-next.rst
+   101-181-metalad.rst
    ../extension_create

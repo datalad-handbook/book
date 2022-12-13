@@ -106,7 +106,7 @@ that captures the spirit of what DataLad is, and here is a brief overview on it.
    You can use it whether you have a PhD in Neuroscience and want to
    `share one of the largest whole brain MRI images in the world <https://github.com/datalad-datasets/bmmr-t1w-250um>`_,
    organize your private music library, keep track of all
-   `cat memes <https://www.diabloii.net/gallery/data/500/medium/moar6-cat.jpg>`_
+   `cat memes <https://pbs.twimg.com/profile_images/897468832910004224/tJYwYsf3.jpg>`_
    on the internet, or `anything else <https://media.giphy.com/media/3o6YfXCehdioMXYbcs/giphy.gif>`_.
 
 #. **A dataset is a Git repository**. 

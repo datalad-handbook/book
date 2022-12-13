@@ -54,16 +54,9 @@ find out more about them.
        on `datasets.datalad.org <http://datasets.datalad.org/>`_ are created and
        updated using this extension functionality.
 
-   * - `htcondor <https://github.com/datalad/datalad-htcondor>`__
-     - Enhances DataLad with the ability for remote execution via the job
-       scheduler `HTCondor <https://research.cs.wisc.edu/htcondor/>`_.
-
    * - `metalad <http://docs.datalad.org/projects/metalad>`_
      - Equips DataLad with an alternative command suite and advanced tooling
        for metadata handling (extraction, aggregation, reporting).
-
-   * - `mihextras <https://datalad-mihextras.readthedocs.io>`_
-     - Special-interest commands and previews for future DataLad additions.
 
    * - `neuroimaging <https://datalad-neuroimaging.readthedocs.io>`_
      - Metadata extraction support for a range of standards common to
@@ -75,9 +68,6 @@ find out more about them.
        <https://osf.io/>`_. Use it to publish your dataset's data to an OSF
        project, thus utilizing the OSF for dataset storage and sharing.
 
-   * - `rclone-remote <https://github.com/datalad/git-remote-rclone>`_
-     - Enables DataLad to push and pull to all third party providers with no native Git
-       support that are supported by `rclone <https://rclone.org/>`_.
 
    * - `ukbiobank <https://github.com/datalad/datalad-ukbiobank>`__
      - Equips DataLad with a set of commands to obtain and monitor imaging data

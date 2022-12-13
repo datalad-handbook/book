@@ -59,8 +59,8 @@ and experienced the concept of modular nesting datasets.
   the dataset will be installed into the current directory, with the original name of the
   dataset.
 
-* If a dataset is installed inside of a dataset as a subdataset, the
-  ``--dataset``/``-d`` option needs to specify the root of the superdataset.
+* If a dataset is installed inside of another dataset as a subdataset, the
+  ``--dataset``/``-d`` option needs to specify the root of the containing dataset, the superdataset.
 
 * The source can be a URL (for example of a GitHub repository, as in section :ref:`installds`), but also
   paths, or open data collections.
@@ -72,8 +72,8 @@ and experienced the concept of modular nesting datasets.
 * :command:`datalad status --annex` or :command:`datalad status --annex all` are helpful to determine
   total repository size and the amount of data that is present locally.
 
-* Remember: Super- and subdatasets have standalone histories. A superdataset only stores
-  which version of the subdataset is currently used.
+* Remember: Super- and subdatasets have standalone histories. A superdataset stores the currently used
+  version of a contained subdataset through an identifier.
 
 
 Now what I can do with that?

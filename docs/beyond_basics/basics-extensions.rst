@@ -17,4 +17,5 @@ DataLad Extensions
    101-180-next.rst
    101-181-metalad.rst
    101-182-catalog.rst
+   101-183-gooey.rst
    ../extension_create

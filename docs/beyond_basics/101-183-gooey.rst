@@ -1,0 +1,14 @@
+.. _gooey:
+
+DataLad in a graphical user interface
+-------------------------------------
+
+DataLad is primarily a command line or Python tool.
+However, the `datalad gooey <http://docs.datalad.org/projects/gooey/en/latest/index.html>`_ extensions extends it with a graphical user interface.
+
+.. figure:: ../artwork/src/application.svg
+
+Subselected command suites
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+TODO: outline that/how one can create command suites

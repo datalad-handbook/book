@@ -17,4 +17,4 @@ jobs:
       - uses: codespell-project/actions-codespell@master
         with:
           skip: "*.svg,.git,venvs,_build,versioneer.py,DL-*,.github"
-          ignore_words_list: "Wit"
+          ignore_words_list: "wit"

@@ -559,6 +559,15 @@
         "content",
         "bug"
       ]
+    },
+    {
+      "login": "asmacdo",
+      "name": "Austin Macdonald",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1028657?v=4",
+      "profile": "https://github.com/asmacdo",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,

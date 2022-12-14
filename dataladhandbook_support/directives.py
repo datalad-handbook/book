@@ -11,7 +11,7 @@ class HandbookAdmonition(BaseAdmonition):
     node_class = nodes.admonition
     # empty is no allowed
     has_content = True
-    # needs at least a one word titel
+    # needs at least a one word title
     required_arguments = 1
     option_spec = {
         'name': unchanged,
@@ -240,7 +240,7 @@ def depart_findoutmoreref_html(self, node):
 
 
 def visit_findoutmoreref_latex(self, node):
-    # \textit to immitate the href style
+    # \textit to imitate the href style
     self.body.append(
         '\\textit{{Find-out-more}}~{{\\findoutmoreiconinline}}\\textit{{\\ref{{{r}}}}} '.format(
             r=node.children[0].attributes['refid']))
@@ -264,7 +264,7 @@ def depart_windowswitref_html(self, node):
 
 
 def visit_windowswitref_latex(self, node):
-    # \textit to immitate the href style
+    # \textit to imitate the href style
     self.body.append(
         '\\textit{{Windows-wit}}~{{\\windowswiticoninline}}\\textit{{\\ref{{{r}}}}} '.format(
             r=node.children[0].attributes['refid']))

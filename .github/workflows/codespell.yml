@@ -16,5 +16,5 @@ jobs:
       - uses: actions/checkout@v2
       - uses: codespell-project/actions-codespell@master
         with:
-          skip: "*.svg,.git,venvs,_build,versioneer.py,DL-*"
+          skip: "*.svg,.git,venvs,_build,versioneer.py,DL-*,.github"
           ignore_words_list: "Wit"

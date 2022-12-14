@@ -84,7 +84,7 @@ for example your CV, your code, or a book that you are working on, but
 you can also add very large files to your datasets history.
 Currently, this can be considered "best-practice building": Frequent :command:`datalad status`
 commands, :command:`datalad save` commands to save dataset modifications,
-and concise :term:`commit message`\s are the main take aways from this. You can already explore
+and concise :term:`commit message`\s are the main take always from this. You can already explore
 the history of a dataset and you know about many types of provenance information
 captured by DataLad, but for now, its been only informative, and has not been used
 for anything more fancy. Later on, we will look into utilizing the history

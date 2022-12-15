@@ -1,5 +1,5 @@
 $ datalad containers-add fsl --url shub://mih/ohbm2018-training:fsl
-[INFO] Initiating special remote datalad
+[INFO] Initializing special remote datalad 
 add(ok): .datalad/config (file)
 save(ok): . (dataset)
 action summary:

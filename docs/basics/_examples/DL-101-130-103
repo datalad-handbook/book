@@ -4,7 +4,7 @@ $ datalad create -c yoda --dataset . midterm_project
 [INFO] == Command start (output follows) ===== 
 [INFO] == Command exit (modification check follows) ===== 
 run(ok): /home/me/dl-101/DataLad-101/midterm_project (dataset) [/home/adina/env/handbook/bin/python /hom...]
-add(ok): midterm_project (dataset)
+add(ok): midterm_project (file)
 add(ok): .gitmodules (file)
 save(ok): . (dataset)
 create(ok): midterm_project (dataset)

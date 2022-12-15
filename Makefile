@@ -23,7 +23,7 @@ clean-examples:
 	# wipe out the RIA store
 	@rm -vrf /home/me/myriastore
 
-# do not touch whats in the DataLad narrative, only certain unrelated wdirs and examples
+# do not touch what's in the DataLad narrative, only certain unrelated wdirs and examples
 clean-DVC:
 	# wipe out the DVC comparison
 	@find docs/beyond_basics/_examples -name DL-101-168* -type f | xargs rm -vrf

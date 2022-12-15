@@ -1,12 +1,12 @@
 $ datalad clone --dataset . \
  https://github.com/datalad/example-dicom-functional.git  \
  inputs/rawdata
-[INFO] Cloning dataset to Dataset(/home/me/usecases/repro2/localizer_scans/inputs/rawdata)
-[INFO] Attempting to clone from https://github.com/datalad/example-dicom-functional.git to /home/me/usecases/repro2/localizer_scans/inputs/rawdata
-[INFO] Start enumerating objects
-[INFO] Start receiving objects
-[INFO] Start resolving deltas
-[INFO] Completed clone attempts for Dataset(/home/me/usecases/repro2/localizer_scans/inputs/rawdata)
+[INFO] Cloning dataset to Dataset(/home/me/usecases/repro2/localizer_scans/inputs/rawdata) 
+[INFO] Attempting to clone from https://github.com/datalad/example-dicom-functional.git to /home/me/usecases/repro2/localizer_scans/inputs/rawdata 
+[INFO] Start enumerating objects 
+[INFO] Start receiving objects 
+[INFO] Start resolving deltas 
+[INFO] Completed clone attempts for Dataset(/home/me/usecases/repro2/localizer_scans/inputs/rawdata) 
 install(ok): inputs/rawdata (dataset)
 add(ok): inputs/rawdata (file)
 add(ok): .gitmodules (file)

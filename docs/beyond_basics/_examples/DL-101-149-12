@@ -1,7 +1,7 @@
 $ cd dataset-to-copy-to
 $ datalad get bvals anothercopyofbvecs 130114/T1w/Diffusion/eddylogs/eddy_unwarped_images.eddy_parameters
 get(ok): bvals (file) [from datalad...]
-get(ok): anothercopyofbvecs (file) [from datalad...]
 get(ok): 130114/T1w/Diffusion/eddylogs/eddy_unwarped_images.eddy_parameters (file) [from datalad...]
+get(ok): anothercopyofbvecs (file) [from datalad...]
 action summary:
   get (ok: 3)

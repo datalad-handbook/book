@@ -1,23 +1,23 @@
 $ git log --reverse --oneline
-3b64de2 [DATALAD] new dataset
-9e67b9d Instruct annex to add text files to Git
-f128b0c add books on Python and Unix to read later
-0d3093f add reference book about git
-dc4b5b1 add beginners guide on bash
-873bc1d Add notes on datalad create
-f9ac9b9 add note on datalad save
-85b3495 [DATALAD] Added subdataset
-19b09ea Add note on datalad clone
-317aee6 Add short script to write a list of podcast speakers and titles
-94394eb [DATALAD RUNCMD] create a list of podcast titles
-a8fcede BF: list both directories content
-d9b033c [DATALAD RUNCMD] create a list of podcast titles
-c1941dc add note datalad and git diff
-fedc085 add note on basic datalad run and datalad rerun
-e7faabc [DATALAD RUNCMD] convert -resize 400x400 recordings/longn...
-2bd29d2 resized picture by hand
-55b7024 [DATALAD RUNCMD] convert -resize 450x450 recordings/longn...
-28fc8ff add additional notes on run options
-6c73db9 [DATALAD RUNCMD] Resize logo for slides
-72629d8 [DATALAD RUNCMD] Resize logo for slides
-489b30c add note on clean datasets
+d62a402 [DATALAD] new dataset
+3cad6a7 Instruct annex to add text files to Git
+ec47a53 add books on Python and Unix to read later
+b017afc add reference book about git
+fa7c9c7 add beginners guide on bash
+4d5c65a Add notes on datalad create
+c4170ce add note on datalad save
+63939ad [DATALAD] Added subdataset
+79cb8c0 Add note on datalad clone
+cdf94a1 Add short script to write a list of podcast speakers and titles
+287af8e [DATALAD RUNCMD] create a list of podcast titles
+149e597 BF: list both directories content
+c4797ea [DATALAD RUNCMD] create a list of podcast titles
+b4a391c add note datalad and git diff
+f08b4b4 add note on basic datalad run and datalad rerun
+574930a [DATALAD RUNCMD] convert -resize 400x400 recordings/longn...
+f039d4e resized picture by hand
+65497e0 [DATALAD RUNCMD] convert -resize 450x450 recordings/longn...
+4c17ac8 add additional notes on run options
+d0e2f68 [DATALAD RUNCMD] Resize logo for slides
+a5729b5 [DATALAD RUNCMD] Resize logo for slides
+1f1f356 add note on clean datasets

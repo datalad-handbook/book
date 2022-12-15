@@ -1,4 +1,4 @@
 $ git reset --hard HEAD~1
 $ datalad status
-HEAD is now at 5a576b2 add container and execute analysis within container
+HEAD is now at b66e68e add container and execute analysis within container
 nothing to save, working tree clean

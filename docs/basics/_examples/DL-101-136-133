@@ -1,5 +1,5 @@
 $ git reset --hard HEAD~
 $ cd ../
 $ git reset --hard HEAD~
-HEAD is now at 9f56a5f [DATALAD RUNCMD] rerun analysis in container
-HEAD is now at 5a576b2 add container and execute analysis within container
+HEAD is now at 263e285 [DATALAD RUNCMD] rerun analysis in container
+HEAD is now at b66e68e add container and execute analysis within container

@@ -28,6 +28,7 @@ the solutions they demonstrate.
    datastorage_for_institutions
    using_globus_as_datastore
    ml-analysis
+   encrypted_annex
 
 
 

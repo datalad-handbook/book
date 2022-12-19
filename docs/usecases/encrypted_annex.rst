@@ -1,3 +1,10 @@
+.. _usecase_encrypted_annex:
+
+Encrypted data storage and transport
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. index:: ! Usecase; Encrypted data storage and transport
+
 This use case demonstrates how to utilise `git-annex
 encryption <https://git-annex.branchable.com/encryption/>`__ to keep
 data encrypted when it is not being used. In this workflow, data need

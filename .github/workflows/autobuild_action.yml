@@ -34,58 +34,52 @@ jobs:
           echo "any_changed=${{ steps.any-changed.outputs.any_changed }}" >> $GITHUB_OUTPUT
           echo "all_changed_files=${{ steps.any-changed.outputs.all_changed_files }}" >> $GITHUB_OUTPUT
 
-
   build:
     needs: check_changes
     if: needs.check_changes.outputs.any_changed == 'true'
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout master
+        uses: actions/checkout@v3
       - name: print chaSSSSanged docs
         run: |
           echo "GGGGGGGOne or more files in the docs folder has changed."
           echo "GGGGGGGList all the files that have changed: ${{ needs.check_changes.outputs.all_changed_files }}"
-          echo "loop trhough them:"
+          echo "loop though them, remove corresponding"
           for file in ${{ needs.check_changes.outputs.all_changed_files }}; do
             echo "$file was changed"
+            FILECODE=$(echo '$file' | awk -F[--] '{print $2}')
+            find docs/basics/_examples/ -name "*-$FILECODE-*" -delete
           done
-      # - name: Set up system
-      #   shell: bash
-      #   run: |
-      #     bash <(wget -q -O- http://neuro.debian.net/_files/neurodebian-travis.sh)
-      #     # enable repo for devel git-annex, if needed
-      #     #sudo sed -e 's|\(deb.*data\)|#\1|' -e 's|/debian |/debian-devel |' /etc/apt/sources.list.d/neurodebian.sources.list | sudo tee /etc/apt/sources.list.d/neurodebian-devel.sources.list
-      #     sudo apt-get update -qq
-      #     sudo apt-get install eatmydata
-      #     sudo eatmydata apt-get install git-annex-standalone dosfstools
-      #     sudo apt-get install librsvg2-bin
-      # - name: Set up environment
-      #   run: |
-      #     git config --global user.email "test@github.land"
-      #     git config --global user.name "GitHub Almighty"
-      # - name: Checkout master
-      #   uses: actions/checkout@v3
-      #   with:
-      #     fetch-depth: 0
-      # - name: Set up Python 3.7
-      #   uses: actions/setup-python@v4
-      #   with:
-      #     python-version: 3.7
-      # - name: Install dependencies
-      #   run: |
-      #     pip install -r requirements-devel.txt
-      #     python -m pip install --upgrade pip
-      # - name: Installation
-      #   run: |
-      #     # package install
-      #     python -m pip install .
-      # - name: Set up environment
-      #   run: |
-      #     git config --global user.email "test@github.land"
-      #     git config --global user.name "GitHub Almighty"
-      
-      # - name: Merge and push changes to gh-pages
-      #   run: |
-      #     git checkout gh-pages
-      #     git merge --no-ff -s recursive -X subtree=datalad_catalog/catalog main
-      #     git push origin gh-pages
+      - name: Set up system
+        shell: bash
+        run: |
+          bash <(wget -q -O- http://neuro.debian.net/_files/neurodebian-travis.sh)
+          # enable repo for devel git-annex, if needed
+          #sudo sed -e 's|\(deb.*data\)|#\1|' -e 's|/debian |/debian-devel |' /etc/apt/sources.list.d/neurodebian.sources.list | sudo tee /etc/apt/sources.list.d/neurodebian-devel.sources.list
+          sudo apt-get update -qq
+          sudo apt-get install eatmydata
+          sudo eatmydata apt-get install git-annex-standalone dosfstools
+          sudo apt-get install librsvg2-bin
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.11
+      - name: Install book and dependencies
+        run: |
+          pip install -e .
+          pip install -r requirements.txt
+          pip install -r requirements-devel.txt
+      - name: Build the docs!
+        run: |
+          sudo mkdir /home/me
+          sudo chown $USER:$USER /home/me
+          HOME=/home/me git config --global user.email "test@github.land"
+          HOME=/home/me git config --global user.name "GitHub Almighty"
+          make build .
+      - name: Add, commit, push
+        run: |
+          git add --all
+          git commit -m "sss"
+          git push
 

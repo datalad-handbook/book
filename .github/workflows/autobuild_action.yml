@@ -41,6 +41,8 @@ jobs:
     steps:
       - name: Checkout master
         uses: actions/checkout@v3
+        with:
+          submodules: 'recursive'
       - name: print chaSSSSanged docs
         run: |
           echo "GGGGGGGOne or more files in the docs folder has changed."
@@ -48,6 +50,9 @@ jobs:
           echo "loop though them, remove corresponding"
           for file in ${{ needs.check_changes.outputs.all_changed_files }}; do
             echo "$file was changed"
+            if [[ $file == *"_examples"* ]]; then
+              continue
+            fi
             FILECODE=$(echo '$file' | awk -F[--] '{print $2}')
             find docs/basics/_examples/ -name "*-$FILECODE-*" -delete
           done
@@ -82,4 +87,3 @@ jobs:
           git add --all
           git commit -m "sss"
           git push
-

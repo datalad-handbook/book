@@ -1,0 +1,85 @@
+name: auto_build_commit_changes
+
+on: [pull-request]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    outputs:
+      run_job: ${{ steps.check_files.outputs.run_job }}
+    steps:
+      - name: Set up environment
+        run: |
+          git config --global user.email "test@github.land"
+          git config --global user.name "GitHub Almighty"
+      - name: Checkout main
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
+      - name: check modified files
+        id: check_files
+        run: |
+          echo "========== check if any modified files include *docs/* =========="
+          changed_files=$(git diff --name-only ${{ github.event.after }}..${{ github.event.before }})
+
+          echo "::set-output name=run_job::false"
+          while read -r line; do
+            echo "changed file: $line"
+            if [[ $line == docs/* ]]; then
+              echo "::set-output name=run_job::true"
+              break
+            fi
+          done <<< "$changed_files"
+
+
+  # build:
+  #   needs: check
+  #   if: needs.check.outputs.run_job == 'true'
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Set up system
+  #       shell: bash
+  #       run: |
+  #         bash <(wget -q -O- http://neuro.debian.net/_files/neurodebian-travis.sh)
+  #         # enable repo for devel git-annex, if needed
+  #         #sudo sed -e 's|\(deb.*data\)|#\1|' -e 's|/debian |/debian-devel |' /etc/apt/sources.list.d/neurodebian.sources.list | sudo tee /etc/apt/sources.list.d/neurodebian-devel.sources.list
+  #         sudo apt-get update -qq
+  #         sudo apt-get install eatmydata
+  #         sudo eatmydata apt-get install git-annex-standalone dosfstools
+  #         sudo apt-get install librsvg2-bin
+  #     - name: Set up environment
+  #       run: |
+  #         git config --global user.email "test@github.land"
+  #         git config --global user.name "GitHub Almighty"
+  #     - name: Checkout master
+  #       uses: actions/checkout@v3
+  #       with:
+  #         fetch-depth: 0
+  #     - name: Set up Python 3.7
+  #       uses: actions/setup-python@v4
+  #       with:
+  #         python-version: 3.7
+  #     - name: Install dependencies
+  #       run: |
+  #         pip install -r requirements-devel.txt
+  #         python -m pip install --upgrade pip
+  #     - name: Installation
+  #       run: |
+  #         # package install
+  #         python -m pip install .
+  #     - name: Set up environment
+  #       run: |
+  #         git config --global user.email "test@github.land"
+  #         git config --global user.name "GitHub Almighty"
+      
+  #     - name: Merge and push changes to gh-pages
+  #       run: |
+  #         git checkout gh-pages
+  #         git merge --no-ff -s recursive -X subtree=datalad_catalog/catalog main
+  #         git push origin gh-pages
+
+

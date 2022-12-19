@@ -347,6 +347,7 @@ thus a :term:`symlink`:
 
 .. runrecord:: _examples/DL-101-137-114
    :language: console
+   :realcommand:  ls -l --time-style=long-iso apdffile.pdf
    :workdir: dl-101/DataLad-101
 
    $ ls -l apdffile.pdf
@@ -365,6 +366,7 @@ The file is now no longer symlinked:
 
 .. runrecord:: _examples/DL-101-137-116
    :language: console
+   :realcommand:  ls -l --time-style=long-iso apdffile.pdf
    :workdir: dl-101/DataLad-101
 
    $ ls -l apdffile.pdf

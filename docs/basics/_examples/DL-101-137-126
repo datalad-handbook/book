@@ -8,3 +8,4 @@ to a dataset. Procedures shipped with DataLad or its extensions
 starting with a "cfg" prefix can also be applied at the creation of a
 dataset with "datalad create -c <PROC-NAME> <PATH>" (omitting the
 "cfg" prefix).
+

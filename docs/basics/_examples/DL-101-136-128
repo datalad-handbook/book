@@ -1,7 +1,7 @@
 $ cd midterm_project
 $ git log notes.txt
-commit 27280681cae72f7820db61d06ac76c63c147edfc
+commit 400c43620a13a13d9ac7afcb1f21d04c03aa0af4
 Author: Elena Piscopia <elena@example.net>
-Date:   Wed Dec 14 17:01:28 2022 +0100
+Date:   Tue Jun 18 16:13:00 2019 +0200
 
     moved notes.txt from root of top-ds to midterm subds

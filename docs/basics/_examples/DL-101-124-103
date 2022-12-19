@@ -1,2 +1,2 @@
 $ datalad create somedataset; cd somedataset
-create(ok): /home/me/procs/somedataset (dataset)
+create(error): /home/me/procs/somedataset (dataset) [will not create a dataset in a non-empty directory, use `--force` option to ignore]

@@ -1,7 +1,2 @@
 $ git config -f .datalad/config datalad.procedures.example.help "A toy example"
 $ datalad save -m "add help description"
-add(ok): .datalad/config (file)
-save(ok): . (dataset)
-action summary:
-  add (ok: 1)
-  save (ok: 1)

@@ -1,4 +1,4 @@
 $ git log -n 3 --oneline
-d9a7846 [DATALAD] Recorded changes
-99126bb remove obsolete subds
-3de5206 [DATALAD] Added subdataset
+4ff8385 [DATALAD] Recorded changes
+9456110 remove obsolete subds
+2a002ad [DATALAD] Added subdataset

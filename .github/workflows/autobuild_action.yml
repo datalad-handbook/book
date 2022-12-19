@@ -11,32 +11,39 @@ jobs:
   check_changes:
     runs-on: ubuntu-latest
     name: Test changed-files
+    outputs:
+      any_changed: ${{ steps.changed-files.outputs.any_changed }}
+      all_changed_files: ${{ steps.changed-files.outputs.all_changed_files }}
     steps:
       - name: Check out repo
         uses: actions/checkout@v3
         with:
           fetch-depth: 0  # OR "2" -> To retrieve the preceding commit.
       - name: Get changed files in the docs folder
-        id: changed-docs
+        id: any-changed
         uses: tj-actions/changed-files@v35
         with:
           files: |
             docs/**
       - name: Run step if any file(s) in the docs folder change
-        if: steps.changed-docs.outputs.any_changed == 'true'
+        id: changed-files
+        if: steps.any-changed.outputs.any_changed == 'true'
         run: |
           echo "One or more files in the docs folder has changed."
-          echo "List all the files that have changed: ${{ steps.changed-docs.outputs.all_changed_files }}"
+          echo "List all the files that have changed: ${{ steps.any-changed.outputs.all_changed_files }}"
+          echo "any_changed=${{ steps.any-changed.outputs.any_changed }}" >> $GITHUB_OUTPUT
+          echo "all_changed_files=${{ steps.any-changed.outputs.all_changed_files }}" >> $GITHUB_OUTPUT
+
 
   build:
     needs: check_changes
-    if: needs.check_changes.steps.changed-docs.outputs.any_changed == 'true'
+    if: needs.check_changes.outputs.any_changed == 'true'
     runs-on: ubuntu-latest
     steps:
-      - name: print chaanged docs
+      - name: print chaSSSSanged docs
         run: |
-          echo "One or more files in the docs folder has changed."
-          echo "List all the files that have changed: ${{ needs.check_changes.steps.changed-docs.outputs.all_changed_files }}"
+          echo "GGGGGGGOne or more files in the docs folder has changed."
+          echo "GGGGGGGList all the files that have changed: ${{ needs.any-changed.outputs.all_changed_files }}"
       # - name: Set up system
       #   shell: bash
       #   run: |
@@ -83,9 +90,9 @@ jobs:
 #   job1:
 #     runs-on: ubuntu-latest
 #     # Map a step output to a job output
-#     outputs:
-#       output1: ${{ steps.step1.outputs.test }}
-#       output2: ${{ steps.step2.outputs.test }}
+    outputs:
+      output1: ${{ steps.step1.outputs.test }}
+      output2: ${{ steps.step2.outputs.test }}
 #     steps:
 #       - id: step1
 #         run: echo "test=hello" >> $GITHUB_OUTPUT

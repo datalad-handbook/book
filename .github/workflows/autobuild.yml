@@ -24,7 +24,7 @@ jobs:
         id: check_files
         run: |
           echo "========== check if any modified files include *docs/* =========="
-          changed_files=$(git diff --name-only ${{ github.event.after }}..${{ github.event.before }})
+          changed_files=$(git diff --name-only ${{ github.event.pull_request.base.sha }}..${{ github.sha }})
 
           echo "::set-output name=run_job::false"
           while read -r line; do

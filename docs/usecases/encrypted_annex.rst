@@ -80,7 +80,10 @@ same for all kinds of git-annex special remotes.
 
 .. code:: bash
 
-   $ datalad create-sibling-ria --new-store-ok --name entrystore --alias incoming-data ria+file:///data/project/store
+   $ datalad create-sibling-ria \
+     --new-store-ok --name entrystore \
+     --alias incoming-data \
+     ria+file:///data/project/store
 
 Now we tell git annex to encrypt annexed content placed in the store. We
 choose regular public key encryption with shared filename encryption
@@ -91,7 +94,10 @@ will have no means to decrypt the data.
 
 .. code:: bash
 
-   $ git annex enableremote entrystore-storage encryption=sharedpubkey keyid=9AB670707D8EA564119785922EF857223E033AF1
+   $ git annex enableremote \
+      entrystore-storage \
+      encryption=sharedpubkey \
+      keyid=9AB670707D8EA564119785922EF857223E033AF1
    enableremote entrystore-storage (encryption setup) (to gpg keys: 2EF857223E033AF1) ok
    (recording state in git...)
 
@@ -174,8 +180,11 @@ a local copy of the raw data.
 .. code:: bash
 
    $ cd input
-   $ datalad create-sibling-ria --name localstore --alias raw ria+file:///data/project/store
-   $ git annex enableremote localstore-storage keyid+=2EF857223E033AF1
+   $ datalad create-sibling-ria \
+     --name localstore --alias raw \
+     ria+file:///data/project/store
+   $ git annex enableremote \
+     localstore-storage keyid+=2EF857223E033AF1
    $ cd ..
 
 Depending on what is more convenient for us, we could either decide to
@@ -214,7 +223,9 @@ contents yet):
 
 .. code:: bash
 
-   $ datalad clone ria+file:///data/project/entrystore#~derived derived_data
+   $ datalad clone \
+      ria+file:///data/project/entrystore#~derived \
+      derived_data
    $ cd derived_data
    $ datalad get --no-data inputs
 
@@ -244,7 +255,8 @@ filesystem path).
 .. code:: bash
 
    $ cd inputs
-   $ git remote add entrystore ssh://example.com:/data/project/store/alias/incoming-data
+   $ git remote add entrystore \
+      ssh://example.com:/data/project/store/alias/incoming-data
 
 Now we can obtain updates from the entrystore sibling (pair). We may
 choose to fetch only, to see what is new before merging:

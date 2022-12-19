@@ -1,4 +1,4 @@
-name: auto_build_commit_changes
+name: auto_build_commit_changes2
 
 on: [pull_request]
 

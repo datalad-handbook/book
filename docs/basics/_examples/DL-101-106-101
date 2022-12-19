@@ -1,7 +1,7 @@
 $ git log -p -n 3
-commit 79cb8c0053a686e221b8752b8a7f61314eb70afe
+commit 98db0ecab1333d2da431669f1e8c59f31eb6a998
 Author: Elena Piscopia <elena@example.net>
-Date:   Wed Dec 14 16:57:58 2022 +0100
+Date:   Tue Jun 18 16:13:00 2019 +0200
 
     Add note on datalad clone
 
@@ -12,16 +12,16 @@ index 0142412..e34ef1f 100644
 @@ -5,3 +5,8 @@ The command "datalad save [-m] PATH" saves the file (modifications) to
  history.
  Note to self: Always use informative, concise commit messages.
- 
+
 +The command 'datalad clone URL/PATH [PATH]' installs a dataset from
 +e.g., a URL or a path. If you install a dataset into an existing
 +dataset (as a subdataset), remember to specify the root of the
 +superdataset with the '-d' option.
 +
 
-commit 63939add03b155f996c96ecfb067064ee75b19c1
+commit c30b17255e0b7a994fd0911faa0f1e3732c9b798
 Author: Elena Piscopia <elena@example.net>
-Date:   Wed Dec 14 16:57:16 2022 +0100
+Date:   Tue Jun 18 16:13:00 2019 +0200
 
     [DATALAD] Added subdataset
 
@@ -44,9 +44,9 @@ index 0000000..dcc34fb
 @@ -0,0 +1 @@
 +Subproject commit dcc34fbe669b06ced84ced381ba0db21cf5e665f
 
-commit c4170cea37b9ad7b35f19167b2d20f09d33cd3db
+commit 469f388cd0dac764e8bdfc4a4576994cc9e235a6
 Author: Elena Piscopia <elena@example.net>
-Date:   Wed Dec 14 16:57:13 2022 +0100
+Date:   Tue Jun 18 16:13:00 2019 +0200
 
     add note on datalad save
 
@@ -57,15 +57,15 @@ index 3a7a1fe..0142412 100644
 @@ -1,3 +1,7 @@
  One can create a new dataset with 'datalad create [--description] PATH'.
  The dataset is created empty
- 
+
 +The command "datalad save [-m] PATH" saves the file (modifications) to
 +history.
 +Note to self: Always use informative, concise commit messages.
 +
 
-commit 4d5c65a1870650721a8083867860235e22ba283c
+commit 122906227ec4a7b6c8233026739831fcd09aa7cd
 Author: Elena Piscopia <elena@example.net>
-Date:   Wed Dec 14 16:57:13 2022 +0100
+Date:   Tue Jun 18 16:13:00 2019 +0200
 
     Add notes on datalad create
 
@@ -79,9 +79,9 @@ index 0000000..3a7a1fe
 +The dataset is created empty
 +
 
-commit fa7c9c79854b58fc93e1f24e9de4f06eb762ef09
+commit b47b42a43296b0413c3b3d9ca87b051ebd0ba389
 Author: Elena Piscopia <elena@example.net>
-Date:   Wed Dec 14 16:57:10 2022 +0100
+Date:   Tue Jun 18 16:13:00 2019 +0200
 
     add beginners guide on bash
 
@@ -94,9 +94,9 @@ index 0000000..00ca6bd
 +../.git/annex/objects/WF/Gq/MD5E-s1198170--0ab2c121bcf68d7278af266f6a399c5f.pdf/MD5E-s1198170--0ab2c121bcf68d7278af266f6a399c5f.pdf
 \ No newline at end of file
 
-commit b017afc667a953788c674525237a64049e51d632
+commit 535ad8d72e18fd0615780359a2ca935295c3c479
 Author: Elena Piscopia <elena@example.net>
-Date:   Wed Dec 14 16:57:01 2022 +0100
+Date:   Tue Jun 18 16:13:00 2019 +0200
 
     add reference book about git
 
@@ -109,9 +109,9 @@ index 0000000..c5d2ab2
 +../.git/annex/objects/G6/Gj/MD5E-s12465653--05cd7ed561d108c9bcf96022bc78a92c.pdf/MD5E-s12465653--05cd7ed561d108c9bcf96022bc78a92c.pdf
 \ No newline at end of file
 
-commit ec47a53d873990d4aa54138172d30c8a24e22eb4
+commit da2ba3e8a2972f20af214541c2a53cfec0cd263f
 Author: Elena Piscopia <elena@example.net>
-Date:   Wed Dec 14 16:56:56 2022 +0100
+Date:   Tue Jun 18 16:13:00 2019 +0200
 
     add books on Python and Unix to read later
 
@@ -132,9 +132,9 @@ index 0000000..adaec61
 +../.git/annex/objects/z1/Q8/MD5E-s4208954--ab3a8c2f6b76b18b43c5949e0661e266.pdf/MD5E-s4208954--ab3a8c2f6b76b18b43c5949e0661e266.pdf
 \ No newline at end of file
 
-commit 3cad6a7c5f3f80a3bddb87beba86154e04961219
+commit 24acc0aa0757bfe5863ea3287b1db05651eeaf5a
 Author: Elena Piscopia <elena@example.net>
-Date:   Wed Dec 14 16:56:42 2022 +0100
+Date:   Tue Jun 18 16:13:00 2019 +0200
 
     Instruct annex to add text files to Git
 
@@ -147,9 +147,9 @@ index af926ef..6e474fe 100644
  **/.git* annex.largefiles=nothing
 +* annex.largefiles=((mimeencoding=binary)and(largerthan=0))
 
-commit d62a40236830fa2261d442e498c88cdb78fa469d
+commit 70625078afb176674a165d37df21c9939b67c008
 Author: Elena Piscopia <elena@example.net>
-Date:   Wed Dec 14 16:56:41 2022 +0100
+Date:   Tue Jun 18 16:13:00 2019 +0200
 
     [DATALAD] new dataset
 
@@ -164,12 +164,12 @@ index 0000000..59157cb
 +metadata/objects/** annex.largefiles=(anything)
 diff --git a/.datalad/config b/.datalad/config
 new file mode 100644
-index 0000000..c61fb51
+index 0000000..d72c8f0
 --- /dev/null
 +++ b/.datalad/config
 @@ -0,0 +1,2 @@
 +[datalad "dataset"]
-+	id = 5d24f8fb-8339-4fe7-9b64-fec6af4e9676
++	id = e3e70682-c209-4cac-629f-6fbed82c07cd
 diff --git a/.gitattributes b/.gitattributes
 new file mode 100644
 index 0000000..af926ef

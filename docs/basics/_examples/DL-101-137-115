@@ -1,5 +1,1 @@
 $ datalad unlock apdffile.pdf
-[INFO] Unlocking files
-unlock(ok): apdffile.pdf (file)
-[INFO] Recording unlocked state in git
-[INFO] Completed unlocking files

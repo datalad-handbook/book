@@ -1,6 +1,1 @@
 $ datalad save -m "add custom procedure"
-add(ok): .datalad/procedures/example.py (file)
-save(ok): . (dataset)
-action summary:
-  add (ok: 1)
-  save (ok: 1)

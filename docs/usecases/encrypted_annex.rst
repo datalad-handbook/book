@@ -5,12 +5,16 @@ Encrypted data storage and transport
 
 .. index:: ! Usecase; Encrypted data storage and transport
 
-This use case demonstrates how to utilise `git-annex
-encryption <https://git-annex.branchable.com/encryption/>`__ to keep
-data encrypted when it is not being used. In this workflow, data need
-to be securely deposited on one machine, and downloaded to another
-machine for processing and storage. For this reason, in our workflow we
-will combine several independent pieces:
+Some data is not meant for everybody's eyes - you can share a picture from a midflight-plane-window-view without a problem on your social media account, but you `shouldn't post a photo of your plane ticket next to it <https://mango.pdf.zone/finding-former-australian-prime-minister-tony-abbotts-passport-number-on-instagram>`_.
+But there also is data that is so sensitive that not only should you not share it anywhere, you also need to make sure that it is inaccessible even when someone sneaks into your storage system or intercepts a file transfer - things such as passwords, private messages, or medical data.
+One technical solution for this problem is `encryption <https://en.wikipedia.org/wiki/Encryption>`_.
+During encryption, the sensitive data is obfuscated in a structured but secret manner, and only authorized agents have the knowledge how to decrypt the data back into a usable state.
+
+
+Because encryption is relevant or at least attractive to many applications involving data in :term:`DataLad dataset`\s, this use case demonstrates how to
+utilise `git-annex's encryption <https://git-annex.branchable.com/encryption/>`_ to keep data safely encrypted when it is not being used.
+This example workflow mimics a sensitive data deposition use case, where data need to be securely deposited on one machine, and downloaded to another machine for processing and storage.
+To make this work, in our workflow we will combine several independent pieces:
 
 #. Using git-annex encryption
 #. Using RIA stores

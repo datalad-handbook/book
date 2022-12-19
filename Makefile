@@ -45,6 +45,8 @@ clean-beyond_basics:
 	@chmod +w -R /home/me/beyond_basics; rm -vrf /home/me/beyond_basics
 	# wipe out bare push repos
 	@chmod +w -R /home/me/pushes/data-version-control; rm -vrf /home/me/pushes/data-version-control
+	# wipe myriastore
+	@rm -vrf /home/me/myriastore
 
 # remove all usecases
 clean-usecases:

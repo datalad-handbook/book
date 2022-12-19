@@ -41,6 +41,7 @@ moving a file, and uses the :command:`mv` command.
 .. runrecord:: _examples/DL-101-136-101
    :language: console
    :workdir: dl-101/DataLad-101
+   :realcommand: cd books/ && mv TLCL.pdf The_Linux_Command_Line.pdf && ls -lah --time-style=long-iso
    :notes: Let's look into file system operations. What does renaming does to a file that is symlinked?
    :cast: 03_git_annex_basics
 
@@ -213,6 +214,7 @@ at the symlink:
 .. runrecord:: _examples/DL-101-136-121
    :language: console
    :workdir: dl-101/DataLad-101/books
+   :realcommand: cd .. && ls -l --time-style=long-iso TLCL.pdf
    :notes: currently the symlink is broken! it points into nowhere
    :cast: 03_git_annex_basics
 
@@ -232,6 +234,7 @@ rectify this as well:
 .. runrecord:: _examples/DL-101-136-122
    :language: console
    :workdir: dl-101/DataLad-101
+   :realcommand: datalad save -m "moved book into root" && ls -l --time-style=long-iso TLCL.pdf
    :notes: but a save rectifies it
    :cast: 03_git_annex_basics
 
@@ -508,6 +511,7 @@ That's it.
    .. runrecord:: _examples/DL-101-136-143
       :language: console
       :workdir: dl-101/DataLad-101
+      :realcommand: ls -l --time-style=long-iso copyofTLCL.pdf && ls -l --time-style=long-iso books/TLCL.pdf
       :notes: A cool thing is that the two identical files link to the same place in the object tree
       :cast: 03_git_annex_basics
 

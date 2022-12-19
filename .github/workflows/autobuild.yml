@@ -29,7 +29,7 @@ jobs:
           echo "::set-output name=run_job::false"
           while read -r line; do
             echo "changed file: $line"
-            if [[ $line == docs/* ]]; then
+            if [[ $line == *docs/* ]]; then
               echo "::set-output name=run_job::true"
               break
             fi

@@ -31,6 +31,10 @@ authors.append(authors.pop(authors.index('Michael Hanke')))
 # autorunrecord setup (extension used to run and capture the output of
 # examples)
 autorunrecord_basedir = '/home/me'
+autorunrecord_line_replace = [
+    # trailing space removal
+    (r'[ ]+$', ''),
+]
 # pre-crafted artificial environment to run the code examples in
 autorunrecord_env = {
     # make everything talk in english
@@ -46,18 +50,33 @@ autorunrecord_env = {
     # earned a PhD in 1678 and taught mathematics at the University of Padua
     'GIT_AUTHOR_EMAIL': 'elena@example.net',
     'GIT_AUTHOR_NAME': 'Elena Piscopia',
+    # set a fixed date to reduce time-induced randomness in output
+    # (gitshas etc)
+    # funnily I cannot set a date in 1678: `fatal: invalid date format`
+    # let's go with the first commit in the handbook
+    'GIT_AUTHOR_DATE': '2019-06-18T16:13:00',
+    # and same for the committer
+    'GIT_COMMITTER_EMAIL': 'elena@example.net',
+    'GIT_COMMITTER_NAME': 'Elena Piscopia',
+    'GIT_COMMITTER_DATE': '2019-06-18T16:13:00',
     'HOST': 'padua',
     # maintain the PATH to keep all installed software functional
     'PATH': os.environ['PATH'],
     'GIT_EDITOR': 'vim',
     # prevent progress bars - makes for ugly runrecords. See https://github.com/datalad-handbook/book/issues/390
     'DATALAD_UI_PROGRESSBAR': 'none',
+    # consistent starting point to suppress undesired randomness in, e.g.,
+    # UUID generation
+    'DATALAD_SEED': '0',
 }
 if 'CAST_DIR' in os.environ:
     autorunrecord_env['CAST_DIR'] = os.environ['CAST_DIR']
 if 'VIRTUAL_ENV' in os.environ:
     # inherit venv, if there is any
     autorunrecord_env.update(VIRTUAL_ENV=os.environ['VIRTUAL_ENV'])
+    autorunrecord_line_replace.append(
+        (os.environ['VIRTUAL_ENV'], 'VIRTUALENV')
+    )
 
 
 # If extensions (or modules to document with autodoc) are in another directory,

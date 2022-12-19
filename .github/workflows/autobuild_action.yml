@@ -1,43 +1,81 @@
-name: CI
+name: auto_build_docs_on_pr
 
 on:
-  # (Note: To compare changes between the last pushed commit to the remote PR branch set `since_last_remote_commit: true`)
   pull_request:
     branches:
       - master
-      - autobuild
-
+      - autobuild # testing branch
 
 jobs:
-  build:
-    runs-on: ubuntu-latest  # windows-latest | macos-latest
+
+  check_changes:
+    runs-on: ubuntu-latest
     name: Test changed-files
     steps:
-      - uses: actions/checkout@v3
+      - name: Check out repo
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0  # OR "2" -> To retrieve the preceding commit.
-
-      # Example 1
-      - name: Get changed files
-        id: changed-files
-        uses: tj-actions/changed-files@v35
-
-      - name: List all changed files
-        run: |
-          for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
-            echo "$file was changed"
-          done
-
-      # Example 2
       - name: Get changed files in the docs folder
-        id: changed-files-specific
+        id: changed-docs
         uses: tj-actions/changed-files@v35
         with:
           files: |
             docs/**
-
       - name: Run step if any file(s) in the docs folder change
-        if: steps.changed-files-specific.outputs.any_changed == 'true'
+        if: steps.changed-docs.outputs.any_changed == 'true'
         run: |
           echo "One or more files in the docs folder has changed."
           echo "List all the files that have changed: ${{ steps.changed-files-specific.outputs.all_changed_files }}"
+
+  build:
+    needs: check_changes
+    if: needs.check_changes.steps.changed-docs.outputs.any_changed == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - name: print chaanged docs
+        run: |
+          echo "One or more files in the docs folder has changed."
+          echo "List all the files that have changed: ${{ needs.check_changes.steps.changed-docs.outputs.all_changed_files }}"
+      # - name: Set up system
+      #   shell: bash
+      #   run: |
+      #     bash <(wget -q -O- http://neuro.debian.net/_files/neurodebian-travis.sh)
+      #     # enable repo for devel git-annex, if needed
+      #     #sudo sed -e 's|\(deb.*data\)|#\1|' -e 's|/debian |/debian-devel |' /etc/apt/sources.list.d/neurodebian.sources.list | sudo tee /etc/apt/sources.list.d/neurodebian-devel.sources.list
+      #     sudo apt-get update -qq
+      #     sudo apt-get install eatmydata
+      #     sudo eatmydata apt-get install git-annex-standalone dosfstools
+      #     sudo apt-get install librsvg2-bin
+      # - name: Set up environment
+      #   run: |
+      #     git config --global user.email "test@github.land"
+      #     git config --global user.name "GitHub Almighty"
+      # - name: Checkout master
+      #   uses: actions/checkout@v3
+      #   with:
+      #     fetch-depth: 0
+      # - name: Set up Python 3.7
+      #   uses: actions/setup-python@v4
+      #   with:
+      #     python-version: 3.7
+      # - name: Install dependencies
+      #   run: |
+      #     pip install -r requirements-devel.txt
+      #     python -m pip install --upgrade pip
+      # - name: Installation
+      #   run: |
+      #     # package install
+      #     python -m pip install .
+      # - name: Set up environment
+      #   run: |
+      #     git config --global user.email "test@github.land"
+      #     git config --global user.name "GitHub Almighty"
+      
+      # - name: Merge and push changes to gh-pages
+      #   run: |
+      #     git checkout gh-pages
+      #     git merge --no-ff -s recursive -X subtree=datalad_catalog/catalog main
+      #     git push origin gh-pages
+
+

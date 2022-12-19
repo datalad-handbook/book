@@ -1,6 +1,6 @@
 name: auto_build_commit_changes
 
-on: [pull-request]
+on: [pull_request]
 
 jobs:
   changedfiles:

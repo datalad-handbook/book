@@ -97,7 +97,6 @@ The :command:`datalad download-url --archive` not only extracts and saves the da
    :realcommand: cd imagenette && datalad download-url --archive --message "Download Imagenette dataset" 'https://osf.io/d6qbz/download' | grep -v '^\(copy\|get\|drop\|add\|delete\)(ok):.*(file)$' && sleep 15
 
    $ cd imagenette
-   # 0.12.2 <= datalad < 0.13.4  needs the configuration option -c datalad.runtime.use-patool=1 to handle .tgz
    $ datalad download-url \
      --archive \
      --message "Download Imagenette dataset" \

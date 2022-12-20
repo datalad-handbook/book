@@ -45,6 +45,8 @@ jobs:
           submodules: 'recursive'
       - name: Delete code snippets linked to changed docs
         run: |
+          echo "List all code snippets before:"
+          ls docs/basics/_examples
           echo "List all the files that have changed:"
           echo "${{ needs.check_changes.outputs.all_changed_files }}"
           echo "Next: loop through all changed files and remove corresponding code snippets"
@@ -54,45 +56,49 @@ jobs:
               continue
             fi
             FILECODE=$(echo '$file' | awk -F[--] '{print $2}')
+            echo "filecode: $FILECODE"
             echo "Related snippets: "
+            ls 
             find docs/basics/_examples/ -name "*-$FILECODE-*"
             find docs/basics/_examples/ -name "*-$FILECODE-*" -delete
           done
-      - name: Set up system
-        shell: bash
-        run: |
-          bash <(wget -q -O- http://neuro.debian.net/_files/neurodebian-travis.sh)
-          # enable repo for devel git-annex, if needed
-          #sudo sed -e 's|\(deb.*data\)|#\1|' -e 's|/debian |/debian-devel |' /etc/apt/sources.list.d/neurodebian.sources.list | sudo tee /etc/apt/sources.list.d/neurodebian-devel.sources.list
-          sudo apt-get update -qq
-          sudo apt-get install eatmydata
-          sudo eatmydata apt-get install git-annex-standalone dosfstools
-          sudo apt-get install librsvg2-bin
-      - name: Set up Python 3.11
-        uses: actions/setup-python@v4
-        with:
-          python-version: 3.11
-      - name: Install book and dependencies
-        run: |
-          pip install -e .
-          pip install -r requirements.txt
-          # pip install -r requirements-devel.txt
-      - name: Build the docs!
-        run: |
-          sudo mkdir /home/me
-          sudo chown $USER:$USER /home/me
-          HOME=/home/me git config --global user.email "test@github.land"
-          HOME=/home/me git config --global user.name "GitHub Almighty"
-          make build .
-      - name: Add, commit, push
-        run: |
-          git config --global user.email "test@github.land"
-          git config --global user.name "GitHub Almighty"
-          if [[ `git status --porcelain docs/basics/_examples/` ]]; then
-            echo "code snippets updated"
-            git add docs/basics/_examples/*
-            git commit -m "[Autobuild Action] update code snippets"
-            git push
-          fi
+          echo "List all code snippets after:"
+          ls docs/basics/_examples
+      # - name: Set up system
+      #   shell: bash
+      #   run: |
+      #     bash <(wget -q -O- http://neuro.debian.net/_files/neurodebian-travis.sh)
+      #     # enable repo for devel git-annex, if needed
+      #     #sudo sed -e 's|\(deb.*data\)|#\1|' -e 's|/debian |/debian-devel |' /etc/apt/sources.list.d/neurodebian.sources.list | sudo tee /etc/apt/sources.list.d/neurodebian-devel.sources.list
+      #     sudo apt-get update -qq
+      #     sudo apt-get install eatmydata
+      #     sudo eatmydata apt-get install git-annex-standalone dosfstools
+      #     sudo apt-get install librsvg2-bin
+      # - name: Set up Python 3.11
+      #   uses: actions/setup-python@v4
+      #   with:
+      #     python-version: 3.11
+      # - name: Install book and dependencies
+      #   run: |
+      #     pip install -e .
+      #     pip install -r requirements.txt
+      #     # pip install -r requirements-devel.txt
+      # - name: Build the docs!
+      #   run: |
+      #     sudo mkdir /home/me
+      #     sudo chown $USER:$USER /home/me
+      #     HOME=/home/me git config --global user.email "test@github.land"
+      #     HOME=/home/me git config --global user.name "GitHub Almighty"
+      #     make build .
+      # - name: Add, commit, push
+      #   run: |
+      #     git config --global user.email "test@github.land"
+      #     git config --global user.name "GitHub Almighty"
+      #     if [[ `git status --porcelain docs/basics/_examples/` ]]; then
+      #       echo "code snippets updated"
+      #       git add docs/basics/_examples/*
+      #       git commit -m "[Autobuild Action] update code snippets"
+      #       git push
+      #     fi
           
           

@@ -50,7 +50,7 @@ class ReadTheDocs:
         self.br.open(url)
         # the download is done via a form button. find the form
         self.br.select_form(nr=0)
-        # press the buttom
+        # press the button
         r = self.br.submit()
         # download CSV data as text
         return r.get_data().decode('utf-8')

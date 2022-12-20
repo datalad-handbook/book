@@ -126,7 +126,7 @@ def main(user=None, password=None):
     print(f'##### Version popularity')
     print(', '.join(f'{k}({v})' for k, v in sorted(versions.items(), reverse=True)))
 
-    print(f'##### 10 Most popular search terms ({len(aggsearch)} unique queries')
+    print(f'##### 10 Most popular search terms ({len(aggsearch)} unique queries)')
     print(', '.join(
         list(f'{q}({h[0]})'
             for q, h in sorted(((k, v) for k, v in aggsearch.items()),

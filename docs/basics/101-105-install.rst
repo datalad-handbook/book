@@ -422,8 +422,9 @@ modification.
   display files that are not yet present locally (i.e., before a
   :command:`datalad get` was run). Therefore, be  mindful when exploring
   a dataset hierarchy with a file manager -- it might not show you
-  the available but not yet retrieved files. More about why this is will be
-  explained in section :ref:`symlink`.
+  the available but not yet retrieved files.
+  Consider browsing datasets with the :term:`DataLad Gooey` to be on the safe side.
+  More about why this is will be explained in section :ref:`symlink`.
 
 
 .. only:: adminmode

@@ -71,7 +71,7 @@ index 655be7d..3bf3281 100644
 @@ -59,3 +59,7 @@ The command "git annex whereis PATH" lists the repositories that have
  the file content of an annexed file. When using "datalad get" to
  retrieve file content, those repositories will be queried.
- 
+
 +To update a shared dataset, run the command "datalad update --merge".
 +This command will query its origin for changes, and integrate the
 +changes into the dataset.

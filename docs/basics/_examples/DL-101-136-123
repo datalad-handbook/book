@@ -1,7 +1,7 @@
 $ git log -n 1 -p
-commit 0d615ccd59c51768b34c0a7a44aa320f18efe24f
+commit b408344b557ccb064f2df58a6309377a1c855cab
 Author: Elena Piscopia <elena@example.net>
-Date:   Wed Dec 14 17:01:27 2022 +0100
+Date:   Tue Jun 18 16:13:00 2019 +0200
 
     moved book into root
 

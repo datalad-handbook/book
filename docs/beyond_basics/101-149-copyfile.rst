@@ -54,7 +54,7 @@ Let's start by cloning a dataset to work with:
 
 .. runrecord:: _examples/DL-101-149-01
    :language: console
-   :workdir: dl-101/HPC
+   :workdir: beyond_basics/HPC
 
    $ datalad clone https://github.com/datalad-datasets/human-connectome-project-openaccess.git hcp
 
@@ -64,7 +64,7 @@ Note that we don't retrieve any data, using ``-n``/``--no-data``.
 
 .. runrecord:: _examples/DL-101-149-02
    :language: console
-   :workdir: dl-101/HPC
+   :workdir: beyond_basics/HPC
    :lines: 1-3
 
    $ cd hcp
@@ -75,7 +75,7 @@ This dataset will later hold the relevant subset of the data in the HCP dataset.
 
 .. runrecord:: _examples/DL-101-149-03
    :language: console
-   :workdir: dl-101/HPC/hcp
+   :workdir: beyond_basics/HPC/hcp
 
    $ cd ..
    $ datalad create dataset-to-copy-to
@@ -87,7 +87,7 @@ Let's copy a single file (``hcp/HCP1200/130013/T1w/Diffusion/bvals``) from the `
 
 .. runrecord:: _examples/DL-101-149-04
    :language: console
-   :workdir: dl-101/HPC
+   :workdir: beyond_basics/HPC
 
    $ datalad copy-file \
       hcp/HCP1200/130013/T1w/Diffusion/bvals  \
@@ -98,7 +98,7 @@ If a target directory or a destination path is given for a file, however, the co
 
 .. runrecord:: _examples/DL-101-149-05
    :language: console
-   :workdir: dl-101/HPC
+   :workdir: beyond_basics/HPC
 
    $ datalad copy-file \
       hcp/HCP1200/130013/T1w/Diffusion/bvecs \
@@ -108,7 +108,7 @@ Note that instead of a as dataset, we specify it as a target path, and how the f
 
 .. runrecord:: _examples/DL-101-149-06
    :language: console
-   :workdir: dl-101/HPC
+   :workdir: beyond_basics/HPC
 
    $ cd dataset-to-copy-to
    $ datalad status
@@ -117,7 +117,7 @@ Providing a second path as a `destination` path allows one to copy the file unde
 
 .. runrecord:: _examples/DL-101-149-07
    :language: console
-   :workdir: dl-101/HPC
+   :workdir: beyond_basics/HPC
 
    $ datalad copy-file \
       hcp/HCP1200/130013/T1w/Diffusion/bvecs \
@@ -125,7 +125,7 @@ Providing a second path as a `destination` path allows one to copy the file unde
 
 .. runrecord:: _examples/DL-101-149-08
    :language: console
-   :workdir: dl-101/HPC
+   :workdir: beyond_basics/HPC
 
    $ cd dataset-to-copy-to
    $ datalad status
@@ -135,7 +135,7 @@ Let's save those two unsaved files:
 
 .. runrecord:: _examples/DL-101-149-09
    :language: console
-   :workdir: dl-101/HPC/dataset-to-copy-to
+   :workdir: beyond_basics/HPC/dataset-to-copy-to
 
    $ datalad save
 
@@ -143,7 +143,7 @@ With the ``-r/--recursive`` flag enabled, the command can copy complete *subdire
 
 .. runrecord:: _examples/DL-101-149-10
    :language: console
-   :workdir: dl-101/HPC/hcp
+   :workdir: beyond_basics/HPC/hcp
 
    $ cd ..
    $ datalad copy-file hcp/HCP1200/130114/T1w/Diffusion/* \
@@ -155,7 +155,7 @@ Here is how the dataset that we copied files into looks like at the moment:
 
 .. runrecord:: _examples/DL-101-149-11
    :language: console
-   :workdir: dl-101/HPC
+   :workdir: beyond_basics/HPC
 
    $ tree dataset-to-copy-to
 
@@ -165,7 +165,7 @@ Retrieving file contents works just as it would in the full HCP dataset via :com
 
 .. runrecord:: _examples/DL-101-149-12
    :language: console
-   :workdir: dl-101/HPC
+   :workdir: beyond_basics/HPC
 
    $ cd dataset-to-copy-to
    $ datalad get bvals anothercopyofbvecs 130114/T1w/Diffusion/eddylogs/eddy_unwarped_images.eddy_parameters
@@ -177,7 +177,7 @@ In order to use ``stdin`` for specification, such as the output of a ``find`` co
 
 .. runrecord:: _examples/DL-101-149-13
    :language: console
-   :workdir: dl-101/HPC
+   :workdir: beyond_basics/HPC
 
    $ cd hcp
    $ find HCP1200/130013/T1w/ -maxdepth 1 -name T1w*.nii.gz
@@ -187,7 +187,7 @@ And here is how the outputted paths can be given as source paths to :command:`da
 
 .. runrecord:: _examples/DL-101-149-14
    :language: console
-   :workdir: dl-101/HPC/hcp
+   :workdir: beyond_basics/HPC/hcp
 
    # inside of hcp
    $ find HCP1200/130013/T1w/ -maxdepth 1 -name T1w*.nii.gz \
@@ -197,7 +197,7 @@ To preserve the directory structure, a target directory (``-t ../dataset-to-copy
 
 .. runrecord:: _examples/DL-101-149-15
    :language: console
-   :workdir: dl-101/HPC/hcp
+   :workdir: beyond_basics/HPC/hcp
 
    $ ls ../dataset-to-copy-to
 
@@ -235,7 +235,7 @@ Here is how an output of ``find`` piped into ``sed`` looks like:
 
 .. runrecord:: _examples/DL-101-149-16
    :language: console
-   :workdir: dl-101/HPC/hcp
+   :workdir: beyond_basics/HPC/hcp
 
    $ find HCP1200/130518/T1w -maxdepth 1 -name T1w*.nii.gz \
 	 | sed -e 's#\(HCP1200\)\(.*\)#\1\2\x0../dataset-to-copy-to\2#'
@@ -246,7 +246,7 @@ Let's now see a :command:`copy-file` from :term:`stdin` in action:
 
 .. runrecord:: _examples/DL-101-149-17
    :language: console
-   :workdir: dl-101/HPC/hcp
+   :workdir: beyond_basics/HPC/hcp
 
    $ find HCP1200/130518/T1w -maxdepth 1 -name T1w*.nii.gz \
     | sed -e 's#\(HCP1200\)\(.*\)#\1\2\x0../dataset-to-copy-to\2#' \

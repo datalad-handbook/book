@@ -1,6 +1,6 @@
 $ datalad run-procedure example "this text will be in the file 'example2'"
-[INFO] Running procedure example 
-[INFO] == Command start (output follows) ===== 
+[INFO] Running procedure example
+[INFO] == Command start (output follows) =====
 add(ok): example2 (file)
 add(ok): somedir/example (file)
 add(ok): .gitattributes (file)
@@ -8,5 +8,5 @@ save(ok): . (dataset)
 action summary:
   add (ok: 3)
   save (ok: 1)
-[INFO] == Command exit (modification check follows) ===== 
-run(ok): /home/me/procs/somedataset (dataset) [/home/adina/env/handbook/bin/python /hom...]
+[INFO] == Command exit (modification check follows) =====
+run(ok): /home/me/procs/somedataset (dataset) [VIRTUALENV/bin/python /hom...]

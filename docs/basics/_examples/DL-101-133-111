@@ -1,15 +1,15 @@
 $ git log -p -n 1
-commit 263e285456a285eb8708dd2b3a427801d751e745
+commit 5e3e285b91168b82929dfce6012703700fb50816
 Author: Elena Piscopia <elena@example.net>
-Date:   Wed Dec 14 17:01:22 2022 +0100
+Date:   Tue Jun 18 16:13:00 2019 +0200
 
     [DATALAD RUNCMD] rerun analysis in container
-    
+
     === Do not change lines below ===
     {
      "chain": [],
      "cmd": "singularity exec -B {pwd} .datalad/environments/midterm-software/image python3 code/script.py {inputs} {outputs}",
-     "dsid": "fea11e88-f41c-4447-8e34-17ea56f7ef92",
+     "dsid": "d95bafc8-f2a4-d27b-dcf4-bb99f4bea973",
      "exit": 0,
      "extra_inputs": [
       ".datalad/environments/midterm-software/image"

@@ -1,0 +1,146 @@
+#!/usr/bin/env python
+"""Query DataLad Handbook analytics
+
+Needs a readthedocs account with adequate permissions. Set user/password
+via ENV variables RTD_USER and RTD_PASSWORD
+
+Stats are printed to STDOUT
+"""
+
+import csv
+import io
+from os import environ
+
+import mechanize
+
+
+class ReadTheDocs:
+    traffic_url = \
+        "https://readthedocs.org/dashboard/datalad-handbook/traffic-analytics/"
+    search_url = \
+        "https://readthedocs.org/dashboard/datalad-handbook/search-analytics/"
+
+    def __init__(self, username, password):
+        self._sadata = None
+        self._tadata = None
+
+        br = mechanize.Browser()
+        br.set_handle_robots(False)
+        br.set_handle_redirect(mechanize.HTTPRedirectHandler)
+        br.addheaders = [
+            ('User-agent',
+             'Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.0.1) '
+             'Gecko/2008071615 Fedora/3.0.1-1.fc9 Firefox/3.0.1')
+        ]
+        br.open("https://readthedocs.org")
+        # follow second link with element text matching regular expression
+        br._factory.is_html = True
+        base_url = br.geturl()
+        # login
+        br.open(base_url + "/accounts/login/")
+        # find first form
+        br.select_form(nr=0)
+        br.form['login'] = username
+        br.form['password'] = password
+        br.submit()
+        # keep browser running
+        self.br = br
+
+    def get_analytics_data(self, url):
+        self.br.open(url)
+        # the download is done via a form button. find the form
+        self.br.select_form(nr=0)
+        # press the buttom
+        r = self.br.submit()
+        # download CSV data as text
+        return r.get_data().decode('utf-8')
+
+    @property
+    def search_analytics(self):
+        if self._sadata is None:
+            self._sadata = self.get_analytics_data(
+                ReadTheDocs.search_url
+            )
+        return self._sadata
+
+    @property
+    def traffic_analytics(self):
+        if self._tadata is None:
+            self._tadata = self.get_analytics_data(
+                ReadTheDocs.traffic_url
+            )
+        return self._tadata
+
+
+def get_aggregate_searches(rtd):
+    """Yield a dict with queries as keys and (events, generated hits) as values
+    """
+    stats = dict()
+    for d in csv.DictReader(io.StringIO(rtd.search_analytics)):
+        queries, hits = stats.get(d['Query'], [0, 0])
+        queries += 1
+        hits = max(hits, int(d['Total Results']))
+        stats[d['Query']] = (queries, hits)
+    return stats
+
+
+def get_aggregate_traffic(rtd):
+    """Yield a dict with (version, path) as keys and views as values
+    """
+    stats = dict()
+    for d in csv.DictReader(io.StringIO(rtd.traffic_analytics)):
+        key = (d['Version'], d["Path"])
+        views = stats.get(key, 0)
+        views += int(d['Views'])
+        stats[key] = views
+    return stats
+
+
+def main(user=None, password=None):
+    rtd = ReadTheDocs(
+        environ.get('RTD_USER', user),
+        environ.get('RTD_PASSWORD', password),
+    )
+    aggsearch = get_aggregate_searches(rtd)
+    aggtraffic = get_aggregate_traffic(rtd)
+    print('#### Handbook Analytics (last 30 days)')
+    paths = {}
+    for k, v in aggtraffic.items():
+        views = paths.get(k[1], 0)
+        views += v
+        paths[k[1]] = views
+    versions = {}
+    for k, v in aggtraffic.items():
+        views = versions.get(k[0], 0)
+        views += v
+        versions[k[0]] = views
+    print(f'##### 15 most popular sections ({sum(versions.values())} total page views)')
+    print(', '.join(
+        f'{k}({v})'.replace('.html', '').strip('/')
+        for k, v in sorted(
+            ((k, v) for k, v in paths.items()
+             if k not in (
+                 '/search.html', '/r.html')),
+            key=lambda x: x[1],
+            reverse=True)[:15]))
+    print(f'##### Version popularity')
+    print(', '.join(f'{k}({v})' for k, v in sorted(versions.items(), reverse=True)))
+
+    print(f'##### 10 Most popular search terms ({len(aggsearch)} unique queries)')
+    print(', '.join(
+        list(f'{q}({h[0]})'
+            for q, h in sorted(((k, v) for k, v in aggsearch.items()),
+                               key=lambda x: x[1], reverse=True)
+        )[:10]))
+    print('##### Repeated searches with no hits')
+    print(', '.join(
+        f'{q}({h[0]})' for q, h in sorted(
+            ((k, v) for k, v in aggsearch.items()
+             if v[0] > 1 and v[1] == 0),
+            key=lambda x: x[1],
+            reverse=True)
+    ))
+
+
+if __name__ == '__main__':
+    main()

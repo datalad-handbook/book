@@ -41,6 +41,7 @@ moving a file, and uses the :command:`mv` command.
 .. runrecord:: _examples/DL-101-136-101
    :language: console
    :workdir: dl-101/DataLad-101
+   :realcommand: cd books/ && mv TLCL.pdf The_Linux_Command_Line.pdf && ls -lah --time-style=long-iso
    :notes: Let's look into file system operations. What does renaming does to a file that is symlinked?
    :cast: 03_git_annex_basics
 
@@ -213,6 +214,7 @@ at the symlink:
 .. runrecord:: _examples/DL-101-136-121
    :language: console
    :workdir: dl-101/DataLad-101/books
+   :realcommand: cd .. && ls -l --time-style=long-iso TLCL.pdf
    :notes: currently the symlink is broken! it points into nowhere
    :cast: 03_git_annex_basics
 
@@ -232,6 +234,7 @@ rectify this as well:
 .. runrecord:: _examples/DL-101-136-122
    :language: console
    :workdir: dl-101/DataLad-101
+   :realcommand: datalad save -m "moved book into root" && ls -l --time-style=long-iso TLCL.pdf
    :notes: but a save rectifies it
    :cast: 03_git_annex_basics
 
@@ -380,6 +383,7 @@ has no way of finding out where the file content could be:
 .. runrecord:: _examples/DL-101-136-132
    :language: console
    :workdir: dl-101/DataLad-101
+   :exitcode: 1
    :notes: demonstrate broken symlink with git-annex-whereis
    :cast: 03_git_annex_basics
 
@@ -508,6 +512,7 @@ That's it.
    .. runrecord:: _examples/DL-101-136-143
       :language: console
       :workdir: dl-101/DataLad-101
+      :realcommand: ls -l --time-style=long-iso copyofTLCL.pdf && ls -l --time-style=long-iso books/TLCL.pdf
       :notes: A cool thing is that the two identical files link to the same place in the object tree
       :cast: 03_git_annex_basics
 
@@ -777,6 +782,7 @@ section.
 
    .. runrecord:: _examples/DL-101-136-162
       :language: console
+      :exitcode: 1
       :workdir: dl-101/mock_user
 
       # navigate back into your dataset
@@ -1032,6 +1038,7 @@ DataLad will safeguard dropping content that it can not retrieve again:
 .. runrecord:: _examples/DL-101-136-178
    :workdir: dl-101/DataLad-101
    :language: console
+   :exitcode: 1
    :notes: datalad does not know how to re-obtain the file, so it complains
    :cast: 03_git_annex_basics
 

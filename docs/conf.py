@@ -85,9 +85,6 @@ autorunrecord_env = {
     'GIT_EDITOR': 'vim',
     # prevent progress bars - makes for ugly runrecords. See https://github.com/datalad-handbook/book/issues/390
     'DATALAD_UI_PROGRESSBAR': 'none',
-    # consistent starting point to suppress undesired randomness in, e.g.,
-    # UUID generation
-    'DATALAD_SEED': '0',
 }
 if 'CAST_DIR' in os.environ:
     autorunrecord_env['CAST_DIR'] = os.environ['CAST_DIR']

@@ -83,11 +83,11 @@ clean-neuro2:
 	@[ -n "$$(ls -a /home/me/.x* /home/me/.*rc 2>/dev/null)" ] && echo "/home/me looks like a real HOME dir. Refusing to bring chaos" && exit 1 || true
 	@find docs/usecases/_examples -name 'repro2*' |xargs rm -vrf
 	# also wipe the workdirs, otherwise a rebuild will lead to chaos
-	@chmod +w -R /home/me/usecases/{ml-project,imagenette}; rm -vrf /home/me/usecases/{ml-project,imagenette}
+	@chmod +w -R /home/me/usecases/repro2; rm -vrf /home/me/usecases/repro2
 
 clean-ml:
 	# check if we have something like .xsession or a .bashrc
 	@[ -n "$$(ls -a /home/me/.x* /home/me/.*rc 2>/dev/null)" ] && echo "/home/me looks like a real HOME dir. Refusing to bring chaos" && exit 1 || true
 	@find docs/usecases/_examples -name 'ml*' |xargs rm -vrf
 	# also wipe the workdirs, otherwise a rebuild will lead to chaos
-	@chmod +w -R /home/me/usecases/collab; rm -vrf /home/me/usecases/collab
+	@chmod +w -R /home/me/usecases/{ml-project,imagenette}; rm -vrf /home/me/usecases/{ml-project,imagenette}

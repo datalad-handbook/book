@@ -28,7 +28,7 @@ command, and discovered the concept of *locked* content.
   execution. Anything specified as ``output`` will be ``unlocked`` prior to modifications.
 
 * It is good practice to specify ``input`` and ``output`` to ensure that a :command:`datalad rerun` works, and to capture the relevant elements of a computation in a machine-readable record.
-  If you want to spare yourself preparation time in case everything is already retrieved and unlocked, you can use ``--assume-ready {input|output|both}`` to skip a check on whether inputs are already present or outputs already unlocked (requires DataLad version ``0.14.1`` or later).
+  If you want to spare yourself preparation time in case everything is already retrieved and unlocked, you can use ``--assume-ready {input|output|both}`` to skip a check on whether inputs are already present or outputs already unlocked.
 
 .. figure:: ../artwork/src/run.svg
    :alt: Schematic illustration of datalad run.

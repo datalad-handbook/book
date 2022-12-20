@@ -7,10 +7,6 @@ If there is a need for a dataset that contains only a subset of files of one or 
 This command is capable of transferring files from different datasets or locations outside of a dataset into a new dataset, unlocking them if necessary, and preserving and copying their availability information.
 As such, the command is a superior, albeit more technical alternative to :ref:`copying dereferenced files out of datasets <copydata>`.
 
-.. importantnote:: Version requirement for datalad copy-file
-
-   :command:`datalad copy-file` requires DataLad version ``0.13.0`` or higher.
-
 This section demonstrates the command based on a published data, a subset of the Human Connectome Project dataset that is subsampled for structural connectivity analysis.
 This dataset can be found on GitHub at `github.com/datalad-datasets/hcp-structural-connectivity <https://github.com/datalad-datasets/hcp-structural-connectivity>`_.
 

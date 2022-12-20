@@ -7,12 +7,6 @@ Previous sections on publishing DataLad datasets  have each
 shown you crucial aspects of the functions of dataset publishing with
 :command:`datalad push`. This section wraps them all together.
 
-.. importantnote:: push availability
-
-   :command:`datalad push` requires DataLad version ``0.13.0`` or higher.
-   Older DataLad versions need to use the :command:`datalad publish` command.
-   For details into ``datalad publish``, please check out the :ref:`find-out-more on the difference between the two commands <fom-publish>` at the end of this page.
-
 The general overview
 ^^^^^^^^^^^^^^^^^^^^
 
@@ -170,45 +164,6 @@ Publishing fails with the error message ``[remote rejected] (branch is currently
 This can be prevented with  `configuration settings <https://github.blog/2015-02-06-git-2-3-has-been-released/>`_ in Git versions 2.3 or higher, or by pushing to a branch of the sibling that is currently not checked-out.
 For more information on this, and other error messages during push, please checkout the section :ref:`help`.
 
-.. find-out-more:: On the datalad publish command
-   :float:
-   :name: fom-publish
-
-   Starting with DataLad version ``0.13.0``, :command:`datalad push` was introduced
-   and became an alternative to :command:`datalad publish`, which will be
-   removed in a future DataLad release.
-
-   By default, :command:`datalad publish` publishes the last saved state of the
-   dataset (i.e., its Git history) to a specified sibling:
-
-   .. code-block:: bash
-
-      $ datalad publish --to <sibling>
-
-   Like :command:`push`, it supports recursive publishing across dataset
-   hierarchies (if all datasets have appropriately configured default publication
-   targets or identical sibling names) with the ``-r/--recursive`` flag, and it
-   supports the ``--since`` option.
-
-   Main differences to :command:`push` lie in :command:`publish`\s ``--transfer-data``
-   option that can be specified with either ``all``, ``auto`` or ``none`` and
-   determines whether and how annexed contents should be published if the sibling
-   carries an annex: ``none`` will transfer only Git history and no annexed
-   data, ``auto`` relies on configurations of the sibling, and ``all`` will
-   publish all annexed contents.
-
-   By default, when using a plain ``datalad publish --to <sibling>`` with no path
-   specification or ``--transfer-data`` option, :command:`publish` will be used
-   in ``auto`` mode.
-   In practice, this default will most likely lead to the same outcome as when
-   specifying ``none``: only your datasets history, but no annexed contents
-   will be published.
-   On a technical level, the ``auto`` option leads to adding ``auto`` to the underlying ``git annex copy`` command, which in turn publishes annexed contents based on the `git-annex preferred content configuration <https://git-annex.branchable.com/git-annex-preferred-content/>`_ of the sibling.
-
-   In order to publish all annexed contents, one needs to specify ``--transfer-data all``.
-   Alternatively, adding paths to the ``publish`` call will publish the specified
-   annexed content (unless ``--transfer-data none`` is explicitly added).
-   As yet another alternative, one needs to add the same configuration for :term:`git-annex` that the option ``--auto`` of :command:`push` need.
 
 .. rubric:: Footnotes
 

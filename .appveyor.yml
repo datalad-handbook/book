@@ -50,23 +50,11 @@ shallow_clone: false
 
 
 environment:
-  # we do not have an adequate setup for SSH-based tests right now
-  #DATALAD_TESTS_SSH: 1
+  DTS: datalad_next
+  APPVEYOR_BUILD_WORKER_IMAGE: Ubuntu2004
+  INSTALL_SYSPKGS: python3-virtualenv graphicsmagick-imagemagick-compat moreutils
+  INSTALL_GITANNEX: git-annex -m snapshot
 
-  # Do not use `image` as a matrix dimension, to have fine-grained control over
-  # what tests run on which platform
-  # The ID variable had no impact, but sorts first in the CI run overview
-  # an intelligible name can help to locate a specific test run
-  matrix:
-    # List a CI run for each platform first, to have immediate access when there
-    # is a need for debugging
-
-    - ID: Ubu20
-      DTS: datalad_next
-      APPVEYOR_BUILD_WORKER_IMAGE: Ubuntu2004
-      INSTALL_SYSPKGS: python3-virtualenv
-      # datalad-annex git remote needs something after git-annex_8.20211x
-      INSTALL_GITANNEX: git-annex -m snapshot
 
 skip_commits:
   files:
@@ -75,7 +63,6 @@ skip_commits:
 # it is OK to specify paths that may not exist for a particular test run
 cache:
   # pip cache
-  - C:\Users\appveyor\AppData\Local\pip\Cache -> .appveyor.yml
   - /home/appveyor/.cache/pip -> .appveyor.yml
 
 
@@ -90,6 +77,9 @@ init:
   # Identity setup
   - git config --global user.email "team@datalad.org"
   - git config --global user.name "DataLad bot"
+  # enable credential store
+  - git config --global credential.helper store
+  - printf "https://%s:x-oauth-basic@github.com\n" ${GH_TOKEN} > "${HOME}/.git-credentials"
   # bootstrap handbook user
   - sudo mkdir /home/me
   - sudo chown $USER:$USER /home/me
@@ -98,6 +88,9 @@ init:
 
 
 install:
+  # Missing system software
+  - "[ -n \"$INSTALL_SYSPKGS\" ] && ( sudo apt-get update -qq -y && sudo apt-get install -qq --no-install-recommends -y ${INSTALL_SYSPKGS}; ) || true"
+  # in case of a snapshot installation, use the following approach to adjust
   # If a particular Python version is requested, use env setup (using the
   # appveyor provided environments/installation). Note, these are broken
   # on the ubuntu images
@@ -106,12 +99,9 @@ install:
   # use of python/pip executables below
   - "[ \"x$PY\" != x ] && . ${HOME}/venv${PY}/bin/activate || virtualenv -p 3 ${HOME}/dlvenv && . ${HOME}/dlvenv/bin/activate; ln -s \"$VIRTUAL_ENV\" \"${HOME}/VENV\""
   # deploy the datalad installer, override version via DATALAD_INSTALLER_VERSION
-  - python -m pip install datalad-installer${DATALAD_INSTALLER_VERSION:-}
-  # Missing system software
-  - "[ -n \"$INSTALL_SYSPKGS\" ] && ( [ \"x${APPVEYOR_BUILD_WORKER_IMAGE}\" = \"xmacOS\" ] && brew install -q ${INSTALL_SYSPKGS} || { sudo apt-get update -y && sudo apt-get install --no-install-recommends -y ${INSTALL_SYSPKGS}; } ) || true"
-  # in case of a snapshot installation, use the following approach to adjust
+  - chronic python -m pip install datalad-installer${DATALAD_INSTALLER_VERSION:-}
   # the PATH as necessary
-  - "[ -n \"${INSTALL_GITANNEX}\" ] && datalad-installer -E ${HOME}/dlinstaller_env.sh --sudo ok ${INSTALL_GITANNEX}"
+  - "[ -n \"${INSTALL_GITANNEX}\" ] && chronic datalad-installer -E ${HOME}/dlinstaller_env.sh --sudo ok ${INSTALL_GITANNEX}"
   # add location of datalad installer results to PATH
   - "[ -f ${HOME}/dlinstaller_env.sh ] && . ${HOME}/dlinstaller_env.sh || true"
 
@@ -121,9 +111,11 @@ install:
 
 
 build_script:
-  - python -m pip install -r requirements.txt
-  - python -m pip install -r requirements-devel.txt
-  - python -m pip install .
+  - chronic python -m pip install -r requirements.txt
+  - chronic python -m pip install -r requirements-devel.txt
+  - chronic python -m pip install .
+  # pull all submodules
+  - chronic datalad get . -r -n
 
 
 #after_build:
@@ -136,18 +128,28 @@ before_test:
 
 
 test_script:
+  # Wipe out runrecords to trigger rebuild
+  #- rm -f docs/basics/_examples/DL-101-*
+  - rm -f docs/basics/_examples/DL-101-101-101
   - make build
 
 
-#on_success:
-#
-
+on_success:
+  - printf "\n#\n#\n#\n# Runrecord diff\n#\n"
+  - git diff -- docs
+  - printf "\n\n\n\n"
+  - git diff -- docs > runrecord_diff.txt
+  - appveyor PushArtifact runrecord_diff.txt
+  - printf "\n#\n# Diff download\n%s\n\n" "https://ci.appveyor.com/api/projects/mih/book/artifacts/runrecord_diff.txt"
 
 #on_failure:
 #
 
+artifacts:
+  - path: runrecord_diff.txt
+    name: runrecord updates from rebuilding code snippets
+    type: File
 
 on_finish:
   # conditionally block the exit of a CI run for direct debugging
-  - sh: while [ -f ~/BLOCK ]; do sleep 5; done
-  - cmd: powershell.exe while ((Test-Path "C:\Users\\appveyor\\Desktop\\BLOCK.txt")) { Start-Sleep 5 }
+  - while [ -f ~/BLOCK ]; do sleep 5; done

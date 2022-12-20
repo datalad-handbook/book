@@ -3,6 +3,6 @@ datalad-container
 nose
 seaborn
 pandas
-sklearn
+scikit-learn
 scikit-image
 dvc

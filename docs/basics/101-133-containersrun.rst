@@ -159,10 +159,6 @@ section below has some pointers:
    command requires ``root`` privileges ("``sudo``"). You can build the container
    on any machine, though, not necessarily the one that is later supposed to
    actually run the analysis, e.g., your own laptop versus a compute cluster.
-   Alternatively, `Singularity Hub <https://singularity-hub.org/>`_ integrates
-   with Github and builds containers from Images pushed to repositories on Github.
-   `The docs <https://singularityhub.github.io/singularityhub-docs/>`_
-   give you a set of instructions on how to do this.
 
 The :command:`datalad containers-add` command takes an arbitrary
 name to give to the container, and a path or url to a container Image:

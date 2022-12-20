@@ -13,17 +13,6 @@ infrastructure, be it personal computers, servers or compute clusters, or even
 super computing infrastructure -- even on machines that do not have DataLad
 installed.
 
-.. importantnote:: RIA availability
-
-   Setting up and interacting with RIA stores requires DataLad version ``0.13.0``
-   or higher.
-
-   Note a breaking API change of :command:`create-sibling-ria` in DataLad versions ``>0.16.0``:
-   A new store isn't set up unless ``--new-store-ok`` is passed.
-
-   In order to understand this section, some knowledge on Git-internals
-   and overcoming any fear of how checksums and UUIDs look can be helpful.
-
 Technical details
 ^^^^^^^^^^^^^^^^^
 
@@ -173,10 +162,7 @@ compute clusters, or other IT infrastructure.
    and no otherwise running daemons are necessary.
    If the RIA store is set up remotely, the server needs to be SSH-accessible.
 
-   On the client side, you need DataLad version 0.13.0 or later. Starting with
-   this version, DataLad has the  :command:`create-sibling-ria` command and the
-   git-annex ora-remote special remote that is required to get annexed dataset
-   contents into a RIA store.
+   On the client side, you need DataLad.
 
 git-annex ORA-remote special remotes
 """"""""""""""""""""""""""""""""""""
@@ -215,7 +201,7 @@ and thus the default.
 .. index:: ! datalad command; create-sibling-ria
 
 The command :command:`datalad create-sibling-ria` can both create datasets in RIA stores and the RIA stores themselves.
-With DataLad versions lower than ``0.16.0``, :command:`datalad create-sibling-ria` sets up a new RIA store if it does not find one under the provided URL, but starting with ``0.16.0``, one needs to pass the parameter ``--new-store-ok`` in order to set up a new store.
+However, :command:`datalad create-sibling-ria` sets up a new RIA store if it does not find one under the provided URL **only** if the parameter ``--new-store-ok`` is passed.
 By default, the command will automatically create a dataset representation in a RIA store and configure a sibling to allow publishing to the RIA store and updating
 from it.
 With special remote capabilities enabled, the command will automatically create
@@ -226,8 +212,7 @@ annexed contents, will be published to the RIA store, with no further setup or
 configuration required [#f6]_.
 
 To disable the storage sibling completely, invoke :command:`datalad create-sibling-ria` with the argument ``--storage-sibling=off``.
-Note that DataLad versions ``<0.14`` need to use the flag ``--no-storage-sibling``, which is deprecated starting with DataLad ``0.14.0``.
-To create a RIA store with *only* special remote storage, starting from DataLad version ``0.14.0`` you can invoke :command:`datalad create-sibling-ria` with the argument ``--storage-sibling=only``.
+To create a RIA store with *only* special remote storage, you can invoke :command:`datalad create-sibling-ria` with the argument ``--storage-sibling=only``.
 
 Advantages of RIA stores
 """"""""""""""""""""""""
@@ -352,7 +337,7 @@ system to publish the ``DataLad-101`` dataset from the handbook's "Basics"
 section to. In the example below, the RIA sibling gets the name ``ria-backup``.
 The URL uses the ``file`` protocol and points with an absolute path to the not
 yet existing directory ``myriastore``.
-When you are using DataLad version ``0.16`` or higher, make sure that the ``--new-store-ok`` parameter is set to allow the creation of a new store.
+Make sure that the ``--new-store-ok`` parameter is set to allow the creation of a new store.
 
 
 .. runrecord:: _examples/DL-101-147-103
@@ -360,7 +345,6 @@ When you are using DataLad version ``0.16`` or higher, make sure that the ``--ne
    :workdir: dl-101/DataLad-101
 
    # inside of the dataset DataLad-101
-   # do not use --new-store-ok with datalad < 0.16
    $ datalad create-sibling-ria -s ria-backup --alias dl-101 --new-store-ok "ria+file:///home/me/myriastore"
 
 Afterwards, the dataset has two additional siblings: ``ria-backup``, and
@@ -373,7 +357,7 @@ Afterwards, the dataset has two additional siblings: ``ria-backup``, and
    $ datalad siblings
 
 The storage sibling is the git-annex ora-remote and is set up automatically --
-unless :command:`create-sibling-ria` is run with ``--storage-sibling=off`` (in DataLad versions ``>0.14.``) or ``--no-storage-sibling`` (in versions ``<0.14``).
+unless :command:`create-sibling-ria` is run with ``--storage-sibling=off``.
 By default, it has the name of the RIA sibling, suffixed with ``-storage``,
 but alternative names can be supplied with the ``--storage-name`` option.
 

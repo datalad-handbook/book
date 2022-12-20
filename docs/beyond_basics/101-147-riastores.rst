@@ -491,7 +491,7 @@ dataset ID:
 .. runrecord:: _examples/DL-101-147-120
    :language: console
    :workdir: beyond_basics
-   :realcommand: echo "$ datalad clone ria+file:///home/me/myriastore#$(datalad -C DataLad-101 -f'{infos[dataset][id]}' wtf) myclone" && datalad clone ria+file:///home/me/myriastore#$(datalad -C DataLad-101 -f'{infos[dataset][id]}' wtf) myclone
+   :realcommand: echo "$ datalad clone ria+file:///home/me/myriastore#$(datalad -C /home/me/dl-101/DataLad-101 -f'{infos[dataset][id]}' wtf) myclone" && datalad clone ria+file:///home/me/myriastore#$(datalad -C /home/me/dl-101/DataLad-101 -f'{infos[dataset][id]}' wtf) myclone
 
 There are two downsides to this method: For one, it is hard to type, remember, and
 know the dataset ID of a desired dataset. Secondly, if no additional path is given to

@@ -3,7 +3,7 @@ name: auto_build_docs_on_pr
 on:
   pull_request:
     branches:
-      - master
+      - build
       - autobuild # testing branch
 
 jobs:

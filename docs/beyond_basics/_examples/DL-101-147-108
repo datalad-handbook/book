@@ -1,7 +1,9 @@
 $ tree /home/me/myriastore
 /home/me/myriastore
-├── 5d2
-│   └── 4f8fb-8339-4fe7-9b64-fec6af4e9676
+├── alias
+│   └── dl-101 -> ../e3e/70682-c209-4cac-629f-6fbed82c07cd
+├── e3e
+│   └── 70682-c209-4cac-629f-6fbed82c07cd
 │       ├── annex
 │       │   └── objects
 │       │       ├── G6
@@ -12,14 +14,14 @@ $ tree /home/me/myriastore
 │       │       │   └── 3M
 │       │       │       └── MD5E-s2120211--06d1efcb05bb2c55cd039dab3fb28455.pdf
 │       │       │           └── MD5E-s2120211--06d1efcb05bb2c55cd039dab3fb28455.pdf
-│       │       ├── WF
-│       │       │   └── Gq
-│       │       │       └── MD5E-s1198170--0ab2c121bcf68d7278af266f6a399c5f.pdf
-│       │       │           └── MD5E-s1198170--0ab2c121bcf68d7278af266f6a399c5f.pdf
-│       │       └── z1
-│       │           └── Q8
-│       │               └── MD5E-s4208954--ab3a8c2f6b76b18b43c5949e0661e266.pdf
-│       │                   └── MD5E-s4208954--ab3a8c2f6b76b18b43c5949e0661e266.pdf
+│       │       ├── P5
+│       │       │   └── qK
+│       │       │       └── MD5E-s2693891--e61afe4b3c5d76c849c4e61f6547ed03.pdf
+│       │       │           └── MD5E-s2693891--e61afe4b3c5d76c849c4e61f6547ed03.pdf
+│       │       └── WF
+│       │           └── Gq
+│       │               └── MD5E-s1198170--0ab2c121bcf68d7278af266f6a399c5f.pdf
+│       │                   └── MD5E-s1198170--0ab2c121bcf68d7278af266f6a399c5f.pdf
 │       ├── archives
 │       ├── branches
 │       ├── config
@@ -45,9 +47,9 @@ $ tree /home/me/myriastore
 │       ├── objects
 │       │   ├── info
 │       │   └── pack
-│       │       ├── pack-09d711f30125ebc0f423bc792e1fb8dbbac458ec.idx
-│       │       └── pack-09d711f30125ebc0f423bc792e1fb8dbbac458ec.pack
-│       ├── ora-remote-49a69e90-9581-4205-b2d5-a5c3fe832f0d
+│       │       ├── pack-a7c65b335a6cda3d472e5954c15795ce78488173.idx
+│       │       └── pack-a7c65b335a6cda3d472e5954c15795ce78488173.pack
+│       ├── ora-remote-46b169aa-bb91-42d6-be06-355d957fb4f7
 │       │   └── transfer
 │       ├── refs
 │       │   ├── heads
@@ -55,8 +57,6 @@ $ tree /home/me/myriastore
 │       │   │   └── master
 │       │   └── tags
 │       └── ria-layout-version
-├── alias
-│   └── dl-101 -> ../5d2/4f8fb-8339-4fe7-9b64-fec6af4e9676
 ├── error_logs
 └── ria-layout-version
 

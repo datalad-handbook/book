@@ -1,7 +1,7 @@
 $ git log -p -n 2
-commit 13cc7f73f0ff5054aef855aebcceca203f98ed09
+commit 469f388cd0dac764e8bdfc4a4576994cc9e235a6
 Author: Elena Piscopia <elena@example.net>
-Date:   Thu Jul 29 16:20:41 2021 +0200
+Date:   Tue Jun 18 16:13:00 2019 +0200
 
     add note on datalad save
 
@@ -12,15 +12,15 @@ index 3a7a1fe..0142412 100644
 @@ -1,3 +1,7 @@
  One can create a new dataset with 'datalad create [--description] PATH'.
  The dataset is created empty
- 
+
 +The command "datalad save [-m] PATH" saves the file (modifications) to
 +history.
 +Note to self: Always use informative, concise commit messages.
 +
 
-commit cc213c2d401c467f3944559bc97acb1eecd026fe
+commit 122906227ec4a7b6c8233026739831fcd09aa7cd
 Author: Elena Piscopia <elena@example.net>
-Date:   Thu Jul 29 16:20:40 2021 +0200
+Date:   Tue Jun 18 16:13:00 2019 +0200
 
     Add notes on datalad create
 

@@ -2,4 +2,4 @@
 $ git checkout master
 $ git branch -D verify
 Switched to branch 'master'
-Deleted branch verify (was 8b6a3a7).
+Deleted branch verify (was 29c21ca).

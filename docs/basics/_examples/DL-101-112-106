@@ -3,14 +3,13 @@ $ datalad run -m "Resize logo for slides" \
 --output "recordings/salt_logo_small.jpg" \
 --explicit \
 "convert -resize 400x400 recordings/longnow/.datalad/feed_metadata/logo_salt.jpg recordings/salt_logo_small.jpg"
-[INFO] Making sure inputs are available (this may take some time) 
+[INFO] Making sure inputs are available (this may take some time)
+[INFO] Unlocking files
+[INFO] Recording unlocked state in git
+[INFO] Completed unlocking files
+[INFO] == Command start (output follows) =====
+[INFO] == Command exit (modification check follows) =====
 unlock(ok): recordings/salt_logo_small.jpg (file)
-[INFO] == Command start (output follows) ===== 
-[INFO] == Command exit (modification check follows) ===== 
+run(ok): /home/me/dl-101/DataLad-101 (dataset) [convert -resize 400x400 recordings/longn...]
 add(ok): recordings/salt_logo_small.jpg (file)
 save(ok): . (dataset)
-action summary:
-  add (ok: 1)
-  get (notneeded: 2)
-  save (ok: 1)
-  unlock (ok: 1)

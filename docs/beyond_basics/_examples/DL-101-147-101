@@ -8,4 +8,4 @@ $ cat .gitmodules
 [submodule "midterm_project"]
 	path = midterm_project
 	url = https://github.com/adswa/midtermproject
-	datalad-id = fea0e9c7-7932-41d5-8d57-97ac9ac6755a
+	datalad-id = fea11e88-f41c-4447-8e34-17ea56f7ef92

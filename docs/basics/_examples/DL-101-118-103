@@ -1,15 +1,16 @@
 
-$ datalad rerun 4753f3f58f6cb9b2a70f71ad56fd0173c453853f
-[INFO] run commit 4753f3f; (Resize logo for s...)
-[INFO] Making sure inputs are available (this may take some time) 
-get(ok): recordings/longnow/.datalad/feed_metadata/logo_salt.jpg (file) [from origin...]
-[WARNING] no content present; cannot unlock [unlock(/home/me/dl-101/mock_user/DataLad-101/recordings/salt_logo_small.jpg)] 
-remove(ok): recordings/salt_logo_small.jpg
-[INFO] == Command start (output follows) ===== 
-[INFO] == Command exit (modification check follows) ===== 
+$ datalad rerun 7948b8623305841048fd93e73dcb646c6fa3dcd6
+[INFO] run commit 7948b86; (Resize logo for s...)
+[INFO] Making sure inputs are available (this may take some time)
+[INFO] == Command start (output follows) =====
+[INFO] == Command exit (modification check follows) =====
+get(ok): recordings/longnow/.datalad/feed_metadata/logo_salt.jpg (file) [from web...]
+run.remove(ok): recordings/salt_logo_small.jpg (file) [Removed file]
+run(ok): /home/me/dl-101/mock_user/DataLad-101 (dataset) [convert -resize 400x400 recordings/longn...]
 add(ok): recordings/salt_logo_small.jpg (file)
 action summary:
   add (ok: 1)
   get (notneeded: 1, ok: 1)
-  remove (ok: 1)
+  run (ok: 1)
+  run.remove (ok: 1)
   save (notneeded: 2)

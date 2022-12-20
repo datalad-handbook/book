@@ -1,2 +1,5 @@
 $ datalad unlock recordings/salt_logo_small.jpg
+[INFO] Unlocking files
+[INFO] Recording unlocked state in git
+[INFO] Completed unlocking files
 unlock(ok): recordings/salt_logo_small.jpg (file)

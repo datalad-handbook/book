@@ -1,18 +1,22 @@
 
 $ datalad rerun d715890b36b9a089eedbb0c929f52e182e889735
 [INFO] run commit d715890; (analyze iris data...)
-[INFO] Making sure inputs are available (this may take some time) 
-[WARNING] no content present; cannot unlock [unlock(/home/me/dl-101/midtermproject/pairwise_relationships.png)] 
-[WARNING] no content present; cannot unlock [unlock(/home/me/dl-101/midtermproject/prediction_report.csv)] 
-remove(ok): pairwise_relationships.png
-remove(ok): prediction_report.csv
+[INFO] Making sure inputs are available (this may take some time)
 [INFO] == Command start (output follows) =====
+Traceback (most recent call last):
+  File "/home/me/dl-101/midtermproject/code/script.py", line 2, in <module>
+    import pandas as pd
+ModuleNotFoundError: No module named 'pandas'
 [INFO] == Command exit (modification check follows) =====
-add(ok): pairwise_relationships.png (file)
-add(ok): prediction_report.csv (file)
+run.remove(ok): pairwise_relationships.png (file) [Removed file]
+run.remove(ok): prediction_report.csv (file) [Removed file]
+run(error): /home/me/dl-101/midtermproject (dataset) [python3 code/script.py]
+delete(ok): pairwise_relationships.png (file)
+delete(ok): prediction_report.csv (file)
 save(ok): . (dataset)
 action summary:
-  add (ok: 2)
+  delete (ok: 2)
   get (notneeded: 3)
-  remove (ok: 2)
+  run (error: 1)
+  run.remove (ok: 2)
   save (notneeded: 1, ok: 1)

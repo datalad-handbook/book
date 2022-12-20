@@ -1,12 +1,14 @@
 $ datalad install https://github.com/psychoinformatics-de/studyforrest-data-phase2.git
-[INFO] Cloning dataset to Dataset(/home/me/usecases/studyforrest/studyforrest-data-phase2)
-[INFO] Attempting to clone from https://github.com/psychoinformatics-de/studyforrest-data-phase2.git to /home/me/usecases/studyforrest/studyforrest-data-phase2
-[INFO] Start enumerating objects
-[INFO] Start counting objects
-[INFO] Start compressing objects
-[INFO] Start receiving objects
-[INFO] Start resolving deltas
-[INFO] Completed clone attempts for Dataset(/home/me/usecases/studyforrest/studyforrest-data-phase2)
-[INFO] scanning for unlocked files (this may take some time)
-[INFO] Remote origin not usable by git-annex; setting annex-ignore
+[INFO] Cloning dataset to Dataset(/home/me/usecases/studyforrest/studyforrest-data-phase2) 
+[INFO] Attempting to clone from https://github.com/psychoinformatics-de/studyforrest-data-phase2.git to /home/me/usecases/studyforrest/studyforrest-data-phase2 
+[INFO] Start enumerating objects 
+[INFO] Start counting objects 
+[INFO] Start compressing objects 
+[INFO] Start receiving objects 
+[INFO] Start resolving deltas 
+[INFO] Completed clone attempts for Dataset(/home/me/usecases/studyforrest/studyforrest-data-phase2) 
+[INFO] scanning for annexed files (this may take some time) 
+[INFO] Remote origin not usable by git-annex; setting annex-ignore 
+[INFO] https://github.com/psychoinformatics-de/studyforrest-data-phase2.git/config download failed: Not Found 
+[INFO] RIA store unavailable. -caused by- Failed to access http://studyforrest.ds.inm7.deria-layout-version -caused by- Failed to access http://studyforrest.ds.inm7.de/ria-layout-version -caused by- Failed to establish a new session 1 times.  -caused by- HTTPConnectionPool(host='studyforrest.ds.inm7.de', port=80): Max retries exceeded with url: /ria-layout-version (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f96af4ea260>: Failed to establish a new connection: [Errno -2] Name or service not known')) 
 install(ok): /home/me/usecases/studyforrest/studyforrest-data-phase2 (dataset)

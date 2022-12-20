@@ -1,25 +1,30 @@
 $ datalad rerun --branch="randomforest" -m "Recompute classification with random forest classifier" ready4analysis..SGD-100
-[INFO] checkout commit a254f4f;
-[INFO] run commit 08f7604; (Train an SGD clas...)
+[INFO] checkout commit 26cb94c; 
+[INFO] run commit 709aaeb; (Train an SGD clas...) 
 [INFO] Making sure inputs are available (this may take some time) 
+[INFO] Unlocking files 
 unlock(ok): model.joblib (file)
+[INFO] Recording unlocked state in git 
+[INFO] Completed unlocking files 
 [INFO] == Command start (output follows) ===== 
 [INFO] == Command exit (modification check follows) ===== 
+run(ok): /home/me/usecases/ml-project (dataset) [singularity exec -B /home/me/usecases/ml...]
 add(ok): model.joblib (file)
 save(ok): . (dataset)
-[INFO] run commit 961a5be; (Evaluate SGD clas...)
+[INFO] run commit 69075b4; (Evaluate SGD clas...) 
 [INFO] Making sure inputs are available (this may take some time) 
 [INFO] == Command start (output follows) ===== 
-{'accuracy': 0.8124207858048162}
+{'accuracy': 0.8060836501901141}
 [INFO] == Command exit (modification check follows) ===== 
+run(ok): /home/me/usecases/ml-project (dataset) [singularity exec -B /home/me/usecases/ml...]
 add(ok): accuracy.json (file)
 add(ok): code/__pycache__/train.cpython-37.pyc (file)
 save(ok): . (dataset)
-[INFO] skip-or-pick commit a729a18; a729a18 does not have a command; skipping or cherry picking
-run(ok): /home/me/usecases/ml-project (dataset) [a729a18 does not have a command; skipping]
+[INFO] skip-or-pick commit 4e026c6; 4e026c6 does not have a command; skipping or cherry picking 
+run(ok): /home/me/usecases/ml-project (dataset) [4e026c6 does not have a command; skipping]
 action summary:
   add (ok: 3)
   get (notneeded: 8)
-  run (ok: 1)
+  run (ok: 3)
   save (notneeded: 2, ok: 2)
   unlock (notneeded: 2, ok: 1)

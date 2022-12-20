@@ -1,5 +1,5 @@
 
-$ git cat-file --textconv 401df53b3e9a7a4523e51a5faa33e2572a6cdb2c:notes.txt
+$ git cat-file --textconv 51eede3a47d4ebfcbe8d666d448a02c838843ffd:notes.txt
 One can create a new dataset with 'datalad create [--description] PATH'.
 The dataset is created empty
 
@@ -57,6 +57,3 @@ registered subdatasets underneath a subdataset, so a safer way to
 proceed is to set a decent --recursion-limit:
 "datalad get -n -r --recursion-limit 2 <subds>"
 
-The command "git annex whereis PATH" lists the repositories that have
-the file content of an annexed file. When using "datalad get" to
-retrieve file content, those repositories will be queried.

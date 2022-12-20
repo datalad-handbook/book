@@ -2,12 +2,13 @@ $ datalad run -m 'Build FSL EV3 design files' \
   --input inputs/rawdata/sub-02/func/sub-02_task-oneback_run-01_events.tsv \
   --output 'sub-02/onsets' \
   bash code/events2ev3.sh sub-02 {inputs}
-[INFO] Making sure inputs are available (this may take some time)
+[INFO] Making sure inputs are available (this may take some time) 
 get(ok): inputs/rawdata/sub-02/func/sub-02_task-oneback_run-01_events.tsv (file) [from origin...]
-[INFO] == Command start (output follows) =====
+[INFO] == Command start (output follows) ===== 
 sub-02
 1
-[INFO] == Command exit (modification check follows) =====
+[INFO] == Command exit (modification check follows) ===== 
+run(ok): /home/me/usecases/repro2/glm_analysis (dataset) [bash code/events2ev3.sh sub-02 'inputs/r...]
 add(ok): sub-02/onsets/run-1/body.txt (file)
 add(ok): sub-02/onsets/run-1/face.txt (file)
 add(ok): sub-02/onsets/run-1/house.txt (file)

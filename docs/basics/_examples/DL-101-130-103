@@ -1,10 +1,9 @@
 # inside of DataLad-101
 $ datalad create -c yoda --dataset . midterm_project
-[INFO] Creating a new annex repo at /home/me/dl-101/DataLad-101/midterm_project 
-[INFO] scanning for unlocked files (this may take some time)
-[INFO] Running procedure cfg_yoda 
-[INFO] == Command start (output follows) ===== 
-[INFO] == Command exit (modification check follows) ===== 
+[INFO] Running procedure cfg_yoda
+[INFO] == Command start (output follows) =====
+[INFO] == Command exit (modification check follows) =====
+run(ok): /home/me/dl-101/DataLad-101/midterm_project (dataset) [VIRTUALENV/bin/python /ho...]
 add(ok): midterm_project (file)
 add(ok): .gitmodules (file)
 save(ok): . (dataset)
@@ -12,4 +11,5 @@ create(ok): midterm_project (dataset)
 action summary:
   add (ok: 2)
   create (ok: 1)
+  run (ok: 1)
   save (ok: 1)

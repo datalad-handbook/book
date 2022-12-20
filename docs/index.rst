@@ -20,14 +20,14 @@ applications. If you want to get hands-on experience and learn DataLad, the *Bas
 part of this book will teach you. If you want to know what is possible, the
 *use cases* will show you. And if you want to help others to get started with DataLad,
 the `companion repository <https://github.com/datalad-handbook/course>`_ provides
-`free and open source teaching material <teaching.html>`_ tailored to the handbook.
+:ref:`free and open source teaching material <teach>` tailored to the handbook.
 
 Before you read on, please note that the handbook is based on **at least** DataLad version **0.12**, and the higher your version of DataLad is, the better.
 The section :ref:`install` will set you up with what you need if you currently do not have DataLad 0.12 or higher installed.
 
-If you're new here, please start the handbook `here <intro/philosophy.html>`_.
+If you're new here, please start the handbook :ref:`here <philo>`.
 Alternatively, try to identify with one of several user-types in this
-`user specific guide to the handbook <intro/user_types.html>`_.
+:ref:`user specific guide to the handbook <usertypes>`.
 
 .. importantnote:: The handbook is currently in beta stage.
 
@@ -114,6 +114,8 @@ Code lists from chapters
    code_from_chapters/DLBasicsMPI
    code_from_chapters/ABCD
    code_from_chapters/yale
+   code_from_chapters/dgpa
+   code_from_chapters/neurohackademy
 ..
   stuff that we do not need or show at the moment
 

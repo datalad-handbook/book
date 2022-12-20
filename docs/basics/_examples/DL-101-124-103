@@ -1,4 +1,2 @@
 $ datalad create somedataset; cd somedataset
-[INFO] Creating a new annex repo at /home/me/procs/somedataset 
-[INFO] scanning for unlocked files (this may take some time)
-create(ok): /home/me/procs/somedataset (dataset)
+create(error): /home/me/procs/somedataset (dataset) [will not create a dataset in a non-empty directory, use `--force` option to ignore]

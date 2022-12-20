@@ -1,4 +1,5 @@
 $ datalad run-procedure cfg_yoda
-[INFO] Running procedure cfg_yoda
-[INFO] == Command start (output follows) =====
-[INFO] == Command exit (modification check follows) =====
+[INFO] Running procedure cfg_yoda 
+[INFO] == Command start (output follows) ===== 
+[INFO] == Command exit (modification check follows) ===== 
+run(ok): /home/me/usecases/repro2/glm_analysis (dataset) [/home/adina/env/handbook/bin/python /hom...]

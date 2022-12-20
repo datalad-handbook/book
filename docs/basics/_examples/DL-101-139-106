@@ -3,9 +3,11 @@ $ datalad push --to gin
 [INFO] Push refspecs
 [INFO] Transfer data
 [INFO] Update availability information
-[INFO] Start enumerating objects 
-[INFO] Start counting objects 
-[INFO] Start compressing objects 
-[INFO] Start writing objects 
-publish(ok): . (dataset) [refs/heads/master->gin:refs/heads/master b1c8ba0..c35b6c1]
+[INFO] Start enumerating objects
+[INFO] Start counting objects
+[INFO] Start compressing objects
+[INFO] Start writing objects
 [INFO] Finished push of Dataset(/home/me/dl-101/DataLad-101)
+publish(ok): . (dataset) [refs/heads/master->gin:refs/heads/master b8ced8e..f162a71]
+action summary:
+  publish (notneeded: 1, ok: 1)

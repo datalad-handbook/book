@@ -8,14 +8,16 @@ $ datalad containers-run -n software \
   --output 'data/test.csv' \
   "python3 code/prepare.py"
 [INFO] Making sure inputs are available (this may take some time) 
-[INFO] == Command start (output follows) =====
+[INFO] == Command start (output follows) ===== 
 [INFO] == Command exit (modification check follows) ===== 
+get(ok): data/raw/train/n03888257 (directory)
 get(ok): data/raw/train/n03445777 (directory)
 get(ok): data/raw/val/n03445777 (directory)
 get(ok): data/raw/val/n03888257 (directory)
-get(ok): data/raw/train/n03888257 (directory)
+run(ok): /home/me/usecases/ml-project (dataset) [singularity exec -B /home/me/usecases/ml...]
 save(ok): . (dataset)
 action summary:
   add (ok: 2)
   get (notneeded: 2, ok: 2704)
+  run (ok: 1)
   save (notneeded: 1, ok: 1)

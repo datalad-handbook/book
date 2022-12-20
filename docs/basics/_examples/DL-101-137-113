@@ -2,6 +2,7 @@
 $ convert xc:none -page Letter apdffile.pdf
 # accidentally save it
 $ datalad save
+convert-im6.q16: attempt to perform an operation not allowed by the security policy `PDF' @ error/constitute.c/IsCoderAuthorized/421.
 add(ok): Gitjoke1.txt (file)
 add(ok): Gitjoke3.txt (file)
 add(ok): apdffile.pdf (file)

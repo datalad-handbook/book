@@ -1,5 +1,3 @@
 $ datalad subdatasets
 subdataset(ok): midterm_project (dataset)
 subdataset(ok): recordings/longnow (dataset)
-action summary:
-  subdataset (ok: 2)

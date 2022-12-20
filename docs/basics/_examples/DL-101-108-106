@@ -1,15 +1,15 @@
 $ git log -p -n 1   # On Windows, you may just want to type "git log".
-commit f0aab98d14a86fbe1100d991fe6fc46ef95e39c6
+commit a4622a5460845b70ad90b70fe069cba6419628a8
 Author: Elena Piscopia <elena@example.net>
-Date:   Thu Jul 29 16:21:34 2021 +0200
+Date:   Tue Jun 18 16:13:00 2019 +0200
 
     [DATALAD RUNCMD] create a list of podcast titles
-    
+
     === Do not change lines below ===
     {
      "chain": [],
      "cmd": "bash code/list_titles.sh > recordings/podcasts.tsv",
-     "dsid": "8e04afb0-af85-4070-be29-858d30d85017",
+     "dsid": "e3e70682-c209-4cac-629f-6fbed82c07cd",
      "exit": 0,
      "extra_inputs": [],
      "inputs": [],
@@ -56,12 +56,12 @@ index 0000000..f691b53
 +2006-05-13	Chris Anderson  Will Hearst  The Long Time Tail
 +2006-06-27	Brian Eno  Will Wright  Playing with Time
 +2006-07-15	John Rendon  Long term Policy to Make the War on Terror Short
-+2006-09-23	Orville Schell  China Thinks Long term  But Can It Relearn to Act Long term 
++2006-09-23	Orville Schell  China Thinks Long term  But Can It Relearn to Act Long term
 +2006-10-14	John Baez  Zooming Out in Time
 +2006-11-04	Larry Brilliant  Katherine Fulton  Richard Rockefeller  The Deeper News About the New Philanthropy
-+2006-12-01	Philip Rosedale   Second Life   What Do We Learn If We Digitize EVERYTHING 
++2006-12-01	Philip Rosedale   Second Life   What Do We Learn If We Digitize EVERYTHING
 +2007-01-27	Philip Tetlock  Why Foxes Are Better Forecasters Than Hedgehogs
-+2007-02-16	Vernor Vinge  What If the Singularity Does NOT Happen 
++2007-02-16	Vernor Vinge  What If the Singularity Does NOT Happen
 +2007-03-10	Brian Fagan  We Are Not the First to Suffer Through Climate Change
 +2007-04-28	Frans Lanting  Life s Journey Through Time
 +2007-05-12	Steven Johnson  The Long Zoom
@@ -176,7 +176,7 @@ index 0000000..f691b53
 +2014-09-17	Drew Endy  The iGEM Revolution
 +2014-10-21	Larry  Harvey  Why The Man Keeps Burning
 +2014-11-13	Kevin Kelly  Technium Unbound
-+2015-01-14	Jesse Ausubel  Nature is Rebounding  Land  and Ocean sparing through Concentrating Human Activities 
++2015-01-14	Jesse Ausubel  Nature is Rebounding  Land  and Ocean sparing through Concentrating Human Activities
 +2015-01-28	Stewart Brand  Paul Saffo  Pace Layers Thinking
 +2015-02-18	David Keith  Patient Geoengineering
 +2015-04-01	Paul Saffo  The Creator Economy
@@ -214,9 +214,9 @@ index 0000000..f691b53
 +2018-01-23	Charles C. Mann  The Wizard and the Prophet
 +2018-02-27	Michael Frachetti  Open Source Civilization and the Unexpected Origins of the Silk Road
 +2018-03-14	Steven Pinker  A New Enlightenment
-+2018-04-24	Kishore Mahbubani  Has the West Lost It  Can Asia Save It 
++2018-04-24	Kishore Mahbubani  Has the West Lost It  Can Asia Save It
 +2018-05-23	Benjamin Grant  Overview  Earth and Civilization in the Macroscope
-+2018-06-20	Chris D. Thomas  Are We Initiating The Great Anthropocene Speciation Event 
++2018-06-20	Chris D. Thomas  Are We Initiating The Great Anthropocene Speciation Event
 +2018-07-17	George P. Shultz  Perspective
 +2018-08-07	Juan Benet  Long Term Info structure
 +2018-09-13	Julia Galef  Soldiers and Scouts  Why our minds weren t built for truth  and how we can change that

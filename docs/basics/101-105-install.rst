@@ -21,7 +21,7 @@ installed by others, should you want that, for example. Therefore, not only acce
 data becomes fast and easy, but also *sharing*."
 "That's so cool!", you think. "Exam preparation will be a piece of cake if all of us
 can share our mid-term and final projects easily!"
-"But today, let's only focus on how to install a dataset", she continuous.
+"But today, let's only focus on how to install a dataset", she continues.
 "Damn it! Can we not have longer lectures?", you think and set alarms to all of the
 upcoming lecture dates in your calendar.
 There is so much exciting stuff to come, you can not miss a single one.
@@ -183,7 +183,7 @@ Here you can see another import feature of DataLad datasets
 and the :command:`datalad clone` command:
 Upon installation of a DataLad dataset, DataLad retrieves only small files
 (for example text files or markdown files) and (small) metadata
-information about the dataset. It does not, however, download any large files
+about the dataset. It does not, however, download any large files
 (yet). The metadata exposes the dataset's file hierarchy
 for exploration (note how you are able to list the dataset contents with ``ls``),
 and downloading only this metadata speeds up the installation of a DataLad dataset
@@ -217,7 +217,7 @@ components of the dataset that you need.
 
 Let's see how large the dataset would be in total if all of the files were present.
 For this, we supply an additional option to :command:`datalad status`. Make sure to be
-(anywhere) inside of the ``longnow`` dataset to execute the following command:
+(somewhere) inside of the ``longnow`` dataset to execute the following command:
 
 .. runrecord:: _examples/DL-101-105-106
    :language: console
@@ -241,7 +241,7 @@ So how does one actually "get" the files?
 
 The command to retrieve file content is :command:`datalad get` (:manpage:`datalad-get` manual).
 You can specify one or more specific files, or ``get`` all of the dataset by
-specifying :command:`datalad get .` (with ``.`` denoting "current directory").
+specifying :command:`datalad get .` at the root directory of the dataset (with ``.`` denoting "current directory").
 
 First, we get one of the recordings in the dataset -- take any one of your choice
 (here, its the first).
@@ -332,7 +332,7 @@ retrieved data in this dataset:
 
    $ datalad status --annex all
 
-We drop a single recording that's content we previously downloaded with
+We drop a single recording's content that we previously downloaded with
 :command:`get` ...
 
 .. runrecord:: _examples/DL-101-105-111
@@ -363,8 +363,8 @@ Re-obtained!
 This was only a quick digression into :command:`datalad drop`. The main principles
 of this command will become clear after chapter
 :ref:`chapter_gitannex`, and its precise use is shown in the paragraph on
-`removing file contents <101-136-filesystem.html#removing-annexed-content-entirely>`_.
-At this point in time, however, you already know that datasets allow you do
+:ref:`removing file contents <remove>`.
+At this point, however, you already know that datasets allow you do
 :command:`drop` file contents flexibly. If you want to, you could have more
 podcasts (or other data) on your computer than you have disk space available
 by using DataLad datasets -- and that really is a cool feature to have.
@@ -373,8 +373,8 @@ Dataset archeology
 ^^^^^^^^^^^^^^^^^^
 
 You have now experienced how easy it is to (re-)obtain shared data with DataLad.
-But beyond only sharing the *data* in the dataset, when sharing or installing
-a DataLad dataset, all copies also include the datasets *history*.
+But beyond sharing only the *data* in the dataset, when sharing or installing
+a DataLad dataset, all copies also include the dataset's *history*.
 
 For example, we can find out who created the dataset in the first place
 (the output shows an excerpt of ``git log --reverse``, which displays the

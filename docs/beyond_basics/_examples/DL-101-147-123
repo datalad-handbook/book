@@ -1,5 +1,6 @@
 $ tree /home/me/myriastore/alias
 /home/me/myriastore/alias
-└── midterm_project -> /home/me/myriastore/fea/0e9c7-7932-41d5-8d57-97ac9ac6755a
+├── dl-101 -> ../5d2/4f8fb-8339-4fe7-9b64-fec6af4e9676
+└── midterm_project -> /home/me/myriastore/fea/11e88-f41c-4447-8e34-17ea56f7ef92
 
-1 directory, 0 files
+2 directories, 0 files

@@ -1,8 +1,8 @@
 $ datalad run -m "Resize logo for slides" \
 "convert -resize 400x400 recordings/longnow/.datalad/feed_metadata/logo_salt.jpg recordings/salt_logo_small.jpg"
-[INFO] == Command start (output follows) ===== 
+[INFO] == Command start (output follows) =====
 convert-im6.q16: unable to open image `recordings/longnow/.datalad/feed_metadata/logo_salt.jpg': No such file or directory @ error/blob.c/OpenBlob/2924.
 convert-im6.q16: no images defined `recordings/salt_logo_small.jpg' @ error/convert.c/ConvertImageCommand/3229.
-[INFO] == Command exit (modification check follows) ===== 
-[INFO] The command had a non-zero exit code. If this is expected, you can save the changes with 'datalad save -d . -r -F .git/COMMIT_EDITMSG' 
-CommandError: 'convert -resize 400x400 recordings/longnow/.datalad/feed_metadata/logo_salt.jpg recordings/salt_logo_small.jpg' failed with exitcode 1 under /home/me/dl-101/DataLad-101
+[INFO] == Command exit (modification check follows) =====
+[INFO] The command had a non-zero exit code. If this is expected, you can save the changes with 'datalad save -d . -r -F .git/COMMIT_EDITMSG'
+run(error): /home/me/dl-101/DataLad-101 (dataset) [convert -resize 400x400 recordings/longn...]

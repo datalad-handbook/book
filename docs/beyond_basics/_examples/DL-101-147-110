@@ -1,20 +1,23 @@
 $ datalad push --to ria-backup
-[INFO] Determine push target
-[INFO] Push refspecs
-[INFO] Determine push target
-[INFO] Push refspecs
-[INFO] Transfer data
+[INFO] Determine push target 
+[INFO] Push refspecs 
+[INFO] Determine push target 
+[INFO] Push refspecs 
+[INFO] Transfer data 
 copy(ok): .datalad/environments/midterm-software/image (file) [to ria-backup-storage...]
 copy(ok): pairwise_relationships.png (file) [to ria-backup-storage...]
 copy(ok): prediction_report.csv (file) [to ria-backup-storage...]
-[INFO] Transfer data
-[INFO] Update availability information
+[INFO] Transfer data 
+[INFO] Update availability information 
 [INFO] Start enumerating objects 
 [INFO] Start counting objects 
 [INFO] Start compressing objects 
 [INFO] Start writing objects 
-[INFO] Start resolving deltas
+[INFO] Start resolving deltas 
 publish(ok): . (dataset) [refs/heads/master->ria-backup:refs/heads/master [new branch]]
 publish(ok): . (dataset) [refs/heads/git-annex->ria-backup:refs/heads/git-annex [new branch]]
-[INFO] Finished push of Dataset(/home/me/dl-101/DataLad-101/midterm_project)
-[INFO] Finished push of Dataset(/home/me/dl-101/DataLad-101/midterm_project)
+[INFO] Finished push of Dataset(/home/me/dl-101/DataLad-101/midterm_project) 
+[INFO] Finished push of Dataset(/home/me/dl-101/DataLad-101/midterm_project) 
+action summary:
+  copy (ok: 3)
+  publish (ok: 2)

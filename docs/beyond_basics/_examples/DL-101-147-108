@@ -1,7 +1,7 @@
 $ tree /home/me/myriastore
 /home/me/myriastore
-├── 8e0
-│   └── 4afb0-af85-4070-be29-858d30d85017
+├── 5d2
+│   └── 4f8fb-8339-4fe7-9b64-fec6af4e9676
 │       ├── annex
 │       │   └── objects
 │       │       ├── G6
@@ -45,9 +45,9 @@ $ tree /home/me/myriastore
 │       ├── objects
 │       │   ├── info
 │       │   └── pack
-│       │       ├── pack-f90d1d8e11495d22cc738734c458771c99287a61.idx
-│       │       └── pack-f90d1d8e11495d22cc738734c458771c99287a61.pack
-│       ├── ora-remote-7f049ef9-351d-4df5-974a-63e992128c31
+│       │       ├── pack-09d711f30125ebc0f423bc792e1fb8dbbac458ec.idx
+│       │       └── pack-09d711f30125ebc0f423bc792e1fb8dbbac458ec.pack
+│       ├── ora-remote-49a69e90-9581-4205-b2d5-a5c3fe832f0d
 │       │   └── transfer
 │       ├── refs
 │       │   ├── heads
@@ -55,7 +55,9 @@ $ tree /home/me/myriastore
 │       │   │   └── master
 │       │   └── tags
 │       └── ria-layout-version
+├── alias
+│   └── dl-101 -> ../5d2/4f8fb-8339-4fe7-9b64-fec6af4e9676
 ├── error_logs
 └── ria-layout-version
 
-29 directories, 28 files
+31 directories, 28 files

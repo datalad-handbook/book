@@ -19,10 +19,10 @@ after all, any directory on a file system can have other directories inside of i
 The possibility for nested Datasets, however, is one of many advantages
 DataLad datasets have:
 
-One aspect of nested datasets is that any lower-level DataLad dataset
-(the *subdataset*) has a stand-alone
+One aspect of nested datasets is that any DataLad dataset
+(*subdataset* or *superdataset*) keeps their stand-alone
 history. The top-level DataLad dataset (the *superdataset*) only stores
-*which version* of the subdataset is currently used.
+*which version* of the subdataset is currently used through an identifier.
 
 Let's dive into that.
 Remember how we had to navigate into ``recordings/longnow`` to see the history,
@@ -46,7 +46,7 @@ this excerpt.
    :language: console
    :workdir: dl-101/DataLad-101
    :lines: 1, 22-62
-   :emphasize-lines: 40
+   :emphasize-lines: 25
    :realcommand: git log -p
    :cast: 01_dataset_basics
    :notes: The superdataset only stores the version of the subdataset.  Let's take a look into how the superdataset's history looks like
@@ -59,9 +59,10 @@ as was previously the case when we :command:`datalad save`\d PDFs that we
 downloaded into ``books/``. Instead,
 DataLad stores what it calls a *subproject commit* of the subdataset.
 The cryptic character sequence in this line is the :term:`shasum` we have briefly
-mentioned before, and it is
-how DataLad internally identifies files and changes to files. Exactly this
-:term:`shasum` is what describes the state of the subdataset.
+mentioned before, and it is the identifier that
+DataLad internally used to identify the files and the changes to the files in the subdataset. Exactly, this
+:term:`shasum` is what identifies the state of the subdataset.
+
 
 Navigate back into ``longnow`` and try to find the highlighted shasum in the
 subdataset's history:
@@ -80,10 +81,12 @@ subdataset's history:
 We can see that it is the most recent commit shasum of the subdataset
 (albeit we can see only the first seven characters here -- a :command:`git log`
 would show you the full shasum). Thus, your dataset does not only know the origin
-of its subdataset, but also its version, i.e., it has an identifier of the stage
-of the subdatasets evolution.
+of its subdataset, but also which version of the subdataset to use,
+i.e., it has the identifier of the stage/version in the subdataset's evolution to be used.
 This is what is meant by "the top-level DataLad dataset (the *superdataset*) only stores
-*which version* of the subdataset is currently used".
+*which version* of the subdataset is currently used through an identifier".
+
+
 
 Importantly, once we learn how to make use of the history of a dataset,
 we can set subdatasets to previous states, or *update* them.
@@ -108,8 +111,7 @@ we can set subdatasets to previous states, or *update* them.
 In the upcoming sections, we'll experience the perks of dataset nesting
 frequently, and everything that might seem vague at this point will become
 clearer. To conclude this demonstration,
-the figure below illustrates the current state of the dataset
-and nesting schematically:
+the figure below illustrates the current state of our dataset, ``DataLad-101``, with its nested subdataset.
 
 .. figure:: ../artwork/src/virtual_dstree_dl101.svg
    :width: 70%

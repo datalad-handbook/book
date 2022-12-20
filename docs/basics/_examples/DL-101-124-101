@@ -1,6 +1,5 @@
 $ datalad run-procedure --discover
-cfg_bids (/home/adina/env/handbook2/lib/python3.9/site-packages/datalad_neuroimaging/resources/procedures/cfg_bids.py) [python_script]
-cfg_hirni (/home/adina/env/handbook2/lib/python3.9/site-packages/datalad_hirni/resources/procedures/cfg_hirni.py) [python_script]
-cfg_metadatatypes (/home/adina/repos/datalad/datalad/resources/procedures/cfg_metadatatypes.py) [python_script]
-cfg_text2git (/home/adina/repos/datalad/datalad/resources/procedures/cfg_text2git.py) [python_script]
-cfg_yoda (/home/adina/repos/datalad/datalad/resources/procedures/cfg_yoda.py) [python_script]
+cfg_noannex (/home/mih/hacking/datalad/git/datalad/resources/procedures/cfg_noannex.py) [python_script]
+cfg_metadatatypes (/home/mih/hacking/datalad/git/datalad/resources/procedures/cfg_metadatatypes.py) [python_script]
+cfg_text2git (/home/mih/hacking/datalad/git/datalad/resources/procedures/cfg_text2git.py) [python_script]
+cfg_yoda (/home/mih/hacking/datalad/git/datalad/resources/procedures/cfg_yoda.py) [python_script]

@@ -2,16 +2,19 @@ $ datalad push --to gin
 [INFO] Determine push target
 [INFO] Push refspecs
 [INFO] Transfer data
+[INFO] Update availability information
+[INFO] Start enumerating objects
+[INFO] Start counting objects
+[INFO] Start compressing objects
+[INFO] Start writing objects
+[INFO] Start resolving deltas
+[INFO] Finished push of Dataset(/home/me/dl-101/DataLad-101)
 copy(ok): books/TLCL.pdf (file) [to gin...]
 copy(ok): books/bash_guide.pdf (file) [to gin...]
 copy(ok): books/byte-of-python.pdf (file) [to gin...]
 copy(ok): books/progit.pdf (file) [to gin...]
-[INFO] Update availability information
-[INFO] Start enumerating objects 
-[INFO] Start counting objects 
-[INFO] Start compressing objects 
-[INFO] Start writing objects 
-[INFO] Start resolving deltas 
-publish(ok): . (dataset) [refs/heads/git-annex->gin:refs/heads/git-annex 6714aa0..455829a]
+publish(ok): . (dataset) [refs/heads/git-annex->gin:refs/heads/git-annex FROM..TO (REDACTED)]
 publish(ok): . (dataset) [refs/heads/master->gin:refs/heads/master [new branch]]
-[INFO] Finished push of Dataset(/home/me/dl-101/DataLad-101)
+action summary:
+  copy (ok: 4)
+  publish (ok: 2)

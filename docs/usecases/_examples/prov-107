@@ -1,4 +1,4 @@
 $ datalad diff -f HEAD~3
-    added: pimpernel.jpg (file)
-    added: sources/flowers.jpg (file)
-    added: st-bernard.jpg (file)
+    added: pimpernel.jpg (symlink)
+    added: sources/flowers.jpg (symlink)
+    added: st-bernard.jpg (symlink)

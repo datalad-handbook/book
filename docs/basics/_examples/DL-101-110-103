@@ -5,13 +5,10 @@ $ datalad run -m "Resize logo for slides" \
 $ datalad run -m "Resize logo for slides" \
 -i "recordings/longnow/.datalad/feed_metadata/logo_salt.jpg" \
 "convert -resize 400x400 recordings/longnow/.datalad/feed_metadata/logo_salt.jpg recordings/salt_logo_small.jpg"
-[INFO] Making sure inputs are available (this may take some time) 
+[INFO] Making sure inputs are available (this may take some time)
+[INFO] == Command start (output follows) =====
+[INFO] == Command exit (modification check follows) =====
 get(ok): recordings/longnow/.datalad/feed_metadata/logo_salt.jpg (file) [from web...]
-[INFO] == Command start (output follows) ===== 
-[INFO] == Command exit (modification check follows) ===== 
+run(ok): /home/me/dl-101/DataLad-101 (dataset) [convert -resize 400x400 recordings/longn...]
 add(ok): recordings/salt_logo_small.jpg (file)
 save(ok): . (dataset)
-action summary:
-  add (ok: 1)
-  get (notneeded: 1, ok: 1)
-  save (notneeded: 1, ok: 1)

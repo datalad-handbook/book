@@ -37,3 +37,5 @@ ds.repo.set_gitattributes([('example', {'annex.largefiles': 'nothing'})])
 ds.save(message="Apply custom procedure")
 
 EOT
+mkdir: cannot create directory ‘.datalad/procedures’: File exists
+bash: line 2: .datalad/procedures/example.py: Permission denied

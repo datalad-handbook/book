@@ -36,4 +36,4 @@ Contributing
 
 If you are using DataLad for a use  case that is not yet in this chapter, we would
 be delighted to have you tell us about it in the form of a usecase.
-Please see the `contributing guide <../contributing.html>`_ for more info.
+Please see the :ref:`contributing guide <contribute>` for more info.

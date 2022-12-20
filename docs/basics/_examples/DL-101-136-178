@@ -1,2 +1,1 @@
 $ datalad drop a.pdf
-drop(error): /home/me/dl-101/DataLad-101/a.pdf (file) [unsafe; Could only verify the existence of 0 out of 1 necessary copies; (Use --nocheck to override this check, or adjust numcopies.)]

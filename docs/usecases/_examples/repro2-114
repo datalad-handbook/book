@@ -1,9 +1,9 @@
 $ datalad download-url  --path code/ \
   https://raw.githubusercontent.com/myyoda/ohbm2018-training/master/section23/scripts/events2ev3.sh \
   https://raw.githubusercontent.com/myyoda/ohbm2018-training/master/section23/scripts/ffa_design.fsf
-[INFO] Downloading 'https://raw.githubusercontent.com/myyoda/ohbm2018-training/master/section23/scripts/events2ev3.sh' into '/home/me/usecases/repro2/glm_analysis/code/'
+[INFO] Downloading 'https://raw.githubusercontent.com/myyoda/ohbm2018-training/master/section23/scripts/events2ev3.sh' into '/home/me/usecases/repro2/glm_analysis/code/' 
 download_url(ok): /home/me/usecases/repro2/glm_analysis/code/events2ev3.sh (file)
-[INFO] Downloading 'https://raw.githubusercontent.com/myyoda/ohbm2018-training/master/section23/scripts/ffa_design.fsf' into '/home/me/usecases/repro2/glm_analysis/code/'
+[INFO] Downloading 'https://raw.githubusercontent.com/myyoda/ohbm2018-training/master/section23/scripts/ffa_design.fsf' into '/home/me/usecases/repro2/glm_analysis/code/' 
 download_url(ok): /home/me/usecases/repro2/glm_analysis/code/ffa_design.fsf (file)
 add(ok): code/events2ev3.sh (file)
 add(ok): code/ffa_design.fsf (file)

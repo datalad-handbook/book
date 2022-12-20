@@ -1,37 +1,38 @@
 $ git show ready4analysis
-commit dd364728c767a7ef3be5b1df229901a27f1cec6d
+commit 4c8041994890dbb0228e00d691ce63b4023464d3
 Author: Elena Piscopia <elena@example.net>
-Date:   Thu Jul 29 16:22:38 2021 +0200
+Date:   Tue Jun 18 16:13:00 2019 +0200
 
     add script for kNN classification and plotting
 
 diff --git a/code/script.py b/code/script.py
 new file mode 100644
-index 0000000..26058d3
+index 0000000..4f5833b
 --- /dev/null
 +++ b/code/script.py
-@@ -0,0 +1,41 @@
+@@ -0,0 +1,42 @@
 +
++import argparse
 +import pandas as pd
 +import seaborn as sns
-+import datalad.api as dl
 +from sklearn import model_selection
 +from sklearn.neighbors import KNeighborsClassifier
 +from sklearn.metrics import classification_report
 +
-+data = "input/iris.csv"
-+
-+# make sure that the data are obtained (get will also install linked sub-ds!):
-+dl.get(data)
++parser = argparse.ArgumentParser(description="Analyze iris data")
++parser.add_argument('data', help="Input data (CSV) to process")
++parser.add_argument('output_figure', help="Output figure path")
++parser.add_argument('output_report', help="Output report path")
++args = parser.parse_args()
 +
 +# prepare the data as a pandas dataframe
-+df = pd.read_csv(data)
++df = pd.read_csv(args.data)
 +attributes = ["sepal_length", "sepal_width", "petal_length","petal_width", "class"]
 +df.columns = attributes
 +
 +# create a pairplot to plot pairwise relationships in the dataset
 +plot = sns.pairplot(df, hue='class', palette='muted')
-+plot.savefig('pairwise_relationships.png')
++plot.savefig(args.output_figure)
 +
 +# perform a K-nearest-neighbours classification with scikit-learn
 +# Step 1: split data in test and training dataset (20:80)
@@ -50,5 +51,5 @@ index 0000000..26058d3
 +
 +# Step 3: Save the classification report
 +report = classification_report(Y_test, predictions, output_dict=True)
-+df_report = pd.DataFrame(report).transpose().to_csv('prediction_report.csv')
++df_report = pd.DataFrame(report).transpose().to_csv(args.output_report)
 +

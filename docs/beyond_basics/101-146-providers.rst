@@ -16,8 +16,10 @@ box access to a broad range of access providers, from common solutions such as
 `S3 <https://aws.amazon.com/s3/?nc1=h_ls>`_ to special purpose solutions, such as
 `LORIS <https://loris.ca/>`_. However, beyond natively supported services,
 custom data access can be configured as long as the required authentication
-and credential type are supported. This makes DataLad even more flexible for
-retrieving data.
+and credential type are supported.
+In addition, starting with DataLad version ``0.16``, authentication can be
+"outsourced" to Git's `credential helper <https://git-scm.com/docs/gitcredentials>`_ and vice versa.
+This makes DataLad even more flexible for retrieving data, and can allow tools like Git to use DataLad's credentials as well.
 
 Basic process
 ^^^^^^^^^^^^^
@@ -90,7 +92,7 @@ The example below sheds some light one this.
    of DataLad.
 
    For authentication, the most common supported solutions are ``'html_form'``,
-   ``'http_auth'`` (   `http and html form-based authentication <https://en.wikipedia.org/wiki/HTTP%2BHTML_form-based_authentication>`_),
+   ``'http_auth'`` (   `http and html form-based authentication <https://www.javaxt.com/wiki/Tutorials/Javascript/Form_Based_HTTP_Authentication>`_),
    ``'http_basic_auth'`` (`http basic access <https://en.wikipedia.org/wiki/Basic_access_authentication>`_),
    ``'http_digest_auth'`` (   `digest access authentication <https://en.wikipedia.org/wiki/Digest_access_authentication>`_),
    ``'bearer_token'`` (`http bearer token authentication <https://tools.ietf.org/html/rfc6750>`_)
@@ -211,6 +213,99 @@ data access *globally*, i.e., it will place the file under
 Subsequently, all downloads from ``https://example.com/~myuser/protected/*``
 by the user will succeed. If something went wrong during this interactive
 configuration, delete or edit the file at ``~/.config/datalad/providers/<name>.cfg``.
+
+Example: Data access via Git's credential system
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Consider a private repository on :term:`GitHub`.
+When cloning such datasets via the :term:`https` protocol, every connection needs a user name and a password in the form of a `Personal Access Token <https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token>`_.
+
+.. code-block:: bash
+
+   $ git clone https://github.com/adswa/my-super-secret-work.git
+     Cloning into 'my-super-secret-work'...
+     Username for 'https://github.com': <user-name>
+     Password for 'https://github.com': <GitHub Access Token>
+
+Because this can be tedious, Git has a credential system that can help to store and provide the necessary configurations automatically.
+One of its pieces are so called `credential helper`, executables that ultimately store credentials for specific hosts, and will provide them automatically in place of an interactive query to the user.
+
+This system is particularly flexible because Git allows users to create *custom* helpers that fit specific usecases.
+Here is one example: A server contains a number of DataLad datasets, but a different and changing number of users of the shared computational infrastructure has access to each one.
+In order to centralize and automate authentication, a system-wide Git configuration [#f1]_ is employed:
+
+.. code-block:: bash
+
+    $ git config --list
+      credential.https://cool-dataset.ds.research-center.de.helper=/usr/local/bin/research-center_datastore_pw
+
+This credential helper for host ``https://cool-dataset.ds.research-center.de`` points to an executable, ``/usr/local/bin/research-center_datastore_pw``, which determines, for example by querying a password database, whether the given user has access or not.
+If they have, it returns the user name and password required for authentication to the Git process that tried to access the server.
+
+Beginning with DataLad version ``0.16``, DataLad's own credential management can interface with Git's by its aforementioned mechanism of provider configurations.
+A basic mock example can illustrate the necessary steps to set this up.
+
+Here is a short list of preparations if you want to try this out for yourself:
+
+#. Create a private repository on GitHub. This can be done via `GitHub's webinterface <https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility#changing-a-repositorys-visibility>`_ or the ``--private`` flag of :command:`create-sibling-github` (requires DataLad version ``0.16`` or higher).
+#. The repository should contain a file, like a simple ``README.md``, and can be a pure Git repository.
+#. Ensure that all tokens in Git configurations files are commented out, because those would provide authentication as well. Running ``git config --list`` can give you an overview, but you can also check that ``git clone <repo>`` with a :term:`https` URL prompts for user name and password.
+
+The challenge is to ``datalad download-url`` the file successfully.
+This is difficult because the repository is private and requires authentication that DataLad is yet unaware about.
+For fun, you can check that a download via ``wget`` from the command line also fails:
+
+.. code-block:: bash
+
+   # try to download a file from a private repo with this url scheme
+   $ wget https://raw.githubusercontent.com/<username>/<reponame>/<branch-name>/<filename.txt>
+   # should return a 404
+
+To achieve a successful download, we will create a small, custom credential helper for Git, and tell DataLad about it with a provider configuration.
+First, we will store the password on your system.
+Create a `personal access token <https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token>`_ on :term:`GitHub`, and, for simplicity, write it into a text file ``github`` in your home directory.
+Please do note that it is highly discouraged to store passwords in plain files, and only done for demonstration here.
+
+Next, we will write a credential helper that will retrieve this password.
+Open your ``.gitconfig`` file in your home directory, and add the following contents to it, replacing the user name placeholder with your GitHub handle:
+
+.. code-block:: bash
+
+	[credential "https://raw.githubusercontent.com"]
+		username = <your-user-name-here>
+		helper = "!f() { echo \"password=$(cat ~/github)\"; }; f"
+
+This configuration will be queried by Git when a URL matches ``https://raw.githubusercontent.com`` and runs the ``helper``, which here is a shell function that prints the string ``password=`` and the content of the file containing the token.
+This function is rudimentary, but does the job for this illustration.
+
+Finally, we will teach DataLad to use on this configuration to authenticate.
+For this, create a new dataset, and, with your favourite editor, create a new provider configuration ``.datalad/providers/github.cfg`` in it.
+Depending on your editor, you will need to create the directory ``providers`` under ``.datalad`` first.
+This provider configuration should contain the following:
+
+.. code-block:: bash
+
+	[provider:github]
+	  url_re = https://.*github.*\.com
+	  authentication_type = http_basic_auth
+	  credential = data_example_cred
+	[credential:data_example_cred]
+	  type = git
+
+Importantly, the ``type`` key should specify ``git``, the ``provider:<name>`` name should match the name of the provider configuration filename, the ``url_re`` should be a regular expression that can match the credential URL in your ``.gitconfig`` file, and the ``credential`` value should be the same string as the ``[credential:<credential>]`` name.
+With this setup, a ``datalad download-url`` succeeds, authenticating via the Git credential helper.
+
+.. gitusernote:: Git authenticating via DataLad's credential system
+
+   Not only can DataLad use Git's credential system, Git can also query credentials from DataLad.
+   This requires DataLad version ``0.16`` or higher, and a Git configuration pointing to the credential helper ``git-credential-datalad`` for a given URL scheme:
+
+   .. code-block:: bash
+
+      [credential "https://*data.example.com"]
+         helper = "datalad"
+
+To find out more about DataLad's integration with Git's credential system, take a look into the more technical documentation at `docs.datalad.org/credentials.html <http://docs.datalad.org/credentials.html>`_ and `docs.datalad.org/design/credentials.html <http://docs.datalad.org/design/credentials.html>`_.
 
 .. rubric:: Footnotes
 

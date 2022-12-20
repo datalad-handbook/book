@@ -5,5 +5,3 @@ $ wget -q https://homepages.uc.edu/~becktl/byte_of_python.pdf \
   -O byte-of-python.pdf
 # get back into the root of the dataset
 $ cd ../
-2021-07-29 16:20:26 URL:https://jztkft.dl.sourceforge.net/project/linuxcommand/TLCL/19.01/TLCL-19.01.pdf [2120211/2120211] -> "TLCL.pdf" [1]
-2021-07-29 16:20:27 URL:https://github-releases.githubusercontent.com/6501727/56225300-af61-11ea-8d7f-be2b68e479be?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20210729%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20210729T142026Z&X-Amz-Expires=300&X-Amz-Signature=a9ed817c078f32f88ba17d479828e7496c075bfd27c0528087129b0dd0ca06ee&X-Amz-SignedHeaders=host&actor_id=0&key_id=0&repo_id=6501727&response-content-disposition=attachment%3B%20filename%3Dbyte-of-python.pdf&response-content-type=application%2Foctet-stream [4208954/4208954] -> "byte-of-python.pdf" [1]

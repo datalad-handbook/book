@@ -13,7 +13,7 @@ As the text file is stored in Git and not git-annex, no content unlocking is nec
 As we saw within the demonstrations of :command:`datalad run`, modifying content of non-text files, such as ``.jpg``\s, typically requires the additional step of *unlocking* file content, either by hand with the :command:`datalad unlock` command, or within :command:`datalad run` using the ``-o``/``--output`` flag.
 
 There is one detail about DataLad datasets that we have not covered yet.
-Its both a crucial aspect to understanding certain aspects of a dataset, but it is also a potential source of confusion that we want to eradicate.
+It is a crucial component to understanding certain aspects of a dataset, but it is also a potential source of confusion that we want to eradicate.
 
 You might have noticed already that an ``ls -l`` or ``tree`` command in your dataset shows small arrows and quite cryptic paths following each non-text file.
 Maybe your shell also displays these files in a different color than text files when listing them.
@@ -119,7 +119,7 @@ tree is also known as the *annex* of a dataset.
    If you would reset your dataset to the state when we created the 450x450px version, this file would instead exist twice.
 
    **Can I at least get unused or irrelevant data out of the dataset?**
-   Yes, either with convenience commands (e.g., ``git annex unused`` followed by ``git annex dropunused``), or by explicitly using ``drop`` on files (or there past versions) that you don't want to keep anymore.
+   Yes, either with convenience commands (e.g., ``git annex unused`` followed by ``git annex dropunused``), or by explicitly using ``drop`` on files (or their past versions) that you don't want to keep anymore.
    Alternatively, you can transfer data you don't need but want to preserve to a different storage location.
    Later parts of the handbook will demonstrate each of these alternatives.
 
@@ -150,6 +150,7 @@ small size of ~130 Bytes:
 .. runrecord:: _examples/DL-101-115-103
    :language: console
    :workdir: dl-101/DataLad-101/books
+   :realcommand: ls -lah --time-style=long-iso
    :notes: Symlinks are super small in size, just the amount of characters in the symlink!
    :cast: 03_git_annex_basics
 
@@ -187,7 +188,7 @@ This leads to a few conclusions:
 The first is that you should not be worried
 to see cryptic looking symlinks in your repository -- this is how it should look.
 You can read the :ref:`find-out-more on why these paths look so weird <fom-objecttree>` and what all of this has to do with data integrity, if you want to.
-Its additional information that can help to establish trust in that your data are safely stored and tracked, and understanding more about the object tree and knowing bits of the git-annex basics can make you more confident in working with your datasets.
+It's additional information that can help to establish trust in that your data are safely stored and tracked, and understanding more about the object tree and knowing bits of the git-annex basics can make you more confident in working with your datasets.
 
 The second is that it should now be clear to you why the ``.git`` directory
 should not be deleted or in any way modified by hand. This place is where
@@ -229,6 +230,7 @@ to manage the file system in a DataLad dataset (:ref:`filesystem`).
    .. runrecord:: _examples/DL-101-115-104
       :language: console
       :workdir: dl-101/DataLad-101/books
+      :realcommand: ls -lah --time-style=long-iso TLCL.pdf
       :notes: how does the symlink relate to the shasum of the file?
       :cast: 03_git_annex_basics
 
@@ -294,7 +296,7 @@ Nevertheless, it may be important to know that some tools that you would expect 
 Some **file managers** (e.g., OSX's Finder) may not display broken symlinks.
 In these cases, it will be impossible to browse and explore the file hierarchy of not-yet-retrieved files with the file manager.
 You can make sure to always be able to see the file hierarchy in two separate ways:
-Upgrade your file manager to display file types in a DataLad datasets (e.g., the `git-annex-turtle extension <https://github.com/andrewringler/git-annex-turtle>`_ for Finder).
+Upgrade your file manager to display file types in DataLad datasets (e.g., the `git-annex-turtle extension <https://github.com/andrewringler/git-annex-turtle>`_ for Finder).
 Alternatively, use the :command:`ls` command in a terminal instead of a file manager GUI.
 Other tools may be more more specialized, smaller, or domain-specific, and may fail to correctly work with broken symlinks, or display unhelpful error messages when handling them, or require additional flags to modify their behavior (such as the :ref:`BIDS Validator <bidsvalidator>`, used in the neuroimaging community).
 When encountering unexpected behavior or failures, try to keep in mind that a dataset without retrieved content appears to be a pile of broken symlinks to a range of tools, consult a tools documentation with regard to symlinks, and check whether data retrieval fixes persisting problems.

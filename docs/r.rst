@@ -45,6 +45,8 @@ failed -- sorry about this.
   :ref:`dataladdening`
 :redirect:`dl-for-ml`
   :ref:`dvc`
+:redirect:`dgpa`
+  :ref:`dgpa`
 :redirect:`extensions`
   :ref:`extensions_intro`
 :redirect:`filenaming`
@@ -93,8 +95,8 @@ for directions.
 .. raw:: html
 
    <script>
-   // take everything after "?" as a code to identify the redirect
-   redirect_code = window.location.href.replace(/.*\?/, "");
+   // take everything after "?" as a code to identify the redirect. If there is a '=' appended (a glitch that started to surface Dec 2022), remove it and everything afterwards
+   redirect_code = window.location.href.replace(/.*\?/, "").replace(/=.*/, "");
    success = false;
    // loop over all redirect definitions (see above)
    for (rd of document.getElementsByClassName('redirect')){

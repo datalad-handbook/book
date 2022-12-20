@@ -1,6 +1,10 @@
 $ datalad get -n recordings/longnow
 [INFO] Cloning dataset to Dataset(/home/me/dl-101/mock_user/DataLad-101/recordings/longnow)
-[INFO] Attempting to clone from /home/me/dl-101/DataLad-101/recordings/longnow to /home/me/dl-101/mock_user/DataLad-101/recordings/longnow
+[INFO] Attempting to clone from https://github.com/datalad-datasets/longnow-podcasts.git to /home/me/dl-101/mock_user/DataLad-101/recordings/longnow
+[INFO] Start enumerating objects
+[INFO] Start receiving objects
+[INFO] Start resolving deltas
 [INFO] Completed clone attempts for Dataset(/home/me/dl-101/mock_user/DataLad-101/recordings/longnow)
-[INFO] scanning for unlocked files (this may take some time)
+[INFO] Remote origin not usable by git-annex; setting annex-ignore
+[INFO] https://github.com/datalad-datasets/longnow-podcasts.git/config download failed: Not Found
 install(ok): /home/me/dl-101/mock_user/DataLad-101/recordings/longnow (dataset) [Installed subdataset in order to get /home/me/dl-101/mock_user/DataLad-101/recordings/longnow]

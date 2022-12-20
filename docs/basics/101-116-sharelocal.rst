@@ -205,7 +205,7 @@ and hostname of your computer. "This", you exclaim, excited about your own reali
    increases. If you have only one other dataset it may be easy to
    remember what and where it is. But once you have one back-up
    of your dataset on a USB-Stick, one dataset shared with
-   `Dropbox <dropbox.com>`_, and a third one on your institutions
+   `Dropbox <https://www.dropbox.com>`_, and a third one on your institutions
    :term:`GitLab` instance you will be grateful for the descriptions
    you provided these locations with.
 

@@ -244,9 +244,9 @@ or values in there are irrelevant for understanding the book, your dataset,
 or DataLad, and can just be left as they are. The previous section merely served
 to de-mystify the :command:`git config` command and the configuration files.
 Nevertheless, it might be helpful to get an overview about the meaning of the
-remaining sections in that file, and the :ref:`that disects this config file further <fom_gitconfig>`  can give you a glimpse of this.
+remaining sections in that file, and the :ref:`that dissects this config file further <fom_gitconfig>`  can give you a glimpse of this.
 
-.. find-out-more:: Disecting a Git config file further
+.. find-out-more:: Dissecting a Git config file further
    :name: fom_gitconfig
    :float:
 

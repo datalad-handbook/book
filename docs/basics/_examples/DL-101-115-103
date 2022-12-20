@@ -1,8 +1,8 @@
 $ ls -lah
 total 24K
-drwxr-xr-x 2 adina adina 4.0K Jul 29 16:20 .
-drwxr-xr-x 7 adina adina 4.0K Jul 29 16:21 ..
-lrwxrwxrwx 1 adina adina  131 Jan 19  2009 bash_guide.pdf -> ../.git/annex/objects/WF/Gq/MD5E-s1198170--0ab2c121bcf68d7278af266f6a399c5f.pdf/MD5E-s1198170--0ab2c121bcf68d7278af266f6a399c5f.pdf
-lrwxrwxrwx 1 adina adina  131 Jun 16  2020 byte-of-python.pdf -> ../.git/annex/objects/z1/Q8/MD5E-s4208954--ab3a8c2f6b76b18b43c5949e0661e266.pdf/MD5E-s4208954--ab3a8c2f6b76b18b43c5949e0661e266.pdf
-lrwxrwxrwx 1 adina adina  133 Jun 29  2019 progit.pdf -> ../.git/annex/objects/G6/Gj/MD5E-s12465653--05cd7ed561d108c9bcf96022bc78a92c.pdf/MD5E-s12465653--05cd7ed561d108c9bcf96022bc78a92c.pdf
-lrwxrwxrwx 1 adina adina  131 Jan 28  2019 TLCL.pdf -> ../.git/annex/objects/jf/3M/MD5E-s2120211--06d1efcb05bb2c55cd039dab3fb28455.pdf/MD5E-s2120211--06d1efcb05bb2c55cd039dab3fb28455.pdf
+drwxrwxr-x 2 elena elena 4.0K 2019-06-18 16:13 .
+drwxrwxr-x 7 elena elena 4.0K 2019-06-18 16:13 ..
+lrwxrwxrwx 1 elena elena 131 2019-06-18 16:13 bash_guide.pdf -> ../.git/annex/objects/WF/Gq/MD5E-s1198170--0ab2c121bcf68d7278af266f6a399c5f.pdf/MD5E-s1198170--0ab2c121bcf68d7278af266f6a399c5f.pdf
+lrwxrwxrwx 1 elena elena 131 2019-06-18 16:13 byte-of-python.pdf -> ../.git/annex/objects/z1/Q8/MD5E-s4208954--ab3a8c2f6b76b18b43c5949e0661e266.pdf/MD5E-s4208954--ab3a8c2f6b76b18b43c5949e0661e266.pdf
+lrwxrwxrwx 1 elena elena 133 2019-06-18 16:13 progit.pdf -> ../.git/annex/objects/G6/Gj/MD5E-s12465653--05cd7ed561d108c9bcf96022bc78a92c.pdf/MD5E-s12465653--05cd7ed561d108c9bcf96022bc78a92c.pdf
+lrwxrwxrwx 1 elena elena 131 2019-06-18 16:13 TLCL.pdf -> ../.git/annex/objects/jf/3M/MD5E-s2120211--06d1efcb05bb2c55cd039dab3fb28455.pdf/MD5E-s2120211--06d1efcb05bb2c55cd039dab3fb28455.pdf

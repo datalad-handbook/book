@@ -22,7 +22,7 @@ Start by reading sections :ref:`executive_summary` to get a high-level overview
 about DataLad's functionality, and continue with section :ref:`philo` for
 a short introduction to the fundamental principles of the software.
 Afterwards, you may want to skim through the different
-`usecases <../usecases/intro>`_ to see whether one catches your attention.
+:ref:`usecases <usecase-intro>` to see whether one catches your attention.
 The :ref:`cheat`, finally, can give you concrete command overviews.
 
 **2** Eager to try all of the things!
@@ -32,7 +32,7 @@ The :ref:`cheat`, finally, can give you concrete command overviews.
 
 Awesome, and Welcome! The complete :ref:`basics-intro` part of the book was
 written for you. If you read it from start to end, you will become a DataLad
-expert. Don't forget to `install <installation>`_ DataLad first, though.
+expert. Don't forget to :ref:`install <install>` DataLad first, though.
 And if the Basics are not enough, continue right into the :ref:`usecase-intro`
 afterwards.
 

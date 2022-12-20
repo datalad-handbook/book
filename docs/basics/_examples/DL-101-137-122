@@ -1,7 +1,7 @@
 
-$ git checkout 401df53b3e9a7a4523e51a5faa33e2572a6cdb2c
+$ git checkout 51eede3a47d4ebfcbe8d666d448a02c838843ffd
 warning: unable to rmdir 'midterm_project': Directory not empty
-Note: switching to '401df53b3e9a7a4523e51a5faa33e2572a6cdb2c'.
+Note: switching to '51eede3a47d4ebfcbe8d666d448a02c838843ffd'.
 
 You are in 'detached HEAD' state. You can look around, make experimental
 changes and commit them, and you can discard any commits you make in this
@@ -18,4 +18,4 @@ Or undo this operation with:
 
 Turn off this advice by setting config variable advice.detachedHead to false
 
-HEAD is now at 401df53 add note on git annex whereis
+HEAD is now at 51eede3 add note about cloning from paths and recursive datalad get

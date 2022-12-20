@@ -38,9 +38,13 @@ and the entire dataset to the same GitHub repository::
     [INFO   ] Publishing <Dataset path=/tmp/test-github-lfs> to github
     publish(ok): . (dataset) [pushed to github: ['[new branch]', '[new branch]']]
 
-Because the special remote URL coincides with the regular remote URL on GitHub,
-``siblings enable`` (as shown in the section :ref:`dropbox`) will not even be necessary when datalad is installed
-from GitHub.
+Alternatively, to make publication even easier for you, the dataset provider, you can establish a :term:`publication dependency` such that a :command:`datalad push` performs the data transfer to ``git-lfs`` automatically::
+
+   $ datalad siblings github --publish-depends github-lsf
+   # afterwards, only datalad push is needed to publish dataset contents and history
+   $ datalad push --to github
+
+For consumers of your dataset, because the special remote URL coincides with the regular remote URL on GitHub, ``siblings enable`` (as shown in the section :ref:`dropbox`) will not even be necessary when datalad is installed from GitHub.
 
 .. importantnote:: No drop from LFS
 

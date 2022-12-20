@@ -1,247 +1,166 @@
 $ cd hcp
 $ datalad get -n -r HCP1200/130*
 [INFO] Cloning dataset to Dataset(/home/me/dl-101/HPC/hcp/HCP1200/130013) 
-[INFO] Attempting to clone from https://github.com/datalad-datasets/human-connectome-project-openaccess.git/HCP1200/130013 to /home/me/dl-101/HPC/hcp/HCP1200/130013 
-[INFO] Attempting to clone from https://github.com/datalad-datasets/human-connectome-project-openaccess.git/HCP1200/130013/.git to /home/me/dl-101/HPC/hcp/HCP1200/130013 
 [INFO] Attempting to clone from http://store.datalad.org/78a/4404e-2aa7-11ea-8c3f-002590496000 to /home/me/dl-101/HPC/hcp/HCP1200/130013 
 [INFO] Completed clone attempts for Dataset(/home/me/dl-101/HPC/hcp/HCP1200/130013) 
-[INFO] scanning for unlocked files (this may take some time)
-[INFO] Fetching 'http://store.datalad.org/78a/4404e-2aa7-11ea-8c3f-002590496000/config'
 install(ok): /home/me/dl-101/HPC/hcp/HCP1200/130013 (dataset) [Installed subdataset in order to get /home/me/dl-101/HPC/hcp/HCP1200/130013]
-[INFO] Installing Dataset(/home/me/dl-101/HPC/hcp) to get /home/me/dl-101/HPC/hcp/HCP1200/130013 recursively 
+[INFO] Ensuring presence of Dataset(/home/me/dl-101/HPC/hcp) to get /home/me/dl-101/HPC/hcp/HCP1200/130013 
 [INFO] Cloning dataset to Dataset(/home/me/dl-101/HPC/hcp/HCP1200/130013/MNINonLinear) 
 [INFO] Attempting to clone from http://store.datalad.org/876/c9c98-2aa7-11ea-85a1-002590496000 to /home/me/dl-101/HPC/hcp/HCP1200/130013/MNINonLinear 
 [INFO] Completed clone attempts for Dataset(/home/me/dl-101/HPC/hcp/HCP1200/130013/MNINonLinear) 
-[INFO] scanning for unlocked files (this may take some time)
-[INFO] Fetching 'http://store.datalad.org/876/c9c98-2aa7-11ea-85a1-002590496000/config'
+[INFO] scanning for annexed files (this may take some time) 
+install(ok): /home/me/dl-101/HPC/hcp/HCP1200/130013/MNINonLinear (dataset)
 [INFO] Cloning dataset to Dataset(/home/me/dl-101/HPC/hcp/HCP1200/130013/T1w) 
 [INFO] Attempting to clone from http://store.datalad.org/8b5/6089e-2aa7-11ea-85a1-002590496000 to /home/me/dl-101/HPC/hcp/HCP1200/130013/T1w 
-install(ok): /home/me/dl-101/HPC/hcp/HCP1200/130013/MNINonLinear (dataset)
 [INFO] Completed clone attempts for Dataset(/home/me/dl-101/HPC/hcp/HCP1200/130013/T1w) 
-[INFO] scanning for unlocked files (this may take some time)
-[INFO] Fetching 'http://store.datalad.org/8b5/6089e-2aa7-11ea-85a1-002590496000/config'
+install(ok): /home/me/dl-101/HPC/hcp/HCP1200/130013/T1w (dataset)
 [INFO] Cloning dataset to Dataset(/home/me/dl-101/HPC/hcp/HCP1200/130013/unprocessed) 
 [INFO] Attempting to clone from http://store.datalad.org/8e0/91aae-2aa7-11ea-85a1-002590496000 to /home/me/dl-101/HPC/hcp/HCP1200/130013/unprocessed 
-install(ok): /home/me/dl-101/HPC/hcp/HCP1200/130013/T1w (dataset)
 [INFO] Completed clone attempts for Dataset(/home/me/dl-101/HPC/hcp/HCP1200/130013/unprocessed) 
-[INFO] scanning for unlocked files (this may take some time)
-[INFO] Fetching 'http://store.datalad.org/8e0/91aae-2aa7-11ea-85a1-002590496000/config'
 install(ok): /home/me/dl-101/HPC/hcp/HCP1200/130013/unprocessed (dataset)
 [INFO] Cloning dataset to Dataset(/home/me/dl-101/HPC/hcp/HCP1200/130114) 
-[INFO] Attempting to clone from https://github.com/datalad-datasets/human-connectome-project-openaccess.git/HCP1200/130114 to /home/me/dl-101/HPC/hcp/HCP1200/130114 
-[INFO] Attempting to clone from https://github.com/datalad-datasets/human-connectome-project-openaccess.git/HCP1200/130114/.git to /home/me/dl-101/HPC/hcp/HCP1200/130114 
 [INFO] Attempting to clone from http://store.datalad.org/9a5/0b340-2aa6-11ea-81a2-002590496000 to /home/me/dl-101/HPC/hcp/HCP1200/130114 
 [INFO] Completed clone attempts for Dataset(/home/me/dl-101/HPC/hcp/HCP1200/130114) 
-[INFO] scanning for unlocked files (this may take some time)
-[INFO] Fetching 'http://store.datalad.org/9a5/0b340-2aa6-11ea-81a2-002590496000/config'
 install(ok): /home/me/dl-101/HPC/hcp/HCP1200/130114 (dataset) [Installed subdataset in order to get /home/me/dl-101/HPC/hcp/HCP1200/130114]
-[INFO] Installing Dataset(/home/me/dl-101/HPC/hcp) to get /home/me/dl-101/HPC/hcp/HCP1200/130114 recursively 
+[INFO] Ensuring presence of Dataset(/home/me/dl-101/HPC/hcp) to get /home/me/dl-101/HPC/hcp/HCP1200/130114 
 [INFO] Cloning dataset to Dataset(/home/me/dl-101/HPC/hcp/HCP1200/130114/MNINonLinear) 
 [INFO] Attempting to clone from http://store.datalad.org/a71/ab0e4-2aa6-11ea-a248-002590496000 to /home/me/dl-101/HPC/hcp/HCP1200/130114/MNINonLinear 
 [INFO] Completed clone attempts for Dataset(/home/me/dl-101/HPC/hcp/HCP1200/130114/MNINonLinear) 
-[INFO] scanning for unlocked files (this may take some time)
-[INFO] Fetching 'http://store.datalad.org/a71/ab0e4-2aa6-11ea-a248-002590496000/config'
+[INFO] scanning for annexed files (this may take some time) 
+install(ok): /home/me/dl-101/HPC/hcp/HCP1200/130114/MNINonLinear (dataset)
 [INFO] Cloning dataset to Dataset(/home/me/dl-101/HPC/hcp/HCP1200/130114/T1w) 
 [INFO] Attempting to clone from http://store.datalad.org/aa1/d4284-2aa6-11ea-a248-002590496000 to /home/me/dl-101/HPC/hcp/HCP1200/130114/T1w 
-install(ok): /home/me/dl-101/HPC/hcp/HCP1200/130114/MNINonLinear (dataset)
 [INFO] Completed clone attempts for Dataset(/home/me/dl-101/HPC/hcp/HCP1200/130114/T1w) 
-[INFO] scanning for unlocked files (this may take some time)
-[INFO] Fetching 'http://store.datalad.org/aa1/d4284-2aa6-11ea-a248-002590496000/config'
 [INFO] Cloning dataset to Dataset(/home/me/dl-101/HPC/hcp/HCP1200/130114/unprocessed) 
 [INFO] Attempting to clone from http://store.datalad.org/ac8/7ba5e-2aa6-11ea-a248-002590496000 to /home/me/dl-101/HPC/hcp/HCP1200/130114/unprocessed 
 install(ok): /home/me/dl-101/HPC/hcp/HCP1200/130114/T1w (dataset)
 [INFO] Completed clone attempts for Dataset(/home/me/dl-101/HPC/hcp/HCP1200/130114/unprocessed) 
-[INFO] scanning for unlocked files (this may take some time)
-[INFO] Fetching 'http://store.datalad.org/ac8/7ba5e-2aa6-11ea-a248-002590496000/config'
 install(ok): /home/me/dl-101/HPC/hcp/HCP1200/130114/unprocessed (dataset)
 [INFO] Cloning dataset to Dataset(/home/me/dl-101/HPC/hcp/HCP1200/130316) 
-[INFO] Attempting to clone from https://github.com/datalad-datasets/human-connectome-project-openaccess.git/HCP1200/130316 to /home/me/dl-101/HPC/hcp/HCP1200/130316 
-[INFO] Attempting to clone from https://github.com/datalad-datasets/human-connectome-project-openaccess.git/HCP1200/130316/.git to /home/me/dl-101/HPC/hcp/HCP1200/130316 
 [INFO] Attempting to clone from http://store.datalad.org/411/a7f1a-38ff-11ea-8d6e-002590496000 to /home/me/dl-101/HPC/hcp/HCP1200/130316 
 [INFO] Completed clone attempts for Dataset(/home/me/dl-101/HPC/hcp/HCP1200/130316) 
-[INFO] scanning for unlocked files (this may take some time)
-[INFO] Fetching 'http://store.datalad.org/411/a7f1a-38ff-11ea-8d6e-002590496000/config'
 install(ok): /home/me/dl-101/HPC/hcp/HCP1200/130316 (dataset) [Installed subdataset in order to get /home/me/dl-101/HPC/hcp/HCP1200/130316]
-[INFO] Installing Dataset(/home/me/dl-101/HPC/hcp) to get /home/me/dl-101/HPC/hcp/HCP1200/130316 recursively 
+[INFO] Ensuring presence of Dataset(/home/me/dl-101/HPC/hcp) to get /home/me/dl-101/HPC/hcp/HCP1200/130316 
 [INFO] Cloning dataset to Dataset(/home/me/dl-101/HPC/hcp/HCP1200/130316/MNINonLinear) 
 [INFO] Attempting to clone from http://store.datalad.org/439/61042-38ff-11ea-be90-002590496000 to /home/me/dl-101/HPC/hcp/HCP1200/130316/MNINonLinear 
 [INFO] Completed clone attempts for Dataset(/home/me/dl-101/HPC/hcp/HCP1200/130316/MNINonLinear) 
-[INFO] scanning for unlocked files (this may take some time)
-[INFO] Fetching 'http://store.datalad.org/439/61042-38ff-11ea-be90-002590496000/config'
+[INFO] scanning for annexed files (this may take some time) 
 install(ok): /home/me/dl-101/HPC/hcp/HCP1200/130316/MNINonLinear (dataset)
 [INFO] Cloning dataset to Dataset(/home/me/dl-101/HPC/hcp/HCP1200/130316/T1w) 
 [INFO] Attempting to clone from http://store.datalad.org/452/2bbea-38ff-11ea-be90-002590496000 to /home/me/dl-101/HPC/hcp/HCP1200/130316/T1w 
 [INFO] Completed clone attempts for Dataset(/home/me/dl-101/HPC/hcp/HCP1200/130316/T1w) 
-[INFO] scanning for unlocked files (this may take some time)
-[INFO] Fetching 'http://store.datalad.org/452/2bbea-38ff-11ea-be90-002590496000/config'
 install(ok): /home/me/dl-101/HPC/hcp/HCP1200/130316/T1w (dataset)
 [INFO] Cloning dataset to Dataset(/home/me/dl-101/HPC/hcp/HCP1200/130316/unprocessed) 
 [INFO] Attempting to clone from http://store.datalad.org/46a/1cd80-38ff-11ea-be90-002590496000 to /home/me/dl-101/HPC/hcp/HCP1200/130316/unprocessed 
 [INFO] Completed clone attempts for Dataset(/home/me/dl-101/HPC/hcp/HCP1200/130316/unprocessed) 
-[INFO] scanning for unlocked files (this may take some time)
-[INFO] Fetching 'http://store.datalad.org/46a/1cd80-38ff-11ea-be90-002590496000/config'
 install(ok): /home/me/dl-101/HPC/hcp/HCP1200/130316/unprocessed (dataset)
 [INFO] Cloning dataset to Dataset(/home/me/dl-101/HPC/hcp/HCP1200/130417) 
-[INFO] Attempting to clone from https://github.com/datalad-datasets/human-connectome-project-openaccess.git/HCP1200/130417 to /home/me/dl-101/HPC/hcp/HCP1200/130417 
-[INFO] Attempting to clone from https://github.com/datalad-datasets/human-connectome-project-openaccess.git/HCP1200/130417/.git to /home/me/dl-101/HPC/hcp/HCP1200/130417 
 [INFO] Attempting to clone from http://store.datalad.org/da5/a3938-2aa2-11ea-b13f-0025904abcb0 to /home/me/dl-101/HPC/hcp/HCP1200/130417 
 [INFO] Completed clone attempts for Dataset(/home/me/dl-101/HPC/hcp/HCP1200/130417) 
-[INFO] scanning for unlocked files (this may take some time)
-[INFO] Fetching 'http://store.datalad.org/da5/a3938-2aa2-11ea-b13f-0025904abcb0/config'
 install(ok): /home/me/dl-101/HPC/hcp/HCP1200/130417 (dataset) [Installed subdataset in order to get /home/me/dl-101/HPC/hcp/HCP1200/130417]
-[INFO] Installing Dataset(/home/me/dl-101/HPC/hcp) to get /home/me/dl-101/HPC/hcp/HCP1200/130417 recursively 
+[INFO] Ensuring presence of Dataset(/home/me/dl-101/HPC/hcp) to get /home/me/dl-101/HPC/hcp/HCP1200/130417 
 [INFO] Cloning dataset to Dataset(/home/me/dl-101/HPC/hcp/HCP1200/130417/MNINonLinear) 
 [INFO] Attempting to clone from http://store.datalad.org/e8f/5ce4e-2aa2-11ea-a418-0025904abcb0 to /home/me/dl-101/HPC/hcp/HCP1200/130417/MNINonLinear 
 [INFO] Completed clone attempts for Dataset(/home/me/dl-101/HPC/hcp/HCP1200/130417/MNINonLinear) 
-[INFO] scanning for unlocked files (this may take some time)
-[INFO] Fetching 'http://store.datalad.org/e8f/5ce4e-2aa2-11ea-a418-0025904abcb0/config'
+[INFO] scanning for annexed files (this may take some time) 
 [INFO] Cloning dataset to Dataset(/home/me/dl-101/HPC/hcp/HCP1200/130417/T1w) 
 [INFO] Attempting to clone from http://store.datalad.org/eb1/55924-2aa2-11ea-a418-0025904abcb0 to /home/me/dl-101/HPC/hcp/HCP1200/130417/T1w 
 install(ok): /home/me/dl-101/HPC/hcp/HCP1200/130417/MNINonLinear (dataset)
 [INFO] Completed clone attempts for Dataset(/home/me/dl-101/HPC/hcp/HCP1200/130417/T1w) 
-[INFO] scanning for unlocked files (this may take some time)
-[INFO] Fetching 'http://store.datalad.org/eb1/55924-2aa2-11ea-a418-0025904abcb0/config'
 [INFO] Cloning dataset to Dataset(/home/me/dl-101/HPC/hcp/HCP1200/130417/unprocessed) 
 [INFO] Attempting to clone from http://store.datalad.org/ed2/969bc-2aa2-11ea-a418-0025904abcb0 to /home/me/dl-101/HPC/hcp/HCP1200/130417/unprocessed 
 install(ok): /home/me/dl-101/HPC/hcp/HCP1200/130417/T1w (dataset)
 [INFO] Completed clone attempts for Dataset(/home/me/dl-101/HPC/hcp/HCP1200/130417/unprocessed) 
-[INFO] scanning for unlocked files (this may take some time)
-[INFO] Fetching 'http://store.datalad.org/ed2/969bc-2aa2-11ea-a418-0025904abcb0/config'
 install(ok): /home/me/dl-101/HPC/hcp/HCP1200/130417/unprocessed (dataset)
 [INFO] Cloning dataset to Dataset(/home/me/dl-101/HPC/hcp/HCP1200/130518) 
-[INFO] Attempting to clone from https://github.com/datalad-datasets/human-connectome-project-openaccess.git/HCP1200/130518 to /home/me/dl-101/HPC/hcp/HCP1200/130518 
-[INFO] Attempting to clone from https://github.com/datalad-datasets/human-connectome-project-openaccess.git/HCP1200/130518/.git to /home/me/dl-101/HPC/hcp/HCP1200/130518 
 [INFO] Attempting to clone from http://store.datalad.org/57a/9ec38-2aa0-11ea-b570-0025904abcb0 to /home/me/dl-101/HPC/hcp/HCP1200/130518 
 [INFO] Completed clone attempts for Dataset(/home/me/dl-101/HPC/hcp/HCP1200/130518) 
-[INFO] scanning for unlocked files (this may take some time)
-[INFO] Fetching 'http://store.datalad.org/57a/9ec38-2aa0-11ea-b570-0025904abcb0/config'
 install(ok): /home/me/dl-101/HPC/hcp/HCP1200/130518 (dataset) [Installed subdataset in order to get /home/me/dl-101/HPC/hcp/HCP1200/130518]
-[INFO] Installing Dataset(/home/me/dl-101/HPC/hcp) to get /home/me/dl-101/HPC/hcp/HCP1200/130518 recursively 
+[INFO] Ensuring presence of Dataset(/home/me/dl-101/HPC/hcp) to get /home/me/dl-101/HPC/hcp/HCP1200/130518 
 [INFO] Cloning dataset to Dataset(/home/me/dl-101/HPC/hcp/HCP1200/130518/MNINonLinear) 
 [INFO] Attempting to clone from http://store.datalad.org/63f/8a1aa-2aa0-11ea-bf71-0025904abcb0 to /home/me/dl-101/HPC/hcp/HCP1200/130518/MNINonLinear 
 [INFO] Completed clone attempts for Dataset(/home/me/dl-101/HPC/hcp/HCP1200/130518/MNINonLinear) 
-[INFO] scanning for unlocked files (this may take some time)
-[INFO] Fetching 'http://store.datalad.org/63f/8a1aa-2aa0-11ea-bf71-0025904abcb0/config'
+[INFO] scanning for annexed files (this may take some time) 
+install(ok): /home/me/dl-101/HPC/hcp/HCP1200/130518/MNINonLinear (dataset)
 [INFO] Cloning dataset to Dataset(/home/me/dl-101/HPC/hcp/HCP1200/130518/T1w) 
 [INFO] Attempting to clone from http://store.datalad.org/658/7d860-2aa0-11ea-bf71-0025904abcb0 to /home/me/dl-101/HPC/hcp/HCP1200/130518/T1w 
-install(ok): /home/me/dl-101/HPC/hcp/HCP1200/130518/MNINonLinear (dataset)
 [INFO] Completed clone attempts for Dataset(/home/me/dl-101/HPC/hcp/HCP1200/130518/T1w) 
-[INFO] scanning for unlocked files (this may take some time)
-[INFO] Fetching 'http://store.datalad.org/658/7d860-2aa0-11ea-bf71-0025904abcb0/config'
-install(ok): /home/me/dl-101/HPC/hcp/HCP1200/130518/T1w (dataset)
 [INFO] Cloning dataset to Dataset(/home/me/dl-101/HPC/hcp/HCP1200/130518/unprocessed) 
 [INFO] Attempting to clone from http://store.datalad.org/674/822f4-2aa0-11ea-bf71-0025904abcb0 to /home/me/dl-101/HPC/hcp/HCP1200/130518/unprocessed 
+install(ok): /home/me/dl-101/HPC/hcp/HCP1200/130518/T1w (dataset)
 [INFO] Completed clone attempts for Dataset(/home/me/dl-101/HPC/hcp/HCP1200/130518/unprocessed) 
-[INFO] scanning for unlocked files (this may take some time)
-[INFO] Fetching 'http://store.datalad.org/674/822f4-2aa0-11ea-bf71-0025904abcb0/config'
 install(ok): /home/me/dl-101/HPC/hcp/HCP1200/130518/unprocessed (dataset)
 [INFO] Cloning dataset to Dataset(/home/me/dl-101/HPC/hcp/HCP1200/130619) 
-[INFO] Attempting to clone from https://github.com/datalad-datasets/human-connectome-project-openaccess.git/HCP1200/130619 to /home/me/dl-101/HPC/hcp/HCP1200/130619 
-[INFO] Attempting to clone from https://github.com/datalad-datasets/human-connectome-project-openaccess.git/HCP1200/130619/.git to /home/me/dl-101/HPC/hcp/HCP1200/130619 
 [INFO] Attempting to clone from http://store.datalad.org/f6a/43756-2a9d-11ea-8166-0025904abcb0 to /home/me/dl-101/HPC/hcp/HCP1200/130619 
 [INFO] Completed clone attempts for Dataset(/home/me/dl-101/HPC/hcp/HCP1200/130619) 
-[INFO] scanning for unlocked files (this may take some time)
-[INFO] Fetching 'http://store.datalad.org/f6a/43756-2a9d-11ea-8166-0025904abcb0/config'
 install(ok): /home/me/dl-101/HPC/hcp/HCP1200/130619 (dataset) [Installed subdataset in order to get /home/me/dl-101/HPC/hcp/HCP1200/130619]
-[INFO] Installing Dataset(/home/me/dl-101/HPC/hcp) to get /home/me/dl-101/HPC/hcp/HCP1200/130619 recursively 
+[INFO] Ensuring presence of Dataset(/home/me/dl-101/HPC/hcp) to get /home/me/dl-101/HPC/hcp/HCP1200/130619 
 [INFO] Cloning dataset to Dataset(/home/me/dl-101/HPC/hcp/HCP1200/130619/MNINonLinear) 
 [INFO] Attempting to clone from http://store.datalad.org/032/2a332-2a9e-11ea-a1e6-0025904abcb0 to /home/me/dl-101/HPC/hcp/HCP1200/130619/MNINonLinear 
 [INFO] Completed clone attempts for Dataset(/home/me/dl-101/HPC/hcp/HCP1200/130619/MNINonLinear) 
-[INFO] scanning for unlocked files (this may take some time)
-[INFO] Fetching 'http://store.datalad.org/032/2a332-2a9e-11ea-a1e6-0025904abcb0/config'
+[INFO] scanning for annexed files (this may take some time) 
 install(ok): /home/me/dl-101/HPC/hcp/HCP1200/130619/MNINonLinear (dataset)
 [INFO] Cloning dataset to Dataset(/home/me/dl-101/HPC/hcp/HCP1200/130619/T1w) 
 [INFO] Attempting to clone from http://store.datalad.org/04a/bbcde-2a9e-11ea-a1e6-0025904abcb0 to /home/me/dl-101/HPC/hcp/HCP1200/130619/T1w 
 [INFO] Completed clone attempts for Dataset(/home/me/dl-101/HPC/hcp/HCP1200/130619/T1w) 
-[INFO] scanning for unlocked files (this may take some time)
-[INFO] Fetching 'http://store.datalad.org/04a/bbcde-2a9e-11ea-a1e6-0025904abcb0/config'
 install(ok): /home/me/dl-101/HPC/hcp/HCP1200/130619/T1w (dataset)
 [INFO] Cloning dataset to Dataset(/home/me/dl-101/HPC/hcp/HCP1200/130619/unprocessed) 
 [INFO] Attempting to clone from http://store.datalad.org/064/8fd7c-2a9e-11ea-a1e6-0025904abcb0 to /home/me/dl-101/HPC/hcp/HCP1200/130619/unprocessed 
 [INFO] Completed clone attempts for Dataset(/home/me/dl-101/HPC/hcp/HCP1200/130619/unprocessed) 
-[INFO] scanning for unlocked files (this may take some time)
-[INFO] Fetching 'http://store.datalad.org/064/8fd7c-2a9e-11ea-a1e6-0025904abcb0/config'
 install(ok): /home/me/dl-101/HPC/hcp/HCP1200/130619/unprocessed (dataset)
 [INFO] Cloning dataset to Dataset(/home/me/dl-101/HPC/hcp/HCP1200/130720) 
-[INFO] Attempting to clone from https://github.com/datalad-datasets/human-connectome-project-openaccess.git/HCP1200/130720 to /home/me/dl-101/HPC/hcp/HCP1200/130720 
-[INFO] Attempting to clone from https://github.com/datalad-datasets/human-connectome-project-openaccess.git/HCP1200/130720/.git to /home/me/dl-101/HPC/hcp/HCP1200/130720 
 [INFO] Attempting to clone from http://store.datalad.org/5a2/318b0-2a99-11ea-9cc0-0025904abcb0 to /home/me/dl-101/HPC/hcp/HCP1200/130720 
 [INFO] Completed clone attempts for Dataset(/home/me/dl-101/HPC/hcp/HCP1200/130720) 
-[INFO] scanning for unlocked files (this may take some time)
-[INFO] Fetching 'http://store.datalad.org/5a2/318b0-2a99-11ea-9cc0-0025904abcb0/config'
 install(ok): /home/me/dl-101/HPC/hcp/HCP1200/130720 (dataset) [Installed subdataset in order to get /home/me/dl-101/HPC/hcp/HCP1200/130720]
-[INFO] Installing Dataset(/home/me/dl-101/HPC/hcp) to get /home/me/dl-101/HPC/hcp/HCP1200/130720 recursively 
+[INFO] Ensuring presence of Dataset(/home/me/dl-101/HPC/hcp) to get /home/me/dl-101/HPC/hcp/HCP1200/130720 
 [INFO] Cloning dataset to Dataset(/home/me/dl-101/HPC/hcp/HCP1200/130720/MNINonLinear) 
 [INFO] Attempting to clone from http://store.datalad.org/700/ffce2-2a99-11ea-b8dd-0025904abcb0 to /home/me/dl-101/HPC/hcp/HCP1200/130720/MNINonLinear 
 [INFO] Completed clone attempts for Dataset(/home/me/dl-101/HPC/hcp/HCP1200/130720/MNINonLinear) 
-[INFO] scanning for unlocked files (this may take some time)
-[INFO] Fetching 'http://store.datalad.org/700/ffce2-2a99-11ea-b8dd-0025904abcb0/config'
-install(ok): /home/me/dl-101/HPC/hcp/HCP1200/130720/MNINonLinear (dataset)
+[INFO] scanning for annexed files (this may take some time) 
 [INFO] Cloning dataset to Dataset(/home/me/dl-101/HPC/hcp/HCP1200/130720/T1w) 
 [INFO] Attempting to clone from http://store.datalad.org/722/fef3c-2a99-11ea-b8dd-0025904abcb0 to /home/me/dl-101/HPC/hcp/HCP1200/130720/T1w 
+install(ok): /home/me/dl-101/HPC/hcp/HCP1200/130720/MNINonLinear (dataset)
 [INFO] Completed clone attempts for Dataset(/home/me/dl-101/HPC/hcp/HCP1200/130720/T1w) 
-[INFO] scanning for unlocked files (this may take some time)
-[INFO] Fetching 'http://store.datalad.org/722/fef3c-2a99-11ea-b8dd-0025904abcb0/config'
 install(ok): /home/me/dl-101/HPC/hcp/HCP1200/130720/T1w (dataset)
 [INFO] Cloning dataset to Dataset(/home/me/dl-101/HPC/hcp/HCP1200/130720/unprocessed) 
 [INFO] Attempting to clone from http://store.datalad.org/76a/4579c-2a99-11ea-b8dd-0025904abcb0 to /home/me/dl-101/HPC/hcp/HCP1200/130720/unprocessed 
 [INFO] Completed clone attempts for Dataset(/home/me/dl-101/HPC/hcp/HCP1200/130720/unprocessed) 
-[INFO] scanning for unlocked files (this may take some time)
-[INFO] Fetching 'http://store.datalad.org/76a/4579c-2a99-11ea-b8dd-0025904abcb0/config'
 install(ok): /home/me/dl-101/HPC/hcp/HCP1200/130720/unprocessed (dataset)
 [INFO] Cloning dataset to Dataset(/home/me/dl-101/HPC/hcp/HCP1200/130821) 
-[INFO] Attempting to clone from https://github.com/datalad-datasets/human-connectome-project-openaccess.git/HCP1200/130821 to /home/me/dl-101/HPC/hcp/HCP1200/130821 
-[INFO] Attempting to clone from https://github.com/datalad-datasets/human-connectome-project-openaccess.git/HCP1200/130821/.git to /home/me/dl-101/HPC/hcp/HCP1200/130821 
 [INFO] Attempting to clone from http://store.datalad.org/b85/e461a-2a95-11ea-bd37-002590496000 to /home/me/dl-101/HPC/hcp/HCP1200/130821 
 [INFO] Completed clone attempts for Dataset(/home/me/dl-101/HPC/hcp/HCP1200/130821) 
-[INFO] scanning for unlocked files (this may take some time)
-[INFO] Fetching 'http://store.datalad.org/b85/e461a-2a95-11ea-bd37-002590496000/config'
 install(ok): /home/me/dl-101/HPC/hcp/HCP1200/130821 (dataset) [Installed subdataset in order to get /home/me/dl-101/HPC/hcp/HCP1200/130821]
-[INFO] Installing Dataset(/home/me/dl-101/HPC/hcp) to get /home/me/dl-101/HPC/hcp/HCP1200/130821 recursively 
+[INFO] Ensuring presence of Dataset(/home/me/dl-101/HPC/hcp) to get /home/me/dl-101/HPC/hcp/HCP1200/130821 
 [INFO] Cloning dataset to Dataset(/home/me/dl-101/HPC/hcp/HCP1200/130821/MNINonLinear) 
 [INFO] Attempting to clone from http://store.datalad.org/c4c/0f862-2a95-11ea-b221-002590496000 to /home/me/dl-101/HPC/hcp/HCP1200/130821/MNINonLinear 
 [INFO] Completed clone attempts for Dataset(/home/me/dl-101/HPC/hcp/HCP1200/130821/MNINonLinear) 
-[INFO] scanning for unlocked files (this may take some time)
-[INFO] Fetching 'http://store.datalad.org/c4c/0f862-2a95-11ea-b221-002590496000/config'
+[INFO] scanning for annexed files (this may take some time) 
+install(ok): /home/me/dl-101/HPC/hcp/HCP1200/130821/MNINonLinear (dataset)
 [INFO] Cloning dataset to Dataset(/home/me/dl-101/HPC/hcp/HCP1200/130821/T1w) 
 [INFO] Attempting to clone from http://store.datalad.org/c7c/23094-2a95-11ea-b221-002590496000 to /home/me/dl-101/HPC/hcp/HCP1200/130821/T1w 
-install(ok): /home/me/dl-101/HPC/hcp/HCP1200/130821/MNINonLinear (dataset)
 [INFO] Completed clone attempts for Dataset(/home/me/dl-101/HPC/hcp/HCP1200/130821/T1w) 
-[INFO] scanning for unlocked files (this may take some time)
-[INFO] Fetching 'http://store.datalad.org/c7c/23094-2a95-11ea-b221-002590496000/config'
+install(ok): /home/me/dl-101/HPC/hcp/HCP1200/130821/T1w (dataset)
 [INFO] Cloning dataset to Dataset(/home/me/dl-101/HPC/hcp/HCP1200/130821/unprocessed) 
 [INFO] Attempting to clone from http://store.datalad.org/cb9/ea382-2a95-11ea-b221-002590496000 to /home/me/dl-101/HPC/hcp/HCP1200/130821/unprocessed 
-install(ok): /home/me/dl-101/HPC/hcp/HCP1200/130821/T1w (dataset)
 [INFO] Completed clone attempts for Dataset(/home/me/dl-101/HPC/hcp/HCP1200/130821/unprocessed) 
-[INFO] scanning for unlocked files (this may take some time)
-[INFO] Fetching 'http://store.datalad.org/cb9/ea382-2a95-11ea-b221-002590496000/config'
 install(ok): /home/me/dl-101/HPC/hcp/HCP1200/130821/unprocessed (dataset)
 [INFO] Cloning dataset to Dataset(/home/me/dl-101/HPC/hcp/HCP1200/130922) 
-[INFO] Attempting to clone from https://github.com/datalad-datasets/human-connectome-project-openaccess.git/HCP1200/130922 to /home/me/dl-101/HPC/hcp/HCP1200/130922 
-[INFO] Attempting to clone from https://github.com/datalad-datasets/human-connectome-project-openaccess.git/HCP1200/130922/.git to /home/me/dl-101/HPC/hcp/HCP1200/130922 
 [INFO] Attempting to clone from http://store.datalad.org/100/a5212-2a93-11ea-b54a-0025904abcb0 to /home/me/dl-101/HPC/hcp/HCP1200/130922 
 [INFO] Completed clone attempts for Dataset(/home/me/dl-101/HPC/hcp/HCP1200/130922) 
-[INFO] scanning for unlocked files (this may take some time)
-[INFO] Fetching 'http://store.datalad.org/100/a5212-2a93-11ea-b54a-0025904abcb0/config'
 install(ok): /home/me/dl-101/HPC/hcp/HCP1200/130922 (dataset) [Installed subdataset in order to get /home/me/dl-101/HPC/hcp/HCP1200/130922]
-[INFO] Installing Dataset(/home/me/dl-101/HPC/hcp) to get /home/me/dl-101/HPC/hcp/HCP1200/130922 recursively 
+[INFO] Ensuring presence of Dataset(/home/me/dl-101/HPC/hcp) to get /home/me/dl-101/HPC/hcp/HCP1200/130922 
 [INFO] Cloning dataset to Dataset(/home/me/dl-101/HPC/hcp/HCP1200/130922/MNINonLinear) 
 [INFO] Attempting to clone from http://store.datalad.org/1d8/e51cc-2a93-11ea-bc67-0025904abcb0 to /home/me/dl-101/HPC/hcp/HCP1200/130922/MNINonLinear 
 [INFO] Completed clone attempts for Dataset(/home/me/dl-101/HPC/hcp/HCP1200/130922/MNINonLinear) 
-[INFO] scanning for unlocked files (this may take some time)
-[INFO] Fetching 'http://store.datalad.org/1d8/e51cc-2a93-11ea-bc67-0025904abcb0/config'
+[INFO] scanning for annexed files (this may take some time) 
 install(ok): /home/me/dl-101/HPC/hcp/HCP1200/130922/MNINonLinear (dataset)
 [INFO] Cloning dataset to Dataset(/home/me/dl-101/HPC/hcp/HCP1200/130922/T1w) 
 [INFO] Attempting to clone from http://store.datalad.org/239/fe7a6-2a93-11ea-bc67-0025904abcb0 to /home/me/dl-101/HPC/hcp/HCP1200/130922/T1w 
 [INFO] Completed clone attempts for Dataset(/home/me/dl-101/HPC/hcp/HCP1200/130922/T1w) 
-[INFO] scanning for unlocked files (this may take some time)
-[INFO] Fetching 'http://store.datalad.org/239/fe7a6-2a93-11ea-bc67-0025904abcb0/config'
 install(ok): /home/me/dl-101/HPC/hcp/HCP1200/130922/T1w (dataset)
 [INFO] Cloning dataset to Dataset(/home/me/dl-101/HPC/hcp/HCP1200/130922/unprocessed) 
 [INFO] Attempting to clone from http://store.datalad.org/25e/ee1ba-2a93-11ea-bc67-0025904abcb0 to /home/me/dl-101/HPC/hcp/HCP1200/130922/unprocessed 
 [INFO] Completed clone attempts for Dataset(/home/me/dl-101/HPC/hcp/HCP1200/130922/unprocessed) 
-[INFO] scanning for unlocked files (this may take some time)
-[INFO] Fetching 'http://store.datalad.org/25e/ee1ba-2a93-11ea-bc67-0025904abcb0/config'
 install(ok): /home/me/dl-101/HPC/hcp/HCP1200/130922/unprocessed (dataset)
 action summary:
   install (ok: 36)

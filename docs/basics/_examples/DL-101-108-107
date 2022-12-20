@@ -1,6 +1,5 @@
 $ datalad run -m "Try again to create a list of podcast titles" \
   "bash code/list_titles.sh > recordings/podcasts.tsv"
-[INFO] == Command start (output follows) ===== 
-[INFO] == Command exit (modification check follows) ===== 
-action summary:
-  save (notneeded: 2)
+[INFO] == Command start (output follows) =====
+[INFO] == Command exit (modification check follows) =====
+run(ok): /home/me/dl-101/DataLad-101 (dataset) [bash code/list_titles.sh > recordings/po...]

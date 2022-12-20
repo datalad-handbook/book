@@ -7,43 +7,61 @@ $ datalad wtf
       - PlaintextKeyring with no encyption v.1.0 at /home/me/.local/share/python_keyring/keyring_pass.cfg
     - config_file: /home/me/.config/python_keyring/keyringrc.cfg
     - data_root: /home/me/.local/share/python_keyring
-## datalad 
-  - full_version: 0.14.6+27.gec839bcf5
-  - version: 0.14.6+27.gec839bcf5
-## dataset 
-  - id: 8e04afb0-af85-4070-be29-858d30d85017
+## datalad
+  - version: 0.17.10+2.g23b376756
+## dataset
+  - branches:
+    - git-annex@<REDACTED-GITSHA>
+    - master@90f3ec0
+    - sct_computational_reproducibility@90f3ec0
+    - sct_create_a_dataset@24acc0a
+    - sct_datalad_rerun@35769e1
+    - sct_input_and_output@9fed9dc
+    - sct_install_datasets@98db0ec
+    - sct_keeping_track@a4622a5
+    - sct_looking_without_touching@51eede3
+    - sct_modify_content@469f388
+    - sct_more_on_DYI_configurations@4c39ad7
+    - sct_more_on_dataset_nesting@3adfd39
+    - sct_networking@3dee0dc
+    - sct_populate_a_dataset@b47b42a
+    - sct_retrace_and_reenact@3722356
+    - sct_stay_up_to_date@1c6a22d
+    - sct_where_is_waldo@3722356
+    - sct_yoda_project@2dbbd41
+  - id: e3e70682-c209-4cac-629f-6fbed82c07cd
   - metadata: <SENSITIVE, report disabled by configuration>
   - path: /home/me/dl-101/DataLad-101
   - repo: AnnexRepo
-## dependencies 
-  - annexremote: 1.4.5
-  - appdirs: 1.4.4
+## dependencies
+  - annexremote: 1.6.0
   - boto: 2.49.0
   - cmd:7z: 16.02
-  - cmd:annex: 8.20210223
-  - cmd:bundled-git: UNKNOWN
+  - cmd:annex: 10.20220504-1~ndall+1
+  - cmd:bundled-git: 2.30.2
   - cmd:git: 2.30.2
-  - cmd:system-git: 2.30.2
-  - cmd:system-ssh: 8.4p1
-  - exifread: 2.3.2
-  - git: 3.1.12
-  - gitdb: 4.0.5
-  - humanize: 3.2.0
-  - iso8601: 0.1.13
-  - keyring: 21.8.0
-  - keyrings.alt: 4.0.2
-  - msgpack: 1.0.2
-  - mutagen: 1.45.1
-  - requests: 2.25.1
-  - wrapt: 1.12.1
-## environment 
+  - cmd:ssh: 9.1p1
+  - cmd:system-git: 2.38.1
+  - cmd:system-ssh: 9.1p1
+  - humanize: 4.3.0
+  - iso8601: 1.0.2
+  - keyring: 23.8.2
+  - keyrings.alt: 4.1.1
+  - msgpack: 1.0.4
+  - platformdirs: 2.5.2
+  - requests: 2.28.1
+## environment
+  - GIT_AUTHOR_DATE: 2019-06-18T16:13:00
   - GIT_AUTHOR_EMAIL: elena@example.net
   - GIT_AUTHOR_NAME: Elena Piscopia
+  - GIT_COMMITTER_DATE: 2019-06-18T16:13:00
+  - GIT_COMMITTER_EMAIL: elena@example.net
+  - GIT_COMMITTER_NAME: Elena Piscopia
   - GIT_EDITOR: vim
   - LANG: en_US.UTF-8
   - LANGUAGE: en_US:en
   - LC_CTYPE: en_US.UTF-8
-  - PATH: /home/adina/env/handbook2/bin:/home/adina/.dotfiles/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/X11R6/bin:/usr/local/games:/usr/games:/home/adina/.local/bin:/home/adina/bin:/snap/bin:/home/adina/repos/latexrun/:/home/adina/node_modules/.bin
+  - PATH: VIRTUALENV/bin:/usr/local/bin:/usr/bin:/bin:/usr/games:/home/mih/bin:/home/mih/bin/pycharm/bin:/home/mih/.yarn/bin
 ## extensions
   - container:
     - description: Containerized environments
@@ -78,126 +96,152 @@ $ datalad wtf
           - containers_run
     - load_error: None
     - module: datalad_container
-    - version: 1.1.2
-  - deprecated:
-    - description: Deprecated functionality
+    - version: 1.1.6
+  - datalad_debian:
+    - description: DataLad for working with Debian packages
     - entrypoints:
-      - datalad_deprecated.ls.Ls:
-        - class: Ls
+      - datalad_debian.add_distribution.AddDistribution:
+        - class: AddDistribution
         - load_error: None
-        - module: datalad_deprecated.ls
+        - module: datalad_debian.add_distribution
         - names:
-    - load_error: None
-    - module: datalad_deprecated
-    - version: 0+untagged.30.gb6bf80c
-  - hirni:
-    - description: HIRNI workflows
-    - entrypoints: 
-      - datalad_hirni.commands.dicom2spec.Dicom2Spec:
-        - class: Dicom2Spec
+          - deb-add-distribution
+          - deb_add_distribution
+      - datalad_debian.bootstrap_builder.BootstrapBuilder:
+        - class: BootstrapBuilder
         - load_error: None
-        - module: datalad_hirni.commands.dicom2spec
-        - names: 
-          - hirni-dicom2spec
-          - hirni_dicom2spec
-      - datalad_hirni.commands.import_dicoms.ImportDicoms:
-        - class: ImportDicoms
-        - load_error: None
-        - module: datalad_hirni.commands.import_dicoms
-        - names: 
-          - hirni-import-dcm
-          - hirni_import_dcm
-      - datalad_hirni.commands.spec2bids.Spec2Bids:
-        - class: Spec2Bids
-        - load_error: None
-        - module: datalad_hirni.commands.spec2bids
-        - names: 
-          - hirni-spec2bids
-          - hirni_spec2bids
-      - datalad_hirni.commands.spec4anything.Spec4Anything:
-        - class: Spec4Anything
-        - load_error: None
-        - module: datalad_hirni.commands.spec4anything
-        - names: 
-          - hirni-spec4anything
-          - hirni_spec4anything
-    - load_error: None
-    - module: datalad_hirni
-    - version: 0.0.7
-  - metalad:
-    - description: DataLad semantic metadata command suite
-    - entrypoints: 
-      - datalad_metalad.aggregate.Aggregate:
-        - class: Aggregate
-        - load_error: None
-        - module: datalad_metalad.aggregate
+        - module: datalad_debian.bootstrap_builder
         - names:
-          - meta-aggregate
-          - meta_aggregate
-      - datalad_metalad.dump.Dump: 
-        - class: Dump
+          - deb-bootstrap-builder
+          - deb_bootstrap_builder
+      - datalad_debian.build_package.BuildPackage:
+        - class: BuildPackage
         - load_error: None
-        - module: datalad_metalad.dump
-        - names: 
-          - meta-dump
-          - meta_dump
-      - datalad_metalad.extract.Extract: 
-        - class: Extract
+        - module: datalad_debian.build_package
+        - names:
+          - deb-build-package
+          - deb_build_package
+      - datalad_debian.configure_builder.ConfigureBuilder:
+        - class: ConfigureBuilder
         - load_error: None
-        - module: datalad_metalad.extract
-        - names: 
-          - meta-extract
-          - meta_extract
+        - module: datalad_debian.configure_builder
+        - names:
+          - deb-configure-builder
+          - deb_configure_builder
+      - datalad_debian.new_distribution.NewDistribution:
+        - class: NewDistribution
+        - load_error: None
+        - module: datalad_debian.new_distribution
+        - names:
+          - deb-new-distribution
+          - deb_new_distribution
+      - datalad_debian.new_package.NewPackage:
+        - class: NewPackage
+        - load_error: None
+        - module: datalad_debian.new_package
+        - names:
+          - deb-new-package
+          - deb_new_package
+      - datalad_debian.new_reprepro_repository.NewRepreproRepository:
+        - class: NewRepreproRepository
+        - load_error: None
+        - module: datalad_debian.new_reprepro_repository
+        - names:
+          - deb-new-reprepro-repository
+          - deb_new_reprepro_repository
+      - datalad_debian.update_reprepro_repository.UpdateRepreproRepository:
+        - class: UpdateRepreproRepository
+        - load_error: None
+        - module: datalad_debian.update_reprepro_repository
+        - names:
+          - deb-update-reprepro-repository
+          - deb_update_reprepro_repository
     - load_error: None
-    - module: datalad_metalad
-    - version: 0.2.1
-  - neuroimaging:
-    - description: Neuroimaging tools
+    - module: datalad_debian
+    - version: 0.0.1+16.g069c3c6
+  - ebrains:
+    - description: HBP/EBRAINS support
     - entrypoints:
-      - datalad_neuroimaging.bids2scidata.BIDS2Scidata:
-        - class: BIDS2Scidata
+      - datalad_ebrains.authenticate.Authenticate:
+        - class: Authenticate
         - load_error: None
-        - module: datalad_neuroimaging.bids2scidata
-        - names: 
-          - bids2scidata
+        - module: datalad_ebrains.authenticate
+        - names:
+          - ebrains-authenticate
+          - ebrains_authenticate
+      - datalad_ebrains.clone.Clone:
+        - class: Clone
+        - load_error: None
+        - module: datalad_ebrains.clone
+        - names:
+          - ebrains-clone
+          - ebrains_clone
     - load_error: None
-    - module: datalad_neuroimaging
-    - version: 0.3.1
-  - osf:
-    - description: DataLad extension for OSF support
+    - module: datalad_ebrains
+    - version: 0+untagged.70.g59a9263
+  - gooey:
+    - description: Gooey (GUI)
     - entrypoints:
-      - datalad_osf.create_sibling_osf.CreateSiblingOSF:
-        - class: CreateSiblingOSF
+      - datalad_gooey.askpass.GooeyAskPass:
+        - class: GooeyAskPass
         - load_error: None
-        - module: datalad_osf.create_sibling_osf
+        - module: datalad_gooey.askpass
         - names:
-          - create-sibling-osf
-          - create_sibling_osf
-      - datalad_osf.credentials.OSFCredentials:
-        - class: OSFCredentials
+          - gooey-askpass
+          - gooey_askpass
+      - datalad_gooey.gooey.Gooey:
+        - class: Gooey
         - load_error: None
-        - module: datalad_osf.credentials
+        - module: datalad_gooey.gooey
         - names:
-          - osf-credentials
-          - osf_credentials
+      - datalad_gooey.lsdir.GooeyLsDir:
+        - class: GooeyLsDir
+        - load_error: None
+        - module: datalad_gooey.lsdir
+        - names:
+          - gooey-lsdir
+          - gooey_lsdir
+      - datalad_gooey.status_light.GooeyStatusLight:
+        - class: GooeyStatusLight
+        - load_error: None
+        - module: datalad_gooey.status_light
+        - names:
+          - gooey-status-light
+          - gooey_status_light
     - load_error: None
-    - module: datalad_osf
-    - version: 0.2.1
-  - webapp:
-    - description: Generic web app support
+    - module: datalad_gooey
+    - version: 0.2.0
+  - next:
+    - description: What is next in DataLad
     - entrypoints:
-      - datalad_webapp.WebApp:
-        - class: WebApp
+      - datalad_next.commands.create_sibling_webdav.CreateSiblingWebDAV:
+        - class: CreateSiblingWebDAV
         - load_error: None
-        - module: datalad_webapp
+        - module: datalad_next.commands.create_sibling_webdav
         - names:
-          - webapp
-          - webapp
+          - create-sibling-webdav
+      - datalad_next.commands.credentials.Credentials:
+        - class: Credentials
+        - load_error: None
+        - module: datalad_next.commands.credentials
+        - names:
+      - datalad_next.commands.download.Download:
+        - class: Download
+        - load_error: None
+        - module: datalad_next.commands.download
+        - names:
+          - download
+      - datalad_next.commands.tree.TreeCommand:
+        - class: TreeCommand
+        - load_error: None
+        - module: datalad_next.commands.tree
+        - names:
+          - tree
     - load_error: None
-    - module: datalad_webapp
-    - version: 0.3
-## git-annex 
-  - build flags: 
+    - module: datalad_next
+    - version: 0.6.3+211.gdedaf93
+## git-annex
+  - build flags:
     - Assistant
     - Webapp
     - Pairing
@@ -210,7 +254,7 @@ $ datalad wtf
     - Testsuite
     - S3
     - WebDAV
-  - dependency versions: 
+  - dependency versions:
     - aws-0.22
     - bloomfilter-2.0.1.0
     - cryptonite-0.26
@@ -222,7 +266,7 @@ $ datalad wtf
     - torrent-10000.1.1
     - uuid-1.3.13
     - yesod-1.6.1.0
-  - key/value backends: 
+  - key/value backends:
     - SHA256E
     - SHA256
     - SHA512E
@@ -274,7 +318,7 @@ $ datalad wtf
     - X*
   - local repository version: 8
   - operating system: linux x86_64
-  - remote types: 
+  - remote types:
     - git
     - gcrypt
     - p2p
@@ -294,9 +338,11 @@ $ datalad wtf
     - borg
     - hook
     - external
-  - supported repository versions: 
+  - supported repository versions:
     - 8
-  - upgrade supported from repository versions: 
+    - 9
+    - 10
+  - upgrade supported from repository versions:
     - 0
     - 1
     - 2
@@ -305,108 +351,70 @@ $ datalad wtf
     - 5
     - 6
     - 7
-  - version: 8.20210223
-## location 
+    - 8
+    - 9
+    - 10
+  - version: 10.20220504-1~ndall+1
+## location
   - path: /home/me/dl-101/DataLad-101
   - type: dataset
-## metadata_extractors 
-  - annex (datalad 0.14.4):
-    - distribution: datalad 0.14.4
+## metadata_extractors
+  - annex:
+    - distribution: datalad 0.17.9+84.ge23154a54
     - load_error: None
     - module: datalad.metadata.extractors.annex
-    - version: None
-  - audio (datalad 0.14.4):
-    - distribution: datalad 0.14.4
-    - load_error: None
+  - audio:
+    - distribution: datalad 0.17.9+84.ge23154a54
+    - load_error: ModuleNotFoundError(No module named 'mutagen')
     - module: datalad.metadata.extractors.audio
-    - version: None
-  - bids (datalad-neuroimaging 0.3.1):
-    - distribution: datalad-neuroimaging 0.3.1
-    - load_error: None
-    - module: datalad_neuroimaging.extractors.bids
-    - version: None
-  - datacite (datalad 0.14.4):
-    - distribution: datalad 0.14.4
+  - datacite:
+    - distribution: datalad 0.17.9+84.ge23154a54
     - load_error: None
     - module: datalad.metadata.extractors.datacite
-    - version: None
-  - datalad_core (datalad 0.14.4):
-    - distribution: datalad 0.14.4
+  - datalad_core:
+    - distribution: datalad 0.17.9+84.ge23154a54
     - load_error: None
     - module: datalad.metadata.extractors.datalad_core
-    - version: None
-  - datalad_rfc822 (datalad 0.14.4):
-    - distribution: datalad 0.14.4
+  - datalad_rfc822:
+    - distribution: datalad 0.17.9+84.ge23154a54
     - load_error: None
     - module: datalad.metadata.extractors.datalad_rfc822
-    - version: None
-  - dicom (datalad-neuroimaging 0.3.1):
-    - distribution: datalad-neuroimaging 0.3.1
-    - load_error: None
-    - module: datalad_neuroimaging.extractors.dicom
-    - version: None
-  - exif (datalad 0.14.4):
-    - distribution: datalad 0.14.4
-    - load_error: None
+  - exif:
+    - distribution: datalad 0.17.9+84.ge23154a54
+    - load_error: ModuleNotFoundError(No module named 'exifread')
     - module: datalad.metadata.extractors.exif
-    - version: None
-  - frictionless_datapackage (datalad 0.14.4):
-    - distribution: datalad 0.14.4
+  - frictionless_datapackage:
+    - distribution: datalad 0.17.9+84.ge23154a54
     - load_error: None
     - module: datalad.metadata.extractors.frictionless_datapackage
-    - version: None
-  - image (datalad 0.14.4):
-    - distribution: datalad 0.14.4
+  - image:
+    - distribution: datalad 0.17.9+84.ge23154a54
     - load_error: None
     - module: datalad.metadata.extractors.image
-    - version: None
-  - metalad_annex (datalad-metalad 0.2.1):
-    - distribution: datalad-metalad 0.2.1
-    - load_error: None
-    - module: datalad_metalad.extractors.annex
-    - version: None
-  - metalad_core (datalad-metalad 0.2.1):
-    - distribution: datalad-metalad 0.2.1
-    - load_error: None
-    - module: datalad_metalad.extractors.core
-    - version: None
-  - metalad_custom (datalad-metalad 0.2.1):
-    - distribution: datalad-metalad 0.2.1
-    - load_error: None
-    - module: datalad_metalad.extractors.custom
-    - version: None
-  - metalad_runprov (datalad-metalad 0.2.1):
-    - distribution: datalad-metalad 0.2.1
-    - load_error: None
-    - module: datalad_metalad.extractors.runprov
-    - version: None
-  - nidm (datalad-neuroimaging 0.3.1):
-    - distribution: datalad-neuroimaging 0.3.1
-    - load_error: None
-    - module: datalad_neuroimaging.extractors.nidm
-    - version: None
-  - nifti1 (datalad-neuroimaging 0.3.1):
-    - distribution: datalad-neuroimaging 0.3.1
-    - load_error: None
-    - module: datalad_neuroimaging.extractors.nifti1
-    - version: None
-  - xmp (datalad 0.14.4):
-    - distribution: datalad 0.14.4
-    - load_error: None
+  - xmp:
+    - distribution: datalad 0.17.9+84.ge23154a54
+    - load_error: ModuleNotFoundError(No module named 'libxmp')
     - module: datalad.metadata.extractors.xmp
-    - version: None
 ## metadata_indexers
-## python 
+## python
   - implementation: CPython
-  - version: 3.9.2
-## system 
-  - distribution: debian/11/bullseye
-  - encoding: 
+  - version: 3.10.8
+## system
+  - distribution: debian/n/a/bookworm
+  - encoding:
     - default: utf-8
     - filesystem: utf-8
     - locale.prefered: UTF-8
+  - filesystem:
+    - CWD:
+      - path: /home/me/dl-101/DataLad-101
+    - HOME:
+      - path: /home/me
+    - TMP:
+      - path: /tmp
   - max_path_length: 283
   - name: Linux
-  - release: 5.10.0-7-amd64
+  - release: 6.0.0-4-amd64
   - type: posix
-  - version: #1 SMP Debian 5.10.40-1 (2021-05-28)
+  - version: #1 SMP PREEMPT_DYNAMIC Debian 6.0.8-1 (2022-11-11)
+Hint: install psutil to get filesystem information

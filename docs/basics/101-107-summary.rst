@@ -59,8 +59,8 @@ and experienced the concept of modular nesting datasets.
   the dataset will be installed into the current directory, with the original name of the
   dataset.
 
-* If a dataset is installed inside of a dataset as a subdataset, the
-  ``--dataset``/``-d`` option needs to specify the root of the superdataset.
+* If a dataset is installed inside of another dataset as a subdataset, the
+  ``--dataset``/``-d`` option needs to specify the root of the containing dataset, the superdataset.
 
 * The source can be a URL (for example of a GitHub repository, as in section :ref:`installds`), but also
   paths, or open data collections.
@@ -72,8 +72,8 @@ and experienced the concept of modular nesting datasets.
 * :command:`datalad status --annex` or :command:`datalad status --annex all` are helpful to determine
   total repository size and the amount of data that is present locally.
 
-* Remember: Super- and subdatasets have standalone histories. A superdataset only stores
-  which version of the subdataset is currently used.
+* Remember: Super- and subdatasets have standalone histories. A superdataset stores the currently used
+  version of a contained subdataset through an identifier.
 
 
 Now what I can do with that?
@@ -84,7 +84,7 @@ for example your CV, your code, or a book that you are working on, but
 you can also add very large files to your datasets history.
 Currently, this can be considered "best-practice building": Frequent :command:`datalad status`
 commands, :command:`datalad save` commands to save dataset modifications,
-and concise :term:`commit message`\s are the main take aways from this. You can already explore
+and concise :term:`commit message`\s are the main take always from this. You can already explore
 the history of a dataset and you know about many types of provenance information
 captured by DataLad, but for now, its been only informative, and has not been used
 for anything more fancy. Later on, we will look into utilizing the history

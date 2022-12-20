@@ -1,7 +1,7 @@
 $ git log -p -n 2
-commit 41ea4e6443051c04cc0727adad8a66213a6440fd
+commit db17294a4c3dea1a9733e74c912228e3c63f8eab
 Author: Elena Piscopia <elena@example.net>
-Date:   Thu Jul 29 16:21:54 2021 +0200
+Date:   Tue Jun 18 16:13:00 2019 +0200
 
     add note on clean datasets
 
@@ -12,7 +12,7 @@ index 6a465f0..e2829b2 100644
 @@ -32,3 +32,9 @@ should be specified with an -o/--output flag. Upon a run or rerun of
  the command, the contents of these files will get unlocked so that
  they can be modified.
- 
+
 +Important! If the dataset is not "clean" (a datalad status output is
 +empty), datalad run will not work - you will have to save
 +modifications present in your dataset.
@@ -20,17 +20,17 @@ index 6a465f0..e2829b2 100644
 +those changes done to the files listed with --output flags.
 +
 
-commit 4753f3f58f6cb9b2a70f71ad56fd0173c453853f
+commit 7948b8623305841048fd93e73dcb646c6fa3dcd6
 Author: Elena Piscopia <elena@example.net>
-Date:   Thu Jul 29 16:21:52 2021 +0200
+Date:   Tue Jun 18 16:13:00 2019 +0200
 
     [DATALAD RUNCMD] Resize logo for slides
-    
+
     === Do not change lines below ===
     {
      "chain": [],
      "cmd": "convert -resize 400x400 recordings/longnow/.datalad/feed_metadata/logo_salt.jpg recordings/salt_logo_small.jpg",
-     "dsid": "8e04afb0-af85-4070-be29-858d30d85017",
+     "dsid": "e3e70682-c209-4cac-629f-6fbed82c07cd",
      "exit": 0,
      "extra_inputs": [],
      "inputs": [

@@ -7,9 +7,11 @@ $ datalad containers-run -n software \
 [INFO] Making sure inputs are available (this may take some time) 
 [INFO] == Command start (output follows) ===== 
 [INFO] == Command exit (modification check follows) ===== 
-{'accuracy': 0.7515842839036755}
+{'accuracy': 0.7363751584283904}
+run(ok): /home/me/usecases/ml-project (dataset) [singularity exec -B /home/me/usecases/ml...]
 save(ok): . (dataset)
 action summary:
   add (ok: 2)
   get (notneeded: 4)
+  run (ok: 1)
   save (notneeded: 1, ok: 1)

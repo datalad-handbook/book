@@ -5,7 +5,7 @@ chardet
 docutils<0.18
 idna
 imagesize
-Jinja2
+Jinja2 < 3.1
 MarkupSafe
 packaging
 Pygments
@@ -14,7 +14,7 @@ pytz
 requests
 six
 snowballstemmer
-Sphinx==2.1.2
+Sphinx
 sphinx-sitemap
 sphinxcontrib-websupport
 sphinx-notfound-page

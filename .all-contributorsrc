@@ -493,6 +493,81 @@
       "contributions": [
         "bug"
       ]
+    },
+    {
+      "login": "jhpb7",
+      "name": "jhpb7",
+      "avatar_url": "https://avatars.githubusercontent.com/u/101269419?v=4",
+      "profile": "https://github.com/jhpb7",
+      "contributions": [
+        "bug"
+      ]
+    },
+    {
+      "login": "eltociear",
+      "name": "Ikko Ashimine",
+      "avatar_url": "https://avatars.githubusercontent.com/u/22633385?v=4",
+      "profile": "https://bandism.net/",
+      "contributions": [
+        "bug"
+      ]
+    },
+    {
+      "login": "Arshitha",
+      "name": "Arshitha Basavaraj",
+      "avatar_url": "https://avatars.githubusercontent.com/u/10297203?v=4",
+      "profile": "http://cmn.nimh.nih.gov/dsst",
+      "contributions": [
+        "content"
+      ]
+    },
+    {
+      "login": "ajveltri22",
+      "name": "Anthony J Veltri",
+      "avatar_url": "https://avatars.githubusercontent.com/u/16944711?v=4",
+      "profile": "https://github.com/ajveltri22",
+      "contributions": [
+        "userTesting"
+      ]
+    },
+    {
+      "login": "complexbrains",
+      "name": "Isil Bilgin",
+      "avatar_url": "https://avatars.githubusercontent.com/u/45263281?v=4",
+      "profile": "https://twitter.com/complexbrains",
+      "contributions": [
+        "bug",
+        "maintenance"
+      ]
+    },
+    {
+      "login": "jkosciessa",
+      "name": "Julian Kosciessa",
+      "avatar_url": "https://avatars.githubusercontent.com/u/40263608?v=4",
+      "profile": "http://juliankosciessa.eu",
+      "contributions": [
+        "content"
+      ]
+    },
+    {
+      "login": "candleindark",
+      "name": "Isaac To",
+      "avatar_url": "https://avatars.githubusercontent.com/u/12135617?v=4",
+      "profile": "https://github.com/candleindark",
+      "contributions": [
+        "maintenance",
+        "content",
+        "bug"
+      ]
+    },
+    {
+      "login": "asmacdo",
+      "name": "Austin Macdonald",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1028657?v=4",
+      "profile": "https://github.com/asmacdo",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,
@@ -500,5 +575,6 @@
   "projectOwner": "datalad-handbook",
   "repoType": "github",
   "repoHost": "https://github.com",
-  "skipCi": true
+  "skipCi": true,
+  "commitConvention": "angular"
 }

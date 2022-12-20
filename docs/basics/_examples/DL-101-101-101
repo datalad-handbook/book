@@ -1,7 +1,9 @@
 $ datalad create -c text2git DataLad-101
-[INFO] Creating a new annex repo at /home/me/dl-101/DataLad-101 
-[INFO] scanning for unlocked files (this may take some time)
-[INFO] Running procedure cfg_text2git 
-[INFO] == Command start (output follows) ===== 
-[INFO] == Command exit (modification check follows) ===== 
+[INFO] Running procedure cfg_text2git
+[INFO] == Command start (output follows) =====
+[INFO] == Command exit (modification check follows) =====
+run(ok): /home/me/dl-101/DataLad-101 (dataset) [VIRTUALENV/bin/python /ho...]
 create(ok): /home/me/dl-101/DataLad-101 (dataset)
+action summary:
+  create (ok: 1)
+  run (ok: 1)

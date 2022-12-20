@@ -1,7 +1,7 @@
 $ git annex whereis books/bash_guide.pdf
 whereis books/bash_guide.pdf (2 copies)
-	00000000-0000-0000-0000-000000000001 -- web
-	142a8659-5566-466d-af37-5958d071a995 -- me@muninn:~/dl-101/DataLad-101 [origin]
+  	00000000-0000-0000-0000-000000000001 -- web
+   	REDACTED-UUID -- me@meiner:~/dl-101/DataLad-101 [origin]
 
   web: http://www.tldp.org/LDP/Bash-Beginners-Guide/Bash-Beginners-Guide.pdf
 ok

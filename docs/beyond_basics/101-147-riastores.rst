@@ -16,7 +16,12 @@ installed.
 .. importantnote:: RIA availability
 
    Setting up and interacting with RIA stores requires DataLad version ``0.13.0``
-   or higher. In order to understand this section, some knowledge on Git-internals
+   or higher.
+
+   Note a breaking API change of :command:`create-sibling-ria` in DataLad versions ``>0.16.0``:
+   A new store isn't set up unless ``--new-store-ok`` is passed.
+
+   In order to understand this section, some knowledge on Git-internals
    and overcoming any fear of how checksums and UUIDs look can be helpful.
 
 Technical details
@@ -209,9 +214,9 @@ and thus the default.
 
 .. index:: ! datalad command; create-sibling-ria
 
-By default, the :command:`datalad create-sibling-ria` command will automatically create a
-dataset representation in a RIA store (and set up the RIA store, if it does not
-exist), and configure a sibling to allow publishing to the RIA store and updating
+The command :command:`datalad create-sibling-ria` can both create datasets in RIA stores and the RIA stores themselves.
+With DataLad versions lower than ``0.16.0``, :command:`datalad create-sibling-ria` sets up a new RIA store if it does not find one under the provided URL, but starting with ``0.16.0``, one needs to pass the parameter ``--new-store-ok`` in order to set up a new store.
+By default, the command will automatically create a dataset representation in a RIA store and configure a sibling to allow publishing to the RIA store and updating
 from it.
 With special remote capabilities enabled, the command will automatically create
 the special remote as a ``storage-sibling`` and link it to the RIA-sibling.
@@ -295,7 +300,15 @@ on where the RIA store (should) exists, or rather, which file transfer protocol
 - A URL to a store on a local file system has a ``ria+file://`` prefix,
   followed by an **absolute** path: ``ria+file:///absolute/path/to/ria-store``
 
+.. find-out-more:: RIA stores with HTTP access
+
+   Setting up RIA store with access via HTTP requires additional server-side configurations for Git.
+   `Git's http-backend documentation <https://git-scm.com/docs/git-http-backend>`_ can point you the relevant configurations for your webserver and usecase.
+
 Note that it is always required to specify an :term:`absolute path` in the URL!
+
+In addition, as a convenience for cloning, you can supply an ``--alias`` parameter
+with a name under which the dataset can later be cloned from the dataset.
 
 .. importantnote:: If you code along, make sure to check the next findoutmore!
 
@@ -339,6 +352,7 @@ system to publish the ``DataLad-101`` dataset from the handbook's "Basics"
 section to. In the example below, the RIA sibling gets the name ``ria-backup``.
 The URL uses the ``file`` protocol and points with an absolute path to the not
 yet existing directory ``myriastore``.
+When you are using DataLad version ``0.16`` or higher, make sure that the ``--new-store-ok`` parameter is set to allow the creation of a new store.
 
 
 .. runrecord:: _examples/DL-101-147-103
@@ -346,7 +360,8 @@ yet existing directory ``myriastore``.
    :workdir: dl-101/DataLad-101
 
    # inside of the dataset DataLad-101
-   $ datalad create-sibling-ria -s ria-backup ria+file:///home/me/myriastore
+   # do not use --new-store-ok with datalad < 0.16
+   $ datalad create-sibling-ria -s ria-backup --alias dl-101 --new-store-ok "ria+file:///home/me/myriastore"
 
 Afterwards, the dataset has two additional siblings: ``ria-backup``, and
 ``ria-backup-storage``.
@@ -465,7 +480,7 @@ sibling creation:
   creation: ``ria+file:///absolute/path/to/ria-store``
 - A URL for read (without annex) access to a store via :term:`http` (e.g., to a RIA store like
   `store.datalad.org <http://store.datalad.org/>`_, through which the
-  `HCP dataset is published <../usecases/HCP_dataset.html>`_) looks like this:
+  :ref:`HCP dataset is published <usecase_HCP_dataset>`) looks like this:
   ``ria+http://store.datalad.org:/absolute/path/to/ria-store``
 
 The appropriate ``ria+`` URL needs to be suffixed with a ``#`` sign and a dataset
@@ -483,22 +498,28 @@ know the dataset ID of a desired dataset. Secondly, if no additional path is giv
 :command:`datalad clone`, the resulting dataset clone would be named after its ID.
 An alternative, therefore, is to use an *alias* for the dataset. This is an
 alternative dataset identifier that a dataset in a RIA store can be configured
-with.
+with - either with a parameter at the time of running ``datalad create-sibling-ria``
+as done above, or manually afterwards. For example, given that the dataset also has
+an alias ``dl-101``, the above call would simplify to
 
-.. find-out-more:: Configure an alias for a dataset
+.. code-block:: bash
+
+   $ datalad clone ria+file:///home/me/myriastore#~dl-101
+
+.. find-out-more:: Configure an alias for a dataset manually
 
    In order to define an alias for an individual dataset in a store, one needs
    to create an ``alias/`` directory in the root of the datastore and place
    a :term:`symlink` of the desired name to the dataset inside of it. Here is how it is
    done, for the midterm project dataset:
 
-   First, create an ``alias/`` directory in the store:
+   First, create an ``alias/`` directory in the store, if it doesn't yet exist:
 
    .. runrecord:: _examples/DL-101-147-121
       :language: console
       :workdir: dl-101
+      :realcommand: echo "$ mkdir /home/me/myriastore/alias"
 
-      $ mkdir /home/me/myriastore/alias
 
    Afterwards, place a :term:`symlink` with a name of your choice to the dataset
    inside of it. Here, we create a symlink called ``midterm_project``:
@@ -508,7 +529,7 @@ with.
       :workdir: dl-101
       :realcommand: echo "$ ln -s /home/me/myriastore/$(datalad -C DataLad-101/midterm_project -f'{infos[dataset][id]}' wtf | sed 's/^\(...\)\(.*\)/\1\/\2/') /home/me/myriastore/alias/midterm_project" && ln -s /home/me/myriastore/$(datalad -C DataLad-101/midterm_project -f'{infos[dataset][id]}' wtf | sed 's/^\(...\)\(.*\)/\1\/\2/') /home/me/myriastore/alias/midterm_project
 
-   Here is how it looks like inside of this directory:
+   Here is how it looks like inside of this directory. You can see both the automatically created alias as well as the newly manually created one:
 
    .. runrecord:: _examples/DL-101-147-123
       :language: console
@@ -639,7 +660,7 @@ at the time of RIA sibling creation with the ``--shared`` option.
 If it is given, this option configures the permissions in the RIA store for
 multi-users access. Possible values for this option are identical to those of
 ``git init --shared`` and are described in its
-`documentation <https://git-scm.com/docs/git-init#Documentation/git-init.txt---sharedfalsetrueumaskgroupallworldeverybody0xxx>`__.
+`documentation <https://git-scm.com/docs/git-init#Documentation/git-init.txt---sharedfalsetrueumaskgroupallworldeverybodyltpermgt>`__.
 In order for the dataset to be accessible to everyone, for example, ``--shared all``
 could be specified. If access should be limited to a particular Unix
 `group <https://en.wikipedia.org/wiki/File_system_permissions#Traditional_Unix_permissions>`_

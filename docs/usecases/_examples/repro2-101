@@ -1,5 +1,3 @@
 $ datalad create localizer_scans
 $ cd localizer_scans
-[INFO] Creating a new annex repo at /home/me/usecases/repro2/localizer_scans
-[INFO] scanning for unlocked files (this may take some time)
 create(ok): /home/me/usecases/repro2/localizer_scans (dataset)

@@ -1,10 +1,8 @@
 $ datalad uninstall inputs/*
-drop(ok): /home/me/usecases/repro/demo/inputs/ds000001/sub-01/anat/sub-01_T1w.nii.gz (file) [checking http://openneuro.s3.amazonaws.com/ds000001/ds000001_R1.1.0/uncompressed/sub001/anatomy/highres001.nii.gz?versionId=8TJ17W9WInNkQPdiQ9vS7wo8ZJ9llF80...]
-drop(ok): inputs/ds000001 (directory)
-uninstall(ok): inputs/ds000001 (dataset)
-drop(ok): /home/me/usecases/repro/demo/inputs/ds000002/sub-01/anat/sub-01_T1w.nii.gz (file) [checking http://openneuro.s3.amazonaws.com/ds000002/ds000002_R2.0.0/uncompressed/sub-01/anat/sub-01_T1w.nii.gz?versionId=vXK2.bQ360phhPqbVV_n6RMYqaWAy4Dg...]
-drop(ok): inputs/ds000002 (directory)
+drop(ok): inputs/ds000002 (key)
 uninstall(ok): inputs/ds000002 (dataset)
+drop(ok): inputs/ds000001 (key)
+uninstall(ok): inputs/ds000001 (dataset)
 action summary:
-  drop (ok: 4)
+  drop (ok: 2)
   uninstall (ok: 2)

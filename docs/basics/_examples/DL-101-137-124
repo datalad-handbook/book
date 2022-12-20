@@ -1,3 +1,3 @@
 $ git checkout master
-Previous HEAD position was 401df53 add note on git annex whereis
+Previous HEAD position was 51eede3 add note about cloning from paths and recursive datalad get
 Switched to branch 'master'

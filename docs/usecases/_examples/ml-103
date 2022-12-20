@@ -1,10 +1,14 @@
 $ cd ../
 $ datalad create -c text2git -c yoda ml-project
-[INFO] Creating a new annex repo at /home/me/usecases/ml-project 
 [INFO] Running procedure cfg_text2git 
 [INFO] == Command start (output follows) ===== 
 [INFO] == Command exit (modification check follows) ===== 
+run(ok): /home/me/usecases/ml-project (dataset) [/home/adina/env/handbook/bin/python /hom...]
 [INFO] Running procedure cfg_yoda 
 [INFO] == Command start (output follows) ===== 
 [INFO] == Command exit (modification check follows) ===== 
+run(ok): /home/me/usecases/ml-project (dataset) [/home/adina/env/handbook/bin/python /hom...]
 create(ok): /home/me/usecases/ml-project (dataset)
+action summary:
+  create (ok: 1)
+  run (ok: 2)

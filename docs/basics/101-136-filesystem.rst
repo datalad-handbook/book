@@ -383,6 +383,7 @@ has no way of finding out where the file content could be:
 .. runrecord:: _examples/DL-101-136-132
    :language: console
    :workdir: dl-101/DataLad-101
+   :exitcode: 1
    :notes: demonstrate broken symlink with git-annex-whereis
    :cast: 03_git_annex_basics
 
@@ -781,6 +782,7 @@ section.
 
    .. runrecord:: _examples/DL-101-136-162
       :language: console
+      :exitcode: 1
       :workdir: dl-101/mock_user
 
       # navigate back into your dataset
@@ -1036,6 +1038,7 @@ DataLad will safeguard dropping content that it can not retrieve again:
 .. runrecord:: _examples/DL-101-136-178
    :workdir: dl-101/DataLad-101
    :language: console
+   :exitcode: 1
    :notes: datalad does not know how to re-obtain the file, so it complains
    :cast: 03_git_annex_basics
 

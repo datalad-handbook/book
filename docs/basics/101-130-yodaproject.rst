@@ -824,6 +824,7 @@ reproduce your data science project easily from scratch (take a look into the :r
 
    .. runrecord:: _examples/DL-101-130-121
       :language: console
+      :exitcode: 1
       :workdir: dl-101/midtermproject
 
       $ datalad get prediction_report.csv pairwise_relationships.png

@@ -1,7 +1,9 @@
 $ tree /home/me/myriastore
 /home/me/myriastore
-├── 5d2
-│   └── 4f8fb-8339-4fe7-9b64-fec6af4e9676
+├── alias
+│   └── dl-101 -> ../e3e/70682-c209-4cac-629f-6fbed82c07cd
+├── e3e
+│   └── 70682-c209-4cac-629f-6fbed82c07cd
 │       ├── annex
 │       │   └── objects
 │       ├── archives
@@ -33,8 +35,6 @@ $ tree /home/me/myriastore
 │       │   ├── heads
 │       │   └── tags
 │       └── ria-layout-version
-├── alias
-│   └── dl-101 -> ../5d2/4f8fb-8339-4fe7-9b64-fec6af4e9676
 ├── error_logs
 └── ria-layout-version
 

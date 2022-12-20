@@ -1,1 +1,2 @@
 $ datalad drop --reckless availability a.pdf
+drop(ok): a.pdf (file)

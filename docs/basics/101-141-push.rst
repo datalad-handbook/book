@@ -161,6 +161,7 @@ As an example, consider what happens if we attempt a :command:`datalad push` to 
 
 .. runrecord:: _examples/DL-101-141-101
    :language: console
+   :exitcode: 1
    :workdir: dl-101/DataLad-101
 
    $ datalad push --to roommate

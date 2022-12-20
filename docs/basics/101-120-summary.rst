@@ -41,7 +41,7 @@ sharing a dataset with a simple example.
 * Because an installed dataset knows its origin -- the place it was
   originally installed from -- it can be kept up-to-date with the
   :command:`datalad update` command. This command will query the origin of the
-  dataset for updates, and a :command:`datalad update --merge` will integrate
+  dataset for updates, and a :command:`datalad update --how merge` will integrate
   these changes into the dataset copy.
 
 * Thus, using DataLad, data can be easily shared and kept up to date
@@ -81,7 +81,7 @@ away and how annexed content first needs to be retrieved, how easy a
 specified, how a datasets history is shared and not only its data.
 
 Lastly, with the configuration of a sibling, you have experienced one
-way to collaborate in a dataset, and with :command:`datalad update --merge`
+way to collaborate in a dataset, and with :command:`datalad update --how merge`
 and :command:`datalad update`, you also glimpsed into more advances aspects
 of Git, namely the concept of a branch.
 

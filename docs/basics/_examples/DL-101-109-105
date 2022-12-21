@@ -1,13 +1,13 @@
 $ git log -n 2
-commit 77bc37dfb2b0708e36c456ec19e350029e7cbf2e
+commit 9997fded68338a93a9f214de333077164d210df9
 Author: Elena Piscopia <elena@example.net>
-Date:   Tue Jun 18 16:13:00 2019 +0200
+Date:   Tue Jun 18 16:13:00 2019 +0000
 
     BF: list both directories content
 
-commit a4622a5460845b70ad90b70fe069cba6419628a8
+commit bf4aa3496af9b002933880849a798450d822fd99
 Author: Elena Piscopia <elena@example.net>
-Date:   Tue Jun 18 16:13:00 2019 +0200
+Date:   Tue Jun 18 16:13:00 2019 +0000
 
     [DATALAD RUNCMD] create a list of podcast titles
 

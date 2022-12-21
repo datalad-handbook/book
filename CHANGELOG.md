@@ -3,6 +3,36 @@
 All notable changes to this project between releases will be documented in this
 file.
 
+## v0.17 (December 20 2022) -- Better late than never
+
+Handbook release matching the release of DataLad v0.17.0, which was for the most part only an internal change to a different testing framework (pytest instead of nose)
+
+
+It includes contributions the new contributors @Arshitha, @ajveltri22, @complexbrains, @jkosciessa, @candleindark, and @asmacdo, as well as contributions from established contributors @mslw, @sappelhoff, @kimsin98, @adswa, @yarikoptic.
+
+
+### Refactoring or deletions
+
+
+### Additions
+- A new walkthrough for the neurohackademy was added ([#852][])
+-
+#### Introduction
+- The installation instructions were updated for Windows ([#872][])([#868][]), conda ([#869][]), and Mac ([#875][])([#859][])([#846][])
+
+#### Basics
+- The midterm project scripts was improved and made functional again ([#854][]), ([#853][])
+- The GitLFS section now mentions a publication dependency for automation ([#842][])
+#### Advanced
+- The `alias` parameter of `create-sibling-ria` is now mentioned ([#855][])
+
+#### Usecases
+
+
+#### Miscellaneous additions
+- The JS-based redirection of the handbook now works around an unintentional prefix-redirection glitch of readthedocs ([#880][])
+- The GitHub repository gained a codespell workflow ([#892][])
+
 ## v0.16 (April 13 2022) -- Spring cleaning
 
 Handbook release matching the release of DataLad v0.16.0.
@@ -392,3 +422,16 @@ Alpha stage release with handbook content covering most of the core commands.
 [#723]: https://github.com/datalad-handbook/book/pull/723
 [#724]: https://github.com/datalad-handbook/book/pull/724
 [#743]: https://github.com/datalad-handbook/book/pull/743
+[#842]: https://github.com/datalad-handbook/book/pull/842
+[#845]: https://github.com/datalad-handbook/book/pull/845
+[#846]: https://github.com/datalad-handbook/book/pull/846
+[#852]: https://github.com/datalad-handbook/book/pull/852
+[#853]: https://github.com/datalad-handbook/book/pull/853
+[#854]: https://github.com/datalad-handbook/book/pull/854
+[#859]: https://github.com/datalad-handbook/book/pull/859
+[#868]: https://github.com/datalad-handbook/book/pull/868
+[#869]: https://github.com/datalad-handbook/book/pull/869
+[#872]: https://github.com/datalad-handbook/book/pull/872
+[#875]: https://github.com/datalad-handbook/book/pull/875
+[#880]: https://github.com/datalad-handbook/book/pull/880
+[#892]: https://github.com/datalad-handbook/book/pull/892

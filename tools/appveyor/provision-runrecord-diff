@@ -1,0 +1,10 @@
+#!/bin/bash
+
+set -e -u
+
+printf "\n#\n#\n#\n# Runrecord diff\n#\n"
+git --no-pager diff --color-moved=dimmed-zebra -- docs
+printf "\n\n\n\n"
+git diff -- docs > "$1"
+appveyor PushArtifact "$1"
+printf "\n#\n# Diff download\n%s\n\n" "https://ci.appveyor.com/api/projects/mih/book/artifacts/$1"

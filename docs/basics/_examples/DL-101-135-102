@@ -8,27 +8,27 @@ $ datalad wtf
     - config_file: /home/me/.config/python_keyring/keyringrc.cfg
     - data_root: /home/me/.local/share/python_keyring
 ## datalad
-  - version: 0.17.10+2.g23b376756
+  - version: 0.17.10
 ## dataset
   - branches:
     - git-annex@<REDACTED-GITSHA>
-    - master@90f3ec0
-    - sct_computational_reproducibility@90f3ec0
-    - sct_create_a_dataset@24acc0a
-    - sct_datalad_rerun@35769e1
-    - sct_input_and_output@9fed9dc
-    - sct_install_datasets@98db0ec
-    - sct_keeping_track@a4622a5
-    - sct_looking_without_touching@51eede3
-    - sct_modify_content@469f388
-    - sct_more_on_DYI_configurations@4c39ad7
-    - sct_more_on_dataset_nesting@3adfd39
-    - sct_networking@3dee0dc
-    - sct_populate_a_dataset@b47b42a
-    - sct_retrace_and_reenact@3722356
-    - sct_stay_up_to_date@1c6a22d
-    - sct_where_is_waldo@3722356
-    - sct_yoda_project@2dbbd41
+    - master@2ce17ce
+    - sct_computational_reproducibility@2ce17ce
+    - sct_create_a_dataset@532908d
+    - sct_datalad_rerun@9f1f034
+    - sct_input_and_output@cbcda16
+    - sct_install_datasets@efa4e4d
+    - sct_keeping_track@bf4aa34
+    - sct_looking_without_touching@fd551f7
+    - sct_modify_content@d458812
+    - sct_more_on_DYI_configurations@f7716e8
+    - sct_more_on_dataset_nesting@3a3a860
+    - sct_networking@dbe7e42
+    - sct_populate_a_dataset@049b794
+    - sct_retrace_and_reenact@11b542b
+    - sct_stay_up_to_date@f70d195
+    - sct_where_is_waldo@11b542b
+    - sct_yoda_project@7348737
   - id: e3e70682-c209-4cac-629f-6fbed82c07cd
   - metadata: <SENSITIVE, report disabled by configuration>
   - path: /home/me/dl-101/DataLad-101
@@ -37,18 +37,20 @@ $ datalad wtf
   - annexremote: 1.6.0
   - boto: 2.49.0
   - cmd:7z: 16.02
-  - cmd:annex: 10.20220504-1~ndall+1
-  - cmd:bundled-git: 2.30.2
-  - cmd:git: 2.30.2
-  - cmd:ssh: 9.1p1
+  - cmd:annex: 10.20221105-g4c291fafb
+  - cmd:bundled-git: UNKNOWN
+  - cmd:git: 2.38.1
+  - cmd:ssh: 8.2p1
   - cmd:system-git: 2.38.1
-  - cmd:system-ssh: 9.1p1
-  - humanize: 4.3.0
-  - iso8601: 1.0.2
-  - keyring: 23.8.2
-  - keyrings.alt: 4.1.1
+  - cmd:system-ssh: 8.2p1
+  - git: 3.1.29
+  - gitdb: 4.0.10
+  - humanize: 4.4.0
+  - iso8601: 1.1.0
+  - keyring: 23.13.1
+  - keyrings.alt: 4.2.0
   - msgpack: 1.0.4
-  - platformdirs: 2.5.2
+  - platformdirs: 2.6.0
   - requests: 2.28.1
 ## environment
   - GIT_AUTHOR_DATE: 2019-06-18T16:13:00
@@ -61,7 +63,7 @@ $ datalad wtf
   - LANG: en_US.UTF-8
   - LANGUAGE: en_US:en
   - LC_CTYPE: en_US.UTF-8
-  - PATH: VIRTUALENV/bin:/usr/local/bin:/usr/bin:/bin:/usr/games:/home/mih/bin:/home/mih/bin/pycharm/bin:/home/mih/.yarn/bin
+  - PATH: REDACTED
 ## extensions
   - container:
     - description: Containerized environments
@@ -96,150 +98,7 @@ $ datalad wtf
           - containers_run
     - load_error: None
     - module: datalad_container
-    - version: 1.1.6
-  - datalad_debian:
-    - description: DataLad for working with Debian packages
-    - entrypoints:
-      - datalad_debian.add_distribution.AddDistribution:
-        - class: AddDistribution
-        - load_error: None
-        - module: datalad_debian.add_distribution
-        - names:
-          - deb-add-distribution
-          - deb_add_distribution
-      - datalad_debian.bootstrap_builder.BootstrapBuilder:
-        - class: BootstrapBuilder
-        - load_error: None
-        - module: datalad_debian.bootstrap_builder
-        - names:
-          - deb-bootstrap-builder
-          - deb_bootstrap_builder
-      - datalad_debian.build_package.BuildPackage:
-        - class: BuildPackage
-        - load_error: None
-        - module: datalad_debian.build_package
-        - names:
-          - deb-build-package
-          - deb_build_package
-      - datalad_debian.configure_builder.ConfigureBuilder:
-        - class: ConfigureBuilder
-        - load_error: None
-        - module: datalad_debian.configure_builder
-        - names:
-          - deb-configure-builder
-          - deb_configure_builder
-      - datalad_debian.new_distribution.NewDistribution:
-        - class: NewDistribution
-        - load_error: None
-        - module: datalad_debian.new_distribution
-        - names:
-          - deb-new-distribution
-          - deb_new_distribution
-      - datalad_debian.new_package.NewPackage:
-        - class: NewPackage
-        - load_error: None
-        - module: datalad_debian.new_package
-        - names:
-          - deb-new-package
-          - deb_new_package
-      - datalad_debian.new_reprepro_repository.NewRepreproRepository:
-        - class: NewRepreproRepository
-        - load_error: None
-        - module: datalad_debian.new_reprepro_repository
-        - names:
-          - deb-new-reprepro-repository
-          - deb_new_reprepro_repository
-      - datalad_debian.update_reprepro_repository.UpdateRepreproRepository:
-        - class: UpdateRepreproRepository
-        - load_error: None
-        - module: datalad_debian.update_reprepro_repository
-        - names:
-          - deb-update-reprepro-repository
-          - deb_update_reprepro_repository
-    - load_error: None
-    - module: datalad_debian
-    - version: 0.0.1+16.g069c3c6
-  - ebrains:
-    - description: HBP/EBRAINS support
-    - entrypoints:
-      - datalad_ebrains.authenticate.Authenticate:
-        - class: Authenticate
-        - load_error: None
-        - module: datalad_ebrains.authenticate
-        - names:
-          - ebrains-authenticate
-          - ebrains_authenticate
-      - datalad_ebrains.clone.Clone:
-        - class: Clone
-        - load_error: None
-        - module: datalad_ebrains.clone
-        - names:
-          - ebrains-clone
-          - ebrains_clone
-    - load_error: None
-    - module: datalad_ebrains
-    - version: 0+untagged.70.g59a9263
-  - gooey:
-    - description: Gooey (GUI)
-    - entrypoints:
-      - datalad_gooey.askpass.GooeyAskPass:
-        - class: GooeyAskPass
-        - load_error: None
-        - module: datalad_gooey.askpass
-        - names:
-          - gooey-askpass
-          - gooey_askpass
-      - datalad_gooey.gooey.Gooey:
-        - class: Gooey
-        - load_error: None
-        - module: datalad_gooey.gooey
-        - names:
-      - datalad_gooey.lsdir.GooeyLsDir:
-        - class: GooeyLsDir
-        - load_error: None
-        - module: datalad_gooey.lsdir
-        - names:
-          - gooey-lsdir
-          - gooey_lsdir
-      - datalad_gooey.status_light.GooeyStatusLight:
-        - class: GooeyStatusLight
-        - load_error: None
-        - module: datalad_gooey.status_light
-        - names:
-          - gooey-status-light
-          - gooey_status_light
-    - load_error: None
-    - module: datalad_gooey
-    - version: 0.2.0
-  - next:
-    - description: What is next in DataLad
-    - entrypoints:
-      - datalad_next.commands.create_sibling_webdav.CreateSiblingWebDAV:
-        - class: CreateSiblingWebDAV
-        - load_error: None
-        - module: datalad_next.commands.create_sibling_webdav
-        - names:
-          - create-sibling-webdav
-      - datalad_next.commands.credentials.Credentials:
-        - class: Credentials
-        - load_error: None
-        - module: datalad_next.commands.credentials
-        - names:
-      - datalad_next.commands.download.Download:
-        - class: Download
-        - load_error: None
-        - module: datalad_next.commands.download
-        - names:
-          - download
-      - datalad_next.commands.tree.TreeCommand:
-        - class: TreeCommand
-        - load_error: None
-        - module: datalad_next.commands.tree
-        - names:
-          - tree
-    - load_error: None
-    - module: datalad_next
-    - version: 0.6.3+211.gdedaf93
+    - version: 1.1.8
 ## git-annex
   - build flags:
     - Assistant
@@ -250,6 +109,7 @@ $ datalad wtf
     - DesktopNotify
     - TorrentParser
     - MagicMime
+    - Benchmark
     - Feeds
     - Testsuite
     - S3
@@ -316,7 +176,7 @@ $ datalad wtf
     - WORM
     - URL
     - X*
-  - local repository version: 8
+  - local repository version: 10
   - operating system: linux x86_64
   - remote types:
     - git
@@ -354,67 +214,75 @@ $ datalad wtf
     - 8
     - 9
     - 10
-  - version: 10.20220504-1~ndall+1
+  - version: 10.20221105-g4c291fafb
 ## location
   - path: /home/me/dl-101/DataLad-101
   - type: dataset
 ## metadata_extractors
   - annex:
-    - distribution: datalad 0.17.9+84.ge23154a54
+    - distribution: datalad 0.17.10
     - load_error: None
     - module: datalad.metadata.extractors.annex
   - audio:
-    - distribution: datalad 0.17.9+84.ge23154a54
+    - distribution: datalad 0.17.10
     - load_error: ModuleNotFoundError(No module named 'mutagen')
     - module: datalad.metadata.extractors.audio
   - datacite:
-    - distribution: datalad 0.17.9+84.ge23154a54
+    - distribution: datalad 0.17.10
     - load_error: None
     - module: datalad.metadata.extractors.datacite
   - datalad_core:
-    - distribution: datalad 0.17.9+84.ge23154a54
+    - distribution: datalad 0.17.10
     - load_error: None
     - module: datalad.metadata.extractors.datalad_core
   - datalad_rfc822:
-    - distribution: datalad 0.17.9+84.ge23154a54
+    - distribution: datalad 0.17.10
     - load_error: None
     - module: datalad.metadata.extractors.datalad_rfc822
   - exif:
-    - distribution: datalad 0.17.9+84.ge23154a54
+    - distribution: datalad 0.17.10
     - load_error: ModuleNotFoundError(No module named 'exifread')
     - module: datalad.metadata.extractors.exif
   - frictionless_datapackage:
-    - distribution: datalad 0.17.9+84.ge23154a54
+    - distribution: datalad 0.17.10
     - load_error: None
     - module: datalad.metadata.extractors.frictionless_datapackage
   - image:
-    - distribution: datalad 0.17.9+84.ge23154a54
+    - distribution: datalad 0.17.10
     - load_error: None
     - module: datalad.metadata.extractors.image
   - xmp:
-    - distribution: datalad 0.17.9+84.ge23154a54
+    - distribution: datalad 0.17.10
     - load_error: ModuleNotFoundError(No module named 'libxmp')
     - module: datalad.metadata.extractors.xmp
 ## metadata_indexers
 ## python
   - implementation: CPython
-  - version: 3.10.8
+  - version: 3.8.10
 ## system
-  - distribution: debian/n/a/bookworm
+  - distribution: ubuntu/20.04/focal
   - encoding:
     - default: utf-8
     - filesystem: utf-8
     - locale.prefered: UTF-8
   - filesystem:
     - CWD:
+      - max_pathlength: 4096
+      - mount_opts: rw,relatime
       - path: /home/me/dl-101/DataLad-101
+      - type: ext4
     - HOME:
+      - max_pathlength: 4096
+      - mount_opts: rw,relatime
       - path: /home/me
+      - type: ext4
     - TMP:
+      - max_pathlength: 4096
+      - mount_opts: rw,relatime
       - path: /tmp
+      - type: ext4
   - max_path_length: 283
   - name: Linux
-  - release: 6.0.0-4-amd64
+  - release: 5.15.0-1022-azure
   - type: posix
-  - version: #1 SMP PREEMPT_DYNAMIC Debian 6.0.8-1 (2022-11-11)
-Hint: install psutil to get filesystem information
+  - version: #27~20.04.1-Ubuntu SMP Mon Oct 17 02:03:50 UTC 2022

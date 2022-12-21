@@ -3,7 +3,7 @@ $ datalad create -c yoda --dataset . midterm_project
 [INFO] Running procedure cfg_yoda
 [INFO] == Command start (output follows) =====
 [INFO] == Command exit (modification check follows) =====
-run(ok): /home/me/dl-101/DataLad-101/midterm_project (dataset) [VIRTUALENV/bin/python /ho...]
+run(ok): /home/me/dl-101/DataLad-101/midterm_project (dataset) [VIRTUALENV/bin/python /home/a...]
 add(ok): midterm_project (file)
 add(ok): .gitmodules (file)
 save(ok): . (dataset)

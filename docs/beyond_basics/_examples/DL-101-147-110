@@ -9,10 +9,10 @@ copy(ok): pairwise_relationships.png (file) [to ria-backup-storage...]
 copy(ok): prediction_report.csv (file) [to ria-backup-storage...]
 [INFO] Transfer data
 [INFO] Update availability information
-[INFO] Start enumerating objects 
-[INFO] Start counting objects 
-[INFO] Start compressing objects 
-[INFO] Start writing objects 
+[INFO] Start enumerating objects
+[INFO] Start counting objects
+[INFO] Start compressing objects
+[INFO] Start writing objects
 [INFO] Start resolving deltas
 publish(ok): . (dataset) [refs/heads/master->ria-backup:refs/heads/master [new branch]]
 publish(ok): . (dataset) [refs/heads/git-annex->ria-backup:refs/heads/git-annex [new branch]]

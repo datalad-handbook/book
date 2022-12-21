@@ -1,6 +1,6 @@
 $ cat .datalad/config
 [datalad "dataset"]
-	id = 84825421-d201-43a5-945c-530d66e4f992
+	id = d95bafc8-f2a4-d27b-dcf4-bb99f4bea973
 [datalad "containers.midterm-software"]
 	image = .datalad/environments/midterm-software/image
 	cmdexec = singularity exec {img} {cmd}

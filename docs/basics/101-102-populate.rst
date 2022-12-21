@@ -56,7 +56,6 @@ are presented here, make sure to check the :windows-wit:`on peculiarities of its
 .. runrecord:: _examples/DL-101-102-103
    :language: console
    :workdir: dl-101/DataLad-101
-   :realcommand: cd books && wget -nv https://sourceforge.net/projects/linuxcommand/files/TLCL/19.01/TLCL-19.01.pdf/download -O TLCL.pdf && wget -nv https://github.com/swaroopch/byte-of-python/releases/download/v14558db59a326ba99eda0da6c4548c48ccb4cd0f/byte-of-python.pdf -O byte-of-python.pdf && cd ../
    :cast: 01_dataset_basics
    :notes: We use wget to download a few books from the web. CAVE: longish realcommand!
 
@@ -233,7 +232,6 @@ Let's try this by adding yet another book, a good reference work about git,
 .. runrecord:: _examples/DL-101-102-108
    :language: console
    :workdir: dl-101/DataLad-101
-   :realcommand: cd books && wget -nv https://github.com/progit/progit2/releases/download/2.1.154/progit.pdf && cd ../
    :cast: 01_dataset_basics
    :notes: Its inconvenient that we saved two books together - we should have saved them as independent modifications of the dataset. To see how single modifications can be saved, let's download another book
 

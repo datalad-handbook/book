@@ -169,6 +169,8 @@ independent dataset from scratch in a :ref:`dedicated Findoutmore <fom-iris>`.
    .. runrecord:: _examples/DL-101-130-101
       :language: console
       :workdir: dl-101/DataLad-101
+      :env:
+         DATALAD_SEED=1
 
       # make sure to move outside of DataLad-101!
       $ cd ../
@@ -219,6 +221,8 @@ you use the ``cfg_yoda`` procedure to help you structure the dataset [#f1]_:
    :language: console
    :workdir: dl-101/DataLad-101
    :cast: 10_yoda
+   :env:
+      DATALAD_SEED=2
    :notes: Let's create a data analysis project with a yoda procedure
 
    # inside of DataLad-101
@@ -824,6 +828,7 @@ reproduce your data science project easily from scratch (take a look into the :r
 
    .. runrecord:: _examples/DL-101-130-121
       :language: console
+      :exitcode: 1
       :workdir: dl-101/midtermproject
 
       $ datalad get prediction_report.csv pairwise_relationships.png

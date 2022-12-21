@@ -4,11 +4,12 @@ $ datalad download-url \
   --archive \
   --message "Download Imagenette dataset" \
   'https://osf.io/d6qbz/download'
-[INFO] Downloading 'https://osf.io/d6qbz/download' into '/home/me/usecases/imagenette/'
+[INFO] Downloading 'https://osf.io/d6qbz/download' into '/home/me/usecases/imagenette/' 
 [INFO] Adding content of the archive /home/me/usecases/imagenette/imagenette2-160.tgz into annex AnnexRepo(/home/me/usecases/imagenette) 
-[INFO] Initiating special remote datalad-archives 
-[INFO] Finished adding /home/me/usecases/imagenette/imagenette2-160.tgz: Files processed: 2701, +annex: 2701
-[INFO] Finished extraction
+[INFO] Initializing special remote datalad-archives 
+[INFO] Extracting archive 
+[INFO] Finished adding /home/me/usecases/imagenette/imagenette2-160.tgz: Files processed: 2701, +annex: 2701 
+[INFO] Finished extraction 
 download_url(ok): /home/me/usecases/imagenette/imagenette2-160.tgz (file)
 save(ok): . (dataset)
 add-archive-content(ok): /home/me/usecases/imagenette (dataset)

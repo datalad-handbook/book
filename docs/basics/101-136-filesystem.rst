@@ -41,6 +41,7 @@ moving a file, and uses the :command:`mv` command.
 .. runrecord:: _examples/DL-101-136-101
    :language: console
    :workdir: dl-101/DataLad-101
+   :realcommand: cd books/ && mv TLCL.pdf The_Linux_Command_Line.pdf && ls -lah --time-style=long-iso
    :notes: Let's look into file system operations. What does renaming does to a file that is symlinked?
    :cast: 03_git_annex_basics
 
@@ -213,6 +214,7 @@ at the symlink:
 .. runrecord:: _examples/DL-101-136-121
    :language: console
    :workdir: dl-101/DataLad-101/books
+   :realcommand: cd .. && ls -l --time-style=long-iso TLCL.pdf
    :notes: currently the symlink is broken! it points into nowhere
    :cast: 03_git_annex_basics
 
@@ -232,6 +234,7 @@ rectify this as well:
 .. runrecord:: _examples/DL-101-136-122
    :language: console
    :workdir: dl-101/DataLad-101
+   :realcommand: datalad save -m "moved book into root" && ls -l --time-style=long-iso TLCL.pdf
    :notes: but a save rectifies it
    :cast: 03_git_annex_basics
 
@@ -380,6 +383,7 @@ has no way of finding out where the file content could be:
 .. runrecord:: _examples/DL-101-136-132
    :language: console
    :workdir: dl-101/DataLad-101
+   :exitcode: 1
    :notes: demonstrate broken symlink with git-annex-whereis
    :cast: 03_git_annex_basics
 
@@ -508,6 +512,7 @@ That's it.
    .. runrecord:: _examples/DL-101-136-143
       :language: console
       :workdir: dl-101/DataLad-101
+      :realcommand: ls -l --time-style=long-iso copyofTLCL.pdf && ls -l --time-style=long-iso books/TLCL.pdf
       :notes: A cool thing is that the two identical files link to the same place in the object tree
       :cast: 03_git_annex_basics
 
@@ -777,6 +782,7 @@ section.
 
    .. runrecord:: _examples/DL-101-136-162
       :language: console
+      :exitcode: 1
       :workdir: dl-101/mock_user
 
       # navigate back into your dataset
@@ -1016,7 +1022,7 @@ If a file has no verified remote copies, DataLad will only drop its
 content if the user enforces it.
 DataLad versions prior to ``0.16`` need to enforce dropping using the ``--nocheck`` option, while DataLad version ``0.16`` and up need to enforce dropping using the ``--reckless [MODE]`` option, where ``[MODE]`` is either ``modification`` (drop despite unsaved modifications) ``availability`` (drop even though no other copy is known) ``undead`` (only for datasets; would drop a dataset without announcing its death to linked dataset clones) or ``kill`` (no safety checks at all are run).
 While the ``--reckless`` parameter sounds more complex, it ensures a safer operation than the previous ``--nocheck`` implementation.
-We will demonstrate this by generating a random PDF file:
+We will demonstrate this by generating an empty file:
 
 .. runrecord:: _examples/DL-101-136-177
    :workdir: dl-101/DataLad-101
@@ -1024,14 +1030,15 @@ We will demonstrate this by generating a random PDF file:
    :notes: the content could be dropped bc the file was obtained with datalad, and dl knows where to retrieve the file again. If this isn't the case, datalad will complain. Let's try:
    :cast: 03_git_annex_basics
 
-   $ convert xc:none -page Letter a.pdf
-   $ datalad save -m "add empty pdf"
+   $ dd if=/dev/zero | head -c 18520 > a.pdf
+   $ datalad save -m "add some file" a.pdf
 
 DataLad will safeguard dropping content that it can not retrieve again:
 
 .. runrecord:: _examples/DL-101-136-178
    :workdir: dl-101/DataLad-101
    :language: console
+   :exitcode: 1
    :notes: datalad does not know how to re-obtain the file, so it complains
    :cast: 03_git_annex_basics
 
@@ -1188,7 +1195,7 @@ Afterwards, ``rm -rf <dataset>`` will succeed.
 However, instead of ``rm -rf``, a faster way to remove a dataset is using
 :command:`datalad remove`: Run ``datalad remove <dataset>`` outside of the
 superdataset to remove a top-level dataset with all its contents. Likely,
-both  ``--recursive`` and ``--nocheck`` (for DataLad versions ``<0.16``) or ``--reckless [availabilty|undead|kill]`` (for DataLad versions ``0.16`` and higher) flags are necessary
+both  ``--recursive`` and ``--nocheck`` (for DataLad versions ``<0.16``) or ``--reckless [availability|undead|kill]`` (for DataLad versions ``0.16`` and higher) flags are necessary
 to traverse into subdatasets and to remove content that does not have verified remotes.
 
 Be aware though that both ways to delete a dataset will

@@ -1,7 +1,7 @@
 $ git log -p -1
-commit fdfe6130174ffbf5f8c000e6fd10724a77e4722e
+commit 6babf87e5217be88149cda15499265915424bfac
 Author: Elena Piscopia <elena@example.net>
-Date:   Sun Jul 31 14:47:21 2022 -0700
+Date:   Tue Jun 18 16:13:00 2019 +0000
 
     [DATALAD] Recorded changes
 

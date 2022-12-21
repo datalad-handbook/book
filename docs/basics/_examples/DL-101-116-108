@@ -2,14 +2,14 @@ $ tree
 .
 ├── books
 │   ├── bash_guide.pdf -> ../.git/annex/objects/WF/Gq/MD5E-s1198170--0ab2c121bcf68d7278af266f6a399c5f.pdf/MD5E-s1198170--0ab2c121bcf68d7278af266f6a399c5f.pdf
-│   ├── byte-of-python.pdf -> ../.git/annex/objects/z1/Q8/MD5E-s4208954--ab3a8c2f6b76b18b43c5949e0661e266.pdf/MD5E-s4208954--ab3a8c2f6b76b18b43c5949e0661e266.pdf
+│   ├── byte-of-python.pdf -> ../.git/annex/objects/P5/qK/MD5E-s2693891--e61afe4b3c5d76c849c4e61f6547ed03.pdf/MD5E-s2693891--e61afe4b3c5d76c849c4e61f6547ed03.pdf
 │   ├── progit.pdf -> ../.git/annex/objects/G6/Gj/MD5E-s12465653--05cd7ed561d108c9bcf96022bc78a92c.pdf/MD5E-s12465653--05cd7ed561d108c9bcf96022bc78a92c.pdf
 │   └── TLCL.pdf -> ../.git/annex/objects/jf/3M/MD5E-s2120211--06d1efcb05bb2c55cd039dab3fb28455.pdf/MD5E-s2120211--06d1efcb05bb2c55cd039dab3fb28455.pdf
 ├── code
 │   └── list_titles.sh
 ├── notes.txt
 └── recordings
-    ├── interval_logo_small.jpg -> ../.git/annex/objects/jx/KK/MD5E-s100593--c4b4290cb5d616154e80cddee76cb756.jpg/MD5E-s100593--c4b4290cb5d616154e80cddee76cb756.jpg
+    ├── interval_logo_small.jpg -> ../.git/annex/objects/pw/Mf/MD5E-s70348--4b2ec0db16882082d6bddffbabcfc45b.jpg/MD5E-s70348--4b2ec0db16882082d6bddffbabcfc45b.jpg
     ├── longnow
     │   ├── Long_Now__Conversations_at_The_Interval
     │   │   ├── 2017_06_09__How_Digital_Memory_Is_Shaping_Our_Future__Abby_Smith_Rumsey.mp3 -> ../.git/annex/objects/8j/kQ/MD5E-s66305442--c723d53d207e6d82dd64c3909a6a93b0.mp3/MD5E-s66305442--c723d53d207e6d82dd64c3909a6a93b0.mp3
@@ -249,6 +249,6 @@ $ tree
     │   │   └── 2019_06_25__Mariana_Mazzucato__Rethinking_Value.mp3 -> ../.git/annex/objects/ZX/20/MD5E-s86261109--936051776c8074e90e99f9de9c2ea818.mp3/MD5E-s86261109--936051776c8074e90e99f9de9c2ea818.mp3
     │   └── README.md
     ├── podcasts.tsv
-    └── salt_logo_small.jpg -> ../.git/annex/objects/xJ/4G/MD5E-s260607--4e695af0f3e8e836fcfc55f815940059.jpg/MD5E-s260607--4e695af0f3e8e836fcfc55f815940059.jpg
+    └── salt_logo_small.jpg -> ../.git/annex/objects/fZ/wg/MD5E-s76402--87da732ff6d9a92c6afcaed7fefb133f.jpg/MD5E-s76402--87da732ff6d9a92c6afcaed7fefb133f.jpg
 
 6 directories, 244 files

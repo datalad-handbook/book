@@ -150,6 +150,7 @@ small size of ~130 Bytes:
 .. runrecord:: _examples/DL-101-115-103
    :language: console
    :workdir: dl-101/DataLad-101/books
+   :realcommand: ls -lah --time-style=long-iso
    :notes: Symlinks are super small in size, just the amount of characters in the symlink!
    :cast: 03_git_annex_basics
 
@@ -229,6 +230,7 @@ to manage the file system in a DataLad dataset (:ref:`filesystem`).
    .. runrecord:: _examples/DL-101-115-104
       :language: console
       :workdir: dl-101/DataLad-101/books
+      :realcommand: ls -lah --time-style=long-iso TLCL.pdf
       :notes: how does the symlink relate to the shasum of the file?
       :cast: 03_git_annex_basics
 

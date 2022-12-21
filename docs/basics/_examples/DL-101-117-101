@@ -4,10 +4,9 @@ $ cd ../mock_user/DataLad-101
 $ cd recordings/longnow
 # file content exists in original DataLad-101 for this file
 $ git annex whereis Long_Now__Seminars_About_Long_term_Thinking/2003_11_15__Brian_Eno__The_Long_Now.mp3
-whereis Long_Now__Seminars_About_Long_term_Thinking/2003_11_15__Brian_Eno__The_Long_Now.mp3 (3 copies) 
+whereis Long_Now__Seminars_About_Long_term_Thinking/2003_11_15__Brian_Eno__The_Long_Now.mp3 (2 copies)
   	00000000-0000-0000-0000-000000000001 -- web
-   	da3bf937-5bd2-43ea-a07b-bcbe71f3b875 -- mih@medusa:/tmp/seminars-on-longterm-thinking
-	eb47bf12-2366-495d-80a6-2861eb665f06 -- me@muninn:~/dl-101/DataLad-101/recordings/longnow [origin]
+   	REDACTED-UUID -- mih@medusa:/tmp/seminars-on-longterm-thinking
 
   web: http://podcast.longnow.org/salt/redirect/salt-020031114-eno-podcast.mp3
 ok

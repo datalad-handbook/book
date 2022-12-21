@@ -490,8 +490,8 @@ dataset ID:
 
 .. runrecord:: _examples/DL-101-147-120
    :language: console
-   :workdir: dl-101
-   :realcommand: echo "$ datalad clone ria+file:///home/me/myriastore#$(datalad -C DataLad-101 -f'{infos[dataset][id]}' wtf) myclone" && datalad clone ria+file:///home/me/myriastore#$(datalad -C DataLad-101 -f'{infos[dataset][id]}' wtf) myclone
+   :workdir: beyond_basics
+   :realcommand: echo "$ datalad clone ria+file:///home/me/myriastore#$(datalad -C /home/me/dl-101/DataLad-101 -f'{infos[dataset][id]}' wtf) myclone" && datalad clone ria+file:///home/me/myriastore#$(datalad -C /home/me/dl-101/DataLad-101 -f'{infos[dataset][id]}' wtf) myclone
 
 There are two downsides to this method: For one, it is hard to type, remember, and
 know the dataset ID of a desired dataset. Secondly, if no additional path is given to
@@ -517,7 +517,7 @@ an alias ``dl-101``, the above call would simplify to
 
    .. runrecord:: _examples/DL-101-147-121
       :language: console
-      :workdir: dl-101
+      :workdir: beyond_basics
       :realcommand: echo "$ mkdir /home/me/myriastore/alias"
 
 
@@ -526,14 +526,14 @@ an alias ``dl-101``, the above call would simplify to
 
    .. runrecord:: _examples/DL-101-147-122
       :language: console
-      :workdir: dl-101
-      :realcommand: echo "$ ln -s /home/me/myriastore/$(datalad -C DataLad-101/midterm_project -f'{infos[dataset][id]}' wtf | sed 's/^\(...\)\(.*\)/\1\/\2/') /home/me/myriastore/alias/midterm_project" && ln -s /home/me/myriastore/$(datalad -C DataLad-101/midterm_project -f'{infos[dataset][id]}' wtf | sed 's/^\(...\)\(.*\)/\1\/\2/') /home/me/myriastore/alias/midterm_project
+      :workdir: beyond_basics
+      :realcommand: echo "$ ln -s /home/me/myriastore/$(datalad -C /home/me/dl-101/DataLad-101/midterm_project -f'{infos[dataset][id]}' wtf | sed 's/^\(...\)\(.*\)/\1\/\2/') /home/me/myriastore/alias/midterm_project" && ln -s /home/me/myriastore/$(datalad -C /home/me/dl-101/DataLad-101/midterm_project -f'{infos[dataset][id]}' wtf | sed 's/^\(...\)\(.*\)/\1\/\2/') /home/me/myriastore/alias/midterm_project
 
    Here is how it looks like inside of this directory. You can see both the automatically created alias as well as the newly manually created one:
 
    .. runrecord:: _examples/DL-101-147-123
       :language: console
-      :workdir: dl-101
+      :workdir: beyond_basics
 
       $ tree /home/me/myriastore/alias
 
@@ -542,7 +542,7 @@ an alias ``dl-101``, the above call would simplify to
 
    .. runrecord:: _examples/DL-101-147-124
       :language: console
-      :workdir: dl-101
+      :workdir: beyond_basics
 
       datalad clone ria+file:///home/me/myriastore#~midterm_project
 
@@ -558,7 +558,7 @@ is not yet retrieved from the store and can be obtained with a :command:`datalad
 
 .. runrecord:: _examples/DL-101-147-125
    :language: console
-   :workdir: dl-101
+   :workdir: beyond_basics
 
    $ cd myclone
    $ tree
@@ -567,7 +567,7 @@ To demonstrate file retrieval from the store, let's get an annexed file:
 
 .. runrecord:: _examples/DL-101-147-126
    :language: console
-   :workdir: dl-101/myclone
+   :workdir: beyond_basics/myclone
 
    $ datalad get books/progit.pdf
 
@@ -591,7 +591,7 @@ in the RIA store is discovered and used automatically:
 
 .. runrecord:: _examples/DL-101-147-127
    :language: console
-   :workdir: dl-101/myclone
+   :workdir: beyond_basics/myclone
 
    $ datalad get -n midterm_project
 

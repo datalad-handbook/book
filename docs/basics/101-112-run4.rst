@@ -16,6 +16,7 @@ you think.
    :workdir: dl-101/DataLad-101
    :emphasize-lines: 5
    :notes: mhh, 450x450px seems a bit large, we have to go back to 400. Lets make yet another, complete run command
+   :exitcode: 1
    :cast: 02_reproducible_execution
 
    $ datalad run -m "Resize logo for slides" \

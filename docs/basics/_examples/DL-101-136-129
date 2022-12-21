@@ -4,5 +4,5 @@ $ git reset --hard HEAD~
 # in DataLad-101
 $ cd ../
 $ git reset --hard HEAD~
-HEAD is now at 9f56a5f [DATALAD RUNCMD] rerun analysis in container
-HEAD is now at 5a576b2 add container and execute analysis within container
+HEAD is now at 7e33487 [DATALAD RUNCMD] rerun analysis in container
+HEAD is now at 2ce17ce add container and execute analysis within container

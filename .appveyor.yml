@@ -135,7 +135,7 @@ test_script:
 
 on_success:
   - printf "\n#\n#\n#\n# Runrecord diff\n#\n"
-  - git diff -- docs
+  - git --no-pager diff --color-moved=dimmed-zebra -- docs
   - printf "\n\n\n\n"
   - git diff -- docs > runrecord_diff.txt
   - appveyor PushArtifact runrecord_diff.txt

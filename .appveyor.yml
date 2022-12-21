@@ -90,6 +90,8 @@ init:
 install:
   # Missing system software
   - "[ -n \"$INSTALL_SYSPKGS\" ] && ( sudo apt-get update -qq -y && sudo apt-get install -qq --no-install-recommends -y ${INSTALL_SYSPKGS}; ) || true"
+  # pull latest singularity
+  - tools/install-singularity.sh
   # in case of a snapshot installation, use the following approach to adjust
   # If a particular Python version is requested, use env setup (using the
   # appveyor provided environments/installation). Note, these are broken

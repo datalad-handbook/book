@@ -77,9 +77,6 @@ init:
   # Identity setup
   - git config --global user.email "team@datalad.org"
   - git config --global user.name "DataLad bot"
-  # enable credential store
-  - git config --global credential.helper store
-  - printf "https://%s:x-oauth-basic@github.com\n" ${GH_TOKEN} > "${HOME}/.git-credentials"
   # bootstrap handbook user
   - sudo mkdir /home/me
   - sudo chown $USER:$USER /home/me

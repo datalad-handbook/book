@@ -63,7 +63,7 @@ $ datalad wtf
   - LANG: en_US.UTF-8
   - LANGUAGE: en_US:en
   - LC_CTYPE: en_US.UTF-8
-  - PATH: /tmp/dl-build-ckgs4jqw/git-annex.linux:VIRTUALENV/bin:/home/appveyor/.rvm/gems/ruby-2.7.2/bin:/home/appveyor/.rvm/gems/ruby-2.7.2@global/bin:/home/appveyor/.rvm/rubies/ruby-2.7.2/bin:/home/appveyor/.gvm/pkgsets/go1.19.2/global/bin:/home/appveyor/.gvm/gos/go1.19.2/bin:/home/appveyor/.gvm/pkgsets/go1.19.2/global/overlay/bin:/home/appveyor/.gvm/bin:/home/appveyor/.gvm/bin:/home/appveyor/.nvm/versions/node/v16.18.1/bin:/usr/lib/android-sdk/cmdline-tools/tools/bin:/usr/lib/android-sdk/cmdline-tools/latest/bin:/usr/lib/jvm/java-18-openjdk-amd64//bin:/opt/appveyor/build-agent:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin:/home/appveyor/.dotnet/tools:/home/appveyor/flutter/bin:/home/appveyor/.rvm/bin:/opt/mssql-tools/bin:/home/appveyor/vcpkg
+  - PATH: REDACTED
 ## extensions
   - container:
     - description: Containerized environments

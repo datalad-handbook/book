@@ -1,5 +1,5 @@
 $ datalad run-procedure --discover
-cfg_noannex (/home/mih/hacking/datalad/git/datalad/resources/procedures/cfg_noannex.py) [python_script]
-cfg_metadatatypes (/home/mih/hacking/datalad/git/datalad/resources/procedures/cfg_metadatatypes.py) [python_script]
-cfg_text2git (/home/mih/hacking/datalad/git/datalad/resources/procedures/cfg_text2git.py) [python_script]
-cfg_yoda (/home/mih/hacking/datalad/git/datalad/resources/procedures/cfg_yoda.py) [python_script]
+cfg_noannex (VIRTUALENV/lib/python3.8/site-packages/datalad/resources/procedures/cfg_noannex.py) [python_script]
+cfg_text2git (VIRTUALENV/lib/python3.8/site-packages/datalad/resources/procedures/cfg_text2git.py) [python_script]
+cfg_yoda (VIRTUALENV/lib/python3.8/site-packages/datalad/resources/procedures/cfg_yoda.py) [python_script]
+cfg_metadatatypes (VIRTUALENV/lib/python3.8/site-packages/datalad/resources/procedures/cfg_metadatatypes.py) [python_script]

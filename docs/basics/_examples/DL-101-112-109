@@ -1,7 +1,7 @@
 $ git log -p -n 2
-commit db17294a4c3dea1a9733e74c912228e3c63f8eab
+commit 9e0ec9750c7e518835f7280f742cc76b760ebad5
 Author: Elena Piscopia <elena@example.net>
-Date:   Tue Jun 18 16:13:00 2019 +0200
+Date:   Tue Jun 18 16:13:00 2019 +0000
 
     add note on clean datasets
 
@@ -20,9 +20,9 @@ index 6a465f0..e2829b2 100644
 +those changes done to the files listed with --output flags.
 +
 
-commit 7948b8623305841048fd93e73dcb646c6fa3dcd6
+commit f1c796ff4ef43c5ea550a6464eba69bd7f1f1132
 Author: Elena Piscopia <elena@example.net>
-Date:   Tue Jun 18 16:13:00 2019 +0200
+Date:   Tue Jun 18 16:13:00 2019 +0000
 
     [DATALAD RUNCMD] Resize logo for slides
 
@@ -44,11 +44,11 @@ Date:   Tue Jun 18 16:13:00 2019 +0200
     ^^^ Do not change lines above ^^^
 
 diff --git a/recordings/salt_logo_small.jpg b/recordings/salt_logo_small.jpg
-index b6a0a1d..55ada0f 120000
+index 0985399..d90c601 120000
 --- a/recordings/salt_logo_small.jpg
 +++ b/recordings/salt_logo_small.jpg
 @@ -1 +1 @@
--../.git/annex/objects/1W/zw/MD5E-s317889--c88b2b3f61e13edd33dc8d0a3b15eff7.jpg/MD5E-s317889--c88b2b3f61e13edd33dc8d0a3b15eff7.jpg
+-../.git/annex/objects/jX/gq/MD5E-s87553--4b3c61df2486e3db7a5db905a8946fcb.jpg/MD5E-s87553--4b3c61df2486e3db7a5db905a8946fcb.jpg
 \ No newline at end of file
-+../.git/annex/objects/xJ/4G/MD5E-s260607--4e695af0f3e8e836fcfc55f815940059.jpg/MD5E-s260607--4e695af0f3e8e836fcfc55f815940059.jpg
++../.git/annex/objects/fZ/wg/MD5E-s76402--87da732ff6d9a92c6afcaed7fefb133f.jpg/MD5E-s76402--87da732ff6d9a92c6afcaed7fefb133f.jpg
 \ No newline at end of file

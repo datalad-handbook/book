@@ -1,5 +1,5 @@
 $ datalad --log-level debug status
-[DEBUG] Command line args 1st pass for DataLad 0.17.10+2.g23b376756. Parsed: Namespace() Unparsed: ['status']
+[DEBUG] Command line args 1st pass for DataLad 0.17.10. Parsed: Namespace() Unparsed: ['status']
 [DEBUG] Building doc for <class 'datalad.core.local.status.Status'>
 [DEBUG] Parsing known args among ['VIRTUALENV/bin/datalad', '--log-level', 'debug', 'status']
 [DEBUG] Determined class of decorated function: <class 'datalad.core.local.status.Status'>

@@ -1,15 +1,10 @@
-# This CI setup provides a largely homogeneous configuration across all
-# major platforms (Windows, MacOS, and Linux). The aim of this test setup is
-# to create a "native" platform experience, using as few cross-platform
-# helper tools as possible.
-#
-# On Linux/Mac a virtualenv is used for testing. The effective virtual env
+# On a virtualenv is used for testing. The effective virtual env
 # is available under ~/VENV.
 #
 # All workers support remote login. Login details are shown at the top of each
 # CI run log.
 #
-# - Linux/Mac workers (via SSH):
+# - Linux workers (via SSH):
 #
 #   - A permitted SSH key must be defined in an APPVEYOR_SSH_KEY environment
 #     variable (via the appveyor project settings)
@@ -23,27 +18,6 @@
 #   - to prevent the CI run from exiting, `touch` a file named `BLOCK` in the
 #     user HOME directory (current directory directly after login). The session
 #     will run until the file is removed (or 60 min have passed)
-#
-# - Windows workers (via RDP):
-#
-#   - An RDP password should be defined in an APPVEYOR_RDP_PASSWORD environment
-#     variable (via the appveyor project settings), or a random password is used
-#     every time
-#
-#   - RDP login info is given in the form of IP:PORT
-#
-#   - Login with:
-#
-#     xfreerdp /cert:ignore /dynamic-resolution /u:appveyor /p:<PASSWORD> /v:<LOGIN>
-#
-#   - to prevent the CI run from exiting, create a textfile named `BLOCK` on the
-#     Desktop (a required .txt extension will be added automatically). The session
-#     will run until the file is removed (or 60 min have passed)
-#
-#   - in a terminal execute, for example, `C:\datalad_debug.bat 39` to set up the
-#     environment to debug in a Python 3.8 session (should generally match the
-#     respective CI run configuration).
-
 
 # do not make repository clone cheap: interfers with versioneer
 shallow_clone: false
@@ -52,7 +26,7 @@ shallow_clone: false
 environment:
   DTS: datalad_next
   APPVEYOR_BUILD_WORKER_IMAGE: Ubuntu2004
-  INSTALL_SYSPKGS: python3-virtualenv graphicsmagick-imagemagick-compat moreutils
+  INSTALL_SYSPKGS: python3-virtualenv graphicsmagick-imagemagick-compat moreutils jq
   INSTALL_GITANNEX: git-annex -m snapshot
 
 
@@ -70,26 +44,14 @@ cache:
 build: off
 
 
-# init cannot use any components from the repo, because it runs prior to
-# cloning it
-init:
-  - curl -sflL 'https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-ssh.sh' | bash -e -
-  # Identity setup
-  - git config --global user.email "team@datalad.org"
-  - git config --global user.name "DataLad bot"
-  # enable credential store
-  - git config --global credential.helper store
-  - printf "https://%s:x-oauth-basic@github.com\n" ${GH_TOKEN} > "${HOME}/.git-credentials"
-  # bootstrap handbook user
-  - sudo mkdir /home/me
-  - sudo chown $USER:$USER /home/me
-  - HOME=/home/me git config --global user.name "Elena Piscopia"
-  - HOME=/home/me git config --global user.email "elena@example.net"
-
-
 install:
+  - tools/appveyor/enable-ssh-login
+  - tools/setup-git-identity
+  - tools/bootstrap-handbook-user
   # Missing system software
-  - "[ -n \"$INSTALL_SYSPKGS\" ] && ( sudo apt-get update -qq -y && sudo apt-get install -qq --no-install-recommends -y ${INSTALL_SYSPKGS}; ) || true"
+  - tools/appveyor/install-syspkgs $INSTALL_SYSPKGS
+  # pull latest singularity
+  - tools/appveyor/install-singularity.sh
   # in case of a snapshot installation, use the following approach to adjust
   # If a particular Python version is requested, use env setup (using the
   # appveyor provided environments/installation). Note, these are broken
@@ -98,16 +60,9 @@ install:
   # Otherwise create a virtualenv using the default Python 3, to enable uniform
   # use of python/pip executables below
   - "[ \"x$PY\" != x ] && . ${HOME}/venv${PY}/bin/activate || virtualenv -p 3 ${HOME}/dlvenv && . ${HOME}/dlvenv/bin/activate; ln -s \"$VIRTUAL_ENV\" \"${HOME}/VENV\""
-  # deploy the datalad installer, override version via DATALAD_INSTALLER_VERSION
-  - chronic python -m pip install datalad-installer${DATALAD_INSTALLER_VERSION:-}
-  # the PATH as necessary
-  - "[ -n \"${INSTALL_GITANNEX}\" ] && chronic datalad-installer -E ${HOME}/dlinstaller_env.sh --sudo ok ${INSTALL_GITANNEX}"
-  # add location of datalad installer results to PATH
+  - chronic tools/appveyor/install-git-annex ${INSTALL_GITANNEX}
+  # enable the git-annex provisioned by the installer
   - "[ -f ${HOME}/dlinstaller_env.sh ] && . ${HOME}/dlinstaller_env.sh || true"
-
-
-#before_build:
-#
 
 
 build_script:
@@ -118,10 +73,6 @@ build_script:
   - chronic datalad get . -r -n
 
 
-#after_build:
-#
-
-
 before_test:
   # simple call to see if datalad and git-annex are installed properly
   - datalad wtf
@@ -129,26 +80,20 @@ before_test:
 
 test_script:
   # Wipe out runrecords to trigger rebuild
-  #- rm -f docs/basics/_examples/DL-101-*
-  - rm -f docs/basics/_examples/DL-101-101-101
+  - rm -f docs/basics/_examples/DL-101-*
+  #- rm -f docs/basics/_examples/DL-101-101-101
   - make build
 
 
 on_success:
-  - printf "\n#\n#\n#\n# Runrecord diff\n#\n"
-  - git diff -- docs
-  - printf "\n\n\n\n"
-  - git diff -- docs > runrecord_diff.txt
-  - appveyor PushArtifact runrecord_diff.txt
-  - printf "\n#\n# Diff download\n%s\n\n" "https://ci.appveyor.com/api/projects/mih/book/artifacts/runrecord_diff.txt"
+  - tools/appveyor/provision-runrecord-diff runrecord_diff.txt
 
-#on_failure:
-#
 
 artifacts:
   - path: runrecord_diff.txt
     name: runrecord updates from rebuilding code snippets
     type: File
+
 
 on_finish:
   # conditionally block the exit of a CI run for direct debugging

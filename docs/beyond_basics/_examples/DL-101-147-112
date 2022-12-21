@@ -1,64 +1,9 @@
 $ tree /home/me/myriastore
 /home/me/myriastore
-├── 473
-│   └── 7c80a-1449-4564-b2eb-7036ac593d88
-│       ├── annex
-│       │   └── objects
-│       │       ├── G6
-│       │       │   └── Gj
-│       │       │       └── MD5E-s12465653--05cd7ed561d108c9bcf96022bc78a92c.pdf
-│       │       │           └── MD5E-s12465653--05cd7ed561d108c9bcf96022bc78a92c.pdf
-│       │       ├── jf
-│       │       │   └── 3M
-│       │       │       └── MD5E-s2120211--06d1efcb05bb2c55cd039dab3fb28455.pdf
-│       │       │           └── MD5E-s2120211--06d1efcb05bb2c55cd039dab3fb28455.pdf
-│       │       ├── WF
-│       │       │   └── Gq
-│       │       │       └── MD5E-s1198170--0ab2c121bcf68d7278af266f6a399c5f.pdf
-│       │       │           └── MD5E-s1198170--0ab2c121bcf68d7278af266f6a399c5f.pdf
-│       │       └── z1
-│       │           └── Q8
-│       │               └── MD5E-s4208954--ab3a8c2f6b76b18b43c5949e0661e266.pdf
-│       │                   └── MD5E-s4208954--ab3a8c2f6b76b18b43c5949e0661e266.pdf
-│       ├── archives
-│       ├── branches
-│       ├── config
-│       ├── config.dataladlock
-│       ├── description
-│       ├── HEAD
-│       ├── hooks
-│       │   ├── applypatch-msg.sample
-│       │   ├── commit-msg.sample
-│       │   ├── fsmonitor-watchman.sample
-│       │   ├── post-update.sample
-│       │   ├── pre-applypatch.sample
-│       │   ├── pre-commit.sample
-│       │   ├── pre-merge-commit.sample
-│       │   ├── prepare-commit-msg.sample
-│       │   ├── pre-push.sample
-│       │   ├── pre-rebase.sample
-│       │   ├── pre-receive.sample
-│       │   ├── push-to-checkout.sample
-│       │   └── update.sample
-│       ├── info
-│       │   └── exclude
-│       ├── objects
-│       │   ├── info
-│       │   └── pack
-│       │       ├── pack-814a6acf07f2685de0e05dad20ad6d3edc1d5af1.idx
-│       │       └── pack-814a6acf07f2685de0e05dad20ad6d3edc1d5af1.pack
-│       ├── ora-remote-c5a114f6-b9c4-4ca6-97d2-339e2d6e4ec0
-│       │   └── transfer
-│       ├── refs
-│       │   ├── heads
-│       │   │   ├── git-annex
-│       │   │   └── master
-│       │   └── tags
-│       └── ria-layout-version
 ├── alias
-│   └── dl-101 -> ../473/7c80a-1449-4564-b2eb-7036ac593d88
-├── b43
-│   └── 138cb-e7a1-4b5e-b1db-9f52c056c2d5
+│   └── dl-101 -> ../e3e/70682-c209-4cac-629f-6fbed82c07cd
+├── d95
+│   └── bafc8-f2a4-d27b-dcf4-bb99f4bea973
 │       ├── annex
 │       │   └── objects
 │       │       ├── 8q
@@ -98,9 +43,64 @@ $ tree /home/me/myriastore
 │       ├── objects
 │       │   ├── info
 │       │   └── pack
-│       │       ├── pack-fb37e74e4fd0e98b5d63f1f22385bfd6cddcc12f.idx
-│       │       └── pack-fb37e74e4fd0e98b5d63f1f22385bfd6cddcc12f.pack
-│       ├── ora-remote-fee6c138-ccb4-4aba-834a-5e702aa1a952
+│       │       ├── pack-31bcf87514087d313bac97730c39f38db17cc322.idx
+│       │       └── pack-31bcf87514087d313bac97730c39f38db17cc322.pack
+│       ├── ora-remote-9fb7f1f9-b6e6-4131-8d4c-2cee2e00b27a
+│       │   └── transfer
+│       ├── refs
+│       │   ├── heads
+│       │   │   ├── git-annex
+│       │   │   └── master
+│       │   └── tags
+│       └── ria-layout-version
+├── e3e
+│   └── 70682-c209-4cac-629f-6fbed82c07cd
+│       ├── annex
+│       │   └── objects
+│       │       ├── G6
+│       │       │   └── Gj
+│       │       │       └── MD5E-s12465653--05cd7ed561d108c9bcf96022bc78a92c.pdf
+│       │       │           └── MD5E-s12465653--05cd7ed561d108c9bcf96022bc78a92c.pdf
+│       │       ├── jf
+│       │       │   └── 3M
+│       │       │       └── MD5E-s2120211--06d1efcb05bb2c55cd039dab3fb28455.pdf
+│       │       │           └── MD5E-s2120211--06d1efcb05bb2c55cd039dab3fb28455.pdf
+│       │       ├── P5
+│       │       │   └── qK
+│       │       │       └── MD5E-s2693891--e61afe4b3c5d76c849c4e61f6547ed03.pdf
+│       │       │           └── MD5E-s2693891--e61afe4b3c5d76c849c4e61f6547ed03.pdf
+│       │       └── WF
+│       │           └── Gq
+│       │               └── MD5E-s1198170--0ab2c121bcf68d7278af266f6a399c5f.pdf
+│       │                   └── MD5E-s1198170--0ab2c121bcf68d7278af266f6a399c5f.pdf
+│       ├── archives
+│       ├── branches
+│       ├── config
+│       ├── config.dataladlock
+│       ├── description
+│       ├── HEAD
+│       ├── hooks
+│       │   ├── applypatch-msg.sample
+│       │   ├── commit-msg.sample
+│       │   ├── fsmonitor-watchman.sample
+│       │   ├── post-update.sample
+│       │   ├── pre-applypatch.sample
+│       │   ├── pre-commit.sample
+│       │   ├── pre-merge-commit.sample
+│       │   ├── prepare-commit-msg.sample
+│       │   ├── pre-push.sample
+│       │   ├── pre-rebase.sample
+│       │   ├── pre-receive.sample
+│       │   ├── push-to-checkout.sample
+│       │   └── update.sample
+│       ├── info
+│       │   └── exclude
+│       ├── objects
+│       │   ├── info
+│       │   └── pack
+│       │       ├── pack-a7c65b335a6cda3d472e5954c15795ce78488173.idx
+│       │       └── pack-a7c65b335a6cda3d472e5954c15795ce78488173.pack
+│       ├── ora-remote-46b169aa-bb91-42d6-be06-355d957fb4f7
 │       │   └── transfer
 │       ├── refs
 │       │   ├── heads

@@ -1,4 +1,4 @@
 $ git log -n 3 --oneline
-7a9325c [DATALAD] Recorded changes
-16823e5 save my favorite Git joke
-1abb19f remove obsolete subds
+f0990b6 [DATALAD] Recorded changes
+5b6aaec save my favorite Git joke
+439819c remove obsolete subds

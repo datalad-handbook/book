@@ -3,10 +3,10 @@ $ datalad run -m "analyze iris data with classification analysis" \
   --output "pairwise_relationships.png" \
   --output "prediction_report.csv" \
   "python3 code/script.py {inputs} {outputs}"
-[INFO] Making sure inputs are available (this may take some time) 
+[INFO] Making sure inputs are available (this may take some time)
 get(ok): input/iris.csv (file) [from web...]
-[INFO] == Command start (output follows) ===== 
-[INFO] == Command exit (modification check follows) ===== 
+[INFO] == Command start (output follows) =====
+[INFO] == Command exit (modification check follows) =====
 run(ok): /home/me/dl-101/DataLad-101/midterm_project (dataset) [python3 code/script.py input/iris.csv pa...]
 add(ok): pairwise_relationships.png (file)
 add(ok): prediction_report.csv (file)

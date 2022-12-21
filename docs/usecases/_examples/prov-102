@@ -2,7 +2,7 @@ $ mkdir sources
 $ datalad download-url -m "Added flower mosaic from wikimedia" \
   https://upload.wikimedia.org/wikipedia/commons/a/a5/Flower_poster_2.jpg \
   --path sources/flowers.jpg
-[INFO] Downloading 'https://upload.wikimedia.org/wikipedia/commons/a/a5/Flower_poster_2.jpg' into '/home/me/usecases/provenance/artproject/sources/flowers.jpg'
+[INFO] Downloading 'https://upload.wikimedia.org/wikipedia/commons/a/a5/Flower_poster_2.jpg' into '/home/me/usecases/provenance/artproject/sources/flowers.jpg' 
 download_url(ok): /home/me/usecases/provenance/artproject/sources/flowers.jpg (file)
 add(ok): sources/flowers.jpg (file)
 save(ok): . (dataset)

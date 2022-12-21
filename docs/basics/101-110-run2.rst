@@ -78,6 +78,7 @@ a single line.
    :emphasize-lines: 4
    :notes: This command resizes the logo to 400 by 400 px -- but it will fail!
    :cast: 02_reproducible_execution
+   :exitcode: 1
 
    $ datalad run -m "Resize logo for slides" \
    "convert -resize 400x400 recordings/longnow/.datalad/feed_metadata/logo_salt.jpg recordings/salt_logo_small.jpg"
@@ -187,6 +188,7 @@ To establish best-practices, let's specify the input even though it is already p
    :emphasize-lines: 10
    :realcommand: datalad run --input "recordings/longnow/.datalad/feed_metadata/logo_salt.jpg" "convert -resize 450x450 recordings/longnow/.datalad/feed_metadata/logo_salt.jpg recordings/salt_logo_small.jpg"
    :notes: Maybe 400x400 is too small. We should try 450x450. Can we use a datalad rerun for this? (no)
+   :exitcode: 1
    :cast: 02_reproducible_execution
 
    $ datalad run -m "Resize logo for slides" \

@@ -47,6 +47,9 @@ Let's start:
 .. runrecord:: _examples/DL-101-101-101
    :language: console
    :workdir: dl-101
+   :env:
+     DATALAD_SEED=0
+   :realcommand: ( mkdir DataLad-101 && cd DataLad-101 && git init && git config annex.uuid 46b169aa-bb91-42d6-be06-355d957fb4f7 ) &> /dev/null && datalad create --force -c text2git DataLad-101
    :cast: 01_dataset_basics
    :notes: Datasets are datalads core data type. We will explore the concepts of datasets by creating one with datalad create. optional configuration template and a description
 

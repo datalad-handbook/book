@@ -1,5 +1,5 @@
 $ datalad containers-add software --url shub://adswa/python-ml:1
-[INFO] Initiating special remote datalad
+[INFO] Initializing special remote datalad 
 add(ok): .datalad/config (file)
 save(ok): . (dataset)
 action summary:

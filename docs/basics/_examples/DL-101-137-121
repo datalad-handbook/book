@@ -1,21 +1,21 @@
 $ git log -n 20 --oneline
-16823e5 save my favorite Git joke
-1abb19f remove obsolete subds
-7be303b [DATALAD] Added subdataset
-58efba0 save cropped logos to Git
-8b98eeb move book back from midterm_project
-592ddd3 move book into midterm_project
-5a576b2 add container and execute analysis within container
-d91a4ca finished my midterm project
-47f80b0 [DATALAD] Recorded changes
-c73c460 add note on DataLad's procedures
-1eb16f3 add note on configurations and git config
-a406fe7 Add note on adding siblings
-542a4b1 Merge remote-tracking branch 'roommate/master'
-7777451 Include nesting demo from datalad website
-78fc0d0 add note about datalad update
-81bb292 add note on git annex whereis
-496b5dc add note about cloning from paths and recursive datalad get
-489b30c add note on clean datasets
-72629d8 [DATALAD RUNCMD] Resize logo for slides
-6c73db9 [DATALAD RUNCMD] Resize logo for slides
+5b6aaec save my favorite Git joke
+439819c remove obsolete subds
+ae6817d [DATALAD] Added subdataset
+25ff635 save cropped logos to Git
+f5907ea move book back from midterm_project
+6a56c23 move book into midterm_project
+2ce17ce add container and execute analysis within container
+3a3a860 finished my midterm project
+7348737 [DATALAD] Recorded changes
+66f8f03 add note on DataLad's procedures
+f7716e8 add note on configurations and git config
+dbe7e42 Add note on adding siblings
+0c0c105 Merge remote-tracking branch 'roommate/master'
+f70d195 add note about datalad update
+2c4f079 Include nesting demo from datalad website
+11b542b add note on git annex whereis
+fd551f7 add note about cloning from paths and recursive datalad get
+9e0ec97 add note on clean datasets
+f1c796f [DATALAD RUNCMD] Resize logo for slides
+1a59c05 [DATALAD RUNCMD] Resize logo for slides

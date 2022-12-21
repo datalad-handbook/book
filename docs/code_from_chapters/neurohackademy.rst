@@ -304,7 +304,7 @@ Whenever a file's content is not available after cloning a dataset, this file is
 .. figure:: ../artwork/src/publishing/publishing_gitvsannex.svg
 
 Git will never know an annexed file's content, it will only know its content identity (to ensure data integrity at all times) and all the locations where file content of this file exists.
-So when you clone a dataset, Git will show you the file name, and datalad get will retrieve the file contents on demand from whereever they are stored.
+So when you clone a dataset, Git will show you the file name, and datalad get will retrieve the file contents on demand from wherever they are stored.
 
 Consider the nilearn tutorial we added to the dataset.
 This file is annexed, and its location information is kept internally.
@@ -415,7 +415,7 @@ Likewise, removing the top level dataset with ``remove`` will fail the availabil
    cd ../
    datalad remove -d my-analysis
 
-But it can be overriden the very same way::
+But it can be overridden the very same way::
 
    datalad remove -d my-analysis --reckless availability
 

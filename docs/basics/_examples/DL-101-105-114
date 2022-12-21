@@ -34,7 +34,7 @@ Author: Michael Hanke <michael.hanke@gmail.com>
 Date:   Fri Dec 14 18:58:03 2018 +0100
 
     Update from feed
-    
+
     Via: git annex importfeed --template '${feedtitle}/${itempubdate}__${itemtitle}${extension}' --force http://longnow.org/projects/seminars/SALT.xml
 
 commit 7f36dea615f0fe117aed74a04ad325aacc714111
@@ -42,7 +42,7 @@ Author: Michael Hanke <michael.hanke@gmail.com>
 Date:   Fri Dec 14 19:00:08 2018 +0100
 
     Update from feed
-    
+
     Via: git annex importfeed --template '${feedtitle}/${itempubdate}__${itemtitle}${extension}' --force http://longnow.org/projects/seminars/interval.xml
 
 commit 21d92907c1d05b246ea5eee805ac00c91366ae04
@@ -50,7 +50,7 @@ Author: Michael Hanke <michael.hanke@gmail.com>
 Date:   Wed Jul 10 09:41:13 2019 +0200
 
     [DATALAD RUNCMD] Update Interval seminar series
-    
+
     === Do not change lines below ===
     {
      "chain": [],
@@ -69,7 +69,7 @@ Author: Michael Hanke <michael.hanke@gmail.com>
 Date:   Wed Jul 10 09:43:02 2019 +0200
 
     [DATALAD RUNCMD] Update SALT series
-    
+
     === Do not change lines below ===
     {
      "chain": [],
@@ -94,7 +94,7 @@ Author: Michael Hanke <michael.hanke@gmail.com>
 Date:   Thu Jul 11 18:42:08 2019 +0200
 
     Script to convert the RSS feed metadata into JSON-LD metadata
-    
+
     For consumption by the `custom` metadata extractor
 
 commit 9bece59fbd606290a124bbf9a3dc3218e4b7612e
@@ -132,7 +132,7 @@ Author: Michael Hanke <michael.hanke@gmail.com>
 Date:   Thu Jul 11 19:28:23 2019 +0200
 
     [DATALAD RUNCMD] Update from feed
-    
+
     === Do not change lines below ===
     {
      "chain": [],
@@ -163,7 +163,7 @@ Author: Michael Hanke <michael.hanke@gmail.com>
 Date:   Fri Jul 12 12:37:16 2019 +0200
 
     Make sure extracted metadata is directly in Git
-    
+
     to avoid the need for separate hosting
 
 commit 5dd77723418c5c25bf49a29d55e8db273dd39217
@@ -195,7 +195,7 @@ Author: Michael Hanke <michael.hanke@gmail.com>
 Date:   Mon Jul 15 07:50:44 2019 +0200
 
     Consolidate all metadata-related files under .datalad
-    
+
     This prevents such content from being intermingled with the
     "intentional" dataset components.
 
@@ -234,7 +234,7 @@ Author: Michael Hanke <michael.hanke@gmail.com>
 Date:   Mon Jul 15 10:22:38 2019 +0200
 
     [DATALAD RUNCMD] .datalad/maint/make_readme.py
-    
+
     === Do not change lines below ===
     {
      "chain": [],
@@ -257,7 +257,7 @@ Author: Michael Hanke <michael.hanke@gmail.com>
 Date:   Mon Jul 15 12:45:36 2019 +0200
 
     Uniformize JSON-LD context with DataLad's internal extractors
-    
+
     This makes it easier to merge documents for a joint report.
 
 commit 36a30a1a1d8725658410b650d516d9d3c640427d
@@ -265,7 +265,7 @@ Author: Michael Hanke <michael.hanke@gmail.com>
 Date:   Mon Jul 15 12:59:27 2019 +0200
 
     [DATALAD RUNCMD] Update from feed
-    
+
     === Do not change lines below ===
     {
      "chain": [

@@ -2,7 +2,7 @@ $ datalad get --help
 Usage: datalad get [-h] [-s LABEL] [-d PATH] [-r] [-R LEVELS] [-n]
                    [-D DESCRIPTION] [--reckless [auto|ephemeral|shared-...]]
                    [-J NJOBS] [--version]
-                   [PATH ...]
+                   [PATH [PATH ...]]
 
 Get any dataset content (files/directories/subdatasets).
 

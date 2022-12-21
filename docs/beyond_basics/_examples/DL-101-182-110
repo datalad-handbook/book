@@ -1,0 +1,5 @@
+$ cat data-cat/metadata/super.json | jq .
+{
+  "dataset_id": "abcd",
+  "dataset_version": "1234"
+}

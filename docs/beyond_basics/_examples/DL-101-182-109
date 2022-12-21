@@ -1,0 +1,2 @@
+$ datalad catalog set-super --catalog-dir data-cat --dataset-id abcd --dataset-version 1234
+catalog_set_super(ok): /private/tmp/me/catalog [Superdataset successfully set for catalog]

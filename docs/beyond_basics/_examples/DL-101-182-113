@@ -1,0 +1,12 @@
+$  wget -O datalad_logo_funky.svg https://raw.githubusercontent.com/datalad/tutorials/5e5fc0a4761248e5cedbc491c357d423d14a2b21/notebooks/catalog_tutorials/test_data/datalad_logo_funky.svg
+--2022-12-21 22:56:22--  https://raw.githubusercontent.com/datalad/tutorials/5e5fc0a4761248e5cedbc491c357d423d14a2b21/notebooks/catalog_tutorials/test_data/datalad_logo_funky.svg
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.108.133, 185.199.110.133, 185.199.109.133, ...
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.108.133|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 16418 (16K) [image/svg+xml]
+Saving to: ‘datalad_logo_funky.svg’
+
+     0K .......... ......                                     100% 7.37M=0.002s
+
+2022-12-21 22:56:22 (7.37 MB/s) - ‘datalad_logo_funky.svg’ saved [16418/16418]
+

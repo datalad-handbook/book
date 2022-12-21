@@ -86,7 +86,7 @@ init:
 
 install:
   # Missing system software
-  - "[ -n \"$INSTALL_SYSPKGS\" ] && ( sudo apt-get update -qq -y && sudo apt-get install eatmydata && sudo eatmydata apt-get install -qq --no-install-recommends -y ${INSTALL_SYSPKGS}; ) || true"
+  - tools/ci/install-syspkgs $INSTALL_SYSPKGS
   # pull latest singularity
   - tools/install-singularity.sh
   # in case of a snapshot installation, use the following approach to adjust

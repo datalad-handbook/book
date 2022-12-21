@@ -1022,7 +1022,7 @@ If a file has no verified remote copies, DataLad will only drop its
 content if the user enforces it.
 DataLad versions prior to ``0.16`` need to enforce dropping using the ``--nocheck`` option, while DataLad version ``0.16`` and up need to enforce dropping using the ``--reckless [MODE]`` option, where ``[MODE]`` is either ``modification`` (drop despite unsaved modifications) ``availability`` (drop even though no other copy is known) ``undead`` (only for datasets; would drop a dataset without announcing its death to linked dataset clones) or ``kill`` (no safety checks at all are run).
 While the ``--reckless`` parameter sounds more complex, it ensures a safer operation than the previous ``--nocheck`` implementation.
-We will demonstrate this by generating a random PDF file:
+We will demonstrate this by generating an empty file:
 
 .. runrecord:: _examples/DL-101-136-177
    :workdir: dl-101/DataLad-101
@@ -1030,8 +1030,8 @@ We will demonstrate this by generating a random PDF file:
    :notes: the content could be dropped bc the file was obtained with datalad, and dl knows where to retrieve the file again. If this isn't the case, datalad will complain. Let's try:
    :cast: 03_git_annex_basics
 
-   $ convert xc:none -page Letter a.pdf
-   $ datalad save -m "add empty pdf"
+   $ dd if=/dev/zero | head -c 18520 > a.pdf
+   $ datalad save -m "add some file" a.pdf
 
 DataLad will safeguard dropping content that it can not retrieve again:
 

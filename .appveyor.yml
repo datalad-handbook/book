@@ -52,7 +52,7 @@ shallow_clone: false
 environment:
   DTS: datalad_next
   APPVEYOR_BUILD_WORKER_IMAGE: Ubuntu2004
-  INSTALL_SYSPKGS: python3-virtualenv graphicsmagick-imagemagick-compat moreutils
+  INSTALL_SYSPKGS: python3-virtualenv graphicsmagick-imagemagick-compat moreutils jq
   INSTALL_GITANNEX: git-annex -m snapshot
 
 

@@ -1,0 +1,5 @@
+#!/bin/bash
+
+set -e -u
+
+curl -sflL 'https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-ssh.sh' | bash -e -

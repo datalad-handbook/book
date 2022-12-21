@@ -24,7 +24,7 @@ datalad tree
 """"""""""""
 
 The :command:`datalad tree` visualizes directory and dataset hierarchies.
-It mimics the UNIX/MSDOS 'tree' utility to generate and display a directory tree, with DataLad-specific enhancements.
+It mimics the UNIX/MS-DOS 'tree' utility to generate and display a directory tree, with DataLad-specific enhancements.
 With those, it can be used as an improved `tree`-style visualization, as a dataset discovery tool (when used with its ``--recursive`` option), or for programmatic directory traversal.
 
 .. code-block:: bash

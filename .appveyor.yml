@@ -131,8 +131,8 @@ before_test:
 
 test_script:
   # Wipe out runrecords to trigger rebuild
-  #- rm -f docs/basics/_examples/DL-101-*
-  - rm -f docs/basics/_examples/DL-101-101-101
+  - rm -f docs/basics/_examples/DL-101-*
+  #- rm -f docs/basics/_examples/DL-101-101-101
   - make build
 
 

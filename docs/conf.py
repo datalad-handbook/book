@@ -59,7 +59,7 @@ autorunrecord_line_replace = [
 # start with all datalad settings
 autorunrecord_env = {
     k: v for k, v in os.environ.items()
-    if k.startswith('DATALAD_'
+    if k.startswith('DATALAD_')
 }
 # and then pin various other aspects to yield reproducible results
 autorunrecord_env = {

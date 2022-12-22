@@ -28,7 +28,7 @@ Working collaboratively with large and distributed datasets poses particular cha
 - costs of centrally maintained infrastructure for data hosting and web-portal type browsing could be prohibitive
 
 Such challenges impede the many possible gains obtainable from distributed data sharing and access.
-Decisions might even be made to forego FAIR principles in favour of saving time, effort and money,
+Decisions might even be made to forego FAIR principles in favor of saving time, effort and money,
 leading to the view that these efforts have seemingly contradicting outcomes.
 
 *DataLad Catalog helps counter this* apparent contadiction by focusing on interoperability with structured, linked, and machine-readable metadata.
@@ -69,7 +69,7 @@ and distribution, version control, provenance tracking, metadata addition/extrac
 
 .. figure:: ../artwork/src/catalog/datalad_catalog_pipeline.svg
 
-- DataLad itself can be used for decentralised management of data as lightweight, portable and extensible representations.
+- DataLad itself can be used for decentralized management of data as lightweight, portable and extensible representations.
 - DataLad MetaLad can extract structured high- and low-level metadata and associate it with these datasets or with individual files.
 - And at the end of the workflow, DataLad Catalog can turn the structured metadata into a user-friendly data browser.
 
@@ -108,6 +108,7 @@ After that, you can check the installation by running the ``datalad catalog`` co
 .. runrecord:: _examples/DL-101-182-101
    :language: console
    :workdir: catalog
+   :lines: 1-8
    :cast: catalog_basics
    :notes: Let's test the installation and look at the help information
    
@@ -156,7 +157,7 @@ Now we can inspect the catalog's content with the ``tree`` command:
    :cast: catalog_basics
    :notes: We can inspect the catalog's content with the tree command
    
-   $ tree data-cat
+   $ tree -L 1 data-cat
 
 As you can see, the catalog's root directory contains subdirectories for:
 
@@ -249,8 +250,8 @@ First a dataset:
 
    {
        "type": "dataset",
-       "dataset_id":"abcd",
-       "dataset_version":"1234",
+       "dataset_id":"5df8eb3a-95c5-11ea-b4b9-a0369f287950",
+       "dataset_version":"dae38cf901995aace0dde5346515a0134f919523",
        "name": "My toy dataset",
        "short_name": "My toy dataset",
        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec justo tellus. Nunc sagittis eleifend magna, eu blandit arcu tincidunt eu. Mauris pharetra justo nec volutpat euismod. Curabitur bibendum vitae nunc a pharetra. Donec non rhoncus risus, ac consequat purus. Pellentesque ultricies ut enim non luctus. Sed viverra dolor enim, sed blandit lorem interdum sit amet. Aenean tincidunt et dolor sit amet tincidunt. Vivamus in sollicitudin ligula. Curabitur volutpat sapien erat, eget consectetur mauris dapibus a. Phasellus fringilla justo ligula, et fringilla tortor ullamcorper id. Praesent tristique lacus purus, eu convallis quam vestibulum eget. Donec ullamcorper mi neque, vel tincidunt augue porttitor vel.",
@@ -292,8 +293,8 @@ And then two files of the dataset:
 
    {
       "type": "file"
-      "dataset_id": "abcd",
-      "dataset_version": "1234",
+      "dataset_id": "5df8eb3a-95c5-11ea-b4b9-a0369f287950",
+      "dataset_version": "dae38cf901995aace0dde5346515a0134f919523",
       "contentbytesize": 1403
       "path": "README",
       "extractors_used": [
@@ -309,8 +310,8 @@ And then two files of the dataset:
   }
   {
       "type": "file"
-      "dataset_id": "abcd",
-      "dataset_version": "1234",
+      "dataset_id": "5df8eb3a-95c5-11ea-b4b9-a0369f287950",
+      "dataset_version": "dae38cf901995aace0dde5346515a0134f919523",
       "contentbytesize": 15572
       "path": "main_data/main_results.png",
       "extractors_used": [
@@ -342,9 +343,9 @@ when adding metadata to a catalog:
    :notes: Add metadata objects to a text file
    
    $ touch toy_metadata.jsonl
-   $ echo '{ "type": "dataset", "dataset_id": "abcd", "dataset_version": "1234", "name": "My toy dataset", "short_name": "My toy dataset", "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec justo tellus. Nunc sagittis eleifend magna, eu blandit arcu tincidunt eu. Mauris pharetra justo nec volutpat euismod. Curabitur bibendum vitae nunc a pharetra. Donec non rhoncus risus, ac consequat purus. Pellentesque ultricies ut enim non luctus. Sed viverra dolor enim, sed blandit lorem interdum sit amet. Aenean tincidunt et dolor sit amet tincidunt. Vivamus in sollicitudin ligula. Curabitur volutpat sapien erat, eget consectetur mauris dapibus a. Phasellus fringilla justo ligula, et fringilla tortor ullamcorper id. Praesent tristique lacus purus, eu convallis quam vestibulum eget. Donec ullamcorper mi neque, vel tincidunt augue porttitor vel.", "doi": "", "url": "https://github.com/jsheunis/multi-echo-super", "license": { "name": "CC BY 4.0", "url": "https://creativecommons.org/licenses/by/4.0/" }, "authors": [ { "givenName": "Stephan", "familyName": "Heunis"} ], "keywords": [ "lorum", "ipsum", "foxes" ], "funding": [ { "name": "Stephans Bank Account", "identifier": "No. 42", "description": "Nothing to see here" } ], "extractors_used": [ { "extractor_name": "stephan_manual", "extractor_version": "1", "extraction_parameter": {}, "extraction_time": 1652340647.0, "agent_name": "Stephan Heunis", "agent_email": "" } ] }' >> toy_metadata.jsonl
-   $ echo '{ "type": "file", "dataset_id": "abcd", "dataset_version": "1234", "contentbytesize": 1403, "path": "README", "extractors_used": [ { "extractor_name": "stephan_manual", "extractor_version": "1", "extraction_parameter": {}, "extraction_time": 1652340647.0, "agent_name": "Stephan Heunis", "agent_email": "" } ] }' >> toy_metadata.jsonl
-   $ echo '{ "type": "file", "dataset_id": "abcd", "dataset_version": "1234", "contentbytesize": 15572, "path": "main_data/main_results.png", "extractors_used": [ { "extractor_name": "stephan_manual", "extractor_version": "1", "extraction_parameter": {}, "extraction_time": 1652340647.0, "agent_name": "Stephan Heunis", "agent_email": "" } ] }' >> toy_metadata.jsonl
+   $ echo '{ "type": "dataset", "dataset_id": "5df8eb3a-95c5-11ea-b4b9-a0369f287950", "dataset_version": "dae38cf901995aace0dde5346515a0134f919523", "name": "My toy dataset", "short_name": "My toy dataset", "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec justo tellus. Nunc sagittis eleifend magna, eu blandit arcu tincidunt eu. Mauris pharetra justo nec volutpat euismod. Curabitur bibendum vitae nunc a pharetra. Donec non rhoncus risus, ac consequat purus. Pellentesque ultricies ut enim non luctus. Sed viverra dolor enim, sed blandit lorem interdum sit amet. Aenean tincidunt et dolor sit amet tincidunt. Vivamus in sollicitudin ligula. Curabitur volutpat sapien erat, eget consectetur mauris dapibus a. Phasellus fringilla justo ligula, et fringilla tortor ullamcorper id. Praesent tristique lacus purus, eu convallis quam vestibulum eget. Donec ullamcorper mi neque, vel tincidunt augue porttitor vel.", "doi": "", "url": "https://github.com/jsheunis/multi-echo-super", "license": { "name": "CC BY 4.0", "url": "https://creativecommons.org/licenses/by/4.0/" }, "authors": [ { "givenName": "Stephan", "familyName": "Heunis"} ], "keywords": [ "lorum", "ipsum", "foxes" ], "funding": [ { "name": "Stephans Bank Account", "identifier": "No. 42", "description": "Nothing to see here" } ], "extractors_used": [ { "extractor_name": "stephan_manual", "extractor_version": "1", "extraction_parameter": {}, "extraction_time": 1652340647.0, "agent_name": "Stephan Heunis", "agent_email": "" } ] }' >> toy_metadata.jsonl
+   $ echo '{ "type": "file", "dataset_id": "5df8eb3a-95c5-11ea-b4b9-a0369f287950", "dataset_version": "dae38cf901995aace0dde5346515a0134f919523", "contentbytesize": 1403, "path": "README", "extractors_used": [ { "extractor_name": "stephan_manual", "extractor_version": "1", "extraction_parameter": {}, "extraction_time": 1652340647.0, "agent_name": "Stephan Heunis", "agent_email": "" } ] }' >> toy_metadata.jsonl
+   $ echo '{ "type": "file", "dataset_id": "5df8eb3a-95c5-11ea-b4b9-a0369f287950", "dataset_version": "dae38cf901995aace0dde5346515a0134f919523", "contentbytesize": 15572, "path": "main_data/main_results.png", "extractors_used": [ { "extractor_name": "stephan_manual", "extractor_version": "1", "extraction_parameter": {}, "extraction_time": 1652340647.0, "agent_name": "Stephan Heunis", "agent_email": "" } ] }' >> toy_metadata.jsonl
 
 Then we can validate the metadata in this file:
 
@@ -397,12 +398,12 @@ relative to the parent dataset. Let's look at the content of these files:
 .. runrecord:: _examples/DL-101-182-108
    :language: console
    :workdir: catalog
+   :lines: 1-7, 33-35, 47-57, 75-102
    :cast: catalog_basics
    :notes: Validate metadata according to the catalog schema
 
-   $ cat data-cat/metadata/abcd/1234/217/17d85bd1b1526b7e463279763cdb0.json | jq .
-   
-   $ cat data-cat/metadata/abcd/1234/10f/7898cf7fc3465f078a67e15124c72.json | jq .
+   $ cat data-cat/metadata/5df8eb3a-95c5-11ea-b4b9-a0369f287950/dae38cf901995aace0dde5346515a0134f919523/449/268b13a1c869555f6c2f6e66d3923.json | jq .
+   $ cat data-cat/metadata/5df8eb3a-95c5-11ea-b4b9-a0369f287950/dae38cf901995aace0dde5346515a0134f919523/578/b4ba64a67d1d99cbcf06d5d26e0f6.json | jq .
 
 As you can see, the content of these files is very similar to the original toy data, but slightly
 transformed. This transformation creates a structure that is easier for the associated browser
@@ -410,6 +411,7 @@ application to read and render. Additionally, structuring data into metadata fil
 nodes in the dataset hierarchy (i.e. a datasets or directories) allows the browser application to
 only access the data in those metadata files whenever the user selects the applicable node.
 This saves loading time which makes the user experience more seamless.
+
 
 Viewing a particular dataset
 """"""""""""""""""""""""""""
@@ -424,17 +426,19 @@ and there is also no default specified for the catalog.
 If we want to view the specific dataset that we just added to the catalog, we can specify its
 ``dataset_id`` and ``dataset_version`` by appending them to the URL in the format:
 
-<catalog-url>/#/dataset/<dataset_id>/<dataset_version>.
+``<catalog-url>/#/dataset/<dataset_id>/<dataset_version>``.
 
 This makes it possible to view any uniquely identifiable dataset by navigating to a unique URL.
 
-Let's try it with our toy example. Navigated to the localhost(the 404 page should be displaying),
-append ``/#/dataset/abcd/1234`` to the end of the URL, and hit ENTER/RETURN.
-You should see something like this:
+Let's try it with our toy example. Navigated to the localhost(the 404 page should be displaying), append
+
+``/#/dataset/5df8eb3a-95c5-11ea-b4b9-a0369f287950/dae38cf901995aace0dde5346515a0134f919523``
+
+to the end of the URL, and hit ENTER/RETURN. You should see something like this:
 
 .. figure:: ../artwork/src/catalog/catalog_step_dataset.png
 
-The is the dataset view, with the subdatasets tab (auto-)selected.
+This is the dataset view, with the subdatasets tab (auto-)selected.
 This view displays all the main content related to the dataset that was provided by the metadata,
 and allows the user further functionality like downloading the dataset with DataLad,
 downloading the metadata, filtering subdatasets by keyword, browsing files, and viewing extended
@@ -466,7 +470,7 @@ and additionally specifying the dataset's ``dataset_id`` (``-i/--dataset-id`` fl
    :cast: catalog_basics
    :notes: Add a superdataset to the catalog
 
-   $ datalad catalog set-super --catalog-dir data-cat --dataset-id abcd --dataset-version 1234
+   $ datalad catalog set-super --catalog-dir data-cat --dataset-id 5df8eb3a-95c5-11ea-b4b9-a0369f287950 --dataset-version dae38cf901995aace0dde5346515a0134f919523
 
 The catalog ``set-super(ok)`` result shows that the superdataset was successfully set
 for the catalog, and you will now also be able to see an additional ``super.json`` file in the
@@ -504,7 +508,7 @@ config file with the following content:
 
 If no config file is supplied to the ``create`` subcommand, the default is used.
 
-Let's create a new toy catalog with a new config, specifying a new name, a new logo, and new colours for the links.
+Let's create a new toy catalog with a new config, specifying a new name, a new logo, and new colors for the links.
 This will be the content of the config file, in ``YAML`` format:
 
 .. runrecord:: _examples/DL-101-182-112
@@ -536,7 +540,7 @@ We'll ensure that the new custom logo is available locally:
    :cast: catalog_basics
    :notes: Get the custom logo
 
-   $  wget -O datalad_logo_funky.svg https://raw.githubusercontent.com/datalad/tutorials/5e5fc0a4761248e5cedbc491c357d423d14a2b21/notebooks/catalog_tutorials/test_data/datalad_logo_funky.svg
+   $  wget -q -O datalad_logo_funky.svg https://raw.githubusercontent.com/datalad/tutorials/5e5fc0a4761248e5cedbc491c357d423d14a2b21/notebooks/catalog_tutorials/test_data/datalad_logo_funky.svg
 
 Now we can run all the necessary subcommands for the catalog generation process:
 
@@ -547,7 +551,7 @@ Now we can run all the necessary subcommands for the catalog generation process:
    :notes: Create a new catalog with custom config
 
    $ datalad catalog create -c custom-cat -m toy_metadata.jsonl -y cat_config.yml
-   $ datalad catalog set-super -c custom-cat -i abcd -v 1234
+   $ datalad catalog set-super -c custom-cat -i 5df8eb3a-95c5-11ea-b4b9-a0369f287950 -v dae38cf901995aace0dde5346515a0134f919523
 
 To test this, serve the new custom catalog and navigate to the localhost to view it.
 
@@ -555,12 +559,12 @@ You should see the following:
 
 .. figure:: ../artwork/src/catalog/catalog_step_config.png
 
-Well done! You have just configured your catalog with a custom logo and colour scheme!
-(apologies if you find the colours a bit loud :-P)
+Well done! You have just configured your catalog with a custom logo and color scheme!
+(apologies if you find the colors a bit loud :-P)
 
 The configuration will also come in handy when there are more advanced forms of metadata
 in a catalog, especially when multiple sources of metadata are available for the same dataset.
-In such cases, one might want to specify or prioritise how these multiple sources are displayed,
+In such cases, one might want to specify or prioritize how these multiple sources are displayed,
 and the catalog configuration allows for that via specification of the ``property_source`` key.
 
 And that's it!

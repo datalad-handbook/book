@@ -22,16 +22,16 @@ Why DataCat?
 
 Working collaboratively with large and distributed datasets poses particular challenges for FAIR data access, browsing, and usage:
 
-- the adminstrative burden of keeping track of different versions of the data, who contributed what, where/how to gain access,
+- the administrative burden of keeping track of different versions of the data, who contributed what, where/how to gain access,
   and representing this information centrally and accessibly can be significant
 - data privacy regulations might restrict data from being shared or accessed across multi-national sites
 - costs of centrally maintained infrastructure for data hosting and web-portal type browsing could be prohibitive
 
 Such challenges impede the many possible gains obtainable from distributed data sharing and access.
-Decisions might even be made to forego FAIR principles in favour of saving time, effort and money,
+Decisions might even be made to forego FAIR principles in favor of saving time, effort and money,
 leading to the view that these efforts have seemingly contradicting outcomes.
 
-*DataLad Catalog helps counter this* apparent contadiction by focusing on interoperability with structured, linked, and machine-readable metadata.
+*DataLad Catalog helps counter this* apparent contradiction by focusing on interoperability with structured, linked, and machine-readable :term:`metadata`.
 
 .. figure:: ../artwork/src/catalog/datalad_catalog_metadata.svg
 
@@ -52,7 +52,7 @@ dataset context and linkage, and file tree specification.
 
 The process of generating a catalog, after metadata entry validation, involves:
 
-1. aggregation of the provided metadata into the catalog filetree, and
+1. aggregation of the provided metadata into the catalog file tree, and
 2. generating the assets required to render the user interface in a browser.
 
 .. figure:: ../artwork/src/catalog/datalad_catalog_howitworks.svg
@@ -69,7 +69,7 @@ and distribution, version control, provenance tracking, metadata addition/extrac
 
 .. figure:: ../artwork/src/catalog/datalad_catalog_pipeline.svg
 
-- DataLad itself can be used for decentralised management of data as lightweight, portable and extensible representations.
+- DataLad itself can be used for decentralized management of data as lightweight, portable and extensible representations.
 - DataLad MetaLad can extract structured high- and low-level metadata and associate it with these datasets or with individual files.
 - And at the end of the workflow, DataLad Catalog can turn the structured metadata into a user-friendly data browser.
 
@@ -146,7 +146,7 @@ With the ``create`` subcommand, you can create a new catalog. Let's try it out!
    $ datalad catalog create --catalog-dir data-cat
 
 The catalog ``create(ok)`` result shows that the catalog was successfully created at the specified location (``./data-cat``),
-wich was passed to the command with the ``-c/--catalog-dir`` flag.
+which was passed to the command with the ``-c/--catalog-dir`` flag.
 
 Now we can inspect the catalog's content with the ``tree`` command:
 
@@ -166,7 +166,7 @@ As you can see, the catalog's root directory contains subdirectories for:
 - ``templates``: HTML templates used for rendering different views of the catalog
 
 It also contains an ``index.html`` file, which is the main catalog HTML content that will be served to users in their browsers,
-as wel as a ``config.json`` file, which contains default and user-specified configuration settings for the catalog rendering.
+as well as a ``config.json`` file, which contains default and user-specified configuration settings for the catalog rendering.
 These directories and files are all populated into their respective locations by the ``datalad catalog create`` command.
 
 Next, let's have a look at the catalog that we just created.
@@ -177,7 +177,7 @@ Rendering a catalog locally
 Since the catalog contains HTML, JavaScript, and CSS that can be viewed in any common browser
 (Google Chrome, Safari, Mozilla Firefox, etc), this content needs to be served.
 
-With the ``serve`` subcommand, you can serve the content of a catalog locally via an HTTP server:
+With the ``serve`` subcommand, you can serve the content of a catalog locally via an :term:`HTTP` server:
 
 .. code-block:: bash
 
@@ -214,7 +214,7 @@ Each JSON object provided to the Catalog in the metadata file should be structur
 which is based on JSON Schema: a vocabulary that allows you to annotate and validate JSON documents.
 
 The implication is that you will have to format your metadata objects to conform to this standard.
-At the core of this standard are the concepts of a dataset and a file, which shouldn't be suprising
+At the core of this standard are the concepts of a dataset and a file, which shouldn't be surprising
 to anyone working with data: we have a set of files organized in some kind of hierarchy, and sets of
 files are often delineated from other sets of files - here we call this delineation a *dataset*.
 
@@ -288,7 +288,7 @@ First a dataset:
 
 And then two files of the dataset:
 
- .. code-block::
+.. code-block::
 
    {
       "type": "file"
@@ -422,13 +422,13 @@ The reason for this is that we didn't specify the details of the particular data
 and there is also no default specified for the catalog.
 
 If we want to view the specific dataset that we just added to the catalog, we can specify its
-``dataset_id`` and ``dataset_version`` by appending them to the URL in the format:
+``dataset_id`` and ``dataset_version`` by appending them to the URL in the format::
 
-<catalog-url>/#/dataset/<dataset_id>/<dataset_version>.
+    <catalog-url>/#/dataset/<dataset_id>/<dataset_version>.
 
 This makes it possible to view any uniquely identifiable dataset by navigating to a unique URL.
 
-Let's try it with our toy example. Navigated to the localhost(the 404 page should be displaying),
+Let's try it with our toy example. Navigated to the localhost (the 404 page should be displayed),
 append ``/#/dataset/abcd/1234`` to the end of the URL, and hit ENTER/RETURN.
 You should see something like this:
 
@@ -504,7 +504,7 @@ config file with the following content:
 
 If no config file is supplied to the ``create`` subcommand, the default is used.
 
-Let's create a new toy catalog with a new config, specifying a new name, a new logo, and new colours for the links.
+Let's create a new toy catalog with a new config, specifying a new name, a new logo, and new colors for the links.
 This will be the content of the config file, in ``YAML`` format:
 
 .. runrecord:: _examples/DL-101-182-112
@@ -555,12 +555,12 @@ You should see the following:
 
 .. figure:: ../artwork/src/catalog/catalog_step_config.png
 
-Well done! You have just configured your catalog with a custom logo and colour scheme!
-(apologies if you find the colours a bit loud :-P)
+Well done! You have just configured your catalog with a custom logo and color scheme!
+(apologies if you find the colors a bit loud :-P)
 
 The configuration will also come in handy when there are more advanced forms of metadata
 in a catalog, especially when multiple sources of metadata are available for the same dataset.
-In such cases, one might want to specify or prioritise how these multiple sources are displayed,
+In such cases, one might want to specify or prioritize how these multiple sources are displayed,
 and the catalog configuration allows for that via specification of the ``property_source`` key.
 
 And that's it!

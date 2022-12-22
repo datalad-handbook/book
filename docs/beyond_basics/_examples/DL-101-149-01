@@ -1,10 +1,10 @@
 $ datalad clone https://github.com/datalad-datasets/human-connectome-project-openaccess.git hcp
 [INFO] Cloning dataset to Dataset(/home/me/beyond_basics/HPC/hcp)
 [INFO] Attempting to clone from https://github.com/datalad-datasets/human-connectome-project-openaccess.git to /home/me/beyond_basics/HPC/hcp
-[INFO] Start enumerating objects 
-[INFO] Start counting objects 
-[INFO] Start compressing objects 
-[INFO] Start receiving objects 
-[INFO] Start resolving deltas 
+[INFO] Start enumerating objects
+[INFO] Start counting objects
+[INFO] Start compressing objects
+[INFO] Start receiving objects
+[INFO] Start resolving deltas
 [INFO] Completed clone attempts for Dataset(/home/me/beyond_basics/HPC/hcp)
 install(ok): /home/me/beyond_basics/HPC/hcp (dataset)

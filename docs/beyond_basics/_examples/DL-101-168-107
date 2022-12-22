@@ -7,11 +7,5 @@ Changes to be committed:
   (use "git restore --staged <file>..." to unstage)
 	new file:   .dvc/.gitignore
 	new file:   .dvc/config
-	new file:   .dvc/plots/confusion.json
-	new file:   .dvc/plots/confusion_normalized.json
-	new file:   .dvc/plots/default.json
-	new file:   .dvc/plots/linear.json
-	new file:   .dvc/plots/scatter.json
-	new file:   .dvc/plots/smooth.json
 	new file:   .dvcignore
 

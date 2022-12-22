@@ -4,13 +4,13 @@ $ datalad push --to mysibling
 [INFO] Push refspecs
 [INFO] Transfer data
 [INFO] Update availability information
-[INFO] Start enumerating objects 
-[INFO] Start counting objects 
-[INFO] Start compressing objects 
-[INFO] Start writing objects 
-[INFO] Start resolving deltas 
+[INFO] Start enumerating objects
+[INFO] Start counting objects
+[INFO] Start compressing objects
+[INFO] Start writing objects
+[INFO] Start resolving deltas
 [INFO] Finished push of Dataset(/home/me/DVCvsDL/DVC-DataLad)
-publish(ok): . (dataset) [refs/heads/git-annex->mysibling:refs/heads/git-annex 6b285474..41c52a6a]
+publish(ok): . (dataset) [refs/heads/git-annex->mysibling:refs/heads/git-annex 31ba7f66..ff00e44d]
 publish(ok): . (dataset) [refs/heads/master->mysibling:refs/heads/master [new branch]]
 action summary:
   copy (ok: 2701)

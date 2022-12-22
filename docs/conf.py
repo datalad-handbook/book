@@ -56,6 +56,12 @@ autorunrecord_line_replace = [
     ('Total .*delta.*, reused .*delta.*$', 'REDACTED COMPRESSION STATS'),
 ]
 # pre-crafted artificial environment to run the code examples in
+# start with all datalad settings
+autorunrecord_env = {
+    k: v for k, v in os.environ.items()
+    if k.startswith('DATALAD_'
+}
+# and then pin various other aspects to yield reproducible results
 autorunrecord_env = {
     # make everything talk in english
     'LANG': 'en_US.UTF-8',

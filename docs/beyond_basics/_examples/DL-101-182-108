@@ -1,15 +1,14 @@
-$ cat data-cat/metadata/abcd/1234/217/17d85bd1b1526b7e463279763cdb0.json | jq .
-
-$ cat data-cat/metadata/abcd/1234/10f/7898cf7fc3465f078a67e15124c72.json | jq .
+$ cat data-cat/metadata/5df8eb3a-95c5-11ea-b4b9-a0369f287950/dae38cf901995aace0dde5346515a0134f919523/449/268b13a1c869555f6c2f6e66d3923.json | jq .
+$ cat data-cat/metadata/5df8eb3a-95c5-11ea-b4b9-a0369f287950/dae38cf901995aace0dde5346515a0134f919523/578/b4ba64a67d1d99cbcf06d5d26e0f6.json | jq .
 {
   "type": "dataset",
-  "dataset_id": "abcd",
-  "dataset_version": "1234",
+  "dataset_id": "5df8eb3a-95c5-11ea-b4b9-a0369f287950",
+  "dataset_version": "dae38cf901995aace0dde5346515a0134f919523",
   "children": [
     {
       "type": "file",
-      "dataset_id": "abcd",
-      "dataset_version": "1234",
+      "dataset_id": "5df8eb3a-95c5-11ea-b4b9-a0369f287950",
+      "dataset_version": "dae38cf901995aace0dde5346515a0134f919523",
       "contentbytesize": 1403,
       "path": "README",
       "extractors_used": [
@@ -28,8 +27,8 @@ $ cat data-cat/metadata/abcd/1234/10f/7898cf7fc3465f078a67e15124c72.json | jq .
       "type": "directory",
       "name": "main_data",
       "path": "main_data",
-      "dataset_id": "abcd",
-      "dataset_version": "1234"
+      "dataset_id": "5df8eb3a-95c5-11ea-b4b9-a0369f287950",
+      "dataset_version": "dae38cf901995aace0dde5346515a0134f919523"
     }
   ],
   "name": "My toy dataset",
@@ -76,13 +75,13 @@ $ cat data-cat/metadata/abcd/1234/10f/7898cf7fc3465f078a67e15124c72.json | jq .
 }
 {
   "type": "directory",
-  "dataset_id": "abcd",
-  "dataset_version": "1234",
+  "dataset_id": "5df8eb3a-95c5-11ea-b4b9-a0369f287950",
+  "dataset_version": "dae38cf901995aace0dde5346515a0134f919523",
   "children": [
     {
       "type": "file",
-      "dataset_id": "abcd",
-      "dataset_version": "1234",
+      "dataset_id": "5df8eb3a-95c5-11ea-b4b9-a0369f287950",
+      "dataset_version": "dae38cf901995aace0dde5346515a0134f919523",
       "contentbytesize": 15572,
       "path": "main_data/main_results.png",
       "extractors_used": [

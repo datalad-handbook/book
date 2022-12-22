@@ -1,10 +1,10 @@
 $ tree data-cat/metadata
 data-cat/metadata
-└── abcd
-    └── 1234
-        ├── 10f
-        │   └── 7898cf7fc3465f078a67e15124c72.json
-        └── 217
-            └── 17d85bd1b1526b7e463279763cdb0.json
+└── 5df8eb3a-95c5-11ea-b4b9-a0369f287950
+    └── dae38cf901995aace0dde5346515a0134f919523
+        ├── 449
+        │   └── 268b13a1c869555f6c2f6e66d3923.json
+        └── 578
+            └── b4ba64a67d1d99cbcf06d5d26e0f6.json
 
 4 directories, 2 files

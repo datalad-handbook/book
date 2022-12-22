@@ -69,6 +69,7 @@ Currently, it seems empty.
    :notes: DataLad informs about what it is doing during a command. At the end is a summary, in this case it is ok. What is inside of a newly created dataset? We list contents with ls.
 
    $ cd DataLad-101
+   $ set
    $ ls    # ls does not show any output, because the dataset is empty.
 
 However, all files and directories you store within the DataLad dataset

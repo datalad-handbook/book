@@ -8,3 +8,6 @@ A modernized approach, however, is developed in the `datalad-metalad extension <
 
 .. figure:: ../artwork/src/metadata.svg
 
+.. importantnote:: Handbook content on datalad-metalad will come soon
+
+   ... Stay tuned ...

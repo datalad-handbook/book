@@ -7,7 +7,7 @@ The `datalad-next extension <http://docs.datalad.org/projects/next/en/latest/ind
 It can be thought of as a staging area for additional functionality, or for improved performance and user experience.
 New features are introduced into ``datalad-next`` first, and, once tested for a sufficient amount of time and deemed useful, adopted in the core datalad package.
 As such, ``datalad-next`` isn't confined to a topical set of features, but provides functionality with broad applicability.
-Some of this functionality takes the form of new stand-alone commands, while other functionality concerns improvements of existing commands under the hood via a special patch mechanism or modern reimplementations of established concepts.
+Some of this functionality takes the form of new stand-alone commands, while other functionality concerns improvements of existing commands under the hood via a special patch mechanism or modern re-implementations of established concepts.
 
 As development in this extension is dynamic, the best place to find and up-to-date overview of functionality is in its `source repository <https://github.com/datalad/datalad-next#summary-of-functionality-provided-by-this-extension>`_.
 
@@ -23,7 +23,7 @@ A few selected commands are featured here, nevertheless.
 datalad tree
 """"""""""""
 
-The :command:`datalad tree` visualizes directory and dataset hierarchies.
+The :command:`datalad tree` command visualizes directory and dataset hierarchies.
 It mimics the UNIX/MS-DOS 'tree' utility to generate and display a directory tree, with DataLad-specific enhancements.
 With those, it can be used as an improved `tree`-style visualization, as a dataset discovery tool (when used with its ``--recursive`` option), or for programmatic directory traversal.
 

@@ -43,9 +43,9 @@ $ tree /home/me/myriastore
 │       ├── objects
 │       │   ├── info
 │       │   └── pack
-│       │       ├── pack-31bcf87514087d313bac97730c39f38db17cc322.idx
-│       │       └── pack-31bcf87514087d313bac97730c39f38db17cc322.pack
-│       ├── ora-remote-9fb7f1f9-b6e6-4131-8d4c-2cee2e00b27a
+│       │       ├── pack-ed8753ca40078461dc4328291336abdc24b2bed2.idx
+│       │       └── pack-ed8753ca40078461dc4328291336abdc24b2bed2.pack
+│       ├── ora-remote-02eb34d4-d559-438e-b0f9-26899c452399
 │       │   └── transfer
 │       ├── refs
 │       │   ├── heads
@@ -98,8 +98,8 @@ $ tree /home/me/myriastore
 │       ├── objects
 │       │   ├── info
 │       │   └── pack
-│       │       ├── pack-a7c65b335a6cda3d472e5954c15795ce78488173.idx
-│       │       └── pack-a7c65b335a6cda3d472e5954c15795ce78488173.pack
+│       │       ├── pack-d6f5fb80553423d3c1750f5079f37ead2873c21d.idx
+│       │       └── pack-d6f5fb80553423d3c1750f5079f37ead2873c21d.pack
 │       ├── ora-remote-46b169aa-bb91-42d6-be06-355d957fb4f7
 │       │   └── transfer
 │       ├── refs

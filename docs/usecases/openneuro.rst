@@ -18,7 +18,7 @@ Quickstart
 The entire collection of OpenNeuro datasets can be found at `github.com/OpenNeuroDatasets <https://github.com/OpenNeuroDatasets>`_, but each dataset in there is identified via its OpenNeuro dataset ID.
 A url to an OpenNeuro dataset on GitHub thus always takes the following form:
 ``https://github.com/OpenNeuroDatasets/ds00xxxx``.
-After you have :ref:`installed DataLad <install>`, you can obtain the datasets just as any other DataLad dataset with :command:`datalad clone` or :command:`datalad install`:
+After you have :ref:`installed DataLad <install>`, you can obtain the datasets just as any other DataLad dataset with :command:`datalad clone`:
 
 .. code-block:: bash
 

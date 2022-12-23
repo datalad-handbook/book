@@ -1,0 +1,2 @@
+$ datalad catalog create --catalog-dir data-cat
+catalog_create(ok): data-cat [Catalog successfully created at: data-cat]

@@ -1,0 +1,123 @@
+$ datalad catalog --help
+Usage: datalad catalog [-h] [-c CATALOG_DIR] [-m METADATA] [-i DATASET_ID]
+                       [-v DATASET_VERSION] [-f] [-y CONFIG_FILE]
+                       [-d DATASET_PATH] [-s SUBDATASET_PATH] [--version]
+                       {create|add|remove|serve|set-super|validate|workflow-new|workflow-update}
+
+Generate a user-friendly web-based data catalog from structured
+metadata.
+
+The ``datalad catalog`` command can be used to ``create`` a new
+catalog, ``add`` and ``remove`` metadata entries to/from an
+existing catalog, or start a a local http server to ``serve`` an
+existing catalog locally. It can also ``validate`` a metadata
+entry (validation is also performed implicitly when adding) and
+set the dataset to be shown by default (``set-super``).
+
+Metadata can be provided to DataLad Catalog from any number of
+arbitrary metadata sources, as an aggregated set or as individual
+metadata items. DataLad Catalog has a dedicated schema (using the
+JSON Schema vocabulary) against which incoming metadata items are
+validated. This schema allows for standard metadata fields as one
+would expect for datasets of any kind (such as name, doi, url,
+description, license, authors, and more), as well as fields that
+support identification, versioning, dataset context and linkage,
+and file tree specification.
+
+The output is a set of structured metadata files, as well as a
+Vue.js-based browser interface that understands how to render this
+metadata in the browser. These can be hosted on a platform of
+choice as a static webpage.
+
+Note: in the catalog website, each dataset entry is displayed
+under ``<main page>/#/dataset/<dataset_id>/<dataset_version>``.
+By default, the main page of the catalog will display a 404 error,
+unless the default dataset is configured with ``datalad catalog
+set-super``.
+
+*Examples*
+
+Create a new catalog from scratch::
+
+   % datalad catalog create -c /tmp/my-cat
+
+Add metadata to an existing catalog::
+
+   % datalad catalog add -c /tmp/my-cat -m path/to/metadata.jsonl
+
+Set the superdataset of an existing catalog - the first dataset
+displayed when navigating to the root URL of the catalog::
+
+   % datalad catalog set-super -c /tmp/my-cat -i abcd -v 1234
+
+Serve the content of the catalog via a local HTTP server at
+http://localhost:8000::
+
+   % datalad catalog serve -c /tmp/my-cat
+
+Check if metadata conforms to catalog schema without adding it to the
+catalog::
+
+   % datalad catalog validate -m path/to/metadata.jsonl
+
+Run a workflow for recursive metadata extraction (using datalad-
+metalad), translating metadata to the catalog schema (using JQ
+bindings), and adding the translated metadata to a new catalog.::
+
+   % datalad catalog workflow-new -c /tmp/my-cat -d 'path/to/superdataset'
+
+Run a workflow for updating a catalog after registering a subdataset
+to the superdataset which the catalog represents. This workflow
+includes extraction (using datalad-metalad), translating metadata to
+the catalog schema (using JQ bindings), and adding the translated
+metadata to the existing catalog.::
+
+   % datalad catalog workflow-update -c /tmp/my-cat -d 'path/to/superdataset' -s 'path/to/subdataset'
+
+positional arguments:
+  {create|add|remove|serve|set-super|validate|workflow-new|workflow-update}
+                        This is the subcommand to be executed by datalad-
+                        catalog. Options include: create, add, remove, serve,
+                        set-super, validate, workflow-new, and workflow-
+                        update. Example: ''. Constraints: value must be one of
+                        ('create', 'add', 'remove', 'serve', 'set-super',
+                        'validate', 'workflow-new', 'workflow-update')
+
+optional arguments:
+  -h, --help, --help-np
+                        show this help message. --help-np forcefully disables
+                        the use of a pager for displaying the help message
+  -c CATALOG_DIR, --catalog-dir CATALOG_DIR
+                        Directory where the catalog is located or will be
+                        created. Example: ''.
+  -m METADATA, --metadata METADATA
+                        Path to input metadata. Multiple input types are
+                        possible: - A '.json' file containing an array of JSON
+                        objects related to a single datalad dataset. - A
+                        stream of JSON objects/lines Example: ''.
+  -i DATASET_ID, --dataset-id DATASET_ID
+                        Example: ''.
+  -v DATASET_VERSION, --dataset-version DATASET_VERSION
+                        Example: ''.
+  -f, --force           If content for the user interface already exists in
+                        the catalog directory, force this content to be
+                        overwritten. Content overwritten with this flag
+                        include the 'artwork' and 'assets' directories and the
+                        'index.html' and 'config.json' files. Content in the
+                        'metadata' directory remain untouched. Example: ''.
+  -y CONFIG_FILE, --config-file CONFIG_FILE
+                        Path to config file in YAML or JSON format. Default
+                        config is read from datalad_catalog/config/config.json
+                        Example: ''.
+  -d DATASET_PATH, --dataset-path DATASET_PATH
+                        Path to dataset on which to run an extraction,
+                        translation and catalog generation workflow. Example:
+                        ''.
+  -s SUBDATASET_PATH, --subdataset-path SUBDATASET_PATH
+                        Path to dataset on which to run an extraction,
+                        translation and catalog generation workflow. Used
+                        together with '-d', '--dataset-path' when running
+                        'workflow-update'. Example: ''.
+  --version             show the module and its version which provides the
+                        command
+

@@ -1,0 +1,7 @@
+$ datalad catalog create -c custom-cat -m toy_metadata.jsonl -y cat_config.yml
+$ datalad catalog set-super -c custom-cat -i 5df8eb3a-95c5-11ea-b4b9-a0369f287950 -v dae38cf901995aace0dde5346515a0134f919523
+catalog_create(ok): custom-cat [Catalog successfully created at: custom-cat]
+catalog_create(ok): custom-cat [Metadata items successfully added to catalog]
+action summary:
+  catalog_create (ok: 2)
+catalog_set_super(ok): /private/tmp/me/catalog [Superdataset successfully set for catalog]

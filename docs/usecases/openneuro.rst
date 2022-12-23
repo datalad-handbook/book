@@ -44,6 +44,15 @@ Likewise, you can get datasets from OpenNeuro (and legacy datasets from OpenNeur
    # you can also install legacy datasets from openfMRI
    $ datalad clone ///openfmri/ds000030
 
+As this method can just as easily provide you with a browseable-but-small-in-size file index of all of OpenNeuro, you can also install the entire set of datasets and browse it:
+
+.. code-block:: bash
+
+   datalad clone ///openneuro # install superdataset
+   cd openneuro
+   # install all openneuro datasets but do not retrieve data (this takes time)
+   datalad get -n openneuro/ds*
+
 What's DataLad and why should I use it to do this?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 

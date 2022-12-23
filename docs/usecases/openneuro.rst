@@ -67,7 +67,7 @@ Below, we've listed a few bullet points on why it may be useful for you to downl
   On demand, you can retrieve file contents of your choice via :command:`datalad get` which downloads the specified files or directories.
   If you do not need file contents anymore and want to free up diskspace, a :command:`datalad drop` drops the file contents, reducing the file size to about 140Kb, but you retain access to the file via :command:`datalad get`.
   Thus, if your hard drive overflows, you can drop file contents without losing access to them, or keep a very lightweight reference to your input data next to your analysis results.
-* Easy **updating mechanisms**: Should a dataset get updated, you do not need to re-download a new version of the dataset, but run a ``datalad update --merge`` in the dataset instead to automatically obtain the new or updated files.
+* Easy **updating mechanisms**: Should a dataset get updated, you do not need to re-download a new version of the dataset, but run a ``datalad update --how merge`` in the dataset instead to automatically obtain the new or updated files.
 * **Open and transparent science**: Share analysis together with data by creating a dataset for your code and results and installing your OpenNeuro dataset of choice as a :term:`DataLad subdataset` inside of it.
   This links the data you are using in a precise version to your code and results.
   If you want to, you can even use :command:`datalad run` or :command:`datalad containers-run` for provenance-tracked execution of commands or scripts, or the ``datalad-containers`` :term:`DataLad extension` to attach software environments to your computation.

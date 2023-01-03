@@ -5,11 +5,10 @@ Encrypted data storage and transport
 
 .. index:: ! Usecase; Encrypted data storage and transport
 
-Some data is not meant for everybody's eyes - you can share a picture from a midflight-plane-window-view without a problem on your social media account, but you `shouldn't post a photo of your plane ticket next to it <https://mango.pdf.zone/finding-former-australian-prime-minister-tony-abbotts-passport-number-on-instagram>`_.
-But there also is data that is so sensitive that not only should you not share it anywhere, you also need to make sure that it is inaccessible even when someone sneaks into your storage system or intercepts a file transfer - things such as passwords, private messages, or medical data.
+Some data are not meant for everybody's eyes - you can share a picture from a midflight-plane-window-view without a problem on your social media account, but you `shouldn't post a photo of your plane ticket next to it <https://mango.pdf.zone/finding-former-australian-prime-minister-tony-abbotts-passport-number-on-instagram>`_.
+But there are also data so sensitive that not only should you not share them anywhere, you also need to make sure that they are inaccessible even when someone sneaks into your storage system or intercepts a file transfer - things such as passwords, private messages, or medical data.
 One technical solution for this problem is `encryption <https://en.wikipedia.org/wiki/Encryption>`_.
-During encryption, the sensitive data is obfuscated in a structured but secret manner, and only authorized agents have the knowledge how to decrypt the data back into a usable state.
-
+During encryption, the sensitive data are obfuscated in a structured but secret manner, and only authorized agents have the knowledge how to decrypt the data back into a usable state.
 
 Because encryption is relevant or at least attractive to many applications involving data in :term:`DataLad dataset`\s, this use case demonstrates how to
 utilise `git-annex's encryption <https://git-annex.branchable.com/encryption/>`_ to keep data safely encrypted when it is not being used.
@@ -37,7 +36,7 @@ The DataLad approach
 
 Bob sets up his remote machine (web server) so that incoming data are
 saved in a DataLad dataset. On that machine, he also creates a RIA
-sibling for the dataset (accessible from the outside through ssh, and
+sibling for the dataset (accessible from the outside through SSH, and
 only to a few authorized users), and enables encryption for annexed
 contents. He chooses a scheme in which the server only has the
 encryption key. Each new data file will be saved in the dataset,
@@ -73,7 +72,7 @@ Remote server: encrypted deposition
 -----------------------------------
 
 On the remote server, we start by creating a DataLad dataset to track the deposition of raw data.
-Since encryption is enabled for git annex :term:`special remote`\s (thus only applies to annexed files), we stay with the default dataset configuration, which annexes all files.
+Since encryption is enabled for git-annex :term:`special remote`\s (thus only applies to annexed files), we stay with the default dataset configuration, which annexes all files.
 
 .. code:: bash
 
@@ -84,7 +83,7 @@ Then, we create a local :term:`Remote Indexed Archive (RIA) store` as a :term:`s
 
 .. note::
 
-   Using a RIA store is a choice for this use case, but *not* a requirement for data encryption. Encryption can be enabled in the same way for any kind of git annex :term:`special remote`.
+   Using a RIA store is a choice for this use case, but *not* a requirement for data encryption. Encryption can be enabled in the same way for any kind of git-annex :term:`special remote`.
    In fact, the primary use-case for encryption in git-annex is sending file content to remotes hosted by an untrusted party.
 
 The created sibling is called ``entrystore`` in the example below, but by default, a RIA sibling consists of two parts, with ``entrystore`` being only one of them.
@@ -97,7 +96,7 @@ The other, which by default uses the sibling name with a ``-storage`` suffix ("`
      --alias incoming-data \
      ria+file:///data/project/store
 
-Now we tell git annex to encrypt annexed content placed in the store.
+Now we tell git-annex to encrypt annexed content placed in the store.
 We choose regular public key encryption with shared filename encryption (``sharedpubkey``).
 In this method, access to *public* keys is required to store files in the remote, but a *private* key is required for retrieval.
 So if we only store our public key on the machine, an intruder will have no means to decrypt the data even if they gain access to the server.
@@ -194,7 +193,7 @@ We repeat the same for the input subdataset, so that we can maintain a local cop
 
 Depending on what is more convenient for us, we could either decide to keep the current dataset clones and drop only the annexed file content after pushing, or treat the clones as temporary and remove them altogether.
 Here, we will use the second option.
-For this reason, we need to declare the current clones "dead" to git annex before pushing, so that subsequent clones from the RIA store won't consider this location for obtaining files.
+For this reason, we need to declare the current clones "dead" to git-annex before pushing, so that subsequent clones from the RIA store won't consider this location for obtaining files.
 Since we gave the super- and sub-dataset's siblings the same name, "``localstore``", we can use ``push --recursive``.
 
 .. code:: bash
@@ -263,7 +262,7 @@ But to learn about new files that were added in the remote server since we last 
 
 Let's add it then (note that when working with ``datalad
 siblings`` or ``git remote`` commands, we cannot use the
-``ria+ssh://...#~alias`` url, and need to use the actual ssh url and filesystem path).
+``ria+ssh://...#~alias`` URL, and need to use the actual SSH URL and filesystem path).
 
 .. code:: bash
 

@@ -134,7 +134,7 @@ In order to retrieve the encrypted data securely from the remote server and perf
    $ datalad create derived_data
    $ cd derived_data
 
-We then install the dataset from the RIA store on the remote server as a subdataset with input data using :command:`datalad clone` and an :term:`SSH` URL to the dataset in the ROA store.
+We then install the dataset from the RIA store on the remote server as a subdataset with input data using :command:`datalad clone` and an :term:`SSH` URL to the dataset in the RIA store.
 
 .. code:: bash
 
@@ -162,7 +162,7 @@ Because here we have access to our private key, we will use the default, more fl
 Note: In the ``hybrid`` mode, a private key is needed for *both* retrieval
 and deposition of annexed contents, but it is easy to add new keys
 without having to reencrypt data.
-File content and names are encrypted with a symmetric cypher, which is encrypted using gpg and stored encrypted in the git repository.
+File content and names are encrypted with a symmetric cypher, which is itself encrypted using gpg and stored encrypted in the git repository.
 See `git-annex's documentation <https://git-annex.branchable.com/encryption/>`__ for more details.
 
 .. code:: bash
@@ -268,7 +268,7 @@ difference in using ``ff-only`` versus ``merge``).
 
    $ datalad update --sibling entrystore --how merge
 
-.. find-out-more:: A note to users of python API
+.. find-out-more:: A note to users of Python API
 
    The results of the ``diff`` command include files that were not changed, so to look for changes we need to filter them by state;
    e.g. if we only expect additions, we can do this:

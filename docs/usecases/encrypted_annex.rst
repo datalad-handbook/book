@@ -11,7 +11,7 @@ One technical solution for this problem is `encryption <https://en.wikipedia.org
 During encryption, the sensitive data are obfuscated in a structured but secret manner, and only authorized agents have the knowledge how to decrypt the data back into a usable state.
 
 Because encryption is relevant or at least attractive to many applications involving data in :term:`DataLad dataset`\s, this use case demonstrates how to
-utilise `git-annex's encryption <https://git-annex.branchable.com/encryption/>`_ to keep data safely encrypted when it is not being used.
+utilize `git-annex's encryption <https://git-annex.branchable.com/encryption/>`_ to keep data safely encrypted when it is not being used.
 This example workflow mimics a sensitive data deposition use case, where data need to be securely deposited on one machine, and downloaded to another machine for processing and storage.
 To make this work, in our workflow we will combine several independent pieces:
 
@@ -20,7 +20,7 @@ To make this work, in our workflow we will combine several independent pieces:
 #. Working in temporary (ephemeral) clones that combine information from
    several remotes.
 
-Note that these components were selected to fit a paricular setup, but neither RIA stores nor temporary clones are required components for encryption.
+Note that these components were selected to fit a particular setup, but neither RIA stores nor temporary clones are required components for encryption.
 
 The challenge
 =============
@@ -165,8 +165,8 @@ Because here we have access to our private key, we will use the default, more fl
 
 Note: In the ``hybrid`` mode, a private key is needed for *both* retrieval
 and deposition of annexed contents, but it is easy to add new keys
-without having to reencrypt data.
-File content and names are encrypted with a symmetric cypher, which is itself encrypted using GPG and stored encrypted in the git repository.
+without having to re-encrypt data.
+File content and names are encrypted with a symmetric cipher, which is itself encrypted using GPG and stored encrypted in the git repository.
 See `git-annex's documentation <https://git-annex.branchable.com/encryption/>`__ for more details.
 
 .. code:: bash
@@ -194,7 +194,7 @@ We repeat the same for the input subdataset, so that we can maintain a local cop
 Depending on what is more convenient for us, we could either decide to keep the current dataset clones and drop only the annexed file content after pushing, or treat the clones as temporary and remove them altogether.
 Here, we will use the second option.
 For this reason, we need to declare the current clones "dead" to git-annex before pushing, so that subsequent clones from the RIA store won't consider this location for obtaining files.
-Since we gave the super- and sub-dataset's siblings the same name, "``localstore``", we can use ``push --recursive``.
+Since we gave the super- and subdataset's siblings the same name, "``localstore``", we can use ``push --recursive``.
 
 .. code:: bash
 
@@ -314,6 +314,6 @@ Now that we have the latest version of the subdataset, we can repeat the update 
 Note: in this case our input dataset has two RIA siblings, one local (``ria+file://``) and one remote (``ria+ssh``).
 Due to this difference, they should be configured with different "cost" for updating data (inspect the output of ``git annex info entrystore-storage``).
 The section :ref:`cloneprio` shows how this can be done.
-So when DataLad gets files as part of ``datalad run``, the local storage will be prioritised, and only the recently added files will be downloaded from the remote storage.
+So when DataLad gets files as part of ``datalad run``, the local storage will be prioritized, and only the recently added files will be downloaded from the remote storage.
 Subsequent push will bring the local storage up to
 date, and the process can be repeated.

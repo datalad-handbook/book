@@ -40,7 +40,7 @@ and the entire dataset to the same GitHub repository::
 
 Alternatively, to make publication even easier for you, the dataset provider, you can establish a :term:`publication dependency` such that a :command:`datalad push` performs the data transfer to ``git-lfs`` automatically::
 
-   $ datalad siblings github --publish-depends github-lsf
+   $ datalad siblings configure -s github --publish-depends github-lfs
    # afterwards, only datalad push is needed to publish dataset contents and history
    $ datalad push --to github
 

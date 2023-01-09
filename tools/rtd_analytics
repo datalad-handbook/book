@@ -89,6 +89,12 @@ def get_aggregate_traffic(rtd):
     """
     stats = dict()
     for d in csv.DictReader(io.StringIO(rtd.traffic_analytics)):
+        try:
+            # integer versions refer to PR-builds
+            pr_id = int(d['Version'])
+            d['Version'] = f'PR-{pr_id}'
+        except ValueError:
+            pass
         key = (d['Version'], d["Path"])
         views = stats.get(key, 0)
         views += int(d['Views'])

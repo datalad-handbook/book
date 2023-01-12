@@ -865,7 +865,7 @@ is only two files, and they are quite small, you decide to store them in Git --
 this way, the files would be available without configuring an external data
 store.
 
-To get contents out of the dataset's annex you need to *unannex* them. This is
+To get a file out of the git-annex hands you need to *unannex* it. This is
 done with the git-annex command :command:`git annex unannex`. Let's see how it
 works:
 
@@ -892,6 +892,10 @@ into Git, either by adding a rule to ``.gitattributes``, or with
    :workdir: dl-101/DataLad-101
 
    $ datalad save --to-git -m "save cropped logos to Git" recordings/*jpg
+
+Note that git-annex keeps the previously annexed file's content in the annex for safety, to prevent accidental data loss.
+If its only few and small files that were unannexed, their size in the annex will not matter much.
+If its a lot of files or larger files that were accidentally annexed, you may want to drop the left-behind content using ``git annex unused`` and ``git annex dropunused``.
 
 
 Deleting (annexed) files/directories

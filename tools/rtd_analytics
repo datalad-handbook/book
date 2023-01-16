@@ -114,7 +114,7 @@ def main(project, user=None, password=None):
     )
     aggsearch = get_aggregate_searches(rtd)
     aggtraffic = get_aggregate_traffic(rtd)
-    print('#### Handbook Analytics (last 30 days)')
+    print(f'#### RTD Analytics: {project} (last 30 days)')
     paths = {}
     for k, v in aggtraffic.items():
         views = paths.get(k[1], 0)

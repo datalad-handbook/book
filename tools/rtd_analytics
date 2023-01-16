@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 """Query DataLad Handbook analytics
 
+Usage: rtd_analytics <project-name>
+
 Needs a readthedocs account with adequate permissions. Set user/password
 via ENV variables RTD_USER and RTD_PASSWORD
 
@@ -10,17 +12,19 @@ Stats are printed to STDOUT
 import csv
 import io
 from os import environ
+import sys
 
 import mechanize
 
 
 class ReadTheDocs:
     traffic_url = \
-        "https://readthedocs.org/dashboard/datalad-handbook/traffic-analytics/"
+        "https://readthedocs.org/dashboard/{project}/traffic-analytics/"
     search_url = \
-        "https://readthedocs.org/dashboard/datalad-handbook/search-analytics/"
+        "https://readthedocs.org/dashboard/{project}/search-analytics/"
 
-    def __init__(self, username, password):
+    def __init__(self, project, username, password):
+        self._project = project
         self._sadata = None
         self._tadata = None
 
@@ -59,7 +63,7 @@ class ReadTheDocs:
     def search_analytics(self):
         if self._sadata is None:
             self._sadata = self.get_analytics_data(
-                ReadTheDocs.search_url
+                ReadTheDocs.search_url.format(project=self._project)
             )
         return self._sadata
 
@@ -67,7 +71,7 @@ class ReadTheDocs:
     def traffic_analytics(self):
         if self._tadata is None:
             self._tadata = self.get_analytics_data(
-                ReadTheDocs.traffic_url
+                ReadTheDocs.traffic_url.format(project=self._project)
             )
         return self._tadata
 
@@ -102,8 +106,9 @@ def get_aggregate_traffic(rtd):
     return stats
 
 
-def main(user=None, password=None):
+def main(project, user=None, password=None):
     rtd = ReadTheDocs(
+        project,
         environ.get('RTD_USER', user),
         environ.get('RTD_PASSWORD', password),
     )
@@ -149,4 +154,4 @@ def main(user=None, password=None):
 
 
 if __name__ == '__main__':
-    main()
+    main(sys.argv[1])

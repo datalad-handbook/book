@@ -172,12 +172,13 @@ See `git-annex's documentation <https://git-annex.branchable.com/encryption/>`__
 .. code:: bash
 
    $ datalad create-sibling-ria \
-     --new-store-ok --name localstore \
-     --alias derived \
-     ria+file:///data/project/store
+       --new-store-ok --name localstore \
+       --alias derived \
+       ria+file:///data/project/store
    $ git annex enableremote \
-     localstore-storage \
-     keyid+=2EF857223E033AF1
+       localstore-storage \
+       encryption=hybrid \
+       keyid=2EF857223E033AF1
 
 We repeat the same for the input subdataset, so that we can maintain a local copy of the raw data.
 
@@ -185,10 +186,12 @@ We repeat the same for the input subdataset, so that we can maintain a local cop
 
    $ cd input
    $ datalad create-sibling-ria \
-     --name localstore --alias raw \
-     ria+file:///data/project/store
+       --name localstore --alias raw \
+       ria+file:///data/project/store
    $ git annex enableremote \
-     localstore-storage keyid+=2EF857223E033AF1
+       localstore-storage \
+       encryption=hybrid \
+       keyid+=2EF857223E033AF1
    $ cd ..
 
 Depending on what is more convenient for us, we could either decide to keep the current dataset clones and drop only the annexed file content after pushing, or treat the clones as temporary and remove them altogether.

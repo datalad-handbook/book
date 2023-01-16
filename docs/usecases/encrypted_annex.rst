@@ -68,6 +68,19 @@ We won't go into detail about GPG, but the most useful commands are:
 - ``gpg --export -a [keyID] > my_public_key.asc`` to export a public key, and
 - ``gpg --import my_public_key.asc`` to import the previously exported key on another machine.
 
+Setup overview
+--------------
+
+In this workflow, we describe encrypted data storage and transport between two locations.
+We will call them *remote server* and *local machine*.
+In this example, the *remote server* is where the data originates (is created or deposited), and the *local server* is where the data is downloaded to, processed, and saved for future access.
+
+Choices made in the following examples (encryption modes, sibling types, data flow) were dictated by the particular setup of the use case leading to this chapter.
+Specifically, our data was entered through a web form; the script responsible for serving the website wrote incoming data into JSON files and saved them into a DataLad dataset.
+Although the remote server used for data deposition provided authenticated access only, it was hosted outside of what we considered our trusted infrastructure.
+Because of that, for further processing we fetched the encrypted data onto our local machine, which was the only place where we could store decryption keys and access credentials.
+Ultimately, the examples should provide a good overview of encrypted data workflows with DataLad, easily adapted to different setups.
+
 Remote server: encrypted deposition
 -----------------------------------
 

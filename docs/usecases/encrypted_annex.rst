@@ -31,6 +31,8 @@ imports the data to his local machine, and uses them to produce an
 updated summary. For security reasons, he does not want the data to lie
 around unencrypted.
 
+.. figure:: ../artwork/src/encryption_sketch.svg
+
 The DataLad approach
 ====================
 

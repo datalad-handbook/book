@@ -89,12 +89,6 @@ Generally metadata can either be provided manually, by running ``extractors`` (d
 
  > datalad meta-dump -d dataset_0 -r | datalad meta-add -d dataset_1 --json-lines -
 
-
-
-
-
-
-
 After the metadata has been added, you can view it via the command ``meta-dump``. The simplest form is ``meta-dump -r``, which will show all metadata that is stored in the git-repository of the dataset in the current directory. You can give a dataset-file-path-pattern to ``meta-dump``, much like an argument to ``ls``, that identifies dataset-ids and versions and a file within the dataset. The two parts are separated by ``:``. So::
 
  > datalad meta-dump -d dataset_0 .:picture_1.png
@@ -117,8 +111,7 @@ First create a git repository that should hold the downloaded metadata::
 
 Now fetch metadata from the demo repository on github, i.e. from ``https://github.com/christian-monch/metadata-test.git`` demo repository::
 
- > git add remote metadata-source "https://github.com/christian-monch/metadata-test.git"
- > git fetch metadata-source "refs/datalad/*:refs/datalad/*"
+ > git fetch "https://github.com/christian-monch/metadata-test.git" "refs/datalad/*:refs/datalad/*"
 
 The metadata is now locally available in the git repository ``metadata-repo``. You can verify this by issuing the command ``datalad meta-dump -r``, which will list all metadata in the repository.
 
@@ -126,16 +119,22 @@ The metadata is now locally available in the git repository ``metadata-repo``. Y
 Publish Metadata to a Git-Repository
 ------------------------------------
 
-You can also push your metadata to a remote Git-repository (if you have write-authorization). Let's assume you are in the directory that contains the git repository with your metadata. First you have to add the metadata destination as a remote::
+You can also push your metadata to a remote Git-repository (if you have write-authorization). Let's assume you are in the directory that contains the git repository with your metadata, then you can push your metadata to a remote git repository ``<your repository>``::
 
- > git add remote metadata-destination "<your repository>"
-
-Then you can push the metadata to the remote repository::
-
- > git push metadata-source "refs/datalad/*:refs/datalad/*"
+ > git push "<your repository>" "refs/datalad/*:refs/datalad/*"
 
 You will notice that no primary data is stored in the repository ``metadata-destination``. That allows you to publish metadata without publishing the primary data at the same time.
 
 
+Querying metadata remotely:
+---------------------------
 
- NB! We are working on remote querying capabilities for metadata. That means, you can query for individual metadata records on a remote repository. If the metadata is large, it is a good idea to remotely query it, because metalad tries to minimize the number of objects that are downloaded while still allowing you to "drill down" into a dataset and file-hierarchy. This will be described here soon.
+You do not have to download metadata to dump it. It is also possible to specify a git-repository, and let metalad only read the metadata that it requires to fulfill your request. For example::
+
+ > datalad meta-dump -d  https://github.com/christian-monch/metadata-test.git ./study-100
+
+Would only download enough data to dump all metadata in the specified dataset tree-path. If you want to see all metadata in the git repository you could issue the following command::
+
+ > datalad meta-dump -d  https://github.com/christian-monch/metadata-test.git -r
+
+This will take a lot longer than the previous command because datalad has to fetch more item from the remote repository. If you use the remote meta-dump option properly, you can quickly examine small subsets of very large metadata repositories.

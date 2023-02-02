@@ -4,23 +4,31 @@ Metadata-Management with MetaLad
 --------------------------------
 
 For many years, :term:`metadata` related functionality was included in the DataLad core package.
-A modernized approach, however, is developed in the `datalad-metalad extension <http://docs.datalad.org/projects/metalad/en/latest/>`_.
+A modernized approach, however, is now developed in the `datalad-metalad extension <http://docs.datalad.org/projects/metalad/en/latest/>`_.
 
 .. figure:: ../artwork/src/metadata.svg
 
+MetaLad is an extension to DataLad that allows you to associate :term:`metadata` with a dataset, a subdataset, or a file. "What is 'metadata' then?" you might ask. Very simply put: metadata is data about data.
+In principle any kind of data could be metadata. What makes it metadata is the fact that it is associated with some "primary" data and usually describes the primary data in some way.
+Consider the following examples: In a library, the catalog contains metadata about the items in the library, such as their *location*; On a file system, the *creation time* of a file as well as the ID of its creator is stored.
+In these examples, the location, creation time, or creator ID is metadata, while the book in the library or the file on the file system are primary data.
+Both the file system and the library have mechanisms to associate metadata with primary data.
+And DataLad, too, has a mechanism to associate metadata with DataLad datasets and their items. This mechanism is MetaLad.
 
-What is MetaLad?
-................
+Metadata can be extracted automatically from primary data, it can be created manually, and it can be transported separately from primary data. You can dump all metadata and, for example, store it in a file, or search through it with a tool of your choice.
 
-MetaLad is an extension to DataLad that allows you to associate metadata with a dataset, a subdataset, or a file. "What is 'metadata' then?" you might ask. Very simply put: metadata is data about data. In principle any kind of data could be metadata. What makes it metadata is the fact that is associated with some "primary" data and usually describes the primary data in some way. For example: in a library, the catalog contains metadata about the items in the library, including, for example, their location. Another example for metadata is the creation time of a file on a file system. The creation time is metadata about the file. The file itself is the primary data. Another example for metadata that is often associated with a file would be the id of the creator. File systems have mechanisms to associate metadata with files. DataLad has also a mechanism to associate metadata with datalad datasets and their items. This mechanism is MetaLad.
+The basic philosophy of MetaLad is: A user provides arbitrary metadata, gives it a name, and associates it with a specific version of a file or dataset. MetaLad will store this association, enable metadata transport, and allow  metadata queries.
 
-Metadata can be extracted automatically from primary data, it can be created manually and it can be transported separately from primary data. You can dump all metadata and, for example, store it in a file, or search through it with a tool of your choice.
+Installation
+""""""""""""
 
-The basic philosophy of metalad is: you provide arbitrary metadata, give it a name, and associate it with a specific version of a file or dataset. Metalad will store this association, allow you to transport metadata, and allow you to query the metadata.
+MetaLad is a stand-alone Python package, and can be installed using
 
-Installation of metalad:
+.. code-block:: bash
 
-Metalad is installed by using `pip install datalad-metalad`. As with datalad, you might want to do that in a virtual environment.
+   pip install datalad-metalad
+
+As with DataLad and other Python packages, you might want to do the installation in a :term:`virtual environment`.
 
 
 Primary Data and Metadata

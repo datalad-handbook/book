@@ -1,10 +1,10 @@
 $ git diff SGD -- metrics/accuracy.json
 diff --git a/metrics/accuracy.json b/metrics/accuracy.json
-index d4a5fc38..5de32911 100644
+index 7e85b934..a95a869e 100644
 --- a/metrics/accuracy.json
 +++ b/metrics/accuracy.json
 @@ -1 +1 @@
--{"accuracy": 0.6869455006337135}
+-{"accuracy": 0.7870722433460076}
 \ No newline at end of file
-+{"accuracy": 0.8111533586818758}
++{"accuracy": 0.8073510773130546}
 \ No newline at end of file

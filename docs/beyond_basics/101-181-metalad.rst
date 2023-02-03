@@ -10,17 +10,19 @@ A modernized approach, however, is now developed in the `datalad-metalad extensi
 
 MetaLad is a :term:`DataLad extension` that allows you to
 
-* associate :term:`metadata` with a dataset, a subdataset, or a file,
+* associate :term:`metadata` in any format with a dataset, a subdataset, or a file,
 * extract metadata automatically from primary data or handle manually supplied metadata,
 * transport metadata separately from primary data,
 * dump metadata and, for example, store it in a file, or search through it with a tool of your choice.
 
-The basic philosophy of MetaLad is: A user provides arbitrary metadata, gives it a name, and associates it with a specific version of a file or dataset. MetaLad will store this association, enable metadata transport, and allow  metadata queries.
+The basic usage model of MetaLad is: A user provides arbitrary metadata, gives it a name, and associates it with a specific version of a file or dataset.
+MetaLad will store this association, enable metadata transport, and allow  metadata queries.
+The following section illustrates relevant concepts, commands, and workflows.
 
 Primary Data versus Metadata
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-You now might ask: "What is 'metadata' then?"
+You might ask upfront: "What is 'metadata'?"
 Very simply put: Metadata is data about data.
 In principle, any kind of data could be metadata. What makes it metadata is the fact that it is associated with some "primary" data, and usually describes the primary data in some way.
 Consider two simple examples from the physical and the digital world: A library catalog contains metadata about the library's books, such as their *location*; and a file system stores the *creation time* of a file as well as the *user ID* of its creator.
@@ -30,30 +32,45 @@ And what does metadata do for you?
 Generally, metadata provides additional information about primary data.
 This allows to identify primary data with certain properties.
 These properties could either be contained within the primary data and (automatically) extracted from it, such as digital photographs captured in a specific time frame, or assigned to primary data based on an external policy (such as the directory "Hiking in the alps 2019" on your phone).
+
 Importantly, primary data can have virtually unlimited different metadata associated with it, depending on what is relevant in a given context.
 Consider a publication in a medical field, and a few examples for metadata about it from the virtually unlimited metadata space:
 
 1. The full text for the scanned PDF (manually created, or automatically extracted by `optical character recognition <https://en.wikipedia.org/wiki/Optical_character_recognition>`_)
 2. Citation information, such as the geographic origin of citing papers or type of media outlet reporting about it
 3. Context information, e.g. publications based on similar data
-4. Structural data about the underlying medical acquisitions, (such as dataset containment, modification date, or hash) which can provide basic
+4. Structural data about the underlying medical acquisitions (such as dataset containment, modification date, or hash), which can provide basic
    structural information even without access to the primary data
 5. Special search indices, e.g. graph-based search indices, medical abbreviations
 6. Anonymized information extracted from medical documents.
 7. Information about the used software, e.g. security assessments, citation.cff
 
-Often, specific metadata is known as metadata of a given format or an ontology, and different metadata formats are useful in different contexts.
+The "extractor" concept
+^^^^^^^^^^^^^^^^^^^^^^^
 
-Adding metadata with MetaLad
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+In the context of MetaLad, each one of those metadata examples above would be called a *schema*, and a process or tool deriving or generating a given schema would be called an *extractor*.
 
-Whether metadata is associated with the dataset or individual files inside of it is dependent on the nature of the metadata and the envisioned use.
-Metadata that describe *dataset level* properties should be associated with the dataset, e.g. dataset owner, dataset authors, dataset licenses, or names of contained files.
-Metadata that describes *file level* properties should be associated with the file, e.g. file :term:`checksum`\s.
-Although it seems unnecessary to record the names of contained files or file properties in metadata, it can be very useful if a user receives only metadata and not primary data, for example in case of highly sensitive data where actual file content cannot be shared.
+Different metadata schemas are useful in different contexts:
+In the example above, citation metadata might come in handy when evaluating the impact of the scientific finding, whereas the publications full text and special search indices could be used for automated meta-analyses.
+To allow a variety of metadata use cases, MetaLad can use various metadata schemas simultaneously - If you want to, all schemas from the example above and many more could be created and managed in the same dataset in parallel.
+
+To handle different schemas in parallel, MetaLad represents them based on unique identifiers of the extraction process that generated them.
+The automatically scanned full text might be identified with an extractor name ``OCR``, and the citation data could be called `altmetric <https://en.wikipedia.org/wiki/Altmetric>`_.
+But while the term "extractor" has a technical feel to it, an "extractor" can also be the manual process of annotating arbitrary information about a file - the medical annotations could be called ``first-year-med-student-tracing-brain-regions-by-hand`` following a manual annotation process.
+
+In addition to identifying schemas via extractor names, MetaLad and other :term:`DataLad extension`\s ship with specialized extractor tools to extract metadata of a certain schema.
+But before we take a look into fully automated extraction, we'll illustrate the metadata concept of MetaLad with an extractor with manual elements.
+
+Adding metadata with meta-add
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+In the context of DataLad datasets, metadata can either be associated with entire datasets or individual files inside of it.
+Whether a piece of information is *dataset level* or *file level* metadata is dependent on the nature of the metadata and the envisioned use.
+Metadata that describe dataset level properties could be dataset owner, dataset authors, dataset licenses, or names of contained files [#f1]_, whereas metadata that describe file level properties could be file :term:`checksum`\s or file-specific information like the time-stamp of a photograph.
+
 
 Let's look at a concrete example.
-We have a DataLad dataset ``dataset_0` that contains a single PNG-file called ``picture_1.png``::
+We have a DataLad dataset ``dataset_0`` that contains a single PNG-file called ``picture_1.png``::
 
    $ tree dataset_0
    dataset_0
@@ -61,24 +78,23 @@ We have a DataLad dataset ``dataset_0` that contains a single PNG-file called ``
    0 directories, 1 file
 
 
-Let's assume there is metadata stemming from an advance AI called ``Picture2Words`` that is able to describe the content of images.
-In this case the AI describes the image as::
+Let's assume there is metadata stemming from an advanced AI called ``Picture2Words`` that is able to describe the content of images - in other words, this AI would be able to extract certain metadata from the file.
+In this case the AI describes the image as
 
-  A lake with waterlilies in front of snow covered mountains
+.. code-block:: bash
+
+   "A lake with waterlilies in front of snow covered mountains"
+
+and we would like to add this description as metadata to the file ``./picture_1.png``.
+In order to store more than just one metadata schema, each added metadata entry needs to get a unique name to identify the schema and refer to it within a dataset.
+Often, these names follow the extractor that generated it, but they can also be arbitrarily chosen.
+In our example, we decide to identify the metadata schema as ``"Picture2Words"``.
 
 
-We would like to add this description as metadata to the file ``./picture_1.png``.
-One distinct feature of MetaLad is that it can simultaneously use various metadata formats.
-The only requirement is that each different metadata format is uniquely named.
-Therefore, we have to select a name to identify the metadata format.
-We chose: ``Picture2Words``.
-Now we can use the :command:`meta-add` command to add metadata.
-``meta-add`` adds metadata into the dataset (or any :term:`Git` repository that you chose).
-
-In order to include metadata in the dataset, ``meta-add`` requires a metadata entry to be in a certain format, in particular, a JSON object [#f1]_.
-Such objects can then be read from the command line or from standard input (:term:`stdin`).
-Each metadata JSON object must contain information about the level the metadata applies to (``file`` or ``dataset``), the file or dataset with which metadata should be associated as a path, the :term:`dataset ID` and version, the name of the metadata format, and the metadata itself.
-The examplary, hand-crafted record below even contains a few additional properties, describing the author of the metadata, the name of the metadata extractor, its version, and its parameterization::
+In order to include metadata in a dataset, users need to provide a metadata entry to the :command:`meta-add` command.
+This metadata entry has two major requirements: It needs to be supplied in a certain format, in particular, a JSON object [#f2]_, and it needs to include a set of required information in defined fields.
+A valid metadata entry can then be read into ``meta-add`` either from the command line or from standard input (:term:`stdin`).
+Let's take a look at the JSON object we could generate as a metadata entry for ``picture_1.png`` and identify required fields::
 
     {
       "type": "file",
@@ -96,13 +112,22 @@ The examplary, hand-crafted record below even contains a few additional properti
       }
     }
 
-For convenience, we can create such a JSON object in an editor, and save it as ``metadata-image_1.json``.
+When adding file-level metadata to a dataset that contains the file, the metadata JSON object must contain:
+
+* information about the level the metadata applies to (``type``, with ``file`` instead of ``dataset`` as a value),
+* the file metadata belongs to with a ``path``,
+* the :term:`dataset ID` (``dataset_id``) and version (``dataset_version``),
+* an joint identifier for the metadata extractor and schema ``extractor_name``, as well as details about the metadata extractor like its version (``extractor_version``), its parameterization (``extraction_parameter``), and the date and time of extraction (``extraction_time``) in the form of a time stamp [#f3],
+* information about the agent supplying the metadata (``agent_name`` and ``agent_email``),
+* and finally the metadata itself (``extracted_metadata``).
+
+While certain extractors can generate metadata entries automatically, or one could write scripts wrapping extracting tools to generate them, we can also create such a JSON object manually in an editor, and save it as ``metadata-image_1.json``.
 Afterwards, we can redirect the content of the file into the :command:`meta-add` command in the command line.
 The call below would add the metadata to the current dataset, ``dataset_0``::
 
     $ datalad meta-add -d dataset_0 - < metadata-image_1.json
 
-If you want to try it out yourself, make sure to adjust the ``dataset_id`` to the ID of your own dataset, found via the command ``datalad configuration get datalad.dataset.id``.
+If you want to run this command yourself, make sure to adjust the ``dataset_id`` to the ID of your own dataset, found via the command ``datalad configuration get datalad.dataset.id``.
 Alternatively, provide the switch ``-i`` to ``meta-add``, which tells it to just warn about ID mismatches instead of erroring out.
 
 Generally, metadata can either be provided
@@ -185,4 +210,8 @@ As with DataLad and other Python packages, you might want to do the installation
 
 .. rubric:: Footnotes
 
-.. [#f1] `JSON <https://en.wikipedia.org/wiki/JSON>`_ is a language-independent, open and lightweight data interchange format. Data is represented as human readable text, organized in key-value pairs (e.g., 'name': 'Bob') or arrays, and thus easily readable by both humans and machines. A *JSON object* is a collection of key-value pairs. Its enclosed in curly brackets, and individual pairs in the object are separated by commas.
+.. [#f1] It may seem like an unnecessary duplicated effort to record the names of contained files or certain file properties as metadata in a dataset already containing these files. However, metadata can be very useful whenever the primary data can't be shared, for example due to its large size or sensitive nature, allowing consumers to, for example, derive anonymized information, aggregate data with search queries, or develop code and submit it to the data holders to be ran on their behalf.
+
+.. [#f2] `JSON <https://en.wikipedia.org/wiki/JSON>`_ is a language-independent, open and lightweight data interchange format. Data is represented as human readable text, organized in key-value pairs (e.g., 'name': 'Bob') or arrays, and thus easily readable by both humans and machines. A *JSON object* is a collection of key-value pairs. Its enclosed in curly brackets, and individual pairs in the object are separated by commas.
+
+.. [#f3] what is a time stamp

@@ -136,7 +136,7 @@ The following call would add the metadata entry to the current dataset, ``cozy-s
 	In case an error occurs, make sure to read the error message, and turn the the commands' ``--help`` for insights about requirements you might have missed.
 
 After the metadata has been added, you can view it via the command :command:`meta-dump`.
-The simplest form of this command is ``meta-dump -r``, which will show all metadata that is stored in dataset in the current directory.
+The simplest form of this command is ``meta-dump -r``, which will show all metadata that is stored in the dataset in the current directory.
 To get more specific metadata records, you can give a dataset-file-path-pattern to ``meta-dump``, much like an argument to ``ls``, that identifies :term:`dataset ID`, version and a file within the dataset.
 The two parts are separated by ``:``. The following line would just dump all metadata for ``zen.png``.
 

@@ -53,7 +53,7 @@ In the example above, citation metadata might come in handy when evaluating the 
 To allow a variety of metadata use cases, MetaLad can use various metadata schemas simultaneously - if you want to, all schemas from the example above and many more could be created and managed in the same dataset in parallel.
 
 To handle different schemas in parallel, MetaLad represents them based on unique identifiers of the extraction process that generated them.
-The automatically scanned full text might be identified with an extractor name ``OCR``, and the citation data could be called "`altmetric <https://en.wikipedia.org/wiki/Altmetric>`_".
+For example, the automatically scanned full text might be identified with an extractor name ``OCR``, and that of the citation data could be called "`altmetric <https://en.wikipedia.org/wiki/Altmetric>`_".
 But while the term "extractor" has a technical feel to it, an "extractor" can also be the manual process of annotating arbitrary information about a file - nothing prevents metadata from medical annotations to be called ``Sam-tracing-brain-regions-by-hand``.
 
 In addition to identifying schemas via extractor names, MetaLad and other :term:`DataLad extension`\s ship with specialized extractor tools to extract metadata of a certain schema.

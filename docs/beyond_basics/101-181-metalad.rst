@@ -180,7 +180,7 @@ Let's start by creating a place where someone else's metadata could live.
     $ cd metadata-assimilation
 
 Because MetaLad stores metadata in :term:`Git`'s object store, we use Git to directly fetch metadata from a remote repository, such as this demo on :term:`GitHub`: ``https://github.com/christian-monch/metadata-test.git``.
-Because metadata added by MetaLad is not transported automatically but needs to be specifically requested, the command to retrieve it looks unfamiliar to non-Git-users: It identifies the precise location of :term:`ref` that contains the metadata.
+Because metadata added by MetaLad is not transported automatically but needs to be specifically requested, the command to retrieve it looks unfamiliar to non-Git-users: It identifies the precise location of the :term:`ref` that contains the metadata.
 
 .. find-out-more:: Exactly where is metadata stored?
    :name: fom-metadataobjecttree

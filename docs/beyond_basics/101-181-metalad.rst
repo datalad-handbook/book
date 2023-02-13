@@ -204,8 +204,18 @@ This could also be printed a bit more readable:
 Using existing extractors to add metadata
 """""""""""""""""""""""""""""""""""""""""
 
-TODO: This needs and example
+If writing JSON objects by hand sounds cumbersome, it indeed is.
+To automate metadata extraction or generation, MetaLad can use extractors to do the job.
+A few built-in extractors are already shipped with it, for example ``annex`` (reporting on information :term:`git-annex` provides about datasets or files), or ``studyminimeta`` (a `metadata schema for archived studies <https://jugit.fz-juelich.de/c.moench/datasets_repo/-/wikis/Metadata-for-Archived-Studies-Handbook>`_).
+Once an extractor of choice is found, the :command:`datalad meta-extract` command can do its job:
 
+.. runrecord:: _examples/DL-101-181-108
+   :language: console
+   :workdir: beyond_basics/meta/cozy-screensavers
+
+   $ datalad meta-extract -d . metalad_core | jq
+
+The extracted metadata can then either be saved into a file as before, or directly :term:`pipe`'d into :command:`meta-add`.
 
 Creating your own extractor
 """""""""""""""""""""""""""

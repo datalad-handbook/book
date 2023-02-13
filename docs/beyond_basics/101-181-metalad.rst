@@ -235,17 +235,6 @@ Let's start by creating a place where someone else's metadata could live.
 Because MetaLad stores metadata in :term:`Git`'s object store, we use Git to directly fetch metadata from a remote repository, such as this demo on :term:`GitHub`: ``https://github.com/christian-monch/metadata-test.git``.
 Because metadata added by MetaLad is not transported automatically but needs to be specifically requested, the command to retrieve it looks unfamiliar to non-Git-users: It identifies the precise location of the :term:`ref` that contains the metadata.
 
-.. find-out-more:: Exactly where is metadata stored?
-   :name: fom-metadataobjecttree
-
-   MetaLad employs an internal metadata model that makes the following properties possible:
-
-   * Metadata has a version encoded, but isn't itself version controlled
-   * Metadata should not be transported if not explicitly requested
-   * It should be possible to only retrieve parts of the overall metadata tree, e.g. certain sub-nodes
-
-   TODO this needs much more
-
 .. runrecord:: _examples/DL-101-181-111
    :language: console
    :workdir: beyond_basics/meta/metadata-assimilation
@@ -254,9 +243,59 @@ Because metadata added by MetaLad is not transported automatically but needs to 
       "https://github.com/christian-monch/metadata-test.git" \
       "refs/datalad/*:refs/datalad/*"
 
+
+.. find-out-more:: Exactly where is metadata stored, and why?
+   :name: fom-metadataobjecttree
+
+   MetaLad employs an internal metadata model that makes the following properties possible:
+
+   * Metadata has a version encoded, but isn't itself version controlled
+   * Metadata should not be transported if not explicitly requested
+   * It should be possible to only retrieve parts of the overall metadata tree, e.g. certain sub-nodes
+
+   To fulfill this, metadata is stored in Git's internal object store as a `blob <https://git-scm.com/book/en/v2/Git-Internals-Git-Objects>`_, and Git :term:`ref`\'s are used to point to these blobs.
+   To not automatically transport them, they are organized in a directory that isn't fetched or pushed by default, but can be transported by explicitly fetching or pushing it: ``.git/refs/datalad`` [#f5]_.
+
+   After fetching these refs, they can be found in the ``metadata-assimilation`` dataset:
+
+    .. runrecord:: _examples/DL-101-181-113
+       :language: console
+       :workdir: beyond_basics/meta/metadata-assimilation
+
+       $ tree .git/refs
+
+    Just like other Git :term:`ref`\s, these refs are files that identify Git objects or trees.
+    By utilizing Git's internal plumbing commands, we can follow them:
+
+    .. runrecord:: _examples/DL-101-181-114
+       :language: console
+       :workdir: beyond_basics/meta/metadata-assimilation
+
+       $ cat .git/refs/datalad/dataset-tree-version-list
+
+    .. runrecord:: _examples/DL-101-181-115
+       :language: console
+       :workdir: beyond_basics/meta/metadata-assimilation
+       :realcommand: echo "$ git show $(cat .git/refs/datalad/dataset-tree-version-list) | jq" && git show $(cat .git/refs/datalad/dataset-tree-version-list) | jq
+
+    .. runrecord:: _examples/DL-101-181-116
+       :language: console
+       :workdir: beyond_basics/meta/metadata-assimilation
+       :realcommand: echo "$ git ls-tree $(git show $(cat .git/refs/datalad/dataset-tree-version-list) | jq | grep "location" | awk '{gsub(/"/, "", $2); print $2}') " && git ls-tree $(git show $(cat .git/refs/datalad/dataset-tree-version-list) | jq | grep "location" | awk '{gsub(/"/, "", $2); print $2}')
+
+    The identifier ``study-100`` in a line such as ``040000 tree d1ad9bfa56f5aa25a1d28caf13db719b9e710d28	study-100`` is the ``dataset_path`` value of a given metadata entry.
+    Commands such as ``meta-dump`` can use them to, e.g., only report on metadata for certain datasets, following the pattern
+
+    .. code-block::
+
+       [DATASET_PATH] ["@" VERSION-DIGITS] [":" [LOCAL_PATH]]
+
+    e.g., ``./study-100``.
+    While this is no workflow a user would have to do, this exploration might have nevertheless gotten you some insights into the inner workings of the commands and MetaLad's internal storage model.
+
 The metadata is now locally available in the Git repository ``metadata-repo``.
 You can verify this by issuing the command ``datalad meta-dump -r``, which will list all metadata in the repository.
-Can you guess what type of metadata it contains [#f5]_ ?
+Can you guess what type of metadata it contains [#f6]_ ?
 
 .. runrecord:: _examples/DL-101-181-112
    :language: console
@@ -286,7 +325,7 @@ Querying metadata remotely
 
 You do not have to download metadata to dump it. It is also possible to specify a git-repository, and let metalad only read the metadata that it requires to fulfill your request. For example, in order to only retrieve metadata from a metadata entry that has the ``dataset_path`` value of ``study-100``, you can simply run:
 
-.. runrecord:: _examples/DL-101-181-115
+.. runrecord:: _examples/DL-101-181-120
    :language: console
    :workdir: beyond_basics/meta
 
@@ -297,7 +336,7 @@ You do not have to download metadata to dump it. It is also possible to specify 
 As the output shows, this command only downloaded enough data from the remote repository to dump all metadata in the specified dataset tree-path.
 If you want to query all metadata remotely from the repository you could issue the following command:
 
-.. runrecord:: _examples/DL-101-181-116
+.. runrecord:: _examples/DL-101-181-121
    :language: console
    :workdir: beyond_basics/meta
 
@@ -363,4 +402,20 @@ Generally, metadata can either be provided
 
 .. [#f4] Alternatively, provide the switch ``-i`` to ``meta-add``, which tells it to just warn about ID mismatches instead of erroring out.
 
-.. [#f5] The answer is minimal information about archived scientific projects of a research institute. While some personal information has been obfuscated, you can still figure out which information is associated with each entry, such as the project name, its authors, or associated publications.
+.. [#f5] Other directories underneath ``.git/refs`` are automatically transported, such as ``.git/refs/heads`` or ``.git/refs/remotes`` - this is configured for each remote with a repositories ``.git/config`` file
+
+	.. code-block:: bash
+
+		$ cat .git/config
+		[core]
+			repositoryformatversion = 0
+			filemode = true
+			bare = false
+			logallrefupdates = true
+			editor = vim
+		[remote "origin"]
+			url = git@github.com:my-user/my-dataset.git
+			fetch = +refs/heads/*:refs/remotes/origin/*
+
+
+.. [#f6] The answer is minimal information about archived scientific projects of a research institute. While some personal information has been obfuscated, you can still figure out which information is associated with each entry, such as the project name, its authors, or associated publications.

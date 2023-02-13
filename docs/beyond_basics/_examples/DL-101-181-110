@@ -1,0 +1,3 @@
+$ datalad create metadata-assimilation
+$ cd metadata-assimilation
+create(ok): /home/me/beyond_basics/meta/metadata-assimilation (dataset)

@@ -1,0 +1,2 @@
+$ datalad meta-add -d . - < metadata-zen.json
+meta_add(ok): /home/me/beyond_basics/meta/cozy-screensavers/zen.png (file) [added file metadata to /home/me/beyond_basics/meta/cozy-screensavers]

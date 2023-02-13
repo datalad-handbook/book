@@ -1,0 +1,13 @@
+$ datalad clone https://github.com/datalad-handbook/cozy-screensavers.git
+$ cd cozy-screensavers
+[INFO] Attempting a clone into /home/me/beyond_basics/meta/cozy-screensavers
+[INFO] Attempting to clone from https://github.com/datalad-handbook/cozy-screensavers.git to /home/me/beyond_basics/meta/cozy-screensavers
+[INFO] Start enumerating objects
+[INFO] Start counting objects
+[INFO] Start compressing objects
+[INFO] Start receiving objects
+[INFO] Start resolving deltas
+[INFO] Completed clone attempts for Dataset(/home/me/beyond_basics/meta/cozy-screensavers)
+[INFO] Remote origin not usable by git-annex; setting annex-ignore
+[INFO] https://github.com/datalad-handbook/cozy-screensavers.git/config download failed: Not Found
+install(ok): /home/me/beyond_basics/meta/cozy-screensavers (dataset)

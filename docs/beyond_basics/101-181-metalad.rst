@@ -73,12 +73,26 @@ Metadata that describe dataset level properties could be dataset owner, dataset 
 
 
 Let's look at a concrete example.
-We have a DataLad dataset ``cozy-screensavers`` that contains a single PNG-file called ``zen.png``::
+We have a DataLad dataset ``cozy-screensavers`` that contains a single PNG-file called ``zen.png``.
+
+.. runrecord:: _examples/DL-101-181-101
+   :language: console
+   :workdir: beyond_basics/meta
+
+   $ datalad clone https://github.com/datalad-handbook/cozy-screensavers.git
+   $ cd cozy-screensavers
+
+.. runrecord:: _examples/DL-101-181-102
+   :language: console
+   :workdir: beyond_basics/meta/cozy-screensavers
 
    $ tree
-   cozy-screensavers
-   └── zen.png
 
+.. runrecord:: _examples/DL-101-181-103
+   :language: console
+   :workdir: beyond_basics/meta/cozy-screensavers
+
+   $ datalad get zen.jpg
 
 Let's assume there is metadata stemming from an advanced AI called ``Picture2Words`` that is able to describe the content of images - in other words, this AI would be able to extract certain metadata from the file.
 In this case the AI describes the image as
@@ -97,8 +111,8 @@ Let's take a look at the JSON object we could generate as a metadata entry for `
     {
       "type": "file",
       "path": "zen.png",
-      "dataset_id": "52142b84-dc76-11ea-98c5-7cdd908c7490",
-      "dataset_version": "244a8ad43b00622989ae7f0d2b59c80697dadb80",
+      "dataset_id": "2d540a9d-2ef7-4b5f-8931-7c92f483f0c7",
+      "dataset_version": "19f2d98d758116d099d467260a5a71082b2c6a29",
       "extractor_name": "Picture2Words",
       "extractor_version": "0.1",
       "extraction_parameter": {},
@@ -121,17 +135,46 @@ When adding file-level metadata to a dataset that contains the file, the metadat
 
 While certain extractors can generate metadata entries automatically, or one could write scripts wrapping extracting tools to generate them, we can also create such a JSON object manually, for example in an editor.
 A valid metadata entry can then be read into ``meta-add`` either from the command line or from standard input (:term:`stdin`).
-For example, we can save the metadata entry above as ``metadata-zen.json`` and then redirect the content of the file into the :command:`meta-add` command in the command line.
-The following call would add the metadata entry to the current dataset, ``cozy-screensavers``::
+For example, we can save the metadata entry above as ``metadata-zen.json``:
 
-    $ datalad meta-add -d cozy-screensavers - < metadata-zen.json
+.. runrecord:: _examples/DL-101-181-104
+   :language: console
+   :workdir: beyond_basics/meta/cozy-screensavers
+
+   $ cat << EOT > metadata-zen.json
+   {
+     "type": "file",
+     "path": "zen.png",
+     "dataset_id": "2d540a9d-2ef7-4b5f-8931-7c92f483f0c7",
+     "dataset_version": "19f2d98d758116d099d467260a5a71082b2c6a29",
+     "extractor_name": "Picture2Words",
+     "extractor_version": "0.1",
+     "extraction_parameter": {},
+     "extraction_time": 1675113291.1464975,
+     "agent_name": "Overworked CTO",
+     "agent_email": "closetoburnout@randomtechconsultancy.com",
+     "extracted_metadata": {
+     "description": "A lake with waterlilies in a front of snow covered mountains"
+	 }
+   }
+   EOT
+
+Then, we redirect the content of the file into the :command:`meta-add` command in the command line.
+The following call would add the metadata entry to the current dataset, ``cozy-screensavers``:
+
+
+.. runrecord:: _examples/DL-101-181-105
+   :language: console
+   :workdir: beyond_basics/meta/cozy-screensavers
+
+   $ datalad meta-add -d . - < metadata-zen.json
 
 .. find-out-more:: meta-add validity checks
 
 	When adding metadata for the first time, its not uncommon to run into errors.
 	Its quite easy, for example, to miss a comma or quotation mark when creating a JSON object by hand.
 	But there are also some internal checks that might be surprising.
-	If you want to add the metadata above to your own dataset, you should make sure to adjust the ``dataset_id`` to the ID of your own dataset, found via the command ``datalad configuration get datalad.dataset.id`` - otherwise you'll see an error [#f4]_.
+	If you want to add the metadata above to your own dataset, you should make sure to adjust the ``dataset_id`` to the ID of your own dataset, found via the command ``datalad configuration get datalad.dataset.id`` - otherwise you'll see an error [#f4]_, and likewise the ``dataset_version``.
 	And in case you'd supply the ``extraction_time`` as "this morning at 8AM" instead of a time stamp, the command will be unhappy as well.
 	In case an error occurs, make sure to read the error message, and turn the the commands' ``--help`` for insights about requirements you might have missed.
 
@@ -140,10 +183,19 @@ The simplest form of this command is ``meta-dump -r``, which will show all metad
 To get more specific metadata records, you can give a dataset-file-path-pattern to ``meta-dump``, much like an argument to ``ls``, that identifies :term:`dataset ID`, version and a file within the dataset.
 The two parts are separated by ``:``. The following line would just dump all metadata for ``zen.png``.
 
-.. code-block:: bash
+.. runrecord:: _examples/DL-101-181-106
+   :language: console
+   :workdir: beyond_basics/meta/cozy-screensavers
 
-    $ datalad meta-dump -d cozy-screensavers .:zen.png
-    TODO: how would the output of this look like?
+   $ datalad meta-dump -d . .:zen.png
+
+This could also be printed a bit more readable:
+
+.. runrecord:: _examples/DL-101-181-107
+   :language: console
+   :workdir: beyond_basics/meta/cozy-screensavers
+
+   $ datalad -f json_pp meta-dump -d . .:zen.png
 
 .. find-out-more:: More complex metadata-dumps
 

@@ -225,10 +225,12 @@ Download Metadata from a remote repository
 
 Let's start by creating a place where someone else's metadata could live.
 
-.. code-block:: bash
+.. runrecord:: _examples/DL-101-181-110
+   :language: console
+   :workdir: beyond_basics/meta
 
-    $ datalad create metadata-assimilation
-    $ cd metadata-assimilation
+   $ datalad create metadata-assimilation
+   $ cd metadata-assimilation
 
 Because MetaLad stores metadata in :term:`Git`'s object store, we use Git to directly fetch metadata from a remote repository, such as this demo on :term:`GitHub`: ``https://github.com/christian-monch/metadata-test.git``.
 Because metadata added by MetaLad is not transported automatically but needs to be specifically requested, the command to retrieve it looks unfamiliar to non-Git-users: It identifies the precise location of the :term:`ref` that contains the metadata.
@@ -244,15 +246,23 @@ Because metadata added by MetaLad is not transported automatically but needs to 
 
    TODO this needs much more
 
-.. code-block:: bash
+.. runrecord:: _examples/DL-101-181-111
+   :language: console
+   :workdir: beyond_basics/meta/metadata-assimilation
 
-    $ git fetch \
+   $ git fetch \
       "https://github.com/christian-monch/metadata-test.git" \
       "refs/datalad/*:refs/datalad/*"
 
 The metadata is now locally available in the Git repository ``metadata-repo``.
 You can verify this by issuing the command ``datalad meta-dump -r``, which will list all metadata in the repository.
+Can you guess what type of metadata it contains [#f5]_ ?
 
+.. runrecord:: _examples/DL-101-181-112
+   :language: console
+   :workdir: beyond_basics/meta/metadata-assimilation
+
+   $ datalad meta-dump -r
 
 Publish metadata to a Git-Repository
 """"""""""""""""""""""""""""""""""""
@@ -274,13 +284,25 @@ TODO: something more about meta-dump and concrete usage example with, e.g., ``jq
 Querying metadata remotely
 """"""""""""""""""""""""""
 
-You do not have to download metadata to dump it. It is also possible to specify a git-repository, and let metalad only read the metadata that it requires to fulfill your request. For example::
+You do not have to download metadata to dump it. It is also possible to specify a git-repository, and let metalad only read the metadata that it requires to fulfill your request. For example, in order to only retrieve metadata from a metadata entry that has the ``dataset_path`` value of ``study-100``, you can simply run:
 
-   $ datalad meta-dump -d  https://github.com/christian-monch/metadata-test.git ./study-100
+.. runrecord:: _examples/DL-101-181-115
+   :language: console
+   :workdir: beyond_basics/meta
 
-Would only download enough data to dump all metadata in the specified dataset tree-path. If you want to see all metadata in the git repository you could issue the following command::
+   $ datalad meta-dump \
+      -d  https://github.com/christian-monch/metadata-test.git \
+      ./study-100
 
-   $ datalad meta-dump -d  https://github.com/christian-monch/metadata-test.git -r
+As the output shows, this command only downloaded enough data from the remote repository to dump all metadata in the specified dataset tree-path.
+If you want to query all metadata remotely from the repository you could issue the following command:
+
+.. runrecord:: _examples/DL-101-181-116
+   :language: console
+   :workdir: beyond_basics/meta
+
+   $ datalad meta-dump \
+     -d https://github.com/christian-monch/metadata-test.git -r
 
 This will take a lot longer than the previous command because datalad has to fetch more item from the remote repository. If you use the remote meta-dump option properly, you can quickly examine small subsets of very large metadata repositories.
 
@@ -319,6 +341,7 @@ Generally, metadata can either be provided
 * by running :term:`extractor`\s (``datalad-metalad`` plugins that extract certain metadata from primary data),
 * or by any other means that create correct metadata records. For example, you could copy the complete metadata from ``dataset_0`` to ``dataset_1``, by dumping it from one dataset into another::
 
+
     $ datalad meta-dump -d dataset_0 -r | \
       datalad meta-add -d dataset_1 --json-lines -
 
@@ -339,3 +362,5 @@ Generally, metadata can either be provided
 		datetime.datetime(2023, 1, 30, 22, 14, 51, 146497)
 
 .. [#f4] Alternatively, provide the switch ``-i`` to ``meta-add``, which tells it to just warn about ID mismatches instead of erroring out.
+
+.. [#f5] The answer is minimal information about archived scientific projects of a research institute. While some personal information has been obfuscated, you can still figure out which information is associated with each entry, such as the project name, its authors, or associated publications.

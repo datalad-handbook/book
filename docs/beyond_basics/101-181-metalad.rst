@@ -41,7 +41,7 @@ Consider a publication in a medical field, and a few examples for metadata about
    structural information even without access to the primary data
 5. Special search indices, e.g. graph-based search indices, medical abbreviations
 6. Anonymized information extracted from medical documents.
-7. Information about the used software, e.g. security assessments, citation.cff
+7. Information about the used software, e.g. security assessments, `citation.cff <https://citation-file-format.github.io/>`_
 
 MetaLad's *extractor* concept
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

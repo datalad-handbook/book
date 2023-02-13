@@ -57,7 +57,7 @@ For example, the automatically scanned full text might be identified with an ext
 But while the term "extractor" has a technical feel to it, an "extractor" can also be the manual process of annotating arbitrary information about a file - nothing prevents metadata from medical annotations to be called ``Sam-tracing-brain-regions-by-hand``.
 
 In addition to identifying schemas via extractor names, MetaLad and other :term:`DataLad extension`\s ship with specialized extractor tools to extract metadata of a certain schema.
-Likewise, anyone can build their own extractor to generate schemas of their choice.
+Likewise, `anyone can build their own extractor to generate schemas of their choice <https://docs.datalad.org/projects/metalad/user_guide/writing-extractors.html>`_.
 But before we take a closer look into that, let's illustrate the metadata concepts and commands of MetaLad with a toy example.
 
 Adding metadata with meta-add
@@ -210,8 +210,7 @@ TODO: This needs and example
 Creating your own extractor
 """""""""""""""""""""""""""
 
-TODO: This also needs an example
-
+The MetaLad docs have a dedicated user guide that walks you through the process of creating your own extractor. Have a look at `docs.datalad.org/projects/metalad/user_guide/writing-extractors.html <https://docs.datalad.org/projects/metalad/user_guide/writing-extractors.html>`_.
 
 Distributing and Getting Metadata
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

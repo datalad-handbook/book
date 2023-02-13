@@ -284,6 +284,17 @@ Would only download enough data to dump all metadata in the specified dataset tr
 
 This will take a lot longer than the previous command because datalad has to fetch more item from the remote repository. If you use the remote meta-dump option properly, you can quickly examine small subsets of very large metadata repositories.
 
+Using metadata
+^^^^^^^^^^^^^^
+
+Now that we know all about metadata and how it is handled by MetaLad, here's a final note on its utility:
+Metadata, especially when it originates from different sources and gets harmonized to a single schema, provides the powerful opportunity to aid data discoverability.
+An example of a good use case for metadata is therefore a search or browsing interface, or data bases, such as data portals and graph query databases.
+MetaLad-extracted metadata can be used in workflows to generate such interfaces, and a concrete example is the :ref:`DataLad Catalog <catalog>`, which the next section will introduce.
+So to aid with the discoverability of data, one could add metadata to DataLad datasets, extract metadata with MetaLad and multiple extractors, translate extracted metadata to the catalog schema, submit it to ``datalad-catalog`` in order to generate catalog entries, which can all be browsed in a user friendly web-based interface.
+Intrigued? Read on to the next section for more information.
+
+
 
 Installation
 ^^^^^^^^^^^^

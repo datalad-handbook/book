@@ -304,7 +304,7 @@ Because metadata added by MetaLad is not transported automatically but needs to 
     While this is no workflow a user would have to do, this exploration might have nevertheless gotten you some insights into the inner workings of the commands and MetaLad's internal storage model.
 
 The metadata is now locally available in the Git repository ``metadata-repo``.
-You can verify this by issuing the command ``datalad meta-dump -r``, which will list all metadata in the repository.
+You can verify this by issuing the command ``datalad meta-dump -r``, which will list all metadata from all ``dataset_path``\s in the repository.
 Can you guess what type of metadata it contains [#f6]_ ?
 
 .. runrecord:: _examples/DL-101-181-112

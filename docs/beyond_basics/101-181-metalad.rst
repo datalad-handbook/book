@@ -4,7 +4,7 @@ Metadata-Management with MetaLad
 --------------------------------
 
 For many years, :term:`metadata` related functionality was included in the DataLad core package.
-A modernized approach, however, is now developed in the `datalad-metalad extension <http://docs.datalad.org/projects/metalad/en/latest/>`_.
+A modernized approach, however, is now developed in the `datalad-metalad extension <https://github.com/datalad/datalad-metalad>`_.
 
 .. figure:: ../artwork/src/metadata.svg
 

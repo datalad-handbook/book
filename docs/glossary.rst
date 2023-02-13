@@ -272,6 +272,9 @@ Glossary
       searches the Python package index `PyPi <https://pypi.org/>`_ for a
       package and installs it while resolving any potential dependencies.
 
+   pipe
+      Unix concept: A mechanism for providing the output of one command (:term:`stdout`) as the input of a next command (:term:`stdin`) in a Unix terminal. The standard syntax are multiple commands, separated by vertical bars (the "pipes", "|"). Read more `on Wikipedia <https://en.wikipedia.org/wiki/Pipeline_(Unix)>`_.
+
    provenance
       A record that describes entities and processes that were involved in producing or influencing
       a digital resource. It provides a critical foundation for assessing authenticity, enables trust,

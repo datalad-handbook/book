@@ -222,6 +222,7 @@ Creating your own extractor
 
 The MetaLad docs have a dedicated user guide that walks you through the process of creating your own extractor. Have a look at `docs.datalad.org/projects/metalad/user_guide/writing-extractors.html <https://docs.datalad.org/projects/metalad/user_guide/writing-extractors.html>`_.
 
+
 Distributing and Getting Metadata
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -313,6 +314,14 @@ Can you guess what type of metadata it contains [#f6]_ ?
 
    $ datalad meta-dump -r
 
+A final note is that :command:`meta-dump` can also be a source of metadata for :command:`meta-add`.
+While metadata can indeed be provided manually, or by running :term:`extractor`\s as outlined so far, it can also be provided by any other means that create correct metadata records, and :command:`meta-dump` is one of them.
+For example, you could copy the complete metadata from ``dataset_0`` to ``dataset_1``, by dumping it from one dataset into another::
+
+    $ datalad meta-dump -d dataset_0 -r | \
+      datalad meta-add -d dataset_1 --json-lines -
+
+
 Publish metadata to a Git-Repository
 """"""""""""""""""""""""""""""""""""
 
@@ -389,24 +398,6 @@ MetaLad is a stand-alone Python package, and can be installed using
    pip install datalad-metalad
 
 As with DataLad and other Python packages, you might want to do the installation in a :term:`virtual environment`.
-
-
-
-
-
-
-
-Generally, metadata can either be provided
-
-* manually,
-* by running :term:`extractor`\s (``datalad-metalad`` plugins that extract certain metadata from primary data),
-* or by any other means that create correct metadata records. For example, you could copy the complete metadata from ``dataset_0`` to ``dataset_1``, by dumping it from one dataset into another::
-
-
-    $ datalad meta-dump -d dataset_0 -r | \
-      datalad meta-add -d dataset_1 --json-lines -
-
-
 
 
 

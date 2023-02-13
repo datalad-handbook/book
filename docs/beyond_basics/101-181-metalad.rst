@@ -328,7 +328,19 @@ You will notice that no primary data is stored in the repository ``metadata-dest
 Querying metadata
 ^^^^^^^^^^^^^^^^^
 
-TODO: something more about meta-dump and concrete usage example with, e.g., ``jq``
+As the metadata is in a highly structured form, and could correspond to agreed-upon or established schemas, queries through such metadata can use flexible tooling and don't need to rely on DataLad.
+One popular choice for working with JSON data, for example, is the JSON command line processor `jq <https://stedolan.github.io/jq/>`_.
+In conjunction with Unix :term:`pipe`\s, one can assemble powerful queries in a single line.
+The (cropped) query below, for example, lists all unique family names of the authors in the institute's scientific project metadata in ``metadata-assimilation``:
+
+.. runrecord:: _examples/DL-101-181-119
+   :language: console
+   :workdir: beyond_basics/meta/metadata-assimilation
+   :lines: 1, 5-20
+
+   $ datalad meta-dump -r | jq '.extracted_metadata["@graph"][3]["@list"][].familyName' | sort | uniq
+
+
 
 Querying metadata remotely
 """"""""""""""""""""""""""

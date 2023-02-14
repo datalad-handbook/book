@@ -1,0 +1,17 @@
+cat << EOT > metadata-zen.json
+{
+      "type": "file",
+      "path": "zen.png",
+      "dataset_id": "2d540a9d-2ef7-4b5f-8931-7c92f483f0c7",
+      "dataset_version": "19f2d98d758116d099d467260a5a71082b2c6a29",
+      "extractor_name": "Picture2Words",
+      "extractor_version": "0.1",
+      "extraction_parameter": {},
+      "extraction_time": 1675113291.1464975,
+      "agent_name": "Overworked CTO",
+      "agent_email": "closetoburnout@randomtechconsultancy.com",
+      "extracted_metadata": {
+      "description": "A lake with waterlilies in a front of snow covered mountains"
+      }
+}
+EOT

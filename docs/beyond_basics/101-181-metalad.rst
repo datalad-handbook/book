@@ -345,7 +345,7 @@ The (cropped) query below, for example, lists all unique family names of the aut
 .. runrecord:: _examples/DL-101-181-119
    :language: console
    :workdir: beyond_basics/meta/metadata-assimilation
-   :lines: 1, 5-20
+   :lines: 1, 6-20
 
    $ datalad meta-dump -r | jq '.extracted_metadata["@graph"][3]["@list"][].familyName' | sort | uniq
 

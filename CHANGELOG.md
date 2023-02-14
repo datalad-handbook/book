@@ -3,6 +3,34 @@
 All notable changes to this project between releases will be documented in this
 file.
 
+## v0.18 (February 14 2023) -- Handbook love
+
+A handbook release matching (delayed) the release of DataLad v0.18.0.
+This release contains notable changes resulting from a Handbook hackathon in December 2022. It also increases the required version of DataLad to 0.17
+
+
+### Refactoring or deletions
+
+All over the handbook, version notes or information relating to datalad versions lower than 0.17 were removed ([#905][])
+
+### Additions
+- A new standalone chapter about datalad extensions was added, and sections on datalad-catalog ([#917][]), datalad-metalad ([#930][]), and datalad-gooey were included. 
+
+#### Introduction
+
+#### Basics
+- The Cheatsheet was updated with modern commands ([#912][])
+- 
+#### Advanced
+
+#### Usecases
+- A new usecase about encrypted workflows is now part of the handbook ([#895][])
+
+#### Miscellaneous additions
+- The Makefile in the source repository received a more intuitive and fine-grained structure ([#901][])
+- The handbook has gained an Appveyor configuration that allows building the entire Basis and Beyond Basics parts from scratch, and allows an export of generated code snippets. This makes builds on local machines obsolete for contributors that don't want to go through this troube ([#908][])
+- the handbook now has a tool to report readthedocs metrics for authenticated and authorized users ([#902][])
+
 ## v0.17 (December 20 2022) -- Better late than never
 
 Handbook release matching the release of DataLad v0.17.0, which was for the most part only an internal change to a different testing framework (pytest instead of nose)
@@ -435,3 +463,11 @@ Alpha stage release with handbook content covering most of the core commands.
 [#875]: https://github.com/datalad-handbook/book/pull/875
 [#880]: https://github.com/datalad-handbook/book/pull/880
 [#892]: https://github.com/datalad-handbook/book/pull/892
+[#895]: https://github.com/datalad-handbook/book/pull/895
+[#901]: https://github.com/datalad-handbook/book/pull/901
+[#902]: https://github.com/datalad-handbook/book/pull/902
+[#905]: https://github.com/datalad-handbook/book/pull/905
+[#908]: https://github.com/datalad-handbook/book/pull/908
+[#912]: https://github.com/datalad-handbook/book/pull/912
+[#917]: https://github.com/datalad-handbook/book/pull/917
+[#930]: https://github.com/datalad-handbook/book/pull/930

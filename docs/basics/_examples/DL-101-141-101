@@ -2,6 +2,9 @@ $ datalad push --to roommate
 [INFO] Determine push target
 [INFO] Push refspecs
 [INFO] Transfer data
+copy(ok): books/TLCL.pdf (file) [to roommate...]
+copy(ok): books/bash_guide.pdf (file) [to roommate...]
+copy(ok): books/byte-of-python.pdf (file) [to roommate...]
 [INFO] Update availability information
 [INFO] Start enumerating objects
 [INFO] Start counting objects
@@ -9,12 +12,9 @@ $ datalad push --to roommate
 [INFO] Start writing objects
 [INFO] Start resolving deltas
 [INFO] Finished
-[INFO] Finished push of Dataset(/home/me/dl-101/DataLad-101)
-copy(ok): books/TLCL.pdf (file) [to roommate...]
-copy(ok): books/bash_guide.pdf (file) [to roommate...]
-copy(ok): books/byte-of-python.pdf (file) [to roommate...]
 publish(ok): . (dataset) [refs/heads/git-annex->roommate:refs/heads/git-annex FROM..TO (REDACTED)]
 publish(error): . (dataset) [refs/heads/master->roommate:refs/heads/master [remote rejected] (branch is currently checked out)]
+[INFO] Finished push of Dataset(/home/me/dl-101/DataLad-101)
 action summary:
   copy (ok: 3)
   publish (error: 1, ok: 1)

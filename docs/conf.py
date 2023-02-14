@@ -56,7 +56,13 @@ autorunrecord_line_replace = [
     ('Total .*delta.*, reused .*delta.*$', 'REDACTED COMPRESSION STATS'),
 ]
 # pre-crafted artificial environment to run the code examples in
+# start with all datalad settings
 autorunrecord_env = {
+    k: v for k, v in os.environ.items()
+    if k.startswith('DATALAD_')
+}
+# and then pin various other aspects to yield reproducible results
+autorunrecord_env.update(**{
     # make everything talk in english
     'LANG': 'en_US.UTF-8',
     'LANGUAGE': 'en_US:en',
@@ -85,7 +91,7 @@ autorunrecord_env = {
     'GIT_EDITOR': 'vim',
     # prevent progress bars - makes for ugly runrecords. See https://github.com/datalad-handbook/book/issues/390
     'DATALAD_UI_PROGRESSBAR': 'none',
-}
+})
 if 'CAST_DIR' in os.environ:
     autorunrecord_env['CAST_DIR'] = os.environ['CAST_DIR']
 if 'VIRTUAL_ENV' in os.environ:

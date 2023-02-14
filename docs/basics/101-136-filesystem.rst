@@ -861,7 +861,7 @@ is only two files, and they are quite small, you decide to store them in Git --
 this way, the files would be available without configuring an external data
 store.
 
-To get contents out of the dataset's annex you need to *unannex* them. This is
+To get a file out of the git-annex hands you need to *unannex* it. This is
 done with the git-annex command :command:`git annex unannex`. Let's see how it
 works:
 
@@ -888,6 +888,10 @@ into Git, either by adding a rule to ``.gitattributes``, or with
    :workdir: dl-101/DataLad-101
 
    $ datalad save --to-git -m "save cropped logos to Git" recordings/*jpg
+
+Note that git-annex keeps the previously annexed file's content in the annex for safety, to prevent accidental data loss.
+If its only few and small files that were unannexed, their size in the annex will not matter much.
+If its a lot of files or larger files that were accidentally annexed, you may want to drop the left-behind content using ``git annex unused`` and ``git annex dropunused``.
 
 
 Deleting (annexed) files/directories
@@ -1017,7 +1021,7 @@ remaining symlink will fail, but the content can be obtained easily again with
 If a file has no verified remote copies, DataLad will only drop its
 content if the user enforces it using the ``--reckless [MODE]`` option, where ``[MODE]`` is either ``modification`` (drop despite unsaved modifications) ``availability`` (drop even though no other copy is known) ``undead`` (only for datasets; would drop a dataset without announcing its death to linked dataset clones) or ``kill`` (no safety checks at all are run).
 While the ``--reckless`` parameter sounds more complex, it ensures a safer operation than the previous ``--nocheck`` implementation.
-We will demonstrate this by generating a random PDF file:
+We will demonstrate this by generating an empty file:
 
 .. runrecord:: _examples/DL-101-136-177
    :workdir: dl-101/DataLad-101
@@ -1025,8 +1029,8 @@ We will demonstrate this by generating a random PDF file:
    :notes: the content could be dropped bc the file was obtained with datalad, and dl knows where to retrieve the file again. If this isn't the case, datalad will complain. Let's try:
    :cast: 03_git_annex_basics
 
-   $ convert xc:none -page Letter a.pdf
-   $ datalad save -m "add empty pdf"
+   $ dd if=/dev/zero | head -c 18520 > a.pdf
+   $ datalad save -m "add some file" a.pdf
 
 DataLad will safeguard dropping content that it can not retrieve again:
 

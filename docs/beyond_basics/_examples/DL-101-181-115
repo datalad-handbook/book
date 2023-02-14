@@ -1,0 +1,17 @@
+
+$ git show 92dcce5f8634ec4f872addefad0cd7a2e4372a24 | jq
+[
+  {
+    "primary_data_version": "b3f02438b210c2bfbd4f0da79f2791c599c8856e",
+    "time_stamp": "1675090457.6913724",
+    "path": "",
+    "dataset_tree": {
+      "@": {
+        "type": "Reference",
+        "version": "2.0"
+      },
+      "class_name": "MTreeNode",
+      "location": "65c896c86f0e920439bca908eb11c98c9a706606"
+    }
+  }
+]

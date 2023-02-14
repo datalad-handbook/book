@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 """Query DataLad Handbook analytics
 
+Usage: rtd_analytics <project-name>
+
 Needs a readthedocs account with adequate permissions. Set user/password
 via ENV variables RTD_USER and RTD_PASSWORD
 
@@ -10,17 +12,19 @@ Stats are printed to STDOUT
 import csv
 import io
 from os import environ
+import sys
 
 import mechanize
 
 
 class ReadTheDocs:
     traffic_url = \
-        "https://readthedocs.org/dashboard/datalad-handbook/traffic-analytics/"
+        "https://readthedocs.org/dashboard/{project}/traffic-analytics/"
     search_url = \
-        "https://readthedocs.org/dashboard/datalad-handbook/search-analytics/"
+        "https://readthedocs.org/dashboard/{project}/search-analytics/"
 
-    def __init__(self, username, password):
+    def __init__(self, project, username, password):
+        self._project = project
         self._sadata = None
         self._tadata = None
 
@@ -50,7 +54,7 @@ class ReadTheDocs:
         self.br.open(url)
         # the download is done via a form button. find the form
         self.br.select_form(nr=0)
-        # press the buttom
+        # press the button
         r = self.br.submit()
         # download CSV data as text
         return r.get_data().decode('utf-8')
@@ -59,7 +63,7 @@ class ReadTheDocs:
     def search_analytics(self):
         if self._sadata is None:
             self._sadata = self.get_analytics_data(
-                ReadTheDocs.search_url
+                ReadTheDocs.search_url.format(project=self._project)
             )
         return self._sadata
 
@@ -67,7 +71,7 @@ class ReadTheDocs:
     def traffic_analytics(self):
         if self._tadata is None:
             self._tadata = self.get_analytics_data(
-                ReadTheDocs.traffic_url
+                ReadTheDocs.traffic_url.format(project=self._project)
             )
         return self._tadata
 
@@ -89,6 +93,12 @@ def get_aggregate_traffic(rtd):
     """
     stats = dict()
     for d in csv.DictReader(io.StringIO(rtd.traffic_analytics)):
+        try:
+            # integer versions refer to PR-builds
+            pr_id = int(d['Version'])
+            d['Version'] = f'PR-{pr_id}'
+        except ValueError:
+            pass
         key = (d['Version'], d["Path"])
         views = stats.get(key, 0)
         views += int(d['Views'])
@@ -96,14 +106,15 @@ def get_aggregate_traffic(rtd):
     return stats
 
 
-def main(user=None, password=None):
+def main(project, user=None, password=None):
     rtd = ReadTheDocs(
+        project,
         environ.get('RTD_USER', user),
         environ.get('RTD_PASSWORD', password),
     )
     aggsearch = get_aggregate_searches(rtd)
     aggtraffic = get_aggregate_traffic(rtd)
-    print('#### Handbook Analytics (last 30 days)')
+    print(f'#### RTD Analytics: {project} (last 30 days)')
     paths = {}
     for k, v in aggtraffic.items():
         views = paths.get(k[1], 0)
@@ -126,7 +137,7 @@ def main(user=None, password=None):
     print(f'##### Version popularity')
     print(', '.join(f'{k}({v})' for k, v in sorted(versions.items(), reverse=True)))
 
-    print(f'##### 10 Most popular search terms ({len(aggsearch)} unique queries')
+    print(f'##### 10 Most popular search terms ({len(aggsearch)} unique queries)')
     print(', '.join(
         list(f'{q}({h[0]})'
             for q, h in sorted(((k, v) for k, v in aggsearch.items()),
@@ -143,4 +154,4 @@ def main(user=None, password=None):
 
 
 if __name__ == '__main__':
-    main()
+    main(sys.argv[1])

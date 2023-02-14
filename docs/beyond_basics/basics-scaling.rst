@@ -3,6 +3,8 @@
 Go big or go home
 -----------------
 
+.. index:: ! Chapter; 11. Go big or go home
+
 .. figure:: ../artwork/src/gobig.svg
    :width: 50%
 

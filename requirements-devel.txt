@@ -1,8 +1,11 @@
 # install python packages that are relevant to build all handbook examples
 datalad-container
-nose
+pytest
 seaborn
 pandas
-sklearn
+scikit-learn
 scikit-image
+# https://github.com/mwaskom/seaborn/issues/3192
+numpy < 1.24
 dvc
+datalad-catalog

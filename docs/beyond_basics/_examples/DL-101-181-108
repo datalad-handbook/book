@@ -1,0 +1,49 @@
+$ datalad meta-extract -d . metalad_core | jq
+[INFO] Start core metadata extraction from Dataset(/home/me/beyond_basics/meta/cozy-screensavers)
+[INFO] Extracted core metadata from /home/me/beyond_basics/meta/cozy-screensavers
+[INFO] Finished core metadata extraction from Dataset(/home/me/beyond_basics/meta/cozy-screensavers)
+{
+  "type": "dataset",
+  "dataset_id": "2d540a9d-2ef7-4b5f-8931-7c92f483f0c7",
+  "dataset_version": "19f2d98d758116d099d467260a5a71082b2c6a29",
+  "extractor_name": "metalad_core",
+  "extractor_version": "1",
+  "extraction_parameter": {},
+  "extraction_time": 1676301065.0952392,
+  "agent_name": "Elena Piscopia",
+  "agent_email": "elena@example.net",
+  "extracted_metadata": {
+    "@context": {
+      "@vocab": "http://schema.org/",
+      "datalad": "http://dx.datalad.org/"
+    },
+    "@graph": [
+      {
+        "@id": "d3765bf6e3a68497b42584fa0774695e",
+        "@type": "agent",
+        "name": "Adina Wagner",
+        "email": "adina.wagner@t-online.de"
+      },
+      {
+        "@id": "19f2d98d758116d099d467260a5a71082b2c6a29",
+        "identifier": "2d540a9d-2ef7-4b5f-8931-7c92f483f0c7",
+        "@type": "Dataset",
+        "version": "0-2-g19f2d98",
+        "dateCreated": "2023-02-13T07:48:15+01:00",
+        "dateModified": "2023-02-13T07:55:38+01:00",
+        "hasContributor": {
+          "@id": "d3765bf6e3a68497b42584fa0774695e"
+        },
+        "distribution": [
+          {
+            "@id": "b8938507-77c0-4479-84a6-cbeb41214ca6"
+          },
+          {
+            "name": "origin",
+            "url": "https://github.com/datalad-handbook/cozy-screensavers.git"
+          }
+        ]
+      }
+    ]
+  }
+}

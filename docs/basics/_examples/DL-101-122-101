@@ -6,10 +6,11 @@ $ cat .git/config
 	logallrefupdates = true
 [annex]
 	uuid = 46b169aa-bb91-42d6-be06-355d957fb4f7
-	version = 8
+	version = 10
 [filter "annex"]
 	smudge = git-annex smudge -- %f
 	clean = git-annex smudge --clean -- %f
+	process = git-annex filter-process
 [submodule "recordings/longnow"]
 	active = true
 	url = https://github.com/datalad-datasets/longnow-podcasts.git

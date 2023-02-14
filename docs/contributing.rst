@@ -23,6 +23,7 @@ to discuss changes or additions you plan to make in advance.
 Software setup
 ^^^^^^^^^^^^^^
 
+An automatically triggered continuous integration setup will build the handbook (i.e., execute all code snippets in the "Basics" section, and assemble everything into a rendered book) when you open a pull request.
 Depending on the size of your contribution, you may want to be able to build the book
 locally to test and preview your changes. If you are fixing typos, tweak the
 language, or rewrite a paragraph or two, this should not be necessary, and you can safely
@@ -83,6 +84,20 @@ of the repository, and open it in your browser, for example with
 ``firefox docs/_build/html/index.html``.
 
 In case you need to remove the build files, you can just run make ``clean-build``.
+
+Automatic builds
+""""""""""""""""
+
+When you do not build the handbook locally, but add a new ``runrecord`` (see also the paragraph "Code" in :ref:`directive` to learn more about this) or change an existing one, the Appveyor CI build will execute the code snippet for you.
+After the Appveyor build completed successfully, it will upload every changed or new code snippet as `a build artifact <https://ci.appveyor.com/api/projects/mih/book/artifacts/runrecord_diff.txt>`_.
+You can download this artifact and add the diff by running the following command in your local clone of the handbook repository:
+
+.. code-block:: bash
+
+   $ wget https://ci.appveyor.com/api/projects/mih/book/artifacts/runrecord_diff.txt \
+     -O - | git apply
+
+Inspect the changes, commit then, and push them into your PR.
 
 .. _directive:
 

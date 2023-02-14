@@ -1,0 +1,33 @@
+$ cat data-cat/config.json | jq .
+{
+  "catalog_name": "DataCat",
+  "logo_path": "",
+  "link_color": "#fba304",
+  "link_hover_color": "#af7714",
+  "property_source": {
+    "dataset": {
+      "dataset_id": "metalad_core",
+      "dataset_version": "metalad_core",
+      "type": "metalad_core",
+      "children": "merge",
+      "name": "metalad_studyminimeta",
+      "short_name": "",
+      "description": [
+        "metalad_studyminimeta",
+        "datacite_gin",
+        "readme.md"
+      ],
+      "doi": "",
+      "url": "merge",
+      "authors": "merge",
+      "keywords": "merge",
+      "license": "",
+      "funding": "merge",
+      "publications": "merge",
+      "subdatasets": "merge",
+      "extractors_used": "merge",
+      "additional_display": "merge",
+      "top_display": "merge"
+    }
+  }
+}

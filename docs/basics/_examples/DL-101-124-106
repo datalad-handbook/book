@@ -9,4 +9,4 @@ action summary:
   add (ok: 3)
   save (ok: 1)
 [INFO] == Command exit (modification check follows) =====
-run(ok): /home/me/procs/somedataset (dataset) [VIRTUALENV/bin/python /hom...]
+run(ok): /home/me/procs/somedataset (dataset) [VIRTUALENV/bin/python /home/m...]

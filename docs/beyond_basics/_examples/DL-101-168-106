@@ -1,6 +1,7 @@
 ### DVC
 $ cd ../DVC
 $ dvc init
+Initialized DVC repository.
 
 You can now commit the changes to git.
 

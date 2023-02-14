@@ -1,0 +1,11 @@
+#!/bin/bash
+
+set -e -u
+
+if [ "x${APPVEYOR_BUILD_WORKER_IMAGE}" = "xmacOS" ]; then
+	brew install -q $*
+else
+	sudo apt-get update -qq -y
+	sudo apt-get install -q --no-install-recommends -y eatmydata
+	sudo apt-get install -q --no-install-recommends -y $*
+fi

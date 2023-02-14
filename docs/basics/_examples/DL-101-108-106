@@ -1,7 +1,7 @@
 $ git log -p -n 1   # On Windows, you may just want to type "git log".
-commit a4622a5460845b70ad90b70fe069cba6419628a8
+commit bf4aa3496af9b002933880849a798450d822fd99
 Author: Elena Piscopia <elena@example.net>
-Date:   Tue Jun 18 16:13:00 2019 +0200
+Date:   Tue Jun 18 16:13:00 2019 +0000
 
     [DATALAD RUNCMD] create a list of podcast titles
 

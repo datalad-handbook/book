@@ -206,7 +206,7 @@ Using existing extractors to add metadata
 
 If writing JSON objects by hand sounds cumbersome, it indeed is.
 To automate metadata extraction or generation, MetaLad can use extractors to do the job.
-A few built-in extractors are already shipped with it, for example ``annex`` (reporting on information :term:`git-annex` provides about datasets or files), or ``studyminimeta`` (a `metadata schema for archived studies <https://jugit.fz-juelich.de/c.moench/datasets_repo/-/wikis/Metadata-for-Archived-Studies-Handbook>`_).
+A few built-in extractors are already shipped with it, for example ``annex`` (reporting on information :term:`git-annex` provides about datasets or files), or ``studyminimeta`` (a `metadata schema for archived studies <https://github.com/christian-monch/datalad-metalad/blob/nf-archived_study_metadata/tools/archive_metadata_validator/docs/source/archived-study-metadata-handbook.rst>`_).
 Once an extractor of choice is found, the :command:`datalad meta-extract` command can do its job:
 
 .. runrecord:: _examples/DL-101-181-108

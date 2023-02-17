@@ -6,18 +6,17 @@ General prerequisites
 
 .. index:: ! terminal, ! shell, ! command Line
 
-DataLad uses command-line arguments in a *terminal*. This means that there is no graphical
-user interface with buttons to click on, but a set of commands and options users type into
-their shell. If you are not used to working with command-line arguments, DataLad can
-appear intimidating. Luckily, the set of possible commands is limited, and even without
-prior experience with a shell, one can get used to it fairly quickly.
+While there is a graphical user interface for DataLad (the :term:`DataLad Gooey`), this handbook will first and foremost focus on teaching DataLad concepts without the overhead of a user-interface, using DataLad's most powerful interface on the *command line*.
+This means that the code examples in the handbook show no buttons to click on, but a set of commands and options users type into their *terminal*.
+If you are not used to working with command-line arguments, DataLad can appear intimidating.
+Luckily, the set of possible commands is limited, and even without prior experience with a shell, one can get used to it fairly quickly.
 
 This chapter aims at providing novices with general basics about the shell, common Unix
 commands, and some general file system facts.
 This chapter is also a place to return to and (re-)read if you come across a
 non-DataLad command or principle you want to remind yourself of.
 If you are already familiar with the shell and know the difference between an absolute
-and a relative path, you can safely skip this chapter and continue to the DataLad Basics.
+and a relative path, you can safely skip this chapter and continue to the :ref:`DataLad Basics <basics-intro>`.
 
 Almost all of this chapter is based on parts of a wonderful lab documentation
 Alex Waite wrote.

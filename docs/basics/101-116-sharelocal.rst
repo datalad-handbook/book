@@ -351,45 +351,6 @@ with the first subdataset::
 
   datalad get -n -r --recursion-limit 1 <subds>
 
-.. find-out-more:: datalad clone versus datalad install
-   :name: fom_clonevsinstall
-
-   .. index:: ! datalad command; clone
-
-   You may remember from section :ref:`installds` that DataLad has two commands to obtain datasets,
-   :command:`datalad clone` and :command:`datalad install`.
-   The command structure of :command:`install` and :command:`datalad clone` are
-   almost identical::
-
-      $ datalad install [-d/--dataset PATH] [-D/--description] --source PATH/URL [DEST-PATH ...]
-      $ datalad clone [-d/--dataset PATH] [-D/--description] SOURCE-PATH/URL [DEST-PATH]
-
-   Both commands are also often interchangeable: To create a copy of your
-   ``DataLad-101`` dataset for your roommate, or to obtain the ``longnow``
-   subdataset in section :ref:`installds` you could have used
-   :command:`datalad install` as well. From a user's perspective, the only
-   difference is whether you'd need ``-s/--source`` in the command call:
-
-   .. code-block:: bash
-
-       $ datalad install --source ../DataLad-101
-       # versus
-       $ datalad clone ../DataLad-101
-
-   On a technical layer, :command:`datalad clone` is a subset (or rather: the underlying
-   function) of the :command:`datalad install` command. Whenever you use
-   :command:`datalad install`, it will call :command:`datalad clone` underneath the
-   hood.
-   :command:`datalad install`, however, adds to :command:`datalad clone` in that it
-   has slightly more complex functionality. Thus, while command structure is more
-   intuitive, the capacities of :command:`clone` are also slightly more limited than those
-   of :command:`install` in comparison. Unlike :command:`datalad clone`,
-   :command:`datalad install` provides a ``-r/--recursive`` operation, i.e., it can
-   obtain (clone) a dataset and potential subdatasets right at the time of
-   superdataset installation. You can pick for yourself which command you
-   are more comfortable with. In the handbook, we use :command:`clone` for its
-   more intuitive behavior, but you will often note that we use the terms
-   "installed dataset" and "cloned dataset" interchangeably.
 
 To summarize what you learned in this section, write a note on how to
 install a dataset using a path as a source on a common file system.

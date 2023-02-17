@@ -392,11 +392,6 @@ repository that anyone can :command:`datalad clone` [#f4]_.
 Data retrieval and interacting with the repository
 """"""""""""""""""""""""""""""""""""""""""""""""""
 
-.. importantnote:: HCP dataset version requirements
-
-   Using this dataset requires DataLad version 0.12.2 or higher. Upgrading
-   an existing DataLad installation is detailed in section :ref:`install`.
-
 Procedurally, getting data from this dataset is almost as simple as with any
 other public DataLad dataset: One needs to :command:`clone` the repository
 and use :command:`datalad get [-n] [-r] PATH` to retrieve any file, directory,

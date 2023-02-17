@@ -56,17 +56,12 @@ called recordings.
 
 
 .. index:: ! datalad command; clone
-.. index:: ! datalad command; install
 
-There are two commands that can be used to obtain a dataset: :command:`datalad install`
-(:manpage:`datalad-install` manual) and :command:`datalad clone` (:manpage:`datalad-clone`
-manual). Throughout this handbook, we will use :command:`datalad clone` to obtain
-datasets. The command has a less complex structure but slightly simplified behavior,
-and :ref:`the Findoutmore <fom_clonevsinstall>` in section :ref:`sharelocal1` will elaborate on the differences
-between the two commands.
-Let's install the longnow podcasts in this new directory with :command:`datalad clone`.
+The command that can be used to obtain a dataset is :command:`datalad clone` (:manpage:`datalad-clone`
+manual), but we often refer to the process of cloning a Dataset as *installing*.
+Let's install the longnow podcasts in this new directory.
 
-The command takes a location of an existing dataset to clone. This *source*
+The :command:`datalad clone` command takes a location of an existing dataset to clone. This *source*
 can be a URL or a path to a local directory, or an SSH server [#f1]_. The dataset
 to be installed lives on :term:`GitHub`, at
 `https://github.com/datalad-datasets/longnow-podcasts.git <https://github.com/datalad-datasets/longnow-podcasts>`_,
@@ -427,8 +422,9 @@ modification.
   display files that are not yet present locally (i.e., before a
   :command:`datalad get` was run). Therefore, be  mindful when exploring
   a dataset hierarchy with a file manager -- it might not show you
-  the available but not yet retrieved files. More about why this is will be
-  explained in section :ref:`symlink`.
+  the available but not yet retrieved files.
+  Consider browsing datasets with the :term:`DataLad Gooey` to be on the safe side.
+  More about why this is will be explained in section :ref:`symlink`.
 
 
 .. only:: adminmode

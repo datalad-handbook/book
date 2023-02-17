@@ -95,6 +95,9 @@ Glossary
       :ref:`extensions_intro` gives and overview of available extensions and links
       to Handbook chapters that contain demonstrations.
 
+   DataLad Gooey
+      A :term:`DataLad extension` that provides DataLad with a graphical user interface. Find out more in its Documentation: `docs.datalad.org/projects/gooey <http://docs.datalad.org/projects/gooey/en/latest/>`_
+
    DataLad subdataset
       A DataLad dataset contained within a different DataLad dataset (the parent or :term:`DataLad superdataset`).
 

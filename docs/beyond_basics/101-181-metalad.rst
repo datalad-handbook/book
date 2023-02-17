@@ -411,7 +411,7 @@ As with DataLad and other Python packages, you might want to do the installation
 
 		>>> from datetime import datetime
 		>>> datetime.fromtimestamp(1675113291.1464975)
-		datetime.datetime(2023, 1, 30, 22, 14, 51, 146497)
+		datetime.datetime(2023, 1, 30, 21, 14, 51, 146497)
 
 .. [#f4] Alternatively, provide the switch ``-i`` to ``meta-add``, which tells it to just warn about ID mismatches instead of erroring out.
 

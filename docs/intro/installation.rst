@@ -154,11 +154,8 @@ DataLad:
     installer when in doubt), and install it into the default target directory.
 
 There are many other ways to install DataLad on Windows, check for example the
-:windows-wit:`on the Windows Subsystem 2 for Linux <ww-wsl2>`. One particularly
-attractive approach is Conda_. However, at the moment git-annex is not
-available from Conda on Windows. If you want to use Conda, perform the
-Conda_-based DataLad installation first, and then install git-annex via the
-DataLad installer, as described above.
+:windows-wit:`on the Windows Subsystem 2 for Linux <ww-wsl2>`.
+One attractive alternative approach is Conda_, a completely different approach is to install the :term:`DataLad Gooey`, which is a standalone installation of DataLad's graphical application (see `the DataLad Gooey documentation <http://docs.datalad.org/projects/gooey/en/latest/>`_ for installation instructions).
 
 .. windows-wit:: Install DataLad using the Windows Subsystem 2 for Linux
    :name: ww-wsl2

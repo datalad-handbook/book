@@ -11,7 +11,7 @@ up to still pass the course.
 Moreover, though, he can also integrate all other notes
 or changes you make to your dataset, and stay up to date.
 This is because a DataLad dataset makes updating shared
-data a matter of a single :command:`datalad update --merge` command.
+data a matter of a single :command:`datalad update --how merge` command.
 
 But why does this need to be a one-way line? "I want to
 provide helpful information for you as well!", says your
@@ -151,11 +151,11 @@ in the resulting list with the name "roommate" you have given to it.
 The fact that the ``DataLad-101`` dataset now has a sibling means that we
 can also :command:`datalad update` this repository. Awesome!
 
-Your room mate previously ran a :command:`datalad update --merge` in the section
+Your room mate previously ran a :command:`datalad update --how merge` in the section
 :ref:`update`. This got him
 changes *he knew you made* into a dataset that *he so far did not change*.
 This meant that nothing unexpected would happen with the
-:command:`datalad update --merge`.
+:command:`datalad update --how merge`.
 
 But consider the current case: Your room mate made changes to his
 dataset, but you do not necessarily know which. You also made
@@ -165,14 +165,14 @@ How would you know that his changes and
 your changes are not in conflict with each other?
 
 This scenario is where a plain :command:`datalad update` becomes useful.
-If you run a plain :command:`datalad update`, DataLad will query the sibling
+If you run a plain :command:`datalad update` (which uses the default option ``--how fetch``), DataLad will query the sibling
 for changes, and store those changes in a safe place in your own
 dataset, *but it will not yet integrate them into your dataset*.
 This gives you a chance to see whether you actually want to have the
 changes your room mate made.
 
 Let's see how it's done. First, run a plain :command:`datalad update` without
-the ``--merge`` option.
+the ``--how merge`` option.
 
 .. runrecord:: _examples/DL-101-121-106
    :language: console
@@ -185,7 +185,7 @@ the ``--merge`` option.
 Note that we supplied the sibling's name with the ``-s``/``--name`` option.
 This is good practice, and allows you to be precise in where you want to get
 updates from. It would have worked without the specification (just as a bare
-:command:`datalad update --merge` worked for your room mate), because there is only
+:command:`datalad update --how merge` worked for your room mate), because there is only
 one other known location, though.
 
 This plain :command:`datalad update` informs you that it "fetched" updates from
@@ -272,7 +272,7 @@ but not your room mate: It is the additional note on :command:`datalad update`
 you made in your own dataset in the previous section.
 
 Cool! So now that you know what the changes are that your room mate
-made, you can safely :command:`datalad update --merge` them to integrate
+made, you can safely :command:`datalad update --how merge` them to integrate
 them into your dataset. In technical terms you will
 "*merge the branch remotes/roommate/master into master*".
 But the details of this will be stated in a standalone section later.
@@ -289,7 +289,7 @@ of your room mate's dataset, but you incorporate all changes he made
    :notes: no we can safely merge
    :cast: 04_collaboration
 
-   $ datalad update --merge -s roommate
+   $ datalad update --how merge -s roommate
 
 The exciting question is now whether your room mate's change is now
 also part of your own dataset. Let's list the contents of the ``code/``
@@ -341,7 +341,7 @@ Create a note about this, and save it.
    dataset as a sibling to your dataset. "Adding a sibling" means
    providing DataLad with info about the location of a dataset, and a
    name for it.
-   Afterwards, a "datalad update --merge -s name" will integrate the
+   Afterwards, a "datalad update --how merge -s name" will integrate the
    changes made to the sibling into the dataset. A safe step in between
    is to do a "datalad update -s name" and checkout the changes with
    "git/datalad diff" to remotes/origin/master

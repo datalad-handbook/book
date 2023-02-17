@@ -317,8 +317,7 @@ the ``-o``/``--output`` option.
    is by supplying the directory name, or the directory name and a :term:`globbing` character, such as
    ``-o directory/*.dat``.
    This would unlock all files with a ``.dat`` extension inside of ``directory``.
-   To glob for files in multiple levels of directories, set one ``*`` per level, for example ``-o directory/*/*.dat`` when operating with DataLad version ``<=0.15.4``.
-   If your version of DataLad is more recent than that, use ``**`` (a so-called `globstar <https://www.linuxjournal.com/content/globstar-new-bash-globbing-option>`_) for a recursive glob through any number directories.
+   To glob for files in multiple levels of directories, use ``**`` (a so-called `globstar <https://www.linuxjournal.com/content/globstar-new-bash-globbing-option>`_) for a recursive glob through any number directories.
    And, just as for ``-i``/``--input``, you could use multiple ``--output`` specifications.
 
 In order to execute :command:`datalad run` with both the ``-i``/``--input`` and ``-o``/``--output``
@@ -399,7 +398,7 @@ Save yourself the preparation time
 Its generally good practice to specify ``--input`` and ``--output`` even if your input files are already retrieved and your output files unlocked -- it makes sure that a recomputation can succeed, even if inputs are not yet retrieved, or if output needs to be unlocked.
 However, the internal preparation steps of checking that inputs exist or that outputs are unlocked can take a bit of time, especially if it involves checking a large number of files.
 
-Starting with **datalad version 0.14.1**, you can make use of the ``--assume-ready`` argument of :command:`datalad run` if you want to avoid the expense of unnecessary preparation steps.
+If you want to avoid the expense of unnecessary preparation steps you can make use of the ``--assume-ready`` argument of :command:`datalad run`.
 Depending on whether your inputs are already retrieved, your outputs already unlocked (or not needed to be unlocked), or both, specify ``--assume-ready`` with the argument ``inputs``, ``outputs`` or ``both`` and save yourself a few seconds, without sacrificing the ability to rerun your command under conditions in which the preparation would be necessary.
 
 

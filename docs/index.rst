@@ -22,8 +22,8 @@ part of this book will teach you. If you want to know what is possible, the
 the `companion repository <https://github.com/datalad-handbook/course>`_ provides
 :ref:`free and open source teaching material <teach>` tailored to the handbook.
 
-Before you read on, please note that the handbook is based on **at least** DataLad version **0.12**, and the higher your version of DataLad is, the better.
-The section :ref:`install` will set you up with what you need if you currently do not have DataLad 0.12 or higher installed.
+Before you read on, please note that this version of the handbook is based on **at least** DataLad version **0.17**, and the higher your version of DataLad is, the better.
+The section :ref:`install` will set you up with what you need if you currently do not have DataLad 0.17 or higher installed.
 
 If you're new here, please start the handbook :ref:`here <philo>`.
 Alternatively, try to identify with one of several user-types in this

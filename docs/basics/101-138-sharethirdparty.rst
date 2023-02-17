@@ -60,7 +60,7 @@ your own walk-through, please `get in touch <https://github.com/datalad-handbook
    DataLad, it may be helpful to give a short explanation of what a DataLad
    dataset is and what it can do. For this, you can use a ready-made text
    block that the handbook provides. To find this textblock, go to
-   :ref:`dataset_textblock`. Alternative, run :command:`datalad add-readme`.
+   :ref:`dataset_textblock`. Alternatively, run :command:`datalad add-readme`.
 
 
 

@@ -41,10 +41,6 @@ If you have never used DVC, `its technical docs <https://dvc.org/doc/command-ref
    Be mindful: DVC (as DataLad) comes with a range of commands and concepts that have the same names, but differ in functionality to their Git namesake.
    Make sure to read the `DVC documentation <https://dvc.org/doc/command-reference>`_ for each command to get more information on what it does.
 
-.. importantnote:: Running this tutorial requires DataLad version 0.13.4 or higher
-
-   Running this tutorial requires DataLad version 0.13.4 or higher
-
 Setup
 ^^^^^
 

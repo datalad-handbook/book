@@ -545,12 +545,8 @@ Finally, let's clean up:
 Copying files across dataset boundaries
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. importantnote:: copy-file availability
-
-   :command:`datalad copy-file` requires DataLad version ``0.13.0`` or higher.
-
 Instead of moving files across dataset boundaries, *copying* them is an easier
-and -- **beginning with DataLad version 0.13.0** -- actually supported method.
+and actually supported method.
 The DataLad command that can be used for this is :command:`datalad copy-file`
 (:manpage:`datalad-copy-file` manual). This command allows to copy files
 (from any dataset or non-dataset location, annexed or not annexed) into a dataset.
@@ -1023,8 +1019,7 @@ remaining symlink will fail, but the content can be obtained easily again with
    $ datalad get flowers.jpg
 
 If a file has no verified remote copies, DataLad will only drop its
-content if the user enforces it.
-DataLad versions prior to ``0.16`` need to enforce dropping using the ``--nocheck`` option, while DataLad version ``0.16`` and up need to enforce dropping using the ``--reckless [MODE]`` option, where ``[MODE]`` is either ``modification`` (drop despite unsaved modifications) ``availability`` (drop even though no other copy is known) ``undead`` (only for datasets; would drop a dataset without announcing its death to linked dataset clones) or ``kill`` (no safety checks at all are run).
+content if the user enforces it using the ``--reckless [MODE]`` option, where ``[MODE]`` is either ``modification`` (drop despite unsaved modifications) ``availability`` (drop even though no other copy is known) ``undead`` (only for datasets; would drop a dataset without announcing its death to linked dataset clones) or ``kill`` (no safety checks at all are run).
 While the ``--reckless`` parameter sounds more complex, it ensures a safer operation than the previous ``--nocheck`` implementation.
 We will demonstrate this by generating an empty file:
 

@@ -655,17 +655,14 @@ command (or, for `GitLab <https://about.gitlab.com/>`_, :command:`datalad create
 The two commands have different arguments and options.
 Here, we look at :command:`datalad create-sibling-github`.
 The command takes a repository name and GitHub authentication credentials
-(either in the command line call with options ``github-login <NAME>`` and
-``github-passwd <PASSWORD>``, with an *oauth* `token <https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token>`_ stored in the Git
+(either in the command line call with options ``github-login <TOKEN>``, with an *oauth* `token <https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token>`_ stored in the Git
 configuration, or interactively).
 
-.. importantnote:: GitHub deprecated User Password authentication
+.. importantnote:: Generate a GitHub token
 
-   GitHub `decided to deprecate user-password authentication <https://developer.github.com/changes/2020-02-14-deprecating-password-auth/>`_ and will only support authentication via personal access token from November 13th 2020 onwards.
-   Upcoming changes in DataLad's API will reflect this change starting with DataLad version ``0.13.6`` by removing the ``github-passwd`` argument.
-   Starting with DataLad ``0.16.0``, a new set of commands for interactions with a variety of hosting services will be introduced (for more information, see section :ref:`share_hostingservice`).
+   GitHub `deprecated user-password authentication <https://developer.github.com/changes/2020-02-14-deprecating-password-auth/>`_ supports authentication via personal access token only.
 
-   To ensure successful authentication, please create a personal access token at `github.com/settings/tokens <https://github.com/settings/tokens>`_ [#f6]_, and either
+   To ensure successful authentication, don't supply your password, but create a personal access token at `github.com/settings/tokens <https://github.com/settings/tokens>`_ [#f6]_ instead, and either
 
    * supply the token with the argument ``--github-login <TOKEN>`` from the command line,
    * or supply the token from the command line when queried for a password

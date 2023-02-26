@@ -350,7 +350,7 @@ The ``-d`` option sets it as the default remote, which simplifies pushing later 
    :language: console
 
    ### DVC
-   $ dvc remote add -d remote_storage ../dvc_remote
+   $ dvc remote add -d remote_storage ../dvc-remote
 
 The location of the remote is written into a config file:
 

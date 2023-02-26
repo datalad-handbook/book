@@ -252,7 +252,7 @@ DataLad workflow
 
 DataLad has means to get data or data archives from web sources and store this availability information within :term:`git-annex`.
 This has several advantages:
-For one, the original S3 bucket is known and stored as a location to re-retrieve the data from.
+For one, the original OSF file URL is known and stored as a location to re-retrieve the data from.
 This enables reliable data access for yourself and others that you share the dataset with.
 Beyond this, the data is also automatically extracted and saved, and thus put under version control.
 Note that this strays slightly from DataLad's :ref:`YODA principles <yoda>` in a DataLad-centric workflow, where data should become a standalone, reusable dataset that would be linked as a subdataset into a study/analysis specific dataset.
@@ -467,7 +467,7 @@ An alternative is to switch from copies to :term:`symlink`\s (as done by :term:`
 DataLad workflow
 """"""""""""""""
 
-Because the S3 bucket of the raw data is known and stored in the dataset, it strictly speaking isn't necessary to create a storage sibling to push the data to -- DataLad already treats the original S3 bucket as storage.
+Because the OSF archive containing the raw data is known and stored in the dataset, it strictly speaking isn't necessary to create a storage sibling to push the data to -- DataLad already treats the original web location as storage.
 Currently, the dataset can thus be shared via :term:`GitHub` or similar hosting services, and the data can be retrieved using :command:`datalad get`.
 
 .. find-out-more:: Really?
@@ -512,7 +512,7 @@ Currently, the dataset can thus be shared via :term:`GitHub` or similar hosting 
       ### DVC-DataLad2
       $ datalad get data/raw/val
 
-   The data was retrieved by re-downloading the original archive from S3 and extracting the required files.
+   The data was retrieved by re-downloading the original archive from OSF and extracting the required files.
 
 
 Here's an example of pushing a dataset to a local sibling nevertheless:

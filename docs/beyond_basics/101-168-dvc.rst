@@ -719,7 +719,7 @@ It now needs to be committed, tagged, and pushed:
    $ git commit -m "Add SGD pipeline"
    $ dvc commit
    $ git push --set-upstream origin sgd-pipeline
-   $ git tag -a sgd-pipeline -m "Trained SGD as DVC pipeline."
+   $ git tag -a sgd -m "Trained SGD as DVC pipeline."
    $ git push origin --tags
    $ dvc push
 
@@ -732,7 +732,7 @@ In order to explore a second model, a random forest classifier, we start with a 
    :language: console
 
    ### DVC
-   $ git checkout -b random_forest
+   $ git checkout -b random-forest
 
 To switch from SGD to a random forest classifier, a few lines of code within ``train.py`` need to be changed.
 The following `here doc <https://en.wikipedia.org/wiki/Here_document>`_ changes the script accordingly (changes are highlighted):
@@ -808,7 +808,7 @@ You can reproduce a complete DVC pipeline file with the :command:`dvc repro <sta
    $ dvc repro evaluate
 
 DVC checks the dependencies of the pipeline and re-executes commands that need to be executed again.
-Compared to the branch ``sgd_pipeline``, the workspace in the current ``random_forest`` branch contains a changed script (``src/train.py``), a changed trained classifier (``model/model.joblib``), and a changed metric (``metric/accuracy.json``).
+Compared to the branch ``sgd-pipeline``, the workspace in the current ``random-forest`` branch contains a changed script (``src/train.py``), a changed trained classifier (``model/model.joblib``), and a changed metric (``metric/accuracy.json``).
 All these changes need to be committed, tagged, and pushed now.
 
 .. runrecord:: _examples/DL-101-168-165
@@ -820,7 +820,7 @@ All these changes need to be committed, tagged, and pushed now.
    $ git commit -m "Train Random Forest classifier"
    $ dvc commit
    $ git push --set-upstream origin random-forest
-   $ git tag -a random-forest -m "Random Forest classifier with 80.99% accuracy."
+   $ git tag -a randomforest -m "Random Forest classifier with 80.99% accuracy."
    $ git push origin --tags
    $ dvc push
 
@@ -1014,8 +1014,9 @@ Even though there is no one-to-one correspondence between a DVC and a DataLad wo
       #$ git reset --hard b796ba195447268ebc51e20a778fb2db9f11e341
       #$ git push --force origin master
       ## delete the branches and tags
-      #$ git push origin :random_forest :sgd-pipeline
-      #$ git tag -d random-forest sgd-pipeline
+      ## note: tags & branches were renamed; if uncommenting, check GitHub repo first
+      #$ git push origin :random-forest :sgd-pipeline
+      #$ git tag -d randomforest sgd
 
 Summary
 ^^^^^^^

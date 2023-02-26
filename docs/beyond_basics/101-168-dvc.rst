@@ -271,7 +271,7 @@ Here, we stick to the project organization of DVC though.
      https://osf.io/d6qbz/download \
      -O 'data/raw/'
 
-At this point, the data is already version controlled [#f6]_, but the directory structure doesn't resemble that of the DVC dataset yet -- the extracted directory adds one unnecessary directory layer::
+At this point, the data is already version controlled [#f6]_, and we have the following directory tree::
 
     $ tree
     .
@@ -287,9 +287,6 @@ At this point, the data is already version controlled [#f6]_, but the directory 
     └── model
 
     29 directories
-
-To make the scripts work, we move the raw data up one level.
-This move needs to be saved.
 
 .. find-out-more:: How does DataLad represent modifications to data?
 

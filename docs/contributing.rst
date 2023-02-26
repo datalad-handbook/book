@@ -52,6 +52,7 @@ If you want to be able to build the book locally, though, please follow these in
    $ cd book
    # install required software
    $ pip install -r requirements.txt
+   $ pip install -r requirements-devel.txt
    $ pip install -e .
 
 - install ``librsvg2-bin`` (a tool to render ``.svgs``) with your package manager
@@ -83,7 +84,7 @@ Once this is configured, you can build the book locally by running ``make build`
 of the repository, and open it in your browser, for example with
 ``firefox docs/_build/html/index.html``.
 
-In case you need to remove the build files, you can just run make ``clean-build``.
+In case you need to remove the build files, you can just run ``make clean-build``.
 
 Automatic builds
 """"""""""""""""

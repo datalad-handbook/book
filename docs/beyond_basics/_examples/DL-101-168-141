@@ -10,7 +10,7 @@ $ datalad push --to mysibling
 [INFO] Start writing objects
 [INFO] Start resolving deltas
 [INFO] Finished push of Dataset(/home/me/DVCvsDL/DVC-DataLad)
-publish(ok): . (dataset) [refs/heads/git-annex->mysibling:refs/heads/git-annex 0c168711..f895aa04]
+publish(ok): . (dataset) [refs/heads/git-annex->mysibling:refs/heads/git-annex 02788fb6..53a238d5]
 publish(ok): . (dataset) [refs/heads/master->mysibling:refs/heads/master [new branch]]
 action summary:
   copy (ok: 2701)

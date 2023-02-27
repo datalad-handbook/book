@@ -27,7 +27,8 @@ environment:
   DTS: datalad_next
   APPVEYOR_BUILD_WORKER_IMAGE: Ubuntu2004
   INSTALL_SYSPKGS: python3-virtualenv graphicsmagick-imagemagick-compat moreutils jq uidmap
-  INSTALL_GITANNEX: git-annex -m snapshot
+  INSTALL_GITANNEX: git-annex -m deb-url --url http://snapshot.debian.org/archive/debian/20210906T204127Z/pool/main/g/git-annex/git-annex_8.20210903-1_amd64.deb
+
 
 
 skip_commits:

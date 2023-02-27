@@ -28,7 +28,7 @@ We demonstrate each step with DVC according to their tutorial, and then recreate
 The usecase :ref:`usecase_ML` demonstrates a similar analysis in a completely DataLad-centric fashion.
 If you want to, you can code along, or simply read through the presentation of DVC and DataLad commands.
 Some familiarity with DataLad can be helpful, but if you have never used DataLad, footnotes in each section can point you relevant chapters for more insights on a command or concept.
-If you have never used DVC, `its technical docs <https://dvc.org/doc/command-reference>`_ or `collection of third-party tutorials <https://github.com/iterative/dvc.org/issues/1749>`_ can answer further questions.
+If you have never used DVC, `its documentation <https://dvc.org/doc>`_ (including the `command reference <https://dvc.org/doc/command-reference>`_) can answer further questions.
 
 .. admonition:: If you are not a Git user
 
@@ -252,7 +252,7 @@ DataLad workflow
 
 DataLad has means to get data or data archives from web sources and store this availability information within :term:`git-annex`.
 This has several advantages:
-For one, the original S3 bucket is known and stored as a location to re-retrieve the data from.
+For one, the original OSF file URL is known and stored as a location to re-retrieve the data from.
 This enables reliable data access for yourself and others that you share the dataset with.
 Beyond this, the data is also automatically extracted and saved, and thus put under version control.
 Note that this strays slightly from DataLad's :ref:`YODA principles <yoda>` in a DataLad-centric workflow, where data should become a standalone, reusable dataset that would be linked as a subdataset into a study/analysis specific dataset.
@@ -271,7 +271,7 @@ Here, we stick to the project organization of DVC though.
      https://osf.io/d6qbz/download \
      -O 'data/raw/'
 
-At this point, the data is already version controlled [#f6]_, but the directory structure doesn't resemble that of the DVC dataset yet -- the extracted directory adds one unnecessary directory layer::
+At this point, the data is already version controlled [#f6]_, and we have the following directory tree::
 
     $ tree
     .
@@ -287,9 +287,6 @@ At this point, the data is already version controlled [#f6]_, but the directory 
     └── model
 
     29 directories
-
-To make the scripts work, we move the raw data up one level.
-This move needs to be saved.
 
 .. find-out-more:: How does DataLad represent modifications to data?
 
@@ -353,7 +350,7 @@ The ``-d`` option sets it as the default remote, which simplifies pushing later 
    :language: console
 
    ### DVC
-   $ dvc remote add -d remote_storage ../dvc_remote
+   $ dvc remote add -d remote_storage ../dvc-remote
 
 The location of the remote is written into a config file:
 
@@ -470,7 +467,7 @@ An alternative is to switch from copies to :term:`symlink`\s (as done by :term:`
 DataLad workflow
 """"""""""""""""
 
-Because the S3 bucket of the raw data is known and stored in the dataset, it strictly speaking isn't necessary to create a storage sibling to push the data to -- DataLad already treats the original S3 bucket as storage.
+Because the OSF archive containing the raw data is known and stored in the dataset, it strictly speaking isn't necessary to create a storage sibling to push the data to -- DataLad already treats the original web location as storage.
 Currently, the dataset can thus be shared via :term:`GitHub` or similar hosting services, and the data can be retrieved using :command:`datalad get`.
 
 .. find-out-more:: Really?
@@ -515,7 +512,7 @@ Currently, the dataset can thus be shared via :term:`GitHub` or similar hosting 
       ### DVC-DataLad2
       $ datalad get data/raw/val
 
-   The data was retrieved by re-downloading the original archive from S3 and extracting the required files.
+   The data was retrieved by re-downloading the original archive from OSF and extracting the required files.
 
 
 Here's an example of pushing a dataset to a local sibling nevertheless:
@@ -574,7 +571,7 @@ Data analysis
 ^^^^^^^^^^^^^
 
 DVC is tuned towards machine learning analyses and comes with convenience commands and workflow management to build, compare, and reproduce machine learning pipelines.
-The tutorial therefore runs an SGD classifier and a random forrest classifier on the data and compares the two models.
+The tutorial therefore runs an SGD classifier and a random forest classifier on the data and compares the two models.
 For this, the pre-existing preparation, training, and evaluation scripts are used on the data we have downloaded and version controlled in the previous steps.
 DVC has means to transform such a structured ML analysis into a workflow, reproduce this workflow on demand, and compare it across different models or parametrizations.
 
@@ -722,22 +719,22 @@ It now needs to be committed, tagged, and pushed:
    $ git commit -m "Add SGD pipeline"
    $ dvc commit
    $ git push --set-upstream origin sgd-pipeline
-   $ git tag -a sgd-pipeline -m "Trained SGD as DVC pipeline."
+   $ git tag -a sgd -m "Trained SGD as DVC pipeline."
    $ git push origin --tags
    $ dvc push
 
-**Model 2: random forrest classifier**
+**Model 2: random forest classifier**
 
-In order to explore a second model, a random forrest classifier, we start with a new branch.
+In order to explore a second model, a random forest classifier, we start with a new branch.
 
 .. runrecord:: _examples/DL-101-168-161
    :workdir: DVCvsDL/DVC
    :language: console
 
    ### DVC
-   $ git checkout -b random_forrest
+   $ git checkout -b random-forest
 
-To switch from SGD to a random forrest classifier, a few lines of code within ``train.py`` need to be changed.
+To switch from SGD to a random forest classifier, a few lines of code within ``train.py`` need to be changed.
 The following `here doc <https://en.wikipedia.org/wiki/Here_document>`_ changes the script accordingly (changes are highlighted):
 
 .. runrecord:: _examples/DL-101-168-162
@@ -811,7 +808,7 @@ You can reproduce a complete DVC pipeline file with the :command:`dvc repro <sta
    $ dvc repro evaluate
 
 DVC checks the dependencies of the pipeline and re-executes commands that need to be executed again.
-Compared to the branch ``sgd_pipeline``, the workspace in the current ``random_forrest`` branch contains a changed script (``src/train.py``), a changed trained classifier (``model/model.joblib``), and a changed metric (``metric/accuracy.json``).
+Compared to the branch ``sgd-pipeline``, the workspace in the current ``random-forest`` branch contains a changed script (``src/train.py``), a changed trained classifier (``model/model.joblib``), and a changed metric (``metric/accuracy.json``).
 All these changes need to be committed, tagged, and pushed now.
 
 .. runrecord:: _examples/DL-101-168-165
@@ -820,10 +817,10 @@ All these changes need to be committed, tagged, and pushed now.
 
    ### DVC
    $ git add --all
-   $ git commit -m "Train Random Forrest classifier"
+   $ git commit -m "Train Random Forest classifier"
    $ dvc commit
    $ git push --set-upstream origin random-forest
-   $ git tag -a random-forest -m "Random Forest classifier with 80.99% accuracy."
+   $ git tag -a randomforest -m "Random Forest classifier with 80.99% accuracy."
    $ git push origin --tags
    $ dvc push
 
@@ -922,7 +919,7 @@ Let's add a tag to declare that it belongs to the SGD classifier.
    ### DVC-DataLad
    $ datalad save --version-tag SGD
 
-Let's now change the training script to use a random forrest classifier as before:
+Let's now change the training script to use a random forest classifier as before:
 
 .. runrecord:: _examples/DL-101-168-176
    :workdir: DVCvsDL/DVC-DataLad
@@ -980,7 +977,7 @@ We need to save this change:
    :workdir: DVCvsDL/DVC-DataLad
    :language: console
 
-   $ datalad save -m "Switch to random forrest classification" code/train.py
+   $ datalad save -m "Switch to random forest classification" code/train.py
 
 Afterwards, we can rerun all run records between the tags ``ready-for-analysis`` and ``SGD`` using :command:`datalad rerun`.
 We could automatically compute this on a different branch if we wanted to by using the ``branch`` option:
@@ -989,7 +986,7 @@ We could automatically compute this on a different branch if we wanted to by usi
    :workdir: DVCvsDL/DVC-DataLad
    :language: console
 
-   $ datalad rerun --branch="randomforrest" -m "Recompute classification with random forrest classifier" ready-for-analysis..SGD
+   $ datalad rerun --branch="randomforest" -m "Recompute classification with random forest classifier" ready-for-analysis..SGD
 
 Done!
 The difference in accuracies between models could now for example be compared with a ``git diff``:
@@ -1017,8 +1014,9 @@ Even though there is no one-to-one correspondence between a DVC and a DataLad wo
       #$ git reset --hard b796ba195447268ebc51e20a778fb2db9f11e341
       #$ git push --force origin master
       ## delete the branches and tags
-      #$ git push origin :random_forrest :sgd-pipeline
-      #$ git tag -d random-forrest sgd-pipeline
+      ## note: tags & branches were renamed; if uncommenting, check GitHub repo first
+      #$ git push origin :random-forest :sgd-pipeline
+      #$ git tag -d randomforest sgd
 
 Summary
 ^^^^^^^

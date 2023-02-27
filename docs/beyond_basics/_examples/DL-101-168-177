@@ -1,4 +1,4 @@
-$ datalad save -m "Switch to random forrest classification" code/train.py
+$ datalad save -m "Switch to random forest classification" code/train.py
 add(ok): code/train.py (file)
 save(ok): . (dataset)
 action summary:

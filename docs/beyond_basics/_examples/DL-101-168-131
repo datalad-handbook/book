@@ -2,7 +2,7 @@
 # outside of a dataset
 $ datalad clone https://github.com/datalad-handbook/DVC-DataLad.git DVC-DataLad-2
 $ cd DVC-DataLad-2
-[INFO] Cloning dataset to Dataset(/home/me/DVCvsDL/DVC-DataLad-2)
+[INFO] Attempting a clone into /home/me/DVCvsDL/DVC-DataLad-2
 [INFO] Attempting to clone from https://github.com/datalad-handbook/DVC-DataLad.git to /home/me/DVCvsDL/DVC-DataLad-2
 [INFO] Start enumerating objects
 [INFO] Start counting objects
@@ -10,6 +10,7 @@ $ cd DVC-DataLad-2
 [INFO] Start receiving objects
 [INFO] Start resolving deltas
 [INFO] Completed clone attempts for Dataset(/home/me/DVCvsDL/DVC-DataLad-2)
+[INFO] scanning for annexed files (this may take some time)
 [INFO] Remote origin not usable by git-annex; setting annex-ignore
 [INFO] https://github.com/datalad-handbook/DVC-DataLad.git/config download failed: Not Found
 install(ok): /home/me/DVCvsDL/DVC-DataLad-2 (dataset)

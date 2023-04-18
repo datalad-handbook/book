@@ -34,7 +34,7 @@ If you have never used DVC, `its documentation <https://dvc.org/doc>`_ (includin
 
    DVC relies heavily on Git workflows.
    Understanding the DVC workflows requires a solid understanding of :term:`branch`\es, Git's concepts of `Working tree, Index ("Staging Area"), and Repository <https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository>`_, and some basic Git commands such as ``add``, ``commit``, and ``checkout``.
-   `The Turing Way <https://the-turing-way.netlify.app/welcome.html>`_ has an excellent `chapter on version control with Git <https://the-turing-way.netlify.app/reproducible-research/vcs.html>`_ if you want to catch up on those basics first.
+   `The Turing Way <https://the-turing-way.netlify.app/index.html>`_ has an excellent `chapter on version control with Git <https://the-turing-way.netlify.app/reproducible-research/vcs.html>`_ if you want to catch up on those basics first.
 
 .. gitusernote:: Terminology
 

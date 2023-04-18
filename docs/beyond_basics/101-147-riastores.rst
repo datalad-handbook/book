@@ -647,7 +647,7 @@ multi-users access. Possible values for this option are identical to those of
 `documentation <https://git-scm.com/docs/git-init#Documentation/git-init.txt---sharedfalsetrueumaskgroupallworldeverybodyltpermgt>`__.
 In order for the dataset to be accessible to everyone, for example, ``--shared all``
 could be specified. If access should be limited to a particular Unix
-`group <https://en.wikipedia.org/wiki/File_system_permissions#Traditional_Unix_permissions>`_
+`group <https://en.wikipedia.org/wiki/File-system_permissions#Notation_of_traditional_Unix_permissions>`_
 (``--shared group``), the group name needs to be specified with the
 ``--group`` option.
 

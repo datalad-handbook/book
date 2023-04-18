@@ -9,7 +9,7 @@ New features are introduced into ``datalad-next`` first, and, once tested for a 
 As such, ``datalad-next`` isn't confined to a topical set of features, but provides functionality with broad applicability.
 Some of this functionality takes the form of new stand-alone commands, while other functionality concerns improvements of existing commands under the hood via a special patch mechanism or modern re-implementations of established concepts.
 
-As development in this extension is dynamic, the best place to find and up-to-date overview of functionality is in its `source repository <https://github.com/datalad/datalad-next#summary-of-functionality-provided-by-this-extension>`_.
+As development in this extension is dynamic, the best place to find and up-to-date overview of functionality is in its `source repository <https://github.com/datalad/datalad-next>`_.
 
 .. figure:: ../artwork/src/future_view.svg
 

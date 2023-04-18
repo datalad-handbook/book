@@ -62,3 +62,13 @@ understanding how certain commands work and why certain commands may fail. We ha
 git-annex locks large files' content to prevent accidental modifications, and how the ``--output``
 flag in :command:`datalad run` can save us an intermediate :command:`datalad unlock` to unlock this content.
 The next section will elaborate on this a bit more.
+
+
+
+
+Further reading
+^^^^^^^^^^^^^^^
+
+The chapter on :command:`datalad run` provided an almost complete feature overview of the command.
+If you want, you can extend this knowledge with computational environments and :command:`datalad containers-run` in chapter :ref:`containersrun`.
+In addition, you can read up on other forms of computing usecases - for example, how to use :command:`datalad run` in interactive computing environments such as `Jupyter Notebooks <https://knowledge-base.psychoinformatics.de/kbi/0003/index.html>`_.

@@ -472,12 +472,8 @@ No, Python 2 support has been dropped in
 Is there a graphical user interface for DataLad?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-No, DataLad's functionality is available in the command line or via it's
-Python API.
-
-.. todo::
-
-   maybe update this by mentioning the DataLad webapp extension
+Yes, a dedicated :term:`DataLad extension`, ``datalad-gooey``, provides a graphical user interface for DataLad.
+You can read more about it in the section :ref:`gooey`.
 
 How does DataLad interface with OpenNeuro?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

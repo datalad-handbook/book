@@ -893,6 +893,16 @@ Note that git-annex keeps the previously annexed file's content in the annex for
 If its only few and small files that were unannexed, their size in the annex will not matter much.
 If its a lot of files or larger files that were accidentally annexed, you may want to drop the left-behind content using ``git annex unused`` and ``git annex dropunused``.
 
+.. _uninit:
+
+Getting all content out of the annex (removing the annex repo)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+In case you want to get all annexed contents out of a Dataset at once, you could turn to `git annex uninit <https://git-annex.branchable.com/git-annex-uninit/>`_.
+It is a command that can be used to stop using git annex entirely in a given repository/dataset.
+Running this command will unannex every file in the repository, remove all of git-annex's other data, and remove the :term:`git-annex` branch, leaving you with a normal Git repository plus the previously annexed files.
+
+Note a ``datalad push`` will reinstate the git-annex branch IF your dataset has siblings that still contain the annex branch.
 
 Deleting (annexed) files/directories
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

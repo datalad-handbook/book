@@ -44,7 +44,7 @@ Alternatively, to make publication even easier for you, the dataset provider, yo
    # afterwards, only datalad push is needed to publish dataset contents and history
    $ datalad push --to github
 
-For consumers of your dataset, because the special remote URL coincides with the regular remote URL on GitHub, ``siblings enable`` (as shown in the section :ref:`dropbox`) will not even be necessary when datalad is installed from GitHub.
+Consumers of your dataset should be able to retrieve files right after cloning the dataset without a ``siblings enable`` command (as shown in the section :ref:`dropbox`), because of the ``autoenable=true`` configuration for the special remote.
 
 .. importantnote:: No drop from LFS
 

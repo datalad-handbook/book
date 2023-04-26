@@ -20,13 +20,18 @@ familiar with git-annex and datalad. This is the results of multiple
 tests and looking into what happened using sourcetree, as well as actually reading the `datalad run` chapter of the handbook a couple of time.
 
 .. gitusernote:: Take home messages:
-  - datalad commands run in the terminal, not the Console.
-  - The simplest way to tell datalad not to use git-annex for your code
-files is to use `datalad create -c text2git --force` command.\
-  - `datalad run Rscript "path-to-script.r"` will run your script.\
-  - Use additional options to read or write annexed files (and give more
+  
+  datalad commands run in the terminal, not the Console.
+  
+  The simplest way to tell datalad not to use git-annex for your code
+files is to use `datalad create -c text2git --force` command.
+
+  `datalad run Rscript "path-to-script.r"` will run your script.
+  
+  Use additional options to read or write annexed files (and give more
 info for commit message).
-  - in your R script, use path relative to the project, not relative to the code position.
+  
+  in your R script, use path relative to the project, not relative to the code position.
 
 Why git-annex
 -------------

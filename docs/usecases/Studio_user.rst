@@ -1,9 +1,3 @@
----
-editor_options: 
-  markdown: 
-    wrap: 72
----
-
 .. \_usecase_Rstat:
 
 My first steps as a R users
@@ -83,7 +77,7 @@ Using Datalad run ?
 
 In theory, you can run your R script the way you are used to, as long as all files are present locally, and you are not overwriting files. If you need to access files that are only on the server (because you dropped them), you need to run `datalad get` to download them first. If you need to overwrite files which were saved via git-annex (that is that are not text files), you need to unlock them. You can unlock all your repository, including submodules files, running `datalad unlock -r .`
 
-.. usernote:: locking
+.. gitusernote:: locking
   to lock the files again, you can use `datalad save` (and derivates), this will not create a new commit (unless they are other changes made than the unlock). 
 
 
@@ -94,6 +88,7 @@ In theory, you can run your R script the way you are used to, as long as all fil
 Because datalad runs in the terminal, it needs a terminal command to run the script, for R, that command is "Rscript": `datalad run Rscript "<path-to-script.r>"`. Not the path is relative to where the terminal is, if you are using Rstudio projects, the terminal tab is per default in the working directory of the project. If your code is in a submodule and the data is in another one, you should run this command from the parent repository.
 
 To access annexed files, we need to use the input and output options:
+
 ```
 datalad run Rscript \
 --input "file1.csv" \
@@ -115,12 +110,15 @@ Behavior explained :
 
 On can set as many input and output files, one can use `*` to define several files with a similar ending (in the example all .png figures will be unlocked), one can list files who are not annexed to give more information in the commit message.
 
-Notes:
+.. gitusernote:: using datalad run
 
-- unlocking the files will make its state "unclean", so if you use datalad run, you need to set output options in the function, you cannot unlock files manually before.
-- The commit message will only look at the options, whether the code use these input and output files is not checked.
-- One can write these datalad commands in a shell script file in Rstudio, and push the run button will run them in the terminal.
-- Using `datalad run` correctly is sometimes tricky, and since it does save each time, it can make the repository history quite messy. Make sure to give good commit messages. 
+  unlocking the files will make its state "unclean", so if you use datalad run, you need to set output options in the function, you cannot unlock files manually before.
+
+  The commit message will only look at the options, whether the code use these input and output files is not checked.
+
+  One can write these datalad commands in a shell script file in Rstudio, and push the run button will run them in the terminal.
+   
+  Using `datalad run` correctly is sometimes tricky, and since it does save each time, it can make the repository history quite messy. Make sure to give good commit messages. 
 
 
 The advantage of using datalad run and not running the code directly is that R code cannot access directly annexed files, that might even be only present in the server but not on the computer. For each input and output files, one would need to get it or unlock it manually before running the code, then save it again. Datalad run can do all that automatically.
@@ -135,8 +133,8 @@ You may work on your code in a submodule using your usual git workflow. It is st
 
 My current workflow is to have 2 Rstudio projects open. I work in the parent repository, but make commits and push in the code repository.
 
-Undo `datalad create` or `datalad save` 
----------------------------------------
+Undo`datala d save` 
+-------------------
 
 Sometimes one goes to fast and make a `datalad save` in a repository that was not ready to be saved, or one runs the `datalad run` command and one would want to undo it. This is a bit complex and needs some manual interventions.
 

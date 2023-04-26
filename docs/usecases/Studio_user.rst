@@ -3,7 +3,7 @@
 My first steps as a R users
 ---------------------------
 
-.. index:: ! Usecase; Rusers
+.. index:: ! Usecase; R users quickstart
 
 This use case sketches typical entry points for R users, who know
 nothing about bash, but still want to leverage the power of git-annex
@@ -25,12 +25,9 @@ tests and looking into what happened using sourcetree, as well as actually readi
   
   The simplest way to tell datalad not to use git-annex for your code
 files is to use `datalad create -c text2git --force` command.
-
   `datalad run Rscript "path-to-script.r"` will run your script.
-  
   Use additional options to read or write annexed files (and give more
 info for commit message).
-  
   in your R script, use path relative to the project, not relative to the code position.
 
 Why git-annex
@@ -94,14 +91,14 @@ Because datalad runs in the terminal, it needs a terminal command to run the scr
 
 To access annexed files, we need to use the input and output options:
 
-```
-datalad run Rscript \
---input "file1.csv" \
---input "data/file2.json" \
---output "figures/*.png" \
---explicit \
-"<path-to-script.r>" {inputs} {outputs}
-```
+.. code-block:: bash
+  datalad run Rscript \
+  --input "file1.csv" \
+  --input "data/file2.json" \
+  --output "figures/*.png" \
+  --explicit \
+  "<path-to-script.r>" {inputs} {outputs}
+  
 
 Behavior explained :
 

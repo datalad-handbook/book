@@ -25,9 +25,12 @@ tests and looking into what happened using sourcetree, as well as actually readi
   
   The simplest way to tell datalad not to use git-annex for your code
 files is to use `datalad create -c text2git --force` command.
-  `datalad run Rscript "path-to-script.r"` will run your script.
+
+  the `datalad run Rscript "path-to-script.r"` will run your script.
+  
   Use additional options to read or write annexed files (and give more
 info for commit message).
+
   in your R script, use path relative to the project, not relative to the code position.
 
 Why git-annex
@@ -80,6 +83,7 @@ Using Datalad run ?
 In theory, you can run your R script the way you are used to, as long as all files are present locally, and you are not overwriting files. If you need to access files that are only on the server (because you dropped them), you need to run `datalad get` to download them first. If you need to overwrite files which were saved via git-annex (that is that are not text files), you need to unlock them. You can unlock all your repository, including submodules files, running `datalad unlock -r .`
 
 .. gitusernote:: locking
+
   to lock the files again, you can use `datalad save` (and derivates), this will not create a new commit (unless they are other changes made than the unlock). 
 
 
@@ -92,12 +96,15 @@ Because datalad runs in the terminal, it needs a terminal command to run the scr
 To access annexed files, we need to use the input and output options:
 
 .. code-block:: bash
-  datalad run Rscript \
-  --input "file1.csv" \
-  --input "data/file2.json" \
-  --output "figures/*.png" \
-  --explicit \
-  "<path-to-script.r>" {inputs} {outputs}
+
+    
+    $ datalad run Rscript \
+      --input "file1.csv" \
+      --input "data/file2.json" \
+      --output "figures/*.png" \
+      --explicit \
+      "<path-to-script.r>" {inputs} {outputs}
+  
   
 
 Behavior explained :

@@ -23,8 +23,7 @@ tests and looking into what happened using sourcetree, as well as actually readi
   
   datalad commands run in the terminal, not the Console.
   
-  The simplest way to tell datalad not to use git-annex for your code
-files is to use `datalad create -c text2git --force` command.
+  The simplest way to tell datalad not to use git-annex for your code files is to use `datalad create -c text2git --force` command.
 
   the `datalad run Rscript "path-to-script.r"` will run your script.
   

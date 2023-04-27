@@ -15,9 +15,13 @@ understanding. Hopefully this will help you quickstart your journey.
 3.  Dealing with (relative) path
 4.  oups, how to undo `datalad save` done on the wrong repository ?
 
-This use case take for granted you know how git works, but are not
+This use case takes for granted you know how git works, but are not
 familiar with git-annex and datalad. This is the results of multiple
 tests and looking into what happened using sourcetree, as well as actually reading the `datalad run` chapter of the handbook a couple of time.
+
+I started with an existing repository, with submodules for data 
+and for code, as created by the tonic tool.
+`datalad create --force -r` was then used in the parent repository.
 
 .. gitusernote:: Take home messages:
   

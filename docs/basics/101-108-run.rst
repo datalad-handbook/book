@@ -219,7 +219,7 @@ the command that produced it.
 
 You have probably already guessed that every :command:`datalad run` command
 ends with a ``datalad save``. A logical consequence from this fact is that any
-:command:`datalad run` does not result in any changes in a dataset (no modification
+:command:`datalad run` that does not result in any changes in a dataset (no modification
 of existing content; no additional files) will not produce any record in the
 dataset's history (just as a :command:`datalad save` with no modifications present
 will not create a history entry). Try to run the exact same

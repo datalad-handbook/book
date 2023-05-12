@@ -40,10 +40,10 @@ as simple as possible. It elaborates on
 The Challenge
 ^^^^^^^^^^^^^
 
-The data science institute XYZ consists of dozens of people: Principle
+The data science institute XYZ consists of dozens of people: Principal
 investigators, PhD students, general research staff, system administration,
 and IT support. It does research on important global issues, and prides
-itself with ground-breaking insights obtained from elaborate and complex
+itself on ground-breaking insights obtained from elaborate and complex
 computations run on a large scientific computing cluster.
 The datasets used in the institute are big both in size and number of files,
 and expensive to collect.
@@ -71,7 +71,7 @@ space.
 Therefore, the challenge is two-fold: On an infrastructural level, institute XYZ
 needs a scalable, flexible, and maintainable data storage solution for their
 growing collection of large datasets.
-On the level of human behavior, researchers not formerly trained in data
+On the level of human behavior, researchers not formally trained in data
 management need to apply and adhere to advanced data management principles.
 
 The DataLad approach
@@ -104,12 +104,12 @@ run-procedures, or basic data management principles improve the efficiency and
 reproducibility of research projects:
 Analyses are set-up inside of DataLad datasets, and for every
 analysis, an associated ``project`` is created under the namespace of the
-institute on the institute's :term:`GitLab` instance automatically. This does
-not only lead to vastly simplified version control workflows, but also to
+institute on the institute's :term:`GitLab` instance automatically. This
+not only leads to vastly simplified version control workflows, but also to
 simplified access to projects and research logs for collaborators and supervisors.
 Input data gets installed as subdatasets from the RIA store. This automatically
-links analyses projects to data sets, and allows for fine-grained access of up
-to individual file level. With only precisely needed data, analyses datasets are
+links analysis projects to data sets, and allows for fine-grained access of up
+to individual file level. With only precisely needed data, analysis datasets are
 already much leaner than with previous complete dataset copies, but as data can
 be re-obtained on-demand from the store, original input files or files that are
 easily recomputed can safely be dropped to save even more disk-space.
@@ -117,7 +117,7 @@ Beyond this, upon creation of an analysis project, the associated GitLab project
 is automatically configured as a remote with a publication dependency on the
 data store, thus enabling vastly simplified data publication routines and
 backups of pristine results: After computing their results, a
-:command:`datalad push` is all it takes to backup and share ones scientific
+:command:`datalad push` is all it takes to backup and share one's scientific
 insights. Thus, even with a complex setup of data store, compute infrastructure,
 and repository hosting, configurations adjusted to the compute infrastructure
 can be distributed and used to mitigate any potential remaining technical overhead.
@@ -132,7 +132,7 @@ Step-by-step
 The following section will elaborate on the details of the technical
 implementation of a RIA store, and the workflow requirements and incentives for
 researchers. Both of them are aimed at making scientific analyses on a
-compute cluster scale and can be viewed as complimentary but independent.
+compute cluster scale and can be viewed as complementary but independent.
 
 .. importantnote:: Note on the generality of the described setup
 
@@ -140,7 +140,7 @@ compute cluster scale and can be viewed as complimentary but independent.
    example this usecase is based on, and are not a requirement. In this particular
    case of application, for example, a *remote* setup for a RIA store made sense:
    Parts of an old compute cluster and of the super computer at the Juelich
-   supercomputing centre (JSC) instead of the institutes compute cluster are used
+   supercomputing centre (JSC) instead of the institute's compute cluster are used
    to host the data store. This may be an unconventional storage location,
    but it is convenient: The data does not strain the compute cluster, and with
    DataLad, it is irrelevant where the RIA store is located. The next subsection
@@ -153,7 +153,7 @@ Incentives and imperatives for disk-space aware computing
 On a high level, the layout and relationships of the relevant computational
 infrastructure in this usecase are as follows:
 Every researcher has a workstation that they can access the compute cluster with.
-On the compute clusters' head node, every user account has their own
+On the compute cluster's head node, every user account has their own
 home directory. These are the private spaces of researchers and are referred to
 as ``$HOME`` in :numref:`fig_store`.
 Analyses should be conducted on the cluster's compute nodes (``$COMPUTE``).
@@ -163,9 +163,9 @@ The RIA store (``$DATA``) can be accessed both from ``$HOME`` and ``$COMPUTE``,
 in both directions: Researchers can pull datasets from the store, push new
 datasets to it, or update (certain) existing datasets. ``$DATA`` is the one location
 in which experienced data management personnel ensures back-up and archival, performs
-house-keeping, and handles :term:`permissions`, and is thus were pristine raw
+house-keeping, and handles :term:`permissions`, and is thus where pristine raw
 data is stored or analysis code or results from ``$COMPUTE`` and ``$HOME`` should
-end up in. This aids organization, and allows a central management of back-ups
+end up. This aids organization, and allows a central management of back-ups
 and archival, potentially by data stewards or similar data management personnel
 with no domain knowledge about data contents.
 
@@ -228,7 +228,7 @@ with :command:`datalad push`, (let others) clone the dataset from the
 RIA store, and (let others) publish and pull updates. In the
 case of large, institute-wide datasets, a RIA store (or multiple RIA stores)
 can serve as a central storage location that enables fine-grained data access to
-everyone who needs it, and as a storage and back-up location for all analyses datasets.
+everyone who needs it, and as a storage and back-up location for all analysis datasets.
 Beyond constituting central storage locations, RIA stores also ease dataset
 maintenance and queries:
 If all datasets of an institute are kept in a single RIA store, questions such
@@ -277,7 +277,7 @@ Working in this dataset will require only :command:`datalad save` and
 :command:`datalad push` commands, and configurations ensure that the projects
 history and results are published where they need to be: The RIA store, for storing
 and archiving the project including data, and GitLab, for exposing the projects
-progress to the outside and ease collaboration or supervision. Users do not need
+progress to the outside and easing collaboration or supervision. Users do not need
 to know the location of the store, its layout, or how it works -- they can go
 about doing their science, while DataLad handles publications routines.
 

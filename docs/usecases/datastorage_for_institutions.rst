@@ -33,7 +33,7 @@ as simple as possible. It elaborates on
    personnel seeking insights into the technical implementation and
    configuration of a RIA store or into its workflows. In particular, it
    describes the RIA data storage and workflow implementation as done in INM-7,
-   research centre Juelich, Germany.
+   Research Centre Juelich, Germany.
 
 
 
@@ -140,7 +140,7 @@ compute cluster scale and can be viewed as complementary but independent.
    example this usecase is based on, and are not a requirement. In this particular
    case of application, for example, a *remote* setup for a RIA store made sense:
    Parts of an old compute cluster and of the super computer at the Juelich
-   supercomputing centre (JSC) instead of the institute's compute cluster are used
+   Supercomputing Centre (JSC) instead of the institute's compute cluster are used
    to host the data store. This may be an unconventional storage location,
    but it is convenient: The data does not strain the compute cluster, and with
    DataLad, it is irrelevant where the RIA store is located. The next subsection

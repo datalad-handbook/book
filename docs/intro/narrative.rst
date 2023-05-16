@@ -61,21 +61,16 @@ When copying code snippets into your own terminal, do not copy the leading
 error when executed.
 Don't worry :ref:`if you do not want to code along <fom-lazy>`, though.
 
-Instead of copying manually, you can also click on the clipboard icon at the top
-right of each code snippet.
-Clicking on that icon will copy all relevant lines from the code snippet,
-and will drop all comments and the ``$`` automatically.
-
-The book is split into different parts. The upcoming chapters
-are the *Basics* that intend to show you the core DataLad functionality
-and challenge you to use it. If you want to learn how to use DataLad, it is
-recommended to start with this part and read it from start to end.
-In the part *use cases*, you will find concrete examples of
-DataLad applications for general inspiration -- this is the second part of this book.
-If you want to get an overview of what is possible with DataLad, this section will
-show you in a concise and non-technical manner.
-Pick whatever you find interesting and disregard the rest. Afterwards,
-you might even consider :ref:`contribute` to this book by sharing your own use case.
+The printed version of the handbook contain the *Basics* that intend to show you
+the core DataLad functionality and challenge you to use it.
+If you want to learn how to use DataLad, it is recommended to start with this
+part and read it from start to end.
+The online version of the handbook has additional parts that you are welcome to check
+out, too:
+In the *Advanced* part you will find features or workflows that go beyond the
+Basics.
+And in the last part, *use cases*, you will find concrete examples of
+DataLad applications for general inspiration.
 
 Note that many challenges can have straightforward and basic solutions,
 but a lot of additional options or improvements are possible.
@@ -128,19 +123,6 @@ If you are a Windows 10 user with a native (i.e., not `Windows Subsystem for Lin
    A range of file system issues can affect the behavior of DataLad or its underlying tools on Windows 10.
    If necessary, the handbook provides workarounds for problems, explanations, or at least apologies for those inconveniences.
    If you want to help us make the handbook or DataLad better for Windows users, please `get in touch <https://github.com/datalad-handbook/book/issues/new/>`_ -- every little improvement or bug report can help.
-
-Apart from core DataLad commands (introduced in the *Basics* part of this book),
-DataLad also comes with many extensions and advanced commands not (yet) referenced
-in this handbook. The development of many of these features
-is ongoing, and this handbook will incorporate all DataLad commands and extensions
-*once they are stable* (that is, once the command(-structure) is likely not to
-change anymore). If you are looking for a feature but cannot find it in this
-handbook, please take a look at the `documentation <http://docs.datalad.org>`_,
-`write <http://handbook.datalad.org/en/latest/contributing.html>`_ or
-`request <https://github.com/datalad-handbook/book/issues/new>`_
-an additional chapter if you believe it is a worthwhile addition, or
-`ask a question on Neurostars.org <https://neurostars.org/latest>`_
-with a :command:`datalad` tag if you need help.
 
 
 What you will learn in this book

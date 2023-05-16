@@ -166,8 +166,7 @@ One attractive alternative approach is Conda_, a completely different approach i
    Afterwards, proceed with your installation as described in the installation instructions
    for Linux.
 
-Using DataLad on Windows has a few peculiarities. There is a dedicated summary,
-:ref:`ohnowindows` with an overview.  In general, DataLad can feel a bit
+Using DataLad on Windows has a few peculiarities. In general, DataLad can feel a bit
 sluggish on non-WSL2 Windows systems. This is due to various filesystem issues
 that also affect the version control system :term:`Git` itself, which DataLad
 relies on. The core functionality of DataLad works, and you should be able to

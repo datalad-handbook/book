@@ -578,6 +578,15 @@
       "contributions": [
         "bug"
       ]
+    },
+    {
+      "login": "jcf2",
+      "name": "jcf2",
+      "avatar_url": "https://avatars.githubusercontent.com/u/48492023?v=4",
+      "profile": "https://github.com/jcf2",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,

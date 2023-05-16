@@ -318,7 +318,7 @@ its `Miniconda <https://docs.conda.io/en/latest/miniconda.html>`_ installer
 offers a convenient way to bootstrap a DataLad installation. Importantly, it
 does not require admin/root access to a system.
 
-`Detailed, platform-specific installation instruction
+`Detailed, platform-specific installation instructions
 <https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html>`_ are available
 in the Conda documentation. In short: download and run the installer, or, from
 the command line, run

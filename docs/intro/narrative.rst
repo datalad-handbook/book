@@ -38,7 +38,7 @@ with each. While learning, it will be easy to
 
    Throughout the book numerous *terms* for concepts and technical components
    are used. They are all defined in a :ref:`glossary`, and are printed
-   in small-caps, such as :term:`Git`, or :term:`commit message`.
+   with a glossary icon, such as :term:`Git`, or :term:`commit message`.
 
 As the handbook is to be a practical guide it includes as many hands-on examples
 as we can fit into it. Code snippets look like this, and you should

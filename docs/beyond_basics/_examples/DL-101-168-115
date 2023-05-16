@@ -1,8 +1,0 @@
-### DVC-DataLad
-$ mv data/raw/imagenette2-160/* data/raw/ && rmdir data/raw/imagenette2-160
-$ datalad save -m "Move data into preferred locations"
-save(ok): . (dataset)
-action summary:
-  add (ok: 13394)
-  delete (ok: 13394)
-  save (ok: 1)

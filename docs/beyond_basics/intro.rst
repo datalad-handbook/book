@@ -23,6 +23,8 @@ associated usecases.
    basics-hpc
    basics-retrospective
    basics-specialpurpose
+   basics-dataladinternals
+   basics-extensions.rst
 
 .. figure:: /artwork/src/hero.svg
    :width: 50%

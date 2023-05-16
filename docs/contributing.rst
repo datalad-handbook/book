@@ -23,6 +23,7 @@ to discuss changes or additions you plan to make in advance.
 Software setup
 ^^^^^^^^^^^^^^
 
+An automatically triggered continuous integration setup will build the handbook (i.e., execute all code snippets in the "Basics" section, and assemble everything into a rendered book) when you open a pull request.
 Depending on the size of your contribution, you may want to be able to build the book
 locally to test and preview your changes. If you are fixing typos, tweak the
 language, or rewrite a paragraph or two, this should not be necessary, and you can safely
@@ -51,6 +52,7 @@ If you want to be able to build the book locally, though, please follow these in
    $ cd book
    # install required software
    $ pip install -r requirements.txt
+   $ pip install -r requirements-devel.txt
    $ pip install -e .
 
 - install ``librsvg2-bin`` (a tool to render ``.svgs``) with your package manager
@@ -78,9 +80,25 @@ woman to receive a PhD. Do not worry, this does not mess with your own Git ident
    $ HOME=/home/me git config --global user.name "Elena Piscopia"
    $ HOME=/home/me git config --global user.email "elena@example.net"
 
-Once this is configured, you can build the book locally by running ``make`` in the root
+Once this is configured, you can build the book locally by running ``make build`` in the root
 of the repository, and open it in your browser, for example with
 ``firefox docs/_build/html/index.html``.
+
+In case you need to remove the build files, you can just run ``make clean-build``.
+
+Automatic builds
+""""""""""""""""
+
+When you do not build the handbook locally, but add a new ``runrecord`` (see also the paragraph "Code" in :ref:`directive` to learn more about this) or change an existing one, the Appveyor CI build will execute the code snippet for you.
+After the Appveyor build completed successfully, it will upload every changed or new code snippet as `a build artifact <https://ci.appveyor.com/api/projects/mih/book/artifacts/runrecord_diff.txt>`_.
+You can download this artifact and add the diff by running the following command in your local clone of the handbook repository:
+
+.. code-block:: bash
+
+   $ wget https://ci.appveyor.com/api/projects/mih/book/artifacts/runrecord_diff.txt \
+     -O - | git apply
+
+Inspect the changes, commit then, and push them into your PR.
 
 .. _directive:
 
@@ -137,7 +155,7 @@ of them, if applicable to your contribution.
 
 **Creating live code demos out of runrecord directives**:
 The book has the capability to turn code snippets into a script that the tool
-`cast_live <https://github.com/datalad/datalad/blob/master/tools/cast_live>`_
+`cast_live <https://github.com/datalad/screencaster>`_
 can use to cast and execute it in a demonstration shell. This feature is
 intended for educational courses and other types of demonstrations. The
 following prerequisites exist:
@@ -338,6 +356,17 @@ previously highest. The currently existing intersphinx references are:
 - 2-002: :ref:`2-002`
 - 2-003: :ref:`2-003`
 - 3-001: :ref:`3-001`
+
+Tweaking the CSS of the book
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The custom CSS of the book is controlled by the file ``docs/_static/custom.css``. 
+If you have build the book locally by running `make build`, 
+you can directly tweak the custom CSS file in ``docs/_build/html/_static/custom.css`` 
+to view the changes without having to rebuild the book. 
+But once you have found the proper CSS style you are happy with 
+make sure to save and commit those changes in ``docs/_static/custom.css``
+
 
 .. _acknowledge:
 

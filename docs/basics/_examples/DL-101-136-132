@@ -1,4 +1,4 @@
 $ cd midterm_project
 $ git annex whereis TLCL.pdf
 whereis TLCL.pdf (0 copies) failed
-git-annex: whereis: 1 failed
+whereis: 1 failed

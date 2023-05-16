@@ -3,6 +3,8 @@
 Better late than never
 ----------------------
 
+.. index:: ! Chapter; 13. Better late than never
+
 .. figure:: ../artwork/src/late.svg
    :width: 50%
 

@@ -43,7 +43,7 @@ to only save those modifications that are specified in the ``--output``
 argument.
 
 Beyond these tricks, there are two ways to leave *untracked* content unaffected
-by a :command:`datalad save`. One is the ``-u/--untracked`` option of
+by a :command:`datalad save`. One is the ``-u/--updated`` option of
 :command:`datalad save`::
 
    $ datalad save -m "my commit message here" -u/--updated
@@ -186,8 +186,14 @@ your dataset to be messy, if you want to be.
       $ git config --global core.excludesfile ~/.gitignore_global
 
    Git -- and consequently DataLad -- will not bother you about any of the files
-   or file types you have specified.
+   or file types you have specified. The following snippet defines a typical
+   collection of ignored files to be defined across different platforms, and should work on Unix-like systems (like MacOS and Linux distributions).
 
+   .. code-block:: bash
+
+     $ touch ~/.gitignore_global
+     $ for f in .DS_Store ._.DS_Store '*.swp' Thumbs.db ehthumbs.db; do \
+       echo "$f" >> ~/.gitignore_global; done
 
 
 .. only:: adminmode

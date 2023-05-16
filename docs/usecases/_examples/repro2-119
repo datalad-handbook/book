@@ -3,7 +3,8 @@ $ datalad run \
  --output sub-02/1stlvl_design.fsf \
  bash -c 'sed -e "s,##BASEPATH##,{pwd},g" -e "s,##SUB##,sub-02,g" \
  code/ffa_design.fsf > {outputs}'
-[INFO] == Command start (output follows) =====
-[INFO] == Command exit (modification check follows) =====
+[INFO] == Command start (output follows) ===== 
+[INFO] == Command exit (modification check follows) ===== 
+run(ok): /home/me/usecases/repro2/glm_analysis (dataset) [bash -c 'sed -e "s,##BASEPATH##,/home/me...]
 add(ok): sub-02/1stlvl_design.fsf (file)
 save(ok): . (dataset)

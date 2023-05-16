@@ -27,11 +27,10 @@
   <meta property="twitter:image" content="https://handbook.datalad.org/_static/social-card-twitter.png">
   <meta property="twitter:image:alt" content="The DataLad Handbook logo with cute little beings playing with data">
   <meta property="og:image" content="https://handbook.datalad.org/_static/social-card.png">
-  <meta property="og:title" content="{{ title }}{{ titlesuffix }}">
   <meta property="og:type" content="article">
   {%- if metatags is defined %}
   {# FIXME: For some reason the `meta` dict is always empty. Extract the desc from the `metatags` text.  #}
-  <meta property="og:description" content="{{ metatags[15:-24] }}">
+  <meta property="og:description" content="{{ metatags[15:-23] }}">
   {%- endif %}
 
 {% endblock %}

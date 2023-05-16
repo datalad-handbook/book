@@ -1,8 +1,8 @@
 # but not for this:
 $ git annex whereis Long_Now__Seminars_About_Long_term_Thinking/2005_01_15__James_Carse__Religious_War_In_Light_of_the_Infinite_Game.mp3
-whereis Long_Now__Seminars_About_Long_term_Thinking/2005_01_15__James_Carse__Religious_War_In_Light_of_the_Infinite_Game.mp3 (2 copies) 
+whereis Long_Now__Seminars_About_Long_term_Thinking/2005_01_15__James_Carse__Religious_War_In_Light_of_the_Infinite_Game.mp3 (2 copies)
   	00000000-0000-0000-0000-000000000001 -- web
-   	da3bf937-5bd2-43ea-a07b-bcbe71f3b875 -- mih@medusa:/tmp/seminars-on-longterm-thinking
+   	REDACTED-UUID -- mih@medusa:/tmp/seminars-on-longterm-thinking
 
   web: http://podcast.longnow.org/salt/redirect/salt-020050114-carse-podcast.mp3
 ok

@@ -1,0 +1,5 @@
+$ tree
+.
+└── zen.jpg -> .git/annex/objects/PV/X5/MD5E-s5217743--ad8f6e7832f1752fe480051bcd06c719.jpg/MD5E-s5217743--ad8f6e7832f1752fe480051bcd06c719.jpg
+
+0 directories, 1 file

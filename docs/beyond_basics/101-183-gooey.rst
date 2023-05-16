@@ -1,0 +1,48 @@
+.. _gooey:
+
+DataLad in a graphical user interface
+-------------------------------------
+
+DataLad is primarily a command line or Python tool.
+However, the `datalad gooey <http://docs.datalad.org/projects/gooey/en/latest/index.html>`_ extensions extends it with a graphical user interface.
+
+.. figure:: ../artwork/src/application.svg
+
+
+Selected features
+^^^^^^^^^^^^^^^^^
+
+The ideal way to stay up-to-date on gooey developments is its documentation at `docs.datalad.org/projects/gooey <http://docs.datalad.org/projects/gooey/en/latest/>`_.
+A few selected advantages are featured here, nevertheless.
+
+Installation
+""""""""""""
+
+In contrast to other DataLad extensions, ``datalad-gooey`` can not only be installed via :term:`pip`.
+It also has a standalone Windows installer that bundles up all required software into a single installation wizard.
+On a typical Windows system, this simplifies the installation considerably.
+
+Speed
+"""""
+
+``datalad-gooey`` has internal helpers for faster annotations (whether a file is annexed, committed to Git, modified, or untracked) and file tree overviews.
+This makes it more convenient especially on filesystems that are generally slower for Git operations, such as Window's NTFS.
+
+Credential Management
+"""""""""""""""""""""
+
+``datalad-gooey`` comes with a more user-friendly graphical credential management system.
+It allows to access and browse available credentials more easily, and provides and interface to add, change, or amend credentials with arbitrary properties.
+
+.. figure:: ../artwork/src/gooey-cred.png
+
+Subselected command suites
+""""""""""""""""""""""""""
+
+The number of DataLad commands that the core DataLad package and the DataLad extensions provide is substantial.
+Likewise, the number of options and parameters any given command provides can be overwhelming or not easily understandable.
+Whenever a specific target audience or use case needs only a subset of commands or command options, or a more verbose description, ``datalad-gooey`` has the ability to expose tailored command suites, which can limit the number of commands, provide custom command annotations, and subset the number of exposed options.
+A tailored command suite either comes with ``datalad-gooey`` itself, or with a :term:`datalad extension`, and users can switch between available suites.
+If you :ref:`develop your own extension <extensions_create>`, you can create a tailor-made and more user-friendly command suite to go with it.
+
+.. figure:: ../artwork/src/gooey-overview.png

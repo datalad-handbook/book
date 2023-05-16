@@ -1,8 +1,7 @@
 $ datalad uninstall --dataset . inputs --recursive
-drop(ok): /home/me/usecases/repro2/glm_analysis/inputs/rawdata/sub-02/func/sub-02_task-oneback_run-01_bold.nii.gz (file)
-drop(ok): /home/me/usecases/repro2/glm_analysis/inputs/rawdata/sub-02/func/sub-02_task-oneback_run-01_events.tsv (file)
-drop(ok): inputs/rawdata (directory)
+drop(ok): inputs/rawdata (key)
+drop(ok): inputs/rawdata (key)
 uninstall(ok): inputs/rawdata (dataset)
 action summary:
-  drop (ok: 3)
+  drop (notneeded: 1, ok: 2)
   uninstall (ok: 1)

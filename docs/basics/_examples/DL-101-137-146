@@ -1,20 +1,20 @@
 $ git log -n 3
-commit b1c8ba0aa730d7227243fb91ef928d6c14afbbcc
+commit 4c2df2df4057de3f40f2ec4e7a4026dac3683f47
 Author: Elena Piscopia <elena@example.net>
-Date:   Thu Jul 29 16:25:44 2021 +0200
+Date:   Tue Jun 18 16:13:00 2019 +0000
 
     Revert "did a bad modification"
-    
-    This reverts commit f865b2562abb60a942425fbab557e1c25dce877a.
 
-commit b041c7117dd0b8559ba9402a8901fc1a495067de
+    This reverts commit f3e1beaf0fd0e40ef07f3ab9adb850f8459db98c.
+
+commit 85397073b50562dcc8eeed1bb8b13c91ed790dd8
 Author: Elena Piscopia <elena@example.net>
-Date:   Thu Jul 29 16:25:44 2021 +0200
+Date:   Tue Jun 18 16:13:00 2019 +0000
 
     add note on helpful git resource
 
-commit f865b2562abb60a942425fbab557e1c25dce877a
+commit f3e1beaf0fd0e40ef07f3ab9adb850f8459db98c
 Author: Elena Piscopia <elena@example.net>
-Date:   Thu Jul 29 16:25:43 2021 +0200
+Date:   Tue Jun 18 16:13:00 2019 +0000
 
     did a bad modification

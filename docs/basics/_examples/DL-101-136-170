@@ -11,4 +11,4 @@ action summary:
   add (ok: 1)
   download_url (ok: 1)
   save (ok: 1)
-lrwxrwxrwx 1 adina adina 128 Oct  8  2014 flowers.jpg -> .git/annex/objects/7q/9Z/MD5E-s4487679--3898ef0e3497a89fa1ea74698992bf51.jpg/MD5E-s4487679--3898ef0e3497a89fa1ea74698992bf51.jpg
+lrwxrwxrwx 1 elena elena 128 2019-06-18 16:13  2013 flowers.jpg -> .git/annex/objects/7q/9Z/MD5E-s4487679--3898ef0e3497a89fa1ea74698992bf51.jpg/MD5E-s4487679--3898ef0e3497a89fa1ea74698992bf51.jpg

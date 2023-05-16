@@ -1,17 +1,11 @@
 .. _push:
 
-Overview: Publishing datasets
------------------------------
+Overview: The datalad push command
+----------------------------------
 
-The sections :ref:`yoda_project`, :ref:`sharethirdparty`, and :ref:`gin` have each
+Previous sections on publishing DataLad datasets  have each
 shown you crucial aspects of the functions of dataset publishing with
 :command:`datalad push`. This section wraps them all together.
-
-.. importantnote:: push availability
-
-   :command:`datalad push` requires DataLad version ``0.13.0`` or higher.
-   Older DataLad versions need to use the :command:`datalad publish` command.
-   For details into ``datalad publish``, please check out the :ref:`find-out-more on the difference between the two commands <fom-publish>` at the end of this page.
 
 The general overview
 ^^^^^^^^^^^^^^^^^^^^
@@ -161,6 +155,7 @@ As an example, consider what happens if we attempt a :command:`datalad push` to 
 
 .. runrecord:: _examples/DL-101-141-101
    :language: console
+   :exitcode: 1
    :workdir: dl-101/DataLad-101
 
    $ datalad push --to roommate
@@ -169,93 +164,6 @@ Publishing fails with the error message ``[remote rejected] (branch is currently
 This can be prevented with  `configuration settings <https://github.blog/2015-02-06-git-2-3-has-been-released/>`_ in Git versions 2.3 or higher, or by pushing to a branch of the sibling that is currently not checked-out.
 For more information on this, and other error messages during push, please checkout the section :ref:`help`.
 
-Setting access control via publishing
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-There are a number of ways to restrict access to your dataset or individual
-files of your dataset. One is via choice of (third party) hosting service
-for annexed file contents.
-If you chose a service only selected people have access to, and publish annexed
-contents exclusively there, then only those selected people can perform a
-successful :command:`datalad get`. On shared file systems you may achieve
-this via :term:`permissions` for certain groups or users, and for third party
-infrastructure you may achieve this by invitations/permissions/... options
-of the respective service.
-
-If it is individual files that you do not want to share, you can selectively
-publish the contents of all files you want others to have, and withhold the data
-of the files you do not want to share. This can be done by publishing only
-selected files by providing paths, or overriding default push behavior with
-the ``--data`` option and git-annex ``wanted`` configurations.
-Specifying ``--data nothing`` would for example not push any annexed contents.
-
-Let's say you have a dataset with three files:
-
-- ``experiment.txt``
-- ``subject_1.dat``
-- ``subject_2.dat``
-
-Consider that all of these files are annexed. While the information in
-``experiment.txt`` is fine for everyone to see, ``subject_1.dat`` and
-``subject_2.dat`` contain personal and potentially identifying data that
-can not be shared. Nevertheless, you want collaborators (with whom data
-can not be shared) to know that these files exist, for example such that
-they can develop scripts against the directory structure and
-file names of a dataset, submit those scripts to the data owners,
-and thus still perform an analysis despite not having access to the data.
-
-By publishing only the file contents of ``experiment.txt`` with
-
-.. code-block:: bash
-
-  $ datalad push --to github experiment.txt
-
-only meta data about file availability of ``subject_1.dat`` and ``subject_2.dat``
-exists, but as these files' annexed data is not published, a :command:`datalad get`
-will fail. Note, though, that :command:`push` will publish the complete
-dataset history (unless you specify a commit range with the ``--since`` option
--- see the `manual <http://docs.datalad.org/en/latest/generated/man/datalad-push.html>`_
-for more information).
-
-.. find-out-more:: On the datalad publish command
-   :float:
-   :name: fom-publish
-
-   Starting with DataLad version ``0.13.0``, :command:`datalad push` was introduced
-   and became an alternative to :command:`datalad publish`, which will be
-   removed in a future DataLad release.
-
-   By default, :command:`datalad publish` publishes the last saved state of the
-   dataset (i.e., its Git history) to a specified sibling:
-
-   .. code-block:: bash
-
-      $ datalad publish --to <sibling>
-
-   Like :command:`push`, it supports recursive publishing across dataset
-   hierarchies (if all datasets have appropriately configured default publication
-   targets or identical sibling names) with the ``-r/--recursive`` flag, and it
-   supports the ``--since`` option.
-
-   Main differences to :command:`push` lie in :command:`publish`\s ``--transfer-data``
-   option that can be specified with either ``all``, ``auto`` or ``none`` and
-   determines whether and how annexed contents should be published if the sibling
-   carries an annex: ``none`` will transfer only Git history and no annexed
-   data, ``auto`` relies on configurations of the sibling, and ``all`` will
-   publish all annexed contents.
-
-   By default, when using a plain ``datalad publish --to <sibling>`` with no path
-   specification or ``--transfer-data`` option, :command:`publish` will be used
-   in ``auto`` mode.
-   In practice, this default will most likely lead to the same outcome as when
-   specifying ``none``: only your datasets history, but no annexed contents
-   will be published.
-   On a technical level, the ``auto`` option leads to adding ``auto`` to the underlying ``git annex copy`` command, which in turn publishes annexed contents based on the `git-annex preferred content configuration <https://git-annex.branchable.com/git-annex-preferred-content/>`_ of the sibling.
-
-   In order to publish all annexed contents, one needs to specify ``--transfer-data all``.
-   Alternatively, adding paths to the ``publish`` call will publish the specified
-   annexed content (unless ``--transfer-data none`` is explicitly added).
-   As yet another alternative, one needs to add the same configuration for :term:`git-annex` that the option ``--auto`` of :command:`push` need.
 
 .. rubric:: Footnotes
 

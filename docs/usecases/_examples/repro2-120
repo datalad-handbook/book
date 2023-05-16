@@ -4,11 +4,12 @@ $ datalad containers-run --container-name fsl -m "sub-02 1st-level GLM" \
   --input inputs/rawdata/sub-02/func/sub-02_task-oneback_run-01_bold.nii.gz \
   --output sub-02/1stlvl_glm.feat \
   feat {inputs[0]}
-[INFO] Making sure inputs are available (this may take some time)
+[INFO] Making sure inputs are available (this may take some time) 
 get(ok): inputs/rawdata/sub-02/func/sub-02_task-oneback_run-01_bold.nii.gz (file) [from origin...]
-[INFO] == Command start (output follows) =====
+[INFO] == Command start (output follows) ===== 
 To view the FEAT progress and final report, point your web browser at /home/me/usecases/repro2/glm_analysis/sub-02/1stlvl_glm.feat/report_log.html
-[INFO] == Command exit (modification check follows) =====
+[INFO] == Command exit (modification check follows) ===== 
+run(ok): /home/me/usecases/repro2/glm_analysis (dataset) [singularity exec -B /home/me/usecases/re...]
 add(ok): sub-02/1stlvl_glm.feat/.files/fsl.css (file)
 add(ok): sub-02/1stlvl_glm.feat/.files/images/3.1r.jpg (file)
 add(ok): sub-02/1stlvl_glm.feat/.files/images/3.jpg (file)
@@ -51,21 +52,21 @@ add(ok): sub-02/1stlvl_glm.feat/example_func.nii.gz (file)
 add(ok): sub-02/1stlvl_glm.feat/filtered_func_data.nii.gz (file)
 add(ok): sub-02/1stlvl_glm.feat/lmax_zstat1.txt (file)
 add(ok): sub-02/1stlvl_glm.feat/logs/feat0 (file)
-add(ok): sub-02/1stlvl_glm.feat/logs/feat0_init.e3076726 (file)
-add(ok): sub-02/1stlvl_glm.feat/logs/feat0_init.o3076726 (file)
+add(ok): sub-02/1stlvl_glm.feat/logs/feat0_init.e657173 (file)
+add(ok): sub-02/1stlvl_glm.feat/logs/feat0_init.o657173 (file)
 add(ok): sub-02/1stlvl_glm.feat/logs/feat1 (file)
 add(ok): sub-02/1stlvl_glm.feat/logs/feat1a_init (file)
 add(ok): sub-02/1stlvl_glm.feat/logs/feat2_pre (file)
-add(ok): sub-02/1stlvl_glm.feat/logs/feat2_pre.e3076809 (file)
-add(ok): sub-02/1stlvl_glm.feat/logs/feat2_pre.o3076809 (file)
-add(ok): sub-02/1stlvl_glm.feat/logs/feat3_film.e3077273 (file)
-add(ok): sub-02/1stlvl_glm.feat/logs/feat3_film.o3077273 (file)
+add(ok): sub-02/1stlvl_glm.feat/logs/feat2_pre.e657253 (file)
+add(ok): sub-02/1stlvl_glm.feat/logs/feat2_pre.o657253 (file)
+add(ok): sub-02/1stlvl_glm.feat/logs/feat3_film.e657707 (file)
+add(ok): sub-02/1stlvl_glm.feat/logs/feat3_film.o657707 (file)
 add(ok): sub-02/1stlvl_glm.feat/logs/feat3_stats (file)
 add(ok): sub-02/1stlvl_glm.feat/logs/feat4_post (file)
-add(ok): sub-02/1stlvl_glm.feat/logs/feat4_post.e3077646 (file)
-add(ok): sub-02/1stlvl_glm.feat/logs/feat4_post.o3077646 (file)
-add(ok): sub-02/1stlvl_glm.feat/logs/feat5_stop.e3078278 (file)
-add(ok): sub-02/1stlvl_glm.feat/logs/feat5_stop.o3078278 (file)
+add(ok): sub-02/1stlvl_glm.feat/logs/feat4_post.e658119 (file)
+add(ok): sub-02/1stlvl_glm.feat/logs/feat4_post.o658119 (file)
+add(ok): sub-02/1stlvl_glm.feat/logs/feat5_stop.e658751 (file)
+add(ok): sub-02/1stlvl_glm.feat/logs/feat5_stop.o658751 (file)
 add(ok): sub-02/1stlvl_glm.feat/logs/feat9 (file)
 add(ok): sub-02/1stlvl_glm.feat/mask.nii.gz (file)
 add(ok): sub-02/1stlvl_glm.feat/mc/disp.png (file)
@@ -357,4 +358,5 @@ save(ok): . (dataset)
 action summary:
   add (ok: 344)
   get (notneeded: 4, ok: 1)
+  run (ok: 1)
   save (notneeded: 1, ok: 1)

@@ -1,4 +1,4 @@
 $ ls -l copyofTLCL.pdf
 $ ls -l books/TLCL.pdf
-lrwxrwxrwx 1 adina adina 128 Jul 29 16:25 copyofTLCL.pdf -> .git/annex/objects/jf/3M/MD5E-s2120211--06d1efcb05bb2c55cd039dab3fb28455.pdf/MD5E-s2120211--06d1efcb05bb2c55cd039dab3fb28455.pdf
-lrwxrwxrwx 1 adina adina 131 Jan 28  2019 books/TLCL.pdf -> ../.git/annex/objects/jf/3M/MD5E-s2120211--06d1efcb05bb2c55cd039dab3fb28455.pdf/MD5E-s2120211--06d1efcb05bb2c55cd039dab3fb28455.pdf
+lrwxrwxrwx 1 elena elena 128 2019-06-18 16:13 copyofTLCL.pdf -> .git/annex/objects/jf/3M/MD5E-s2120211--06d1efcb05bb2c55cd039dab3fb28455.pdf/MD5E-s2120211--06d1efcb05bb2c55cd039dab3fb28455.pdf
+lrwxrwxrwx 1 elena elena 131 2019-06-18 16:13 books/TLCL.pdf -> ../.git/annex/objects/jf/3M/MD5E-s2120211--06d1efcb05bb2c55cd039dab3fb28455.pdf/MD5E-s2120211--06d1efcb05bb2c55cd039dab3fb28455.pdf

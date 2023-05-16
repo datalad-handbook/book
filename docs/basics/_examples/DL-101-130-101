@@ -1,6 +1,4 @@
 # make sure to move outside of DataLad-101!
 $ cd ../
 $ datalad create iris_data
-[INFO] Creating a new annex repo at /home/me/dl-101/iris_data 
-[INFO] scanning for unlocked files (this may take some time)
 create(ok): /home/me/dl-101/iris_data (dataset)

@@ -1,3 +1,5 @@
 $ datalad subdatasets --contains midterm_project \
   --set-property url https://github.com/adswa/midtermproject
+add(ok): .gitmodules (file)
+save(ok): . (dataset)
 subdataset(ok): midterm_project (dataset)

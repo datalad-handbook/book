@@ -2,5 +2,6 @@
 #$ git reset --hard b796ba195447268ebc51e20a778fb2db9f11e341
 #$ git push --force origin master
 ## delete the branches and tags
-#$ git push origin :random_forrest :sgd-pipeline
-#$ git tag -d random-forrest sgd-pipeline
+## note: tags & branches were renamed; if uncommenting, check GitHub repo first
+#$ git push origin :random-forest :sgd-pipeline
+#$ git tag -d randomforest sgd

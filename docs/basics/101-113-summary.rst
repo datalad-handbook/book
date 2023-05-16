@@ -28,7 +28,7 @@ command, and discovered the concept of *locked* content.
   execution. Anything specified as ``output`` will be ``unlocked`` prior to modifications.
 
 * It is good practice to specify ``input`` and ``output`` to ensure that a :command:`datalad rerun` works, and to capture the relevant elements of a computation in a machine-readable record.
-  If you want to spare yourself preparation time in case everything is already retrieved and unlocked, you can use ``--assume-ready {input|output|both}`` to skip a check on whether inputs are already present or outputs already unlocked (requires DataLad version ``0.14.1`` or later).
+  If you want to spare yourself preparation time in case everything is already retrieved and unlocked, you can use ``--assume-ready {input|output|both}`` to skip a check on whether inputs are already present or outputs already unlocked.
 
 .. figure:: ../artwork/src/run.svg
    :alt: Schematic illustration of datalad run.
@@ -62,3 +62,13 @@ understanding how certain commands work and why certain commands may fail. We ha
 git-annex locks large files' content to prevent accidental modifications, and how the ``--output``
 flag in :command:`datalad run` can save us an intermediate :command:`datalad unlock` to unlock this content.
 The next section will elaborate on this a bit more.
+
+
+
+
+Further reading
+^^^^^^^^^^^^^^^
+
+The chapter on :command:`datalad run` provided an almost complete feature overview of the command.
+If you want, you can extend this knowledge with computational environments and :command:`datalad containers-run` in chapter :ref:`containersrun`.
+In addition, you can read up on other forms of computing usecases - for example, how to use :command:`datalad run` in interactive computing environments such as `Jupyter Notebooks <https://knowledge-base.psychoinformatics.de/kbi/0003/index.html>`_.

@@ -1,11 +1,10 @@
 $ datalad clone https://gin.g-node.org/adswa/DataLad-101
 [INFO] Cloning dataset to Dataset(/home/me/dl-101/clone_of_dl-101/DataLad-101)
-[INFO] Attempting to clone from https://gin.g-node.org/adswa/DataLad-101 to /home/me/dl-101/clone_of_dl-101/DataLad-101 
-[INFO] Start enumerating objects 
-[INFO] Start counting objects 
-[INFO] Start compressing objects 
-[INFO] Start receiving objects 
-[INFO] Start resolving deltas 
+[INFO] Attempting to clone from https://gin.g-node.org/adswa/DataLad-101 to /home/me/dl-101/clone_of_dl-101/DataLad-101
+[INFO] Start enumerating objects
+[INFO] Start counting objects
+[INFO] Start compressing objects
+[INFO] Start receiving objects
+[INFO] Start resolving deltas
 [INFO] Completed clone attempts for Dataset(/home/me/dl-101/clone_of_dl-101/DataLad-101)
-[INFO] scanning for unlocked files (this may take some time)
 install(ok): /home/me/dl-101/clone_of_dl-101/DataLad-101 (dataset)

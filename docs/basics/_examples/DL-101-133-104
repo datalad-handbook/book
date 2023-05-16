@@ -1,19 +1,7 @@
-$ datalad containers-run -m "rerun analysis in container" \
-  --container-name midterm-software \
-  --input "input/iris.csv" \
-  --output "prediction_report.csv" \
-  --output "pairwise_relationships.png" \
-  "python3 code/script.py"
-[INFO] Making sure inputs are available (this may take some time) 
-unlock(ok): pairwise_relationships.png (file)
-unlock(ok): prediction_report.csv (file)
-[INFO] == Command start (output follows) =====
-[INFO] == Command exit (modification check follows) =====
-add(ok): pairwise_relationships.png (file)
-add(ok): prediction_report.csv (file)
+$ git config -f .datalad/config datalad.containers.midterm-software.cmdexec 'singularity exec -B {{pwd}} {img} {cmd}'
+$ datalad save -m "Modify the container call format to bind-mount the working directory"
+add(ok): .datalad/config (file)
 save(ok): . (dataset)
 action summary:
-  add (ok: 2)
-  get (notneeded: 4)
-  save (notneeded: 1, ok: 1)
-  unlock (ok: 2)
+  add (ok: 1)
+  save (ok: 1)

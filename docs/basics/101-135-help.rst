@@ -35,7 +35,7 @@ the first you should do is
 The first step is important in order to find out whether a
 command failed due to using a wrong DataLad version. In order
 to use this book and follow along, your DataLad version
-should be ``datalad-0.12`` or higher, for example.
+should be ``datalad-0.17`` or higher, for example.
 
 To find out which version you are using, run
 
@@ -56,6 +56,8 @@ The output below shows an excerpt.
 .. runrecord:: _examples/DL-101-135-102
    :language: console
    :workdir: dl-101/DataLad-101
+   :linereplace:
+     ,PATH: /tmp/.*,PATH: REDACTED,
    :lines: 1-20
 
    $ datalad wtf
@@ -83,7 +85,7 @@ as an excerpt here):
    $ datalad get --help
 
 This for example is the help page on :command:`datalad get`
-(the same you would find in the `documentation <docs.datalad.org>`__,
+(the same you would find in the `documentation <http://docs.datalad.org>`__,
 but in your terminal, here - for brevity - slightly cut).
 It contains a command description, a list
 of all the available options with a short explanation of them, and
@@ -140,7 +142,7 @@ In situations where there is no obvious reason for a command to fail, it can be 
 This allows you to gain more insights into the actions DataLad and its underlying tools are taking, where *exactly* they fail, and to even play around with the program at the state of the failure.
 
 :term:`Debugging` and :term:`logging` are not as complex as these terms may sound if you have never consciously debugged.
-Procedurally, it can be as easy as adding an additional flag to a command call, and cognitively, it can be as easy as engaging your visual system in a visual search task for the color red or the word "error", or reading more DataLad output that you're used to.
+Procedurally, it can be as easy as adding an additional flag to a command call, and cognitively, it can be as easy as engaging your visual system in a visual search task for the color red or the word "error", or reading more DataLad output than you're used to.
 The paragraphs below start with the general concepts, and collect concrete debugging strategies for different problems. If you have advice to add, please `get in touch <https://github.com/datalad-handbook/book/issues>`__.
 
 .. _logging:
@@ -182,7 +184,7 @@ To get extensive information on what :command:`datalad status` does underneath t
 .. runrecord:: _examples/DL-101-135-105
    :language: console
    :workdir: dl-101/DataLad-101
-   :lines: 1-15, 85-
+   :lines: 1-15, 60-
 
    $ datalad --log-level debug status
 

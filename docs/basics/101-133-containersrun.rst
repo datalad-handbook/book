@@ -159,10 +159,6 @@ section below has some pointers:
    command requires ``root`` privileges ("``sudo``"). You can build the container
    on any machine, though, not necessarily the one that is later supposed to
    actually run the analysis, e.g., your own laptop versus a compute cluster.
-   Alternatively, `Singularity Hub <https://singularity-hub.org/>`_ integrates
-   with Github and builds containers from Images pushed to repositories on Github.
-   `The docs <https://singularityhub.github.io/singularityhub-docs/>`_
-   give you a set of instructions on how to do this.
 
 The :command:`datalad containers-add` command takes an arbitrary
 name to give to the container, and a path or url to a container Image:
@@ -246,6 +242,20 @@ container under its name "midterm-software" in the dataset's configuration at
 
       $ git log -n 1 -p
 
+Such configurations can, among other things, be important to ensure correct container invocation on specific systems or across systems.
+One example is *bind-mounting* directories into containers, i.e., making a specific directory and its contents available inside a container.
+Different containerization software (versions) or configurations of those determine *default bind-mounts* on a given system.
+Thus, depending on the system and the location of the dataset on this system, a shared dataset may be automatically bind-mounted or not.
+To ensure that the dataset is correctly bind-mounted on all systems, let's add a call-format specification with a bind-mount to the current working directory following the information in the :ref:`find-out-more on additional container configurations <fom-containerconfig>`.
+
+.. runrecord:: _examples/DL-101-133-104
+   :language: console
+   :workdir: dl-101/DataLad-101/midterm_project
+   :cast: 10_yoda
+
+   $ git config -f .datalad/config datalad.containers.midterm-software.cmdexec 'singularity exec -B {{pwd}} {img} {cmd}'
+   $ datalad save -m "Modify the container call format to bind-mount the working directory"
+
 Now that we have a complete computational environment linked to the ``midterm_project``
 dataset, we can execute commands in this environment. Let us for example try to repeat
 the :command:`datalad run` command from the section :ref:`yoda_project` as a
@@ -255,13 +265,13 @@ The previous ``run`` command looked like this::
 
    $ datalad run -m "analyze iris data with classification analysis" \
      --input "input/iris.csv" \
-     --output "prediction_report.csv" \
      --output "pairwise_relationships.png" \
-     "python3 code/script.py"
+     --output "prediction_report.csv" \
+     "python3 code/script.py {inputs} {outputs}"
 
 How would it look like as a ``containers-run`` command?
 
-.. runrecord:: _examples/DL-101-133-104
+.. runrecord:: _examples/DL-101-133-105
    :language: console
    :workdir: dl-101/DataLad-101/midterm_project
    :cast: 10_yoda
@@ -270,9 +280,9 @@ How would it look like as a ``containers-run`` command?
    $ datalad containers-run -m "rerun analysis in container" \
      --container-name midterm-software \
      --input "input/iris.csv" \
-     --output "prediction_report.csv" \
      --output "pairwise_relationships.png" \
-     "python3 code/script.py"
+     --output "prediction_report.csv" \
+     "python3 code/script.py {inputs} {outputs}"
 
 Almost exactly like a :command:`datalad run` command! The only additional parameter
 is ``container-name``. At this point, though, the ``--container-name``

@@ -18,7 +18,7 @@ Quickstart
 The entire collection of OpenNeuro datasets can be found at `github.com/OpenNeuroDatasets <https://github.com/OpenNeuroDatasets>`_, but each dataset in there is identified via its OpenNeuro dataset ID.
 A url to an OpenNeuro dataset on GitHub thus always takes the following form:
 ``https://github.com/OpenNeuroDatasets/ds00xxxx``.
-After you have :ref:`installed DataLad <install>`, you can obtain the datasets just as any other DataLad dataset with :command:`datalad clone` or :command:`datalad install`:
+After you have :ref:`installed DataLad <install>`, you can obtain the datasets just as any other DataLad dataset with :command:`datalad clone`:
 
 .. code-block:: bash
 
@@ -44,6 +44,15 @@ Likewise, you can get datasets from OpenNeuro (and legacy datasets from OpenNeur
    # you can also install legacy datasets from openfMRI
    $ datalad clone ///openfmri/ds000030
 
+As this method can just as easily provide you with a browseable-but-small-in-size file index of all of OpenNeuro, you can also install the entire set of datasets and browse it:
+
+.. code-block:: bash
+
+   datalad clone ///openneuro # install superdataset
+   cd openneuro
+   # install all openneuro datasets but do not retrieve data (this takes time)
+   datalad get -n openneuro/ds*
+
 What's DataLad and why should I use it to do this?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -58,7 +67,7 @@ Below, we've listed a few bullet points on why it may be useful for you to downl
   On demand, you can retrieve file contents of your choice via :command:`datalad get` which downloads the specified files or directories.
   If you do not need file contents anymore and want to free up diskspace, a :command:`datalad drop` drops the file contents, reducing the file size to about 140Kb, but you retain access to the file via :command:`datalad get`.
   Thus, if your hard drive overflows, you can drop file contents without losing access to them, or keep a very lightweight reference to your input data next to your analysis results.
-* Easy **updating mechanisms**: Should a dataset get updated, you do not need to re-download a new version of the dataset, but run a ``datalad update --merge`` in the dataset instead to automatically obtain the new or updated files.
+* Easy **updating mechanisms**: Should a dataset get updated, you do not need to re-download a new version of the dataset, but run a ``datalad update --how merge`` in the dataset instead to automatically obtain the new or updated files.
 * **Open and transparent science**: Share analysis together with data by creating a dataset for your code and results and installing your OpenNeuro dataset of choice as a :term:`DataLad subdataset` inside of it.
   This links the data you are using in a precise version to your code and results.
   If you want to, you can even use :command:`datalad run` or :command:`datalad containers-run` for provenance-tracked execution of commands or scripts, or the ``datalad-containers`` :term:`DataLad extension` to attach software environments to your computation.

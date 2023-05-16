@@ -1,15 +1,14 @@
 $ cd demo
 $ datalad clone -d . ///openfmri/ds000001 inputs/ds000001
 [INFO] Cloning dataset to Dataset(/home/me/usecases/repro/demo/inputs/ds000001) 
-[INFO] Attempting to clone from http://datasets.datalad.org/openfmri/ds000001 to /home/me/usecases/repro/demo/inputs/ds000001 
-[INFO] Attempting to clone from http://datasets.datalad.org/openfmri/ds000001/.git to /home/me/usecases/repro/demo/inputs/ds000001 
+[INFO] Attempting to clone from https://datasets.datalad.org/openfmri/ds000001 to /home/me/usecases/repro/demo/inputs/ds000001
+[INFO] Attempting to clone from https://datasets.datalad.org/openfmri/ds000001/.git to /home/me/usecases/repro/demo/inputs/ds000001
 [INFO] Start enumerating objects 
 [INFO] Start counting objects 
 [INFO] Start compressing objects 
 [INFO] Start receiving objects 
 [INFO] Start resolving deltas 
 [INFO] Completed clone attempts for Dataset(/home/me/usecases/repro/demo/inputs/ds000001) 
-[INFO] scanning for unlocked files (this may take some time)
 install(ok): inputs/ds000001 (dataset)
 add(ok): inputs/ds000001 (file)
 add(ok): .gitmodules (file)

@@ -1,21 +1,27 @@
-$ datalad rerun --branch="randomforrest" -m "Recompute classification with random forrest classifier" ready-for-analysis..SGD
-[INFO] checkout commit 7854e1a;
-[INFO] run commit b997d05; (Train an SGD clas...)
-[INFO] Making sure inputs are available (this may take some time) 
+$ datalad rerun --branch="randomforest" -m "Recompute classification with random forest classifier" ready-for-analysis..SGD
+[INFO] checkout commit fa4f16d;
+[INFO] run commit 1e265e4; (Train an SGD clas...)
+[INFO] Making sure inputs are available (this may take some time)
+[INFO] Unlocking files
 unlock(ok): model/model.joblib (file)
-[INFO] == Command start (output follows) ===== 
-[INFO] == Command exit (modification check follows) ===== 
+[INFO] Recording unlocked state in git
+[INFO] Completed unlocking files
+[INFO] == Command start (output follows) =====
+[INFO] == Command exit (modification check follows) =====
+run(ok): /home/me/DVCvsDL/DVC-DataLad (dataset) [python code/train.py]
 add(ok): model/model.joblib (file)
 save(ok): . (dataset)
-[INFO] run commit d991bf9; (Evaluate SGD clas...)
-[INFO] Making sure inputs are available (this may take some time) 
-[INFO] == Command start (output follows) ===== 
-[INFO] == Command exit (modification check follows) ===== 
-add(ok): code/__pycache__/train.cpython-39.pyc (file)
+[INFO] run commit 812bbc0; (Evaluate SGD clas...)
+[INFO] Making sure inputs are available (this may take some time)
+[INFO] == Command start (output follows) =====
+[INFO] == Command exit (modification check follows) =====
+run(ok): /home/me/DVCvsDL/DVC-DataLad (dataset) [python code/evaluate.py]
+add(ok): code/__pycache__/train.cpython-38.pyc (file)
 add(ok): metrics/accuracy.json (file)
 save(ok): . (dataset)
 action summary:
   add (ok: 3)
   get (notneeded: 3)
+  run (ok: 2)
   save (ok: 2)
   unlock (notneeded: 2, ok: 1)

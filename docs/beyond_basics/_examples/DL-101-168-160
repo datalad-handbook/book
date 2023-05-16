@@ -3,18 +3,17 @@ $ git add --all
 $ git commit -m "Add SGD pipeline"
 $ dvc commit
 $ git push --set-upstream origin sgd-pipeline
-$ git tag -a sgd-pipeline -m "Trained SGD as DVC pipeline."
+$ git tag -a sgd -m "Trained SGD as DVC pipeline."
 $ git push origin --tags
 $ dvc push
-[sgd-pipeline c1db0bd] Add SGD pipeline
- 5 files changed, 71 insertions(+)
+[sgd-pipeline 75992db] Add SGD pipeline
+ 5 files changed, 73 insertions(+)
  create mode 100644 dvc.lock
  create mode 100644 dvc.yaml
  create mode 100644 metrics/accuracy.json
-error: src refspec sgd-pipeline matches more than one
-error: failed to push some refs to '/home/me/pushes/data-version-control'
-fatal: tag 'sgd-pipeline' already exists
 To /home/me/pushes/data-version-control
- * [new tag]         random-forest -> random-forest
- * [new tag]         sgd-pipeline -> sgd-pipeline
+ * [new branch]      sgd-pipeline -> sgd-pipeline
+branch 'sgd-pipeline' set up to track 'origin/sgd-pipeline'.
+To /home/me/pushes/data-version-control
+ * [new tag]         sgd -> sgd
 3 files pushed

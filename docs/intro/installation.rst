@@ -117,9 +117,9 @@ Git:
 
 
 Git-annex:
-    The most convenient way to deploy git-annex is via the `DataLad installer`_.
-    Once
-    Python is available, it can be installed with the Python package manager
+    There are two convenient ways to install git-annex. The first is `downloading the installer from git-annex' homepage <https://git-annex.branchable.com/install/Windows/>`_. The other is to deploy git-annex is via the `DataLad installer`_.
+    The latter option requires the installation of the datalad-installer, Once
+    Python is available, it can be done with the Python package manager
     :command:`pip`. Open a command prompt and run:
 
     .. code-block:: bat
@@ -130,10 +130,16 @@ Git-annex:
 
     .. code-block:: bat
 
-      > datalad-installer git-annex -m datalad/packages
+      > datalad-installer git-annex -m datalad/git-annex:release
 
     This will download a recent git-annex, and configure it for your Git installation.
     The admin command prompt can be closed afterwards, all other steps do not need it.
+
+    For performance improvements, regardless of which installation method you chose, we recommend to also set the following git-annex configuration:
+
+    .. code-block:: bat
+
+      > git config --global filter.annex.process "git-annex filter-process"
 
 DataLad:
     With Python, Git, and git-annex installed, DataLad can be installed, and later also
@@ -148,11 +154,8 @@ DataLad:
     installer when in doubt), and install it into the default target directory.
 
 There are many other ways to install DataLad on Windows, check for example the
-:windows-wit:`on the Windows Subsystem 2 for Linux <ww-wsl2>`. One particularly
-attractive approach is Conda_. However, at the moment git-annex is not
-available from Conda on Windows. If you want to use Conda, perform the
-Conda_-based DataLad installation first, and then install git-annex via the
-DataLad installer, as described above.
+:windows-wit:`on the Windows Subsystem 2 for Linux <ww-wsl2>`.
+One attractive alternative approach is Conda_, a completely different approach is to install the :term:`DataLad Gooey`, which is a standalone installation of DataLad's graphical application (see `the DataLad Gooey documentation <http://docs.datalad.org/projects/gooey/en/latest/>`_ for installation instructions).
 
 .. windows-wit:: Install DataLad using the Windows Subsystem 2 for Linux
    :name: ww-wsl2
@@ -182,9 +185,10 @@ Windows users, please `get in touch
 warnings. If you on a native Windows 10 system, you should pay close
 attention to them.
 
+.. _mac:
 
-Mac OSX
-"""""""
+Mac (incl. M1)
+""""""""""""""
 
 Modern Macs come with a compatible Python 3 version installed by default. The
 :find-out-more:`on Python versions <fom-py2v3>` has instructions on how to
@@ -198,10 +202,6 @@ Mac App Store.
 Next, install datalad and its dependencies::
 
    $ brew install datalad
-
-Likewise, the optional, but recommended, `p7zip
-<http://p7zip.sourceforge.net/>`_ dependency can be installed via
-:command:`brew` as well.
 
 Alternatively, you can exclusively use :command:`brew` for DataLad's non-Python
 dependencies, and then check the :find-out-more:`on how to install DataLad via
@@ -314,6 +314,7 @@ Linux-machines with no root access (e.g. HPC systems)
 
 The most convenient user-based installation can be achieved via Conda_.
 
+.. _conda:
 
 Conda
 """""
@@ -324,7 +325,7 @@ offers a convenient way to bootstrap a DataLad installation. Importantly, it
 does not require admin/root access to a system.
 
 `Detailed, platform-specific installation instruction
-<https://conda.io/projects/conda/user-guide/install/index.html>`_ are available
+<https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html>`_ are available
 in the Conda documentation. In short: download and run the installer, or, from
 the command line, run
 
@@ -368,7 +369,7 @@ To update an existing installation with conda, use:
 
 .. code-block:: bash
 
-  $ conda update datalad
+  $ conda update -c conda-forge datalad
 
 .. windows-wit:: Install Unix command-line tools on Windows with Conda
 
@@ -380,6 +381,7 @@ To update an existing installation with conda, use:
 The `DataLad installer`_ also supports setting up a Conda environment, in case
 a suitable Python version is already available.
 
+.. _pipinstall:
 
 Using Python's package manager ``pip``
 """"""""""""""""""""""""""""""""""""""

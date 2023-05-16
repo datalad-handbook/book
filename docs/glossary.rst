@@ -45,7 +45,7 @@ Glossary
    Bitbucket
       Bitbucket is an online platform where one can store and share version
       controlled projects using Git (and thus also DataLad project), similar
-      to :term:`GitHub` or :term:`GitLab`. See `bitbucket.org <https://bitbucket.org.com/>`_.
+      to :term:`GitHub` or :term:`GitLab`. See `bitbucket.org <https://bitbucket.org/>`_.
 
    branch
       Git concept: A lightweight, independent history streak of your dataset. Branches can contain less,
@@ -94,6 +94,9 @@ Glossary
       Python packages that equip DataLad with specialized commands. The section
       :ref:`extensions_intro` gives and overview of available extensions and links
       to Handbook chapters that contain demonstrations.
+
+   DataLad Gooey
+      A :term:`DataLad extension` that provides DataLad with a graphical user interface. Find out more in its Documentation: `docs.datalad.org/projects/gooey <http://docs.datalad.org/projects/gooey/en/latest/>`_
 
    DataLad subdataset
       A DataLad dataset contained within a different DataLad dataset (the parent or :term:`DataLad superdataset`).
@@ -223,12 +226,18 @@ Glossary
       They are used to build programs, but also to manage projects where some files must be automatically updated from others whenever the others change.
       An example of a Makefile is shown in the usecase :ref:`usecase_reproducible_paper`.
 
+   manpage
+      Abbreviation of "manual page". For most Unix programs, the command ``man <program-name>`` will open a :term:`pager` with this commands documentation. If you have installed DataLad as a Debian package, ``man`` will allow you to open DataLad manpages in your terminal.
+
    master
       Git concept: For the longest time, ``master`` was the name of the default :term:`branch` in a dataset. More recently, the name ``main`` is used. If you are not sure, you can find out if your default branch is ``main`` or ``master`` by running ``git branch``.
 
    merge
       Git concept: to integrate the changes of one :term:`branch`/:term:`sibling`/ ... into
       a different branch.
+
+   merge request
+     See :term:`pull request`.
 
    metadata
       "Data about data": Information about one or more aspects of data used to summarize
@@ -243,6 +252,12 @@ Glossary
    object-tree
       git-annex concept: The place where :term:`git-annex` stores available file contents. Files that are annexed get
       a :term:`symlink` added to :term:`Git` that points to the file content. A different word for :term:`annex`.
+
+   Open Science Framework (OSF)
+      An open source software project that facilitates open collaboration in science research.
+
+   pager
+      A `terminal paper <https://en.wikipedia.org/wiki/Terminal_pager>`_ is a program to view file contents in the :term:`terminal`. Popular examples are the programs ``less`` and ``more``. Some terminal output can be opened automatically in a pager, for example the output of a :command:`git log` command. You can use the arrow keys to navigate and scroll in the pager, and the letter ``q`` to exit it.
 
    permissions
       Access rights assigned by most file systems that determine whether a user can view (``read permission``),
@@ -260,6 +275,9 @@ Glossary
       searches the Python package index `PyPi <https://pypi.org/>`_ for a
       package and installs it while resolving any potential dependencies.
 
+   pipe
+      Unix concept: A mechanism for providing the output of one command (:term:`stdout`) as the input of a next command (:term:`stdin`) in a Unix terminal. The standard syntax are multiple commands, separated by vertical bars (the "pipes", "|"). Read more `on Wikipedia <https://en.wikipedia.org/wiki/Pipeline_(Unix)>`_.
+
    provenance
       A record that describes entities and processes that were involved in producing or influencing
       a digital resource. It provides a critical foundation for assessing authenticity, enables trust,
@@ -274,6 +292,13 @@ Glossary
       set with the option ``publish-depends`` in the commands
       :command:`datalad siblings`, :command:`datalad create-sibling`, and
       :command:`datalad create-sibling-github/gitlab`.
+
+
+   pull request
+      Also known as :term:`merge request`. Contributions to Git repositories/DataLad datasets can be proposed to be :term:`merge`\d into the dataset by "requesting a pull/update" from the dataset maintainer to obtain a proposed change from a dataset clone or sibling. It is implemented as a feature in repository hosting sites such as :term:`GitHub`, :term:`Gin`, or :term:`GitLab`.
+
+   ref
+      Git concept. A "Git Reference", typically shortened to "ref", is a text file containing a :term:`commit` :term:`shasum` as a human-readable reference to a specific version of your dataset or Git repository. Thanks to refs, Git users do not need to memorize or type shasums when switching between dataset states, and can use simple names instead: For example, a :term:`branch` such as ``main`` is a ref, and a :term:`tag` is one, too. In both cases, those refs are text files that contain the shasum of the commit at the tip of a branch, or the shasum of the commit you added the tag to. Refs are organized in the directory ``.git/refs`` and Git commands and configurations can use refs to perform updating operations or determine their behavior. More details can be found at `at git-scm.com <https://git-scm.com/book/en/v2/Git-Internals-Git-References>`_
 
    relative path
       A path related to the present working directory. Relative paths never start with ``/``.

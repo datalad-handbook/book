@@ -10,7 +10,7 @@ Introduction & set-up
 DataLad is a command line tool and it has a Python API. Whenever I use it,
 I thus operate it in a terminal using the command line, or I use it in scripts
 such as shell scripts, Python scripts, Jupyter Notebooks, and so forth.
-In the command line, this always start with the general ``datalad`` command::
+In the command line, this always starts with the general ``datalad`` command::
 
    datalad
 
@@ -60,7 +60,7 @@ Right after dataset creation, there is a new directory on the computer called
 
 Datasets have the exciting features that they can record
 everything that is done inside of them, version control all content given to
-Datalad, regardless of the size this content, and have a complete history that
+Datalad, regardless of the size of this content, and have a complete history that
 you can interact with. This history is already present, although it is very
 short at this point in time. Let's check it out nevertheless.
 
@@ -111,12 +111,12 @@ With git log -n 1 you can take a look at the most recent commit in the history::
    git log -p -n 1
 
 "datalad save" saved all untracked contents to the
-dataset. Sometimes this is inconvinient. One great advantage of a datasets
+dataset. Sometimes this is inconvenient. One great advantage of a datasets
 history is that it allows you to revert changes you are not happy with, but this
 is only easily possible in the units of single commits. So if one save commits
 several unrelated files or changes, they are hard to disentangle if you ever
 want to revert some of those changes. But if you for example provide a path to
-the file you want to save you can specify more precisiley what will be saved
+the file you want to save you can specify more precisely what will be saved
 together::
 
    cd books && wget -nv https://github.com/progit/progit2/releases/download/2.1.154/progit.pdf && cd ../
@@ -126,7 +126,7 @@ Attach a path to the next ``datalad save`` command::
 
    datalad save -m "add reference book about git" books/progit.pdf
 
-lets take a look at files that are
+Let's take a look at files that are
 frequently modified such as code or text. To try this, I will create a file
 and modify it. I do this with a `here doc <https://en.wikipedia.org/wiki/Here_document>`_,
 but you can also write the note with an editor of your choice. If you execute this
@@ -210,15 +210,15 @@ vlc player, this would fail::
 
    vlc Long_Now__Seminars_About_Long_term_Thinking/2003_11_15__Brian_Eno__The_Long_Now.mp3
 
-his is a curious behavior, but there are many advantages to this. One is speed, and
-another one is small diskusage. Here is the total size of this dataset::
+This is a curious behavior, but there are many advantages to this. One is speed, and
+another one is small disk usage. Here is the total size of this dataset::
 
    cd ../ # in longnow/
-   du -sh  # Unix command to show size of contents
+   du -sh  # Unix command to show the size of contents
 
-Its tiny! But we can also find out how large the dataset would be if we had all
+It's tiny! But we can also find out how large the dataset would be if we had all
 of its contents with datalad status and the --annex flag. In total, there are
-more than 15GB of podcasts you have now access to::
+more than 15GB of podcasts you now have access to::
 
    datalad status --annex
 
@@ -233,7 +233,7 @@ Content that is already present is not re-retrieved::
    datalad get Long_Now__Seminars_About_Long_term_Thinking/2003_11_15__Brian_Eno__The_Long_Now.mp3  \Long_Now__Seminars_About_Long_term_Thinking/2003_12_13__Peter_Schwartz__The_Art_Of_The_Really_Long_View.mp3  \Long_Now__Seminars_About_Long_term_Thinking/2004_01_10__George_Dyson__There_s_Plenty_of_Room_at_the_Top__Long_term_Thinking_About_Large_scale_Computing.mp3
 
 If you don't need the data locally anymore you can
-drop the content from your dataset to save diskspace::
+drop the content from your dataset to save disk space::
 
    datalad drop Long_Now__Seminars_About_Long_term_Thinking/2003_12_13__Peter_Schwartz__The_Art_Of_The_Really_Long_View.mp3
 
@@ -251,10 +251,10 @@ retrieved preserved all of its provenance::
 
    git log --reverse
 
-ow does this look in the top-level dataset? If we query DataLad-101s history,
+How does this look in the top-level dataset? If we query DataLad-101s history,
 there will be no commit about mp3 files or any of the commits we have seen in
-the subdataset. Instead, we can see that the superdataset recorded
-the recordings|longnow  dataset as a subdataset. This means, that it recorded where this dataset
+the subdataset. Instead, we can see that the super dataset recorded
+the recordings|longnow dataset as a subdataset. This means that it recorded where this dataset
 came from and what version it is in::
 
   cd ../../
@@ -270,13 +270,13 @@ the subdataset version::
 More on data versioning, nesting, and a glimpse into reproducible paper
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-We'll clone a repository for a paper that shares manuscript, code, and data::
+We'll clone a repository for a paper that shares the manuscript, code, and data::
 
    cd ../
    datalad clone git@github.com:psychoinformatics-de/paper-remodnav.git
 
-The top-level dataset has many subdatasets. One of it, remodnav, is a dataset that contains the sourcecode for a Python
-package called remodnav used in eyetracking analyses::
+The top-level dataset has many subdatasets. One of it, remodnav, is a dataset that contains the source code for a Python
+package called remodnav used in eye tracking analyses::
 
    cd paper-remodnav
    datalad subdatasets
@@ -421,7 +421,7 @@ You start with a clean dataset::
 
 Then, give the command you would execute to datalad run, in this case ``python code/script.py``.
 Datalad will take the command, run it, and save all of the changes in the
-dataset that this leads this to under the commit message specified with
+dataset that leads it to under the commit message specified with
 the -m option. Thus, it associates the script with the results.
 But it can be even more helpful. Here, we also specify the input data the command
 needs and datalad will get the data beforehand. And we also specify the output
@@ -438,7 +438,7 @@ the command and let me update outdated results::
 Datalad creates a commit in my history. This commit has my commit
 message as a human readable summary of what was done, it contains the produced
 output, and it has a machine readable record that contains information on the
-input data, the results, and the command that was run to create this result::
+input data, the results, and the command that was ran to create this result::
 
    git log -n 1
 
@@ -461,7 +461,7 @@ what was done and recompute the exact same thing::
    datalad rerun 71cb8c5
 
 This allows others to very easily rerun my computations, but it also spares me
-the need to remember how I executed my script, and I can ask results where they
+the need to remember how I executed my script, and I can ask for results where they
 came from::
 
    git log pairwise_relationships.png
@@ -472,7 +472,7 @@ Computational reproducibility
 
 If you don't have the required python packages available, running the script and
 computing the results will fail. In order to be computationally reproducible
-I need to attach the software that is necessary for a computation to this
+I need to attach the software that is necessary for computation to this
 execution record::
 
    cd ../myanalysis
@@ -480,9 +480,9 @@ execution record::
 And the way I can do this is with a datalad extension called datalad containers.
 You can install this extension with pip by running
 ``pip install datalad-containers``.
-This extension allow to attach software containers such as singularity
+This extension allows attaching software containers such as singularity
 images to my dataset and execute my commands inside of these containers. Thus, I
-can share share data, code, code execution, and software.
+can share data, code, code execution, and software.
 
 Here is how this works: First, I attach a software container to my dataset using
 ``datalad containers-add`` with a name of the container (here I call it ``software``)

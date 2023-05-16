@@ -1,0 +1,2 @@
+$ datalad catalog add --catalog-dir data-cat --metadata toy_metadata.jsonl
+catalog_add(ok): data-cat [Metadata items successfully added to catalog]

@@ -11,7 +11,7 @@ class HandbookAdmonition(BaseAdmonition):
     node_class = nodes.admonition
     # empty is no allowed
     has_content = True
-    # needs at least a one word titel
+    # needs at least a one word title
     required_arguments = 1
     option_spec = {
         'name': unchanged,
@@ -76,8 +76,11 @@ def _get_counted_boxstart(label, node):
             if flt else ', float'
     return \
         "\\begin{{{label}}}" \
-        "[before title={{\\thetcbcounter\\ }}{float_args}]" \
+        "[{ref}before title={{\\thetcbcounter\\ }}{float_args}]" \
         "{{{title}}}\n".format(
+            ref='label={{{r}}}, '.format(r=node.attributes['ids'][0])
+            if len(node.attributes.get('ids', []))
+            else '',
             label=label,
             title=title,
             float_args=float_args,
@@ -237,7 +240,10 @@ def depart_findoutmoreref_html(self, node):
 
 
 def visit_findoutmoreref_latex(self, node):
-    self.body.append('{\\findoutmoreiconinline}\sphinxcrossref{Find-out-more }')
+    # \textit to imitate the href style
+    self.body.append(
+        '\\textit{{Find-out-more}}~{{\\findoutmoreiconinline}}\\textit{{\\ref{{{r}}}}} '.format(
+            r=node.children[0].attributes['refid']))
 
 
 def depart_findoutmoreref_latex(self, node):
@@ -258,7 +264,10 @@ def depart_windowswitref_html(self, node):
 
 
 def visit_windowswitref_latex(self, node):
-    self.body.append('{\\windowswiticoninline}\sphinxcrossref{Windows-wit }')
+    # \textit to imitate the href style
+    self.body.append(
+        '\\textit{{Windows-wit}}~{{\\windowswiticoninline}}\\textit{{\\ref{{{r}}}}} '.format(
+            r=node.children[0].attributes['refid']))
 
 
 def depart_windowswitref_latex(self, node):

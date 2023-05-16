@@ -42,7 +42,7 @@ to generate a text file that lists speaker and title
 name instead.
 
 To do this, we're following a best practice that will reappear in the
-later section on `YODA principles <101-127-yoda.html>`_: Collecting all
+later section on :ref:`YODA principles <yoda>`: Collecting all
 additional scripts that work with content of a subdataset *outside*
 of this subdataset, in a dedicated ``code/`` directory,
 and collating the output of the execution of these scripts
@@ -177,17 +177,6 @@ command from the root of ``DataLad-101``.
    $ datalad run -m "create a list of podcast titles" \
      "bash code/list_titles.sh > recordings/podcasts.tsv"
 
-.. find-out-more:: Why is there a "notneeded" in the command summary?
-
-   If you have stumbled across the command execution summary
-   ``save (notneeded: 1, ok: 1)`` and wondered what is "notneeded":
-   the :command:`datalad save` at the end of a :command:`datalad run` will query all potential
-   subdatasets *recursively* for modifications, and as there are no
-   modifications in the ``longnow`` subdataset, this part of ``save`` returns
-   a "notneeded" summary. Thus, after a :command:`datalad run`, you'll get a
-   "notneeded" for every subdataset with no modifications in the execution
-   summary.
-
 Let's take a look into the history:
 
 .. runrecord:: _examples/DL-101-108-106
@@ -230,7 +219,7 @@ the command that produced it.
 
 You have probably already guessed that every :command:`datalad run` command
 ends with a ``datalad save``. A logical consequence from this fact is that any
-:command:`datalad run` does not result in any changes in a dataset (no modification
+:command:`datalad run` that does not result in any changes in a dataset (no modification
 of existing content; no additional files) will not produce any record in the
 dataset's history (just as a :command:`datalad save` with no modifications present
 will not create a history entry). Try to run the exact same

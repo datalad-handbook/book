@@ -31,8 +31,38 @@ authors.append(authors.pop(authors.index('Michael Hanke')))
 # autorunrecord setup (extension used to run and capture the output of
 # examples)
 autorunrecord_basedir = '/home/me'
+autorunrecord_line_replace = [
+    # trailing space removal
+    (r'[ ]+$', ''),
+    # Python debug output will contain random memory locations
+    (r'object at 0x[0-9a-f]{12}>', 'object at REDACTED-MEMORYADDRESS'),
+    # branch state indicators will always be different for git-annex
+    # (branch contains timestamps)
+    (r'git-annex@[0-9a-f]{7}', 'git-annex@<REDACTED-GITSHA>'),
+    (r'refs/heads/git-annex(?P<whitey>[ ]+)[0-9a-f]{7}\.\.[0-9a-f]{7}',
+     'refs/heads/git-annex\g<whitey>FROM..TO (REDACTED)'),
+    # ls -l output will have times and user names
+    # normalize to 'elena' and the "standard timestamp"
+    # this only works when ls --time-style=long-iso was used
+    (r'(?P<perms>[-ldrwx]{10})[ ]+(?P<size1>[^ ]+)[ ]+(?P<user>[^ ]+)[ ]+(?P<group>[^ ]+)[ ]+(?P<size2>[^ ]+)[ ]+(?P<date>[^ ]+)[ ]+(?P<time>[^ ]+)',
+     '\g<perms> \g<size1> elena elena \g<size2> 2019-06-18 16:13'),
+    # we cannot fix git-annex's location IDs, filter them out
+    (r'annex-uuid = [0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}',
+     'annex-uuid = REDACTED-RANDOM-UUID'),
+    (r'[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12} -- (?!web)',
+     'REDACTED-UUID -- '),
+    # Filter out needless git status info that adds randomness to the output
+    (r'Delta compression using up to.*', 'Delta compression'),
+    ('Total .*delta.*, reused .*delta.*$', 'REDACTED COMPRESSION STATS'),
+]
 # pre-crafted artificial environment to run the code examples in
+# start with all datalad settings
 autorunrecord_env = {
+    k: v for k, v in os.environ.items()
+    if k.startswith('DATALAD_')
+}
+# and then pin various other aspects to yield reproducible results
+autorunrecord_env.update(**{
     # make everything talk in english
     'LANG': 'en_US.UTF-8',
     'LANGUAGE': 'en_US:en',
@@ -46,18 +76,30 @@ autorunrecord_env = {
     # earned a PhD in 1678 and taught mathematics at the University of Padua
     'GIT_AUTHOR_EMAIL': 'elena@example.net',
     'GIT_AUTHOR_NAME': 'Elena Piscopia',
+    # set a fixed date to reduce time-induced randomness in output
+    # (gitshas etc)
+    # funnily I cannot set a date in 1678: `fatal: invalid date format`
+    # let's go with the first commit in the handbook
+    'GIT_AUTHOR_DATE': '2019-06-18T16:13:00',
+    # and same for the committer
+    'GIT_COMMITTER_EMAIL': 'elena@example.net',
+    'GIT_COMMITTER_NAME': 'Elena Piscopia',
+    'GIT_COMMITTER_DATE': '2019-06-18T16:13:00',
     'HOST': 'padua',
     # maintain the PATH to keep all installed software functional
     'PATH': os.environ['PATH'],
     'GIT_EDITOR': 'vim',
     # prevent progress bars - makes for ugly runrecords. See https://github.com/datalad-handbook/book/issues/390
     'DATALAD_UI_PROGRESSBAR': 'none',
-}
+})
 if 'CAST_DIR' in os.environ:
     autorunrecord_env['CAST_DIR'] = os.environ['CAST_DIR']
 if 'VIRTUAL_ENV' in os.environ:
     # inherit venv, if there is any
     autorunrecord_env.update(VIRTUAL_ENV=os.environ['VIRTUAL_ENV'])
+    autorunrecord_line_replace.append(
+        (os.environ['VIRTUAL_ENV'], 'VIRTUALENV')
+    )
 
 
 # If extensions (or modules to document with autodoc) are in another directory,
@@ -79,7 +121,6 @@ extensions = [
     'sphinx.ext.doctest',
     'sphinxcontrib.autorunrecord',
     'sphinxcontrib.rsvgconverter',
-    'sphinxcontrib.plantuml',
     'dataladhandbook_support',
     'notfound.extension',
     'sphinx_copybutton',
@@ -90,6 +131,16 @@ copybutton_prompt_text = r"\$ "
 copybutton_prompt_is_regexp = True
 copybutton_line_continuation_character = "\\"
 copybutton_here_doc_delimiter = "EOT"
+
+# Linkcheck settings
+linkcheck_ignore = [
+    # refuses to find the anchor
+    'https://app.element.io/#/room/%23datalad:matrix.org',
+    # we seem to run into rate limits
+    'https://twitter.com/datalad',
+    # maybe a user-agent issue? github.com/sphinx-doc/sphinx//issues/10343
+    'https://github.com/datalad/datalad-extension-template/generate',
+]
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -350,6 +401,9 @@ cautionBgColor={named}{LightCyan}%
 % make sure all float stay in their respective chapter
 %\usepackage[chapter]{placeins}
 
+% make enough room for the auto-generated header content
+\setlength{\headheight}{13.6pt}
+
 \usepackage{xcolor}
 \definecolor{dataladyellow}{HTML}{FFA200}
 \definecolor{dataladblue}{HTML}{7FD5FF}
@@ -390,8 +444,10 @@ ribbon important/.style={overlay={
   \end{scope}}}
 }
 
+\newcounter{HandbookWIN}[chapter]
+\renewcommand\theHandbookWIN{W\arabic{chapter}.\arabic{HandbookWIN}}
 \newtcolorbox[%
-  auto counter,
+  use counter*=HandbookWIN,
   number within=chapter,
   list inside=windowswits]{windowswit}[2][]{%
     enhanced, ribbon win, title={#2},
@@ -399,8 +455,10 @@ ribbon important/.style={overlay={
     colbacktitle=windowsgreen,
     colframe=windowsgreen!70!black, #1
 }
+\newcounter{HandbookGIT}[chapter]
+\renewcommand\theHandbookGIT{G\arabic{chapter}.\arabic{HandbookGIT}}
 \newtcolorbox[%
-  auto counter,
+  use counter*=HandbookGIT,
   number within=chapter,
   list inside=gitusernotes]{gitusernote}[2][]{%
     enhanced, ribbon git, title={#2},
@@ -408,8 +466,10 @@ ribbon important/.style={overlay={
     colbacktitle=dataladblue,
     colframe=dataladblue!70!black, #1
 }
+\newcounter{HandbookFOM}[chapter]
+\renewcommand\theHandbookFOM{M\arabic{chapter}.\arabic{HandbookFOM}}
 \newtcolorbox[
-  auto counter,
+  use counter*=HandbookFOM,
   number within=chapter,
   list inside=findoutmores]{findoutmore}[2][]{%
     enhanced, ribbon more, title={#2},
@@ -417,8 +477,9 @@ ribbon important/.style={overlay={
     colbacktitle=dataladyellow,
     colframe=dataladyellow!70!black, #1
 }
+% unnumbered, they are short and placed at the exact position
+% must change we there are in-text references
 \newtcolorbox[
-  auto counter,
   number within=chapter,
   list inside=importantnotes]{importantnote}[2][]{%
     enhanced, ribbon important, title={#2},
@@ -515,5 +576,5 @@ plantuml_latex_output_format = 'pdf'
 
 
 def setup(app):
-    app.add_stylesheet('custom.css')
+    app.add_css_file('custom.css')
     app.add_config_value('internal', '', 'env')

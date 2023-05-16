@@ -3,5 +3,4 @@ $ datalad clone /myanalysis bobs_analysis
 [INFO] Cloning dataset to Dataset(/home/me/usecases/collab/bobs_analysis)
 [INFO] Attempting to clone from myanalysis to /home/me/usecases/collab/bobs_analysis
 [INFO] Completed clone attempts for Dataset(/home/me/usecases/collab/bobs_analysis)
-[INFO] scanning for unlocked files (this may take some time)
 install(ok): /home/me/usecases/collab/bobs_analysis (dataset)

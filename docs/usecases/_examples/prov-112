@@ -1,24 +1,28 @@
 $ datalad rerun --since= --onto= --branch=replay
-[INFO] checkout commit 8abceb1;
-[INFO] run commit 604e0ec; (extract st-bernar...)
+[INFO] checkout commit 4816a3e; 
+[INFO] run commit 92145d5; (extract st-bernar...) 
 [INFO] Making sure inputs are available (this may take some time) 
 [INFO] == Command start (output follows) ===== 
 [INFO] == Command exit (modification check follows) ===== 
+run(ok): /home/me/usecases/provenance/artproject (dataset) [convert -extract 1522x1522+0+0 sources/f...]
 add(ok): st-bernard.jpg (file)
 save(ok): . (dataset)
-[INFO] run commit ee60856; (extract pimpernel)
+[INFO] run commit bd6a92e; (extract pimpernel) 
 [INFO] Making sure inputs are available (this may take some time) 
 [INFO] == Command start (output follows) ===== 
 [INFO] == Command exit (modification check follows) ===== 
+run(ok): /home/me/usecases/provenance/artproject (dataset) [convert -extract 1522x1522+1470+1470 sou...]
 add(ok): pimpernel.jpg (file)
 save(ok): . (dataset)
-[INFO] run commit 548ba71; (blur image)
+[INFO] run commit 4086a10; (blur image) 
 [INFO] Making sure inputs are available (this may take some time) 
 [INFO] == Command start (output follows) ===== 
 [INFO] == Command exit (modification check follows) ===== 
+run(ok): /home/me/usecases/provenance/artproject (dataset) [convert -spread 10 st-bernard.jpg st-ber...]
 add(ok): st-bernard-displaced.jpg (file)
 save(ok): . (dataset)
 action summary:
   add (ok: 3)
   get (notneeded: 3)
+  run (ok: 3)
   save (ok: 3)

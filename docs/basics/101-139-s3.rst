@@ -1,7 +1,7 @@
 .. _s3:
 
-Amazon S3 as a special remote
------------------------------
+Walk-through: Amazon S3 as a special remote
+-------------------------------------------
 
 `Amazon S3 <https://aws.amazon.com/s3/>`_ (or Amazon Simple Storage Service) is a
 popular service by `Amazon Web Services <https://aws.amazon.com/>`_ (AWS) that
@@ -63,8 +63,8 @@ remote, export them as :term:`environment variable`\s in your shell:
 
 .. code-block:: bash
 
-   $ export AWS_ACCESS_KEY_ID="<your-access-key-ID>"
-   $ export AWS_SECRET_ACCESS_KEY"<your-secret-access-key>"
+   $ export AWS_ACCESS_KEY_ID="your-access-key-ID"
+   $ export AWS_SECRET_ACCESS_KEY="your-secret-access-key"
 
 In order to work directly with AWS via your command-line shell, you can
 `install the AWS CLI <https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html>`_.
@@ -265,20 +265,13 @@ option. For consistency, we'll give the GitHub repository the same name as the d
 Notice that by creating this sibling, DataLad created an actual (empty) dataset repository
 on GitHub, which required preconfigured GitHub authentication details.
 
-.. importantnote:: GitHub deprecated its User Password authentication
+.. importantnote:: Generate a GitHub token
 
-   GitHub `decided to deprecate user-password authentication <https://developer.github.com/changes/2020-02-14-deprecating-password-auth/>`_ and
-   only supports authentication via personal access token from November 13th 2020 onwards. Changes in DataLad's API reflect this change starting
-   with DataLad version ``0.13.6`` by removing the ``github-passwd`` argument.
-
+   GitHub `deprecated user-password authentication <https://developer.github.com/changes/2020-02-14-deprecating-password-auth/>`_ and supports authentication via personal access token only.
    To ensure successful authentication, please create a personal access token at `github.com/settings/tokens <https://github.com/settings/tokens>`_ [#f5]_, and either
 
-   * configure Git's "``hub.oauthtoken``" config variable [#f7]_ with your token as in::
-
-        git config --global --add hub.oauthtoken cd2a3bd530...454f73b5a4
-
    * supply the token with the argument ``--github-login <TOKEN>`` from the command line,
-   * or supply the token from the command line when queried interactively for it
+   * or supply the token from the command line when queried for a password
 
 
 The creation of the sibling (named ``github``) can also be confirmed with :command:`datalad siblings`:
@@ -357,10 +350,75 @@ and :command:`get` all annexed file content successfully from the ``public-s3`` 
 Congrats!
 
 
+Advanced examples
+^^^^^^^^^^^^^^^^^
+
+When there is a lot to upload, automation is your friend.
+Below, we try to collect a few real world examples that go beyond toy examples.
+Do you have one and want to share it with the world as well? Please `get in touch <https://github.com/datalad-handbook/book/issues/new>`_!
+
+Automated uploads of dataset hierarchies
+""""""""""""""""""""""""""""""""""""""""
+
+The script below is a quick-and-dirty solution to the task of exporting a hierarchy of datasets to an S3 bucket.
+I needs to be invoked with three positional arguments, the path to the :term:`DataLad superdataset`, the S3 bucket name, and a prefix.
+
+.. code-block:: bash
+
+	#!/bin/bash
+
+	set -eu
+
+	export PS4='> '
+	set -x
+
+	topds="$1"
+	bucket="$2"
+	prefix="$3"
+
+	# TEMP
+	srname="${bucket}5"
+
+	topdsfull=$PWD/$topds/
+
+	if ! git annex version | grep 8.2021 ; then
+		echo "E: need recent git annex. check what you have"
+		exit 1
+	fi
+
+	{ echo "$topdsfull"; datalad -f '{path}' subdatasets -r -d "$topds"; } | \
+	while read ds; do
+		relds=$(relpath "$ds" "$topdsfull")
+		fileprefix="$prefix/$relds/"
+		fileprefix=$(python -c "import os,sys; print(os.path.normpath(sys.argv[1]))" "$fileprefix")
+		echo $relds;
+		(
+			cd "$ds";
+			# TODO: make sure that there is no ./ or // in fileprefix
+			if ! git remote | grep -q "$srname"; then
+				git annex initremote --debug "$srname" \
+					type=S3 \
+					autoenable=true \
+					bucket=$bucket \
+					encryption=none \
+					exporttree=yes \
+					"fileprefix=$fileprefix/" \
+					host=s3.amazonaws.com \
+					partsize=1GiB \
+					port=80 \
+					"publicurl=https://s3.amazonaws.com/$bucket" \
+					public=yes \
+					versioning=yes
+			fi
+			git annex export --to "$srname" --jobs 6 master
+
+		)
+	done
+
+
+
 .. [#f5] Instead of using GitHub's WebUI you could also obtain a token using the command line GitHub interface (https://github.com/sociomantic-tsunami/git-hub) by running ``git hub setup`` (if no 2FA is used).
    If you decide to use the command line interface, here is help on how to use it:
    Clone the `GitHub repository <https://github.com/sociomantic-tsunami/git-hub>`_ to your local computer.
    Decide whether you want to build a Debian package to install, or install the single-file Python script distributed in the repository.
    Make sure that all `requirements <https://github.com/sociomantic-tsunami/git-hub>`_ for your preferred version are installed , and run either ``make deb`` followed by ``sudo dpkg -i deb/git-hub*all.deb``, or ``make install``.
-
-.. [#f7] To re-read about Git's configurations and the ``git config`` command, please take a look at the section :ref:`config`.

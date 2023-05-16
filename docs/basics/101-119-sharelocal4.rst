@@ -52,7 +52,7 @@ integrate them.
 
 .. index:: ! datalad command; update
 
-This is done with the :command:`datalad update --merge`
+This is done with the :command:`datalad update --how merge`
 command (:manpage:`datalad-update` manual).
 
 .. runrecord:: _examples/DL-101-119-102
@@ -61,7 +61,7 @@ command (:manpage:`datalad-update` manual).
    :notes: retrieve and integrate changes from origin with datalad update --merge
    :cast: 04_collaboration
 
-   $ datalad update --merge
+   $ datalad update --how merge
 
 Importantly, run this command either within the specific
 (sub)dataset you are interested in, or provide a path to
@@ -104,7 +104,7 @@ dataset to your own ``DataLad-101`` dataset:
 
    # write the note
    $ cat << EOT >> notes.txt
-   To update a shared dataset, run the command "datalad update --merge".
+   To update a shared dataset, run the command "datalad update --how merge".
    This command will query its origin for changes, and integrate the
    changes into the dataset.
 
@@ -130,7 +130,7 @@ and demonstration will be in the next section.
 .. gitusernote:: Update internals
 
    :command:`datalad update` is the DataLad equivalent of a :command:`git fetch`,
-   :command:`datalad update --merge` is the DataLad equivalent of a
+   :command:`datalad update --how merge` is the DataLad equivalent of a
    :command:`git pull`.
    Upon a simple :command:`datalad update`, the remote information
    is available on a branch separate from the master branch

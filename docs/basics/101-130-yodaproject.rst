@@ -544,7 +544,7 @@ dataset that you can use for this [#f4]_.
 Note that one feature of the YODA procedure was that it configured certain files
 (for example everything inside of ``code/``, and the ``README.md`` file in the
 root of the dataset) to be saved in Git instead of git-annex. This was the
-reason why the ``README.md`` in the root of the dataset was easily modifiable [#f4]_.
+reason why the ``README.md`` in the root of the dataset was easily modifiable.
 
 .. find-out-more:: Saving contents with Git regardless of configuration with --to-git
 

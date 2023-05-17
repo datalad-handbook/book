@@ -16,8 +16,7 @@ all of ``DataLad-101`` into a different place on my computer?
 What if renamed the whole superdataset?
 And how do I remove a file, or directory, or subdataset?
 
-Therefore, there is an extra tutorial offered by the courses'
-TA today, and you attend.
+Therefore, there is an extra tutorial today, and you attend.
 There is no better way of learning than doing. Here, in the
 safe space of the ``DataLad-101`` course, you can try out all
 of the things you would be unsure about or reluctant to try

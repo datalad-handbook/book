@@ -446,7 +446,7 @@ modification.
 .. [#f2] The longnow podcasts are lectures and conversations on long-term thinking produced by
          the LongNow foundation and we can wholeheartedly recommend them for their worldly
          wisdoms and compelling, thoughtful ideas. Subscribe to the podcasts at https://longnow.org/seminars/podcast.
-         Support the foundation by becoming a member: https://longnow.org/membership. https://longnow.org
+         Support the foundation by becoming a member: https://longnow.org/membership.
 
 .. [#f3] You can also upgrade your file manager to display file types in a
          DataLad datasets (e.g., with the

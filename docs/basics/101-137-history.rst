@@ -481,7 +481,7 @@ prior :command:`git checkout` (note that the output is shortened for brevity and
 .. runrecord:: _examples/DL-101-137-127
    :language: console
    :workdir: dl-101/DataLad-101
-   :lines: 1, 48-
+   :lines: 2, 48-
    :realcommand: echo "$ git cat-file --textconv $(git rev-parse HEAD~15):notes.txt" && git cat-file --textconv $(git rev-parse HEAD~15):notes.txt
 
 The cat-file command is very versatile, and

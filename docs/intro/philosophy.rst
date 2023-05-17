@@ -107,7 +107,7 @@ that captures the spirit of what DataLad is, and here is a brief overview on it.
    `share one of the largest whole brain MRI images in the world <https://github.com/datalad-datasets/bmmr-t1w-250um>`_,
    organize your private music library, keep track of all
    `cat memes <https://imgflip.com/memesearch?q=cat>`_
-   on the internet, or `anything else <https://media.giphy.com/media/3o6YfXCehdioMXYbcs/giphy.gif>`_.
+   on the internet.
 
 #. **A dataset is a Git repository**. 
    All features of the :term:`version control` system :term:`Git`

@@ -27,8 +27,7 @@ Parallelize subdataset processing
 
 DataLad can not yet parallelize processes that are performed
 independently over a large number of subdatasets. Pushing across a dataset
-hierarchy or creating :ref:`RIA siblings <usecase_datastore>`
-for all subdatasets of a superdataset, for example, is performed one after the other.
+hierarchy for example, is performed one after the other.
 Unix however, has a few tools such as `xargs <https://en.wikipedia.org/wiki/Xargs>`_
 or the ``parallel`` tool of `moreutils <https://joeyh.name/code/moreutils/>`_
 that can assist.
@@ -198,8 +197,7 @@ of UNIX command line foo can increase the efficiency of your command.
 
 Example: consider retrieving all ``ribbon.nii.gz`` files for all subjects in the
 `HCP open access dataset <https://github.com/datalad-datasets/human-connectome-project-openaccess>`_
-(a dataset with about 4500 subdatasets -- read on more about it in
-:ref:`usecase_HCP_dataset`).
+(a dataset with about 4500 subdatasets).
 If all subject-subdatasets are installed (e.g., with ``datalad get -n -r`` for
 a recursive installation without file retrieval), :term:`globbing` with the
 shell works fine::

@@ -220,10 +220,12 @@ Glossary
    log level
       Adjusts the amount of verbosity during :term:`logging`.
 
+   main
+      Git concept: For the longest time, ``master`` was the name of the default :term:`branch` in a dataset. More recently, the name ``main`` is used. If you are not sure, you can find out if your default branch is ``main`` or ``master`` by running ``git branch``.
+
    Makefile
       Makefiles are recipes on how to create a digital object for the build automation tool `Make <https://en.wikipedia.org/wiki/Make_(software)>`_.
       They are used to build programs, but also to manage projects where some files must be automatically updated from others whenever the others change.
-      An example of a Makefile is shown in the usecase :ref:`usecase_reproducible_paper`.
 
    manpage
       Abbreviation of "manual page". For most Unix programs, the command ``man <program-name>`` will open a :term:`pager` with this commands documentation. If you have installed DataLad as a Debian package, ``man`` will allow you to open DataLad manpages in your terminal.

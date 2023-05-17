@@ -26,7 +26,7 @@ Keep in mind that this applies even if you renamed the file.
 .. find-out-more:: Help! I accidentally saved sensitive information to Git!
 
 	The only lasting way to remove contents from the dataset history completely is to substantially rewrite the dataset's history via tools such as ``git-filter-repo`` or ``git filter-branch``, two very dangerous and potentially destructive operations.
-	If you ever need to go there, the advanced section :ref:`cleanup` contains a paragraph on "Getting contents out of Git".
+
 
 Strategy 2: Restrict access via third party service or file system permissions
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -41,7 +41,6 @@ The ability of repository hosting services to make datasets private and only all
 One method to exert potentially fine-grained access control over file contents is via choice of (third party) hosting service for some or all annexed file contents.
 If you chose a service only selected people have access to, and publish annexed contents exclusively there, then only those selected people can perform a successful :command:`datalad get`.
 For example, when it is a dataset with content hosted on third party cloud storage such as S3 buckets, permission settings in the storage locations would allow data providers to specify or limit who is able to retrieve the file contents.
-An example for this is the usecase :ref:`usecase_hcp_dataset`, where file contents from the human connectome project can only be retrieved when a user has obtained the necessary credentials first.
 
 
 Strategy 3: Selective publishing

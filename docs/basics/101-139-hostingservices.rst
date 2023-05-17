@@ -60,11 +60,11 @@ How to add a sibling on a Git repository hosting site: The manual way
    :term:`GitHub`, or :term:`GitLab`, it can be used to connect and authenticate
    without supplying your username or password for each action.
 
-   This `tutorial by GitHub <https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent>`_
-   is a detailed step-by-step instruction to generate and use SSH keys for authentication,
-   and it also shows you how to add your public SSH key to your GitHub account
+   A tutorial by GitHub at `docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh <https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent>`_
+   has a detailed step-by-step instruction to generate and use SSH keys for authentication.
+   You will also learn how add your public SSH key to your hosting service account
    so that you can install or clone datasets or Git repositories via ``SSH`` (in addition
-   to the ``http`` protocol), and the same procedure applies to GitLab and Gin.
+   to the ``http`` protocol).
 
    Don't be intimidated if you have never done this before -- it is fast and easy:
    First, you need to create a private and a public key (an SSH key pair).
@@ -82,7 +82,7 @@ How to add a sibling on a Git repository hosting site: The manual way
    others -- e.g., in case of theft -- to log in to servers or services with
    SSH authentication [#f2]_, and configure an ``ssh agent``
    to handle this passphrase for you with a single command. How to do all of this
-   is detailed in the above tutorial.
+   is detailed in the tutorial.
 
 
 #. Use the URL to add the repository as a sibling. There are two commands that allow you to do that; both require you give the sibling a name of your choice (common name choices are ``upstream``, or a short-cut for your user name or the hosting platform, but its completely up to you to decide):

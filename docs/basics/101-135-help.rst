@@ -388,47 +388,6 @@ In most cases, this is prevented by a default cross-platform compatible line-end
 
 To fix this behavior outside of the installation process and standardize line endings across operating systems, Windows users are advised to set the configuration ``core.autcrlf true`` with ``git config --global core.autocrfl true``.
 
-asyncio errors at DataLad import
-""""""""""""""""""""""""""""""""
-
-DataLad's internal command runner uses `asyncio
-<https://docs.python.org/3/library/asyncio.html>`_. This can lead to
-an error when DataLad is used within a script or application that
-itself uses asyncio. To summarize the problem with a `quote from
-Python's bug tracker <https://bugs.python.org/issue33523#msg349561>`_:
-"you can't call async code from sync code that's being called from
-async code".
-
-Jupyter Notebooks are probably the most likely place that you'll run
-into this error (`ipykernel issue 548
-<https://github.com/ipython/ipykernel/issues/548>`_). When importing
-``datalad``, you'll see this:
-
-.. code-block:: bash
-
-   RuntimeError: Cannot run the event loop while another loop is running
-
-The `nest-asyncio <https://pypi.org/project/nest-asyncio/>`_ package
-provides a workaround:
-
-.. code-block:: bash
-
-   >>> import nest_asyncio
-   >>> nest_asyncio.apply()
-
-   >>> import datalad
-
-
-
-
-
-.. todo::
-
-    paste some "please make these remotes available output"
-
-
-
-
 
 .. rubric:: Footnotes
 

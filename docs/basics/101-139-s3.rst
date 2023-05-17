@@ -323,71 +323,63 @@ Advanced examples
 ^^^^^^^^^^^^^^^^^
 
 When there is a lot to upload, automation is your friend.
-Below, we try to collect a few real world examples that go beyond toy examples.
-Do you have one and want to share it with the world as well? Please `get in touch <https://github.com/datalad-handbook/book/issues/new>`_!
+One examples is the :ref:`Findoutmore about automating uploads of data hierarchies <fom-s3>`.
 
-Automated uploads of dataset hierarchies
-""""""""""""""""""""""""""""""""""""""""
+.. find-out-more::  Automated uploads of dataset hierarchies to S3
+   :name: fom-s3
 
-The script below is a quick-and-dirty solution to the task of exporting a hierarchy of datasets to an S3 bucket.
-I needs to be invoked with three positional arguments, the path to the :term:`DataLad superdataset`, the S3 bucket name, and a prefix.
+    The script below is a quick-and-dirty solution to the task of exporting a hierarchy of datasets to an S3 bucket.
+    It needs to be invoked with three positional arguments, the path to the :term:`DataLad superdataset`, the S3 bucket name, and a prefix.
 
-.. code-block:: bash
+	.. code-block:: bash
 
-	#!/bin/bash
+		#!/bin/bash
 
-	set -eu
+		set -eu
 
-	export PS4='> '
-	set -x
+		export PS4='> '
+		set -x
 
-	topds="$1"
-	bucket="$2"
-	prefix="$3"
+		topds="$1"
+		bucket="$2"
+		prefix="$3"
 
-	# TEMP
-	srname="${bucket}5"
+		# TEMP
+		srname="${bucket}5"
 
-	topdsfull=$PWD/$topds/
+		topdsfull=$PWD/$topds/
 
-	if ! git annex version | grep 8.2021 ; then
-		echo "E: need recent git annex. check what you have"
-		exit 1
-	fi
+		if ! git annex version | grep 8.2021 ; then
+			echo "E: need recent git annex. check what you have"
+			exit 1
+		fi
 
-	{ echo "$topdsfull"; datalad -f '{path}' subdatasets -r -d "$topds"; } | \
-	while read ds; do
-		relds=$(relpath "$ds" "$topdsfull")
-		fileprefix="$prefix/$relds/"
-		fileprefix=$(python -c "import os,sys; print(os.path.normpath(sys.argv[1]))" "$fileprefix")
-		echo $relds;
-		(
-			cd "$ds";
-			# TODO: make sure that there is no ./ or // in fileprefix
-			if ! git remote | grep -q "$srname"; then
-				git annex initremote --debug "$srname" \
-					type=S3 \
-					autoenable=true \
-					bucket=$bucket \
-					encryption=none \
-					exporttree=yes \
-					"fileprefix=$fileprefix/" \
-					host=s3.amazonaws.com \
-					partsize=1GiB \
-					port=80 \
-					"publicurl=https://s3.amazonaws.com/$bucket" \
-					public=yes \
-					versioning=yes
-			fi
-			git annex export --to "$srname" --jobs 6 master
+		{ echo "$topdsfull"; datalad -f '{path}' subdatasets -r -d "$topds"; } | \
+		while read ds; do
+			relds=$(relpath "$ds" "$topdsfull")
+			fileprefix="$prefix/$relds/"
+			fileprefix=$(python -c "import os,sys; print(os.path.normpath(sys.argv[1]))" "$fileprefix")
+			echo $relds;
+			(
+				cd "$ds";
+				# TODO: make sure that there is no ./ or // in fileprefix
+				if ! git remote | grep -q "$srname"; then
+					git annex initremote --debug "$srname" \
+						type=S3 \
+						autoenable=true \
+						bucket=$bucket \
+						encryption=none \
+						exporttree=yes \
+						"fileprefix=$fileprefix/" \
+						host=s3.amazonaws.com \
+						partsize=1GiB \
+						port=80 \
+						"publicurl=https://s3.amazonaws.com/$bucket" \
+						public=yes \
+						versioning=yes
+				fi
+				git annex export --to "$srname" --jobs 6 master
 
-		)
-	done
+			)
+		done
 
-
-
-.. [#f5] Instead of using GitHub's WebUI you could also obtain a token using the command line GitHub interface (https://github.com/sociomantic-tsunami/git-hub) by running ``git hub setup`` (if no 2FA is used).
-   If you decide to use the command line interface, here is help on how to use it:
-   Clone the `GitHub repository <https://github.com/sociomantic-tsunami/git-hub>`_ to your local computer.
-   Decide whether you want to build a Debian package to install, or install the single-file Python script distributed in the repository.
-   Make sure that all `requirements <https://github.com/sociomantic-tsunami/git-hub>`_ for your preferred version are installed , and run either ``make deb`` followed by ``sudo dpkg -i deb/git-hub*all.deb``, or ``make install``.

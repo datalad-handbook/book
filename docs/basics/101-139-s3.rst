@@ -328,58 +328,55 @@ One examples is the :ref:`Findoutmore about automating uploads of data hierarchi
 .. find-out-more::  Automated uploads of dataset hierarchies to S3
    :name: fom-s3
 
-    The script below is a quick-and-dirty solution to the task of exporting a hierarchy of datasets to an S3 bucket.
-    It needs to be invoked with three positional arguments, the path to the :term:`DataLad superdataset`, the S3 bucket name, and a prefix.
+   The script below is a quick-and-dirty solution to the task of exporting a hierarchy of datasets to an S3 bucket.
+   It needs to be invoked with three positional arguments, the path to the :term:`DataLad superdataset`, the S3 bucket name, and a prefix.
 
-	.. code-block:: bash
+   .. code-block:: bash
 
-		#!/bin/bash
+      #!/bin/bash
+      set -eu
+      export PS4='> '
+      set -x
 
-		set -eu
+      topds="$1"
+      bucket="$2"
+      prefix="$3"
 
-		export PS4='> '
-		set -x
+      # TEMP
+      srname="${bucket}5"
+      topdsfull=$PWD/$topds/
 
-		topds="$1"
-		bucket="$2"
-		prefix="$3"
+      if ! git annex version | grep 8.2021 ; then
+        echo "E: need recent git annex. check what you have"
+        exit 1
+      fi
 
-		# TEMP
-		srname="${bucket}5"
+      { echo "$topdsfull"; datalad -f '{path}' subdatasets -r -d "$topds"; } | \
+      while read ds; do
+        relds=$(relpath "$ds" "$topdsfull")
+        fileprefix="$prefix/$relds/"
+        fileprefix=$(python -c "import os,sys; print(os.path.normpath(sys.argv[1]))" "$fileprefix")
+        echo $relds;
+        (
+            cd "$ds";
+            # TODO: make sure that there is no ./ or // in fileprefix
+            if ! git remote | grep -q "$srname"; then
+                git annex initremote --debug "$srname" \
+                    type=S3 \
+                    autoenable=true \
+                    bucket=$bucket \
+                    encryption=none \
+                    exporttree=yes \
+                    "fileprefix=$fileprefix/" \
+                    host=s3.amazonaws.com \
+                    partsize=1GiB \
+                    port=80 \
+                    "publicurl=https://s3.amazonaws.com/$bucket" \
+                    public=yes \
+                    versioning=yes
+            fi
+            git annex export --to "$srname" --jobs 6 master
 
-		topdsfull=$PWD/$topds/
-
-		if ! git annex version | grep 8.2021 ; then
-			echo "E: need recent git annex. check what you have"
-			exit 1
-		fi
-
-		{ echo "$topdsfull"; datalad -f '{path}' subdatasets -r -d "$topds"; } | \
-		while read ds; do
-			relds=$(relpath "$ds" "$topdsfull")
-			fileprefix="$prefix/$relds/"
-			fileprefix=$(python -c "import os,sys; print(os.path.normpath(sys.argv[1]))" "$fileprefix")
-			echo $relds;
-			(
-				cd "$ds";
-				# TODO: make sure that there is no ./ or // in fileprefix
-				if ! git remote | grep -q "$srname"; then
-					git annex initremote --debug "$srname" \
-						type=S3 \
-						autoenable=true \
-						bucket=$bucket \
-						encryption=none \
-						exporttree=yes \
-						"fileprefix=$fileprefix/" \
-						host=s3.amazonaws.com \
-						partsize=1GiB \
-						port=80 \
-						"publicurl=https://s3.amazonaws.com/$bucket" \
-						public=yes \
-						versioning=yes
-				fi
-				git annex export --to "$srname" --jobs 6 master
-
-			)
-		done
+		)
+      done
 

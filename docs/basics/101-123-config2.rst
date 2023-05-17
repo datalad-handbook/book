@@ -478,7 +478,7 @@ for Git configuration files on different scopes, and even the ``.gitmodules`` or
 files. Of course you do not yet know all of the available configuration options. However,
 you already know some core Git configurations such as name, email, and editor. Even more
 important, you know how to configure git-annex's content management based on ``largefile``
-rules, and you understand the majority of variables within ``.gitmodules`` or the sections
+rules, and you understand the  variables within ``.gitmodules`` or the sections
 in ``.git/config``. Slowly, you realize with pride,
 you're more and more becoming a DataLad power-user.
 

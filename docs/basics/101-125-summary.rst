@@ -25,7 +25,7 @@ your horizon about configurations of datasets:
   will take precedence over shared configurations in a dataset clone.
 
 - Other tools than Git can be configured with the :command:`git config` command
-  as well. If the configuration needs to be written to a file other than a
+  as well. If configurations needs to be written to a file other than a
   ``.git(/)config`` file, supply a path to this file with the ``-f/--file`` flag
   in a :command:`git config` command.
 

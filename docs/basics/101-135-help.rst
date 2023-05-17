@@ -35,7 +35,7 @@ the first you should do is
 The first step is important in order to find out whether a
 command failed due to using a wrong DataLad version. In order
 to use this book and follow along, your DataLad version
-should be ``datalad-0.17`` or higher, for example.
+should be ``datalad-0.18`` or higher, for example.
 
 To find out which version you are using, run
 

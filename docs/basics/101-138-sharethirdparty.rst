@@ -57,7 +57,7 @@ Leveraging third party infrastructure
 
 There are several ways to make datasets available for others:
 
-- You can **publish your dataset to a repository with annex support** such as :term:`gin` or the `Open Science Framework (OSF) <https://osf.io/>`__ [#f1]_. This is the easiest way to share datasets and all their contents. Read on in the section :ref:`gin` or consult the tutorials of the `datalad-osf extension <http://docs.datalad.org/projects/osf/en/latest/index.html>`_ to learn how to do this.
+- You can **publish your dataset to a repository with annex support** such as :term:`Gin` or the `Open Science Framework (OSF) <https://osf.io/>`__ [#f1]_. This is the easiest way to share datasets and all their contents. Read on in the section :ref:`gin` or consult the tutorials of the `datalad-osf extension <http://docs.datalad.org/projects/osf/en/latest/index.html>`_ to learn how to do this.
 
 - You can **publish your dataset to a repository hosting service**, and **configure an external resource that stores your annexed data**. Such a resource can be a private web server, but also a third party services cloud storage such as `Dropbox <https://dropbox.com>`_, `Google <https://google.com>`_, `Amazon S3 buckets <https://aws.amazon.com/s3/?nc1=h_ls>`_, `Box.com <https://www.box.com/en-gb/home>`_, `owncloud <https://owncloud.com>`_, `sciebo <https://hochschulcloud.nrw>`_, or many more.
 

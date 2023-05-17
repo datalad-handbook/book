@@ -9,11 +9,11 @@ services. DataLad integrates well with a variety of free or commercial services,
 and with many available service options this gives you freedom in deciding where
 you store your data and thus who can get access.
 
-- An easy, free, and fast option is `GIN <https://gin.g-node.org>`_, a
+- An easy, free, and fast option is :term:`Gin`, a
   web-based repository store for scientific data management. If you are registered
   and have SSH authentication set up, you can create a new, empty repository,
   add it as a sibling to your dataset, and publish all dataset contents -- including
-  annexed data, as GIN supports repositories with an annex.
+  annexed data, as Gin supports repositories with an annex.
 
 - Other repository hosting services such as GitHub and GitLab [#f1]_ do not support
   an annex. If a dataset is shared via one of those platforms, annexed data needs

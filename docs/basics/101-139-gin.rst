@@ -6,7 +6,7 @@ Walk-through: Dataset hosting on GIN
 `GIN <https://gin.g-node.org/G-Node/Info/wiki>`__ (G-Node infrastructure) is a
 free data management system designed for comprehensive and reproducible management
 of scientific data. It is a web-based repository store and provides
-fine-grained access control to share data. :term:`GIN` builds up on :term:`Git` and
+fine-grained access control to share data. :term:`Gin` builds up on :term:`Git` and
 :term:`git-annex`, and is an easy alternative to other third-party services to host
 and share your DataLad datasets [#f1]_. It allows to share datasets and their
 contents with selected collaborators or making them publicly and anonymously

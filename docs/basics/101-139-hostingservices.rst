@@ -12,7 +12,7 @@ This section contains a brief overview on how to publish your dataset to differe
 Git repository hosting and annexed data
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-As outlined in a number of sections before, Git repository hosting sites typically do not support dataset annexes - some, like :term:`gin` however, do.
+As outlined in a number of sections before, Git repository hosting sites typically do not support dataset annexes - some, like :term:`Gin` however, do.
 Depending on whether or not an annex is supported, you can push either only your Git history to the sibling, or the complete dataset including annexed file contents.
 You can find out whether a sibling on a remote hosting services carries an annex or not by running the :command:`datalad siblings` command.
 A ``+``, ``-``, or ``?`` sign in parenthesis indicates whether the sibling carries an annex, does not carry an annex, or whether this information isn't yet known.
@@ -39,11 +39,11 @@ How to add a sibling on a Git repository hosting site: The manual way
 
 .. figure:: ../artwork/src/GIN_newrepo.png
 
-   Webinterface of :term:`gin` during the creation of a new repository.
+   Webinterface of :term:`Gin` during the creation of a new repository.
 
 .. figure:: ../artwork/src/newrepo-github.png
 
-	Webinterface of :term:`github` during the creation of a new repository.
+	Webinterface of :term:`GitHub` during the creation of a new repository.
 
 #. Afterwards, copy the :term:`SSH` or :term:`HTTPS` URL of the repository. Usually, repository hosting services will provide you with a convenient way to copy it to your clipboard. An SSH URL takes the form ``git@<hosting-service>:/<user>/<repo-name>.git`` and an HTTPS URL takes the form ``https://<hosting-service>/<user>/<repo-name>.git``. The type of URL you choose determines whether and how you will be able to ``push`` to your repository. Note that many services will require you to use the SSH URL to your repository in order to do :command:`push` operations, so make sure to take the :term:`SSH` and not the :term:`HTTPS` URL if this is the case.
 
@@ -56,7 +56,7 @@ How to add a sibling on a Git repository hosting site: The manual way
 
    An SSH key is an access credential in the :term:`SSH` protocol that can be used
    to login from one system to remote servers and services, such as from your private
-   computer to an :term:`SSH server`. For repository hosting services such as :term:`GIN`,
+   computer to an :term:`SSH server`. For repository hosting services such as :term:`Gin`,
    :term:`GitHub`, or :term:`GitLab`, it can be used to connect and authenticate
    without supplying your username or password for each action.
 

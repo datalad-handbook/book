@@ -155,9 +155,9 @@ Glossary
       Git concept on repository hosting sites (GitHub, GitLab, Gin, ...)
       A fork is a copy of a repository on a web-based Git repository hosting site. Find out more `here <https://docs.github.com/en/github/getting-started-with-github/fork-a-repo>`__.
 
-   GIN
+   Gin
       A web-based repository store for data management that you can use to host and
-      share datasets. Find out more about GIN `here <https://gin.g-node.org/G-Node/Info/wiki>`__.
+      share datasets. Find out more about Gin `at gin.g-node.org <https://gin.g-node.org/G-Node/Info/wiki>`__.
 
    Git
       A version control system to track changes made to small-sized files over time. You can find out
@@ -367,7 +367,7 @@ Glossary
       The pair consists of a *private* and a *public* key. The public key is shared
       with the remote server, and the private key is used to authenticate your machine
       whenever you want to access the remote server or service.
-      Services such as :term:`GitHub`, :term:`GitLab`, and :term:`GIN` use SSH keys and the SSH protocol
+      Services such as :term:`GitHub`, :term:`GitLab`, and :term:`Gin` use SSH keys and the SSH protocol
       to ease access to repositories. This
       `tutorial by GitHub <https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent>`_
       is a detailed step-by-step instruction to generate and use SSH keys for authentication.

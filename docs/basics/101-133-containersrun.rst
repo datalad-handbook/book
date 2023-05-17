@@ -170,7 +170,7 @@ name to give to the container, and a path or url to a container Image:
 .. find-out-more:: How do I add an Image from Dockerhub, Amazon ECR, or a local container?
 
    Should the Image you want to use lie on Dockerhub, specify the ``--url``
-   option prefixed with ``docker://`` or ``dhub://`` instead of ``shub://`` like this::
+   option prefixed with ``docker://`` or ``dhub://`` instead of ``shub://``::
 
       datalad containers-add midterm-software --url docker://adswa/resources:2
 

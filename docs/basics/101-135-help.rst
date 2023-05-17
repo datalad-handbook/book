@@ -14,18 +14,18 @@ one lazy, warm summer-afternoon you flip through it.
 
 You realize that you already know the most important things:
 The number one advice on how to get help is
-`"Read the error message." <https://poster.keepcalmandposters.com/default/5986752_keep_calm_and_read_the_error_message.png>`_.
+"Read the error message".
 The second advice it
-`"I'm not kidding: Read the error message <https://images.app.goo.gl/GWQ82AAJnx1dWtWx6>`_.
+"I'm not kidding: Read the error message".
 The third advice, finally, says
-`"Honestly, read the f***ing error message <https://images.app.goo.gl/ddxg4aowbji6XTrw7>`_.
+"Honestly, read the f***ing error message".
 
 Help yourself
 ^^^^^^^^^^^^^
 
 If you run into a DataLad problem and you have followed the three
 steps above, but the error message
-`does not give you a clue on how to proceed <https://imgs.xkcd.com/comics/code_quality_3.png>`_,
+`does not give you a clue on how to proceed <https://xkcd.com/1833>`_,
 the first you should do is
 
 #. find out which *version* of DataLad you use
@@ -99,9 +99,9 @@ Asking questions (right)
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 If nothing you do on your own helps to solve the problem,
-consider asking others. Check out `neurostars <https://neurostars.org/>`_
+consider asking others. Check out `neurostars <https://neurostars.org>`_
 and search for your problem -- likely,
-`somebody already encountered the same error before <http://imgs.xkcd.com/comics/wisdom_of_the_ancients.png>`_
+`somebody already encountered the same error before <https://xkcd.com/979>`_
 and fixed it, but if not, just ask a new question with a ``datalad`` tag.
 
 Make sure your question is as informative as it can be for others.
@@ -202,7 +202,7 @@ To get extensive information on what :command:`datalad status` does underneath t
        $ datalad status
        $ ...
 
-   You can find out a bit more on environment variable :ref:`in this Findoutmore <fom-envvar>`.
+   You can find out a bit more on environment variable :ref:`in the Findoutmore on environment variables <fom-envvar>`.
 
    The configuration variable can be used to set the log level on a user (global) or system-wide level with the :command:`git config` command::
 

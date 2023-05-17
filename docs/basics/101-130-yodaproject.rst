@@ -20,15 +20,10 @@ a Python API for DataLad's functionality that you can read about in :ref:`a Find
 
     .. _python:
 
-    "Whatever you can do with DataLad from the command line, you can also do it with
-    DataLad's Python API", begins the lecturer.
-    "In addition to the command line interface you are already very familiar with,
-    DataLad's functionality can also be used within interactive Python sessions
+    Whatever you can do with DataLad from the command line, you can also do it with
+    DataLad's Python API.
+    Thus, DataLad's functionality can also be used within interactive Python sessions
     or Python scripts.
-    This feature can help to automate dataset operations, provides an alternative
-    to the command line, and it is immensely useful when creating reproducible
-    data analyses."
-
     All of DataLad's user-oriented commands are exposed via ``datalad.api``.
     Thus, any command can be imported as a stand-alone command like this::
 
@@ -66,13 +61,12 @@ a Python API for DataLad's functionality that you can read about in :ref:`a Find
        >>> from datalad.api import create, Dataset
        # create as a stand-alone command
        >>> create(path='scratch/test')
-       [INFO   ] Creating a new annex repo at /home/me/scratch/test
+       [INFO   ] Creating a new annex repo at /.../scratch/test
        Out[3]: <Dataset path=/home/me/scratch/test>
-
        # create as a dataset method
        >>> ds = Dataset(path='scratch/test')
        >>> ds.create()
-       [INFO   ] Creating a new annex repo at /home/me/scratch/test
+       [INFO   ] Creating a new annex repo at /.../scratch/test
        Out[3]: <Dataset path=/home/me/scratch/test>
 
     As shown above, the only required parameter for a Dataset is the ``path`` to
@@ -96,16 +90,13 @@ a Python API for DataLad's functionality that you can read about in :ref:`a Find
 
     **Use cases for DataLad's Python API**
 
-    "Why should one use the Python API? Can we not do everything necessary via the
-    command line already? Does Python add anything to this?" asks somebody.
-
-    It is completely up to on you and dependent on your preferred workflow
-    whether you decide to use the command line or the Python API of DataLad for
-    the majority of tasks. Both are valid ways to accomplish the same results.
-    One advantage of using the Python API is the ``Dataset`` though:
-    Given that the command line ``datalad`` command has a startup time (even when doing nothing) of
-    ~200ms, this means that there is the potential for substantial speed-up when
-    doing many calls to the API, and using a persistent Dataset object instance.
+    Using the command line or the Python API of DataLad are both valid ways to accomplish the same results.
+    Depending on your workflows, using the Python API can help to automate dataset operations, provides an alternative
+    to the command line, or could be useful for scripting reproducible data analyses.
+    One unique advantage of the Python API is the ``Dataset``:
+    As the Python API does not suffer from the startup time cost of the command line,
+    there is the potential for substantial speed-up when doing many calls to the API,
+    and using a persistent Dataset object instance.
 
 .. importantnote:: Use DataLad in languages other than Python
 

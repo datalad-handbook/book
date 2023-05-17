@@ -374,12 +374,12 @@ If you publish a dataset to :term:`GitHub`, but the resulting repository seems t
 
 .. figure:: ../artwork/src/defaultgitannex_light.png
 
-To find out more about this and how to fix it, please take a look at the corresponding :ref:`FAQ <gitannexdefault>`.
+Typically, you can change the default branch settings in the webinterface to fix this.
 
 **Windows adds whitespace line-endings to unchanged files**
 
 The type of line ending (a typically invisible character that indicates a line break) differs between operating system.
-While Linux and OSX use a *line feed* (LF), Windows uses *carriage return* + *line feed* (CRLF).
+While Linux and macOS use a *line feed* (LF), Windows uses *carriage return* + *line feed* (CRLF).
 When you only collaborate across operating systems of the same type, this is a very boring fun fact at most.
 But if Windows- and Non-Windows users collaborate, or if you are working with files across different operating systems, the different type of line ending that Windows uses may show up as unintended modifications on other system.
 In most cases, this is prevented by a default cross-platform compatible line-ending configuration on Windows that is set during installation:

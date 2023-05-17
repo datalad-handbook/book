@@ -362,7 +362,7 @@ Other errors
 Sometimes, registered subdatasets URLs have an :term:`SSH` instead of :term:`https` address, for example ``git@github.com:datalad-datasets/longnow-podcasts.git`` instead of ``https://github.com/datalad-datasets/longnow-podcasts.git``.
 If one does not have an SSH key configured for the required service (e.g., GitHub, or a server), installing or getting the subdataset and its contents fails, with messages starting similar to this::
 
-   [INFO   ] Cloning https://github.com/psychoinformatics-de/paper-remodnav.git/remodnav [2 other candidates] into '/home/homeGlobal/adina/paper-remodnav/remodnav'
+   [INFO   ] Cloning https://github.com/psychoinformatics-de/paper-remodnav.git/remodnav [2 other candidates] into '/home/REDACTED/remodnav'
    Permission denied (publickey).
 
 If you encounter these errors, make sure to create and/or upload an SSH key (see section :ref:`Gin` for an example) as necessary, or reconfigure/edit the URL into a HTTPS URL.

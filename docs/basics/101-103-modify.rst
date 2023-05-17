@@ -167,7 +167,7 @@ evolved over time. That's quite neat, isn't it?
    which you can discover if you run ``git log --help``.  Those options could
    help to find specific changes (e.g., which added or removed a specific word
    with ``-S``), or change how ``git log`` output will look (e.g.,
-   ``--word-diff`` to highlight individual word changes in the ``-p`` output).
+   ``--word-diff`` to highlight individual word changes).
 
 
 .. only:: adminmode

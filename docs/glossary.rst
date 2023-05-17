@@ -112,7 +112,7 @@ Glossary
       its versions.
 
    Debian
-      A common Linux distribution. `More information here <https://www.debian.org/index.en.html>`__.
+      A common Linux distribution. `More information at www.debian.org <https://www.debian.org/index.en.html>`__.
 
    debugging
       Finding and resolving problems within a computer program.
@@ -152,8 +152,8 @@ Glossary
       `documentation of git push <https://git-scm.com/docs/git-push#Documentation/git-push.txt---force>`_.
 
    fork
-      Git concept on repository hosting sites (GitHub, GitLab, Gin, ...)
-      A fork is a copy of a repository on a web-based Git repository hosting site. Find out more `here <https://docs.github.com/en/github/getting-started-with-github/fork-a-repo>`__.
+      Git concept on repository hosting sites (GitHub, GitLab, Gin, ...);
+      `A fork is a copy of a repository on a web-based Git repository hosting site <https://docs.github.com/en/github/getting-started-with-github/fork-a-repo>`__.
 
    Gin
       A web-based repository store for data management that you can use to host and
@@ -161,8 +161,8 @@ Glossary
 
    Git
       A version control system to track changes made to small-sized files over time. You can find out
-      more about git in `this (free) book <https://git-scm.com/book/en/v2>`_
-      or `these interactive Git tutorials <https://try.github.io/>`_ on :term:`GitHub`.
+      more about git in `the (free) GitPro book <https://git-scm.com/book/en/v2>`_
+      or `interactive Git tutorials <https://try.github.io/>`_ on :term:`GitHub`.
 
    git-annex
       A distributed file synchronization system, enabling sharing and synchronizing collections
@@ -183,7 +183,7 @@ Glossary
 
    GitHub
       GitHub is an online platform where one can store and share version controlled projects
-      using Git (and thus also DataLad project). See`GitHub.com <https://github.com/>`_.
+      using Git (and thus also DataLad project). See `GitHub.com <https://github.com/>`_.
 
    Gitk
       A repository browser that displays changes in a repository or a selected set of commits. It
@@ -407,9 +407,9 @@ Glossary
       Find out more on `Wikipedia <https://en.wikipedia.org/wiki/Singularity_(software)>`__.
 
    Singularity-Hub
-       `singularity-hub.org <https://singularity-hub.org/>`_ is a Singularity container portal.
-       Among other things, it hosts and builds Singularity container images.
-       You can can *pull* :term:`container image`\s built from a publicly shared :term:`container recipe` from it.
+       `singularity-hub.org <https://singularity-hub.org/>`_ was a Singularity container portal.
+       Among other things, it hosts Singularity container images.
+       You can can *pull* :term:`container image`\s built from it.
 
    software container
        Computational containers are cut-down virtual machines that allow you to package software libraries and their dependencies in precise versions into a bundle that can be shared with others.

@@ -212,10 +212,6 @@ for a whole analysis dataset. At one point you might also write a
 scientific paper about your analysis in a paper project, and the
 whole analysis project can easily become a modular component in a paper
 project, to make sharing paper, code, data, and results easy.
-The usecase :ref:`usecase_reproducible_paper` contains a step-by-step instruction on
-how to build and share such a reproducible paper, if you want to learn
-more.
-
 
 
 .. figure:: ../artwork/src/img/dataset_modules.svg

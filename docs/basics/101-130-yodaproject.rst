@@ -127,7 +127,7 @@ widely available -- a perfect dataset for your midterm project!
 
 .. importantnote:: Turn data analysis into dynamically generated documents
 
-   Beyond the contents of this section, we have transformed the example analysis also into a template to write a reproducible paper, following the use case :ref:`usecase_reproducible_paper`.
+   Beyond the contents of this section, we have transformed the example analysis also into a template to write a reproducible paper.
    If you're interested in checking that out, please head over to `github.com/datalad-handbook/repro-paper-sketch/ <https://github.com/datalad-handbook/repro-paper-sketch/>`_.
 
 Raw data as a modular, independent entity

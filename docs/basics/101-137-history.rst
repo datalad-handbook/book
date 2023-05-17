@@ -245,10 +245,8 @@ with the HEAD pointer.
    starting from the most recent commit. ``HEAD~1`` is the ancestor of the most
    recent commit, i.e., one commit back (``f30ab`` in the figure above). Apart from
    the notation ``HEAD~N``, there is also ``HEAD^N`` used to count backwards, but
-   less frequently used and of importance primarily in the case of *merge*
-   commits.
-   `This post <https://stackoverflow.com/questions/2221658/whats-the-difference-between-head-and-head-in-git>`__
-   explains the details well.
+   `less frequently used and of importance primarily in the case of merge
+   commits <https://stackoverflow.com/questions/2221658/whats-the-difference-between-head-and-head-in-git>`__.
 
 Let's stay with the hash, and reset to the commit prior to saving the Gitjokes.
 

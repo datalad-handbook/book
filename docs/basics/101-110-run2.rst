@@ -391,10 +391,6 @@ Make a note of this behavior in your ``notes.txt`` file.
 Save yourself the preparation time
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. importantnote:: version requirement for --assume-ready
-
-   The option ``--assume-ready`` was introduced with DataLad version 0.14.1.
-
 Its generally good practice to specify ``--input`` and ``--output`` even if your input files are already retrieved and your output files unlocked -- it makes sure that a recomputation can succeed, even if inputs are not yet retrieved, or if output needs to be unlocked.
 However, the internal preparation steps of checking that inputs exist or that outputs are unlocked can take a bit of time, especially if it involves checking a large number of files.
 

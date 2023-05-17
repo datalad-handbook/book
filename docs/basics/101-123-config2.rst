@@ -391,7 +391,7 @@ a :command:`git config` on a ``.git/config`` file and on a version controlled fi
    $ git diff
 
 As these two commands show, the ``.gitmodules`` file is modified. The https URL
-has been deleted (note the ``-``, and a SSH URL has been added. To keep these
+has been deleted (note the ``-``), and a SSH URL has been added. To keep these
 changes, we would need to :command:`datalad save` them. However, as we want to stay with
 https URLs, we will just *checkout* this change -- using a Git tool to undo an
 unstaged modification.

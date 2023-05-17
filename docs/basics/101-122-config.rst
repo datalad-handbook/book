@@ -251,20 +251,13 @@ remaining sections in that file, and the :ref:`that dissects this config file fu
    :float:
 
    Let's walk through the Git config file of ``DataLad-101``:
-   The second section of ``.git/config`` is a git-annex configuration.
    As mentioned above, git-annex will use the
-   :term:`Git config file` for some of its configurations.
-   For example, it lists the repository version and git-annex
-   UUID [#f4]_ (which you have seen in :command:`git annex whereis` commands, that display information about where the
+   :term:`Git config file` for some of its configurations, such as the second section.
+   It lists the repository version and git-annex
+   UUID [#f4]_ (:command:`git annex whereis` displays information about where the
    annexed content is with these UUIDs).
-   This section also specifies the supported backends in this dataset.
-   If you have read the hidden section in the section
-   :ref:`symlink` you will recognize the name "MD5E". This is the
-   hash function used to generate the annexed files keys and thus
-   paths in the object tree. All backends specified in this file (it
-   can be a list) can be used to hash your files.
 
-   You may recognize the third part of the configuration, the subsection
+   You may recognize the fourth part of the configuration, the subsection
    ``"recordings/longnow"`` in the section ``submodule``.
    Clearly, this is a reference to the ``longnow`` podcasts
    we cloned as a subdataset. The name *submodule* is Git

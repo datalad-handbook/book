@@ -609,6 +609,7 @@ Publishing the dataset to GitHub
 
 For this, you need to
 
+- create a GitHub account, if you do not yet have one
 - create a repository for this dataset on GitHub,
 - configure this GitHub repository to be a :term:`sibling` of the ``midterm_project`` dataset,
 - and *publish* your dataset to GitHub.

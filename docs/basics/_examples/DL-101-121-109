@@ -1,4 +1,4 @@
-$ git diff remotes/roommate/master
+$ git diff remotes/roommate/main
 diff --git a/code/nested_repos.sh b/code/nested_repos.sh
 deleted file mode 100644
 index f84c817..0000000

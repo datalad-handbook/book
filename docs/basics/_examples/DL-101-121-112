@@ -1,5 +1,5 @@
 $ git log --oneline
-0c0c105 Merge remote-tracking branch 'roommate/master'
+0c0c105 Merge remote-tracking branch 'roommate/main'
 f70d195 add note about datalad update
 2c4f079 Include nesting demo from datalad website
 11b542b add note on git annex whereis

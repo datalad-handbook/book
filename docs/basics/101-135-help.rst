@@ -314,7 +314,7 @@ One error you can run into when publishing dataset contents is that your
 One example is this::
 
    $ datalad push --to public
-    [ERROR  ] refs/heads/master->public:refs/heads/master [rejected] (non-fast-forward) [publish(/home/me/dl-101/DataLad-101)]
+    [ERROR  ] refs/heads/main->public:refs/heads/main [rejected] (non-fast-forward) [publish(/home/me/dl-101/DataLad-101)]
 
 This example is an attempt to push a local dataset to its sibling on GitHub. The
 push is rejected because it is a ``non-fast-forward`` merge situation. Usually,
@@ -328,19 +328,19 @@ Here is a different push rejection::
 
    $ datalad push --to roommate
     publish(ok): . (dataset) [refs/heads/git-annex->roommate:refs/heads/git-annex 023a541..59a6f8d]
-    [ERROR  ] refs/heads/master->roommate:refs/heads/master [remote rejected] (branch is currently checked out) [publish(/home/me/dl-101/DataLad-101)]
-    publish(error): . (dataset) [refs/heads/master->roommate:refs/heads/master [remote rejected] (branch is currently checked out)]
+    [ERROR  ] refs/heads/main->roommate:refs/heads/main [remote rejected] (branch is currently checked out) [publish(/home/me/dl-101/DataLad-101)]
+    publish(error): . (dataset) [refs/heads/main->roommate:refs/heads/main [remote rejected] (branch is currently checked out)]
     action summary:
       publish (error: 1, ok: 1)
 
 As you can see, the :term:`git-annex branch` was pushed successfully, but updating
-the ``master`` branch was rejected: ``[remote rejected] (branch is currently checked out) [publish(/home/me/dl-101/DataLad-101)]``.
+the ``main`` branch was rejected: ``[remote rejected] (branch is currently checked out) [publish(/home/me/dl-101/DataLad-101)]``.
 In this particular case, this is because it was an attempt to push from ``DataLad-101``
 to the ``roommate`` sibling that was created in chapter :ref:`chapter_collaboration`.
 This is a special case of pushing, because it -- in technical terms -- is a push
 to a non-bare repository. Unlike :term:`bare Git repositories`, non-bare
 repositories can not be pushed to at all times. To fix this, you either want to
-`checkout another branch <https://git-scm.com/docs/git-checkout>`_
+checkout another branch
 in the ``roommate`` sibling or push to a non-checked out branch in the ``roommate``
 sibling. Alternatively, you can configure ``roommate`` to receive the push with
 Git's ``receive.denyCurrentBranch`` configuration key. By default, this configuration
@@ -355,7 +355,7 @@ on ``receive.denyCurrentBranch`` for more.
 
 One warning that you may encounter during an installation of a dataset is::
 
-    [INFO   ] Submodule HEAD got detached. Resetting branch master to point to 046713bb. Original location was 47e53498
+    [INFO   ] Submodule HEAD got detached. Resetting branch main to point to 046713bb. Original location was 47e53498
 
 Even though "detached HEAD" sounds slightly worrisome, this is merely an information
 and does not require an action from your side. It is related to

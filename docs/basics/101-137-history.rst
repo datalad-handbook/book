@@ -234,7 +234,7 @@ with the HEAD pointer.
 
    A Git repository (and thus any DataLad dataset) is built up as a tree of
    commits. A *branch* is a named pointer (reference) to a commit, and allows you
-   to isolate developments. The default branch is called ``master``. ``HEAD`` is
+   to isolate developments. The default branch is called ``main``. ``HEAD`` is
    a pointer to the branch you are currently on, and thus to the last commit
    in the given branch.
 
@@ -446,7 +446,7 @@ Neat, isn't it? By checking out a commit shasum you can explore a previous
 state of a datasets history. And this does not only apply to simple text
 files, but every type of file in your dataset, regardless of size.
 The checkout command however led to something that Git calls a "detached HEAD state".
-While this sounds scary, a :command:`git checkout master` will bring you
+While this sounds scary, a :command:`git checkout main` will bring you
 back into the most recent version of your dataset and get you out of the
 "detached HEAD state":
 
@@ -454,7 +454,7 @@ back into the most recent version of your dataset and get you out of the
    :language: console
    :workdir: dl-101/DataLad-101
 
-   $ git checkout master
+   $ git checkout main
 
 
 Note one very important thing: The previously untracked files are still

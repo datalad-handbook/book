@@ -133,8 +133,8 @@ and demonstration will be in the next section.
    :command:`datalad update --how merge` is the DataLad equivalent of a
    :command:`git pull`.
    Upon a simple :command:`datalad update`, the remote information
-   is available on a branch separate from the master branch
-   -- in most cases this will be ``remotes/origin/master``.
+   is available on a branch separate from the main branch
+   -- in most cases this will be ``remotes/origin/main``.
    You can :command:`git checkout` this branch or run :command:`git diff` to
    explore the changes and identify potential merge conflicts.
 

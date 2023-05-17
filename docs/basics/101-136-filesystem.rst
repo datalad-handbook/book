@@ -46,7 +46,7 @@ moving a file, and uses the :command:`mv` command.
 
    $ cd books/
    $ mv TLCL.pdf The_Linux_Command_Line.pdf
-   $ ls -lah
+   $ ls -lah The_Linux_Command_Line.pdf
 
 Try to open the renamed file, e.g., with
 ``evince The_Linux_Command_Line.pdf``.

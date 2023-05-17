@@ -217,7 +217,7 @@ Sometimes, you may just want to share or archive the most recent state of the da
 
 DataLad provides the ability to do this out of the box to arbitrary locations, and support for specific services such as `Figshare <https://figshare.com/>`__.
 Find out more information on this in the section :ref:`figshare`.
-Other than that, some :term:`datalad extension`\s allow an export to additional services such as the Open Science Framework [#f1]_.
+Other than that, some :term:`datalad extension`\s allow an export to additional services such as the Open Science Framework.
 
 General information on publishing datasets
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

@@ -859,9 +859,7 @@ reproduce your data science project easily from scratch (take a look into the :r
          Both ways of applying the YODA procedure will lead to the same
          outcome.
 
-.. [#f2] If you want to know more about this algorithm,
-         `this blogpost <https://towardsdatascience.com/machine-learning-basics-with-the-k-nearest-neighbors-algorithm-6a6e71d01761>`_
-         gives an accessible overview. However, the choice of analysis method
+.. [#f2] The choice of analysis method
          for the handbook is rather arbitrary, and understanding the k-nearest
          neighbor algorithm is by no means required for this section.
 
@@ -880,7 +878,7 @@ reproduce your data science project easily from scratch (take a look into the :r
             # install the Python packages from PyPi via pip
             pip install seaborn pandas sklearn
 
-.. [#f4] Note that all ``README.md`` files the YODA procedure created are
+.. [#f4] All ``README.md`` files the YODA procedure created are
          version controlled by Git, not git-annex, thanks to the
          configurations that YODA supplied. This makes it easy to change the
          ``README.md`` file. The previous section detailed how the YODA procedure

@@ -85,7 +85,7 @@ to a different user's directories, but we will talk about permissions later.
 
 After creation, navigate into ``mock_user`` and install the dataset ``DataLad-101``.
 To do this, use :command:`datalad clone`, and provide a path to your original
-dataset. Here is how it looks like:
+dataset:
 
 .. runrecord:: _examples/DL-101-116-102
    :language: console

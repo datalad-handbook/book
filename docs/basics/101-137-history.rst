@@ -126,7 +126,7 @@ DataLad in the editor)!
    The :command:`git commit --amend` command will let you
    rewrite the commit message of the most recent commit. If you
    however need to rewrite commit messages of older commits, you
-   can do so during a so-called "interactive rebase" [#f4]_. The command
+   can do so during a so-called "interactive rebase". The command
    for this is
 
    .. code-block:: bash
@@ -184,7 +184,7 @@ DataLad in the editor)!
    it, you will be able to change the commit message. Save to proceed to
    the next commit message until the rebase is complete.
    But be careful not to delete any lines in the above editor view --
-   **An interactive rebase can be dangerous, and if you remove a line, this commit will be lost!** [#f5]_
+   **An interactive rebase can be dangerous, and if you remove a line, this commit will be lost!**
 
 Untracking accidentally saved contents (tracked in Git)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

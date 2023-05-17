@@ -125,8 +125,7 @@ We start by registering a container to the dataset.
 For this, we will pull an Image from Singularity hub. This Image was made
 for the handbook, and it contains the relevant Python setup for
 the analysis. Its recipe lives in the handbook's
-`resources repository <https://github.com/datalad-handbook/resources>`_, and the
-Image is built from the recipe via Singularity hub.
+`resources repository <https://github.com/datalad-handbook/resources>`_.
 If you're curious how to create a Singularity Image, the hidden
 section below has some pointers:
 

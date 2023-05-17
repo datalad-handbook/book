@@ -204,14 +204,12 @@ and hostname of your computer. "This", you exclaim, excited about your own reali
    increases. If you have only one other dataset it may be easy to
    remember what and where it is. But once you have one back-up
    of your dataset on a USB-Stick, one dataset shared with
-   `Dropbox <https://www.dropbox.com>`_, and a third one on your institutions
+   Dropbox, and a third one on your institutions
    :term:`GitLab` instance you will be grateful for the descriptions
    you provided these locations with.
 
    The current report of the location of the dataset is in the format
    ``user@host:path``.
-   As one computer this book is being build on is called "muninn" and its
-   user "me", it could look like this: ``me@muninn:~/dl-101/DataLad-101``.
 
    If the physical location of a dataset is not relevant, ambiguous, or volatile,
    or if it has an :term:`annex` that could move within the foreseeable lifetime of a

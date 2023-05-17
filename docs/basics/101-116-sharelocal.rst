@@ -28,7 +28,7 @@ a source.
 
 In this scenario multiple people can access the very same files at the
 same time, often on the same machine (e.g., a shared workstation, or
-a server that people can "SSH" into). You might think: "What do I need
+a server that people can ":term:`SSH`" into). You might think: "What do I need
 DataLad for, if everyone can already access everything?" However,
 universal, unrestricted access can easily lead to chaos. DataLad can
 help facilitate collaboration without requiring ultimate trust and

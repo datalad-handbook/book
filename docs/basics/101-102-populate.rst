@@ -99,7 +99,7 @@ structure with tree:
 .. index:: ! datalad command; status
 
 Now what does DataLad do with this new content? One command you will use very
-often is :command:`datalad status` (:manpage:`datalad-status` manual).
+often is :command:`datalad status`.
 It reports on the state of dataset content, and
 regular status reports should become a habit in the wake of ``DataLad-101``.
 
@@ -118,8 +118,7 @@ Interesting; the ``books/`` directory is "untracked". Remember how content
 Untracked means that DataLad does not know about this directory or its content,
 because we have not instructed DataLad to actually track it. This means that DataLad
 does not store the downloaded books in its history yet. Let's change this by
-*saving* the files to the dataset's history with the :command:`datalad save` command
-(:manpage:`datalad-save` manual).
+*saving* the files to the dataset's history with the :command:`datalad save` command.
 
 This time, it is your turn to specify a helpful :term:`commit message`
 with the ``-m`` option (although the DataLad command is :command:`datalad save`, we talk
@@ -300,7 +299,7 @@ these files from. If you would want to find out, you would have to *remember*
 where you got the content from – and brains are not made for such tasks.
 
 Luckily, DataLad has a command that will solve both of these problems:
-The :command:`datalad download-url` command (:manpage:`datalad-download-url` manual).
+The :command:`datalad download-url` command.
 We will dive deeper into the provenance-related benefits of using it in later chapters, but for now,
 we’ll start with best-practice-building. :command:`datalad download-url` can retrieve content
 from a URL (following any URL-scheme from https, http, or ftp or s3) and save it

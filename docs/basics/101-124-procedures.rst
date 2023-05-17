@@ -89,8 +89,7 @@ file when setting up a dataset.
 
 
 To find out available procedures, the command
-:command:`datalad run-procedure --discover` (:manpage:`datalad-run-procedure`
-manual) is helpful.
+:command:`datalad run-procedure --discover` is helpful.
 This command will make DataLad search the default location for
 procedures in a dataset, the source code of DataLad or
 installed DataLad extensions, and the default locations for

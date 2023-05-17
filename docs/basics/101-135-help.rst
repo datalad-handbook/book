@@ -48,8 +48,8 @@ To find out which version you are using, run
 .. index:: ! datalad command; wtf
 
 If you want a comprehensive overview of your full setup,
-:command:`datalad wtf` [#f1]_ is the command to turn to
-(:manpage:`datalad-wtf` manual). Running this command will
+:command:`datalad wtf` [#f1]_ is the command to turn to.
+Running this command will
 generate a report about the DataLad installation and configuration.
 The output below shows an excerpt.
 

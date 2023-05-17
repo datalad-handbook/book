@@ -22,7 +22,7 @@ concepts of DataLad datasets together by creating one.
 .. index:: ! datalad command; create
 
 Find a nice place on your computer's file system to put a dataset for ``DataLad-101``,
-and create a fresh, empty dataset with the :command:`datalad create` command (:manpage:`datalad-create` manual).
+and create a fresh, empty dataset with the :command:`datalad create` command.
 
 Note the command structure of :command:`datalad create` (optional bits are enclosed in ``[ ]``)::
 

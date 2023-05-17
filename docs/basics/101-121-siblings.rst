@@ -101,7 +101,7 @@ Let's see how this is done.
 
 First of all, navigate back into the original dataset.
 In the original dataset, "add" a "sibling" by using
-the :command:`datalad siblings` command (:manpage:`datalad-siblings` manual).
+the :command:`datalad siblings` command.
 The command takes the base command,
 :command:`datalad siblings`, an action, in this case ``add``, a path to the
 root of the dataset ``-d .``, a name for the sibling, ``-s/--name roommate``,

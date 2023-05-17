@@ -57,8 +57,8 @@ called recordings.
 
 .. index:: ! datalad command; clone
 
-The command that can be used to obtain a dataset is :command:`datalad clone` (:manpage:`datalad-clone`
-manual), but we often refer to the process of cloning a Dataset as *installing*.
+The command that can be used to obtain a dataset is :command:`datalad clone`,
+but we often refer to the process of cloning a Dataset as *installing*.
 Let's install the longnow podcasts in this new directory.
 
 The :command:`datalad clone` command takes a location of an existing dataset to clone. This *source*
@@ -233,7 +233,7 @@ So how does one actually "get" the files?
 
 .. index:: ! datalad command; get
 
-The command to retrieve file content is :command:`datalad get` (:manpage:`datalad-get` manual).
+The command to retrieve file content is :command:`datalad get`.
 You can specify one or more specific files, or ``get`` all of the dataset by
 specifying :command:`datalad get .` at the root directory of the dataset (with ``.`` denoting "current directory").
 
@@ -310,7 +310,7 @@ really helpful to save disk space for data you can easily re-obtain, for example
 
 .. index:: datalad command; drop
 
-The :command:`datalad drop` command (:manpage:`datalad drop` manual) will remove
+The :command:`datalad drop` command will remove
 file contents completely from your dataset.
 You should only use this command to remove contents that you can :command:`get`
 again, or generate again (for example with next chapter's :command:`datalad run`

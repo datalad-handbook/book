@@ -616,10 +616,9 @@ For this, you need to
 
 .. index:: ! datalad command; create-sibling-gitlab
 
-Luckily, DataLad can make all of this very easy with the
-:command:`datalad create-sibling-github` (:manpage:`datalad-create-sibling-github` manual)
-command (or, for `GitLab <https://about.gitlab.com/>`_, :command:`datalad create-sibling-gitlab`,
-:manpage:`datalad-create-sibling-gitlab` manual).
+Luckily, DataLad can make this very easy with the
+:command:`datalad create-sibling-github`
+command (or, for `GitLab <https://about.gitlab.com/>`_, :command:`datalad create-sibling-gitlab`).
 
 The two commands have different arguments and options.
 Here, we look at :command:`datalad create-sibling-github`.
@@ -681,8 +680,7 @@ Verify that this worked by listing the siblings of the dataset:
 On GitHub, you will see a new, empty repository with the name
 ``midtermproject``. However, the repository does not yet contain
 any of your dataset's history or files. This requires *publishing* the current
-state of the dataset to this :term:`sibling` with the :command:`datalad push`
-(:manpage:`datalad-push` manual) command.
+state of the dataset to this :term:`sibling` with the :command:`datalad push` command.
 
 .. importantnote:: Learn how to push "on the job"
 

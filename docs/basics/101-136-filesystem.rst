@@ -547,8 +547,8 @@ Copying files across dataset boundaries
 
 Instead of moving files across dataset boundaries, *copying* them is an easier
 and actually supported method.
-The DataLad command that can be used for this is :command:`datalad copy-file`
-(:manpage:`datalad-copy-file` manual). This command allows to copy files
+The DataLad command that can be used for this is :command:`datalad copy-file`.
+This command allows to copy files
 (from any dataset or non-dataset location, annexed or not annexed) into a dataset.
 If the file is copied from a dataset and is annexed, its availability metadata
 is added to the new dataset as well, and there is no need for unannex'ing the
@@ -987,7 +987,7 @@ Removing annexed content entirely
 .. index:: ! datalad command; drop
 
 The command to remove file content entirely and irreversibly from a repository is
-the :command:`datalad drop` command (:manpage:`datalad-drop` manual).
+the :command:`datalad drop` command.
 This command will delete the content stored in the annex of the dataset,
 and can be very helpful to make a dataset more lean if the file content is
 either irrelevant or can be retrieved from other sources easily. Think about a
@@ -1142,8 +1142,7 @@ A ``datalad get [-n/--no-data] cloud`` would install the dataset again.
 .. index:: ! datalad command; remove
 
 In case one wants to fully delete a subdataset from a dataset, the
-:command:`datalad remove` command (:manpage:`datalad-remove` manual) is
-relevant [#f3]_.
+:command:`datalad remove` command is relevant [#f3]_.
 It needs a pointer to the root of the superdataset with the ``-d/--dataset``
 flag, a path to the subdataset to be removed, and optionally a commit message
 (``-m/--message``) or recursive specification (``-r/--recursive``).

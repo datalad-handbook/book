@@ -104,7 +104,7 @@ a ``run`` command, and he's eager to show it to you.
 "In order to re-execute a :command:`datalad run` command,
 find the commit and use its :term:`shasum` (or a :term:`tag`, or anything else that Git
 understands) as an argument for the
-:command:`datalad rerun` command (:manpage:`datalad-rerun` manual)! That's it!",
+:command:`datalad rerun` command! That's it!",
 he says happily.
 
 So you go ahead and find the commit :term:`shasum` in your history:
@@ -158,7 +158,7 @@ command, and looks just like the previous :command:`datalad run` commit.
 .. index:: ! datalad command; diff
 
 Two cool tools that go beyond the :command:`git log`
-are the :command:`datalad diff` (:manpage:`datalad-diff` manual) and :command:`git diff` commands.
+are the :command:`datalad diff` and :command:`git diff` commands.
 Both commands can report differences between two states of
 a dataset. Thus, you can get an overview of what changed between two commits.
 Both commands have a similar, but not identical structure: :command:`datalad diff`

@@ -53,7 +53,7 @@ integrate them.
 .. index:: ! datalad command; update
 
 This is done with the :command:`datalad update --how merge`
-command (:manpage:`datalad-update` manual).
+command.
 
 .. runrecord:: _examples/DL-101-119-102
    :language: console

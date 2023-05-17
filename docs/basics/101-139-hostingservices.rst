@@ -98,7 +98,7 @@ How to add a sibling on a Git repository hosting site: The automated way
 
 DataLad provides ``create-sibling-*`` commands to automatically create datasets on certain hosting sites.
 You can automatically create new repositories from the command line for :term:`GitHub`, :term:`GitLab`, :term:`gin`, `Gogs <https://gogs.io/>`__, or `Gitea <https://gitea.io/en-us/>`__.
-This is implemented with a new set of commands called :command:`create-sibling-github`, :command:`create-sibling-gitlab`, :command:`create-sibling-gin`, :command:`create-sibling-gogs`, and :command:`create-sibling-gitea`.
+This is implemented with a set of commands called :command:`create-sibling-github`, :command:`create-sibling-gitlab`, :command:`create-sibling-gin`, :command:`create-sibling-gogs`, and :command:`create-sibling-gitea`.
 
 Each command is slightly tuned towards the peculiarities of each particular platform, but the most important common parameters are streamlined across commands as follows:
 

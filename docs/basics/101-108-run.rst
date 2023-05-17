@@ -152,8 +152,7 @@ can be used to update it later on.
 
 .. index:: ! datalad command; run
 
-The :command:`datalad run` command (:manpage:`datalad-run` manual)
-can help with this. Put simply, it records a command's impact on a dataset. Put
+The :command:`datalad run` command can help with this. Put simply, it records a command's impact on a dataset. Put
 more technically, it will record a shell command, and :command:`save` all changes
 this command triggered in the dataset -- be that new files or changes to existing
 files.

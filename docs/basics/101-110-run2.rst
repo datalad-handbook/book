@@ -236,8 +236,7 @@ and thus protected by git-annex.
 .. index:: ! datalad command; unlock
 
 There is a DataLad command that takes care of unlocking file content,
-and thus making locked files modifiable again: :command:`datalad unlock`
-(:manpage:`datalad-unlock` manual).
+and thus making locked files modifiable again: :command:`datalad unlock`.
 Let us check out what it does:
 
 .. windows-wit:: What happens if I run this on Windows?

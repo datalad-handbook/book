@@ -254,12 +254,9 @@ remaining sections in that file, and the :ref:`that dissects this config file fu
    The second section of ``.git/config`` is a git-annex configuration.
    As mentioned above, git-annex will use the
    :term:`Git config file` for some of its configurations.
-   For example, it lists the repository as a
-   "version 8 repository", and gives the dataset its own git-annex
-   UUID. While the "annex-uuid" [#f4]_ looks like yet another cryptic
-   random string of characters, you have seen a UUID like this before:
-   A :command:`git annex whereis` displays information about where the
-   annexed content in a dataset is with these UUIDs.
+   For example, it lists the repository version and git-annex
+   UUID [#f4]_ (which you have seen in :command:`git annex whereis` commands, that display information about where the
+   annexed content is with these UUIDs).
    This section also specifies the supported backends in this dataset.
    If you have read the hidden section in the section
    :ref:`symlink` you will recognize the name "MD5E". This is the
@@ -279,7 +276,7 @@ remaining sections in that file, and the :ref:`that dissects this config file fu
    For each subdataset, an individual submodule entry
    will store the information about the subdataset's
    ``--source`` or *origin* (the "url").
-   Thus, every subdataset (and sub-subdataset, and so forth) in your dataset
+   Thus, every subdataset in your dataset
    will be listed in this file.
    If you want, go back to section :ref:`installds` to see that the
    "url" is the same URL we cloned the longnow dataset from, and
@@ -290,11 +287,11 @@ remaining sections in that file, and the :ref:`that dissects this config file fu
    Here we can find the :term:`sibling` "roommate" we defined
    in :ref:`sibling`. The term :term:`remote` is Git-terminology and is
    used to describe other repositories or DataLad datasets that the
-   repository knows about and tracks.
+   repository knows about.
    This file, therefore, is where DataLad *registered* the sibling
    with :command:`datalad siblings add`, and thanks to it you can
    collaborate with your room mate.
-   Note the *path* given as a value to the ``url`` variable. If at any point
+   The value to the ``url`` variable is a *path*. If at any point
    either your superdataset or the remote moves on your file system,
    the association between the two datasets breaks -- this can be fixed by adjusting this
    path, and a demonstration of this is in section :ref:`filesystem`.

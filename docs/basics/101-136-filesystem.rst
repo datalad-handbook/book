@@ -1123,7 +1123,7 @@ Using the :command:`drop` command gives you greater flexibility.
     https://github.com/datalad-datasets/disneyanimation-cloud.git \
     cloud
 
-To uninstall the dataset, use
+To uninstall the dataset, you can use
 
 .. runrecord:: _examples/DL-101-136-182
    :language: console
@@ -1188,7 +1188,7 @@ stored in the object tree of git-annex. If you want, you can re-read the section
 :ref:`symlink` to find out how git-annex revokes write permission for the user
 to protect the file content given to it. To remove a dataset with annexed content
 one has to regain write permissions to everything in the dataset. This is done
-with the `chmod <https://en.wikipedia.org/wiki/Chmod>`_ command::
+with the Unix ``chmod`` command::
 
     chmod -R u+w <dataset>
 

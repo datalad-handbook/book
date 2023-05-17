@@ -565,7 +565,7 @@ stored in Git, and a file stored in annex:
 
 Both files have been successfully transferred and saved to the subdataset, and
 no unannexing was necessary.
-Note, though, that ``notes.txt`` was annexed in the subdataset, as this subdataset
+``notes.txt`` was annexed in the subdataset, though, as this subdataset
 was not configured with the ``text2git`` :term:`run procedure`.
 
 .. runrecord:: _examples/DL-101-136-147

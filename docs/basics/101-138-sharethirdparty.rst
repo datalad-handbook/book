@@ -51,18 +51,6 @@ The section :ref:`gitlfs` talks about using the centralized, for-pay service
 `Git LFS <https://git-lfs.github.com/>`_ for sharing dataset content on GitHub, and the
 section :ref:`figshare` shows built-in dataset export to services such as
 `figshare.com <https://figshare.com/>`__.
-If you want a walk-through for a different service, or if you maybe even want to share
-your own walk-through, please `get in touch <https://github.com/datalad-handbook/book/issues/new>`_.
-
-.. importantnote:: There can never be "too much" documentation
-
-   If you plan to share your own datasets with people that are unfamiliar with
-   DataLad, it may be helpful to give a short explanation of what a DataLad
-   dataset is and what it can do. For this, you can use a ready-made text
-   block that the handbook provides. To find this textblock, go to
-   :ref:`dataset_textblock`. Alternatively, run :command:`datalad add-readme`.
-
-
 
 Leveraging third party infrastructure
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

@@ -354,11 +354,6 @@ only benefit your future self, but also whomever you share your dataset with, as
 the information about the container is shared together with the dataset. How cool
 is that?
 
-If you are interested in more, you can read about another example of :command:`datalad containers-run`
-in the usecase :ref:`usecase_reproduce_neuroimg`.
-
-
-
 .. only:: adminmode
 
     Add a tag at the section end.
@@ -371,7 +366,6 @@ in the usecase :ref:`usecase_reproduce_neuroimg`.
 
 .. rubric:: Footnotes
 
-.. [#f1] To read more about DataLad's extensions, see section :ref:`extensions_intro`.
 .. [#f2] The main reason why Docker is not deployed on HPC systems is because
          it grants users "`superuser privileges <https://en.wikipedia.org/wiki/Superuser>`_".
          On multi-user systems such as HPC, users should not have those

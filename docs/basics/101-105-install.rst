@@ -99,6 +99,11 @@ also recorded where this dataset came from, thus capturing its *origin* as
 :term:`provenance`. Even though this is not obvious at this point in time, later
 chapters in this handbook will demonstrate how useful this information can be.
 
+.. gitusernote:: Clone internals
+
+   The :command:`datalad clone` command uses :command:`git clone`.
+   A dataset that is installed from an existing source, e.g., a path or URL,
+   is the DataLad equivalent of a *clone* in Git.
 
 .. find-out-more:: Do I have to install from the root of datasets?
 
@@ -127,12 +132,6 @@ chapters in this handbook will demonstrate how useful this information can be.
    option is necessary to not only install the dataset, but also *register* it
    automatically into the higher level *superdataset*. The upcoming section will
    elaborate on this.
-
-.. gitusernote:: Clone internals
-
-   The :command:`datalad clone` command uses :command:`git clone`.
-   A dataset that is installed from an existing source, e.g., a path or URL,
-   is the DataLad equivalent of a *clone* in Git.
 
 Here is the repository structure:
 

@@ -607,18 +607,6 @@ syllabus, this should be done via :term:`GitHub`.
 Publishing the dataset to GitHub
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. importantnote:: Demo needs a GitHub account or alternative
-
-   The upcoming part requires a GitHub account. If you do not have one you
-   can either
-
-   - Create one now -- it is fast, free, and you can get rid of it afterwards,
-     if you want to.
-   - Or exchange the command ``create-sibling-github`` with
-     ``create-sibling-gitlab`` if you have a GitLab account instead of a GitHub
-     account (checkout `the documentation <http://docs.datalad.org/en/stable/generated/man/datalad-create-sibling-gitlab.html>`_ for differences in invocation beforehand, though).
-   - Decide to not follow along.
-
 For this, you need to
 
 - create a repository for this dataset on GitHub,

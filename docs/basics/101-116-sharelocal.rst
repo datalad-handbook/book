@@ -188,8 +188,7 @@ and hostname of your computer. "This", you exclaim, excited about your own reali
 
    Back in the very first section of the Basics, :ref:`createDS`, a hidden
    section mentioned the ``--description`` option of :command:`datalad create`.
-   With this option, you can provide a description about the *location* of
-   your dataset.
+   With this option, you can provide a description about the dataset *location*.
 
    The :command:`git annex whereis` command, finally, is where such a description
    can become handy: If you had created the dataset with

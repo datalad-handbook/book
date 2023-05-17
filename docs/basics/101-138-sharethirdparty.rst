@@ -121,7 +121,7 @@ The hosting services can be all kinds of private, institutional, or commercial s
 
 To register a special remote in your dataset and use it for file storage, you need to configure the service of your choice and *publish* the annexed contents to it. Afterwards, the published dataset (e.g., via :term:`GitHub` or :term:`GitLab`) stores the information about where to obtain annexed file contents from such that
 :command:`datalad get` works.
-Once you have configured the service of your choice, you can push your datasets Git history to the repository hosting service and the annexed contents to the special remote. But DataLad also makes it easy to push these different dataset contents exactly where they need to be automatically via a :term:`publication dependency`.
+Once you have configured the service of your choice, you can push your datasets Git history to the repository hosting service and the annexed contents to the special remote. DataLad also makes it easy to push these different dataset contents exactly where they need to be automatically via a :term:`publication dependency`.
 
 Exemplary walk-throughs for `Dropbox <https://dropbox.com>`_, `Amazon S3 buckets <https://aws.amazon.com/s3/?nc1=h_ls>`_, and `Git LFS  <https://github.com/git-lfs/git-lfs>`__ can be found in the upcoming sections in this chapter.
 But the general workflow looks as follows:

@@ -165,21 +165,21 @@ Likewise, adjusting the log-level also works the other way around, and lets you 
    - **error**: With this log level you will receive reports on any errors that occurred within the program during command execution.
    - **warning**: At this log level, the command execution will report on usual situations and anything that *might* be a problem, in addition to report anything from the *error* log level. .
    - **info**: This log level will include reports by the program that indicate normal behavior and serve to keep you up to date about the current state of things, in additions to warning and error logging messages.
-   - **debug**: This log level is very useful to troubleshoot a problem, and results in DataLad telling you *a lot* it possibly can.
+   - **debug**: This log level is very useful to troubleshoot a problem, and results in DataLad telling you *a lot* about what it is doing.
 
-   Other than log *levels*, you can also adjust the amount of information provided with numerical granularity. Instead of specifying a log level, provide an integer between 1 and 9, with lower values denoting more debugging information.
+   Other than log *levels*, you can also adjust the amount of information provided with numerical granularity. Instead of specifying a log level, provide an integer between 1 and 50, with lower values denoting more debugging information.
 
-   Raising the log level (e.g, to ``error``, or ``9``) will decrease the amount of information and output you will receive, while lowering it (e.g., to ``debug`` or ``1``) will increase it.
+   Raising the log level (e.g, to ``error``, or ``40``) will decrease the amount of information and output you will receive, while lowering it (e.g., to ``debug`` or ``10``) will increase it.
 
 
 
 Setting a log level can be done in the form of an :term:`environment variable`, a configuration, or with the ``-l``/``--log-level`` flag appended directly after the main :command:`datalad` command.
-To get extensive information on what :command:`datalad status` does underneath the hood, your command could look like this:
+To get extensive information on what :command:`datalad status` does underneath the hood, your command could look like this (but its output is shortened):
 
 .. runrecord:: _examples/DL-101-135-105
    :language: console
    :workdir: dl-101/DataLad-101
-   :lines: 1-15, 60-
+   :lines: 1, 3-5, 60-
 
    $ datalad --log-level debug status
 

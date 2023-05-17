@@ -441,8 +441,8 @@ re-execution with :command:`datalad rerun` easy.
    - `seaborn <https://seaborn.pydata.org/>`_
    - `sklearn <https://scikit-learn.org/>`_
 
-   The packages can be installed via ``pip``. Check the footnote [#f3]_ for code
-   snippets to copy and paste. However, if you do not want to install any
+   The packages can be installed via ``pip`` [#f3]_.
+   However, if you do not want to install any
    Python packages, do not execute the remaining code examples in this section
    -- an upcoming section on ``datalad containers-run`` will allow you to
    perform the analysis without changing your Python software-setup.

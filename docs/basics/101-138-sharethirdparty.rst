@@ -130,9 +130,9 @@ From your perspective (as someone who wants to share data), you will
 need to
 
 - (potentially) install/setup the relevant *special-remote*,
-- create a dataset sibling on GitHub/GitLab/... for others to install from
-- set up a *publication dependency* between repository hosting and special remote , so that annexed contents are automatically pushed to the special remote when ever you update the sibling on the Git repository hosting site
-- publish your dataset
+- create a dataset sibling on GitHub/GitLab/... for others to install from,
+- set up a *publication dependency* between repository hosting and special remote, so that annexed contents are automatically pushed to the special remote when ever you update the sibling on the Git repository hosting site,
+- publish your dataset.
 
 This gives you the freedom to decide where your data lives and
 who can have access to it. Once this set up is complete, updating and

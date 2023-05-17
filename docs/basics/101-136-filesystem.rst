@@ -1026,7 +1026,6 @@ remaining symlink will fail, but the content can be obtained easily again with
 
 If a file has no verified remote copies, DataLad will only drop its
 content if the user enforces it using the ``--reckless [MODE]`` option, where ``[MODE]`` is either ``modification`` (drop despite unsaved modifications) ``availability`` (drop even though no other copy is known) ``undead`` (only for datasets; would drop a dataset without announcing its death to linked dataset clones) or ``kill`` (no safety checks at all are run).
-While the ``--reckless`` parameter sounds more complex, it ensures a safer operation than the previous ``--nocheck`` implementation.
 We will demonstrate this by generating an empty file:
 
 .. runrecord:: _examples/DL-101-136-177
@@ -1049,7 +1048,7 @@ DataLad will safeguard dropping content that it can not retrieve again:
 
    $ datalad drop a.pdf
 
-But with ``--nocheck`` (for ``<0.16``) or ``--reckless availability`` (for ``0.16`` and higher) it will work:
+But with ``--reckless availability`` it will work:
 
 .. runrecord:: _examples/DL-101-136-179
    :workdir: dl-101/DataLad-101
@@ -1199,7 +1198,7 @@ Afterwards, ``rm -rf <dataset>`` will succeed.
 However, instead of ``rm -rf``, a faster way to remove a dataset is using
 :command:`datalad remove`: Run ``datalad remove <dataset>`` outside of the
 superdataset to remove a top-level dataset with all its contents. Likely,
-both  ``--recursive`` and ``--nocheck`` (for DataLad versions ``<0.16``) or ``--reckless [availability|undead|kill]`` (for DataLad versions ``0.16`` and higher) flags are necessary
+both  ``--recursive`` and ``--reckless [availability|undead|kill]`` flags are necessary
 to traverse into subdatasets and to remove content that does not have verified remotes.
 
 Be aware though that both ways to delete a dataset will

@@ -55,7 +55,7 @@ Publishing your dataset to GIN
 .. index:: ! datalad command; create-sibling-gin
 
 As outlined in the section :ref:`share_hostingservice`, there are two ways in which you can publish your dataset to Gin.
-Either by 1) creating a new, empty repository on GIN via the web interface, or 2), if you use DataLad version ``0.16`` or higher, via the :command:`create-sibling-gin` command (:manpage:`datalad-create-sibling-gin` manual).
+Either by 1) creating a new, empty repository on GIN via the web interface, or 2) via the :command:`create-sibling-gin` command.
 
 **1) via webinterface:** If you choose to create a new repository via Gin's web interface, make sure to not initialize it with a README:
 

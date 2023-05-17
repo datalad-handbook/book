@@ -114,7 +114,7 @@ chapters in this handbook will demonstrate how useful this information can be.
    ``-d`` needs to specify the path to the root of the dataset. This is
    important to keep in mind whenever you do not execute the :command:`clone` command
    from the root of this dataset. Luckily, there is a shortcut: ``-d^`` will always
-   point to root of the top-most dataset. For example, if you navigate into ``recordings``
+   point to root of the top-most dataset. For example, if you navigate into ``recordings``,
    the command would be::
 
      datalad clone -d^ https://github.com/datalad-datasets/longnow-podcasts.git longnow

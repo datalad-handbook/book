@@ -207,7 +207,7 @@ a good message <fom-commit-message-guidance>`.
 .. gitusernote:: There is no staging area in DataLad
 
    Just as in Git, new files are not tracked from their creation on, but only when
-   explicitly added to Git (in Git terms with an initial :command:`git add`). But different
+   explicitly added to Git (in Git terms, with an initial :command:`git add`). But different
    from the common Git workflow, DataLad skips the staging area. A :command:`datalad save`
    combines a :command:`git add` and a :command:`git commit`, and therefore, the commit message
    is specified with :command:`datalad save`.

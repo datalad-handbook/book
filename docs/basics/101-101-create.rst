@@ -150,7 +150,7 @@ an informative commit message yourself.
 
       $ ls -a # show also hidden files
 
-   **For non-Git-Users: these hidden** *dot-directories* **are necessary for all Git magic**
+   **For non-Git-Users: these hidden** *dot-directories* and *dot-files* **are necessary for all Git magic**
    **to work. Please do not tamper with them, and, importantly,** *do not delete them.*
 
 Congratulations, you just created your first DataLad dataset!

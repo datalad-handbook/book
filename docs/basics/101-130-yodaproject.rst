@@ -143,16 +143,13 @@ independent dataset from scratch in a :ref:`dedicated Findoutmore <fom-iris>`.
    :name: fom-iris
    :float:
 
-   If you acquire your own data for a data analysis, it will not magically exist as a
-   DataLad dataset that you can simply install from somewhere -- you'll have
-   to turn it into a dataset yourself. Any directory with data that exists on
+   If you acquire your own data for a data analysis, you will have
+   to turn it into a DataLAd dataset in order to install it as a subdataset.
+   Any directory with data that exists on
    your computer can be turned into a dataset with :command:`datalad create --force`
    and a subsequent :command:`datalad save -m "add data" .` to first create a dataset inside of
    an existing, non-empty directory, and subsequently save all of its contents into
    the history of the newly created dataset.
-   And that's it already -- it does not take anything more to create a stand-alone
-   input dataset from existing data (apart from restraining yourself from
-   modifying it afterwards).
 
    To create the ``iris_data`` dataset at https://github.com/datalad-handbook/iris_data
    we first created a DataLad dataset...
@@ -168,7 +165,7 @@ independent dataset from scratch in a :ref:`dedicated Findoutmore <fom-iris>`.
       $ datalad create iris_data
 
    and subsequently got the data from a publicly available
-   `GitHub Gist <https://gist.github.com/netj/8836201>`_, a code snippet or other short standalone information (more on Gists `here <https://docs.github.com/en/github/writing-on-github/editing-and-sharing-content-with-gists/creating-gists#about-gists>`__), with a
+   `GitHub Gist <https://gist.github.com/netj/8836201>`_, a code snippet, or other short standalone information with a
    :command:`datalad download-url` command:
 
     .. runrecord:: _examples/DL-101-130-102
@@ -178,8 +175,7 @@ independent dataset from scratch in a :ref:`dedicated Findoutmore <fom-iris>`.
        $ cd iris_data
        $ datalad download-url https://gist.githubusercontent.com/netj/8836201/raw/6f9306ad21398ea43cba4f7d537619d0e07d5ae3/iris.csv
 
-   Finally, we *published* (more on this later in this section) the dataset
-   to :term:`GitHub`.
+   Finally, we *published* the dataset  to :term:`GitHub`.
 
    With this setup, the iris dataset (a single comma-separated (``.csv``)
    file) is downloaded, and, importantly, the dataset recorded *where* it

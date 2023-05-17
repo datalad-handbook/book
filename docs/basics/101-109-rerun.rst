@@ -145,7 +145,6 @@ it will also not be recorded in the history.
 .. runrecord:: _examples/DL-101-109-107
    :language: console
    :workdir: dl-101/DataLad-101
-   :emphasize-lines: 4
    :notes: how does a rerun look in the history?
    :cast: 02_reproducible_execution
 
@@ -154,8 +153,7 @@ it will also not be recorded in the history.
 In the dataset's history,
 we can see that a new :command:`datalad run` was recorded. This action is
 committed by DataLad under the original commit message of the ``run``
-command, and looks just like the previous :command:`datalad run` commit apart
-from the execution time.
+command, and looks just like the previous :command:`datalad run` commit.
 
 .. index:: ! datalad command; diff
 

@@ -35,7 +35,7 @@ important to communicate all details about the computational environment for
 an analysis as thoroughly as possible. Luckily, DataLad provides an extension
 that can link computational environments to datasets, the
 `datalad containers <http://docs.datalad.org/projects/container/en/latest/>`_
-extension [#f1]_.
+extension.
 
 This section will give a quick overview on what containers are and
 demonstrate how ``datalad-containers`` helps to capture full provenance of an

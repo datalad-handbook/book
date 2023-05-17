@@ -99,7 +99,7 @@ dataset:
 
 This will install your dataset ``DataLad-101`` into your room mate's home
 directory. Note that we have given this new
-dataset a description about its location as well. Note further that we
+dataset a description about its location. Note further that we
 have not provided the optional destination path to :command:`datalad clone`,
 and hence it installed the dataset under its original name in the current directory.
 

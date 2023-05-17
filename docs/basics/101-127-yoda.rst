@@ -431,8 +431,8 @@ and the start of a comprehensible directory structure by applying the ``yoda`` p
 
 Sources
 ^^^^^^^
-This section is based on this comprehensive
-`poster <https://f1000research.com/posters/7-1965>`_ and these publicly
+This section is based on a comprehensive
+`poster <https://f1000research.com/posters/7-1965>`_ and publicly
 available `slides <https://github.com/myyoda/talk-principles>`_ about the
 YODA principles.
 

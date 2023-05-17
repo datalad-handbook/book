@@ -307,7 +307,7 @@ Finally, let's check how the history looks afterwards:
 
    $ git log -2
 
-Wow! You have rewritten history [#f4]_ !
+Wow! You have rewritten history [#f4]_!
 
 Untracking accidentally saved contents (stored in git-annex)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

@@ -1092,23 +1092,25 @@ private :term:`SSH key`\s or passwords, or too many or too large files are
 accidentally saved into Git, and *need* to get out of the dataset history.
 The command ``git-filter-repo <path-specification> --force`` will "filter-out",
 i.e., remove all files **but the ones specified** in ``<path-specification>``
-from the dataset's history. The section :ref:`cleanup` shows an example
-invocation. If you want to use it, however, make sure to attempt it in a dataset
-clone or with its ``--dry-run`` flag first. It is easy to lose dataset history
-and files with this tool.
+from the dataset's history. An advanced chapter in the online version of the handbook
+shows an example invocation.
 
 Uninstalling or deleting subdatasets
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. index:: ! datalad command; uninstall
 
-Depending on the exact aim, two commands are of relevance for
+Depending on the exact aim, different commands are of relevance for
 deleting a DataLad subdataset. The softer (and not so much "deleting" version)
-is to uninstall a dataset with the :command:`datalad uninstall`
-(:manpage:`datalad-uninstall` manual).
+is to uninstall a dataset with a :command:`datalad drop`.
+To work on datasets, ``drop`` needs to be parametrized with ``--what all``.
+If needed, add ``--recursive`` in case the dataset contains subdatasets, and a
+fitting ``--reckless`` mode.
+A stand-alone command, :command:`datalad uninstall`, wraps a ``datalad drop --what all --reckless kill``.
 This command can be used to uninstall any number of
 *subdatasets*. Note though that only subdatasets can be uninstalled; the command
 will error if given a sub-*directory*, a file, or a top-level dataset.
+Using the :command:`drop` command gives you greater flexibility.
 
 .. runrecord:: _examples/DL-101-136-181
    :language: console

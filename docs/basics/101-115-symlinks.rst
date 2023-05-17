@@ -64,7 +64,7 @@ repository in the root of any dataset. One reason
 why you should not do this is because *this* ``.git`` directory is where all of your file content
 is actually stored.
 
-But why is that? We have to talk a bit git-annex now in order to understand it [#f1]_.
+But why is that? We have to talk a bit git-annex now in order to understand it.
 
 When a file is saved into a dataset to be tracked,
 by default -- that is in a dataset created without any configuration template --
@@ -339,11 +339,3 @@ If so, please take a look into the Windows Wit below.
    Alternatively, use `git-annex adjust --unlock <https://git-annex.branchable.com/git-annex-adjust/>`_ to switch to a new dataset :term:`branch` in which all files are unlocked.
    The branch is called ``adjusted/<branchname>(unlocked)`` (e.g., if the original branch name was ``main``, the new, adjusted branch will be called ``adjusted/main(unlocked)``).
    You can switch back to your original branch using ``git checkout <branchname>``.
-
-.. rubric:: Footnotes
-
-.. [#f1] Note, though, that the information below applies to everything that is not an
-         *adjusted branch* in a git-annex *v7 repository* -- this information does not make
-         sense yet, but it will be an important reference point later on.
-         Just for the record: Currently, we do not yet have a v7 repository
-         in ``DataLad-101``, and the explanation below applies to our current dataset.

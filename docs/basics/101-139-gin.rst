@@ -84,7 +84,7 @@ and you can type "yes" to continue::
 
 **2) via command-line:**
 If you choose to use the :command:`create-sibling-gin` command, supply the command with a name for the repository, and optionally add a ``-s/--siblingname [NAME]`` parameter (if unconfigured it will be ``gin``), and ``--access-protocol [https|ssh|https-ssh]`` (ideally ``ssh``).
-The command has a number of additional useful parameters, so make sure to take a look at  :manpage:`datalad-create-sibling-gin`.
+The command has a number of additional useful parameters, so make sure to take a look at its ``--help``.
 
 
 Afterwards, you can publish your dataset with :command:`datalad push`. As the

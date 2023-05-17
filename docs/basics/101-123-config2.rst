@@ -43,9 +43,7 @@ But what is the rest? We'll start with the last row::
 
    * annex.largefiles=((mimeencoding=binary)and(largerthan=0))
 
-Uhhh, cryptic. The lecturer explains:
-
-"git-annex will *annex*, that is, *store in the object-tree*,
+Uhhh, cryptic. The lecturer explains: "git-annex will *annex*, that is, *store in the object-tree*,
 anything it considers to be a "large file". By default, anything
 in your dataset would be a "large file", that means anything would be annexed.
 However, in section :ref:`symlink` I already mentioned that exceptions to this

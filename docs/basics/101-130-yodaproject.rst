@@ -728,11 +728,6 @@ state of the dataset to this :term:`sibling` with the :command:`datalad push`
 Thus, you have now published your dataset's history to a public place for others
 to see and clone. Below we will explore how this may look and feel for others.
 
-.. importantnote:: Cave! Your default branch may be git-annex
-
-   If your published dataset looks weird, with cryptic directories names instead of file names, GitHub may have made the :term:`git-annex branch` your repositories' default branch.
-   Learn how to fix this in the  corresponding :ref:`FAQ <gitannexdefault>`.
-
 There is one important detail first, though: By default, your tags will not be published.
 Thus, the tag ``ready4analysis`` is not pushed to GitHub, and currently this
 version identifier is unavailable to anyone else but you.

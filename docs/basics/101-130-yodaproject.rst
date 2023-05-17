@@ -841,9 +841,6 @@ reproduce your data science project easily from scratch (take a look into the :r
    Proud of your midterm project you can not wait to use those principles the
    next time again.
 
-    .. image:: ../artwork/src/reproduced.svg
-       :width: 50%
-
 .. gitusernote:: Push internals
 
    The :command:`datalad push` uses ``git push``, and ``git annex copy`` under

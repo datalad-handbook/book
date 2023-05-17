@@ -90,13 +90,9 @@ Both of these tools share core terminology:
   an Image built from a publicly shared recipe from the *Hub* of the tool you are using.
 
 **Hub**
-  A storage resource to share and consume images. Among the most popular registries are
-  `Singularity-Hub <https://singularity-hub.org/>`_ and
-  `Docker-Hub <https://hub.docker.com/>`_. Both are optional, additional services
-  not required to use software containers, but a convenient way to share recipes
-  and have imaged built from them by a service (instead of building them
-  manually and locally).
-  Another large container registry is `Amazon ECR <https://aws.amazon.com/ecr/>`_ which hosts Docker Images.
+  A storage resource to share and consume images. Examples are
+  `Singularity-Hub <https://singularity-hub.org/>`_,
+  `Docker-Hub <https://hub.docker.com/>`_, and`Amazon ECR <https://aws.amazon.com/ecr/>`_ which hosts Docker Images.
 
 Note that as of now, the ``datalad-containers`` extension supports
 Singularity and Docker images.

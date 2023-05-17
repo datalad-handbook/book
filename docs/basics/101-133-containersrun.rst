@@ -102,7 +102,7 @@ Singularity (even without having Docker installed).
 
 .. importantnote:: Additional requirement: Singularity
 
-   In order to use Singularity containers (and thus ``datalad containers``), you have to
+   In order to use Singularity containers you have to
    `install <https://sylabs.io/guides/3.0/user-guide/installation.html>`_ the software singularity.
 
 Using ``datalad containers``

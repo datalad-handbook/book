@@ -166,7 +166,7 @@ In order to back-up datasets you can publish them to a
 solution does not require Git, git-annex, or DataLad to be installed on the
 machine that the back-up is pushed to, the latter does require them.
 
-To find out more about RIA stores, checkout the section :ref:`riastore`.
+To find out more about RIA stores, checkout the online version of the handbook.
 A sketch of how to implement a sibling for backups is below:
 
 .. code-block:: bash

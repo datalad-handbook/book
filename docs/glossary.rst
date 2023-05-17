@@ -91,9 +91,8 @@ Glossary
       manage data referenced in a dataset. In practice, most DataLad datasets will come with an annex.
 
    DataLad extension
-      Python packages that equip DataLad with specialized commands. The section
-      :ref:`extensions_intro` gives and overview of available extensions and links
-      to Handbook chapters that contain demonstrations.
+      Python packages that equip DataLad with specialized commands. The online version of the handbook has an entire chapter that
+      gives an overview of available extensions contains demonstrations.
 
    DataLad Gooey
       A :term:`DataLad extension` that provides DataLad with a graphical user interface. Find out more in its Documentation: `docs.datalad.org/projects/gooey <http://docs.datalad.org/projects/gooey/en/latest/>`_
@@ -311,7 +310,7 @@ Glossary
    Remote Indexed Archive (RIA) store
       A Remote Indexed Archive (RIA) Store is a flexible and scalable dataset storage
       solution, useful for collaborative, back-up, or storage workflows. Read more
-      about RIA stores in the section :ref:`riastore`.
+      about RIA stores in the online version of the handbook.
 
    run procedure
       DataLad concept: An executable (such as a script) that can be called with the

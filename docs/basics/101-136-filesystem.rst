@@ -438,7 +438,7 @@ convenient. It can be a confusing and potentially "file-content-losing"-dangerou
 process, but it also dissociates a file from its provenance that is captured
 in its previous dataset, with no machine-readable way to learn about the move
 easily. A better alternative may be copying files with the :command:`datalad copy-file`
-command introduced in detail in :ref:`copyfile`, and demonstrated in the next
+command introduced in detail in the web version, and demonstrated in the next
 but one paragraph. Let's quickly clean up by moving the file back:
 
 .. runrecord:: _examples/DL-101-136-137

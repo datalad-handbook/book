@@ -202,8 +202,8 @@ The creative case: Ensuring availability using only repository hosting
 
 When you only want to use pure Git repository hosting services without annex support, you can still allow others to obtain (some) file contents with some creativity:
 
-For one, you can use commands such as :command:`datalad download-url` (:manpage:`datalad-download` manual) or :command:`datalad addurls` (:manpage:`datalad-addurls` manual) to retrieve files from web sources and register their location automatically.
-The first Chapter :ref:`chapter_datasets` demonstrates :command:`download-url`, and the usecase :ref:`usecase_HCP_dataset` demonstrates ``addurls`` on a large scale.
+For one, you can use commands such as :command:`datalad download-url` or :command:`datalad addurls`  to retrieve files from web sources and register their location automatically.
+The first Chapter :ref:`chapter_datasets` demonstrates :command:`download-url`.
 
 Other than this, you can rely on digital provenance in the form of :term:`run record`\s that allow consumers of your dataset to recompute a result instead of :command:`datalad get`\ing it.
 The midterm-project example in section :ref:`yoda_project` has been an example for this.
@@ -225,8 +225,6 @@ General information on publishing datasets
 Beyond concrete examples of publishing datasets, some general information may be useful in addition:
 The section :ref:`push` illustrates the DataLad command :command:`datalad push`, a command that handles every publication operation, regardless of the type of published content or its destination.
 In addition to this, the section :ref:`privacy` contains tips and strategies on publishing datasets without leaking potentially private contents or information.
-Finally, you may be interested in publishing datasets into centrally managed locations for backup, archival, or central data management.
-In this case, take a look at the advanced section :ref:`riastore`.
 
 
 .. rubric:: Footnotes

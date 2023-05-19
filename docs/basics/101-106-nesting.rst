@@ -60,7 +60,7 @@ downloaded into ``books/``. Instead,
 DataLad stores what it calls a *subproject commit* of the subdataset.
 The cryptic character sequence in this line is the :term:`shasum` we have briefly
 mentioned before, and it is the identifier that
-DataLad internally used to identify the files and the changes to the files in the subdataset. Exactly, this
+DataLad internally used to identify the files and the changes to the files in the subdataset. Exactly this
 :term:`shasum` is what identifies the state of the subdataset.
 
 

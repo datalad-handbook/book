@@ -32,7 +32,7 @@ files, the extension template has the following core content:
   extension command suite (in the template: ``hello_cmd``) and demonstrates
   how extension command classes should inherit from DataLad classes in order
   for them to be exposed via the DataLad command line and Python API.
-- ``docs/``: which contains a basic implementation of `Sphinx <https://www.sphinx-doc.org/en/master/index.html#>`_
+- ``docs/``: which contains a basic implementation of `Sphinx <https://www.sphinx-doc.org/en/master/index.html>`_
   for document generation.
 - ``.appveyor.yml``: which contains the setup for continuous integration
   with `Appveyor <https://www.appveyor.com/>`_.

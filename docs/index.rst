@@ -86,6 +86,7 @@ Appendix
    glossary
    basics/101-180-FAQ
    basics/101-136-cheatsheet
+   basics/shell
    contributing
    teaching
    acknowledgements

@@ -1,40 +1,101 @@
 .. \_usecase_Rstat:
 
-My first steps as a R users
+My first steps as a RStudio users
 ---------------------------
 
 .. index:: ! Usecase; R users quickstart
 
-This use case sketches typical entry points for R users, who know
-nothing about bash, but still want to leverage the power of git-annex
-and datalad. I will list here issues I needed some testing before
-understanding. Hopefully this will help you quickstart your journey. 
+This use case sketches typical entry points for R and Rstudio users. 
+
+#. A repository having submodules for data and code is cloned.
+#. R scripts are developped in Rstudio
+#. R scripts are run usind datalad run
+
+This is a `hello world` type of analysis, used only for demonstration purposes
+
+The Challenge
+^^^^^^^^^^^^^
+
+Max has been using Rstudio together with GitHub for a long time. They know how git
+works. Max has learned that git will not work with their new project,
+because there will be too many files and some dataset files will be too large.
+Max read the datalad handbook basics and is decided to apply datalad.
+Max still want to use Rstudio and a combination of R and python scripts for the
+data analysis.
+
+Bobby is a data manager who already learned (the hard way), how to handle datalad
+using Rstudio. They have also created a GIN repository with submodules 
+for data and for code, using the Tonic tool and templates.
+
+
+Setting up
+^^^^^^^^^^
+
+Max first want to clone the repository on their computer, they use the Rstudio 
+`create a new project` function using the SSH address of the parent repository.
+Max can't see submodules content and come to Bobby.
+
+Bobby comes and run `datalad get . -n -r` in the terminal window of Rstudio. 
+
+They then explain:
+  - Rstudio can only use simple git commands, which do not clone submodule content.
+  - datalad command are run in the terminal window. Datalad does not have a R package and do not run in the console
+  - This specific function `get .` will download all files, it has two options:
+     - `-n` option means annexed files will not be downloaded
+     - `-r` option means that the function is run in all submodules, recursively
+
+Max has learned something, and it realise that git-annex is probably not set in its repositoy.
+After reading the handbook, they see the create function need to be forced 
+when the folder already exist, so they  run 
+`datalad create --force -r` in the parent repository.
+Now they are sure they set up datalad to work in the repository and all submodules,
+since they used the `-r` option.
+
+Working on the code
+^^^^^^^^^^^^^^^^^^^
+
+
+THAT IS WHERE NEW WRITING STOPS.
+
 
 1.  Code and data: git and git-annex
 2.  Using `datalad run` ?
 3.  Dealing with (relative) path
 4.  oups, how to undo `datalad save` done on the wrong repository ?
 
-This use case takes for granted you know how git works, but are not
-familiar with git-annex and datalad. This is the results of multiple
-tests and looking into what happened using sourcetree, as well as actually reading the `datalad run` chapter of the handbook a couple of time.
-
-I started with an existing repository, with submodules for data 
-and for code, as created by the tonic tool.
-`datalad create --force -r` was then used in the parent repository.
-
 .. gitusernote:: Take home messages:
   
-  datalad commands run in the terminal, not the Console.
+  datalad commands run in the terminal, not the R Console.
   
   The simplest way to tell datalad not to use git-annex for your code files is to use `datalad create -c text2git --force` command.
 
-  the `datalad run Rscript "path-to-script.r"` will run your script.
+  the `datalad run Rscript "path-to-script.r"` command will run your script.
   
-  Use additional options to read or write annexed files (and give more
-info for commit message).
+  Use additional options to read or write annexed files (and give more info for commit message).
 
-  in your R script, use path relative to the project, not relative to the code position.
+  In your R script, use path relative to the project, not relative to the code position.
+  
+
+Working with existing repositories
+----------------------------------
+
+I usually create my repositories online, and clone them afterwards on my computer,
+using the Rstudio `create a new project` function.
+While Rstudio does only support basic git functions, this will not clone submodules.
+I am therefore using the `datalad get . -n -r` function to do that.
+As a Rstudio user, I am using the integrated terminal tab (next to the console tab),
+so that the command is executed in the right folder.
+
+Details
+  - `get .` means download all files 
+  - `-n` option means annexed files will not be downloaded
+  - `-r` option means that the function is run in all submodules
+
+Note that it you cloned "pure git" repositories, datalad functions will not use git-annex.
+To make it use git-annex (in all submodules), you need to run 
+`datalad create --force -r` in the parent repository.
+
+
 
 Why git-annex
 -------------

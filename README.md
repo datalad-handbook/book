@@ -2,7 +2,7 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3608611.svg)](https://doi.org/10.5281/zenodo.3608611)
 [![made-with-datalad](https://www.datalad.org/badges/made_with.svg)](https://datalad.org)
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-53-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-56-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END --> 
 
 # The DataLad handbook :orange_book:
@@ -128,6 +128,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="http://juliankosciessa.eu"><img src="https://avatars.githubusercontent.com/u/40263608?v=4?s=100" width="100px;" alt="Julian Kosciessa"/><br /><sub><b>Julian Kosciessa</b></sub></a><br /><a href="#content-jkosciessa" title="Content">🖋</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/candleindark"><img src="https://avatars.githubusercontent.com/u/12135617?v=4?s=100" width="100px;" alt="Isaac To"/><br /><sub><b>Isaac To</b></sub></a><br /><a href="#maintenance-candleindark" title="Maintenance">🚧</a> <a href="#content-candleindark" title="Content">🖋</a> <a href="https://github.com/datalad-handbook/book/issues?q=author%3Acandleindark" title="Bug reports">🐛</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/asmacdo"><img src="https://avatars.githubusercontent.com/u/1028657?v=4?s=100" width="100px;" alt="Austin Macdonald"/><br /><sub><b>Austin Macdonald</b></sub></a><br /><a href="https://github.com/datalad-handbook/book/issues?q=author%3Aasmacdo" title="Bug reports">🐛</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/cs-hall"><img src="https://avatars.githubusercontent.com/u/67027056?v=4?s=100" width="100px;" alt="Christopher S. Hall"/><br /><sub><b>Christopher S. Hall</b></sub></a><br /><a href="https://github.com/datalad-handbook/book/issues?q=author%3Acs-hall" title="Bug reports">🐛</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/jcf2"><img src="https://avatars.githubusercontent.com/u/48492023?v=4?s=100" width="100px;" alt="jcf2"/><br /><sub><b>jcf2</b></sub></a><br /><a href="https://github.com/datalad-handbook/book/issues?q=author%3Ajcf2" title="Bug reports">🐛</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://orcid.org/0000-0002-3127-5520"><img src="https://avatars.githubusercontent.com/u/1876667?v=4?s=100" width="100px;" alt="Julien Colomb"/><br /><sub><b>Julien Colomb</b></sub></a><br /><a href="#content-jcolomb" title="Content">🖋</a></td>
     </tr>
   </tbody>
 </table>

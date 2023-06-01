@@ -569,6 +569,33 @@
       "contributions": [
         "bug"
       ]
+    },
+    {
+      "login": "cs-hall",
+      "name": "Christopher S. Hall",
+      "avatar_url": "https://avatars.githubusercontent.com/u/67027056?v=4",
+      "profile": "https://github.com/cs-hall",
+      "contributions": [
+        "bug"
+      ]
+    },
+    {
+      "login": "jcf2",
+      "name": "jcf2",
+      "avatar_url": "https://avatars.githubusercontent.com/u/48492023?v=4",
+      "profile": "https://github.com/jcf2",
+      "contributions": [
+        "bug"
+      ]
+    },
+    {
+      "login": "jcolomb",
+      "name": "Julien Colomb",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1876667?v=4",
+      "profile": "https://orcid.org/0000-0002-3127-5520",
+      "contributions": [
+        "content"
+      ]
     }
   ],
   "contributorsPerLine": 7,
@@ -577,5 +604,6 @@
   "repoType": "github",
   "repoHost": "https://github.com",
   "skipCi": true,
-  "commitConvention": "angular"
+  "commitConvention": "angular",
+  "commitType": "docs"
 }

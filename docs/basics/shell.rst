@@ -17,6 +17,7 @@ Problem
 Removing datalad repositories with ``rm`` will fail due to missing write permissions under ``.git/annex/objects/..``:
 
 .. code-block::
+
    [deco]/tmp ❱ datalad clone https://github.com/datalad/testrepo--basic--r1
    [INFO   ] Remote origin not usable by git-annex; setting annex-ignore
    [INFO   ] https://github.com/datalad/testrepo--basic--r1/config download failed: Not Found
@@ -34,6 +35,7 @@ Solution
 This can be mitigated by manually changing permissions:
 
 .. code-block::
+
    [deco]/tmp ❱ chmod -R 775 testrepo--basic--r1/
    [deco]/tmp ❱ rm -rf testrepo--basic--r1/
 
@@ -43,6 +45,7 @@ Alternative
 DataLad provides its own command to substitute for ``rm`` functionality:
 
 .. code-block::
+
    [deco]/tmp ❱ datalad remove -d testrepo--basic--r1/
    drop(ok): . (key)
    uninstall(ok): . (dataset)
@@ -50,3 +53,55 @@ DataLad provides its own command to substitute for ``rm`` functionality:
      drop (ok: 1)
      uninstall (ok: 1)
 
+
+Pattern search via ``grep`` alternatives
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Problem
+^^^^^^^
+
+While ``grep -R`` follows symlinks by default, the original GNU implementation is often too slow for power-users.
+Faster alternative implementations commonly do not follow symlinks, by default, or at all.
+
+.. code-block::
+
+   [deco]/mnt/data/testrepo--basic--r1 ❱ git grep -r 123 | cat
+   test.dat:123
+   [deco]/mnt/data/testrepo--basic--r1 ❱ ag 123
+   test.dat
+   1:123
+   [deco]/mnt/data/testrepo--basic--r1 ❱ rg 123
+   test.dat
+   1:123
+   [deco]/mnt/data/testrepo--basic--r1 ❱ ack 123
+   test.dat
+   1:123
+
+Solution
+^^^^^^^^
+
+Thankfully, most of these implementations provide an optional flag which enables symlink support.
+Thus users should be advised to always remember using these flags when dealing with DataLad repositories, or to set them globally via an alias.
+Notably, however, ``git grep`` `does not support symlinks <https://git.vger.kernel.narkive.com/q1CpMpoI/grep-doesn-t-follow-symbolic-link>`_, meaning that this command cannot reliably be used with DataLad datasets.
+
+.. code-block::
+
+   [deco]/mnt/data/testrepo--basic--r1 ❱ ag -f 123
+   test.dat
+   1:123
+
+   test-annex.dat
+   1:123
+   [deco]/mnt/data/testrepo--basic--r1 ❱ rg -L 123
+   test.dat
+   1:123
+
+   test-annex.dat
+   1:123
+   [deco]/mnt/data/testrepo--basic--r1 ❱ ack --follow 123
+   test-annex.dat
+   1:123
+
+   test.dat
+   1:123

@@ -158,8 +158,7 @@ that captures the spirit of what DataLad is, and here is a brief overview on it.
 
 These principles hopefully gave you some idea of what to expect from DataLad,
 cleared some worries that you might have had, and highlighted what DataLad is and what
-it is not. The section :ref:`executive_summary` will give you a one-page summary
-of the functionality and commands you will learn with this handbook. But before we
-get there, let's get ready to *use* DataLad. For this, the next
+it is not.
+But now, let's get ready to *use* DataLad. For this, the next
 section will show you how to use the handbook.
 

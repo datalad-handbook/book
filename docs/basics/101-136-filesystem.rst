@@ -597,7 +597,7 @@ provenance record is lost:
 Nevertheless, copying files with :command:`datalad copy-file` is easier and safer
 than moving them with standard Unix commands, especially so for annexed files.
 A more detailed introduction to :command:`datalad copy-file` and a concrete
-usecase can currently be found in :ref:`copyfile`.
+usecase can be found in the online version of the handbook.
 
 Let's clean up:
 

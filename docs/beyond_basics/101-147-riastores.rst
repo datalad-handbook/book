@@ -133,7 +133,7 @@ repository are the original dataset -- just differently represented, with no
 *working tree*, i.e., directory hierarchy that exists in the original dataset,
 and without the name it was created under, but stored under its dataset ID instead.
 
-If necessary, the keystores (annex) can be (compressed) `7zipped <https://www.7-zip.org/>`_
+If necessary, the keystores (annex) can be (compressed) `7zipped <https://7-zip.org>`_
 archives (``archives/``), either for compression gains, or for use on HPC-systems with
 `inode <https://en.wikipedia.org/wiki/Inode>`_ limitations [#f4]_.
 Despite being 7zipped, those archives can be indexed and support

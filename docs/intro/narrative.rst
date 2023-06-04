@@ -39,6 +39,8 @@ with each. While learning, it will be easy to
    Throughout the book numerous *terms* for concepts and technical components
    are used. They are all defined in a :ref:`glossary`, and are printed
    with a glossary icon, such as :term:`Git`, or :term:`commit message`.
+   Links to external resources have a superscript that you can find in the Hyperlink index at the end of the book.
+   And internal links reference the page number of the box, section, or chapter in question.
 
 As the handbook is to be a practical guide it includes as many hands-on examples
 as we can fit into it. Code snippets look like this, and you should

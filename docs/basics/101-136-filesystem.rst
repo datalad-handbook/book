@@ -894,7 +894,7 @@ If its a lot of files or larger files that were accidentally annexed, you may wa
 Getting all content out of the annex (removing the annex repo)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-In case you want to get all annexed contents out of a Dataset at once, you could turn to `git annex uninit <https://git-annex.branchable.com/git-annex-uninit/>`_.
+In case you want to get all annexed contents out of a Dataset at once, you could turn to `git annex uninit <https://git-annex.branchable.com/git-annex-uninit>`_.
 It is a command that can be used to stop using git annex entirely in a given repository/dataset.
 Running this command will unannex every file in the repository, remove all of git-annex's other data, and remove the :term:`git-annex` branch, leaving you with a normal Git repository plus the previously annexed files.
 

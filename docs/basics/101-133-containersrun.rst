@@ -34,7 +34,7 @@ on your own machine once a new software update is installed. Therefore, it is
 important to communicate all details about the computational environment for
 an analysis as thoroughly as possible. Luckily, DataLad provides an extension
 that can link computational environments to datasets, the
-`datalad containers <http://docs.datalad.org/projects/container/en/latest/>`_
+`datalad containers <http://docs.datalad.org/projects/container/en/latest>`_
 extension.
 
 This section will give a quick overview on what containers are and
@@ -69,10 +69,10 @@ software environment on a computer that you do not have permissions to deploy
 software on.
 
 There are a number of different tools to create and use containers, with
-`Docker <https://www.docker.com/>`_ being one of the most well-known of them.
+`Docker <https://www.docker.com>`_ being one of the most well-known of them.
 While being a powerful tool, it is only rarely used on high performance computing
 (HPC) infrastructure [#f2]_. An alternative is `Singularity <https://sylabs
-.io/docs/>`_.
+.io/docs>`_.
 Both of these tools share core terminology:
 
 **Recipe**
@@ -91,8 +91,8 @@ Both of these tools share core terminology:
 
 **Hub**
   A storage resource to share and consume images. Examples are
-  `Singularity-Hub <https://singularity-hub.org/>`_,
-  `Docker-Hub <https://hub.docker.com/>`_, and`Amazon ECR <https://aws.amazon.com/ecr/>`_ which hosts Docker Images.
+  `Singularity-Hub <https://singularity-hub.org>`_,
+  `Docker-Hub <https://hub.docker.com>`_, and`Amazon ECR <https://aws.amazon.com/ecr>`_ which hosts Docker Images.
 
 Note that as of now, the ``datalad-containers`` extension supports
 Singularity and Docker images.

@@ -16,7 +16,7 @@ This compressed archive can be uploaded to any data hosting portal manually.
 This moves data out of version control and decentralized tracking, and essentially "throws it over the wall" - while your data (also the annexed data) will be available for download from where you share it, none of the special features a DataLad dataset provides will be available, such as its history or configurations.
 
 Another example is :command:`export-to-figshare`.
-`Figshare <https://figshare.com/>`__ is an online open access repository where researchers can preserve and share their research outputs, including figures, datasets, or images - and thus everything that could potentially be managed in a Datalad dataset.
+`Figshare <https://figshare.com>`__ is an online open access repository where researchers can preserve and share their research outputs, including figures, datasets, or images - and thus everything that could potentially be managed in a Datalad dataset.
 Running :command:`datalad export-to-figshare` allows you to publish the dataset as a snapshot.
 Note that this requires a free account on Figshare, and the generation of an `access token <https://figshare.com/account/applications>`_ for authentication.
 An interactive prompt will ask you to supply authentication credentials, and guide you through the process of creating a new article.

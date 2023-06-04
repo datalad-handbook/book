@@ -134,7 +134,7 @@ computational environments, results, ...) in dedicated directories. For example:
   leave the input data of an analysis untouched by your computations.
 
 - Include a place for complete **execution environments**, for example
-  `singularity images <https://singularity.lbl.gov/>`_ or
+  `singularity images <https://singularity.lbl.gov>`_ or
   `docker containers <https://www.docker.com/get-started>`_ [#f2]_, in
   the form of an ``envs/`` directory, if relevant for your analysis.
 

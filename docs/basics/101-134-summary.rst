@@ -24,7 +24,7 @@ for yourself why and how software containers can go hand-in-hand with DataLad:
   from the environment of the computer it runs on. This allows you to create or
   use secluded software and also share it together with your analysis to ensure
   computational reproducibility. The DataLad extension
-  `datalad containers <http://docs.datalad.org/projects/container/en/latest/>`_
+  `datalad containers <http://docs.datalad.org/projects/container/en/latest>`_
   can make this possible.
 
 - The command :command:`datalad containers-add` registers an Image from a path or
@@ -51,8 +51,8 @@ projects automatically reproducible, but automatically *computationally* reprodu
 you can make sure that your analyses runs on any computer with Singularity,
 regardless of the software environment on this computer. Even if you are unsure how you can wrap up an
 environment into a software container Image at this point, you could make use of
-hundreds of publicly available Images on `Singularity-Hub <https://singularity-hub.org/>`_ and
-`Docker-Hub <https://hub.docker.com/>`_.
+hundreds of publicly available Images on `Singularity-Hub <https://singularity-hub.org>`_ and
+`Docker-Hub <https://hub.docker.com>`_.
 
 With this, you have also gotten a first glimpse into an extension of DataLad: A
 Python module you can install with Python package managers such as ``pip`` that

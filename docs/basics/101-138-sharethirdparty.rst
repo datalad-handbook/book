@@ -29,7 +29,7 @@ services (for example :term:`GitHub`, :term:`GitLab`, or :term:`Gin`)
 and/or third party storage providers (such as `Dropbox <https://dropbox.com>`_,
 `Google <https://google.com>`_,
 `Amazon S3 buckets <https://aws.amazon.com/s3/?nc1=h_ls>`_,
-the `Open Science Framework (OSF) <https://osf.io/>`__, and many others).
+the `Open Science Framework (OSF) <https://osf.io>`__, and many others).
 
 This chapter tackles different aspects of dataset publishing.
 The remainder of this section talks about general aspects of dataset publishing, and
@@ -48,20 +48,20 @@ kind of Git repository hosting service.
 The sections :ref:`s3` and :ref:`dropbox` are concrete examples of sharing datasets
 publicly or with selected others via different cloud services.
 The section :ref:`gitlfs` talks about using the centralized, for-pay service
-`Git LFS <https://git-lfs.github.com/>`_ for sharing dataset content on GitHub, and the
+`Git LFS <https://git-lfs.github.com>`_ for sharing dataset content on GitHub, and the
 section :ref:`figshare` shows built-in dataset export to services such as
-`figshare.com <https://figshare.com/>`__.
+`figshare.com <https://figshare.com>`__.
 
 Leveraging third party infrastructure
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 There are several ways to make datasets available for others:
 
-- You can **publish your dataset to a repository with annex support** such as :term:`Gin` or the `Open Science Framework (OSF) <https://osf.io/>`__ [#f1]_. This is the easiest way to share datasets and all their contents. Read on in the section :ref:`gin` or consult the tutorials of the `datalad-osf extension <http://docs.datalad.org/projects/osf/en/latest/index.html>`_ to learn how to do this.
+- You can **publish your dataset to a repository with annex support** such as :term:`Gin` or the `Open Science Framework (OSF) <https://osf.io>`__ [#f1]_. This is the easiest way to share datasets and all their contents. Read on in the section :ref:`gin` or consult the tutorials of the `datalad-osf extension <http://docs.datalad.org/projects/osf/en/latest/index.html>`_ to learn how to do this.
 
 - You can **publish your dataset to a repository hosting service**, and **configure an external resource that stores your annexed data**. Such a resource can be a private web server, but also a third party services cloud storage such as `Dropbox <https://dropbox.com>`_, `Google <https://google.com>`_, `Amazon S3 buckets <https://aws.amazon.com/s3/?nc1=h_ls>`_, `Box.com <https://www.box.com/en-gb/home>`_, `owncloud <https://owncloud.com>`_, `sciebo <https://hochschulcloud.nrw>`_, or many more.
 
-- You can **export your dataset statically** as a snapshot to a service such as  `Figshare <https://figshare.com/>`__ or the `Open Science Framework (OSF) <https://osf.io/>`__ [#f1]_.
+- You can **export your dataset statically** as a snapshot to a service such as  `Figshare <https://figshare.com>`__ or the `Open Science Framework (OSF) <https://osf.io>`__ [#f1]_.
 
 - You can **publish your dataset to a repository hosting service** and ensure that
   all dataset contents are either available from pre-existing public sources or can be recomputed from a :term:`run record`.
@@ -71,8 +71,8 @@ Dataset contents and third party services influence sharing
 
 Because DataLad datasets are :term:`Git` repositories, it is possible to
 :command:`push` datasets to any Git repository hosting service, such as
-:term:`GitHub`, :term:`GitLab`, :term:`Gin`, :term:`Bitbucket`, `Gogs <https://gogs.io/>`_,
-or `Gitea <https://gitea.io/en-us/>`_.
+:term:`GitHub`, :term:`GitLab`, :term:`Gin`, :term:`Bitbucket`, `Gogs <https://gogs.io>`_,
+or `Gitea <https://gitea.io/en-us>`_.
 You have already done this in section :ref:`yoda_project` when you shared your ``midterm_project`` dataset via :term:`GitHub`.
 
 However, most Git repository hosting services do not support hosting the file content
@@ -101,8 +101,8 @@ The common case: Repository hosting without annex support and special remotes
 
 Because DataLad datasets are :term:`Git` repositories, it is possible to
 :command:`push` datasets to any Git repository hosting service, such as
-:term:`GitHub`, :term:`GitLab`, :term:`Gin`, :term:`Bitbucket`, `Gogs <https://gogs.io/>`_,
-or `Gitea <https://gitea.io/en-us/>`_.
+:term:`GitHub`, :term:`GitLab`, :term:`Gin`, :term:`Bitbucket`, `Gogs <https://gogs.io>`_,
+or `Gitea <https://gitea.io/en-us>`_.
 But while anything that is managed by Git is accessible in repository hosting services, they usually don't support storing annexed data [#f2]_.
 
 When you want to publish a dataset to a Git repository hosting service to allow others to easily find and clone it, but you also want others to be able to retrieve annexed files in this dataset via :command:`datalad get`, annexed contents need to be pushed to additional storage hosting services.
@@ -158,10 +158,10 @@ very familiar with.
 
 
 If you are interested in learning how to set up different services as special remotes, you can take a look at the sections :ref:`s3`, :ref:`dropbox` or :ref:`gitlfs` for concrete examples with DataLad datasets, and the general section :ref:`share_hostingservice` on setting up dataset siblings.
-In addition, there are step-by-step walk-throughs in the documentation of git-annex for services such as `S3 <https://git-annex.branchable.com/tips/public_Amazon_S3_remote/>`_, `Google Cloud Storage <https://git-annex.branchable.com/tips/using_Google_Cloud_Storage/>`_,
-`Box.com <https://git-annex.branchable.com/tips/using_box.com_as_a_special_remote/>`__,
-`Amazon Glacier <https://git-annex.branchable.com/tips/using_Amazon_Glacier/>`_,
-`OwnCloud <https://git-annex.branchable.com/tips/owncloudannex/>`__, and many more.
+In addition, there are step-by-step walk-throughs in the documentation of git-annex for services such as `S3 <https://git-annex.branchable.com/tips/public_Amazon_S3_remote>`_, `Google Cloud Storage <https://git-annex.branchable.com/tips/using_Google_Cloud_Storage>`_,
+`Box.com <https://git-annex.branchable.com/tips/using_box.com_as_a_special_remote>`__,
+`Amazon Glacier <https://git-annex.branchable.com/tips/using_Amazon_Glacier>`_,
+`OwnCloud <https://git-annex.branchable.com/tips/owncloudannex>`__, and many more.
 Here is the complete list: `git-annex.branchable.com/special_remotes <https://git-annex.branchable.com/special_remotes>`_.
 
 
@@ -215,7 +215,7 @@ The static case: Exporting dataset snapshots
 While DataLad datasets have the great advantage that they carry a history with all kinds of useful digital provenance and previous versions of files, it may not in all cases be necessary to make use of this advantage.
 Sometimes, you may just want to share or archive the most recent state of the dataset as a snapshot.
 
-DataLad provides the ability to do this out of the box to arbitrary locations, and support for specific services such as `Figshare <https://figshare.com/>`__.
+DataLad provides the ability to do this out of the box to arbitrary locations, and support for specific services such as `Figshare <https://figshare.com>`__.
 Find out more information on this in the section :ref:`figshare`.
 Other than that, some :term:`datalad extension`\s allow an export to additional services such as the Open Science Framework.
 
@@ -237,5 +237,5 @@ In addition to this, the section :ref:`privacy` contains tips and strategies on 
          is disabled by default, and to enable it you would need to have administrative
          access to the server and client side of your GitLab instance.
          Alternatively, GitHub can integrate with
-         `GitLFS <https://git-lfs.github.com/>`__, a non-free, centralized service
+         `GitLFS <https://git-lfs.github.com>`__, a non-free, centralized service
          that allows to store large file contents. :ref:`gitlfs` shows an example on how to use their free trial version.

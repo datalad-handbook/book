@@ -124,7 +124,7 @@ If you are a Windows 10 user with a native (i.e., not `Windows Subsystem for Lin
 
    A range of file system issues can affect the behavior of DataLad or its underlying tools on Windows 10.
    If necessary, the handbook provides workarounds for problems, explanations, or at least apologies for those inconveniences.
-   If you want to help us make the handbook or DataLad better for Windows users, please `get in touch <https://github.com/datalad-handbook/book/issues/new/>`_ -- every little improvement or bug report can help.
+   If you want to help us make the handbook or DataLad better for Windows users, please `get in touch <https://github.com/datalad-handbook/book/issues/new>`_ -- every little improvement or bug report can help.
 
 
 What you will learn in this book
@@ -132,7 +132,7 @@ What you will learn in this book
 
 This handbook will teach you simple, yet advanced principles of data
 management for reproducible, comprehensible, transparent, and
-`FAIR <https://www.go-fair.org/fair-principles/>`_ data
+`FAIR <https://www.go-fair.org>`_ data
 projects. It does so with hands-on tool use of DataLad and its
 underlying software, blended with clear explanations of relevant
 theoretical backgrounds whenever necessary, and by demonstrating

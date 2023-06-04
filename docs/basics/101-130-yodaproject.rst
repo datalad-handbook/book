@@ -10,7 +10,7 @@ knowledge about the YODA principles, but also gain practical experience.
 
 In principle, you can prepare YODA-compliant data analyses in any programming
 language of your choice. But because you are already familiar with
-the `Python <https://www.python.org/>`__ programming language, you decide
+the `Python <https://www.python.org>`__ programming language, you decide
 to script your analysis in Python. Delighted, you find out that there is even
 a Python API for DataLad's functionality that you can read about in :ref:`a Findoutmore on DataLad in Python<fom-pythonapi>`.
 
@@ -119,7 +119,7 @@ widely available -- a perfect dataset for your midterm project!
 .. importantnote:: Turn data analysis into dynamically generated documents
 
    Beyond the contents of this section, we have transformed the example analysis also into a template to write a reproducible paper.
-   If you're interested in checking that out, please head over to `github.com/datalad-handbook/repro-paper-sketch/ <https://github.com/datalad-handbook/repro-paper-sketch/>`_.
+   If you're interested in checking that out, please head over to `github.com/datalad-handbook/repro-paper-sketch/ <https://github.com/datalad-handbook/repro-paper-sketch>`_.
 
 Raw data as a modular, independent entity
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -437,9 +437,9 @@ re-execution with :command:`datalad rerun` easy.
    Note that you need to have the following Python packages installed to run the
    analysis [#f3]_:
 
-   - `pandas <https://pandas.pydata.org/>`_
-   - `seaborn <https://seaborn.pydata.org/>`_
-   - `sklearn <https://scikit-learn.org/>`_
+   - `pandas <https://pandas.pydata.org>`_
+   - `seaborn <https://seaborn.pydata.org>`_
+   - `sklearn <https://scikit-learn.org>`_
 
    The packages can be installed via ``pip`` [#f3]_.
    However, if you do not want to install any
@@ -578,7 +578,7 @@ syllabus, this should be done via :term:`GitHub`.
 
    GitHub is a web based hosting service for Git repositories. Among many
    different other useful perks it adds features that allow collaboration on
-   Git repositories. `GitLab <https://about.gitlab.com/>`_ is a similar
+   Git repositories. `GitLab <https://about.gitlab.com>`_ is a similar
    service with highly similar features, but its source code is free and open,
    whereas GitHub is a subsidiary of Microsoft.
 
@@ -618,7 +618,7 @@ For this, you need to
 
 Luckily, DataLad can make this very easy with the
 :command:`datalad create-sibling-github`
-command (or, for `GitLab <https://about.gitlab.com/>`_, :command:`datalad create-sibling-gitlab`).
+command (or, for `GitLab <https://about.gitlab.com>`_, :command:`datalad create-sibling-gitlab`).
 
 The two commands have different arguments and options.
 Here, we look at :command:`datalad create-sibling-github`.
@@ -628,7 +628,7 @@ configuration, or interactively).
 
 .. importantnote:: Generate a GitHub token
 
-   GitHub `deprecated user-password authentication <https://developer.github.com/changes/2020-02-14-deprecating-password-auth/>`_ supports authentication via personal access token only.
+   GitHub `deprecated user-password authentication <https://developer.github.com/changes/2020-02-14-deprecating-password-auth>`_ supports authentication via personal access token only.
 
    To ensure successful authentication, don't supply your password, but create a personal access token at `github.com/settings/tokens <https://github.com/settings/tokens>`_ [#f6]_ instead, and either
 

@@ -291,7 +291,7 @@ files is not as hard as I thought!”
 But downloading and adding content to your dataset “manually” has two
 disadvantages: For one, it requires you to download the content and save it.
 Compared to a workflow with no DataLad dataset, this is one additional command
-you have to perform (`and that additional time adds up, after a while <https://xkcd.com/1205/>`_). But a more
+you have to perform (`and that additional time adds up, after a while <https://xkcd.com/1205>`_). But a more
 serious disadvantage is that you have no electronic record of the source of the
 contents you added. The amount of :term:`provenance`, the time, date, and author
 of file, is already quite nice, but we don't know anything about where you downloaded

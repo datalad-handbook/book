@@ -259,7 +259,7 @@ to manage the file system in a DataLad dataset (:ref:`filesystem`).
    The next part of the symlink contains the actual hash.
    There are different hash functions available.
    Depending on which is used, the resulting :term:`checksum` has a certain length and structure, and the first part of the symlink actually states which hash function is used.
-   By default, DataLad uses ``MD5E`` checksums (relatively short and with a file extension), but should you want to, you can change this default to `one of many other types <https://git-annex.branchable.com/backends/>`_.
+   By default, DataLad uses ``MD5E`` checksums (relatively short and with a file extension), but should you want to, you can change this default to `one of many other types <https://git-annex.branchable.com/backends>`_.
    The reason why MD5E is used is because of its short length -- thus it is possible to ensure cross-platform compatibility and share datasets also with users on operating systems that have restrictions on total path lengths, such as Windows.
 
    The one remaining unidentified bit in the file name is the one after the checksum identifier.
@@ -270,7 +270,7 @@ to manage the file system in a DataLad dataset (:ref:`filesystem`).
 
    You now know a great deal more about git-annex and the object tree.
    Maybe you are as amazed as we are about some of the ingenuity used behind the scenes.
-   Even more mesmerizing things about git-annex can be found in its `documentation <https://git-annex.branchable.com/git-annex/>`_.
+   Even more mesmerizing things about git-annex can be found in its `documentation <https://git-annex.branchable.com/git-annex>`_.
 
 Broken symlinks
 ^^^^^^^^^^^^^^^
@@ -336,6 +336,6 @@ If so, please take a look into the Windows Wit below.
 
    Whenever you need to work with files from your datasets under Windows, you should *unlock* with ``datalad unlock``.
    This operation copies the file from the annex back to its original location, and thus removes the symlink (and also returns write :term:`permissions` to the file).
-   Alternatively, use `git-annex adjust --unlock <https://git-annex.branchable.com/git-annex-adjust/>`_ to switch to a new dataset :term:`branch` in which all files are unlocked.
+   Alternatively, use `git-annex adjust --unlock <https://git-annex.branchable.com/git-annex-adjust>`_ to switch to a new dataset :term:`branch` in which all files are unlocked.
    The branch is called ``adjusted/<branchname>(unlocked)`` (e.g., if the original branch name was ``main``, the new, adjusted branch will be called ``adjusted/main(unlocked)``).
    You can switch back to your original branch using ``git checkout <branchname>``.

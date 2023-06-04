@@ -72,7 +72,7 @@ command that failed is used. Are arguments specified correctly?
 Does the help list any caveats?
 
 There are multiple ways to find help on DataLad commands.
-You could turn to the `documentation <http://docs.datalad.org/>`_.
+You could turn to the `documentation <http://docs.datalad.org>`_.
 Alternatively, to get help right inside the terminal,
 run any command with the ``-h``/``--help`` option (also shown
 as an excerpt here):
@@ -122,7 +122,7 @@ Include
 Debugging like a DataLad-developer
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you have read a command's help from start to end, checked all software versions twice, even `asked colleagues to reproduce your problem (unsuccessfully) <https://xkcd.com/2083/>`_, and you still don't have any clue what is going on, then welcome to the debugging section!
+If you have read a command's help from start to end, checked all software versions twice, even `asked colleagues to reproduce your problem (unsuccessfully) <https://xkcd.com/2083>`_, and you still don't have any clue what is going on, then welcome to the debugging section!
 
 .. figure:: ../artwork/src/debug.svg
    :width: 50%
@@ -217,7 +217,7 @@ Debugging
 
 If the additional level of detail provided by logging messages is not enough, you can go further with actual :term:`debugging`.
 For this, add the ``--dbg`` or ``--idbg`` flag to the main :command:`datalad` command, as in ``datalad --dbg status``.
-Adding this flag will enter a `Python <https://docs.python.org/3/library/pdb.html>`_ or `IPython debugger <https://ipython.org/>`_ when something unexpectedly crashes.
+Adding this flag will enter a `Python <https://docs.python.org/3/library/pdb.html>`_ or `IPython debugger <https://ipython.org>`_ when something unexpectedly crashes.
 This allows you to debug the program right when it fails, inspect available variables and their values, or step back and forth through the source code.
 Note that debugging experience is not a prerequisite when using DataLad -- although it is `an exciting life skill <https://www.monkeyuser.com/2017/step-by-step-debugging>`_.
 `The official Python docs <https://docs.python.org/3/library/pdb.html#debugger-commands>`_ provide a good overview on the available debugger commands if you are interested in learning more about this.

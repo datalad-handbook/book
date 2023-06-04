@@ -5,7 +5,7 @@ Publishing datasets to Git repository hosting
 
 Because DataLad datasets are :term:`Git` repositories, it is possible to
 :command:`push` datasets to any Git repository hosting service, such as
-:term:`GitHub`, :term:`GitLab`, :term:`Gin`, :term:`Bitbucket`, `Gogs <https://gogs.io/>`_, or `Gitea <https://gitea.io/en-us/>`_.
+:term:`GitHub`, :term:`GitLab`, :term:`Gin`, :term:`Bitbucket`, `Gogs <https://gogs.io>`_, or `Gitea <https://gitea.io/en-us>`_.
 These published datasets are ordinary :term:`sibling`\s of your dataset, and among other advantages, they can constitute a back-up, an entry-point to retrieve your dataset for others or yourself, the backbone for collaboration on datasets, or the means to enhance visibility, findability and citeability of your work [#f1]_.
 This section contains a brief overview on how to publish your dataset to different services.
 
@@ -97,7 +97,7 @@ How to add a sibling on a Git repository hosting site: The automated way
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 DataLad provides ``create-sibling-*`` commands to automatically create datasets on certain hosting sites.
-You can automatically create new repositories from the command line for :term:`GitHub`, :term:`GitLab`, :term:`gin`, `Gogs <https://gogs.io/>`__, or `Gitea <https://gitea.io/en-us/>`__.
+You can automatically create new repositories from the command line for :term:`GitHub`, :term:`GitLab`, :term:`gin`, `Gogs <https://gogs.io>`__, or `Gitea <https://gitea.io/en-us>`__.
 This is implemented with a set of commands called :command:`create-sibling-github`, :command:`create-sibling-gitlab`, :command:`create-sibling-gin`, :command:`create-sibling-gogs`, and :command:`create-sibling-gitea`.
 
 Each command is slightly tuned towards the peculiarities of each particular platform, but the most important common parameters are streamlined across commands as follows:
@@ -167,7 +167,7 @@ Should you employ GitHub workflows, for example, a token without "workflow" scop
 
 
 .. [#f1] Many repository hosting services have useful features to make your work citeable.
-         For example, :term:`gin` is able to assign a :term:`DOI` to your dataset, and GitHub allows ``CITATION.cff`` files. At the same time, archival services such as `Zenodo <https://zenodo.org/>`_ often integrate with published repositories, allowing you to preserve your dataset with them.
+         For example, :term:`gin` is able to assign a :term:`DOI` to your dataset, and GitHub allows ``CITATION.cff`` files. At the same time, archival services such as `Zenodo <https://zenodo.org>`_ often integrate with published repositories, allowing you to preserve your dataset with them.
 
 .. [#f2] Your private SSH key is incredibly valuable, and it is important to keep
          it secret!
@@ -175,4 +175,4 @@ Should you employ GitHub workflows, for example, a token without "workflow" scop
          is protecting. If the private key does not have a passphrase, simply copying
          this file grants a person access!
 
-.. [#f3]  GitHub `deprecated user-password authentication <https://developer.github.com/changes/2020-02-14-deprecating-password-auth/>`_ and only supports authentication via personal access token from November 13th 2020 onwards. Supplying a password instead of a token will fail to authenticate.
+.. [#f3]  GitHub `deprecated user-password authentication <https://developer.github.com/changes/2020-02-14-deprecating-password-auth>`_ and only supports authentication via personal access token from November 13th 2020 onwards. Supplying a password instead of a token will fail to authenticate.

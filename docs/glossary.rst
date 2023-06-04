@@ -45,7 +45,7 @@ Glossary
    Bitbucket
       Bitbucket is an online platform where one can store and share version
       controlled projects using Git (and thus also DataLad project), similar
-      to :term:`GitHub` or :term:`GitLab`. See `bitbucket.org <https://bitbucket.org/>`_.
+      to :term:`GitHub` or :term:`GitLab`. See `bitbucket.org <https://bitbucket.org>`_.
 
    branch
       Git concept: A lightweight, independent history streak of your dataset. Branches can contain less,
@@ -72,7 +72,7 @@ Glossary
 
    conda
       A package, dependency, and environment management system for a number of programming languages.
-      Find out more at `docs.conda.io <https://docs.conda.io/en/latest/>`_.
+      Find out more at `docs.conda.io <https://docs.conda.io/en/latest>`_.
       It overlaps with :term:`pip` in functionality, but it is advised to not use both tools simultaneously for package management.
 
    container recipe
@@ -95,7 +95,7 @@ Glossary
       gives an overview of available extensions contains demonstrations.
 
    DataLad Gooey
-      A :term:`DataLad extension` that provides DataLad with a graphical user interface. Find out more in its Documentation: `docs.datalad.org/projects/gooey <http://docs.datalad.org/projects/gooey/en/latest/>`_
+      A :term:`DataLad extension` that provides DataLad with a graphical user interface. Find out more in its Documentation: `docs.datalad.org/projects/gooey <http://docs.datalad.org/projects/gooey/en/latest>`_
 
    DataLad subdataset
       A DataLad dataset contained within a different DataLad dataset (the parent or :term:`DataLad superdataset`).
@@ -119,11 +119,11 @@ Glossary
       To learn about debugging a failed execution of a DataLad command, take a look at the section :ref:`debug`.
 
    Docker
-       `Docker <https://www.docker.com/>`_ is a containerization software that can package software into :term:`software container`\s, similar to :term:`Singularity`.
+       `Docker <https://www.docker.com>`_ is a containerization software that can package software into :term:`software container`\s, similar to :term:`Singularity`.
        Find out more on `Wikipedia <https://en.wikipedia.org/wiki/Docker_(software)>`__.
 
    Docker-Hub
-       `Docker Hub <https://hub.docker.com/>`_ is a library for :term:`Docker` :term:`container image`\s.
+       `Docker Hub <https://hub.docker.com>`_ is a library for :term:`Docker` :term:`container image`\s.
        Among other things, it hosts and builds Docker container images.
        You can can *pull* :term:`container image`\s built from a publicly shared :term:`container recipe` from it.
 
@@ -162,7 +162,7 @@ Glossary
    Git
       A version control system to track changes made to small-sized files over time. You can find out
       more about git in `the (free) GitPro book <https://git-scm.com/book/en/v2>`_
-      or `interactive Git tutorials <https://try.github.io/>`_ on :term:`GitHub`.
+      or `interactive Git tutorials <https://try.github.io>`_ on :term:`GitHub`.
 
    git-annex
       A distributed file synchronization system, enabling sharing and synchronizing collections
@@ -183,7 +183,7 @@ Glossary
 
    GitHub
       GitHub is an online platform where one can store and share version controlled projects
-      using Git (and thus also DataLad project). See `GitHub.com <https://github.com/>`_.
+      using Git (and thus also DataLad project). See `GitHub.com <https://github.com>`_.
 
    Gitk
       A repository browser that displays changes in a repository or a selected set of commits. It
@@ -192,7 +192,7 @@ Glossary
 
    GitLab
       An online platform to host and share software projects version controlled with :term:`Git`,
-      similar to :term:`GitHub`. See `Gitlab.com <https://about.gitlab.com/>`_.
+      similar to :term:`GitHub`. See `Gitlab.com <https://about.gitlab.com>`_.
 
    globbing
       A powerful pattern matching function of a shell. Allows to match the names of multiple files
@@ -273,7 +273,7 @@ Glossary
 
    pip
       A Python package manager. Short for "Pip installs Python". ``pip install <package name>``
-      searches the Python package index `PyPi <https://pypi.org/>`_ for a
+      searches the Python package index `PyPi <https://pypi.org>`_ for a
       package and installs it while resolving any potential dependencies.
 
    pipe
@@ -402,12 +402,12 @@ Glossary
       equivalent of a :term:`remote` in Git.
 
    Singularity
-      `Singularity <https://sylabs.io/docs/>`_ is a containerization software that can package software into :term:`software container`\s.
+      `Singularity <https://sylabs.io/docs>`_ is a containerization software that can package software into :term:`software container`\s.
       It is a useful alternative to :term:`Docker` as it can run on shared computational infrastructure.
       Find out more on `Wikipedia <https://en.wikipedia.org/wiki/Singularity_(software)>`__.
 
    Singularity-Hub
-       `singularity-hub.org <https://singularity-hub.org/>`_ was a Singularity container portal.
+       `singularity-hub.org <https://singularity-hub.org>`_ was a Singularity container portal.
        Among other things, it hosts Singularity container images.
        You can can *pull* :term:`container image`\s built from it.
 
@@ -435,14 +435,14 @@ Glossary
 
    the DataLad superdataset ///
       DataLad provides unified access to a large amount of data at an open data
-      collection found at `datasets.datalad.org <http://datasets.datalad.org/>`_.
+      collection found at `datasets.datalad.org <http://datasets.datalad.org>`_.
       This collection is known as "The DataLad superdataset" and under its shortcut,
       ``///``. You can install the superdataset -- and subsequently query its content via metadata
       search -- by running ``datalad clone ///``.
 
    tig
       A text-mode interface for git that allows you to easily browse through your commit history.
-      It is not part of git and needs to be installed. Find out more `here <https://jonas.github.io/tig/>`_.
+      It is not part of git and needs to be installed. Find out more `here <https://jonas.github.io/tig>`_.
 
    terminal
       The terminal (sometimes also called a shell, console, or CLI) is an interactive, text based interface that allows you to access your computer's functionality.
@@ -471,7 +471,7 @@ Glossary
    vim
       A text editor, often the default in UNIX operating systems. If you are not used to using it,
       but ended up in it accidentally: press ``ESC`` ``:`` ``q`` ``!`` ``Enter`` to exit without saving.
-      Here is help: `A vim tutorial <https://www.openvim.com/>`_ and
+      Here is help: `A vim tutorial <https://www.openvim.com>`_ and
       `how to configure the default editor for git <https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration>`_.
 
    virtual environment

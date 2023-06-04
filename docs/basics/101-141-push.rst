@@ -160,7 +160,7 @@ As an example, consider what happens if we attempt a :command:`datalad push` to 
    $ datalad push --to roommate
 
 Publishing fails with the error message ``[remote rejected] (branch is currently checked out)``.
-This can be prevented with  `configuration settings <https://github.blog/2015-02-06-git-2-3-has-been-released/>`_ in Git versions 2.3 or higher, or by pushing to a branch of the sibling that is currently not checked-out.
+This can be prevented with  `configuration settings <https://github.blog/2015-02-06-git-2-3-has-been-released>`_ in Git versions 2.3 or higher, or by pushing to a branch of the sibling that is currently not checked-out.
 For more information on this, and other error messages during push, please checkout the section :ref:`help`.
 
 
@@ -168,4 +168,4 @@ For more information on this, and other error messages during push, please check
 
 .. [#f1]  RIA siblings are filesystem-based, scalable storage solutions for
           DataLad datasets. You can find out more about them in the online version.
-.. [#f2] For information on the ``numcopies`` and ``wanted`` settings of git-annex see its documentation at `git-annex.branchable.com/git-annex-wanted/ <https://git-annex.branchable.com/git-annex-wanted/>`_ and `git-annex.branchable.com/git-annex-numcopies/ <https://git-annex.branchable.com/git-annex-numcopies/>`_.
+.. [#f2] For information on the ``numcopies`` and ``wanted`` settings of git-annex see its documentation at `git-annex.branchable.com/git-annex-wanted/ <https://git-annex.branchable.com/git-annex-wanted>`_ and `git-annex.branchable.com/git-annex-numcopies/ <https://git-annex.branchable.com/git-annex-numcopies>`_.

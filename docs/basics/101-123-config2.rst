@@ -122,7 +122,7 @@ For example, files you will often edit by hand could be stored in Git if they ar
 not too large to ease modifying them [#f3]_.
 Once you know the basics of this type of configuration syntax, writing
 your own rules is easy. For more tips on how configure git-annex's content
-management in ``.gitattributes``, take a look at `the git-annex documentation <https://git-annex.branchable.com/tips/largefiles/>`_.
+management in ``.gitattributes``, take a look at `the git-annex documentation <https://git-annex.branchable.com/tips/largefiles>`_.
 Later however you will see preconfigured DataLad *procedures* such as ``text2git`` that
 can apply useful configurations for you, just as ``text2git`` added the last line
 in the root ``.gitattributes`` file.
@@ -557,5 +557,5 @@ Write a note about configurations in datasets into ``notes.txt``.
          backend in order to store new files with a new backend. Switching the backend of
          *all* files (new as well as existing ones) requires the :command:`git annex migrate`
          command
-         (see `the documentation <https://git-annex.branchable.com/git-annex-migrate/>`_ for
+         (see `the documentation <https://git-annex.branchable.com/git-annex-migrate>`_ for
          more information on this command).

@@ -142,3 +142,38 @@ This can be solved by explicitly instructing ``tar`` to follow symlinks via its 
    test-annex.dat
    [deco]/tmp ❱ ls -lah test-annex.dat
    -r--r--r-- 1 chymera chymera 4 May 31 16:01 test-annex.dat
+
+
+Reporting file/directory size via `du`
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Problem
+^^^^^^^
+
+The ``du`` command will also not follow symlinks by default:
+
+.. code-block::
+
+   [deco]/mnt/data/testrepo--basic--r1 ❱ head -c 1M </dev/urandom >myfile
+   [deco]/mnt/data/testrepo--basic--r1 ❱ du -s myfile
+   1024	myfile
+   [deco]/mnt/data/testrepo--basic--r1 ❱ datalad save myfile
+   add(ok): myfile (file)
+   save(ok): . (dataset)
+   action summary:
+     add (ok: 1)
+     save (ok: 1)
+   [deco]/mnt/data/testrepo--basic--r1 ❱ du -s myfile
+   4	myfile
+
+
+Solution
+^^^^^^^^
+
+This can again be compensated for by explicitly instructing the command to follow symlinks:
+
+.. code-block::
+
+   [deco]/mnt/data/testrepo--basic--r1 ❱ du -sL myfile
+   1024	myfile

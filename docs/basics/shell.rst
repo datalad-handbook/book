@@ -105,3 +105,40 @@ Notably, however, ``git grep`` `does not support symlinks <https://git.vger.kern
 
    test.dat
    1:123
+
+
+Creating archives via ``tar``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Problem
+^^^^^^^
+
+When creating archives with ``tar`` symlinks are by default stored as symlinks.
+This will break if individual files or subdirectories of a datalad repository are archived:
+
+.. code-block::
+
+   [deco]/mnt/data/testrepo--basic--r1 ❱ tar cJf mytest.tar.xz test-annex.dat
+   [deco]/mnt/data/testrepo--basic--r1 ❱ mv mytest.tar.xz /tmp/
+   [deco]/mnt/data/testrepo--basic--r1 ❱ cd /tmp
+   [deco]/tmp ❱ tar xvf mytest.tar.xz
+   test-annex.dat
+   [deco]/tmp ❱ ls -lah test-annex.dat
+   lrwxrwxrwx 1 chymera chymera 186 May 31 16:01 test-annex.dat -> .git/annex/objects/zk/71/SHA256E-s4--181210f8f9c779c26da1d9b2075bde0127302ee0e3fca38c9a83f5b1dd8e5d3b.dat/SHA256E-s4--181210f8f9c779c26da1d9b2075bde0127302ee0e3fca38c9a83f5b1dd8e5d3b.dat
+
+
+Solution
+^^^^^^^^
+
+This can be solved by explicitly instructing ``tar`` to follow symlinks via its ``-h, --dereference`` option, e.g.:
+
+
+.. code-block::
+
+   [deco]/mnt/data/testrepo--basic--r1 ❱ tar -hcJf mytest.tar.xz test-annex.dat
+   [deco]/mnt/data/testrepo--basic--r1 ❱ mv mytest.tar.xz /tmp/
+   [deco]/mnt/data/testrepo--basic--r1 ❱ cd /tmp
+   [deco]/tmp ❱ tar xvf mytest.tar.xz
+   test-annex.dat
+   [deco]/tmp ❱ ls -lah test-annex.dat
+   -r--r--r-- 1 chymera chymera 4 May 31 16:01 test-annex.dat

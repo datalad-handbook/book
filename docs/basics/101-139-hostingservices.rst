@@ -318,7 +318,7 @@ Afterwards, publish dataset hierarchies with the ``--recursive`` flag:
 Final step: Pushing to GitLab
 """""""""""""""""""""""""""""
 
-Once you have set up your dataset sibling(s), you can push individual datasets or recursive across a hierarchy with ``datalad push --to gitlab``.
+Once you have set up your dataset sibling(s), you can push individual datasets with ``datalad push --to gitlab`` or push recursively across a hierarchy by adding the ``--recursive`` flag to the push command. 
 
 
 .. rubric:: Footnotes

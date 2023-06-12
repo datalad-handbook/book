@@ -280,7 +280,7 @@ Then, follow these steps:
 
 Afterwards, :command:`datalad get` retrieves files from Gin, even if the dataset has been cloned from GitHub.
 
-.. gitusernote:: siblings as a common data source
+.. gitusernote:: Siblings as a common data source
 
    The argument ``as-common-datasrc <name>`` configures a sibling as a common data source -- in technical terms, as an auto-enabled git-annex special remote.
 

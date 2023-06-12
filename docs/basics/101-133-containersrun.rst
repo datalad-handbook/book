@@ -92,7 +92,7 @@ Both of these tools share core terminology:
 **Hub**
   A storage resource to share and consume images. Examples are
   `Singularity-Hub <https://singularity-hub.org>`_,
-  `Docker-Hub <https://hub.docker.com>`_, and`Amazon ECR <https://aws.amazon.com/ecr>`_ which hosts Docker Images.
+  `Docker-Hub <https://hub.docker.com>`_, and `Amazon ECR <https://aws.amazon.com/ecr>`_ which hosts Docker Images.
 
 Note that as of now, the ``datalad-containers`` extension supports
 Singularity and Docker images.

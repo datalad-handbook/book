@@ -28,7 +28,7 @@ When this happens, you will want to publish your dataset to repository hosting
 services (for example :term:`GitHub`, :term:`GitLab`, or :term:`Gin`)
 and/or third party storage providers (such as `Dropbox <https://dropbox.com>`_,
 `Google <https://google.com>`_,
-`Amazon S3 buckets <https://aws.amazon.com/s3/?nc1=h_ls>`_,
+`Amazon S3 buckets <https://aws.amazon.com/s3>`_,
 the `Open Science Framework (OSF) <https://osf.io>`__, and many others).
 
 This chapter tackles different aspects of dataset publishing.
@@ -59,7 +59,7 @@ There are several ways to make datasets available for others:
 
 - You can **publish your dataset to a repository with annex support** such as :term:`Gin` or the `Open Science Framework (OSF) <https://osf.io>`__ [#f1]_. This is the easiest way to share datasets and all their contents. Read on in the section :ref:`gin` or consult the tutorials of the `datalad-osf extension <http://docs.datalad.org/projects/osf/en/latest/index.html>`_ to learn how to do this.
 
-- You can **publish your dataset to a repository hosting service**, and **configure an external resource that stores your annexed data**. Such a resource can be a private web server, but also a third party services cloud storage such as `Dropbox <https://dropbox.com>`_, `Google <https://google.com>`_, `Amazon S3 buckets <https://aws.amazon.com/s3/?nc1=h_ls>`_, `Box.com <https://www.box.com/en-gb/home>`_, `owncloud <https://owncloud.com>`_, `sciebo <https://hochschulcloud.nrw>`_, or many more.
+- You can **publish your dataset to a repository hosting service**, and **configure an external resource that stores your annexed data**. Such a resource can be a private web server, but also a third party services cloud storage such as `Dropbox <https://dropbox.com>`_, `Google <https://google.com>`_, `Amazon S3 buckets <https://aws.amazon.com/s3>`_, `Box.com <https://www.box.com/en-gb/home>`_, `owncloud <https://owncloud.com>`_, `sciebo <https://hochschulcloud.nrw>`_, or many more.
 
 - You can **export your dataset statically** as a snapshot to a service such as  `Figshare <https://figshare.com>`__ or the `Open Science Framework (OSF) <https://osf.io>`__ [#f1]_.
 
@@ -123,7 +123,7 @@ To register a special remote in your dataset and use it for file storage, you ne
 :command:`datalad get` works.
 Once you have configured the service of your choice, you can push your datasets Git history to the repository hosting service and the annexed contents to the special remote. DataLad also makes it easy to push these different dataset contents exactly where they need to be automatically via a :term:`publication dependency`.
 
-Exemplary walk-throughs for `Dropbox <https://dropbox.com>`_, `Amazon S3 buckets <https://aws.amazon.com/s3/?nc1=h_ls>`_, and `Git LFS  <https://github.com/git-lfs/git-lfs>`__ can be found in the upcoming sections in this chapter.
+Exemplary walk-throughs for `Dropbox <https://dropbox.com>`_, `Amazon S3 buckets <https://aws.amazon.com/s3>`_, and `Git LFS  <https://github.com/git-lfs/git-lfs>`__ can be found in the upcoming sections in this chapter.
 But the general workflow looks as follows:
 
 From your perspective (as someone who wants to share data), you will

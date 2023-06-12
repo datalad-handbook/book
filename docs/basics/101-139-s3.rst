@@ -3,7 +3,7 @@
 Walk-through: Amazon S3 as a special remote
 -------------------------------------------
 
-`Amazon S3 <https://aws.amazon.com/s3/>`_ (or Amazon Simple Storage Service) is a
+`Amazon S3 <https://aws.amazon.com/s3>`_ (or Amazon Simple Storage Service) is a
 popular service by `Amazon Web Services <https://aws.amazon.com/>`_ (AWS) that
 provides object storage through a web service interface. An S3 bucket can be 
 configured as a :term:`git-annex` :term:`special remote`, allowing it to be used

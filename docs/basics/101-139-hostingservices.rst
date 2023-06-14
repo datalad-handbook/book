@@ -118,6 +118,8 @@ It needs to point to the URL of the instance, for example
 
    $ datalad create-sibling-gogs my_repo_on_gogs  --api "https://try.gogs.io"
 
+:term:`GitLab`'s internal organization differs from that of the other hosting services, and as there are multiple different GitLab instances, ``create-sibling-gitlab`` requires slightly more configuration than the other commands.
+Thus, a short walk-through is at the :ref:`end of this section <gitlab>`.
 
 .. _token:
 
@@ -160,7 +162,163 @@ Should you employ GitHub workflows, for example, a token without "workflow" scop
 
     [remote rejected] (refusing to allow a Personal Access Token to create or update workflow `.github/workflows/benchmarks.yml` without `workflow` scope)]
 
+.. _gitlab:
 
+Creating a sibling on GitLab
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+:term:`GitLab` is an open source Git repository hosting platform, and many institutions and companies deploy their own instance.
+This short walk-through demonstrates the necessary steps to create a GitLab sibling, and the different options GitLab allows for when creating siblings recursively for a dataset hierarchy.
+
+Step 1: Configure your site
+"""""""""""""""""""""""""""
+
+As a first step, users will need to create a configuration file following the format of `python-gitlab <https://python-gitlab.readthedocs.io/en/stable/cli-usage.html#configuration-file-format>`_.
+This configuration file is typically called ``.python-gitlab.cfg`` and placed into a users home directory.
+It contains one section per GitLab instance, and a ``[global]`` section that defines the default instance to use.
+Here is an example:
+
+.. code-block:: bash
+
+   $ cat ~/.python-gitlab.cfg
+    [global]
+    default = my-university-gitlab
+    ssl_verify = true
+    timeout = 5
+
+    [my-university-gitlab]
+    url = https://gitlab.my-university.com
+    private_token = <here-is-your-token>
+    api_version = 4
+
+    [gitlab-general]
+    url = https://gitlab.com
+    api_version = 4
+    private_token = <here-is-your-token>
+
+Once this configuration is in place, ``create-sibling-gitlab``'s ``--site`` parameter can be supplied with the name of the instance you want to use (e.g., ``datalad create-sibling-gitlab --site gitlab-general``).
+Ensure that the token for each instance has appropriate permissions to create new groups and projects under your user account using the GitLab API.
+
+.. figure:: ../artwork/src/gitlab-token.png
+
+Step 2: Create or select a group
+""""""""""""""""""""""""""""""""
+
+GitLab's organization consists of *projects* and *groups*.
+Projects are single repositories, and groups can be used to manage one or more projects at the same time.
+In order to use ``create-sibling-gitlab``, a user **must** `create a group <https://docs.gitlab.com/ee/user/group/#create-a-group>`_ via the web interface, or specify a pre-existing group, because `GitLab does not allow root-level groups to be created via their API <https://docs.gitlab.com/ee/api/groups.html#new-group>`_.
+Only when there already is a "parent" group DataLad and other tools can create sub-groups and projects automatically.
+In the screenshots below, a new group ``my-datalad-root-level-group`` is created right underneath the user account.
+The group name as shown in the URL bar is what DataLad needs in order to create sibling datasets.
+
+.. figure:: ../artwork/src/gitlab-rootgroup.png
+
+.. figure:: ../artwork/src/gitlab-rootgroup2.png
+
+
+Step 3: Select a layout
+"""""""""""""""""""""""
+
+Due to the distinction between groups and projects, GitLab allows two different layouts that DataLad can use to publish datasets or dataset hierarchies:
+
+* **flat**:
+  All datasets become projects in the same, pre-existing group.
+  The name of a project is its relative path within the root dataset, with all path separator characters replaced by '-' [#f4]_.
+* **collection**:
+  A new group is created for the dataset. The root dataset (the topmost superdataset) is placed in a "project" project inside this group, and all nested subdatasets are represented inside the group using a "flat" layout [#f4]_. This layout is the default.
+
+Consider the ``DataLad-101`` dataset, a superdataset with a several subdatasets in the following layout::
+
+    /home/me/dl-101/DataLad-101    # dataset
+    ├── books/
+    │   └── [...]
+    ├── code/
+    │   └── [...]
+    ├── midterm_project/    # subdataset
+    │   ├── code/
+    │       └── [...]
+    │   └──  input/		# sub-subdataset
+    ├── recordings/
+    │   └── longnow/    # subdataset
+    │       ├── [...]
+
+
+The ``collection`` and ``flat`` layouts for this dataset look like this in practice:
+
+.. figure:: ../artwork/src/gitlab-layouts.png
+
+   The ``collection`` layout has a group (``DataLad-101_collection``, defined by the user with a configuration) with four projects underneath. The ``project`` project contains the root-level dataset, and all contained subdatasets are named according to their location in the dataset. The ``flat`` layout consists of projects in the root-level group. The project name for the superdataset (``DataLad-101_flat``) is defined by the user with a configuration, and the names of the subdatasets extend this project name based on their location in the dataset hierarchy.
+
+Publishing a single dataset
+"""""""""""""""""""""""""""
+
+When publishing a single dataset, users can configure the project or group name as a command argument ``--project``.
+Here are two command examples and their outcomes.
+
+For a **flat** layout, the ``--project`` parameter determines the project name:
+
+.. code-block:: bash
+
+   $ datalad create-sibling-gitlab --site gitlab-general --layout flat --project my-datalad-root-level-group/this-will-be-the-project-name
+   create_sibling_gitlab(ok): . (dataset) [sibling repository 'gitlab' created at https://gitlab.com/my-datalad-root-level-group/this-will-be-the-project-name]
+   configure-sibling(ok): . (sibling)
+   action summary:
+     configure-sibling (ok: 1)
+     create_sibling_gitlab (ok: 1)
+
+.. figure:: ../artwork/src/gitlab-layout-flat.png
+
+For a **collection** layout, the ``--project`` parameter determines the group name:
+
+.. code-block:: bash
+
+   $ datalad create-sibling-gitlab --site gitlab-general --layout collection --project my-datalad-root-level-group/this-will-be-the-group-name
+    create_sibling_gitlab(ok): . (dataset) [sibling repository 'gitlab' created at https://gitlab.com/my-datalad-root-level-group/this-will-be-the-group-name/project]
+    configure-sibling(ok): . (sibling)
+    action summary:
+      configure-sibling (ok: 1)
+      create_sibling_gitlab (ok: 1)
+
+.. figure:: ../artwork/src/gitlab-layout-collection.png
+
+Publishing datasets recursively
+"""""""""""""""""""""""""""""""
+
+When publishing a series of datasets recursively, the ``--project`` argument can not be used anymore - otherwise, all datasets in the hierarchy would attempt to create the same group or project over and over again.
+Instead, one configures the root level dataset, and the names for underlying datasets will be derived from this configuration:
+
+.. code-block::
+
+   # do the configuration for the top-most dataset
+   # either configure with Git
+   $ git config --local --replace-all \
+     datalad.gitlab-<gitlab-site>-project \
+     'my-datalad-root-level-group/DataLad-101_flat'
+   # or configure with DataLad
+   $ datalad configuration set \
+     datalad.gitlab-<gitlab-site>-project='my-datalad-root-level-group/DataLad-101_flat'
+
+Afterwards, publish dataset hierarchies with the ``--recursive`` flag:
+
+.. code-block:: bash
+
+   $ datalad create-sibling-gitlab --site gitlab-general --recursive --layout flat
+   create_sibling_gitlab(ok): . (dataset) [sibling repository 'gitlab' created at https://gitlab.com/my-datalad-root-level-group/DataLad-101_flat]
+   configure-sibling(ok): . (sibling)
+   create_sibling_gitlab(ok): midterm_project (dataset) [sibling repository 'gitlab' created at https://gitlab.com/my-datalad-root-level-group/DataLad-101_flat-midterm_project]
+   configure-sibling(ok): . (sibling)
+   create_sibling_gitlab(ok): midterm_project/input (dataset) [sibling repository 'gitlab' created at https://gitlab.com/my-datalad-root-level-group/DataLad-101_flat-midterm_project-input]
+   configure-sibling(ok): . (sibling)
+   create_sibling_gitlab(ok): recordings/longnow (dataset) [sibling repository 'gitlab' created at https://gitlab.com/my-datalad-root-level-group/DataLad-101_flat-recordings-longnow]
+   configure-sibling(ok): . (sibling)
+   action summary:
+     configure-sibling (ok: 4)
+     create_sibling_gitlab (ok: 4)
+
+Final step: Pushing to GitLab
+"""""""""""""""""""""""""""""
+
+Once you have set up your dataset sibling(s), you can push individual datasets with ``datalad push --to gitlab`` or push recursively across a hierarchy by adding the ``--recursive`` flag to the push command. 
 
 
 .. rubric:: Footnotes
@@ -176,3 +334,5 @@ Should you employ GitHub workflows, for example, a token without "workflow" scop
          this file grants a person access!
 
 .. [#f3]  GitHub `deprecated user-password authentication <https://developer.github.com/changes/2020-02-14-deprecating-password-auth/>`_ and only supports authentication via personal access token from November 13th 2020 onwards. Supplying a password instead of a token will fail to authenticate.
+
+.. [#f4] The default project name ``project`` and path separator ``-`` are configurable using the dataset-level configurations ``datalad.gitlab-default-projectname`` and ``datalad.gitlab-default-pathseparator``

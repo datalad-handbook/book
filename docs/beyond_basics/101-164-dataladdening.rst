@@ -52,7 +52,7 @@ Consider :ref:`applying procedures <procedures>` with ``-c <procedure-name>`` to
    If you want to transform a Git repository to a DataLad dataset, a :command:`datalad create -f` is the way to go, too, and completely safe.
    Your Git history will stay intact and will not be tampered with.
 
-If you want to transform a series of nested directories into nested datasets, you will need to use :command:`datalad create -f -d` commands giving the path of the nested directory. (If you are using the create function inside the folders, the superdataset will not treat them a subdatasets.)
+If you want to transform a series of nested directories into nested datasets, you will need to use :command:`datalad create -f -d .` commands giving the path of the nested directory. (the `-d .` option tells datalad to add the dataset as a subdataset to the supradataset (`-d`) found in the current directory (`.`).
 
 .. find-out-more:: One or many datasets?
 

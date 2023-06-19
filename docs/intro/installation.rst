@@ -110,9 +110,10 @@ Git:
     directory, but configure the following settings (they are distributed over
     multiple dialogs):
 
-    - Enable *Use a TrueType font in all console windows*
+    
     - Select *Git from the command line and also from 3rd-party software*
     - *Enable file system caching*
+    - *Select Use external OpenSSH*
     - *Enable symbolic links*
 
 

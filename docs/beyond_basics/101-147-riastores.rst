@@ -142,6 +142,7 @@ archive, re-using the exact same directory structure, and remains fully
 accessible while only using a handful of inodes, regardless of file
 number and size. If the dataset contains only annexed files, a complete dataset
 can be represented in about 25 inodes.
+A detailed example and utility script can be found at `knowledge-base.psychoinformatics.de/kbi/0024/index.html <https://knowledge-base.psychoinformatics.de/kbi/0024/index.html>`_.
 
 Taking all of the above information together, on an infrastructural level,
 a RIA store is fully self-contained, and is a plain file system storage, not a

@@ -109,7 +109,7 @@ Alternatively, there is also a way to save the name change
 only using Git tools only, outlined in the following hidden
 section. If you are a Git user, you will be very familiar with it.
 
-.. find-out-more:: Renaming with Git tools
+.. find-out-more:: Faster renaming with Git tools
 
    Git has built-in commands that provide a solution in two steps.
 
@@ -169,6 +169,8 @@ section. If you are a Git user, you will be very familiar with it.
       :cast: 03_git_annex_basics
 
       $ git commit -m "rename book"
+
+   `Especially when renaming directories with many files, this can be much faster <https://knowledge-base.psychoinformatics.de/kbi/0022/index.html>`_ than a ``mv`` followed by ``datalad save``,
 
 
 To summarize, renaming files is easy and worry-free. Do not be intimidated

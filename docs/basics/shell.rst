@@ -16,17 +16,20 @@ Problem
 
 Removing datalad repositories with ``rm`` will fail due to missing write permissions under ``.git/annex/objects/..``:
 
-.. code-block::
+.. runrecord::
+   :language: console
+   :exitcode:1
+   :workdir: basics/shell
 
-   [deco]/tmp ❱ datalad clone https://github.com/datalad/testrepo--basic--r1
+   $ datalad clone https://github.com/datalad/testrepo--basic--r1
    [INFO   ] Remote origin not usable by git-annex; setting annex-ignore
    [INFO   ] https://github.com/datalad/testrepo--basic--r1/config download failed: Not Found
    install(ok): /tmp/testrepo--basic--r1 (dataset)
-   [deco]/tmp ❱ cd testrepo--basic--r1/
-   [deco]/tmp/testrepo--basic--r1 ❱ datalad get .
+   $ cd testrepo--basic--r1/
+   $ datalad get .
    get(ok): test-annex.dat (file) [from web...]
-   [deco]/tmp/testrepo--basic--r1 ❱ cd ..
-   [deco]/tmp ❱ rm -rf testrepo--basic--r1/
+   $ cd ..
+   $ rm -rf testrepo--basic--r1/
    rm: cannot remove 'testrepo--basic--r1/.git/annex/objects/zk/71/SHA256E-s4--181210f8f9c779c26da1d9b2075bde0127302ee0e3fca38c9a83f5b1dd8e5d3b.dat/SHA256E-s4--181210f8f9c779c26da1d9b2075bde0127302ee0e3fca38c9a83f5b1dd8e5d3b.dat': Permission denied
 
 Solution

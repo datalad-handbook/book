@@ -37,10 +37,13 @@ Solution
 
 This can be mitigated by manually changing permissions:
 
-.. code-block::
+.. runrecord::
+   :language: console
+   :exitcode:0
+   :workdir: basics/shell
 
-   [deco]/tmp ❱ chmod -R 775 testrepo--basic--r1/
-   [deco]/tmp ❱ rm -rf testrepo--basic--r1/
+   $ chmod -R 775 testrepo--basic--r1/
+   $ rm -rf testrepo--basic--r1/
 
 Alternative
 ^^^^^^^^^^^

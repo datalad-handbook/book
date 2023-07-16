@@ -19,7 +19,7 @@ The Challenge
 Max has been using Rstudio together with :term:`GitHub` for a long time. They know how :term:`Git`
 works. Max has learned that Git will not work with their new project,
 because there will be too many files and some dataset files will be too large.
-Max read the DataLad :ref:`Handbook Basics <basics-intro>`_ and is decided to use DataLad.
+Max read the DataLad :ref:`Handbook Basics <basics-intro>` and is decided to use DataLad.
 They indeed want to version control larger files, and split files in several repositories, linked as "DataLad dataset hierarchies".
 Max still want to use Rstudio and a combination of R and python scripts for the
 data analysis.

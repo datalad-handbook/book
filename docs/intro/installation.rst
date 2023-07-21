@@ -125,13 +125,13 @@ Git-annex:
 
     .. code-block:: bat
 
-      > pip install datalad-installer
+      pip install datalad-installer
 
     Afterwards, open another command prompt in administrator mode and run:
 
     .. code-block:: bat
 
-      > datalad-installer git-annex -m datalad/git-annex:release
+      datalad-installer git-annex -m datalad/git-annex:release
 
     This will download a recent git-annex, and configure it for your Git installation.
     The admin command prompt can be closed afterwards, all other steps do not need it.
@@ -140,7 +140,7 @@ Git-annex:
 
     .. code-block:: bat
 
-      > git config --global filter.annex.process "git-annex filter-process"
+      git config --global filter.annex.process "git-annex filter-process"
 
 DataLad:
     With Python, Git, and git-annex installed, DataLad can be installed, and later also
@@ -148,7 +148,7 @@ DataLad:
 
     .. code-block:: bat
 
-      > pip install datalad
+      pip install datalad
 
 7-Zip (optional, but highly recommended):
     Download it from the `7-zip website <https://7-zip.org>`_ (64bit

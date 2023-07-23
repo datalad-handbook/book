@@ -52,7 +52,7 @@ This can cause confusion.
 Unfortunately, issues that affect Windows itself are out of our hands.
 We can adapt to limitations, but in many cases it is not possible to overcome them.
 That sucks, and we're really sorry for this.
-Its not that we pick dependencies that only work on Unix-based systems -- we try to use tools that are as cross-platform-compatible as possible, but certain tools, functions, or concepts simply don't (yet) work on Windows:
+It's not that we pick dependencies that only work on Unix-based systems -- we try to use tools that are as cross-platform-compatible as possible, but certain tools, functions, or concepts simply don't (yet) work on Windows:
 
 - As there is no way to install :term:`Singularity` or :term:`Docker` on regular Windows machines, none of the functionality that the ``datalad-container`` extension provides can be used.
 - As there is insufficient support for symlinking and locking, datasets will have a higher disk usage on Windows machines. Section :ref:`symlink` has the details on this.
@@ -82,7 +82,7 @@ There hasn't been nearly as much time invested into finding, describing, and sol
 
 The workflow-based and user-centric narrative of the Basics has been developed on a Unix-based system -- Windows-related enhancements are solely adjustments or workarounds.
 So far, only the :ref:`basics-intro` have been tested with a Windows computer (Windows 10, build-version 2004) and adjusted where necessary.
-We're working on more adjustments, testing, and general improvements, but its a process.
+We're working on more adjustments, testing, and general improvements, but it's a process.
 You can help us prioritize Windows by getting in touch to voice general interest, discover and report bugs, or contribute to the user documentation with your own advice and experiences.
 
 So, overall...
@@ -99,14 +99,14 @@ Are there feasible alternatives?
 If you want to use DataLad, but fear problems when on Windows, what is there that you can do?
 Should you switch your operating system?
 
-Its quite easy to say "Just use Linux" but tough to do when you have no experience, support, or spare time and are hence reluctant to completely overhaul your operating system and reduce your productivity while you get a hang on it -- or if you rely on software that is native to Windows, such as Microsoft or Adobe products.
-Its also easy to say "Just use a Mac, its much more user-friendly *and* Unix-based" when an Apple product is a very expensive investment that only few people can or want to afford.
-Its a bit like recommending a MatLab user (proprietary, expensive, closed-source software) to switch to Python, R, Julia, or a similar open source alternative.
+It is quite easy to say "Just use Linux" but tough to do when you have no experience, support, or spare time and are hence reluctant to completely overhaul your operating system and reduce your productivity while you get a hang on it -- or if you rely on software that is native to Windows, such as Microsoft or Adobe products.
+It is also easy to say "Just use a Mac, it's much more user-friendly *and* Unix-based" when an Apple product is a very expensive investment that only few people can or want to afford.
+It's a bit like recommending a MatLab user (proprietary, expensive, closed-source software) to switch to Python, R, Julia, or a similar open source alternative.
 Yes, there are real benefits to it that make the change worthwhile to many, but that doesn't change the fact that it is effortful and may be frustrating.
 But how about switching from MatLab to `Octave <https://www.gnu.org/software/octave/>`_, an open source programming language, made to be compatible to MatLab?
 There definitely is work and adjustment involved, but much less work than when trying to rewrite your analyses in Go or C++.
 It is tough if you have been using "a thing" for decades without much hassle and now someone tells you to change.
-If you feel that you lack the time, resources, support, or knowledge, then throwing yourself into cold water and making a harsh change not only sucks, but its also not likely to succeed.
+If you feel that you lack the time, resources, support, or knowledge, then throwing yourself into cold water and making a harsh change not only sucks, but it's also not likely to succeed.
 If you're juggling studies (or the general publish-or-perish-work-life-misery that Academia too often is), care-giving responsibilities, and surviving a pandemic, all while being in a scientific lab that advocates using Windows and works exclusively with Microsoft Excel, then switching to Arch Linux would widely be seen as a bad idea.
 
 But is there a middle-ground, the "Octave" of switching Operating Systems or alternative solutions?
@@ -149,7 +149,7 @@ There isn't much that holds you to Windows?
 The software you use is either already open source or available on Linux or easily replaceable by available alternatives (e.g., libre office instead of Microsoft Word, the Spotify player in a web browser instead of as an App)?
 But you're reluctant to undergo huge changes when switching operating systems?
 Then Linux Mint may be a good starting point.
-Its user interface is not identical to Windows, but also not that far away, it is a mature operating system, its very user-friendly, there is a helpful and welcoming community behind it, and -- like all Linux distributions -- it is free.
+Its user interface is not identical to Windows, but also not that far away, it is a mature operating system, it's very user-friendly, there is a helpful and welcoming community behind it, and -- like all Linux distributions -- it is free.
 
 **What should I be mindful of?** If you're changing your operating system, **create a backup** of your data (unless you do it on a new computer of course). You can't install a new OS and have all data where you left it -- pull it onto an external drive, and copy it back to your new OS later.
 Also, take a couple of minutes and google whether the hardware of your computer is compatible with Linux.
@@ -169,4 +169,4 @@ Take a look at user forums such as `forums.linuxmint.com/ <https://forums.linuxm
 
 .. [#f3] The path length limitation certainly isn't only a problem for DataLad and its underlying tools. Many users run into a Path length related problems at least once, by accident. Downloading or copying files with long names into a folder that itself has a long name, for example, can become an unexpected issue (especially if you are not aware of the limit). Imagine transferring pictures from your friends camera into ``C:\Users\"Bob McBobface"\Desktop\Pictures\"Vacation Pictures"\2020\Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson\"From Alice and Sasha"\Camera\`` -- those file names shouldn't be too long to fit in the limit. Likewise, when ``git clone``\ing a :term:`Git` repository that was created on a Unix computer and contains very long file names could fail.
 
-.. [#f4] Its not written by Windows-lynching ideologists and Linux cranks, though. The lead author switched from Windows to Debian 1.5 years before starting to write the handbook, coming from more than a decade of happy Windows experience. She doesn't regret having made the change at all, but she respects and understands reluctance to switch.
+.. [#f4] It's not written by Windows-lynching ideologists and Linux cranks, though. The lead author switched from Windows to Debian 1.5 years before starting to write the handbook, coming from more than a decade of happy Windows experience. She doesn't regret having made the change at all, but she respects and understands reluctance to switch.

@@ -797,7 +797,7 @@ Afterwards, since ``train.py`` is changed, :command:`dvc status` will realize th
    ### DVC
    $ dvc status
 
-Since the code change (stage 2) will likely affect the metric (stage 3), its best to reproduce the whole chain.
+Since the code change (stage 2) will likely affect the metric (stage 3), it is best to reproduce the whole chain.
 You can reproduce a complete DVC pipeline file with the :command:`dvc repro <stagename>` command:
 
 .. runrecord:: _examples/DL-101-168-164
@@ -1023,7 +1023,7 @@ Summary
 
 DataLad and DVC aim to solve the same problems: Version control data, sharing data, and enabling reproducible analyses.
 DataLad provides generic solutions to these issues, while DVC is tuned for machine-learning pipelines.
-Despite their similar purpose, the looks, feels and functions of both tools are different, and its a personal decision which one you feel more comfortable with.
+Despite their similar purpose, the looks, feels and functions of both tools are different, and it is a personal decision which one you feel more comfortable with.
 Using DVC requires solid knowledge of Git, because DVC workflows heavily rely on effective Git practices, such as branching, tags, and ``.gitignore`` files.
 But despite the reliance on Git, DVC barely integrates with Git -- changes done to files in DVC can not be detected by Git and vice versa, DVC and Git aspects of a repository have to be handled in parallel by the user, and DVC and Git have distinct command functions and concepts that nevertheless share the same name.
 Thus, DVC users need to master Git *and* DVC workflows and intertwine them correctly.

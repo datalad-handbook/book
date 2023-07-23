@@ -192,7 +192,7 @@ but DataLad will refuse to drop files that it doesn't know how to reobtain unles
 
 Afterward dropping files, only "metadata" about file content and file availability stays behind, and you can't open the file anymore::
 
-   xdg-open .easteregg    # its gone :(!
+   xdg-open .easteregg    # it is gone :(!
 
 But because the origin of the file is known, it can be reobtained using the :command:`datalad get`::
 

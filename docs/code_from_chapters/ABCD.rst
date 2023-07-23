@@ -201,7 +201,7 @@ but DataLad will refuse to drop files that it doesn't know how to reobtain unles
 Afterward dropping files, only "metadata" about file content and file availability stays behind, and you can't open the file anymore::
 
    # on Windows, use "start" instead of "xdg-open"
-   xdg-open .easteregg.png    # its gone :(!
+   xdg-open .easteregg.png    # it is gone :(!
 
 But because the origin of the file is known, it can be reobtained using the :command:`datalad get`::
 
@@ -329,7 +329,7 @@ The :command:`datalad run` command can run this script in a way that links the s
 .. figure:: ../artwork/src/run.svg
 
 In principle, the command is simple: Execute any command, save the resulting changes in the dataset, and associate them as well as all other optional information provided.
-Because each :command:`datalad run` ends with a :command:`datalad save`, its recommended to start with a clean dataset (see :ref:`chapter_run` for details on how to use it in unclean datasets)::
+Because each :command:`datalad run` ends with a :command:`datalad save`, it is recommended to start with a clean dataset (see :ref:`chapter_run` for details on how to use it in unclean datasets)::
 
    datalad status
 

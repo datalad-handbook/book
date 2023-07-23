@@ -239,7 +239,7 @@ You can specify one or more specific files, or ``get`` all of the dataset by
 specifying :command:`datalad get .` at the root directory of the dataset (with ``.`` denoting "current directory").
 
 First, we get one of the recordings in the dataset -- take any one of your choice
-(here, its the first).
+(here, it's the first).
 
 .. runrecord:: _examples/DL-101-105-107
    :language: console

@@ -136,7 +136,7 @@ Git-annex:
     This will download a recent git-annex, and configure it for your Git installation.
     The admin command prompt can be closed afterwards, all other steps do not need it.
 
-    For performance improvements, regardless of which installation method you chose, we recommend to also set the following git-annex configuration:
+    For `performance improvements <https://git-annex.branchable.com/projects/datalad/bugs-done/Windows__58___substantial_per-file_cost_for___96__add__96__/>`_, regardless of which installation method you chose, we recommend to also set the following git-annex configuration:
 
     .. code-block:: bat
 

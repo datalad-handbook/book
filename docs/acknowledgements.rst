@@ -8,7 +8,7 @@ deployment logistics into a federated 'data distribution'"
 co-funded by the US National Science Foundation
 (`NSF 1429999 <https://www.nsf.gov/awardsearch/showAward?AWD_ID=1429999>`_) and the German
 Federal Ministry of Education and Research
-(`BMBF 01GQ1411 <https://www.gesundheitsforschung-bmbf.de/de/datagit-kombination-von-katalogen-datenbanken-und-verteilungslogistik-in-eine-daten-5607.php>`_). Additional support
+(`BMBF 01GQ1411 <https://www.gesundheitsforschung-bmbf.de/de/datagit-kombination-von-katalogen-datenbanken-und-verteilungslogistik-in-eine-daten-5607.php>`_, `01GQ1905 <https://www.gesundheitsforschung-bmbf.de/de/metalad-datalad-ein-dezentrales-system-fur-forschungsdatenverwaltung-publikation-und-suche-11116.php>`_). Additional support
 is provided by the German federal state of Saxony-Anhalt and the European
 Regional Development Fund (ERDF), Project:
 `Center for Behavioral Brain Sciences <http://cbbs.eu/en/>`_, Imaging Platform.

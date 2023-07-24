@@ -93,7 +93,7 @@ and functions:
 - DataLad adds metadata facilities for metadata extraction in various flavors,
   and can store extracted and aggregated metadata under ``.datalad/metadata``.
 
-- .. todo::
+.. todo::
 
      more here.
 

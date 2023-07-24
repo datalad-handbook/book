@@ -22,7 +22,7 @@ Let's take a look at the current directory structure with the tree command [#f1]
    :language: console
    :workdir: dl-101/DataLad-101
    :cast: 01_dataset_basics
-   :notes: The tree command shows us the directory structure in the dataset. Apart from the directory, its empty.
+   :notes: The tree command shows us the directory structure in the dataset. Apart from the directory, it's empty.
 
    $ tree
 
@@ -233,7 +233,7 @@ Let's try this by adding yet another book, a good reference work about git,
    :language: console
    :workdir: dl-101/DataLad-101
    :cast: 01_dataset_basics
-   :notes: Its inconvenient that we saved two books together - we should have saved them as independent modifications of the dataset. To see how single modifications can be saved, let's download another book
+   :notes: It's inconvenient that we saved two books together - we should have saved them as independent modifications of the dataset. To see how single modifications can be saved, let's download another book
 
    $ cd books
    $ wget -q https://github.com/progit/progit2/releases/download/2.1.154/progit.pdf

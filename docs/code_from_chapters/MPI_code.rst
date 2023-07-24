@@ -124,7 +124,7 @@ If the origin of a file (such as a web source) is known, you can drop file *cont
 
 Afterwards, only "metadata" about file content and file availability stays behind, and you can't open the file anymore::
 
-   xdg-open .easteregg    # its gone :(!
+   xdg-open .easteregg    # it is gone :(!
 
 But because the origin of the file is known, it can be reobtained using the :command:`datalad get`::
 

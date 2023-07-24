@@ -892,8 +892,8 @@ into Git, either by adding a rule to ``.gitattributes``, or with
    $ datalad save --to-git -m "save cropped logos to Git" recordings/*jpg
 
 Note that git-annex keeps the previously annexed file's content in the annex for safety, to prevent accidental data loss.
-If its only few and small files that were unannexed, their size in the annex will not matter much.
-If its a lot of files or larger files that were accidentally annexed, you may want to drop the left-behind content using ``git annex unused`` and ``git annex dropunused``.
+If it is only few and small files that were unannexed, their size in the annex will not matter much.
+If it is a lot of files or larger files that were accidentally annexed, you may want to drop the left-behind content using ``git annex unused`` and ``git annex dropunused``.
 
 .. _uninit:
 

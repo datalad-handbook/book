@@ -37,7 +37,13 @@ Max follows the handbook and install datalad on his computer.
 Max first want to clone the repository on their computer, they use the Rstudio 
 `create a new project` function using the SSH address of the parent repository.
 
-![Figures of several screenshot demonstrating the creation of new projects on Rstudio](/img/Rstudio-create.jpg)
+.. figure:: /img/Rstudio-create.jpg
+   :scale: 80 %
+   :alt: screenshot of Rstudio new project creation.
+
+   Figures of several screenshot demonstrating the creation of new projects on Rstudio
+
+![](/img/Rstudio-create.jpg)
 
 Max can't see submodules content and comes to Bobby.
 

@@ -91,7 +91,7 @@ general quality control is done.
   ``.gitignore`` file and saving this change will keep these files out of
   version control.
 
-- Similarly, you can instruct :command:`datalad run` to save only specific directories
+- Similarly, you can instruct :dlcmd:`run` to save only specific directories
   or files by specifying them with the ``--output`` option and executing the command
   with the ``--explicit`` flag. This may be more suitable an approach if you know
   what you want to keep rather than what is irrelevant.

@@ -65,7 +65,7 @@ in the ``.gitattributes`` file, using ``annex.largefile`` options.
 But there will be a lecture on that [#f1]_."
 
 "Okay, well, second: Isn't it much easier to just not bother with locking and
-unlocking, and have everything 'stored in Git'? Even if :command:`datalad run` takes care
+unlocking, and have everything 'stored in Git'? Even if :dlcmd:`run` takes care
 of unlocking content, I do not see the point of git-annex", you continue.
 
 Here it gets tricky. To begin with the most important, and most straight-forward fact:
@@ -78,10 +78,10 @@ For now, we have solved the mystery of why text files can be modified
 without unlocking, and this is a small
 improvement in the vast amount of questions that have piled up in our curious
 minds. Essentially, git-annex protects your data from accidental modifications
-and thus keeps it safe. :command:`datalad run` commands mitigate any technical
+and thus keeps it safe. :dlcmd:`run` commands mitigate any technical
 complexity of this completely if ``-o/--output`` is specified properly, and
-:command:`datalad unlock` commands can be used to unlock content "by hand" if
-modifications are performed outside of a :command:`datalad run`.
+:dlcmd:`unlock` commands can be used to unlock content "by hand" if
+modifications are performed outside of a :dlcmd:`run`.
 
 But there comes the second, tricky part: There are ways to get rid of locking and
 unlocking within git-annex, using so-called :term:`adjusted branch`\es.

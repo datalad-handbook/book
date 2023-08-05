@@ -48,8 +48,7 @@ To find out which version you are using, run
 .. index:: ! datalad command; wtf
 
 If you want a comprehensive overview of your full setup,
-:command:`datalad wtf` [#f1]_ is the command to turn to
-(:manpage:`datalad-wtf` manual). Running this command will
+:dlcmd:`wtf` [#f1]_ is the command to turn to. Running this command will
 generate a report about the DataLad installation and configuration.
 The output below shows an excerpt.
 
@@ -84,7 +83,7 @@ as an excerpt here):
 
    $ datalad get --help
 
-This for example is the help page on :command:`datalad get`
+This for example is the help page on :dlcmd:`get`
 (the same you would find in the documentation,
 but in your terminal, here - for brevity - slightly cut).
 It contains a command description, a list
@@ -114,7 +113,7 @@ Include
 
 - *technical details* -- what version of DataLad are you using, what version
   of git-annex, and which git-annex repository type, what is your operating
-  system and -- if applicable -- Python version? :command:`datalad wtf` is your friend
+  system and -- if applicable -- Python version? :dlcmd:`wtf` is your friend
   to find all of this information.
 
 .. index:: Debugging
@@ -173,8 +172,8 @@ Likewise, adjusting the log-level also works the other way around, and lets you 
 
 
 
-Setting a log level can be done in the form of an :term:`environment variable`, a configuration, or with the ``-l``/``--log-level`` flag appended directly after the main :command:`datalad` command.
-To get extensive information on what :command:`datalad status` does underneath the hood, your command could look like this (but its output is shortened):
+Setting a log level can be done in the form of an :term:`environment variable`, a configuration, or with the ``-l``/``--log-level`` flag appended directly after the main :shcmd:`datalad` command.
+To get extensive information on what :dlcmd:`status` does underneath the hood, your command could look like this (but its output is shortened):
 
 .. runrecord:: _examples/DL-101-135-105
    :language: console
@@ -199,7 +198,7 @@ To get extensive information on what :command:`datalad status` does underneath t
 
    You can find out a bit more on environment variable :ref:`in the Findoutmore on environment variables <fom-envvar>`.
 
-   The configuration variable can be used to set the log level on a user (global) or system-wide level with the :command:`git config` command::
+   The configuration variable can be used to set the log level on a user (global) or system-wide level with the :gitcmd:`config` command::
 
       $ git config --global datalad.log.level debug
 
@@ -207,7 +206,7 @@ This output is extensive and detailed, but it precisely shows the sequence of co
 Even if the vast amount of detail in output generated with ``debug`` logging appears overwhelming, it can make sense to find out at which point an execution stalls, whether arguments, commands, or datasets reported in the debug output are what you expect them to be, and to forward all information into any potential GitHub issue you will be creating.
 
 Finally, other than logging with a DataLad command, it sometimes can be useful to turn to :term:`git-annex` or :term:`Git` for logging.
-For failing :command:`datalad get` calls, it may be useful to retry the retrieval using :command:`git annex get -d -v <file>`, where ``-d`` (debug) and ``-v`` (verbose) increase the amount of detail about the command execution and failure.
+For failing :dlcmd:`get` calls, it may be useful to retry the retrieval using :gitannexcmd:`get -d -v <file>`, where ``-d`` (debug) and ``-v`` (verbose) increase the amount of detail about the command execution and failure.
 In rare cases where you suspect something might be wrong with Git, setting the environment variables ``GIT_TRACE`` and ``GIT_TRACE_SETUP`` to ``2`` prior to running a Git command will give you debugging output.
 
 .. _debug:
@@ -216,7 +215,7 @@ Debugging
 """""""""
 
 If the additional level of detail provided by logging messages is not enough, you can go further with actual :term:`debugging`.
-For this, add the ``--dbg`` or ``--idbg`` flag to the main :command:`datalad` command, as in ``datalad --dbg status``.
+For this, add the ``--dbg`` or ``--idbg`` flag to the main :shcmd:`datalad` command, as in ``datalad --dbg status``.
 Adding this flag will enter a `Python <https://docs.python.org/3/library/pdb.html>`_ or `IPython debugger <https://ipython.org>`_ when something unexpectedly crashes.
 This allows you to debug the program right when it fails, inspect available variables and their values, or step back and forth through the source code.
 Note that debugging experience is not a prerequisite when using DataLad -- although it is `an exciting life skill <https://www.monkeyuser.com/2017/step-by-step-debugging>`_.
@@ -225,11 +224,11 @@ Note that debugging experience is not a prerequisite when using DataLad -- altho
 Debugging: A concrete example
 """""""""""""""""""""""""""""
 
-It is common for :command:`datalad get` errors to originate in :term:`git-annex`, the software used by DataLad to transfer data. Here are a few suggestions to debug them:
+It is common for :dlcmd:`get` errors to originate in :term:`git-annex`, the software used by DataLad to transfer data. Here are a few suggestions to debug them:
 
 - Take a deep breath, or preferably a walk in a nice park :)
 - Check that you are using a recent version of git-annex
-   - ``git-annex version`` returns the version of git-annex on the first line of its input, and it is also reported in the output of :command:`datalad wtf`.
+   - ``git-annex version`` returns the version of git-annex on the first line of its input, and it is also reported in the output of :dlcmd:`wtf`.
    - The version number contains the release date of the version in use. For instance, git-annex version: ``8.20200330-g971791563`` was released on 30 March 2020.
    - If the version that you are using is older than a few months, consider updating using the instructions in :ref:`install`.
 - Try to download the file using ``git-annex get -v -d <file_name>``. If this doesn't succeed, the DataLad command may not succeed. Options ``-d/--debug`` and ``-v`` are here to provide as much verbosity in error messages as possible
@@ -263,7 +262,7 @@ To set your Git identity, go back to section :ref:`installconfig`.
 **Rejected pushes**
 
 One error you can run into when publishing dataset contents is that your
-:command:`datalad push` to a sibling is rejected.
+:dlcmd:`push` to a sibling is rejected.
 One example is this::
 
    $ datalad push --to public
@@ -273,7 +272,7 @@ This example is an attempt to push a local dataset to its sibling on GitHub. The
 push is rejected because it is a ``non-fast-forward`` merge situation. Usually,
 this means that the sibling contains changes that your local dataset does not yet
 know about. It can be fixed by updating from the sibling first with a
-:command:`datalad update --merge`.
+:dlcmd:`update --merge`.
 
 .. _nonbarepush:
 
@@ -353,7 +352,7 @@ connection (in which case you could set the key ``annex-ignore`` in
 ``.git/config`` to ``false``).
 
 Speaking of remotes that are not available, this will probably be one of the most
-commonly occurring git-annex errors to see - failing :command:`datalad get` calls
+commonly occurring git-annex errors to see - failing :dlcmd:`get` calls
 because remotes are not available:
 
 Other errors
@@ -391,7 +390,7 @@ To fix this behavior outside of the installation process and standardize line en
 
 .. rubric:: Footnotes
 
-.. [#f1] ``wtf`` in :command:`datalad wtf` could stand for many things. "Why the Face?"
+.. [#f1] ``wtf`` in :dlcmd:`wtf` could stand for many things. "Why the Face?"
          "Wow, that's fantastic!", "What's this for?", "What to fix", "What the FAQ",
          "Where's the fire?", "Wipe the floor", "Welcome to fun",
          "Waste Treatment Facility", "What's this foolishness", "What the fruitcake", ...

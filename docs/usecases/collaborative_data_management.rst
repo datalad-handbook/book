@@ -47,7 +47,7 @@ student Alice, he shares the dataset on the lab's SSH server, and they
 can collaborate on the version controlled dataset almost in real time
 with no need for Bob to spend much time integrating the fix that Alice
 provides him with. Afterwards, Bob can execute his scripts in a way that captures
-all provenance for this results with a :command:`datalad run` command.
+all provenance for this results with a :dlcmd:`run` command.
 Bob can share his whole project after completion by creating a sibling
 on a webserver, and pushing all of his dataset, including the input data,
 to this sibling, for everyone to access and recompute.
@@ -104,10 +104,10 @@ appreciates that DataLad datasets primarily contain information on a dataset’s
 content and where to obtain it: Cloning above was done rather
 quickly, and will still be relatively lean even for a dataset that contains
 several hundred GBs of data. He knows that his script can obtain the
-relevant data he needs on demand if he wraps it into a :command:`datalad run`
+relevant data he needs on demand if he wraps it into a :dlcmd:`run`
 command and therefore does not need to care about getting the data yet. Instead,
 he focuses to write his script ``code/run_analysis.sh``.
-To save this progress, he runs frequent :command:`datalad save` commands:
+To save this progress, he runs frequent :dlcmd:`save` commands:
 
 .. runrecord:: _examples/collab-104
    :workdir: usecases/collab/myanalysis
@@ -116,7 +116,7 @@ To save this progress, he runs frequent :command:`datalad save` commands:
 
    $ datalad save -m "First steps: start analysis script" code/run_analysis.py
 
-Once Bob's analysis is finished, he can wrap it into :command:`datalad run`.
+Once Bob's analysis is finished, he can wrap it into :dlcmd:`run`.
 To ease execution, he first makes his script executable by adding a :term:`shebang`
 that specifies Python as an interpreter at the start of his script, and giving it
 executable :term:`permissions`:
@@ -128,7 +128,7 @@ executable :term:`permissions`:
    $ chmod +x code/run_analysis.py
    $ datalad save -m "make script executable"
 
-Importantly, prior to a :command:`datalad run`, he specifies the necessary
+Importantly, prior to a :dlcmd:`run`, he specifies the necessary
 inputs such that DataLad can take care of the data retrieval for him:
 
 .. runrecord:: _examples/collab-106
@@ -168,7 +168,7 @@ from his home directory:
 
 
 Alice can get the studyforrest data Bob used as an input as well as the
-result file, but she can also rerun his analysis by using :command:`datalad rerun`.
+result file, but she can also rerun his analysis by using :dlcmd:`rerun`.
 She goes ahead and fixes Bobs script, and saves the changes. To integrate her
 changes into his dataset, Bob registers Alice's dataset as a sibling:
 
@@ -179,7 +179,7 @@ changes into his dataset, Bob registers Alice's dataset as a sibling:
 
    #in Bobs home directory
 
-Afterwards, he can get her changes with a :command:`datalad update --merge`
+Afterwards, he can get her changes with a :dlcmd:`update --merge`
 command:
 
 

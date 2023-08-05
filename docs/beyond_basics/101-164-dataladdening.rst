@@ -43,16 +43,16 @@ You should consider the size, file type and modification frequency of files in y
 Step 2: Dataset creation
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-Transforming a directory into a dataset is done with :command:`datalad create --force`.
+Transforming a directory into a dataset is done with :dlcmd:`create --force`.
 The ``-f``/``--force`` option enforces dataset creation in non-empty directories.
 Consider :ref:`applying procedures <procedures>` with ``-c <procedure-name>`` to apply configurations that suit your use case.
 
 .. find-out-more:: What if my directory is already a Git repository?
 
-   If you want to transform a Git repository to a DataLad dataset, a :command:`datalad create -f` is the way to go, too, and completely safe.
+   If you want to transform a Git repository to a DataLad dataset, a :dlcmd:`create -f` is the way to go, too, and completely safe.
    Your Git history will stay intact and will not be tampered with.
 
-If you want to transform a series of nested directories into nested datasets, continue with :command:`datalad create -f` commands in all further subdirectories.
+If you want to transform a series of nested directories into nested datasets, continue with :dlcmd:`create -f` commands in all further subdirectories.
 
 .. find-out-more:: One or many datasets?
 
@@ -97,8 +97,8 @@ Step 3: Saving dataset contents
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Any existing content in your newly created dataset(s) still needs to be saved into its dataset at this point (unless it was already under version control with Git).
-This can be done with the :command:`datalad save` command -- either "in one go" using a plain ``datalad save`` (saves all untracked files and modifications to a dataset -- by default into the dataset annex), or step-by-step by attaching paths to the ``save`` command.
-Make sure to run :command:`datalad status` frequently.
+This can be done with the :dlcmd:`save` command -- either "in one go" using a plain ``datalad save`` (saves all untracked files and modifications to a dataset -- by default into the dataset annex), or step-by-step by attaching paths to the ``save`` command.
+Make sure to run :dlcmd:`status` frequently.
 
 .. find-out-more:: Save things to Git or to git-annex?
 
@@ -124,7 +124,7 @@ Step 4: Rerunning analyses reproducibly
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you are transforming a complete data analysis into a dataset, you may also want to rerun any computation with DataLad's ``run`` commands.
-You can compose any :command:`datalad run` or :command:`datalad containers-run` [#f1]_ command to recreate and capture your previous analysis.
+You can compose any :dlcmd:`run` or :dlcmd:`containers-run` [#f1]_ command to recreate and capture your previous analysis.
 Make sure to specify your previous results as ``--output`` in order to unlock them [#f2]_.
 
 Summary
@@ -137,6 +137,6 @@ If you can, read up on the DataLad Basics to understand what you are doing, and 
 
 .. rubric:: Footnotes
 
-.. [#f1] Prior to using a software container, install the :ref:`datalad-containers <extensions_intro>` extension and add the container with the :command:`datalad containers-add` command. You can find a concrete data analysis example with ``datalad-containers`` in the section :ref:`containersrun`.
+.. [#f1] Prior to using a software container, install the :ref:`datalad-containers <extensions_intro>` extension and add the container with the :dlcmd:`containers-add` command. You can find a concrete data analysis example with ``datalad-containers`` in the section :ref:`containersrun`.
 
 .. [#f2] If you are unfamiliar with ``datalad run``, please work through chapter :ref:`chapter_run` first.

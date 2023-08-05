@@ -128,7 +128,7 @@ they are the raw inputs of the analysis, we store them in a directory we call
     https://github.com/datalad/example-dicom-functional.git  \
     inputs/rawdata
 
-The :command:`datalad subdatasets` reports the installed dataset to be indeed
+The :dlcmd:`subdatasets` reports the installed dataset to be indeed
 a subdataset of the superdataset ``localizer_scans``:
 
 .. runrecord:: _examples/repro2-103
@@ -160,7 +160,7 @@ A ready-made `singularity <http://singularity.lbl.gov/>`_ container is
 available from `singularity-hub <https://singularity-hub.org/>`_ at
 `shub://ReproNim/ohbm2018-training:heudiconvn <shub://ReproNim/ohbm2018-training:heudiconvn>`_.
 
-Using the :command:`datalad containers-add` command we can add this container
+Using the :dlcmd:`containers-add` command we can add this container
 to the ``localizer_scans`` superdataset. We are giving it the name
 ``heudiconv``.
 
@@ -171,7 +171,7 @@ to the ``localizer_scans`` superdataset. We are giving it the name
 
    $ datalad containers-add heudiconv --url shub://ReproNim/ohbm2018-training:heudiconvn
 
-The command :command:`datalad containers-list` can verify that this worked:
+The command :dlcmd:`containers-list` can verify that this worked:
 
 .. runrecord:: _examples/repro2-105
    :language: console
@@ -188,7 +188,7 @@ seen below::
    $ heudiconv -f reproin -s 02 -c dcm2niix -b -l "" --minmeta -a . \
     -o /tmp/heudiconv.sub-02 --files inputs/rawdata/dicoms
 
-within a :command:`datalad containers-run` command.
+within a :dlcmd:`containers-run` command.
 To save time, we will only transfer one subjects data (``sub-02``, hence the
 subject identifier ``-s 02`` in the command). Note that the output below is
 how it indeed should look like -- the software we are using in this example
@@ -204,7 +204,7 @@ produces very wordy output.
 
 Find out what changed after this command by comparing the most recent commit
 by DataLad (i.e., ``HEAD``) to the previous one (i.e., ``HEAD~1``) with
-:command:`datalad diff`:
+:dlcmd:`diff`:
 
 .. runrecord:: _examples/repro2-107
    :language: console
@@ -225,7 +225,7 @@ this information directly in the BIDS events.tsv format. The file came with
 our DICOM dataset and can be found at ``inputs/rawdata/events.tsv``. All we need
 to do is copy it to the right location under the BIDS-mandated name. To keep
 track of where this file came from, we will also wrap the copying into a
-:command:`datalad run` command. The ``{inputs}`` and ``{outputs}``
+:dlcmd:`run` command. The ``{inputs}`` and ``{outputs}``
 placeholders can help to avoid duplication in the command call:
 
 .. runrecord:: _examples/repro2-108
@@ -270,7 +270,7 @@ dataset, with the input dataset ``localizer_scans`` as a subdataset:
    $ cd glm_analysis
 
 We install ``localizer_scans`` by providing its path as a ``--source`` to
-:command:`datalad install`:
+:dlcmd:`install`:
 
 .. runrecord:: _examples/repro2-111
    :language: console
@@ -280,7 +280,7 @@ We install ``localizer_scans`` by providing its path as a ``--source`` to
      ../localizer_scans \
      inputs/rawdata
 
-:command:`datalad subdatasets` reports the number of installed subdatasets
+:dlcmd:`subdatasets` reports the number of installed subdatasets
 again:
 
 .. runrecord:: _examples/repro2-112
@@ -292,7 +292,7 @@ again:
 We almost forgot something really useful: Structuring the dataset with
 the help of DataLad! Luckily, procedures such as ``yoda`` can not only be
 applied upon creating of a dataset (as in :ref:`createDS`), but also with the
-:command:`run-procedure` command (as in :ref:`procedures`)
+:dlcmd:`run-procedure` command (as in :ref:`procedures`)
 
 .. runrecord:: _examples/repro2-113
    :language: console
@@ -312,7 +312,7 @@ FSL we use:
    `https://raw.githubusercontent.com/myyoda/ohbm2018-training/master/section23/scripts/ffa_design.fsf <https://raw.githubusercontent.com/myyoda/ohbm2018-training/master/section23/scripts/ffa_design.fsf>`_
 
 These script should be stored and tracked inside the dataset within ``code/``.
-The :command:`datalad download-url` command downloads these scripts *and*
+The :dlcmd:`download-url` command downloads these scripts *and*
 records where they were obtained from:
 
 .. runrecord:: _examples/repro2-114
@@ -333,7 +333,7 @@ been downloaded from:
    $ git log -n 1
 
 Prior to the actual analysis, we need to run the ``events2ev3.sh`` script to
-transform inputs into the format that FSL expects. The :command:`datalad run`
+transform inputs into the format that FSL expects. The :dlcmd:`run`
 makes this maximally reproducible and easy, as the files given as
 ``--inputs`` and ``--outputs`` are automatically managed by DataLad.
 
@@ -349,7 +349,7 @@ makes this maximally reproducible and easy, as the files given as
 The dataset now contains and manages all of the required inputs, and we're
 ready for FSL. Since FSL is not a simple program, we make sure to record the
 precise software environment for the analysis with
-:command:`datalad containers-run`. First, we get a container with FSL in the
+:dlcmd:`containers-run`. First, we get a container with FSL in the
 version we require:
 
 
@@ -372,7 +372,7 @@ All we have left is to configure the desired first-level GLM analysis with
 FSL. At this point, the template contains placeholders for the ``basepath``
 and the subject ID, and they need to be replaced.
 The following command uses the arcane, yet powerful :term:`sed` editor to do
-this. We will again use :command:`datalad run` to invoke our command so that
+this. We will again use :dlcmd:`run` to invoke our command so that
 we store in the history how this template was generated (so that we may
 audit, alter, or regenerate this file in the future — fearlessly).
 
@@ -431,7 +431,7 @@ analysis dataset. DataLad can re-obtain the correct version at any point in
 the future, as long as the recorded location remains accessible.
 
 To make sure we're not deleting information we are not aware of,
-:command:`datalad diff` and :command:`git log` can help to verify that the
+:dlcmd:`diff` and :gitcmd:`log` can help to verify that the
 subdataset is in the same state as when it was initially added:
 
 .. runrecord:: _examples/repro2-121

@@ -4,7 +4,7 @@ Publishing datasets to Git repository hosting
 ---------------------------------------------
 
 Because DataLad datasets are :term:`Git` repositories, it is possible to
-:command:`push` datasets to any Git repository hosting service, such as
+:dlcmd:`push` datasets to any Git repository hosting service, such as
 :term:`GitHub`, :term:`GitLab`, :term:`GIN`, :term:`Bitbucket`, `Gogs <https://gogs.io>`_, or `Gitea <https://gitea.io/en-us>`_.
 These published datasets are ordinary :term:`sibling`\s of your dataset, and among other advantages, they can constitute a back-up, an entry-point to retrieve your dataset for others or yourself, the backbone for collaboration on datasets, or the means to enhance visibility, findability and citeability of your work [#f1]_.
 This section contains a brief overview on how to publish your dataset to different services.
@@ -14,7 +14,7 @@ Git repository hosting and annexed data
 
 As outlined in a number of sections before, Git repository hosting sites typically do not support dataset annexes - some, like :term:`GIN` however, do.
 Depending on whether or not an annex is supported, you can push either only your Git history to the sibling, or the complete dataset including annexed file contents.
-You can find out whether a sibling on a remote hosting services carries an annex or not by running the :command:`datalad siblings` command.
+You can find out whether a sibling on a remote hosting services carries an annex or not by running the :dlcmd:`siblings` command.
 A ``+``, ``-``, or ``?`` sign in parenthesis indicates whether the sibling carries an annex, does not carry an annex, or whether this information isn't yet known.
 In the example below you can see that a public GitHub repository `<https://github.com/psychoinformatics-de/studyforrest-data-phase2>`_ does not carry an annex on ``github`` (the sibling ``origin``), but that the annexed data are served from an additional sibling ``mddatasrc`` (a :term:`special remote` with annex support).
 Even though the dataset sibling on GitHub does not serve the data, it constitutes a simple, findable access point to retrieve the dataset, and can be used to provide updates and fixes via :term:`pull request`\s, issues, etc.
@@ -45,7 +45,7 @@ How to add a sibling on a Git repository hosting site: The manual way
 
 	Webinterface of :term:`GitHub` during the creation of a new repository.
 
-#. Afterwards, copy the :term:`SSH` or :term:`HTTPS` URL of the repository. Usually, repository hosting services will provide you with a convenient way to copy it to your clipboard. An SSH URL takes the form ``git@<hosting-service>:/<user>/<repo-name>.git`` and an HTTPS URL takes the form ``https://<hosting-service>/<user>/<repo-name>.git``. The type of URL you choose determines whether and how you will be able to ``push`` to your repository. Note that many services will require you to use the SSH URL to your repository in order to do :command:`push` operations, so make sure to take the :term:`SSH` and not the :term:`HTTPS` URL if this is the case.
+#. Afterwards, copy the :term:`SSH` or :term:`HTTPS` URL of the repository. Usually, repository hosting services will provide you with a convenient way to copy it to your clipboard. An SSH URL takes the form ``git@<hosting-service>:/<user>/<repo-name>.git`` and an HTTPS URL takes the form ``https://<hosting-service>/<user>/<repo-name>.git``. The type of URL you choose determines whether and how you will be able to ``push`` to your repository. Note that many services will require you to use the SSH URL to your repository in order to do :dlcmd:`push` operations, so make sure to take the :term:`SSH` and not the :term:`HTTPS` URL if this is the case.
 
 #. If you pick the :term:`SSH` URL, make sure to have an :term:`SSH key` set up. This usually requires generating an SSH key pair if you do not have one yet, and uploading the public key to the repository hosting service.
 
@@ -98,7 +98,7 @@ How to add a sibling on a Git repository hosting site: The automated way
 
 DataLad provides ``create-sibling-*`` commands to automatically create datasets on certain hosting sites.
 You can automatically create new repositories from the command line for :term:`GitHub`, :term:`GitLab`, :term:`GIN`, `Gogs <https://gogs.io>`__, or `Gitea <https://gitea.io/en-us>`__.
-This is implemented with a set of commands called :command:`create-sibling-github`, :command:`create-sibling-gitlab`, :command:`create-sibling-gin`, :command:`create-sibling-gogs`, and :command:`create-sibling-gitea`.
+This is implemented with a set of commands called :dlcmd:`create-sibling-github`, :dlcmd:`create-sibling-gitlab`, :dlcmd:`create-sibling-gin`, :dlcmd:`create-sibling-gogs`, and :dlcmd:`create-sibling-gitea`.
 
 Each command is slightly tuned towards the peculiarities of each particular platform, but the most important common parameters are streamlined across commands as follows:
 

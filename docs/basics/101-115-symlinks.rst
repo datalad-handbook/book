@@ -7,9 +7,9 @@ Data integrity
 So far, we mastered quite a number of challenges:
 Creating and populating a dataset with large and small files, modifying content and saving the changes to history, installing datasets, even as subdatasets within datasets, recording the impact of commands on a dataset with the run and re-run commands, and capturing plenty of :term:`provenance` on the way.
 We further noticed that when we modified content in ``notes.txt`` or ``list_titles.sh``, the modified content was in a *text file*.
-We learned that this precise type of file, in conjunction with the initial configuration template ``text2git`` we gave to :command:`datalad create`, is meaningful:
+We learned that this precise type of file, in conjunction with the initial configuration template ``text2git`` we gave to :dlcmd:`create`, is meaningful:
 As the text file is stored in Git and not git-annex, no content unlocking is necessary.
-As we saw within the demonstrations of :command:`datalad run`, modifying content of non-text files, such as ``.jpg``\s, typically requires the additional step of *unlocking* file content, either by hand with the :command:`datalad unlock` command, or within :command:`datalad run` using the ``-o``/``--output`` flag.
+As we saw within the demonstrations of :dlcmd:`run`, modifying content of non-text files, such as ``.jpg``\s, typically requires the additional step of *unlocking* file content, either by hand with the :dlcmd:`unlock` command, or within :dlcmd:`run` using the ``-o``/``--output`` flag.
 
 There is one detail about DataLad datasets that we have not covered yet.
 It is a crucial component to understanding certain aspects of a dataset, but it is also a potential source of confusion that we want to eradicate.
@@ -284,19 +284,19 @@ troublesome, most types of broken symlinks you will encounter can be fixed,
 or are not problematic. At this point, you actually have already seen broken
 symlinks: Back in section :ref:`installds` we explored
 the file hierarchy in an installed subdataset that contained many annexed
-``mp3`` files. Upon the initial :command:`datalad clone`, the annexed files were not present locally.
+``mp3`` files. Upon the initial :dlcmd:`clone`, the annexed files were not present locally.
 Instead, their symlinks (stored in Git) existed and allowed to explore which
 file's contents could be retrieved. These symlinks point to nothing, though, as
 the content isn't yet present locally, and are thus *broken*. This state,
 however, is not problematic at all. Once the content is retrieved via
-:command:`datalad get`, the symlink is functional again.
+:dlcmd:`get`, the symlink is functional again.
 
 Nevertheless, it may be important to know that some tools that you would expect to work in a dataset with not yet retrieved file contents can encounter unintuitive problems.
 Some **file managers** (e.g., OSX's Finder) may not display broken symlinks.
 In these cases, it will be impossible to browse and explore the file hierarchy of not-yet-retrieved files with the file manager.
 You can make sure to always be able to see the file hierarchy in two separate ways:
 Upgrade your file manager to display file types in DataLad datasets (e.g., the `git-annex-turtle extension <https://github.com/andrewringler/git-annex-turtle>`_ for Finder), or use the `DataLad Gooey <http://docs.datalad.org/projects/gooey>`_ to browse datasets.
-Alternatively, use the :command:`ls` command in a terminal instead of a file manager GUI.
+Alternatively, use the :shcmd:`ls` command in a terminal instead of a file manager GUI.
 Other tools may be more more specialized, smaller, or domain-specific, and may fail to correctly work with broken symlinks, or display unhelpful error messages when handling them, or require additional flags to modify their behavior.
 When encountering unexpected behavior or failures, try to keep in mind that a dataset without retrieved content appears to be a pile of broken symlinks to a range of tools, consult a tools documentation with regard to symlinks, and check whether data retrieval fixes persisting problems.
 

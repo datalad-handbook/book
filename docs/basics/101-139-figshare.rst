@@ -10,14 +10,14 @@ This usually means that a static snapshot of your dataset and its files are shar
 in archives or collections of files.
 While an export of a dataset looses some of the advantages that a DataLad dataset has, for example a transparent version history, it can be a fast and simple way to make the most recent version of your dataset available or archived.
 
-One example is the command :command:`export-archive`.
+One example is the command :dlcmd:`export-archive`.
 Running this command creates a ``.tar.gz`` file with the content of your dataset.
 This compressed archive can be uploaded to any data hosting portal manually.
 This moves data out of version control and decentralized tracking, and essentially "throws it over the wall" - while your data (also the annexed data) will be available for download from where you share it, none of the special features a DataLad dataset provides will be available, such as its history or configurations.
 
-Another example is :command:`export-to-figshare`.
+Another example is :dlcmd:`export-to-figshare`.
 `Figshare <https://figshare.com>`__ is an online open access repository where researchers can preserve and share their research outputs, including figures, datasets, or images - and thus everything that could potentially be managed in a Datalad dataset.
-Running :command:`datalad export-to-figshare` allows you to publish the dataset as a snapshot.
+Running :dlcmd:`export-to-figshare` allows you to publish the dataset as a snapshot.
 Note that this requires a free account on Figshare, and the generation of an `access token <https://figshare.com/account/applications>`_ for authentication.
 An interactive prompt will ask you to supply authentication credentials, and guide you through the process of creating a new article.
 
@@ -52,7 +52,7 @@ The screenshot below shows how the ``DataLad-101`` dataset looks like in exporte
 
 You could then extend the dataset with metadata, obtain a `DOI <https://www.doi.org/driven_by_DOI.html>`_ for it and make it citable, and point others to it in order to download it as an archive of files.
 
-Beyond this, as the command :command:`export-archive` is used by it to prepare content for upload to Figshare, annexed files also will be annotated as available from the archive on Figshare using ``datalad-archive`` special remote.
+Beyond this, as the command :dlcmd:`export-archive` is used by it to prepare content for upload to Figshare, annexed files also will be annotated as available from the archive on Figshare using ``datalad-archive`` special remote.
 As a result, if you publish your Figshare dataset and share your DataLad dataset on a repository hosting service without support for annexed files, users will still be able to fetch content from the tarball shared on Figshare.
 
 .. code-block:: bash

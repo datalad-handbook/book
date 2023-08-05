@@ -9,10 +9,10 @@ This use case sketches the basics of a portable analysis of public neuroimaging 
 that can be automatically computationally reproduced by anyone:
 
 #. Public open data stems from :term:`the DataLad superdataset ///`.
-#. Automatic data retrieval can be ensured by using DataLad's commands in the analysis scripts, or the ``--input`` specification of :command:`datalad run`,
-#. Analyses are executed using :command:`datalad run` and :command:`datalad rerun` commands to capture everything relevant to reproduce the analysis.
+#. Automatic data retrieval can be ensured by using DataLad's commands in the analysis scripts, or the ``--input`` specification of :dlcmd:`run`,
+#. Analyses are executed using :dlcmd:`run` and :dlcmd:`rerun` commands to capture everything relevant to reproduce the analysis.
 #. The final dataset can be kept as lightweight as possible by dropping input that can be easily re-obtained.
-#. A complete reproduction of the computation (including input retrieval), is possible with a single :command:`datalad rerun` command.
+#. A complete reproduction of the computation (including input retrieval), is possible with a single :dlcmd:`rerun` command.
 
 This use case is a specialization of :ref:`usecase_reproducible_paper`, and a simpler version of :ref:`usecase_reproduce_neuroimg`:
 It is a data analysis that requires and creates large data files, uses specialized analysis software, and is fully automated using solely DataLad commands and tools.
@@ -35,8 +35,8 @@ DataLad can help with the technical aspects of reproducible science.
 
 For neuroscientific studies, :term:`the DataLad superdataset ///` provides unified access to a large amount of data.
 Using it to install datasets into an analysis-superdataset makes it easy to share this data together with the analysis.
-By ensuring that all relevant data is downloaded via :command:`datalad get` via DataLad's command line tools in the analysis scripts, or ``--input`` specifications in a :command:`datalad run`, an analysis can retrieve all required inputs fully automatically during execution.
-Recording executed commands with :command:`datalad run` allows to rerun complete analysis workflows with a single command, even if input data does not exist locally.
+By ensuring that all relevant data is downloaded via :dlcmd:`get` via DataLad's command line tools in the analysis scripts, or ``--input`` specifications in a :dlcmd:`run`, an analysis can retrieve all required inputs fully automatically during execution.
+Recording executed commands with :dlcmd:`run` allows to rerun complete analysis workflows with a single command, even if input data does not exist locally.
 Combining these three steps allows to share fully automatically reproducible analyses as lightweight datasets.
 
 Step-by-Step
@@ -121,7 +121,7 @@ Here we will use a small script that performs ‘brain extraction’ using `FSL 
    done
    EOT
 
-Note that this script uses the :command:`datalad get` command which automatically obtains the required files from their remote source – we will see this in action shortly.
+Note that this script uses the :dlcmd:`get` command which automatically obtains the required files from their remote source – we will see this in action shortly.
 
 We are saving this script in the dataset. This way, we will know exactly which code was used for the analysis.
 Everything inside of ``code/`` is tracked with Git thanks to the yoda-procedure, so we can see more easily how it was edited over time.
@@ -143,7 +143,7 @@ While the command runs, you should notice a few things:
 
 1) We run this command with ‘bash -e’ to stop at any failure that may occur
 
-2) You’ll see the required data files being obtained as they are needed – and   only those that are actually required will be downloaded (because of the appropriate ``--input`` specification of the :command:`datalad run` -- but as a :command:`datalad get` is also included in the bash script, forgetting an ``--input`` specification would not be problem).
+2) You’ll see the required data files being obtained as they are needed – and   only those that are actually required will be downloaded (because of the appropriate ``--input`` specification of the :dlcmd:`run` -- but as a :dlcmd:`get` is also included in the bash script, forgetting an ``--input`` specification would not be problem).
 
 .. runrecord:: _examples/repro-109
    :language: console
@@ -176,7 +176,7 @@ In our case, the re-run yields bit-identical results, hence nothing new is saved
 
    $ datalad rerun
 
-Now that we are done, and have checked that we can reproduce the results ourselves, we can clean up. DataLad can easily verify if any part of our input dataset was modified since we configured our analysis, using :command:`datalad diff` and the tag we provided:
+Now that we are done, and have checked that we can reproduce the results ourselves, we can clean up. DataLad can easily verify if any part of our input dataset was modified since we configured our analysis, using :dlcmd:`diff` and the tag we provided:
 
 .. runrecord:: _examples/repro-112
    :language: console

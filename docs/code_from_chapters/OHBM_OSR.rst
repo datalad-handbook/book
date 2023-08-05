@@ -36,7 +36,7 @@ Datasets can
 - they can be shared and installed, and
 - they can be nested in order to link them.
 
-The :command:`datalad create <path>` creates a new dataset:
+The :dlcmd:`create <path>` creates a new dataset:
 
 .. code-block:: bash
 
@@ -87,7 +87,7 @@ Large-scale analysis thus may require splitting outputs across subdatasets in or
 More information on this can be found in the chapter :ref:`chapter_gobig`.
 Here, in anticipation of up to 500.000 files, two output subdatasets are used to collect the results.
 
-Usually, you can just create a new, empty dataset with :command:`datalad create` as in ``datalad create -d <root-to-dataset> <path>``.
+Usually, you can just create a new, empty dataset with :dlcmd:`create` as in ``datalad create -d <root-to-dataset> <path>``.
 In the demonstration, empty, pre-created datasets (``fmriprep`` for fmriprep outputs, ``freesurfer`` for freesurfer outputs) are installed from :term:`GIN`.
 
 .. code-block:: bash
@@ -99,7 +99,7 @@ In the demonstration, empty, pre-created datasets (``fmriprep`` for fmriprep out
 .. find-out-more:: Why install empty datasets?
 
    The choice to install empty datasets was a convenience hack for easy publishing routines.
-   At the end of the workflow, a recursive :command:`datalad push` was able to publish all results and the complete hierarchy of datasets in one go.
+   At the end of the workflow, a recursive :dlcmd:`push` was able to publish all results and the complete hierarchy of datasets in one go.
    This was only this easy because by installing the ``fmriprep`` and ``freesurfer`` datasets those subdatasets already had a :term:`sibling` configuration to :term:`GIN`.
    Had the subdatasets been created from scratch, each subdataset would have required setting up a sibling before hand, in the same way it was done with the top-level dataset.
    You can read more about this in the section :ref:`gin`, in particular the paragraph :ref:`subdspublishing`.
@@ -137,7 +137,7 @@ A demonstration can be found in the section :ref:`containersrun`.
 The pipeline can be configured with custom call specifications with the ``--call-fmt`` option.
 In this demonstration,  programmatic bind mounts are attached.
 Whenever this toolbox is installed as a subdataset called ``.tools``, running the container in this dataset with bind-mount the parent directory (i.e., the analysis dataset), and the license file inside of the toolbox.
-Note that the placeholders ``{img}`` and ``{cmd}`` will expand to the container and the command line call given to :command:`datalad containers-run`.
+Note that the placeholders ``{img}`` and ``{cmd}`` will expand to the container and the command line call given to :dlcmd:`containers-run`.
 
 .. code-block:: bash
 
@@ -163,7 +163,7 @@ In the code block below, the dataset is installed from a local path.
 Step 5: Running an analysis
 """""""""""""""""""""""""""
 
-With containerized pipeline and data set up, the :command:`datalad containers-run` command can be used to execute fmriprep preprocessing on the data.
+With containerized pipeline and data set up, the :dlcmd:`containers-run` command can be used to execute fmriprep preprocessing on the data.
 This command will retrieve and use the container linked inside the toolbox, retrieve any input data that is specified with the ``--input`` flag(s), and execute the final command inside of the container (the ``{cmd}`` placeholder in the call format specification will be replaced by it).
 In the example below, a single subject is preprocessed:
 
@@ -177,7 +177,7 @@ In the example below, a single subject is preprocessed:
        ".source . participant --participant-label 170631 --skip-bids-validation --anat-only -w /tmp --fs-license-file .tools/license.txt"
 
 The results will be saved into the subdatasets because they were conveniently named after the output directories that fmriprep produces, and the command will produce and save a machine-readable and re-executable :term:`run record` from this that allows others or yourself to rerun the computation, for example if data has been updated.
-A complete, small-stepped introduction to :command:`datalad run` can be found in chapter :ref:`chapter_run`.
+A complete, small-stepped introduction to :dlcmd:`run` can be found in chapter :ref:`chapter_run`.
 
 
 Step 6: Result publication
@@ -188,7 +188,7 @@ This demonstration focuses on public access and therefore shows a publication ro
 A complete write-up on dataset publishing to Gin is in section :ref:`gin`.
 
 To publish a dataset, an empty repository needs to be created via Gin's webinterface.
-The SSH url to this repository can be given to :command:`datalad siblings add` to register this repository as a sibling.
+The SSH url to this repository can be given to :dlcmd:`siblings add` to register this repository as a sibling.
 
 .. code-block:: bash
 
@@ -196,7 +196,7 @@ The SSH url to this repository can be given to :command:`datalad siblings add` t
 
 Note that the name of the sibling is ``origin``.
 This is because the two subdatasets have siblings of the same name.
-A recursive :command:`push` will traverse down the dataset hierarchy and publish datasets to their ``origin`` sibling if they have one.
+A recursive :dlcmd:`push` will traverse down the dataset hierarchy and publish datasets to their ``origin`` sibling if they have one.
 With a single operation from the dataset root, the superdataset and the two subdatasets that hold the results are published in one go.
 
 .. code-block:: bash
@@ -207,7 +207,7 @@ Step 7: Result retrieval
 """"""""""""""""""""""""
 
 From GIN, you or others can now access this dataset without having an account on Gin via anonymous HTTP access.
-For this, :command:`datalad clone` only needs the ``https`` url of the dataset, found in the webbrowsers address bar.
+For this, :dlcmd:`clone` only needs the ``https`` url of the dataset, found in the webbrowsers address bar.
 You can take a look at the data for yourself, if you want to:
 
 .. code-block:: bash

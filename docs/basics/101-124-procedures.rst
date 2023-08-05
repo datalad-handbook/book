@@ -89,8 +89,7 @@ file when setting up a dataset.
 
 
 To find out available procedures, the command
-:command:`datalad run-procedure --discover` (:manpage:`datalad-run-procedure`
-manual) is helpful.
+:dlcmd:`run-procedure --discover` is helpful.
 This command will make DataLad search the default location for
 procedures in a dataset, the source code of DataLad or
 installed DataLad extensions, and the default locations for
@@ -117,7 +116,7 @@ they are all part of the source code of DataLad [#f1]_.
 Applying procedures
 ^^^^^^^^^^^^^^^^^^^
 
-:command:`datalad run-procedure` not only *discovers*
+:dlcmd:`run-procedure` not only *discovers*
 but also *executes* procedures. If given the name of
 a procedure, this command will apply the procedure to
 the current dataset, or the dataset that is specified
@@ -129,7 +128,7 @@ The typical workflow is to create a dataset and apply
 a procedure afterwards.
 However, some procedures shipped with DataLad or its extensions with a
 ``cfg_`` prefix can also be applied right at the creation of a dataset
-with the ``-c/--cfg-proc <name>`` option in a :command:`datalad create`
+with the ``-c/--cfg-proc <name>`` option in a :dlcmd:`create`
 command. This is a peculiarity of these procedures because, by convention,
 all of these procedures are written to not require arguments.
 The command structure looks like this::
@@ -139,7 +138,7 @@ The command structure looks like this::
 Note that the ``cfg_`` prefix of the procedures is omitted in these
 calls to keep it extra simple and short. The
 available procedures in this example (``cfg_yoda``, ``cfg_text2git``)
-could thus be applied within a :command:`datalad create` as
+could thus be applied within a :dlcmd:`create` as
 
 - ``datalad create -c yoda <DSname>``
 - ``datalad create -c text2git <DSname>``
@@ -155,11 +154,11 @@ could thus be applied within a :command:`datalad create` as
 
    Procedures can be applied in datasets on any level in the dataset hierarchy, i.e.,
    also in subdatasets. Note, though, that a subdataset will show up as being
-   ``modified`` in :command:`datalad status` *in the superdataset*
+   ``modified`` in :dlcmd:`status` *in the superdataset*
    after applying a procedure.
    This is expected, and it would also be the case with any other modification
    (saved or not) in the subdataset, as the version of the subdataset that is tracked
-   in the superdataset simply changed. A :command:`datalad save` in the superdataset
+   in the superdataset simply changed. A :dlcmd:`save` in the superdataset
    will make sure that the version of the subdataset gets updated in the superdataset.
    The section :ref:`nesting2` will elaborate on this general principle later in the
    handbook.
@@ -354,7 +353,7 @@ was applied.
       $ datalad run-procedure --help-proc example
 
 
-Summing up, DataLad's :command:`run-procedure` command is a handy tool
+Summing up, DataLad's :dlcmd:`run-procedure` command is a handy tool
 with useful existing procedures but much flexibility for your own
 DIY procedure scripts. With the information of the last three sections
 you should be able to write and understand necessary configurations,

@@ -5,8 +5,8 @@ Configure custom data access
 
 DataLad can download files via the ``http``, ``https``, ``ftp``, and ``s3``
 protocol from various data storage solutions via its downloading commands
-(:command:`datalad download-url`, :command:`datalad addurls`,
-:command:`datalad get`).
+(:dlcmd:`download-url`, :dlcmd:`addurls`,
+:dlcmd:`get`).
 If data retrieval from a storage solution requires *authentication*,
 for example via a username and password combination, DataLad provides an
 interface to query, request, and store the most common type of credentials that
@@ -31,10 +31,10 @@ credentials from the command line. Subsequent downloads handle authentication
 in the background as long as the credentials stay valid. An example of this
 credential management is shown in the usecase :ref:`usecase_HCP_dataset`:
 Data is stored in S3 buckets that require authentication with AWS credentials.
-The first :command:`datalad get` to retrieve any of the data will prompt for
+The first :dlcmd:`get` to retrieve any of the data will prompt for
 the credentials from the terminal. If the given credentials are valid, the
 requested data will be downloaded, and all subsequent retrievals via
-:command:`get` will authenticate automatically, without user input, as long as
+:dlcmd:`get` will authenticate automatically, without user input, as long as
 the entered credentials stay valid.
 
 .. find-out-more:: How does the authentication work?
@@ -64,9 +64,9 @@ However, data access can be configured by
 the user if the required authentication and credential type are supported by
 DataLad (a list is given in the hidden section below).
 With a data access configuration in place, commands such as
-:command:`datalad download-url` or :command:`datalad addurls` can work with urls
+:dlcmd:`download-url` or :dlcmd:`addurls` can work with urls
 the point to the location of the data to be retrieved, and
-:command:`datalad get` is enabled to retrieve file contents from these sources.
+:dlcmd:`get` is enabled to retrieve file contents from these sources.
 
 The configuration can either be done in the terminal upon a prompt from the
 command line when a download fails due to a missing provider configuration as
@@ -247,7 +247,7 @@ A basic mock example can illustrate the necessary steps to set this up.
 
 Here is a short list of preparations if you want to try this out for yourself:
 
-#. Create a private repository on GitHub. This can be done via `GitHub's webinterface <https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility#changing-a-repositorys-visibility>`_ or the ``--private`` flag of :command:`create-sibling-github` (requires DataLad version ``0.16`` or higher).
+#. Create a private repository on GitHub. This can be done via `GitHub's webinterface <https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility#changing-a-repositorys-visibility>`_ or the ``--private`` flag of :dlcmd:`create-sibling-github` (requires DataLad version ``0.16`` or higher).
 #. The repository should contain a file, like a simple ``README.md``, and can be a pure Git repository.
 #. Ensure that all tokens in Git configurations files are commented out, because those would provide authentication as well. Running ``git config --list`` can give you an overview, but you can also check that ``git clone <repo>`` with a :term:`https` URL prompts for user name and password.
 

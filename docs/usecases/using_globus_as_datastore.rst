@@ -169,8 +169,8 @@ special remote can be found at
 
 An example using Globus from a user perspective
 """""""""""""""""""""""""""""""""""""""""""""""
-It always starts with a dataset, installed with either :command:`datalad install`
-or :command:`datalad clone`.
+It always starts with a dataset, installed with either :dlcmd:`install`
+or :dlcmd:`clone`.
 
 .. code-block:: bash
 
@@ -215,7 +215,7 @@ However, data retrieval is easy. At first, users have to enable the globus remot
     (recording state in git...)
 
 After that, they can download any file, directory, or complete dataset using
-:command:`datalad get`:
+:dlcmd:`get`:
 
 .. code-block:: bash
 
@@ -235,7 +235,7 @@ CONP thus makes a variety of datasets flexibly available and helps to disseminat
 data. The on-demand availability of files in datasets can help scientists to
 save disk space. For this, they could get only those data files that they need
 instead of obtaining complete copies of the dataset, or they could locally
-:command:`drop` data that is hosted and thus easily re-available on Globus.org
+:dlcmd:`drop` data that is hosted and thus easily re-available on Globus.org
 after their analyses are done.
 
 

@@ -84,12 +84,12 @@ Creating a dataset from scratch is done with the ``datalad create`` command.
 
 .. find-out-more:: How can I turn an existing directory into a dataset?
 
-   By navigating into a directory, and running :command:`datalad create -f .` (with the ``-f/--force`` option).
+   By navigating into a directory, and running :dlcmd:`create -f .` (with the ``-f/--force`` option).
    Section :ref:`dataladdening` provides more info on how to transform existing directories into DataLad datasets.
    It is advised, though, to first learn a bit of DataLad Basics first, so stay tuned.
 
 
-:command:`datalad create` only needs a name, and it will subsequently create a new directory under this name and instruct DataLad to manage it.
+:dlcmd:`create` only needs a name, and it will subsequently create a new directory under this name and instruct DataLad to manage it.
 Here, the command also has an additional option, the ``-c text2git`` option.
 With the -c option, datasets can be configured in a certain way at the time of creation, and ``text2git`` is a so-called :term:`run procedure`::
 
@@ -114,14 +114,14 @@ The command below writes a simple header into a new file ``README.md``::
 
    echo "# My example DataLad dataset" > README.md
 
-:command:`datalad status` can report on the state of a dataset: What has changed, compared to the last saved version?
+:dlcmd:`status` can report on the state of a dataset: What has changed, compared to the last saved version?
 As we added a new file, ``README.md`` shows up as being "untracked"::
 
    datalad status
 
 
 Procedurally, version control with DataLad commands can be simpler that what you might be used to:
-In order to save any new file or modification to an existing file in a dataset you use the :command:`datalad save` command.
+In order to save any new file or modification to an existing file in a dataset you use the :dlcmd:`save` command.
 The ``-m/--message`` option lets you attach a concise summary of your changes.
 Such a :term:`commit message` makes it easier for others and your later self to understand a dataset's history::
 
@@ -150,7 +150,7 @@ Let's save this modifications with a helpful message again::
 
 
 With each saved change, you build up your dataset's revision history.
-Tools such as :command:`git log` allow you to interrogate this history, and if you want to, you can use this history to find out what has been done in a dataset, reset it to previous states, and much more::
+Tools such as :gitcmd:`log` allow you to interrogate this history, and if you want to, you can use this history to find out what has been done in a dataset, reset it to previous states, and much more::
 
    git log
 
@@ -228,13 +228,13 @@ We will see in a short while how this location provenance information is *action
 
 A different useful piece of provenance is information on processes that generated or modified files, such as the information that executing a specific script generates a specific figure.
 DataLad has a set of commands for reproducible execution and re-execution:
-The :command:`datalad run` command can run any command execution in a way that links the command or script to the results it produces.
-This provenance, similar to the provenance ``download-url`` stores internally, is actionable, and the :command:`datalad rerun` can take this recorded provenance and recompute the command automatically.
+The :dlcmd:`run` command can run any command execution in a way that links the command or script to the results it produces.
+This provenance, similar to the provenance ``download-url`` stores internally, is actionable, and the :dlcmd:`rerun` can take this recorded provenance and recompute the command automatically.
 
 Let's imagine that the script you got from your colleague does not follow the formatting guidelines you typically use, so you let `black <https://black.readthedocs.io/en/stable/>`_, a Python code formatter, run over the code to reformat it.
 
 Without DataLad, you would run it like this: ``black code/get_brainmask.py``.
-But if you wrap it into a basic :command:`datalad run` command you can capture the changes of the command execution automatically, and record provenance about it::
+But if you wrap it into a basic :dlcmd:`run` command you can capture the changes of the command execution automatically, and record provenance about it::
 
    datalad run -m "Reformat code with black" \
     "black code/get_brainmask.py"
@@ -250,7 +250,7 @@ And the provenance, saved in a structured record in the commit message, allows a
 Data consumption and dataset nesting
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-DataLad makes data consumption very convenient: The :command:`datalad clone` command allows you to install datasets from local or remote sources.
+DataLad makes data consumption very convenient: The :dlcmd:`clone` command allows you to install datasets from local or remote sources.
 And there are many public dataset sources, such as all of `OpenNeuro's <https://openneuro.org/>`_ datasets (`github.com/OpenNeuroDatasets <https://github.com/OpenNeuroDatasets>`_), the Human Connectome Project's open access data (`github.com/datalad-datasets/human-connectome-project-openaccess <https://github.com/datalad-datasets/human-connectome-project-openaccess>`_), or other collections of Open Neuroimaging data (`datasets.datalad.org <http://datasets.datalad.org/>`_), giving you streamlined access to several hundreds of Terabytes of neuroscientific data.
 
 While you can clone datasets 'as is' as standalone data packages, you can also link datasets into one another in superdataset-subdataset hierarchies, a process we call "nesting".
@@ -285,7 +285,7 @@ However, you can browse the directory tree to discover available files::
 
    ls input/sub-02/func
 
-And you can get the file content of files, directories, or entire datasets on demand via the command :command:`datalad get` ::
+And you can get the file content of files, directories, or entire datasets on demand via the command :dlcmd:`get` ::
 
    datalad get input/sub-02
 
@@ -338,7 +338,7 @@ These flags have two purposes: For one, they add provenance information on input
 
 .. importantnote:: Using containers-run
 
-	If you are on a system that supports container execution, you can now use :command:`datalad containers-run` in order to perform a containerized and provenance-tracked analysis, executing the script inside of the software environment the container provides.
+	If you are on a system that supports container execution, you can now use :dlcmd:`containers-run` in order to perform a containerized and provenance-tracked analysis, executing the script inside of the software environment the container provides.
 	In addition to ``datalad run``, ``datalad containers-run`` needs a container specification which container should be used. Other than that, the commands get the same arguments::
 
 	   datalad containers-run -m "Compute brain mask" \
@@ -380,8 +380,8 @@ Cleaning up
 The lecture wouldn't have the term "data management" in its title if we were to leave clutter in your home directory.
 This gives us the chance to take a look at how to remove files or datasets, which, given that there are version control tools at work that protect your data, can be a challenging task (Spoiler: if you ``rm`` a file and save the deletion, the file can be brought back to life easily, and an ``rm -rf`` on a dataset with annexed files will cause an explosion of permission errors).
 
-Two commands, :command:`datalad drop` and :command:`datalad remove`, come into play for this.
-``datalad drop`` is the antagonist of :command:`datalad get`. By default, everything that ``drop`` does can be undone with a ``get``.
+Two commands, :dlcmd:`drop` and :dlcmd:`remove`, come into play for this.
+``datalad drop`` is the antagonist of :dlcmd:`get`. By default, everything that ``drop`` does can be undone with a ``get``.
 
 You already know that ``datalad drop`` drops file contents from the dataset to free up diskspace::
 

@@ -105,4 +105,4 @@ Thus, whenever more than one subdataset exists in a superdataset, make sure to n
 
 .. [#f2] To re-read about RIA stores and their ORA special remote storage siblings, please take a look at the section :ref:`riastore`.
 
-.. [#f3] If you are unsure how the :command:`git config` command works, please check out section :ref:`config`.
+.. [#f3] If you are unsure how the :gitcmd:`config` command works, please check out section :ref:`config`.

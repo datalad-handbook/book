@@ -1,4 +1,3 @@
-.. index:: ! 2-002
 .. _2-002:
 .. _symlink:
 
@@ -64,7 +63,7 @@ repository in the root of any dataset. One reason
 why you should not do this is because *this* ``.git`` directory is where all of your file content
 is actually stored.
 
-But why is that? We have to talk a bit git-annex now in order to understand it [#f1]_.
+But why is that? We have to talk a bit git-annex now in order to understand it.
 
 When a file is saved into a dataset to be tracked,
 by default -- that is in a dataset created without any configuration template --
@@ -225,7 +224,7 @@ to manage the file system in a DataLad dataset (:ref:`filesystem`).
    Furthermore, if two files have identical hashes, the content in these files is identical.
    Consequently, if two files have the same symlink, and thus link the same file in the object-tree, they are identical in content.
    This can save disk space if a dataset contains many identical files: Copies of the same data only need one instance of that content in the object tree, and all copies will symlink to it.
-   If you want to read more about the computer science basics about hashes check out the Wikipedia page `here <https://en.wikipedia.org/wiki/Hash_function>`_.
+   If you want to read more about the computer science basics about hashes check out the `Wikipedia page <https://en.wikipedia.org/wiki/Hash_function>`_.
 
    .. runrecord:: _examples/DL-101-115-104
       :language: console
@@ -259,7 +258,7 @@ to manage the file system in a DataLad dataset (:ref:`filesystem`).
    The next part of the symlink contains the actual hash.
    There are different hash functions available.
    Depending on which is used, the resulting :term:`checksum` has a certain length and structure, and the first part of the symlink actually states which hash function is used.
-   By default, DataLad uses ``MD5E`` checksums (relatively short and with a file extension), but should you want to, you can change this default to `one of many other types <https://git-annex.branchable.com/backends/>`_.
+   By default, DataLad uses ``MD5E`` checksums (relatively short and with a file extension), but should you want to, you can change this default to `one of many other types <https://git-annex.branchable.com/backends>`_.
    The reason why MD5E is used is because of its short length -- thus it is possible to ensure cross-platform compatibility and share datasets also with users on operating systems that have restrictions on total path lengths, such as Windows.
 
    The one remaining unidentified bit in the file name is the one after the checksum identifier.
@@ -270,7 +269,7 @@ to manage the file system in a DataLad dataset (:ref:`filesystem`).
 
    You now know a great deal more about git-annex and the object tree.
    Maybe you are as amazed as we are about some of the ingenuity used behind the scenes.
-   Even more mesmerizing things about git-annex can be found in its `documentation <https://git-annex.branchable.com/git-annex/>`_.
+   Even more mesmerizing things about git-annex can be found in its `documentation <https://git-annex.branchable.com/git-annex>`_.
 
 Broken symlinks
 ^^^^^^^^^^^^^^^
@@ -296,9 +295,9 @@ Nevertheless, it may be important to know that some tools that you would expect 
 Some **file managers** (e.g., OSX's Finder) may not display broken symlinks.
 In these cases, it will be impossible to browse and explore the file hierarchy of not-yet-retrieved files with the file manager.
 You can make sure to always be able to see the file hierarchy in two separate ways:
-Upgrade your file manager to display file types in DataLad datasets (e.g., the `git-annex-turtle extension <https://github.com/andrewringler/git-annex-turtle>`_ for Finder).
+Upgrade your file manager to display file types in DataLad datasets (e.g., the `git-annex-turtle extension <https://github.com/andrewringler/git-annex-turtle>`_ for Finder), or use the `DataLad Gooey <http://docs.datalad.org/projects/gooey>`_ to browse datasets.
 Alternatively, use the :command:`ls` command in a terminal instead of a file manager GUI.
-Other tools may be more more specialized, smaller, or domain-specific, and may fail to correctly work with broken symlinks, or display unhelpful error messages when handling them, or require additional flags to modify their behavior (such as the :ref:`BIDS Validator <bidsvalidator>`, used in the neuroimaging community).
+Other tools may be more more specialized, smaller, or domain-specific, and may fail to correctly work with broken symlinks, or display unhelpful error messages when handling them, or require additional flags to modify their behavior.
 When encountering unexpected behavior or failures, try to keep in mind that a dataset without retrieved content appears to be a pile of broken symlinks to a range of tools, consult a tools documentation with regard to symlinks, and check whether data retrieval fixes persisting problems.
 
 
@@ -336,14 +335,6 @@ If so, please take a look into the Windows Wit below.
 
    Whenever you need to work with files from your datasets under Windows, you should *unlock* with ``datalad unlock``.
    This operation copies the file from the annex back to its original location, and thus removes the symlink (and also returns write :term:`permissions` to the file).
-   Alternatively, use `git-annex adjust --unlock <https://git-annex.branchable.com/git-annex-adjust/>`_ to switch to a new dataset :term:`branch` in which all files are unlocked.
+   Alternatively, use `git-annex adjust --unlock <https://git-annex.branchable.com/git-annex-adjust>`_ to switch to a new dataset :term:`branch` in which all files are unlocked.
    The branch is called ``adjusted/<branchname>(unlocked)`` (e.g., if the original branch name was ``main``, the new, adjusted branch will be called ``adjusted/main(unlocked)``).
    You can switch back to your original branch using ``git checkout <branchname>``.
-
-.. rubric:: Footnotes
-
-.. [#f1] Note, though, that the information below applies to everything that is not an
-         *adjusted branch* in a git-annex *v7 repository* -- this information does not make
-         sense yet, but it will be an important reference point later on.
-         Just for the record: Currently, we do not yet have a v7 repository
-         in ``DataLad-101``, and the explanation below applies to our current dataset.

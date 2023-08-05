@@ -8,7 +8,7 @@ strategies to them prevent them.
 This section introduces some strategies to clean and fix up datasets that got out
 of hand size-wise. If there are use cases you would want to see discussed here
 or propose solutions for, please
-`get in touch <https://github.com/datalad-handbook/book/issues/new/>`_.
+`get in touch <https://github.com/datalad-handbook/book/issues/new>`_.
 
 Getting contents out of Git
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -94,7 +94,7 @@ Please see the manual of ``git-filter-repo`` for more information.
          ``git-filter-repo``, Git also discourages the use of ``filter-branch``
          for safety reasons and points to ``git-filter-repo`` as an alternative.
          For more background info, see this
-         `thread <https://lore.kernel.org/git/CABPp-BEr8LVM+yWTbi76hAq7Moe1hyp2xqxXfgVV4_teh_9skA@mail.gmail.com/>`_.
+         `thread <https://lore.kernel.org/git/CABPp-BEr8LVM+yWTbi76hAq7Moe1hyp2xqxXfgVV4_teh_9skA@mail.gmail.com>`_.
 
 .. [#f2] Regular expressions can be a pain to comprehend if you're not used to
          reading them. This one matches paths that start with (``^``) ``sub-``
@@ -104,4 +104,4 @@ Please see the manual of ``git-filter-repo`` for more information.
          (``*``) until ``.feat/tsplot/``, and ending (``$``) with any amount of
          any character (``.*``). Not exactly easy, but effective.
          One way to practice reading regular expressions, if you're interested
-         in that, is by playing `regex crossword <https://regexcrossword.com/>`_.
+         in that, is by playing `regex crossword <https://regexcrossword.com>`_.

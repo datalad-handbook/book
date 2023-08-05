@@ -190,24 +190,24 @@ a good message <fom-commit-message-guidance>`.
 
     **DOs**
 
-    - Write a *title line* with 72 characters or less (as we did so far)
+    - Write a *title line* with 72 characters or less
 
-    - it should be in imperative voice, e.g., "Add notes from lecture 2"
+    - Use imperative voice, e.g., "Add notes from lecture 2"
 
-    - Often, a title line is not enough to express your changes and reasoning behind it. In this case, add a body to your commit message by hitting enter twice (before closing the quotation marks), and continue writing a brief summary of the changes after a blank line. This summary should explain "what" has been done and "why", but not "how". Close the quotation marks, and hit enter to save the change with your message.
+    - If a title line is not enough to express your changes and reasoning behind it, add a body to your commit message: hit enter twice (before closing the quotation marks), and continue writing a brief summary of the changes after a blank line. This summary should explain "what" has been done and "why", but not "how". Close the quotation marks, and hit enter to save the change with your message.
 
     **DON'Ts**
 
-    - passive voice is hard to read afterwards
+    - Avoid passive voice
 
-    - extensive formatting (hashes, asterisks, quotes, ...) will most likely make your shell complain
+    - Extensive formatting (hashes, asterisks, quotes, ...) will most likely make your shell complain
 
-    - it should be obvious: do not say nasty things about other people
+    - Do not say nasty things about other people
 
 .. gitusernote:: There is no staging area in DataLad
 
    Just as in Git, new files are not tracked from their creation on, but only when
-   explicitly added to Git (in Git terms with an initial :command:`git add`). But different
+   explicitly added to Git (in Git terms, with an initial :command:`git add`). But different
    from the common Git workflow, DataLad skips the staging area. A :command:`datalad save`
    combines a :command:`git add` and a :command:`git commit`, and therefore, the commit message
    is specified with :command:`datalad save`.
@@ -292,7 +292,7 @@ files is not as hard as I thought!”
 But downloading and adding content to your dataset “manually” has two
 disadvantages: For one, it requires you to download the content and save it.
 Compared to a workflow with no DataLad dataset, this is one additional command
-you have to perform (`and that additional time adds up, after a while <https://xkcd.com/1205/>`_). But a more
+you have to perform (`and that additional time adds up, after a while <https://xkcd.com/1205>`_). But a more
 serious disadvantage is that you have no electronic record of the source of the
 contents you added. The amount of :term:`provenance`, the time, date, and author
 of file, is already quite nice, but we don't know anything about where you downloaded

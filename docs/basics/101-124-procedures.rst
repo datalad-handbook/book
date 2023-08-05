@@ -102,18 +102,17 @@ procedures on the system for available procedures:
 
    $ datalad run-procedure --discover
 
-The output shows that in this particular dataset, on the particular
-system the book is written on, there are at least three procedures available:
-``cfg_metadatatypes``, ``cfg_text2git``, and ``cfg_yoda``.
+The output shows that four procedures available in this particular dataset and the system it exists on:
+``cfg_metadatatypes``, ``cfg_text2git``, ``cfg_yoda``, and ``cfg_noannex``.
 It also lists where they are stored -- in this case,
 they are all part of the source code of DataLad [#f1]_.
 
+- ``cfg_noannex`` configures a dataset to not have an annex at all.
 - ``cfg_yoda`` configures a dataset according to the yoda
   principles -- the section :ref:`yoda` talks about this in detail.
 - ``cfg_text2git`` configures text files to be stored in Git.
 - ``cfg_metadatatypes`` lets users configure additional metadata
-  types -- more about this in a later section on DataLad's metadata
-  handling.
+  types.
 
 Applying procedures
 ^^^^^^^^^^^^^^^^^^^
@@ -369,11 +368,9 @@ the dataset is set-up, structured, processed, or configured automatically
 with the help of a procedure.
 Especially in the case of trainees and new users, applying procedures
 instead of doing relevant routines "by hand" can help to ease
-working with the dataset, as the use case :ref:`usecase_student_supervision`
-showcases. Other than by users, procedures can also be triggered to automatically
+working with the dataset. Other than by users, procedures can also be triggered to automatically
 run after any command execution if a command results matches a specific
-requirement. If you are interested in finding out more about this, read on in
-section :ref:`hooks`.
+requirement.
 
 Finally, make a note about running procedures inside of ``notes.txt``:
 

@@ -133,7 +133,7 @@ repository are the original dataset -- just differently represented, with no
 *working tree*, i.e., directory hierarchy that exists in the original dataset,
 and without the name it was created under, but stored under its dataset ID instead.
 
-If necessary, the keystores (annex) can be (compressed) `7zipped <https://www.7-zip.org/>`_
+If necessary, the keystores (annex) can be (compressed) `7zipped <https://7-zip.org>`_
 archives (``archives/``), either for compression gains, or for use on HPC-systems with
 `inode <https://en.wikipedia.org/wiki/Inode>`_ limitations [#f4]_.
 Despite being 7zipped, those archives can be indexed and support
@@ -175,7 +175,7 @@ all annexed contents.
 
 .. find-out-more:: What is a special remote?
 
-   A `special-remote <https://git-annex.branchable.com/special_remotes/>`_ is an
+   A `special-remote <https://git-annex.branchable.com/special_remotes>`_ is an
    extension to Git's concept of remotes, and can enable git-annex to transfer
    data to and from places that are not Git repositories (e.g., cloud services
    or external machines such as an HPC system). Don't envision a special-remote as a
@@ -184,7 +184,7 @@ all annexed contents.
 
 The git-annex ora-remote special remote is referred to as a "storage sibling" of
 the original dataset. It is similar to git-annex's built-in
-`directory <https://git-annex.branchable.com/special_remotes/directory/>`_
+`directory <https://git-annex.branchable.com/special_remotes/directory>`_
 special remote (but works remotely and uses the ``hashdir_mixed`` [#f2]_ keystore
 layout). Thanks to the git-annex ora-remote, RIA stores can have regular
 git-annex key storage and retrieval of keys from (compressed) 7z archives in
@@ -464,7 +464,7 @@ sibling creation:
 - A URL to a RIA store on a local file system also looks like during sibling
   creation: ``ria+file:///absolute/path/to/ria-store``
 - A URL for read (without annex) access to a store via :term:`http` (e.g., to a RIA store like
-  `store.datalad.org <http://store.datalad.org/>`_, through which the
+  `store.datalad.org <http://store.datalad.org>`_, through which the
   :ref:`HCP dataset is published <usecase_HCP_dataset>`) looks like this:
   ``ria+http://store.datalad.org:/absolute/path/to/ria-store``
 
@@ -619,7 +619,7 @@ cloning operations: Datasets in RIA stores can be cloned in specific versions.
    Optionally, datasets can be cloned in a specific version, such as a :term:`tag`
    or :term:`branch` by appending ``@<version-identifier>`` after the dataset ID
    or the dataset alias.
-   Here is how to clone the `BIDS <https://bids.neuroimaging.io/>`_ version of the
+   Here is how to clone the `BIDS <https://bids.neuroimaging.io>`_ version of the
    `structural preprocessed subset of the HCP dataset <https://github.com/datalad-datasets/hcp-structural-preprocessed>`_
    that exists on the branch ``bids`` of this dataset:
 
@@ -703,12 +703,12 @@ procedures.
          bare repositories) or ``hashdirmixed`` layout (which is necessary to
          allow symlinked annexes, relevant for :term:`ephemeral clone`\s). To read
          more about hashing in the key store, take a look at
-         `the docs <https://git-annex.branchable.com/internals/hashing/>`_.
+         `the docs <https://git-annex.branchable.com/internals/hashing>`_.
 
 .. [#f3] To re-read about how git-annex's object tree works, check out section
          :ref:`symlink`, and pay close attention to the hidden section.
          Additionally, you can find a lot of background information in git-annex's
-         `documentation <https://git-annex.branchable.com/internals/>`_.
+         `documentation <https://git-annex.branchable.com/internals>`_.
 
 .. [#f4] The usecase
 

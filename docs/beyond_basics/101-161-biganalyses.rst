@@ -66,7 +66,7 @@ subdatasets. It involves more thought, or compromising, though.
 The following section highlights a few caveats to bear in mind if you attempt
 a big analyses in single-level datasets, and outlines solutions that may not
 need to involve subdatasets. If you have something to add, please
-`get in touch <https://github.com/datalad-handbook/book/issues/new/>`_.
+`get in touch <https://github.com/datalad-handbook/book/issues/new>`_.
 
 Too many files
 """"""""""""""

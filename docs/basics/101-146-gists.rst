@@ -10,15 +10,11 @@ This section is a selection of code snippets tuned to perform specific,
 non-trivial tasks in datasets. Often, they are not limited to single commands of
 the version control tools you know, but combine helpful other command line
 tools and general Unix command line magic. Just like
-`GitHub gists <https://gist.github.com/>`_, its a collection of lightweight
+`GitHub gists <https://gist.github.com>`_, its a collection of lightweight
 and easily accessible tips and tricks. For a more basic command overview,
 take a look at the :ref:`cheat`. The
-`tips collection of git-annex <https://git-annex.branchable.com/tips/>`_ is also
+`tips collection of git-annex <https://git-annex.branchable.com/tips>`_ is also
 a very valuable resource.
-
-If there are tips you want to share, or if there is a question you would like
-to see answered here, please
-`get in touch <https://github.com/datalad-handbook/book/issues/new>`_.
 
 .. figure:: ../artwork/src/gists.svg
    :width: 50%
@@ -31,10 +27,9 @@ Parallelize subdataset processing
 
 DataLad can not yet parallelize processes that are performed
 independently over a large number of subdatasets. Pushing across a dataset
-hierarchy or creating :ref:`RIA siblings <usecase_datastore>`
-for all subdatasets of a superdataset, for example, is performed one after the other.
+hierarchy for example, is performed one after the other.
 Unix however, has a few tools such as `xargs <https://en.wikipedia.org/wiki/Xargs>`_
-or the ``parallel`` tool of `moreutils <https://joeyh.name/code/moreutils/>`_
+or the ``parallel`` tool of `moreutils <https://joeyh.name/code/moreutils>`_
 that can assist.
 
 Here is an example of pushing all subdatasets (and their respective subdatasets)
@@ -84,7 +79,7 @@ Alternatively, to get very comprehensive output, you can use
 
 The output will be returned as json, and the key ``has_content`` indicates local
 content availability (``true`` or ``false``). To filter through it, the command
-line tool `jq <https://stedolan.github.io/jq/>`_ works well::
+line tool `jq <https://stedolan.github.io/jq>`_ works well::
 
    $ datalad -f json status --recursive --annex all | jq '. | select(.has_content == true).path'
 
@@ -170,7 +165,7 @@ In order to back-up datasets you can publish them to a
 solution does not require Git, git-annex, or DataLad to be installed on the
 machine that the back-up is pushed to, the latter does require them.
 
-To find out more about RIA stores, checkout the section :ref:`riastore`.
+To find out more about RIA stores, checkout the online version of the handbook.
 A sketch of how to implement a sibling for backups is below:
 
 .. code-block:: bash
@@ -263,6 +258,6 @@ In order to :term:`squash` the entire git-annex history into a single commit, ru
 Afterwards, if your dataset has a sibling, the branch needs to be
 :term:`force-push`\ed. If you attempt an operation to shrink your git-annex
 history, also checkout
-`this thread <https://git-annex.branchable.com/forum/safely_dropping_git-annex_history/>`_
+`this thread <https://git-annex.branchable.com/forum/safely_dropping_git-annex_history>`_
 for more information on shrinking git-annex's history and helpful safeguards and
 potential caveats.

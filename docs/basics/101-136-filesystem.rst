@@ -16,8 +16,7 @@ all of ``DataLad-101`` into a different place on my computer?
 What if renamed the whole superdataset?
 And how do I remove a file, or directory, or subdataset?
 
-Therefore, there is an extra tutorial offered by the courses'
-TA today, and you attend.
+Therefore, there is an extra tutorial today, and you attend.
 There is no better way of learning than doing. Here, in the
 safe space of the ``DataLad-101`` course, you can try out all
 of the things you would be unsure about or reluctant to try
@@ -47,7 +46,7 @@ moving a file, and uses the :command:`mv` command.
 
    $ cd books/
    $ mv TLCL.pdf The_Linux_Command_Line.pdf
-   $ ls -lah
+   $ ls -lah The_Linux_Command_Line.pdf
 
 Try to open the renamed file, e.g., with
 ``evince The_Linux_Command_Line.pdf``.
@@ -247,9 +246,6 @@ After a ``datalad save``, the symlink is fixed again.
 Therefore, in general, whenever moving or renaming a file,
 especially between directories, a ``datalad save`` is
 the best option to turn to.
-Therefore, while it might be startling
-if you've moved a file and can not open it directly afterwards, everything
-will be rectified by :command:`datalad save` as well.
 
 .. find-out-more:: Why a move between directories is actually a content change
 
@@ -444,7 +440,7 @@ convenient. It can be a confusing and potentially "file-content-losing"-dangerou
 process, but it also dissociates a file from its provenance that is captured
 in its previous dataset, with no machine-readable way to learn about the move
 easily. A better alternative may be copying files with the :command:`datalad copy-file`
-command introduced in detail in :ref:`copyfile`, and demonstrated in the next
+command introduced in detail in the web version, and demonstrated in the next
 but one paragraph. Let's quickly clean up by moving the file back:
 
 .. runrecord:: _examples/DL-101-136-137
@@ -549,8 +545,8 @@ Copying files across dataset boundaries
 
 Instead of moving files across dataset boundaries, *copying* them is an easier
 and actually supported method.
-The DataLad command that can be used for this is :command:`datalad copy-file`
-(:manpage:`datalad-copy-file` manual). This command allows to copy files
+The DataLad command that can be used for this is :command:`datalad copy-file` (:manpage:`datalad-copy-file` manual).
+This command allows to copy files
 (from any dataset or non-dataset location, annexed or not annexed) into a dataset.
 If the file is copied from a dataset and is annexed, its availability metadata
 is added to the new dataset as well, and there is no need for unannex'ing the
@@ -571,7 +567,7 @@ stored in Git, and a file stored in annex:
 
 Both files have been successfully transferred and saved to the subdataset, and
 no unannexing was necessary.
-Note, though, that ``notes.txt`` was annexed in the subdataset, as this subdataset
+``notes.txt`` was annexed in the subdataset, though, as this subdataset
 was not configured with the ``text2git`` :term:`run procedure`.
 
 .. runrecord:: _examples/DL-101-136-147
@@ -603,7 +599,7 @@ provenance record is lost:
 Nevertheless, copying files with :command:`datalad copy-file` is easier and safer
 than moving them with standard Unix commands, especially so for annexed files.
 A more detailed introduction to :command:`datalad copy-file` and a concrete
-usecase can currently be found in :ref:`copyfile`.
+usecase can be found in the online version of the handbook.
 
 Let's clean up:
 
@@ -900,7 +896,7 @@ If it is a lot of files or larger files that were accidentally annexed, you may 
 Getting all content out of the annex (removing the annex repo)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-In case you want to get all annexed contents out of a Dataset at once, you could turn to `git annex uninit <https://git-annex.branchable.com/git-annex-uninit/>`_.
+In case you want to get all annexed contents out of a Dataset at once, you could turn to `git annex uninit <https://git-annex.branchable.com/git-annex-uninit>`_.
 It is a command that can be used to stop using git annex entirely in a given repository/dataset.
 Running this command will unannex every file in the repository, remove all of git-annex's other data, and remove the :term:`git-annex` branch, leaving you with a normal Git repository plus the previously annexed files.
 
@@ -1032,7 +1028,6 @@ remaining symlink will fail, but the content can be obtained easily again with
 
 If a file has no verified remote copies, DataLad will only drop its
 content if the user enforces it using the ``--reckless [MODE]`` option, where ``[MODE]`` is either ``modification`` (drop despite unsaved modifications) ``availability`` (drop even though no other copy is known) ``undead`` (only for datasets; would drop a dataset without announcing its death to linked dataset clones) or ``kill`` (no safety checks at all are run).
-While the ``--reckless`` parameter sounds more complex, it ensures a safer operation than the previous ``--nocheck`` implementation.
 We will demonstrate this by generating an empty file:
 
 .. runrecord:: _examples/DL-101-136-177
@@ -1055,7 +1050,7 @@ DataLad will safeguard dropping content that it can not retrieve again:
 
    $ datalad drop a.pdf
 
-But with ``--nocheck`` (for ``<0.16``) or ``--reckless availability`` (for ``0.16`` and higher) it will work:
+But with ``--reckless availability`` it will work:
 
 .. runrecord:: _examples/DL-101-136-179
    :workdir: dl-101/DataLad-101
@@ -1099,23 +1094,25 @@ private :term:`SSH key`\s or passwords, or too many or too large files are
 accidentally saved into Git, and *need* to get out of the dataset history.
 The command ``git-filter-repo <path-specification> --force`` will "filter-out",
 i.e., remove all files **but the ones specified** in ``<path-specification>``
-from the dataset's history. The section :ref:`cleanup` shows an example
-invocation. If you want to use it, however, make sure to attempt it in a dataset
-clone or with its ``--dry-run`` flag first. It is easy to lose dataset history
-and files with this tool.
+from the dataset's history. An advanced chapter in the online version of the handbook
+shows an example invocation.
 
 Uninstalling or deleting subdatasets
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. index:: ! datalad command; uninstall
 
-Depending on the exact aim, two commands are of relevance for
+Depending on the exact aim, different commands are of relevance for
 deleting a DataLad subdataset. The softer (and not so much "deleting" version)
-is to uninstall a dataset with the :command:`datalad uninstall`
-(:manpage:`datalad-uninstall` manual).
+is to uninstall a dataset with a :command:`datalad drop`.
+To work on datasets, ``drop`` needs to be parametrized with ``--what all``.
+If needed, add ``--recursive`` in case the dataset contains subdatasets, and a
+fitting ``--reckless`` mode.
+A stand-alone command, :command:`datalad uninstall`, wraps a ``datalad drop --what all --reckless kill``.
 This command can be used to uninstall any number of
 *subdatasets*. Note though that only subdatasets can be uninstalled; the command
 will error if given a sub-*directory*, a file, or a top-level dataset.
+Using the :command:`drop` command gives you greater flexibility.
 
 .. runrecord:: _examples/DL-101-136-181
    :language: console
@@ -1128,7 +1125,7 @@ will error if given a sub-*directory*, a file, or a top-level dataset.
     https://github.com/datalad-datasets/disneyanimation-cloud.git \
     cloud
 
-To uninstall the dataset, use
+To uninstall the dataset, you can use
 
 .. runrecord:: _examples/DL-101-136-182
    :language: console
@@ -1144,8 +1141,7 @@ A ``datalad get [-n/--no-data] cloud`` would install the dataset again.
 .. index:: ! datalad command; remove
 
 In case one wants to fully delete a subdataset from a dataset, the
-:command:`datalad remove` command (:manpage:`datalad-remove` manual) is
-relevant [#f3]_.
+:command:`datalad remove` command is relevant [#f3]_.
 It needs a pointer to the root of the superdataset with the ``-d/--dataset``
 flag, a path to the subdataset to be removed, and optionally a commit message
 (``-m/--message``) or recursive specification (``-r/--recursive``).
@@ -1194,7 +1190,7 @@ stored in the object tree of git-annex. If you want, you can re-read the section
 :ref:`symlink` to find out how git-annex revokes write permission for the user
 to protect the file content given to it. To remove a dataset with annexed content
 one has to regain write permissions to everything in the dataset. This is done
-with the `chmod <https://en.wikipedia.org/wiki/Chmod>`_ command::
+with the Unix ``chmod`` command::
 
     chmod -R u+w <dataset>
 
@@ -1206,7 +1202,7 @@ Afterwards, ``rm -rf <dataset>`` will succeed.
 However, instead of ``rm -rf``, a faster way to remove a dataset is using
 :command:`datalad remove`: Run ``datalad remove <dataset>`` outside of the
 superdataset to remove a top-level dataset with all its contents. Likely,
-both  ``--recursive`` and ``--nocheck`` (for DataLad versions ``<0.16``) or ``--reckless [availability|undead|kill]`` (for DataLad versions ``0.16`` and higher) flags are necessary
+both  ``--recursive`` and ``--reckless [availability|undead|kill]`` flags are necessary
 to traverse into subdatasets and to remove content that does not have verified remotes.
 
 Be aware though that both ways to delete a dataset will

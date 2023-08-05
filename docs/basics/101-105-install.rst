@@ -99,6 +99,11 @@ also recorded where this dataset came from, thus capturing its *origin* as
 :term:`provenance`. Even though this is not obvious at this point in time, later
 chapters in this handbook will demonstrate how useful this information can be.
 
+.. gitusernote:: Clone internals
+
+   The :command:`datalad clone` command uses :command:`git clone`.
+   A dataset that is installed from an existing source, e.g., a path or URL,
+   is the DataLad equivalent of a *clone* in Git.
 
 .. find-out-more:: Do I have to install from the root of datasets?
 
@@ -109,7 +114,7 @@ chapters in this handbook will demonstrate how useful this information can be.
    ``-d`` needs to specify the path to the root of the dataset. This is
    important to keep in mind whenever you do not execute the :command:`clone` command
    from the root of this dataset. Luckily, there is a shortcut: ``-d^`` will always
-   point to root of the top-most dataset. For example, if you navigate into ``recordings``
+   point to root of the top-most dataset. For example, if you navigate into ``recordings``,
    the command would be::
 
      datalad clone -d^ https://github.com/datalad-datasets/longnow-podcasts.git longnow
@@ -127,12 +132,6 @@ chapters in this handbook will demonstrate how useful this information can be.
    option is necessary to not only install the dataset, but also *register* it
    automatically into the higher level *superdataset*. The upcoming section will
    elaborate on this.
-
-.. gitusernote:: Clone internals
-
-   The :command:`datalad clone` command uses :command:`git clone`.
-   A dataset that is installed from an existing source, e.g., a path or URL,
-   is the DataLad equivalent of a *clone* in Git.
 
 Here is the repository structure:
 
@@ -447,7 +446,7 @@ modification.
 .. [#f2] The longnow podcasts are lectures and conversations on long-term thinking produced by
          the LongNow foundation and we can wholeheartedly recommend them for their worldly
          wisdoms and compelling, thoughtful ideas. Subscribe to the podcasts at https://longnow.org/seminars/podcast.
-         Support the foundation by becoming a member: https://longnow.org/membership. https://longnow.org
+         Support the foundation by becoming a member: https://longnow.org/membership.
 
 .. [#f3] You can also upgrade your file manager to display file types in a
          DataLad datasets (e.g., with the

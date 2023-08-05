@@ -151,7 +151,7 @@ Upon sharing your dataset, the information about subdatasets and where to retrie
 them from is stored and shared with this file.
 
 Section :ref:`sharelocal1` already mentioned one additional configuration option in a footnote: The ``datalad-recursiveinstall`` key.
-This key is defined on a per subdataset basis, and if set to "``skip``", the given subdataset will not be recursively installed unless it is explicitly specified as a path to :command:`datalad get [-n/--no-data] -r`.
+This key is defined on a per subdataset basis, and if set to "``skip``", the given subdataset will not be recursively installed unless it is explicitly specified as a path to :dlcmd:`get [-n/--no-data] -r`.
 If you are a maintainer of a superdataset with monstrous amounts of subdatasets, you can set this option and share it together with the dataset to prevent an accidental, large recursive installation in particularly deeply nested subdatasets.
 Below is a minimally functional example on how to apply the configuration and how it works:
 
@@ -265,7 +265,7 @@ Now, we can apply the ``datalad-recursiveinstall`` configuration to skip recursi
       add (ok: 1)
       save (ok: 1)
 
-If the dataset is cloned, and someone runs a recursive :command:`datalad get`, the subdatasets of ``subds1`` will not be installed, the subdatasets of ``subds2``, however, will be.
+If the dataset is cloned, and someone runs a recursive :dlcmd:`get`, the subdatasets of ``subds1`` will not be installed, the subdatasets of ``subds2``, however, will be.
 
 .. code-block:: bash
 
@@ -340,20 +340,20 @@ one time on this planet.
 
 Note, though, that local configurations within a Git configuration file
 will take precedence over configurations that can be distributed with a dataset.
-Otherwise, dataset updates with :command:`datalad update` (or, for Git-users,
-:command:`git pull`) could suddenly and unintentionally alter local DataLad
+Otherwise, dataset updates with :dlcmd:`update` (or, for Git-users,
+:gitcmd:`pull`) could suddenly and unintentionally alter local DataLad
 behavior that was specifically configured.
 Also, :term:`Git` and :term:`git-annex` will not query this file for configurations, so please store only sticky options that are specific to DataLad (i.e., under the ``datalad.*`` namespace) in it.
 
 Writing to configuration files other than ``.git/config``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-"Didn't you say that knowing the :command:`git config` command is already
+"Didn't you say that knowing the :gitcmd:`config` command is already
 half of what I need to know?" you ask. "Now there are three other configuration
 files, and I do not know with which command I can write into these files."
 
 "Excellent question", you hear in return, "but in reality, you **do** know:
-it's also the :command:`git config` command. The only part of it you need to
+it's also the :gitcmd:`config` command. The only part of it you need to
 adjust is the ``-f``, ``--file`` parameter. By default, the command writes to
 a Git config file. But it can write to a different file if you specify it
 appropriately. For example
@@ -376,7 +376,7 @@ The latter is often used if someone has an *SSH key pair* and added the
 public key to their GitHub account (you can read more about this
 `here <https://docs.github.com/en/get-started/getting-started-with-git/about-remote-repositories>`_).
 We will revert this change shortly, but use it to show the difference between
-a :command:`git config` on a ``.git/config`` file and on a version controlled file:
+a :gitcmd:`config` on a ``.git/config`` file and on a version controlled file:
 
 .. runrecord:: _examples/DL-101-123-107
    :workdir: dl-101/DataLad-101
@@ -392,7 +392,7 @@ a :command:`git config` on a ``.git/config`` file and on a version controlled fi
 
 As these two commands show, the ``.gitmodules`` file is modified. The https URL
 has been deleted (note the ``-``), and a SSH URL has been added. To keep these
-changes, we would need to :command:`datalad save` them. However, as we want to stay with
+changes, we would need to :dlcmd:`save` them. However, as we want to stay with
 https URLs, we will just *checkout* this change -- using a Git tool to undo an
 unstaged modification.
 
@@ -403,7 +403,7 @@ unstaged modification.
    $ git checkout .gitmodules
    $ datalad status
 
-Note, though, that the ``.gitattributes`` file can not be modified with a :command:`git config`
+Note, though, that the ``.gitattributes`` file can not be modified with a :gitcmd:`config`
 command. This is due to its different format that does not comply to the
 ``section.variable.value`` structure of all other configuration files. This file, therefore,
 has to be edited by hand, with an editor of your choice.
@@ -451,7 +451,7 @@ configuration option thus is the environment variable ``DATALAD_LOG_LEVEL``.
    levels of availability of the variable:
 
    - ``THEANSWER=42 <command>`` makes the variable ``THEANSWER`` available for the process in ``<command>``.
-     For example, ``DATALAD_LOG_LEVEL=debug datalad get <file>`` will execute the :command:`datalad get`
+     For example, ``DATALAD_LOG_LEVEL=debug datalad get <file>`` will execute the :dlcmd:`get`
      command (and only this one) with the log level set to "debug".
    - ``export THEANSWER=42`` makes the variable ``THEANSWER`` available for other processes in the
      same session, but it will not be available to other shells.
@@ -473,7 +473,7 @@ the repositories configurations.
 
 But you now also know how to modify these configurations with enough
 care and background knowledge such that nothing should go wrong once you
-want to work with and change them. You can use the :command:`git config` command
+want to work with and change them. You can use the :gitcmd:`config` command
 for Git configuration files on different scopes, and even the ``.gitmodules`` or ``datalad/config``
 files. Of course you do not yet know all of the available configuration options. However,
 you already know some core Git configurations such as name, email, and editor. Even more
@@ -546,7 +546,7 @@ Write a note about configurations in datasets into ``notes.txt``.
          "portable" -- shared copies of your dataset will retain these configurations.
          You could however also set largefiles rules in your ``.git/config`` file. Rules
          specified in there take precedence over rules in ``.gitattributes``. You can set
-         them using the :command:`git config` command::
+         them using the :gitcmd:`config` command::
 
             $ git config annex.largefiles 'largerthan=100kb and not (include=*.c or include=*.h)'
 
@@ -555,7 +555,7 @@ Write a note about configurations in datasets into ``notes.txt``.
 
 .. [#f3] Should you ever need to, this file is also where one would change the git-annex
          backend in order to store new files with a new backend. Switching the backend of
-         *all* files (new as well as existing ones) requires the :command:`git annex migrate`
+         *all* files (new as well as existing ones) requires the :gitannexcmd:`migrate`
          command
          (see `the documentation <https://git-annex.branchable.com/git-annex-migrate>`_ for
          more information on this command).

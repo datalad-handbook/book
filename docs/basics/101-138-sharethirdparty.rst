@@ -34,7 +34,7 @@ the `Open Science Framework (OSF) <https://osf.io>`__, and many others).
 This chapter tackles different aspects of dataset publishing.
 The remainder of this section talks about general aspects of dataset publishing, and
 illustrates the idea of using third party services as :term:`special remote`\s from
-which annexed file contents can be retrieved via :command:`datalad get`.
+which annexed file contents can be retrieved via :dlcmd:`get`.
 
 The upcoming section :ref:`gin` shows you one of the most easy ways to publish your
 dataset publicly or for selected collaborators and friends.
@@ -70,7 +70,7 @@ Dataset contents and third party services influence sharing
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Because DataLad datasets are :term:`Git` repositories, it is possible to
-:command:`push` datasets to any Git repository hosting service, such as
+:dlcmd:`push` datasets to any Git repository hosting service, such as
 :term:`GitHub`, :term:`GitLab`, :term:`Gin`, :term:`Bitbucket`, `Gogs <https://gogs.io>`_,
 or `Gitea <https://gitea.io/en-us>`_.
 You have already done this in section :ref:`yoda_project` when you shared your ``midterm_project`` dataset via :term:`GitHub`.
@@ -80,7 +80,7 @@ of the files managed by :term:`git-annex`.
 For example, the the results of the analysis in section :ref:`yoda_project`,
 ``pairwise_comparisons.png`` and ``prediction_report.csv``, were not published to
 GitHub: There was meta data about their file availability, but if a friend cloned
-this dataset and ran a :command:`datalad get` command, content retrieval would fail
+this dataset and ran a :dlcmd:`get` command, content retrieval would fail
 because their only known location is your private computer to which only you have access.
 Instead, they would need to be recomputed from the :term:`run record` in the dataset.
 
@@ -100,12 +100,12 @@ The common case: Repository hosting without annex support and special remotes
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 Because DataLad datasets are :term:`Git` repositories, it is possible to
-:command:`push` datasets to any Git repository hosting service, such as
+:dlcmd:`push` datasets to any Git repository hosting service, such as
 :term:`GitHub`, :term:`GitLab`, :term:`Gin`, :term:`Bitbucket`, `Gogs <https://gogs.io>`_,
 or `Gitea <https://gitea.io/en-us>`_.
 But while anything that is managed by Git is accessible in repository hosting services, they usually don't support storing annexed data [#f2]_.
 
-When you want to publish a dataset to a Git repository hosting service to allow others to easily find and clone it, but you also want others to be able to retrieve annexed files in this dataset via :command:`datalad get`, annexed contents need to be pushed to additional storage hosting services.
+When you want to publish a dataset to a Git repository hosting service to allow others to easily find and clone it, but you also want others to be able to retrieve annexed files in this dataset via :dlcmd:`get`, annexed contents need to be pushed to additional storage hosting services.
 The hosting services can be all kinds of private, institutional, or commercial services, and their location will be registered in the dataset under the concept of a :term:`special remote`.
 
 .. find-out-more:: What is a special remote
@@ -120,7 +120,7 @@ The hosting services can be all kinds of private, institutional, or commercial s
    defines the underlying transport of your files to and/or from a specific location.
 
 To register a special remote in your dataset and use it for file storage, you need to configure the service of your choice and *publish* the annexed contents to it. Afterwards, the published dataset (e.g., via :term:`GitHub` or :term:`GitLab`) stores the information about where to obtain annexed file contents from such that
-:command:`datalad get` works.
+:dlcmd:`get` works.
 Once you have configured the service of your choice, you can push your datasets Git history to the repository hosting service and the annexed contents to the special remote. DataLad also makes it easy to push these different dataset contents exactly where they need to be automatically via a :term:`publication dependency`.
 
 Exemplary walk-throughs for `Dropbox <https://dropbox.com>`_, `Amazon S3 buckets <https://aws.amazon.com/s3>`_, and `Git LFS  <https://github.com/git-lfs/git-lfs>`__ can be found in the upcoming sections in this chapter.
@@ -143,7 +143,7 @@ From the perspective of a consumer (as someone who wants to obtain your dataset)
 they will need to
 
 - (potentially) install the relevant *special-remote* (dependent on the third-party service you chose) and
-- perform the standard :command:`datalad clone` and :command:`datalad get` commands
+- perform the standard :dlcmd:`clone` and :dlcmd:`get` commands
   as necessary.
 
 Thus, from a collaborator's perspective, with the exception of potentially
@@ -171,7 +171,7 @@ The easy case: Repository hosting with annex support
 
 There are a few Git repository hosting services with support for annexed contents.
 One of them is :term:`Gin`.
-What makes them extremely convenient is that there is no need to configure a special remote -- creating a :term:`sibling` and running :command:`datalad push` is enough.
+What makes them extremely convenient is that there is no need to configure a special remote -- creating a :term:`sibling` and running :dlcmd:`push` is enough.
 
 .. figure:: ../artwork/src/publishing/publishing_network_publishgin.svg
    :width: 80%
@@ -183,7 +183,7 @@ The uncommon case: Special remotes with repository hosting support
 
 Typically, storage hosting services such as cloud storage providers do not provide
 the ability to host Git repositories.
-Therefore, it is typically not possible to :command:`clone` from a cloud storage.
+Therefore, it is typically not possible to :dlcmd:`clone` from a cloud storage.
 However, a number of :term:`datalad extension`\s have been created that equip cloud storage providers with the ability to also host Git repositories.
 While they do not get the ability to display repositories the same way that pure
 Git repository hosting services like GitHub do, they do get the super power of becoming clonable.
@@ -202,10 +202,10 @@ The creative case: Ensuring availability using only repository hosting
 
 When you only want to use pure Git repository hosting services without annex support, you can still allow others to obtain (some) file contents with some creativity:
 
-For one, you can use commands such as :command:`datalad download-url` or :command:`datalad addurls`  to retrieve files from web sources and register their location automatically.
-The first Chapter :ref:`chapter_datasets` demonstrates :command:`download-url`.
+For one, you can use commands such as :dlcmd:`download-url` or :dlcmd:`addurls`  to retrieve files from web sources and register their location automatically.
+The first Chapter :ref:`chapter_datasets` demonstrates :dlcmd:`download-url`.
 
-Other than this, you can rely on digital provenance in the form of :term:`run record`\s that allow consumers of your dataset to recompute a result instead of :command:`datalad get`\ing it.
+Other than this, you can rely on digital provenance in the form of :term:`run record`\s that allow consumers of your dataset to recompute a result instead of :dlcmd:`get`\ing it.
 The midterm-project example in section :ref:`yoda_project` has been an example for this.
 
 
@@ -223,7 +223,7 @@ General information on publishing datasets
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Beyond concrete examples of publishing datasets, some general information may be useful in addition:
-The section :ref:`push` illustrates the DataLad command :command:`datalad push`, a command that handles every publication operation, regardless of the type of published content or its destination.
+The section :ref:`push` illustrates the DataLad command :dlcmd:`push`, a command that handles every publication operation, regardless of the type of published content or its destination.
 In addition to this, the section :ref:`privacy` contains tips and strategies on publishing datasets without leaking potentially private contents or information.
 
 

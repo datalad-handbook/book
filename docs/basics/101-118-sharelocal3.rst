@@ -8,22 +8,22 @@ is super helpful. I'm sure I'll catch up in no time!",
 your room mate says confidently. "How far did you get
 with the DataLad commands yet?" he asks at last.
 
-"Mhh, I think the last big one was :command:`datalad run`.
+"Mhh, I think the last big one was :dlcmd:`run`.
 Actually, let me quickly show you what this command
 does. There is something that I've been wanting to try
 anyway." you say.
 
-The dataset you shared contained a number of :command:`datalad run`
+The dataset you shared contained a number of :dlcmd:`run`
 commands. For example, you created the simple ``podcasts.tsv``
 file that listed all titles and speaker names of the longnow
 podcasts.
 
-Given that you learned to create "proper" :command:`datalad run` commands,
+Given that you learned to create "proper" :dlcmd:`run` commands,
 complete with ``--input`` and ``--output`` specification,
-anyone should be able to :command:`datalad rerun` these commits
+anyone should be able to :dlcmd:`rerun` these commits
 easily. This is what you want to try now.
 
-You begin to think about which :command:`datalad run` commit would be
+You begin to think about which :dlcmd:`run` commit would be
 the most useful one to take a look at. The creation of
 ``podcasts.tsv`` was a bit dull -- at this point in time, you
 didn't yet know about ``--input`` and ``--output`` arguments,
@@ -60,7 +60,7 @@ want to run by taking a look into the history of the dataset
 
 Ah, there it is, the second most recent commit.
 Just as already done in section :ref:`run2`,
-take this shasum and plug it into a :command:`datalad rerun`
+take this shasum and plug it into a :dlcmd:`rerun`
 command:
 
 .. runrecord:: _examples/DL-101-118-103

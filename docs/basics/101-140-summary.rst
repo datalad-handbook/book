@@ -19,7 +19,7 @@ you store your data and thus who can get access.
   an annex. If a dataset is shared via one of those platforms, annexed data needs
   to be published to an external data store. The published dataset stores
   information about where to obtain annexed file contents from such that a
-  :command:`datalad get` works.
+  :dlcmd:`get` works.
 
 - The external data store can be any of a variety of third party hosting providers.
   To enable data transfer to and from this service, you (may) need to configure an
@@ -27,7 +27,7 @@ you store your data and thus who can get access.
   section :ref:`sharethirdparty` walked you through how this can be done with
   `Dropbox <https://dropbox.com>`_.
 
-- The ``--data`` and ``--force`` options of :command:`datalad push` allows to override
+- The ``--data`` and ``--force`` options of :dlcmd:`push` allows to override
   automatic decision making on to-be-published contents. If it isn't specified,
   DataLad will attempt to figure out itself which and how dataset contents
   shall be published. With a path to files, directories, or subdatasets you

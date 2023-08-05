@@ -142,7 +142,7 @@ handbook, please take a look at the `documentation <http://docs.datalad.org>`_,
 `request <https://github.com/datalad-handbook/book/issues/new>`_
 an additional chapter if you believe it is a worthwhile addition, or
 `ask a question on Neurostars.org <https://neurostars.org/latest>`_
-with a :command:`datalad` tag if you need help.
+with a :shcmd:`datalad` tag if you need help.
 
 
 What you will learn in this book

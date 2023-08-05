@@ -53,15 +53,15 @@ If a large analysis can be split into many independent jobs, using a job schedul
 Where are the difficulties in parallel computing with DataLad?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-In order to capture as much provenance as possible, analyses are best ran with a :command:`datalad run` or :command:`datalad containers-run` command, as these commands can capture and link all relevant components of an analysis, starting from code and results to input data and computational environment.
+In order to capture as much provenance as possible, analyses are best ran with a :dlcmd:`run` or :dlcmd:`containers-run` command, as these commands can capture and link all relevant components of an analysis, starting from code and results to input data and computational environment.
 Tip: Make use of ``datalad run``'s ``--dry-run`` option to craft your run-command (see :ref:`dryrun`)!
 
 But in order to compute parallel jobs with provenance capture, *each individual job* needs to be wrapped in a ``run`` command, not only the submission of the jobs to the job scheduler.
 This requires multiple parallel ``run`` commands on the same dataset.
 But: Multiple simultaneous ``datalad (containers-)run`` invocations in the same dataset are problematic.
 
-- Operations carried out during one :command:`run` command can lead to modifications that prevent a second, slightly later ``run`` command from being started
-- The :command:`datalad save` command at the end of :command:`datalad run` could save modifications that originate from a different job, leading to mis-associated provenance
+- Operations carried out during one :dlcmd:`run` command can lead to modifications that prevent a second, slightly later ``run`` command from being started
+- The :dlcmd:`save` command at the end of :dlcmd:`run` could save modifications that originate from a different job, leading to mis-associated provenance
 - A number of *concurrency issues*, unwanted interactions of processes when they run simultaneously, can arise and lead to internal command failures
 
 Some of these problems can be averted by invoking the ``(containers-)run`` command with the ``--explicit`` [#f1]_ flag.
@@ -227,7 +227,7 @@ Importantly, the ``$JOB-ID`` isn't hardcoded into the script but it can be given
 The code snippet above uses a bash :term:`environment variable` (``$JOBID``, as indicated by the all-upper-case variable name with a leading ``$``).
 It will be defined in the job submission -- this is shown and explained in detail in the respective paragraph below.
 
-Next, its time for the :command:`containers-run` command.
+Next, its time for the :dlcmd:`containers-run` command.
 The invocation will depend on the container and dataset configuration (both of which are demonstrated in the real-life example in the next section), and below, we pretend that the container invocation only needs an input file and an output file.
 These input file is specified via a bash variables (``$inputfile``) that will be defined in the script and provided at the time of job submission via command line argument from the job scheduler, and the output file name is based on the input file name.
 
@@ -402,7 +402,7 @@ If you are interested in seeing this workflow applied in a real analysis, read o
 
 .. rubric:: Footnotes
 
-.. [#f1] To re-read about :command:`datalad run`'s ``--explicit`` option, take a look into the section :ref:`run5`.
+.. [#f1] To re-read about :dlcmd:`run`'s ``--explicit`` option, take a look into the section :ref:`run5`.
 
 .. [#f2] The `ReproNim container-collection <https://github.com/repronim/containers>`_ is a DataLad dataset that contains a range of preconfigured containers for neuroimaging.
 

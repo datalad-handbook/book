@@ -13,7 +13,7 @@ some thought, and in some instances compromise, though.
 - Beware of accidentally placing to many (even small) files into Git's version
   control in a single dataset!
   ``.gitignore`` files can keep irrelevant files out of version control, the
-  ``explicit`` option :command:`datalad run` may be helpful, and
+  ``explicit`` option :dlcmd:`run` may be helpful, and
   custom largefile rules in ``.gitattributes`` may be necessary to override
   dataset configurations such as ``text2git``.
 - Don't consider only the limits of version control software, but also the

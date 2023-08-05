@@ -130,7 +130,7 @@ The next step is to ensure that this is a valid DataLad dataset,
 with ``main`` as the default branch.
 
 We can turn our ``neuro-data-s3`` directory into a DataLad dataset with the
-:command:`datalad create --force` command. After that, we save the dataset with :command:`datalad save`:
+:dlcmd:`create --force` command. After that, we save the dataset with :dlcmd:`save`:
 
 .. code-block:: bash
 
@@ -159,7 +159,7 @@ The steps below have been adapted from instructions provided on `git-annex docum
 
 By initializing the special remote, what actually happens in the background
 is that a :term:`sibling` is added to the DataLad dataset. This can be verified
-by running :command:`datalad siblings` before and after initializing the special
+by running :dlcmd:`siblings` before and after initializing the special
 remote. Before, the only "sibling" is the actual DataLad dataset:
 
 .. code-block:: bash
@@ -167,7 +167,7 @@ remote. Before, the only "sibling" is the actual DataLad dataset:
    $ datalad siblings
    .: here(+) [git]
 
-To initialize a public S3 bucket as a special remote, we run :command:`git annex initremote`
+To initialize a public S3 bucket as a special remote, we run :gitannexcmd:`initremote`
 with several options, for which `git-annex documentation on S3 <https://git-annex.branchable.com/special_remotes/S3/>`_
 provides detailed information. Be sure to select a unique bucket name
 that adheres to Amazon S3's `bucket naming rules <https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html>`_.
@@ -192,8 +192,8 @@ The options used in this example include:
 - ``datacenter=EU``: specify where the data will be located; here we set "EU" which is EU/Ireland a.k.a. ``eu-west-1`` (defaults to "US" if not specified)
 - ``autoenable=true``: git-annex will attempt to enable the special remote when it is run in a new clone, implying that users won't have to run extra steps when installing the dataset with DataLad
 
-After :command:`git annex initremote` has successfully initialized the special remote,
-you can run :command:`datalad siblings` to see that a sibling has been added:
+After :gitannexcmd:`initremote` has successfully initialized the special remote,
+you can run :dlcmd:`siblings` to see that a sibling has been added:
 
 .. code-block:: bash
 
@@ -227,7 +227,7 @@ Publish the dataset
 
 The special remote is ready, and now we want to give people seamless access to the
 DataLad dataset. A common way to do this is to create a sibling of the dataset on
-GitHub using :command:`create-sibling-github`. In order to link the contents in the
+GitHub using :dlcmd:`create-sibling-github`. In order to link the contents in the
 S3 special remote to the GitHub sibling, we also need to configure a publication
 dependency to the ``public-s3`` sibling, which is done with the ``publish-depends <sibling>``
 option. For consistency, we'll give the GitHub repository the same name as the dataset name. 
@@ -243,7 +243,7 @@ option. For consistency, we'll give the GitHub repository the same name as the d
 Notice that by creating this sibling, DataLad created an actual (empty) dataset repository
 on GitHub, which required preconfigured GitHub authentication details.
 
-The creation of the sibling (named ``github``) can also be confirmed with :command:`datalad siblings`:
+The creation of the sibling (named ``github``) can also be confirmed with :dlcmd:`siblings`:
 
 .. code-block:: bash
 
@@ -253,7 +253,7 @@ The creation of the sibling (named ``github``) can also be confirmed with :comma
    .: github(-) [https://github.com/jsheunis/neuro-data-s3.git (git)]
 
 The next step is to actually push the file content to where it needs to be in order
-to allow others to access the data. We do this with :command:`datalad push --to github`.
+to allow others to access the data. We do this with :dlcmd:`push --to github`.
 The ``--to github`` specifies which sibling to push the dataset to, but because of the
 publication dependency DataLad will push the annexed contents to the special remote first.
 
@@ -290,7 +290,7 @@ Test the setup!
 
 You have now successfully created a DataLad dataset with an AWS S3 special remote for
 annexed file content and with a public GitHub sibling from which the dataset can be accessed.
-Users can now :command:`datalad clone` the dataset using the GitHub repository URL:
+Users can now :dlcmd:`clone` the dataset using the GitHub repository URL:
 
 .. code-block:: bash
 
@@ -313,8 +313,8 @@ Users can now :command:`datalad clone` the dataset using the GitHub repository U
    action summary:
    get (ok: 7)
 
-The results of running the code above show that DataLad could :command:`install` the dataset correctly
-and :command:`get` all annexed file content successfully from the ``public-s3`` sibling.
+The results of running the code above show that DataLad could :dlcmd:`install` the dataset correctly
+and :dlcmd:`get` all annexed file content successfully from the ``public-s3`` sibling.
 
 Congrats!
 

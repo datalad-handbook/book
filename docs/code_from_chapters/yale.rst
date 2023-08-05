@@ -61,12 +61,12 @@ Creating a dataset from scratch is done with the ``datalad create`` command.
 
 .. find-out-more:: How can I turn an existing directory into a dataset?
 
-   By navigating into a directory, and running :command:`datalad create -f .` (with the ``-f/--force`` option).
+   By navigating into a directory, and running :dlcmd:`create -f .` (with the ``-f/--force`` option).
    Section :ref:`dataladdening` provides more info on how to transform existing directories into DataLad datasets.
    It is advised, though, to first learn a bit of DataLad Basics first, so stay tuned.
 
 
-:command:`datalad create` only needs a name, and it will subsequently create a new directory under this name and instruct DataLad to manage it.
+:dlcmd:`create` only needs a name, and it will subsequently create a new directory under this name and instruct DataLad to manage it.
 Here, the command also has an additional option, the ``-c text2git`` option.
 With the -c option, datasets can be configured in a certain way at the time of creation, and ``text2git`` is a so-called :term:`run procedure`::
 
@@ -88,13 +88,13 @@ Let's start small, and just create a ``README``::
 
    echo "# A BIDS structured dataset for my input data" > README.md
 
-:command:`datalad status` can report on the state of a dataset.
+:dlcmd:`status` can report on the state of a dataset.
 As we added a new file, the README show up as being "untracked" if you run it::
 
    datalad status
 
-In order to save a modification in a dataset use the :command:`datalad save` command.
-:command:`datalad save` will save the current state of your dataset: It will save both modifications to known files and yet untracked files.
+In order to save a modification in a dataset use the :dlcmd:`save` command.
+:dlcmd:`save` will save the current state of your dataset: It will save both modifications to known files and yet untracked files.
 The ``-m/--message`` option lets you attach a concise summary of your changes.
 Such a :term:`commit message` makes it easier for others and your later self to understand a dataset's history::
 
@@ -108,7 +108,7 @@ As the file now differs from its last known state, it shows up as being "modifie
 
    datalad status
 
-Again, :command:`datalad save` will save these dataset modifications::
+Again, :dlcmd:`save` will save these dataset modifications::
 
    datalad save -m "Add information on the dataset contents to the README"
 
@@ -116,7 +116,7 @@ Note that ``datalad save`` will save **all** modifications in the dataset at onc
 If you have several modified files, you can supply a path to the file or files you want to save.
 Importantly, you can version control data of any size - yes, even if the data reaches the size of the `human connectome project <https://github.com/datalad-datasets/human-connectome-project-openaccess>`_, of the `UK Biobank <https://github.com/datalad/datalad-ukbiobank>`_, or even larger.
 
-With each saved change, you build up a dataset history. Tools such as :command:`git log` allow you to interrogate this history, and if you want to, you can use this history to find out what has been done in a dataset, reset it to previous states, and much more::
+With each saved change, you build up a dataset history. Tools such as :gitcmd:`log` allow you to interrogate this history, and if you want to, you can use this history to find out what has been done in a dataset, reset it to previous states, and much more::
 
    git log
 
@@ -124,7 +124,7 @@ With each saved change, you build up a dataset history. Tools such as :command:`
 Data consumption & transport
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Individual datasets can be installed from local paths or remote URLs using :command:`datalad clone`.
+Individual datasets can be installed from local paths or remote URLs using :dlcmd:`clone`.
 Cloning is a fast operation, and the resulting dataset typically takes up only a fraction of the total size of the data that it tracks::
 
    cd ../
@@ -146,7 +146,7 @@ This makes cloning fast and datasets lightweight::
 
       datalad status --annex
 
-On demand, content for files, directories, or the complete dataset can be downloaded using :command:`datalad get`.
+On demand, content for files, directories, or the complete dataset can be downloaded using :dlcmd:`get`.
 The snippet below uses :term:`globbing` to get the content of all NIfTI files for a localization task of one subject, but you could also get a full directory, a single file, all files, etc.::
 
    datalad get sub-01/ses-localizer/func/sub-01_ses-localizer_task-objectcategories_run-*.nii.gz
@@ -156,7 +156,7 @@ If the origin of a file (such as a web source) is known, you can drop file *cont
 
    datalad drop sub-01/ses-localizer/func/sub-01_ses-localizer_task-objectcategories_run-4_bold.nii.gz
 
-You retain access to the file via :command:`datalad get`::
+You retain access to the file via :dlcmd:`get`::
 
    datalad get sub-01/ses-localizer/func/sub-01_ses-localizer_task-objectcategories_run-4_bold.nii.gz
 
@@ -229,13 +229,13 @@ It can be installed as a subdataset::
      https://github.com/ReproNim/containers.git \
      code/containers
 
-Run the command :command:`datalad containers-list` from the :term:`DataLad extension` ``datalad-container`` to see to which containers you
+Run the command :dlcmd:`containers-list` from the :term:`DataLad extension` ``datalad-container`` to see to which containers you
 have easy access with this subdataset. Because we're performing this query across
 dataset boundaries, the command gets a ``--recursive`` flag::
 
    datalad containers-list --recursive
 
-Also, run the :command:`datalad subdatasets` to see which datasets are registered as subdatasets
+Also, run the :dlcmd:`subdatasets` to see which datasets are registered as subdatasets
 to your ``bids-data`` superdataset::
 
    datalad subdatasets
@@ -244,9 +244,9 @@ Computationally reproducible execution
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 DataLad has a set of commands for reproducible execution and re-execution:
-The :command:`datalad run` command can run any command in a way that links the command or script to the results it produces and the data it was computed from.
-The :command:`datalad rerun` can take this recorded provenance and recompute the command.
-And the :command:`datalad containers-run`, from the :term:`DataLad extension` ``datalad-container``, can capture software provenance in the form of software containers in addition to the provenance that ``datalad run`` captures.
+The :dlcmd:`run` command can run any command in a way that links the command or script to the results it produces and the data it was computed from.
+The :dlcmd:`rerun` can take this recorded provenance and recompute the command.
+And the :dlcmd:`containers-run`, from the :term:`DataLad extension` ``datalad-container``, can capture software provenance in the form of software containers in addition to the provenance that ``datalad run`` captures.
 
 Let's perform a computationally reproducible, provenance-tracked DICOM conversion.
 The ``reproin`` has heudiconv as its entrypoint, and we only need to plug in the parameters for the
@@ -281,7 +281,7 @@ a convenient way is `Gin <https://gin.g-node.org>`_, a free hosting service for 
 First, you need to head over to `gin.g-node.org <https://gin.g-node.org/>`__, log in, and upload an :term:`SSH key`. Then, under your user account, create a new repository, and copy it's SSH URL.
 A step by step instruction with screenshots is in the section :ref:`gin`.
 
-You can register this URL as a sibling dataset to your own dataset using :command:`datalad siblings add`::
+You can register this URL as a sibling dataset to your own dataset using :dlcmd:`siblings add`::
 
    datalad siblings add -d . \
     --name gin \
@@ -302,7 +302,7 @@ If you keep it private, you can invite your collaborators via the Gin webinterfa
 
 By the way: Now that your data is stored in a second place, you can drop the local copies to save
 disk space.
-If necessary, you can reobtain the data from Gin again via :command:`datalad get`.
+If necessary, you can reobtain the data from Gin again via :dlcmd:`get`.
 
 Using published datasets
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -357,7 +357,7 @@ In addition to this Docker container, we're also providing a `singularity <http:
    The resulting recipe can be saved into a Git repository or DataLad dataset, and `Singularity Hub <https://singularity-hub.org/>`_ can be used to build and host the :term:`container image`.
    Alternatively, a ``sudo singularity build <container-name> <recipe>`` build the image locally, and you can add it from a path to your dataset.
 
-Let's add this container to the dataset using :command:`datalad containers-add`.
+Let's add this container to the dataset using :dlcmd:`containers-add`.
 Decide for yourself whether you want to use the Docker image or the Singularity image.
 
 **Docker**: For Docker, run the following command, or, if you want, replace the url with your own container::
@@ -372,7 +372,7 @@ Note how we explicitly define how the container should be called - the placehold
     --url shub://adswa/nilearn-container:latest \
     --call-fmt "singularity exec {img} {cmd}"
 
-Finally, call :command:`containers-run` to execute the script inside
+Finally, call :dlcmd:`containers-run` to execute the script inside
 of the container.
 Here's how this looks like::
 

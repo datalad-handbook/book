@@ -8,24 +8,24 @@ dataset on the same file system but a different place by installing
 it from a path.
 
 You have observed that the ``-r``/``--recursive``
-option needs to be given to :command:`datalad get [-n/--no-data]`
+option needs to be given to :dlcmd:`get [-n/--no-data]`
 in order to install further potential subdatasets in one go. Only then
 is the subdatasets file content availability metadata present to explore
 the file hierarchy available within the subdataset.
-Alternatively, a :command:`datalad get -n <subds>` takes care of installing
+Alternatively, a :dlcmd:`get -n <subds>` takes care of installing
 exactly the specified registered subdataset.
 
 And you have mesmerized your room mate by showing him how :term:`git-annex`
 retrieved large file contents from the original dataset.
 
-Let's now see the :command:`git annex whereis` command in more detail,
+Let's now see the :gitannexcmd:`whereis` command in more detail,
 and find out how git-annex knows *where* file content can be obtained from.
 Within the original ``DataLad-101`` dataset, you retrieved some of the ``.mp3``
-files via :command:`datalad get`, but not others. How will this influence the
-output of :command:`git annex whereis`, you wonder?
+files via :dlcmd:`get`, but not others. How will this influence the
+output of :gitannexcmd:`whereis`, you wonder?
 
 Together with your room mate, you decide to find out. You navigate
-back into the installed dataset, and run :command:`git annex whereis` on a
+back into the installed dataset, and run :gitannexcmd:`whereis` on a
 file that you once retrieved file content for, and on a file
 that you did not yet retrieve file content for.
 Here is the output for the retrieved file:
@@ -55,11 +55,11 @@ content for in your original ``DataLad-101`` dataset.
    $ git annex whereis Long_Now__Seminars_About_Long_term_Thinking/2005_01_15__James_Carse__Religious_War_In_Light_of_the_Infinite_Game.mp3
 
 As you can see, the file content previously downloaded with a
-:command:`datalad get` has a third source, your original dataset on your computer.
+:dlcmd:`get` has a third source, your original dataset on your computer.
 The file we did not yet retrieve in the original dataset
 only has only two sources.
 
-Let's see how this affects a :command:`datalad get`:
+Let's see how this affects a :dlcmd:`get`:
 
 .. runrecord:: _examples/DL-101-117-103
    :language: console
@@ -97,7 +97,7 @@ file system. But we will get into the details
 of this type of content source
 once we cover the ``importfeed`` and ``add-url`` functions [#f1]_.
 
-Let's for now add a note on the :command:`git annex whereis` command. Again, do
+Let's for now add a note on the :gitannexcmd:`whereis` command. Again, do
 this in the original ``DataLad-101`` directory, and do not forget to save it.
 
 .. runrecord:: _examples/DL-101-117-105

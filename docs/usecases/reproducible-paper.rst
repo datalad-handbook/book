@@ -87,7 +87,7 @@ itself with the new figures.
 
    The actual manuscript this use case is based on can be found
    `here <https://github.com/psychoinformatics-de/paper-remodnav/>`_:
-   https://github.com/psychoinformatics-de/paper-remodnav/. :command:`datalad clone`
+   https://github.com/psychoinformatics-de/paper-remodnav/. :dlcmd:`clone`
    the repository and follow the few instructions in the README to experience the
    DataLad approach described above.
 
@@ -97,8 +97,8 @@ itself with the new figures.
 Step-by-Step
 ^^^^^^^^^^^^
 
-:command:`datalad create` a DataLad dataset. In this example, it is named "algorithm-paper",
-and :command:`datalad create` uses the yoda procedure [#f1]_ to apply useful configurations
+:dlcmd:`create` a DataLad dataset. In this example, it is named "algorithm-paper",
+and :dlcmd:`create` uses the yoda procedure [#f1]_ to apply useful configurations
 for a data analysis project:
 
 .. code-block:: bash
@@ -136,7 +136,7 @@ To populate the DataLad dataset, add all the
 data collections you want to perform analyses on as individual DataLad subdatasets within
 ``data/``.
 In this example, all data collections are already DataLad datasets or git repositories and hosted on GitHub.
-:command:`datalad clone` therefore installs them as subdatasets, with ``-d ../``
+:dlcmd:`clone` therefore installs them as subdatasets, with ``-d ../``
 registering them as subdatasets to the superdataset [#f2]_.
 
 .. code-block:: bash
@@ -156,7 +156,7 @@ registering them as subdatasets to the superdataset [#f2]_.
    [...]
 
 Any script we need for the analysis should live inside ``code/``. During script writing, save any changes
-to you want to record in your history with :command:`datalad save`.
+to you want to record in your history with :dlcmd:`save`.
 
 The eventual outcome of this work is a GitHub repository that anyone can use to get the data
 and recompute all results
@@ -168,7 +168,7 @@ This requires minor preparation:
   :term:`relative path`\s instead of hard-coding :term:`absolute path`\s.
 
 * After cloning the ``algorithm-paper`` repository, data files are not yet present
-  locally. To spare users the work of a manual :command:`datalad get`, you can have your
+  locally. To spare users the work of a manual :dlcmd:`get`, you can have your
   script take care of data retrieval via DataLad's Python API.
 
 These two preparations can be seen in this excerpt from the Python script:
@@ -189,7 +189,7 @@ These two preparations can be seen in this excerpt from the Python script:
    get(dataset='.', path=data)
 
 
-Lastly, :command:`datalad clone` the software repository as a subdataset in the
+Lastly, :dlcmd:`clone` the software repository as a subdataset in the
 root of the superdataset [#f3]_.
 
 .. code-block:: bash
@@ -438,7 +438,7 @@ compilation upon typing ``make``.
 The last three lines define that a ``make clean`` removes all computed files, and also all
 images.
 
-Finally, by wrapping ``make`` in a :command:`datalad run` command, the computation of results
+Finally, by wrapping ``make`` in a :dlcmd:`run` command, the computation of results
 and compiling of the manuscript with all generated output can be written to the history of
 the superdataset. ``datalad run make`` will thus capture all provenance for the results
 and the final PDF.

@@ -153,7 +153,7 @@ In order to retrieve the encrypted data securely from the remote server and perf
    $ datalad create derived_data
    $ cd derived_data
 
-We then install the dataset from the RIA store on the remote server as a subdataset with input data using :command:`datalad clone` and an :term:`SSH` URL to the dataset in the RIA store.
+We then install the dataset from the RIA store on the remote server as a subdataset with input data using :dlcmd:`clone` and an :term:`SSH` URL to the dataset in the RIA store.
 
 .. code:: bash
 

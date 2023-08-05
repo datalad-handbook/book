@@ -39,7 +39,7 @@ Depending on what permissions are set, unauthorized actors would not be able to 
 The ability of repository hosting services to make datasets private and only allow select collaborators access is yet another method of keeping complete datasets as private as necessary, even though you should think twice on whether or not you should host sensitive repositories at all on these services.
 
 One method to exert potentially fine-grained access control over file contents is via choice of (third party) hosting service for some or all annexed file contents.
-If you chose a service only selected people have access to, and publish annexed contents exclusively there, then only those selected people can perform a successful :command:`datalad get`.
+If you chose a service only selected people have access to, and publish annexed contents exclusively there, then only those selected people can perform a successful :dlcmd:`get`.
 For example, when it is a dataset with content hosted on third party cloud storage such as S3 buckets, permission settings in the storage locations would allow data providers to specify or limit who is able to retrieve the file contents.
 
 
@@ -63,9 +63,9 @@ By publishing only the file contents of ``experiment.txt`` with
 
   $ datalad push --to github experiment.txt
 
-only meta data about file availability of ``subject_1.dat`` and ``subject_2.dat`` exists, but as these files' annexed data is not published, a :command:`datalad get`
+only meta data about file availability of ``subject_1.dat`` and ``subject_2.dat`` exists, but as these files' annexed data is not published, a :dlcmd:`get`
 will fail.
-Note, though, that :command:`push` will publish the complete dataset history (unless you specify a commit range with the ``--since`` option -- see the `manual <http://docs.datalad.org/en/latest/generated/man/datalad-push.html>`_ for more information).
+Note, though, that :dlcmd:`push` will publish the complete dataset history (unless you specify a commit range with the ``--since`` option -- see the `manual <http://docs.datalad.org/en/latest/generated/man/datalad-push.html>`_ for more information).
 
 
 

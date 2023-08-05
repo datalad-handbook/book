@@ -104,7 +104,7 @@ In this case the AI describes the image as
 We would like to add this description as metadata to the file ``./zen.png``, and will identify it with a name corresponding to its extractor, ``"Picture2Words"``.
 
 
-In order to include metadata in a dataset, users need to provide a metadata entry to the :command:`meta-add` command.
+In order to include metadata in a dataset, users need to provide a metadata entry to the :dlcmd:`meta-add` command.
 This metadata entry has two major requirements: It needs to be supplied in a certain format, in particular, as a JSON object [#f2]_, and it needs to include a set of required information in defined fields.
 Let's take a look at the JSON object we could generate as a metadata entry for ``zen.png`` and identify required fields::
 
@@ -159,7 +159,7 @@ For example, we can save the metadata entry above as ``metadata-zen.json``:
    }
    EOT
 
-Then, we redirect the content of the file into the :command:`meta-add` command in the command line.
+Then, we redirect the content of the file into the :dlcmd:`meta-add` command in the command line.
 The following call would add the metadata entry to the current dataset, ``cozy-screensavers``:
 
 
@@ -178,7 +178,7 @@ The following call would add the metadata entry to the current dataset, ``cozy-s
 	And in case you'd supply the ``extraction_time`` as "this morning at 8AM" instead of a time stamp, the command will be unhappy as well.
 	In case an error occurs, make sure to read the error message, and turn the the commands' ``--help`` for insights about requirements you might have missed.
 
-After the metadata has been added, you can view it via the command :command:`meta-dump`.
+After the metadata has been added, you can view it via the command :dlcmd:`meta-dump`.
 The simplest form of this command is ``meta-dump -r``, which will show all metadata that is stored in the dataset in the current directory.
 To get more specific metadata records, you can give a dataset-file-path-pattern to ``meta-dump``, much like an argument to ``ls``, that identifies :term:`dataset ID`, version and a file within the dataset.
 The two parts are separated by ``:``. The following line would just dump all metadata for ``zen.png``.
@@ -207,7 +207,7 @@ Using existing extractors to add metadata
 If writing JSON objects by hand sounds cumbersome, it indeed is.
 To automate metadata extraction or generation, MetaLad can use extractors to do the job.
 A few built-in extractors are already shipped with it, for example ``annex`` (reporting on information :term:`git-annex` provides about datasets or files), or ``studyminimeta`` (a `metadata schema for archived studies <https://github.com/christian-monch/datalad-metalad/blob/nf-archived_study_metadata/tools/archive_metadata_validator/docs/source/archived-study-metadata-handbook.rst>`_).
-Once an extractor of choice is found, the :command:`datalad meta-extract` command can do its job:
+Once an extractor of choice is found, the :dlcmd:`meta-extract` command can do its job:
 
 .. runrecord:: _examples/DL-101-181-108
    :language: console
@@ -215,7 +215,7 @@ Once an extractor of choice is found, the :command:`datalad meta-extract` comman
 
    $ datalad meta-extract -d . metalad_core | jq
 
-The extracted metadata can then either be saved into a file as before, or directly :term:`pipe`'d into :command:`meta-add`.
+The extracted metadata can then either be saved into a file as before, or directly :term:`pipe`'d into :dlcmd:`meta-add`.
 
 Creating your own extractor
 """""""""""""""""""""""""""
@@ -314,8 +314,8 @@ Can you guess what type of metadata it contains [#f6]_ ?
 
    $ datalad meta-dump -r
 
-A final note is that :command:`meta-dump` can also be a source of metadata for :command:`meta-add`.
-While metadata can indeed be provided manually, or by running :term:`extractor`\s as outlined so far, it can also be provided by any other means that create correct metadata records, and :command:`meta-dump` is one of them.
+A final note is that :dlcmd:`meta-dump` can also be a source of metadata for :dlcmd:`meta-add`.
+While metadata can indeed be provided manually, or by running :term:`extractor`\s as outlined so far, it can also be provided by any other means that create correct metadata records, and :dlcmd:`meta-dump` is one of them.
 For example, you could copy the complete metadata from ``dataset_0`` to ``dataset_1``, by dumping it from one dataset into another::
 
     $ datalad meta-dump -d dataset_0 -r | \

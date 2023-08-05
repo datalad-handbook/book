@@ -26,7 +26,7 @@ systems. They do not cover the various :term:`DataLad extension`'s that need to 
 
    DataLad requires Python 3.6, or a more recent version, to be installed on
    your system. The easiest way to verify that this is the case is to open a
-   terminal and type :command:`python` to start a Python session::
+   terminal and type :shcmd:`python` to start a Python session::
 
      $ python
      Python 3.9.1+ (default, Jan 20 2021, 14:49:22)
@@ -35,7 +35,7 @@ systems. They do not cover the various :term:`DataLad extension`'s that need to 
      >>>
 
    If this fails, or reports a Python version with a leading ``2``, such as
-   ``Python 2.7.18``, try starting :command:`python3`, which some systems use
+   ``Python 2.7.18``, try starting :shcmd:`python3`, which some systems use
    to disambiguate between Python 2 and Python 3. If this fails, too, you need
    to obtain a recent release of Python 3. On Windows, attempting to run
    commands that are not installed might cause a Windows Store window to pop
@@ -86,7 +86,7 @@ Python:
     .. windows-wit:: Avoid installing Python from the Windows store
 
        We recommend to **not** install Python via the Windows store, even if it
-       opens after you typed :command:`python`, as this version requires
+       opens after you typed :shcmd:`python`, as this version requires
        additional configurations by hand (in particular of your ``$PATH``
        :term:`environment variable`).
 
@@ -97,7 +97,7 @@ Python:
 Git:
     Windows also does not come with Git. If you happen to have it installed already,
     please check, if you have configured it for command line use. You should be able
-    to open the Windows command prompt and run a command like :command:`git --version`.
+    to open the Windows command prompt and run a command like :shcmd:`git --version`.
     It should return a version number and not an error.
 
     To install Git, visit the `Git website <https://git-scm.com/download/win>`_ and
@@ -118,7 +118,7 @@ Git-annex:
     There are two convenient ways to install git-annex. The first is `downloading the installer from git-annex' homepage <https://git-annex.branchable.com/install/Windows/>`_. The other is to deploy git-annex via the `DataLad installer`_.
     The latter option requires the installation of the datalad-installer, Once
     Python is available, it can be done with the Python package manager
-    :command:`pip`. Open a command prompt and run:
+    :shcmd:`pip`. Open a command prompt and run:
 
     .. code-block:: bat
 
@@ -141,7 +141,7 @@ Git-annex:
 
 DataLad:
     With Python, Git, and git-annex installed, DataLad can be installed, and later also
-    upgraded using :command:`pip` by running:
+    upgraded using :shcmd:`pip` by running:
 
     .. code-block:: bat
 
@@ -198,7 +198,7 @@ Next, install datalad and its dependencies::
 
    $ brew install datalad
 
-Alternatively, you can exclusively use :command:`brew` for DataLad's non-Python
+Alternatively, you can exclusively use :shcmd:`brew` for DataLad's non-Python
 dependencies, and then check the :find-out-more:`on how to install DataLad via
 Python's package manager <fom-macosx-pip>`.
 

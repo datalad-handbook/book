@@ -5,18 +5,18 @@ Overview: The datalad push command
 
 Previous sections on publishing DataLad datasets  have each
 shown you crucial aspects of the functions of dataset publishing with
-:command:`datalad push`. This section wraps them all together.
+:dlcmd:`push`. This section wraps them all together.
 
 The general overview
 ^^^^^^^^^^^^^^^^^^^^
 
-:command:`datalad push` is the command to turn to when you want to publish datasets.
+:dlcmd:`push` is the command to turn to when you want to publish datasets.
 It is capable of publishing all dataset content, i.e., files stored in :term:`Git`,
 and files stored with :term:`git-annex`, to a known dataset :term:`sibling`.
 
 .. gitusernote:: Push internals
 
-   The :command:`datalad push` uses ``git push``, and ``git annex copy`` under
+   The :dlcmd:`push` uses ``git push``, and ``git annex copy`` under
    the hood. Publication targets need to either be configured remote Git repositories,
    or git-annex special remotes (if they support data upload).
 
@@ -31,7 +31,7 @@ or storage of datasets [#f1]_, or a regular clone.
    .. index:: ! datalad command; create-sibling-gitlab
    .. index:: ! datalad command; create-sibling-ria
 
-   - Add an existing repository as a sibling with the :command:`datalad siblings`
+   - Add an existing repository as a sibling with the :dlcmd:`siblings`
      command. Here are common examples::
 
         # to a remote repository
@@ -43,14 +43,14 @@ or storage of datasets [#f1]_, or a regular clone.
 
    - Create a sibling on an external hosting service from scratch, right from
      within your repository:
-     This can be done with the commands :command:`create-sibling-github` (for GitHub)
-     or :command:`create-siblings-gitlab` (for GitLab), or
-     :command:`create-sibling-ria` (for a remote indexed archive dataset store).
-     Note that :command:`create-sibling-ria` can add an existing store as a sibling
+     This can be done with the commands :dlcmd:`create-sibling-github` (for GitHub)
+     or :dlcmd:`create-siblings-gitlab` (for GitLab), or
+     :dlcmd:`create-sibling-ria` (for a remote indexed archive dataset store).
+     Note that :dlcmd:`create-sibling-ria` can add an existing store as a sibling
      or create a new one from scratch.
 
    - Create a sibling on a local or SSH accessible Unix machine with
-     :command:`datalad create-sibling`.
+     :dlcmd:`create-sibling`.
 
 
 In order to publish dataset content, DataLad needs to know to which sibling
@@ -60,14 +60,14 @@ from the command line::
    $ datalad push --to <sibling>
 
 If you have more than one :term:`branch` in your dataset, note that a
-:command:`datalad push` command will by default update only the current branch.
+:dlcmd:`push` command will by default update only the current branch.
 If updating multiple branches is relevant for your workflow, please check out
 the :ref:`find-out-more about this <fom-push-branch>`.
 
-By default, :command:`push` will make the last saved state of the dataset
+By default, :dlcmd:`push` will make the last saved state of the dataset
 available. Consequently, if the sibling is in the same state as the dataset,
 no push is attempted.
-Additionally, :command:`push` will attempt to automatically decide what type
+Additionally, :dlcmd:`push` will attempt to automatically decide what type
 of dataset contents are going to be published. With a sibling that has a
 :term:`special remote` configured as a :term:`publication dependency`,
 or a sibling that contains an annex (such as a Gin repository or a
@@ -75,7 +75,7 @@ or a sibling that contains an annex (such as a Gin repository or a
 stored in Git (i.e., a dataset's history) as well as file contents stored in
 git-annex will be published unless dataset configurations overrule this.
 Alternatively, one can enforce particular operations or push a subset of dataset
-contents. For one, when specifying a path in the :command:`datalad push` command,
+contents. For one, when specifying a path in the :dlcmd:`push` command,
 only data or changes for those paths are considered for a push.
 Additionally, one can select a particular mode of operation with the ``-data`` option.
 Several different modes are possible:
@@ -106,10 +106,10 @@ Be careful when using it, as its modes possibly overrule safety protections or o
 - ``all``: The final mode, ``all``, combines all force modes -- thus attempting to really get your dataset contents published by any means.
 
 
-:command:`datalad push` can publish available subdatasets recursively if the
+:dlcmd:`push` can publish available subdatasets recursively if the
 ``-r/--recursive`` flag is specified. Note that this requires that all subdatasets
 that should be published have sibling names identical to the sibling specified in
-the top-level :command:`push` command, or that appropriate default publication
+the top-level :dlcmd:`push` command, or that appropriate default publication
 targets are configured throughout the dataset hierarchy.
 
 .. find-out-more:: Pushing more than the current branch
@@ -117,13 +117,13 @@ targets are configured throughout the dataset hierarchy.
    :float:
 
    If you have more than one :term:`branch` in your
-   dataset, a :command:`datalad push --to <sibling>` will by default only push
+   dataset, a :dlcmd:`push --to <sibling>` will by default only push
    the current :term:`branch`, *unless* you provide configurations that alter
    this default. Here are two ways in which this can be achieved:
 
    **Option 1:** Setting the ``push.default`` configuration variable from
    ``simple`` (the default) to ``matching`` will configure the dataset such that
-   :command:`push` pushes *all* branches to the sibling.
+   :dlcmd:`push` pushes *all* branches to the sibling.
    A concrete example: On a dataset level, this can be done using
 
    .. code-block:: bash
@@ -150,7 +150,7 @@ Pushing errors
 ^^^^^^^^^^^^^^
 
 If you are unfamiliar with Git, please be aware that cloning a dataset to a different place and subsequently pushing to it can lead to Git error messages if changes are pushed to a currently checked out :term:`branch` of the sibling (in technical Git terms: When pushing to a checked-out branch of a non-bare repository remote).
-As an example, consider what happens if we attempt a :command:`datalad push` to the sibling ``roommate`` that we created in the chapter :ref:`chapter_collaboration`:
+As an example, consider what happens if we attempt a :dlcmd:`push` to the sibling ``roommate`` that we created in the chapter :ref:`chapter_collaboration`:
 
 .. runrecord:: _examples/DL-101-141-101
    :language: console

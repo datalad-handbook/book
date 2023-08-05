@@ -26,7 +26,7 @@ fMRIprep is a containerized pipeline that can be pointed to a specific subject t
 
 ENKI was transformed into a DataLad dataset beforehand, and to set up the analysis, the fMRIprep container was placed -- with a custom configuration to make it generalizable -- into a new dataset called ``pipeline``.
 Both of these datasets, input data and ``pipeline`` dataset, became subdataset of a data analysis superdataset.
-In order to associate input data, containerized pipeline, and outputs, the analysis was carried out in a toplevel analysis DataLad dataset and with the :command:`datalad containers-run` command.
+In order to associate input data, containerized pipeline, and outputs, the analysis was carried out in a toplevel analysis DataLad dataset and with the :dlcmd:`containers-run` command.
 Finally, as an additional complexity, due to the additional complexity of a large quantity of results, the output was collected in subdatasets.
 
 
@@ -61,7 +61,7 @@ Also note that there is a large collection of pre-existing container datasets av
        $ cp <location/to/fs-license.txt> .
        $ datalad save --to-git -m "add freesurfer license file" fs-license.txt
 
-   Finally, we add a container with the pipeline to the dataset using :command:`datalad containers-add` [#f2]_.
+   Finally, we add a container with the pipeline to the dataset using :dlcmd:`containers-add` [#f2]_.
    The important part is the configuration of the container -- it has to be done in a way that makes the container usable in any superdataset the pipeline dataset.
 
    Depending on how the container/pipeline needs to be called, the configuration differs.
@@ -86,7 +86,7 @@ Also note that there is a large collection of pre-existing container datasets av
          --url /data/project/singularity/fmriprep-20.2.0.simg \
          --call-fmt singularity run --cleanenv -B "$PWD" {img} {cmd} --fs-license-file "$PWD/{img_dspath}/freesurfer_license.txt"
 
-   During a :command:`datalad containers-run` command, the ``--call-fmt`` specification will be used to call the container.
+   During a :dlcmd:`containers-run` command, the ``--call-fmt`` specification will be used to call the container.
    The placeholders ``{img}`` and ``{cmd}`` will be replaced with the container (``{img}``) and the command given to ``datalad containers-run`` (``{cmd}``).
    Thus, the ``--cleanenv`` flag as well as bind-mounts are handled prior to the container invocation, and the ``--fs-license-file`` option with a path to the license file within the container is appended to the command.
    Bind-mounting the working directory (``-B "$PWD"``) makes sure to bind mount the directory from which the container is being called, which should be the superdataset that contains input data and ``pipelines`` subdataset.

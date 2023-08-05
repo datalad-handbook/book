@@ -81,7 +81,7 @@ root of your ``DataLad-101`` dataset:
 
    EOT
 
-Run :command:`datalad status` to confirm that there is a new, untracked file:
+Run :dlcmd:`status` to confirm that there is a new, untracked file:
 
 .. runrecord:: _examples/DL-101-103-102
    :language: console
@@ -103,7 +103,7 @@ in the dataset, there is no need to specify a path.
 
 But now, let's see how *changing* tracked content works.
 Modify this file by adding another note. After all, you already know how to use
-:command:`datalad save`, so write a short summary on that as well.
+:dlcmd:`save`, so write a short summary on that as well.
 
 Again, the example below uses Unix commands (``cat`` and redirection, this time however
 with ``>>`` to *append* new content to the existing file)
@@ -142,7 +142,7 @@ and save the file in DataLad:
    $ datalad save -m "add note on datalad save"
 
 Let's take another look into our history to see the development of this file.
-We're using :command:`git log -p -n 2` to see last two commits and explore
+We're using :gitcmd:`log -p -n 2` to see last two commits and explore
 the difference to the previous state of a file within each commit.
 
 .. runrecord:: _examples/DL-101-103-107

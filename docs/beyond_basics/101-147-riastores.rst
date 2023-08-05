@@ -201,19 +201,19 @@ and thus the default.
 
 .. index:: ! datalad command; create-sibling-ria
 
-The command :command:`datalad create-sibling-ria` can both create datasets in RIA stores and the RIA stores themselves.
-However, :command:`datalad create-sibling-ria` sets up a new RIA store if it does not find one under the provided URL **only** if the parameter ``--new-store-ok`` is passed.
+The command :dlcmd:`create-sibling-ria` can both create datasets in RIA stores and the RIA stores themselves.
+However, :dlcmd:`create-sibling-ria` sets up a new RIA store if it does not find one under the provided URL **only** if the parameter ``--new-store-ok`` is passed.
 By default, the command will automatically create a dataset representation in a RIA store and configure a sibling to allow publishing to the RIA store and updating
 from it.
 With special remote capabilities enabled, the command will automatically create
 the special remote as a ``storage-sibling`` and link it to the RIA-sibling.
 With the sibling and special remote set up, upon an invocation of
-:command:`datalad push --to <sibling>`, the complete dataset contents, including
+:dlcmd:`push --to <sibling>`, the complete dataset contents, including
 annexed contents, will be published to the RIA store, with no further setup or
 configuration required [#f6]_.
 
-To disable the storage sibling completely, invoke :command:`datalad create-sibling-ria` with the argument ``--storage-sibling=off``.
-To create a RIA store with *only* special remote storage, you can invoke :command:`datalad create-sibling-ria` with the argument ``--storage-sibling=only``.
+To disable the storage sibling completely, invoke :dlcmd:`create-sibling-ria` with the argument ``--storage-sibling=off``.
+To create a RIA store with *only* special remote storage, you can invoke :dlcmd:`create-sibling-ria` with the argument ``--storage-sibling=only``.
 
 Advantages of RIA stores
 """"""""""""""""""""""""
@@ -269,11 +269,10 @@ Creating or publishing to RIA stores
 """"""""""""""""""""""""""""""""""""
 
 A dataset can be added into an existing or not yet existing RIA store by
-running the :command:`datalad create-sibling-ria` command
-(:manpage:`datalad-create-sibling-ria` manual), and subsequently published into
-the store using :command:`datalad push`.
-Just like the :command:`datalad siblings add` command,
-for :command:`datalad create-sibling-ria`, an arbitrary sibling name
+running the :dlcmd:`create-sibling-ria` command, and subsequently published into
+the store using :dlcmd:`push`.
+Just like the :dlcmd:`siblings add` command,
+for :dlcmd:`create-sibling-ria`, an arbitrary sibling name
 (with the ``-s/--name`` option) and a URL to the location of the store (as a
 positional argument) need to be specified. In the case of RIA stores, the URL
 takes the form of a ``ria+`` URL, and the looks of this URL are dependent
@@ -358,7 +357,7 @@ Afterwards, the dataset has two additional siblings: ``ria-backup``, and
    $ datalad siblings
 
 The storage sibling is the git-annex ora-remote and is set up automatically --
-unless :command:`create-sibling-ria` is run with ``--storage-sibling=off``.
+unless :dlcmd:`create-sibling-ria` is run with ``--storage-sibling=off``.
 By default, it has the name of the RIA sibling, suffixed with ``-storage``,
 but alternative names can be supplied with the ``--storage-name`` option.
 
@@ -386,7 +385,7 @@ but alternative names can be supplied with the ``--storage-name`` option.
        $ cat .datalad/config
 
 In order to publish the dataset's history and all its contents into the RIA store,
-a single :command:`datalad push` to the RIA sibling suffices:
+a single :dlcmd:`push` to the RIA sibling suffices:
 
 .. runrecord:: _examples/DL-101-147-107
    :language: console
@@ -447,14 +446,14 @@ As a demonstration, we'll do it for the ``midterm_project`` subdataset:
        $ tree /home/me/myriastore
 
 Thus, in order to create and populate RIA stores, only the commands
-:command:`datalad create-sibling-ria` and :command:`datalad push` are required.
+:dlcmd:`create-sibling-ria` and :dlcmd:`push` are required.
 
 .. index:: ! datalad command; clone
 
 Cloning and updating from RIA stores
 """"""""""""""""""""""""""""""""""""
 
-Cloning from RIA stores is done via :command:`datalad clone` from a ``ria+`` URL,
+Cloning from RIA stores is done via :dlcmd:`clone` from a ``ria+`` URL,
 suffixed with a dataset identifier.
 Depending on the protocol being used, the URLs are composed similarly to during
 sibling creation:
@@ -480,7 +479,7 @@ dataset ID:
 
 There are two downsides to this method: For one, it is hard to type, remember, and
 know the dataset ID of a desired dataset. Secondly, if no additional path is given to
-:command:`datalad clone`, the resulting dataset clone would be named after its ID.
+:dlcmd:`clone`, the resulting dataset clone would be named after its ID.
 An alternative, therefore, is to use an *alias* for the dataset. This is an
 alternative dataset identifier that a dataset in a RIA store can be configured
 with - either with a parameter at the time of running ``datalad create-sibling-ria``
@@ -539,7 +538,7 @@ an alias ``dl-101``, the above call would simplify to
 
 The dataset clone is just like any other dataset clone. Contents stored in
 :term:`Git` are present right after cloning, while the contents of annexed files
-is not yet retrieved from the store and can be obtained with a :command:`datalad get`.
+is not yet retrieved from the store and can be obtained with a :dlcmd:`get`.
 
 .. runrecord:: _examples/DL-101-147-125
    :language: console
@@ -592,7 +591,7 @@ in the findoutmore below:
    with no nesting?
 
    The key to this lies in flexibly regenerating subdataset's URLs based on their
-   ID and a path to the RIA store. The :command:`datalad get` command is
+   ID and a path to the RIA store. The :dlcmd:`get` command is
    capable of generating RIA URLs to subdatasets on its own, if the higher level
    dataset contains a ``datalad get`` configuration on ``subdataset-source-candidate-origin``
    that points to the RIA store the subdataset is published in. Here is how the
@@ -602,12 +601,12 @@ in the findoutmore below:
       [datalad "get"]
           subdataset-source-candidate-origin = "ria+http://store.datalad.org#{id}"
 
-   With this configuration, a :command:`datalad get` can use the URL and insert
+   With this configuration, a :dlcmd:`get` can use the URL and insert
    the dataset ID in question into the ``{id}`` placeholder to clone directly
    from the RIA store.
 
    This configuration is automatically added to a dataset that is cloned from a
-   RIA store, but it can also be done by hand with a :command:`git config`
+   RIA store, but it can also be done by hand with a :gitcmd:`config`
    command [#f7]_.
 
 
@@ -630,7 +629,7 @@ cloning operations: Datasets in RIA stores can be cloned in specific versions.
    If you are interested in finding out how this dataset came into existence,
    checkout the use case :ref:`usecase_HCP_dataset`.
 
-Updating datasets works with the :command:`datalad update` and :command:`datalad update --merge`
+Updating datasets works with the :dlcmd:`update` and :dlcmd:`update --merge`
 commands introduced in chapter :ref:`chapter_collaboration`. And because a
 RIA store hosts :term:`bare Git repositories`, collaborating becomes
 easy. Anyone with access can clone the dataset from the store, add changes, and
@@ -721,5 +720,5 @@ procedures.
 .. [#f6] To re-read about publication dependencies and why this is relevant to
          annexed contents in the dataset, checkout section :ref:`sharethirdparty`.
 
-.. [#f7] To re-read on configuring datasets with the :command:`git config`, go
+.. [#f7] To re-read on configuring datasets with the :gitcmd:`config`, go
          back to sections :ref:`config` and :ref:`config2`.

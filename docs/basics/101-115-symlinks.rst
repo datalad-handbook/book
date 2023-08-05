@@ -95,7 +95,7 @@ tree is also known as the *annex* of a dataset.
    **Why is that?**
    Data *needs* to be in the annex for version control and transport logistics -- the annex is able to store all previous versions of the data, and manage the transport to other storage locations if you want to publish your dataset.
    But as the :ref:`Findoutmore in this section <fom-objecttree>` will show, the :term:`annex` is a non-human readable tree structure, and data thus also needs to exist in its original location.
-   Thus, it exists in both places: its moved into the annex, and copied back into its original location.
+   Thus, it exists in both places: it has moved into the annex, and copied back into its original location.
    Once you edit an annexed file, the most recent version of the file is available in its original location, and past versions are stored and readily available in the annex.
    If you reset your dataset to a previous state (as is shown in the section :ref:`history`), the respective version of your data is taken from the annex and copied to replace the newer version, and vice versa.
 
@@ -205,7 +205,7 @@ to manage the file system in a DataLad dataset (:ref:`filesystem`).
    :name: fom-objecttree
 
    So how do these cryptic paths and names in the object tree come into existence?
-   Its not malicious intent that leads to these paths and file names - its checksums.
+   It's not malicious intent that leads to these paths and file names - its checksums.
 
    When a file is annexed, git-annex generates a *key* (or :term:`checksum`) from the **file content**.
    It uses this key (in part) as a name for the file and as the path
@@ -327,7 +327,7 @@ If so, please take a look into the Windows Wit below.
    Your DataLad experience has therefore been exactly as it has been for macOS or Linux users.
    But one thing that bears the need for additional information is sharing files in dataset between your Linux and Windows system.
 
-   Its fantastic that files created under Linux can be shared to Windows and used by Windows tools.
+   It's fantastic that files created under Linux can be shared to Windows and used by Windows tools.
    Usually, you should be able to open an explorer and type ``\\wsl$\<distro>\<path>`` in the address bar to navigate to files under Linux, or type ``explorer.exe`` into the WSL2 terminal.
    Some core limitations of Windows can't be overcome, though: Windows usually isn't capable of handling symlinks.
    So while WSL2 can expose your dataset filled with symlinked files to Windows, your Windows tools can fail to open them.

@@ -519,7 +519,9 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/10297203?v=4",
       "profile": "http://cmn.nimh.nih.gov/dsst",
       "contributions": [
-        "content"
+        "content",
+        "bug",
+        "maintenance"
       ]
     },
     {
@@ -595,6 +597,16 @@
       "profile": "https://orcid.org/0000-0002-3127-5520",
       "contributions": [
         "content"
+      ]
+    },
+    {
+      "login": "da5nsy",
+      "name": "Danny Garside",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3739866?v=4",
+      "profile": "http://dannygarside.co.uk",
+      "contributions": [
+        "bug",
+        "maintenance"
       ]
     }
   ],

@@ -7,7 +7,7 @@ A Neuroimaging Datasets
 .. todo::
 
    Currently, this is a left over. Later, we can rework this into something,
-   but its unclear yet what ;-)
+   but it's unclear yet what ;-)
 
 This section is a concise demonstration of what a DataLad dataset is,
 showcased on a dataset from the field of neuroimaging.

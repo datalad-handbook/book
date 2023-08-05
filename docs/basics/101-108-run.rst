@@ -57,7 +57,7 @@ superdataset:
 .. runrecord:: _examples/DL-101-108-101
    :language: console
    :workdir: dl-101
-   :notes: its impossible to remember how a large data analysis produced which result for a human, but datalad can help to keep track. To see this in action, we'll do a data analysis. Start with yoda principles and structure ds with code directory.
+   :notes: it's impossible to remember how a large data analysis produced which result for a human, but datalad can help to keep track. To see this in action, we'll do a data analysis. Start with yoda principles and structure ds with code directory.
    :cast: 02_reproducible_execution
    :realcommand: cd DataLad-101 && mkdir code && tree -d
 

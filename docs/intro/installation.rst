@@ -107,36 +107,37 @@ Git:
     directory, but configure the following settings (they are distributed over
     multiple dialogs):
 
-    - Enable *Use a TrueType font in all console windows*
+    
     - Select *Git from the command line and also from 3rd-party software*
     - *Enable file system caching*
+    - *Select Use external OpenSSH*
     - *Enable symbolic links*
 
 
 Git-annex:
-    There are two convenient ways to install git-annex. The first is `downloading the installer from git-annex' homepage <https://git-annex.branchable.com/install/Windows/>`_. The other is to deploy git-annex is via the `DataLad installer`_.
+    There are two convenient ways to install git-annex. The first is `downloading the installer from git-annex' homepage <https://git-annex.branchable.com/install/Windows/>`_. The other is to deploy git-annex via the `DataLad installer`_.
     The latter option requires the installation of the datalad-installer, Once
     Python is available, it can be done with the Python package manager
     :command:`pip`. Open a command prompt and run:
 
     .. code-block:: bat
 
-      > pip install datalad-installer
+      pip install datalad-installer
 
     Afterwards, open another command prompt in administrator mode and run:
 
     .. code-block:: bat
 
-      > datalad-installer git-annex -m datalad/git-annex:release
+      datalad-installer git-annex -m datalad/git-annex:release
 
     This will download a recent git-annex, and configure it for your Git installation.
     The admin command prompt can be closed afterwards, all other steps do not need it.
 
-    For performance improvements, regardless of which installation method you chose, we recommend to also set the following git-annex configuration:
+    For `performance improvements <https://git-annex.branchable.com/projects/datalad/bugs-done/Windows__58___substantial_per-file_cost_for___96__add__96__/>`_, regardless of which installation method you chose, we recommend to also set the following git-annex configuration:
 
     .. code-block:: bat
 
-      > git config --global filter.annex.process "git-annex filter-process"
+      git config --global filter.annex.process "git-annex filter-process"
 
 DataLad:
     With Python, Git, and git-annex installed, DataLad can be installed, and later also
@@ -144,7 +145,7 @@ DataLad:
 
     .. code-block:: bat
 
-      > pip install datalad
+      pip install datalad
 
 7-Zip (optional, but highly recommended):
     Download it from the `7-zip website <https://7-zip.org>`_ (64bit

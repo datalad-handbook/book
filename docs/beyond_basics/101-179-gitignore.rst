@@ -162,7 +162,7 @@ your dataset to be messy, if you want to be.
 
 .. find-out-more:: Globally ignoring files
 
-   Its not only possible to define files or patterns for files to ignore inside
+   It is not only possible to define files or patterns for files to ignore inside
    of individual datasets, but to also set global specifications to have every
    single dataset you own ignore certain files or file types.
 

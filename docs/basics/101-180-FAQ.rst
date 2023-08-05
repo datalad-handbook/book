@@ -93,7 +93,7 @@ and functions:
 - DataLad adds metadata facilities for metadata extraction in various flavors,
   and can store extracted and aggregated metadata under ``.datalad/metadata``.
 
-- .. todo::
+.. todo::
 
      more here.
 
@@ -154,7 +154,7 @@ The chapter :ref:`chapter_retro` guides you through transitioning an existing pr
 How can I convert an existing DataLad dataset with annexed data back to a plain Git repository?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-I you decide to stop using git-annex or DataLad, or if you want to turn an annex repo back into a Git repo, you can do so with the git-annex uninit command.
+If you decide to stop using git-annex or DataLad, or if you want to turn an annex repo back into a Git repo, you can do so with the git-annex uninit command.
 The section :ref:`uninit` contains more details.
 
 How can I cite DataLad?

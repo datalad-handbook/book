@@ -115,7 +115,7 @@ Make sure to run :command:`datalad status` frequently.
 .. importantnote:: Create desired subdatasets first
 
    Be mindful during saving if you have a directory that should hold more, yet uncreated datasets down its hierarchy, as a plain ``datalad save`` will save *all* files and directories to the dataset!
-   Its best to first create all subdatasets, and only then save their contents.
+   It is best to first create all subdatasets, and only then save their contents.
 
 If you are operating in a hierarchy of datasets, running a recursive save from the top-most dataset (``datalad save -r``) will save you time: All contents are saved to their respective datasets, all subdatasets are registered to their respective superdatasets.
 
@@ -132,7 +132,7 @@ Summary
 
 Existing projects and analysis can be DataLad-ified with a few standard commands.
 Be mindful about dataset sizes and whether you save contents into Git or git-annex, though, as these choices could potentially spoil your DataLad experience.
-The sections :ref:`filesystem` and :ref:`cleanup` can help you to undo unwanted changes, but its better to do things right instead of having to fix them up.
+The sections :ref:`filesystem` and :ref:`cleanup` can help you to undo unwanted changes, but it's better to do things right instead of having to fix them up.
 If you can, read up on the DataLad Basics to understand what you are doing, and create a backup in case things go not as planned in your first attempts.
 
 .. rubric:: Footnotes

@@ -103,7 +103,7 @@ On Windows systems, on the other hand, there is quite a long list of characters:
     ? (question mark)
     * (asterisk)
 
-And in addition, its also not possible to end a file name with a period (``.``) or a space on Windows.
+And in addition, it's also not possible to end a file name with a period (``.``) or a space on Windows.
 
 Especially Unix users can thus inadvertently create files that a Windows system couldn't handle.
 But in the case of files with illegal names being committed into Git repositories, the consequences are actually more severe than just a single file that can't be used or copied.
@@ -117,8 +117,8 @@ So while having invalid characters in your files is 1) a considerably convoluted
 	There are also illegal characters that you can't find on your keyboard: Control characters.
 	Those are characters that do not represent written symbols, but cause particular actions on a system.
 	The ASCII code `7 (bell) <https://en.wikipedia.org/wiki/Bell_character>`_, for example, can cause the device to emit a warning.
-	On Unix systems, its illegal to use the `0 (NUL) <https://en.wikipedia.org/wiki/Null_character>`_ control character in a file name.
-	On Windows systems, its also illegal to use any control character between ``0-31``.
+	On Unix systems, it's illegal to use the `0 (NUL) <https://en.wikipedia.org/wiki/Null_character>`_ control character in a file name.
+	On Windows systems, it's also illegal to use any control character between ``0-31``.
 	Relevant in the case that, you know, you wanted to have a file with non-printable characters.
 	Why not, right?
 

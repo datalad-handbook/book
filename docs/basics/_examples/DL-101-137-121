@@ -11,7 +11,7 @@ f5907ea move book back from midterm_project
 66f8f03 add note on DataLad's procedures
 f7716e8 add note on configurations and git config
 dbe7e42 Add note on adding siblings
-0c0c105 Merge remote-tracking branch 'roommate/main'
+0c0c105 Merge remote-tracking branch 'roommate/master'
 f70d195 add note about datalad update
 2c4f079 Include nesting demo from datalad website
 11b542b add note on git annex whereis

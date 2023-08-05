@@ -168,7 +168,7 @@ and another state from the dataset's history (a commit specified with
 ``-t``/``--to``). Let's do a :command:`datalad diff` between the current state
 of the dataset and the previous commit (called "``HEAD~1``" in Git terminology [#f1]_):
 
-.. windows-wit:: please use datalad diff --from main --to HEAD~1
+.. windows-wit:: please use datalad diff --from master --to HEAD~1
 
    While this example works on Unix file systems, it will not provide the same output on Windows.
    This is due to different file handling on Windows.
@@ -251,7 +251,7 @@ other tools than from the machine-readable ``run record``.
 For example, to find out who (or what) created or modified a file,
 give the file path to :command:`git log` (prefixed by ``--``):
 
-.. windows-wit:: use "git log main -- recordings/podcasts.tsv"
+.. windows-wit:: use "git log master -- recordings/podcasts.tsv"
 
    A previous Windows Wit already advised to append ``main`` or ``master``, the common "default :term:`branch`", to any command that starts with ``git log``.
    Here, the last part of the command specifies a file (``-- recordings/podcasts.tsv``).

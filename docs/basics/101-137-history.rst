@@ -444,7 +444,7 @@ Neat, isn't it? By checking out a commit shasum you can explore a previous
 state of a datasets history. And this does not only apply to simple text
 files, but every type of file in your dataset, regardless of size.
 The checkout command however led to something that Git calls a "detached HEAD state".
-While this sounds scary, a :command:`git checkout main` will bring you
+While this sounds scary, a :command:`git checkout master` will bring you
 back into the most recent version of your dataset and get you out of the
 "detached HEAD state":
 
@@ -452,7 +452,7 @@ back into the most recent version of your dataset and get you out of the
    :language: console
    :workdir: dl-101/DataLad-101
 
-   $ git checkout main
+   $ git checkout master
 
 
 Note one very important thing: The previously untracked files are still

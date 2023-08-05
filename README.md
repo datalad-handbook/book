@@ -50,7 +50,7 @@ under the following terms:
 2) **ShareAlike** — If you remix, transform, or build upon the material, you must distribute your
  contributions under the same license as the original.
 
-<img src="https://raw.githubusercontent.com/datalad-handbook/book/master/artwork/logo.svg?sanitize=true" width="200" height="400">  
+<img src="https://raw.githubusercontent.com/datalad-handbook/book/main/artwork/logo.svg?sanitize=true" width="200" height="400">
 
 ## Contributors ✨
 

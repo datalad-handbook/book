@@ -12,7 +12,7 @@ Here you can find the poster about the DataLad Handbook, presented at the `2020 
    Click on the image below to obtain a PDF version of it.
 
    .. figure:: artwork/src/OHBM_2020.png
-      :target: https://github.com/datalad-handbook/book/raw/master/artwork/OHBM_2020.pdf
+      :target: https://github.com/datalad-handbook/book/raw/main/artwork/OHBM_2020.pdf
 
 
 .. only:: latex
@@ -21,4 +21,4 @@ Here you can find the poster about the DataLad Handbook, presented at the `2020 
       :width: 80%
 
       A high-resolution version is available for download
-      at https://github.com/datalad-handbook/book/raw/master/artwork/OHBM_2020.pdf
+      at https://github.com/datalad-handbook/book/raw/main/artwork/OHBM_2020.pdf

@@ -13,7 +13,7 @@ DataLad cheat sheet
    sections are linked to chapters or technical docs.
 
    .. figure:: ../artwork/src/datalad-cheatsheet_p1.png
-      :target: https://github.com/datalad-handbook/artwork/raw/master/src/datalad-cheatsheet.pdf
+      :target: https://github.com/datalad-handbook/artwork/raw/main/src/datalad-cheatsheet.pdf
 
 .. only:: latex
 
@@ -21,4 +21,4 @@ DataLad cheat sheet
       :width: 80%
 
       A high-resolution version of this cheatsheet is available for download
-      at https://github.com/datalad-handbook/artwork/raw/master/src/datalad-cheatsheet.pdf
+      at https://github.com/datalad-handbook/artwork/raw/main/src/datalad-cheatsheet.pdf

@@ -545,7 +545,7 @@ Copying files across dataset boundaries
 
 Instead of moving files across dataset boundaries, *copying* them is an easier
 and actually supported method.
-The DataLad command that can be used for this is :command:`datalad copy-file`.
+The DataLad command that can be used for this is :command:`datalad copy-file` (:manpage:`datalad-copy-file` manual).
 This command allows to copy files
 (from any dataset or non-dataset location, annexed or not annexed) into a dataset.
 If the file is copied from a dataset and is annexed, its availability metadata

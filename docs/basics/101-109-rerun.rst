@@ -158,7 +158,7 @@ command, and looks just like the previous :command:`datalad run` commit.
 .. index:: ! datalad command; diff
 
 Two cool tools that go beyond the :command:`git log`
-are the :command:`datalad diff` and :command:`git diff` commands.
+are the :command:`datalad diff` (:manpage:`datalad-diff` manual) and :command:`git diff` commands.
 Both commands can report differences between two states of
 a dataset. Thus, you can get an overview of what changed between two commits.
 Both commands have a similar, but not identical structure: :command:`datalad diff`

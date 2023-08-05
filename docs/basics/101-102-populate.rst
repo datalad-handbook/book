@@ -300,7 +300,7 @@ these files from. If you would want to find out, you would have to *remember*
 where you got the content from – and brains are not made for such tasks.
 
 Luckily, DataLad has a command that will solve both of these problems:
-The :command:`datalad download-url` command.
+The :command:`datalad download-url` command (:manpage:`datalad-download-url` manual).
 We will dive deeper into the provenance-related benefits of using it in later chapters, but for now,
 we’ll start with best-practice-building. :command:`datalad download-url` can retrieve content
 from a URL (following any URL-scheme from https, http, or ftp or s3) and save it

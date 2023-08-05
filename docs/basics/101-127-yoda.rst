@@ -1,4 +1,3 @@
-.. index:: ! 2-001
 .. _2-001:
 .. _yoda:
 
@@ -134,7 +133,7 @@ computational environments, results, ...) in dedicated directories. For example:
   leave the input data of an analysis untouched by your computations.
 
 - Include a place for complete **execution environments**, for example
-  `singularity images <https://singularity.lbl.gov/>`_ or
+  `singularity images <https://singularity.lbl.gov>`_ or
   `docker containers <https://www.docker.com/get-started>`_ [#f2]_, in
   the form of an ``envs/`` directory, if relevant for your analysis.
 
@@ -435,8 +434,8 @@ and the start of a comprehensible directory structure by applying the ``yoda`` p
 
 Sources
 ^^^^^^^
-This section is based on this comprehensive
-`poster <https://f1000research.com/posters/7-1965>`_ and these publicly
+This section is based on a comprehensive
+`poster <https://f1000research.com/posters/7-1965>`_ and publicly
 available `slides <https://github.com/myyoda/talk-principles>`_ about the
 YODA principles.
 

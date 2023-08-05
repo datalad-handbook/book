@@ -126,7 +126,7 @@ DataLad in the editor)!
    The :command:`git commit --amend` command will let you
    rewrite the commit message of the most recent commit. If you
    however need to rewrite commit messages of older commits, you
-   can do so during a so-called "interactive rebase" [#f4]_. The command
+   can do so during a so-called "interactive rebase". The command
    for this is
 
    .. code-block:: bash
@@ -184,7 +184,7 @@ DataLad in the editor)!
    it, you will be able to change the commit message. Save to proceed to
    the next commit message until the rebase is complete.
    But be careful not to delete any lines in the above editor view --
-   **An interactive rebase can be dangerous, and if you remove a line, this commit will be lost!** [#f5]_
+   **An interactive rebase can be dangerous, and if you remove a line, this commit will be lost!**
 
 Untracking accidentally saved contents (tracked in Git)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -234,7 +234,7 @@ with the HEAD pointer.
 
    A Git repository (and thus any DataLad dataset) is built up as a tree of
    commits. A *branch* is a named pointer (reference) to a commit, and allows you
-   to isolate developments. The default branch is called ``master``. ``HEAD`` is
+   to isolate developments. The default branch is called ``main``. ``HEAD`` is
    a pointer to the branch you are currently on, and thus to the last commit
    in the given branch.
 
@@ -245,10 +245,8 @@ with the HEAD pointer.
    starting from the most recent commit. ``HEAD~1`` is the ancestor of the most
    recent commit, i.e., one commit back (``f30ab`` in the figure above). Apart from
    the notation ``HEAD~N``, there is also ``HEAD^N`` used to count backwards, but
-   less frequently used and of importance primarily in the case of *merge*
-   commits.
-   `This post <https://stackoverflow.com/questions/2221658/whats-the-difference-between-head-and-head-in-git>`__
-   explains the details well.
+   `less frequently used and of importance primarily in the case of merge
+   commits <https://stackoverflow.com/q/2221658/10068927>`__.
 
 Let's stay with the hash, and reset to the commit prior to saving the Gitjokes.
 
@@ -309,7 +307,7 @@ Finally, let's check how the history looks afterwards:
 
    $ git log -2
 
-Wow! You have rewritten history [#f4]_ !
+Wow! You have rewritten history [#f4]_!
 
 Untracking accidentally saved contents (stored in git-annex)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -446,7 +444,7 @@ Neat, isn't it? By checking out a commit shasum you can explore a previous
 state of a datasets history. And this does not only apply to simple text
 files, but every type of file in your dataset, regardless of size.
 The checkout command however led to something that Git calls a "detached HEAD state".
-While this sounds scary, a :command:`git checkout master` will bring you
+While this sounds scary, a :command:`git checkout main` will bring you
 back into the most recent version of your dataset and get you out of the
 "detached HEAD state":
 
@@ -454,7 +452,7 @@ back into the most recent version of your dataset and get you out of the
    :language: console
    :workdir: dl-101/DataLad-101
 
-   $ git checkout master
+   $ git checkout main
 
 
 Note one very important thing: The previously untracked files are still
@@ -483,7 +481,7 @@ prior :command:`git checkout` (note that the output is shortened for brevity and
 .. runrecord:: _examples/DL-101-137-127
    :language: console
    :workdir: dl-101/DataLad-101
-   :lines: 1, 48-
+   :lines: 2, 48-
    :realcommand: echo "$ git cat-file --textconv $(git rev-parse HEAD~15):notes.txt" && git cat-file --textconv $(git rev-parse HEAD~15):notes.txt
 
 The cat-file command is very versatile, and
@@ -728,8 +726,7 @@ overview on the necessary steps, and a pointer to a more comprehensive guide.
   want to keep, as well as all markers.
 - Afterwards, run ``git add <path/to/file>`` and finally a ``git commit``.
 
-An excellent resource on how to deal with merge conflicts is
-`this post <https://docs.github.com/en/github/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line>`_.
+GitHub has an `excellent resource on how to deal with merge conflicts <https://docs.github.com/en/github/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line>`_.
 
 Summary
 ^^^^^^^

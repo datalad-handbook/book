@@ -71,7 +71,7 @@ more subdatasets, depending on how much data modalities are available. A similar
 approach was chosen for the
 `Datalad UKbiobank extension <https://github.com/datalad/datalad-ukbiobank>`_
 that can enable to obtain and version control imaging releases of the up to
-100000 participants of the `UKbiobank project <https://www.ukbiobank.ac.uk/>`_.
+100000 participants of the `UKbiobank project <https://www.ukbiobank.ac.uk>`_.
 
 **"But why use DataLad for this?"**
 In principle, using many instead of a single repository/dataset for large amounts

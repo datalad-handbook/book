@@ -20,7 +20,7 @@ To set up Dropbox as a third party storage provide you need to configure a speci
 It is a command line program to sync files and directories to and
 from a large number of commercial providers [#f2]_.
 
-- The first step is to `install <https://rclone.org/install/>`_
+- The first step is to `install <https://rclone.org/install>`_
   ``rclone`` on your computer. The installation instructions are straightforward
   and the installation is quick if you are on a Unix-based system (macOS or any
   Linux distribution).
@@ -147,9 +147,9 @@ The representation of the files in the special-remote is not human-readable --
 it is a tree of annex objects, and thus looks like a bunch of very weirdly named
 folders and files to anyone.
 Through this design it becomes possible to chunk files into smaller units (see
-`the git-annex documentation <https://git-annex.branchable.com/chunking/>`_ for more on this),
+`the git-annex documentation <https://git-annex.branchable.com/chunking>`_ for more on this),
 optionally encrypt content on its way from a local machine to a storage service
-(see `the git-annex documentation <https://git-annex.branchable.com/encryption/>`__ for more on this),
+(see `the git-annex documentation <https://git-annex.branchable.com/encryption>`__ for more on this),
 and avoid leakage of information via file names. Therefore, the Dropbox remote is
 not a places a real person would take a look at, instead they are only meant to
 be managed and accessed via DataLad/git-annex.
@@ -269,7 +269,7 @@ annexed data can be transferred from and to Dropbox, anyone who needs annexed
 data from Dropbox needs *this* special remote. Therefore, the first steps are
 the same as before:
 
-- `Install <https://rclone.org/install/>`__ ``rclone`` (as described above).
+- `Install <https://rclone.org/install>`__ ``rclone`` (as described above).
 - Run ``rclone config`` to configure ``rclone`` to work with Dropbox (as described above). **It is important to name the remote identically** - in the example above, it would need to be "dropbox-for-friends".
   This means: You need to communicate the name of your special remote to your friend, and they have to give it the same name as the one configured in the dataset).
   (There are efforts towards extracting this information automatically from datasets, but for the time being, this is an important detail to keep in mind).
@@ -295,7 +295,7 @@ books, or the cropped logos from chapter :ref:`chapter_run`::
          third-party hosting services.
          For a complete overview of which third-party services are
          available and which special-remote they need, please see this
-         `list <http://git-annex.branchable.com/special_remotes/>`_.
+         `list <http://git-annex.branchable.com/special_remotes>`_.
 
 .. [#f3] Note that ``export`` will extend your ``$PATH`` *for your current shell*.
          This means you will have to repeat this command if you open a new shell.

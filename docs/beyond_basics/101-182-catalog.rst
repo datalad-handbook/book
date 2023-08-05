@@ -45,7 +45,7 @@ How does it work?
 
 DataLad Catalog can receive commands to ``create`` a new catalog, ``add`` and ``remove`` metadata entries to/from an existing catalog, ``serve``
 an existing catalog locally, and more. Metadata can be provided to DataLad Catalog from any number of arbitrary metadata sources,
-as an aggregated set or as individual items/objects. DataLad Catalog has a dedicated schema (using the `JSON Schema <https://json-schema.org/>`_ vocabulary)
+as an aggregated set or as individual items/objects. DataLad Catalog has a dedicated schema (using the `JSON Schema <https://json-schema.org>`_ vocabulary)
 against which incoming metadata items are validated. This schema allows for standard metadata fields as one would expect for datasets of any kind
 (such as ``name``, ``doi``, ``url``, ``description``, ``license``, ``authors``, and more), as well as fields that support identification, versioning,
 dataset context and linkage, and file tree specification.
@@ -57,7 +57,7 @@ The process of generating a catalog, after metadata entry validation, involves:
 
 .. figure:: ../artwork/src/catalog/datalad_catalog_howitworks.svg
 
-The output is a set of structured metadata files, as well as a `Vue.js <https://vuejs.org/>`_-based browser interface that understands how to render
+The output is a set of structured metadata files, as well as a `Vue.js <https://vuejs.org>`_-based browser interface that understands how to render
 this metadata in the browser. What is left for the user is to host this content on their platform of choice and to serve it for the world to see!
 
 

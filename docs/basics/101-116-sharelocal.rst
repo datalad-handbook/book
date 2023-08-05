@@ -28,7 +28,7 @@ a source.
 
 In this scenario multiple people can access the very same files at the
 same time, often on the same machine (e.g., a shared workstation, or
-a server that people can "SSH" into). You might think: "What do I need
+a server that people can ":term:`SSH`" into). You might think: "What do I need
 DataLad for, if everyone can already access everything?" However,
 universal, unrestricted access can easily lead to chaos. DataLad can
 help facilitate collaboration without requiring ultimate trust and
@@ -85,7 +85,7 @@ to a different user's directories, but we will talk about permissions later.
 
 After creation, navigate into ``mock_user`` and install the dataset ``DataLad-101``.
 To do this, use :command:`datalad clone`, and provide a path to your original
-dataset. Here is how it looks like:
+dataset:
 
 .. runrecord:: _examples/DL-101-116-102
    :language: console
@@ -99,7 +99,7 @@ dataset. Here is how it looks like:
 
 This will install your dataset ``DataLad-101`` into your room mate's home
 directory. Note that we have given this new
-dataset a description about its location as well. Note further that we
+dataset a description about its location. Note further that we
 have not provided the optional destination path to :command:`datalad clone`,
 and hence it installed the dataset under its original name in the current directory.
 
@@ -188,8 +188,7 @@ and hostname of your computer. "This", you exclaim, excited about your own reali
 
    Back in the very first section of the Basics, :ref:`createDS`, a hidden
    section mentioned the ``--description`` option of :command:`datalad create`.
-   With this option, you can provide a description about the *location* of
-   your dataset.
+   With this option, you can provide a description about the dataset *location*.
 
    The :command:`git annex whereis` command, finally, is where such a description
    can become handy: If you had created the dataset with
@@ -205,14 +204,12 @@ and hostname of your computer. "This", you exclaim, excited about your own reali
    increases. If you have only one other dataset it may be easy to
    remember what and where it is. But once you have one back-up
    of your dataset on a USB-Stick, one dataset shared with
-   `Dropbox <https://www.dropbox.com>`_, and a third one on your institutions
+   Dropbox, and a third one on your institutions
    :term:`GitLab` instance you will be grateful for the descriptions
    you provided these locations with.
 
    The current report of the location of the dataset is in the format
    ``user@host:path``.
-   As one computer this book is being build on is called "muninn" and its
-   user "me", it could look like this: ``me@muninn:~/dl-101/DataLad-101``.
 
    If the physical location of a dataset is not relevant, ambiguous, or volatile,
    or if it has an :term:`annex` that could move within the foreseeable lifetime of a

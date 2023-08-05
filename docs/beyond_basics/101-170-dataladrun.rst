@@ -26,12 +26,12 @@ This section is a write-up of how DataLad can be used on a scientific computatio
 It showcases the general principles behind parallel processing of DataLad-centric workflows with containerized pipelines.
 While this chapter demonstrates specific containerized pipelines and job schedulers, the general setup is generic and could be used with any containerized pipeline and any job scheduling system.
 
-This section lays the groundwork to the next section, a walk-through through a real life example of containerized `fMRIprep <https://fmriprep.readthedocs.io/>`_ preprocessing on the `eNKI <http://fcon_1000.projects.nitrc.org/indi/enhanced/>`_ neuroimaging dataset, scheduled with `HTCondor <https://research.cs.wisc.edu/htcondor/>`_.
+This section lays the groundwork to the next section, a walk-through through a real life example of containerized `fMRIprep <https://fmriprep.readthedocs.io>`_ preprocessing on the `eNKI <http://fcon_1000.projects.nitrc.org/indi/enhanced>`_ neuroimaging dataset, scheduled with `HTCondor <https://research.cs.wisc.edu/htcondor>`_.
 
 Why job scheduling?
 ^^^^^^^^^^^^^^^^^^^
 
-On scientific compute clusters, job scheduling systems such as `HTCondor <https://research.cs.wisc.edu/htcondor/>`_ or `slurm <https://slurm.schedmd.com/overview.html>`_ are used to distribute computational jobs across the available computing infrastructure and manage the overall workload of the cluster.
+On scientific compute clusters, job scheduling systems such as `HTCondor <https://research.cs.wisc.edu/htcondor>`_ or `slurm <https://slurm.schedmd.com/overview.html>`_ are used to distribute computational jobs across the available computing infrastructure and manage the overall workload of the cluster.
 This allows for efficient and fair use of available resources across a group of users, and it brings the potential for highly parallelized computations of jobs and thus vastly faster analyses.
 
 Consider one common way to use a job scheduler: processing all subjects of a dataset independently and as parallel as the current workload of the compute cluster allows -- instead of serially "one after the other".
@@ -75,7 +75,7 @@ Processing FAIRly *and* in parallel -- General workflow
 
     FAIR *and* parallel processing requires out-of-the-box thinking, and many creative approaches can lead to success.
     Here is **one** approach that leads to a provenance-tracked, computationally reproducible, and parallel preprocessing workflow, but many more can work.
-    `We are eager to hear about yours <https://github.com/datalad-handbook/book/issues/new/>`_.
+    `We are eager to hear about yours <https://github.com/datalad-handbook/book/issues/new>`_.
 
 **General setup**: The overall setup consists of a data analysis with a containerized pipeline (i.e., a software container that performs a single or a set of analyses).
 Results will be aggregated into a top-level analysis dataset while the input dataset and a "pipeline" dataset (with a configured software container) exist as subdatasets.

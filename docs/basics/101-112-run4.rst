@@ -171,7 +171,7 @@ commit to see a :term:`run record` with more content:
    :language: console
    :workdir: dl-101/DataLad-101
    :lines: 1, 24-50
-   :emphasize-lines: 11, 15-17, 18-20
+   :emphasize-lines: 10, 14-19
    :notes: finally, lets see a more complex runrecord
    :cast: 02_reproducible_execution
 

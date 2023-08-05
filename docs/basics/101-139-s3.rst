@@ -3,24 +3,13 @@
 Walk-through: Amazon S3 as a special remote
 -------------------------------------------
 
-`Amazon S3 <https://aws.amazon.com/s3/>`_ (or Amazon Simple Storage Service) is a
+`Amazon S3 <https://aws.amazon.com/s3>`_ (or Amazon Simple Storage Service) is a
 popular service by `Amazon Web Services <https://aws.amazon.com/>`_ (AWS) that
 provides object storage through a web service interface. An S3 bucket can be 
 configured as a :term:`git-annex` :term:`special remote`, allowing it to be used
 as a DataLad publication target. This means that you can use Amazon S3 to store your
 annexed data contents and allow users to install your full dataset with DataLad
 from a publicly available repository service such as GitHub.
-
-.. find-out-more:: What is a special remote
-
-   A special-remote is an extension to Git’s concept of remotes, and can
-   enable :term:`git-annex` to transfer data from and possibly to places that are not Git
-   repositories (e.g., cloud services or external machines such as an HPC
-   system). For example, *s3* special remote uploads and downloads content
-   to AWS S3, *web* special remote downloads files from the web, *datalad-archive*
-   extracts files from the annexed archives, etc. Don’t envision a special-remote
-   as merely a physical place or location – a special-remote is a protocol that
-   defines the underlying transport of your files to and/or from a specific location.
 
 In this section, we provide a walkthrough on how to set up Amazon S3 for hosting
 your DataLad dataset, and how to access this data locally from GitHub.
@@ -140,17 +129,6 @@ Now we can view the directory tree to see the dataset content:
 The next step is to ensure that this is a valid DataLad dataset,
 with ``main`` as the default branch.
 
-.. importantnote:: Ensure main is set as default branch for newly-created repositories
-
-  Any new dataset configured with ``master`` instead of ``main`` as the default branch will get
-  ``git-annex`` configured to be the default displayed branch when it is pushed to GitHub.
-  See  :ref:`this FAQ for more information <gitannexdefault>`. This can be prevented by:
-
-  * `a user/organization setting on GitHub about default branches <https://github.blog/changelog/2020-08-26-set-the-default-branch-for-newly-created-repositories/>`_
-  * setting ``main`` as the default branch by changing your global ``git config``::
-
-      git config --global init.defaultBranch main
-
 We can turn our ``neuro-data-s3`` directory into a DataLad dataset with the
 :command:`datalad create --force` command. After that, we save the dataset with :command:`datalad save`:
 
@@ -265,15 +243,6 @@ option. For consistency, we'll give the GitHub repository the same name as the d
 Notice that by creating this sibling, DataLad created an actual (empty) dataset repository
 on GitHub, which required preconfigured GitHub authentication details.
 
-.. importantnote:: Generate a GitHub token
-
-   GitHub `deprecated user-password authentication <https://developer.github.com/changes/2020-02-14-deprecating-password-auth/>`_ and supports authentication via personal access token only.
-   To ensure successful authentication, please create a personal access token at `github.com/settings/tokens <https://github.com/settings/tokens>`_ [#f5]_, and either
-
-   * supply the token with the argument ``--github-login <TOKEN>`` from the command line,
-   * or supply the token from the command line when queried for a password
-
-
 The creation of the sibling (named ``github``) can also be confirmed with :command:`datalad siblings`:
 
 .. code-block:: bash
@@ -354,71 +323,56 @@ Advanced examples
 ^^^^^^^^^^^^^^^^^
 
 When there is a lot to upload, automation is your friend.
-Below, we try to collect a few real world examples that go beyond toy examples.
-Do you have one and want to share it with the world as well? Please `get in touch <https://github.com/datalad-handbook/book/issues/new>`_!
-
-Automated uploads of dataset hierarchies
-""""""""""""""""""""""""""""""""""""""""
+One example is the automated upload of dataset hierarchies to S3
 
 The script below is a quick-and-dirty solution to the task of exporting a hierarchy of datasets to an S3 bucket.
-I needs to be invoked with three positional arguments, the path to the :term:`DataLad superdataset`, the S3 bucket name, and a prefix.
+It needs to be invoked with three positional arguments, the path to the :term:`DataLad superdataset`, the S3 bucket name, and a prefix.
 
 .. code-block:: bash
 
-	#!/bin/bash
+   #!/bin/bash
+   set -eu
+   export PS4='> '
+   set -x
 
-	set -eu
+   topds="$1"
+   bucket="$2"
+   prefix="$3"
 
-	export PS4='> '
-	set -x
+   srname="${bucket}5"
+   topdsfull=$PWD/$topds/
 
-	topds="$1"
-	bucket="$2"
-	prefix="$3"
+   if ! git annex version | grep 8.2021 ; then
+	 echo "E: need recent git annex. check what you have"
+	 exit 1
+   fi
 
-	# TEMP
-	srname="${bucket}5"
+   { echo "$topdsfull"; datalad -f '{path}' subdatasets -r -d "$topds"; } | \
+   while read ds; do
+	 relds=$(relpath "$ds" "$topdsfull")
+	 fileprefix="$prefix/$relds/"
+	 fileprefix=$(python -c "import os,sys; print(os.path.normpath(sys.argv[1]))" "$fileprefix")
+	 echo $relds;
+	 (
+		cd "$ds";
+		# TODO: make sure that there is no ./ or // in fileprefix
+		if ! git remote | grep -q "$srname"; then
+			git annex initremote --debug "$srname" \
+				type=S3 \
+				autoenable=true \
+				bucket=$bucket \
+				encryption=none \
+				exporttree=yes \
+				"fileprefix=$fileprefix/" \
+				host=s3.amazonaws.com \
+				partsize=1GiB \
+				port=80 \
+				"publicurl=https://s3.amazonaws.com/$bucket" \
+				public=yes \
+				versioning=yes
+		fi
+		git annex export --to "$srname" --jobs 6 master
 
-	topdsfull=$PWD/$topds/
+	)
+   done
 
-	if ! git annex version | grep 8.2021 ; then
-		echo "E: need recent git annex. check what you have"
-		exit 1
-	fi
-
-	{ echo "$topdsfull"; datalad -f '{path}' subdatasets -r -d "$topds"; } | \
-	while read ds; do
-		relds=$(relpath "$ds" "$topdsfull")
-		fileprefix="$prefix/$relds/"
-		fileprefix=$(python -c "import os,sys; print(os.path.normpath(sys.argv[1]))" "$fileprefix")
-		echo $relds;
-		(
-			cd "$ds";
-			# TODO: make sure that there is no ./ or // in fileprefix
-			if ! git remote | grep -q "$srname"; then
-				git annex initremote --debug "$srname" \
-					type=S3 \
-					autoenable=true \
-					bucket=$bucket \
-					encryption=none \
-					exporttree=yes \
-					"fileprefix=$fileprefix/" \
-					host=s3.amazonaws.com \
-					partsize=1GiB \
-					port=80 \
-					"publicurl=https://s3.amazonaws.com/$bucket" \
-					public=yes \
-					versioning=yes
-			fi
-			git annex export --to "$srname" --jobs 6 master
-
-		)
-	done
-
-
-
-.. [#f5] Instead of using GitHub's WebUI you could also obtain a token using the command line GitHub interface (https://github.com/sociomantic-tsunami/git-hub) by running ``git hub setup`` (if no 2FA is used).
-   If you decide to use the command line interface, here is help on how to use it:
-   Clone the `GitHub repository <https://github.com/sociomantic-tsunami/git-hub>`_ to your local computer.
-   Decide whether you want to build a Debian package to install, or install the single-file Python script distributed in the repository.
-   Make sure that all `requirements <https://github.com/sociomantic-tsunami/git-hub>`_ for your preferred version are installed , and run either ``make deb`` followed by ``sudo dpkg -i deb/git-hub*all.deb``, or ``make install``.

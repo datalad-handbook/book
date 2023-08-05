@@ -145,7 +145,6 @@ it will also not be recorded in the history.
 .. runrecord:: _examples/DL-101-109-107
    :language: console
    :workdir: dl-101/DataLad-101
-   :emphasize-lines: 4
    :notes: how does a rerun look in the history?
    :cast: 02_reproducible_execution
 
@@ -154,13 +153,12 @@ it will also not be recorded in the history.
 In the dataset's history,
 we can see that a new :command:`datalad run` was recorded. This action is
 committed by DataLad under the original commit message of the ``run``
-command, and looks just like the previous :command:`datalad run` commit apart
-from the execution time.
+command, and looks just like the previous :command:`datalad run` commit.
 
 .. index:: ! datalad command; diff
 
 Two cool tools that go beyond the :command:`git log`
-are the :command:`datalad diff` (:manpage:`datalad-diff` manual) and :command:`git diff` commands.
+are the :command:`datalad diff` and :command:`git diff` commands.
 Both commands can report differences between two states of
 a dataset. Thus, you can get an overview of what changed between two commits.
 Both commands have a similar, but not identical structure: :command:`datalad diff`
@@ -170,7 +168,7 @@ and another state from the dataset's history (a commit specified with
 ``-t``/``--to``). Let's do a :command:`datalad diff` between the current state
 of the dataset and the previous commit (called "``HEAD~1``" in Git terminology [#f1]_):
 
-.. windows-wit:: please use datalad diff --from master --to HEAD~1
+.. windows-wit:: please use datalad diff --from main --to HEAD~1
 
    While this example works on Unix file systems, it will not provide the same output on Windows.
    This is due to different file handling on Windows.
@@ -253,7 +251,7 @@ other tools than from the machine-readable ``run record``.
 For example, to find out who (or what) created or modified a file,
 give the file path to :command:`git log` (prefixed by ``--``):
 
-.. windows-wit:: use "git log master -- recordings/podcasts.tsv"
+.. windows-wit:: use "git log main -- recordings/podcasts.tsv"
 
    A previous Windows Wit already advised to append ``main`` or ``master``, the common "default :term:`branch`", to any command that starts with ``git log``.
    Here, the last part of the command specifies a file (``-- recordings/podcasts.tsv``).
@@ -320,5 +318,5 @@ Finally, save this note.
 
 .. rubric:: Footnotes
 
-.. [#f1] The section :ref:`history` will elaborate more on common :term:`git` commands
+.. [#f1] The section :ref:`history` will elaborate more on common :term:`Git` commands
          and terminology.

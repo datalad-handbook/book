@@ -5,14 +5,14 @@ Publishing datasets to Git repository hosting
 
 Because DataLad datasets are :term:`Git` repositories, it is possible to
 :command:`push` datasets to any Git repository hosting service, such as
-:term:`GitHub`, :term:`GitLab`, :term:`Gin`, :term:`Bitbucket`, `Gogs <https://gogs.io/>`_, or `Gitea <https://gitea.io/en-us/>`_.
+:term:`GitHub`, :term:`GitLab`, :term:`GIN`, :term:`Bitbucket`, `Gogs <https://gogs.io>`_, or `Gitea <https://gitea.io/en-us>`_.
 These published datasets are ordinary :term:`sibling`\s of your dataset, and among other advantages, they can constitute a back-up, an entry-point to retrieve your dataset for others or yourself, the backbone for collaboration on datasets, or the means to enhance visibility, findability and citeability of your work [#f1]_.
 This section contains a brief overview on how to publish your dataset to different services.
 
 Git repository hosting and annexed data
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-As outlined in a number of sections before, Git repository hosting sites typically do not support dataset annexes - some, like :term:`gin` however, do.
+As outlined in a number of sections before, Git repository hosting sites typically do not support dataset annexes - some, like :term:`GIN` however, do.
 Depending on whether or not an annex is supported, you can push either only your Git history to the sibling, or the complete dataset including annexed file contents.
 You can find out whether a sibling on a remote hosting services carries an annex or not by running the :command:`datalad siblings` command.
 A ``+``, ``-``, or ``?`` sign in parenthesis indicates whether the sibling carries an annex, does not carry an annex, or whether this information isn't yet known.
@@ -39,11 +39,11 @@ How to add a sibling on a Git repository hosting site: The manual way
 
 .. figure:: ../artwork/src/GIN_newrepo.png
 
-   Webinterface of :term:`gin` during the creation of a new repository.
+   Webinterface of :term:`GIN` during the creation of a new repository.
 
 .. figure:: ../artwork/src/newrepo-github.png
 
-	Webinterface of :term:`github` during the creation of a new repository.
+	Webinterface of :term:`GitHub` during the creation of a new repository.
 
 #. Afterwards, copy the :term:`SSH` or :term:`HTTPS` URL of the repository. Usually, repository hosting services will provide you with a convenient way to copy it to your clipboard. An SSH URL takes the form ``git@<hosting-service>:/<user>/<repo-name>.git`` and an HTTPS URL takes the form ``https://<hosting-service>/<user>/<repo-name>.git``. The type of URL you choose determines whether and how you will be able to ``push`` to your repository. Note that many services will require you to use the SSH URL to your repository in order to do :command:`push` operations, so make sure to take the :term:`SSH` and not the :term:`HTTPS` URL if this is the case.
 
@@ -60,11 +60,11 @@ How to add a sibling on a Git repository hosting site: The manual way
    :term:`GitHub`, or :term:`GitLab`, it can be used to connect and authenticate
    without supplying your username or password for each action.
 
-   This `tutorial by GitHub <https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent>`_
-   is a detailed step-by-step instruction to generate and use SSH keys for authentication,
-   and it also shows you how to add your public SSH key to your GitHub account
+   A tutorial by GitHub at `docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh <https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent>`_
+   has a detailed step-by-step instruction to generate and use SSH keys for authentication.
+   You will also learn how add your public SSH key to your hosting service account
    so that you can install or clone datasets or Git repositories via ``SSH`` (in addition
-   to the ``http`` protocol), and the same procedure applies to GitLab and Gin.
+   to the ``http`` protocol).
 
    Don't be intimidated if you have never done this before -- it is fast and easy:
    First, you need to create a private and a public key (an SSH key pair).
@@ -82,7 +82,7 @@ How to add a sibling on a Git repository hosting site: The manual way
    others -- e.g., in case of theft -- to log in to servers or services with
    SSH authentication [#f2]_, and configure an ``ssh agent``
    to handle this passphrase for you with a single command. How to do all of this
-   is detailed in the above tutorial.
+   is detailed in the tutorial.
 
 
 #. Use the URL to add the repository as a sibling. There are two commands that allow you to do that; both require you give the sibling a name of your choice (common name choices are ``upstream``, or a short-cut for your user name or the hosting platform, but its completely up to you to decide):
@@ -97,8 +97,8 @@ How to add a sibling on a Git repository hosting site: The automated way
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 DataLad provides ``create-sibling-*`` commands to automatically create datasets on certain hosting sites.
-You can automatically create new repositories from the command line for :term:`GitHub`, :term:`GitLab`, :term:`gin`, `Gogs <https://gogs.io/>`__, or `Gitea <https://gitea.io/en-us/>`__.
-This is implemented with a new set of commands called :command:`create-sibling-github`, :command:`create-sibling-gitlab`, :command:`create-sibling-gin`, :command:`create-sibling-gogs`, and :command:`create-sibling-gitea`.
+You can automatically create new repositories from the command line for :term:`GitHub`, :term:`GitLab`, :term:`GIN`, `Gogs <https://gogs.io>`__, or `Gitea <https://gitea.io/en-us>`__.
+This is implemented with a set of commands called :command:`create-sibling-github`, :command:`create-sibling-gitlab`, :command:`create-sibling-gin`, :command:`create-sibling-gogs`, and :command:`create-sibling-gitea`.
 
 Each command is slightly tuned towards the peculiarities of each particular platform, but the most important common parameters are streamlined across commands as follows:
 
@@ -325,7 +325,7 @@ Once you have set up your dataset sibling(s), you can push individual datasets w
 
 
 .. [#f1] Many repository hosting services have useful features to make your work citeable.
-         For example, :term:`gin` is able to assign a :term:`DOI` to your dataset, and GitHub allows ``CITATION.cff`` files. At the same time, archival services such as `Zenodo <https://zenodo.org/>`_ often integrate with published repositories, allowing you to preserve your dataset with them.
+         For example, :term:`gin` is able to assign a :term:`DOI` to your dataset, and GitHub allows ``CITATION.cff`` files. At the same time, archival services such as `Zenodo <https://zenodo.org>`_ often integrate with published repositories, allowing you to preserve your dataset with them.
 
 .. [#f2] Your private SSH key is incredibly valuable, and it is important to keep
          it secret!

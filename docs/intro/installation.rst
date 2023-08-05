@@ -11,17 +11,14 @@ Install DataLad
    The installation methods presented in this chapter are based on experience
    and have been tested carefully. However, operating systems and other
    software are continuously evolving, and these guides might have become
-   outdated. Please `file an issue <https://github.com/datalad-handbook/book/issues/new>`_,
-   if you encounter problems installing DataLad, and help keeping this information
-   up-to-date.
+   outdated. Be sure to check out the online version for up-to-date information.
 
 In general, the DataLad installation requires Python 3 (see the
 :find-out-more:`on the difference between Python 2 and 3 <fom-py2v3>` to learn
 why this is required), :term:`Git`, and :term:`git-annex`, and for some
 functionality `7-Zip <https://7-zip.org/>`_.  The instructions below detail how
 to install the core DataLad tool and its dependencies on common operating
-systems. They do not cover the various :ref:`DataLad extensions
-<extensions_intro>` that need to be installed separately, if desired.
+systems. They do not cover the various :term:`DataLad extension`'s that need to be installed separately, if desired.
 
 .. find-out-more:: Python 2, Python 3, what's the difference?
    :name: fom-py2v3
@@ -42,7 +39,7 @@ systems. They do not cover the various :ref:`DataLad extensions
    to disambiguate between Python 2 and Python 3. If this fails, too, you need
    to obtain a recent release of Python 3. On Windows, attempting to run
    commands that are not installed might cause a Windows Store window to pop
-   up. If this happens, it means you have no Python installed. Please check the
+   up. If this happens, Python may not yet be installed. Please check the
    `Windows 10`_ installation instructions, and *do not* install Python via the
    Windows Store.
 
@@ -156,7 +153,7 @@ DataLad:
 
 There are many other ways to install DataLad on Windows, check for example the
 :windows-wit:`on the Windows Subsystem 2 for Linux <ww-wsl2>`.
-One attractive alternative approach is Conda_, a completely different approach is to install the :term:`DataLad Gooey`, which is a standalone installation of DataLad's graphical application (see `the DataLad Gooey documentation <http://docs.datalad.org/projects/gooey/en/latest/>`_ for installation instructions).
+One attractive alternative approach is Conda_, a completely different approach is to install the :term:`DataLad Gooey`, which is a standalone installation of DataLad's graphical application (see `the DataLad Gooey documentation <http://docs.datalad.org/projects/gooey/en/latest>`_ for installation instructions).
 
 .. windows-wit:: Install DataLad using the Windows Subsystem 2 for Linux
    :name: ww-wsl2
@@ -170,8 +167,7 @@ One attractive alternative approach is Conda_, a completely different approach i
    Afterwards, proceed with your installation as described in the installation instructions
    for Linux.
 
-Using DataLad on Windows has a few peculiarities. There is a dedicated summary,
-:ref:`ohnowindows` with an overview.  In general, DataLad can feel a bit
+Using DataLad on Windows has a few peculiarities. In general, DataLad can feel a bit
 sluggish on non-WSL2 Windows systems. This is due to various filesystem issues
 that also affect the version control system :term:`Git` itself, which DataLad
 relies on. The core functionality of DataLad works, and you should be able to
@@ -179,9 +175,7 @@ follow most contents covered in this book.  You will notice, however, that some
 Unix commands displayed in examples may not work, and that terminal output can
 look different from what is displayed in the code examples of the book, and
 that some dependencies for additional functionality are not available for
-Windows.  If you are a Windows user and want to help improve the handbook for
-Windows users, please `get in touch
-<https://github.com/datalad-handbook/book/issues/new>`_.  Dedicated notes,
+Windows. Dedicated notes,
 "``Windows-wit``\s", contain important information, alternative commands, or
 warnings. If you on a native Windows 10 system, you should pay close
 attention to them.
@@ -325,7 +319,7 @@ its `Miniconda <https://docs.conda.io/en/latest/miniconda.html>`_ installer
 offers a convenient way to bootstrap a DataLad installation. Importantly, it
 does not require admin/root access to a system.
 
-`Detailed, platform-specific installation instruction
+`Detailed, platform-specific installation instructions
 <https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html>`_ are available
 in the Conda documentation. In short: download and run the installer, or, from
 the command line, run
@@ -440,9 +434,9 @@ In the following example, exchange ``Bob McBobFace`` with your own name, and
 .. code-block:: bash
 
    # enter your home directory using the ~ shortcut
-   % cd ~
-   % git config --global --add user.name "Bob McBobFace"
-   % git config --global --add user.email bob@example.com
+   $ cd ~
+   $ git config --global --add user.name "Bob McBobFace"
+   $ git config --global --add user.email bob@example.com
 
 This information is used to track changes in the DataLad projects you will
 be working on. Based on this information, changes you make are associated

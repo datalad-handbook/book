@@ -18,11 +18,6 @@ available.
 
    Some repository hosting services such as Gin have annex support, and can thus hold the complete dataset. This makes publishing datasets very easy.
 
-.. importantnote:: Go further for dataset access from GIN
-
-   If you reached this section to find out how to access a DataLad dataset
-   shared on Gin, please skip to the section :ref:`access`.
-
 Prerequisites
 ^^^^^^^^^^^^^
 
@@ -55,7 +50,7 @@ Publishing your dataset to GIN
 .. index:: ! datalad command; create-sibling-gin
 
 As outlined in the section :ref:`share_hostingservice`, there are two ways in which you can publish your dataset to Gin.
-Either by 1) creating a new, empty repository on GIN via the web interface, or 2), if you use DataLad version ``0.16`` or higher, via the :command:`create-sibling-gin` command (:manpage:`datalad-create-sibling-gin` manual).
+Either by 1) creating a new, empty repository on GIN via the web interface, or 2) via the :command:`create-sibling-gin` command.
 
 **1) via webinterface:** If you choose to create a new repository via Gin's web interface, make sure to not initialize it with a README:
 
@@ -89,7 +84,7 @@ and you can type "yes" to continue::
 
 **2) via command-line:**
 If you choose to use the :command:`create-sibling-gin` command, supply the command with a name for the repository, and optionally add a ``-s/--siblingname [NAME]`` parameter (if unconfigured it will be ``gin``), and ``--access-protocol [https|ssh|https-ssh]`` (ideally ``ssh``).
-The command has a number of additional useful parameters, so make sure to take a look at  :manpage:`datalad-create-sibling-gin`.
+The command has a number of additional useful parameters, so make sure to take a look at its ``--help``.
 
 
 Afterwards, you can publish your dataset with :command:`datalad push`. As the
@@ -285,7 +280,7 @@ Then, follow these steps:
 
 Afterwards, :command:`datalad get` retrieves files from Gin, even if the dataset has been cloned from GitHub.
 
-.. gitusernote:: siblings as a common data source
+.. gitusernote:: Siblings as a common data source
 
    The argument ``as-common-datasrc <name>`` configures a sibling as a common data source -- in technical terms, as an auto-enabled git-annex special remote.
 

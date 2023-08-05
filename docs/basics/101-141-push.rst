@@ -45,13 +45,12 @@ or storage of datasets [#f1]_, or a regular clone.
      within your repository:
      This can be done with the commands :command:`create-sibling-github` (for GitHub)
      or :command:`create-siblings-gitlab` (for GitLab), or
-     :command:`create-sibling-ria` (for a remote indexed archive dataset store [#f1]_).
+     :command:`create-sibling-ria` (for a remote indexed archive dataset store).
      Note that :command:`create-sibling-ria` can add an existing store as a sibling
      or create a new one from scratch.
 
    - Create a sibling on a local or SSH accessible Unix machine with
-     :command:`datalad create-sibling` (:manpage:`datalad-create-sibling`
-     manual).
+     :command:`datalad create-sibling`.
 
 
 In order to publish dataset content, DataLad needs to know to which sibling
@@ -140,7 +139,7 @@ targets are configured throughout the dataset hierarchy.
    The published version of the handbook is known to the local handbook dataset
    as a :term:`remote` called ``public``, and each section of the book is identified
    with a custom branch name that corresponds to the section name. Whenever an
-   update to the public dataset is pushed, apart from pushing only the ``master``
+   update to the public dataset is pushed, apart from pushing only the ``main``
    branch, all branches starting with the section identifier ``sct`` are pushed
    automatically as well. This configuration was achieved by specifying these branches
    (using :term:`globbing` with ``*``) in the ``push`` specification of this :term:`remote`::
@@ -161,13 +160,12 @@ As an example, consider what happens if we attempt a :command:`datalad push` to 
    $ datalad push --to roommate
 
 Publishing fails with the error message ``[remote rejected] (branch is currently checked out)``.
-This can be prevented with  `configuration settings <https://github.blog/2015-02-06-git-2-3-has-been-released/>`_ in Git versions 2.3 or higher, or by pushing to a branch of the sibling that is currently not checked-out.
+This can be prevented with  `configuration settings <https://github.blog/2015-02-06-git-2-3-has-been-released>`_ in Git versions 2.3 or higher, or by pushing to a branch of the sibling that is currently not checked-out.
 For more information on this, and other error messages during push, please checkout the section :ref:`help`.
 
 
 .. rubric:: Footnotes
 
 .. [#f1]  RIA siblings are filesystem-based, scalable storage solutions for
-          DataLad datasets. You can find out more about them in the section
-          :ref:`riastore`.
-.. [#f2] For information on the ``numcopies`` and ``wanted`` settings of git-annex see its documentation at `git-annex.branchable.com/git-annex-wanted/ <https://git-annex.branchable.com/git-annex-wanted/>`_ and `git-annex.branchable.com/git-annex-numcopies/ <https://git-annex.branchable.com/git-annex-numcopies/>`_.
+          DataLad datasets. You can find out more about them in the online version.
+.. [#f2] For information on the ``numcopies`` and ``wanted`` settings of git-annex see its documentation at `git-annex.branchable.com/git-annex-wanted/ <https://git-annex.branchable.com/git-annex-wanted>`_ and `git-annex.branchable.com/git-annex-numcopies/ <https://git-annex.branchable.com/git-annex-numcopies>`_.

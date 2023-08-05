@@ -13,8 +13,8 @@ interface to query, request, and store the most common type of credentials that
 are necessary to authenticate, for a range of authentication types.
 There are a number of natively supported types of authentication and out-of-the
 box access to a broad range of access providers, from common solutions such as
-`S3 <https://aws.amazon.com/s3/?nc1=h_ls>`_ to special purpose solutions, such as
-`LORIS <https://loris.ca/>`_. However, beyond natively supported services,
+`S3 <https://aws.amazon.com/s3>`_ to special purpose solutions, such as
+`LORIS <https://loris.ca>`_. However, beyond natively supported services,
 custom data access can be configured as long as the required authentication
 and credential type are supported.
 In addition, starting with DataLad version ``0.16``, authentication can be
@@ -43,7 +43,7 @@ the entered credentials stay valid.
    your system's (encrypted) `keyring <https://en.wikipedia.org/wiki/GNOME_Keyring>`_.
    It is a built-in credential store, used in all major operating systems, and
    can store credentials securely.
-   DataLad uses the `Python keyring <https://keyring.readthedocs.io/en/latest/>`_
+   DataLad uses the `Python keyring <https://keyring.readthedocs.io/en/latest>`_
    package to access the keyring. In addition to a standard interface to the
    keyring, this library also has useful special purpose backends that come in
    handy in corner cases such as HPC/cluster computing, where no interactive
@@ -102,7 +102,7 @@ The example below sheds some light one this.
 Example: Data access to a server that requires basic HTTP authentication
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Consider a private `Apache web server <https://httpd.apache.org/>`_ with an
+Consider a private `Apache web server <https://httpd.apache.org>`_ with an
 ``.htaccess`` file that configures a range of allowed users to access a certain
 protected directory on this server via
 `basic HTTP authentication <https://en.wikipedia.org/wiki/Basic_access_authentication>`_.

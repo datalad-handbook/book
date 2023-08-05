@@ -43,9 +43,7 @@ But what is the rest? We'll start with the last row::
 
    * annex.largefiles=((mimeencoding=binary)and(largerthan=0))
 
-Uhhh, cryptic. The lecturer explains:
-
-"git-annex will *annex*, that is, *store in the object-tree*,
+Uhhh, cryptic. The lecturer explains: "git-annex will *annex*, that is, *store in the object-tree*,
 anything it considers to be a "large file". By default, anything
 in your dataset would be a "large file", that means anything would be annexed.
 However, in section :ref:`symlink` I already mentioned that exceptions to this
@@ -74,7 +72,7 @@ translates to "Do not annex anything that is a text file in this directory" for 
 
 However, rules can be even simpler. The second row simply takes a complete directory
 (``.git``) and instructs git-annex to regard nothing in it as a "large file".
-The second row, ``**/.git* annex.largefiles=nothing`` therefore means that no
+The second row, ``**/.git* annex.largefiles=nothing`` means that no
 ``.git`` repository in this directory or a subdirectory should be considered
 a "large file". This way, the ``.git`` repositories are protected from being annexed.
 If you had a single file (``myfile.pdf``) you would not want annexed, specifying a rule such as::
@@ -124,8 +122,7 @@ For example, files you will often edit by hand could be stored in Git if they ar
 not too large to ease modifying them [#f3]_.
 Once you know the basics of this type of configuration syntax, writing
 your own rules is easy. For more tips on how configure git-annex's content
-management in ``.gitattributes``, take a look at `this <https://git-annex.branchable.com/tips/largefiles/>`_
-page of the git-annex documentation.
+management in ``.gitattributes``, take a look at `the git-annex documentation <https://git-annex.branchable.com/tips/largefiles>`_.
 Later however you will see preconfigured DataLad *procedures* such as ``text2git`` that
 can apply useful configurations for you, just as ``text2git`` added the last line
 in the root ``.gitattributes`` file.
@@ -394,7 +391,7 @@ a :command:`git config` on a ``.git/config`` file and on a version controlled fi
    $ git diff
 
 As these two commands show, the ``.gitmodules`` file is modified. The https URL
-has been deleted (note the ``-``, and a SSH URL has been added. To keep these
+has been deleted (note the ``-``), and a SSH URL has been added. To keep these
 changes, we would need to :command:`datalad save` them. However, as we want to stay with
 https URLs, we will just *checkout* this change -- using a Git tool to undo an
 unstaged modification.
@@ -433,8 +430,8 @@ configuration of Git can be overridden by its associated environment variable,
 of setting the ``user.name`` configuration in a configuration file.
 
 Git, git-annex, and DataLad have more environment variables than anyone would want to
-remember. `Here <https://git-scm.com/book/en/v2/Git-Internals-Environment-Variables>`__
-is a good overview on Git's most useful available environment variables for a start.
+remember. `The ProGit book <https://git-scm.com/book/en/v2/Git-Internals-Environment-Variables>`__
+has a good overview on Git's most useful available environment variables for a start.
 All of DataLad's configuration options can be translated to their
 associated environment variables. Any environment variable with a name that starts with ``DATALAD_``
 will be available as the corresponding ``datalad.`` configuration variable,
@@ -481,7 +478,7 @@ for Git configuration files on different scopes, and even the ``.gitmodules`` or
 files. Of course you do not yet know all of the available configuration options. However,
 you already know some core Git configurations such as name, email, and editor. Even more
 important, you know how to configure git-annex's content management based on ``largefile``
-rules, and you understand the majority of variables within ``.gitmodules`` or the sections
+rules, and you understand the  variables within ``.gitmodules`` or the sections
 in ``.git/config``. Slowly, you realize with pride,
 you're more and more becoming a DataLad power-user.
 
@@ -560,5 +557,5 @@ Write a note about configurations in datasets into ``notes.txt``.
          backend in order to store new files with a new backend. Switching the backend of
          *all* files (new as well as existing ones) requires the :command:`git annex migrate`
          command
-         (see `the documentation <https://git-annex.branchable.com/git-annex-migrate/>`_ for
+         (see `the documentation <https://git-annex.branchable.com/git-annex-migrate>`_ for
          more information on this command).

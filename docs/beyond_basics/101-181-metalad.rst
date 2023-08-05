@@ -41,7 +41,7 @@ Consider a publication in a medical field, and a few examples for metadata about
    structural information even without access to the primary data
 5. Special search indices, e.g. graph-based search indices, medical abbreviations
 6. Anonymized information extracted from medical documents.
-7. Information about the used software, e.g. security assessments, `citation.cff <https://citation-file-format.github.io/>`_
+7. Information about the used software, e.g. security assessments, `citation.cff <https://citation-file-format.github.io>`_
 
 MetaLad's *extractor* concept
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -338,7 +338,7 @@ Querying metadata
 ^^^^^^^^^^^^^^^^^
 
 As the metadata is in a highly structured form, and could correspond to agreed-upon or established schemas, queries through such metadata can use flexible tooling and don't need to rely on DataLad.
-One popular choice for working with JSON data, for example, is the JSON command line processor `jq <https://stedolan.github.io/jq/>`_.
+One popular choice for working with JSON data, for example, is the JSON command line processor `jq <https://stedolan.github.io/jq>`_.
 In conjunction with Unix :term:`pipe`\s, one can assemble powerful queries in a single line.
 The (cropped) query below, for example, lists all unique family names of the authors in the institute's scientific project metadata in ``metadata-assimilation``:
 

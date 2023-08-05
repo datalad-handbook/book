@@ -34,8 +34,8 @@ on your own machine once a new software update is installed. Therefore, it is
 important to communicate all details about the computational environment for
 an analysis as thoroughly as possible. Luckily, DataLad provides an extension
 that can link computational environments to datasets, the
-`datalad containers <http://docs.datalad.org/projects/container/en/latest/>`_
-extension [#f1]_.
+`datalad containers <http://docs.datalad.org/projects/container/en/latest>`_
+extension.
 
 This section will give a quick overview on what containers are and
 demonstrate how ``datalad-containers`` helps to capture full provenance of an
@@ -69,10 +69,10 @@ software environment on a computer that you do not have permissions to deploy
 software on.
 
 There are a number of different tools to create and use containers, with
-`Docker <https://www.docker.com/>`_ being one of the most well-known of them.
+`Docker <https://www.docker.com>`_ being one of the most well-known of them.
 While being a powerful tool, it is only rarely used on high performance computing
 (HPC) infrastructure [#f2]_. An alternative is `Singularity <https://sylabs
-.io/docs/>`_.
+.io/docs>`_.
 Both of these tools share core terminology:
 
 **Recipe**
@@ -90,13 +90,9 @@ Both of these tools share core terminology:
   an Image built from a publicly shared recipe from the *Hub* of the tool you are using.
 
 **Hub**
-  A storage resource to share and consume images. Among the most popular registries are
-  `Singularity-Hub <https://singularity-hub.org/>`_ and
-  `Docker-Hub <https://hub.docker.com/>`_. Both are optional, additional services
-  not required to use software containers, but a convenient way to share recipes
-  and have imaged built from them by a service (instead of building them
-  manually and locally).
-  Another large container registry is `Amazon ECR <https://aws.amazon.com/ecr/>`_ which hosts Docker Images.
+  A storage resource to share and consume images. Examples are
+  `Singularity-Hub <https://singularity-hub.org>`_,
+  `Docker-Hub <https://hub.docker.com>`_, and `Amazon ECR <https://aws.amazon.com/ecr>`_ which hosts Docker Images.
 
 Note that as of now, the ``datalad-containers`` extension supports
 Singularity and Docker images.
@@ -106,8 +102,8 @@ Singularity (even without having Docker installed).
 
 .. importantnote:: Additional requirement: Singularity
 
-   In order to use Singularity containers (and thus ``datalad containers``), you have to
-   `install <https://sylabs.io/guides/3.0/user-guide/installation.html>`_ the software singularity.
+   In order to use Singularity containers you have to
+   `install <https://sylabs.io/guides/3.4/user-guide/installation.html>`_ the software singularity.
 
 Using ``datalad containers``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -129,8 +125,7 @@ We start by registering a container to the dataset.
 For this, we will pull an Image from Singularity hub. This Image was made
 for the handbook, and it contains the relevant Python setup for
 the analysis. Its recipe lives in the handbook's
-`resources repository <https://github.com/datalad-handbook/resources>`_, and the
-Image is built from the recipe via Singularity hub.
+`resources repository <https://github.com/datalad-handbook/resources>`_.
 If you're curious how to create a Singularity Image, the hidden
 section below has some pointers:
 
@@ -175,7 +170,7 @@ name to give to the container, and a path or url to a container Image:
 .. find-out-more:: How do I add an Image from Dockerhub, Amazon ECR, or a local container?
 
    Should the Image you want to use lie on Dockerhub, specify the ``--url``
-   option prefixed with ``docker://`` or ``dhub://`` instead of ``shub://`` like this::
+   option prefixed with ``docker://`` or ``dhub://`` instead of ``shub://``::
 
       datalad containers-add midterm-software --url docker://adswa/resources:2
 
@@ -359,11 +354,6 @@ only benefit your future self, but also whomever you share your dataset with, as
 the information about the container is shared together with the dataset. How cool
 is that?
 
-If you are interested in more, you can read about another example of :command:`datalad containers-run`
-in the usecase :ref:`usecase_reproduce_neuroimg`.
-
-
-
 .. only:: adminmode
 
     Add a tag at the section end.
@@ -376,7 +366,6 @@ in the usecase :ref:`usecase_reproduce_neuroimg`.
 
 .. rubric:: Footnotes
 
-.. [#f1] To read more about DataLad's extensions, see section :ref:`extensions_intro`.
 .. [#f2] The main reason why Docker is not deployed on HPC systems is because
          it grants users "`superuser privileges <https://en.wikipedia.org/wiki/Superuser>`_".
          On multi-user systems such as HPC, users should not have those

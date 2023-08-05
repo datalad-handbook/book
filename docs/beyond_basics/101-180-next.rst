@@ -17,7 +17,7 @@ As development in this extension is dynamic, the best place to find and up-to-da
 Selected features
 ^^^^^^^^^^^^^^^^^
 
-The ideal way to stay up-to-date on gooey developments is its documentation at `docs.datalad.org/projects/next <http://docs.datalad.org/projects/next/en/latest/>`_.
+The ideal way to stay up-to-date on gooey developments is its documentation at `docs.datalad.org/projects/next <http://docs.datalad.org/projects/next/en/latest>`_.
 A few selected commands are featured here, nevertheless.
 
 datalad tree
@@ -50,7 +50,7 @@ Unlike most DataLad commands, it can be used outside of the context of a dataset
 datalad create-sibling-webdav
 """""""""""""""""""""""""""""
 
-The :command:`datalad create-sibling-webdav` extends DataLad's ``create-sibling-*`` family with support for `WebDAV <https://en.wikipedia.org/wiki/WebDAV>`_ services such as `Nextcloud <https://en.wikipedia.org/wiki/Nextcloud>`_, `owncloud <https://en.wikipedia.org/wiki/OwnCloud>`_ `Sciebo <https://www.hochschulcloud.nrw/>`_.
+The :command:`datalad create-sibling-webdav` extends DataLad's ``create-sibling-*`` family with support for `WebDAV <https://en.wikipedia.org/wiki/WebDAV>`_ services such as `Nextcloud <https://en.wikipedia.org/wiki/Nextcloud>`_, `owncloud <https://en.wikipedia.org/wiki/OwnCloud>`_ `Sciebo <https://www.hochschulcloud.nrw>`_.
 Notably, it provides new, powerful dataset deposition methods that include human-readable worktree-like representations of datasets that are nevertheless clone-able.
 
 

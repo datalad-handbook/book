@@ -452,7 +452,7 @@ back into the most recent version of your dataset and get you out of the
    :language: console
    :workdir: dl-101/DataLad-101
 
-   $ git checkout main
+   $ git checkout master
 
 
 Note one very important thing: The previously untracked files are still

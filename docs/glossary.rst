@@ -155,7 +155,7 @@ Glossary
       Git concept on repository hosting sites (GitHub, GitLab, Gin, ...);
       `A fork is a copy of a repository on a web-based Git repository hosting site <https://docs.github.com/en/github/getting-started-with-github/fork-a-repo>`__.
 
-   Gin
+   GIN
       A web-based repository store for data management that you can use to host and
       share datasets. Find out more about GIN `at gin.g-node.org <https://gin.g-node.org/G-Node/Info/wiki>`__.
 

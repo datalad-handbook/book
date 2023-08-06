@@ -56,7 +56,7 @@ How to add a sibling on a Git repository hosting site: The manual way
 
    An SSH key is an access credential in the :term:`SSH` protocol that can be used
    to login from one system to remote servers and services, such as from your private
-   computer to an :term:`SSH server`. For repository hosting services such as :term:`Gin`,
+   computer to an :term:`SSH server`. For repository hosting services such as :term:`GIN`,
    :term:`GitHub`, or :term:`GitLab`, it can be used to connect and authenticate
    without supplying your username or password for each action.
 

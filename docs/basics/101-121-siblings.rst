@@ -218,37 +218,37 @@ the changed or added files from the sibling inside, and put it on your
 desk. You can now take a look into that drawer to see whether you want
 to have the changes right in front of you.
 
-The drawer is a branch, and it is usually called ``remotes/origin/master``.
+The drawer is a branch, and it is usually called ``remotes/origin/main``.
 To look inside of it you can :gitcmd:`checkout BRANCHNAME`, or you can
 do a ``diff`` between the branch (your drawer) and the dataset as it
 is currently in front of you (your desk). We will do the latter, and leave
 the former for a different lecture:
 
-.. windows-wit:: Please use datalad diff --from main --to remotes/roommate/master
+.. windows-wit:: Please use datalad diff --from main --to remotes/roommate/main
 
    Please use the following command instead::
 
-      datalad diff --from main --to remotes/roommate/master
+      datalad diff --from main --to remotes/roommate/main
 
-   This syntax specifies the :term:`main` :term:`branch` as a starting point for the comparison instead of the current ``adjusted/master(unlocked)`` branch.
+   This syntax specifies the :term:`main` :term:`branch` as a starting point for the comparison instead of the current ``adjusted/main(unlocked)`` branch.
 
 .. runrecord:: _examples/DL-101-121-108
    :language: console
    :workdir: dl-101/DataLad-101
-   :notes: on a different branch: remotes/roommate/master. Do a git remote -v here
+   :notes: on a different branch: remotes/roommate/main. Do a git remote -v here
    :cast: 04_collaboration
 
-   $ datalad diff --to remotes/roommate/master
+   $ datalad diff --to remotes/roommate/main
 
 This shows us that there is an additional file, and it also shows us
 that there is a difference in ``notes.txt``! Let's ask
 :gitcmd:`diff` to show us what the differences in detail (note that it is a shortened excerpt, cut in the middle to reduce its length):
 
-.. windows-wit:: Please use git diff master..remotes/roommate/master
+.. windows-wit:: Please use git diff main..remotes/roommate/main
 
    Please use the following command instead::
 
-     git diff master..remotes/roommate/master
+     git diff main..remotes/roommate/main
 
    This is :term:`Git`\s syntax for specifying a comparison between two :term:`branch`\es.
 
@@ -259,7 +259,7 @@ that there is a difference in ``notes.txt``! Let's ask
    :lines: 1-18, 67-78
    :cast: 04_collaboration
 
-   $ git diff remotes/roommate/master
+   $ git diff remotes/roommate/main
 
 Let's digress into what is shown here.
 We are comparing the current state of your dataset against
@@ -274,7 +274,7 @@ you made in your own dataset in the previous section.
 Cool! So now that you know what the changes are that your room mate
 made, you can safely :dlcmd:`update --how merge` them to integrate
 them into your dataset. In technical terms you will
-"*merge the branch remotes/roommate/master into master*".
+"*merge the branch remotes/roommate/main into main*".
 But the details of this will be stated in a standalone section later.
 
 Note that the fact that your room mate does not have the note
@@ -320,7 +320,7 @@ room mate's dataset changes into your own dataset. The commit message of this
 latter commit for now might contain many words yet unknown to you if you
 do not use Git, but a later section will get into the details of what
 the meaning of ":term:`merge`", ":term:`branch`", "refs"
-or ":term:`master`" is.
+or ":term:`main`" is.
 
 For now, you're happy to have the changes your room mate made available.
 This is how it should be! You helped him, and he helps you. Awesome!
@@ -344,7 +344,7 @@ Create a note about this, and save it.
    Afterwards, a "datalad update --how merge -s name" will integrate the
    changes made to the sibling into the dataset. A safe step in between
    is to do a "datalad update -s name" and checkout the changes with
-   "git/datalad diff" to remotes/origin/master
+   "git/datalad diff" to remotes/origin/main
 
    EOT
    $ datalad save -m "Add note on adding siblings"

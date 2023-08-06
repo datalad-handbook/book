@@ -234,7 +234,7 @@ If you do not want to copy-and-paste these snippets yourself, you can run
 
         DataLad datasets can be updated. The command ``datalad update`` will *fetch*
         updates and store them on a different branch (by default
-        ``remotes/origin/master``). Running::
+        ``remotes/origin/main``). Running::
 
            datalad update --merge
 
@@ -317,7 +317,7 @@ If you do not want to copy-and-paste these snippets yourself, you can run
 
         DataLad datasets can be updated. The command `datalad update` will
         *fetch* updates and store them on a different branch (by default
-        `remotes/origin/master`). Running
+        `remotes/origin/main`). Running
 
         ```
         datalad update --merge
@@ -384,7 +384,7 @@ If you do not want to copy-and-paste these snippets yourself, you can run
 
    DataLad datasets can be updated. The command 'datalad update' will
    "fetch" updates and store them on a different branch (by default
-   'remotes/origin/master'). Running 'datalad update --merge' will "pull"
+   'remotes/origin/main'). Running 'datalad update --merge' will "pull"
    available updates and integrate them in one go.
 
    Find out what has been done

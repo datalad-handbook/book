@@ -350,7 +350,7 @@ Merging results
 
 Once all jobs have finished, the results lie in individual branches of the output datasets.
 In this concrete example, the subdatasets ``fmriprep`` and ``freesurfer`` will each have more than 1000 branches that hold individual job results.
-The only thing left to do now is merging all of these branches into :term:`master` -- and potentially solve any merge conflicts that arise.
+The only thing left to do now is merging all of these branches into :term:`main` -- and potentially solve any merge conflicts that arise.
 As explained in the previous section, the necessary merging was done with `Octopus merges <https://git-scm.com/docs/git-merge#Documentation/git-merge.txt-octopus>`_  -- one in each subdataset (``fmriprep`` and ``freesurfer``).
 
 The merge command was assembled with the trick introduced in the previous section, based on job-ID-named branches.
@@ -387,8 +387,8 @@ This merge conflict is in prinicple helpful -- since there are multiple differen
       $ git checkout job-<insert-number>
       # then, copy the file out of the dataset (here, it is copied into your home directory)
       $ cp logs/CITATION.md ~/CITATION.md
-      # checkout master again
-      $ git checkout master
+      # checkout main again
+      $ git checkout main
    
    Then, remove all CITATION.md files from the last commit.
    Here is a bash loop that would do exactly that::
@@ -408,7 +408,7 @@ This merge conflict is in prinicple helpful -- since there are multiple differen
 
 **Merging without merge conflicts**
 
-If no merge conflicts arise and the octopus merge is successful, all results are aggregated in the ``master`` branch.
+If no merge conflicts arise and the octopus merge is successful, all results are aggregated in the ``main`` branch.
 The commit log looks like a work of modern art when visualized with tools such as :term:`tig`:
 
 .. figure:: ../artwork/src/octopusmerge_tig.png

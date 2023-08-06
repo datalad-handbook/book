@@ -139,7 +139,7 @@ targets are configured throughout the dataset hierarchy.
    The published version of the handbook is known to the local handbook dataset
    as a :term:`remote` called ``public``, and each section of the book is identified
    with a custom branch name that corresponds to the section name. Whenever an
-   update to the public dataset is pushed, apart from pushing only the ``master``
+   update to the public dataset is pushed, apart from pushing only the ``main``
    branch, all branches starting with the section identifier ``sct`` are pushed
    automatically as well. This configuration was achieved by specifying these branches
    (using :term:`globbing` with ``*``) in the ``push`` specification of this :term:`remote`::

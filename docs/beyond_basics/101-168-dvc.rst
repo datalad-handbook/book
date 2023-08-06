@@ -296,8 +296,8 @@ At this point, the data is already version controlled [#f6]_, and we have the fo
           deleted: /home/me/DVCvsDL/DVC-DataLad/data/raw/val/n01440764/n01440764_12021.JPEG (symlink)
 
         $ git status
-          On branch master
-          Your branch is ahead of 'origin/master' by 2 commits.
+          On branch main
+          Your branch is ahead of 'origin/main' by 2 commits.
             (use "git push" to publish your local commits)
 
           Changes not staged for commit:

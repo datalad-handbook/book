@@ -1,5 +1,5 @@
 ### DVC
 # this will only work if you have cloned from your own fork
-$ git push origin master
+$ git push origin main
 To /home/me/pushes/data-version-control
- * [new branch]      master -> master
+ * [new branch]      main -> main

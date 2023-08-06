@@ -1,5 +1,5 @@
 
 $ git revert 73b49af91e0244cacd4ef869f0dc484313fdad87
-[master 33ad93e] Revert "did a bad modification"
+[main 33ad93e] Revert "did a bad modification"
  Date: Tue Jun 18 16:13:00 2019 +0000
  1 file changed, 1 deletion(-)

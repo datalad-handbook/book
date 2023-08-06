@@ -371,7 +371,7 @@ It needs to be invoked with three positional arguments, the path to the :term:`D
 				public=yes \
 				versioning=yes
 		fi
-		git annex export --to "$srname" --jobs 6 master
+		git annex export --to "$srname" --jobs 6 main
 
 	)
    done

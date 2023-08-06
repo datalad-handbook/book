@@ -237,7 +237,7 @@ This is done with the ``-d/--dataset`` option of :dlcmd:`clone`::
 
    datalad clone -d . git@github.com:datalad-handbook/iris_data.git input/
 
-This dataset has been linked in a precise version to the dataset, and it has preserved its complete history (if you are on a native Windows installation, please run ``git show master`` instead -- the reason for this is explained in the :ref:`first chapter of the handbook <createDS>`)::
+This dataset has been linked in a precise version to the dataset, and it has preserved its complete history (if you are on a native Windows installation, please run ``git show main`` instead -- the reason for this is explained in the :ref:`first chapter of the handbook <createDS>`)::
 
    # this shows details of the last entry in your dataset history
    git show

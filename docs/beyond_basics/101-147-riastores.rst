@@ -88,7 +88,7 @@ highlighted:
     │       ├── refs
     │       │   ├── heads
     │       │   │   ├── git-annex
-    │       │   │   └── master
+    │       │   │   └── main
     │       │   └── tags
     │       ├── ria-layout-version
     │       └── ria-remote-ebce196a-b057-4c96-81dc-7656ea876234

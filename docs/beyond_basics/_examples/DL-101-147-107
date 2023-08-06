@@ -15,7 +15,7 @@ copy(ok): books/progit.pdf (file) [to ria-backup-storage...]
 [INFO] Start compressing objects
 [INFO] Start writing objects
 [INFO] Start resolving deltas
-publish(ok): . (dataset) [refs/heads/master->ria-backup:refs/heads/master [new branch]]
+publish(ok): . (dataset) [refs/heads/main->ria-backup:refs/heads/main [new branch]]
 publish(ok): . (dataset) [refs/heads/git-annex->ria-backup:refs/heads/git-annex [new branch]]
 [INFO] Finished push of Dataset(/home/me/dl-101/DataLad-101)
 [INFO] Finished push of Dataset(/home/me/dl-101/DataLad-101)

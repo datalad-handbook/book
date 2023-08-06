@@ -1,6 +1,6 @@
 ### DVC
 $ dvc metrics show -T
 Revision      Path                   accuracy
-workspace     metrics/accuracy.json  0.81115
-randomforest  metrics/accuracy.json  0.81115
-sgd           metrics/accuracy.json  0.6654
+workspace     metrics/accuracy.json  0.80608
+randomforest  metrics/accuracy.json  0.80608
+sgd           metrics/accuracy.json  0.74778

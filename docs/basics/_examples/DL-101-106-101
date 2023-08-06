@@ -1,5 +1,5 @@
 $ git log -p -n 3
-commit efa4e4d470d94042c2cbc385392e30262abff1ef
+commit fa63a083fe1669f6b8571bfd9b8d6870b91c0911
 Author: Elena Piscopia <elena@example.net>
 Date:   Tue Jun 18 16:13:00 2019 +0000
 
@@ -19,7 +19,7 @@ index 0142412..e34ef1f 100644
 +superdataset with the '-d' option.
 +
 
-commit 1ac2d9009ad2e0359add43db52ed7d1eb72b9994
+commit 7c489fbfa3dcf880e5008670c2d623f9fb1950ff
 Author: Elena Piscopia <elena@example.net>
 Date:   Tue Jun 18 16:13:00 2019 +0000
 
@@ -44,7 +44,7 @@ index 0000000..dcc34fb
 @@ -0,0 +1 @@
 +Subproject commit dcc34fbe669b06ced84ced381ba0db21cf5e665f
 
-commit d45881229ecb78dd011f7c46caf8dfbb19f50e23
+commit 9783a90cd737630fdcd2cdd512ae7821e2f4ff01
 Author: Elena Piscopia <elena@example.net>
 Date:   Tue Jun 18 16:13:00 2019 +0000
 
@@ -63,7 +63,7 @@ index 3a7a1fe..0142412 100644
 +Note to self: Always use informative, concise commit messages.
 +
 
-commit fd8ae27ef6b9df47c5c2268eb110fcb3148872dc
+commit b538dae379ed2963ca6cb29ec155ea8403c7fb1b
 Author: Elena Piscopia <elena@example.net>
 Date:   Tue Jun 18 16:13:00 2019 +0000
 
@@ -79,7 +79,7 @@ index 0000000..3a7a1fe
 +The dataset is created empty
 +
 
-commit 049b794b25a891e64dd2b8b7fb26da75edb61ba4
+commit bcb0ffe8446f7b2dcad2e2ff3881417669cb6dbd
 Author: Elena Piscopia <elena@example.net>
 Date:   Tue Jun 18 16:13:00 2019 +0000
 
@@ -94,7 +94,7 @@ index 0000000..00ca6bd
 +../.git/annex/objects/WF/Gq/MD5E-s1198170--0ab2c121bcf68d7278af266f6a399c5f.pdf/MD5E-s1198170--0ab2c121bcf68d7278af266f6a399c5f.pdf
 \ No newline at end of file
 
-commit cc9727780bcac189a52a811dc598df9253cf1a7e
+commit 8e5dc8087a5ba91a380afef36daabcdb61eacaa9
 Author: Elena Piscopia <elena@example.net>
 Date:   Tue Jun 18 16:13:00 2019 +0000
 
@@ -109,7 +109,7 @@ index 0000000..c5d2ab2
 +../.git/annex/objects/G6/Gj/MD5E-s12465653--05cd7ed561d108c9bcf96022bc78a92c.pdf/MD5E-s12465653--05cd7ed561d108c9bcf96022bc78a92c.pdf
 \ No newline at end of file
 
-commit 8904bd98fef7b3c5e521c7892bb2c26e471b99ae
+commit d2bb1a86cf75a3bd49fe16d700f460cc12d11c81
 Author: Elena Piscopia <elena@example.net>
 Date:   Tue Jun 18 16:13:00 2019 +0000
 
@@ -132,7 +132,7 @@ index 0000000..b9fcbff
 +../.git/annex/objects/P5/qK/MD5E-s2693891--e61afe4b3c5d76c849c4e61f6547ed03.pdf/MD5E-s2693891--e61afe4b3c5d76c849c4e61f6547ed03.pdf
 \ No newline at end of file
 
-commit 532908d621463899ebca6fb21fe912e0fa5b1d98
+commit e0ff3a73986b382f985522bde9bc57fa6889e118
 Author: Elena Piscopia <elena@example.net>
 Date:   Tue Jun 18 16:13:00 2019 +0000
 
@@ -147,7 +147,7 @@ index af926ef..6e474fe 100644
  **/.git* annex.largefiles=nothing
 +* annex.largefiles=((mimeencoding=binary)and(largerthan=0))
 
-commit 8ab65cb896618b9057c8603df9a259c0460af888
+commit 4ce681d61d3a0351844ae48b79e965818a7ce636
 Author: Elena Piscopia <elena@example.net>
 Date:   Tue Jun 18 16:13:00 2019 +0000
 
@@ -155,13 +155,11 @@ Date:   Tue Jun 18 16:13:00 2019 +0000
 
 diff --git a/.datalad/.gitattributes b/.datalad/.gitattributes
 new file mode 100644
-index 0000000..59157cb
+index 0000000..5928185
 --- /dev/null
 +++ b/.datalad/.gitattributes
-@@ -0,0 +1,3 @@
+@@ -0,0 +1 @@
 +config annex.largefiles=nothing
-+metadata/aggregate* annex.largefiles=nothing
-+metadata/objects/** annex.largefiles=(anything)
 diff --git a/.datalad/config b/.datalad/config
 new file mode 100644
 index 0000000..d72c8f0

@@ -1,6 +1,6 @@
 $ datalad save -m "moved book into root"
 $ ls -l TLCL.pdf
-delete(ok): books/TLCL.pdf (file)
+delete(ok): books/TLCL.pdf (symlink)
 add(ok): TLCL.pdf (file)
 save(ok): . (dataset)
 action summary:

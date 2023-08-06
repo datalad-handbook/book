@@ -1,4 +1,4 @@
 ### DVC
 $ dvc metrics show
 Path                   accuracy
-metrics/accuracy.json  0.78074
+metrics/accuracy.json  0.74778

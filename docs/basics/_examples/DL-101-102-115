@@ -1,5 +1,5 @@
 $ git log -p -n 1
-commit 049b794b25a891e64dd2b8b7fb26da75edb61ba4
+commit bcb0ffe8446f7b2dcad2e2ff3881417669cb6dbd
 Author: Elena Piscopia <elena@example.net>
 Date:   Tue Jun 18 16:13:00 2019 +0000
 

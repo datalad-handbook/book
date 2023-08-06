@@ -1,5 +1,5 @@
 $ datalad get -n recordings/longnow
-[INFO] Cloning dataset to Dataset(/home/me/dl-101/mock_user/DataLad-101/recordings/longnow)
+[INFO] Attempting a clone into /home/me/dl-101/mock_user/DataLad-101/recordings/longnow
 [INFO] Attempting to clone from https://github.com/datalad-datasets/longnow-podcasts.git to /home/me/dl-101/mock_user/DataLad-101/recordings/longnow
 [INFO] Start enumerating objects
 [INFO] Start receiving objects

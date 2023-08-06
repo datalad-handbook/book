@@ -1,5 +1,5 @@
 $ git log -- recordings/podcasts.tsv
-commit 7d12e0ef2e69a9b24629fbc30cd49f59ca2dbb44
+commit f4916ccb5d704fda1b3ae94e24fe6803feb3150b
 Author: Elena Piscopia <elena@example.net>
 Date:   Tue Jun 18 16:13:00 2019 +0000
 
@@ -8,7 +8,7 @@ Date:   Tue Jun 18 16:13:00 2019 +0000
     === Do not change lines below ===
     {
      "chain": [
-      "bf4aa3496af9b002933880849a798450d822fd99"
+      "f4f30396538221ec1301ddd10bd3fc5e8462a0b0"
      ],
      "cmd": "bash code/list_titles.sh > recordings/podcasts.tsv",
      "dsid": "e3e70682-c209-4cac-629f-6fbed82c07cd",
@@ -20,7 +20,7 @@ Date:   Tue Jun 18 16:13:00 2019 +0000
     }
     ^^^ Do not change lines above ^^^
 
-commit bf4aa3496af9b002933880849a798450d822fd99
+commit f4f30396538221ec1301ddd10bd3fc5e8462a0b0
 Author: Elena Piscopia <elena@example.net>
 Date:   Tue Jun 18 16:13:00 2019 +0000
 

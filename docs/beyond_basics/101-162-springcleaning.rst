@@ -13,7 +13,7 @@ or propose solutions for, please
 Getting contents out of Git
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Let's say you did a :command:`datalad run` with an analysis that put too
+Let's say you did a :dlcmd:`run` with an analysis that put too
 many files under version control by Git, and you want to see them gone.
 Sticking to the FSL FEAT analysis example from earlier, you may, for example,
 want to get rid of every ``tsplot`` directory, as it contains results that are
@@ -44,10 +44,10 @@ history. Before you use it, please make sure to read its help page thoroughly.
 
 The general procedure you should follow is the following:
 
-1. :command:`datalad clone` the repository. This is a safeguard to protect your
+1. :dlcmd:`clone` the repository. This is a safeguard to protect your
    dataset should something go wrong. The clone you are creating will be your
    new, cleaned up dataset.
-2. :command:`datalad get` all the dataset contents by running ``datalad get .``
+2. :dlcmd:`get` all the dataset contents by running ``datalad get .``
    in the clone.
 3. ``git-filter-repo`` what you don't want anymore (see below)
 4. Run ``git annex unused`` and a subsequent ``git annex dropunused all`` to remove

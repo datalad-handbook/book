@@ -8,7 +8,7 @@ newIssueWelcomeComment: >
   (Image: CC-BY license, The Turing Way Community, & Scriberia. Zenodo. http://doi.org/10.5281/zenodo.3332808)
   Hi there, and welcome to the DataLad Handbook! :orange_book: :wave:
   Thank you for filing an issue. We're excited to have your input and welcome your idea! :blush:
-  If you haven't done so already, please make sure you check out our [Code of Conduct](https://github.com/datalad-handbook/book/blob/master/CODE_OF_CONDUCT.md).
+  If you haven't done so already, please make sure you check out our [Code of Conduct](https://github.com/datalad-handbook/book/blob/main/CODE_OF_CONDUCT.md).
 
 # Configuration for new-pr-welcome - https://github.com/behaviorbot/new-pr-welcome
 

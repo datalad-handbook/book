@@ -88,7 +88,7 @@ This complies to the :ref:`YODA principles <yoda>` and helps to keep the input d
 
 The original Imagenette dataset contains 10 image categories can be downloaded as an archive from Amazon (`s3.amazonaws.com/fast-ai-imageclas/imagenette2-160.tgz <https://s3.amazonaws.com/fast-ai-imageclas/imagenette2-160.tgz>`_), but for this tutorial we're using a subset of this dataset with only two categories.
 It is available as an archive from the :term:`Open Science Framework (OSF)`.
-The :command:`datalad download-url --archive` not only extracts and saves the data, but also registers the datasets origin such that it can re-retrieved on demand from its original location.
+The :dlcmd:`download-url --archive` not only extracts and saves the data, but also registers the datasets origin such that it can re-retrieved on demand from its original location.
 
 .. runrecord:: _examples/ml-102
    :language: console
@@ -165,7 +165,7 @@ These configurations create a ``code/`` directory, place some place-holding ``RE
    $ cd ../
    $ datalad create -c text2git -c yoda ml-project
 
-Afterwards, the input dataset can be installed from a local path as a subdataset, using :command:`datalad clone` with the ``-d``/``--dataset`` flag and a ``.`` to denote the current dataset:
+Afterwards, the input dataset can be installed from a local path as a subdataset, using :dlcmd:`clone` with the ``-d``/``--dataset`` flag and a ``.`` to denote the current dataset:
 
 .. runrecord:: _examples/ml-104
    :language: console
@@ -188,7 +188,7 @@ Here are the dataset contents up to now:
    $ tree -d
 
 Next, let's add the necessary software to the dataset.
-This is done using the ``datalad containers`` extension and the :command:`datalad container-add` command. This command takes an arbitrary name and a path or url to a :term:`software container`, registers the containers origin, and adds it under the specified name to the dataset.
+This is done using the ``datalad containers`` extension and the :dlcmd:`container-add` command. This command takes an arbitrary name and a path or url to a :term:`software container`, registers the containers origin, and adds it under the specified name to the dataset.
 If used with a public url, for example to :term:`Singularity-Hub`, others that you share your dataset with can retrieve the container as well [#f1]_.
 
 .. runrecord:: _examples/ml-106
@@ -266,7 +266,7 @@ Executing the `here document <https://en.wikipedia.org/wiki/Here_document>`_ in 
 
    $ datalad status
 
-We add it to the dataset using :command:`datalad save`:
+We add it to the dataset using :dlcmd:`save`:
 
 .. runrecord:: _examples/ml-109
    :language: console
@@ -292,7 +292,7 @@ When ran, it will create files with the following structure::
    9,data/raw/imagenette2-160/val/n03445777/n03445777_3132.JPEG,golf ball
    [...]
 
-To capture all provenance and perform the computation in the correct software environment, this is best done in a :command:`datalad containers-run` command:
+To capture all provenance and perform the computation in the correct software environment, this is best done in a :dlcmd:`containers-run` command:
 
 .. runrecord:: _examples/ml-110
    :language: console
@@ -632,4 +632,4 @@ The analysis is adapted from the chapter :ref:`dvc`, which in turn is based on `
 
 .. [#f5] In order to re-execute any run-record in the last five commits, you could use ``--since=HEAD~5``, for example. You could also, however, rerun the previous run commands sequentially, with ``datalad rerun <commit-hash>``.
 
-.. [#f6] Rerunning on a different :term:`branch` is optional but handy. Alternatively, you could checkout a previous state in the datasets history to get access to a previous version of a file, reset the dataset to a previous state, or use commands like :command:`git cat-file` to read out a non-checked-out file. The section :ref:`history` summarizes a number of common Git operations to interact with the dataset history.
+.. [#f6] Rerunning on a different :term:`branch` is optional but handy. Alternatively, you could checkout a previous state in the datasets history to get access to a previous version of a file, reset the dataset to a previous state, or use commands like :gitcmd:`cat-file` to read out a non-checked-out file. The section :ref:`history` summarizes a number of common Git operations to interact with the dataset history.

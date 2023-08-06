@@ -9,7 +9,7 @@ and *not-so-basic-anymore*\s of DataLad.
 You know how to add, modify, and save files, even completely
 reproducibly, and how to share your work with others.
 
-By now, the :command:`datalad save` command is probably
+By now, the :dlcmd:`save` command is probably
 the most often used command in this dataset.
 This means that you have seen some of its peculiarities.
 The most striking was that it by default
@@ -35,16 +35,16 @@ We would not judge in any way.
 
 In principle, you already know a few
 tricks on how to be "messy" and have untracked files.
-For :command:`datalad save`, you know that precise file paths allow
+For :dlcmd:`save`, you know that precise file paths allow
 you to save only those modifications you want to change.
-For :command:`datalad run` you know that one
+For :dlcmd:`run` you know that one
 can specify the ``--explicit`` option
 to only save those modifications that are specified in the ``--output``
 argument.
 
 Beyond these tricks, there are two ways to leave *untracked* content unaffected
-by a :command:`datalad save`. One is the ``-u/--updated`` option of
-:command:`datalad save`::
+by a :dlcmd:`save`. One is the ``-u/--updated`` option of
+:dlcmd:`save`::
 
    $ datalad save -m "my commit message here" -u/--updated
 

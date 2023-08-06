@@ -14,7 +14,7 @@ your horizon about configurations of datasets:
   ``.datalad/config`` that apply to a specific dataset, but are committed and
   therefore distributed. More specialized scopes take precedence over more global scopes.
 
-- Almost all configurations can be set with the :command:`git config`.
+- Almost all configurations can be set with the :gitcmd:`config`.
   Its structure looks like this::
 
    git config --local/--global/--system --add/remove-all/--list section.[subsection.]variable "value"
@@ -24,12 +24,12 @@ your horizon about configurations of datasets:
   however are, and can be shared together with the dataset. Non-shared configurations
   will take precedence over shared configurations in a dataset clone.
 
-- Other tools than Git can be configured with the :command:`git config` command
+- Other tools than Git can be configured with the :gitcmd:`config` command
   as well. If configurations needs to be written to a file other than a
   ``.git(/)config`` file, supply a path to this file with the ``-f/--file`` flag
-  in a :command:`git config` command.
+  in a :gitcmd:`config` command.
 
-- The ``.gitattributes`` file is the only configuration file the :command:`git config`
+- The ``.gitattributes`` file is the only configuration file the :gitcmd:`config`
   can not write to, because it has a different layout. However, run-procedures or
   the user can write simple rules into it that determine which files are annexed
   and which are stored in Git.
@@ -37,7 +37,7 @@ your horizon about configurations of datasets:
 - DataLad's ``run-procedure``\s offer an easy and fast alternative to DIY
   configurations, structuring, or processing of the dataset, and offer means to share or ship configurations together with a dataset.
   They can be applied already at creation of a dataset with ``datalad create -c <procedure>``,
-  or executed later with a :command:`datalad run-procedure` command.
+  or executed later with a :dlcmd:`run-procedure` command.
 
 Now what can I do with it?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^

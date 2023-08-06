@@ -40,7 +40,7 @@ recursively to their (identically named) siblings:
    $ datalad -f '{path}' subdatasets | xargs -n 1 -P 10 datalad push -r --to <sibling-name> -d
 
 ``datalad -f '{path}' subdatasets`` discovers the paths of all subdatasets,
-and ``xargs`` hands them individually (``-n 1``) to a (recursive) :command:`datalad push`,
+and ``xargs`` hands them individually (``-n 1``) to a (recursive) :dlcmd:`push`,
 but performs 10 of these operations in parallel (``-P 10``), thus achieving
 parallelization.
 
@@ -91,7 +91,7 @@ If there is annexed file content that is not used anymore (i.e., data in the
 annex that no files in any branch point to anymore such as corrupt files),
 you can find out about it and remove this file content out of your dataset
 (i.e., completely and irrecoverably delete it) with git-annex's commands
-:command:`git annex unused` and :command:`git annex dropunused``.
+:gitannexcmd:`unused` and :gitannexcmd:`dropunused``.
 
 Find out which file contents are unused (not referenced by any current branch):
 
@@ -130,8 +130,8 @@ Or all
 Getting single file sizes prior to downloading from the Python API and the CLI
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-For a single file, :command:`datalad status --annex -- myfile` will report on
-the size of the file prior to a :command:`datalad get`.
+For a single file, :dlcmd:`status --annex -- myfile` will report on
+the size of the file prior to a :dlcmd:`get`.
 
 If you want to do it in Python, try this approach:
 
@@ -149,7 +149,7 @@ Check whether a dataset contains an annex
 Datasets can be either GitRepos (i.e., sole Git repositories; this happens when
 they are created with the ``--no-annex`` flag, for example), or AnnexRepos
 (i.e., datasets that contain an annex). Information on what kind of repository it
-is is stored in the dataset report of :command:`datalad wtf` under the key ``repo``.
+is is stored in the dataset report of :dlcmd:`wtf` under the key ``repo``.
 Here is a one-liner to get this info::
 
    $ datalad -f'{infos[dataset][repo]}' wtf
@@ -178,9 +178,9 @@ A sketch of how to implement a sibling for backups is below:
    datalad publish --to=myserver -r --since= --missing=inherit
 
 In order to push not only the current branch, but refs, add the option
-``--publish-by-default "refs/*"`` to the :command:`create-sibling` call.
+``--publish-by-default "refs/*"`` to the :dlcmd:`create-sibling` call.
 Should you want to back up all annexed data, even past versions of files, use
-:command:`git annex sync` to push to the sibling::
+:gitannexcmd:`sync` to push to the sibling::
 
    $ git annex sync --all --content <sibling-name>
 
@@ -192,7 +192,7 @@ For an in-depth explanation and example take a look at the
 Retrieve partial content from a hierarchy of (uninstalled) datasets
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-In order to :command:`get` dataset content across a range of subdatasets, a bit
+In order to :dlcmd:`get` dataset content across a range of subdatasets, a bit
 of UNIX command line foo can increase the efficiency of your command.
 
 Example: consider retrieving all ``ribbon.nii.gz`` files for all subjects in the
@@ -207,14 +207,14 @@ shell works fine::
 The Gist :ref:`parallelize` can show you how to parallelize this.
 If the subdatasets are not yet installed, globbing will not work, because the
 shell can't expand non-existent paths. As an alternative, you can pipe the output
-of an (arbitrarily complex) :command:`datalad search` command into
-:command:`datalad get`::
+of an (arbitrarily complex) :dlcmd:`search` command into
+:dlcmd:`get`::
 
    $ datalad -f '{path}' -c datalad.search.index-egrep-documenttype=all search 'path:.*T1w.*\.nii.gz' | xargs -n 100 datalad get
 
 However, if you know the file locations within the dataset hierarchy and they
 are predictably named and consistent, you can create a file containing all paths to
-be retrieved and pipe that into :command:`get` as well::
+be retrieved and pipe that into :dlcmd:`get` as well::
 
    # create file with all file paths
    $ for sub in HCP1200/*; do echo ${sub}/T1w/ribbons.nii.gz; done > toget.txt
@@ -227,7 +227,7 @@ Speed up status reports in large datasets
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 In datasets with deep dataset hierarchies or large numbers of files,
-:command:`datalad status` calls can be expensive. Handily,
+:dlcmd:`status` calls can be expensive. Handily,
 the command provides options that can boost performance by limiting what is being
 tested and reported. In order to speed up subdataset state state evaluation,
 ``-e/--eval-subdataset-state`` can be set ``commit`` or ``no``. Instead of checking

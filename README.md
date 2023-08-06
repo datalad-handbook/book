@@ -1,4 +1,5 @@
-[![Build Status](https://travis-ci.org/datalad-handbook/book.svg?branch=master)](https://travis-ci.org/datalad-handbook/book) [![Documentation Status](https://readthedocs.org/projects/datalad-handbook/badge/?version=latest)](http://handbook.datalad.org/en/latest/?badge=latest)
+[![Build status](https://ci.appveyor.com/api/projects/status/v8o167109n3irf5c/branch/main?svg=true)](https://ci.appveyor.com/project/mih/book/branch/main)
+[![Documentation Status](https://readthedocs.org/projects/datalad-handbook/badge/?version=latest)](http://handbook.datalad.org/en/latest/?badge=latest)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3608611.svg)](https://doi.org/10.5281/zenodo.3608611)
 [![made-with-datalad](https://www.datalad.org/badges/made_with.svg)](https://datalad.org)
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
@@ -49,7 +50,7 @@ under the following terms:
 2) **ShareAlike** — If you remix, transform, or build upon the material, you must distribute your
  contributions under the same license as the original.
 
-<img src="https://raw.githubusercontent.com/datalad-handbook/book/master/artwork/logo.svg?sanitize=true" width="200" height="400">  
+<img src="https://raw.githubusercontent.com/datalad-handbook/book/main/artwork/logo.svg?sanitize=true" width="200" height="400">
 
 ## Contributors ✨
 

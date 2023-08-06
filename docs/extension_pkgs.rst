@@ -39,7 +39,7 @@ find out more about them.
      - Description
 
    * - `container <http://docs.datalad.org/projects/container>`_
-     - Equips DataLad's :command:`run`/:command:`rerun` functionality with
+     - Equips DataLad's :dlcmd:`run`/:dlcmd:`rerun` functionality with
        the ability to transparently execute commands in containerized
        computational environments. The section :ref:`containersrun` demonstrates
        how this extension can be used, as well as the usecase :ref:`usecase_reproduce_neuroimg`.
@@ -47,7 +47,7 @@ find out more about them.
    * - `crawler <http://docs.datalad.org/projects/crawler>`_
      - One of the initial goals behind DataLad was to provide access
        to already existing data resources. With
-       :command:`crawl-init`/:command:`crawl` commands, this extension
+       :dlcmd:`crawl-init`/:dlcmd:`crawl` commands, this extension
        allows to automate creation of DataLad datasets from resources
        available online, and efficiently keep them
        up-to-date. The majority of datasets in :term:`the DataLad superdataset ///`

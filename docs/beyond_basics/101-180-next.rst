@@ -23,7 +23,7 @@ A few selected commands are featured here, nevertheless.
 datalad tree
 """"""""""""
 
-The :command:`datalad tree` command visualizes directory and dataset hierarchies.
+The :dlcmd:`tree` command visualizes directory and dataset hierarchies.
 It mimics the UNIX/MS-DOS 'tree' utility to generate and display a directory tree, with DataLad-specific enhancements.
 With those, it can be used as an improved `tree`-style visualization, as a dataset discovery tool (when used with its ``--recursive`` option), or for programmatic directory traversal.
 
@@ -44,13 +44,13 @@ With those, it can be used as an improved `tree`-style visualization, as a datas
 datalad download
 """"""""""""""""
 
-The :command:`datalad download` command is similar to :command:`datalad download-url`, but more powerful and meant as a backend rather than a front-end.
+The :dlcmd:`download` command is similar to :dlcmd:`download-url`, but more powerful and meant as a backend rather than a front-end.
 Unlike most DataLad commands, it can be used outside of the context of a dataset, has more options for input and output specifications (such as streaming), and provides support for additional URL schemes (such as :term:`SSH` URLs).
 
 datalad create-sibling-webdav
 """""""""""""""""""""""""""""
 
-The :command:`datalad create-sibling-webdav` extends DataLad's ``create-sibling-*`` family with support for `WebDAV <https://en.wikipedia.org/wiki/WebDAV>`_ services such as `Nextcloud <https://en.wikipedia.org/wiki/Nextcloud>`_, `owncloud <https://en.wikipedia.org/wiki/OwnCloud>`_ `Sciebo <https://www.hochschulcloud.nrw>`_.
+The :dlcmd:`create-sibling-webdav` extends DataLad's ``create-sibling-*`` family with support for `WebDAV <https://en.wikipedia.org/wiki/WebDAV>`_ services such as `Nextcloud <https://en.wikipedia.org/wiki/Nextcloud>`_, `owncloud <https://en.wikipedia.org/wiki/OwnCloud>`_ `Sciebo <https://www.hochschulcloud.nrw>`_.
 Notably, it provides new, powerful dataset deposition methods that include human-readable worktree-like representations of datasets that are nevertheless clone-able.
 
 

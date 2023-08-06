@@ -82,7 +82,7 @@ and functions:
   Whereas git and git-annex would require the caller to first cd to the target
   repository, DataLad figures out which repository the given paths belong to and
   then works within that repository.
-  :command:`datalad save . --recursive` will solve the subdataset problem above
+  :dlcmd:`save . --recursive` will solve the subdataset problem above
   for example, no matter what was changed/added, no matter where in a tree
   of subdatasets.
 - DataLad provides users with the ability to act on "virtual" file paths. If
@@ -175,7 +175,7 @@ DataLad datasets in your dataset's ``README`` (or similar) file. Below, we
 provide a standard text block that you can use (and adapt as you wish) for
 such purposes.
 If you do not want to copy-and-paste these snippets yourself, you can run
-:command:`datalad add-readme` in your dataset, and have it added automatically.
+:dlcmd:`add-readme` in your dataset, and have it added automatically.
 
 .. find-out-more:: Textblock in .rst format:
 
@@ -464,8 +464,8 @@ all google it sometimes), this is `a nice tutorial <https://bids.github.io/2015-
 
 With tools other than ``cp`` (e.g., graphical file managers), to copy or move
 annexed content, make sure it is *unlocked* first:
-After a :command:`datalad unlock` copying and moving contents will work fine.
-A subsequent :command:`datalad save` in the dataset will annex the content
+After a :dlcmd:`unlock` copying and moving contents will work fine.
+A subsequent :dlcmd:`save` in the dataset will annex the content
 again.
 
 
@@ -487,8 +487,8 @@ How does DataLad interface with OpenNeuro?
 MEG, EEG, iEEG, and ECoG data. It publishes hosted data as DataLad datasets on
 :term:`GitHub`. The entire collection can be found at
 `github.com/OpenNeuroDatasets <https://github.com/OpenNeuroDatasets>`_. You can
-obtain the datasets just as any other DataLad datasets with :command:`datalad clone`
-or :command:`datalad install`.
+obtain the datasets just as any other DataLad datasets with :dlcmd:`clone`
+or :dlcmd:`install`.
 
 There is more info about this in the :ref:`OpenNeuro Quickstart Guide <openneuro>`.
 
@@ -516,7 +516,7 @@ of log files.
 The contents of this branch are used for git-annex internal tracking of the
 dataset and its annexed contents. For example, git-annex stores information where
 file content can be retrieved from in a ``.log`` file for each object, and if the object
-was obtained from web-sources (e.g., with :command:`datalad download-url`), a
+was obtained from web-sources (e.g., with :dlcmd:`download-url`), a
 ``.log.web`` file stores the URL. Other files in this branch store information about
 the known remotes of the dataset and their description, if they have one.
 You can find out much more about the ``git-annex`` branch and its contents in the

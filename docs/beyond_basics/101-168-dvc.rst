@@ -191,7 +191,7 @@ We'll download it and extract it into the ``data/raw/`` directory of the reposit
    $ rm -rf imagenette2-160.tgz
 
 
-The data directories in ``data/raw`` are then version controlled with the :command:`dvc add` command that can place files or complete directories under version control by DVC.
+The data directories in ``data/raw`` are then version controlled with the :shcmd:`dvc add` command that can place files or complete directories under version control by DVC.
 
 .. runrecord:: _examples/DL-101-168-110
    :workdir: DVCvsDL/DVC
@@ -203,7 +203,7 @@ The data directories in ``data/raw`` are then version controlled with the :comma
 
 Here is what this command has accomplished:
 The data files were copied into a *cache* in ``.dvc/cache`` (a non-human readable directory structure based on hashes similar to `.git/annex/objects` used by `git-annex`), data file names were added to a ``.gitignore`` [#f4]_ file to become invisible to Git, and two ``.dvc`` files, ``train.dvc`` and ``val.dvc``, were created [#f5]_.
-:command:`git status` shows these changes:
+:gitcmd:`status` shows these changes:
 
 .. runrecord:: _examples/DL-101-168-111
    :workdir: DVCvsDL/DVC
@@ -236,7 +236,7 @@ The data is now version controlled with DVC.
 .. find-out-more:: How does DVC represent modifications to data?
 
     When adding data directories, they (i.e., the complete directory) are hashed, and this hash is stored in the respective ``.dvc`` file.
-    If any file in the directory changes, this hash would change, and the :command:`dvc status` command would report the directory to be "changed".
+    If any file in the directory changes, this hash would change, and the :shcmd:`dvc status` command would report the directory to be "changed".
     To demonstrate this, we pretend to accidentally delete a single file::
 
        # if one or more files in the val/ data changes, dvc status reports a change
@@ -245,7 +245,7 @@ The data is now version controlled with DVC.
            changed outs:
                modified:           data/raw/val
 
-    **Important**: Detecting a data modification **requires** the :command:`dvc status` command -- :command:`git status` will not be able to detect changes as this directory as it is git-ignored!
+    **Important**: Detecting a data modification **requires** the :shcmd:`dvc status` command -- :gitcmd:`status` will not be able to detect changes as this directory as it is git-ignored!
 
 DataLad workflow
 """"""""""""""""
@@ -290,7 +290,7 @@ At this point, the data is already version controlled [#f6]_, and we have the fo
 
 .. find-out-more:: How does DataLad represent modifications to data?
 
-    As DataLad always tracks files individually, :command:`datalad status` (or, alternatively, :command:`git status` or :command:`git annex status`) will show modifications on the level of individual files::
+    As DataLad always tracks files individually, :dlcmd:`status` (or, alternatively, :gitcmd:`status` or :gitannexcmd:`status`) will show modifications on the level of individual files::
 
         $ datalad status
           deleted: /home/me/DVCvsDL/DVC-DataLad/data/raw/val/n01440764/n01440764_12021.JPEG (symlink)
@@ -342,7 +342,7 @@ As a first step, there needs to exist a directory to use as a remote, so we will
    # create a directory somewhere else
    $ mkdir ../dvc-remote
 
-Afterwards, the new, empty directory can be added as a data remote using :command:`dvc remote add`.
+Afterwards, the new, empty directory can be added as a data remote using :shcmd:`dvc remote add`.
 The ``-d`` option sets it as the default remote, which simplifies pushing later on:
 
 .. runrecord:: _examples/DL-101-168-121
@@ -381,7 +381,7 @@ Note that ``dvc remote add`` only *modifies* the config file, and it still needs
 .. gitusernote:: Remotes
 
    The DVC and Git concepts of a "remote" are related, but not identical.
-   Therefore, DVC remotes are invisible to :command:`git remote`, and likewise, Git :term:`remote`\s are invisible to the :command:`dvc remote list` command.
+   Therefore, DVC remotes are invisible to :gitcmd:`remote`, and likewise, Git :term:`remote`\s are invisible to the :shcmd:`dvc remote list` command.
 
 **Step 2: Push data to the remote**
 
@@ -421,10 +421,10 @@ In order to demonstrate this, we start by deleting a data directory (in its orig
 
 .. gitusernote:: Status
 
-   Do note that this deletion would not be detected by :command:`git status` -- you have to use :command:`dvc status` instead.
+   Do note that this deletion would not be detected by :gitcmd:`status` -- you have to use :shcmd:`dvc status` instead.
 
 At this point, a copy of the data still resides in the cache of the repository.
-These data are copied back to ``val/`` with the :command:`dvc checkout` command:
+These data are copied back to ``val/`` with the :shcmd:`dvc checkout` command:
 
 .. runrecord:: _examples/DL-101-168-128
    :workdir: DVCvsDL/DVC
@@ -446,7 +446,7 @@ To demonstrate this, let's look at a repository with an empty cache by cloning t
    $ cd ../
    $ git clone https://github.com/datalad-handbook/data-version-control DVC-2
 
-Retrieving the data from the data remote to repopulate the cache is done with the :command:`dvc fetch` command:
+Retrieving the data from the data remote to repopulate the cache is done with the :shcmd:`dvc fetch` command:
 
 .. runrecord:: _examples/DL-101-168-130
    :workdir: DVCvsDL
@@ -456,8 +456,8 @@ Retrieving the data from the data remote to repopulate the cache is done with th
    $ cd DVC-2
    $ dvc fetch data/raw/val.dvc
 
-Afterwards, another :command:`dvc checkout` will copy the files from the cache back to ``val/``.
-Alternatively, the command :command:`dvc pull` performs ``fetch`` (get data into the cache) and ``checkout`` (copy data from the cache to its original location) in a single command.
+Afterwards, another :shcmd:`dvc checkout` will copy the files from the cache back to ``val/``.
+Alternatively, the command :shcmd:`dvc pull` performs ``fetch`` (get data into the cache) and ``checkout`` (copy data from the cache to its original location) in a single command.
 
 Unless DVC is used on a small subset of file systems (trfs, XFS, OCFS2, or APFS), copying data between its original location and the cache is the default.
 This results in a "built-in data duplication" on most current file systems [#f8]_.
@@ -468,7 +468,7 @@ DataLad workflow
 """"""""""""""""
 
 Because the OSF archive containing the raw data is known and stored in the dataset, it strictly speaking isn't necessary to create a storage sibling to push the data to -- DataLad already treats the original web location as storage.
-Currently, the dataset can thus be shared via :term:`GitHub` or similar hosting services, and the data can be retrieved using :command:`datalad get`.
+Currently, the dataset can thus be shared via :term:`GitHub` or similar hosting services, and the data can be retrieved using :dlcmd:`get`.
 
 .. find-out-more:: Really?
 
@@ -535,7 +535,7 @@ First, we need to create a local sibling:
 
 **Step 2: Push the data**
 
-Afterwards, the dataset contents can be pushed using :command:`datalad push`.
+Afterwards, the dataset contents can be pushed using :dlcmd:`push`.
 
 .. runrecord:: _examples/DL-101-168-141
    :workdir: DVCvsDL/DVC-DataLad
@@ -549,7 +549,7 @@ This pushed all of the annexed data and the Git history of the dataset.
 
 **Step 3: Retrieve the data**
 
-The data in the dataset (complete directories or individual files) can be dropped using :command:`datalad drop`, and reobtained using :command:`datalad get`.
+The data in the dataset (complete directories or individual files) can be dropped using :dlcmd:`drop`, and reobtained using :dlcmd:`get`.
 
 .. runrecord:: _examples/DL-101-168-142
    :workdir: DVCvsDL/DVC-DataLad
@@ -584,12 +584,12 @@ The final script, ``src/evaluate.py`` is used to evaluate the trained classifier
 There are more detailed insights and explanations of the actual analysis code in the `Tutorial <https://realpython.com/python-data-version-control>`_ if you're interested in finding out more.
 
 For workflow management, DVC has the concept of a "DVC pipeline".
-A pipeline consists of multiple stages and is executed using a :command:`dvc run` command.
+A pipeline consists of multiple stages and is executed using a :shcmd:`dvc run` command.
 Each stage has three components: "deps", "outs", and "command".
 Each of the scripts in the repository will be represented by a stage in the DVC pipeline.
 
 DataLad does not have any workflow management functions.
-The closest to it are :command:`datalad run` to record any command execution or analysis, :command:`datalad rerun` to recompute such an analysis, and :command:`datalad containers-run` to perform and record a command execution or analysis inside of a tracked software container [#f10]_.
+The closest to it are :dlcmd:`run` to record any command execution or analysis, :dlcmd:`rerun` to recompute such an analysis, and :dlcmd:`containers-run` to perform and record a command execution or analysis inside of a tracked software container [#f10]_.
 
 DVC workflow
 """"""""""""
@@ -787,7 +787,7 @@ The following `here doc <https://en.wikipedia.org/wiki/Here_document>`_ changes 
        main(repo_path)
    EOT
 
-Afterwards, since ``train.py`` is changed, :command:`dvc status` will realize that one dependency of the pipeline stage "train" has changed:
+Afterwards, since ``train.py`` is changed, :shcmd:`dvc status` will realize that one dependency of the pipeline stage "train" has changed:
 
 
 .. runrecord:: _examples/DL-101-168-163
@@ -798,7 +798,7 @@ Afterwards, since ``train.py`` is changed, :command:`dvc status` will realize th
    $ dvc status
 
 Since the code change (stage 2) will likely affect the metric (stage 3), it is best to reproduce the whole chain.
-You can reproduce a complete DVC pipeline file with the :command:`dvc repro <stagename>` command:
+You can reproduce a complete DVC pipeline file with the :shcmd:`dvc repro <stagename>` command:
 
 .. runrecord:: _examples/DL-101-168-164
    :workdir: DVCvsDL/DVC
@@ -850,9 +850,9 @@ For a direct comparison to DVC, we'll try to mimic the DVC workflow as closely a
    $ cd ../DVC-DataLad
 
 As there is no workflow manager in DataLad [#f9]_, each script execution needs to be done separately.
-To record the execution, get all relevant inputs, and recompute outputs at later points, we can set up a :command:`datalad run` call [#f10]_.
-Later on, we can rerun a range of :command:`datalad run` calls at once to recompute the relevant aspects of the analysis.
-To harmonize execution and to assist with reproducibility of the results, we generally recommend to create a container (Docker or Singularity), add it to the repository as well, and use :command:`datalad containers-run` call [#f11]_ and have that reran, but we'll stay basic here.
+To record the execution, get all relevant inputs, and recompute outputs at later points, we can set up a :dlcmd:`run` call [#f10]_.
+Later on, we can rerun a range of :dlcmd:`run` calls at once to recompute the relevant aspects of the analysis.
+To harmonize execution and to assist with reproducibility of the results, we generally recommend to create a container (Docker or Singularity), add it to the repository as well, and use :dlcmd:`containers-run` call [#f11]_ and have that reran, but we'll stay basic here.
 
 
 Let's start with data preparation.
@@ -870,11 +870,11 @@ Instead of creating a pipeline stage and giving it a name, we attach a meaningfu
       python code/prepare.py
 
 The results of this computation are automatically saved and associated with their inputs and command execution.
-This information isn't stored in a separate file, but in the Git history, and saved with the commit message we have attached to the :command:`run` command.
+This information isn't stored in a separate file, but in the Git history, and saved with the commit message we have attached to the :dlcmd:`run` command.
 
 To stay close to the DVC tutorial, we will also work with tags to identify analysis versions, but DataLad could also use a range of other identifiers, for example commit hashes, to identify this computation.
 As we at this point have set up our data and are ready for the analysis, we will name the first tag "ready-for-analysis".
-This can be done with :command:`git tag`, but also with :command:`datalad save`.
+This can be done with :gitcmd:`tag`, but also with :dlcmd:`save`.
 
 .. runrecord:: _examples/DL-101-168-172
    :workdir: DVCvsDL/DVC-DataLad
@@ -979,7 +979,7 @@ We need to save this change:
 
    $ datalad save -m "Switch to random forest classification" code/train.py
 
-Afterwards, we can rerun all run records between the tags ``ready-for-analysis`` and ``SGD`` using :command:`datalad rerun`.
+Afterwards, we can rerun all run records between the tags ``ready-for-analysis`` and ``SGD`` using :dlcmd:`rerun`.
 We could automatically compute this on a different branch if we wanted to by using the ``branch`` option:
 
 .. runrecord:: _examples/DL-101-168-178
@@ -1050,7 +1050,7 @@ In return, DVC provides users with workflow management and reporting tuned to ma
 
 .. [#f9] yet.
 
-.. [#f10] To re-read about :command:`datalad run` and :command:`datalad rerun`, checkout chapter :ref:`chapter_run`.
+.. [#f10] To re-read about :dlcmd:`run` and :dlcmd:`rerun`, checkout chapter :ref:`chapter_run`.
 
-.. [#f11] To re-read about joining code, execution, data, results and software environment in a re-executable record with :command:`datalad container-run`, checkout section :ref:`containersrun`.
+.. [#f11] To re-read about joining code, execution, data, results and software environment in a re-executable record with :dlcmd:`container-run`, checkout section :ref:`containersrun`.
 

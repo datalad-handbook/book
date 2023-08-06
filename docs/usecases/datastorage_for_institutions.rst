@@ -117,7 +117,7 @@ Beyond this, upon creation of an analysis project, the associated GitLab project
 is automatically configured as a remote with a publication dependency on the
 data store, thus enabling vastly simplified data publication routines and
 backups of pristine results: After computing their results, a
-:command:`datalad push` is all it takes to backup and share one's scientific
+:dlcmd:`push` is all it takes to backup and share one's scientific
 insights. Thus, even with a complex setup of data store, compute infrastructure,
 and repository hosting, configurations adjusted to the compute infrastructure
 can be distributed and used to mitigate any potential remaining technical overhead.
@@ -222,9 +222,9 @@ only by disk-space constrains of the machine it lies on.
 Put simply, a RIA store is a dataset storage location that allows for access to
 and collaboration on DataLad datasets.
 The high-level workflow overview is as follows: Create a dataset,
-use the :command:`datalad create-sibling-ria` command to establish a connection
+use the :dlcmd:`create-sibling-ria` command to establish a connection
 to an either pre-existing or not-yet-existing RIA store, publish dataset contents
-with :command:`datalad push`, (let others) clone the dataset from the
+with :dlcmd:`push`, (let others) clone the dataset from the
 RIA store, and (let others) publish and pull updates. In the
 case of large, institute-wide datasets, a RIA store (or multiple RIA stores)
 can serve as a central storage location that enables fine-grained data access to
@@ -255,7 +255,7 @@ RIA store workflows
 **Configurations can hide the technical layers**
 
 Setting up a RIA store and appropriate siblings is fairly easy -- it requires
-only the :command:`datalad create-sibling-ria` command.
+only the :dlcmd:`create-sibling-ria` command.
 However, in the institute this usecase describes, in order to spare users
 knowing about RIA stores, custom configurations are distributed via DataLad's
 run-procedures to simplify workflows further and hide the technical layers of
@@ -273,8 +273,8 @@ fully configured and set up analysis dataset afterwards:
 
    $ datalad create -c inm7 <PATH>
 
-Working in this dataset will require only :command:`datalad save` and
-:command:`datalad push` commands, and configurations ensure that the projects
+Working in this dataset will require only :dlcmd:`save` and
+:dlcmd:`push` commands, and configurations ensure that the projects
 history and results are published where they need to be: The RIA store, for storing
 and archiving the project including data, and GitLab, for exposing the projects
 progress to the outside and easing collaboration or supervision. Users do not need
@@ -285,8 +285,8 @@ In order to get input data from datasets hosted in the datastore without requiri
 users to know about dataset IDs or construct ``ria+`` URLs, superdatasets
 get a :term:`sibling` on :term:`GitLab` or :term:`GitHub` with a human readable
 name. Users can clone the superdatasets from the web hosting service, and obtain data
-via :command:`datalad get`. A concrete example for this is described in
-the usecase :ref:`usecase_HCP_dataset`. While :command:`datalad get` will retrieve file
+via :dlcmd:`get`. A concrete example for this is described in
+the usecase :ref:`usecase_HCP_dataset`. While :dlcmd:`get` will retrieve file
 or subdataset contents from the RIA store, users will not need to bother where
 the data actually comes from.
 
@@ -299,9 +299,9 @@ improve the efficiency of the institute:
 With easy local version control workflows and DataLad-based data management routines,
 researchers are able to focus on science and face barely any technical overhead for
 data management. As file content for analyses is obtained *on demand*
-via :command:`datalad get`, researchers selectively obtain only those data they
+via :dlcmd:`get`, researchers selectively obtain only those data they
 need instead of having complete copies of datasets as before, and thus save disk
-space. Upon :command:`datalad push`, computed results and project histories
+space. Upon :dlcmd:`push`, computed results and project histories
 can be pushed to the data store and the institute's GitLab instance, and be thus
 backed-up and accessible for collaborators or supervisors. Easy-to-reobtain input
 data can safely be dropped to free disk space on the compute cluster. Sensible

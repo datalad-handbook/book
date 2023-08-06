@@ -51,7 +51,7 @@ but it is worth repeating: If you modify a subdataset, you will need to save
 this *in the superdataset* in order to have a clean superdataset status.
 
 This point in time in DataLad-101 is a convenient moment to dive a bit deeper
-into the functions of the :command:`datalad status` command. If you are
+into the functions of the :dlcmd:`status` command. If you are
 interested in this, checkout the :ref:`dedicated Findoutmore <fom-status>`.
 
 .. find-out-more:: More on datalad status
@@ -59,7 +59,7 @@ interested in this, checkout the :ref:`dedicated Findoutmore <fom-status>`.
    :float:
 
    First of all, let's start with a quick overview of the different content *types*
-   and content *states* various :command:`datalad status` commands in the course
+   and content *states* various :dlcmd:`status` commands in the course
    of DataLad-101 have shown up to this point:
 
    You have seen the following *content types*:
@@ -75,14 +75,14 @@ interested in this, checkout the :ref:`dedicated Findoutmore <fom-status>`.
    The section :ref:`filesystem` will show you many instances of ``deleted`` content
    state as well.
 
-   But beyond understanding the report of :command:`datalad status`, there is also
+   But beyond understanding the report of :dlcmd:`status`, there is also
    additional functionality:
-   :command:`datalad status` can handle status reports for a whole hierarchy
+   :dlcmd:`status` can handle status reports for a whole hierarchy
    of datasets, and it can report on a subset of the content across any number of
    datasets in this hierarchy by providing selected paths. This is useful as soon
    as datasets become more complex and contain subdatasets with changing contents.
 
-   When performed without any arguments, :command:`datalad status` will report
+   When performed without any arguments, :dlcmd:`status` will report
    the state of the current dataset. However, you can specify a path to any
    sub- or superdataset with the ``--dataset`` option.
 
@@ -153,11 +153,11 @@ interested in this, checkout the :ref:`dedicated Findoutmore <fom-status>`.
       $ datalad status --recursive
 
    This still was not all of the available functionality of the
-   :command:`datalad status` command. You could for example adjust whether and
+   :dlcmd:`status` command. You could for example adjust whether and
    how untracked dataset content should be reported with the ``--untracked``
    option, or get additional information from annexed content with the ``--annex``
    option. To get a complete overview on what you could do, check out the technical
-   documentation of :command:`datalad status` `here <http://docs.datalad.org/en/latest/generated/man/datalad-status.html>`_.
+   documentation of :dlcmd:`status` `here <http://docs.datalad.org/en/latest/generated/man/datalad-status.html>`_.
 
    Before we leave this hidden section, lets undo the modification of the subdataset
    by removing the untracked file:
@@ -182,9 +182,9 @@ dataset, i.e., ``DataLad-101``, as the dataset to save to:
 
 .. find-out-more:: More on how save can operate on nested datasets
 
-   In a superdataset with subdatasets, :command:`datalad save` by default
+   In a superdataset with subdatasets, :dlcmd:`save` by default
    tries to figure out on its own which dataset's history of all available
-   datasets a :command:`save` should be written to. However, it can reduce
+   datasets a :dlcmd:`save` should be written to. However, it can reduce
    confusion or allow specific operations to be very explicit in the command
    call and tell DataLad where to save what kind of modifications to.
 

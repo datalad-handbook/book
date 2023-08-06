@@ -272,14 +272,14 @@ up to now fulfill this principle.
 
 If data components of a project are DataLad datasets, they can
 be included in an analysis superdataset as subdatasets. Thanks to
-:command:`datalad clone`, information on the source of these subdatasets
+:dlcmd:`clone`, information on the source of these subdatasets
 is stored in the history of the analysis superdataset, and they can even be
 updated from those sources if the original data dataset gets extended or changed.
 If you are including a file, for example code from GitHub,
-the :command:`datalad download-url` command (introduced in section :ref:`populate`)
+the :dlcmd:`download-url` command (introduced in section :ref:`populate`)
 will record the source of it safely in the dataset's history. And if you add anything to your dataset,
 from simple incremental coding progress in your analysis scripts up to
-files that a colleague sent you via email, a plain :command:`datalad save`
+files that a colleague sent you via email, a plain :dlcmd:`save`
 with a helpful commit message goes a very long way to fulfill this principle
 on its own already.
 
@@ -345,15 +345,15 @@ The section :ref:`run` already outlined the problem of associating
 a result with an input and a script. It can be difficult to link a
 figure from your data analysis project with an input data file or a
 script, even if you created this figure yourself.
-The :command:`datalad run` command however mitigates these difficulties,
+The :dlcmd:`run` command however mitigates these difficulties,
 and captures the provenance of any output generated with a
 ``datalad run`` call in the history of the dataset. Thus, by using
-:command:`datalad run` in analysis projects, your dataset knows
+:dlcmd:`run` in analysis projects, your dataset knows
 which result was generated when, by which author, from which inputs,
 and by means of which command.
 
 With another DataLad command one can even go one step further:
-The command :command:`datalad containers-run` (it will be introduced in
+The command :dlcmd:`containers-run` (it will be introduced in
 section :ref:`containersrun`) performs a command execution within
 a configured containerized environment. Thus, not only inputs,
 outputs, command, time, and author, but also the *software environment*
@@ -376,7 +376,7 @@ The YODA procedure
 There is one tool that can make starting a yoda-compliant data analysis
 easier: DataLad's ``yoda`` procedure. Just as the ``text2git`` procedure
 from section :ref:`createds`, the ``yoda`` procedure can be included in a
-:command:`datalad create` command and will apply useful configurations
+:dlcmd:`create` command and will apply useful configurations
 to your dataset:
 
 .. code-block:: bash

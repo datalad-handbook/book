@@ -7,7 +7,7 @@ Stay up to date
 
 All of what you have seen about sharing dataset was really
 cool, and for the most part also surprisingly intuitive.
-:command:`datalad run` commands or file retrieval worked exactly as
+:dlcmd:`run` commands or file retrieval worked exactly as
 you imagined it to work, and you begin to think that slowly but
 steadily you're getting a feel about how DataLad really works.
 
@@ -24,8 +24,8 @@ this would have resulted in about the same output, right?
 What we will be looking into now is how shared DataLad
 datasets can be updated.
 
-Remember that you added some notes on :command:`datalad clone`,
-:command:`datalad get`, and :command:`git annex whereis` into the
+Remember that you added some notes on :dlcmd:`clone`,
+:dlcmd:`get`, and :gitannexcmd:`whereis` into the
 original ``DataLad-101``?
 
 This is a change that is not reflected in your "shared"
@@ -52,7 +52,7 @@ integrate them.
 
 .. index:: ! datalad command; update
 
-This is done with the :command:`datalad update --how merge`
+This is done with the :dlcmd:`update --how merge`
 command.
 
 .. runrecord:: _examples/DL-101-119-102
@@ -122,20 +122,20 @@ dataset to your own ``DataLad-101`` dataset:
 
 
 PS: You might wonder whether there is also a sole
-:command:`datalad update` command. Yes, there is -- if you are
+:dlcmd:`update` command. Yes, there is -- if you are
 a Git-user and know about branches and merging you can read the
 ``Note for Git-users`` below. However, a thorough explanation
 and demonstration will be in the next section.
 
 .. gitusernote:: Update internals
 
-   :command:`datalad update` is the DataLad equivalent of a :command:`git fetch`,
-   :command:`datalad update --how merge` is the DataLad equivalent of a
-   :command:`git pull`.
-   Upon a simple :command:`datalad update`, the remote information
+   :dlcmd:`update` is the DataLad equivalent of a :gitcmd:`fetch`,
+   :dlcmd:`update --how merge` is the DataLad equivalent of a
+   :gitcmd:`pull`.
+   Upon a simple :dlcmd:`update`, the remote information
    is available on a branch separate from the main branch
    -- in most cases this will be ``remotes/origin/main``.
-   You can :command:`git checkout` this branch or run :command:`git diff` to
+   You can :gitcmd:`checkout` this branch or run :gitcmd:`diff` to
    explore the changes and identify potential merge conflicts.
 
 

@@ -20,7 +20,7 @@ and then initialize a :term:`special remote` of type ``git-lfs``, pointing to th
     $ git annex initremote github-lfs type=git-lfs url=git@github.com:yarikoptic/test-github-lfs autoenable=true encryption=none embedcreds=no
 
 If you would like to compress data in Git LFS, you need to take a detour via
-encryption during :command:`git annex initremote` -- this has compression as a
+encryption during :gitannexcmd:`initremote` -- this has compression as a
 convenient side effect. Here is an example initialization::
 
    $ git annex initremote --force github-lfs type=git-lfs url=git@github.com:yarikoptic/test-github-lfs autoenable=true encryption=shared
@@ -38,7 +38,7 @@ and the entire dataset to the same GitHub repository::
     [INFO   ] Publishing <Dataset path=/tmp/test-github-lfs> to github
     publish(ok): . (dataset) [pushed to github: ['[new branch]', '[new branch]']]
 
-Alternatively, to make publication even easier for you, the dataset provider, you can establish a :term:`publication dependency` such that a :command:`datalad push` performs the data transfer to ``git-lfs`` automatically::
+Alternatively, to make publication even easier for you, the dataset provider, you can establish a :term:`publication dependency` such that a :dlcmd:`push` performs the data transfer to ``git-lfs`` automatically::
 
    $ datalad siblings configure -s github --publish-depends github-lfs
    # afterwards, only datalad push is needed to publish dataset contents and history
@@ -48,5 +48,5 @@ Consumers of your dataset should be able to retrieve files right after cloning t
 
 .. importantnote:: No drop from LFS
 
-   Unfortunately, it is impossible to :command:`drop` contents from Git LFS:
+   Unfortunately, it is impossible to :dlcmd:`drop` contents from Git LFS:
    `help.github.com/en/github/managing-large-files <https://docs.github.com/en/github/managing-large-files/versioning-large-files/removing-files-from-git-large-file-storage#git-lfs-objects-in-your-repository>`_

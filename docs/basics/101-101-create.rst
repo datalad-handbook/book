@@ -22,9 +22,9 @@ concepts of DataLad datasets together by creating one.
 .. index:: ! datalad command; create
 
 Find a nice place on your computer's file system to put a dataset for ``DataLad-101``,
-and create a fresh, empty dataset with the :command:`datalad create` command.
+and create a fresh, empty dataset with the :dlcmd:`create` command.
 
-Note the command structure of :command:`datalad create` (optional bits are enclosed in ``[ ]``)::
+Note the command structure of :dlcmd:`create` (optional bits are enclosed in ``[ ]``)::
 
   datalad create [--description "..."] [-c <config options>] PATH
 
@@ -37,7 +37,7 @@ Note the command structure of :command:`datalad create` (optional bits are enclo
 
       datalad create --description "course on DataLad-101 on my private Laptop" -c text2git DataLad-101
 
-   If you want, use the above command instead of the :command:`create` command below
+   If you want, use the above command instead of the :dlcmd:`create` command below
    to provide a description. Its use will not be immediately clear, the chapter
    :ref:`chapter_collaboration`) will show you where this description
    ends up and how it may be useful.
@@ -86,7 +86,7 @@ and such information is stored in what we will refer
 to as the *history* of a dataset.
 
 This history is almost as small as it can be at the current state, but let's take
-a look at it. For looking at the history, the code examples will use :command:`git log`,
+a look at it. For looking at the history, the code examples will use :gitcmd:`log`,
 a built-in :term:`Git` command [#f1]_ that works right in your terminal. Your log
 *might* be opened in a `terminal pager <https://en.wikipedia.org/wiki/Terminal_pager>`_
 that lets you scroll up and down with your arrow keys, but not enter any more commands.
@@ -107,7 +107,7 @@ Each of them is identified by a unique 40 character sequence, called a
 
 .. windows-wit:: Your Git log may be more extensive - use "git log main" instead!
 
-   The output of ``git log`` shown in the handbook and the output you will see in your own datasets when executing the same commands may not always match -- many times you might see commits about a "git-annex adjusted branch" in your history.
+   The output of :gitcmd:`log` shown in the handbook and the output you will see in your own datasets when executing the same commands may not always match -- many times you might see commits about a "git-annex adjusted branch" in your history.
    This is expected, and if you want to read up more about this, please progress on to chapter 3 and afterwards take a look at `this part of git-annex documentation <https://git-annex.branchable.com/design/adjusted_branches>`_.
 
    In order to get a similar experience in your dataset, please add the name of your default :term:`branch` (it will likely have the name ``main`` or ``master``) to every ``git log`` command.
@@ -135,7 +135,7 @@ an informative commit message yourself.
 
 .. gitusernote:: Create internals
 
-   :command:`datalad create` uses :command:`git init` and :command:`git-annex init`. Therefore,
+   :dlcmd:`create` uses :gitcmd:`init` and :gitannexcmd:`init`. Therefore,
    the DataLad dataset is a Git repository.
    Large file content in the
    dataset is tracked with git-annex. An ``ls -a``
@@ -168,7 +168,7 @@ Let us now put some content inside.
 
 .. rubric:: Footnotes
 
-.. [#f1] A tool we can recommend as an alternative to :command:`git log` is :term:`tig`.
+.. [#f1] A tool we can recommend as an alternative to :gitcmd:`log` is :term:`tig`.
          Once installed, exchange any ``git log`` command you see here with the single word ``tig``.
 
 

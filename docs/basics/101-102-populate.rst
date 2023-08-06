@@ -67,7 +67,7 @@ are presented here, make sure to check the :windows-wit:`on peculiarities of its
    # get back into the root of the dataset
    $ cd ../
 
-Some machines will not have :command:`wget` available by default, but any command that can
+Some machines will not have :shcmd:`wget` available by default, but any command that can
 download a file can work as an alternative. See the :windows-wit:`for the popular alternative
 curl <ww-curl-instead-wget>`.
 
@@ -99,7 +99,7 @@ structure with tree:
 .. index:: ! datalad command; status
 
 Now what does DataLad do with this new content? One command you will use very
-often is :command:`datalad status`.
+often is :dlcmd:`status`.
 It reports on the state of dataset content, and
 regular status reports should become a habit in the wake of ``DataLad-101``.
 
@@ -118,12 +118,12 @@ Interesting; the ``books/`` directory is "untracked". Remember how content
 Untracked means that DataLad does not know about this directory or its content,
 because we have not instructed DataLad to actually track it. This means that DataLad
 does not store the downloaded books in its history yet. Let's change this by
-*saving* the files to the dataset's history with the :command:`datalad save` command.
+*saving* the files to the dataset's history with the :dlcmd:`save` command.
 
 This time, it is your turn to specify a helpful :term:`commit message`
-with the ``-m`` option (although the DataLad command is :command:`datalad save`, we talk
-about commit messages because :command:`datalad save` ultimately uses the command
-:command:`git commit` to do its work):
+with the ``-m`` option (although the DataLad command is :dlcmd:`save`, we talk
+about commit messages because :dlcmd:`save` ultimately uses the command
+:gitcmd:`commit` to do its work):
 
 .. runrecord:: _examples/DL-101-102-106
    :language: console
@@ -144,7 +144,7 @@ If you ever forget to specify a message, or made a typo, not all is lost. A
    ``[DATALAD] Recorded changes`` as a commit message into your history.
    This is not particularly informative.
    You can change the *last* commit message with the Git command
-   :command:`git commit --amend`. This will open up your default editor
+   :gitcmd:`commit --amend`. This will open up your default editor
    and you can edit
    the commit message. Careful -- the default editor might be :term:`vim`!
    The section :ref:`history` will show you many more ways in which you can
@@ -162,7 +162,7 @@ Large content is tracked in an *annex* that is automatically
 created and handled by DataLad. Whether text files or larger files change,
 all of these changes can be written to your DataLad dataset's history.
 
-Let's see how the saved content shows up in the history of the dataset with :command:`git log`.
+Let's see how the saved content shows up in the history of the dataset with :gitcmd:`log`.
 The option ``-n 1`` specifies that we want to take a look at the most recent commit.
 In order to get a bit more details, we add the ``-p`` flag. If you end up in a
 pager, navigate with up and down arrow keys and leave the log by typing ``q``:
@@ -206,16 +206,16 @@ a good message <fom-commit-message-guidance>`.
 .. gitusernote:: There is no staging area in DataLad
 
    Just as in Git, new files are not tracked from their creation on, but only when
-   explicitly added to Git (in Git terms, with an initial :command:`git add`). But different
-   from the common Git workflow, DataLad skips the staging area. A :command:`datalad save`
-   combines a :command:`git add` and a :command:`git commit`, and therefore, the commit message
-   is specified with :command:`datalad save`.
+   explicitly added to Git (in Git terms, with an initial :gitcmd:`add`). But different
+   from the common Git workflow, DataLad skips the staging area. A :dlcmd:`save`
+   combines a :gitcmd:`add` and a :gitcmd:`commit`, and therefore, the commit message
+   is specified with :dlcmd:`save`.
 
 Cool, so now you have added some files to your dataset history. But what is a bit
 inconvenient is that both books were saved *together*. You begin to wonder: "A Python
 book and a Unix book do not have that much in common. I probably should not save them
 in the same commit. And ... what happens if I have files I do not want to track?
-:command:`datalad save -m "some commit message"` would save all of what is currently
+:dlcmd:`save -m "some commit message"` would save all of what is currently
 untracked or modified in the dataset into the history!"
 
 Regarding your first remark, you're absolutely right!
@@ -224,7 +224,7 @@ together that belong together. We do not want to squish completely unrelated cha
 into the same spot of our history, because it would get very nasty should we want to
 revert *some* of the changes without affecting others in this commit.
 
-Luckily, we can point :command:`datalad save` to exactly the changes we want it to record.
+Luckily, we can point :dlcmd:`save` to exactly the changes we want it to record.
 Let's try this by adding yet another book, a good reference work about git,
 `Pro Git <https://git-scm.com/book/en/v2>`_:
 
@@ -238,7 +238,7 @@ Let's try this by adding yet another book, a good reference work about git,
    $ wget -q https://github.com/progit/progit2/releases/download/2.1.154/progit.pdf
    $ cd ../
 
-:command:`datalad status` shows that there is a new untracked file:
+:dlcmd:`status` shows that there is a new untracked file:
 
 .. runrecord:: _examples/DL-101-102-109
    :language: console
@@ -248,7 +248,7 @@ Let's try this by adding yet another book, a good reference work about git,
 
    $ datalad status
 
-Let's give :command:`datalad save` precisely this file by specifying its path after the commit message:
+Let's give :dlcmd:`save` precisely this file by specifying its path after the commit message:
 
 .. runrecord:: _examples/DL-101-102-110
    :language: console
@@ -258,7 +258,7 @@ Let's give :command:`datalad save` precisely this file by specifying its path af
 
    $ datalad save -m "add reference book about git" books/progit.pdf
 
-Regarding your second remark, you're right that a :command:`datalad save` without a
+Regarding your second remark, you're right that a :dlcmd:`save` without a
 path specification would write all of the currently untracked files or modifications
 to the history. But check the :find-out-more:`on how to tell it otherwise <fom-save-updated-only>`.
 
@@ -266,7 +266,7 @@ to the history. But check the :find-out-more:`on how to tell it otherwise <fom-s
    :name: fom-save-updated-only
    :float:
 
-   A :command:`datalad save -m "concise message" --updated` (or the shorter
+   A :dlcmd:`save -m "concise message" --updated` (or the shorter
    form of ``--updated``, ``-u``) will only write *modifications* to the
    history, not untracked files. Later, we will also see ``.gitignore`` files
    that let you hide content from version control.  However, it is good
@@ -274,7 +274,7 @@ to the history. But check the :find-out-more:`on how to tell it otherwise <fom-s
    your dataset and workflow, and will be a requirement for executing certain
    commands.
 
-A :command:`datalad status` should now be empty, and our dataset's history should look like this:
+A :dlcmd:`status` should now be empty, and our dataset's history should look like this:
 
 .. runrecord:: _examples/DL-101-102-111
    :workdir: dl-101/DataLad-101
@@ -299,9 +299,9 @@ these files from. If you would want to find out, you would have to *remember*
 where you got the content from – and brains are not made for such tasks.
 
 Luckily, DataLad has a command that will solve both of these problems:
-The :command:`datalad download-url` command.
+The :dlcmd:`download-url` command.
 We will dive deeper into the provenance-related benefits of using it in later chapters, but for now,
-we’ll start with best-practice-building. :command:`datalad download-url` can retrieve content
+we’ll start with best-practice-building. :dlcmd:`download-url` can retrieve content
 from a URL (following any URL-scheme from https, http, or ftp or s3) and save it
 into the dataset together with a human-readable commit message and a hidden,
 machine-readable record of the origin of the content. This saves you time,
@@ -332,7 +332,7 @@ Afterwards, a fourth book is inside your ``books/`` directory:
 
    $ ls books
 
-However, the :command:`datalad status` command does not return any output –
+However, the :dlcmd:`status` command does not return any output –
 the dataset state is “clean”:
 
 .. runrecord:: _examples/DL-101-102-114
@@ -342,7 +342,7 @@ the dataset state is “clean”:
 
    $ datalad status
 
-This is because :command:`datalad download-url` took care of saving for you:
+This is because :dlcmd:`download-url` took care of saving for you:
 
 .. runrecord:: _examples/DL-101-102-115
    :language: console

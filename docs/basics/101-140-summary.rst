@@ -9,7 +9,7 @@ services. DataLad integrates well with a variety of free or commercial services,
 and with many available service options this gives you freedom in deciding where
 you store your data and thus who can get access.
 
-- An easy, free, and fast option is :term:`Gin`, a
+- An easy, free, and fast option is :term:`GIN`, a
   web-based repository store for scientific data management. If you are registered
   and have SSH authentication set up, you can create a new, empty repository,
   add it as a sibling to your dataset, and publish all dataset contents -- including
@@ -19,7 +19,7 @@ you store your data and thus who can get access.
   an annex. If a dataset is shared via one of those platforms, annexed data needs
   to be published to an external data store. The published dataset stores
   information about where to obtain annexed file contents from such that a
-  :command:`datalad get` works.
+  :dlcmd:`get` works.
 
 - The external data store can be any of a variety of third party hosting providers.
   To enable data transfer to and from this service, you (may) need to configure an
@@ -27,7 +27,7 @@ you store your data and thus who can get access.
   section :ref:`sharethirdparty` walked you through how this can be done with
   `Dropbox <https://dropbox.com>`_.
 
-- The ``--data`` and ``--force`` options of :command:`datalad push` allows to override
+- The ``--data`` and ``--force`` options of :dlcmd:`push` allows to override
   automatic decision making on to-be-published contents. If it isn't specified,
   DataLad will attempt to figure out itself which and how dataset contents
   shall be published. With a path to files, directories, or subdatasets you

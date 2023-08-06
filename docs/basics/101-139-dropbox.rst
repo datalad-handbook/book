@@ -8,7 +8,7 @@ a friend overseas. After all you know about DataLad, you'd like to let more peop
 know about its capabilities. You and your friend, however, do not have access
 to the same computational infrastructure, and there are also many annexed files, e.g., the PDFs in your dataset, that you'd like your friend to have but that can't be simply computed or automatically obtained from web sources.
 What you would like to do is to provide your friend with a URL to
-install a dataset from *and* successfully run :command:`datalad get`, just as with
+install a dataset from *and* successfully run :dlcmd:`get`, just as with
 the many publicly available DataLad datasets such as the ``longnow`` podcasts.
 
 
@@ -119,7 +119,7 @@ from a large number of commercial providers [#f2]_.
      $ git clone https://github.com/DanielDent/git-annex-remote-rclone.git
      $ export PATH="/home/user-bob/repos/git-annex-remote-rclone:$PATH"
 
-- Finally, in the dataset you want to share, run the :command:`git annex initremote` command.
+- Finally, in the dataset you want to share, run the :gitannexcmd:`initremote` command.
   Give the remote a name (it is ``dropbox-for-friends`` here), and specify the name of  the remote you configured with ``rclone`` with the ``target`` parameters:
 
 .. code-block:: bash
@@ -160,7 +160,7 @@ Gitlab, or a similar hosting service.
 .. index:: ! datalad command; create-sibling-github
 
 You could, for example, create a sibling of the ``DataLad-101`` dataset
-on GitHub with the command :command:`create-sibling-github`.
+on GitHub with the command :dlcmd:`create-sibling-github`.
 This will create a new GitHub repository called "DataLad-101" under your account,
 and configure this repository as a :term:`sibling` of your dataset
 called ``github`` (exactly like you have done in :ref:`yoda_project`
@@ -177,7 +177,7 @@ done with the ``publish-depends <sibling>`` option.
      .: github(-) [https://github.com/<user-name>/DataLad-101.git (git)]
      'https://github.com/<user-name>/DataLad-101.git' configured as sibling 'github' for <Dataset path=/home/me/dl-101/DataLad-101>
 
-:command:`datalad siblings` will again list all available siblings:
+:dlcmd:`siblings` will again list all available siblings:
 
 .. code-block:: bash
 
@@ -246,7 +246,7 @@ contents, and you made sure that they can access the Dropbox folder with
 the annexed files (e.g., by sharing an access link), here is what they would
 have to do:
 
-If the repository is on GitHub, a :command:`datalad clone` with the URL
+If the repository is on GitHub, a :dlcmd:`clone` with the URL
 will install the dataset::
 
    $ datalad clone https://github.com/<user-name>/DataLad-101.git

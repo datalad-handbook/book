@@ -1,4 +1,3 @@
-:dlcmd:`
 Summary
 -------
 

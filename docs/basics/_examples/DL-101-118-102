@@ -1,12 +1,12 @@
 # lets view the history
 $ git log --oneline -n 10
-9e0ec97 add note on clean datasets
-f1c796f [DATALAD RUNCMD] Resize logo for slides
-1a59c05 [DATALAD RUNCMD] Resize logo for slides
-52562c0 add additional notes on run options
-cbcda16 [DATALAD RUNCMD] convert -resize 450x450 recordings/longn...
-1cfe776 resized picture by hand
-c1113a7 [DATALAD RUNCMD] convert -resize 400x400 recordings/longn...
-9f1f034 add note on basic datalad run and datalad rerun
-6fc6ca7 add note datalad and git diff
-7d12e0e [DATALAD RUNCMD] create a list of podcast titles
+b5fc129 add note on clean datasets
+d5845d3 [DATALAD RUNCMD] Resize logo for slides
+d24531d [DATALAD RUNCMD] Resize logo for slides
+af9ca10 add additional notes on run options
+a4044db [DATALAD RUNCMD] convert -resize 450x450 recordings/longn...
+9369462 resized picture by hand
+be503c3 [DATALAD RUNCMD] convert -resize 400x400 recordings/longn...
+4009576 add note on basic datalad run and datalad rerun
+572fd65 add note datalad and git diff
+f4916cc [DATALAD RUNCMD] create a list of podcast titles

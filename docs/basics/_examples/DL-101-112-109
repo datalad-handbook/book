@@ -1,5 +1,5 @@
 $ git log -p -n 2
-commit 9e0ec9750c7e518835f7280f742cc76b760ebad5
+commit b5fc1296ac0f2918369716ee21917da2744ac228
 Author: Elena Piscopia <elena@example.net>
 Date:   Tue Jun 18 16:13:00 2019 +0000
 
@@ -20,7 +20,7 @@ index 6a465f0..e2829b2 100644
 +those changes done to the files listed with --output flags.
 +
 
-commit f1c796ff4ef43c5ea550a6464eba69bd7f1f1132
+commit d5845d332dc06ed2311900d9c08cefda69df5af5
 Author: Elena Piscopia <elena@example.net>
 Date:   Tue Jun 18 16:13:00 2019 +0000
 

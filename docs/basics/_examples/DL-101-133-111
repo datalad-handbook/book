@@ -1,5 +1,5 @@
 $ git log -p -n 1
-commit 7e33487bd2b2e18c8b9e017b7b74a9ad31fb7adf
+commit 264f46ee03aecb456bc3883865ee77d9a38f71ad
 Author: Elena Piscopia <elena@example.net>
 Date:   Tue Jun 18 16:13:00 2019 +0000
 
@@ -26,11 +26,11 @@ Date:   Tue Jun 18 16:13:00 2019 +0000
     ^^^ Do not change lines above ^^^
 
 diff --git a/pairwise_relationships.png b/pairwise_relationships.png
-index 0900ce6..963d5a8 120000
+index d1a536a..963d5a8 120000
 --- a/pairwise_relationships.png
 +++ b/pairwise_relationships.png
 @@ -1 +1 @@
--.git/annex/objects/MP/V8/MD5E-s260804--fe419ff41dd6cd65b4bca2803e3d0190.png/MD5E-s260804--fe419ff41dd6cd65b4bca2803e3d0190.png
+-.git/annex/objects/gX/Mf/MD5E-s260804--b017ecdbfadc21e7ea99be9029d684a0.png/MD5E-s260804--b017ecdbfadc21e7ea99be9029d684a0.png
 \ No newline at end of file
 +.git/annex/objects/q1/gp/MD5E-s261062--025dc493ec2da6f9f79eb1ce8512cbec.png/MD5E-s261062--025dc493ec2da6f9f79eb1ce8512cbec.png
 \ No newline at end of file

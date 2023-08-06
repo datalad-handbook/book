@@ -1,6 +1,6 @@
 $ cd midtermproject
 $ datalad get input/iris.csv
-[INFO] Cloning dataset to Dataset(/home/me/dl-101/midtermproject/input)
+[INFO] Attempting a clone into /home/me/dl-101/midtermproject/input
 [INFO] Attempting to clone from https://github.com/datalad-handbook/iris_data.git to /home/me/dl-101/midtermproject/input
 [INFO] Start enumerating objects
 [INFO] Start counting objects

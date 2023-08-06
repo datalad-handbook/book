@@ -1,11 +1,11 @@
 $ git log
-commit 532908d621463899ebca6fb21fe912e0fa5b1d98
+commit e0ff3a73986b382f985522bde9bc57fa6889e118
 Author: Elena Piscopia <elena@example.net>
 Date:   Tue Jun 18 16:13:00 2019 +0000
 
     Instruct annex to add text files to Git
 
-commit 8ab65cb896618b9057c8603df9a259c0460af888
+commit 4ce681d61d3a0351844ae48b79e965818a7ce636
 Author: Elena Piscopia <elena@example.net>
 Date:   Tue Jun 18 16:13:00 2019 +0000
 

@@ -237,7 +237,7 @@ There are a few core specifications of metadata objects within the context of th
 
 The Catalog schema specifies exactly which fields are required and which data types
 are accepted for each key/value-pair. For an improved understanding of the Catalog schema,
-you can inspect the `JSON documents here <https://github.com/datalad/datalad-catalog/tree/main/datalad_catalog/schema>`_ (``jsonschema_*``).
+you can inspect the `JSON documents here <https://github.com/datalad/datalad-catalog/tree/main/datalad_catalog/catalog/schema>`_ (``jsonschema_*``).
 
 Sample metadata
 """""""""""""""

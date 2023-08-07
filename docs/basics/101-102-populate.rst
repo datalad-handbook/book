@@ -318,7 +318,7 @@ file should be saved in (``.`` denotes "current directory"), and a commit messag
    :notes: finally, datalad-download-url
 
    $ datalad download-url \
-     http://www.tldp.org/LDP/Bash-Beginners-Guide/Bash-Beginners-Guide.pdf \
+     https://www.tldp.org/LDP/Bash-Beginners-Guide/Bash-Beginners-Guide.pdf \
      --dataset . \
      -m "add beginners guide on bash" \
      -O books/bash_guide.pdf

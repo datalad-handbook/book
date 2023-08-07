@@ -56,7 +56,7 @@ Step-by-Step
 
 .. admonition:: Required software
 
-   The analysis requires the Python packages `scikit-learn <https://scikit-learn.org/stable/>`_, `scikit-image <https://scikit-image.org/>`_, `pandas <https://pandas.pydata.org/>`_, and `numpy <https://numpy.org/>`_.
+   The analysis requires the Python packages `scikit-learn <https://scikit-learn.org>`_, `scikit-image <https://scikit-image.org>`_, `pandas <https://pandas.pydata.org>`_, and `numpy <https://numpy.org>`_.
    We have build a :term:`Singularity` :term:`software container` with all relevant software, and the code below will use the ``datalad-containers`` extension [#f1]_ to download the container from :term:`Singularity-Hub` and execute all analysis in this software environment.
    If you do not want to install the ``datalad-containers`` extension or Singularity, you can also create a :term:`virtual environment` with all necessary software if you prefer [#f2]_, and exchange the ``datalad containers-run`` commands below with ``datalad run`` commands.
 
@@ -71,9 +71,9 @@ In a second step, a classifier needs to be trained on the labeled test data.
 It learns which features are to be associated with which class attribute.
 In a final step, the trained classifier classifies the test data, and its results are evaluated against the true labels.
 
-Below, we will go through a image classification analysis on a few categories in the `Imagenette dataset <https://github.com/fastai/imagenette>`_, a smaller subset of the `Imagenet dataset <http://www.image-net.org/>`_, one of the most widely used large scale dataset for bench-marking Image Classification algorithms. It contains images from ten categories (tench (a type of fish), English springer (a type of dog), cassette player, chain saw, church, French horn, garbage truck, gas pump, golf ball, parachute).
+Below, we will go through a image classification analysis on a few categories in the `Imagenette dataset <https://github.com/fastai/imagenette>`_, a smaller subset of the `Imagenet dataset <https://image-net.org>`_, one of the most widely used large scale dataset for bench-marking Image Classification algorithms. It contains images from ten categories (tench (a type of fish), English springer (a type of dog), cassette player, chain saw, church, French horn, garbage truck, gas pump, golf ball, parachute).
 We will prepare a subset of the data, and train and evaluate different types of classifier.
-The analysis is based on `this tutorial <https://realpython.com/python-data-version-control/>`_.
+The analysis is based on `this tutorial <https://realpython.com/python-data-version-control>`_.
 
 First, let's create an input data dataset.
 Later, this dataset will be installed as a subdataset of the analysis.
@@ -618,13 +618,13 @@ The attached software container makes sure that your analysis will always be rer
 References
 ^^^^^^^^^^
 
-The analysis is adapted from the chapter :ref:`dvc`, which in turn is based on `this tutorial at RealPython.org <https://realpython.com/python-data-version-control/>`_.
+The analysis is adapted from the chapter :ref:`dvc`, which in turn is based on `this tutorial at RealPython.org <https://realpython.com/python-data-version-control>`_.
 
 .. rubric:: Footnotes
 
 .. [#f1] You can install the ``datalad-containers`` extension from :term:`pip` via ``pip install datalad-container``. You can find out more about extensions in general in the section :ref:`extensions_intro`, and you can more computationally reproducible analysis using ``datalad container`` in the chapter :ref:`containersrun` and the usecase :ref:`usecase_reproduce_neuroimg`.
 
-.. [#f2] Unsure how to create a :term:`virtual environment`? You can find a tutorial using :term:`pip` and the ``virtualenv`` module `in the Python docs <https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/>`_.
+.. [#f2] Unsure how to create a :term:`virtual environment`? You can find a tutorial using :term:`pip` and the ``virtualenv`` module `in the Python docs <https://packaging.python.org/guides/installing-using-pip-and-virtual-environments>`_.
 
 .. [#f3] To re-read about :term:`run procedure`\s, check out section :ref:`procedures`.
 

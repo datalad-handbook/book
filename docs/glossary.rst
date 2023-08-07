@@ -72,7 +72,7 @@ Glossary
 
    conda
       A package, dependency, and environment management system for a number of programming languages.
-      Find out more at `docs.conda.io <https://docs.conda.io/en/latest>`_.
+      Find out more at `docs.conda.io <https://docs.conda.io>`_.
       It overlaps with :term:`pip` in functionality, but it is advised to not use both tools simultaneously for package management.
 
    container recipe
@@ -95,7 +95,7 @@ Glossary
       gives an overview of available extensions contains demonstrations.
 
    DataLad Gooey
-      A :term:`DataLad extension` that provides DataLad with a graphical user interface. Find out more in its Documentation: `docs.datalad.org/projects/gooey <http://docs.datalad.org/projects/gooey/en/latest>`_
+      A :term:`DataLad extension` that provides DataLad with a graphical user interface. Find out more in its Documentation: `docs.datalad.org/projects/gooey <https://docs.datalad.org/projects/gooey>`_
 
    DataLad subdataset
       A DataLad dataset contained within a different DataLad dataset (the parent or :term:`DataLad superdataset`).
@@ -153,7 +153,7 @@ Glossary
 
    fork
       Git concept on repository hosting sites (GitHub, GitLab, Gin, ...);
-      `A fork is a copy of a repository on a web-based Git repository hosting site <https://docs.github.com/en/github/getting-started-with-github/fork-a-repo>`__.
+      `A fork is a copy of a repository on a web-based Git repository hosting site <https://docs.github.com/en/get-started/quickstart/fork-a-repo>`__.
 
    GIN
       A web-based repository store for data management that you can use to host and
@@ -371,7 +371,7 @@ Glossary
       whenever you want to access the remote server or service.
       Services such as :term:`GitHub`, :term:`GitLab`, and :term:`Gin` use SSH keys and the SSH protocol
       to ease access to repositories. This
-      `tutorial by GitHub <https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent>`_
+      `tutorial by GitHub <https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent>`_
       is a detailed step-by-step instruction to generate and use SSH keys for authentication.
 
    SSH server
@@ -435,7 +435,7 @@ Glossary
 
    the DataLad superdataset ///
       DataLad provides unified access to a large amount of data at an open data
-      collection found at `datasets.datalad.org <http://datasets.datalad.org>`_.
+      collection found at `datasets.datalad.org <https://datasets.datalad.org>`_.
       This collection is known as "The DataLad superdataset" and under its shortcut,
       ``///``. You can install the superdataset -- and subsequently query its content via metadata
       search -- by running ``datalad clone ///``.

@@ -25,7 +25,7 @@ you store your data and thus who can get access.
   To enable data transfer to and from this service, you (may) need to configure an
   appropriate :term:`special remote`, and configure a publication dependency. The
   section :ref:`sharethirdparty` walked you through how this can be done with
-  `Dropbox <https://dropbox.com>`_.
+  `Dropbox <https://www.dropbox.com>`_.
 
 - The ``--data`` and ``--force`` options of :dlcmd:`push` allows to override
   automatic decision making on to-be-published contents. If it isn't specified,

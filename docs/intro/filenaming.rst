@@ -125,7 +125,7 @@ So while having invalid characters in your files is 1) a considerably convoluted
 Avoid illegal file names
 ========================
 
-Windows has the fun concept of `reserved file names <https://docs.microsoft.com/en-us/windows/win32/fileio/naming-a-file?redirectedfrom=MSDN#win32-file-namespaces>`_, which are names that referred to system actions or devices in OS versions predating current versions of Windows.
+Windows has the fun concept of `reserved file names <https://learn.microsoft.com/en-us/windows/win32/fileio/naming-a-file#win32-file-namespaces>`_, which are names that referred to system actions or devices in OS versions predating current versions of Windows.
 These names are
 
 .. code-block::
@@ -175,7 +175,7 @@ Much information and some general structure of this page is taken from `RFC 8493
 The links used throughout this overview provide details and further information for particular issues.
 A good general overview on how to name files can be found at `psychoinformatics-de.github.io/rdm-course/02-structuring-data/index.html <https://psychoinformatics-de.github.io/rdm-course/02-structuring-data/index.html>`_.
 
-Do you know more? `We're eager to include your advice <https://github.com/datalad-handbook/book/issues/new/>`_!
+Do you know more? `We're eager to include your advice <https://github.com/datalad-handbook/book/issues/new>`_!
 
 .. rubric:: Footnotes
 

@@ -130,7 +130,7 @@ Cloning is a fast operation, and the resulting dataset typically takes up only a
    cd ../
    datalad clone https://github.com/psychoinformatics-de/studyforrest-data-phase2.git
 
-What we have cloned is the `studyforrest dataset <https://studyforrest.org>`_, a neuroimaging dataset with a few Gigabytes of data.
+What we have cloned is the `studyforrest dataset <https://www.studyforrest.org>`_, a neuroimaging dataset with a few Gigabytes of data.
 After installations, the directory tree can be browsed, but most files in datasets will not yet contain file content.
 This makes cloning fast and datasets lightweight::
 
@@ -162,11 +162,11 @@ You retain access to the file via :dlcmd:`get`::
 
 This mechanism gives you access to data without the necessity to store all of the data locally.
 As long as there is one location where data is available from (a dataset on a shared cluster, a web source, cloud storage, a USB-stick, ...) and this source is known, there is no need for storing data when it is not in use.
-If you want to try it with large amount of data, checkout `datasets.datalad.org <http://datasets.datalad.org/>`_, a collection of more than 200TB of open data (also called :term:`The DataLad superdataset ///` because it is a dataset hierarchy that includes a large range of public datasets and can be obtained by running ``datalad clone ///``).
+If you want to try it with large amount of data, checkout `datasets.datalad.org <https://datasets.datalad.org>`_, a collection of more than 200TB of open data (also called :term:`The DataLad superdataset ///` because it is a dataset hierarchy that includes a large range of public datasets and can be obtained by running ``datalad clone ///``).
 
 .. importantnote:: In fact, use your DataLad skills right now!
 
-   In order to prepare the next session by Dr. David Keator, please clone the `adhd200 Brown <http://fcon_1000.projects.nitrc.org/indi/adhd200/>`_ dataset and retrieve all of its data (1.4GB in total)::
+   In order to prepare the next session by Dr. David Keator, please clone the `adhd200 Brown <https://fcon_1000.projects.nitrc.org/indi/adhd200>`_ dataset and retrieve all of its data (1.4GB in total)::
 
       # make sure to do this in a different directory
       datalad clone ///adhd200/RawDataBIDS/Brown
@@ -210,7 +210,7 @@ transformed into appropriate formats (NIfTI) and standardized to an intuitive
 layout (BIDS).
 For the task at hand, the `ReproIn <https://github.com/ReproNim/reproin>`_ suite
 is the software of choice. It is build on
-`HeudiConv <https://heudiconv.readthedocs.io/en/latest/>`_, and beyond converting
+`HeudiConv <https://heudiconv.readthedocs.io>`_, and beyond converting
 DICOMs to NIfTI, it also provides assistance in converting a raw data set to the
 BIDS standard, and it integrates with DataLad to place converted and original
 data under version control, while automatically annotating files with
@@ -221,8 +221,8 @@ able to go back to it at a later stage should we have the
 need to investigate an issue, and to capture *full* provenance of the
 transformation process, we can use a software container that contains the
 relevant software setup.
-A ready-made container collection of container images is available from `ReproNim <https://www.repronim.org/>`_ as a DataLad dataset at
-`github.com/ReproNim/containers/ <https://github.com/ReproNim/containers/>`_.
+A ready-made container collection of container images is available from `ReproNim <https://www.repronim.org>`_ as a DataLad dataset at
+`github.com/ReproNim/containers/ <https://github.com/ReproNim/containers>`_.
 It can be installed as a subdataset::
 
    datalad clone -d . \
@@ -278,7 +278,7 @@ Let's share this data with our friends and collaborators.
 There are many ways to do this (section :ref:`chapter_thirdparty` has all the details), but
 a convenient way is `Gin <https://gin.g-node.org>`_, a free hosting service for DataLad datasets.
 
-First, you need to head over to `gin.g-node.org <https://gin.g-node.org/>`__, log in, and upload an :term:`SSH key`. Then, under your user account, create a new repository, and copy it's SSH URL.
+First, you need to head over to `gin.g-node.org <https://gin.g-node.org>`__, log in, and upload an :term:`SSH key`. Then, under your user account, create a new repository, and copy it's SSH URL.
 A step by step instruction with screenshots is in the section :ref:`gin`.
 
 You can register this URL as a sibling dataset to your own dataset using :dlcmd:`siblings add`::
@@ -339,7 +339,7 @@ Importantly, this container does not need to contain the analysis script.
 It just needs the correct software that the script requires -- in this case, a Python 3 environment with nilearn installed.
 
 At this point in the tutorial, you should have created your own Docker container with the necessary Python environment.
-In addition to this Docker container, we're also providing a `singularity <http://singularity.lbl.gov/>`_ image. Singularity is a useful alternative to Docker, because, unlike Docker, it can be run on shared computational infrastructure such as HPC systems without posing a security risk.
+In addition to this Docker container, we're also providing a `singularity <https://singularity.lbl.gov>`_ image. Singularity is a useful alternative to Docker, because, unlike Docker, it can be run on shared computational infrastructure such as HPC systems without posing a security risk.
 
 .. find-out-more:: Creating a Singularity container with Neurodocker and Singularity Hub
 
@@ -354,7 +354,7 @@ In addition to this Docker container, we're also providing a `singularity <http:
                   pip_install='nilearn matplotlib' \
       --entrypoint "/neurodocker/startup.sh python"
 
-   The resulting recipe can be saved into a Git repository or DataLad dataset, and `Singularity Hub <https://singularity-hub.org/>`_ can be used to build and host the :term:`container image`.
+   The resulting recipe can be saved into a Git repository or DataLad dataset, and `Singularity Hub <https://singularity-hub.org>`_ can be used to build and host the :term:`container image`.
    Alternatively, a ``sudo singularity build <container-name> <recipe>`` build the image locally, and you can add it from a path to your dataset.
 
 Let's add this container to the dataset using :dlcmd:`containers-add`.

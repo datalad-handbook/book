@@ -129,7 +129,7 @@ If you are a Windows 10 user with a native (i.e., not `Windows Subsystem for Lin
 
    A range of file system issues can affect the behavior of DataLad or its underlying tools on Windows 10.
    If necessary, the handbook provides workarounds for problems, explanations, or at least apologies for those inconveniences.
-   If you want to help us make the handbook or DataLad better for Windows users, please `get in touch <https://github.com/datalad-handbook/book/issues/new/>`_ -- every little improvement or bug report can help.
+   If you want to help us make the handbook or DataLad better for Windows users, please `get in touch <https://github.com/datalad-handbook/book/issues/new>`_ -- every little improvement or bug report can help.
 
 Apart from core DataLad commands (introduced in the *Basics* part of this book),
 DataLad also comes with many extensions and advanced commands not (yet) referenced
@@ -137,8 +137,8 @@ in this handbook. The development of many of these features
 is ongoing, and this handbook will incorporate all DataLad commands and extensions
 *once they are stable* (that is, once the command(-structure) is likely not to
 change anymore). If you are looking for a feature but cannot find it in this
-handbook, please take a look at the `documentation <http://docs.datalad.org>`_,
-`write <http://handbook.datalad.org/en/latest/contributing.html>`_ or
+handbook, please take a look at the `documentation <https://docs.datalad.org>`_,
+`write <https://handbook.datalad.org/contributing.html>`_ or
 `request <https://github.com/datalad-handbook/book/issues/new>`_
 an additional chapter if you believe it is a worthwhile addition, or
 `ask a question on Neurostars.org <https://neurostars.org/latest>`_

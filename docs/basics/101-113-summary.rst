@@ -71,4 +71,4 @@ Further reading
 
 The chapter on :dlcmd:`run` provided an almost complete feature overview of the command.
 If you want, you can extend this knowledge with computational environments and :dlcmd:`containers-run` in chapter :ref:`containersrun`.
-In addition, you can read up on other forms of computing usecases - for example, how to use :dlcmd:`run` in interactive computing environments such as `Jupyter Notebooks <https://knowledge-base.psychoinformatics.de/kbi/0003/index.html>`_.
+In addition, you can read up on other forms of computing usecases - for example, how to use :dlcmd:`run` in interactive computing environments such as `Jupyter Notebooks <https://knowledge-base.psychoinformatics.de/kbi/0003>`_.

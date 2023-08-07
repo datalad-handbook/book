@@ -142,7 +142,7 @@ archive, re-using the exact same directory structure, and remains fully
 accessible while only using a handful of inodes, regardless of file
 number and size. If the dataset contains only annexed files, a complete dataset
 can be represented in about 25 inodes.
-A detailed example and utility script can be found at `knowledge-base.psychoinformatics.de/kbi/0024/index.html <https://knowledge-base.psychoinformatics.de/kbi/0024/index.html>`_.
+A detailed example and utility script can be found at `knowledge-base.psychoinformatics.de/kbi/0024 <https://knowledge-base.psychoinformatics.de/kbi/0024>`_.
 
 Taking all of the above information together, on an infrastructural level,
 a RIA store is fully self-contained, and is a plain file system storage, not a
@@ -463,9 +463,9 @@ sibling creation:
 - A URL to a RIA store on a local file system also looks like during sibling
   creation: ``ria+file:///absolute/path/to/ria-store``
 - A URL for read (without annex) access to a store via :term:`http` (e.g., to a RIA store like
-  `store.datalad.org <http://store.datalad.org>`_, through which the
+  `store.datalad.org <https://store.datalad.org>`_, through which the
   :ref:`HCP dataset is published <usecase_HCP_dataset>`) looks like this:
-  ``ria+http://store.datalad.org:/absolute/path/to/ria-store``
+  ``ria+https://store.datalad.org:/absolute/path/to/ria-store``
 
 The appropriate ``ria+`` URL needs to be suffixed with a ``#`` sign and a dataset
 identifier. One way this can be done is via the dataset ID.
@@ -599,7 +599,7 @@ in the findoutmore below:
    `HCP dataset <https://github.com/datalad-datasets/human-connectome-project-openaccess>`_::
 
       [datalad "get"]
-          subdataset-source-candidate-origin = "ria+http://store.datalad.org#{id}"
+          subdataset-source-candidate-origin = "ria+https://store.datalad.org#{id}"
 
    With this configuration, a :dlcmd:`get` can use the URL and insert
    the dataset ID in question into the ``{id}`` placeholder to clone directly
@@ -624,7 +624,7 @@ cloning operations: Datasets in RIA stores can be cloned in specific versions.
 
    .. code-block:: bash
 
-      $ datalad clone ria+http://store.datalad.org#~hcp-structural-preprocessed@bids
+      $ datalad clone ria+https://store.datalad.org#~hcp-structural-preprocessed@bids
 
    If you are interested in finding out how this dataset came into existence,
    checkout the use case :ref:`usecase_HCP_dataset`.

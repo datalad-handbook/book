@@ -47,7 +47,7 @@ Strategy 3: Selective publishing
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If it is individual files that you do not want to share, you can selectively publish the contents of all files you want others to have, and withhold the data of the files you do not want to share.
-This can be done by providing paths to the data that should be published, or a `git-annex-wanted <https://git-annex.branchable.com/git-annex-wanted/>`_ configuration and the ``--data auto`` option.
+This can be done by providing paths to the data that should be published, or a `git-annex-wanted <https://git-annex.branchable.com/git-annex-wanted>`_ configuration and the ``--data auto`` option.
 
 Let's say you have a dataset with three files:
 
@@ -65,7 +65,7 @@ By publishing only the file contents of ``experiment.txt`` with
 
 only meta data about file availability of ``subject_1.dat`` and ``subject_2.dat`` exists, but as these files' annexed data is not published, a :dlcmd:`get`
 will fail.
-Note, though, that :dlcmd:`push` will publish the complete dataset history (unless you specify a commit range with the ``--since`` option -- see the `manual <http://docs.datalad.org/en/latest/generated/man/datalad-push.html>`_ for more information).
+Note, though, that :dlcmd:`push` will publish the complete dataset history (unless you specify a commit range with the ``--since`` option -- see the `manual <https://docs.datalad.org/en/latest/generated/man/datalad-push.html>`_ for more information).
 
 
 

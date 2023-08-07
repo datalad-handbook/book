@@ -8,7 +8,7 @@ Scaling up: Managing 80TB and 15 million files from the HCP release
 This usecase outlines how a large data collection can be version controlled
 and published in an accessible manner with DataLad in a remote indexed
 archive (RIA) data store. Using the
-`Human Connectome Project <http://www.humanconnectomeproject.org/>`_
+`Human Connectome Project <http://www.humanconnectomeproject.org>`_
 (HCP) data as an example, it shows how large-scale datasets can be managed
 with the help of modular nesting, and how access to data that is contingent on
 usage agreements and external service credentials is possible via DataLad
@@ -23,7 +23,7 @@ without circumventing or breaching the data providers terms:
    and mitigates performance problems that would arise in oversized standalone
    datasets, but maintains access to any subdataset from the top-level dataset.
 #. Individual datasets are stored in a remote indexed archive (RIA) store
-   at `store.datalad.org <http://store.datalad.org/>`__ under their :term:`dataset ID`.
+   at store.datalad.org_ under their :term:`dataset ID`.
    This setup constitutes a flexible, domain-agnostic, and scalable storage
    solution, while dataset configurations enable seamless automatic dataset
    retrieval from the store.
@@ -43,10 +43,10 @@ The Challenge
 
 .. index:: ! Human Connectome Project (HCP)
 
-The `Human Connectome Project <http://www.humanconnectomeproject.org/>`_ aims
+The `Human Connectome Project <http://www.humanconnectomeproject.org>`_ aims
 to provide an unparalleled compilation of neural data through a customized
 database. Its largest open access data collection is the
-`WU-Minn HCP1200 Data <https://humanconnectome.org/study/hcp-young-adult/document/1200-subjects-data-release/>`_.
+`WU-Minn HCP1200 Data <https://humanconnectome.org/study/hcp-young-adult/document/1200-subjects-data-release>`_.
 It is made available via a public AWS S3 bucket and includes high-resolution 3T
 `magnetic resonance <https://en.wikipedia.org/wiki/Magnetic_resonance_imaging>`_
 scans from young healthy adult twins and non-twin siblings (ages 22-35)
@@ -123,7 +123,7 @@ users only need to:
 
 - :dlcmd:`clone` the superdataset from :term:`GitHub`
   (`github.com/datalad-datasets/human-connectome-project-openaccess <https://github.com/datalad-datasets/human-connectome-project-openaccess>`_)
-- Create an account at http://db.humanconnectome.org to accept data use terms
+- Create an account at https://db.humanconnectome.org to accept data use terms
   and obtain AWS credentials
 - Use :dlcmd:`get [-n] [-r] PATH` to retrieve file, directory, or
   subdataset contents on demand. Authentication is necessary only
@@ -265,7 +265,7 @@ hidden section below.
    Once the subject specific tables exist, :dlcmd:`addurls` can start
    to aggregate the files into datasets. To do it efficiently, this can be done
    in parallel by using a job scheduler. On the computer cluster the datasets
-   were aggregated, this was `HTCondor <https://research.cs.wisc.edu/htcondor/>`_.
+   were aggregated, this was `HTCondor <https://research.cs.wisc.edu/htcondor>`_.
 
    The jobs (per subject) performed by HTCondor consisted of
 
@@ -304,14 +304,14 @@ All datasets were built on a scientific compute cluster. In this location, howev
 datasets would only be accessible to users with an account on this system.
 Subsequently, therefore, everything was published with
 :dlcmd:`push` to the publicly available
-`store.datalad.org <http://store.datalad.org/>`_, a remote indexed archive (RIA)
+store.datalad.org_, a remote indexed archive (RIA)
 store.
 
 A RIA store is a flexible and scalable data storage solution for DataLad datasets.
 While its layout may look confusing if one were to take a look at it, a RIA store
 is nothing but a clever storage solution, and users never consciously interact
 with the store to get the HCP datasets.
-On the lowest level, `store.datalad.org <http://store.datalad.org/>`__
+On the lowest level, store.datalad.org_
 is a directory on a publicly accessible server that holds a great number of datasets
 stored as :term:`bare git repositories`. The only important aspect of it for this
 usecase is that instead of by their names (e.g., ``100206``), datasets are stored
@@ -326,7 +326,7 @@ datasets from a RIA store based on their ID.
 
    - a ``ria+`` identifier
    - a path/url to the store in question. For store.datalad.org, this is
-     ``http://store.datalad.org``, but it could also be an SSH url, such as
+     ``https://store.datalad.org``, but it could also be an SSH url, such as
      ``ssh://juseless.inm7.de/data/group/psyinf/dataset_store``
    - a pound sign (``#``)
    - the dataset ID
@@ -337,7 +337,7 @@ datasets from a RIA store based on their ID.
 
    .. code-block:: bash
 
-      datalad clone 'ria+http://store.datalad.org#d1ca308e-3d17-11ea-bf3b-f0d5bf7b5561' subj-01
+      datalad clone 'ria+https://store.datalad.org#d1ca308e-3d17-11ea-bf3b-f0d5bf7b5561' subj-01
 
    But worry not! To get the HCP data, no-one will ever need to compose
    :dlcmd:`clone` commands to RIA stores apart from DataLad itself.
@@ -397,7 +397,7 @@ other public DataLad dataset: One needs to :dlcmd:`clone` the repository
 and use :dlcmd:`get [-n] [-r] PATH` to retrieve any file, directory,
 or subdataset (content). But because the data will be downloaded from the HCP's
 AWS S3 bucket, users will need to create an account at
-`db.humanconnectome.org <http://db.humanconnectome.org>`_ to agree to the project's
+`db.humanconnectome.org <https://db.humanconnectome.org>`_ to agree to the project's
 data usage terms and get credentials. When performing the first :dlcmd:`get` for file contents, DataLad will prompt for these credentials interactively
 from the terminal. Once supplied, all subsequent :dlcmd:`get` commands will
 retrieve data right away.
@@ -405,7 +405,7 @@ retrieve data right away.
 .. find-out-more:: Resetting AWS credentials
 
    In case one misenters their AWS credentials or needs to reset them,
-   this can easily be done using the `Python keyring <https://keyring.readthedocs.io/en/latest/>`_
+   this can easily be done using the `Python keyring <https://keyring.readthedocs.io>`_
    package. For more information on ``keyring`` and DataLad's authentication
    process, see the *Basic process* section in :ref:`providers`.
 
@@ -449,7 +449,7 @@ RIA URL that retrieves the correct dataset from the store by :dlcmd:`get`:
     [datalad "dataset"]
         id = 2e2a8a70-3eaa-11ea-a9a5-b4969157768c
     [datalad "get"]
-        subdataset-source-candidate-origin = "ria+http://store.datalad.org#{id}"
+        subdataset-source-candidate-origin = "ria+https://store.datalad.org#{id}"
 
 This configuration allows :dlcmd:`get` to flexibly generate RIA URLs from the
 base URL in the config file and the dataset IDs listed in ``.gitmodules``. In
@@ -458,7 +458,7 @@ command.
 Because the configuration should be shared together with the dataset, the
 configuration needed to be set in ``.datalad/config`` [#f6]_::
 
-   $ git config -f .datalad/config "datalad.get.subdataset-source-candidate-origin" "ria+http://store.datalad.org#{id}"
+   $ git config -f .datalad/config "datalad.get.subdataset-source-candidate-origin" "ria+https://store.datalad.org#{id}"
 
 With this configuration, :dlcmd:`get` will retrieve all subdatasets from the
 RIA store. Any subdataset that is obtained from a RIA store in turn gets the very
@@ -473,7 +473,7 @@ Speeding operations up
 
 At this point in time, the HCP dataset is a single, published superdataset with
 ~4500 subdatasets that are hosted in a :term:`remote indexed archive (RIA) store`
-at `store.datalad.org <http://store.datalad.org/>`_.
+at store.datalad.org_.
 This makes the HCP data accessible via DataLad and its download easier.
 One downside to gigantic nested datasets like this one, though, is the time it
 takes to retrieve all of it. Some tricks can help to mitigate this: Contents
@@ -496,6 +496,7 @@ to their scripts and even share it, and the complete HCP release can be stored
 at a fraction of its total size for on demand retrieval.
 
 
+.. _store.datalad.org: https://store.datalad.org
 
 .. rubric:: Footnotes
 

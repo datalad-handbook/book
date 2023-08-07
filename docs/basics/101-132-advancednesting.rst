@@ -157,7 +157,7 @@ interested in this, checkout the :ref:`dedicated Findoutmore <fom-status>`.
    how untracked dataset content should be reported with the ``--untracked``
    option, or get additional information from annexed content with the ``--annex``
    option. To get a complete overview on what you could do, check out the technical
-   documentation of :dlcmd:`status` `here <http://docs.datalad.org/en/latest/generated/man/datalad-status.html>`_.
+   documentation of :dlcmd:`status` `here <https://docs.datalad.org/en/latest/generated/man/datalad-status.html>`_.
 
    Before we leave this hidden section, lets undo the modification of the subdataset
    by removing the untracked file:

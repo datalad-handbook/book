@@ -163,7 +163,7 @@ Cloning is a fast operation, and the resulting dataset typically takes up only a
    cd ../
    datalad clone git@github.com:psychoinformatics-de/studyforrest-data-phase2.git
 
-What we have cloned is the `studyforrest dataset <https://studyforrest.org>`_, a neuroimaging dataset with a few Gigabytes of data.
+What we have cloned is the `studyforrest dataset <https://www.studyforrest.org>`_, a neuroimaging dataset with a few Gigabytes of data.
 After installations, the directory tree can be browsed, but most files in datasets will not yet contain file content.
 This makes cloning fast and datasets lightweight::
 
@@ -214,7 +214,7 @@ Opening the comic works again, afterwards::
 
 This mechanism gives you access to data without the necessity to store all of the data locally.
 As long as there is one location that data is available from (a dataset on a shared cluster, a web source, cloud storage, a USB-stick, ...) and this source is known, there is no need for storing data when it is not in use.
-If you want to try it with large amounts of data, checkout `datasets.datalad.org <http://datasets.datalad.org/>`_, a collection of more than 200TB of open data (also called :term:`The DataLad superdataset ///` because it is a dataset hierarchy that includes a large range of public datasets and can be obtained by running ``datalad clone \\\``).
+If you want to try it with large amounts of data, checkout `datasets.datalad.org <https://datasets.datalad.org>`_, a collection of more than 200TB of open data (also called :term:`The DataLad superdataset ///` because it is a dataset hierarchy that includes a large range of public datasets and can be obtained by running ``datalad clone \\\``).
 
 Dataset nesting
 ^^^^^^^^^^^^^^^
@@ -405,7 +405,7 @@ This records a pre-created software environment with the required Python package
 
 .. admonition:: Software note
 
-   You need to have a software that can work with software containers -- either `singularity <https://sylabs.io/guides/3.5/user-guide/>`_ or `Docker <https://www.docker.com/>`_!
+   You need to have a software that can work with software containers -- either `singularity <https://docs.sylabs.io/guides/3.5/user-guide>`_ or `Docker <https://www.docker.com>`_!
 
 .. find-out-more:: Why may Singularity be a better choice than Docker?
 

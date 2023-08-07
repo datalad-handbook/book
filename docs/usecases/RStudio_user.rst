@@ -45,7 +45,7 @@ Max first want to clone the repository on their computer, they use the Rstudio
 
 Max can't see submodules content and comes to Bobby.
 
-Bobby comes and run `datalad get . -n -r` in the terminal window of Rstudio. 
+Bobby comes and run ``datalad get . -n -r`` in the terminal window of Rstudio. 
 
 .. figure:: ../artwork/src/Rstudio/Rstudio-create.jpg
    :scale: 80 %
@@ -56,10 +56,10 @@ Bobby comes and run `datalad get . -n -r` in the terminal window of Rstudio.
 
 They then explain:
   - Rstudio can only use simple Git commands, which do not clone submodule content.
-  - DataLad command are run in the terminal window. DataLad does not have a R package and do not run in the console
-  - This specific function `get .` will download all files, it has two options:
-     - `-n` option means annexed files will not be downloaded
-     - `-r` option (short for ``--recursive``) means that the function is run in all submodules, recursively
+  - DataLad command are run in the terminal window. DataLad does not have a R package and do not run in the console.
+  - This specific function :command:`datalad get .` will download all files, it has two options:
+     - ``-n`` option means annexed files will not be downloaded
+     - ``-r`` option (short for ``--recursive``) means that the function is run in all submodules, recursively.
 
 Max is thanking Bobby for the insights.
 Before leaving, Bobby gives an additional advice: Our template uses "pure Git" repositories, DataLad functions will work but they will not use git-annex. 
@@ -67,17 +67,17 @@ Looking at Max incredule face, they explain further: you will now be able to use
 So you need to turn this pure Git repository into proper :term:`DataLad dataset` (meaning a Git repository with additional features from :term:`git-annex` and DataLad).
 
 Max is a bit puzzled and read the basics chapter of the handbook again.
-Then, they see that :command:`datalad create --force` is the correct command  to create a DataLad dataset
+Then, they see that :command:`datalad create --force` is the correct command  to create a DataLad dataset.
 when the folder already exist, so they  run 
-`datalad create --force -r` in the parent repository.
+``datalad create --force -r`` in the parent repository.
 Now they are sure they set up datalad to work in the repository and all submodules,
-since they used the `-r`  option.
+since they used the ``-r``  option.
 
   
 Working on the code
 ^^^^^^^^^^^^^^^^^^^
 
-Max starts to write some script he saves in the analysis submodule, and use `datalad save -r -m "this is a first draft of the script"` command in the terminal (in the parent repository). 
+Max starts to write some script he saves in the analysis submodule, and use :command:`datalad save` typing ``datalad save -r -m "this is a first draft of the script"`` command in the terminal (in the parent repository). 
 The commit history of the parent and the analysis repositories shows the message and Max things everything works fine.
 Max change the script, but Rstudio does not want to save the changes.
 Max save a copy of the script file and call Bobby for help.

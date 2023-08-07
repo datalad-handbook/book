@@ -343,6 +343,7 @@ latex_additional_files = [
     # the following files are included in the main latex document
     # in the order with which the are listed here
     'latex/preamble_start.sty',
+    'latex/fontpkg.sty',
     'latex/preamble_end.sty',
     'latex/titlepage.sty',
 ]
@@ -354,6 +355,10 @@ latex_elements = {
     'papersize': 'a4paper',
     'pointsize': '11pt',
     'figure_align': 'htbp',
+    'extraclassoptions': 'openany,twoside',
+    'passoptionstopackages': r'\input{preamble_start.sty}',
+    'fontpkg': r'\input{fontpkg.sty}',
+    'fncychap': r'\usepackage[Bjarne]{fncychap}',
     'sphinxsetup': r"""
 verbatimwithframe=false,%
 VerbatimColor={rgb}{1,1,1},%
@@ -369,9 +374,6 @@ cautionborder=3pt,%
 cautionBorderColor={named}{Cyan},%
 cautionBgColor={named}{LightCyan}%
 """,
-    'extraclassoptions': 'openany,twoside',
-    'passoptionstopackages': r'\input{preamble_start.sty}',
-    'fncychap': r'\usepackage[Bjarne]{fncychap}',
     'preamble': r'\input{preamble_end.sty}',
     'maketitle':
         '%s%s%s\n\\input{titlepage.sty}' % (

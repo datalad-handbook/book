@@ -3,11 +3,11 @@
 OpenNeuro Quickstart Guide: Accessing OpenNeuro datasets via DataLad
 --------------------------------------------------------------------
 
-`OpenNeuro <https://openneuro.org/>`__ is a free and open platform for sharing neuroimaging data.
+`OpenNeuro <https://openneuro.org>`__ is a free and open platform for sharing neuroimaging data.
 Researchers can upload their own data to share it with others and also download others shared data from OpenNeuro with various methods.
 
 .. figure:: ../artwork/src/openneuro.png
-   :target: https://openneuro.org/
+   :target: https://openneuro.org
 
 Among other downloading options, OpenNeuro publishes its hosted data as DataLad datasets on :term:`GitHub` and each dataset can be installed with DataLad as a DataLad dataset.
 If you want to find out about this option, this section contains basic insights and commands to get you started even if you haven't used DataLad before.
@@ -38,7 +38,7 @@ Afterwards, you can browse the dataset for files that you need and obtain them w
      action summary:
         get (ok: 1)
 
-Likewise, you can get datasets from OpenNeuro (and legacy datasets from OpenNeuro's predecessor `OpenfMRI <https://openfmri.org/>`_) via :term:`the Datalad superdataset ///`::
+Likewise, you can get datasets from OpenNeuro (and legacy datasets from OpenNeuro's predecessor `OpenfMRI <https://openfmri.org>`_) via :term:`the Datalad superdataset ///`::
 
    $ datalad clone ///openneuro/ds002336
    # you can also install legacy datasets from openfMRI

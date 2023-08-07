@@ -295,7 +295,7 @@ Nevertheless, it may be important to know that some tools that you would expect 
 Some **file managers** (e.g., OSX's Finder) may not display broken symlinks.
 In these cases, it will be impossible to browse and explore the file hierarchy of not-yet-retrieved files with the file manager.
 You can make sure to always be able to see the file hierarchy in two separate ways:
-Upgrade your file manager to display file types in DataLad datasets (e.g., the `git-annex-turtle extension <https://github.com/andrewringler/git-annex-turtle>`_ for Finder), or use the `DataLad Gooey <http://docs.datalad.org/projects/gooey>`_ to browse datasets.
+Upgrade your file manager to display file types in DataLad datasets (e.g., the `git-annex-turtle extension <https://github.com/andrewringler/git-annex-turtle>`_ for Finder), or use the `DataLad Gooey <https://docs.datalad.org/projects/gooey>`_ to browse datasets.
 Alternatively, use the :shcmd:`ls` command in a terminal instead of a file manager GUI.
 Other tools may be more more specialized, smaller, or domain-specific, and may fail to correctly work with broken symlinks, or display unhelpful error messages when handling them, or require additional flags to modify their behavior.
 When encountering unexpected behavior or failures, try to keep in mind that a dataset without retrieved content appears to be a pile of broken symlinks to a range of tools, consult a tools documentation with regard to symlinks, and check whether data retrieval fixes persisting problems.

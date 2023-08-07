@@ -3,7 +3,7 @@
 DataCat - a shiny front-end for your dataset
 --------------------------------------------
 
-If you're looking for ways to showcase your datasets, look no further than the `datalad-catalog extension <http://docs.datalad.org/projects/catalog/en/latest/index.html>`_.
+If you're looking for ways to showcase your datasets, look no further than the `datalad-catalog extension <https://docs.datalad.org/projects/catalog>`_.
 This extension takes your favorite datasets and metadata, and generates a static website from it.
 
 .. figure:: ../artwork/src/catalog/datalad_catalog.svg
@@ -11,8 +11,8 @@ This extension takes your favorite datasets and metadata, and generates a static
 For quick access to more resources, have a look at:
 
 - The `live demo catalog <https://datalad.github.io/datalad-catalog>`_
-- A 3-minute `explainer video <https://www.youtube.com/watch?v=4GERwj49KFc>`_
-- The `datalad-catalog documentation <https://docs.datalad.org/projects/catalog/en/latest>`_
+- A 3-minute `explainer video <https://youtu.be/4GERwj49KFc>`_
+- The `datalad-catalog documentation <https://docs.datalad.org/projects/catalog>`_
 - The `source repository <https://github.com/datalad/datalad-catalog>`_ for an up-to-date overview of functionality
 - Below, a step-by-step tutorial to generate your own catalog
 

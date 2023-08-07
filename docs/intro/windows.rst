@@ -11,7 +11,7 @@ This makes the user experience less fun than on other operating systems -- an ho
 
 
 Many software tools for research or data science are first written and released for Linux, then for Mac, and eventually Windows.
-TensorFlow for Windows was `released only a full year after it became open source <https://developers.googleblog.com/2016/11/tensorflow-0-12-adds-support-for-windows.html>`_, for example, and Python only became easy to install on Windows in `2019 <https://devblogs.microsoft.com/python/python-in-the-windows-10-may-2019-update/>`_.
+TensorFlow for Windows was `released only a full year after it became open source <https://developers.googleblog.com/2016/11/tensorflow-0-12-adds-support-for-windows.html>`_, for example, and Python only became easy to install on Windows in `2019 <https://devblogs.microsoft.com/python/python-in-the-windows-10-may-2019-update>`_.
 The same is true for DataLad and its underlying tools.
 There *is* Windows support and user documentation, but it isn't as far developed as for Unix-based systems.
 This page summarizes core downsides and deficiencies of Windows, DataLad on Windows, and the user documentation.
@@ -29,17 +29,17 @@ If you are interested in adding :term:`software container`\s to your DataLad dat
 
 Windows also has insufficient support for :term:`symlink`\ing and locking files (i.e., revoking write :term:`permissions`), which alters how :term:`git-annex` works, and may make interoperability of datasets between Windows and non-Windows operating systems not as smooth as between various flavours of Unix-like operating systems.
 
-In addition, Windows has a (default) `maximum path length limitation of only 260 characters <https://docs.microsoft.com/en-us/windows/win32/fileio/maximum-file-path-limitation>`_.
+In addition, Windows has a (default) `maximum path length limitation of only 260 characters <https://learn.microsoft.com/en-us/windows/win32/fileio/maximum-file-path-limitation#enable-long-paths-in-windows-10-version-1607-and-later>`_.
 However, DataLad (or rather, :term:`git-annex`) relies on `file content hashing <https://en.wikipedia.org/wiki/Hash_function>`_ to ensure file integrity.
 Usually, the *longer* the `hash` that is created, the more fail-safe it is.
 For a general idea about the length of hashes, consider that many tools including :term:`git-annex` use ``SHA256`` (a 256 characters long hash) as their default.
 As git-annex represents files with their content hash as a name, though, a secure 256 character file name is too long for Windows.
 Datasets thus adjust this default to a 128 character hash [#f2]_, but still, if you place a DataLad dataset into a deeply nested directory location, you may run into issues due to hitting the path length limit [#f3]_.
-You *can* enable long paths in recent builds of Windows 10, `but it requires some tweaking <https://docs.microsoft.com/en-us/windows/win32/fileio/maximum-file-path-limitation#enable-long-paths-in-windows-10-version-1607-and-later>`_.
+You *can* enable long paths in recent builds of Windows 10, `but it requires some tweaking <https://learn.microsoft.com/en-us/windows/win32/fileio/maximum-file-path-limitation#enable-long-paths-in-windows-10-version-1607-and-later>`_.
 
 Windows also doesn't really come with a decent :term:`terminal`.
 It is easy to get a nice and efficient terminal set up on macOS or Linux, it is harder on Windows.
-For example, its :term:`tab completion` is deemed inefficient by many, it takes some `poking and clicking <https://www.howtogeek.com/353200/how-to-enable-copy-and-paste-keyboard-shortcuts-in-windows-10s-bash-shell/>`_ to enable copy-pasting, most standard command line tools are not pre-installed, and many aren't even available or easy to access from the terminal.
+For example, its :term:`tab completion` is deemed inefficient by many, it takes some `poking and clicking <https://www.howtogeek.com/353200/how-to-enable-copy-and-paste-keyboard-shortcuts-in-windows-10s-bash-shell>`_ to enable copy-pasting, most standard command line tools are not pre-installed, and many aren't even available or easy to access from the terminal.
 Usually, Windows users aren't bothered much by this, but DataLad is a command line tool, and with a command line that is difficult to use, command line tools become difficult to use, too.
 Are you a Windows user and have tips for setting up a decent terminal?
 `Please tell us, we're eager to learn from you <https://github.com/datalad/datalad>`_.
@@ -103,7 +103,7 @@ It is quite easy to say "Just use Linux" but tough to do when you have no experi
 It is also easy to say "Just use a Mac, it's much more user-friendly *and* Unix-based" when an Apple product is a very expensive investment that only few people can or want to afford.
 It's a bit like recommending a MatLab user (proprietary, expensive, closed-source software) to switch to Python, R, Julia, or a similar open source alternative.
 Yes, there are real benefits to it that make the change worthwhile to many, but that doesn't change the fact that it is effortful and may be frustrating.
-But how about switching from MatLab to `Octave <https://www.gnu.org/software/octave/>`_, an open source programming language, made to be compatible to MatLab?
+But how about switching from MatLab to `Octave <https://octave.org>`_, an open source programming language, made to be compatible to MatLab?
 There definitely is work and adjustment involved, but much less work than when trying to rewrite your analyses in Go or C++.
 It is tough if you have been using "a thing" for decades without much hassle and now someone tells you to change.
 If you feel that you lack the time, resources, support, or knowledge, then throwing yourself into cold water and making a harsh change not only sucks, but it's also not likely to succeed.
@@ -128,7 +128,7 @@ The Windows Subsystem for Linux (version 2)
 """""""""""""""""""""""""""""""""""""""""""
 
 If you want to have a taste of Unix on your own computer, but in the most safe and reversible way, or have essential software that only runs under Windows and really need to keep a Windows Operating System, then the Windows Subsystem for Linux (WSL2) may be a solution.
-`Microsoft acknowledges that a lot of software is assuming that the environment in which they run behaves like Linux, and has added a real Linux kernel to Windows with the WSL2 <https://docs.microsoft.com/en-us/windows/wsl/faq>`_.
+`Microsoft acknowledges that a lot of software is assuming that the environment in which they run behaves like Linux, and has added a real Linux kernel to Windows with the WSL2 <https://learn.microsoft.com/en-us/windows/wsl/faq>`_.
 If you enable WSL2 on your Windows 10 computer, you have access to a variety of Linux distributions in the Microsoft store, and you can install them with a single click.
 The Linux distribution(s) of your choice becomes an icon on your task bar, and you can run windows and Linux in parallel.
 
@@ -136,11 +136,11 @@ The Linux distribution(s) of your choice becomes an icon on your task bar, and y
 **What should you be mindful of?** WSL is a minimalist tool in that it is made to run :term:`bash` or core Linux commands.
 It does not support graphical user (GUI) interfaces or applications.
 So while common Linux distributions have GUIs for various software, in WSL2 you will only be able to use a terminal.
-Also, it is important to know that `older versions of WSL did not allow accessing or modifying Linux files via Windows <https://devblogs.microsoft.com/commandline/do-not-change-linux-files-using-windows-apps-and-tools/>`_.
-Recent versions (starting with Windows 10 version 1903) `allow accessing Linux files with Windows tools <https://devblogs.microsoft.com/commandline/whats-new-for-wsl-in-windows-10-version-1903/>`_, although some tweaking, explained in :ref:`wslfiles`, is necessary.
+Also, it is important to know that `older versions of WSL did not allow accessing or modifying Linux files via Windows <https://devblogs.microsoft.com/commandline/do-not-change-linux-files-using-windows-apps-and-tools>`_.
+Recent versions (starting with Windows 10 version 1903) `allow accessing Linux files with Windows tools <https://devblogs.microsoft.com/commandline/whats-new-for-wsl-in-windows-10-version-1903>`_, although some tweaking, explained in :ref:`wslfiles`, is necessary.
 
 **How do I start?**
-Microsoft has detailed installation instructions `here <https://docs.microsoft.com/en-us/windows/wsl/install-win10>`_.
+Microsoft has detailed installation instructions `here <https://learn.microsoft.com/en-us/windows/wsl/install>`_.
 
 Linux Mint
 """"""""""
@@ -157,9 +157,9 @@ Go to your system's settings and find out the name and version of your computer,
 Some hardware may need additional configuration or be incompatible with Linux, and you would want to know about this upfront.
 And don't be afraid to ask or look for help.
 The internet is a large place and filled with helpful posts and people.
-Take a look at user forums such as `forums.linuxmint.com/ <https://forums.linuxmint.com/>`_ -- they likely contain the answers to the questions you may have.
+Take a look at user forums such as `forums.linuxmint.com <https://forums.linuxmint.com>`_ -- they likely contain the answers to the questions you may have.
 
-**How do I start?** A nice and comprehensive overview is detailed in `this article <https://uk.pcmag.com/adobe-photoshop-cc/124238/how-to-make-the-switch-from-windows-to-linux>`_.
+**How do I start?** A nice and comprehensive overview is detailed in `this article <https://uk.pcmag.com/linux/124238/how-to-make-the-switch-from-windows-to-linux>`_.
 
 .. rubric:: Footnotes
 

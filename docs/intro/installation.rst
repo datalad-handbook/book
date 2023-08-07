@@ -16,7 +16,7 @@ Install DataLad
 In general, the DataLad installation requires Python 3 (see the
 :find-out-more:`on the difference between Python 2 and 3 <fom-py2v3>` to learn
 why this is required), :term:`Git`, and :term:`git-annex`, and for some
-functionality `7-Zip <https://7-zip.org/>`_.  The instructions below detail how
+functionality `7-Zip <https://7-zip.org>`_.  The instructions below detail how
 to install the core DataLad tool and its dependencies on common operating
 systems. They do not cover the various :term:`DataLad extension`'s that need to be installed separately, if desired.
 
@@ -115,7 +115,7 @@ Git:
 
 
 Git-annex:
-    There are two convenient ways to install git-annex. The first is `downloading the installer from git-annex' homepage <https://git-annex.branchable.com/install/Windows/>`_. The other is to deploy git-annex via the `DataLad installer`_.
+    There are two convenient ways to install git-annex. The first is `downloading the installer from git-annex' homepage <https://git-annex.branchable.com/install/Windows>`_. The other is to deploy git-annex via the `DataLad installer`_.
     The latter option requires the installation of the datalad-installer, Once
     Python is available, it can be done with the Python package manager
     :shcmd:`pip`. Open a command prompt and run:
@@ -133,7 +133,7 @@ Git-annex:
     This will download a recent git-annex, and configure it for your Git installation.
     The admin command prompt can be closed afterwards, all other steps do not need it.
 
-    For `performance improvements <https://git-annex.branchable.com/projects/datalad/bugs-done/Windows__58___substantial_per-file_cost_for___96__add__96__/>`_, regardless of which installation method you chose, we recommend to also set the following git-annex configuration:
+    For `performance improvements <https://git-annex.branchable.com/projects/datalad/bugs-done/Windows__58___substantial_per-file_cost_for___96__add__96__>`_, regardless of which installation method you chose, we recommend to also set the following git-annex configuration:
 
     .. code-block:: bat
 
@@ -153,7 +153,7 @@ DataLad:
 
 There are many other ways to install DataLad on Windows, check for example the
 :windows-wit:`on the Windows Subsystem 2 for Linux <ww-wsl2>`.
-One attractive alternative approach is Conda_, a completely different approach is to install the :term:`DataLad Gooey`, which is a standalone installation of DataLad's graphical application (see `the DataLad Gooey documentation <http://docs.datalad.org/projects/gooey/en/latest>`_ for installation instructions).
+One attractive alternative approach is Conda_, a completely different approach is to install the :term:`DataLad Gooey`, which is a standalone installation of DataLad's graphical application (see `the DataLad Gooey documentation <https://docs.datalad.org/projects/gooey>`_ for installation instructions).
 
 .. windows-wit:: Install DataLad using the Windows Subsystem 2 for Linux
    :name: ww-wsl2
@@ -163,7 +163,7 @@ One attractive alternative approach is Conda_, a completely different approach i
    order to get WSL2 -- we do not recommend WSL1.
 
    You can find out how to install the Windows Subsystem for Linux at
-   `docs.microsoft.com <https://docs.microsoft.com/en-us/windows/wsl/install-win10>`_.
+   `docs.microsoft.com <https://learn.microsoft.com/en-us/windows/wsl/install>`_.
    Afterwards, proceed with your installation as described in the installation instructions
    for Linux.
 
@@ -268,16 +268,16 @@ versions for `Debian <https://packages.debian.org/datalad>`_ and `Ubuntu
 <https://packages.ubuntu.com/datalad>`_ to see which ones are available).
 
 For some recent releases of Debian-based operating systems, `NeuroDebian
-<http://neuro.debian.net>`_ provides more recent DataLad versions (check the
-`availability table <http://neuro.debian.net/pkgs/datalad.html>`_).  In order to
+<https://neuro.debian.net>`_ provides more recent DataLad versions (check the
+`availability table <https://neuro.debian.net/pkgs/datalad.html>`_).  In order to
 install from NeuroDebian, follow `its installation documentation
-<http://neuro.debian.net/install_pkg.html?p=datalad>`_, which only requires
+<https://neuro.debian.net/install_pkg.html?p=datalad>`_, which only requires
 copy-pasting three lines into a terminal.  Also, should you be confused by the
 name: enabling this repository will not do any harm if your field is not
 neuroscience.
 
 Whichever repository you end up using, the following command installs DataLad
-and all of its software dependencies (including :term:`git-annex` and `p7zip <http://p7zip.sourceforge.net/>`_):
+and all of its software dependencies (including :term:`git-annex` and `p7zip <https://p7zip.sourceforge.net>`_):
 
 .. code-block:: bash
 
@@ -289,7 +289,7 @@ available version.
 Linux: CentOS, Redhat, Fedora, or similar systems
 """""""""""""""""""""""""""""""""""""""""""""""""
 
-For CentOS, Redhat, Fedora, or similar distributions, there is an `RPM package for git-annex <https://git-annex.branchable.com/install/rpm_standalone/>`_.  A
+For CentOS, Redhat, Fedora, or similar distributions, there is an `RPM package for git-annex <https://git-annex.branchable.com/install/rpm_standalone>`_.  A
 suitable version of Python and :term:`Git` should come with the operating
 system, although some servers may run fairly old releases.
 
@@ -315,7 +315,7 @@ Conda
 """""
 
 Conda is a software distribution available for all major operating systems, and
-its `Miniconda <https://docs.conda.io/en/latest/miniconda.html>`_ installer
+its `Miniconda <https://docs.conda.io/miniconda.html>`_ installer
 offers a convenient way to bootstrap a DataLad installation. Importantly, it
 does not require admin/root access to a system.
 
@@ -382,7 +382,7 @@ Using Python's package manager ``pip``
 """"""""""""""""""""""""""""""""""""""
 
 As mentioned above, DataLad can be installed via Python's package manager `pip
-<https://pip.pypa.io/en/stable/>`_.  ``pip`` comes with any Python distribution
+<https://pip.pypa.io>`_.  ``pip`` comes with any Python distribution
 from `python.org <https://www.python.org>`_, and is available as a system-package
 in nearly all GNU/Linux distributions.
 

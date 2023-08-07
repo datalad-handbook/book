@@ -326,7 +326,7 @@ DataLad adds a repository-specific configuration file as well.
 It can be found in the ``.datalad`` directory, and just like ``.gitattributes``
 and ``.gitmodules`` it is version controlled and is thus shared together with
 the dataset. One can configure
-`many options <http://docs.datalad.org/en/latest/generated/datalad.config.html>`_,
+`many options <https://docs.datalad.org/en/latest/generated/datalad.config.html>`_,
 but currently, our ``.datalad/config`` file only stores a :term:`dataset ID`.
 This ID serves to identify a dataset as a unit, across its entire history and flavors.
 In a geeky way, this is your dataset's social security number: It will only exist

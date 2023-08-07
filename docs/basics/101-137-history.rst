@@ -726,7 +726,7 @@ overview on the necessary steps, and a pointer to a more comprehensive guide.
   want to keep, as well as all markers.
 - Afterwards, run ``git add <path/to/file>`` and finally a ``git commit``.
 
-GitHub has an `excellent resource on how to deal with merge conflicts <https://docs.github.com/en/github/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line>`_.
+GitHub has an `excellent resource on how to deal with merge conflicts <https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line>`_.
 
 Summary
 ^^^^^^^

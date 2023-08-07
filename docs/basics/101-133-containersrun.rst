@@ -34,7 +34,7 @@ on your own machine once a new software update is installed. Therefore, it is
 important to communicate all details about the computational environment for
 an analysis as thoroughly as possible. Luckily, DataLad provides an extension
 that can link computational environments to datasets, the
-`datalad containers <http://docs.datalad.org/projects/container/en/latest>`_
+`datalad containers <https://docs.datalad.org/projects/container>`_
 extension.
 
 This section will give a quick overview on what containers are and
@@ -103,7 +103,7 @@ Singularity (even without having Docker installed).
 .. importantnote:: Additional requirement: Singularity
 
    In order to use Singularity containers you have to
-   `install <https://sylabs.io/guides/3.4/user-guide/installation.html>`_ the software singularity.
+   `install <https://docs.sylabs.io/guides/3.4/user-guide/installation.html>`_ the software singularity.
 
 Using ``datalad containers``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -134,7 +134,7 @@ section below has some pointers:
    Singularity containers are build from Image files, often
    called "recipes", that hold a "definition" of the software container and its
    contents and components. The
-   `singularity documentation <https://sylabs.io/guides/3.4/user-guide/build_a_container.html>`_
+   `singularity documentation <https://docs.sylabs.io/guides/3.4/user-guide/build_a_container.html>`_
    has its own tutorial on how to build such Images from scratch.
    An alternative to writing the Image file by hand is to use
    `Neurodocker <https://github.com/ReproNim/neurodocker>`_. This

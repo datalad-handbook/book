@@ -290,7 +290,7 @@ For an example of tab-completion with paths, consider the following directory st
    │      │   └── is_it_worth_the_time.png
    ├── Downloads
 
-You're in your home directory, and you want to navigate to your `xkcd <https://xkcd.com/1205/>`_
+You're in your home directory, and you want to navigate to your `xkcd <https://xkcd.com/1205>`_
 comic selection in ``Documents/my_comics/xkcd``.
 Instead of typing the full path error-free, you can press Tab after the first few letters.
 If it is unambiguous, such as ``cd Doc <Tab>``, it will expand to ``cd Documents``.

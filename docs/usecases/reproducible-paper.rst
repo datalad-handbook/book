@@ -18,7 +18,7 @@ for data analysis projects [#f1]_. The resulting superdataset can be publicly
 shared, data can be obtained effortlessly on demand by anyone that has the superdataset,
 and results and paper can be generated and recomputed everywhere on demand.
 
-A template to start your own reproducible paper with the same set up can be found `on GitHub <https://github.com/datalad-handbook/repro-paper-sketch/>`__.
+A template to start your own reproducible paper with the same set up can be found `on GitHub <https://github.com/datalad-handbook/repro-paper-sketch>`__.
 
 The Challenge
 ^^^^^^^^^^^^^
@@ -86,12 +86,12 @@ itself with the new figures.
 .. importantnote:: Take a look at the real manuscript dataset
 
    The actual manuscript this use case is based on can be found
-   `here <https://github.com/psychoinformatics-de/paper-remodnav/>`_:
-   https://github.com/psychoinformatics-de/paper-remodnav/. :dlcmd:`clone`
+   `here <https://github.com/psychoinformatics-de/paper-remodnav>`_:
+   https://github.com/psychoinformatics-de/paper-remodnav. :dlcmd:`clone`
    the repository and follow the few instructions in the README to experience the
    DataLad approach described above.
 
-   There is also a slimmed down template that uses the analysis demonstrated in :ref:`yoda_project` and packages it up into a reproducible paper using the same tools: `github.com/datalad-handbook/repro-paper-sketch/ <https://github.com/datalad-handbook/repro-paper-sketch/>`_.
+   There is also a slimmed down template that uses the analysis demonstrated in :ref:`yoda_project` and packages it up into a reproducible paper using the same tools: `github.com/datalad-handbook/repro-paper-sketch <https://github.com/datalad-handbook/repro-paper-sketch>`_.
 
 
 Step-by-Step
@@ -447,7 +447,7 @@ Thus, by using DataLad and its Python API, a few clever Unix and ``LaTeX`` trick
 and Makefiles, anyone can create a reproducible paper. This saves time, increases your own
 trust in the results, and helps to make a more convincing case with your research.
 If you have not yet, but are curious, checkout the
-`manuscript this use case is based on <http://github.com/psychoinformatics-de/paper-remodnav/>`_.
+`manuscript this use case is based on <https://github.com/psychoinformatics-de/paper-remodnav>`_.
 Any questions can be asked by `opening an issue <https://github.com/psychoinformatics-de/paper-remodnav/issues/new>`_.
 
 .. rubric:: Footnotes

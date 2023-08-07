@@ -71,7 +71,7 @@ command that failed is used. Are arguments specified correctly?
 Does the help list any caveats?
 
 There are multiple ways to find help on DataLad commands.
-You could turn to the `documentation <http://docs.datalad.org>`_.
+You could turn to the `documentation <https://docs.datalad.org>`_.
 Alternatively, to get help right inside the terminal,
 run any command with the ``-h``/``--help`` option (also shown
 as an excerpt here):

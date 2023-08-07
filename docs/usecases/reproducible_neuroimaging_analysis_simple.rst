@@ -50,9 +50,9 @@ It always starts with a dataset:
 
    $ datalad create -c yoda demo
 
-For this demo we are using two public brain imaging datasets that were published on `OpenFMRI.org <https://legacy.openfmri.org/>`_, and are available from :term:`the DataLad superdataset ///` (datasets.datalad.org).
+For this demo we are using two public brain imaging datasets that were published on `OpenFMRI.org <https://legacy.openfmri.org>`_, and are available from :term:`the DataLad superdataset ///` (datasets.datalad.org).
 When installing datasets from this superdataset, we can use its abbreviation ``///``.
-The two datasets, `ds000001 <https://legacy.openfmri.org/dataset/ds000001/>`_ and `ds000002 <https://legacy.openfmri.org/dataset/ds000002/>`_, are installed into the subdirectory ``inputs/``.
+The two datasets, `ds000001 <https://legacy.openfmri.org/dataset/ds000001>`_ and `ds000002 <https://legacy.openfmri.org/dataset/ds000002>`_, are installed into the subdirectory ``inputs/``.
 
 .. runrecord:: _examples/repro-102
    :language: console
@@ -94,10 +94,10 @@ Both datasets would actually be several gigabytes in size, once the dataset cont
    $ datalad -C inputs/ds000001 status --annex
    $ datalad -C inputs/ds000002 status --annex
 
-Both datasets contain brain imaging data, and are compliant with the `BIDS standard <https://bids.neuroimaging.io/>`_.
+Both datasets contain brain imaging data, and are compliant with the `BIDS standard <https://bids.neuroimaging.io>`_.
 This makes it really easy to locate particular images and perform analysis across datasets.
 
-Here we will use a small script that performs ‘brain extraction’ using `FSL <https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FSL>`__ as a stand-in for a full analysis pipeline. The script will be stored inside of the ``code/`` directory that the yoda-procedure created that at the time of dataset-creation.
+Here we will use a small script that performs ‘brain extraction’ using `FSL <https://fsl.fmrib.ox.ac.uk>`__ as a stand-in for a full analysis pipeline. The script will be stored inside of the ``code/`` directory that the yoda-procedure created that at the time of dataset-creation.
 
 .. runrecord:: _examples/repro-107
    :language: console

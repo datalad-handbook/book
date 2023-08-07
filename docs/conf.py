@@ -206,7 +206,7 @@ pygments_style = 'tango'
 # A list of ignored prefixes for module index sorting.
 #modindex_common_prefix = []
 
-manpages_url = 'http://docs.datalad.org/generated/man/{page}.html'
+manpages_url = 'https://docs.datalad.org/generated/man/{page}.html'
 
 # numbered figures for better referencing
 numfig = True
@@ -220,7 +220,7 @@ smartquotes = True
 trim_footnote_reference_space = True
 
 # -- Options for HTML output ---------------------------------------------------
-html_baseurl = 'http://handbook.datalad.org/'
+html_baseurl = 'https://handbook.datalad.org/'
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.

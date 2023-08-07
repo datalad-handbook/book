@@ -84,7 +84,7 @@ this is a powerful method to specify and later resolve data dependencies,
 and that including the dataset as a standalone data component will it also
 make it easier to keep his analysis organized and share it later.
 The dataset that Bob wants to work with is structural brain imaging data from the
-`studyforrest project <http://studyforrest.org/>`_, a public
+`studyforrest project <https://www.studyforrest.org>`_, a public
 data resource that the original authors share as a DataLad dataset through
 :term:`GitHub`. This means that Bob can simply clone the relevant dataset from this
 service and into his own dataset. To do that, he clones it as a subdataset

@@ -151,7 +151,7 @@ that captures the spirit of what DataLad is, and here is a brief overview on it.
    **maximize the (re-)use of existing 3rd-party data resources and infrastructure**.
    Users *can* use existing central infrastructures should they want to.
    DataLad works with any infrastructure from :term:`GitHub` to
-   `Dropbox <https://www.dropbox.com>`_, `Figshare <https://figshare.com/>`_
+   `Dropbox <https://www.dropbox.com>`_, `Figshare <https://figshare.com>`_
    or institutional repositories,
    enabling users to harvest all of the advantages of their preferred
    infrastructure without tying anyone down to central services.

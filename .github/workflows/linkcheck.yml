@@ -23,5 +23,6 @@ jobs:
           sudo eatmydata apt-get install -q --no-install-recommends -y texlive-latex-recommended texlive-fonts-recommended texlive-fonts-extra texlive-latex-extra latexmk librsvg2-bin
       - name: Build docs
         run: |
-          make linkcheck
+          make linkcheck | tee linkcheck.txt
+          python tools/link_consolidator.py linkcheck.txt
 

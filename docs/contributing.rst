@@ -209,7 +209,7 @@ Easy pull requests
 
 The easiest way to do a pull request is within the web-interface that GitHub
 and `readthedocs <https://readthedocs.org>`_ provide. If you visit the rendered
-version of the handbook at `handbook.datalad.org <http://handbook.datalad.org/>`_
+version of the handbook at `handbook.datalad.org <https://handbook.datalad.org>`_
 and click on the small, floating ``v:latest`` element at the lower
 right-hand side, the ``Edit`` option will take you straight to an editor that
 lets you make your changes and submit a pull request.
@@ -332,7 +332,7 @@ and use cases for
 This can help to robust-ify links -- instead of long URLs that are dependent
 on file or section titles, or references to numbered sections (both can break
 easily), intersphinx references are meant to stick to contents and reliably point
-to it via a mapping in the `index <http://handbook.datalad.org/en/latest/genindex.html>`_
+to it via a mapping in the `index <https://handbook.datalad.org/genindex.html>`_
 under ``Symbols``. An example intersphinx mapping is done
 `in DataLad <https://github.com/datalad/datalad/pull/4046>`_.
 
@@ -375,7 +375,7 @@ Acknowledging Contributors
 
 If you have helped this project, we would like to acknowledge your contribution in the
 `GitHub repository <https://github.com/datalad-handbook/book>`_ in our README with
-`allcontributors.org <https://allcontributors.org/>`_, and the project's
+`allcontributors.org <https://allcontributors.org>`_, and the project's
 `.zenodo <https://github.com/datalad-handbook/book/blob/master/.zenodo.json>`_ 
 (you can add yourself as second-to-last, i.e. just above Michael) and
 `CONTRIBUTORS.md <https://github.com/datalad-handbook/book/blob/master/CONTRIBUTORS.md>`_

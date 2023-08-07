@@ -24,7 +24,7 @@ for yourself why and how software containers can go hand-in-hand with DataLad:
   from the environment of the computer it runs on. This allows you to create or
   use secluded software and also share it together with your analysis to ensure
   computational reproducibility. The DataLad extension
-  `datalad containers <http://docs.datalad.org/projects/container/en/latest>`_
+  `datalad containers <https://docs.datalad.org/projects/container>`_
   can make this possible.
 
 - The command :dlcmd:`containers-add` registers an Image from a path or

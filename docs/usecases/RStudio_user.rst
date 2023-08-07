@@ -37,19 +37,21 @@ Max follows the handbook and install datalad on his computer.
 Max first want to clone the repository on their computer, they use the Rstudio 
 `create a new project` function using the SSH address of the parent repository.
 
-.. figure:: /img/Rstudio-create.jpg
+.. figure:: ../artwork/src/Rstudio/Rstudio-create.jpg
    :scale: 80 %
    :alt: screenshot of Rstudio new project creation.
 
    Figures of several screenshot demonstrating the creation of new projects on Rstudio
 
-![](/img/Rstudio-create.jpg)
-
 Max can't see submodules content and comes to Bobby.
 
 Bobby comes and run `datalad get . -n -r` in the terminal window of Rstudio. 
 
-![Using Rstudio terminal window to give datalad commands](/img/Rstudio-terminal.jpg)
+.. figure:: ../artwork/src/Rstudio/Rstudio-create.jpg
+   :scale: 80 %
+   :alt: screenshot of Rstudio terminal tab.
+
+   Using Rstudio terminal window to give datalad commands
 
 
 They then explain:
@@ -156,8 +158,13 @@ Then, Max create a bash script in Rstudio and run it using the usual button (Thi
       --output "figures/*.png" \
       --explicit \
       Rscript "<path-to-script.r>" {inputs} {outputs}
-  
-![Figures of bash code runing the datalad run command](/img/Rstudio-dataladrun.jpg)  
+
+.. figure:: ../artwork/src/Rstudio/Rstudio-dataladrun.jpg
+   :scale: 80 %
+   :alt: screenshot of Rstudio bash code window
+
+   Figures of bash code runing the datalad run command
+
 
 On can set as many input and output files, one can use `*` to define several files with a similar ending (in the example all .png figures will be unlocked). It is good practice to list files in input and output even if they do not need to be handled by datalad, in order to give more information in the commit message.
 

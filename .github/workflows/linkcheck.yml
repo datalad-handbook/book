@@ -1,5 +1,6 @@
 name: Monthly link check
 on:
+  workflow_dispatch:
   schedule:
     - cron: "00 12 1 1-12 *"
 

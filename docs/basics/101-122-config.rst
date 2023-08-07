@@ -336,7 +336,7 @@ The next section will talk about them.
 .. [#f3] If your default editor is :term:`vim` and you do not like this, now can be the time
          to change it! Chose either of two options:
 
-         1) Open up the file with an editor for your choice (e.g., `nano <https://www.howtogeek.com/howto/42980/the-beginners-guide-to-nano-the-linux-command-line-text-editor>`_), and either paste the following configuration or edit it if it already exists:
+         1) Open up the file with an editor for your choice (e.g., `nano <https://www.howtogeek.com/42980/the-beginners-guide-to-nano-the-linux-command-line-text-editor>`_), and either paste the following configuration or edit it if it already exists:
 
          .. code-block:: bash
 

@@ -1,4 +1,5 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/v8o167109n3irf5c/branch/main?svg=true)](https://ci.appveyor.com/project/mih/book/branch/main)
+[![Monthly link check](https://github.com/datalad-handbook/book/actions/workflows/linkcheck.yml/badge.svg)](https://github.com/datalad-handbook/book/actions/workflows/linkcheck.yml)
 [![Documentation Status](https://readthedocs.org/projects/datalad-handbook/badge/?version=latest)](http://handbook.datalad.org/en/latest/?badge=latest)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3608611.svg)](https://doi.org/10.5281/zenodo.3608611)
 [![made-with-datalad](https://www.datalad.org/badges/made_with.svg)](https://datalad.org)

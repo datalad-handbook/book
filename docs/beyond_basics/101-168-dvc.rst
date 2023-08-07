@@ -584,7 +584,7 @@ The final script, ``src/evaluate.py`` is used to evaluate the trained classifier
 There are more detailed insights and explanations of the actual analysis code in the `Tutorial <https://realpython.com/python-data-version-control>`_ if you're interested in finding out more.
 
 For workflow management, DVC has the concept of a "DVC pipeline".
-A pipeline consists of multiple stages and is executed using a :shcmd:`dvc run` command.
+A pipeline consists of multiple stages, which are set up and executed using a :shcmd:`dvc stage add [--run]` command.
 Each stage has three components: "deps", "outs", and "command".
 Each of the scripts in the repository will be represented by a stage in the DVC pipeline.
 
@@ -615,9 +615,10 @@ The following command sets up the stage:
    :language: console
 
    ### DVC
-   $ dvc run -n prepare \
+   $ dvc stage add -n prepare \
      -d src/prepare.py -d data/raw \
      -o data/prepared/train.csv -o data/prepared/test.csv \
+     --run \
      python src/prepare.py
 
 The ``-n`` parameter gives the stage a name, the ``-d`` parameter passes the dependencies -- the raw data -- to the command, and the ``-o`` parameter defines the outputs of the command -- the CSV files that ``prepare.py`` will create.
@@ -662,9 +663,10 @@ The following command sets it up:
    :workdir: DVCvsDL/DVC
    :language: console
 
-   $ dvc run -n train \
+   $ dvc stage add -n train \
       -d src/train.py -d data/prepared/train.csv \
       -o model/model.joblib \
+      --run \
       python src/train.py
 
 Afterwards, ``train.py`` has been executed, and the pipelines have been updated with a second stage.
@@ -684,9 +686,10 @@ The following command sets it up:
    :workdir: DVCvsDL/DVC
    :language: console
 
-   $ dvc run -n evaluate \
+   $ dvc stage add -n evaluate \
             -d src/evaluate.py -d model/model.joblib \
             -M metrics/accuracy.json \
+	    --run \
             python src/evaluate.py
 
 .. runrecord:: _examples/DL-101-168-158

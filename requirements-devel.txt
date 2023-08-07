@@ -7,5 +7,5 @@ scikit-learn
 scikit-image
 # https://github.com/mwaskom/seaborn/issues/3192
 numpy < 1.24
-dvc < 3.0
+dvc >= 3.0
 datalad-catalog

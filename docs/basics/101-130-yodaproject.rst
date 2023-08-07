@@ -38,7 +38,7 @@ a Python API for DataLad's functionality that you can read about in :ref:`a Find
     and subsequently access commands as ``dl.get()``, ``dl.clone()``, and so forth.
 
 
-    The `developer documentation <http://docs.datalad.org/en/latest/modref.html>`_
+    The `developer documentation <https://docs.datalad.org/en/latest/modref.html>`_
     of DataLad lists an overview of all commands, but naming is congruent to the
     command line interface. The only functionality that is not available at the
     command line is ``datalad.api.Dataset``, DataLad's core Python data type.
@@ -623,7 +623,7 @@ command (or, for `GitLab <https://about.gitlab.com>`_, :dlcmd:`create-sibling-gi
 The two commands have different arguments and options.
 Here, we look at :dlcmd:`create-sibling-github`.
 The command takes a repository name and GitHub authentication credentials
-(either in the command line call with options ``github-login <TOKEN>``, with an *oauth* `token <https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token>`_ stored in the Git
+(either in the command line call with options ``github-login <TOKEN>``, with an *oauth* `token <https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens>`_ stored in the Git
 configuration, or interactively).
 
 .. importantnote:: Generate a GitHub token

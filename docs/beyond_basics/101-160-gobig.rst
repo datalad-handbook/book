@@ -154,7 +154,7 @@ Tool-specific and smaller advice
 .. [#f1] For example: A Git repository with more than a million (albeit tiny) files
         `takes hours and hours to merely create <https://www.monperrus.net/martin/one-million-files-on-git-and-github>`_,
         if standard Git workflows are used.
-        `This post <https://breckyunits.com/building-a-treebase-with-6-point-5-million-files.html>`_
+        `This post <https://breckyunits.com/building-a-treebase-with-6.5-million-files.html>`_
         contains an entertaining description of what happens if one attempts to create
         a Git repository with 6.5 million files -- up to the point when some Git
         commands stop working.

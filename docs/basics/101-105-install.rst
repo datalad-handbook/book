@@ -88,7 +88,7 @@ can write commands like this into a single line.
    $ datalad clone --dataset . \
     https://github.com/datalad-datasets/longnow-podcasts.git recordings/longnow
 
-This command copied the repository found at the URL https://github.com/datalad-datasets/longnow-podcasts.git
+This command copied the repository found at the URL https://github.com/datalad-datasets/longnow-podcasts
 into the existing ``DataLad-101`` dataset, into the directory ``recordings/longnow``.
 The optional destination is helpful: If we had not specified the path
 ``recordings/longnow`` as a destination for the dataset clone, the command would
@@ -446,7 +446,7 @@ modification.
 .. [#f2] The longnow podcasts are lectures and conversations on long-term thinking produced by
          the LongNow foundation and we can wholeheartedly recommend them for their worldly
          wisdoms and compelling, thoughtful ideas. Subscribe to the podcasts at https://longnow.org/seminars/podcast.
-         Support the foundation by becoming a member: https://longnow.org/membership.
+         Support the foundation by becoming a member: https://longnow.org/join.
 
 .. [#f3] You can also upgrade your file manager to display file types in a
          DataLad datasets (e.g., with the

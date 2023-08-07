@@ -85,7 +85,7 @@ failed -- sorry about this.
   :ref:`yale`
 
 Alternatively, try searching in the "Quick Search" at the left-hand side, or
-scan the handbook's front page at `handbook.datalad.org <http://handbook.datalad.org/en/latest/>`_
+scan the handbook's front page at `handbook.datalad.org <https://handbook.datalad.org>`_
 for directions.
 
 ..

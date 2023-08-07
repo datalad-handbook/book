@@ -5,7 +5,7 @@ Walk-through: Git LFS as a special remote on GitHub
 
 Some repository hosting services provide for-pay support for large files, and can thus be used as special remotes as well.
 GitHub and GitLab for example support `Git Large File Storage <https://github.com/git-lfs/git-lfs>`_ (Git LFS) for managing data files using Git.
-A free GitHub subscription allows up to `1GB of free storage and up to 1GB of bandwidth monthly <https://docs.github.com/en/github/managing-large-files/versioning-large-files/about-storage-and-bandwidth-usage>`_.
+A free GitHub subscription allows up to `1GB of free storage and up to 1GB of bandwidth monthly <https://docs.github.com/en/repositories/working-with-files/managing-large-files/about-storage-and-bandwidth-usage>`_.
 As such, it might be sufficient for some use cases, and could be configured
 quite easily.
 
@@ -49,4 +49,4 @@ Consumers of your dataset should be able to retrieve files right after cloning t
 .. importantnote:: No drop from LFS
 
    Unfortunately, it is impossible to :dlcmd:`drop` contents from Git LFS:
-   `help.github.com/en/github/managing-large-files <https://docs.github.com/en/github/managing-large-files/versioning-large-files/removing-files-from-git-large-file-storage#git-lfs-objects-in-your-repository>`_
+   `help.github.com/en/github/managing-large-files <https://docs.github.com/en/repositories/working-with-files/managing-large-files/removing-files-from-git-large-file-storage#git-lfs-objects-in-your-repository>`_

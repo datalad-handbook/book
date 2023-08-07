@@ -3,7 +3,7 @@
 What's next in DataLad?
 -----------------------
 
-The `datalad-next extension <http://docs.datalad.org/projects/next/en/latest/index.html>`_ is a noteworthy extension not only because of the additional functionality it provides, but also because of its role in the development process of the datalad core package.
+The `datalad-next extension <https://docs.datalad.org/projects/next>`_ is a noteworthy extension not only because of the additional functionality it provides, but also because of its role in the development process of the datalad core package.
 It can be thought of as a staging area for additional functionality, or for improved performance and user experience.
 New features are introduced into ``datalad-next`` first, and, once tested for a sufficient amount of time and deemed useful, adopted in the core datalad package.
 As such, ``datalad-next`` isn't confined to a topical set of features, but provides functionality with broad applicability.
@@ -17,7 +17,7 @@ As development in this extension is dynamic, the best place to find and up-to-da
 Selected features
 ^^^^^^^^^^^^^^^^^
 
-The ideal way to stay up-to-date on gooey developments is its documentation at `docs.datalad.org/projects/next <http://docs.datalad.org/projects/next/en/latest>`_.
+The ideal way to stay up-to-date on gooey developments is its documentation at `docs.datalad.org/projects/next <https://docs.datalad.org/projects/next>`_.
 A few selected commands are featured here, nevertheless.
 
 datalad tree

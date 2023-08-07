@@ -11,7 +11,7 @@ One technical solution for this problem is `encryption <https://en.wikipedia.org
 During encryption, the sensitive data are obfuscated in a structured but secret manner, and only authorized agents have the knowledge how to decrypt the data back into a usable state.
 
 Because encryption is relevant or at least attractive to many applications involving data in :term:`DataLad dataset`\s, this use case demonstrates how to
-utilize `git-annex's encryption <https://git-annex.branchable.com/encryption/>`_ to keep data safely encrypted when it is not being used.
+utilize `git-annex's encryption <https://git-annex.branchable.com/encryption>`_ to keep data safely encrypted when it is not being used.
 This example workflow mimics a sensitive data deposition use case, where data need to be securely deposited on one machine, and downloaded to another machine for processing and storage.
 To make this work, in our workflow we will combine several independent pieces:
 
@@ -56,7 +56,7 @@ Step by step
 Before we start: GnuPG
 ----------------------
 
-DataLad relies on :term:`git-annex` to manage large file content, and git-annex relies in part on `GnuPG <https://gnupg.org/>`__ to manage encryption via *public-key cryptography*.
+DataLad relies on :term:`git-annex` to manage large file content, and git-annex relies in part on `GnuPG <https://gnupg.org>`__ to manage encryption via *public-key cryptography*.
 `Public key cryptography <https://en.wikipedia.org/wiki/Public-key_cryptography>`_ relies on key pairs for encryption and decryption.
 To proceed with the next steps, you will need at least one pair of GPG
 keys, one *private* (used for decryption) and one *public* (used for
@@ -141,7 +141,7 @@ However, the "HMAC cipher" (the secret used to encrypt) is stored unencrypted in
 This makes it possible to add new files without access to the private GPG keys - but also means that
 access to the git repository will reveal file names.
 Since a RIA store combines a bare git repository with annex storage in the same location, this means that we should take care to not include sensitive information in file names.
-You can see `git-annex's documentation <https://git-annex.branchable.com/encryption/>`__ and the section :ref:`privacy` for more details.
+You can see `git-annex's documentation <https://git-annex.branchable.com/encryption>`__ and the section :ref:`privacy` for more details.
 
 Local machine: Decryption
 -------------------------
@@ -182,7 +182,7 @@ Note: In the ``hybrid`` mode, a private key is needed for *both* retrieval
 and deposition of annexed contents, but it is easy to add new keys
 without having to re-encrypt data.
 File content and names are encrypted with a symmetric cipher, which is itself encrypted using GPG and stored encrypted in the git repository.
-See `git-annex's documentation <https://git-annex.branchable.com/encryption/>`__ for more details.
+See `git-annex's documentation <https://git-annex.branchable.com/encryption>`__ for more details.
 
 .. code:: bash
 
@@ -230,7 +230,7 @@ And in the end we can clean up by removing the temporary clone:
 
    Although locations declared to be "dead" are not considered for obtaining files, they still leave a record in the git-annex branch.
    An even better solution would be to create the repository (and subsequent temporary clones) using git-annex's private mode, however, it is not yet fully supported by DataLad.
-   See `git-annex's documentation <https://git-annex.branchable.com/tips/cloning_a_repository_privately/>`__
+   See `git-annex's documentation <https://git-annex.branchable.com/tips/cloning_a_repository_privately>`__
    for private mode and `this DataLad issue <https://github.com/datalad/datalad/issues/6456>`__
    tracking DataLad's support for the configuration.
 

@@ -165,7 +165,7 @@ to the DataLad handbook as a resource if she has further questions.
 To make the analysis reproducible, they spent the final part of the meeting
 on adding the labs default singularity image to the dataset.
 The lab has a singularity image with all the relevant software on
-`Singularity-Hub <https://singularity-hub.org/>`_,
+`Singularity-Hub <https://singularity-hub.org>`_,
 and it can easily be added to the dataset with the DataLad-containers extension [#f3]_:
 
 .. code-block:: bash

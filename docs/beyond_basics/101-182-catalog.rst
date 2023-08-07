@@ -3,7 +3,7 @@
 DataCat - a shiny front-end for your dataset
 --------------------------------------------
 
-If you're looking for ways to showcase your datasets, look no further than the `datalad-catalog extension <http://docs.datalad.org/projects/catalog/en/latest/index.html>`_.
+If you're looking for ways to showcase your datasets, look no further than the `datalad-catalog extension <https://docs.datalad.org/projects/catalog>`_.
 This extension takes your favorite datasets and metadata, and generates a static website from it.
 
 .. figure:: ../artwork/src/catalog/datalad_catalog.svg
@@ -11,8 +11,8 @@ This extension takes your favorite datasets and metadata, and generates a static
 For quick access to more resources, have a look at:
 
 - The `live demo catalog <https://datalad.github.io/datalad-catalog>`_
-- A 3-minute `explainer video <https://www.youtube.com/watch?v=4GERwj49KFc>`_
-- The `datalad-catalog documentation <https://docs.datalad.org/projects/catalog/en/latest>`_
+- A 3-minute `explainer video <https://youtu.be/4GERwj49KFc>`_
+- The `datalad-catalog documentation <https://docs.datalad.org/projects/catalog>`_
 - The `source repository <https://github.com/datalad/datalad-catalog>`_ for an up-to-date overview of functionality
 - Below, a step-by-step tutorial to generate your own catalog
 
@@ -237,7 +237,7 @@ There are a few core specifications of metadata objects within the context of th
 
 The Catalog schema specifies exactly which fields are required and which data types
 are accepted for each key/value-pair. For an improved understanding of the Catalog schema,
-you can inspect the `JSON documents here <https://github.com/datalad/datalad-catalog/tree/main/datalad_catalog/schema>`_ (``jsonschema_*``).
+you can inspect the `JSON documents here <https://github.com/datalad/datalad-catalog/tree/main/datalad_catalog/catalog/schema>`_ (``jsonschema_*``).
 
 Sample metadata
 """""""""""""""

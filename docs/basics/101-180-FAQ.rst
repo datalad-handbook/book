@@ -6,7 +6,7 @@ Frequently Asked Questions
 This section answers frequently asked questions about high-level DataLad
 concepts or commands. If you have a question you want to see answered in here,
 `please create an issue <https://github.com/datalad-handbook/book/issues/new>`_
-or a `pull request <http://handbook.datalad.org/en/latest/contributing.html>`_.
+or a `pull request <https://handbook.datalad.org/contributing.html>`_.
 For a series of specialized command snippets for various use cases, please see
 section :ref:`gists`.
 
@@ -192,8 +192,8 @@ If you do not want to copy-and-paste these snippets yourself, you can run
         major operating systems, and builds up on Git and `git-annex
         <https://git-annex.branchable.com>`__ to allow sharing, synchronizing, and
         version controlling collections of large files. You can find information on
-        how to install DataLad at `handbook.datalad.org/en/latest/intro/installation.html
-        <http://handbook.datalad.org/en/latest/intro/installation.html>`_.
+        how to install DataLad at `handbook.datalad.org/intro/installation.html
+        <https://handbook.datalad.org/intro/installation.html>`_.
 
         Get the dataset
         ^^^^^^^^^^^^^^^
@@ -252,7 +252,7 @@ If you do not want to copy-and-paste these snippets yourself, you can run
         ^^^^^^^^^^^^^^^^
 
         More information on DataLad and how to use it can be found in the DataLad Handbook at
-        `handbook.datalad.org <http://handbook.datalad.org/en/latest/index.html>`_. The
+        `handbook.datalad.org <https://handbook.datalad.org>`_. The
         chapter "DataLad datasets" can help you to familiarize yourself with the
         concept of a dataset.
 
@@ -272,7 +272,7 @@ If you do not want to copy-and-paste these snippets yourself, you can run
         systems, and builds up on Git and [git-annex](https://git-annex.branchable.com/)
         to allow sharing, synchronizing, and version controlling collections of
         large files. You can find information on how to install DataLad at
-        [handbook.datalad.org/en/latest/intro/installation.html](http://handbook.datalad.org/en/latest/intro/installation.html).
+        [handbook.datalad.org/intro/installation.html](https://handbook.datalad.org/intro/installation.html).
 
         ### Get the dataset
 
@@ -335,22 +335,22 @@ If you do not want to copy-and-paste these snippets yourself, you can run
         ### More information
 
         More information on DataLad and how to use it can be found in the DataLad Handbook at
-        [handbook.datalad.org](http://handbook.datalad.org/en/latest/index.html). The chapter
+        [handbook.datalad.org](https://handbook.datalad.org/index.html). The chapter
         "DataLad datasets" can help you to familiarize yourself with the concept of a dataset.
 
 .. find-out-more:: Textblock without formatting
 
    DataLad datasets and how to use them
 
-   This repository is a DataLad (https://www.datalad.org/) dataset. It provides
-   fine-grained data access down to the level of individual files, and allows for
-   tracking future updates. In order to use this repository for data retrieval,
-   DataLad (https://www.datalad.org/) is required. It is a free and
-   open source command line tool, available for all major operating
-   systems, and builds up on Git and git-annex (https://git-annex.branchable.com/)
-   to allow sharing, synchronizing, and version controlling collections of
-   large files. You can find information on how to install DataLad at
-   http://handbook.datalad.org/en/latest/intro/installation.html.
+   This repository is a DataLad (https://www.datalad.org) dataset. It provides
+   fine-grained data access down to the level of individual files, and allows
+   for tracking future updates. In order to use this repository for data
+   retrieval, DataLad is required. It is a free and open source command line
+   tool, available for all major operating systems, and builds up on Git and
+   git-annex (https://git-annex.branchable.com) to allow sharing,
+   synchronizing, and version controlling collections of large files. You can
+   find information on how to install DataLad at
+   https://handbook.datalad.org/intro/installation.html.
 
    Get the dataset
 
@@ -397,7 +397,7 @@ If you do not want to copy-and-paste these snippets yourself, you can run
    More information
 
    More information on DataLad and how to use it can be found in the DataLad Handbook at
-   http://handbook.datalad.org/en/latest/index.html. The chapter "DataLad datasets"
+   https://handbook.datalad.org/index.html. The chapter "DataLad datasets"
    can help you to familiarize yourself with the concept of a dataset.
 
 
@@ -416,7 +416,7 @@ that it appears similar to git-annex.
    this.
 
 A more elaborate delineation from related solutions can be found in the DataLad
-`developer documentation <http://docs.datalad.org/en/latest/related.html>`_.
+`developer documentation <https://docs.datalad.org/related.html>`_.
 
 What is the difference between DataLad and DVC?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

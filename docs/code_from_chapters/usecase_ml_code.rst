@@ -190,7 +190,7 @@ Opening the comic works again, afterwards::
 
 This mechanism gives you access to data without the necessity to store all of the data locally.
 As long as there is one location that data is available from (a dataset on a shared cluster, a web source, cloud storage, a USB-stick, ...) and this source is known, there is no need for storing data when it is not in use.
-If you want to try it with large amounts of data, checkout `datasets.datalad.org <http://datasets.datalad.org/>`_, a collection of more than 200TB of open data.
+If you want to try it with large amounts of data, checkout `datasets.datalad.org <https://datasets.datalad.org>`_, a collection of more than 200TB of open data.
 
 
 Dataset nesting
@@ -352,7 +352,7 @@ This records a pre-created software environment with the required Python package
 
    datalad containers-add software --url shub://adswa/resources:2
 
-Note: You need to have `singularity <https://sylabs.io/guides/3.5/user-guide/>`_ installed to run this!
+Note: You need to have `singularity <https://docs.sylabs.io/guides/3.5/user-guide>`_ installed to run this!
 
 .. find-out-more:: Why Singularity and not Docker?
 
@@ -379,7 +379,7 @@ An ML-themed example
 
 Typically, ML analysis aren't as straightforward as the example above.
 The following workflow demonstrates a more realistic analysis path in machine learning projects.
-The example in this workflow is an image classification task on the `Imagenette dataset <https://github.com/fastai/imagenette>`_, a smaller subset of the `Imagenet dataset <http://www.image-net.org/>`_, one of the most widely used large scale dataset for bench-marking Image Classification algorithms.
+The example in this workflow is an image classification task on the `Imagenette dataset <https://github.com/fastai/imagenette>`_, a smaller subset of the `Imagenet dataset <https://image-net.org>`_, one of the most widely used large scale dataset for bench-marking Image Classification algorithms.
 It consists of the following steps:
 
 * Create a stand-alone input dataset with data from the Imagenette dataset

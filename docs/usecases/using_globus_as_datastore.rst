@@ -5,15 +5,15 @@ Using Globus as a data store for the Canadian Open Neuroscience Portal
 
 .. index:: ! Usecase; Using Globus as data store
 
-This use case shows how the `Canadian Open Neuroscience Portal (CONP) <https://conp.ca/>`_
-disseminates data as DataLad datasets using the `Globus <https://www.globus.org/>`_
+This use case shows how the `Canadian Open Neuroscience Portal (CONP) <https://conp.ca>`_
+disseminates data as DataLad datasets using the `Globus <https://www.globus.org>`_
 network with :term:`git-annex`, a custom git-annex :term:`special remote`, and
 Datalad. It demonstrates
 
 #. How to enable the git-annex `Globus special remote  <https://github.com/CONP-PCNO/git-annex-remote-globus>`_
-   to access files content from `Globus.org <https://www.globus.org/>`_,
+   to access files content from `Globus.org <https://www.globus.org>`_,
 #. The workflows used to access datasets via the
-   `Canadian Open Neuroscience Portal (CONP) <https://conp.ca/>`_,
+   `Canadian Open Neuroscience Portal (CONP) <https://conp.ca>`_,
 #. An example of disk-space aware computing with large datasets distributed
    across systems that avoids unnecessary replication, eased by DataLad and
    :term:`git-annex`.
@@ -27,7 +27,7 @@ results. Crucially, they must share such results with the scientific
 community to enable other researchers to further build on existing data
 and avoid duplicating work.
 
-The `Canadian Open Neuroscience Portal (CONP) <https://conp.ca/>`_ is a publicly
+The `Canadian Open Neuroscience Portal (CONP) <https://conp.ca>`_ is a publicly
 available platform that aims to remove the technical barriers to practicing open science
 and improve the accessibility and reusability of neuroscience research to accelerate
 the pace of discovery. To this end, the platform will provide a unified interface
@@ -65,8 +65,8 @@ with a vast dataset repository.
     in the meantime, sketches a high-level overview of the principles behind DataLad's
     data sharing capacities.
 
-    Datalad is built on top of `Git <https://git-scm.com/>`_ and
-    `git-annex <https://git-annex.branchable.com/>`_, and enables data version
+    Datalad is built on top of `Git <https://git-scm.com>`_ and
+    `git-annex <https://git-annex.branchable.com>`_, and enables data version
     control. A one-page overview can be found in section :ref:`executive_summary`.
 
     :term:`git-annex` is a useful tool that extends Git with the ability to manage
@@ -82,7 +82,7 @@ with a vast dataset repository.
 
     In the case of data sharing procedures, annexed data can be stored in various
     third party hosting services configured as
-    `special remotes <https://git-annex.branchable.com/special_remotes/>`_.
+    `special remotes <https://git-annex.branchable.com/special_remotes>`_.
     When retrieving data, :term:`git-annex` requests access to the primary data
     source storing those files to retrieve actual files content when the user
     needs it.
@@ -97,7 +97,7 @@ locally in their filesystem using ``datalad get path/to/file``. So simple!
 On a technical level, under the hood, :term:`git-annex` needs to have a connection
 established with the primary data source, the :term:`special remote`, that hosts
 and provides the requested files' contents.
-In some cases, annexed files are stored in `Globus.org <https://www.globus.org/>`__.
+In some cases, annexed files are stored in `Globus.org <https://www.globus.org>`__.
 Globus is an efficient transfer files system suitable for researchers to share
 and transfer files between so called *endpoints*, locations in Globus.org where
 files get uploaded by their owners or get transferred to, that can be either
@@ -157,14 +157,14 @@ and to respond back if data is available. Currently, the git-annex-globus-remote
 only supports data *download* operations. In the future, it could be useful for
 additional functionality as well.
 When the globus special remote gets initialized for the first time, the user
-has to authenticate to Globus.org using `ORCID <https://orcid.org/>`_ ,
+has to authenticate to Globus.org using `ORCID <https://orcid.org>`_ ,
 `Gmail <https://mail.google.com>`_ or a specific Globus account.
 This step will enable git-annex to then initialize the globus special remote and
 establish the communication process. Instructions to use the globus special remote
 are available at `github.com/CONP-PCNO/git-annex-remote-globus <https://github.com/CONP-PCNO/git-annex-remote-globus>`_.
 Guidelines specifying the standard communication protocol to implement a custom
 special remote can be found at
-`git-annex.branchable.com/design/external_special_remote_protocol <https://git-annex.branchable.com/design/external_special_remote_protocol/>`_.
+`git-annex.branchable.com/design/external_special_remote_protocol <https://git-annex.branchable.com/design/external_special_remote_protocol>`_.
 
 
 An example using Globus from a user perspective

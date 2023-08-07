@@ -12,7 +12,7 @@ The additional text references additional resources and explanations if you want
 Introduction & set-up
 ^^^^^^^^^^^^^^^^^^^^^
 
-The Jupyterhub has all software readily installed. This entails a recent version of DataLad, e.g., ``0.17.2``, and some additional Python package we will make use of, such as the :term:`DataLad extension` "datalad-container", the `nilearn <https://nilearn.github.io/stable/index.html>`_ package, and the `black <https://black.readthedocs.io/en/stable/>`_ Python formatter.
+The Jupyterhub has all software readily installed. This entails a recent version of DataLad, e.g., ``0.17.2``, and some additional Python package we will make use of, such as the :term:`DataLad extension` "datalad-container", the `nilearn <https://nilearn.github.io/stable/index.html>`_ package, and the `black <https://black.readthedocs.io>`_ Python formatter.
 
 Beyond this, you need to have a configured :term:`Git` identity, which you likely set-up during the Neurohackademy's sessions on Git.
 If you need them for your own system, installation, updating, and configuration instructions for DataLad and Git are in the section :ref:`install`.
@@ -231,7 +231,7 @@ DataLad has a set of commands for reproducible execution and re-execution:
 The :dlcmd:`run` command can run any command execution in a way that links the command or script to the results it produces.
 This provenance, similar to the provenance ``download-url`` stores internally, is actionable, and the :dlcmd:`rerun` can take this recorded provenance and recompute the command automatically.
 
-Let's imagine that the script you got from your colleague does not follow the formatting guidelines you typically use, so you let `black <https://black.readthedocs.io/en/stable/>`_, a Python code formatter, run over the code to reformat it.
+Let's imagine that the script you got from your colleague does not follow the formatting guidelines you typically use, so you let `black <https://black.readthedocs.io>`_, a Python code formatter, run over the code to reformat it.
 
 Without DataLad, you would run it like this: ``black code/get_brainmask.py``.
 But if you wrap it into a basic :dlcmd:`run` command you can capture the changes of the command execution automatically, and record provenance about it::
@@ -251,7 +251,7 @@ Data consumption and dataset nesting
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 DataLad makes data consumption very convenient: The :dlcmd:`clone` command allows you to install datasets from local or remote sources.
-And there are many public dataset sources, such as all of `OpenNeuro's <https://openneuro.org/>`_ datasets (`github.com/OpenNeuroDatasets <https://github.com/OpenNeuroDatasets>`_), the Human Connectome Project's open access data (`github.com/datalad-datasets/human-connectome-project-openaccess <https://github.com/datalad-datasets/human-connectome-project-openaccess>`_), or other collections of Open Neuroimaging data (`datasets.datalad.org <http://datasets.datalad.org/>`_), giving you streamlined access to several hundreds of Terabytes of neuroscientific data.
+And there are many public dataset sources, such as all of `OpenNeuro's <https://openneuro.org>`_ datasets (`github.com/OpenNeuroDatasets <https://github.com/OpenNeuroDatasets>`_), the Human Connectome Project's open access data (`github.com/datalad-datasets/human-connectome-project-openaccess <https://github.com/datalad-datasets/human-connectome-project-openaccess>`_), or other collections of Open Neuroimaging data (`datasets.datalad.org <https://datasets.datalad.org>`_), giving you streamlined access to several hundreds of Terabytes of neuroscientific data.
 
 While you can clone datasets 'as is' as standalone data packages, you can also link datasets into one another in superdataset-subdataset hierarchies, a process we call "nesting".
 

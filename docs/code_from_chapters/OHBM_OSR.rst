@@ -62,7 +62,7 @@ Here is how to install the "structural preprocessed" subset of the HCP dataset t
 
 .. code-block:: bash
 
-    $ datalad clone -d . 'ria+http://store.datalad.org#~hcp-structural-preprocessed@bids' .source
+    $ datalad clone -d . 'ria+https://store.datalad.org#~hcp-structural-preprocessed@bids' .source
     [INFO   ] Configured RIA store not found at ria+file:///ds/hcp/srv
     install(ok): .source (dataset)
     add(ok): .source (file)
@@ -110,7 +110,7 @@ Step 4: Linking software
 
 Containerized pipelines can be linked to datasets.
 One can either create such a toolbox dataset from scratch, or consume pre-existing containers from `github.com/ReproNim/containers <https://github.com/ReproNim/containers>`_.
-`This ReproNim Webinar <https://www.youtube.com/watch?v=ix3lC6HGo-Q&feature=youtu.be>`_ walks through a complete workflow, if you are interested in more details on how to use them.
+`This ReproNim Webinar <https://youtu.be/ix3lC6HGo-Q>`_ walks through a complete workflow, if you are interested in more details on how to use them.
 
 Here is how to create a custom fmriprep toolbox:
 

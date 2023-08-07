@@ -10,7 +10,7 @@ when you are not population datasets yourself, but when *software* or
 analyses scripts suddenly dump vast amounts of output.
 Certain analysis software can create myriads of files. A standard
 `FEAT analysis <https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FEAT/UserGuide>`_ [#f1]_
-in `FSL <https://fsl.fmrib.ox.ac.uk/fsl/fslwiki>`_, for example, can easily output
+in `FSL <https://fsl.fmrib.ox.ac.uk>`_, for example, can easily output
 several dozens of directories and up to thousands of result files per subject.
 Maybe your own custom scripts are writing out many files as outputs, too.
 Regardless of *why* a lot of files are produced by an analyses, if the analysis
@@ -136,7 +136,7 @@ in size even if they are each small in size.
 .. rubric:: Footnotes
 
 .. [#f1] FEAT is a software tool for model-based fMRI data analysis and part of of
-         `FSL <https://fsl.fmrib.ox.ac.uk/fsl/fslwiki>`_.
+         `FSL <https://fsl.fmrib.ox.ac.uk>`_.
 
 .. [#f2] Read more about DataLad's Python API in the first hidden section in
          :ref:`yoda_project`.

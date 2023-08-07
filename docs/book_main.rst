@@ -8,6 +8,8 @@ The DataLad Handbook
 
    intro/intro
    basics/intro
+
+..
    beyond_basics/intro.rst
    usecases/intro
 

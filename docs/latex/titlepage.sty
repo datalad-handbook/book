@@ -3,15 +3,33 @@
 \rule{1pt}{\textheight}
 \hspace{0.05\textwidth}
 \parbox[b]{0.75\textwidth}{
-\hfill{\footnotesize \version}\\[1\baselineskip]
-\includegraphics[width=0.75\textwidth]{logo.pdf}\\
-{\Huge\textbf{Handbook}}\\
-{\Large Introduction \textbullet\ Advanced topics \textbullet\ Use cases}\\[2\baselineskip]
-{\Large\textsc{Adina~Wagner \& Michael~Hanke}\\[1\baselineskip]
-{\small \textit{with}}\\[1\baselineskip]
-{
-\raggedright
-\withauthors\\
-}}
+  \hfill{\footnotesize \version}\\[1\baselineskip]
+
+  \vspace{-11.8mm}
+
+  \hspace{-1mm}\includegraphics[width=0.75\textwidth]{logo.pdf}\\
+
+  \vspace{-12mm}
+  {\huge\sffamily\bfseries Handbook}
+
+  \vspace{5mm}
+
+  {\large Introduction \textbullet\ Basics}\\[2\baselineskip]
+  {\large\textsc{Adina S.~Wagner \& Michael~Hanke}\\[1\baselineskip]}
+  {\small \textit{with}}\\[1\baselineskip]
+  {
+  \raggedright
+  \withauthors\\
+  }
 }
+\clearpage
+\input{imprint.sty}
 \end{titlepage}
+
+
+\fancypagestyle{plain}{%
+  % disable footer/page numbers even on chapter start pages
+  \fancyhead{}
+  \renewcommand*{\headrule}{}%
+  \fancyfoot{}%
+}

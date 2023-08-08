@@ -346,20 +346,31 @@ latex_additional_files = [
     'latex/fontpkg.sty',
     'latex/preamble_end.sty',
     'latex/titlepage.sty',
+    'latex/imprint.sty',
 ]
 
 latex_toplevel_sectioning = 'part'
 latex_show_pagerefs = True
 latex_show_urls = 'footnote'
+latex_docclass = {
+    'manual': 'book',
+}
 latex_elements = {
-    'papersize': 'a4paper',
-    'pointsize': '11pt',
+    # custom paper size is defined in `preamble_start.sty`
+    'papersize': '',
+    'pointsize': '10pt',
     'figure_align': 'htbp',
-    'extraclassoptions': 'openany,twoside',
+    'extraclassoptions': 'twoside',
     'passoptionstopackages': r'\input{preamble_start.sty}',
     'fontpkg': r'\input{fontpkg.sty}',
-    'fncychap': r'\usepackage[Bjarne]{fncychap}',
+    # we do not want the default sphinx header setup
+    'fncychap': '',
     'sphinxsetup': r"""
+% for now a tiny space of marginal notes, because we only use it for icons
+marginpar=10mm,%
+% small margins due to page-number concerns for a printed book
+hmargin=15mm,%
+vmargin=15mm,%
 verbatimwithframe=false,%
 VerbatimColor={rgb}{1,1,1},%
 VerbatimHighlightColor={named}{OldLace},%
@@ -374,8 +385,10 @@ cautionborder=3pt,%
 cautionBorderColor={named}{Cyan},%
 cautionBgColor={named}{LightCyan}%
 """,
+    'fvset': r'\fvset{fontsize=\small}',
     'preamble': r'\input{preamble_end.sty}',
     'maketitle':
+        # define \withauthors macro before it is used in the titlepage
         '%s%s%s\n\\input{titlepage.sty}' % (
             r'\newcommand{\withauthors}{',
             ', '.join('\\mbox{%s}' % a for a in authors[1:-1]),

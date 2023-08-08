@@ -2,6 +2,8 @@
 % make :term: references visually distinct in a print
 \renewcommand{\sphinxtermref}[1]{\textsc{#1}}
 
+% better control over the spacing of list items
+\usepackage{enumitem}
 
 \usepackage[labelfont=bf,singlelinecheck=false]{caption}
 \usepackage[hang,flushmargin,multiple]{footmisc}
@@ -10,9 +12,6 @@
 \usepackage{xurl}
 % make sure all float stay in their respective chapter
 %\usepackage[chapter]{placeins}
-
-% make enough room for the auto-generated header content
-\setlength{\headheight}{13.6pt}
 
 \usepackage{xcolor}
 \definecolor{dataladyellow}{HTML}{FFA200}
@@ -29,30 +28,26 @@
 \tcbset{sharp corners}
 \tcbset{fonttitle=\bfseries}
 
-\tcbset{%
-ribbon win/.style={overlay={
+
+% helpers to place a box icon into the outer margin of even/odd pages
+\newcommand{\dltcbiconeven}[1]{%
   \begin{scope}[shift={([xshift=-5mm,yshift=-3mm]frame.north west)}]
-    \path(0,0) node[inner sep=0] {\includegraphics{win_boxicon}};
-  \end{scope}}}
+    \path(0,0) node[inner sep=0] {\includegraphics{#1}};
+  \end{scope}
 }
-\tcbset{%
-ribbon git/.style={overlay={
-  \begin{scope}[shift={([xshift=-5mm,yshift=-3mm]frame.north west)}]
-    \path(0,0) node[inner sep=0] {\includegraphics{git_boxicon}};
-  \end{scope}}}
+\newcommand{\dltcbiconodd}[1]{%
+  \begin{scope}[shift={([xshift=5mm,yshift=-3mm]frame.north east)}]
+    \path(0,0) node[inner sep=0] {\includegraphics{#1}};
+  \end{scope}
 }
-\tcbset{%
-ribbon more/.style={overlay={
-  \begin{scope}[shift={([xshift=-5mm,yshift=-3mm]frame.north west)}]
-    \path(0,0) node[inner sep=0] {\includegraphics{more_boxicon}};
-  \end{scope}}}
-}
-\tcbset{%
-ribbon important/.style={overlay={
-  \begin{scope}[shift={([xshift=-5mm,yshift=-3mm]frame.north west)}]
-    \path(0,0) node[inner sep=0] {\includegraphics{important_boxicon}};
-  \end{scope}}}
-}
+\newcommand{\dltcbicon}[1]{\tcbifoddpageoroneside{\dltcbiconodd{#1}}{\dltcbiconeven{#1}}}
+
+% attach margin icons to each type of info box
+\tcbset{ribbon win/.style={overlay={\dltcbicon{win_boxicon}}}}
+\tcbset{ribbon git/.style={overlay={\dltcbicon{git_boxicon}}}}
+\tcbset{ribbon more/.style={overlay={\dltcbicon{more_boxicon}}}}
+\tcbset{ribbon important/.style={overlay={\dltcbicon{important_boxicon}}}}
+
 
 \newcounter{HandbookWIN}[chapter]
 \renewcommand\theHandbookWIN{W\arabic{chapter}.\arabic{HandbookWIN}}
@@ -107,6 +102,17 @@ ribbon important/.style={overlay={
 % natural spacing between (long) numbers and titles in
 % any TOC
 \renewcommand{\numberline}[1]{#1~}
+
+% Leaner (vertically more compact) alternatives to part and chapter titles
+% (many chapters means lots of vertical space with no content otherwise)
+\usepackage{titlesec}
+% Simplistic part titles
+\titleclass{\part}{top} % make part like a chapter
+\titleformat{\part}[hang]{\Huge\bfseries}{\thepart\hsp\textcolor{black}{|}\hsp}{0pt}{\Huge\bfseries}
+% Simplistic chapter titles
+\definecolor{gray75}{gray}{0.75}
+\newcommand{\hsp}{\hspace{20pt}}
+\titleformat{\chapter}[hang]{\huge\bfseries}{\thechapter\hsp\textcolor{gray75}{|}\hsp}{0pt}{\huge\bfseries}
 
 
 \newcommand{\findoutmoreiconinline}{\raisebox{-.1em}{\includegraphics[height=.9em]{more_boxicon_inline}}~}

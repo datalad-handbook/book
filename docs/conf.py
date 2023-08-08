@@ -59,6 +59,10 @@ autorunrecord_line_replace = [
     # Filter out needless git status info that adds randomness to the output
     (r'Delta compression using up to.*', 'Delta compression'),
     ('Total .*delta.*, reused .*delta.*$', '✂COMPRESSION STATS✂'),
+    # truncate any SHA1 or MD5 to the first 8 chars
+    # should still be functional and save 30+% of line length
+    (r'(?P<lead>[0-9a-f]{8})[0-9a-f]{32}', r'\g<lead>✂SHA1'),
+    (r'(?P<lead>[0-9a-f]{8})[0-9a-f]{24}', r'\g<lead>✂MD5'),
 ]
 # pre-crafted artificial environment to run the code examples in
 # start with all datalad settings

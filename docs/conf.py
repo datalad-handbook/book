@@ -34,26 +34,31 @@ autorunrecord_basedir = '/home/me'
 autorunrecord_line_replace = [
     # trailing space removal
     (r'[ ]+$', ''),
+    # strip the keydir for MD5(E) or SHA1(E) annex keys
+    # the keydir is identical to the annex key name, but consumes
+    # a lot of space. we replace it with a UTF scissors icon
+    (r'(?P<prefix>.*)/(?P<key>[MD5SHA1]+[E-]+s[0-9]+--[0-9a-f]{32,40})(?P<ext>[^/]*)/(?P=key)(?P=ext)(?P<suffix>.*)',
+     r'\g<prefix>/✂/\g<key>\g<ext>\g<suffix>'),
     # Python debug output will contain random memory locations
-    (r'object at 0x[0-9a-f]{12}>', 'object at REDACTED-MEMORYADDRESS'),
+    (r'object at 0x[0-9a-f]{12}>', 'object at ✂MEMORYADDRESS✂'),
     # branch state indicators will always be different for git-annex
     # (branch contains timestamps)
-    (r'git-annex@[0-9a-f]{7}', 'git-annex@<REDACTED-GITSHA>'),
+    (r'git-annex@[0-9a-f]{7}', 'git-annex@✂GITSHA✂'),
     (r'refs/heads/git-annex(?P<whitey>[ ]+)[0-9a-f]{7}\.\.[0-9a-f]{7}',
-     'refs/heads/git-annex\g<whitey>FROM..TO (REDACTED)'),
+     'refs/heads/git-annex\g<whitey>✂FROM✂..✂TO✂'),
     # ls -l output will have times and user names
     # normalize to 'elena' and the "standard timestamp"
     # this only works when ls --time-style=long-iso was used
     (r'(?P<perms>[-ldrwx]{10})[ ]+(?P<size1>[^ ]+)[ ]+(?P<user>[^ ]+)[ ]+(?P<group>[^ ]+)[ ]+(?P<size2>[^ ]+)[ ]+(?P<date>[^ ]+)[ ]+(?P<time>[^ ]+)',
-     '\g<perms> \g<size1> elena elena \g<size2> 2019-06-18 16:13'),
+     r'\g<perms> \g<size1> elena elena \g<size2> 2019-06-18 16:13'),
     # we cannot fix git-annex's location IDs, filter them out
     (r'annex-uuid = [0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}',
-     'annex-uuid = REDACTED-RANDOM-UUID'),
+     'annex-uuid = ✂UUID✂'),
     (r'[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12} -- (?!web)',
-     'REDACTED-UUID -- '),
+     '✂UUID✂ -- '),
     # Filter out needless git status info that adds randomness to the output
     (r'Delta compression using up to.*', 'Delta compression'),
-    ('Total .*delta.*, reused .*delta.*$', 'REDACTED COMPRESSION STATS'),
+    ('Total .*delta.*, reused .*delta.*$', '✂COMPRESSION STATS✂'),
 ]
 # pre-crafted artificial environment to run the code examples in
 # start with all datalad settings

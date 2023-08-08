@@ -1,5 +1,5 @@
 $ git log -p -n 2
-commit b5fc1296ac0f2918369716ee21917da2744ac228
+commit b5fc1296✂SHA1
 Author: Elena Piscopia <elena@example.net>
 Date:   Tue Jun 18 16:13:00 2019 +0000
 
@@ -20,7 +20,7 @@ index 6a465f0..e2829b2 100644
 +those changes done to the files listed with --output flags.
 +
 
-commit d5845d332dc06ed2311900d9c08cefda69df5af5
+commit d5845d33✂SHA1
 Author: Elena Piscopia <elena@example.net>
 Date:   Tue Jun 18 16:13:00 2019 +0000
 
@@ -48,7 +48,7 @@ index 0985399..d90c601 120000
 --- a/recordings/salt_logo_small.jpg
 +++ b/recordings/salt_logo_small.jpg
 @@ -1 +1 @@
--../.git/annex/objects/jX/gq/MD5E-s87553--4b3c61df2486e3db7a5db905a8946fcb.jpg/MD5E-s87553--4b3c61df2486e3db7a5db905a8946fcb.jpg
+-../.git/annex/objects/jX/gq/✂/MD5E-s87553--4b3c61df✂MD5.jpg
 \ No newline at end of file
-+../.git/annex/objects/fZ/wg/MD5E-s76402--87da732ff6d9a92c6afcaed7fefb133f.jpg/MD5E-s76402--87da732ff6d9a92c6afcaed7fefb133f.jpg
++../.git/annex/objects/fZ/wg/✂/MD5E-s76402--87da732f✂MD5.jpg
 \ No newline at end of file

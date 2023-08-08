@@ -11,7 +11,7 @@ $ datalad wtf
   - version: 0.19.2
 ## dataset
   - branches:
-    - git-annex@<REDACTED-GITSHA>
+    - git-annex@✂GITSHA✂
     - master@88db2a0
     - sct_computational_reproducibility@88db2a0
     - sct_create_a_dataset@e0ff3a7

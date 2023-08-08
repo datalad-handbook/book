@@ -12,7 +12,7 @@ copy(ok): books/byte-of-python.pdf (file) [to roommate...]
 [INFO] Start writing objects
 [INFO] Start resolving deltas
 [INFO] Finished
-publish(ok): . (dataset) [refs/heads/git-annex->roommate:refs/heads/git-annex FROM..TO (REDACTED)]
+publish(ok): . (dataset) [refs/heads/git-annex->roommate:refs/heads/git-annex ✂FROM✂..✂TO✂]
 publish(error): . (dataset) [refs/heads/master->roommate:refs/heads/master [remote rejected] (branch is currently checked out)]
 [INFO] Finished push of Dataset(/home/me/dl-101/DataLad-101)
 action summary:

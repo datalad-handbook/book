@@ -1,11 +1,11 @@
 $ git log -2
-commit c48923fb74df9f75edb14b496e561c07f75ac4c7
+commit c48923fb✂SHA1
 Author: Elena Piscopia <elena@example.net>
 Date:   Tue Jun 18 16:13:00 2019 +0000
 
     save my favorite Git joke
 
-commit 5206254527f381da53ba9f3b77f4c811aaa5fbaf
+commit 52062545✂SHA1
 Author: Elena Piscopia <elena@example.net>
 Date:   Tue Jun 18 16:13:00 2019 +0000
 

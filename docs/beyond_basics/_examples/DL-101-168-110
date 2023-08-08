@@ -12,7 +12,7 @@ To enable auto staging, run:
 
 To track the changes with git, run:
 
-	git add data/raw/val.dvc data/raw/.gitignore
+	git add data/raw/.gitignore data/raw/val.dvc
 
 To enable auto staging, run:
 

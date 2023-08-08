@@ -1,5 +1,5 @@
 
-$ datalad rerun d5845d332dc06ed2311900d9c08cefda69df5af5
+$ datalad rerun d5845d33✂SHA1
 [INFO] run commit d5845d3; (Resize logo for s...)
 [INFO] Making sure inputs are available (this may take some time)
 get(ok): recordings/longnow/.datalad/feed_metadata/logo_salt.jpg (file) [from web...]

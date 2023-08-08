@@ -3,12 +3,12 @@ $ cat data-cat/metadata/5df8eb3a-95c5-11ea-b4b9-a0369f287950/dae38cf901995aace0d
 {
   "type": "dataset",
   "dataset_id": "5df8eb3a-95c5-11ea-b4b9-a0369f287950",
-  "dataset_version": "dae38cf901995aace0dde5346515a0134f919523",
+  "dataset_version": "dae38cf9✂SHA1",
   "children": [
     {
       "type": "file",
       "dataset_id": "5df8eb3a-95c5-11ea-b4b9-a0369f287950",
-      "dataset_version": "dae38cf901995aace0dde5346515a0134f919523",
+      "dataset_version": "dae38cf9✂SHA1",
       "contentbytesize": 1403,
       "path": "README",
       "extractors_used": [
@@ -28,7 +28,7 @@ $ cat data-cat/metadata/5df8eb3a-95c5-11ea-b4b9-a0369f287950/dae38cf901995aace0d
       "name": "main_data",
       "path": "main_data",
       "dataset_id": "5df8eb3a-95c5-11ea-b4b9-a0369f287950",
-      "dataset_version": "dae38cf901995aace0dde5346515a0134f919523"
+      "dataset_version": "dae38cf9✂SHA1"
     }
   ],
   "name": "My toy dataset",
@@ -76,12 +76,12 @@ $ cat data-cat/metadata/5df8eb3a-95c5-11ea-b4b9-a0369f287950/dae38cf901995aace0d
 {
   "type": "directory",
   "dataset_id": "5df8eb3a-95c5-11ea-b4b9-a0369f287950",
-  "dataset_version": "dae38cf901995aace0dde5346515a0134f919523",
+  "dataset_version": "dae38cf9✂SHA1",
   "children": [
     {
       "type": "file",
       "dataset_id": "5df8eb3a-95c5-11ea-b4b9-a0369f287950",
-      "dataset_version": "dae38cf901995aace0dde5346515a0134f919523",
+      "dataset_version": "dae38cf9✂SHA1",
       "contentbytesize": 15572,
       "path": "main_data/main_results.png",
       "extractors_used": [

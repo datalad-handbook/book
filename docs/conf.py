@@ -380,9 +380,11 @@ marginpar=10mm,%
 % small margins due to page-number concerns for a printed book
 hmargin=15mm,%
 vmargin=15mm,%
-verbatimwithframe=false,%
+verbatimforcewraps,%
+verbatimwithframe=true,%
 VerbatimColor={rgb}{1,1,1},%
-VerbatimHighlightColor={named}{OldLace},%
+VerbatimBorderColor={rgb}{.8,.8,.8},%
+VerbatimHighlightColor={named}{LightGray},%
 TitleColor={named}{Black},%
 hintBorderColor={named}{LightCoral},%
 InnerLinkColor={named}{Black},%

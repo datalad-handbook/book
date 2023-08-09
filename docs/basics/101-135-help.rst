@@ -178,7 +178,7 @@ To get extensive information on what :dlcmd:`status` does underneath the hood, y
 .. runrecord:: _examples/DL-101-135-105
    :language: console
    :workdir: dl-101/DataLad-101
-   :lines: 1, 3-5, 60-
+   :lines: 1,6, 67-
 
    $ datalad --log-level debug status
 

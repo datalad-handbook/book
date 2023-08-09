@@ -22,9 +22,9 @@ but you can not get mine."
 
 Consider, for example, that your room mate might have googled about DataLad
 a bit. In the depths of the web, he might have found useful additional information, such
-a script on `dataset nesting <https://raw.githubusercontent.com/datalad/datalad.org/7e8e39b1f08d0a54ab521586f27ee918b4441d69/content/asciicast/seamless_nested_repos.sh>`_.
+a script on `dataset nesting <https://raw.githubusercontent.com/datalad/datalad.org/7e8e39b1/content/asciicast/seamless_nested_repos.sh>`_.
 Because he found this very helpful in understanding dataset
-nesting concepts, he decided to download it `from GitHub <https://raw.githubusercontent.com/datalad/datalad.org/7e8e39b1f08d0a54ab521586f27ee918b4441d69/content/asciicast/seamless_nested_repos.sh>`_, and saved it in the ``code/`` directory.
+nesting concepts, he decided to download it from GitHub, and saved it in the ``code/`` directory.
 
 He does it using the datalad command :dlcmd:`download-url`
 that you experienced in section :ref:`createDS` already: This command will
@@ -49,7 +49,7 @@ and run the following command
      -d . \
      -m "Include nesting demo from datalad website" \
      -O code/nested_repos.sh \
-     https://raw.githubusercontent.com/datalad/datalad.org/7e8e39b1f08d0a54ab521586f27ee918b4441d69/content/asciicast/seamless_nested_repos.sh
+     https://raw.githubusercontent.com/datalad/datalad.org/7e8e39b1/content/asciicast/seamless_nested_repos.sh
 
 Run a quick datalad status:
 

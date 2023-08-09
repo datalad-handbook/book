@@ -540,7 +540,7 @@ We'll ensure that the new custom logo is available locally:
    :cast: catalog_basics
    :notes: Get the custom logo
 
-   $  wget -q -O datalad_logo_funky.svg https://raw.githubusercontent.com/datalad/tutorials/5e5fc0a4761248e5cedbc491c357d423d14a2b21/notebooks/catalog_tutorials/test_data/datalad_logo_funky.svg
+   $  wget -q -O datalad_logo_funky.svg https://raw.githubusercontent.com/datalad/tutorials/5e5fc0a4/notebooks/catalog_tutorials/test_data/datalad_logo_funky.svg
 
 Now we can run all the necessary subcommands for the catalog generation process:
 

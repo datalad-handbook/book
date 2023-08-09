@@ -74,9 +74,10 @@ def _get_counted_boxstart(label, node):
         flt = node.attributes['float']
         float_args = ', float, floatplacement={}'.format(flt) \
             if flt else ', float'
-        # floating boxes must check the page placement to enable
-        # odd vs even placement logic
-        float_args += ', check odd page=true'
+    # floating boxes must check the page placement to enable
+    # odd vs even placement logic, but even without floating explicitly
+    # enabled it seems to be more robust when odd-oage-checking is on
+    float_args += ', check odd page=true'
     return \
         "\\begin{{{label}}}" \
         "[{ref}before title={{\\thetcbcounter\\ }}{float_args}]" \

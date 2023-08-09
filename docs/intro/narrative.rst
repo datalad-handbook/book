@@ -55,8 +55,8 @@ in the example below (it shows the creation of a DataLad dataset):
    # Anything preceded by $ is a command to try.
    # if the line starts with neither # nor $, its the output of a command
    $ datalad create myfirstrepo
-   [INFO   ] Creating a new annex repo at /home/adina/DataLad-101
-   create(ok): /home/adina/DataLad-101 (dataset)
+   [INFO   ] Creating a new annex repo at /home/me/DataLad-101
+   create(ok): /home/me/DataLad-101 (dataset)
 
 When copying code snippets into your own terminal, do not copy the leading
 ``$`` -- this only indicates that the line is a command, and would lead to an

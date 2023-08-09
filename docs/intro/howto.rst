@@ -109,10 +109,10 @@ The Prompt
 When you first login on the command line, you are greeted with "the prompt",
 and it will likely look similar to this:
 
-``adina@muninn: ~$``
+``me@muninn: ~$``
 
-This says I am the user adina on the machine muninn and I am in the folder ``~``,
-which is shorthand for the current user's home folder (in this case ``/home/adina``).
+This says I am the user ``me`` on the machine muninn and I am in the folder ``~``,
+which is shorthand for the current user's home folder (in this case ``/home/me``).
 
 The ``$`` sign indicates that the prompt is interactive and awaiting user input.
 In this handbook, we will use ``$`` as a shorthand for the prompt, to allow
@@ -128,9 +128,9 @@ I can run the following command:
 
 .. code-block:: bash
 
-   $ mkdir /home/adina/awesome_datalad_project
+   $ mkdir /home/me/awesome_datalad_project
 
-And that works. ``/home/adina/awesome_datalad_project`` is what is called an *absolute*
+And that works. ``/home/me/awesome_datalad_project`` is what is called an *absolute*
 path. Absolute paths *always* start with a ``/``, and define the folder's location
 with no ambiguity.
 
@@ -157,20 +157,20 @@ the following commands all would create the new folder in the exact same place.
 
 .. code-block:: bash
 
-   mkdir /home/adina/awesome_datalad_project
+   mkdir /home/me/awesome_datalad_project
    mkdir ~/awesome_datalad_project
    mkdir awesome_datalad_project
    mkdir ./awesome_datalad_project
 
 To demonstrate this further, consider the following: In my home directory
-``/home/adina`` I have added a folder for my current project,
+``/home/me`` I have added a folder for my current project,
 ``awesome_datalad_project/``. Let's take a look at how this folder is organized:
 
 .. code-block:: bash
 
    $ tree
    └── home
-       └── adina
+       └── me
             └── awesome_datalad_project
                ├── aligned
                    ├── code
@@ -180,10 +180,10 @@ To demonstrate this further, consider the following: In my home directory
                └── sub-xx
                    └── bold3T
 
-Now let's say I want to change from my home directory ``/home/adina`` into the ``code/``
+Now let's say I want to change from my home directory ``/home/me`` into the ``code/``
 folder of the project. I could use absolute paths:
 
-``cd /home/adina/awesome_datalad_project/aligned/code``
+``cd /home/me/awesome_datalad_project/aligned/code``
 
 But that is a bit wordy. It is much easier with a relative path:
 
@@ -191,7 +191,7 @@ But that is a bit wordy. It is much easier with a relative path:
 
    $ cd awesome_datalad_project/aligned/code
 
-Relative to my starting location (``/home/adina``), I navigated into the subfolders.
+Relative to my starting location (``/home/me``), I navigated into the subfolders.
 
 I can change back to my home directory also with a relative path:
 
@@ -201,7 +201,7 @@ I can change back to my home directory also with a relative path:
 
 The first ``../`` takes me from ``code/`` to its parent ``aligned/``, the
 second ``../`` to ``awesome_datalad_project/``, and the last ``../``
-back to my home directory ``adina/``.
+back to my home directory ``me/``.
 
 However, since I want to go back to my home folder, it's much faster to run:
 

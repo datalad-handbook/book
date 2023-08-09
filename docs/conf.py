@@ -342,13 +342,13 @@ latex_documents = [
 
 # The name of an image file (relative to this directory) to place at the top of
 # the title page.
-latex_logo = 'artwork/pdf/datalad_logo_wide_bw.pdf'
+latex_logo = '../artwork/datalad_logo_wide_bw.pdf'
 latex_additional_files = [
-    '../artwork/git_boxicon.pdf',
-    '../artwork/important_boxicon.pdf',
-    '../artwork/more_boxicon.pdf',
-    '../artwork/more_boxicon_inline.pdf',
-    '../artwork/win_boxicon.pdf',
+    '../artwork/git_boxicon_bw.pdf',
+    '../artwork/important_boxicon_bw.pdf',
+    '../artwork/more_boxicon_bw.pdf',
+    '../artwork/more_boxicon_inline_bw.pdf',
+    '../artwork/win_boxicon_bw.pdf',
     # the following files are included in the main latex document
     # in the order with which the are listed here
     'latex/preamble_start.sty',

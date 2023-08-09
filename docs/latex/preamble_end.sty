@@ -1,6 +1,7 @@
 \renewcommand{\sphinxstyletheadfamily}{\bfseries}
 % make :term: references visually distinct in a print
-\renewcommand{\sphinxtermref}[1]{\textsc{#1}}
+% by adding a small "dictionary" symbol
+\renewcommand{\sphinxtermref}[1]{\mbox{\textit{#1}\hspace{0.1em}\textsuperscript{\scriptsize{\color{gray75}\faBook}}}}
 
 % better control over the spacing of list items
 \usepackage{enumitem}

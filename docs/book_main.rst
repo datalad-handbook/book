@@ -21,8 +21,20 @@ The DataLad Handbook
 
 .. toctree::
 
-   intro/intro
-   basics/intro
+   intro/philosophy
+   intro/narrative
+   intro/installation
+   intro/howto
+   intro/executive_summary
+   basics/basics-datasets
+   basics/basics-run
+   basics/basics-annex
+   basics/basics-collaboration
+   basics/basics-configuration
+   basics/basics-yoda
+   basics/basics-containers
+   basics/basics-thirdparty
+   basics/basics-help
 
 ..
    beyond_basics/intro.rst

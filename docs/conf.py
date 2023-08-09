@@ -358,7 +358,7 @@ latex_additional_files = [
     'latex/imprint.sty',
 ]
 
-latex_toplevel_sectioning = 'part'
+latex_toplevel_sectioning = 'chapter'
 latex_show_pagerefs = True
 latex_show_urls = 'footnote'
 latex_docclass = {

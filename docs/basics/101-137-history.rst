@@ -427,7 +427,7 @@ to specify the point in time you want to go back to:
    :language: console
    :workdir: dl-101/DataLad-101
 
-   $ git log -n 20 --oneline
+   $ git log -n 16 --oneline
 
 Let's go 15 commits back in time:
 

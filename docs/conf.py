@@ -342,7 +342,7 @@ latex_documents = [
 
 # The name of an image file (relative to this directory) to place at the top of
 # the title page.
-latex_logo = '../artwork/logo.pdf'
+latex_logo = 'artwork/pdf/datalad_logo_wide_bw.pdf'
 latex_additional_files = [
     '../artwork/git_boxicon.pdf',
     '../artwork/important_boxicon.pdf',

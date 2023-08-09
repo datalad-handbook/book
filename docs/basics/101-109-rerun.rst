@@ -33,7 +33,9 @@ with the following, fixed script:
 
 .. windows-wit:: Here's a script adjustment for Windows users
 
-   Please use an editor of your choice to replace the contents of ``list_titles.sh`` inside of the ``code`` directory with the following::
+   Please use an editor of your choice to replace the contents of ``list_titles.sh`` inside of the ``code`` directory with the following:
+
+   .. code-block:: bash
 
        for i in recordings/longnow/Long_Now*/*.mp3; do
           # get the filename
@@ -175,7 +177,9 @@ of the dataset and the previous commit (called "``HEAD~1``" in Git terminology [
    When executing this command, you will see *all* files being modified between the most recent and the second-most recent commit.
    On a technical level, this is correct given the underlying file handling on Windows, and chapter :ref:`chapter_gitannex` will shed light on why that is.
 
-   For now, to get the same output as shown in the code snippet below, use the following command where ``main`` (or ``master``) is the name of your default branch::
+   For now, to get the same output as shown in the code snippet below, use the following command where ``main`` (or ``master``) is the name of your default branch:
+
+   .. code-block:: bash
 
       datalad diff --from main --to HEAD~1
 

@@ -74,7 +74,9 @@ will write it into the script.
 .. windows-wit:: Here's a script for Windows users
 
    Please use an editor of your choice to create a file ``list_titles.sh`` inside of the ``code`` directory.
-   These should be the contents::
+   These should be the contents:
+
+   .. code-block:: bash
 
        for i in recordings/longnow/Long_Now__Seminars*/*.mp3; do
           # get the filename

@@ -120,7 +120,9 @@ Applying procedures
 but also *executes* procedures. If given the name of
 a procedure, this command will apply the procedure to
 the current dataset, or the dataset that is specified
-with the ``-d/--dataset`` flag::
+with the ``-d/--dataset`` flag:
+
+.. code-block:: bash
 
    datalad run-procedure [-d <PATH>] cfg_text2git
 
@@ -131,7 +133,9 @@ However, some procedures shipped with DataLad or its extensions with a
 with the ``-c/--cfg-proc <name>`` option in a :dlcmd:`create`
 command. This is a peculiarity of these procedures because, by convention,
 all of these procedures are written to not require arguments.
-The command structure looks like this::
+The command structure looks like this:
+
+.. code-block:: bash
 
    datalad create -c text2git DataLad-101
 
@@ -146,7 +150,9 @@ could thus be applied within a :dlcmd:`create` as
 .. find-out-more:: Applying multiple procedures
 
    If you want to apply several configurations at once, feel free to do so,
-   for example like this::
+   for example like this:
+
+   .. code-block:: bash
 
       $ datalad create -c yoda -c text2git
 
@@ -233,7 +239,9 @@ was applied.
                 dataset-procedures = relative/path/from/dataset-root
 
     - By default, DataLad will call a procedure with a standard template
-      defined by a format string::
+      defined by a format string:
+
+      .. code-block:: bash
 
          interpreter {script} {ds} {arguments}
 

@@ -142,7 +142,9 @@ How can I convert/import/transform an existing Git or git-annex repository into 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 You can transform any existing Git or git-annex repository of yours into a
-DataLad dataset by running::
+DataLad dataset by running:
+
+.. code-block:: bash
 
    $ datalad create -f
 
@@ -198,7 +200,9 @@ If you do not want to copy-and-paste these snippets yourself, you can run
         Get the dataset
         ^^^^^^^^^^^^^^^
 
-        A DataLad dataset can be ``cloned`` by running::
+        A DataLad dataset can be ``cloned`` by running:
+
+        .. code-block:: bash
 
            datalad clone <url>
 
@@ -210,7 +214,9 @@ If you do not want to copy-and-paste these snippets yourself, you can run
         Retrieve dataset content
         ^^^^^^^^^^^^^^^^^^^^^^^^
 
-        After cloning a dataset, you can retrieve file contents by running::
+        After cloning a dataset, you can retrieve file contents by running:
+
+        .. code-block:: bash
 
            datalad get <path/to/directory/or/file>
 
@@ -220,7 +226,9 @@ If you do not want to copy-and-paste these snippets yourself, you can run
         DataLad datasets can contain other datasets, so called *subdatasets*. If you
         clone the top-level dataset, subdatasets do not yet contain metadata and
         information on the identity of files, but appear to be empty directories. In
-        order to retrieve file availability metadata in subdatasets, run::
+        order to retrieve file availability metadata in subdatasets, run:
+
+        .. code-block:: bash
 
            datalad get -n <path/to/subdataset>
 
@@ -234,7 +242,9 @@ If you do not want to copy-and-paste these snippets yourself, you can run
 
         DataLad datasets can be updated. The command ``datalad update`` will *fetch*
         updates and store them on a different branch (by default
-        ``remotes/origin/master``). Running::
+        ``remotes/origin/master``). Running:
+
+        .. code-block:: bash
 
            datalad update --merge
 

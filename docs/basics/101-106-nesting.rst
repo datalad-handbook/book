@@ -104,7 +104,9 @@ we can set subdatasets to previous states, or *update* them.
    a Git command let's you run the command as if Git was started in this path
    instead of the current working directory.
    Thus, from the root of ``DataLad-101``, this command would have given you the
-   subdataset's history as well::
+   subdataset's history as well:
+
+   .. code-block:: bash
 
       $ git -C recordings/longnow log --oneline
 

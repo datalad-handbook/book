@@ -46,7 +46,9 @@ Git configuration." the lecturer says.
 
 At one point in time, you likely followed instructions such as
 in :ref:`install` and configured your
-*Git identity* with the commands::
+*Git identity* with the commands:
+
+.. code-block:: bash
 
    git config --global --add user.name "Elena Piscopia"
    git config --global --add user.email elena@example.net
@@ -175,7 +177,9 @@ configuration to your repository's ``.git/config`` file, whereas ``--global``
 would apply it as a user specific configuration, and ``--system`` as a
 system-wide configuration.
 If you would want to change this existing line in your ``.git/config``
-file, you would replace ``--add`` with ``--replace-all`` such as in::
+file, you would replace ``--add`` with ``--replace-all`` such as in:
+
+.. code-block:: bash
 
    git config --local --replace-all core.editor "vim"
 

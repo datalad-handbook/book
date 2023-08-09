@@ -32,7 +32,7 @@ from a large number of commercial providers [#f2]_.
   configuration of the dataset we want to publish). The interactive dialog is
   outlined below, and all parts that require user input are highlighted.
 
-.. code-block::
+.. code-block:: text
    :emphasize-lines: 7-8, 22, 26, 30, 36
 
    $ rclone config
@@ -80,7 +80,7 @@ from a large number of commercial providers [#f2]_.
   in the interactive prompt. Accepting will bring you back into the terminal
   to the final configuration prompts:
 
-.. code-block:: bash
+.. code-block:: text
    :emphasize-lines: 12, 26
 
    Got code
@@ -114,7 +114,9 @@ from a large number of commercial providers [#f2]_.
   It is a wrapper around rclone_ that makes any   destination supported by rclone usable with :term:`git-annex`.
   If you are on a recent version of Debian or Ubuntu (or have enabled the `NeuroDebian <https://neuro.debian.net>`_ repository), you can get it conveniently via your package manager, e.g., with ``sudo apt-get install git-annex-remote-rclone``.
   Alternatively, ``git clone`` the `git-annex-remote-rclone <https://github.com/git-annex-remote-rclone/git-annex-remote-rclone>`_ repository to your machine (do not clone it into ``DataLad-101`` but somewhere else on your computer), and copy the path to this repository into your ``$PATH`` variable. If you
-  clone into ``/home/user-bob/repos``, the command would look like this [#f3]_::
+  clone into ``/home/user-bob/repos``, the command would look like this [#f3]_:
+
+  .. code-block:: bash
 
      $ git clone https://github.com/DanielDent/git-annex-remote-rclone.git
      $ export PATH="/home/user-bob/repos/git-annex-remote-rclone:$PATH"
@@ -247,7 +249,9 @@ the annexed files (e.g., by sharing an access link), here is what they would
 have to do:
 
 If the repository is on GitHub, a :dlcmd:`clone` with the URL
-will install the dataset::
+will install the dataset:
+
+.. code-block:: bash
 
    $ datalad clone https://github.com/<user-name>/DataLad-101.git
    [INFO   ] Cloning https://github.com/<user-name>/DataLad-101.git [1 other candidates] into '/Users/awagner/Documents/DataLad-101'
@@ -256,7 +260,9 @@ will install the dataset::
    |         datalad siblings -d "/Users/awagner/Documents/DataLad-101" enable -s dropbox-for-friends
    install(ok): /Users/awagner/Documents/DataLad-101 (dataset)
 
-Pay attention to one crucial information in this output::
+Pay attention to one crucial information in this output:
+
+.. code-block:: bash
 
    [INFO   ] access to 1 dataset sibling dropbox-for-friends not auto-enabled, enable with:
    |         datalad siblings -d "/Users/<user-name>/Documents/DataLad-101" enable -s dropbox-for-friends
@@ -276,14 +282,18 @@ the same as before:
 - install git-annex-remote-rclone_ (as described above).
 
 After this is done, you can execute what DataLad's output message suggests
-to "enable" this special remote (inside of the installed ``DataLad-101``)::
+to "enable" this special remote (inside of the installed ``DataLad-101``):
+
+.. code-block:: bash
 
    $ datalad siblings -d "/Users/awagner/Documents/DataLad-101" \
      enable -s dropbox-for-friends
    .: dropbox-for-friends(?) [git]
 
 And once this is done, you can get any annexed file contents, for example the
-books, or the cropped logos from chapter :ref:`chapter_run`::
+books, or the cropped logos from chapter :ref:`chapter_run`:
+
+.. code-block:: bash
 
    $ datalad get books/TLCL.pdf
    get(ok): /home/some/other/user/DataLad-101/books/TLCL.pdf (file) [from dropbox-for-friends]

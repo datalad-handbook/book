@@ -226,7 +226,9 @@ the former for a different lecture:
 
 .. windows-wit:: Please use datalad diff --from main --to remotes/roommate/master
 
-   Please use the following command instead::
+   Please use the following command instead:
+
+   .. code-block:: bash
 
       datalad diff --from main --to remotes/roommate/master
 
@@ -246,7 +248,9 @@ that there is a difference in ``notes.txt``! Let's ask
 
 .. windows-wit:: Please use git diff master..remotes/roommate/master
 
-   Please use the following command instead::
+   Please use the following command instead:
+
+   .. code-block:: bash
 
      git diff master..remotes/roommate/master
 

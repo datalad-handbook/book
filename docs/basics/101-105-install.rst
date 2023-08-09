@@ -115,14 +115,18 @@ chapters in this handbook will demonstrate how useful this information can be.
    important to keep in mind whenever you do not execute the :dlcmd:`clone` command
    from the root of this dataset. Luckily, there is a shortcut: ``-d^`` will always
    point to root of the top-most dataset. For example, if you navigate into ``recordings``,
-   the command would be::
+   the command would be:
+
+   .. code-block:: bash
 
      datalad clone -d^ https://github.com/datalad-datasets/longnow-podcasts.git longnow
 
 .. find-out-more:: What if I do not install into an existing dataset?
 
    If you do not install into an existing dataset, you only need to omit the ``-d/--dataset``
-   option. You can try::
+   option. You can try:
+
+   .. code-block:: bash
   
      datalad clone https://github.com/datalad-datasets/longnow-podcasts.git
 

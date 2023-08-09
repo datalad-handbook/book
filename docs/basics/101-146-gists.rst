@@ -79,7 +79,9 @@ Alternatively, to get very comprehensive output, you can use
 
 The output will be returned as json, and the key ``has_content`` indicates local
 content availability (``true`` or ``false``). To filter through it, the command
-line tool `jq <https://stedolan.github.io/jq>`_ works well::
+line tool `jq <https://stedolan.github.io/jq>`_ works well:
+
+.. code-block:: bash
 
    $ datalad -f json status --recursive --annex all | jq '. | select(.has_content == true).path'
 
@@ -150,7 +152,9 @@ Datasets can be either GitRepos (i.e., sole Git repositories; this happens when
 they are created with the ``--no-annex`` flag, for example), or AnnexRepos
 (i.e., datasets that contain an annex). Information on what kind of repository it
 is is stored in the dataset report of :dlcmd:`wtf` under the key ``repo``.
-Here is a one-liner to get this info::
+Here is a one-liner to get this info:
+
+.. code-block:: bash
 
    $ datalad -f'{infos[dataset][repo]}' wtf
 
@@ -180,7 +184,9 @@ A sketch of how to implement a sibling for backups is below:
 In order to push not only the current branch, but refs, add the option
 ``--publish-by-default "refs/*"`` to the :dlcmd:`create-sibling` call.
 Should you want to back up all annexed data, even past versions of files, use
-:gitannexcmd:`sync` to push to the sibling::
+:gitannexcmd:`sync` to push to the sibling:
+
+.. code-block:: bash
 
    $ git annex sync --all --content <sibling-name>
 
@@ -201,7 +207,9 @@ Example: consider retrieving all ``ribbon.nii.gz`` files for all subjects in the
 :ref:`usecase_HCP_dataset`).
 If all subject-subdatasets are installed (e.g., with ``datalad get -n -r`` for
 a recursive installation without file retrieval), :term:`globbing` with the
-shell works fine::
+shell works fine:
+
+.. code-block:: bash
 
    $ datalad get HCP1200/*/T1W/ribbon.nii.gz
 
@@ -209,13 +217,17 @@ The Gist :ref:`parallelize` can show you how to parallelize this.
 If the subdatasets are not yet installed, globbing will not work, because the
 shell can't expand non-existent paths. As an alternative, you can pipe the output
 of an (arbitrarily complex) :dlcmd:`search` command into
-:dlcmd:`get`::
+:dlcmd:`get`:
+
+.. code-block:: bash
 
    $ datalad -f '{path}' -c datalad.search.index-egrep-documenttype=all search 'path:.*T1w.*\.nii.gz' | xargs -n 100 datalad get
 
 However, if you know the file locations within the dataset hierarchy and they
 are predictably named and consistent, you can create a file containing all paths to
-be retrieved and pipe that into :dlcmd:`get` as well::
+be retrieved and pipe that into :dlcmd:`get` as well:
+
+.. code-block:: bash
 
    # create file with all file paths
    $ for sub in HCP1200/*; do echo ${sub}/T1w/ribbons.nii.gz; done > toget.txt

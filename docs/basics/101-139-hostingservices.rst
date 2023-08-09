@@ -158,7 +158,9 @@ Often, you can specifically select which set of permissions a specific token has
 
 For creating and updating repositories with DataLad commands it is usually sufficient to grant only repository-related permissions.
 However, broader permission sets may also make sense.
-Should you employ GitHub workflows, for example, a token without "workflow" scope could not push changes to workflow files, resulting in errors like this one::
+Should you employ GitHub workflows, for example, a token without "workflow" scope could not push changes to workflow files, resulting in errors like this one:
+
+.. code-block:: bash
 
     [remote rejected] (refusing to allow a Personal Access Token to create or update workflow `.github/workflows/benchmarks.yml` without `workflow` scope)]
 
@@ -227,7 +229,9 @@ Due to the distinction between groups and projects, GitLab allows two different 
 * **collection**:
   A new group is created for the dataset. The root dataset (the topmost superdataset) is placed in a "project" project inside this group, and all nested subdatasets are represented inside the group using a "flat" layout [#f4]_. This layout is the default.
 
-Consider the ``DataLad-101`` dataset, a superdataset with a several subdatasets in the following layout::
+Consider the ``DataLad-101`` dataset, a superdataset with a several subdatasets in the following layout:
+
+.. code-block:: bash
 
     /home/me/dl-101/DataLad-101    # dataset
     ├── books/
@@ -287,7 +291,7 @@ Publishing datasets recursively
 When publishing a series of datasets recursively, the ``--project`` argument can not be used anymore - otherwise, all datasets in the hierarchy would attempt to create the same group or project over and over again.
 Instead, one configures the root level dataset, and the names for underlying datasets will be derived from this configuration:
 
-.. code-block::
+.. code-block:: bash
 
    # do the configuration for the top-most dataset
    # either configure with Git

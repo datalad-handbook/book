@@ -46,7 +46,9 @@ are presented here, make sure to check the :windows-wit:`on peculiarities of its
 
    In Unix shells, ``\`` can be used to split a command into several lines, for example to aid readability.
    Standard Windows terminals (including the Anaconda prompt) do not support this.
-   They instead use the ``^`` character::
+   They instead use the ``^`` character:
+
+   .. code-block:: bash
 
      $ wget -q https://sourceforge.net/projects/linuxcommand/files/TLCL/19.01/TLCL-19.01.pdf/download ^
      -O TLCL.pdf
@@ -75,7 +77,9 @@ curl <ww-curl-instead-wget>`.
    :name: ww-curl-instead-wget
 
    Many versions of Windows do not ship with the tool ``wget``.
-   You can install it, but it may be easier to use the pre-installed ``curl`` command::
+   You can install it, but it may be easier to use the pre-installed ``curl`` command:
+
+   .. code-block:: bash
 
       $ cd books
       $ curl -L https://sourceforge.net/projects/linuxcommand/files/TLCL/19.01/TLCL-19.01.pdf/download \

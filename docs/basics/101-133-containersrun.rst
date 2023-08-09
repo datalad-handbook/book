@@ -170,7 +170,9 @@ name to give to the container, and a path or url to a container Image:
 .. find-out-more:: How do I add an Image from Dockerhub, Amazon ECR, or a local container?
 
    Should the Image you want to use lie on Dockerhub, specify the ``--url``
-   option prefixed with ``docker://`` or ``dhub://`` instead of ``shub://``::
+   option prefixed with ``docker://`` or ``dhub://`` instead of ``shub://``:
+
+   .. code-block:: bash
 
       datalad containers-add midterm-software --url docker://adswa/resources:2
 
@@ -181,7 +183,9 @@ name to give to the container, and a path or url to a container Image:
           datalad containers-add --url dhub://12345678.dkr.ecr.us-west-2.amazonaws.com/maze-code/data-import:latest data-import
 
    If you want to add a container that exists locally, specify the path to it
-   like this::
+   like this:
+
+   .. code-block:: bash
 
        datalad containers-add midterm-software --url path/to/container
 
@@ -217,7 +221,9 @@ container under its name "midterm-software" in the dataset's configuration at
    This can be useful to, for example, automatically bind-mount the current working directory in the container.
    In the alternative call format, the placeholders ``{img}``, ``{cmd}``, and ``{img_dspath}`` (a relative path to the dataset containing the image) are available.
    In all other cases with variables that use curly brackets, you need to escape them with another curly bracket.
-   Here is an example call format that bind-mounts the current working directory (and thus the dataset) automatically::
+   Here is an example call format that bind-mounts the current working directory (and thus the dataset) automatically:
+
+   .. code-block:: bash
 
       datalad containers-add --call-fmt 'singularity exec -B {{pwd}} --cleanenv {img} {cmd}'
 
@@ -256,7 +262,9 @@ dataset, we can execute commands in this environment. Let us for example try to 
 the :dlcmd:`run` command from the section :ref:`yoda_project` as a
 :dlcmd:`containers-run` command.
 
-The previous ``run`` command looked like this::
+The previous ``run`` command looked like this:
+
+.. code-block:: bash
 
    $ datalad run -m "analyze iris data with classification analysis" \
      --input "input/iris.csv" \
@@ -284,7 +292,9 @@ is ``container-name``. At this point, though, the ``--container-name``
 flag is even *optional* because there is only a single container registered to the dataset.
 But if your dataset contains more than one container you will *need* to specify
 the name of the container you want to use in your command.
-The complete command's structure looks like this::
+The complete command's structure looks like this:
+
+.. code-block:: bash
 
    $ datalad containers-run --name <containername> [-m ...] [--input ...] [--output ...] <COMMAND>
 

@@ -1,8 +1,6 @@
 $ ls -lah
 total 24K
-drwxr-xr-x 2 elena elena 4.0K 2019-06-18 16:13 .
-drwxr-xr-x 7 elena elena 4.0K 2019-06-18 16:13 ..
-lrwxrwxrwx 1 elena elena 131 2019-06-18 16:13 bash_guide.pdf -> ../.git/annex/objects/WF/Gq/✂/MD5E-s1198170--0ab2c121✂MD5.pdf
-lrwxrwxrwx 1 elena elena 131 2019-06-18 16:13 byte-of-python.pdf -> ../.git/annex/objects/P5/qK/✂/MD5E-s2693891--e61afe4b✂MD5.pdf
-lrwxrwxrwx 1 elena elena 133 2019-06-18 16:13 progit.pdf -> ../.git/annex/objects/G6/Gj/✂/MD5E-s12465653--05cd7ed5✂MD5.pdf
-lrwxrwxrwx 1 elena elena 131 2019-06-18 16:13 TLCL.pdf -> ../.git/annex/objects/jf/3M/✂/MD5E-s2120211--06d1efcb✂MD5.pdf
+lrwxrwxrwx 1 elena elena 131 🗓 🕓 bash_guide.pdf -> ../.git/annex/objects/WF/Gq/✂/MD5E-s1198170--0ab2c121✂MD5.pdf
+lrwxrwxrwx 1 elena elena 131 🗓 🕓 byte-of-python.pdf -> ../.git/annex/objects/P5/qK/✂/MD5E-s2693891--e61afe4b✂MD5.pdf
+lrwxrwxrwx 1 elena elena 133 🗓 🕓 progit.pdf -> ../.git/annex/objects/G6/Gj/✂/MD5E-s12465653--05cd7ed5✂MD5.pdf
+lrwxrwxrwx 1 elena elena 131 🗓 🕓 TLCL.pdf -> ../.git/annex/objects/jf/3M/✂/MD5E-s2120211--06d1efcb✂MD5.pdf

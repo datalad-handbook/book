@@ -345,9 +345,10 @@ To compute the analysis you create the following Python script inside of ``code/
    Y = array[:,4]
    test_size = 0.20
    seed = 7
-   X_train, X_test, Y_train, Y_test = model_selection.train_test_split(X, Y,
-                                                                       test_size=test_size,
-                                                                       random_state=seed)
+   X_train, X_test, Y_train, Y_test = model_selection.train_test_split(
+       X, Y,
+       test_size=test_size,
+       random_state=seed)
    # Step 2: Fit the model and make predictions on the test dataset
    knn = KNeighborsClassifier()
    knn.fit(X_train, Y_train)

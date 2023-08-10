@@ -28,7 +28,7 @@ a source.
 
 In this scenario multiple people can access the very same files at the
 same time, often on the same machine (e.g., a shared workstation, or
-a server that people can "SSH" into). You might think: "What do I need
+a server that people can ":term:`SSH`" into). You might think: "What do I need
 DataLad for, if everyone can already access everything?" However,
 universal, unrestricted access can easily lead to chaos. DataLad can
 help facilitate collaboration without requiring ultimate trust and
@@ -53,7 +53,7 @@ how a dataset can be obtained from a path (instead of a URL as shown in the sect
 showcase many different properties of a dataset already, but it will
 be an additional learning experience to see how the different parts
 of the dataset -- text files, larger files, datalad subdataset,
-:command:`datalad run` commands -- will appear upon installation when shared.
+:dlcmd:`run` commands -- will appear upon installation when shared.
 And lastly, you will likely "share a dataset with yourself" whenever you
 will be using a particular dataset of your own creation as input for
 one or more projects.
@@ -84,8 +84,8 @@ to a different user's directories, but we will talk about permissions later.
 .. index:: ! datalad command; clone
 
 After creation, navigate into ``mock_user`` and install the dataset ``DataLad-101``.
-To do this, use :command:`datalad clone`, and provide a path to your original
-dataset. Here is how it looks like:
+To do this, use :dlcmd:`clone`, and provide a path to your original
+dataset:
 
 .. runrecord:: _examples/DL-101-116-102
    :language: console
@@ -99,8 +99,8 @@ dataset. Here is how it looks like:
 
 This will install your dataset ``DataLad-101`` into your room mate's home
 directory. Note that we have given this new
-dataset a description about its location as well. Note further that we
-have not provided the optional destination path to :command:`datalad clone`,
+dataset a description about its location. Note further that we
+have not provided the optional destination path to :dlcmd:`clone`,
 and hence it installed the dataset under its original name in the current directory.
 
 Together with your room mate, you go ahead and see what this dataset looks
@@ -142,7 +142,7 @@ installing the ``longnow`` subdataset: Right after installation,
 the ``.mp3`` files also could not be opened, because their file
 content was not yet retrieved. You begin to explain to your room mate
 how DataLad retrieves only minimal metadata about which files actually
-exist in a dataset upon a :command:`datalad clone`. "It's really handy",
+exist in a dataset upon a :dlcmd:`clone`. "It's really handy",
 you tell him. "This way you can decide which book you want to read,
 and then retrieve what you need. Everything that is *annexed* is retrieved
 on demand. Note though that the text files
@@ -187,11 +187,10 @@ and hostname of your computer. "This", you exclaim, excited about your own reali
 .. find-out-more:: What is this location, and what if I provided a description?
 
    Back in the very first section of the Basics, :ref:`createDS`, a hidden
-   section mentioned the ``--description`` option of :command:`datalad create`.
-   With this option, you can provide a description about the *location* of
-   your dataset.
+   section mentioned the ``--description`` option of :dlcmd:`create`.
+   With this option, you can provide a description about the dataset *location*.
 
-   The :command:`git annex whereis` command, finally, is where such a description
+   The :gitannexcmd:`whereis` command, finally, is where such a description
    can become handy: If you had created the dataset with
 
    .. code-block:: bash
@@ -205,14 +204,12 @@ and hostname of your computer. "This", you exclaim, excited about your own reali
    increases. If you have only one other dataset it may be easy to
    remember what and where it is. But once you have one back-up
    of your dataset on a USB-Stick, one dataset shared with
-   `Dropbox <https://www.dropbox.com>`_, and a third one on your institutions
+   Dropbox, and a third one on your institutions
    :term:`GitLab` instance you will be grateful for the descriptions
    you provided these locations with.
 
    The current report of the location of the dataset is in the format
    ``user@host:path``.
-   As one computer this book is being build on is called "muninn" and its
-   user "me", it could look like this: ``me@muninn:~/dl-101/DataLad-101``.
 
    If the physical location of a dataset is not relevant, ambiguous, or volatile,
    or if it has an :term:`annex` that could move within the foreseeable lifetime of a
@@ -253,7 +250,7 @@ But there is one book that does not suffer from this restriction:
 The ``bash_guide.pdf``.
 This book was not manually downloaded and saved to the dataset with ``wget``
 (thus keeping DataLad in the dark about where it came from), but it was
-obtained with the :command:`datalad download-url` command. This registered
+obtained with the :dlcmd:`download-url` command. This registered
 the books original source in the dataset, and here is why that is useful:
 
 .. runrecord:: _examples/DL-101-116-106
@@ -284,7 +281,7 @@ you have to run a somewhat unexpected command:
 
    $ datalad get -n recordings/longnow
 
-The section below will elaborate on :command:`datalad get` and the
+The section below will elaborate on :dlcmd:`get` and the
 ``-n/--no-data`` option, but for now, let's first see what has changed after
 running the above command (excerpt):
 
@@ -306,30 +303,32 @@ When DataLad installs a dataset, it will by default only obtain the
 superdataset, and not any subdatasets. The superdataset contains the
 information that a subdataset exists though -- the subdataset is *registered*
 in the superdataset.  This is why the subdataset name exists as a directory.
-A subsequent :command:`datalad get -n path/to/longnow` will install the registered
+A subsequent :dlcmd:`get -n path/to/longnow` will install the registered
 subdataset again, just as we did in the example above.
 
-But what about the ``-n`` option for :command:`datalad get`?
-Previously, we used :command:`datalad get` to get file content. However,
-:command:`get` can operate on more than just the level of *files* or *directories*.
+But what about the ``-n`` option for :dlcmd:`get`?
+Previously, we used :dlcmd:`get` to get file content. However,
+:dlcmd:`get` operate on more than just the level of *files* or *directories*.
 Instead, it can also operate on the level of *datasets*. Regardless of whether
 it is a single file (such as ``books/TLCL.pdf``) or a registered subdataset
-(such as ``recordings/longnow``), :command:`get` will operate on it to 1) install
+(such as ``recordings/longnow``), :dlcmd:`get` will operate on it to 1) install
 it -- if it is a not yet installed subdataset -- and 2) retrieve the contents of any files.
 That makes it very easy to get your file content, regardless of
 how your dataset may be structured -- it is always the same command, and DataLad
 blurs the boundaries between superdatasets and subdatasets.
 
-In the above example, we called :command:`datalad get` with the option ``-n/--no-data``.
-This option prevents that :command:`get` obtains the data of individual files or
+In the above example, we called :dlcmd:`get` with the option ``-n/--no-data``.
+This option prevents that :dlcmd:`get` obtains the data of individual files or
 directories, thus limiting its scope to the level of datasets as only a
-:command:`datalad clone` is performed. Without this option, the command would
+:dlcmd:`clone` is performed. Without this option, the command would
 have retrieved all of the subdatasets contents right away. But with ``-n/--no-data``,
 it only installed the subdataset to retrieve the meta data about file availability.
 
 To explicitly install all potential subdatasets *recursively*, that is,
 all of the subdatasets inside it as well, one can give the
-``-r``/``--recursive`` option to :command:`get`::
+``-r``/``--recursive`` option to :dlcmd:`get`:
+
+.. code-block:: bash
 
   datalad get -n -r <subds>
 
@@ -337,7 +336,7 @@ This would install the ``subds`` subdataset and all potential further
 subdatasets inside of it, and the meta data about file hierarchies would
 have been available right away for every subdataset inside of ``subds``. If you
 had several subdatasets and would not provide a path to a single dataset,
-but, say, the current directory (``.`` as in :command:`datalad get -n -r .`), it
+but, say, the current directory (``.`` as in :dlcmd:`get -n -r .`), it
 would clone all registered subdatasets recursively.
 
 So why is a recursive get not the default behavior?
@@ -347,7 +346,9 @@ a few dozen levels of nested subdatasets right away.
 
 However, there is a middle way [#f1]_: The ``--recursion-limit`` option let's
 you specify how many levels of subdatasets should be installed together
-with the first subdataset::
+with the first subdataset:
+
+.. code-block:: bash
 
   datalad get -n -r --recursion-limit 1 <subds>
 
@@ -414,7 +415,7 @@ Save this note.
 
 .. rubric:: Footnotes
 
-.. [#f1] Another alternative to a recursion limit to :command:`datalad get -n -r` is
+.. [#f1] Another alternative to a recursion limit to :dlcmd:`get -n -r` is
          a dataset configuration that specifies subdatasets that should *not* be
          cloned recursively, unless explicitly given to the command with a path. With
          this configuration, a superdataset's maintainer can safeguard users and prevent

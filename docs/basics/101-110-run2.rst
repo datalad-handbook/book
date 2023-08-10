@@ -5,9 +5,9 @@ Input and output
 
 In the previous two sections, you created a simple ``.tsv`` file of all
 speakers and talk titles in the ``longnow/`` podcasts subdataset, and you have
-re-executed a :command:`datalad run` command after a bug-fix in your script.
+re-executed a :dlcmd:`run` command after a bug-fix in your script.
 
-But these previous :command:`datalad run` and :command:`datalad rerun` command were very simple.
+But these previous :dlcmd:`run` and :dlcmd:`rerun` command were very simple.
 Maybe you noticed some values in the ``run record`` were empty:
 ``inputs`` and ``outputs`` for example did not have an entry. Let's experience
 a few situations in which
@@ -65,9 +65,9 @@ To resize one image to 400x400 px, the command would thus be
    The easiest way to do this is by selecting the installation directory to be within ``Miniconda3`` (i.e., just as during the installation of git-annex as described in :ref:`install`, install is into ``C:\Users\<user-name>\miniconda3\Library``).
    Do also make sure to tick the box "install legacy commands" in the installation wizard.
 
-Remembering the last lecture on :command:`datalad run`, you decide to plug this into
-:command:`datalad run`. Even though this is not a script, it is a command, and you can wrap
-commands like this conveniently with :command:`datalad run`.
+Remembering the last lecture on :dlcmd:`run`, you decide to plug this into
+:dlcmd:`run`. Even though this is not a script, it is a command, and you can wrap
+commands like this conveniently with :dlcmd:`run`.
 Because they will be quite long, we line break the commands in the upcoming examples
 for better readability -- in your terminal, you can always write the commands into
 a single line.
@@ -90,7 +90,7 @@ might seem wordy, and maybe a bit intimidating as well, but usually they provide
 information to find out what is wrong. Whenever you encounter an error message,
 make sure to read it, even if it feels like a mushroom cloud exploded in your terminal.
 
-A :command:`datalad run` error message has several parts. The first starts after
+A :dlcmd:`run` error message has several parts. The first starts after
 
 ``[INFO   ] == Command start (output follows) =====``.
 
@@ -111,7 +111,7 @@ How can that be?
 
 "Right!", you exclaim with a facepalm.
 Just as the ``.mp3`` files, the ``.jpg`` file content is not present
-locally after a :command:`datalad clone`, and we did not :command:`datalad get` it yet!
+locally after a :dlcmd:`clone`, and we did not :dlcmd:`get` it yet!
 
 This is where the ``-i``/``--input`` option for a datalad run becomes useful.
 The content of everything that is specified as an ``input`` will be retrieved
@@ -134,13 +134,13 @@ prior to running the command.
    "convert -resize 400x400 recordings/longnow/.datalad/feed_metadata/logo_salt.jpg recordings/salt_logo_small.jpg"
 
 
-Cool! You can see in this output that prior to the data command execution, DataLad did a :command:`datalad get`.
+Cool! You can see in this output that prior to the data command execution, DataLad did a :dlcmd:`get`.
 This is useful for several reasons. For one, it saved us the work of manually
 getting content. But moreover, this is useful for anyone with whom we might share the
-dataset: With an installed dataset one can very simply rerun :command:`datalad run` commands
+dataset: With an installed dataset one can very simply rerun :dlcmd:`run` commands
 if they have the input argument appropriately specified. It is therefore good practice to
 specify the inputs appropriately. Remember from section :ref:`installds`
-that :command:`datalad get` will only retrieve content if
+that :dlcmd:`get` will only retrieve content if
 it is not yet present, all input already downloaded will not be downloaded again -- so
 specifying inputs even though they are already present will not do any harm.
 
@@ -176,8 +176,8 @@ If outputs already exist...
 Looking at the resulting image, you wonder whether 400x400 might be a tiny bit to small.
 Maybe we should try to resize it to 450x450, and see whether that looks better?
 
-Note that we can not use a :command:`datalad rerun` for this: if we want to change the dimension option
-in the command, we have to define a new :command:`datalad run` command.
+Note that we can not use a :dlcmd:`rerun` for this: if we want to change the dimension option
+in the command, we have to define a new :dlcmd:`run` command.
 
 To establish best-practices, let's specify the input even though it is already present:
 
@@ -236,8 +236,7 @@ and thus protected by git-annex.
 .. index:: ! datalad command; unlock
 
 There is a DataLad command that takes care of unlocking file content,
-and thus making locked files modifiable again: :command:`datalad unlock`
-(:manpage:`datalad-unlock` manual).
+and thus making locked files modifiable again: :dlcmd:`unlock`.
 Let us check out what it does:
 
 .. windows-wit:: What happens if I run this on Windows?
@@ -255,7 +254,7 @@ Let us check out what it does:
    $ datalad unlock recordings/salt_logo_small.jpg
 
 Well, ``unlock(ok)`` does not sound too bad for a start. As always, we
-feel the urge to run a :command:`datalad status` on this:
+feel the urge to run a :dlcmd:`status` on this:
 
 .. runrecord:: _examples/DL-101-111-102
    :language: console
@@ -282,8 +281,8 @@ Hey, no permission denied error! You note that the instructor still stands
 right next to you. "Sooo... now what do I do to *lock* the file again?" you ask.
 
 "Well... what you just did there was quite suboptimal. Didn't you want to
-use :command:`datalad run`? But, anyway, in order to lock the file again, you would need to
-run a :command:`datalad save`."
+use :dlcmd:`run`? But, anyway, in order to lock the file again, you would need to
+run a :dlcmd:`save`."
 
 .. runrecord:: _examples/DL-101-111-104
    :language: console
@@ -294,16 +293,16 @@ run a :command:`datalad save`."
    $ datalad save -m "resized picture by hand"
 
 "So", you wonder aloud, "whenever I want to modify I need to
-:command:`datalad unlock` it, do the modifications, and then :command:`datalad save` it?"
+:dlcmd:`unlock` it, do the modifications, and then :dlcmd:`save` it?"
 
 "Well, this is certainly one way of doing it, and a completely valid workflow
-if you would do that outside of a :command:`datalad run` command.
-But within :command:`datalad run` there is actually a much easier way of doing this.
+if you would do that outside of a :dlcmd:`run` command.
+But within :dlcmd:`run` there is actually a much easier way of doing this.
 Let's use the ``--output`` argument."
 
-:command:`datalad run` *retrieves* everything that is specified as ``--input`` prior to
+:dlcmd:`run` *retrieves* everything that is specified as ``--input`` prior to
 command execution, and it *unlocks* everything specified as ``--output`` prior to
-command execution. Therefore, whenever the output of a :command:`datalad run` command already
+command execution. Therefore, whenever the output of a :dlcmd:`run` command already
 exists and is tracked, it should be specified as an argument in
 the ``-o``/``--output`` option.
 
@@ -312,7 +311,7 @@ the ``-o``/``--output`` option.
    The use case here is simplistic -- a single file gets modified.
    But there are commands and tools that create full directories with
    many files as an output, for example
-   `FSL <https://fsl.fmrib.ox.ac.uk/fsl/fslwiki>`_, a neuro-imaging tool.
+   `FSL <https://fsl.fmrib.ox.ac.uk>`_, a neuro-imaging tool.
    The easiest way to specify this type of output
    is by supplying the directory name, or the directory name and a :term:`globbing` character, such as
    ``-o directory/*.dat``.
@@ -320,7 +319,7 @@ the ``-o``/``--output`` option.
    To glob for files in multiple levels of directories, use ``**`` (a so-called `globstar <https://www.linuxjournal.com/content/globstar-new-bash-globbing-option>`_) for a recursive glob through any number directories.
    And, just as for ``-i``/``--input``, you could use multiple ``--output`` specifications.
 
-In order to execute :command:`datalad run` with both the ``-i``/``--input`` and ``-o``/``--output``
+In order to execute :dlcmd:`run` with both the ``-i``/``--input`` and ``-o``/``--output``
 flag and see their magic, let's crop the second logo, ``logo_interval.jpg``:
 
 .. windows-wit:: Wait, would I need to specify outputs, too?
@@ -349,22 +348,22 @@ flag and see their magic, let's crop the second logo, ``logo_interval.jpg``:
    "convert -resize 450x450 recordings/longnow/.datalad/feed_metadata/logo_interval.jpg recordings/interval_logo_small.jpg"
 
 This time, with both ``--input`` and ``--output``
-options specified, DataLad informs about the :command:`datalad get`
+options specified, DataLad informs about the :dlcmd:`get`
 operations it performs prior to the command
-execution, and :command:`datalad run` executes the command successfully.
-It does *not* inform about any :command:`datalad unlock` operation,
+execution, and :dlcmd:`run` executes the command successfully.
+It does *not* inform about any :dlcmd:`unlock` operation,
 because the output ``recordings/interval_logo_small.jpg`` does not
 exist before the command is run. Should you rerun this command however,
 the summary will include a statement about content unlocking. You will
 see an example of this in the next section.
 
-Note now how many individual commands a :command:`datalad run` saves us:
-:command:`datalad get`, :command:`datalad unlock`, and :command:`datalad save`!
+Note now how many individual commands a :dlcmd:`run` saves us:
+:dlcmd:`get`, :dlcmd:`unlock`, and :dlcmd:`save`!
 But even better: Beyond saving time *now*, running commands reproducibly and
-recorded with :command:`datalad run` saves us plenty of time in the future as soon
+recorded with :dlcmd:`run` saves us plenty of time in the future as soon
 as we want to rerun a command, or find out how a file came into existence.
 
-With this last code snippet, you have experienced a full :command:`datalad run` command: commit message,
+With this last code snippet, you have experienced a full :dlcmd:`run` command: commit message,
 input and output definitions (the order in which you give those two options is irrelevant),
 and the command to be executed. Whenever a command takes input or produces output you should specify
 this with the appropriate option.
@@ -391,14 +390,10 @@ Make a note of this behavior in your ``notes.txt`` file.
 Save yourself the preparation time
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. importantnote:: version requirement for --assume-ready
-
-   The option ``--assume-ready`` was introduced with DataLad version 0.14.1.
-
 Its generally good practice to specify ``--input`` and ``--output`` even if your input files are already retrieved and your output files unlocked -- it makes sure that a recomputation can succeed, even if inputs are not yet retrieved, or if output needs to be unlocked.
 However, the internal preparation steps of checking that inputs exist or that outputs are unlocked can take a bit of time, especially if it involves checking a large number of files.
 
-If you want to avoid the expense of unnecessary preparation steps you can make use of the ``--assume-ready`` argument of :command:`datalad run`.
+If you want to avoid the expense of unnecessary preparation steps you can make use of the ``--assume-ready`` argument of :dlcmd:`run`.
 Depending on whether your inputs are already retrieved, your outputs already unlocked (or not needed to be unlocked), or both, specify ``--assume-ready`` with the argument ``inputs``, ``outputs`` or ``both`` and save yourself a few seconds, without sacrificing the ability to rerun your command under conditions in which the preparation would be necessary.
 
 
@@ -492,7 +487,7 @@ the ``--input`` and ``--output`` specification done before.
 Dry-running your run call
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-:command:`datalad run` commands can become confusing and long, especially when you make heavy use of placeholders or wrap a complex bash commands.
+:dlcmd:`run` commands can become confusing and long, especially when you make heavy use of placeholders or wrap a complex bash commands.
 To better anticipate what you will be running, or help debug a failed command, you can make use of the ``--dry-run``  flag of ``datalad run``.
 This option needs a mode specification (``--dry-run=basic`` or ``dry-run=command``), followed by the ``run`` command you want to execute, and it will decipher the commands elements:
 The mode ``command`` will display the command that is about to be ran.
@@ -511,5 +506,5 @@ Apart from displaying the command that will be ran, you will learn *where* the c
 
 .. [#f1] In shell programming, commands exit with a specific code that indicates
     whether they failed, and if so, how. Successful commands have the exit code zero. All failures
-    have exit codes greater than zero. A few lines lower, DataLad even tells us the specific error
+    have exit codes greater than zero. A few lines lower, DataLad tells us the specific error
     code: The command failed with exit code 1.

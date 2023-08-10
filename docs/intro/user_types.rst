@@ -48,7 +48,7 @@ the chapter :ref:`chapter_config` is your place to go to. If you are confused by
 symlinks or "permission denied" error in your dataset, checkout section
 :ref:`symlink` for some Basics on :term:`git-annex`. The "Quick search" bar at
 the sidebar can also help to navigate to relevant sections, and the
-`index <http://handbook.datalad.org/en/latest/genindex.html>`_ at the end of the
+`index <https://handbook.datalad.org/genindex.html>`_ at the end of the
 book can show you where all commands mentioned in the handbook are introduced.
 
 If you're seeking help with regard to large datasets you might want to take a look at

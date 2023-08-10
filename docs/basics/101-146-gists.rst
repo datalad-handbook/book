@@ -10,15 +10,11 @@ This section is a selection of code snippets tuned to perform specific,
 non-trivial tasks in datasets. Often, they are not limited to single commands of
 the version control tools you know, but combine helpful other command line
 tools and general Unix command line magic. Just like
-`GitHub gists <https://gist.github.com/>`_, its a collection of lightweight
+`GitHub gists <https://gist.github.com>`_, its a collection of lightweight
 and easily accessible tips and tricks. For a more basic command overview,
 take a look at the :ref:`cheat`. The
-`tips collection of git-annex <https://git-annex.branchable.com/tips/>`_ is also
+`tips collection of git-annex <https://git-annex.branchable.com/tips>`_ is also
 a very valuable resource.
-
-If there are tips you want to share, or if there is a question you would like
-to see answered here, please
-`get in touch <https://github.com/datalad-handbook/book/issues/new>`_.
 
 .. figure:: ../artwork/src/gists.svg
    :width: 50%
@@ -31,10 +27,9 @@ Parallelize subdataset processing
 
 DataLad can not yet parallelize processes that are performed
 independently over a large number of subdatasets. Pushing across a dataset
-hierarchy or creating :ref:`RIA siblings <usecase_datastore>`
-for all subdatasets of a superdataset, for example, is performed one after the other.
+hierarchy for example, is performed one after the other.
 Unix however, has a few tools such as `xargs <https://en.wikipedia.org/wiki/Xargs>`_
-or the ``parallel`` tool of `moreutils <https://joeyh.name/code/moreutils/>`_
+or the ``parallel`` tool of `moreutils <https://joeyh.name/code/moreutils>`_
 that can assist.
 
 Here is an example of pushing all subdatasets (and their respective subdatasets)
@@ -45,7 +40,7 @@ recursively to their (identically named) siblings:
    $ datalad -f '{path}' subdatasets | xargs -n 1 -P 10 datalad push -r --to <sibling-name> -d
 
 ``datalad -f '{path}' subdatasets`` discovers the paths of all subdatasets,
-and ``xargs`` hands them individually (``-n 1``) to a (recursive) :command:`datalad push`,
+and ``xargs`` hands them individually (``-n 1``) to a (recursive) :dlcmd:`push`,
 but performs 10 of these operations in parallel (``-P 10``), thus achieving
 parallelization.
 
@@ -84,7 +79,9 @@ Alternatively, to get very comprehensive output, you can use
 
 The output will be returned as json, and the key ``has_content`` indicates local
 content availability (``true`` or ``false``). To filter through it, the command
-line tool `jq <https://stedolan.github.io/jq/>`_ works well::
+line tool `jq <https://stedolan.github.io/jq>`_ works well:
+
+.. code-block:: bash
 
    $ datalad -f json status --recursive --annex all | jq '. | select(.has_content == true).path'
 
@@ -96,7 +93,7 @@ If there is annexed file content that is not used anymore (i.e., data in the
 annex that no files in any branch point to anymore such as corrupt files),
 you can find out about it and remove this file content out of your dataset
 (i.e., completely and irrecoverably delete it) with git-annex's commands
-:command:`git annex unused` and :command:`git annex dropunused``.
+:gitannexcmd:`unused` and :gitannexcmd:`dropunused``.
 
 Find out which file contents are unused (not referenced by any current branch):
 
@@ -135,8 +132,8 @@ Or all
 Getting single file sizes prior to downloading from the Python API and the CLI
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-For a single file, :command:`datalad status --annex -- myfile` will report on
-the size of the file prior to a :command:`datalad get`.
+For a single file, :dlcmd:`status --annex -- myfile` will report on
+the size of the file prior to a :dlcmd:`get`.
 
 If you want to do it in Python, try this approach:
 
@@ -154,8 +151,10 @@ Check whether a dataset contains an annex
 Datasets can be either GitRepos (i.e., sole Git repositories; this happens when
 they are created with the ``--no-annex`` flag, for example), or AnnexRepos
 (i.e., datasets that contain an annex). Information on what kind of repository it
-is is stored in the dataset report of :command:`datalad wtf` under the key ``repo``.
-Here is a one-liner to get this info::
+is is stored in the dataset report of :dlcmd:`wtf` under the key ``repo``.
+Here is a one-liner to get this info:
+
+.. code-block:: bash
 
    $ datalad -f'{infos[dataset][repo]}' wtf
 
@@ -170,7 +169,7 @@ In order to back-up datasets you can publish them to a
 solution does not require Git, git-annex, or DataLad to be installed on the
 machine that the back-up is pushed to, the latter does require them.
 
-To find out more about RIA stores, checkout the section :ref:`riastore`.
+To find out more about RIA stores, checkout the online version of the handbook.
 A sketch of how to implement a sibling for backups is below:
 
 .. code-block:: bash
@@ -183,9 +182,11 @@ A sketch of how to implement a sibling for backups is below:
    datalad publish --to=myserver -r --since= --missing=inherit
 
 In order to push not only the current branch, but refs, add the option
-``--publish-by-default "refs/*"`` to the :command:`create-sibling` call.
+``--publish-by-default "refs/*"`` to the :dlcmd:`create-sibling` call.
 Should you want to back up all annexed data, even past versions of files, use
-:command:`git annex sync` to push to the sibling::
+:gitannexcmd:`sync` to push to the sibling:
+
+.. code-block:: bash
 
    $ git annex sync --all --content <sibling-name>
 
@@ -197,7 +198,7 @@ For an in-depth explanation and example take a look at the
 Retrieve partial content from a hierarchy of (uninstalled) datasets
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-In order to :command:`get` dataset content across a range of subdatasets, a bit
+In order to :dlcmd:`get` dataset content across a range of subdatasets, a bit
 of UNIX command line foo can increase the efficiency of your command.
 
 Example: consider retrieving all ``ribbon.nii.gz`` files for all subjects in the
@@ -206,21 +207,27 @@ Example: consider retrieving all ``ribbon.nii.gz`` files for all subjects in the
 :ref:`usecase_HCP_dataset`).
 If all subject-subdatasets are installed (e.g., with ``datalad get -n -r`` for
 a recursive installation without file retrieval), :term:`globbing` with the
-shell works fine::
+shell works fine:
+
+.. code-block:: bash
 
    $ datalad get HCP1200/*/T1W/ribbon.nii.gz
 
 The Gist :ref:`parallelize` can show you how to parallelize this.
 If the subdatasets are not yet installed, globbing will not work, because the
 shell can't expand non-existent paths. As an alternative, you can pipe the output
-of an (arbitrarily complex) :command:`datalad search` command into
-:command:`datalad get`::
+of an (arbitrarily complex) :dlcmd:`search` command into
+:dlcmd:`get`:
+
+.. code-block:: bash
 
    $ datalad -f '{path}' -c datalad.search.index-egrep-documenttype=all search 'path:.*T1w.*\.nii.gz' | xargs -n 100 datalad get
 
 However, if you know the file locations within the dataset hierarchy and they
 are predictably named and consistent, you can create a file containing all paths to
-be retrieved and pipe that into :command:`get` as well::
+be retrieved and pipe that into :dlcmd:`get` as well:
+
+.. code-block:: bash
 
    # create file with all file paths
    $ for sub in HCP1200/*; do echo ${sub}/T1w/ribbons.nii.gz; done > toget.txt
@@ -233,7 +240,7 @@ Speed up status reports in large datasets
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 In datasets with deep dataset hierarchies or large numbers of files,
-:command:`datalad status` calls can be expensive. Handily,
+:dlcmd:`status` calls can be expensive. Handily,
 the command provides options that can boost performance by limiting what is being
 tested and reported. In order to speed up subdataset state state evaluation,
 ``-e/--eval-subdataset-state`` can be set ``commit`` or ``no``. Instead of checking
@@ -263,6 +270,6 @@ In order to :term:`squash` the entire git-annex history into a single commit, ru
 Afterwards, if your dataset has a sibling, the branch needs to be
 :term:`force-push`\ed. If you attempt an operation to shrink your git-annex
 history, also checkout
-`this thread <https://git-annex.branchable.com/forum/safely_dropping_git-annex_history/>`_
+`this thread <https://git-annex.branchable.com/forum/safely_dropping_git-annex_history>`_
 for more information on shrinking git-annex's history and helpful safeguards and
 potential caveats.

@@ -1,5 +1,5 @@
 $ git log -p -n 2
-commit d45881229ecb78dd011f7c46caf8dfbb19f50e23
+commit 9783a90c✂SHA1
 Author: Elena Piscopia <elena@example.net>
 Date:   Tue Jun 18 16:13:00 2019 +0000
 
@@ -18,7 +18,7 @@ index 3a7a1fe..0142412 100644
 +Note to self: Always use informative, concise commit messages.
 +
 
-commit fd8ae27ef6b9df47c5c2268eb110fcb3148872dc
+commit b538dae3✂SHA1
 Author: Elena Piscopia <elena@example.net>
 Date:   Tue Jun 18 16:13:00 2019 +0000
 

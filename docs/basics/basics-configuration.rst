@@ -1,4 +1,3 @@
-.. index:: ! 2-004
 .. _2-004:
 .. _chapter_config:
 

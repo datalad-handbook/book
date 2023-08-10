@@ -1,7 +1,5 @@
 $ tree .git/refs
 .git/refs
-├── annex
-│   └── last-index
 ├── datalad
 │   ├── dataset-tree-version-list
 │   ├── dataset-uuid-set
@@ -11,4 +9,4 @@ $ tree .git/refs
 │   └── master
 └── tags
 
-4 directories, 6 files
+3 directories, 5 files

@@ -5,16 +5,16 @@ Configure custom data access
 
 DataLad can download files via the ``http``, ``https``, ``ftp``, and ``s3``
 protocol from various data storage solutions via its downloading commands
-(:command:`datalad download-url`, :command:`datalad addurls`,
-:command:`datalad get`).
+(:dlcmd:`download-url`, :dlcmd:`addurls`,
+:dlcmd:`get`).
 If data retrieval from a storage solution requires *authentication*,
 for example via a username and password combination, DataLad provides an
 interface to query, request, and store the most common type of credentials that
 are necessary to authenticate, for a range of authentication types.
 There are a number of natively supported types of authentication and out-of-the
 box access to a broad range of access providers, from common solutions such as
-`S3 <https://aws.amazon.com/s3/?nc1=h_ls>`_ to special purpose solutions, such as
-`LORIS <https://loris.ca/>`_. However, beyond natively supported services,
+`S3 <https://aws.amazon.com/s3>`_ to special purpose solutions, such as
+`LORIS <https://loris.ca>`_. However, beyond natively supported services,
 custom data access can be configured as long as the required authentication
 and credential type are supported.
 In addition, starting with DataLad version ``0.16``, authentication can be
@@ -31,10 +31,10 @@ credentials from the command line. Subsequent downloads handle authentication
 in the background as long as the credentials stay valid. An example of this
 credential management is shown in the usecase :ref:`usecase_HCP_dataset`:
 Data is stored in S3 buckets that require authentication with AWS credentials.
-The first :command:`datalad get` to retrieve any of the data will prompt for
+The first :dlcmd:`get` to retrieve any of the data will prompt for
 the credentials from the terminal. If the given credentials are valid, the
 requested data will be downloaded, and all subsequent retrievals via
-:command:`get` will authenticate automatically, without user input, as long as
+:dlcmd:`get` will authenticate automatically, without user input, as long as
 the entered credentials stay valid.
 
 .. find-out-more:: How does the authentication work?
@@ -43,7 +43,7 @@ the entered credentials stay valid.
    your system's (encrypted) `keyring <https://en.wikipedia.org/wiki/GNOME_Keyring>`_.
    It is a built-in credential store, used in all major operating systems, and
    can store credentials securely.
-   DataLad uses the `Python keyring <https://keyring.readthedocs.io/en/latest/>`_
+   DataLad uses the `Python keyring <https://keyring.readthedocs.io>`_
    package to access the keyring. In addition to a standard interface to the
    keyring, this library also has useful special purpose backends that come in
    handy in corner cases such as HPC/cluster computing, where no interactive
@@ -64,9 +64,9 @@ However, data access can be configured by
 the user if the required authentication and credential type are supported by
 DataLad (a list is given in the hidden section below).
 With a data access configuration in place, commands such as
-:command:`datalad download-url` or :command:`datalad addurls` can work with urls
+:dlcmd:`download-url` or :dlcmd:`addurls` can work with urls
 the point to the location of the data to be retrieved, and
-:command:`datalad get` is enabled to retrieve file contents from these sources.
+:dlcmd:`get` is enabled to retrieve file contents from these sources.
 
 The configuration can either be done in the terminal upon a prompt from the
 command line when a download fails due to a missing provider configuration as
@@ -95,14 +95,14 @@ The example below sheds some light one this.
    ``'http_auth'`` (   `http and html form-based authentication <https://www.javaxt.com/wiki/Tutorials/Javascript/Form_Based_HTTP_Authentication>`_),
    ``'http_basic_auth'`` (`http basic access <https://en.wikipedia.org/wiki/Basic_access_authentication>`_),
    ``'http_digest_auth'`` (   `digest access authentication <https://en.wikipedia.org/wiki/Digest_access_authentication>`_),
-   ``'bearer_token'`` (`http bearer token authentication <https://tools.ietf.org/html/rfc6750>`_)
+   ``'bearer_token'`` (`http bearer token authentication <https://datatracker.ietf.org/doc/html/rfc6750>`_)
    and ``'aws-s3'``. A full list can be found in the technical docs.
 
 
 Example: Data access to a server that requires basic HTTP authentication
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Consider a private `Apache web server <https://httpd.apache.org/>`_ with an
+Consider a private `Apache web server <https://httpd.apache.org>`_ with an
 ``.htaccess`` file that configures a range of allowed users to access a certain
 protected directory on this server via
 `basic HTTP authentication <https://en.wikipedia.org/wiki/Basic_access_authentication>`_.
@@ -218,7 +218,7 @@ Example: Data access via Git's credential system
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Consider a private repository on :term:`GitHub`.
-When cloning such datasets via the :term:`https` protocol, every connection needs a user name and a password in the form of a `Personal Access Token <https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token>`_.
+When cloning such datasets via the :term:`https` protocol, every connection needs a user name and a password in the form of a `Personal Access Token`_.
 
 .. code-block:: bash
 
@@ -247,7 +247,7 @@ A basic mock example can illustrate the necessary steps to set this up.
 
 Here is a short list of preparations if you want to try this out for yourself:
 
-#. Create a private repository on GitHub. This can be done via `GitHub's webinterface <https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility#changing-a-repositorys-visibility>`_ or the ``--private`` flag of :command:`create-sibling-github` (requires DataLad version ``0.16`` or higher).
+#. Create a private repository on GitHub. This can be done via `GitHub's webinterface <https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility#changing-a-repositorys-visibility>`_ or the ``--private`` flag of :dlcmd:`create-sibling-github` (requires DataLad version ``0.16`` or higher).
 #. The repository should contain a file, like a simple ``README.md``, and can be a pure Git repository.
 #. Ensure that all tokens in Git configurations files are commented out, because those would provide authentication as well. Running ``git config --list`` can give you an overview, but you can also check that ``git clone <repo>`` with a :term:`https` URL prompts for user name and password.
 
@@ -263,7 +263,7 @@ For fun, you can check that a download via ``wget`` from the command line also f
 
 To achieve a successful download, we will create a small, custom credential helper for Git, and tell DataLad about it with a provider configuration.
 First, we will store the password on your system.
-Create a `personal access token <https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token>`_ on :term:`GitHub`, and, for simplicity, write it into a text file ``github`` in your home directory.
+Create a `personal access token`_ on :term:`GitHub`, and, for simplicity, write it into a text file ``github`` in your home directory.
 Please do note that it is highly discouraged to store passwords in plain files, and only done for demonstration here.
 
 Next, we will write a credential helper that will retrieve this password.
@@ -305,7 +305,9 @@ With this setup, a ``datalad download-url`` succeeds, authenticating via the Git
       [credential "https://*data.example.com"]
          helper = "datalad"
 
-To find out more about DataLad's integration with Git's credential system, take a look into the more technical documentation at `docs.datalad.org/credentials.html <http://docs.datalad.org/credentials.html>`_ and `docs.datalad.org/design/credentials.html <http://docs.datalad.org/design/credentials.html>`_.
+To find out more about DataLad's integration with Git's credential system, take a look into the more technical documentation at `docs.datalad.org/credentials.html <https://docs.datalad.org/credentials.html>`_ and `docs.datalad.org/design/credentials.html <https://docs.datalad.org/design/credentials.html>`_.
+
+.. _Personal Access Token: https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens
 
 .. rubric:: Footnotes
 

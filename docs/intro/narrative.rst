@@ -38,7 +38,9 @@ with each. While learning, it will be easy to
 
    Throughout the book numerous *terms* for concepts and technical components
    are used. They are all defined in a :ref:`glossary`, and are printed
-   in small-caps, such as :term:`Git`, or :term:`commit message`.
+   with a glossary icon, such as :term:`Git`, or :term:`commit message`.
+   Links to external resources have a superscript that you can find in the Hyperlink index at the end of the book.
+   And internal links reference the page number of the box, section, or chapter in question.
 
 As the handbook is to be a practical guide it includes as many hands-on examples
 as we can fit into it. Code snippets look like this, and you should
@@ -53,8 +55,8 @@ in the example below (it shows the creation of a DataLad dataset):
    # Anything preceded by $ is a command to try.
    # if the line starts with neither # nor $, its the output of a command
    $ datalad create myfirstrepo
-   [INFO   ] Creating a new annex repo at /home/adina/DataLad-101
-   create(ok): /home/adina/DataLad-101 (dataset)
+   [INFO   ] Creating a new annex repo at /home/me/DataLad-101
+   create(ok): /home/me/DataLad-101 (dataset)
 
 When copying code snippets into your own terminal, do not copy the leading
 ``$`` -- this only indicates that the line is a command, and would lead to an
@@ -127,7 +129,7 @@ If you are a Windows 10 user with a native (i.e., not `Windows Subsystem for Lin
 
    A range of file system issues can affect the behavior of DataLad or its underlying tools on Windows 10.
    If necessary, the handbook provides workarounds for problems, explanations, or at least apologies for those inconveniences.
-   If you want to help us make the handbook or DataLad better for Windows users, please `get in touch <https://github.com/datalad-handbook/book/issues/new/>`_ -- every little improvement or bug report can help.
+   If you want to help us make the handbook or DataLad better for Windows users, please `get in touch <https://github.com/datalad-handbook/book/issues/new>`_ -- every little improvement or bug report can help.
 
 Apart from core DataLad commands (introduced in the *Basics* part of this book),
 DataLad also comes with many extensions and advanced commands not (yet) referenced
@@ -135,12 +137,12 @@ in this handbook. The development of many of these features
 is ongoing, and this handbook will incorporate all DataLad commands and extensions
 *once they are stable* (that is, once the command(-structure) is likely not to
 change anymore). If you are looking for a feature but cannot find it in this
-handbook, please take a look at the `documentation <http://docs.datalad.org>`_,
-`write <http://handbook.datalad.org/en/latest/contributing.html>`_ or
+handbook, please take a look at the `documentation <https://docs.datalad.org>`_,
+`write <https://handbook.datalad.org/contributing.html>`_ or
 `request <https://github.com/datalad-handbook/book/issues/new>`_
 an additional chapter if you believe it is a worthwhile addition, or
 `ask a question on Neurostars.org <https://neurostars.org/latest>`_
-with a :command:`datalad` tag if you need help.
+with a :shcmd:`datalad` tag if you need help.
 
 
 What you will learn in this book
@@ -148,7 +150,7 @@ What you will learn in this book
 
 This handbook will teach you simple, yet advanced principles of data
 management for reproducible, comprehensible, transparent, and
-`FAIR <https://www.go-fair.org/fair-principles/>`_ data
+`FAIR <https://www.go-fair.org>`_ data
 projects. It does so with hands-on tool use of DataLad and its
 underlying software, blended with clear explanations of relevant
 theoretical backgrounds whenever necessary, and by demonstrating

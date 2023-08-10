@@ -11,7 +11,7 @@ up to still pass the course.
 Moreover, though, he can also integrate all other notes
 or changes you make to your dataset, and stay up to date.
 This is because a DataLad dataset makes updating shared
-data a matter of a single :command:`datalad update --how merge` command.
+data a matter of a single :dlcmd:`update --how merge` command.
 
 But why does this need to be a one-way line? "I want to
 provide helpful information for you as well!", says your
@@ -22,11 +22,11 @@ but you can not get mine."
 
 Consider, for example, that your room mate might have googled about DataLad
 a bit. In the depths of the web, he might have found useful additional information, such
-a script on `dataset nesting <https://raw.githubusercontent.com/datalad/datalad.org/7e8e39b1f08d0a54ab521586f27ee918b4441d69/content/asciicast/seamless_nested_repos.sh>`_.
+a script on `dataset nesting <https://raw.githubusercontent.com/datalad/datalad.org/7e8e39b1/content/asciicast/seamless_nested_repos.sh>`_.
 Because he found this very helpful in understanding dataset
-nesting concepts, he decided to download it `from GitHub <https://raw.githubusercontent.com/datalad/datalad.org/7e8e39b1f08d0a54ab521586f27ee918b4441d69/content/asciicast/seamless_nested_repos.sh>`_, and saved it in the ``code/`` directory.
+nesting concepts, he decided to download it from GitHub, and saved it in the ``code/`` directory.
 
-He does it using the datalad command :command:`datalad download-url`
+He does it using the datalad command :dlcmd:`download-url`
 that you experienced in section :ref:`createDS` already: This command will
 download a file just as ``wget``, but it can also take a commit message
 and will save the download right to the history of the dataset that you specify,
@@ -49,7 +49,7 @@ and run the following command
      -d . \
      -m "Include nesting demo from datalad website" \
      -O code/nested_repos.sh \
-     https://raw.githubusercontent.com/datalad/datalad.org/7e8e39b1f08d0a54ab521586f27ee918b4441d69/content/asciicast/seamless_nested_repos.sh
+     https://raw.githubusercontent.com/datalad/datalad.org/7e8e39b1/content/asciicast/seamless_nested_repos.sh
 
 Run a quick datalad status:
 
@@ -61,8 +61,8 @@ Run a quick datalad status:
 
    $ datalad status
 
-Nice, the :command:`datalad download-url` command saved this download
-right into the history, and :command:`datalad status` does not report
+Nice, the :dlcmd:`download-url` command saved this download
+right into the history, and :dlcmd:`status` does not report
 unsaved modifications! We'll show an excerpt of the last commit
 here:
 
@@ -92,7 +92,7 @@ dataset in our own, original dataset.
 .. gitusernote:: Remote siblings
 
    Git repositories can configure clones of a dataset as *remotes* in
-   order to fetch, pull, or push from and to them. A :command:`datalad sibling`
+   order to fetch, pull, or push from and to them. A :dlcmd:`sibling`
    is the equivalent of a git clone that is configured as a remote.
 
 Let's see how this is done.
@@ -101,9 +101,9 @@ Let's see how this is done.
 
 First of all, navigate back into the original dataset.
 In the original dataset, "add" a "sibling" by using
-the :command:`datalad siblings` command (:manpage:`datalad-siblings` manual).
+the :dlcmd:`siblings` command.
 The command takes the base command,
-:command:`datalad siblings`, an action, in this case ``add``, a path to the
+:dlcmd:`siblings`, an action, in this case ``add``, a path to the
 root of the dataset ``-d .``, a name for the sibling, ``-s/--name roommate``,
 and a URL or path to the sibling, ``--url ../mock_user/DataLad-101``.
 This registers your room mate's ``DataLad-101`` as a "sibling" (we will call it
@@ -146,32 +146,32 @@ in the resulting list with the name "roommate" you have given to it.
 
 .. find-out-more:: What if I mistyped the name or want to remove the sibling?
 
-   You can remove a sibling using :command:`datalad siblings remove -s roommate`
+   You can remove a sibling using :dlcmd:`siblings remove -s roommate`
 
 The fact that the ``DataLad-101`` dataset now has a sibling means that we
-can also :command:`datalad update` this repository. Awesome!
+can also :dlcmd:`update` this repository. Awesome!
 
-Your room mate previously ran a :command:`datalad update --how merge` in the section
+Your room mate previously ran a :dlcmd:`update --how merge` in the section
 :ref:`update`. This got him
 changes *he knew you made* into a dataset that *he so far did not change*.
 This meant that nothing unexpected would happen with the
-:command:`datalad update --how merge`.
+:dlcmd:`update --how merge`.
 
 But consider the current case: Your room mate made changes to his
 dataset, but you do not necessarily know which. You also made
 changes to your dataset in the meantime, and added a note on
-:command:`datalad update`.
+:dlcmd:`update`.
 How would you know that his changes and
 your changes are not in conflict with each other?
 
-This scenario is where a plain :command:`datalad update` becomes useful.
-If you run a plain :command:`datalad update` (which uses the default option ``--how fetch``), DataLad will query the sibling
+This scenario is where a plain :dlcmd:`update` becomes useful.
+If you run a plain :dlcmd:`update` (which uses the default option ``--how fetch``), DataLad will query the sibling
 for changes, and store those changes in a safe place in your own
 dataset, *but it will not yet integrate them into your dataset*.
 This gives you a chance to see whether you actually want to have the
 changes your room mate made.
 
-Let's see how it's done. First, run a plain :command:`datalad update` without
+Let's see how it's done. First, run a plain :dlcmd:`update` without
 the ``--how merge`` option.
 
 .. runrecord:: _examples/DL-101-121-106
@@ -185,10 +185,10 @@ the ``--how merge`` option.
 Note that we supplied the sibling's name with the ``-s``/``--name`` option.
 This is good practice, and allows you to be precise in where you want to get
 updates from. It would have worked without the specification (just as a bare
-:command:`datalad update --how merge` worked for your room mate), because there is only
+:dlcmd:`update --how merge` worked for your room mate), because there is only
 one other known location, though.
 
-This plain :command:`datalad update` informs you that it "fetched" updates from
+This plain :dlcmd:`update` informs you that it "fetched" updates from
 the dataset. The changes however, are not yet visible -- the script that
 he added is not yet in your ``code/`` directory:
 
@@ -213,24 +213,26 @@ just not now -- maybe different versions of paperwork you currently have in
 front of you, or maybe other files than the ones currently in front of you
 on your desk.
 
-Imagine that a :command:`datalad update` created a small drawer, placed all of
+Imagine that a :dlcmd:`update` created a small drawer, placed all of
 the changed or added files from the sibling inside, and put it on your
 desk. You can now take a look into that drawer to see whether you want
 to have the changes right in front of you.
 
 The drawer is a branch, and it is usually called ``remotes/origin/master``.
-To look inside of it you can :command:`git checkout BRANCHNAME`, or you can
+To look inside of it you can :gitcmd:`checkout BRANCHNAME`, or you can
 do a ``diff`` between the branch (your drawer) and the dataset as it
 is currently in front of you (your desk). We will do the latter, and leave
 the former for a different lecture:
 
-.. windows-wit:: Please use datalad diff --from master --to remotes/roommate/master
+.. windows-wit:: Please use datalad diff --from main --to remotes/roommate/master
 
-   Please use the following command instead::
+   Please use the following command instead:
 
-      datalad diff --from master --to remotes/roommate/master
+   .. code-block:: bash
 
-   This syntax specifies the :term:`master` :term:`branch` as a starting point for the comparison instead of the current ``adjusted/master(unlocked)`` branch.
+      datalad diff --from main --to remotes/roommate/master
+
+   This syntax specifies the :term:`main` :term:`branch` as a starting point for the comparison instead of the current ``adjusted/master(unlocked)`` branch.
 
 .. runrecord:: _examples/DL-101-121-108
    :language: console
@@ -242,11 +244,13 @@ the former for a different lecture:
 
 This shows us that there is an additional file, and it also shows us
 that there is a difference in ``notes.txt``! Let's ask
-:command:`git diff` to show us what the differences in detail (note that it is a shortened excerpt, cut in the middle to reduce its length):
+:gitcmd:`diff` to show us what the differences in detail (note that it is a shortened excerpt, cut in the middle to reduce its length):
 
 .. windows-wit:: Please use git diff master..remotes/roommate/master
 
-   Please use the following command instead::
+   Please use the following command instead:
+
+   .. code-block:: bash
 
      git diff master..remotes/roommate/master
 
@@ -268,17 +272,17 @@ a ``-`` is a change that your room mate has, but not you: This is the
 script that he downloaded!
 
 Everything that is marked with a ``+`` is a change that you have,
-but not your room mate: It is the additional note on :command:`datalad update`
+but not your room mate: It is the additional note on :dlcmd:`update`
 you made in your own dataset in the previous section.
 
 Cool! So now that you know what the changes are that your room mate
-made, you can safely :command:`datalad update --how merge` them to integrate
+made, you can safely :dlcmd:`update --how merge` them to integrate
 them into your dataset. In technical terms you will
 "*merge the branch remotes/roommate/master into master*".
 But the details of this will be stated in a standalone section later.
 
 Note that the fact that your room mate does not have the note
-on :command:`datalad update` does not influence your note. It will not
+on :dlcmd:`update` does not influence your note. It will not
 get deleted by the merge. You do not set your dataset to the state
 of your room mate's dataset, but you incorporate all changes he made
 -- which is only the addition of the script.

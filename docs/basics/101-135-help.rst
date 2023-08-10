@@ -14,18 +14,18 @@ one lazy, warm summer-afternoon you flip through it.
 
 You realize that you already know the most important things:
 The number one advice on how to get help is
-`"Read the error message." <https://poster.keepcalmandposters.com/default/5986752_keep_calm_and_read_the_error_message.png>`_.
+"Read the error message".
 The second advice it
-`"I'm not kidding: Read the error message <https://images.app.goo.gl/GWQ82AAJnx1dWtWx6>`_.
+"I'm not kidding: Read the error message".
 The third advice, finally, says
-`"Honestly, read the f***ing error message <https://images.app.goo.gl/ddxg4aowbji6XTrw7>`_.
+"Honestly, read the f***ing error message".
 
 Help yourself
 ^^^^^^^^^^^^^
 
 If you run into a DataLad problem and you have followed the three
 steps above, but the error message
-`does not give you a clue on how to proceed <https://imgs.xkcd.com/comics/code_quality_3.png>`_,
+`does not give you a clue on how to proceed <https://xkcd.com/1833>`_,
 the first you should do is
 
 #. find out which *version* of DataLad you use
@@ -35,7 +35,7 @@ the first you should do is
 The first step is important in order to find out whether a
 command failed due to using a wrong DataLad version. In order
 to use this book and follow along, your DataLad version
-should be ``datalad-0.17`` or higher, for example.
+should be ``datalad-0.18`` or higher, for example.
 
 To find out which version you are using, run
 
@@ -48,8 +48,7 @@ To find out which version you are using, run
 .. index:: ! datalad command; wtf
 
 If you want a comprehensive overview of your full setup,
-:command:`datalad wtf` [#f1]_ is the command to turn to
-(:manpage:`datalad-wtf` manual). Running this command will
+:dlcmd:`wtf` [#f1]_ is the command to turn to. Running this command will
 generate a report about the DataLad installation and configuration.
 The output below shows an excerpt.
 
@@ -58,7 +57,7 @@ The output below shows an excerpt.
    :workdir: dl-101/DataLad-101
    :linereplace:
      ,PATH: /tmp/.*,PATH: REDACTED,
-   :lines: 1-20
+   :lines: 1-10
 
    $ datalad wtf
 
@@ -72,36 +71,34 @@ command that failed is used. Are arguments specified correctly?
 Does the help list any caveats?
 
 There are multiple ways to find help on DataLad commands.
-You could turn to the `documentation <http://docs.datalad.org/>`_.
+You could turn to the `documentation <https://docs.datalad.org>`_.
 Alternatively, to get help right inside the terminal,
-run any command with the ``-h``/``--help`` option (also shown
+run any command with the ``-h``/``--help`` option (shown
 as an excerpt here):
 
 .. runrecord:: _examples/DL-101-135-103
    :language: console
    :workdir: dl-101/DataLad-101
-   :lines: 1-28, 72-108
+   :lines: 1-16,83-92,101-112
+   :append: -✂--✂-
 
    $ datalad get --help
 
-This for example is the help page on :command:`datalad get`
-(the same you would find in the `documentation <http://docs.datalad.org>`__,
-but in your terminal, here - for brevity - slightly cut).
+This, for example, is the help page on :dlcmd:`get`, the same you would find in the documentation, but in your terminal (here heavily trimmed to only show the main components).
 It contains a command description, a list
 of all the available options with a short explanation of them, and
-example commands. The paragraph *Options* shows all
-optional flags, and all required parts of
-the command are listed in the paragraph *Arguments*. One first thing
-to check for example is whether your command call
+example commands. The two *arguments* sections provide a comprehensive
+list of command arguments with details on their possibilities and
+requirements. A first thing to check would be whether your command call
 specified all of the required arguments.
 
 Asking questions (right)
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 If nothing you do on your own helps to solve the problem,
-consider asking others. Check out `neurostars <https://neurostars.org/>`_
+consider asking others. Check out `neurostars <https://neurostars.org>`_
 and search for your problem -- likely,
-`somebody already encountered the same error before <http://imgs.xkcd.com/comics/wisdom_of_the_ancients.png>`_
+`somebody already encountered the same error before <https://xkcd.com/979>`_
 and fixed it, but if not, just ask a new question with a ``datalad`` tag.
 
 Make sure your question is as informative as it can be for others.
@@ -114,19 +111,15 @@ Include
 
 - *technical details* -- what version of DataLad are you using, what version
   of git-annex, and which git-annex repository type, what is your operating
-  system and -- if applicable -- Python version? :command:`datalad wtf` is your friend
+  system and -- if applicable -- Python version? :dlcmd:`wtf` is your friend
   to find all of this information.
-
-The "submit a question link" on `DataLad's GitHub page <https://neurostars.org/new-topic?body=-%20Please%20describe%20the%20problem.%0A-%20What%20steps%20will%20reproduce%20the%20problem%3F%0A-%20What%20version%20of%20DataLad%20are%20you%20using%20%28run%20%60datalad%20--version%60%29%3F%20On%20what%20operating%20system%20%28consider%20running%20%60datalad%20plugin%20wtf%60%29%3F%0A-%20Please%20provide%20any%20additional%20information%20below.%0A-%20Have%20you%20had%20any%20luck%20using%20DataLad%20before%3F%20%28Sometimes%20we%20get%20tired%20of%20reading%20bug%20reports%20all%20day%20and%20a%20lil%27%20positive%20end%20note%20does%20wonders%29&tags=datalad>`_
-page prefills a neurostars form with a template for a question for a good
-starting point if you want to have more guidance or encounter writer's block.
 
 .. index:: Debugging
 
 Debugging like a DataLad-developer
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you have read a command's help from start to end, checked all software versions twice, even `asked colleagues to reproduce your problem (unsuccessfully) <https://xkcd.com/2083/>`_, and you still don't have any clue what is going on, then welcome to the debugging section!
+If you have read a command's help from start to end, checked all software versions twice, even `asked colleagues to reproduce your problem (unsuccessfully) <https://xkcd.com/2083>`_, and you still don't have any clue what is going on, then welcome to the debugging section!
 
 .. figure:: ../artwork/src/debug.svg
    :width: 50%
@@ -136,14 +129,13 @@ If you have read a command's help from start to end, checked all software versio
 It is not always straightforward to see *why* a particular DataLad command has failed.
 Given that operations with DataLad can be quite complicated, and could involve complexities such as different forms of authentication, different file systems, interactions with the environment, configurations, and other software, and *much* more, there are what may feel like an infinite amount of sources for the problem at hand.
 The resulting error message, however, may not display the underlying cause correctly because the error message of whichever process failed is not propagated into the final result report.
-Thus, you may end up with an uninformative ``Unable to access these remotes`` error in the result summary, when the underlying issue is a `certificate error <https://github.com/datalad/datalad/issues/4651#issuecomment-649180205>`_.
 
-In situations where there is no obvious reason for a command to fail, it can be helpful -- either for yourself or for further information to paste into :term:`GitHub` issues -- to start `debugging <https://xkcd.com/1722/>`_, or *logging at a higher granularity* than is the default.
+In situations where there is no obvious reason for a command to fail, it can be helpful -- either for yourself or for further information to paste into :term:`GitHub` issues -- to start `debugging <https://xkcd.com/1722>`_, or *logging at a higher granularity* than is the default.
 This allows you to gain more insights into the actions DataLad and its underlying tools are taking, where *exactly* they fail, and to even play around with the program at the state of the failure.
 
 :term:`Debugging` and :term:`logging` are not as complex as these terms may sound if you have never consciously debugged.
 Procedurally, it can be as easy as adding an additional flag to a command call, and cognitively, it can be as easy as engaging your visual system in a visual search task for the color red or the word "error", or reading more DataLad output than you're used to.
-The paragraphs below start with the general concepts, and collect concrete debugging strategies for different problems. If you have advice to add, please `get in touch <https://github.com/datalad-handbook/book/issues>`__.
+The paragraphs below start with the general concepts, and collect concrete debugging strategies for different problems.
 
 .. _logging:
 
@@ -170,21 +162,21 @@ Likewise, adjusting the log-level also works the other way around, and lets you 
    - **error**: With this log level you will receive reports on any errors that occurred within the program during command execution.
    - **warning**: At this log level, the command execution will report on usual situations and anything that *might* be a problem, in addition to report anything from the *error* log level. .
    - **info**: This log level will include reports by the program that indicate normal behavior and serve to keep you up to date about the current state of things, in additions to warning and error logging messages.
-   - **debug**: This log level is very useful to troubleshoot a problem, and results in DataLad telling you *a lot* it possibly can.
+   - **debug**: This log level is very useful to troubleshoot a problem, and results in DataLad telling you *a lot* about what it is doing.
 
-   Other than log *levels*, you can also adjust the amount of information provided with numerical granularity. Instead of specifying a log level, provide an integer between 1 and 9, with lower values denoting more debugging information.
+   Other than log *levels*, you can also adjust the amount of information provided with numerical granularity. Instead of specifying a log level, provide an integer between 1 and 50, with lower values denoting more debugging information.
 
-   Raising the log level (e.g, to ``error``, or ``9``) will decrease the amount of information and output you will receive, while lowering it (e.g., to ``debug`` or ``1``) will increase it.
+   Raising the log level (e.g, to ``error``, or ``40``) will decrease the amount of information and output you will receive, while lowering it (e.g., to ``debug`` or ``10``) will increase it.
 
 
 
-Setting a log level can be done in the form of an :term:`environment variable`, a configuration, or with the ``-l``/``--log-level`` flag appended directly after the main :command:`datalad` command.
-To get extensive information on what :command:`datalad status` does underneath the hood, your command could look like this:
+Setting a log level can be done in the form of an :term:`environment variable`, a configuration, or with the ``-l``/``--log-level`` flag appended directly after the main :shcmd:`datalad` command.
+To get extensive information on what :dlcmd:`status` does underneath the hood, your command could look like this (but its output is shortened):
 
 .. runrecord:: _examples/DL-101-135-105
    :language: console
    :workdir: dl-101/DataLad-101
-   :lines: 1-15, 60-
+   :lines: 1,6, 67-
 
    $ datalad --log-level debug status
 
@@ -192,19 +184,25 @@ To get extensive information on what :command:`datalad status` does underneath t
 
    The log level can also be set (for different scopes) using the ``datalad.log.level`` configuration variable, or the corresponding environment variable ``DATALAD_LOG_LEVEL``.
 
-   To set the log level for a single command, for example, set it in front of the command::
+   To set the log level for a single command, for example, set it in front of the command:
+
+   .. code-block:: bash
 
        $ DATALAD_LOG_LEVEL=debug datalad status
 
-   And to set the log level for the rest of the shell session, export it::
+   And to set the log level for the rest of the shell session, export it:
+
+   .. code-block:: bash
 
        $ export DATALAD_LOG_LEVEL=debug
        $ datalad status
        $ ...
 
-   You can find out a bit more on environment variable :ref:`in this Findoutmore <fom-envvar>`.
+   You can find out a bit more on environment variable :ref:`in the Findoutmore on environment variables <fom-envvar>`.
 
-   The configuration variable can be used to set the log level on a user (global) or system-wide level with the :command:`git config` command::
+   The configuration variable can be used to set the log level on a user (global) or system-wide level with the :gitcmd:`config` command:
+
+   .. code-block:: bash
 
       $ git config --global datalad.log.level debug
 
@@ -212,7 +210,7 @@ This output is extensive and detailed, but it precisely shows the sequence of co
 Even if the vast amount of detail in output generated with ``debug`` logging appears overwhelming, it can make sense to find out at which point an execution stalls, whether arguments, commands, or datasets reported in the debug output are what you expect them to be, and to forward all information into any potential GitHub issue you will be creating.
 
 Finally, other than logging with a DataLad command, it sometimes can be useful to turn to :term:`git-annex` or :term:`Git` for logging.
-For failing :command:`datalad get` calls, it may be useful to retry the retrieval using :command:`git annex get -d -v <file>`, where ``-d`` (debug) and ``-v`` (verbose) increase the amount of detail about the command execution and failure.
+For failing :dlcmd:`get` calls, it may be useful to retry the retrieval using :gitannexcmd:`get -d -v <file>`, where ``-d`` (debug) and ``-v`` (verbose) increase the amount of detail about the command execution and failure.
 In rare cases where you suspect something might be wrong with Git, setting the environment variables ``GIT_TRACE`` and ``GIT_TRACE_SETUP`` to ``2`` prior to running a Git command will give you debugging output.
 
 .. _debug:
@@ -221,66 +219,24 @@ Debugging
 """""""""
 
 If the additional level of detail provided by logging messages is not enough, you can go further with actual :term:`debugging`.
-For this, add the ``--dbg`` or ``--idbg`` flag to the main :command:`datalad` command, as in ``datalad --dbg status``.
-Adding this flag will enter a `Python <https://docs.python.org/3/library/pdb.html>`_ or `IPython debugger <https://ipython.org/>`_ when something unexpectedly crashes.
+For this, add the ``--dbg`` or ``--idbg`` flag to the main :shcmd:`datalad` command, as in ``datalad --dbg status``.
+Adding this flag will enter a `Python <https://docs.python.org/3/library/pdb.html>`_ or `IPython debugger <https://ipython.org>`_ when something unexpectedly crashes.
 This allows you to debug the program right when it fails, inspect available variables and their values, or step back and forth through the source code.
-Note that debugging experience is not a prerequisite when using DataLad -- although it is `an exciting life skill <https://www.monkeyuser.com/2017/step-by-step-debugging/>`_.
+Note that debugging experience is not a prerequisite when using DataLad -- although it is `an exciting life skill <https://www.monkeyuser.com/2017/step-by-step-debugging>`_.
 `The official Python docs <https://docs.python.org/3/library/pdb.html#debugger-commands>`_ provide a good overview on the available debugger commands if you are interested in learning more about this.
 
-Debugging examples
-""""""""""""""""""
+Debugging: A concrete example
+"""""""""""""""""""""""""""""
 
-This section collects errors and their solutions from real GitHub issues.
-They may not be applicable for the problem you are currently facing, but seeing other's troubleshooting strategies may be helpful nevertheless.
-If you are interested in getting your error and solution described here, please `get in touch <https://github.com/datalad-handbook/book/issues>`_.
-
-:command:`datalad get`:
-It is common for :command:`datalad get` errors to originate in :term:`git-annex`, the software used by DataLad to transfer data. Here are a few suggestions to debug them:
+It is common for :dlcmd:`get` errors to originate in :term:`git-annex`, the software used by DataLad to transfer data. Here are a few suggestions to debug them:
 
 - Take a deep breath, or preferably a walk in a nice park :)
 - Check that you are using a recent version of git-annex
-   - ``git-annex version`` returns the version of git-annex on the first line of its input, and it is also reported in the output of :command:`datalad wtf`.
+   - ``git-annex version`` returns the version of git-annex on the first line of its input, and it is also reported in the output of :dlcmd:`wtf`.
    - The version number contains the release date of the version in use. For instance, git-annex version: ``8.20200330-g971791563`` was released on 30 March 2020.
-   - If the version that you are using is older than a few months, consider updating using the instructions `here <http://handbook.datalad.org/en/latest/intro/installation.html>`_.
+   - If the version that you are using is older than a few months, consider updating using the instructions in :ref:`install`.
 - Try to download the file using ``git-annex get -v -d <file_name>``. If this doesn't succeed, the DataLad command may not succeed. Options ``-d/--debug`` and ``-v`` are here to provide as much verbosity in error messages as possible
-- Read the output of :term:`git-annex`, identify the error, breathe again, and solve the issue! :numref:`table-gitannex-errors` list a few common or tricky ones.
-
-.. tabularcolumns:: \Y{.5}\Y{.5}
-.. list-table:: Examples of possible git-annex issues.
-   :name: table-gitannex-errors
-   :header-rows: 1
-
-   * - git-annex error
-     - A solution that worked once
-   * - .. code-block::
-
-           Last exception was:
-           Could not find a suitable TLS CA
-           certificate bundle, invalid path:
-           /etc/pki/tls/certs/ca-bundle.crt
-           [adapters.py:cert_verify:227]
-
-     - Unset environment variable ``CURL_CA_BUNDLE``
-   * - Permission denied when writing file
-     - Download to a writeable file system
-   * - File retrieval from an Amazon S3 bucket failed during a system call in a MATLAB session:
-
-       .. code-block:: bash
-
-          >> system('datalad -C mytest \
-                     get 100206/T1w/T1w_acpc_dc.nii.gz')
-            [...]
-            git-annex: get: 1 failed
-
-     - MATLAB massively overrides the ``LD_LIBRARY_PATH`` setting.
-       This can lead to a number of issues, among them SSL certification errors.
-       Prefixing the :command:`datalad get` command with
-
-       .. code-block:: bash
-
-          !LD_LIBRARY_PATH= datalad get [....]
-
-       can solve this.
+- Read the output of :term:`git-annex`, identify the error, breathe again, and solve the issue!
 
 Common warnings and errors
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -300,7 +256,9 @@ Output produced by Git
 **Unset Git identity**
 
 If you have not configured your Git identity, you will
-see warnings like this when running any DataLad command::
+see warnings like this when running any DataLad command:
+
+.. code-block:: bash
 
    [WARNING] It is highly recommended to configure git first (set both user.name and user.email) before using DataLad.
 
@@ -310,37 +268,41 @@ To set your Git identity, go back to section :ref:`installconfig`.
 **Rejected pushes**
 
 One error you can run into when publishing dataset contents is that your
-:command:`datalad push` to a sibling is rejected.
-One example is this::
+:dlcmd:`push` to a sibling is rejected.
+One example is this:
+
+.. code-block:: bash
 
    $ datalad push --to public
-    [ERROR  ] refs/heads/master->public:refs/heads/master [rejected] (non-fast-forward) [publish(/home/me/dl-101/DataLad-101)]
+    [ERROR  ] refs/heads/main->public:refs/heads/main [rejected] (non-fast-forward) [publish(/home/me/dl-101/DataLad-101)]
 
 This example is an attempt to push a local dataset to its sibling on GitHub. The
 push is rejected because it is a ``non-fast-forward`` merge situation. Usually,
 this means that the sibling contains changes that your local dataset does not yet
 know about. It can be fixed by updating from the sibling first with a
-:command:`datalad update --merge`.
+:dlcmd:`update --merge`.
 
 .. _nonbarepush:
 
-Here is a different push rejection::
+Here is a different push rejection:
+
+.. code-block:: bash
 
    $ datalad push --to roommate
     publish(ok): . (dataset) [refs/heads/git-annex->roommate:refs/heads/git-annex 023a541..59a6f8d]
-    [ERROR  ] refs/heads/master->roommate:refs/heads/master [remote rejected] (branch is currently checked out) [publish(/home/me/dl-101/DataLad-101)]
-    publish(error): . (dataset) [refs/heads/master->roommate:refs/heads/master [remote rejected] (branch is currently checked out)]
+    [ERROR  ] refs/heads/main->roommate:refs/heads/main [remote rejected] (branch is currently checked out) [publish(/home/me/dl-101/DataLad-101)]
+    publish(error): . (dataset) [refs/heads/main->roommate:refs/heads/main [remote rejected] (branch is currently checked out)]
     action summary:
       publish (error: 1, ok: 1)
 
 As you can see, the :term:`git-annex branch` was pushed successfully, but updating
-the ``master`` branch was rejected: ``[remote rejected] (branch is currently checked out) [publish(/home/me/dl-101/DataLad-101)]``.
+the ``main`` branch was rejected: ``[remote rejected] (branch is currently checked out) [publish(/home/me/dl-101/DataLad-101)]``.
 In this particular case, this is because it was an attempt to push from ``DataLad-101``
 to the ``roommate`` sibling that was created in chapter :ref:`chapter_collaboration`.
 This is a special case of pushing, because it -- in technical terms -- is a push
 to a non-bare repository. Unlike :term:`bare Git repositories`, non-bare
 repositories can not be pushed to at all times. To fix this, you either want to
-`checkout another branch <https://git-scm.com/docs/git-checkout>`_
+checkout another branch
 in the ``roommate`` sibling or push to a non-checked out branch in the ``roommate``
 sibling. Alternatively, you can configure ``roommate`` to receive the push with
 Git's ``receive.denyCurrentBranch`` configuration key. By default, this configuration
@@ -353,9 +315,11 @@ on ``receive.denyCurrentBranch`` for more.
 
 **Detached HEADs**
 
-One warning that you may encounter during an installation of a dataset is::
+One warning that you may encounter during an installation of a dataset is:
 
-    [INFO   ] Submodule HEAD got detached. Resetting branch master to point to 046713bb. Original location was 47e53498
+.. code-block:: bash
+
+    [INFO   ] Submodule HEAD got detached. Resetting branch main to point to 046713bb. Original location was 47e53498
 
 Even though "detached HEAD" sounds slightly worrisome, this is merely an information
 and does not require an action from your side. It is related to
@@ -368,7 +332,9 @@ Output produced by git-annex
 
 **Unusable annexes**
 
-Upon installation of a dataset, you may see::
+Upon installation of a dataset, you may see:
+
+.. code-block:: bash
 
    [INFO    ]     Remote origin not usable by git-annex; setting annex-ignore
    [INFO    ]     This could be a problem with the git-annex installation on the
@@ -382,7 +348,9 @@ many reasons, but as long as there are other remotes you can access the
 data from, you are fine.
 
 A similar warning message may appear when adding a sibling that is a pure Git
-:term:`remote`, for example a repository on GitHub::
+:term:`remote`, for example a repository on GitHub:
+
+.. code-block:: bash
 
    [INFO ] Failed to enable annex remote github, could be a pure git or not
    accessible
@@ -400,16 +368,18 @@ connection (in which case you could set the key ``annex-ignore`` in
 ``.git/config`` to ``false``).
 
 Speaking of remotes that are not available, this will probably be one of the most
-commonly occurring git-annex errors to see - failing :command:`datalad get` calls
+commonly occurring git-annex errors to see - failing :dlcmd:`get` calls
 because remotes are not available:
 
 Other errors
 ^^^^^^^^^^^^
 
 Sometimes, registered subdatasets URLs have an :term:`SSH` instead of :term:`https` address, for example ``git@github.com:datalad-datasets/longnow-podcasts.git`` instead of ``https://github.com/datalad-datasets/longnow-podcasts.git``.
-If one does not have an SSH key configured for the required service (e.g., GitHub, or a server), installing or getting the subdataset and its contents fails, with messages starting similar to this::
+If one does not have an SSH key configured for the required service (e.g., GitHub, or a server), installing or getting the subdataset and its contents fails, with messages starting similar to this:
 
-   [INFO   ] Cloning https://github.com/psychoinformatics-de/paper-remodnav.git/remodnav [2 other candidates] into '/home/homeGlobal/adina/paper-remodnav/remodnav'
+.. code-block:: bash
+
+   [INFO   ] Cloning https://github.com/psychoinformatics-de/paper-remodnav.git/remodnav [2 other candidates] into '/home/.../remodnav'
    Permission denied (publickey).
 
 If you encounter these errors, make sure to create and/or upload an SSH key (see section :ref:`Gin` for an example) as necessary, or reconfigure/edit the URL into a HTTPS URL.
@@ -419,14 +389,14 @@ If you encounter these errors, make sure to create and/or upload an SSH key (see
 
 If you publish a dataset to :term:`GitHub`, but the resulting repository seems to consist of cryptic directories instead of your actual file names and directories, GitHub may have made the :term:`git-annex branch` the default.
 
-.. figure:: ../artwork/src/defaultgitannex.png
+.. figure:: ../artwork/src/defaultgitannex_light.png
 
-To find out more about this and how to fix it, please take a look at the corresponding :ref:`FAQ <gitannexdefault>`.
+Typically, you can change the default branch settings in the webinterface to fix this.
 
 **Windows adds whitespace line-endings to unchanged files**
 
 The type of line ending (a typically invisible character that indicates a line break) differs between operating system.
-While Linux and OSX use a *line feed* (LF), Windows uses *carriage return* + *line feed* (CRLF).
+While Linux and macOS use a *line feed* (LF), Windows uses *carriage return* + *line feed* (CRLF).
 When you only collaborate across operating systems of the same type, this is a very boring fun fact at most.
 But if Windows- and Non-Windows users collaborate, or if you are working with files across different operating systems, the different type of line ending that Windows uses may show up as unintended modifications on other system.
 In most cases, this is prevented by a default cross-platform compatible line-ending configuration on Windows that is set during installation:
@@ -435,51 +405,10 @@ In most cases, this is prevented by a default cross-platform compatible line-end
 
 To fix this behavior outside of the installation process and standardize line endings across operating systems, Windows users are advised to set the configuration ``core.autcrlf true`` with ``git config --global core.autocrfl true``.
 
-asyncio errors at DataLad import
-""""""""""""""""""""""""""""""""
-
-DataLad's internal command runner uses `asyncio
-<https://docs.python.org/3/library/asyncio.html>`_. This can lead to
-an error when DataLad is used within a script or application that
-itself uses asyncio. To summarize the problem with a `quote from
-Python's bug tracker <https://bugs.python.org/issue33523#msg349561>`_:
-"you can't call async code from sync code that's being called from
-async code".
-
-Jupyter Notebooks are probably the most likely place that you'll run
-into this error (`ipykernel issue 548
-<https://github.com/ipython/ipykernel/issues/548>`_). When importing
-``datalad``, you'll see this:
-
-.. code-block:: bash
-
-   RuntimeError: Cannot run the event loop while another loop is running
-
-The `nest-asyncio <https://pypi.org/project/nest-asyncio/>`_ package
-provides a workaround:
-
-.. code-block:: bash
-
-   >>> import nest_asyncio
-   >>> nest_asyncio.apply()
-
-   >>> import datalad
-
-
-
-
-
-.. todo::
-
-    paste some "please make these remotes available output"
-
-
-
-
 
 .. rubric:: Footnotes
 
-.. [#f1] ``wtf`` in :command:`datalad wtf` could stand for many things. "Why the Face?"
+.. [#f1] ``wtf`` in :dlcmd:`wtf` could stand for many things. "Why the Face?"
          "Wow, that's fantastic!", "What's this for?", "What to fix", "What the FAQ",
          "Where's the fire?", "Wipe the floor", "Welcome to fun",
          "Waste Treatment Facility", "What's this foolishness", "What the fruitcake", ...

@@ -1,9 +1,9 @@
 
-$ git show 92dcce5f8634ec4f872addefad0cd7a2e4372a24 | jq
+$ git show 589c3c74✂SHA1 | jq
 [
   {
-    "primary_data_version": "b3f02438b210c2bfbd4f0da79f2791c599c8856e",
-    "time_stamp": "1675090457.6913724",
+    "primary_data_version": "b3f02438✂SHA1",
+    "time_stamp": "1677249905.6491013",
     "path": "",
     "dataset_tree": {
       "@": {
@@ -11,7 +11,332 @@ $ git show 92dcce5f8634ec4f872addefad0cd7a2e4372a24 | jq
         "version": "2.0"
       },
       "class_name": "MTreeNode",
-      "location": "65c896c86f0e920439bca908eb11c98c9a706606"
+      "location": "9ddcabd5✂SHA1"
+    }
+  },
+  {
+    "primary_data_version": "96883aef✂SHA1",
+    "time_stamp": "1677249905.6497943",
+    "path": "",
+    "dataset_tree": {
+      "@": {
+        "type": "Reference",
+        "version": "2.0"
+      },
+      "class_name": "MTreeNode",
+      "location": "dc8f7491✂SHA1"
+    }
+  },
+  {
+    "primary_data_version": "4bcda921✂SHA1",
+    "time_stamp": "1677249905.6502168",
+    "path": "",
+    "dataset_tree": {
+      "@": {
+        "type": "Reference",
+        "version": "2.0"
+      },
+      "class_name": "MTreeNode",
+      "location": "33e1f59d✂SHA1"
+    }
+  },
+  {
+    "primary_data_version": "c9f77378✂SHA1",
+    "time_stamp": "1677249905.6506386",
+    "path": "",
+    "dataset_tree": {
+      "@": {
+        "type": "Reference",
+        "version": "2.0"
+      },
+      "class_name": "MTreeNode",
+      "location": "b539974a✂SHA1"
+    }
+  },
+  {
+    "primary_data_version": "1fdf34c1✂SHA1",
+    "time_stamp": "1677249905.6510594",
+    "path": "",
+    "dataset_tree": {
+      "@": {
+        "type": "Reference",
+        "version": "2.0"
+      },
+      "class_name": "MTreeNode",
+      "location": "ac9d80ba✂SHA1"
+    }
+  },
+  {
+    "primary_data_version": "734d1649✂SHA1",
+    "time_stamp": "1677249905.6515157",
+    "path": "",
+    "dataset_tree": {
+      "@": {
+        "type": "Reference",
+        "version": "2.0"
+      },
+      "class_name": "MTreeNode",
+      "location": "9c7b42cc✂SHA1"
+    }
+  },
+  {
+    "primary_data_version": "2a5737a7✂SHA1",
+    "time_stamp": "1677249905.6519253",
+    "path": "",
+    "dataset_tree": {
+      "@": {
+        "type": "Reference",
+        "version": "2.0"
+      },
+      "class_name": "MTreeNode",
+      "location": "f8dba9ab✂SHA1"
+    }
+  },
+  {
+    "primary_data_version": "dba9e0da✂SHA1",
+    "time_stamp": "1677249905.6523588",
+    "path": "",
+    "dataset_tree": {
+      "@": {
+        "type": "Reference",
+        "version": "2.0"
+      },
+      "class_name": "MTreeNode",
+      "location": "f3df9655✂SHA1"
+    }
+  },
+  {
+    "primary_data_version": "5d344fee✂SHA1",
+    "time_stamp": "1677249905.6528437",
+    "path": "",
+    "dataset_tree": {
+      "@": {
+        "type": "Reference",
+        "version": "2.0"
+      },
+      "class_name": "MTreeNode",
+      "location": "94287257✂SHA1"
+    }
+  },
+  {
+    "primary_data_version": "4862b1dd✂SHA1",
+    "time_stamp": "1677249905.653256",
+    "path": "",
+    "dataset_tree": {
+      "@": {
+        "type": "Reference",
+        "version": "2.0"
+      },
+      "class_name": "MTreeNode",
+      "location": "72b9f0ef✂SHA1"
+    }
+  },
+  {
+    "primary_data_version": "927fa89d✂SHA1",
+    "time_stamp": "1677249905.6537495",
+    "path": "",
+    "dataset_tree": {
+      "@": {
+        "type": "Reference",
+        "version": "2.0"
+      },
+      "class_name": "MTreeNode",
+      "location": "a21b7afa✂SHA1"
+    }
+  },
+  {
+    "primary_data_version": "24cf1d64✂SHA1",
+    "time_stamp": "1677249905.6543043",
+    "path": "",
+    "dataset_tree": {
+      "@": {
+        "type": "Reference",
+        "version": "2.0"
+      },
+      "class_name": "MTreeNode",
+      "location": "6df5503c✂SHA1"
+    }
+  },
+  {
+    "primary_data_version": "608716cc✂SHA1",
+    "time_stamp": "1677249905.654619",
+    "path": "",
+    "dataset_tree": {
+      "@": {
+        "type": "Reference",
+        "version": "2.0"
+      },
+      "class_name": "MTreeNode",
+      "location": "9c25a07b✂SHA1"
+    }
+  },
+  {
+    "primary_data_version": "7d80d256✂SHA1",
+    "time_stamp": "1677249905.6549146",
+    "path": "",
+    "dataset_tree": {
+      "@": {
+        "type": "Reference",
+        "version": "2.0"
+      },
+      "class_name": "MTreeNode",
+      "location": "6bcafa8a✂SHA1"
+    }
+  },
+  {
+    "primary_data_version": "089d0a8a✂SHA1",
+    "time_stamp": "1677249905.6551852",
+    "path": "",
+    "dataset_tree": {
+      "@": {
+        "type": "Reference",
+        "version": "2.0"
+      },
+      "class_name": "MTreeNode",
+      "location": "97ef1f70✂SHA1"
+    }
+  },
+  {
+    "primary_data_version": "ae851681✂SHA1",
+    "time_stamp": "1677249905.655501",
+    "path": "",
+    "dataset_tree": {
+      "@": {
+        "type": "Reference",
+        "version": "2.0"
+      },
+      "class_name": "MTreeNode",
+      "location": "e12fe917✂SHA1"
+    }
+  },
+  {
+    "primary_data_version": "66955e1d✂SHA1",
+    "time_stamp": "1677249905.6558466",
+    "path": "",
+    "dataset_tree": {
+      "@": {
+        "type": "Reference",
+        "version": "2.0"
+      },
+      "class_name": "MTreeNode",
+      "location": "1fe9d3de✂SHA1"
+    }
+  },
+  {
+    "primary_data_version": "7b966eab✂SHA1",
+    "time_stamp": "1677249905.656139",
+    "path": "",
+    "dataset_tree": {
+      "@": {
+        "type": "Reference",
+        "version": "2.0"
+      },
+      "class_name": "MTreeNode",
+      "location": "778aba3b✂SHA1"
+    }
+  },
+  {
+    "primary_data_version": "ba052a5a✂SHA1",
+    "time_stamp": "1677249905.6564295",
+    "path": "",
+    "dataset_tree": {
+      "@": {
+        "type": "Reference",
+        "version": "2.0"
+      },
+      "class_name": "MTreeNode",
+      "location": "edfad1df✂SHA1"
+    }
+  },
+  {
+    "primary_data_version": "8219d0af✂SHA1",
+    "time_stamp": "1677249905.6567576",
+    "path": "",
+    "dataset_tree": {
+      "@": {
+        "type": "Reference",
+        "version": "2.0"
+      },
+      "class_name": "MTreeNode",
+      "location": "02744bd9✂SHA1"
+    }
+  },
+  {
+    "primary_data_version": "43391d89✂SHA1",
+    "time_stamp": "1677249905.6570334",
+    "path": "",
+    "dataset_tree": {
+      "@": {
+        "type": "Reference",
+        "version": "2.0"
+      },
+      "class_name": "MTreeNode",
+      "location": "f937e00e✂SHA1"
+    }
+  },
+  {
+    "primary_data_version": "afdc3973✂SHA1",
+    "time_stamp": "1677249905.657296",
+    "path": "",
+    "dataset_tree": {
+      "@": {
+        "type": "Reference",
+        "version": "2.0"
+      },
+      "class_name": "MTreeNode",
+      "location": "b3468f97✂SHA1"
+    }
+  },
+  {
+    "primary_data_version": "f801161e✂SHA1",
+    "time_stamp": "1677249905.6575809",
+    "path": "",
+    "dataset_tree": {
+      "@": {
+        "type": "Reference",
+        "version": "2.0"
+      },
+      "class_name": "MTreeNode",
+      "location": "43c62b84✂SHA1"
+    }
+  },
+  {
+    "primary_data_version": "15f405a8✂SHA1",
+    "time_stamp": "1677249905.6578848",
+    "path": "",
+    "dataset_tree": {
+      "@": {
+        "type": "Reference",
+        "version": "2.0"
+      },
+      "class_name": "MTreeNode",
+      "location": "c3c0f6d7✂SHA1"
+    }
+  },
+  {
+    "primary_data_version": "c0b548cd✂SHA1",
+    "time_stamp": "1677249905.6581686",
+    "path": "",
+    "dataset_tree": {
+      "@": {
+        "type": "Reference",
+        "version": "2.0"
+      },
+      "class_name": "MTreeNode",
+      "location": "28551fe3✂SHA1"
+    }
+  },
+  {
+    "primary_data_version": "244a8ad4✂SHA1",
+    "time_stamp": "1677249905.6585097",
+    "path": "",
+    "dataset_tree": {
+      "@": {
+        "type": "Reference",
+        "version": "2.0"
+      },
+      "class_name": "MTreeNode",
+      "location": "809e3e50✂SHA1"
     }
   }
 ]

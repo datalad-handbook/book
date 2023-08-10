@@ -1,1 +1,1 @@
-$  wget -q -O datalad_logo_funky.svg https://raw.githubusercontent.com/datalad/tutorials/5e5fc0a4761248e5cedbc491c357d423d14a2b21/notebooks/catalog_tutorials/test_data/datalad_logo_funky.svg
+$  wget -q -O datalad_logo_funky.svg https://raw.githubusercontent.com/datalad/tutorials/5e5fc0a4/notebooks/catalog_tutorials/test_data/datalad_logo_funky.svg

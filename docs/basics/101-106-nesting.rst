@@ -55,7 +55,7 @@ this excerpt.
 
 We have highlighted the important part of this rather long commit summary.
 Note that you can not see any ``.mp3``\s being added to the dataset,
-as was previously the case when we :command:`datalad save`\d PDFs that we
+as was previously the case when we :dlcmd:`save`\d PDFs that we
 downloaded into ``books/``. Instead,
 DataLad stores what it calls a *subproject commit* of the subdataset.
 The cryptic character sequence in this line is the :term:`shasum` we have briefly
@@ -79,7 +79,7 @@ subdataset's history:
    $ git log --oneline
 
 We can see that it is the most recent commit shasum of the subdataset
-(albeit we can see only the first seven characters here -- a :command:`git log`
+(albeit we can see only the first seven characters here -- a :gitcmd:`log`
 would show you the full shasum). Thus, your dataset does not only know the origin
 of its subdataset, but also which version of the subdataset to use,
 i.e., it has the identifier of the stage/version in the subdataset's evolution to be used.
@@ -93,8 +93,8 @@ we can set subdatasets to previous states, or *update* them.
 
 .. find-out-more:: Do I have to navigate into the subdataset to see it's history?
 
-   Previously, we used :command:`cd` to navigate into the subdataset, and
-   subsequently opened the Git log. This is necessary, because a :command:`git log`
+   Previously, we used :shcmd:`cd` to navigate into the subdataset, and
+   subsequently opened the Git log. This is necessary, because a :gitcmd:`log`
    in the superdataset would only return the superdatasets history.
    While moving around with ``cd`` is straightforward, you also found it
    slightly annoying from time to time to use the ``cd`` command so often and also
@@ -104,7 +104,9 @@ we can set subdatasets to previous states, or *update* them.
    a Git command let's you run the command as if Git was started in this path
    instead of the current working directory.
    Thus, from the root of ``DataLad-101``, this command would have given you the
-   subdataset's history as well::
+   subdataset's history as well:
+
+   .. code-block:: bash
 
       $ git -C recordings/longnow log --oneline
 

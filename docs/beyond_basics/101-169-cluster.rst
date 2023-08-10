@@ -3,10 +3,10 @@
 DataLad on High Throughput or High Performance Compute Clusters
 ---------------------------------------------------------------
 
-For efficient computing of large analysis, to comply to best computing practices, or to fulfil the requirements that `responsible system administrators <https://xkcd.com/705/>`_ impose, users may turn to computational clusters such as :term:`high-performance computing (HPC)` or :term:`high-throughput computing (HTC)` infrastructure for data analysis, back-up, or storage.
+For efficient computing of large analysis, to comply to best computing practices, or to fulfil the requirements that `responsible system administrators <https://xkcd.com/705>`_ impose, users may turn to computational clusters such as :term:`high-performance computing (HPC)` or :term:`high-throughput computing (HTC)` infrastructure for data analysis, back-up, or storage.
 
 This chapter is a collection of useful resources and examples that aims to help you get started with DataLad-centric workflows on clusters.
-We hope to grow this chapter further, so please `get in touch <https://github.com/datalad-handbook/book/issues/new/>`_ if you want to share your use case or seek more advice.
+We hope to grow this chapter further, so please `get in touch <https://github.com/datalad-handbook/book/issues/new>`_ if you want to share your use case or seek more advice.
 
 Pointers to content in other chapters
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

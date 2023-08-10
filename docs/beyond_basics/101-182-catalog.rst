@@ -3,7 +3,7 @@
 DataCat - a shiny front-end for your dataset
 --------------------------------------------
 
-If you're looking for ways to showcase your datasets, look no further than the `datalad-catalog extension <http://docs.datalad.org/projects/catalog/en/latest/index.html>`_.
+If you're looking for ways to showcase your datasets, look no further than the `datalad-catalog extension <https://docs.datalad.org/projects/catalog>`_.
 This extension takes your favorite datasets and metadata, and generates a static website from it.
 
 .. figure:: ../artwork/src/catalog/datalad_catalog.svg
@@ -11,8 +11,8 @@ This extension takes your favorite datasets and metadata, and generates a static
 For quick access to more resources, have a look at:
 
 - The `live demo catalog <https://datalad.github.io/datalad-catalog>`_
-- A 3-minute `explainer video <https://www.youtube.com/watch?v=4GERwj49KFc>`_
-- The `datalad-catalog documentation <https://docs.datalad.org/projects/catalog/en/latest>`_
+- A 3-minute `explainer video <https://youtu.be/4GERwj49KFc>`_
+- The `datalad-catalog documentation <https://docs.datalad.org/projects/catalog>`_
 - The `source repository <https://github.com/datalad/datalad-catalog>`_ for an up-to-date overview of functionality
 - Below, a step-by-step tutorial to generate your own catalog
 
@@ -45,7 +45,7 @@ How does it work?
 
 DataLad Catalog can receive commands to ``create`` a new catalog, ``add`` and ``remove`` metadata entries to/from an existing catalog, ``serve``
 an existing catalog locally, and more. Metadata can be provided to DataLad Catalog from any number of arbitrary metadata sources,
-as an aggregated set or as individual items/objects. DataLad Catalog has a dedicated schema (using the `JSON Schema <https://json-schema.org/>`_ vocabulary)
+as an aggregated set or as individual items/objects. DataLad Catalog has a dedicated schema (using the `JSON Schema <https://json-schema.org>`_ vocabulary)
 against which incoming metadata items are validated. This schema allows for standard metadata fields as one would expect for datasets of any kind
 (such as ``name``, ``doi``, ``url``, ``description``, ``license``, ``authors``, and more), as well as fields that support identification, versioning,
 dataset context and linkage, and file tree specification.
@@ -57,7 +57,7 @@ The process of generating a catalog, after metadata entry validation, involves:
 
 .. figure:: ../artwork/src/catalog/datalad_catalog_howitworks.svg
 
-The output is a set of structured metadata files, as well as a `Vue.js <https://vuejs.org/>`_-based browser interface that understands how to render
+The output is a set of structured metadata files, as well as a `Vue.js <https://vuejs.org>`_-based browser interface that understands how to render
 this metadata in the browser. What is left for the user is to host this content on their platform of choice and to serve it for the world to see!
 
 
@@ -237,7 +237,7 @@ There are a few core specifications of metadata objects within the context of th
 
 The Catalog schema specifies exactly which fields are required and which data types
 are accepted for each key/value-pair. For an improved understanding of the Catalog schema,
-you can inspect the `JSON documents here <https://github.com/datalad/datalad-catalog/tree/main/datalad_catalog/schema>`_ (``jsonschema_*``).
+you can inspect the `JSON documents here <https://github.com/datalad/datalad-catalog/tree/main/datalad_catalog/catalog/schema>`_ (``jsonschema_*``).
 
 Sample metadata
 """""""""""""""
@@ -540,7 +540,7 @@ We'll ensure that the new custom logo is available locally:
    :cast: catalog_basics
    :notes: Get the custom logo
 
-   $  wget -q -O datalad_logo_funky.svg https://raw.githubusercontent.com/datalad/tutorials/5e5fc0a4761248e5cedbc491c357d423d14a2b21/notebooks/catalog_tutorials/test_data/datalad_logo_funky.svg
+   $  wget -q -O datalad_logo_funky.svg https://raw.githubusercontent.com/datalad/tutorials/5e5fc0a4/notebooks/catalog_tutorials/test_data/datalad_logo_funky.svg
 
 Now we can run all the necessary subcommands for the catalog generation process:
 

@@ -12,7 +12,8 @@ Let's actually take a look into this file now:
 .. runrecord:: _examples/DL-101-109-101
    :language: console
    :workdir: dl-101/DataLad-101
-   :lines: 1-15
+   :lines: 1-3,5-7
+   :append: -✂--✂-
    :notes: The script produced a simple list of podcast titles. let's take a look into our output file. What's cool is that is was created in a way that the code and output are linked:
    :cast: 02_reproducible_execution
 

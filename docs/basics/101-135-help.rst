@@ -73,25 +73,23 @@ Does the help list any caveats?
 There are multiple ways to find help on DataLad commands.
 You could turn to the `documentation <https://docs.datalad.org>`_.
 Alternatively, to get help right inside the terminal,
-run any command with the ``-h``/``--help`` option (also shown
+run any command with the ``-h``/``--help`` option (shown
 as an excerpt here):
 
 .. runrecord:: _examples/DL-101-135-103
    :language: console
    :workdir: dl-101/DataLad-101
-   :lines: 1-28, 72-108
+   :lines: 1-16,83-92,101-112
+   :append: -✂--✂-
 
    $ datalad get --help
 
-This for example is the help page on :dlcmd:`get`
-(the same you would find in the documentation,
-but in your terminal, here - for brevity - slightly cut).
+This, for example, is the help page on :dlcmd:`get`, the same you would find in the documentation, but in your terminal (here heavily trimmed to only show the main components).
 It contains a command description, a list
 of all the available options with a short explanation of them, and
-example commands. The paragraph *Options* shows all
-optional flags, and all required parts of
-the command are listed in the paragraph *Arguments*. One first thing
-to check for example is whether your command call
+example commands. The two *arguments* sections provide a comprehensive
+list of command arguments with details on their possibilities and
+requirements. A first thing to check would be whether your command call
 specified all of the required arguments.
 
 Asking questions (right)
@@ -178,7 +176,7 @@ To get extensive information on what :dlcmd:`status` does underneath the hood, y
 .. runrecord:: _examples/DL-101-135-105
    :language: console
    :workdir: dl-101/DataLad-101
-   :lines: 1, 3-5, 60-
+   :lines: 1,6, 67-
 
    $ datalad --log-level debug status
 

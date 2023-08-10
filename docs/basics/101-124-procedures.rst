@@ -183,9 +183,11 @@ files into Git -- only those text files created *after* the configuration
 was applied.
 
 
-.. find-out-more:: Write your own procedures
+Write your own procedures
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. container::
    :name: fom-procedures
-   :float:
 
    Procedures can come with DataLad or its extensions, but anyone can
    write their own ones in addition, and deploy them on individual machines,
@@ -360,6 +362,9 @@ was applied.
 
       $ datalad run-procedure --help-proc example
 
+
+Conclusions
+^^^^^^^^^^^
 
 Summing up, DataLad's :dlcmd:`run-procedure` command is a handy tool
 with useful existing procedures but much flexibility for your own

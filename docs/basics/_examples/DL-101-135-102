@@ -8,12 +8,12 @@ $ datalad wtf
     - config_file: /home/me/.config/python_keyring/keyringrc.cfg
     - data_root: /home/me/.local/share/python_keyring
 ## datalad
-  - version: 0.19.2
+  - version: 0.19.3
 ## dataset
   - branches:
     - git-annex@✂GITSHA✂
-    - master@88db2a0
-    - sct_computational_reproducibility@88db2a0
+    - master@442a384
+    - sct_computational_reproducibility@442a384
     - sct_create_a_dataset@e0ff3a7
     - sct_datalad_rerun@4009576
     - sct_input_and_output@a4044db
@@ -22,7 +22,7 @@ $ datalad wtf
     - sct_looking_without_touching@afa2884
     - sct_modify_content@9783a90
     - sct_more_on_DYI_configurations@b21ea30
-    - sct_more_on_dataset_nesting@bfcdc77
+    - sct_more_on_dataset_nesting@b4e773b
     - sct_networking@b232c62
     - sct_populate_a_dataset@bcb0ffe
     - sct_retrace_and_reenact@26595f2
@@ -103,7 +103,7 @@ $ datalad wtf
           - containers-run
           - containers_run
     - module: datalad_container
-    - version: 1.2.1
+    - version: 1.2.2
   - deprecated:
     - description: Deprecated functionality
     - entrypoints:
@@ -311,7 +311,7 @@ $ datalad wtf
     - generation: 2
     - module: datalad_metalad.extractors.legacy.audio
   - container_inspect:
-    - distribution: datalad-container 1.2.1
+    - distribution: datalad-container 1.2.2
     - doc: Populates metadata singularity/apptainer version and `inspect` output.
     - generation: 4
     - load_error: TypeError(get_version() takes 0 positional arguments but 1 was given)

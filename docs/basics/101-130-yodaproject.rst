@@ -151,7 +151,6 @@ independent dataset from scratch in a :ref:`dedicated Findoutmore <fom-iris>`.
 
 .. find-out-more:: Creating an independent input dataset
    :name: fom-iris
-   :float:
 
    If you acquire your own data for a data analysis, you will have
    to turn it into a DataLad dataset in order to install it as a subdataset.

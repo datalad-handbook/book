@@ -254,7 +254,7 @@ projects. It requires minimal effort, but comes with great benefit:
   of any external inputs of a project make it possible (when a project is completed)
   that a supervisor can efficiently test the integrity of the inputs, discard them
   (if unmodified), and only archive the outputs that are unique to the project --
-  which then can become a modular component for re-use in a future project.
+  which then can become a modular component for reuse in a future project.
 
 
 .. rubric:: Footnotes

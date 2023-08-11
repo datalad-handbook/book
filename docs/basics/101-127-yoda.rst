@@ -253,7 +253,7 @@ history of all of these components.
 
 Principle 1, therefore, encourages to structure data analysis
 projects in a clear and modular fashion that makes use of nested
-DataLad datasets, yielding comprehensible structures and re-usable
+DataLad datasets, yielding comprehensible structures and reusable
 components. Having each component version-controlled --
 regardless of size --  will aid keeping directories clean and
 organized, instead of piling up different versions of code, data,
@@ -288,7 +288,7 @@ files that a colleague sent you via email, a plain :command:`datalad save`
 with a helpful commit message goes a very long way to fulfill this principle
 on its own already.
 
-One core aspect of this principle is *linking* between re-usable data
+One core aspect of this principle is *linking* between reusable data
 resource units (i.e., DataLad subdatasets containing pure data). You will
 be happy to hear that this is achieved by simply installing datasets
 as subdatasets.

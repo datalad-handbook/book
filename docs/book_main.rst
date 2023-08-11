@@ -6,6 +6,8 @@ The DataLad Handbook
 
 .. raw:: latex
 
+  \mainmatter
+
   % page header setup
   % page numbers at the outer edges
   % chapter and section names at the inner edges,

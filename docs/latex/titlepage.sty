@@ -1,3 +1,5 @@
+\frontmatter
+
 \begin{titlepage}
 \raggedleft
 \rule{1pt}{\textheight}
@@ -28,8 +30,10 @@
 
 
 \fancypagestyle{plain}{%
-  % disable footer/page numbers even on chapter start pages
-  \fancyhead{}
+  \fancyhead[LE]{\small\thepage}
+  \fancyhead[RO]{\small\thepage}
+  \fancyhead[RE]{\small\nouppercase{\leftmark}}
+  \fancyhead[LO]{\small\nouppercase{\rightmark}}
   % keep the head rule, we only have 2mm headsep and need the
   % visual guide
   %\renewcommand*{\headrule}{}%

@@ -30,6 +30,8 @@
 \fancypagestyle{plain}{%
   % disable footer/page numbers even on chapter start pages
   \fancyhead{}
-  \renewcommand*{\headrule}{}%
+  % keep the head rule, we only have 2mm headsep and need the
+  % visual guide
+  %\renewcommand*{\headrule}{}%
   \fancyfoot{}%
 }

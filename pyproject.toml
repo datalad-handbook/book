@@ -1,2 +1,7 @@
 [build-system]
 requires = ["setuptools >= 30.3.0", "wheel"]
+
+[tool.codespell]
+skip = '.git,*.pdf,*.svg,venvs,versioneer.py'
+#
+# ignore-words-list = ''

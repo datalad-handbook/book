@@ -40,13 +40,13 @@ moving a file, and uses the :shcmd:`mv` command.
 .. runrecord:: _examples/DL-101-136-101
    :language: console
    :workdir: dl-101/DataLad-101
-   :realcommand: cd books/ && mv TLCL.pdf The_Linux_Command_Line.pdf && ls -lah --time-style=long-iso
+   :realcommand: cd books/ && mv TLCL.pdf The_Linux_Command_Line.pdf && ls -lh --time-style=long-iso
    :notes: Let's look into file system operations. What does renaming does to a file that is symlinked?
    :cast: 03_git_annex_basics
 
    $ cd books/
    $ mv TLCL.pdf The_Linux_Command_Line.pdf
-   $ ls -lah The_Linux_Command_Line.pdf
+   $ ls -lh The_Linux_Command_Line.pdf
 
 Try to open the renamed file, e.g., with
 ``evince The_Linux_Command_Line.pdf``.

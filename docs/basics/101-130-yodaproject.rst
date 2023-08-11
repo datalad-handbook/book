@@ -731,6 +731,12 @@ command.
 Thus, you have now published your dataset's history to a public place for others
 to see and clone. Below we will explore how this may look and feel for others.
 
+.. gitusernote:: Push internals
+
+   The :dlcmd:`push` uses ``git push``, and ``git annex copy`` under
+   the hood. Publication targets need to either be configured remote Git repositories,
+   or git-annex special remotes (if they support data upload).
+
 There is one important detail first, though: By default, your tags will not be published.
 Thus, the tag ``ready4analysis`` is not pushed to GitHub, and currently this
 version identifier is unavailable to anyone else but you.
@@ -768,11 +774,14 @@ an additional :gitcmd:`push`  with the ``--tags`` option is required:
 
 Yay! Consider your midterm project submitted! Others can now install your
 dataset and check out your data science project -- and even better: they can
-reproduce your data science project easily from scratch (take a look into the :ref:`Findoutmore <fom-midtermclone>` to see how)!
+reproduce your data science project easily from scratch!
 
-.. find-out-more:: On the looks and feels of this published dataset
+
+On the looks and feels of a published dataset
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. container::
    :name: fom-midtermclone
-   :float:
 
    Now that you have created and published such a YODA-compliant dataset, you
    are understandably excited how this dataset must look and feel for others.
@@ -847,13 +856,6 @@ reproduce your data science project easily from scratch (take a look into the :r
    Applying the YODA principles to your data analysis was very beneficial indeed.
    Proud of your midterm project you can not wait to use those principles the
    next time again.
-
-.. gitusernote:: Push internals
-
-   The :dlcmd:`push` uses ``git push``, and ``git annex copy`` under
-   the hood. Publication targets need to either be configured remote Git repositories,
-   or git-annex special remotes (if they support data upload).
-
 
 .. only:: adminmode
 

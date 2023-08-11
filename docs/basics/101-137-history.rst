@@ -126,12 +126,11 @@ DataLad in the editor)!
    The :gitcmd:`commit --amend` command will let you
    rewrite the commit message of the most recent commit. However, if you
    need to rewrite commit messages of older commits, you
-   can do so during a so-called "interactive rebase". The command
-   for this is
+   can do with an "interactive rebase":
 
    .. code-block:: bash
 
-      $ git rebase -i HEAD~N
+      $ git rebase --interactive HEAD~N
 
    where ``N`` specifies how far back you want to rewrite commits.
    ``git rebase -i HEAD~3`` for example lets you apply changes to the
@@ -143,9 +142,9 @@ DataLad in the editor)!
    that rewriting history that is *pushed*/*published* to another location
    will require a force-push!
 
-   Running this command gives you a list of the N most recent commits
-   in a text editor (which may be :term:`vim`!), sorted with
-   the most recent commit on the bottom:
+   Running this command yields a list of the N most recent commits
+   in a text editor (which may be :term:`vim`!), with
+   the most recent commit at the bottom:
 
    .. code-block:: text
 
@@ -168,7 +167,7 @@ DataLad in the editor)!
    message". To apply this action and reword the top-most commit message in this list
    (``8503f26 Add note on adding siblings``, three commits back in the history),
    exchange the word ``pick`` in the beginning of the line with the word
-   ``reword`` or simply ``r`` like this:
+   ``reword`` or simply ``r``:
 
    .. code-block:: bash
 
@@ -180,8 +179,10 @@ DataLad in the editor)!
    sequentially open up a new editor for each commit you want to reword. In
    it, you will be able to change the commit message. Save to proceed to
    the next commit message until the rebase is complete.
-   But be careful not to delete any lines in the above editor view --
+
+   Be careful not to delete any lines in the above editor view --
    **An interactive rebase can be dangerous, and if you remove a line, this commit will be lost!**
+
 
 Untracking accidentally saved contents (tracked in Git)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

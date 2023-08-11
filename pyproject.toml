@@ -2,6 +2,5 @@
 requires = ["setuptools >= 30.3.0", "wheel"]
 
 [tool.codespell]
-skip = '.git,*.pdf,*.svg,venvs,versioneer.py'
-#
-# ignore-words-list = ''
+skip = '.git,*.pdf,*.svg,venvs,versioneer.py,DL-*,.github,_build'
+ignore-words-list = 'wit'

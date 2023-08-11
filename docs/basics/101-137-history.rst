@@ -124,8 +124,8 @@ DataLad in the editor)!
    :float:
 
    The :gitcmd:`commit --amend` command will let you
-   rewrite the commit message of the most recent commit. If you
-   however need to rewrite commit messages of older commits, you
+   rewrite the commit message of the most recent commit. However, if you
+   need to rewrite commit messages of older commits, you
    can do so during a so-called "interactive rebase". The command
    for this is
 
@@ -139,16 +139,15 @@ DataLad in the editor)!
 
    Be aware that an interactive rebase lets you *rewrite* history.
    This can lead to confusion or worse if the history you are rewriting
-   is shared with others, e.g., in a collaborative project. Be also aware
-   that rewriting history that is *pushed*/*published* (e.g., to GitHub)
+   is shared with others, for example, in a collaborative project. Be also aware
+   that rewriting history that is *pushed*/*published* to another location
    will require a force-push!
 
    Running this command gives you a list of the N most recent commits
-   in your text editor (which may be :term:`vim`!), sorted with
-   the most recent commit on the bottom.
-   This is how it may look like:
+   in a text editor (which may be :term:`vim`!), sorted with
+   the most recent commit on the bottom:
 
-   .. code-block:: bash
+   .. code-block:: text
 
       pick 8503f26 Add note on adding siblings
       pick 23f0a52 add note on configurations and git config
@@ -159,17 +158,13 @@ DataLad in the editor)!
       # Commands:
       # p, pick <commit> = use commit
       # r, reword <commit> = use commit, but edit the commit message
-      # e, edit <commit> = use commit, but stop for amending
       # s, squash <commit> = use commit, but meld into previous commit
       # f, fixup <commit> = like "squash", but discard this commit's log message
-      # x, exec <command> = run command (the rest of the line) using shell
-      # b, break = stop here (continue rebase later with 'git rebase --continue')
-      # d, drop <commit> = remove commit
-      # l, label <label> = label current HEAD with a name
+      -✂--✂-
 
-   An interactive rebase allows to apply various modifying actions to any
-   number of commits in the list. Below the list are descriptions of these
-   different actions. Among them is "reword", which lets you "edit the commit
+   With an interactive rebase we can apply various modifications to any
+   number of commits in the list. Below the list are examples for some of these
+   actions. Among them is "reword", which lets you "edit the commit
    message". To apply this action and reword the top-most commit message in this list
    (``8503f26 Add note on adding siblings``, three commits back in the history),
    exchange the word ``pick`` in the beginning of the line with the word

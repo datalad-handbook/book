@@ -363,7 +363,7 @@ latex_additional_files = [
 
 latex_toplevel_sectioning = 'chapter'
 latex_show_pagerefs = True
-latex_show_urls = 'footnote'
+latex_show_urls = 'no'
 latex_docclass = {
     'manual': 'book',
 }

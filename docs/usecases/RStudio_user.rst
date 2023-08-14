@@ -117,7 +117,7 @@ He runs the code again and... oups it fails.
 
 Max thinks a bit about it and remember what he learned before: the pdf file has been annexed and cannot be overwritten.
 Max therefore runs ``datalad unlock . -r`` and then runs the code, and it works.
-Max realise also that usinng ``datalad save . -r`` lock the files again, 
+Max realise also that using ``datalad save . -r`` lock the files again, 
 it does it also if there is no change in the repository (and therefore no commit made).
 
 At the coffee break, Max meets Bobby and complain about the process.
@@ -163,7 +163,7 @@ Then, Max create a bash script in Rstudio and run it using the usual button (Thi
    :scale: 80 %
    :alt: screenshot of Rstudio bash code window
 
-   Figures of bash code runing the datalad run command
+   Figures of bash code running the datalad run command
 
 
 On can set as many input and output files, one can use `*` to define several files with a similar ending (in the example all .png figures will be unlocked). It is good practice to list files in input and output even if they do not need to be handled by datalad, in order to give more information in the commit message.

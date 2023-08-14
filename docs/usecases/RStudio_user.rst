@@ -87,7 +87,7 @@ Datalad saved the script using Git-annex.
 This means that the file was moved somewhere else, and the content was replaced by a code linking to the file location. 
 The code, which is a tiny file, is saved in Git, while the large file is saved outside of Git.
 Because it is :term:`symlink`, Rstudio still read the content of the original file when clicking on it, but it cannot overwrite the file: that file is in read-only mode.
-This is explained in detail in the :ref:`Handbook chapters on Git-annex <basics-annex>`_ .
+This is explained in detail in the :ref:`Handbook chapters on Git-annex <basics-annex>`.
 
 One could overwrite the file by first unlocking it (using ``datalad unlock .``), but that would not be very practical, and it would save the script as a binary file, making the version control very inefficient.
 

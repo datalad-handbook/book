@@ -26,7 +26,7 @@ Keep in mind that this applies even if you renamed the file.
 .. find-out-more:: Help! I accidentally saved sensitive information to Git!
 
 	The only lasting way to remove contents from the dataset history completely is to substantially rewrite the dataset's history via tools such as ``git-filter-repo`` or ``git filter-branch``, two very dangerous and potentially destructive operations.
-	If you ever need to go there, the advanced section :ref:`cleanup` contains a paragraph on "Getting contents out of Git".
+
 
 Strategy 2: Restrict access via third party service or file system permissions
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -39,16 +39,15 @@ Depending on what permissions are set, unauthorized actors would not be able to 
 The ability of repository hosting services to make datasets private and only allow select collaborators access is yet another method of keeping complete datasets as private as necessary, even though you should think twice on whether or not you should host sensitive repositories at all on these services.
 
 One method to exert potentially fine-grained access control over file contents is via choice of (third party) hosting service for some or all annexed file contents.
-If you chose a service only selected people have access to, and publish annexed contents exclusively there, then only those selected people can perform a successful :command:`datalad get`.
+If you chose a service only selected people have access to, and publish annexed contents exclusively there, then only those selected people can perform a successful :dlcmd:`get`.
 For example, when it is a dataset with content hosted on third party cloud storage such as S3 buckets, permission settings in the storage locations would allow data providers to specify or limit who is able to retrieve the file contents.
-An example for this is the usecase :ref:`usecase_hcp_dataset`, where file contents from the human connectome project can only be retrieved when a user has obtained the necessary credentials first.
 
 
 Strategy 3: Selective publishing
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If it is individual files that you do not want to share, you can selectively publish the contents of all files you want others to have, and withhold the data of the files you do not want to share.
-This can be done by providing paths to the data that should be published, or a `git-annex-wanted <https://git-annex.branchable.com/git-annex-wanted/>`_ configuration and the ``--data auto`` option.
+This can be done by providing paths to the data that should be published, or a `git-annex-wanted <https://git-annex.branchable.com/git-annex-wanted>`_ configuration and the ``--data auto`` option.
 
 Let's say you have a dataset with three files:
 
@@ -64,9 +63,9 @@ By publishing only the file contents of ``experiment.txt`` with
 
   $ datalad push --to github experiment.txt
 
-only meta data about file availability of ``subject_1.dat`` and ``subject_2.dat`` exists, but as these files' annexed data is not published, a :command:`datalad get`
+only meta data about file availability of ``subject_1.dat`` and ``subject_2.dat`` exists, but as these files' annexed data is not published, a :dlcmd:`get`
 will fail.
-Note, though, that :command:`push` will publish the complete dataset history (unless you specify a commit range with the ``--since`` option -- see the `manual <http://docs.datalad.org/en/latest/generated/man/datalad-push.html>`_ for more information).
+Note, though, that :dlcmd:`push` will publish the complete dataset history (unless you specify a commit range with the ``--since`` option -- see the `manual <https://docs.datalad.org/en/latest/generated/man/datalad-push.html>`_ for more information).
 
 
 

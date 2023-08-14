@@ -1,27 +1,29 @@
-.. _summary_nest:
-
 Summary
 -------
 
 In the last few sections, we have discovered the basics of starting a DataLad dataset from scratch,
 and making simple modifications *locally*.
 
-* An empty dataset can be created with the :command:`datalad create` command. It's useful to add a description
+* An empty dataset can be created with the :dlcmd:`create` command. It's useful to add a description
   to the dataset and use the ``-c text2git`` configuration, but we will see later why.
-  This is the command structure::
+  This is the command structure:
+
+  .. code-block:: bash
 
     datalad create --description "here is a description" -c text2git PATH
 
 * Thanks to :term:`Git` and :term:`git-annex`, the dataset has a history to track files and their
-  modifications. Built-in Git tools (:command:`git log`) or external tools (such as ``tig``) allow to explore
+  modifications. Built-in Git tools (:gitcmd:`log`) or external tools (such as ``tig``) allow to explore
   the history.
 
-* The :command:`datalad save` command records the current state of the dataset to the history. Make it a habit
+* The :dlcmd:`save` command records the current state of the dataset to the history. Make it a habit
   to specify a concise commit message to summarize the change. If several unrelated modifications
   exist in your dataset, specify the path to the precise file (change) that should be saved to history.
-  Remember, if you run a :command:`datalad save` without
+  Remember, if you run a :dlcmd:`save` without
   specifying a path, all untracked files and all file changes will be committed to the history together!
-  This is the command structure::
+  This is the command structure:
+
+  .. code-block:: bash
 
     datalad save -m "here is a commit message" [PATH]
 
@@ -35,12 +37,12 @@ and making simple modifications *locally*.
 
    A simple, local version control workflow with DataLad.
 
-* :command:`datalad status` reports the current state of the dataset. It's a very helpful command you should
+* :dlcmd:`status` reports the current state of the dataset. It's a very helpful command you should
   run frequently to check for untracked or modified content.
 
-* :command:`datalad download-url` can retrieve files from websources and save them
+* :dlcmd:`download-url` can retrieve files from websources and save them
   automatically to your dataset. This does not only save you the time of one
-  :command:`datalad save`, but it also records the source of the file as hidden
+  :dlcmd:`save`, but it also records the source of the file as hidden
   :term:`provenance` information.
 
 Furthermore, we have discovered the basics of installing a published DataLad dataset,
@@ -48,7 +50,9 @@ and experienced the concept of modular nesting datasets.
 
 .. index:: ! datalad command; clone
 
-* A published dataset can be installed with the :command:`datalad clone` command::
+* A published dataset can be installed with the :dlcmd:`clone` command:
+
+  .. code-block:: bash
 
      $ datalad clone [--dataset PATH] SOURCE-PATH/URL [DESTINATION PATH]
 
@@ -65,11 +69,11 @@ and experienced the concept of modular nesting datasets.
 * The source can be a URL (for example of a GitHub repository, as in section :ref:`installds`), but also
   paths, or open data collections.
 
-* After :command:`datalad clone`, only small files and metadata about file availability are present locally.
-  To retrieve actual file content of larger files, :command:`datalad get PATH` downloads large file
+* After :dlcmd:`clone`, only small files and metadata about file availability are present locally.
+  To retrieve actual file content of larger files, :dlcmd:`get PATH` downloads large file
   content on demand.
 
-* :command:`datalad status --annex` or :command:`datalad status --annex all` are helpful to determine
+* :dlcmd:`status --annex` or :dlcmd:`status --annex all` are helpful to determine
   total repository size and the amount of data that is present locally.
 
 * Remember: Super- and subdatasets have standalone histories. A superdataset stores the currently used
@@ -82,8 +86,8 @@ Now what I can do with that?
 Simple, local workflows allow you to version control changing small files,
 for example your CV, your code, or a book that you are working on, but
 you can also add very large files to your datasets history.
-Currently, this can be considered "best-practice building": Frequent :command:`datalad status`
-commands, :command:`datalad save` commands to save dataset modifications,
+Currently, this can be considered "best-practice building": Frequent :dlcmd:`status`
+commands, :dlcmd:`save` commands to save dataset modifications,
 and concise :term:`commit message`\s are the main take always from this. You can already explore
 the history of a dataset and you know about many types of provenance information
 captured by DataLad, but for now, its been only informative, and has not been used

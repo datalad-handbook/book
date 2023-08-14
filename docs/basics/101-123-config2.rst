@@ -39,13 +39,13 @@ you will recognize it as a reference to the type of
 key used by git-annex to identify and store file content in the object-tree.
 The first row, ``* annex.backend=MD5E``, therefore translates to "Everything in this
 directory should be hashed with a MD5E hash function".
-But what is the rest? We'll start with the last row::
+But what is the rest? We'll start with the last row:
+
+.. code-block:: bash
 
    * annex.largefiles=((mimeencoding=binary)and(largerthan=0))
 
-Uhhh, cryptic. The lecturer explains:
-
-"git-annex will *annex*, that is, *store in the object-tree*,
+Uhhh, cryptic. The lecturer explains: "git-annex will *annex*, that is, *store in the object-tree*,
 anything it considers to be a "large file". By default, anything
 in your dataset would be a "large file", that means anything would be annexed.
 However, in section :ref:`symlink` I already mentioned that exceptions to this
@@ -74,10 +74,12 @@ translates to "Do not annex anything that is a text file in this directory" for 
 
 However, rules can be even simpler. The second row simply takes a complete directory
 (``.git``) and instructs git-annex to regard nothing in it as a "large file".
-The second row, ``**/.git* annex.largefiles=nothing`` therefore means that no
+The second row, ``**/.git* annex.largefiles=nothing`` means that no
 ``.git`` repository in this directory or a subdirectory should be considered
 a "large file". This way, the ``.git`` repositories are protected from being annexed.
-If you had a single file (``myfile.pdf``) you would not want annexed, specifying a rule such as::
+If you had a single file (``myfile.pdf``) you would not want annexed, specifying a rule such as:
+
+.. code-block:: bash
 
    myfile.pdf annex.largefiles=nothing
 
@@ -93,7 +95,9 @@ and view this dataset's ``.gitattributes`` file:
 The relevant part is ``README.md annex.largefiles=nothing``.
 This instructs git-annex to specifically not annex ``README.md``.
 
-Lastly, if you wanted to configure a rule based on **size**, you could add a row such as::
+Lastly, if you wanted to configure a rule based on **size**, you could add a row such as:
+
+.. code-block:: bash
 
    ** annex.largefiles(largerthan=20kb)
 
@@ -124,8 +128,7 @@ For example, files you will often edit by hand could be stored in Git if they ar
 not too large to ease modifying them [#f3]_.
 Once you know the basics of this type of configuration syntax, writing
 your own rules is easy. For more tips on how configure git-annex's content
-management in ``.gitattributes``, take a look at `this <https://git-annex.branchable.com/tips/largefiles/>`_
-page of the git-annex documentation.
+management in ``.gitattributes``, take a look at `the git-annex documentation <https://git-annex.branchable.com/tips/largefiles>`_.
 Later however you will see preconfigured DataLad *procedures* such as ``text2git`` that
 can apply useful configurations for you, just as ``text2git`` added the last line
 in the root ``.gitattributes`` file.
@@ -154,7 +157,7 @@ Upon sharing your dataset, the information about subdatasets and where to retrie
 them from is stored and shared with this file.
 
 Section :ref:`sharelocal1` already mentioned one additional configuration option in a footnote: The ``datalad-recursiveinstall`` key.
-This key is defined on a per subdataset basis, and if set to "``skip``", the given subdataset will not be recursively installed unless it is explicitly specified as a path to :command:`datalad get [-n/--no-data] -r`.
+This key is defined on a per subdataset basis, and if set to "``skip``", the given subdataset will not be recursively installed unless it is explicitly specified as a path to :dlcmd:`get [-n/--no-data] -r`.
 If you are a maintainer of a superdataset with monstrous amounts of subdatasets, you can set this option and share it together with the dataset to prevent an accidental, large recursive installation in particularly deeply nested subdatasets.
 Below is a minimally functional example on how to apply the configuration and how it works:
 
@@ -268,7 +271,7 @@ Now, we can apply the ``datalad-recursiveinstall`` configuration to skip recursi
       add (ok: 1)
       save (ok: 1)
 
-If the dataset is cloned, and someone runs a recursive :command:`datalad get`, the subdatasets of ``subds1`` will not be installed, the subdatasets of ``subds2``, however, will be.
+If the dataset is cloned, and someone runs a recursive :dlcmd:`get`, the subdatasets of ``subds1`` will not be installed, the subdatasets of ``subds2``, however, will be.
 
 .. code-block:: bash
 
@@ -329,7 +332,7 @@ DataLad adds a repository-specific configuration file as well.
 It can be found in the ``.datalad`` directory, and just like ``.gitattributes``
 and ``.gitmodules`` it is version controlled and is thus shared together with
 the dataset. One can configure
-`many options <http://docs.datalad.org/en/latest/generated/datalad.config.html>`_,
+`many options <https://docs.datalad.org/en/latest/generated/datalad.config.html>`_,
 but currently, our ``.datalad/config`` file only stores a :term:`dataset ID`.
 This ID serves to identify a dataset as a unit, across its entire history and flavors.
 In a geeky way, this is your dataset's social security number: It will only exist
@@ -343,20 +346,20 @@ one time on this planet.
 
 Note, though, that local configurations within a Git configuration file
 will take precedence over configurations that can be distributed with a dataset.
-Otherwise, dataset updates with :command:`datalad update` (or, for Git-users,
-:command:`git pull`) could suddenly and unintentionally alter local DataLad
+Otherwise, dataset updates with :dlcmd:`update` (or, for Git-users,
+:gitcmd:`pull`) could suddenly and unintentionally alter local DataLad
 behavior that was specifically configured.
 Also, :term:`Git` and :term:`git-annex` will not query this file for configurations, so please store only sticky options that are specific to DataLad (i.e., under the ``datalad.*`` namespace) in it.
 
 Writing to configuration files other than ``.git/config``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-"Didn't you say that knowing the :command:`git config` command is already
+"Didn't you say that knowing the :gitcmd:`config` command is already
 half of what I need to know?" you ask. "Now there are three other configuration
 files, and I do not know with which command I can write into these files."
 
 "Excellent question", you hear in return, "but in reality, you **do** know:
-it's also the :command:`git config` command. The only part of it you need to
+it's also the :gitcmd:`config` command. The only part of it you need to
 adjust is the ``-f``, ``--file`` parameter. By default, the command writes to
 a Git config file. But it can write to a different file if you specify it
 appropriately. For example
@@ -379,7 +382,7 @@ The latter is often used if someone has an *SSH key pair* and added the
 public key to their GitHub account (you can read more about this
 `here <https://docs.github.com/en/get-started/getting-started-with-git/about-remote-repositories>`_).
 We will revert this change shortly, but use it to show the difference between
-a :command:`git config` on a ``.git/config`` file and on a version controlled file:
+a :gitcmd:`config` on a ``.git/config`` file and on a version controlled file:
 
 .. runrecord:: _examples/DL-101-123-107
    :workdir: dl-101/DataLad-101
@@ -394,8 +397,8 @@ a :command:`git config` on a ``.git/config`` file and on a version controlled fi
    $ git diff
 
 As these two commands show, the ``.gitmodules`` file is modified. The https URL
-has been deleted (note the ``-``, and a SSH URL has been added. To keep these
-changes, we would need to :command:`datalad save` them. However, as we want to stay with
+has been deleted (note the ``-``), and a SSH URL has been added. To keep these
+changes, we would need to :dlcmd:`save` them. However, as we want to stay with
 https URLs, we will just *checkout* this change -- using a Git tool to undo an
 unstaged modification.
 
@@ -406,7 +409,7 @@ unstaged modification.
    $ git checkout .gitmodules
    $ datalad status
 
-Note, though, that the ``.gitattributes`` file can not be modified with a :command:`git config`
+Note, though, that the ``.gitattributes`` file can not be modified with a :gitcmd:`config`
 command. This is due to its different format that does not comply to the
 ``section.variable.value`` structure of all other configuration files. This file, therefore,
 has to be edited by hand, with an editor of your choice.
@@ -433,8 +436,8 @@ configuration of Git can be overridden by its associated environment variable,
 of setting the ``user.name`` configuration in a configuration file.
 
 Git, git-annex, and DataLad have more environment variables than anyone would want to
-remember. `Here <https://git-scm.com/book/en/v2/Git-Internals-Environment-Variables>`__
-is a good overview on Git's most useful available environment variables for a start.
+remember. `The ProGit book <https://git-scm.com/book/en/v2/Git-Internals-Environment-Variables>`__
+has a good overview on Git's most useful available environment variables for a start.
 All of DataLad's configuration options can be translated to their
 associated environment variables. Any environment variable with a name that starts with ``DATALAD_``
 will be available as the corresponding ``datalad.`` configuration variable,
@@ -454,7 +457,7 @@ configuration option thus is the environment variable ``DATALAD_LOG_LEVEL``.
    levels of availability of the variable:
 
    - ``THEANSWER=42 <command>`` makes the variable ``THEANSWER`` available for the process in ``<command>``.
-     For example, ``DATALAD_LOG_LEVEL=debug datalad get <file>`` will execute the :command:`datalad get`
+     For example, ``DATALAD_LOG_LEVEL=debug datalad get <file>`` will execute the :dlcmd:`get`
      command (and only this one) with the log level set to "debug".
    - ``export THEANSWER=42`` makes the variable ``THEANSWER`` available for other processes in the
      same session, but it will not be available to other shells.
@@ -476,12 +479,12 @@ the repositories configurations.
 
 But you now also know how to modify these configurations with enough
 care and background knowledge such that nothing should go wrong once you
-want to work with and change them. You can use the :command:`git config` command
+want to work with and change them. You can use the :gitcmd:`config` command
 for Git configuration files on different scopes, and even the ``.gitmodules`` or ``datalad/config``
 files. Of course you do not yet know all of the available configuration options. However,
 you already know some core Git configurations such as name, email, and editor. Even more
 important, you know how to configure git-annex's content management based on ``largefile``
-rules, and you understand the majority of variables within ``.gitmodules`` or the sections
+rules, and you understand the  variables within ``.gitmodules`` or the sections
 in ``.git/config``. Slowly, you realize with pride,
 you're more and more becoming a DataLad power-user.
 
@@ -541,7 +544,9 @@ Write a note about configurations in datasets into ``notes.txt``.
          has MIME type ``text/plain`` as does a bash script (``.sh``), a Python
          script has MIME type ``text/x-python``, a ``.jpg`` file is ``image/jpg``, and
          a ``.pdf`` file has MIME type ``application/pdf``. You can find out the MIME type
-         of a file by running::
+         of a file by running:
+
+         .. code-block:: bash
 
             $ file --mime-type path/to/file
 
@@ -549,7 +554,9 @@ Write a note about configurations in datasets into ``notes.txt``.
          "portable" -- shared copies of your dataset will retain these configurations.
          You could however also set largefiles rules in your ``.git/config`` file. Rules
          specified in there take precedence over rules in ``.gitattributes``. You can set
-         them using the :command:`git config` command::
+         them using the :gitcmd:`config` command:
+
+         .. code-block:: bash
 
             $ git config annex.largefiles 'largerthan=100kb and not (include=*.c or include=*.h)'
 
@@ -558,7 +565,7 @@ Write a note about configurations in datasets into ``notes.txt``.
 
 .. [#f3] Should you ever need to, this file is also where one would change the git-annex
          backend in order to store new files with a new backend. Switching the backend of
-         *all* files (new as well as existing ones) requires the :command:`git annex migrate`
+         *all* files (new as well as existing ones) requires the :gitannexcmd:`migrate`
          command
-         (see `the documentation <https://git-annex.branchable.com/git-annex-migrate/>`_ for
+         (see `the documentation <https://git-annex.branchable.com/git-annex-migrate>`_ for
          more information on this command).

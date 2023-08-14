@@ -6,7 +6,7 @@ $ cd recordings/longnow
 $ git annex whereis Long_Now__Seminars_About_Long_term_Thinking/2003_11_15__Brian_Eno__The_Long_Now.mp3
 whereis Long_Now__Seminars_About_Long_term_Thinking/2003_11_15__Brian_Eno__The_Long_Now.mp3 (2 copies)
   	00000000-0000-0000-0000-000000000001 -- web
-   	REDACTED-UUID -- mih@medusa:/tmp/seminars-on-longterm-thinking
+   	✂UUID✂ -- mih@medusa:/tmp/seminars-on-longterm-thinking
 
   web: http://podcast.longnow.org/salt/redirect/salt-020031114-eno-podcast.mp3
 ok

@@ -12,7 +12,8 @@ Let's actually take a look into this file now:
 .. runrecord:: _examples/DL-101-109-101
    :language: console
    :workdir: dl-101/DataLad-101
-   :lines: 1-15
+   :lines: 1-3,5-7
+   :append: -✂--✂-
    :notes: The script produced a simple list of podcast titles. let's take a look into our output file. What's cool is that is was created in a way that the code and output are linked:
    :cast: 02_reproducible_execution
 
@@ -20,7 +21,7 @@ Let's actually take a look into this file now:
 
 Not too bad, and certainly good enough for the podcast night people.
 What's been cool about creating this file is that it was created with
-a script within a :command:`datalad run` command. Thanks to :command:`datalad run`,
+a script within a :dlcmd:`run` command. Thanks to :dlcmd:`run`,
 the output file ``podcasts.tsv`` is associated with the script it
 generated.
 
@@ -33,7 +34,9 @@ with the following, fixed script:
 
 .. windows-wit:: Here's a script adjustment for Windows users
 
-   Please use an editor of your choice to replace the contents of ``list_titles.sh`` inside of the ``code`` directory with the following::
+   Please use an editor of your choice to replace the contents of ``list_titles.sh`` inside of the ``code`` directory with the following:
+
+   .. code-block:: bash
 
        for i in recordings/longnow/Long_Now*/*.mp3; do
           # get the filename
@@ -85,7 +88,7 @@ We can use the shorthand "BF" to denote "Bug fix" in the commit message.
    $ datalad save -m "BF: list both directories content" \
      code/list_titles.sh
 
-What we *could* do is run the same :command:`datalad run` command as before to recreate
+What we *could* do is run the same :dlcmd:`run` command as before to recreate
 the file, but now with all of the contents:
 
 .. code-block:: bash
@@ -101,10 +104,10 @@ the command, nor would it be very convenient to copy it from the ``run record``.
 Luckily, a fellow student remembered the DataLad way of re-executing
 a ``run`` command, and he's eager to show it to you.
 
-"In order to re-execute a :command:`datalad run` command,
+"In order to re-execute a :dlcmd:`run` command,
 find the commit and use its :term:`shasum` (or a :term:`tag`, or anything else that Git
 understands) as an argument for the
-:command:`datalad rerun` command (:manpage:`datalad-rerun` manual)! That's it!",
+:dlcmd:`rerun` command! That's it!",
 he says happily.
 
 So you go ahead and find the commit :term:`shasum` in your history:
@@ -119,7 +122,7 @@ So you go ahead and find the commit :term:`shasum` in your history:
 
    $ git log -n 2
 
-Take that shasum and paste it after :command:`datalad rerun`
+Take that shasum and paste it after :dlcmd:`rerun`
 (the first 6-8 characters of the shasum would be sufficient,
 here we're using all of them).
 
@@ -136,38 +139,36 @@ Because we updated the script, the output ``podcasts.tsv``
 has changed and now contains the podcast
 titles of both subdirectories.
 You've probably already guessed it, but the easiest way
-to check whether a :command:`datalad rerun`
+to check whether a :dlcmd:`rerun`
 has changed the desired output file is
 to check whether the rerun command appears in the datasets history:
-If a :command:`datalad rerun` does not add or change any content in the dataset,
+If a :dlcmd:`rerun` does not add or change any content in the dataset,
 it will also not be recorded in the history.
 
 .. runrecord:: _examples/DL-101-109-107
    :language: console
    :workdir: dl-101/DataLad-101
-   :emphasize-lines: 4
    :notes: how does a rerun look in the history?
    :cast: 02_reproducible_execution
 
    $ git log -n 1
 
 In the dataset's history,
-we can see that a new :command:`datalad run` was recorded. This action is
+we can see that a new :dlcmd:`run` was recorded. This action is
 committed by DataLad under the original commit message of the ``run``
-command, and looks just like the previous :command:`datalad run` commit apart
-from the execution time.
+command, and looks just like the previous :dlcmd:`run` commit.
 
 .. index:: ! datalad command; diff
 
-Two cool tools that go beyond the :command:`git log`
-are the :command:`datalad diff` (:manpage:`datalad-diff` manual) and :command:`git diff` commands.
+Two cool tools that go beyond the :gitcmd:`log`
+are the :dlcmd:`diff` and :gitcmd:`diff` commands.
 Both commands can report differences between two states of
 a dataset. Thus, you can get an overview of what changed between two commits.
-Both commands have a similar, but not identical structure: :command:`datalad diff`
+Both commands have a similar, but not identical structure: :dlcmd:`diff`
 compares one state (a commit specified with ``-f``/``--from``,
 by default the latest change)
 and another state from the dataset's history (a commit specified with
-``-t``/``--to``). Let's do a :command:`datalad diff` between the current state
+``-t``/``--to``). Let's do a :dlcmd:`diff` between the current state
 of the dataset and the previous commit (called "``HEAD~1``" in Git terminology [#f1]_):
 
 .. windows-wit:: please use datalad diff --from master --to HEAD~1
@@ -177,7 +178,9 @@ of the dataset and the previous commit (called "``HEAD~1``" in Git terminology [
    When executing this command, you will see *all* files being modified between the most recent and the second-most recent commit.
    On a technical level, this is correct given the underlying file handling on Windows, and chapter :ref:`chapter_gitannex` will shed light on why that is.
 
-   For now, to get the same output as shown in the code snippet below, use the following command where ``main`` (or ``master``) is the name of your default branch::
+   For now, to get the same output as shown in the code snippet below, use the following command where ``main`` (or ``master``) is the name of your default branch:
+
+   .. code-block:: bash
 
       datalad diff --from main --to HEAD~1
 
@@ -192,7 +195,7 @@ of the dataset and the previous commit (called "``HEAD~1``" in Git terminology [
    $ datalad diff --to HEAD~1
 
 This indeed shows the output file as "modified". However, we do not know
-what exactly changed. This is a task for :command:`git diff` (get out of the
+what exactly changed. This is a task for :gitcmd:`diff` (get out of the
 diff view by pressing ``q``):
 
 .. runrecord:: _examples/DL-101-109-109
@@ -234,14 +237,14 @@ Finally, save this note.
 
    $ datalad save -m "add note datalad and git diff"
 
-Note that :command:`datalad rerun` can re-execute the run records of both a :command:`datalad run`
-or a :command:`datalad rerun` command,
+Note that :dlcmd:`rerun` can re-execute the run records of both a :dlcmd:`run`
+or a :dlcmd:`rerun` command,
 but not with any other type of datalad command in your history
-such as a :command:`datalad save` on results or outputs after you executed a script.
+such as a :dlcmd:`save` on results or outputs after you executed a script.
 Therefore, make it a
-habit to record the execution of scripts by plugging it into :command:`datalad run`.
+habit to record the execution of scripts by plugging it into :dlcmd:`run`.
 
-This very basic example of a :command:`datalad run` is as simple as it can get, but it
+This very basic example of a :dlcmd:`run` is as simple as it can get, but it
 is already
 convenient from a memory-load perspective: Now you do not need to
 remember the commands or scripts involved in creating an output. DataLad kept track
@@ -251,7 +254,7 @@ now recorded in the history of the dataset how the output ``podcasts.tsv`` came
 into existence. And we can interact with and use this provenance information with
 other tools than from the machine-readable ``run record``.
 For example, to find out who (or what) created or modified a file,
-give the file path to :command:`git log` (prefixed by ``--``):
+give the file path to :gitcmd:`log` (prefixed by ``--``):
 
 .. windows-wit:: use "git log master -- recordings/podcasts.tsv"
 
@@ -270,11 +273,11 @@ give the file path to :command:`git log` (prefixed by ``--``):
 
 Neat, isn't it?
 
-Still, this :command:`datalad run` was very simple.
-The next section will demonstrate how :command:`datalad run` becomes handy in
+Still, this :dlcmd:`run` was very simple.
+The next section will demonstrate how :dlcmd:`run` becomes handy in
 more complex standard use cases: situations with *locked* contents.
 
-But prior to that, make a note about :command:`datalad run` and :command:`datalad rerun` in your
+But prior to that, make a note about :dlcmd:`run` and :dlcmd:`rerun` in your
 ``notes.txt`` file.
 
 .. runrecord:: _examples/DL-101-109-113
@@ -320,5 +323,5 @@ Finally, save this note.
 
 .. rubric:: Footnotes
 
-.. [#f1] The section :ref:`history` will elaborate more on common :term:`git` commands
+.. [#f1] The section :ref:`history` will elaborate more on common :term:`Git` commands
          and terminology.

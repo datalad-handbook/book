@@ -1,5 +1,5 @@
 $ git show ready4analysis
-commit 0e524b89a73534498ef7dcba213fb24c59ddcf45
+commit 5081206e✂SHA1
 Author: Elena Piscopia <elena@example.net>
 Date:   Tue Jun 18 16:13:00 2019 +0000
 
@@ -41,9 +41,10 @@ index 0000000..4f5833b
 +Y = array[:,4]
 +test_size = 0.20
 +seed = 7
-+X_train, X_test, Y_train, Y_test = model_selection.train_test_split(X, Y,
-+                                                                    test_size=test_size,
-+                                                                    random_state=seed)
++X_train, X_test, Y_train, Y_test = model_selection.train_test_split(
++    X, Y,
++    test_size=test_size,
++    random_state=seed)
 +# Step 2: Fit the model and make predictions on the test dataset
 +knn = KNeighborsClassifier()
 +knn.fit(X_train, Y_train)

@@ -38,23 +38,23 @@ find out more about them.
    * - Name
      - Description
 
-   * - `container <http://docs.datalad.org/projects/container>`_
-     - Equips DataLad's :command:`run`/:command:`rerun` functionality with
+   * - `container <https://docs.datalad.org/projects/container>`_
+     - Equips DataLad's :dlcmd:`run`/:dlcmd:`rerun` functionality with
        the ability to transparently execute commands in containerized
        computational environments. The section :ref:`containersrun` demonstrates
        how this extension can be used, as well as the usecase :ref:`usecase_reproduce_neuroimg`.
 
-   * - `crawler <http://docs.datalad.org/projects/crawler>`_
+   * - `crawler <https://docs.datalad.org/projects/crawler>`_
      - One of the initial goals behind DataLad was to provide access
        to already existing data resources. With
-       :command:`crawl-init`/:command:`crawl` commands, this extension
+       :dlcmd:`crawl-init`/:dlcmd:`crawl` commands, this extension
        allows to automate creation of DataLad datasets from resources
        available online, and efficiently keep them
        up-to-date. The majority of datasets in :term:`the DataLad superdataset ///`
-       on `datasets.datalad.org <http://datasets.datalad.org/>`_ are created and
+       on `datasets.datalad.org <https://datasets.datalad.org>`_ are created and
        updated using this extension functionality.
 
-   * - `metalad <http://docs.datalad.org/projects/metalad>`_
+   * - `metalad <https://docs.datalad.org/projects/metalad>`_
      - Equips DataLad with an alternative command suite and advanced tooling
        for metadata handling (extraction, aggregation, reporting).
 
@@ -63,27 +63,27 @@ find out more about them.
        neuroimaging data. The usecase :ref:`usecase_reproduce_neuroimg` demonstrates
        how this extension can be used.
 
-   * - `osf <http://docs.datalad.org/projects/osf>`_
+   * - `osf <https://docs.datalad.org/projects/osf>`_
      - Enables DataLad to interface and work with the `Open Science Framework
-       <https://osf.io/>`_. Use it to publish your dataset's data to an OSF
+       <https://osf.io>`_. Use it to publish your dataset's data to an OSF
        project, thus utilizing the OSF for dataset storage and sharing.
 
 
    * - `ukbiobank <https://github.com/datalad/datalad-ukbiobank>`__
      - Equips DataLad with a set of commands to obtain and monitor imaging data
-       releases of the `UKBiobank <https://www.ukbiobank.ac.uk//>`_.
+       releases of the `UKBiobank <https://www.ukbiobank.ac.uk>`_.
        An introduction can be found in chapter
 
    * - `xnat <https://github.com/datalad/datalad-xnat>`__
      - Equips DataLad with a set of commands to track
-       `XNAT <https://www.xnat.org/>`_ projects.
+       `XNAT <https://www.xnat.org>`_ projects.
        An alternative, more basic method to retrieve data from an XNAT server is
        outlined in section :ref:`providers`.
 
 
 .. todo::
 
-  contribute a section or a demo, e.g. based on `existing one <http://docs.datalad.org/projects/crawler/en/latest/demos/track_data_from_webpage.html>`__
+  contribute a section or a demo, e.g. based on `existing one <https://docs.datalad.org/projects/crawler/en/latest/demos/track_data_from_webpage.html>`__
 
 .. todo::
 
@@ -124,6 +124,6 @@ readily available.
 
 Some extensions could also be available from the software distribution (e.g.,
 NeuroDebian or conda) you used to install DataLad itself.  Visit
-`github.com/datalad/datalad-extensions/
-<https://github.com/datalad/datalad-extensions/>`_ to review available versions
+the `datalad-extensions project
+<https://github.com/datalad/datalad-extensions>`_ to review available versions
 and their status.

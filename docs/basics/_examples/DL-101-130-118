@@ -9,7 +9,7 @@ copy(ok): prediction_report.csv (file) [to github...]
 [INFO] Start counting objects
 [INFO] Start compressing objects
 [INFO] Start writing objects
-publish(ok): . (dataset) [refs/heads/git-annex->github:refs/heads/git-annex FROM..TO (REDACTED)]
+publish(ok): . (dataset) [refs/heads/git-annex->github:refs/heads/git-annex ✂FROM✂..✂TO✂]
 publish(ok): . (dataset) [refs/heads/master->github:refs/heads/master [new branch]]
 [INFO] Finished push of Dataset(/home/me/dl-101/DataLad-101/midterm_project)
 action summary:

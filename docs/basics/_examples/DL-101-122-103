@@ -18,5 +18,5 @@ $ cat .git/config
 [remote "roommate"]
 	url = ../mock_user/DataLad-101
 	fetch = +refs/heads/*:refs/remotes/roommate/*
-	annex-uuid = REDACTED-RANDOM-UUID
+	annex-uuid = ✂UUID✂
 	annex-ignore = false

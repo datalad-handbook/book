@@ -32,12 +32,12 @@ files, the extension template has the following core content:
   extension command suite (in the template: ``hello_cmd``) and demonstrates
   how extension command classes should inherit from DataLad classes in order
   for them to be exposed via the DataLad command line and Python API.
-- ``docs/``: which contains a basic implementation of `Sphinx <https://www.sphinx-doc.org/en/master/index.html#>`_
+- ``docs/``: which contains a basic implementation of `Sphinx <https://www.sphinx-doc.org>`_
   for document generation.
 - ``.appveyor.yml``: which contains the setup for continuous integration
-  with `Appveyor <https://www.appveyor.com/>`_.
+  with `Appveyor <https://www.appveyor.com>`_.
 - ``.codeclimate.yml``: which contains the setup for automated code review
-  for test coverage, maintainability and more with `Code Climate <https://codeclimate.com/>`_
+  for test coverage, maintainability and more with `Code Climate <https://codeclimate.com>`_
 - ``requirements-devel.txt``: which lists the requirements for a pip-based
   development environment installation
 
@@ -70,5 +70,5 @@ according to your own specifications:
    (``datalad.extensions``)
 8. **Publish your extension**, e.g. on GitHub.
 9.  **Activate/link external services**, such as Appveyor for continuous
-    integration, or `Read The Docs <https://readthedocs.org/>`_ for documentation.
+    integration, or `Read The Docs <https://readthedocs.org>`_ for documentation.
 10.  If you've written an extension that provides important functionality for you or your community, consider **registering your extension** at `github.com/datalad/datalad-extensions <https://github.com/datalad/datalad-extensions>`_ in order to test your extension's functionality against future DataLad releases and ensure interoperability across software versions. Ideally, `open an issue <https://github.com/datalad/datalad-extensions/issues/new>`_ to get in touch with the DataLad developers about this.  

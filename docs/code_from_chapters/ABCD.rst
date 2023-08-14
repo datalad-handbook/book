@@ -51,11 +51,11 @@ Creating a dataset from scratch is done with the ``datalad create`` command.
 
 .. find-out-more:: How can I turn an existing directory into a dataset?
 
-   By navigating into the dataset, and running :command:`datalad create -f .` (with the ``-f/--force`` option).
+   By navigating into the dataset, and running :dlcmd:`create -f .` (with the ``-f/--force`` option).
    You can take a look into the section :ref:`dataladdening` on more info on how to transform existing directories into DataLad datasets.
    It is advised, though, to first learn a bit of DataLad Basics first, so stay tuned.
 
-:command:`datalad create` only needs a name, and it will subsequently create a new directory under this name and instruct DataLad to manage it.
+:dlcmd:`create` only needs a name, and it will subsequently create a new directory under this name and instruct DataLad to manage it.
 Here, the command also has an additional option, the ``-c yoda`` option.
 With the -c option, datasets can be configured in a certain way at the time of creation, and ``yoda`` is a so-called :term:`run procedure`.
 You can find out about the details of the yoda procedure in the datalad handbook in sections :ref:`procedures`, but in general this configuration is a very useful standard configuration for datasets for data analysis, as it preconfigures a dataset according to the :ref:`yoda princples <yoda>`::
@@ -89,18 +89,18 @@ Let's see what happens when we delete placeholders in the ``README``::
    echo " " >| README.md       # this overwrites existing contents
    echo " " >| code/README.md
 
-:command:`datalad status` can report on the state of a dataset.
+:dlcmd:`status` can report on the state of a dataset.
 As we modified version controlled files, these files show up as being "modified" if you run it::
 
    datalad status
 
 What has changed compared to the files last known version state?
-The :command:`git diff` can tell us::
+The :gitcmd:`diff` can tell us::
 
    git diff
 
-In order to save a modification one needs to use the :command:`datalad save` command.
-:command:`datalad save` will save the current status of your dataset: It will save both modifications to known files and yet untracked files.
+In order to save a modification one needs to use the :dlcmd:`save` command.
+:dlcmd:`save` will save the current status of your dataset: It will save both modifications to known files and yet untracked files.
 The ``-m/--message`` option lets you attach a concise summary of your change.
 Such a :term:`commit message` makes it easier for others and your later self to understand a dataset's history::
 
@@ -137,7 +137,7 @@ And perform a second ``datalad save`` to save remaining changes, i.e., the yet u
    datalad save -m "Add a motivational webcomic"
 
 Your dataset has now started to grow a log of everything that was done.
-You can view this history with the command :command:`git log`, or any tool that can display :term:`Git` history, such as :term:`tig`.
+You can view this history with the command :gitcmd:`log`, or any tool that can display :term:`Git` history, such as :term:`tig`.
 You can even ask a specific file what has been done to it::
 
    git log README.md
@@ -157,13 +157,13 @@ The very first chapter of the handbook, :ref:`chapter_datasets` will show you ev
 Data consumption & transport
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Datasets can be installed from local paths or remote URLs using :command:`datalad clone`.
+Datasets can be installed from local paths or remote URLs using :dlcmd:`clone`.
 Cloning is a fast operation, and the resulting dataset typically takes up only a fraction of the total size of the data that it tracks::
 
    cd ../
    datalad clone git@github.com:psychoinformatics-de/studyforrest-data-phase2.git
 
-What we have cloned is the `studyforrest dataset <https://studyforrest.org>`_, a neuroimaging dataset with a few Gigabytes of data.
+What we have cloned is the `studyforrest dataset <https://www.studyforrest.org>`_, a neuroimaging dataset with a few Gigabytes of data.
 After installations, the directory tree can be browsed, but most files in datasets will not yet contain file content.
 This makes cloning fast and datasets lightweight::
 
@@ -179,17 +179,17 @@ This makes cloning fast and datasets lightweight::
 
       datalad status --annex
 
-On demand, content for files, directories, or the complete dataset can be downloaded using :command:`datalad get`.
+On demand, content for files, directories, or the complete dataset can be downloaded using :dlcmd:`get`.
 The snippet below uses :term:`globbing` to get the content of all nifti files for a localization task of one subject, but you could also get a full directory, a single file, all files, etc.::
 
     datalad get sub-01/ses-localizer/func/sub-01_ses-localizer_task-objectcategories_run-*.nii.gz
 
 This works because DataLad datasets track where file contents are available from.
-If the origin of a file (such as a web source) is known, you can drop file *content* to free up disk space, but you retain access via :command:`datalad get`::
+If the origin of a file (such as a web source) is known, you can drop file *content* to free up disk space, but you retain access via :dlcmd:`get`::
 
    datalad drop sub-01/ses-localizer/func/sub-01_ses-localizer_task-objectcategories_run-4_bold.nii.gz
 
-This, too, works for files saved with :command:`datalad download-url`::
+This, too, works for files saved with :dlcmd:`download-url`::
 
    cd ../myanalysis
    datalad drop .easteregg.png
@@ -201,9 +201,9 @@ but DataLad will refuse to drop files that it doesn't know how to reobtain unles
 Afterward dropping files, only "metadata" about file content and file availability stays behind, and you can't open the file anymore::
 
    # on Windows, use "start" instead of "xdg-open"
-   xdg-open .easteregg.png    # its gone :(!
+   xdg-open .easteregg.png    # it is gone :(!
 
-But because the origin of the file is known, it can be reobtained using the :command:`datalad get`::
+But because the origin of the file is known, it can be reobtained using the :dlcmd:`get`::
 
    datalad get .easteregg.png
 
@@ -214,7 +214,7 @@ Opening the comic works again, afterwards::
 
 This mechanism gives you access to data without the necessity to store all of the data locally.
 As long as there is one location that data is available from (a dataset on a shared cluster, a web source, cloud storage, a USB-stick, ...) and this source is known, there is no need for storing data when it is not in use.
-If you want to try it with large amounts of data, checkout `datasets.datalad.org <http://datasets.datalad.org/>`_, a collection of more than 200TB of open data (also called :term:`The DataLad superdataset ///` because it is a dataset hierarchy that includes a large range of public datasets and can be obtained by running ``datalad clone \\\``).
+If you want to try it with large amounts of data, checkout `datasets.datalad.org <https://datasets.datalad.org>`_, a collection of more than 200TB of open data (also called :term:`The DataLad superdataset ///` because it is a dataset hierarchy that includes a large range of public datasets and can be obtained by running ``datalad clone \\\``).
 
 Dataset nesting
 ^^^^^^^^^^^^^^^
@@ -233,7 +233,7 @@ In the context of data analysis, it is especially helpful to do this to link inp
 
 We will start a data analysis in the ``myanalysis`` dataset.
 First, let's install input data (a small dataset from GitHub) as a subdataset.
-This is done with the ``-d/--dataset`` option of :command:`datalad clone`::
+This is done with the ``-d/--dataset`` option of :dlcmd:`clone`::
 
    datalad clone -d . git@github.com:datalad-handbook/iris_data.git input/
 
@@ -324,12 +324,12 @@ DataLad save can in addition also attach an identifier in the form of a :term:`t
    datalad save -m "add script for kNN classification and plotting" \
      --version-tag ready4analysis code/script.py
 
-The :command:`datalad run` command can run this script in a way that links the script to the results it produces and the data it was computed from.
+The :dlcmd:`run` command can run this script in a way that links the script to the results it produces and the data it was computed from.
 
 .. figure:: ../artwork/src/run.svg
 
 In principle, the command is simple: Execute any command, save the resulting changes in the dataset, and associate them as well as all other optional information provided.
-Because each :command:`datalad run` ends with a :command:`datalad save`, its recommended to start with a clean dataset (see :ref:`chapter_run` for details on how to use it in unclean datasets)::
+Because each :dlcmd:`run` ends with a :dlcmd:`save`, it is recommended to start with a clean dataset (see :ref:`chapter_run` for details on how to use it in unclean datasets)::
 
    datalad status
 
@@ -337,9 +337,9 @@ Then, give the command you would execute to datalad run, in this case ``python c
 Datalad will take the command, run it, and save all of the changes in the dataset that this leads this to under the commit message specified with the -m option.
 Thus, it associates the script (or any command execution) with the results it generates.
 But the command can become even more helpful.
-Below, we also specify the input data the command needs - DataLad will make sure to :command:`get` the data beforehand.
+Below, we also specify the input data the command needs - DataLad will make sure to :dlcmd:`get` the data beforehand.
 And we also specify the output of the command.
-This is not in order to identify outputs (DataLad would do that on its own), but to specify files that should be :command:`unlock`\ed and potentially updated if the command is reran -- but more on this later.
+This is not in order to identify outputs (DataLad would do that on its own), but to specify files that should be :dlcmd:`unlock`\ed and potentially updated if the command is reran -- but more on this later.
 To understand fully what ``--output`` does, please read chapters :ref:`chapter_run` and :ref:`chapter_gitannex`::
 
    datalad run -m "analyze iris data with classification analysis" \
@@ -405,7 +405,7 @@ This records a pre-created software environment with the required Python package
 
 .. admonition:: Software note
 
-   You need to have a software that can work with software containers -- either `singularity <https://sylabs.io/guides/3.5/user-guide/>`_ or `Docker <https://www.docker.com/>`_!
+   You need to have a software that can work with software containers -- either `singularity <https://docs.sylabs.io/guides/3.5/user-guide>`_ or `Docker <https://www.docker.com>`_!
 
 .. find-out-more:: Why may Singularity be a better choice than Docker?
 
@@ -444,10 +444,10 @@ There is one superdataset (the one that everyone would clone), and this superdat
 
 This splits the vast amount of files in the ABCD data between thousands of datasets.
 
-When working with a nested hierarchy of datasets, the subdatasets aren't installed automatically when you install the top-level dataset with :command:`datalad clone`.
+When working with a nested hierarchy of datasets, the subdatasets aren't installed automatically when you install the top-level dataset with :dlcmd:`clone`.
 
 Uninstalled datasets look like empty directories on first sight -- you will not be able to browse through their file hierarchy until the are installed.
-In order to install a subdataset, run :command:`datalad get`.
+In order to install a subdataset, run :dlcmd:`get`.
 To not automatically download data, append the ``-n/--no-data`` flag.
 If you want to install all subdatasets, run ``datalad get -n -r .`` in the superdataset to install all subdatasets recursively.
 

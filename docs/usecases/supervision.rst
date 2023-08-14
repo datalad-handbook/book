@@ -157,15 +157,15 @@ Within a 20-minute walk-through, Megan learns the general concepts of version-
 control, gets an overview of the YODA principles [#f1]_,
 configures her Git identity with the help of her supervisor, and is
 given an introduction to the most important DataLad commands relevant to her,
-:command:`datalad save` [#f2]_, :command:`datalad containers-run` [#f3]_,
-and :command:`datalad rerun` [#f4]_.
+:dlcmd:`save` [#f2]_, :dlcmd:`containers-run` [#f3]_,
+and :dlcmd:`rerun` [#f4]_.
 For reference, they also give her the :ref:`cheat sheet <cheat>` and the link
 to the DataLad handbook as a resource if she has further questions.
 
 To make the analysis reproducible, they spent the final part of the meeting
 on adding the labs default singularity image to the dataset.
 The lab has a singularity image with all the relevant software on
-`Singularity-Hub <https://singularity-hub.org/>`_,
+`Singularity-Hub <https://singularity-hub.org>`_,
 and it can easily be added to the dataset with the DataLad-containers extension [#f3]_:
 
 .. code-block:: bash
@@ -178,7 +178,7 @@ and creates a more reproducible analysis.
 
 With only a single command to run, Megan finds it easy to version control her
 scripts and gets into the habit of
-running :command:`datalad save` frequently. This way, she can fully concentrate
+running :dlcmd:`save` frequently. This way, she can fully concentrate
 on writing up the analysis. In the beginning, her commit messages
 may not be optimal, and the changes she commits into a single commit might have
 better been split up into separate commits. But from the very beginning she is
@@ -187,7 +187,7 @@ the project develops.
 
 Knowing the YODA principles gives her clear and easy-to-follow guidelines
 on how to work. Her scripts are producing results in dedicated ``output/`` directories
-and are executed with :command:`datalad containers-run` to capture the provenance of how
+and are executed with :dlcmd:`containers-run` to capture the provenance of how
 which result came to be with which software. These guidelines are not complex, and yet
 make her whole workflow much more comprehensible, organized, and transparent.
 

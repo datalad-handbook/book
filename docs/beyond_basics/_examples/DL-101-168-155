@@ -4,14 +4,14 @@ $ dvc run -n train \
    python src/train.py
 Running stage 'train':
 > python src/train.py
-VIRTUALENV/lib/python3.8/site-packages/sklearn/linear_model/_stochastic_gradient.py:704: ConvergenceWarning: Maximum number of iteration reached before convergence. Consider increasing max_iter to improve the fit.
+VIRTUALENV/lib/python3.8/site-packages/sklearn/linear_model/_stochastic_gradient.py:713: ConvergenceWarning: Maximum number of iteration reached before convergence. Consider increasing max_iter to improve the fit.
   warnings.warn(
 Adding stage 'train' in 'dvc.yaml'
 Updating lock file 'dvc.lock'
 
 To track the changes with git, run:
 
-	git add dvc.lock dvc.yaml model/.gitignore
+	git add model/.gitignore dvc.yaml dvc.lock
 
 To enable auto staging, run:
 

@@ -5,17 +5,17 @@
 # Comment to be posted to on first time issues
 newIssueWelcomeComment: >
   ![Welcome Banner](https://zenodo.org/api/iiif/v2/0c0188d3-d03c-4830-a6e3-00405f5c22fa:8ff47a85-7250-4d86-8e48-2f346b48b2c1:BannerWelcome.jpg/full/750,/0/default.jpg)
-  (Image: CC-BY license, The Turing Way Community, & Scriberia. Zenodo. http://doi.org/10.5281/zenodo.3332808)
+  (Image: CC-BY license, The Turing Way Community, & Scriberia. Zenodo. https://doi.org/10.5281/zenodo.3332808)
   Hi there, and welcome to the DataLad Handbook! :orange_book: :wave:
   Thank you for filing an issue. We're excited to have your input and welcome your idea! :blush:
-  If you haven't done so already, please make sure you check out our [Code of Conduct](https://github.com/datalad-handbook/book/blob/master/CODE_OF_CONDUCT.md).
+  If you haven't done so already, please make sure you check out our [Code of Conduct](https://github.com/datalad-handbook/book/blob/main/CODE_OF_CONDUCT.md).
 
 # Configuration for new-pr-welcome - https://github.com/behaviorbot/new-pr-welcome
 
 # Comment to be posted to on PRs from first time contributors in your repository
 newPRWelcomeComment: >
   ![Thank You Banner](https://zenodo.org/api/iiif/v2/0c0188d3-d03c-4830-a6e3-00405f5c22fa:7fbd97cf-283b-480c-b8e1-11866e26245c:BannerThanks.jpg/full/750,/0/default.jpg)
-  (Image: CC-BY license, The Turing Way Community, & Scriberia. Zenodo. http://doi.org/10.5281/zenodo.3332808)
+  (Image: CC-BY license, The Turing Way Community, & Scriberia. Zenodo. https://doi.org/10.5281/zenodo.3332808)
   Wohoo! :tada: Thanks for opening your first pull request to the DataLad Handbook! :sunglasses:
   We really appreciate your time and effort to contribute to the project - you're amazing! :clap:
 
@@ -24,7 +24,7 @@ newPRWelcomeComment: >
 # Comment to be posted to on pull requests merged by a first time user
 firstPRMergeComment: >
   ![Congratulations Banner](https://zenodo.org/api/iiif/v2/0c0188d3-d03c-4830-a6e3-00405f5c22fa:32fbdb89-ae1b-434e-830c-88ade86724cc:BannerCongratulations.jpg/full/750,/0/default.jpg)
-  (Image: CC-BY license, The Turing Way Community, & Scriberia. Zenodo. http://doi.org/10.5281/zenodo.3332808)
+  (Image: CC-BY license, The Turing Way Community, & Scriberia. Zenodo. https://doi.org/10.5281/zenodo.3332808)
   Congrats on merging your first pull request! :tada:
   The DataLad Handbook team appreciates your contribution greatly, and we want to say thanks! :sparkling_heart:
   Now go ahead and share your first merge with your colleagues, you got yourself this brag right! :smile: :gift:

@@ -1,5 +1,5 @@
 $ git log -p -n 3
-commit efa4e4d470d94042c2cbc385392e30262abff1ef
+commit fa63a083✂SHA1
 Author: Elena Piscopia <elena@example.net>
 Date:   Tue Jun 18 16:13:00 2019 +0000
 
@@ -19,7 +19,7 @@ index 0142412..e34ef1f 100644
 +superdataset with the '-d' option.
 +
 
-commit 1ac2d9009ad2e0359add43db52ed7d1eb72b9994
+commit 7c489fbf✂SHA1
 Author: Elena Piscopia <elena@example.net>
 Date:   Tue Jun 18 16:13:00 2019 +0000
 
@@ -42,9 +42,9 @@ index 0000000..dcc34fb
 --- /dev/null
 +++ b/recordings/longnow
 @@ -0,0 +1 @@
-+Subproject commit dcc34fbe669b06ced84ced381ba0db21cf5e665f
++Subproject commit dcc34fbe✂SHA1
 
-commit d45881229ecb78dd011f7c46caf8dfbb19f50e23
+commit 9783a90c✂SHA1
 Author: Elena Piscopia <elena@example.net>
 Date:   Tue Jun 18 16:13:00 2019 +0000
 
@@ -63,7 +63,7 @@ index 3a7a1fe..0142412 100644
 +Note to self: Always use informative, concise commit messages.
 +
 
-commit fd8ae27ef6b9df47c5c2268eb110fcb3148872dc
+commit b538dae3✂SHA1
 Author: Elena Piscopia <elena@example.net>
 Date:   Tue Jun 18 16:13:00 2019 +0000
 
@@ -79,7 +79,7 @@ index 0000000..3a7a1fe
 +The dataset is created empty
 +
 
-commit 049b794b25a891e64dd2b8b7fb26da75edb61ba4
+commit bcb0ffe8✂SHA1
 Author: Elena Piscopia <elena@example.net>
 Date:   Tue Jun 18 16:13:00 2019 +0000
 
@@ -91,10 +91,10 @@ index 0000000..00ca6bd
 --- /dev/null
 +++ b/books/bash_guide.pdf
 @@ -0,0 +1 @@
-+../.git/annex/objects/WF/Gq/MD5E-s1198170--0ab2c121bcf68d7278af266f6a399c5f.pdf/MD5E-s1198170--0ab2c121bcf68d7278af266f6a399c5f.pdf
++../.git/annex/objects/WF/Gq/✂/MD5E-s1198170--0ab2c121✂MD5.pdf
 \ No newline at end of file
 
-commit cc9727780bcac189a52a811dc598df9253cf1a7e
+commit 8e5dc808✂SHA1
 Author: Elena Piscopia <elena@example.net>
 Date:   Tue Jun 18 16:13:00 2019 +0000
 
@@ -106,10 +106,10 @@ index 0000000..c5d2ab2
 --- /dev/null
 +++ b/books/progit.pdf
 @@ -0,0 +1 @@
-+../.git/annex/objects/G6/Gj/MD5E-s12465653--05cd7ed561d108c9bcf96022bc78a92c.pdf/MD5E-s12465653--05cd7ed561d108c9bcf96022bc78a92c.pdf
++../.git/annex/objects/G6/Gj/✂/MD5E-s12465653--05cd7ed5✂MD5.pdf
 \ No newline at end of file
 
-commit 8904bd98fef7b3c5e521c7892bb2c26e471b99ae
+commit d2bb1a86✂SHA1
 Author: Elena Piscopia <elena@example.net>
 Date:   Tue Jun 18 16:13:00 2019 +0000
 
@@ -121,7 +121,7 @@ index 0000000..4c84b61
 --- /dev/null
 +++ b/books/TLCL.pdf
 @@ -0,0 +1 @@
-+../.git/annex/objects/jf/3M/MD5E-s2120211--06d1efcb05bb2c55cd039dab3fb28455.pdf/MD5E-s2120211--06d1efcb05bb2c55cd039dab3fb28455.pdf
++../.git/annex/objects/jf/3M/✂/MD5E-s2120211--06d1efcb✂MD5.pdf
 \ No newline at end of file
 diff --git a/books/byte-of-python.pdf b/books/byte-of-python.pdf
 new file mode 120000
@@ -129,10 +129,10 @@ index 0000000..b9fcbff
 --- /dev/null
 +++ b/books/byte-of-python.pdf
 @@ -0,0 +1 @@
-+../.git/annex/objects/P5/qK/MD5E-s2693891--e61afe4b3c5d76c849c4e61f6547ed03.pdf/MD5E-s2693891--e61afe4b3c5d76c849c4e61f6547ed03.pdf
++../.git/annex/objects/P5/qK/✂/MD5E-s2693891--e61afe4b✂MD5.pdf
 \ No newline at end of file
 
-commit 532908d621463899ebca6fb21fe912e0fa5b1d98
+commit e0ff3a73✂SHA1
 Author: Elena Piscopia <elena@example.net>
 Date:   Tue Jun 18 16:13:00 2019 +0000
 
@@ -147,7 +147,7 @@ index af926ef..6e474fe 100644
  **/.git* annex.largefiles=nothing
 +* annex.largefiles=((mimeencoding=binary)and(largerthan=0))
 
-commit 8ab65cb896618b9057c8603df9a259c0460af888
+commit 4ce681d6✂SHA1
 Author: Elena Piscopia <elena@example.net>
 Date:   Tue Jun 18 16:13:00 2019 +0000
 
@@ -155,13 +155,11 @@ Date:   Tue Jun 18 16:13:00 2019 +0000
 
 diff --git a/.datalad/.gitattributes b/.datalad/.gitattributes
 new file mode 100644
-index 0000000..59157cb
+index 0000000..5928185
 --- /dev/null
 +++ b/.datalad/.gitattributes
-@@ -0,0 +1,3 @@
+@@ -0,0 +1 @@
 +config annex.largefiles=nothing
-+metadata/aggregate* annex.largefiles=nothing
-+metadata/objects/** annex.largefiles=(anything)
 diff --git a/.datalad/config b/.datalad/config
 new file mode 100644
 index 0000000..d72c8f0

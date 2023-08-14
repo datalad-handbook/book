@@ -1,4 +1,3 @@
-.. index:: ! 2-002
 .. _2-002:
 .. _symlink:
 
@@ -8,9 +7,9 @@ Data integrity
 So far, we mastered quite a number of challenges:
 Creating and populating a dataset with large and small files, modifying content and saving the changes to history, installing datasets, even as subdatasets within datasets, recording the impact of commands on a dataset with the run and re-run commands, and capturing plenty of :term:`provenance` on the way.
 We further noticed that when we modified content in ``notes.txt`` or ``list_titles.sh``, the modified content was in a *text file*.
-We learned that this precise type of file, in conjunction with the initial configuration template ``text2git`` we gave to :command:`datalad create`, is meaningful:
+We learned that this precise type of file, in conjunction with the initial configuration template ``text2git`` we gave to :dlcmd:`create`, is meaningful:
 As the text file is stored in Git and not git-annex, no content unlocking is necessary.
-As we saw within the demonstrations of :command:`datalad run`, modifying content of non-text files, such as ``.jpg``\s, typically requires the additional step of *unlocking* file content, either by hand with the :command:`datalad unlock` command, or within :command:`datalad run` using the ``-o``/``--output`` flag.
+As we saw within the demonstrations of :dlcmd:`run`, modifying content of non-text files, such as ``.jpg``\s, typically requires the additional step of *unlocking* file content, either by hand with the :dlcmd:`unlock` command, or within :dlcmd:`run` using the ``-o``/``--output`` flag.
 
 There is one detail about DataLad datasets that we have not covered yet.
 It is a crucial component to understanding certain aspects of a dataset, but it is also a potential source of confusion that we want to eradicate.
@@ -64,7 +63,7 @@ repository in the root of any dataset. One reason
 why you should not do this is because *this* ``.git`` directory is where all of your file content
 is actually stored.
 
-But why is that? We have to talk a bit git-annex now in order to understand it [#f1]_.
+But why is that? We have to talk a bit git-annex now in order to understand it.
 
 When a file is saved into a dataset to be tracked,
 by default -- that is in a dataset created without any configuration template --
@@ -96,7 +95,7 @@ tree is also known as the *annex* of a dataset.
    **Why is that?**
    Data *needs* to be in the annex for version control and transport logistics -- the annex is able to store all previous versions of the data, and manage the transport to other storage locations if you want to publish your dataset.
    But as the :ref:`Findoutmore in this section <fom-objecttree>` will show, the :term:`annex` is a non-human readable tree structure, and data thus also needs to exist in its original location.
-   Thus, it exists in both places: its moved into the annex, and copied back into its original location.
+   Thus, it exists in both places: it has moved into the annex, and copied back into its original location.
    Once you edit an annexed file, the most recent version of the file is available in its original location, and past versions are stored and readily available in the annex.
    If you reset your dataset to a previous state (as is shown in the section :ref:`history`), the respective version of your data is taken from the annex and copied to replace the newer version, and vice versa.
 
@@ -144,17 +143,17 @@ unnecessary, superfluous thing to do, right?
 
 The resulting symlinks that look like
 your files but only point to the actual content in ``.git/annex/objects`` are
-small in size. An ``ls -lah`` reveals that all of these symlinks have roughly the same,
+small in size. An ``ls -lh`` reveals that all of these symlinks have roughly the same,
 small size of ~130 Bytes:
 
 .. runrecord:: _examples/DL-101-115-103
    :language: console
    :workdir: dl-101/DataLad-101/books
-   :realcommand: ls -lah --time-style=long-iso
+   :realcommand: ls -lh --time-style=long-iso
    :notes: Symlinks are super small in size, just the amount of characters in the symlink!
    :cast: 03_git_annex_basics
 
-   $ ls -lah
+   $ ls -lh
 
 Here you can see the reason why content is symlinked: Small file size means that
 *Git can handle those symlinks*!
@@ -206,7 +205,7 @@ to manage the file system in a DataLad dataset (:ref:`filesystem`).
    :name: fom-objecttree
 
    So how do these cryptic paths and names in the object tree come into existence?
-   Its not malicious intent that leads to these paths and file names - its checksums.
+   It's not malicious intent that leads to these paths and file names - its checksums.
 
    When a file is annexed, git-annex generates a *key* (or :term:`checksum`) from the **file content**.
    It uses this key (in part) as a name for the file and as the path
@@ -225,17 +224,17 @@ to manage the file system in a DataLad dataset (:ref:`filesystem`).
    Furthermore, if two files have identical hashes, the content in these files is identical.
    Consequently, if two files have the same symlink, and thus link the same file in the object-tree, they are identical in content.
    This can save disk space if a dataset contains many identical files: Copies of the same data only need one instance of that content in the object tree, and all copies will symlink to it.
-   If you want to read more about the computer science basics about hashes check out the Wikipedia page `here <https://en.wikipedia.org/wiki/Hash_function>`_.
+   If you want to read more about the computer science basics about hashes check out the `Wikipedia page <https://en.wikipedia.org/wiki/Hash_function>`_.
 
    .. runrecord:: _examples/DL-101-115-104
       :language: console
       :workdir: dl-101/DataLad-101/books
-      :realcommand: ls -lah --time-style=long-iso TLCL.pdf
+      :realcommand: ls -lh --time-style=long-iso TLCL.pdf
       :notes: how does the symlink relate to the shasum of the file?
       :cast: 03_git_annex_basics
 
       # take a look at the last part of the target path:
-      $ ls -lah TLCL.pdf
+      $ ls -lh TLCL.pdf
 
    Let's take a closer look at the structure of the symlink.
    The key from the hash function is the last part of the name of the file the symlink links to (in which the actual data content is stored).
@@ -259,7 +258,7 @@ to manage the file system in a DataLad dataset (:ref:`filesystem`).
    The next part of the symlink contains the actual hash.
    There are different hash functions available.
    Depending on which is used, the resulting :term:`checksum` has a certain length and structure, and the first part of the symlink actually states which hash function is used.
-   By default, DataLad uses ``MD5E`` checksums (relatively short and with a file extension), but should you want to, you can change this default to `one of many other types <https://git-annex.branchable.com/backends/>`_.
+   By default, DataLad uses ``MD5E`` checksums (relatively short and with a file extension), but should you want to, you can change this default to `one of many other types <https://git-annex.branchable.com/backends>`_.
    The reason why MD5E is used is because of its short length -- thus it is possible to ensure cross-platform compatibility and share datasets also with users on operating systems that have restrictions on total path lengths, such as Windows.
 
    The one remaining unidentified bit in the file name is the one after the checksum identifier.
@@ -270,7 +269,7 @@ to manage the file system in a DataLad dataset (:ref:`filesystem`).
 
    You now know a great deal more about git-annex and the object tree.
    Maybe you are as amazed as we are about some of the ingenuity used behind the scenes.
-   Even more mesmerizing things about git-annex can be found in its `documentation <https://git-annex.branchable.com/git-annex/>`_.
+   Even more mesmerizing things about git-annex can be found in its `documentation <https://git-annex.branchable.com/git-annex>`_.
 
 Broken symlinks
 ^^^^^^^^^^^^^^^
@@ -285,20 +284,20 @@ troublesome, most types of broken symlinks you will encounter can be fixed,
 or are not problematic. At this point, you actually have already seen broken
 symlinks: Back in section :ref:`installds` we explored
 the file hierarchy in an installed subdataset that contained many annexed
-``mp3`` files. Upon the initial :command:`datalad clone`, the annexed files were not present locally.
+``mp3`` files. Upon the initial :dlcmd:`clone`, the annexed files were not present locally.
 Instead, their symlinks (stored in Git) existed and allowed to explore which
 file's contents could be retrieved. These symlinks point to nothing, though, as
 the content isn't yet present locally, and are thus *broken*. This state,
 however, is not problematic at all. Once the content is retrieved via
-:command:`datalad get`, the symlink is functional again.
+:dlcmd:`get`, the symlink is functional again.
 
 Nevertheless, it may be important to know that some tools that you would expect to work in a dataset with not yet retrieved file contents can encounter unintuitive problems.
 Some **file managers** (e.g., OSX's Finder) may not display broken symlinks.
 In these cases, it will be impossible to browse and explore the file hierarchy of not-yet-retrieved files with the file manager.
 You can make sure to always be able to see the file hierarchy in two separate ways:
-Upgrade your file manager to display file types in DataLad datasets (e.g., the `git-annex-turtle extension <https://github.com/andrewringler/git-annex-turtle>`_ for Finder).
-Alternatively, use the :command:`ls` command in a terminal instead of a file manager GUI.
-Other tools may be more more specialized, smaller, or domain-specific, and may fail to correctly work with broken symlinks, or display unhelpful error messages when handling them, or require additional flags to modify their behavior (such as the :ref:`BIDS Validator <bidsvalidator>`, used in the neuroimaging community).
+Upgrade your file manager to display file types in DataLad datasets (e.g., the `git-annex-turtle extension <https://github.com/andrewringler/git-annex-turtle>`_ for Finder), or use the `DataLad Gooey <https://docs.datalad.org/projects/gooey>`_ to browse datasets.
+Alternatively, use the :shcmd:`ls` command in a terminal instead of a file manager GUI.
+Other tools may be more more specialized, smaller, or domain-specific, and may fail to correctly work with broken symlinks, or display unhelpful error messages when handling them, or require additional flags to modify their behavior.
 When encountering unexpected behavior or failures, try to keep in mind that a dataset without retrieved content appears to be a pile of broken symlinks to a range of tools, consult a tools documentation with regard to symlinks, and check whether data retrieval fixes persisting problems.
 
 
@@ -328,7 +327,7 @@ If so, please take a look into the Windows Wit below.
    Your DataLad experience has therefore been exactly as it has been for macOS or Linux users.
    But one thing that bears the need for additional information is sharing files in dataset between your Linux and Windows system.
 
-   Its fantastic that files created under Linux can be shared to Windows and used by Windows tools.
+   It's fantastic that files created under Linux can be shared to Windows and used by Windows tools.
    Usually, you should be able to open an explorer and type ``\\wsl$\<distro>\<path>`` in the address bar to navigate to files under Linux, or type ``explorer.exe`` into the WSL2 terminal.
    Some core limitations of Windows can't be overcome, though: Windows usually isn't capable of handling symlinks.
    So while WSL2 can expose your dataset filled with symlinked files to Windows, your Windows tools can fail to open them.
@@ -336,14 +335,6 @@ If so, please take a look into the Windows Wit below.
 
    Whenever you need to work with files from your datasets under Windows, you should *unlock* with ``datalad unlock``.
    This operation copies the file from the annex back to its original location, and thus removes the symlink (and also returns write :term:`permissions` to the file).
-   Alternatively, use `git-annex adjust --unlock <https://git-annex.branchable.com/git-annex-adjust/>`_ to switch to a new dataset :term:`branch` in which all files are unlocked.
+   Alternatively, use `git-annex adjust --unlock <https://git-annex.branchable.com/git-annex-adjust>`_ to switch to a new dataset :term:`branch` in which all files are unlocked.
    The branch is called ``adjusted/<branchname>(unlocked)`` (e.g., if the original branch name was ``main``, the new, adjusted branch will be called ``adjusted/main(unlocked)``).
    You can switch back to your original branch using ``git checkout <branchname>``.
-
-.. rubric:: Footnotes
-
-.. [#f1] Note, though, that the information below applies to everything that is not an
-         *adjusted branch* in a git-annex *v7 repository* -- this information does not make
-         sense yet, but it will be an important reference point later on.
-         Just for the record: Currently, we do not yet have a v7 repository
-         in ``DataLad-101``, and the explanation below applies to our current dataset.

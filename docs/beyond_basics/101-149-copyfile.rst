@@ -3,7 +3,7 @@
 Subsample datasets using datalad copy-file
 ------------------------------------------
 
-If there is a need for a dataset that contains only a subset of files of one or more other dataset, it can be helpful to create subsamples special-purpose datasets with the :command:`datalad copy-file` command (:manpage:`datalad-copy-file` manual).
+If there is a need for a dataset that contains only a subset of files of one or more other dataset, it can be helpful to create subsamples special-purpose datasets with the :dlcmd:`copy-file` command.
 This command is capable of transferring files from different datasets or locations outside of a dataset into a new dataset, unlocking them if necessary, and preserving and copying their availability information.
 As such, the command is a superior, albeit more technical alternative to :ref:`copying dereferenced files out of datasets <copydata>`.
 
@@ -31,11 +31,11 @@ However, for a structural connectivity analysis, only eleven files per subject a
   - <sub>/unprocessed/3T/T1w_MPR1/*_3T_FieldMap_Phase.nii.gz
   - <sub>/unprocessed/3T/T1w_MPR1/*_3T_T1w_MPR1.nii.gz
 
-In order to spare others the time and effort to install thousands of subdatasets, a one-time effort can create and publish a subsampled, single dataset of those files using the :command:`datalad copy-file` command.
+In order to spare others the time and effort to install thousands of subdatasets, a one-time effort can create and publish a subsampled, single dataset of those files using the :dlcmd:`copy-file` command.
 
 .. index:: ! datalad command; copy-file
 
-:command:`datalad copy-file` is able to copy files with their availability metadata into other datasets.
+:dlcmd:`copy-file` is able to copy files with their availability metadata into other datasets.
 The content of the files does not need to be retrieved in order to do this.
 Because the subset of relevant files is small, all structural connectivity related files can be copied into a single dataset.
 This speeds up the installation time significantly, and reduces the confusion that the concept of subdatasets can bring to DataLad novices.
@@ -45,7 +45,7 @@ Access to the files inside of the subsampled dataset works via valid AWS credent
 The Basics of copy-file
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-This short demonstration gives an overview of the functionality of :command:`datalad copy-file` - Feel free to follow along by copy-pasting the commands into your terminal.
+This short demonstration gives an overview of the functionality of :dlcmd:`copy-file` - Feel free to follow along by copy-pasting the commands into your terminal.
 Let's start by cloning a dataset to work with:
 
 .. runrecord:: _examples/DL-101-149-01
@@ -54,7 +54,7 @@ Let's start by cloning a dataset to work with:
 
    $ datalad clone https://github.com/datalad-datasets/human-connectome-project-openaccess.git hcp
 
-In order to use :command:`copy-file`, we need to install a few subdatasets, and thus install 9 subject subdatasets recursively.
+In order to use :dlcmd:`copy-file`, we need to install a few subdatasets, and thus install 9 subject subdatasets recursively.
 Note that we don't retrieve any data, using ``-n``/``--no-data``.
 (The output of this command is omitted -- it is quite lengthy as 36 subdatasets are being installed)
 
@@ -77,8 +77,8 @@ This dataset will later hold the relevant subset of the data in the HCP dataset.
    $ datalad create dataset-to-copy-to
 
 With the prerequisites set up, we can start to copy files.
-The command :command:`datalad copy-file` works as follows:
-By providing a path to a file to be copied (which can be annex'ed, not annex'ed, or not version-controlled at all) and either a second path (the destination path), a target directory inside of a dataset, or a dataset specification, :command:`datalad copy-file` copies the file and all of its availability metadata into the specified dataset.
+The command :dlcmd:`copy-file` works as follows:
+By providing a path to a file to be copied (which can be annex'ed, not annex'ed, or not version-controlled at all) and either a second path (the destination path), a target directory inside of a dataset, or a dataset specification, :dlcmd:`copy-file` copies the file and all of its availability metadata into the specified dataset.
 Let's copy a single file (``hcp/HCP1200/130013/T1w/Diffusion/bvals``) from the ``hcp`` dataset into ``dataset-to-copy-to``:
 
 .. runrecord:: _examples/DL-101-149-04
@@ -157,7 +157,7 @@ Here is how the dataset that we copied files into looks like at the moment:
 
 Importantly, all of the copied files had yet unretrieved contents.
 The copy-file process, however, also copied the files' availability metadata to their new location.
-Retrieving file contents works just as it would in the full HCP dataset via :command:`datalad get` (the authentication step is omitted in the output below):
+Retrieving file contents works just as it would in the full HCP dataset via :dlcmd:`get` (the authentication step is omitted in the output below):
 
 .. runrecord:: _examples/DL-101-149-12
    :language: console
@@ -166,10 +166,10 @@ Retrieving file contents works just as it would in the full HCP dataset via :com
    $ cd dataset-to-copy-to
    $ datalad get bvals anothercopyofbvecs 130114/T1w/Diffusion/eddylogs/eddy_unwarped_images.eddy_parameters
 
-What's especially helpful for automation of this operation is that :command:`copy-file` can take source and (optionally) destination paths from a file or from :term:`stdin` with the option ``--specs-from <source>``.
+What's especially helpful for automation of this operation is that :dlcmd:`copy-file` can take source and (optionally) destination paths from a file or from :term:`stdin` with the option ``--specs-from <source>``.
 In the case of specifications from a file, ``<source>`` is a path to this file.
 
-In order to use ``stdin`` for specification, such as the output of a ``find`` command that is piped into :command:`datalad copy-file` with a `Unix pipe (|) <https://en.wikipedia.org/wiki/Pipeline_(Unix)>`_, ``<source>`` needs to be a dash (``-``). Below is an example ``find`` command:
+In order to use ``stdin`` for specification, such as the output of a ``find`` command that is piped into :dlcmd:`copy-file` with a `Unix pipe (|) <https://en.wikipedia.org/wiki/Pipeline_(Unix)>`_, ``<source>`` needs to be a dash (``-``). Below is an example ``find`` command:
 
 .. runrecord:: _examples/DL-101-149-13
    :language: console
@@ -179,7 +179,7 @@ In order to use ``stdin`` for specification, such as the output of a ``find`` co
    $ find HCP1200/130013/T1w/ -maxdepth 1 -name T1w*.nii.gz
 
 This uses ``find`` to get a list of all files matching the specified pattern in the specified directory.
-And here is how the outputted paths can be given as source paths to :command:`datalad copy-file`, copying all of the found files into a new dataset:
+And here is how the outputted paths can be given as source paths to :dlcmd:`copy-file`, copying all of the found files into a new dataset:
 
 .. runrecord:: _examples/DL-101-149-14
    :language: console
@@ -197,7 +197,7 @@ To preserve the directory structure, a target directory (``-t ../dataset-to-copy
 
    $ ls ../dataset-to-copy-to
 
-With this trick, you can use simple search commands to assemble a list of files as a ``<source>`` for :command:`copy-file`: simply create a file or a command like ``find`` that specifies tho relevant files or directories line-wise.
+With this trick, you can use simple search commands to assemble a list of files as a ``<source>`` for :dlcmd:`copy-file`: simply create a file or a command like ``find`` that specifies tho relevant files or directories line-wise.
 ``--specs-from`` can take information on both ``<source>`` and ``<destination>``, though.
 
 
@@ -208,7 +208,7 @@ Specifying source *and* destination paths comes with a twist: Source and destina
 This is not a straightforward concept, but trying it out and seeing it in action will help.
 
 One way it can be done is by using the stream editor :term:`sed`.
-Here is how to pipe source AND destination paths into :command:`datalad copy-file`:
+Here is how to pipe source AND destination paths into :dlcmd:`copy-file`:
 
  .. code-block:: bash
 
@@ -238,7 +238,7 @@ Here is how an output of ``find`` piped into ``sed`` looks like:
 
 Note how the nullbyte is not visible to the naked eye in the output.
 To visualize it, you could redirect this output into a file and open it with an editor like :term:`vim`.
-Let's now see a :command:`copy-file` from :term:`stdin` in action:
+Let's now see a :dlcmd:`copy-file` from :term:`stdin` in action:
 
 .. runrecord:: _examples/DL-101-149-17
    :language: console
@@ -254,7 +254,7 @@ A complex looking command with regular expressions and unix pipes, but it does p
 Copying reproducibly
 ^^^^^^^^^^^^^^^^^^^^
 
-To capture the provenance of subsampled dataset creation, the :command:`copy-file` command can be wrapped into a :command:`datalad run` call.
+To capture the provenance of subsampled dataset creation, the :dlcmd:`copy-file` command can be wrapped into a :dlcmd:`run` call.
 Here is a sketch how it was done in the structural connectivity subdataset:
 
 **Step 1:** Create a dataset
@@ -281,8 +281,8 @@ For this subsampled dataset, this one would work::
     -o -path '*/T1w/Diffusion/*' -name '*.nii.gz' \
     | sed -e 's#\(\.hcp/HCP1200\)\(.*\)#\1\2\x00.\2#' \
 
-**Step 5:** Pipe the results into :command:`datalad copy-file`, and wrap everything into a :command:`datalad run`.
-Note that ``-d/--dataset`` is not specified for :command:`copy-file` -- this way, :command:`datalad run` will save everything in one go at the end.
+**Step 5:** Pipe the results into :dlcmd:`copy-file`, and wrap everything into a :dlcmd:`run`.
+Note that ``-d/--dataset`` is not specified for :dlcmd:`copy-file` -- this way, :dlcmd:`run` will save everything in one go at the end.
 
 .. code-block:: bash
 
@@ -318,13 +318,13 @@ Because of the reduced amount of files it contains, it is easier to transform th
 Such a conversion can be done on a different :term:`branch` of the dataset.
 If you have published your subsampled dataset into a RIA store, as it was done with this specific subset, a single command can clone a BIDS-ified, slimmed down HCP dataset for structural connectivity analyses because RIA stores allow cloning of datasets in specific versions (such as a branch or tag as an identifier)::
 
-   $ datalad clone ria+http://store.datalad.org#~hcp-structural-connectivity@bids
+   $ datalad clone ria+https://store.datalad.org#~hcp-structural-connectivity@bids
 
 Summary
 """""""
 
-:command:`datalad copy-file` is a useful command to create datasets from content of other datasets.
-Although it requires some Unix-y command line magic, it can be automated for larger tasks, and, when combined with a :command:`datalad run`, produce suitable provenance records of where files have been copied from.
+:dlcmd:`copy-file` is a useful command to create datasets from content of other datasets.
+Although it requires some Unix-y command line magic, it can be automated for larger tasks, and, when combined with a :dlcmd:`run`, produce suitable provenance records of where files have been copied from.
 
 
 .. rubric:: Footnotes

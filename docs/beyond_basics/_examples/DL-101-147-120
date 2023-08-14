@@ -1,6 +1,6 @@
 
 $ datalad clone ria+file:///home/me/myriastore#e3e70682-c209-4cac-629f-6fbed82c07cd myclone
-[INFO] Cloning dataset to Dataset(/home/me/beyond_basics/myclone)
+[INFO] Attempting a clone into /home/me/beyond_basics/myclone
 [INFO] Attempting to clone from file:///home/me/myriastore/e3e/70682-c209-4cac-629f-6fbed82c07cd to /home/me/beyond_basics/myclone
 [INFO] Completed clone attempts for Dataset(/home/me/beyond_basics/myclone)
 [INFO] Configure additional publication dependency on "ria-backup-storage"

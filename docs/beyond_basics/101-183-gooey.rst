@@ -4,7 +4,7 @@ DataLad in a graphical user interface
 -------------------------------------
 
 DataLad is primarily a command line or Python tool.
-However, the `datalad gooey <http://docs.datalad.org/projects/gooey/en/latest/index.html>`_ extensions extends it with a graphical user interface.
+However, the `datalad gooey <https://docs.datalad.org/projects/gooey>`_ extensions extends it with a graphical user interface.
 
 .. figure:: ../artwork/src/application.svg
 
@@ -12,7 +12,7 @@ However, the `datalad gooey <http://docs.datalad.org/projects/gooey/en/latest/in
 Selected features
 ^^^^^^^^^^^^^^^^^
 
-The ideal way to stay up-to-date on gooey developments is its documentation at `docs.datalad.org/projects/gooey <http://docs.datalad.org/projects/gooey/en/latest/>`_.
+The ideal way to stay up-to-date on gooey developments is its documentation at `docs.datalad.org/projects/gooey <https://docs.datalad.org/projects/gooey>`_.
 A few selected advantages are featured here, nevertheless.
 
 Installation

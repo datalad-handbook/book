@@ -10,12 +10,12 @@ DataLad's result hooks
 If you are particularly keen on automating tasks in your datasets, you may be
 interested in running DataLad commands automatically as soon
 as previous commands are executed and resulted in particular outcomes or states.
-For example, you may want to automatically :command:`unlock` all dataset contents
+For example, you may want to automatically :dlcmd:`unlock` all dataset contents
 right after an installation in one go. However, you'd also want to make sure that
-the :command:`install` command was *successful* before attempting an
-:command:`unlock`. Therefore, you would like to automatically
-run the :command:`datalad unlock .` command right after the :command:`datalad install`
-command, *but only* if the previous :command:`install` command was successful.
+the :dlcmd:`install` command was *successful* before attempting an
+:dlcmd:`unlock`. Therefore, you would like to automatically
+run the :dlcmd:`unlock .` command right after the :dlcmd:`install`
+command, *but only* if the previous :dlcmd:`install` command was successful.
 
 Such automation allows for flexible and yet automatic responses to the results
 of DataLad commands, and can be done with DataLad's *result hooks*.
@@ -31,7 +31,7 @@ and result of the command. To get a glimpse into such an evaluation, you can cal
 any DataLad command with the ``datalad`` option
 ``-f/--output-format <default, json, json_pp, tailored, '<template>'>`` to
 return the command result evaluations with a specific formatting. Here is how this
-can look like for a :command:`datalad create`::
+can look like for a :dlcmd:`create`::
 
    $ datalad -f json_pp create somedataset
     [INFO   ] Creating a new annex repo at /tmp/somedataset
@@ -103,7 +103,7 @@ Here is what you need to know about these variables:
 
 And here is how to set the values for these variables:
 
-- When set via the :command:`git config` command, the value for
+- When set via the :gitcmd:`config` command, the value for
   ``datalad.result-hook.<name>.match-json`` needs to be specified as
   a JSON-encoded dictionary with any number of keys, such as
 
@@ -111,7 +111,7 @@ And here is how to set the values for these variables:
 
      {"type": "file", "action": "get", "status": "notneeded"}
 
-  This translates to: "Match a "not-needed" after :command:`datalad get` of a file."
+  This translates to: "Match a "not-needed" after :dlcmd:`get` of a file."
   If all specified values in the keys in this dictionary match the values of the
   same keys in the result evaluation, the hook is executed. Apart from ``==``
   evaluations, ``in``, ``not in``, and ``!=`` are supported. To make use of such
@@ -122,7 +122,7 @@ And here is how to set the values for these variables:
 
      {"type": ["in", ["file", "directory"]], "action": "get", "status": "notneeded"}
 
-  This translates to:  "Match a "not-needed" after :command:`datalad get` of a file or directory."
+  This translates to:  "Match a "not-needed" after :dlcmd:`get` of a file or directory."
   Another example is
 
   .. code-block:: bash
@@ -132,7 +132,7 @@ And here is how to set the values for these variables:
   which translates to: "Match a successful installation of a dataset".
 
 - The value for ``datalad.result-hook.<name>.call-json`` is specified in its
-  Python notation, and its options -- when set via the :command:`git config`
+  Python notation, and its options -- when set via the :gitcmd:`config`
   command -- are specified as a JSON-encoded dictionary
   with keyword arguments. Conveniently, a number of string substitutions are
   supported: a ``dsarg`` argument expands to the ``dataset`` given to the initial
@@ -140,7 +140,7 @@ And here is how to set the values for these variables:
   expanded to the respective value in the result dictionary. Curly braces need to
   be escaped by doubling them.
   This is not the easiest specification there is, but its also not as hard as it
-  may sound. Here is how this could look like for a :command:`datalad unlock`::
+  may sound. Here is how this could look like for a :dlcmd:`unlock`::
 
      $ unlock {{"dataset": "{dsarg}", "path": "{path}"}}
 
@@ -160,7 +160,7 @@ And here is how to set the values for these variables:
 
 
 As these variables are configuration variables, they can be set via
-:command:`git config` -- either for the dataset (``--local``), or the
+:gitcmd:`config` -- either for the dataset (``--local``), or the
 user (``--global``) [#f3]_::
 
     $ git config --global --add datalad.result-hook.readme.call-json 'run {{"cmd":"cp ~/Templates/standard-readme.txt {path}/README", "outputs":["{path}/README"], "dataset":"{path}","explicit":true}}'
@@ -174,21 +174,21 @@ Here is what this writes to the ``~/.gitconfig`` file::
 
 Note how characters such as quotation marks are automatically escaped via
 backslashes. If you want to set the variables "by hand" with an editor instead
-of using :command:`git config`, pay close attention to escape them as well.
+of using :gitcmd:`config`, pay close attention to escape them as well.
 
 Given this configuration in the global ``~/.gitconfig`` file, the
 "``readme``" hook would be executed whenever you successfully create a new dataset
-with :command:`datalad create`. The "``readme``" hook would then automatically copy a
+with :dlcmd:`create`. The "``readme``" hook would then automatically copy a
 file, ``~/Templates/standard-readme.txt`` (this could be a standard README template
 you defined), into the new dataset.
 
 
 .. rubric:: Footnotes
 
-.. [#f2] It only needs to be compatible with :command:`git config`. This means that
+.. [#f2] It only needs to be compatible with :gitcmd:`config`. This means that
          it for example should not contain any dots (``.``).
 
-.. [#f3] To re-read about the :command:`git config` command and other configurations
+.. [#f3] To re-read about the :gitcmd:`config` command and other configurations
          of DataLad and its underlying tools, go back to the chapter on Configurations,
          starting with :ref:`config`.
          **Note that hooks are only read from Git's config files, not .datalad/config!**

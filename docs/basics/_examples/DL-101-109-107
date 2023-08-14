@@ -1,5 +1,5 @@
 $ git log -n 1
-commit 7d12e0ef2e69a9b24629fbc30cd49f59ca2dbb44
+commit f4916ccb✂SHA1
 Author: Elena Piscopia <elena@example.net>
 Date:   Tue Jun 18 16:13:00 2019 +0000
 
@@ -8,7 +8,7 @@ Date:   Tue Jun 18 16:13:00 2019 +0000
     === Do not change lines below ===
     {
      "chain": [
-      "bf4aa3496af9b002933880849a798450d822fd99"
+      "f4f30396✂SHA1"
      ],
      "cmd": "bash code/list_titles.sh > recordings/podcasts.tsv",
      "dsid": "e3e70682-c209-4cac-629f-6fbed82c07cd",

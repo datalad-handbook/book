@@ -152,12 +152,12 @@ Then, Max create a bash script in Rstudio and run it using the usual button (Thi
 .. code-block:: bash
 
     
-    $ datalad run  \
-      --input "file1.csv" \
-      --input "data/file2.json" \
-      --output "figures/*.png" \
-      --explicit \
-      Rscript "<path-to-script.r>" {inputs} {outputs}
+$ datalad run  \
+--input "file1.csv" \
+--input "data/file2.json" \
+--output "figures/*.png" \
+--explicit \
+Rscript "<path-to-script.r>" {inputs} {outputs}
 
 .. figure:: ../artwork/src/Rstudio/Rstudio-dataladrun.jpg
    :scale: 80 %

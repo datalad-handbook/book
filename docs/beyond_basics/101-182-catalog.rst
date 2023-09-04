@@ -3,6 +3,10 @@
 DataCat - a shiny front-end for your dataset
 --------------------------------------------
 
+.. importantnote:: Dependency note
+
+   This section depends on ``datalad-catalog`` version ``1.0.1`` or later.
+
 If you're looking for ways to showcase your datasets, look no further than the `datalad-catalog extension <https://docs.datalad.org/projects/catalog>`_.
 This extension takes your favorite datasets and metadata, and generates a static website from it.
 

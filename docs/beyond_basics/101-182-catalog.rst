@@ -122,21 +122,22 @@ the catalog generation process.
 The main catalog functionality
 """"""""""""""""""""""""""""""
 As you likely saw in the ``--help`` information, DataLad Catalog has several main commands to support
-the process of catalog generation. These include:
+the process of catalog generation. These include ``catalog-``:
 
 - ``create``: create a new catalog
-- ``add``: add metadata to a catalog
-- ``remove``: remove metadata from a catalog
+- ``add``: add metadata entries to a catalog
+- ``remove``: remove metadata entries from a catalog
 - ``serve``: serve the catalog locally on an http server for testing purposes
-- ``set-super``: set the so-called super-dataset of the catalog, i.e. the dataset that will be displayed as the catalog's home page
 - ``validate``: validate metadata according to the catalog schema
-- ``workflow-new``: run a multi-step workflow for extracting and converting metadata from a super-dataset and its subdatasets, and adding these to a newly created catalog
-- ``workflow-update``: run a multi-step workflow for extracting and converting metadata from a new subdataset of an existing super-dataset, and adding these to an existing catalog
+- ``set``: set catalog properties, such as the dataset that will be displayed as the catalog's ``home`` page
+- ``get``: get catalog properties, such as the catalog's configuration
+- ``translate``: translate a metalad-extracted metadata item from a particular source structure into the catalog schema
+- ``workflow``: run a multi-step workflow for recursive metadata extraction, translating metadata to the catalog schema, and adding the translated metadata to a new catalog
 
 Creating a new catalog
 """"""""""""""""""""""
 
-With the ``create`` subcommand, you can create a new catalog. Let's try it out!
+With the ``datalad-create`` command, you can create a new catalog. Let's try it out!
 
 .. runrecord:: _examples/DL-101-182-102
    :language: console
@@ -144,10 +145,10 @@ With the ``create`` subcommand, you can create a new catalog. Let's try it out!
    :cast: catalog_basics
    :notes: Let's test the installation and look at the help information
    
-   $ datalad catalog create --catalog-dir data-cat
+   $ datalad catalog-create --catalog data-cat
 
 The catalog ``create(ok)`` result shows that the catalog was successfully created at the specified location (``./data-cat``),
-which was passed to the command with the ``-c/--catalog-dir`` flag.
+which was passed to the command with the ``-c/--catalog`` flag.
 
 Now we can inspect the catalog's content with the ``tree`` command:
 
@@ -164,11 +165,12 @@ As you can see, the catalog's root directory contains subdirectories for:
 - ``artwork``: images that make the catalog pretty
 - ``assets``: mainly the JavaScript and CSS code that underlie the user interface of the catalog.
 - ``metadata``: this is where metadata content for any datasets and files rendered by the catalog will be contained
+- ``schema``: a copy of the schema files that metadata entries of this catalog conform to
 - ``templates``: HTML templates used for rendering different views of the catalog
 
 It also contains an ``index.html`` file, which is the main catalog HTML content that will be served to users in their browsers,
 as well as a ``config.json`` file, which contains default and user-specified configuration settings for the catalog rendering.
-These directories and files are all populated into their respective locations by the ``datalad catalog create`` command.
+These directories and files are all populated into their respective locations by the ``datalad catalog-create`` command.
 
 Next, let's have a look at the catalog that we just created.
 
@@ -182,7 +184,7 @@ With the ``serve`` subcommand, you can serve the content of a catalog locally vi
 
 .. code-block:: bash
 
-   $ datalad catalog serve --catalog-dir data-cat
+   $ datalad catalog-serve --catalog data-cat
 
 If you navigate to the data-cat location (a URL is provided in the ``serve`` command output, typically ``http://localhost:8000/``),
 the catalog should be rendered. You should see the 404 page, since there is no metadata in the catalog yet.
@@ -196,15 +198,18 @@ Adding catalog metadata
 """""""""""""""""""""""
 
 The catalog is, of course, only as useful as the metadata that is contained within it.
-So let's add some! This can easily be done with the ``add`` subcommand and ``-m/--metadata`` flag:
+So let's add some! This can easily be done with the ``catalog-add`` command and ``-m/--metadata`` flag:
 
 .. code-block:: bash
 
-   $ datalad catalog add --catalog-dir <path-to-catalog> --metadata <path-to-metadata> 
+   $ datalad catalog-add --catalog <path-to-catalog> --metadata <path-to-metadata> 
 
-DataLad Catalog accepts metadata input in the form of json lines, i.e. a text file
-(typically, ``.json``, ``.jsonl``, or ``.txt``) where each line is a single, correctly formatted,
-JSON object.
+DataLad Catalog accepts metadata input in the multiple formats, including:
+
+- a path to a file (typically with extension ``.json``, ``.jsonl``, or ``.txt``) containing JSON lines,
+  where each line is a single, correctly formatted, JSON object.
+- JSON lines from STDIN
+- a JSON serialized string
 
 Before we add metadata to our `data-cat` catalog, we'll first introduce a few important concepts and tools.
 
@@ -275,16 +280,19 @@ First a dataset:
                "description":"Nothing to see here"
            }
        ],
-       "extractors_used": [
-           {
-               "extractor_name": "stephan_manual",
-               "extractor_version": "1",
-               "extraction_parameter": {},
-               "extraction_time": 1652340647.0,
+       "metadata_sources": {
+         "key_source_map": {},
+         "sources": [
+            {
+               "source_name": "stephan_manual",
+               "source_version": "1",
+               "source_parameter": {},
+               "source_time": 1652340647.0,
                "agent_name": "Stephan Heunis",
                "agent_email": ""
-           }
-       ]
+            }
+        ]
+      }
    }
 
 And then two files of the dataset:
@@ -297,16 +305,19 @@ And then two files of the dataset:
       "dataset_version": "dae38cf901995aace0dde5346515a0134f919523",
       "contentbytesize": 1403
       "path": "README",
-      "extractors_used": [
-          {
-              "extractor_name": "stephan_manual",
-              "extractor_version": "1",
-              "extraction_parameter": {},
-              "extraction_time": 1652340647.0,
-              "agent_name": "Stephan Heunis",
-              "agent_email": ""
-          }
-      ]
+      "metadata_sources": {
+         "key_source_map": {},
+         "sources": [
+            {
+               "source_name": "stephan_manual",
+               "source_version": "1",
+               "source_parameter": {},
+               "source_time": 1652340647.0,
+               "agent_name": "Stephan Heunis",
+               "agent_email": ""
+            }
+        ]
+      }
   }
   {
       "type": "file"
@@ -314,24 +325,27 @@ And then two files of the dataset:
       "dataset_version": "dae38cf901995aace0dde5346515a0134f919523",
       "contentbytesize": 15572
       "path": "main_data/main_results.png",
-      "extractors_used": [
-          {
-              "extractor_name": "stephan_manual",
-              "extractor_version": "1",
-              "extraction_parameter": {},
-              "extraction_time": 1652340647.0,
-              "agent_name": "Stephan Heunis",
-              "agent_email": ""
-          }
-      ]
+      "metadata_sources": {
+         "key_source_map": {},
+         "sources": [
+            {
+               "source_name": "stephan_manual",
+               "source_version": "1",
+               "source_parameter": {},
+               "source_time": 1652340647.0,
+               "agent_name": "Stephan Heunis",
+               "agent_email": ""
+            }
+        ]
+      }
   }
 
 Validating your metadata
 """"""""""""""""""""""""
 
-For convenience during metadata setup and catalog generation, the Catalog has the
-``validate`` subcommand that let's you test whether your metadata conforms to the
-Catalog schema before adding it. Let's test it on the toy metadata.
+For convenience during metadata setup and catalog generation, the ``catalog-validate``
+command that let's you test whether your metadata conforms to the
+catalog schema before adding it. Let's test it on the toy metadata.
 
 First we'll put the metadata into a file, which is the format currently accepted
 when adding metadata to a catalog:
@@ -342,10 +356,10 @@ when adding metadata to a catalog:
    :cast: catalog_basics
    :notes: Add metadata objects to a text file
    
-   $ touch toy_metadata.jsonl
-   $ echo '{ "type": "dataset", "dataset_id": "5df8eb3a-95c5-11ea-b4b9-a0369f287950", "dataset_version": "dae38cf901995aace0dde5346515a0134f919523", "name": "My toy dataset", "short_name": "My toy dataset", "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec justo tellus. Nunc sagittis eleifend magna, eu blandit arcu tincidunt eu. Mauris pharetra justo nec volutpat euismod. Curabitur bibendum vitae nunc a pharetra. Donec non rhoncus risus, ac consequat purus. Pellentesque ultricies ut enim non luctus. Sed viverra dolor enim, sed blandit lorem interdum sit amet. Aenean tincidunt et dolor sit amet tincidunt. Vivamus in sollicitudin ligula. Curabitur volutpat sapien erat, eget consectetur mauris dapibus a. Phasellus fringilla justo ligula, et fringilla tortor ullamcorper id. Praesent tristique lacus purus, eu convallis quam vestibulum eget. Donec ullamcorper mi neque, vel tincidunt augue porttitor vel.", "doi": "", "url": "https://github.com/jsheunis/multi-echo-super", "license": { "name": "CC BY 4.0", "url": "https://creativecommons.org/licenses/by/4.0/" }, "authors": [ { "givenName": "Stephan", "familyName": "Heunis"} ], "keywords": [ "lorum", "ipsum", "foxes" ], "funding": [ { "name": "Stephans Bank Account", "identifier": "No. 42", "description": "Nothing to see here" } ], "extractors_used": [ { "extractor_name": "stephan_manual", "extractor_version": "1", "extraction_parameter": {}, "extraction_time": 1652340647.0, "agent_name": "Stephan Heunis", "agent_email": "" } ] }' >> toy_metadata.jsonl
-   $ echo '{ "type": "file", "dataset_id": "5df8eb3a-95c5-11ea-b4b9-a0369f287950", "dataset_version": "dae38cf901995aace0dde5346515a0134f919523", "contentbytesize": 1403, "path": "README", "extractors_used": [ { "extractor_name": "stephan_manual", "extractor_version": "1", "extraction_parameter": {}, "extraction_time": 1652340647.0, "agent_name": "Stephan Heunis", "agent_email": "" } ] }' >> toy_metadata.jsonl
-   $ echo '{ "type": "file", "dataset_id": "5df8eb3a-95c5-11ea-b4b9-a0369f287950", "dataset_version": "dae38cf901995aace0dde5346515a0134f919523", "contentbytesize": 15572, "path": "main_data/main_results.png", "extractors_used": [ { "extractor_name": "stephan_manual", "extractor_version": "1", "extraction_parameter": {}, "extraction_time": 1652340647.0, "agent_name": "Stephan Heunis", "agent_email": "" } ] }' >> toy_metadata.jsonl
+   $ touch toy_metadata.jsonltouch toy_metadata.jsonl
+   $ echo '{ "type": "dataset", "dataset_id": "5df8eb3a-95c5-11ea-b4b9-a0369f287950", "dataset_version": "dae38cf901995aace0dde5346515a0134f919523", "name": "My toy dataset", "short_name": "My toy dataset", "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec justo tellus. Nunc sagittis eleifend magna, eu blandit arcu tincidunt eu. Mauris pharetra justo nec volutpat euismod. Curabitur bibendum vitae nunc a pharetra. Donec non rhoncus risus, ac consequat purus. Pellentesque ultricies ut enim non luctus. Sed viverra dolor enim, sed blandit lorem interdum sit amet. Aenean tincidunt et dolor sit amet tincidunt. Vivamus in sollicitudin ligula. Curabitur volutpat sapien erat, eget consectetur mauris dapibus a. Phasellus fringilla justo ligula, et fringilla tortor ullamcorper id. Praesent tristique lacus purus, eu convallis quam vestibulum eget. Donec ullamcorper mi neque, vel tincidunt augue porttitor vel.", "doi": "", "url": "https://github.com/jsheunis/multi-echo-super", "license": { "name": "CC BY 4.0", "url": "https://creativecommons.org/licenses/by/4.0/" }, "authors": [ { "givenName": "Stephan", "familyName": "Heunis"} ], "keywords": [ "lorum", "ipsum", "foxes" ], "funding": [ { "name": "Stephans Bank Account", "identifier": "No. 42", "description": "Nothing to see here" } ], "metadata_sources": { "key_source_map": {}, "sources": [ { "source_name": "stephan_manual", "source_version": "1", "source_parameter": {}, "source_time": 1652340647.0, "agent_name": "Stephan Heunis", "agent_email": "" } ] } }' >> toy_metadata.jsonl
+   $ echo '{ "type": "file", "dataset_id": "5df8eb3a-95c5-11ea-b4b9-a0369f287950", "dataset_version": "dae38cf901995aace0dde5346515a0134f919523", "contentbytesize": 1403, "path": "README", "metadata_sources": { "key_source_map": {}, "sources": [ { "source_name": "stephan_manual", "source_version": "1", "source_parameter": {}, "source_time": 1652340647.0, "agent_name": "Stephan Heunis", "agent_email": "" } ] } }' >> toy_metadata.jsonl
+   $ echo '{ "type": "file", "dataset_id": "5df8eb3a-95c5-11ea-b4b9-a0369f287950", "dataset_version": "dae38cf901995aace0dde5346515a0134f919523", "contentbytesize": 15572, "path": "main_data/main_results.png", "metadata_sources": { "key_source_map": {}, "sources": [ { "source_name": "stephan_manual", "source_version": "1", "source_parameter": {}, "source_time": 1652340647.0, "agent_name": "Stephan Heunis", "agent_email": "" } ] } }' >> toy_metadata.jsonl
 
 Then we can validate the metadata in this file:
 
@@ -355,7 +369,7 @@ Then we can validate the metadata in this file:
    :cast: catalog_basics
    :notes: Validate metadata according to the catalog schema
 
-   $ datalad catalog validate --metadata toy_metadata.jsonl
+   $ datalad catalog-validate --metadata toy_metadata.jsonl
 
 Great! This confirms that we have valid metadata :)
 
@@ -373,9 +387,9 @@ Finally, we can add metadata!
    :cast: catalog_basics
    :notes: Validate metadata according to the catalog schema
 
-   $ datalad catalog add --catalog-dir data-cat --metadata toy_metadata.jsonl
+   $ datalad catalog-add --catalog data-cat --metadata toy_metadata.jsonl
 
-The ``catalog add(ok)`` result indicates that our metadata was added successfully to the catalog.
+The ``catalog-add(ok)`` result indicates that our metadata was added successfully to the catalog.
 You can inspect this by looking at the content of the metadata directory inside the catalog:
 
 .. runrecord:: _examples/DL-101-182-107
@@ -416,7 +430,7 @@ This saves loading time which makes the user experience more seamless.
 Viewing a particular dataset
 """"""""""""""""""""""""""""
 
-So, that was everything that happened behind the scenes during the ``datalad catalog add`` procedure,
+So, that was everything that happened behind the scenes during the ``datalad catalog-add`` procedure,
 but what does our updated catalog look like? Let's take a look. If you serve the catalog again
 and navigate to the localhost, you should see... no change?!
 
@@ -449,20 +463,20 @@ the first with the files tab selected, and the second with the funding tab selec
 
 .. figure:: ../artwork/src/catalog/catalog_step_funding.png
 
-Setting the default dataset
-"""""""""""""""""""""""""""
+Setting the catalog home page
+"""""""""""""""""""""""""""""
 
 When one navigates to a specific catalog's root address, i.e. without a ``dataset_id`` and ``dataset_version``
-specified in the URL, the browser application checks if a so-called "superdataset" (a default or homepage dataset) 
-is specified for the catalog. If not, it renders the 404 page.
+specified in the URL, the browser application checks if a home page is specified for the catalog. If not,
+it renders the 404 page.
 
-The specification of a superdataset could be useful for cases where the catalog,
+The specification of a home page could be useful for cases where the catalog,
 when navigated to, should always render the top-level list of available datasets
 in the catalog (provided by the metadata as subdatasets to the superdataset).
 
-Let's add our toy dataset as the catalog's superdataset, using the ``set-super`` subcommand
-and additionally specifying the dataset's ``dataset_id`` (``-i/--dataset-id`` flag) and
-``dataset_version`` (``-v/--dataset-version`` flag):
+Let's add our toy dataset as the catalog's home page, using the ``catalog-set`` command
+with the ``home`` property, and additionally specifying the dataset's ``dataset_id``
+(``-i/--dataset-id`` flag) and ``dataset_version`` (``-v/--dataset-version`` flag):
 
 .. runrecord:: _examples/DL-101-182-109
    :language: console
@@ -470,12 +484,12 @@ and additionally specifying the dataset's ``dataset_id`` (``-i/--dataset-id`` fl
    :cast: catalog_basics
    :notes: Add a superdataset to the catalog
 
-   $ datalad catalog set-super --catalog-dir data-cat --dataset-id 5df8eb3a-95c5-11ea-b4b9-a0369f287950 --dataset-version dae38cf901995aace0dde5346515a0134f919523
+   $ datalad catalog-set --catalog data-cat --dataset-id 5df8eb3a-95c5-11ea-b4b9-a0369f287950 --dataset-version dae38cf901995aace0dde5346515a0134f919523 home
 
-The catalog ``set-super(ok)`` result shows that the superdataset was successfully set
+The catalog ``catalog-set(ok)`` result shows that the superdataset was successfully set
 for the catalog, and you will now also be able to see an additional ``super.json`` file in the
 catalog metadata directory. The content of this file is a simple JSON object specifying the
-superdataset's ``dataset_id`` and ``dataset_version``:
+main dataset's ``dataset_id`` and ``dataset_version``:
 
 .. runrecord:: _examples/DL-101-182-110
    :language: console
@@ -495,7 +509,7 @@ Catalog configuration
 
 A useful feature of the catalog process is to be able to configure certain properties according
 to your preferences. This is done with help of a config file (in either ``JSON`` or ``YAML`` format)
-and the ``-y/--config-file`` flag during catalog generation. DataLad Catalog provides a default
+and the ``-F/--config-file`` flag during catalog generation. DataLad Catalog provides a default
 config file with the following content:
 
 .. runrecord:: _examples/DL-101-182-111
@@ -506,7 +520,7 @@ config file with the following content:
 
    $ cat data-cat/config.json | jq .
 
-If no config file is supplied to the ``create`` subcommand, the default is used.
+If no config file is supplied to the ``catalog-create`` command, the default is used.
 
 Let's create a new toy catalog with a new config, specifying a new name, a new logo, and new colors for the links.
 This will be the content of the config file, in ``YAML`` format:
@@ -527,7 +541,7 @@ This will be the content of the config file, in ``YAML`` format:
    link_hover_color: "#A9FDAC" # hex color code
    
    # Handling multiple metadata sources
-   property_source:
+   property_sources:
      dataset: {}
    
    EOT
@@ -550,8 +564,8 @@ Now we can run all the necessary subcommands for the catalog generation process:
    :cast: catalog_basics
    :notes: Create a new catalog with custom config
 
-   $ datalad catalog create -c custom-cat -m toy_metadata.jsonl -y cat_config.yml
-   $ datalad catalog set-super -c custom-cat -i 5df8eb3a-95c5-11ea-b4b9-a0369f287950 -v dae38cf901995aace0dde5346515a0134f919523
+   $ datalad catalog-create -c custom-cat -m toy_metadata.jsonl -F cat_config.yml
+   $ datalad catalog-set -c custom-cat -i 5df8eb3a-95c5-11ea-b4b9-a0369f287950 -v dae38cf901995aace0dde5346515a0134f919523 home
 
 To test this, serve the new custom catalog and navigate to the localhost to view it.
 
@@ -565,7 +579,8 @@ Well done! You have just configured your catalog with a custom logo and color sc
 The configuration will also come in handy when there are more advanced forms of metadata
 in a catalog, especially when multiple sources of metadata are available for the same dataset.
 In such cases, one might want to specify or prioritize how these multiple sources are displayed,
-and the catalog configuration allows for that via specification of the ``property_source`` key.
+and the catalog configuration allows for that via specification of the ``property_sources`` key.
+Find out more in the `dedicated documentation <https://docs.datalad.org/projects/catalog/en/latest/catalog_config.html>`_.
 
 And that's it!
 """"""""""""""
@@ -576,4 +591,5 @@ You now know how to install DataLad Catalog and how to employ its basic features
 and configure a browser-based catalog from structured metadata. Congrats!
 
 You might want to explore further to find out how to build more advanced metadata handling and
-catalog generation workflows. If so, please stay tuned for more content that will come soon!
+catalog generation workflows, or to learn how to use additional features. If so, please visit
+`DataLad Catalog's user documentation <https://docs.datalad.org/projects/catalog/en/latest>`_.

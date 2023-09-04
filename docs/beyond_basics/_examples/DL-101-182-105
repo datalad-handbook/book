@@ -1,4 +1,6 @@
-$ datalad catalog validate --metadata toy_metadata.jsonl
-[INFO] Validating metadata
-[INFO] Validation completed
-catalog_validate(ok): toy_metadata.jsonl [Metadata successfully validated]
+$ datalad catalog-validate --metadata toy_metadata.jsonl
+catalog_validate(ok): /private/tmp/me/catalog
+catalog_validate(ok): /private/tmp/me/catalog
+catalog_validate(ok): /private/tmp/me/catalog
+action summary:
+  catalog_validate (ok: 3)

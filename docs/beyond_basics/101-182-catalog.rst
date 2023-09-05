@@ -141,7 +141,7 @@ the process of catalog generation. These include ``catalog-``:
 Creating a new catalog
 """"""""""""""""""""""
 
-With the ``datalad-create`` command, you can create a new catalog. Let's try it out!
+With the ``catalog-create`` command, you can create a new catalog. Let's try it out!
 
 .. runrecord:: _examples/DL-101-182-102
    :language: console

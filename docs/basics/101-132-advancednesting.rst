@@ -17,8 +17,8 @@ completely stand-alone history:
    $ git log --oneline
 
 In principle, this is no news to you. From section :ref:`nesting` and the
-YODA principles you already know that nesting allows for a modular re-use of
-any other DataLad dataset, and that this re-use is possible and simple
+YODA principles you already know that nesting allows for a modular reuse of
+any other DataLad dataset, and that this reuse is possible and simple
 precisely because all of the information is kept within a (sub)dataset.
 
 What is new now, however, is that you applied changes to the dataset. While

@@ -24,7 +24,7 @@ systems. They do not cover the various :term:`DataLad extension`'s that need to 
    :name: fom-py2v3
    :float: tbp
 
-   DataLad requires Python 3.6, or a more recent version, to be installed on
+   DataLad requires Python 3.8, or a more recent version, to be installed on
    your system. The easiest way to verify that this is the case is to open a
    terminal and type :shcmd:`python` to start a Python session:
 

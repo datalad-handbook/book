@@ -1,20 +1,25 @@
 docs/_build
 .ignored
 .idea
+
 # Ignore irrelevant files from the Sublime Text editor
 *.sublime-workspace
 *.sublime-project
+
 # Ignore irrelevant files from the VS code editor
 .vscode/
+
 # Ignore .hgignore for contributors using Mercurial.
 .hgignore
+
 # Ignore files generated during build
 build/
+
 venv/
+
 *.egg-info
+
 __pycache__
+
 *.swp
 venvs
-.Rproj.user
-.Rhistory
-02_dataladhandbook-myfork.Rproj

@@ -63,7 +63,7 @@ They then explain:
 
 Max is thanking Bobby for the insights.
 Before leaving, Bobby gives an additional advice: Our template uses "pure Git" repositories, DataLad functions will work but they will not use git-annex. 
-Looking at Max incredule face, they explain further: you will now be able to use datalad to manage the submodules and save them all at once, but big files will be added to Git, this will make it unusable very fast. 
+Looking at Max incredulous stare, they explain further: you will now be able to use datalad to manage the submodules and save them all at once, but big files will be added to Git, this will make it unusable very fast. 
 So you need to turn this pure Git repository into proper :term:`DataLad dataset` (meaning a Git repository with additional features from :term:`git-annex` and DataLad).
 
 Max is a bit puzzled and read the basics chapter of the handbook again.
@@ -107,17 +107,17 @@ Running code
 ^^^^^^^^^^^^
 
 The code use relative path starting in the parent repository, as they are used to do in normal projects, and since the code is run from there in Rstudio.
- (Later on, Max realise he can also use git commands from inside the analysis submodule, and he creates a second Rstudio project in that submodule, just to use the git functions he is used to. Code is run from the parent Rstudio project.)
+ (Later on, Max realize he can also use git commands from inside the analysis submodule, and he creates a second Rstudio project in that submodule, just to use the git functions he is used to. Code is run from the parent Rstudio project.)
 
 Max is now happy and start working on his code. 
 In order to test everything, Max put a text file in the data submodule, and write a script that read the file and produce a pdf writing the text as an image.
 He runs the code and it works!
 He know save it with ``datalad save -r``.
-He runs the code again and... oups it fails.
+He runs the code again and... ups it fails.
 
 Max thinks a bit about it and remember what he learned before: the pdf file has been annexed and cannot be overwritten.
 Max therefore runs ``datalad unlock . -r`` and then runs the code, and it works.
-Max realise also that using ``datalad save . -r`` lock the files again, 
+Max realize also that using ``datalad save . -r`` lock the files again, 
 it does it also if there is no change in the repository (and therefore no commit made).
 
 At the coffee break, Max meets Bobby and complain about the process.
@@ -134,11 +134,11 @@ Because datalad runs in the terminal, it needs a terminal command to run the scr
 For R, that command is "Rscript": ``datalad run Rscript "<path-to-script.r>"``.
 The path is relative to where the terminal is, the terminal tab is per default in the working directory of the project. If your code is in a submodule and the data is in another one, you should run this command from the parent repository.
 
-(Bobby needs here to make sure Rscript is a recognised command and set the PATH variable accordingly.)
+(Bobby needs here to make sure Rscript is a recognized command and set the PATH variable accordingly.)
 
 "What are the advantages of using this command", asks Max.
 
-There are twofolds (at least), answers Bobby.
+There are twofold (at least), answers Bobby.
 First, this command will take care of obtaining input files and unlocking output files for you.
 Second, and most importantly, the command will record what has been done in the commit message automatically: what input, what script, what output was used.
 This code therefore records **provenance**: you will always be able to find what workflow and data version was used to create your figures.

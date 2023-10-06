@@ -191,21 +191,21 @@ a good message <fom-commit-message-guidance>`.
    :name: fom-commit-message-guidance
    :float: tbp
 
-    **DOs**
+   **DOs**
 
-    - Write a *title line* with 72 characters or less
+   - Write a *title line* with 72 characters or less
 
-    - Use imperative voice, e.g., "Add notes from lecture 2"
+   - Use imperative voice, e.g., "Add notes from lecture 2"
 
-    - If a title line is not enough to express your changes and reasoning behind it, add a body to your commit message: hit enter twice (before closing the quotation marks), and continue writing a brief summary of the changes after a blank line. This summary should explain "what" has been done and "why", but not "how". Close the quotation marks, and hit enter to save the change with your message.
+   - If a title line is not enough to express your changes and reasoning behind it, add a body to your commit message: hit enter twice (before closing the quotation marks), and continue writing a brief summary of the changes after a blank line. This summary should explain "what" has been done and "why", but not "how". Close the quotation marks, and hit enter to save the change with your message.
 
-    **DON'Ts**
+   **DON'Ts**
 
-    - Avoid passive voice
+   - Avoid passive voice
 
-    - Extensive formatting (hashes, asterisks, quotes, ...) will most likely make your shell complain
+   - Extensive formatting (hashes, asterisks, quotes, ...) will most likely make your shell complain
 
-    - Do not say nasty things about other people
+   - Do not say nasty things about other people
 
 .. gitusernote:: There is no staging area in DataLad
 

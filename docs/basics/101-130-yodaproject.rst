@@ -177,12 +177,12 @@ independent dataset from scratch in a :ref:`dedicated Findoutmore <fom-iris>`.
    `GitHub Gist <https://gist.github.com/netj/8836201>`__, a code snippet, or other short standalone information with a
    :dlcmd:`download-url` command:
 
-    .. runrecord:: _examples/DL-101-130-102
-       :workdir: dl-101
-       :language: console
+   .. runrecord:: _examples/DL-101-130-102
+      :workdir: dl-101
+      :language: console
 
-       $ cd iris_data
-       $ datalad download-url https://gist.githubusercontent.com/netj/8836201/raw/6f9306ad21398ea43cba4f7d537619d0e07d5ae3/iris.csv
+      $ cd iris_data
+      $ datalad download-url https://gist.githubusercontent.com/netj/8836201/raw/6f9306ad21398ea43cba4f7d537619d0e07d5ae3/iris.csv
 
    Finally, we *published* the dataset  to :term:`GitHub`.
 

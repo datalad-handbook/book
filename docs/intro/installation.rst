@@ -26,7 +26,9 @@ systems. They do not cover the various :term:`DataLad extension`'s that need to 
 
    DataLad requires Python 3.6, or a more recent version, to be installed on
    your system. The easiest way to verify that this is the case is to open a
-   terminal and type :shcmd:`python` to start a Python session::
+   terminal and type :shcmd:`python` to start a Python session:
+
+   .. code-block:: bash
 
      $ python
      Python 3.9.1+ (default, Jan 20 2021, 14:49:22)
@@ -194,7 +196,9 @@ First, install the homebrew package manager, which requires `Xcode
 <https://apps.apple.com/us/app/xcode/id497799835>`_ to be installed from the
 Mac App Store.
 
-Next, install datalad and its dependencies::
+Next, install datalad and its dependencies:
+
+.. code-block:: bash
 
    $ brew install datalad
 
@@ -208,7 +212,9 @@ Python's package manager <fom-macosx-pip>`.
 
    If Git/git-annex are installed already (via brew), DataLad can also be
    installed via Python's package manager ``pip``, which should be installed
-   by default on your system::
+   by default on your system:
+
+   .. code-block:: bash
 
      $ pip install datalad
 
@@ -216,7 +222,9 @@ Python's package manager <fom-macosx-pip>`.
    completion` to find out which is installed.
 
    Recent macOS versions may warn after installation that scripts were installed
-   into locations that were not on ``PATH``::
+   into locations that were not on ``PATH``:
+
+   .. code-block:: text
 
      The script chardetect is installed in
      '/Users/MYUSERNAME/Library/Python/3.7/bin' which is not on PATH.
@@ -400,7 +408,9 @@ a user's home directory:
 
    $ pip install --user datalad
 
-On some systems, in particular macOS, you may need to call ``pip3`` instead of ``pip``::
+On some systems, in particular macOS, you may need to call ``pip3`` instead of ``pip``:
+
+.. code-block:: bash
 
    $ pip3 install datalad
    # or, in case of a "permission denied error":

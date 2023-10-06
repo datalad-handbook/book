@@ -3,24 +3,27 @@ $ cat data-cat/metadata/5df8eb3a-95c5-11ea-b4b9-a0369f287950/dae38cf901995aace0d
 {
   "type": "dataset",
   "dataset_id": "5df8eb3a-95c5-11ea-b4b9-a0369f287950",
-  "dataset_version": "dae38cf901995aace0dde5346515a0134f919523",
+  "dataset_version": "dae38cf9✂SHA1",
   "children": [
     {
       "type": "file",
       "dataset_id": "5df8eb3a-95c5-11ea-b4b9-a0369f287950",
-      "dataset_version": "dae38cf901995aace0dde5346515a0134f919523",
+      "dataset_version": "dae38cf9✂SHA1",
       "contentbytesize": 1403,
       "path": "README",
-      "extractors_used": [
-        {
-          "extractor_name": "stephan_manual",
-          "extractor_version": "1",
-          "extraction_parameter": {},
-          "extraction_time": 1652340647,
-          "agent_name": "Stephan Heunis",
-          "agent_email": ""
-        }
-      ],
+      "metadata_sources": {
+        "key_source_map": {},
+        "sources": [
+          {
+            "source_name": "stephan_manual",
+            "source_version": "1",
+            "source_parameter": {},
+            "source_time": 1652340647,
+            "agent_name": "Stephan Heunis",
+            "agent_email": ""
+          }
+        ]
+      },
       "name": "README"
     },
     {
@@ -28,17 +31,44 @@ $ cat data-cat/metadata/5df8eb3a-95c5-11ea-b4b9-a0369f287950/dae38cf901995aace0d
       "name": "main_data",
       "path": "main_data",
       "dataset_id": "5df8eb3a-95c5-11ea-b4b9-a0369f287950",
-      "dataset_version": "dae38cf901995aace0dde5346515a0134f919523"
+      "dataset_version": "dae38cf9✂SHA1"
     }
   ],
-  "name": "My toy dataset",
+  "metadata_sources": {
+    "key_source_map": {
+      "short_name": [
+        "stephan_manual"
+      ],
+      "url": [
+        "stephan_manual"
+      ],
+      "license": [
+        "stephan_manual"
+      ],
+      "authors": [
+        "stephan_manual"
+      ],
+      "keywords": [
+        "stephan_manual"
+      ],
+      "funding": [
+        "stephan_manual"
+      ]
+    },
+    "sources": [
+      {
+        "source_name": "stephan_manual",
+        "source_version": "1",
+        "source_parameter": {},
+        "source_time": 1652340647,
+        "agent_name": "Stephan Heunis",
+        "agent_email": ""
+      }
+    ]
+  },
+  "name": null,
   "short_name": "My toy dataset",
-  "description": [
-    {
-      "source": "stephan_manual",
-      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec justo tellus. Nunc sagittis eleifend magna, eu blandit arcu tincidunt eu. Mauris pharetra justo nec volutpat euismod. Curabitur bibendum vitae nunc a pharetra. Donec non rhoncus risus, ac consequat purus. Pellentesque ultricies ut enim non luctus. Sed viverra dolor enim, sed blandit lorem interdum sit amet. Aenean tincidunt et dolor sit amet tincidunt. Vivamus in sollicitudin ligula. Curabitur volutpat sapien erat, eget consectetur mauris dapibus a. Phasellus fringilla justo ligula, et fringilla tortor ullamcorper id. Praesent tristique lacus purus, eu convallis quam vestibulum eget. Donec ullamcorper mi neque, vel tincidunt augue porttitor vel."
-    }
-  ],
+  "description": null,
   "url": "https://github.com/jsheunis/multi-echo-super",
   "license": {
     "name": "CC BY 4.0",
@@ -61,39 +91,32 @@ $ cat data-cat/metadata/5df8eb3a-95c5-11ea-b4b9-a0369f287950/dae38cf901995aace0d
       "identifier": "No. 42",
       "description": "Nothing to see here"
     }
-  ],
-  "extractors_used": [
-    {
-      "extractor_name": "stephan_manual",
-      "extractor_version": "1",
-      "extraction_parameter": {},
-      "extraction_time": 1652340647,
-      "agent_name": "Stephan Heunis",
-      "agent_email": ""
-    }
   ]
 }
 {
   "type": "directory",
   "dataset_id": "5df8eb3a-95c5-11ea-b4b9-a0369f287950",
-  "dataset_version": "dae38cf901995aace0dde5346515a0134f919523",
+  "dataset_version": "dae38cf9✂SHA1",
   "children": [
     {
       "type": "file",
       "dataset_id": "5df8eb3a-95c5-11ea-b4b9-a0369f287950",
-      "dataset_version": "dae38cf901995aace0dde5346515a0134f919523",
+      "dataset_version": "dae38cf9✂SHA1",
       "contentbytesize": 15572,
       "path": "main_data/main_results.png",
-      "extractors_used": [
-        {
-          "extractor_name": "stephan_manual",
-          "extractor_version": "1",
-          "extraction_parameter": {},
-          "extraction_time": 1652340647,
-          "agent_name": "Stephan Heunis",
-          "agent_email": ""
-        }
-      ],
+      "metadata_sources": {
+        "key_source_map": {},
+        "sources": [
+          {
+            "source_name": "stephan_manual",
+            "source_version": "1",
+            "source_parameter": {},
+            "source_time": 1652340647,
+            "agent_name": "Stephan Heunis",
+            "agent_email": ""
+          }
+        ]
+      },
       "name": "main_results.png"
     }
   ],

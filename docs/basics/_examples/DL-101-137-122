@@ -1,7 +1,7 @@
 
-$ git checkout afa2884ebb38d125c0a9e3331f3a217c47ad76c7
+$ git checkout afa2884e✂SHA1
 warning: unable to rmdir 'midterm_project': Directory not empty
-Note: switching to 'afa2884ebb38d125c0a9e3331f3a217c47ad76c7'.
+Note: switching to 'afa2884e✂SHA1'.
 
 You are in 'detached HEAD' state. You can look around, make experimental
 changes and commit them, and you can discard any commits you make in this

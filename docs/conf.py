@@ -34,26 +34,35 @@ autorunrecord_basedir = '/home/me'
 autorunrecord_line_replace = [
     # trailing space removal
     (r'[ ]+$', ''),
+    # strip the keydir for MD5(E) or SHA1(E) annex keys
+    # the keydir is identical to the annex key name, but consumes
+    # a lot of space. we replace it with a UTF scissors icon
+    (r'(?P<prefix>.*)/(?P<key>[MD5SHA1]+[E-]+s[0-9]+--[0-9a-f]{32,40})(?P<ext>[^/]*)/(?P=key)(?P=ext)(?P<suffix>.*)',
+     r'\g<prefix>/✂/\g<key>\g<ext>\g<suffix>'),
     # Python debug output will contain random memory locations
-    (r'object at 0x[0-9a-f]{12}>', 'object at REDACTED-MEMORYADDRESS'),
+    (r'object at 0x[0-9a-f]{12}>', 'object at ✂MEMORYADDRESS✂'),
     # branch state indicators will always be different for git-annex
     # (branch contains timestamps)
-    (r'git-annex@[0-9a-f]{7}', 'git-annex@<REDACTED-GITSHA>'),
+    (r'git-annex@[0-9a-f]{7}', 'git-annex@✂GITSHA✂'),
     (r'refs/heads/git-annex(?P<whitey>[ ]+)[0-9a-f]{7}\.\.[0-9a-f]{7}',
-     'refs/heads/git-annex\g<whitey>FROM..TO (REDACTED)'),
+     'refs/heads/git-annex\g<whitey>✂FROM✂..✂TO✂'),
     # ls -l output will have times and user names
     # normalize to 'elena' and the "standard timestamp"
     # this only works when ls --time-style=long-iso was used
     (r'(?P<perms>[-ldrwx]{10})[ ]+(?P<size1>[^ ]+)[ ]+(?P<user>[^ ]+)[ ]+(?P<group>[^ ]+)[ ]+(?P<size2>[^ ]+)[ ]+(?P<date>[^ ]+)[ ]+(?P<time>[^ ]+)',
-     '\g<perms> \g<size1> elena elena \g<size2> 2019-06-18 16:13'),
+     r'\g<perms> \g<size1> elena elena \g<size2> 2019-06-18 16:13'),
     # we cannot fix git-annex's location IDs, filter them out
     (r'annex-uuid = [0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}',
-     'annex-uuid = REDACTED-RANDOM-UUID'),
+     'annex-uuid = ✂UUID✂'),
     (r'[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12} -- (?!web)',
-     'REDACTED-UUID -- '),
+     '✂UUID✂ -- '),
     # Filter out needless git status info that adds randomness to the output
     (r'Delta compression using up to.*', 'Delta compression'),
-    ('Total .*delta.*, reused .*delta.*$', 'REDACTED COMPRESSION STATS'),
+    ('Total .*delta.*, reused .*delta.*$', '✂COMPRESSION STATS✂'),
+    # truncate any SHA1 or MD5 to the first 8 chars
+    # should still be functional and save 30+% of line length
+    (r'(?P<lead>[0-9a-f]{8})[0-9a-f]{32}', r'\g<lead>✂SHA1'),
+    (r'(?P<lead>[0-9a-f]{8})[0-9a-f]{24}', r'\g<lead>✂MD5'),
 ]
 # pre-crafted artificial environment to run the code examples in
 # start with all datalad settings
@@ -206,6 +215,7 @@ pygments_style = 'tango'
 # A list of ignored prefixes for module index sorting.
 #modindex_common_prefix = []
 
+# this is now (largely?) unused and replaced by the {dl|git|gitannex}cmd roles
 manpages_url = 'https://docs.datalad.org/generated/man/{page}.html'
 
 # numbered figures for better referencing
@@ -325,8 +335,8 @@ latex_documents = [
   (
       'book_main',
       'dataladhandbook.tex',
-      u'The DataLad Handbook',
-      u'',
+      'The DataLad Handbook',
+      '',
       'manual'),
 ]
 
@@ -339,6 +349,12 @@ latex_additional_files = [
     '../artwork/more_boxicon.pdf',
     '../artwork/more_boxicon_inline.pdf',
     '../artwork/win_boxicon.pdf',
+    # the following files are included in the main latex document
+    # in the order with which the are listed here
+    'latex/preamble_start.sty',
+    'latex/fontpkg.sty',
+    'latex/preamble_end.sty',
+    'latex/titlepage.sty',
 ]
 
 latex_toplevel_sectioning = 'part'
@@ -348,6 +364,10 @@ latex_elements = {
     'papersize': 'a4paper',
     'pointsize': '11pt',
     'figure_align': 'htbp',
+    'extraclassoptions': 'openany,twoside',
+    'passoptionstopackages': r'\input{preamble_start.sty}',
+    'fontpkg': r'\input{fontpkg.sty}',
+    'fncychap': r'\usepackage[Bjarne]{fncychap}',
     'sphinxsetup': r"""
 verbatimwithframe=false,%
 VerbatimColor={rgb}{1,1,1},%
@@ -363,152 +383,14 @@ cautionborder=3pt,%
 cautionBorderColor={named}{Cyan},%
 cautionBgColor={named}{LightCyan}%
 """,
-    'maketitle': r"""
-\begin{titlepage}
-\raggedleft
-\rule{1pt}{\textheight}
-\hspace{0.05\textwidth}
-\parbox[b]{0.75\textwidth}{
-\hfill{\footnotesize %s}\\[1\baselineskip]
-\includegraphics[width=0.75\textwidth]{logo.pdf}\\
-{\Huge\textbf{Handbook}}\\
-{\Large Introduction \textbullet\ Advanced topics \textbullet\ Use cases}\\[2\baselineskip]
-{\Large\textsc{Adina~Wagner \& Michael~Hanke}\\[1\baselineskip]
-{\small \textit{with}}\\[1\baselineskip]
-{
-\raggedright
-%s\\
-}}
+    'preamble': r'\input{preamble_end.sty}',
+    'maketitle':
+        '%s%s%s\n\\input{titlepage.sty}' % (
+            r'\newcommand{\withauthors}{',
+            ', '.join('\\mbox{%s}' % a for a in authors[1:-1]),
+            '}',
+        ),
 }
-\end{titlepage}
-""" % (
-        release,
-        ', '.join('\\mbox{%s}' % a for a in authors[1:-1]),
-    ),
-    'extraclassoptions': 'openany,twoside',
-    'fncychap': r'\usepackage[Bjarne]{fncychap}',
-    'passoptionstopackages': r'\PassOptionsToPackage{svgnames}{xcolor}',
-    'preamble': r"""
-\usepackage[labelfont=bf,singlelinecheck=false]{caption}
-\renewcommand{\sphinxstyletheadfamily}{\bfseries}
-\usepackage{charter}
-\usepackage[defaultsans]{lato}
-\usepackage{inconsolata}
-\usepackage[hang,flushmargin,multiple]{footmisc}
-
-% make sure that loooong URLs always break
-\usepackage{xurl}
-% make sure all float stay in their respective chapter
-%\usepackage[chapter]{placeins}
-
-% make enough room for the auto-generated header content
-\setlength{\headheight}{13.6pt}
-
-\usepackage{xcolor}
-\definecolor{dataladyellow}{HTML}{FFA200}
-\definecolor{dataladblue}{HTML}{7FD5FF}
-\definecolor{dataladgray}{HTML}{333333}
-\definecolor{windowsblue}{HTML}{126e12}
-\definecolor{windowsgreen}{HTML}{66CC33}
-\definecolor{windowsyellow}{HTML}{FFCC00}
-
-% nice boxes
-\usepackage[skins,breakable,many]{tcolorbox}
-\tcbset{breakable}
-\tcbset{drop lifted shadow}
-\tcbset{sharp corners}
-\tcbset{fonttitle=\bfseries}
-
-\tcbset{%
-ribbon win/.style={overlay={
-  \begin{scope}[shift={([xshift=-5mm,yshift=-3mm]frame.north west)}]
-    \path(0,0) node[inner sep=0] {\includegraphics{win_boxicon}};
-  \end{scope}}}
-}
-\tcbset{%
-ribbon git/.style={overlay={
-  \begin{scope}[shift={([xshift=-5mm,yshift=-3mm]frame.north west)}]
-    \path(0,0) node[inner sep=0] {\includegraphics{git_boxicon}};
-  \end{scope}}}
-}
-\tcbset{%
-ribbon more/.style={overlay={
-  \begin{scope}[shift={([xshift=-5mm,yshift=-3mm]frame.north west)}]
-    \path(0,0) node[inner sep=0] {\includegraphics{more_boxicon}};
-  \end{scope}}}
-}
-\tcbset{%
-ribbon important/.style={overlay={
-  \begin{scope}[shift={([xshift=-5mm,yshift=-3mm]frame.north west)}]
-    \path(0,0) node[inner sep=0] {\includegraphics{important_boxicon}};
-  \end{scope}}}
-}
-
-\newcounter{HandbookWIN}[chapter]
-\renewcommand\theHandbookWIN{W\arabic{chapter}.\arabic{HandbookWIN}}
-\newtcolorbox[%
-  use counter*=HandbookWIN,
-  number within=chapter,
-  list inside=windowswits]{windowswit}[2][]{%
-    enhanced, ribbon win, title={#2},
-    coltitle=dataladgray,
-    colbacktitle=windowsgreen,
-    colframe=windowsgreen!70!black, #1
-}
-\newcounter{HandbookGIT}[chapter]
-\renewcommand\theHandbookGIT{G\arabic{chapter}.\arabic{HandbookGIT}}
-\newtcolorbox[%
-  use counter*=HandbookGIT,
-  number within=chapter,
-  list inside=gitusernotes]{gitusernote}[2][]{%
-    enhanced, ribbon git, title={#2},
-    coltitle=dataladgray,
-    colbacktitle=dataladblue,
-    colframe=dataladblue!70!black, #1
-}
-\newcounter{HandbookFOM}[chapter]
-\renewcommand\theHandbookFOM{M\arabic{chapter}.\arabic{HandbookFOM}}
-\newtcolorbox[
-  use counter*=HandbookFOM,
-  number within=chapter,
-  list inside=findoutmores]{findoutmore}[2][]{%
-    enhanced, ribbon more, title={#2},
-    coltitle=dataladgray,
-    colbacktitle=dataladyellow,
-    colframe=dataladyellow!70!black, #1
-}
-% unnumbered, they are short and placed at the exact position
-% must change we there are in-text references
-\newtcolorbox[
-  number within=chapter,
-  list inside=importantnotes]{importantnote}[2][]{%
-    enhanced, ribbon important, title={#2},
-    coltitle=white,
-    colbacktitle=dataladgray,
-    colframe=dataladgray!70!black, #1
-}
-
-\setcounter{tocdepth}{1}
-\setcounter{secnumdepth}{1}
-
-\numberwithin{table}{chapter}
-\numberwithin{figure}{chapter}
-
-% natural spacing between (long) numbers and titles in
-% any TOC
-\renewcommand{\numberline}[1]{#1~}
-
-
-\newcommand{\findoutmoreiconinline}{\raisebox{-.1em}{\includegraphics[height=.9em]{more_boxicon_inline}}~}
-\newcommand{\windowswiticoninline}{\raisebox{-.3em}{\includegraphics[height=1.2em]{win_boxicon}}~}
-
-% make :term: references visually distinct in a print
-\renewcommand{\sphinxtermref}[1]{\textsc{#1}}
-""",
-}
-
-# Documents to append as an appendix to all manuals.
-#latex_appendices = []
 
 # If false, no module index is generated.
 #latex_domain_indices = True

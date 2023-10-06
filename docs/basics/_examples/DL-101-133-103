@@ -1,5 +1,5 @@
 $ git log -n 1 -p
-commit 537f58153065f47df577a422ad3506fec0109b73
+commit 537f5815✂SHA1
 Author: Elena Piscopia <elena@example.net>
 Date:   Tue Jun 18 16:13:00 2019 +0000
 
@@ -21,5 +21,5 @@ index 0000000..75c8b41
 --- /dev/null
 +++ b/.datalad/environments/midterm-software/image
 @@ -0,0 +1 @@
-+../../../.git/annex/objects/F1/K3/MD5E-s230694943--944b0300fab145c7ebbd86078498b393/MD5E-s230694943--944b0300fab145c7ebbd86078498b393
++../../../.git/annex/objects/F1/K3/✂/MD5E-s230694943--944b0300✂MD5
 \ No newline at end of file

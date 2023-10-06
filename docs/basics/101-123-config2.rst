@@ -39,7 +39,9 @@ you will recognize it as a reference to the type of
 key used by git-annex to identify and store file content in the object-tree.
 The first row, ``* annex.backend=MD5E``, therefore translates to "Everything in this
 directory should be hashed with a MD5E hash function".
-But what is the rest? We'll start with the last row::
+But what is the rest? We'll start with the last row:
+
+.. code-block:: bash
 
    * annex.largefiles=((mimeencoding=binary)and(largerthan=0))
 
@@ -75,7 +77,9 @@ However, rules can be even simpler. The second row simply takes a complete direc
 The second row, ``**/.git* annex.largefiles=nothing`` means that no
 ``.git`` repository in this directory or a subdirectory should be considered
 a "large file". This way, the ``.git`` repositories are protected from being annexed.
-If you had a single file (``myfile.pdf``) you would not want annexed, specifying a rule such as::
+If you had a single file (``myfile.pdf``) you would not want annexed, specifying a rule such as:
+
+.. code-block:: bash
 
    myfile.pdf annex.largefiles=nothing
 
@@ -91,7 +95,9 @@ and view this dataset's ``.gitattributes`` file:
 The relevant part is ``README.md annex.largefiles=nothing``.
 This instructs git-annex to specifically not annex ``README.md``.
 
-Lastly, if you wanted to configure a rule based on **size**, you could add a row such as::
+Lastly, if you wanted to configure a rule based on **size**, you could add a row such as:
+
+.. code-block:: bash
 
    ** annex.largefiles(largerthan=20kb)
 
@@ -538,7 +544,9 @@ Write a note about configurations in datasets into ``notes.txt``.
          has MIME type ``text/plain`` as does a bash script (``.sh``), a Python
          script has MIME type ``text/x-python``, a ``.jpg`` file is ``image/jpg``, and
          a ``.pdf`` file has MIME type ``application/pdf``. You can find out the MIME type
-         of a file by running::
+         of a file by running:
+
+         .. code-block:: bash
 
             $ file --mime-type path/to/file
 
@@ -546,7 +554,9 @@ Write a note about configurations in datasets into ``notes.txt``.
          "portable" -- shared copies of your dataset will retain these configurations.
          You could however also set largefiles rules in your ``.git/config`` file. Rules
          specified in there take precedence over rules in ``.gitattributes``. You can set
-         them using the :gitcmd:`config` command::
+         them using the :gitcmd:`config` command:
+
+         .. code-block:: bash
 
             $ git config annex.largefiles 'largerthan=100kb and not (include=*.c or include=*.h)'
 

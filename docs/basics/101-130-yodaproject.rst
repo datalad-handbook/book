@@ -25,7 +25,9 @@ a Python API for DataLad's functionality that you can read about in :ref:`a Find
     Thus, DataLad's functionality can also be used within interactive Python sessions
     or Python scripts.
     All of DataLad's user-oriented commands are exposed via ``datalad.api``.
-    Thus, any command can be imported as a stand-alone command like this::
+    Thus, any command can be imported as a stand-alone command like this:
+
+    .. code-block:: python
 
        >>> from datalad.api import <COMMAND>
 
@@ -42,11 +44,15 @@ a Python API for DataLad's functionality that you can read about in :ref:`a Find
     of DataLad lists an overview of all commands, but naming is congruent to the
     command line interface. The only functionality that is not available at the
     command line is ``datalad.api.Dataset``, DataLad's core Python data type.
-    Just like any other command, it can be imported like this::
+    Just like any other command, it can be imported like this:
+
+    .. code-block:: python
 
        >>> from datalad.api import Dataset
 
-    or like this::
+    or like this:
+
+    .. code-block:: python
 
        >>> import datalad.api as dl
        >>> dl.Dataset()
@@ -56,7 +62,9 @@ a Python API for DataLad's functionality that you can read about in :ref:`a Find
     stand-alone commands, all of DataLad's functionality is also available via
     `methods <https://docs.python.org/3/tutorial/classes.html#method-objects>`_
     of this class. Thus, these are two equally valid ways to create a new
-    dataset with DataLad in Python::
+    dataset with DataLad in Python:
+
+    .. code-block:: python
 
        >>> from datalad.api import create, Dataset
        # create as a stand-alone command
@@ -76,7 +84,9 @@ a Python API for DataLad's functionality that you can read about in :ref:`a Find
     ``-d/--dataset`` option in their command-line equivalent. You can specify
     the ``dataset=`` argument with a path (string) to your dataset (such as
     ``dataset='.'`` for the current directory, or ``dataset='path/to/ds'`` to
-    another location). Alternatively, you can pass a ``Dataset`` instance to it::
+    another location). Alternatively, you can pass a ``Dataset`` instance to it:
+
+    .. code-block:: python
 
         >>> from datalad.api import save, Dataset
         # use save with dataset specified as a path
@@ -335,9 +345,10 @@ To compute the analysis you create the following Python script inside of ``code/
    Y = array[:,4]
    test_size = 0.20
    seed = 7
-   X_train, X_test, Y_train, Y_test = model_selection.train_test_split(X, Y,
-                                                                       test_size=test_size,
-                                                                       random_state=seed)
+   X_train, X_test, Y_train, Y_test = model_selection.train_test_split(
+       X, Y,
+       test_size=test_size,
+       random_state=seed)
    # Step 2: Fit the model and make predictions on the test dataset
    knn = KNeighborsClassifier()
    knn.fit(X_train, Y_train)
@@ -418,7 +429,9 @@ point with the ``--version-tag`` option of :dlcmd:`save`.
    was added.
    Later we can use this tag to identify the point in time at which
    the analysis setup was ready -- much more intuitive than a 40-character shasum!
-   This is handy in the context of a :dlcmd:`rerun` for example::
+   This is handy in the context of a :dlcmd:`rerun` for example:
+
+   .. code-block:: bash
 
       $ datalad rerun --since ready4analysis
 
@@ -450,7 +463,9 @@ re-execution with :dlcmd:`rerun` easy.
 .. windows-wit:: You may need to use "python", not "python3"
 
    If executing the code below returns an exit code of 9009, there may be no ``python3`` -- instead, it is called solely ``python``.
-   Please run the following instead (adjusted for line breaks, you should be able to copy-paste this as a whole)::
+   Please run the following instead (adjusted for line breaks, you should be able to copy-paste this as a whole):
+
+   .. code-block:: bash
 
       datalad run -m "analyze iris data with classification analysis" ^
        --input "input/iris.csv" ^
@@ -735,11 +750,15 @@ an additional :gitcmd:`push`  with the ``--tags`` option is required:
     on a per-sibling basis in ``.git/config`` in the ``remote.*.push``
     configuration. If you had a :term:`sibling` "github", the following
     configuration would push all tags that start with a ``v`` upon a
-    :dlcmd:`push --to github`::
+    :dlcmd:`push --to github`:
+
+    .. code-block:: bash
 
        $ git config --local remote.github.push 'refs/tags/v*'
 
-    This configuration would result in the following entry in ``.git/config``::
+    This configuration would result in the following entry in ``.git/config``:
+
+    .. code-block:: bash
 
        [remote "github"]
              url = git@github.com/adswa/midtermproject.git
@@ -854,7 +873,9 @@ reproduce your data science project easily from scratch (take a look into the :r
 
 .. [#f1] Note that you could have applied the YODA procedure not only right at
          creation of the dataset with ``-c yoda``, but also after creation
-         with the :dlcmd:`run-procedure` command::
+         with the :dlcmd:`run-procedure` command:
+
+         .. code-block:: bash
 
            $ cd midterm_project
            $ datalad run-procedure cfg_yoda

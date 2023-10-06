@@ -1,8 +1,8 @@
 
-$ git show 589c3c7494ea87aca1bbda5bec911b3cc1d1acaa | jq
+$ git show 589c3c74✂SHA1 | jq
 [
   {
-    "primary_data_version": "b3f02438b210c2bfbd4f0da79f2791c599c8856e",
+    "primary_data_version": "b3f02438✂SHA1",
     "time_stamp": "1677249905.6491013",
     "path": "",
     "dataset_tree": {
@@ -11,11 +11,11 @@ $ git show 589c3c7494ea87aca1bbda5bec911b3cc1d1acaa | jq
         "version": "2.0"
       },
       "class_name": "MTreeNode",
-      "location": "9ddcabd524e82d95f49404286551b78651361d99"
+      "location": "9ddcabd5✂SHA1"
     }
   },
   {
-    "primary_data_version": "96883aefec188338b3b3e8790fcad734819615a8",
+    "primary_data_version": "96883aef✂SHA1",
     "time_stamp": "1677249905.6497943",
     "path": "",
     "dataset_tree": {
@@ -24,11 +24,11 @@ $ git show 589c3c7494ea87aca1bbda5bec911b3cc1d1acaa | jq
         "version": "2.0"
       },
       "class_name": "MTreeNode",
-      "location": "dc8f749180c4e5e968d9e0f54b69346c534b183f"
+      "location": "dc8f7491✂SHA1"
     }
   },
   {
-    "primary_data_version": "4bcda921e409b4806e991e2bddfa712c77090935",
+    "primary_data_version": "4bcda921✂SHA1",
     "time_stamp": "1677249905.6502168",
     "path": "",
     "dataset_tree": {
@@ -37,11 +37,11 @@ $ git show 589c3c7494ea87aca1bbda5bec911b3cc1d1acaa | jq
         "version": "2.0"
       },
       "class_name": "MTreeNode",
-      "location": "33e1f59d0548cecb7a4938bd98a0da9073053114"
+      "location": "33e1f59d✂SHA1"
     }
   },
   {
-    "primary_data_version": "c9f7737806d40c958f5f498fd1a060c0f2ddd5ff",
+    "primary_data_version": "c9f77378✂SHA1",
     "time_stamp": "1677249905.6506386",
     "path": "",
     "dataset_tree": {
@@ -50,11 +50,11 @@ $ git show 589c3c7494ea87aca1bbda5bec911b3cc1d1acaa | jq
         "version": "2.0"
       },
       "class_name": "MTreeNode",
-      "location": "b539974a32348d6867ae2f27f156bb2e118cfc8d"
+      "location": "b539974a✂SHA1"
     }
   },
   {
-    "primary_data_version": "1fdf34c1d6c63285c765113e1128adf1720bf243",
+    "primary_data_version": "1fdf34c1✂SHA1",
     "time_stamp": "1677249905.6510594",
     "path": "",
     "dataset_tree": {
@@ -63,11 +63,11 @@ $ git show 589c3c7494ea87aca1bbda5bec911b3cc1d1acaa | jq
         "version": "2.0"
       },
       "class_name": "MTreeNode",
-      "location": "ac9d80baa1489607421b88a64b12ff175f488783"
+      "location": "ac9d80ba✂SHA1"
     }
   },
   {
-    "primary_data_version": "734d1649f92c3a1d67d54e73185e33883feda9ef",
+    "primary_data_version": "734d1649✂SHA1",
     "time_stamp": "1677249905.6515157",
     "path": "",
     "dataset_tree": {
@@ -76,11 +76,11 @@ $ git show 589c3c7494ea87aca1bbda5bec911b3cc1d1acaa | jq
         "version": "2.0"
       },
       "class_name": "MTreeNode",
-      "location": "9c7b42ccd37e6095d2315f4c6ef3d87a3e1b9128"
+      "location": "9c7b42cc✂SHA1"
     }
   },
   {
-    "primary_data_version": "2a5737a7ba741481283e535ae6b61e75d1fcd44d",
+    "primary_data_version": "2a5737a7✂SHA1",
     "time_stamp": "1677249905.6519253",
     "path": "",
     "dataset_tree": {
@@ -89,11 +89,11 @@ $ git show 589c3c7494ea87aca1bbda5bec911b3cc1d1acaa | jq
         "version": "2.0"
       },
       "class_name": "MTreeNode",
-      "location": "f8dba9ab82d9f01f4d226c1ed33a5b26a1e9c377"
+      "location": "f8dba9ab✂SHA1"
     }
   },
   {
-    "primary_data_version": "dba9e0da671efbe129870a0cf9d9055c4bdc2276",
+    "primary_data_version": "dba9e0da✂SHA1",
     "time_stamp": "1677249905.6523588",
     "path": "",
     "dataset_tree": {
@@ -102,11 +102,11 @@ $ git show 589c3c7494ea87aca1bbda5bec911b3cc1d1acaa | jq
         "version": "2.0"
       },
       "class_name": "MTreeNode",
-      "location": "f3df96557a0708c1ef3e775ce6d61756c8fab83d"
+      "location": "f3df9655✂SHA1"
     }
   },
   {
-    "primary_data_version": "5d344fee1cd692e26da0ce4e7ef5ef6aa0f4e59c",
+    "primary_data_version": "5d344fee✂SHA1",
     "time_stamp": "1677249905.6528437",
     "path": "",
     "dataset_tree": {
@@ -115,11 +115,11 @@ $ git show 589c3c7494ea87aca1bbda5bec911b3cc1d1acaa | jq
         "version": "2.0"
       },
       "class_name": "MTreeNode",
-      "location": "942872577b5ada4f5e78194083819920f62b0730"
+      "location": "94287257✂SHA1"
     }
   },
   {
-    "primary_data_version": "4862b1dd8434e2e151f38e4c6b19617becae215b",
+    "primary_data_version": "4862b1dd✂SHA1",
     "time_stamp": "1677249905.653256",
     "path": "",
     "dataset_tree": {
@@ -128,11 +128,11 @@ $ git show 589c3c7494ea87aca1bbda5bec911b3cc1d1acaa | jq
         "version": "2.0"
       },
       "class_name": "MTreeNode",
-      "location": "72b9f0efea873c96a5d9e1086e6f85808be04e2d"
+      "location": "72b9f0ef✂SHA1"
     }
   },
   {
-    "primary_data_version": "927fa89d9ddfb8dad8cf652554090afcd08fcf1e",
+    "primary_data_version": "927fa89d✂SHA1",
     "time_stamp": "1677249905.6537495",
     "path": "",
     "dataset_tree": {
@@ -141,11 +141,11 @@ $ git show 589c3c7494ea87aca1bbda5bec911b3cc1d1acaa | jq
         "version": "2.0"
       },
       "class_name": "MTreeNode",
-      "location": "a21b7afaa7dfc2b01c00e8b7c2d675284149a4ef"
+      "location": "a21b7afa✂SHA1"
     }
   },
   {
-    "primary_data_version": "24cf1d6428d3e52e15136945f3bdff838e92825c",
+    "primary_data_version": "24cf1d64✂SHA1",
     "time_stamp": "1677249905.6543043",
     "path": "",
     "dataset_tree": {
@@ -154,11 +154,11 @@ $ git show 589c3c7494ea87aca1bbda5bec911b3cc1d1acaa | jq
         "version": "2.0"
       },
       "class_name": "MTreeNode",
-      "location": "6df5503ca9b7900a3273f0e6c500387e945671c3"
+      "location": "6df5503c✂SHA1"
     }
   },
   {
-    "primary_data_version": "608716ccd9ed56bb445db81a9c73d43aa902a84d",
+    "primary_data_version": "608716cc✂SHA1",
     "time_stamp": "1677249905.654619",
     "path": "",
     "dataset_tree": {
@@ -167,11 +167,11 @@ $ git show 589c3c7494ea87aca1bbda5bec911b3cc1d1acaa | jq
         "version": "2.0"
       },
       "class_name": "MTreeNode",
-      "location": "9c25a07bcce252305b64a4432c679d8c687632c9"
+      "location": "9c25a07b✂SHA1"
     }
   },
   {
-    "primary_data_version": "7d80d256827da2569c71e84f57151e0324169247",
+    "primary_data_version": "7d80d256✂SHA1",
     "time_stamp": "1677249905.6549146",
     "path": "",
     "dataset_tree": {
@@ -180,11 +180,11 @@ $ git show 589c3c7494ea87aca1bbda5bec911b3cc1d1acaa | jq
         "version": "2.0"
       },
       "class_name": "MTreeNode",
-      "location": "6bcafa8ab51c63e39f7765d28a74277437f0d6e0"
+      "location": "6bcafa8a✂SHA1"
     }
   },
   {
-    "primary_data_version": "089d0a8a2b22d87e63f8de28caf6fa91790ad51a",
+    "primary_data_version": "089d0a8a✂SHA1",
     "time_stamp": "1677249905.6551852",
     "path": "",
     "dataset_tree": {
@@ -193,11 +193,11 @@ $ git show 589c3c7494ea87aca1bbda5bec911b3cc1d1acaa | jq
         "version": "2.0"
       },
       "class_name": "MTreeNode",
-      "location": "97ef1f7042718c206f8a29f62bda3989c58a23ed"
+      "location": "97ef1f70✂SHA1"
     }
   },
   {
-    "primary_data_version": "ae851681646eed997d4d9e716bb5fc3e9a6c36e5",
+    "primary_data_version": "ae851681✂SHA1",
     "time_stamp": "1677249905.655501",
     "path": "",
     "dataset_tree": {
@@ -206,11 +206,11 @@ $ git show 589c3c7494ea87aca1bbda5bec911b3cc1d1acaa | jq
         "version": "2.0"
       },
       "class_name": "MTreeNode",
-      "location": "e12fe9171277f01d4594c3449c9651f795fdf5b1"
+      "location": "e12fe917✂SHA1"
     }
   },
   {
-    "primary_data_version": "66955e1d17782f93b4e0ec100f8f6e6e4e897c3c",
+    "primary_data_version": "66955e1d✂SHA1",
     "time_stamp": "1677249905.6558466",
     "path": "",
     "dataset_tree": {
@@ -219,11 +219,11 @@ $ git show 589c3c7494ea87aca1bbda5bec911b3cc1d1acaa | jq
         "version": "2.0"
       },
       "class_name": "MTreeNode",
-      "location": "1fe9d3def2ba10de82f9ac21bbb6b77abb34cda1"
+      "location": "1fe9d3de✂SHA1"
     }
   },
   {
-    "primary_data_version": "7b966eabe8e45acdf80d16865acd1cd96c516cde",
+    "primary_data_version": "7b966eab✂SHA1",
     "time_stamp": "1677249905.656139",
     "path": "",
     "dataset_tree": {
@@ -232,11 +232,11 @@ $ git show 589c3c7494ea87aca1bbda5bec911b3cc1d1acaa | jq
         "version": "2.0"
       },
       "class_name": "MTreeNode",
-      "location": "778aba3bc8020d0f65eeeb90a1bd55ae9196d1fe"
+      "location": "778aba3b✂SHA1"
     }
   },
   {
-    "primary_data_version": "ba052a5a18032a0a83d3009be7c1b02b4813f23c",
+    "primary_data_version": "ba052a5a✂SHA1",
     "time_stamp": "1677249905.6564295",
     "path": "",
     "dataset_tree": {
@@ -245,11 +245,11 @@ $ git show 589c3c7494ea87aca1bbda5bec911b3cc1d1acaa | jq
         "version": "2.0"
       },
       "class_name": "MTreeNode",
-      "location": "edfad1df67af7ca54d17f637cc89925bcecd1fde"
+      "location": "edfad1df✂SHA1"
     }
   },
   {
-    "primary_data_version": "8219d0afcbfe1397979bbbed1f9977c3ea6b8426",
+    "primary_data_version": "8219d0af✂SHA1",
     "time_stamp": "1677249905.6567576",
     "path": "",
     "dataset_tree": {
@@ -258,11 +258,11 @@ $ git show 589c3c7494ea87aca1bbda5bec911b3cc1d1acaa | jq
         "version": "2.0"
       },
       "class_name": "MTreeNode",
-      "location": "02744bd9c0cf6cab3890d8ace30b59ac1c1588db"
+      "location": "02744bd9✂SHA1"
     }
   },
   {
-    "primary_data_version": "43391d89c87fe984a55430d7dab4b3300dbb6851",
+    "primary_data_version": "43391d89✂SHA1",
     "time_stamp": "1677249905.6570334",
     "path": "",
     "dataset_tree": {
@@ -271,11 +271,11 @@ $ git show 589c3c7494ea87aca1bbda5bec911b3cc1d1acaa | jq
         "version": "2.0"
       },
       "class_name": "MTreeNode",
-      "location": "f937e00e1eac07f62c2eedfe11e96a5efb2905ba"
+      "location": "f937e00e✂SHA1"
     }
   },
   {
-    "primary_data_version": "afdc39738008c5c070590263874b8249544aefff",
+    "primary_data_version": "afdc3973✂SHA1",
     "time_stamp": "1677249905.657296",
     "path": "",
     "dataset_tree": {
@@ -284,11 +284,11 @@ $ git show 589c3c7494ea87aca1bbda5bec911b3cc1d1acaa | jq
         "version": "2.0"
       },
       "class_name": "MTreeNode",
-      "location": "b3468f977e44708ec5a8644a8610f31a5a5f2c27"
+      "location": "b3468f97✂SHA1"
     }
   },
   {
-    "primary_data_version": "f801161e170ae8b5b281e651df1dbe62fafa9614",
+    "primary_data_version": "f801161e✂SHA1",
     "time_stamp": "1677249905.6575809",
     "path": "",
     "dataset_tree": {
@@ -297,11 +297,11 @@ $ git show 589c3c7494ea87aca1bbda5bec911b3cc1d1acaa | jq
         "version": "2.0"
       },
       "class_name": "MTreeNode",
-      "location": "43c62b84b5dc7429d9133ad9a1f9421538e517f8"
+      "location": "43c62b84✂SHA1"
     }
   },
   {
-    "primary_data_version": "15f405a8e6b28ff641e8b3df0326aa06392341a1",
+    "primary_data_version": "15f405a8✂SHA1",
     "time_stamp": "1677249905.6578848",
     "path": "",
     "dataset_tree": {
@@ -310,11 +310,11 @@ $ git show 589c3c7494ea87aca1bbda5bec911b3cc1d1acaa | jq
         "version": "2.0"
       },
       "class_name": "MTreeNode",
-      "location": "c3c0f6d730d29b15fdb0a3fa68ee34dd721e734f"
+      "location": "c3c0f6d7✂SHA1"
     }
   },
   {
-    "primary_data_version": "c0b548cd8a69ce91330e55167f5c243ae4dc25ac",
+    "primary_data_version": "c0b548cd✂SHA1",
     "time_stamp": "1677249905.6581686",
     "path": "",
     "dataset_tree": {
@@ -323,11 +323,11 @@ $ git show 589c3c7494ea87aca1bbda5bec911b3cc1d1acaa | jq
         "version": "2.0"
       },
       "class_name": "MTreeNode",
-      "location": "28551fe3dfaaa1647f0f75440e103ff466a684b7"
+      "location": "28551fe3✂SHA1"
     }
   },
   {
-    "primary_data_version": "244a8ad43b00622989ae7f0d2b59c80697dadb80",
+    "primary_data_version": "244a8ad4✂SHA1",
     "time_stamp": "1677249905.6585097",
     "path": "",
     "dataset_tree": {
@@ -336,7 +336,7 @@ $ git show 589c3c7494ea87aca1bbda5bec911b3cc1d1acaa | jq
         "version": "2.0"
       },
       "class_name": "MTreeNode",
-      "location": "809e3e50990930aecb0fd52f68ca9d252567cdf1"
+      "location": "809e3e50✂SHA1"
     }
   }
 ]

@@ -1,5 +1,5 @@
 $ git log -p -n 1
-commit a7188cdedb3c419e297b982fc9e4b800969bb9f4
+commit a7188cde✂SHA1
 Author: Elena Piscopia <elena@example.net>
 Date:   Tue Jun 18 16:13:00 2019 +0000
 
@@ -11,12 +11,12 @@ index 0000000..4c84b61
 --- /dev/null
 +++ b/books/TLCL.pdf
 @@ -0,0 +1 @@
-+../.git/annex/objects/jf/3M/MD5E-s2120211--06d1efcb05bb2c55cd039dab3fb28455.pdf/MD5E-s2120211--06d1efcb05bb2c55cd039dab3fb28455.pdf
++../.git/annex/objects/jf/3M/✂/MD5E-s2120211--06d1efcb✂MD5.pdf
 \ No newline at end of file
 diff --git a/midterm_project b/midterm_project
 index cbfdcb5..ccbba1e 160000
 --- a/midterm_project
 +++ b/midterm_project
 @@ -1 +1 @@
--Subproject commit cbfdcb5ddffb1519d6d5fbdeb80af65a57808103
-+Subproject commit ccbba1ecfb7a6411c8419a27fb500bd486bb2b93
+-Subproject commit cbfdcb5d✂SHA1
++Subproject commit ccbba1ec✂SHA1

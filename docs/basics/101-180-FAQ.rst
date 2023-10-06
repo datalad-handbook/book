@@ -142,7 +142,9 @@ How can I convert/import/transform an existing Git or git-annex repository into 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 You can transform any existing Git or git-annex repository of yours into a
-DataLad dataset by running::
+DataLad dataset by running:
+
+.. code-block:: bash
 
    $ datalad create -f
 
@@ -171,15 +173,18 @@ How can I help others get started with a shared dataset?
 
 If you want to share your dataset with users that are not already familiar with
 DataLad, it is helpful to include some information on how to interact with
-DataLad datasets in your dataset's ``README`` (or similar) file. Below, we
-provide a standard text block that you can use (and adapt as you wish) for
-such purposes.
-If you do not want to copy-and-paste these snippets yourself, you can run
-:dlcmd:`add-readme` in your dataset, and have it added automatically.
+DataLad datasets in your dataset's ``README`` (or similar) file.
+If you do not want to invent a description yourself, you can run
+:dlcmd:`add-readme` in your dataset, and have one added automatically.
 
-.. find-out-more:: Textblock in .rst format:
+.. only:: html
 
-   .. code-block:: rst
+  Below, we provide a standard text block that you can use (and adapt as you
+  wish) for such purposes.
+
+  .. find-out-more:: Textblock in .rst format:
+
+    .. code-block:: rst
 
         DataLad datasets and how to use them
         ------------------------------------
@@ -198,7 +203,9 @@ If you do not want to copy-and-paste these snippets yourself, you can run
         Get the dataset
         ^^^^^^^^^^^^^^^
 
-        A DataLad dataset can be ``cloned`` by running::
+        A DataLad dataset can be ``cloned`` by running:
+
+        .. code-block:: bash
 
            datalad clone <url>
 
@@ -210,7 +217,9 @@ If you do not want to copy-and-paste these snippets yourself, you can run
         Retrieve dataset content
         ^^^^^^^^^^^^^^^^^^^^^^^^
 
-        After cloning a dataset, you can retrieve file contents by running::
+        After cloning a dataset, you can retrieve file contents by running:
+
+        .. code-block:: bash
 
            datalad get <path/to/directory/or/file>
 
@@ -220,7 +229,9 @@ If you do not want to copy-and-paste these snippets yourself, you can run
         DataLad datasets can contain other datasets, so called *subdatasets*. If you
         clone the top-level dataset, subdatasets do not yet contain metadata and
         information on the identity of files, but appear to be empty directories. In
-        order to retrieve file availability metadata in subdatasets, run::
+        order to retrieve file availability metadata in subdatasets, run:
+
+        .. code-block:: bash
 
            datalad get -n <path/to/subdataset>
 
@@ -234,7 +245,9 @@ If you do not want to copy-and-paste these snippets yourself, you can run
 
         DataLad datasets can be updated. The command ``datalad update`` will *fetch*
         updates and store them on a different branch (by default
-        ``remotes/origin/master``). Running::
+        ``remotes/origin/master``). Running:
+
+        .. code-block:: bash
 
            datalad update --merge
 
@@ -256,9 +269,9 @@ If you do not want to copy-and-paste these snippets yourself, you can run
         chapter "DataLad datasets" can help you to familiarize yourself with the
         concept of a dataset.
 
-.. find-out-more:: Textblock in markdown format
+  .. find-out-more:: Textblock in markdown format
 
-   .. code-block:: md
+    .. code-block:: md
 
         [![made-with-datalad](https://www.datalad.org/badges/made_with.svg)](https://datalad.org)
 
@@ -338,67 +351,69 @@ If you do not want to copy-and-paste these snippets yourself, you can run
         [handbook.datalad.org](https://handbook.datalad.org/index.html). The chapter
         "DataLad datasets" can help you to familiarize yourself with the concept of a dataset.
 
-.. find-out-more:: Textblock without formatting
+  .. find-out-more:: Textblock without formatting
 
-   DataLad datasets and how to use them
+    .. code-block:: md
 
-   This repository is a DataLad (https://www.datalad.org) dataset. It provides
-   fine-grained data access down to the level of individual files, and allows
-   for tracking future updates. In order to use this repository for data
-   retrieval, DataLad is required. It is a free and open source command line
-   tool, available for all major operating systems, and builds up on Git and
-   git-annex (https://git-annex.branchable.com) to allow sharing,
-   synchronizing, and version controlling collections of large files. You can
-   find information on how to install DataLad at
-   https://handbook.datalad.org/intro/installation.html.
+      DataLad datasets and how to use them
 
-   Get the dataset
+      This repository is a DataLad (https://www.datalad.org) dataset. It provides
+      fine-grained data access down to the level of individual files, and allows
+      for tracking future updates. In order to use this repository for data
+      retrieval, DataLad is required. It is a free and open source command line
+      tool, available for all major operating systems, and builds up on Git and
+      git-annex (https://git-annex.branchable.com) to allow sharing,
+      synchronizing, and version controlling collections of large files. You can
+      find information on how to install DataLad at
+      https://handbook.datalad.org/intro/installation.html.
 
-   A DataLad dataset can be "cloned" by running 'datalad clone <url>'.
-   Once a dataset is cloned, it is a light-weight directory on your local
-   machine.
-   At this point, it contains only small metadata and information on the
-   identity of the files in the dataset, but not actual *content* of the
-   (sometimes large) data files.
+      Get the dataset
 
-   Retrieve dataset content
+      A DataLad dataset can be "cloned" by running 'datalad clone <url>'.
+      Once a dataset is cloned, it is a light-weight directory on your local
+      machine.
+      At this point, it contains only small metadata and information on the
+      identity of the files in the dataset, but not actual *content* of the
+      (sometimes large) data files.
 
-   After cloning a dataset, you can retrieve file contents by running
-   'datalad get <path/to/directory/or/file>'
+      Retrieve dataset content
 
-   This command will trigger a download of the files, directories, or
-   subdatasets you have specified.
+      After cloning a dataset, you can retrieve file contents by running
+      'datalad get <path/to/directory/or/file>'
 
-   DataLad datasets can contain other datasets, so called "subdatasets".
-   If you clone the top-level dataset, subdatasets do not yet contain
-   metadata and information on the identity of files, but appear to be
-   empty directories. In order to retrieve file availability metadata in
-   subdatasets, run 'datalad get -n <path/to/subdataset>'
+      This command will trigger a download of the files, directories, or
+      subdatasets you have specified.
 
-   Afterwards, you can browse the retrieved metadata to find out about
-   subdataset contents, and retrieve individual files with `datalad get`.
-   If you use 'datalad get <path/to/subdataset>', all contents of the
-   subdataset will be downloaded at once.
+      DataLad datasets can contain other datasets, so called "subdatasets".
+      If you clone the top-level dataset, subdatasets do not yet contain
+      metadata and information on the identity of files, but appear to be
+      empty directories. In order to retrieve file availability metadata in
+      subdatasets, run 'datalad get -n <path/to/subdataset>'
 
-   Stay up-to-date
+      Afterwards, you can browse the retrieved metadata to find out about
+      subdataset contents, and retrieve individual files with `datalad get`.
+      If you use 'datalad get <path/to/subdataset>', all contents of the
+      subdataset will be downloaded at once.
 
-   DataLad datasets can be updated. The command 'datalad update' will
-   "fetch" updates and store them on a different branch (by default
-   'remotes/origin/master'). Running 'datalad update --merge' will "pull"
-   available updates and integrate them in one go.
+      Stay up-to-date
 
-   Find out what has been done
+      DataLad datasets can be updated. The command 'datalad update' will
+      "fetch" updates and store them on a different branch (by default
+      'remotes/origin/master'). Running 'datalad update --merge' will "pull"
+      available updates and integrate them in one go.
 
-   DataLad datasets contain their history in the Git log.
-   By running 'git log' (or a tool that displays Git history) in the dataset or on
-   specific files, you can find out what has been done to the dataset or to individual files
-   by whom, and when.
+      Find out what has been done
 
-   More information
+      DataLad datasets contain their history in the Git log.
+      By running 'git log' (or a tool that displays Git history) in the dataset or on
+      specific files, you can find out what has been done to the dataset or to individual files
+      by whom, and when.
 
-   More information on DataLad and how to use it can be found in the DataLad Handbook at
-   https://handbook.datalad.org/index.html. The chapter "DataLad datasets"
-   can help you to familiarize yourself with the concept of a dataset.
+      More information
+
+      More information on DataLad and how to use it can be found in the DataLad Handbook at
+      https://handbook.datalad.org/index.html. The chapter "DataLad datasets"
+      can help you to familiarize yourself with the concept of a dataset.
 
 
 What is the difference between DataLad, Git LFS, and Flywheel?

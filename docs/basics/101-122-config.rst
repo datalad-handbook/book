@@ -46,7 +46,9 @@ Git configuration." the lecturer says.
 
 At one point in time, you likely followed instructions such as
 in :ref:`install` and configured your
-*Git identity* with the commands::
+*Git identity* with the commands:
+
+.. code-block:: bash
 
    git config --global --add user.name "Elena Piscopia"
    git config --global --add user.email elena@example.net
@@ -175,7 +177,9 @@ configuration to your repository's ``.git/config`` file, whereas ``--global``
 would apply it as a user specific configuration, and ``--system`` as a
 system-wide configuration.
 If you would want to change this existing line in your ``.git/config``
-file, you would replace ``--add`` with ``--replace-all`` such as in::
+file, you would replace ``--add`` with ``--replace-all`` such as in:
+
+.. code-block:: bash
 
    git config --local --replace-all core.editor "vim"
 
@@ -206,28 +210,20 @@ it is also useful to find out which configurations are already set in
 which way and where. For this, the :gitcmd:`config --list --show-origin`
 is useful. It will display all configurations and their location:
 
-.. code-block:: bash
+.. code-block:: console
 
     $ git config --list --show-origin
     file:/home/bob/.gitconfig	user.name=Bob McBobface
     file:/home/bob/.gitconfig	user.email=bob@mcbobface.com
-    file:/home/bob/.gitconfig	core.editor=vim
-    file:/home/bob/.gitconfig	annex.security.allowed-url-schemes=http https file
-    file:.git/config	core.repositoryformatversion=0
-    file:.git/config	core.filemode=true
-    file:.git/config	core.bare=false
-    file:.git/config	core.logallrefupdates=true
     file:.git/config	annex.uuid=1f83595e-bcba-4226-aa2c-6f0153eb3c54
-    file:.git/config	annex.version=5
     file:.git/config	annex.backends=MD5E
-    file:.git/config	submodule.recordings/longnow.url=https://github.com/datalad-datasets/longnow-podcasts.git
+    file:.git/config	submodule.recordings/longnow.url=https://github.com/✂
     file:.git/config	submodule.recordings/longnow.active=true
     file:.git/config	remote.roommate.url=../mock_user/onemoredir/DataLad-101
-    file:.git/config	remote.roommate.fetch=+refs/heads/*:refs/remotes/roommate/*
     file:.git/config	remote.roommate.annex-uuid=a5ae24de-1533-4b09-98b9-cd9ba6bf303c
-    file:.git/config	remote.roommate.annex-ignore=false
-    file:.git/config	submodule.longnow.url=https://github.com/datalad-datasets/longnow-podcasts.git
+    file:.git/config	submodule.longnow.url=https://github.com/✂
     file:.git/config	submodule.longnow.active=true
+    ...
 
 This example shows some configurations in the global ``.gitconfig``
 file, and the configurations within ``DataLad-101/.git/config``.

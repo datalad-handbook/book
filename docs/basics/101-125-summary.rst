@@ -15,9 +15,11 @@ your horizon about configurations of datasets:
   therefore distributed. More specialized scopes take precedence over more global scopes.
 
 - Almost all configurations can be set with the :gitcmd:`config`.
-  Its structure looks like this::
+  Its structure looks like this:
 
-   git config --local/--global/--system --add/remove-all/--list section.[subsection.]variable "value"
+  .. code-block:: bash
+
+     git config --local/--global/--system --add/remove-all/--list section.[subsection.]variable "value"
 
 - The ``.git/config`` configuration file is not version controlled, other
   configuration files (``.gitmodules``, ``.gitattributes``, ``.datalad/config``)

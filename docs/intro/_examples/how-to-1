@@ -2,4 +2,4 @@ $ ls -l output.txt
 24+0 records in
 24+0 records out
 25165824 bytes (25 MB, 24 MiB) copied, 0.0215205 s, 1.2 GB/s
--rw-r--r-- 1 adina adina 25165824 Dec 14 17:15 output.txt
+-rw-r--r-- 1 me me 25165824 Dec 14 17:15 output.txt

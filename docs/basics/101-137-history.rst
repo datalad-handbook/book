@@ -173,7 +173,9 @@ DataLad in the editor)!
    message". To apply this action and reword the top-most commit message in this list
    (``8503f26 Add note on adding siblings``, three commits back in the history),
    exchange the word ``pick`` in the beginning of the line with the word
-   ``reword`` or simply ``r`` like this::
+   ``reword`` or simply ``r`` like this:
+
+   .. code-block:: bash
 
       r 8503f26 Add note on adding siblings
 
@@ -214,7 +216,9 @@ This is a task for the :gitcmd:`reset` command. It essentially allows to
 undo commits by resetting the history of a dataset to an earlier version.
 :gitcmd:`reset` comes with several *modes* that determine the
 exact behavior it, but the relevant one for this aim is ``--mixed`` [#f3]_.
-Specifying the command::
+Specifying the command:
+
+.. code-block:: bash
 
    git reset --mixed COMMIT
 
@@ -423,7 +427,7 @@ to specify the point in time you want to go back to:
    :language: console
    :workdir: dl-101/DataLad-101
 
-   $ git log -n 20 --oneline
+   $ git log -n 16 --oneline
 
 Let's go 15 commits back in time:
 
@@ -487,7 +491,9 @@ prior :gitcmd:`checkout` (note that the output is shortened for brevity and show
 The cat-file command is very versatile, and
 `it's documentation <https://git-scm.com/docs/git-cat-file>`_ will list all
 of its functionality. To use it to see the contents of a file at a previous
-state as done above, this is how the general structure looks like::
+state as done above, this is how the general structure looks like:
+
+.. code-block:: bash
 
    $ git cat-file --textconv SHASUM:<path/to/file>
 
@@ -632,7 +638,9 @@ be reverted.
 
 .. find-out-more:: Reverting more than a single commit
 
-   You can also specify a range of commits like this::
+   You can also specify a range of commits like this:
+
+   .. code-block:: bash
 
       $ git revert OLDER_SHASUM..NEWERSHASUM
 

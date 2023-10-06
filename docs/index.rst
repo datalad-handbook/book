@@ -7,6 +7,27 @@
    :scale: 100%
    :alt: Animated DataLad logo
 
+|
+
+===========================
+Join us at distribits 2024!
+===========================
+
+############################################
+Technologies for distributed data management
+############################################
+
+.. image:: _static/distribits-teaser.jpg
+   :width: 100%
+   :align: left
+
+The first distribits meeting will happen on April 18th to April 20th, 2024, at
+"Haus der Universität", Düsseldorf, Germany, with the aim of bringing together
+enthusiasts of tools and workflows in the domain of distributed data.
+
+Go to `distribits.live <https://distribits.live>`_ for more information and to register!
+
+
 ============
 The Handbook
 ============

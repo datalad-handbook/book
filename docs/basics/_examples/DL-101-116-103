@@ -2,17 +2,17 @@ $ cd DataLad-101
 $ tree
 .
 ├── books
-│   ├── bash_guide.pdf -> ../.git/annex/objects/WF/Gq/MD5E-s1198170--0ab2c121bcf68d7278af266f6a399c5f.pdf/MD5E-s1198170--0ab2c121bcf68d7278af266f6a399c5f.pdf
-│   ├── byte-of-python.pdf -> ../.git/annex/objects/P5/qK/MD5E-s2693891--e61afe4b3c5d76c849c4e61f6547ed03.pdf/MD5E-s2693891--e61afe4b3c5d76c849c4e61f6547ed03.pdf
-│   ├── progit.pdf -> ../.git/annex/objects/G6/Gj/MD5E-s12465653--05cd7ed561d108c9bcf96022bc78a92c.pdf/MD5E-s12465653--05cd7ed561d108c9bcf96022bc78a92c.pdf
-│   └── TLCL.pdf -> ../.git/annex/objects/jf/3M/MD5E-s2120211--06d1efcb05bb2c55cd039dab3fb28455.pdf/MD5E-s2120211--06d1efcb05bb2c55cd039dab3fb28455.pdf
+│   ├── bash_guide.pdf -> ../.git/annex/objects/WF/Gq/✂/MD5E-s1198170--0ab2c121✂MD5.pdf
+│   ├── byte-of-python.pdf -> ../.git/annex/objects/P5/qK/✂/MD5E-s2693891--e61afe4b✂MD5.pdf
+│   ├── progit.pdf -> ../.git/annex/objects/G6/Gj/✂/MD5E-s12465653--05cd7ed5✂MD5.pdf
+│   └── TLCL.pdf -> ../.git/annex/objects/jf/3M/✂/MD5E-s2120211--06d1efcb✂MD5.pdf
 ├── code
 │   └── list_titles.sh
 ├── notes.txt
 └── recordings
-    ├── interval_logo_small.jpg -> ../.git/annex/objects/pw/Mf/MD5E-s70348--4b2ec0db16882082d6bddffbabcfc45b.jpg/MD5E-s70348--4b2ec0db16882082d6bddffbabcfc45b.jpg
+    ├── interval_logo_small.jpg -> ../.git/annex/objects/pw/Mf/✂/MD5E-s70348--4b2ec0db✂MD5.jpg
     ├── longnow
     ├── podcasts.tsv
-    └── salt_logo_small.jpg -> ../.git/annex/objects/fZ/wg/MD5E-s76402--87da732ff6d9a92c6afcaed7fefb133f.jpg/MD5E-s76402--87da732ff6d9a92c6afcaed7fefb133f.jpg
+    └── salt_logo_small.jpg -> ../.git/annex/objects/fZ/wg/✂/MD5E-s76402--87da732f✂MD5.jpg
 
 4 directories, 9 files

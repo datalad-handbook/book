@@ -62,7 +62,9 @@ Afterwards, add this repository as a sibling of your dataset. To do this, use th
 :dlcmd:`siblings add` command and the SSH URL of the repository as shown below.
 Note that since this is the first time you will be connecting to the GIN server
 via SSH, you will likely be asked to confirm to connect. This is a safety measure,
-and you can type "yes" to continue::
+and you can type "yes" to continue:
+
+.. code-block:: text
 
     $ datalad siblings add -d . \
       --name gin \
@@ -258,7 +260,9 @@ Then, follow these steps:
 - First, create a new repository on Gin (see step by step instructions above).
 - In your to-be-published dataset, add this repository as a sibling, this time setting `--url` and `--pushurl` arguments explicitly. Make sure to configure a :term:`SSH` URL as a ``--pushurl`` but a :term:`HTTPS` URL as a ``url``.
   Please also note that the :term:`HTTPS` URL written after ``--url`` DOES NOT have the ``.git`` suffix.
-  Here is the command::
+  Here is the command:
+
+.. code-block:: bash
 
      $ datalad siblings add \
       -d . \
@@ -268,7 +272,9 @@ Then, follow these steps:
 
 - Locally, run ``git config --unset-all remote.gin.annex-ignore`` to prevent :term:`git-annex` from ignoring this new dataset
 - Push your data to the repository on Gin (``datalad push --to gin``). This pushes the actual state of the repository, including content, but also adjusts the :term:`git-annex` configuration.
-- Configure this sibling as a "common data source". Use the same name as previously in ``--name`` (to indicate which sibling you are configuring) and give a new, different, name after ``--as-common-datasrc``::
+- Configure this sibling as a "common data source". Use the same name as previously in ``--name`` (to indicate which sibling you are configuring) and give a new, different, name after ``--as-common-datasrc``:
+
+.. code-block:: bash
 
    $ datalad siblings configure \
       --name gin \
@@ -292,7 +298,9 @@ Afterwards, :dlcmd:`get` retrieves files from Gin, even if the dataset has been 
          and `client <https://gin.g-node.org/G-Node/Info/wiki/GinUsageTutorial>`_ are
          useful tools with a variety of features that are worthwhile to check out, as well.
 
-.. [#f3] Alternatively, you can configure the siblings url with :gitcmd:`config`::
+.. [#f3] Alternatively, you can configure the siblings url with :gitcmd:`config`:
+
+         .. code-block:: bash
 
            $ git config -f .gitmodules --replace-all  submodule.midterm_project.url https://github.com/adswa/midtermproject
 

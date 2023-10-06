@@ -15,6 +15,7 @@ All over the handbook, version notes or information relating to datalad versions
 
 ### Additions
 - A new standalone chapter about datalad extensions was added, and sections on datalad-catalog ([#917][]), datalad-metalad ([#930][]), and datalad-gooey were included. 
+- A new standalone chapter about datalad extensions was added, and sections on datalad-catalog ([#917][]), datalad-metalad ([#930][]), and datalad-gooey were included.
 
 #### Introduction
 
@@ -28,7 +29,7 @@ All over the handbook, version notes or information relating to datalad versions
 
 #### Miscellaneous additions
 - The Makefile in the source repository received a more intuitive and fine-grained structure ([#901][])
-- The handbook has gained an Appveyor configuration that allows building the entire Basis and Beyond Basics parts from scratch, and allows an export of generated code snippets. This makes builds on local machines obsolete for contributors that don't want to go through this troube ([#908][])
+- The handbook has gained an Appveyor configuration that allows building the entire Basis and Beyond Basics parts from scratch, and allows an export of generated code snippets. This makes builds on local machines obsolete for contributors that don't want to go through this trouble ([#908][])
 - the handbook now has a tool to report readthedocs metrics for authenticated and authorized users ([#902][])
 
 ## v0.17 (December 20 2022) -- Better late than never

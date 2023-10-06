@@ -170,7 +170,7 @@ In the example below, a single subject is preprocessed:
 .. code-block:: bash
 
    $ datalad containers-run -n .tools/fmriprep \
-       -m "preprocess examplary subject with fmriprep" \
+       -m "preprocess exemplary subject with fmriprep" \
        --input .source/sub-170631 \
        --output fmriprep \
        --output freesurfer \

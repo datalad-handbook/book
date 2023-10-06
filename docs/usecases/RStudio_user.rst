@@ -20,11 +20,11 @@ Max has been using Rstudio together with :term:`GitHub` for a long time. They kn
 works. Max has learned that Git will not work with their new project,
 because there will be too many files and some dataset files will be too large.
 Max read the DataLad :ref:`Handbook Basics <basics-intro>` and is decided to use DataLad.
-They indeed want to version control larger files, and split files in several repositories, linked as "DataLad dataset hierarchies".
-Max still want to use Rstudio and a combination of R and python scripts for the
+They indeed want to version control larger files, and spread files across several repositories, linked as "DataLad dataset hierarchies".
+Max still wants to use Rstudio and a combination of R and Python scripts for the
 data analysis.
 
-Bobby is a data manager who already learned (the hard way), how to handle datalad
+Bobby is a data manager who already learned (the hard way), how to handle DataLad
 using Rstudio. They have also created a :term:`GIN` repository with :term:`submodule`\s 
 for data and for code, using the [Tonic tool and templates](https://gin-tonic.netlify.app).
 He is happy to help Max, as he knows this will allow them to record analysis provenance.
@@ -33,7 +33,7 @@ He is happy to help Max, as he knows this will allow them to record analysis pro
 Setting up
 ^^^^^^^^^^
 
-Max follows the handbook and install datalad on his computer.
+Max follows the handbook and installs DataLad on his computer.
 Max first want to clone the repository on their computer, they use the Rstudio 
 `create a new project` function using the SSH address of the parent repository.
 
@@ -51,7 +51,7 @@ Bobby comes and run ``datalad get . -n -r`` in the terminal window of Rstudio.
    :scale: 80 %
    :alt: screenshot of Rstudio terminal tab.
 
-   Using Rstudio terminal window to give datalad commands
+   Using Rstudio terminal window to give DataLad commands
 
 
 They then explain:
@@ -83,7 +83,7 @@ Max change the script, but Rstudio does not want to save the changes.
 Max save a copy of the script file and call Bobby for help.
 
 Bobby start to explain what happened:
-Datalad saved the script using Git-annex.
+DataLad saved the script using Git-annex.
 This means that the file was moved somewhere else, and the content was replaced by a code linking to the file location. 
 The code, which is a tiny file, is saved in Git, while the large file is saved outside of Git.
 Because it is :term:`symlink`, Rstudio still read the content of the original file when clicking on it, but it cannot overwrite the file: that file is in read-only mode.
@@ -125,7 +125,7 @@ Bobby use the occasion to say that another problem can arise: if you drop the in
 
 Bobby tells Max it is time to learn about ``datalad run``.
 
-Datalad run with Rscripts
+DataLad run with Rscripts
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Bobby starts with the basics of running R code via datalad run:
@@ -163,26 +163,26 @@ Then, Max create a bash script in Rstudio and run it using the usual button (Thi
    :scale: 80 %
    :alt: screenshot of Rstudio bash code window
 
-   Figures of bash code running the datalad run command
+   Figures of bash code running the DataLad run command
 
 
-On can set as many input and output files, one can use `*` to define several files with a similar ending (in the example all .png figures will be unlocked). It is good practice to list files in input and output even if they do not need to be handled by datalad, in order to give more information in the commit message.
+One can set as many input and output files, one can use `*` to define several files with a similar ending (in the example all .png figures will be unlocked). It is good practice to list files in input and output even if they do not need to be handled by DataLad, in order to give more information in the commit message.
 
-.. gitusernote:: behavior explained
+.. gitusernote:: Behavior explained
 
 - Input: To be read, files are downloaded if not present. Note that they are not unlocked (no need for reading them) and that they will not be dropped again after being read.
 - Output: files are unlocked so they can be overwritten. If the files are not present (dropped), they will not be downloaded. This may make your code fail: if it does, either get the files manually before running `datalad run`, or remove them in the R code (`r file.remove()`). In other case, it will work and it will even detect when the file has not been modified and make no commit.
 - explicit: datalad runs normally only in clean repositories, this includes all submodules. By adding --explicit, datalad will only test that the output files are clean, and only output files will be saved. Please use with care, as the script and data you use will not be tested and provenance information can be lost.
 - {inputs} {outputs}: If you add the placeholders, the terminal will actually gives the input and output text as argument to the Rscript bash function. One can access them in the R script with `args <- commandArgs(trailingOnly = TRUE)` (then get them with `args[i]`, with i starts at 1).
-- At the end, datalad usually runs `datalad save -r` so that modification made by the code in the whole repository, including submodules will be done (exception when --explicit is given, see above.) This will include any intermediate file created by your code in bash mode, that is using `Rscript "path-to-code.R "` in the terminal (it can happen that bash mode creates more files than running the code directly)  
+- At the end, DataLad usually runs `datalad save -r` so that modification made by the code in the whole repository, including submodules will be done (exception when --explicit is given, see above.) This will include any intermediate file created by your code in bash mode, that is using `Rscript "path-to-code.R "` in the terminal (it can happen that bash mode creates more files than running the code directly)  
 
 
 
 
 
-.. gitusernote:: advanced tips for datalad run 
+.. gitusernote:: Advanced tips for ``datalad run`` 
 
-  unlocking the files will make its state "unclean", so if you use datalad run, you need to set output options in the function, you cannot unlock files manually before.
+  unlocking the files will make its state "unclean", so if you use DataLad run, you need to set output options in the function, you cannot unlock files manually before.
 
   The commit message will only look at the options, whether the code use these input and output files is not checked.
    

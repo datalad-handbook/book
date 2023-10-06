@@ -201,7 +201,7 @@ in certain situations. Later in this book we will have a section on how
 to manage the file system in a DataLad dataset (:ref:`filesystem`).
 
 
-.. find-out-more:: more about paths, checksums, object trees, and data integrity
+.. find-out-more:: Paths, checksums, object trees, and data integrity
    :name: fom-objecttree
 
    So how do these cryptic paths and names in the object tree come into existence?

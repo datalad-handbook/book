@@ -476,7 +476,7 @@ the ``--input`` and ``--output`` specification done before.
    can be accessed with an integer index, e.g., ``{inputs[0]}`` for the very first
    input.
 
-.. find-out-more:: ... wait, what if I need a curly bracket in my datalad run call?
+.. find-out-more:: Wait, what if I need a curly bracket in my datalad run call?
 
    If your command call involves a ``{`` or ``}`` character, you will need to escape
    this brace character by doubling it, i.e., ``{{`` or ``}}``.

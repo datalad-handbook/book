@@ -326,7 +326,7 @@ flag and see their magic, let's crop the second logo, ``logo_interval.jpg``:
 
    Given that nothing in your dataset is locked, is there a *need* for you to bother with creating ``--output`` flags?
    Not for you personally, if you only stay on your Windows machine.
-   However, you will be doing others that you share your dataset with a favour if they are not using Windows -- should you or others want to rerun a run record, ``--output`` flags will make it work on all operating systems.
+   However, you will be doing others that you share your dataset with a favor if they are not using Windows -- should you or others want to rerun a run record, ``--output`` flags will make it work on all operating systems.
 
 .. runrecord:: _examples/DL-101-111-105
    :language: console

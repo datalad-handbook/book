@@ -27,7 +27,7 @@ Given that DataLad is a data management software, it is heavily affected by this
 A major annoyance and problem is that some tools that DataLad or :term:`datalad extension`\s use are not available on Windows.
 If you are interested in adding :term:`software container`\s to your DataLad dataset (with the ``datalad-container`` extension), for example, you will likely not be able to do so on a native Windows computer -- :term:`Singularity`, a widely used containerization software, doesn't exit for Windows, and while there *is* some support for :term:`Docker` on Windows, it does not apply to most private computers [#f1]_.
 
-Windows also has insufficient support for :term:`symlink`\ing and locking files (i.e., revoking write :term:`permissions`), which alters how :term:`git-annex` works, and may make interoperability of datasets between Windows and non-Windows operating systems not as smooth as between various flavours of Unix-like operating systems.
+Windows also has insufficient support for :term:`symlink`\ing and locking files (i.e., revoking write :term:`permissions`), which alters how :term:`git-annex` works, and may make interoperability of datasets between Windows and non-Windows operating systems not as smooth as between various flavors of Unix-like operating systems.
 
 In addition, Windows has a (default) `maximum path length limitation of only 260 characters <https://learn.microsoft.com/en-us/windows/win32/fileio/maximum-file-path-limitation#enable-long-paths-in-windows-10-version-1607-and-later>`_.
 However, DataLad (or rather, :term:`git-annex`) relies on `file content hashing <https://en.wikipedia.org/wiki/Hash_function>`_ to ensure file integrity.

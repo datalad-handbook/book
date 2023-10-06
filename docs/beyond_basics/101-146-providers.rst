@@ -279,7 +279,7 @@ This configuration will be queried by Git when a URL matches ``https://raw.githu
 This function is rudimentary, but does the job for this illustration.
 
 Finally, we will teach DataLad to use on this configuration to authenticate.
-For this, create a new dataset, and, with your favourite editor, create a new provider configuration ``.datalad/providers/github.cfg`` in it.
+For this, create a new dataset, and, with your favorite editor, create a new provider configuration ``.datalad/providers/github.cfg`` in it.
 Depending on your editor, you will need to create the directory ``providers`` under ``.datalad`` first.
 This provider configuration should contain the following:
 

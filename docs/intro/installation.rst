@@ -75,6 +75,10 @@ There are countless ways to install software on Windows. Here we describe *one*
 possible approach that should work on any Windows computer, like one that you
 may have just bought.
 
+Unless you know what you are doing, try to follow the steps precisely. 
+If something is not working, you probably did something wrong in the previous step.
+It is often faster and easier to start over than trying to find out what went wrong.
+
 
 Python:
     Windows itself does not ship with Python, it must be installed separately.
@@ -82,7 +86,7 @@ Python:
     versions <fom-py2v3>`, if it matches the requirements. Otherwise, head over
     to the `download section of the Python website
     <https://www.python.org/downloads>`_, and download an installer. Unless you
-    have specific requirements, go with the 64bit installer of the latest
+    have specific requirements, go with the 4bit installer of the latest
     Python 3 release.
 
     .. windows-wit:: Avoid installing Python from the Windows store
@@ -95,6 +99,8 @@ Python:
     When you run the installer, make sure to select the *Add Python to PATH* option,
     as this is required for subsequent installation steps and interactive use later on.
     Other than that, using the default installation settings is just fine.
+
+    If you did everything right, typing ``python --version`` in the command prompt should give you an answer.
 
 Git:
     Windows also does not come with Git. If you happen to have it installed already,

@@ -96,6 +96,26 @@ Python:
     as this is required for subsequent installation steps and interactive use later on.
     Other than that, using the default installation settings is just fine.
 
+    .. windows-wit:: Very Python installation
+
+       It is not uncommon for multiple Python installations to co-exist on a Windows machine, because particular applications can ship their own.
+       Such alternative installations may even be or become the default.
+       This can cause confusing behavior, because each Python installation will have different package versions installed.
+
+       To verify if there are multiple installation, open the windows command line ``cmd.exe`` and run ``where python``.
+       This will list all variants of ``python.exe``.
+       There will be one in ``WindowsApps``, which is only a link to the Windows app store.
+       Make sure the Python version that you installed is listed too.
+
+       If there are multiple Python installation, you can tell which one is default by running this command in ``cmd.exe``::
+
+         python -c "import sys; print(sys.executable)"
+
+       This will print the path of the default ``python.exe``.
+       If the output is not matching the expected Python installation, likely the :envvar:`Path` environment variable needs to be adjusted.
+       This can be done in the Windows system properties.
+       It is sufficient to move the entries created by the Python installer to the start of the declaration list.
+
 Git:
     Windows also does not come with Git. If you happen to have it installed already,
     please check, if you have configured it for command line use. You should be able

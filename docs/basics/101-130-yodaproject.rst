@@ -115,20 +115,30 @@ a Python API for DataLad's functionality that you can read about in :ref:`a Find
        >>> import datalad.api as dl
        >>> dl.status('myfile')
        [{'type': 'file',
-         'gitshasum': '915983d6576b56792b4647bf0d9fa04d83ce948d',
-		 'bytesize': 85,
-		 'prev_gitshasum': '915983d6576b56792b4647bf0d9fa04d83ce948d',
-		 'state': 'clean',
-		 'path': '/home/me/my-ds/myfile',
-		 'parentds': '/home/me/my-ds',
-		 'status': 'ok',
-		 'refds': '/home/me/my-ds',
-		 'action': 'status'}]
+       'gitshasum': '915983d6576b56792b4647bf0d9fa04d83ce948d',
+       'bytesize': 85,
+       'prev_gitshasum': '915983d6576b56792b4647bf0d9fa04d83ce948d',
+       'state': 'clean',
+       'path': '/home/me/my-ds/myfile',
+       'parentds': '/home/me/my-ds',
+       'status': 'ok',
+       'refds': '/home/me/my-ds',
+       'action': 'status'}]
 
    .. code-block:: bash
 
-      $ datalad -f json status myfile
-      {"action": "status", "bytesize": 85, "gitshasum": "915983d6576b56792b4647bf0d9fa04d83ce948d", "parentds": "/home/me/my-ds", "path": "/home/me/my-ds/myfile", "prev_gitshasum": "915983d6576b56792b4647bf0d9fa04d83ce948d", "refds": "/home/me/my-ds/", "state": "clean", "status": "ok", "type": "file"}
+      $ datalad -f json_pp status myfile
+       {"action": "status",
+        "bytesize": 85,
+        "gitshasum": "915983d6576b56792b4647bf0d9fa04d83ce948d",
+        "parentds": "/home/me/my-ds",
+        "path": "/home/me/my-ds/myfile",
+        "prev_gitshasum": "915983d6576b56792b4647bf0d9fa04d83ce948d",
+        "refds": "/home/me/my-ds/",
+        "state": "clean",
+        "status": "ok",
+        "type": "file"}
+
 
 .. importantnote:: Use DataLad in languages other than Python
 

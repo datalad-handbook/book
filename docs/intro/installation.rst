@@ -68,8 +68,8 @@ common scenarios, operating systems, or platforms.
    :width: 50%
    :alt: Cartoon of a person sitting on the floor in front of a laptop
 
-Windows 10
-""""""""""
+Windows 10 and 11
+"""""""""""""""""
 
 There are countless ways to install software on Windows. Here we describe *one*
 possible approach that should work on any Windows computer, like one that you

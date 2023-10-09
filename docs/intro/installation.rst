@@ -42,7 +42,7 @@ systems. They do not cover the various :term:`DataLad extension`'s that need to 
    to obtain a recent release of Python 3. On Windows, attempting to run
    commands that are not installed might cause a Windows Store window to pop
    up. If this happens, Python may not yet be installed. Please check the
-   `Windows 10`_ installation instructions, and *do not* install Python via the
+   `Windows 10 and 11`_ installation instructions, and *do not* install Python via the
    Windows Store.
 
    Python 2 is an outdated, in technical terms "deprecated", version of Python.

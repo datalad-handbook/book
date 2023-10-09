@@ -96,7 +96,7 @@ Python:
     as this is required for subsequent installation steps and interactive use later on.
     Other than that, using the default installation settings is just fine.
 
-    .. windows-wit:: Very Python installation
+    .. windows-wit:: Verify Python installation
 
        It is not uncommon for multiple Python installations to co-exist on a Windows machine, because particular applications can ship their own.
        Such alternative installations may even be or become the default.

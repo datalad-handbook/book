@@ -144,7 +144,7 @@ Git-annex:
 
     .. code-block:: bat
 
-      pip install datalad-installer
+      python -m pip install datalad-installer
 
     Afterwards, open another command prompt in administrator mode and run:
 
@@ -167,7 +167,7 @@ DataLad:
 
     .. code-block:: bat
 
-      pip install datalad
+      python -m pip install datalad
 
 7-Zip (optional, but highly recommended):
     Download it from the `7-zip website <https://7-zip.org>`_ (64bit
@@ -236,9 +236,9 @@ Python's package manager <fom-macosx-pip>`.
 
    .. code-block:: bash
 
-     $ pip install datalad
+     $ python -m pip install datalad
 
-   Recent macOS versions may use ``pip3`` instead of ``pip`` -- use :term:`tab
+   Some macOS versions may use ``python3`` instead of ``python`` -- use :term:`tab
    completion` to find out which is installed.
 
    Recent macOS versions may warn after installation that scripts were installed
@@ -325,7 +325,7 @@ DataLad itself can be installed via ``pip``:
 
 .. code-block:: bash
 
-   $ pip install datalad
+   $ python -m pip install datalad
 
 Alternatively, DataLad can be installed together with :term:`Git` and
 :term:`git-annex` via Conda_ as outlined in the section below.
@@ -419,28 +419,27 @@ most of its software dependencies, type
 
 .. code-block:: bash
 
-   $ pip install datalad
+   $ python -m pip install datalad
 
 If this results in a ``permission denied`` error, you can install DataLad into
 a user's home directory:
 
 .. code-block:: bash
 
-   $ pip install --user datalad
+   $ python -m pip install --user datalad
 
-On some systems, in particular macOS, you may need to call ``pip3`` instead of ``pip``:
+On some systems, you may need to call ``python3`` instead of ``python``:
 
 .. code-block:: bash
 
-   $ pip3 install datalad
+   $ python3 -m pip install datalad
    # or, in case of a "permission denied error":
-   $ pip3 install --user datalad
+   $ python3 -m pip install --user datalad
 
-An existing installation can be upgraded with ``pip install -U datalad``.
+An existing installation can be upgraded with ``python -m pip install -U datalad``.
 
 ``pip`` is not able to install non-Python software, such as 7-zip or
-:term:`git-annex`.  But you can install the `DataLad installer`_ via a ``pip
-install datalad-installer``. This is a command-line tool that aids installation
+:term:`git-annex`.  But you can install the `DataLad installer`_ via a ``python -m pip install datalad-installer``. This is a command-line tool that aids installation
 of DataLad and its key software dependencies on a range of platforms.
 
 .. _installconfig:

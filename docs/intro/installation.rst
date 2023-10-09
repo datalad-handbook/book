@@ -112,7 +112,7 @@ Python:
          python -c "import sys; print(sys.executable)"
 
        This will print the path of the default ``python.exe``.
-       If the output is not matching the expected Python installation, likely the :envvar:`Path` environment variable needs to be adjusted.
+       If the output is not matching the expected Python installation, likely the ``$PATH`` environment variable needs to be adjusted.
        This can be done in the Windows system properties.
        It is sufficient to move the entries created by the Python installer to the start of the declaration list.
 

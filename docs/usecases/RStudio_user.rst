@@ -19,15 +19,18 @@ The Challenge
 Max has been using Rstudio together with :term:`GitHub` for a long time. They know how :term:`Git`
 works. Max has learned that Git will not work with their new project,
 because there will be too many files and some dataset files will be too large.
-Max read the DataLad :ref:`Handbook Basics <basics-intro>` and is decided to use DataLad.
+Max read the DataLad :ref:`Handbook Basics <basics-intro>` and has decided to use DataLad.
 They indeed want to version control larger files, and spread files across several repositories, linked as "DataLad dataset hierarchies".
 Max still wants to use Rstudio and a combination of R and Python scripts for the
 data analysis.
 
 Bobby is a data manager who already learned (the hard way), how to handle DataLad
-using Rstudio. They have also created a :term:`GIN` repository with :term:`submodule`\s 
-for data and for code, using the [Tonic tool and templates](https://gin-tonic.netlify.app).
+using Rstudio. 
+He provides Max with a repository with submodules, that should be ready to be used.
 He is happy to help Max, as he knows this will allow them to record analysis provenance.
+
+
+
 
 
 Setting up
@@ -73,7 +76,14 @@ when the folder already exist, so they  run
 Now they are sure they set up DataLad to work in the repository and all submodules,
 since they used the ``-r``  option.
 
+.. gitusernote:: GIN-Tonic
+  While the repositories are described as pure Git repositories here,
+  most of the scenario was actually tested
+  using a :term:`GIN` repository with git-annex, with :term:`submodule`\s 
+  for data and for code, that were created using the [Tonic tool and templates](https://gin-tonic.netlify.app). 
+  Note that the template itself [was ported from a single GitHub repository into DataLad datasets](https://gin-tonic.netlify.app/installation/template_repository/). 
   
+    
 Working on the code
 ^^^^^^^^^^^^^^^^^^^
 

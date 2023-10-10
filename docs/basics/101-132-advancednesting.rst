@@ -152,11 +152,20 @@ interested in this, checkout the :ref:`dedicated Findoutmore <fom-status>`.
 
       $ datalad status --recursive
 
+   Importantly, the regular output from a :dlcmd:`status` command in the commandline is "condensed" to the most important information by a tailored result renderer.
+   You can, however, also get ``status``' unfiltered full output by switching the ``-f``/``--output-format`` from ``tailored`` (the default) to ``json`` or, for the same infos as ``json`` but better readability, ``json_pp``:
+
+   .. runrecord:: _examples/DL-101-132-108a
+      :language: console
+      :workdir: dl-101/DataLad-101
+
+      $ datalad -f json_pp status -d . midterm_project
+
    This still was not all of the available functionality of the
    :dlcmd:`status` command. You could for example adjust whether and
    how untracked dataset content should be reported with the ``--untracked``
    option, or get additional information from annexed content with the ``--annex``
-   option. To get a complete overview on what you could do, check out the technical
+   option (especially powerful when combined with ``-f json_pp``). To get a complete overview on what you could do, check out the technical
    documentation of :dlcmd:`status` `here <https://docs.datalad.org/en/latest/generated/man/datalad-status.html>`_.
 
    Before we leave this hidden section, lets undo the modification of the subdataset

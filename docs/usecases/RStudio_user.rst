@@ -51,7 +51,7 @@ Max can't see submodules content and comes to Bobby.
 
 Bobby comes and run ``datalad get . -n -r`` in the terminal window of Rstudio. 
 
-.. figure:: ../artwork/src/rstudio/Rstudio-create.png
+.. figure:: ../artwork/src/rstudio/Rstudio-terminal.png
    :scale: 80 %
    :alt: screenshot of Rstudio terminal tab.
 

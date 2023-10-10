@@ -76,12 +76,17 @@ when the folder already exist, so they  run
 Now they are sure they set up DataLad to work in the repository and all submodules,
 since they used the ``-r``  option.
 
-.. gitusernote:: GIN-Tonic
-  While the repositories are described as pure Git repositories here,
+.. gitusernote:: Pushing and GIN-Tonic
+  The scenario  does not present the use of remotes (server version of the resitory) and :command:`datalad push`, as it is indeed not different for R or Rstudio users.
+  One only needs to use the terminal with DataLad commands instead of the Git integration of Rstudio.
+  
+  While the original repositories are described as pure Git repositories here,
   most of the scenario was actually tested
   using a :term:`GIN` repository with git-annex, with :term:`submodule`\s 
   for data and for code, that were created using the [Tonic tool and templates](https://gin-tonic.netlify.app). 
   Note that the template itself [was ported from a single GitHub repository into DataLad datasets](https://gin-tonic.netlify.app/installation/template_repository/). 
+  
+  
   
     
 Working on the code

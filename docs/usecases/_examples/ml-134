@@ -1,4 +1,4 @@
-$ git diff master -- accuracy.json
+$ git diff main -- accuracy.json
 diff --git a/accuracy.json b/accuracy.json
 index 1b0199b..30f2e22 100644
 --- a/accuracy.json

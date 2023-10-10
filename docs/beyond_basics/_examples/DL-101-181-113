@@ -6,7 +6,7 @@ $ tree .git/refs
 │   └── object-references-2.0
 ├── heads
 │   ├── git-annex
-│   └── master
+│   └── main
 └── tags
 
 3 directories, 5 files

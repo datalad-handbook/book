@@ -289,7 +289,7 @@ A step by step instruction with screenshots is in the section :ref:`gin`.
 
 .. importantnote:: The 0.16 release will have a convenience command
 
-   The upcoming DataLad ``0.16`` release comes with a set of commands that automatically create new repositories on your favourite hosting service for you, for example :dlcmd:`create-sibling-gin`. For more information on how to create repositories either manually or automatically, take a look at :ref:`share_hostingservice`.
+   The upcoming DataLad ``0.16`` release comes with a set of commands that automatically create new repositories on your favorite hosting service for you, for example :dlcmd:`create-sibling-gin`. For more information on how to create repositories either manually or automatically, take a look at :ref:`share_hostingservice`.
 
 You can register this URL as a sibling dataset to your own dataset using :dlcmd:`siblings add`::
 

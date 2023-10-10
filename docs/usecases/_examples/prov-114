@@ -1,2 +1,2 @@
-$ datalad diff -t master -f replay
+$ datalad diff -t main -f replay
  modified: st-bernard-displaced.jpg (symlink)

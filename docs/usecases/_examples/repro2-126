@@ -1,5 +1,5 @@
 # compare which files have changes with respect to the original results
-$ git diff master --stat
+$ git diff main --stat
  sub-02/1stlvl_glm.feat/logs/feat0                                      | 2 +-
  sub-02/1stlvl_glm.feat/logs/{feat0_init.e657173 => feat0_init.e660126} | 0
  sub-02/1stlvl_glm.feat/logs/{feat0_init.o657173 => feat0_init.o660126} | 0

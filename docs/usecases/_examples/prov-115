@@ -1,4 +1,4 @@
-$ git log --oneline --left-right --cherry-mark master...replay
+$ git log --oneline --left-right --cherry-mark main...replay
 > f9a70df [DATALAD RUNCMD] blur image
 = 445a54b [DATALAD RUNCMD] extract pimpernel
 = f8a3d9f [DATALAD RUNCMD] extract st-bernard lily

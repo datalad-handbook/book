@@ -54,7 +54,7 @@ $ tree /home/me/myriastore
 │       ├── refs
 │       │   ├── heads
 │       │   │   ├── git-annex
-│       │   │   └── master
+│       │   │   └── main
 │       │   └── tags
 │       └── ria-layout-version
 ├── error_logs

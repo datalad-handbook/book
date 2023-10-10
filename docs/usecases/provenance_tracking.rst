@@ -194,7 +194,7 @@ Now he is on a new branch of his project, which contains "replayed" history.
    :workdir: usecases/provenance/artproject
    :language: console
 
-   $ git log --oneline --graph master replay
+   $ git log --oneline --graph main replay
 
 He can even compare the two branches:
 
@@ -202,7 +202,7 @@ He can even compare the two branches:
    :workdir: usecases/provenance/artproject
    :language: console
 
-   $ datalad diff -t master -f replay
+   $ datalad diff -t main -f replay
 
 He can see that the blurring, which involved a random element,
 produced different results. Because his dataset contains two branches,
@@ -215,7 +215,7 @@ Notice that all commits are marked as equivalent (=) except the ‘random spread
    :workdir: usecases/provenance/artproject
    :language: console
 
-   $ git log --oneline --left-right --cherry-mark master...replay
+   $ git log --oneline --left-right --cherry-mark main...replay
 
 Rob can continue processing images, and will turn in a successful art project.
 Long after he finishes high school, he finds his dataset on his old computer

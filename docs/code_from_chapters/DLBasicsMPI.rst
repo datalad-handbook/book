@@ -697,13 +697,13 @@ This uses a built-in feature of :dlcmd:`rerun`, and is useful as one can very fa
 
 A ``git diff`` between the two branches in the ``accuracy.json`` file can give an overview of how the models compare::
 
-   git diff master -- accuracy.json
+   git diff main -- accuracy.json
 
 A ``git checkout`` will get you back to the previous branch with the trained SGD model and results.
 Should you decide that a model is not worth keeping in the revision history, you can selectively drop data from those branches.
 The run records you kept could always be used to recompute a dropped ``model.joblib`` file, though::
 
-   git checkout master
+   git checkout main
    cat accuracy.json
 
 Repeat on changed data!

@@ -1,5 +1,5 @@
 ### DVC
 $ git add .dvc/config
 $ git commit -m "add local remote"
-[main e8392ea] add local remote
+[master b4f8467] add local remote
  1 file changed, 4 insertions(+)

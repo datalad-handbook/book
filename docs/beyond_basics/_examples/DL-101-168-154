@@ -6,16 +6,20 @@ stages:
     cmd: python src/prepare.py
     deps:
     - path: data/raw
-      md5: d39907b0✂MD5.dir
-      size: 16711927
+      hash: md5
+      md5: 3f163676✂MD5.dir
+      size: 16711951
       nfiles: 2704
     - path: src/prepare.py
+      hash: md5
       md5: ef804f35✂MD5
       size: 1231
     outs:
     - path: data/prepared/test.csv
-      md5: 0b90b0e8✂MD5
+      hash: md5
+      md5: 536fe137✂MD5
       size: 62023
     - path: data/prepared/train.csv
-      md5: 360a73ac✂MD5
+      hash: md5
+      md5: 0bad47e2✂MD5
       size: 155128

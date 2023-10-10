@@ -1,7 +1,7 @@
 ### DVC
 $ git status
-On branch main
-Your branch is ahead of 'github/main' by 2 commits.
+On branch master
+Your branch is ahead of 'github/master' by 2 commits.
   (use "git push" to publish your local commits)
 
 Changes not staged for commit:

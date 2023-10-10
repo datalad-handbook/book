@@ -184,7 +184,7 @@ of the dataset and the previous commit (called "``HEAD~1``" in Git terminology [
 
       datalad diff --from main --to HEAD~1
 
-   The ``--from`` argument specifies a different starting point for the comparison - the ``main`` or :term:`main` :term:`branch`, which would be the starting point on most Unix-based systems.
+   The ``--from`` argument specifies a different starting point for the comparison - the ``main`` or :term:`master` :term:`branch`, which would be the starting point on most Unix-based systems.
 
 .. runrecord:: _examples/DL-101-109-108
    :language: console

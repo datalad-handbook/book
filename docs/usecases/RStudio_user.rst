@@ -40,7 +40,8 @@ Max follows the handbook and installs DataLad on his computer.
 Max first want to clone the repository on their computer, they use the Rstudio 
 `create a new project` function using the SSH address of the parent repository.
 
-.. figure:: ../artwork/src/Rstudio/Rstudio-create.jpg
+
+.. figure:: ../artwork/src/rstudio/Rstudio-create.png
    :scale: 80 %
    :alt: screenshot of Rstudio new project creation.
 
@@ -50,7 +51,7 @@ Max can't see submodules content and comes to Bobby.
 
 Bobby comes and run ``datalad get . -n -r`` in the terminal window of Rstudio. 
 
-.. figure:: ../artwork/src/Rstudio/Rstudio-create.jpg
+.. figure:: ../artwork/src/rstudio/Rstudio-create.png
    :scale: 80 %
    :alt: screenshot of Rstudio terminal tab.
 
@@ -174,7 +175,7 @@ Then, Max create a bash script in Rstudio and run it using the usual button (Thi
   --explicit \
   Rscript "<path-to-script.r>" {inputs} {outputs}
 
-.. figure:: ../artwork/src/Rstudio/Rstudio-dataladrun.jpg
+.. figure:: ../artwork/src/rstudio/Rstudio-dataladrun.png
    :scale: 80 %
    :alt: screenshot of Rstudio bash code window
 

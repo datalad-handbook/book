@@ -32,7 +32,9 @@ or storage of datasets [#f1]_, or a regular clone.
    .. index:: ! datalad command; create-sibling-ria
 
    - Add an existing repository as a sibling with the :dlcmd:`siblings`
-     command. Here are common examples::
+     command. Here are common examples:
+
+     .. code-block:: bash
 
         # to a remote repository
         $ datalad siblings add --name github-repo --url <url.to.github>
@@ -55,7 +57,9 @@ or storage of datasets [#f1]_, or a regular clone.
 
 In order to publish dataset content, DataLad needs to know to which sibling
 content shall be pushed. This can be specified with the ``--to`` option directly
-from the command line::
+from the command line:
+
+.. code-block:: bash
 
    $ datalad push --to <sibling>
 
@@ -142,7 +146,9 @@ targets are configured throughout the dataset hierarchy.
    update to the public dataset is pushed, apart from pushing only the ``main``
    branch, all branches starting with the section identifier ``sct`` are pushed
    automatically as well. This configuration was achieved by specifying these branches
-   (using :term:`globbing` with ``*``) in the ``push`` specification of this :term:`remote`::
+   (using :term:`globbing` with ``*``) in the ``push`` specification of this :term:`remote`:
+
+   .. code-block:: bash
 
       $ git config --local remote.public.push 'refs/heads/sct*'
 

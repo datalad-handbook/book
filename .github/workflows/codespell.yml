@@ -7,14 +7,16 @@ on:
   pull_request:
     branches: [main]
 
+permissions:
+  contents: read
+
 jobs:
   codespell:
     name: Check for spelling errors
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
-      - uses: codespell-project/actions-codespell@master
-        with:
-          skip: "*.svg,.git,venvs,_build,versioneer.py,DL-*,.github"
-          ignore_words_list: "wit"
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Codespell
+        uses: codespell-project/actions-codespell@v2

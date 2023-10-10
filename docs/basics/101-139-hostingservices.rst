@@ -5,7 +5,7 @@ Publishing datasets to Git repository hosting
 
 Because DataLad datasets are :term:`Git` repositories, it is possible to
 :dlcmd:`push` datasets to any Git repository hosting service, such as
-:term:`GitHub`, :term:`GitLab`, :term:`GIN`, :term:`Bitbucket`, `Gogs <https://gogs.io>`_, or `Gitea <https://gitea.io/en-us>`_.
+:term:`GitHub`, :term:`GitLab`, :term:`GIN`, :term:`Bitbucket`, `Gogs <https://gogs.io>`_, or Gitea_.
 These published datasets are ordinary :term:`sibling`\s of your dataset, and among other advantages, they can constitute a back-up, an entry-point to retrieve your dataset for others or yourself, the backbone for collaboration on datasets, or the means to enhance visibility, findability and citeability of your work [#f1]_.
 This section contains a brief overview on how to publish your dataset to different services.
 
@@ -60,7 +60,7 @@ How to add a sibling on a Git repository hosting site: The manual way
    :term:`GitHub`, or :term:`GitLab`, it can be used to connect and authenticate
    without supplying your username or password for each action.
 
-   A tutorial by GitHub at `docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh <https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent>`_
+   A tutorial by GitHub at `docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh <https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent>`_
    has a detailed step-by-step instruction to generate and use SSH keys for authentication.
    You will also learn how add your public SSH key to your hosting service account
    so that you can install or clone datasets or Git repositories via ``SSH`` (in addition
@@ -97,7 +97,7 @@ How to add a sibling on a Git repository hosting site: The automated way
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 DataLad provides ``create-sibling-*`` commands to automatically create datasets on certain hosting sites.
-You can automatically create new repositories from the command line for :term:`GitHub`, :term:`GitLab`, :term:`GIN`, `Gogs <https://gogs.io>`__, or `Gitea <https://gitea.io/en-us>`__.
+You can automatically create new repositories from the command line for :term:`GitHub`, :term:`GitLab`, :term:`GIN`, `Gogs <https://gogs.io>`__, or Gitea_.
 This is implemented with a set of commands called :dlcmd:`create-sibling-github`, :dlcmd:`create-sibling-gitlab`, :dlcmd:`create-sibling-gin`, :dlcmd:`create-sibling-gogs`, and :dlcmd:`create-sibling-gitea`.
 
 Each command is slightly tuned towards the peculiarities of each particular platform, but the most important common parameters are streamlined across commands as follows:
@@ -158,7 +158,9 @@ Often, you can specifically select which set of permissions a specific token has
 
 For creating and updating repositories with DataLad commands it is usually sufficient to grant only repository-related permissions.
 However, broader permission sets may also make sense.
-Should you employ GitHub workflows, for example, a token without "workflow" scope could not push changes to workflow files, resulting in errors like this one::
+Should you employ GitHub workflows, for example, a token without "workflow" scope could not push changes to workflow files, resulting in errors like this one:
+
+.. code-block:: bash
 
     [remote rejected] (refusing to allow a Personal Access Token to create or update workflow `.github/workflows/benchmarks.yml` without `workflow` scope)]
 
@@ -227,7 +229,9 @@ Due to the distinction between groups and projects, GitLab allows two different 
 * **collection**:
   A new group is created for the dataset. The root dataset (the topmost superdataset) is placed in a "project" project inside this group, and all nested subdatasets are represented inside the group using a "flat" layout [#f4]_. This layout is the default.
 
-Consider the ``DataLad-101`` dataset, a superdataset with a several subdatasets in the following layout::
+Consider the ``DataLad-101`` dataset, a superdataset with a several subdatasets in the following layout:
+
+.. code-block:: bash
 
     /home/me/dl-101/DataLad-101    # dataset
     ├── books/
@@ -287,7 +291,7 @@ Publishing datasets recursively
 When publishing a series of datasets recursively, the ``--project`` argument can not be used anymore - otherwise, all datasets in the hierarchy would attempt to create the same group or project over and over again.
 Instead, one configures the root level dataset, and the names for underlying datasets will be derived from this configuration:
 
-.. code-block::
+.. code-block:: bash
 
    # do the configuration for the top-most dataset
    # either configure with Git
@@ -320,6 +324,7 @@ Final step: Pushing to GitLab
 
 Once you have set up your dataset sibling(s), you can push individual datasets with ``datalad push --to gitlab`` or push recursively across a hierarchy by adding the ``--recursive`` flag to the push command. 
 
+.. _gitea: https://about.gitea.com
 
 .. rubric:: Footnotes
 
@@ -333,6 +338,6 @@ Once you have set up your dataset sibling(s), you can push individual datasets w
          is protecting. If the private key does not have a passphrase, simply copying
          this file grants a person access!
 
-.. [#f3]  GitHub `deprecated user-password authentication <https://developer.github.com/changes/2020-02-14-deprecating-password-auth/>`_ and only supports authentication via personal access token from November 13th 2020 onwards. Supplying a password instead of a token will fail to authenticate.
+.. [#f3]  GitHub `deprecated user-password authentication <https://developer.github.com/changes/2020-02-14-deprecating-password-auth>`_ and only supports authentication via personal access token from November 13th 2020 onwards. Supplying a password instead of a token will fail to authenticate.
 
 .. [#f4] The default project name ``project`` and path separator ``-`` are configurable using the dataset-level configurations ``datalad.gitlab-default-projectname`` and ``datalad.gitlab-default-pathseparator``

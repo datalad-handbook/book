@@ -8,20 +8,20 @@ $ tree /home/me/myriastore
 │       │   └── objects
 │       │       ├── G6
 │       │       │   └── Gj
-│       │       │       └── MD5E-s12465653--05cd7ed561d108c9bcf96022bc78a92c.pdf
-│       │       │           └── MD5E-s12465653--05cd7ed561d108c9bcf96022bc78a92c.pdf
+│       │       │       └── MD5E-s12465653--05cd7ed5✂MD5.pdf
+│       │       │           └── MD5E-s12465653--05cd7ed5✂MD5.pdf
 │       │       ├── jf
 │       │       │   └── 3M
-│       │       │       └── MD5E-s2120211--06d1efcb05bb2c55cd039dab3fb28455.pdf
-│       │       │           └── MD5E-s2120211--06d1efcb05bb2c55cd039dab3fb28455.pdf
+│       │       │       └── MD5E-s2120211--06d1efcb✂MD5.pdf
+│       │       │           └── MD5E-s2120211--06d1efcb✂MD5.pdf
 │       │       ├── P5
 │       │       │   └── qK
-│       │       │       └── MD5E-s2693891--e61afe4b3c5d76c849c4e61f6547ed03.pdf
-│       │       │           └── MD5E-s2693891--e61afe4b3c5d76c849c4e61f6547ed03.pdf
+│       │       │       └── MD5E-s2693891--e61afe4b✂MD5.pdf
+│       │       │           └── MD5E-s2693891--e61afe4b✂MD5.pdf
 │       │       └── WF
 │       │           └── Gq
-│       │               └── MD5E-s1198170--0ab2c121bcf68d7278af266f6a399c5f.pdf
-│       │                   └── MD5E-s1198170--0ab2c121bcf68d7278af266f6a399c5f.pdf
+│       │               └── MD5E-s1198170--0ab2c121✂MD5.pdf
+│       │                   └── MD5E-s1198170--0ab2c121✂MD5.pdf
 │       ├── archives
 │       ├── branches
 │       ├── config
@@ -47,8 +47,8 @@ $ tree /home/me/myriastore
 │       ├── objects
 │       │   ├── info
 │       │   └── pack
-│       │       ├── pack-0c3603378d887851862dea6a5c994064d4a83f40.idx
-│       │       └── pack-0c3603378d887851862dea6a5c994064d4a83f40.pack
+│       │       ├── pack-0c77bdff✂SHA1.idx
+│       │       └── pack-0c77bdff✂SHA1.pack
 │       ├── ora-remote-46b169aa-bb91-42d6-be06-355d957fb4f7
 │       │   └── transfer
 │       ├── refs

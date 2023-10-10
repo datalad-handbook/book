@@ -1,5 +1,5 @@
 $ git log -n 1 -p
-commit 28a99fb2b7b72298b9ed456e459e566137d17e11
+commit 28a99fb2✂SHA1
 Author: Elena Piscopia <elena@example.net>
 Date:   Tue Jun 18 16:13:00 2019 +0000
 

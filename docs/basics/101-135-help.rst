@@ -71,27 +71,25 @@ command that failed is used. Are arguments specified correctly?
 Does the help list any caveats?
 
 There are multiple ways to find help on DataLad commands.
-You could turn to the `documentation <http://docs.datalad.org>`_.
+You could turn to the `documentation <https://docs.datalad.org>`_.
 Alternatively, to get help right inside the terminal,
-run any command with the ``-h``/``--help`` option (also shown
+run any command with the ``-h``/``--help`` option (shown
 as an excerpt here):
 
 .. runrecord:: _examples/DL-101-135-103
    :language: console
    :workdir: dl-101/DataLad-101
-   :lines: 1-28, 72-108
+   :lines: 1-16,83-92,101-112
+   :append: -✂--✂-
 
    $ datalad get --help
 
-This for example is the help page on :dlcmd:`get`
-(the same you would find in the documentation,
-but in your terminal, here - for brevity - slightly cut).
+This, for example, is the help page on :dlcmd:`get`, the same you would find in the documentation, but in your terminal (here heavily trimmed to only show the main components).
 It contains a command description, a list
 of all the available options with a short explanation of them, and
-example commands. The paragraph *Options* shows all
-optional flags, and all required parts of
-the command are listed in the paragraph *Arguments*. One first thing
-to check for example is whether your command call
+example commands. The two *arguments* sections provide a comprehensive
+list of command arguments with details on their possibilities and
+requirements. A first thing to check would be whether your command call
 specified all of the required arguments.
 
 Asking questions (right)
@@ -178,7 +176,7 @@ To get extensive information on what :dlcmd:`status` does underneath the hood, y
 .. runrecord:: _examples/DL-101-135-105
    :language: console
    :workdir: dl-101/DataLad-101
-   :lines: 1, 3-5, 60-
+   :lines: 1,6, 67-
 
    $ datalad --log-level debug status
 
@@ -186,11 +184,15 @@ To get extensive information on what :dlcmd:`status` does underneath the hood, y
 
    The log level can also be set (for different scopes) using the ``datalad.log.level`` configuration variable, or the corresponding environment variable ``DATALAD_LOG_LEVEL``.
 
-   To set the log level for a single command, for example, set it in front of the command::
+   To set the log level for a single command, for example, set it in front of the command:
+
+   .. code-block:: bash
 
        $ DATALAD_LOG_LEVEL=debug datalad status
 
-   And to set the log level for the rest of the shell session, export it::
+   And to set the log level for the rest of the shell session, export it:
+
+   .. code-block:: bash
 
        $ export DATALAD_LOG_LEVEL=debug
        $ datalad status
@@ -198,7 +200,9 @@ To get extensive information on what :dlcmd:`status` does underneath the hood, y
 
    You can find out a bit more on environment variable :ref:`in the Findoutmore on environment variables <fom-envvar>`.
 
-   The configuration variable can be used to set the log level on a user (global) or system-wide level with the :gitcmd:`config` command::
+   The configuration variable can be used to set the log level on a user (global) or system-wide level with the :gitcmd:`config` command:
+
+   .. code-block:: bash
 
       $ git config --global datalad.log.level debug
 
@@ -252,7 +256,9 @@ Output produced by Git
 **Unset Git identity**
 
 If you have not configured your Git identity, you will
-see warnings like this when running any DataLad command::
+see warnings like this when running any DataLad command:
+
+.. code-block:: bash
 
    [WARNING] It is highly recommended to configure git first (set both user.name and user.email) before using DataLad.
 
@@ -263,7 +269,9 @@ To set your Git identity, go back to section :ref:`installconfig`.
 
 One error you can run into when publishing dataset contents is that your
 :dlcmd:`push` to a sibling is rejected.
-One example is this::
+One example is this:
+
+.. code-block:: bash
 
    $ datalad push --to public
     [ERROR  ] refs/heads/main->public:refs/heads/main [rejected] (non-fast-forward) [publish(/home/me/dl-101/DataLad-101)]
@@ -276,7 +284,9 @@ know about. It can be fixed by updating from the sibling first with a
 
 .. _nonbarepush:
 
-Here is a different push rejection::
+Here is a different push rejection:
+
+.. code-block:: bash
 
    $ datalad push --to roommate
     publish(ok): . (dataset) [refs/heads/git-annex->roommate:refs/heads/git-annex 023a541..59a6f8d]
@@ -305,7 +315,9 @@ on ``receive.denyCurrentBranch`` for more.
 
 **Detached HEADs**
 
-One warning that you may encounter during an installation of a dataset is::
+One warning that you may encounter during an installation of a dataset is:
+
+.. code-block:: bash
 
     [INFO   ] Submodule HEAD got detached. Resetting branch main to point to 046713bb. Original location was 47e53498
 
@@ -320,7 +332,9 @@ Output produced by git-annex
 
 **Unusable annexes**
 
-Upon installation of a dataset, you may see::
+Upon installation of a dataset, you may see:
+
+.. code-block:: bash
 
    [INFO    ]     Remote origin not usable by git-annex; setting annex-ignore
    [INFO    ]     This could be a problem with the git-annex installation on the
@@ -334,7 +348,9 @@ many reasons, but as long as there are other remotes you can access the
 data from, you are fine.
 
 A similar warning message may appear when adding a sibling that is a pure Git
-:term:`remote`, for example a repository on GitHub::
+:term:`remote`, for example a repository on GitHub:
+
+.. code-block:: bash
 
    [INFO ] Failed to enable annex remote github, could be a pure git or not
    accessible
@@ -359,7 +375,9 @@ Other errors
 ^^^^^^^^^^^^
 
 Sometimes, registered subdatasets URLs have an :term:`SSH` instead of :term:`https` address, for example ``git@github.com:datalad-datasets/longnow-podcasts.git`` instead of ``https://github.com/datalad-datasets/longnow-podcasts.git``.
-If one does not have an SSH key configured for the required service (e.g., GitHub, or a server), installing or getting the subdataset and its contents fails, with messages starting similar to this::
+If one does not have an SSH key configured for the required service (e.g., GitHub, or a server), installing or getting the subdataset and its contents fails, with messages starting similar to this:
+
+.. code-block:: bash
 
    [INFO   ] Cloning https://github.com/psychoinformatics-de/paper-remodnav.git/remodnav [2 other candidates] into '/home/.../remodnav'
    Permission denied (publickey).

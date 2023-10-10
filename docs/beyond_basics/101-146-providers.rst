@@ -43,7 +43,7 @@ the entered credentials stay valid.
    your system's (encrypted) `keyring <https://en.wikipedia.org/wiki/GNOME_Keyring>`_.
    It is a built-in credential store, used in all major operating systems, and
    can store credentials securely.
-   DataLad uses the `Python keyring <https://keyring.readthedocs.io/en/latest>`_
+   DataLad uses the `Python keyring <https://keyring.readthedocs.io>`_
    package to access the keyring. In addition to a standard interface to the
    keyring, this library also has useful special purpose backends that come in
    handy in corner cases such as HPC/cluster computing, where no interactive
@@ -95,7 +95,7 @@ The example below sheds some light one this.
    ``'http_auth'`` (   `http and html form-based authentication <https://www.javaxt.com/wiki/Tutorials/Javascript/Form_Based_HTTP_Authentication>`_),
    ``'http_basic_auth'`` (`http basic access <https://en.wikipedia.org/wiki/Basic_access_authentication>`_),
    ``'http_digest_auth'`` (   `digest access authentication <https://en.wikipedia.org/wiki/Digest_access_authentication>`_),
-   ``'bearer_token'`` (`http bearer token authentication <https://tools.ietf.org/html/rfc6750>`_)
+   ``'bearer_token'`` (`http bearer token authentication <https://datatracker.ietf.org/doc/html/rfc6750>`_)
    and ``'aws-s3'``. A full list can be found in the technical docs.
 
 
@@ -218,7 +218,7 @@ Example: Data access via Git's credential system
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Consider a private repository on :term:`GitHub`.
-When cloning such datasets via the :term:`https` protocol, every connection needs a user name and a password in the form of a `Personal Access Token <https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token>`_.
+When cloning such datasets via the :term:`https` protocol, every connection needs a user name and a password in the form of a `Personal Access Token`_.
 
 .. code-block:: bash
 
@@ -263,7 +263,7 @@ For fun, you can check that a download via ``wget`` from the command line also f
 
 To achieve a successful download, we will create a small, custom credential helper for Git, and tell DataLad about it with a provider configuration.
 First, we will store the password on your system.
-Create a `personal access token <https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token>`_ on :term:`GitHub`, and, for simplicity, write it into a text file ``github`` in your home directory.
+Create a `personal access token`_ on :term:`GitHub`, and, for simplicity, write it into a text file ``github`` in your home directory.
 Please do note that it is highly discouraged to store passwords in plain files, and only done for demonstration here.
 
 Next, we will write a credential helper that will retrieve this password.
@@ -279,7 +279,7 @@ This configuration will be queried by Git when a URL matches ``https://raw.githu
 This function is rudimentary, but does the job for this illustration.
 
 Finally, we will teach DataLad to use on this configuration to authenticate.
-For this, create a new dataset, and, with your favourite editor, create a new provider configuration ``.datalad/providers/github.cfg`` in it.
+For this, create a new dataset, and, with your favorite editor, create a new provider configuration ``.datalad/providers/github.cfg`` in it.
 Depending on your editor, you will need to create the directory ``providers`` under ``.datalad`` first.
 This provider configuration should contain the following:
 
@@ -305,7 +305,9 @@ With this setup, a ``datalad download-url`` succeeds, authenticating via the Git
       [credential "https://*data.example.com"]
          helper = "datalad"
 
-To find out more about DataLad's integration with Git's credential system, take a look into the more technical documentation at `docs.datalad.org/credentials.html <http://docs.datalad.org/credentials.html>`_ and `docs.datalad.org/design/credentials.html <http://docs.datalad.org/design/credentials.html>`_.
+To find out more about DataLad's integration with Git's credential system, take a look into the more technical documentation at `docs.datalad.org/credentials.html <https://docs.datalad.org/credentials.html>`_ and `docs.datalad.org/design/credentials.html <https://docs.datalad.org/design/credentials.html>`_.
+
+.. _Personal Access Token: https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens
 
 .. rubric:: Footnotes
 

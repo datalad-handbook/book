@@ -308,7 +308,7 @@ subdataset again, just as we did in the example above.
 
 But what about the ``-n`` option for :dlcmd:`get`?
 Previously, we used :dlcmd:`get` to get file content. However,
-:dlcmd:` operate on more than just the level of *files* or *directories*.
+:dlcmd:`get` operate on more than just the level of *files* or *directories*.
 Instead, it can also operate on the level of *datasets*. Regardless of whether
 it is a single file (such as ``books/TLCL.pdf``) or a registered subdataset
 (such as ``recordings/longnow``), :dlcmd:`get` will operate on it to 1) install
@@ -326,7 +326,9 @@ it only installed the subdataset to retrieve the meta data about file availabili
 
 To explicitly install all potential subdatasets *recursively*, that is,
 all of the subdatasets inside it as well, one can give the
-``-r``/``--recursive`` option to :dlcmd:`get`::
+``-r``/``--recursive`` option to :dlcmd:`get`:
+
+.. code-block:: bash
 
   datalad get -n -r <subds>
 
@@ -344,7 +346,9 @@ a few dozen levels of nested subdatasets right away.
 
 However, there is a middle way [#f1]_: The ``--recursion-limit`` option let's
 you specify how many levels of subdatasets should be installed together
-with the first subdataset::
+with the first subdataset:
+
+.. code-block:: bash
 
   datalad get -n -r --recursion-limit 1 <subds>
 

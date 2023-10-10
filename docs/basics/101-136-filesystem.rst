@@ -40,13 +40,13 @@ moving a file, and uses the :shcmd:`mv` command.
 .. runrecord:: _examples/DL-101-136-101
    :language: console
    :workdir: dl-101/DataLad-101
-   :realcommand: cd books/ && mv TLCL.pdf The_Linux_Command_Line.pdf && ls -lah --time-style=long-iso
+   :realcommand: cd books/ && mv TLCL.pdf The_Linux_Command_Line.pdf && ls -lh --time-style=long-iso
    :notes: Let's look into file system operations. What does renaming does to a file that is symlinked?
    :cast: 03_git_annex_basics
 
    $ cd books/
    $ mv TLCL.pdf The_Linux_Command_Line.pdf
-   $ ls -lah The_Linux_Command_Line.pdf
+   $ ls -lh The_Linux_Command_Line.pdf
 
 Try to open the renamed file, e.g., with
 ``evince The_Linux_Command_Line.pdf``.
@@ -100,7 +100,9 @@ together with the file name change, you could give both the
 new and the deleted file as a path specification to
 :dlcmd:`save`, even if it feels unintuitive to
 save a change that is marked as a deletion in a
-:dlcmd:`status`::
+:dlcmd:`status`:
+
+.. code-block:: bash
 
    datalad save -m "rename file" oldname newname
 
@@ -169,7 +171,7 @@ section. If you are a Git user, you will be very familiar with it.
 
       $ git commit -m "rename book"
 
-   `Especially when renaming directories with many files, this can be much faster <https://knowledge-base.psychoinformatics.de/kbi/0022/index.html>`_ than a ``mv`` followed by ``datalad save``,
+   `Especially when renaming directories with many files, this can be much faster <https://knowledge-base.psychoinformatics.de/kbi/0022>`_ than a ``mv`` followed by ``datalad save``,
 
 
 To summarize, renaming files is easy and worry-free. Do not be intimidated
@@ -784,7 +786,9 @@ section.
       # attempt a datalad update
       $ datalad update
 
-   Here we go::
+   Here we go:
+
+   .. code-block:: text
 
       'fatal: '../mock_user/DataLad-101' does not appear to be a git repository
        fatal: Could not read from remote repository.
@@ -1178,7 +1182,7 @@ If for whatever reason you at one point tried to remove a DataLad dataset,
 whether with a GUI or the command line call ``rm -rf <directory>``, you likely
 have seen permission denied errors such as
 
-.. code-block::
+.. code-block: bash
 
     rm: cannot remove '<directory>/.git/annex/objects/Mz/M1/MD5E-s422982--2977b5c6ea32de1f98689bc42613aac7.jpg/MD5E-s422982--2977b5c6ea32de1f98689bc42613aac7.jpg': Permission denied
     rm: cannot remove '<directory>/.git/annex/objects/FP/wv/MD5E-s543180--6209797211280fc0a95196b0f781311e.jpg/MD5E-s543180--6209797211280fc0a95196b0f781311e.jpg': Permission denied
@@ -1190,7 +1194,9 @@ stored in the object tree of git-annex. If you want, you can re-read the section
 :ref:`symlink` to find out how git-annex revokes write permission for the user
 to protect the file content given to it. To remove a dataset with annexed content
 one has to regain write permissions to everything in the dataset. This is done
-with the Unix ``chmod`` command::
+with the Unix ``chmod`` command:
+
+.. code-block:: bash
 
     chmod -R u+w <dataset>
 

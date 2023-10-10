@@ -165,7 +165,7 @@ to the DataLad handbook as a resource if she has further questions.
 To make the analysis reproducible, they spent the final part of the meeting
 on adding the labs default singularity image to the dataset.
 The lab has a singularity image with all the relevant software on
-`Singularity-Hub <https://singularity-hub.org/>`_,
+`Singularity-Hub <https://singularity-hub.org>`_,
 and it can easily be added to the dataset with the DataLad-containers extension [#f3]_:
 
 .. code-block:: bash
@@ -254,7 +254,7 @@ projects. It requires minimal effort, but comes with great benefit:
   of any external inputs of a project make it possible (when a project is completed)
   that a supervisor can efficiently test the integrity of the inputs, discard them
   (if unmodified), and only archive the outputs that are unique to the project --
-  which then can become a modular component for re-use in a future project.
+  which then can become a modular component for reuse in a future project.
 
 
 .. rubric:: Footnotes

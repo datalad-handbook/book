@@ -15,7 +15,7 @@ of what DataLad is, to give you, whoever you may be, some idea of what kind of
 tool you will learn to master in this handbook, and to combat some prejudices
 or presumptions about DataLad one could have.
 
-To make it short, DataLad is a software tool developed to aid with everything
+To make it short, DataLad (`www.datalad.org <https://datalad.org>`_) is a software tool developed to aid with everything
 related to the evolution of digital objects.
 
 It is **not only keeping track of code**, it is
@@ -24,7 +24,7 @@ It is **not only keeping track of code**, it is
 but it assists with the combination of all things
 necessary in the digital workflow of data and science.
 
-As built-in, but *optional* features, DataLad yields FAIR resources -- for example
+As built-in, but *optional* features, DataLad yields FAIR_ resources -- for example
 :term:`metadata` and :term:`provenance` -- and anything (or everything)
 can be easily shared *should the user want this*.
 
@@ -69,7 +69,7 @@ its shared copies**?
 The world is full of data. The public and private sector make use of it to
 understand, improve, and innovate the complex world we live in.  Currently, this
 process is far from optimal.  In order for society to get the most out of public
-data collections, public **data need to be** `FAIR <https://www.go-fair.org>`__: Findable,
+data collections, public **data need to be** FAIR_: Findable,
 Accessible, Interoperable, and Reusable. Apart from easy ways to share or update
 shared copies of data, extensive **metadata** is required to identify data, link
 data collections together, and make them findable and searchable in a
@@ -81,7 +81,7 @@ evolution**?
 digital workflow of using data -- regardless of the data's type, content, size,
 location, generation, or development.  It provides functionality to share,
 search, obtain, and version control data in a distributed fashion, and it aids
-managing the evolution of digital objects in a way that fulfills the `FAIR <https://www.go-fair.org>`__
+managing the evolution of digital objects in a way that fulfills the FAIR_
 principles.
 
 
@@ -151,7 +151,7 @@ that captures the spirit of what DataLad is, and here is a brief overview on it.
    **maximize the (re-)use of existing 3rd-party data resources and infrastructure**.
    Users *can* use existing central infrastructures should they want to.
    DataLad works with any infrastructure from :term:`GitHub` to
-   `Dropbox <https://www.dropbox.com>`_, `Figshare <https://figshare.com/>`_
+   `Dropbox <https://www.dropbox.com>`_, `Figshare <https://figshare.com>`_
    or institutional repositories,
    enabling users to harvest all of the advantages of their preferred
    infrastructure without tying anyone down to central services.
@@ -163,3 +163,4 @@ of the functionality and commands you will learn with this handbook. But before 
 get there, let's get ready to *use* DataLad. For this, the next
 section will show you how to use the handbook.
 
+.. _FAIR: https://www.go-fair.org

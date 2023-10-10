@@ -61,7 +61,7 @@ The priority of subdataset clone locations is configured by attaching a *cost* t
 The cost is a three digit value (range ``000-999``), and the lower the cost of a candidate, the higher its priority, i.e., the candidate with the lowest cost is attempted first.
 In order to prefer any particular RIA store for subdataset cloning, one could configure the superdataset with the following command [#f3]_::
 
-    $ git config -f .datalad/config datalad.get.subdataset-source-candidate-000mypreferredRIAstore ria+http://store.datalad.org#{id}
+    $ git config -f .datalad/config datalad.get.subdataset-source-candidate-000mypreferredRIAstore ria+https://store.datalad.org#{id}
 
 where ``mypreferredRIAstore`` is the (arbitrary) ``<name>`` of the source candidate, and the ``000`` prefix is the (lowest possible) cost.
 Such a configuration will ensure that the first location any subdataset is attempted to be installed from is the RIA store at ``store.datalad.org``.

@@ -318,7 +318,7 @@ Because of the reduced amount of files it contains, it is easier to transform th
 Such a conversion can be done on a different :term:`branch` of the dataset.
 If you have published your subsampled dataset into a RIA store, as it was done with this specific subset, a single command can clone a BIDS-ified, slimmed down HCP dataset for structural connectivity analyses because RIA stores allow cloning of datasets in specific versions (such as a branch or tag as an identifier)::
 
-   $ datalad clone ria+http://store.datalad.org#~hcp-structural-connectivity@bids
+   $ datalad clone ria+https://store.datalad.org#~hcp-structural-connectivity@bids
 
 Summary
 """""""

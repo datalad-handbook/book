@@ -32,7 +32,7 @@ Below is a short list of optional readings. We decide to download them (they
 are all free, in total about 15 MB), and save them in ``DataLad-101/books``.
 
 - Additional reading about the command line: `The Linux Command Line <https://sourceforge.net/projects/linuxcommand/files/TLCL/19.01/TLCL-19.01.pdf/download>`_
-- An intro to Python: `A byte of Python <https://github.com/swaroopch/byte-of-python/releases/download/v14558db59a326ba99eda0da6c4548c48ccb4cd0f/byte-of-python.pdf>`_
+- An intro to Python: `A byte of Python <https://github.com/swaroopch/byte-of-python/releases/download/vadb91fc6fce27c58e3f931f5861806d3ccd1054c/byte-of-python.pdf>`_
 
 You can either visit the links and save them in ``books/``,
 or run the following commands [#f2]_ to download the books right from the terminal.
@@ -46,7 +46,9 @@ are presented here, make sure to check the :windows-wit:`on peculiarities of its
 
    In Unix shells, ``\`` can be used to split a command into several lines, for example to aid readability.
    Standard Windows terminals (including the Anaconda prompt) do not support this.
-   They instead use the ``^`` character::
+   They instead use the ``^`` character:
+
+   .. code-block:: bash
 
      $ wget -q https://sourceforge.net/projects/linuxcommand/files/TLCL/19.01/TLCL-19.01.pdf/download ^
      -O TLCL.pdf
@@ -62,7 +64,7 @@ are presented here, make sure to check the :windows-wit:`on peculiarities of its
    $ cd books
    $ wget -q https://sourceforge.net/projects/linuxcommand/files/TLCL/19.01/TLCL-19.01.pdf/download \
      -O TLCL.pdf
-   $ wget -q https://homepages.uc.edu/~becktl/byte_of_python.pdf \
+   $ wget -q https://github.com/swaroopch/byte-of-python/releases/download/vadb91fc6fce27c58e3f931f5861806d3ccd1054c/byte-of-python.pdf \
      -O byte-of-python.pdf
    # get back into the root of the dataset
    $ cd ../
@@ -75,12 +77,14 @@ curl <ww-curl-instead-wget>`.
    :name: ww-curl-instead-wget
 
    Many versions of Windows do not ship with the tool ``wget``.
-   You can install it, but it may be easier to use the pre-installed ``curl`` command::
+   You can install it, but it may be easier to use the pre-installed ``curl`` command:
+
+   .. code-block:: bash
 
       $ cd books
       $ curl -L https://sourceforge.net/projects/linuxcommand/files/TLCL/19.01/TLCL-19.01.pdf/download \
         -o TLCL.pdf
-      $ curl -L https://homepages.uc.edu/~becktl/byte_of_python.pdf \
+      $ curl -L https://github.com/swaroopch/byte-of-python/releases/download/vadb91fc6fce27c58e3f931f5861806d3ccd1054c/byte-of-python.pdf \
         -o byte-of-python.pdf
       $ cd ../
 
@@ -318,7 +322,7 @@ file should be saved in (``.`` denotes "current directory"), and a commit messag
    :notes: finally, datalad-download-url
 
    $ datalad download-url \
-     http://www.tldp.org/LDP/Bash-Beginners-Guide/Bash-Beginners-Guide.pdf \
+     https://www.tldp.org/LDP/Bash-Beginners-Guide/Bash-Beginners-Guide.pdf \
      --dataset . \
      -m "add beginners guide on bash" \
      -O books/bash_guide.pdf

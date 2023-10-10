@@ -27,7 +27,7 @@ part of a lecture series (with bi-weekly 90 minute sessions) or workshops of dif
 lengths. Sessions in the lecture series are based on each chapter. Longer workshops
 combine several chapters. You can find the slides for the workshops in the
 `companion course repository <https://github.com/datalad-handbook/course>`_.
-Slides are made using `reveal.js <https://github.com/hakimel/reveal.js/>`_.
+Slides are made using `reveal.js <https://github.com/hakimel/reveal.js>`_.
 They are available as PDFs in ``talks/PDFs/``, or as the source ``html`` files
 in ``talks/``.
 
@@ -45,7 +45,7 @@ speaker notes.
 
 A number of demos exist that accompany the slides for the data management sessions
 in ``casts``, but you can also create your own. To find out how to do this,
-please consult the section `directives and demos <http://handbook.datalad.org/en/latest/contributing.html#directives-and-demos>`_
+please consult the section `directives and demos <https://handbook.datalad.org/contributing.html#directives-and-demos>`_
 in the contributing guide.
 To use the tool, download the ``cast_live`` script and the ``cast_bash.rc`` file
 that accompanies it (e.g., by simply cloning/installing the

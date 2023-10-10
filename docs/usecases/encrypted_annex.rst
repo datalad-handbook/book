@@ -11,7 +11,7 @@ One technical solution for this problem is `encryption <https://en.wikipedia.org
 During encryption, the sensitive data are obfuscated in a structured but secret manner, and only authorized agents have the knowledge how to decrypt the data back into a usable state.
 
 Because encryption is relevant or at least attractive to many applications involving data in :term:`DataLad dataset`\s, this use case demonstrates how to
-utilize `git-annex's encryption <https://git-annex.branchable.com/encryption/>`_ to keep data safely encrypted when it is not being used.
+utilize `git-annex's encryption <https://git-annex.branchable.com/encryption>`_ to keep data safely encrypted when it is not being used.
 This example workflow mimics a sensitive data deposition use case, where data need to be securely deposited on one machine, and downloaded to another machine for processing and storage.
 To make this work, in our workflow we will combine several independent pieces:
 
@@ -56,7 +56,7 @@ Step by step
 Before we start: GnuPG
 ----------------------
 
-DataLad relies on :term:`git-annex` to manage large file content, and git-annex relies in part on `GnuPG <https://gnupg.org/>`__ to manage encryption via *public-key cryptography*.
+DataLad relies on :term:`git-annex` to manage large file content, and git-annex relies in part on `GnuPG <https://gnupg.org>`__ to manage encryption via *public-key cryptography*.
 `Public key cryptography <https://en.wikipedia.org/wiki/Public-key_cryptography>`_ relies on key pairs for encryption and decryption.
 To proceed with the next steps, you will need at least one pair of GPG
 keys, one *private* (used for decryption) and one *public* (used for
@@ -89,7 +89,7 @@ Remote server: encrypted deposition
 On the remote server, we start by creating a DataLad dataset to track the deposition of raw data.
 Since encryption is enabled for git-annex :term:`special remote`\s (thus only applies to annexed files), we stay with the default dataset configuration, which annexes all files.
 
-.. code:: bash
+.. code-block:: bash
 
    $ datalad create incoming_data
    $ cd incoming data
@@ -104,7 +104,7 @@ Then, we create a local :term:`Remote Indexed Archive (RIA) store` as a :term:`s
 The created sibling is called ``entrystore`` in the example below, but by default, a RIA sibling consists of two parts, with ``entrystore`` being only one of them.
 The other, which by default uses the sibling name with a ``-storage`` suffix ("``entrystore-storage``"), is an automatically created :term:`special remote` to store annexed files in.
 
-.. code:: bash
+.. code-block:: bash
 
    $ datalad create-sibling-ria \
      --new-store-ok --name entrystore \
@@ -116,7 +116,7 @@ We choose regular public key encryption with shared filename encryption (``share
 In this method, access to *public* keys is required to store files in the remote, but a *private* key is required for retrieval.
 So if we only store our public key on the machine, an intruder will have no means to decrypt the data even if they gain access to the server.
 
-.. code:: bash
+.. code-block:: bash
 
    $ git annex enableremote \
       entrystore-storage \
@@ -130,7 +130,7 @@ with ``keyid+=...``.
 
 With this setup, whenever a new data file is uploaded into the dataset on the server, this file needs to be saved, pushed to encrypted storage, and finally, the unencrypted file needs to be dropped:
 
-.. code:: bash
+.. code-block:: bash
 
    $ datalad save -m "Adding new file" entry-file-name.dat
    $ datalad push --to entrystore entry-file-name.dat
@@ -141,27 +141,27 @@ However, the "HMAC cipher" (the secret used to encrypt) is stored unencrypted in
 This makes it possible to add new files without access to the private GPG keys - but also means that
 access to the git repository will reveal file names.
 Since a RIA store combines a bare git repository with annex storage in the same location, this means that we should take care to not include sensitive information in file names.
-You can see `git-annex's documentation <https://git-annex.branchable.com/encryption/>`__ and the section :ref:`privacy` for more details.
+You can see `git-annex's documentation <https://git-annex.branchable.com/encryption>`__ and the section :ref:`privacy` for more details.
 
 Local machine: Decryption
 -------------------------
 
 In order to retrieve the encrypted data securely from the remote server and perform processing on unencrypted data, we start once again by creating a DataLad dataset:
 
-.. code:: bash
+.. code-block:: bash
 
    $ datalad create derived_data
    $ cd derived_data
 
 We then install the dataset from the RIA store on the remote server as a subdataset with input data using :dlcmd:`clone` and an :term:`SSH` URL to the dataset in the RIA store.
 
-.. code:: bash
+.. code-block:: bash
 
    $ datalad clone -d . ria+ssh://... inputs
 
 Next, we can retrieve all data:
 
-.. code:: bash
+.. code-block:: bash
 
    $ datalad get inputs
 
@@ -182,9 +182,9 @@ Note: In the ``hybrid`` mode, a private key is needed for *both* retrieval
 and deposition of annexed contents, but it is easy to add new keys
 without having to re-encrypt data.
 File content and names are encrypted with a symmetric cipher, which is itself encrypted using GPG and stored encrypted in the git repository.
-See `git-annex's documentation <https://git-annex.branchable.com/encryption/>`__ for more details.
+See `git-annex's documentation <https://git-annex.branchable.com/encryption>`__ for more details.
 
-.. code:: bash
+.. code-block:: bash
 
    $ datalad create-sibling-ria \
        --new-store-ok --name localstore \
@@ -197,7 +197,7 @@ See `git-annex's documentation <https://git-annex.branchable.com/encryption/>`__
 
 We repeat the same for the input subdataset, so that we can maintain a local copy of the raw data.
 
-.. code:: bash
+.. code-block:: bash
 
    $ cd input
    $ datalad create-sibling-ria \
@@ -214,14 +214,14 @@ Here, we will use the second option.
 For this reason, we need to declare the current clones "dead" to git-annex before pushing, so that subsequent clones from the RIA store won't consider this location for obtaining files.
 Since we gave the super- and subdataset's siblings the same name, "``localstore``", we can use ``push --recursive``.
 
-.. code:: bash
+.. code-block:: bash
 
    $ datalad foreach-dataset git annex dead here
    $ datalad push --recursive --to localstore
 
 And in the end we can clean up by removing the temporary clone:
 
-.. code:: bash
+.. code-block:: bash
 
    $ cd ..
    $ datalad drop --recursive --what all --dataset derived_data
@@ -230,7 +230,7 @@ And in the end we can clean up by removing the temporary clone:
 
    Although locations declared to be "dead" are not considered for obtaining files, they still leave a record in the git-annex branch.
    An even better solution would be to create the repository (and subsequent temporary clones) using git-annex's private mode, however, it is not yet fully supported by DataLad.
-   See `git-annex's documentation <https://git-annex.branchable.com/tips/cloning_a_repository_privately/>`__
+   See `git-annex's documentation <https://git-annex.branchable.com/tips/cloning_a_repository_privately>`__
    for private mode and `this DataLad issue <https://github.com/datalad/datalad/issues/6456>`__
    tracking DataLad's support for the configuration.
 
@@ -248,7 +248,7 @@ copy / derived dataset, we would start by cloning the derived dataset
 from the local RIA, and getting the input subdataset (without getting
 contents yet):
 
-.. code:: bash
+.. code-block:: bash
 
    $ datalad clone \
       ria+file:///data/project/entrystore#~derived \
@@ -260,7 +260,7 @@ Our next step would be to obtain files from the remote server that we
 don't yet have locally. At this moment it is a good idea to stop and
 consider what the input dataset "knows" about other locations:
 
-.. code:: bash
+.. code-block:: bash
 
    $ datalad siblings -d inputs
    .: here(+) [git]
@@ -282,7 +282,7 @@ Let's add it then (note that when working with ``datalad
 siblings`` or ``git remote`` commands, we cannot use the
 ``ria+ssh://...#~alias`` URL, and need to use the actual SSH URL and filesystem path).
 
-.. code:: bash
+.. code-block:: bash
 
    $ cd inputs
    $ git remote add entrystore \
@@ -291,7 +291,7 @@ siblings`` or ``git remote`` commands, we cannot use the
 Now we can obtain updates from the entrystore sibling (pair). We may
 choose to fetch only, to see what is new before merging:
 
-.. code:: bash
+.. code-block:: bash
 
    $ datalad update --sibling entrystore --how fetch
    $ datalad diff --from main --to entrystore/main
@@ -301,7 +301,7 @@ right there. Since there are new files, we will integrate the changes
 (since we didn't change the input dataset locally, there is no practical
 difference in using ``ff-only`` versus ``merge``).
 
-.. code:: bash
+.. code-block:: bash
 
    $ datalad update --sibling entrystore --how merge
 
@@ -310,7 +310,7 @@ difference in using ``ff-only`` versus ``merge``).
    The results of the ``diff`` command include files that were not changed, so to look for changes we need to filter them by state;
    e.g. if we only expect additions, we can do this:
 
-	.. code:: python
+	.. code-block:: python
 
 		 added_files = subds.diff(
 		   fr='main',
@@ -320,7 +320,7 @@ difference in using ``ff-only`` versus ``merge``).
 
 Now that we have the latest version of the subdataset, we can repeat the update procedure (note that this time we push to ``origin``)
 
-.. code:: bash
+.. code-block:: bash
 
    $ datalad save -m "Updated subdataset"
    $ datalad run ...

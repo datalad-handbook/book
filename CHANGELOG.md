@@ -15,6 +15,7 @@ All over the handbook, version notes or information relating to datalad versions
 
 ### Additions
 - A new standalone chapter about datalad extensions was added, and sections on datalad-catalog ([#917][]), datalad-metalad ([#930][]), and datalad-gooey were included. 
+- A new standalone chapter about datalad extensions was added, and sections on datalad-catalog ([#917][]), datalad-metalad ([#930][]), and datalad-gooey were included.
 
 #### Introduction
 
@@ -28,7 +29,7 @@ All over the handbook, version notes or information relating to datalad versions
 
 #### Miscellaneous additions
 - The Makefile in the source repository received a more intuitive and fine-grained structure ([#901][])
-- The handbook has gained an Appveyor configuration that allows building the entire Basis and Beyond Basics parts from scratch, and allows an export of generated code snippets. This makes builds on local machines obsolete for contributors that don't want to go through this troube ([#908][])
+- The handbook has gained an Appveyor configuration that allows building the entire Basis and Beyond Basics parts from scratch, and allows an export of generated code snippets. This makes builds on local machines obsolete for contributors that don't want to go through this trouble ([#908][])
 - the handbook now has a tool to report readthedocs metrics for authenticated and authorized users ([#902][])
 
 ## v0.17 (December 20 2022) -- Better late than never
@@ -194,8 +195,8 @@ and Michael Hanke -- thank you!
 
 - RF: Replace `datalad publish` with `datalad push` ([#412][])
 - RF: The Basics part was split into a Basics and Advanced part ([#450][]). The
-  chapters "[Advanced Options](http://handbook.datalad.org/en/latest/beyond_basics/basics-advancedoptions.html)"
-  and "[Go big or go home](http://handbook.datalad.org/en/latest/beyond_basics/basics-scaling.html)"
+  chapters "[Advanced Options](https://handbook.datalad.org/en/latest/beyond_basics/basics-advancedoptions.html)"
+  and "[Go big or go home](https://handbook.datalad.org/en/latest/beyond_basics/basics-scaling.html)"
   have been moved/added there.
 - Installation instructions for Windows subsystem for linux have been removed ([#397][])
 
@@ -208,31 +209,31 @@ and Michael Hanke -- thank you!
 
 #### Basics
 
-- A [stand-alone section](http://handbook.datalad.org/en/latest/basics/101-141-push.html)
+- A [stand-alone section](https://handbook.datalad.org/en/latest/basics/101-141-push.html)
   on `datalad push` summarizes all previous publishing-related information ([#417][])
 - A section for collecting gists (nifty code snippets for various tasks) is added to the
-  chapter on [help](http://handbook.datalad.org/en/latest/basics/basics-help.html)([#445][])
+  chapter on [help](https://handbook.datalad.org/en/latest/basics/basics-help.html)([#445][])
 - `datalad drop` is introduced in the first chapter ([#463][])
 - [Gin's](https://gin.g-node.org/) new feature of anonymous read-only access to datasets is
   now mentioned in the chapter on using
-  [third party infrastructure](http://handbook.datalad.org/en/latest/basics/101-139-gin.html)([#456][])
-- The [section on getting help](http://handbook.datalad.org/en/latest/basics/101-135-help.html)
+  [third party infrastructure](https://handbook.datalad.org/en/latest/basics/101-139-gin.html)([#456][])
+- The [section on getting help](https://handbook.datalad.org/en/latest/basics/101-135-help.html)
   started to collect and explain common warnings and error messages ([#418][])
 
 #### Advanced
 
-- A new [chapter on scaling up with DataLad](http://handbook.datalad.org/en/latest/beyond_basics/basics-scaling.html) was added ([#414][])
-- A [section on configuring custom data access](http://handbook.datalad.org/en/latest/beyond_basics/101-146-providers.html) was added to the chapter
-  ["Advanced Options"](http://handbook.datalad.org/en/latest/beyond_basics/basics-advancedoptions.html)([#440][])
-- The [extension overview](http://handbook.datalad.org/en/latest/extension_pkgs.html)
+- A new [chapter on scaling up with DataLad](https://handbook.datalad.org/en/latest/beyond_basics/basics-scaling.html) was added ([#414][])
+- A [section on configuring custom data access](https://handbook.datalad.org/en/latest/beyond_basics/101-146-providers.html) was added to the chapter
+  ["Advanced Options"](https://handbook.datalad.org/en/latest/beyond_basics/basics-advancedoptions.html)([#440][])
+- The [extension overview](https://handbook.datalad.org/en/latest/extension_pkgs.html)
   has been updated to a complete overview ([#477][])
 #### Usecases
 
 - A new Usecase
-  [Scaling Up: Managing 80TB and 15 Million files from the HCP release](http://handbook.datalad.org/en/latest/usecases/datastorage_for_institutions.html)
+  [Scaling Up: Managing 80TB and 15 Million files from the HCP release](https://handbook.datalad.org/en/latest/usecases/datastorage_for_institutions.html)
   was added ([#225][])
 - Giulia Ippoliti contributed the Usecase
-  [Using Globus as a data store for the Canadian Open Neuroscience Portal](http://handbook.datalad.org/en/latest/usecases/using_globus_as_datastore.html)
+  [Using Globus as a data store for the Canadian Open Neuroscience Portal](https://handbook.datalad.org/en/latest/usecases/using_globus_as_datastore.html)
   (opened in [#421][], merged as [#479][])
 
 #### Miscellaneous additions

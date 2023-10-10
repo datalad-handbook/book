@@ -143,17 +143,17 @@ unnecessary, superfluous thing to do, right?
 
 The resulting symlinks that look like
 your files but only point to the actual content in ``.git/annex/objects`` are
-small in size. An ``ls -lah`` reveals that all of these symlinks have roughly the same,
+small in size. An ``ls -lh`` reveals that all of these symlinks have roughly the same,
 small size of ~130 Bytes:
 
 .. runrecord:: _examples/DL-101-115-103
    :language: console
    :workdir: dl-101/DataLad-101/books
-   :realcommand: ls -lah --time-style=long-iso
+   :realcommand: ls -lh --time-style=long-iso
    :notes: Symlinks are super small in size, just the amount of characters in the symlink!
    :cast: 03_git_annex_basics
 
-   $ ls -lah
+   $ ls -lh
 
 Here you can see the reason why content is symlinked: Small file size means that
 *Git can handle those symlinks*!
@@ -229,12 +229,12 @@ to manage the file system in a DataLad dataset (:ref:`filesystem`).
    .. runrecord:: _examples/DL-101-115-104
       :language: console
       :workdir: dl-101/DataLad-101/books
-      :realcommand: ls -lah --time-style=long-iso TLCL.pdf
+      :realcommand: ls -lh --time-style=long-iso TLCL.pdf
       :notes: how does the symlink relate to the shasum of the file?
       :cast: 03_git_annex_basics
 
       # take a look at the last part of the target path:
-      $ ls -lah TLCL.pdf
+      $ ls -lh TLCL.pdf
 
    Let's take a closer look at the structure of the symlink.
    The key from the hash function is the last part of the name of the file the symlink links to (in which the actual data content is stored).
@@ -295,7 +295,7 @@ Nevertheless, it may be important to know that some tools that you would expect 
 Some **file managers** (e.g., OSX's Finder) may not display broken symlinks.
 In these cases, it will be impossible to browse and explore the file hierarchy of not-yet-retrieved files with the file manager.
 You can make sure to always be able to see the file hierarchy in two separate ways:
-Upgrade your file manager to display file types in DataLad datasets (e.g., the `git-annex-turtle extension <https://github.com/andrewringler/git-annex-turtle>`_ for Finder), or use the `DataLad Gooey <http://docs.datalad.org/projects/gooey>`_ to browse datasets.
+Upgrade your file manager to display file types in DataLad datasets (e.g., the `git-annex-turtle extension <https://github.com/andrewringler/git-annex-turtle>`_ for Finder), or use the `DataLad Gooey <https://docs.datalad.org/projects/gooey>`_ to browse datasets.
 Alternatively, use the :shcmd:`ls` command in a terminal instead of a file manager GUI.
 Other tools may be more more specialized, smaller, or domain-specific, and may fail to correctly work with broken symlinks, or display unhelpful error messages when handling them, or require additional flags to modify their behavior.
 When encountering unexpected behavior or failures, try to keep in mind that a dataset without retrieved content appears to be a pile of broken symlinks to a range of tools, consult a tools documentation with regard to symlinks, and check whether data retrieval fixes persisting problems.

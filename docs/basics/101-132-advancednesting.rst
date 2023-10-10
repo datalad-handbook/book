@@ -17,8 +17,8 @@ completely stand-alone history:
    $ git log --oneline
 
 In principle, this is no news to you. From section :ref:`nesting` and the
-YODA principles you already know that nesting allows for a modular re-use of
-any other DataLad dataset, and that this re-use is possible and simple
+YODA principles you already know that nesting allows for a modular reuse of
+any other DataLad dataset, and that this reuse is possible and simple
 precisely because all of the information is kept within a (sub)dataset.
 
 What is new now, however, is that you applied changes to the dataset. While
@@ -157,7 +157,7 @@ interested in this, checkout the :ref:`dedicated Findoutmore <fom-status>`.
    how untracked dataset content should be reported with the ``--untracked``
    option, or get additional information from annexed content with the ``--annex``
    option. To get a complete overview on what you could do, check out the technical
-   documentation of :dlcmd:`status` `here <http://docs.datalad.org/en/latest/generated/man/datalad-status.html>`_.
+   documentation of :dlcmd:`status` `here <https://docs.datalad.org/en/latest/generated/man/datalad-status.html>`_.
 
    Before we leave this hidden section, lets undo the modification of the subdataset
    by removing the untracked file:
@@ -190,20 +190,26 @@ dataset, i.e., ``DataLad-101``, as the dataset to save to:
 
    If you want to save the current state of the subdataset into the superdataset
    (as necessary here), start a ``save`` from the superdataset and have the
-   ``-d/--dataset`` option point to its root::
+   ``-d/--dataset`` option point to its root:
+
+   .. code-block:: bash
 
       # in the root of the superds
       $ datalad save -d . -m "update subdataset"
 
    If you are in the superdataset, and you want to save an unsaved modification
    in a subdataset to the *subdatasets* history, let ``-d/--dataset`` point to
-   the subdataset::
+   the subdataset:
+
+   .. code-block:: bash
 
       # in the superds
       $ datalad save -d path/to/subds -m "modified XY"
 
    The recursive option allows you to save any content underneath the specified
-   directory, and recurse into any potential subdatasets::
+   directory, and recurse into any potential subdatasets:
+
+   .. code-block:: bash
 
       $ datalad save . --recursive
 

@@ -23,9 +23,9 @@ scanner up to complete data analysis results:
    dataset is maximally reduced.
 
 This use case is adapted from the
-`ReproIn/DataLad tutorial <http://www.repronim.org/ohbm2018-training/03-01-reproin/>`_
+`ReproIn/DataLad tutorial <https://www.repronim.org/ohbm2018-training/03-01-reproin>`_
 by Michael Hanke and Yaroslav Halchenko, given at the 2018 OHBM training course
-ran by `ReproNim <https://www.repronim.org/>`_.
+ran by `ReproNim <https://www.repronim.org>`_.
 
 The Challenge
 ^^^^^^^^^^^^^
@@ -34,11 +34,11 @@ Allan is an exemplary neuroscientist and researcher. He has spent countless
 hours diligently learning not only the statistical methods for his research
 questions and the software tools for his computations, but also taught
 himself about version control and data standards in neuroimaging, such as
-the brain imaging data structure (`BIDS <https://bids.neuroimaging.io/>`_).
+the brain imaging data structure (`BIDS <https://bids.neuroimaging.io>`_).
 For his final PhD project, he patiently acquires functional MRI data of many
 participants, and prepares it according to the BIDS standard afterwards.
 It takes him a full week of time and two failed attempts, but he
-eventually has a `BIDS-compliant <http://bids-standard.github.io/bids-validator/>`_
+eventually has a `BIDS-compliant <https://bids-standard.github.io/bids-validator>`_
 dataset.
 
 When he writes his analysis scripts he takes extra care to responsibly
@@ -85,8 +85,8 @@ Step-by-Step
 
 The first part of this Step-by-Step guide details how to computationally
 reproducibly and automatically reproducibly perform data preparation from raw
-`DICOM <https://www.dicomstandard.org/>`_ files to BIDS-compliant
-`NIfTI <https://nifti.nimh.nih.gov/>`_ images. The actual analysis, a
+`DICOM <https://www.dicomstandard.org>`_ files to BIDS-compliant
+`NIfTI <https://nifti.nimh.nih.gov>`_ images. The actual analysis, a
 first-level GLM for a localization task, is performed in the second part. A
 final paragraph shows how to prepare the dataset for the afterlife.
 
@@ -144,7 +144,7 @@ For neuroimaging, a useful transformation is a transformation from
 DICOMs into the NIfTI format, a format specifically designed for scientific
 analyses of brain images. An intuitive layout is the BIDS standard.
 Performing these transformations and standardizations, however, requires
-software. For the task at hand, `HeudiConv <https://heudiconv.readthedocs.io/en/latest/>`_,
+software. For the task at hand, `HeudiConv <https://heudiconv.readthedocs.io>`_,
 a DICOM converter, is our software of choice. Beyond converting DICOMs, it
 also provides assistance in converting a raw data set to the BIDS standard,
 and it integrates with DataLad to place converted and original data under
@@ -156,8 +156,8 @@ able to go back to it at a later stage should we have the
 need to investigate an issue, and to capture *full* provenance of the
 transformation process, we are using a software container that contains the
 relevant software setup.
-A ready-made `singularity <http://singularity.lbl.gov/>`_ container is
-available from `singularity-hub <https://singularity-hub.org/>`_ at
+A ready-made `singularity <https://singularity.lbl.gov>`_ container is
+available from `singularity-hub <https://singularity-hub.org>`_ at
 `shub://ReproNim/ohbm2018-training:heudiconvn <shub://ReproNim/ohbm2018-training:heudiconvn>`_.
 
 Using the :dlcmd:`containers-add` command we can add this container
@@ -252,7 +252,7 @@ Analysis execution
 
 Since the raw data are reproducibly prepared in BIDS standard we can now go
 further and conduct an analysis. For this example, we will implement a very
-basic first-level GLM analysis using `FSL <http://fsl.fmrib.ox.ac.uk/>`__
+basic first-level GLM analysis using `FSL <https://fsl.fmrib.ox.ac.uk>`__
 that takes only a few minutes to run. As before, we will capture all provenance:
 inputs, computational environments, code, and outputs.
 

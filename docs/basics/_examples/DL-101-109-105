@@ -1,11 +1,11 @@
 $ git log -n 2
-commit 07db512b0e359209df3948202071c2a52c616458
+commit 07db512b✂SHA1
 Author: Elena Piscopia <elena@example.net>
 Date:   Tue Jun 18 16:13:00 2019 +0000
 
     BF: list both directories content
 
-commit f4f30396538221ec1301ddd10bd3fc5e8462a0b0
+commit f4f30396✂SHA1
 Author: Elena Piscopia <elena@example.net>
 Date:   Tue Jun 18 16:13:00 2019 +0000
 

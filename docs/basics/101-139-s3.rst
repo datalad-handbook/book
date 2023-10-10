@@ -4,7 +4,7 @@ Walk-through: Amazon S3 as a special remote
 -------------------------------------------
 
 `Amazon S3 <https://aws.amazon.com/s3>`_ (or Amazon Simple Storage Service) is a
-popular service by `Amazon Web Services <https://aws.amazon.com/>`_ (AWS) that
+popular service by `Amazon Web Services <https://aws.amazon.com>`_ (AWS) that
 provides object storage through a web service interface. An S3 bucket can be 
 configured as a :term:`git-annex` :term:`special remote`, allowing it to be used
 as a DataLad publication target. This means that you can use Amazon S3 to store your
@@ -18,25 +18,25 @@ Prerequisites
 ^^^^^^^^^^^^^
 In order to use Amazon S3 for hosting your datasets, and to follow the steps below, you need to:
 
-- Signup for an `AWS account <https://aws.amazon.com/>`_
+- Signup for an `AWS account <https://aws.amazon.com>`_
 - Verify your account
 - Find your AWS access key
 - Signup for a `GitHub account <https://github.com/join>`_
-- Install `wget <https://www.gnu.org/software/wget/>`_ in order to download sample data
-- Optional: install the `AWS Command Line Interface <https://aws.amazon.com/cli/>`_
+- Install `wget <https://www.gnu.org/software/wget>`_ in order to download sample data
+- Optional: install the `AWS Command Line Interface <https://aws.amazon.com/cli>`_
 
-The `AWS signup <https://aws.amazon.com/>`_ procedure requires you to provide your
+The `AWS signup <https://aws.amazon.com>`_ procedure requires you to provide your
 e-mail address, physical address, and credit card details before verification is possible. 
 
 .. importantnote:: AWS account usage can incur costs
 
-   While Amazon provides `Free Tier <https://aws.amazon.com/free/>`_ access to its services,
+   While Amazon provides `Free Tier <https://aws.amazon.com/free>`_ access to its services,
    it can still potentially result in costs if usage exceeds `Free Tier Limits <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/free-tier-limits.html>`_.
    Be sure to take note of these limits, or set up `automatic tracking alerts <https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/tracking-free-tier-usage.html>`_
    to be notified before incurring unnecessary costs.
 
 
-To find your AWS access key, log in to the `AWS Console <https://console.aws.amazon.com/>`_,
+To find your AWS access key, log in to the `AWS Console <https://console.aws.amazon.com>`_,
 open the dropdown menu at your username (top right), and select "My Security
 Credentials". A new page will open with several options, including "Access keys
 (access key ID and secret access key)" from where you can select "Create New Access
@@ -68,7 +68,7 @@ Your DataLad dataset
 If you already have a small DataLad dataset to practice with, feel free to use it
 during the rest of the walkthrough. If you do not have data, no problem! As a general
 introduction, the steps below will download a small public neuroimaging dataset,
-and transform it into a DataLad dataset. We'll use the `MoAEpilot <https://www.fil.ion.ucl.ac.uk/spm/data/auditory/>`_
+and transform it into a DataLad dataset. We'll use the `MoAEpilot <https://www.fil.ion.ucl.ac.uk/spm/data/auditory>`_
 dataset containing anatomical and functional images from a single subject, as well as some metadata.
 
 In the first step, we create a new directory called ``neuro-data-s3``, we download and extract the data,
@@ -155,7 +155,7 @@ We can turn our ``neuro-data-s3`` directory into a DataLad dataset with the
 Initialize the S3 special remote
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The steps below have been adapted from instructions provided on `git-annex documentation <https://git-annex.branchable.com/tips/public_Amazon_S3_remote/>`_.
+The steps below have been adapted from instructions provided on `git-annex documentation <https://git-annex.branchable.com/tips/public_Amazon_S3_remote>`_.
 
 By initializing the special remote, what actually happens in the background
 is that a :term:`sibling` is added to the DataLad dataset. This can be verified
@@ -168,7 +168,7 @@ remote. Before, the only "sibling" is the actual DataLad dataset:
    .: here(+) [git]
 
 To initialize a public S3 bucket as a special remote, we run :gitannexcmd:`initremote`
-with several options, for which `git-annex documentation on S3 <https://git-annex.branchable.com/special_remotes/S3/>`_
+with several options, for which `git-annex documentation on S3 <https://git-annex.branchable.com/special_remotes/S3>`_
 provides detailed information. Be sure to select a unique bucket name
 that adheres to Amazon S3's `bucket naming rules <https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html>`_.
 You can declare the bucket name (in this example "sample-neurodata-public") as a variable since
@@ -185,7 +185,7 @@ it will be used again later.
 The options used in this example include:
 
 - ``public-s3``: the name we select for our special remote, so that git-annex and DataLad can identify it
-- ``type=S3``: the type of special remote (git-annex can work with many `special remote types <https://git-annex.branchable.com/special_remotes/>`_)
+- ``type=S3``: the type of special remote (git-annex can work with many `special remote types <https://git-annex.branchable.com/special_remotes>`_)
 - ``encryption=none``: no encryption (alternatively enable ``encryption=shared``, meaning files will be encrypted on S3, and anyone with a clone of the git repository will be able to download and decrypt them)
 - ``bucket=$BUCKET``: the name of the bucket to be created on S3 (using the declared variable)
 - ``public=yes``: Set to "yes" to allow public read access to files sent to the S3 remote
@@ -201,7 +201,7 @@ you can run :dlcmd:`siblings` to see that a sibling has been added:
    .: here(+) [git]
    .: public-s3(+) [git]
 
-You can also visit the `S3 Console <https://console.aws.amazon.com/s3/>`_ and navigate
+You can also visit the `S3 Console <https://console.aws.amazon.com/s3>`_ and navigate
 to "Buckets" to see your newly created bucket. It should only have a single 
 ``annex-uuid`` file as content, since no actual file content has been pushed yet.
 
@@ -271,7 +271,7 @@ publication dependency DataLad will push the annexed contents to the special rem
    publish(ok): . (dataset) [refs/heads/git-annex->github:refs/heads/git-annex [new branch]]
 
 You can now view the annexed file content (with MD5 hashes as filenames) in the
-`S3 bucket <https://console.aws.amazon.com/s3/>`_:
+`S3 bucket <https://console.aws.amazon.com/s3>`_:
 
 .. figure:: ../artwork/src/aws_s3_bucket_full.png
 
@@ -375,4 +375,3 @@ It needs to be invoked with three positional arguments, the path to the :term:`D
 
 	)
    done
-

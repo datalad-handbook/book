@@ -60,9 +60,7 @@ To resize one image to 400x400 px, the command would thus be
 
    `ImageMagick <https://imagemagick.org/index.php>`_ is not installed on Windows systems by default.
    To use it, you need to install it, using the provided `Windows Binary Release on the Download page <https://imagemagick.org/script/download.php>`_.
-
-   During installation, it is important to install the tool into a place where it is easily accessible to your terminal.
-   The easiest way to do this is by selecting the installation directory to be within ``Miniconda3`` (i.e., just as during the installation of git-annex as described in :ref:`install`, install is into ``C:\Users\<user-name>\miniconda3\Library``).
+   During installation, it is important to install the tool into a place where it is easily accessible to your terminal, for example the ``Program Files`` folder.
    Do also make sure to tick the box "install legacy commands" in the installation wizard.
 
 Remembering the last lecture on :dlcmd:`run`, you decide to plug this into
@@ -311,7 +309,7 @@ the ``-o``/``--output`` option.
    The use case here is simplistic -- a single file gets modified.
    But there are commands and tools that create full directories with
    many files as an output, for example
-   `FSL <https://fsl.fmrib.ox.ac.uk/fsl/fslwiki>`_, a neuro-imaging tool.
+   `FSL <https://fsl.fmrib.ox.ac.uk>`_, a neuro-imaging tool.
    The easiest way to specify this type of output
    is by supplying the directory name, or the directory name and a :term:`globbing` character, such as
    ``-o directory/*.dat``.
@@ -326,7 +324,7 @@ flag and see their magic, let's crop the second logo, ``logo_interval.jpg``:
 
    Given that nothing in your dataset is locked, is there a *need* for you to bother with creating ``--output`` flags?
    Not for you personally, if you only stay on your Windows machine.
-   However, you will be doing others that you share your dataset with a favour if they are not using Windows -- should you or others want to rerun a run record, ``--output`` flags will make it work on all operating systems.
+   However, you will be doing others that you share your dataset with a favor if they are not using Windows -- should you or others want to rerun a run record, ``--output`` flags will make it work on all operating systems.
 
 .. runrecord:: _examples/DL-101-111-105
    :language: console

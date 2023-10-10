@@ -18,85 +18,127 @@ a Python API for DataLad's functionality that you can read about in :ref:`a Find
    :name: fom-pythonapi
    :float:
 
-    .. _python:
+   .. _python:
 
-    Whatever you can do with DataLad from the command line, you can also do it with
-    DataLad's Python API.
-    Thus, DataLad's functionality can also be used within interactive Python sessions
-    or Python scripts.
-    All of DataLad's user-oriented commands are exposed via ``datalad.api``.
-    Thus, any command can be imported as a stand-alone command like this::
+   Whatever you can do with DataLad from the command line, you can also do it with
+   DataLad's Python API.
+   Thus, DataLad's functionality can also be used within interactive Python sessions
+   or Python scripts.
+   All of DataLad's user-oriented commands are exposed via ``datalad.api``.
+   Thus, any command can be imported as a stand-alone command like this:
 
-       >>> from datalad.api import <COMMAND>
+   .. code-block:: python
 
-    Alternatively, to import all commands, one can use
+      >>> from datalad.api import <COMMAND>
 
-    .. code-block:: python
+   Alternatively, to import all commands, one can use
+
+   .. code-block:: python
+
+      >>> import datalad.api as dl
+
+   and subsequently access commands as ``dl.get()``, ``dl.clone()``, and so forth.
+
+
+   The `developer documentation <https://docs.datalad.org/en/latest/modref.html>`_
+   of DataLad lists an overview of all commands, but naming is congruent to the
+   command line interface. The only functionality that is not available at the
+   command line is ``datalad.api.Dataset``, DataLad's core Python data type.
+   Just like any other command, it can be imported like this:
+
+   .. code-block:: python
+
+      >>> from datalad.api import Dataset
+
+   or like this:
+
+   .. code-block:: python
+
+      >>> import datalad.api as dl
+      >>> dl.Dataset()
+
+   A ``Dataset`` is a `class <https://docs.python.org/3/tutorial/classes.html>`_
+   that represents a DataLad dataset. In addition to the
+   stand-alone commands, all of DataLad's functionality is also available via
+   `methods <https://docs.python.org/3/tutorial/classes.html#method-objects>`_
+   of this class. Thus, these are two equally valid ways to create a new
+   dataset with DataLad in Python:
+
+   .. code-block:: python
+
+      >>> from datalad.api import create, Dataset
+      # create as a stand-alone command
+      >>> create(path='scratch/test')
+      [INFO   ] Creating a new annex repo at /.../scratch/test
+      Out[3]: <Dataset path=/home/me/scratch/test>
+      # create as a dataset method
+      >>> ds = Dataset(path='scratch/test')
+      >>> ds.create()
+      [INFO   ] Creating a new annex repo at /.../scratch/test
+      Out[3]: <Dataset path=/home/me/scratch/test>
+
+   As shown above, the only required parameter for a Dataset is the ``path`` to
+   its location, and this location may or may not exist yet.
+
+   Stand-alone functions have a ``dataset=`` argument, corresponding to the
+   ``-d/--dataset`` option in their command-line equivalent. You can specify
+   the ``dataset=`` argument with a path (string) to your dataset (such as
+   ``dataset='.'`` for the current directory, or ``dataset='path/to/ds'`` to
+   another location). Alternatively, you can pass a ``Dataset`` instance to it:
+
+   .. code-block:: python
+
+       >>> from datalad.api import save, Dataset
+       # use save with dataset specified as a path
+       >>> save(dataset='path/to/dataset/')
+       # use save with dataset specified as a dataset instance
+       >>> ds = Dataset('path/to/dataset')
+       >>> save(dataset=ds, message="saving all modifications")
+       # use save as a dataset method (no dataset argument)
+       >>> ds.save(message="saving all modifications")
+
+
+   **Use cases for DataLad's Python API**
+
+   Using the command line or the Python API of DataLad are both valid ways to accomplish the same results.
+   Depending on your workflows, using the Python API can help to automate dataset operations, provides an alternative
+   to the command line, or could be useful for scripting reproducible data analyses.
+   One unique advantage of the Python API is the ``Dataset``:
+   As the Python API does not suffer from the startup time cost of the command line,
+   there is the potential for substantial speed-up when doing many calls to the API,
+   and using a persistent Dataset object instance.
+   You will also notice that the output of Python commands can be more verbose as the result records returned by each command do not get filtered by command-specific result renderers.
+   Thus, the outcome of ``dl.status('myfile')`` matches that of :dlcmd:`status` only when ``-f``/``--output-format`` is set to ``json`` or ``json_pp``, as illustrated below.
+
+   .. code-block:: python
 
        >>> import datalad.api as dl
+       >>> dl.status('myfile')
+       [{'type': 'file',
+       'gitshasum': '915983d6576b56792b4647bf0d9fa04d83ce948d',
+       'bytesize': 85,
+       'prev_gitshasum': '915983d6576b56792b4647bf0d9fa04d83ce948d',
+       'state': 'clean',
+       'path': '/home/me/my-ds/myfile',
+       'parentds': '/home/me/my-ds',
+       'status': 'ok',
+       'refds': '/home/me/my-ds',
+       'action': 'status'}]
 
-    and subsequently access commands as ``dl.get()``, ``dl.clone()``, and so forth.
+   .. code-block:: bash
 
+      $ datalad -f json_pp status myfile
+       {"action": "status",
+        "bytesize": 85,
+        "gitshasum": "915983d6576b56792b4647bf0d9fa04d83ce948d",
+        "parentds": "/home/me/my-ds",
+        "path": "/home/me/my-ds/myfile",
+        "prev_gitshasum": "915983d6576b56792b4647bf0d9fa04d83ce948d",
+        "refds": "/home/me/my-ds/",
+        "state": "clean",
+        "status": "ok",
+        "type": "file"}
 
-    The `developer documentation <http://docs.datalad.org/en/latest/modref.html>`_
-    of DataLad lists an overview of all commands, but naming is congruent to the
-    command line interface. The only functionality that is not available at the
-    command line is ``datalad.api.Dataset``, DataLad's core Python data type.
-    Just like any other command, it can be imported like this::
-
-       >>> from datalad.api import Dataset
-
-    or like this::
-
-       >>> import datalad.api as dl
-       >>> dl.Dataset()
-
-    A ``Dataset`` is a `class <https://docs.python.org/3/tutorial/classes.html>`_
-    that represents a DataLad dataset. In addition to the
-    stand-alone commands, all of DataLad's functionality is also available via
-    `methods <https://docs.python.org/3/tutorial/classes.html#method-objects>`_
-    of this class. Thus, these are two equally valid ways to create a new
-    dataset with DataLad in Python::
-
-       >>> from datalad.api import create, Dataset
-       # create as a stand-alone command
-       >>> create(path='scratch/test')
-       [INFO   ] Creating a new annex repo at /.../scratch/test
-       Out[3]: <Dataset path=/home/me/scratch/test>
-       # create as a dataset method
-       >>> ds = Dataset(path='scratch/test')
-       >>> ds.create()
-       [INFO   ] Creating a new annex repo at /.../scratch/test
-       Out[3]: <Dataset path=/home/me/scratch/test>
-
-    As shown above, the only required parameter for a Dataset is the ``path`` to
-    its location, and this location may or may not exist yet.
-
-    Stand-alone functions have a ``dataset=`` argument, corresponding to the
-    ``-d/--dataset`` option in their command-line equivalent. You can specify
-    the ``dataset=`` argument with a path (string) to your dataset (such as
-    ``dataset='.'`` for the current directory, or ``dataset='path/to/ds'`` to
-    another location). Alternatively, you can pass a ``Dataset`` instance to it::
-
-        >>> from datalad.api import save, Dataset
-        # use save with dataset specified as a path
-        >>> save(dataset='path/to/dataset/')
-        # use save with dataset specified as a dataset instance
-        >>> ds = Dataset('path/to/dataset')
-        >>> save(dataset=ds, message="saving all modifications")
-        # use save as a dataset method (no dataset argument)
-        >>> ds.save(message="saving all modifications")
-
-
-    **Use cases for DataLad's Python API**
-
-    Using the command line or the Python API of DataLad are both valid ways to accomplish the same results.
-    Depending on your workflows, using the Python API can help to automate dataset operations, provides an alternative
-    to the command line, or could be useful for scripting reproducible data analyses.
-    One unique advantage of the Python API is the ``Dataset``:
-    As the Python API does not suffer from the startup time cost of the command line,
-    there is the potential for substantial speed-up when doing many calls to the API,
-    and using a persistent Dataset object instance.
 
 .. importantnote:: Use DataLad in languages other than Python
 
@@ -141,7 +183,6 @@ independent dataset from scratch in a :ref:`dedicated Findoutmore <fom-iris>`.
 
 .. find-out-more:: Creating an independent input dataset
    :name: fom-iris
-   :float:
 
    If you acquire your own data for a data analysis, you will have
    to turn it into a DataLad dataset in order to install it as a subdataset.
@@ -335,9 +376,10 @@ To compute the analysis you create the following Python script inside of ``code/
    Y = array[:,4]
    test_size = 0.20
    seed = 7
-   X_train, X_test, Y_train, Y_test = model_selection.train_test_split(X, Y,
-                                                                       test_size=test_size,
-                                                                       random_state=seed)
+   X_train, X_test, Y_train, Y_test = model_selection.train_test_split(
+       X, Y,
+       test_size=test_size,
+       random_state=seed)
    # Step 2: Fit the model and make predictions on the test dataset
    knn = KNeighborsClassifier()
    knn.fit(X_train, Y_train)
@@ -418,7 +460,9 @@ point with the ``--version-tag`` option of :dlcmd:`save`.
    was added.
    Later we can use this tag to identify the point in time at which
    the analysis setup was ready -- much more intuitive than a 40-character shasum!
-   This is handy in the context of a :dlcmd:`rerun` for example::
+   This is handy in the context of a :dlcmd:`rerun` for example:
+
+   .. code-block:: bash
 
       $ datalad rerun --since ready4analysis
 
@@ -450,7 +494,9 @@ re-execution with :dlcmd:`rerun` easy.
 .. windows-wit:: You may need to use "python", not "python3"
 
    If executing the code below returns an exit code of 9009, there may be no ``python3`` -- instead, it is called solely ``python``.
-   Please run the following instead (adjusted for line breaks, you should be able to copy-paste this as a whole)::
+   Please run the following instead (adjusted for line breaks, you should be able to copy-paste this as a whole):
+
+   .. code-block:: bash
 
       datalad run -m "analyze iris data with classification analysis" ^
        --input "input/iris.csv" ^
@@ -623,7 +669,7 @@ command (or, for `GitLab <https://about.gitlab.com>`_, :dlcmd:`create-sibling-gi
 The two commands have different arguments and options.
 Here, we look at :dlcmd:`create-sibling-github`.
 The command takes a repository name and GitHub authentication credentials
-(either in the command line call with options ``github-login <TOKEN>``, with an *oauth* `token <https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token>`_ stored in the Git
+(either in the command line call with options ``github-login <TOKEN>``, with an *oauth* `token <https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens>`_ stored in the Git
 configuration, or interactively).
 
 .. importantnote:: Generate a GitHub token
@@ -735,11 +781,15 @@ an additional :gitcmd:`push`  with the ``--tags`` option is required:
     on a per-sibling basis in ``.git/config`` in the ``remote.*.push``
     configuration. If you had a :term:`sibling` "github", the following
     configuration would push all tags that start with a ``v`` upon a
-    :dlcmd:`push --to github`::
+    :dlcmd:`push --to github`:
+
+    .. code-block:: bash
 
        $ git config --local remote.github.push 'refs/tags/v*'
 
-    This configuration would result in the following entry in ``.git/config``::
+    This configuration would result in the following entry in ``.git/config``:
+
+    .. code-block:: bash
 
        [remote "github"]
              url = git@github.com/adswa/midtermproject.git
@@ -854,7 +904,9 @@ reproduce your data science project easily from scratch (take a look into the :r
 
 .. [#f1] Note that you could have applied the YODA procedure not only right at
          creation of the dataset with ``-c yoda``, but also after creation
-         with the :dlcmd:`run-procedure` command::
+         with the :dlcmd:`run-procedure` command:
+
+         .. code-block:: bash
 
            $ cd midterm_project
            $ datalad run-procedure cfg_yoda

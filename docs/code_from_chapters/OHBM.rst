@@ -491,7 +491,7 @@ records the software in the dataset::
 
    datalad containers-add software --url shub://adswa/resources:2
 
-Note: You need to have `singularity <https://sylabs.io/guides/3.5/user-guide/>`_
+Note: You need to have `singularity <https://docs.sylabs.io/guides/3.5/user-guide>`_
 installed to run this!
 
 Afterwards, rerun the analysis in the software container with the

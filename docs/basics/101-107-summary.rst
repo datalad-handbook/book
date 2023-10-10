@@ -1,4 +1,3 @@
-:dlcmd:`
 Summary
 -------
 
@@ -7,7 +6,9 @@ and making simple modifications *locally*.
 
 * An empty dataset can be created with the :dlcmd:`create` command. It's useful to add a description
   to the dataset and use the ``-c text2git`` configuration, but we will see later why.
-  This is the command structure::
+  This is the command structure:
+
+  .. code-block:: bash
 
     datalad create --description "here is a description" -c text2git PATH
 
@@ -20,7 +21,9 @@ and making simple modifications *locally*.
   exist in your dataset, specify the path to the precise file (change) that should be saved to history.
   Remember, if you run a :dlcmd:`save` without
   specifying a path, all untracked files and all file changes will be committed to the history together!
-  This is the command structure::
+  This is the command structure:
+
+  .. code-block:: bash
 
     datalad save -m "here is a commit message" [PATH]
 
@@ -47,7 +50,9 @@ and experienced the concept of modular nesting datasets.
 
 .. index:: ! datalad command; clone
 
-* A published dataset can be installed with the :dlcmd:`clone` command::
+* A published dataset can be installed with the :dlcmd:`clone` command:
+
+  .. code-block:: bash
 
      $ datalad clone [--dataset PATH] SOURCE-PATH/URL [DESTINATION PATH]
 
@@ -96,5 +101,5 @@ existing datasets:
 You have procedurally experienced how to install a dataset, and simultaneously you have
 learned a lot about the principles and features of DataLad datasets.
 Cloning datasets and getting their content allows you to consume published datasets.
-By nesting datasets within each other, you can re-use datasets in a modular fashion. While this may
+By nesting datasets within each other, you can reuse datasets in a modular fashion. While this may
 appear abstract, upcoming sections will demonstrate many examples of why this can be handy.

@@ -12,9 +12,11 @@ The last two sections have first of all extended your knowledge on dataset nesti
 
 - Once the subdataset evolves, the superdataset recognizes this as a ``modification``
   of the subdatasets version state. If you want to record this, you need to
-  :dlcmd:`save` it in the superdataset::
+  :dlcmd:`save` it in the superdataset:
 
-   $ datalad save -m "a short summary of changes in subds" <path to subds>
+  .. code-block:: bash
+
+    $ datalad save -m "a short summary of changes in subds" <path to subds>
 
 But more than nesting concepts, they have also extended your knowledge on
 reproducible analyses with :dlcmd:`run` and you have experienced
@@ -24,7 +26,7 @@ for yourself why and how software containers can go hand-in-hand with DataLad:
   from the environment of the computer it runs on. This allows you to create or
   use secluded software and also share it together with your analysis to ensure
   computational reproducibility. The DataLad extension
-  `datalad containers <http://docs.datalad.org/projects/container/en/latest>`_
+  `datalad containers <https://docs.datalad.org/projects/container>`_
   can make this possible.
 
 - The command :dlcmd:`containers-add` registers an Image from a path or

@@ -44,7 +44,7 @@ If you have never used DVC, `its documentation <https://dvc.org/doc>`_ (includin
 Setup
 ^^^^^
 
-The `DVC tutorial <https://realpython.com/python-data-version-control>`_ comes with a pre-made repository that is structured for DVC machine learning analyses. If you want to code along, `the repository <https://github.com/datalad-handbook/data-version-control.git>`_ needs to be :term:`fork`\ed (requires a GitHub account) and cloned from your own fork [#f1]_.
+The `DVC tutorial <https://realpython.com/python-data-version-control>`_ comes with a pre-made repository that is structured for DVC machine learning analyses. If you want to code along, `the repository <https://github.com/datalad-handbook/data-version-control>`_ needs to be :term:`fork`\ed (requires a GitHub account) and cloned from your own fork [#f1]_.
 
 .. runrecord:: _examples/DL-101-168-101
    :workdir: DVCvsDL
@@ -117,8 +117,8 @@ Here's the final directory structure:
 
 .. find-out-more:: Required software for coding along
 
-   In order to code along, `DVC <https://dvc.org/doc/install>`__, `scikit-learn <https://scikit-learn.org/stable>`_, `scikit-image <https://scikit-image.org>`_, `pandas <https://pandas.pydata.org>`_, and `numpy <https://numpy.org>`_ are required.
-   All tools are available via `pip <https://pypi.org/project/pip>`_ or `conda <https://docs.conda.io/en/latest>`_.
+   In order to code along, `DVC <https://dvc.org/doc/install>`__, `scikit-learn <https://scikit-learn.org>`_, `scikit-image <https://scikit-image.org>`_, `pandas <https://pandas.pydata.org>`_, and `numpy <https://numpy.org>`_ are required.
+   All tools are available via `pip <https://pypi.org/project/pip>`_ or `conda <https://docs.conda.io>`_.
    We recommend to install them in a `virtual environment <https://realpython.com/python-data-version-control/#set-up-your-working-environment>`_ -- the DVC tutorial has `step-by-step instructions <https://realpython.com/python-data-version-control/#set-up-your-working-environment>`_.
 
 Version controlling data
@@ -319,8 +319,8 @@ DVC uses the term "data remote" to refer to external storage locations for (larg
 
 Both DVC and DataLad support a range of hosting solutions, from local paths and SSH servers to providers such as S3 or GDrive.
 For DVC, every supported remote is pre-implemented, which restricts the number of available services (a list is `here <https://dvc.org/doc/command-reference/remote/add>`_), but results in a convenient, streamlined procedure for adding remotes based on URL schemes.
-DataLad, largely thanks to "external special remotes" mechanism of git-annex, has more storage options (in addition for example :ref:`DropBox <sharethirdparty>`, `the Open Science Framework (OSF) <http://docs.datalad.org/projects/osf/en/latest>`_, :ref:`Git LFS <gitlfs>`, :ref:`Figshare <figshare>`, :ref:`GIN <gin>`, or :ref:`RIA stores <riastore>`), but depending on selected storage provider, the procedure to add a sibling may differ.
-In addition, DataLad is able to store complete datasets (annexed data *and* Git repository) in certain services (e.g., OSF, GIN, GitHub if used with GitLFS, Dropbox, ...), enabling a clone from for example Google Drive, and while DVC can never keep data in Git repository hosting services, DataLad can do this if the hosting service supports hosting annexed data (default on :term:`Gin` and possible with :term:`GitHub`, :term:`GitLab` or :term:`BitBucket` if used with `GitLFS <https://git-lfs.github.com>`_).
+DataLad, largely thanks to "external special remotes" mechanism of git-annex, has more storage options (in addition for example :ref:`DropBox <sharethirdparty>`, `the Open Science Framework (OSF) <https://docs.datalad.org/projects/osf>`_, :ref:`Git LFS <gitlfs>`, :ref:`Figshare <figshare>`, :ref:`GIN <gin>`, or :ref:`RIA stores <riastore>`), but depending on selected storage provider, the procedure to add a sibling may differ.
+In addition, DataLad is able to store complete datasets (annexed data *and* Git repository) in certain services (e.g., OSF, GIN, GitHub if used with GitLFS, Dropbox, ...), enabling a clone from for example Google Drive, and while DVC can never keep data in Git repository hosting services, DataLad can do this if the hosting service supports hosting annexed data (default on :term:`Gin` and possible with :term:`GitHub`, :term:`GitLab` or :term:`BitBucket` if used with `GitLFS <https://git-lfs.com>`_).
 
 
 DVC workflow
@@ -584,7 +584,7 @@ The final script, ``src/evaluate.py`` is used to evaluate the trained classifier
 There are more detailed insights and explanations of the actual analysis code in the `Tutorial <https://realpython.com/python-data-version-control>`_ if you're interested in finding out more.
 
 For workflow management, DVC has the concept of a "DVC pipeline".
-A pipeline consists of multiple stages and is executed using a :shcmd:`dvc run` command.
+A pipeline consists of multiple stages, which are set up and executed using a :shcmd:`dvc stage add [--run]` command.
 Each stage has three components: "deps", "outs", and "command".
 Each of the scripts in the repository will be represented by a stage in the DVC pipeline.
 
@@ -615,9 +615,10 @@ The following command sets up the stage:
    :language: console
 
    ### DVC
-   $ dvc run -n prepare \
+   $ dvc stage add -n prepare \
      -d src/prepare.py -d data/raw \
      -o data/prepared/train.csv -o data/prepared/test.csv \
+     --run \
      python src/prepare.py
 
 The ``-n`` parameter gives the stage a name, the ``-d`` parameter passes the dependencies -- the raw data -- to the command, and the ``-o`` parameter defines the outputs of the command -- the CSV files that ``prepare.py`` will create.
@@ -662,9 +663,10 @@ The following command sets it up:
    :workdir: DVCvsDL/DVC
    :language: console
 
-   $ dvc run -n train \
+   $ dvc stage add -n train \
       -d src/train.py -d data/prepared/train.csv \
       -o model/model.joblib \
+      --run \
       python src/train.py
 
 Afterwards, ``train.py`` has been executed, and the pipelines have been updated with a second stage.
@@ -684,9 +686,10 @@ The following command sets it up:
    :workdir: DVCvsDL/DVC
    :language: console
 
-   $ dvc run -n evaluate \
+   $ dvc stage add -n evaluate \
             -d src/evaluate.py -d model/model.joblib \
             -M metrics/accuracy.json \
+	    --run \
             python src/evaluate.py
 
 .. runrecord:: _examples/DL-101-168-158

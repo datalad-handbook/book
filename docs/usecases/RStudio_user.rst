@@ -63,14 +63,14 @@ They then explain:
 
 Max is thanking Bobby for the insights.
 Before leaving, Bobby gives an additional advice: Our template uses "pure Git" repositories, DataLad functions will work but they will not use git-annex. 
-Looking at Max incredulous stare, they explain further: you will now be able to use datalad to manage the submodules and save them all at once, but big files will be added to Git, this will make it unusable very fast. 
+Looking at Max incredulous stare, they explain further: you will now be able to use DataLad to manage the submodules and save them all at once, but big files will be added to Git, this will make it unusable very fast. 
 So you need to turn this pure Git repository into proper :term:`DataLad dataset` (meaning a Git repository with additional features from :term:`git-annex` and DataLad).
 
 Max is a bit puzzled and read the basics chapter of the handbook again.
 Then, they see that :command:`datalad create --force` is the correct command  to create a DataLad dataset.
 when the folder already exist, so they  run 
 ``datalad create --force -r`` in the parent repository.
-Now they are sure they set up datalad to work in the repository and all submodules,
+Now they are sure they set up DataLad to work in the repository and all submodules,
 since they used the ``-r``  option.
 
   
@@ -92,7 +92,7 @@ This is explained in detail in the :ref:`Handbook chapters on Git-annex <basics-
 One could overwrite the file by first unlocking it (using ``datalad unlock .``), but that would not be very practical, and it would save the script as a binary file, making the version control very inefficient.
 
 You do not want to use Git-annex for scripts, as they are text files which version should be handled by Git..
-Bobby then shows how to tell datalad to use git for text files and he runs: ``datalad create -c text2git --force``. 
+Bobby then shows how to tell DataLad to use git for text files and he runs: ``datalad create -c text2git --force``. 
 
 Max can now work on its script as he used to, but commit changes using the ``datalad save -r`` command.
 
@@ -128,7 +128,7 @@ Bobby tells Max it is time to learn about ``datalad run``.
 DataLad run with Rscripts
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Bobby starts with the basics of running R code via datalad run:
+Bobby starts with the basics of running R code via :command:`datalad run`:
 
 Because datalad runs in the terminal, it needs a terminal command to run the script.
 For R, that command is "Rscript": ``datalad run Rscript "<path-to-script.r>"``.
@@ -172,7 +172,7 @@ One can set as many input and output files, one can use `*` to define several fi
 
 - Input: To be read, files are downloaded if not present. Note that they are not unlocked (no need for reading them) and that they will not be dropped again after being read.
 - Output: files are unlocked so they can be overwritten. If the files are not present (dropped), they will not be downloaded. This may make your code fail: if it does, either get the files manually before running `datalad run`, or remove them in the R code (`r file.remove()`). In other case, it will work and it will even detect when the file has not been modified and make no commit.
-- explicit: datalad runs normally only in clean repositories, this includes all submodules. By adding --explicit, datalad will only test that the output files are clean, and only output files will be saved. Please use with care, as the script and data you use will not be tested and provenance information can be lost.
+- explicit: DataLad runs normally only in clean repositories, this includes all submodules. By adding --explicit, DataLad will only test that the output files are clean, and only output files will be saved. Please use with care, as the script and data you use will not be tested and provenance information can be lost.
 - {inputs} {outputs}: If you add the placeholders, the terminal will actually gives the input and output text as argument to the Rscript bash function. One can access them in the R script with `args <- commandArgs(trailingOnly = TRUE)` (then get them with `args[i]`, with i starts at 1).
 - At the end, DataLad usually runs `datalad save -r` so that modification made by the code in the whole repository, including submodules will be done (exception when --explicit is given, see above.) This will include any intermediate file created by your code in bash mode, that is using `Rscript "path-to-code.R "` in the terminal (it can happen that bash mode creates more files than running the code directly)  
 

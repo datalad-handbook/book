@@ -105,6 +105,17 @@ Singularity (even without having Docker installed).
    In order to use Singularity containers you have to
    `install <https://docs.sylabs.io/guides/3.4/user-guide/installation.html>`_ the software singularity.
 
+.. find-out-more:: Docker installation Windows
+
+   The software singularity is not available for Windows.
+   Windows users therefore need to install :term:`Docker`.
+   The currently recommended way to do so is by installing `Docker Desktop <https://docs.docker.com/desktop/install/windows-install/>`_, and use its "WSL2" backend (a choice one can set during the installation).
+   In the case of an "outdated WSL kernel version" issue, run ``wsl --update`` in a regular Windows Command Prompt (CMD).
+   After the installation, run Docker Desktop, and wait several minutes for it to start the Docker engine in the background.
+   To verify that everything works as it should, run ``docker ps`` in a Windows Command Prompt (CMD).
+   If it reports an error that asks "Is the docker daemon running?" give it a few more minutes to let Docker Desktop start it.
+   If it can't find the docker command, something went wrong during installation.
+
 Using ``datalad containers``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 

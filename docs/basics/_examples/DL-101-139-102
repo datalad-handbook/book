@@ -13,7 +13,7 @@ copy(ok): books/progit.pdf (file) [to gin...]
 [INFO] Start writing objects
 [INFO] Start resolving deltas
 publish(ok): . (dataset) [refs/heads/git-annex->gin:refs/heads/git-annex ✂FROM✂..✂TO✂]
-publish(ok): . (dataset) [refs/heads/master->gin:refs/heads/master [new branch]]
+publish(ok): . (dataset) [refs/heads/main->gin:refs/heads/main [new branch]]
 [INFO] Finished push of Dataset(/home/me/dl-101/DataLad-101)
 action summary:
   copy (ok: 4)

@@ -24,7 +24,7 @@ systems. They do not cover the various :term:`DataLad extension`'s that need to 
    :name: fom-py2v3
    :float: tbp
 
-   DataLad requires Python 3.6, or a more recent version, to be installed on
+   DataLad requires Python 3.8, or a more recent version, to be installed on
    your system. The easiest way to verify that this is the case is to open a
    terminal and type :shcmd:`python` to start a Python session:
 
@@ -42,7 +42,7 @@ systems. They do not cover the various :term:`DataLad extension`'s that need to 
    to obtain a recent release of Python 3. On Windows, attempting to run
    commands that are not installed might cause a Windows Store window to pop
    up. If this happens, Python may not yet be installed. Please check the
-   `Windows 10`_ installation instructions, and *do not* install Python via the
+   `Windows 10 and 11`_ installation instructions, and *do not* install Python via the
    Windows Store.
 
    Python 2 is an outdated, in technical terms "deprecated", version of Python.
@@ -68,8 +68,8 @@ common scenarios, operating systems, or platforms.
    :width: 50%
    :alt: Cartoon of a person sitting on the floor in front of a laptop
 
-Windows 10
-""""""""""
+Windows 10 and 11
+"""""""""""""""""
 
 There are countless ways to install software on Windows. Here we describe *one*
 possible approach that should work on any Windows computer, like one that you
@@ -95,6 +95,26 @@ Python:
     When you run the installer, make sure to select the *Add Python to PATH* option,
     as this is required for subsequent installation steps and interactive use later on.
     Other than that, using the default installation settings is just fine.
+
+    .. windows-wit:: Verify Python installation
+
+       It is not uncommon for multiple Python installations to co-exist on a Windows machine, because particular applications can ship their own.
+       Such alternative installations may even be or become the default.
+       This can cause confusing behavior, because each Python installation will have different package versions installed.
+
+       To verify if there are multiple installation, open the windows command line ``cmd.exe`` and run ``where python``.
+       This will list all variants of ``python.exe``.
+       There will be one in ``WindowsApps``, which is only a link to the Windows app store.
+       Make sure the Python version that you installed is listed too.
+
+       If there are multiple Python installation, you can tell which one is default by running this command in ``cmd.exe``::
+
+         python -c "import sys; print(sys.executable)"
+
+       This will print the path of the default ``python.exe``.
+       If the output is not matching the expected Python installation, likely the ``$PATH`` environment variable needs to be adjusted.
+       This can be done in the Windows system properties.
+       It is sufficient to move the entries created by the Python installer to the start of the declaration list.
 
 Git:
     Windows also does not come with Git. If you happen to have it installed already,
@@ -124,7 +144,7 @@ Git-annex:
 
     .. code-block:: bat
 
-      pip install datalad-installer
+      python -m pip install datalad-installer
 
     Afterwards, open another command prompt in administrator mode and run:
 
@@ -147,7 +167,7 @@ DataLad:
 
     .. code-block:: bat
 
-      pip install datalad
+      python -m pip install datalad
 
 7-Zip (optional, but highly recommended):
     Download it from the `7-zip website <https://7-zip.org>`_ (64bit
@@ -216,9 +236,9 @@ Python's package manager <fom-macosx-pip>`.
 
    .. code-block:: bash
 
-     $ pip install datalad
+     $ python -m pip install datalad
 
-   Recent macOS versions may use ``pip3`` instead of ``pip`` -- use :term:`tab
+   Some macOS versions may use ``python3`` instead of ``python`` -- use :term:`tab
    completion` to find out which is installed.
 
    Recent macOS versions may warn after installation that scripts were installed
@@ -305,7 +325,7 @@ DataLad itself can be installed via ``pip``:
 
 .. code-block:: bash
 
-   $ pip install datalad
+   $ python -m pip install datalad
 
 Alternatively, DataLad can be installed together with :term:`Git` and
 :term:`git-annex` via Conda_ as outlined in the section below.
@@ -399,28 +419,27 @@ most of its software dependencies, type
 
 .. code-block:: bash
 
-   $ pip install datalad
+   $ python -m pip install datalad
 
 If this results in a ``permission denied`` error, you can install DataLad into
 a user's home directory:
 
 .. code-block:: bash
 
-   $ pip install --user datalad
+   $ python -m pip install --user datalad
 
-On some systems, in particular macOS, you may need to call ``pip3`` instead of ``pip``:
+On some systems, you may need to call ``python3`` instead of ``python``:
 
 .. code-block:: bash
 
-   $ pip3 install datalad
+   $ python3 -m pip install datalad
    # or, in case of a "permission denied error":
-   $ pip3 install --user datalad
+   $ python3 -m pip install --user datalad
 
-An existing installation can be upgraded with ``pip install -U datalad``.
+An existing installation can be upgraded with ``python -m pip install -U datalad``.
 
 ``pip`` is not able to install non-Python software, such as 7-zip or
-:term:`git-annex`.  But you can install the `DataLad installer`_ via a ``pip
-install datalad-installer``. This is a command-line tool that aids installation
+:term:`git-annex`.  But you can install the `DataLad installer`_ via a ``python -m pip install datalad-installer``. This is a command-line tool that aids installation
 of DataLad and its key software dependencies on a range of platforms.
 
 .. _installconfig:

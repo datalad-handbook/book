@@ -120,7 +120,7 @@ These configurations create a ``code/`` directory, place some place-holding ``RE
       [INFO] Detected a crippled filesystem.
       [INFO] Scanning for unlocked files (this may take some time)
       [INFO] Entering an adjusted branch where files are unlocked as this filesystem does not support locked files.
-      [INFO] Switched to branch 'adjusted/master(unlocked)'
+      [INFO] Switched to branch 'adjusted/main(unlocked)'
       [INFO] Running procedure cfg_yoda
       [INFO] == Command start (output follows) =====
       [INFO] == Command exit (modification check follows) =====
@@ -589,23 +589,23 @@ This way, we have access to a trained random-forest model or a trained SGD model
    $ datalad rerun --branch="randomforest" -m "Recompute classification with random forest classifier" ready4analysis..SGD-100
 
 This updated the model.joblib file to a trained random forest classifier, and also updated ``accuracy.json`` with the current models' evaluation.
-The difference in accuracy between models could now for example be compared with a ``git diff`` of the contents of ``accuracy.json`` to the :term:`master` :term:`branch`:
+The difference in accuracy between models could now for example be compared with a ``git diff`` of the contents of ``accuracy.json`` to the :term:`main` :term:`branch`:
 
 .. runrecord:: _examples/ml-134
    :workdir: usecases/ml-project
    :cast: usecase_ml
    :language: console
 
-   $ git diff master -- accuracy.json
+   $ git diff main -- accuracy.json
 
-And if you decide to rather do more work on the SGD classier, you can go back to the previous :term:`master` :term:`branch`:
+And if you decide to rather do more work on the SGD classier, you can go back to the previous :term:`main` :term:`branch`:
 
 .. runrecord:: _examples/ml-135
    :workdir: usecases/ml-project
    :cast: usecase_ml
    :language: console
 
-   $ git checkout master
+   $ git checkout main
    $ cat accuracy.json
 
 Your Git history becomes a log of everything you did as well as the chance to go back to and forth between analysis states.

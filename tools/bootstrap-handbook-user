@@ -6,3 +6,4 @@ sudo mkdir /home/me
 sudo chown $USER:$USER /home/me
 HOME=/home/me git config --global user.name "Elena Piscopia"
 HOME=/home/me git config --global user.email "elena@example.net"
+HOME=/home/me git config --global init.defaultBranch main

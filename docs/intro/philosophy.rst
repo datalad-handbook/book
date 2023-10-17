@@ -15,7 +15,7 @@ of what DataLad is, to give you, whoever you may be, some idea of what kind of
 tool you will learn to master in this handbook, and to combat some prejudices
 or presumptions about DataLad one could have.
 
-To make it short, DataLad is a software tool developed to aid with everything
+To make it short, DataLad (`www.datalad.org <https://datalad.org>`_) is a software tool developed to aid with everything
 related to the evolution of digital objects.
 
 It is **not only keeping track of code**, it is

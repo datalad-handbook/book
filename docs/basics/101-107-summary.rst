@@ -101,5 +101,5 @@ existing datasets:
 You have procedurally experienced how to install a dataset, and simultaneously you have
 learned a lot about the principles and features of DataLad datasets.
 Cloning datasets and getting their content allows you to consume published datasets.
-By nesting datasets within each other, you can re-use datasets in a modular fashion. While this may
+By nesting datasets within each other, you can reuse datasets in a modular fashion. While this may
 appear abstract, upcoming sections will demonstrate many examples of why this can be handy.

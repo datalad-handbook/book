@@ -481,7 +481,7 @@ Glossary
       Virtual environments are light-weight and you can switch between them fast.
 
    WSL
-      The Windows Subsystem for Linux, a compatibility layer for running Linux destributions on recent versions of Windows. Find out more `here <https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux>`__.
+      The Windows Subsystem for Linux, a compatibility layer for running Linux distributions on recent versions of Windows. Find out more `here <https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux>`__.
 
    zsh
       A Unix shell.

@@ -63,7 +63,22 @@ When copying code snippets into your own terminal, do not copy the leading
 error when executed.
 Don't worry :ref:`if you do not want to code along <fom-lazy>`, though.
 
-The printed version of the handbook contain the *Basics* that intend to show you
+Instead of copying manually, you can also click on the clipboard icon at the top
+right of each code snippet.
+Clicking on that icon will copy all relevant lines from the code snippet,
+and will drop all comments and the ``$`` automatically.
+
+Whenever you see a ✂ symbol, command output has been shortened for easier readability.
+In the example below, the commit :term:`shasum` has been shortened and marked with ``✂SHA1``.
+
+.. code-block:: bash
+
+   $ git log --reverse
+   commit 8df130bb✂SHA1
+   Author: Elena Piscopia <elena@example.net>
+   Date:   Tue Jun 18 16:13:00 2019 +0000
+
+The printed version of the handbook contains the *Basics* that intend to show you
 the core DataLad functionality and challenge you to use it.
 If you want to learn how to use DataLad, it is recommended to start with this
 part and read it from start to end.

@@ -88,7 +88,7 @@ The "creative" bits involved in this parallelized processing workflow boil down 
 - The jobs constitute a complete DataLad-centric workflow in the form of a simple **bash script**, including dataset build-up and tear-down routines in a throw-away location, result computation, and result publication back to the target dataset.
   Thus, instead of submitting a ``datalad run`` command to the job scheduler, **the job submission is a single script**, and this submission is easily adapted to various job scheduling call formats.
 - Right after successful completion of all jobs, the target dataset contains as many :term:`branch`\es as jobs, with each branch containing the results of one job.
-  A manual :term:`merge` aggregates all results into the :term:`master` branch of the dataset.
+  A manual :term:`merge` aggregates all results into the :term:`main` branch of the dataset.
 
 The keys to the success of this workflow lie in
 
@@ -210,9 +210,9 @@ By running ``git annex dead here``, :term:`git-annex` disregards the clone, prev
 The ``datalad push`` to the original clone location of a dataset needs to be prepared carefully.
 The job computes *one* result (out of of many results) and saves it, thus creating new data and a new entry with the run-record in the dataset history.
 But each job is unaware of the results and :term:`commit`\s produced by other branches.
-Should all jobs push back the results to the original place (the :term:`master` :term:`branch` of the original dataset), the individual jobs would conflict with each other or, worse, overwrite each other (if you don't have the default push configuration of Git).
+Should all jobs push back the results to the original place (the :term:`main` :term:`branch` of the original dataset), the individual jobs would conflict with each other or, worse, overwrite each other (if you don't have the default push configuration of Git).
 
-The general procedure and standard :term:`Git` workflow for collaboration, therefore, is to create a change on a different, unique :term:`branch`, push this different branch, and integrate the changes into the original master branch via a :term:`merge` in the original dataset [#f4]_.
+The general procedure and standard :term:`Git` workflow for collaboration, therefore, is to create a change on a different, unique :term:`branch`, push this different branch, and integrate the changes into the original main branch via a :term:`merge` in the original dataset [#f4]_.
 
 In order to do this, prior to executing the analysis, the script will *checkout* a unique new branch in the analysis dataset.
 The most convenient name for the branch is the Job-ID, an identifier under which the job scheduler runs an individual job.
@@ -370,14 +370,14 @@ All it takes to submit is a single ``condor_submit <submit_file>``.
 
 **Merging results**:
 Once all jobs are finished, the results lie in individual branches of the original dataset.
-The only thing left to do now is merging all of these branches into :term:`master` -- and potentially solve any merge conflicts that arise.
+The only thing left to do now is merging all of these branches into :term:`main` -- and potentially solve any merge conflicts that arise.
 Usually, merging branches is done using the ``git merge`` command with a branch specification.
-For example, in order to merge one job branch into the :term:`master` :term:`branch`, one would need to be on ``master`` and run ``git merge <job branch name>``.
+For example, in order to merge one job branch into the :term:`main` :term:`branch`, one would need to be on ``main`` and run ``git merge <job branch name>``.
 Given that the parallel job execution could have created thousands of branches, and that each ``merge`` would lead to a commit, in order to not inflate the history of the dataset with hundreds of :term:`merge` commits, one can do a single `Octopus merges <https://git-scm.com/docs/git-merge#Documentation/git-merge.txt-octopus>`_ of all branches at once.
 
 .. find-out-more:: What is an octopus merge?
 
-   Usually a commit that arises from a merge has two *parent* commits: The *first parent* is the branch the merge is being performed from, in the example above, ``master``. The *second parent* is the branch that was merged into the first.
+   Usually a commit that arises from a merge has two *parent* commits: The *first parent* is the branch the merge is being performed from, in the example above, ``main``. The *second parent* is the branch that was merged into the first.
 
    However, ``git merge`` is capable of merging more than two branches simultaneously if more than a single branch name is given to the command.
    The resulting merge commit has as many parent as were involved in the merge.

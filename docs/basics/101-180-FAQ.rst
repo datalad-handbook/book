@@ -245,7 +245,7 @@ If you do not want to invent a description yourself, you can run
 
         DataLad datasets can be updated. The command ``datalad update`` will *fetch*
         updates and store them on a different branch (by default
-        ``remotes/origin/master``). Running:
+        ``remotes/origin/main``). Running
 
         .. code-block:: bash
 
@@ -330,7 +330,7 @@ If you do not want to invent a description yourself, you can run
 
         DataLad datasets can be updated. The command `datalad update` will
         *fetch* updates and store them on a different branch (by default
-        `remotes/origin/master`). Running
+        `remotes/origin/main`). Running
 
         ```
         datalad update --merge
@@ -399,7 +399,7 @@ If you do not want to invent a description yourself, you can run
 
       DataLad datasets can be updated. The command 'datalad update' will
       "fetch" updates and store them on a different branch (by default
-      'remotes/origin/master'). Running 'datalad update --merge' will "pull"
+      'remotes/origin/main'). Running 'datalad update --merge' will "pull"
       available updates and integrate them in one go.
 
       Find out what has been done
@@ -546,7 +546,7 @@ Help - Why does Github display my dataset with git-annex as the default branch?
 If your dataset is represented on GitHub with cryptic directories instead of actual file names, GitHub probably declared the :term:`git-annex branch` to be your repositories "default branch".
 Here is an example:
 
-.. figure:: ../artwork/src/defaultgitannex.png
+.. figure:: ../artwork/src/defaultgitannex_light.png
 
 This is related to GitHub's decision to make ``main`` `the default branch for newly created repositories <https://github.blog/changelog/2020-10-01-the-default-branch-for-newly-created-repositories-is-now-main>`_ -- datasets that do not have a ``main`` branch (but for example a ``master`` branch) may end up with a different branch being displayed on GitHub than intended.
 

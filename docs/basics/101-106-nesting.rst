@@ -32,8 +32,8 @@ superdataset history? This was the subdataset's own history.
 Apart from stand-alone histories of super- or subdatasets, this highlights another
 very important advantage that nesting provides: Note that the ``longnow`` dataset
 is a completely independent, standalone dataset that was once created and
-published. Nesting allows for a modular re-use of any other DataLad dataset,
-and this re-use is possible and simple precisely because all of the information
+published. Nesting allows for a modular reuse of any other DataLad dataset,
+and this reuse is possible and simple precisely because all of the information
 is kept within a (sub)dataset.
 
 But now let's also check out how the *superdataset's* (``DataLad-101``) history

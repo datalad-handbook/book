@@ -37,7 +37,7 @@ Setting up
 ^^^^^^^^^^
 
 Max follows the handbook and installs DataLad on his computer.
-He already has SSH keys installed, as he was using it to work with Git repositories before (if you do not know SSH refers to the handbood section on installation or the [Rstudio tutorial](https://support.posit.co/hc/en-us/articles/200532077-Version-Control-with-Git-and-SVN) ). 
+He already has SSH keys installed, as he was using it to work with Git repositories before (if you do not know SSH refers to the handbood section on installation or the `Rstudio tutorial <https://support.posit.co/hc/en-us/articles/200532077-Version-Control-with-Git-and-SVN>`_ ). 
 Max first want to clone the repository on their computer, they use the Rstudio 
 `create a new project` function using the SSH address of the parent repository.
 
@@ -87,8 +87,8 @@ Max also now understand what Bobby meant when he said that annexed files are not
   While the original repositories are described as pure Git repositories here,
   most of the scenario was actually tested
   using a :term:`GIN` repository with git-annex, with :term:`submodule`\s 
-  for data and for code, that were created using the [Tonic tool and templates](https://gin-tonic.netlify.app). 
-  Note that the template itself [was ported from a single GitHub repository into DataLad datasets](https://gin-tonic.netlify.app/installation/template_repository/). 
+  for data and for code, that were created using the `Tonic tool and templates <https://gin-tonic.netlify.app>`_ . 
+  Note that the template itself `was ported from a single GitHub repository into DataLad datasets <https://gin-tonic.netlify.app/installation/template_repository/>`_ . 
   
   
   

@@ -38,12 +38,14 @@ How to add a sibling on a Git repository hosting site: The manual way
    It does not need to have the same name as your local dataset, but it helps to associate local dataset and remote siblings.
 
 .. figure:: ../artwork/src/GIN_newrepo.png
+   :width: 80%
 
    Webinterface of :term:`GIN` during the creation of a new repository.
 
 .. figure:: ../artwork/src/newrepo-github.png
+   :width: 80%
 
-	Webinterface of :term:`GitHub` during the creation of a new repository.
+   Webinterface of :term:`GitHub` during the creation of a new repository.
 
 #. Afterwards, copy the :term:`SSH` or :term:`HTTPS` URL of the repository. Usually, repository hosting services will provide you with a convenient way to copy it to your clipboard. An SSH URL takes the form ``git@<hosting-service>:/<user>/<repo-name>.git`` and an HTTPS URL takes the form ``https://<hosting-service>/<user>/<repo-name>.git``. The type of URL you choose determines whether and how you will be able to ``push`` to your repository. Note that many services will require you to use the SSH URL to your repository in order to do :dlcmd:`push` operations, so make sure to take the :term:`SSH` and not the :term:`HTTPS` URL if this is the case.
 
@@ -152,6 +154,7 @@ The most convenient way to generate tokens is typically via the webinterface of 
 Often, you can specifically select which set of permissions a specific token has in a drop-down menu similar (but likely not identical) to this screenshot from GitHub:
 
 .. figure:: ../artwork/src/github-token.png
+   :width: 80%
 
    Webinterface to generate an authentication token on GitHub. One typically has to set a name and
    permission set, and potentially an expiration date.
@@ -202,6 +205,10 @@ Once this configuration is in place, ``create-sibling-gitlab``'s ``--site`` para
 Ensure that the token for each instance has appropriate permissions to create new groups and projects under your user account using the GitLab API.
 
 .. figure:: ../artwork/src/gitlab-token.png
+   :width: 80%
+
+   Webinterface to generate an authentication token on GitLab. One typically has to set a name and
+   permission set, and potentially an expiration date.
 
 Step 2: Create or select a group
 """"""""""""""""""""""""""""""""
@@ -214,9 +221,14 @@ In the screenshots below, a new group ``my-datalad-root-level-group`` is created
 The group name as shown in the URL bar is what DataLad needs in order to create sibling datasets.
 
 .. figure:: ../artwork/src/gitlab-rootgroup.png
+   :width: 80%
+
+   Webinterface to create a root-level group on GitLab.
 
 .. figure:: ../artwork/src/gitlab-rootgroup2.png
+   :width: 80%
 
+   A created root-level group in GitLab's webinterface.
 
 Step 3: Select a layout
 """""""""""""""""""""""
@@ -250,6 +262,7 @@ Consider the ``DataLad-101`` dataset, a superdataset with a several subdatasets 
 The ``collection`` and ``flat`` layouts for this dataset look like this in practice:
 
 .. figure:: ../artwork/src/gitlab-layouts.png
+   :width: 50%
 
    The ``collection`` layout has a group (``DataLad-101_collection``, defined by the user with a configuration) with four projects underneath. The ``project`` project contains the root-level dataset, and all contained subdatasets are named according to their location in the dataset. The ``flat`` layout consists of projects in the root-level group. The project name for the superdataset (``DataLad-101_flat``) is defined by the user with a configuration, and the names of the subdatasets extend this project name based on their location in the dataset hierarchy.
 
@@ -271,6 +284,9 @@ For a **flat** layout, the ``--project`` parameter determines the project name:
      create_sibling_gitlab (ok: 1)
 
 .. figure:: ../artwork/src/gitlab-layout-flat.png
+   :width: 50%
+
+   An example dataset using GitLab's "flat" layout.
 
 For a **collection** layout, the ``--project`` parameter determines the group name:
 
@@ -284,6 +300,9 @@ For a **collection** layout, the ``--project`` parameter determines the group na
       create_sibling_gitlab (ok: 1)
 
 .. figure:: ../artwork/src/gitlab-layout-collection.png
+   :width: 50%
+
+   An example dataset using GitLab's "collection" layout.
 
 Publishing datasets recursively
 """""""""""""""""""""""""""""""

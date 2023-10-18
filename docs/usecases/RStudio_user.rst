@@ -194,8 +194,7 @@ One can set as many input and output files, one can use `*` to define several fi
 - Output: files are unlocked so they can be overwritten. If the files are not present (dropped), they will not be downloaded. This may make your code fail: if it does, either get the files manually before running `datalad run`, or remove them in the R code (`r file.remove()`). In other case, it will work and it will even detect when the file has not been modified and make no commit.
 - explicit: :command:`datalad run` runs normally only in clean repositories, this includes all submodules. By adding --explicit, DataLad will only test that the output files are clean, and only output files will be saved. Please use with care, as the script and data you use will not be tested and provenance information can be lost.
 - {inputs} {outputs}: If you add the placeholders, the terminal will actually gives the input and output text as argument to the Rscript bash function. One can access them in the R script with `args <- commandArgs(trailingOnly = TRUE)` (then get them with `args[i]`, with i starts at 1).
-- At the end, DataLad usually runs `datalad save -r` so that modification made by the code in the whole repository, including submodules will be recorded and commited (exception when --explicit is given, see above.) This will include any intermediate file created by your code in bash mode, that is using `Rscript "path-to-code.R "` in the terminal (it can happen that bash mode creates more files than running the code directly).  
-
+- At the end, DataLad usually runs `datalad save -r` so that modification made by the code in the whole repository, including submodules will be recorded and committed (exception when --explicit is given, see above.) This will include any intermediate file created by your code in bash mode, that is using `Rscript "path-to-code.R "` in the terminal (it can happen that bash mode creates more files than running the code directly).  
 
 
 
@@ -226,4 +225,4 @@ One can set as many input and output files, one can use `*` to define several fi
 
   In your R script, use path relative to the project, not relative to the code position.
   
-  
+  An understanding of how Git-annex works and why, makes it easier to understand the workflow, refer to :ref:`Handbook Git-annex Basics <basics-annes>`.  

@@ -164,9 +164,10 @@ This code therefore records **provenance**: you will always be able to find what
 
 Since Bobby looks very enthusiastic about provenance, Max reads a little more about it in the handbook: usecases/provenance_tracking, https://handbook.datalad.org/en/latest/basics/101-108-run.html#run
 
-Then, Max create a bash script in Rstudio and run it using the usual button (This runs the bash script in the terminal).
+Then, Max create a bash script in Rstudio and run it using the usual button (This runs the bash script in the terminal). After some practice and tests,
+Max finds his way between testing/developing code on training data (as he has been used to, while using :command:`datalad unlock` and :command:`datalad get` when needed), and running ready code on real data in a reproducible way using :command:`datalad run`. 
 
-
+ 
 
 .. code-block:: bash
 
@@ -205,7 +206,7 @@ One can set as many input and output files, one can use `*` to define several fi
 
   The commit message will only look at the options, whether the code use these input and output files is not checked.
    
-  Using `datalad run` correctly is sometimes tricky, and since it does save each time, it can make the repository history quite messy. Make sure to give good commit messages. 
+  Using :command:`datalad run` correctly is sometimes tricky, and since it does save each time, it can make the repository history quite messy. Make sure to give good commit messages by adding a `-m` variable to it. 
 
 
 

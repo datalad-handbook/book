@@ -37,15 +37,16 @@ Setting up
 ^^^^^^^^^^
 
 Max follows the handbook and installs DataLad on his computer.
+He already has SSH keys installed, as he was using it to work with Git repositories before (if you do not know SSH refers to the handbood section on installation or the [Rstudio tutorial](https://support.posit.co/hc/en-us/articles/200532077-Version-Control-with-Git-and-SVN) ). 
 Max first want to clone the repository on their computer, they use the Rstudio 
 `create a new project` function using the SSH address of the parent repository.
 
 
 .. figure:: ../artwork/src/rstudio/Rstudio-create.png
    :scale: 80 %
-   :alt: screenshot of Rstudio new project creation.
+   :alt: screenshots patchwork of Rstudio new project creation.
 
-   Figures of several screenshot demonstrating the creation of new projects on Rstudio
+   Figures of several screenshots demonstrating the creation of new projects on Rstudio.
 
 Max can't see submodules content and comes to Bobby.
 
@@ -76,10 +77,12 @@ when the folder already exist, so they  run
 ``datalad create --force -r`` in the parent repository.
 Now they are sure they set up DataLad to work in the repository and all submodules,
 since they used the ``-r``  option.
+Max also now understand what Bobby meant when he said that annexed files are not downloaded, and this is further explained in the next section.
 
 .. gitusernote:: Pushing and GIN-Tonic
+
   The scenario  does not present the use of remotes (server version of the resitory) and :command:`datalad push`, as it is indeed not different for R or Rstudio users.
-  One only needs to use the terminal with DataLad commands instead of the Git integration of Rstudio.
+  One *only* needs to use DataLad commands (in the terminal tab) instead of Git (integration in Rstudio-GUI or shell).
   
   While the original repositories are described as pure Git repositories here,
   most of the scenario was actually tested
@@ -93,7 +96,7 @@ since they used the ``-r``  option.
 Working on the code
 ^^^^^^^^^^^^^^^^^^^
 
-Max starts to write some script he saves in the analysis submodule, and use :command:`datalad save` typing ``datalad save -r -m "this is a first draft of the script"`` command in the terminal (in the parent repository). 
+Max starts to write one script that he saves in the analysis submodule, and use :command:`datalad save` typing ``datalad save -r -m "this is a first draft of the script"`` command in the terminal (in the parent repository). 
 The commit history of the parent and the analysis repositories shows the message and Max things everything works fine.
 Max change the script, but Rstudio does not want to save the changes.
 Max save a copy of the script file and call Bobby for help.
@@ -101,13 +104,11 @@ Max save a copy of the script file and call Bobby for help.
 Bobby start to explain what happened:
 DataLad saved the script using Git-annex.
 This means that the file was moved somewhere else, and the content was replaced by a code linking to the file location. 
-The code, which is a tiny file, is saved in Git, while the large file is saved outside of Git.
 Because it is :term:`symlink`, Rstudio still read the content of the original file when clicking on it, but it cannot overwrite the file: that file is in read-only mode.
 This is explained in detail in the :ref:`Handbook chapters on Git-annex <basics-annex>`.
 
 One could overwrite the file by first unlocking it (using ``datalad unlock .``), but that would not be very practical, and it would save the script as a binary file, making the version control very inefficient.
-
-You do not want to use Git-annex for scripts, as they are text files which version should be handled by Git..
+You do not want to use Git-annex for scripts, as they are text files which version should be handled by Git.
 Bobby then shows how to tell DataLad to use git for text files and he runs: ``datalad create -c text2git --force``. 
 
 Max can now work on its script as he used to, but commit changes using the ``datalad save -r`` command.
@@ -115,9 +116,11 @@ Max can now work on its script as he used to, but commit changes using the ``dat
 
 
 
-.. gitusernote:: Dangers of text2git
+.. gitusernote:: The dangers of text2git
 
-  Note that all text files will be added to git using this option, so if you have large text files (.csv or .json files) that you want to be added via Git-annex, you will need to be more precise in what text file should not be annexed. See :ref:`Handbook chapters <101-124-procedures>` , <http://handbook.datalad.org/en/inm7/basics/101-124-procedures.html#> for details on how text2git change `.gitattributes` to achieve that.
+  Note that all text files will be added to git using this option, so if you have large text files (.csv or .json files) that you want to be added via Git-annex, you will need to be more precise in what text file should not be annexed. 
+  This may be quite important if you want to be able to *drop* files to keep space on your computer harddrive.
+  See :ref:`Handbook chapters <101-124-procedures>` , <http://handbook.datalad.org/en/inm7/basics/101-124-procedures.html#> for details on how text2git change `.gitattributes` to achieve that.
 
 Running code
 ^^^^^^^^^^^^
@@ -188,9 +191,9 @@ One can set as many input and output files, one can use `*` to define several fi
 
 - Input: To be read, files are downloaded if not present. Note that they are not unlocked (no need for reading them) and that they will not be dropped again after being read.
 - Output: files are unlocked so they can be overwritten. If the files are not present (dropped), they will not be downloaded. This may make your code fail: if it does, either get the files manually before running `datalad run`, or remove them in the R code (`r file.remove()`). In other case, it will work and it will even detect when the file has not been modified and make no commit.
-- explicit: DataLad runs normally only in clean repositories, this includes all submodules. By adding --explicit, DataLad will only test that the output files are clean, and only output files will be saved. Please use with care, as the script and data you use will not be tested and provenance information can be lost.
+- explicit: :command:`datalad run` runs normally only in clean repositories, this includes all submodules. By adding --explicit, DataLad will only test that the output files are clean, and only output files will be saved. Please use with care, as the script and data you use will not be tested and provenance information can be lost.
 - {inputs} {outputs}: If you add the placeholders, the terminal will actually gives the input and output text as argument to the Rscript bash function. One can access them in the R script with `args <- commandArgs(trailingOnly = TRUE)` (then get them with `args[i]`, with i starts at 1).
-- At the end, DataLad usually runs `datalad save -r` so that modification made by the code in the whole repository, including submodules will be done (exception when --explicit is given, see above.) This will include any intermediate file created by your code in bash mode, that is using `Rscript "path-to-code.R "` in the terminal (it can happen that bash mode creates more files than running the code directly)  
+- At the end, DataLad usually runs `datalad save -r` so that modification made by the code in the whole repository, including submodules will be recorded and commited (exception when --explicit is given, see above.) This will include any intermediate file created by your code in bash mode, that is using `Rscript "path-to-code.R "` in the terminal (it can happen that bash mode creates more files than running the code directly).  
 
 
 
@@ -209,6 +212,7 @@ One can set as many input and output files, one can use `*` to define several fi
 
 
 
+
 .. importantnote:: Take home messages
   
   DataLad commands run in the terminal, not the R Console.
@@ -217,7 +221,8 @@ One can set as many input and output files, one can use `*` to define several fi
 
   the ``datalad run Rscript "path-to-script.r"`` command will run your script.
   
-  Use additional options to read or write annexed files (and give more info for commit messages).
+  Use additional options to command:`datalad run` to read or write annexed files (and give more info for commit messages).
 
   In your R script, use path relative to the project, not relative to the code position.
+  
   

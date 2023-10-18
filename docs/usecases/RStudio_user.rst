@@ -120,7 +120,7 @@ Max can now work on its script as he used to, but commit changes using the ``dat
 
   Note that all text files will be added to git using this option, so if you have large text files (.csv or .json files) that you want to be added via Git-annex, you will need to be more precise in what text file should not be annexed. 
   This may be quite important if you want to be able to *drop* files to keep space on your computer harddrive.
-  See :ref:`Handbook chapters <101-124-procedures>` , <http://handbook.datalad.org/en/inm7/basics/101-124-procedures.html#> for details on how text2git change `.gitattributes` to achieve that.
+  See :ref:`Handbook chapters <basics-101-124-procedures>` for details on how text2git change `.gitattributes` to achieve that.
 
 Running code
 ^^^^^^^^^^^^

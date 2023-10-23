@@ -107,7 +107,7 @@ Unix-like systems or environments
 ``rmdir <folder>``
     delete an empty folder
 ``export NAME=Value``
-    Set an environment variable ``NAME`` to ``Value`` for your current terminal session
+    Set an :term:`environment variable` ``NAME`` to ``Value`` for your current terminal session
 
 Windows systems
 """""""""""""""
@@ -131,7 +131,7 @@ Windows systems
 ``rmdir <folder>``
     delete an empty folder
 ``set NAME=Value``
-    Set an environment variable ``NAME`` to ``Value`` for your current terminal session
+    Set an :term:`environment variable` ``NAME`` to ``Value`` for your current terminal session
 
 
 The Prompt

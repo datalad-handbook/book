@@ -139,9 +139,9 @@ chapters in this handbook will demonstrate how useful this information can be.
 
 Here is the repository structure:
 
-.. windows-wit:: use tree /f
+.. windows-wit:: use tree
 
-   The Windows version of tree requires different parametrization, so please run ``tree /f`` instead of ``tree -d``.
+   The Windows version of tree requires different parametrization, so please run ``tree`` instead of ``tree -d``.
 
 .. runrecord:: _examples/DL-101-105-103
    :language: console

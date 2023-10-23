@@ -15,7 +15,7 @@ and a relative path, you can safely skip this chapter and continue to the :ref:`
 
 While there is a graphical user interface for DataLad (the :term:`DataLad Gooey`), this handbook will first and foremost focus on teaching DataLad concepts without the overhead of a user-interface, using DataLad's most powerful interface on the *command line*.
 This means that the code examples in the handbook show no buttons to click on, but a set of commands and options users type into their *terminal*.
-If you are not used to working with command-line arguments, DataLad can appear intimidating.
+If you are not used to working with command-line tools, DataLad can appear intimidating.
 Luckily, the set of possible commands is limited, and even without prior experience with a shell, one can get used to it fairly quickly.
 
 .. figure:: ../artwork/src/img/shell.png
@@ -155,7 +155,7 @@ Paths
 =====
 
 Paths look different on Unix-like and Windows systems.
-Most prominently, the *path separator*, i.e., the symbol distinguishing directories in path, are back slashes (``\``) on Windows and front slashes (``/``) on Unix-like systems.
+Most prominently, the *path separators*, i.e., the symbol distinguishing directories in path, are back slashes (``\``) on Windows and front slashes (``/``) on Unix-like systems.
 On Windows systems, paths are also usually prefixed with a "disk designator" such as ``C:`` or ``d:``.
 Let's say I want to create a new folder in my home folder on a Unix system,
 I can run the following command:

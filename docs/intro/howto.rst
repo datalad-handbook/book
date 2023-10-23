@@ -258,6 +258,8 @@ In order to quickly get home, you could use
 
    $ cd %userprofile%
 
+More information on Windows paths can be found `here <https://learn.microsoft.com/en-us/windows/win32/fileio/naming-a-file>`_.
+
 Text Editors
 ============
 

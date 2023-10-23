@@ -155,7 +155,8 @@ Paths
 =====
 
 Paths look different on Unix-like and Windows systems.
-Most prominently, the *path separator*, i.e., the symbol distinguishing directories in path, are back slashes (``\``) instead of front slashes (``/``).
+Most prominently, the *path separator*, i.e., the symbol distinguishing directories in path, are back slashes (``\``) on Windows and front slashes (``/``) on Unix-like systems.
+On Windows systems, paths are also usually prefixed with a "disk designator" such as ``C:`` or ``d:``.
 Let's say I want to create a new folder in my home folder on a Unix system,
 I can run the following command:
 
@@ -169,16 +170,18 @@ If I want to do the same in Window's CMD, I'd do
 
    $ mkdir C:\Users\me\awesome_datalad_project
 
-And that both works on the respective system. ``/home/me/awesome_datalad_project`` and ``C:\Users\me\awesome_datalad_project`` are what is called an *absolute*
-path. Absolute paths *always* start with a ``/`` (on Unix-like systems) or a drive identifier such as ``C:\`` on Windows systems, and define the folder's location
-with no ambiguity.
+And that both works on the respective system. ``/home/me/awesome_datalad_project`` and ``\Users\me\awesome_datalad_project`` are what is called an *absolute*
+path.
+Absolute paths *always* start with a ``/`` (on Unix-like systems) or a ``\`` (on Windows systems), and define the folder's location with no ambiguity.
 
 However, much like in spoken language, using someone's full proper name every
 time would be exhausting, and thus pronouns are used.
 
 This shorthand is called *relative* paths, because they are defined (wait for it...)
 *relative* to your current location on the file system. Relative paths *never* start
-with a ``/`` or drive identifier.
+with a ``/`` or ``\``.
+For example, ``myfile.txt`` is a relative path to the file ``myfile.txt`` in the current directory on Unix-like systems.
+The Windows equivalent is to ``myfile.txt`` in the current directory on the ``C`` disk is ``C:myfile.txt``.
 
 Unix knows a few shortcuts to refer to file system related directories, and you will
 come across them often. Whenever you see a ``.``, ``..``, or ``~`` in a DataLad command,

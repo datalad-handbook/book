@@ -63,11 +63,6 @@ When copying code snippets into your own terminal, do not copy the leading
 error when executed.
 Don't worry :ref:`if you do not want to code along <fom-lazy>`, though.
 
-Instead of copying manually, you can also click on the clipboard icon at the top
-right of each code snippet.
-Clicking on that icon will copy all relevant lines from the code snippet,
-and will drop all comments and the ``$`` automatically.
-
 Whenever you see a ✂ symbol, command output has been shortened for easier readability.
 In the example below, the commit :term:`shasum` has been shortened and marked with ``✂SHA1``.
 

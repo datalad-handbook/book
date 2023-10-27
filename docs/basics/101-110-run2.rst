@@ -504,5 +504,4 @@ Apart from displaying the command that will be ran, you will learn *where* the c
 
 .. [#f1] In shell programming, commands exit with a specific code that indicates
     whether they failed, and if so, how. Successful commands have the exit code zero. All failures
-    have exit codes greater than zero. A few lines lower, DataLad tells us the specific error
-    code: The command failed with exit code 1.
+    have exit codes greater than zero.

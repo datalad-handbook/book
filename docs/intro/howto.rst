@@ -1,31 +1,22 @@
 .. _howto:
 
-*********************
-General prerequisites
-*********************
+****************
+The Command Line
+****************
 
 .. index:: ! terminal, ! shell, ! command Line
 
-While there is a graphical user interface for DataLad (the :term:`DataLad Gooey`), this handbook will first and foremost focus on teaching DataLad concepts without the overhead of a user-interface, using DataLad's most powerful interface on the *command line*.
-This means that the code examples in the handbook show no buttons to click on, but a set of commands and options users type into their *terminal*.
-If you are not used to working with command-line arguments, DataLad can appear intimidating.
-Luckily, the set of possible commands is limited, and even without prior experience with a shell, one can get used to it fairly quickly.
-
 This chapter aims at providing novices with general basics about the shell, common Unix
-commands, and some general file system facts.
+commands and their Windows equivalent, and some general file system facts.
 This chapter is also a place to return to and (re-)read if you come across a
 non-DataLad command or principle you want to remind yourself of.
 If you are already familiar with the shell and know the difference between an absolute
 and a relative path, you can safely skip this chapter and continue to the :ref:`DataLad Basics <basics-intro>`.
 
-Almost all of this chapter is based on parts of a wonderful lab documentation
-Alex Waite wrote.
-
-The Command Line
-================
-The shell (sometimes also called a terminal, console, or CLI) is an interactive,
-text based interface. If you have used Matlab or IPython, then you are already familiar
-with the basics of a command line interface.
+While there is a graphical user interface for DataLad (the :term:`DataLad Gooey`), this handbook will first and foremost focus on teaching DataLad concepts without the overhead of a user-interface, using DataLad's most powerful interface on the *command line*.
+This means that the code examples in the handbook show no buttons to click on, but a set of commands and options users type into their *terminal*.
+If you are not used to working with command-line tools, DataLad can appear intimidating.
+Luckily, the set of possible commands is limited, and even without prior experience with a shell, one can get used to it fairly quickly.
 
 .. figure:: ../artwork/src/img/shell.png
    :width: 50%
@@ -33,13 +24,22 @@ with the basics of a command line interface.
 
    A terminal window in a standard desktop environment.
 
+The shell (also called a terminal, console, or CLI) is an interactive,
+text based interface. If you have used Matlab or IPython, then you are already familiar
+with the basics of a command line interface.
+On Unix-like systems (e.g., running Linux or macos), the shell application is usually called "terminal".
+On Windows systems, several different interfaces exist: The "CMD" Command Prompt and the Powershell are natively installed, and the Git Bash (provided by Git for Windows) or Anaconda prompt CLI (provided by Anaconda or Miniconda) can come with the installation of the respective software tool.
+We recommend using CMD, or, if you have them installed already and prefer them over the CMD, the Git Bash or Anaconda prompt.
+As later parts in this section will show, shells under Windows may use different commands than shells under Linux and macos systems.
+
 Command Syntax
 ==============
 
+Interactions with the shell take the form of commands, text-based instructions to your computer.
 Commands are case sensitive and follow the syntax of: ``command [options...] <arguments...>``.
 Whenever you see some example code in the code snippets of this book, make sure
 that you capitalize exactly as shown if you try it out yourself.
-The options modify the behavior of the program, and are usually preceded by ``-`` or ``--``.
+The options modify the behavior of the program, and are usually preceded by ``-`` or ``--`` on Unix-like systems.
 In this example
 
 
@@ -72,6 +72,7 @@ to list the size of a file in a *human-readable* format, supply the short option
    $ ls -l --human-readable output.txt
 
 Every command has many of those options (often called "flags") that modify their behavior.
+On Windows, options of native Windows commands can be preceded by a ``/`` instead of dashes, for example ``dir /p output.txt``.
 There are too many to even consider memorizing. Remember the ones you use often,
 and the rest you will lookup in their documentation or via your favorite search engine.
 DataLad commands naturally also come with many options, and in the next chapters
@@ -79,10 +80,12 @@ and later examples you will get to see many of them.
 
 Basic Commands
 ==============
-The following commands can appear in our examples or are generally useful to know:
-They can help you to *explore and navigate* in your file system (``cd``, ``ls``),
-copy, move, or remove files (``cp``, ``mv``, ``rm``), or create new directories
-(``mkdir``).
+The following commands, split between Unix-like (e.g., Linux, macos) and Windows environments, can appear in our examples or are generally useful to know:
+They can help you to *explore and navigate* in your file system, copy, move, or remove files, or create new directories.
+Note that the Git Bash on Windows emulates a Unix environment in which you could use Unix commands despite being on Windows.
+
+Unix-like systems or environments
+"""""""""""""""""""""""""""""""""
 
 ``ls -lah <folder>``
     list the contents of a folder, including hidden files (-a), and all their information (-l);
@@ -103,6 +106,33 @@ copy, move, or remove files (``cp``, ``mv``, ``rm``), or create new directories
     create a folder
 ``rmdir <folder>``
     delete an empty folder
+``export NAME=Value``
+    Set an :term:`environment variable` ``NAME`` to ``Value`` for your current terminal session
+
+Windows systems
+"""""""""""""""
+
+``dir <folder>``
+    list the contents of a folder including hidden files
+``cd <folder>``
+    change to another folder
+``copy <from> <to>``
+    copy a file
+``ren <oldname> <newname>``
+    rename a file or folder
+``mv <from> <to>``
+    move a file or folder
+``del <file>``
+    delete a file
+``rmdir /s <folder>``
+    delete a folder and its contents (``/s``)
+``md <folder>``
+    create a folder
+``rmdir <folder>``
+    delete an empty folder
+``set NAME=Value``
+    Set an :term:`environment variable` ``NAME`` to ``Value`` for your current terminal session
+
 
 The Prompt
 ==========
@@ -123,23 +153,35 @@ output of those commands.
 
 Paths
 =====
-Let's say I want to create a new folder in my home folder,
+
+Paths look different on Unix-like and Windows systems.
+Most prominently, the *path separators*, i.e., the symbol distinguishing directories in path, are back slashes (``\``) on Windows and front slashes (``/``) on Unix-like systems.
+On Windows systems, paths are also usually prefixed with a "disk designator" such as ``C:`` or ``d:``.
+Let's say I want to create a new folder in my home folder on a Unix system,
 I can run the following command:
 
 .. code-block:: bash
 
    $ mkdir /home/me/awesome_datalad_project
 
-And that works. ``/home/me/awesome_datalad_project`` is what is called an *absolute*
-path. Absolute paths *always* start with a ``/``, and define the folder's location
-with no ambiguity.
+If I want to do the same in Window's CMD, I'd do
+
+.. code-block::
+
+   $ mkdir C:\Users\me\awesome_datalad_project
+
+And that both works on the respective system. ``/home/me/awesome_datalad_project`` and ``\Users\me\awesome_datalad_project`` are what is called an *absolute*
+path.
+Absolute paths *always* start with a ``/`` (on Unix-like systems) or a ``\`` (on Windows systems), and define the folder's location with no ambiguity.
 
 However, much like in spoken language, using someone's full proper name every
 time would be exhausting, and thus pronouns are used.
 
 This shorthand is called *relative* paths, because they are defined (wait for it...)
 *relative* to your current location on the file system. Relative paths *never* start
-with a ``/``.
+with a ``/`` or ``\``.
+For example, ``myfile.txt`` is a relative path to the file ``myfile.txt`` in the current directory on Unix-like systems.
+The Windows equivalent is to ``myfile.txt`` in the current directory on the ``C`` disk is ``C:myfile.txt``.
 
 Unix knows a few shortcuts to refer to file system related directories, and you will
 come across them often. Whenever you see a ``.``, ``..``, or ``~`` in a DataLad command,
@@ -209,6 +251,14 @@ However, since I want to go back to my home folder, it's much faster to run:
 
    $ cd ~
 
+Windows similarly knows the ``.`` and ``..`` shortcuts, but can not handle the ``~`` shortcut.
+In order to quickly get home, you could use
+
+.. code-block::
+
+   $ cd %userprofile%
+
+More information on Windows paths can be found `here <https://learn.microsoft.com/en-us/windows/win32/fileio/naming-a-file>`_.
 
 Text Editors
 ============
@@ -230,6 +280,14 @@ this is the breakdown:
     will get you out of there.
 ``emacs``
     Powerful; tons of features; written in Lisp; huge ecosystem; advanced learning curve.
+
+The text editors above are all command-line editors.
+They will open up directly in your terminal.
+
+While those text editors can also be installed on Windows, command-line editors are rarely used on Windows.
+Git for Windows might set :term:`vim` as the default editor upon installation, which can require some acclimatization.
+A good graphical alternative is Notepad++, a powerful Windows-native text editor.
+You may either be able to configure this during the installation, of afterwards by running ``git config core.editor notepad``.
 
 
 Shells
@@ -305,4 +363,4 @@ Pressing Tab again will list the matching options (``Documents`` and ``Downloads
       A visual example of tab-completion in action:
 
 
-**That's it -- equipped with the basics of Unix, you are good to go on your DataLad adventure!**
+**That's it -- equipped with the basics of the command line, you are good to go on your DataLad adventure!**

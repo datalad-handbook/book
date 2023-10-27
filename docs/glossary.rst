@@ -8,8 +8,8 @@ Glossary
 .. glossary::
 
    absolute path
-      The complete path from the root of the file system. Absolute paths always start with ``/``.
-      Example: ``/home/user/Pictures/xkcd-webcomics/530.png``. See also :term:`relative path`.
+      The complete path from the root of the file system. On Unix-like systems, absolute paths always start with ``/``, and on Windows systems, they start with a ``/`` (likely prefixed by a disk identifier).
+      Examples: ``/home/user/Pictures/xkcd-webcomics/530.png``, ``C:\Users\user\Pictures\xkcd-webcomics\530.png``. See also :term:`relative path`.
 
    adjusted branch
       git-annex concept: a special :term:`branch` in a dataset.
@@ -302,8 +302,8 @@ Glossary
       Git concept. A "Git Reference", typically shortened to "ref", is a text file containing a :term:`commit` :term:`shasum` as a human-readable reference to a specific version of your dataset or Git repository. Thanks to refs, Git users do not need to memorize or type shasums when switching between dataset states, and can use simple names instead: For example, a :term:`branch` such as ``main`` is a ref, and a :term:`tag` is one, too. In both cases, those refs are text files that contain the shasum of the commit at the tip of a branch, or the shasum of the commit you added the tag to. Refs are organized in the directory ``.git/refs`` and Git commands and configurations can use refs to perform updating operations or determine their behavior. More details can be found at `at git-scm.com <https://git-scm.com/book/en/v2/Git-Internals-Git-References>`_
 
    relative path
-      A path related to the present working directory. Relative paths never start with ``/``.
-      Example: ``../Pictures/xkcd-webcomics/530.png``. See also :term:`absolute path`.
+      A path related to the present working directory. Relative paths never start with ``/`` or ``\``.
+      Examples on Unix and Windows: ``../Pictures/xkcd-webcomics/530.png``, ``..\Pictures\xkcd-webcomics\530.png``. See also :term:`absolute path`.
 
    remote
       Git-terminology: A repository (and thus also :term:`DataLad dataset`) that a given repository

@@ -18,7 +18,7 @@ DataLad cheat sheet
 .. only:: latex
 
    .. figure:: ../artwork/src/datalad-cheatsheet_p1.png
-      :width: 80%
+      :width: 95%
 
       A high-resolution version of this cheatsheet is available for download
       at https://github.com/datalad-handbook/artwork/raw/main/src/datalad-cheatsheet.pdf

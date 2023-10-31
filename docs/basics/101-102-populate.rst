@@ -53,7 +53,7 @@ are presented here, make sure to check the :windows-wit:`on peculiarities of its
      $ wget -q https://sourceforge.net/projects/linuxcommand/files/TLCL/19.01/TLCL-19.01.pdf/download ^
      -O TLCL.pdf
 
-   If you are not using the Git Bash, you will either need to copy multi-line commands into a single line, or use ``^`` (make sure that there is **no space** afterwards) instead of ``\``.
+   If you are not using the Git Bash, you will either need to copy multi-line commands into a single line, or use ``^`` (**no space** afterwards) instead of ``\``.
 
 .. runrecord:: _examples/DL-101-102-103
    :language: console

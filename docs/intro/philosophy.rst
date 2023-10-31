@@ -105,7 +105,7 @@ that captures the spirit of what DataLad is, and here is a brief overview on it.
    **DataLad is a completely domain-agnostic, general-purpose tool to manage data**.
    You can use it whether you have a PhD in Neuroscience and want to
    `share one of the largest whole brain MRI images in the world <https://github.com/datalad-datasets/bmmr-t1w-250um>`_,
-   organize your private music library, keep track of all
+   organize your private music library, or keep track of all
    `cat memes <https://imgflip.com/memesearch?q=cat>`_
    on the internet.
 

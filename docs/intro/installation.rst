@@ -24,9 +24,8 @@ systems. They do not cover the various :term:`DataLad extension`'s that need to 
    :name: fom-py2v3
    :float: tbp
 
-   DataLad requires Python 3.8, or a more recent version, to be installed on
-   your system. The easiest way to verify that this is the case is to open a
-   terminal and type :shcmd:`python` to start a Python session:
+   DataLad requires Python 3.8, or a more recent version, to be installed on your system.
+   The easiest way to verify that this is the case is to open a terminal and type :shcmd:`python` to start a Python session:
 
    .. code-block:: bash
 
@@ -36,29 +35,18 @@ systems. They do not cover the various :term:`DataLad extension`'s that need to 
      Type "help", "copyright", "credits" or "license" for more information.
      >>>
 
-   If this fails, or reports a Python version with a leading ``2``, such as
-   ``Python 2.7.18``, try starting :shcmd:`python3`, which some systems use
-   to disambiguate between Python 2 and Python 3. If this fails, too, you need
-   to obtain a recent release of Python 3. On Windows, attempting to run
-   commands that are not installed might cause a Windows Store window to pop
-   up. If this happens, Python may not yet be installed. Please check the
-   `Windows 10 and 11`_ installation instructions, and *do not* install Python via the
-   Windows Store.
+   If this fails, or reports a Python version with a leading ``2``, such as ``Python 2.7.18``, try starting :shcmd:`python3`, which some systems use to disambiguate between Python 2 and Python 3.
+   If this fails, too, you need to obtain a recent release of Python 3. On Windows, attempting to run commands that are not installed might cause a Windows Store window to pop up.
+   If this happens, Python may not yet be installed. Please check the `Windows 10 and 11`_ installation instructions, and *do not* install Python via the Windows Store.
 
    Python 2 is an outdated, in technical terms "deprecated", version of Python.
-   Although it still exist as the default Python version on many systems, it is
-   no longer maintained since 2020, and thus, most software has dropped support
-   for Python 2.  If you only run Python 2 on your system, most Python
-   software, including DataLad, will be incompatible, and hence unusable,
-   resulting in errors during installation and execution.
+   Although it still exist as the default Python version on many systems, it is no longer maintained since 2020, and thus, most software has dropped support for Python 2.
+   If you only run Python 2 on your system, most Python software, including DataLad, will be incompatible, and hence unusable,  resulting in errors during installation and execution.
 
-   But does that mean that you should uninstall Python 2?  **No**!  Keep it
-   installed, especially if you are using Linux or MacOS.  Python 2 existed for
-   20 years and numerous software has been written for it.  It is quite likely
-   that some basic operating system components or legacy software on your
-   computer is depending on it, and uninstalling a preinstalled Python 2 from
-   your system will likely render it unusable.  Install Python 3, and have both
-   versions coexist peacefully.
+   But does that mean that you should uninstall Python 2?  **No**!  Keep it installed, especially if you are using Linux or MacOS.
+   Python 2 existed for 20 years and numerous software has been written for it.
+   It is quite likely that some basic operating system components or legacy software on your computer is depending on it, and uninstalling a preinstalled Python 2 from your system will likely render it unusable.
+   Install Python 3, and have both versions coexist peacefully.
 
 The following sections provide targeted installation instructions for a set of
 common scenarios, operating systems, or platforms.

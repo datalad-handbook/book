@@ -1,6 +1,6 @@
 .. _FAQ:
 
-Frequently Asked Questions
+Frequently asked questions
 --------------------------
 
 This section answers frequently asked questions about high-level DataLad

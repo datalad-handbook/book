@@ -74,8 +74,7 @@ command:
 file content from the subdataset and it tried to unlock the output
 prior to the command execution. Note that because you did not retrieve
 the output, ``recordings/salt_logo_small.jpg``, yet, the missing content
-could not be unlocked. DataLad warns you about this, but proceeds
-successfully.
+could not be "unlocked", but is reportedly "removed" prior to the successful rerun.
 
 Your room mate now not only knows how exactly the resized file
 came into existence, but he can also reproduce your exact steps to

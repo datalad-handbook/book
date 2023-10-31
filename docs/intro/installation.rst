@@ -394,13 +394,6 @@ To update an existing installation with conda, use:
 
   $ conda update -c conda-forge datalad
 
-.. windows-wit:: Install Unix command-line tools on Windows with Conda
-
-   On Windows, many Unix command-line tools such as ``cp`` that a frequently
-   used in this handbook are not available by default.  You can get a good set
-   of tools by installing :term:`conda`\s ``m2-base`` package via ``conda
-   install m2-base``.
-
 The `DataLad installer`_ also supports setting up a Conda environment, in case
 a suitable Python version is already available.
 

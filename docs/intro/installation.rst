@@ -102,7 +102,7 @@ Python:
        Such alternative installations may even be or become the default.
        This can cause confusing behavior, because each Python installation will have different package versions installed.
 
-       To verify if there are multiple installation, open the windows command line ``cmd.exe`` and run ``where python``.
+       To verify if there are multiple installations, open the windows command line ``cmd.exe`` and run ``where python``.
        This will list all variants of ``python.exe``.
        There will be one in ``WindowsApps``, which is only a link to the Windows app store.
        Make sure the Python version that you installed is listed too.
@@ -138,8 +138,8 @@ Git:
 
 Git-annex:
     There are two convenient ways to install git-annex. The first is `downloading the installer from git-annex' homepage <https://git-annex.branchable.com/install/Windows>`_. The other is to deploy git-annex via the `DataLad installer`_.
-    The latter option requires the installation of the datalad-installer, Once
-    Python is available, it can be done with the Python package manager
+    The latter option requires the installation of the datalad-installer.
+    Once Python is available, it can be done with the Python package manager
     :shcmd:`pip`. Open a command prompt and run:
 
     .. code-block:: bat

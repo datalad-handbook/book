@@ -89,6 +89,7 @@ Appendix
    contributing
    teaching
    acknowledgements
+   licenses
    intro/user_types
    OHBMposter
    usecases/openneuro

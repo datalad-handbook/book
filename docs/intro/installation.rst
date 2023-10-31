@@ -181,7 +181,7 @@ One attractive alternative approach is Conda_, a completely different approach i
    :name: ww-wsl2
 
    With the Windows Subsystem for Linux, you will be able to use a Unix system
-   despite being on Windows.  You need to have a recent build of Windows 10 in
+   despite being on Windows.  You need to have a recent build of Windows in
    order to get WSL2 -- we do not recommend WSL1.
 
    You can find out how to install the Windows Subsystem for Linux at
@@ -199,7 +199,7 @@ look different from what is displayed in the code examples of the book, and
 that some dependencies for additional functionality are not available for
 Windows. Dedicated notes,
 "``Windows-wit``\s", contain important information, alternative commands, or
-warnings. If you on a native Windows 10 system, you should pay close
+warnings. If you on a native Windows system, you should pay close
 attention to them.
 
 .. _mac:

@@ -63,6 +63,9 @@ autorunrecord_line_replace = [
     # should still be functional and save 30+% of line length
     (r'(?P<lead>[0-9a-f]{8})[0-9a-f]{32}', r'\g<lead>✂SHA1'),
     (r'(?P<lead>[0-9a-f]{8})[0-9a-f]{24}', r'\g<lead>✂MD5'),
+    # remove any action summary that contains no `notneeded`, the latter
+    # need to be kept, because they are not renderer individually
+    (r'(action summary:(\n^  \S+ \(\S+(?<!notneeded): \d+\)$)+)\n(?!  )', ''),
 ]
 # pre-crafted artificial environment to run the code examples in
 # start with all datalad settings

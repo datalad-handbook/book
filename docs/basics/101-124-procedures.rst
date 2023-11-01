@@ -226,32 +226,24 @@ Write your own procedures
      Note that ``.datalad/procedures`` does not exist by default, and the ``procedures``
      directory needs to be created first.
 
-       - Alternatively to the default locations, DataLad can be pointed to the
-         location of a procedure with a configuration in ``.datalad/config``
-         (or with the help of the associated :term:`environment variable`\s).
-         The appropriate configuration keys for ``.datalad/config`` are either
-         ``datalad.locations.system-procedures`` (for changing the *system* default),
-         ``datalad.locations.user-procedures`` (for changing the *global* default),
-         or ``datalad.locations.dataset-procedures`` (for changing the *local* default).
-         An example ``.datalad/config`` entry for the local scope is shown below.
+   - Alternatively to the default locations, DataLad can be pointed to the location of a procedure with a configuration in ``.datalad/config`` (or with the help of the associated :term:`environment variable`\s).
+     The appropriate configuration keys for ``.datalad/config`` are either ``datalad.locations.system-procedures`` (for changing the *system* default), ``datalad.locations.user-procedures`` (for changing the *global* default), or ``datalad.locations.dataset-procedures`` (for changing the *local* default).
+     An example ``.datalad/config`` entry for the local scope is shown below.
 
-         .. code-block:: bash
+	 .. code-block:: bash
 
-            [datalad "locations"]
-                dataset-procedures = relative/path/from/dataset-root
+		[datalad "locations"]
+			dataset-procedures = relative/path/from/dataset-root
 
-    - By default, DataLad will call a procedure with a standard template
-      defined by a format string:
+   - By default, DataLad will call a procedure with a standard template defined by a format string:
 
       .. code-block:: bash
 
          interpreter {script} {ds} {arguments}
 
-      where arguments can be any additional command line arguments a script
-      (procedure) takes or requires. This default format string can be
-      customized within ``.datalad/config`` in ``datalad.procedures.<NAME>.call-format``.
-      An example ``.datalad/config`` entry with a changed call format string
-      is shown below.
+   where arguments can be any additional command line arguments a script (procedure) takes or requires.
+   This default format string can be customized within ``.datalad/config`` in ``datalad.procedures.<NAME>.call-format``.
+   An example ``.datalad/config`` entry with a changed call format string is shown below.
 
       .. code-block:: bash
 
@@ -259,7 +251,7 @@ Write your own procedures
             help = This is a string to describe what the procedure does
             call-format = python {script} {ds} {somearg1} {somearg2}
 
-    - By convention, procedures should leave a dataset in a clean state.
+   - By convention, procedures should leave a dataset in a clean state.
 
    Therefore, in order to create a custom procedure, an executable script
    in the appropriate location is fine. Placing a script ``myprocedure``

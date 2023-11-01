@@ -674,8 +674,7 @@ configuration, or interactively).
 
 .. importantnote:: Generate a GitHub token
 
-   GitHub `deprecated user-password authentication <https://developer.github.com/changes/2020-02-14-deprecating-password-auth>`_ supports authentication via personal access token only.
-
+   GitHub `deprecated user-password authentication <https://developer.github.com/changes/2020-02-14-deprecating-password-auth>`_ and instead supports authentication via personal access token.
    To ensure successful authentication, don't supply your password, but create a personal access token at `github.com/settings/tokens <https://github.com/settings/tokens>`_ [#f6]_ instead, and either
 
    * supply the token with the argument ``--github-login <TOKEN>`` from the command line,

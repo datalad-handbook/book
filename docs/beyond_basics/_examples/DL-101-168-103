@@ -11,6 +11,3 @@ run(ok): /home/me/DVCvsDL/DVC-DataLad (dataset) [VIRTUALENV/bin/python /home/a..
 [INFO] == Command exit (modification check follows) =====
 run(ok): /home/me/DVCvsDL/DVC-DataLad (dataset) [VIRTUALENV/bin/python /home/a...]
 create(ok): /home/me/DVCvsDL/DVC-DataLad (dataset)
-action summary:
-  create (ok: 1)
-  run (ok: 2)

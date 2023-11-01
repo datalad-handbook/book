@@ -1,5 +1,5 @@
 $ git log -p -n 2
-commit b5fc1296✂SHA1
+commit 41fdaab8✂SHA1
 Author: Elena Piscopia <elena@example.net>
 Date:   Tue Jun 18 16:13:00 2019 +0000
 
@@ -20,7 +20,7 @@ index 6a465f0..e2829b2 100644
 +those changes done to the files listed with --output flags.
 +
 
-commit d5845d33✂SHA1
+commit fd4a25e6✂SHA1
 Author: Elena Piscopia <elena@example.net>
 Date:   Tue Jun 18 16:13:00 2019 +0000
 

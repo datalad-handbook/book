@@ -1,5 +1,5 @@
 $ git log -p -n 3
-commit fa63a083✂SHA1
+commit 87609a36✂SHA1
 Author: Elena Piscopia <elena@example.net>
 Date:   Tue Jun 18 16:13:00 2019 +0000
 
@@ -19,7 +19,7 @@ index 0142412..e34ef1f 100644
 +superdataset with the '-d' option.
 +
 
-commit 7c489fbf✂SHA1
+commit 3c016f73✂SHA1
 Author: Elena Piscopia <elena@example.net>
 Date:   Tue Jun 18 16:13:00 2019 +0000
 
@@ -44,7 +44,7 @@ index 0000000..dcc34fb
 @@ -0,0 +1 @@
 +Subproject commit dcc34fbe✂SHA1
 
-commit 9783a90c✂SHA1
+commit e310b465✂SHA1
 Author: Elena Piscopia <elena@example.net>
 Date:   Tue Jun 18 16:13:00 2019 +0000
 
@@ -63,7 +63,7 @@ index 3a7a1fe..0142412 100644
 +Note to self: Always use informative, concise commit messages.
 +
 
-commit b538dae3✂SHA1
+commit 874d766f✂SHA1
 Author: Elena Piscopia <elena@example.net>
 Date:   Tue Jun 18 16:13:00 2019 +0000
 
@@ -79,7 +79,7 @@ index 0000000..3a7a1fe
 +The dataset is created empty
 +
 
-commit bcb0ffe8✂SHA1
+commit 59ac8d32✂SHA1
 Author: Elena Piscopia <elena@example.net>
 Date:   Tue Jun 18 16:13:00 2019 +0000
 
@@ -94,7 +94,7 @@ index 0000000..00ca6bd
 +../.git/annex/objects/WF/Gq/✂/MD5E-s1198170--0ab2c121✂MD5.pdf
 \ No newline at end of file
 
-commit 8e5dc808✂SHA1
+commit a875e496✂SHA1
 Author: Elena Piscopia <elena@example.net>
 Date:   Tue Jun 18 16:13:00 2019 +0000
 
@@ -109,7 +109,7 @@ index 0000000..c5d2ab2
 +../.git/annex/objects/G6/Gj/✂/MD5E-s12465653--05cd7ed5✂MD5.pdf
 \ No newline at end of file
 
-commit d2bb1a86✂SHA1
+commit b40316a6✂SHA1
 Author: Elena Piscopia <elena@example.net>
 Date:   Tue Jun 18 16:13:00 2019 +0000
 
@@ -125,11 +125,11 @@ index 0000000..4c84b61
 \ No newline at end of file
 diff --git a/books/byte-of-python.pdf b/books/byte-of-python.pdf
 new file mode 120000
-index 0000000..b9fcbff
+index 0000000..7a6e51e
 --- /dev/null
 +++ b/books/byte-of-python.pdf
 @@ -0,0 +1 @@
-+../.git/annex/objects/P5/qK/✂/MD5E-s2693891--e61afe4b✂MD5.pdf
++../.git/annex/objects/xF/42/✂/MD5E-s4161086--c832fc13✂MD5.pdf
 \ No newline at end of file
 
 commit e0ff3a73✂SHA1

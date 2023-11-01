@@ -10,7 +10,7 @@ Updating lock file 'dvc.lock'
 
 To track the changes with git, run:
 
-	git add dvc.lock dvc.yaml
+	git add dvc.yaml dvc.lock
 
 To enable auto staging, run:
 

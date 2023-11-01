@@ -1,12 +1,5 @@
 $ datalad update --how merge
 [INFO] Fetching updates for Dataset(/home/me/dl-101/mock_user/DataLad-101)
-[INFO] Start enumerating objects
-[INFO] Start counting objects
-[INFO] Start compressing objects
 merge(ok): . (dataset) [Merged origin/main]
 update.annex_merge(ok): . (dataset) [Merged annex branch]
 update(ok): . (dataset)
-action summary:
-  merge (ok: 1)
-  update (ok: 1)
-  update.annex_merge (ok: 1)

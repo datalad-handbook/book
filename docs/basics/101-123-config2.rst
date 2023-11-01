@@ -148,7 +148,7 @@ There is one right in the root of your dataset:
    $ cat .gitmodules
 
 Based on these contents, you might have already guessed what this file
-stores. ``.gitmodules`` is a configuration file that stores the mapping between
+stores. The ``.gitmodules`` file is a configuration file that stores the mapping between
 your own dataset and any subdatasets you have installed in it.
 There will be an entry for each submodule (subdataset) in your dataset.
 The name *submodule* is Git terminology, and describes a Git repository inside of
@@ -257,7 +257,7 @@ Here is the directory structure:
       add (ok: 2)
       save (ok: 1)
 
-Now, we can apply the ``datalad-recursiveinstall`` configuration to skip recursive installations for subds1
+Now, we can apply the ``datalad-recursiveinstall`` configuration to skip recursive installations for ``subds1``
 
 .. code-block:: bash
 
@@ -475,7 +475,7 @@ This has been an intense lecture, you have to admit. One definite
 take-away from it has been that you now know a second reason why the hidden
 ``.git`` and ``.datalad`` directory contents and also the contents of ``.gitmodules`` and
 ``.gitattributes`` should not be carelessly tampered with -- they contain all of
-the repositories configurations.
+the repository's configurations.
 
 But you now also know how to modify these configurations with enough
 care and background knowledge such that nothing should go wrong once you

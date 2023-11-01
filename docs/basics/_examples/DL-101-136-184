@@ -4,8 +4,3 @@ uninstall(ok): cloud (dataset)
 remove(ok): cloud (dataset)
 add(ok): .gitmodules (file)
 save(ok): . (dataset)
-action summary:
-  add (ok: 1)
-  remove (ok: 1)
-  save (ok: 1)
-  uninstall (ok: 1)

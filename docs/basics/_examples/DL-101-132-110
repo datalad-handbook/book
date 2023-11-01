@@ -2,6 +2,3 @@ $ datalad save -d . -m "finished my midterm project" midterm_project
 add(ok): midterm_project (dataset)
 add(ok): .gitmodules (file)
 save(ok): . (dataset)
-action summary:
-  add (ok: 2)
-  save (ok: 1)

@@ -1,5 +1,3 @@
 $ datalad get prediction_report.csv pairwise_relationships.png
-get(error): prediction_report.csv (file) [not available; (Note that these git remotes have annex-ignore set: origin)]
 get(error): pairwise_relationships.png (file) [not available; (Note that these git remotes have annex-ignore set: origin)]
-action summary:
-  get (error: 2)
+get(error): prediction_report.csv (file) [not available; (Note that these git remotes have annex-ignore set: origin)]

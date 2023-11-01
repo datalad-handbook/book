@@ -3,7 +3,3 @@ delete(ok): recordings/longnow (dataset)
 add(ok): longnow (dataset)
 add(ok): .gitmodules (file)
 save(ok): . (dataset)
-action summary:
-  add (ok: 2)
-  delete (ok: 1)
-  save (ok: 1)

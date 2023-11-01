@@ -341,7 +341,7 @@ To compute the analysis you create the following Python script inside of ``code/
 .. runrecord:: _examples/DL-101-130-107
    :language: console
    :workdir: dl-101/DataLad-101/midterm_project
-   :emphasize-lines: 11-13, 23, 42
+   :emphasize-lines: 11-13, 23, 43
    :cast: 10_yoda
    :notes: Let's create code for an analysis
 
@@ -485,7 +485,7 @@ re-execution with :dlcmd:`rerun` easy.
    - `seaborn <https://seaborn.pydata.org>`_
    - `sklearn <https://scikit-learn.org>`_
 
-   The packages can be installed via ``pip`` [#f3]_.
+   The packages can be installed via :term:`pip`.
    However, if you do not want to install any
    Python packages, do not execute the remaining code examples in this section
    -- an upcoming section on ``datalad containers-run`` will allow you to
@@ -674,8 +674,7 @@ configuration, or interactively).
 
 .. importantnote:: Generate a GitHub token
 
-   GitHub `deprecated user-password authentication <https://developer.github.com/changes/2020-02-14-deprecating-password-auth>`_ supports authentication via personal access token only.
-
+   GitHub `deprecated user-password authentication <https://developer.github.com/changes/2020-02-14-deprecating-password-auth>`_ and instead supports authentication via personal access token.
    To ensure successful authentication, don't supply your password, but create a personal access token at `github.com/settings/tokens <https://github.com/settings/tokens>`_ [#f6]_ instead, and either
 
    * supply the token with the argument ``--github-login <TOKEN>`` from the command line,
@@ -943,8 +942,4 @@ On the looks and feels of a published dataset
 .. [#f5]  Alternatively, if you were to use DataLad's Python API, you could import and expose it as ``dl.<COMMAND>`` and ``dl.get()`` the relevant files. This however, would not record them as provenance in the dataset's history.
 
 .. [#f6] Instead of using GitHub's WebUI you could also obtain a token using the command line GitHub interface (https://github.com/sociomantic-tsunami/git-hub) by running ``git hub setup`` (if no 2FA is used).
-         If you decide to use the command line interface, here is help on how to use it:
-         Clone the `GitHub repository <https://github.com/sociomantic-tsunami/git-hub>`_ to your local computer.
-         Decide whether you want to build a Debian package to install, or install the single-file Python script distributed in the repository.
-         Make sure that all `requirements <https://github.com/sociomantic-tsunami/git-hub>`_ for your preferred version are installed , and run either ``make deb`` followed by ``sudo dpkg -i deb/git-hub*all.deb``, or ``make install``.
 

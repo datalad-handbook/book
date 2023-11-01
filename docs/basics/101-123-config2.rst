@@ -257,7 +257,7 @@ Here is the directory structure:
       add (ok: 2)
       save (ok: 1)
 
-Now, we can apply the ``datalad-recursiveinstall`` configuration to skip recursive installations for subds1
+Now, we can apply the ``datalad-recursiveinstall`` configuration to skip recursive installations for ``subds1``
 
 .. code-block:: bash
 

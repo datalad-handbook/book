@@ -357,6 +357,6 @@ Once you have set up your dataset sibling(s), you can push individual datasets w
          is protecting. If the private key does not have a passphrase, simply copying
          this file grants a person access!
 
-.. [#f3]  GitHub `deprecated user-password authentication <https://developer.github.com/changes/2020-02-14-deprecating-password-auth>`_ and only supports authentication via personal access token from November 13th 2020 onwards. Supplying a password instead of a token will fail to authenticate.
+.. [#f3]  GitHub `deprecated user-password authentication <https://developer.github.com/changes/2020-02-14-deprecating-password-auth>`_ in favor of authentication via personal access token. Supplying a password instead of a token will fail to authenticate.
 
 .. [#f4] The default project name ``project`` and path separator ``-`` are configurable using the dataset-level configurations ``datalad.gitlab-default-projectname`` and ``datalad.gitlab-default-pathseparator``

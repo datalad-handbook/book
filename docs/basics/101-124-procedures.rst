@@ -73,7 +73,7 @@ What makes them a particularly versatile and flexible tool is
 that anyone can write their own procedures.
 If a workflow is a standard in a team and needs to be applied often, turning it into
 a script can save time and effort.
-To learn how to do this, read the :ref:`with a tutorial on writing own procedures <fom-procedures>`.
+To learn how to do this, read the :ref:`tutorial on writing own procedures <fom-procedures>`.
 By pointing DataLad to the location the procedures reside in they can be applied, and by
 including them in a dataset they can even be shared.
 And even if the script is simple, it is very handy to have preconfigured

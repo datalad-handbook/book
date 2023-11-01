@@ -3,6 +3,3 @@
 $ datalad save -m "add note about datalad update"
 add(ok): notes.txt (file)
 save(ok): . (dataset)
-action summary:
-  add (ok: 1)
-  save (ok: 1)

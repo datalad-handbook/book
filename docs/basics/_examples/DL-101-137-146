@@ -1,19 +1,19 @@
 $ git log -n 3
-commit 33ad93e4✂SHA1
+commit 6d3d93b9✂SHA1
 Author: Elena Piscopia <elena@example.net>
 Date:   Tue Jun 18 16:13:00 2019 +0000
 
     Revert "did a bad modification"
 
-    This reverts commit 73b49af9✂SHA1.
+    This reverts commit 713e79d3✂SHA1.
 
-commit 4e8f18ea✂SHA1
+commit 04536a1e✂SHA1
 Author: Elena Piscopia <elena@example.net>
 Date:   Tue Jun 18 16:13:00 2019 +0000
 
     add note on helpful git resource
 
-commit 73b49af9✂SHA1
+commit 713e79d3✂SHA1
 Author: Elena Piscopia <elena@example.net>
 Date:   Tue Jun 18 16:13:00 2019 +0000
 

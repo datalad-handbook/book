@@ -10,6 +10,3 @@ EOT
 $ datalad save -m "Add note on datalad clone"
 add(ok): notes.txt (file)
 save(ok): . (dataset)
-action summary:
-  add (ok: 1)
-  save (ok: 1)

@@ -1,5 +1,3 @@
 ### DVC-DataLad
 $ datalad drop data/raw/val
 drop(ok): data/raw/val (directory)
-action summary:
-  drop (ok: 790)

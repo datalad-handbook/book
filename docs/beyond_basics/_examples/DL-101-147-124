@@ -1,10 +1,5 @@
 datalad clone ria+file:///home/me/myriastore#~midterm_project
 [INFO] Attempting a clone into /home/me/beyond_basics/midterm_project
-[INFO] Attempting to clone from file:///home/me/myriastore/alias/midterm_project to /home/me/beyond_basics/midterm_project
-[INFO] Completed clone attempts for Dataset(/home/me/beyond_basics/midterm_project)
 [INFO] Configure additional publication dependency on "ria-backup-storage"
 configure-sibling(ok): . (sibling)
 install(ok): /home/me/beyond_basics/midterm_project (dataset)
-action summary:
-  configure-sibling (ok: 1)
-  install (ok: 1)

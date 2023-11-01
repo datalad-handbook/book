@@ -148,7 +148,7 @@ There is one right in the root of your dataset:
    $ cat .gitmodules
 
 Based on these contents, you might have already guessed what this file
-stores. ``.gitmodules`` is a configuration file that stores the mapping between
+stores. The ``.gitmodules`` file is a configuration file that stores the mapping between
 your own dataset and any subdatasets you have installed in it.
 There will be an entry for each submodule (subdataset) in your dataset.
 The name *submodule* is Git terminology, and describes a Git repository inside of

@@ -4,7 +4,3 @@ $ datalad download-url https://gist.githubusercontent.com/netj/8836201/raw/6f930
 download_url(ok): /home/me/dl-101/iris_data/iris.csv (file)
 add(ok): iris.csv (file)
 save(ok): . (dataset)
-action summary:
-  add (ok: 1)
-  download_url (ok: 1)
-  save (ok: 1)

@@ -43,9 +43,9 @@ $ tree /home/me/myriastore
 │       ├── objects
 │       │   ├── info
 │       │   └── pack
-│       │       ├── pack-57578b5f✂SHA1.idx
-│       │       └── pack-57578b5f✂SHA1.pack
-│       ├── ora-remote-4b80e0df-e4a4-47d4-b59d-8e00641bf193
+│       │       ├── pack-8a336fbd✂SHA1.idx
+│       │       └── pack-8a336fbd✂SHA1.pack
+│       ├── ora-remote-5762bcab-e464-4ccd-898f-77e45c8dab51
 │       │   └── transfer
 │       ├── refs
 │       │   ├── heads
@@ -65,14 +65,14 @@ $ tree /home/me/myriastore
 │       │       │   └── 3M
 │       │       │       └── MD5E-s2120211--06d1efcb✂MD5.pdf
 │       │       │           └── MD5E-s2120211--06d1efcb✂MD5.pdf
-│       │       ├── P5
-│       │       │   └── qK
-│       │       │       └── MD5E-s2693891--e61afe4b✂MD5.pdf
-│       │       │           └── MD5E-s2693891--e61afe4b✂MD5.pdf
-│       │       └── WF
-│       │           └── Gq
-│       │               └── MD5E-s1198170--0ab2c121✂MD5.pdf
-│       │                   └── MD5E-s1198170--0ab2c121✂MD5.pdf
+│       │       ├── WF
+│       │       │   └── Gq
+│       │       │       └── MD5E-s1198170--0ab2c121✂MD5.pdf
+│       │       │           └── MD5E-s1198170--0ab2c121✂MD5.pdf
+│       │       └── xF
+│       │           └── 42
+│       │               └── MD5E-s4161086--c832fc13✂MD5.pdf
+│       │                   └── MD5E-s4161086--c832fc13✂MD5.pdf
 │       ├── archives
 │       ├── branches
 │       ├── config
@@ -98,8 +98,8 @@ $ tree /home/me/myriastore
 │       ├── objects
 │       │   ├── info
 │       │   └── pack
-│       │       ├── pack-0c77bdff✂SHA1.idx
-│       │       └── pack-0c77bdff✂SHA1.pack
+│       │       ├── pack-94b1d055✂SHA1.idx
+│       │       └── pack-94b1d055✂SHA1.pack
 │       ├── ora-remote-46b169aa-bb91-42d6-be06-355d957fb4f7
 │       │   └── transfer
 │       ├── refs

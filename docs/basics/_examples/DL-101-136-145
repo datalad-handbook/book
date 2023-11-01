@@ -3,7 +3,3 @@ $ datalad copy-file notes.txt midterm_project -d midterm_project
 copy_file(ok): /home/me/dl-101/DataLad-101/notes.txt
 add(ok): notes.txt (file)
 save(ok): . (dataset)
-action summary:
-  add (ok: 1)
-  copy_file (ok: 1)
-  save (ok: 1)

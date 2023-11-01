@@ -17,6 +17,3 @@ copy_file(ok): /home/me/beyond_basics/HPC/hcp/HCP1200/130114/T1w/Diffusion/eddyl
 copy_file(ok): /home/me/beyond_basics/HPC/hcp/HCP1200/130114/T1w/Diffusion/grad_dev.nii.gz [/home/me/beyond_basics/HPC/dataset-to-copy-to/130114/T1w/Diffusion/grad_dev.nii.gz]
 copy_file(ok): /home/me/beyond_basics/HPC/hcp/HCP1200/130114/T1w/Diffusion/nodif_brain_mask.nii.gz [/home/me/beyond_basics/HPC/dataset-to-copy-to/130114/T1w/Diffusion/nodif_brain_mask.nii.gz]
 save(ok): . (dataset)
-action summary:
-  copy_file (ok: 13)
-  save (ok: 1)

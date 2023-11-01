@@ -7,7 +7,3 @@ $ datalad download-url \
 download_url(ok): /home/me/dl-101/DataLad-101/books/bash_guide.pdf (file)
 add(ok): books/bash_guide.pdf (file)
 save(ok): . (dataset)
-action summary:
-  add (ok: 1)
-  download_url (ok: 1)
-  save (ok: 1)

@@ -1,11 +1,11 @@
 $ tree -L 1 data-cat
 data-cat
-├── README.md
 ├── artwork
 ├── assets
 ├── config.json
 ├── index.html
 ├── metadata
+├── README.md
 ├── schema
 └── templates
 

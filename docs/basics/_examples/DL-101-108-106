@@ -1,5 +1,5 @@
 $ git log -p -n 1   # On Windows, you may just want to type "git log".
-commit f4f30396✂SHA1
+commit e37c9fc9✂SHA1
 Author: Elena Piscopia <elena@example.net>
 Date:   Tue Jun 18 16:13:00 2019 +0000
 

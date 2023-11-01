@@ -63,6 +63,25 @@ autorunrecord_line_replace = [
     # should still be functional and save 30+% of line length
     (r'(?P<lead>[0-9a-f]{8})[0-9a-f]{32}', r'\g<lead>✂SHA1'),
     (r'(?P<lead>[0-9a-f]{8})[0-9a-f]{24}', r'\g<lead>✂MD5'),
+    # remove any action summary that contains no `notneeded`, the latter
+    # need to be kept, because they are not renderer individually
+    (r'(action summary:(\n^  \S+ \(\S+(?<!notneeded): \d+\)$)+)\n(?!  )', ''),
+    # wipe out a set of noisy INFO log messages
+    # git progress reports
+    (r'\n\[INFO\] Start \S+ (objects|deltas)$', ''),
+    # 'still alive'-style log messages
+    (r'\n\[INFO\] Attempting a clone into .*', ''),
+    (r'\n\[INFO\] Attempting to clone from \S+ to .*', ''),
+    (r'\n\[INFO\] Downloading \S+ into .*', ''),
+    (r'\n\[INFO\] Completed clone attempts for Dataset.*', ''),
+    (r'\n\[INFO\] Fetching updates for Dataset.*', ''),
+    # annoying always-true test for a non-annex git remote
+    (r'\n\[INFO\] \S+/config download failed: Not Found', ''),
+    # datalad push step-progress
+    (r'\n\[INFO\] Determine push target', ''),
+    (r'\n\[INFO\] Push refspecs', ''),
+    (r'\n\[INFO\] Transfer data', ''),
+    (r'\n\[INFO\] Update availability information', ''),
 ]
 # pre-crafted artificial environment to run the code examples in
 # start with all datalad settings

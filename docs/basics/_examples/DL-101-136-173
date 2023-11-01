@@ -1,6 +1,3 @@
 $ datalad save -m "removed file again"
 delete(ok): flowers.jpg (symlink)
 save(ok): . (dataset)
-action summary:
-  delete (ok: 1)
-  save (ok: 1)

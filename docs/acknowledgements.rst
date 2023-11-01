@@ -12,4 +12,3 @@ The DataLad project received support through the following grants:
 
   * Human Brain Project SGA3 (H2020-EU.3.1.5.3, grant no. 945539)
   * VirtualBrainCloud (H2020-EU.3.1.5.3, grant no. 826421)
-

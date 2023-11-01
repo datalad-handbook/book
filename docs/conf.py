@@ -77,6 +77,11 @@ autorunrecord_line_replace = [
     (r'\n\[INFO\] Fetching updates for Dataset.*', ''),
     # annoying always-true test for a non-annex git remote
     (r'\n\[INFO\] \S+/config download failed: Not Found', ''),
+    # datalad push step-progress
+    (r'\n\[INFO\] Determine push target', ''),
+    (r'\n\[INFO\] Push refspecs', ''),
+    (r'\n\[INFO\] Transfer data', ''),
+    (r'\n\[INFO\] Update availability information', ''),
 ]
 # pre-crafted artificial environment to run the code examples in
 # start with all datalad settings

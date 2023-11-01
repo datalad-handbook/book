@@ -475,7 +475,7 @@ This has been an intense lecture, you have to admit. One definite
 take-away from it has been that you now know a second reason why the hidden
 ``.git`` and ``.datalad`` directory contents and also the contents of ``.gitmodules`` and
 ``.gitattributes`` should not be carelessly tampered with -- they contain all of
-the repositories configurations.
+the repository's configurations.
 
 But you now also know how to modify these configurations with enough
 care and background knowledge such that nothing should go wrong once you

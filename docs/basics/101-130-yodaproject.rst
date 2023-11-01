@@ -341,7 +341,7 @@ To compute the analysis you create the following Python script inside of ``code/
 .. runrecord:: _examples/DL-101-130-107
    :language: console
    :workdir: dl-101/DataLad-101/midterm_project
-   :emphasize-lines: 11-13, 23, 42
+   :emphasize-lines: 11-13, 23, 43
    :cast: 10_yoda
    :notes: Let's create code for an analysis
 

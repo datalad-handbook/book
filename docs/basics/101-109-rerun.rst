@@ -1,6 +1,6 @@
 .. _run2:
 
-DataLad, Re-Run!
+DataLad, re-run!
 ----------------
 
 .. index:: ! datalad command; rerun

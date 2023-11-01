@@ -102,7 +102,7 @@ Python:
        Such alternative installations may even be or become the default.
        This can cause confusing behavior, because each Python installation will have different package versions installed.
 
-       To verify if there are multiple installation, open the windows command line ``cmd.exe`` and run ``where python``.
+       To verify if there are multiple installations, open the windows command line ``cmd.exe`` and run ``where python``.
        This will list all variants of ``python.exe``.
        There will be one in ``WindowsApps``, which is only a link to the Windows app store.
        Make sure the Python version that you installed is listed too.
@@ -138,8 +138,8 @@ Git:
 
 Git-annex:
     There are two convenient ways to install git-annex. The first is `downloading the installer from git-annex' homepage <https://git-annex.branchable.com/install/Windows>`_. The other is to deploy git-annex via the `DataLad installer`_.
-    The latter option requires the installation of the datalad-installer, Once
-    Python is available, it can be done with the Python package manager
+    The latter option requires the installation of the datalad-installer.
+    Once Python is available, it can be done with the Python package manager
     :shcmd:`pip`. Open a command prompt and run:
 
     .. code-block:: bat
@@ -181,7 +181,7 @@ One attractive alternative approach is Conda_, a completely different approach i
    :name: ww-wsl2
 
    With the Windows Subsystem for Linux, you will be able to use a Unix system
-   despite being on Windows.  You need to have a recent build of Windows 10 in
+   despite being on Windows.  You need to have a recent build of Windows in
    order to get WSL2 -- we do not recommend WSL1.
 
    You can find out how to install the Windows Subsystem for Linux at
@@ -199,7 +199,7 @@ look different from what is displayed in the code examples of the book, and
 that some dependencies for additional functionality are not available for
 Windows. Dedicated notes,
 "``Windows-wit``\s", contain important information, alternative commands, or
-warnings. If you on a native Windows 10 system, you should pay close
+warnings. If you on a native Windows system, you should pay close
 attention to them.
 
 .. _mac:

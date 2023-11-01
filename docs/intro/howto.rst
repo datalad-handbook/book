@@ -32,7 +32,7 @@ On Windows systems, several different interfaces exist: The "CMD" Command Prompt
 We recommend using CMD, or, if you have them installed already and prefer them over the CMD, the Git Bash or Anaconda prompt.
 As later parts in this section will show, shells under Windows may use different commands than shells under Linux and macos systems.
 
-Command Syntax
+Command syntax
 ==============
 
 Interactions with the shell take the form of commands, text-based instructions to your computer.
@@ -78,7 +78,7 @@ and the rest you will lookup in their documentation or via your favorite search 
 DataLad commands naturally also come with many options, and in the next chapters
 and later examples you will get to see many of them.
 
-Basic Commands
+Basic commands
 ==============
 The following commands, split between Unix-like (e.g., Linux, macos) and Windows environments, can appear in our examples or are generally useful to know:
 They can help you to *explore and navigate* in your file system, copy, move, or remove files, or create new directories.
@@ -134,7 +134,7 @@ Windows systems
     Set an :term:`environment variable` ``NAME`` to ``Value`` for your current terminal session
 
 
-The Prompt
+The prompt
 ==========
 When you first login on the command line, you are greeted with "the prompt",
 and it will likely look similar to this:
@@ -260,7 +260,7 @@ In order to quickly get home, you could use
 
 More information on Windows paths can be found `here <https://learn.microsoft.com/en-us/windows/win32/fileio/naming-a-file>`_.
 
-Text Editors
+Text editors
 ============
 
 Text editors are a crucial tool for any Linux user, but regardless of your operating system,

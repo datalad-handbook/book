@@ -29,7 +29,7 @@ As built-in, but *optional* features, DataLad yields FAIR_ resources -- for exam
 can be easily shared *should the user want this*.
 
 
-On Data
+On data
 ^^^^^^^
 
 Everyone uses data. But once it exists, it does not suffice for most data
@@ -85,7 +85,7 @@ managing the evolution of digital objects in a way that fulfills the FAIR_
 principles.
 
 
-The DataLad Philosophy
+The DataLad philosophy
 ^^^^^^^^^^^^^^^^^^^^^^
 From a software point of view, DataLad is a command line tool, with an additional
 Python API to use its features within your software and scripts.

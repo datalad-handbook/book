@@ -1,6 +1,6 @@
 .. _riastore:
 
-Remote Indexed Archives for dataset storage and backup
+Remote indexed archives for dataset storage and backup
 ------------------------------------------------------
 
 If DataLad datasets should be backed-up, made available for collaborations

@@ -485,7 +485,7 @@ re-execution with :dlcmd:`rerun` easy.
    - `seaborn <https://seaborn.pydata.org>`_
    - `sklearn <https://scikit-learn.org>`_
 
-   The packages can be installed via ``pip`` [#f3]_.
+   The packages can be installed via :term:`pip`.
    However, if you do not want to install any
    Python packages, do not execute the remaining code examples in this section
    -- an upcoming section on ``datalad containers-run`` will allow you to

@@ -1,6 +1,6 @@
 .. _nesting2:
 
-More on Dataset nesting
+More on dataset nesting
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 .. index:: ! nesting

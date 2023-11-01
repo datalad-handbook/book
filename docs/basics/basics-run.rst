@@ -1,7 +1,7 @@
 .. _1-002:
 .. _chapter_run:
 
-DataLad, Run!
+DataLad, run!
 -------------
 
 .. index:: ! Chapter; 2. DataLad Run

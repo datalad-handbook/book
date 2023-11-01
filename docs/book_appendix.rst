@@ -9,6 +9,7 @@ Appendix
    glossary
    basics/101-136-cheatsheet
    acknowledgements
+   licenses
 
 .. raw:: latex
 

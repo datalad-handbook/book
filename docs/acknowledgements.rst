@@ -8,7 +8,7 @@ The DataLad project received support through the following grants:
 * German federal state of Saxony-Anhalt and the European Regional Development Fund (ERDF), Project: Center for Behavioral Brain Sciences, Imaging Platform
 * ReproNim project (NIH 1P41EB019936-01A1).
 * Deutsche Forschungsgemeinschaft (DFG, German Research Foundation) under grant SFB 1451 (431549029, INF project)
-* European Union’s Horizon 2020 research and innovation programme under grant agreements:
-    * Human Brain Project SGA3 (H2020-EU.3.1.5.3, grant no. 945539)
-    * VirtualBrainCloud (H2020-EU.3.1.5.3, grant no. 826421)
+* European Union’s Horizon 2020 research and innovation programme under grant agreements
 
+  * Human Brain Project SGA3 (H2020-EU.3.1.5.3, grant no. 945539)
+  * VirtualBrainCloud (H2020-EU.3.1.5.3, grant no. 826421)

@@ -66,6 +66,17 @@ autorunrecord_line_replace = [
     # remove any action summary that contains no `notneeded`, the latter
     # need to be kept, because they are not renderer individually
     (r'(action summary:(\n^  \S+ \(\S+(?<!notneeded): \d+\)$)+)\n(?!  )', ''),
+    # wipe out a set of noisy INFO log messages
+    # git progress reports
+    (r'\n\[INFO\] Start \S+ (objects|deltas)$', ''),
+    # 'still alive'-style log messages
+    (r'\n\[INFO\] Attempting a clone into .*', ''),
+    (r'\n\[INFO\] Attempting to clone from \S+ to .*', ''),
+    (r'\n\[INFO\] Downloading \S+ into .*', ''),
+    (r'\n\[INFO\] Completed clone attempts for Dataset.*', ''),
+    (r'\n\[INFO\] Fetching updates for Dataset.*', ''),
+    # annoying always-true test for a non-annex git remote
+    (r'\n\[INFO\] \S+/config download failed: Not Found', ''),
 ]
 # pre-crafted artificial environment to run the code examples in
 # start with all datalad settings

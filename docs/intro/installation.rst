@@ -18,7 +18,7 @@ In general, the DataLad installation requires Python 3 (see the
 why this is required), :term:`Git`, and :term:`git-annex`, and for some
 functionality `7-Zip <https://7-zip.org>`_.  The instructions below detail how
 to install the core DataLad tool and its dependencies on common operating
-systems. They do not cover the various :term:`DataLad extension`'s that need to be installed separately, if desired.
+systems. They do not cover the various :term:`DataLad extension`\s that need to be installed separately, if desired.
 
 .. find-out-more:: Python 2, Python 3, what's the difference?
    :name: fom-py2v3
@@ -53,7 +53,7 @@ systems. They do not cover the various :term:`DataLad extension`'s that need to 
    resulting in errors during installation and execution.
 
    But does that mean that you should uninstall Python 2?  **No**!  Keep it
-   installed, especially if you are using Linux or MacOS.  Python 2 existed for
+   installed, especially if you are using Linux or macOS.  Python 2 existed for
    20 years and numerous software has been written for it.  It is quite likely
    that some basic operating system components or legacy software on your
    computer is depending on it, and uninstalling a preinstalled Python 2 from
@@ -226,7 +226,7 @@ Alternatively, you can exclusively use :shcmd:`brew` for DataLad's non-Python
 dependencies, and then check the :find-out-more:`on how to install DataLad via
 Python's package manager <fom-macosx-pip>`.
 
-.. find-out-more:: Install DataLad via pip on MacOSX
+.. find-out-more:: Install DataLad via pip on macOS
    :name: fom-macosx-pip
    :float: tbp
 

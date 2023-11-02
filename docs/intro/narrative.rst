@@ -51,9 +51,9 @@ in the example below (it shows the creation of a DataLad dataset):
 
 .. code-block:: bash
 
-   # this is a comment used for additional explanations.
+   # This is a comment used for additional explanations.
    # Anything preceded by $ is a command to try.
-   # if the line starts with neither # nor $, its the output of a command
+   # If the line starts with neither # nor $, it is an output of a command.
    $ datalad create myfirstrepo
    [INFO   ] Creating a new annex repo at /home/me/DataLad-101
    create(ok): /home/me/DataLad-101 (dataset)

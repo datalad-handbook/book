@@ -3,8 +3,6 @@
 Advanced options
 ----------------
 
-.. index:: ! Chapter; 10. Advanced Options
-
 .. figure:: ../artwork/src/further.svg
    :width: 50%
 

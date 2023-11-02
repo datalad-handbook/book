@@ -3,8 +3,6 @@
 DataLad internals
 -----------------
 
-.. index:: ! Chapter; 15. DataLad internals
-
 .. figure:: ../artwork/src/programmer.svg
    :width: 50%
 

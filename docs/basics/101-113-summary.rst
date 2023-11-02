@@ -12,7 +12,7 @@ command, and discovered the concept of *locked* content.
   track of what you do in your dataset by capturing all :term:`provenance`.
 
 * A :dlcmd:`run` command generates a ``run record`` in the commit. This :term:`run record` can be used
-  by datalad to re-execute a command with :dlcmd:`rerun SHASUM`, where SHASUM is the
+  by DataLad to re-execute a command with :dlcmd:`rerun SHASUM`, where SHASUM is the
   commit hash of the :dlcmd:`run` command that should be re-executed.
 
 * If a :dlcmd:`run` or :dlcmd:`rerun` does not modify any content, it will not write a

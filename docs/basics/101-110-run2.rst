@@ -111,7 +111,7 @@ How can that be?
 Just as the ``.mp3`` files, the ``.jpg`` file content is not present
 locally after a :dlcmd:`clone`, and we did not :dlcmd:`get` it yet!
 
-This is where the ``-i``/``--input`` option for a datalad run becomes useful.
+This is where the ``-i``/``--input`` option for a ``datalad run`` becomes useful.
 The content of everything that is specified as an ``input`` will be retrieved
 prior to running the command.
 

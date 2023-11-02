@@ -26,7 +26,7 @@ a script on `dataset nesting <https://raw.githubusercontent.com/datalad/datalad.
 Because he found this very helpful in understanding dataset
 nesting concepts, he decided to download it from GitHub, and saved it in the ``code/`` directory.
 
-He does it using the datalad command :dlcmd:`download-url`
+He does it using the DataLad command :dlcmd:`download-url`
 that you experienced in section :ref:`createDS` already: This command will
 download a file just as ``wget``, but it can also take a commit message
 and will save the download right to the history of the dataset that you specify,
@@ -51,7 +51,7 @@ and run the following command
      -O code/nested_repos.sh \
      https://raw.githubusercontent.com/datalad/datalad.org/7e8e39b1/content/asciicast/seamless_nested_repos.sh
 
-Run a quick datalad status:
+Run a quick ``datalad status``:
 
 .. runrecord:: _examples/DL-101-121-102
    :language: console
@@ -86,7 +86,7 @@ Do we need to install the installed dataset of our room mate
 as a copy again?
 
 No, luckily, it's simpler and less convoluted. What we have to
-do is to *register* a datalad :term:`sibling`: A reference to our room mate's
+do is to *register* a DataLad :term:`sibling`: A reference to our room mate's
 dataset in our own, original dataset.
 
 .. gitusernote:: Remote siblings

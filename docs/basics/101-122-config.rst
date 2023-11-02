@@ -42,7 +42,7 @@ was surprisingly captivating, so you're actually looking forward to today.
 you did, already before the course started: The *global*
 Git configuration." the lecturer says.
 
-.. index:: ! git config
+.. index:: ! Git command; config
 
 At one point in time, you likely followed instructions such as
 in :ref:`install` and configured your

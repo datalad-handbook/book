@@ -159,7 +159,7 @@ be managed and accessed via DataLad/git-annex.
 To actually share your dataset with someone, you need to *publish* it to Github,
 Gitlab, or a similar hosting service.
 
-.. index:: ! datalad command; create-sibling-github
+.. index:: ! DataLad command; create-sibling-github
 
 You could, for example, create a sibling of the ``DataLad-101`` dataset
 on GitHub with the command :dlcmd:`create-sibling-github`.

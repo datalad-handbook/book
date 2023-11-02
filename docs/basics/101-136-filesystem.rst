@@ -986,7 +986,7 @@ the symlink is removed, but the content is retained in the history.
 Removing annexed content entirely
 """""""""""""""""""""""""""""""""
 
-.. index:: ! datalad command; drop
+.. index:: ! DataLad command; drop
 
 The command to remove file content entirely and irreversibly from a repository is
 the :dlcmd:`drop` command.
@@ -1104,7 +1104,7 @@ shows an example invocation.
 Uninstalling or deleting subdatasets
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. index:: ! datalad command; uninstall
+.. index:: ! DataLad command; uninstall
 
 Depending on the exact aim, different commands are of relevance for
 deleting a DataLad subdataset. The softer (and not so much "deleting" version)
@@ -1142,7 +1142,7 @@ To uninstall the dataset, you can use
 Note that the dataset is still known in the dataset, and not completely removed.
 A ``datalad get [-n/--no-data] cloud`` would install the dataset again.
 
-.. index:: ! datalad command; remove
+.. index:: ! DataLad command; remove
 
 In case one wants to fully delete a subdataset from a dataset, the
 :dlcmd:`remove` command is relevant [#f3]_.

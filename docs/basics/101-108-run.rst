@@ -152,7 +152,7 @@ in a bit of time, we will forget how this file came into existence, or
 that the script ``code/list_titles.sh`` is associated with this file, and
 can be used to update it later on.
 
-.. index:: ! datalad command; run
+.. index:: ! DataLad command; run
 
 The :dlcmd:`run` command
 can help with this. Put simply, it records a command's impact on a dataset. Put

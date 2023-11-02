@@ -3,9 +3,6 @@
 DataLad Extensions
 ------------------
 
-
-.. index:: ! Chapter; 16. DataLad extensions
-
 .. figure:: ../artwork/src/universe.svg
    :width: 50%
 

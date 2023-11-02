@@ -89,7 +89,7 @@ Instead of adding configurations with precise URLs you can also make use of temp
 A placeholder takes the form ``{placeholdername}`` and can reference any property that can be inferred from the parent dataset's knowledge about the target superset, specifically any subdataset information that exists as a key-value pair within ``.gitmodules``.
 For convenience, an existing `datalad-id` record is made available under the shortened name `id`.
 In all likelihood, the list of available placeholders will be expanded in the future.
-Do you have a usecase and need a specific placeholder?
+Do you have a use case and need a specific placeholder?
 `Reach out to us <https://github.com/datalad/datalad/issues/new>`_, we may be able to add the placeholders you need!
 
 When could this be useful?

@@ -187,7 +187,7 @@ Datasets can be nested in superdataset-subdataset hierarchies.
 This overcomes scaling issues.
 Sometimes datasets that we work with become incredibly large, and when they exceed a few 100k files version control tools can struggle and break.
 By nesting datasets, you can overcome this and split a dataset into manageable pieces.
-If you are interested in finding out more, take a look into the usecase :ref:`usecase_HCP_dataset` or the chapter :ref:`chapter_gobig`.
+If you are interested in finding out more, take a look into the use case :ref:`usecase_HCP_dataset` or the chapter :ref:`chapter_gobig`.
 
 But it also helps to link datasets as modular units together, and maximizes the potential for reuse of the individual datasets.
 In the context of data analysis, it is especially helpful to do this to link input data to an analysis dataset -- it helps to reuse data in multiple analysis, to link input data in a precise version, and to create an intuitively structured dataset layout.

@@ -78,7 +78,7 @@ with DataLad? Reading chapters :ref:`chapter_datasets`, :ref:`chapter_gitannex`,
 :ref:`chapter_yoda` and chapter :ref:`chapter_thirdparty` should work for you.
 
 You want to use DataLad as a back-up or dataset storage solution? Go to
-section :ref:`riastore` and usecase :ref:`usecase_datastore`.
+section :ref:`riastore` and use case :ref:`usecase_datastore`.
 
 
 **5** The data publisher
@@ -92,9 +92,9 @@ through the chapter :ref:`chapter_datasets`, and reading :ref:`chapter_gitannex`
 is also a good idea to get the Basics of how large files in datasets are handled.
 Afterwards, jump to chapter :ref:`chapter_thirdparty`.
 Depending on the amount of data, it may make sense to read about an example
-of a large dataset (80TB/15 million files) in the usecase :ref:`usecase_HCP_dataset`,
+of a large dataset (80TB/15 million files) in the use case :ref:`usecase_HCP_dataset`,
 and about the possibility of a :term:`Remote Indexed Archive (RIA) store` in the
-section :ref:`riastore` and the usecase :ref:`usecase_datastore`.
+section :ref:`riastore` and the use case :ref:`usecase_datastore`.
 
 
 **6** The advanced user

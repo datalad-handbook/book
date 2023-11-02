@@ -11,7 +11,7 @@ We hope to grow this chapter further, so please `get in touch <https://github.co
 Pointers to content in other chapters
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To find out more about centralized storage solutions, you may want to checkout the usecase :ref:`usecase_datastore` or the section :ref:`riastore`.
+To find out more about centralized storage solutions, you may want to checkout the use case :ref:`usecase_datastore` or the section :ref:`riastore`.
 
 DataLad installation on a cluster
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

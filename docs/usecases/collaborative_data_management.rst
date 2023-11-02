@@ -13,7 +13,7 @@ data management workflow for an analysis:
 #. Upon completion, the results are published alongside the original data
    for further consumption.
 
-The data types and methods mentioned in this usecase belong to the scientific
+The data types and methods mentioned in this use case belong to the scientific
 field of neuroimaging, but the basic workflow is domain-agnostic.
 
 The Challenge

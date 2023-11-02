@@ -42,7 +42,7 @@ find out more about them.
      - Equips DataLad's :dlcmd:`run`/:dlcmd:`rerun` functionality with
        the ability to transparently execute commands in containerized
        computational environments. The section :ref:`containersrun` demonstrates
-       how this extension can be used, as well as the usecase :ref:`usecase_reproduce_neuroimg`.
+       how this extension can be used, as well as the use case :ref:`usecase_reproduce_neuroimg`.
 
    * - `crawler <https://docs.datalad.org/projects/crawler>`_
      - One of the initial goals behind DataLad was to provide access
@@ -60,7 +60,7 @@ find out more about them.
 
    * - `neuroimaging <https://datalad-neuroimaging.readthedocs.io>`_
      - Metadata extraction support for a range of standards common to
-       neuroimaging data. The usecase :ref:`usecase_reproduce_neuroimg` demonstrates
+       neuroimaging data. The use case :ref:`usecase_reproduce_neuroimg` demonstrates
        how this extension can be used.
 
    * - `osf <https://docs.datalad.org/projects/osf>`_
@@ -104,7 +104,7 @@ find out more about them.
 
 .. todo::
 
-  Contribute a usecase or a demo when done.
+  Contribute a use case or a demo when done.
 
 
 To install a DataLad extension, use

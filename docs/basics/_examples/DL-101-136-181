@@ -2,7 +2,6 @@
 $ datalad clone -d . \
  https://github.com/datalad-datasets/disneyanimation-cloud.git \
  cloud
-[INFO] Attempting a clone into /home/me/dl-101/DataLad-101/cloud
 [INFO] Remote origin not usable by git-annex; setting annex-ignore
 install(ok): cloud (dataset)
 add(ok): cloud (dataset)

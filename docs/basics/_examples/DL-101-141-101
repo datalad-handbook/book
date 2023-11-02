@@ -1,12 +1,10 @@
 $ datalad push --to roommate
-[INFO] Determine push target
 copy(ok): books/TLCL.pdf (file) [to roommate...]
 copy(ok): books/bash_guide.pdf (file) [to roommate...]
 copy(ok): books/byte-of-python.pdf (file) [to roommate...]
 [INFO] Finished
 publish(ok): . (dataset) [refs/heads/git-annex->roommate:refs/heads/git-annex ✂FROM✂..✂TO✂]
 publish(error): . (dataset) [refs/heads/main->roommate:refs/heads/main [remote rejected] (branch is currently checked out)]
-[INFO] Finished push of Dataset(/home/me/dl-101/DataLad-101)
 action summary:
   copy (ok: 3)
   publish (error: 1, ok: 1)

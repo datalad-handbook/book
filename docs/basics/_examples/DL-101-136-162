@@ -2,7 +2,6 @@
 $ cd ../DataLad-101
 # attempt a datalad update
 $ datalad update
-[INFO] Fetching updates for Dataset(/home/me/dl-101/DataLad-101)
 update(error): . (dataset) [Fetch failed: CommandError(CommandError: 'git -c diff.ignoreSubmodules=none -c core.quotepath=false fetch --verbose --progress --no-recurse-submodules --prune roommate' failed with exitcode 128 under /home/me/dl-101/DataLad-101 [err: 'fatal: '../mock_user/DataLad-101' does not appear to be a git repository
 fatal: Could not read from remote repository.
 

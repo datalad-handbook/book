@@ -47,8 +47,8 @@ $ tree /home/me/myriastore
 │       ├── objects
 │       │   ├── info
 │       │   └── pack
-│       │       ├── pack-94b1d055✂SHA1.idx
-│       │       └── pack-94b1d055✂SHA1.pack
+│       │       ├── pack-f1636323✂SHA1.idx
+│       │       └── pack-f1636323✂SHA1.pack
 │       ├── ora-remote-46b169aa-bb91-42d6-be06-355d957fb4f7
 │       │   └── transfer
 │       ├── refs

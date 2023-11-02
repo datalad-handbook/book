@@ -1,5 +1,4 @@
 $ datalad update --how merge -s roommate
-[INFO] Fetching updates for Dataset(/home/me/dl-101/DataLad-101)
 merge(ok): . (dataset) [Merged roommate/main]
 update.annex_merge(ok): . (dataset) [Merged annex branch]
 update(ok): . (dataset)

@@ -1,5 +1,4 @@
 $ datalad update --how merge
-[INFO] Fetching updates for Dataset(/home/me/dl-101/mock_user/DataLad-101)
 merge(ok): . (dataset) [Merged origin/main]
 update.annex_merge(ok): . (dataset) [Merged annex branch]
 update(ok): . (dataset)

@@ -1,7 +1,6 @@
 
 $ datalad rerun d715890b✂SHA1
 [INFO] run commit d715890; (analyze iris data...)
-[INFO] Making sure inputs are available (this may take some time)
 run.remove(ok): pairwise_relationships.png (file) [Removed file]
 run.remove(ok): prediction_report.csv (file) [Removed file]
 [INFO] == Command start (output follows) =====

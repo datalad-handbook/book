@@ -3,6 +3,9 @@
 Installation and configuration
 ------------------------------
 
+.. figure:: /artwork/src/interior_design.svg
+   :width: 50%
+
 Install DataLad
 ^^^^^^^^^^^^^^^
 

@@ -1,6 +1,9 @@
 How to use the handbook
 =======================
 
+.. figure:: /artwork/src/right_direction.svg
+   :width: 50%
+
 For whom this book is written
 -----------------------------
 

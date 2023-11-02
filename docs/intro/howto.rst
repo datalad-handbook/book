@@ -6,6 +6,9 @@ The Command Line
 
 .. index:: ! terminal, ! shell, ! command Line
 
+.. figure:: /artwork/src/typewriter.svg
+   :width: 50%
+
 This chapter aims at providing novices with general basics about the shell, common Unix
 commands and their Windows equivalent, and some general file system facts.
 This chapter is also a place to return to and (re-)read if you come across a

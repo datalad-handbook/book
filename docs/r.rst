@@ -35,6 +35,8 @@ failed -- sorry about this.
   :ref:`abcd`
 :redirect:`about`
   :ref:`executive_summary`
+:redirect:`book-intro-v1`
+  :ref:`book-intro-v1`
 :redirect:`cheatsheet`
   :ref:`cheat`
 :redirect:`clone-priority`

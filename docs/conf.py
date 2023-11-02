@@ -81,8 +81,9 @@ autorunrecord_line_replace = [
     (r'\[INFO\] Unlocking files$\n', ''),
     (r'\[INFO\] Recording unlocked state in git$\n', ''),
     (r'\[INFO\] Completed unlocking files$\n', ''),
-    (r'\[INFO\] Making sure inputs are available (this may take some time)$\n', ''),
+    (r'\[INFO\] Making sure inputs are available \(this may take some time\).*$\n', ''),
     (r'\[INFO\] Creating a new annex repo at .*$\n', ''),
+    (r'\[INFO\] Copying non-annexed file or copy into non-annex dataset:.*$\n', ''),
     # annoying always-true test for a non-annex git remote
     (r'\[INFO\] \S+/config download failed: Not Found$\n', ''),
     # datalad push step-progress
@@ -91,6 +92,7 @@ autorunrecord_line_replace = [
     (r'\[INFO\] Transfer data$\n', ''),
     (r'\[INFO\] Update availability information$\n', ''),
     (r'\[INFO\] Finished push of Dataset.*$\n', ''),
+    (r'\[INFO\] Finished$\n', ''),
 ]
 # pre-crafted artificial environment to run the code examples in
 # start with all datalad settings

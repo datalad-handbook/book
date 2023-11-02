@@ -4,7 +4,6 @@ $ datalad containers-run -m "rerun analysis in container" \
   --output "pairwise_relationships.png" \
   --output "prediction_report.csv" \
   "python3 code/script.py {inputs} {outputs}"
-[INFO] Making sure inputs are available (this may take some time)
 unlock(ok): pairwise_relationships.png (file)
 unlock(ok): prediction_report.csv (file)
 [INFO] == Command start (output follows) =====

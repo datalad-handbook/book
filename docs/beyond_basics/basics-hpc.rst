@@ -3,8 +3,6 @@
 Computing on clusters
 ---------------------
 
-.. index:: ! Chapter; 12. Computing on clusters
-
 .. figure:: ../artwork/src/cluster.svg
    :width: 50%
 

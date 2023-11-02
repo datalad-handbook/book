@@ -3,8 +3,6 @@
 Help yourself
 -------------
 
-.. index:: ! Chapter; 9. Help yourself
-
 .. figure:: ../artwork/src/help.svg
    :width: 50%
 

@@ -41,6 +41,9 @@ commands like this into a single line. If you copy them into your terminal as th
 are presented here, make sure to check the :windows-wit:`on peculiarities of its terminals
 <ww-no-multiline-commands>`.
 
+.. index::
+   single: Windows wit; Line continuation the terminal
+
 .. windows-wit:: Terminals other than Git Bash can't handle multi-line commands
    :name: ww-no-multiline-commands
 
@@ -72,6 +75,9 @@ are presented here, make sure to check the :windows-wit:`on peculiarities of its
 Some machines will not have :shcmd:`wget` available by default, but any command that can
 download a file can work as an alternative. See the :windows-wit:`for the popular alternative
 curl <ww-curl-instead-wget>`.
+
+.. index::
+   single: Windows wit; Use curl instead of wget
 
 .. windows-wit:: You can use curl instead of wget
    :name: ww-curl-instead-wget

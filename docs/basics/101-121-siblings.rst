@@ -224,6 +224,10 @@ do a ``diff`` between the branch (your drawer) and the dataset as it
 is currently in front of you (your desk). We will do the latter, and leave
 the former for a different lecture:
 
+.. index:: Adjusted branch; corresponding branch
+   single: Windows wit; Inspect dataset changes
+   single: DataLad command; diff
+
 .. windows-wit:: Please use datalad diff --from main --to remotes/roommate/main
 
    Please use the following command instead:
@@ -245,6 +249,10 @@ the former for a different lecture:
 This shows us that there is an additional file, and it also shows us
 that there is a difference in ``notes.txt``! Let's ask
 :gitcmd:`diff` to show us what the differences in detail (note that it is a shortened excerpt, cut in the middle to reduce its length):
+
+.. index:: Adjusted branch; corresponding branch
+   single: Windows wit; Inspect dataset changes
+   single: DataLad command; diff
 
 .. windows-wit:: Please use git diff main..remotes/roommate/main
 

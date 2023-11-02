@@ -18,6 +18,10 @@ You might have noticed already that an ``ls -l`` or ``tree`` command in your dat
 Maybe your shell also displays these files in a different color than text files when listing them.
 We'll take a look together, using the ``books/`` directory as an example:
 
+.. index::
+   single: Windows wit; No symlinks
+   single: Shell command; tree
+
 .. windows-wit:: This will look different to you
 
    First of all, the Windows ``tree`` command lists only directories by default, unless you parametrize it with ``/f``.
@@ -83,6 +87,9 @@ in the path, and in its place
 creates a symlink with the original file name, pointing to the new location.
 This process is often referred to as a file being *annexed*, and the object
 tree is also known as the *annex* of a dataset.
+
+.. index:: ! Adjusted branch; Elevated storage demand
+   single: Windows wit; No symlinks
 
 .. windows-wit:: What happens on Windows?
    :name: woa_objecttree
@@ -320,6 +327,11 @@ Cross-OS filesharing with symlinks (WSL2 only)
 
 Are you using DataLad on the Windows Subsystem for Linux?
 If so, please take a look into the Windows Wit below.
+
+.. index::
+   single: Windows wit; Accessing WSL2 symlinked files
+   single: WSL2; Symlink access
+   single: Git command; log
 
 .. windows-wit:: Accessing symlinked files from your Windows system
 

@@ -106,6 +106,10 @@ Next, let's create an analysis dataset.
 For a pre-structured and pre-configured starting point, the dataset can be created with the ``yoda`` and ``text2git`` :term:`run procedure`\s [#f3]_.
 These configurations create a ``code/`` directory, place some place-holding ``README`` files in appropriate places, and make sure that all text files, e.g. scripts or evaluation results, are kept in :term:`Git` to allow for easier modifications.
 
+.. index::
+   single: Windows wit; text2git not functional
+   single: Dataset procedure; text2git
+
 .. windows-wit:: Note for Windows-Users
 
    Hey there!

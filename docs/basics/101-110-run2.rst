@@ -56,6 +56,10 @@ resized image will be saved.
 To resize one image to 400x400 px, the command would thus be
 ``convert -resize 400x400 path/to/file.jpg path/to/newfilename.jpg``.
 
+.. index::
+   single: Windows wit; Install ImageMagick
+   single: Installation; ImageMagick
+
 .. windows-wit:: Tool installation
 
    `ImageMagick <https://imagemagick.org/index.php>`_ is not installed on Windows systems by default.
@@ -156,6 +160,10 @@ specifying inputs even though they are already present will not do any harm.
 If outputs already exist...
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+.. index::
+   single: Windows wit; Files are unlocked by default
+   single: Adjusted branch; unlocked files
+
 .. windows-wit:: Good news! Here is something that is easier on Windows
 
    The section below describes something that is very confusing for people that have just started with DataLad: Some files in a dataset can't be modified, and if one tries, it results in a "permission denied" error.
@@ -236,6 +244,10 @@ and thus protected by git-annex.
 There is a DataLad command that takes care of unlocking file content,
 and thus making locked files modifiable again: :dlcmd:`unlock`.
 Let us check out what it does:
+
+.. index::
+   single: Windows wit; Files are unlocked by default
+   single: Adjusted branch; unlocked files
 
 .. windows-wit:: What happens if I run this on Windows?
 
@@ -319,6 +331,11 @@ the ``-o``/``--output`` option.
 
 In order to execute :dlcmd:`run` with both the ``-i``/``--input`` and ``-o``/``--output``
 flag and see their magic, let's crop the second logo, ``logo_interval.jpg``:
+
+.. index::
+   single: Windows wit; Files are unlocked by default
+   single: DataLad command; run
+   single: Adjusted branch; unlocked files
 
 .. windows-wit:: Wait, would I need to specify outputs, too?
 

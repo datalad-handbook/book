@@ -85,6 +85,10 @@ Python:
     have specific requirements, go with the 64bit installer of the latest
     Python 3 release.
 
+    .. index::
+       single: Windows wit; Avoid Python from the Windows store
+       single: Installation; Python
+
     .. windows-wit:: Avoid installing Python from the Windows store
 
        We recommend to **not** install Python via the Windows store, even if it
@@ -95,6 +99,10 @@ Python:
     When you run the installer, make sure to select the *Add Python to PATH* option,
     as this is required for subsequent installation steps and interactive use later on.
     Other than that, using the default installation settings is just fine.
+
+    .. index::
+       single: Windows wit; Test Python installation
+       single: Python; Test installation
 
     .. windows-wit:: Verify Python installation
 
@@ -176,6 +184,10 @@ DataLad:
 There are many other ways to install DataLad on Windows, check for example the
 :windows-wit:`on the Windows Subsystem 2 for Linux <ww-wsl2>`.
 One attractive alternative approach is Conda_, a completely different approach is to install the :term:`DataLad Gooey`, which is a standalone installation of DataLad's graphical application (see `the DataLad Gooey documentation <https://docs.datalad.org/projects/gooey>`_ for installation instructions).
+
+.. index::
+   single: Windows wit; WSL2-based DataLad installation
+   single: Installation; DataLad
 
 .. windows-wit:: Install DataLad using the Windows Subsystem 2 for Linux
    :name: ww-wsl2

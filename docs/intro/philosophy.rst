@@ -36,7 +36,7 @@ Everyone uses data. But once it exists, it does not suffice for most data
 to simply reside unchanged in a single location for eternity.
 
 Most **data need to be shared** -- may it be a digital collection of family
-photos, a genomic database between researchers around the world, or inventory
+photos, a genomics database between researchers around the world, or inventory
 lists of one company division to another. Some data are public and should be
 accessible to everyone.  Other data should circulate only among a select few.
 There are various ways to distribute data, from emailing files to sending

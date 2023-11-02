@@ -7,7 +7,6 @@ $ datalad download-url \
   -m "Include nesting demo from datalad website" \
   -O code/nested_repos.sh \
   https://raw.githubusercontent.com/datalad/datalad.org/7e8e39b1/content/asciicast/seamless_nested_repos.sh
-[INFO] Downloading 'https://raw.githubusercontent.com/datalad/datalad.org/7e8e39b1/content/asciicast/seamless_nested_repos.sh' into '/home/me/dl-101/mock_user/DataLad-101/code/nested_repos.sh'
 download_url(ok): /home/me/dl-101/mock_user/DataLad-101/code/nested_repos.sh (file)
 add(ok): code/nested_repos.sh (file)
 save(ok): . (dataset)

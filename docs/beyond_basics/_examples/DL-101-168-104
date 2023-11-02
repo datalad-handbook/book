@@ -3,7 +3,6 @@
 $ datalad download-url -m "download scripts for ML analysis" \
   https://raw.githubusercontent.com/datalad-handbook/data-version-control/master/src/{train,prepare,evaluate}.py \
   -O 'code/'
-[INFO] Downloading 'https://raw.githubusercontent.com/datalad-handbook/data-version-control/master/src/train.py' into '/home/me/DVCvsDL/DVC-DataLad/code/'
 download_url(ok): /home/me/DVCvsDL/DVC-DataLad/code/train.py (file)
 download_url(ok): /home/me/DVCvsDL/DVC-DataLad/code/prepare.py (file)
 download_url(ok): /home/me/DVCvsDL/DVC-DataLad/code/evaluate.py (file)

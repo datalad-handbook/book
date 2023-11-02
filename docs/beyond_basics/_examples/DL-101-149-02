@@ -1,6 +1,5 @@
 $ cd hcp
 $ datalad get -n -r HCP1200/130*
-[INFO] Attempting a clone into /home/me/beyond_basics/HPC/hcp/HCP1200/130013
 install(ok): /home/me/beyond_basics/HPC/hcp/HCP1200/130013 (dataset) [Installed subdataset in order to get /home/me/beyond_basics/HPC/hcp/HCP1200/130013]
 [INFO] Ensuring presence of Dataset(/home/me/beyond_basics/HPC/hcp) to get /home/me/beyond_basics/HPC/hcp/HCP1200/130013
 install(ok): /home/me/beyond_basics/HPC/hcp/HCP1200/130013/MNINonLinear (dataset)

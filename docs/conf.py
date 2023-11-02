@@ -68,20 +68,26 @@ autorunrecord_line_replace = [
     (r'(action summary:(\n^  \S+ \(\S+(?<!notneeded): \d+\)$)+)\n(?!  )', ''),
     # wipe out a set of noisy INFO log messages
     # git progress reports
-    (r'\n\[INFO\] Start \S+ (objects|deltas)$', ''),
+    (r'\[INFO\] Start \S+ (objects|deltas)$\n', ''),
     # 'still alive'-style log messages
-    (r'\n\[INFO\] Attempting a clone into .*', ''),
-    (r'\n\[INFO\] Attempting to clone from \S+ to .*', ''),
-    (r'\n\[INFO\] Downloading \S+ into .*', ''),
-    (r'\n\[INFO\] Completed clone attempts for Dataset.*', ''),
-    (r'\n\[INFO\] Fetching updates for Dataset.*', ''),
+    (r'\[INFO\] Attempting a clone into .*$\n', ''),
+    (r'\[INFO\] Attempting to clone from \S+ to .*$\n', ''),
+    (r'\[INFO\] Downloading \S+ into .*$\n', ''),
+    (r'\[INFO\] Completed clone attempts for Dataset.*$\n', ''),
+    (r'\[INFO\] Fetching updates for Dataset.*$\n', ''),
+    (r'\[INFO\] Unlocking files$\n', ''),
+    (r'\[INFO\] Recording unlocked state in git$\n', ''),
+    (r'\[INFO\] Completed unlocking files$\n', ''),
+    (r'\[INFO\] Making sure inputs are available (this may take some time)$\n', ''),
+    (r'\[INFO\] Creating a new annex repo at .*$\n', ''),
     # annoying always-true test for a non-annex git remote
-    (r'\n\[INFO\] \S+/config download failed: Not Found', ''),
+    (r'\[INFO\] \S+/config download failed: Not Found$\n', ''),
     # datalad push step-progress
-    (r'\n\[INFO\] Determine push target', ''),
-    (r'\n\[INFO\] Push refspecs', ''),
-    (r'\n\[INFO\] Transfer data', ''),
-    (r'\n\[INFO\] Update availability information', ''),
+    (r'\[INFO\] Determine push target$\n', ''),
+    (r'\[INFO\] Push refspecs$\n', ''),
+    (r'\[INFO\] Transfer data$\n', ''),
+    (r'\[INFO\] Update availability information$\n', ''),
+    (r'\[INFO\] Finished push of Dataset.*$\n', ''),
 ]
 # pre-crafted artificial environment to run the code examples in
 # start with all datalad settings

@@ -1,6 +1,4 @@
 ### DVC-DataLad
 $ datalad push --to mysibling
-[INFO] Determine push target
-[INFO] Finished push of Dataset(/home/me/DVCvsDL/DVC-DataLad)
-publish(ok): . (dataset) [refs/heads/git-annex->mysibling:refs/heads/git-annex eed90ebd..3e75bdaa]
+publish(ok): . (dataset) [refs/heads/git-annex->mysibling:refs/heads/git-annex 4d0fc528..3c522222]
 publish(ok): . (dataset) [refs/heads/main->mysibling:refs/heads/main [new branch]]

@@ -27,10 +27,10 @@ Luckily, the set of possible commands is limited, and even without prior experie
 The shell (also called a terminal, console, or CLI) is an interactive,
 text based interface. If you have used Matlab or IPython, then you are already familiar
 with the basics of a command line interface.
-On Unix-like systems (e.g., running Linux or macos), the shell application is usually called "terminal".
+On Unix-like systems (e.g., running Linux or macOS), the shell application is usually called "terminal".
 On Windows systems, several different interfaces exist: The "CMD" Command Prompt and the Powershell are natively installed, and the Git Bash (provided by Git for Windows) or Anaconda prompt CLI (provided by Anaconda or Miniconda) can come with the installation of the respective software tool.
 We recommend using CMD, or, if you have them installed already and prefer them over the CMD, the Git Bash or Anaconda prompt.
-As later parts in this section will show, shells under Windows may use different commands than shells under Linux and macos systems.
+As later parts in this section will show, shells under Windows may use different commands than shells under Linux and macOS systems.
 
 Command syntax
 ==============
@@ -80,7 +80,7 @@ and later examples you will get to see many of them.
 
 Basic commands
 ==============
-The following commands, split between Unix-like (e.g., Linux, macos) and Windows environments, can appear in our examples or are generally useful to know:
+The following commands, split between Unix-like (e.g., Linux, macOS) and Windows environments, can appear in our examples or are generally useful to know:
 They can help you to *explore and navigate* in your file system, copy, move, or remove files, or create new directories.
 Note that the Git Bash on Windows emulates a Unix environment in which you could use Unix commands despite being on Windows.
 
@@ -306,7 +306,7 @@ a common syntax.
 Two common shells are:
 
 ``Bash``
-    The bourne-again shell (``bash``) is the default shell on many \*nix systems (most Linux distros, MacOS).
+    The bourne-again shell (``bash``) is the default shell on many \*nix systems (most Linux distros, macOS).
 ``zsh``
     The Z shell (``zsh``) comes with many additional features, the highlights being:
     shared history across running shells, smarter tab-completion, spelling correction, and better theming.

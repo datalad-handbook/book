@@ -40,7 +40,7 @@ history. Before you use it, please make sure to read its help page thoroughly.
    Its `GitHub repository <https://github.com/newren/git-filter-repo>`_ contains
    more and more detailed instructions, but it is possible to install via :term:`pip`
    (``pip install git-filter-repo``), and available via standard package managers
-   for MacOS and some Linux distributions (mostly rpm-based ones).
+   for macOS and some Linux distributions (mostly rpm-based ones).
 
 The general procedure you should follow is the following:
 

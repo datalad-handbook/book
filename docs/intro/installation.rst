@@ -53,7 +53,7 @@ systems. They do not cover the various :term:`DataLad extension`s that need to b
    resulting in errors during installation and execution.
 
    But does that mean that you should uninstall Python 2?  **No**!  Keep it
-   installed, especially if you are using Linux or MacOS.  Python 2 existed for
+   installed, especially if you are using Linux or macOS.  Python 2 existed for
    20 years and numerous software has been written for it.  It is quite likely
    that some basic operating system components or legacy software on your
    computer is depending on it, and uninstalling a preinstalled Python 2 from
@@ -226,7 +226,7 @@ Alternatively, you can exclusively use :shcmd:`brew` for DataLad's non-Python
 dependencies, and then check the :find-out-more:`on how to install DataLad via
 Python's package manager <fom-macosx-pip>`.
 
-.. find-out-more:: Install DataLad via pip on MacOSX
+.. find-out-more:: Install DataLad via pip on macOS
    :name: fom-macosx-pip
    :float: tbp
 

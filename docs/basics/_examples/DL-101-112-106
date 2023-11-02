@@ -3,7 +3,6 @@ $ datalad run -m "Resize logo for slides" \
 --output "recordings/salt_logo_small.jpg" \
 --explicit \
 "convert -resize 400x400 recordings/longnow/.datalad/feed_metadata/logo_salt.jpg recordings/salt_logo_small.jpg"
-[INFO] Making sure inputs are available (this may take some time)
 unlock(ok): recordings/salt_logo_small.jpg (file)
 [INFO] == Command start (output follows) =====
 [INFO] == Command exit (modification check follows) =====

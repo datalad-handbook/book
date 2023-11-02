@@ -144,7 +144,7 @@ that captures the spirit of what DataLad is, and here is a brief overview on it.
    There is no required central server or service necessary to use DataLad. In this
    way, no central infrastructure needs to be maintained (or paid for).
    Your own laptop is the perfect place for your DataLad project to live, as is your
-   institution's webserver, or any other common computational infrastructure you
+   institution's web server, or any other common computational infrastructure you
    might be using.
 
 #. Simultaneously, though, DataLad aims to

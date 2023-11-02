@@ -288,7 +288,7 @@ on where the RIA store (should) exists, or rather, which file transfer protocol
 .. find-out-more:: RIA stores with HTTP access
 
    Setting up RIA store with access via HTTP requires additional server-side configurations for Git.
-   `Git's http-backend documentation <https://git-scm.com/docs/git-http-backend>`_ can point you the relevant configurations for your webserver and usecase.
+   `Git's http-backend documentation <https://git-scm.com/docs/git-http-backend>`_ can point you the relevant configurations for your web server and usecase.
 
 Note that it is always required to specify an :term:`absolute path` in the URL!
 

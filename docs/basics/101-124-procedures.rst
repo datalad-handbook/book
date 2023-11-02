@@ -85,7 +85,7 @@ spares naive users the necessity to learn about the ``.gitattributes``
 file when setting up a dataset.
 
 
-.. index:: ! datalad command; run-procedure
+.. index:: ! DataLad command; run-procedure
 
 
 To find out available procedures, the command

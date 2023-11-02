@@ -1,9 +1,9 @@
 .. _nesting:
 
+.. index:: ! DataLad dataset; nesting
+
 Dataset nesting
 ---------------
-
-.. index:: ! nesting
 
 Without noticing, the previous section demonstrated another core principle
 and feature of DataLad datasets: *Nesting*.

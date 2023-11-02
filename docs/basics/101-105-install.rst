@@ -1,4 +1,4 @@
-.. index:: ! datalad command; clone
+.. index:: ! DataLad command; clone
 .. _installds:
 
 Install datasets
@@ -55,7 +55,7 @@ called recordings.
    $ mkdir recordings
 
 
-.. index:: ! datalad command; clone
+.. index:: ! DataLad command; clone
 
 The command that can be used to obtain a dataset is :dlcmd:`clone`,
 but we often refer to the process of cloning a Dataset as *installing*.
@@ -234,7 +234,7 @@ hard drive has much space left...
 But you nevertheless are curious on how to actually listen to one of these ``.mp3``\s now.
 So how does one actually "get" the files?
 
-.. index:: ! datalad command; get
+.. index:: ! DataLad command; get
 
 The command to retrieve file content is :dlcmd:`get`.
 You can specify one or more specific files, or ``get`` all of the dataset by
@@ -311,7 +311,7 @@ of file contents in dataset, too?", they ask. "Yes", the lecturer responds,
 "you can remove file contents by using :dlcmd:`drop`. This is
 really helpful to save disk space for data you can easily re-obtain, for example".
 
-.. index:: datalad command; drop
+.. index:: DataLad command; drop
 
 The :dlcmd:`drop` command will remove
 file contents completely from your dataset.

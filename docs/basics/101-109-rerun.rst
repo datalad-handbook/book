@@ -3,7 +3,7 @@
 DataLad, re-run!
 ----------------
 
-.. index:: ! datalad command; rerun
+.. index:: ! DataLad command; rerun
 
 So far, you created a ``.tsv`` file of all
 speakers and talk titles in the ``longnow/`` podcasts subdataset.
@@ -158,7 +158,7 @@ we can see that a new :dlcmd:`run` was recorded. This action is
 committed by DataLad under the original commit message of the ``run``
 command, and looks just like the previous :dlcmd:`run` commit.
 
-.. index:: ! datalad command; diff
+.. index:: ! DataLad command; diff
 
 Two cool tools that go beyond the :gitcmd:`log`
 are the :dlcmd:`diff` and :gitcmd:`diff` commands.

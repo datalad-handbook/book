@@ -97,7 +97,7 @@ dataset in our own, original dataset.
 
 Let's see how this is done.
 
-.. index:: ! datalad command; siblings
+.. index:: ! DataLad command; siblings
 
 First of all, navigate back into the original dataset.
 In the original dataset, "add" a "sibling" by using

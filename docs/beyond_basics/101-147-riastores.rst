@@ -199,7 +199,7 @@ Other applications may require *only* the special remote, such as cases where Gi
 For most storage or back-up scenarios, special remote capabilities are useful, though,
 and thus the default.
 
-.. index:: ! datalad command; create-sibling-ria
+.. index:: ! DataLad command; create-sibling-ria
 
 The command :dlcmd:`create-sibling-ria` can both create datasets in RIA stores and the RIA stores themselves.
 However, :dlcmd:`create-sibling-ria` sets up a new RIA store if it does not find one under the provided URL **only** if the parameter ``--new-store-ok`` is passed.
@@ -263,7 +263,7 @@ from standard DataLad workflows. The paragraphs below detail how to create and
 populate a RIA store, how to clone datasets and retrieve data from it, and also
 how to handle permissions or hide technicalities.
 
-.. index:: ! datalad command; create-sibling-ria
+.. index:: ! DataLad command; create-sibling-ria
 
 Creating or publishing to RIA stores
 """"""""""""""""""""""""""""""""""""
@@ -448,7 +448,7 @@ As a demonstration, we'll do it for the ``midterm_project`` subdataset:
 Thus, in order to create and populate RIA stores, only the commands
 :dlcmd:`create-sibling-ria` and :dlcmd:`push` are required.
 
-.. index:: ! datalad command; clone
+.. index:: ! DataLad command; clone
 
 Cloning and updating from RIA stores
 """"""""""""""""""""""""""""""""""""

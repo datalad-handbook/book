@@ -18,7 +18,7 @@ In general, the DataLad installation requires Python 3 (see the
 why this is required), :term:`Git`, and :term:`git-annex`, and for some
 functionality `7-Zip <https://7-zip.org>`_.  The instructions below detail how
 to install the core DataLad tool and its dependencies on common operating
-systems. They do not cover the various :term:`DataLad extension`s that need to be installed separately, if desired.
+systems. They do not cover the various :term:`DataLad extension`\s that need to be installed separately, if desired.
 
 .. find-out-more:: Python 2, Python 3, what's the difference?
    :name: fom-py2v3

@@ -9,7 +9,7 @@ $ datalad meta-extract -d . metalad_core | jq
   "extractor_name": "metalad_core",
   "extractor_version": "1",
   "extraction_parameter": {},
-  "extraction_time": 1698845024.5401418,
+  "extraction_time": 1698916640.0831163,
   "agent_name": "Elena Piscopia",
   "agent_email": "elena@example.net",
   "extracted_metadata": {

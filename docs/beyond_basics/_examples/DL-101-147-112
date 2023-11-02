@@ -43,9 +43,9 @@ $ tree /home/me/myriastore
 │       ├── objects
 │       │   ├── info
 │       │   └── pack
-│       │       ├── pack-8a336fbd✂SHA1.idx
-│       │       └── pack-8a336fbd✂SHA1.pack
-│       ├── ora-remote-5762bcab-e464-4ccd-898f-77e45c8dab51
+│       │       ├── pack-5020f73a✂SHA1.idx
+│       │       └── pack-5020f73a✂SHA1.pack
+│       ├── ora-remote-644719fb-0077-49d2-b1c7-006cc9f7c7c5
 │       │   └── transfer
 │       ├── refs
 │       │   ├── heads
@@ -98,8 +98,8 @@ $ tree /home/me/myriastore
 │       ├── objects
 │       │   ├── info
 │       │   └── pack
-│       │       ├── pack-94b1d055✂SHA1.idx
-│       │       └── pack-94b1d055✂SHA1.pack
+│       │       ├── pack-f1636323✂SHA1.idx
+│       │       └── pack-f1636323✂SHA1.pack
 │       ├── ora-remote-46b169aa-bb91-42d6-be06-355d957fb4f7
 │       │   └── transfer
 │       ├── refs

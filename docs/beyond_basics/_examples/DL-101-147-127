@@ -1,4 +1,3 @@
 $ datalad get -n midterm_project
-[INFO] Attempting a clone into /home/me/beyond_basics/myclone/midterm_project
 [INFO] Configure additional publication dependency on "ria-backup-storage"
 install(ok): /home/me/beyond_basics/myclone/midterm_project (dataset) [Installed subdataset in order to get /home/me/beyond_basics/myclone/midterm_project]

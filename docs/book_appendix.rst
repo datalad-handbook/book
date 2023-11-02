@@ -7,7 +7,6 @@ Appendix
 .. toctree::
 
    glossary
-   basics/101-136-cheatsheet
    acknowledgements
    licenses
 
@@ -21,3 +20,7 @@ Appendix
 
    \listoffigures
    \listoftables
+
+.. toctree::
+
+   basics/101-136-cheatsheet

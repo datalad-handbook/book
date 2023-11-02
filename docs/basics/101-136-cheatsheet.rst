@@ -5,7 +5,7 @@
 DataLad cheat sheet
 -------------------
 
-.. index:: ! Cheatsheet
+.. index:: ! Cheat sheet
 
 .. only:: html
 
@@ -17,8 +17,22 @@ DataLad cheat sheet
 
 .. only:: latex
 
-   .. figure:: ../artwork/src/datalad-cheatsheet_p1.png
-      :width: 95%
+   The following page provides a cheat sheet with an overview of the most
+   important DataLad commands. A high-resolution version of this cheatsheet is
+   available for download at
+   https://github.com/datalad-handbook/artwork/raw/main/src/datalad-cheatsheet.pdf
 
-      A high-resolution version of this cheatsheet is available for download
-      at https://github.com/datalad-handbook/artwork/raw/main/src/datalad-cheatsheet.pdf
+   .. raw:: latex
+
+      % force the cheatsheet on an even-numbered page
+      \clearpage{\thispagestyle{empty}\cleardoublepage}
+      {\thispagestyle{empty}%
+
+   .. image:: ../artwork/src/datalad-cheatsheet_p1.png
+      :width: 100%
+
+   .. raw:: latex
+
+      } % end empty page style
+      \newpage
+      \clearpage{\thispagestyle{empty}\cleardoublepage}

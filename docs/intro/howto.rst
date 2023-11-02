@@ -164,7 +164,7 @@ I can run the following command:
 
    $ mkdir /home/me/awesome_datalad_project
 
-If I want to do the same in Window's CMD, I'd do
+If I want to do the same in Windows CMD, I'd do
 
 .. code-block::
 

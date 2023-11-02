@@ -543,7 +543,7 @@ dataset:
 
    $ git log --oneline
 
-"Wow, this is so clean an intuitive!" you congratulate yourself. "And I think
+"Wow, this is so clean and intuitive!" you congratulate yourself. "And I think
 this was and will be the fastest I have ever completed a midterm project!"
 But what is still missing is a human readable description of your dataset.
 The YODA procedure kindly placed a ``README.md`` file into the root of your

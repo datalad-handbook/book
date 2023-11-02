@@ -166,74 +166,42 @@ Let's create a dataset hierarchy to work with (note that we concatenate multiple
 .. code-block:: bash
 
     # create a superdataset with two subdatasets
-    $ datalad create superds && cd superds && datalad create -d . subds1 && datalad create -d . subds2
-    [INFO   ] Creating a new annex repo at /tmp/superds
+    $ datalad create superds && datalad -C superds create -d . subds1 && datalad -C superds create -d . subds2
     create(ok): /tmp/superds (dataset)
-    [INFO   ] Creating a new annex repo at /tmp/superds/subds1
     add(ok): subds1 (file)
     add(ok): .gitmodules (file)
     save(ok): . (dataset)
     create(ok): subds1 (dataset)
-    action summary:
-      add (ok: 2)
-      create (ok: 1)
-      save (ok: 1)
-    [INFO   ] Creating a new annex repo at /tmp/superds/subds2
     add(ok): subds2 (file)
     add(ok): .gitmodules (file)
     save(ok): . (dataset)
     create(ok): subds2 (dataset)
-    action summary:
-      add (ok: 2)
-      create (ok: 1)
-      save (ok: 1)
 
 Next, we create subdatasets in the subdatasets:
 
 .. code-block:: bash
 
     # create two subdatasets in subds1
-    $ cd subds1 && datalad create -d . subsubds1 && datalad create -d . subsubds2 && cd ../
-    [INFO   ] Creating a new annex repo at /tmp/superds/subds1/subsubds1
+    $ datalad -C superds/subds1 create -d . subsubds1 && datalad -C superds/subds1 create -d . subsubds2
     add(ok): subsubds1 (file)
     add(ok): .gitmodules (file)
     save(ok): . (dataset)
     create(ok): subsubds1 (dataset)
-    action summary:
-      add (ok: 2)
-      create (ok: 1)
-      save (ok: 1)
-    [INFO   ] Creating a new annex repo at /tmp/superds/subds1/subsubds2
     add(ok): subsubds2 (file)
     add(ok): .gitmodules (file)
     save(ok): . (dataset)
     create(ok): subsubds2 (dataset)
-    action summary:
-      add (ok: 2)
-      create (ok: 1)
-      save (ok: 1)
-
 
     # create two subdatasets in subds2
-    $ cd subds2 && datalad create -d . subsubds1 && datalad create -d . subsubds2
-    [INFO   ] Creating a new annex repo at /tmp/superds/subds2/subsubds1
+    $ datalad -C superds/subds2 create -d . subsubds1 && datalad -C superds/subds2 create -d . subsubds2
     add(ok): subsubds1 (file)
     add(ok): .gitmodules (file)
     save(ok): . (dataset)
     create(ok): subsubds1 (dataset)
-    action summary:
-      add (ok: 2)
-      create (ok: 1)
-      save (ok: 1)
-    [INFO   ] Creating a new annex repo at /tmp/superds/subds2/subsubds2
     add(ok): subsubds2 (file)
     add(ok): .gitmodules (file)
     save(ok): . (dataset)
     create(ok): subsubds2 (dataset)
-    action summary:
-      add (ok: 2)
-      create (ok: 1)
-      save (ok: 1)
 
 Here is the directory structure:
 
@@ -253,9 +221,6 @@ Here is the directory structure:
     add(ok): subds1 (file)
     add(ok): subds2 (file)
     save(ok): . (dataset)
-    action summary:
-      add (ok: 2)
-      save (ok: 1)
 
 Now, we can apply the ``datalad-recursiveinstall`` configuration to skip recursive installations for ``subds1``
 
@@ -267,9 +232,7 @@ Now, we can apply the ``datalad-recursiveinstall`` configuration to skip recursi
     $ datalad save -m "prevent recursion into subds1, unless explicitly given as path"
     add(ok): .gitmodules (file)
     save(ok): . (dataset)
-    action summary:
-      add (ok: 1)
-      save (ok: 1)
+
 
 If the dataset is cloned, and someone runs a recursive :dlcmd:`get`, the subdatasets of ``subds1`` will not be installed, the subdatasets of ``subds2``, however, will be.
 
@@ -282,15 +245,9 @@ If the dataset is cloned, and someone runs a recursive :dlcmd:`get`, the subdata
 
     # recursively get all contents (without data)
     $ cd clone_of_superds && datalad get -n -r .
-    [INFO   ] Installing <Dataset path=/tmp/clone_of_superds> underneath /tmp/clone_of_superds recursively
-    [INFO   ] Cloning /tmp/superds/subds2 into '/tmp/clone_of_superds/subds2'
     get(ok): /tmp/clone_of_superds/subds2 (dataset)
-    [INFO   ] Cloning /tmp/superds/subds2/subsubds1 into '/tmp/clone_of_superds/subds2/subsubds1'
     get(ok): /tmp/clone_of_superds/subds2/subsubds1 (dataset)
-    [INFO   ] Cloning /tmp/superds/subds2/subsubds2 into '/tmp/clone_of_superds/subds2/subsubds2'
     get(ok): /tmp/clone_of_superds/subds2/subsubds2 (dataset)
-    action summary:
-      get (ok: 3)
 
     # only subsubds of subds2 are installed, not of subds1:
     $ tree
@@ -307,9 +264,7 @@ Nevertheless, if ``subds1`` is provided with an explicit path, its subdataset ``
 .. code-block:: bash
 
     $  datalad get -n -r subds1 && tree
-    [INFO   ] Cloning /tmp/superds/subds1 into '/tmp/clone_of_superds/subds1'
     install(ok): /tmp/clone_of_superds/subds1 (dataset) [Installed subdataset in order to get /tmp/clone_of_superds/subds1]
-    [INFO   ] Installing <Dataset path=/tmp/clone_of_superds> underneath /tmp/clone_of_superds/subds1 recursively
     .
     ├── subds1
     │   ├── subsubds1

@@ -147,6 +147,7 @@ could thus be applied within a :dlcmd:`create` as
 - ``datalad create -c yoda <DSname>``
 - ``datalad create -c text2git <DSname>``
 
+.. index:: dataset procedure; apply more than one configuration
 .. find-out-more:: Applying multiple procedures
 
    If you want to apply several configurations at once, feel free to do so,
@@ -156,6 +157,7 @@ could thus be applied within a :dlcmd:`create` as
 
       $ datalad create -c yoda -c text2git
 
+.. index:: dataset procedure; apply to subdatasets
 .. find-out-more:: Applying procedures in subdatasets
 
    Procedures can be applied in datasets on any level in the dataset hierarchy, i.e.,
@@ -182,7 +184,7 @@ to a default dataset in which one has saved many text files already
 files into Git -- only those text files created *after* the configuration
 was applied.
 
-
+.. index:: datasets procedures; write your own
 .. find-out-more:: Write your own procedures
    :name: fom-procedures
    :float:

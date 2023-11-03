@@ -1,8 +1,6 @@
-.. index:: ! DataLad dataset; nesting
-
+.. index::
+   pair: dataset nesting; with DataLad
 .. _nesting:
-
-.. index:: ! DataLad dataset; nesting
 
 Dataset nesting
 ---------------
@@ -44,6 +42,8 @@ looks like after the addition of a subdataset. To do this, make sure you are
 addition to ``notes.txt``, so we'll look at the second most recent commit in
 this excerpt.
 
+.. index::
+   pair: show commit patches; with Git
 .. runrecord:: _examples/DL-101-106-101
    :language: console
    :workdir: dl-101/DataLad-101
@@ -93,6 +93,8 @@ This is what is meant by "the top-level DataLad dataset (the *superdataset*) onl
 Importantly, once we learn how to make use of the history of a dataset,
 we can set subdatasets to previous states, or *update* them.
 
+.. index::
+   pair: temporary working directory change; with Git
 .. find-out-more:: Do I have to navigate into the subdataset to see it's history?
 
    Previously, we used :shcmd:`cd` to navigate into the subdataset, and

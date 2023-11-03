@@ -14,6 +14,8 @@ the `Python <https://www.python.org>`__ programming language, you decide
 to script your analysis in Python. Delighted, you find out that there is even
 a Python API for DataLad's functionality that you can read about in :ref:`a Findoutmore on DataLad in Python<fom-pythonapi>`.
 
+.. index::
+   pair: use DataLad API; with Python
 .. find-out-more:: DataLad's Python API
    :name: fom-pythonapi
    :float:
@@ -181,6 +183,8 @@ dataset at `https://github.com/datalad-handbook/iris_data <https://github.com/da
 You can either use this provided input dataset, or find out how to create an
 independent dataset from scratch in a :ref:`dedicated Findoutmore <fom-iris>`.
 
+.. index::
+   pair: create and publish dataset as a dependency; with DataLad
 .. find-out-more:: Creating an independent input dataset
    :name: fom-iris
 
@@ -441,6 +445,8 @@ point with the ``--version-tag`` option of :dlcmd:`save`.
      --version-tag ready4analysis \
      code/script.py
 
+.. index:: Git concept; tag, Git command; show
+   pair: rerun a command; with DataLad
 .. find-out-more:: What is a tag?
 
    :term:`tag`\s are markers that you can attach to commits in your dataset history.
@@ -493,8 +499,7 @@ re-execution with :dlcmd:`rerun` easy.
 
 
 .. index::
-   single: Windows wit; python or python3
-
+   pair: python instead of python3; on Windows
 .. windows-wit:: You may need to use "python", not "python3"
 
    If executing the code below returns an exit code of 9009, there may be no ``python3`` -- instead, it is called solely ``python``.
@@ -596,9 +601,10 @@ Note that one feature of the YODA procedure was that it configured certain files
 root of the dataset) to be saved in Git instead of git-annex. This was the
 reason why the ``README.md`` in the root of the dataset was easily modifiable.
 
+.. index:: ! DataLad command; save --to-git
+   pair: save file content directly in Git (no annex); with DataLad
 .. find-out-more:: Saving contents with Git regardless of configuration with --to-git
 
-   .. index:: ! DataLad command; save --to-git
 
    The ``yoda`` procedure in ``midterm_project`` applied a different configuration
    within ``.gitattributes`` than the ``text2git`` procedure did in ``DataLad-101``.
@@ -624,6 +630,7 @@ everything you did easily.
 The only thing left to do is to hand in your assignment. According to the
 syllabus, this should be done via :term:`GitHub`.
 
+.. index:: dataset hosting; GitHub
 .. find-out-more:: What is GitHub?
 
    GitHub is a web based hosting service for Git repositories. Among many
@@ -697,10 +704,8 @@ configure this repository as a sibling of the dataset:
        $ python3 /home/me/makepushtarget.py '/home/me/dl-101/DataLad-101/midterm_project' 'github' '/home/me/pushes/midterm_project' False True
 
 
-.. index::
-   single: Windows wit; Typed credentials are not displayed
-   single: Credentials; Entering credentials
-
+.. index:: credential; entry
+   pair: typed credentials are not displayed; on Windows
 .. windows-wit:: Your shell will not display credentials
 
    Don't be confused if you are prompted for your GitHub credentials, but can't seem to type -- the terminal protects your private information by not displaying what you type.
@@ -809,6 +814,8 @@ Yay! Consider your midterm project submitted! Others can now install your
 dataset and check out your data science project -- and even better: they can
 reproduce your data science project easily from scratch (take a look into the :ref:`Findoutmore <fom-midtermclone>` to see how)!
 
+.. index::
+   pair: work on a published YODA dataset; with DataLad
 .. find-out-more:: On the looks and feels of this published dataset
    :name: fom-midtermclone
    :float:

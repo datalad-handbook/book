@@ -105,6 +105,8 @@ Singularity (even without having Docker installed).
    In order to use Singularity containers you have to
    `install <https://docs.sylabs.io/guides/3.4/user-guide/installation.html>`_ the software singularity.
 
+.. index:: Installation; Docker
+   pair: install Docker; on Windows
 .. find-out-more:: Docker installation Windows
 
    The software singularity is not available for Windows.
@@ -140,6 +142,8 @@ the analysis. Its recipe lives in the handbook's
 If you're curious how to create a Singularity Image, the hidden
 section below has some pointers:
 
+.. index::
+   pair: build a container image; with Singularity
 .. find-out-more:: How to make a Singularity Image
 
    Singularity containers are build from Image files, often
@@ -178,6 +182,8 @@ name to give to the container, and a path or url to a container Image:
    # we are in the midterm_project subdataset
    $ datalad containers-add midterm-software --url shub://adswa/resources:2
 
+.. index::
+   pair: add a container image to a dataset; with DataLad
 .. find-out-more:: How do I add an Image from Dockerhub, Amazon ECR, or a local container?
 
    Should the Image you want to use lie on Dockerhub, specify the ``--url``
@@ -205,6 +211,7 @@ the ``midterm_project`` dataset, and recorded basic information on the
 container under its name "midterm-software" in the dataset's configuration at
 ``.datalad/config``. You can find out more about them in a dedicated :ref:`find-out-more on these additional configurations <fom-containerconfig>`.
 
+.. index:: DataLad concept; container image registration
 .. find-out-more:: What changes in .datalad/config when one adds a container?
    :name: fom-containerconfig
    :float:
@@ -309,9 +316,10 @@ The complete command's structure looks like this:
 
    $ datalad containers-run --name <containername> [-m ...] [--input ...] [--output ...] <COMMAND>
 
-.. index:: ! DataLad command; containers-remove
-.. index:: ! DataLad command; containers-list
-
+.. index::
+   single: ! DataLad command; containers-remove
+   single: ! DataLad command; containers-list
+   pair: list known containers; with DataLad
 .. find-out-more:: How can I list available containers or remove them?
 
    The command :dlcmd:`containers-list` will list all containers in

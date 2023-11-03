@@ -119,6 +119,8 @@ Try running the :gitcmd:`commit --amend` command right now and give
 the commit a new commit message (you can just delete the one created by
 DataLad in the editor)!
 
+.. index::
+   pair: change historical commit messages; with Git
 .. find-out-more:: Changing the commit messages of not-the-most-recent commits
    :name: fom-rebase1
    :float:
@@ -234,6 +236,7 @@ try this to get a feel for it.
 The COMMIT in the command can either be a hash or a reference
 with the HEAD pointer.
 
+.. index:: Git concept; branch, Git concept; HEAD
 .. find-out-more:: Git terminology: branches and HEADs?
 
    A Git repository (and thus any DataLad dataset) is built up as a tree of
@@ -636,6 +639,8 @@ The command looks like this:
 where ``SHASUM`` specifies the commit hash of the modification that should
 be reverted.
 
+.. index::
+   pair: revert multiple commit; with Git
 .. find-out-more:: Reverting more than a single commit
 
    You can also specify a range of commits like this:

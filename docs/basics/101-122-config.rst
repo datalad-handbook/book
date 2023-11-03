@@ -195,6 +195,8 @@ a value, one can configure Git, git-annex, and DataLad.
 of Git, depending on the scope (local, global, system-wide)
 specified in the command.
 
+.. index::
+   pair: unset configuration; with Git
 .. find-out-more:: If things go wrong during Git config
 
    If something goes wrong during the :gitcmd:`config` command,
@@ -242,6 +244,7 @@ to de-mystify the :gitcmd:`config` command and the configuration files.
 Nevertheless, it might be helpful to get an overview about the meaning of the
 remaining sections in that file, and the :ref:`that dissects this config file further <fom_gitconfig>`  can give you a glimpse of this.
 
+.. index:: dataset configuration
 .. find-out-more:: Dissecting a Git config file further
    :name: fom_gitconfig
    :float:

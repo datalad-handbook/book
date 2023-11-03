@@ -1,9 +1,8 @@
+.. index:: ! DataLad command; rerun
 .. _run2:
 
 DataLad, re-run!
 ----------------
-
-.. index:: ! DataLad command; rerun
 
 So far, you created a ``.tsv`` file of all
 speakers and talk titles in the ``longnow/`` podcasts subdataset.
@@ -172,10 +171,9 @@ and another state from the dataset's history (a commit specified with
 of the dataset and the previous commit (called "``HEAD~1``" in Git terminology [#f1]_):
 
 .. index::
-   single: Windows wit; Inspect dataset changes
+   pair: show dataset modifications; on Windows with DataLad
    single: DataLad command; diff
-   single: Adjusted branch; corresponding branch
-
+   single: adjusted mode; corresponding branch
 .. windows-wit:: please use datalad diff --from main --to HEAD~1
 
    While this example works on Unix file systems, it will not provide the same output on Windows.
@@ -191,6 +189,9 @@ of the dataset and the previous commit (called "``HEAD~1``" in Git terminology [
 
    The ``--from`` argument specifies a different starting point for the comparison - the ``main`` or :term:`master` :term:`branch`, which would be the starting point on most Unix-based systems.
 
+.. index:: ! Git command; diff
+   pair: show dataset modifications; with DataLad
+
 .. runrecord:: _examples/DL-101-109-108
    :language: console
    :workdir: dl-101/DataLad-101
@@ -198,6 +199,9 @@ of the dataset and the previous commit (called "``HEAD~1``" in Git terminology [
    :cast: 02_reproducible_execution
 
    $ datalad diff --to HEAD~1
+
+.. index:: ! Git command; diff
+   pair: show dataset modifications; with Git
 
 This indeed shows the output file as "modified". However, we do not know
 what exactly changed. This is a task for :gitcmd:`diff` (get out of the
@@ -262,16 +266,17 @@ For example, to find out who (or what) created or modified a file,
 give the file path to :gitcmd:`log` (prefixed by ``--``):
 
 .. index::
-   single: Windows wit; Inspect dataset history
+   pair: show history for particular paths; on Windows with Git
    single: Git command; log
-   single: Adjusted branch; corresponding branch
-
+   single: adjusted mode; corresponding branch
 .. windows-wit:: use "git log main -- recordings/podcasts.tsv"
 
    A previous Windows Wit already advised to append ``main`` or ``master``, the common "default :term:`branch`", to any command that starts with ``git log``.
    Here, the last part of the command specifies a file (``-- recordings/podcasts.tsv``).
    Please append ``main`` or ``master`` to ``git log``, prior to the file specification.
 
+.. index::
+   pair: show history for particular paths; with Git
 .. runrecord:: _examples/DL-101-109-112
    :language: console
    :workdir: dl-101/DataLad-101

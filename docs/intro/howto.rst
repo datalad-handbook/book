@@ -84,6 +84,9 @@ The following commands, split between Unix-like (e.g., Linux, macOS) and Windows
 They can help you to *explore and navigate* in your file system, copy, move, or remove files, or create new directories.
 Note that the Git Bash on Windows emulates a Unix environment in which you could use Unix commands despite being on Windows.
 
+.. index::
+   pair: terminal commands; on Unix-like systems
+
 Unix-like systems or environments
 """""""""""""""""""""""""""""""""
 
@@ -108,6 +111,9 @@ Unix-like systems or environments
     delete an empty folder
 ``export NAME=Value``
     Set an :term:`environment variable` ``NAME`` to ``Value`` for your current terminal session
+
+.. index::
+   pair: terminal commands; on Windows
 
 Windows systems
 """""""""""""""
@@ -283,6 +289,9 @@ this is the breakdown:
 
 The text editors above are all command-line editors.
 They will open up directly in your terminal.
+
+.. index::
+   pair: configure default editor; with Git
 
 While those text editors can also be installed on Windows, command-line editors are rarely used on Windows.
 Git for Windows might set :term:`vim` as the default editor upon installation, which can require some acclimatization.

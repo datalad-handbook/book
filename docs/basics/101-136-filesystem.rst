@@ -110,6 +110,8 @@ Alternatively, there is also a way to save the name change
 only using Git tools only, outlined in the following hidden
 section. If you are a Git user, you will be very familiar with it.
 
+.. index::
+   pair: rename file; with Git
 .. find-out-more:: Faster renaming with Git tools
 
    Git has built-in commands that provide a solution in two steps.
@@ -249,6 +251,8 @@ Therefore, in general, whenever moving or renaming a file,
 especially between directories, a ``datalad save`` is
 the best option to turn to.
 
+.. index::
+   pair: git-annex concept; content pointer file
 .. find-out-more:: Why a move between directories is actually a content change
 
    Let's see how this shows up in the dataset history:
@@ -500,6 +504,8 @@ file. Let's save it:
 
 That's it.
 
+.. index::
+   pair: git-annex concept; content pointer file
 .. find-out-more:: Symlinks!
 
    If you have read the additional content in the section
@@ -743,6 +749,8 @@ the dataset will break the linkage between the datasets. This can
 be fixed easily though. We can try this in the following hidden
 section.
 
+.. index::
+   pair: move subdataset; with Git
 .. find-out-more:: If a renamed/moved dataset is a sibling...
 
    As section :ref:`config` explains, each

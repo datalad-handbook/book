@@ -87,7 +87,7 @@ This complies to the :ref:`YODA principles <yoda>` and helps to keep the input d
    $ datalad create imagenette
 
 The original Imagenette dataset contains 10 image categories can be downloaded as an archive from Amazon (`s3.amazonaws.com/fast-ai-imageclas/imagenette2-160.tgz <https://s3.amazonaws.com/fast-ai-imageclas/imagenette2-160.tgz>`_), but for this tutorial we're using a subset of this dataset with only two categories.
-It is available as an archive from the :term:`Open Science Framework (OSF)`.
+It is available as an archive from the :term:`Open Science Framework` (OSF).
 The :dlcmd:`download-url --archive` not only extracts and saves the data, but also registers the datasets origin such that it can re-retrieved on demand from its original location.
 
 .. runrecord:: _examples/ml-102
@@ -107,9 +107,8 @@ For a pre-structured and pre-configured starting point, the dataset can be creat
 These configurations create a ``code/`` directory, place some place-holding ``README`` files in appropriate places, and make sure that all text files, e.g. scripts or evaluation results, are kept in :term:`Git` to allow for easier modifications.
 
 .. index::
-   single: Windows wit; text2git not functional
-   single: Dataset procedure; text2git
-
+   pair: text2git not functional; on Windows
+   single: dataset procedure; text2git
 .. windows-wit:: Note for Windows-Users
 
    Hey there!

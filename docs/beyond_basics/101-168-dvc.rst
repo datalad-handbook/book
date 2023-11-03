@@ -172,7 +172,7 @@ As they are only *staged* but not *committed*, we need to commit them (into Git)
 
 The DVC project is now ready to version control data.
 In the tutorial, data comes from the "Imagenette" dataset.
-This data is available `from an Amazon S3 bucket <https://s3.amazonaws.com/fast-ai-imageclas/imagenette2-160.tgz>`_ as a compressed tarball, but to keep the download fast, there is a smaller two-category version of it on the :term:`Open Science Framework (OSF)`.
+This data is available `from an Amazon S3 bucket <https://s3.amazonaws.com/fast-ai-imageclas/imagenette2-160.tgz>`_ as a compressed tarball, but to keep the download fast, there is a smaller two-category version of it on the :term:`Open Science Framework` (OSF).
 We'll download it and extract it into the ``data/raw/`` directory of the repository.
 
 .. runrecord:: _examples/DL-101-168-109

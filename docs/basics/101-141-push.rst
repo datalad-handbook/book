@@ -25,6 +25,8 @@ This, for instance, can be a :term:`GitHub`, :term:`GitLab`, or :term:`Gin`
 repository, but it can also be a Remote Indexed Archive (RIA) store for backup
 or storage of datasets [#f1]_, or a regular clone.
 
+.. index:: dataset hosting; GitHub, dataset hosting; GitLab, dataset hosting; RIA
+   pair: create siblings; with DataLad
 .. find-out-more:: all of the ways to configure siblings
 
    .. index:: ! DataLad command; create-sibling-github
@@ -116,6 +118,8 @@ that should be published have sibling names identical to the sibling specified i
 the top-level :dlcmd:`push` command, or that appropriate default publication
 targets are configured throughout the dataset hierarchy.
 
+.. index::
+   pair: configure which branches to push; with Git
 .. find-out-more:: Pushing more than the current branch
    :name: fom-push-branch
    :float:

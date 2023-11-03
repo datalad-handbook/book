@@ -1,4 +1,5 @@
 .. index:: ! DataLad command; clone
+   pair: clone a dataset; with DataLad
 .. _installds:
 
 Install datasets
@@ -55,8 +56,6 @@ called recordings.
    $ mkdir recordings
 
 
-.. index:: ! DataLad command; clone
-
 The command that can be used to obtain a dataset is :dlcmd:`clone`,
 but we often refer to the process of cloning a Dataset as *installing*.
 Let's install the longnow podcasts in this new directory.
@@ -105,6 +104,8 @@ chapters in this handbook will demonstrate how useful this information can be.
    A dataset that is installed from an existing source, e.g., a path or URL,
    is the DataLad equivalent of a *clone* in Git.
 
+.. index::
+   pair: clone into another dataset; with DataLad
 .. find-out-more:: Do I have to install from the root of datasets?
 
    No. Instead of from the *root* of the ``DataLad-101`` dataset, you could have also
@@ -139,10 +140,8 @@ chapters in this handbook will demonstrate how useful this information can be.
 
 Here is the repository structure:
 
-.. index::
-   single: Windows wit; Display directory tree
-   single: Shell command; tree
-
+.. index:: terminal command; tree
+   pair: display directory tree; on Windows
 .. windows-wit:: use tree
 
    The Windows version of tree requires different parametrization, so please run ``tree`` instead of ``tree -d``.
@@ -305,6 +304,8 @@ that the download of one file was ``notneeded`` and the retrieval of the other f
 
    :dlcmd:`get` uses :gitannexcmd:`get` underneath the hood.
 
+.. index::
+   pair: drop files; with DataLad
 
 Keep whatever you like
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -377,6 +378,9 @@ You have now experienced how easy it is to (re-)obtain shared data with DataLad.
 But beyond sharing only the *data* in the dataset, when sharing or installing
 a DataLad dataset, all copies also include the dataset's *history*.
 
+.. index:: Git command; log
+   pair: show history (reverse); with Git
+
 For example, we can find out who created the dataset in the first place
 (the output shows an excerpt of ``git log --reverse``, which displays the
 history from first to most recent commit):
@@ -420,6 +424,8 @@ modification.
    EOT
    $ datalad save -m "Add note on datalad clone"
 
+.. index::
+   pair: placeholder files; on Mac
 .. importantnote:: Empty files can be confusing
 
   Listing files directly after the installation of a dataset will

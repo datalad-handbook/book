@@ -400,6 +400,7 @@ replacing any ``__`` (two underscores) with a hyphen, then any ``_`` (single und
 with a dot, and finally converting all letters to lower case. The ``datalad.log.level``
 configuration option thus is the environment variable ``DATALAD_LOG_LEVEL``.
 
+.. index:: operating system concept; environment variable
 .. find-out-more:: Some more general information on environment variables
    :name: fom-envvar
 

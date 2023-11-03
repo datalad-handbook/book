@@ -171,6 +171,8 @@ superdataset of a very comprehensive data analysis project complying to the YODA
 
 You can get a few non-DataLad related advice for structuring your directories in the :ref:`on best practices for analysis organization <fom-yodaproject>`.
 
+.. index::
+   pair: recommendation; dataset content organization
 .. find-out-more:: More best practices for organizing contents in directories
    :name: fom-yodaproject
    :float:

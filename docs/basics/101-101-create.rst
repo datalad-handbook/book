@@ -1,3 +1,5 @@
+.. index:: ! DataLad command; create
+   pair: create a dataset; with DataLad
 .. _createDS:
 
 Create a dataset
@@ -19,8 +21,6 @@ useful features.
 Because experiencing is more insightful than just reading, we will explore the
 concepts of DataLad datasets together by creating one.
 
-.. index:: ! DataLad command; create
-
 Find a nice place on your computer's file system to put a dataset for ``DataLad-101``,
 and create a fresh, empty dataset with the :dlcmd:`create` command.
 
@@ -30,6 +30,8 @@ Note the command structure of :dlcmd:`create` (optional bits are enclosed in ``[
 
   datalad create [--description "..."] [-c <config options>] PATH
 
+.. index::
+   pair: set description for dataset location; with DataLad
 .. find-out-more:: What is the description option of datalad-create?
 
    The optional ``--description`` flag allows you to provide a short description of
@@ -87,12 +89,16 @@ mistakes are forever. We will see many examples of this later in the book,
 and such information is stored in what we will refer
 to as the *history* of a dataset.
 
+.. index:: ! Git command; log
+   pair: exit pager; in a terminal
+   pair: show history; with Git
+
 This history is almost as small as it can be at the current state, but let's take
 a look at it. For looking at the history, the code examples will use :gitcmd:`log`,
 a built-in :term:`Git` command [#f1]_ that works right in your terminal. Your log
 *might* be opened in a `terminal pager <https://en.wikipedia.org/wiki/Terminal_pager>`_
 that lets you scroll up and down with your arrow keys, but not enter any more commands.
-If this happens, you can get out of git log by pressing ``q``.
+If this happens, you can get out of ``git log`` by pressing ``q``.
 
 .. runrecord:: _examples/DL-101-101-103
    :language: console
@@ -107,10 +113,8 @@ We can see two :term:`commit`\s in the history of the repository.
 Each of them is identified by a unique 40 character sequence, called a
 :term:`shasum`.
 
-.. index:: ! Adjusted branch; corresponding branch
-   single: Windows wit; Inspect dataset history
-   single: Git command; log
-
+.. index:: Git command; log, ! adjusted mode; corresponding branch
+   pair: show history; on Windows
 .. windows-wit:: Your Git log may be more extensive - use "git log main" instead!
 
    The output of :gitcmd:`log` shown in the handbook and the output you will see in your own datasets when executing the same commands may not always match -- many times you might see commits about a "git-annex adjusted branch" in your history.

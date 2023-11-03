@@ -21,6 +21,10 @@
 .. index::
    seealso: Fedora; 'on Redhat/Fedora'
 .. index::
+   see: high-performance computing; 'HPC'
+.. index::
+   see: high-throughput computing; 'HTC'
+.. index::
    seealso: HPC; 'on HPC'
 .. index::
    seealso: Mac; 'on Mac'
@@ -34,3 +38,9 @@
    seealso: Windows; 'on Windows'
 .. index::
    seealso: WSL2; 'on WSL2'
+
+.. aliases
+.. index::
+   see: heredoc; 'here-document'
+.. index::
+   see: shell commands; 'terminal commands'

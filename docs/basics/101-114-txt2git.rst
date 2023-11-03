@@ -24,6 +24,8 @@ to explain.
 .. figure:: ../artwork/src/teacher.svg
    :width: 50%
 
+.. index:: ! dataset procedure; text2git
+
 Do you remember that we created the ``DataLad-101`` dataset with a
 specific configuration template? It was the ``-c text2git`` option we
 provided in the beginning of :ref:`createDS`. It is because of this configuration

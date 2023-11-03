@@ -170,6 +170,8 @@ that original content?
 This information comes from git-annex. Before getting the next PDF,
 let's query git-annex where its content is stored:
 
+.. index:: git-annex command; whereis
+   pair: show file content availability; with git-annex
 .. runrecord:: _examples/DL-101-116-105
    :language: console
    :workdir: dl-101/mock_user/DataLad-101
@@ -184,6 +186,8 @@ recognize a path to the dataset on your computer, prefixed with the user
 and hostname of your computer. "This", you exclaim, excited about your own realization,
 "is my dataset's location I'm sharing it from!"
 
+.. index::
+   pair: set description for dataset location; with DataLad
 .. find-out-more:: What is this location, and what if I provided a description?
 
    Back in the very first section of the Basics, :ref:`createDS`, a hidden

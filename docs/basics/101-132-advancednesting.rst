@@ -1,3 +1,5 @@
+.. index:: ! DataLad dataset; nesting
+
 .. _nesting2:
 
 .. index:: ! DataLad dataset; nesting

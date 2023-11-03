@@ -1,7 +1,7 @@
 .. _howto:
 
 ****************
-The Command Line
+The command line
 ****************
 
 .. index:: ! terminal, ! shell, ! command Line

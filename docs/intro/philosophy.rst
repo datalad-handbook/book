@@ -60,8 +60,8 @@ tools allow users to keep track of changes, view previous states, or restore
 older versions.  How about a **version control system for data**?
 
 
-If data are shared as a copy *of one state* of its history, **keeping all shared
-copies of this data up-to-date** once the original data changes or evolves is at
+If data are shared as copies *of one state* of their history, **keeping all shared
+copies up-to-date** once the original data change or evolve is at
 best tedious, but likely impossible. What about ways to easily **update data and
 its shared copies**?
 

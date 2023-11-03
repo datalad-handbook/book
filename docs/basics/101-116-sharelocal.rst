@@ -52,8 +52,8 @@ how a dataset can be obtained from a path (instead of a URL as shown in the sect
 :ref:`installds`). Thirdly, ``DataLad-101`` is a dataset that can
 showcase many different properties of a dataset already, but it will
 be an additional learning experience to see how the different parts
-of the dataset -- text files, larger files, datalad subdataset,
-:dlcmd:`run` commands -- will appear upon installation when shared.
+of the dataset -- text files, larger files, subdatasets,
+:term:`run record`\s -- will appear upon installation when shared.
 And lastly, you will likely "share a dataset with yourself" whenever you
 will be using a particular dataset of your own creation as input for
 one or more projects.

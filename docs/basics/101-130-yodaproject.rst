@@ -491,6 +491,10 @@ re-execution with :dlcmd:`rerun` easy.
    -- an upcoming section on ``datalad containers-run`` will allow you to
    perform the analysis without changing your Python software-setup.
 
+
+.. index::
+   single: Windows wit; python or python3
+
 .. windows-wit:: You may need to use "python", not "python3"
 
    If executing the code below returns an exit code of 9009, there may be no ``python3`` -- instead, it is called solely ``python``.
@@ -691,6 +695,11 @@ configure this repository as a sibling of the dataset:
        :language: console
 
        $ python3 /home/me/makepushtarget.py '/home/me/dl-101/DataLad-101/midterm_project' 'github' '/home/me/pushes/midterm_project' False True
+
+
+.. index::
+   single: Windows wit; Typed credentials are not displayed
+   single: Credentials; Entering credentials
 
 .. windows-wit:: Your shell will not display credentials
 

@@ -500,7 +500,7 @@ time steps.
    $ git checkout master
    $ git branch -D verify
 
-The outcome of this usecase can be found as a dataset on Github
+The outcome of this use case can be found as a dataset on Github
 `here <https://github.com/myyoda/demo-dataset-glmanalysis>`_.
 
 

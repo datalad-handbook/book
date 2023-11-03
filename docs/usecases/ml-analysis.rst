@@ -106,6 +106,10 @@ Next, let's create an analysis dataset.
 For a pre-structured and pre-configured starting point, the dataset can be created with the ``yoda`` and ``text2git`` :term:`run procedure`\s [#f3]_.
 These configurations create a ``code/`` directory, place some place-holding ``README`` files in appropriate places, and make sure that all text files, e.g. scripts or evaluation results, are kept in :term:`Git` to allow for easier modifications.
 
+.. index::
+   single: Windows wit; text2git not functional
+   single: Dataset procedure; text2git
+
 .. windows-wit:: Note for Windows-Users
 
    Hey there!
@@ -622,7 +626,7 @@ The analysis is adapted from the chapter :ref:`dvc`, which in turn is based on `
 
 .. rubric:: Footnotes
 
-.. [#f1] You can install the ``datalad-containers`` extension from :term:`pip` via ``pip install datalad-container``. You can find out more about extensions in general in the section :ref:`extensions_intro`, and you can more computationally reproducible analysis using ``datalad container`` in the chapter :ref:`containersrun` and the usecase :ref:`usecase_reproduce_neuroimg`.
+.. [#f1] You can install the ``datalad-containers`` extension from :term:`pip` via ``pip install datalad-container``. You can find out more about extensions in general in the section :ref:`extensions_intro`, and you can more computationally reproducible analysis using ``datalad container`` in the chapter :ref:`containersrun` and the use case :ref:`usecase_reproduce_neuroimg`.
 
 .. [#f2] Unsure how to create a :term:`virtual environment`? You can find a tutorial using :term:`pip` and the ``virtualenv`` module `in the Python docs <https://packaging.python.org/guides/installing-using-pip-and-virtual-environments>`_.
 

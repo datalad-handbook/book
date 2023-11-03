@@ -601,7 +601,7 @@ provenance record is lost:
 Nevertheless, copying files with :dlcmd:`copy-file` is easier and safer
 than moving them with standard Unix commands, especially so for annexed files.
 A more detailed introduction to :dlcmd:`copy-file` and a concrete
-usecase can be found in the online version of the handbook.
+use case can be found in the online version of the handbook.
 
 Let's clean up:
 

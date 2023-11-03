@@ -5,7 +5,7 @@ Scaling up: Managing 80TB and 15 million files from the HCP release
 
 .. index:: ! Usecase; Scaling up: 80TB and 15 million files
 
-This usecase outlines how a large data collection can be version controlled
+This use case outlines how a large data collection can be version controlled
 and published in an accessible manner with DataLad in a remote indexed
 archive (RIA) data store. Using the
 `Human Connectome Project <http://www.humanconnectomeproject.org>`_
@@ -314,7 +314,7 @@ with the store to get the HCP datasets.
 On the lowest level, store.datalad.org_
 is a directory on a publicly accessible server that holds a great number of datasets
 stored as :term:`bare git repositories`. The only important aspect of it for this
-usecase is that instead of by their names (e.g., ``100206``), datasets are stored
+use case is that instead of by their names (e.g., ``100206``), datasets are stored
 and identified via their :term:`dataset ID`.
 The :dlcmd:`clone` command can understand this layout and install
 datasets from a RIA store based on their ID.
@@ -488,7 +488,7 @@ If you are interested in learning about the :dlcmd:`copy-file`, checkout the sec
 Summary
 """""""
 
-This usecase demonstrated how it is possible to version control and distribute
+This use case demonstrated how it is possible to version control and distribute
 datasets of sizes that would otherwise be unmanageably large for version control
 systems. With the public HCP dataset available as a DataLad dataset, data access
 is simplified, data analysis that use the HCP data can link it (in precise versions)

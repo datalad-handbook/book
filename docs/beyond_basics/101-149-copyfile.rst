@@ -329,4 +329,4 @@ Although it requires some Unix-y command line magic, it can be automated for lar
 
 .. rubric:: Footnotes
 
-.. [#f1] You can read about the human connectome dataset in the usecase :ref:`usecase_HCP_dataset`.
+.. [#f1] You can read about the human connectome dataset in the use case :ref:`usecase_HCP_dataset`.

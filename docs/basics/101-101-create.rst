@@ -107,6 +107,10 @@ We can see two :term:`commit`\s in the history of the repository.
 Each of them is identified by a unique 40 character sequence, called a
 :term:`shasum`.
 
+.. index:: ! Adjusted branch; corresponding branch
+   single: Windows wit; Inspect dataset history
+   single: Git command; log
+
 .. windows-wit:: Your Git log may be more extensive - use "git log main" instead!
 
    The output of :gitcmd:`log` shown in the handbook and the output you will see in your own datasets when executing the same commands may not always match -- many times you might see commits about a "git-annex adjusted branch" in your history.

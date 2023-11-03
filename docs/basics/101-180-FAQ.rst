@@ -305,7 +305,7 @@ If you do not want to invent a description yourself, you can run
         After cloning a dataset, you can retrieve file contents by running
 
         ```
-        datalad get <path/to/directory/or/file>`
+        datalad get <path/to/directory/or/file>
         ```
 
         This command will trigger a download of the files, directories, or
@@ -340,8 +340,8 @@ If you do not want to invent a description yourself, you can run
 
         ### Find out what has been done
 
-        DataLad datasets contain their history in the ``git log``.
-        By running ``git log`` (or a tool that displays Git history) in the dataset or on
+        DataLad datasets contain their history in the `git log`.
+        By running `git log` (or a tool that displays Git history) in the dataset or on
         specific files, you can find out what has been done to the dataset or to individual files
         by whom, and when.
 
@@ -391,7 +391,7 @@ If you do not want to invent a description yourself, you can run
       subdatasets, run 'datalad get -n <path/to/subdataset>'
 
       Afterwards, you can browse the retrieved metadata to find out about
-      subdataset contents, and retrieve individual files with `datalad get`.
+      subdataset contents, and retrieve individual files with 'datalad get'.
       If you use 'datalad get <path/to/subdataset>', all contents of the
       subdataset will be downloaded at once.
 

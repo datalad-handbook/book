@@ -91,6 +91,9 @@ will write it into the script.
 
    Note that this is not identical to the one below -- it lacks a few ``\`` characters, which is a meaningful difference.
 
+.. index::
+   single: Windows wit; Hidden file name extensions
+
 .. windows-wit:: Be mindful of hidden extensions when creating files!
 
    By default, Windows does not show common file extensions when you view directory contents with a file explorer.

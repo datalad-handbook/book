@@ -29,7 +29,7 @@ as simple as possible. It elaborates on
 
 .. importantnote:: Use case target audience
 
-   This usecase is technical in nature and aimed at IT/data management
+   This use case is technical in nature and aimed at IT/data management
    personnel seeking insights into the technical implementation and
    configuration of a RIA store or into its workflows. In particular, it
    describes the RIA data storage and workflow implementation as done in INM-7,
@@ -137,7 +137,7 @@ compute cluster scale and can be viewed as complementary but independent.
 .. importantnote:: Note on the generality of the described setup
 
    Some hardware-specific implementation details are unique to the real-world
-   example this usecase is based on, and are not a requirement. In this particular
+   example this use case is based on, and are not a requirement. In this particular
    case of application, for example, a *remote* setup for a RIA store made sense:
    Parts of an old compute cluster and of the super computer at the Juelich
    Supercomputing Centre (JSC) instead of the institute's compute cluster are used
@@ -151,7 +151,7 @@ Incentives and imperatives for disk-space aware computing
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 On a high level, the layout and relationships of the relevant computational
-infrastructure in this usecase are as follows:
+infrastructure in this use case are as follows:
 Every researcher has a workstation that they can access the compute cluster with.
 On the compute cluster's head node, every user account has their own
 home directory. These are the private spaces of researchers and are referred to
@@ -256,7 +256,7 @@ RIA store workflows
 
 Setting up a RIA store and appropriate siblings is fairly easy -- it requires
 only the :dlcmd:`create-sibling-ria` command.
-However, in the institute this usecase describes, in order to spare users
+However, in the institute this use case describes, in order to spare users
 knowing about RIA stores, custom configurations are distributed via DataLad's
 run-procedures to simplify workflows further and hide the technical layers of
 the RIA setup:
@@ -286,7 +286,7 @@ users to know about dataset IDs or construct ``ria+`` URLs, superdatasets
 get a :term:`sibling` on :term:`GitLab` or :term:`GitHub` with a human readable
 name. Users can clone the superdatasets from the web hosting service, and obtain data
 via :dlcmd:`get`. A concrete example for this is described in
-the usecase :ref:`usecase_HCP_dataset`. While :dlcmd:`get` will retrieve file
+the use case :ref:`usecase_HCP_dataset`. While :dlcmd:`get` will retrieve file
 or subdataset contents from the RIA store, users will not need to bother where
 the data actually comes from.
 

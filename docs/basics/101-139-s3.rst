@@ -69,7 +69,7 @@ If you already have a small DataLad dataset to practice with, feel free to use i
 during the rest of the walkthrough. If you do not have data, no problem! As a general
 introduction, the steps below will download a small public neuroimaging dataset,
 and transform it into a DataLad dataset. We'll use the `MoAEpilot <https://www.fil.ion.ucl.ac.uk/spm/data/auditory>`_
-dataset containing anatomical and functional images from a single subject, as well as some metadata.
+dataset containing anatomical and functional images from a single brain, as well as some metadata.
 
 In the first step, we create a new directory called ``neuro-data-s3``, we download and extract the data,
 and then we move the extracted contents into our new directory:

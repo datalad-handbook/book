@@ -244,7 +244,7 @@ A few examples are:
 - Clean up unnecessary files and minimize a (or all) repository with :term:`Git`\s
   `garbage collection (gc) <https://git-scm.com/docs/git-gc>`_ command.
 
-The usecase :ref:`usecase_datastore` demonstrates the advantages of this in a
+The use case :ref:`usecase_datastore` demonstrates the advantages of this in a
 large scientific institute with central data management.
 Due to the git-annex ora-remote special remote, datasets can be exported and
 stored as archives to save disk space.
@@ -288,7 +288,7 @@ on where the RIA store (should) exists, or rather, which file transfer protocol
 .. find-out-more:: RIA stores with HTTP access
 
    Setting up RIA store with access via HTTP requires additional server-side configurations for Git.
-   `Git's http-backend documentation <https://git-scm.com/docs/git-http-backend>`_ can point you the relevant configurations for your webserver and usecase.
+   `Git's http-backend documentation <https://git-scm.com/docs/git-http-backend>`_ can point you the relevant configurations for your web server and usecase.
 
 Note that it is always required to specify an :term:`absolute path` in the URL!
 
@@ -584,7 +584,7 @@ in the findoutmore below:
 
 .. find-out-more:: On cloning datasets with subdatasets from RIA stores
 
-   The usecase :ref:`usecase_HCP_dataset`
+   The use case :ref:`usecase_HCP_dataset`
    details a RIA-store based publication of a large dataset, split into a nested
    dataset hierarchy with about 4500 subdatasets in total. But how can links to
    subdatasets work, if datasets in a RIA store are stored in a flat hierarchy,
@@ -662,7 +662,7 @@ hide the technical layers of the RIA setup. For example, custom procedures provi
 at dataset creation could automatically perform a sibling setup in a RIA store,
 and also create an associated GitLab repository with a publication dependency to
 the RIA store to ease publishing data or cloning the dataset.
-The usecase :ref:`usecase_datastore` details the setup of RIA stores in a
+The use case :ref:`usecase_datastore` details the setup of RIA stores in a
 scientific institute and demonstrates this example.
 
 To simplify repository access beyond using aliases, the datasets stored in a RIA
@@ -675,7 +675,7 @@ From a user's perspective, the RIA store would thus stay completely hidden.
 
 Standard maintenance tasks by data stewards with knowledge about RIA stores and
 access to it can be performed easily or even in an automated fashion. The
-usecase :ref:`usecase_datastore` showcases some examples of those operations.
+use case :ref:`usecase_datastore` showcases some examples of those operations.
 
 Summary
 ^^^^^^^
@@ -713,7 +713,7 @@ procedures.
 
          .. todo::
 
-            Link UKBiobank on supercomputer usecase once ready
+            Link UKBiobank on supercomputer use case once ready
 
          shows how this feature can come in handy.
 

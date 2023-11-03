@@ -13,7 +13,7 @@ data management workflow for an analysis:
 #. Upon completion, the results are published alongside the original data
    for further consumption.
 
-The data types and methods mentioned in this usecase belong to the scientific
+The data types and methods mentioned in this use case belong to the scientific
 field of neuroimaging, but the basic workflow is domain-agnostic.
 
 The Challenge
@@ -49,7 +49,7 @@ with no need for Bob to spend much time integrating the fix that Alice
 provides him with. Afterwards, Bob can execute his scripts in a way that captures
 all provenance for this results with a :dlcmd:`run` command.
 Bob can share his whole project after completion by creating a sibling
-on a webserver, and pushing all of his dataset, including the input data,
+on a web server, and pushing all of his dataset, including the input data,
 to this sibling, for everyone to access and recompute.
 
 Step-by-Step
@@ -193,7 +193,7 @@ command:
 .. index:: ! datalad command; create-sibling
 
 Finally, when Bob is ready to share his results with the world or a remote
-collaborator, he makes his dataset available by uploading them to a webserver
+collaborator, he makes his dataset available by uploading them to a web server
 via SSH. Bob does so by creating a sibling for the dataset on the server, to
 which the dataset can be published and later also updated.
 

@@ -55,7 +55,7 @@ One of the analysis components for this and most other workflows is data.
 DataLad makes it easy to "install" data as if it would be software, and the Datalad 0.13 release comes with some even more exiting features for data consumption than what DataLad can already do.
 
 For example, the human connectome project (HCP) data exists as a datalad dataset on :term:`Github` now. You can find and install it at `github.com/datalad-datasets/human-connectome-project-openaccess <https://github.com/datalad-datasets/human-connectome-project-openaccess>`_.
-If you are interested in the creation of this dataset, the usecase :ref:`usecase_hcp_dataset` will talk about the details.
+If you are interested in the creation of this dataset, the use case :ref:`usecase_hcp_dataset` will talk about the details.
 Beyond access to the full HCP data, there are also subsets of the HCP data being created and transformed into BIDS-like formats, and the newly introduced feature of RIA stores makes it possible to install these HCP data subsets in specific versions, for example BIDS formatted.
 You can read up on this new feature in the section :ref:`riastore`.
 Here is how to install the "structural preprocessed" subset of the HCP dataset that has been transformed into a bids like format from a public datalad RIA store into a directory called ``.source``:

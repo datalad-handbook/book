@@ -281,7 +281,7 @@ Beyond Basics
   related to any narrative. Readers are encouraged to read chapters or sections
   that fit their needs in whichever order they prefer.
 
-- Care should be taken to not turn content that could be a usecase into an
+- Care should be taken to not turn content that could be a use case into an
   advanced chapter.
 
 
@@ -344,7 +344,7 @@ The leading integer indicates the category of reference:
 
    1: Command references
    2: Concept references
-   3: Usecase references
+   3: Use case references
 
 The later integers are consecutively numbered in order of creation. If you want
 to create a new reference, just create a reference one integer higher than the

@@ -622,7 +622,7 @@ The analysis is adapted from the chapter :ref:`dvc`, which in turn is based on `
 
 .. rubric:: Footnotes
 
-.. [#f1] You can install the ``datalad-containers`` extension from :term:`pip` via ``pip install datalad-container``. You can find out more about extensions in general in the section :ref:`extensions_intro`, and you can more computationally reproducible analysis using ``datalad container`` in the chapter :ref:`containersrun` and the usecase :ref:`usecase_reproduce_neuroimg`.
+.. [#f1] You can install the ``datalad-containers`` extension from :term:`pip` via ``pip install datalad-container``. You can find out more about extensions in general in the section :ref:`extensions_intro`, and you can more computationally reproducible analysis using ``datalad container`` in the chapter :ref:`containersrun` and the use case :ref:`usecase_reproduce_neuroimg`.
 
 .. [#f2] Unsure how to create a :term:`virtual environment`? You can find a tutorial using :term:`pip` and the ``virtualenv`` module `in the Python docs <https://packaging.python.org/guides/installing-using-pip-and-virtual-environments>`_.
 

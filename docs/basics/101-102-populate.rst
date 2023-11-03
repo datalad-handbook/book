@@ -106,7 +106,7 @@ structure with tree:
 
    $ tree
 
-.. index:: ! datalad command; status
+.. index:: ! DataLad command; status
 
 Now what does DataLad do with this new content? One command you will use very
 often is :dlcmd:`status`.
@@ -121,7 +121,7 @@ regular status reports should become a habit in the wake of ``DataLad-101``.
 
    $ datalad status
 
-.. index:: ! datalad command; save
+.. index:: ! DataLad command; save
 
 Interesting; the ``books/`` directory is "untracked". Remember how content
 *can* be tracked *if a user wants to*?

@@ -163,7 +163,7 @@ Here is a one-liner to get this info:
 Backing-up datasets
 ^^^^^^^^^^^^^^^^^^^
 
-.. index:: ! datalad command; create-sibling
+.. index:: ! DataLad command; create-sibling
 
 In order to back-up datasets you can publish them to a
 :term:`Remote Indexed Archive (RIA) store` or to a sibling dataset. The former

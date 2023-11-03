@@ -278,10 +278,10 @@ to manage the file system in a DataLad dataset (:ref:`filesystem`).
    Maybe you are as amazed as we are about some of the ingenuity used behind the scenes.
    Even more mesmerizing things about git-annex can be found in its `documentation <https://git-annex.branchable.com/git-annex>`_.
 
+.. index:: ! broken symlink, ! symlink; broken
+
 Broken symlinks
 ^^^^^^^^^^^^^^^
-
-.. index:: ! broken symlink, ! symlink (broken)
 
 Whenever a symlink points to a non-existent target, this symlink is called
 *broken*, and opening the symlink would not work as it does not resolve. The

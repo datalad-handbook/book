@@ -1,4 +1,4 @@
-.. index:: ! datalad command; clone
+.. index:: ! DataLad command; clone
 .. _cloneprio:
 
 Prioritizing subdataset clone locations

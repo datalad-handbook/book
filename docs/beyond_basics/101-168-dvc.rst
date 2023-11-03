@@ -472,7 +472,7 @@ Currently, the dataset can thus be shared via :term:`GitHub` or similar hosting 
 
 .. find-out-more:: Really?
 
-   .. index:: ! datalad command; create-sibling-github
+   .. index:: ! DataLad command; create-sibling-github
 
    Sure.
    Let's demonstrate this.
@@ -519,7 +519,7 @@ Here's an example of pushing a dataset to a local sibling nevertheless:
 
 **Step 1: Set up the sibling**
 
-.. index:: ! datalad command; create-sibling
+.. index:: ! DataLad command; create-sibling
 
 The easiest way to share data is via a local sibling [#f7]_.
 This won't share only annexed data, but it instead will push everything, including the Git aspect of the dataset.

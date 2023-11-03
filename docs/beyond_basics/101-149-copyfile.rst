@@ -33,7 +33,7 @@ However, for a structural connectivity analysis, only eleven files per subject a
 
 In order to spare others the time and effort to install thousands of subdatasets, a one-time effort can create and publish a subsampled, single dataset of those files using the :dlcmd:`copy-file` command.
 
-.. index:: ! datalad command; copy-file
+.. index:: ! DataLad command; copy-file
 
 :dlcmd:`copy-file` is able to copy files with their availability metadata into other datasets.
 The content of the files does not need to be retrieved in order to do this.

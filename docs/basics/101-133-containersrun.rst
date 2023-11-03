@@ -119,8 +119,8 @@ Singularity (even without having Docker installed).
 Using ``datalad containers``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. index:: ! datalad command; containers-add
-.. index:: ! datalad command; containers-run
+.. index:: ! DataLad command; containers-add
+.. index:: ! DataLad command; containers-run
 
 One core feature of the ``datalad containers`` extension is that it registers
 computational containers to a dataset. This is done with the
@@ -309,8 +309,8 @@ The complete command's structure looks like this:
 
    $ datalad containers-run --name <containername> [-m ...] [--input ...] [--output ...] <COMMAND>
 
-.. index:: ! datalad command; containers-remove
-.. index:: ! datalad command; containers-list
+.. index:: ! DataLad command; containers-remove
+.. index:: ! DataLad command; containers-list
 
 .. find-out-more:: How can I list available containers or remove them?
 

@@ -1,9 +1,9 @@
 .. _nesting2:
 
+.. index:: ! DataLad dataset; nesting
+
 More on dataset nesting
 ^^^^^^^^^^^^^^^^^^^^^^^
-
-.. index:: ! nesting
 
 You may have noticed how working in the subdataset felt as if you would be
 working in an independent dataset -- there was no information or influence at

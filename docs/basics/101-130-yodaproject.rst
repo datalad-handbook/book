@@ -256,7 +256,7 @@ you use the ``cfg_yoda`` procedure to help you structure the dataset [#f1]_:
    # inside of DataLad-101
    $ datalad create -c yoda --dataset . midterm_project
 
-.. index:: ! datalad command; datalad subdatasets
+.. index:: ! DataLad command; datalad subdatasets
 
 The :dlcmd:`subdatasets` command can report on which subdatasets exist for
 ``DataLad-101``. This helps you verify that the command succeeded and the
@@ -598,7 +598,7 @@ reason why the ``README.md`` in the root of the dataset was easily modifiable.
 
 .. find-out-more:: Saving contents with Git regardless of configuration with --to-git
 
-   .. index:: ! datalad command; save --to-git
+   .. index:: ! DataLad command; save --to-git
 
    The ``yoda`` procedure in ``midterm_project`` applied a different configuration
    within ``.gitattributes`` than the ``text2git`` procedure did in ``DataLad-101``.
@@ -651,7 +651,7 @@ syllabus, this should be done via :term:`GitHub`.
    .. image:: ../artwork/src/screenshot_submodule.png
       :alt: The input dataset is linked
 
-.. index:: ! datalad command; create-sibling-github
+.. index:: ! DataLad command; create-sibling-github
 .. _publishtogithub:
 
 Publishing the dataset to GitHub
@@ -664,7 +664,7 @@ For this, you need to
 - configure this GitHub repository to be a :term:`sibling` of the ``midterm_project`` dataset,
 - and *publish* your dataset to GitHub.
 
-.. index:: ! datalad command; create-sibling-gitlab
+.. index:: ! DataLad command; create-sibling-gitlab
 
 Luckily, DataLad can make this very easy with the
 :dlcmd:`create-sibling-github`
@@ -729,7 +729,7 @@ Verify that this worked by listing the siblings of the dataset:
    :dlcmd:`push` to this sibling, your datasets history
    will be pushed there.
 
-   .. index:: ! datalad command; push
+   .. index:: ! DataLad command; push
 
 On GitHub, you will see a new, empty repository with the name
 ``midtermproject``. However, the repository does not yet contain

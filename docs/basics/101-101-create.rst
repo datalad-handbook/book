@@ -19,7 +19,7 @@ useful features.
 Because experiencing is more insightful than just reading, we will explore the
 concepts of DataLad datasets together by creating one.
 
-.. index:: ! datalad command; create
+.. index:: ! DataLad command; create
 
 Find a nice place on your computer's file system to put a dataset for ``DataLad-101``,
 and create a fresh, empty dataset with the :dlcmd:`create` command.

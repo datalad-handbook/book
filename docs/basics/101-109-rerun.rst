@@ -171,6 +171,11 @@ and another state from the dataset's history (a commit specified with
 ``-t``/``--to``). Let's do a :dlcmd:`diff` between the current state
 of the dataset and the previous commit (called "``HEAD~1``" in Git terminology [#f1]_):
 
+.. index::
+   single: Windows wit; Inspect dataset changes
+   single: DataLad command; diff
+   single: Adjusted branch; corresponding branch
+
 .. windows-wit:: please use datalad diff --from main --to HEAD~1
 
    While this example works on Unix file systems, it will not provide the same output on Windows.
@@ -255,6 +260,11 @@ into existence. And we can interact with and use this provenance information wit
 other tools than from the machine-readable ``run record``.
 For example, to find out who (or what) created or modified a file,
 give the file path to :gitcmd:`log` (prefixed by ``--``):
+
+.. index::
+   single: Windows wit; Inspect dataset history
+   single: Git command; log
+   single: Adjusted branch; corresponding branch
 
 .. windows-wit:: use "git log main -- recordings/podcasts.tsv"
 

@@ -139,6 +139,10 @@ chapters in this handbook will demonstrate how useful this information can be.
 
 Here is the repository structure:
 
+.. index::
+   single: Windows wit; Display directory tree
+   single: Shell command; tree
+
 .. windows-wit:: use tree
 
    The Windows version of tree requires different parametrization, so please run ``tree`` instead of ``tree -d``.

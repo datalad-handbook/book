@@ -349,7 +349,7 @@ If so, please take a look into the Windows Wit below.
 
    .. index::
       pair: checkout; Git command
-      pair: check out a particular version; with Git
+      pair: check out particular version; with Git
 
    Whenever you need to work with files from your datasets under Windows, you should *unlock* with ``datalad unlock``.
    This operation copies the file from the annex back to its original location, and thus removes the symlink (and also returns write :term:`permissions` to the file).

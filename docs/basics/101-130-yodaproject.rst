@@ -184,7 +184,7 @@ You can either use this provided input dataset, or find out how to create an
 independent dataset from scratch in a :ref:`dedicated Findoutmore <fom-iris>`.
 
 .. index::
-   pair: create and publish dataset as a dependency; with DataLad
+   pair: create and publish dataset as dependency; with DataLad
 .. find-out-more:: Creating an independent input dataset
    :name: fom-iris
 
@@ -449,7 +449,7 @@ point with the ``--version-tag`` option of :dlcmd:`save`.
 .. index::
    pair: tag; Git concept
    pair: show; Git command
-   pair: rerun a command; with DataLad
+   pair: rerun command; with DataLad
 .. find-out-more:: What is a tag?
 
    :term:`tag`\s are markers that you can attach to commits in your dataset history.
@@ -822,7 +822,7 @@ dataset and check out your data science project -- and even better: they can
 reproduce your data science project easily from scratch (take a look into the :ref:`Findoutmore <fom-midtermclone>` to see how)!
 
 .. index::
-   pair: work on a published YODA dataset; with DataLad
+   pair: work on published YODA dataset; with DataLad
 .. find-out-more:: On the looks and feels of this published dataset
    :name: fom-midtermclone
    :float:

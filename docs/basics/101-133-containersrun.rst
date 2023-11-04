@@ -144,7 +144,7 @@ If you're curious how to create a Singularity Image, the hidden
 section below has some pointers:
 
 .. index::
-   pair: build a container image; with Singularity
+   pair: build container image; with Singularity
 .. find-out-more:: How to make a Singularity Image
 
    Singularity containers are build from Image files, often
@@ -184,7 +184,7 @@ name to give to the container, and a path or url to a container Image:
    $ datalad containers-add midterm-software --url shub://adswa/resources:2
 
 .. index::
-   pair: add a container image to a dataset; with DataLad
+   pair: add container image to dataset; with DataLad
 .. find-out-more:: How do I add an Image from Dockerhub, Amazon ECR, or a local container?
 
    Should the Image you want to use lie on Dockerhub, specify the ``--url``

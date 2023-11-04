@@ -32,7 +32,7 @@ or storage of datasets [#f1]_, or a regular clone.
    pair: GitHub; dataset hosting
    pair: GitLab; dataset hosting
    pair: RIA; dataset hosting
-   pair: create siblings; with DataLad
+   pair: create sibling; with DataLad
 .. find-out-more:: all of the ways to configure siblings
 
    - Add an existing repository as a sibling with the :dlcmd:`siblings`

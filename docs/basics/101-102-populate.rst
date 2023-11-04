@@ -150,7 +150,7 @@ If you ever forget to specify a message, or made a typo, not all is lost. A
 :find-out-more:`explains how to amend a saved state <fom-amend-save>`.
 
 .. index::
-   pair: amend a commit message; with Git
+   pair: amend commit message; with Git
 .. find-out-more:: "Oh no! I forgot the -m option for datalad-save!"
    :name: fom-amend-save
    :float:

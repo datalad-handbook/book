@@ -146,7 +146,7 @@ This command will list all known siblings of the dataset. You can see it
 in the resulting list with the name "roommate" you have given to it.
 
 .. index::
-   pair: remove a sibling; with DataLad
+   pair: remove sibling; with DataLad
 .. find-out-more:: What if I mistyped the name or want to remove the sibling?
 
    You can remove a sibling using :dlcmd:`siblings remove -s roommate`

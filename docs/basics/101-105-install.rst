@@ -99,6 +99,8 @@ also recorded where this dataset came from, thus capturing its *origin* as
 :term:`provenance`. Even though this is not obvious at this point in time, later
 chapters in this handbook will demonstrate how useful this information can be.
 
+.. index::
+   pair: clone; DataLad concept
 .. gitusernote:: Clone internals
 
    The :dlcmd:`clone` command uses :gitcmd:`clone`.
@@ -303,6 +305,8 @@ DataLad summarizes the outcome of the execution of ``get`` in the end and inform
 that the download of one file was ``notneeded`` and the retrieval of the other files was ``ok``.
 
 
+.. index::
+   pair: get; DataLad concept
 .. gitusernote:: Get internals
 
    :dlcmd:`get` uses :gitannexcmd:`get` underneath the hood.

@@ -403,6 +403,8 @@ Save this note.
 
    $ datalad save -m "add note about cloning from paths and recursive datalad get"
 
+.. index::
+   pair: clone; DataLad concept
 .. gitusernote:: Get a clone
 
    A dataset that is installed from an existing source, e.g., a path or URL,

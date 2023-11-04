@@ -128,6 +128,8 @@ a Git-user and know about branches and merging you can read the
 ``Note for Git-users`` below. However, a thorough explanation
 and demonstration will be in the next section.
 
+.. index::
+   pair: update; DataLad concept
 .. gitusernote:: Update internals
 
    :dlcmd:`update` is the DataLad equivalent of a :gitcmd:`fetch`,

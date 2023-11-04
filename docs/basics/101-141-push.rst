@@ -14,6 +14,8 @@ The general overview
 It is capable of publishing all dataset content, i.e., files stored in :term:`Git`,
 and files stored with :term:`git-annex`, to a known dataset :term:`sibling`.
 
+.. index::
+   pair: push; DataLad concept
 .. gitusernote:: Push internals
 
    The :dlcmd:`push` uses ``git push``, and ``git annex copy`` under

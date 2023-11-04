@@ -89,6 +89,8 @@ No, luckily, it's simpler and less convoluted. What we have to
 do is to *register* a DataLad :term:`sibling`: A reference to our room mate's
 dataset in our own, original dataset.
 
+.. index::
+   pair: sibling; DataLad concept
 .. gitusernote:: Remote siblings
 
    Git repositories can configure clones of a dataset as *remotes* in

@@ -733,6 +733,8 @@ Verify that this worked by listing the siblings of the dataset:
    .: here(+) [git]
    .: github(-) [https://github.com/adswa/midtermproject.git (git)]
 
+.. index::
+   pair: sibling (GitHub); DataLad concept
 .. gitusernote:: Create-sibling-github internals
 
    Creating a sibling on GitHub will create a new empty repository under the
@@ -793,6 +795,8 @@ an additional :gitcmd:`push`  with the ``--tags`` option is required:
 
    $ git push github --tags
 
+.. index::
+   pair: push (tag); with DataLad
 .. gitusernote:: Pushing tags
 
     Note that this is a :gitcmd:`push`, not :dlcmd:`push`.
@@ -904,6 +908,8 @@ reproduce your data science project easily from scratch (take a look into the :r
     .. image:: ../artwork/src/reproduced.svg
        :width: 50%
 
+.. index::
+   pair: push; DataLad concept
 .. gitusernote:: Push internals
 
    The :dlcmd:`push` uses ``git push``, and ``git annex copy`` under

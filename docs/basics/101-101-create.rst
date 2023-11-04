@@ -1,4 +1,5 @@
-.. index:: ! DataLad command; create
+.. index::
+   pair: create; DataLad command
    pair: create dataset; with DataLad
 .. _createDS:
 
@@ -89,7 +90,8 @@ mistakes are forever. We will see many examples of this later in the book,
 and such information is stored in what we will refer
 to as the *history* of a dataset.
 
-.. index:: ! Git command; log
+.. index::
+   pair: log; Git command
    pair: exit pager; in a terminal
    pair: show history; with Git
 
@@ -113,7 +115,9 @@ We can see two :term:`commit`\s in the history of the repository.
 Each of them is identified by a unique 40 character sequence, called a
 :term:`shasum`.
 
-.. index:: Git command; log, ! adjusted mode; corresponding branch
+.. index::
+   pair: log; Git command
+   pair: corresponding branch; adjusted mode
    pair: show history; on Windows
 .. windows-wit:: Your Git log may be more extensive - use "git log main" instead!
 

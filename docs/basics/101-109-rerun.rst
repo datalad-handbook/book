@@ -1,4 +1,5 @@
-.. index:: ! DataLad command; rerun
+.. index::
+   pair: rerun; DataLad command
 .. _run2:
 
 DataLad, re-run!
@@ -157,7 +158,8 @@ we can see that a new :dlcmd:`run` was recorded. This action is
 committed by DataLad under the original commit message of the ``run``
 command, and looks just like the previous :dlcmd:`run` commit.
 
-.. index:: ! DataLad command; diff
+.. index::
+   pair: diff; DataLad command
 
 Two cool tools that go beyond the :gitcmd:`log`
 are the :dlcmd:`diff` and :gitcmd:`diff` commands.
@@ -172,8 +174,8 @@ of the dataset and the previous commit (called "``HEAD~1``" in Git terminology [
 
 .. index::
    pair: show dataset modifications; on Windows with DataLad
-   single: DataLad command; diff
-   single: adjusted mode; corresponding branch
+   pair: diff; DataLad command
+   pair: corresponding branch; adjusted mode
 .. windows-wit:: please use datalad diff --from main --to HEAD~1
 
    While this example works on Unix file systems, it will not provide the same output on Windows.
@@ -189,7 +191,8 @@ of the dataset and the previous commit (called "``HEAD~1``" in Git terminology [
 
    The ``--from`` argument specifies a different starting point for the comparison - the ``main`` or :term:`master` :term:`branch`, which would be the starting point on most Unix-based systems.
 
-.. index:: ! Git command; diff
+.. index::
+   pair: diff; Git command
    pair: show dataset modifications; with DataLad
 
 .. runrecord:: _examples/DL-101-109-108
@@ -200,7 +203,8 @@ of the dataset and the previous commit (called "``HEAD~1``" in Git terminology [
 
    $ datalad diff --to HEAD~1
 
-.. index:: ! Git command; diff
+.. index::
+   pair: diff; Git command
    pair: show dataset modifications; with Git
 
 This indeed shows the output file as "modified". However, we do not know
@@ -267,8 +271,8 @@ give the file path to :gitcmd:`log` (prefixed by ``--``):
 
 .. index::
    pair: show history for particular paths; on Windows with Git
-   single: Git command; log
-   single: adjusted mode; corresponding branch
+   pair: log; Git command
+   pair: corresponding branch; adjusted mode
 .. windows-wit:: use "git log main -- recordings/podcasts.tsv"
 
    A previous Windows Wit already advised to append ``main`` or ``master``, the common "default :term:`branch`", to any command that starts with ``git log``.

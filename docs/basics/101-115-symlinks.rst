@@ -20,7 +20,7 @@ We'll take a look together, using the ``books/`` directory as an example:
 
 .. index::
    pair: no symlinks; on Windows
-   single: terminal command; tree
+   pair: tree; terminal command
 .. windows-wit:: This will look different to you
 
    First of all, the Windows ``tree`` command lists only directories by default, unless you parametrize it with ``/f``.
@@ -122,7 +122,9 @@ tree is also known as the *annex* of a dataset.
    The most recent 400x400px version exists twice (in the annex and as a copy), and the 450x450px copy exists once in the annex.
    If you would reset your dataset to the state when we created the 450x450px version, this file would instead exist twice.
 
-   .. index:: git-annex command; unused, git-annex command; dropunused
+   .. index::
+      pair: unused; git-annex command
+      pair: dropunused; git-annex command
 
    **Can I at least get unused or irrelevant data out of the dataset?**
    Yes, either with convenience commands (e.g., ``git annex unused`` followed by ``git annex dropunused``), or by explicitly using ``drop`` on files (or their past versions) that you don't want to keep anymore.
@@ -332,7 +334,7 @@ If so, please take a look into the Windows Wit below.
 .. index::
    pair: access WSL2 symlinked files; on Windows
    single: WSL2; symlink access
-   single: Git command; log
+   pair: log; Git command
 .. windows-wit:: Accessing symlinked files from your Windows system
 
    If you are using WSL2 you have access to a Linux kernel and POSIX filesystem, including symlink support.
@@ -345,7 +347,8 @@ If so, please take a look into the Windows Wit below.
    So while WSL2 can expose your dataset filled with symlinked files to Windows, your Windows tools can fail to open them.
    How can this be fixed?
 
-   .. index:: Git command; checkout
+   .. index::
+      pair: checkout; Git command
       pair: check out a particular version; with Git
 
    Whenever you need to work with files from your datasets under Windows, you should *unlock* with ``datalad unlock``.

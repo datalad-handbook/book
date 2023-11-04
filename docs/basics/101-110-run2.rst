@@ -239,7 +239,8 @@ In the attempt to resize the image to 450x450 you tried to overwrite
 ``recordings/salt_logo_small.jpg``, a file that was given to DataLad
 and thus protected by git-annex.
 
-.. index:: ! DataLad command; unlock
+.. index::
+   pair: unlock; DataLad command
 
 There is a DataLad command that takes care of unlocking file content,
 and thus making locked files modifiable again: :dlcmd:`unlock`.
@@ -335,8 +336,8 @@ flag and see their magic, let's crop the second logo, ``logo_interval.jpg``:
 
 .. index::
    pair: files are unlocked by default; on Windows
-   single: DataLad command; run
-   single: adjusted mode; unlocked files
+   pair: run; DataLad command
+   pair: unlocked files; adjusted mode
 .. windows-wit:: Wait, would I need to specify outputs, too?
 
    Given that nothing in your dataset is locked, is there a *need* for you to bother with creating ``--output`` flags?

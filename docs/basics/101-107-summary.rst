@@ -48,7 +48,8 @@ and making simple modifications *locally*.
 Furthermore, we have discovered the basics of installing a published DataLad dataset,
 and experienced the concept of modular nesting datasets.
 
-.. index:: ! DataLad command; clone
+.. index::
+   pair: clone; DataLad command
 
 * A published dataset can be installed with the :dlcmd:`clone` command:
 

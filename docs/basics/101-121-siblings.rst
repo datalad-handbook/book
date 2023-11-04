@@ -97,7 +97,8 @@ dataset in our own, original dataset.
 
 Let's see how this is done.
 
-.. index:: ! DataLad command; siblings
+.. index::
+   pair: siblings; DataLad command
 
 First of all, navigate back into the original dataset.
 In the original dataset, "add" a "sibling" by using
@@ -228,7 +229,7 @@ the former for a different lecture:
 
 .. index:: adjusted mode; corresponding branch
    pair: show dataset modifications for particular paths; on Windows with DataLad
-   single: DataLad command; diff
+   pair: diff; DataLad command
 .. windows-wit:: Please use datalad diff --from main --to remotes/roommate/main
 
    Please use the following command instead:
@@ -253,7 +254,7 @@ that there is a difference in ``notes.txt``! Let's ask
 
 .. index:: adjusted mode; corresponding branch
    pair: show dataset modifications; on Windows with Git
-   single: DataLad command; diff
+   pair: diff; DataLad command
 .. windows-wit:: Please use git diff main..remotes/roommate/main
 
    Please use the following command instead:

@@ -166,7 +166,8 @@ Additions are marked with a ``+``, and deletions would be shown with a leading `
 From the dataset's history, we can therefore also find out *how* the text file
 evolved over time. That's quite neat, isn't it?
 
-.. index:: ! Git command; log
+.. index::
+   pair: log; Git command
    pair: get help; with Git
    pair: filter history; with Git
 .. find-out-more:: git log has many more useful options

@@ -260,7 +260,8 @@ you use the ``cfg_yoda`` procedure to help you structure the dataset [#f1]_:
    # inside of DataLad-101
    $ datalad create -c yoda --dataset . midterm_project
 
-.. index:: ! DataLad command; datalad subdatasets
+.. index::
+   pair: subdatasets; DataLad command
 
 The :dlcmd:`subdatasets` command can report on which subdatasets exist for
 ``DataLad-101``. This helps you verify that the command succeeded and the
@@ -603,7 +604,8 @@ Note that one feature of the YODA procedure was that it configured certain files
 root of the dataset) to be saved in Git instead of git-annex. This was the
 reason why the ``README.md`` in the root of the dataset was easily modifiable.
 
-.. index:: ! DataLad command; save --to-git
+.. index::
+   pair: save; DataLad command
    pair: save file content directly in Git (no annex); with DataLad
 .. find-out-more:: Saving contents with Git regardless of configuration with --to-git
 
@@ -660,7 +662,8 @@ syllabus, this should be done via :term:`GitHub`.
    .. image:: ../artwork/src/screenshot_submodule.png
       :alt: The input dataset is linked
 
-.. index:: ! DataLad command; create-sibling-github
+.. index::
+   pair: create-sibling-github; DataLad command
 .. _publishtogithub:
 
 Publishing the dataset to GitHub
@@ -673,7 +676,8 @@ For this, you need to
 - configure this GitHub repository to be a :term:`sibling` of the ``midterm_project`` dataset,
 - and *publish* your dataset to GitHub.
 
-.. index:: ! DataLad command; create-sibling-gitlab
+.. index::
+   pair: create-sibling-gitlab; DataLad command
 
 Luckily, DataLad can make this very easy with the
 :dlcmd:`create-sibling-github`
@@ -736,7 +740,8 @@ Verify that this worked by listing the siblings of the dataset:
    :dlcmd:`push` to this sibling, your datasets history
    will be pushed there.
 
-   .. index:: ! DataLad command; push
+   .. index::
+      pair: push; DataLad command
 
 On GitHub, you will see a new, empty repository with the name
 ``midtermproject``. However, the repository does not yet contain

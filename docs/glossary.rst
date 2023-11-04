@@ -14,7 +14,8 @@ Glossary
       Examples: ``/home/user/Pictures/xkcd-webcomics/530.png``, ``C:\Users\user\Pictures\xkcd-webcomics\530.png``. See also :term:`relative path`.
 
    adjusted branch
-      .. index:: ! adjusted mode; adjusted branch
+      .. index::
+         pair: adjusted branch; adjusted mode
 
       git-annex concept: a special :term:`branch` in a dataset.
       Adjusted branches refer to a different, existing branch that is not adjusted.
@@ -261,7 +262,8 @@ Glossary
       using Git (and thus also DataLad project). See `GitHub.com <https://github.com>`_.
 
    Gitk
-      .. index:: ! Git command; gitk
+      .. index::
+         pair: gitk; Git command
 
       A repository browser that displays changes in a repository or a selected set of commits. It
       visualizes a commit graph, information related to each commit, and the files in the trees
@@ -350,7 +352,8 @@ Glossary
       was created, the shutter speed, and other data.
 
    nano
-      .. index:: terminal command; nano
+      .. index::
+         pair: nano; terminal command
 
       A common text-editor.
 
@@ -383,7 +386,8 @@ Glossary
         needs to get such permission.
 
    pip
-      .. index:: terminal command; pip
+      .. index::
+         pair: pip; terminal command
 
       A Python package manager. Short for "Pip installs Python". ``pip install <package name>``
       searches the Python package index `PyPi <https://pypi.org>`_ for a
@@ -464,7 +468,8 @@ Glossary
       in the commit message.
 
    sed
-      .. index:: terminal command; sed
+      .. index::
+         pair: sed; terminal command
 
       A Unix stream editor to parse and transform text. Find out more
       `here <https://en.wikipedia.org/wiki/Sed>`__ and in its
@@ -607,7 +612,8 @@ Glossary
       search -- by running ``datalad clone ///``.
 
    tig
-      .. index:: terminal command; tig
+      .. index::
+         pair: tig; terminal command
 
       A text-mode interface for git that allows you to easily browse through your commit history.
       It is not part of git and needs to be installed. Find out more `here <https://jonas.github.io/tig>`_.
@@ -637,7 +643,8 @@ Glossary
       Processes and tools to keep track of changes to documents or other collections of information.
 
    vim
-      .. index:: terminal command; vim
+      .. index::
+         pair: vim; terminal command
 
       A text editor, often the default in UNIX operating systems. If you are not used to using it,
       but ended up in it accidentally: press ``ESC`` ``:`` ``q`` ``!`` ``Enter`` to exit without saving.

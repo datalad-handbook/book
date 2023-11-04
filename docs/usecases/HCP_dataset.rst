@@ -146,7 +146,8 @@ detail each of these.
 Dataset creation with ``datalad addurls``
 """""""""""""""""""""""""""""""""""""""""
 
-.. index:: ! DataLad command; addurls
+.. index::
+   pair: addurls; DataLad command
 
 The :dlcmd:`addurls` command
 allows you to create (and update) potentially nested DataLad datasets from a list

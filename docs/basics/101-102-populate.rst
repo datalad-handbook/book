@@ -16,7 +16,8 @@ Let's first create a directory to save books for additional reading in.
 
    $ mkdir books
 
-.. index:: !terminal command; tree
+.. index::
+   pair: tree; terminal command
 
 Let's take a look at the current directory structure with the tree command [#f1]_:
 
@@ -106,7 +107,8 @@ structure with tree:
 
    $ tree
 
-.. index:: ! DataLad command; status
+.. index::
+   pair: status; DataLad command
 
 Now what does DataLad do with this new content? One command you will use very
 often is :dlcmd:`status`.
@@ -121,7 +123,8 @@ regular status reports should become a habit in the wake of ``DataLad-101``.
 
    $ datalad status
 
-.. index:: ! DataLad command; save
+.. index::
+   pair: save; DataLad command
 
 Interesting; the ``books/`` directory is "untracked". Remember how content
 *can* be tracked *if a user wants to*?
@@ -174,7 +177,8 @@ Large content is tracked in an *annex* that is automatically
 created and handled by DataLad. Whether text files or larger files change,
 all of these changes can be written to your DataLad dataset's history.
 
-.. index:: Git command; log
+.. index::
+   pair: log; Git command
    pair: show last commit; with Git
 
 Let's see how the saved content shows up in the history of the dataset with :gitcmd:`log`.

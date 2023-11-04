@@ -1,11 +1,10 @@
 .. index:: ! 3-001
+.. index:: ! Usecase; Remote Indexed Archive (RIA) store
 .. _3-001:
 .. _usecase_datastore:
 
 Building a scalable data storage for scientific computing
 ---------------------------------------------------------
-
-.. index:: ! Usecase; Remote Indexed Archive (RIA) store
 
 Research can require enormous amounts of data. Such data needs to be accessed by
 multiple people at the same time, and is used across a diverse range of
@@ -217,7 +216,8 @@ requiring expert or domain knowledge about the data. At its core, it is a flat,
 file-system based repository representation of any number of datasets, limited
 only by disk-space constrains of the machine it lies on.
 
-.. index:: ! DataLad command; create-sibling-ria
+.. index::
+   pair: create-sibling-ria;  DataLad command
 
 Put simply, a RIA store is a dataset storage location that allows for access to
 and collaboration on DataLad datasets.

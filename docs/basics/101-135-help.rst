@@ -45,7 +45,8 @@ To find out which version you are using, run
 
    $ datalad --version
 
-.. index:: ! DataLad command; wtf
+.. index::
+   pair: wtf; DataLad command
 
 If you want a comprehensive overview of your full setup,
 :dlcmd:`wtf` [#f1]_ is the command to turn to. Running this command will

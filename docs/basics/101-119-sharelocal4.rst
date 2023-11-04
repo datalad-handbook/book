@@ -50,7 +50,8 @@ it can query the original dataset whether any changes
 happened since the last time it checked, and if so, retrieve and
 integrate them.
 
-.. index:: ! DataLad command; update
+.. index::
+   pair: update; DataLad command
 
 This is done with the :dlcmd:`update --how merge`
 command.

@@ -53,7 +53,8 @@ This point in time in DataLad-101 is a convenient moment to dive a bit deeper
 into the functions of the :dlcmd:`status` command. If you are
 interested in this, checkout the :ref:`dedicated Findoutmore <fom-status>`.
 
-.. index:: DataLad command; status
+.. index::
+   pair: status; DataLad command
    pair: dataset state inspection; with DataLad
 .. find-out-more:: More on datalad status
    :name: fom-status

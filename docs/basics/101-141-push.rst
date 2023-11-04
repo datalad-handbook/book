@@ -25,13 +25,15 @@ This, for instance, can be a :term:`GitHub`, :term:`GitLab`, or :term:`Gin`
 repository, but it can also be a Remote Indexed Archive (RIA) store for backup
 or storage of datasets [#f1]_, or a regular clone.
 
-.. index:: dataset hosting; GitHub, dataset hosting; GitLab, dataset hosting; RIA
+.. index::
+   pair: create-sibling-github; DataLad command
+   pair: create-sibling-gitlab; DataLad command
+   pair: create-sibling-ria; DataLad command
+   pair: GitHub; dataset hosting
+   pair: GitLab; dataset hosting
+   pair: RIA; dataset hosting
    pair: create siblings; with DataLad
 .. find-out-more:: all of the ways to configure siblings
-
-   .. index:: ! DataLad command; create-sibling-github
-   .. index:: ! DataLad command; create-sibling-gitlab
-   .. index:: ! DataLad command; create-sibling-ria
 
    - Add an existing repository as a sibling with the :dlcmd:`siblings`
      command. Here are common examples:

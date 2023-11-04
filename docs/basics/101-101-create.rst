@@ -117,7 +117,7 @@ Each of them is identified by a unique 40 character sequence, called a
 
 .. index::
    pair: log; Git command
-   pair: corresponding branch; adjusted mode
+   pair: corresponding branch; in adjusted mode
    pair: show history; on Windows
 .. windows-wit:: Your Git log may be more extensive - use "git log main" instead!
 

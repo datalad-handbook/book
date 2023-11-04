@@ -87,7 +87,8 @@ creates a symlink with the original file name, pointing to the new location.
 This process is often referred to as a file being *annexed*, and the object
 tree is also known as the *annex* of a dataset.
 
-.. index:: ! adjusted mode; elevated storage demand
+.. index::
+   pair: elevated storage demand; in adjusted mode
    pair: no symlinks; on Windows
 .. windows-wit:: What happens on Windows?
    :name: woa_objecttree

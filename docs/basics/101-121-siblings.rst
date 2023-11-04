@@ -227,7 +227,8 @@ do a ``diff`` between the branch (your drawer) and the dataset as it
 is currently in front of you (your desk). We will do the latter, and leave
 the former for a different lecture:
 
-.. index:: adjusted mode; corresponding branch
+.. index::
+   pair: corresponding branch; in adjusted mode
    pair: show dataset modifications for particular paths; on Windows with DataLad
    pair: diff; DataLad command
 .. windows-wit:: Please use datalad diff --from main --to remotes/roommate/main
@@ -252,7 +253,8 @@ This shows us that there is an additional file, and it also shows us
 that there is a difference in ``notes.txt``! Let's ask
 :gitcmd:`diff` to show us what the differences in detail (note that it is a shortened excerpt, cut in the middle to reduce its length):
 
-.. index:: adjusted mode; corresponding branch
+.. index::
+   pair: corresponding branch; in adjusted mode
    pair: show dataset modifications; on Windows with Git
    pair: diff; DataLad command
 .. windows-wit:: Please use git diff main..remotes/roommate/main

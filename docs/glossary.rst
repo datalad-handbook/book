@@ -15,7 +15,7 @@ Glossary
 
    adjusted branch
       .. index::
-         pair: adjusted branch; adjusted mode
+         pair: adjusted branch; in adjusted mode
 
       git-annex concept: a special :term:`branch` in a dataset.
       Adjusted branches refer to a different, existing branch that is not adjusted.

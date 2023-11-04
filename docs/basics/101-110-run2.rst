@@ -163,7 +163,7 @@ If outputs already exist...
 
 .. index::
    pair: files are unlocked by default; on Windows
-   single: adjusted mode; unlocked files
+   pair: unlocked files; in adjusted mode
 .. windows-wit:: Good news! Here is something that is easier on Windows
 
    The section below describes something that is very confusing for people that have just started with DataLad: Some files in a dataset can't be modified, and if one tries, it results in a "permission denied" error.
@@ -337,7 +337,7 @@ flag and see their magic, let's crop the second logo, ``logo_interval.jpg``:
 .. index::
    pair: files are unlocked by default; on Windows
    pair: run; DataLad command
-   pair: unlocked files; adjusted mode
+   pair: unlocked files; in adjusted mode
 .. windows-wit:: Wait, would I need to specify outputs, too?
 
    Given that nothing in your dataset is locked, is there a *need* for you to bother with creating ``--output`` flags?

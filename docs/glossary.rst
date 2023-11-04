@@ -179,6 +179,9 @@ Glossary
        Find out more on `Wikipedia <https://en.wikipedia.org/wiki/Docker_(software)>`__.
 
    Docker-Hub
+       .. index::
+          pair: hub; Docker
+
        `Docker Hub <https://hub.docker.com>`_ is a library for :term:`Docker` :term:`container image`\s.
        Among other things, it hosts and builds Docker container images.
        You can can *pull* :term:`container image`\s built from a publicly shared :term:`container recipe` from it.

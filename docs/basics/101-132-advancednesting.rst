@@ -1,4 +1,5 @@
-.. index:: ! DataLad dataset; nesting
+.. index::
+   pair: dataset nesting; DataLad concept
 .. _nesting2:
 
 More on dataset nesting

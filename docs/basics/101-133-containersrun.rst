@@ -41,10 +41,13 @@ This section will give a quick overview on what containers are and
 demonstrate how ``datalad-containers`` helps to capture full provenance of an
 analysis by linking containers to datasets and analyses.
 
+.. index::
+   pair: recipe; software container concept
+   pair: image; software container concept
+   pair: container; software container concept
+
 Containers
 ^^^^^^^^^^
-
-.. index:: ! software container, ! container
 
 To put it simple, computational containers are cut-down virtual machines that
 allow you to package all software libraries and their dependencies (all in the
@@ -105,7 +108,8 @@ Singularity (even without having Docker installed).
    In order to use Singularity containers you have to
    `install <https://docs.sylabs.io/guides/3.4/user-guide/installation.html>`_ the software singularity.
 
-.. index:: Installation; Docker
+.. index::
+   pair: installation; Docker
    pair: install Docker; on Windows
 .. find-out-more:: Docker installation Windows
 
@@ -185,7 +189,8 @@ name to give to the container, and a path or url to a container Image:
 
 .. index::
    pair: add container image to dataset; with DataLad
-.. find-out-more:: How do I add an Image from Dockerhub, Amazon ECR, or a local container?
+   pair: hub; Docker
+.. find-out-more:: How do I add an Image from Docker-Hub, Amazon ECR, or a local container?
 
    Should the Image you want to use lie on Dockerhub, specify the ``--url``
    option prefixed with ``docker://`` or ``dhub://`` instead of ``shub://``:

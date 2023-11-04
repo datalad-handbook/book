@@ -1,5 +1,5 @@
 .. index:: ! DataLad command; create
-   pair: create a dataset; with DataLad
+   pair: create dataset; with DataLad
 .. _createDS:
 
 Create a dataset
@@ -143,6 +143,8 @@ While these commits were produced and described by DataLad,
 in most other cases, you will have to create the commit and
 an informative commit message yourself.
 
+.. index::
+   pair: create dataset; DataLad concept
 .. gitusernote:: Create internals
 
    :dlcmd:`create` uses :gitcmd:`init` and :gitannexcmd:`init`. Therefore,

@@ -236,7 +236,9 @@ try this to get a feel for it.
 The COMMIT in the command can either be a hash or a reference
 with the HEAD pointer.
 
-.. index:: Git concept; branch, Git concept; HEAD
+.. index::
+   pair: branch; Git concept
+   pair: HEAD; Git concept
 .. find-out-more:: Git terminology: branches and HEADs?
 
    A Git repository (and thus any DataLad dataset) is built up as a tree of

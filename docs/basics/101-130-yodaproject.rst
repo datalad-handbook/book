@@ -445,7 +445,9 @@ point with the ``--version-tag`` option of :dlcmd:`save`.
      --version-tag ready4analysis \
      code/script.py
 
-.. index:: Git concept; tag, Git command; show
+.. index::
+   pair: tag; Git concept
+   pair: show; Git command
    pair: rerun a command; with DataLad
 .. find-out-more:: What is a tag?
 

@@ -252,7 +252,7 @@ especially between directories, a ``datalad save`` is
 the best option to turn to.
 
 .. index::
-   pair: git-annex concept; content pointer file
+   pair: content pointer file; git-annex concept
 .. find-out-more:: Why a move between directories is actually a content change
 
    Let's see how this shows up in the dataset history:
@@ -505,7 +505,7 @@ file. Let's save it:
 That's it.
 
 .. index::
-   pair: git-annex concept; content pointer file
+   pair: content pointer file; git-annex concept
 .. find-out-more:: Symlinks!
 
    If you have read the additional content in the section

@@ -24,12 +24,14 @@ Glossary
       Adjusted branches primarily exist as the default branch on so-called :term:`crippled filesystem`\s such as Windows.
 
    annex
-      .. index:: ! git-annex concept; annex
+      .. index::
+         pair: annex; git-annex concept
 
       git-annex concept: a different word for :term:`object-tree`.
 
    annex UUID
-      .. index:: ! git-annex concept; location identifier
+      .. index::
+         pair: location identifier; git-annex concept
 
       A :term:`UUID` assigned to an annex of each individual :term:`clone` of a dataset repository.
       :term:`git-annex` uses this UUID to track file content availability information.
@@ -39,7 +41,8 @@ Glossary
       but other clones of the same dataset each have their own unique annex UUIDs.
 
    bare Git repositories
-       .. index:: ! Git concept; bare repository
+       .. index::
+          pair: bare repository; Git concept
 
        A bare Git repository is a repository that contains the contents of the ``.git``
        directory of regular DataLad datasets or Git repositories, but no worktree
@@ -63,7 +66,8 @@ Glossary
       to :term:`GitHub` or :term:`GitLab`. See `bitbucket.org <https://bitbucket.org>`_.
 
    branch
-      .. index:: ! Git concept; branch
+      .. index::
+         pair: branch; Git concept
 
       Git concept: A lightweight, independent history streak of your dataset. Branches can contain less,
       more, or changed files compared to other branches, and one can :term:`merge` the changes
@@ -76,19 +80,22 @@ Glossary
       An alternative term to :term:`shasum`.
 
    clone
-      .. index:: Git concept; clone
+      .. index::
+         pair: clone; Git concept
 
       Git concept: A copy of a :term:`Git` repository. In Git-terminology, all "installed" datasets
       are clones.
 
    commit
-      .. index:: ! Git concept; commit
+      .. index::
+         pair: commit; Git concept
 
       Git concept: Adding selected changes of a file or dataset to the repository, and thus making these changes
       part of the revision history of the repository. Should always have an informative :term:`commit message`.
 
    commit message
-      .. index:: ! Git concept; commit message
+      .. index::
+         pair: commit message; Git concept
 
       Git concept: A concise summary of changes you should attach to a :dlcmd:`save` command. This summary will
       show up in your :term:`DataLad dataset` history.
@@ -114,18 +121,21 @@ Glossary
       They are a static filesystem inside a file, populated with the software specified in the recipe, and some initial configuration.
 
    crippled filesystem
-      .. index:: ! git-annex concept; crippled filesystem
+      .. index::
+         pair: crippled filesystem; git-annex concept
 
       git-annex concept: A file system that does not allow making symlinks or removing write :term:`permissions` from files. Examples for this are `FAT <https://en.wikipedia.org/wiki/Design_of_the_FAT_file_system>`_ (likely used by your USB sticks) or `NTFS <https://en.wikipedia.org/wiki/NTFS>`_ (used on Windows systems of the last three decades).
 
    DataLad dataset
-      .. index:: ! DataLad concept; dataset
+      .. index::
+         pair: dataset; DataLad concept
 
       A DataLad dataset is a Git repository that may or may not have a data annex that is used to
       manage data referenced in a dataset. In practice, most DataLad datasets will come with an annex.
 
    DataLad extension
-      .. index:: ! DataLad concept; extension
+      .. index::
+         pair: extension; DataLad concept
 
       Python packages that equip DataLad with specialized commands. The online version of the handbook has an entire chapter that
       gives an overview of available extensions contains demonstrations.
@@ -134,17 +144,20 @@ Glossary
       A :term:`DataLad extension` that provides DataLad with a graphical user interface. Find out more in its Documentation: `docs.datalad.org/projects/gooey <https://docs.datalad.org/projects/gooey>`_
 
    DataLad subdataset
-      .. index:: ! DataLad concept; subdataset
+      .. index::
+         pair: subdataset; DataLad concept
 
       A DataLad dataset contained within a different DataLad dataset (the parent or :term:`DataLad superdataset`).
 
    DataLad superdataset
-      .. index:: ! DataLad concept; superdataset
+      .. index::
+         pair: superdataset; DataLad concept
 
       A DataLad dataset that contains one or more levels of other DataLad datasets (:term:`DataLad subdataset`).
 
    dataset ID
-      .. index:: ! DataLad concept; dataset identifier
+      .. index::
+         pair: dataset identifier; DataLad concept
 
       A :term:`UUID` that identifies a dataset as a unit -- across its entire history and flavors.
       This ID is stored in a dataset's own configuration file (``<dataset root>/.datalad/config``)
@@ -175,7 +188,7 @@ Glossary
       it was assigned to, and only that one.
 
    extractor
-      .. index:: ! DataLad concept; metadata extractor
+      .. index:: metadata extractor; DataLad concept
 
       DataLad concept: A metadata extractor of the :term:`DataLad extension` ``datalad-metalad``
       enables DataLad to extract and aggregate special types of metadata.
@@ -187,21 +200,23 @@ Glossary
       You can find out a bit more on environment variable :ref:`in this Findoutmore <fom-envvar>`.
 
    ephemeral clone
-      .. index:: ! DataLad concept; clone (ephemeral)
+      .. index:: clone (ephemeral); DataLad concept
 
       dataset clones that share the annex with the dataset they were cloned from, without :term:`git-annex` being aware of it.
       On a technical level, this is achieved via symlinks.
       They can be created with the ``--reckless ephemeral`` option of :dlcmd:`clone`.
 
    force-push
-      .. index:: ! Git concept; forced push
+      .. index::
+         pair: push (forced); Git concept
 
       Git concept; Enforcing a :gitcmd:`push` command with the ``--force``
       option. Find out more in the
       `documentation of git push <https://git-scm.com/docs/git-push#Documentation/git-push.txt---force>`_.
 
    fork
-      .. index:: ! Git concept; fork
+      .. index::
+         pair: fork; Git concept
 
       Git concept on repository hosting sites (GitHub, GitLab, Gin, ...);
       `A fork is a copy of a repository on a web-based Git repository hosting site <https://docs.github.com/en/get-started/quickstart/fork-a-repo>`__.
@@ -222,7 +237,8 @@ Glossary
       of large files. It allows managing files with :term:`Git`, without checking the file content into Git.
 
    git-annex branch
-      .. index:: ! git-annex concept; git-annex branch
+      .. index::
+         pair: git-annex branch; git-annex concept
 
       This :term:`branch` exists in your dataset if the dataset contains
       an :term:`annex`.  The git-annex branch is completely unconnected to any
@@ -233,7 +249,7 @@ Glossary
       it unless you absolutely know what you are doing.
 
    Git config file
-      .. index:: ! Git concept; configuration file
+      .. index:: configuration file; Git concept
 
       A file in which :term:`Git` stores configuration option. Such a file usually exists on
       the system, user, and repository (dataset) level.
@@ -289,12 +305,14 @@ Glossary
       Automatic protocol creation of software processes, for example in order to gain insights into errors. To learn about logging to troubleshoot problems or remove or increase the amount of information printed to your terminal during the execution of a DataLad command, take a look at the section :ref:`logging`.
 
    log level
-      .. index:: DataLad concept; log level
+      .. index::
+         pair: log level; DataLad concept
 
       Adjusts the amount of verbosity during :term:`logging`.
 
    main
-      .. index:: Git concept; main branch
+      .. index::
+         pair: main branch; Git concept
 
       Git concept: For the longest time, ``master`` was the name of the default :term:`branch` in a dataset. More recently, the name ``main`` is used. If you are not sure, you can find out if your default branch is ``main`` or ``master`` by running ``git branch``.
 
@@ -306,18 +324,21 @@ Glossary
       Abbreviation of "manual page". For most Unix programs, the command ``man <program-name>`` will open a :term:`pager` with this commands documentation. If you have installed DataLad as a Debian package, ``man`` will allow you to open DataLad manpages in your terminal.
 
    master
-      .. index:: Git concept; master branch
+      .. index::
+         pair: master branch; Git concept
 
       Git concept: For the longest time, ``master`` was the name of the default :term:`branch` in a dataset. More recently, the name ``main`` is used. If you are not sure, you can find out if your default branch is ``main`` or ``master`` by running ``git branch``.
 
    merge
-      .. index:: Git concept; merge
+      .. index::
+         pair: merge; Git concept
 
       Git concept: to integrate the changes of one :term:`branch`/:term:`sibling`/ ... into
       a different branch.
 
    merge request
-      .. index:: Git concept; merge request
+      .. index::
+         pair: merge request; Git concept
 
       See :term:`pull request`.
 
@@ -334,7 +355,7 @@ Glossary
       A common text-editor.
 
    object-tree
-      .. index:: git-annex concept; object tree
+      .. index:: object tree; git-annex concept
 
       git-annex concept: The place where :term:`git-annex` stores available file contents. Files that are annexed get
       a :term:`symlink` added to :term:`Git` that points to the file content. A different word for :term:`annex`.
@@ -379,7 +400,8 @@ Glossary
       and allows reproducibility.
 
    publication dependency
-      .. index:: ! DataLad concept; publication dependency
+      .. index::
+         pair: publication dependency; DataLad concept
 
       DataLad concept: An existing :term:`sibling` is linked to a new sibling
       so that the existing sibling is always published prior to the new sibling.
@@ -392,12 +414,14 @@ Glossary
 
 
    pull request
-       .. index:: ! Git concept; pull request
+       .. index::
+          pair: pull request; Git concept
 
       Also known as :term:`merge request`. Contributions to Git repositories/DataLad datasets can be proposed to be :term:`merge`\d into the dataset by "requesting a pull/update" from the dataset maintainer to obtain a proposed change from a dataset clone or sibling. It is implemented as a feature in repository hosting sites such as :term:`GitHub`, :term:`Gin`, or :term:`GitLab`.
 
    ref
-       .. index:: ! Git concept; ref
+       .. index::
+          pair: ref; Git concept
 
       Git concept. A "Git Reference", typically shortened to "ref", is a text file containing a :term:`commit` :term:`shasum` as a human-readable reference to a specific version of your dataset or Git repository. Thanks to refs, Git users do not need to memorize or type shasums when switching between dataset states, and can use simple names instead: For example, a :term:`branch` such as ``main`` is a ref, and a :term:`tag` is one, too. In both cases, those refs are text files that contain the shasum of the commit at the tip of a branch, or the shasum of the commit you added the tag to. Refs are organized in the directory ``.git/refs`` and Git commands and configurations can use refs to perform updating operations or determine their behavior. More details can be found at `at git-scm.com <https://git-scm.com/book/en/v2/Git-Internals-Git-References>`_
 
@@ -408,20 +432,24 @@ Glossary
       Examples on Unix and Windows: ``../Pictures/xkcd-webcomics/530.png``, ``..\Pictures\xkcd-webcomics\530.png``. See also :term:`absolute path`.
 
    remote
-       .. index:: ! Git concept; remote
+       .. index::
+          pair: remote; Git concept
 
       Git-terminology: A repository (and thus also :term:`DataLad dataset`) that a given repository
       tracks. A :term:`sibling` is DataLad's equivalent to a remote.
 
    Remote Indexed Archive (RIA) store
-      .. index:: ! DataLad concept; Remote Indexed Archive, ! DataLad concept; RIA store
+      .. index::
+         pair: Remote Indexed Archive; DataLad concept
+         pair: RIA store; DataLad concept
 
       A Remote Indexed Archive (RIA) Store is a flexible and scalable dataset storage
       solution, useful for collaborative, back-up, or storage workflows. Read more
       about RIA stores in the section :ref:`riastore`.
 
    run procedure
-      .. index:: ! DataLad concept; run procedure
+      .. index::
+         pair: run procedure; DataLad concept
 
       DataLad concept: An executable (such as a script) that can be called with the
       :dlcmd:`run-procedure` command and performs modifications or routine
@@ -429,7 +457,8 @@ Glossary
       its extensions. Find out more in section :ref:`procedures`
 
    run record
-      .. index:: ! DataLad concept; run record
+      .. index::
+         pair: run record; DataLad concept
 
       A command summary of a :dlcmd:`run` command, generated by DataLad and included
       in the commit message.
@@ -462,7 +491,8 @@ Glossary
       external machines such as HPC systems).
 
    squash
-      .. index:: ! Git concept; squash
+      .. index::
+         pair: squash; Git concept
 
       Git concept; Squashing is a Git operation which rewrites history by taking
       a range of commits and squash them into a single commit. For more information
@@ -548,7 +578,8 @@ Glossary
        By sharing software environments with containers, such as :term:`Docker` or :term:`Singularity` containers, others (and also yourself) have easy access to software without the need to modify the software environment of the machine the container runs on.
 
    submodule
-       .. index:: ! Git concept; submodule
+       .. index::
+          pair: submodule; Git concept
 
       Git concept: a submodule is a Git repository embedded inside another Git repository. A
       :term:`DataLad subdataset` is known as a submodule in the :term:`Git config file`.
@@ -561,7 +592,8 @@ Glossary
       pressing the ``TAB`` key.
 
    tag
-      .. index:: ! Git concept; tag
+      .. index::
+         pair: tag; Git concept
 
       Git concept: A mark on a commit that can help to identify commits. You can attach
       a tag with a name of your choice to any commit by supplying the ``--version-tag <TAG-NAME>``

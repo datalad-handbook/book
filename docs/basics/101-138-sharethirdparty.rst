@@ -107,7 +107,8 @@ But while anything that is managed by Git is accessible in repository hosting se
 When you want to publish a dataset to a Git repository hosting service to allow others to easily find and clone it, but you also want others to be able to retrieve annexed files in this dataset via :dlcmd:`get`, annexed contents need to be pushed to additional storage hosting services.
 The hosting services can be all kinds of private, institutional, or commercial services, and their location will be registered in the dataset under the concept of a :term:`special remote`.
 
-.. index:: git-annex concept; special remote
+.. index::
+   pair: special remote; git-annex concept
 .. find-out-more:: What is a special remote
 
    A special-remote is an extension to Git’s concept of remotes, and can

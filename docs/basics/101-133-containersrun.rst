@@ -211,7 +211,8 @@ the ``midterm_project`` dataset, and recorded basic information on the
 container under its name "midterm-software" in the dataset's configuration at
 ``.datalad/config``. You can find out more about them in a dedicated :ref:`find-out-more on these additional configurations <fom-containerconfig>`.
 
-.. index:: DataLad concept; container image registration
+.. index::
+   pair: DataLad concept; container image registration
 .. find-out-more:: What changes in .datalad/config when one adds a container?
    :name: fom-containerconfig
    :float:

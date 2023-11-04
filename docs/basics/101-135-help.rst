@@ -154,7 +154,8 @@ When you are *consciously* logging, you simply set the log-level to the desired 
 Likewise, adjusting the log-level also works the other way around, and lets you *decrease* the amount of information you receive in your terminal.
 
 
-.. index:: DataLad concept; log level
+.. index::
+   pair: log level; DataLad concept
 .. find-out-more:: Log levels
 
    Log levels provide the means to adjust how much information you want, and are described in human readable terms, ordered by the severity of the failures or problems reported.

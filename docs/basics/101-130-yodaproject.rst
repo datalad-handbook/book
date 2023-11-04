@@ -142,10 +142,13 @@ a Python API for DataLad's functionality that you can read about in :ref:`a Find
         "type": "file"}
 
 
+.. index::
+   pair: use DataLad API; with Matlab
+   pair: use DataLad API; with R
 .. importantnote:: Use DataLad in languages other than Python
 
    While there is a dedicated API for Python, DataLad's functions can of course
-   also be used with other programming languages, such as Matlab, via standard
+   also be used with other programming languages, such as Matlab, or R, via standard
    system calls.
 
    Even if you do not know or like Python, you can just copy-paste the code
@@ -160,6 +163,8 @@ of the flowers in centimeters. It is often used in introductory data science
 courses for statistical classification techniques in machine learning, and
 widely available -- a perfect dataset for your midterm project!
 
+.. index::
+   pair: reproducible paper; with DataLad
 .. importantnote:: Turn data analysis into dynamically generated documents
 
    Beyond the contents of this section, we have transformed the example analysis also into a template to write a reproducible paper.
@@ -689,6 +694,8 @@ The command takes a repository name and GitHub authentication credentials
 (either in the command line call with options ``github-login <TOKEN>``, with an *oauth* `token <https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens>`_ stored in the Git
 configuration, or interactively).
 
+.. index::
+   pair: GitHub token; credential
 .. importantnote:: Generate a GitHub token
 
    GitHub `deprecated user-password authentication <https://developer.github.com/changes/2020-02-14-deprecating-password-auth>`_ and instead supports authentication via personal access token.
@@ -751,6 +758,8 @@ any of your dataset's history or files. This requires *publishing* the current
 state of the dataset to this :term:`sibling` with the :dlcmd:`push`
 command.
 
+.. index::
+   pair: push; DataLad concept
 .. importantnote:: Learn how to push "on the job"
 
     Publishing is one of the remaining big concepts that this handbook tries to

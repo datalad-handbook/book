@@ -190,6 +190,9 @@ DataLad in the editor)!
    But be careful not to delete any lines in the above editor view --
    **An interactive rebase can be dangerous, and if you remove a line, this commit will be lost!**
 
+.. index::
+   pair: stop content tracking; with Git
+
 Untracking accidentally saved contents (tracked in Git)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -317,6 +320,9 @@ Finally, let's check how the history looks afterwards:
    $ git log -2
 
 Wow! You have rewritten history [#f4]_!
+
+.. index::
+   pair: stop content tracking; with git-annex
 
 Untracking accidentally saved contents (stored in git-annex)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

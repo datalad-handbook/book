@@ -200,6 +200,8 @@ publishing to GitHub dependent on the ``dropbox-for-friends`` sibling
 (that has a remote data annex), so that annexed contents are published
 there first.
 
+.. index::
+   pair: publication dependency; DataLad concept
 .. importantnote:: Publication dependencies are strictly local configuration
 
    Note that the publication dependency is only established for your own dataset,

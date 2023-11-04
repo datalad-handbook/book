@@ -44,11 +44,11 @@ You should copy the contents of your public key file into the field labeled
 "My private work station". Afterwards, you are done!
 
 
-Publishing your dataset to GIN
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
 .. index::
    pair: create-sibling-gin; DataLad command
+
+Publishing your dataset to GIN
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 As outlined in the section :ref:`share_hostingservice`, there are two ways in which you can publish your dataset to Gin.
 Either by 1) creating a new, empty repository on GIN via the web interface, or 2) via the :dlcmd:`create-sibling-gin` command.

@@ -122,12 +122,12 @@ Singularity (even without having Docker installed).
    If it reports an error that asks "Is the docker daemon running?" give it a few more minutes to let Docker Desktop start it.
    If it can't find the docker command, something went wrong during installation.
 
-Using ``datalad containers``
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
 .. index::
    pair: containers-add; DataLad command
    pair: containers-run; DataLad command
+
+Using ``datalad containers``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 One core feature of the ``datalad containers`` extension is that it registers
 computational containers to a dataset. This is done with the

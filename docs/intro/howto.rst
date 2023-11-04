@@ -1,10 +1,9 @@
+.. index:: ! terminal, ! shell, ! command Line
 .. _howto:
 
 ****************
 The command line
 ****************
-
-.. index:: ! terminal, ! shell, ! command Line
 
 This chapter aims at providing novices with general basics about the shell, common Unix
 commands and their Windows equivalent, and some general file system facts.
@@ -329,7 +328,7 @@ To determine what shell you're in, run the following:
 
 .. index:: ! tab completion
 
-Tab Completion
+Tab completion
 ==============
 
 One of the best features ever invented is tab completion. Imagine your favorite animal sitting

@@ -1,9 +1,8 @@
+.. index:: ! procedures, run-procedures
 .. _procedures:
 
 Configurations to go
 --------------------
-
-.. index:: ! procedures, run-procedures
 
 The past two sections should have given you a comprehensive
 overview on the different configuration options the tools

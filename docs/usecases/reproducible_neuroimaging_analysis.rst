@@ -1,9 +1,8 @@
+.. index:: ! Usecase; Reproducible Neuroimaging
 .. _usecase_reproduce_neuroimg:
 
 An automatically and computationally reproducible neuroimaging analysis from scratch
 ------------------------------------------------------------------------------------
-
-.. index:: ! Usecase; Reproducible Neuroimaging
 
 This use case sketches the basics of a portable analysis that can be
 automatically computationally reproduced, starting from the

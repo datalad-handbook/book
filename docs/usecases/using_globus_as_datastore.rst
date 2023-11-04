@@ -1,9 +1,8 @@
+.. index:: ! Usecase; Using Globus as data store
 .. _usecase_using_globus_as_datastore:
 
 Using Globus as a data store for the Canadian Open Neuroscience Portal
 ----------------------------------------------------------------------
-
-.. index:: ! Usecase; Using Globus as data store
 
 This use case shows how the `Canadian Open Neuroscience Portal (CONP) <https://conp.ca>`_
 disseminates data as DataLad datasets using the `Globus <https://www.globus.org>`_

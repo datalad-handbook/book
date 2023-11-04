@@ -1,9 +1,8 @@
+.. index:: ! Usecase; Machine Learning Analysis
 .. _usecase_ML:
 
 DataLad for reproducible machine-learning analyses
 --------------------------------------------------
-
-.. index:: ! Usecase; Machine Learning Analysis
 
 This use case demonstrates an automatically and computationally reproducible analyses in the context of a machine learning (ML) project.
 It demonstrates on an example image classification analysis project how one can

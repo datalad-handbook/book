@@ -42,7 +42,8 @@ was surprisingly captivating, so you're actually looking forward to today.
 you did, already before the course started: The *global*
 Git configuration." the lecturer says.
 
-.. index:: ! Git command; config
+.. index::
+   pair: config; Git command
 
 At one point in time, you likely followed instructions such as
 in :ref:`install` and configured your
@@ -195,6 +196,8 @@ a value, one can configure Git, git-annex, and DataLad.
 of Git, depending on the scope (local, global, system-wide)
 specified in the command.
 
+.. index::
+   pair: unset configuration; with Git
 .. find-out-more:: If things go wrong during Git config
 
    If something goes wrong during the :gitcmd:`config` command,
@@ -242,6 +245,7 @@ to de-mystify the :gitcmd:`config` command and the configuration files.
 Nevertheless, it might be helpful to get an overview about the meaning of the
 remaining sections in that file, and the :ref:`that dissects this config file further <fom_gitconfig>`  can give you a glimpse of this.
 
+.. index:: dataset configuration
 .. find-out-more:: Dissecting a Git config file further
    :name: fom_gitconfig
    :float:

@@ -81,7 +81,8 @@ home directory. Furthermore, let's for now disregard anything about
 :term:`permissions`. In a real-world example you likely would not be able to read and write
 to a different user's directories, but we will talk about permissions later.
 
-.. index:: ! DataLad command; clone
+.. index::
+   pair: clone; DataLad command
 
 After creation, navigate into ``mock_user`` and install the dataset ``DataLad-101``.
 To do this, use :dlcmd:`clone`, and provide a path to your original
@@ -134,7 +135,8 @@ object tree. To reassure your room mate that everything is fine you
 quickly explain to him the concept of a symlink and the :term:`object-tree`
 of :term:`git-annex`.
 
-.. index:: ! DataLad command; clone
+.. index::
+   pair: clone; DataLad command
 
 "But why does the PDF not open when I try to open it?" he repeats.
 True, these files cannot be opened. This mimics our experience when
@@ -170,6 +172,9 @@ that original content?
 This information comes from git-annex. Before getting the next PDF,
 let's query git-annex where its content is stored:
 
+.. index::
+   pair: whereis; git-annex command
+   pair: show file content availability; with git-annex
 .. runrecord:: _examples/DL-101-116-105
    :language: console
    :workdir: dl-101/mock_user/DataLad-101
@@ -184,6 +189,8 @@ recognize a path to the dataset on your computer, prefixed with the user
 and hostname of your computer. "This", you exclaim, excited about your own realization,
 "is my dataset's location I'm sharing it from!"
 
+.. index::
+   pair: set description for dataset location; with DataLad
 .. find-out-more:: What is this location, and what if I provided a description?
 
    Back in the very first section of the Basics, :ref:`createDS`, a hidden
@@ -396,6 +403,8 @@ Save this note.
 
    $ datalad save -m "add note about cloning from paths and recursive datalad get"
 
+.. index::
+   pair: clone; DataLad concept
 .. gitusernote:: Get a clone
 
    A dataset that is installed from an existing source, e.g., a path or URL,

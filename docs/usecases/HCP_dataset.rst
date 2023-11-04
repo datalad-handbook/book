@@ -1,9 +1,8 @@
+.. index:: ! Usecase; Scaling up: 80TB and 15 million files
 .. _usecase_HCP_dataset:
 
 Scaling up: Managing 80TB and 15 million files from the HCP release
 -------------------------------------------------------------------
-
-.. index:: ! Usecase; Scaling up: 80TB and 15 million files
 
 This use case outlines how a large data collection can be version controlled
 and published in an accessible manner with DataLad in a remote indexed
@@ -38,10 +37,10 @@ without circumventing or breaching the data providers terms:
 #. The :dlcmd:`copy-file` can be used to subsample special-purpose datasets
    for faster access.
 
+.. index:: ! Human Connectome Project (HCP)
+
 The Challenge
 ^^^^^^^^^^^^^
-
-.. index:: ! Human Connectome Project (HCP)
 
 The `Human Connectome Project <http://www.humanconnectomeproject.org>`_ aims
 to provide an unparalleled compilation of neural data through a customized
@@ -143,10 +142,11 @@ Building and publishing a DataLad dataset with HCP data consists of several step
 an access point to all files in the HCP data release. The upcoming subsections
 detail each of these.
 
+.. index::
+   pair: addurls; DataLad command
+
 Dataset creation with ``datalad addurls``
 """""""""""""""""""""""""""""""""""""""""
-
-.. index:: ! DataLad command; addurls
 
 The :dlcmd:`addurls` command
 allows you to create (and update) potentially nested DataLad datasets from a list
@@ -295,10 +295,10 @@ hidden section below.
    ran over the Christmas break and finished before everyone went back to work.
    Getting 15 million files into datasets? Check!
 
+.. index:: Remote Indexed Archive (RIA) store
+
 Using a Remote Indexed Archive Store for dataset hosting
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-.. index:: Remote Indexed Archive (RIA) store
 
 All datasets were built on a scientific compute cluster. In this location, however,
 datasets would only be accessible to users with an account on this system.

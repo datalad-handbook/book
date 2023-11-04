@@ -89,6 +89,8 @@ No, luckily, it's simpler and less convoluted. What we have to
 do is to *register* a DataLad :term:`sibling`: A reference to our room mate's
 dataset in our own, original dataset.
 
+.. index::
+   pair: sibling; DataLad concept
 .. gitusernote:: Remote siblings
 
    Git repositories can configure clones of a dataset as *remotes* in
@@ -97,7 +99,8 @@ dataset in our own, original dataset.
 
 Let's see how this is done.
 
-.. index:: ! DataLad command; siblings
+.. index::
+   pair: siblings; DataLad command
 
 First of all, navigate back into the original dataset.
 In the original dataset, "add" a "sibling" by using
@@ -144,6 +147,8 @@ is now known to your own dataset as "roommate"
 This command will list all known siblings of the dataset. You can see it
 in the resulting list with the name "roommate" you have given to it.
 
+.. index::
+   pair: remove sibling; with DataLad
 .. find-out-more:: What if I mistyped the name or want to remove the sibling?
 
    You can remove a sibling using :dlcmd:`siblings remove -s roommate`
@@ -224,10 +229,10 @@ do a ``diff`` between the branch (your drawer) and the dataset as it
 is currently in front of you (your desk). We will do the latter, and leave
 the former for a different lecture:
 
-.. index:: Adjusted branch; corresponding branch
-   single: Windows wit; Inspect dataset changes
-   single: DataLad command; diff
-
+.. index::
+   pair: corresponding branch; in adjusted mode
+   pair: show dataset modifications for particular paths; on Windows with DataLad
+   pair: diff; DataLad command
 .. windows-wit:: Please use datalad diff --from main --to remotes/roommate/main
 
    Please use the following command instead:
@@ -250,10 +255,10 @@ This shows us that there is an additional file, and it also shows us
 that there is a difference in ``notes.txt``! Let's ask
 :gitcmd:`diff` to show us what the differences in detail (note that it is a shortened excerpt, cut in the middle to reduce its length):
 
-.. index:: Adjusted branch; corresponding branch
-   single: Windows wit; Inspect dataset changes
-   single: DataLad command; diff
-
+.. index::
+   pair: corresponding branch; in adjusted mode
+   pair: show dataset modifications; on Windows with Git
+   pair: diff; DataLad command
 .. windows-wit:: Please use git diff main..remotes/roommate/main
 
    Please use the following command instead:

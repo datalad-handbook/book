@@ -1,4 +1,6 @@
-.. index:: ! DataLad command; clone
+.. index::
+   pair: clone; DataLad command
+   pair: clone dataset; with DataLad
 .. _installds:
 
 Install datasets
@@ -55,8 +57,6 @@ called recordings.
    $ mkdir recordings
 
 
-.. index:: ! DataLad command; clone
-
 The command that can be used to obtain a dataset is :dlcmd:`clone`,
 but we often refer to the process of cloning a Dataset as *installing*.
 Let's install the longnow podcasts in this new directory.
@@ -99,12 +99,16 @@ also recorded where this dataset came from, thus capturing its *origin* as
 :term:`provenance`. Even though this is not obvious at this point in time, later
 chapters in this handbook will demonstrate how useful this information can be.
 
+.. index::
+   pair: clone; DataLad concept
 .. gitusernote:: Clone internals
 
    The :dlcmd:`clone` command uses :gitcmd:`clone`.
    A dataset that is installed from an existing source, e.g., a path or URL,
    is the DataLad equivalent of a *clone* in Git.
 
+.. index::
+   pair: clone into another dataset; with DataLad
 .. find-out-more:: Do I have to install from the root of datasets?
 
    No. Instead of from the *root* of the ``DataLad-101`` dataset, you could have also
@@ -140,9 +144,8 @@ chapters in this handbook will demonstrate how useful this information can be.
 Here is the repository structure:
 
 .. index::
-   single: Windows wit; Display directory tree
-   single: Shell command; tree
-
+   pair: tree; terminal command
+   pair: display directory tree; on Windows
 .. windows-wit:: use tree
 
    The Windows version of tree requires different parametrization, so please run ``tree`` instead of ``tree -d``.
@@ -238,7 +241,8 @@ hard drive has much space left...
 But you nevertheless are curious on how to actually listen to one of these ``.mp3``\s now.
 So how does one actually "get" the files?
 
-.. index:: ! DataLad command; get
+.. index::
+   pair: get; DataLad command
 
 The command to retrieve file content is :dlcmd:`get`.
 You can specify one or more specific files, or ``get`` all of the dataset by
@@ -301,10 +305,14 @@ DataLad summarizes the outcome of the execution of ``get`` in the end and inform
 that the download of one file was ``notneeded`` and the retrieval of the other files was ``ok``.
 
 
+.. index::
+   pair: get; DataLad concept
 .. gitusernote:: Get internals
 
    :dlcmd:`get` uses :gitannexcmd:`get` underneath the hood.
 
+.. index::
+   pair: drop files; with DataLad
 
 Keep whatever you like
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -315,7 +323,8 @@ of file contents in dataset, too?", they ask. "Yes", the lecturer responds,
 "you can remove file contents by using :dlcmd:`drop`. This is
 really helpful to save disk space for data you can easily re-obtain, for example".
 
-.. index:: DataLad command; drop
+.. index::
+   pair: drop; DataLad command
 
 The :dlcmd:`drop` command will remove
 file contents completely from your dataset.
@@ -377,6 +386,10 @@ You have now experienced how easy it is to (re-)obtain shared data with DataLad.
 But beyond sharing only the *data* in the dataset, when sharing or installing
 a DataLad dataset, all copies also include the dataset's *history*.
 
+.. index::
+   pair: log; Git command
+   pair: show history (reverse); with Git
+
 For example, we can find out who created the dataset in the first place
 (the output shows an excerpt of ``git log --reverse``, which displays the
 history from first to most recent commit):
@@ -420,6 +433,8 @@ modification.
    EOT
    $ datalad save -m "Add note on datalad clone"
 
+.. index::
+   pair: placeholder files; on Mac
 .. importantnote:: Empty files can be confusing
 
   Listing files directly after the installation of a dataset will

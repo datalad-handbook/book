@@ -57,9 +57,8 @@ To resize one image to 400x400 px, the command would thus be
 ``convert -resize 400x400 path/to/file.jpg path/to/newfilename.jpg``.
 
 .. index::
-   single: Windows wit; Install ImageMagick
+   pair: install ImageMagick; on Windows
    single: Installation; ImageMagick
-
 .. windows-wit:: Tool installation
 
    `ImageMagick <https://imagemagick.org/index.php>`_ is not installed on Windows systems by default.
@@ -146,6 +145,8 @@ that :dlcmd:`get` will only retrieve content if
 it is not yet present, all input already downloaded will not be downloaded again -- so
 specifying inputs even though they are already present will not do any harm.
 
+.. index::
+   pair: path globbing; with DataLad run
 .. find-out-more:: What if there are several inputs?
 
    Often, a command needs several inputs. In principle, every input (which could be files, directories, or subdatasets) gets its own ``-i``/``--input``
@@ -161,9 +162,8 @@ If outputs already exist...
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. index::
-   single: Windows wit; Files are unlocked by default
-   single: Adjusted branch; unlocked files
-
+   pair: files are unlocked by default; on Windows
+   pair: unlocked files; in adjusted mode
 .. windows-wit:: Good news! Here is something that is easier on Windows
 
    The section below describes something that is very confusing for people that have just started with DataLad: Some files in a dataset can't be modified, and if one tries, it results in a "permission denied" error.
@@ -239,16 +239,16 @@ In the attempt to resize the image to 450x450 you tried to overwrite
 ``recordings/salt_logo_small.jpg``, a file that was given to DataLad
 and thus protected by git-annex.
 
-.. index:: ! DataLad command; unlock
+.. index::
+   pair: unlock; DataLad command
 
 There is a DataLad command that takes care of unlocking file content,
 and thus making locked files modifiable again: :dlcmd:`unlock`.
 Let us check out what it does:
 
 .. index::
-   single: Windows wit; Files are unlocked by default
-   single: Adjusted branch; unlocked files
-
+   pair: files are unlocked by default; on Windows
+   single: adjusted branch; unlocked files
 .. windows-wit:: What happens if I run this on Windows?
 
    Nothing. All of the files in your dataset are always unlocked, and actually *can not* be locked at all.
@@ -316,6 +316,8 @@ command execution. Therefore, whenever the output of a :dlcmd:`run` command alre
 exists and is tracked, it should be specified as an argument in
 the ``-o``/``--output`` option.
 
+.. index::
+   pair: path globbing; with DataLad run
 .. find-out-more:: But what if I have a lot of outputs?
 
    The use case here is simplistic -- a single file gets modified.
@@ -333,10 +335,9 @@ In order to execute :dlcmd:`run` with both the ``-i``/``--input`` and ``-o``/``-
 flag and see their magic, let's crop the second logo, ``logo_interval.jpg``:
 
 .. index::
-   single: Windows wit; Files are unlocked by default
-   single: DataLad command; run
-   single: Adjusted branch; unlocked files
-
+   pair: files are unlocked by default; on Windows
+   pair: run; DataLad command
+   pair: unlocked files; in adjusted mode
 .. windows-wit:: Wait, would I need to specify outputs, too?
 
    Given that nothing in your dataset is locked, is there a *need* for you to bother with creating ``--output`` flags?
@@ -446,6 +447,8 @@ the placeholder ``{outputs}`` will expand to the path given as ``--output``.
 This means instead of writing the full paths in the command, you can simply reuse
 the ``--input`` and ``--output`` specification done before.
 
+.. index::
+   pair: multiple command inputs; with DataLad run
 .. find-out-more:: What if I have multiple inputs or outputs?
 
    If multiple values are specified, e.g., as in
@@ -491,6 +494,8 @@ the ``--input`` and ``--output`` specification done before.
    can be accessed with an integer index, e.g., ``{inputs[0]}`` for the very first
    input.
 
+.. index::
+   pair: commands with curly brackets; with DataLad run
 .. find-out-more:: ... wait, what if I need a curly bracket in my datalad run call?
 
    If your command call involves a ``{`` or ``}`` character, you will need to escape

@@ -119,6 +119,8 @@ Try running the :gitcmd:`commit --amend` command right now and give
 the commit a new commit message (you can just delete the one created by
 DataLad in the editor)!
 
+.. index::
+   pair: change historical commit messages; with Git
 .. find-out-more:: Changing the commit messages of not-the-most-recent commits
    :name: fom-rebase1
    :float:
@@ -188,6 +190,9 @@ DataLad in the editor)!
    But be careful not to delete any lines in the above editor view --
    **An interactive rebase can be dangerous, and if you remove a line, this commit will be lost!**
 
+.. index::
+   pair: stop content tracking; with Git
+
 Untracking accidentally saved contents (tracked in Git)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -234,6 +239,9 @@ try this to get a feel for it.
 The COMMIT in the command can either be a hash or a reference
 with the HEAD pointer.
 
+.. index::
+   pair: branch; Git concept
+   pair: HEAD; Git concept
 .. find-out-more:: Git terminology: branches and HEADs?
 
    A Git repository (and thus any DataLad dataset) is built up as a tree of
@@ -312,6 +320,9 @@ Finally, let's check how the history looks afterwards:
    $ git log -2
 
 Wow! You have rewritten history [#f4]_!
+
+.. index::
+   pair: stop content tracking; with git-annex
 
 Untracking accidentally saved contents (stored in git-annex)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -636,6 +647,8 @@ The command looks like this:
 where ``SHASUM`` specifies the commit hash of the modification that should
 be reverted.
 
+.. index::
+   pair: revert multiple commit; with Git
 .. find-out-more:: Reverting more than a single commit
 
    You can also specify a range of commits like this:

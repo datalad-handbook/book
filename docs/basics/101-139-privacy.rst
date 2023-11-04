@@ -23,6 +23,8 @@ However, it is highly important to realize that while annexed file's *contents* 
 If private information such as a medical patients non-anonymized ID or other potentially identifying information becomes a part of the file name, this information is exposed in the Git history of the dataset.
 Keep in mind that this applies even if you renamed the file.
 
+.. index::
+   pair: remove sensitive information; with Git
 .. find-out-more:: Help! I accidentally saved sensitive information to Git!
 
 	The only lasting way to remove contents from the dataset history completely is to substantially rewrite the dataset's history via tools such as ``git-filter-repo`` or ``git filter-branch``, two very dangerous and potentially destructive operations.

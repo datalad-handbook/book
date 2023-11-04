@@ -24,6 +24,8 @@ to explain.
 .. figure:: ../artwork/src/teacher.svg
    :width: 50%
 
+.. index:: ! dataset procedure; text2git
+
 Do you remember that we created the ``DataLad-101`` dataset with a
 specific configuration template? It was the ``-c text2git`` option we
 provided in the beginning of :ref:`createDS`. It is because of this configuration
@@ -82,6 +84,9 @@ and thus keeps it safe. :dlcmd:`run` commands mitigate any technical
 complexity of this completely if ``-o/--output`` is specified properly, and
 :dlcmd:`unlock` commands can be used to unlock content "by hand" if
 modifications are performed outside of a :dlcmd:`run`.
+
+.. index::
+   pair: adjusted mode; git-annex concept
 
 But there comes the second, tricky part: There are ways to get rid of locking and
 unlocking within git-annex, using so-called :term:`adjusted branch`\es.

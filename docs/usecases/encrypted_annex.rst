@@ -1,9 +1,8 @@
+.. index:: ! Usecase; Encrypted data storage and transport
 .. _usecase_encrypted_annex:
 
 Encrypted data storage and transport
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. index:: ! Usecase; Encrypted data storage and transport
 
 Some data are not meant for everybody's eyes - you can share a picture from a midflight-plane-window-view without a problem on your social media account, but you `shouldn't post a photo of your plane ticket next to it <https://mango.pdf.zone/finding-former-australian-prime-minister-tony-abbotts-passport-number-on-instagram>`_.
 But there are also data so sensitive that not only should you not share them anywhere, you also need to make sure that they are inaccessible even when someone sneaks into your storage system or intercepts a file transfer - things such as passwords, private messages, or medical data.

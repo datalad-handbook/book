@@ -3,6 +3,9 @@
 Installation and configuration
 ------------------------------
 
+.. index::
+   single: Installation; DataLad
+
 Install DataLad
 ^^^^^^^^^^^^^^^
 
@@ -20,6 +23,8 @@ functionality `7-Zip <https://7-zip.org>`_.  The instructions below detail how
 to install the core DataLad tool and its dependencies on common operating
 systems. They do not cover the various :term:`DataLad extension`\s that need to be installed separately, if desired.
 
+.. index::
+   pair: determine version; with Python
 .. find-out-more:: Python 2, Python 3, what's the difference?
    :name: fom-py2v3
    :float: tbp
@@ -68,6 +73,9 @@ common scenarios, operating systems, or platforms.
    :width: 50%
    :alt: Cartoon of a person sitting on the floor in front of a laptop
 
+.. index::
+   pair: install DataLad; on Windows
+
 Windows 10 and 11
 """""""""""""""""
 
@@ -75,8 +83,11 @@ There are countless ways to install software on Windows. Here we describe *one*
 possible approach that should work on any Windows computer, like one that you
 may have just bought.
 
-
 Python:
+    .. index::
+       pair: install Python; on Windows
+       single: Installation; Python
+
     Windows itself does not ship with Python, it must be installed separately.
     If you already did that, please check the :find-out-more:`on Python
     versions <fom-py2v3>`, if it matches the requirements. Otherwise, head over
@@ -84,10 +95,6 @@ Python:
     <https://www.python.org/downloads>`_, and download an installer. Unless you
     have specific requirements, go with the 64bit installer of the latest
     Python 3 release.
-
-    .. index::
-       single: Windows wit; Avoid Python from the Windows store
-       single: Installation; Python
 
     .. windows-wit:: Avoid installing Python from the Windows store
 
@@ -99,10 +106,6 @@ Python:
     When you run the installer, make sure to select the *Add Python to PATH* option,
     as this is required for subsequent installation steps and interactive use later on.
     Other than that, using the default installation settings is just fine.
-
-    .. index::
-       single: Windows wit; Test Python installation
-       single: Python; Test installation
 
     .. windows-wit:: Verify Python installation
 
@@ -125,6 +128,10 @@ Python:
        It is sufficient to move the entries created by the Python installer to the start of the declaration list.
 
 Git:
+    .. index::
+       pair: install Git; on Windows
+       single: Installation; Git
+
     Windows also does not come with Git. If you happen to have it installed already,
     please check, if you have configured it for command line use. You should be able
     to open the Windows command prompt and run a command like :shcmd:`git --version`.
@@ -137,7 +144,6 @@ Git:
     directory, but configure the following settings (they are distributed over
     multiple dialogs):
 
-    
     - Select *Git from the command line and also from 3rd-party software*
     - *Enable file system caching*
     - *Select Use external OpenSSH*
@@ -145,6 +151,10 @@ Git:
 
 
 Git-annex:
+    .. index::
+       pair: install git-annex; on Windows
+       single: Installation; git-annex
+
     There are two convenient ways to install git-annex. The first is `downloading the installer from git-annex' homepage <https://git-annex.branchable.com/install/Windows>`_. The other is to deploy git-annex via the `DataLad installer`_.
     The latter option requires the installation of the datalad-installer.
     Once Python is available, it can be done with the Python package manager
@@ -178,6 +188,10 @@ DataLad:
       python -m pip install datalad
 
 7-Zip (optional, but highly recommended):
+    .. index::
+       pair: install 7-zip; on Windows
+       single: Installation; 7-Zip
+
     Download it from the `7-zip website <https://7-zip.org>`_ (64bit
     installer when in doubt), and install it into the default target directory.
 
@@ -186,9 +200,7 @@ There are many other ways to install DataLad on Windows, check for example the
 One attractive alternative approach is Conda_, a completely different approach is to install the :term:`DataLad Gooey`, which is a standalone installation of DataLad's graphical application (see `the DataLad Gooey documentation <https://docs.datalad.org/projects/gooey>`_ for installation instructions).
 
 .. index::
-   single: Windows wit; WSL2-based DataLad installation
-   single: Installation; DataLad
-
+   pair: install DataLad; on WSL2
 .. windows-wit:: Install DataLad using the Windows Subsystem 2 for Linux
    :name: ww-wsl2
 
@@ -214,6 +226,8 @@ Windows. Dedicated notes,
 warnings. If you on a native Windows system, you should pay close
 attention to them.
 
+.. index::
+   pair: install DataLad; on Mac
 .. _mac:
 
 Mac (incl. M1)
@@ -298,6 +312,8 @@ Python's package manager <fom-macosx-pip>`.
        /sbin
        /Users/MYUSERNAME/Library/Python/3.11/bin
 
+.. index::
+   pair: install DataLad; on Debian/Ubuntu
 
 Linux: (Neuro)Debian, Ubuntu, and similar systems
 """""""""""""""""""""""""""""""""""""""""""""""""
@@ -326,6 +342,9 @@ and all of its software dependencies (including :term:`git-annex` and `p7zip <ht
 The command above will also upgrade existing installations to the most recent
 available version.
 
+.. index::
+   pair: install DataLad; on Redhat/Fedora
+
 Linux: CentOS, Redhat, Fedora, or similar systems
 """""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -342,6 +361,8 @@ DataLad itself can be installed via ``pip``:
 Alternatively, DataLad can be installed together with :term:`Git` and
 :term:`git-annex` via Conda_ as outlined in the section below.
 
+.. index::
+   pair: install DataLad; on HPC
 .. _norootinstall:
 
 Linux-machines with no root access (e.g. HPC systems)
@@ -349,6 +370,8 @@ Linux-machines with no root access (e.g. HPC systems)
 
 The most convenient user-based installation can be achieved via Conda_.
 
+.. index::
+   pair: install DataLad; with Conda
 .. _conda:
 
 Conda
@@ -409,6 +432,8 @@ To update an existing installation with conda, use:
 The `DataLad installer`_ also supports setting up a Conda environment, in case
 a suitable Python version is already available.
 
+.. index::
+   pair: install DataLad; with pip
 .. _pipinstall:
 
 Using Python's package manager ``pip``
@@ -447,12 +472,11 @@ An existing installation can be upgraded with ``python -m pip install -U datalad
 :term:`git-annex`.  But you can install the `DataLad installer`_ via a ``python -m pip install datalad-installer``. This is a command-line tool that aids installation
 of DataLad and its key software dependencies on a range of platforms.
 
+.. index:: ! configure user identity; with Git
 .. _installconfig:
 
 Initial configuration
 ^^^^^^^^^^^^^^^^^^^^^
-
-.. index:: ! Git identity
 
 Initial configurations only concern the setup of a :term:`Git` identity. If you
 are a Git-user, you should hence be good to go.

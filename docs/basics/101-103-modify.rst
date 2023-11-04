@@ -24,6 +24,7 @@ You can also copy the full code snippet, starting
 from ``cat << EOT > notes.txt``, including the ``EOT`` in the last line, in your
 terminal to write this note from the terminal (without any editor) into ``notes.txt``.
 
+.. index:: here-document
 .. find-out-more:: How does a here-document work?
 
    The code snippet below makes sure to write lines of text into a
@@ -57,10 +58,8 @@ terminal to write this note from the terminal (without any editor) into ``notes.
 Running the command below will create ``notes.txt`` in the
 root of your ``DataLad-101`` dataset:
 
-.. index::
-   single: Windows wit; No heredocs in the terminal
-   single: Here documents (heredocs)
-
+.. index:: here-document
+   pair: here-document; on Windows in a terminal
 .. windows-wit:: Heredocs don't work under non-Git-Bash Windows terminals
 
    Heredocs rely on Unix-type redirection and multi-line commands -- which is not supported on most native Windows terminals or the Anaconda prompt on Windows.
@@ -167,6 +166,10 @@ Additions are marked with a ``+``, and deletions would be shown with a leading `
 From the dataset's history, we can therefore also find out *how* the text file
 evolved over time. That's quite neat, isn't it?
 
+.. index::
+   pair: log; Git command
+   pair: get help; with Git
+   pair: filter history; with Git
 .. find-out-more:: git log has many more useful options
 
    ``git log``, as many other ``Git`` commands, has a good number of options

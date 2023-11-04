@@ -50,7 +50,8 @@ it can query the original dataset whether any changes
 happened since the last time it checked, and if so, retrieve and
 integrate them.
 
-.. index:: ! DataLad command; update
+.. index::
+   pair: update; DataLad command
 
 This is done with the :dlcmd:`update --how merge`
 command.
@@ -127,6 +128,8 @@ a Git-user and know about branches and merging you can read the
 ``Note for Git-users`` below. However, a thorough explanation
 and demonstration will be in the next section.
 
+.. index::
+   pair: update; DataLad concept
 .. gitusernote:: Update internals
 
    :dlcmd:`update` is the DataLad equivalent of a :gitcmd:`fetch`,

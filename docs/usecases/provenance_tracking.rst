@@ -1,9 +1,8 @@
+.. index:: ! Usecase; Basic provenance tracking
 .. _usecase_provenance_tracking:
 
 Basic provenance tracking
 -------------------------
-
-.. index:: ! Usecase; Basic provenance tracking
 
 This use case demonstrates how the provenance of downloaded and generated files
 can be captured with DataLad by

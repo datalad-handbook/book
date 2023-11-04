@@ -1,9 +1,8 @@
+.. index:: ! Usecase; Collaboration
 .. _usecase_collab:
 
 A typical collaborative data management workflow
 ------------------------------------------------
-
-.. index:: ! Usecase; Collaboration
 
 This use case sketches the basics of a common, collaborative
 data management workflow for an analysis:
@@ -76,7 +75,8 @@ thanks to the yoda procedure:
    $ cd myanalysis
    $ tree
 
-.. index:: ! DataLad command; clone
+.. index::
+   pair: clone; DataLad command
 
 Bob knows that a DataLad dataset can contain other datasets. He also knows that
 as any content of a dataset is tracked and its precise state is recorded,
@@ -190,7 +190,8 @@ command:
    $ datalad update -s alice --merge
 
 
-.. index:: ! DataLad command; create-sibling
+.. index::
+   pair: create-sibling; DataLad command
 
 Finally, when Bob is ready to share his results with the world or a remote
 collaborator, he makes his dataset available by uploading them to a web server

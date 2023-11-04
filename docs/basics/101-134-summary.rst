@@ -39,6 +39,9 @@ for yourself why and how software containers can go hand-in-hand with DataLad:
 - A :dlcmd:`rerun` of a commit produced with :dlcmd:`containers-run`
   will re-execute the command in the same software environment.
 
+.. index::
+   pair: hub; Docker
+
 Now what can I do with it?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 

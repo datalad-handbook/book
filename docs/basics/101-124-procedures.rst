@@ -86,7 +86,8 @@ file when setting up a dataset.
 
 .. index::
    pair: run-procedure; DataLad command
-
+   pair: discover dataset procedures; with DataLad
+   pair: discover; dataset procedure
 
 To find out available procedures, the command
 :dlcmd:`run-procedure --discover` is helpful.
@@ -113,6 +114,10 @@ they are all part of the source code of DataLad [#f1]_.
 - ``cfg_metadatatypes`` lets users configure additional metadata
   types.
 
+.. index::
+   pair: run dataset procedure; with DataLad
+   pair: run; dataset procedure
+
 Applying procedures
 ^^^^^^^^^^^^^^^^^^^
 
@@ -125,6 +130,10 @@ with the ``-d/--dataset`` flag:
 .. code-block:: bash
 
    datalad run-procedure [-d <PATH>] cfg_text2git
+
+.. index::
+   pair: run dataset procedure on dataset creation; with DataLad
+   pair: run on dataset creation; dataset procedure
 
 The typical workflow is to create a dataset and apply
 a procedure afterwards.
@@ -184,7 +193,13 @@ to a default dataset in which one has saved many text files already
 files into Git -- only those text files created *after* the configuration
 was applied.
 
-.. index:: datasets procedures; write your own
+.. index::
+   single: configuration item; datalad.locations.system-procedures
+   single: configuration item; datalad.locations.user-procedures
+   single: configuration item; datalad.locations.dataset-procedures
+   single: configuration item; datalad.procedures.<name>.call-format
+   single: configuration item; datalad.procedures.<name>.help
+   single: datasets procedures; write your own
 .. find-out-more:: Write your own procedures
    :name: fom-procedures
    :float:

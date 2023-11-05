@@ -17,7 +17,7 @@ and not git-annex (see section :ref:`sibling`). The configuration responsible
 for this behavior is in a ``.gitattributes`` file, and we'll start this
 section by looking into it.
 
-.. index:: ! Config files; .gitattributes
+.. index:: ! configuration file; .gitattributes
 
 ``.gitattributes``
 ^^^^^^^^^^^^^^^^^^
@@ -133,7 +133,7 @@ Later however you will see preconfigured DataLad *procedures* such as ``text2git
 can apply useful configurations for you, just as ``text2git`` added the last line
 in the root ``.gitattributes`` file.
 
-.. index:: ! Config files; .gitmodules
+.. index:: ! configuration file; .gitmodules
 
 ``.gitmodules``
 ^^^^^^^^^^^^^^^
@@ -276,7 +276,7 @@ Nevertheless, if ``subds1`` is provided with an explicit path, its subdataset ``
     6 directories, 0 files
 
 
-.. index:: ! Config files; .datalad/config
+.. index:: ! configuration file; .datalad/config
 
 ``.datalad/config``
 ^^^^^^^^^^^^^^^^^^^
@@ -303,6 +303,9 @@ Otherwise, dataset updates with :dlcmd:`update` (or, for Git-users,
 :gitcmd:`pull`) could suddenly and unintentionally alter local DataLad
 behavior that was specifically configured.
 Also, :term:`Git` and :term:`git-annex` will not query this file for configurations, so please store only sticky options that are specific to DataLad (i.e., under the ``datalad.*`` namespace) in it.
+
+.. index::
+   pair: modify configuration; with Git
 
 Writing to configuration files other than ``.git/config``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -386,6 +389,8 @@ as well as an override mechanism. For example, the ``user.name``
 configuration of Git can be overridden by its associated environment variable,
 ``GIT_AUTHOR_NAME``. Likewise, one can define the environment variable instead
 of setting the ``user.name`` configuration in a configuration file.
+
+.. index:: configuration item; datalad.log.level
 
 Git, git-annex, and DataLad have more environment variables than anyone would want to
 remember. `The ProGit book <https://git-scm.com/book/en/v2/Git-Internals-Environment-Variables>`__

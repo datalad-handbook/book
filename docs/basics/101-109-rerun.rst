@@ -173,7 +173,7 @@ and another state from the dataset's history (a commit specified with
 of the dataset and the previous commit (called "``HEAD~1``" in Git terminology [#f1]_):
 
 .. index::
-   pair: show dataset modifications; on Windows with DataLad
+   pair: show dataset modification; on Windows with DataLad
    pair: diff; DataLad command
    pair: corresponding branch; in adjusted mode
 .. windows-wit:: please use datalad diff --from main --to HEAD~1
@@ -193,7 +193,7 @@ of the dataset and the previous commit (called "``HEAD~1``" in Git terminology [
 
 .. index::
    pair: diff; Git command
-   pair: show dataset modifications; with DataLad
+   pair: show dataset modification; with DataLad
 
 .. runrecord:: _examples/DL-101-109-108
    :language: console
@@ -205,7 +205,7 @@ of the dataset and the previous commit (called "``HEAD~1``" in Git terminology [
 
 .. index::
    pair: diff; Git command
-   pair: show dataset modifications; with Git
+   pair: show dataset modification; with Git
 
 This indeed shows the output file as "modified". However, we do not know
 what exactly changed. This is a task for :gitcmd:`diff` (get out of the

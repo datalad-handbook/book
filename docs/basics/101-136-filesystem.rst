@@ -31,6 +31,9 @@ common git operations that manipulate the datasets
 history -- be sure to execute these commands as well (and
 be sure to be in the correct dataset).
 
+.. index::
+   pair: rename file; with DataLad
+
 Renaming files
 ^^^^^^^^^^^^^^
 
@@ -293,6 +296,9 @@ Finally, let's clean up:
 
    $ git reset --hard HEAD~1
 
+.. index::
+   pair: move file to other dataset; with DataLad
+
 Moving files across dataset boundaries
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Generally speaking, moving files across dataset hierarchies is not advised.
@@ -549,6 +555,9 @@ Finally, let's clean up:
    $ git reset --hard HEAD~1
 
 .. _copyfileFS:
+
+.. index::
+   pair: copy file to other dataset; with DataLad
 
 Copying files across dataset boundaries
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

@@ -171,7 +171,8 @@ to be cloned via its SSH url.
 
 
 
-
+.. index::
+   pair: subdatasets; DataLad command
 .. _subdspublishing:
 
 Subdataset publishing
@@ -249,6 +250,9 @@ the problem:
 If the subdataset was not published before, you could publish the subdataset to
 a location of your choice, and modify the ``.gitmodules`` entry accordingly.
 
+.. index::
+   single: configuration item; remote.<name>.annex-ignore
+   pair: configure sibling; with DataLad
 .. _ginbts:
 
 Using Gin as a data source behind the scenes

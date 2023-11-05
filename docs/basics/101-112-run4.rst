@@ -101,6 +101,9 @@ to a :dlcmd:`run`:
    EOT
 
 
+.. index::
+   pair: run command on dirty dataset; with DataLad run
+
 A way of executing a :dlcmd:`run` *despite* an "unclean" dataset,
 though, is to add the ``--explicit`` flag to :dlcmd:`run`.
 We will try this flag with the remaining ``logo_salt.jpg``. Note that

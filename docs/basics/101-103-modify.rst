@@ -74,6 +74,8 @@ root of your ``DataLad-101`` dataset:
 
    If you are using Git Bash, however, here docs will work just fine.   
 
+.. index::
+   pair: create here-document; in a terminal
 .. runrecord:: _examples/DL-101-103-101
    :language: console
    :workdir: dl-101/DataLad-101
@@ -86,6 +88,9 @@ root of your ``DataLad-101`` dataset:
 
    EOT
 
+.. index::
+   pair: check dataset for modification; with DataLad
+
 Run :dlcmd:`status` to confirm that there is a new, untracked file:
 
 .. runrecord:: _examples/DL-101-103-102
@@ -95,6 +100,9 @@ Run :dlcmd:`status` to confirm that there is a new, untracked file:
    :notes: As expected, there is a new file in the dataset. At first the file is untracked. We can save without a path specification because it is the only existing modification
 
    $ datalad status
+
+.. index::
+   pair: save dataset modification; with DataLad
 
 Save the current state of this file in your dataset's history. Because it is the only modification
 in the dataset, there is no need to specify a path.

@@ -1,5 +1,4 @@
 $ cd imagenette
-# 0.12.2 <= datalad < 0.13.4  needs the configuration option -c datalad.runtime.use-patool=1 to handle .tgz
 $ datalad download-url \
   --archive \
   --message "Download Imagenette dataset" \

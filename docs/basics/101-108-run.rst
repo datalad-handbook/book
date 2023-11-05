@@ -91,6 +91,8 @@ will write it into the script.
 
    Note that this is not identical to the one below -- it lacks a few ``\`` characters, which is a meaningful difference.
 
+.. index::
+   pair: hidden file name extensions; on Windows
 .. windows-wit:: Be mindful of hidden extensions when creating files!
 
    By default, Windows does not show common file extensions when you view directory contents with a file explorer.
@@ -150,7 +152,8 @@ in a bit of time, we will forget how this file came into existence, or
 that the script ``code/list_titles.sh`` is associated with this file, and
 can be used to update it later on.
 
-.. index:: ! datalad command; run
+.. index::
+   pair: run; DataLad command
 
 The :dlcmd:`run` command
 can help with this. Put simply, it records a command's impact on a dataset. Put

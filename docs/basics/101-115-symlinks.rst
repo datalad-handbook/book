@@ -18,6 +18,9 @@ You might have noticed already that an ``ls -l`` or ``tree`` command in your dat
 Maybe your shell also displays these files in a different color than text files when listing them.
 We'll take a look together, using the ``books/`` directory as an example:
 
+.. index::
+   pair: no symlinks; on Windows
+   pair: tree; terminal command
 .. windows-wit:: This will look different to you
 
    First of all, the Windows ``tree`` command lists only directories by default, unless you parametrize it with ``/f``.
@@ -84,6 +87,9 @@ creates a symlink with the original file name, pointing to the new location.
 This process is often referred to as a file being *annexed*, and the object
 tree is also known as the *annex* of a dataset.
 
+.. index::
+   pair: elevated storage demand; in adjusted mode
+   pair: no symlinks; on Windows
 .. windows-wit:: What happens on Windows?
    :name: woa_objecttree
    :float:
@@ -116,6 +122,10 @@ tree is also known as the *annex* of a dataset.
    The answer is: about 810Kb (~0.1Mb).
    The most recent 400x400px version exists twice (in the annex and as a copy), and the 450x450px copy exists once in the annex.
    If you would reset your dataset to the state when we created the 450x450px version, this file would instead exist twice.
+
+   .. index::
+      pair: unused; git-annex command
+      pair: dropunused; git-annex command
 
    **Can I at least get unused or irrelevant data out of the dataset?**
    Yes, either with convenience commands (e.g., ``git annex unused`` followed by ``git annex dropunused``), or by explicitly using ``drop`` on files (or their past versions) that you don't want to keep anymore.
@@ -200,7 +210,8 @@ moving, renaming, or copying content translate to dataset modifications
 in certain situations. Later in this book we will have a section on how
 to manage the file system in a DataLad dataset (:ref:`filesystem`).
 
-
+.. index::
+   pair: key; git-annex concept
 .. find-out-more:: Paths, checksums, object trees, and data integrity
    :name: fom-objecttree
 
@@ -271,10 +282,10 @@ to manage the file system in a DataLad dataset (:ref:`filesystem`).
    Maybe you are as amazed as we are about some of the ingenuity used behind the scenes.
    Even more mesmerizing things about git-annex can be found in its `documentation <https://git-annex.branchable.com/git-annex>`_.
 
+.. index:: ! broken symlink, ! symlink; broken
+
 Broken symlinks
 ^^^^^^^^^^^^^^^
-
-.. index:: ! broken symlink, ! symlink (broken)
 
 Whenever a symlink points to a non-existent target, this symlink is called
 *broken*, and opening the symlink would not work as it does not resolve. The
@@ -321,6 +332,10 @@ Cross-OS filesharing with symlinks (WSL2 only)
 Are you using DataLad on the Windows Subsystem for Linux?
 If so, please take a look into the Windows Wit below.
 
+.. index::
+   pair: access WSL2 symlinked files; on Windows
+   single: WSL2; symlink access
+   pair: log; Git command
 .. windows-wit:: Accessing symlinked files from your Windows system
 
    If you are using WSL2 you have access to a Linux kernel and POSIX filesystem, including symlink support.
@@ -332,6 +347,10 @@ If so, please take a look into the Windows Wit below.
    Some core limitations of Windows can't be overcome, though: Windows usually isn't capable of handling symlinks.
    So while WSL2 can expose your dataset filled with symlinked files to Windows, your Windows tools can fail to open them.
    How can this be fixed?
+
+   .. index::
+      pair: checkout; Git command
+      pair: check out particular version; with Git
 
    Whenever you need to work with files from your datasets under Windows, you should *unlock* with ``datalad unlock``.
    This operation copies the file from the annex back to its original location, and thus removes the symlink (and also returns write :term:`permissions` to the file).

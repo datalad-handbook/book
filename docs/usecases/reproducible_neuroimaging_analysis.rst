@@ -1,9 +1,8 @@
+.. index:: ! Usecase; Reproducible Neuroimaging
 .. _usecase_reproduce_neuroimg:
 
 An automatically and computationally reproducible neuroimaging analysis from scratch
 ------------------------------------------------------------------------------------
-
-.. index:: ! Usecase; Reproducible Neuroimaging
 
 This use case sketches the basics of a portable analysis that can be
 automatically computationally reproduced, starting from the
@@ -500,7 +499,7 @@ time steps.
    $ git checkout master
    $ git branch -D verify
 
-The outcome of this usecase can be found as a dataset on Github
+The outcome of this use case can be found as a dataset on Github
 `here <https://github.com/myyoda/demo-dataset-glmanalysis>`_.
 
 

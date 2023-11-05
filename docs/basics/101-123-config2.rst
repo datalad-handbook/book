@@ -17,10 +17,10 @@ and not git-annex (see section :ref:`sibling`). The configuration responsible
 for this behavior is in a ``.gitattributes`` file, and we'll start this
 section by looking into it.
 
+.. index:: ! Config files; .gitattributes
+
 ``.gitattributes``
 ^^^^^^^^^^^^^^^^^^
-
-.. index:: ! Config files; .gitattributes
 
 This file lies right in the root of your superdataset:
 
@@ -133,10 +133,10 @@ Later however you will see preconfigured DataLad *procedures* such as ``text2git
 can apply useful configurations for you, just as ``text2git`` added the last line
 in the root ``.gitattributes`` file.
 
+.. index:: ! Config files; .gitmodules
+
 ``.gitmodules``
 ^^^^^^^^^^^^^^^
-
-.. index:: ! Config files; .gitmodules
 
 On last configuration file that Git creates is the ``.gitmodules`` file.
 There is one right in the root of your dataset:
@@ -276,12 +276,10 @@ Nevertheless, if ``subds1`` is provided with an explicit path, its subdataset ``
     6 directories, 0 files
 
 
-
+.. index:: ! Config files; .datalad/config
 
 ``.datalad/config``
 ^^^^^^^^^^^^^^^^^^^
-
-.. index:: ! Config files; .datalad/config
 
 DataLad adds a repository-specific configuration file as well.
 It can be found in the ``.datalad`` directory, and just like ``.gitattributes``
@@ -369,12 +367,11 @@ command. This is due to its different format that does not comply to the
 ``section.variable.value`` structure of all other configuration files. This file, therefore,
 has to be edited by hand, with an editor of your choice.
 
+.. index:: ! environment variable
 .. _envvars:
 
 Environment variables
 ^^^^^^^^^^^^^^^^^^^^^
-
-.. index:: ! environment variable
 
 An :term:`environment variable` is a variable set up in your shell
 that affects the way the shell or certain software works -- for example
@@ -400,6 +397,7 @@ replacing any ``__`` (two underscores) with a hyphen, then any ``_`` (single und
 with a dot, and finally converting all letters to lower case. The ``datalad.log.level``
 configuration option thus is the environment variable ``DATALAD_LOG_LEVEL``.
 
+.. index:: operating system concept; environment variable
 .. find-out-more:: Some more general information on environment variables
    :name: fom-envvar
 

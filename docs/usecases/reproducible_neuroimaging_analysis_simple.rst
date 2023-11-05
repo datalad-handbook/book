@@ -1,9 +1,8 @@
+.. index:: ! Usecase; Basic Reproducible Neuroimaging
 .. _usecase_reproduce_neuroimg_simple:
 
 A basic automatically and computationally reproducible neuroimaging analysis
 ----------------------------------------------------------------------------
-
-.. index:: ! Usecase; Basic Reproducible Neuroimaging
 
 This use case sketches the basics of a portable analysis of public neuroimaging data
 that can be automatically computationally reproduced by anyone:

@@ -1,10 +1,9 @@
+.. index:: ! terminal, ! shell, ! command Line
 .. _howto:
 
 ****************
-The Command Line
+The command line
 ****************
-
-.. index:: ! terminal, ! shell, ! command Line
 
 .. figure:: /artwork/src/typewriter.svg
    :width: 50%
@@ -30,10 +29,10 @@ Luckily, the set of possible commands is limited, and even without prior experie
 The shell (also called a terminal, console, or CLI) is an interactive,
 text based interface. If you have used Matlab or IPython, then you are already familiar
 with the basics of a command line interface.
-On Unix-like systems (e.g., running Linux or macos), the shell application is usually called "terminal".
+On Unix-like systems (e.g., running Linux or macOS), the shell application is usually called "terminal".
 On Windows systems, several different interfaces exist: The "CMD" Command Prompt and the Powershell are natively installed, and the Git Bash (provided by Git for Windows) or Anaconda prompt CLI (provided by Anaconda or Miniconda) can come with the installation of the respective software tool.
 We recommend using CMD, or, if you have them installed already and prefer them over the CMD, the Git Bash or Anaconda prompt.
-As later parts in this section will show, shells under Windows may use different commands than shells under Linux and macos systems.
+As later parts in this section will show, shells under Windows may use different commands than shells under Linux and macOS systems.
 
 Command syntax
 ==============
@@ -83,9 +82,12 @@ and later examples you will get to see many of them.
 
 Basic commands
 ==============
-The following commands, split between Unix-like (e.g., Linux, macos) and Windows environments, can appear in our examples or are generally useful to know:
+The following commands, split between Unix-like (e.g., Linux, macOS) and Windows environments, can appear in our examples or are generally useful to know:
 They can help you to *explore and navigate* in your file system, copy, move, or remove files, or create new directories.
 Note that the Git Bash on Windows emulates a Unix environment in which you could use Unix commands despite being on Windows.
+
+.. index::
+   pair: terminal commands; on Unix-like systems
 
 Unix-like systems or environments
 """""""""""""""""""""""""""""""""
@@ -111,6 +113,9 @@ Unix-like systems or environments
     delete an empty folder
 ``export NAME=Value``
     Set an :term:`environment variable` ``NAME`` to ``Value`` for your current terminal session
+
+.. index::
+   pair: terminal commands; on Windows
 
 Windows systems
 """""""""""""""
@@ -167,7 +172,7 @@ I can run the following command:
 
    $ mkdir /home/me/awesome_datalad_project
 
-If I want to do the same in Window's CMD, I'd do
+If I want to do the same in Windows CMD, I'd do
 
 .. code-block::
 
@@ -287,6 +292,9 @@ this is the breakdown:
 The text editors above are all command-line editors.
 They will open up directly in your terminal.
 
+.. index::
+   pair: configure default editor; with Git
+
 While those text editors can also be installed on Windows, command-line editors are rarely used on Windows.
 Git for Windows might set :term:`vim` as the default editor upon installation, which can require some acclimatization.
 A good graphical alternative is Notepad++, a powerful Windows-native text editor.
@@ -309,7 +317,7 @@ a common syntax.
 Two common shells are:
 
 ``Bash``
-    The bourne-again shell (``bash``) is the default shell on many \*nix systems (most Linux distros, MacOS).
+    The bourne-again shell (``bash``) is the default shell on many \*nix systems (most Linux distros, macOS).
 ``zsh``
     The Z shell (``zsh``) comes with many additional features, the highlights being:
     shared history across running shells, smarter tab-completion, spelling correction, and better theming.
@@ -323,7 +331,7 @@ To determine what shell you're in, run the following:
 
 .. index:: ! tab completion
 
-Tab Completion
+Tab completion
 ==============
 
 One of the best features ever invented is tab completion. Imagine your favorite animal sitting

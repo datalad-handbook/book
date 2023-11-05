@@ -1,9 +1,8 @@
+.. index:: ! Usecase; Student supervision
 .. _usecase_student_supervision:
 
 Student supervision in a research project
 -----------------------------------------
-
-.. index:: ! Usecase; Student supervision
 
 This use case will demonstrate a workflow that uses DataLad tools and principles
 to assist in technical aspects of supervising research projects with computational

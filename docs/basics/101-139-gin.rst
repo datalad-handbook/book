@@ -44,10 +44,11 @@ You should copy the contents of your public key file into the field labeled
 "My private work station". Afterwards, you are done!
 
 
+.. index::
+   pair: create-sibling-gin; DataLad command
+
 Publishing your dataset to GIN
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. index:: ! datalad command; create-sibling-gin
 
 As outlined in the section :ref:`share_hostingservice`, there are two ways in which you can publish your dataset to Gin.
 Either by 1) creating a new, empty repository on GIN via the web interface, or 2) via the :dlcmd:`create-sibling-gin` command.
@@ -118,9 +119,9 @@ If it is a **public** repository, retrieving the dataset and getting access to
 all published data contents (in a read-only fashion) is done by cloning the
 repository's ``https`` url. This does not require a user account on Gin.
 
+.. index::
+   pair: clone; DataLad command
 .. importantnote:: Take the URL in the browser, not the copy-paste URL
-
-   .. index:: ! datalad command; clone
 
    Please note that you need to use the browser URL of the repository, not the copy-paste URL on the upper right hand side of the repository if you want to get anonymous HTTPS access!
    The two URLs differ only by a ``.git`` extension:
@@ -139,7 +140,8 @@ repository's ``https`` url. This does not require a user account on Gin.
 Subsequently, :dlcmd:`get` calls will be able to retrieve all annexed
 file contents that have been published to the repository.
 
-.. index:: ! datalad command; clone
+.. index::
+   pair: clone; DataLad command
 
 If it is a **private** dataset, cloning the dataset from Gin requires a user
 name and password for anyone you want to share your dataset with.
@@ -157,6 +159,7 @@ an SSH key as detailed above, and cloning via the SSH url:
 Likewise, in order to publish changes back to a Gin repository, the repository needs
 to be cloned via its SSH url.
 
+.. index:: dataset hosting; GIN
 .. find-out-more:: How do I know if my repository is private?
    :name: fom-private-gin
    :float:
@@ -286,6 +289,8 @@ Then, follow these steps:
 
 Afterwards, :dlcmd:`get` retrieves files from Gin, even if the dataset has been cloned from GitHub.
 
+.. index::
+   pair: common data source; DataLad concept
 .. gitusernote:: Siblings as a common data source
 
    The argument ``as-common-datasrc <name>`` configures a sibling as a common data source -- in technical terms, as an auto-enabled git-annex special remote.

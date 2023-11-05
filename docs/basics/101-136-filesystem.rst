@@ -110,6 +110,8 @@ Alternatively, there is also a way to save the name change
 only using Git tools only, outlined in the following hidden
 section. If you are a Git user, you will be very familiar with it.
 
+.. index::
+   pair: rename file; with Git
 .. find-out-more:: Faster renaming with Git tools
 
    Git has built-in commands that provide a solution in two steps.
@@ -249,6 +251,8 @@ Therefore, in general, whenever moving or renaming a file,
 especially between directories, a ``datalad save`` is
 the best option to turn to.
 
+.. index::
+   pair: content pointer file; git-annex concept
 .. find-out-more:: Why a move between directories is actually a content change
 
    Let's see how this shows up in the dataset history:
@@ -269,6 +273,8 @@ the best option to turn to.
    move plus a content change for Git.
 
 
+.. index::
+   pair: fix; git-annex command
 .. gitusernote:: git annex fix
 
    A :dlcmd:`save` command internally uses a :gitcmd:`commit` to save changes to a dataset.
@@ -500,6 +506,8 @@ file. Let's save it:
 
 That's it.
 
+.. index::
+   pair: content pointer file; git-annex concept
 .. find-out-more:: Symlinks!
 
    If you have read the additional content in the section
@@ -601,7 +609,7 @@ provenance record is lost:
 Nevertheless, copying files with :dlcmd:`copy-file` is easier and safer
 than moving them with standard Unix commands, especially so for annexed files.
 A more detailed introduction to :dlcmd:`copy-file` and a concrete
-usecase can be found in the online version of the handbook.
+use case can be found in the online version of the handbook.
 
 Let's clean up:
 
@@ -743,6 +751,8 @@ the dataset will break the linkage between the datasets. This can
 be fixed easily though. We can try this in the following hidden
 section.
 
+.. index::
+   pair: move subdataset; with Git
 .. find-out-more:: If a renamed/moved dataset is a sibling...
 
    As section :ref:`config` explains, each
@@ -981,12 +991,12 @@ If this commit is reverted, the file comes back to existence:
 In other words, with an :shcmd:`rm` and subsequent :dlcmd:`save`,
 the symlink is removed, but the content is retained in the history.
 
+.. index::
+   pair: drop; DataLad command
 .. _remove:
 
 Removing annexed content entirely
 """""""""""""""""""""""""""""""""
-
-.. index:: ! datalad command; drop
 
 The command to remove file content entirely and irreversibly from a repository is
 the :dlcmd:`drop` command.
@@ -1101,10 +1111,11 @@ i.e., remove all files **but the ones specified** in ``<path-specification>``
 from the dataset's history. An advanced chapter in the online version of the handbook
 shows an example invocation.
 
+.. index::
+   pair: uninstall; DataLad command
+
 Uninstalling or deleting subdatasets
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. index:: ! datalad command; uninstall
 
 Depending on the exact aim, different commands are of relevance for
 deleting a DataLad subdataset. The softer (and not so much "deleting" version)
@@ -1142,7 +1153,8 @@ To uninstall the dataset, you can use
 Note that the dataset is still known in the dataset, and not completely removed.
 A ``datalad get [-n/--no-data] cloud`` would install the dataset again.
 
-.. index:: ! datalad command; remove
+.. index::
+   pair: remove; DataLad command
 
 In case one wants to fully delete a subdataset from a dataset, the
 :dlcmd:`remove` command is relevant [#f3]_.

@@ -1,9 +1,8 @@
+.. index:: ! Usecase; reproducible paper
 .. _usecase_reproducible_paper:
 
 Writing a reproducible paper
 ----------------------------
-
-.. index:: ! Usecase; reproducible paper
 
 This use case demonstrates how to use nested DataLad datasets to create a fully
 reproducible paper by linking

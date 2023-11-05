@@ -51,8 +51,8 @@ How to add a sibling on a Git repository hosting site: The manual way
 
 #. If you pick the :term:`SSH` URL, make sure to have an :term:`SSH key` set up. This usually requires generating an SSH key pair if you do not have one yet, and uploading the public key to the repository hosting service.
 
+.. index:: Concepts; SSH key, SSH; key
 .. _sshkey:
-
 .. find-out-more:: What is an SSH key and how can I create one?
    :name: fom-sshkey
 
@@ -138,6 +138,7 @@ Personal access tokens are an alternative to authenticating via your password, a
 If you are prompted for ``username`` and ``password`` in the command line, you would enter your token in place of the ``password`` [#f3]_.
 Note that you do not have to type your token at every authentication -- your token will be stored on your system the first time you have used it and automatically reused whenever relevant.
 
+.. index:: credential; storage
 .. find-out-more:: How does the authentication storage work?
 
    Passwords, user names, tokens, or any other login information is stored in

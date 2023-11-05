@@ -163,6 +163,7 @@ extensions = [
     'dataladhandbook_support',
     'notfound.extension',
     'sphinx_copybutton',
+    'sphinxcontrib.jquery',
 ]
 
 # configure sphinx-copybutton

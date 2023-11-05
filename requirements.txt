@@ -2,7 +2,7 @@ alabaster >= 0.7.11
 Babel
 certifi
 chardet
-docutils<0.18
+docutils
 idna
 imagesize
 Jinja2 < 3.1
@@ -20,6 +20,7 @@ sphinxcontrib-websupport
 sphinx-notfound-page
 sphinx-copybutton<0.4
 urllib3
+sphinxcontrib-jquery
 sphinxcontrib-svg2pdfconverter
 -e git+https://github.com/mih/autorunrecord.git@main#egg=autorunrecord
 # install our own directives

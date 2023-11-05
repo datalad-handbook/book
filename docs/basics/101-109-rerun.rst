@@ -1,9 +1,9 @@
+.. index::
+   pair: rerun; DataLad command
 .. _run2:
 
 DataLad, re-run!
 ----------------
-
-.. index:: ! datalad command; rerun
 
 So far, you created a ``.tsv`` file of all
 speakers and talk titles in the ``longnow/`` podcasts subdataset.
@@ -158,7 +158,8 @@ we can see that a new :dlcmd:`run` was recorded. This action is
 committed by DataLad under the original commit message of the ``run``
 command, and looks just like the previous :dlcmd:`run` commit.
 
-.. index:: ! datalad command; diff
+.. index::
+   pair: diff; DataLad command
 
 Two cool tools that go beyond the :gitcmd:`log`
 are the :dlcmd:`diff` and :gitcmd:`diff` commands.
@@ -171,6 +172,10 @@ and another state from the dataset's history (a commit specified with
 ``-t``/``--to``). Let's do a :dlcmd:`diff` between the current state
 of the dataset and the previous commit (called "``HEAD~1``" in Git terminology [#f1]_):
 
+.. index::
+   pair: show dataset modifications; on Windows with DataLad
+   pair: diff; DataLad command
+   pair: corresponding branch; in adjusted mode
 .. windows-wit:: please use datalad diff --from main --to HEAD~1
 
    While this example works on Unix file systems, it will not provide the same output on Windows.
@@ -186,6 +191,10 @@ of the dataset and the previous commit (called "``HEAD~1``" in Git terminology [
 
    The ``--from`` argument specifies a different starting point for the comparison - the ``main`` or :term:`master` :term:`branch`, which would be the starting point on most Unix-based systems.
 
+.. index::
+   pair: diff; Git command
+   pair: show dataset modifications; with DataLad
+
 .. runrecord:: _examples/DL-101-109-108
    :language: console
    :workdir: dl-101/DataLad-101
@@ -193,6 +202,10 @@ of the dataset and the previous commit (called "``HEAD~1``" in Git terminology [
    :cast: 02_reproducible_execution
 
    $ datalad diff --to HEAD~1
+
+.. index::
+   pair: diff; Git command
+   pair: show dataset modifications; with Git
 
 This indeed shows the output file as "modified". However, we do not know
 what exactly changed. This is a task for :gitcmd:`diff` (get out of the
@@ -239,7 +252,7 @@ Finally, save this note.
 
 Note that :dlcmd:`rerun` can re-execute the run records of both a :dlcmd:`run`
 or a :dlcmd:`rerun` command,
-but not with any other type of datalad command in your history
+but not with any other type of DataLad command in your history
 such as a :dlcmd:`save` on results or outputs after you executed a script.
 Therefore, make it a
 habit to record the execution of scripts by plugging it into :dlcmd:`run`.
@@ -256,12 +269,18 @@ other tools than from the machine-readable ``run record``.
 For example, to find out who (or what) created or modified a file,
 give the file path to :gitcmd:`log` (prefixed by ``--``):
 
+.. index::
+   pair: show history for particular paths; on Windows with Git
+   pair: log; Git command
+   pair: corresponding branch; in adjusted mode
 .. windows-wit:: use "git log main -- recordings/podcasts.tsv"
 
    A previous Windows Wit already advised to append ``main`` or ``master``, the common "default :term:`branch`", to any command that starts with ``git log``.
    Here, the last part of the command specifies a file (``-- recordings/podcasts.tsv``).
    Please append ``main`` or ``master`` to ``git log``, prior to the file specification.
 
+.. index::
+   pair: show history for particular paths; with Git
 .. runrecord:: _examples/DL-101-109-112
    :language: console
    :workdir: dl-101/DataLad-101

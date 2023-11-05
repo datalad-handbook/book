@@ -14,6 +14,8 @@ the `Python <https://www.python.org>`__ programming language, you decide
 to script your analysis in Python. Delighted, you find out that there is even
 a Python API for DataLad's functionality that you can read about in :ref:`a Findoutmore on DataLad in Python<fom-pythonapi>`.
 
+.. index::
+   pair: use DataLad API; with Python
 .. find-out-more:: DataLad's Python API
    :name: fom-pythonapi
    :float:
@@ -140,10 +142,13 @@ a Python API for DataLad's functionality that you can read about in :ref:`a Find
         "type": "file"}
 
 
+.. index::
+   pair: use DataLad API; with Matlab
+   pair: use DataLad API; with R
 .. importantnote:: Use DataLad in languages other than Python
 
    While there is a dedicated API for Python, DataLad's functions can of course
-   also be used with other programming languages, such as Matlab, via standard
+   also be used with other programming languages, such as Matlab, or R, via standard
    system calls.
 
    Even if you do not know or like Python, you can just copy-paste the code
@@ -158,6 +163,8 @@ of the flowers in centimeters. It is often used in introductory data science
 courses for statistical classification techniques in machine learning, and
 widely available -- a perfect dataset for your midterm project!
 
+.. index::
+   pair: reproducible paper; with DataLad
 .. importantnote:: Turn data analysis into dynamically generated documents
 
    Beyond the contents of this section, we have transformed the example analysis also into a template to write a reproducible paper.
@@ -181,6 +188,8 @@ dataset at `https://github.com/datalad-handbook/iris_data <https://github.com/da
 You can either use this provided input dataset, or find out how to create an
 independent dataset from scratch in a :ref:`dedicated Findoutmore <fom-iris>`.
 
+.. index::
+   pair: create and publish dataset as dependency; with DataLad
 .. find-out-more:: Creating an independent input dataset
    :name: fom-iris
 
@@ -256,7 +265,8 @@ you use the ``cfg_yoda`` procedure to help you structure the dataset [#f1]_:
    # inside of DataLad-101
    $ datalad create -c yoda --dataset . midterm_project
 
-.. index:: ! datalad command; datalad subdatasets
+.. index::
+   pair: subdatasets; DataLad command
 
 The :dlcmd:`subdatasets` command can report on which subdatasets exist for
 ``DataLad-101``. This helps you verify that the command succeeded and the
@@ -441,6 +451,10 @@ point with the ``--version-tag`` option of :dlcmd:`save`.
      --version-tag ready4analysis \
      code/script.py
 
+.. index::
+   pair: tag; Git concept
+   pair: show; Git command
+   pair: rerun command; with DataLad
 .. find-out-more:: What is a tag?
 
    :term:`tag`\s are markers that you can attach to commits in your dataset history.
@@ -491,6 +505,9 @@ re-execution with :dlcmd:`rerun` easy.
    -- an upcoming section on ``datalad containers-run`` will allow you to
    perform the analysis without changing your Python software-setup.
 
+
+.. index::
+   pair: python instead of python3; on Windows
 .. windows-wit:: You may need to use "python", not "python3"
 
    If executing the code below returns an exit code of 9009, there may be no ``python3`` -- instead, it is called solely ``python``.
@@ -543,7 +560,7 @@ dataset:
 
    $ git log --oneline
 
-"Wow, this is so clean an intuitive!" you congratulate yourself. "And I think
+"Wow, this is so clean and intuitive!" you congratulate yourself. "And I think
 this was and will be the fastest I have ever completed a midterm project!"
 But what is still missing is a human readable description of your dataset.
 The YODA procedure kindly placed a ``README.md`` file into the root of your
@@ -592,9 +609,11 @@ Note that one feature of the YODA procedure was that it configured certain files
 root of the dataset) to be saved in Git instead of git-annex. This was the
 reason why the ``README.md`` in the root of the dataset was easily modifiable.
 
+.. index::
+   pair: save; DataLad command
+   pair: save file content directly in Git (no annex); with DataLad
 .. find-out-more:: Saving contents with Git regardless of configuration with --to-git
 
-   .. index:: ! datalad command; save --to-git
 
    The ``yoda`` procedure in ``midterm_project`` applied a different configuration
    within ``.gitattributes`` than the ``text2git`` procedure did in ``DataLad-101``.
@@ -620,6 +639,7 @@ everything you did easily.
 The only thing left to do is to hand in your assignment. According to the
 syllabus, this should be done via :term:`GitHub`.
 
+.. index:: dataset hosting; GitHub
 .. find-out-more:: What is GitHub?
 
    GitHub is a web based hosting service for Git repositories. Among many
@@ -647,7 +667,8 @@ syllabus, this should be done via :term:`GitHub`.
    .. image:: ../artwork/src/screenshot_submodule.png
       :alt: The input dataset is linked
 
-.. index:: ! datalad command; create-sibling-github
+.. index::
+   pair: create-sibling-github; DataLad command
 .. _publishtogithub:
 
 Publishing the dataset to GitHub
@@ -660,7 +681,8 @@ For this, you need to
 - configure this GitHub repository to be a :term:`sibling` of the ``midterm_project`` dataset,
 - and *publish* your dataset to GitHub.
 
-.. index:: ! datalad command; create-sibling-gitlab
+.. index::
+   pair: create-sibling-gitlab; DataLad command
 
 Luckily, DataLad can make this very easy with the
 :dlcmd:`create-sibling-github`
@@ -672,6 +694,8 @@ The command takes a repository name and GitHub authentication credentials
 (either in the command line call with options ``github-login <TOKEN>``, with an *oauth* `token <https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens>`_ stored in the Git
 configuration, or interactively).
 
+.. index::
+   pair: GitHub token; credential
 .. importantnote:: Generate a GitHub token
 
    GitHub `deprecated user-password authentication <https://developer.github.com/changes/2020-02-14-deprecating-password-auth>`_ and instead supports authentication via personal access token.
@@ -692,6 +716,9 @@ configure this repository as a sibling of the dataset:
 
        $ python3 /home/me/makepushtarget.py '/home/me/dl-101/DataLad-101/midterm_project' 'github' '/home/me/pushes/midterm_project' False True
 
+
+.. index:: credential; entry
+   pair: typed credentials are not displayed; on Windows
 .. windows-wit:: Your shell will not display credentials
 
    Don't be confused if you are prompted for your GitHub credentials, but can't seem to type -- the terminal protects your private information by not displaying what you type.
@@ -713,6 +740,8 @@ Verify that this worked by listing the siblings of the dataset:
    .: here(+) [git]
    .: github(-) [https://github.com/adswa/midtermproject.git (git)]
 
+.. index::
+   pair: sibling (GitHub); DataLad concept
 .. gitusernote:: Create-sibling-github internals
 
    Creating a sibling on GitHub will create a new empty repository under the
@@ -720,7 +749,8 @@ Verify that this worked by listing the siblings of the dataset:
    :dlcmd:`push` to this sibling, your datasets history
    will be pushed there.
 
-   .. index:: ! datalad command; push
+   .. index::
+      pair: push; DataLad command
 
 On GitHub, you will see a new, empty repository with the name
 ``midtermproject``. However, the repository does not yet contain
@@ -728,6 +758,8 @@ any of your dataset's history or files. This requires *publishing* the current
 state of the dataset to this :term:`sibling` with the :dlcmd:`push`
 command.
 
+.. index::
+   pair: push; DataLad concept
 .. importantnote:: Learn how to push "on the job"
 
     Publishing is one of the remaining big concepts that this handbook tries to
@@ -778,6 +810,8 @@ an additional :gitcmd:`push`  with the ``--tags`` option is required:
 
    $ git push github --tags
 
+.. index::
+   pair: push (tag); with DataLad
 .. gitusernote:: Pushing tags
 
     Note that this is a :gitcmd:`push`, not :dlcmd:`push`.
@@ -806,6 +840,8 @@ Yay! Consider your midterm project submitted! Others can now install your
 dataset and check out your data science project -- and even better: they can
 reproduce your data science project easily from scratch!
 
+.. index::
+   pair: work on published YODA dataset; with DataLad
 
 On the looks and feels of a published dataset
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

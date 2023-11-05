@@ -29,7 +29,7 @@ authentication, the procedure is always the same:
 Upon first access via any downloading command, users will be prompted for their
 credentials from the command line. Subsequent downloads handle authentication
 in the background as long as the credentials stay valid. An example of this
-credential management is shown in the usecase :ref:`usecase_HCP_dataset`:
+credential management is shown in the use case :ref:`usecase_HCP_dataset`:
 Data is stored in S3 buckets that require authentication with AWS credentials.
 The first :dlcmd:`get` to retrieve any of the data will prompt for
 the credentials from the terminal. If the given credentials are valid, the

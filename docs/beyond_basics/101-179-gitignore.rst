@@ -187,7 +187,7 @@ your dataset to be messy, if you want to be.
 
    Git -- and consequently DataLad -- will not bother you about any of the files
    or file types you have specified. The following snippet defines a typical
-   collection of ignored files to be defined across different platforms, and should work on Unix-like systems (like MacOS and Linux distributions).
+   collection of ignored files to be defined across different platforms, and should work on Unix-like systems (like macOS and Linux distributions).
 
    .. code-block:: bash
 

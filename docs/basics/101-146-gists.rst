@@ -160,10 +160,11 @@ Here is a one-liner to get this info:
    $ datalad -f'{infos[dataset][repo]}' wtf
 
 
+.. index::
+   pair: create-sibling; DataLad command
+
 Backing-up datasets
 ^^^^^^^^^^^^^^^^^^^
-
-.. index:: ! datalad command; create-sibling
 
 In order to back-up datasets you can publish them to a
 :term:`Remote Indexed Archive (RIA) store` or to a sibling dataset. The former

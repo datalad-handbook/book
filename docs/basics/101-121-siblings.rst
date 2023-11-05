@@ -26,7 +26,7 @@ a script on `dataset nesting <https://raw.githubusercontent.com/datalad/datalad.
 Because he found this very helpful in understanding dataset
 nesting concepts, he decided to download it from GitHub, and saved it in the ``code/`` directory.
 
-He does it using the datalad command :dlcmd:`download-url`
+He does it using the DataLad command :dlcmd:`download-url`
 that you experienced in section :ref:`createDS` already: This command will
 download a file just as ``wget``, but it can also take a commit message
 and will save the download right to the history of the dataset that you specify,
@@ -51,7 +51,7 @@ and run the following command
      -O code/nested_repos.sh \
      https://raw.githubusercontent.com/datalad/datalad.org/7e8e39b1/content/asciicast/seamless_nested_repos.sh
 
-Run a quick datalad status:
+Run a quick ``datalad status``:
 
 .. runrecord:: _examples/DL-101-121-102
    :language: console
@@ -86,9 +86,11 @@ Do we need to install the installed dataset of our room mate
 as a copy again?
 
 No, luckily, it's simpler and less convoluted. What we have to
-do is to *register* a datalad :term:`sibling`: A reference to our room mate's
+do is to *register* a DataLad :term:`sibling`: A reference to our room mate's
 dataset in our own, original dataset.
 
+.. index::
+   pair: sibling; DataLad concept
 .. gitusernote:: Remote siblings
 
    Git repositories can configure clones of a dataset as *remotes* in
@@ -97,7 +99,8 @@ dataset in our own, original dataset.
 
 Let's see how this is done.
 
-.. index:: ! datalad command; siblings
+.. index::
+   pair: siblings; DataLad command
 
 First of all, navigate back into the original dataset.
 In the original dataset, "add" a "sibling" by using
@@ -144,6 +147,8 @@ is now known to your own dataset as "roommate"
 This command will list all known siblings of the dataset. You can see it
 in the resulting list with the name "roommate" you have given to it.
 
+.. index::
+   pair: remove sibling; with DataLad
 .. find-out-more:: What if I mistyped the name or want to remove the sibling?
 
    You can remove a sibling using :dlcmd:`siblings remove -s roommate`
@@ -224,6 +229,10 @@ do a ``diff`` between the branch (your drawer) and the dataset as it
 is currently in front of you (your desk). We will do the latter, and leave
 the former for a different lecture:
 
+.. index::
+   pair: corresponding branch; in adjusted mode
+   pair: show dataset modifications for particular paths; on Windows with DataLad
+   pair: diff; DataLad command
 .. windows-wit:: Please use datalad diff --from main --to remotes/roommate/main
 
    Please use the following command instead:
@@ -246,6 +255,10 @@ This shows us that there is an additional file, and it also shows us
 that there is a difference in ``notes.txt``! Let's ask
 :gitcmd:`diff` to show us what the differences in detail (note that it is a shortened excerpt, cut in the middle to reduce its length):
 
+.. index::
+   pair: corresponding branch; in adjusted mode
+   pair: show dataset modifications; on Windows with Git
+   pair: diff; DataLad command
 .. windows-wit:: Please use git diff main..remotes/roommate/main
 
    Please use the following command instead:

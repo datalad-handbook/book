@@ -126,5 +126,6 @@ Code lists from chapters
        :hidden:
 
        usecases/datasets
+       topic_index
        r
        perma/book-intro-v1

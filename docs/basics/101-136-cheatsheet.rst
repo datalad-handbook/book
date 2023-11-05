@@ -1,11 +1,10 @@
 .. index:: ! 1-001
+.. index:: ! Cheatsheet
 .. _1-001:
 .. _cheat:
 
 DataLad cheat sheet
 -------------------
-
-.. index:: ! Cheat sheet
 
 .. only:: html
 

@@ -39,7 +39,7 @@ Everyone uses data. But once it exists, it does not suffice for most data
 to simply reside unchanged in a single location for eternity.
 
 Most **data need to be shared** -- may it be a digital collection of family
-photos, a genomic database between researchers around the world, or inventory
+photos, a genomics database between researchers around the world, or inventory
 lists of one company division to another. Some data are public and should be
 accessible to everyone.  Other data should circulate only among a select few.
 There are various ways to distribute data, from emailing files to sending
@@ -63,8 +63,8 @@ tools allow users to keep track of changes, view previous states, or restore
 older versions.  How about a **version control system for data**?
 
 
-If data are shared as a copy *of one state* of its history, **keeping all shared
-copies of this data up-to-date** once the original data changes or evolves is at
+If data are shared as copies *of one state* of their history, **keeping all shared
+copies up-to-date** once the original data change or evolve is at
 best tedious, but likely impossible. What about ways to easily **update data and
 its shared copies**?
 
@@ -147,7 +147,7 @@ that captures the spirit of what DataLad is, and here is a brief overview on it.
    There is no required central server or service necessary to use DataLad. In this
    way, no central infrastructure needs to be maintained (or paid for).
    Your own laptop is the perfect place for your DataLad project to live, as is your
-   institution's webserver, or any other common computational infrastructure you
+   institution's web server, or any other common computational infrastructure you
    might be using.
 
 #. Simultaneously, though, DataLad aims to

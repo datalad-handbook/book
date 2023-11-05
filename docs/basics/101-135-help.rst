@@ -45,7 +45,8 @@ To find out which version you are using, run
 
    $ datalad --version
 
-.. index:: ! datalad command; wtf
+.. index::
+   pair: wtf; DataLad command
 
 If you want a comprehensive overview of your full setup,
 :dlcmd:`wtf` [#f1]_ is the command to turn to. Running this command will
@@ -153,6 +154,9 @@ Anything printed to your terminal preceded by ``[INFO]``, for example, is a log 
 When you are *consciously* logging, you simply set the log-level to the desired amount of information, or increase the amount of verbosity until the output gives you a hint of what went wrong.
 Likewise, adjusting the log-level also works the other way around, and lets you *decrease* the amount of information you receive in your terminal.
 
+
+.. index::
+   pair: log level; DataLad concept
 .. find-out-more:: Log levels
 
    Log levels provide the means to adjust how much information you want, and are described in human readable terms, ordered by the severity of the failures or problems reported.
@@ -180,6 +184,8 @@ To get extensive information on what :dlcmd:`status` does underneath the hood, y
 
    $ datalad --log-level debug status
 
+.. index::
+   pair: configure verbosity of command output; with DataLad
 .. find-out-more:: How does it look when using environment variables or configurations?
 
    The log level can also be set (for different scopes) using the ``datalad.log.level`` configuration variable, or the corresponding environment variable ``DATALAD_LOG_LEVEL``.

@@ -14,6 +14,8 @@ The general overview
 It is capable of publishing all dataset content, i.e., files stored in :term:`Git`,
 and files stored with :term:`git-annex`, to a known dataset :term:`sibling`.
 
+.. index::
+   pair: push; DataLad concept
 .. gitusernote:: Push internals
 
    The :dlcmd:`push` uses ``git push``, and ``git annex copy`` under
@@ -25,11 +27,15 @@ This, for instance, can be a :term:`GitHub`, :term:`GitLab`, or :term:`Gin`
 repository, but it can also be a Remote Indexed Archive (RIA) store for backup
 or storage of datasets [#f1]_, or a regular clone.
 
+.. index::
+   pair: create-sibling-github; DataLad command
+   pair: create-sibling-gitlab; DataLad command
+   pair: create-sibling-ria; DataLad command
+   pair: GitHub; dataset hosting
+   pair: GitLab; dataset hosting
+   pair: RIA; dataset hosting
+   pair: create sibling; with DataLad
 .. find-out-more:: All of the ways to configure siblings
-
-   .. index:: ! datalad command; create-sibling-github
-   .. index:: ! datalad command; create-sibling-gitlab
-   .. index:: ! datalad command; create-sibling-ria
 
    - Add an existing repository as a sibling with the :dlcmd:`siblings`
      command. Here are common examples:
@@ -116,6 +122,8 @@ that should be published have sibling names identical to the sibling specified i
 the top-level :dlcmd:`push` command, or that appropriate default publication
 targets are configured throughout the dataset hierarchy.
 
+.. index::
+   pair: configure which branches to push; with Git
 .. find-out-more:: Pushing more than the current branch
    :name: fom-push-branch
    :float:

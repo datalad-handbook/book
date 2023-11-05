@@ -1,9 +1,8 @@
+.. index:: ! Usecase; Machine Learning Analysis
 .. _usecase_ML:
 
 DataLad for reproducible machine-learning analyses
 --------------------------------------------------
-
-.. index:: ! Usecase; Machine Learning Analysis
 
 This use case demonstrates an automatically and computationally reproducible analyses in the context of a machine learning (ML) project.
 It demonstrates on an example image classification analysis project how one can
@@ -87,7 +86,7 @@ This complies to the :ref:`YODA principles <yoda>` and helps to keep the input d
    $ datalad create imagenette
 
 The original Imagenette dataset contains 10 image categories can be downloaded as an archive from Amazon (`s3.amazonaws.com/fast-ai-imageclas/imagenette2-160.tgz <https://s3.amazonaws.com/fast-ai-imageclas/imagenette2-160.tgz>`_), but for this tutorial we're using a subset of this dataset with only two categories.
-It is available as an archive from the :term:`Open Science Framework (OSF)`.
+It is available as an archive from the :term:`Open Science Framework` (OSF).
 The :dlcmd:`download-url --archive` not only extracts and saves the data, but also registers the datasets origin such that it can re-retrieved on demand from its original location.
 
 .. runrecord:: _examples/ml-102
@@ -106,6 +105,9 @@ Next, let's create an analysis dataset.
 For a pre-structured and pre-configured starting point, the dataset can be created with the ``yoda`` and ``text2git`` :term:`run procedure`\s [#f3]_.
 These configurations create a ``code/`` directory, place some place-holding ``README`` files in appropriate places, and make sure that all text files, e.g. scripts or evaluation results, are kept in :term:`Git` to allow for easier modifications.
 
+.. index::
+   pair: text2git not functional; on Windows
+   single: dataset procedure; text2git
 .. windows-wit:: Note for Windows-Users
 
    Hey there!
@@ -622,7 +624,7 @@ The analysis is adapted from the chapter :ref:`dvc`, which in turn is based on `
 
 .. rubric:: Footnotes
 
-.. [#f1] You can install the ``datalad-containers`` extension from :term:`pip` via ``pip install datalad-container``. You can find out more about extensions in general in the section :ref:`extensions_intro`, and you can more computationally reproducible analysis using ``datalad container`` in the chapter :ref:`containersrun` and the usecase :ref:`usecase_reproduce_neuroimg`.
+.. [#f1] You can install the ``datalad-containers`` extension from :term:`pip` via ``pip install datalad-container``. You can find out more about extensions in general in the section :ref:`extensions_intro`, and you can more computationally reproducible analysis using ``datalad container`` in the chapter :ref:`containersrun` and the use case :ref:`usecase_reproduce_neuroimg`.
 
 .. [#f2] Unsure how to create a :term:`virtual environment`? You can find a tutorial using :term:`pip` and the ``virtualenv`` module `in the Python docs <https://packaging.python.org/guides/installing-using-pip-and-virtual-environments>`_.
 

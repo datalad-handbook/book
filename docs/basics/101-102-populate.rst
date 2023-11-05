@@ -16,6 +16,9 @@ Let's first create a directory to save books for additional reading in.
 
    $ mkdir books
 
+.. index::
+   pair: tree; terminal command
+
 Let's take a look at the current directory structure with the tree command [#f1]_:
 
 .. runrecord:: _examples/DL-101-102-102
@@ -41,6 +44,8 @@ commands like this into a single line. If you copy them into your terminal as th
 are presented here, make sure to check the :windows-wit:`on peculiarities of its terminals
 <ww-no-multiline-commands>`.
 
+.. index::
+   pair: line continuation; on Windows in a terminal
 .. windows-wit:: Terminals other than Git Bash can't handle multi-line commands
    :name: ww-no-multiline-commands
 
@@ -73,6 +78,8 @@ Some machines will not have :shcmd:`wget` available by default, but any command 
 download a file can work as an alternative. See the :windows-wit:`for the popular alternative
 curl <ww-curl-instead-wget>`.
 
+.. index::
+   pair: curl instead of wget; on Windows
 .. windows-wit:: You can use curl instead of wget
    :name: ww-curl-instead-wget
 
@@ -100,7 +107,8 @@ structure with tree:
 
    $ tree
 
-.. index:: ! datalad command; status
+.. index::
+   pair: status; DataLad command
 
 Now what does DataLad do with this new content? One command you will use very
 often is :dlcmd:`status`.
@@ -115,7 +123,8 @@ regular status reports should become a habit in the wake of ``DataLad-101``.
 
    $ datalad status
 
-.. index:: ! datalad command; save
+.. index::
+   pair: save; DataLad command
 
 Interesting; the ``books/`` directory is "untracked". Remember how content
 *can* be tracked *if a user wants to*?
@@ -140,6 +149,8 @@ about commit messages because :dlcmd:`save` ultimately uses the command
 If you ever forget to specify a message, or made a typo, not all is lost. A
 :find-out-more:`explains how to amend a saved state <fom-amend-save>`.
 
+.. index::
+   pair: amend commit message; with Git
 .. find-out-more:: "Oh no! I forgot the -m option for datalad-save!"
    :name: fom-amend-save
    :float:
@@ -166,6 +177,10 @@ Large content is tracked in an *annex* that is automatically
 created and handled by DataLad. Whether text files or larger files change,
 all of these changes can be written to your DataLad dataset's history.
 
+.. index::
+   pair: log; Git command
+   pair: show last commit; with Git
+
 Let's see how the saved content shows up in the history of the dataset with :gitcmd:`log`.
 The option ``-n 1`` specifies that we want to take a look at the most recent commit.
 In order to get a bit more details, we add the ``-p`` flag. If you end up in a
@@ -187,6 +202,8 @@ the directory ``books/``, and thanks to that commit message we have a nice
 human-readable summary of that action. A :find-out-more:`explains what makes
 a good message <fom-commit-message-guidance>`.
 
+.. index::
+   pair: recommendation; commit message
 .. find-out-more:: DOs and DON'Ts for commit messages
    :name: fom-commit-message-guidance
    :float: tbp
@@ -207,6 +224,8 @@ a good message <fom-commit-message-guidance>`.
 
    - Do not say nasty things about other people
 
+.. index::
+   pair: no staging; with DataLad
 .. gitusernote:: There is no staging area in DataLad
 
    Just as in Git, new files are not tracked from their creation on, but only when
@@ -266,6 +285,8 @@ Regarding your second remark, you're right that a :dlcmd:`save` without a
 path specification would write all of the currently untracked files or modifications
 to the history. But check the :find-out-more:`on how to tell it otherwise <fom-save-updated-only>`.
 
+.. index::
+   pair: save already tracked files only; with DataLad
 .. find-out-more:: How to save already tracked dataset components only?
    :name: fom-save-updated-only
    :float:
@@ -280,6 +301,8 @@ to the history. But check the :find-out-more:`on how to tell it otherwise <fom-s
 
 A :dlcmd:`status` should now be empty, and our dataset's history should look like this:
 
+.. index::
+   pair: show history (compact); with Git
 .. runrecord:: _examples/DL-101-102-111
    :workdir: dl-101/DataLad-101
    :language: console

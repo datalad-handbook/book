@@ -1,6 +1,5 @@
-.. index:: ! 2-003
+.. index::
    pair: result hooks; DataLad concept
-.. _2-003:
 .. _hooks:
 
 DataLad's result hooks

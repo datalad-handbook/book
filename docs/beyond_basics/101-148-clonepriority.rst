@@ -13,6 +13,8 @@ This can create a more flawless and less error-prone user experience as well as 
 .. figure:: ../artwork/src/origin.svg
    :width: 50%
 
+.. index::
+   single: configuration item; datalad.get.subdataset-source-candidate-<name>
 
 Clone candidates
 ^^^^^^^^^^^^^^^^

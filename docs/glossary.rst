@@ -159,6 +159,7 @@ Glossary
    dataset ID
       .. index::
          pair: dataset identifier; DataLad concept
+         single: configuration item; datalad.dataset.id
 
       A :term:`UUID` that identifies a dataset as a unit -- across its entire history and flavors.
       This ID is stored in a dataset's own configuration file (``<dataset root>/.datalad/config``)

@@ -387,6 +387,8 @@ configuration of Git can be overridden by its associated environment variable,
 ``GIT_AUTHOR_NAME``. Likewise, one can define the environment variable instead
 of setting the ``user.name`` configuration in a configuration file.
 
+.. index:: configuration item; datalad.log.level
+
 Git, git-annex, and DataLad have more environment variables than anyone would want to
 remember. `The ProGit book <https://git-scm.com/book/en/v2/Git-Internals-Environment-Variables>`__
 has a good overview on Git's most useful available environment variables for a start.

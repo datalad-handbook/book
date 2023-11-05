@@ -185,6 +185,7 @@ To get extensive information on what :dlcmd:`status` does underneath the hood, y
    $ datalad --log-level debug status
 
 .. index::
+   single: configuration item; datalad.log.level
    pair: configure verbosity of command output; with DataLad
 .. find-out-more:: ... and how does it look when using environment variables or configurations?
 

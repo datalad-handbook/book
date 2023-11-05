@@ -274,6 +274,8 @@ Different containerization software (versions) or configurations of those determ
 Thus, depending on the system and the location of the dataset on this system, a shared dataset may be automatically bind-mounted or not.
 To ensure that the dataset is correctly bind-mounted on all systems, let's add a call-format specification with a bind-mount to the current working directory following the information in the :ref:`find-out-more on additional container configurations <fom-containerconfig>`.
 
+.. index::
+   single: configuration.item; datalad.containers.<name>.cmdexec
 .. runrecord:: _examples/DL-101-133-104
    :language: console
    :workdir: dl-101/DataLad-101/midterm_project

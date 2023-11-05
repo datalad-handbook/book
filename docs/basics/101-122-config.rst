@@ -140,6 +140,9 @@ of the section ``remote``.
 Within each section, ``variable = value`` pairs specify configurations
 for the given (sub)section.
 
+.. index::
+   pair: configure editor; with Git
+
 The first section is called ``core`` -- as the name suggests,
 this configures core Git functionality. There are
 `many more <https://git-scm.com/docs/git-config#Documentation/git-config.txt-corefileMode>`_

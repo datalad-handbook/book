@@ -121,6 +121,8 @@ DataLad in the editor)!
 
 .. index::
    pair: change historical commit messages; with Git
+   pair: rebase; Git command
+   pair: rewrite history; with Git
 .. find-out-more:: Changing the commit messages of not-the-most-recent commits
    :name: fom-rebase1
    :float:
@@ -499,6 +501,9 @@ prior :gitcmd:`checkout` (note that the output is shortened for brevity and show
    :lines: 2, 48-
    :realcommand: echo "$ git cat-file --textconv $(git rev-parse HEAD~15):notes.txt" && git cat-file --textconv $(git rev-parse HEAD~15):notes.txt
 
+.. index::
+   pair: cat-file; Git command
+
 The cat-file command is very versatile, and
 `it's documentation <https://git-scm.com/docs/git-cat-file>`_ will list all
 of its functionality. To use it to see the contents of a file at a previous
@@ -632,6 +637,9 @@ problems for readers without (much) Git experience: An interactive rebase,
 even if performed successfully, can lead to many problems if it is applied with
 too little experience, for example in any collaborative real-world project.
 
+.. index::
+   pair: revert; Git command
+
 Instead, we demonstrate a different, less intrusive way to revert one or more
 changes at any point in the history of a dataset: the :gitcmd:`revert`
 command.
@@ -718,6 +726,9 @@ Finally, let's take a look at the state of the dataset after this operation:
 As you can see, unsurprisingly, the :gitcmd:`revert` command had no
 effects on anything else but the specified commit, and previously untracked
 files are still present.
+
+.. index::
+   pair: resolve merge conflict; with Git
 
 Oh no! I'm in a merge conflict!
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

@@ -20,6 +20,9 @@ I make in my dataset, or maybe the results of our upcoming
 mid-term project? Its a bit unfair that I can get your work,
 but you can not get mine."
 
+.. index::
+   pair: register file with URL in dataset; with DataLad
+
 Consider, for example, that your room mate might have googled about DataLad
 a bit. In the depths of the web, he might have found useful additional information, such
 a script on `dataset nesting <https://raw.githubusercontent.com/datalad/datalad.org/7e8e39b1/content/asciicast/seamless_nested_repos.sh>`_.
@@ -101,6 +104,7 @@ Let's see how this is done.
 
 .. index::
    pair: siblings; DataLad command
+   pair: register sibling in dataset; with DataLad
 
 First of all, navigate back into the original dataset.
 In the original dataset, "add" a "sibling" by using
@@ -135,7 +139,8 @@ As you can see in the command output, the addition of a :term:`sibling` succeede
 ``roommate(+)[../mock_user/DataLad-101]`` means that your room mate's dataset
 is now known to your own dataset as "roommate"
 
-
+.. index::
+   pair: list dataset siblings; with DataLad
 .. runrecord:: _examples/DL-101-121-105
    :language: console
    :workdir: dl-101/DataLad-101
@@ -148,7 +153,7 @@ This command will list all known siblings of the dataset. You can see it
 in the resulting list with the name "roommate" you have given to it.
 
 .. index::
-   pair: remove sibling; with DataLad
+   pair: remove dataset sibling; with DataLad
 .. find-out-more:: What if I mistyped the name or want to remove the sibling?
 
    You can remove a sibling using :dlcmd:`siblings remove -s roommate`
@@ -175,6 +180,9 @@ for changes, and store those changes in a safe place in your own
 dataset, *but it will not yet integrate them into your dataset*.
 This gives you a chance to see whether you actually want to have the
 changes your room mate made.
+
+.. index::
+   pair: update dataset from particular sibling; with DataLad
 
 Let's see how it's done. First, run a plain :dlcmd:`update` without
 the ``--how merge`` option.
@@ -231,7 +239,7 @@ the former for a different lecture:
 
 .. index::
    pair: corresponding branch; in adjusted mode
-   pair: show dataset modifications for particular paths; on Windows with DataLad
+   pair: show dataset modification for particular path; on Windows with DataLad
    pair: diff; DataLad command
 .. windows-wit:: Please use datalad diff --from main --to remotes/roommate/main
 
@@ -257,7 +265,7 @@ that there is a difference in ``notes.txt``! Let's ask
 
 .. index::
    pair: corresponding branch; in adjusted mode
-   pair: show dataset modifications; on Windows with Git
+   pair: show dataset modification; on Windows with Git
    pair: diff; DataLad command
 .. windows-wit:: Please use git diff main..remotes/roommate/main
 

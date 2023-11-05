@@ -304,6 +304,9 @@ Otherwise, dataset updates with :dlcmd:`update` (or, for Git-users,
 behavior that was specifically configured.
 Also, :term:`Git` and :term:`git-annex` will not query this file for configurations, so please store only sticky options that are specific to DataLad (i.e., under the ``datalad.*`` namespace) in it.
 
+.. index::
+   pair: modify configuration; with Git
+
 Writing to configuration files other than ``.git/config``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 

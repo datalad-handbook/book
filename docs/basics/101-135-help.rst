@@ -47,6 +47,7 @@ To find out which version you are using, run
 
 .. index::
    pair: wtf; DataLad command
+   pair: get system information; with DataLad
 
 If you want a comprehensive overview of your full setup,
 :dlcmd:`wtf` [#f1]_ is the command to turn to. Running this command will
@@ -171,7 +172,6 @@ Likewise, adjusting the log-level also works the other way around, and lets you 
    Other than log *levels*, you can also adjust the amount of information provided with numerical granularity. Instead of specifying a log level, provide an integer between 1 and 50, with lower values denoting more debugging information.
 
    Raising the log level (e.g, to ``error``, or ``40``) will decrease the amount of information and output you will receive, while lowering it (e.g., to ``debug`` or ``10``) will increase it.
-
 
 
 Setting a log level can be done in the form of an :term:`environment variable`, a configuration, or with the ``-l``/``--log-level`` flag appended directly after the main :shcmd:`datalad` command.

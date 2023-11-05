@@ -156,6 +156,8 @@ can be used to update it later on.
 
 .. index::
    pair: run; DataLad command
+   pair: run command with provenance capture; with DataLad
+   pair: run command with provenance capture; with DataLad run
 
 The :dlcmd:`run` command
 can help with this. Put simply, it records a command's impact on a dataset. Put

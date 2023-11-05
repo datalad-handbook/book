@@ -250,6 +250,8 @@ to manage the file system in a DataLad dataset (:ref:`filesystem`).
    Let's take a closer look at the structure of the symlink.
    The key from the hash function is the last part of the name of the file the symlink links to (in which the actual data content is stored).
 
+   .. index::
+      pair: compute checksum; in a terminal
    .. runrecord:: _examples/DL-101-115-105
       :language: console
       :workdir: dl-101/DataLad-101/books

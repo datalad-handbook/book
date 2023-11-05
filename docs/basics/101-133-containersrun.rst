@@ -175,6 +175,9 @@ section below has some pointers:
    on any machine, though, not necessarily the one that is later supposed to
    actually run the analysis, e.g., your own laptop versus a compute cluster.
 
+.. index::
+   pair: add container image to dataset; with DataLad
+
 The :dlcmd:`containers-add` command takes an arbitrary
 name to give to the container, and a path or url to a container Image:
 
@@ -188,7 +191,6 @@ name to give to the container, and a path or url to a container Image:
    $ datalad containers-add midterm-software --url shub://adswa/resources:2
 
 .. index::
-   pair: add container image to dataset; with DataLad
    pair: hub; Docker
 .. find-out-more:: How do I add an Image from Docker-Hub, Amazon ECR, or a local container?
 
@@ -283,6 +285,10 @@ To ensure that the dataset is correctly bind-mounted on all systems, let's add a
 
    $ git config -f .datalad/config datalad.containers.midterm-software.cmdexec 'singularity exec -B {{pwd}} {img} {cmd}'
    $ datalad save -m "Modify the container call format to bind-mount the working directory"
+
+.. index::
+   pair: run command with provenance capture; with DataLad
+   pair: run command; with DataLad containers-run
 
 Now that we have a complete computational environment linked to the ``midterm_project``
 dataset, we can execute commands in this environment. Let us for example try to repeat

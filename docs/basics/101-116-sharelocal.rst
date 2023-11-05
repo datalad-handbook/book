@@ -83,6 +83,7 @@ to a different user's directories, but we will talk about permissions later.
 
 .. index::
    pair: clone; DataLad command
+   pair: clone dataset (set location description); with DataLad
 
 After creation, navigate into ``mock_user`` and install the dataset ``DataLad-101``.
 To do this, use :dlcmd:`clone`, and provide a path to your original
@@ -330,6 +331,9 @@ directories, thus limiting its scope to the level of datasets as only a
 :dlcmd:`clone` is performed. Without this option, the command would
 have retrieved all of the subdatasets contents right away. But with ``-n/--no-data``,
 it only installed the subdataset to retrieve the meta data about file availability.
+
+.. index::
+   pair: get all dataset content; with DataLad
 
 To explicitly install all potential subdatasets *recursively*, that is,
 all of the subdatasets inside it as well, one can give the

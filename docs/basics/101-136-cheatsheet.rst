@@ -1,4 +1,4 @@
-.. index:: ! Cheatsheet
+.. _1-001:
 .. _cheat:
 
 DataLad cheat sheet

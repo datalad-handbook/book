@@ -60,6 +60,8 @@ are presented here, make sure to check the :windows-wit:`on peculiarities of its
 
    If you are not using the Git Bash, you will either need to copy multi-line commands into a single line, or use ``^`` (**no space** afterwards) instead of ``\``.
 
+.. index::
+   pair: download file; with wget
 .. runrecord:: _examples/DL-101-102-103
    :language: console
    :workdir: dl-101/DataLad-101
@@ -80,6 +82,7 @@ curl <ww-curl-instead-wget>`.
 
 .. index::
    pair: curl instead of wget; on Windows
+   pair: download file; with curl
 .. windows-wit:: You can use curl instead of wget
    :name: ww-curl-instead-wget
 
@@ -109,6 +112,7 @@ structure with tree:
 
 .. index::
    pair: status; DataLad command
+   pair: check dataset for modification; with DataLad
 
 Now what does DataLad do with this new content? One command you will use very
 often is :dlcmd:`status`.
@@ -125,6 +129,7 @@ regular status reports should become a habit in the wake of ``DataLad-101``.
 
 .. index::
    pair: save; DataLad command
+   pair: save dataset modification; with DataLad
 
 Interesting; the ``books/`` directory is "untracked". Remember how content
 *can* be tracked *if a user wants to*?

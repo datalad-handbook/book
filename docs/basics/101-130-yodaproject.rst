@@ -267,6 +267,7 @@ you use the ``cfg_yoda`` procedure to help you structure the dataset [#f1]_:
 
 .. index::
    pair: subdatasets; DataLad command
+   pair: list subdatasets; with DataLad
 
 The :dlcmd:`subdatasets` command can report on which subdatasets exist for
 ``DataLad-101``. This helps you verify that the command succeeded and the
@@ -437,6 +438,10 @@ Let's run a quick :dlcmd:`status`...
 
    $ datalad status
 
+
+.. index::
+   pair: tag dataset version; with DataLad
+
 ... and save the script to the subdataset's history. As the script completes your
 analysis setup, we *tag* the state of the dataset to refer to it easily at a later
 point with the ``--version-tag`` option of :dlcmd:`save`.
@@ -521,6 +526,8 @@ re-execution with :dlcmd:`rerun` easy.
        --output "prediction_report.csv" ^
        "python code/script.py {inputs} {outputs}"
 
+.. index::
+   pair: run command with provenance capture; with DataLad
 .. runrecord:: _examples/DL-101-130-111
    :language: console
    :workdir: dl-101/DataLad-101/midterm_project
@@ -749,8 +756,9 @@ Verify that this worked by listing the siblings of the dataset:
    :dlcmd:`push` to this sibling, your datasets history
    will be pushed there.
 
-   .. index::
-      pair: push; DataLad command
+.. index::
+   pair: push; DataLad concept
+   pair: push (dataset); with DataLad
 
 On GitHub, you will see a new, empty repository with the name
 ``midtermproject``. However, the repository does not yet contain
@@ -758,8 +766,6 @@ any of your dataset's history or files. This requires *publishing* the current
 state of the dataset to this :term:`sibling` with the :dlcmd:`push`
 command.
 
-.. index::
-   pair: push; DataLad concept
 .. importantnote:: Learn how to push "on the job"
 
     Publishing is one of the remaining big concepts that this handbook tries to
@@ -806,6 +812,9 @@ The reason for this is that tags are viral -- they can be removed locally, and o
 published tags can cause confusion or unwanted changes. In order to publish a tag,
 an additional :gitcmd:`push`  with the ``--tags`` option is required:
 
+.. index::
+   pair: push; DataLad concept
+   pair: push (tag); with Git
 .. code-block:: bash
 
    $ git push github --tags
@@ -842,6 +851,7 @@ reproduce your data science project easily from scratch!
 
 .. index::
    pair: work on published YODA dataset; with DataLad
+   pair: rerun command; with DataLad
 
 On the looks and feels of a published dataset
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

@@ -45,6 +45,8 @@ The options modify the behavior of the program, and are usually preceded by ``-`
 In this example
 
 
+.. index::
+   pair: use command options; in a terminal
 .. runrecord:: _examples/how-to-1
    :language: console
    :workdir: dl-101

@@ -1,5 +1,6 @@
 .. index::
    pair: result hooks; DataLad concept
+.. _2-003:
 .. _hooks:
 
 DataLad's result hooks
@@ -77,6 +78,9 @@ can trigger the execution of custom hooks.
 To define a hook based on certain command results, two configuration variables
 need to be set:
 
+.. index::
+   single: configuration item; datalad.result-hook.<name>.match-json
+   single: configuration item; datalad.result-hook.<name>.call-json
 .. code-block:: bash
 
    datalad.result-hook.<name>.match-json

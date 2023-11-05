@@ -53,6 +53,8 @@ datalad create-sibling-webdav
 The :dlcmd:`create-sibling-webdav` extends DataLad's ``create-sibling-*`` family with support for `WebDAV <https://en.wikipedia.org/wiki/WebDAV>`_ services such as `Nextcloud <https://en.wikipedia.org/wiki/Nextcloud>`_, `owncloud <https://en.wikipedia.org/wiki/OwnCloud>`_ `Sciebo <https://www.hochschulcloud.nrw>`_.
 Notably, it provides new, powerful dataset deposition methods that include human-readable worktree-like representations of datasets that are nevertheless clone-able.
 
+.. index::
+   single: configuration item; datalad.extensions.load
 
 Patches to exiting functionality
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

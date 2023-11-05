@@ -194,6 +194,8 @@ and downloading only this metadata speeds up the installation of a DataLad datas
 of many TB in size to a few seconds. Just now, after installing, the dataset is
 small in size:
 
+.. index::
+   pair: show file size; in a terminal
 .. runrecord:: _examples/DL-101-105-105
    :language: console
    :workdir: dl-101/DataLad-101/recordings/longnow/Long_Now__Seminars_About_Long_term_Thinking
@@ -248,6 +250,9 @@ The command to retrieve file content is :dlcmd:`get`.
 You can specify one or more specific files, or ``get`` all of the dataset by
 specifying :dlcmd:`get .` at the root directory of the dataset (with ``.`` denoting "current directory").
 
+.. index::
+   pair: get file content; with DataLad
+
 First, we get one of the recordings in the dataset -- take any one of your choice
 (here, it's the first).
 
@@ -271,6 +276,9 @@ we can use ``.`` to refer to *all* of the dataset like this:
 However, with a total size of more than 15GB, this might take a while, so do not do that now.
 If you did execute the command above, interrupt it by pressing ``CTRL`` + ``C`` -- Do not worry,
 this will not break anything.
+
+.. index::
+   pair: show dataset size; with DataLad
 
 Isn't that easy?
 Let's see how much content is now present locally. For this, :dlcmd:`status --annex all`
@@ -312,7 +320,7 @@ that the download of one file was ``notneeded`` and the retrieval of the other f
    :dlcmd:`get` uses :gitannexcmd:`get` underneath the hood.
 
 .. index::
-   pair: drop files; with DataLad
+   pair: drop file content; with DataLad
 
 Keep whatever you like
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -411,6 +419,10 @@ Because an installed dataset knows the dataset it was installed from,
 your local dataset clone can be updated from its origin, and thus get the new recordings,
 should there be some. Later in this handbook, we will see examples of this.
 
+.. index::
+   pair: update here-document; in a terminal
+   pair: save dataset modification; with DataLad
+
 Now you can not only create datasets and work with them locally, you can also consume
 existing datasets by installing them. Because that's cool, and because you will use this
 command frequently, make a note of it into your ``notes.txt``, and :dlcmd:`save` the
@@ -437,15 +449,15 @@ modification.
    pair: placeholder files; on Mac
 .. importantnote:: Empty files can be confusing
 
-  Listing files directly after the installation of a dataset will
-  work if done in a terminal with ``ls``.
-  However, certain file managers (such as OSX's Finder [#f3]_) may fail to
-  display files that are not yet present locally (i.e., before a
-  :dlcmd:`get` was run). Therefore, be  mindful when exploring
-  a dataset hierarchy with a file manager -- it might not show you
-  the available but not yet retrieved files.
-  Consider browsing datasets with the :term:`DataLad Gooey` to be on the safe side.
-  More about why this is will be explained in section :ref:`symlink`.
+   Listing files directly after the installation of a dataset will
+   work if done in a terminal with ``ls``.
+   However, certain file managers (such as OSX's Finder [#f3]_) may fail to
+   display files that are not yet present locally (i.e., before a
+   :dlcmd:`get` was run). Therefore, be  mindful when exploring
+   a dataset hierarchy with a file manager -- it might not show you
+   the available but not yet retrieved files.
+   Consider browsing datasets with the :term:`DataLad Gooey` to be on the safe side.
+   More about why this is will be explained in section :ref:`symlink`.
 
 
 .. only:: adminmode

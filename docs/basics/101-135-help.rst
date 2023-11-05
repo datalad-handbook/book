@@ -47,6 +47,7 @@ To find out which version you are using, run
 
 .. index::
    pair: wtf; DataLad command
+   pair: get system information; with DataLad
 
 If you want a comprehensive overview of your full setup,
 :dlcmd:`wtf` [#f1]_ is the command to turn to. Running this command will
@@ -115,7 +116,7 @@ Include
   system and -- if applicable -- Python version? :dlcmd:`wtf` is your friend
   to find all of this information.
 
-.. index:: Debugging
+.. index:: debugging
 
 Debugging like a DataLad-developer
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -173,7 +174,6 @@ Likewise, adjusting the log-level also works the other way around, and lets you 
    Raising the log level (e.g, to ``error``, or ``40``) will decrease the amount of information and output you will receive, while lowering it (e.g., to ``debug`` or ``10``) will increase it.
 
 
-
 Setting a log level can be done in the form of an :term:`environment variable`, a configuration, or with the ``-l``/``--log-level`` flag appended directly after the main :shcmd:`datalad` command.
 To get extensive information on what :dlcmd:`status` does underneath the hood, your command could look like this (but its output is shortened):
 
@@ -185,6 +185,7 @@ To get extensive information on what :dlcmd:`status` does underneath the hood, y
    $ datalad --log-level debug status
 
 .. index::
+   single: configuration item; datalad.log.level
    pair: configure verbosity of command output; with DataLad
 .. find-out-more:: How does it look when using environment variables or configurations?
 

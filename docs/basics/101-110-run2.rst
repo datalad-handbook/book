@@ -73,6 +73,8 @@ Because they will be quite long, we line break the commands in the upcoming exam
 for better readability -- in your terminal, you can always write the commands into
 a single line.
 
+.. index::
+   pair: run command with provenance capture; with DataLad run
 .. runrecord:: _examples/DL-101-110-102
    :language: console
    :workdir: dl-101/DataLad-101
@@ -113,6 +115,9 @@ How can that be?
 "Right!", you exclaim with a facepalm.
 Just as the ``.mp3`` files, the ``.jpg`` file content is not present
 locally after a :dlcmd:`clone`, and we did not :dlcmd:`get` it yet!
+
+.. index::
+   pair: declare command input; with DataLad run
 
 This is where the ``-i``/``--input`` option for a ``datalad run`` becomes useful.
 The content of everything that is specified as an ``input`` will be retrieved
@@ -241,6 +246,7 @@ and thus protected by git-annex.
 
 .. index::
    pair: unlock; DataLad command
+   pair: unlock file; with DataLad
 
 There is a DataLad command that takes care of unlocking file content,
 and thus making locked files modifiable again: :dlcmd:`unlock`.
@@ -330,6 +336,9 @@ the ``-o``/``--output`` option.
    This would unlock all files with a ``.dat`` extension inside of ``directory``.
    To glob for files in multiple levels of directories, use ``**`` (a so-called `globstar <https://www.linuxjournal.com/content/globstar-new-bash-globbing-option>`_) for a recursive glob through any number directories.
    And, just as for ``-i``/``--input``, you could use multiple ``--output`` specifications.
+
+.. index::
+   pair: declare command output; with DataLad run
 
 In order to execute :dlcmd:`run` with both the ``-i``/``--input`` and ``-o``/``--output``
 flag and see their magic, let's crop the second logo, ``logo_interval.jpg``:
@@ -495,13 +504,15 @@ the ``--input`` and ``--output`` specification done before.
    input.
 
 .. index::
-   pair: commands with curly brackets; with DataLad run
+   pair: run command with curly brackets; with DataLad run
 .. find-out-more:: Wait, what if I need a curly bracket in my datalad run call?
 
    If your command call involves a ``{`` or ``}`` character, you will need to escape
    this brace character by doubling it, i.e., ``{{`` or ``}}``.
 
 
+.. index::
+   pair: dry-run; with DataLad run
 .. _dryrun:
 
 Dry-running your run call

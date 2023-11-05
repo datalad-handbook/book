@@ -49,6 +49,8 @@ Note the command structure of :dlcmd:`create` (optional bits are enclosed in ``[
 
 Let's start:
 
+.. index::
+   pair: create dataset; with DataLad
 .. runrecord:: _examples/DL-101-101-101
    :language: console
    :workdir: dl-101

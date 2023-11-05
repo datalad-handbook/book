@@ -51,7 +51,7 @@ How to add a sibling on a Git repository hosting site: The manual way
 
 #. If you pick the :term:`SSH` URL, make sure to have an :term:`SSH key` set up. This usually requires generating an SSH key pair if you do not have one yet, and uploading the public key to the repository hosting service.
 
-.. index:: Concepts; SSH key, SSH; key
+.. index:: concepts; SSH key, SSH; key
 .. _sshkey:
 .. find-out-more:: What is an SSH key and how can I create one?
    :name: fom-sshkey
@@ -311,6 +311,8 @@ Publishing datasets recursively
 When publishing a series of datasets recursively, the ``--project`` argument can not be used anymore - otherwise, all datasets in the hierarchy would attempt to create the same group or project over and over again.
 Instead, one configures the root level dataset, and the names for underlying datasets will be derived from this configuration:
 
+.. index::
+   single: configuration item; datalad.gitlab-<name>-project
 .. code-block:: bash
 
    # do the configuration for the top-most dataset
@@ -360,4 +362,7 @@ Once you have set up your dataset sibling(s), you can push individual datasets w
 
 .. [#f3]  GitHub `deprecated user-password authentication <https://developer.github.com/changes/2020-02-14-deprecating-password-auth>`_ in favor of authentication via personal access token. Supplying a password instead of a token will fail to authenticate.
 
+.. index::
+   single: configuration item; datalad.gitlab-default-projectname
+   single: configuration item; datalad.gitlab-default-pathseparator
 .. [#f4] The default project name ``project`` and path separator ``-`` are configurable using the dataset-level configurations ``datalad.gitlab-default-projectname`` and ``datalad.gitlab-default-pathseparator``

@@ -52,6 +52,7 @@ integrate them.
 
 .. index::
    pair: update; DataLad command
+   pair: update dataset with remote change; with DataLad
 
 This is done with the :dlcmd:`update --how merge`
 command.

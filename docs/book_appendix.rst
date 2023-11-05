@@ -12,4 +12,3 @@ Appendix
    glossary
    acknowledgements
    licenses
-   basics/101-136-cheatsheet

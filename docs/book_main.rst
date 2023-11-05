@@ -54,3 +54,4 @@ The DataLad Handbook
    :hidden:
 
    topic_index
+   basics/101-136-cheatsheet

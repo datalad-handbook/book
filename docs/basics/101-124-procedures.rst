@@ -199,7 +199,7 @@ was applied.
    single: configuration item; datalad.locations.dataset-procedures
    single: configuration item; datalad.procedures.<name>.call-format
    single: configuration item; datalad.procedures.<name>.help
-   single:: datasets procedures; write your own
+   single: datasets procedures; write your own
 .. find-out-more:: Write your own procedures
    :name: fom-procedures
    :float:

@@ -8,7 +8,7 @@ Glossary
 .. glossary::
 
    absolute path
-      .. index:: File system concept; path (absolute)
+      .. index:: file system concept; path (absolute)
 
       The complete path from the root of the file system. On Unix-like systems, absolute paths always start with ``/``, and on Windows systems, they start with a ``/`` (likely prefixed by a disk identifier).
       Examples: ``/home/user/Pictures/xkcd-webcomics/530.png``, ``C:\Users\user\Pictures\xkcd-webcomics\530.png``. See also :term:`relative path`.
@@ -377,7 +377,7 @@ Glossary
       A `terminal paper <https://en.wikipedia.org/wiki/Terminal_pager>`_ is a program to view file contents in the :term:`terminal`. Popular examples are the programs ``less`` and ``more``. Some terminal output can be opened automatically in a pager, for example the output of a :gitcmd:`log` command. You can use the arrow keys to navigate and scroll in the pager, and the letter ``q`` to exit it.
 
    permissions
-      .. index:: File system concept; permissions
+      .. index:: file system concept; permissions
 
       Access rights assigned by most file systems that determine whether a user can view (``read permission``),
       change (``write permission``), or execute (``execute permission``) a specific content.
@@ -434,7 +434,7 @@ Glossary
       Git concept. A "Git Reference", typically shortened to "ref", is a text file containing a :term:`commit` :term:`shasum` as a human-readable reference to a specific version of your dataset or Git repository. Thanks to refs, Git users do not need to memorize or type shasums when switching between dataset states, and can use simple names instead: For example, a :term:`branch` such as ``main`` is a ref, and a :term:`tag` is one, too. In both cases, those refs are text files that contain the shasum of the commit at the tip of a branch, or the shasum of the commit you added the tag to. Refs are organized in the directory ``.git/refs`` and Git commands and configurations can use refs to perform updating operations or determine their behavior. More details can be found at `at git-scm.com <https://git-scm.com/book/en/v2/Git-Internals-Git-References>`_
 
    relative path
-      .. index:: File system concept; path (relative)
+      .. index:: file system concept; path (relative)
 
       A path related to the present working directory. Relative paths never start with ``/`` or ``\``.
       Examples on Unix and Windows: ``../Pictures/xkcd-webcomics/530.png``, ``..\Pictures\xkcd-webcomics\530.png``. See also :term:`absolute path`.
@@ -509,13 +509,13 @@ Glossary
       `documentation <https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History>`__.
 
    SSH
-      .. index:: Concepts; SSH
+      .. index:: concepts; SSH
 
       Secure shell (SSH) is a network protocol to link one machine (computer),
       the *client*, to a different local or remote machine, the *server*. See also: :term:`SSH server`.
 
    SSH key
-      .. index:: Concepts; SSH key, SSH; key
+      .. index:: concepts; SSH key, SSH; key
 
       An SSH key is an access credential in the SSH protocol that can be used to login
       from one system to remote servers and services, such as from your private
@@ -558,7 +558,7 @@ Glossary
       writes its output data.
 
    symlink
-      .. index:: File system concept; symlink
+      .. index:: file system concept; symlink
 
       A symbolic link (also symlink or soft link) is a reference to another file or path in the form
       of a relative path. Windows users are familiar with a similar concept: shortcuts.

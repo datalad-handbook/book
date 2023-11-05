@@ -17,7 +17,7 @@ and not git-annex (see section :ref:`sibling`). The configuration responsible
 for this behavior is in a ``.gitattributes`` file, and we'll start this
 section by looking into it.
 
-.. index:: ! Config files; .gitattributes
+.. index:: ! configuration file; .gitattributes
 
 ``.gitattributes``
 ^^^^^^^^^^^^^^^^^^
@@ -133,7 +133,7 @@ Later however you will see preconfigured DataLad *procedures* such as ``text2git
 can apply useful configurations for you, just as ``text2git`` added the last line
 in the root ``.gitattributes`` file.
 
-.. index:: ! Config files; .gitmodules
+.. index:: ! configuration file; .gitmodules
 
 ``.gitmodules``
 ^^^^^^^^^^^^^^^
@@ -276,7 +276,7 @@ Nevertheless, if ``subds1`` is provided with an explicit path, its subdataset ``
     6 directories, 0 files
 
 
-.. index:: ! Config files; .datalad/config
+.. index:: ! configuration file; .datalad/config
 
 ``.datalad/config``
 ^^^^^^^^^^^^^^^^^^^

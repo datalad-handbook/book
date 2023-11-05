@@ -51,7 +51,7 @@ How to add a sibling on a Git repository hosting site: The manual way
 
 #. If you pick the :term:`SSH` URL, make sure to have an :term:`SSH key` set up. This usually requires generating an SSH key pair if you do not have one yet, and uploading the public key to the repository hosting service.
 
-.. index:: Concepts; SSH key, SSH; key
+.. index:: concepts; SSH key, SSH; key
 .. _sshkey:
 .. find-out-more:: What is an SSH key and how can I create one?
    :name: fom-sshkey

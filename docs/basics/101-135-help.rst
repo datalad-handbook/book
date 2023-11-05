@@ -116,7 +116,7 @@ Include
   system and -- if applicable -- Python version? :dlcmd:`wtf` is your friend
   to find all of this information.
 
-.. index:: Debugging
+.. index:: debugging
 
 Debugging like a DataLad-developer
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

@@ -18,7 +18,7 @@ Sphinx
 sphinx-sitemap
 sphinxcontrib-websupport
 sphinx-notfound-page
-sphinx-copybutton<0.4
+sphinx-copybutton
 urllib3
 sphinxcontrib-jquery
 sphinxcontrib-svg2pdfconverter

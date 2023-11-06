@@ -10,7 +10,7 @@ that can be automatically computationally reproduced by anyone:
 #. Public open data stems from :term:`the DataLad superdataset ///`.
 #. Automatic data retrieval can be ensured by using DataLad's commands in the analysis scripts, or the ``--input`` specification of :dlcmd:`run`,
 #. Analyses are executed using :dlcmd:`run` and :dlcmd:`rerun` commands to capture everything relevant to reproduce the analysis.
-#. The final dataset can be kept as lightweight as possible by dropping input that can be easily re-obtained.
+#. The final dataset can be kept as lightweight as possible by dropping input that can be easily reobtained.
 #. A complete reproduction of the computation (including input retrieval), is possible with a single :dlcmd:`rerun` command.
 
 This use case is a specialization of :ref:`usecase_reproducible_paper`, and a simpler version of :ref:`usecase_reproduce_neuroimg`:
@@ -164,10 +164,10 @@ All changes, including the command that caused them are on record:
 
    $ git show --stat
 
-DataLad has enough information stored to be able to re-run a command.
+DataLad has enough information stored to be able to rerun a command.
 
 On command exit, it will inspect the results and save them again, but only if they are different.
-In our case, the re-run yields bit-identical results, hence nothing new is saved.
+In our case, the rerun yields bit-identical results, hence nothing new is saved.
 
 .. runrecord:: _examples/repro-111
    :language: console
@@ -216,10 +216,10 @@ The dataset is substantially smaller as all inputs are gone…
 
 But as these inputs were registered in the dataset when we installed them, getting them back is very easy.
 Only the remaining data (our code and the results) need to be kept and require a backup for long term archival.
-Everything else can be re-obtained as needed, when needed.
+Everything else can be reobtained as needed, when needed.
 
-As DataLad knows everything needed about the inputs, including where to get the right version, we can re-run the analysis with a single command.
-Watch how DataLad re-obtains all required data, re-runs the code, and checks that none of the results changed and need saving.
+As DataLad knows everything needed about the inputs, including where to get the right version, we can rerun the analysis with a single command.
+Watch how DataLad reobtains all required data, reruns the code, and checks that none of the results changed and need saving.
 
 .. runrecord:: _examples/repro-117
    :language: console

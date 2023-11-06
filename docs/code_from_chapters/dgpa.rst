@@ -338,7 +338,7 @@ You could write your own script, but here we'll use a pre-existing one to extrac
 This script is available from `GitHub <https://raw.githubusercontent.com/datalad-handbook/resources/master/get_brainmask.py>`_.
 While you can add and save any file into your dataset, it is often useful to know where files came from.
 If you add a file from a web-source into your dataset, you can use the command ``datalad download-url`` in order to download the file, save it together with a commit message into the dataset, and record its origin internally.
-This allows you to drop and re-obtain this file at any point, and makes it easier to share that dataset with others::
+This allows you to drop and reobtain this file at any point, and makes it easier to share that dataset with others::
 
    datalad download-url -m "Download code for brain masking from Github" \
     -O code/get_brainmask.py \

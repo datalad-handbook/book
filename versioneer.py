@@ -262,7 +262,7 @@ To upgrade your project to a new release of Versioneer, do the following:
 * edit `setup.cfg` and `pyproject.toml`, if necessary,
   to include any new configuration settings indicated by the release notes.
   See [UPGRADING](./UPGRADING.md) for details.
-* re-run `versioneer install --[no-]vendor` in your source tree, to replace
+* rerun `versioneer install --[no-]vendor` in your source tree, to replace
   `SRC/_version.py`
 * commit any changed files
 
@@ -2140,12 +2140,12 @@ You will also need to edit your setup.py to use the results:
        cmdclass=versioneer.get_cmdclass(), ...)
 
 Please read the docstring in ./versioneer.py for configuration instructions,
-edit setup.cfg, and re-run the installer or 'python versioneer.py setup'.
+edit setup.cfg, and rerun the installer or 'python versioneer.py setup'.
 """
 
 SAMPLE_CONFIG = """
 # See the docstring in versioneer.py for instructions. Note that you must
-# re-run 'versioneer.py setup' after changing this section, and commit the
+# rerun 'versioneer.py setup' after changing this section, and commit the
 # resulting files.
 
 [versioneer]

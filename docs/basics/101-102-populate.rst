@@ -39,7 +39,7 @@ are all free, in total about 15 MB), and save them in ``DataLad-101/books``.
 
 You can either visit the links and save them in ``books/``,
 or run the following commands [#f2]_ to download the books right from the terminal.
-Note that we line break the command with ``\`` signs. In your own work you can write
+Note that we line break the command with ``\`` line continuation characters. In your own work you can write
 commands like this into a single line. If you copy them into your terminal as they
 are presented here, make sure to check the :windows-wit:`on peculiarities of its terminals
 <ww-no-multiline-commands>`.
@@ -189,7 +189,7 @@ all of these changes can be written to your DataLad dataset's history.
 Let's see how the saved content shows up in the history of the dataset with :gitcmd:`log`.
 The option ``-n 1`` specifies that we want to take a look at the most recent commit.
 In order to get a bit more details, we add the ``-p`` flag. If you end up in a
-pager, navigate with up and down arrow keys and leave the log by typing ``q``:
+:term:`pager`, navigate with up and down arrow keys and leave the log by typing ``q``:
 
 .. runrecord:: _examples/DL-101-102-107
    :language: console

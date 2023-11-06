@@ -191,9 +191,9 @@ This initial sketch serves to highlight key differences and adjustments due to t
    # job handler should clean up workspace
 
 Just like the general script from the last section, this script can be submitted to any job scheduler -- here with a subject ID as a ``$subid`` command line variable and a job ID as environment variable as identifiers for the fMRIprep run and branch names.
-At this point, the workflow misses a tweak that is necessary in fMRIprep to enable re-running computations  (the complete file is in :ref:`this Findoutmore <fom-enki>`.
+At this point, the workflow misses a tweak that is necessary in fMRIprep to enable rerunning computations  (the complete file is in :ref:`this Findoutmore <fom-enki>`.
 
-.. find-out-more:: Fine-tuning: Enable re-running
+.. find-out-more:: Fine-tuning: Enable rerunning
 
    If you want to make sure that your dataset is set up in a way that you have the ability to rerun a computation quickly, the following fMRIprep-specific consideration is important:
    If fMRIprep finds preexisting results, it will fail to run.

@@ -25,7 +25,8 @@ Beyond this, Windows uses a different file system than Unix based systems.
 Given that DataLad is a data management software, it is heavily affected by this, and the Basics part of the handbook is filled with "Windows-Wits", dedicated sections that highlight different behavior on native Windows installations of DataLad, or provide adjusted commands -- nevertheless, standard DataLad operations on Windows can be much slower than on other operating systems.
 
 A major annoyance and problem is that some tools that DataLad or :term:`datalad extension`\s use are not available on Windows.
-If you are interested in adding :term:`software container`\s to your DataLad dataset (with the ``datalad-container`` extension), for example, you will likely not be able to do so on a native Windows computer -- :term:`Singularity`, a widely used containerization software, doesn't exit for Windows, and while there *is* some support for :term:`Docker` on Windows, it does not apply to most private computers [#f1]_.
+If you are interested in adding :term:`software container`\s to your DataLad dataset (with the ``datalad-container`` extension), for example, you won't be able to use :term:`Singularity`, a widely used containerization software.
+There is, however, support for :term:`Docker` on Windows.
 
 Windows also has insufficient support for :term:`symlink`\ing and locking files (i.e., revoking write :term:`permissions`), which alters how :term:`git-annex` works, and may make interoperability of datasets between Windows and non-Windows operating systems not as smooth as between various flavors of Unix-like operating systems.
 
@@ -54,7 +55,6 @@ We can adapt to limitations, but in many cases it is not possible to overcome th
 That sucks, and we're really sorry for this.
 It's not that we pick dependencies that only work on Unix-based systems -- we try to use tools that are as cross-platform-compatible as possible, but certain tools, functions, or concepts simply don't (yet) work on Windows:
 
-- As there is no way to install :term:`Singularity` or :term:`Docker` on regular Windows machines, none of the functionality that the ``datalad-container`` extension provides can be used.
 - As there is insufficient support for symlinking and locking, datasets will have a higher disk usage on Windows machines. Section :ref:`symlink` has the details on this.
 - The Windows terminals are much less user friendly, and errors that are thrown on Windows systems are typically much more complex.
 - DataLad and its underlying tools are slower on Windows.
@@ -162,8 +162,6 @@ Take a look at user forums such as `forums.linuxmint.com <https://forums.linuxmi
 **How do I start?** A nice and comprehensive overview is detailed in `this article <https://uk.pcmag.com/linux/124238/how-to-make-the-switch-from-windows-to-linux>`_.
 
 .. rubric:: Footnotes
-
-.. [#f1] If you are thinking, "Well, why would you use :term:`Singularity`, :term:`Docker` is available on Windows!": True, and ``datalad-container`` can indeed use Docker. But Docker can only be installed on Windows Pro or Enterprise, but not on Windows Home. Eh. :(
 
 .. [#f2] The path length limitation on Windows is the reason that DataLad datasets always use hashes based on `MD5 <https://en.wikipedia.org/wiki/MD5>`_, a hash function that produces a 32 character hash digest value. This wouldn't be necessary on Unix-based operating systems, but is required to ensure portability of datasets to Windows computers.
 

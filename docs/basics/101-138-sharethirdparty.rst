@@ -13,13 +13,7 @@ Data sharing potentially involves a number of different elements:
 Users on a common, shared computational infrastructure such as an :term:`SSH server`
 can share datasets via simple installations with paths, without any involvement of third party storage providers or repository hosting services:
 
-|pic1|  |pic2|
-
-.. |pic1| image:: ../artwork/src/publishing/clone_local.svg
-   :width: 45%
-
-.. |pic2| image:: ../artwork/src/publishing/clone_server.svg
-   :width: 45%
+.. figure:: ../artwork/src/publishing/clone_combined.svg
 
 But at some point in a dataset's life, you may want to share it with people that
 can't access the computer or server your dataset lives on, store it on other infrastructure

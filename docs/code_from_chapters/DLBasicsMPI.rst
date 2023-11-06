@@ -114,7 +114,7 @@ Let's make another change to the dataset, by adding a new file (a webcomic, down
    If the ``wget`` command above fails for you, you could
 
    * Install a Windows version of wget
-   * Use the following ``curl`` command: ``curl https://imgs.xkcd.com/comics/compiling.png --output compiling.png`` (recent Windows 10 builds include ``curl`` natively)
+   * Use the following ``curl`` command: ``curl https://imgs.xkcd.com/comics/compiling.png --output compiling.png`` (recent Windows builds include ``curl`` natively)
    * Download and save the image from your web browser
 
 With this change, there are two modifications in your dataset, a modified file and an untracked file::

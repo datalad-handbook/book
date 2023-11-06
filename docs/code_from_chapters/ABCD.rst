@@ -117,7 +117,7 @@ To demonstrate this, we make two unrelated changes: adding a new file (a comic d
    If the ``wget`` command above fails for you, you could
 
    * Install a Windows version of wget
-   * Use the following ``curl`` command: ``curl https://imgs.xkcd.com/comics/compiling.png --output compiling.png`` (recent Windows 10 builds include ``curl`` natively)
+   * Use the following ``curl`` command: ``curl https://imgs.xkcd.com/comics/compiling.png --output compiling.png`` (recent Windows builds include ``curl`` natively)
    * Download and save the image from your web browser
 
 Here's a project title that we echo into the README::

@@ -360,6 +360,9 @@ in the actual manuscript, if you want!). This was step number 1 of 4.
 
    This figure looks like this in the manuscript:
 
+   ..
+      the image can't become a figure because it can't be used in LaTeXs minipage environment
+
    .. image:: ../artwork/src/img/remodnav2.png
 
 For step 2 and 3, the print statements need to be captured and bound to the ``.tex`` file.

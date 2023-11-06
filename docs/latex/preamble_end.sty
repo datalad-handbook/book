@@ -4,7 +4,9 @@
 \renewcommand{\sphinxtermref}[1]{\mbox{\textit{#1}\hspace{0.1em}\textsuperscript{\scriptsize{\color{dataladlightgray}\faBook}}}}
 
 % better control over the spacing of list items
-\usepackage{enumitem}
+% MIH: we cannot use enumitem, it messes with the (description) list
+% customizations done by sphinx
+%\usepackage{enumitem}
 
 \usepackage[labelfont=bf,singlelinecheck=false]{caption}
 \usepackage[hang,flushmargin,multiple]{footmisc}

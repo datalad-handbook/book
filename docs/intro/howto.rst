@@ -35,7 +35,10 @@ Command syntax
 ==============
 
 Interactions with the shell take the form of commands, text-based instructions to your computer.
-Commands are case sensitive and follow the syntax of: ``command [options...] <arguments...>``.
+Commands are case sensitive and follow the syntax of::
+
+    command [options...] <arguments...>
+
 Whenever you see some example code in the code snippets of this book, make sure
 that you capitalize exactly as shown if you try it out yourself.
 The options modify the behavior of the program, and are usually preceded by ``-`` or ``--`` on Unix-like systems.
@@ -72,7 +75,7 @@ to list the size of a file in a *human-readable* format, supply the short option
    # or alternatively
    $ ls -l --human-readable output.txt
 
-Every command has many of those options (often called "flags") that modify their behavior.
+A command may have many of those options (often called "flags") that modify their behavior.
 On Windows, options of native Windows commands can be preceded by a ``/`` instead of dashes, for example, ``dir /p output.txt``.
 There are too many to even consider memorizing. Remember the ones you use often,
 and the rest you will lookup in their documentation or via your favorite search engine.
@@ -148,7 +151,7 @@ and it will likely look similar to this:
 
 ``me@muninn: ~$``
 
-This says I am the user ``me`` on the machine muninn and I am in the folder ``~``,
+This says I am the user ``me`` on the machine ``muninn`` and I am in the folder ``~``,
 which is shorthand for the current user's home folder (in this case ``/home/me``).
 
 The ``$`` sign indicates that the prompt is interactive and awaiting user input.

@@ -205,7 +205,7 @@ Note how, in accordance to the :ref:`YODA principles <yoda>`, the script only co
        main(repo_path)
    EOT
 
-Executing the `here document <https://en.wikipedia.org/wiki/Here_document>`_ in the code block above has created a script ``code/prepare.py``:
+Executing the `heredoc <https://en.wikipedia.org/wiki/Here_document>`_ in the code block above has created a script ``code/prepare.py``:
 
 .. runrecord:: _examples/ml-108
    :language: console

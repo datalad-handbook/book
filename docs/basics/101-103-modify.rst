@@ -19,7 +19,7 @@ Let's write a short summary of how to create a DataLad dataset from scratch:
 This is meant to be a note you would take in an educational course.
 You can take this note and write it to a file with an editor of your choice.
 The code below, however, contains this note within the start and end part of a
-`here document <https://en.wikipedia.org/wiki/Here_document>`_.
+`herdoc <https://en.wikipedia.org/wiki/Here_document>`_.
 You can also copy the full code snippet, starting
 from ``cat << EOT > notes.txt``, including the ``EOT`` in the last line, in your
 terminal to write this note from the terminal (without any editor) into ``notes.txt``.

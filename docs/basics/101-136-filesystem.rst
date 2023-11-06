@@ -1121,22 +1121,17 @@ from the dataset's history. An advanced chapter in the online-handbook
 shows an example invocation.
 
 .. index::
-   pair: uninstall; DataLad command
+   pair: drop; DataLad command
 
 Uninstalling or deleting subdatasets
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Depending on the exact aim, different commands are of relevance for
-deleting a DataLad subdataset. The softer (and not so much "deleting" version)
-is to uninstall a dataset with a :dlcmd:`drop`.
+deleting a DataLad subdataset.
+One way to uninstall a dataset is the :dlcmd:`drop` command.
 To work on datasets, ``drop`` needs to be parametrized with ``--what all``.
 If needed, add ``--recursive`` in case the dataset contains subdatasets, and a
-fitting ``--reckless`` mode.
-A stand-alone command, :dlcmd:`uninstall`, wraps a ``datalad drop --what all --reckless kill``.
-This command can be used to uninstall any number of
-*subdatasets*. Note though that only subdatasets can be uninstalled; the command
-will error if given a sub-*directory*, a file, or a top-level dataset.
-Using the :dlcmd:`drop` command gives you greater flexibility.
+fitting ``--reckless`` mode, such as ``datalad drop --what all --reckless kill --recursive``.
 
 .. runrecord:: _examples/DL-101-136-181
    :language: console
@@ -1154,10 +1149,10 @@ To uninstall the dataset, you can use
 .. runrecord:: _examples/DL-101-136-182
    :language: console
    :workdir: dl-101/DataLad-101
-   :notes: uninstall uninstalls the dataset, but it is still registered in the superdataset. a dl install will get the dataset again!
+   :notes: uninstall drop the dataset, but it is still registered in the superdataset. a dl install will get the dataset again!
    :cast: 03_git_annex_basics
 
-   $ datalad uninstall cloud
+   $ datalad drop --what all --reckless kill --recursive cloud
 
 Note that the dataset is still known in the dataset, and not completely removed.
 A ``datalad get [-n/--no-data] cloud`` would install the dataset again.
@@ -1191,7 +1186,7 @@ subsequently remove it with the :dlcmd:`remove` command:
    $ datalad remove -m "remove obsolete subds" -d . cloud
 
 Note that for both commands a pointer to the *current directory* will not work.
-``datalad remove .`` or ``datalad uninstall .`` will fail, even if
+``datalad remove .`` or ``datalad drop .`` will fail, even if
 the command is executed in a subdataset instead of the top-level
 superdataset -- you need to execute the command from a higher-level directory.
 
@@ -1226,13 +1221,12 @@ This *recursively* (``-R``, i.e., throughout all files and (sub)directories) giv
 
 Afterwards, ``rm -rf <dataset>`` will succeed.
 
-However, instead of ``rm -rf``, a faster way to remove a dataset is using
-:dlcmd:`remove`: Run ``datalad remove <dataset>`` outside of the
+However, instead of ``rm -rf``, a faster way to remove a dataset is using either :dlcmd:`drop` or  :dlcmd:`remove`: Run ``datalad drop -d <dataset>`` or ``datalad remove -d <dataset>`` outside of the
 superdataset to remove a top-level dataset with all its contents. Likely,
 both  ``--recursive`` and ``--reckless [availability|undead|kill]`` flags are necessary
 to traverse into subdatasets and to remove content that does not have verified remotes.
 
-Be aware though that both ways to delete a dataset will
+Be aware though deleting a dataset in which ever way will
 irretrievably delete the dataset, it's contents, and it's history.
 
 Summary

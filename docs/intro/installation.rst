@@ -6,7 +6,7 @@ Installation and configuration
 .. figure:: /artwork/src/interior_design.svg
    :width: 50%
 .. index::
-   single: Installation; DataLad
+   single: installation; DataLad
 
 Install DataLad
 ^^^^^^^^^^^^^^^
@@ -76,7 +76,7 @@ may have just bought.
 Python:
     .. index::
        pair: install Python; on Windows
-       single: Installation; Python
+       single: installation; Python
 
     Windows itself does not ship with Python, it must be installed separately.
     If you already did that, please check the :find-out-more:`on Python
@@ -120,7 +120,7 @@ Python:
 Git:
     .. index::
        pair: install Git; on Windows
-       single: Installation; Git
+       single: installation; Git
 
     Windows also does not come with Git. If you happen to have it installed already,
     please check, if you have configured it for command line use. You should be able
@@ -143,7 +143,7 @@ Git:
 Git-annex:
     .. index::
        pair: install git-annex; on Windows
-       single: Installation; git-annex
+       single: installation; git-annex
 
     There are two convenient ways to install git-annex. The first is `downloading the installer from git-annex' homepage <https://git-annex.branchable.com/install/Windows>`_. The other is to deploy git-annex via the `DataLad installer`_.
     The latter option requires the installation of the datalad-installer.
@@ -180,7 +180,7 @@ DataLad:
 7-Zip (optional, but highly recommended):
     .. index::
        pair: install 7-zip; on Windows
-       single: Installation; 7-Zip
+       single: installation; 7-Zip
 
     Download it from the `7-zip website <https://7-zip.org>`_ (64bit
     installer when in doubt), and install it into the default target directory.

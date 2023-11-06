@@ -58,7 +58,7 @@ To resize one image to 400x400 px, the command would thus be
 
 .. index::
    pair: install ImageMagick; on Windows
-   single: Installation; ImageMagick
+   single: installation; ImageMagick
 .. windows-wit:: Tool installation
 
    `ImageMagick <https://imagemagick.org/index.php>`_ is not installed on Windows systems by default.

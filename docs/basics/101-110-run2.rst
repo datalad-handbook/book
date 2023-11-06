@@ -505,7 +505,7 @@ the ``--input`` and ``--output`` specification done before.
 
 .. index::
    pair: run command with curly brackets; with DataLad run
-.. find-out-more:: ... wait, what if I need a curly bracket in my datalad run call?
+.. find-out-more:: ... wait, what if I need a curly bracket in my 'datalad run' call?
 
    If your command call involves a ``{`` or ``}`` character, you will need to escape
    this brace character by doubling it, i.e., ``{{`` or ``}}``.

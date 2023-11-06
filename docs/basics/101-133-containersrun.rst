@@ -38,7 +38,7 @@ that can link computational environments to datasets, the
 extension.
 
 This section will give a quick overview on what containers are and
-demonstrate how ``datalad-containers`` helps to capture full provenance of an
+demonstrate how ``datalad-container`` helps to capture full provenance of an
 analysis by linking containers to datasets and analyses.
 
 .. index::
@@ -97,7 +97,7 @@ Both of these tools share core terminology:
   `Singularity-Hub <https://singularity-hub.org>`_,
   `Docker-Hub <https://hub.docker.com>`_, and `Amazon ECR <https://aws.amazon.com/ecr>`_ which hosts Docker Images.
 
-Note that as of now, the ``datalad-containers`` extension supports
+Note that as of now, the ``datalad-container`` extension supports
 Singularity and Docker images.
 Singularity furthermore is compatible with Docker -- you can use
 Docker Images as a basis for Singularity Images, or run Docker Images with
@@ -391,7 +391,7 @@ the most recent state of the subdataset to the superdataset ``DataLad-101``.
    $ datalad save -d . -m "add container and execute analysis within container" midterm_project
 
 
-Software containers, the ``datalad-containers`` extension, and DataLad thus work well together
+Software containers, the ``datalad-container`` extension, and DataLad thus work well together
 to make your analysis completely reproducible -- by not only linking code, data,
 and outputs, but also the software environment of an analysis. And this does not
 only benefit your future self, but also whomever you share your dataset with, as

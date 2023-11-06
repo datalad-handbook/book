@@ -305,7 +305,7 @@ In order to be computationally reproducible I need to attach the software that i
    cd ../myanalysis
 
 And the way I can do this is with a datalad extension called datalad containers.
-You can install this extension with pip by running ``pip install datalad-containers``.
+You can install this extension with pip by running ``pip install datalad-container``.
 This extension allow to attach software containers such as singularity images to my dataset and execute my commands inside of these containers.
 Thus, I can share share data, code, code execution, and software.
 

@@ -57,7 +57,7 @@ interested in this, checkout the :ref:`dedicated Findoutmore <fom-status>`.
 .. index::
    pair: status; DataLad command
    pair: check dataset for modification; with DataLad
-.. find-out-more:: More on datalad status
+.. find-out-more:: More on 'datalad status'
    :name: fom-status
    :float:
 
@@ -194,7 +194,7 @@ dataset, i.e., ``DataLad-101``, as the dataset to save to:
 
 .. index::
    pair: save modification in nested dataset; with DataLad
-.. find-out-more:: More on how save can operate on nested datasets
+.. find-out-more:: More on how 'datalad save' can operate on nested datasets
 
    In a superdataset with subdatasets, :dlcmd:`save` by default
    tries to figure out on its own which dataset's history of all available

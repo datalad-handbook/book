@@ -513,7 +513,7 @@ re-execution with :dlcmd:`rerun` easy.
 
 .. index::
    pair: python instead of python3; on Windows
-.. windows-wit:: You may need to use "python", not "python3"
+.. windows-wit:: You may need to use 'python', not 'python3'
 
    If executing the code below returns an exit code of 9009, there may be no ``python3`` -- instead, it is called solely ``python``.
    Please run the following instead (adjusted for line breaks, you should be able to copy-paste this as a whole):

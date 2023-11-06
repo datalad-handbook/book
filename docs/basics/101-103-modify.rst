@@ -19,13 +19,13 @@ Let's write a short summary of how to create a DataLad dataset from scratch:
 This is meant to be a note you would take in an educational course.
 You can take this note and write it to a file with an editor of your choice.
 The code below, however, contains this note within the start and end part of a
-`herdoc <https://en.wikipedia.org/wiki/Here_document>`_.
+`heredoc <https://en.wikipedia.org/wiki/Here_document>`_.
 You can also copy the full code snippet, starting
 from ``cat << EOT > notes.txt``, including the ``EOT`` in the last line, in your
 terminal to write this note from the terminal (without any editor) into ``notes.txt``.
 
-.. index:: here-document
-.. find-out-more:: How does a here-document work?
+.. index:: here-document, heredoc
+.. find-out-more:: How does a heredoc (here-document) work?
 
    The code snippet below makes sure to write lines of text into a
    file (that so far does not exist) called ``notes.txt``.
@@ -50,7 +50,7 @@ terminal to write this note from the terminal (without any editor) into ``notes.
    It might seem like a slightly convoluted way to create a text file with
    a note in it. But it allows to write notes from the terminal, enabling
    this book to create commands you can execute with nothing other than your terminal.
-   You are free to copy-paste the snippets with the here-documents,
+   You are free to copy-paste the snippets with the heredocs,
    or find a workflow that suites you better. The only thing important is that
    you create and modify a ``.txt`` file over the course of the Basics part of this
    handbook.
@@ -58,8 +58,8 @@ terminal to write this note from the terminal (without any editor) into ``notes.
 Running the command below will create ``notes.txt`` in the
 root of your ``DataLad-101`` dataset:
 
-.. index:: here-document
-   pair: here-document; on Windows in a terminal
+.. index:: heredoc
+   pair: heredoc; on Windows in a terminal
 .. windows-wit:: Heredocs don't work under non-Git-Bash Windows terminals
 
    Heredocs rely on Unix-type redirection and multi-line commands -- which is not supported on most native Windows terminals or the Anaconda prompt on Windows.
@@ -75,7 +75,7 @@ root of your ``DataLad-101`` dataset:
    If you are using Git Bash, however, here docs will work just fine.   
 
 .. index::
-   pair: create here-document; in a terminal
+   pair: create heredoc; in a terminal
 .. runrecord:: _examples/DL-101-103-101
    :language: console
    :workdir: dl-101/DataLad-101

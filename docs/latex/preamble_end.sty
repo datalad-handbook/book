@@ -2,6 +2,10 @@
 % make :term: references visually distinct in a print
 \renewcommand{\sphinxtermref}[1]{\textsc{#1}}
 
+% better control over the spacing of list items
+% MIH: we cannot use enumitem, it messes with the (description) list
+% customizations done by sphinx
+%\usepackage{enumitem}
 
 \usepackage[labelfont=bf,singlelinecheck=false]{caption}
 \usepackage[hang,flushmargin,multiple]{footmisc}

@@ -100,7 +100,7 @@ to as the *history* of a dataset.
 This history is almost as small as it can be at the current state, but let's take
 a look at it. For looking at the history, the code examples will use :gitcmd:`log`,
 a built-in :term:`Git` command [#f1]_ that works right in your terminal. Your log
-*might* be opened in a `terminal pager <https://en.wikipedia.org/wiki/Terminal_pager>`_
+*might* be opened in a terminal :term:`pager`
 that lets you scroll up and down with your arrow keys, but not enter any more commands.
 If this happens, you can get out of ``git log`` by pressing ``q``.
 

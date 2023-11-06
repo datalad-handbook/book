@@ -189,7 +189,7 @@ all of these changes can be written to your DataLad dataset's history.
 Let's see how the saved content shows up in the history of the dataset with :gitcmd:`log`.
 The option ``-n 1`` specifies that we want to take a look at the most recent commit.
 In order to get a bit more details, we add the ``-p`` flag. If you end up in a
-pager, navigate with up and down arrow keys and leave the log by typing ``q``:
+:term:`pager`, navigate with up and down arrow keys and leave the log by typing ``q``:
 
 .. runrecord:: _examples/DL-101-102-107
    :language: console

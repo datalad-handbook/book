@@ -68,7 +68,7 @@ right of each code snippet.
 Clicking on that icon will copy all relevant lines from the code snippet,
 and will drop all comments and the ``$`` automatically.
 
-Whenever you see a ✂ symbol, command output has been shortened for easier readability.
+Whenever you see a ✂ symbol, command output has been shortened for better readability.
 In the example below, the commit :term:`shasum` has been shortened and marked with ``✂SHA1``.
 
 .. code-block:: bash

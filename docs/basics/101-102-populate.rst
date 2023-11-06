@@ -39,7 +39,7 @@ are all free, in total about 15 MB), and save them in ``DataLad-101/books``.
 
 You can either visit the links and save them in ``books/``,
 or run the following commands [#f2]_ to download the books right from the terminal.
-Note that we line break the command with ``\`` line continutation characters. In your own work you can write
+Note that we line break the command with ``\`` line continuation characters. In your own work you can write
 commands like this into a single line. If you copy them into your terminal as they
 are presented here, make sure to check the :windows-wit:`on peculiarities of its terminals
 <ww-no-multiline-commands>`.

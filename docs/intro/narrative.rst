@@ -133,11 +133,11 @@ You can decide for yourself whether you want to check them out:
    the book when there is no better alternative, and executing those commands will
    suffice to follow along.
 
-If you are a Windows 10 user with a native (i.e., not `Windows Subsystem for Linux (WSL) <https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux>`_-based DataLad installation, pay close attention to the special notes in so-called "Windows-Wits":
+If you are a Windows user with a native (i.e., not `Windows Subsystem for Linux (WSL) <https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux>`_-based DataLad installation, pay close attention to the special notes in so-called "Windows-Wits":
 
 .. windows-wit:: For Windows users only
 
-   A range of file system issues can affect the behavior of DataLad or its underlying tools on Windows 10.
+   A range of file system issues can affect the behavior of DataLad or its underlying tools on Windows.
    If necessary, the handbook provides workarounds for problems, explanations, or at least apologies for those inconveniences.
    If you want to help us make the handbook or DataLad better for Windows users, please `get in touch <https://github.com/datalad-handbook/book/issues/new>`_ -- every little improvement or bug report can help.
 

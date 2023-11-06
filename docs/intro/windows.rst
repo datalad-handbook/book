@@ -35,7 +35,7 @@ Usually, the *longer* the `hash` that is created, the more fail-safe it is.
 For a general idea about the length of hashes, consider that many tools including :term:`git-annex` use ``SHA256`` (a 64 characters long hash) as their default.
 As git-annex represents files with their content hash as their name, and places them into a directory of the same name, half of the total path length is already used up with a ``SHA256`` hash.
 Datasets thus adjust this default to a 32 character hash [#f2]_, but still, if you place a DataLad dataset into a deeply nested directory location, you may run into issues due to hitting the path length limit [#f3]_.
-You *can* enable long paths in recent builds of Windows 10, `but it requires some tweaking <https://learn.microsoft.com/en-us/windows/win32/fileio/maximum-file-path-limitation#enable-long-paths-in-windows-10-version-1607-and-later>`_.
+You *can* enable long paths in recent builds of Windows, `but it requires some tweaking <https://learn.microsoft.com/en-us/windows/win32/fileio/maximum-file-path-limitation#enable-long-paths-in-windows-10-version-1607-and-later>`_.
 
 Windows also doesn't really come with a decent :term:`terminal`.
 It is easy to get a nice and efficient terminal set up on macOS or Linux, it is harder on Windows.
@@ -129,7 +129,7 @@ The Windows Subsystem for Linux (version 2)
 
 If you want to have a taste of Unix on your own computer, but in the most safe and reversible way, or have essential software that only runs under Windows and really need to keep a Windows Operating System, then the Windows Subsystem for Linux (WSL2) may be a solution.
 `Microsoft acknowledges that a lot of software is assuming that the environment in which they run behaves like Linux, and has added a real Linux kernel to Windows with the WSL2 <https://learn.microsoft.com/en-us/windows/wsl/faq>`_.
-If you enable WSL2 on your Windows 10 computer, you have access to a variety of Linux distributions in the Microsoft store, and you can install them with a single click.
+If you enable WSL2 on your Windows computer, you have access to a variety of Linux distributions in the Microsoft store, and you can install them with a single click.
 The Linux distribution(s) of your choice becomes an icon on your task bar, and you can run windows and Linux in parallel.
 
 

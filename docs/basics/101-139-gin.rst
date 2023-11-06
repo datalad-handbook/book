@@ -310,7 +310,7 @@ Afterwards, :dlcmd:`get` retrieves files from Gin, even if the dataset has been 
          and `client <https://gin.g-node.org/G-Node/Info/wiki/GinUsageTutorial>`_ are
          useful tools with a variety of features that are worthwhile to check out, as well.
 
-.. [#f3] Alternatively, you can configure the siblings url with :gitcmd:`config`:
+.. [#f3] Alternatively, you can configure the siblings URL with :gitcmd:`config`:
 
          .. code-block:: bash
 

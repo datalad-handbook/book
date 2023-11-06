@@ -178,7 +178,7 @@ section below has some pointers:
    pair: add container image to dataset; with DataLad
 
 The :dlcmd:`containers-add` command takes an arbitrary
-name to give to the container, and a path or url to a container image:
+name to give to the container, and a path or URL to a container image:
 
 .. runrecord:: _examples/DL-101-133-101
    :language: console

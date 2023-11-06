@@ -33,7 +33,7 @@ Note the command structure of :dlcmd:`create` (optional bits are enclosed in ``[
 
 .. index::
    pair: set description for dataset location; with DataLad
-.. find-out-more:: What is the description option of datalad-create?
+.. find-out-more:: What is the description option of 'datalad create'?
 
    The optional ``--description`` flag allows you to provide a short description of
    the *location* of your dataset, for example with
@@ -121,7 +121,7 @@ Each of them is identified by a unique 40 character sequence, called a
    pair: log; Git command
    pair: corresponding branch; in adjusted mode
    pair: show history; on Windows
-.. windows-wit:: Your Git log may be more extensive - use "git log main" instead!
+.. windows-wit:: Your Git log may be more extensive - use 'git log main' instead!
 
    The output of :gitcmd:`log` shown in the handbook and the output you will see in your own datasets when executing the same commands may not always match -- many times you might see commits about a "git-annex adjusted branch" in your history.
    This is expected, and if you want to read up more about this, please progress on to chapter :ref:`chapter_gitannex` and afterwards take a look at `this part of git-annex documentation <https://git-annex.branchable.com/design/adjusted_branches>`_.

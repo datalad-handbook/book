@@ -278,7 +278,7 @@ the best option to turn to.
 
 .. index::
    pair: fix; git-annex command
-.. gitusernote:: git annex fix
+.. gitusernote:: 'datalad save' internals: 'git annex fix' 
 
    A :dlcmd:`save` command internally uses a :gitcmd:`commit` to save changes to a dataset.
    :gitcmd:`commit` in turn triggers a :gitannexcmd:`fix`

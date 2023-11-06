@@ -241,7 +241,7 @@ the former for a different lecture:
    pair: corresponding branch; in adjusted mode
    pair: show dataset modification for particular path; on Windows with DataLad
    pair: diff; DataLad command
-.. windows-wit:: Please use datalad diff --from main --to remotes/roommate/main
+.. windows-wit:: Please use 'datalad diff --from main --to remotes/roommate/main'
 
    Please use the following command instead:
 
@@ -267,7 +267,7 @@ that there is a difference in ``notes.txt``! Let's ask
    pair: corresponding branch; in adjusted mode
    pair: show dataset modification; on Windows with Git
    pair: diff; DataLad command
-.. windows-wit:: Please use git diff main..remotes/roommate/main
+.. windows-wit:: Please use 'git diff main..remotes/roommate/main'
 
    Please use the following command instead:
 

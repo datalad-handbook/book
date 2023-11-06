@@ -4,7 +4,7 @@ Walk-through: Git LFS as a special remote on GitHub
 ---------------------------------------------------
 
 Some repository hosting services provide for-pay support for large files, and can thus be used as special remotes as well.
-GitHub and GitLab for example support `Git Large File Storage <https://github.com/git-lfs/git-lfs>`_ (Git LFS) for managing data files using Git.
+GitHub and GitLab, for example, support `Git Large File Storage <https://github.com/git-lfs/git-lfs>`_ (Git LFS) for managing data files using Git.
 A free GitHub subscription allows up to `1GB of free storage and up to 1GB of bandwidth monthly <https://docs.github.com/en/repositories/working-with-files/managing-large-files/about-storage-and-bandwidth-usage>`_.
 As such, it might be sufficient for some use cases, and could be configured
 quite easily.

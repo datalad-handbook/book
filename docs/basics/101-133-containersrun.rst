@@ -291,7 +291,7 @@ To ensure that the dataset is correctly bind-mounted on all systems, let's add a
    pair: run command; with DataLad containers-run
 
 Now that we have a complete computational environment linked to the ``midterm_project``
-dataset, we can execute commands in this environment. Let us for example try to repeat
+dataset, we can execute commands in this environment. Let us, for example, try to repeat
 the :dlcmd:`run` command from the section :ref:`yoda_project` as a
 :dlcmd:`containers-run` command.
 

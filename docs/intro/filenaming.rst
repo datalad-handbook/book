@@ -159,7 +159,7 @@ Prevent paths to be interpreted as command line arguments
 While it's not "illegal" to start a directory of file name with a hyphen (``-``), it's a bad idea, and doing so is disallowed by certain tools due to security risks.
 In theory, a file name starting with a hyphen can clash with a command line argument, and a tool called to operate on that file may then misinterpret it as an argument name.
 If you were to create a file called ``-n`` on a Unix system, an ``ls`` or ``cat`` on this file (unless you would add a ``./`` prefix to indicate a file in the current directory) would behave different than expected, parametrizing the command line tool instead of displaying any file information.
-Because this can be a security hazard, for example leading to remote code execution, `Git will refuse to operate on submodules that start with a hyphen (CVE-2018-17456) <https://www.exploit-db.com/exploits/45631>`_.
+Because this can be a security hazard, leading to remote code execution for example, `Git will refuse to operate on submodules that start with a hyphen (CVE-2018-17456) <https://www.exploit-db.com/exploits/45631>`_.
 
 Other hassles
 =============

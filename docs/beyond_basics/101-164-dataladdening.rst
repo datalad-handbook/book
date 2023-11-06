@@ -59,8 +59,8 @@ If you want to transform a series of nested directories into nested datasets, co
    In deciding how many datasets you need, try to follow the benchmarks in chapter :ref:`chapter_gobig` and the yoda principles in section :ref:`yoda`.
    Two simple questions can help you make a decision:
 
-   #. Do you have independently reusable components in your directory, for example data from several studies, or data and code/results? If yes, make each individual component a dataset.
-   #. How large is each individual component? If it exceeds 100k files, split it up into smaller datasets. The decision on where to place subdataset boundaries can be guided by the existing directory structure or by common access patterns, for example based on data type (raw, processed, ...) or subject association. One straightforward organization may be a top-level superdataset and subject-specific subdatasets, mimicking the structure chosen in the use case :ref:`usecase_HCP_dataset`.
+   #. Do you have independently reusable components in your directory, such as data from several studies, or data and code/results? If yes, make each individual component a dataset.
+   #. How large is each individual component? If it exceeds 100k files, split it up into smaller datasets. The decision on where to place subdataset boundaries can be guided by the existing directory structure or by common access patterns, for example, based on data type (raw, processed, ...) or subject association. One straightforward organization may be a top-level superdataset and subject-specific subdatasets, mimicking the structure chosen in the use case :ref:`usecase_HCP_dataset`.
 
 You can automate this with :term:`bash` loops, if you want.
 

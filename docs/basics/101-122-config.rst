@@ -5,7 +5,7 @@ DIY configurations
 
 Back in section :ref:`text2git`, you already learned that there
 are dataset configurations, and that these configurations can
-be modified, for example with the ``-c text2git`` option.
+be modified, for example, with the ``-c text2git`` option.
 This option applies a configuration template to store text
 files in :term:`Git` instead of :term:`git-annex`, and thereby
 modifies the DataLad dataset's default configuration to store
@@ -107,7 +107,7 @@ configuration (namely to a single repository), but it can overrule global
 configurations: The more specific the scope of a configuration file is, the more
 important it is, and the variables in the more specific configuration
 will take precedence over variables in less specific configuration files.
-One could for example have :term:`vim` configured to be the default editor
+One could, for example, have :term:`vim` configured to be the default editor
 on a global scope, but could overrule this by setting the editor to nano
 in a given repository. For this reason, the repository-specific configuration
 does not reside in a file in your home directory, but in ``.git/config``
@@ -149,7 +149,7 @@ this configures core Git functionality. There are
 configurations than the ones in this config file, but
 they are related to Git, and less related or important to the configuration of
 a DataLad dataset. We will use this section to showcase the anatomy of the
-:gitcmd:`config` command. If for example you would want to specifically
+:gitcmd:`config` command. If, for example, you would want to specifically
 configure :term:`nano` to be the default editor in this dataset, you
 can do it like this:
 
@@ -204,7 +204,7 @@ specified in the command.
 .. find-out-more:: If things go wrong during Git config
 
    If something goes wrong during the :gitcmd:`config` command,
-   for example you end up having two keys of the same name because you
+   for example, you end up having two keys of the same name because you
    added a key instead of replacing an existing one, you can use the
    ``--unset`` option to remove the line. Alternatively, you can also open
    the config file in an editor and remove or change sections by hand.

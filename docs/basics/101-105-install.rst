@@ -183,7 +183,7 @@ a download of that many ``.mp3`` files not take much more time?
 Here you can see another import feature of DataLad datasets
 and the :dlcmd:`clone` command:
 Upon installation of a DataLad dataset, DataLad retrieves only small files
-(for example text files or markdown files) and (small) metadata
+(for example, text files or markdown files) and (small) metadata
 about the dataset. It does not, however, download any large files
 (yet). The metadata exposes the dataset's file hierarchy
 for exploration (note how you are able to list the dataset contents with ``ls``),
@@ -334,7 +334,7 @@ really helpful to save disk space for data you can easily reobtain, for example"
 The :dlcmd:`drop` command will remove
 file contents completely from your dataset.
 You should only use this command to remove contents that you can :dlcmd:`get`
-again, or generate again (for example with next chapter's :dlcmd:`datalad run`
+again, or generate again (for example, with next chapter's :dlcmd:`datalad run`
 command), or that you really do not need anymore.
 
 Let's remove the content of one of the files that we have downloaded, and check
@@ -470,7 +470,7 @@ modification.
 
 .. rubric:: Footnotes
 
-.. [#f1] Additionally, a source  can also be a pointer to an open-data collection,
+.. [#f1] Additionally, a source can also be a pointer to an open-data collection,
          for example :term:`the DataLad superdataset ///` -- more on what this is and how to
          use it later, though.
 

@@ -131,7 +131,7 @@ computational environments, results, ...) in dedicated directories. For example:
 - Collect **results** of an analysis in a dedicated ``outputs/`` directory, and
   leave the input data of an analysis untouched by your computations.
 
-- Include a place for complete **execution environments**, for example
+- Include a place for complete **execution environments**, such as
   `singularity images <https://singularity.lbl.gov>`_ or
   `docker containers <https://www.docker.com/get-started>`_ [#f2]_, in
   the form of an ``envs/`` directory, if relevant for your analysis.
@@ -182,7 +182,7 @@ You can get a few non-DataLad related advice for structuring your directories in
    #. Within ``code/``, it is best practice to add **tests** for the code.
       These tests can be run to check whether the code still works.
 
-   #. It is even better to further use automated computing, for example
+   #. It is even better to further use automated computing such as
       `continuous integration (CI) systems <https://en.wikipedia.org/wiki/Continuous_integration>`_,
       to test the functionality of your functions and scripts automatically.
       If relevant, the setup for continuous integration frameworks (such as
@@ -190,7 +190,7 @@ You can get a few non-DataLad related advice for structuring your directories in
       in a dedicated ``ci/`` directory.
 
    #. Include **documents for fellow humans**: Notes in a README.md or a HOWTO.md,
-      or even proper documentation (for example using  in a dedicated ``docs/`` directory.
+      or even proper documentation (for example, using  in a dedicated ``docs/`` directory.
       Within these documents, include all relevant metadata for your analysis. If you are
       conducting a scientific study, this might be authorship, funding,
       change log, etc.
@@ -228,7 +228,7 @@ more.
 The directory tree above and :numref:`dataset_modules` highlight different aspects
 of this principle. The directory tree illustrates the structure of
 the individual pieces on the file system from the point of view of
-a single top-level dataset with a particular purpose. It for example
+a single top-level dataset with a particular purpose. For example, it
 could be an analysis dataset created by a statistician for a scientific
 project, and it could be shared between collaborators or
 with others during development of the project. In this
@@ -280,7 +280,7 @@ be included in an analysis superdataset as subdatasets. Thanks to
 :dlcmd:`clone`, information on the source of these subdatasets
 is stored in the history of the analysis superdataset, and they can even be
 updated from those sources if the original data dataset gets extended or changed.
-If you are including a file, for example code from GitHub,
+If you are including a file, for example, code from GitHub,
 the :dlcmd:`download-url` command (introduced in section :ref:`populate`)
 will record the source of it safely in the dataset's history. And if you add anything to your dataset,
 from simple incremental coding progress in your analysis scripts up to

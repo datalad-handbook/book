@@ -149,4 +149,4 @@ this in the original ``DataLad-101`` directory, and do not forget to save it.
          data on an account belonging to user ``mih`` on the host name ``medusa``.
          Because we do not have the host names' address, nor log-in credentials for
          this user, we can not retrieve content from this location. However, somebody
-         else (for example the user ``mih``) could.
+         else (for example, the user ``mih``) could.

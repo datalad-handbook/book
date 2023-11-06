@@ -28,7 +28,7 @@ Parallelize subdataset processing
 
 DataLad can not yet parallelize processes that are performed
 independently over a large number of subdatasets. Pushing across a dataset
-hierarchy for example, is performed one after the other.
+hierarchy, for example, is performed one after the other.
 Unix however, has a few tools such as `xargs <https://en.wikipedia.org/wiki/Xargs>`_
 or the ``parallel`` tool of `moreutils <https://joeyh.name/code/moreutils>`_
 that can assist.

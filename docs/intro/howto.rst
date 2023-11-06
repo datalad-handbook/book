@@ -73,7 +73,7 @@ to list the size of a file in a *human-readable* format, supply the short option
    $ ls -l --human-readable output.txt
 
 Every command has many of those options (often called "flags") that modify their behavior.
-On Windows, options of native Windows commands can be preceded by a ``/`` instead of dashes, for example ``dir /p output.txt``.
+On Windows, options of native Windows commands can be preceded by a ``/`` instead of dashes, for example, ``dir /p output.txt``.
 There are too many to even consider memorizing. Remember the ones you use often,
 and the rest you will lookup in their documentation or via your favorite search engine.
 DataLad commands naturally also come with many options, and in the next chapters

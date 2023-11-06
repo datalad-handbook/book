@@ -638,7 +638,7 @@ the Unix :shcmd:`mv` command to move or rename, and the :dlcmd:`save`
 to clean up afterwards, just as in the examples above. Make sure to
 **not** use ``git mv``, especially for subdatasets.
 
-Let's for example rename the ``books`` directory:
+Let's, for example, rename the ``books`` directory:
 
 .. runrecord:: _examples/DL-101-136-151
    :language: console

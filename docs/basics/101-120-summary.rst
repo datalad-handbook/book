@@ -65,8 +65,8 @@ the book you will see examples in which datasets are shared on the same
 file system in surprisingly useful ways.
 
 Simultaneously, you have observed dataset properties you already knew
-(for example how annexed files need to be retrieved via :dlcmd:`get`),
-but you have also seen novel aspects of a dataset -- for example that
+(for example, how annexed files need to be retrieved via :dlcmd:`get`),
+but you have also seen novel aspects of a dataset -- for example, that
 subdatasets are not automatically installed by default, how
 :gitannexcmd:`whereis` can help you find out where file content might be stored,
 how useful commands that capture provenance about the origin or creation of files

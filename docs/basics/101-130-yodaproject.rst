@@ -479,7 +479,7 @@ point with the ``--version-tag`` option of :dlcmd:`save`.
    was added.
    Later we can use this tag to identify the point in time at which
    the analysis setup was ready -- much more intuitive than a 40-character shasum!
-   This is handy in the context of a :dlcmd:`rerun` for example:
+   This is handy in the context of a :dlcmd:`rerun`, for example:
 
    .. code-block:: bash
 
@@ -612,7 +612,7 @@ dataset that you can use for this [#f4]_.
    $ datalad save -m "Provide project description" README.md
 
 Note that one feature of the YODA procedure was that it configured certain files
-(for example everything inside of ``code/``, and the ``README.md`` file in the
+(for example, everything inside of ``code/``, and the ``README.md`` file in the
 root of the dataset) to be saved in Git instead of git-annex. This was the
 reason why the ``README.md`` in the root of the dataset was easily modifiable.
 

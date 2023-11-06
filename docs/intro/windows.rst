@@ -11,7 +11,7 @@ This makes the user experience less fun than on other operating systems -- an ho
 
 
 Many software tools for research or data science are first written and released for Linux, then for Mac, and eventually Windows.
-TensorFlow for Windows was `released only a full year after it became open source <https://developers.googleblog.com/2016/11/tensorflow-0-12-adds-support-for-windows.html>`_, for example, and Python only became easy to install on Windows in `2019 <https://devblogs.microsoft.com/python/python-in-the-windows-10-may-2019-update>`_.
+TensorFlow for Windows was `released only a full year after it became open source <https://developers.googleblog.com/2016/11/tensorflow-0-12-adds-support-for-windows.html>`_ for example, and Python only became easy to install on Windows in `2019 <https://devblogs.microsoft.com/python/python-in-the-windows-10-may-2019-update>`_.
 The same is true for DataLad and its underlying tools.
 There *is* Windows support and user documentation, but it isn't as far developed as for Unix-based systems.
 This page summarizes core downsides and deficiencies of Windows, DataLad on Windows, and the user documentation.

@@ -35,7 +35,7 @@ Strategy 2: Restrict access via third party service or file system permissions
 
 When you have a dataset and only authorized actors should be allowed to access it,
 it is possible to set access restrictions simply via choice of (third party) storage permissions.
-When it is an access restricted dataset on shared infrastructure, for example a scientific dataset that only researchers who signed a data usage agreement should have access to, it could suffice to create specific `Unix groups <https://en.wikipedia.org/wiki/Group_identifier>`_ with authorized users, and give only those groups the necessary permissions.
+When it is an access restricted dataset on shared infrastructure, for example, a scientific dataset that only researchers who signed a data usage agreement should have access to, it could suffice to create specific `Unix groups <https://en.wikipedia.org/wiki/Group_identifier>`_ with authorized users, and give only those groups the necessary permissions.
 Depending on what permissions are set, unauthorized actors would not be able to retrieve file contents, or be able to clone the dataset at all.
 
 The ability of repository hosting services to make datasets private and only allow select collaborators access is yet another method of keeping complete datasets as private as necessary, even though you should think twice on whether or not you should host sensitive repositories at all on these services.

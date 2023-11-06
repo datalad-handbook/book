@@ -257,7 +257,7 @@ container under its name "midterm-software" in the dataset's configuration at
    Note that the Image is saved under ``.datalad/environments`` and the
    configuration is done in ``.datalad/config`` -- as these files are version
    controlled and shared with together with a dataset, your software
-   container and the information where it can be re-obtained from are linked
+   container and the information where it can be reobtained from are linked
    to your dataset.
 
    This is how the ``containers-add`` command is recorded in your history:

@@ -6,7 +6,7 @@ Back and forth in time
 
 Almost everyone inadvertently deleted or overwrote files at some point with
 a hasty operation that caused data fatalities or at least troubles to
-re-obtain or restore data.
+reobtain or restore data.
 With DataLad, no mistakes are forever: One powerful feature of datasets
 is the ability to revert data to a previous state and thus view earlier content or
 correct mistakes. As long as the content was version controlled (i.e., tracked),

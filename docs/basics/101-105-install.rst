@@ -329,7 +329,7 @@ Keep whatever you like
 apparently downloaded the *full* dataset accidentally. "Is there a way to get rid
 of file contents in dataset, too?", they ask. "Yes", the lecturer responds,
 "you can remove file contents by using :dlcmd:`drop`. This is
-really helpful to save disk space for data you can easily re-obtain, for example".
+really helpful to save disk space for data you can easily reobtain, for example".
 
 .. index::
    pair: drop; DataLad command
@@ -376,7 +376,7 @@ Whenever you need the recording again, it is easy to re-retrieve it:
 
    $ datalad get Long_Now__Seminars_About_Long_term_Thinking/2004_01_10__George_Dyson__There_s_Plenty_of_Room_at_the_Top__Long_term_Thinking_About_Large_scale_Computing.mp3
 
-Re-obtained!
+Reobtained!
 
 This was only a quick digression into :dlcmd:`drop`. The main principles
 of this command will become clear after chapter
@@ -390,7 +390,7 @@ by using DataLad datasets -- and that really is a cool feature to have.
 Dataset archeology
 ^^^^^^^^^^^^^^^^^^
 
-You have now experienced how easy it is to (re-)obtain shared data with DataLad.
+You have now experienced how easy it is to (re)obtain shared data with DataLad.
 But beyond sharing only the *data* in the dataset, when sharing or installing
 a DataLad dataset, all copies also include the dataset's *history*.
 

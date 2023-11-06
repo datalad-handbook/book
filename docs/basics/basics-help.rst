@@ -8,7 +8,7 @@ Help yourself
 
 .. toctree::
    :maxdepth: 1
-   :caption: Dealing with problems, filesystems, and version histories
+   :caption: Dealing with problems, file systems, and version histories
 
    101-135-intro
    101-136-filesystem

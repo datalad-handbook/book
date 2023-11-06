@@ -318,7 +318,7 @@ files, and I do not know with which command I can write into these files."
 it's also the :gitcmd:`config` command. The only part of it you need to
 adjust is the ``-f``, ``--file`` parameter. By default, the command writes to
 a Git config file. But it can write to a different file if you specify it
-appropriately. For example
+appropriately. For example,
 
    ``git config --file=.gitmodules --replace-all submodule."name".url "new URL"``
 
@@ -377,7 +377,7 @@ Environment variables
 ^^^^^^^^^^^^^^^^^^^^^
 
 An :term:`environment variable` is a variable set up in your shell
-that affects the way the shell or certain software works -- for example
+that affects the way the shell or certain software works -- for example,
 the environment variables ``HOME``, ``PWD``, or ``PATH``.
 Configuration options that determine the behavior of Git, git-annex, and
 DataLad that could be defined in a configuration file can also be set (or overridden)
@@ -408,7 +408,7 @@ configuration option thus is the environment variable ``DATALAD_LOG_LEVEL``.
 
    Names of environment variables are often all-uppercase. While the ``$`` is not part of
    the name of the environment variable, it is necessary to *refer* to the environment
-   variable: To reference the value of the environment variable ``HOME`` for example you would
+   variable: To reference the value of the environment variable ``HOME``, for example, you would
    need to use ``echo $HOME`` and not ``echo HOME``. However, environment variables are
    set without a leading ``$``. There are several ways to set an environment variable
    (note that there are no spaces before and after the ``=`` !), leading to different
@@ -498,7 +498,7 @@ Write a note about configurations in datasets into ``notes.txt``.
          extension (such as ``.txt``, ``.pdf``, ``.jpg``) for the operating system to know
          how to open or use this file (in contrast to Windows, which does not know how to
          open a file without an extension). To do this, Unix systems rely on a file's
-         MIME type -- an information about a file's content. A ``.txt`` file for example
+         MIME type -- an information about a file's content. A ``.txt`` file, for example,
          has MIME type ``text/plain`` as does a bash script (``.sh``), a Python
          script has MIME type ``text/x-python``, a ``.jpg`` file is ``image/jpg``, and
          a ``.pdf`` file has MIME type ``application/pdf``. You can find out the MIME type

@@ -188,7 +188,7 @@ you defined), into the new dataset.
 .. rubric:: Footnotes
 
 .. [#f2] It only needs to be compatible with :gitcmd:`config`. This means that
-         it for example should not contain any dots (``.``).
+         it, for example, should not contain any dots (``.``).
 
 .. [#f3] To re-read about the :gitcmd:`config` command and other configurations
          of DataLad and its underlying tools, go back to the chapter on Configurations,

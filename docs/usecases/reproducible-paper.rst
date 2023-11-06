@@ -162,7 +162,7 @@ and recompute all results
 when running the script after cloning and setting up the necessary software.
 This requires minor preparation:
 
-* The final analysis should be able to run on anyone's filesystem.
+* The final analysis should be able to run on anyone's file system.
   It is therefore important to reference datafiles with the scripts in ``code/`` as
   :term:`relative path`\s instead of hard-coding :term:`absolute path`\s.
 
@@ -338,7 +338,7 @@ in the actual manuscript, if you want!). This was step number 1 of 4.
 
 .. find-out-more:: How about figures?
 
-   To include figures, the figures just need to be saved into a dedicated location (for example
+   To include figures, the figures just need to be saved into a dedicated location (for example,
    a directory ``img/``) and included into the ``.tex`` file with standard ``LaTeX`` syntax.
    Larger figures with subfigures can be created by combining several figures:
 

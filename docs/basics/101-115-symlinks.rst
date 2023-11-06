@@ -75,7 +75,7 @@ defined based on
 
 #. file size
 
-#. and/or path/pattern, and thus for example file extensions,
+#. and/or path/pattern, and thus, for example, file extensions,
    or names, or file types (e.g., text files, as with the
    ``text2git`` configuration template).
 
@@ -95,7 +95,7 @@ tree is also known as the *annex* of a dataset.
    :float:
 
    Windows has insufficient support for :term:`symlink`\s and revoking write :term:`permissions` on files.
-   Therefore, :term:`git-annex` classifies it as a :term:`crippled filesystem` and has to stray from its default behavior.
+   Therefore, :term:`git-annex` classifies it as a :term:`crippled file system` and has to stray from its default behavior.
    While git-annex on Unix-based file operating systems stores data in the annex and creates a symlink in the data's original place, on Windows it moves data into the :term:`annex` and creates a *copy* of the data in its original place.
 
    **Why is that?**
@@ -208,7 +208,7 @@ Lastly, understanding that annexed files in your dataset are symlinked
 will be helpful to understand how common file system operations such as
 moving, renaming, or copying content translate to dataset modifications
 in certain situations. Later in this book we will have a section on how
-to manage the file system in a DataLad dataset (:ref:`filesystem`).
+to manage the file system in a DataLad dataset (:ref:`file system`).
 
 .. index::
    pair: key; git-annex concept
@@ -266,7 +266,7 @@ to manage the file system in a DataLad dataset (:ref:`filesystem`).
    consisting of two letters each.
    These two letters are derived from the md5sum of the key, and their sole purpose to exist is to avoid issues with too many files in one directory (which is a situation that certain file systems have problems with).
    The next subdirectory in the symlink helps to prevent accidental deletions and changes, as it does not have write :term:`permissions`, so that users cannot modify any of its underlying contents.
-   This is the reason that annexed files need to be unlocked prior to modifications, and this information will be helpful to understand some file system management operations such as removing files or datasets (see section :ref:`filesystem`).
+   This is the reason that annexed files need to be unlocked prior to modifications, and this information will be helpful to understand some file system management operations such as removing files or datasets (see section :ref:`file system`).
 
    The next part of the symlink contains the actual hash.
    There are different hash functions available.
@@ -291,7 +291,7 @@ Broken symlinks
 
 Whenever a symlink points to a non-existent target, this symlink is called
 *broken*, and opening the symlink would not work as it does not resolve. The
-section :ref:`filesystem` will give a thorough demonstration of how symlinks can
+section :ref:`file system` will give a thorough demonstration of how symlinks can
 break, and how one can fix them again. Even though *broken* sounds
 troublesome, most types of broken symlinks you will encounter can be fixed,
 or are not problematic. At this point, you actually have already seen broken
@@ -340,7 +340,7 @@ If so, please take a look into the Windows Wit below.
    pair: log; Git command
 .. windows-wit:: Accessing symlinked files from your Windows system
 
-   If you are using WSL2 you have access to a Linux kernel and POSIX filesystem, including symlink support.
+   If you are using WSL2 you have access to a Linux kernel and POSIX file system, including symlink support.
    Your DataLad experience has therefore been exactly as it has been for macOS or Linux users.
    But one thing that bears the need for additional information is sharing files in dataset between your Linux and Windows system.
 

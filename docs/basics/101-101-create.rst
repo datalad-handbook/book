@@ -33,7 +33,7 @@ Note the command structure of :dlcmd:`create` (optional bits are enclosed in ``[
 
 .. index::
    pair: set description for dataset location; with DataLad
-.. find-out-more:: What is the description option of datalad-create?
+.. find-out-more:: What is the description option of 'datalad create'?
 
    The optional ``--description`` flag allows you to provide a short description of
    the *location* of your dataset, for example with
@@ -44,7 +44,7 @@ Note the command structure of :dlcmd:`create` (optional bits are enclosed in ``[
 
    If you want, use the above command instead of the :dlcmd:`create` command below
    to provide a description. Its use will not be immediately clear, the chapter
-   :ref:`chapter_collaboration`) will show you where this description
+   :ref:`chapter_collaboration` will show you where this description
    ends up and how it may be useful.
 
 Let's start:
@@ -83,7 +83,7 @@ can be tracked (should you want them to be tracked).
 *Tracking* in this context means that edits done to a file are automatically
 associated with information about the change, the author of the edit,
 and the time of this change. This is already informative important on its own
--- the :term:`provenance` captured with this can for example be used to learn
+-- the :term:`provenance` captured with this can, for example, be used to learn
 about a file's lineage, and can establish trust in it.
 But what is especially helpful is that previous states of files or directories
 can be restored. Remember the last time you accidentally deleted content
@@ -121,7 +121,7 @@ Each of them is identified by a unique 40 character sequence, called a
    pair: log; Git command
    pair: corresponding branch; in adjusted mode
    pair: show history; on Windows
-.. windows-wit:: Your Git log may be more extensive - use "git log main" instead!
+.. windows-wit:: Your Git log may be more extensive - use 'git log main' instead!
 
    The output of :gitcmd:`log` shown in this book and the output you will see in your own datasets when executing the same commands may not always match -- many times you might see commits about a "git-annex adjusted branch" in your history.
    This is expected, and if you want to read up more about this, please progress on to chapter :ref:`chapter_gitannex` and afterwards take a look at `this part of git-annex documentation <https://git-annex.branchable.com/design/adjusted_branches>`_.

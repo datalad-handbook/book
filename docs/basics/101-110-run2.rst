@@ -328,8 +328,7 @@ the ``-o``/``--output`` option.
 
    The use case here is simplistic -- a single file gets modified.
    But there are commands and tools that create full directories with
-   many files as an output, for example
-   `FSL <https://fsl.fmrib.ox.ac.uk>`_, a neuro-imaging tool.
+   many files as an output.
    The easiest way to specify this type of output
    is by supplying the directory name, or the directory name and a :term:`globbing` character, such as
    ``-o directory/*.dat``.
@@ -505,7 +504,7 @@ the ``--input`` and ``--output`` specification done before.
 
 .. index::
    pair: run command with curly brackets; with DataLad run
-.. find-out-more:: Wait, what if I need a curly bracket in my datalad run call?
+.. find-out-more:: Wait, what if I need a curly bracket in my 'datalad run' call?
 
    If your command call involves a ``{`` or ``}`` character, you will need to escape
    this brace character by doubling it, i.e., ``{{`` or ``}}``.

@@ -293,7 +293,7 @@ to "enable" this special remote (inside of the installed ``DataLad-101``):
      enable -s dropbox-for-friends
    .: dropbox-for-friends(?) [git]
 
-And once this is done, you can get any annexed file contents, for example the
+And once this is done, you can get any annexed file contents, for example, the
 books, or the cropped logos from chapter :ref:`chapter_run`:
 
 .. code-block:: bash

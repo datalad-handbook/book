@@ -57,7 +57,7 @@ interested in this, checkout the :ref:`dedicated Findoutmore <fom-status>`.
 .. index::
    pair: status; DataLad command
    pair: check dataset for modification; with DataLad
-.. find-out-more:: More on datalad status
+.. find-out-more:: More on 'datalad status'
    :name: fom-status
    :float:
 
@@ -75,7 +75,7 @@ interested in this, checkout the :ref:`dedicated Findoutmore <fom-status>`.
      that is properly registered in the superdataset
 
    And you have seen the following *content states*: ``modified`` and ``untracked``.
-   The section :ref:`filesystem` will show you many instances of ``deleted`` content
+   The section :ref:`file system` will show you many instances of ``deleted`` content
    state as well.
 
    But beyond understanding the report of :dlcmd:`status`, there is also
@@ -165,7 +165,7 @@ interested in this, checkout the :ref:`dedicated Findoutmore <fom-status>`.
       $ datalad -f json_pp status -d . midterm_project
 
    This still was not all of the available functionality of the
-   :dlcmd:`status` command. You could for example adjust whether and
+   :dlcmd:`status` command. You could, for example, adjust whether and
    how untracked dataset content should be reported with the ``--untracked``
    option, or get additional information from annexed content with the ``--annex``
    option (especially powerful when combined with ``-f json_pp``). To get a complete overview on what you could do, check out the technical
@@ -194,7 +194,7 @@ dataset, i.e., ``DataLad-101``, as the dataset to save to:
 
 .. index::
    pair: save modification in nested dataset; with DataLad
-.. find-out-more:: More on how save can operate on nested datasets
+.. find-out-more:: More on how 'datalad save' can operate on nested datasets
 
    In a superdataset with subdatasets, :dlcmd:`save` by default
    tries to figure out on its own which dataset's history of all available

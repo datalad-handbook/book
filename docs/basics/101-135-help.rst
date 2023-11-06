@@ -355,7 +355,7 @@ many reasons, but as long as there are other remotes you can access the
 data from, you are fine.
 
 A similar warning message may appear when adding a sibling that is a pure Git
-:term:`remote`, for example a repository on GitHub:
+:term:`remote`, such as a repository on GitHub:
 
 .. code-block:: bash
 

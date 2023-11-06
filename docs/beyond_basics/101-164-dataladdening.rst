@@ -23,7 +23,7 @@ If you're really pressed for time because your dog is sick, your toddler keeps e
 
    To gain a good understanding of some important parts of DataLad, please read chapter :ref:`chapter_datasets`, :ref:`chapter_run`, and :ref:`chapter_gitannex` (reading time: 60 minutes).
 
-   To become confident in using DataLad, sections :ref:`help`, :ref:`filesystem` can be very useful. Depending on your aim, :ref:`chapter_collaboration` (for collaborative workflows), :ref:`chapter_thirdparty` (for data sharing), or :ref:`chapter_yoda` (for data analysis) may contain the relevant background for you.
+   To become confident in using DataLad, sections :ref:`help`, :ref:`file system` can be very useful. Depending on your aim, :ref:`chapter_collaboration` (for collaborative workflows), :ref:`chapter_thirdparty` (for data sharing), or :ref:`chapter_yoda` (for data analysis) may contain the relevant background for you.
 
 Prior to transforming your project, regardless of how advanced of a user you are, **we recommend to create a copy of it**.
 We don't believe there is much that can go wrong from the software-side of things, but data is precious and backups a necessity, so better be safe than sorry.
@@ -59,8 +59,8 @@ If you want to transform a series of nested directories into nested datasets, co
    In deciding how many datasets you need, try to follow the benchmarks in chapter :ref:`chapter_gobig` and the yoda principles in section :ref:`yoda`.
    Two simple questions can help you make a decision:
 
-   #. Do you have independently reusable components in your directory, for example data from several studies, or data and code/results? If yes, make each individual component a dataset.
-   #. How large is each individual component? If it exceeds 100k files, split it up into smaller datasets. The decision on where to place subdataset boundaries can be guided by the existing directory structure or by common access patterns, for example based on data type (raw, processed, ...) or subject association. One straightforward organization may be a top-level superdataset and subject-specific subdatasets, mimicking the structure chosen in the use case :ref:`usecase_HCP_dataset`.
+   #. Do you have independently reusable components in your directory, such as data from several studies, or data and code/results? If yes, make each individual component a dataset.
+   #. How large is each individual component? If it exceeds 100k files, split it up into smaller datasets. The decision on where to place subdataset boundaries can be guided by the existing directory structure or by common access patterns, for example, based on data type (raw, processed, ...) or subject association. One straightforward organization may be a top-level superdataset and subject-specific subdatasets, mimicking the structure chosen in the use case :ref:`usecase_HCP_dataset`.
 
 You can automate this with :term:`bash` loops, if you want.
 
@@ -132,7 +132,7 @@ Summary
 
 Existing projects and analysis can be DataLad-ified with a few standard commands.
 Be mindful about dataset sizes and whether you save contents into Git or git-annex, though, as these choices could potentially spoil your DataLad experience.
-The sections :ref:`filesystem` and :ref:`cleanup` can help you to undo unwanted changes, but it's better to do things right instead of having to fix them up.
+The sections :ref:`file system` and :ref:`cleanup` can help you to undo unwanted changes, but it's better to do things right instead of having to fix them up.
 If you can, read up on the DataLad Basics to understand what you are doing, and create a backup in case things go not as planned in your first attempts.
 
 .. rubric:: Footnotes

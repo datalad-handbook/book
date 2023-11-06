@@ -51,7 +51,7 @@ Clone candidate priority
 We have established that subdatasets can come from several sources.
 Let's now motivate *why* it might be useful to prioritize one subdataset clone location over another one.
 
-Consider a hierarchy of datasets that exist in several locations, for example one :term:`Remote Indexed Archive (RIA) store` *with* a storage special remote [#f2]_, and one without a special remote.
+Consider a hierarchy of datasets that exist in several locations, for example, one :term:`Remote Indexed Archive (RIA) store` *with* a storage special remote [#f2]_, and one without a special remote.
 The topmost superdataset is published to a human-readable and accessible location such as :term:`GitHub` or :term:`GitLab`, and should be configured to always clone subdatasets from the RIA store *with* the storage special remote, even if it was originally created with subdatasets from the RIA store with no storage sibling.
 In order to be able to retrieve subdataset *data* from the subdatasets after cloning the hierarchy of datasets, the RIA store with the storage special remote needs to be configured as a clone candidate.
 Importantly, it should not only be configured as one alternative, but it should be configured as the first location to try to clone from -- else, cloning from the wrong RIA store could succeed and prevent any configured second clone candidate location from being tried.

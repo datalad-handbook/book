@@ -1,4 +1,4 @@
-.. _filesystem:
+.. _file system:
 
 Miscellaneous file system operations
 ------------------------------------
@@ -278,7 +278,7 @@ the best option to turn to.
 
 .. index::
    pair: fix; git-annex command
-.. gitusernote:: git annex fix
+.. gitusernote:: 'datalad save' internals: 'git annex fix' 
 
    A :dlcmd:`save` command internally uses a :gitcmd:`commit` to save changes to a dataset.
    :gitcmd:`commit` in turn triggers a :gitannexcmd:`fix`
@@ -638,7 +638,7 @@ the Unix :shcmd:`mv` command to move or rename, and the :dlcmd:`save`
 to clean up afterwards, just as in the examples above. Make sure to
 **not** use ``git mv``, especially for subdatasets.
 
-Let's for example rename the ``books`` directory:
+Let's, for example, rename the ``books`` directory:
 
 .. runrecord:: _examples/DL-101-136-151
    :language: console

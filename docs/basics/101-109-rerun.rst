@@ -176,7 +176,7 @@ of the dataset and the previous commit (called "``HEAD~1``" in Git terminology [
    pair: show dataset modification; on Windows with DataLad
    pair: diff; DataLad command
    pair: corresponding branch; in adjusted mode
-.. windows-wit:: please use datalad diff --from main --to HEAD~1
+.. windows-wit:: please use 'datalad diff --from main --to HEAD~1'
 
    While this example works on Unix file systems, it will not provide the same output on Windows.
    This is due to different file handling on Windows.
@@ -273,7 +273,7 @@ give the file path to :gitcmd:`log` (prefixed by ``--``):
    pair: show history for particular paths; on Windows with Git
    pair: log; Git command
    pair: corresponding branch; in adjusted mode
-.. windows-wit:: use "git log main -- recordings/podcasts.tsv"
+.. windows-wit:: use 'git log main -- recordings/podcasts.tsv'
 
    A previous Windows Wit already advised to append ``main`` or ``master``, the common "default :term:`branch`", to any command that starts with ``git log``.
    Here, the last part of the command specifies a file (``-- recordings/podcasts.tsv``).

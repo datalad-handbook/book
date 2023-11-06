@@ -56,8 +56,8 @@ Step-by-Step
 .. admonition:: Required software
 
    The analysis requires the Python packages `scikit-learn <https://scikit-learn.org>`_, `scikit-image <https://scikit-image.org>`_, `pandas <https://pandas.pydata.org>`_, and `numpy <https://numpy.org>`_.
-   We have build a :term:`Singularity` :term:`software container` with all relevant software, and the code below will use the ``datalad-containers`` extension [#f1]_ to download the container from :term:`Singularity-Hub` and execute all analysis in this software environment.
-   If you do not want to install the ``datalad-containers`` extension or Singularity, you can also create a :term:`virtual environment` with all necessary software if you prefer [#f2]_, and exchange the ``datalad containers-run`` commands below with ``datalad run`` commands.
+   We have build a :term:`Singularity` :term:`software container` with all relevant software, and the code below will use the ``datalad-container`` extension [#f1]_ to download the container from :term:`Singularity-Hub` and execute all analysis in this software environment.
+   If you do not want to install the ``datalad-container`` extension or Singularity, you can also create a :term:`virtual environment` with all necessary software if you prefer [#f2]_, and exchange the ``datalad containers-run`` commands below with ``datalad run`` commands.
 
 Let's start with an overview of the analysis plans:
 We're aiming for an image classification analysis.
@@ -537,7 +537,7 @@ This way, we have access to a trained random-forest model or a trained SGD model
    $ datalad rerun --branch="randomforest" -m "Recompute classification with random forest classifier" ready4analysis..SGD-100
 
 This updated the model.joblib file to a trained random forest classifier, and also updated ``accuracy.json`` with the current models' evaluation.
-The difference in accuracy between models could now for example be compared with a ``git diff`` of the contents of ``accuracy.json`` to the :term:`main` :term:`branch`:
+The difference in accuracy between models could now, for example, be compared with a ``git diff`` of the contents of ``accuracy.json`` to the :term:`main` :term:`branch`:
 
 .. runrecord:: _examples/ml-134
    :workdir: usecases/ml-project
@@ -570,7 +570,7 @@ The analysis is adapted from the chapter :ref:`dvc`, which in turn is based on `
 
 .. rubric:: Footnotes
 
-.. [#f1] You can install the ``datalad-containers`` extension from :term:`pip` via ``pip install datalad-container``. You can find out more about extensions in general in the section :ref:`extensions_intro`, and you can more computationally reproducible analysis using ``datalad container`` in the chapter :ref:`containersrun` and the use case :ref:`usecase_reproduce_neuroimg`.
+.. [#f1] You can install the ``datalad-container`` extension from :term:`pip` via ``pip install datalad-container``. You can find out more about extensions in general in the section :ref:`extensions_intro`, and you can more computationally reproducible analysis using ``datalad container`` in the chapter :ref:`containersrun` and the use case :ref:`usecase_reproduce_neuroimg`.
 
 .. [#f2] Unsure how to create a :term:`virtual environment`? You can find a tutorial using :term:`pip` and the ``virtualenv`` module `in the Python docs <https://packaging.python.org/guides/installing-using-pip-and-virtual-environments>`_.
 

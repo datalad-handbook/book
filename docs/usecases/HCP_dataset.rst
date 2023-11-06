@@ -319,7 +319,7 @@ and identified via their :term:`dataset ID`.
 The :dlcmd:`clone` command can understand this layout and install
 datasets from a RIA store based on their ID.
 
-.. find-out-more:: How would a datalad clone from a RIA store look like?
+.. find-out-more:: How would a 'datalad clone' from a RIA store look like?
 
    In order to get a dataset from a RIA store, :dlcmd:`clone` needs
    a RIA URL. It is build from the following components:

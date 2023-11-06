@@ -137,7 +137,7 @@ DataLad in the editor)!
       $ git rebase --interactive HEAD~N
 
    where ``N`` specifies how far back you want to rewrite commits.
-   ``git rebase -i HEAD~3`` for example lets you apply changes to the
+   ``git rebase -i HEAD~3``, for example, lets you apply changes to the
    any number of commit messages within the last three commits.
 
    Be aware that an interactive rebase lets you *rewrite* history.
@@ -630,7 +630,7 @@ under which situations and how to perform such an interactive rebase.
 However, outlining an interactive rebase here in this book could lead to
 problems for readers without (much) Git experience: An interactive rebase,
 even if performed successfully, can lead to many problems if it is applied with
-too little experience, for example in any collaborative real-world project.
+too little experience, for example, in any collaborative real-world project.
 
 .. index::
    pair: revert; Git command
@@ -806,7 +806,7 @@ to remove the ``Gitjoke2.txt`` file.
          this hash. Likewise, the :gitcmd:`diff` can work with commit hashes.
 
 .. [#f2] There are other alternatives to reference commits in the history of a dataset,
-         for example "counting" ancestors of the most recent commit using the notation
+         for example, "counting" ancestors of the most recent commit using the notation
          ``HEAD~2``, ``HEAD^2`` or ``HEAD@{2}``. However, using hashes to reference
          commits is a very fail-save method and saves you from accidentally miscounting.
 

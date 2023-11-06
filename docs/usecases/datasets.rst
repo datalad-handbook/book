@@ -25,7 +25,7 @@ a hands-on experience.
 
       $ datalad install https://github.com/psychoinformatics-de/studyforrest-data-phase2.git
 
-Once installed, a DataLad dataset looks like any other directory on your filesystem:
+Once installed, a DataLad dataset looks like any other directory on your file system:
 
 .. runrecord:: _examples/dataset2
    :language: console
@@ -122,7 +122,7 @@ Dataset Nesting
 
 Within DataLad datasets one can *nest* other DataLad
 datasets arbitrarily deep. This does not seem particularly spectacular -
-after all, any directory on a filesystem can have other directories inside it.
+after all, any directory on a file system can have other directories inside it.
 The possibility for nested Datasets, however, is one of many advantages
 DataLad datasets have:
 Any lower-level DataLad dataset (the *subdataset*) has a stand-alone

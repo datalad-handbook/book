@@ -8,7 +8,7 @@ annexed content to a variety of third party infrastructure, DataLad also has
 some built-in support for "exporting" data to other services.
 This usually means that a static snapshot of your dataset and its files are shared
 in archives or collections of files.
-While an export of a dataset looses some of the advantages that a DataLad dataset has, for example a transparent version history, it can be a fast and simple way to make the most recent version of your dataset available or archived.
+While an export of a dataset looses some of the advantages that a DataLad dataset has, for example, a transparent version history, it can be a fast and simple way to make the most recent version of your dataset available or archived.
 
 One example is the command :dlcmd:`export-archive`.
 Running this command creates a ``.tar.gz`` file with the content of your dataset.

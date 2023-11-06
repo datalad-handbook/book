@@ -419,7 +419,7 @@ Archive data and results
 """"""""""""""""""""""""
 
 After study completion it is important to properly archive data and results,
-for example for future inquiries by reviewers or readers of the associated
+for example, for future inquiries by reviewers or readers of the associated
 publication. Thanks to the modularity of the study units, this tasks is easy
 and avoids needless duplication.
 

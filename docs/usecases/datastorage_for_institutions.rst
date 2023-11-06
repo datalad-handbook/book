@@ -84,7 +84,7 @@ scientific computing (infrastructure).
 The RIA store is configured as a git-annex ORA-remote ("optional remote archive")
 special remote for access to annexed keys in the store and so that full
 datasets can be (compressed) 7-zip archives.
-The latter is especially useful in case of filesystem inode
+The latter is especially useful in case of file system inode
 limitations, such as on HPC storage systems: Regardless of a dataset's number of
 files and size, (compressed) 7zipped datasets use only few inodes, but retain the
 ability to query available files.

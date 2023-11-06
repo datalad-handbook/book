@@ -479,7 +479,7 @@ point with the ``--version-tag`` option of :dlcmd:`save`.
    was added.
    Later we can use this tag to identify the point in time at which
    the analysis setup was ready -- much more intuitive than a 40-character shasum!
-   This is handy in the context of a :dlcmd:`rerun` for example:
+   This is handy in the context of a :dlcmd:`rerun`, for example:
 
    .. code-block:: bash
 
@@ -513,7 +513,7 @@ re-execution with :dlcmd:`rerun` easy.
 
 .. index::
    pair: python instead of python3; on Windows
-.. windows-wit:: You may need to use "python", not "python3"
+.. windows-wit:: You may need to use 'python', not 'python3'
 
    If executing the code below returns an exit code of 9009, there may be no ``python3`` -- instead, it is called solely ``python``.
    Please run the following instead (adjusted for line breaks, you should be able to copy-paste this as a whole):
@@ -612,7 +612,7 @@ dataset that you can use for this [#f4]_.
    $ datalad save -m "Provide project description" README.md
 
 Note that one feature of the YODA procedure was that it configured certain files
-(for example everything inside of ``code/``, and the ``README.md`` file in the
+(for example, everything inside of ``code/``, and the ``README.md`` file in the
 root of the dataset) to be saved in Git instead of git-annex. This was the
 reason why the ``README.md`` in the root of the dataset was easily modifiable.
 

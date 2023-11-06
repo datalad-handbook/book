@@ -59,7 +59,7 @@ Here is an example with R::
 
 In the command line, typical usage consists of the ``datalad`` main command, optionally parametrized with additional flags, followed by a subcommand and its own optional flags.
 
-.. image:: ../artwork/src/command-structure.png
+.. figure:: ../artwork/src/command-structure.png
 
 Here is an example with a main command, subcommand, and subcommand option::
 

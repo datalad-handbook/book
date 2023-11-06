@@ -360,7 +360,7 @@ in the actual manuscript, if you want!). This was step number 1 of 4.
 
    This figure looks like this in the manuscript:
 
-   .. image:: ../artwork/src/img/remodnav2.png
+   .. figure:: ../artwork/src/img/remodnav2.png
 
 For step 2 and 3, the print statements need to be captured and bound to the ``.tex`` file.
 The `tee <https://en.wikipedia.org/wiki/Tee_(command)>`_ command can write all of the output to

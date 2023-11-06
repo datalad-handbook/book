@@ -19,7 +19,7 @@ But at some point in a dataset's life, you may want to share it with people that
 can't access the computer or server your dataset lives on, store it on other infrastructure
 to save diskspace, or create a backup.
 When this happens, you will want to publish your dataset to repository hosting
-services (for example :term:`GitHub`, :term:`GitLab`, or :term:`Gin`)
+services (for example, :term:`GitHub`, :term:`GitLab`, or :term:`Gin`)
 and/or third party storage providers (such as Dropbox_, Google_,
 `Amazon S3 buckets <https://aws.amazon.com/s3>`_,
 the `Open Science Framework`_ (OSF), and many others).

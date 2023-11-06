@@ -8,7 +8,7 @@ protocol from various data storage solutions via its downloading commands
 (:dlcmd:`download-url`, :dlcmd:`addurls`,
 :dlcmd:`get`).
 If data retrieval from a storage solution requires *authentication*,
-for example via a username and password combination, DataLad provides an
+for example, via a username and password combination, DataLad provides an
 interface to query, request, and store the most common type of credentials that
 are necessary to authenticate, for a range of authentication types.
 There are a number of natively supported types of authentication and out-of-the

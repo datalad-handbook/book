@@ -75,7 +75,7 @@ defined based on
 
 #. file size
 
-#. and/or path/pattern, and thus for example file extensions,
+#. and/or path/pattern, and thus, for example, file extensions,
    or names, or file types (e.g., text files, as with the
    ``text2git`` configuration template).
 

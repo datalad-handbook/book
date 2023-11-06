@@ -537,7 +537,7 @@ This way, we have access to a trained random-forest model or a trained SGD model
    $ datalad rerun --branch="randomforest" -m "Recompute classification with random forest classifier" ready4analysis..SGD-100
 
 This updated the model.joblib file to a trained random forest classifier, and also updated ``accuracy.json`` with the current models' evaluation.
-The difference in accuracy between models could now for example be compared with a ``git diff`` of the contents of ``accuracy.json`` to the :term:`main` :term:`branch`:
+The difference in accuracy between models could now, for example, be compared with a ``git diff`` of the contents of ``accuracy.json`` to the :term:`main` :term:`branch`:
 
 .. runrecord:: _examples/ml-134
    :workdir: usecases/ml-project

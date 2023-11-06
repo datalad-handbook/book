@@ -11,7 +11,7 @@ This makes the user experience less fun than on other operating systems -- an ho
 
 
 Many software tools for research or data science are first written and released for Linux, then for Mac, and eventually Windows.
-TensorFlow for Windows was `released only a full year after it became open source <https://developers.googleblog.com/2016/11/tensorflow-0-12-adds-support-for-windows.html>`_, for example, and Python only became easy to install on Windows in `2019 <https://devblogs.microsoft.com/python/python-in-the-windows-10-may-2019-update>`_.
+TensorFlow for Windows was `released only a full year after it became open source <https://developers.googleblog.com/2016/11/tensorflow-0-12-adds-support-for-windows.html>`_ for example, and Python only became easy to install on Windows in `2019 <https://devblogs.microsoft.com/python/python-in-the-windows-10-may-2019-update>`_.
 The same is true for DataLad and its underlying tools.
 There *is* Windows support and user documentation, but it isn't as far developed as for Unix-based systems.
 This page summarizes core downsides and deficiencies of Windows, DataLad on Windows, and the user documentation.
@@ -25,7 +25,7 @@ Beyond this, Windows uses a different file system than Unix based systems.
 Given that DataLad is a data management software, it is heavily affected by this, and the Basics part of the handbook is filled with "Windows-Wits", dedicated sections that highlight different behavior on native Windows installations of DataLad, or provide adjusted commands -- nevertheless, standard DataLad operations on Windows can be much slower than on other operating systems.
 
 A major annoyance and problem is that some tools that DataLad or :term:`datalad extension`\s use are not available on Windows.
-If you are interested in adding :term:`software container`\s to your DataLad dataset (with the ``datalad-container`` extension), for example, you will likely not be able to do so on a native Windows computer -- :term:`Singularity`, a widely used containerization software, doesn't exit for Windows, and while there *is* some support for :term:`Docker` on Windows, it does not apply to most private computers [#f1]_.
+If you are interested in adding :term:`software container`\s to your DataLad dataset (with the ``datalad-container`` extension) for example, you will likely not be able to do so on a native Windows computer -- :term:`Singularity`, a widely used containerization software, doesn't exit for Windows, and while there *is* some support for :term:`Docker` on Windows, it does not apply to most private computers [#f1]_.
 
 Windows also has insufficient support for :term:`symlink`\ing and locking files (i.e., revoking write :term:`permissions`), which alters how :term:`git-annex` works, and may make interoperability of datasets between Windows and non-Windows operating systems not as smooth as between various flavors of Unix-like operating systems.
 

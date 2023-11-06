@@ -63,7 +63,7 @@ Just like ``cfg_text2git``, all DataLad procedures are
 executables (such as a script, or compiled code).
 In principle, they can be written in any language, and perform
 any task inside of a dataset.
-The ``text2git`` configuration for example applies a configuration for how
+The ``text2git`` configuration, for example, applies a configuration for how
 git-annex treats different file types. Other procedures do not
 only modify ``.gitattributes``, but can also populate a dataset
 with particular content, or automate routine tasks such as

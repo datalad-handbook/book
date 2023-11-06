@@ -85,7 +85,7 @@ Now what I can do with that?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Simple, local workflows allow you to version control changing small files,
-for example your CV, your code, or a book that you are working on, but
+for example, your CV, your code, or a book that you are working on, but
 you can also add very large files to your datasets history.
 Currently, this can be considered "best-practice building": Frequent :dlcmd:`status`
 commands, :dlcmd:`save` commands to save dataset modifications,

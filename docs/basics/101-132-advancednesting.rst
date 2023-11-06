@@ -165,7 +165,7 @@ interested in this, checkout the :ref:`dedicated Findoutmore <fom-status>`.
       $ datalad -f json_pp status -d . midterm_project
 
    This still was not all of the available functionality of the
-   :dlcmd:`status` command. You could for example adjust whether and
+   :dlcmd:`status` command. You could, for example, adjust whether and
    how untracked dataset content should be reported with the ``--untracked``
    option, or get additional information from annexed content with the ``--annex``
    option (especially powerful when combined with ``-f json_pp``). To get a complete overview on what you could do, check out the technical

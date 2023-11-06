@@ -167,6 +167,9 @@ to be cloned via its SSH url.
    Private repos are marked with a lock sign. To make it public, untick the
    "Private" box, found under "Settings":
 
+   ..
+      the image below can't become a figure because it can't be used in LaTeXs minipage environment
+
    .. image:: ../artwork/src/GIN_private.png
 
 

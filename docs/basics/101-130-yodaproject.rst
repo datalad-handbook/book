@@ -664,6 +664,9 @@ syllabus, this should be done via :term:`GitHub`.
    content from GitHub. GitHub can also resolve subdataset links to other GitHub
    repositories, which lets you navigate through nested datasets in the web-interface.
 
+   ..
+      the images below can't become figures because they can't be used in LaTeXs minipage environment
+
    .. image:: ../artwork/src/screenshot_midtermproject.png
       :alt: The midterm project repository, published to GitHub
 

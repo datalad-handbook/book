@@ -417,7 +417,7 @@ your local dataset clone can be updated from its origin, and thus get the new re
 should there be some. Later in this handbook, we will see examples of this.
 
 .. index::
-   pair: update here-document; in a terminal
+   pair: update heredoc; in a terminal
    pair: save dataset modification; with DataLad
 
 Now you can not only create datasets and work with them locally, you can also consume

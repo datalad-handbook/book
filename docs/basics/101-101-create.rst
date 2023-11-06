@@ -44,7 +44,7 @@ Note the command structure of :dlcmd:`create` (optional bits are enclosed in ``[
 
    If you want, use the above command instead of the :dlcmd:`create` command below
    to provide a description. Its use will not be immediately clear, the chapter
-   :ref:`chapter_collaboration`) will show you where this description
+   :ref:`chapter_collaboration` will show you where this description
    ends up and how it may be useful.
 
 Let's start:

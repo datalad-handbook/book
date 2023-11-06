@@ -426,7 +426,7 @@ and avoids needless duplication.
 The raw data is tracked in its own dataset (``localizer_scans``) that only
 needs to be archived once, regardless of how many analysis are using it as
 input. This means that we can “throw away” this subdataset copy within this
-analysis dataset. DataLad can re-obtain the correct version at any point in
+analysis dataset. DataLad can reobtain the correct version at any point in
 the future, as long as the recorded location remains accessible.
 
 To make sure we're not deleting information we are not aware of,

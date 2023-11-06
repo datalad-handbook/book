@@ -400,7 +400,7 @@ In order to permanently wipe a subdataset, you need ``remove`` (which internally
    datalad remove input
 
 However, both commands have built-in security checks.
-They require that dropped files can be re-obtained to prevent accidental data loss, and that removed datasets could be re-cloned in their most recent version from other places, i.e., that there is a sibling that has all revisions that exist locally.
+They require that dropped files can be reobtained to prevent accidental data loss, and that removed datasets could be re-cloned in their most recent version from other places, i.e., that there is a sibling that has all revisions that exist locally.
 
 Dropping one of the just computed figures will fail because of this check::
 

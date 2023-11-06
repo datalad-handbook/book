@@ -109,7 +109,7 @@ Input data gets installed as subdatasets from the RIA store. This automatically
 links analysis projects to data sets, and allows for fine-grained access of up
 to individual file level. With only precisely needed data, analysis datasets are
 already much leaner than with previous complete dataset copies, but as data can
-be re-obtained on-demand from the store, original input files or files that are
+be reobtained on-demand from the store, original input files or files that are
 easily recomputed can safely be dropped to save even more disk-space.
 Beyond this, upon creation of an analysis project, the associated GitLab project
 is automatically configured as a remote with a publication dependency on the

@@ -721,7 +721,7 @@ Afterwards, :dlcmd:`status` reports the file to be deleted::
    datalad status
 
 (Side-note: While the file is deleted in the most recent dataset state, it can be brought back to life as it still exists in the datasets history.
-You can find out more about this and also how to remove also past copies of a file in the section :ref:`filesystem`)
+You can find out more about this and also how to remove also past copies of a file in the section :ref:`file system`)
 
 The deletion of a file must be saved::
 

@@ -279,7 +279,7 @@ But to learn about new files that were added in the remote server since we last 
 
 Let's add it then (note that when working with ``datalad
 siblings`` or ``git remote`` commands, we cannot use the
-``ria+ssh://...#~alias`` URL, and need to use the actual SSH URL and filesystem path).
+``ria+ssh://...#~alias`` URL, and need to use the actual SSH URL and file system path).
 
 .. code-block:: bash
 

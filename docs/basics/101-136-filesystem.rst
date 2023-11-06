@@ -1,4 +1,4 @@
-.. _filesystem:
+.. _file system:
 
 Miscellaneous file system operations
 ------------------------------------

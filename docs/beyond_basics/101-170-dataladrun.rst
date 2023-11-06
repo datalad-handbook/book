@@ -174,7 +174,7 @@ The solution is as easy as it is stubborn: We simply create one throw-away datas
 .. find-out-more:: how does one create throw-away clones?
 
     One way to do this are :term:`ephemeral clone`\s, an alternative is to make :term:`git-annex` disregard the datasets annex completely using ``git annex dead here``.
-    The latter is more appropriate for this context -- we could use an ephemeral clone, but that might deposit data of failed jobs at the origin location, if the job runs on a shared filesystem.
+    The latter is more appropriate for this context -- we could use an ephemeral clone, but that might deposit data of failed jobs at the origin location, if the job runs on a shared file system.
 
 Using throw-away clones involves a build-up, result-push, and tear-down routine for each job.
 It sounds complex and tedious, but this actually works well since datasets are by nature made for such decentralized, collaborative workflows.

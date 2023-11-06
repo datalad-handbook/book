@@ -162,7 +162,7 @@ and recompute all results
 when running the script after cloning and setting up the necessary software.
 This requires minor preparation:
 
-* The final analysis should be able to run on anyone's filesystem.
+* The final analysis should be able to run on anyone's file system.
   It is therefore important to reference datafiles with the scripts in ``code/`` as
   :term:`relative path`\s instead of hard-coding :term:`absolute path`\s.
 

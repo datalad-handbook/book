@@ -290,7 +290,7 @@ remaining sections in that file, and the :ref:`that dissects this config file fu
    The value to the ``url`` variable is a *path*. If at any point
    either your superdataset or the remote moves on your file system,
    the association between the two datasets breaks -- this can be fixed by adjusting this
-   path, and a demonstration of this is in section :ref:`filesystem`.
+   path, and a demonstration of this is in section :ref:`file system`.
    `fetch` contains a specification which parts of the repository are
    updated -- in this case everything (all of the branches).
    Lastly, the ``annex-ignore = false`` configuration allows git-annex

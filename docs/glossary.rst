@@ -109,17 +109,22 @@ Glossary
       Find out more at `docs.conda.io <https://docs.conda.io>`_.
       It overlaps with :term:`pip` in functionality, but it is advised to not use both tools simultaneously for package management.
 
-   container recipe
-      .. index:: ! Container concept; recipe
+   container
+      .. index:: ! Container concept; container
 
-      A text file template that lists all required components of the computational environment that a :term:`software container` should contain.
-      It is made by a human user.
+      A running instance of a :term:`container image` image that is ready to use.
 
    container image
       .. index:: ! Container concept; image
 
-      Container images are *built* from :term:`container recipe` files.
-      They are a static filesystem inside a file, populated with the software specified in the recipe, and some initial configuration.
+      A container image is *built* from a :term:`container recipe`.
+      It is a filesystem snapshot in a file, populated with software specified in the recipe, and some initial configuration.
+
+   container recipe
+      .. index:: ! Container concept; recipe
+
+      A text file that lists all required components of the computational environment that a :term:`software container` should contain.
+      It is made by a human user.
 
    crippled filesystem
       .. index::

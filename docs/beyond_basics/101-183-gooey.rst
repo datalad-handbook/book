@@ -26,7 +26,7 @@ Speed
 """""
 
 ``datalad-gooey`` has internal helpers for faster annotations (whether a file is annexed, committed to Git, modified, or untracked) and file tree overviews.
-This makes it more convenient especially on filesystems that are generally slower for Git operations, such as Window's NTFS.
+This makes it more convenient especially on file systems that are generally slower for Git operations, such as Window's NTFS.
 
 Credential Management
 """""""""""""""""""""

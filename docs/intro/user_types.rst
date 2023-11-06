@@ -43,7 +43,7 @@ afterwards.
 
 The section :ref:`help` may give you a good general overview on what to do if
 you encountered a problem. If you're dealing with file system operations,
-:ref:`filesystem` could be a resource to help you, and for all things configuration,
+:ref:`file system` could be a resource to help you, and for all things configuration,
 the chapter :ref:`chapter_config` is your place to go to. If you are confused by
 symlinks or "permission denied" error in your dataset, checkout section
 :ref:`symlink` for some Basics on :term:`git-annex`. The "Quick search" bar at

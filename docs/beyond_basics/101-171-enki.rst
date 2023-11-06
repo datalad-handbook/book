@@ -145,7 +145,7 @@ This initial sketch serves to highlight key differences and adjustments due to t
    :emphasize-lines: 10, 13, 19-20, 24, 43-44
 
    # everything is running under /tmp inside a compute job,
-   # /tmp is job-specific local filesystem not shared between jobs
+   # /tmp is job-specific local file system not shared between jobs
    $ cd /tmp
 
    # clone the superdataset with locking
@@ -224,7 +224,7 @@ At this point, the workflow misses a tweak that is necessary in fMRIprep to enab
       subid=$(basename $1)
 
       # this is all running under /tmp inside a compute job, /tmp is a performant
-      # local filesystem
+      # local file system
       cd /tmp
       # get the output dataset, which includes the inputs as well
       # flock makes sure that this does not interfere with another job
@@ -247,7 +247,7 @@ At this point, the workflow misses a tweak that is necessary in fMRIprep to enab
       # let git-annex know that we do not want to remember any of these clones
       # (we could have used an --ephemeral clone, but that might deposite data
       # of failed jobs at the origin location, if the job runs on a shared
-      # filesystem -- let's stay self-contained)
+      # file system -- let's stay self-contained)
       git submodule foreach --recursive git annex dead here
 
    .. code-block:: bash

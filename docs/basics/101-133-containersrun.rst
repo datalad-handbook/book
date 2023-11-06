@@ -83,7 +83,7 @@ Both of these tools share core terminology:
    It is made by a human user.
 
 :term:`container image`
-   This is *built* from the recipe file. It is a static filesystem inside a file,
+   This is *built* from the recipe file. It is a static file system inside a file,
    populated with the software specified in the recipe, and some initial configuration.
 
 :term:`container`

@@ -214,7 +214,7 @@ One attractive alternative approach is Conda_, a completely different approach i
    for Linux.
 
 Using DataLad on Windows has a few peculiarities. In general, DataLad can feel a bit
-sluggish on non-WSL2 Windows systems. This is due to various filesystem issues
+sluggish on non-WSL2 Windows systems. This is due to various file system issues
 that also affect the version control system :term:`Git` itself, which DataLad
 relies on. The core functionality of DataLad works, and you should be able to
 follow most contents covered in this book.  You will notice, however, that some

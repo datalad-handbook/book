@@ -75,7 +75,7 @@ interested in this, checkout the :ref:`dedicated Findoutmore <fom-status>`.
      that is properly registered in the superdataset
 
    And you have seen the following *content states*: ``modified`` and ``untracked``.
-   The section :ref:`filesystem` will show you many instances of ``deleted`` content
+   The section :ref:`file system` will show you many instances of ``deleted`` content
    state as well.
 
    But beyond understanding the report of :dlcmd:`status`, there is also

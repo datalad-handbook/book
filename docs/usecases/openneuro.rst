@@ -86,7 +86,7 @@ While DataLad datasets -- in our opinion -- have many advantages, it may be good
   Here's what you should do if you want to copy or move a file out of a dataset into a non-dataset location: Make sure that the file content is present (:dlcmd:`get`), and copy or move the file with a tool that can *dereference* (i.e., resolve to canonical paths) :term:`symlink`\s.
   The command line tool ``cp`` for copying can do this with the ``-L/--dereference`` option, for example, any command can do it if the file path is wrapped in a ``readlink -f <path>`` command.
   Alternatively, run :dlcmd:`unlock` prior to moving with any tool of your choice.
-  See also the FAQ on :ref:`Getting data out of datasets <copydata>` or the section :ref:`filesystem`.
+  See also the FAQ on :ref:`Getting data out of datasets <copydata>` or the section :ref:`file system`.
 
 * **Don't force-overwrite files**: Many files in datasets are *annexed* for version control and, by default (on any non-Windows operating system), write-protected to ensure file integrity.
   If you encounter a file that will not let you change it right away and responds, for example, with a "permission denied" error, it is important to not forcefully modify this data.

@@ -91,7 +91,7 @@ Users log into the CONP portal and install Datalad datasets with
 ``datalad install -r <dataset>``. This gives them access to the annexed files
 (as mentioned in the findoutmore above, large files replaced by their symlinks).
 To request the content of the annexed files, they simply download those files
-locally in their filesystem using ``datalad get path/to/file``. So simple!
+locally in their file system using ``datalad get path/to/file``. So simple!
 
 On a technical level, under the hood, :term:`git-annex` needs to have a connection
 established with the primary data source, the :term:`special remote`, that hosts

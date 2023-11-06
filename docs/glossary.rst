@@ -22,7 +22,7 @@ Glossary
       The adjusted branch is called "adjusted/<branchname>(unlocked)" and on an the adjusted branch", all files handled by :term:`git-annex` are not locked --
       They will stay "unlocked" and thus modifiable.
       Instead of referencing data in the :term:`annex` with a :term:`symlink`, unlocked files need to be copies of the data in the annex.
-      Adjusted branches primarily exist as the default branch on so-called :term:`crippled filesystem`\s such as Windows.
+      Adjusted branches primarily exist as the default branch on so-called :term:`crippled file system`\s such as Windows.
 
    annex
       .. index::
@@ -118,7 +118,7 @@ Glossary
       .. index:: ! Container concept; image
 
       A container image is *built* from a :term:`container recipe`.
-      It is a filesystem snapshot in a file, populated with software specified in the recipe, and some initial configuration.
+      It is a file system snapshot in a file, populated with software specified in the recipe, and some initial configuration.
 
    container recipe
       .. index:: ! Container concept; recipe
@@ -126,9 +126,9 @@ Glossary
       A text file that lists all required components of the computational environment that a :term:`software container` should contain.
       It is made by a human user.
 
-   crippled filesystem
+   crippled file system
       .. index::
-         pair: crippled filesystem; git-annex concept
+         pair: crippled file system; git-annex concept
 
       git-annex concept: A file system that does not allow making symlinks or removing write :term:`permissions` from files. Examples for this are `FAT <https://en.wikipedia.org/wiki/Design_of_the_FAT_file_system>`_ (likely used by your USB sticks) or `NTFS <https://en.wikipedia.org/wiki/NTFS>`_ (used on Windows systems of the last three decades).
 

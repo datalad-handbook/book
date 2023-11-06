@@ -15,8 +15,8 @@ non-DataLad command or principle you want to remind yourself of.
 If you are already familiar with the shell and know the difference between an absolute
 and a relative path, you can safely skip this chapter and continue to the :ref:`DataLad Basics <basics-intro>`.
 
-While there is a graphical user interface for DataLad (the :term:`DataLad Gooey`), this handbook will first and foremost focus on teaching DataLad concepts without the overhead of a user-interface, using DataLad's most powerful interface on the *command line*.
-This means that the code examples in the handbook show no buttons to click on, but a set of commands and options users type into their *terminal*.
+While there is a graphical user interface for DataLad (the :term:`DataLad Gooey`), this book will first and foremost focus on teaching DataLad concepts without the overhead of a user-interface, using DataLad's most powerful interface on the *command line*.
+This means that the code examples in this book show no buttons to click on, but a set of commands and options users type into their *terminal*.
 If you are not used to working with command-line tools, DataLad can appear intimidating.
 Luckily, the set of possible commands is limited, and even without prior experience with a shell, one can get used to it fairly quickly.
 
@@ -155,7 +155,7 @@ This says I am the user ``me`` on the machine muninn and I am in the folder ``~`
 which is shorthand for the current user's home folder (in this case ``/home/me``).
 
 The ``$`` sign indicates that the prompt is interactive and awaiting user input.
-In this handbook, we will use ``$`` as a shorthand for the prompt, to allow
+In this book, we will use ``$`` as a shorthand for the prompt, to allow
 the reader to quickly differentiate between lines containing commands vs the
 output of those commands.
 

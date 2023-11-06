@@ -4,7 +4,7 @@ What to do if things go wrong
 -----------------------------
 
 After all of the DataLad-101 lectures and tutorials so far, you really begin to
-appreciate the pre-crafted examples and tasks the handbook provides.
+appreciate the pre-crafted examples and tasks this book provides.
 “Nothing really goes wrong, and if so, it’s intended”, you acknowledge.
 “But how does this prepare me for life after the course? I’ve seen a lot of
 different errors and know many caveats and principles already, but I certainly

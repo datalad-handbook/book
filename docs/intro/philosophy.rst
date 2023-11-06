@@ -6,7 +6,7 @@ A brief overview of DataLad
 .. figure:: /artwork/src/design_objectives.svg
    :width: 50%
 
-There can be numerous reasons why you ended up with this handbook in front of
+There can be numerous reasons why you ended up with this book in front of
 you -- We do not know who you are, or why you are here.
 You could have any background, any amount of previous experience with
 DataLad, any individual application to use it for,
@@ -15,7 +15,7 @@ is, and any motivational strength to dig into this software.
 
 All this brief section tries to do is to provide a minimal, abstract explanation
 of what DataLad is, to give you, whoever you may be, some idea of what kind of
-tool you will learn to master in this handbook, and to combat some prejudices
+tool you will learn to master in this book, and to combat some prejudices
 or presumptions about DataLad one could have.
 
 To make it short, DataLad (`www.datalad.org <https://datalad.org>`_) is a software tool developed to aid with everything
@@ -163,6 +163,6 @@ These principles hopefully gave you some idea of what to expect from DataLad,
 cleared some worries that you might have had, and highlighted what DataLad is and what
 it is not.
 But now, let's get ready to *use* DataLad. For this, the next
-section will show you how to use the handbook.
+section will show you how to use this book.
 
 .. _FAIR: https://www.go-fair.org

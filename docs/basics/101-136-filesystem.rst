@@ -618,7 +618,7 @@ provenance record is lost:
 Nevertheless, copying files with :dlcmd:`copy-file` is easier and safer
 than moving them with standard Unix commands, especially so for annexed files.
 A more detailed introduction to :dlcmd:`copy-file` and a concrete
-use case can be found in the online version of the handbook.
+use case can be found in the online-handbook.
 
 Let's clean up:
 
@@ -1117,7 +1117,7 @@ private :term:`SSH key`\s or passwords, or too many or too large files are
 accidentally saved into Git, and *need* to get out of the dataset history.
 The command ``git-filter-repo <path-specification> --force`` will "filter-out",
 i.e., remove all files **but the ones specified** in ``<path-specification>``
-from the dataset's history. An advanced chapter in the online version of the handbook
+from the dataset's history. An advanced chapter in the online-handbook
 shows an example invocation.
 
 .. index::

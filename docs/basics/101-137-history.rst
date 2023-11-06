@@ -428,7 +428,7 @@ many it can send you back in time to view the state of a dataset
 at the time of a specific commit.
 
 Let's say you want to find out which notes you took in the first
-few chapters of the handbook. Find a commit :term:`shasum` in your history
+few chapters of this book. Find a commit :term:`shasum` in your history
 to specify the point in time you want to go back to:
 
 .. runrecord:: _examples/DL-101-137-121
@@ -627,7 +627,7 @@ One way to accomplish it is with an *interactive rebase*, using the
 :gitcmd:`rebase -i` command [#f5]_. Experienced Git-users will know
 under which situations and how to perform such an interactive rebase.
 
-However, outlining an interactive rebase here in the handbook could lead to
+However, outlining an interactive rebase here in this book could lead to
 problems for readers without (much) Git experience: An interactive rebase,
 even if performed successfully, can lead to many problems if it is applied with
 too little experience, for example in any collaborative real-world project.
@@ -821,7 +821,7 @@ to remove the ``Gitjoke2.txt`` file.
          already or that other people have copies of, is not advised.
 
 .. [#f5] When in need to interactively rebase, please consult further documentation
-         and tutorials. It is out of the scope of this handbook to be a complete
+         and tutorials. It is out of scope of this book to be a complete
          guide on rebasing, and not all interactive rebasing operations are
          complication-free. However, you can always undo mistakes that occur
          during rebasing with the help of the `reflog <https://git-scm.com/docs/git-reflog>`_.

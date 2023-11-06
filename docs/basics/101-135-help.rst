@@ -150,7 +150,7 @@ This information can be coarse, such as a mere ``[INFO] Downloading <some_url> i
 The :term:`log level` in brackets at the beginning of the line indicates how many details DataLad shares with you.
 
 Note that :term:`logging` is not a sealed book, and happens automatically during the execution of any DataLad command.
-While you were reading the handbook, you have seen a lot of log messages already.
+While you were reading this book, you have seen a lot of log messages already.
 Anything printed to your terminal preceded by ``[INFO]``, for example, is a log message (in this case, on the ``info`` level).
 When you are *consciously* logging, you simply set the log-level to the desired amount of information, or increase the amount of verbosity until the output gives you a hint of what went wrong.
 Likewise, adjusting the log-level also works the other way around, and lets you *decrease* the amount of information you receive in your terminal.

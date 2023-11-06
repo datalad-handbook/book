@@ -44,7 +44,7 @@ for him to access and work with.
 
 This is indeed a common real-world use case: Two users on a shared
 file system sharing a dataset with each other.
-But as we can not easily simulate a second user in this handbook,
+But as we can not easily simulate a second user in this book,
 for now, you will have to share your dataset with yourself.
 This endeavor serves several purposes: For one, you will experience a very easy
 way of sharing a dataset. Secondly, it will show you

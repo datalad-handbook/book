@@ -150,7 +150,7 @@ targets are configured throughout the dataset hierarchy.
    thorough introduction into the refspec. For a hands-on example, consider how it is done for
    `the published DataLad-101 dataset <https://github.com/datalad-handbook/DataLad-101>`_:
 
-   The published version of the handbook is known to the local handbook dataset
+   The published version of the DataLad-101 dataset is known its local clone
    as a :term:`remote` called ``public``, and each section of the book is identified
    with a custom branch name that corresponds to the section name. Whenever an
    update to the public dataset is pushed, apart from pushing only the ``main``

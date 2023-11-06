@@ -52,8 +52,7 @@ terminal to write this note from the terminal (without any editor) into ``notes.
    this book to create commands you can execute with nothing other than your terminal.
    You are free to copy-paste the snippets with the here-documents,
    or find a workflow that suites you better. The only thing important is that
-   you create and modify a ``.txt`` file over the course of the Basics part of this
-   handbook.
+   you create and modify a ``.txt`` file while working with this book.
 
 Running the command below will create ``notes.txt`` in the
 root of your ``DataLad-101`` dataset:

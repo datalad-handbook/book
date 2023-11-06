@@ -141,8 +141,8 @@ Let's see this in action for the ``midterm_analysis`` dataset by rerunning
 the analysis you did for the midterm project within a Singularity container.
 We start by registering a container to the dataset.
 For this, we will pull an Image from Singularity hub. This Image was made
-for the handbook, and it contains the relevant Python setup for
-the analysis. Its recipe lives in the handbook's
+for the online-handbook, and it contains the relevant Python setup for
+the analysis. Its recipe lives in the online-handbook's
 `resources repository <https://github.com/datalad-handbook/resources>`_.
 If you're curious how to create a Singularity Image, the hidden
 section below has some pointers:

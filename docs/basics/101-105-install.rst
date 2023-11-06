@@ -97,7 +97,7 @@ of ``longnow`` it would have used the name of the remote repository "``longnow-p
 But the coolest feature of :dlcmd:`clone` is yet invisible: This command
 also recorded where this dataset came from, thus capturing its *origin* as
 :term:`provenance`. Even though this is not obvious at this point in time, later
-chapters in this handbook will demonstrate how useful this information can be.
+chapters in this book will demonstrate how useful this information can be.
 
 .. index::
    pair: clone; DataLad concept
@@ -414,7 +414,7 @@ But that's not all. The seminar series is ongoing, and more recordings can get a
 to the original repository shared on GitHub.
 Because an installed dataset knows the dataset it was installed from,
 your local dataset clone can be updated from its origin, and thus get the new recordings,
-should there be some. Later in this handbook, we will see examples of this.
+should there be some. Later in this book, we will see examples of this.
 
 .. index::
    pair: update here-document; in a terminal

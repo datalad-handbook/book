@@ -130,7 +130,7 @@ tree is also known as the *annex* of a dataset.
    **Can I at least get unused or irrelevant data out of the dataset?**
    Yes, either with convenience commands (e.g., ``git annex unused`` followed by ``git annex dropunused``), or by explicitly using ``drop`` on files (or their past versions) that you don't want to keep anymore.
    Alternatively, you can transfer data you don't need but want to preserve to a different storage location.
-   Later parts of the handbook will demonstrate each of these alternatives.
+   Later parts of this book will demonstrate each of these alternatives.
 
 For a demonstration that this file path is not complete gibberish,
 take the target path of any of the book's symlinks and

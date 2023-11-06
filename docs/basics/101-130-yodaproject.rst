@@ -182,7 +182,7 @@ be thousands of ways to analyze it, and it is therefore immensely helpful to
 have a pristine raw iris dataset that does not get modified, but serves as
 input for these analysis.
 As such, the iris data should become a standalone DataLad dataset.
-For the purpose of this analysis, the DataLad handbook provides an ``iris_data``
+For the purpose of this analysis, the online-handbook provides an ``iris_data``
 dataset at `https://github.com/datalad-handbook/iris_data <https://github.com/datalad-handbook/iris_data>`_.
 
 You can either use this provided input dataset, or find out how to create an
@@ -672,7 +672,7 @@ syllabus, this should be done via :term:`GitHub`.
 
    The above screenshot shows the linkage between the analysis project you will create
    and its subdataset. Clicking on the subdataset (highlighted) will take you to the iris dataset
-   the handbook provides, shown below.
+   the online-handbook provides, shown below.
 
    .. image:: ../artwork/src/screenshot_submodule.png
       :alt: The input dataset is linked
@@ -771,9 +771,9 @@ command.
 
 .. importantnote:: Learn how to push "on the job"
 
-    Publishing is one of the remaining big concepts that this handbook tries to
+    Publishing is one of the remaining big concepts that this book tries to
     convey. However, publishing is a complex concept that encompasses a large
-    proportion of the previous handbook content as a prerequisite. In order to be
+    proportion of this book's content so far as a prerequisite. In order to be
     not too overwhelmingly detailed, the upcoming sections will approach
     :dlcmd:`push` from a "learning-by-doing" perspective:
     You will see a first :dlcmd:`push` to GitHub below, and the upcoming section "On the looks and feels of a published dataset"
@@ -869,7 +869,7 @@ On the looks and feels of a published dataset
 
    Replace the ``url`` in the :dlcmd:`clone` command below with the path
    to your own ``midtermproject`` GitHub repository, or clone the "public"
-   ``midterm_project`` repository that is available via the Handbook's GitHub
+   ``midterm_project`` repository that is available via the online-handbook's GitHub
    organization at `github.com/datalad-handbook/midterm_project <https://github.com/datalad-handbook/midterm_project>`_:
 
    .. runrecord:: _examples/DL-101-130-119
@@ -962,7 +962,7 @@ On the looks and feels of a published dataset
          outcome.
 
 .. [#f2] The choice of analysis method
-         for the handbook is rather arbitrary, and understanding the k-nearest
+         in this book is rather arbitrary, and understanding the k-nearest
          neighbor algorithm is by no means required for this section.
 
 .. [#f3] It is recommended (but optional) to create a

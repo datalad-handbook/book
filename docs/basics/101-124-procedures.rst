@@ -177,8 +177,8 @@ could thus be applied within a :dlcmd:`create` as
    (saved or not) in the subdataset, as the version of the subdataset that is tracked
    in the superdataset simply changed. A :dlcmd:`save` in the superdataset
    will make sure that the version of the subdataset gets updated in the superdataset.
-   The section :ref:`nesting2` will elaborate on this general principle later in the
-   handbook.
+   The section :ref:`nesting2` will elaborate on this general principle later in this
+   book.
 
 As a general note, it can be useful to apply procedures
 early in the life of a dataset. Procedures such

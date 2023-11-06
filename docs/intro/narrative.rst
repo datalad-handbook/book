@@ -1,5 +1,5 @@
-How to use the handbook
-=======================
+How to use this book
+====================
 
 .. figure:: /artwork/src/right_direction.svg
    :width: 50%
@@ -7,18 +7,18 @@ How to use the handbook
 For whom this book is written
 -----------------------------
 
-The DataLad handbook is not the DataLad documentation, and it is also
+This book is not the DataLad documentation, and it is also
 not an explanation of the computational magic that happens in the background.
 Instead, it is a procedurally oriented, hands-on crash-course that invites
 you to fire up your terminal and follow along.
 
-**If you are interested in learning how to use DataLad, this handbook is for you.**
+**If you are interested in learning how to use DataLad, this book is for you.**
 
 You do not need to be a programmer, computer scientist, or Linux-crank.
 If you have never touched your computer's shell before, you will be fine.
 No knowledge about :term:`Git` or :term:`git-annex` is required or necessary.
-Regardless of your background and personal use cases for DataLad, the
-handbook will show you the principles of DataLad, and from chapter 1 onwards
+Regardless of your background and personal use cases for DataLad, this
+book will show you the principles of DataLad, and from chapter :ref:`createDS` onwards,
 you will be using them.
 
 How to read this book
@@ -45,7 +45,7 @@ with each. While learning, it will be easy to
    Links to external resources have a superscript that you can find in the "Links" collection at the end of the book.
    And internal links reference the page number of the box, section, or chapter in question.
 
-As the handbook is to be a practical guide it includes as many hands-on examples
+As this book aims to be a practical guide it includes as many hands-on examples
 as we can fit into it. Code snippets look like this, and you should
 **copy them into your own terminal to try them out**, but you can also
 **modify them to fit your custom needs in your own use cases**.
@@ -76,11 +76,11 @@ In the example below, the commit :term:`shasum` has been shortened and marked wi
    Author: Elena Piscopia <elena@example.net>
    Date:   Tue Jun 18 16:13:00 2019 +0000
 
-The printed version of the handbook contains the *Basics* that intend to show you
-the core DataLad functionality and challenge you to use it.
-If you want to learn how to use DataLad, it is recommended to start with this
-part and read it from start to end.
-The online version of the handbook has additional parts that you are welcome to check
+This book's content matches the *Basics* part of the online-handbook.
+It introduces core DataLad functionality and challenges you to use it.
+The covered topics are a good start, if you want to learn how to use DataLad.
+They can be read from start to finish.
+The online-handbook has additional parts that you are welcome to check
 out, too:
 In the *Advanced* part you will find features or workflows that go beyond the
 Basics.
@@ -136,18 +136,18 @@ If you are a Windows user with a native (i.e., not `Windows Subsystem for Linux 
 .. windows-wit:: For Windows users only
 
    A range of file system issues can affect the behavior of DataLad or its underlying tools on Windows.
-   If necessary, the handbook provides workarounds for problems, explanations, or at least apologies for those inconveniences.
-   If you want to help us make the handbook or DataLad better for Windows users, please `get in touch <https://github.com/datalad-handbook/book/issues/new>`_ -- every little improvement or bug report can help.
+   If necessary, this book provides workarounds for problems, explanations, or at least apologies for those inconveniences.
+   If you want to help us make the online-handbook or DataLad better for Windows users, please `get in touch <https://github.com/datalad-handbook/book/issues/new>`_ -- every little improvement or bug report can help.
 
 Apart from the core DataLad commands introduced in this book, DataLad also comes with many extensions and is continuously developed and improved.
-More recent or more advanced features, or features from extensions are added to the web version of the handbook frequently.
+More recent or more advanced features, or features from extensions are added to the online-handbook frequently.
 If you are looking for a feature but cannot find it in this introduction, please take a look at the web version, the DataLad `documentation <https://docs.datalad.org>`_, or the various extensions' documentations.
 
 
 What you will learn in this book
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-This handbook will teach you simple, yet advanced principles of data
+This book will teach you simple, yet advanced principles of data
 management for reproducible, comprehensible, transparent, and
 `FAIR <https://www.go-fair.org>`_ data
 projects. It does so with hands-on tool use of DataLad and its
@@ -161,7 +161,7 @@ You will learn how to create, consume, structure, share, publish, and use
 linked, and that are able to capture and track full provenance of their
 contents, if used correctly.
 
-At the end of the ``Basics`` section, these are some of the main
+After studying this book, these are some of the main
 things you will know how to do, and understand why doing them is useful:
 
 - **Version-control** data objects, regardless of size, keep track of
@@ -182,7 +182,7 @@ things you will know how to do, and understand why doing them is useful:
   modular components (such as data) in a way that preserves the history,
   provenance, and linkage of its components.
 
-After having read this handbook, you will find it easy to create, build up, and
+After having read this book, you will find it easy to create, build up, and
 share intuitively structured and version-controlled data projects that
 fulfill high standards for reproducibility and FAIRness. You are able to
 decide for yourself how deep you want to delve into the DataLad world

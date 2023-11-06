@@ -102,7 +102,8 @@ a look at it. For looking at the history, the code examples will use :gitcmd:`lo
 a built-in :term:`Git` command [#f1]_ that works right in your terminal. Your log
 *might* be opened in a terminal :term:`pager`
 that lets you scroll up and down with your arrow keys, but not enter any more commands.
-If this happens, you can get out of ``git log`` by pressing ``q``.
+If this happens, you can get out of ``git log`` by pressing ``q``. For Windows,
+also see :windows-wit:`on showing history <ww-adjustedmode-log>`.
 
 .. runrecord:: _examples/DL-101-101-103
    :language: console
@@ -122,6 +123,7 @@ Each of them is identified by a unique 40 character sequence, called a
    pair: corresponding branch; in adjusted mode
    pair: show history; on Windows
 .. windows-wit:: Your Git log may be more extensive - use 'git log main' instead!
+   :name: ww-adjustedmode-log
 
    The output of :gitcmd:`log` shown in this book and the output you will see in your own datasets when executing the same commands may not always match -- many times you might see commits about a "git-annex adjusted branch" in your history.
    This is expected, and if you want to read up more about this, please progress on to chapter :ref:`chapter_gitannex` and afterwards take a look at `this part of git-annex documentation <https://git-annex.branchable.com/design/adjusted_branches>`_.

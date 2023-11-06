@@ -41,6 +41,6 @@
 
 .. aliases
 .. index::
-   see: heredoc; 'here-document'
+   see: here-document; 'heredoc'
 .. index::
    see: shell commands; 'terminal commands'

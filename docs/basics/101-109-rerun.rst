@@ -2,7 +2,7 @@
    pair: rerun; DataLad command
 .. _run2:
 
-DataLad, re-run!
+DataLad, rerun!
 ----------------
 
 So far, you created a ``.tsv`` file of all

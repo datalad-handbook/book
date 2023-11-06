@@ -5,7 +5,7 @@ Data integrity
 --------------
 
 So far, we mastered quite a number of challenges:
-Creating and populating a dataset with large and small files, modifying content and saving the changes to history, installing datasets, even as subdatasets within datasets, recording the impact of commands on a dataset with the run and re-run commands, and capturing plenty of :term:`provenance` on the way.
+Creating and populating a dataset with large and small files, modifying content and saving the changes to history, installing datasets, even as subdatasets within datasets, recording the impact of commands on a dataset with the run and rerun commands, and capturing plenty of :term:`provenance` on the way.
 We further noticed that when we modified content in ``notes.txt`` or ``list_titles.sh``, the modified content was in a *text file*.
 We learned that this precise type of file, in conjunction with the initial configuration template ``text2git`` we gave to :dlcmd:`create`, is meaningful:
 As the text file is stored in Git and not git-annex, no content unlocking is necessary.

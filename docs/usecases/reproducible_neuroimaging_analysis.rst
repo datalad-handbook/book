@@ -461,7 +461,7 @@ Since the state of the subdataset is exactly the state of the original
 Prior to archiving the results, we can go one step further and verify their
 computational reproducibility. DataLad's ``rerun`` command is
 capable of “replaying” any recorded command. The following command
-re-executes the FSL analysis by re-running everything since the dataset was
+re-executes the FSL analysis by rerunning everything since the dataset was
 tagged as ``ready4analysis``). It will record the recomputed results in a
 separate Git branch named ``verify``. Afterwards, we can automatically
 compare these new results to the original ones in the ``master`` branch. We

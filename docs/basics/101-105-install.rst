@@ -158,12 +158,9 @@ Here is the repository structure:
 
    $ tree -d   # we limit the output to directories
 
-We can see that recordings has one subdirectory, our newly installed ``longnow``
-dataset. Within the dataset are two other directories, ``Long_Now__Conversations_at_The_Interval``
-and ``Long_Now__Seminars_About_Long_term_Thinking``.
-If we navigate into one of them and list its content, we'll see many ``.mp3`` files (here is an
-excerpt).
-
+We can see that ``recordings`` has one subdirectory, our newly installed ``longnow``
+dataset with two subdirectories.
+If we navigate into one of them and list its content, we'll see many ``.mp3`` files (here is an excerpt).
 
 .. runrecord:: _examples/DL-101-105-104
    :language: console

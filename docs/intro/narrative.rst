@@ -66,7 +66,7 @@ When copying code snippets into your own terminal, do not copy the leading
 error when executed.
 Don't worry :ref:`if you do not want to code along <fom-lazy>`, though.
 
-Whenever you see a ✂ symbol, command output has been shortened for easier readability.
+Whenever you see a ✂ symbol, command output has been shortened for better readability.
 In the example below, the commit :term:`shasum` has been shortened and marked with ``✂SHA1``.
 
 .. code-block:: bash

@@ -243,6 +243,6 @@ share and publish with DataLad.
 Let's get going!
 ----------------
 
-If you have DataLad installed, you can dive straight into chapter 1, :ref:`createDS`.
+If you have DataLad installed, you can dive straight into chapter :ref:`createDS`.
 For everyone new, there are the sections :ref:`howto` as a minimal tutorial
 to using the shell and :ref:`install` to get your DataLad installation set up.

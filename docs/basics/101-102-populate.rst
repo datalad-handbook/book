@@ -48,6 +48,7 @@ are presented here, make sure to check the :windows-wit:`on peculiarities of its
    pair: line continuation; on Windows in a terminal
 .. windows-wit:: Terminals other than Git Bash can't handle multi-line commands
    :name: ww-no-multiline-commands
+   :float: tbp
 
    In Unix shells, ``\`` can be used to split a command into several lines, for example to aid readability.
    Standard Windows terminals (including the Anaconda prompt) do not support this.
@@ -85,6 +86,7 @@ curl <ww-curl-instead-wget>`.
    pair: download file; with curl
 .. windows-wit:: You can use curl instead of wget
    :name: ww-curl-instead-wget
+   :float: tbp
 
    Many versions of Windows do not ship with the tool ``wget``.
    You can install it, but it may be easier to use the pre-installed ``curl`` command:
@@ -158,7 +160,7 @@ If you ever forget to specify a message, or made a typo, not all is lost. A
    pair: amend commit message; with Git
 .. find-out-more:: "Oh no! I forgot the -m option for 'datalad save'!"
    :name: fom-amend-save
-   :float:
+   :float: tbp
 
    If you forget to specify a commit message with the ``-m`` option, DataLad will write
    ``[DATALAD] Recorded changes`` as a commit message into your history.
@@ -211,7 +213,7 @@ a good message <fom-commit-message-guidance>`.
    pair: recommendation; commit message
 .. find-out-more:: DOs and DON'Ts for commit messages
    :name: fom-commit-message-guidance
-   :float: tbp
+   :float: tb
 
    **DOs**
 
@@ -232,6 +234,7 @@ a good message <fom-commit-message-guidance>`.
 .. index::
    pair: no staging; with DataLad
 .. gitusernote:: There is no staging area in DataLad
+   :float: tb
 
    Just as in Git, new files are not tracked from their creation on, but only when
    explicitly added to Git (in Git terms, with an initial :gitcmd:`add`). But different
@@ -294,7 +297,7 @@ to the history. But check the :find-out-more:`on how to tell it otherwise <fom-s
    pair: save already tracked files only; with DataLad
 .. find-out-more:: How to save already tracked dataset components only?
    :name: fom-save-updated-only
-   :float:
+   :float: tb
 
    A :dlcmd:`save -m "concise message" --updated` (or the shorter
    form of ``--updated``, ``-u``) will only write *modifications* to the

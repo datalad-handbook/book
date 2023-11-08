@@ -29,8 +29,9 @@ and making simple modifications *locally*.
 
 * The typical local workflow is simple: *Modify* the dataset by adding or
   modifying files, *save* the changes as meaningful units to the history,
-  *repeat*:
+  *repeat* (see :numref:`fig-simple-workflow`).
 
+.. _fig-simple-workflow:
 .. figure:: ../artwork/src/local_wf_simple.png
    :alt: A simple, local version control workflow with datalad.
    :figwidth: 100%

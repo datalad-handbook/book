@@ -49,3 +49,26 @@ The "YODA" cartoon used in chapter :ref:`chapter_yoda` is derived from https://o
 
 .. _Creative Commons Attribution-ShareAlike 4.0 International Public License (CC-BY-SA): https://creativecommons.org/licenses/by-sa/4.0
 .. _CC0: http://creativecommons.org/publicdomain/zero/1.0
+
+Fonts (PDF version)
+~~~~~~~~~~~~~~~~~~~
+
+The PDF version of the handbook contains the following fonts with their respective licenses.
+All fonts are either standard or embedded.
+
+* STIXGeneral-Regular; license is based on the `SIL Open Font License`_
+* STIXGeneral-Italic; license is based on the `SIL Open Font License`_
+* STIXGeneral-Bold; license is based on the `SIL Open Font License`_
+* STIXMathSans-Regular; license is based on the `SIL Open Font License`_
+* Lato-BOLD; licensed under the `SIL Open Font License`_
+* InsonsolataN-Regular; licensed under the `SIL Open Font License`_
+* InsonsolataN-Bold; licensed under the `SIL Open Font License`_
+* LMSansDemiCond10-Regular; licensed under the `GUST Font license`_
+* MLSans10-Bold; licensed under the `GUST Font license`_
+* CCIcons; licensed under a `CC-BY 4.0 License`_
+* Font Awesome; licensed under the `SIL Open Font License`_
+
+
+.. _SIL Open Font License: http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL
+.. _GUST Font license: https://tug.org/fonts/licenses/GUST-FONT-LICENSE.txt
+.. _CC-BY 4.0 License: https://creativecommons.org/licenses/by/4.0/

@@ -71,10 +71,12 @@ Optionally, the command also takes as second positional argument a path to the *
 Because we are installing a dataset (the podcasts) into an existing dataset (the ``DataLad-101``
 dataset), we also supply a ``-d/--dataset`` flag to the command.
 This specifies the dataset to perform the operation on, and allows us to install
-the podcasts as a *subdataset* of ``DataLad-101``. Because we are in the root
+the podcasts as a *subdataset* of ``DataLad-101``.
+The :find-out-more:`on not using this option <fom-no-clone-dataset>` provides some more background.
+Because we are in the root
 of the ``DataLad-101`` dataset, the pointer to the dataset is a ``.`` (which is Unix'
-way of saying "current directory").
-
+way of saying "current directory"). In the :find-out-more:`on dataset option values <fom-clone-nonroot>`
+you can learn about cloning at other locations than the dataset root.
 As before with long commands, we line break the code below with a ``\``. You can
 copy it as it is presented here into your terminal, but in your own work you
 can write commands like this into a single line.
@@ -102,6 +104,7 @@ chapters in this book will demonstrate how useful this information can be.
 .. index::
    pair: clone; DataLad concept
 .. gitusernote:: Clone internals
+   :float: p
 
    The :dlcmd:`clone` command uses :gitcmd:`clone`.
    A dataset that is installed from an existing source, e.g., a path or URL,
@@ -110,6 +113,8 @@ chapters in this book will demonstrate how useful this information can be.
 .. index::
    pair: clone into another dataset; with DataLad
 .. find-out-more:: Do I have to install from the root of datasets?
+   :name: fom-clone-nonroot
+   :float: p
 
    No. Instead of from the *root* of the ``DataLad-101`` dataset, you could have also
    installed the dataset from within the ``recordings``, or ``books`` directory.
@@ -126,6 +131,8 @@ chapters in this book will demonstrate how useful this information can be.
      datalad clone -d^ https://github.com/datalad-datasets/longnow-podcasts.git longnow
 
 .. find-out-more:: What if I do not install into an existing dataset?
+   :name: fom-no-clone-dataset
+   :float: p
 
    If you do not install into an existing dataset, you only need to omit the ``-d/--dataset``
    option. You can try:
@@ -141,12 +148,15 @@ chapters in this book will demonstrate how useful this information can be.
    automatically into the higher level *superdataset*. The upcoming section will
    elaborate on this.
 
-Here is the repository structure:
+This is how we can visualize the repository structure, but see the :windows-wit:`on tree <ww-tree>`
+compatibility notes:
 
 .. index::
    pair: tree; terminal command
    pair: display directory tree; on Windows
 .. windows-wit:: use tree
+   :name: ww-tree
+   :float: p
 
    The Windows version of tree requires different parametrization, so please run ``tree`` instead of ``tree -d``.
 

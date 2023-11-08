@@ -23,9 +23,12 @@ The code below, however, contains this note within the start and end part of a
 You can also copy the full code snippet, starting
 from ``cat << EOT > notes.txt``, including the ``EOT`` in the last line, in your
 terminal to write this note from the terminal (without any editor) into ``notes.txt``.
+Check the :find-out-more:`on some heredocs background <fom-heredoc>`.
 
 .. index:: here-document, heredoc
 .. find-out-more:: How does a heredoc (here-document) work?
+   :name: fom-heredoc
+   :float: tb
 
    The code snippet below makes sure to write lines of text into a
    file (that so far does not exist) called ``notes.txt``.
@@ -55,11 +58,13 @@ terminal to write this note from the terminal (without any editor) into ``notes.
    you create and modify a ``.txt`` file while working with this book.
 
 Running the command below will create ``notes.txt`` in the
-root of your ``DataLad-101`` dataset:
+root of your ``DataLad-101`` dataset, but see the :windows-wit:`on terminal compatibility <ww-heredoc>`:
 
 .. index:: heredoc
    pair: heredoc; on Windows in a terminal
 .. windows-wit:: Heredocs don't work under non-Git-Bash Windows terminals
+   :name: ww-heredoc
+   :float: tb
 
    Heredocs rely on Unix-type redirection and multi-line commands -- which is not supported on most native Windows terminals or the Anaconda prompt on Windows.
    If you are using an Anaconda prompt or a Windows terminal other than Git Bash, instead of executing heredocs, please open up an editor and paste and save the text into it.
@@ -172,12 +177,15 @@ a commit, but also the precise change that occurred in the text file in the comm
 Additions are marked with a ``+``, and deletions would be shown with a leading ``-``.
 From the dataset's history, we can therefore also find out *how* the text file
 evolved over time. That's quite neat, isn't it?
+Check the :find-out-more:`on 'git log' for even more possibilities <fom-log-options>`.
 
 .. index::
    pair: log; Git command
    pair: get help; with Git
    pair: filter history; with Git
 .. find-out-more:: 'git log' has many more useful options
+   :name: fom-log-options
+   :float: tb
 
    ``git log``, as many other ``Git`` commands, has a good number of options
    which you can discover if you run ``git log --help``.  Those options could

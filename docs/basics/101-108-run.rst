@@ -68,10 +68,15 @@ Inside of ``DataLad-101/code``, create a simple shell script ``list_titles.sh``.
 This script will carry out a simple task:
 It will loop through the file names of the ``.mp3`` files and
 write out speaker names and talk titles in a very basic fashion.
-The content of this script is written below -- the ``cat`` command
-will write it into the script.
+The content of this script is shown below -- the ``cat`` command
+will write it into the script. Make sure to see the
+:windows-wit:`on an alternative <ww-heredoc-alt>`, and check
+the :windows-wit:`on automatic file name extensions <ww-filename-extensions>`
+to avoid confusion when creating files manually.
 
 .. windows-wit:: Here's a script for Windows users
+   :name: ww-heredoc-alt
+   :float: tb
 
    Please use an editor of your choice to create a file ``list_titles.sh`` inside of the ``code`` directory.
    These should be the contents:
@@ -94,6 +99,8 @@ will write it into the script.
 .. index::
    pair: hidden file name extensions; on Windows
 .. windows-wit:: Be mindful of hidden extensions when creating files!
+   :name: ww-filename-extensions
+   :float: tb
 
    By default, Windows does not show common file extensions when you view directory contents with a file explorer.
    Instead, it only displays the base of the file name and indicates the file type with the display icon.

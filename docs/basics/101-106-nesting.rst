@@ -93,9 +93,15 @@ This is what is meant by "the top-level DataLad dataset (the *superdataset*) onl
 Importantly, once we learn how to make use of the history of a dataset,
 we can set subdatasets to previous states, or *update* them.
 
+By the way, there is actually no need to navigate into different directories all the time.
+Check the :find-out-more:`on switching the working directory with Git <fom-tmp-cwd>` for
+an alternative.
+
 .. index::
    pair: temporary working directory change; with Git
 .. find-out-more:: Do I have to navigate into the subdataset to see it's history?
+   :name: fom-tmp-cwd
+   :float: tb
 
    Previously, we used :shcmd:`cd` to navigate into the subdataset, and
    subsequently opened the Git log. This is necessary, because a :gitcmd:`log`
@@ -117,8 +123,9 @@ we can set subdatasets to previous states, or *update* them.
 In the upcoming sections, we'll experience the perks of dataset nesting
 frequently, and everything that might seem vague at this point will become
 clearer. To conclude this demonstration,
-the figure below illustrates the current state of our dataset, ``DataLad-101``, with its nested subdataset.
+:numref:`fig_dl101_tree` illustrates the current state of our dataset, ``DataLad-101``, with its nested subdataset.
 
+.. _fig_dl101_tree:
 .. figure:: ../artwork/src/virtual_dstree_dl101.svg
    :width: 70%
 

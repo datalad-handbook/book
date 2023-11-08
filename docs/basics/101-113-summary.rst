@@ -47,7 +47,7 @@ command, and discovered the concept of *locked* content.
   should be "clean"), or the command needs to be extended with the ``--explicit`` option.
 
 
-Now what I can do with that?
+Now what can U do with that?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 You have procedurally experienced how to use :dlcmd:`run` and :dlcmd:`rerun`. Both

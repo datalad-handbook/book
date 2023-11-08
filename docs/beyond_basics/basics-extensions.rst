@@ -3,8 +3,9 @@
 DataLad Extensions
 ------------------
 
-.. figure:: ../artwork/src/universe.svg
+.. image:: ../artwork/src/universe.svg
    :width: 50%
+   :align: center
 
 .. toctree::
    :maxdepth: 1

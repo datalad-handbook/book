@@ -158,7 +158,7 @@ compatibility notes:
    :name: ww-tree
    :float: p
 
-   The Windows version of tree requires different parametrization, so please run ``tree`` instead of ``tree -d``.
+   .. include:: topic/tree-windows.rst
 
 .. runrecord:: _examples/DL-101-105-103
    :language: console

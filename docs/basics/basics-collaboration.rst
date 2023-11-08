@@ -3,8 +3,9 @@
 Collaboration
 -------------
 
-.. figure:: ../artwork/src/collaboration_sketch.svg
+.. image:: ../artwork/src/collaboration_sketch.svg
    :width: 50%
+   :align: center
 
 .. toctree::
    :maxdepth: 1

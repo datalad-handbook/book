@@ -4,8 +4,9 @@
 Tuning datasets to your needs
 -----------------------------
 
-.. figure:: ../artwork/src/settings.svg
+.. image:: ../artwork/src/settings.svg
    :width: 50%
+   :align: center
 
 .. toctree::
    :maxdepth: 1

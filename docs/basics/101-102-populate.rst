@@ -50,16 +50,7 @@ are presented here, make sure to check the :windows-wit:`on peculiarities of its
    :name: ww-no-multiline-commands
    :float: tbp
 
-   In Unix shells, ``\`` can be used to split a command into several lines, for example to aid readability.
-   Standard Windows terminals (including the Anaconda prompt) do not support this.
-   They instead use the ``^`` character:
-
-   .. code-block:: bash
-
-     $ wget -q https://sourceforge.net/projects/linuxcommand/files/TLCL/19.01/TLCL-19.01.pdf/download ^
-     -O TLCL.pdf
-
-   If you are not using the Git Bash, you will either need to copy multi-line commands into a single line, or use ``^`` (**no space** afterwards) instead of ``\``.
+   .. include:: topic/terminal-linecontinuation.rst
 
 .. index::
    pair: download file; with wget
@@ -88,18 +79,7 @@ curl <ww-curl-instead-wget>`.
    :name: ww-curl-instead-wget
    :float: tbp
 
-   Many versions of Windows do not ship with the tool ``wget``.
-   You can install it, but it may be easier to use the pre-installed ``curl`` command:
-
-   .. code-block:: bash
-
-      $ cd books
-      $ curl -L https://sourceforge.net/projects/linuxcommand/files/TLCL/19.01/TLCL-19.01.pdf/download \
-        -o TLCL.pdf
-      $ curl -L https://github.com/swaroopch/byte-of-python/releases/download/vadb91fc6fce27c58e3f931f5861806d3ccd1054c/byte-of-python.pdf \
-        -o byte-of-python.pdf
-      $ cd ../
-
+   .. include:: topic/curl-instead-wget.rst
 
 Let's see what happened. First of all, in the root of ``DataLad-101``, show the directory
 structure with tree:

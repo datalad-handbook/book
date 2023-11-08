@@ -3,8 +3,9 @@
 Special purpose showrooms
 -------------------------
 
-.. figure:: ../artwork/src/functions.svg
+.. image:: ../artwork/src/functions.svg
    :width: 50%
+   :align: center
 
 .. toctree::
    :maxdepth: 1

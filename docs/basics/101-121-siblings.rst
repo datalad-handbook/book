@@ -243,13 +243,7 @@ the former for a different lecture:
    pair: diff; DataLad command
 .. windows-wit:: Please use 'datalad diff --from main --to remotes/roommate/main'
 
-   Please use the following command instead:
-
-   .. code-block:: bash
-
-      datalad diff --from main --to remotes/roommate/main
-
-   This syntax specifies the :term:`main` :term:`branch` as a starting point for the comparison instead of the current ``adjusted/main(unlocked)`` branch.
+   .. include:: topic/adjustedmode-diff-remote.rst
 
 .. runrecord:: _examples/DL-101-121-108
    :language: console
@@ -269,13 +263,7 @@ that there is a difference in ``notes.txt``! Let's ask
    pair: diff; DataLad command
 .. windows-wit:: Please use 'git diff main..remotes/roommate/main'
 
-   Please use the following command instead:
-
-   .. code-block:: bash
-
-     git diff main..remotes/roommate/main
-
-   This is :term:`Git`\s syntax for specifying a comparison between two :term:`branch`\es.
+   .. include:: topic/adjustedmode-gitdiff-remote.rst
 
 .. runrecord:: _examples/DL-101-121-109
    :language: console

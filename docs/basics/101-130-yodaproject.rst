@@ -515,16 +515,7 @@ re-execution with :dlcmd:`rerun` easy.
    pair: python instead of python3; on Windows
 .. windows-wit:: You may need to use 'python', not 'python3'
 
-   If executing the code below returns an exit code of 9009, there may be no ``python3`` -- instead, it is called solely ``python``.
-   Please run the following instead (adjusted for line breaks, you should be able to copy-paste this as a whole):
-
-   .. code-block:: bash
-
-      datalad run -m "analyze iris data with classification analysis" ^
-       --input "input/iris.csv" ^
-       --output "pairwise_relationships.png" ^
-       --output "prediction_report.csv" ^
-       "python code/script.py {inputs} {outputs}"
+   .. include:: topic/py-or-py3.rst
 
 .. index::
    pair: run command with provenance capture; with DataLad
@@ -731,8 +722,7 @@ configure this repository as a sibling of the dataset:
    pair: typed credentials are not displayed; on Windows
 .. windows-wit:: Your shell will not display credentials
 
-   Don't be confused if you are prompted for your GitHub credentials, but can't seem to type -- the terminal protects your private information by not displaying what you type.
-   Simply type in what is requested, and press enter.
+   .. include:: topic/credential-nodisplay.rst
 
 .. code-block:: bash
 

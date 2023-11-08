@@ -7,7 +7,7 @@ So... Windows... eh?
 DataLad and its underlying tools work different on Windows machines.
 This makes the user experience less fun than on other operating systems -- an honest assessment.
 
-.. figure:: ../artwork/src/warning.svg
+.. image:: ../artwork/src/warning.svg
 
 
 Many software tools for research or data science are first written and released for Linux, then for Mac, and eventually Windows.

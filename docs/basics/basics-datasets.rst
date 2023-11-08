@@ -3,8 +3,9 @@
 DataLad datasets
 ----------------
 
-.. figure:: ../artwork/src/datasets.svg
+.. image:: ../artwork/src/datasets.svg
    :width: 50%
+   :align: center
 
 .. toctree::
    :maxdepth: 1

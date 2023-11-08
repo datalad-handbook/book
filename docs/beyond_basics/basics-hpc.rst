@@ -3,8 +3,9 @@
 Computing on clusters
 ---------------------
 
-.. figure:: ../artwork/src/cluster.svg
+.. image:: ../artwork/src/cluster.svg
    :width: 50%
+   :align: center
 
 .. toctree::
    :maxdepth: 1

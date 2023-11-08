@@ -3,8 +3,9 @@
 Under the hood: git-annex
 -------------------------
 
-.. figure:: ../artwork/src/security.svg
+.. image:: ../artwork/src/security.svg
    :width: 50%
+   :align: center
 
 A closer look at how and why things work
 

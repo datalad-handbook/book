@@ -3,8 +3,9 @@
 DataLad internals
 -----------------
 
-.. figure:: ../artwork/src/programmer.svg
+.. image:: ../artwork/src/programmer.svg
    :width: 50%
+   :align: center
 
 .. toctree::
    :maxdepth: 1

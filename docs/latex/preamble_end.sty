@@ -14,7 +14,11 @@
 % make sure that loooong URLs always break
 \usepackage{xurl}
 % make sure all float stay in their respective chapter
-\usepackage[section]{placeins}
+% make sure all float stay in their respective sections
+\usepackage[section,above,below]{placeins}
+% also define a subsection as an additional float barrier
+\let\builtinsubsection\subsection
+\renewcommand{\subsection}[1]{\FloatBarrier\builtinsubsection{#1}}
 
 \usepackage{xcolor}
 \definecolor{dataladyellow}{HTML}{FFA200}

@@ -29,7 +29,7 @@ systems. They do not cover the various :term:`DataLad extension`\s that need to 
    pair: determine version; with Python
 .. find-out-more:: Python 2, Python 3, what's the difference?
    :name: fom-py2v3
-   :float: tbp
+   :float: tb
 
    DataLad requires Python 3.8, or a more recent version, to be installed on your system.
    The easiest way to verify that this is the case is to open a terminal and type :shcmd:`python` to start a Python session:
@@ -244,7 +244,7 @@ Python's package manager <fom-macosx-pip>`.
 
 .. find-out-more:: Install DataLad via pip on macOS
    :name: fom-macosx-pip
-   :float: tbp
+   :float: tb
 
    If Git/git-annex are installed already (via brew), DataLad can also be
    installed via Python's package manager ``pip``, which should be installed

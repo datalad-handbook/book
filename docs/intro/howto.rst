@@ -5,8 +5,9 @@
 The command line
 ****************
 
-.. figure:: /artwork/src/typewriter.svg
+.. image:: /artwork/src/typewriter.svg
    :width: 50%
+   :align: center
 
 This chapter aims at providing novices with general basics about the shell, common Unix
 commands and their Windows equivalent, and some general file system facts.

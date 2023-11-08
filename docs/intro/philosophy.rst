@@ -3,8 +3,9 @@
 A brief overview of DataLad
 ---------------------------
 
-.. figure:: /artwork/src/design_objectives.svg
+.. image:: /artwork/src/design_objectives.svg
    :width: 50%
+   :align: center
 
 There can be numerous reasons why you ended up with this book in front of
 you -- We do not know who you are, or why you are here.

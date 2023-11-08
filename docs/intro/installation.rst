@@ -3,8 +3,9 @@
 Installation and configuration
 ------------------------------
 
-.. figure:: /artwork/src/interior_design.svg
+.. image:: /artwork/src/interior_design.svg
    :width: 50%
+   :align: center
 .. index::
    single: installation; DataLad
 

@@ -1,8 +1,9 @@
 How to use this book
 ====================
 
-.. figure:: /artwork/src/right_direction.svg
+.. image:: /artwork/src/right_direction.svg
    :width: 50%
+   :align: center
 
 For whom this book is written
 -----------------------------

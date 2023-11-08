@@ -4,7 +4,7 @@ Summary
 -------
 
 In the last four sections, we demonstrated how to create a proper :dlcmd:`run`
-command, and discovered the concept of *locked* content.
+command (:numref:`fig-run-schema`), and discovered the concept of *locked* content.
 
 * :dlcmd:`run` records and saves the changes a command makes in a dataset. That means
   that modifications to existing content or new content are associated with a specific command
@@ -24,7 +24,11 @@ command, and discovered the concept of *locked* content.
 
   .. code-block:: bash
 
-     $ datalad run -m "commit message here" --input "path/to/input/" --output "path/to/output" "command"
+     $ datalad run \
+         -m "commit message here" \
+         --input "path/to/input/" \
+         --output "path/to/output" \
+         "command"
 
 * Anything specified as ``input`` will be retrieved if necessary with a :dlcmd:`get` prior to command
   execution. Anything specified as ``output`` will be ``unlocked`` prior to modifications.
@@ -32,6 +36,7 @@ command, and discovered the concept of *locked* content.
 * It is good practice to specify ``input`` and ``output`` to ensure that a :dlcmd:`rerun` works, and to capture the relevant elements of a computation in a machine-readable record.
   If you want to spare yourself preparation time in case everything is already retrieved and unlocked, you can use ``--assume-ready {input|output|both}`` to skip a check on whether inputs are already present or outputs already unlocked.
 
+.. _fig-run-schema:
 .. figure:: ../artwork/src/run.svg
    :alt: Schematic illustration of datalad run.
    :width: 80%

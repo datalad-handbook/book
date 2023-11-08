@@ -50,6 +50,7 @@ let's try to resize the images -- currently, they're far too large to fit on a s
 
 To resize an image from the command line we can use the Unix
 command ``convert -resize`` from the `ImageMagick tool <https://imagemagick.org/index.php>`_.
+See the :windows-wit:`on installing it <ww-install-imagemagick>`, if you system does not provide it.
 The command takes a new size in pixels as an argument, a path to the file that should be
 resized, and a filename and path under which a new,
 resized image will be saved.
@@ -60,6 +61,8 @@ To resize one image to 400x400 px, the command would thus be
    pair: install ImageMagick; on Windows
    single: installation; ImageMagick
 .. windows-wit:: Tool installation
+   :name: ww-install-imagemagick
+   :float: tb
 
    `ImageMagick <https://imagemagick.org/index.php>`_ is not installed on Windows systems by default.
    To use it, you need to install it, using the provided `Windows Binary Release on the Download page <https://imagemagick.org/script/download.php>`_.
@@ -149,10 +152,14 @@ specify the inputs appropriately. Remember from section :ref:`installds`
 that :dlcmd:`get` will only retrieve content if
 it is not yet present, all input already downloaded will not be downloaded again -- so
 specifying inputs even though they are already present will not do any harm.
+The :find-out-more:`on using more than one input <fom-run-multiple-inputs>` provides
+some more details.
 
 .. index::
    pair: path globbing; with DataLad run
 .. find-out-more:: What if there are several inputs?
+   :name: fom-run-multiple-inputs
+   :float: tb
 
    Often, a command needs several inputs. In principle, every input (which could be files, directories, or subdatasets) gets its own ``-i``/``--input``
    flag. However, you can make use of :term:`globbing`. For example,
@@ -170,8 +177,10 @@ If outputs already exist...
    pair: files are unlocked by default; on Windows
    pair: unlocked files; in adjusted mode
 .. windows-wit:: Good news! Here is something that is easier on Windows
+   :name: fom-rerun-unlocked
+   :float: tb
 
-   The section below describes something that is very confusing for people that have just started with DataLad: Some files in a dataset can't be modified, and if one tries, it results in a "permission denied" error.
+   This section describes something that is very confusing for people that have just started with DataLad: Some files in a dataset can't be modified, and if one tries, it results in a "permission denied" error.
    Why is that?
    The remainder of this section and the upcoming chapter :ref:`chapter_gitannex` contain a procedural explanation.
    However: This doesn't happen on Windows.
@@ -189,6 +198,7 @@ Maybe we should try to resize it to 450x450, and see whether that looks better?
 
 Note that we can not use a :dlcmd:`rerun` for this: if we want to change the dimension option
 in the command, we have to define a new :dlcmd:`run` command.
+If you would benefit from an extra bit of motivation, check the :windows-wit:`on why what we will do now is, for once, simpler on Windows <fom-rerun-unlocked>`.
 
 To establish best-practices, let's specify the input even though it is already present:
 
@@ -250,12 +260,15 @@ and thus protected by git-annex.
 
 There is a DataLad command that takes care of unlocking file content,
 and thus making locked files modifiable again: :dlcmd:`unlock`.
-Let us check out what it does:
+Let us check out what it does, and also compare that to the
+:windows-wit:`on an entirely different explanation <ww-unlocking-unlocked>`.
 
 .. index::
    pair: files are unlocked by default; on Windows
    single: adjusted branch; unlocked files
-.. windows-wit:: What happens if I run this on Windows?
+.. windows-wit:: What happens if I run 'datalad unlock' on Windows?
+   :name: ww-unlocking-unlocked
+   :float: tb
 
    Nothing. All of the files in your dataset are always unlocked, and actually *can not* be locked at all.
    Consequently, there will be nothing to show for ``datalad status`` afterwards (as shown a few paragraphs below).
@@ -320,11 +333,14 @@ Let's use the ``--output`` argument."
 command execution, and it *unlocks* everything specified as ``--output`` prior to
 command execution. Therefore, whenever the output of a :dlcmd:`run` command already
 exists and is tracked, it should be specified as an argument in
-the ``-o``/``--output`` option.
+the ``-o``/``--output`` option. See :find-out-more:`on dealing with many
+outputs <fom-output-glob>`.
 
 .. index::
    pair: path globbing; with DataLad run
 .. find-out-more:: But what if I have a lot of outputs?
+   :name: fom-output-glob
+   :float: tb
 
    The use case here is simplistic -- a single file gets modified.
    But there are commands and tools that create full directories with
@@ -340,13 +356,17 @@ the ``-o``/``--output`` option.
    pair: declare command output; with DataLad run
 
 In order to execute :dlcmd:`run` with both the ``-i``/``--input`` and ``-o``/``--output``
-flag and see their magic, let's crop the second logo, ``logo_interval.jpg``:
+flag and see their magic, let's crop the second logo, ``logo_interval.jpg``.
+The :windows-wit:`on output declaration <ww-run-outputs>` clarifies the impact
+of not doing so, when it is technically not needed.
 
 .. index::
    pair: files are unlocked by default; on Windows
    pair: run; DataLad command
    pair: unlocked files; in adjusted mode
 .. windows-wit:: Wait, would I need to specify outputs, too?
+   :name: ww-run-outputs
+   :float: tb
 
    Given that nothing in your dataset is locked, is there a *need* for you to bother with creating ``--output`` flags?
    Not for you personally, if you only stay on your Windows machine.
@@ -454,10 +474,13 @@ The placeholder ``{inputs}`` will expand to the path given as ``--input``, and
 the placeholder ``{outputs}`` will expand to the path given as ``--output``.
 This means instead of writing the full paths in the command, you can simply reuse
 the ``--input`` and ``--output`` specification done before.
+The :find-out-more:`on dealing with multiple inputs and outputs <fom-multiple-inoutputs>` provides more details on the general usage of this feature.
 
 .. index::
    pair: multiple command inputs; with DataLad run
 .. find-out-more:: What if I have multiple inputs or outputs?
+   :name: fom-multiple-inoutputs
+   :float: tb
 
    If multiple values are specified, e.g., as in
 
@@ -502,9 +525,14 @@ the ``--input`` and ``--output`` specification done before.
    can be accessed with an integer index, e.g., ``{inputs[0]}`` for the very first
    input.
 
+   Check the :find-out-more:`on how to deal with commands that include
+   { or } for other purposes <fom-run-curly>`.
+
 .. index::
    pair: run command with curly brackets; with DataLad run
 .. find-out-more:: Wait, what if I need a curly bracket in my 'datalad run' call?
+   :name: fom-run-curly
+   :float: tb
 
    If your command call involves a ``{`` or ``}`` character, you will need to escape
    this brace character by doubling it, i.e., ``{{`` or ``}}``.

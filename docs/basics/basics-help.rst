@@ -3,8 +3,9 @@
 Help yourself
 -------------
 
-.. figure:: ../artwork/src/help.svg
+.. image:: ../artwork/src/help.svg
    :width: 50%
+   :align: center
 
 .. toctree::
    :maxdepth: 1

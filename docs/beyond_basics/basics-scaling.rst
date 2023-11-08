@@ -3,8 +3,9 @@
 Go big or go home
 -----------------
 
-.. figure:: ../artwork/src/gobig.svg
+.. image:: ../artwork/src/gobig.svg
    :width: 50%
+   :align: center
 
 .. toctree::
    :maxdepth: 1

@@ -3,8 +3,9 @@
 One step further
 ----------------
 
-.. figure:: ../artwork/src/forward.svg
+.. image:: ../artwork/src/forward.svg
    :width: 50%
+   :align: center
 
 .. toctree::
    :maxdepth: 1

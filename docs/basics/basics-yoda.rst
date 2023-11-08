@@ -3,8 +3,9 @@
 Make the most out of datasets
 -----------------------------
 
-.. figure:: ../artwork/src/img/yoda.svg
+.. image:: ../artwork/src/img/yoda.svg
    :width: 50%
+   :align: center
 
 .. toctree::
    :maxdepth: 1

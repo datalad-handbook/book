@@ -3,8 +3,9 @@
 Advanced options
 ----------------
 
-.. figure:: ../artwork/src/further.svg
+.. image:: ../artwork/src/further.svg
    :width: 50%
+   :align: center
 
 .. toctree::
    :maxdepth: 1

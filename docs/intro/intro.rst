@@ -12,5 +12,6 @@
    howto
    executive_summary
 
-.. figure:: /artwork/src/runner_start.svg
+.. image:: /artwork/src/runner_start.svg
    :width: 50%
+   :align: center

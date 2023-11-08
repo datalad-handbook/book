@@ -22,7 +22,7 @@ For the best experience, try reading the Basics chapter sequentially.
    basics-thirdparty
    basics-help
 
-.. figure:: /artwork/src/building_blocks.svg
+.. image:: /artwork/src/building_blocks.svg
    :width: 50%
-
+   :align: center
 

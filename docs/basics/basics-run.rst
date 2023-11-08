@@ -4,8 +4,9 @@
 DataLad, run!
 -------------
 
-.. figure:: ../artwork/src/keeptrack.svg
+.. image:: ../artwork/src/keeptrack.svg
    :width: 50%
+   :align: center
 
 .. toctree::
    :maxdepth: 1

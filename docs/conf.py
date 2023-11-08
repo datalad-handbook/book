@@ -399,7 +399,7 @@ latex_elements = {
     # custom paper size is defined in `preamble_start.sty`
     'papersize': '',
     'pointsize': '10pt',
-    'figure_align': 'htbp',
+    'figure_align': 'tbp',
     'extraclassoptions': 'twoside',
     'passoptionstopackages': r'\input{preamble_start.sty}',
     'fontpkg': r'\input{fontpkg.sty}',

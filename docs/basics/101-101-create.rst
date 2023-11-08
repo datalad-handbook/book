@@ -152,6 +152,9 @@ While these commits were produced and described by DataLad,
 in most other cases, you will have to create the commit and
 an informative commit message yourself.
 
+Congratulations, you just created your first DataLad dataset!
+Let us now put some content inside.
+
 .. index::
    pair: create dataset; DataLad concept
 .. gitusernote:: Create internals
@@ -171,11 +174,7 @@ an informative commit message yourself.
 
       $ ls -a # show also hidden files
 
-   **For non-Git-Users: these hidden** *dot-directories* and *dot-files* **are necessary for all Git magic**
-   **to work. Please do not tamper with them, and, importantly,** *do not delete them.*
-
-Congratulations, you just created your first DataLad dataset!
-Let us now put some content inside.
+   **For non-Git-Users:** these hidden *dot-directories* and *dot-files* are necessary for all Git operations. Please do not tamper with them, and, importantly, **do not delete them!**
 
 .. only:: adminmode
 

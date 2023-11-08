@@ -63,9 +63,10 @@
   number within=chapter,
   list inside=windowswits]{windowswit}[2][]{%
     enhanced, ribbon win, title={#2},
+    left=1mm, right=1mm,
     coltitle=black,
-    colbacktitle=dataladlightgray!80!white,
-    colframe=dataladgray!70!white, #1
+    colbacktitle=dataladgray!40!white,
+    colframe=dataladgray!40!white, #1
 }
 \newcounter{HandbookGIT}[chapter]
 \renewcommand\theHandbookGIT{G\arabic{chapter}.\arabic{HandbookGIT}}
@@ -74,9 +75,10 @@
   number within=chapter,
   list inside=gitusernotes]{gitusernote}[2][]{%
     enhanced, ribbon git, title={#2},
+      left=1mm, right=1mm,
     coltitle=black,
-    colbacktitle=dataladlightgray!80!white,
-    colframe=dataladgray!70!white, #1
+    colbacktitle=dataladgray!40!white,
+    colframe=dataladgray!40!white, #1
 }
 \newcounter{HandbookFOM}[chapter]
 \renewcommand\theHandbookFOM{M\arabic{chapter}.\arabic{HandbookFOM}}
@@ -85,9 +87,10 @@
   number within=chapter,
   list inside=findoutmores]{findoutmore}[2][]{%
     enhanced, ribbon more, title={#2},
+    left=1mm, right=1mm,
     coltitle=black,
-    colbacktitle=dataladlightgray!80!white,
-    colframe=dataladgray!70!white, #1
+    colbacktitle=dataladgray!40!white,
+    colframe=dataladgray!40!white, #1
 }
 % unnumbered, they are short and placed at the exact position
 % must change we there are in-text references
@@ -95,6 +98,7 @@
   number within=chapter,
   list inside=importantnotes]{importantnote}[2][]{%
     enhanced, ribbon important, title={#2},
+    left=1mm, right=1mm,
     coltitle=white,
     colbacktitle=dataladgray,
     colframe=dataladgray, #1

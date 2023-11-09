@@ -36,7 +36,7 @@ of a DataLad dataset! Shall we try whether we can install that?"
 now instead of looking at slides for hours is my preferred type of learning anyway",
 you think as you fire up your terminal and navigate into your ``DataLad-101`` dataset.
 
-In this demonstration, we're using one of the many openly available datasets that
+In this demonstration, we are using one of the many openly available datasets that
 DataLad provides in a public registry that anyone can access. One of these datasets is a
 collection of audio recordings of a great podcast, the longnow seminar series [#f2]_.
 It consists of audio recordings about long-term thinking, and while the DataLad-101

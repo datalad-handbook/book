@@ -39,7 +39,7 @@ of undesired, or uncontrolled modification.
 To demonstrate how to share a DataLad dataset on a common file system,
 we will pretend that your personal computer
 can be accessed by other users. Let's say that
-your room mate has access, and you're making sure that there is
+your room mate has access, and you are making sure that there is
 a ``DataLad-101`` dataset in a different place on the file system
 for him to access and work with.
 
@@ -60,7 +60,7 @@ will be using a particular dataset of your own creation as input for
 one or more projects.
 
 "Awesome!" exclaims your room mate as you take out your laptop to
-share the dataset. "You're really saving my ass
+share the dataset. "You are really saving my ass
 here. I'll make up for it when we prepare for the final", he promises.
 
 To install ``DataLad-101`` into a different part

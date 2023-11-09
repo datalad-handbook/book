@@ -226,7 +226,7 @@ in the same commit. And ... what happens if I have files I do not want to track?
 :dlcmd:`save -m "some commit message"` would save all of what is currently
 untracked or modified in the dataset into the history!"
 
-Regarding your first remark, you're absolutely right!
+Regarding your first remark, you are absolutely right!
 It is good practice to save only those changes
 together that belong together. We do not want to squish completely unrelated changes
 into the same spot of our history, because it would get very nasty should we want to
@@ -266,7 +266,7 @@ Let's give :dlcmd:`save` precisely this file by specifying its path after the co
 
    $ datalad save -m "add reference book about git" books/progit.pdf
 
-Regarding your second remark, you're right that a :dlcmd:`save` without a
+Regarding your second remark, you are right that a :dlcmd:`save` without a
 path specification would write all of the currently untracked files or modifications
 to the history. But check the :find-out-more:`on how to tell it otherwise <fom-save-updated-only>`.
 

@@ -15,10 +15,10 @@ I was able to modify this despite giving it to DataLad to track, with
 no permission denied errors whatsoever! How does that work?"
 
 This night, though, your question stays unanswered and you fall into a restless
-sleep filled with bad dreams about "permission denied" errors. The next day you're
+sleep filled with bad dreams about "permission denied" errors. The next day you are
 the first student in your lecturer's office hours.
 
-"Oh, you're really attentive. This is a great question!" our lecturer starts
+"Oh, you are really attentive. This is a great question!" our lecturer starts
 to explain.
 
 .. figure:: ../artwork/src/teacher.svg

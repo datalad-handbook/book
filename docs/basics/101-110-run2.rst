@@ -39,14 +39,14 @@ in the hidden paths
 .. runrecord:: _examples/DL-101-110-101
    :language: console
    :workdir: dl-101/DataLad-101
-   :notes: We saw a very simple datalad run. Now we're going to extend it with useful options. Narrative: prepare talk about dataset, add logo to slides. For this, we'll try to resize a logo in the meta data of the subdataset
+   :notes: We saw a very simple datalad run. Now we are going to extend it with useful options. Narrative: prepare talk about dataset, add logo to slides. For this, we'll try to resize a logo in the meta data of the subdataset
    :cast: 02_reproducible_execution
 
    $ ls recordings/longnow/.datalad/feed_metadata/*jpg
 
 For the slides you decide to prepare images of size 400x400 px, but
 the logos' original size is much larger (both are 3000x3000 pixel). Therefore
-let's try to resize the images -- currently, they're far too large to fit on a slide.
+let's try to resize the images -- currently, they are far too large to fit on a slide.
 
 To resize an image from the command line we can use the Unix
 command ``convert -resize`` from the `ImageMagick tool <https://imagemagick.org/index.php>`_.

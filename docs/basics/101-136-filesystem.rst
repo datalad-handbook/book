@@ -26,7 +26,7 @@ Below you will find common questions about file system
 management operations, and each question outlines caveats and
 solutions with code examples you can paste into your own terminal.
 Because these code snippets will add many commits to your
-dataset, we're cleaning up within each segment with
+dataset, we are cleaning up within each segment with
 common git operations that manipulate the datasets
 history -- be sure to execute these commands as well (and
 be sure to be in the correct dataset).
@@ -130,7 +130,7 @@ only using Git tools only, outlined in the :find-out-more:`on faster renaming <f
       $ git reset --hard HEAD~1
       $ datalad status
 
-   Now we're checking out how to rename files and commit this operation
+   Now we are checking out how to rename files and commit this operation
    using only Git:
    A Git-specific way to rename files is the ``git mv`` command:
 
@@ -877,7 +877,7 @@ or :term:`GitLab`, these files would not be available to others, because annexed
 dataset contents cannot be published to these services.
 Even though you could find a third party service of your choice
 and publish your dataset *and* the annexed data (see section :ref:`sharethirdparty`),
-you're feeling lazy today. And since it
+you are feeling lazy today. And since it
 is only two files, and they are quite small, you decide to store them in Git --
 this way, the files would be available without configuring an external data
 store.

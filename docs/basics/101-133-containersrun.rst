@@ -143,7 +143,7 @@ For this, we will pull an image from Singularity hub. This image was made
 for the handbook, and it contains the relevant Python setup for
 the analysis. Its recipe lives in the handbook's
 `resources repository <https://github.com/datalad-handbook/resources>`_.
-If you're curious how to create a Singularity image, the :find-out-more:`on this topic <fom-container-creation>` has some pointers:
+If you are curious how to create a Singularity image, the :find-out-more:`on this topic <fom-container-creation>` has some pointers:
 
 .. index::
    pair: build container image; with Singularity

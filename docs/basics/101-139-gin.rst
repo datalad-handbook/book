@@ -152,7 +152,7 @@ If you are unsure if your dataset is private, :ref:`this find-out-more shows you
 In order to get access to annexed contents, cloning *requires* setting up
 an SSH key as detailed above, and cloning via the SSH url:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ datalad clone git@gin.g-node.org:/adswa/DataLad-101.git
 
@@ -191,7 +191,7 @@ you click on it, you would get to a 404 Error page. The crucial difference betwe
 subdataset and the longnow dataset is its entry in the ``.gitmodules`` file of
 ``DataLad-101``:
 
-.. code-block:: bash
+.. code-block:: ini
    :emphasize-lines: 4, 8
 
    $ cat .gitmodules
@@ -272,7 +272,7 @@ Then, follow these steps:
   Please also note that the :term:`HTTPS` URL written after ``--url`` DOES NOT have the ``.git`` suffix.
   Here is the command:
 
-.. code-block:: bash
+.. code-block:: console
 
      $ datalad siblings add \
       -d . \
@@ -284,7 +284,7 @@ Then, follow these steps:
 - Push your data to the repository on Gin (``datalad push --to gin``). This pushes the actual state of the repository, including content, but also adjusts the :term:`git-annex` configuration.
 - Configure this sibling as a "common data source". Use the same name as previously in ``--name`` (to indicate which sibling you are configuring) and give a new, different, name after ``--as-common-datasrc``:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ datalad siblings configure \
       --name gin \
@@ -312,7 +312,7 @@ Afterwards, :dlcmd:`get` retrieves files from Gin, even if the dataset has been 
 
 .. [#f3] Alternatively, you can configure the siblings URL with :gitcmd:`config`:
 
-         .. code-block:: bash
+         .. code-block:: console
 
            $ git config -f .gitmodules --replace-all  submodule.midterm_project.url https://github.com/adswa/midtermproject
 

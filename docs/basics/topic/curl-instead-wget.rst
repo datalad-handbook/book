@@ -1,7 +1,7 @@
 Many versions of Windows do not ship with the tool ``wget``.
 You can install it, but it may be easier to use the pre-installed ``curl`` command:
 
-.. code-block:: bash
+.. code-block:: console
 
   $ cd books
   $ curl -L https://sourceforge.net/projects/linuxcommand/files/TLCL/19.01/TLCL-19.01.pdf/download \

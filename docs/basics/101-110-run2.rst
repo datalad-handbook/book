@@ -154,9 +154,9 @@ specifying inputs even though they are already present will not do any harm.
    Often, a command needs several inputs. In principle, every input (which could be files, directories, or subdatasets) gets its own ``-i``/``--input``
    flag. However, you can make use of :term:`globbing`. For example,
 
-   .. code-block:: bash
+   .. code-block:: console
 
-      datalad run --input "*.jpg" "COMMAND"
+      $ datalad run --input "*.jpg" "COMMAND"
 
    will retrieve all ``.jpg`` files prior to command execution.
 
@@ -415,7 +415,7 @@ for inputs and outputs. This is how it works:
 
 Instead of running
 
-.. code-block:: bash
+.. code-block:: console
 
    $ datalad run -m "Resize logo for slides" \
    --input "recordings/longnow/.datalad/feed_metadata/logo_interval.jpg" \
@@ -424,7 +424,7 @@ Instead of running
 
 you could shorten this to
 
-.. code-block:: bash
+.. code-block:: console
    :emphasize-lines: 4
 
    $ datalad run -m "Resize logo for slides" \
@@ -443,7 +443,7 @@ the ``--input`` and ``--output`` specification done before.
 
    If multiple values are specified, e.g., as in
 
-   .. code-block:: bash
+   .. code-block:: console
 
       $ datalad run -m "move a few files around" \
       --input "file1" --input "file2" --input "file3" \
@@ -452,7 +452,7 @@ the ``--input`` and ``--output`` specification done before.
 
    the values will be joined by a space like this:
 
-   .. code-block:: bash
+   .. code-block:: console
 
       $ datalad run -m "move a few files around" \
       --input "file1" --input "file2" --input "file3" \
@@ -464,7 +464,7 @@ the ``--input`` and ``--output`` specification done before.
 
    If you use globs for input specification, as in
 
-   .. code-block:: bash
+   .. code-block:: console
 
       $ datalad run -m "move a few files around" \
       --input "file*" \
@@ -473,7 +473,7 @@ the ``--input`` and ``--output`` specification done before.
 
    the globs will expanded in alphabetical order (like bash):
 
-   .. code-block:: bash
+   .. code-block:: console
 
       $ datalad run -m "move a few files around" \
       --input "file1" --input "file2" --input "file3" \

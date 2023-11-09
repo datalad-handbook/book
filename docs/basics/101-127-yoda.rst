@@ -32,7 +32,7 @@ such as ``results/``, ``results_August19/``, ``results_revision/`` and
 ``now_with_nicer_plots/``. Something like this is a very
 common shape a data science project may take after a while:
 
-.. code-block:: bash
+.. code-block:: console
 
     ├── code/
     │   ├── code_final/
@@ -142,7 +142,7 @@ computational environments, results, ...) in dedicated directories. For example:
 This, for example, would be a directory structure from the root of a
 superdataset of a very comprehensive data analysis project complying to the YODA principles:
 
-.. code-block:: bash
+.. code-block:: console
 
     ├── ci/                         # continuous integration configuration
     │   └── .travis.yml
@@ -384,7 +384,7 @@ from section :ref:`createds`, the ``yoda`` procedure can be included in a
 :dlcmd:`create` command and will apply useful configurations
 to your dataset:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ datalad create -c yoda "my_analysis"
 
@@ -396,7 +396,7 @@ to your dataset:
 
 Let's take a look at what configurations and changes come with this procedure:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ tree -a
 
@@ -410,7 +410,7 @@ Let's take a look at what configurations and changes come with this procedure:
 
 Let's take a closer look into the ``.gitattributes`` files:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ less .gitattributes
 

@@ -163,9 +163,9 @@ Below is a minimally functional example on how to apply the configuration and ho
 
 Let's create a dataset hierarchy to work with (note that we concatenate multiple commands into a single line using bash's "and" ``&&`` operator):
 
-.. code-block:: bash
+.. code-block:: console
 
-    # create a superdataset with two subdatasets
+    $ # create a superdataset with two subdatasets
     $ datalad create superds && datalad -C superds create -d . subds1 && datalad -C superds create -d . subds2
     create(ok): /tmp/superds (dataset)
     add(ok): subds1 (file)
@@ -179,9 +179,9 @@ Let's create a dataset hierarchy to work with (note that we concatenate multiple
 
 Next, we create subdatasets in the subdatasets:
 
-.. code-block:: bash
+.. code-block:: console
 
-    # create two subdatasets in subds1
+    $ # create two subdatasets in subds1
     $ datalad -C superds/subds1 create -d . subsubds1 && datalad -C superds/subds1 create -d . subsubds2
     add(ok): subsubds1 (file)
     add(ok): .gitmodules (file)
@@ -205,7 +205,7 @@ Next, we create subdatasets in the subdatasets:
 
 Here is the directory structure:
 
-.. code-block:: bash
+.. code-block:: console
 
     $ cd ../ && tree
     .
@@ -216,7 +216,7 @@ Here is the directory structure:
         ├── subsubds1
         └── subsubds2
 
-    # save in the superdataset
+    $ # save in the superdataset
     datalad save -m "add a few sub and subsub datasets"
     add(ok): subds1 (file)
     add(ok): subds2 (file)
@@ -224,11 +224,11 @@ Here is the directory structure:
 
 Now, we can apply the ``datalad-recursiveinstall`` configuration to skip recursive installations for ``subds1``
 
-.. code-block:: bash
+.. code-block:: console
 
     $ git config -f .gitmodules --add submodule.subds1.datalad-recursiveinstall skip
 
-    # save this configuration
+    $ # save this configuration
     $ datalad save -m "prevent recursion into subds1, unless explicitly given as path"
     add(ok): .gitmodules (file)
     save(ok): . (dataset)
@@ -236,20 +236,20 @@ Now, we can apply the ``datalad-recursiveinstall`` configuration to skip recursi
 
 If the dataset is cloned, and someone runs a recursive :dlcmd:`get`, the subdatasets of ``subds1`` will not be installed, the subdatasets of ``subds2``, however, will be.
 
-.. code-block:: bash
+.. code-block:: console
 
-    # clone the dataset somewhere else
+    $ # clone the dataset somewhere else
     $ cd ../ && datalad clone superds clone_of_superds
     [INFO   ] Cloning superds into '/tmp/clone_of_superds'
     install(ok): /tmp/clone_of_superds (dataset)
 
-    # recursively get all contents (without data)
+    $ # recursively get all contents (without data)
     $ cd clone_of_superds && datalad get -n -r .
     get(ok): /tmp/clone_of_superds/subds2 (dataset)
     get(ok): /tmp/clone_of_superds/subds2/subsubds1 (dataset)
     get(ok): /tmp/clone_of_superds/subds2/subsubds2 (dataset)
 
-    # only subsubds of subds2 are installed, not of subds1:
+    $ # only subsubds of subds2 are installed, not of subds1:
     $ tree
     .
     ├── subds1
@@ -261,7 +261,7 @@ If the dataset is cloned, and someone runs a recursive :dlcmd:`get`, the subdata
 
 Nevertheless, if ``subds1`` is provided with an explicit path, its subdataset ``subsubds`` will be cloned, essentially overriding the configuration:
 
-.. code-block:: bash
+.. code-block:: console
 
     $  datalad get -n -r subds1 && tree
     install(ok): /tmp/clone_of_superds/subds1 (dataset) [Installed subdataset in order to get /tmp/clone_of_superds/subds1]
@@ -504,7 +504,7 @@ Write a note about configurations in datasets into ``notes.txt``.
          a ``.pdf`` file has MIME type ``application/pdf``. You can find out the MIME type
          of a file by running:
 
-         .. code-block:: bash
+         .. code-block:: console
 
             $ file --mime-type path/to/file
 
@@ -514,7 +514,7 @@ Write a note about configurations in datasets into ``notes.txt``.
          specified in there take precedence over rules in ``.gitattributes``. You can set
          them using the :gitcmd:`config` command:
 
-         .. code-block:: bash
+         .. code-block:: console
 
             $ git config annex.largefiles 'largerthan=100kb and not (include=*.c or include=*.h)'
 

@@ -50,7 +50,7 @@ Key" or access existing credentials. Take note to copy both the "Access Key ID" 
 To ensure that your access key details are known when initializing the special
 remote, export them as :term:`environment variable`\s in your shell:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ export AWS_ACCESS_KEY_ID="your-access-key-ID"
    $ export AWS_SECRET_ACCESS_KEY="your-secret-access-key"
@@ -74,7 +74,7 @@ dataset containing anatomical and functional images from a single brain, as well
 In the first step, we create a new directory called ``neuro-data-s3``, we download and extract the data,
 and then we move the extracted contents into our new directory:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ cd <wherever-you-want-to-create-the-dataset>
    $ mkdir neuro-data-s3 && \
@@ -111,7 +111,7 @@ and then we move the extracted contents into our new directory:
 
 Now we can view the directory tree to see the dataset content:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ tree
    .
@@ -132,7 +132,7 @@ with ``main`` as the default branch.
 We can turn our ``neuro-data-s3`` directory into a DataLad dataset with the
 :dlcmd:`create --force` command. After that, we save the dataset with :dlcmd:`save`:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ datalad create --force --description "neuro data to host on s3"
    [INFO   ] Creating a new annex repo at /Users/jsheunis/Documents/neuro-data-s3
@@ -162,7 +162,7 @@ is that a :term:`sibling` is added to the DataLad dataset. This can be verified
 by running :dlcmd:`siblings` before and after initializing the special
 remote. Before, the only "sibling" is the actual DataLad dataset:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ datalad siblings
    .: here(+) [git]
@@ -174,7 +174,7 @@ that adheres to Amazon S3's `bucket naming rules <https://docs.aws.amazon.com/Am
 You can declare the bucket name (in this example "sample-neurodata-public") as a variable since
 it will be used again later.
 
-.. code-block:: bash
+.. code-block:: console
 
    $ BUCKET=sample-neurodata-public
    $ git annex initremote public-s3 type=S3 encryption=none \
@@ -195,7 +195,7 @@ The options used in this example include:
 After :gitannexcmd:`initremote` has successfully initialized the special remote,
 you can run :dlcmd:`siblings` to see that a sibling has been added:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ datalad siblings
    .: here(+) [git]
@@ -214,7 +214,7 @@ AWS credentials, it needs to know where to find the bucket. We do this by settin
 URL, which takes a standard format incorporating the bucket name and location (see the code blocl below).
 Alternatively, this URL can also be copied from your AWS console.
 
-.. code-block:: bash
+.. code-block:: console
 
    $ git annex enableremote public-s3 \
    publicurl="https://$BUCKET.s3-eu-west-1.amazonaws.com"
@@ -232,7 +232,7 @@ S3 special remote to the GitHub sibling, we also need to configure a publication
 dependency to the ``public-s3`` sibling, which is done with the ``publish-depends <sibling>``
 option. For consistency, we'll give the GitHub repository the same name as the dataset name. 
 
-.. code-block:: bash
+.. code-block:: console
 
    $ datalad create-sibling-github -d . neuro-data-s3 \
    --publish-depends public-s3
@@ -245,7 +245,7 @@ on GitHub, which required preconfigured GitHub authentication details.
 
 The creation of the sibling (named ``github``) can also be confirmed with :dlcmd:`siblings`:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ datalad siblings
    .: here(+) [git]
@@ -257,7 +257,7 @@ to allow others to access the data. We do this with :dlcmd:`push --to github`.
 The ``--to github`` specifies which sibling to push the dataset to, but because of the
 publication dependency DataLad will push the annexed contents to the special remote first.
 
-.. code-block:: bash
+.. code-block:: console
 
    $ datalad push --to github
    copy(ok): CHANGES (file) [to public-s3...]
@@ -292,7 +292,7 @@ You have now successfully created a DataLad dataset with an AWS S3 special remot
 annexed file content and with a public GitHub sibling from which the dataset can be accessed.
 Users can now :dlcmd:`clone` the dataset using the GitHub repository URL:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ cd /tmp
    $ datalad clone https://github.com/<enter-your-your-organization-or-account-name-here>/neuro-data-s3.git

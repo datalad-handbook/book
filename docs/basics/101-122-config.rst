@@ -49,10 +49,10 @@ At one point in time, you likely followed instructions such as
 in :ref:`install` and configured your
 *Git identity* with the commands:
 
-.. code-block:: bash
+.. code-block:: console
 
-   git config --global --add user.name "Elena Piscopia"
-   git config --global --add user.email elena@example.net
+   $ git config --global --add user.name "Elena Piscopia"
+   $ git config --global --add user.email elena@example.net
 
 "What the above commands do is very simple: They search for
 a specific configuration file, and set the variables specified
@@ -183,9 +183,9 @@ system-wide configuration.
 If you would want to change this existing line in your ``.git/config``
 file, you would replace ``--add`` with ``--replace-all`` such as in:
 
-.. code-block:: bash
+.. code-block:: console
 
-   git config --local --replace-all core.editor "vim"
+   $ git config --local --replace-all core.editor "vim"
 
 to configure :term:`vim` to be your default editor.
 Note that while being a good toy example, it is not a common thing to
@@ -341,14 +341,14 @@ The next section will talk about them.
 
          1) Open up the file with an editor for your choice (e.g., `nano <https://www.howtogeek.com/42980/the-beginners-guide-to-nano-the-linux-command-line-text-editor>`_), and either paste the following configuration or edit it if it already exists:
 
-         .. code-block:: bash
+         .. code-block:: ini
 
             [core]
                 editor = nano
 
          2) Run the following command, but exchange ``nano`` with an editor of your choice:
 
-         .. code-block:: bash
+         .. code-block:: ini
 
             $ git config --global --add core.editor "nano"
 

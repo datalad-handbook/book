@@ -128,7 +128,7 @@ a Python API for DataLad's functionality that you can read about in :ref:`a Find
        'refds': '/home/me/my-ds',
        'action': 'status'}]
 
-   .. code-block:: bash
+   .. code-block:: console
 
       $ datalad -f json_pp status myfile
        {"action": "status",
@@ -411,9 +411,9 @@ This script will
 
 A short help text explains how the script shall be used:
 
-.. code-block:: bash
+.. code-block:: console
 
-   python code/script.py -h                                                  2 !
+   $ python code/script.py -h
    usage: script.py [-h] data output_figure output_report
 
    Analyze iris data
@@ -482,7 +482,7 @@ point with the ``--version-tag`` option of :dlcmd:`save`.
    the analysis setup was ready -- much more intuitive than a 40-character shasum!
    This is handy in the context of a :dlcmd:`rerun`, for example:
 
-   .. code-block:: bash
+   .. code-block:: console
 
       $ datalad rerun --since ready4analysis
 
@@ -628,7 +628,7 @@ reason why the ``README.md`` in the root of the dataset was easily modifiable.
    require you to edit configurations in ``.gitattributes``: The ``--to-git``
    option for :dlcmd:`save`.
 
-   .. code-block:: bash
+   .. code-block:: console
 
       $ datalad save -m "add sometextfile.txt" --to-git sometextfile.txt
 
@@ -725,7 +725,7 @@ configure this repository as a sibling of the dataset:
 
    .. include:: topic/credential-nodisplay.rst
 
-.. code-block:: bash
+.. code-block:: console
 
    $ datalad create-sibling-github -d . midtermproject
    .: github(-) [https://github.com/adswa/midtermproject.git (git)]
@@ -734,7 +734,7 @@ configure this repository as a sibling of the dataset:
 
 Verify that this worked by listing the siblings of the dataset:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ datalad siblings
    [WARNING] Failed to determine if github carries annex.
@@ -803,7 +803,7 @@ an additional :gitcmd:`push`  with the ``--tags`` option is required:
 .. index::
    pair: push; DataLad concept
    pair: push (tag); with Git
-.. code-block:: bash
+.. code-block:: console
 
    $ git push github --tags
 
@@ -819,13 +819,13 @@ an additional :gitcmd:`push`  with the ``--tags`` option is required:
     configuration would push all tags that start with a ``v`` upon a
     :dlcmd:`push --to github`:
 
-    .. code-block:: bash
+    .. code-block:: console
 
        $ git config --local remote.github.push 'refs/tags/v*'
 
     This configuration would result in the following entry in ``.git/config``:
 
-    .. code-block:: bash
+    .. code-block:: ini
 
        [remote "github"]
              url = git@github.com/adswa/midtermproject.git
@@ -897,7 +897,7 @@ reproduce your data science project easily from scratch (take a look into the :r
    :dlcmd:`rerun` command. If the tag was published we can simply
    rerun any :dlcmd:`run` command since this tag:
 
-   .. code-block:: bash
+   .. code-block:: console
 
       $ datalad rerun --since ready4analysis
 
@@ -947,7 +947,7 @@ reproduce your data science project easily from scratch (take a look into the :r
          creation of the dataset with ``-c yoda``, but also after creation
          with the :dlcmd:`run-procedure` command:
 
-         .. code-block:: bash
+         .. code-block:: console
 
            $ cd midterm_project
            $ datalad run-procedure cfg_yoda
@@ -963,16 +963,16 @@ reproduce your data science project easily from scratch (take a look into the :r
          `virtual environment <https://docs.python.org/3/tutorial/venv.html>`_ and
          install the required Python packages inside of it:
 
-         .. code-block:: bash
+         .. code-block:: console
 
-            # create and enter a new virtual environment (optional)
+            $ # create and enter a new virtual environment (optional)
             $ virtualenv --python=python3 ~/env/handbook
             $ . ~/env/handbook/bin/activate
 
-         .. code-block:: bash
+         .. code-block:: console
 
-            # install the Python packages from PyPi via pip
-            pip install seaborn pandas sklearn
+            $ # install the Python packages from PyPi via pip
+            $ pip install seaborn pandas sklearn
 
 .. [#f4] All ``README.md`` files the YODA procedure created are
          version controlled by Git, not git-annex, thanks to the

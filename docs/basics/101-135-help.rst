@@ -136,7 +136,8 @@ In situations where there is no obvious reason for a command to fail, it can be 
 This allows you to gain more insights into the actions DataLad and its underlying tools are taking, where *exactly* they fail, and to even play around with the program at the state of the failure.
 
 :term:`Debugging` and :term:`logging` are not as complex as these terms may sound if you have never consciously debugged.
-Procedurally, it can be as easy as adding an additional flag to a command call, and cognitively, it can be as easy as engaging your visual system in a visual search task for the color red or the word "error", or reading more DataLad output than you're used to.
+
+Procedurally, it can be as easy as adding an additional flag to a command call, and cognitively, it can be as easy as engaging your visual system in a visual search task for the color red or the word "error", or reading more DataLad output than you are used to.
 We will start with the general concepts, and then collect concrete debugging strategies for different problems.
 
 .. _logging:

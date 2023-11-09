@@ -36,12 +36,12 @@ list of speakers and titles to cross out what they've already listened
 to, and ask you to prepare such a list.
 
 "Mhh... probably there is a DataLad way to do this... wasn't there also
-a note about metadata extraction at some point?" But as we're not that
+a note about metadata extraction at some point?" But as we are not that
 far into the lectures, you decide to write a short shell script
 to generate a text file that lists speaker and title
 name instead.
 
-To do this, we're following a best practice that will reappear in the
+To do this, we are following a best practice that will reappear in the
 later section on :ref:`YODA principles <yoda>`: Collecting all
 additional scripts that work with content of a subdataset *outside*
 of this subdataset, in a dedicated ``code/`` directory,

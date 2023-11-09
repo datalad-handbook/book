@@ -39,7 +39,7 @@ of undesired, or uncontrolled modification.
 To demonstrate how to share a DataLad dataset on a common file system,
 we will pretend that your personal computer
 can be accessed by other users. Let's say that
-your room mate has access, and you're making sure that there is
+your room mate has access, and you are making sure that there is
 a ``DataLad-101`` dataset in a different place on the file system
 for him to access and work with.
 
@@ -60,7 +60,7 @@ will be using a particular dataset of your own creation as input for
 one or more projects.
 
 "Awesome!" exclaims your room mate as you take out your laptop to
-share the dataset. "You're really saving my ass
+share the dataset. "You are really saving my ass
 here. I'll make up for it when we prepare for the final", he promises.
 
 To install ``DataLad-101`` into a different part
@@ -167,111 +167,7 @@ To demonstrate this, you decide to examine the PDFs further.
 
 "Opening this file will work, because the content was retrieved from
 the original dataset.", you explain, proud that this worked just as you
-thought it would. Your room mate is excited by this magical
-command. You however begin to wonder: how does DataLad know where to look for
-that original content?
-
-This information comes from git-annex. Before getting the next PDF,
-let's query git-annex where its content is stored:
-
-.. index::
-   pair: whereis; git-annex command
-   pair: show file content availability; with git-annex
-.. runrecord:: _examples/DL-101-116-105
-   :language: console
-   :workdir: dl-101/mock_user/DataLad-101
-   :notes: git-annex whereis to find out where content is stored
-   :cast: 04_collaboration
-
-   $ git annex whereis books/TLCL.pdf
-
-Oh, another :term:`shasum` - or, more specifically, a :term:`annex UUID`. This time however not in a symlink...
-"That's hard to read -- what is it?" your room mate asks. You can
-recognize a path to the dataset on your computer, prefixed with the user
-and hostname of your computer. "This", you exclaim, excited about your own realization,
-"is my dataset's location I'm sharing it from!"
-
-.. index::
-   pair: set description for dataset location; with DataLad
-.. find-out-more:: What is this location, and what if I provided a description?
-
-   Back in the very first section of the Basics, :ref:`createDS`, a :ref:`Find-out-more mentioned the '--description' option <createdescription>`   of :dlcmd:`create`.
-   With this option, you can provide a description about the dataset *location*.
-
-   The :gitannexcmd:`whereis` command, finally, is where such a description
-   can become handy: If you had created the dataset with
-
-   .. code-block:: bash
-
-      $ datalad create --description "course on DataLad-101 on my private laptop" -c text2git DataLad-101
-
-   the command would show ``course on DataLad-101 on my private laptop`` after
-   the :term:`shasum` -- and thus a more human-readable description of *where*
-   file content is stored.
-   This becomes especially useful when the number of repository copies
-   increases. If you have only one other dataset it may be easy to
-   remember what and where it is. But once you have one back-up
-   of your dataset on a USB stick, one dataset shared with
-   Dropbox, and a third one on your institutions
-   :term:`GitLab` instance you will be grateful for the descriptions
-   you provided these locations with.
-
-   The current report of the location of the dataset is in the format
-   ``user@host:path``.
-
-   If the physical location of a dataset is not relevant, ambiguous, or volatile,
-   or if it has an :term:`annex` that could move within the foreseeable lifetime of a
-   dataset, a custom description with the relevant information on the dataset is
-   superior. If this is not the case, decide for yourself whether you want to use
-   the ``--description`` option for future datasets or not depending on what you
-   find more readable -- a self-made location description, or an automatic
-   ``user@host:path`` information.
-
-
-The message further informs you that there is only "``(1 copy)``"
-of this file content. This makes sense: There
-is only your own, original ``DataLad-101`` dataset in which
-this book is saved.
-
-To retrieve file content of an annexed file such as one of
-these PDFs, git-annex will try
-to obtain it from the locations it knows to contain this content.
-It uses the checksums to identify these locations. Every copy
-of a dataset will get a unique ID with such a checksum.
-Note however that just because git-annex knows a certain location
-where content was once it does not guarantee that retrieval will
-work. If one location is a USB stick that is in your bag pack instead
-of your USB port,
-a second location is a hard drive that you deleted all of its
-previous contents (including dataset content) from,
-and another location is a web server, but you are not connected
-to the internet, git-annex will not succeed in retrieving
-contents from these locations.
-As long as there is at least one location that contains
-the file and is accessible, though, git-annex will get the content.
-Therefore, for the books in your dataset, retrieving contents works because you
-and your room mate share the same file system. If you'd share the dataset
-with anyone without access to your file system, ``datalad get`` would not
-work, because it cannot access your files.
-
-But there is one book that does not suffer from this restriction:
-The ``bash_guide.pdf``.
-This book was not manually downloaded and saved to the dataset with ``wget``
-(thus keeping DataLad in the dark about where it came from), but it was
-obtained with the :dlcmd:`download-url` command. This registered
-the books original source in the dataset, and here is why that is useful:
-
-.. runrecord:: _examples/DL-101-116-106
-   :language: console
-   :workdir: dl-101/mock_user/DataLad-101
-
-   $ git annex whereis books/bash_guide.pdf
-
-Unlike the ``TLCL.pdf`` book, this book has two sources, and one of them is
-``web``. The second to last line specifies the precise URL you downloaded the
-file from. Thus, for this book, your room mate is always able to obtain it
-(as long as the URL remains valid), even if you would delete your ``DataLad-101``
-dataset. Quite useful, this provenance, right?
+thought it would.
 
 Let's now turn to the fact that the subdataset ``longnow`` contains neither
 file content nor file metadata information to explore the contents of the 

@@ -145,7 +145,7 @@ and save the file in DataLad:
    $ datalad save -m "add note on datalad save"
 
 Let's take another look into our history to see the development of this file.
-We're using :gitcmd:`log -p -n 2` to see last two commits and explore
+We are using :gitcmd:`log -p -n 2` to see last two commits and explore
 the difference to the previous state of a file within each commit.
 
 .. runrecord:: _examples/DL-101-103-107

@@ -335,7 +335,7 @@ do not use Git, but a later section will get into the details of what
 the meaning of ":term:`merge`", ":term:`branch`", "refs"
 or ":term:`main`" is.
 
-For now, you're happy to have the changes your room mate made available.
+For now, you are happy to have the changes your room mate made available.
 This is how it should be! You helped him, and he helps you. Awesome!
 There actually is a wonderful word for it: *Collaboration*.
 Thus, without noticing, you have successfully collaborated for the first

@@ -1,4 +1,0 @@
-$ git annex whereis books/TLCL.pdf
-whereis books/TLCL.pdf (1 copy)
-  	✂UUID✂ -- me@appveyor-vm:~/dl-101/DataLad-101 [origin]
-ok

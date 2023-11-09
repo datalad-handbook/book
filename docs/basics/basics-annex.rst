@@ -7,7 +7,7 @@ Under the hood: git-annex
    :width: 50%
    :align: center
 
-A closer look at how and why things work
+A closer look at how and why things work.
 
 .. toctree::
    :maxdepth: 1

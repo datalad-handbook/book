@@ -14,6 +14,7 @@ the `Python <https://www.python.org>`__ programming language, you decide
 to script your analysis in Python. Delighted, you find out that there is even
 a Python API for DataLad's functionality that you can read about in :ref:`a Findoutmore on DataLad in Python<fom-pythonapi>`.
 
+.. _pythonapi:
 .. index::
    pair: use DataLad API; with Python
 .. find-out-more:: DataLad's Python API

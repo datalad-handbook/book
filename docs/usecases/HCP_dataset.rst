@@ -166,10 +166,10 @@ which it has been aggregated are small in size, and yet provide access to the HC
 data for anyone who has valid AWS S3 credentials.
 
 At the end of this step, there is one nested dataset per subject in the HCP data
-release. If you are interested in the details of this process, checkout the
-hidden section below.
+release. If you are interested in the details of this process, checkout the :find-out-more:`on the datasets' generation <fom-hcp>`.
 
 .. find-out-more:: How exactly did the datasets came to be?
+   :name: fom-hcp
 
    All code and tables necessary to generate the HCP datasets can be found on
    GitHub at `github.com/TobiasKadelka/build_hcp <https://github.com/TobiasKadelka/build_hcp>`_.

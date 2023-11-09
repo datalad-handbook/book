@@ -21,7 +21,7 @@ We'll take a look together, using the ``books/`` directory as an example:
 .. index::
    pair: no symlinks; on Windows
    pair: tree; terminal command
-.. windows-wit:: This will look different to you
+.. windows-wit:: Dataset directories look different on Windows
 
    .. include:: topic/tree-symlinks.rst
 
@@ -87,7 +87,7 @@ tree is also known as the *annex* of a dataset.
 .. index::
    pair: elevated storage demand; in adjusted mode
    pair: no symlinks; on Windows
-.. windows-wit:: What happens on Windows?
+.. windows-wit:: File content management on Windows
    :name: woa_objecttree
    :float:
 
@@ -139,15 +139,15 @@ This comes with two very important advantages:
 
 One, should you have copies of the
 same data in different places of your dataset, the symlinks of these files
-point to the same place (in order to understand why this is the case, you
-will need to read the hidden section at the end of the page).
+point to the same place - in order to understand why this is the case, you
+will need to read the :find-out-more:`about the object tree <fom-objecttree>`.
 Therefore, any amount of copies of a piece of data
 is only one single piece of data in your object tree. This, depending on
 how much identical file content lies in different parts of your dataset,
 can save you much disk space and time.
 
 The second advantage is less intuitive but clear for users familiar with Git.
-Small symlinks can be written very very fast when switching :term:`branch`\es, as opposed to copying and deleting huge data files.
+Compared to copying and deleting huge data files, small symlinks can be written very very fast, for example, when switching dataset versions, or :term:`branch`\es.
 
 .. gitusernote:: Speedy branch switches
 
@@ -168,9 +168,10 @@ work with the paths in the object tree than you or any other human are.
 Lastly, understanding that annexed files in your dataset are symlinked
 will be helpful to understand how common file system operations such as
 moving, renaming, or copying content translate to dataset modifications
-in certain situations. Later in this book we will have a section on how
-to manage the file system in a DataLad dataset (:ref:`file system`).
+in certain situations. Later in this book, the section :ref:`file system`
+will take a closer look at that.
 
+.. _objecttree:
 .. index::
    pair: key; git-annex concept
 .. find-out-more:: Paths, checksums, object trees, and data integrity
@@ -227,7 +228,7 @@ to manage the file system in a DataLad dataset (:ref:`file system`).
    consisting of two letters each.
    These two letters are derived from the md5sum of the key, and their sole purpose to exist is to avoid issues with too many files in one directory (which is a situation that certain file systems have problems with).
    The next subdirectory in the symlink helps to prevent accidental deletions and changes, as it does not have write :term:`permissions`, so that users cannot modify any of its underlying contents.
-   This is the reason that annexed files need to be unlocked prior to modifications, and this information will be helpful to understand some file system management operations such as removing files or datasets (see section :ref:`file system`).
+   This is the reason that annexed files need to be unlocked prior to modifications, and this information will be helpful to understand some file system management operations such as removing files or datasets. Section :ref:`file system` takes a look at that.
 
    The next part of the symlink contains the actual hash.
    There are different hash functions available.

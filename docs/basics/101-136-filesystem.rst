@@ -110,12 +110,12 @@ save a change that is marked as a deletion in a
    datalad save -m "rename file" oldname newname
 
 Alternatively, there is also a way to save the name change
-only using Git tools only, outlined in the following hidden
-section. If you are a Git user, you will be very familiar with it.
+only using Git tools only, outlined in the :find-out-more:`on faster renaming <fom-gitmv>`. If you are a Git user, you will be very familiar with it.
 
 .. index::
    pair: rename file; with Git
 .. find-out-more:: Faster renaming with Git tools
+   :name: fom-gitmv
 
    Git has built-in commands that provide a solution in two steps.
 
@@ -757,12 +757,12 @@ use.
 Beware of one thing though: If your dataset either is a sibling
 or has a sibling with the source being a path, moving or renaming
 the dataset will break the linkage between the datasets. This can
-be fixed easily though. We can try this in the following hidden
-section.
+be fixed easily though. We can try this in the :find-out-more:`on adjusting sibling URLs <fom-adjust-sibling-urls>`.
 
 .. index::
    pair: move subdataset; with Git
 .. find-out-more:: If a renamed/moved dataset is a sibling...
+   :name: fom-adjust-sibling-urls
 
    As section :ref:`config` explains, each
    sibling is registered in ``.git/config`` in a "submodule" section.

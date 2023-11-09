@@ -31,6 +31,7 @@ Note the command structure of :dlcmd:`create` (optional bits are enclosed in ``[
 
   datalad create [--description "..."] [-c <config options>] PATH
 
+.. _createdescription:
 .. index::
    pair: set description for dataset location; with DataLad
 .. find-out-more:: What is the description option of 'datalad create'?

@@ -105,9 +105,9 @@ new and the deleted file as a path specification to
 save a change that is marked as a deletion in a
 :dlcmd:`status`:
 
-.. code-block:: bash
+.. code-block:: console
 
-   datalad save -m "rename file" oldname newname
+   $ datalad save -m "rename file" oldname newname
 
 Alternatively, there is also a way to save the name change
 only using Git tools only, outlined in the :find-out-more:`on faster renaming <fom-gitmv>`. If you are a Git user, you will be very familiar with it.
@@ -1212,9 +1212,9 @@ to protect the file content given to it. To remove a dataset with annexed conten
 one has to regain write permissions to everything in the dataset. This is done
 with the Unix ``chmod`` command:
 
-.. code-block:: bash
+.. code-block:: console
 
-    chmod -R u+w <dataset>
+   $ chmod -R u+w <dataset>
 
 This *recursively* (``-R``, i.e., throughout all files and (sub)directories) gives users
 (``u``) write permissions (``+w``) for the dataset.

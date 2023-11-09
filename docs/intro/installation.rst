@@ -33,7 +33,7 @@ systems. They do not cover the various :term:`DataLad extension`\s that need to 
    your system. The easiest way to verify that this is the case is to open a
    terminal and type :shcmd:`python` to start a Python session:
 
-   .. code-block:: bash
+   .. code-block:: console
 
      $ python
      Python 3.9.1+ (default, Jan 20 2021, 14:49:22)
@@ -120,7 +120,7 @@ Python:
 
        If there are multiple Python installation, you can tell which one is default by running this command in ``cmd.exe``::
 
-         python -c "import sys; print(sys.executable)"
+         > python -c "import sys; print(sys.executable)"
 
        This will print the path of the default ``python.exe``.
        If the output is not matching the expected Python installation, likely the ``$PATH`` environment variable needs to be adjusted.
@@ -162,13 +162,13 @@ Git-annex:
 
     .. code-block:: bat
 
-      python -m pip install datalad-installer
+      > python -m pip install datalad-installer
 
     Afterwards, open another command prompt in administrator mode and run:
 
     .. code-block:: bat
 
-      datalad-installer git-annex -m datalad/git-annex:release
+      > datalad-installer git-annex -m datalad/git-annex:release
 
     This will download a recent git-annex, and configure it for your Git installation.
     The admin command prompt can be closed afterwards, all other steps do not need it.
@@ -177,7 +177,7 @@ Git-annex:
 
     .. code-block:: bat
 
-      git config --global filter.annex.process "git-annex filter-process"
+      > git config --global filter.annex.process "git-annex filter-process"
 
 DataLad:
     With Python, Git, and git-annex installed, DataLad can be installed, and later also
@@ -185,7 +185,7 @@ DataLad:
 
     .. code-block:: bat
 
-      python -m pip install datalad
+      > python -m pip install datalad
 
 7-Zip (optional, but highly recommended):
     .. index::
@@ -244,7 +244,7 @@ Mac App Store.
 
 Next, install datalad and its dependencies:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ brew install datalad
 
@@ -260,7 +260,7 @@ Python's package manager <fom-macosx-pip>`.
    installed via Python's package manager ``pip``, which should be installed
    by default on your system:
 
-   .. code-block:: bash
+   .. code-block:: console
 
      $ python -m pip install datalad
 
@@ -281,9 +281,9 @@ Python's package manager <fom-macosx-pip>`.
    You can do this for your own user account by adding something like the following
    to the *profile* file of your shell (exchange the user name accordingly):
 
-   .. code-block:: bash
+   .. code-block:: console
 
-      export PATH=$PATH:/Users/MYUSERNAME/Library/Python/3.11/bin
+      $ export PATH=$PATH:/Users/MYUSERNAME/Library/Python/3.11/bin
 
    If you use a :term:`bash` shell, this may be ``~/.bashrc`` or
    ``~/.bash_profile``, if you are using a :term:`zsh` shell, it may be
@@ -296,14 +296,14 @@ Python's package manager <fom-macosx-pip>`.
    e.g., with the editor :term:`nano` (requires using ``sudo`` and authenticating
    with your password):
 
-   .. code-block:: bash
+   .. code-block:: console
 
-      sudo nano /etc/paths
+      $ sudo nano /etc/paths
 
    The contents of this file could look like this afterwards (the last line was
    added):
 
-   .. code-block:: bash
+   .. code-block:: console
 
        /usr/local/bin
        /usr/bin
@@ -335,7 +335,7 @@ neuroscience.
 Whichever repository you end up using, the following command installs DataLad
 and all of its software dependencies (including :term:`git-annex` and `p7zip <https://p7zip.sourceforge.net>`_):
 
-.. code-block:: bash
+.. code-block:: console
 
    $ sudo apt-get install datalad
 
@@ -354,7 +354,7 @@ system, although some servers may run fairly old releases.
 
 DataLad itself can be installed via ``pip``:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ python -m pip install datalad
 
@@ -387,7 +387,7 @@ does not require admin/root access to a system.
 in the Conda documentation. In short: download and run the installer, or, from
 the command line, run
 
-.. code-block:: bash
+.. code-block:: console
 
    $ wget https://repo.anaconda.com/miniconda/Miniconda3-latest-<YOUR-OS>-x86_64.sh
    $ bash Miniconda3-latest-<YOUR-OS>-x86_64.sh
@@ -404,7 +404,7 @@ The installer automatically configures the shell to make conda-installed tools
 accessible, so no further configuration is necessary.  Once Conda is installed,
 the DataLad package can be installed from the ``conda-forge`` channel:
 
-.. code-block:: bash
+.. code-block:: console
 
   $ conda install -c conda-forge datalad
 
@@ -412,11 +412,11 @@ In general, all of DataLad's software dependencies are automatically installed, 
 This makes a conda-based deployment very convenient. A from-scratch DataLad installation
 on a HPC system, as a normal user, is done in three lines:
 
-.. code-block:: bash
+.. code-block:: console
 
   $ wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
   $ bash Miniconda3-latest-Linux-x86_64.sh
-  # acknowledge license, keep everything at default
+  $ # acknowledge license, keep everything at default
   $ conda install -c conda-forge datalad
 
 In case a dependency is not available from Conda (e.g., there is no git-annex
@@ -425,7 +425,7 @@ instructions above.
 
 To update an existing installation with conda, use:
 
-.. code-block:: bash
+.. code-block:: console
 
   $ conda update -c conda-forge datalad
 
@@ -447,23 +447,23 @@ in nearly all GNU/Linux distributions.
 If you have Python and ``pip`` set up, to automatically install DataLad and
 most of its software dependencies, type
 
-.. code-block:: bash
+.. code-block:: console
 
    $ python -m pip install datalad
 
 If this results in a ``permission denied`` error, you can install DataLad into
 a user's home directory:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ python -m pip install --user datalad
 
 On some systems, you may need to call ``python3`` instead of ``python``:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ python3 -m pip install datalad
-   # or, in case of a "permission denied error":
+   $ # or, in case of a "permission denied error":
    $ python3 -m pip install --user datalad
 
 An existing installation can be upgraded with ``python -m pip install -U datalad``.
@@ -489,9 +489,9 @@ tell Git some information about you. This needs to be done only once.
 In the following example, exchange ``Bob McBobFace`` with your own name, and
 ``bob@example.com`` with your own email address.
 
-.. code-block:: bash
+.. code-block:: console
 
-   # enter your home directory using the ~ shortcut
+   $ # enter your home directory using the ~ shortcut
    $ cd ~
    $ git config --global --add user.name "Bob McBobFace"
    $ git config --global --add user.email bob@example.com

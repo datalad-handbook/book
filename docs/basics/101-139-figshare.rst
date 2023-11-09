@@ -21,7 +21,7 @@ Running :dlcmd:`export-to-figshare` allows you to publish the dataset as a snaps
 Note that this requires a free account on Figshare, and the generation of an `access token <https://figshare.com/account/applications>`_ for authentication.
 An interactive prompt will ask you to supply authentication credentials, and guide you through the process of creating a new article.
 
-.. code-block:: bash
+.. code-block:: console
    :emphasize-lines: 5
 
    $ datalad export-to-figshare
@@ -45,17 +45,20 @@ An interactive prompt will ask you to supply authentication credentials, and gui
 
 
 
-The screenshot below shows how the ``DataLad-101`` dataset looks like in exported form:
+The screenshot in :numref:`figfigshare` shows how the ``DataLad-101`` dataset looks like in exported form:
 
+.. _figfigshare:
 .. figure:: ../artwork/src/figshare_screenshot.png
    :width: 50%
+
+   The dataset export on Figshare
 
 You could then extend the dataset with metadata, obtain a `DOI <https://www.doi.org/driven_by_DOI.html>`_ for it and make it citable, and point others to it in order to download it as an archive of files.
 
 Beyond this, as the command :dlcmd:`export-archive` is used by it to prepare content for upload to Figshare, annexed files also will be annotated as available from the archive on Figshare using ``datalad-archive`` special remote.
 As a result, if you publish your Figshare dataset and share your DataLad dataset on a repository hosting service without support for annexed files, users will still be able to fetch content from the tarball shared on Figshare.
 
-.. code-block:: bash
+.. code-block:: console
 
    $ datalad siblings
     .: here(+) [git]

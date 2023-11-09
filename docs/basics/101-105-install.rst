@@ -75,7 +75,7 @@ the podcasts as a *subdataset* of ``DataLad-101``. Because we are in the root
 of the ``DataLad-101`` dataset, the pointer to the dataset is a ``.`` (which is Unix'
 way of saying "current directory").
 
-As before with long commands, we line break the code below with a ``\``. You can
+As before with long commands, we line break the code with a ``\``. You can
 copy it as it is presented here into your terminal, but in your own work you
 can write commands like this into a single line.
 
@@ -121,18 +121,18 @@ chapters in this handbook will demonstrate how useful this information can be.
    point to root of the top-most dataset. For example, if you navigate into ``recordings``,
    the command would be:
 
-   .. code-block:: bash
+   .. code-block:: console
 
-     datalad clone -d^ https://github.com/datalad-datasets/longnow-podcasts.git longnow
+     $ datalad clone -d^ https://github.com/datalad-datasets/longnow-podcasts.git longnow
 
 .. find-out-more:: What if I do not install into an existing dataset?
 
    If you do not install into an existing dataset, you only need to omit the ``-d/--dataset``
    option. You can try:
 
-   .. code-block:: bash
+   .. code-block:: console
   
-     datalad clone https://github.com/datalad-datasets/longnow-podcasts.git
+     $ datalad clone https://github.com/datalad-datasets/longnow-podcasts.git
 
    anywhere outside of your ``DataLad-101`` dataset to install the podcast dataset into a new directory
    called ``longnow-podcasts``. You could even do this inside of an existing dataset.
@@ -266,7 +266,7 @@ Try to open it -- it will now work.
 If you would want to get the rest of the missing data, instead of specifying all files individually,
 we can use ``.`` to refer to *all* of the dataset like this:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ datalad get .
 

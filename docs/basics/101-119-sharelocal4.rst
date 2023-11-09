@@ -125,7 +125,7 @@ dataset to your own ``DataLad-101`` dataset:
 
 PS: You might wonder what a plain :dlcmd:`update` command with no option does.
 If you are a Git-user and know about branches and merging you can read the
-``Note for Git-users`` below. However, a thorough explanation
+``Note for Git-users``. However, a thorough explanation
 and demonstration will be in the next section.
 
 .. index::

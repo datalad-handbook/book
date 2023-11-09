@@ -42,13 +42,13 @@ or storage of datasets [#f1]_, or a regular clone.
    - Add an existing repository as a sibling with the :dlcmd:`siblings`
      command. Here are common examples:
 
-     .. code-block:: bash
+     .. code-block:: console
 
-        # to a remote repository
+        $ # to a remote repository
         $ datalad siblings add --name github-repo --url <url.to.github>
-        # to a local path
+        $ # to a local path
         $ datalad siblings add --name local-sibling --url /path/to/sibling/ds
-        # to a clone on an SSH-accessible machine
+        $ # to a clone on an SSH-accessible machine
         $ datalad siblings add --name server-sibling --url [user@]hostname:/path/to/sibling/ds
 
    - Create a sibling on an external hosting service from scratch, right from
@@ -67,7 +67,7 @@ In order to publish dataset content, DataLad needs to know to which sibling
 content shall be pushed. This can be specified with the ``--to`` option directly
 from the command line:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ datalad push --to <sibling>
 
@@ -140,7 +140,7 @@ targets are configured throughout the dataset hierarchy.
    :dlcmd:`push` pushes *all* branches to the sibling.
    A concrete example: On a dataset level, this can be done using
 
-   .. code-block:: bash
+   .. code-block:: console
 
        $ git config --local push.default matching
 
@@ -158,7 +158,7 @@ targets are configured throughout the dataset hierarchy.
    automatically as well. This configuration was achieved by specifying these branches
    (using :term:`globbing` with ``*``) in the ``push`` specification of this :term:`remote`:
 
-   .. code-block:: bash
+   .. code-block:: console
 
       $ git config --local remote.public.push 'refs/heads/sct*'
 

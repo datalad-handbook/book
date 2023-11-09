@@ -14,7 +14,7 @@ The last two sections have first of all extended your knowledge on dataset nesti
   of the subdatasets version state. If you want to record this, you need to
   :dlcmd:`save` it in the superdataset:
 
-  .. code-block:: bash
+  .. code-block:: console
 
     $ datalad save -m "a short summary of changes in subds" <path to subds>
 

@@ -19,9 +19,9 @@ A ``+``, ``-``, or ``?`` sign in parenthesis indicates whether the sibling carri
 In the example below you can see that a public GitHub repository `<https://github.com/psychoinformatics-de/studyforrest-data-phase2>`_ does not carry an annex on ``github`` (the sibling ``origin``), but that the annexed data are served from an additional sibling ``mddatasrc`` (a :term:`special remote` with annex support).
 Even though the dataset sibling on GitHub does not serve the data, it constitutes a simple, findable access point to retrieve the dataset, and can be used to provide updates and fixes via :term:`pull request`\s, issues, etc.
 
-.. code-block:: bash
+.. code-block:: console
 
-    # a clone of github/psychoinformatics/studyforrest-data-phase2 has the following siblings:
+    $ # a clone of github/psychoinformatics/studyforrest-data-phase2 has the following siblings:
     $ datalad siblings
     .: here(+) [git]
     .: mddatasrc(+) [http://psydata.ovgu.de/studyforrest/phase2/.git (git)]
@@ -116,7 +116,7 @@ Other streamlined arguments, such as ``--recursive`` or ``--publish-depends`` al
 Self-hosted repository services, e.g., Gogs or Gitea instances, have an additional required argument, the ``--api`` flag.
 It needs to point to the URL of the instance, for example
 
-.. code-block:: bash
+.. code-block:: console
 
    $ datalad create-sibling-gogs my_repo_on_gogs  --api "https://try.gogs.io"
 
@@ -164,7 +164,7 @@ For creating and updating repositories with DataLad commands it is usually suffi
 However, broader permission sets may also make sense.
 Should you employ GitHub workflows, for example, a token without "workflow" scope could not push changes to workflow files, resulting in errors like this one:
 
-.. code-block:: bash
+.. code-block:: console
 
     [remote rejected] (refusing to allow a Personal Access Token to create or update workflow `.github/workflows/benchmarks.yml` without `workflow` scope)]
 
@@ -184,7 +184,7 @@ This configuration file is typically called ``.python-gitlab.cfg`` and placed in
 It contains one section per GitLab instance, and a ``[global]`` section that defines the default instance to use.
 Here is an example:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ cat ~/.python-gitlab.cfg
     [global]
@@ -218,14 +218,16 @@ GitLab's organization consists of *projects* and *groups*.
 Projects are single repositories, and groups can be used to manage one or more projects at the same time.
 In order to use ``create-sibling-gitlab``, a user **must** `create a group <https://docs.gitlab.com/ee/user/group/#create-a-group>`_ via the web interface, or specify a pre-existing group, because `GitLab does not allow root-level groups to be created via their API <https://docs.gitlab.com/ee/api/groups.html#new-group>`_.
 Only when there already is a "parent" group DataLad and other tools can create sub-groups and projects automatically.
-In the screenshots below, a new group ``my-datalad-root-level-group`` is created right underneath the user account.
+In the screenshots :numref:`fig-rootgroup-gitlab1` and :numref:`fig-rootgroup-gitlab2`, a new group ``my-datalad-root-level-group`` is created right underneath the user account.
 The group name as shown in the URL bar is what DataLad needs in order to create sibling datasets.
 
+.. _fig-rootgroup-gitlab1:
 .. figure:: ../artwork/src/gitlab-rootgroup.png
    :width: 80%
 
    Webinterface to create a root-level group on GitLab.
 
+.. _fig-rootgroup-gitlab2:
 .. figure:: ../artwork/src/gitlab-rootgroup2.png
    :width: 80%
 
@@ -275,7 +277,7 @@ Here are two command examples and their outcomes.
 
 For a **flat** layout, the ``--project`` parameter determines the project name:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ datalad create-sibling-gitlab --site gitlab-general --layout flat --project my-datalad-root-level-group/this-will-be-the-project-name
    create_sibling_gitlab(ok): . (dataset) [sibling repository 'gitlab' created at https://gitlab.com/my-datalad-root-level-group/this-will-be-the-project-name]
@@ -291,7 +293,7 @@ For a **flat** layout, the ``--project`` parameter determines the project name:
 
 For a **collection** layout, the ``--project`` parameter determines the group name:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ datalad create-sibling-gitlab --site gitlab-general --layout collection --project my-datalad-root-level-group/this-will-be-the-group-name
     create_sibling_gitlab(ok): . (dataset) [sibling repository 'gitlab' created at https://gitlab.com/my-datalad-root-level-group/this-will-be-the-group-name/project]
@@ -313,20 +315,20 @@ Instead, one configures the root level dataset, and the names for underlying dat
 
 .. index::
    single: configuration item; datalad.gitlab-<name>-project
-.. code-block:: bash
+.. code-block:: console
 
-   # do the configuration for the top-most dataset
-   # either configure with Git
+   $ # do the configuration for the top-most dataset
+   $ # either configure with Git
    $ git config --local --replace-all \
      datalad.gitlab-<gitlab-site>-project \
      'my-datalad-root-level-group/DataLad-101_flat'
-   # or configure with DataLad
+   $ # or configure with DataLad
    $ datalad configuration set \
      datalad.gitlab-<gitlab-site>-project='my-datalad-root-level-group/DataLad-101_flat'
 
 Afterwards, publish dataset hierarchies with the ``--recursive`` flag:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ datalad create-sibling-gitlab --site gitlab-general --recursive --layout flat
    create_sibling_gitlab(ok): . (dataset) [sibling repository 'gitlab' created at https://gitlab.com/my-datalad-root-level-group/DataLad-101_flat]

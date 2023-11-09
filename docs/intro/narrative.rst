@@ -49,11 +49,11 @@ as we can fit into it. Code snippets look like this, and you should
 Note how we distinguish ``comments (#)`` from ``commands ($)`` and their output
 in the example below (it shows the creation of a DataLad dataset):
 
-.. code-block:: bash
+.. code-block:: console
 
-   # This is a comment used for additional explanations.
-   # Anything preceded by $ is a command to try.
-   # If the line starts with neither # nor $, it is an output of a command.
+   $ # This is a comment used for additional explanations.
+   $ # Otherwise, anything preceded by $ is a command to try.
+   $ # If the line starts with no $, it is an output of a command.
    $ datalad create myfirstrepo
    [INFO   ] Creating a new annex repo at /home/me/DataLad-101
    create(ok): /home/me/DataLad-101 (dataset)
@@ -71,7 +71,7 @@ and will drop all comments and the ``$`` automatically.
 Whenever you see a ✂ symbol, command output has been shortened for better readability.
 In the example below, the commit :term:`shasum` has been shortened and marked with ``✂SHA1``.
 
-.. code-block:: bash
+.. code-block:: console
 
    $ git log --reverse
    commit 8df130bb✂SHA1

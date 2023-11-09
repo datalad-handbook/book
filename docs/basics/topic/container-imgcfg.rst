@@ -8,7 +8,7 @@ This recorded the image's origin on Singularity-Hub, the location of the
 image in the dataset under ``.datalad/environments/<NAME>/image``, and it
 specifies the way in which the container should be used: The line
 
-.. code-block:: bash
+.. code-block:: ini
 
    cmdexec = singularity exec {img} {cmd}
 
@@ -23,9 +23,9 @@ In the alternative call format, the placeholders ``{img}``, ``{cmd}``, and ``{im
 In all other cases with variables that use curly brackets, you need to escape them with another curly bracket.
 Here is an example call format that bind-mounts the current working directory (and thus the dataset) automatically:
 
-.. code-block:: bash
+.. code-block:: console
 
-  datalad containers-add --call-fmt 'singularity exec -B {{pwd}} --cleanenv {img} {cmd}'
+  $ datalad containers-add --call-fmt 'singularity exec -B {{pwd}} --cleanenv {img} {cmd}'
 
 Note that the image is saved under ``.datalad/environments`` and the
 configuration is done in ``.datalad/config`` -- as these files are version

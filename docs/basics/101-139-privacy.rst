@@ -61,7 +61,7 @@ Consider that all of these files are annexed. While the information in ``experim
 Nevertheless, you want collaborators to know that these files exist.
 By publishing only the file contents of ``experiment.txt`` with
 
-.. code-block:: bash
+.. code-block:: console
 
   $ datalad push --to github experiment.txt
 

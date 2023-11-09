@@ -298,4 +298,3 @@ the superdataset.
    :cast: 03_git_annex_basics
 
    $ cd ../
-

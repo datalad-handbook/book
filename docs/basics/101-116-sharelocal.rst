@@ -185,8 +185,8 @@ you have to run a somewhat unexpected command:
 
    $ datalad get -n recordings/longnow
 
-The section below will elaborate on :dlcmd:`get` and the
-``-n/--no-data`` option, but for now, let's first see what has changed after
+Before we look further into :dlcmd:`get` and the
+``-n/--no-data`` option, let's first see what has changed after
 running the above command (excerpt):
 
 .. runrecord:: _examples/DL-101-116-108

@@ -211,7 +211,7 @@ to "Buckets" to see your newly created bucket. It should only have a single
 
 Lastly, for git-annex to be able to download files from the bucket without requiring your
 AWS credentials, it needs to know where to find the bucket. We do this by setting the bucket
-URL, which takes a standard format incorporating the bucket name and location (see the code blocl below).
+URL, which takes a standard format incorporating the bucket name and location (see the code block below).
 Alternatively, this URL can also be copied from your AWS console.
 
 .. code-block:: console

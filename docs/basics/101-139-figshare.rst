@@ -45,10 +45,13 @@ An interactive prompt will ask you to supply authentication credentials, and gui
 
 
 
-The screenshot below shows how the ``DataLad-101`` dataset looks like in exported form:
+The screenshot in :numref:`figfigshare` shows how the ``DataLad-101`` dataset looks like in exported form:
 
+.. _figfigshare:
 .. figure:: ../artwork/src/figshare_screenshot.png
    :width: 50%
+
+   The dataset export on Figshare
 
 You could then extend the dataset with metadata, obtain a `DOI <https://www.doi.org/driven_by_DOI.html>`_ for it and make it citable, and point others to it in order to download it as an archive of files.
 

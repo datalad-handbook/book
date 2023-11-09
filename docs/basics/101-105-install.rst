@@ -75,7 +75,7 @@ the podcasts as a *subdataset* of ``DataLad-101``. Because we are in the root
 of the ``DataLad-101`` dataset, the pointer to the dataset is a ``.`` (which is Unix'
 way of saying "current directory").
 
-As before with long commands, we line break the code below with a ``\``. You can
+As before with long commands, we line break the code with a ``\``. You can
 copy it as it is presented here into your terminal, but in your own work you
 can write commands like this into a single line.
 

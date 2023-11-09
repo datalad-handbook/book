@@ -218,14 +218,16 @@ GitLab's organization consists of *projects* and *groups*.
 Projects are single repositories, and groups can be used to manage one or more projects at the same time.
 In order to use ``create-sibling-gitlab``, a user **must** `create a group <https://docs.gitlab.com/ee/user/group/#create-a-group>`_ via the web interface, or specify a pre-existing group, because `GitLab does not allow root-level groups to be created via their API <https://docs.gitlab.com/ee/api/groups.html#new-group>`_.
 Only when there already is a "parent" group DataLad and other tools can create sub-groups and projects automatically.
-In the screenshots below, a new group ``my-datalad-root-level-group`` is created right underneath the user account.
+In the screenshots :numref:`fig-rootgroup-gitlab1` and :numref:`fig-rootgroup-gitlab2`, a new group ``my-datalad-root-level-group`` is created right underneath the user account.
 The group name as shown in the URL bar is what DataLad needs in order to create sibling datasets.
 
+.. _fig-rootgroup-gitlab1:
 .. figure:: ../artwork/src/gitlab-rootgroup.png
    :width: 80%
 
    Webinterface to create a root-level group on GitLab.
 
+.. _fig-rootgroup-gitlab2:
 .. figure:: ../artwork/src/gitlab-rootgroup2.png
    :width: 80%
 

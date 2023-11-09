@@ -36,7 +36,9 @@ The DataLad Handbook
    basics/basics-yoda
    basics/basics-containers
    basics/basics-thirdparty
-   basics/basics-help
+   basics/101-136-filesystem
+   basics/101-137-history
+   basics/101-135-help
 
 ..
    beyond_basics/intro.rst

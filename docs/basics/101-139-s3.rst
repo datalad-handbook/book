@@ -1,3 +1,5 @@
+:orphan:
+
 .. _s3:
 
 Walk-through: Amazon S3 as a special remote

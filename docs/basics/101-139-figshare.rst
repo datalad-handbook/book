@@ -1,3 +1,5 @@
+:orphan:
+
 .. _figshare:
 
 Built-in data export
@@ -44,10 +46,10 @@ An interactive prompt will ask you to supply authentication credentials, and gui
 	export_to_figshare(ok): Dataset(/home/me/DataLad-101) [Published archive https://ndownloader.figshare.com/files/30876682]
 
 
+.. The screenshot in :numref:`figfigshare` shows how the ``DataLad-101`` dataset looks like in exported form:
 
-The screenshot in :numref:`figfigshare` shows how the ``DataLad-101`` dataset looks like in exported form:
+.. .. _figfigshare:
 
-.. _figfigshare:
 .. figure:: ../artwork/src/figshare_screenshot.png
    :width: 50%
 

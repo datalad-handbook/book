@@ -1,3 +1,5 @@
+:orphan:
+
 .. _gin:
 
 Walk-through: Dataset hosting on GIN

@@ -121,7 +121,7 @@ Both of these files were retrieved "``from origin...``".
 If your roommate did not have access to the same file system or you'd deleted your ``DataLad-101`` dataset, the second file would be retrieved "``from web...``" - its registered second source, its original download URL.
 
 Let's see this in action for another file.
-The ``.mp3`` files in the ``longnow`` seminar series are registered in a similar fashion.
+The ``.mp3`` files in the ``longnow`` seminar series are registered in a similar fashion [#f1]_.
 
 .. runrecord:: _examples/DL-101-117-104
    :language: console

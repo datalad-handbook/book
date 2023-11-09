@@ -50,7 +50,7 @@ let's try to resize the images -- currently, they're far too large to fit on a s
 
 To resize an image from the command line we can use the Unix
 command ``convert -resize`` from the `ImageMagick tool <https://imagemagick.org/index.php>`_.
-See the :windows-wit:`on installing it <ww-install-imagemagick>`, if you system does not provide it.
+See the :windows-wit:`on installing it <ww-install-imagemagick>`, if your system does not provide it.
 The command takes a new size in pixels as an argument, a path to the file that should be
 resized, and a filename and path under which a new,
 resized image will be saved.

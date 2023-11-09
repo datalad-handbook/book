@@ -98,7 +98,7 @@ A :dlcmd:`run` error message has several parts. The first starts after
 ``[INFO   ] == Command start (output follows) =====``.
 
 This is displaying errors that the
-terminal command threw: The ``convert`` tool complains that it can not open
+terminal command threw: The ``convert`` tool complains that it cannot open
 the file, because there is "No such file or directory".
 
 The second part starts after

@@ -58,7 +58,7 @@ And lastly, you will likely "share a dataset with yourself" whenever you
 will be using a particular dataset of your own creation as input for
 one or more projects.
 
-"Awesome!" exclaims your room mate as you take out your Laptop to
+"Awesome!" exclaims your room mate as you take out your laptop to
 share the dataset. "You're really saving my ass
 here. I'll make up for it when we prepare for the final", he promises.
 
@@ -203,15 +203,15 @@ and hostname of your computer. "This", you exclaim, excited about your own reali
 
    .. code-block:: bash
 
-      $ datalad create --description "course on DataLad-101 on my private Laptop" -c text2git DataLad-101
+      $ datalad create --description "course on DataLad-101 on my private laptop" -c text2git DataLad-101
 
-   the command would show ``course on DataLad-101 on my private Laptop`` after
+   the command would show ``course on DataLad-101 on my private laptop`` after
    the :term:`shasum` -- and thus a more human-readable description of *where*
    file content is stored.
    This becomes especially useful when the number of repository copies
    increases. If you have only one other dataset it may be easy to
    remember what and where it is. But once you have one back-up
-   of your dataset on a USB-Stick, one dataset shared with
+   of your dataset on a USB stick, one dataset shared with
    Dropbox, and a third one on your institutions
    :term:`GitLab` instance you will be grateful for the descriptions
    you provided these locations with.
@@ -240,7 +240,7 @@ It uses the checksums to identify these locations. Every copy
 of a dataset will get a unique ID with such a checksum.
 Note however that just because git-annex knows a certain location
 where content was once it does not guarantee that retrieval will
-work. If one location is a USB-Stick that is in your bag pack instead
+work. If one location is a USB stick that is in your bag pack instead
 of your USB port,
 a second location is a hard drive that you deleted all of its
 previous contents (including dataset content) from,
@@ -316,7 +316,7 @@ subdataset again, just as we did in the example above.
 
 But what about the ``-n`` option for :dlcmd:`get`?
 Previously, we used :dlcmd:`get` to get file content. However,
-:dlcmd:`get` operate on more than just the level of *files* or *directories*.
+:dlcmd:`get` operates on more than just the level of *files* or *directories*.
 Instead, it can also operate on the level of *datasets*. Regardless of whether
 it is a single file (such as ``books/TLCL.pdf``) or a registered subdataset
 (such as ``recordings/longnow``), :dlcmd:`get` will operate on it to 1) install

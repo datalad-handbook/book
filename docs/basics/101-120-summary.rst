@@ -55,7 +55,7 @@ sharing a dataset with a simple example.
   :dlcmd:`diff` and :gitcmd:`diff` can subsequently help to find
   out what changes have been made in the sibling.
 
-Now what I can do with that?
+Now what can I do with that?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Most importantly, you have experienced the first way of sharing

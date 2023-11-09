@@ -23,7 +23,7 @@ Let's take a concrete example to explain the last point in more detail.
 How much space, do you think, is taken up in your dataset by the resized ``salt_logo_small.jpg`` image?
 As a reminder: It exists in two versions, a 400 by 400 pixel version (about 250Kb in size), and a 450 by 450 pixel version (about 310Kb in size).
 The 400 by 400 pixel version is the most recent one.
-The answer is: about 810Kb (~0.1Mb).
+The answer is: about 810Kb (~0.8 MB).
 The most recent 400x400px version exists twice (in the annex and as a copy), and the 450x450px copy exists once in the annex.
 If you would reset your dataset to the state when we created the 450x450px version, this file would instead exist twice.
 

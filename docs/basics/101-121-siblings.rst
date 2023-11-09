@@ -13,7 +13,7 @@ or changes you make to your dataset, and stay up to date.
 This is because a DataLad dataset makes updating shared
 data a matter of a single :dlcmd:`update --how merge` command.
 
-But why does this need to be a one-way line? "I want to
+But why does this need to be a one-way street? "I want to
 provide helpful information for you as well!", says your
 room mate. "How could you get any insightful notes that
 I make in my dataset, or maybe the results of our upcoming

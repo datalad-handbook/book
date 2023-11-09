@@ -40,7 +40,7 @@ Note the command structure of :dlcmd:`create` (optional bits are enclosed in ``[
 
    .. code-block:: bash
 
-      datalad create --description "course on DataLad-101 on my private Laptop" -c text2git DataLad-101
+      datalad create --description "course on DataLad-101 on my private laptop" -c text2git DataLad-101
 
    If you want, use the above command instead of the :dlcmd:`create` command below
    to provide a description. Its use will not be immediately clear, the chapter

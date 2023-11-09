@@ -106,7 +106,7 @@ open it, for example with ``evince <path>``, or any other PDF reader in exchange
 
 
 Even though the path looks cryptic, it works and opens the file. Whenever you
-use a command like ``evince TLCL.pdf``, internally, your shell will follow
+use a command like ``evince TLCL.pdf``, internally, programs will follow
 the same cryptic symlink like the one you have just opened.
 
 But *why* does this symlink-ing happen? Up until now, it still seems like a very
@@ -222,7 +222,7 @@ to manage the file system in a DataLad dataset (:ref:`file system`).
       # compare it to the checksum (here of type md5sum) of the PDF file and the subdirectory name
       $ md5sum TLCL.pdf
 
-   The extension (e.g., ``.pdf``) is appended because some operating systems (*ehem*, Windows) need this information in order to select the right software to open a file.
+   The extension (e.g., ``.pdf``) is appended, because some programs require it, and would fail when not working directly with the symlink, but the file that it points to.
    Right at the beginning, the symlink starts with two directories just after ``.git/annex/objects/``,
    consisting of two letters each.
    These two letters are derived from the md5sum of the key, and their sole purpose to exist is to avoid issues with too many files in one directory (which is a situation that certain file systems have problems with).

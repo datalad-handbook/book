@@ -33,7 +33,8 @@ DataLad for, if everyone can already access everything?" However,
 universal, unrestricted access can easily lead to chaos. DataLad can
 help facilitate collaboration without requiring ultimate trust and
 reliability of all participants. Essentially, with a shared dataset,
-collaborators can look and use your dataset without ever touching it.
+collaborators can see and use your dataset without any danger
+of undesired, or uncontrolled modification.
 
 To demonstrate how to share a DataLad dataset on a common file system,
 we will pretend that your personal computer

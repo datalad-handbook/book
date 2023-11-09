@@ -56,7 +56,7 @@ this excerpt.
    $ git log -p -n 3
 
 We have highlighted the important part of this rather long commit summary.
-Note that you can not see any ``.mp3``\s being added to the dataset,
+Note that you cannot see any ``.mp3``\s being added to the dataset,
 as was previously the case when we :dlcmd:`save`\d PDFs that we
 downloaded into ``books/``. Instead,
 DataLad stores what it calls a *subproject commit* of the subdataset.

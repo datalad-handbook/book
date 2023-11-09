@@ -63,7 +63,7 @@ directories of several TB in size, *and* computationally heavy analyses, the
 compute cluster is quickly brought to its knees: Insufficient memory and
 IOPS starvation make computations painstakingly slow, and hinder scientific
 progress. Despite the elaborate and expensive cluster setup, exciting datasets
-can not be stored or processed, as there just doesn't seem to be enough disk
+cannot be stored or processed, as there just doesn't seem to be enough disk
 space.
 
 Therefore, the challenge is two-fold: On an infrastructural level, institute XYZ
@@ -190,7 +190,7 @@ different approaches.
 In their ``$HOME``, researchers are free to do whatever they want as long as it
 is within the limits of their machines or their user accounts (100GB). Thus,
 researchers can explore data, test and develop code, or visualize results,
-but they can not create complete dataset copies or afford to keep an excess of
+but they cannot create complete dataset copies or afford to keep an excess of
 unused data around.
 Only ``$COMPUTE`` has the necessary hardware requirements for expensive computations.
 Thus, within ``$HOME``, researchers are free to explore data

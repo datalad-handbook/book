@@ -57,7 +57,7 @@ Let's say you have a dataset with three files:
 - ``subject_1.dat``
 - ``subject_2.data``
 
-Consider that all of these files are annexed. While the information in ``experiment.txt`` is fine for everyone to see, ``subject_1.dat`` and ``subject_2.dat`` contain personal and potentially identifying data that can not be shared.
+Consider that all of these files are annexed. While the information in ``experiment.txt`` is fine for everyone to see, ``subject_1.dat`` and ``subject_2.dat`` contain personal and potentially identifying data that cannot be shared.
 Nevertheless, you want collaborators to know that these files exist.
 By publishing only the file contents of ``experiment.txt`` with
 

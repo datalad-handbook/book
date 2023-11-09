@@ -308,7 +308,7 @@ In this particular case, this is because it was an attempt to push from ``DataLa
 to the ``roommate`` sibling that was created in chapter :ref:`chapter_collaboration`.
 This is a special case of pushing, because it -- in technical terms -- is a push
 to a non-bare repository. Unlike :term:`bare Git repositories`, non-bare
-repositories can not be pushed to at all times. To fix this, you either want to
+repositories cannot be pushed to at all times. To fix this, you either want to
 checkout another branch
 in the ``roommate`` sibling or push to a non-checked out branch in the ``roommate``
 sibling. Alternatively, you can configure ``roommate`` to receive the push with
@@ -366,7 +366,7 @@ A similar warning message may appear when adding a sibling that is a pure Git
    by mistake due to absent connection etc
 
 These messages indicate that the sibling ``github`` does not carry an annex.
-Thus, annexed file contents can not be pushed to this sibling. This happens
+Thus, annexed file contents cannot be pushed to this sibling. This happens
 if the sibling indeed does not have an annex (which would be true, for example,
 for siblings on :term:`GitHub`, :term:`GitLab`, :term:`Bitbucket`, ..., and
 would not require any further action or worry), or

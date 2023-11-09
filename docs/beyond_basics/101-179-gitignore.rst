@@ -229,7 +229,7 @@ your dataset to be messy, if you want to be.
       $ datalad save -m "SERVICE COMMIT - IGNORE. This commit only serves to appropriately reference the subdataset in the public showroom dataset"
 
    This allows to automatically push all section branches (not accidentally synced or adjusted annex branches) with
-   git push. Note: requires git push; datalad publish can not handle this atm (see https://github.com/datalad/datalad/issues/4006)
+   git push. Note: requires git push; datalad publish cannot handle this atm (see https://github.com/datalad/datalad/issues/4006)
 
    .. runrecord:: _examples/DL-101-179-110
       :language: console

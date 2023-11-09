@@ -117,11 +117,12 @@ We can also see a report of the source that git-annex uses to retrieve the conte
    $ datalad get books/bash_guide.pdf
 
 Both of these files were retrieved "``from origin...``".
-``Origin`` is Git terminology for "from where the dataset was copied from" -- ``origin`` therefore is the original ``DataLad-101`` dataset.
-If your roommate did not have access to the same file system or you'd deleted your ``DataLad-101`` dataset, the second file would be retrieved "``from web...``" - its registered second source, its original download URL.
+``Origin`` is Git terminology for "from where the dataset was copied from" -- ``origin`` therefore is the original ``DataLad-101`` dataset from which file content can be retrieved from very fast.
 
-Let's see this in action for another file.
-The ``.mp3`` files in the ``longnow`` seminar series are registered in a similar fashion [#f1]_.
+If your roommate did not have access to the same file system or you deleted your ``DataLad-101`` dataset, this output would look differently.
+The ``datalad get`` command would fail on the ``TLCL.pdf`` book without a known second source, and ``bash_guide.pdf`` would be retrieved "``from web...``" - the registered second source, its original download URL.
+Let's see a retrieval from ``web`` in action for another file.
+The ``.mp3`` files in the ``longnow`` seminar series have registered web URLs [#f1]_.
 
 .. runrecord:: _examples/DL-101-117-104
    :language: console
@@ -134,6 +135,7 @@ The ``.mp3`` files in the ``longnow`` seminar series are registered in a similar
    $ git annex whereis Long_Now__Seminars_About_Long_term_Thinking/2003_11_15__Brian_Eno__The_Long_Now.mp3
    $ datalad get Long_Now__Seminars_About_Long_term_Thinking/2003_11_15__Brian_Eno__The_Long_Now.mp3
 
+As you can see at the end of the ``get`` result, the files has been retrieved ``from web...``.
 Quite useful, this provenance, right?
 Let's add a note on the :gitannexcmd:`whereis` command.
 Again, do this in the original ``DataLad-101`` directory, and do not forget to save it.

@@ -1,8 +1,7 @@
-# but not for this:
-$ git annex whereis Long_Now__Seminars_About_Long_term_Thinking/2005_01_15__James_Carse__Religious_War_In_Light_of_the_Infinite_Game.mp3
-whereis Long_Now__Seminars_About_Long_term_Thinking/2005_01_15__James_Carse__Religious_War_In_Light_of_the_Infinite_Game.mp3 (2 copies)
+$ git annex whereis books/bash_guide.pdf
+whereis books/bash_guide.pdf (2 copies)
   	00000000-0000-0000-0000-000000000001 -- web
-   	✂UUID✂ -- mih@medusa:/tmp/seminars-on-longterm-thinking
+	✂UUID✂ -- me@appveyor-vm:~/dl-101/DataLad-101 [origin]
 
-  web: http://podcast.longnow.org/salt/redirect/salt-020050114-carse-podcast.mp3
+  web: https://www.tldp.org/LDP/Bash-Beginners-Guide/Bash-Beginners-Guide.pdf
 ok

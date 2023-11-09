@@ -813,7 +813,7 @@ section.
        fatal: Could not read from remote repository.
 
    Git seems pretty insistent (given the amount of error messages) that
-   it can not seem to find a Git repository at the location the ``.git/config``
+   it cannot seem to find a Git repository at the location the ``.git/config``
    file specified. Luckily, we can provide this information. Edit the file with
    an editor of your choice and fix the path from
    ``url = ../mock_user/DataLad-101`` to
@@ -874,7 +874,7 @@ annexed file into Git.
 Consider you intend to share the cropped ``.png`` images you created from the
 ``longnow`` logos. Would you publish your ``DataLad-101`` dataset so :term:`GitHub`
 or :term:`GitLab`, these files would not be available to others, because annexed
-dataset contents can not be published to these services.
+dataset contents cannot be published to these services.
 Even though you could find a third party service of your choice
 and publish your dataset *and* the annexed data (see section :ref:`sharethirdparty`),
 you're feeling lazy today. And since it
@@ -1062,7 +1062,7 @@ We will demonstrate this by generating an empty file:
    $ dd if=/dev/zero | head -c 18520 > a.pdf
    $ datalad save -m "add some file" a.pdf
 
-DataLad will safeguard dropping content that it can not retrieve again:
+DataLad will safeguard dropping content that it cannot retrieve again:
 
 .. runrecord:: _examples/DL-101-136-178
    :workdir: dl-101/DataLad-101

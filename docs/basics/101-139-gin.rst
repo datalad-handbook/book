@@ -129,7 +129,7 @@ repository's ``https`` url. This does not require a user account on Gin.
    * Browser bar: ``https://gin.g-node.org/<user>/<repo>``
    * Copy-paste "HTTPS clone": ``https://gin.g-node.org/<user>/<repo>.git``
 
-   A dataset cloned from ``https://gin.g-node.org/<user>/<repo>.git``, however, can not retrieve annexed files!
+   A dataset cloned from ``https://gin.g-node.org/<user>/<repo>.git``, however, cannot retrieve annexed files!
 
 .. runrecord:: _examples/DL-101-139-107
    :language: console

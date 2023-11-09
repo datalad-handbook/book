@@ -261,7 +261,7 @@ However, since I want to go back to my home folder, it's much faster to run:
 
    $ cd ~
 
-Windows similarly knows the ``.`` and ``..`` shortcuts, but can not handle the ``~`` shortcut.
+Windows similarly knows the ``.`` and ``..`` shortcuts, but cannot handle the ``~`` shortcut.
 In order to quickly get home, you could use
 
 .. code-block::

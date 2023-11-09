@@ -60,7 +60,7 @@ If you can, try to avoid trouble with unicode
 =============================================
 
 Lucky are the people with boring names without accents and special characters.
-The others may have an extra bit of fun in their lives when software can not handle their names.
+The others may have an extra bit of fun in their lives when software cannot handle their names.
 
 Even though certain names look identical across file systems or operating systems, their underlying unicode character sequences can differ.
 For example, the character "é" can be represented as the single Unicode character u+00E9 (latin small letter e with acute), or as the two Unicode characters u+0065 and u+0301 (the letter "e" plus a combining acute symbol).
@@ -87,7 +87,7 @@ Avoid illegal characters
 Different operating systems disallow certain characters in file names, and things will be messy if you were to share a file with a character that works on your machine with a machine that regards it as illegal.
 Let's start easy, and with characters that you can actually find on your keyboard...
 
-On Unix systems, the forward slash ``/`` can not be used in file names.
+On Unix systems, the forward slash ``/`` cannot be used in file names.
 This is because this character is used to denote directory boundaries.
 On Windows systems, on the other hand, there is quite a long list of characters:
 

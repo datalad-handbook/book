@@ -18,7 +18,7 @@ provide helpful information for you as well!", says your
 room mate. "How could you get any insightful notes that
 I make in my dataset, or maybe the results of our upcoming
 mid-term project? Its a bit unfair that I can get your work,
-but you can not get mine."
+but you cannot get mine."
 
 .. index::
    pair: register file with URL in dataset; with DataLad

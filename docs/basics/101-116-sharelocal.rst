@@ -44,7 +44,7 @@ for him to access and work with.
 
 This is indeed a common real-world use case: Two users on a shared
 file system sharing a dataset with each other.
-But as we can not easily simulate a second user in this handbook,
+But as we cannot easily simulate a second user in this handbook,
 for now, you will have to share your dataset with yourself.
 This endeavor serves several purposes: For one, you will experience a very easy
 way of sharing a dataset. Secondly, it will show you
@@ -252,7 +252,7 @@ the file and is accessible, though, git-annex will get the content.
 Therefore, for the books in your dataset, retrieving contents works because you
 and your room mate share the same file system. If you'd share the dataset
 with anyone without access to your file system, ``datalad get`` would not
-work, because it can not access your files.
+work, because it cannot access your files.
 
 But there is one book that does not suffer from this restriction:
 The ``bash_guide.pdf``.

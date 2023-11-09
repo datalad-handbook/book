@@ -110,7 +110,7 @@ we can set subdatasets to previous states, or *update* them.
    Thus, from the root of ``DataLad-101``, this command would have given you the
    subdataset's history as well:
 
-   .. code-block:: bash
+   .. code-block:: console
 
       $ git -C recordings/longnow log --oneline
 

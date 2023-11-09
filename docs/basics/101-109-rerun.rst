@@ -77,9 +77,9 @@ We can use the shorthand "BF" to denote "Bug fix" in the commit message.
 What we *could* do is run the same :dlcmd:`run` command as before to recreate
 the file, but now with all of the contents:
 
-.. code-block:: bash
+.. code-block:: console
 
-   # do not execute this!
+   $ # do not execute this!
    $ datalad run -m "create a list of podcast titles" \
      "bash code/list_titles.sh > recordings/podcasts.tsv"
 

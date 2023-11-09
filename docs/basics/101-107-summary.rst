@@ -8,9 +8,9 @@ and making simple modifications *locally*.
   to the dataset and use the ``-c text2git`` configuration, but we will see later why.
   This is the command structure:
 
-  .. code-block:: bash
+  .. code-block:: console
 
-    datalad create --description "here is a description" -c text2git PATH
+    $ datalad create --description "here is a description" -c text2git PATH
 
 * Thanks to :term:`Git` and :term:`git-annex`, the dataset has a history to track files and their
   modifications. Built-in Git tools (:gitcmd:`log`) or external tools (such as ``tig``) allow to explore
@@ -23,9 +23,9 @@ and making simple modifications *locally*.
   specifying a path, all untracked files and all file changes will be committed to the history together!
   This is the command structure:
 
-  .. code-block:: bash
+  .. code-block:: console
 
-    datalad save -m "here is a commit message" [PATH]
+    $ datalad save -m "here is a commit message" [PATH]
 
 * The typical local workflow is simple: *Modify* the dataset by adding or
   modifying files, *save* the changes as meaningful units to the history,
@@ -53,7 +53,7 @@ and experienced the concept of modular nesting datasets.
 
 * A published dataset can be installed with the :dlcmd:`clone` command:
 
-  .. code-block:: bash
+  .. code-block:: console
 
      $ datalad clone [--dataset PATH] SOURCE-PATH/URL [DESTINATION PATH]
 

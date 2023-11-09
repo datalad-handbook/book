@@ -75,24 +75,24 @@ dataset, i.e., ``DataLad-101``, as the dataset to save to:
    (as necessary here), start a ``save`` from the superdataset and have the
    ``-d/--dataset`` option point to its root:
 
-   .. code-block:: bash
+   .. code-block:: console
 
-      # in the root of the superds
+      $ # in the root of the superds
       $ datalad save -d . -m "update subdataset"
 
    If you are in the superdataset, and you want to save an unsaved modification
    in a subdataset to the *subdatasets* history, let ``-d/--dataset`` point to
    the subdataset:
 
-   .. code-block:: bash
+   .. code-block:: console
 
-      # in the superds
+      $ # in the superds
       $ datalad save -d path/to/subds -m "modified XY"
 
    The recursive option allows you to save any content underneath the specified
    directory, and recurse into any potential subdatasets:
 
-   .. code-block:: bash
+   .. code-block:: console
 
       $ datalad save . --recursive
 

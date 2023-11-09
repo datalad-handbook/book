@@ -133,7 +133,7 @@ DataLad in the editor)!
    can do so during a so-called "interactive rebase". The command
    for this is
 
-   .. code-block:: bash
+   .. code-block:: console
 
       $ git rebase -i HEAD~N
 
@@ -225,9 +225,9 @@ undo commits by resetting the history of a dataset to an earlier version.
 exact behavior it, but the relevant one for this aim is ``--mixed`` [#f3]_.
 Specifying the command:
 
-.. code-block:: bash
+.. code-block:: console
 
-   git reset --mixed COMMIT
+   $ git reset --mixed COMMIT
 
 will preserve all changes made to files since the specified
 commit in the dataset but remove them from the dataset's history.
@@ -509,7 +509,7 @@ The cat-file command is very versatile, and
 of its functionality. To use it to see the contents of a file at a previous
 state as done above, this is how the general structure looks like:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ git cat-file --textconv SHASUM:<path/to/file>
 
@@ -648,7 +648,7 @@ the changes of an unwanted commit are reverted.
 
 The command looks like this:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ git revert SHASUM
 
@@ -661,7 +661,7 @@ be reverted.
 
    You can also specify a range of commits like this:
 
-   .. code-block:: bash
+   .. code-block:: console
 
       $ git revert OLDER_SHASUM..NEWERSHASUM
 
@@ -673,7 +673,7 @@ be reverted.
    reversal commits. If you however want the reversal of a range of commits
    saved in a single commit, supply the ``--no-commit`` option as in
 
-   .. code-block:: bash
+   .. code-block:: console
 
       $ git revert --no-commit OLDER_SHASUM..NEWERSHASUM
 

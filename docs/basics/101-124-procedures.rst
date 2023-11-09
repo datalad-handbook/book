@@ -32,7 +32,7 @@ This particular procedure lives in a script called
 in this script is not large, and the relevant lines of code
 are highlighted:
 
-.. code-block:: bash
+.. code-block:: python
    :emphasize-lines: 12, 16-17
 
     import sys
@@ -144,9 +144,9 @@ command. This is a peculiarity of these procedures because, by convention,
 all of these procedures are written to not require arguments.
 The command structure looks like this:
 
-.. code-block:: bash
+.. code-block:: console
 
-   datalad create -c text2git DataLad-101
+   $ datalad create -c text2git DataLad-101
 
 Note that the ``cfg_`` prefix of the procedures is omitted in these
 calls to keep it extra simple and short. The
@@ -162,7 +162,7 @@ could thus be applied within a :dlcmd:`create` as
    If you want to apply several configurations at once, feel free to do so,
    for example like this:
 
-   .. code-block:: bash
+   .. code-block:: console
 
       $ datalad create -c yoda -c text2git
 
@@ -228,7 +228,7 @@ was applied.
      a short "help" description on what the procedure does. Below is a minimal
      ``.datalad/config`` entry for a custom procedure:
 
-     .. code-block:: bash
+     .. code-block:: ini
 
         [datalad "procedures.<NAME>"]
            help = This is a string to describe what the procedure does
@@ -250,7 +250,7 @@ was applied.
          or ``datalad.locations.dataset-procedures`` (for changing the *local* default).
          An example ``.datalad/config`` entry for the local scope is shown below.
 
-         .. code-block:: bash
+         .. code-block:: ini
 
             [datalad "locations"]
                 dataset-procedures = relative/path/from/dataset-root
@@ -258,7 +258,7 @@ was applied.
     - By default, DataLad will call a procedure with a standard template
       defined by a format string:
 
-      .. code-block:: bash
+      .. code-block::
 
          interpreter {script} {ds} {arguments}
 
@@ -268,7 +268,7 @@ was applied.
       An example ``.datalad/config`` entry with a changed call format string
       is shown below.
 
-      .. code-block:: bash
+      .. code-block:: ini
 
          [datalad "procedures.<NAME>"]
             help = This is a string to describe what the procedure does

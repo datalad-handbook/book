@@ -235,9 +235,9 @@ To explicitly install all potential subdatasets *recursively*, that is,
 all of the subdatasets inside it as well, one can give the
 ``-r``/``--recursive`` option to :dlcmd:`get`:
 
-.. code-block:: bash
+.. code-block:: console
 
-  datalad get -n -r <subds>
+  $ datalad get -n -r <subds>
 
 This would install the ``subds`` subdataset and all potential further
 subdatasets inside of it, and the meta data about file hierarchies would
@@ -255,9 +255,9 @@ However, there is a middle way [#f1]_: The ``--recursion-limit`` option let's
 you specify how many levels of subdatasets should be installed together
 with the first subdataset:
 
-.. code-block:: bash
+.. code-block:: console
 
-  datalad get -n -r --recursion-limit 1 <subds>
+  $ datalad get -n -r --recursion-limit 1 <subds>
 
 
 To summarize what you learned in this section, write a note on how to

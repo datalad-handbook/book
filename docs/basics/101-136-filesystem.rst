@@ -358,10 +358,10 @@ as if the file was generated at once, instead of successively over the course:
    :notes: clean-up
    :cast: 03_git_annex_basics
 
-   # in midterm_project
+   $ # in midterm_project
    $ git reset --hard HEAD~
 
-   # in DataLad-101
+   $ # in DataLad-101
    $ cd ../
    $ git reset --hard HEAD~
 
@@ -462,7 +462,7 @@ but one paragraph. Let's quickly clean up by moving the file back:
    :workdir: dl-101/DataLad-101/midterm_project
    :notes: move file back
 
-   # in midterm_project
+   $ # in midterm_project
    $ git annex unannex TLCL.pdf
 
 .. runrecord:: _examples/DL-101-136-138
@@ -784,10 +784,10 @@ be fixed easily though. We can try this in the :find-out-more:`on adjusting sibl
       :language: console
       :workdir: dl-101/DataLad-101
 
-      # add an intermediate directory
+      $ # add an intermediate directory
       $ cd ../mock_user
       $ mkdir onemoredir
-      # move your room mates dataset into this new directory
+      $ # move your room mates dataset into this new directory
       $ mv DataLad-101 onemoredir
 
    This means that relative to your ``DataLad-101``, your room mates
@@ -800,9 +800,9 @@ be fixed easily though. We can try this in the :find-out-more:`on adjusting sibl
       :exitcode: 1
       :workdir: dl-101/mock_user
 
-      # navigate back into your dataset
+      $ # navigate back into your dataset
       $ cd ../DataLad-101
-      # attempt a datalad update
+      $ # attempt a datalad update
       $ datalad update
 
    Here we go:
@@ -947,7 +947,7 @@ by going back into the history of the dataset or reverting the removal commit:
    :notes: 2 ways to remove a file from dataset: remove the file from the current state of the repository (the *worktree*) but keeping the content in the history, or remove content entirely from a dataset and its history.
    :cast: 03_git_annex_basics
 
-   # download a file
+   $ # download a file
    $ datalad download-url -m "Added flower mosaic from wikimedia" \
      https://upload.wikimedia.org/wikipedia/commons/a/a5/Flower_poster_2.jpg \
      --path flowers.jpg
@@ -959,7 +959,7 @@ by going back into the history of the dataset or reverting the removal commit:
    :cast: 03_git_annex_basics
 
 
-   # removal is easy:
+   $ # removal is easy:
    $ rm flowers.jpg
 
 This will lead to a dirty dataset status:
@@ -1139,7 +1139,7 @@ fitting ``--reckless`` mode, such as ``datalad drop --what all --reckless kill -
    :notes: To get rid of subdatasets one can either uninstall or remove them. let's clone one to see:
    :cast: 03_git_annex_basics
 
-   # clone a subdataset - the content is irrelevant, so why not a cloud :)
+   $ # clone a subdataset - the content is irrelevant, so why not a cloud :)
    $ datalad clone -d . \
     https://github.com/datalad-datasets/disneyanimation-cloud.git \
     cloud
@@ -1182,7 +1182,7 @@ subsequently remove it with the :dlcmd:`remove` command:
    :notes: to completely remove the dataset, use datalad remove
    :cast: 03_git_annex_basics
 
-   # delete the subdataset
+   $ # delete the subdataset
    $ datalad remove -m "remove obsolete subds" -d . cloud
 
 Note that for both commands a pointer to the *current directory* will not work.

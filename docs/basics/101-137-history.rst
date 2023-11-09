@@ -350,9 +350,9 @@ gets annexed with an accidental :dlcmd:`save`:
    :language: console
    :workdir: dl-101/DataLad-101
 
-   # create an empty pdf file
+   $ # create an empty pdf file
    $ convert xc:none -page Letter apdffile.pdf
-   # accidentally save it
+   $ # accidentally save it
    $ datalad save
 
 This accidental :dlcmd:`save` has thus added both text files

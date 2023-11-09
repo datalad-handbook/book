@@ -45,7 +45,7 @@ want to run by taking a look into the history of the dataset
    :notes: More cool things on shared datasets: rerunning run commands
    :cast: 04_collaboration
 
-   # navigate into the shared copy
+   $ # navigate into the shared copy
    $ cd ../mock_user/DataLad-101
 
 .. runrecord:: _examples/DL-101-118-102
@@ -55,7 +55,7 @@ want to run by taking a look into the history of the dataset
    :notes: find the shasum
    :cast: 04_collaboration
 
-   # lets view the history
+   $ # lets view the history
    $ git log --oneline -n 10
 
 Ah, there it is, the second most recent commit.

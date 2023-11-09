@@ -32,7 +32,7 @@ Before getting another PDF, let's query git-annex where its content is stored:
    :notes: git-annex whereis to find out where content is stored
    :cast: 04_collaboration
 
-   # navigate back into the clone of DataLad-101
+   $ # navigate back into the clone of DataLad-101
    $ cd ../mock_user/DataLad-101
    $ git annex whereis books/TLCL.pdf
 
@@ -52,7 +52,7 @@ You can recognize a path to the dataset on your computer, prefixed with the user
    The :gitannexcmd:`whereis` command, finally, is where such a description
    can become handy: If you had created the dataset with
 
-   .. code-block:: bash
+   .. code-block:: console
 
       $ datalad create --description "course on DataLad-101 on my private laptop" -c text2git DataLad-101
 
@@ -130,7 +130,7 @@ The ``.mp3`` files in the ``longnow`` seminar series have registered web URLs [#
    :notes: More on how git-annex whereis behaves
    :cast: 04_collaboration
 
-   # navigate into the subdirectory
+   $ # navigate into the subdirectory
    $ cd recordings/longnow
    $ git annex whereis Long_Now__Seminars_About_Long_term_Thinking/2003_11_15__Brian_Eno__The_Long_Now.mp3
    $ datalad get Long_Now__Seminars_About_Long_term_Thinking/2003_11_15__Brian_Eno__The_Long_Now.mp3
@@ -146,10 +146,10 @@ Again, do this in the original ``DataLad-101`` directory, and do not forget to s
    :notes: a note in original dataset
    :cast: 04_collaboration
 
-   # navigate back:
+   $ # navigate back:
    $ cd ../../../../DataLad-101
 
-   # write the note
+   $ # write the note
    $ cat << EOT >> notes.txt
    The command "git annex whereis PATH" lists the repositories that have
    the file content of an annexed file. When using "datalad get" to

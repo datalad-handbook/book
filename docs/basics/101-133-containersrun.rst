@@ -186,7 +186,7 @@ name to give to the container, and a path or URL to a container image:
    :cast: 10_yoda
    :notes: Computational reproducibility: add a software container
 
-   # we are in the midterm_project subdataset
+   $ # we are in the midterm_project subdataset
    $ datalad containers-add midterm-software --url shub://adswa/resources:2
 
 .. index::

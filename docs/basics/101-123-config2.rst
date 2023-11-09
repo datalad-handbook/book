@@ -192,7 +192,7 @@ Next, we create subdatasets in the subdatasets:
     save(ok): . (dataset)
     create(ok): subsubds2 (dataset)
 
-    # create two subdatasets in subds2
+    $ # create two subdatasets in subds2
     $ datalad -C superds/subds2 create -d . subsubds1 && datalad -C superds/subds2 create -d . subsubds2
     add(ok): subsubds1 (file)
     add(ok): .gitmodules (file)

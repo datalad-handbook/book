@@ -36,7 +36,7 @@ evolved. Let's query the superdataset what it thinks about this.
    :language: console
    :workdir: dl-101/DataLad-101/midterm_project
 
-   # move into the superdataset
+   $ # move into the superdataset
    $ cd ../
    $ datalad status
 

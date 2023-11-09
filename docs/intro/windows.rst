@@ -137,7 +137,7 @@ The Linux distribution(s) of your choice becomes an icon on your task bar, and y
 It does not support graphical user (GUI) interfaces or applications.
 So while common Linux distributions have GUIs for various software, in WSL2 you will only be able to use a terminal.
 Also, it is important to know that `older versions of WSL did not allow accessing or modifying Linux files via Windows <https://devblogs.microsoft.com/commandline/do-not-change-linux-files-using-windows-apps-and-tools>`_.
-Recent versions (starting with Windows 10 version 1903) `allow accessing Linux files with Windows tools <https://devblogs.microsoft.com/commandline/whats-new-for-wsl-in-windows-10-version-1903>`_, although some tweaking, explained in :ref:`wslfiles`, is necessary.
+Recent versions (starting with Windows 10 version 1903) `allow accessing Linux files with Windows tools <https://devblogs.microsoft.com/commandline/whats-new-for-wsl-in-windows-10-version-1903>`_, although some tweaking, explained in the Windows-Wit in :ref:`wslfiles`, is necessary.
 
 **How do I start?**
 Microsoft has detailed installation instructions `here <https://learn.microsoft.com/en-us/windows/wsl/install>`_.

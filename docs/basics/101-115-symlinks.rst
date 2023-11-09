@@ -247,6 +247,7 @@ will take a closer look at that.
    Even more mesmerizing things about git-annex can be found in its `documentation <https://git-annex.branchable.com/git-annex>`_.
 
 .. index:: ! broken symlink, ! symlink; broken
+.. _wslfiles:
 
 Broken symlinks
 ^^^^^^^^^^^^^^^
@@ -275,6 +276,17 @@ Alternatively, use the :shcmd:`ls` command in a terminal instead of a file manag
 Other tools may be more more specialized, smaller, or domain-specific, and may fail to correctly work with broken symlinks, or display unhelpful error messages when handling them, or require additional flags to modify their behavior.
 When encountering unexpected behavior or failures, try to keep in mind that a dataset without retrieved content appears to be a pile of broken symlinks to a range of tools, consult a tools documentation with regard to symlinks, and check whether data retrieval fixes persisting problems.
 
+A last special case on symlinks exists if you are using DataLad on the Windows Subsystem for Linux.
+If so, please take a look into the Windows Wit below.
+
+.. index::
+   pair: access WSL2 symlinked files; on Windows
+   single: WSL2; symlink access
+   pair: log; Git command
+.. windows-wit:: Accessing symlinked files from your Windows system
+
+   .. include:: topic/wsl2-symlinkaccess.rst
+
 
 Finally, if you are still in the ``books/`` directory, go back into the root of
 the superdataset.
@@ -286,20 +298,3 @@ the superdataset.
    :cast: 03_git_annex_basics
 
    $ cd ../
-
-
-.. _wslfiles:
-
-Cross-OS filesharing with symlinks (WSL2 only)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Are you using DataLad on the Windows Subsystem for Linux?
-If so, please take a look into the Windows Wit.
-
-.. index::
-   pair: access WSL2 symlinked files; on Windows
-   single: WSL2; symlink access
-   pair: log; Git command
-.. windows-wit:: Accessing symlinked files from your Windows system
-
-   .. include:: topic/wsl2-symlinkaccess.rst

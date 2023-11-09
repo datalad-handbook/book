@@ -708,7 +708,7 @@ procedures.
          `the docs <https://git-annex.branchable.com/internals/hashing>`_.
 
 .. [#f3] To re-read about how git-annex's object tree works, check out section
-         :ref:`symlink`, and pay close attention to the hidden section.
+         :ref:`symlink`, and pay close attention to the :find-out-more:`on the object tree <fom-objecttree>`.
          Additionally, you can find a lot of background information in git-annex's
          `documentation <https://git-annex.branchable.com/internals>`_.
 

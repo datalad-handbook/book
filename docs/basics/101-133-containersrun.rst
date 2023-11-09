@@ -143,12 +143,12 @@ For this, we will pull an image from Singularity hub. This image was made
 for the handbook, and it contains the relevant Python setup for
 the analysis. Its recipe lives in the handbook's
 `resources repository <https://github.com/datalad-handbook/resources>`_.
-If you're curious how to create a Singularity image, the hidden
-section below has some pointers:
+If you're curious how to create a Singularity image, the :find-out-more:`on this topic <fom-container-creation>` has some pointers:
 
 .. index::
    pair: build container image; with Singularity
 .. find-out-more:: How to make a Singularity image
+   :name: fom-container-creation
 
    Singularity containers are build from image files, often
    called "recipes", that hold a "definition" of the software container and its

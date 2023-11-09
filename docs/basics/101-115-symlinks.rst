@@ -21,7 +21,7 @@ We'll take a look together, using the ``books/`` directory as an example:
 .. index::
    pair: no symlinks; on Windows
    pair: tree; terminal command
-.. windows-wit:: This will look different to you
+.. windows-wit:: Dataset directories look different on Windows
 
    .. include:: topic/tree-symlinks.rst
 
@@ -87,7 +87,7 @@ tree is also known as the *annex* of a dataset.
 .. index::
    pair: elevated storage demand; in adjusted mode
    pair: no symlinks; on Windows
-.. windows-wit:: What happens on Windows?
+.. windows-wit:: File content management on Windows
    :name: woa_objecttree
    :float:
 

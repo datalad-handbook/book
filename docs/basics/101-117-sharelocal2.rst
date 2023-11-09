@@ -125,7 +125,7 @@ The ``.mp3`` files in the ``longnow`` seminar series are registered in a similar
 
 .. runrecord:: _examples/DL-101-117-104
    :language: console
-   :workdir: dl-101/DataLad-101
+   :workdir: dl-101/mock_user/DataLad-101
    :notes: More on how git-annex whereis behaves
    :cast: 04_collaboration
 

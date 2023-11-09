@@ -1,8 +1,11 @@
 .. _history:
 
-Back and forth in time
-----------------------
+Git things done
+---------------
 
+.. image:: ../artwork/src/versioncontrol.svg
+   :width: 50%
+   :align: center
 
 Almost everyone inadvertently deleted or overwrote files at some point with
 a hasty operation that caused data fatalities or at least troubles to
@@ -14,8 +17,6 @@ it is possible to look at previous states of the data, or revert changes --
 even years after they happened -- thanks to the underlying version control
 system :term:`Git`.
 
-.. figure:: ../artwork/src/versioncontrol.svg
-   :width: 70%
 
 To get a glimpse into how to work with the history of a dataset, today's lecture
 has an external Git-expert as a guest lecturer.
@@ -47,8 +48,8 @@ few abbreviated hashes of the 15 most recent commits [#f2]_:
 "You tell me what you would be interested in doing, and I'll show you how it's
 done. For the rest of the lecture, call me Google!"
 
-Fixing (empty) commit messages
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Fix commit messages
+===================
 
 From the back of the lecture hall comes a question you are really glad
 someone asked: "It has happened to me that I accidentally did a
@@ -189,6 +190,9 @@ DataLad in the editor)!
 
 .. index::
    pair: stop content tracking; with Git
+
+Change history
+==============
 
 Untracking accidentally saved contents (tracked in Git)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -726,7 +730,7 @@ files are still present.
    pair: resolve merge conflict; with Git
 
 Oh no! I'm in a merge conflict!
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+===============================
 
 When working with the history of a dataset, especially when rewriting
 the history with an interactive rebase or when reverting commits, it is
@@ -756,7 +760,7 @@ overview on the necessary steps, and a pointer to a more comprehensive guide.
 GitHub has an `excellent resource on how to deal with merge conflicts <https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line>`_.
 
 Summary
-^^^^^^^
+=======
 
 This guest lecture has given you a glimpse into how to work with the
 history of your DataLad datasets.

@@ -3,6 +3,20 @@
 Miscellaneous file system operations
 ------------------------------------
 
+.. image:: ../artwork/src/help.svg
+   :width: 50%
+   :align: center
+
+After all of the DataLad-101 lectures and tutorials so far, you really begin to
+appreciate the pre-crafted examples and tasks this book provides.
+“Nothing really goes wrong, and if so, it’s intended”, you acknowledge.
+“But how does this prepare me for life after the course? I’ve seen a lot of
+different errors and know many caveats and principles already, but I certainly
+will mess something up at one point. How can I get help, or use the history of
+the dataset to undo what I screwed up? Also, I'm not sure whether I know what I
+can and cannot do with the files inside of my dataset... What if I would
+like to remove one, for example?”
+
 With all of the information about symlinks and object trees,
 you might be reluctant to perform usual file system managing
 operations, such as copying, moving, renaming or deleting
@@ -30,6 +44,10 @@ dataset, we are cleaning up within each segment with
 common git operations that manipulate the datasets
 history -- be sure to execute these commands as well (and
 be sure to be in the correct dataset).
+
+Move files
+==========
+
 
 .. index::
    pair: rename file; with DataLad
@@ -628,6 +646,8 @@ Let's clean up:
 
    $ git reset --hard HEAD~2
 
+Move datasets
+=============
 
 Moving/renaming a subdirectory or subdataset
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -861,6 +881,9 @@ be fixed easily though. We can try this in the :find-out-more:`on adjusting sibl
       $ cd ../DataLad-101 && sed -i 's/..\/mock_user\/onemoredir\/DataLad-101/..\/mock_user\/DataLad-101/' .git/config
 
 
+Stop tracking
+=============
+
 Getting contents out of git-annex
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -1020,6 +1043,7 @@ where. Because the command works on annexed contents, it will drop file *content
 from a dataset, but it will retain the symlink for this file (as this symlink
 is stored in Git).
 
+
 :dlcmd:`drop` can take any number of files.
 If an entire dataset is specified, all file content in sub-*directories* is
 dropped automatically, but for content in sub-*datasets* to be dropped, the
@@ -1119,6 +1143,9 @@ The command ``git-filter-repo <path-specification> --force`` will "filter-out",
 i.e., remove all files **but the ones specified** in ``<path-specification>``
 from the dataset's history. An advanced chapter in the online-handbook
 shows an example invocation.
+
+Remove datasets
+===============
 
 .. index::
    pair: drop; DataLad command
@@ -1230,7 +1257,7 @@ Be aware though deleting a dataset in which ever way will
 irretrievably delete the dataset, it's contents, and it's history.
 
 Summary
-^^^^^^^
+=======
 
 To sum up, file system management operations are safe and easy.
 Even if you are currently confused about one or two operations,

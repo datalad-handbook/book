@@ -139,8 +139,8 @@ This comes with two very important advantages:
 
 One, should you have copies of the
 same data in different places of your dataset, the symlinks of these files
-point to the same place (in order to understand why this is the case, you
-will need to read the :find-out-more:`about the object tree <fom-objecttree>`).
+point to the same place - in order to understand why this is the case, you
+will need to read the :find-out-more:`about the object tree <fom-objecttree>`.
 Therefore, any amount of copies of a piece of data
 is only one single piece of data in your object tree. This, depending on
 how much identical file content lies in different parts of your dataset,

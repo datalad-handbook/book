@@ -195,8 +195,7 @@ and hostname of your computer. "This", you exclaim, excited about your own reali
    pair: set description for dataset location; with DataLad
 .. find-out-more:: What is this location, and what if I provided a description?
 
-   Back in the very first section of the Basics, :ref:`createDS`, a hidden
-   section mentioned the ``--description`` option of :dlcmd:`create`.
+   Back in the very first section of the Basics, :ref:`createDS`, a :ref:`Find-out-more mentioned the '--description' option <createdescription>`   of :dlcmd:`create`.
    With this option, you can provide a description about the dataset *location*.
 
    The :gitannexcmd:`whereis` command, finally, is where such a description

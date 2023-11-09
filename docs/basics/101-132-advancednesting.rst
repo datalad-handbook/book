@@ -123,7 +123,7 @@ interested in this, checkout the :ref:`dedicated Findoutmore <fom-status>`.
    Note that both of these commands return only the ``untracked`` file and not
    not the ``modified`` subdataset because we're explicitly querying only the
    subdataset for its status.
-   If you however, as done outside of this hidden section, you want to know about
+   If you however, as done outside of this Find-out-more, you want to know about
    the subdataset record in the superdataset without causing a status query for
    the state *within* the subdataset itself, you can also provide an explicit
    path to the dataset (without a trailing path separator). This can be used
@@ -171,7 +171,7 @@ interested in this, checkout the :ref:`dedicated Findoutmore <fom-status>`.
    option (especially powerful when combined with ``-f json_pp``). To get a complete overview on what you could do, check out the technical
    documentation of :dlcmd:`status` `here <https://docs.datalad.org/en/latest/generated/man/datalad-status.html>`_.
 
-   Before we leave this hidden section, lets undo the modification of the subdataset
+   Before we leave this Find-out-more, lets undo the modification of the subdataset
    by removing the untracked file:
 
    .. runrecord:: _examples/DL-101-132-109

@@ -67,8 +67,7 @@ or create your own one.
 To specify dataset content to be git-ignored, you can either write
 a full file name, e.g. ``playlists/my-little-pony-themesongs/Friendship-is-magic.mp3``
 into this file, or paths or patterns that make use of globbing, such as
-``playlists/my-little-pony-themesongs/*``. The hidden section at the end of this
-page contains some general rules for patterns in ``.gitignore`` files. Afterwards,
+``playlists/my-little-pony-themesongs/*``. The :find-out-more:`on general rules for patterns in .gitignore files <fom-gitignore>` contains a helpful overview. Afterwards,
 you just need to save the file once to your dataset so that it is version controlled.
 If you have new content you do not want to track, you can add
 new paths or patterns to the file, and save these modifications.
@@ -120,6 +119,7 @@ ignored! Therefore, a ``.gitignore`` file can give you a space inside of
 your dataset to be messy, if you want to be.
 
 .. find-out-more:: Rules for .gitignore files
+   :name: fom-gitignore
 
    Here are some general rules for the patterns you can put into a ``.gitignore``
    file, taken from the book `Pro Git <https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository#_ignoring>`_ :

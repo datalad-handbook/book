@@ -62,7 +62,7 @@ dataset -- lacks a configuration for data access about this server::
 
 However, data access can be configured by
 the user if the required authentication and credential type are supported by
-DataLad (a list is given in the hidden section below).
+DataLad - a list is given in the :find-out-more:`on authentication <fom-provider-auth>`.
 With a data access configuration in place, commands such as
 :dlcmd:`download-url` or :dlcmd:`addurls` can work with urls
 the point to the location of the data to be retrieved, and
@@ -82,6 +82,7 @@ The following information is needed:
 The example below sheds some light one this.
 
 .. find-out-more:: Which authentication and credential types are possible?
+   :name: fom-provider-auth
 
    When configuring custom data access, credential and authentication type
    are required information. Below, we list the most common choices for these fields.

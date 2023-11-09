@@ -351,14 +351,14 @@ was applied.
       :language: console
       :workdir: procs/somedataset
 
-      #the directory structure has been created
+      $ # the directory structure has been created
       $ tree
 
    .. runrecord:: _examples/DL-101-124-108
       :workdir: procs/somedataset
       :language: console
 
-      #lets check out the contents in the files
+      $ # lets check out the contents in the files
       $ cat example2  && echo '' && cat somedir/example
 
    .. runrecord:: _examples/DL-101-124-109

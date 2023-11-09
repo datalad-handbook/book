@@ -131,7 +131,7 @@ prior to running the command.
    $ datalad run -m "Resize logo for slides" \
    --input "recordings/longnow/.datalad/feed_metadata/logo_salt.jpg" \
    "convert -resize 400x400 recordings/longnow/.datalad/feed_metadata/logo_salt.jpg recordings/salt_logo_small.jpg"
-   # or shorter:
+   $ # or shorter:
    $ datalad run -m "Resize logo for slides" \
    -i "recordings/longnow/.datalad/feed_metadata/logo_salt.jpg" \
    "convert -resize 400x400 recordings/longnow/.datalad/feed_metadata/logo_salt.jpg recordings/salt_logo_small.jpg"
@@ -191,7 +191,7 @@ To establish best-practices, let's specify the input even though it is already p
    $ datalad run -m "Resize logo for slides" \
    --input "recordings/longnow/.datalad/feed_metadata/logo_salt.jpg" \
    "convert -resize 450x450 recordings/longnow/.datalad/feed_metadata/logo_salt.jpg recordings/salt_logo_small.jpg"
-   # or shorter:
+   $ # or shorter:
    $ datalad run -m "Resize logo for slides" \
    -i "recordings/longnow/.datalad/feed_metadata/logo_salt.jpg" \
    "convert -resize 450x450 recordings/longnow/.datalad/feed_metadata/logo_salt.jpg recordings/salt_logo_small.jpg"
@@ -347,7 +347,7 @@ flag and see their magic, let's crop the second logo, ``logo_interval.jpg``:
    --output "recordings/interval_logo_small.jpg" \
    "convert -resize 450x450 recordings/longnow/.datalad/feed_metadata/logo_interval.jpg recordings/interval_logo_small.jpg"
 
-   # or shorter:
+   $ # or shorter:
    $ datalad run -m "Resize logo for slides" \
    -i "recordings/longnow/.datalad/feed_metadata/logo_interval.jpg" \
    -o "recordings/interval_logo_small.jpg" \

@@ -31,7 +31,7 @@ We'll take a look together, using the ``books/`` directory as an example:
    :notes: We have to talk about symlinks now.
    :cast: 03_git_annex_basics
 
-   # in the root of DataLad-101
+   $ # in the root of DataLad-101
    $ cd books
    $ tree
 
@@ -206,7 +206,7 @@ will take a closer look at that.
       :notes: how does the symlink relate to the shasum of the file?
       :cast: 03_git_annex_basics
 
-      # take a look at the last part of the target path:
+      $ # take a look at the last part of the target path:
       $ ls -lh TLCL.pdf
 
    Let's take a closer look at the structure of the symlink.
@@ -220,7 +220,7 @@ will take a closer look at that.
       :notes: let's look at how the shasum would look like
       :cast: 03_git_annex_basics
 
-      # compare it to the checksum (here of type md5sum) of the PDF file and the subdirectory name
+      $ # compare it to the checksum (here of type md5sum) of the PDF file and the subdirectory name
       $ md5sum TLCL.pdf
 
    The extension (e.g., ``.pdf``) is appended, because some programs require it, and would fail when not working directly with the symlink, but the file that it points to.

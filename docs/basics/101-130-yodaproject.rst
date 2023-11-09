@@ -211,7 +211,7 @@ independent dataset from scratch in a :ref:`dedicated Findoutmore <fom-iris>`.
       :env:
          DATALAD_SEED=1
 
-      # make sure to move outside of DataLad-101!
+      $ # make sure to move outside of DataLad-101!
       $ cd ../
       $ datalad create iris_data
 
@@ -263,7 +263,7 @@ you use the ``cfg_yoda`` procedure to help you structure the dataset [#f1]_:
       DATALAD_SEED=2
    :notes: Let's create a data analysis project with a yoda procedure
 
-   # inside of DataLad-101
+   $ # inside of DataLad-101
    $ datalad create -c yoda --dataset . midterm_project
 
 .. index::
@@ -296,7 +296,7 @@ by installing it as a subdataset. Make sure to install it as a subdataset of
    :notes: Now clone input data as a subdataset
 
    $ cd midterm_project
-   # we are in midterm_project, thus -d . points to the root of it.
+   $ # we are in midterm_project, thus -d . points to the root of it.
    $ datalad clone -d . \
      https://github.com/datalad-handbook/iris_data.git \
      input/
@@ -572,7 +572,7 @@ dataset that you can use for this [#f4]_.
    :cast: 10_yoda
    :notes: create human readable information for your project
 
-   # with the >| redirection we are replacing existing contents in the file
+   $ # with the >| redirection we are replacing existing contents in the file
    $ cat << EOT >| README.md
 
    # Midterm YODA Data Analysis Project

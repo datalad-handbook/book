@@ -36,7 +36,7 @@ installation in ``../mock_user/DataLad-101``:
    :notes: On updating dataset. How do we get the updated notes from the original dataset?
    :cast: 04_collaboration
 
-   # Inside the installed copy, view the last 15 lines of notes.txt
+   $ # Inside the installed copy, view the last 15 lines of notes.txt
    $ tail notes.txt
 
 But the original intention of sharing the dataset with
@@ -82,7 +82,7 @@ the previously missing changes are now present:
    :notes: let's check whether the updates are there
    :cast: 04_collaboration
 
-   # view the last 15 lines of notes.txt
+   $ # view the last 15 lines of notes.txt
    $ tail notes.txt
 
 Wohoo, the contents are here!
@@ -101,10 +101,10 @@ dataset to your own ``DataLad-101`` dataset:
    :notes: note in original ds
    :cast: 04_collaboration
 
-   # navigate back:
+   $ # navigate back:
    $ cd ../../DataLad-101
 
-   # write the note
+   $ # write the note
    $ cat << EOT >> notes.txt
    To update a shared dataset, run the command "datalad update --how merge".
    This command will query its origin for changes, and integrate the
@@ -118,8 +118,7 @@ dataset to your own ``DataLad-101`` dataset:
    :notes:
    :cast: 04_collaboration
 
-   # save the changes
-
+   $ # save the changes
    $ datalad save -m "add note about datalad update"
 
 

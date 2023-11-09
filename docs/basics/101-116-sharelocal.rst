@@ -271,9 +271,9 @@ Write this note in "your own" (the original) ``DataLad-101`` dataset, though!
    :notes: note in original DataLad-101 dataset
    :cast: 04_collaboration
 
-   # navigate back into the original dataset
+   $ # navigate back into the original dataset
    $ cd ../../DataLad-101
-   # write the note
+   $ # write the note
    $ cat << EOT >> notes.txt
    A source to install a dataset from can also be a path, for example as
    in "datalad clone ../DataLad-101".

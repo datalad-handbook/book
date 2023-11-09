@@ -64,7 +64,7 @@ are presented here, make sure to check the :windows-wit:`on peculiarities of its
      -O TLCL.pdf
    $ wget -q https://github.com/swaroopch/byte-of-python/releases/download/vadb91fc6fce27c58e3f931f5861806d3ccd1054c/byte-of-python.pdf \
      -O byte-of-python.pdf
-   # get back into the root of the dataset
+   $ # get back into the root of the dataset
    $ cd ../
 
 Some machines will not have :shcmd:`wget` available by default, but any command that can
@@ -294,7 +294,7 @@ A :dlcmd:`status` should now be empty, and our dataset's history should look lik
    :cast: 01_dataset_basics
    :notes: Let's view the growing history (concise with the --oneline option):
 
-   # lets make the output a bit more concise with the --oneline option
+   $ # lets make the output a bit more concise with the --oneline option
    $ git log --oneline
 
 “Wonderful! I’m getting a hang on this quickly”, you think. “Version controlling

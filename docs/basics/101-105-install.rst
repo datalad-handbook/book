@@ -53,7 +53,7 @@ called recordings.
    :cast: 01_dataset_basics
    :notes: The next challenge is to clone an existing dataset from the web as a subdataset. First, we create a location for this
 
-   # we are in the root of DataLad-101
+   $ # we are in the root of DataLad-101
    $ mkdir recordings
 
 
@@ -431,7 +431,7 @@ modification.
    :cast: 01_dataset_basics
    :notes: We can make a note about this:
 
-   # in the root of DataLad-101:
+   $ # in the root of DataLad-101:
    $ cd ../../
    $ cat << EOT >> notes.txt
    The command 'datalad clone URL/PATH [PATH]' installs a dataset from

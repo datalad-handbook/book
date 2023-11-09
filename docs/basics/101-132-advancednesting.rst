@@ -63,8 +63,7 @@ interested in this, checkout the :ref:`dedicated Findoutmore <fom-status>`.
 
    First of all, let's start with a quick overview of the different content *types*
    and content *states* various :dlcmd:`status` commands in the course
-   of DataLad-101 have shown up to this point:
-
+   of DataLad-101 have shown up to this point.
    You have seen the following *content types*:
 
    - ``file``, e.g., ``notes.txt``: any file (or symlink that is a placeholder to an annexed file)
@@ -88,7 +87,6 @@ interested in this, checkout the :ref:`dedicated Findoutmore <fom-status>`.
    When performed without any arguments, :dlcmd:`status` will report
    the state of the current dataset. However, you can specify a path to any
    sub- or superdataset with the ``--dataset`` option.
-
    In order to demonstrate this a bit better, we will make sure that not only the
    state of the subdataset *within* the superdataset is modified, but also that the
    subdataset contains a modification. For this, let's add an empty text file into

@@ -168,8 +168,8 @@ work with the paths in the object tree than you or any other human are.
 Lastly, understanding that annexed files in your dataset are symlinked
 will be helpful to understand how common file system operations such as
 moving, renaming, or copying content translate to dataset modifications
-in certain situations. Later in this book we will have a section on how
-to manage the file system in a DataLad dataset (:ref:`file system`).
+in certain situations. Later in this book, the section :ref:`file system`
+will take a closer look at that.
 
 .. index::
    pair: key; git-annex concept
@@ -227,7 +227,7 @@ to manage the file system in a DataLad dataset (:ref:`file system`).
    consisting of two letters each.
    These two letters are derived from the md5sum of the key, and their sole purpose to exist is to avoid issues with too many files in one directory (which is a situation that certain file systems have problems with).
    The next subdirectory in the symlink helps to prevent accidental deletions and changes, as it does not have write :term:`permissions`, so that users cannot modify any of its underlying contents.
-   This is the reason that annexed files need to be unlocked prior to modifications, and this information will be helpful to understand some file system management operations such as removing files or datasets (see section :ref:`file system`).
+   This is the reason that annexed files need to be unlocked prior to modifications, and this information will be helpful to understand some file system management operations such as removing files or datasets. Section :ref:`file system` takes a look at that.
 
    The next part of the symlink contains the actual hash.
    There are different hash functions available.

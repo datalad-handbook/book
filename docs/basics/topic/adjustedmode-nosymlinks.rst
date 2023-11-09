@@ -4,7 +4,7 @@ While git-annex on Unix-based file operating systems stores data in the annex an
 
 **Why is that?**
 Data *needs* to be in the annex for version control and transport logistics -- the annex is able to store all previous versions of the data, and manage the transport to other storage locations if you want to publish your dataset.
-But as the :ref:`Findoutmore in this section <fom-objecttree>` will show, the :term:`annex` is a non-human readable tree structure, and data thus also needs to exist in its original location.
+But as the :ref:`Findoutmore in this section <fom-objecttree>` shows, the :term:`annex` is a non-human readable tree structure, and data thus also needs to exist in its original location.
 Thus, it exists in both places: it has moved into the annex, and copied back into its original location.
 Once you edit an annexed file, the most recent version of the file is available in its original location, and past versions are stored and readily available in the annex.
 If you reset your dataset to a previous state (as is shown in the section :ref:`history`), the respective version of your data is taken from the annex and copied to replace the newer version, and vice versa.

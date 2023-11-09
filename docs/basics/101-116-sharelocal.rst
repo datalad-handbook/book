@@ -48,8 +48,8 @@ But as we cannot easily simulate a second user in this handbook,
 for now, you will have to share your dataset with yourself.
 This endeavor serves several purposes: For one, you will experience a very easy
 way of sharing a dataset. Secondly, it will show you
-how a dataset can be obtained from a path (instead of a URL as shown in the section
-:ref:`installds`). Thirdly, ``DataLad-101`` is a dataset that can
+how a dataset can be obtained from a path, instead of a URL as shown in section
+:ref:`installds`. Thirdly, ``DataLad-101`` is a dataset that can
 showcase many different properties of a dataset already, but it will
 be an additional learning experience to see how the different parts
 of the dataset -- text files, larger files, subdatasets,

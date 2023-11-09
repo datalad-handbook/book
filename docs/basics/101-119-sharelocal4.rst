@@ -123,9 +123,8 @@ dataset to your own ``DataLad-101`` dataset:
    $ datalad save -m "add note about datalad update"
 
 
-PS: You might wonder whether there is also a sole
-:dlcmd:`update` command. Yes, there is -- if you are
-a Git-user and know about branches and merging you can read the
+PS: You might wonder what a plain :dlcmd:`update` command with no option does.
+If you are a Git-user and know about branches and merging you can read the
 ``Note for Git-users`` below. However, a thorough explanation
 and demonstration will be in the next section.
 

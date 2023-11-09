@@ -767,7 +767,7 @@ command.
     proportion of the previous handbook content as a prerequisite. In order to be
     not too overwhelmingly detailed, the upcoming sections will approach
     :dlcmd:`push` from a "learning-by-doing" perspective:
-    You will see a first :dlcmd:`push` to GitHub below, and the :ref:`Findoutmore on the published dataset <fom-midtermclone>`
+    First, you will see a :dlcmd:`push` to GitHub, and the :ref:`Findoutmore on the published dataset <fom-midtermclone>`
     at the end of this section will already give a practical glimpse into the
     difference between annexed contents and contents stored in Git when pushed
     to GitHub. The chapter :ref:`chapter_thirdparty` will extend on this,
@@ -791,7 +791,7 @@ command.
    $ datalad push --to github
 
 Thus, you have now published your dataset's history to a public place for others
-to see and clone. Below we will explore how this may look and feel for others.
+to see and clone. Now we will explore how this may look and feel for others.
 
 There is one important detail first, though: By default, your tags will not be published.
 Thus, the tag ``ready4analysis`` is not pushed to GitHub, and currently this
@@ -849,7 +849,7 @@ reproduce your data science project easily from scratch (take a look into the :r
    Therefore, you decide to install this dataset into a new location on your
    computer, just to get a feel for it.
 
-   Replace the ``url`` in the :dlcmd:`clone` command below with the path
+   Replace the ``url`` in the :dlcmd:`clone` command with the path
    to your own ``midtermproject`` GitHub repository, or clone the "public"
    ``midterm_project`` repository that is available via the Handbook's GitHub
    organization at `github.com/datalad-handbook/midterm_project <https://github.com/datalad-handbook/midterm_project>`_:

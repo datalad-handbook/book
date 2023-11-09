@@ -43,8 +43,7 @@ Note the command structure of :dlcmd:`create` (optional bits are enclosed in ``[
 
       datalad create --description "course on DataLad-101 on my private laptop" -c text2git DataLad-101
 
-   If you want, use the above command instead of the :dlcmd:`create` command below
-   to provide a description. Its use will not be immediately clear, the chapter
+   If you want, use the above command instead to provide a description. Its use will not be immediately clear, the chapter
    :ref:`chapter_collaboration` will show you where this description
    ends up and how it may be useful.
 

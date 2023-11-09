@@ -68,8 +68,7 @@ Inside of ``DataLad-101/code``, create a simple shell script ``list_titles.sh``.
 This script will carry out a simple task:
 It will loop through the file names of the ``.mp3`` files and
 write out speaker names and talk titles in a very basic fashion.
-The content of this script is written below -- the ``cat`` command
-will write it into the script.
+The ``cat`` command will write the script content into ``code/list_titles.sh``.
 
 .. windows-wit:: Here's a script for Windows users
 

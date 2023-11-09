@@ -294,7 +294,7 @@ Cross-OS filesharing with symlinks (WSL2 only)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Are you using DataLad on the Windows Subsystem for Linux?
-If so, please take a look into the Windows Wit below.
+If so, please take a look into the Windows Wit.
 
 .. index::
    pair: access WSL2 symlinked files; on Windows

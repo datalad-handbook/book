@@ -208,8 +208,7 @@ was applied.
    write their own ones in addition, and deploy them on individual machines,
    or ship them within DataLad datasets. This allows to
    automate routine configurations or tasks in a dataset, or share configurations that would otherwise not "stick" to the dataset.
-   Some general rules for creating a custom procedure are outlined
-   below:
+   Here are some general rules for creating a custom procedure:
 
    - A procedure can be any executable. Executables must have the
      appropriate permissions and, in the case of a script,

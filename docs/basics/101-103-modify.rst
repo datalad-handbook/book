@@ -18,7 +18,7 @@ Let's write a short summary of how to create a DataLad dataset from scratch:
 
 This is meant to be a note you would take in an educational course.
 You can take this note and write it to a file with an editor of your choice.
-The code below, however, contains this note within the start and end part of a
+The code snippet, however, contains this note within the start and end part of a
 `heredoc <https://en.wikipedia.org/wiki/Here_document>`_.
 You can also copy the full code snippet, starting
 from ``cat << EOT > notes.txt``, including the ``EOT`` in the last line, in your
@@ -27,7 +27,7 @@ terminal to write this note from the terminal (without any editor) into ``notes.
 .. index:: here-document, heredoc
 .. find-out-more:: How does a heredoc (here-document) work?
 
-   The code snippet below makes sure to write lines of text into a
+   The code snippet makes sure to write lines of text into a
    file (that so far does not exist) called ``notes.txt``.
 
    To do this, the content of the "document" is wrapped in between
@@ -55,7 +55,7 @@ terminal to write this note from the terminal (without any editor) into ``notes.
    you create and modify a ``.txt`` file over the course of the Basics part of this
    handbook.
 
-Running the command below will create ``notes.txt`` in the
+Running this command will create ``notes.txt`` in the
 root of your ``DataLad-101`` dataset:
 
 .. index:: heredoc
@@ -108,7 +108,7 @@ But now, let's see how *changing* tracked content works.
 Modify this file by adding another note. After all, you already know how to use
 :dlcmd:`save`, so write a short summary on that as well.
 
-Again, the example below uses Unix commands (``cat`` and redirection, this time however
+Again, the example uses Unix commands (``cat`` and redirection, this time however
 with ``>>`` to *append* new content to the existing file)
 to accomplish this, but you can take any editor of your choice.
 

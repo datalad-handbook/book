@@ -50,7 +50,7 @@ done. For the rest of the lecture, call me Google!"
 Fixing (empty) commit messages
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-From the back of the lecture hall comes a question you're really glad
+From the back of the lecture hall comes a question you are really glad
 someone asked: "It has happened to me that I accidentally did a
 :dlcmd:`save` and forgot to specify the commit message,
 how can I fix this?".

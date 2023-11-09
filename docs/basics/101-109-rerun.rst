@@ -110,7 +110,7 @@ So you go ahead and find the commit :term:`shasum` in your history:
 
 Take that shasum and paste it after :dlcmd:`rerun`
 (the first 6-8 characters of the shasum would be sufficient,
-here we're using all of them).
+here we are using all of them).
 
 .. runrecord:: _examples/DL-101-109-106
    :language: console

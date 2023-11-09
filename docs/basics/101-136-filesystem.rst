@@ -1,7 +1,7 @@
 .. _file system:
 
-Miscellaneous file system operations
-------------------------------------
+Dataset ops
+-----------
 
 .. image:: ../artwork/src/help.svg
    :width: 50%

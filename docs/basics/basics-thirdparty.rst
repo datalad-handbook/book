@@ -1,7 +1,7 @@
 .. _chapter_thirdparty:
 
-Third party infrastructure
---------------------------
+Distributing datasets
+---------------------
 
 .. image:: ../artwork/src/clouds.svg
    :width: 50%

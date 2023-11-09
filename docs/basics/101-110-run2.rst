@@ -28,7 +28,7 @@ so you can simply retrieve it from there.
 The logos (one for the SALT series, one for the Interval series -- the two
 directories in the subdataset)
 were originally extracted from the podcasts metadata information by DataLad.
-In a while, we will dive into the metadata aggregation capabilities of DataLad,
+The online-handbook has a chapter on the metadata aggregation capabilities of DataLad,
 but for now, let's just use the logos instead of finding out where they
 come from -- this will come later.
 As part of the metadata of the dataset, the logos are

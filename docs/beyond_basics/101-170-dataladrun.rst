@@ -408,7 +408,8 @@ If you are interested in seeing this workflow applied in a real analysis, read o
 
 .. [#f3] Clean-up routines can, in the case of common job schedulers, be taken care of by performing everything in compute node specific ``/tmp`` directories that are wiped clean after job termination.
 
-.. [#f4] For an analogy, consider a group of software developers: Instead of adding code changes to the main :term:`branch` of a repository, they develop in their own repository clones and on dedicated, individual feature branches. This allows them to integrate their changes back into the original repository with as little conflict as possible. To find out why a different branch is required to enable easy pushing back to the original dataset, please checkout the explanation on :ref:`pushing to non-bare repositories <nonbarepush>` in the section on :ref:`help`.
+.. [#f4] For an analogy, consider a group of software developers: Instead of adding code changes to the main :term:`branch` of a repository, they develop in their own repository clones and on dedicated, individual feature branches. This allows them to integrate their changes back into the original repository with as little conflict as possible.
+.. To find out why a different branch is required to enable easy pushing back to the original dataset, please checkout the explanation on :ref:`pushing to non-bare repositories <nonbarepush>` in the section on :ref:`help`.
 
 .. [#f5] Job schedulers can commonly produce log, error, and output files and it is advisable to save them for each job. Usually, job schedulers make it convenient to save them with a job-ID as an identifier. An example of this for HTCondor is shown in the Findoutmore in :ref:`jobsubmit`.
 

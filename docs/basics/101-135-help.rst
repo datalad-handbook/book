@@ -1,7 +1,7 @@
 .. _help:
 
-How to get help
----------------
+When things go wrong
+--------------------
 
 All DataLad errors or problems you encounter during ``DataLad-101`` are intentional
 and serve illustrative purposes. But what if you run into any DataLad errors
@@ -9,8 +9,9 @@ outside of this course?
 Fortunately, the syllabus has a whole section on that, and on
 one lazy, warm summer-afternoon you flip through it.
 
-.. figure:: ../artwork/src/reading.svg
+.. image:: ../artwork/src/reading.svg
    :width: 50%
+   :align: center
 
 You realize that you already know the most important things:
 The number one advice on how to get help is
@@ -232,187 +233,6 @@ Adding this flag will enter a `Python <https://docs.python.org/3/library/pdb.htm
 This allows you to debug the program right when it fails, inspect available variables and their values, or step back and forth through the source code.
 Note that debugging experience is not a prerequisite when using DataLad -- although it is `an exciting life skill <https://www.monkeyuser.com/2017/step-by-step-debugging>`_.
 `The official Python docs <https://docs.python.org/3/library/pdb.html#debugger-commands>`_ provide a good overview on the available debugger commands if you are interested in learning more about this.
-
-Debugging: A concrete example
-"""""""""""""""""""""""""""""
-
-It is common for :dlcmd:`get` errors to originate in :term:`git-annex`, the software used by DataLad to transfer data. Here are a few suggestions to debug them:
-
-- Take a deep breath, or preferably a walk in a nice park :)
-- Check that you are using a recent version of git-annex
-   - ``git-annex version`` returns the version of git-annex on the first line of its input, and it is also reported in the output of :dlcmd:`wtf`.
-   - The version number contains the release date of the version in use. For instance, git-annex version: ``8.20200330-g971791563`` was released on 30 March 2020.
-   - If the version that you are using is older than a few months, consider updating using the instructions in :ref:`install`.
-- Try to download the file using ``git-annex get -v -d <file_name>``. If this doesn't succeed, the DataLad command may not succeed. Options ``-d/--debug`` and ``-v`` are here to provide as much verbosity in error messages as possible
-- Read the output of :term:`git-annex`, identify the error, breathe again, and solve the issue!
-
-Common warnings and errors
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-A lot of output you will see while working with DataLad originates from warnings
-or errors by DataLad, git-annex, or Git.
-Some of these outputs can be wordy and not trivial to comprehend - and even if
-everything works, some warnings can be hard to understand.
-This following section will list some common git-annex warnings and errors and
-attempts to explain them. If you encounter warnings or errors that you would
-like to see explained in this book, please let us know by
-`filing an issue <https://github.com/datalad-handbook/book/issues/new>`_.
-
-Output produced by Git
-""""""""""""""""""""""
-
-**Unset Git identity**
-
-If you have not configured your Git identity, you will
-see warnings like this when running any DataLad command:
-
-.. code-block:: console
-
-   [WARNING] It is highly recommended to configure git first (set both user.name and user.email) before using DataLad.
-
-To set your Git identity, go back to section :ref:`installconfig`.
-
-
-**Rejected pushes**
-
-One error you can run into when publishing dataset contents is that your
-:dlcmd:`push` to a sibling is rejected.
-One example is this:
-
-.. code-block:: console
-
-   $ datalad push --to public
-    [ERROR  ] refs/heads/main->public:refs/heads/main [rejected] (non-fast-forward) [publish(/home/me/dl-101/DataLad-101)]
-
-This example is an attempt to push a local dataset to its sibling on GitHub. The
-push is rejected because it is a ``non-fast-forward`` merge situation. Usually,
-this means that the sibling contains changes that your local dataset does not yet
-know about. It can be fixed by updating from the sibling first with a
-:dlcmd:`update --merge`.
-
-.. _nonbarepush:
-
-Here is a different push rejection:
-
-.. code-block:: console
-
-   $ datalad push --to roommate
-    publish(ok): . (dataset) [refs/heads/git-annex->roommate:refs/heads/git-annex 023a541..59a6f8d]
-    [ERROR  ] refs/heads/main->roommate:refs/heads/main [remote rejected] (branch is currently checked out) [publish(/home/me/dl-101/DataLad-101)]
-    publish(error): . (dataset) [refs/heads/main->roommate:refs/heads/main [remote rejected] (branch is currently checked out)]
-    action summary:
-      publish (error: 1, ok: 1)
-
-As you can see, the :term:`git-annex branch` was pushed successfully, but updating
-the ``main`` branch was rejected: ``[remote rejected] (branch is currently checked out) [publish(/home/me/dl-101/DataLad-101)]``.
-In this particular case, this is because it was an attempt to push from ``DataLad-101``
-to the ``roommate`` sibling that was created in chapter :ref:`chapter_collaboration`.
-This is a special case of pushing, because it -- in technical terms -- is a push
-to a non-bare repository. Unlike :term:`bare Git repositories`, non-bare
-repositories cannot be pushed to at all times. To fix this, you either want to
-checkout another branch
-in the ``roommate`` sibling or push to a non-checked out branch in the ``roommate``
-sibling. Alternatively, you can configure ``roommate`` to receive the push with
-Git's ``receive.denyCurrentBranch`` configuration key. By default, this configuration
-is set to ``refuse``. Setting it to ``updateInstead``
-with ``git config receive.denyCurrentBranch updateInstead`` will allow updating
-the checked out branch. See ``git config``\s
-`man page entry <https://git-scm.com/docs/git-config#Documentation/git-config.txt-receivedenyCurrentBranch>`_
-on ``receive.denyCurrentBranch`` for more.
-
-
-**Detached HEADs**
-
-One warning that you may encounter during an installation of a dataset is:
-
-.. code-block:: console
-
-    [INFO   ] Submodule HEAD got detached. Resetting branch main to point to 046713bb. Original location was 47e53498
-
-Even though "detached HEAD" sounds slightly worrisome, this is merely an information
-and does not require an action from your side. It is related to
-`Git submodules <https://git-scm.com/book/en/v2/Git-Tools-Submodules>`_ (the underlying
-Git concept for subdatasets), and informs you about the current state a
-subdataset is saved in the superdataset you have just cloned.
-
-Output produced by git-annex
-""""""""""""""""""""""""""""
-
-**Unusable annexes**
-
-Upon installation of a dataset, you may see:
-
-.. code-block:: console
-
-   [INFO    ]     Remote origin not usable by git-annex; setting annex-ignore
-   [INFO    ]     This could be a problem with the git-annex installation on the
-   remote. Please make sure that git-annex-shell is available in PATH when you
-   ssh into the remote. Once you have fixed the git-annex installation,
-   run: git annex enableremote origin
-
-This warning lets you know that git-annex will not attempt to download
-content from the :term:`remote` "origin". This can have
-many reasons, but as long as there are other remotes you can access the
-data from, you are fine.
-
-A similar warning message may appear when adding a sibling that is a pure Git
-:term:`remote`, such as a repository on GitHub:
-
-.. code-block:: console
-
-   [INFO ] Failed to enable annex remote github, could be a pure git or not
-   accessible
-   [WARNING] Failed to determine if github carries annex. Remote was marked by
-   annex as annex-ignore. Edit .git/config to reset if you think that was done
-   by mistake due to absent connection etc
-
-These messages indicate that the sibling ``github`` does not carry an annex.
-Thus, annexed file contents cannot be pushed to this sibling. This happens
-if the sibling indeed does not have an annex (which would be true, for example,
-for siblings on :term:`GitHub`, :term:`GitLab`, :term:`Bitbucket`, ..., and
-would not require any further action or worry), or
-if the remote could not be reached, e.g., due to a missing internet
-connection (in which case you could set the key ``annex-ignore`` in
-``.git/config`` to ``false``).
-
-Speaking of remotes that are not available, this will probably be one of the most
-commonly occurring git-annex errors to see - failing :dlcmd:`get` calls
-because remotes are not available:
-
-Other errors
-^^^^^^^^^^^^
-
-Sometimes, registered subdatasets URLs have an :term:`SSH` instead of :term:`https` address, for example ``git@github.com:datalad-datasets/longnow-podcasts.git`` instead of ``https://github.com/datalad-datasets/longnow-podcasts.git``.
-If one does not have an SSH key configured for the required service (e.g., GitHub, or a server), installing or getting the subdataset and its contents fails, with messages starting similar to this:
-
-.. code-block:: console
-
-   [INFO   ] Cloning https://github.com/psychoinformatics-de/paper-remodnav.git/remodnav [2 other candidates] into '/home/.../remodnav'
-   Permission denied (publickey).
-
-If you encounter these errors, make sure to create and/or upload an SSH key (see section :ref:`Gin` for an example) as necessary, or reconfigure/edit the URL into a HTTPS URL.
-
-
-**git-annex as the default branch on GitHub**
-
-If you publish a dataset to :term:`GitHub`, but the resulting repository seems to consist of cryptic directories instead of your actual file names and directories, GitHub may have made the :term:`git-annex branch` the default.
-
-.. figure:: ../artwork/src/defaultgitannex_light.png
-
-Typically, you can change the default branch settings in the webinterface to fix this.
-
-**Windows adds whitespace line-endings to unchanged files**
-
-The type of line ending (a typically invisible character that indicates a line break) differs between operating system.
-While Linux and macOS use a *line feed* (LF), Windows uses *carriage return* + *line feed* (CRLF).
-When you only collaborate across operating systems of the same type, this is a very boring fun fact at most.
-But if Windows- and Non-Windows users collaborate, or if you are working with files across different operating systems, the different type of line ending that Windows uses may show up as unintended modifications on other system.
-In most cases, this is prevented by a default cross-platform compatible line-ending configuration on Windows that is set during installation:
-
-.. figure:: ../artwork/src/crlf.png
-
-To fix this behavior outside of the installation process and standardize line endings across operating systems, Windows users are advised to set the configuration ``core.autcrlf true`` with ``git config --global core.autocrfl true``.
-
 
 .. rubric:: Footnotes
 

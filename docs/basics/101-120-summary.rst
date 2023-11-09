@@ -10,8 +10,11 @@ sharing a dataset with a simple example.
 
 * To obtain a dataset, one can also use :dlcmd:`clone` with a path.
   Potential subdatasets will not be installed right away. As they are registered in
-  the superdataset, you can do :dlcmd:`get -n/--no-data`,
-  or specify the ``-r``/``--recursive`` (``datalad get -n -r <subds>``)
+  the superdataset, you can
+
+  - do ``datalad get -n/--no-data``
+  - or specify the ``-r``/``--recursive``: ``datalad get -n -r <subds>``
+
   with a decent ``-R/--recursion-limit`` choice to install them afterwards.
 
 * The configuration of the original dataset determines which types

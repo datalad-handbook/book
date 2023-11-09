@@ -81,7 +81,7 @@ and experienced the concept of modular nesting datasets.
   version of a contained subdataset through an identifier.
 
 
-Now what I can do with that?
+Now what can I do with that?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Simple, local workflows allow you to version control changing small files,

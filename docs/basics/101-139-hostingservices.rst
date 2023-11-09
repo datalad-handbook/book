@@ -308,7 +308,7 @@ For a **collection** layout, the ``--project`` parameter determines the group na
 Publishing datasets recursively
 """""""""""""""""""""""""""""""
 
-When publishing a series of datasets recursively, the ``--project`` argument can not be used anymore - otherwise, all datasets in the hierarchy would attempt to create the same group or project over and over again.
+When publishing a series of datasets recursively, the ``--project`` argument cannot be used anymore - otherwise, all datasets in the hierarchy would attempt to create the same group or project over and over again.
 Instead, one configures the root level dataset, and the names for underlying datasets will be derived from this configuration:
 
 .. index::

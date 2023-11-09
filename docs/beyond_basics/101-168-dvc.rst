@@ -1029,7 +1029,7 @@ DataLad and DVC aim to solve the same problems: Version control data, sharing da
 DataLad provides generic solutions to these issues, while DVC is tuned for machine-learning pipelines.
 Despite their similar purpose, the looks, feels and functions of both tools are different, and it is a personal decision which one you feel more comfortable with.
 Using DVC requires solid knowledge of Git, because DVC workflows heavily rely on effective Git practices, such as branching, tags, and ``.gitignore`` files.
-But despite the reliance on Git, DVC barely integrates with Git -- changes done to files in DVC can not be detected by Git and vice versa, DVC and Git aspects of a repository have to be handled in parallel by the user, and DVC and Git have distinct command functions and concepts that nevertheless share the same name.
+But despite the reliance on Git, DVC barely integrates with Git -- changes done to files in DVC cannot be detected by Git and vice versa, DVC and Git aspects of a repository have to be handled in parallel by the user, and DVC and Git have distinct command functions and concepts that nevertheless share the same name.
 Thus, DVC users need to master Git *and* DVC workflows and intertwine them correctly.
 In return, DVC provides users with workflow management and reporting tuned to machine learning analyses. It also provides a somewhat more lightweight and uniform across operating and file systems approach to "data version control" than git-annex used by DataLad.
 

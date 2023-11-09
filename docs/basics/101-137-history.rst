@@ -769,7 +769,7 @@ To conclude this section, let's remove all untracked contents from
 the dataset. This can be done with :gitcmd:`clean`: The command
 :gitcmd:`clean -f` swipes your dataset clean and removes any untracked
 file.
-**Careful! This is not revertible, and content lost with this commands can not be recovered!**
+**Careful! This is not revertible, and content lost with this commands cannot be recovered!**
 If you want to be extra sure, run :gitcmd:`clean -fn` beforehand -- this will
 give you a list of the files that would be deleted.
 

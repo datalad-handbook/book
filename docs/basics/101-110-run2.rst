@@ -173,7 +173,7 @@ If outputs already exist...
 Looking at the resulting image, you wonder whether 400x400 might be a tiny bit to small.
 Maybe we should try to resize it to 450x450, and see whether that looks better?
 
-Note that we can not use a :dlcmd:`rerun` for this: if we want to change the dimension option
+Note that we cannot use a :dlcmd:`rerun` for this: if we want to change the dimension option
 in the command, we have to define a new :dlcmd:`run` command.
 
 To establish best-practices, let's specify the input even though it is already present:
@@ -221,7 +221,7 @@ DataLad usually gives content to :term:`git-annex` to store and track.
 git-annex, let's just say, takes this task *really* seriously. One of its
 features that you have just experienced is that it *locks* content.
 
-If files are *locked down*, their content can not be modified. In principle,
+If files are *locked down*, their content cannot be modified. In principle,
 that's not a bad thing: It could be your late grandma's secret cherry-pie
 recipe, and you do not want to *accidentally* change that.
 Therefore, a file needs to be consciously *unlocked* to apply modifications.

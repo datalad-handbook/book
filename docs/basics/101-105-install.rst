@@ -26,7 +26,7 @@ can share our mid-term and final projects easily!"
 "But today, let's only focus on how to install a dataset", she continues.
 "Damn it! Can we not have longer lectures?", you think and set alarms to all of the
 upcoming lecture dates in your calendar.
-There is so much exciting stuff to come, you can not miss a single one.
+There is so much exciting stuff to come, you cannot miss a single one.
 
 "Psst!" a student from the row behind reaches over. "There are
 a bunch of audio recordings of a really cool podcast, and they have been shared in the form

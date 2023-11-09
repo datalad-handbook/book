@@ -32,7 +32,7 @@ your horizon about configurations of datasets:
   in a :gitcmd:`config` command.
 
 - The ``.gitattributes`` file is the only configuration file the :gitcmd:`config`
-  command can not write to, because it has a different layout. However, run-procedures or
+  command cannot write to, because it has a different layout. However, run-procedures or
   the user can write simple rules into it that determine which files are annexed
   and which are stored in Git.
 

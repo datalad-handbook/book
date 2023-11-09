@@ -649,7 +649,7 @@ syllabus, this should be done via :term:`GitHub`.
    Web-hosting services like GitHub and :term:`GitLab` integrate wonderfully with
    DataLad. They are especially useful for making your dataset publicly available,
    if you have figured out storage for your large files otherwise (as large content
-   can not be hosted for free by GitHub). You can make DataLad publish large file content to one location
+   cannot be hosted for free by GitHub). You can make DataLad publish large file content to one location
    and afterwards automatically push an update to GitHub, such that
    users can install directly from GitHub/GitLab and seemingly also obtain large file
    content from GitHub. GitHub can also resolve subdataset links to other GitHub
@@ -871,7 +871,7 @@ reproduce your data science project easily from scratch (take a look into the :r
       $ cd midtermproject
       $ datalad get input/iris.csv
 
-   Nice, this worked well. The output files, however, can not be easily
+   Nice, this worked well. The output files, however, cannot be easily
    retrieved:
 
    .. runrecord:: _examples/DL-101-130-121
@@ -914,7 +914,7 @@ reproduce your data science project easily from scratch (take a look into the :r
    With this, you realize again how letting DataLad take care of linking input,
    output, and code can make your life and others' lives so much easier.
    Applying the YODA principles to your data analysis was very beneficial indeed.
-   Proud of your midterm project you can not wait to use those principles the
+   Proud of your midterm project you cannot wait to use those principles the
    next time again.
 
     .. image:: ../artwork/src/reproduced.svg

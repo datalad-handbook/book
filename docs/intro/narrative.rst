@@ -222,7 +222,7 @@ share and publish with DataLad.
 .. figure:: ../artwork/src/student.svg
    :width: 70%
 
-.. find-out-more:: I can not/do not want to code along...
+.. find-out-more:: I cannot/do not want to code along...
    :name: fom-lazy
    :float:
 

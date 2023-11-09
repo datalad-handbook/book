@@ -365,7 +365,7 @@ unstaged modification.
    $ git checkout .gitmodules
    $ datalad status
 
-Note, though, that the ``.gitattributes`` file can not be modified with a :gitcmd:`config`
+Note, though, that the ``.gitattributes`` file cannot be modified with a :gitcmd:`config`
 command. This is due to its different format that does not comply to the
 ``section.variable.value`` structure of all other configuration files. This file, therefore,
 has to be edited by hand, with an editor of your choice.

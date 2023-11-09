@@ -356,6 +356,6 @@ The next section will talk about them.
          that unambiguously identifies information.
 
 .. [#f5] Please note that not all configurations can be written to files other than ``.git/config``.
-         Some of the files introduced in the next section will not be queried by Git, and in principle, it is a good thing that one can not share arbitrary configurations together with a dataset, as this could be a potential security threat.
+         Some of the files introduced in the next section will not be queried by Git, and in principle, it is a good thing that one cannot share arbitrary configurations together with a dataset, as this could be a potential security threat.
          In those cases where you need dataset clones to inherit certain non-sticky configurations, it is advised to write a custom procedure and distribute it together with the dataset.
          The next two sections contain concrete usecases and tutorials.

@@ -128,7 +128,7 @@ a Python API for DataLad's functionality that you can read about in :ref:`a Find
        'refds': '/home/me/my-ds',
        'action': 'status'}]
 
-   .. code-block:: bash
+   .. code-block:: console
 
       $ datalad -f json_pp status myfile
        {"action": "status",
@@ -169,7 +169,7 @@ widely available -- a perfect dataset for your midterm project!
 .. importantnote:: Turn data analysis into dynamically generated documents
 
    Beyond the contents of this section, we have transformed the example analysis also into a template to write a reproducible paper.
-   If you're interested in checking that out, please head over to `github.com/datalad-handbook/repro-paper-sketch/ <https://github.com/datalad-handbook/repro-paper-sketch>`_.
+   If you are interested in checking that out, please head over to `github.com/datalad-handbook/repro-paper-sketch/ <https://github.com/datalad-handbook/repro-paper-sketch>`_.
 
 Raw data as a modular, independent entity
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -211,7 +211,7 @@ independent dataset from scratch in a :ref:`dedicated Findoutmore <fom-iris>`.
       :env:
          DATALAD_SEED=1
 
-      # make sure to move outside of DataLad-101!
+      $ # make sure to move outside of DataLad-101!
       $ cd ../
       $ datalad create iris_data
 
@@ -263,7 +263,7 @@ you use the ``cfg_yoda`` procedure to help you structure the dataset [#f1]_:
       DATALAD_SEED=2
    :notes: Let's create a data analysis project with a yoda procedure
 
-   # inside of DataLad-101
+   $ # inside of DataLad-101
    $ datalad create -c yoda --dataset . midterm_project
 
 .. index::
@@ -296,7 +296,7 @@ by installing it as a subdataset. Make sure to install it as a subdataset of
    :notes: Now clone input data as a subdataset
 
    $ cd midterm_project
-   # we are in midterm_project, thus -d . points to the root of it.
+   $ # we are in midterm_project, thus -d . points to the root of it.
    $ datalad clone -d . \
      https://github.com/datalad-handbook/iris_data.git \
      input/
@@ -411,9 +411,9 @@ This script will
 
 A short help text explains how the script shall be used:
 
-.. code-block:: bash
+.. code-block:: console
 
-   python code/script.py -h                                                  2 !
+   $ python code/script.py -h
    usage: script.py [-h] data output_figure output_report
 
    Analyze iris data
@@ -482,7 +482,7 @@ point with the ``--version-tag`` option of :dlcmd:`save`.
    the analysis setup was ready -- much more intuitive than a 40-character shasum!
    This is handy in the context of a :dlcmd:`rerun`, for example:
 
-   .. code-block:: bash
+   .. code-block:: console
 
       $ datalad rerun --since ready4analysis
 
@@ -572,7 +572,7 @@ dataset that you can use for this [#f4]_.
    :cast: 10_yoda
    :notes: create human readable information for your project
 
-   # with the >| redirection we are replacing existing contents in the file
+   $ # with the >| redirection we are replacing existing contents in the file
    $ cat << EOT >| README.md
 
    # Midterm YODA Data Analysis Project
@@ -628,7 +628,7 @@ reason why the ``README.md`` in the root of the dataset was easily modifiable.
    require you to edit configurations in ``.gitattributes``: The ``--to-git``
    option for :dlcmd:`save`.
 
-   .. code-block:: bash
+   .. code-block:: console
 
       $ datalad save -m "add sometextfile.txt" --to-git sometextfile.txt
 
@@ -725,7 +725,7 @@ configure this repository as a sibling of the dataset:
 
    .. include:: topic/credential-nodisplay.rst
 
-.. code-block:: bash
+.. code-block:: console
 
    $ datalad create-sibling-github -d . midtermproject
    .: github(-) [https://github.com/adswa/midtermproject.git (git)]
@@ -734,7 +734,7 @@ configure this repository as a sibling of the dataset:
 
 Verify that this worked by listing the siblings of the dataset:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ datalad siblings
    [WARNING] Failed to determine if github carries annex.
@@ -767,8 +767,8 @@ command.
     proportion of this book's content so far as a prerequisite. In order to be
     not too overwhelmingly detailed, the upcoming sections will approach
     :dlcmd:`push` from a "learning-by-doing" perspective:
-    You will see a first :dlcmd:`push` to GitHub below, and the upcoming section "On the looks and feels of a published dataset"
-    will already give a practical glimpse into the
+    First, you will see a :dlcmd:`push` to GitHub, and the :ref:`Findoutmore on the published dataset <fom-midtermclone>`
+    at the end of this section will already give a practical glimpse into the
     difference between annexed contents and contents stored in Git when pushed
     to GitHub. The chapter :ref:`chapter_thirdparty` will extend on this,
     but the section :ref:`push`
@@ -791,7 +791,7 @@ command.
    $ datalad push --to github
 
 Thus, you have now published your dataset's history to a public place for others
-to see and clone. Below we will explore how this may look and feel for others.
+to see and clone. Now we will explore how this may look and feel for others.
 
 .. gitusernote:: Push internals
 
@@ -809,7 +809,7 @@ an additional :gitcmd:`push`  with the ``--tags`` option is required:
 .. index::
    pair: push; DataLad concept
    pair: push (tag); with Git
-.. code-block:: bash
+.. code-block:: console
 
    $ git push github --tags
 
@@ -825,13 +825,13 @@ an additional :gitcmd:`push`  with the ``--tags`` option is required:
     configuration would push all tags that start with a ``v`` upon a
     :dlcmd:`push --to github`:
 
-    .. code-block:: bash
+    .. code-block:: console
 
        $ git config --local remote.github.push 'refs/tags/v*'
 
     This configuration would result in the following entry in ``.git/config``:
 
-    .. code-block:: bash
+    .. code-block:: ini
 
        [remote "github"]
              url = git@github.com/adswa/midtermproject.git
@@ -858,7 +858,7 @@ On the looks and feels of a published dataset
    Therefore, you decide to install this dataset into a new location on your
    computer, just to get a feel for it.
 
-   Replace the ``url`` in the :dlcmd:`clone` command below with the path
+   Replace the ``url`` in the :dlcmd:`clone` command with the path
    to your own ``midtermproject`` GitHub repository, or clone the "public"
    ``midterm_project`` repository that is available via the online-handbook's GitHub
    organization at `github.com/datalad-handbook/midterm_project <https://github.com/datalad-handbook/midterm_project>`_:
@@ -906,7 +906,7 @@ On the looks and feels of a published dataset
    :dlcmd:`rerun` command. If the tag was published we can simply
    rerun any :dlcmd:`run` command since this tag:
 
-   .. code-block:: bash
+   .. code-block:: console
 
       $ datalad rerun --since ready4analysis
 
@@ -927,6 +927,18 @@ On the looks and feels of a published dataset
    Proud of your midterm project you cannot wait to use those principles the
    next time again.
 
+   .. image:: ../artwork/src/reproduced.svg
+       :width: 50%
+
+.. index::
+   pair: push; DataLad concept
+.. gitusernote:: Push internals
+
+   The :dlcmd:`push` uses ``git push``, and ``git annex copy`` under
+   the hood. Publication targets need to either be configured remote Git repositories,
+   or git-annex :term:`special remote`\s (if they support data upload).
+
+
 .. only:: adminmode
 
     Add a tag at the section end.
@@ -944,7 +956,7 @@ On the looks and feels of a published dataset
          creation of the dataset with ``-c yoda``, but also after creation
          with the :dlcmd:`run-procedure` command:
 
-         .. code-block:: bash
+         .. code-block:: console
 
            $ cd midterm_project
            $ datalad run-procedure cfg_yoda
@@ -960,16 +972,16 @@ On the looks and feels of a published dataset
          `virtual environment <https://docs.python.org/3/tutorial/venv.html>`_ and
          install the required Python packages inside of it:
 
-         .. code-block:: bash
+         .. code-block:: console
 
-            # create and enter a new virtual environment (optional)
+            $ # create and enter a new virtual environment (optional)
             $ virtualenv --python=python3 ~/env/handbook
             $ . ~/env/handbook/bin/activate
 
-         .. code-block:: bash
+         .. code-block:: console
 
-            # install the Python packages from PyPi via pip
-            pip install seaborn pandas sklearn
+            $ # install the Python packages from PyPi via pip
+            $ pip install seaborn pandas sklearn
 
 .. [#f4] All ``README.md`` files the YODA procedure created are
          version controlled by Git, not git-annex, thanks to the

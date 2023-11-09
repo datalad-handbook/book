@@ -65,7 +65,7 @@ are presented here, make sure to check the :windows-wit:`on peculiarities of its
      -O TLCL.pdf
    $ wget -q https://github.com/swaroopch/byte-of-python/releases/download/vadb91fc6fce27c58e3f931f5861806d3ccd1054c/byte-of-python.pdf \
      -O byte-of-python.pdf
-   # get back into the root of the dataset
+   $ # get back into the root of the dataset
    $ cd ../
 
 Some machines will not have :shcmd:`wget` available by default, but any command that can
@@ -229,7 +229,7 @@ in the same commit. And ... what happens if I have files I do not want to track?
 :dlcmd:`save -m "some commit message"` would save all of what is currently
 untracked or modified in the dataset into the history!"
 
-Regarding your first remark, you're absolutely right!
+Regarding your first remark, you are absolutely right!
 It is good practice to save only those changes
 together that belong together. We do not want to squish completely unrelated changes
 into the same spot of our history, because it would get very nasty should we want to
@@ -269,7 +269,7 @@ Let's give :dlcmd:`save` precisely this file by specifying its path after the co
 
    $ datalad save -m "add reference book about git" books/progit.pdf
 
-Regarding your second remark, you're right that a :dlcmd:`save` without a
+Regarding your second remark, you are right that a :dlcmd:`save` without a
 path specification would write all of the currently untracked files or modifications
 to the history. But check the :find-out-more:`on how to tell it otherwise <fom-save-updated-only>`.
 
@@ -297,7 +297,7 @@ A :dlcmd:`status` should now be empty, and our dataset's history should look lik
    :cast: 01_dataset_basics
    :notes: Let's view the growing history (concise with the --oneline option):
 
-   # lets make the output a bit more concise with the --oneline option
+   $ # lets make the output a bit more concise with the --oneline option
    $ git log --oneline
 
 “Wonderful! I’m getting a hang on this quickly”, you think. “Version controlling

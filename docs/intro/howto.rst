@@ -76,7 +76,7 @@ to list the size of a file in a *human-readable* format, supply the short option
    :realcommand: ls -lh output.txt && rm output.txt
 
    $ ls -lh output.txt    # note that short options can be combined!
-   # or alternatively
+   $ # or alternatively
    $ ls -l --human-readable output.txt
 
 A command may have many of those options (often called "flags") that modify their behavior.
@@ -174,7 +174,7 @@ On Windows systems, paths are also usually prefixed with a "disk designator" suc
 Let's say I want to create a new folder in my home folder on a Unix system,
 I can run the following command:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ mkdir /home/me/awesome_datalad_project
 
@@ -211,18 +211,18 @@ here is the translation to this cryptic punctuation:
 So, taking the above example again: given that I am in my home (``~``) folder,
 the following commands all would create the new folder in the exact same place.
 
-.. code-block:: bash
+.. code-block:: console
 
-   mkdir /home/me/awesome_datalad_project
-   mkdir ~/awesome_datalad_project
-   mkdir awesome_datalad_project
-   mkdir ./awesome_datalad_project
+   $ mkdir /home/me/awesome_datalad_project
+   $ mkdir ~/awesome_datalad_project
+   $ mkdir awesome_datalad_project
+   $ mkdir ./awesome_datalad_project
 
 To demonstrate this further, consider the following: In my home directory
 ``/home/me`` I have added a folder for my current project,
 ``awesome_datalad_project/``. Let's take a look at how this folder is organized:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ tree
    └── home
@@ -243,7 +243,7 @@ folder of the project. I could use absolute paths:
 
 But that is a bit wordy. It is much easier with a relative path:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ cd awesome_datalad_project/aligned/code
 
@@ -251,7 +251,7 @@ Relative to my starting location (``/home/me``), I navigated into the subfolders
 
 I can change back to my home directory also with a relative path:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ cd ../../../
 
@@ -261,14 +261,14 @@ back to my home directory ``me/``.
 
 However, since I want to go back to my home folder, it's much faster to run:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ cd ~
 
 Windows similarly knows the ``.`` and ``..`` shortcuts, but cannot handle the ``~`` shortcut.
 In order to quickly get home, you could use
 
-.. code-block::
+.. code-block:: console
 
    $ cd %userprofile%
 
@@ -330,7 +330,7 @@ Two common shells are:
 
 To determine what shell you're in, run the following:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ echo $SHELL
    usr/bin/bash
@@ -355,7 +355,7 @@ will autocomplete a DataLad command, options you give to it, or paths.
 For an example of tab-completion with paths, consider the following directory structure:
 
 
-.. code-block:: bash
+.. code-block:: console
 
    ├── Desktop
    ├── Documents

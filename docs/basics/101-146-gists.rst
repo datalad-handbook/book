@@ -36,7 +36,7 @@ that can assist.
 Here is an example of pushing all subdatasets (and their respective subdatasets)
 recursively to their (identically named) siblings:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ datalad -f '{path}' subdatasets | xargs -n 1 -P 10 datalad push -r --to <sibling-name> -d
 
@@ -47,7 +47,7 @@ parallelization.
 
 Here is an example of cross-dataset download parallelization:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ datalad -f '{path}' subdatasets | xargs -n 1 -P 10 datalad get -d
 
@@ -60,21 +60,21 @@ Check whether all file content is present locally
 In order to check if all the files in a dataset have their file contents locally
 available, you can ask git-annex:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ git annex find --not --in=here
 
 Any file that does not have its contents locally available will be listed.
 If there are subdatasets you want to recurse into, use the following command
 
-.. code-block:: bash
+.. code-block:: console
 
    $ git submodule foreach --quiet --recursive \
     'git annex find --not --in=here --format=$displaypath/$\\{file\\}\\n'
 
 Alternatively, to get very comprehensive output, you can use
 
-.. code-block:: bash
+.. code-block:: console
 
    $ datalad -f json status --recursive --annex availability
 
@@ -82,7 +82,7 @@ The output will be returned as json, and the key ``has_content`` indicates local
 content availability (``true`` or ``false``). To filter through it, the command
 line tool `jq <https://stedolan.github.io/jq>`_ works well:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ datalad -f json status --recursive --annex all | jq '. | select(.has_content == true).path'
 
@@ -98,7 +98,7 @@ you can find out about it and remove this file content out of your dataset
 
 Find out which file contents are unused (not referenced by any current branch):
 
-.. code-block:: bash
+.. code-block:: console
 
    $ git annex unused
     unused . (checking for unused data...)
@@ -112,20 +112,20 @@ Find out which file contents are unused (not referenced by any current branch):
 
 Remove a single unused file by specifying its number in the listing above:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ git annex dropunused 1
     dropunused 1 ok
 
 Or a range of unused data with
 
-.. code-block:: bash
+.. code-block:: console
 
    $ git annex dropunused 1-1000
 
 Or all
 
-.. code-block:: bash
+.. code-block:: console
 
    $ git annex dropunused all
 
@@ -155,7 +155,7 @@ they are created with the ``--no-annex`` flag, for example), or AnnexRepos
 is is stored in the dataset report of :dlcmd:`wtf` under the key ``repo``.
 Here is a one-liner to get this info:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ datalad -f'{infos[dataset][repo]}' wtf
 
@@ -174,21 +174,21 @@ machine that the back-up is pushed to, the latter does require them.
 To find out more about RIA stores, checkout the online-handbook.
 A sketch of how to implement a sibling for backups is below:
 
-.. code-block:: bash
+.. code-block:: console
 
-   # create a back up sibling
-   datalad create-sibling --annex-wanted anything -r myserver:/path/to/backup
-   # publish a full backup of the current branch
-   datalad publish --to=myserver -r
-   # subsequently, publish updates to be backed up with
-   datalad publish --to=myserver -r --since= --missing=inherit
+   $ # create a back up sibling
+   $ datalad create-sibling --annex-wanted anything -r myserver:/path/to/backup
+   $ # publish a full backup of the current branch
+   $ datalad publish --to=myserver -r
+   $ # subsequently, publish updates to be backed up with
+   $ datalad publish --to=myserver -r --since= --missing=inherit
 
 In order to push not only the current branch, but refs, add the option
 ``--publish-by-default "refs/*"`` to the :dlcmd:`create-sibling` call.
 Should you want to back up all annexed data, even past versions of files, use
 :gitannexcmd:`sync` to push to the sibling:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ git annex sync --all --content <sibling-name>
 
@@ -210,7 +210,7 @@ If all subject-subdatasets are installed (e.g., with ``datalad get -n -r`` for
 a recursive installation without file retrieval), :term:`globbing` with the
 shell works fine:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ datalad get HCP1200/*/T1W/ribbon.nii.gz
 
@@ -220,7 +220,7 @@ shell can't expand non-existent paths. As an alternative, you can pipe the outpu
 of an (arbitrarily complex) :dlcmd:`search` command into
 :dlcmd:`get`:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ datalad -f '{path}' -c datalad.search.index-egrep-documenttype=all search 'path:.*T1w.*\.nii.gz' | xargs -n 100 datalad get
 
@@ -228,11 +228,11 @@ However, if you know the file locations within the dataset hierarchy and they
 are predictably named and consistent, you can create a file containing all paths to
 be retrieved and pipe that into :dlcmd:`get` as well:
 
-.. code-block:: bash
+.. code-block:: console
 
-   # create file with all file paths
+   $ # create file with all file paths
    $ for sub in HCP1200/*; do echo ${sub}/T1w/ribbons.nii.gz; done > toget.txt
-   # pipe it into datalad get
+   $ # pipe it into datalad get
    $ cat toget.txt | xargs -n 100 datalad get
 
 .. _speedystatus:
@@ -264,7 +264,7 @@ There are, however, ways to shrink the commit history in the annex branch.
 
 In order to :term:`squash` the entire git-annex history into a single commit, run
 
-.. code-block:: bash
+.. code-block:: console
 
    $ git annex forget --drop-dead --force
 

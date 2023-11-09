@@ -36,7 +36,7 @@ of a DataLad dataset! Shall we try whether we can install that?"
 now instead of looking at slides for hours is my preferred type of learning anyway",
 you think as you fire up your terminal and navigate into your ``DataLad-101`` dataset.
 
-In this demonstration, we're using one of the many openly available datasets that
+In this demonstration, we are using one of the many openly available datasets that
 DataLad provides in a public registry that anyone can access. One of these datasets is a
 collection of audio recordings of a great podcast, the longnow seminar series [#f2]_.
 It consists of audio recordings about long-term thinking, and while the DataLad-101
@@ -53,7 +53,7 @@ called recordings.
    :cast: 01_dataset_basics
    :notes: The next challenge is to clone an existing dataset from the web as a subdataset. First, we create a location for this
 
-   # we are in the root of DataLad-101
+   $ # we are in the root of DataLad-101
    $ mkdir recordings
 
 
@@ -77,7 +77,8 @@ Because we are in the root
 of the ``DataLad-101`` dataset, the pointer to the dataset is a ``.`` (which is Unix'
 way of saying "current directory"). In the :find-out-more:`on dataset option values <fom-clone-nonroot>`
 you can learn about cloning at other locations than the dataset root.
-As before with long commands, we line break the code below with a ``\``. You can
+
+As before with long commands, we line break the code with a ``\``. You can
 copy it as it is presented here into your terminal, but in your own work you
 can write commands like this into a single line.
 
@@ -126,9 +127,9 @@ chapters in this book will demonstrate how useful this information can be.
    point to root of the top-most dataset. For example, if you navigate into ``recordings``,
    the command would be:
 
-   .. code-block:: bash
+   .. code-block:: console
 
-     datalad clone -d^ https://github.com/datalad-datasets/longnow-podcasts.git longnow
+     $ datalad clone -d^ https://github.com/datalad-datasets/longnow-podcasts.git longnow
 
 .. find-out-more:: What if I do not install into an existing dataset?
    :name: fom-no-clone-dataset
@@ -137,9 +138,9 @@ chapters in this book will demonstrate how useful this information can be.
    If you do not install into an existing dataset, you only need to omit the ``-d/--dataset``
    option. You can try:
 
-   .. code-block:: bash
+   .. code-block:: console
   
-     datalad clone https://github.com/datalad-datasets/longnow-podcasts.git
+     $ datalad clone https://github.com/datalad-datasets/longnow-podcasts.git
 
    anywhere outside of your ``DataLad-101`` dataset to install the podcast dataset into a new directory
    called ``longnow-podcasts``. You could even do this inside of an existing dataset.
@@ -276,7 +277,7 @@ Try to open it -- it will now work.
 If you would want to get the rest of the missing data, instead of specifying all files individually,
 we can use ``.`` to refer to *all* of the dataset like this:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ datalad get .
 
@@ -441,7 +442,7 @@ modification.
    :cast: 01_dataset_basics
    :notes: We can make a note about this:
 
-   # in the root of DataLad-101:
+   $ # in the root of DataLad-101:
    $ cd ../../
    $ cat << EOT >> notes.txt
    The command 'datalad clone URL/PATH [PATH]' installs a dataset from

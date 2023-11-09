@@ -50,7 +50,7 @@ done. For the rest of the lecture, call me Google!"
 Fixing (empty) commit messages
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-From the back of the lecture hall comes a question you're really glad
+From the back of the lecture hall comes a question you are really glad
 someone asked: "It has happened to me that I accidentally did a
 :dlcmd:`save` and forgot to specify the commit message,
 how can I fix this?".
@@ -132,7 +132,7 @@ DataLad in the editor)!
    need to rewrite commit messages of older commits, you
    can do with an "interactive rebase":
 
-   .. code-block:: bash
+   .. code-block:: console
 
       $ git rebase --interactive HEAD~N
 
@@ -220,9 +220,9 @@ undo commits by resetting the history of a dataset to an earlier version.
 exact behavior it, but the relevant one for this aim is ``--mixed`` [#f3]_.
 Specifying the command:
 
-.. code-block:: bash
+.. code-block:: console
 
-   git reset --mixed COMMIT
+   $ git reset --mixed COMMIT
 
 will preserve all changes made to files since the specified
 commit in the dataset but remove them from the dataset's history.
@@ -345,9 +345,9 @@ gets annexed with an accidental :dlcmd:`save`:
    :language: console
    :workdir: dl-101/DataLad-101
 
-   # create an empty pdf file
+   $ # create an empty pdf file
    $ convert xc:none -page Letter apdffile.pdf
-   # accidentally save it
+   $ # accidentally save it
    $ datalad save
 
 This accidental :dlcmd:`save` has thus added both text files
@@ -504,7 +504,7 @@ The cat-file command is very versatile, and
 of its functionality. To use it to see the contents of a file at a previous
 state as done above, this is how the general structure looks like:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ git cat-file --textconv SHASUM:<path/to/file>
 
@@ -643,7 +643,7 @@ the changes of an unwanted commit are reverted.
 
 The command looks like this:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ git revert SHASUM
 
@@ -656,7 +656,7 @@ be reverted.
 
    You can also specify a range of commits like this:
 
-   .. code-block:: bash
+   .. code-block:: console
 
       $ git revert OLDER_SHASUM..NEWERSHASUM
 
@@ -668,7 +668,7 @@ be reverted.
    reversal commits. If you however want the reversal of a range of commits
    saved in a single commit, supply the ``--no-commit`` option as in
 
-   .. code-block:: bash
+   .. code-block:: console
 
       $ git revert --no-commit OLDER_SHASUM..NEWERSHASUM
 

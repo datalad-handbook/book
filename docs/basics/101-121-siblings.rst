@@ -44,10 +44,10 @@ and run the following command
    :notes: Let's make changes in the copy of the original ds
    :cast: 04_collaboration
 
-   # navigate into the installed copy
+   $ # navigate into the installed copy
    $ cd ../mock_user/DataLad-101
 
-   # download the shell script and save it in your code/ directory
+   $ # download the shell script and save it in your code/ directory
    $ datalad download-url \
      -d . \
      -m "Include nesting demo from datalad website" \
@@ -124,7 +124,7 @@ This registers your room mate's ``DataLad-101`` as a "sibling" (we will call it
    :cast: 04_collaboration
 
    $ cd ../../DataLad-101
-   # add a sibling
+   $ # add a sibling
    $ datalad siblings add -d . \
      --name roommate --url ../mock_user/DataLad-101
 
@@ -335,7 +335,7 @@ do not use Git, but a later section will get into the details of what
 the meaning of ":term:`merge`", ":term:`branch`", "refs"
 or ":term:`main`" is.
 
-For now, you're happy to have the changes your room mate made available.
+For now, you are happy to have the changes your room mate made available.
 This is how it should be! You helped him, and he helps you. Awesome!
 There actually is a wonderful word for it: *Collaboration*.
 Thus, without noticing, you have successfully collaborated for the first

@@ -136,8 +136,9 @@ In situations where there is no obvious reason for a command to fail, it can be 
 This allows you to gain more insights into the actions DataLad and its underlying tools are taking, where *exactly* they fail, and to even play around with the program at the state of the failure.
 
 :term:`Debugging` and :term:`logging` are not as complex as these terms may sound if you have never consciously debugged.
-Procedurally, it can be as easy as adding an additional flag to a command call, and cognitively, it can be as easy as engaging your visual system in a visual search task for the color red or the word "error", or reading more DataLad output than you're used to.
-The paragraphs below start with the general concepts, and collect concrete debugging strategies for different problems.
+
+Procedurally, it can be as easy as adding an additional flag to a command call, and cognitively, it can be as easy as engaging your visual system in a visual search task for the color red or the word "error", or reading more DataLad output than you are used to.
+We will start with the general concepts, and then collect concrete debugging strategies for different problems.
 
 .. _logging:
 
@@ -193,13 +194,13 @@ To get extensive information on what :dlcmd:`status` does underneath the hood, y
 
    To set the log level for a single command, for example, set it in front of the command:
 
-   .. code-block:: bash
+   .. code-block:: console
 
        $ DATALAD_LOG_LEVEL=debug datalad status
 
    And to set the log level for the rest of the shell session, export it:
 
-   .. code-block:: bash
+   .. code-block:: console
 
        $ export DATALAD_LOG_LEVEL=debug
        $ datalad status
@@ -209,7 +210,7 @@ To get extensive information on what :dlcmd:`status` does underneath the hood, y
 
    The configuration variable can be used to set the log level on a user (global) or system-wide level with the :gitcmd:`config` command:
 
-   .. code-block:: bash
+   .. code-block:: console
 
       $ git config --global datalad.log.level debug
 
@@ -265,7 +266,7 @@ Output produced by Git
 If you have not configured your Git identity, you will
 see warnings like this when running any DataLad command:
 
-.. code-block:: bash
+.. code-block:: console
 
    [WARNING] It is highly recommended to configure git first (set both user.name and user.email) before using DataLad.
 
@@ -278,7 +279,7 @@ One error you can run into when publishing dataset contents is that your
 :dlcmd:`push` to a sibling is rejected.
 One example is this:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ datalad push --to public
     [ERROR  ] refs/heads/main->public:refs/heads/main [rejected] (non-fast-forward) [publish(/home/me/dl-101/DataLad-101)]
@@ -293,7 +294,7 @@ know about. It can be fixed by updating from the sibling first with a
 
 Here is a different push rejection:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ datalad push --to roommate
     publish(ok): . (dataset) [refs/heads/git-annex->roommate:refs/heads/git-annex 023a541..59a6f8d]
@@ -324,7 +325,7 @@ on ``receive.denyCurrentBranch`` for more.
 
 One warning that you may encounter during an installation of a dataset is:
 
-.. code-block:: bash
+.. code-block:: console
 
     [INFO   ] Submodule HEAD got detached. Resetting branch main to point to 046713bb. Original location was 47e53498
 
@@ -341,7 +342,7 @@ Output produced by git-annex
 
 Upon installation of a dataset, you may see:
 
-.. code-block:: bash
+.. code-block:: console
 
    [INFO    ]     Remote origin not usable by git-annex; setting annex-ignore
    [INFO    ]     This could be a problem with the git-annex installation on the
@@ -357,7 +358,7 @@ data from, you are fine.
 A similar warning message may appear when adding a sibling that is a pure Git
 :term:`remote`, such as a repository on GitHub:
 
-.. code-block:: bash
+.. code-block:: console
 
    [INFO ] Failed to enable annex remote github, could be a pure git or not
    accessible
@@ -384,7 +385,7 @@ Other errors
 Sometimes, registered subdatasets URLs have an :term:`SSH` instead of :term:`https` address, for example ``git@github.com:datalad-datasets/longnow-podcasts.git`` instead of ``https://github.com/datalad-datasets/longnow-podcasts.git``.
 If one does not have an SSH key configured for the required service (e.g., GitHub, or a server), installing or getting the subdataset and its contents fails, with messages starting similar to this:
 
-.. code-block:: bash
+.. code-block:: console
 
    [INFO   ] Cloning https://github.com/psychoinformatics-de/paper-remodnav.git/remodnav [2 other candidates] into '/home/.../remodnav'
    Permission denied (publickey).

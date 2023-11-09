@@ -36,12 +36,12 @@ list of speakers and titles to cross out what they've already listened
 to, and ask you to prepare such a list.
 
 "Mhh... probably there is a DataLad way to do this... wasn't there also
-a note about metadata extraction at some point?" But as we're not that
+a note about metadata extraction at some point?" But as we are not that
 far into the lectures, you decide to write a short shell script
 to generate a text file that lists speaker and title
 name instead.
 
-To do this, we're following a best practice that will reappear in the
+To do this, we are following a best practice that will reappear in the
 later section on :ref:`YODA principles <yoda>`: Collecting all
 additional scripts that work with content of a subdataset *outside*
 of this subdataset, in a dedicated ``code/`` directory,
@@ -68,9 +68,8 @@ Inside of ``DataLad-101/code``, create a simple shell script ``list_titles.sh``.
 This script will carry out a simple task:
 It will loop through the file names of the ``.mp3`` files and
 write out speaker names and talk titles in a very basic fashion.
-The content of this script is shown below -- the ``cat`` command
-will write it into the script. Make sure to see the
-:windows-wit:`on an alternative <ww-heredoc-alt>`, and check
+The ``cat`` command will write the script content into ``code/list_titles.sh``.
+Make sure to see the :windows-wit:`on an alternative <ww-heredoc-alt>`, and check
 the :windows-wit:`on automatic file name extensions <ww-filename-extensions>`
 to avoid confusion when creating files manually.
 

@@ -116,7 +116,7 @@ from a large number of commercial providers [#f2]_.
   Alternatively, ``git clone`` the `git-annex-remote-rclone <https://github.com/git-annex-remote-rclone/git-annex-remote-rclone>`_ repository to your machine (do not clone it into ``DataLad-101`` but somewhere else on your computer), and copy the path to this repository into your ``$PATH`` variable. If you
   clone into ``/home/user-bob/repos``, the command would look like this [#f3]_:
 
-  .. code-block:: bash
+  .. code-block:: console
 
      $ git clone https://github.com/DanielDent/git-annex-remote-rclone.git
      $ export PATH="/home/user-bob/repos/git-annex-remote-rclone:$PATH"
@@ -124,7 +124,7 @@ from a large number of commercial providers [#f2]_.
 - Finally, in the dataset you want to share, run the :gitannexcmd:`initremote` command.
   Give the remote a name (it is ``dropbox-for-friends`` here), and specify the name of  the remote you configured with ``rclone`` with the ``target`` parameters:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ git annex initremote dropbox-for-friends type=external externaltype=rclone chunk=50MiB encryption=none target=dropbox-for-friends prefix=my_awesome_dataset
 
@@ -135,7 +135,7 @@ What has happened up to this point is that we have configured Dropbox
 as a third-party storage service for the annexed contents in the dataset.
 On a conceptual, dataset level, your Dropbox folder is now a :term:`sibling` -- the sibling name is the first positional argument after ``initremote``, i.e., "dropbox-for-friends":
 
-.. code-block:: bash
+.. code-block:: console
 
    $ datalad siblings
     .: here(+) [git]
@@ -172,7 +172,7 @@ However, in order to be able to link the contents stored in Dropbox, you also ne
 configure a *publication dependency* to the ``dropbox-for-friends`` sibling -- this is
 done with the ``publish-depends <sibling>`` option.
 
-.. code-block:: bash
+.. code-block:: console
 
    $ datalad create-sibling-github -d . DataLad-101 \
      --publish-depends dropbox-for-friends
@@ -182,7 +182,7 @@ done with the ``publish-depends <sibling>`` option.
 
 :dlcmd:`siblings` will again list all available siblings:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ datalad siblings
     .: here(+) [git]
@@ -208,7 +208,7 @@ there first.
    it is not shared with clones of the dataset. Internally, this configuration
    is a key value pair in the section of your remote in ``.git/config``:
 
-   .. code-block:: bash
+   .. code-block:: ini
 
       [remote "github"]
          annex-ignore = true
@@ -219,7 +219,7 @@ there first.
 With this setup, we can publish the dataset to GitHub. Note how the publication
 dependency is served first:
 
-.. code-block:: bash
+.. code-block:: console
    :emphasize-lines: 2
 
    $ datalad push --to github
@@ -254,7 +254,7 @@ have to do:
 If the repository is on GitHub, a :dlcmd:`clone` with the URL
 will install the dataset:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ datalad clone https://github.com/<user-name>/DataLad-101.git
    [INFO   ] Cloning https://github.com/<user-name>/DataLad-101.git [1 other candidates] into '/Users/awagner/Documents/DataLad-101'
@@ -265,7 +265,7 @@ will install the dataset:
 
 Pay attention to one crucial information in this output:
 
-.. code-block:: bash
+.. code-block:: console
 
    [INFO   ] access to 1 dataset sibling dropbox-for-friends not auto-enabled, enable with:
    |         datalad siblings -d "/Users/<user-name>/Documents/DataLad-101" enable -s dropbox-for-friends
@@ -287,7 +287,7 @@ the same as before:
 After this is done, you can execute what DataLad's output message suggests
 to "enable" this special remote (inside of the installed ``DataLad-101``):
 
-.. code-block:: bash
+.. code-block:: console
 
    $ datalad siblings -d "/Users/awagner/Documents/DataLad-101" \
      enable -s dropbox-for-friends
@@ -296,7 +296,7 @@ to "enable" this special remote (inside of the installed ``DataLad-101``):
 And once this is done, you can get any annexed file contents, for example, the
 books, or the cropped logos from chapter :ref:`chapter_run`:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ datalad get books/TLCL.pdf
    get(ok): /home/some/other/user/DataLad-101/books/TLCL.pdf (file) [from dropbox-for-friends]

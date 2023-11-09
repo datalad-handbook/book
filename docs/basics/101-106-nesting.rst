@@ -116,16 +116,16 @@ an alternative.
    Thus, from the root of ``DataLad-101``, this command would have given you the
    subdataset's history as well:
 
-   .. code-block:: bash
+   .. code-block:: console
 
       $ git -C recordings/longnow log --oneline
 
 In the upcoming sections, we'll experience the perks of dataset nesting
 frequently, and everything that might seem vague at this point will become
 clearer. To conclude this demonstration,
-:numref:`fig_dl101_tree` illustrates the current state of our dataset, ``DataLad-101``, with its nested subdataset.
+:numref:`fignesting` illustrates the current state of our dataset, ``DataLad-101``, with its nested subdataset.
 
-.. _fig_dl101_tree:
+.. _fignesting:
 .. figure:: ../artwork/src/virtual_dstree_dl101.svg
    :width: 70%
 

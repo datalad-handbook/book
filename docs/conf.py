@@ -167,7 +167,10 @@ extensions = [
 ]
 
 # configure sphinx-copybutton
-copybutton_prompt_text = r"\$ "
+# a prompt is anything that starts with $ or > plus space
+# that is not followed by # (to catch comment lines in console
+# markup)
+copybutton_prompt_text = r"[$>] (?!#)"
 copybutton_prompt_is_regexp = True
 copybutton_line_continuation_character = "\\"
 copybutton_here_doc_delimiter = "EOT"

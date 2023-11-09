@@ -143,7 +143,7 @@ For this, we will pull an image from Singularity hub. This image was made
 for the online-handbook, and it contains the relevant Python setup for
 the analysis. Its recipe lives in the online-handbook's
 `resources repository <https://github.com/datalad-handbook/resources>`_.
-If you're curious how to create a Singularity image, the :find-out-more:`on this topic <fom-container-creation>` has some pointers:
+If you are curious how to create a Singularity image, the :find-out-more:`on this topic <fom-container-creation>` has some pointers:
 
 .. index::
    pair: build container image; with Singularity
@@ -165,9 +165,9 @@ If you're curious how to create a Singularity image, the :find-out-more:`on this
 
    Once a recipe exists, the command
 
-   .. code-block:: bash
+   .. code-block:: console
 
-      sudo singularity build <NAME> <RECIPE>
+      $ sudo singularity build <NAME> <RECIPE>
 
    will build a container (called ``<NAME>``) from the recipe. Note that this
    command requires ``root`` privileges ("``sudo``"). You can build the container
@@ -186,7 +186,7 @@ name to give to the container, and a path or URL to a container image:
    :cast: 10_yoda
    :notes: Computational reproducibility: add a software container
 
-   # we are in the midterm_project subdataset
+   $ # we are in the midterm_project subdataset
    $ datalad containers-add midterm-software --url shub://adswa/resources:2
 
 .. index::
@@ -196,22 +196,22 @@ name to give to the container, and a path or URL to a container image:
    Should the image you want to use lie on Dockerhub, specify the ``--url``
    option prefixed with ``docker://`` or ``dhub://`` instead of ``shub://``:
 
-   .. code-block:: bash
+   .. code-block:: console
 
-      datalad containers-add midterm-software --url docker://adswa/resources:2
+      $ datalad containers-add midterm-software --url docker://adswa/resources:2
 
    If your image exists on Amazon ECR, use a ``dhub://`` prefix followed by the AWS ECR URL as in
 
-   .. code-block:: bash
+   .. code-block:: console
 
-          datalad containers-add --url dhub://12345678.dkr.ecr.us-west-2.amazonaws.com/maze-code/data-import:latest data-import
+      $ datalad containers-add --url dhub://12345678.dkr.ecr.us-west-2.amazonaws.com/maze-code/data-import:latest data-import
 
    If you want to add a container that exists locally, specify the path to it
    like this:
 
-   .. code-block:: bash
+   .. code-block:: console
 
-       datalad containers-add midterm-software --url path/to/container
+      $ datalad containers-add midterm-software --url path/to/container
 
 This command downloaded the container from Singularity Hub, added it to
 the ``midterm_project`` dataset, and recorded basic information on the
@@ -245,7 +245,7 @@ the :dlcmd:`run` command from the section :ref:`yoda_project` as a
 
 The previous ``run`` command looked like this:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ datalad run -m "analyze iris data with classification analysis" \
      --input "input/iris.csv" \
@@ -275,7 +275,7 @@ But if your dataset contains more than one container you will *need* to specify
 the name of the container you want to use in your command.
 The complete command's structure looks like this:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ datalad containers-run --name <containername> [-m ...] [--input ...] [--output ...] <COMMAND>
 

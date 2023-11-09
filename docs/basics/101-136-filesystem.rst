@@ -26,7 +26,7 @@ Below you will find common questions about file system
 management operations, and each question outlines caveats and
 solutions with code examples you can paste into your own terminal.
 Because these code snippets will add many commits to your
-dataset, we're cleaning up within each segment with
+dataset, we are cleaning up within each segment with
 common git operations that manipulate the datasets
 history -- be sure to execute these commands as well (and
 be sure to be in the correct dataset).
@@ -105,9 +105,9 @@ new and the deleted file as a path specification to
 save a change that is marked as a deletion in a
 :dlcmd:`status`:
 
-.. code-block:: bash
+.. code-block:: console
 
-   datalad save -m "rename file" oldname newname
+   $ datalad save -m "rename file" oldname newname
 
 Alternatively, there is also a way to save the name change
 only using Git tools only, outlined in the :find-out-more:`on faster renaming <fom-gitmv>`. If you are a Git user, you will be very familiar with it.
@@ -130,7 +130,7 @@ only using Git tools only, outlined in the :find-out-more:`on faster renaming <f
       $ git reset --hard HEAD~1
       $ datalad status
 
-   Now we're checking out how to rename files and commit this operation
+   Now we are checking out how to rename files and commit this operation
    using only Git:
    A Git-specific way to rename files is the ``git mv`` command:
 
@@ -358,10 +358,10 @@ as if the file was generated at once, instead of successively over the course:
    :notes: clean-up
    :cast: 03_git_annex_basics
 
-   # in midterm_project
+   $ # in midterm_project
    $ git reset --hard HEAD~
 
-   # in DataLad-101
+   $ # in DataLad-101
    $ cd ../
    $ git reset --hard HEAD~
 
@@ -462,7 +462,7 @@ but one paragraph. Let's quickly clean up by moving the file back:
    :workdir: dl-101/DataLad-101/midterm_project
    :notes: move file back
 
-   # in midterm_project
+   $ # in midterm_project
    $ git annex unannex TLCL.pdf
 
 .. runrecord:: _examples/DL-101-136-138
@@ -784,10 +784,10 @@ be fixed easily though. We can try this in the :find-out-more:`on adjusting sibl
       :language: console
       :workdir: dl-101/DataLad-101
 
-      # add an intermediate directory
+      $ # add an intermediate directory
       $ cd ../mock_user
       $ mkdir onemoredir
-      # move your room mates dataset into this new directory
+      $ # move your room mates dataset into this new directory
       $ mv DataLad-101 onemoredir
 
    This means that relative to your ``DataLad-101``, your room mates
@@ -800,9 +800,9 @@ be fixed easily though. We can try this in the :find-out-more:`on adjusting sibl
       :exitcode: 1
       :workdir: dl-101/mock_user
 
-      # navigate back into your dataset
+      $ # navigate back into your dataset
       $ cd ../DataLad-101
-      # attempt a datalad update
+      $ # attempt a datalad update
       $ datalad update
 
    Here we go:
@@ -877,7 +877,7 @@ or :term:`GitLab`, these files would not be available to others, because annexed
 dataset contents cannot be published to these services.
 Even though you could find a third party service of your choice
 and publish your dataset *and* the annexed data (see section :ref:`sharethirdparty`),
-you're feeling lazy today. And since it
+you are feeling lazy today. And since it
 is only two files, and they are quite small, you decide to store them in Git --
 this way, the files would be available without configuring an external data
 store.
@@ -947,7 +947,7 @@ by going back into the history of the dataset or reverting the removal commit:
    :notes: 2 ways to remove a file from dataset: remove the file from the current state of the repository (the *worktree*) but keeping the content in the history, or remove content entirely from a dataset and its history.
    :cast: 03_git_annex_basics
 
-   # download a file
+   $ # download a file
    $ datalad download-url -m "Added flower mosaic from wikimedia" \
      https://upload.wikimedia.org/wikipedia/commons/a/a5/Flower_poster_2.jpg \
      --path flowers.jpg
@@ -959,7 +959,7 @@ by going back into the history of the dataset or reverting the removal commit:
    :cast: 03_git_annex_basics
 
 
-   # removal is easy:
+   $ # removal is easy:
    $ rm flowers.jpg
 
 This will lead to a dirty dataset status:
@@ -1139,7 +1139,7 @@ fitting ``--reckless`` mode, such as ``datalad drop --what all --reckless kill -
    :notes: To get rid of subdatasets one can either uninstall or remove them. let's clone one to see:
    :cast: 03_git_annex_basics
 
-   # clone a subdataset - the content is irrelevant, so why not a cloud :)
+   $ # clone a subdataset - the content is irrelevant, so why not a cloud :)
    $ datalad clone -d . \
     https://github.com/datalad-datasets/disneyanimation-cloud.git \
     cloud
@@ -1182,7 +1182,7 @@ subsequently remove it with the :dlcmd:`remove` command:
    :notes: to completely remove the dataset, use datalad remove
    :cast: 03_git_annex_basics
 
-   # delete the subdataset
+   $ # delete the subdataset
    $ datalad remove -m "remove obsolete subds" -d . cloud
 
 Note that for both commands a pointer to the *current directory* will not work.
@@ -1212,9 +1212,9 @@ to protect the file content given to it. To remove a dataset with annexed conten
 one has to regain write permissions to everything in the dataset. This is done
 with the Unix ``chmod`` command:
 
-.. code-block:: bash
+.. code-block:: console
 
-    chmod -R u+w <dataset>
+   $ chmod -R u+w <dataset>
 
 This *recursively* (``-R``, i.e., throughout all files and (sub)directories) gives users
 (``u``) write permissions (``+w``) for the dataset.

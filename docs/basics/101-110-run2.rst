@@ -39,14 +39,14 @@ in the hidden paths
 .. runrecord:: _examples/DL-101-110-101
    :language: console
    :workdir: dl-101/DataLad-101
-   :notes: We saw a very simple datalad run. Now we're going to extend it with useful options. Narrative: prepare talk about dataset, add logo to slides. For this, we'll try to resize a logo in the meta data of the subdataset
+   :notes: We saw a very simple datalad run. Now we are going to extend it with useful options. Narrative: prepare talk about dataset, add logo to slides. For this, we'll try to resize a logo in the meta data of the subdataset
    :cast: 02_reproducible_execution
 
    $ ls recordings/longnow/.datalad/feed_metadata/*jpg
 
 For the slides you decide to prepare images of size 400x400 px, but
 the logos' original size is much larger (both are 3000x3000 pixel). Therefore
-let's try to resize the images -- currently, they're far too large to fit on a slide.
+let's try to resize the images -- currently, they are far too large to fit on a slide.
 
 To resize an image from the command line we can use the Unix
 command ``convert -resize`` from the `ImageMagick tool <https://imagemagick.org/index.php>`_.
@@ -134,7 +134,7 @@ prior to running the command.
    $ datalad run -m "Resize logo for slides" \
    --input "recordings/longnow/.datalad/feed_metadata/logo_salt.jpg" \
    "convert -resize 400x400 recordings/longnow/.datalad/feed_metadata/logo_salt.jpg recordings/salt_logo_small.jpg"
-   # or shorter:
+   $ # or shorter:
    $ datalad run -m "Resize logo for slides" \
    -i "recordings/longnow/.datalad/feed_metadata/logo_salt.jpg" \
    "convert -resize 400x400 recordings/longnow/.datalad/feed_metadata/logo_salt.jpg recordings/salt_logo_small.jpg"
@@ -161,9 +161,9 @@ some more details.
    Often, a command needs several inputs. In principle, every input (which could be files, directories, or subdatasets) gets its own ``-i``/``--input``
    flag. However, you can make use of :term:`globbing`. For example,
 
-   .. code-block:: bash
+   .. code-block:: console
 
-      datalad run --input "*.jpg" "COMMAND"
+      $ datalad run --input "*.jpg" "COMMAND"
 
    will retrieve all ``.jpg`` files prior to command execution.
 
@@ -201,7 +201,7 @@ To establish best-practices, let's specify the input even though it is already p
    $ datalad run -m "Resize logo for slides" \
    --input "recordings/longnow/.datalad/feed_metadata/logo_salt.jpg" \
    "convert -resize 450x450 recordings/longnow/.datalad/feed_metadata/logo_salt.jpg recordings/salt_logo_small.jpg"
-   # or shorter:
+   $ # or shorter:
    $ datalad run -m "Resize logo for slides" \
    -i "recordings/longnow/.datalad/feed_metadata/logo_salt.jpg" \
    "convert -resize 450x450 recordings/longnow/.datalad/feed_metadata/logo_salt.jpg recordings/salt_logo_small.jpg"
@@ -367,7 +367,7 @@ of not doing so, when it is technically not needed.
    --output "recordings/interval_logo_small.jpg" \
    "convert -resize 450x450 recordings/longnow/.datalad/feed_metadata/logo_interval.jpg recordings/interval_logo_small.jpg"
 
-   # or shorter:
+   $ # or shorter:
    $ datalad run -m "Resize logo for slides" \
    -i "recordings/longnow/.datalad/feed_metadata/logo_interval.jpg" \
    -o "recordings/interval_logo_small.jpg" \
@@ -435,7 +435,7 @@ for inputs and outputs. This is how it works:
 
 Instead of running
 
-.. code-block:: bash
+.. code-block:: console
 
    $ datalad run -m "Resize logo for slides" \
    --input "recordings/longnow/.datalad/feed_metadata/logo_interval.jpg" \
@@ -444,7 +444,7 @@ Instead of running
 
 you could shorten this to
 
-.. code-block:: bash
+.. code-block:: console
    :emphasize-lines: 4
 
    $ datalad run -m "Resize logo for slides" \
@@ -466,7 +466,7 @@ The :find-out-more:`on dealing with multiple inputs and outputs <fom-multiple-in
 
    If multiple values are specified, e.g., as in
 
-   .. code-block:: bash
+   .. code-block:: console
 
       $ datalad run -m "move a few files around" \
       --input "file1" --input "file2" --input "file3" \
@@ -475,7 +475,7 @@ The :find-out-more:`on dealing with multiple inputs and outputs <fom-multiple-in
 
    the values will be joined by a space like this:
 
-   .. code-block:: bash
+   .. code-block:: console
 
       $ datalad run -m "move a few files around" \
       --input "file1" --input "file2" --input "file3" \
@@ -487,7 +487,7 @@ The :find-out-more:`on dealing with multiple inputs and outputs <fom-multiple-in
 
    If you use globs for input specification, as in
 
-   .. code-block:: bash
+   .. code-block:: console
 
       $ datalad run -m "move a few files around" \
       --input "file*" \
@@ -496,7 +496,7 @@ The :find-out-more:`on dealing with multiple inputs and outputs <fom-multiple-in
 
    the globs will expanded in alphabetical order (like bash):
 
-   .. code-block:: bash
+   .. code-block:: console
 
       $ datalad run -m "move a few files around" \
       --input "file1" --input "file2" --input "file3" \

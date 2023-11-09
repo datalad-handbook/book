@@ -27,7 +27,7 @@ and create a fresh, empty dataset with the :dlcmd:`create` command.
 
 Note the command structure of :dlcmd:`create` (optional bits are enclosed in ``[ ]``):
 
-.. code-block:: bash
+.. code-block::
 
   datalad create [--description "..."] [-c <config options>] PATH
 
@@ -39,13 +39,12 @@ Note the command structure of :dlcmd:`create` (optional bits are enclosed in ``[
    The optional ``--description`` flag allows you to provide a short description of
    the *location* of your dataset, for example with
 
-   .. code-block:: bash
+   .. code-block:: console
 
-      datalad create --description "course on DataLad-101 on my private laptop" -c text2git DataLad-101
+      $ datalad create --description "course on DataLad-101 on my private laptop" -c text2git DataLad-101
 
-   If you want, use the above command instead of the :dlcmd:`create` command below
-   to provide a description. Its use will not be immediately clear, the chapter
-   :ref:`chapter_collaboration` will show you where this description
+   If you want, use the above command instead to provide a description. Its use will not be immediately clear now, but the chapter
+   :ref:`chapter_collaboration` shows where this description
    ends up and how it may be useful.
 
 Let's start:

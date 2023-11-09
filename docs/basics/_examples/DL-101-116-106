@@ -1,7 +1,0 @@
-$ git annex whereis books/bash_guide.pdf
-whereis books/bash_guide.pdf (2 copies)
-  	00000000-0000-0000-0000-000000000001 -- web
-   	✂UUID✂ -- me@appveyor-vm:~/dl-101/DataLad-101 [origin]
-
-  web: https://www.tldp.org/LDP/Bash-Beginners-Guide/Bash-Beginners-Guide.pdf
-ok

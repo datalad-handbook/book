@@ -32,7 +32,7 @@ This particular procedure lives in a script called
 in this script is not large, and the relevant lines of code
 are highlighted:
 
-.. code-block:: bash
+.. code-block:: python
    :emphasize-lines: 12, 16-17
 
     import sys
@@ -144,9 +144,9 @@ command. This is a peculiarity of these procedures because, by convention,
 all of these procedures are written to not require arguments.
 The command structure looks like this:
 
-.. code-block:: bash
+.. code-block:: console
 
-   datalad create -c text2git DataLad-101
+   $ datalad create -c text2git DataLad-101
 
 Note that the ``cfg_`` prefix of the procedures is omitted in these
 calls to keep it extra simple and short. The
@@ -162,7 +162,7 @@ could thus be applied within a :dlcmd:`create` as
    If you want to apply several configurations at once, feel free to do so,
    for example like this:
 
-   .. code-block:: bash
+   .. code-block:: console
 
       $ datalad create -c yoda -c text2git
 
@@ -211,8 +211,7 @@ Write your own procedures
    write their own ones in addition, and deploy them on individual machines,
    or ship them within DataLad datasets. This allows to
    automate routine configurations or tasks in a dataset, or share configurations that would otherwise not "stick" to the dataset.
-   Some general rules for creating a custom procedure are outlined
-   below:
+   Here are some general rules for creating a custom procedure:
 
    - A procedure can be any executable. Executables must have the
      appropriate permissions and, in the case of a script,
@@ -231,7 +230,7 @@ Write your own procedures
      a short "help" description on what the procedure does. Below is a minimal
      ``.datalad/config`` entry for a custom procedure:
 
-     .. code-block:: bash
+     .. code-block:: ini
 
         [datalad "procedures.<NAME>"]
            help = This is a string to describe what the procedure does
@@ -248,14 +247,14 @@ Write your own procedures
      The appropriate configuration keys for ``.datalad/config`` are either ``datalad.locations.system-procedures`` (for changing the *system* default), ``datalad.locations.user-procedures`` (for changing the *global* default), or ``datalad.locations.dataset-procedures`` (for changing the *local* default).
      An example ``.datalad/config`` entry for the local scope is shown below.
 
-	 .. code-block:: bash
+     .. code-block:: ini
 
 		[datalad "locations"]
 			dataset-procedures = relative/path/from/dataset-root
 
    - By default, DataLad will call a procedure with a standard template defined by a format string:
 
-      .. code-block:: bash
+      .. code-block::
 
          interpreter {script} {ds} {arguments}
 
@@ -263,7 +262,7 @@ Write your own procedures
    This default format string can be customized within ``.datalad/config`` in ``datalad.procedures.<NAME>.call-format``.
    An example ``.datalad/config`` entry with a changed call format string is shown below.
 
-      .. code-block:: bash
+      .. code-block:: ini
 
          [datalad "procedures.<NAME>"]
             help = This is a string to describe what the procedure does
@@ -347,14 +346,14 @@ Write your own procedures
       :language: console
       :workdir: procs/somedataset
 
-      #the directory structure has been created
+      $ # the directory structure has been created
       $ tree
 
    .. runrecord:: _examples/DL-101-124-108
       :workdir: procs/somedataset
       :language: console
 
-      #lets check out the contents in the files
+      $ # lets check out the contents in the files
       $ cat example2  && echo '' && cat somedir/example
 
    .. runrecord:: _examples/DL-101-124-109

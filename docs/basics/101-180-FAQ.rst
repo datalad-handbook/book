@@ -144,7 +144,7 @@ How can I convert/import/transform an existing Git or git-annex repository into 
 You can transform any existing Git or git-annex repository of yours into a
 DataLad dataset by running:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ datalad create -f
 
@@ -469,9 +469,9 @@ copied. Therefore you can :
 - either unlock the files before copying them out, 
 - or copy them and then use the command ``chmod`` to be able to edit the file.
 
-.. code-block:: bash
+.. code-block:: console
 
-   # this will give you 'write' permission on the file
+   $ # this will give you 'write' permission on the file
    $ chmod +w filename
    
 If you are not familiar with how the ``chmod`` works (or if you forgot - let's be honest we

@@ -22,7 +22,7 @@ command (:numref:`fig-run-schema`), and discovered the concept of *locked* conte
   to the executed command (using the ``-i``/``--input`` flag) and/or its output (using the ``-o``/
   ``--output`` flag). The full command structure is:
 
-  .. code-block:: bash
+  .. code-block:: console
 
      $ datalad run \
          -m "commit message here" \

@@ -927,7 +927,7 @@ reproduce your data science project easily from scratch (take a look into the :r
 
    The :dlcmd:`push` uses ``git push``, and ``git annex copy`` under
    the hood. Publication targets need to either be configured remote Git repositories,
-   or git-annex special remotes (if they support data upload).
+   or git-annex :term:`special remote`\s (if they support data upload).
 
 
 .. only:: adminmode

@@ -138,7 +138,7 @@ in size even if they are each small in size.
 .. [#f1] FEAT is a software tool for model-based fMRI data analysis and part of of
          `FSL <https://fsl.fmrib.ox.ac.uk>`_.
 
-.. [#f2] Read more about DataLad's Python API in the :find-out-more:`on it <fom-pythonapi>` in
+.. [#f2] Read more about DataLad's Python API in the :ref:`Find-out-more on it <pythonapi>` in
          :ref:`yoda_project`.
 
 .. [#f3] Read up on these configurations in the chapter :ref:`chapter_config`.

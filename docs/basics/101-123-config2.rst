@@ -34,7 +34,7 @@ This looks neither spectacular nor pretty. Also, it does not follow the ``sectio
 organization of the ``.git/config`` file anymore. Instead, there are three lines,
 and all of these seem to have something to do with the configuration of git-annex.
 There even is one key word that you recognize: MD5E.
-If you have read the :find-out-more:`on object trees <fom-objecttree>`
+If you have read the :ref:`Find-out-more on object trees <objecttree>`
 you will recognize it as a reference to the type of
 key used by git-annex to identify and store file content in the object-tree.
 The first row, ``* annex.backend=MD5E``, therefore translates to "Everything in this

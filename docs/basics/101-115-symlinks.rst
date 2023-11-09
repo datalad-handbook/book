@@ -171,6 +171,7 @@ moving, renaming, or copying content translate to dataset modifications
 in certain situations. Later in this book we will have a section on how
 to manage the file system in a DataLad dataset (:ref:`file system`).
 
+.. _objecttree:
 .. index::
    pair: key; git-annex concept
 .. find-out-more:: more about paths, checksums, object trees, and data integrity

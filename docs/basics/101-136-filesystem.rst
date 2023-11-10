@@ -27,7 +27,7 @@ management operations, and each question outlines caveats and
 solutions with code examples you can paste into your own terminal.
 Because these code snippets will add many commits to your
 dataset, we are cleaning up within each segment with
-common git operations that manipulate the datasets
+common Git operations that manipulate the datasets
 history -- be sure to execute these commands as well (and
 be sure to be in the correct dataset).
 

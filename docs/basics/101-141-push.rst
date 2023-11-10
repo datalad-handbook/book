@@ -5,7 +5,7 @@
 The datalad push command
 ------------------------
 
-Previous sections on publishing DataLad datasets  have each
+Previous contents on publishing DataLad datasets have each
 shown you crucial aspects of the functions of dataset publishing with
 :dlcmd:`push`. This section wraps them all together.
 
@@ -177,7 +177,6 @@ As an example, consider what happens if we attempt a :dlcmd:`push` to the siblin
 
 Publishing fails with the error message ``[remote rejected] (branch is currently checked out)``.
 This can be prevented with  `configuration settings <https://github.blog/2015-02-06-git-2-3-has-been-released>`_ in Git versions 2.3 or higher, or by pushing to a branch of the sibling that is currently not checked-out.
-For more information on this, and other error messages during push, please checkout the section :ref:`help`.
 
 
 .. rubric:: Footnotes

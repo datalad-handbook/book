@@ -11,7 +11,7 @@ Data sharing potentially involves a number of different elements:
    An overview of all elements potentially included in a publication workflow.
 
 Users on a common, shared computational infrastructure such as an :term:`SSH server`
-can share datasets via simple installations with paths, without any involvement of third party storage providers or repository hosting services, as shown in :numref:`fig-clonecompute`.
+can distribute datasets via simple installations with paths, without any involvement of third party storage providers or repository hosting services, as shown in :numref:`fig-clonecompute`.
 
 .. _fig-clonecompute:
 
@@ -22,43 +22,24 @@ can share datasets via simple installations with paths, without any involvement 
 But at some point in a dataset's life, you may want to share it with people that
 can't access the computer or server your dataset lives on, store it on other infrastructure
 to save diskspace, or create a backup.
-When this happens, you will want to publish your dataset to repository hosting
-services (for example, :term:`GitHub`, :term:`GitLab`, or :term:`Gin`)
-and/or third party storage providers (such as Dropbox_, Google_,
-`Amazon S3 buckets <https://aws.amazon.com/s3>`_,
-the `Open Science Framework`_ (OSF), and many others).
+When this happens, you will want to distribute your dataset to repository hosting services (for example, :term:`GitHub`, :term:`GitLab`, or :term:`Gin`) and/or third party storage providers (such as Dropbox_, Google_, `Amazon S3 buckets <https://aws.amazon.com/s3>`_, the `Open Science Framework`_ (OSF), and many others).
 
-This chapter tackles different aspects of dataset publishing.
-The remainder of this section talks about general aspects of dataset publishing, and
-illustrates the idea of using third party services as :term:`special remote`\s from
+This chapter walks through mostly conceptual aspects of dataset publishing:
+It illustrates general concepts of dataset publishing and the idea of using third party services as :term:`special remote`\s from
 which annexed file contents can be retrieved via :dlcmd:`get`.
-
-The upcoming section :ref:`gin` shows you one of the most easy ways to publish your
-dataset publicly or for selected collaborators and friends.
-If you don't want to dive in to all the details on dataset sharing, it is safe to
-directly skip ahead to this section, and have your dataset published in only a few minutes.
-
-Other sections in this chapter will showcase a variety of ways to publish datasets
-and their contents to different services:
-The section :ref:`share_hostingservice` demonstrates how to publish datasets to any
-kind of Git repository hosting service.
-The sections :ref:`s3` and :ref:`dropbox` are concrete examples of sharing datasets
-publicly or with selected others via different cloud services.
-The section :ref:`gitlfs` talks about using the centralized, for-pay service
-`Git LFS`_ for sharing dataset content on GitHub, and the
-section :ref:`figshare` shows built-in dataset export to services such as
-`figshare.com <https://figshare.com>`__.
+:ref:`share_hostingservice` then demonstrates how to publish datasets to any kind of Git repository hosting service.
+The web version of the book extends this information with step-by-step instructions for various repository hosting and third party storage solutions, and showcases a variety of ways to distribute datasets and their contents to different services.
 
 Leveraging third party infrastructure
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-There are several ways to make datasets available for others:
+There are several ways to distribute datasets or make them available for others:
 
-- You can **publish your dataset to a repository with annex support** such as :term:`Gin` or the OSF_ [#f1]_. This is the easiest way to share datasets and all their contents. Read on in the section :ref:`gin` or consult the tutorials of the `datalad-osf extension`_ to learn how to do this.
+- You can **publish your dataset to a repository with annex support** such as :term:`Gin` or the OSF_ [#f1]_. This is the easiest way to share datasets and all their contents. Read on in the web version of this book or consult the tutorials of the `datalad-osf extension`_ to learn how to do this.
 
 - You can **publish your dataset to a repository hosting service**, and **configure an external resource that stores your annexed data**. Such a resource can be a private web server, but also a third party services cloud storage such as Dropbox_, Google_, `Amazon S3 buckets <https://aws.amazon.com/s3>`_, `Box.com <https://www.box.com>`_, `owncloud <https://owncloud.com>`_, `sciebo <https://hochschulcloud.nrw>`_, or many more.
 
-- You can **export your dataset statically** as a snapshot to a service such as  `Figshare <https://figshare.com>`__ or the OSF_ [#f1]_.
+- You can **export your dataset statically** as a snapshot to a service such as  `Figshare <https://figshare.com>`__ or the OSF_.
 
 - You can **publish your dataset to a repository hosting service** and ensure that
   all dataset contents are either available from pre-existing public sources or can be recomputed from a :term:`run record`.
@@ -81,7 +62,7 @@ this dataset and ran a :dlcmd:`get` command, content retrieval would fail
 because their only known location is your private computer to which only you have access.
 Instead, they would need to be recomputed from the :term:`run record` in the dataset.
 
-When you are sharing DataLad datasets with other people or third party services,
+When you are distributing DataLad datasets to other people or third party services,
 an important distinction thus lies in *annexed* versus *not-annexed* content, i.e.,
 files that stored in your dataset's :term:`annex` versus files that are committed
 into :term:`Git`.
@@ -90,7 +71,7 @@ The third-party service of your choice may have support for both annexed and non
 .. figure:: ../artwork/src/publishing/publishing_network_publishparts2.svg
    :width: 80%
 
-   Schematic difference between the Git and git-annex aspect of your dataset, and where each part *usually* gets published to.
+   Schematic difference between the Git and git-annex aspect of your dataset, and where each part *usually* gets distributed to.
 
 
 The common case: Repository hosting without annex support and special remotes
@@ -121,25 +102,22 @@ The hosting services can be all kinds of private, institutional, or commercial s
 To register a special remote in your dataset and use it for file storage, you need to configure the service of your choice and *publish* the annexed contents to it. Afterwards, the published dataset (e.g., via :term:`GitHub` or :term:`GitLab`) stores the information about where to obtain annexed file contents from such that
 :dlcmd:`get` works.
 Once you have configured the service of your choice, you can push your datasets Git history to the repository hosting service and the annexed contents to the special remote. DataLad also makes it easy to push these different dataset contents exactly where they need to be automatically via a :term:`publication dependency`.
+The general workflow looks as follows:
 
-Exemplary walk-throughs for Dropbox_, `Amazon S3 buckets <https://aws.amazon.com/s3>`_, and `Git LFS`_ can be found in the upcoming sections in this chapter.
-But the general workflow looks as follows:
-
-From your perspective (as someone who wants to share data), you will
+From your perspective (as someone who wants to distribute datasets), you will
 need to
 
 - (potentially) install/setup the relevant *special-remote*,
-- create a dataset sibling on GitHub/GitLab/... for others to install from,
+- create a dataset sibling on GitHub/GitLab/... for yourself or others to install from,
 - set up a *publication dependency* between repository hosting and special remote, so that annexed contents are automatically pushed to the special remote when ever you update the sibling on the Git repository hosting site,
 - publish your dataset.
 
 This gives you the freedom to decide where your data lives and
 who can have access to it. Once this set up is complete, updating and
-accessing a published dataset and its data is almost as easy as if it would
+accessing a distributed dataset and its data is almost as easy as if it would
 lie on your own machine.
 
-From the perspective of a consumer (as someone who wants to obtain your dataset),
-they will need to
+If you decide to share your dataset with others, a dataset consumer or collaborator will need to
 
 - (potentially) install the relevant *special-remote* (dependent on the third-party service you chose) and
 - perform the standard :dlcmd:`clone` and :dlcmd:`get` commands
@@ -160,7 +138,7 @@ very familiar with, as :numref:`fig-cloneurls` illustrates.
    Cloning from remote URLs.
 
 
-If you are interested in learning how to set up different services as special remotes, you can take a look at the sections :ref:`s3`, :ref:`dropbox` or :ref:`gitlfs` for concrete examples with DataLad datasets, and the general section :ref:`share_hostingservice` on setting up dataset siblings.
+If you are interested in learning how to set up different services as special remotes, you can take a look at handbook.datalad.org for concrete examples with DataLad datasets, and the general section :ref:`share_hostingservice` on setting up dataset siblings.
 In addition, there are step-by-step walk-throughs in the documentation of git-annex for services such as `S3 <https://git-annex.branchable.com/tips/public_Amazon_S3_remote>`_, `Google Cloud Storage <https://git-annex.branchable.com/tips/using_Google_Cloud_Storage>`_,
 `Box.com <https://git-annex.branchable.com/tips/using_box.com_as_a_special_remote>`__,
 `Amazon Glacier <https://git-annex.branchable.com/tips/using_Amazon_Glacier>`_,
@@ -182,8 +160,6 @@ What makes them extremely convenient is that there is no need to configure a spe
    :width: 80%
 
    Some repository hosting services have annex support - they can host both the Git and git-annex parts of your dataset.
-
-Read the section :ref:`gin` for a walk-through.
 
 The uncommon case: Special remotes with repository hosting support
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -226,14 +202,13 @@ The static case: Exporting dataset snapshots
 While DataLad datasets have the great advantage that they carry a history with all kinds of useful digital provenance and previous versions of files, it may not in all cases be necessary to make use of this advantage.
 Sometimes, you may just want to share or archive the most recent state of the dataset as a snapshot.
 
-DataLad provides the ability to do this out of the box to arbitrary locations, and support for specific services such as `Figshare <https://figshare.com>`__.
-Find out more information on this in the section :ref:`figshare`.
+DataLad provides the ability to do this out of the box to arbitrary locations, and support for specific services such as `Figshare <https://figshare.com>`__ that you can read more about in the web version of this book.
 Other than that, some :term:`datalad extension`\s allow an export to additional services such as the Open Science Framework.
 
 General information on publishing datasets
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Beyond concrete examples of publishing datasets, some general information may be useful in addition:
+Beyond concrete examples of distributing datasets, some general information may be useful in addition:
 The section :ref:`push` illustrates the DataLad command :dlcmd:`push`, a command that handles every publication operation, regardless of the type of published content or its destination.
 In addition to this, the section :ref:`privacy` contains tips and strategies on publishing datasets without leaking potentially private contents or information.
 

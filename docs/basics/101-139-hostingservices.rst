@@ -116,7 +116,8 @@ Each command is slightly tuned towards the peculiarities of each particular plat
 - ``--dry-run`` (optional): With this flag set, the command will not actually create the target repository, but only perform tests for name collisions and report repository name(s).
 - ``--private`` (optional): A switch that, if set, makes sure that the created repository is private.
 
-Other streamlined arguments, such as ``--recursive`` or ``--publish-depends`` allow you to perform more complex configurations, such as publication of dataset hierarchies or connections to :term:`special remote`\s. Upcoming walk-throughs will demonstrate them.
+Other streamlined arguments, such as ``--recursive`` or ``--publish-depends`` allow you to perform more complex configurations, such as publication of dataset hierarchies or connections to :term:`special remote`\s.
+The web version of this book demonstrates several of them.
 
 Self-hosted repository services, e.g., Gogs or Gitea instances, have an additional required argument, the ``--api`` flag.
 It needs to point to the URL of the instance, for example
@@ -251,7 +252,7 @@ Due to the distinction between groups and projects, GitLab allows two different 
   All datasets become projects in the same, pre-existing group.
   The name of a project is its relative path within the root dataset, with all path separator characters replaced by '-' [#f4]_.
 * **collection**:
-  A new group is created for the dataset. The root dataset (the topmost superdataset) is placed in a "project" project inside this group, and all nested subdatasets are represented inside the group using a "flat" layout [#f4]_. This layout is the default.
+  A new group is created for the dataset. The root dataset (the topmost superdataset) is placed in a "project" project inside this group, and all nested subdatasets are represented inside the group using a "flat" layout. This layout is the default.
 
 Consider the ``DataLad-101`` dataset, a superdataset with a several subdatasets in the following layout:
 

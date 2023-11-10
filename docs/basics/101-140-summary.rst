@@ -3,7 +3,7 @@
 Summary
 -------
 
-Without access to the same computational infrastructure, you can share your
+Without access to the same computational infrastructure, you can distribute or share your
 DataLad datasets with friends and collaborators by leveraging third party
 services. DataLad integrates well with a variety of free or commercial services,
 and with many available service options this gives you freedom in deciding where
@@ -23,9 +23,7 @@ you store your data and thus who can get access.
 
 - The external data store can be any of a variety of third party hosting providers.
   To enable data transfer to and from this service, you (may) need to configure an
-  appropriate :term:`special remote`, and configure a publication dependency. The
-  section :ref:`sharethirdparty` walked you through how this can be done with
-  `Dropbox <https://www.dropbox.com>`_.
+  appropriate :term:`special remote`, and configure a publication dependency.
 
 - The ``--data`` and ``--force`` options of :dlcmd:`push` allows to override
   automatic decision making on to-be-published contents. If it isn't specified,

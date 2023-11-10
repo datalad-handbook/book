@@ -592,6 +592,7 @@ was not configured with the ``text2git`` :term:`run procedure`.
 .. runrecord:: _examples/DL-101-136-147
    :language: console
    :workdir: dl-101/DataLad-101
+   :emphasize-lines: 3, 10
 
    $ tree midterm_project
 
@@ -833,6 +834,7 @@ be fixed easily though. We can try this in the :find-out-more:`on adjusting sibl
    .. runrecord:: _examples/DL-101-136-164
       :language: console
       :workdir: dl-101/DataLad-101
+      :emphasize-lines: 19
 
       $ cat .git/config
 

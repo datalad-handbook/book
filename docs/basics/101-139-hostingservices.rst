@@ -24,7 +24,7 @@ Even though the dataset sibling on GitHub does not serve the data, it constitute
     $ # a clone of github/psychoinformatics/studyforrest-data-phase2 has the following siblings:
     $ datalad siblings
     .: here(+) [git]
-    .: mddatasrc(+) [http://psydata.ovgu.de/studyforrest/phase2/.git (git)]
+    .: mddatasrc(+)  [https://datapub.fz-juelich.de/studyforrest/studyforrest/phase2/.git (git)]
     .: origin(-) [git@github.com:psychoinformatics-de/studyforrest-data-phase2.git (git)]
 
 

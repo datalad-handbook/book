@@ -1228,7 +1228,7 @@ superdataset to remove a top-level dataset with all its contents. Likely,
 both  ``--recursive`` and ``--reckless [availability|undead|kill]`` flags are necessary
 to traverse into subdatasets and to remove content that does not have verified remotes.
 
-Be aware though deleting a dataset in which ever way will
+Be aware, though, that deleting a dataset in which ever way will
 irretrievably delete the dataset, it's contents, and it's history.
 
 Summary

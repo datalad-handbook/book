@@ -1,5 +1,4 @@
-# save the changes
-
+$ # save the changes
 $ datalad save -m "add note about datalad update"
 add(ok): notes.txt (file)
 save(ok): . (dataset)

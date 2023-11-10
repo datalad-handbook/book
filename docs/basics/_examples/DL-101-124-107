@@ -1,4 +1,4 @@
-#the directory structure has been created
+$ # the directory structure has been created
 $ tree
 .
 ├── example2 -> .git/annex/objects/G6/zw/✂/MD5E-s40--2ed1bce0✂MD5

@@ -1,4 +1,4 @@
-# inside of DataLad-101
+$ # inside of DataLad-101
 $ datalad create -c yoda --dataset . midterm_project
 [INFO] Running procedure cfg_yoda
 [INFO] == Command start (output follows) =====

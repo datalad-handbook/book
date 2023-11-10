@@ -1,4 +1,4 @@
-# lets make the output a bit more concise with the --oneline option
+$ # lets make the output a bit more concise with the --oneline option
 $ git log --oneline
 a875e49 add reference book about git
 b40316a add books on Python and Unix to read later

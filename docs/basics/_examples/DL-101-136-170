@@ -1,4 +1,4 @@
-# download a file
+$ # download a file
 $ datalad download-url -m "Added flower mosaic from wikimedia" \
   https://upload.wikimedia.org/wikipedia/commons/a/a5/Flower_poster_2.jpg \
   --path flowers.jpg

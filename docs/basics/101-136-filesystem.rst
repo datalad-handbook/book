@@ -1052,7 +1052,7 @@ remaining symlink will fail, but the content can be obtained easily again with
    $ datalad get flowers.jpg
 
 If a file has no verified remote copies, DataLad will only drop its
-content if the user enforces it using the ``--reckless [MODE]`` option, where ``[MODE]`` is either ``modification`` (drop despite unsaved modifications) ``availability`` (drop even though no other copy is known) ``undead`` (only for datasets; would drop a dataset without announcing its death to linked dataset clones) or ``kill`` (no safety checks at all are run).
+content if the user enforces it using the ``--reckless [MODE]`` option, where ``[MODE]`` is either ``modification`` (drop despite unsaved modifications), ``availability`` (drop even though no other copy is known), ``undead`` (only for datasets; would drop a dataset without announcing its death to linked dataset clones) or ``kill`` (no safety checks at all are run).
 We will demonstrate this by generating an empty file:
 
 .. runrecord:: _examples/DL-101-136-177

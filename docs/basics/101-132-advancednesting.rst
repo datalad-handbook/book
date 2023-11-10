@@ -2,8 +2,8 @@
    pair: dataset nesting; DataLad concept
 .. _nesting2:
 
-More on dataset nesting
-^^^^^^^^^^^^^^^^^^^^^^^
+Turtles all the way down
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 You may have noticed how working in the subdataset felt as if you would be
 working in an independent dataset -- there was no information or influence at

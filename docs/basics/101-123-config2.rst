@@ -1,7 +1,7 @@
 .. _config2:
 
-More on DIY configurations
---------------------------
+Shipping and overriding configuration
+-------------------------------------
 
 As the last section already suggest, within a Git repository,
 ``.git/config`` is not the only configuration file.

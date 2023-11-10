@@ -1,7 +1,7 @@
 .. _chapter_yoda:
 
-Make the most out of datasets
------------------------------
+Modular data processing
+-----------------------
 
 .. image:: ../artwork/src/img/yoda.svg
    :width: 50%

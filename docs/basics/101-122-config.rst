@@ -1,7 +1,7 @@
 .. _config:
 
-DIY configurations
-------------------
+Local configuration
+-------------------
 
 Back in section :ref:`text2git`, you already learned that there
 are dataset configurations, and that these configurations can

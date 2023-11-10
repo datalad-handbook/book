@@ -27,7 +27,7 @@ management operations, and each question outlines caveats and
 solutions with code examples you can paste into your own terminal.
 Because these code snippets will add many commits to your
 dataset, we are cleaning up within each segment with
-common git operations that manipulate the datasets
+common Git operations that manipulate the datasets
 history -- be sure to execute these commands as well (and
 be sure to be in the correct dataset).
 
@@ -592,6 +592,7 @@ was not configured with the ``text2git`` :term:`run procedure`.
 .. runrecord:: _examples/DL-101-136-147
    :language: console
    :workdir: dl-101/DataLad-101
+   :emphasize-lines: 3, 10
 
    $ tree midterm_project
 
@@ -833,6 +834,7 @@ be fixed easily though. We can try this in the :find-out-more:`on adjusting sibl
    .. runrecord:: _examples/DL-101-136-164
       :language: console
       :workdir: dl-101/DataLad-101
+      :emphasize-lines: 19
 
       $ cat .git/config
 
@@ -876,7 +878,7 @@ Consider you intend to share the cropped ``.png`` images you created from the
 or :term:`GitLab`, these files would not be available to others, because annexed
 dataset contents cannot be published to these services.
 Even though you could find a third party service of your choice
-and publish your dataset *and* the annexed data (see section :ref:`sharethirdparty`),
+and publish your dataset *and* the annexed data as described in  :ref:`sharethirdparty`,
 you are feeling lazy today. And since it
 is only two files, and they are quite small, you decide to store them in Git --
 this way, the files would be available without configuring an external data
@@ -892,13 +894,13 @@ works:
 
    $ git annex unannex recordings/*logo_small.jpg
 
-Your dataset's history records the unannexing of the files.
+Your dataset notices the unannexing of the files as follows.
 
 .. runrecord:: _examples/DL-101-136-168
    :language: console
    :workdir: dl-101/DataLad-101
 
-   $ git log -p -n 1
+   $ git status
 
 Once files have been unannexed, they are "untracked" again, and you can save them
 into Git, either by adding a rule to ``.gitattributes``, or with
@@ -923,7 +925,7 @@ In case you want to get all annexed contents out of a Dataset at once, you could
 It is a command that can be used to stop using git annex entirely in a given repository/dataset.
 Running this command will unannex every file in the repository, remove all of git-annex's other data, and remove the :term:`git-annex` branch, leaving you with a normal Git repository plus the previously annexed files.
 
-Note a ``datalad push`` will reinstate the git-annex branch IF your dataset has siblings that still contain the annex branch.
+Note a ``datalad push`` will reinstate the git-annex branch *if* your dataset has siblings that still contain the annex branch.
 
 Deleting (annexed) files/directories
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1050,7 +1052,7 @@ remaining symlink will fail, but the content can be obtained easily again with
    $ datalad get flowers.jpg
 
 If a file has no verified remote copies, DataLad will only drop its
-content if the user enforces it using the ``--reckless [MODE]`` option, where ``[MODE]`` is either ``modification`` (drop despite unsaved modifications) ``availability`` (drop even though no other copy is known) ``undead`` (only for datasets; would drop a dataset without announcing its death to linked dataset clones) or ``kill`` (no safety checks at all are run).
+content if the user enforces it using the ``--reckless [MODE]`` option, where ``[MODE]`` is either ``modification`` (drop despite unsaved modifications), ``availability`` (drop even though no other copy is known), ``undead`` (only for datasets; would drop a dataset without announcing its death to linked dataset clones) or ``kill`` (no safety checks at all are run).
 We will demonstrate this by generating an empty file:
 
 .. runrecord:: _examples/DL-101-136-177
@@ -1198,10 +1200,10 @@ If for whatever reason you at one point tried to remove a DataLad dataset,
 whether with a GUI or the command line call ``rm -rf <directory>``, you likely
 have seen permission denied errors such as
 
-.. code-block: bash
+.. code-block:: console
 
-    rm: cannot remove '<directory>/.git/annex/objects/Mz/M1/MD5E-s422982--2977b5c6ea32de1f98689bc42613aac7.jpg/MD5E-s422982--2977b5c6ea32de1f98689bc42613aac7.jpg': Permission denied
-    rm: cannot remove '<directory>/.git/annex/objects/FP/wv/MD5E-s543180--6209797211280fc0a95196b0f781311e.jpg/MD5E-s543180--6209797211280fc0a95196b0f781311e.jpg': Permission denied
+   rm: cannot remove '<directory>/.git/annex/objects/Mz/M1/MD5E-s422982--2977b5c6ea32de1f98689bc42613aac7.jpg/MD5E-s422982--2977b5c6ea32de1f98689bc42613aac7.jpg': Permission denied
+   rm: cannot remove '<directory>/.git/annex/objects/FP/wv/MD5E-s543180--6209797211280fc0a95196b0f781311e.jpg/MD5E-s543180--6209797211280fc0a95196b0f781311e.jpg': Permission denied
     [...]
 
 This error indicates that there is write-protected content within ``.git`` that
@@ -1226,7 +1228,7 @@ superdataset to remove a top-level dataset with all its contents. Likely,
 both  ``--recursive`` and ``--reckless [availability|undead|kill]`` flags are necessary
 to traverse into subdatasets and to remove content that does not have verified remotes.
 
-Be aware though deleting a dataset in which ever way will
+Be aware, though, that deleting a dataset in which ever way will
 irretrievably delete the dataset, it's contents, and it's history.
 
 Summary

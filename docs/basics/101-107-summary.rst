@@ -68,7 +68,7 @@ and experienced the concept of modular nesting datasets.
 * If a dataset is installed inside of another dataset as a subdataset, the
   ``--dataset``/``-d`` option needs to specify the root of the containing dataset, the superdataset.
 
-* The source can be a URL (for example of a GitHub repository, as in section :ref:`installds`), but also
+* The source can be a URL, for example of a GitHub repository as in section :ref:`installds`, but also
   paths, or open data collections.
 
 * After :dlcmd:`clone`, only small files and metadata about file availability are present locally.

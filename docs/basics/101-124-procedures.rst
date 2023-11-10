@@ -182,7 +182,7 @@ could thus be applied within a :dlcmd:`create` as
 
 As a general note, it can be useful to apply procedures
 early in the life of a dataset. Procedures such
-as ``cfg_yoda`` (explained in detail in section :ref:`yoda`),
+as ``cfg_yoda``, explained in detail in section :ref:`yoda`,
 create files, change ``.gitattributes``, or apply other configurations.
 If many other (possibly complex) configurations are
 already in place, or if files of the same name as the ones created by

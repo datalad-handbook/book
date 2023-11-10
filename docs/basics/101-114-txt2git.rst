@@ -52,13 +52,15 @@ Well, procedurally it means that everything that is stored in git-annex is
 content-locked, and everything that is stored in Git is not. You can modify
 content stored in Git straight away, without unlocking it first.
 
+.. _fig-gitvsannex:
+
 .. figure:: ../artwork/src/git_vs_gitannex.svg
    :alt: A simplified illustration of content lock in files managed by git-annex.
    :width: 50%
 
    A simplified overview of the tools that manage data in your dataset.
 
-That's easy enough.
+That's easy enough, and illustrated in :numref:`fig-gitvsannex`.
 
 "So, first of all: If we hadn't provided the ``-c text2git`` argument, text files
 would get content-locked, too?". "Yes, indeed. However, there are also ways to

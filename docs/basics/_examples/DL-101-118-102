@@ -1,4 +1,4 @@
-# lets view the history
+$ # lets view the history
 $ git log --oneline -n 10
 41fdaab add note on clean datasets
 fd4a25e [DATALAD RUNCMD] Resize logo for slides

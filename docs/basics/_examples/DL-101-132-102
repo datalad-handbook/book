@@ -1,4 +1,4 @@
-# move into the superdataset
+$ # move into the superdataset
 $ cd ../
 $ datalad status
  modified: midterm_project (dataset)

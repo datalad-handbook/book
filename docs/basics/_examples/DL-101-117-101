@@ -1,4 +1,4 @@
-# navigate back into the clone of DataLad-101
+$ # navigate back into the clone of DataLad-101
 $ cd ../mock_user/DataLad-101
 $ git annex whereis books/TLCL.pdf
 whereis books/TLCL.pdf (1 copy)

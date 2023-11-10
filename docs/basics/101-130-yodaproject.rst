@@ -319,12 +319,14 @@ looks like this:
 
 Importantly, all of the subdatasets are linked to the higher-level datasets,
 and despite being inside of ``DataLad-101``, your ``midterm_project`` is an independent
-dataset, as is its ``input/`` subdataset:
+dataset, as is its ``input/`` subdataset. An overview is shown in :numref:`fig-linkeddl101`.
+
+.. _fig-linkeddl101:
 
 .. figure:: ../artwork/src/virtual_dstree_dl101_midterm.svg
-   :alt: Overview of (linked) datasets in DataLad-101.
    :width: 50%
 
+   Overview of (linked) datasets in DataLad-101.
 
 
 YODA-compliant analysis scripts
@@ -929,6 +931,7 @@ On the looks and feels of a published dataset
 
    .. image:: ../artwork/src/reproduced.svg
        :width: 50%
+       :align: center
 
 .. index::
    pair: push; DataLad concept

@@ -1,5 +1,5 @@
 $ cd midterm_project
-# we are in midterm_project, thus -d . points to the root of it.
+$ # we are in midterm_project, thus -d . points to the root of it.
 $ datalad clone -d . \
   https://github.com/datalad-handbook/iris_data.git \
   input/

@@ -276,7 +276,7 @@ be included in an analysis superdataset as subdatasets. Thanks to
 is stored in the history of the analysis superdataset, and they can even be
 updated from those sources if the original data dataset gets extended or changed.
 If you are including a file, for example, code from GitHub,
-the :dlcmd:`download-url` command (introduced in section :ref:`populate`)
+the :dlcmd:`download-url` command, introduced in section :ref:`populate`,
 will record the source of it safely in the dataset's history. And if you add anything to your dataset,
 from simple incremental coding progress in your analysis scripts up to
 files that a colleague sent you via email, a plain :dlcmd:`save`
@@ -286,12 +286,13 @@ on its own already.
 One core aspect of this principle is *linking* between reusable data
 resource units (i.e., DataLad subdatasets containing pure data). You will
 be happy to hear that this is achieved by simply installing datasets
-as subdatasets.
+as subdatasets, as :numref:`fig-subds` shows.
 This part of this principle will therefore be absolutely obvious to you
 because you already know how to install and nest datasets within datasets.
 "I might just overcome my impostor syndrome if I experience such advanced
 reproducible analysis concepts as being obvious", you think with a grin.
 
+.. _fig-subds:
 
 .. figure:: ../artwork/src/img/data_origin.svg
    :width: 50%
@@ -319,7 +320,9 @@ everything that is not part of the data according to principle 1.
 Conducting transparent open science is easier if you can link code, data,
 and results within a dataset, and share everything together. In conjunction
 with principle 1, this means that you can distribute your analysis projects
-(or parts of it) in a comprehensible form.
+(or parts of it) in a comprehensible form, exemplified in :numref:`fig-yodads`.
+
+.. _fig-yodads:
 
 .. figure:: ../artwork/src/img/decentralized_publishing.svg
    :figwidth: 100%
@@ -353,15 +356,15 @@ which result was generated when, by which author, from which inputs,
 and by means of which command.
 
 With another DataLad command one can even go one step further:
-The command :dlcmd:`containers-run` (it will be introduced in
-section :ref:`containersrun`) performs a command execution within
+The command :dlcmd:`containers-run` - it will be introduced in
+section :ref:`containersrun` - performs a command execution within
 a configured containerized environment. Thus, not only inputs,
 outputs, command, time, and author, but also the *software environment*
 are captured as provenance of a dataset component such as a results file,
 and, importantly, can be shared together with the dataset in the
 form of a software container.
 
-Tip: Make use of ``datalad run``'s ``--dry-run`` option to craft your run-command (see :ref:`dryrun`)!
+Tip: Make use of ``datalad run``'s ``--dry-run`` option to craft your run-command, as outlined in :ref:`dryrun`!
 
 With this last principle, your dataset collects and stores provenance
 of all the contents you created in the wake of your analysis project.

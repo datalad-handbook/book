@@ -1,7 +1,7 @@
-# in midterm_project
+$ # in midterm_project
 $ git reset --hard HEAD~
 
-# in DataLad-101
+$ # in DataLad-101
 $ cd ../
 $ git reset --hard HEAD~
 HEAD is now at 4f00ad0 [DATALAD RUNCMD] rerun analysis in container

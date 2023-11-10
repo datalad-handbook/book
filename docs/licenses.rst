@@ -72,3 +72,13 @@ All fonts are either standard or embedded.
 .. _SIL Open Font License: http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL
 .. _GUST Font license: https://tug.org/fonts/licenses/GUST-FONT-LICENSE.txt
 .. _CC-BY 4.0 License: https://creativecommons.org/licenses/by/4.0/
+
+Box icons (PDF version)
+~~~~~~~~~~~~~~~~~~~~~~~
+
+* The `"Window" SVG vector <https://www.svgrepo.com/svg/368334/window>`_ for Windows Wits is released in the `public domain`_.
+* The `Idea and creativity symbol of a lightbulb SVG vector <https://www.svgrepo.com/svg/23335/idea-and-creativity-symbol-of-a-lightbulb>`_ for Find-out-more's is released in the `public domain`_.
+* The icon for Gitusernotes is derived from the `Git Pull Request SVG Vector <https://www.svgrepo.com/svg/443850/gui-git-pull-request>`_, which is released under the `MIT License`_.
+
+.. _MIT License: https://mit-license.org/
+.. _public domain: https://creativecommons.org/public-domain/cc0/

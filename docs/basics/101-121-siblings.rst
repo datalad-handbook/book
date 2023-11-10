@@ -67,7 +67,7 @@ Run a quick ``datalad status``:
 Nice, the :dlcmd:`download-url` command saved this download
 right into the history, and :dlcmd:`status` does not report
 unsaved modifications! We'll show an excerpt of the last commit
-here:
+here [#f1]_:
 
 .. runrecord:: _examples/DL-101-121-103
    :language: console
@@ -201,7 +201,7 @@ updates from. It would have worked without the specification (just as a bare
 :dlcmd:`update --how merge` worked for your room mate), because there is only
 one other known location, though.
 
-This plain :dlcmd:`update` informs you that it "fetched" updates from
+This plain :dlcmd:`update` "fetched" updates from
 the dataset. The changes however, are not yet visible -- the script that
 he added is not yet in your ``code/`` directory:
 
@@ -361,6 +361,10 @@ Create a note about this, and save it.
 
    EOT
    $ datalad save -m "Add note on adding siblings"
+
+.. rubric:: Footnotes
+
+.. [#f1] As this example, simplistically, created a "pretend" room mate by only changing directories, not user accounts, the recorded Git identity of your "room mote" will, of course, be the same as yours.
 
 .. only:: adminmode
 

@@ -36,8 +36,7 @@ Before getting another PDF, let's query git-annex where its content is stored:
    $ cd ../mock_user/DataLad-101
    $ git annex whereis books/TLCL.pdf
 
-Oh, another :term:`shasum` - or, more specifically, a :term:`annex UUID`.
-This time however not in a symlink...
+Oh, another cryptic character sequence - this time however not a symlink, but a :term:`annex UUID`.
 "That's hard to read -- what is it?" your room mate asks.
 You can recognize a path to the dataset on your computer, prefixed with the user and hostname of your computer.
 "This", you exclaim, excited about your own realization, "is my dataset's location I'm sharing it from!"

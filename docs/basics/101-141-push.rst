@@ -25,7 +25,7 @@ and files stored with :term:`git-annex`, to a known dataset :term:`sibling`.
    or git-annex special remotes (if they support data upload).
 
 In order to publish a dataset, the dataset needs to have a sibling to push to.
-This, for instance, can be a :term:`GitHub`, :term:`GitLab`, or :term:`Gin`
+This, for instance, can be a :term:`GitHub`, :term:`GitLab`, or :term:`GIN`
 repository, but it can also be a Remote Indexed Archive (RIA) store for backup
 or storage of datasets [#f1]_, or a regular clone.
 
@@ -82,7 +82,7 @@ no push is attempted.
 Additionally, :dlcmd:`push` will attempt to automatically decide what type
 of dataset contents are going to be published. With a sibling that has a
 :term:`special remote` configured as a :term:`publication dependency`,
-or a sibling that contains an annex (such as a Gin repository or a
+or a sibling that contains an annex (such as a GIN repository or a
 :term:`Remote Indexed Archive (RIA) store`), both the contents
 stored in Git (i.e., a dataset's history) as well as file contents stored in
 git-annex will be published unless dataset configurations overrule this.

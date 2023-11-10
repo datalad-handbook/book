@@ -22,7 +22,11 @@ can distribute datasets via simple installations with paths, without any involve
 But at some point in a dataset's life, you may want to share it with people that
 can't access the computer or server your dataset lives on, store it on other infrastructure
 to save diskspace, or create a backup.
-When this happens, you will want to distribute your dataset to repository hosting services (for example, :term:`GitHub`, :term:`GitLab`, or :term:`Gin`) and/or third party storage providers (such as Dropbox_, Google_, `Amazon S3 buckets <https://aws.amazon.com/s3>`_, the `Open Science Framework`_ (OSF), and many others).
+When this happens, you will want to distribute your dataset to repository hosting
+services (for example, :term:`GitHub`, :term:`GitLab`, or :term:`GIN`)
+and/or third party storage providers (such as Dropbox_, Google_,
+`Amazon S3 buckets <https://aws.amazon.com/s3>`_,
+the `Open Science Framework`_ (OSF), and many others).
 
 This chapter walks through mostly conceptual aspects of dataset publishing:
 It illustrates general concepts of dataset publishing and the idea of using third party services as :term:`special remote`\s from
@@ -35,7 +39,7 @@ Leveraging third party infrastructure
 
 There are several ways to distribute datasets or make them available for others:
 
-- You can **publish your dataset to a repository with annex support** such as :term:`Gin` or the OSF_ [#f1]_. This is the easiest way to share datasets and all their contents. Read on in the web version of this book or consult the tutorials of the `datalad-osf extension`_ to learn how to do this.
+- You can **publish your dataset to a repository with annex support** such as :term:`GIN` or the OSF_ [#f1]_. This is the easiest way to share datasets and all their contents. Read on in the online-handbook or consult the tutorials of the `datalad-osf extension`_ to learn how to do this.
 
 - You can **publish your dataset to a repository hosting service**, and **configure an external resource that stores your annexed data**. Such a resource can be a private web server, but also a third party services cloud storage such as Dropbox_, Google_, `Amazon S3 buckets <https://aws.amazon.com/s3>`_, `Box.com <https://www.box.com>`_, `owncloud <https://owncloud.com>`_, `sciebo <https://hochschulcloud.nrw>`_, or many more.
 
@@ -49,7 +53,7 @@ Dataset contents and third party services influence sharing
 
 Because DataLad datasets are :term:`Git` repositories, it is possible to
 :dlcmd:`push` datasets to any Git repository hosting service, such as
-:term:`GitHub`, :term:`GitLab`, :term:`Gin`, :term:`Bitbucket`, `Gogs <https://gogs.io>`_,
+:term:`GitHub`, :term:`GitLab`, :term:`GIN`, :term:`Bitbucket`, `Gogs <https://gogs.io>`_,
 or Gitea_.
 You have already done this in section :ref:`yoda_project` when you shared your ``midterm_project`` dataset via :term:`GitHub`.
 
@@ -79,7 +83,7 @@ The common case: Repository hosting without annex support and special remotes
 
 Because DataLad datasets are :term:`Git` repositories, it is possible to
 :dlcmd:`push` datasets to any Git repository hosting service, such as
-:term:`GitHub`, :term:`GitLab`, :term:`Gin`, :term:`Bitbucket`, `Gogs <https://gogs.io>`_,
+:term:`GitHub`, :term:`GitLab`, :term:`GIN`, :term:`Bitbucket`, `Gogs <https://gogs.io>`_,
 or Gitea_.
 But while anything that is managed by Git is accessible in repository hosting services, they usually don't support storing annexed data [#f2]_.
 
@@ -151,7 +155,7 @@ The easy case: Repository hosting with annex support
 """"""""""""""""""""""""""""""""""""""""""""""""""""
 
 There are a few Git repository hosting services with support for annexed contents, as illustrated in :numref:`fig-ginpublishing`.
-One of them is :term:`Gin`.
+One of them is :term:`GIN`.
 What makes them extremely convenient is that there is no need to configure a special remote -- creating a :term:`sibling` and running :dlcmd:`push` is enough.
 
 .. _fig-ginpublishing:

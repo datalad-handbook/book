@@ -34,13 +34,18 @@ How to add a sibling on a Git repository hosting site: The manual way
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-#. Create a new repository via the webinterface of the hosting service of your choice.
-   It does not need to have the same name as your local dataset, but it helps to associate local dataset and remote siblings.
+#. Create a new repository via the webinterface of the hosting service of your choice. The screenshots in :numref:`fig-newrepogin` and :numref:`fig-newrepogithub` show examples of this.
+   The new repository does not need to have the same name as your local dataset, but it helps to associate local dataset and remote siblings.
+
+.. _fig-newrepogin:
 
 .. figure:: ../artwork/src/GIN_newrepo.png
    :width: 80%
 
    Webinterface of :term:`GIN` during the creation of a new repository.
+
+
+.. _fig-newrepogithub:
 
 .. figure:: ../artwork/src/newrepo-github.png
    :width: 80%

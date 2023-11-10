@@ -120,6 +120,18 @@ the commit a new commit message (you can just delete the one created by
 DataLad in the editor)!
 
 .. index::
+   pair: save --amend; DataLad command
+   pair: add changes to previous commit; with DataLad
+   pair: change the last commit message; with DataLad
+.. gitusernote:: 'git commit --amend' versus 'datalad save --amend'
+
+   Similar to ``git commit``, ``datalad save`` also has an ``--amend`` option.
+   Like its Git equivalent, it can be used to record changes not in a new, separate commit, but integrate them with the previously saved state.
+   Though this has not been the use case for ``git commit --amend`` here, experienced Git users will be accustomed to using ``git commit --amend`` to achieve something similar in their Git workflows.
+   In contrast to ``git commit --amend``, ``datalad save --amend`` will not open up an interactive editor to potentially change a commit message (unless the configuration ``datalad.save.no-message`` is set to ``interactive``), but a new commit message can be supplied with the ``-m``/``--message`` option.
+
+
+.. index::
    pair: change historical commit messages; with Git
    pair: rebase; Git command
    pair: rewrite history; with Git

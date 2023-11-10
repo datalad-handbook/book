@@ -1,11 +1,17 @@
 .. _chapter_yoda:
 
-Modular data processing
------------------------
+You will find only what you bring in
+------------------------------------
 
 .. image:: ../artwork/src/img/yoda.svg
    :width: 50%
    :align: center
+
+.. epigraph::
+
+   Each choice, the branch of a tree is: What looked like a decision, is after only a pattern of growth.
+
+   -- Yoda
 
 .. toctree::
    :maxdepth: 1

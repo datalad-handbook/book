@@ -1,4 +1,4 @@
-# delete the subdataset
+$ # delete the subdataset
 $ datalad remove -m "remove obsolete subds" -d . cloud
 uninstall(ok): cloud (dataset)
 remove(ok): cloud (dataset)

@@ -1,7 +1,7 @@
-# navigate into the installed copy
+$ # navigate into the installed copy
 $ cd ../mock_user/DataLad-101
 
-# download the shell script and save it in your code/ directory
+$ # download the shell script and save it in your code/ directory
 $ datalad download-url \
   -d . \
   -m "Include nesting demo from datalad website" \

@@ -12,8 +12,8 @@ All of these files store configurations, but have an important difference:
 They are version controlled, and upon sharing a dataset these configurations
 will be shared as well. An example for a shared configuration
 is the one that the ``text2git`` configuration template applied:
-In the shared copy of your dataset, text files are also saved with Git,
-and not git-annex (see section :ref:`sibling`). The configuration responsible
+In the shared copy of your dataset from :ref:`sibling`, text files are also saved with Git,
+and not git-annex. The configuration responsible
 for this behavior is in a ``.gitattributes`` file, and we'll start this
 section by looking into it.
 

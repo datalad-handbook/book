@@ -540,7 +540,7 @@ That's it.
 
    In most cases, this is just an interesting fun-fact, but beware
    when dropping content with :dlcmd:`drop`
-   (:ref:`remove`):
+   as outlined in :ref:`remove`:
    If you drop the content of one copy of a file, all
    other copies will lose this content as well.
 

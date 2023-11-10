@@ -894,13 +894,13 @@ works:
 
    $ git annex unannex recordings/*logo_small.jpg
 
-Your dataset's history records the unannexing of the files.
+Your dataset notices the unannexing of the files as follows.
 
 .. runrecord:: _examples/DL-101-136-168
    :language: console
    :workdir: dl-101/DataLad-101
 
-   $ git log -p -n 1
+   $ git status
 
 Once files have been unannexed, they are "untracked" again, and you can save them
 into Git, either by adding a rule to ``.gitattributes``, or with

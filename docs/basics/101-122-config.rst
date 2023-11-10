@@ -108,7 +108,7 @@ configurations: The more specific the scope of a configuration file is, the more
 important it is, and the variables in the more specific configuration
 will take precedence over variables in less specific configuration files.
 One could, for example, have :term:`vim` configured to be the default editor
-on a global scope, but could overrule this by setting the editor to nano
+on a global scope, but could overrule this by setting the editor to ``nano``
 in a given repository. For this reason, the repository-specific configuration
 does not reside in a file in your home directory, but in ``.git/config``
 within every Git repository (and thus DataLad dataset).
@@ -174,7 +174,7 @@ Let's see what has changed:
 
    $ cat .git/config
 
-With this additional line in your repositories Git configuration, nano will
+With this additional line in your repository's Git configuration, ``nano`` will
 be used as a default editor regardless of the configuration in your global
 or system-wide configuration. Note that the flag ``--local`` applies the
 configuration to your repository's ``.git/config`` file, whereas ``--global``

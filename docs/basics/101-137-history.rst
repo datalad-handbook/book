@@ -121,6 +121,18 @@ the commit a new commit message (you can just delete the one created by
 DataLad in the editor)!
 
 .. index::
+   pair: save --amend; DataLad command
+   pair: add changes to previous commit; with DataLad
+   pair: change the last commit message; with DataLad
+.. gitusernote:: 'git commit --amend' versus 'datalad save --amend'
+
+   Similar to ``git commit``, ``datalad save`` also has an ``--amend`` option.
+   Like its Git equivalent, it can be used to record changes not in a new, separate commit, but integrate them with the previously saved state.
+   Though this has not been the use case for ``git commit --amend`` here, experienced Git users will be accustomed to using ``git commit --amend`` to achieve something similar in their Git workflows.
+   In contrast to ``git commit --amend``, ``datalad save --amend`` will not open up an interactive editor to potentially change a commit message (unless the configuration ``datalad.save.no-message`` is set to ``interactive``), but a new commit message can be supplied with the ``-m``/``--message`` option.
+
+
+.. index::
    pair: change historical commit messages; with Git
    pair: rebase; Git command
    pair: rewrite history; with Git
@@ -807,7 +819,7 @@ to remove the ``Gitjoke2.txt`` file.
 .. [#f1] For example, the :dlcmd:`rerun` command introduced in section
          :ref:`run2` takes such a hash as an argument, and re-executes
          the ``datalad run`` or ``datalad rerun`` :term:`run record` associated with
-         this hash. Likewise, the :gitcmd:`diff` can work with commit hashes.
+         this hash. Likewise, the :gitcmd:`diff` command can work with commit hashes.
 
 .. [#f2] There are other alternatives to reference commits in the history of a dataset,
          for example, "counting" ancestors of the most recent commit using the notation

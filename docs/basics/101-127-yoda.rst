@@ -291,12 +291,13 @@ on its own already.
 One core aspect of this principle is *linking* between reusable data
 resource units (i.e., DataLad subdatasets containing pure data). You will
 be happy to hear that this is achieved by simply installing datasets
-as subdatasets.
+as subdatasets, as :numref:`fig-subds` shows.
 This part of this principle will therefore be absolutely obvious to you
 because you already know how to install and nest datasets within datasets.
 "I might just overcome my impostor syndrome if I experience such advanced
 reproducible analysis concepts as being obvious", you think with a grin.
 
+.. _fig-subds:
 
 .. figure:: ../artwork/src/img/data_origin.svg
    :width: 50%
@@ -324,7 +325,9 @@ everything that is not part of the data according to principle 1.
 Conducting transparent open science is easier if you can link code, data,
 and results within a dataset, and share everything together. In conjunction
 with principle 1, this means that you can distribute your analysis projects
-(or parts of it) in a comprehensible form.
+(or parts of it) in a comprehensible form, exemplified in :numref:`fig-yodads`.
+
+.. _fig-yodads:
 
 .. figure:: ../artwork/src/img/decentralized_publishing.svg
    :figwidth: 100%

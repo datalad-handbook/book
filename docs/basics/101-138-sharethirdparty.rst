@@ -113,8 +113,8 @@ The hosting services can be all kinds of private, institutional, or commercial s
    enable :term:`git-annex` to transfer data from and possibly to places that are not Git
    repositories (e.g., cloud services or external machines such as an HPC
    system). For example, an *s3* special remote uploads and downloads content
-   to AWS S3, a *web* special remote downloads files from the web, and *datalad-archive*
-   extracts files from the annexed archives, etc. Don’t envision a special-remote
+   to AWS S3, a *web* special remote downloads files from the web, the *datalad-archive* special remote
+   extracts files from annexed archives, etc. Don’t envision a special-remote
    as merely a physical place or location – a special-remote is a protocol that
    defines the underlying transport of your files to and/or from a specific location.
 

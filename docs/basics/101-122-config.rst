@@ -326,8 +326,8 @@ The next section will talk about them.
 .. rubric:: Footnotes
 
 .. [#f1] As an alternative to a ``git config`` command, you could also run configuration
-         templates or procedures (see :ref:`procedures`) that apply predefined configurations or in some cases even
-         add the information to the configuration file by hand and save it using an editor of your choice.
+         templates or procedures that apply predefined configurations or in some cases even
+         add the information to the configuration file by hand and save it using an editor of your choice. See :ref:`procedures` for more info.
 
 .. [#f2] The third scope of a Git configuration are the system wide configurations.
          These are stored (if they exist) in ``/etc/gitconfig`` and contain settings that would

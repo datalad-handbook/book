@@ -150,10 +150,14 @@ installing/setting up the relevant *special-remote*, obtaining your dataset and 
 data is as easy as with any public DataLad dataset.
 While you have to invest some setup effort in the beginning, once this
 is done, the workflows of yours and others are the same that you are already
-very familiar with.
+very familiar with, as :numref:`fig-cloneurls` illustrates.
+
+.. _fig-cloneurls:
 
 .. figure:: ../artwork/src/publishing/clone_url.svg
    :width: 60%
+
+   Cloning from remote URLs.
 
 
 If you are interested in learning how to set up different services as special remotes, you can take a look at the sections :ref:`s3`, :ref:`dropbox` or :ref:`gitlfs` for concrete examples with DataLad datasets, and the general section :ref:`share_hostingservice` on setting up dataset siblings.
@@ -168,12 +172,16 @@ Here is the complete list: `git-annex.branchable.com/special_remotes <https://gi
 The easy case: Repository hosting with annex support
 """"""""""""""""""""""""""""""""""""""""""""""""""""
 
-There are a few Git repository hosting services with support for annexed contents.
+There are a few Git repository hosting services with support for annexed contents, as illustrated in :numref:`fig-ginpublishing`.
 One of them is :term:`Gin`.
 What makes them extremely convenient is that there is no need to configure a special remote -- creating a :term:`sibling` and running :dlcmd:`push` is enough.
 
+.. _fig-ginpublishing:
+
 .. figure:: ../artwork/src/publishing/publishing_network_publishgin.svg
    :width: 80%
+
+   Some repository hosting services have annex support - they can host both the Git and git-annex parts of your dataset.
 
 Read the section :ref:`gin` for a walk-through.
 

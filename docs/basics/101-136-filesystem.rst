@@ -925,7 +925,7 @@ In case you want to get all annexed contents out of a Dataset at once, you could
 It is a command that can be used to stop using git annex entirely in a given repository/dataset.
 Running this command will unannex every file in the repository, remove all of git-annex's other data, and remove the :term:`git-annex` branch, leaving you with a normal Git repository plus the previously annexed files.
 
-Note a ``datalad push`` will reinstate the git-annex branch IF your dataset has siblings that still contain the annex branch.
+Note a ``datalad push`` will reinstate the git-annex branch *if* your dataset has siblings that still contain the annex branch.
 
 Deleting (annexed) files/directories
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

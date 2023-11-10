@@ -11,9 +11,13 @@ Data sharing potentially involves a number of different elements:
    An overview of all elements potentially included in a publication workflow.
 
 Users on a common, shared computational infrastructure such as an :term:`SSH server`
-can share datasets via simple installations with paths, without any involvement of third party storage providers or repository hosting services:
+can share datasets via simple installations with paths, without any involvement of third party storage providers or repository hosting services, as shown in :numref:`fig-clonecompute`.
+
+.. _fig-clonecompute:
 
 .. figure:: ../artwork/src/publishing/clone_combined.svg
+
+   Cloning from local or remote compute infrastructure.
 
 But at some point in a dataset's life, you may want to share it with people that
 can't access the computer or server your dataset lives on, store it on other infrastructure

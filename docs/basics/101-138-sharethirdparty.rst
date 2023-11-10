@@ -191,7 +191,7 @@ The uncommon case: Special remotes with repository hosting support
 Typically, storage hosting services such as cloud storage providers do not provide
 the ability to host Git repositories.
 Therefore, it is typically not possible to :dlcmd:`clone` from a cloud storage.
-However, a number of :term:`datalad extension`\s have been created that equip cloud storage providers with the ability to also host Git repositories.
+However, a number of :term:`datalad extension`\s have been created that equip cloud storage providers with the ability to also host Git repositories, as :numref:`fig-publishosf` illustrates.
 While they do not get the ability to display repositories the same way that pure
 Git repository hosting services like GitHub do, they do get the super power of becoming clonable.
 
@@ -199,8 +199,12 @@ One example for this is the Open Science Framework, which can become the home of
 As long as you and your collaborators have the extension installed, annexed dataset
 contents and the Git repository part of your dataset can be pushed or cloned in one go.
 
+.. _fig-publishosf:
+
 .. figure:: ../artwork/src/publishing/publishing_network_publishosf.svg
    :width: 80%
+
+   With some :term:`datalad extension`\s third party storage services can host Git repositories in addition to annexed contents.
 
 Please take a look at the documentation and tutorials of the `datalad-osf extension`_ for examples and more information.
 

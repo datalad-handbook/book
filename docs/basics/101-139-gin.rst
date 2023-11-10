@@ -11,12 +11,12 @@ fine-grained access control to share data. :term:`GIN` builds up on :term:`Git` 
 and share your DataLad datasets [#f1]_. It allows to share datasets and their
 contents with selected collaborators or making them publicly and anonymously
 available.
-:ref:`And even if you prefer to expose and share your datasets via GitHub, you can still use Gin to host your data <ginbts>`.
+:ref:`And even if you prefer to expose and share your datasets via GitHub, you can still use GIN to host your data <ginbts>`.
 
 .. figure:: ../artwork/src/publishing/publishing_network_publishgin.svg
    :width: 80%
 
-   Some repository hosting services such as Gin have annex support, and can thus hold the complete dataset. This makes publishing datasets very easy.
+   Some repository hosting services such as GIN have annex support, and can thus hold the complete dataset. This makes publishing datasets very easy.
 
 Prerequisites
 ^^^^^^^^^^^^^
@@ -50,14 +50,14 @@ You should copy the contents of your public key file into the field labeled
 Publishing your dataset to GIN
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-As outlined in the section :ref:`share_hostingservice`, there are two ways in which you can publish your dataset to Gin.
+As outlined in the section :ref:`share_hostingservice`, there are two ways in which you can publish your dataset to GIN.
 Either by 1) creating a new, empty repository on GIN via the web interface, or 2) via the :dlcmd:`create-sibling-gin` command.
 
-**1) via webinterface:** If you choose to create a new repository via Gin's web interface, make sure to not initialize it with a README:
+**1) via webinterface:** If you choose to create a new repository via GIN's web interface, make sure to not initialize it with a README:
 
 .. figure:: ../artwork/src/GIN_newrepo.png
 
-   Create a new repository on Gin using the web interface.
+   Create a new repository on GIN using the web interface.
 
 Afterwards, add this repository as a sibling of your dataset. To do this, use the
 :dlcmd:`siblings add` command and the SSH URL of the repository as shown below.
@@ -106,7 +106,7 @@ What is especially cool is that the GIN web interface (unlike :term:`GitHub`) ca
 
 .. figure:: ../artwork/src/GIN_dl101_repo.png
 
-   A published dataset in a Gin repository at gin.g-node.org.
+   A published dataset in a GIN repository at gin.g-node.org.
 
 .. _access:
 
@@ -117,7 +117,7 @@ Once your dataset is published, you can point collaborators and friends to it.
 
 If it is a **public** repository, retrieving the dataset and getting access to
 all published data contents (in a read-only fashion) is done by cloning the
-repository's ``https`` url. This does not require a user account on Gin.
+repository's ``https`` url. This does not require a user account on GIN.
 
 .. index::
    pair: clone; DataLad command
@@ -143,7 +143,7 @@ file contents that have been published to the repository.
 .. index::
    pair: clone; DataLad command
 
-If it is a **private** dataset, cloning the dataset from Gin requires a user
+If it is a **private** dataset, cloning the dataset from GIN requires a user
 name and password for anyone you want to share your dataset with.
 The "Collaboration" tab under Settings lets you set fine-grained access rights,
 and it is possible to share datasets with collaborators that are not registered
@@ -156,7 +156,7 @@ an SSH key as detailed above, and cloning via the SSH url:
 
    $ datalad clone git@gin.g-node.org:/adswa/DataLad-101.git
 
-Likewise, in order to publish changes back to a Gin repository, the repository needs
+Likewise, in order to publish changes back to a GIN repository, the repository needs
 to be cloned via its SSH url.
 
 .. index:: dataset hosting; GIN
@@ -258,16 +258,16 @@ a location of your choice, and modify the ``.gitmodules`` entry accordingly.
    pair: configure sibling; with DataLad
 .. _ginbts:
 
-Using Gin as a data source behind the scenes
+Using GIN as a data source behind the scenes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Even if you do not want to point collaborators to yet another hosting site but want to be able to expose your datasets via services they use and know already (such as GitHub or GitLab), Gin can be very useful:
-You can let Gin perform data hosting in the background by using it as an "autoenabled data source" that a dataset :term:`sibling` (even if it is published to GitHub or GitLab) can retrieve data from.
-You will need to have a Gin account and SSH key setup, so please take a look at the first part of this section if you do not yet know how to do this.
+Even if you do not want to point collaborators to yet another hosting site but want to be able to expose your datasets via services they use and know already (such as GitHub or GitLab), GIN can be very useful:
+You can let GIN perform data hosting in the background by using it as an "autoenabled data source" that a dataset :term:`sibling` (even if it is published to GitHub or GitLab) can retrieve data from.
+You will need to have a GIN account and SSH key setup, so please take a look at the first part of this section if you do not yet know how to do this.
 
 Then, follow these steps:
 
-- First, create a new repository on Gin (see step by step instructions above).
+- First, create a new repository on GIN (see step by step instructions above).
 - In your to-be-published dataset, add this repository as a sibling, this time setting `--url` and `--pushurl` arguments explicitly. Make sure to configure a :term:`SSH` URL as a ``--pushurl`` but a :term:`HTTPS` URL as a ``url``.
   Please also note that the :term:`HTTPS` URL written after ``--url`` DOES NOT have the ``.git`` suffix.
   Here is the command:
@@ -281,7 +281,7 @@ Then, follow these steps:
       --url https://gin.g-node.org/studyforrest/aggregate-fmri-timeseries \
 
 - Locally, run ``git config --unset-all remote.gin.annex-ignore`` to prevent :term:`git-annex` from ignoring this new dataset
-- Push your data to the repository on Gin (``datalad push --to gin``). This pushes the actual state of the repository, including content, but also adjusts the :term:`git-annex` configuration.
+- Push your data to the repository on GIN (``datalad push --to gin``). This pushes the actual state of the repository, including content, but also adjusts the :term:`git-annex` configuration.
 - Configure this sibling as a "common data source". Use the same name as previously in ``--name`` (to indicate which sibling you are configuring) and give a new, different, name after ``--as-common-datasrc``:
 
 .. code-block:: console
@@ -290,11 +290,11 @@ Then, follow these steps:
       --name gin \
       --as-common-datasrc gin-src
 
-- Push to the repository on Gin again (``datalad push --to gin``) to make the configuration change known to the Gin sibling.
+- Push to the repository on GIN again (``datalad push --to gin``) to make the configuration change known to the Gin sibling.
 
 - Publish your dataset to GitHub/GitLab/..., or update an existing published dataset (``datalad push``)
 
-Afterwards, :dlcmd:`get` retrieves files from Gin, even if the dataset has been cloned from GitHub.
+Afterwards, :dlcmd:`get` retrieves files from GIN, even if the dataset has been cloned from GitHub.
 
 .. index::
    pair: common data source; DataLad concept

@@ -16,7 +16,7 @@ As outlined in a number of sections before, Git repository hosting sites typical
 Depending on whether or not an annex is supported, you can push either only your Git history to the sibling, or the complete dataset including annexed file contents.
 You can find out whether a sibling on a remote hosting services carries an annex or not by running the :dlcmd:`siblings` command.
 A ``+``, ``-``, or ``?`` sign in parenthesis indicates whether the sibling carries an annex, does not carry an annex, or whether this information isn't yet known.
-In the example below you can see that a public GitHub repository `<https://github.com/psychoinformatics-de/studyforrest-data-phase2>`_ does not carry an annex on ``github`` (the sibling ``origin``), but that the annexed data are served from an additional sibling ``mddatasrc`` (a :term:`special remote` with annex support).
+In the example below you can see that the public GitHub repository `github.com/psychoinformatics-de/studyforrest-data-phase2 <https://github.com/psychoinformatics-de/studyforrest-data-phase2>`_ does not carry an annex on GitHub (the sibling ``origin``), but that the annexed data are served from an additional sibling ``mddatasrc`` (a :term:`special remote` with annex support).
 Even though the dataset sibling on GitHub does not serve the data, it constitutes a simple, findable access point to retrieve the dataset, and can be used to provide updates and fixes via :term:`pull request`\s, issues, etc.
 
 .. code-block:: console
@@ -24,7 +24,7 @@ Even though the dataset sibling on GitHub does not serve the data, it constitute
     $ # a clone of github/psychoinformatics/studyforrest-data-phase2 has the following siblings:
     $ datalad siblings
     .: here(+) [git]
-    .: mddatasrc(+) [http://psydata.ovgu.de/studyforrest/phase2/.git (git)]
+    .: mddatasrc(+)  [https://datapub.fz-juelich.de/studyforrest/studyforrest/phase2/.git (git)]
     .: origin(-) [git@github.com:psychoinformatics-de/studyforrest-data-phase2.git (git)]
 
 
@@ -34,22 +34,36 @@ How to add a sibling on a Git repository hosting site: The manual way
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-#. Create a new repository via the webinterface of the hosting service of your choice.
-   It does not need to have the same name as your local dataset, but it helps to associate local dataset and remote siblings.
+#. Create a new repository via the webinterface of the hosting service of your choice. The screenshots in :numref:`fig-newrepogin` and :numref:`fig-newrepogithub` show examples of this.
+   The new repository does not need to have the same name as your local dataset, but it helps to associate local dataset and remote siblings.
+
+#. Afterwards, copy the :term:`SSH` or :term:`HTTPS` URL of the repository. Usually, repository hosting services will provide you with a convenient way to copy it to your clipboard. An SSH URL takes the form ``git@<hosting-service>:/<user>/<repo-name>.git`` and an HTTPS URL takes the form ``https://<hosting-service>/<user>/<repo-name>.git``. The type of URL you choose determines whether and how you will be able to ``push`` to your repository. Note that many services will require you to use the SSH URL to your repository in order to do :dlcmd:`push` operations, so make sure to take the :term:`SSH` and not the :term:`HTTPS` URL if this is the case.
+
+#. If you pick the :term:`SSH` URL, make sure to have an :term:`SSH key` set up. This usually requires generating an SSH key pair if you do not have one yet, and uploading the public key to the repository hosting service. The :find-out-more:`on SSH keys <fom-sshkey>` points to a useful tutorial for this.
+
+#. Use the URL to add the repository as a sibling. There are two commands that allow you to do that; both require you give the sibling a name of your choice (common name choices are ``upstream``, or a short-cut for your user name or the hosting platform, but its completely up to you to decide):
+
+   #. ``git remote add <name> <url>``
+   #. ``datalad siblings add --dataset . --name <name> --url <url>``
+
+#. Push your dataset to the new sibling: ``datalad push --to <name>``
+
+
+.. _fig-newrepogin:
 
 .. figure:: ../artwork/src/GIN_newrepo.png
    :width: 80%
 
    Webinterface of :term:`GIN` during the creation of a new repository.
 
+
+.. _fig-newrepogithub:
+
 .. figure:: ../artwork/src/newrepo-github.png
    :width: 80%
 
    Webinterface of :term:`GitHub` during the creation of a new repository.
 
-#. Afterwards, copy the :term:`SSH` or :term:`HTTPS` URL of the repository. Usually, repository hosting services will provide you with a convenient way to copy it to your clipboard. An SSH URL takes the form ``git@<hosting-service>:/<user>/<repo-name>.git`` and an HTTPS URL takes the form ``https://<hosting-service>/<user>/<repo-name>.git``. The type of URL you choose determines whether and how you will be able to ``push`` to your repository. Note that many services will require you to use the SSH URL to your repository in order to do :dlcmd:`push` operations, so make sure to take the :term:`SSH` and not the :term:`HTTPS` URL if this is the case.
-
-#. If you pick the :term:`SSH` URL, make sure to have an :term:`SSH key` set up. This usually requires generating an SSH key pair if you do not have one yet, and uploading the public key to the repository hosting service.
 
 .. index:: concepts; SSH key, SSH; key
 .. _sshkey:
@@ -85,15 +99,6 @@ How to add a sibling on a Git repository hosting site: The manual way
    SSH authentication [#f2]_, and configure an ``ssh agent``
    to handle this passphrase for you with a single command. How to do all of this
    is detailed in the tutorial.
-
-
-#. Use the URL to add the repository as a sibling. There are two commands that allow you to do that; both require you give the sibling a name of your choice (common name choices are ``upstream``, or a short-cut for your user name or the hosting platform, but its completely up to you to decide):
-
-   #. ``git remote add <name> <url>``
-   #. ``datalad siblings add --dataset . --name <name> --url <url>``
-
-#. Push your dataset to the new sibling: ``datalad push --to <name>``
-
 
 How to add a sibling on a Git repository hosting site: The automated way
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -152,7 +157,9 @@ Which permissions do they need?
 """""""""""""""""""""""""""""""
 
 The most convenient way to generate tokens is typically via the webinterface of the hosting service of your choice.
-Often, you can specifically select which set of permissions a specific token has in a drop-down menu similar (but likely not identical) to this screenshot from GitHub:
+Often, you can specifically select which set of permissions a specific token has in a drop-down menu similar (but likely not identical) to the screenshot from GitHub in :numref:`fig-token`.
+
+.. _fig-token:
 
 .. figure:: ../artwork/src/github-token.png
    :width: 80%
@@ -203,7 +210,9 @@ Here is an example:
     private_token = <here-is-your-token>
 
 Once this configuration is in place, ``create-sibling-gitlab``'s ``--site`` parameter can be supplied with the name of the instance you want to use (e.g., ``datalad create-sibling-gitlab --site gitlab-general``).
-Ensure that the token for each instance has appropriate permissions to create new groups and projects under your user account using the GitLab API.
+Ensure that the token for each instance has appropriate permissions to create new groups and projects under your user account using the GitLab API in :numref:`fig-gitlabtoken`.
+
+.. _fig-gitlabtoken:
 
 .. figure:: ../artwork/src/gitlab-token.png
    :width: 80%
@@ -262,7 +271,9 @@ Consider the ``DataLad-101`` dataset, a superdataset with a several subdatasets 
     │       ├── [...]
 
 
-The ``collection`` and ``flat`` layouts for this dataset look like this in practice:
+How the ``collection`` and ``flat`` layouts for this dataset look in practice is shown in :numref:`fig-gitlab-layout`.
+
+.. _fig-gitlab-layout:
 
 .. figure:: ../artwork/src/gitlab-layouts.png
    :width: 50%
@@ -275,7 +286,7 @@ Publishing a single dataset
 When publishing a single dataset, users can configure the project or group name as a command argument ``--project``.
 Here are two command examples and their outcomes.
 
-For a **flat** layout, the ``--project`` parameter determines the project name:
+For a **flat** layout, the ``--project`` parameter determines the project name, shown in :numref:`fig-gitlab-flat`.
 
 .. code-block:: console
 
@@ -286,12 +297,14 @@ For a **flat** layout, the ``--project`` parameter determines the project name:
      configure-sibling (ok: 1)
      create_sibling_gitlab (ok: 1)
 
+.. _fig-gitlab-flat:
+
 .. figure:: ../artwork/src/gitlab-layout-flat.png
    :width: 50%
 
    An example dataset using GitLab's "flat" layout.
 
-For a **collection** layout, the ``--project`` parameter determines the group name:
+For a **collection** layout, the ``--project`` parameter determines the group name, shown in figure :numref:`fig-gitlab-collection`.
 
 .. code-block:: console
 
@@ -301,6 +314,8 @@ For a **collection** layout, the ``--project`` parameter determines the group na
     action summary:
       configure-sibling (ok: 1)
       create_sibling_gitlab (ok: 1)
+
+.. _fig-gitlab-collection:
 
 .. figure:: ../artwork/src/gitlab-layout-collection.png
    :width: 50%

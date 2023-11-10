@@ -37,6 +37,18 @@ How to add a sibling on a Git repository hosting site: The manual way
 #. Create a new repository via the webinterface of the hosting service of your choice. The screenshots in :numref:`fig-newrepogin` and :numref:`fig-newrepogithub` show examples of this.
    The new repository does not need to have the same name as your local dataset, but it helps to associate local dataset and remote siblings.
 
+#. Afterwards, copy the :term:`SSH` or :term:`HTTPS` URL of the repository. Usually, repository hosting services will provide you with a convenient way to copy it to your clipboard. An SSH URL takes the form ``git@<hosting-service>:/<user>/<repo-name>.git`` and an HTTPS URL takes the form ``https://<hosting-service>/<user>/<repo-name>.git``. The type of URL you choose determines whether and how you will be able to ``push`` to your repository. Note that many services will require you to use the SSH URL to your repository in order to do :dlcmd:`push` operations, so make sure to take the :term:`SSH` and not the :term:`HTTPS` URL if this is the case.
+
+#. If you pick the :term:`SSH` URL, make sure to have an :term:`SSH key` set up. This usually requires generating an SSH key pair if you do not have one yet, and uploading the public key to the repository hosting service. The :find-out-more:`on SSH keys <fom-sshkey>` points to a useful tutorial for this.
+
+#. Use the URL to add the repository as a sibling. There are two commands that allow you to do that; both require you give the sibling a name of your choice (common name choices are ``upstream``, or a short-cut for your user name or the hosting platform, but its completely up to you to decide):
+
+   #. ``git remote add <name> <url>``
+   #. ``datalad siblings add --dataset . --name <name> --url <url>``
+
+#. Push your dataset to the new sibling: ``datalad push --to <name>``
+
+
 .. _fig-newrepogin:
 
 .. figure:: ../artwork/src/GIN_newrepo.png
@@ -52,9 +64,6 @@ How to add a sibling on a Git repository hosting site: The manual way
 
    Webinterface of :term:`GitHub` during the creation of a new repository.
 
-#. Afterwards, copy the :term:`SSH` or :term:`HTTPS` URL of the repository. Usually, repository hosting services will provide you with a convenient way to copy it to your clipboard. An SSH URL takes the form ``git@<hosting-service>:/<user>/<repo-name>.git`` and an HTTPS URL takes the form ``https://<hosting-service>/<user>/<repo-name>.git``. The type of URL you choose determines whether and how you will be able to ``push`` to your repository. Note that many services will require you to use the SSH URL to your repository in order to do :dlcmd:`push` operations, so make sure to take the :term:`SSH` and not the :term:`HTTPS` URL if this is the case.
-
-#. If you pick the :term:`SSH` URL, make sure to have an :term:`SSH key` set up. This usually requires generating an SSH key pair if you do not have one yet, and uploading the public key to the repository hosting service.
 
 .. index:: concepts; SSH key, SSH; key
 .. _sshkey:
@@ -90,15 +99,6 @@ How to add a sibling on a Git repository hosting site: The manual way
    SSH authentication [#f2]_, and configure an ``ssh agent``
    to handle this passphrase for you with a single command. How to do all of this
    is detailed in the tutorial.
-
-
-#. Use the URL to add the repository as a sibling. There are two commands that allow you to do that; both require you give the sibling a name of your choice (common name choices are ``upstream``, or a short-cut for your user name or the hosting platform, but its completely up to you to decide):
-
-   #. ``git remote add <name> <url>``
-   #. ``datalad siblings add --dataset . --name <name> --url <url>``
-
-#. Push your dataset to the new sibling: ``datalad push --to <name>``
-
 
 How to add a sibling on a Git repository hosting site: The automated way
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

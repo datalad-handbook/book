@@ -201,7 +201,7 @@ updates from. It would have worked without the specification (just as a bare
 :dlcmd:`update --how merge` worked for your room mate), because there is only
 one other known location, though.
 
-This plain :dlcmd:`update` informs you that it "fetched" updates from
+This plain :dlcmd:`update` "fetched" updates from
 the dataset. The changes however, are not yet visible -- the script that
 he added is not yet in your ``code/`` directory:
 

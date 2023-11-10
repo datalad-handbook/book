@@ -157,7 +157,9 @@ Which permissions do they need?
 """""""""""""""""""""""""""""""
 
 The most convenient way to generate tokens is typically via the webinterface of the hosting service of your choice.
-Often, you can specifically select which set of permissions a specific token has in a drop-down menu similar (but likely not identical) to this screenshot from GitHub:
+Often, you can specifically select which set of permissions a specific token has in a drop-down menu similar (but likely not identical) to the screenshot from GitHub in :numref:`fig-token`.
+
+.. _fig-token:
 
 .. figure:: ../artwork/src/github-token.png
    :width: 80%
@@ -208,7 +210,9 @@ Here is an example:
     private_token = <here-is-your-token>
 
 Once this configuration is in place, ``create-sibling-gitlab``'s ``--site`` parameter can be supplied with the name of the instance you want to use (e.g., ``datalad create-sibling-gitlab --site gitlab-general``).
-Ensure that the token for each instance has appropriate permissions to create new groups and projects under your user account using the GitLab API.
+Ensure that the token for each instance has appropriate permissions to create new groups and projects under your user account using the GitLab API in :numref:`fig-gitlabtoken`.
+
+.. _fig-gitlabtoken:
 
 .. figure:: ../artwork/src/gitlab-token.png
    :width: 80%
@@ -267,7 +271,9 @@ Consider the ``DataLad-101`` dataset, a superdataset with a several subdatasets 
     │       ├── [...]
 
 
-The ``collection`` and ``flat`` layouts for this dataset look like this in practice:
+How the ``collection`` and ``flat`` layouts for this dataset look in practice is shown in :numref:`fig-gitlab-layout`.
+
+.. _fig-gitlab-layout:
 
 .. figure:: ../artwork/src/gitlab-layouts.png
    :width: 50%
@@ -280,7 +286,7 @@ Publishing a single dataset
 When publishing a single dataset, users can configure the project or group name as a command argument ``--project``.
 Here are two command examples and their outcomes.
 
-For a **flat** layout, the ``--project`` parameter determines the project name:
+For a **flat** layout, the ``--project`` parameter determines the project name, shown in :numref:`fig-gitlab-flat`.
 
 .. code-block:: console
 
@@ -291,12 +297,14 @@ For a **flat** layout, the ``--project`` parameter determines the project name:
      configure-sibling (ok: 1)
      create_sibling_gitlab (ok: 1)
 
+.. _fig-gitlab-flat:
+
 .. figure:: ../artwork/src/gitlab-layout-flat.png
    :width: 50%
 
    An example dataset using GitLab's "flat" layout.
 
-For a **collection** layout, the ``--project`` parameter determines the group name:
+For a **collection** layout, the ``--project`` parameter determines the group name, shown in figure :numref:`fig-gitlab-collection`.
 
 .. code-block:: console
 
@@ -306,6 +314,8 @@ For a **collection** layout, the ``--project`` parameter determines the group na
     action summary:
       configure-sibling (ok: 1)
       create_sibling_gitlab (ok: 1)
+
+.. _fig-gitlab-collection:
 
 .. figure:: ../artwork/src/gitlab-layout-collection.png
    :width: 50%

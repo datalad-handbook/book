@@ -808,7 +808,7 @@ to remove the ``Gitjoke2.txt`` file.
 .. [#f1] For example, the :dlcmd:`rerun` command introduced in section
          :ref:`run2` takes such a hash as an argument, and re-executes
          the ``datalad run`` or ``datalad rerun`` :term:`run record` associated with
-         this hash. Likewise, the :gitcmd:`diff` can work with commit hashes.
+         this hash. Likewise, the :gitcmd:`diff` command can work with commit hashes.
 
 .. [#f2] There are other alternatives to reference commits in the history of a dataset,
          for example, "counting" ancestors of the most recent commit using the notation

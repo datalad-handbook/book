@@ -133,7 +133,7 @@ You can decide for yourself whether you want to check them out:
    the book when there is no better alternative, and executing those commands will
    suffice to follow along.
 
-If you are a Windows user with a native (i.e., not `Windows Subsystem for Linux (WSL) <https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux>`_-based DataLad installation, pay close attention to the special notes in so-called "Windows-Wits":
+If you are a Windows user with a native (i.e., not `Windows Subsystem for Linux (WSL) <https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux>`_-based) DataLad installation, pay close attention to the special notes in so-called "Windows-Wits":
 
 .. windows-wit:: For Windows users only
 

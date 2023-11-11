@@ -7,4 +7,4 @@ They instead use the ``^`` character:
  $ wget -q https://sourceforge.net/projects/linuxcommand/files/TLCL/19.01/TLCL-19.01.pdf/download ^
  -O TLCL.pdf
 
-If you are not using the Git Bash, you will either need to copy multi-line commands into a single line, or use ``^`` (make sure that there is **no space** afterwards) instead of ``\``.
+If you are not using the Git Bash, you either need to copy multi-line commands into a single line, or use ``^`` (make sure that there is **no space** afterwards) instead of ``\``.

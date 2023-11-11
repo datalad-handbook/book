@@ -50,7 +50,7 @@ As this book aims to be a practical guide it includes as many hands-on examples
 as we can fit into it. Code snippets look like this, and you should
 **copy them into your own terminal to try them out**, but you can also
 **modify them to fit your custom needs in your own use cases**.
-Note how we distinguish ``comments (#)`` from ``commands ($)`` and their output
+Note how we distinguish ``comments ($ #)`` from ``commands ($)`` and their output
 in the example below (it shows the creation of a DataLad dataset):
 
 .. code-block:: console
@@ -132,7 +132,7 @@ You can decide for yourself whether you want to check them out:
    the book when there is no better alternative, and executing those commands will
    suffice to follow along.
 
-If you are a Windows user with a native (i.e., not `Windows Subsystem for Linux (WSL) <https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux>`_-based DataLad installation, pay close attention to the special notes in so-called "Windows-Wits":
+If you are a Windows user with a native (i.e., not `Windows Subsystem for Linux (WSL) <https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux>`_-based) DataLad installation, pay close attention to the special notes in so-called "Windows-Wits":
 
 .. windows-wit:: For Windows users only
 

@@ -156,7 +156,7 @@ Git-annex:
        single: installation; git-annex
 
     There are two convenient ways to install git-annex. The first is `downloading the installer from git-annex' homepage <https://git-annex.branchable.com/install/Windows>`_. The other is to deploy git-annex via the `DataLad installer`_.
-    The latter option requires the installation of the datalad-installer.
+    The latter option requires the installation of the ``datalad-installer`` Python package.
     Once Python is available, it can be done with the Python package manager
     :shcmd:`pip`. Open a command prompt and run:
 

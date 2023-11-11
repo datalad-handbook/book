@@ -48,7 +48,6 @@ be sure to be in the correct dataset).
 Move files
 ==========
 
-
 .. index::
    pair: rename file; with DataLad
 
@@ -215,6 +214,9 @@ Let's revert this now, to have a clean history.
    $ git reset --hard HEAD~1
    $ datalad status
 
+
+.. index::
+   pair: move file; with DataLad
 
 Move files from or into subdirectories
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -500,6 +502,9 @@ but one paragraph. Let's quickly clean up by moving the file back:
    $ datalad save -r -m "move book back from midterm_project"
 
 
+.. index::
+   pair: copy file; with DataLad
+
 Copy files
 ^^^^^^^^^^
 
@@ -660,6 +665,9 @@ Let's clean up:
 Move datasets
 =============
 
+.. index::
+   pair: move subdataset; with DataLad
+
 Move/rename a subdirectory or subdataset
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -763,6 +771,8 @@ a subsequent :dlcmd:`save`.
    Update this when progress has been made towards
    https://github.com/datalad/datalad/issues/3464
 
+.. index::
+   pair: move superdataset; with DataLad
 
 Move/rename a superdataset
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -788,20 +798,21 @@ use.
 Beware of one thing though: If your dataset either is a sibling
 or has a sibling with the source being a path, moving or renaming
 the dataset will break the linkage between the datasets. This can
-be fixed easily though. We can try this in the :find-out-more:`on adjusting sibling URLs <fom-adjust-sibling-urls>`.
+be fixed easily though. Let's demo this.
 
 .. index::
    pair: move subdataset; with Git
-.. find-out-more:: If a renamed/moved dataset is a sibling...
-   :name: fom-adjust-sibling-urls
 
-   .. include:: topic/moved-sibling-path-fix.rst
+.. include:: topic/moved-sibling-path-fix.rst
 
 Stop tracking
 =============
 
-Getting contents out of git-annex
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. index::
+   pair: stop tracking file; with git-annex
+
+Get contents out of git-annex
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Files in your dataset can either be handled by :term:`Git` or :term:`Git-annex`.
 Self-made or predefined configurations to ``.gitattributes``, defaults, or the
@@ -821,7 +832,7 @@ is only two files, and they are quite small, you decide to store them in Git --
 this way, the files would be available without configuring an external data
 store.
 
-To get a file out of the git-annex hands you need to *unannex* it. This is
+To get a file out of git-annex's hands you need to *unannex* it. This is
 done with the git-annex command :gitannexcmd:`unannex`. Let's see how it
 works:
 
@@ -853,25 +864,30 @@ Note that git-annex keeps the previously annexed file's content in the annex for
 If it is only few and small files that were unannexed, their size in the annex will not matter much.
 If it is a lot of files or larger files that were accidentally annexed, you may want to drop the left-behind content using ``git annex unused`` and ``git annex dropunused``.
 
+.. index::
+   pair: remove dataset annex; with git-annex
 .. _uninit:
 
-Getting all content out of the annex (removing the annex repo)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Get all content out of the annex (remove the annex)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 In case you want to get all annexed contents out of a Dataset at once, you could turn to `git annex uninit <https://git-annex.branchable.com/git-annex-uninit>`_.
-It is a command that can be used to stop using git annex entirely in a given repository/dataset.
+It is a command that can be used to stop using git annex entirely in a given dataset.
 Running this command will unannex every file in the repository, remove all of git-annex's other data, and remove the :term:`git-annex` branch, leaving you with a normal Git repository plus the previously annexed files.
 
 Note a ``datalad push`` will reinstate the git-annex branch *if* your dataset has siblings that still contain the annex branch.
 
-Deleting (annexed) files/directories
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Delete (annexed) files
+^^^^^^^^^^^^^^^^^^^^^^
 
 Removing annexed file content from a dataset is possible in two different ways:
 Either by removing the file from the current state of the repository
 (which Git calls the *worktree*) but keeping the content in the history
 of the dataset, or by removing content entirely from a dataset and its
 history.
+
+.. index::
+   pair: remove file; with DataLad
 
 Removing a file, but keeping content in history
 """""""""""""""""""""""""""""""""""""""""""""""
@@ -883,6 +899,7 @@ by going back into the history of the dataset or reverting the removal commit:
 
 .. runrecord:: _examples/DL-101-136-170
    :workdir: dl-101/DataLad-101
+   :language: console
    :notes: 2 ways to remove a file from dataset: remove the file from the current state of the repository (the *worktree*) but keeping the content in the history, or remove content entirely from a dataset and its history.
    :cast: 03_git_annex_basics
 
@@ -941,10 +958,11 @@ the symlink is removed, but the content is retained in the history.
 
 .. index::
    pair: drop; DataLad command
+   pair: remove file; with DataLad
 .. _remove:
 
-Removing annexed content entirely
-"""""""""""""""""""""""""""""""""
+Remove annexed content entirely
+"""""""""""""""""""""""""""""""
 
 The command to remove file content entirely and irreversibly from a repository is
 the :dlcmd:`drop` command.
@@ -1037,8 +1055,11 @@ Finally, let's clean up:
 
    $ git reset --hard HEAD~2
 
-Deleting content stored in Git
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. index::
+   pair: remove file; with Git
+
+Delete content stored in Git
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 It is much harder to delete dataset content that is stored in Git compared to
 content stored in git-annex.
@@ -1064,12 +1085,14 @@ Remove datasets
 ===============
 
 .. index::
+   pair: uninstall dataset; with DataLad
+   pair: drop dataset; with DataLad
    pair: drop; DataLad command
 
-Uninstalling or deleting subdatasets
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Uninstall or delete subdatasets
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Depending on the exact aim, different commands are of relevance for
+Depending on the exact aim, different commands are relevant for
 deleting a DataLad subdataset.
 One way to uninstall a dataset is the :dlcmd:`drop` command.
 To work on datasets, ``drop`` needs to be parametrized with ``--what all``.
@@ -1096,6 +1119,8 @@ To uninstall the dataset, you can use
    :cast: 03_git_annex_basics
 
    $ datalad drop --what all --reckless kill --recursive cloud
+
+The ``--reckless kill`` sounds bad, but is harmless here: we just clones this dataset, and we know we did not do anything locally that is worth keeping.
 
 Note that the dataset is still known in the dataset, and not completely removed.
 A ``datalad get [-n/--no-data] cloud`` would install the dataset again.
@@ -1133,9 +1158,12 @@ Note that for both commands a pointer to the *current directory* will not work.
 the command is executed in a subdataset instead of the top-level
 superdataset -- you need to execute the command from a higher-level directory.
 
+.. index::
+   pair: uninstall superdataset; with DataLad
+   pair: drop superdataset; with DataLad
 
-Deleting a superdataset
-^^^^^^^^^^^^^^^^^^^^^^^
+Delete a superdataset
+^^^^^^^^^^^^^^^^^^^^^
 
 If for whatever reason you at one point tried to remove a DataLad dataset,
 whether with a GUI or the command line call ``rm -rf <directory>``, you likely
@@ -1164,13 +1192,16 @@ This *recursively* (``-R``, i.e., throughout all files and (sub)directories) giv
 
 Afterwards, ``rm -rf <dataset>`` will succeed.
 
-However, instead of ``rm -rf``, a faster way to remove a dataset is using either :dlcmd:`drop` or  :dlcmd:`remove`: Run ``datalad drop -d <dataset>`` or ``datalad remove -d <dataset>`` outside of the
+However, instead of ``rm -rf``, a faster way to remove a dataset is using :dlcmd:`drop`: Run ``datalad drop -d <dataset>`` outside of the
 superdataset to remove a top-level dataset with all its contents. Likely,
 both  ``--recursive`` and ``--reckless [availability|undead|kill]`` flags are necessary
 to traverse into subdatasets and to remove content that does not have verified remotes.
 
-Be aware, though, that deleting a dataset in which ever way will
-irretrievably delete the dataset, it's contents, and it's history.
+.. importantnote:: Deleting a dataset clone cannot be undone!
+
+   Be aware that deleting a dataset clone in which ever way will
+   irrevocably delete the clone, it's contents, and it's history.
+   Unless another clone still exists elsewhere, the dataset will be gone forever.
 
 Summary
 =======

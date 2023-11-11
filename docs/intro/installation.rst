@@ -133,7 +133,7 @@ Git:
        single: installation; Git
 
     Windows also does not come with Git. If you happen to have it installed already,
-    please check, if you have configured it for command line use. You should be able
+    please check if you have configured it for command line use. You should be able
     to open the Windows command prompt and run a command like :shcmd:`git --version`.
     It should return a version number and not an error.
 

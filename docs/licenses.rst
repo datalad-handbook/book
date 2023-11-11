@@ -3,8 +3,8 @@
 Copyright and licenses
 ----------------------
 
-This handbook is made available under the terms of the `Creative Commons Attribution-ShareAlike 4.0 International Public License (CC-BY-SA)`_.
-The copyright holders for the book content are the respective individual contributors of particular content, as recorded in the version history of the handbook's Git repository.
+This book is made available under the terms of the `Creative Commons Attribution-ShareAlike 4.0 International Public License (CC-BY-SA)`_.
+The copyright holders for the book content are the respective individual contributors of particular content, as recorded in the version history of the online-handbook's Git repository.
 
 This book may contain copyrighted and/or trademarked materials, the use of which may not have been specifically authorized by the respective owner.
 These are included for educational purposes in an effort to explain issues relevant to decentralized data management and other topics covered in this book.
@@ -22,7 +22,7 @@ The remainder of this sections amends the general copyright and license declarat
 unDraw illustrations
 ~~~~~~~~~~~~~~~~~~~~
 
-The handbook includes numerous illustrations obtained from Katerina Limpitsouni's https://undraw.co project, covered by the following terms:
+The book includes numerous illustrations obtained from Katerina Limpitsouni's https://undraw.co project, covered by the following terms:
 
    Copyright 2023 Katerina Limpitsouni
 
@@ -50,10 +50,10 @@ The "YODA" cartoon used in chapter :ref:`chapter_yoda` is derived from https://o
 .. _Creative Commons Attribution-ShareAlike 4.0 International Public License (CC-BY-SA): https://creativecommons.org/licenses/by-sa/4.0
 .. _CC0: http://creativecommons.org/publicdomain/zero/1.0
 
-Fonts (PDF version)
-~~~~~~~~~~~~~~~~~~~
+Fonts
+~~~~~
 
-The PDF version of the handbook contains the following fonts with their respective licenses.
+The book contains the following fonts with their respective licenses.
 All fonts are either standard or embedded.
 
 * STIXGeneral-Regular; license is based on the `SIL Open Font License`_
@@ -73,12 +73,14 @@ All fonts are either standard or embedded.
 .. _GUST Font license: https://tug.org/fonts/licenses/GUST-FONT-LICENSE.txt
 .. _CC-BY 4.0 License: https://creativecommons.org/licenses/by/4.0/
 
-Box icons (PDF version)
-~~~~~~~~~~~~~~~~~~~~~~~
+Box icons
+~~~~~~~~~
+
+The icons used to annotate boxes were obtained from svgrepo.com and have the following licenses.
 
 * The `"Window" SVG vector <https://www.svgrepo.com/svg/368334/window>`_ for Windows Wits is released in the `public domain`_.
-* The `Idea and creativity symbol of a lightbulb SVG vector <https://www.svgrepo.com/svg/23335/idea-and-creativity-symbol-of-a-lightbulb>`_ for Find-out-more's is released in the `public domain`_.
-* The icon for Gitusernotes is derived from the `Git Pull Request SVG Vector <https://www.svgrepo.com/svg/443850/gui-git-pull-request>`_, which is released under the `MIT License`_.
+* The `"Idea and creativity symbol of a lightbulb SVG vector" <https://www.svgrepo.com/svg/23335/idea-and-creativity-symbol-of-a-lightbulb>`_ for Find-out-more's is released in the `public domain`_.
+* The icon for Gitusernotes is derived from the `"Git Pull Request SVG Vector" <https://www.svgrepo.com/svg/443850/gui-git-pull-request>`_, which is released under the `MIT License`_.
 
 .. _MIT License: https://mit-license.org/
 .. _public domain: https://creativecommons.org/public-domain/cc0/

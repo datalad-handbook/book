@@ -85,7 +85,7 @@ The online-handbook has additional parts that you are welcome to check
 out, too:
 In the *Advanced* part you will find features or workflows that go beyond the
 Basics.
-And in the last part, *use cases*, you will find concrete examples of
+And in the last part, *Use cases*, you will find concrete examples of
 DataLad applications for general inspiration.
 
 Note that many challenges can have straightforward and basic solutions,
@@ -221,8 +221,7 @@ share and publish with DataLad.
    `github.com/datalad-handbook/DataLad-101 <https://github.com/datalad-handbook/DataLad-101>`_.
    This dataset contains a separate :term:`branch` for each section that introduced changes
    in the repository. The branches have the names of the sections, e.g.,
-   ``sct_create_a_dataset`` marks the repository state at the end of the first section
-   in the first chapter. You can checkout a branch with `git checkout <branch-name>`
+   ``sct_create_a_dataset`` marks the repository state at the end of "Create a dataset". You can checkout a branch with `git checkout <branch-name>`
    to explore how the dataset looks like at the end of a given section.
 
    Note that this "public" dataset has a number of limitations, but it is useful

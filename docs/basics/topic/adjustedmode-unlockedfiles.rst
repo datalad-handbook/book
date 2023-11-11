@@ -8,5 +8,5 @@ While it is easier, it isn't a "more useful" behavior, though.
 A different Windows Wit in the next chapter will highlight how it rather is a suboptimal workaround.
 
 Please don't skip the next section -- it is useful to know how datasets behave on other systems.
-Just be mindful that you will not encounter the errors that the handbook displays next.
+Just be mindful that you will not encounter the errors that the book displays next.
 And while this all sounds quite cryptic and vague, an upcoming Windows Wit will provide more information.

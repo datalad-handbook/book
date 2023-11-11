@@ -364,7 +364,7 @@ Create a note about this, and save it.
 
 .. rubric:: Footnotes
 
-.. [#f1] As this example, simplistically, created a "pretend" room mate by only changing directories, not user accounts, the recorded Git identity of your "room mote" will, of course, be the same as yours.
+.. [#f1] As this example, simplistically, created a "pretend" room mate by only changing directories, not user accounts, the recorded Git identity of your "room mate" will, of course, be the same as yours.
 
 .. only:: adminmode
 

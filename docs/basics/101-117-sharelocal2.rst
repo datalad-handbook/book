@@ -118,7 +118,7 @@ We can also see a report of the source that git-annex uses to retrieve the conte
 Both of these files were retrieved "``from origin...``".
 ``Origin`` is Git terminology for "from where the dataset was copied from" -- ``origin`` therefore is the original ``DataLad-101`` dataset from which file content can be retrieved from very fast.
 
-If your roommate did not have access to the same file system or you deleted your ``DataLad-101`` dataset, this output would look differently.
+If your room mate did not have access to the same file system or you deleted your ``DataLad-101`` dataset, this output would look differently.
 The ``datalad get`` command would fail on the ``TLCL.pdf`` book without a known second source, and ``bash_guide.pdf`` would be retrieved "``from web...``" - the registered second source, its original download URL.
 Let's see a retrieval from ``web`` in action for another file.
 The ``.mp3`` files in the ``longnow`` seminar series have registered web URLs [#f1]_.

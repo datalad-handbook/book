@@ -358,7 +358,7 @@ DataLad itself can be installed via ``pip``:
    $ python -m pip install datalad
 
 Alternatively, DataLad can be installed together with :term:`Git` and
-:term:`git-annex` via Conda_ as outlined in the section below.
+:term:`git-annex` via Conda_.
 
 .. index::
    pair: install DataLad; on HPC

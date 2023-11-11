@@ -85,7 +85,7 @@ The online-handbook has additional parts that you are welcome to check
 out, too:
 In the *Advanced* part you will find features or workflows that go beyond the
 Basics.
-And in the last part, *use cases*, you will find concrete examples of
+And in the last part, *Use cases*, you will find concrete examples of
 DataLad applications for general inspiration.
 
 Note that many challenges can have straightforward and basic solutions,

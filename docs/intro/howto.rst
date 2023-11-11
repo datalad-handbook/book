@@ -14,7 +14,7 @@ commands and their Windows equivalent, and some general file system facts.
 This chapter is also a place to return to and (re-)read if you come across a
 non-DataLad command or principle you want to remind yourself of.
 If you are already familiar with the shell and know the difference between an absolute
-and a relative path, you can safely skip this chapter and continue to the :ref:`DataLad Basics <basics-intro>`.
+and a relative path, you can safely skip this chapter.
 
 While there is a graphical user interface for DataLad (the :term:`DataLad Gooey`), this book will first and foremost focus on teaching DataLad concepts without the overhead of a user-interface, using DataLad's most powerful interface on the *command line*.
 This means that the code examples in this book show no buttons to click on, but a set of commands and options users type into their *terminal*.

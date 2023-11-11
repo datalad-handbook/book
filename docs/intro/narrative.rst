@@ -46,7 +46,7 @@ As the handbook is to be a practical guide it includes as many hands-on examples
 as we can fit into it. Code snippets look like this, and you should
 **copy them into your own terminal to try them out**, but you can also
 **modify them to fit your custom needs in your own use cases**.
-Note how we distinguish ``comments (#)`` from ``commands ($)`` and their output
+Note how we distinguish ``comments ($ #)`` from ``commands ($)`` and their output
 in the example below (it shows the creation of a DataLad dataset):
 
 .. code-block:: console

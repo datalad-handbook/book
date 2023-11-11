@@ -133,7 +133,7 @@ Git:
        single: installation; Git
 
     Windows also does not come with Git. If you happen to have it installed already,
-    please check, if you have configured it for command line use. You should be able
+    please check if you have configured it for command line use. You should be able
     to open the Windows command prompt and run a command like :shcmd:`git --version`.
     It should return a version number and not an error.
 
@@ -156,7 +156,7 @@ Git-annex:
        single: installation; git-annex
 
     There are two convenient ways to install git-annex. The first is `downloading the installer from git-annex' homepage <https://git-annex.branchable.com/install/Windows>`_. The other is to deploy git-annex via the `DataLad installer`_.
-    The latter option requires the installation of the datalad-installer.
+    The latter option requires the installation of the ``datalad-installer`` Python package.
     Once Python is available, it can be done with the Python package manager
     :shcmd:`pip`. Open a command prompt and run:
 
@@ -223,8 +223,7 @@ look different from what is displayed in the code examples of the book, and
 that some dependencies for additional functionality are not available for
 Windows. Dedicated notes,
 "``Windows-wit``\s", contain important information, alternative commands, or
-warnings. If you on a native Windows system, you should pay close
-attention to them.
+warnings, and an overview of useful Windows commands and general information is included in :ref:`howto`.
 
 .. index::
    pair: install DataLad; on Mac
@@ -359,7 +358,7 @@ DataLad itself can be installed via ``pip``:
    $ python -m pip install datalad
 
 Alternatively, DataLad can be installed together with :term:`Git` and
-:term:`git-annex` via Conda_ as outlined in the section below.
+:term:`git-annex` via Conda_.
 
 .. index::
    pair: install DataLad; on HPC

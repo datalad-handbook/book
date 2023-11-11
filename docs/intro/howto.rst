@@ -191,7 +191,7 @@ This shorthand is called *relative* paths, because they are defined (wait for it
 *relative* to your current location on the file system. Relative paths *never* start
 with a ``/`` or ``\``.
 For example, ``myfile.txt`` is a relative path to the file ``myfile.txt`` in the current directory on Unix-like systems.
-The Windows equivalent is to ``myfile.txt`` in the current directory on the ``C`` disk is ``C:myfile.txt``.
+The Windows equivalent for ``myfile.txt`` in the current directory on the ``C`` disk is ``C:myfile.txt``.
 
 Unix knows a few shortcuts to refer to file system related directories, and you will
 come across them often. Whenever you see a ``.``, ``..``, or ``~`` in a DataLad command,
@@ -329,7 +329,7 @@ To determine what shell you're in, run the following:
 .. code-block:: console
 
    $ echo $SHELL
-   usr/bin/bash
+   /usr/bin/bash
 
 .. index:: ! tab completion
 

@@ -221,8 +221,7 @@ share and publish with DataLad.
    `github.com/datalad-handbook/DataLad-101 <https://github.com/datalad-handbook/DataLad-101>`_.
    This dataset contains a separate :term:`branch` for each section that introduced changes
    in the repository. The branches have the names of the sections, e.g.,
-   ``sct_create_a_dataset`` marks the repository state at the end of the first section
-   in the first chapter. You can checkout a branch with `git checkout <branch-name>`
+   ``sct_create_a_dataset`` marks the repository state at the end of "Create a dataset". You can checkout a branch with `git checkout <branch-name>`
    to explore how the dataset looks like at the end of a given section.
 
    Note that this "public" dataset has a number of limitations, but it is useful

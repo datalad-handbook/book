@@ -52,8 +52,8 @@ Move files
 .. index::
    pair: rename file; with DataLad
 
-Renaming files
-^^^^^^^^^^^^^^
+Rename files
+^^^^^^^^^^^^
 
 Let's try it. In Unix, renaming a file is exactly the same as
 moving a file, and uses the :shcmd:`mv` command.
@@ -134,6 +134,7 @@ only using Git tools only, outlined in the :find-out-more:`on faster renaming <f
    pair: rename file; with Git
 .. find-out-more:: Faster renaming with Git tools
    :name: fom-gitmv
+   :float: tb
 
    Git has built-in commands that provide a solution in two steps.
 
@@ -215,8 +216,8 @@ Let's revert this now, to have a clean history.
    $ datalad status
 
 
-Moving files from or into subdirectories
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Move files from or into subdirectories
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Let's move an annexed file from within ``books/`` into the root
 of the superdataset:
@@ -270,11 +271,15 @@ rectify this as well:
 After a ``datalad save``, the symlink is fixed again.
 Therefore, in general, whenever moving or renaming a file,
 especially between directories, a ``datalad save`` is
-the best option to turn to.
+the best option to turn to. Take a look at the
+:find-out-more:`on the content impact of a move <fom-move-is-change>`
+for some more background.
 
 .. index::
    pair: content pointer file; git-annex concept
 .. find-out-more:: Why a move between directories is actually a content change
+   :name: fom-move-is-change
+   :float: tp
 
    Let's see how this shows up in the dataset history:
 
@@ -297,6 +302,8 @@ the best option to turn to.
 .. index::
    pair: fix; git-annex command
 .. gitusernote:: 'datalad save' internals: 'git annex fix' 
+   :name: gun-annex-fix
+   :float: tp
 
    A :dlcmd:`save` command internally uses a :gitcmd:`commit` to save changes to a dataset.
    :gitcmd:`commit` in turn triggers a :gitannexcmd:`fix`
@@ -337,7 +344,7 @@ stored in Git.
 
 For files that Git manages, moving and saving is simple: Move the file, and
 save the resulting changes in *both* affected datasets (this can be done with
-a recursive :dlcmd:`save` from a top-level dataset, though).
+one recursive :dlcmd:`save` from a top-level dataset, though).
 
 .. runrecord:: _examples/DL-101-136-125
    :language: console
@@ -368,7 +375,7 @@ as if the file was generated at once, instead of successively over the course:
    $ cd midterm_project
    $ git log notes.txt
 
-(Undo-ing this requires ``git reset``\s in *both* datasets)
+Let's undo this change again. It requires a ``git reset``\s in *both* datasets.
 
 .. runrecord:: _examples/DL-101-136-129
    :language: console
@@ -472,7 +479,7 @@ convenient. It can be a confusing and potentially "file-content-losing"-dangerou
 process, but it also dissociates a file from its provenance that is captured
 in its previous dataset, with no machine-readable way to learn about the move
 easily. A better alternative may be copying files with the :dlcmd:`copy-file`
-command introduced in detail in the web version, and demonstrated in the next
+command introduced in detail in the online-handbook, and demonstrated in the next
 but one paragraph. Let's quickly clean up by moving the file back:
 
 .. runrecord:: _examples/DL-101-136-137
@@ -493,8 +500,8 @@ but one paragraph. Let's quickly clean up by moving the file back:
    $ datalad save -r -m "move book back from midterm_project"
 
 
-Copying files
-^^^^^^^^^^^^^
+Copy files
+^^^^^^^^^^
 
 Let's create a copy of an annexed file, using the Unix
 command ``cp`` to copy.
@@ -528,11 +535,14 @@ file. Let's save it:
 
    $ git log -n 1 -p
 
-That's it.
+That's it. For that magic that just happend, read the
+:find-out-more:`on linking identical content <fom-link-copies>`.
 
 .. index::
    pair: content pointer file; git-annex concept
 .. find-out-more:: Symlinks!
+   :name: fom-link-copies
+   :float: tb
 
    If you have read the additional content in the section
    :ref:`symlink`, you know that the same file content
@@ -577,16 +587,16 @@ Finally, let's clean up:
 .. index::
    pair: copy file to other dataset; with DataLad
 
-Copying files across dataset boundaries
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Copy files across dataset boundaries
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Instead of moving files across dataset boundaries, *copying* them is an easier
 and actually supported method.
 The DataLad command that can be used for this is :dlcmd:`copy-file`.
 This command allows to copy files
 (from any dataset or non-dataset location, annexed or not annexed) into a dataset.
-If the file is copied from a dataset and is annexed, its availability metadata
-is added to the new dataset as well, and there is no need for unannex'ing the
+If the file is copied from a dataset and is annexed, its recorded URLs
+are added to the new dataset as well, and there is no need for unannex'ing the
 or even retrieving its file contents. Let's see this in action for a file
 stored in Git, and a file stored in annex:
 
@@ -650,8 +660,8 @@ Let's clean up:
 Move datasets
 =============
 
-Moving/renaming a subdirectory or subdataset
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Move/rename a subdirectory or subdataset
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Moving or renaming subdirectories, especially if they are subdatasets,
 *can* be a minefield. But in principle, a safe way to proceed is using
@@ -754,15 +764,15 @@ a subsequent :dlcmd:`save`.
    https://github.com/datalad/datalad/issues/3464
 
 
-Moving/renaming a superdataset
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Move/rename a superdataset
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Once created, a DataLad superdataset may not be in an optimal
 place on your file system, or have the best name.
 
 After a while, you might think that the dataset would fit much
 better into ``/home/user/research_projects/`` than in
-``/home/user/Documents/MyFiles/tmp/datalad-test/``. Or maybe at
+``/home/user/Documents/tmp/``. Or maybe at
 some point, a long name such as ``My-very-first-DataLad-project-wohoo-I-am-so-excited``
 does not look pretty in your terminal prompt anymore, and going for
 ``finance-2019`` seems more professional.

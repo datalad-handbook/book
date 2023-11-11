@@ -329,7 +329,7 @@ To determine what shell you're in, run the following:
 .. code-block:: console
 
    $ echo $SHELL
-   usr/bin/bash
+   /usr/bin/bash
 
 .. index:: ! tab completion
 

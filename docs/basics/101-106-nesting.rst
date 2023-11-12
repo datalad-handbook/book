@@ -117,6 +117,10 @@ In the upcoming sections, we'll experience the perks of dataset nesting
 frequently, and everything that might seem vague at this point will become
 clearer. To conclude this demonstration,
 :numref:`fignesting` illustrates the current state of our dataset, ``DataLad-101``, with its nested subdataset.
+Thus, without being consciously aware of it, by taking advantage of dataset
+nesting, we took a dataset ``longnow`` and installed it as a
+subdataset within the superdataset  ``DataLad-101``.
+
 
 .. _fignesting:
 .. figure:: ../artwork/src/virtual_dstree_dl101.svg
@@ -124,9 +128,6 @@ clearer. To conclude this demonstration,
 
    Virtual directory tree of a nested DataLad dataset
 
-Thus, without being consciously aware of it, by taking advantage of dataset
-nesting, we took a dataset ``longnow`` and installed it as a
-subdataset within the superdataset  ``DataLad-101``.
 
 If you have executed the above code snippets, make sure to go back into the
 root of the dataset again:

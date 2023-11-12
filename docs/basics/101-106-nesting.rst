@@ -15,7 +15,6 @@ This was done by supplying the ``--dataset``/``-d`` flag in the command call.
 
 At first glance, nesting does not seem particularly spectacular --
 after all, any directory on a file system can have other directories inside of it.
-
 The possibility for nested Datasets, however, is one of many advantages
 DataLad datasets have:
 

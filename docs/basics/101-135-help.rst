@@ -94,6 +94,11 @@ list of command arguments with details on their possibilities and
 requirements. A first thing to check would be whether your command call
 specified all of the required arguments.
 
+An additional source of information is the `PsyInf knowledge base
+<https://knowledge-base.psychoinformatics.de>`_. It contains a curated
+collection of solutions and workarounds that have not yet made it into other
+documentation.
+
 
 Asking questions (right)
 ^^^^^^^^^^^^^^^^^^^^^^^^

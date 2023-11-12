@@ -7,7 +7,7 @@ All DataLad errors or problems you encounter during ``DataLad-101`` are intentio
 and serve illustrative purposes. But what if you run into any DataLad errors
 outside of this course?
 Fortunately, the syllabus has a whole section on that, and on
-one lazy, warm summer-afternoon you flip through it.
+one lazy, warm summer afternoon you flip through it.
 
 .. image:: ../artwork/src/reading.svg
    :width: 50%
@@ -95,6 +95,12 @@ list of command arguments with details on their possibilities and
 requirements. A first thing to check would be whether your command call
 specified all of the required arguments.
 
+An additional source of information is the `PsyInf knowledge base
+<https://knowledge-base.psychoinformatics.de>`_. It contains a curated
+collection of solutions and workarounds that have not yet made it into other
+documentation.
+
+
 Asking questions (right)
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -109,8 +115,8 @@ Include
 
 - *context* -- what did you want to do and why?
 
-- the *problem* -- paste the error message (all of it), and provide the
-  steps necessary to reproduce it.
+- the *problem* -- post the error message, and provide the
+  steps necessary to reproduce it. Do not shorten the error message, unless it contains sensitive information.
 
 - *technical details* -- what version of DataLad are you using, what version
   of git-annex, and which git-annex repository type, what is your operating
@@ -133,7 +139,7 @@ It is not always straightforward to see *why* a particular DataLad command has f
 Given that operations with DataLad can be quite complicated, and could involve complexities such as different forms of authentication, different file systems, interactions with the environment, configurations, and other software, and *much* more, there are what may feel like an infinite amount of sources for the problem at hand.
 The resulting error message, however, may not display the underlying cause correctly because the error message of whichever process failed is not propagated into the final result report.
 
-In situations where there is no obvious reason for a command to fail, it can be helpful -- either for yourself or for further information to paste into :term:`GitHub` issues -- to start `debugging <https://xkcd.com/1722>`_, or *logging at a higher granularity* than is the default.
+In situations where there is no obvious reason for a command to fail, it can be helpful -- either for yourself or for further information to include in :term:`GitHub` issues -- to start `debugging <https://xkcd.com/1722>`_, or *logging at a higher granularity* than is the default.
 This allows you to gain more insights into the actions DataLad and its underlying tools are taking, where *exactly* they fail, and to even play around with the program at the state of the failure.
 
 :term:`Debugging` and :term:`logging` are not as complex as these terms may sound if you have never consciously debugged.

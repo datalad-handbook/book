@@ -273,7 +273,7 @@ with the HEAD pointer.
    `less frequently used and of importance primarily in the case of merge
    commits <https://stackoverflow.com/q/2221658/10068927>`__.
 
-Let's stay with the hash, and reset to the commit prior to saving the Gitjokes.
+Let's stay with the hash, and reset to the commit prior to saving the Git jokes.
 
 First, find out the shasum, and afterwards, reset it.
 

@@ -250,12 +250,14 @@ in your dataset -- just not written to the history anymore. Let's
 try this to get a feel for it.
 
 The COMMIT in the command can either be a hash or a reference
-with the HEAD pointer.
+with the HEAD pointer. Take a look at the :find-out-more:`on terminology <fom-git-heads>` for more on these Git concepts.
 
 .. index::
    pair: branch; Git concept
    pair: HEAD; Git concept
 .. find-out-more:: Git terminology: branches and HEADs?
+   :name: fom-git-heads
+   :float: tbp
 
    A Git repository (and thus any DataLad dataset) is built up as a tree of
    commits. A *branch* is a named pointer (reference) to a commit, and allows you
@@ -664,11 +666,14 @@ The command looks like this:
    $ git revert SHASUM
 
 where ``SHASUM`` specifies the commit hash of the modification that should
-be reverted.
+be reverted. The :find-out-more:`on reverting <fom-revert>` shows how to revert
+more than one commit.
 
 .. index::
    pair: revert multiple commit; with Git
 .. find-out-more:: Reverting more than a single commit
+   :name: fom-revert
+   :float: tbp
 
    You can also specify a range of commits like this:
 

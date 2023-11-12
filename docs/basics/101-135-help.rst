@@ -3,15 +3,15 @@
 When things go wrong
 --------------------
 
+.. image:: ../artwork/src/reading.svg
+   :width: 50%
+   :align: center
+
 All DataLad errors or problems you encounter during ``DataLad-101`` are intentional
 and serve illustrative purposes. But what if you run into any DataLad errors
 outside of this course?
 Fortunately, the syllabus has a whole section on that, and on
 one lazy, warm summer afternoon you flip through it.
-
-.. image:: ../artwork/src/reading.svg
-   :width: 50%
-   :align: center
 
 You realize that you already know the most important things:
 The number one advice on how to get help is

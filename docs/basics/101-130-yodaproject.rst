@@ -769,8 +769,8 @@ command.
     proportion of this book's content so far as a prerequisite. In order to be
     not too overwhelmingly detailed, the upcoming sections will approach
     :dlcmd:`push` from a "learning-by-doing" perspective:
-    First, you will see a :dlcmd:`push` to GitHub, and the :ref:`Findoutmore on the published dataset <fom-midtermclone>`
-    at the end of this section will already give a practical glimpse into the
+    First, you will see a :dlcmd:`push` to GitHub, and "On the looks and feels of a published dataset"
+    will already give a practical glimpse into the
     difference between annexed contents and contents stored in Git when pushed
     to GitHub. The chapter :ref:`chapter_thirdparty` will extend on this,
     but the section :ref:`push`

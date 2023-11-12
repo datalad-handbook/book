@@ -96,7 +96,7 @@ requirements. A first thing to check would be whether your command call
 specified all of the required arguments.
 
 To find examples for using particular commands take a look at the topic index at the end of this book.
-The online-handbook offers a convenient full-text search that can point you to all relevant sections on no time.
+The online-handbook offers a convenient full-text search that can point you to all relevant sections in no time.
 An additional source of information is the `PsyInf knowledge base
 <https://knowledge-base.psychoinformatics.de>`_. It contains a curated
 collection of solutions and workarounds that have not yet made it into other

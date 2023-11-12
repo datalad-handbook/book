@@ -102,9 +102,9 @@ we can set subdatasets to previous states, or *update* them.
    While moving around with ``cd`` is straightforward, you also found it
    slightly annoying from time to time to use the ``cd`` command so often and also
    to remember in which directory you currently are in. There is one
-   trick, though: ``git -C`` (note that it is a capital C) lets you perform any
+   trick, though: ``git -C`` and ``datalad -C`` (note that it is a capital C) let you perform any
    Git or DataLad command in a provided path. Providing this option together with a path to
-   a Git command let's you run the command as if Git was started in this path
+   a Git or DataLad command let's you run the command as if it was started in this path
    instead of the current working directory.
    Thus, from the root of ``DataLad-101``, this command would have given you the
    subdataset's history as well:

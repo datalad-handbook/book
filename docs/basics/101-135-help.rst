@@ -135,7 +135,7 @@ If you have read a command's help from start to end, checked all software versio
 .. figure:: ../artwork/src/debug.svg
    :width: 50%
 
-   It's not as bad as this
+   It's not as bad as this ;-)
 
 It is not always straightforward to see *why* a particular DataLad command has failed.
 Given that operations with DataLad can be quite complicated, and could involve complexities such as different forms of authentication, different file systems, interactions with the environment, configurations, and other software, and *much* more, there are what may feel like an infinite amount of sources for the problem at hand.
@@ -164,11 +164,15 @@ While you were reading this book, you have seen a lot of log messages already.
 Anything printed to your terminal preceded by ``[INFO]``, for example, is a log message (in this case, on the ``info`` level).
 When you are *consciously* logging, you simply set the log-level to the desired amount of information, or increase the amount of verbosity until the output gives you a hint of what went wrong.
 Likewise, adjusting the log-level also works the other way around, and lets you *decrease* the amount of information you receive in your terminal.
-
+See the :find-out-more:`on the different log-levels <fom-loglevels>` for a complete description.
 
 .. index::
    pair: log level; DataLad concept
+   single: configuration item; datalad.log.level
+   pair: configure verbosity of command output; with DataLad
 .. find-out-more:: Log levels
+   :name: fom-loglevels
+   :float: tbp
 
    Log levels provide the means to adjust how much information you want, and are described in human readable terms, ordered by the severity of the failures or problems reported.
    The following log levels can be chosen from:
@@ -183,21 +187,15 @@ Likewise, adjusting the log-level also works the other way around, and lets you 
 
    Raising the log level (e.g, to ``error``, or ``40``) will decrease the amount of information and output you will receive, while lowering it (e.g., to ``debug`` or ``10``) will increase it.
 
+   .. raw:: latex
 
-Setting a log level can be done in the form of an :term:`environment variable`, a configuration, or with the ``-l``/``--log-level`` flag appended directly after the main :shcmd:`datalad` command.
-To get extensive information on what :dlcmd:`status` does underneath the hood, your command could look like this (but its output is shortened):
+      \bigskip
 
-.. runrecord:: _examples/DL-101-135-105
-   :language: console
-   :workdir: dl-101/DataLad-101
-   :lines: 1,6, 67-
+   **Configure log levels**
 
-   $ datalad --log-level debug status
+   .. raw:: latex
 
-.. index::
-   single: configuration item; datalad.log.level
-   pair: configure verbosity of command output; with DataLad
-.. find-out-more:: How does it look when using environment variables or configurations?
+      \medskip
 
    The log level can also be set (for different scopes) using the ``datalad.log.level`` configuration variable, or the corresponding environment variable ``DATALAD_LOG_LEVEL``.
 
@@ -216,12 +214,23 @@ To get extensive information on what :dlcmd:`status` does underneath the hood, y
        $ ...
 
    You can find out a bit more on environment variable :ref:`in the Findoutmore on environment variables <fom-envvar>`.
-
    The configuration variable can be used to set the log level on a user (global) or system-wide level with the :gitcmd:`config` command:
 
    .. code-block:: console
 
       $ git config --global datalad.log.level debug
+
+
+
+Setting a log level can be done in the form of an :term:`environment variable`, a configuration, or with the ``-l``/``--log-level`` flag appended directly after the main :shcmd:`datalad` command.
+To get extensive information on what :dlcmd:`status` does underneath the hood, your command could look like this (but its output is shortened):
+
+.. runrecord:: _examples/DL-101-135-105
+   :language: console
+   :workdir: dl-101/DataLad-101
+   :lines: 1,6, 67-
+
+   $ datalad --log-level debug status
 
 This output is extensive and detailed, but it precisely shows the sequence of commands and arguments that are run prior to a failure or crash, and all additional information that is reported with the log levels ``info`` or ``debug`` can be very helpful to find out what is wrong.
 Even if the vast amount of detail in output generated with ``debug`` logging appears overwhelming, it can make sense to find out at which point an execution stalls, whether arguments, commands, or datasets reported in the debug output are what you expect them to be, and to forward all information into any potential GitHub issue you will be creating.

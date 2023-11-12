@@ -18,7 +18,7 @@ Let's write a short summary of how to create a DataLad dataset from scratch:
 
 This is meant to be a note you would take in an educational course.
 You can take this note and write it to a file with an editor of your choice.
-The code snippet, however, contains this note within the start and end part of a
+The next code snippet, however, contains this note within the start and end part of a
 `heredoc <https://en.wikipedia.org/wiki/Here_document>`_.
 You can also copy the full code snippet, starting
 from ``cat << EOT > notes.txt``, including the ``EOT`` in the last line, in your

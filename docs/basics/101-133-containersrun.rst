@@ -104,7 +104,7 @@ Singularity (even without having Docker installed).
 
 .. importantnote:: Additional requirement: Singularity
 
-   In order to use Singularity containers you have to
+   To use Singularity containers you have to
    `install <https://docs.sylabs.io/guides/3.4/user-guide/installation.html>`_ the software singularity.
 
 .. index::
@@ -129,7 +129,7 @@ Using ``datalad containers``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 One core feature of the ``datalad containers`` extension is that it registers
-computational containers to a dataset. This is done with the
+computational containers with a dataset. This is done with the
 :dlcmd:`containers-add` command.
 Once a container is registered, arbitrary commands can be executed inside of
 it, i.e., in the precise software environment the container encapsulates. All it
@@ -193,14 +193,14 @@ name to give to the container, and a path or URL to a container image:
    pair: hub; Docker
 .. find-out-more:: How do I add an image from Docker-Hub, Amazon ECR, or a local container?
 
-   Should the image you want to use lie on Dockerhub, specify the ``--url``
+   Should the image you want to use sit on Dockerhub, specify the ``--url``
    option prefixed with ``docker://`` or ``dhub://`` instead of ``shub://``:
 
    .. code-block:: console
 
       $ datalad containers-add midterm-software --url docker://adswa/resources:2
 
-   If your image exists on Amazon ECR, use a ``dhub://`` prefix followed by the AWS ECR URL as in
+   If your image lives on Amazon ECR, use a ``dhub://`` prefix followed by the AWS ECR URL as in
 
    .. code-block:: console
 

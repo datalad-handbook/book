@@ -10,7 +10,7 @@ Glossary
    absolute path
       .. index:: file system concept; path (absolute)
 
-      The complete path from the root of the file system. On Unix-like systems, absolute paths always start with ``/``, and on Windows systems, they start with a ``/`` (likely prefixed by a disk identifier).
+      The complete path from the root of the file system. On Unix-like systems, absolute paths always start with ``/``, and on Windows systems, they start with a ``\`` (likely prefixed by a disk identifier).
       Examples: ``/home/user/Pictures/xkcd-webcomics/530.png``, ``C:\Users\user\Pictures\xkcd-webcomics\530.png``. See also :term:`relative path`.
 
    adjusted branch

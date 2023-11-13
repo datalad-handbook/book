@@ -111,18 +111,18 @@ Glossary
       It overlaps with :term:`pip` in functionality, but it is advised to not use both tools simultaneously for package management.
 
    container
-      .. index:: ! Container concept; container
+      .. index:: ! container concept; container
 
       A running instance of a :term:`container image` image that is ready to use.
 
    container image
-      .. index:: ! Container concept; image
+      .. index:: ! container concept; image
 
       A container image is *built* from a :term:`container recipe`.
       It is a file system snapshot in a file, populated with software specified in the recipe, and some initial configuration.
 
    container recipe
-      .. index:: ! Container concept; recipe
+      .. index:: ! container concept; recipe
 
       A text file that lists all required components of the computational environment that a :term:`software container` should contain.
       It is made by a human user.
@@ -271,7 +271,7 @@ Glossary
       GitHub is an online platform where one can store and share version controlled projects
       using Git (and thus also DataLad project). See `GitHub.com <https://github.com>`_.
 
-   Gitk
+   gitk
       .. index::
          pair: gitk; Git command
 

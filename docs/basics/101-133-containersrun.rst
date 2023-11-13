@@ -56,7 +56,7 @@ others. On your own and other's machines, the container constitutes a secluded
 software environment that
 
 - contains the exact software environment that you specified, ready to run
-  analyses in
+  analyses
 - does not effect any software outside of the container
 
 Unlike virtual machines, software containers do not have their own operating

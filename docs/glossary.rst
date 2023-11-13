@@ -19,7 +19,7 @@ Glossary
 
       git-annex concept: a special :term:`branch` in a dataset.
       Adjusted branches refer to a different, existing branch that is not adjusted.
-      The adjusted branch is called "adjusted/<branchname>(unlocked)" and on an the adjusted branch", all files handled by :term:`git-annex` are not locked --
+      The adjusted branch is called "adjusted/<branchname>(unlocked)", and on an adjusted branch, all files handled by :term:`git-annex` are not locked --
       They will stay "unlocked" and thus modifiable.
       Instead of referencing data in the :term:`annex` with a :term:`symlink`, unlocked files need to be copies of the data in the annex.
       Adjusted branches primarily exist as the default branch on so-called :term:`crippled file system`\s such as Windows.

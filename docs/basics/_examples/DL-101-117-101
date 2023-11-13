@@ -2,5 +2,5 @@ $ # navigate back into the clone of DataLad-101
 $ cd ../mock_user/DataLad-101
 $ git annex whereis books/TLCL.pdf
 whereis books/TLCL.pdf (1 copy)
-	✂UUID✂ -- me@appveyor-vm:~/dl-101/DataLad-101 [origin]
+  0c450dc0-c48c-4057-a231-e2654b689600 -- me@appveyor-vm:~/dl-101/DataLad-101 [origin]
 ok

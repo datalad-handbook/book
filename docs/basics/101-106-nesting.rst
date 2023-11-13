@@ -15,7 +15,6 @@ This was done by supplying the ``--dataset``/``-d`` flag in the command call.
 
 At first glance, nesting does not seem particularly spectacular --
 after all, any directory on a file system can have other directories inside of it.
-
 The possibility for nested Datasets, however, is one of many advantages
 DataLad datasets have:
 
@@ -109,9 +108,9 @@ an alternative.
    While moving around with ``cd`` is straightforward, you also found it
    slightly annoying from time to time to use the ``cd`` command so often and also
    to remember in which directory you currently are in. There is one
-   trick, though: ``git -C`` (note that it is a capital C) lets you perform any
+   trick, though: ``git -C`` and ``datalad -C`` (note that it is a capital C) let you perform any
    Git or DataLad command in a provided path. Providing this option together with a path to
-   a Git command let's you run the command as if Git was started in this path
+   a Git or DataLad command let's you run the command as if it was started in this path
    instead of the current working directory.
    Thus, from the root of ``DataLad-101``, this command would have given you the
    subdataset's history as well:
@@ -124,6 +123,10 @@ In the upcoming sections, we'll experience the perks of dataset nesting
 frequently, and everything that might seem vague at this point will become
 clearer. To conclude this demonstration,
 :numref:`fignesting` illustrates the current state of our dataset, ``DataLad-101``, with its nested subdataset.
+Thus, without being consciously aware of it, by taking advantage of dataset
+nesting, we took a dataset ``longnow`` and installed it as a
+subdataset within the superdataset  ``DataLad-101``.
+
 
 .. _fignesting:
 .. figure:: ../artwork/src/virtual_dstree_dl101.svg
@@ -131,9 +134,6 @@ clearer. To conclude this demonstration,
 
    Virtual directory tree of a nested DataLad dataset
 
-Thus, without being consciously aware of it, by taking advantage of dataset
-nesting, we took a dataset ``longnow`` and installed it as a
-subdataset within the superdataset  ``DataLad-101``.
 
 If you have executed the above code snippets, make sure to go back into the
 root of the dataset again:

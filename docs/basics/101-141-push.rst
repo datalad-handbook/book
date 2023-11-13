@@ -182,5 +182,5 @@ This can be prevented with  `configuration settings <https://github.blog/2015-02
 .. rubric:: Footnotes
 
 .. [#f1]  RIA siblings are file system based, scalable storage solutions for
-          DataLad datasets. You can find out more about them in the online version.
+          DataLad datasets. You can find out more about them in the online-handbook.
 .. [#f2] For information on the ``numcopies`` and ``wanted`` settings of git-annex see its documentation at `git-annex.branchable.com/git-annex-wanted/ <https://git-annex.branchable.com/git-annex-wanted>`_ and `git-annex.branchable.com/git-annex-numcopies/ <https://git-annex.branchable.com/git-annex-numcopies>`_.

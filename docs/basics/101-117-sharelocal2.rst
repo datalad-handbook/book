@@ -82,8 +82,8 @@ The message further informs you that there is only "``(1 copy)``" of this file c
 This makes sense: There is only your own, original ``DataLad-101`` dataset in which this book is saved.
 
 To retrieve file content of an annexed file such as one of these PDFs, git-annex will try to obtain it from the locations it knows to contain this content.
-It uses the checksums to identify these locations.
-Every copy of a dataset will get a unique ID with such a checksum.
+It uses the UUID to identify these locations.
+Every copy of a dataset will get a UUID as a unique identifier.
 Note however that just because git-annex knows a certain location where content was once it does not guarantee that retrieval will work.
 If one location is a USB stick that is in your bag pack instead of your USB port, a second location is a hard drive that you deleted all of its previous contents (including dataset content) from,
 and another location is a web server, but you are not connected to the internet, git-annex will not succeed in retrieving contents from these locations.

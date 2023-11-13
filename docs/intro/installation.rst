@@ -14,7 +14,7 @@ Install DataLad
    The installation methods presented in this chapter are based on experience
    and have been tested carefully. However, operating systems and other
    software are continuously evolving, and these guides might have become
-   outdated. Be sure to check out the online version for up-to-date information.
+   outdated. Be sure to check out the online-handbook for up-to-date information.
 
 In general, the DataLad installation requires Python 3 (see the
 :find-out-more:`on the difference between Python 2 and 3 <fom-py2v3>` to learn

@@ -143,7 +143,7 @@ Glossary
       .. index::
          pair: extension; DataLad concept
 
-      Python packages that equip DataLad with specialized commands. The online version of the handbook has an entire chapter that
+      Python packages that equip DataLad with specialized commands. The online-handbook has an entire chapter that
       gives an overview of available extensions contains demonstrations.
 
    DataLad Gooey

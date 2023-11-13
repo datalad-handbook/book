@@ -454,7 +454,7 @@ convenient. It can be a confusing and potentially "file-content-losing"-dangerou
 process, but it also dissociates a file from its provenance that is captured
 in its previous dataset, with no machine-readable way to learn about the move
 easily. A better alternative may be copying files with the :dlcmd:`copy-file`
-command introduced in detail in the web version, and demonstrated in the next
+command introduced in detail in the online-handbook, and demonstrated in the next
 but one paragraph. Let's quickly clean up by moving the file back:
 
 .. runrecord:: _examples/DL-101-136-137
@@ -619,7 +619,7 @@ provenance record is lost:
 Nevertheless, copying files with :dlcmd:`copy-file` is easier and safer
 than moving them with standard Unix commands, especially so for annexed files.
 A more detailed introduction to :dlcmd:`copy-file` and a concrete
-use case can be found in the online version of the handbook.
+use case can be found in the online-handbook.
 
 Let's clean up:
 
@@ -1023,7 +1023,7 @@ private :term:`SSH key`\s or passwords, or too many or too large files are
 accidentally saved into Git, and *need* to get out of the dataset history.
 The command ``git-filter-repo <path-specification> --force`` will "filter-out",
 i.e., remove all files **but the ones specified** in ``<path-specification>``
-from the dataset's history. An advanced chapter in the online version of the handbook
+from the dataset's history. An advanced chapter in the online-handbook
 shows an example invocation.
 
 .. index::

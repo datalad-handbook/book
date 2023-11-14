@@ -101,6 +101,7 @@ Singularity and Docker images.
 Singularity furthermore is compatible with Docker -- you can use
 Docker images as a basis for Singularity images, or run Docker images with
 Singularity (even without having Docker installed).
+See the :windows-wit:`on Docker <ww-docker>` for installation options.
 
 .. importantnote:: Additional requirement: Singularity
 
@@ -111,6 +112,7 @@ Singularity (even without having Docker installed).
    pair: installation; Docker
    pair: install Docker; on Windows
 .. find-out-more:: Docker installation Windows
+   :name: ww-docker
 
    The software singularity is not available for Windows.
    Windows users therefore need to install :term:`Docker`.
@@ -147,7 +149,7 @@ If you are curious how to create a Singularity image, the :find-out-more:`on thi
 
 .. index::
    pair: build container image; with Singularity
-.. find-out-more:: How to make a Singularity image
+.. windows-wit:: How to make a Singularity image
    :name: fom-container-creation
 
    Singularity containers are build from image files, often

@@ -16,13 +16,32 @@ Glossary
    adjusted branch
       .. index::
          pair: adjusted branch; in adjusted mode
+         pair: adjusted branch; git-annex concept
 
-      git-annex concept: a special :term:`branch` in a dataset.
-      Adjusted branches refer to a different, existing branch that is not adjusted.
-      The adjusted branch is called "adjusted/<branchname>(unlocked)", and on an adjusted branch, all files handled by :term:`git-annex` are not locked --
-      They will stay "unlocked" and thus modifiable.
-      Instead of referencing data in the :term:`annex` with a :term:`symlink`, unlocked files need to be copies of the data in the annex.
-      Adjusted branches primarily exist as the default branch on so-called :term:`crippled file system`\s such as Windows.
+      A specially managed :term:`branch` in a dataset.
+      An adjusted branch presents a modified (adjusted) view on its
+      :term:`corresponding branch`. The most common use of an adjusted branch
+      is a work tree where all files are "unlocked".
+      Such a branch is named ``adjusted/<branchname>(unlocked)``, and
+      all files handled by :term:`git-annex` are immediately modifiable.
+      Instead of referencing data in the :term:`annex` with a :term:`symlink`,
+      unlocked files need to be copies of the data in the annex.
+      Files where no content is available locally are also files, but only
+      contain placeholder content. Some adjusted modes hide files without
+      available content entirely.
+      Adjusted branches are locally managed, and it is not meaningful to push
+      them to other dataset clones.
+      Adjusted branches primarily exist as the default branch on so-called
+      :term:`crippled file system`\s such as Windows.
+
+   adjusted mode
+      .. index::
+         pair: adjusted mode; git-annex concept
+
+      A repository mode that used an :term:`adjusted branch` for the work tree.
+      This mode can be entered manually (see ``git annex adjust``), or automatically
+      when git-annex detects a file system with insufficient capabilities
+      (see :term:`crippled file system`).
 
    annex
       .. index::
@@ -126,6 +145,15 @@ Glossary
 
       A text file that lists all required components of the computational environment that a :term:`software container` should contain.
       It is made by a human user.
+
+   corresponding branch
+      .. index::
+         pair: corresponding branch; in adjusted mode
+
+      A :term:`branch` underlying a particular :term:`adjusted branch`.
+      Changes committed to an adjusted branch are propagated to its corresponding
+      branch. Only the corresponding branch is suitable for sharing with other
+      repository clones.
 
    crippled file system
       .. index::

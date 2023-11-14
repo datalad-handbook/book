@@ -233,8 +233,8 @@ will take a closer look at that.
    The next part of the symlink contains the actual hash.
    There are different hash functions available.
    Depending on which is used, the resulting :term:`checksum` has a certain length and structure, and the first part of the symlink actually states which hash function is used.
-   By default, DataLad uses ``MD5E`` checksums (relatively short and with a file extension), but should you want to, you can change this default to `one of many other types <https://git-annex.branchable.com/backends>`_.
-   The reason why MD5E is used is because of its short length -- thus it is possible to ensure cross-platform compatibility and share datasets also with users on operating systems that have restrictions on total path lengths, such as Windows.
+   By default, DataLad uses the ``MD5E`` git-annex backend (the ``E`` adds file extensions to annex keys), but should you want to, you can change this default to `one of many other types <https://git-annex.branchable.com/backends>`_.
+   The reason why MD5E is used is the relatively short length of the underlying MD5 checksums -- thus it is possible to ensure cross-platform compatibility and share datasets also with users on operating systems that have restrictions on total path lengths, such as Windows.
 
    The one remaining unidentified bit in the file name is the one after the checksum identifier.
    This part is the size of the content in bytes.

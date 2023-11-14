@@ -319,7 +319,7 @@ directory and also peek into the history:
 .. runrecord:: _examples/DL-101-121-112
    :language: console
    :lines: 1-6
-   :emphasize-lines: 2, 3
+   :emphasize-lines: 2, 4
    :workdir: dl-101/DataLad-101
    :notes: and here is the summary in the log
    :cast: 04_collaboration

@@ -137,7 +137,7 @@ but as you provide a path and not a URL, there is no host name to take as a defa
 
 As you can see in the command output, the addition of a :term:`sibling` succeeded:
 ``roommate(+)[../mock_user/DataLad-101]`` means that your room mate's dataset
-is now known to your own dataset as "roommate"
+is now known to your own dataset as "roommate".
 
 .. index::
    pair: list dataset siblings; with DataLad

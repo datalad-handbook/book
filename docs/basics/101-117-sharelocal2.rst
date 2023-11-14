@@ -56,7 +56,7 @@ You can recognize a path to the dataset on your computer, prefixed with the user
       $ datalad create --description "course on DataLad-101 on my private laptop" -c text2git DataLad-101
 
    the command would show ``course on DataLad-101 on my private laptop`` after
-   the :term:`shasum` -- and thus a more human-readable description of *where*
+   the :term:`UUID` -- and thus a more human-readable description of *where*
    file content is stored.
    This becomes especially useful when the number of repository copies
    increases. If you have only one other dataset it may be easy to
@@ -134,7 +134,7 @@ The ``.mp3`` files in the ``longnow`` seminar series have registered web URLs [#
    $ git annex whereis Long_Now__Seminars_About_Long_term_Thinking/2003_11_15__Brian_Eno__The_Long_Now.mp3
    $ datalad get Long_Now__Seminars_About_Long_term_Thinking/2003_11_15__Brian_Eno__The_Long_Now.mp3
 
-As you can see at the end of the ``get`` result, the files has been retrieved ``from web...``.
+As you can see at the end of the ``get`` result, the files has been retrieved "``from web...``".
 Quite useful, this provenance, right?
 Let's add a note on the :gitannexcmd:`whereis` command.
 Again, do this in the original ``DataLad-101`` directory, and do not forget to save it.

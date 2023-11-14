@@ -10,7 +10,7 @@ Glossary
    absolute path
       .. index:: file system concept; path (absolute)
 
-      The complete path from the root of the file system. On Unix-like systems, absolute paths always start with ``/``, and on Windows systems, they start with a ``/`` (likely prefixed by a disk identifier).
+      The complete path from the root of the file system. On Unix-like systems, absolute paths always start with ``/``, and on Windows systems, they start with a ``\`` (likely prefixed by a disk identifier).
       Examples: ``/home/user/Pictures/xkcd-webcomics/530.png``, ``C:\Users\user\Pictures\xkcd-webcomics\530.png``. See also :term:`relative path`.
 
    adjusted branch
@@ -19,7 +19,7 @@ Glossary
 
       git-annex concept: a special :term:`branch` in a dataset.
       Adjusted branches refer to a different, existing branch that is not adjusted.
-      The adjusted branch is called "adjusted/<branchname>(unlocked)" and on an the adjusted branch", all files handled by :term:`git-annex` are not locked --
+      The adjusted branch is called "adjusted/<branchname>(unlocked)", and on an adjusted branch, all files handled by :term:`git-annex` are not locked --
       They will stay "unlocked" and thus modifiable.
       Instead of referencing data in the :term:`annex` with a :term:`symlink`, unlocked files need to be copies of the data in the annex.
       Adjusted branches primarily exist as the default branch on so-called :term:`crippled file system`\s such as Windows.
@@ -50,7 +50,8 @@ Glossary
        or checkout. This has advantages: The repository is leaner, it is easier
        for administrators to perform garbage collections, and it is required if you
        want to push to it at all times. You can find out more on what bare repositories are and how to use them
-       `here <https://git-scm.com/book/en/v2/Git-on-the-Server-Getting-Git-on-a
+       in the Git documentation at `git-scm.com/book/Git-on-the-Server-Getting-Git-on-a
+       -Server <https://git-scm.com/book/Git-on-the-Server-Getting-Git-on-a
        -Server>`__.
 
    bash
@@ -110,18 +111,18 @@ Glossary
       It overlaps with :term:`pip` in functionality, but it is advised to not use both tools simultaneously for package management.
 
    container
-      .. index:: ! Container concept; container
+      .. index:: ! container concept; container
 
       A running instance of a :term:`container image` image that is ready to use.
 
    container image
-      .. index:: ! Container concept; image
+      .. index:: ! container concept; image
 
       A container image is *built* from a :term:`container recipe`.
       It is a file system snapshot in a file, populated with software specified in the recipe, and some initial configuration.
 
    container recipe
-      .. index:: ! Container concept; recipe
+      .. index:: ! container concept; recipe
 
       A text file that lists all required components of the computational environment that a :term:`software container` should contain.
       It is made by a human user.
@@ -182,7 +183,7 @@ Glossary
 
    Docker
        `Docker <https://www.docker.com>`_ is a containerization software that can package software into :term:`software container`\s, similar to :term:`Singularity`.
-       Find out more on `Wikipedia <https://en.wikipedia.org/wiki/Docker_(software)>`__.
+       Find out more on `wikipedia.org/wiki/Docker_(software) <https://en.wikipedia.org/wiki/Docker_(software)>`__.
 
    Docker-Hub
        .. index::
@@ -207,7 +208,7 @@ Glossary
       .. index:: ! operating system concept; environment variable
 
       A variable made up of a name/value pair. Programs using a given environment variable will use its associated value for their execution.
-      You can find out a bit more on environment variable :ref:`in this Findoutmore <fom-envvar>`.
+      You can find out a bit more :ref:`in the Find-out-more on environment variables <fom-envvar>`.
 
    ephemeral clone
       .. index:: clone (ephemeral); DataLad concept
@@ -239,8 +240,8 @@ Glossary
 
    Git
       A version control system to track changes made to small-sized files over time. You can find out
-      more about git in `the (free) GitPro book <https://git-scm.com/book/en/v2>`_
-      or `interactive Git tutorials <https://try.github.io>`_ on :term:`GitHub`.
+      more about Git in `the (free) GitPro book git-scm.com/book <https://git-scm.com/book/en/v2>`_
+      or `interactive Git tutorials try.github.io <https://try.github.io>`_ on :term:`GitHub`.
 
    git-annex
       A distributed file synchronization system, enabling sharing and synchronizing collections
@@ -270,7 +271,7 @@ Glossary
       GitHub is an online platform where one can store and share version controlled projects
       using Git (and thus also DataLad project). See `GitHub.com <https://github.com>`_.
 
-   Gitk
+   gitk
       .. index::
          pair: gitk; Git command
 
@@ -300,7 +301,7 @@ Glossary
 
    high-throughput computing
    HTC
-      A computing environment build from a bond of computers and tuned to deliver large amounts of computational power to allow parallel processing of independent computational jobs. For more information, see `this Wikipedia entry <https://en.wikipedia.org/wiki/High-throughput_computing>`_.
+      A computing environment build from a bond of computers and tuned to deliver large amounts of computational power to allow parallel processing of independent computational jobs. For more information, see `the Wikipedia entry at wikipedia.org/wiki/High-throughput_computing <https://en.wikipedia.org/wiki/High-throughput_computing>`_.
 
    http
       .. index:: protocol; http
@@ -405,7 +406,7 @@ Glossary
    pipe
       .. index:: ! operating system concept; pipe
 
-      Unix concept: A mechanism for providing the output of one command (:term:`stdout`) as the input of a next command (:term:`stdin`) in a Unix terminal. The standard syntax are multiple commands, separated by vertical bars (the "pipes", "|"). Read more `on Wikipedia <https://en.wikipedia.org/wiki/Pipeline_(Unix)>`_.
+      Unix concept: A mechanism for providing the output of one command (:term:`stdout`) as the input of a next command (:term:`stdin`) in a Unix terminal. The standard syntax are multiple commands, separated by vertical bars (the "pipes", "|"). Read more `on Wikipedia at wikipedia.org/wiki/Pipeline_(Unix) <https://en.wikipedia.org/wiki/Pipeline_(Unix)>`_.
 
    provenance
       A record that describes entities and processes that were involved in producing or influencing
@@ -511,7 +512,7 @@ Glossary
       Git concept; Squashing is a Git operation which rewrites history by taking
       a range of commits and squash them into a single commit. For more information
       on rewriting Git history, checkout section :ref:`history` and the
-      `documentation <https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History>`__.
+      `documentation at git-scm.com/book/en/v2/Git-Tools-Rewriting-History <https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History>`__.
 
    SSH
       .. index:: concepts; SSH
@@ -576,7 +577,7 @@ Glossary
    Singularity
       `Singularity <https://sylabs.io/docs>`_ is a containerization software that can package software into :term:`software container`\s.
       It is a useful alternative to :term:`Docker` as it can run on shared computational infrastructure.
-      Find out more on `Wikipedia <https://en.wikipedia.org/wiki/Singularity_(software)>`__.
+      Find out more on `Wikipedia at wikipedia.org/wiki/Singularity_(software) <https://en.wikipedia.org/wiki/Singularity_(software)>`__.
 
    Singularity-Hub
        `singularity-hub.org <https://singularity-hub.org>`_ was a Singularity container portal.
@@ -633,10 +634,10 @@ Glossary
       You can get a short intro to the terminal and useful commands in the section :ref:`howto`.
 
    Ubuntu
-      A common Linux distribution. `More information here <https://ubuntu.com>`__.
+      A common Linux distribution. `Find more information at ubuntu.com <https://ubuntu.com>`__.
 
    UUID
-      Universally Unique Identifier. It is a character string used for *unambiguous*,
+      Universally Unique Identifier. It is a character string used for *unambiguous*
       identification, formatted according to a specific standard. This
       identification is not only unambiguous and unique on a system, but indeed *universally*
       unique -- no UUID exists twice anywhere *on the planet*.

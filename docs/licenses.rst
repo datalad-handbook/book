@@ -22,7 +22,7 @@ The remainder of this sections amends the general copyright and license declarat
 unDraw illustrations
 ~~~~~~~~~~~~~~~~~~~~
 
-The book includes numerous illustrations obtained from Katerina Limpitsouni's https://undraw.co project, covered by the following terms:
+This book includes numerous illustrations obtained from Katerina Limpitsouni's undraw project (https://undraw.co), covered by the following terms:
 
    Copyright 2023 Katerina Limpitsouni
 

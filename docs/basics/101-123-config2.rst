@@ -37,8 +37,7 @@ There even is one key word that you recognize: MD5E.
 If you have read the :ref:`Find-out-more on object trees <objecttree>`
 you will recognize it as a reference to the type of
 key used by git-annex to identify and store file content in the object-tree.
-The first row, ``* annex.backend=MD5E``, therefore translates to "Everything in this
-directory should be checksummed with the MD5 hash function".
+The first row, ``* annex.backend=MD5E``, therefore translates to "Everything should be checksummed with the MD5 hash function".
 But what is the rest? We'll start with the last row:
 
 .. code-block:: bash
@@ -66,17 +65,14 @@ configured git-annex to regard all files of type "binary" as a large file.
 Thanks to this little line, your text files are not annexed, but stored
 directly in Git.
 
-The patterns ``*`` and ``**`` are so-called "wildcards" used in :term:`globbing`.
-``*`` matches any file or directory in the current directory, and ``**`` matches
-all files and directories in the current directory *and subdirectories*. In technical
-terms, ``**`` matches *recursively*. The third row therefore
-translates to "Do not annex anything that is a text file in this directory" for git-annex.
-
-However, rules can be even simpler. The second row simply takes a complete directory
-(``.git``) and instructs git-annex to regard nothing in it as a "large file".
-The second row, ``**/.git* annex.largefiles=nothing`` means that no
-``.git`` repository in this directory or a subdirectory should be considered
-a "large file". This way, the ``.git`` repositories are protected from being annexed.
+The patterns ``*`` and ``**`` are so-called "wildcards" you might recognize from used in :term:`globbing`.
+In Git configuration files, an asterisk "*" matches anything except a slash.
+The third row therefore
+translates to "Do not annex anything that is a text file" for git-annex.
+Two leading "``**``" followed by a slash matches
+*recursively* in all directories.
+Therefore, the second row instructs git-annex to regard nothing starting with ``.git`` as a "large file", including contents inside of ``.git`` directories.
+This way, the ``.git`` repositories are protected from being annexed.
 If you had a single file (``myfile.pdf``) you would not want annexed, specifying a rule such as:
 
 .. code-block:: bash

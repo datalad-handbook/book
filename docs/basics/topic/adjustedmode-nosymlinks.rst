@@ -1,6 +1,6 @@
 Windows has insufficient support for :term:`symlink`\s and revoking write :term:`permissions` on files.
 Therefore, :term:`git-annex` classifies it as a :term:`crippled file system` and has to stray from its default behavior: it enters :term:`adjusted mode`.
-While git-annex on Unix-based file operating systems stores data in the annex and creates a symlink in the data's original place, on Windows it moves data into the :term:`annex` and creates a *copy* of the data in its original place. This behavior is not specific to Windows, but is done for any impaired file system, such a dataset on a USB-stick plug into a Mac.
+While git-annex on Unix-based file operating systems stores data in the annex and creates a symlink in the data's original place, on Windows it moves data into the :term:`annex` and creates a *copy* of the data in its original place. This behavior is not specific to Windows, but is done for any impaired file system, such as a dataset on a USB-stick plugged into a Mac.
 
 **Why is that?**
 Data *needs* to be in the annex for version control and transport logistics -- the annex is able to store all previous versions of the data, and manage the transport to other storage locations if you want to publish your dataset.

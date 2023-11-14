@@ -39,11 +39,13 @@ Before getting another PDF, let's query git-annex where its content is stored:
 Oh, another cryptic character sequence - this time however not a symlink, but an :term:`annex UUID`.
 "That's hard to read -- what is it?" your room mate asks.
 You can recognize a path to the dataset on your computer, prefixed with the user and hostname of your computer.
-"This", you exclaim, excited about your own realization, "is my dataset's location I'm sharing it from!"
+"This", you exclaim, excited about your own realization, "is my dataset's location I'm sharing it from!" You can check the :find-out-more:`on customizing this description <fom-clone-description>` and learn how to tweak this accoridng to your taste.
 
 .. index::
    pair: set description for dataset location; with DataLad
 .. find-out-more:: What is this location, and what if I provided a description?
+   :name: fom-clone-description
+   :float: tb
 
    Back in the very first section of the Basics, :ref:`createDS`, a :ref:`Find-out-more mentioned the '--description' option <createdescription>`   of :dlcmd:`create`.
    With this option, you can provide a description about the dataset *location*.

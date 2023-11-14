@@ -151,10 +151,14 @@ is now known to your own dataset as "roommate".
 
 This command will list all known siblings of the dataset. You can see it
 in the resulting list with the name "roommate" you have given to it.
+And just as a brief remark: siblings do not have to stay around forever.
+Check the :find-out-more:`on removing a sibling <fom-remove-sibling>`.
 
 .. index::
    pair: remove dataset sibling; with DataLad
 .. find-out-more:: What if I mistyped the name or want to remove the sibling?
+   :name: fom-remove-sibling
+   :float: tbp
 
    You can remove a sibling using :dlcmd:`siblings remove -s roommate`
 
@@ -235,13 +239,16 @@ The drawer is a branch, and it is usually called ``remotes/origin/main``.
 To look inside of it you can :gitcmd:`checkout BRANCHNAME`, or you can
 do a ``diff`` between the branch (your drawer) and the dataset as it
 is currently in front of you (your desk). We will do the latter, and leave
-the former for a different lecture:
+the former for a different lecture. Make sure to see the
+:windows-wit:`on using 'datalad diff' <ww-datalad-diff-calls>` too.
 
 .. index::
    pair: corresponding branch; in adjusted mode
    pair: show dataset modification for particular path; on Windows with DataLad
    pair: diff; DataLad command
-.. windows-wit:: Please use 'datalad diff --from main --to remotes/roommate/main'
+.. windows-wit:: 'datalad diff' needs the corresponding branch
+   :name: ww-datalad-diff-calls
+   :float: tb
 
    .. include:: topic/adjustedmode-diff-remote.rst
 
@@ -256,12 +263,15 @@ the former for a different lecture:
 This shows us that there is an additional file, and it also shows us
 that there is a difference in ``notes.txt``! Let's ask
 :gitcmd:`diff` to show us what the differences in detail (note that it is a shortened excerpt, cut in the middle to reduce its length):
+Again, check the :windows-wit:`on using 'git diff' <ww-git-diff-calls>` too.
 
 .. index::
    pair: corresponding branch; in adjusted mode
    pair: show dataset modification; on Windows with Git
    pair: diff; DataLad command
-.. windows-wit:: Please use 'git diff main..remotes/roommate/main'
+.. windows-wit:: 'git diff' needs the corresponding branch
+   :name: ww-git-diff-calls
+   :float: tb
 
    .. include:: topic/adjustedmode-gitdiff-remote.rst
 

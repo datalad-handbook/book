@@ -175,30 +175,30 @@ will take a closer look at that.
 .. _objecttree:
 .. index::
    pair: key; git-annex concept
-.. find-out-more:: more about paths, checksums, object trees, and data integrity
+.. find-out-more:: Data integrity and annex keys
    :name: fom-objecttree
 
    So how do these cryptic paths and names in the object tree come into existence?
    It's not malicious intent that leads to these paths and file names - its checksums.
 
-   When a file is annexed, git-annex generates a *key* (or :term:`checksum`) from the **file content**.
+   When a file is annexed, git-annex typically generates a *key* (or :term:`annex key`) from the **file content**.
    It uses this key (in part) as a name for the file and as the path
    in the object tree.
    Thus, the key is associated with the content of the file (the *value*),
-   and therefore, using this key, file content can be identified --
-   or rather: Based on the keys, it can be identified whether file content changed,
-   and whether two files have identical contents.
+   and therefore, using this key, file content can be identified.
 
-   The key is generated using *hashes*. A hash is a function that turns an
-   input (e.g., a PDF file) into a string of characters with a fixed length based on its contents.
+   Most key types contain a :term:`checksum`. This is a string of a fixed number of characters
+   computed from some input, for example the content of a PDF file,
+   by a *hash* function.
 
-   Importantly, a hash function will generate the same character sequence for the same file content, and once file content changes, the generated hash changes, too.
+   This checksum *uniquely* identifies a file's content.
+   A hash function will generate the same character sequence for the same file content, and once file content changes, the generated checksum changes, too.
    Basing the file name on its contents thus becomes a way of ensuring data integrity:
-   File content cannot be changed without git-annex noticing, because file's hash, and thus its key in its symlink, will change.
-   Furthermore, if two files have identical hashes, the content in these files is identical.
+   File content cannot be changed without git-annex noticing, because the file's checksum, and thus its key in its symlink, will change.
+   Furthermore, if two files have identical checksums, the content in these files is identical.
    Consequently, if two files have the same symlink, and thus link the same file in the object-tree, they are identical in content.
    This can save disk space if a dataset contains many identical files: Copies of the same data only need one instance of that content in the object tree, and all copies will symlink to it.
-   If you want to read more about the computer science basics about hashes check out the `Wikipedia page <https://en.wikipedia.org/wiki/Hash_function>`_.
+   If you want to read more about the computer science basics about hash functions check out the `Wikipedia page <https://en.wikipedia.org/wiki/Hash_function>`_.
 
    .. runrecord:: _examples/DL-101-115-104
       :language: console
@@ -231,17 +231,18 @@ will take a closer look at that.
    The next subdirectory in the symlink helps to prevent accidental deletions and changes, as it does not have write :term:`permissions`, so that users cannot modify any of its underlying contents.
    This is the reason that annexed files need to be unlocked prior to modifications, and this information will be helpful to understand some file system management operations such as removing files or datasets. Section :ref:`file system` takes a look at that.
 
-   The next part of the symlink contains the actual hash.
-   There are different hash functions available.
+   The next part of the symlink contains the actual checksum.
+   There are different :term:`annex key` backends that use different checksums.
    Depending on which is used, the resulting :term:`checksum` has a certain length and structure, and the first part of the symlink actually states which hash function is used.
    By default, DataLad uses the ``MD5E`` git-annex backend (the ``E`` adds file extensions to annex keys), but should you want to, you can change this default to `one of many other types <https://git-annex.branchable.com/backends>`_.
-   The reason why MD5E is used is the relatively short length of the underlying MD5 checksums -- thus it is possible to ensure cross-platform compatibility and share datasets also with users on operating systems that have restrictions on total path lengths, such as Windows.
+   The reason why MD5E is used is the relatively short length of the underlying MD5 checksums -- which facilitates cross-platform compatibility for sharing datasets also with users on operating systems that have restrictions on total path length, such as Windows.
 
    The one remaining unidentified bit in the file name is the one after the checksum identifier.
    This part is the size of the content in bytes.
-   An annexed file in the object tree thus has a file name following this structure:
+   An annexed file in the object tree thus has a file name following this structure
+   (but see `the git-annex documentation on keys <https://git-annex.branchable.com/internals/key_format>`_ for the complete details):
 
-   ``checksum-identifier - size -- checksum . extension``
+   ``<backend type>-s<size>--<checksum>.<extension>``
 
    You now know a great deal more about git-annex and the object tree.
    Maybe you are as amazed as we are about some of the ingenuity used behind the scenes.

@@ -302,12 +302,12 @@ remaining sections in that file, and the :ref:`that dissects this config file fu
 The ``datalad configuration`` command
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Although this section put a focus on the ``git config`` command, it is important to mention that there also is a ``datalad configuration`` command.
+Although this section put a focus on the ``git config`` command, it is important to mention that there also is a :dlcmd:`configuration` command.
 It is not identical to ``git config``, but while it lacks some feature of ``git config``, such as the ability to set system-wide configuration, it has additional features.
 Beyond the ``local`` and ``global`` scopes, it also supports :term:`branch` specific configurations in the ``.datalad/config`` file (further discussed in the next section), setting configurations recursively through dataset hierarchies, and multi-configuration queries (such as ``datalad configuration get user.name user.email``).
 By default, ``datalad configuration`` will ``dump`` (list) the effective configuration including relevant ``DATALAD_*`` :term:`environment variable`\s, and also annotate the purpose of many common configuration items.
 The subcommands ``datalad configuration get`` or ``datalad configuration set`` perform queries or set configurations.
-You can find out more information on this command in the `command documentation <https://docs.datalad.org/en/stable/generated/man/datalad-configuration.html>`_.
+You can find out more information on this command in the command documentation.
 
 
 ``.git/config`` versus other (configuration) files

@@ -87,7 +87,8 @@ tree is also known as the *annex* of a dataset.
 .. index::
    pair: elevated storage demand; in adjusted mode
    pair: no symlinks; on Windows
-.. windows-wit:: File content management on Windows
+   pair: adjusted mode; on Windows
+.. windows-wit:: File content management on Windows (adjusted mode)
    :name: woa_objecttree
    :float:
 

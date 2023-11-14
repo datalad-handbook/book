@@ -12,7 +12,7 @@ In principle, you can prepare YODA-compliant data analyses in any programming
 language of your choice. But because you are already familiar with
 the `Python <https://www.python.org>`__ programming language, you decide
 to script your analysis in Python. Delighted, you find out that there is even
-a Python API for DataLad's functionality that you can read about in :ref:`a Findoutmore on DataLad in Python<fom-pythonapi>`.
+a Python API for DataLad's functionality that you can read about in :ref:`a Find-out-more on DataLad in Python <fom-pythonapi>`.
 
 .. _pythonapi:
 .. index::
@@ -185,14 +185,13 @@ input for these analysis.
 As such, the iris data should become a standalone DataLad dataset.
 For the purpose of this analysis, the online-handbook provides an ``iris_data``
 dataset at `https://github.com/datalad-handbook/iris_data <https://github.com/datalad-handbook/iris_data>`_.
-
-You can either use this provided input dataset, or find out how to create an
-independent dataset from scratch in a :ref:`dedicated Findoutmore <fom-iris>`.
+You can either use this provided input dataset, or check the :find-out-more:`on how to create an independent dataset from scratch <fom-iris>`.
 
 .. index::
    pair: create and publish dataset as dependency; with DataLad
 .. find-out-more:: Creating an independent input dataset
    :name: fom-iris
+   :float: tb
 
    If you acquire your own data for a data analysis, you will have
    to turn it into a DataLad dataset in order to install it as a subdataset.
@@ -447,7 +446,8 @@ Let's run a quick :dlcmd:`status`...
 
 ... and save the script to the subdataset's history. As the script completes your
 analysis setup, we *tag* the state of the dataset to refer to it easily at a later
-point with the ``--version-tag`` option of :dlcmd:`save`.
+point with the ``--version-tag`` option of :dlcmd:`save`. Check the
+:find-out-more:`on tags <fom-what-is-a-tag>` for details.
 
 .. runrecord:: _examples/DL-101-130-109
    :language: console
@@ -464,6 +464,8 @@ point with the ``--version-tag`` option of :dlcmd:`save`.
    pair: show; Git command
    pair: rerun command; with DataLad
 .. find-out-more:: What is a tag?
+   :name: fom-what-is-a-tag
+   :float: tb
 
    :term:`tag`\s are markers that you can attach to commits in your dataset history.
    They can have any name, and can help you and others to identify certain commits
@@ -497,6 +499,7 @@ you can wrap the execution of the script in a :dlcmd:`run` command. Note that
 simply executing the script would work as well -- thanks to DataLad's Python API.
 But using :dlcmd:`run` will capture full provenance, and will make
 re-execution with :dlcmd:`rerun` easy.
+In case you run into trouble, check the :windows-wit:`on different Python command names <ww-python-not-3>`.
 
 .. importantnote:: Additional software requirements: pandas, seaborn, sklearn
 
@@ -517,6 +520,8 @@ re-execution with :dlcmd:`rerun` easy.
 .. index::
    pair: python instead of python3; on Windows
 .. windows-wit:: You may need to use 'python', not 'python3'
+   :name: ww-python-not-3
+   :float: tb
 
    .. include:: topic/py-or-py3.rst
 
@@ -609,11 +614,14 @@ Note that one feature of the YODA procedure was that it configured certain files
 (for example, everything inside of ``code/``, and the ``README.md`` file in the
 root of the dataset) to be saved in Git instead of git-annex. This was the
 reason why the ``README.md`` in the root of the dataset was easily modifiable.
+See the :find-out-more:`on an alternative approach <fom-save-to-git>` that can achieve the same result.
 
 .. index::
    pair: save; DataLad command
    pair: save file content directly in Git (no annex); with DataLad
-.. find-out-more:: Saving contents with Git regardless of configuration with --to-git
+.. find-out-more:: Saving contents to Git regardless of configuration
+   :name: fom-save-to-git
+   :float: tb
 
 
    The ``yoda`` procedure in ``midterm_project`` applied a different configuration
@@ -638,10 +646,12 @@ After adding this short description to your ``README.md``, your dataset now also
 contains sufficient human-readable information to ensure that others can understand
 everything you did easily.
 The only thing left to do is to hand in your assignment. According to the
-syllabus, this should be done via :term:`GitHub`.
+syllabus, this should be done via :term:`GitHub`. Check the :find-out-more:`on this platform <fom-github>`, if you are not familiar with it yet.
 
 .. index:: dataset hosting; GitHub
 .. find-out-more:: What is GitHub?
+   :name: fom-github
+   :float: p
 
    GitHub is a web based hosting service for Git repositories. Among many
    different other useful perks it adds features that allow collaboration on
@@ -663,6 +673,7 @@ syllabus, this should be done via :term:`GitHub`.
 
    .. image:: ../artwork/src/screenshot_midtermproject.png
       :alt: The midterm project repository, published to GitHub
+      :align: center
 
    The above screenshot shows the linkage between the analysis project you will create
    and its subdataset. Clicking on the subdataset (highlighted) will take you to the iris dataset
@@ -670,6 +681,7 @@ syllabus, this should be done via :term:`GitHub`.
 
    .. image:: ../artwork/src/screenshot_submodule.png
       :alt: The input dataset is linked
+      :align: center
 
 .. index::
    pair: create-sibling-github; DataLad command
@@ -710,8 +722,9 @@ configuration, or interactively).
 
 Based on the credentials and the
 repository name, it will create a new, empty repository on GitHub, and
-configure this repository as a sibling of the dataset:
-
+configure this repository as a sibling of the dataset.
+If you are asked to enter a credential, and things feel weird, check
+the :windows-wit:`on typing passwords <ww-ghost-credentials>`.
 
 .. ifconfig:: internal
 
@@ -724,6 +737,8 @@ configure this repository as a sibling of the dataset:
 .. index:: credential; entry
    pair: typed credentials are not displayed; on Windows
 .. windows-wit:: Your shell will not display credentials
+   :name: ww-ghost-credentials
+   :float: tb
 
    .. include:: topic/credential-nodisplay.rst
 

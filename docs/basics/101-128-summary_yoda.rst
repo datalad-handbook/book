@@ -52,7 +52,7 @@ There are many advantages to this organization of contents.
   that DataLad provides. This way, anyone can understand and even reproduce
   your analysis without much knowledge about your project.
 
-- The yoda procedure is a good starting point to build your next data analysis
+- The ``cfg_yoda`` procedure is a good starting point to build your next data analysis
   project up on.
 
 Now what can I do with it?

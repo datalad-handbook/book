@@ -61,8 +61,7 @@ common shape a data science project may take after a while:
     │   │   └── results_new_data/
     │   ├── random_results_file.tsv
     │   ├── random_results_file_v2.tsv
-
-    [...]
+    ...
 
 All data analysis endeavors in directories like this *can* work, for a while,
 if there is a person who knows the project well, and works on it all the time.
@@ -103,7 +102,7 @@ dataset structures and best practices regarding the analysis:
 - :ref:`P3`
 
 As you will see, complying to these principles is easy if you
-use DataLad. Let's go through them one by one:
+use DataLad. Let's go through them one by one.
 
 .. _P1:
 
@@ -166,13 +165,14 @@ superdataset of a very comprehensive data analysis project complying to the YODA
     ├── HOWTO.md
     └── README.md
 
-You can get a few non-DataLad related advice for structuring your directories in the :ref:`on best practices for analysis organization <fom-yodaproject>`.
+You can get a few non-DataLad related advice for structuring your directories in the
+:find-out-more:`on best practices for analysis organization <fom-yodaproject>`.
 
 .. index::
    pair: recommendation; dataset content organization
 .. find-out-more:: More best practices for organizing contents in directories
    :name: fom-yodaproject
-   :float:
+   :float: tbp
 
    The exemplary YODA directory structure is very comprehensive, and displays many best-practices for
    reproducible data science. For example,

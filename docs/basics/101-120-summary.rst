@@ -32,11 +32,10 @@ sharing a dataset with a simple example.
   file content sources.
 
 * :gitannexcmd:`whereis PATH` will list all locations known to contain file
-  content for a particular file. This location is where :term:`git-annex`
-  will attempt to retrieve file content from, and it is described with the
-  ``--description`` provided during a :dlcmd:`create`. It is a very
+  content for a particular file. It is a very
   helpful command to find out where file content resides, and how many
-  locations with copies exist.
+  locations with copies exist. :term:`git-annex` will try to retrieve file contents from those locations. If you want, you can describe locations with the
+  ``--description`` provided during a :dlcmd:`create`.
 
 * A shared copy of a dataset includes the datasets history. If well made,
   :dlcmd:`run` commands can then easily be ``rerun``.

@@ -256,8 +256,7 @@ remaining sections in that file, and the :ref:`that dissects this config file fu
    Let's walk through the Git config file of ``DataLad-101``:
    As mentioned above, git-annex will use the
    :term:`Git config file` for some of its configurations, such as the second section.
-   It lists the repository version and git-annex
-   UUID [#f4]_ (:gitannexcmd:`whereis` displays information about where the
+   It lists the repository version and :term:`annex UUID` [#f4]_ (:gitannexcmd:`whereis` displays information about where the
    annexed content is with these UUIDs).
 
    You may recognize the fourth part of the configuration, the subsection

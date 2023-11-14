@@ -111,7 +111,7 @@ change, therefore, your superdataset tracks the most recent version of
 the ``midterm_project`` dataset, and your dataset's status is clean again.
 
 
-This point in time in DataLad-101 is a convenient moment to dive a bit deeper
+This time in DataLad-101 is a convenient moment to dive a bit deeper
 into the functions of the :dlcmd:`status` command. If you are
 interested in this, checkout the :ref:`dedicated Findoutmore <fom-status>`.
 

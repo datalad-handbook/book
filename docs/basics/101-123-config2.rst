@@ -38,7 +38,7 @@ If you have read the :ref:`Find-out-more on object trees <objecttree>`
 you will recognize it as a reference to the type of
 key used by git-annex to identify and store file content in the object-tree.
 The first row, ``* annex.backend=MD5E``, therefore translates to "Everything in this
-directory should be hashed with a MD5E hash function".
+directory should be checksummed with the MD5 hash function".
 But what is the rest? We'll start with the last row:
 
 .. code-block:: bash

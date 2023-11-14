@@ -49,9 +49,23 @@ Glossary
 
       git-annex concept: a different word for :term:`object-tree`.
 
+   annex key
+      .. index::
+         pair: file content identifier; git-annex concept
+         pair: annex key; git-annex concept
+
+      Git-annex file content identifier. It is used for naming objects
+      in a dataset :term:`annex`. These identifiers follow a
+      `strict naming scheme <https://git-annex.branchable.com/internals/key_format>`_.
+      However, various types of identifiers, so called
+      `backends <https://git-annex.branchable.com/backends>`_ can be used. Most
+      backends are based on a :term:`checksum`, thereby enabling content verification
+      and data integrity checks for files in an annex.
+
    annex UUID
       .. index::
          pair: location identifier; git-annex concept
+         pair: annex uuid; git-annex concept
 
       A :term:`UUID` assigned to an annex of each individual :term:`clone` of a dataset repository.
       :term:`git-annex` uses this UUID to track file content availability information.

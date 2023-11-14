@@ -41,6 +41,18 @@ This section will give a quick overview on what containers are and
 demonstrate how ``datalad-container`` helps to capture full provenance of an
 analysis by linking containers to datasets and analyses.
 
+.. importantnote:: Install the datalad-container extension
+
+   This section uses the :term:`DataLad extension` ``datalad-container``.
+   As other extensions, it is a stand-alone Python package, and can be installed using :term:`pip`:
+
+   .. code-block:: bash
+
+      $ pip install datalad-container
+
+   As with DataLad and other Python packages, you might want to do the installation in a :term:`virtual environment`.
+
+
 .. index::
    pair: recipe; software container concept
    pair: image; software container concept

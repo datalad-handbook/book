@@ -151,6 +151,7 @@ The name *submodule* is Git terminology, and describes a Git repository inside o
 another Git repository, i.e., the super- and subdataset principles.
 Upon sharing your dataset, the information about subdatasets and where to retrieve
 them from is stored and shared with this file.
+In addition to modifying it with the ``git config`` command or by hand, the ``datalad subdatasets`` command also has a ``--set-property NAME VALUE`` option that you can use to set subdataset properties.
 
 Section :ref:`sharelocal1` already mentioned one additional configuration option in a footnote: The ``datalad-recursiveinstall`` key.
 This key is defined on a per subdataset basis, and if set to "``skip``", the given subdataset will not be recursively installed unless it is explicitly specified as a path to :dlcmd:`get [-n/--no-data] -r`.

@@ -26,7 +26,10 @@ Also check the :windows-wit:`on directory appearance <ww-directories>` for compa
    :name: ww-directories
    :float: tb
 
-   .. include:: topic/tree-symlinks.rst
+   First of all, the Windows ``tree`` command lists only directories by default, unless you parametrize it with ``/f``.
+   And, secondly, even if you list the individual files, you would not see the :term:`symlink`\s shown below.
+   Due to insufficient support for symlinks on Windows, git-annex does not use them.
+   The :windows-wit:`on git-annex's adjusted mode <ww-adjusted-mode>` has more on that.
 
 .. runrecord:: _examples/DL-101-115-101
    :language: console

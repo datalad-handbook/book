@@ -212,7 +212,7 @@ To get extensive information on what :dlcmd:`status` does underneath the hood, y
        $ datalad status
        $ ...
 
-   You can find out a bit more on environment variable :ref:`in the Findoutmore on environment variables <fom-envvar>`.
+   You can find out a bit more on environment variable in the :find-out-more:`in  on environment variables <fom-envvar>`.
 
    The configuration variable can be used to set the log level on a user (global) or system-wide level with the :gitcmd:`config` command:
 

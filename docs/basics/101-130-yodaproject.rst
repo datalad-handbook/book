@@ -12,7 +12,7 @@ In principle, you can prepare YODA-compliant data analyses in any programming
 language of your choice. But because you are already familiar with
 the `Python <https://www.python.org>`__ programming language, you decide
 to script your analysis in Python. Delighted, you find out that there is even
-a Python API for DataLad's functionality that you can read about in :ref:`a Findoutmore on DataLad in Python<fom-pythonapi>`.
+a Python API for DataLad's functionality that you can read about in a :find-out-more:`on DataLad in Python<fom-pythonapi>`.
 
 .. _pythonapi:
 .. index::
@@ -187,7 +187,7 @@ For the purpose of this analysis, the DataLad handbook provides an ``iris_data``
 dataset at `https://github.com/datalad-handbook/iris_data <https://github.com/datalad-handbook/iris_data>`_.
 
 You can either use this provided input dataset, or find out how to create an
-independent dataset from scratch in a :ref:`dedicated Findoutmore <fom-iris>`.
+independent dataset from scratch in a dedicated :find-out-more:`on this topic <fom-iris>`.
 
 .. index::
    pair: create and publish dataset as dependency; with DataLad
@@ -769,7 +769,7 @@ command.
     proportion of the previous handbook content as a prerequisite. In order to be
     not too overwhelmingly detailed, the upcoming sections will approach
     :dlcmd:`push` from a "learning-by-doing" perspective:
-    First, you will see a :dlcmd:`push` to GitHub, and the :ref:`Findoutmore on the published dataset <fom-midtermclone>`
+    First, you will see a :dlcmd:`push` to GitHub, and the :find-out-more:`on the published dataset <fom-midtermclone>`
     at the end of this section will already give a practical glimpse into the
     difference between annexed contents and contents stored in Git when pushed
     to GitHub. The chapter :ref:`chapter_thirdparty` will extend on this,
@@ -837,7 +837,7 @@ an additional :gitcmd:`push`  with the ``--tags`` option is required:
 
 Yay! Consider your midterm project submitted! Others can now install your
 dataset and check out your data science project -- and even better: they can
-reproduce your data science project easily from scratch (take a look into the :ref:`Findoutmore <fom-midtermclone>` to see how)!
+reproduce your data science project easily from scratch (take a look into the :find-out-more:`on the published dataset <fom-midtermclone>` to see how)!
 
 .. index::
    pair: work on published YODA dataset; with DataLad

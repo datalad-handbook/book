@@ -30,7 +30,7 @@ Once you have `registered <https://gin.g-node.org/user/sign_up>`_
 an account on the GIN server by providing your e-mail address, affiliation,
 and name, and selecting a user name and password, you should upload your
 :term:`SSH key` to allow SSH access
-(you can find an explanation of what SSH keys are and how you can create one in :ref:`this Findoutmore <fom-sshkey>` in the general section :ref:`share_hostingservice`).
+(you can find an explanation of what SSH keys are and how you can create one in this :find-out-more:`on SSH keys <fom-sshkey>` in the general section :ref:`share_hostingservice`).
 To do this, visit the settings of your user account. On the left hand side, select
 the tab "SSH Keys", and click the button "Add Key":
 

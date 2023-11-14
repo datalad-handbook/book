@@ -113,7 +113,7 @@ the ``midterm_project`` dataset, and your dataset's status is clean again.
 
 This time in DataLad-101 is a convenient moment to dive a bit deeper
 into the functions of the :dlcmd:`status` command. If you are
-interested in this, checkout the :ref:`dedicated Findoutmore <fom-status>`.
+interested in this, checkout the dedicated :find-out-more:`on the datalad status command <fom-status>`.
 
 .. index::
    pair: status; DataLad command

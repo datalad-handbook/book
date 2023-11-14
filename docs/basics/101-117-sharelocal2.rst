@@ -56,7 +56,7 @@ You can recognize a path to the dataset on your computer, prefixed with the user
       $ datalad create --description "course on DataLad-101 on my private laptop" -c text2git DataLad-101
 
    the command would show ``course on DataLad-101 on my private laptop`` after
-   the :term:`shasum` -- and thus a more human-readable description of *where*
+   the :term:`UUID` -- and thus a more human-readable description of *where*
    file content is stored.
    This becomes especially useful when the number of repository copies
    increases. If you have only one other dataset it may be easy to

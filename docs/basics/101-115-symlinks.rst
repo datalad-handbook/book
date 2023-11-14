@@ -16,12 +16,15 @@ It is a crucial component to understanding certain aspects of a dataset, but it 
 
 You might have noticed already that an ``ls -l`` or ``tree`` command in your dataset shows small arrows and quite cryptic paths following each non-text file.
 Maybe your shell also displays these files in a different color than text files when listing them.
-We'll take a look together, using the ``books/`` directory as an example:
+We'll take a look together, using the ``books/`` directory as an example.
+Also check the :windows-wit:`on directory appearance <ww-directories>` for comparison:
 
 .. index::
    pair: no symlinks; on Windows
    pair: tree; terminal command
 .. windows-wit:: Dataset directories look different on Windows
+   :name: ww-directories
+   :float: tb
 
    .. include:: topic/tree-symlinks.rst
 
@@ -42,10 +45,10 @@ here to understand it.
 
 The small ``->`` symbol connecting one path (the book's name) to another path (the weird
 sequence of characters ending in ``.pdf``) is what is called a
-*symbolic link* (short: :term:`symlink`) or *softlink*.
+*symbolic link*, :term:`symlink` or *softlink* for short.
 It is a term for any file that contains a reference to another file or directory as
 a :term:`relative path` or :term:`absolute path`.
-If you use Windows, you are familiar with a related, although more basic concept: a shortcut.
+If you use Windows, you are familiar with a related, although more basic concept: a shortcut. But see the :windows-wit:`on how the actual behavior is there <ww-adjusted-mode>`.
 
 This means that the files that are in the locations in which you saved content
 and are named as you named your files (e.g., ``TLCL.pdf``),
@@ -89,8 +92,8 @@ tree is also known as the *annex* of a dataset.
    pair: no symlinks; on Windows
    pair: adjusted mode; on Windows
 .. windows-wit:: File content management on Windows (adjusted mode)
-   :name: woa_objecttree
-   :float:
+   :name: ww-adjusted-mode
+   :float: tbp
 
    .. include:: topic/adjustedmode-nosymlinks.rst
 
@@ -141,7 +144,7 @@ This comes with two very important advantages:
 One, should you have copies of the
 same data in different places of your dataset, the symlinks of these files
 point to the same place - in order to understand why this is the case, you
-will need to read the :find-out-more:`about the object tree <fom-objecttree>`.
+will need to read the :find-out-more:`on how git-annex manages file content <fom-objecttree>`.
 Therefore, any amount of copies of a piece of data
 is only one single piece of data in your object tree. This, depending on
 how much identical file content lies in different parts of your dataset,
@@ -152,14 +155,14 @@ Compared to copying and deleting huge data files, small symlinks can be written 
 
 .. gitusernote:: Speedy branch switches
 
-   Switching branches fast, even when they track vasts amounts of data, lets you work with data with the same routines as in software development.
+   Switching branches fast, even when they track vasts amounts of data, lets you work with data using the same routines as in software development workflows.
 
 This leads to a few conclusions:
 
 The first is that you should not be worried
 to see cryptic looking symlinks in your repository -- this is how it should look.
-You can read the :ref:`find-out-more on why these paths look so weird <fom-objecttree>` and what all of this has to do with data integrity, if you want to.
-It's additional information that can help to establish trust in that your data are safely stored and tracked, and understanding more about the object tree and knowing bits of the git-annex basics can make you more confident in working with your datasets.
+Again, you can read the :find-out-more:`on why these paths look so weird <fom-objecttree>` and what all of this has to do with data integrity, if you want to.
+It has additional information that can help to establish trust in that your data are safely stored and tracked, and understanding more about the object tree and knowing bits of the git-annex basics can make you more confident in working with your datasets.
 
 The second is that it should now be clear to you why the ``.git`` directory
 should not be deleted or in any way modified by hand. This place is where
@@ -177,6 +180,7 @@ will take a closer look at that.
    pair: key; git-annex concept
 .. find-out-more:: Data integrity and annex keys
    :name: fom-objecttree
+   :float: tbp
 
    So how do these cryptic paths and names in the object tree come into existence?
    It's not malicious intent that leads to these paths and file names - its checksums.
@@ -248,6 +252,15 @@ will take a closer look at that.
    Maybe you are as amazed as we are about some of the ingenuity used behind the scenes.
    Even more mesmerizing things about git-annex can be found in its `documentation <https://git-annex.branchable.com/git-annex>`_.
 
+
+.. raw:: latex
+
+   \vspace{1cm}
+
+.. image:: ../artwork/src/teacher.svg
+   :width: 50%
+   :align: center
+
 .. index:: ! broken symlink, ! symlink; broken
 .. _wslfiles:
 
@@ -255,7 +268,7 @@ Broken symlinks
 ^^^^^^^^^^^^^^^
 
 Whenever a symlink points to a non-existent target, this symlink is called
-*broken*, and opening the symlink would not work as it does not resolve. The
+*broken* or *dangling*, and opening the symlink would not work as it does not resolve. The
 section :ref:`file system` will give a thorough demonstration of how symlinks can
 break, and how one can fix them again. Even though *broken* sounds
 troublesome, most types of broken symlinks you will encounter can be fixed,
@@ -278,14 +291,16 @@ Alternatively, use the :shcmd:`ls` command in a terminal instead of a file manag
 Other tools may be more more specialized, smaller, or domain-specific, and may fail to correctly work with broken symlinks, or display unhelpful error messages when handling them, or require additional flags to modify their behavior.
 When encountering unexpected behavior or failures, try to keep in mind that a dataset without retrieved content appears to be a pile of broken symlinks to a range of tools, consult a tools documentation with regard to symlinks, and check whether data retrieval fixes persisting problems.
 
-A last special case on symlinks exists if you are using DataLad on the Windows Subsystem for Linux.
-If so, please take a look into the Windows Wit below.
+A last special case on symlinks exists if you are using DataLad on the Windows Subsystem for Linux. Take a look at the :windows-wit:`on WSL2 symlink access <ww-wsl2-symlinks>`
+for that.
 
 .. index::
    pair: access WSL2 symlinked files; on Windows
    single: WSL2; symlink access
    pair: log; Git command
 .. windows-wit:: Accessing symlinked files from your Windows system
+   :name: ww-wsl2-symlinks
+   :float: tbp
 
    .. include:: topic/wsl2-symlinkaccess.rst
 

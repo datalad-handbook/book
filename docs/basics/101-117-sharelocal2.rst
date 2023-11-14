@@ -134,7 +134,7 @@ The ``.mp3`` files in the ``longnow`` seminar series have registered web URLs [#
    $ git annex whereis Long_Now__Seminars_About_Long_term_Thinking/2003_11_15__Brian_Eno__The_Long_Now.mp3
    $ datalad get Long_Now__Seminars_About_Long_term_Thinking/2003_11_15__Brian_Eno__The_Long_Now.mp3
 
-As you can see at the end of the ``get`` result, the files has been retrieved ``from web...``.
+As you can see at the end of the ``get`` result, the files has been retrieved "``from web...``".
 Quite useful, this provenance, right?
 Let's add a note on the :gitannexcmd:`whereis` command.
 Again, do this in the original ``DataLad-101`` directory, and do not forget to save it.

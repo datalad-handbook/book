@@ -297,7 +297,7 @@ remaining sections in that file, and the :ref:`that dissects this config file fu
 
 .. index::
    pair: configuration; DataLad command
-   pair: setting configurations; with DataLad
+   pair: set configuration; with DataLad
 
 The ``datalad configuration`` command
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

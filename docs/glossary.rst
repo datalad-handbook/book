@@ -151,7 +151,7 @@ Glossary
          pair: corresponding branch; in adjusted mode
 
       A :term:`branch` underlying a particular :term:`adjusted branch`.
-      Changes committed to an adjusted branch are progated to its corresponding
+      Changes committed to an adjusted branch are propagated to its corresponding
       branch. Only the corresponding branch is suitable for sharing with other
       repository clones.
 

@@ -38,8 +38,7 @@ common shape a data science project may take after a while:
     │   ├── code_final/
     │   │   ├── final_2/
     │   │   │   ├── main_script_fixed.py
-    │   │   │   └──takethisscriptformostthingsnow.py
-    │   │   ├── utils_new.py
+    │   │   │   └── takethisscriptformostthingsnow.py
     │   │   ├── main_script.py
     │   │   ├── utils_new.py
     │   │   ├── utils_2.py

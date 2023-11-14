@@ -194,7 +194,7 @@ will take a closer look at that.
    This checksum *uniquely* identifies a file's content.
    A hash function will generate the same character sequence for the same file content, and once file content changes, the generated checksum changes, too.
    Basing the file name on its contents thus becomes a way of ensuring data integrity:
-   File content cannot be changed without git-annex noticing, because file's checksum, and thus its key in its symlink, will change.
+   File content cannot be changed without git-annex noticing, because the file's checksum, and thus its key in its symlink, will change.
    Furthermore, if two files have identical checksums, the content in these files is identical.
    Consequently, if two files have the same symlink, and thus link the same file in the object-tree, they are identical in content.
    This can save disk space if a dataset contains many identical files: Copies of the same data only need one instance of that content in the object tree, and all copies will symlink to it.

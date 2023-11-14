@@ -59,10 +59,10 @@ software environment that
   analyses
 - does not effect any software outside of the container
 
-Unlike virtual machines, software containers do not have their own operating
-system. Instead, they use basic services of the underlying operating system
-of the computer they run on (in a read-only fashion). This makes them
-lightweight and portable. By sharing software environments with containers,
+Unlike virtual machines, software containers do not run a full operating
+system on virtualized hardware. Instead, they use basic services of the host operating system
+(in a read-only fashion). This makes them
+lightweight and still portable. By sharing software environments with containers,
 others (and also yourself) have easy access to the correct software
 without the need to modify the software environment of the machine the
 container runs on. Thus, containers are ideal to encapsulate the software

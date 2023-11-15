@@ -22,12 +22,15 @@ Having the file annexed allows you to specifically not share its contents, even 
 However, it is highly important to realize that while annexed file's *contents* are not saved into Git, annex file's *names* are.
 If private information such as a medical patients non-anonymized ID or other potentially identifying information becomes a part of the file name, this information is exposed in the Git history of the dataset.
 Keep in mind that this applies even if you renamed the file.
+Check the :find-out-more:`on removing information committed to Git <fom-uncommit>` in case sensitive would ever leak into one of your datasets.
 
 .. index::
    pair: remove sensitive information; with Git
 .. find-out-more:: Help! I accidentally saved sensitive information to Git!
+   :name: fom-uncommit
+   :float: tb
 
-	The only lasting way to remove contents from the dataset history completely is to substantially rewrite the dataset's history via tools such as ``git-filter-repo`` or ``git filter-branch``, two very dangerous and potentially destructive operations.
+   The only lasting way to remove contents from the dataset history completely is to substantially rewrite the dataset's history via tools such as ``git-filter-repo`` or ``git filter-branch``, two very dangerous and potentially destructive operations.
 
 
 Strategy 2: Restrict access via third party service or file system permissions

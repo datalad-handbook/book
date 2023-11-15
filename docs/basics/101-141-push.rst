@@ -28,6 +28,7 @@ In order to publish a dataset, the dataset needs to have a sibling to push to.
 This, for instance, can be a :term:`GitHub`, :term:`GitLab`, or :term:`GIN`
 repository, but it can also be a Remote Indexed Archive (RIA) store for backup
 or storage of datasets [#f1]_, or a regular clone.
+See the :find-out-more:`on configuring siblings <fom-all-siblings>` for an overview.
 
 .. index::
    pair: create-sibling-github; DataLad command
@@ -38,6 +39,8 @@ or storage of datasets [#f1]_, or a regular clone.
    pair: RIA; dataset hosting
    pair: create sibling; with DataLad
 .. find-out-more:: All of the ways to configure siblings
+   :name: fom-all-siblings
+   :float: tb
 
    - Add an existing repository as a sibling with the :dlcmd:`siblings`
      command. Here are common examples:
@@ -74,7 +77,7 @@ from the command line:
 If you have more than one :term:`branch` in your dataset, note that a
 :dlcmd:`push` command will by default update only the current branch.
 If updating multiple branches is relevant for your workflow, please check out
-the :ref:`find-out-more about this <fom-push-branch>`.
+the :find-out-more:`about this <fom-push-branch>`.
 
 By default, :dlcmd:`push` will make the last saved state of the dataset
 available. Consequently, if the sibling is in the same state as the dataset,
@@ -126,9 +129,9 @@ targets are configured throughout the dataset hierarchy.
 
 .. index::
    pair: configure which branches to push; with Git
-.. find-out-more:: Pushing more than the current branch
+.. find-out-more:: Push more than the current branch
    :name: fom-push-branch
-   :float:
+   :float: tb
 
    If you have more than one :term:`branch` in your
    dataset, a :dlcmd:`push --to <sibling>` will by default only push

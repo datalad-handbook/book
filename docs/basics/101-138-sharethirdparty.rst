@@ -76,11 +76,13 @@ or Gitea_.
 But while anything that is managed by Git is accessible in repository hosting services, they usually don't support storing annexed data [#f2]_.
 
 When you want to publish a dataset to a Git repository hosting service to allow others to easily find and clone it, but you also want others to be able to retrieve annexed files in this dataset via :dlcmd:`get`, annexed contents need to be pushed to additional storage hosting services.
-The hosting services can be all kinds of private, institutional, or commercial services, and their location will be registered in the dataset under the concept of a :term:`special remote`.
+The hosting services can be all kinds of private, institutional, or commercial services, and their location will be registered in the dataset under the concept of a :term:`special remote`. Check the :find-out-more:`on this <fom-special-remote>` for some background on this git-annex concept.
 
 .. index::
    pair: special remote; git-annex concept
 .. find-out-more:: What is a special remote
+   :name: fom-special-remote
+   :float: tb
 
    A special-remote is an extension to Git’s concept of remotes, and can
    enable :term:`git-annex` to transfer data from and possibly to places that are not Git

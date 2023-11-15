@@ -53,6 +53,7 @@ How to add a sibling on a Git repository hosting site: The manual way
 .. _sshkey:
 .. find-out-more:: What is an SSH key and how can I create one?
    :name: fom-sshkey
+   :float: tb
 
    An SSH key is an access credential in the :term:`SSH` protocol that can be used
    to login from one system to remote servers and services, such as from your private
@@ -126,10 +127,12 @@ What is a token?
 
 Personal access tokens are an alternative to authenticating via your password, and take the form of a long character string, associated with a human-readable name or description.
 If you are prompted for ``username`` and ``password`` in the command line, you would enter your token in place of the ``password`` [#f3]_.
-Note that you do not have to type your token at every authentication -- your token will be stored on your system the first time you have used it and automatically reused whenever relevant.
+Note that you do not have to type your token at every authentication -- your token will be stored on your system the first time you have used it and automatically reused whenever relevant. Check the :find-out-more:`on credential storage <fom-credential-storage>` to learn how this is done.
 
 .. index:: credential; storage
-.. find-out-more:: How does the authentication storage work?
+.. find-out-more:: Where are credentials stored?
+   :name: fom-credential-storage
+   :float: tb
 
    Passwords, user names, tokens, or any other login information is stored in
    your system's (encrypted) `keyring <https://en.wikipedia.org/wiki/GNOME_Keyring>`_.

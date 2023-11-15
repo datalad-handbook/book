@@ -249,3 +249,8 @@ interested in this, checkout the :ref:`dedicated Findoutmore <fom-status>`.
          :workdir: dl-101/DataLad-101
 
          $ git branch sct_more_on_dataset_nesting
+
+While there is much more to say and discover about this topic, this section showed the basic handling of datasets that are composed of, arbitrarily deeply, nested datasets.
+Each (sub)dataset can be simultaneously: 1) an independently managed data module, usable and reusable in different contexts; and 2) a tightly integrated component that contributes to a look and feel of such a multi-unit dataset that is not unlike a `mono repo <https://en.wikipedia.org/wiki/Monorepo>`_.
+The nesting pattern can be repeated as often as necessary or sensible.
+It can be "turtles all the way down".

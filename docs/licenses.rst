@@ -53,23 +53,25 @@ The "YODA" cartoon used in chapter :ref:`chapter_yoda` is derived from https://o
 Fonts
 ~~~~~
 
-The book contains the following fonts with their respective licenses.
-All fonts are either standard or embedded.
+This book uses the following fonts, listed grouped by their respective licenses.
 
-* STIXGeneral-Regular; license is based on the `SIL Open Font License`_
-* STIXGeneral-Italic; license is based on the `SIL Open Font License`_
-* STIXGeneral-Bold; license is based on the `SIL Open Font License`_
-* STIXMathSans-Regular; license is based on the `SIL Open Font License`_
-* Lato-BOLD; licensed under the `SIL Open Font License`_
-* InsonsolataN-Regular; licensed under the `SIL Open Font License`_
-* InsonsolataN-Bold; licensed under the `SIL Open Font License`_
-* LMSansDemiCond10-Regular; licensed under the `GUST Font license`_
-* MLSans10-Bold; licensed under the `GUST Font license`_
-* CCIcons; licensed under a `CC-BY 4.0 License`_
-* Font Awesome; licensed under the `SIL Open Font License`_
+* `SIL Open Font License`_
+
+  - InsonsolataDN-(Regular, Bold)
+  - Lato
+  - STIXGeneral-(Regular, Italic, Bold), STIXMathSans-Regular
+  - Font Awesome; via https://github.com/xdanaux/fontawesome-latex
+
+* `GUST Font license`_
+
+  - LMSans(DemiCond10-Regular, 10-Bold)
+
+* `CC-BY 4.0 License`_
+
+  - CCIcons; via https://github.com/ummels/ccicons
 
 
-.. _SIL Open Font License: http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL
+.. _SIL Open Font License: http://scripts.sil.org/OFL
 .. _GUST Font license: https://tug.org/fonts/licenses/GUST-FONT-LICENSE.txt
 .. _CC-BY 4.0 License: https://creativecommons.org/licenses/by/4.0/
 

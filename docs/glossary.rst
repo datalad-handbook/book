@@ -75,17 +75,17 @@ Glossary
       but other clones of the same dataset each have their own unique annex UUIDs.
 
    bare Git repositories
-       .. index::
-          pair: bare repository; Git concept
+      .. index::
+         pair: bare repository; Git concept
 
-       A bare Git repository is a repository that contains the contents of the ``.git``
-       directory of regular DataLad datasets or Git repositories, but no worktree
-       or checkout. This has advantages: The repository is leaner, it is easier
-       for administrators to perform garbage collections, and it is required if you
-       want to push to it at all times. You can find out more on what bare repositories are and how to use them
-       in the Git documentation at `git-scm.com/book/Git-on-the-Server-Getting-Git-on-a
-       -Server <https://git-scm.com/book/Git-on-the-Server-Getting-Git-on-a
-       -Server>`__.
+      A bare Git repository is a repository that contains the contents of the ``.git``
+      directory of regular DataLad datasets or Git repositories, but no worktree
+      or checkout. This has advantages: The repository is leaner, it is easier
+      for administrators to perform garbage collections, and it is required if you
+      want to push to it at all times. You can find out more on what bare repositories are and how to use them
+      in the Git documentation at `git-scm.com/book/Git-on-the-Server-Getting-Git-on-a
+      -Server <https://git-scm.com/book/Git-on-the-Server-Getting-Git-on-a
+      -Server>`__.
 
    bash
       .. index:: shell; bash
@@ -224,16 +224,16 @@ Glossary
       To learn about debugging a failed execution of a DataLad command, take a look at the section :ref:`debug`.
 
    Docker
-       `Docker <https://www.docker.com>`_ is a containerization software that can package software into :term:`software container`\s, similar to :term:`Singularity`.
-       Find out more on `wikipedia.org/wiki/Docker_(software) <https://en.wikipedia.org/wiki/Docker_(software)>`__.
+      `Docker <https://www.docker.com>`_ is a containerization software that can package software into :term:`software container`\s, similar to :term:`Singularity`.
+      Find out more on `wikipedia.org/wiki/Docker_(software) <https://en.wikipedia.org/wiki/Docker_(software)>`__.
 
    Docker-Hub
-       .. index::
-          pair: hub; Docker
+      .. index::
+         pair: hub; Docker
 
-       `Docker Hub <https://hub.docker.com>`_ is a library for :term:`Docker` :term:`container image`\s.
-       Among other things, it hosts and builds Docker container images.
-       You can can *pull* :term:`container image`\s built from a publicly shared :term:`container recipe` from it.
+      `Docker Hub <https://hub.docker.com>`_ is a library for :term:`Docker` :term:`container image`\s.
+      Among other things, it hosts and builds Docker container images.
+      You can can *pull* :term:`container image`\s built from a publicly shared :term:`container recipe` from it.
 
    DOI
       A digital object identifier (DOI) is a character string used to permanently identify
@@ -470,14 +470,14 @@ Glossary
 
 
    pull request
-       .. index::
-          pair: pull request; Git concept
+      .. index::
+         pair: pull request; Git concept
 
       Also known as :term:`merge request`. Contributions to Git repositories/DataLad datasets can be proposed to be :term:`merge`\d into the dataset by "requesting a pull/update" from the dataset maintainer to obtain a proposed change from a dataset clone or sibling. It is implemented as a feature in repository hosting sites such as :term:`GitHub`, :term:`Gin`, or :term:`GitLab`.
 
    ref
-       .. index::
-          pair: ref; Git concept
+      .. index::
+         pair: ref; Git concept
 
       Git concept. A "Git Reference", typically shortened to "ref", is a text file containing a :term:`commit` :term:`shasum` as a human-readable reference to a specific version of your dataset or Git repository. Thanks to refs, Git users do not need to memorize or type shasums when switching between dataset states, and can use simple names instead: For example, a :term:`branch` such as ``main`` is a ref, and a :term:`tag` is one, too. In both cases, those refs are text files that contain the shasum of the commit at the tip of a branch, or the shasum of the commit you added the tag to. Refs are organized in the directory ``.git/refs`` and Git commands and configurations can use refs to perform updating operations or determine their behavior. More details can be found at `at git-scm.com <https://git-scm.com/book/en/v2/Git-Internals-Git-References>`_
 
@@ -488,8 +488,8 @@ Glossary
       Examples on Unix and Windows: ``../Pictures/xkcd-webcomics/530.png``, ``..\Pictures\xkcd-webcomics\530.png``. See also :term:`absolute path`.
 
    remote
-       .. index::
-          pair: remote; Git concept
+      .. index::
+         pair: remote; Git concept
 
       Git-terminology: A repository (and thus also :term:`DataLad dataset`) that a given repository
       tracks. A :term:`sibling` is DataLad's equivalent to a remote.
@@ -622,21 +622,21 @@ Glossary
       Find out more on `Wikipedia at wikipedia.org/wiki/Singularity_(software) <https://en.wikipedia.org/wiki/Singularity_(software)>`__.
 
    Singularity-Hub
-       `singularity-hub.org <https://singularity-hub.org>`_ was a Singularity container portal.
-       Among other things, it hosts Singularity container images.
-       You can can *pull* :term:`container image`\s built from it.
+      `singularity-hub.org <https://singularity-hub.org>`_ was a Singularity container portal.
+      Among other things, it hosts Singularity container images.
+      You can can *pull* :term:`container image`\s built from it.
 
    software container
-       Computational containers are cut-down virtual machines that allow you to package software libraries and their dependencies in precise versions into a bundle that can be shared with others.
-       They are running instances of a :term:`container image`.
-       On your own and other's machines, the container constitutes a secluded software environment that contains the exact software environment that you specified but does not effect any software outside of the container.
-       Unlike virtual machines, software containers do not have their own operating system and instead use basic services of the underlying operating system of the computer they run on (in a read-only fashion).
-       This makes them lightweight and portable.
-       By sharing software environments with containers, such as :term:`Docker` or :term:`Singularity` containers, others (and also yourself) have easy access to software without the need to modify the software environment of the machine the container runs on.
+      Computational containers are cut-down virtual machines that allow you to package software libraries and their dependencies in precise versions into a bundle that can be shared with others.
+      They are running instances of a :term:`container image`.
+      On your own and other's machines, the container constitutes a secluded software environment that contains the exact software environment that you specified but does not effect any software outside of the container.
+      Unlike virtual machines, software containers do not have their own operating system and instead use basic services of the underlying operating system of the computer they run on (in a read-only fashion).
+      This makes them lightweight and portable.
+      By sharing software environments with containers, such as :term:`Docker` or :term:`Singularity` containers, others (and also yourself) have easy access to software without the need to modify the software environment of the machine the container runs on.
 
    submodule
-       .. index::
-          pair: submodule; Git concept
+      .. index::
+         pair: submodule; Git concept
 
       Git concept: a submodule is a Git repository embedded inside another Git repository. A
       :term:`DataLad subdataset` is known as a submodule in the :term:`Git config file`.

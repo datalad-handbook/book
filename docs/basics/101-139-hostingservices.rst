@@ -111,7 +111,7 @@ It needs to point to the URL of the instance, for example
    $ datalad create-sibling-gogs my_repo_on_gogs  --api "https://try.gogs.io"
 
 :term:`GitLab`'s internal organization differs from that of the other hosting services, and as there are multiple different GitLab instances, ``create-sibling-gitlab`` requires slightly more configuration than the other commands.
-Thus, a short walk-through is at the :ref:`end of this section <gitlab>`.
+Thus, a short walk-through is available in the online-handbook.
 
 .. _token:
 

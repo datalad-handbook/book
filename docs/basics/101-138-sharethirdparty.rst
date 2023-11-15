@@ -58,7 +58,7 @@ When you are distributing DataLad datasets to other people or third party servic
 an important distinction thus lies in *annexed* versus *not-annexed* content, i.e.,
 files that stored in your dataset's :term:`annex` versus files that are committed
 into :term:`Git`.
-The third-party service of your choice may have support for both annexed and non-annexed files, or only one them.
+The third-party service of your choice may have support for both annexed and non-annexed files, or only one of them.
 
 .. figure:: ../artwork/src/publishing/publishing_network_publishparts2.svg
    :width: 80%

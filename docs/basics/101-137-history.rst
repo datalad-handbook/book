@@ -267,6 +267,7 @@ with the HEAD pointer. Take a look at the :find-out-more:`on terminology <fom-gi
 
    .. image:: ../artwork/src/git_branch_HEAD.png
       :width: 50%
+      :align: center
 
    Using ``HEAD``, you can identify the most recent commit, or count backwards
    starting from the most recent commit. ``HEAD~1`` is the ancestor of the most

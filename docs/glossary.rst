@@ -83,7 +83,7 @@ Glossary
        or checkout. This has advantages: The repository is leaner, it is easier
        for administrators to perform garbage collections, and it is required if you
        want to push to it at all times. You can find out more on what bare repositories are and how to use them
-       `here <https://git-scm.com/book/en/v2/Git-on-the-Server-Getting-Git-on-a
+       `in the Git documentation <https://git-scm.com/book/en/v2/Git-on-the-Server-Getting-Git-on-a
        -Server>`__.
 
    bash
@@ -249,7 +249,7 @@ Glossary
       .. index:: ! operating system concept; environment variable
 
       A variable made up of a name/value pair. Programs using a given environment variable will use its associated value for their execution.
-      You can find out a bit more on environment variable :ref:`in this Findoutmore <fom-envvar>`.
+      See the :ref:`Find-out-more on environment variables <fom-envvar>` for details.
 
    ephemeral clone
       .. index:: clone (ephemeral); DataLad concept
@@ -281,7 +281,7 @@ Glossary
 
    Git
       A version control system to track changes made to small-sized files over time. You can find out
-      more about git in `the (free) GitPro book <https://git-scm.com/book/en/v2>`_
+      more about Git in `the (free) GitPro book <https://git-scm.com/book/en/v2>`_
       or `interactive Git tutorials <https://try.github.io>`_ on :term:`GitHub`.
 
    git-annex
@@ -342,7 +342,7 @@ Glossary
 
    high-throughput computing
    HTC
-      A computing environment build from a bond of computers and tuned to deliver large amounts of computational power to allow parallel processing of independent computational jobs. For more information, see `this Wikipedia entry <https://en.wikipedia.org/wiki/High-throughput_computing>`_.
+      A computing environment build from a bond of computers and tuned to deliver large amounts of computational power to allow parallel processing of independent computational jobs. For more information, see `Wikipedia <https://en.wikipedia.org/wiki/High-throughput_computing>`_.
 
    http
       .. index:: protocol; http
@@ -553,7 +553,7 @@ Glossary
       Git concept; Squashing is a Git operation which rewrites history by taking
       a range of commits and squash them into a single commit. For more information
       on rewriting Git history, checkout section :ref:`history` and the
-      `documentation <https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History>`__.
+      `Git documentation <https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History>`__.
 
    SSH
       .. index:: concepts; SSH
@@ -678,7 +678,7 @@ Glossary
       A common Linux distribution. `More information here <https://ubuntu.com>`__.
 
    UUID
-      Universally Unique Identifier. It is a character string used for *unambiguous*,
+      Universally Unique Identifier. It is a character string used for *unambiguous*
       identification, formatted according to a specific standard. This
       identification is not only unambiguous and unique on a system, but indeed *universally*
       unique -- no UUID exists twice anywhere *on the planet*.

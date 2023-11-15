@@ -53,7 +53,8 @@ this *in the superdataset* in order to have a clean superdataset status.
 Let's save the modification of the subdataset into the history of the
 superdataset. For this, to avoid confusion, you can specify explicitly to
 which dataset you want to save a modification. ``-d .`` specifies the current
-dataset, i.e., ``DataLad-101``, as the dataset to save to:
+dataset, i.e., ``DataLad-101``, as the dataset to save to.
+The :find-out-more:`on saving subdatasets <fom-save-subds>` provides some more details.
 
 .. runrecord:: _examples/DL-101-132-103
    :language: console
@@ -63,7 +64,9 @@ dataset, i.e., ``DataLad-101``, as the dataset to save to:
 
 .. index::
    pair: save modification in nested dataset; with DataLad
-.. find-out-more:: More on how 'datalad save' can operate on nested datasets
+.. find-out-more:: 'datalad save' on nested datasets
+   :name: fom-save-subds
+   :float: tb
 
    In a superdataset with subdatasets, :dlcmd:`save` by default
    tries to figure out on its own which dataset's history of all available
@@ -113,7 +116,7 @@ the ``midterm_project`` dataset, and your dataset's status is clean again.
 
 This time in DataLad-101 is a convenient moment to dive a bit deeper
 into the functions of the :dlcmd:`status` command. If you are
-interested in this, checkout the :ref:`dedicated Findoutmore <fom-status>`.
+interested in this, check out the :find-out-more:`on this topic <fom-status>`.
 
 .. index::
    pair: status; DataLad command

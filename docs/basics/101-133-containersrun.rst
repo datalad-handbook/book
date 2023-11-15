@@ -123,8 +123,9 @@ See the :windows-wit:`on Docker <ww-docker>` for installation options.
 .. index::
    pair: installation; Docker
    pair: install Docker; on Windows
-.. find-out-more:: Docker installation Windows
+.. windows-wit:: Docker installation
    :name: ww-docker
+   :float: tb
 
    The software singularity is not available for Windows.
    Windows users therefore need to install :term:`Docker`.
@@ -161,8 +162,9 @@ If you are curious how to create a Singularity image, the :find-out-more:`on thi
 
 .. index::
    pair: build container image; with Singularity
-.. windows-wit:: How to make a Singularity image
+.. find-out-more:: How to make a Singularity image
    :name: fom-container-creation
+   :float: tb
 
    Singularity containers are build from image files, often
    called "recipes", that hold a "definition" of the software container and its
@@ -206,6 +208,8 @@ name to give to the container, and a path or URL to a container image:
 .. index::
    pair: hub; Docker
 .. find-out-more:: How do I add an image from Docker-Hub, Amazon ECR, or a local container?
+   :name: fom-container-add
+   :float: tb
 
    Should the image you want to use sit on Dockerhub, specify the ``--url``
    option prefixed with ``docker://`` or ``dhub://`` instead of ``shub://``:
@@ -228,10 +232,15 @@ name to give to the container, and a path or URL to a container image:
       $ datalad containers-add midterm-software --url path/to/container
 
 This command downloaded the container from Singularity Hub, added it to
-the ``midterm_project`` dataset, and recorded basic information on the
+the ``midterm_project`` dataset.
+This is not the only possible source for containers.
+Check the :find-out-more:`on more ways to add images <fom-container-add>`.
+Once added, containers can be listed or removed.
+The :find-out-more:`on this topic <fom-container-remove>` shows how.
+
+Adding a container recorded basic information on the
 container under its name "midterm-software" in the dataset's configuration at
 ``.datalad/config``. You can find out more about them in an upcoming dedicated section on these additional configurations.
-
 Such configurations can, among other things, be important to ensure correct container invocation on specific systems or across systems.
 One example is *bind-mounting* directories into containers, i.e., making a specific directory and its contents available inside a container.
 Different containerization software (versions) or configurations of those determine *default bind-mounts* on a given system.
@@ -298,6 +307,8 @@ The complete command's structure looks like this:
    pair: containers-list; DataLad command
    pair: list known containers; with DataLad
 .. find-out-more:: How can I list available containers or remove them?
+   :name: fom-container-remove
+   :float: tb
 
    The command :dlcmd:`containers-list` will list all containers in
    the current dataset:

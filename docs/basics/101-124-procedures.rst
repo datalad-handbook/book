@@ -157,17 +157,22 @@ could thus be applied within a :dlcmd:`create` as
 - ``datalad create -c text2git <DSname>``
 
 .. index:: dataset procedure; apply more than one configuration
-.. find-out-more:: Applying multiple procedures
 
-   If you want to apply several configurations at once, feel free to do so,
-   for example like this:
+You can also apply multiple configuration procedures at once. However,
+the need to be compatible and complement each other. DataLad does not
+guarantee that per-se. This is how it could look:
 
-   .. code-block:: console
+.. code-block:: console
 
-      $ datalad create -c yoda -c text2git
+  $ datalad create -c yoda -c text2git
+
+And lastly, procedures can also be applied to subdatasets. See the
+:find-out-more:`on this topic <fom-subds-procedures>` for details.
 
 .. index:: dataset procedure; apply to subdatasets
 .. find-out-more:: Applying procedures in subdatasets
+   :name: fom-subds-procedures
+   :float: tb
 
    Procedures can be applied in datasets on any level in the dataset hierarchy, i.e.,
    also in subdatasets. Note, though, that a subdataset will show up as being

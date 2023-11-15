@@ -197,11 +197,15 @@ command. By specifying the ``name`` option with ``section.variable``
 a value, one can configure Git, git-annex, and DataLad.
 *Most* of these configurations will be written to a ``config`` file
 of Git, depending on the scope (local, global, system-wide)
-specified in the command.
+specified in the command. Should you happen to make a mistake,
+it is typically simple to rectify things again. Check the
+:find-out-more:`on 'git config' <fom-git-config>`.
 
 .. index::
    pair: unset configuration; with Git
 .. find-out-more:: If things go wrong during Git config
+   :name: fom-git-config
+   :float: tb
 
    If something goes wrong during the :gitcmd:`config` command,
    for example, you end up having two keys of the same name because you
@@ -245,13 +249,13 @@ or identify necessary changes. And indeed, most of the sections and variables
 or values in there are irrelevant for understanding the book, your dataset,
 or DataLad, and can just be left as they are. The previous section merely served
 to de-mystify the :gitcmd:`config` command and the configuration files.
-Nevertheless, it might be helpful to get an overview about the meaning of the
-remaining sections in that file, and the :ref:`that dissects this config file further <fom_gitconfig>`  can give you a glimpse of this.
+Nevertheless, it can be helpful to get an overview on the meaning of the
+remaining sections in that file, and the :find-out-more:`on the Git config file <fom-gitconfig>` offers a glimpse at that.
 
 .. index:: dataset configuration
 .. find-out-more:: Dissecting a Git config file further
-   :name: fom_gitconfig
-   :float:
+   :name: fom-gitconfig
+   :float: tb
 
    Let's walk through the Git config file of ``DataLad-101``:
    As mentioned above, git-annex will use the

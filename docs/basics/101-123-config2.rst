@@ -398,17 +398,21 @@ will be available as the corresponding ``datalad.`` configuration variable,
 replacing any ``__`` (two underscores) with a hyphen, then any ``_`` (single underscore)
 with a dot, and finally converting all letters to lower case. The ``datalad.log.level``
 configuration option thus is the environment variable ``DATALAD_LOG_LEVEL``.
+If you are new to the concept of environment variables, check out the
+:find-out-more:`on them <fom-envvar>`.
 
 .. index:: operating system concept; environment variable
 .. find-out-more:: Some more general information on environment variables
    :name: fom-envvar
+   :float: tb
 
-   Names of environment variables are often all-uppercase. While the ``$`` is not part of
+   Names of environment variables are often all-uppercase, but they need not be.
+   While the ``$`` is not part of
    the name of the environment variable, it is necessary to *refer* to the environment
    variable: To reference the value of the environment variable ``HOME``, for example, you would
    need to use ``echo $HOME`` and not ``echo HOME``. However, environment variables are
    set without a leading ``$``. There are several ways to set an environment variable
-   (note that there are no spaces before and after the ``=`` !), leading to different
+   (note that there are no spaces before and after the equals sign!), leading to different
    levels of availability of the variable:
 
    - ``THEANSWER=42 <command>`` makes the variable ``THEANSWER`` available for the process in ``<command>``.

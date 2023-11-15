@@ -3,22 +3,10 @@
 Beyond shared infrastructure
 ----------------------------
 
-Data sharing potentially involves a number of different elements:
-
-.. figure:: ../artwork/src/publishing/startingpoint.svg
-   :width: 60%
-
-   An overview of all elements potentially included in a publication workflow.
-
-Users on a common, shared computational infrastructure such as an :term:`SSH server`
-can distribute datasets via simple installations with paths, without any involvement of third party storage providers or repository hosting services, as shown in :numref:`fig-clonecompute`.
-
-.. _fig-clonecompute:
-
-.. figure:: ../artwork/src/publishing/clone_combined.svg
-
-   Cloning from local or remote compute infrastructure.
-
+Data sharing potentially involves a number of different elements.
+Other than the dataset you want to share, it can involve repository hosting services, third party storage services, or other computational infrastructure.
+As you experienced in the chapter :ref:`chapter_collaboration`, users on a common, shared computational infrastructure such as an :term:`SSH server`
+can share datasets via simple installations with paths, without any involvement of third party storage providers or repository hosting services.
 But at some point in a dataset's life, you may want to share it with people that
 can't access the computer or server your dataset lives on, store it on other infrastructure
 to save diskspace, or create a backup.
@@ -132,15 +120,7 @@ installing/setting up the relevant *special-remote*, obtaining your dataset and 
 data is as easy as with any public DataLad dataset.
 While you have to invest some setup effort in the beginning, once this
 is done, the workflows of yours and others are the same that you are already
-very familiar with, as :numref:`fig-cloneurls` illustrates.
-
-.. _fig-cloneurls:
-
-.. figure:: ../artwork/src/publishing/clone_url.svg
-   :width: 60%
-
-   Cloning from remote URLs.
-
+very familiar with.
 
 If you are interested in learning how to set up different services as special remotes, you can take a look at handbook.datalad.org for concrete examples with DataLad datasets, and the general section :ref:`share_hostingservice` on setting up dataset siblings.
 In addition, there are step-by-step walk-throughs in the documentation of git-annex for services such as `S3 <https://git-annex.branchable.com/tips/public_Amazon_S3_remote>`_, `Google Cloud Storage <https://git-annex.branchable.com/tips/using_Google_Cloud_Storage>`_,

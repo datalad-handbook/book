@@ -34,7 +34,7 @@ How to add a sibling on a Git repository hosting site: The manual way
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-#. Create a new repository via the webinterface of the hosting service of your choice. The screenshots in :numref:`fig-newrepogin` and :numref:`fig-newrepogithub` show examples of this.
+#. Create a new repository via the webinterface of the hosting service of your choice. Their webinterface usually has an intuitive interface for this.
    The new repository does not need to have the same name as your local dataset, but it helps to associate local dataset and remote siblings.
 
 #. Afterwards, copy the :term:`SSH` or :term:`HTTPS` URL of the repository. Usually, repository hosting services will provide you with a convenient way to copy it to your clipboard. An SSH URL takes the form ``git@<hosting-service>:/<user>/<repo-name>.git`` and an HTTPS URL takes the form ``https://<hosting-service>/<user>/<repo-name>.git``. The type of URL you choose determines whether and how you will be able to ``push`` to your repository. Note that many services will require you to use the SSH URL to your repository in order to do :dlcmd:`push` operations, so make sure to take the :term:`SSH` and not the :term:`HTTPS` URL if this is the case.
@@ -47,22 +47,6 @@ How to add a sibling on a Git repository hosting site: The manual way
    #. ``datalad siblings add --dataset . --name <name> --url <url>``
 
 #. Push your dataset to the new sibling: ``datalad push --to <name>``
-
-
-.. _fig-newrepogin:
-
-.. figure:: ../artwork/src/GIN_newrepo.png
-   :width: 80%
-
-   Webinterface of :term:`GIN` during the creation of a new repository.
-
-
-.. _fig-newrepogithub:
-
-.. figure:: ../artwork/src/newrepo-github.png
-   :width: 80%
-
-   Webinterface of :term:`GitHub` during the creation of a new repository.
 
 
 .. index:: concepts; SSH key, SSH; key
@@ -158,16 +142,6 @@ Which permissions do they need?
 """""""""""""""""""""""""""""""
 
 The most convenient way to generate tokens is typically via the webinterface of the hosting service of your choice.
-Often, you can specifically select which set of permissions a specific token has in a drop-down menu similar (but likely not identical) to the screenshot from GitHub in :numref:`fig-token`.
-
-.. _fig-token:
-
-.. figure:: ../artwork/src/github-token.png
-   :width: 80%
-
-   Webinterface to generate an authentication token on GitHub. One typically has to set a name and
-   permission set, and potentially an expiration date.
-
 For creating and updating repositories with DataLad commands it is usually sufficient to grant only repository-related permissions.
 However, broader permission sets may also make sense.
 Should you employ GitHub workflows, for example, a token without "workflow" scope could not push changes to workflow files, resulting in errors like this one:

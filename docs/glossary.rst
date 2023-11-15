@@ -224,7 +224,7 @@ Glossary
 
    Docker
       `Docker <https://www.docker.com>`_ is a containerization software that can package software into :term:`software container`\s, similar to :term:`Singularity`.
-       Find out more on `Wikipedia <https://en.wikipedia.org/wiki/Docker_(software)>`__.
+      Find out more on `Wikipedia <https://en.wikipedia.org/wiki/Docker_(software)>`__.
 
    Docker-Hub
       .. index::

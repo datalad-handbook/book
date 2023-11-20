@@ -18,6 +18,8 @@ DataLad installation on a cluster
 
 Users of a compute cluster generally do not have administrative privileges (sudo rights) and thus cannot install software as easily as on their own, private machine.
 In order to get DataLad and its underlying tools installed, you can either `bribe (kindly ask) your system administrator <https://hsto.org/getpro/habr/post_images/02e/e3b/369/02ee3b369a0326760a160004aca631dc.jpg>`_ [#f1]_ or install everything for your own user only following the instructions in the paragraph :ref:`norootinstall` of the :ref:`installation page <install>`.
+If you opt for the first, your administrator can install Datalad version 0.18.4 via `EasyBuild <https://github.com/easybuilders>`, which is a tool for building software reprobucibly and is common on clusters that use a module system.
+The caveat this introduces, of course, is that you will need to load the module everytime you want to use datalad on your cluster.
 
 
 .. rubric:: Footnotes

@@ -608,6 +608,15 @@
         "bug",
         "maintenance"
       ]
+    },
+    {
+      "login": "jkuhl-uni",
+      "name": "Justus Kuhlmann",
+      "avatar_url": "https://avatars.githubusercontent.com/u/82444481?v=4",
+      "profile": "https://github.com/jkuhl-uni",
+      "contributions": [
+        "content"
+      ]
     }
   ],
   "contributorsPerLine": 7,

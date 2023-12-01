@@ -1,3 +1,5 @@
+.. index::
+   pair: sensitive data handling; with DataLad
 .. _privacy:
 
 Keeping (some) dataset contents private

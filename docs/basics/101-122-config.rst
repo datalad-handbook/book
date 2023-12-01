@@ -1,3 +1,6 @@
+.. index::
+   pair: configuration; with Git
+   pair: configuration; with DataLad
 .. _config:
 
 Local configuration

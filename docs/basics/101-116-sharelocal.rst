@@ -1,3 +1,5 @@
+.. index::
+   pair: data sharing; with DataLad
 .. _sharelocal1:
 
 Looking without touching

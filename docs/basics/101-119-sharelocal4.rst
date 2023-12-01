@@ -1,5 +1,6 @@
+.. index::
+   pair: update dataset; with DataLad
 .. _sharelocal4:
-
 .. _update:
 
 Stay up to date

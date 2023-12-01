@@ -1,3 +1,5 @@
+.. index::
+   pair: data file handling; with git-annex
 .. _2-002:
 .. _symlink:
 

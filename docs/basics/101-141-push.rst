@@ -1,5 +1,6 @@
 .. index::
    pair: push; DataLad command
+   pair: distribute dataset; with DataLad
 .. _push:
 
 The datalad push command

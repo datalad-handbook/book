@@ -1,3 +1,5 @@
+.. index::
+   pair: data analysis; with DataLad
 .. _yoda_project:
 
 YODA-compliant data analysis projects

@@ -1,4 +1,6 @@
 .. index:: ! YODA principles
+   pair: data organization; with DataLad
+   pair: project management; with DataLad
 .. _2-001:
 .. _yoda:
 

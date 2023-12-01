@@ -1,3 +1,5 @@
+.. index::
+   pair: dataset operations; with DataLad
 .. _file system:
 
 Dataset ops

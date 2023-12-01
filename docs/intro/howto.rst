@@ -1,4 +1,7 @@
 .. index:: ! terminal, ! shell, ! command Line
+   pair: what is; command line
+   pair: what is; terminal
+   pair: what is; shell
 .. _howto:
 
 ****************
@@ -148,6 +151,9 @@ Windows systems
     Set an :term:`environment variable` ``NAME`` to ``Value`` for your current terminal session
 
 
+.. index:: ! paths
+   pair: what is; prompt
+
 The prompt
 ==========
 When you first login on the command line, you are greeted with "the prompt",
@@ -164,6 +170,7 @@ the reader to quickly differentiate between lines containing commands vs the
 output of those commands.
 
 .. index:: ! paths
+   pair: what is; path
 
 Paths
 =====
@@ -274,6 +281,8 @@ In order to quickly get home, you could use
 
 More information on Windows paths can be found `here <https://learn.microsoft.com/en-us/windows/win32/fileio/naming-a-file>`_.
 
+.. index:: text editor
+
 Text editors
 ============
 
@@ -306,6 +315,8 @@ Git for Windows might set :term:`vim` as the default editor upon installation, w
 A good graphical alternative is Notepad++, a powerful Windows-native text editor.
 You may either be able to configure this during the installation, of afterwards by running ``git config core.editor notepad``.
 
+
+.. index:: shell
 
 Shells
 ======

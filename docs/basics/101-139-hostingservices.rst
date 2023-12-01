@@ -1,3 +1,5 @@
+.. index::
+   pair: push to Git hosting; with DataLad
 .. _share_hostingservice:
 
 Publishing datasets to Git repository hosting

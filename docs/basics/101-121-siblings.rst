@@ -1,3 +1,5 @@
+.. index::
+   pair: update dataset; with DataLad
 .. _sibling:
 
 Networking

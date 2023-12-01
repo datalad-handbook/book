@@ -1,3 +1,5 @@
+.. index::
+   pair: reproducibility; with DataLad
 .. _sharelocal3:
 
 Retrace and reenact

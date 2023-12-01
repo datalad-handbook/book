@@ -1,3 +1,5 @@
+.. index::
+   pair: containerized data analysis; with DataLad
 .. _containersrun:
 
 Computational reproducibility with software containers

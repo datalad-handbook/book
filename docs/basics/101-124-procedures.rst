@@ -1,4 +1,5 @@
 .. index:: ! procedures, run-procedures
+   pair: standardized configuration; with DataLad
 .. _procedures:
 
 Configurations to go

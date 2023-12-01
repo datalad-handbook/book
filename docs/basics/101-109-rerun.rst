@@ -1,5 +1,6 @@
 .. index::
    pair: rerun; DataLad command
+   pair: reproducibility; with DataLad
 .. _run2:
 
 DataLad, rerun!

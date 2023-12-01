@@ -1,3 +1,5 @@
+.. index::
+   pair: what is; DataLad
 .. _executive_summary:
 
 What you really need to know

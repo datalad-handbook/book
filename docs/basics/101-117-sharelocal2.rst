@@ -1,3 +1,6 @@
+.. index::
+   pair: data sharing; with DataLad
+   pair: data availability tracking; with git-annex
 .. _sharelocal2:
 
 Where's Waldo?

@@ -1,3 +1,5 @@
+.. index::
+   pair: populate dataset; with DataLad
 .. _populate:
 
 Populate a dataset

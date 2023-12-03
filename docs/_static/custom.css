@@ -170,3 +170,15 @@ progress::-webkit-progress-bar {
   content: "↷ "
 }
 
+/* Get a compact URL index list */
+div.book-v1-url-index.docutils.container p {
+  display: inline;
+}
+div.book-v1-url-index.docutils.container dl.field-list {
+  display: grid;
+  grid-template-columns: max-content auto;
+  align-items: center;
+}
+div.book-v1-url-index.docutils.container dl.field-list dt {
+  word-break: unset !important;
+}

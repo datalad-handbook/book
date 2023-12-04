@@ -25,6 +25,19 @@ the `companion repository <https://github.com/datalad-handbook/course>`_ provide
 Before you read on, please note that this version of the handbook is based on **at least** DataLad version **0.17**, and the higher your version of DataLad is, the better.
 The section :ref:`install` will set you up with what you need if you currently do not have DataLad 0.17 or higher installed.
 
+.. importantnote:: Did you know ...
+
+    ... that you can also easily get a **physical copy** of this book?
+
+	.. image:: perma/book-intro-v1/intro-v1-cover.jpg
+	   :width: 50%
+	   :align: center
+	   :target: https://handbook.datalad.org/en/latest/perma/book-intro-v1.html
+
+    For example from a book store near you (ISBN 979-8857037973), or from any amazon site (e.g., `US <https://www.amazon.com/dp/B0CPDB4YMY>`_ or `EU <https://amzn.eu/d/e6A7nAO>`_).
+
+
+
 If you're new here, please start the handbook :ref:`here <philo>`.
 Alternatively, try to identify with one of several user-types in this
 :ref:`user specific guide to the handbook <usertypes>`.

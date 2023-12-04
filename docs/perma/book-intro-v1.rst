@@ -4,7 +4,10 @@ Datalad --- An Introduction to Research Data Management
 =======================================================
 
 This page is the online companion to the paperback book
-published in 2023.
+published in 2023, available from a book store near you
+(ISBN 979-8857037973), or from any amazon site (e.g.,
+`US <https://www.amazon.com/dp/B0CPDB4YMY>`_ or
+`EU <https://amzn.eu/d/e6A7nAO>`_).
 
 .. image:: book-intro-v1/intro-v1-cover.jpg
    :align: center
@@ -220,3 +223,11 @@ an up-to-date URL.
    :X1D: https://xkcd.com/2083
    :X1E: https://xkcd.com/979
    :Z1: https://zenodo.org
+
+
+Sources
+-------
+
+The PDF version of the published book is built from customized LaTeX sources,
+originally generated with Sphinx. The sources are available from
+https://github.com/datalad-handbook/book-datalad-intro

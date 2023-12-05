@@ -51,7 +51,7 @@ As this method can just as easily provide you with a browseable-but-small-in-siz
    datalad clone ///openneuro # install superdataset
    cd openneuro
    # install all openneuro datasets but do not retrieve data (this takes time)
-   datalad get -n openneuro/ds*
+   datalad get -n ds*
 
 What's DataLad and why should I use it to do this?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

@@ -42,7 +42,7 @@ If you're new here, please start the handbook :ref:`here <philo>`.
 Alternatively, try to identify with one of several user-types in this
 :ref:`user specific guide to the handbook <usertypes>`.
 
-.. importantnote:: The handbook is currently in beta stage.
+.. importantnote:: The handbook is a collaborative resource
 
    If you would be willing to provide feedback on its contents, please
    `get in touch <https://github.com/datalad-handbook/book/issues/new>`_.

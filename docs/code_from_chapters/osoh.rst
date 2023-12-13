@@ -230,30 +230,6 @@ If you don't need a file anymore, you can drop its content to free up disk space
 This mechanism gives you access to data without the necessity to store all of the data locally.
 Your analysis dataset links the exact data it requires in just a few bytes, with actionable access to retrieve the data on demand, and your computer can have access to more data than your hard drive can store.
 
-A look under the hood...
-^^^^^^^^^^^^^^^^^^^^^^^^
-
-Whenever a file's content is not available after cloning a dataset, this file is internally managed by the second version control tool, :term:`git-annex`.
-
-.. figure:: ../artwork/src/publishing/publishing_gitvsannex.svg
-
-Git will never know an annexed file's content, it will only know its content identity (to ensure data integrity at all times) and all the locations where file content of this file exists.
-So when you clone a dataset, Git will show you the file name, and datalad get will retrieve the file contents on demand from wherever they are stored.
-
-Consider the nilearn tutorial we added to the dataset.
-This file is annexed, and its location information is kept internally.
-If you run the following command, you will see a list of known file content locations were the content can be reretrieved from if you drop it locally::
-
-   git annex whereis code/nilearn-tutorial.pdf
-
-Just as your dataset can have multiple linked clones (in DataLad's terms, :term:`sibling`\s), each annexed file can have multiple possible registered sources, from web sources, cloud infrastructure, scientific clusters to USB-sticks.
-This `decentral approach to data management <https://doi.org/10.1515/nf-2020-0037>`_ has advantages for data consumers and producers:
-You can create a resilient, decentral network where several data sources can provide access even if some sources fail, and regardless of where data is hosted, data retrieval is streamlined and works with the same command.
-As long as there is one location where data is available from (a dataset on a shared cluster, a web source, cloud storage, a USB-stick, ...) and this source is known, there is no need for storing data when it is not in use.
-Moreover, this mechanism allows to exert fine-grained access control over files.
-You can share datasets publicly, but only authorized actors might be able to get certain file contents.
-
-
 Digital provenance
 ^^^^^^^^^^^^^^^^^^
 
@@ -369,7 +345,7 @@ To get an overview on publishing datasets, however, you best go to :ref:`shareth
 Another convenient way is `Gin <https://gin.g-node.org>`_, a free hosting service for DataLad datasets.
 
 First, you need to head over to `gin.g-node.org <https://gin.g-node.org>`__, log in, and upload an :term:`SSH key`. Then, under your user account, create a new repository, and copy it's SSH URL.
-A step by step instruction with screenshots is in the section :ref:`gin`.
+A step by step instruction with screenshots is in the section :ref:`gin`::
 
    datalad create-sibling-gin \
     example-analysis \
@@ -391,6 +367,29 @@ If you keep it private, you can invite your collaborators via the Gin webinterfa
 By the way: Now that your data is stored in a second place, you can drop the local copies to save
 disk space.
 If necessary, you can reobtain the data from Gin again via :dlcmd:`get`.
+
+A look under the hood...
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+Whenever a file's content is not available after cloning a dataset, this file is internally managed by the second version control tool, :term:`git-annex`.
+
+.. figure:: ../artwork/src/publishing/publishing_gitvsannex.svg
+
+Git will never know an annexed file's content, it will only know its content identity (to ensure data integrity at all times) and all the locations where file content of this file exists.
+So when you clone a dataset, Git will show you the file name, and datalad get will retrieve the file contents on demand from wherever they are stored.
+
+Consider the nilearn tutorial we added to the dataset.
+This file is annexed, and its location information is kept internally.
+If you run the following command, you will see a list of known file content locations were the content can be reretrieved from if you drop it locally::
+
+   git annex whereis code/nilearn-tutorial.pdf
+
+Just as your dataset can have multiple linked clones (in DataLad's terms, :term:`sibling`\s), each annexed file can have multiple possible registered sources, from web sources, cloud infrastructure, scientific clusters to USB-sticks.
+This `decentral approach to data management <https://doi.org/10.1515/nf-2020-0037>`_ has advantages for data consumers and producers:
+You can create a resilient, decentral network where several data sources can provide access even if some sources fail, and regardless of where data is hosted, data retrieval is streamlined and works with the same command.
+As long as there is one location where data is available from (a dataset on a shared cluster, a web source, cloud storage, a USB-stick, ...) and this source is known, there is no need for storing data when it is not in use.
+Moreover, this mechanism allows to exert fine-grained access control over files.
+You can share datasets publicly, but only authorized actors might be able to get certain file contents.
 
 
 

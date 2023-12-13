@@ -130,6 +130,7 @@ Code lists from chapters
    code_from_chapters/yale
    code_from_chapters/dgpa
    code_from_chapters/neurohackademy
+   code_from_chapters/osoh.rst
 ..
   stuff that we do not need or show at the moment
 

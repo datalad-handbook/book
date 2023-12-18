@@ -283,7 +283,7 @@ on where the RIA store (should) exists, or rather, which file transfer protocol
 
 - A URL to an :term:`SSH`\-accessible server has a ``ria+ssh://`` prefix, followed
   by user and hostname specification and an **absolute** path:
-  ``ria+ssh://[user@]hostname:/absolute/path/to/ria-store``
+  ``ria+ssh://[user@]hostname/absolute/path/to/ria-store``
 - A URL to a store on a local file system has a ``ria+file://`` prefix,
   followed by an **absolute** path: ``ria+file:///absolute/path/to/ria-store``
 
@@ -462,7 +462,7 @@ Depending on the protocol being used, the URLs are composed similarly to during
 sibling creation:
 
 - A URL to a RIA store on an :term:`SSH`\-accessible server takes the
-  same format as before: ``ria+ssh://[user@]hostname:/absolute/path/to/ria-store``
+  same format as before: ``ria+ssh://[user@]hostname/absolute/path/to/ria-store``
 - A URL to a RIA store on a local file system also looks like during sibling
   creation: ``ria+file:///absolute/path/to/ria-store``
 - A URL for read (without annex) access to a store via :term:`http` (e.g., to a RIA store like

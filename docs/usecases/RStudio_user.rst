@@ -1,7 +1,7 @@
 .. _usecase_Rstat:
 
 DataLad and RStudio: First steps
----------------------------
+--------------------------------
 
 .. index:: ! Usecase; R users quickstart
 

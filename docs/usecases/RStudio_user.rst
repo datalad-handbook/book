@@ -1,4 +1,4 @@
-.. \_usecase_Rstat:
+.. _usecase_Rstat:
 
 DataLad and RStudio: First steps
 ---------------------------

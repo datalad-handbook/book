@@ -25,7 +25,7 @@ All over the handbook, version notes or information relating to datalad versions
 #### Advanced
 
 #### Usecases
-- A new usecase about encrypted workflows is now part of the handbook ([#895][])
+- A new use case about encrypted workflows is now part of the handbook ([#895][])
 
 #### Miscellaneous additions
 - The Makefile in the source repository received a more intuitive and fine-grained structure ([#901][])
@@ -100,7 +100,7 @@ It includes contributions the new contributors @eort, @mslw, @tguiot, @jhpb7 and
 
 - The GitHub project of the handbook now uses templates for easier issue generation. ([#768][])
 - A number of CSS improvements fix the rendering of bullet points ([#770][])
-- The ML usecase was minified to speed up builds ([#790][])
+- The ML use case was minified to speed up builds ([#790][])
 - A new code list for the DGPA workshop was added  ([#820][])
 
 ## v0.15 (November 25 2021) -- LaTeX improvements

@@ -60,17 +60,17 @@ If you can, try to avoid trouble with unicode
 =============================================
 
 Lucky are the people with boring names without accents and special characters.
-The others may have an extra bit of fun in their lives when software can not handle their names.
+The others may have an extra bit of fun in their lives when software cannot handle their names.
 
 Even though certain names look identical across file systems or operating systems, their underlying unicode character sequences can differ.
 For example, the character "é" can be represented as the single Unicode character u+00E9 (latin small letter e with acute), or as the two Unicode characters u+0065 and u+0301 (the letter "e" plus a combining acute symbol).
 This is called `canonical equivalence <https://en.wikipedia.org/wiki/Unicode_equivalence>`_ and can be  confusing: While file names are visually indistinguishable, certain tools, operating systems, or file systems can normalize their underlying unicode differently and cause errors in the process.
-It becomes a problem, potentially even leading to permanent data loss, when `one tool or filesystem won't recognize a file anymore that has been normalized by a different tool or filesystem <https://web.archive.org/web/20100109162824/http://forums.macosxhints.com/archive/index.php/t-99344.html>`_.
+It becomes a problem, potentially even leading to permanent data loss, when `one tool or file system won't recognize a file anymore that has been normalized by a different tool or file system <https://web.archive.org/web/20100109162824/http://forums.macosxhints.com/archive/index.php/t-99344.html>`_.
 
-Apple's HFS Plus filesystem always normalizes file names to a `fully decomposed form <https://developer.apple.com/library/archive/technotes/tn/tn1150.html#UnicodeSubtleties>`_.
+Apple's HFS Plus file system always normalizes file names to a `fully decomposed form <https://developer.apple.com/library/archive/technotes/tn/tn1150.html#UnicodeSubtleties>`_.
 "é" would be represented as two Unicode characters u+0065 and u+0301, in that order.
 Windows treats filenames as opaque character sequences and will store and return the encoded bytes exactly as provided.
-Linux and other common Unix systems are generally similar to Windows in storing and returning opaque byte streams, but this behavior is technically dependent on the filesystem.
+Linux and other common Unix systems are generally similar to Windows in storing and returning opaque byte streams, but this behavior is technically dependent on the file system.
 And utilities used for file management, transfer, and archiving may ignore this issue, apply an arbitrary normalization form, or allow the user to control how normalization is applied.
 Having special characters in your file names thus is a bit like a data management version of russian roulette.
 Most things will likely be fine, but at some point, with some tool, sharing to some system, things could just blow up.
@@ -87,7 +87,7 @@ Avoid illegal characters
 Different operating systems disallow certain characters in file names, and things will be messy if you were to share a file with a character that works on your machine with a machine that regards it as illegal.
 Let's start easy, and with characters that you can actually find on your keyboard...
 
-On Unix systems, the forward slash ``/`` can not be used in file names.
+On Unix systems, the forward slash ``/`` cannot be used in file names.
 This is because this character is used to denote directory boundaries.
 On Windows systems, on the other hand, there is quite a long list of characters:
 
@@ -159,7 +159,7 @@ Prevent paths to be interpreted as command line arguments
 While it's not "illegal" to start a directory of file name with a hyphen (``-``), it's a bad idea, and doing so is disallowed by certain tools due to security risks.
 In theory, a file name starting with a hyphen can clash with a command line argument, and a tool called to operate on that file may then misinterpret it as an argument name.
 If you were to create a file called ``-n`` on a Unix system, an ``ls`` or ``cat`` on this file (unless you would add a ``./`` prefix to indicate a file in the current directory) would behave different than expected, parametrizing the command line tool instead of displaying any file information.
-Because this can be a security hazard, for example leading to remote code execution, `Git will refuse to operate on submodules that start with a hyphen (CVE-2018-17456) <https://www.exploit-db.com/exploits/45631>`_.
+Because this can be a security hazard, leading to remote code execution for example, `Git will refuse to operate on submodules that start with a hyphen (CVE-2018-17456) <https://www.exploit-db.com/exploits/45631>`_.
 
 Other hassles
 =============

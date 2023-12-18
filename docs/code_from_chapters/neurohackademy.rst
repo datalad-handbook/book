@@ -59,7 +59,7 @@ Here is an example with R::
 
 In the command line, typical usage consists of the ``datalad`` main command, optionally parametrized with additional flags, followed by a subcommand and its own optional flags.
 
-.. image:: ../artwork/src/command-structure.png
+.. figure:: ../artwork/src/command-structure.png
 
 Here is an example with a main command, subcommand, and subcommand option::
 
@@ -400,7 +400,7 @@ In order to permanently wipe a subdataset, you need ``remove`` (which internally
    datalad remove input
 
 However, both commands have built-in security checks.
-They require that dropped files can be re-obtained to prevent accidental data loss, and that removed datasets could be re-cloned in their most recent version from other places, i.e., that there is a sibling that has all revisions that exist locally.
+They require that dropped files can be reobtained to prevent accidental data loss, and that removed datasets could be re-cloned in their most recent version from other places, i.e., that there is a sibling that has all revisions that exist locally.
 
 Dropping one of the just computed figures will fail because of this check::
 

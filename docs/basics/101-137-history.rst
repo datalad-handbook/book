@@ -6,7 +6,7 @@ Back and forth in time
 
 Almost everyone inadvertently deleted or overwrote files at some point with
 a hasty operation that caused data fatalities or at least troubles to
-re-obtain or restore data.
+reobtain or restore data.
 With DataLad, no mistakes are forever: One powerful feature of datasets
 is the ability to revert data to a previous state and thus view earlier content or
 correct mistakes. As long as the content was version controlled (i.e., tracked),
@@ -50,7 +50,7 @@ done. For the rest of the lecture, call me Google!"
 Fixing (empty) commit messages
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-From the back of the lecture hall comes a question you're really glad
+From the back of the lecture hall comes a question you are really glad
 someone asked: "It has happened to me that I accidentally did a
 :dlcmd:`save` and forgot to specify the commit message,
 how can I fix this?".
@@ -119,6 +119,22 @@ Try running the :gitcmd:`commit --amend` command right now and give
 the commit a new commit message (you can just delete the one created by
 DataLad in the editor)!
 
+.. index::
+   pair: save --amend; DataLad command
+   pair: add changes to previous commit; with DataLad
+   pair: change the last commit message; with DataLad
+.. gitusernote:: 'git commit --amend' versus 'datalad save --amend'
+
+   Similar to ``git commit``, ``datalad save`` also has an ``--amend`` option.
+   Like its Git equivalent, it can be used to record changes not in a new, separate commit, but integrate them with the previously saved state.
+   Though this has not been the use case for ``git commit --amend`` here, experienced Git users will be accustomed to using ``git commit --amend`` to achieve something similar in their Git workflows.
+   In contrast to ``git commit --amend``, ``datalad save --amend`` will not open up an interactive editor to potentially change a commit message (unless the configuration ``datalad.save.no-message`` is set to ``interactive``), but a new commit message can be supplied with the ``-m``/``--message`` option.
+
+
+.. index::
+   pair: change historical commit messages; with Git
+   pair: rebase; Git command
+   pair: rewrite history; with Git
 .. find-out-more:: Changing the commit messages of not-the-most-recent commits
    :name: fom-rebase1
    :float:
@@ -129,12 +145,12 @@ DataLad in the editor)!
    can do so during a so-called "interactive rebase". The command
    for this is
 
-   .. code-block:: bash
+   .. code-block:: console
 
       $ git rebase -i HEAD~N
 
    where ``N`` specifies how far back you want to rewrite commits.
-   ``git rebase -i HEAD~3`` for example lets you apply changes to the
+   ``git rebase -i HEAD~3``, for example, lets you apply changes to the
    any number of commit messages within the last three commits.
 
    Be aware that an interactive rebase lets you *rewrite* history.
@@ -188,6 +204,9 @@ DataLad in the editor)!
    But be careful not to delete any lines in the above editor view --
    **An interactive rebase can be dangerous, and if you remove a line, this commit will be lost!**
 
+.. index::
+   pair: stop content tracking; with Git
+
 Untracking accidentally saved contents (tracked in Git)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -218,9 +237,9 @@ undo commits by resetting the history of a dataset to an earlier version.
 exact behavior it, but the relevant one for this aim is ``--mixed`` [#f3]_.
 Specifying the command:
 
-.. code-block:: bash
+.. code-block:: console
 
-   git reset --mixed COMMIT
+   $ git reset --mixed COMMIT
 
 will preserve all changes made to files since the specified
 commit in the dataset but remove them from the dataset's history.
@@ -234,6 +253,9 @@ try this to get a feel for it.
 The COMMIT in the command can either be a hash or a reference
 with the HEAD pointer.
 
+.. index::
+   pair: branch; Git concept
+   pair: HEAD; Git concept
 .. find-out-more:: Git terminology: branches and HEADs?
 
    A Git repository (and thus any DataLad dataset) is built up as a tree of
@@ -252,7 +274,7 @@ with the HEAD pointer.
    `less frequently used and of importance primarily in the case of merge
    commits <https://stackoverflow.com/q/2221658/10068927>`__.
 
-Let's stay with the hash, and reset to the commit prior to saving the Gitjokes.
+Let's stay with the hash, and reset to the commit prior to saving the Git jokes.
 
 First, find out the shasum, and afterwards, reset it.
 
@@ -313,6 +335,9 @@ Finally, let's check how the history looks afterwards:
 
 Wow! You have rewritten history [#f4]_!
 
+.. index::
+   pair: stop content tracking; with git-annex
+
 Untracking accidentally saved contents (stored in git-annex)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -337,9 +362,9 @@ gets annexed with an accidental :dlcmd:`save`:
    :language: console
    :workdir: dl-101/DataLad-101
 
-   # create an empty pdf file
+   $ # create an empty pdf file
    $ convert xc:none -page Letter apdffile.pdf
-   # accidentally save it
+   $ # accidentally save it
    $ datalad save
 
 This accidental :dlcmd:`save` has thus added both text files
@@ -488,12 +513,15 @@ prior :gitcmd:`checkout` (note that the output is shortened for brevity and show
    :lines: 2, 48-
    :realcommand: echo "$ git cat-file --textconv $(git rev-parse HEAD~15):notes.txt" && git cat-file --textconv $(git rev-parse HEAD~15):notes.txt
 
+.. index::
+   pair: cat-file; Git command
+
 The cat-file command is very versatile, and
 `it's documentation <https://git-scm.com/docs/git-cat-file>`_ will list all
 of its functionality. To use it to see the contents of a file at a previous
 state as done above, this is how the general structure looks like:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ git cat-file --textconv SHASUM:<path/to/file>
 
@@ -619,7 +647,10 @@ under which situations and how to perform such an interactive rebase.
 However, outlining an interactive rebase here in the handbook could lead to
 problems for readers without (much) Git experience: An interactive rebase,
 even if performed successfully, can lead to many problems if it is applied with
-too little experience, for example in any collaborative real-world project.
+too little experience, for example, in any collaborative real-world project.
+
+.. index::
+   pair: revert; Git command
 
 Instead, we demonstrate a different, less intrusive way to revert one or more
 changes at any point in the history of a dataset: the :gitcmd:`revert`
@@ -629,18 +660,20 @@ the changes of an unwanted commit are reverted.
 
 The command looks like this:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ git revert SHASUM
 
 where ``SHASUM`` specifies the commit hash of the modification that should
 be reverted.
 
+.. index::
+   pair: revert multiple commit; with Git
 .. find-out-more:: Reverting more than a single commit
 
    You can also specify a range of commits like this:
 
-   .. code-block:: bash
+   .. code-block:: console
 
       $ git revert OLDER_SHASUM..NEWERSHASUM
 
@@ -652,7 +685,7 @@ be reverted.
    reversal commits. If you however want the reversal of a range of commits
    saved in a single commit, supply the ``--no-commit`` option as in
 
-   .. code-block:: bash
+   .. code-block:: console
 
       $ git revert --no-commit OLDER_SHASUM..NEWERSHASUM
 
@@ -706,6 +739,9 @@ As you can see, unsurprisingly, the :gitcmd:`revert` command had no
 effects on anything else but the specified commit, and previously untracked
 files are still present.
 
+.. index::
+   pair: resolve merge conflict; with Git
+
 Oh no! I'm in a merge conflict!
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -745,7 +781,7 @@ To conclude this section, let's remove all untracked contents from
 the dataset. This can be done with :gitcmd:`clean`: The command
 :gitcmd:`clean -f` swipes your dataset clean and removes any untracked
 file.
-**Careful! This is not revertible, and content lost with this commands can not be recovered!**
+**Careful! This is not revertible, and content lost with this commands cannot be recovered!**
 If you want to be extra sure, run :gitcmd:`clean -fn` beforehand -- this will
 give you a list of the files that would be deleted.
 
@@ -784,10 +820,10 @@ to remove the ``Gitjoke2.txt`` file.
 .. [#f1] For example, the :dlcmd:`rerun` command introduced in section
          :ref:`run2` takes such a hash as an argument, and re-executes
          the ``datalad run`` or ``datalad rerun`` :term:`run record` associated with
-         this hash. Likewise, the :gitcmd:`diff` can work with commit hashes.
+         this hash. Likewise, the :gitcmd:`diff` command can work with commit hashes.
 
 .. [#f2] There are other alternatives to reference commits in the history of a dataset,
-         for example "counting" ancestors of the most recent commit using the notation
+         for example, "counting" ancestors of the most recent commit using the notation
          ``HEAD~2``, ``HEAD^2`` or ``HEAD@{2}``. However, using hashes to reference
          commits is a very fail-save method and saves you from accidentally miscounting.
 

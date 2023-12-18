@@ -5,11 +5,11 @@ $ datalad meta-extract -d . metalad_core | jq
 {
   "type": "dataset",
   "dataset_id": "2d540a9d-2ef7-4b5f-8931-7c92f483f0c7",
-  "dataset_version": "19f2d98d✂SHA1",
+  "dataset_version": "66aa4e8a✂SHA1",
   "extractor_name": "metalad_core",
   "extractor_version": "1",
   "extraction_parameter": {},
-  "extraction_time": 1691514094.1297715,
+  "extraction_time": 1698916640.0831163,
   "agent_name": "Elena Piscopia",
   "agent_email": "elena@example.net",
   "extracted_metadata": {
@@ -25,16 +25,19 @@ $ datalad meta-extract -d . metalad_core | jq
         "email": "adina.wagner@t-online.de"
       },
       {
-        "@id": "19f2d98d✂SHA1",
+        "@id": "66aa4e8a✂SHA1",
         "identifier": "2d540a9d-2ef7-4b5f-8931-7c92f483f0c7",
         "@type": "Dataset",
-        "version": "0-2-g19f2d98",
+        "version": "0-3-g66aa4e8",
         "dateCreated": "2023-02-13T07:48:15+01:00",
-        "dateModified": "2023-02-13T07:55:38+01:00",
+        "dateModified": "2023-11-01T13:08:02+01:00",
         "hasContributor": {
           "@id": "d3765bf6✂MD5"
         },
         "distribution": [
+          {
+            "@id": "4aef00ff-3027-4364-911a-98905cdbdf8d"
+          },
           {
             "@id": "b8938507-77c0-4479-84a6-cbeb41214ca6"
           },

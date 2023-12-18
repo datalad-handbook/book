@@ -1,4 +1,4 @@
-# view the last 15 lines of notes.txt
+$ # view the last 15 lines of notes.txt
 $ tail notes.txt
 
 Note that a recursive "datalad get" would install all further

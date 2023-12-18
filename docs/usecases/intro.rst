@@ -11,8 +11,9 @@ Provided you have read the previous :ref:`basics-intro` sections, the usecases' 
 examples are sufficient (though sparser than in Basics) to recreate or apply
 the solutions they demonstrate.
 
-.. figure:: ../artwork/src/recipe.svg
+.. image:: ../artwork/src/recipe.svg
    :width: 70%
+   :align: center
 
 .. toctree::
    :maxdepth: 1

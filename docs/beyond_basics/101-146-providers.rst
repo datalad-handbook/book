@@ -8,7 +8,7 @@ protocol from various data storage solutions via its downloading commands
 (:dlcmd:`download-url`, :dlcmd:`addurls`,
 :dlcmd:`get`).
 If data retrieval from a storage solution requires *authentication*,
-for example via a username and password combination, DataLad provides an
+for example, via a username and password combination, DataLad provides an
 interface to query, request, and store the most common type of credentials that
 are necessary to authenticate, for a range of authentication types.
 There are a number of natively supported types of authentication and out-of-the
@@ -29,7 +29,7 @@ authentication, the procedure is always the same:
 Upon first access via any downloading command, users will be prompted for their
 credentials from the command line. Subsequent downloads handle authentication
 in the background as long as the credentials stay valid. An example of this
-credential management is shown in the usecase :ref:`usecase_HCP_dataset`:
+credential management is shown in the use case :ref:`usecase_HCP_dataset`:
 Data is stored in S3 buckets that require authentication with AWS credentials.
 The first :dlcmd:`get` to retrieve any of the data will prompt for
 the credentials from the terminal. If the given credentials are valid, the
@@ -62,7 +62,7 @@ dataset -- lacks a configuration for data access about this server::
 
 However, data access can be configured by
 the user if the required authentication and credential type are supported by
-DataLad (a list is given in the hidden section below).
+DataLad - a list is given in the :find-out-more:`on authentication <fom-provider-auth>`.
 With a data access configuration in place, commands such as
 :dlcmd:`download-url` or :dlcmd:`addurls` can work with urls
 the point to the location of the data to be retrieved, and
@@ -82,6 +82,7 @@ The following information is needed:
 The example below sheds some light one this.
 
 .. find-out-more:: Which authentication and credential types are possible?
+   :name: fom-provider-auth
 
    When configuring custom data access, credential and authentication type
    are required information. Below, we list the most common choices for these fields.

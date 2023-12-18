@@ -12,6 +12,3 @@ EOT
 $ datalad save -m "Add note on adding siblings"
 add(ok): notes.txt (file)
 save(ok): . (dataset)
-action summary:
-  add (ok: 1)
-  save (ok: 1)

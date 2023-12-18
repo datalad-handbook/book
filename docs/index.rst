@@ -7,27 +7,6 @@
    :scale: 100%
    :alt: Animated DataLad logo
 
-|
-
-===========================
-Join us at distribits 2024!
-===========================
-
-############################################
-Technologies for distributed data management
-############################################
-
-.. image:: _static/distribits-teaser.jpg
-   :width: 100%
-   :align: left
-
-The first distribits meeting will happen on April 18th to April 20th, 2024, at
-"Haus der Universität", Düsseldorf, Germany, with the aim of bringing together
-enthusiasts of tools and workflows in the domain of distributed data.
-
-Go to `distribits.live <https://distribits.live>`_ for more information and to register!
-
-
 ============
 The Handbook
 ============
@@ -46,11 +25,24 @@ the `companion repository <https://github.com/datalad-handbook/course>`_ provide
 Before you read on, please note that this version of the handbook is based on **at least** DataLad version **0.17**, and the higher your version of DataLad is, the better.
 The section :ref:`install` will set you up with what you need if you currently do not have DataLad 0.17 or higher installed.
 
+.. importantnote:: Did you know ...
+
+    ... that you can also easily get a **physical copy** of this book?
+
+	.. image:: perma/book-intro-v1/intro-v1-cover.jpg
+	   :width: 50%
+	   :align: center
+	   :target: https://handbook.datalad.org/en/latest/perma/book-intro-v1.html
+
+    For example from a book store near you (ISBN 979-8857037973), or from any amazon site (e.g., `US <https://www.amazon.com/dp/B0CPDB4YMY>`_ or `EU <https://amzn.eu/d/e6A7nAO>`_).
+
+
+
 If you're new here, please start the handbook :ref:`here <philo>`.
 Alternatively, try to identify with one of several user-types in this
 :ref:`user specific guide to the handbook <usertypes>`.
 
-.. importantnote:: The handbook is currently in beta stage.
+.. importantnote:: The handbook is a collaborative resource
 
    If you would be willing to provide feedback on its contents, please
    `get in touch <https://github.com/datalad-handbook/book/issues/new>`_.
@@ -110,6 +102,7 @@ Appendix
    contributing
    teaching
    acknowledgements
+   licenses
    intro/user_types
    OHBMposter
    usecases/openneuro
@@ -137,6 +130,7 @@ Code lists from chapters
    code_from_chapters/yale
    code_from_chapters/dgpa
    code_from_chapters/neurohackademy
+   code_from_chapters/osoh.rst
 ..
   stuff that we do not need or show at the moment
 
@@ -146,4 +140,6 @@ Code lists from chapters
        :hidden:
 
        usecases/datasets
+       topic_index
        r
+       perma/book-intro-v1

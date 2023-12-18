@@ -8,9 +8,9 @@ and making simple modifications *locally*.
   to the dataset and use the ``-c text2git`` configuration, but we will see later why.
   This is the command structure:
 
-  .. code-block:: bash
+  .. code-block:: console
 
-    datalad create --description "here is a description" -c text2git PATH
+    $ datalad create --description "here is a description" -c text2git PATH
 
 * Thanks to :term:`Git` and :term:`git-annex`, the dataset has a history to track files and their
   modifications. Built-in Git tools (:gitcmd:`log`) or external tools (such as ``tig``) allow to explore
@@ -23,9 +23,9 @@ and making simple modifications *locally*.
   specifying a path, all untracked files and all file changes will be committed to the history together!
   This is the command structure:
 
-  .. code-block:: bash
+  .. code-block:: console
 
-    datalad save -m "here is a commit message" [PATH]
+    $ datalad save -m "here is a commit message" [PATH]
 
 * The typical local workflow is simple: *Modify* the dataset by adding or
   modifying files, *save* the changes as meaningful units to the history,
@@ -48,11 +48,12 @@ and making simple modifications *locally*.
 Furthermore, we have discovered the basics of installing a published DataLad dataset,
 and experienced the concept of modular nesting datasets.
 
-.. index:: ! datalad command; clone
+.. index::
+   pair: clone; DataLad command
 
 * A published dataset can be installed with the :dlcmd:`clone` command:
 
-  .. code-block:: bash
+  .. code-block:: console
 
      $ datalad clone [--dataset PATH] SOURCE-PATH/URL [DESTINATION PATH]
 
@@ -66,7 +67,7 @@ and experienced the concept of modular nesting datasets.
 * If a dataset is installed inside of another dataset as a subdataset, the
   ``--dataset``/``-d`` option needs to specify the root of the containing dataset, the superdataset.
 
-* The source can be a URL (for example of a GitHub repository, as in section :ref:`installds`), but also
+* The source can be a URL, for example of a GitHub repository as in section :ref:`installds`, but also
   paths, or open data collections.
 
 * After :dlcmd:`clone`, only small files and metadata about file availability are present locally.
@@ -80,11 +81,11 @@ and experienced the concept of modular nesting datasets.
   version of a contained subdataset through an identifier.
 
 
-Now what I can do with that?
+Now what can I do with that?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Simple, local workflows allow you to version control changing small files,
-for example your CV, your code, or a book that you are working on, but
+for example, your CV, your code, or a book that you are working on, but
 you can also add very large files to your datasets history.
 Currently, this can be considered "best-practice building": Frequent :dlcmd:`status`
 commands, :dlcmd:`save` commands to save dataset modifications,

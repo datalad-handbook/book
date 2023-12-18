@@ -45,7 +45,7 @@ want to run by taking a look into the history of the dataset
    :notes: More cool things on shared datasets: rerunning run commands
    :cast: 04_collaboration
 
-   # navigate into the shared copy
+   $ # navigate into the shared copy
    $ cd ../mock_user/DataLad-101
 
 .. runrecord:: _examples/DL-101-118-102
@@ -55,7 +55,7 @@ want to run by taking a look into the history of the dataset
    :notes: find the shasum
    :cast: 04_collaboration
 
-   # lets view the history
+   $ # lets view the history
    $ git log --oneline -n 10
 
 Ah, there it is, the second most recent commit.
@@ -74,8 +74,7 @@ command:
 file content from the subdataset and it tried to unlock the output
 prior to the command execution. Note that because you did not retrieve
 the output, ``recordings/salt_logo_small.jpg``, yet, the missing content
-could not be unlocked. DataLad warns you about this, but proceeds
-successfully.
+could not be "unlocked", but is reportedly "removed" prior to the successful rerun.
 
 Your room mate now not only knows how exactly the resized file
 came into existence, but he can also reproduce your exact steps to

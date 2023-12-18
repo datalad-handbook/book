@@ -1,9 +1,8 @@
+.. index:: ! Usecase; Basic provenance tracking
 .. _usecase_provenance_tracking:
 
 Basic provenance tracking
 -------------------------
-
-.. index:: ! Usecase; Basic provenance tracking
 
 This use case demonstrates how the provenance of downloaded and generated files
 can be captured with DataLad by
@@ -229,4 +228,4 @@ again and remembers this small project fondly.
 .. [#f2] If you want to learn more about :dlcmd:`run`, read on from
          section :ref:`run`.
 .. [#f3] Find out more about working with the history of a dataset with Git in
-         section :ref:`filesystem`
+         section :ref:`file system`

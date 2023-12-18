@@ -46,14 +46,14 @@ As the handbook is to be a practical guide it includes as many hands-on examples
 as we can fit into it. Code snippets look like this, and you should
 **copy them into your own terminal to try them out**, but you can also
 **modify them to fit your custom needs in your own use cases**.
-Note how we distinguish ``comments (#)`` from ``commands ($)`` and their output
+Note how we distinguish ``comments ($ #)`` from ``commands ($)`` and their output
 in the example below (it shows the creation of a DataLad dataset):
 
-.. code-block:: bash
+.. code-block:: console
 
-   # this is a comment used for additional explanations.
-   # Anything preceded by $ is a command to try.
-   # if the line starts with neither # nor $, its the output of a command
+   $ # This is a comment used for additional explanations.
+   $ # Otherwise, anything preceded by $ is a command to try.
+   $ # If the line starts with no $, it is an output of a command.
    $ datalad create myfirstrepo
    [INFO   ] Creating a new annex repo at /home/me/DataLad-101
    create(ok): /home/me/DataLad-101 (dataset)
@@ -68,10 +68,10 @@ right of each code snippet.
 Clicking on that icon will copy all relevant lines from the code snippet,
 and will drop all comments and the ``$`` automatically.
 
-Whenever you see a ✂ symbol, command output has been shortened for easier readability.
+Whenever you see a ✂ symbol, command output has been shortened for better readability.
 In the example below, the commit :term:`shasum` has been shortened and marked with ``✂SHA1``.
 
-.. code-block:: bash
+.. code-block:: console
 
    $ git log --reverse
    commit 8df130bb✂SHA1
@@ -133,11 +133,11 @@ You can decide for yourself whether you want to check them out:
    the book when there is no better alternative, and executing those commands will
    suffice to follow along.
 
-If you are a Windows 10 user with a native (i.e., not `Windows Subsystem for Linux (WSL) <https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux>`_-based DataLad installation, pay close attention to the special notes in so-called "Windows-Wits":
+If you are a Windows user with a native (i.e., not `Windows Subsystem for Linux (WSL) <https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux>`_-based) DataLad installation, pay close attention to the special notes in so-called "Windows-Wits":
 
 .. windows-wit:: For Windows users only
 
-   A range of file system issues can affect the behavior of DataLad or its underlying tools on Windows 10.
+   A range of file system issues can affect the behavior of DataLad or its underlying tools on Windows.
    If necessary, the handbook provides workarounds for problems, explanations, or at least apologies for those inconveniences.
    If you want to help us make the handbook or DataLad better for Windows users, please `get in touch <https://github.com/datalad-handbook/book/issues/new>`_ -- every little improvement or bug report can help.
 
@@ -222,7 +222,7 @@ share and publish with DataLad.
 .. figure:: ../artwork/src/student.svg
    :width: 70%
 
-.. find-out-more:: I can not/do not want to code along...
+.. find-out-more:: I cannot/do not want to code along...
    :name: fom-lazy
    :float:
 
@@ -243,6 +243,6 @@ share and publish with DataLad.
 Let's get going!
 ----------------
 
-If you have DataLad installed, you can dive straight into chapter 1, :ref:`createDS`.
+If you have DataLad installed, you can dive straight into chapter :ref:`createDS`.
 For everyone new, there are the sections :ref:`howto` as a minimal tutorial
 to using the shell and :ref:`install` to get your DataLad installation set up.

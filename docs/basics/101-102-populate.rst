@@ -16,6 +16,9 @@ Let's first create a directory to save books for additional reading in.
 
    $ mkdir books
 
+.. index::
+   pair: tree; terminal command
+
 Let's take a look at the current directory structure with the tree command [#f1]_:
 
 .. runrecord:: _examples/DL-101-102-102
@@ -36,25 +39,20 @@ are all free, in total about 15 MB), and save them in ``DataLad-101/books``.
 
 You can either visit the links and save them in ``books/``,
 or run the following commands [#f2]_ to download the books right from the terminal.
-Note that we line break the command with ``\`` signs. In your own work you can write
+Note that we line break the command with ``\`` line continuation characters. In your own work you can write
 commands like this into a single line. If you copy them into your terminal as they
 are presented here, make sure to check the :windows-wit:`on peculiarities of its terminals
 <ww-no-multiline-commands>`.
 
+.. index::
+   pair: line continuation; on Windows in a terminal
 .. windows-wit:: Terminals other than Git Bash can't handle multi-line commands
    :name: ww-no-multiline-commands
 
-   In Unix shells, ``\`` can be used to split a command into several lines, for example to aid readability.
-   Standard Windows terminals (including the Anaconda prompt) do not support this.
-   They instead use the ``^`` character:
+   .. include:: topic/terminal-linecontinuation.rst
 
-   .. code-block:: bash
-
-     $ wget -q https://sourceforge.net/projects/linuxcommand/files/TLCL/19.01/TLCL-19.01.pdf/download ^
-     -O TLCL.pdf
-
-   If you are not using the Git Bash, you will either need to copy multi-line commands into a single line, or use ``^`` (make sure that there is **no space** afterwards) instead of ``\``.
-
+.. index::
+   pair: download file; with wget
 .. runrecord:: _examples/DL-101-102-103
    :language: console
    :workdir: dl-101/DataLad-101
@@ -66,28 +64,20 @@ are presented here, make sure to check the :windows-wit:`on peculiarities of its
      -O TLCL.pdf
    $ wget -q https://github.com/swaroopch/byte-of-python/releases/download/vadb91fc6fce27c58e3f931f5861806d3ccd1054c/byte-of-python.pdf \
      -O byte-of-python.pdf
-   # get back into the root of the dataset
+   $ # get back into the root of the dataset
    $ cd ../
 
 Some machines will not have :shcmd:`wget` available by default, but any command that can
 download a file can work as an alternative. See the :windows-wit:`for the popular alternative
 curl <ww-curl-instead-wget>`.
 
+.. index::
+   pair: curl instead of wget; on Windows
+   pair: download file; with curl
 .. windows-wit:: You can use curl instead of wget
    :name: ww-curl-instead-wget
 
-   Many versions of Windows do not ship with the tool ``wget``.
-   You can install it, but it may be easier to use the pre-installed ``curl`` command:
-
-   .. code-block:: bash
-
-      $ cd books
-      $ curl -L https://sourceforge.net/projects/linuxcommand/files/TLCL/19.01/TLCL-19.01.pdf/download \
-        -o TLCL.pdf
-      $ curl -L https://github.com/swaroopch/byte-of-python/releases/download/vadb91fc6fce27c58e3f931f5861806d3ccd1054c/byte-of-python.pdf \
-        -o byte-of-python.pdf
-      $ cd ../
-
+   .. include:: topic/curl-instead-wget.rst
 
 Let's see what happened. First of all, in the root of ``DataLad-101``, show the directory
 structure with tree:
@@ -100,7 +90,9 @@ structure with tree:
 
    $ tree
 
-.. index:: ! datalad command; status
+.. index::
+   pair: status; DataLad command
+   pair: check dataset for modification; with DataLad
 
 Now what does DataLad do with this new content? One command you will use very
 often is :dlcmd:`status`.
@@ -115,7 +107,9 @@ regular status reports should become a habit in the wake of ``DataLad-101``.
 
    $ datalad status
 
-.. index:: ! datalad command; save
+.. index::
+   pair: save; DataLad command
+   pair: save dataset modification; with DataLad
 
 Interesting; the ``books/`` directory is "untracked". Remember how content
 *can* be tracked *if a user wants to*?
@@ -140,7 +134,9 @@ about commit messages because :dlcmd:`save` ultimately uses the command
 If you ever forget to specify a message, or made a typo, not all is lost. A
 :find-out-more:`explains how to amend a saved state <fom-amend-save>`.
 
-.. find-out-more:: "Oh no! I forgot the -m option for datalad-save!"
+.. index::
+   pair: amend commit message; with Git
+.. find-out-more:: "Oh no! I forgot the -m option for 'datalad save'!"
    :name: fom-amend-save
    :float:
 
@@ -166,10 +162,14 @@ Large content is tracked in an *annex* that is automatically
 created and handled by DataLad. Whether text files or larger files change,
 all of these changes can be written to your DataLad dataset's history.
 
+.. index::
+   pair: log; Git command
+   pair: show last commit; with Git
+
 Let's see how the saved content shows up in the history of the dataset with :gitcmd:`log`.
 The option ``-n 1`` specifies that we want to take a look at the most recent commit.
 In order to get a bit more details, we add the ``-p`` flag. If you end up in a
-pager, navigate with up and down arrow keys and leave the log by typing ``q``:
+:term:`pager`, navigate with up and down arrow keys and leave the log by typing ``q``:
 
 .. runrecord:: _examples/DL-101-102-107
    :language: console
@@ -187,6 +187,8 @@ the directory ``books/``, and thanks to that commit message we have a nice
 human-readable summary of that action. A :find-out-more:`explains what makes
 a good message <fom-commit-message-guidance>`.
 
+.. index::
+   pair: recommendation; commit message
 .. find-out-more:: DOs and DON'Ts for commit messages
    :name: fom-commit-message-guidance
    :float: tbp
@@ -207,6 +209,8 @@ a good message <fom-commit-message-guidance>`.
 
     - Do not say nasty things about other people
 
+.. index::
+   pair: no staging; with DataLad
 .. gitusernote:: There is no staging area in DataLad
 
    Just as in Git, new files are not tracked from their creation on, but only when
@@ -222,7 +226,7 @@ in the same commit. And ... what happens if I have files I do not want to track?
 :dlcmd:`save -m "some commit message"` would save all of what is currently
 untracked or modified in the dataset into the history!"
 
-Regarding your first remark, you're absolutely right!
+Regarding your first remark, you are absolutely right!
 It is good practice to save only those changes
 together that belong together. We do not want to squish completely unrelated changes
 into the same spot of our history, because it would get very nasty should we want to
@@ -262,10 +266,12 @@ Let's give :dlcmd:`save` precisely this file by specifying its path after the co
 
    $ datalad save -m "add reference book about git" books/progit.pdf
 
-Regarding your second remark, you're right that a :dlcmd:`save` without a
+Regarding your second remark, you are right that a :dlcmd:`save` without a
 path specification would write all of the currently untracked files or modifications
 to the history. But check the :find-out-more:`on how to tell it otherwise <fom-save-updated-only>`.
 
+.. index::
+   pair: save already tracked files only; with DataLad
 .. find-out-more:: How to save already tracked dataset components only?
    :name: fom-save-updated-only
    :float:
@@ -280,13 +286,15 @@ to the history. But check the :find-out-more:`on how to tell it otherwise <fom-s
 
 A :dlcmd:`status` should now be empty, and our dataset's history should look like this:
 
+.. index::
+   pair: show history (compact); with Git
 .. runrecord:: _examples/DL-101-102-111
    :workdir: dl-101/DataLad-101
    :language: console
    :cast: 01_dataset_basics
    :notes: Let's view the growing history (concise with the --oneline option):
 
-   # lets make the output a bit more concise with the --oneline option
+   $ # lets make the output a bit more concise with the --oneline option
    $ git log --oneline
 
 “Wonderful! I’m getting a hang on this quickly”, you think. “Version controlling
@@ -386,9 +394,8 @@ Well done! Your ``DataLad-101`` dataset and its history are slowly growing.
 .. [#f1] ``tree`` is a Unix command to list file system content. If it is not yet installed,
    you can get it with your native package manager (e.g.,  ``apt``, ``brew``, or conda).
    For example, if you use OSX, ``brew install tree``  will get you this tool.
-   On Windows, if you have the Miniconda-based installation described in :ref:`install`, you can install the ``m2-base`` package (``conda install m2-base``), which contains tree along with many other Unix-like commands.
-   Note that this tree works slightly different than its Unix equivalent - it will only display directories, not files, and it doesn't accept common options or flags.
-   It will also display *hidden* directories, i.e., those that start with a ``.`` (dot).
+   Windows has its own ``tree`` command.
+   Note that this ``tree`` works slightly different than its Unix equivalent - by default, it will only display directories, not files, and the command options it accepts are either ``/f`` (display file names) or ``/a`` (change display of subdirectories to text instead of graphic characters).
 
 .. [#f2] ``wget`` is a Unix command for non-interactively downloading files from the
    web. If it is not yet installed, you can get it with your native package manager (e.g.,

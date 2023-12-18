@@ -13,12 +13,15 @@ or changes you make to your dataset, and stay up to date.
 This is because a DataLad dataset makes updating shared
 data a matter of a single :dlcmd:`update --how merge` command.
 
-But why does this need to be a one-way line? "I want to
+But why does this need to be a one-way street? "I want to
 provide helpful information for you as well!", says your
 room mate. "How could you get any insightful notes that
 I make in my dataset, or maybe the results of our upcoming
 mid-term project? Its a bit unfair that I can get your work,
-but you can not get mine."
+but you cannot get mine."
+
+.. index::
+   pair: register file with URL in dataset; with DataLad
 
 Consider, for example, that your room mate might have googled about DataLad
 a bit. In the depths of the web, he might have found useful additional information, such
@@ -26,7 +29,7 @@ a script on `dataset nesting <https://raw.githubusercontent.com/datalad/datalad.
 Because he found this very helpful in understanding dataset
 nesting concepts, he decided to download it from GitHub, and saved it in the ``code/`` directory.
 
-He does it using the datalad command :dlcmd:`download-url`
+He does it using the DataLad command :dlcmd:`download-url`
 that you experienced in section :ref:`createDS` already: This command will
 download a file just as ``wget``, but it can also take a commit message
 and will save the download right to the history of the dataset that you specify,
@@ -41,17 +44,17 @@ and run the following command
    :notes: Let's make changes in the copy of the original ds
    :cast: 04_collaboration
 
-   # navigate into the installed copy
+   $ # navigate into the installed copy
    $ cd ../mock_user/DataLad-101
 
-   # download the shell script and save it in your code/ directory
+   $ # download the shell script and save it in your code/ directory
    $ datalad download-url \
      -d . \
      -m "Include nesting demo from datalad website" \
      -O code/nested_repos.sh \
      https://raw.githubusercontent.com/datalad/datalad.org/7e8e39b1/content/asciicast/seamless_nested_repos.sh
 
-Run a quick datalad status:
+Run a quick ``datalad status``:
 
 .. runrecord:: _examples/DL-101-121-102
    :language: console
@@ -64,7 +67,7 @@ Run a quick datalad status:
 Nice, the :dlcmd:`download-url` command saved this download
 right into the history, and :dlcmd:`status` does not report
 unsaved modifications! We'll show an excerpt of the last commit
-here:
+here [#f1]_:
 
 .. runrecord:: _examples/DL-101-121-103
    :language: console
@@ -86,9 +89,11 @@ Do we need to install the installed dataset of our room mate
 as a copy again?
 
 No, luckily, it's simpler and less convoluted. What we have to
-do is to *register* a datalad :term:`sibling`: A reference to our room mate's
+do is to *register* a DataLad :term:`sibling`: A reference to our room mate's
 dataset in our own, original dataset.
 
+.. index::
+   pair: sibling; DataLad concept
 .. gitusernote:: Remote siblings
 
    Git repositories can configure clones of a dataset as *remotes* in
@@ -97,7 +102,9 @@ dataset in our own, original dataset.
 
 Let's see how this is done.
 
-.. index:: ! datalad command; siblings
+.. index::
+   pair: siblings; DataLad command
+   pair: register sibling in dataset; with DataLad
 
 First of all, navigate back into the original dataset.
 In the original dataset, "add" a "sibling" by using
@@ -117,7 +124,7 @@ This registers your room mate's ``DataLad-101`` as a "sibling" (we will call it
    :cast: 04_collaboration
 
    $ cd ../../DataLad-101
-   # add a sibling
+   $ # add a sibling
    $ datalad siblings add -d . \
      --name roommate --url ../mock_user/DataLad-101
 
@@ -130,9 +137,10 @@ but as you provide a path and not a URL, there is no host name to take as a defa
 
 As you can see in the command output, the addition of a :term:`sibling` succeeded:
 ``roommate(+)[../mock_user/DataLad-101]`` means that your room mate's dataset
-is now known to your own dataset as "roommate"
+is now known to your own dataset as "roommate".
 
-
+.. index::
+   pair: list dataset siblings; with DataLad
 .. runrecord:: _examples/DL-101-121-105
    :language: console
    :workdir: dl-101/DataLad-101
@@ -144,6 +152,8 @@ is now known to your own dataset as "roommate"
 This command will list all known siblings of the dataset. You can see it
 in the resulting list with the name "roommate" you have given to it.
 
+.. index::
+   pair: remove dataset sibling; with DataLad
 .. find-out-more:: What if I mistyped the name or want to remove the sibling?
 
    You can remove a sibling using :dlcmd:`siblings remove -s roommate`
@@ -171,6 +181,9 @@ dataset, *but it will not yet integrate them into your dataset*.
 This gives you a chance to see whether you actually want to have the
 changes your room mate made.
 
+.. index::
+   pair: update dataset from particular sibling; with DataLad
+
 Let's see how it's done. First, run a plain :dlcmd:`update` without
 the ``--how merge`` option.
 
@@ -188,7 +201,7 @@ updates from. It would have worked without the specification (just as a bare
 :dlcmd:`update --how merge` worked for your room mate), because there is only
 one other known location, though.
 
-This plain :dlcmd:`update` informs you that it "fetched" updates from
+This plain :dlcmd:`update` "fetched" updates from
 the dataset. The changes however, are not yet visible -- the script that
 he added is not yet in your ``code/`` directory:
 
@@ -224,15 +237,13 @@ do a ``diff`` between the branch (your drawer) and the dataset as it
 is currently in front of you (your desk). We will do the latter, and leave
 the former for a different lecture:
 
-.. windows-wit:: Please use datalad diff --from main --to remotes/roommate/main
+.. index::
+   pair: corresponding branch; in adjusted mode
+   pair: show dataset modification for particular path; on Windows with DataLad
+   pair: diff; DataLad command
+.. windows-wit:: Please use 'datalad diff --from main --to remotes/roommate/main'
 
-   Please use the following command instead:
-
-   .. code-block:: bash
-
-      datalad diff --from main --to remotes/roommate/main
-
-   This syntax specifies the :term:`main` :term:`branch` as a starting point for the comparison instead of the current ``adjusted/main(unlocked)`` branch.
+   .. include:: topic/adjustedmode-diff-remote.rst
 
 .. runrecord:: _examples/DL-101-121-108
    :language: console
@@ -246,15 +257,13 @@ This shows us that there is an additional file, and it also shows us
 that there is a difference in ``notes.txt``! Let's ask
 :gitcmd:`diff` to show us what the differences in detail (note that it is a shortened excerpt, cut in the middle to reduce its length):
 
-.. windows-wit:: Please use git diff main..remotes/roommate/main
+.. index::
+   pair: corresponding branch; in adjusted mode
+   pair: show dataset modification; on Windows with Git
+   pair: diff; DataLad command
+.. windows-wit:: Please use 'git diff main..remotes/roommate/main'
 
-   Please use the following command instead:
-
-   .. code-block:: bash
-
-     git diff main..remotes/roommate/main
-
-   This is :term:`Git`\s syntax for specifying a comparison between two :term:`branch`\es.
+   .. include:: topic/adjustedmode-gitdiff-remote.rst
 
 .. runrecord:: _examples/DL-101-121-109
    :language: console
@@ -310,7 +319,7 @@ directory and also peek into the history:
 .. runrecord:: _examples/DL-101-121-112
    :language: console
    :lines: 1-6
-   :emphasize-lines: 2, 3
+   :emphasize-lines: 2, 4
    :workdir: dl-101/DataLad-101
    :notes: and here is the summary in the log
    :cast: 04_collaboration
@@ -326,7 +335,7 @@ do not use Git, but a later section will get into the details of what
 the meaning of ":term:`merge`", ":term:`branch`", "refs"
 or ":term:`main`" is.
 
-For now, you're happy to have the changes your room mate made available.
+For now, you are happy to have the changes your room mate made available.
 This is how it should be! You helped him, and he helps you. Awesome!
 There actually is a wonderful word for it: *Collaboration*.
 Thus, without noticing, you have successfully collaborated for the first
@@ -352,6 +361,10 @@ Create a note about this, and save it.
 
    EOT
    $ datalad save -m "Add note on adding siblings"
+
+.. rubric:: Footnotes
+
+.. [#f1] As this example, simplistically, created a "pretend" room mate by only changing directories, not user accounts, the recorded Git identity of your "room mote" will, of course, be the same as yours.
 
 .. only:: adminmode
 

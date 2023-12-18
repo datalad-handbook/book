@@ -1,22 +1,12 @@
-$ git log -p -n 1
-commit a7188cde✂SHA1
-Author: Elena Piscopia <elena@example.net>
-Date:   Tue Jun 18 16:13:00 2019 +0000
+$ git status
+On branch main
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	deleted:    recordings/interval_logo_small.jpg
+	deleted:    recordings/salt_logo_small.jpg
 
-    move book back from midterm_project
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	recordings/interval_logo_small.jpg
+	recordings/salt_logo_small.jpg
 
-diff --git a/books/TLCL.pdf b/books/TLCL.pdf
-new file mode 120000
-index 0000000..4c84b61
---- /dev/null
-+++ b/books/TLCL.pdf
-@@ -0,0 +1 @@
-+../.git/annex/objects/jf/3M/✂/MD5E-s2120211--06d1efcb✂MD5.pdf
-\ No newline at end of file
-diff --git a/midterm_project b/midterm_project
-index cbfdcb5..ccbba1e 160000
---- a/midterm_project
-+++ b/midterm_project
-@@ -1 +1 @@
--Subproject commit cbfdcb5d✂SHA1
-+Subproject commit ccbba1ec✂SHA1

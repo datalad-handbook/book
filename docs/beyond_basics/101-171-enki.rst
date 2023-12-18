@@ -14,7 +14,7 @@ Walkthrough: Parallel ENKI preprocessing with fMRIprep
 
 The previous section has been an overview on parallel, provenance-tracked computations in DataLad datasets.
 While the general workflow entails a complete setup, it is usually easier to understand it by seeing it applied to a concrete usecase.
-Its even more informative if that usecase includes some complexities that do not exist in the "picture-perfect" example but are likely to arise in real life.
+Its even more informative if that use case includes some complexities that do not exist in the "picture-perfect" example but are likely to arise in real life.
 Therefore, the following walk-through in this section is a write-up of an existing and successfully executed analysis.
 
 The analysis
@@ -145,7 +145,7 @@ This initial sketch serves to highlight key differences and adjustments due to t
    :emphasize-lines: 10, 13, 19-20, 24, 43-44
 
    # everything is running under /tmp inside a compute job,
-   # /tmp is job-specific local filesystem not shared between jobs
+   # /tmp is job-specific local file system not shared between jobs
    $ cd /tmp
 
    # clone the superdataset with locking
@@ -191,9 +191,9 @@ This initial sketch serves to highlight key differences and adjustments due to t
    # job handler should clean up workspace
 
 Just like the general script from the last section, this script can be submitted to any job scheduler -- here with a subject ID as a ``$subid`` command line variable and a job ID as environment variable as identifiers for the fMRIprep run and branch names.
-At this point, the workflow misses a tweak that is necessary in fMRIprep to enable re-running computations  (the complete file is in :ref:`this Findoutmore <fom-enki>`.
+At this point, the workflow misses a tweak that is necessary in fMRIprep to enable rerunning computations  (the complete file is in :ref:`this Findoutmore <fom-enki>`.
 
-.. find-out-more:: Fine-tuning: Enable re-running
+.. find-out-more:: Fine-tuning: Enable rerunning
 
    If you want to make sure that your dataset is set up in a way that you have the ability to rerun a computation quickly, the following fMRIprep-specific consideration is important:
    If fMRIprep finds preexisting results, it will fail to run.
@@ -224,7 +224,7 @@ At this point, the workflow misses a tweak that is necessary in fMRIprep to enab
       subid=$(basename $1)
 
       # this is all running under /tmp inside a compute job, /tmp is a performant
-      # local filesystem
+      # local file system
       cd /tmp
       # get the output dataset, which includes the inputs as well
       # flock makes sure that this does not interfere with another job
@@ -247,7 +247,7 @@ At this point, the workflow misses a tweak that is necessary in fMRIprep to enab
       # let git-annex know that we do not want to remember any of these clones
       # (we could have used an --ephemeral clone, but that might deposite data
       # of failed jobs at the origin location, if the job runs on a shared
-      # filesystem -- let's stay self-contained)
+      # file system -- let's stay self-contained)
       git submodule foreach --recursive git annex dead here
 
    .. code-block:: bash

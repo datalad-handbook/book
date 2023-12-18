@@ -1,3 +1,6 @@
+.. index::
+   pair: create; DataLad command
+   pair: create dataset; with DataLad
 .. _createDS:
 
 Create a dataset
@@ -19,33 +22,35 @@ useful features.
 Because experiencing is more insightful than just reading, we will explore the
 concepts of DataLad datasets together by creating one.
 
-.. index:: ! datalad command; create
-
 Find a nice place on your computer's file system to put a dataset for ``DataLad-101``,
 and create a fresh, empty dataset with the :dlcmd:`create` command.
 
 Note the command structure of :dlcmd:`create` (optional bits are enclosed in ``[ ]``):
 
-.. code-block:: bash
+.. code-block::
 
   datalad create [--description "..."] [-c <config options>] PATH
 
-.. find-out-more:: What is the description option of datalad-create?
+.. _createdescription:
+.. index::
+   pair: set description for dataset location; with DataLad
+.. find-out-more:: What is the description option of 'datalad create'?
 
    The optional ``--description`` flag allows you to provide a short description of
    the *location* of your dataset, for example with
 
-   .. code-block:: bash
+   .. code-block:: console
 
-      datalad create --description "course on DataLad-101 on my private Laptop" -c text2git DataLad-101
+      $ datalad create --description "course on DataLad-101 on my private laptop" -c text2git DataLad-101
 
-   If you want, use the above command instead of the :dlcmd:`create` command below
-   to provide a description. Its use will not be immediately clear, the chapter
-   :ref:`chapter_collaboration`) will show you where this description
+   If you want, use the above command instead to provide a description. Its use will not be immediately clear now, but the chapter
+   :ref:`chapter_collaboration` shows where this description
    ends up and how it may be useful.
 
 Let's start:
 
+.. index::
+   pair: create dataset; with DataLad
 .. runrecord:: _examples/DL-101-101-101
    :language: console
    :workdir: dl-101
@@ -78,7 +83,7 @@ can be tracked (should you want them to be tracked).
 *Tracking* in this context means that edits done to a file are automatically
 associated with information about the change, the author of the edit,
 and the time of this change. This is already informative important on its own
--- the :term:`provenance` captured with this can for example be used to learn
+-- the :term:`provenance` captured with this can, for example, be used to learn
 about a file's lineage, and can establish trust in it.
 But what is especially helpful is that previous states of files or directories
 can be restored. Remember the last time you accidentally deleted content
@@ -87,12 +92,17 @@ mistakes are forever. We will see many examples of this later in the book,
 and such information is stored in what we will refer
 to as the *history* of a dataset.
 
+.. index::
+   pair: log; Git command
+   pair: exit pager; in a terminal
+   pair: show history; with Git
+
 This history is almost as small as it can be at the current state, but let's take
 a look at it. For looking at the history, the code examples will use :gitcmd:`log`,
 a built-in :term:`Git` command [#f1]_ that works right in your terminal. Your log
-*might* be opened in a `terminal pager <https://en.wikipedia.org/wiki/Terminal_pager>`_
+*might* be opened in a terminal :term:`pager`
 that lets you scroll up and down with your arrow keys, but not enter any more commands.
-If this happens, you can get out of git log by pressing ``q``.
+If this happens, you can get out of ``git log`` by pressing ``q``.
 
 .. runrecord:: _examples/DL-101-101-103
    :language: console
@@ -107,21 +117,13 @@ We can see two :term:`commit`\s in the history of the repository.
 Each of them is identified by a unique 40 character sequence, called a
 :term:`shasum`.
 
-.. windows-wit:: Your Git log may be more extensive - use "git log main" instead!
+.. index::
+   pair: log; Git command
+   pair: corresponding branch; in adjusted mode
+   pair: show history; on Windows
+.. windows-wit:: Your Git log may be more extensive - use 'git log main' instead!
 
-   The output of :gitcmd:`log` shown in the handbook and the output you will see in your own datasets when executing the same commands may not always match -- many times you might see commits about a "git-annex adjusted branch" in your history.
-   This is expected, and if you want to read up more about this, please progress on to chapter :ref:`chapter_gitannex` and afterwards take a look at `this part of git-annex documentation <https://git-annex.branchable.com/design/adjusted_branches>`_.
-
-   In order to get a similar experience in your dataset, please add the name of your default :term:`branch` (it will likely have the name ``main`` or ``master``) to every ``git log`` command.
-   This should display the same output that the handbook displays.
-   The reason behind this is that datasets are using a special :term:`branch` to be functional on Windows.
-   This branch's history differs from the history that would be in the default branch.
-   With this workaround, you will be able to display the dataset history from the same branch that the handbook and all other operating system display.
-   Thus, whenever the handbook code snippet contains a line that starts with ``git log``, copy it and append the term ``main`` or ``master``, whichever is appropriate.
-
-   If you are eager to help to improve the handbook, you could do us a favor by reporting any places with mismatches between Git logs on Windows and in the handbook.
-   `Get in touch <https://github.com/datalad-handbook/book/issues/new>`_!
-
+   .. include:: topic/adjustedmode-log.rst
 
 Highlighted in this output is information about the author and about
 the time, as well as a :term:`commit message` that summarizes the
@@ -135,6 +137,8 @@ While these commits were produced and described by DataLad,
 in most other cases, you will have to create the commit and
 an informative commit message yourself.
 
+.. index::
+   pair: create dataset; DataLad concept
 .. gitusernote:: Create internals
 
    :dlcmd:`create` uses :gitcmd:`init` and :gitannexcmd:`init`. Therefore,

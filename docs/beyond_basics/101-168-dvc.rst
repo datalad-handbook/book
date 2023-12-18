@@ -25,7 +25,7 @@ This tutorial consists of the following steps:
 
 This handbook section demonstrates how DataLad could be used as an alternative to DVC.
 We demonstrate each step with DVC according to their tutorial, and then recreate a corresponding DataLad workflow.
-The usecase :ref:`usecase_ML` demonstrates a similar analysis in a completely DataLad-centric fashion.
+The use case :ref:`usecase_ML` demonstrates a similar analysis in a completely DataLad-centric fashion.
 If you want to, you can code along, or simply read through the presentation of DVC and DataLad commands.
 Some familiarity with DataLad can be helpful, but if you have never used DataLad, footnotes in each section can point you relevant chapters for more insights on a command or concept.
 If you have never used DVC, `its documentation <https://dvc.org/doc>`_ (including the `command reference <https://dvc.org/doc/command-reference>`_) can answer further questions.
@@ -172,7 +172,7 @@ As they are only *staged* but not *committed*, we need to commit them (into Git)
 
 The DVC project is now ready to version control data.
 In the tutorial, data comes from the "Imagenette" dataset.
-This data is available `from an Amazon S3 bucket <https://s3.amazonaws.com/fast-ai-imageclas/imagenette2-160.tgz>`_ as a compressed tarball, but to keep the download fast, there is a smaller two-category version of it on the :term:`Open Science Framework (OSF)`.
+This data is available `from an Amazon S3 bucket <https://s3.amazonaws.com/fast-ai-imageclas/imagenette2-160.tgz>`_ as a compressed tarball, but to keep the download fast, there is a smaller two-category version of it on the :term:`Open Science Framework` (OSF).
 We'll download it and extract it into the ``data/raw/`` directory of the repository.
 
 .. runrecord:: _examples/DL-101-168-109
@@ -319,8 +319,8 @@ DVC uses the term "data remote" to refer to external storage locations for (larg
 
 Both DVC and DataLad support a range of hosting solutions, from local paths and SSH servers to providers such as S3 or GDrive.
 For DVC, every supported remote is pre-implemented, which restricts the number of available services (a list is `here <https://dvc.org/doc/command-reference/remote/add>`_), but results in a convenient, streamlined procedure for adding remotes based on URL schemes.
-DataLad, largely thanks to "external special remotes" mechanism of git-annex, has more storage options (in addition for example :ref:`DropBox <sharethirdparty>`, `the Open Science Framework (OSF) <https://docs.datalad.org/projects/osf>`_, :ref:`Git LFS <gitlfs>`, :ref:`Figshare <figshare>`, :ref:`GIN <gin>`, or :ref:`RIA stores <riastore>`), but depending on selected storage provider, the procedure to add a sibling may differ.
-In addition, DataLad is able to store complete datasets (annexed data *and* Git repository) in certain services (e.g., OSF, GIN, GitHub if used with GitLFS, Dropbox, ...), enabling a clone from for example Google Drive, and while DVC can never keep data in Git repository hosting services, DataLad can do this if the hosting service supports hosting annexed data (default on :term:`Gin` and possible with :term:`GitHub`, :term:`GitLab` or :term:`BitBucket` if used with `GitLFS <https://git-lfs.com>`_).
+DataLad, largely thanks to "external special remotes" mechanism of git-annex, has more storage options (in addition, for example, :ref:`DropBox <sharethirdparty>`, `the Open Science Framework (OSF) <https://docs.datalad.org/projects/osf>`_, :ref:`Git LFS <gitlfs>`, :ref:`Figshare <figshare>`, :ref:`GIN <gin>`, or :ref:`RIA stores <riastore>`), but depending on selected storage provider, the procedure to add a sibling may differ.
+In addition, DataLad is able to store complete datasets (annexed data *and* Git repository) in certain services (e.g., OSF, GIN, GitHub if used with GitLFS, Dropbox, ...), enabling a clone from, for example, Google Drive, and while DVC can never keep data in Git repository hosting services, DataLad can do this if the hosting service supports hosting annexed data (default on :term:`Gin` and possible with :term:`GitHub`, :term:`GitLab` or :term:`BitBucket` if used with `GitLFS <https://git-lfs.com>`_).
 
 
 DVC workflow
@@ -470,9 +470,9 @@ DataLad workflow
 Because the OSF archive containing the raw data is known and stored in the dataset, it strictly speaking isn't necessary to create a storage sibling to push the data to -- DataLad already treats the original web location as storage.
 Currently, the dataset can thus be shared via :term:`GitHub` or similar hosting services, and the data can be retrieved using :dlcmd:`get`.
 
+.. index::
+   pair: create-sibling-github; DataLad command
 .. find-out-more:: Really?
-
-   .. index:: ! datalad command; create-sibling-github
 
    Sure.
    Let's demonstrate this.
@@ -517,9 +517,10 @@ Currently, the dataset can thus be shared via :term:`GitHub` or similar hosting 
 
 Here's an example of pushing a dataset to a local sibling nevertheless:
 
-**Step 1: Set up the sibling**
+.. index::
+   pair: create-sibling; DataLad command
 
-.. index:: ! datalad command; create-sibling
+**Step 1: Set up the sibling**
 
 The easiest way to share data is via a local sibling [#f7]_.
 This won't share only annexed data, but it instead will push everything, including the Git aspect of the dataset.
@@ -875,7 +876,7 @@ Instead of creating a pipeline stage and giving it a name, we attach a meaningfu
 The results of this computation are automatically saved and associated with their inputs and command execution.
 This information isn't stored in a separate file, but in the Git history, and saved with the commit message we have attached to the :dlcmd:`run` command.
 
-To stay close to the DVC tutorial, we will also work with tags to identify analysis versions, but DataLad could also use a range of other identifiers, for example commit hashes, to identify this computation.
+To stay close to the DVC tutorial, we will also work with tags to identify analysis versions, but DataLad could also use a range of other identifiers (such as commit hashes) to identify this computation.
 As we at this point have set up our data and are ready for the analysis, we will name the first tag "ready-for-analysis".
 This can be done with :gitcmd:`tag`, but also with :dlcmd:`save`.
 
@@ -992,7 +993,7 @@ We could automatically compute this on a different branch if we wanted to by usi
    $ datalad rerun --branch="randomforest" -m "Recompute classification with random forest classifier" ready-for-analysis..SGD
 
 Done!
-The difference in accuracies between models could now for example be compared with a ``git diff``:
+The difference in accuracies between models could now, for example, be compared with a ``git diff``:
 
 
 .. runrecord:: _examples/DL-101-168-179
@@ -1028,7 +1029,7 @@ DataLad and DVC aim to solve the same problems: Version control data, sharing da
 DataLad provides generic solutions to these issues, while DVC is tuned for machine-learning pipelines.
 Despite their similar purpose, the looks, feels and functions of both tools are different, and it is a personal decision which one you feel more comfortable with.
 Using DVC requires solid knowledge of Git, because DVC workflows heavily rely on effective Git practices, such as branching, tags, and ``.gitignore`` files.
-But despite the reliance on Git, DVC barely integrates with Git -- changes done to files in DVC can not be detected by Git and vice versa, DVC and Git aspects of a repository have to be handled in parallel by the user, and DVC and Git have distinct command functions and concepts that nevertheless share the same name.
+But despite the reliance on Git, DVC barely integrates with Git -- changes done to files in DVC cannot be detected by Git and vice versa, DVC and Git aspects of a repository have to be handled in parallel by the user, and DVC and Git have distinct command functions and concepts that nevertheless share the same name.
 Thus, DVC users need to master Git *and* DVC workflows and intertwine them correctly.
 In return, DVC provides users with workflow management and reporting tuned to machine learning analyses. It also provides a somewhat more lightweight and uniform across operating and file systems approach to "data version control" than git-annex used by DataLad.
 

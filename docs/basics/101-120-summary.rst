@@ -10,8 +10,11 @@ sharing a dataset with a simple example.
 
 * To obtain a dataset, one can also use :dlcmd:`clone` with a path.
   Potential subdatasets will not be installed right away. As they are registered in
-  the superdataset, you can do :dlcmd:`get -n/--no-data`,
-  or specify the ``-r``/``--recursive`` (``datalad get -n -r <subds>``)
+  the superdataset, you can
+
+  - do ``datalad get -n/--no-data``
+  - or specify the ``-r``/``--recursive``: ``datalad get -n -r <subds>``
+
   with a decent ``-R/--recursion-limit`` choice to install them afterwards.
 
 * The configuration of the original dataset determines which types
@@ -29,11 +32,10 @@ sharing a dataset with a simple example.
   file content sources.
 
 * :gitannexcmd:`whereis PATH` will list all locations known to contain file
-  content for a particular file. This location is where :term:`git-annex`
-  will attempt to retrieve file content from, and it is described with the
-  ``--description`` provided during a :dlcmd:`create`. It is a very
+  content for a particular file. It is a very
   helpful command to find out where file content resides, and how many
-  locations with copies exist.
+  locations with copies exist. :term:`git-annex` will try to retrieve file contents from those locations. If you want, you can describe locations with the
+  ``--description`` provided during a :dlcmd:`create`.
 
 * A shared copy of a dataset includes the datasets history. If well made,
   :dlcmd:`run` commands can then easily be ``rerun``.
@@ -55,7 +57,7 @@ sharing a dataset with a simple example.
   :dlcmd:`diff` and :gitcmd:`diff` can subsequently help to find
   out what changes have been made in the sibling.
 
-Now what I can do with that?
+Now what can I do with that?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Most importantly, you have experienced the first way of sharing
@@ -65,8 +67,8 @@ the book you will see examples in which datasets are shared on the same
 file system in surprisingly useful ways.
 
 Simultaneously, you have observed dataset properties you already knew
-(for example how annexed files need to be retrieved via :dlcmd:`get`),
-but you have also seen novel aspects of a dataset -- for example that
+(for example, how annexed files need to be retrieved via :dlcmd:`get`),
+but you have also seen novel aspects of a dataset -- for example, that
 subdatasets are not automatically installed by default, how
 :gitannexcmd:`whereis` can help you find out where file content might be stored,
 how useful commands that capture provenance about the origin or creation of files

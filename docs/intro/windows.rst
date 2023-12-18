@@ -7,11 +7,11 @@ So... Windows... eh?
 DataLad and its underlying tools work different on Windows machines.
 This makes the user experience less fun than on other operating systems -- an honest assessment.
 
-.. figure:: ../artwork/src/warning.svg
+.. image:: ../artwork/src/warning.svg
 
 
 Many software tools for research or data science are first written and released for Linux, then for Mac, and eventually Windows.
-TensorFlow for Windows was `released only a full year after it became open source <https://developers.googleblog.com/2016/11/tensorflow-0-12-adds-support-for-windows.html>`_, for example, and Python only became easy to install on Windows in `2019 <https://devblogs.microsoft.com/python/python-in-the-windows-10-may-2019-update>`_.
+TensorFlow for Windows was `released only a full year after it became open source <https://developers.googleblog.com/2016/11/tensorflow-0-12-adds-support-for-windows.html>`_ for example, and Python only became easy to install on Windows in `2019 <https://devblogs.microsoft.com/python/python-in-the-windows-10-may-2019-update>`_.
 The same is true for DataLad and its underlying tools.
 There *is* Windows support and user documentation, but it isn't as far developed as for Unix-based systems.
 This page summarizes core downsides and deficiencies of Windows, DataLad on Windows, and the user documentation.
@@ -25,17 +25,18 @@ Beyond this, Windows uses a different file system than Unix based systems.
 Given that DataLad is a data management software, it is heavily affected by this, and the Basics part of the handbook is filled with "Windows-Wits", dedicated sections that highlight different behavior on native Windows installations of DataLad, or provide adjusted commands -- nevertheless, standard DataLad operations on Windows can be much slower than on other operating systems.
 
 A major annoyance and problem is that some tools that DataLad or :term:`datalad extension`\s use are not available on Windows.
-If you are interested in adding :term:`software container`\s to your DataLad dataset (with the ``datalad-container`` extension), for example, you will likely not be able to do so on a native Windows computer -- :term:`Singularity`, a widely used containerization software, doesn't exit for Windows, and while there *is* some support for :term:`Docker` on Windows, it does not apply to most private computers [#f1]_.
+If you are interested in adding :term:`software container`\s to your DataLad dataset (with the ``datalad-container`` extension), for example, you won't be able to use :term:`Singularity`, a widely used containerization software.
+There is, however, support for :term:`Docker` on Windows.
 
 Windows also has insufficient support for :term:`symlink`\ing and locking files (i.e., revoking write :term:`permissions`), which alters how :term:`git-annex` works, and may make interoperability of datasets between Windows and non-Windows operating systems not as smooth as between various flavors of Unix-like operating systems.
 
 In addition, Windows has a (default) `maximum path length limitation of only 260 characters <https://learn.microsoft.com/en-us/windows/win32/fileio/maximum-file-path-limitation#enable-long-paths-in-windows-10-version-1607-and-later>`_.
 However, DataLad (or rather, :term:`git-annex`) relies on `file content hashing <https://en.wikipedia.org/wiki/Hash_function>`_ to ensure file integrity.
 Usually, the *longer* the `hash` that is created, the more fail-safe it is.
-For a general idea about the length of hashes, consider that many tools including :term:`git-annex` use ``SHA256`` (a 256 characters long hash) as their default.
-As git-annex represents files with their content hash as a name, though, a secure 256 character file name is too long for Windows.
-Datasets thus adjust this default to a 128 character hash [#f2]_, but still, if you place a DataLad dataset into a deeply nested directory location, you may run into issues due to hitting the path length limit [#f3]_.
-You *can* enable long paths in recent builds of Windows 10, `but it requires some tweaking <https://learn.microsoft.com/en-us/windows/win32/fileio/maximum-file-path-limitation#enable-long-paths-in-windows-10-version-1607-and-later>`_.
+For a general idea about the length of hashes, consider that many tools including :term:`git-annex` use ``SHA256`` (a 64 characters long hash) as their default.
+As git-annex represents files with their content hash as their name, and places them into a directory of the same name, half of the total path length is already used up with a ``SHA256`` hash.
+Datasets thus adjust this default to a 32 character hash [#f2]_, but still, if you place a DataLad dataset into a deeply nested directory location, you may run into issues due to hitting the path length limit [#f3]_.
+You *can* enable long paths in recent builds of Windows, `but it requires some tweaking <https://learn.microsoft.com/en-us/windows/win32/fileio/maximum-file-path-limitation#enable-long-paths-in-windows-10-version-1607-and-later>`_.
 
 Windows also doesn't really come with a decent :term:`terminal`.
 It is easy to get a nice and efficient terminal set up on macOS or Linux, it is harder on Windows.
@@ -54,7 +55,6 @@ We can adapt to limitations, but in many cases it is not possible to overcome th
 That sucks, and we're really sorry for this.
 It's not that we pick dependencies that only work on Unix-based systems -- we try to use tools that are as cross-platform-compatible as possible, but certain tools, functions, or concepts simply don't (yet) work on Windows:
 
-- As there is no way to install :term:`Singularity` or :term:`Docker` on regular Windows machines, none of the functionality that the ``datalad-container`` extension provides can be used.
 - As there is insufficient support for symlinking and locking, datasets will have a higher disk usage on Windows machines. Section :ref:`symlink` has the details on this.
 - The Windows terminals are much less user friendly, and errors that are thrown on Windows systems are typically much more complex.
 - DataLad and its underlying tools are slower on Windows.
@@ -129,7 +129,7 @@ The Windows Subsystem for Linux (version 2)
 
 If you want to have a taste of Unix on your own computer, but in the most safe and reversible way, or have essential software that only runs under Windows and really need to keep a Windows Operating System, then the Windows Subsystem for Linux (WSL2) may be a solution.
 `Microsoft acknowledges that a lot of software is assuming that the environment in which they run behaves like Linux, and has added a real Linux kernel to Windows with the WSL2 <https://learn.microsoft.com/en-us/windows/wsl/faq>`_.
-If you enable WSL2 on your Windows 10 computer, you have access to a variety of Linux distributions in the Microsoft store, and you can install them with a single click.
+If you enable WSL2 on your Windows computer, you have access to a variety of Linux distributions in the Microsoft store, and you can install them with a single click.
 The Linux distribution(s) of your choice becomes an icon on your task bar, and you can run windows and Linux in parallel.
 
 
@@ -137,7 +137,7 @@ The Linux distribution(s) of your choice becomes an icon on your task bar, and y
 It does not support graphical user (GUI) interfaces or applications.
 So while common Linux distributions have GUIs for various software, in WSL2 you will only be able to use a terminal.
 Also, it is important to know that `older versions of WSL did not allow accessing or modifying Linux files via Windows <https://devblogs.microsoft.com/commandline/do-not-change-linux-files-using-windows-apps-and-tools>`_.
-Recent versions (starting with Windows 10 version 1903) `allow accessing Linux files with Windows tools <https://devblogs.microsoft.com/commandline/whats-new-for-wsl-in-windows-10-version-1903>`_, although some tweaking, explained in :ref:`wslfiles`, is necessary.
+Recent versions (starting with Windows 10 version 1903) `allow accessing Linux files with Windows tools <https://devblogs.microsoft.com/commandline/whats-new-for-wsl-in-windows-10-version-1903>`_, although some tweaking, explained in the Windows-Wit in :ref:`wslfiles`, is necessary.
 
 **How do I start?**
 Microsoft has detailed installation instructions `here <https://learn.microsoft.com/en-us/windows/wsl/install>`_.
@@ -163,9 +163,7 @@ Take a look at user forums such as `forums.linuxmint.com <https://forums.linuxmi
 
 .. rubric:: Footnotes
 
-.. [#f1] If you are thinking, "Well, why would you use :term:`Singularity`, :term:`Docker` is available on Windows!": True, and ``datalad-container`` can indeed use Docker. But Docker can only be installed on Windows Pro or Enterprise, but not on Windows Home. Eh. :(
-
-.. [#f2] The path length limitation on Windows is the reason that DataLad datasets always use hashes based on `MD5 <https://en.wikipedia.org/wiki/MD5>`_, a hash function that produces a 128 character hash value. This wouldn't be necessary on Unix-based operating systems, but is required to ensure portability of datasets to Windows computers.
+.. [#f2] The path length limitation on Windows is the reason that DataLad datasets always use hashes based on `MD5 <https://en.wikipedia.org/wiki/MD5>`_, a hash function that produces a 32 character hash digest value. This wouldn't be necessary on Unix-based operating systems, but is required to ensure portability of datasets to Windows computers.
 
 .. [#f3] The path length limitation certainly isn't only a problem for DataLad and its underlying tools. Many users run into a Path length related problems at least once, by accident. Downloading or copying files with long names into a folder that itself has a long name, for example, can become an unexpected issue (especially if you are not aware of the limit). Imagine transferring pictures from your friends camera into ``C:\Users\"Bob McBobface"\Desktop\Pictures\"Vacation Pictures"\2020\Saint-Remy-en-Bouzemont-Saint-Genest-et-Isson\"From Alice and Sasha"\Camera\`` -- those file names shouldn't be too long to fit in the limit. Likewise, when ``git clone``\ing a :term:`Git` repository that was created on a Unix computer and contains very long file names could fail.
 

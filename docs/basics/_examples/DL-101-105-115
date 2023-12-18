@@ -1,4 +1,4 @@
-# in the root of DataLad-101:
+$ # in the root of DataLad-101:
 $ cd ../../
 $ cat << EOT >> notes.txt
 The command 'datalad clone URL/PATH [PATH]' installs a dataset from
@@ -10,6 +10,3 @@ EOT
 $ datalad save -m "Add note on datalad clone"
 add(ok): notes.txt (file)
 save(ok): . (dataset)
-action summary:
-  add (ok: 1)
-  save (ok: 1)

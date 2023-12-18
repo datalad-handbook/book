@@ -23,6 +23,8 @@ However, it is highly important to realize that while annexed file's *contents* 
 If private information such as a medical patients non-anonymized ID or other potentially identifying information becomes a part of the file name, this information is exposed in the Git history of the dataset.
 Keep in mind that this applies even if you renamed the file.
 
+.. index::
+   pair: remove sensitive information; with Git
 .. find-out-more:: Help! I accidentally saved sensitive information to Git!
 
 	The only lasting way to remove contents from the dataset history completely is to substantially rewrite the dataset's history via tools such as ``git-filter-repo`` or ``git filter-branch``, two very dangerous and potentially destructive operations.
@@ -33,7 +35,7 @@ Strategy 2: Restrict access via third party service or file system permissions
 
 When you have a dataset and only authorized actors should be allowed to access it,
 it is possible to set access restrictions simply via choice of (third party) storage permissions.
-When it is an access restricted dataset on shared infrastructure, for example a scientific dataset that only researchers who signed a data usage agreement should have access to, it could suffice to create specific `Unix groups <https://en.wikipedia.org/wiki/Group_identifier>`_ with authorized users, and give only those groups the necessary permissions.
+When it is an access restricted dataset on shared infrastructure, for example, a scientific dataset that only researchers who signed a data usage agreement should have access to, it could suffice to create specific `Unix groups <https://en.wikipedia.org/wiki/Group_identifier>`_ with authorized users, and give only those groups the necessary permissions.
 Depending on what permissions are set, unauthorized actors would not be able to retrieve file contents, or be able to clone the dataset at all.
 
 The ability of repository hosting services to make datasets private and only allow select collaborators access is yet another method of keeping complete datasets as private as necessary, even though you should think twice on whether or not you should host sensitive repositories at all on these services.
@@ -55,11 +57,11 @@ Let's say you have a dataset with three files:
 - ``subject_1.dat``
 - ``subject_2.data``
 
-Consider that all of these files are annexed. While the information in ``experiment.txt`` is fine for everyone to see, ``subject_1.dat`` and ``subject_2.dat`` contain personal and potentially identifying data that can not be shared.
+Consider that all of these files are annexed. While the information in ``experiment.txt`` is fine for everyone to see, ``subject_1.dat`` and ``subject_2.dat`` contain personal and potentially identifying data that cannot be shared.
 Nevertheless, you want collaborators to know that these files exist.
 By publishing only the file contents of ``experiment.txt`` with
 
-.. code-block:: bash
+.. code-block:: console
 
   $ datalad push --to github experiment.txt
 

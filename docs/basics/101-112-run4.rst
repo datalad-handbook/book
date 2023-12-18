@@ -101,6 +101,9 @@ to a :dlcmd:`run`:
    EOT
 
 
+.. index::
+   pair: run command on dirty dataset; with DataLad run
+
 A way of executing a :dlcmd:`run` *despite* an "unclean" dataset,
 though, is to add the ``--explicit`` flag to :dlcmd:`run`.
 We will try this flag with the remaining ``logo_salt.jpg``. Note that
@@ -125,6 +128,8 @@ It does not warn if the repository is dirty, but importantly, it
 **only** saves modifications to the *listed outputs* (which is a problem in the
 vast amount of cases where one does not exactly know which outputs are produced).
 
+.. index::
+   pair: explicit input/output declaration; with DataLad run
 .. importantnote:: Put explicit first!
 
    The ``--explicit`` flag has to be given anywhere *prior* to the command that

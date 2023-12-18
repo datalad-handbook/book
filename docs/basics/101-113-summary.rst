@@ -12,7 +12,7 @@ command, and discovered the concept of *locked* content.
   track of what you do in your dataset by capturing all :term:`provenance`.
 
 * A :dlcmd:`run` command generates a ``run record`` in the commit. This :term:`run record` can be used
-  by datalad to re-execute a command with :dlcmd:`rerun SHASUM`, where SHASUM is the
+  by DataLad to re-execute a command with :dlcmd:`rerun SHASUM`, where SHASUM is the
   commit hash of the :dlcmd:`run` command that should be re-executed.
 
 * If a :dlcmd:`run` or :dlcmd:`rerun` does not modify any content, it will not write a
@@ -22,7 +22,7 @@ command, and discovered the concept of *locked* content.
   to the executed command (using the ``-i``/``--input`` flag) and/or its output (using the ``-o``/
   ``--output`` flag). The full command structure is:
 
-  .. code-block:: bash
+  .. code-block:: console
 
      $ datalad run -m "commit message here" --input "path/to/input/" --output "path/to/output" "command"
 
@@ -47,7 +47,7 @@ command, and discovered the concept of *locked* content.
   should be "clean"), or the command needs to be extended with the ``--explicit`` option.
 
 
-Now what I can do with that?
+Now what can I do with that?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 You have procedurally experienced how to use :dlcmd:`run` and :dlcmd:`rerun`. Both

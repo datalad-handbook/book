@@ -33,7 +33,8 @@ However, for a structural connectivity analysis, only eleven files per subject a
 
 In order to spare others the time and effort to install thousands of subdatasets, a one-time effort can create and publish a subsampled, single dataset of those files using the :dlcmd:`copy-file` command.
 
-.. index:: ! datalad command; copy-file
+.. index::
+   pair: copy-file; DataLad command
 
 :dlcmd:`copy-file` is able to copy files with their availability metadata into other datasets.
 The content of the files does not need to be retrieved in order to do this.
@@ -329,4 +330,4 @@ Although it requires some Unix-y command line magic, it can be automated for lar
 
 .. rubric:: Footnotes
 
-.. [#f1] You can read about the human connectome dataset in the usecase :ref:`usecase_HCP_dataset`.
+.. [#f1] You can read about the human connectome dataset in the use case :ref:`usecase_HCP_dataset`.

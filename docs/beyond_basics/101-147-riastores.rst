@@ -1,6 +1,6 @@
 .. _riastore:
 
-Remote Indexed Archives for dataset storage and backup
+Remote indexed archives for dataset storage and backup
 ------------------------------------------------------
 
 If DataLad datasets should be backed-up, made available for collaborations
@@ -199,7 +199,8 @@ Other applications may require *only* the special remote, such as cases where Gi
 For most storage or back-up scenarios, special remote capabilities are useful, though,
 and thus the default.
 
-.. index:: ! datalad command; create-sibling-ria
+.. index::
+   pair: create-sibling-ria; DataLad command
 
 The command :dlcmd:`create-sibling-ria` can both create datasets in RIA stores and the RIA stores themselves.
 However, :dlcmd:`create-sibling-ria` sets up a new RIA store if it does not find one under the provided URL **only** if the parameter ``--new-store-ok`` is passed.
@@ -244,7 +245,7 @@ A few examples are:
 - Clean up unnecessary files and minimize a (or all) repository with :term:`Git`\s
   `garbage collection (gc) <https://git-scm.com/docs/git-gc>`_ command.
 
-The usecase :ref:`usecase_datastore` demonstrates the advantages of this in a
+The use case :ref:`usecase_datastore` demonstrates the advantages of this in a
 large scientific institute with central data management.
 Due to the git-annex ora-remote special remote, datasets can be exported and
 stored as archives to save disk space.
@@ -263,7 +264,8 @@ from standard DataLad workflows. The paragraphs below detail how to create and
 populate a RIA store, how to clone datasets and retrieve data from it, and also
 how to handle permissions or hide technicalities.
 
-.. index:: ! datalad command; create-sibling-ria
+.. index::
+   pair: create-sibling-ria; DataLad command
 
 Creating or publishing to RIA stores
 """"""""""""""""""""""""""""""""""""
@@ -281,14 +283,14 @@ on where the RIA store (should) exists, or rather, which file transfer protocol
 
 - A URL to an :term:`SSH`\-accessible server has a ``ria+ssh://`` prefix, followed
   by user and hostname specification and an **absolute** path:
-  ``ria+ssh://[user@]hostname:/absolute/path/to/ria-store``
+  ``ria+ssh://[user@]hostname/absolute/path/to/ria-store``
 - A URL to a store on a local file system has a ``ria+file://`` prefix,
   followed by an **absolute** path: ``ria+file:///absolute/path/to/ria-store``
 
 .. find-out-more:: RIA stores with HTTP access
 
    Setting up RIA store with access via HTTP requires additional server-side configurations for Git.
-   `Git's http-backend documentation <https://git-scm.com/docs/git-http-backend>`_ can point you the relevant configurations for your webserver and usecase.
+   `Git's http-backend documentation <https://git-scm.com/docs/git-http-backend>`_ can point you the relevant configurations for your web server and usecase.
 
 Note that it is always required to specify an :term:`absolute path` in the URL!
 
@@ -448,7 +450,8 @@ As a demonstration, we'll do it for the ``midterm_project`` subdataset:
 Thus, in order to create and populate RIA stores, only the commands
 :dlcmd:`create-sibling-ria` and :dlcmd:`push` are required.
 
-.. index:: ! datalad command; clone
+.. index::
+   pair: clone; DataLad command
 
 Cloning and updating from RIA stores
 """"""""""""""""""""""""""""""""""""
@@ -459,7 +462,7 @@ Depending on the protocol being used, the URLs are composed similarly to during
 sibling creation:
 
 - A URL to a RIA store on an :term:`SSH`\-accessible server takes the
-  same format as before: ``ria+ssh://[user@]hostname:/absolute/path/to/ria-store``
+  same format as before: ``ria+ssh://[user@]hostname/absolute/path/to/ria-store``
 - A URL to a RIA store on a local file system also looks like during sibling
   creation: ``ria+file:///absolute/path/to/ria-store``
 - A URL for read (without annex) access to a store via :term:`http` (e.g., to a RIA store like
@@ -584,7 +587,7 @@ in the findoutmore below:
 
 .. find-out-more:: On cloning datasets with subdatasets from RIA stores
 
-   The usecase :ref:`usecase_HCP_dataset`
+   The use case :ref:`usecase_HCP_dataset`
    details a RIA-store based publication of a large dataset, split into a nested
    dataset hierarchy with about 4500 subdatasets in total. But how can links to
    subdatasets work, if datasets in a RIA store are stored in a flat hierarchy,
@@ -662,7 +665,7 @@ hide the technical layers of the RIA setup. For example, custom procedures provi
 at dataset creation could automatically perform a sibling setup in a RIA store,
 and also create an associated GitLab repository with a publication dependency to
 the RIA store to ease publishing data or cloning the dataset.
-The usecase :ref:`usecase_datastore` details the setup of RIA stores in a
+The use case :ref:`usecase_datastore` details the setup of RIA stores in a
 scientific institute and demonstrates this example.
 
 To simplify repository access beyond using aliases, the datasets stored in a RIA
@@ -675,7 +678,7 @@ From a user's perspective, the RIA store would thus stay completely hidden.
 
 Standard maintenance tasks by data stewards with knowledge about RIA stores and
 access to it can be performed easily or even in an automated fashion. The
-usecase :ref:`usecase_datastore` showcases some examples of those operations.
+use case :ref:`usecase_datastore` showcases some examples of those operations.
 
 Summary
 ^^^^^^^
@@ -705,7 +708,7 @@ procedures.
          `the docs <https://git-annex.branchable.com/internals/hashing>`_.
 
 .. [#f3] To re-read about how git-annex's object tree works, check out section
-         :ref:`symlink`, and pay close attention to the hidden section.
+         :ref:`symlink`, and pay close attention to the :ref:`Find-out-more on the object tree <objecttree>`.
          Additionally, you can find a lot of background information in git-annex's
          `documentation <https://git-annex.branchable.com/internals>`_.
 
@@ -713,7 +716,7 @@ procedures.
 
          .. todo::
 
-            Link UKBiobank on supercomputer usecase once ready
+            Link UKBiobank on supercomputer use case once ready
 
          shows how this feature can come in handy.
 

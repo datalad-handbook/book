@@ -1,14 +1,11 @@
 
 $ datalad rerun d715890b✂SHA1
 [INFO] run commit d715890; (analyze iris data...)
-[INFO] Making sure inputs are available (this may take some time)
 run.remove(ok): pairwise_relationships.png (file) [Removed file]
 run.remove(ok): prediction_report.csv (file) [Removed file]
 [INFO] == Command start (output follows) =====
 action summary:
   get (notneeded: 2)
-VIRTUALENV/lib/python3.8/site-packages/seaborn/axisgrid.py:118: UserWarning: The figure layout has changed to tight
-  self._figure.tight_layout(*args, **kwargs)
 [INFO] == Command exit (modification check follows) =====
 run(ok): /home/me/dl-101/midtermproject (dataset) [python3 code/script.py]
 add(ok): pairwise_relationships.png (file)

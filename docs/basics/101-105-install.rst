@@ -1,4 +1,6 @@
-.. index:: ! datalad command; clone
+.. index::
+   pair: clone; DataLad command
+   pair: clone dataset; with DataLad
 .. _installds:
 
 Install datasets
@@ -24,7 +26,7 @@ can share our mid-term and final projects easily!"
 "But today, let's only focus on how to install a dataset", she continues.
 "Damn it! Can we not have longer lectures?", you think and set alarms to all of the
 upcoming lecture dates in your calendar.
-There is so much exciting stuff to come, you can not miss a single one.
+There is so much exciting stuff to come, you cannot miss a single one.
 
 "Psst!" a student from the row behind reaches over. "There are
 a bunch of audio recordings of a really cool podcast, and they have been shared in the form
@@ -34,7 +36,7 @@ of a DataLad dataset! Shall we try whether we can install that?"
 now instead of looking at slides for hours is my preferred type of learning anyway",
 you think as you fire up your terminal and navigate into your ``DataLad-101`` dataset.
 
-In this demonstration, we're using one of the many openly available datasets that
+In this demonstration, we are using one of the many openly available datasets that
 DataLad provides in a public registry that anyone can access. One of these datasets is a
 collection of audio recordings of a great podcast, the longnow seminar series [#f2]_.
 It consists of audio recordings about long-term thinking, and while the DataLad-101
@@ -51,11 +53,9 @@ called recordings.
    :cast: 01_dataset_basics
    :notes: The next challenge is to clone an existing dataset from the web as a subdataset. First, we create a location for this
 
-   # we are in the root of DataLad-101
+   $ # we are in the root of DataLad-101
    $ mkdir recordings
 
-
-.. index:: ! datalad command; clone
 
 The command that can be used to obtain a dataset is :dlcmd:`clone`,
 but we often refer to the process of cloning a Dataset as *installing*.
@@ -75,7 +75,7 @@ the podcasts as a *subdataset* of ``DataLad-101``. Because we are in the root
 of the ``DataLad-101`` dataset, the pointer to the dataset is a ``.`` (which is Unix'
 way of saying "current directory").
 
-As before with long commands, we line break the code below with a ``\``. You can
+As before with long commands, we line break the code with a ``\``. You can
 copy it as it is presented here into your terminal, but in your own work you
 can write commands like this into a single line.
 
@@ -99,12 +99,16 @@ also recorded where this dataset came from, thus capturing its *origin* as
 :term:`provenance`. Even though this is not obvious at this point in time, later
 chapters in this handbook will demonstrate how useful this information can be.
 
+.. index::
+   pair: clone; DataLad concept
 .. gitusernote:: Clone internals
 
    The :dlcmd:`clone` command uses :gitcmd:`clone`.
    A dataset that is installed from an existing source, e.g., a path or URL,
    is the DataLad equivalent of a *clone* in Git.
 
+.. index::
+   pair: clone into another dataset; with DataLad
 .. find-out-more:: Do I have to install from the root of datasets?
 
    No. Instead of from the *root* of the ``DataLad-101`` dataset, you could have also
@@ -117,18 +121,18 @@ chapters in this handbook will demonstrate how useful this information can be.
    point to root of the top-most dataset. For example, if you navigate into ``recordings``,
    the command would be:
 
-   .. code-block:: bash
+   .. code-block:: console
 
-     datalad clone -d^ https://github.com/datalad-datasets/longnow-podcasts.git longnow
+     $ datalad clone -d^ https://github.com/datalad-datasets/longnow-podcasts.git longnow
 
 .. find-out-more:: What if I do not install into an existing dataset?
 
    If you do not install into an existing dataset, you only need to omit the ``-d/--dataset``
    option. You can try:
 
-   .. code-block:: bash
+   .. code-block:: console
   
-     datalad clone https://github.com/datalad-datasets/longnow-podcasts.git
+     $ datalad clone https://github.com/datalad-datasets/longnow-podcasts.git
 
    anywhere outside of your ``DataLad-101`` dataset to install the podcast dataset into a new directory
    called ``longnow-podcasts``. You could even do this inside of an existing dataset.
@@ -139,10 +143,12 @@ chapters in this handbook will demonstrate how useful this information can be.
 
 Here is the repository structure:
 
-.. windows-wit:: tree -d may fail
+.. index::
+   pair: tree; terminal command
+   pair: display directory tree; on Windows
+.. windows-wit:: use tree
 
-   If you have installed :term:`conda`\s ``m2-base`` package for access to Unix commands such as tree, you will have the tree command.
-   However, this version of tree does not support the use of any command flags, so please just run ``tree`` instead of ``tree -d``.
+   .. include:: topic/tree-windows.rst
 
 .. runrecord:: _examples/DL-101-105-103
    :language: console
@@ -152,12 +158,9 @@ Here is the repository structure:
 
    $ tree -d   # we limit the output to directories
 
-We can see that recordings has one subdirectory, our newly installed ``longnow``
-dataset. Within the dataset are two other directories, ``Long_Now__Conversations_at_The_Interval``
-and ``Long_Now__Seminars_About_Long_term_Thinking``.
-If we navigate into one of them and list its content, we'll see many ``.mp3`` files (here is an
-excerpt).
-
+We can see that ``recordings`` has one subdirectory, our newly installed ``longnow``
+dataset with two subdirectories.
+If we navigate into one of them and list its content, we'll see many ``.mp3`` files (here is an excerpt).
 
 .. runrecord:: _examples/DL-101-105-104
    :language: console
@@ -180,7 +183,7 @@ a download of that many ``.mp3`` files not take much more time?
 Here you can see another import feature of DataLad datasets
 and the :dlcmd:`clone` command:
 Upon installation of a DataLad dataset, DataLad retrieves only small files
-(for example text files or markdown files) and (small) metadata
+(for example, text files or markdown files) and (small) metadata
 about the dataset. It does not, however, download any large files
 (yet). The metadata exposes the dataset's file hierarchy
 for exploration (note how you are able to list the dataset contents with ``ls``),
@@ -188,6 +191,8 @@ and downloading only this metadata speeds up the installation of a DataLad datas
 of many TB in size to a few seconds. Just now, after installing, the dataset is
 small in size:
 
+.. index::
+   pair: show file size; in a terminal
 .. runrecord:: _examples/DL-101-105-105
    :language: console
    :workdir: dl-101/DataLad-101/recordings/longnow/Long_Now__Seminars_About_Long_term_Thinking
@@ -235,11 +240,15 @@ hard drive has much space left...
 But you nevertheless are curious on how to actually listen to one of these ``.mp3``\s now.
 So how does one actually "get" the files?
 
-.. index:: ! datalad command; get
+.. index::
+   pair: get; DataLad command
 
 The command to retrieve file content is :dlcmd:`get`.
 You can specify one or more specific files, or ``get`` all of the dataset by
 specifying :dlcmd:`get .` at the root directory of the dataset (with ``.`` denoting "current directory").
+
+.. index::
+   pair: get file content; with DataLad
 
 First, we get one of the recordings in the dataset -- take any one of your choice
 (here, it's the first).
@@ -257,13 +266,16 @@ Try to open it -- it will now work.
 If you would want to get the rest of the missing data, instead of specifying all files individually,
 we can use ``.`` to refer to *all* of the dataset like this:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ datalad get .
 
 However, with a total size of more than 15GB, this might take a while, so do not do that now.
 If you did execute the command above, interrupt it by pressing ``CTRL`` + ``C`` -- Do not worry,
 this will not break anything.
+
+.. index::
+   pair: show dataset size; with DataLad
 
 Isn't that easy?
 Let's see how much content is now present locally. For this, :dlcmd:`status --annex all`
@@ -298,10 +310,14 @@ DataLad summarizes the outcome of the execution of ``get`` in the end and inform
 that the download of one file was ``notneeded`` and the retrieval of the other files was ``ok``.
 
 
+.. index::
+   pair: get; DataLad concept
 .. gitusernote:: Get internals
 
    :dlcmd:`get` uses :gitannexcmd:`get` underneath the hood.
 
+.. index::
+   pair: drop file content; with DataLad
 
 Keep whatever you like
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -310,14 +326,15 @@ Keep whatever you like
 apparently downloaded the *full* dataset accidentally. "Is there a way to get rid
 of file contents in dataset, too?", they ask. "Yes", the lecturer responds,
 "you can remove file contents by using :dlcmd:`drop`. This is
-really helpful to save disk space for data you can easily re-obtain, for example".
+really helpful to save disk space for data you can easily reobtain, for example".
 
-.. index:: datalad command; drop
+.. index::
+   pair: drop; DataLad command
 
 The :dlcmd:`drop` command will remove
 file contents completely from your dataset.
 You should only use this command to remove contents that you can :dlcmd:`get`
-again, or generate again (for example with next chapter's :dlcmd:`datalad run`
+again, or generate again (for example, with next chapter's :dlcmd:`datalad run`
 command), or that you really do not need anymore.
 
 Let's remove the content of one of the files that we have downloaded, and check
@@ -356,7 +373,7 @@ Whenever you need the recording again, it is easy to re-retrieve it:
 
    $ datalad get Long_Now__Seminars_About_Long_term_Thinking/2004_01_10__George_Dyson__There_s_Plenty_of_Room_at_the_Top__Long_term_Thinking_About_Large_scale_Computing.mp3
 
-Re-obtained!
+Reobtained!
 
 This was only a quick digression into :dlcmd:`drop`. The main principles
 of this command will become clear after chapter
@@ -370,9 +387,13 @@ by using DataLad datasets -- and that really is a cool feature to have.
 Dataset archeology
 ^^^^^^^^^^^^^^^^^^
 
-You have now experienced how easy it is to (re-)obtain shared data with DataLad.
+You have now experienced how easy it is to (re)obtain shared data with DataLad.
 But beyond sharing only the *data* in the dataset, when sharing or installing
 a DataLad dataset, all copies also include the dataset's *history*.
+
+.. index::
+   pair: log; Git command
+   pair: show history (reverse); with Git
 
 For example, we can find out who created the dataset in the first place
 (the output shows an excerpt of ``git log --reverse``, which displays the
@@ -395,6 +416,10 @@ Because an installed dataset knows the dataset it was installed from,
 your local dataset clone can be updated from its origin, and thus get the new recordings,
 should there be some. Later in this handbook, we will see examples of this.
 
+.. index::
+   pair: update heredoc; in a terminal
+   pair: save dataset modification; with DataLad
+
 Now you can not only create datasets and work with them locally, you can also consume
 existing datasets by installing them. Because that's cool, and because you will use this
 command frequently, make a note of it into your ``notes.txt``, and :dlcmd:`save` the
@@ -406,7 +431,7 @@ modification.
    :cast: 01_dataset_basics
    :notes: We can make a note about this:
 
-   # in the root of DataLad-101:
+   $ # in the root of DataLad-101:
    $ cd ../../
    $ cat << EOT >> notes.txt
    The command 'datalad clone URL/PATH [PATH]' installs a dataset from
@@ -417,17 +442,19 @@ modification.
    EOT
    $ datalad save -m "Add note on datalad clone"
 
+.. index::
+   pair: placeholder files; on Mac
 .. importantnote:: Empty files can be confusing
 
-  Listing files directly after the installation of a dataset will
-  work if done in a terminal with ``ls``.
-  However, certain file managers (such as OSX's Finder [#f3]_) may fail to
-  display files that are not yet present locally (i.e., before a
-  :dlcmd:`get` was run). Therefore, be  mindful when exploring
-  a dataset hierarchy with a file manager -- it might not show you
-  the available but not yet retrieved files.
-  Consider browsing datasets with the :term:`DataLad Gooey` to be on the safe side.
-  More about why this is will be explained in section :ref:`symlink`.
+   Listing files directly after the installation of a dataset will
+   work if done in a terminal with ``ls``.
+   However, certain file managers (such as OSX's Finder [#f3]_) may fail to
+   display files that are not yet present locally (i.e., before a
+   :dlcmd:`get` was run). Therefore, be  mindful when exploring
+   a dataset hierarchy with a file manager -- it might not show you
+   the available but not yet retrieved files.
+   Consider browsing datasets with the :term:`DataLad Gooey` to be on the safe side.
+   More about why this is will be explained in section :ref:`symlink`.
 
 
 .. only:: adminmode
@@ -443,7 +470,7 @@ modification.
 
 .. rubric:: Footnotes
 
-.. [#f1] Additionally, a source  can also be a pointer to an open-data collection,
+.. [#f1] Additionally, a source can also be a pointer to an open-data collection,
          for example :term:`the DataLad superdataset ///` -- more on what this is and how to
          use it later, though.
 

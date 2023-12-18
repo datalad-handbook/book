@@ -114,7 +114,7 @@ Let's make another change to the dataset, by adding a new file (a webcomic, down
    If the ``wget`` command above fails for you, you could
 
    * Install a Windows version of wget
-   * Use the following ``curl`` command: ``curl https://imgs.xkcd.com/comics/compiling.png --output compiling.png`` (recent Windows 10 builds include ``curl`` natively)
+   * Use the following ``curl`` command: ``curl https://imgs.xkcd.com/comics/compiling.png --output compiling.png`` (recent Windows builds include ``curl`` natively)
    * Download and save the image from your web browser
 
 With this change, there are two modifications in your dataset, a modified file and an untracked file::
@@ -721,7 +721,7 @@ Afterwards, :dlcmd:`status` reports the file to be deleted::
    datalad status
 
 (Side-note: While the file is deleted in the most recent dataset state, it can be brought back to life as it still exists in the datasets history.
-You can find out more about this and also how to remove also past copies of a file in the section :ref:`filesystem`)
+You can find out more about this and also how to remove also past copies of a file in the section :ref:`file system`)
 
 The deletion of a file must be saved::
 

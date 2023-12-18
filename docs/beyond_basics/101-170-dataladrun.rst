@@ -65,7 +65,7 @@ But: Multiple simultaneous ``datalad (containers-)run`` invocations in the same 
 - A number of *concurrency issues*, unwanted interactions of processes when they run simultaneously, can arise and lead to internal command failures
 
 Some of these problems can be averted by invoking the ``(containers-)run`` command with the ``--explicit`` [#f1]_ flag.
-This doesn't solve all of the above problems, though, and may not be applicable to the computation at hand -- for example because all jobs write to a similar file or the result files are not known beforehand.
+This doesn't solve all of the above problems, though, and may not be applicable to the computation at hand -- for example, because all jobs write to a similar file or the result files are not known beforehand.
 Below, you can find a complete, largely platform and scheduling-system agnostic containerized analysis workflow that addressed the outlined problems.
 
 Processing FAIRly *and* in parallel -- General workflow
@@ -83,7 +83,7 @@ The analysis is carried out on a computational cluster that uses a job schedulin
 
 The "creative" bits involved in this parallelized processing workflow boil down to the following tricks:
 
-- Individual jobs (for example subject-specific analyses) are computed in **throw-away dataset clones** to avoid unwanted interactions between parallel jobs.
+- Individual jobs (for example, subject-specific analyses) are computed in **throw-away dataset clones** to avoid unwanted interactions between parallel jobs.
 - Beyond computing in job-specific, temporary locations, individual job results are also saved into uniquely identified :term:`branch`\es to enable simple **pushing back of the results** into the target dataset.
 - The jobs constitute a complete DataLad-centric workflow in the form of a simple **bash script**, including dataset build-up and tear-down routines in a throw-away location, result computation, and result publication back to the target dataset.
   Thus, instead of submitting a ``datalad run`` command to the job scheduler, **the job submission is a single script**, and this submission is easily adapted to various job scheduling call formats.
@@ -124,7 +124,7 @@ To get an idea of the general setup of parallel provenance-tracked computations,
       install (ok: 1)
       save (ok: 1)
 
-... and a dataset with a containerized pipeline (for example from the `ReproNim container-collection <https://github.com/repronim/containers>`_ [#f2]_) as another subdataset:
+... and a dataset with a containerized pipeline (for example, from the `ReproNim container-collection <https://github.com/repronim/containers>`_ [#f2]_) as another subdataset:
 
 .. code-block::
 
@@ -174,7 +174,7 @@ The solution is as easy as it is stubborn: We simply create one throw-away datas
 .. find-out-more:: how does one create throw-away clones?
 
     One way to do this are :term:`ephemeral clone`\s, an alternative is to make :term:`git-annex` disregard the datasets annex completely using ``git annex dead here``.
-    The latter is more appropriate for this context -- we could use an ephemeral clone, but that might deposit data of failed jobs at the origin location, if the job runs on a shared filesystem.
+    The latter is more appropriate for this context -- we could use an ephemeral clone, but that might deposit data of failed jobs at the origin location, if the job runs on a shared file system.
 
 Using throw-away clones involves a build-up, result-push, and tear-down routine for each job.
 It sounds complex and tedious, but this actually works well since datasets are by nature made for such decentralized, collaborative workflows.
@@ -223,7 +223,7 @@ This makes it easy to associate a result (via its branch) with the log, error, o
    # git checkout -b <name> creates a new branch and checks it out
    $ git checkout -b "job-$JOBID"
 
-Importantly, the ``$JOB-ID`` isn't hardcoded into the script but it can be given to the script as an environment or input variable at the time of job submission.
+Importantly, the ``$JOBID`` isn't hardcoded into the script but it can be given to the script as an environment or input variable at the time of job submission.
 The code snippet above uses a bash :term:`environment variable` (``$JOBID``, as indicated by the all-upper-case variable name with a leading ``$``).
 It will be defined in the job submission -- this is shown and explained in detail in the respective paragraph below.
 
@@ -319,7 +319,7 @@ You can save this script into your analysis dataset, e.g., as ``code/analysis_jo
 
 Job submission now only boils down to invoking the script for each participant with the relevant command line arguments (e.g., input files for our artificial example) and the necessary environment variables (e.g., the job ID that determines the branch name that is created, and one that points to a lockfile created beforehand once in ``.git``).
 Job scheduler such as HTCondor can typically do this with automatic variables.
-They for example have syntax that can identify subject IDs or consecutive file numbers from consistently named directory structure, access the job ID, loop through a predefined list of values or parameters, or use various forms of pattern matching.
+They, for example, have syntax that can identify subject IDs or consecutive file numbers from consistently named directory structure, access the job ID, loop through a predefined list of values or parameters, or use various forms of pattern matching.
 Examples of this are demonstrated `here <https://jugit.fz-juelich.de/inm7/training/htcondor/-/blob/master/03_define_jobs.md>`_.
 Thus, the submit file takes care of defining hundreds or thousands of variables, but can still be lean even though it queues up hundreds or thousands of jobs.
 Here is a submit file that could be employed:

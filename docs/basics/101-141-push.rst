@@ -1,7 +1,9 @@
+.. index::
+   pair: push; DataLad command
 .. _push:
 
-Overview: The datalad push command
-----------------------------------
+The datalad push command
+------------------------
 
 Previous sections on publishing DataLad datasets  have each
 shown you crucial aspects of the functions of dataset publishing with
@@ -14,6 +16,8 @@ The general overview
 It is capable of publishing all dataset content, i.e., files stored in :term:`Git`,
 and files stored with :term:`git-annex`, to a known dataset :term:`sibling`.
 
+.. index::
+   pair: push; DataLad concept
 .. gitusernote:: Push internals
 
    The :dlcmd:`push` uses ``git push``, and ``git annex copy`` under
@@ -21,26 +25,30 @@ and files stored with :term:`git-annex`, to a known dataset :term:`sibling`.
    or git-annex special remotes (if they support data upload).
 
 In order to publish a dataset, the dataset needs to have a sibling to push to.
-This, for instance, can be a :term:`GitHub`, :term:`GitLab`, or :term:`Gin`
+This, for instance, can be a :term:`GitHub`, :term:`GitLab`, or :term:`GIN`
 repository, but it can also be a Remote Indexed Archive (RIA) store for backup
 or storage of datasets [#f1]_, or a regular clone.
 
+.. index::
+   pair: create-sibling-github; DataLad command
+   pair: create-sibling-gitlab; DataLad command
+   pair: create-sibling-ria; DataLad command
+   pair: GitHub; dataset hosting
+   pair: GitLab; dataset hosting
+   pair: RIA; dataset hosting
+   pair: create sibling; with DataLad
 .. find-out-more:: all of the ways to configure siblings
-
-   .. index:: ! datalad command; create-sibling-github
-   .. index:: ! datalad command; create-sibling-gitlab
-   .. index:: ! datalad command; create-sibling-ria
 
    - Add an existing repository as a sibling with the :dlcmd:`siblings`
      command. Here are common examples:
 
-     .. code-block:: bash
+     .. code-block:: console
 
-        # to a remote repository
+        $ # to a remote repository
         $ datalad siblings add --name github-repo --url <url.to.github>
-        # to a local path
+        $ # to a local path
         $ datalad siblings add --name local-sibling --url /path/to/sibling/ds
-        # to a clone on an SSH-accessible machine
+        $ # to a clone on an SSH-accessible machine
         $ datalad siblings add --name server-sibling --url [user@]hostname:/path/to/sibling/ds
 
    - Create a sibling on an external hosting service from scratch, right from
@@ -59,7 +67,7 @@ In order to publish dataset content, DataLad needs to know to which sibling
 content shall be pushed. This can be specified with the ``--to`` option directly
 from the command line:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ datalad push --to <sibling>
 
@@ -74,7 +82,7 @@ no push is attempted.
 Additionally, :dlcmd:`push` will attempt to automatically decide what type
 of dataset contents are going to be published. With a sibling that has a
 :term:`special remote` configured as a :term:`publication dependency`,
-or a sibling that contains an annex (such as a Gin repository or a
+or a sibling that contains an annex (such as a GIN repository or a
 :term:`Remote Indexed Archive (RIA) store`), both the contents
 stored in Git (i.e., a dataset's history) as well as file contents stored in
 git-annex will be published unless dataset configurations overrule this.
@@ -116,6 +124,8 @@ that should be published have sibling names identical to the sibling specified i
 the top-level :dlcmd:`push` command, or that appropriate default publication
 targets are configured throughout the dataset hierarchy.
 
+.. index::
+   pair: configure which branches to push; with Git
 .. find-out-more:: Pushing more than the current branch
    :name: fom-push-branch
    :float:
@@ -130,7 +140,7 @@ targets are configured throughout the dataset hierarchy.
    :dlcmd:`push` pushes *all* branches to the sibling.
    A concrete example: On a dataset level, this can be done using
 
-   .. code-block:: bash
+   .. code-block:: console
 
        $ git config --local push.default matching
 
@@ -148,7 +158,7 @@ targets are configured throughout the dataset hierarchy.
    automatically as well. This configuration was achieved by specifying these branches
    (using :term:`globbing` with ``*``) in the ``push`` specification of this :term:`remote`:
 
-   .. code-block:: bash
+   .. code-block:: console
 
       $ git config --local remote.public.push 'refs/heads/sct*'
 
@@ -172,6 +182,6 @@ For more information on this, and other error messages during push, please check
 
 .. rubric:: Footnotes
 
-.. [#f1]  RIA siblings are filesystem-based, scalable storage solutions for
-          DataLad datasets. You can find out more about them in the online version.
+.. [#f1]  RIA siblings are file system based, scalable storage solutions for
+          DataLad datasets. You can find out more about them in the online-handbook.
 .. [#f2] For information on the ``numcopies`` and ``wanted`` settings of git-annex see its documentation at `git-annex.branchable.com/git-annex-wanted/ <https://git-annex.branchable.com/git-annex-wanted>`_ and `git-annex.branchable.com/git-annex-numcopies/ <https://git-annex.branchable.com/git-annex-numcopies>`_.

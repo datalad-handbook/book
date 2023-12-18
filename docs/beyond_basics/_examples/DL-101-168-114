@@ -5,7 +5,6 @@ $ datalad download-url \
   --message "Download Imagenette dataset" \
   https://osf.io/d6qbz/download \
   -O 'data/raw/'
-[INFO] Downloading 'https://osf.io/d6qbz/download' into '/home/me/DVCvsDL/DVC-DataLad/data/raw/'
 download_url(ok): /home/me/DVCvsDL/DVC-DataLad/data/raw/imagenette2-160.tgz (file)
 add(ok): data/raw/imagenette2-160.tgz (file)
 save(ok): . (dataset)
@@ -15,8 +14,3 @@ save(ok): . (dataset)
 [INFO] Finished adding /home/me/DVCvsDL/DVC-DataLad/data/raw/imagenette2-160.tgz: Files processed: 2701, renamed: 2701, +annex: 2701
 [INFO] Finished extraction
 add-archive-content(ok): /home/me/DVCvsDL/DVC-DataLad (dataset)
-action summary:
-  add (ok: 1)
-  add-archive-content (ok: 1)
-  download_url (ok: 1)
-  save (ok: 1)

@@ -1,9 +1,8 @@
+.. index:: ! Usecase; Machine Learning Analysis
 .. _usecase_ML:
 
 DataLad for reproducible machine-learning analyses
 --------------------------------------------------
-
-.. index:: ! Usecase; Machine Learning Analysis
 
 This use case demonstrates an automatically and computationally reproducible analyses in the context of a machine learning (ML) project.
 It demonstrates on an example image classification analysis project how one can
@@ -57,8 +56,8 @@ Step-by-Step
 .. admonition:: Required software
 
    The analysis requires the Python packages `scikit-learn <https://scikit-learn.org>`_, `scikit-image <https://scikit-image.org>`_, `pandas <https://pandas.pydata.org>`_, and `numpy <https://numpy.org>`_.
-   We have build a :term:`Singularity` :term:`software container` with all relevant software, and the code below will use the ``datalad-containers`` extension [#f1]_ to download the container from :term:`Singularity-Hub` and execute all analysis in this software environment.
-   If you do not want to install the ``datalad-containers`` extension or Singularity, you can also create a :term:`virtual environment` with all necessary software if you prefer [#f2]_, and exchange the ``datalad containers-run`` commands below with ``datalad run`` commands.
+   We have build a :term:`Singularity` :term:`software container` with all relevant software, and the code below will use the ``datalad-container`` extension [#f1]_ to download the container from :term:`Singularity-Hub` and execute all analysis in this software environment.
+   If you do not want to install the ``datalad-container`` extension or Singularity, you can also create a :term:`virtual environment` with all necessary software if you prefer [#f2]_, and exchange the ``datalad containers-run`` commands below with ``datalad run`` commands.
 
 Let's start with an overview of the analysis plans:
 We're aiming for an image classification analysis.
@@ -87,7 +86,7 @@ This complies to the :ref:`YODA principles <yoda>` and helps to keep the input d
    $ datalad create imagenette
 
 The original Imagenette dataset contains 10 image categories can be downloaded as an archive from Amazon (`s3.amazonaws.com/fast-ai-imageclas/imagenette2-160.tgz <https://s3.amazonaws.com/fast-ai-imageclas/imagenette2-160.tgz>`_), but for this tutorial we're using a subset of this dataset with only two categories.
-It is available as an archive from the :term:`Open Science Framework (OSF)`.
+It is available as an archive from the :term:`Open Science Framework` (OSF).
 The :dlcmd:`download-url --archive` not only extracts and saves the data, but also registers the datasets origin such that it can re-retrieved on demand from its original location.
 
 .. runrecord:: _examples/ml-102
@@ -105,57 +104,6 @@ The :dlcmd:`download-url --archive` not only extracts and saves the data, but al
 Next, let's create an analysis dataset.
 For a pre-structured and pre-configured starting point, the dataset can be created with the ``yoda`` and ``text2git`` :term:`run procedure`\s [#f3]_.
 These configurations create a ``code/`` directory, place some place-holding ``README`` files in appropriate places, and make sure that all text files, e.g. scripts or evaluation results, are kept in :term:`Git` to allow for easier modifications.
-
-.. windows-wit:: Note for Windows-Users
-
-   Hey there!
-   If you are using **Windows 10** (not `Windows Subsystem for Linux (WSL) <https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux>`_) **without the custom-built git-annex** installer mentioned in the installation section, you need a work-around.
-
-   Instead of running ``datalad create -c text2git -c yoda ml-project``, please remove the configuration ``-c text2git`` from the command and run only ``datalad create -c yoda  ml-project``::
-
-      $ datalad create -c yoda ml-project
-      [INFO] Creating a new annex repo at C:\Users\mih\ml-project
-      [INFO] Detected a filesystem without fifo support.
-      [INFO] Disabling ssh connection caching.
-      [INFO] Detected a crippled filesystem.
-      [INFO] Scanning for unlocked files (this may take some time)
-      [INFO] Entering an adjusted branch where files are unlocked as this filesystem does not support locked files.
-      [INFO] Switched to branch 'adjusted/main(unlocked)'
-      [INFO] Running procedure cfg_yoda
-      [INFO] == Command start (output follows) =====
-      [INFO] == Command exit (modification check follows) =====
-      create(ok): C:\Users\mih\ml-project (dataset)
-
-   Instead of the ``text2git`` configuration, you need to create a configuration by hand by pasting the following lines of text into the (hidden) ``.gitattributes`` file in your newly created dataset.
-   :ref:`chapter_config` can explain the details of this procedure.
-
-   Here are lines that need to be appended to the existing lines in ``.gitattributes`` and will mimic the configuration ``-c text2git`` would apply::
-
-     *.json annex.largefiles=nothing
-
-   You can achieve this by copy-pasting the following code snippets into your terminal (but you can also add them using a text editor of your choice):
-
-   .. code-block::
-
-      $ echo\ >> .gitattributes && echo *.json annex.largefiles=nothing >> .gitattributes
-
-   Afterwards, these should be the contents of ``.gitattributes``:
-
-   .. code-block::
-
-      $ cat .gitattributes
-        * annex.backend=MD5E
-        **/.git* annex.largefiles=nothing
-        CHANGELOG.md annex.largefiles=nothing
-        README.md annex.largefiles=nothing
-        *.json annex.largefiles=nothing
-
-   Lastly, run this piece of code to save your changes:
-
-   .. code-block:: bash
-
-      $ datalad save -m "Windows-workaround: custom config to place text into Git" .gitattributes
-
 
 .. runrecord:: _examples/ml-103
    :language: console
@@ -257,7 +205,7 @@ Note how, in accordance to the :ref:`YODA principles <yoda>`, the script only co
        main(repo_path)
    EOT
 
-Executing the `here document <https://en.wikipedia.org/wiki/Here_document>`_ in the code block above has created a script ``code/prepare.py``:
+Executing the `heredoc <https://en.wikipedia.org/wiki/Here_document>`_ in the code block above has created a script ``code/prepare.py``:
 
 .. runrecord:: _examples/ml-108
    :language: console
@@ -589,7 +537,7 @@ This way, we have access to a trained random-forest model or a trained SGD model
    $ datalad rerun --branch="randomforest" -m "Recompute classification with random forest classifier" ready4analysis..SGD-100
 
 This updated the model.joblib file to a trained random forest classifier, and also updated ``accuracy.json`` with the current models' evaluation.
-The difference in accuracy between models could now for example be compared with a ``git diff`` of the contents of ``accuracy.json`` to the :term:`main` :term:`branch`:
+The difference in accuracy between models could now, for example, be compared with a ``git diff`` of the contents of ``accuracy.json`` to the :term:`main` :term:`branch`:
 
 .. runrecord:: _examples/ml-134
    :workdir: usecases/ml-project
@@ -622,7 +570,7 @@ The analysis is adapted from the chapter :ref:`dvc`, which in turn is based on `
 
 .. rubric:: Footnotes
 
-.. [#f1] You can install the ``datalad-containers`` extension from :term:`pip` via ``pip install datalad-container``. You can find out more about extensions in general in the section :ref:`extensions_intro`, and you can more computationally reproducible analysis using ``datalad container`` in the chapter :ref:`containersrun` and the usecase :ref:`usecase_reproduce_neuroimg`.
+.. [#f1] You can install the ``datalad-container`` extension from :term:`pip` via ``pip install datalad-container``. You can find out more about extensions in general in the section :ref:`extensions_intro`, and you can more computationally reproducible analysis using ``datalad container`` in the chapter :ref:`containersrun` and the use case :ref:`usecase_reproduce_neuroimg`.
 
 .. [#f2] Unsure how to create a :term:`virtual environment`? You can find a tutorial using :term:`pip` and the ``virtualenv`` module `in the Python docs <https://packaging.python.org/guides/installing-using-pip-and-virtual-environments>`_.
 

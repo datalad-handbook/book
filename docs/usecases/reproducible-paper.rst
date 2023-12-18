@@ -1,9 +1,8 @@
+.. index:: ! Usecase; reproducible paper
 .. _usecase_reproducible_paper:
 
 Writing a reproducible paper
 ----------------------------
-
-.. index:: ! Usecase; reproducible paper
 
 This use case demonstrates how to use nested DataLad datasets to create a fully
 reproducible paper by linking
@@ -29,7 +28,7 @@ data collection. After completion, he continued to work on validation analyses t
 prove the functionality and usefulness of his software. Next to a directory in which he developed
 his code, and directories with data he tested his code on, he now also has other directories
 with different data sources used for validation analyses.
-"This can not take too long!" Steve thinks optimistically when he finally sits down to write up a paper.
+"This cannot take too long!" Steve thinks optimistically when he finally sits down to write up a paper.
 
 
 His scripts run his algorithm on the different data collections, create derivatives of his raw data,
@@ -163,7 +162,7 @@ and recompute all results
 when running the script after cloning and setting up the necessary software.
 This requires minor preparation:
 
-* The final analysis should be able to run on anyone's filesystem.
+* The final analysis should be able to run on anyone's file system.
   It is therefore important to reference datafiles with the scripts in ``code/`` as
   :term:`relative path`\s instead of hard-coding :term:`absolute path`\s.
 
@@ -339,7 +338,7 @@ in the actual manuscript, if you want!). This was step number 1 of 4.
 
 .. find-out-more:: How about figures?
 
-   To include figures, the figures just need to be saved into a dedicated location (for example
+   To include figures, the figures just need to be saved into a dedicated location (for example,
    a directory ``img/``) and included into the ``.tex`` file with standard ``LaTeX`` syntax.
    Larger figures with subfigures can be created by combining several figures:
 
@@ -360,6 +359,9 @@ in the actual manuscript, if you want!). This was step number 1 of 4.
       \end{figure*}
 
    This figure looks like this in the manuscript:
+
+   ..
+      the image can't become a figure because it can't be used in LaTeXs minipage environment
 
    .. image:: ../artwork/src/img/remodnav2.png
 

@@ -43,7 +43,7 @@ afterwards.
 
 The section :ref:`help` may give you a good general overview on what to do if
 you encountered a problem. If you're dealing with file system operations,
-:ref:`filesystem` could be a resource to help you, and for all things configuration,
+:ref:`file system` could be a resource to help you, and for all things configuration,
 the chapter :ref:`chapter_config` is your place to go to. If you are confused by
 symlinks or "permission denied" error in your dataset, checkout section
 :ref:`symlink` for some Basics on :term:`git-annex`. The "Quick search" bar at
@@ -78,7 +78,7 @@ with DataLad? Reading chapters :ref:`chapter_datasets`, :ref:`chapter_gitannex`,
 :ref:`chapter_yoda` and chapter :ref:`chapter_thirdparty` should work for you.
 
 You want to use DataLad as a back-up or dataset storage solution? Go to
-section :ref:`riastore` and usecase :ref:`usecase_datastore`.
+section :ref:`riastore` and use case :ref:`usecase_datastore`.
 
 
 **5** The data publisher
@@ -92,9 +92,9 @@ through the chapter :ref:`chapter_datasets`, and reading :ref:`chapter_gitannex`
 is also a good idea to get the Basics of how large files in datasets are handled.
 Afterwards, jump to chapter :ref:`chapter_thirdparty`.
 Depending on the amount of data, it may make sense to read about an example
-of a large dataset (80TB/15 million files) in the usecase :ref:`usecase_HCP_dataset`,
+of a large dataset (80TB/15 million files) in the use case :ref:`usecase_HCP_dataset`,
 and about the possibility of a :term:`Remote Indexed Archive (RIA) store` in the
-section :ref:`riastore` and the usecase :ref:`usecase_datastore`.
+section :ref:`riastore` and the use case :ref:`usecase_datastore`.
 
 
 **6** The advanced user

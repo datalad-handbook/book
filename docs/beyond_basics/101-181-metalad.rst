@@ -169,6 +169,8 @@ The following call would add the metadata entry to the current dataset, ``cozy-s
 
    $ datalad meta-add -d . - < metadata-zen.json
 
+.. index::
+   single: configuration item; datalad.dataset.id
 .. find-out-more:: meta-add validity checks
 
 	When adding metadata for the first time, its not uncommon to run into errors.

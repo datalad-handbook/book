@@ -12,15 +12,15 @@ All of these files store configurations, but have an important difference:
 They are version controlled, and upon sharing a dataset these configurations
 will be shared as well. An example for a shared configuration
 is the one that the ``text2git`` configuration template applied:
-In the shared copy of your dataset, text files are also saved with Git,
-and not git-annex (see section :ref:`sibling`). The configuration responsible
+In the shared copy of your dataset from :ref:`sibling`, text files are also saved with Git,
+and not git-annex. The configuration responsible
 for this behavior is in a ``.gitattributes`` file, and we'll start this
 section by looking into it.
 
+.. index:: ! configuration file; .gitattributes
+
 ``.gitattributes``
 ^^^^^^^^^^^^^^^^^^
-
-.. index:: ! Config files; .gitattributes
 
 This file lies right in the root of your superdataset:
 
@@ -34,11 +34,10 @@ This looks neither spectacular nor pretty. Also, it does not follow the ``sectio
 organization of the ``.git/config`` file anymore. Instead, there are three lines,
 and all of these seem to have something to do with the configuration of git-annex.
 There even is one key word that you recognize: MD5E.
-If you have read the hidden section in :ref:`symlink`
+If you have read the :ref:`Find-out-more on object trees <objecttree>`
 you will recognize it as a reference to the type of
 key used by git-annex to identify and store file content in the object-tree.
-The first row, ``* annex.backend=MD5E``, therefore translates to "Everything in this
-directory should be hashed with a MD5E hash function".
+The first row, ``* annex.backend=MD5E``, therefore translates to "The ``MD5E`` git-annex backend should be used for any file".
 But what is the rest? We'll start with the last row:
 
 .. code-block:: bash
@@ -66,17 +65,14 @@ configured git-annex to regard all files of type "binary" as a large file.
 Thanks to this little line, your text files are not annexed, but stored
 directly in Git.
 
-The patterns ``*`` and ``**`` are so-called "wildcards" used in :term:`globbing`.
-``*`` matches any file or directory in the current directory, and ``**`` matches
-all files and directories in the current directory *and subdirectories*. In technical
-terms, ``**`` matches *recursively*. The third row therefore
-translates to "Do not annex anything that is a text file in this directory" for git-annex.
-
-However, rules can be even simpler. The second row simply takes a complete directory
-(``.git``) and instructs git-annex to regard nothing in it as a "large file".
-The second row, ``**/.git* annex.largefiles=nothing`` means that no
-``.git`` repository in this directory or a subdirectory should be considered
-a "large file". This way, the ``.git`` repositories are protected from being annexed.
+The patterns ``*`` and ``**`` are so-called "wildcards" you might recognize from used in :term:`globbing`.
+In Git configuration files, an asterisk "*" matches anything except a slash.
+The third row therefore
+translates to "Do not annex anything that is a text file" for git-annex.
+Two leading "``**``" followed by a slash matches
+*recursively* in all directories.
+Therefore, the second row instructs git-annex to regard nothing starting with ``.git`` as a "large file", including contents inside of ``.git`` directories.
+This way, the ``.git`` repositories are protected from being annexed.
 If you had a single file (``myfile.pdf``) you would not want annexed, specifying a rule such as:
 
 .. code-block:: bash
@@ -133,10 +129,10 @@ Later however you will see preconfigured DataLad *procedures* such as ``text2git
 can apply useful configurations for you, just as ``text2git`` added the last line
 in the root ``.gitattributes`` file.
 
+.. index:: ! configuration file; .gitmodules
+
 ``.gitmodules``
 ^^^^^^^^^^^^^^^
-
-.. index:: ! Config files; .gitmodules
 
 On last configuration file that Git creates is the ``.gitmodules`` file.
 There is one right in the root of your dataset:
@@ -148,13 +144,14 @@ There is one right in the root of your dataset:
    $ cat .gitmodules
 
 Based on these contents, you might have already guessed what this file
-stores. ``.gitmodules`` is a configuration file that stores the mapping between
+stores. The ``.gitmodules`` file is a configuration file that stores the mapping between
 your own dataset and any subdatasets you have installed in it.
 There will be an entry for each submodule (subdataset) in your dataset.
 The name *submodule* is Git terminology, and describes a Git repository inside of
 another Git repository, i.e., the super- and subdataset principles.
 Upon sharing your dataset, the information about subdatasets and where to retrieve
 them from is stored and shared with this file.
+In addition to modifying it with the ``git config`` command or by hand, the ``datalad subdatasets`` command also has a ``--set-property NAME VALUE`` option that you can use to set subdataset properties.
 
 Section :ref:`sharelocal1` already mentioned one additional configuration option in a footnote: The ``datalad-recursiveinstall`` key.
 This key is defined on a per subdataset basis, and if set to "``skip``", the given subdataset will not be recursively installed unless it is explicitly specified as a path to :dlcmd:`get [-n/--no-data] -r`.
@@ -163,81 +160,49 @@ Below is a minimally functional example on how to apply the configuration and ho
 
 Let's create a dataset hierarchy to work with (note that we concatenate multiple commands into a single line using bash's "and" ``&&`` operator):
 
-.. code-block:: bash
+.. code-block:: console
 
-    # create a superdataset with two subdatasets
-    $ datalad create superds && cd superds && datalad create -d . subds1 && datalad create -d . subds2
-    [INFO   ] Creating a new annex repo at /tmp/superds
+    $ # create a superdataset with two subdatasets
+    $ datalad create superds && datalad -C superds create -d . subds1 && datalad -C superds create -d . subds2
     create(ok): /tmp/superds (dataset)
-    [INFO   ] Creating a new annex repo at /tmp/superds/subds1
     add(ok): subds1 (file)
     add(ok): .gitmodules (file)
     save(ok): . (dataset)
     create(ok): subds1 (dataset)
-    action summary:
-      add (ok: 2)
-      create (ok: 1)
-      save (ok: 1)
-    [INFO   ] Creating a new annex repo at /tmp/superds/subds2
     add(ok): subds2 (file)
     add(ok): .gitmodules (file)
     save(ok): . (dataset)
     create(ok): subds2 (dataset)
-    action summary:
-      add (ok: 2)
-      create (ok: 1)
-      save (ok: 1)
 
 Next, we create subdatasets in the subdatasets:
 
-.. code-block:: bash
+.. code-block:: console
 
-    # create two subdatasets in subds1
-    $ cd subds1 && datalad create -d . subsubds1 && datalad create -d . subsubds2 && cd ../
-    [INFO   ] Creating a new annex repo at /tmp/superds/subds1/subsubds1
+    $ # create two subdatasets in subds1
+    $ datalad -C superds/subds1 create -d . subsubds1 && datalad -C superds/subds1 create -d . subsubds2
     add(ok): subsubds1 (file)
     add(ok): .gitmodules (file)
     save(ok): . (dataset)
     create(ok): subsubds1 (dataset)
-    action summary:
-      add (ok: 2)
-      create (ok: 1)
-      save (ok: 1)
-    [INFO   ] Creating a new annex repo at /tmp/superds/subds1/subsubds2
     add(ok): subsubds2 (file)
     add(ok): .gitmodules (file)
     save(ok): . (dataset)
     create(ok): subsubds2 (dataset)
-    action summary:
-      add (ok: 2)
-      create (ok: 1)
-      save (ok: 1)
 
-
-    # create two subdatasets in subds2
-    $ cd subds2 && datalad create -d . subsubds1 && datalad create -d . subsubds2
-    [INFO   ] Creating a new annex repo at /tmp/superds/subds2/subsubds1
+    $ # create two subdatasets in subds2
+    $ datalad -C superds/subds2 create -d . subsubds1 && datalad -C superds/subds2 create -d . subsubds2
     add(ok): subsubds1 (file)
     add(ok): .gitmodules (file)
     save(ok): . (dataset)
     create(ok): subsubds1 (dataset)
-    action summary:
-      add (ok: 2)
-      create (ok: 1)
-      save (ok: 1)
-    [INFO   ] Creating a new annex repo at /tmp/superds/subds2/subsubds2
     add(ok): subsubds2 (file)
     add(ok): .gitmodules (file)
     save(ok): . (dataset)
     create(ok): subsubds2 (dataset)
-    action summary:
-      add (ok: 2)
-      create (ok: 1)
-      save (ok: 1)
 
 Here is the directory structure:
 
-.. code-block:: bash
+.. code-block:: console
 
     $ cd ../ && tree
     .
@@ -248,51 +213,40 @@ Here is the directory structure:
         ├── subsubds1
         └── subsubds2
 
-    # save in the superdataset
+    $ # save in the superdataset
     datalad save -m "add a few sub and subsub datasets"
     add(ok): subds1 (file)
     add(ok): subds2 (file)
     save(ok): . (dataset)
-    action summary:
-      add (ok: 2)
-      save (ok: 1)
 
-Now, we can apply the ``datalad-recursiveinstall`` configuration to skip recursive installations for subds1
+Now, we can apply the ``datalad-recursiveinstall`` configuration to skip recursive installations for ``subds1``
 
-.. code-block:: bash
+.. code-block:: console
 
     $ git config -f .gitmodules --add submodule.subds1.datalad-recursiveinstall skip
 
-    # save this configuration
+    $ # save this configuration
     $ datalad save -m "prevent recursion into subds1, unless explicitly given as path"
     add(ok): .gitmodules (file)
     save(ok): . (dataset)
-    action summary:
-      add (ok: 1)
-      save (ok: 1)
+
 
 If the dataset is cloned, and someone runs a recursive :dlcmd:`get`, the subdatasets of ``subds1`` will not be installed, the subdatasets of ``subds2``, however, will be.
 
-.. code-block:: bash
+.. code-block:: console
 
-    # clone the dataset somewhere else
+    $ # clone the dataset somewhere else
     $ cd ../ && datalad clone superds clone_of_superds
     [INFO   ] Cloning superds into '/tmp/clone_of_superds'
     install(ok): /tmp/clone_of_superds (dataset)
 
-    # recursively get all contents (without data)
+    $ # recursively get all contents (without data)
     $ cd clone_of_superds && datalad get -n -r .
-    [INFO   ] Installing <Dataset path=/tmp/clone_of_superds> underneath /tmp/clone_of_superds recursively
-    [INFO   ] Cloning /tmp/superds/subds2 into '/tmp/clone_of_superds/subds2'
     get(ok): /tmp/clone_of_superds/subds2 (dataset)
-    [INFO   ] Cloning /tmp/superds/subds2/subsubds1 into '/tmp/clone_of_superds/subds2/subsubds1'
     get(ok): /tmp/clone_of_superds/subds2/subsubds1 (dataset)
-    [INFO   ] Cloning /tmp/superds/subds2/subsubds2 into '/tmp/clone_of_superds/subds2/subsubds2'
     get(ok): /tmp/clone_of_superds/subds2/subsubds2 (dataset)
-    action summary:
-      get (ok: 3)
 
-    # only subsubds of subds2 are installed, not of subds1:
+    $ # only subsubds of subds2 are installed, not of subds1:
     $ tree
     .
     ├── subds1
@@ -304,12 +258,10 @@ If the dataset is cloned, and someone runs a recursive :dlcmd:`get`, the subdata
 
 Nevertheless, if ``subds1`` is provided with an explicit path, its subdataset ``subsubds`` will be cloned, essentially overriding the configuration:
 
-.. code-block:: bash
+.. code-block:: console
 
     $  datalad get -n -r subds1 && tree
-    [INFO   ] Cloning /tmp/superds/subds1 into '/tmp/clone_of_superds/subds1'
     install(ok): /tmp/clone_of_superds/subds1 (dataset) [Installed subdataset in order to get /tmp/clone_of_superds/subds1]
-    [INFO   ] Installing <Dataset path=/tmp/clone_of_superds> underneath /tmp/clone_of_superds/subds1 recursively
     .
     ├── subds1
     │   ├── subsubds1
@@ -321,12 +273,10 @@ Nevertheless, if ``subds1`` is provided with an explicit path, its subdataset ``
     6 directories, 0 files
 
 
-
+.. index:: ! configuration file; .datalad/config
 
 ``.datalad/config``
 ^^^^^^^^^^^^^^^^^^^
-
-.. index:: ! Config files; .datalad/config
 
 DataLad adds a repository-specific configuration file as well.
 It can be found in the ``.datalad`` directory, and just like ``.gitattributes``
@@ -351,6 +301,9 @@ Otherwise, dataset updates with :dlcmd:`update` (or, for Git-users,
 behavior that was specifically configured.
 Also, :term:`Git` and :term:`git-annex` will not query this file for configurations, so please store only sticky options that are specific to DataLad (i.e., under the ``datalad.*`` namespace) in it.
 
+.. index::
+   pair: modify configuration; with Git
+
 Writing to configuration files other than ``.git/config``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -362,7 +315,7 @@ files, and I do not know with which command I can write into these files."
 it's also the :gitcmd:`config` command. The only part of it you need to
 adjust is the ``-f``, ``--file`` parameter. By default, the command writes to
 a Git config file. But it can write to a different file if you specify it
-appropriately. For example
+appropriately. For example,
 
    ``git config --file=.gitmodules --replace-all submodule."name".url "new URL"``
 
@@ -409,20 +362,19 @@ unstaged modification.
    $ git checkout .gitmodules
    $ datalad status
 
-Note, though, that the ``.gitattributes`` file can not be modified with a :gitcmd:`config`
+Note, though, that the ``.gitattributes`` file cannot be modified with a :gitcmd:`config`
 command. This is due to its different format that does not comply to the
 ``section.variable.value`` structure of all other configuration files. This file, therefore,
 has to be edited by hand, with an editor of your choice.
 
+.. index:: ! environment variable
 .. _envvars:
 
 Environment variables
 ^^^^^^^^^^^^^^^^^^^^^
 
-.. index:: ! environment variable
-
 An :term:`environment variable` is a variable set up in your shell
-that affects the way the shell or certain software works -- for example
+that affects the way the shell or certain software works -- for example,
 the environment variables ``HOME``, ``PWD``, or ``PATH``.
 Configuration options that determine the behavior of Git, git-annex, and
 DataLad that could be defined in a configuration file can also be set (or overridden)
@@ -435,6 +387,8 @@ configuration of Git can be overridden by its associated environment variable,
 ``GIT_AUTHOR_NAME``. Likewise, one can define the environment variable instead
 of setting the ``user.name`` configuration in a configuration file.
 
+.. index:: configuration item; datalad.log.level
+
 Git, git-annex, and DataLad have more environment variables than anyone would want to
 remember. `The ProGit book <https://git-scm.com/book/en/v2/Git-Internals-Environment-Variables>`__
 has a good overview on Git's most useful available environment variables for a start.
@@ -445,12 +399,13 @@ replacing any ``__`` (two underscores) with a hyphen, then any ``_`` (single und
 with a dot, and finally converting all letters to lower case. The ``datalad.log.level``
 configuration option thus is the environment variable ``DATALAD_LOG_LEVEL``.
 
+.. index:: operating system concept; environment variable
 .. find-out-more:: Some more general information on environment variables
    :name: fom-envvar
 
    Names of environment variables are often all-uppercase. While the ``$`` is not part of
    the name of the environment variable, it is necessary to *refer* to the environment
-   variable: To reference the value of the environment variable ``HOME`` for example you would
+   variable: To reference the value of the environment variable ``HOME``, for example, you would
    need to use ``echo $HOME`` and not ``echo HOME``. However, environment variables are
    set without a leading ``$``. There are several ways to set an environment variable
    (note that there are no spaces before and after the ``=`` !), leading to different
@@ -475,7 +430,7 @@ This has been an intense lecture, you have to admit. One definite
 take-away from it has been that you now know a second reason why the hidden
 ``.git`` and ``.datalad`` directory contents and also the contents of ``.gitmodules`` and
 ``.gitattributes`` should not be carelessly tampered with -- they contain all of
-the repositories configurations.
+the repository's configurations.
 
 But you now also know how to modify these configurations with enough
 care and background knowledge such that nothing should go wrong once you
@@ -486,7 +441,7 @@ you already know some core Git configurations such as name, email, and editor. E
 important, you know how to configure git-annex's content management based on ``largefile``
 rules, and you understand the  variables within ``.gitmodules`` or the sections
 in ``.git/config``. Slowly, you realize with pride,
-you're more and more becoming a DataLad power-user.
+you are more and more becoming a DataLad power-user.
 
 Write a note about configurations in datasets into ``notes.txt``.
 
@@ -540,13 +495,13 @@ Write a note about configurations in datasets into ``notes.txt``.
          extension (such as ``.txt``, ``.pdf``, ``.jpg``) for the operating system to know
          how to open or use this file (in contrast to Windows, which does not know how to
          open a file without an extension). To do this, Unix systems rely on a file's
-         MIME type -- an information about a file's content. A ``.txt`` file for example
+         MIME type -- an information about a file's content. A ``.txt`` file, for example,
          has MIME type ``text/plain`` as does a bash script (``.sh``), a Python
          script has MIME type ``text/x-python``, a ``.jpg`` file is ``image/jpg``, and
          a ``.pdf`` file has MIME type ``application/pdf``. You can find out the MIME type
          of a file by running:
 
-         .. code-block:: bash
+         .. code-block:: console
 
             $ file --mime-type path/to/file
 
@@ -556,7 +511,7 @@ Write a note about configurations in datasets into ``notes.txt``.
          specified in there take precedence over rules in ``.gitattributes``. You can set
          them using the :gitcmd:`config` command:
 
-         .. code-block:: bash
+         .. code-block:: console
 
             $ git config annex.largefiles 'largerthan=100kb and not (include=*.c or include=*.h)'
 

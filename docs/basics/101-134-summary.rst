@@ -14,7 +14,7 @@ The last two sections have first of all extended your knowledge on dataset nesti
   of the subdatasets version state. If you want to record this, you need to
   :dlcmd:`save` it in the superdataset:
 
-  .. code-block:: bash
+  .. code-block:: console
 
     $ datalad save -m "a short summary of changes in subds" <path to subds>
 
@@ -29,8 +29,8 @@ for yourself why and how software containers can go hand-in-hand with DataLad:
   `datalad containers <https://docs.datalad.org/projects/container>`_
   can make this possible.
 
-- The command :dlcmd:`containers-add` registers an Image from a path or
-  url to your dataset.
+- The command :dlcmd:`containers-add` registers an :term:`container image` from a path or
+  URL to your dataset.
 
 - If you use :dlcmd:`containers-run` instead of :dlcmd:`run`,
   you can reproducibly execute a command of your choice *within* the software
@@ -38,6 +38,9 @@ for yourself why and how software containers can go hand-in-hand with DataLad:
 
 - A :dlcmd:`rerun` of a commit produced with :dlcmd:`containers-run`
   will re-execute the command in the same software environment.
+
+.. index::
+   pair: hub; Docker
 
 Now what can I do with it?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -52,8 +55,8 @@ includes the relevant software environment. This does not only make your analyse
 projects automatically reproducible, but automatically *computationally* reproducible -
 you can make sure that your analyses runs on any computer with Singularity,
 regardless of the software environment on this computer. Even if you are unsure how you can wrap up an
-environment into a software container Image at this point, you could make use of
-hundreds of publicly available Images on `Singularity-Hub <https://singularity-hub.org>`_ and
+environment into a software :term:`container image` at this point, you could make use of
+hundreds of publicly available images on `Singularity-Hub <https://singularity-hub.org>`_ and
 `Docker-Hub <https://hub.docker.com>`_.
 
 With this, you have also gotten a first glimpse into an extension of DataLad: A

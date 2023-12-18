@@ -33,33 +33,34 @@ DataLad for, if everyone can already access everything?" However,
 universal, unrestricted access can easily lead to chaos. DataLad can
 help facilitate collaboration without requiring ultimate trust and
 reliability of all participants. Essentially, with a shared dataset,
-collaborators can look and use your dataset without ever touching it.
+collaborators can see and use your dataset without any danger
+of undesired, or uncontrolled modification.
 
 To demonstrate how to share a DataLad dataset on a common file system,
 we will pretend that your personal computer
 can be accessed by other users. Let's say that
-your room mate has access, and you're making sure that there is
+your room mate has access, and you are making sure that there is
 a ``DataLad-101`` dataset in a different place on the file system
 for him to access and work with.
 
 This is indeed a common real-world use case: Two users on a shared
 file system sharing a dataset with each other.
-But as we can not easily simulate a second user in this handbook,
+But as we cannot easily simulate a second user in this handbook,
 for now, you will have to share your dataset with yourself.
 This endeavor serves several purposes: For one, you will experience a very easy
 way of sharing a dataset. Secondly, it will show you
-how a dataset can be obtained from a path (instead of a URL as shown in the section
-:ref:`installds`). Thirdly, ``DataLad-101`` is a dataset that can
+how a dataset can be obtained from a path, instead of a URL as shown in section
+:ref:`installds`. Thirdly, ``DataLad-101`` is a dataset that can
 showcase many different properties of a dataset already, but it will
 be an additional learning experience to see how the different parts
-of the dataset -- text files, larger files, datalad subdataset,
-:dlcmd:`run` commands -- will appear upon installation when shared.
+of the dataset -- text files, larger files, subdatasets,
+:term:`run record`\s -- will appear upon installation when shared.
 And lastly, you will likely "share a dataset with yourself" whenever you
 will be using a particular dataset of your own creation as input for
 one or more projects.
 
-"Awesome!" exclaims your room mate as you take out your Laptop to
-share the dataset. "You're really saving my ass
+"Awesome!" exclaims your room mate as you take out your laptop to
+share the dataset. "You are really saving my ass
 here. I'll make up for it when we prepare for the final", he promises.
 
 To install ``DataLad-101`` into a different part
@@ -81,7 +82,9 @@ home directory. Furthermore, let's for now disregard anything about
 :term:`permissions`. In a real-world example you likely would not be able to read and write
 to a different user's directories, but we will talk about permissions later.
 
-.. index:: ! datalad command; clone
+.. index::
+   pair: clone; DataLad command
+   pair: clone dataset (set location description); with DataLad
 
 After creation, navigate into ``mock_user`` and install the dataset ``DataLad-101``.
 To do this, use :dlcmd:`clone`, and provide a path to your original
@@ -134,7 +137,8 @@ object tree. To reassure your room mate that everything is fine you
 quickly explain to him the concept of a symlink and the :term:`object-tree`
 of :term:`git-annex`.
 
-.. index:: ! datalad command; clone
+.. index::
+   pair: clone; DataLad command
 
 "But why does the PDF not open when I try to open it?" he repeats.
 True, these files cannot be opened. This mimics our experience when
@@ -163,113 +167,12 @@ To demonstrate this, you decide to examine the PDFs further.
 
 "Opening this file will work, because the content was retrieved from
 the original dataset.", you explain, proud that this worked just as you
-thought it would. Your room mate is excited by this magical
-command. You however begin to wonder: how does DataLad know where to look for
-that original content?
-
-This information comes from git-annex. Before getting the next PDF,
-let's query git-annex where its content is stored:
-
-.. runrecord:: _examples/DL-101-116-105
-   :language: console
-   :workdir: dl-101/mock_user/DataLad-101
-   :notes: git-annex whereis to find out where content is stored
-   :cast: 04_collaboration
-
-   $ git annex whereis books/TLCL.pdf
-
-Oh, another :term:`shasum`! This time however not in a symlink...
-"That's hard to read -- what is it?" your room mate asks. You can
-recognize a path to the dataset on your computer, prefixed with the user
-and hostname of your computer. "This", you exclaim, excited about your own realization,
-"is my dataset's location I'm sharing it from!"
-
-.. find-out-more:: What is this location, and what if I provided a description?
-
-   Back in the very first section of the Basics, :ref:`createDS`, a hidden
-   section mentioned the ``--description`` option of :dlcmd:`create`.
-   With this option, you can provide a description about the dataset *location*.
-
-   The :gitannexcmd:`whereis` command, finally, is where such a description
-   can become handy: If you had created the dataset with
-
-   .. code-block:: bash
-
-      $ datalad create --description "course on DataLad-101 on my private Laptop" -c text2git DataLad-101
-
-   the command would show ``course on DataLad-101 on my private Laptop`` after
-   the :term:`shasum` -- and thus a more human-readable description of *where*
-   file content is stored.
-   This becomes especially useful when the number of repository copies
-   increases. If you have only one other dataset it may be easy to
-   remember what and where it is. But once you have one back-up
-   of your dataset on a USB-Stick, one dataset shared with
-   Dropbox, and a third one on your institutions
-   :term:`GitLab` instance you will be grateful for the descriptions
-   you provided these locations with.
-
-   The current report of the location of the dataset is in the format
-   ``user@host:path``.
-
-   If the physical location of a dataset is not relevant, ambiguous, or volatile,
-   or if it has an :term:`annex` that could move within the foreseeable lifetime of a
-   dataset, a custom description with the relevant information on the dataset is
-   superior. If this is not the case, decide for yourself whether you want to use
-   the ``--description`` option for future datasets or not depending on what you
-   find more readable -- a self-made location description, or an automatic
-   ``user@host:path`` information.
-
-
-The message further informs you that there is only "``(1 copy)``"
-of this file content. This makes sense: There
-is only your own, original ``DataLad-101`` dataset in which
-this book is saved.
-
-To retrieve file content of an annexed file such as one of
-these PDFs, git-annex will try
-to obtain it from the locations it knows to contain this content.
-It uses the checksums to identify these locations. Every copy
-of a dataset will get a unique ID with such a checksum.
-Note however that just because git-annex knows a certain location
-where content was once it does not guarantee that retrieval will
-work. If one location is a USB-Stick that is in your bag pack instead
-of your USB port,
-a second location is a hard drive that you deleted all of its
-previous contents (including dataset content) from,
-and another location is a web server, but you are not connected
-to the internet, git-annex will not succeed in retrieving
-contents from these locations.
-As long as there is at least one location that contains
-the file and is accessible, though, git-annex will get the content.
-Therefore, for the books in your dataset, retrieving contents works because you
-and your room mate share the same file system. If you'd share the dataset
-with anyone without access to your file system, ``datalad get`` would not
-work, because it can not access your files.
-
-But there is one book that does not suffer from this restriction:
-The ``bash_guide.pdf``.
-This book was not manually downloaded and saved to the dataset with ``wget``
-(thus keeping DataLad in the dark about where it came from), but it was
-obtained with the :dlcmd:`download-url` command. This registered
-the books original source in the dataset, and here is why that is useful:
-
-.. runrecord:: _examples/DL-101-116-106
-   :language: console
-   :workdir: dl-101/mock_user/DataLad-101
-
-   $ git annex whereis books/bash_guide.pdf
-
-Unlike the ``TLCL.pdf`` book, this book has two sources, and one of them is
-``web``. The second to last line specifies the precise URL you downloaded the
-file from. Thus, for this book, your room mate is always able to obtain it
-(as long as the URL remains valid), even if you would delete your ``DataLad-101``
-dataset. Quite useful, this provenance, right?
+thought it would.
 
 Let's now turn to the fact that the subdataset ``longnow`` contains neither
 file content nor file metadata information to explore the contents of the 
 dataset: there are no subdirectories or any files under ``recordings/longnow/``.
 This is behavior that you have not observed until now.
-
 To fix this and obtain file availability metadata,
 you have to run a somewhat unexpected command:
 
@@ -281,8 +184,8 @@ you have to run a somewhat unexpected command:
 
    $ datalad get -n recordings/longnow
 
-The section below will elaborate on :dlcmd:`get` and the
-``-n/--no-data`` option, but for now, let's first see what has changed after
+Before we look further into :dlcmd:`get` and the
+``-n/--no-data`` option, let's first see what has changed after
 running the above command (excerpt):
 
 .. runrecord:: _examples/DL-101-116-108
@@ -308,7 +211,7 @@ subdataset again, just as we did in the example above.
 
 But what about the ``-n`` option for :dlcmd:`get`?
 Previously, we used :dlcmd:`get` to get file content. However,
-:dlcmd:`get` operate on more than just the level of *files* or *directories*.
+:dlcmd:`get` operates on more than just the level of *files* or *directories*.
 Instead, it can also operate on the level of *datasets*. Regardless of whether
 it is a single file (such as ``books/TLCL.pdf``) or a registered subdataset
 (such as ``recordings/longnow``), :dlcmd:`get` will operate on it to 1) install
@@ -324,13 +227,16 @@ directories, thus limiting its scope to the level of datasets as only a
 have retrieved all of the subdatasets contents right away. But with ``-n/--no-data``,
 it only installed the subdataset to retrieve the meta data about file availability.
 
+.. index::
+   pair: get all dataset content; with DataLad
+
 To explicitly install all potential subdatasets *recursively*, that is,
 all of the subdatasets inside it as well, one can give the
 ``-r``/``--recursive`` option to :dlcmd:`get`:
 
-.. code-block:: bash
+.. code-block:: console
 
-  datalad get -n -r <subds>
+  $ datalad get -n -r <subds>
 
 This would install the ``subds`` subdataset and all potential further
 subdatasets inside of it, and the meta data about file hierarchies would
@@ -348,9 +254,9 @@ However, there is a middle way [#f1]_: The ``--recursion-limit`` option let's
 you specify how many levels of subdatasets should be installed together
 with the first subdataset:
 
-.. code-block:: bash
+.. code-block:: console
 
-  datalad get -n -r --recursion-limit 1 <subds>
+  $ datalad get -n -r --recursion-limit 1 <subds>
 
 
 To summarize what you learned in this section, write a note on how to
@@ -364,9 +270,9 @@ Write this note in "your own" (the original) ``DataLad-101`` dataset, though!
    :notes: note in original DataLad-101 dataset
    :cast: 04_collaboration
 
-   # navigate back into the original dataset
+   $ # navigate back into the original dataset
    $ cd ../../DataLad-101
-   # write the note
+   $ # write the note
    $ cat << EOT >> notes.txt
    A source to install a dataset from can also be a path, for example as
    in "datalad clone ../DataLad-101".
@@ -396,6 +302,8 @@ Save this note.
 
    $ datalad save -m "add note about cloning from paths and recursive datalad get"
 
+.. index::
+   pair: clone; DataLad concept
 .. gitusernote:: Get a clone
 
    A dataset that is installed from an existing source, e.g., a path or URL,

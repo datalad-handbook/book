@@ -35,6 +35,8 @@ failed -- sorry about this.
   :ref:`abcd`
 :redirect:`about`
   :ref:`executive_summary`
+:redirect:`book-intro-v1`
+  :ref:`book-intro-v1`
 :redirect:`cheatsheet`
   :ref:`cheat`
 :redirect:`clone-priority`
@@ -61,6 +63,8 @@ failed -- sorry about this.
   :ref:`usecase_HCP_dataset`
 :redirect:`install`
   :ref:`install`
+:redirect:`osoh`
+  :ref:`osoh`
 :redirect:`reproducible-paper`
   :ref:`usecase_reproducible_paper`
 :redirect:`RIA`

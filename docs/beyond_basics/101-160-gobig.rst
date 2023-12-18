@@ -8,7 +8,7 @@ Version controlling or analyzing data in datasets with a total size of up to a
 few hundred GB, with some tens of thousands of files at maximum? Usually, this
 should work fine. If you want to go beyond this scale, however, you should read
 this section to learn how to properly scale up. As a general rule, consider this
-section relevant once you have a usecase in which you would go substantially
+section relevant once you have a use case in which you would go substantially
 beyond 100k files in a single dataset.
 
 The contents of this chapter exist thanks to some pioneers that took a leap and

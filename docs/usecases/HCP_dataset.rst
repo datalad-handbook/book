@@ -1,11 +1,10 @@
+.. index:: ! Usecase; Scaling up: 80TB and 15 million files
 .. _usecase_HCP_dataset:
 
 Scaling up: Managing 80TB and 15 million files from the HCP release
 -------------------------------------------------------------------
 
-.. index:: ! Usecase; Scaling up: 80TB and 15 million files
-
-This usecase outlines how a large data collection can be version controlled
+This use case outlines how a large data collection can be version controlled
 and published in an accessible manner with DataLad in a remote indexed
 archive (RIA) data store. Using the
 `Human Connectome Project <http://www.humanconnectomeproject.org>`_
@@ -38,10 +37,10 @@ without circumventing or breaching the data providers terms:
 #. The :dlcmd:`copy-file` can be used to subsample special-purpose datasets
    for faster access.
 
+.. index:: ! Human Connectome Project (HCP)
+
 The Challenge
 ^^^^^^^^^^^^^
-
-.. index:: ! Human Connectome Project (HCP)
 
 The `Human Connectome Project <http://www.humanconnectomeproject.org>`_ aims
 to provide an unparalleled compilation of neural data through a customized
@@ -143,10 +142,11 @@ Building and publishing a DataLad dataset with HCP data consists of several step
 an access point to all files in the HCP data release. The upcoming subsections
 detail each of these.
 
+.. index::
+   pair: addurls; DataLad command
+
 Dataset creation with ``datalad addurls``
 """""""""""""""""""""""""""""""""""""""""
-
-.. index:: ! datalad command; addurls
 
 The :dlcmd:`addurls` command
 allows you to create (and update) potentially nested DataLad datasets from a list
@@ -166,10 +166,10 @@ which it has been aggregated are small in size, and yet provide access to the HC
 data for anyone who has valid AWS S3 credentials.
 
 At the end of this step, there is one nested dataset per subject in the HCP data
-release. If you are interested in the details of this process, checkout the
-hidden section below.
+release. If you are interested in the details of this process, checkout the :find-out-more:`on the datasets' generation <fom-hcp>`.
 
 .. find-out-more:: How exactly did the datasets came to be?
+   :name: fom-hcp
 
    All code and tables necessary to generate the HCP datasets can be found on
    GitHub at `github.com/TobiasKadelka/build_hcp <https://github.com/TobiasKadelka/build_hcp>`_.
@@ -295,10 +295,10 @@ hidden section below.
    ran over the Christmas break and finished before everyone went back to work.
    Getting 15 million files into datasets? Check!
 
+.. index:: Remote Indexed Archive (RIA) store
+
 Using a Remote Indexed Archive Store for dataset hosting
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-.. index:: Remote Indexed Archive (RIA) store
 
 All datasets were built on a scientific compute cluster. In this location, however,
 datasets would only be accessible to users with an account on this system.
@@ -314,12 +314,12 @@ with the store to get the HCP datasets.
 On the lowest level, store.datalad.org_
 is a directory on a publicly accessible server that holds a great number of datasets
 stored as :term:`bare git repositories`. The only important aspect of it for this
-usecase is that instead of by their names (e.g., ``100206``), datasets are stored
+use case is that instead of by their names (e.g., ``100206``), datasets are stored
 and identified via their :term:`dataset ID`.
 The :dlcmd:`clone` command can understand this layout and install
 datasets from a RIA store based on their ID.
 
-.. find-out-more:: How would a datalad clone from a RIA store look like?
+.. find-out-more:: How would a 'datalad clone' from a RIA store look like?
 
    In order to get a dataset from a RIA store, :dlcmd:`clone` needs
    a RIA URL. It is build from the following components:
@@ -488,7 +488,7 @@ If you are interested in learning about the :dlcmd:`copy-file`, checkout the sec
 Summary
 """""""
 
-This usecase demonstrated how it is possible to version control and distribute
+This use case demonstrated how it is possible to version control and distribute
 datasets of sizes that would otherwise be unmanageably large for version control
 systems. With the public HCP dataset available as a DataLad dataset, data access
 is simplified, data analysis that use the HCP data can link it (in precise versions)

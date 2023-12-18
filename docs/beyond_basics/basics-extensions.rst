@@ -3,11 +3,9 @@
 DataLad Extensions
 ------------------
 
-
-.. index:: ! Chapter; 16. DataLad extensions
-
-.. figure:: ../artwork/src/universe.svg
+.. image:: ../artwork/src/universe.svg
    :width: 50%
+   :align: center
 
 .. toctree::
    :maxdepth: 1

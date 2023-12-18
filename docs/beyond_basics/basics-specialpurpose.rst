@@ -3,12 +3,9 @@
 Special purpose showrooms
 -------------------------
 
-.. index:: ! Chapter; 14. Special purpose showrooms
-
-.. figure:: ../artwork/src/functions.svg
+.. image:: ../artwork/src/functions.svg
    :width: 50%
-
-.. index:: ! Chapter; Special purpose showrooms
+   :align: center
 
 .. toctree::
    :maxdepth: 1

@@ -1,9 +1,8 @@
+.. index:: ! Usecase; Student supervision
 .. _usecase_student_supervision:
 
 Student supervision in a research project
 -----------------------------------------
-
-.. index:: ! Usecase; Student supervision
 
 This use case will demonstrate a workflow that uses DataLad tools and principles
 to assist in technical aspects of supervising research projects with computational
@@ -31,7 +30,7 @@ to work on autonomously. The data are already collected, and everyone involved
 is certain that Megan will be fine performing the analyses she has
 experience with. Her supervisor confidently proposes the research project as a
 conference talk Megan should give at the end of her stay. Megan is excited about the
-responsibility and her project, and can not wait to start.
+responsibility and her project, and cannot wait to start.
 
 On the first day, her supervisor spends an hour to show her the office,
 the coffee machine, and they chat about the high-level aspects

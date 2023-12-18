@@ -36,12 +36,12 @@ list of speakers and titles to cross out what they've already listened
 to, and ask you to prepare such a list.
 
 "Mhh... probably there is a DataLad way to do this... wasn't there also
-a note about metadata extraction at some point?" But as we're not that
+a note about metadata extraction at some point?" But as we are not that
 far into the lectures, you decide to write a short shell script
 to generate a text file that lists speaker and title
 name instead.
 
-To do this, we're following a best practice that will reappear in the
+To do this, we are following a best practice that will reappear in the
 later section on :ref:`YODA principles <yoda>`: Collecting all
 additional scripts that work with content of a subdataset *outside*
 of this subdataset, in a dedicated ``code/`` directory,
@@ -68,41 +68,17 @@ Inside of ``DataLad-101/code``, create a simple shell script ``list_titles.sh``.
 This script will carry out a simple task:
 It will loop through the file names of the ``.mp3`` files and
 write out speaker names and talk titles in a very basic fashion.
-The content of this script is written below -- the ``cat`` command
-will write it into the script.
+The ``cat`` command will write the script content into ``code/list_titles.sh``.
 
 .. windows-wit:: Here's a script for Windows users
 
-   Please use an editor of your choice to create a file ``list_titles.sh`` inside of the ``code`` directory.
-   These should be the contents:
+   .. include:: topic/globscript1-windows.rst
 
-   .. code-block:: bash
-
-       for i in recordings/longnow/Long_Now__Seminars*/*.mp3; do
-          # get the filename
-          base=$(basename "$i");
-          # strip the extension
-          base=${base%.mp3};
-          # date as yyyy-mm-dd
-          printf "${base%%__*}\t" | tr '_' '-';
-          # name and title without underscores
-          printf "${base#*__}\n" | tr '_' ' ';
-       done
-
-   Note that this is not identical to the one below -- it lacks a few ``\`` characters, which is a meaningful difference.
-
+.. index::
+   pair: hidden file name extensions; on Windows
 .. windows-wit:: Be mindful of hidden extensions when creating files!
 
-   By default, Windows does not show common file extensions when you view directory contents with a file explorer.
-   Instead, it only displays the base of the file name and indicates the file type with the display icon.
-   You can see if this is the case for you, too, by opening the ``books\`` directory in a file explorer, and checking if the file extension (``.pdf``) is a part of the file name displayed underneath its PDF icon.
-
-   Hidden file extensions can be a confusing source of errors, because some Windows editors (for example Notepad) automatically add a ``.txt`` extension to your files -- when you save the script above under the name ``list_titles.sh``, your editor may add an extension (``list_titles.sh.txt``), and the file explorer displays your file as ``list_titles.sh`` (hiding the ``.txt`` extension).
-
-   To prevent confusion, configure the file explorer to always show you the file extension.
-   For this, open the Explorer, click on the "View" tab, and tick the box "File name extensions".
-
-   Beyond this, double check the correct naming of your file, ideally in the terminal.
+   .. include:: topic/hidden-extensions.rst
 
 .. runrecord:: _examples/DL-101-108-102
    :language: console
@@ -152,7 +128,10 @@ in a bit of time, we will forget how this file came into existence, or
 that the script ``code/list_titles.sh`` is associated with this file, and
 can be used to update it later on.
 
-.. index:: ! datalad command; run
+.. index::
+   pair: run; DataLad command
+   pair: run command with provenance capture; with DataLad
+   pair: run command with provenance capture; with DataLad run
 
 The :dlcmd:`run` command
 can help with this. Put simply, it records a command's impact on a dataset. Put

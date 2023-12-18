@@ -78,7 +78,7 @@ environments).
    :alt: provenance capture
    :width: 100%
 
-You or your collaborators can thus re-obtain or reproducibly recompute content
+You or your collaborators can thus reobtain or reproducibly recompute content
 with a single command, and make use of extensive provenance of dataset content
 (who created it, when, and how?).
 

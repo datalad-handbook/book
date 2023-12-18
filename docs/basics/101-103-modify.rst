@@ -18,15 +18,16 @@ Let's write a short summary of how to create a DataLad dataset from scratch:
 
 This is meant to be a note you would take in an educational course.
 You can take this note and write it to a file with an editor of your choice.
-The code below, however, contains this note within the start and end part of a
-`here document <https://en.wikipedia.org/wiki/Here_document>`_.
+The code snippet, however, contains this note within the start and end part of a
+`heredoc <https://en.wikipedia.org/wiki/Here_document>`_.
 You can also copy the full code snippet, starting
 from ``cat << EOT > notes.txt``, including the ``EOT`` in the last line, in your
 terminal to write this note from the terminal (without any editor) into ``notes.txt``.
 
-.. find-out-more:: How does a here-document work?
+.. index:: here-document, heredoc
+.. find-out-more:: How does a heredoc (here-document) work?
 
-   The code snippet below makes sure to write lines of text into a
+   The code snippet makes sure to write lines of text into a
    file (that so far does not exist) called ``notes.txt``.
 
    To do this, the content of the "document" is wrapped in between
@@ -49,28 +50,22 @@ terminal to write this note from the terminal (without any editor) into ``notes.
    It might seem like a slightly convoluted way to create a text file with
    a note in it. But it allows to write notes from the terminal, enabling
    this book to create commands you can execute with nothing other than your terminal.
-   You are free to copy-paste the snippets with the here-documents,
+   You are free to copy-paste the snippets with the heredocs,
    or find a workflow that suites you better. The only thing important is that
    you create and modify a ``.txt`` file over the course of the Basics part of this
    handbook.
 
-Running the command below will create ``notes.txt`` in the
+Running this command will create ``notes.txt`` in the
 root of your ``DataLad-101`` dataset:
 
+.. index:: heredoc
+   pair: heredoc; on Windows in a terminal
 .. windows-wit:: Heredocs don't work under non-Git-Bash Windows terminals
 
-   Heredocs rely on Unix-type redirection and multi-line commands -- which is not supported on most native Windows terminals or the Anaconda prompt on Windows.
-   If you are using an Anaconda prompt or a Windows terminal other than Git Bash, instead of executing heredocs, please open up an editor and paste and save the text into it.
+   .. include:: topic/heredoc-windows.rst
 
-   The relevant text in the snippet below would be:
-
-   .. code-block:: text
-
-      One can create a new dataset with 'datalad create [--description] PATH'.
-      The dataset is created empty
-
-   If you are using Git Bash, however, here docs will work just fine.   
-
+.. index::
+   pair: create heredoc; in a terminal
 .. runrecord:: _examples/DL-101-103-101
    :language: console
    :workdir: dl-101/DataLad-101
@@ -83,6 +78,9 @@ root of your ``DataLad-101`` dataset:
 
    EOT
 
+.. index::
+   pair: check dataset for modification; with DataLad
+
 Run :dlcmd:`status` to confirm that there is a new, untracked file:
 
 .. runrecord:: _examples/DL-101-103-102
@@ -92,6 +90,9 @@ Run :dlcmd:`status` to confirm that there is a new, untracked file:
    :notes: As expected, there is a new file in the dataset. At first the file is untracked. We can save without a path specification because it is the only existing modification
 
    $ datalad status
+
+.. index::
+   pair: save dataset modification; with DataLad
 
 Save the current state of this file in your dataset's history. Because it is the only modification
 in the dataset, there is no need to specify a path.
@@ -107,7 +108,7 @@ But now, let's see how *changing* tracked content works.
 Modify this file by adding another note. After all, you already know how to use
 :dlcmd:`save`, so write a short summary on that as well.
 
-Again, the example below uses Unix commands (``cat`` and redirection, this time however
+Again, the example uses Unix commands (``cat`` and redirection, this time however
 with ``>>`` to *append* new content to the existing file)
 to accomplish this, but you can take any editor of your choice.
 
@@ -144,7 +145,7 @@ and save the file in DataLad:
    $ datalad save -m "add note on datalad save"
 
 Let's take another look into our history to see the development of this file.
-We're using :gitcmd:`log -p -n 2` to see last two commits and explore
+We are using :gitcmd:`log -p -n 2` to see last two commits and explore
 the difference to the previous state of a file within each commit.
 
 .. runrecord:: _examples/DL-101-103-107
@@ -163,7 +164,11 @@ Additions are marked with a ``+``, and deletions would be shown with a leading `
 From the dataset's history, we can therefore also find out *how* the text file
 evolved over time. That's quite neat, isn't it?
 
-.. find-out-more:: git log has many more useful options
+.. index::
+   pair: log; Git command
+   pair: get help; with Git
+   pair: filter history; with Git
+.. find-out-more:: 'git log' has many more useful options
 
    ``git log``, as many other ``Git`` commands, has a good number of options
    which you can discover if you run ``git log --help``.  Those options could

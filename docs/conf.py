@@ -63,6 +63,33 @@ autorunrecord_line_replace = [
     # should still be functional and save 30+% of line length
     (r'(?P<lead>[0-9a-f]{8})[0-9a-f]{32}', r'\g<lead>✂SHA1'),
     (r'(?P<lead>[0-9a-f]{8})[0-9a-f]{24}', r'\g<lead>✂MD5'),
+    # remove any action summary that contains no `notneeded`, the latter
+    # need to be kept, because they are not renderer individually
+    (r'(action summary:(\n^  \S+ \(\S+(?<!notneeded): \d+\)$)+)\n(?!  )', ''),
+    # wipe out a set of noisy INFO log messages
+    # git progress reports
+    (r'\[INFO\] Start \S+ (objects|deltas)$\n', ''),
+    # 'still alive'-style log messages
+    (r'\[INFO\] Attempting a clone into .*$\n', ''),
+    (r'\[INFO\] Attempting to clone from \S+ to .*$\n', ''),
+    (r'\[INFO\] Downloading \S+ into .*$\n', ''),
+    (r'\[INFO\] Completed clone attempts for Dataset.*$\n', ''),
+    (r'\[INFO\] Fetching updates for Dataset.*$\n', ''),
+    (r'\[INFO\] Unlocking files$\n', ''),
+    (r'\[INFO\] Recording unlocked state in git$\n', ''),
+    (r'\[INFO\] Completed unlocking files$\n', ''),
+    (r'\[INFO\] Making sure inputs are available \(this may take some time\).*$\n', ''),
+    (r'\[INFO\] Creating a new annex repo at .*$\n', ''),
+    (r'\[INFO\] Copying non-annexed file or copy into non-annex dataset:.*$\n', ''),
+    # annoying always-true test for a non-annex git remote
+    (r'\[INFO\] \S+/config download failed: Not Found$\n', ''),
+    # datalad push step-progress
+    (r'\[INFO\] Determine push target$\n', ''),
+    (r'\[INFO\] Push refspecs$\n', ''),
+    (r'\[INFO\] Transfer data$\n', ''),
+    (r'\[INFO\] Update availability information$\n', ''),
+    (r'\[INFO\] Finished push of Dataset.*$\n', ''),
+    (r'\[INFO\] Finished$\n', ''),
 ]
 # pre-crafted artificial environment to run the code examples in
 # start with all datalad settings
@@ -133,10 +160,14 @@ extensions = [
     'dataladhandbook_support',
     'notfound.extension',
     'sphinx_copybutton',
+    'sphinxcontrib.jquery',
 ]
 
 # configure sphinx-copybutton
-copybutton_prompt_text = r"\$ "
+# a prompt is anything that starts with $ or > plus space
+# that is not followed by # (to catch comment lines in console
+# markup)
+copybutton_prompt_text = r"[$>] (?!#)"
 copybutton_prompt_is_regexp = True
 copybutton_line_continuation_character = "\\"
 copybutton_here_doc_delimiter = "EOT"

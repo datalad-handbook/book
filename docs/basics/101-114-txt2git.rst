@@ -15,14 +15,16 @@ I was able to modify this despite giving it to DataLad to track, with
 no permission denied errors whatsoever! How does that work?"
 
 This night, though, your question stays unanswered and you fall into a restless
-sleep filled with bad dreams about "permission denied" errors. The next day you're
+sleep filled with bad dreams about "permission denied" errors. The next day you are
 the first student in your lecturer's office hours.
 
-"Oh, you're really attentive. This is a great question!" our lecturer starts
+"Oh, you are really attentive. This is a great question!" our lecturer starts
 to explain.
 
 .. figure:: ../artwork/src/teacher.svg
    :width: 50%
+
+.. index:: ! dataset procedure; text2git
 
 Do you remember that we created the ``DataLad-101`` dataset with a
 specific configuration template? It was the ``-c text2git`` option we
@@ -50,13 +52,15 @@ Well, procedurally it means that everything that is stored in git-annex is
 content-locked, and everything that is stored in Git is not. You can modify
 content stored in Git straight away, without unlocking it first.
 
+.. _fig-gitvsannex:
+
 .. figure:: ../artwork/src/git_vs_gitannex.svg
    :alt: A simplified illustration of content lock in files managed by git-annex.
    :width: 50%
 
    A simplified overview of the tools that manage data in your dataset.
 
-That's easy enough.
+That's easy enough, and illustrated in :numref:`fig-gitvsannex`.
 
 "So, first of all: If we hadn't provided the ``-c text2git`` argument, text files
 would get content-locked, too?". "Yes, indeed. However, there are also ways to
@@ -82,6 +86,9 @@ and thus keeps it safe. :dlcmd:`run` commands mitigate any technical
 complexity of this completely if ``-o/--output`` is specified properly, and
 :dlcmd:`unlock` commands can be used to unlock content "by hand" if
 modifications are performed outside of a :dlcmd:`run`.
+
+.. index::
+   pair: adjusted mode; git-annex concept
 
 But there comes the second, tricky part: There are ways to get rid of locking and
 unlocking within git-annex, using so-called :term:`adjusted branch`\es.

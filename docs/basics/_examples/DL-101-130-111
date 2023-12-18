@@ -3,11 +3,8 @@ $ datalad run -m "analyze iris data with classification analysis" \
   --output "pairwise_relationships.png" \
   --output "prediction_report.csv" \
   "python3 code/script.py {inputs} {outputs}"
-[INFO] Making sure inputs are available (this may take some time)
 get(ok): input/iris.csv (file) [from web...]
 [INFO] == Command start (output follows) =====
-VIRTUALENV/lib/python3.8/site-packages/seaborn/axisgrid.py:118: UserWarning: The figure layout has changed to tight
-  self._figure.tight_layout(*args, **kwargs)
 [INFO] == Command exit (modification check follows) =====
 run(ok): /home/me/dl-101/DataLad-101/midterm_project (dataset) [python3 code/script.py input/iris.csv pa...]
 add(ok): pairwise_relationships.png (file)

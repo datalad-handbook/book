@@ -608,6 +608,34 @@
         "bug",
         "maintenance"
       ]
+    },
+    {
+      "login": "jkuhl-uni",
+      "name": "Justus Kuhlmann",
+      "avatar_url": "https://avatars.githubusercontent.com/u/82444481?v=4",
+      "profile": "https://github.com/jkuhl-uni",
+      "contributions": [
+        "content"
+      ]
+    },
+    {
+      "login": "melanieganz",
+      "name": "melanieganz",
+      "avatar_url": "https://avatars.githubusercontent.com/u/25242978?v=4",
+      "profile": "https://sites.google.com/view/melanieganz/home",
+      "contributions": [
+        "bug"
+      ]
+    },
+    {
+      "login": "damienfrancois",
+      "name": "Damien François",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1721582?v=4",
+      "profile": "http://www.uclouvain.be/damien.francois",
+      "contributions": [
+        "bug",
+        "content"
+      ]
     }
   ],
   "contributorsPerLine": 7,

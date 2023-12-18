@@ -1,9 +1,8 @@
+.. index:: ! Usecase; Reproducible Neuroimaging
 .. _usecase_reproduce_neuroimg:
 
 An automatically and computationally reproducible neuroimaging analysis from scratch
 ------------------------------------------------------------------------------------
-
-.. index:: ! Usecase; Reproducible Neuroimaging
 
 This use case sketches the basics of a portable analysis that can be
 automatically computationally reproduced, starting from the
@@ -420,14 +419,14 @@ Archive data and results
 """"""""""""""""""""""""
 
 After study completion it is important to properly archive data and results,
-for example for future inquiries by reviewers or readers of the associated
+for example, for future inquiries by reviewers or readers of the associated
 publication. Thanks to the modularity of the study units, this tasks is easy
 and avoids needless duplication.
 
 The raw data is tracked in its own dataset (``localizer_scans``) that only
 needs to be archived once, regardless of how many analysis are using it as
 input. This means that we can “throw away” this subdataset copy within this
-analysis dataset. DataLad can re-obtain the correct version at any point in
+analysis dataset. DataLad can reobtain the correct version at any point in
 the future, as long as the recorded location remains accessible.
 
 To make sure we're not deleting information we are not aware of,
@@ -462,7 +461,7 @@ Since the state of the subdataset is exactly the state of the original
 Prior to archiving the results, we can go one step further and verify their
 computational reproducibility. DataLad's ``rerun`` command is
 capable of “replaying” any recorded command. The following command
-re-executes the FSL analysis by re-running everything since the dataset was
+re-executes the FSL analysis by rerunning everything since the dataset was
 tagged as ``ready4analysis``). It will record the recomputed results in a
 separate Git branch named ``verify``. Afterwards, we can automatically
 compare these new results to the original ones in the ``master`` branch. We
@@ -500,7 +499,7 @@ time steps.
    $ git checkout master
    $ git branch -D verify
 
-The outcome of this usecase can be found as a dataset on Github
+The outcome of this use case can be found as a dataset on Github
 `here <https://github.com/myyoda/demo-dataset-glmanalysis>`_.
 
 

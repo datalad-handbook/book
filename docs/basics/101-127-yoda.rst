@@ -1,10 +1,9 @@
+.. index:: ! YODA principles
 .. _2-001:
 .. _yoda:
 
 YODA: Best practices for data analyses in a dataset
 ---------------------------------------------------
-
-.. index:: ! YODA principles
 
 The last requirement for the midterm projects reads "needs to comply to the
 YODA principles".
@@ -33,7 +32,7 @@ such as ``results/``, ``results_August19/``, ``results_revision/`` and
 ``now_with_nicer_plots/``. Something like this is a very
 common shape a data science project may take after a while:
 
-.. code-block:: bash
+.. code-block:: console
 
     ├── code/
     │   ├── code_final/
@@ -48,10 +47,10 @@ common shape a data science project may take after a while:
     │   └── main_script_DONTUSE.py
     ├── data/
     │   ├── data_updated/
-    │   │    └── dataset1/
-    │   │        ├── datafile_a
+    │   │   └── dataset1/
+    │   │       └── datafile_a
     │   ├── dataset1/
-    │   │   ├── datafile_a
+    │   │    └── datafile_a
     │   ├── outputs/
     │   │   ├── figures/
     │   │   │   ├── figures_new.py
@@ -129,10 +128,10 @@ computational environments, results, ...) in dedicated directories. For example:
 - Store scripts or **code** used for the analysis of data in a dedicated ``code/``
   directory, outside of the data component of the dataset.
 
-- Collect **results** of an analysis in a dedicated ``outputs/`` directory, and
+- Collect **results** of an analysis in a dedicated place, outside of the ``inputs/`` directory, and
   leave the input data of an analysis untouched by your computations.
 
-- Include a place for complete **execution environments**, for example
+- Include a place for complete **execution environments**, such as
   `singularity images <https://singularity.lbl.gov>`_ or
   `docker containers <https://www.docker.com/get-started>`_ [#f2]_, in
   the form of an ``envs/`` directory, if relevant for your analysis.
@@ -143,7 +142,7 @@ computational environments, results, ...) in dedicated directories. For example:
 This, for example, would be a directory structure from the root of a
 superdataset of a very comprehensive data analysis project complying to the YODA principles:
 
-.. code-block:: bash
+.. code-block:: console
 
     ├── ci/                         # continuous integration configuration
     │   └── .travis.yml
@@ -162,15 +161,16 @@ superdataset of a very comprehensive data analysis project complying to the YODA
     │       │   └── datafile_a
     │       └── dataset2/
     │           └── datafile_a
-    ├── outputs/                    # outputs away from the input data
-    │   └── important_results/
-    │       └── figures/
+    ├── important_results/          # outputs away from the input data
+    │   └── figures/
     ├── CHANGELOG.md                # notes for fellow humans about your project
     ├── HOWTO.md
     └── README.md
 
 You can get a few non-DataLad related advice for structuring your directories in the :ref:`on best practices for analysis organization <fom-yodaproject>`.
 
+.. index::
+   pair: recommendation; dataset content organization
 .. find-out-more:: More best practices for organizing contents in directories
    :name: fom-yodaproject
    :float:
@@ -181,7 +181,7 @@ You can get a few non-DataLad related advice for structuring your directories in
    #. Within ``code/``, it is best practice to add **tests** for the code.
       These tests can be run to check whether the code still works.
 
-   #. It is even better to further use automated computing, for example
+   #. It is even better to further use automated computing such as
       `continuous integration (CI) systems <https://en.wikipedia.org/wiki/Continuous_integration>`_,
       to test the functionality of your functions and scripts automatically.
       If relevant, the setup for continuous integration frameworks (such as
@@ -189,7 +189,7 @@ You can get a few non-DataLad related advice for structuring your directories in
       in a dedicated ``ci/`` directory.
 
    #. Include **documents for fellow humans**: Notes in a README.md or a HOWTO.md,
-      or even proper documentation (for example using  in a dedicated ``docs/`` directory.
+      or even proper documentation (for example, using  in a dedicated ``docs/`` directory.
       Within these documents, include all relevant metadata for your analysis. If you are
       conducting a scientific study, this might be authorship, funding,
       change log, etc.
@@ -211,7 +211,7 @@ for a whole analysis dataset. At one point you might also write a
 scientific paper about your analysis in a paper project, and the
 whole analysis project can easily become a modular component in a paper
 project, to make sharing paper, code, data, and results easy.
-The usecase :ref:`usecase_reproducible_paper` contains a step-by-step instruction on
+The use case :ref:`usecase_reproducible_paper` contains a step-by-step instruction on
 how to build and share such a reproducible paper, if you want to learn
 more.
 
@@ -227,7 +227,7 @@ more.
 The directory tree above and :numref:`dataset_modules` highlight different aspects
 of this principle. The directory tree illustrates the structure of
 the individual pieces on the file system from the point of view of
-a single top-level dataset with a particular purpose. It for example
+a single top-level dataset with a particular purpose. For example, it
 could be an analysis dataset created by a statistician for a scientific
 project, and it could be shared between collaborators or
 with others during development of the project. In this
@@ -279,8 +279,8 @@ be included in an analysis superdataset as subdatasets. Thanks to
 :dlcmd:`clone`, information on the source of these subdatasets
 is stored in the history of the analysis superdataset, and they can even be
 updated from those sources if the original data dataset gets extended or changed.
-If you are including a file, for example code from GitHub,
-the :dlcmd:`download-url` command (introduced in section :ref:`populate`)
+If you are including a file, for example, code from GitHub,
+the :dlcmd:`download-url` command, introduced in section :ref:`populate`,
 will record the source of it safely in the dataset's history. And if you add anything to your dataset,
 from simple incremental coding progress in your analysis scripts up to
 files that a colleague sent you via email, a plain :dlcmd:`save`
@@ -290,12 +290,13 @@ on its own already.
 One core aspect of this principle is *linking* between reusable data
 resource units (i.e., DataLad subdatasets containing pure data). You will
 be happy to hear that this is achieved by simply installing datasets
-as subdatasets.
+as subdatasets, as :numref:`fig-subds` shows.
 This part of this principle will therefore be absolutely obvious to you
 because you already know how to install and nest datasets within datasets.
 "I might just overcome my impostor syndrome if I experience such advanced
 reproducible analysis concepts as being obvious", you think with a grin.
 
+.. _fig-subds:
 
 .. figure:: ../artwork/src/img/data_origin.svg
    :width: 50%
@@ -323,7 +324,9 @@ everything that is not part of the data according to principle 1.
 Conducting transparent open science is easier if you can link code, data,
 and results within a dataset, and share everything together. In conjunction
 with principle 1, this means that you can distribute your analysis projects
-(or parts of it) in a comprehensible form.
+(or parts of it) in a comprehensible form, exemplified in :numref:`fig-yodads`.
+
+.. _fig-yodads:
 
 .. figure:: ../artwork/src/img/decentralized_publishing.svg
    :figwidth: 100%
@@ -357,15 +360,15 @@ which result was generated when, by which author, from which inputs,
 and by means of which command.
 
 With another DataLad command one can even go one step further:
-The command :dlcmd:`containers-run` (it will be introduced in
-section :ref:`containersrun`) performs a command execution within
+The command :dlcmd:`containers-run` - it will be introduced in
+section :ref:`containersrun` - performs a command execution within
 a configured containerized environment. Thus, not only inputs,
 outputs, command, time, and author, but also the *software environment*
 are captured as provenance of a dataset component such as a results file,
 and, importantly, can be shared together with the dataset in the
 form of a software container.
 
-Tip: Make use of ``datalad run``'s ``--dry-run`` option to craft your run-command (see :ref:`dryrun`)!
+Tip: Make use of ``datalad run``'s ``--dry-run`` option to craft your run-command, as outlined in :ref:`dryrun`!
 
 With this last principle, your dataset collects and stores provenance
 of all the contents you created in the wake of your analysis project.
@@ -383,7 +386,7 @@ from section :ref:`createds`, the ``yoda`` procedure can be included in a
 :dlcmd:`create` command and will apply useful configurations
 to your dataset:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ datalad create -c yoda "my_analysis"
 
@@ -395,7 +398,7 @@ to your dataset:
 
 Let's take a look at what configurations and changes come with this procedure:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ tree -a
 
@@ -409,7 +412,7 @@ Let's take a look at what configurations and changes come with this procedure:
 
 Let's take a closer look into the ``.gitattributes`` files:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ less .gitattributes
 

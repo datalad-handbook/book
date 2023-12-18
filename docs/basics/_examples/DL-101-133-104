@@ -2,6 +2,3 @@ $ git config -f .datalad/config datalad.containers.midterm-software.cmdexec 'sin
 $ datalad save -m "Modify the container call format to bind-mount the working directory"
 add(ok): .datalad/config (file)
 save(ok): . (dataset)
-action summary:
-  add (ok: 1)
-  save (ok: 1)

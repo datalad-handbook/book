@@ -13,6 +13,7 @@ Appendix
    contributing
    teaching
    acknowledgements
+   licenses
 
 .. raw:: latex
 

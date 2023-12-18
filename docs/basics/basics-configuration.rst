@@ -4,10 +4,9 @@
 Tuning datasets to your needs
 -----------------------------
 
-.. index:: ! Chapter; 5. Configuration
-
-.. figure:: ../artwork/src/settings.svg
+.. image:: ../artwork/src/settings.svg
    :width: 50%
+   :align: center
 
 .. toctree::
    :maxdepth: 1

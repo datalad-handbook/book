@@ -5,11 +5,9 @@
 DataLad cheat sheet
 -------------------
 
-.. index:: ! Cheatsheet
-
 .. only:: html
 
-   Click on the image below to obtain a PDF version of the cheat sheet. Individual
+   Click on the image to obtain a PDF version of the cheat sheet. Individual
    sections are linked to chapters or technical docs.
 
    .. figure:: ../artwork/src/datalad-cheatsheet_p1.png

@@ -1,4 +1,4 @@
-# make sure to move outside of DataLad-101!
+$ # make sure to move outside of DataLad-101!
 $ cd ../
 $ datalad create iris_data
 create(ok): /home/me/dl-101/iris_data (dataset)

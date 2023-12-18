@@ -67,8 +67,7 @@ or create your own one.
 To specify dataset content to be git-ignored, you can either write
 a full file name, e.g. ``playlists/my-little-pony-themesongs/Friendship-is-magic.mp3``
 into this file, or paths or patterns that make use of globbing, such as
-``playlists/my-little-pony-themesongs/*``. The hidden section at the end of this
-page contains some general rules for patterns in ``.gitignore`` files. Afterwards,
+``playlists/my-little-pony-themesongs/*``. The :find-out-more:`on general rules for patterns in .gitignore files <fom-gitignore>` contains a helpful overview. Afterwards,
 you just need to save the file once to your dataset so that it is version controlled.
 If you have new content you do not want to track, you can add
 new paths or patterns to the file, and save these modifications.
@@ -120,6 +119,7 @@ ignored! Therefore, a ``.gitignore`` file can give you a space inside of
 your dataset to be messy, if you want to be.
 
 .. find-out-more:: Rules for .gitignore files
+   :name: fom-gitignore
 
    Here are some general rules for the patterns you can put into a ``.gitignore``
    file, taken from the book `Pro Git <https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository#_ignoring>`_ :
@@ -152,7 +152,7 @@ your dataset to be messy, if you want to be.
    subdirectories of your dataset. The rules in these nested ``.gitignore`` files only
    apply to the files under the directory where they are located.
 
-.. importantnote:: Implications of git-ignored outputs for re-running
+.. importantnote:: Implications of git-ignored outputs for rerunning
 
    Note one caveat: If a command creates an output that is git-ignored,
    (e.g. anything inside of ``tmp/`` in our dataset), a subsequent command
@@ -187,7 +187,7 @@ your dataset to be messy, if you want to be.
 
    Git -- and consequently DataLad -- will not bother you about any of the files
    or file types you have specified. The following snippet defines a typical
-   collection of ignored files to be defined across different platforms, and should work on Unix-like systems (like MacOS and Linux distributions).
+   collection of ignored files to be defined across different platforms, and should work on Unix-like systems (like macOS and Linux distributions).
 
    .. code-block:: bash
 
@@ -229,7 +229,7 @@ your dataset to be messy, if you want to be.
       $ datalad save -m "SERVICE COMMIT - IGNORE. This commit only serves to appropriately reference the subdataset in the public showroom dataset"
 
    This allows to automatically push all section branches (not accidentally synced or adjusted annex branches) with
-   git push. Note: requires git push; datalad publish can not handle this atm (see https://github.com/datalad/datalad/issues/4006)
+   git push. Note: requires git push; datalad publish cannot handle this atm (see https://github.com/datalad/datalad/issues/4006)
 
    .. runrecord:: _examples/DL-101-179-110
       :language: console

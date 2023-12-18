@@ -7,7 +7,7 @@ All DataLad errors or problems you encounter during ``DataLad-101`` are intentio
 and serve illustrative purposes. But what if you run into any DataLad errors
 outside of this course?
 Fortunately, the syllabus has a whole section on that, and on
-one lazy, warm summer-afternoon you flip through it.
+one lazy, warm summer afternoon you flip through it.
 
 .. figure:: ../artwork/src/reading.svg
    :width: 50%
@@ -45,7 +45,9 @@ To find out which version you are using, run
 
    $ datalad --version
 
-.. index:: ! datalad command; wtf
+.. index::
+   pair: wtf; DataLad command
+   pair: get system information; with DataLad
 
 If you want a comprehensive overview of your full setup,
 :dlcmd:`wtf` [#f1]_ is the command to turn to. Running this command will
@@ -92,6 +94,12 @@ list of command arguments with details on their possibilities and
 requirements. A first thing to check would be whether your command call
 specified all of the required arguments.
 
+An additional source of information is the `PsyInf knowledge base
+<https://knowledge-base.psychoinformatics.de>`_. It contains a curated
+collection of solutions and workarounds that have not yet made it into other
+documentation.
+
+
 Asking questions (right)
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -106,15 +114,15 @@ Include
 
 - *context* -- what did you want to do and why?
 
-- the *problem* -- paste the error message (all of it), and provide the
-  steps necessary to reproduce it.
+- the *problem* -- post the error message, and provide the
+  steps necessary to reproduce it. Do not shorten the error message, unless it contains sensitive information.
 
 - *technical details* -- what version of DataLad are you using, what version
   of git-annex, and which git-annex repository type, what is your operating
   system and -- if applicable -- Python version? :dlcmd:`wtf` is your friend
   to find all of this information.
 
-.. index:: Debugging
+.. index:: debugging
 
 Debugging like a DataLad-developer
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -130,12 +138,13 @@ It is not always straightforward to see *why* a particular DataLad command has f
 Given that operations with DataLad can be quite complicated, and could involve complexities such as different forms of authentication, different file systems, interactions with the environment, configurations, and other software, and *much* more, there are what may feel like an infinite amount of sources for the problem at hand.
 The resulting error message, however, may not display the underlying cause correctly because the error message of whichever process failed is not propagated into the final result report.
 
-In situations where there is no obvious reason for a command to fail, it can be helpful -- either for yourself or for further information to paste into :term:`GitHub` issues -- to start `debugging <https://xkcd.com/1722>`_, or *logging at a higher granularity* than is the default.
+In situations where there is no obvious reason for a command to fail, it can be helpful -- either for yourself or for further information to include in :term:`GitHub` issues -- to start `debugging <https://xkcd.com/1722>`_, or *logging at a higher granularity* than is the default.
 This allows you to gain more insights into the actions DataLad and its underlying tools are taking, where *exactly* they fail, and to even play around with the program at the state of the failure.
 
 :term:`Debugging` and :term:`logging` are not as complex as these terms may sound if you have never consciously debugged.
-Procedurally, it can be as easy as adding an additional flag to a command call, and cognitively, it can be as easy as engaging your visual system in a visual search task for the color red or the word "error", or reading more DataLad output than you're used to.
-The paragraphs below start with the general concepts, and collect concrete debugging strategies for different problems.
+
+Procedurally, it can be as easy as adding an additional flag to a command call, and cognitively, it can be as easy as engaging your visual system in a visual search task for the color red or the word "error", or reading more DataLad output than you are used to.
+We will start with the general concepts, and then collect concrete debugging strategies for different problems.
 
 .. _logging:
 
@@ -153,6 +162,9 @@ Anything printed to your terminal preceded by ``[INFO]``, for example, is a log 
 When you are *consciously* logging, you simply set the log-level to the desired amount of information, or increase the amount of verbosity until the output gives you a hint of what went wrong.
 Likewise, adjusting the log-level also works the other way around, and lets you *decrease* the amount of information you receive in your terminal.
 
+
+.. index::
+   pair: log level; DataLad concept
 .. find-out-more:: Log levels
 
    Log levels provide the means to adjust how much information you want, and are described in human readable terms, ordered by the severity of the failures or problems reported.
@@ -169,7 +181,6 @@ Likewise, adjusting the log-level also works the other way around, and lets you 
    Raising the log level (e.g, to ``error``, or ``40``) will decrease the amount of information and output you will receive, while lowering it (e.g., to ``debug`` or ``10``) will increase it.
 
 
-
 Setting a log level can be done in the form of an :term:`environment variable`, a configuration, or with the ``-l``/``--log-level`` flag appended directly after the main :shcmd:`datalad` command.
 To get extensive information on what :dlcmd:`status` does underneath the hood, your command could look like this (but its output is shortened):
 
@@ -180,19 +191,22 @@ To get extensive information on what :dlcmd:`status` does underneath the hood, y
 
    $ datalad --log-level debug status
 
+.. index::
+   single: configuration item; datalad.log.level
+   pair: configure verbosity of command output; with DataLad
 .. find-out-more:: ... and how does it look when using environment variables or configurations?
 
    The log level can also be set (for different scopes) using the ``datalad.log.level`` configuration variable, or the corresponding environment variable ``DATALAD_LOG_LEVEL``.
 
    To set the log level for a single command, for example, set it in front of the command:
 
-   .. code-block:: bash
+   .. code-block:: console
 
        $ DATALAD_LOG_LEVEL=debug datalad status
 
    And to set the log level for the rest of the shell session, export it:
 
-   .. code-block:: bash
+   .. code-block:: console
 
        $ export DATALAD_LOG_LEVEL=debug
        $ datalad status
@@ -202,7 +216,7 @@ To get extensive information on what :dlcmd:`status` does underneath the hood, y
 
    The configuration variable can be used to set the log level on a user (global) or system-wide level with the :gitcmd:`config` command:
 
-   .. code-block:: bash
+   .. code-block:: console
 
       $ git config --global datalad.log.level debug
 
@@ -258,7 +272,7 @@ Output produced by Git
 If you have not configured your Git identity, you will
 see warnings like this when running any DataLad command:
 
-.. code-block:: bash
+.. code-block:: console
 
    [WARNING] It is highly recommended to configure git first (set both user.name and user.email) before using DataLad.
 
@@ -271,7 +285,7 @@ One error you can run into when publishing dataset contents is that your
 :dlcmd:`push` to a sibling is rejected.
 One example is this:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ datalad push --to public
     [ERROR  ] refs/heads/main->public:refs/heads/main [rejected] (non-fast-forward) [publish(/home/me/dl-101/DataLad-101)]
@@ -286,7 +300,7 @@ know about. It can be fixed by updating from the sibling first with a
 
 Here is a different push rejection:
 
-.. code-block:: bash
+.. code-block:: console
 
    $ datalad push --to roommate
     publish(ok): . (dataset) [refs/heads/git-annex->roommate:refs/heads/git-annex 023a541..59a6f8d]
@@ -301,7 +315,7 @@ In this particular case, this is because it was an attempt to push from ``DataLa
 to the ``roommate`` sibling that was created in chapter :ref:`chapter_collaboration`.
 This is a special case of pushing, because it -- in technical terms -- is a push
 to a non-bare repository. Unlike :term:`bare Git repositories`, non-bare
-repositories can not be pushed to at all times. To fix this, you either want to
+repositories cannot be pushed to at all times. To fix this, you either want to
 checkout another branch
 in the ``roommate`` sibling or push to a non-checked out branch in the ``roommate``
 sibling. Alternatively, you can configure ``roommate`` to receive the push with
@@ -317,7 +331,7 @@ on ``receive.denyCurrentBranch`` for more.
 
 One warning that you may encounter during an installation of a dataset is:
 
-.. code-block:: bash
+.. code-block:: console
 
     [INFO   ] Submodule HEAD got detached. Resetting branch main to point to 046713bb. Original location was 47e53498
 
@@ -334,7 +348,7 @@ Output produced by git-annex
 
 Upon installation of a dataset, you may see:
 
-.. code-block:: bash
+.. code-block:: console
 
    [INFO    ]     Remote origin not usable by git-annex; setting annex-ignore
    [INFO    ]     This could be a problem with the git-annex installation on the
@@ -348,9 +362,9 @@ many reasons, but as long as there are other remotes you can access the
 data from, you are fine.
 
 A similar warning message may appear when adding a sibling that is a pure Git
-:term:`remote`, for example a repository on GitHub:
+:term:`remote`, such as a repository on GitHub:
 
-.. code-block:: bash
+.. code-block:: console
 
    [INFO ] Failed to enable annex remote github, could be a pure git or not
    accessible
@@ -359,7 +373,7 @@ A similar warning message may appear when adding a sibling that is a pure Git
    by mistake due to absent connection etc
 
 These messages indicate that the sibling ``github`` does not carry an annex.
-Thus, annexed file contents can not be pushed to this sibling. This happens
+Thus, annexed file contents cannot be pushed to this sibling. This happens
 if the sibling indeed does not have an annex (which would be true, for example,
 for siblings on :term:`GitHub`, :term:`GitLab`, :term:`Bitbucket`, ..., and
 would not require any further action or worry), or
@@ -377,7 +391,7 @@ Other errors
 Sometimes, registered subdatasets URLs have an :term:`SSH` instead of :term:`https` address, for example ``git@github.com:datalad-datasets/longnow-podcasts.git`` instead of ``https://github.com/datalad-datasets/longnow-podcasts.git``.
 If one does not have an SSH key configured for the required service (e.g., GitHub, or a server), installing or getting the subdataset and its contents fails, with messages starting similar to this:
 
-.. code-block:: bash
+.. code-block:: console
 
    [INFO   ] Cloning https://github.com/psychoinformatics-de/paper-remodnav.git/remodnav [2 other candidates] into '/home/.../remodnav'
    Permission denied (publickey).

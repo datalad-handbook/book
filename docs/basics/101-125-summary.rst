@@ -14,7 +14,7 @@ your horizon about configurations of datasets:
   ``.datalad/config`` that apply to a specific dataset, but are committed and
   therefore distributed. More specialized scopes take precedence over more global scopes.
 
-- Almost all configurations can be set with the :gitcmd:`config`.
+- Almost all configurations can be set with the :gitcmd:`config` command.
   Its structure looks like this:
 
   .. code-block:: bash
@@ -32,7 +32,7 @@ your horizon about configurations of datasets:
   in a :gitcmd:`config` command.
 
 - The ``.gitattributes`` file is the only configuration file the :gitcmd:`config`
-  can not write to, because it has a different layout. However, run-procedures or
+  command cannot write to, because it has a different layout. However, run-procedures or
   the user can write simple rules into it that determine which files are annexed
   and which are stored in Git.
 

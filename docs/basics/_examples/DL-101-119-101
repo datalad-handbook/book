@@ -1,4 +1,4 @@
-# Inside the installed copy, view the last 15 lines of notes.txt
+$ # Inside the installed copy, view the last 15 lines of notes.txt
 $ tail notes.txt
 should be specified with an -o/--output flag. Upon a run or rerun of
 the command, the contents of these files will get unlocked so that

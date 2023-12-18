@@ -117,7 +117,7 @@ To demonstrate this, we make two unrelated changes: adding a new file (a comic d
    If the ``wget`` command above fails for you, you could
 
    * Install a Windows version of wget
-   * Use the following ``curl`` command: ``curl https://imgs.xkcd.com/comics/compiling.png --output compiling.png`` (recent Windows 10 builds include ``curl`` natively)
+   * Use the following ``curl`` command: ``curl https://imgs.xkcd.com/comics/compiling.png --output compiling.png`` (recent Windows builds include ``curl`` natively)
    * Download and save the image from your web browser
 
 Here's a project title that we echo into the README::
@@ -224,7 +224,7 @@ Datasets can be nested in superdataset-subdataset hierarchies.
 This overcomes scaling issues.
 Some dataset that we work with including ABCD become incredibly large, and when they exceed a few 100k files version control tools can struggle and break.
 By nesting datasets, and you will see concrete examples later, you can overcome this and split a dataset into manageable pieces.
-If you are interested in finding out more, take a look into the usecase :ref:`usecase_HCP_dataset` or the chapter :ref:`chapter_gobig`.
+If you are interested in finding out more, take a look into the use case :ref:`usecase_HCP_dataset` or the chapter :ref:`chapter_gobig`.
 
 But it also helps to link datasets as modular units together, and maximizes the potential for reuse of the individual datasets.
 In the context of data analysis, it is especially helpful to do this to link input data to an analysis dataset -- it helps to reuse data in multiple analysis, to link input data in a precise version, and to create an intuitively structured dataset layout.

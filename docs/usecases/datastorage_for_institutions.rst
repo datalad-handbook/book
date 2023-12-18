@@ -1,11 +1,10 @@
 .. index:: ! 3-001
+.. index:: ! Usecase; Remote Indexed Archive (RIA) store
 .. _3-001:
 .. _usecase_datastore:
 
 Building a scalable data storage for scientific computing
 ---------------------------------------------------------
-
-.. index:: ! Usecase; Remote Indexed Archive (RIA) store
 
 Research can require enormous amounts of data. Such data needs to be accessed by
 multiple people at the same time, and is used across a diverse range of
@@ -29,7 +28,7 @@ as simple as possible. It elaborates on
 
 .. importantnote:: Use case target audience
 
-   This usecase is technical in nature and aimed at IT/data management
+   This use case is technical in nature and aimed at IT/data management
    personnel seeking insights into the technical implementation and
    configuration of a RIA store or into its workflows. In particular, it
    describes the RIA data storage and workflow implementation as done in INM-7,
@@ -65,7 +64,7 @@ directories of several TB in size, *and* computationally heavy analyses, the
 compute cluster is quickly brought to its knees: Insufficient memory and
 IOPS starvation make computations painstakingly slow, and hinder scientific
 progress. Despite the elaborate and expensive cluster setup, exciting datasets
-can not be stored or processed, as there just doesn't seem to be enough disk
+cannot be stored or processed, as there just doesn't seem to be enough disk
 space.
 
 Therefore, the challenge is two-fold: On an infrastructural level, institute XYZ
@@ -86,7 +85,7 @@ scientific computing (infrastructure).
 The RIA store is configured as a git-annex ORA-remote ("optional remote archive")
 special remote for access to annexed keys in the store and so that full
 datasets can be (compressed) 7-zip archives.
-The latter is especially useful in case of filesystem inode
+The latter is especially useful in case of file system inode
 limitations, such as on HPC storage systems: Regardless of a dataset's number of
 files and size, (compressed) 7zipped datasets use only few inodes, but retain the
 ability to query available files.
@@ -111,7 +110,7 @@ Input data gets installed as subdatasets from the RIA store. This automatically
 links analysis projects to data sets, and allows for fine-grained access of up
 to individual file level. With only precisely needed data, analysis datasets are
 already much leaner than with previous complete dataset copies, but as data can
-be re-obtained on-demand from the store, original input files or files that are
+be reobtained on-demand from the store, original input files or files that are
 easily recomputed can safely be dropped to save even more disk-space.
 Beyond this, upon creation of an analysis project, the associated GitLab project
 is automatically configured as a remote with a publication dependency on the
@@ -137,7 +136,7 @@ compute cluster scale and can be viewed as complementary but independent.
 .. importantnote:: Note on the generality of the described setup
 
    Some hardware-specific implementation details are unique to the real-world
-   example this usecase is based on, and are not a requirement. In this particular
+   example this use case is based on, and are not a requirement. In this particular
    case of application, for example, a *remote* setup for a RIA store made sense:
    Parts of an old compute cluster and of the super computer at the Juelich
    Supercomputing Centre (JSC) instead of the institute's compute cluster are used
@@ -151,7 +150,7 @@ Incentives and imperatives for disk-space aware computing
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 On a high level, the layout and relationships of the relevant computational
-infrastructure in this usecase are as follows:
+infrastructure in this use case are as follows:
 Every researcher has a workstation that they can access the compute cluster with.
 On the compute cluster's head node, every user account has their own
 home directory. These are the private spaces of researchers and are referred to
@@ -192,7 +191,7 @@ different approaches.
 In their ``$HOME``, researchers are free to do whatever they want as long as it
 is within the limits of their machines or their user accounts (100GB). Thus,
 researchers can explore data, test and develop code, or visualize results,
-but they can not create complete dataset copies or afford to keep an excess of
+but they cannot create complete dataset copies or afford to keep an excess of
 unused data around.
 Only ``$COMPUTE`` has the necessary hardware requirements for expensive computations.
 Thus, within ``$HOME``, researchers are free to explore data
@@ -217,7 +216,8 @@ requiring expert or domain knowledge about the data. At its core, it is a flat,
 file-system based repository representation of any number of datasets, limited
 only by disk-space constrains of the machine it lies on.
 
-.. index:: ! datalad command; create-sibling-ria
+.. index::
+   pair: create-sibling-ria;  DataLad command
 
 Put simply, a RIA store is a dataset storage location that allows for access to
 and collaboration on DataLad datasets.
@@ -256,7 +256,7 @@ RIA store workflows
 
 Setting up a RIA store and appropriate siblings is fairly easy -- it requires
 only the :dlcmd:`create-sibling-ria` command.
-However, in the institute this usecase describes, in order to spare users
+However, in the institute this use case describes, in order to spare users
 knowing about RIA stores, custom configurations are distributed via DataLad's
 run-procedures to simplify workflows further and hide the technical layers of
 the RIA setup:
@@ -286,7 +286,7 @@ users to know about dataset IDs or construct ``ria+`` URLs, superdatasets
 get a :term:`sibling` on :term:`GitLab` or :term:`GitHub` with a human readable
 name. Users can clone the superdatasets from the web hosting service, and obtain data
 via :dlcmd:`get`. A concrete example for this is described in
-the usecase :ref:`usecase_HCP_dataset`. While :dlcmd:`get` will retrieve file
+the use case :ref:`usecase_HCP_dataset`. While :dlcmd:`get` will retrieve file
 or subdataset contents from the RIA store, users will not need to bother where
 the data actually comes from.
 

@@ -53,6 +53,9 @@ As this method can just as easily provide you with a browseable-but-small-in-siz
    # install all openneuro datasets but do not retrieve data (this takes time)
    datalad get -n ds*
 
+Because the number of datasets available on OpenNeuro is quite large, you can speed up the installation of all subdatasets by parallelization.
+The Gist :ref:`parallelize` shows you how.
+
 What's DataLad and why should I use it to do this?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 

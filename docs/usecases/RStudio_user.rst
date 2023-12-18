@@ -105,7 +105,7 @@ Bobby start to explain what happened:
 DataLad saved the script using Git-annex.
 This means that the file was moved somewhere else, and the content was replaced by a code linking to the file location. 
 Because it is :term:`symlink`, Rstudio still read the content of the original file when clicking on it, but it cannot overwrite the file: that file is in read-only mode.
-This is explained in detail in the :ref:`Handbook chapters on Git-annex <basics-annex>`.
+This is explained in detail in the :ref:`Handbook chapters on Git-annex <chapter_gitannex>`.
 
 One could overwrite the file by first unlocking it (using ``datalad unlock .``), but that would not be very practical, and it would save the script as a binary file, making the version control very inefficient.
 You do not want to use Git-annex for scripts, as they are text files which version should be handled by Git.
@@ -120,7 +120,7 @@ Max can now work on its script as he used to, but commit changes using the ``dat
 
   Note that all text files will be added to git using this option, so if you have large text files (.csv or .json files) that you want to be added via Git-annex, you will need to be more precise in what text file should not be annexed. 
   This may be quite important if you want to be able to *drop* files to keep space on your computer harddrive.
-  See :ref:`Handbook chapters <basics-101-124-procedures>` for details on how text2git change `.gitattributes` to achieve that.
+  See :ref:`Handbook chapters <procedures>` for details on how text2git change `.gitattributes` to achieve that.
 
 Running code
 ^^^^^^^^^^^^
@@ -225,4 +225,4 @@ One can set as many input and output files, one can use `*` to define several fi
 
   In your R script, use path relative to the project, not relative to the code position.
   
-  An understanding of how Git-annex works and why, makes it easier to understand the workflow, refer to :ref:`Handbook Git-annex Basics <basics-annes>`.  
+  An understanding of how Git-annex works and why, makes it easier to understand the workflow, refer to :ref:`Handbook Git-annex Basics <chapter_gitannex>`.  

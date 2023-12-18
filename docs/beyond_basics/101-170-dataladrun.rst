@@ -223,7 +223,7 @@ This makes it easy to associate a result (via its branch) with the log, error, o
    # git checkout -b <name> creates a new branch and checks it out
    $ git checkout -b "job-$JOBID"
 
-Importantly, the ``$JOB-ID`` isn't hardcoded into the script but it can be given to the script as an environment or input variable at the time of job submission.
+Importantly, the ``$JOBID`` isn't hardcoded into the script but it can be given to the script as an environment or input variable at the time of job submission.
 The code snippet above uses a bash :term:`environment variable` (``$JOBID``, as indicated by the all-upper-case variable name with a leading ``$``).
 It will be defined in the job submission -- this is shown and explained in detail in the respective paragraph below.
 

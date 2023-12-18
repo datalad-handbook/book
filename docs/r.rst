@@ -63,6 +63,8 @@ failed -- sorry about this.
   :ref:`usecase_HCP_dataset`
 :redirect:`install`
   :ref:`install`
+:redirect:`osoh`
+  :ref:`osoh`
 :redirect:`reproducible-paper`
   :ref:`usecase_reproducible_paper`
 :redirect:`RIA`

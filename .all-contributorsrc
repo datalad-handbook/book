@@ -626,6 +626,16 @@
       "contributions": [
         "bug"
       ]
+    },
+    {
+      "login": "damienfrancois",
+      "name": "Damien François",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1721582?v=4",
+      "profile": "http://www.uclouvain.be/damien.francois",
+      "contributions": [
+        "bug",
+        "content"
+      ]
     }
   ],
   "contributorsPerLine": 7,

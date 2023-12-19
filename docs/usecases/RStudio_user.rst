@@ -199,7 +199,7 @@ One can set as many input and output files, one can use `*` to define several fi
 
 
 
-.. gitusernote:: Advanced tips for ``datalad run`` 
+.. gitusernote:: Advanced tips for the DataLad run command
 
   unlocking the files will make its state "unclean", so if you use DataLad run, you need to set output options in the function, you cannot unlock files manually before.
 

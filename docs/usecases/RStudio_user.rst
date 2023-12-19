@@ -221,7 +221,7 @@ One can set as many input and output files, one can use `*` to define several fi
 
   the ``datalad run Rscript "path-to-script.r"`` command will run your script.
   
-  Use additional options to command:`datalad run` to read or write annexed files (and give more info for commit messages).
+  Use additional options to command: `datalad run` to read or write annexed files (and give more info for commit messages).
 
   In your R script, use path relative to the project, not relative to the code position.
   

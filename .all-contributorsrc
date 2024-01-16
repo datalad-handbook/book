@@ -636,6 +636,16 @@
         "bug",
         "content"
       ]
+    },
+    {
+      "login": "tmheunis",
+      "name": "tmheunis",
+      "avatar_url": "https://avatars.githubusercontent.com/u/11378509?v=4",
+      "profile": "https://github.com/tmheunis",
+      "contributions": [
+        "bug",
+        "userTesting"
+      ]
     }
   ],
   "contributorsPerLine": 7,

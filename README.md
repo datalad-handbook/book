@@ -4,7 +4,7 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3608611.svg)](https://doi.org/10.5281/zenodo.3608611)
 [![made-with-datalad](https://www.datalad.org/badges/made_with.svg)](https://datalad.org)
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-59-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-61-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END --> 
 
 # The DataLad handbook :orange_book:
@@ -139,6 +139,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/jkuhl-uni"><img src="https://avatars.githubusercontent.com/u/82444481?v=4?s=100" width="100px;" alt="Justus Kuhlmann"/><br /><sub><b>Justus Kuhlmann</b></sub></a><br /><a href="#content-jkuhl-uni" title="Content">🖋</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://sites.google.com/view/melanieganz/home"><img src="https://avatars.githubusercontent.com/u/25242978?v=4?s=100" width="100px;" alt="melanieganz"/><br /><sub><b>melanieganz</b></sub></a><br /><a href="https://github.com/datalad-handbook/book/issues?q=author%3Amelanieganz" title="Bug reports">🐛</a></td>
       <td align="center" valign="top" width="14.28%"><a href="http://www.uclouvain.be/damien.francois"><img src="https://avatars.githubusercontent.com/u/1721582?v=4?s=100" width="100px;" alt="Damien François"/><br /><sub><b>Damien François</b></sub></a><br /><a href="https://github.com/datalad-handbook/book/issues?q=author%3Adamienfrancois" title="Bug reports">🐛</a> <a href="#content-damienfrancois" title="Content">🖋</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/tmheunis"><img src="https://avatars.githubusercontent.com/u/11378509?v=4?s=100" width="100px;" alt="tmheunis"/><br /><sub><b>tmheunis</b></sub></a><br /><a href="https://github.com/datalad-handbook/book/issues?q=author%3Atmheunis" title="Bug reports">🐛</a> <a href="#userTesting-tmheunis" title="User Testing">📓</a></td>
     </tr>
   </tbody>
 </table>

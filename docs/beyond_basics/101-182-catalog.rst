@@ -5,7 +5,7 @@ DataCat - a shiny front-end for your dataset
 
 .. importantnote:: Dependency note
 
-   This section depends on ``datalad-catalog`` version ``1.0.1`` or later.
+   This section depends on ``datalad-catalog`` version ``1.1.1`` or later.
 
 If you're looking for ways to showcase your datasets, look no further than the `datalad-catalog extension <https://docs.datalad.org/projects/catalog>`_.
 This extension takes your favorite datasets and metadata, and generates a static website from it.
@@ -456,14 +456,14 @@ to the end of the URL, and hit ENTER/RETURN. You should see something like this:
 
 .. figure:: ../artwork/src/catalog/catalog_step_dataset.png
 
-This is the dataset view, with the subdatasets tab (auto-)selected.
+This is the dataset view, with the content tab (auto-)selected.
 This view displays all the main content related to the dataset that was provided by the metadata,
 and allows the user further functionality like downloading the dataset with DataLad,
 downloading the metadata, filtering subdatasets by keyword, browsing files, and viewing extended
 attributes such as funding information related to the dataset. Below are two more views,
-the first with the files tab selected, and the second with the funding tab selected.
+the first with the subdatasets tab selected, and the second with the funding tab selected.
 
-.. figure:: ../artwork/src/catalog/catalog_step_files.png
+.. figure:: ../artwork/src/catalog/catalog_step_subdatasets.png
 
 .. figure:: ../artwork/src/catalog/catalog_step_funding.png
 

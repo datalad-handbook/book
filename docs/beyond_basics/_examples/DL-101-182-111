@@ -8,43 +8,24 @@ $ cat data-cat/config.json | jq .
     "about": null,
     "documentation": "https://docs.datalad.org/projects/catalog/en/latest/",
     "github": "https://github.com/datalad/datalad-catalog",
-    "twitter": "https://twitter.com/datalad"
+    "mastodon": "https://fosstodon.org/@datalad",
+    "x": "https://x.com/datalad"
   },
   "dataset_options": {
     "include_metadata_export": true
   },
   "property_sources": {
     "dataset": {
-      "dataset_id": {
-        "rule": "single",
-        "source": "metalad_core"
-      },
-      "dataset_version": {
-        "rule": "single",
-        "source": "metalad_core"
-      },
-      "type": {
-        "rule": "single",
-        "source": "metalad_core"
-      },
+      "dataset_id": {},
+      "dataset_version": {},
+      "type": {},
       "children": {
         "rule": "merge",
         "source": "any"
       },
-      "name": {
-        "rule": "single",
-        "source": "metalad_studyminimeta"
-      },
+      "name": {},
       "short_name": {},
-      "description": {
-        "rule": "priority",
-        "source": [
-          "catalog_readme",
-          "metalad_studyminimeta",
-          "datacite_gin",
-          "bids_dataset"
-        ]
-      },
+      "description": {},
       "doi": {},
       "url": {
         "rule": "merge",

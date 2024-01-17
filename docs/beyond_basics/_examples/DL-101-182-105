@@ -1,4 +1,4 @@
 $ datalad catalog-validate --metadata toy_metadata.jsonl
-catalog_validate(ok): /home/me/catalog
-catalog_validate(ok): /home/me/catalog
-catalog_validate(ok): /home/me/catalog
+catalog_validate(ok): /private/tmp/me/catalog
+catalog_validate(ok): /private/tmp/me/catalog
+catalog_validate(ok): /private/tmp/me/catalog

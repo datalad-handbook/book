@@ -36,7 +36,13 @@ $ cat data-cat/metadata/5df8eb3a-95c5-11ea-b4b9-a0369f287950/dae38cf901995aace0d
   ],
   "metadata_sources": {
     "key_source_map": {
+      "name": [
+        "stephan_manual"
+      ],
       "short_name": [
+        "stephan_manual"
+      ],
+      "description": [
         "stephan_manual"
       ],
       "url": [
@@ -66,9 +72,9 @@ $ cat data-cat/metadata/5df8eb3a-95c5-11ea-b4b9-a0369f287950/dae38cf901995aace0d
       }
     ]
   },
-  "name": null,
+  "name": "My toy dataset",
   "short_name": "My toy dataset",
-  "description": null,
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec justo tellus. Nunc sagittis eleifend magna, eu blandit arcu tincidunt eu. Mauris pharetra justo nec volutpat euismod. Curabitur bibendum vitae nunc a pharetra. Donec non rhoncus risus, ac consequat purus. Pellentesque ultricies ut enim non luctus. Sed viverra dolor enim, sed blandit lorem interdum sit amet. Aenean tincidunt et dolor sit amet tincidunt. Vivamus in sollicitudin ligula. Curabitur volutpat sapien erat, eget consectetur mauris dapibus a. Phasellus fringilla justo ligula, et fringilla tortor ullamcorper id. Praesent tristique lacus purus, eu convallis quam vestibulum eget. Donec ullamcorper mi neque, vel tincidunt augue porttitor vel.",
   "url": "https://github.com/jsheunis/multi-echo-super",
   "license": {
     "name": "CC BY 4.0",

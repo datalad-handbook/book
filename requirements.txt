@@ -5,7 +5,7 @@ chardet
 docutils
 idna
 imagesize
-Jinja2 < 3.1
+Jinja2
 MarkupSafe
 packaging
 Pygments

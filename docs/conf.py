@@ -180,6 +180,10 @@ linkcheck_ignore = [
     'https://twitter.com/datalad',
     # maybe a user-agent issue? github.com/sphinx-doc/sphinx//issues/10343
     'https://github.com/datalad/datalad-extension-template/generate',
+    # (temporary?) SSL certificate error
+    'https://fcon_1000.projects.nitrc.org/*',
+    # local link fails to resolve, maybe because its a build artifact?
+    '../_images/intro-v1-cover.jpg',
 ]
 
 # Add any paths that contain templates here, relative to this directory.

@@ -97,6 +97,22 @@ and functions:
 
      more here.
 
+What kind of data is compatible with DataLad datasets?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Any information that can be expressed in digital files.
+This includes text files, tabular data, images, in any file format, and of any size and number.
+
+What does a DataLad dataset contain? In what way is it “lightweight”?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Simply speaking, a DataLad dataset only contains metadata.
+Metadata on the identity and availability of data.
+On a computer with the DataLad software installed, a DataLad dataset looks like any other folder with files.
+However, file content is only obtained on-access.
+When file content needs to be accessed, it is downloaded from any of the known storage locations for a file.
+It can only be downloaded, if the requesting user has the necessary authorization to access a file.
+
 
 Does DataLad host my data?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -111,6 +127,17 @@ have access to it. Once this set up is complete, publishing and accessing a
 published dataset and its data are as easy as if it would lie on your own
 machine.
 You can find a typical workflow in the chapter :ref:`chapter_thirdparty`.
+
+Is my data automatically "open" when I publish it with DataLad?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+How openly your data is published is your choice.
+Combined with a fitting hosting provider, you can make all your data openly available, or available only partially, or to a specific audience, or only in the form of metadata.
+
+Can I selectively publish only some data?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Yes. Or even just selected metadata.
 
 How does GitHub relate to DataLad?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -158,6 +185,17 @@ How can I convert an existing DataLad dataset with annexed data back to a plain 
 
 If you decide to stop using git-annex or DataLad, or if you want to turn an annex repo back into a Git repo, you can do so with the git-annex uninit command.
 The section :ref:`uninit` contains more details.
+
+What does DataLad cost?
+^^^^^^^^^^^^^^^^^^^^^^^
+
+DataLad is free and open source software. There are no fees, no running costs.
+A necessary investment is to learn how to use this tool.
+
+Who develops DataLad?
+^^^^^^^^^^^^^^^^^^^^^
+
+DataLad is an international academic open source project with more than a hundred contributors, spearheaded by a US-German collaboration between Dartmouth College and the Research Centre Jülich.
 
 How can I cite DataLad?
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -506,6 +544,28 @@ obtain the datasets just as any other DataLad datasets with :dlcmd:`clone`
 or :dlcmd:`install`.
 
 There is more info about this in the :ref:`OpenNeuro Quickstart Guide <openneuro>`.
+
+How does DataLad process the data given to it?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+DataLad does not modify file content, or enforce a particular data organization inside a dataset.
+From a user-perspective, a DataLad dataset is a regular directory on a computer’s file system.
+This directory is populated with files that a user has placed into this directory.
+DataLad manages identity information of these files over time (version controlled content identifiers, typically based on checksums).
+DataLad also assists with file transport (upload/download) to and from this directory, and tracks the associated file content availability metadata.
+Users may also associate arbitrary additional metadata with any file content or dataset version.
+Any and all metadata and DataLad-internal management information is kept separate from the managed content, but located inside the managed directory (in a .git subdirectory).
+No information is transmitted to a location outside this local directory, unless a user explicitly performs such an action.
+DataLad is agnostic with respect to the content of a file it manages within a dataset.
+DataLad reads all file content in binary form for the sole purpose of computing a content identifier, which is typically based on a checksum (e.g., MD5 or SHA1).
+This content identifier is used to associate file content availability and other metadata.
+DataLad supports the execution of user-defined, user-provided metadata extractor algorithms.
+These software components can process files of a particular format, in order to derive metadata from it.
+Volume, format and terminology of such metadata are determined by the provider of an extractor implementation, and a user’s parameterization.
+DataLad also supports the execution of user-defined programs and scripts.
+When executed through DataLad, users can record inputs and parameters of such a process, and DataLad can capture the identity of any generated output files.
+This enables metadata-based queries on the origin of files, and programmatic recomputing.
+
 
 .. _bidsvalidator:
 

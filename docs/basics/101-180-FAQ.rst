@@ -162,7 +162,7 @@ Conceptually and technically, there is no difference between a dataset, a
 subdataset, or a superdataset. The only aspect that makes a dataset a sub- or
 superdataset is whether it is *registered* in another dataset (by means of an entry in the
 ``.gitmodules``, automatically performed upon an appropriate ``datalad
-install -d`` or ``datalad create -d`` command) or contains registered datasets.
+clone -d`` or ``datalad create -d`` command) or contains registered datasets.
 
 
 How can I convert/import/transform an existing Git or git-annex repository into a DataLad dataset?

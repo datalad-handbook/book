@@ -34,6 +34,9 @@ autorunrecord_basedir = '/home/me'
 autorunrecord_line_replace = [
     # trailing space removal
     (r'[ ]+$', ''),
+    # turn our "eternal" date time into symbols
+    (r'Tue Jun 18 16:13:00 2019 +0000', '🗓🕓'),
+    (r'2019-06-18 16:13', '🗓🕓'),
     # strip the keydir for MD5(E) or SHA1(E) annex keys
     # the keydir is identical to the annex key name, but consumes
     # a lot of space. we replace it with a UTF scissors icon

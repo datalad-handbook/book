@@ -427,7 +427,7 @@ Let's take a closer look into the ``.gitattributes`` files:
 Summarizing these two glimpses into the dataset, this configuration has
 
 #. included a code directory in your dataset
-#. included three files for human consumption (``README.md``, ``CHANGELOG.md``)
+#. included three files for human consumption (``README.md``, ``CHANGELOG.md``, ``HOWTO.md``)
 #. configured everything in the ``code/`` directory to be tracked by Git, not git-annex [#f5]_
 #. and configured ``README.md`` and ``CHANGELOG.md`` in the root of the dataset to be
    tracked by Git.

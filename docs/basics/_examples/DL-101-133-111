@@ -1,15 +1,15 @@
 $ git log -p -n 1
-commit 12b79fd8282f8674d037b8bc5662bcd27d7e8050
+commit 4f00ad07✂SHA1
 Author: Elena Piscopia <elena@example.net>
-Date:   Wed Apr 13 10:47:06 2022 +0200
+Date:   Tue Jun 18 16:13:00 2019 +0000
 
     [DATALAD RUNCMD] rerun analysis in container
-    
+
     === Do not change lines below ===
     {
      "chain": [],
-     "cmd": "singularity exec -B {pwd} .datalad/environments/midterm-software/image python3 code/script.py",
-     "dsid": "80de3c79-8e75-453b-9eac-71a36c6e77a5",
+     "cmd": "singularity exec -B {pwd} .datalad/environments/midterm-software/image python3 code/script.py {inputs} {outputs}",
+     "dsid": "d95bafc8-f2a4-d27b-dcf4-bb99f4bea973",
      "exit": 0,
      "extra_inputs": [
       ".datalad/environments/midterm-software/image"
@@ -18,19 +18,19 @@ Date:   Wed Apr 13 10:47:06 2022 +0200
       "input/iris.csv"
      ],
      "outputs": [
-      "prediction_report.csv",
-      "pairwise_relationships.png"
+      "pairwise_relationships.png",
+      "prediction_report.csv"
      ],
      "pwd": "."
     }
     ^^^ Do not change lines above ^^^
 
 diff --git a/pairwise_relationships.png b/pairwise_relationships.png
-index 141d6b0..963d5a8 120000
+index a24e6b9..963d5a8 120000
 --- a/pairwise_relationships.png
 +++ b/pairwise_relationships.png
 @@ -1 +1 @@
--.git/annex/objects/Mp/Gk/MD5E-s181905--8a1ecf1df9c9c68aec6a02e6e04a5889.png/MD5E-s181905--8a1ecf1df9c9c68aec6a02e6e04a5889.png
+-.git/annex/objects/G3/Mg/✂/MD5E-s260649--127313ad✂MD5.png
 \ No newline at end of file
-+.git/annex/objects/q1/gp/MD5E-s261062--025dc493ec2da6f9f79eb1ce8512cbec.png/MD5E-s261062--025dc493ec2da6f9f79eb1ce8512cbec.png
++.git/annex/objects/q1/gp/✂/MD5E-s261062--025dc493✂MD5.png
 \ No newline at end of file

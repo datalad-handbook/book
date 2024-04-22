@@ -23,6 +23,7 @@ to discuss changes or additions you plan to make in advance.
 Software setup
 ^^^^^^^^^^^^^^
 
+An automatically triggered continuous integration setup will build the handbook (i.e., execute all code snippets in the "Basics" section, and assemble everything into a rendered book) when you open a pull request.
 Depending on the size of your contribution, you may want to be able to build the book
 locally to test and preview your changes. If you are fixing typos, tweak the
 language, or rewrite a paragraph or two, this should not be necessary, and you can safely
@@ -51,6 +52,7 @@ If you want to be able to build the book locally, though, please follow these in
    $ cd book
    # install required software
    $ pip install -r requirements.txt
+   $ pip install -r requirements-devel.txt
    $ pip install -e .
 
 - install ``librsvg2-bin`` (a tool to render ``.svgs``) with your package manager
@@ -82,7 +84,21 @@ Once this is configured, you can build the book locally by running ``make build`
 of the repository, and open it in your browser, for example with
 ``firefox docs/_build/html/index.html``.
 
-In case you need to remove the build files, you can just run make ``clean-build``.
+In case you need to remove the build files, you can just run ``make clean-build``.
+
+Automatic builds
+""""""""""""""""
+
+When you do not build the handbook locally, but add a new ``runrecord`` (see also the paragraph "Code" in :ref:`directive` to learn more about this) or change an existing one, the Appveyor CI build will execute the code snippet for you.
+After the Appveyor build completed successfully, it will upload every changed or new code snippet as `a build artifact <https://ci.appveyor.com/api/projects/mih/book/artifacts/runrecord_diff.txt>`_.
+You can download this artifact and add the diff by running the following command in your local clone of the handbook repository:
+
+.. code-block:: bash
+
+   $ wget https://ci.appveyor.com/api/projects/mih/book/artifacts/runrecord_diff.txt \
+     -O - | git apply
+
+Inspect the changes, commit then, and push them into your PR.
 
 .. _directive:
 
@@ -139,7 +155,7 @@ of them, if applicable to your contribution.
 
 **Creating live code demos out of runrecord directives**:
 The book has the capability to turn code snippets into a script that the tool
-`cast_live <https://github.com/datalad/datalad/blob/master/tools/cast_live>`_
+`cast_live <https://github.com/datalad/screencaster>`_
 can use to cast and execute it in a demonstration shell. This feature is
 intended for educational courses and other types of demonstrations. The
 following prerequisites exist:
@@ -193,7 +209,7 @@ Easy pull requests
 
 The easiest way to do a pull request is within the web-interface that GitHub
 and `readthedocs <https://readthedocs.org>`_ provide. If you visit the rendered
-version of the handbook at `handbook.datalad.org <http://handbook.datalad.org/>`_
+version of the handbook at `handbook.datalad.org <https://handbook.datalad.org>`_
 and click on the small, floating ``v:latest`` element at the lower
 right-hand side, the ``Edit`` option will take you straight to an editor that
 lets you make your changes and submit a pull request.
@@ -265,7 +281,7 @@ Beyond Basics
   related to any narrative. Readers are encouraged to read chapters or sections
   that fit their needs in whichever order they prefer.
 
-- Care should be taken to not turn content that could be a usecase into an
+- Care should be taken to not turn content that could be a use case into an
   advanced chapter.
 
 
@@ -316,7 +332,7 @@ and use cases for
 This can help to robust-ify links -- instead of long URLs that are dependent
 on file or section titles, or references to numbered sections (both can break
 easily), intersphinx references are meant to stick to contents and reliably point
-to it via a mapping in the `index <http://handbook.datalad.org/en/latest/genindex.html>`_
+to it via a mapping in the `index <https://handbook.datalad.org/genindex.html>`_
 under ``Symbols``. An example intersphinx mapping is done
 `in DataLad <https://github.com/datalad/datalad/pull/4046>`_.
 
@@ -328,7 +344,7 @@ The leading integer indicates the category of reference:
 
    1: Command references
    2: Concept references
-   3: Usecase references
+   3: Use case references
 
 The later integers are consecutively numbered in order of creation. If you want
 to create a new reference, just create a reference one integer higher than the
@@ -360,9 +376,9 @@ Acknowledging Contributors
 If you have helped this project, we would like to acknowledge your contribution in the
 `GitHub repository <https://github.com/datalad-handbook/book>`_ in our README with
 `allcontributors.org <https://allcontributors.org/>`_, and the project's
-`.zenodo <https://github.com/datalad-handbook/book/blob/master/.zenodo.json>`_ 
+`.zenodo <https://github.com/datalad-handbook/book/blob/main/.zenodo.json>`_
 (you can add yourself as second-to-last, i.e. just above Michael) and
-`CONTRIBUTORS.md <https://github.com/datalad-handbook/book/blob/master/CONTRIBUTORS.md>`_
+`CONTRIBUTORS.md <https://github.com/datalad-handbook/book/blob/main/CONTRIBUTORS.md>`_
 files. The `allcontributors bot <https://github.com/all-contributors>`_ will give credit
 for `various types of contributions <https://allcontributors.org/docs/en/emoji-key>`_.
 We may ask you to open a PR to add yourself to all of our contributing acknowledgements

@@ -8,7 +8,7 @@ Version controlling or analyzing data in datasets with a total size of up to a
 few hundred GB, with some tens of thousands of files at maximum? Usually, this
 should work fine. If you want to go beyond this scale, however, you should read
 this section to learn how to properly scale up. As a general rule, consider this
-section relevant once you have a usecase in which you would go substantially
+section relevant once you have a use case in which you would go substantially
 beyond 100k files in a single dataset.
 
 The contents of this chapter exist thanks to some pioneers that took a leap and
@@ -38,7 +38,7 @@ Using :term:`git-annex` (either directly, or by using DataLad) can eliminate thi
 issue, but there is a second factor that can prevent scaling up with Git: The
 *number* of files. One reason for this is that Git performs a large amount of
 `stat system calls <https://en.wikipedia.org/wiki/Stat_(system_call)>`_
-(used in :command:`git add` and :command:`git commit`). Repositories can thus
+(used in :gitcmd:`add` and :gitcmd:`commit`). Repositories can thus
 suffer greatly if they are swamped with files [#f1]_.
 
 Given that DataLad builds up on Git, having datasets with large amounts of files
@@ -49,7 +49,7 @@ more as "big" for the rest of this chapter. Starting at about this size we can
 begin to see performance issues in datasets.
 Bench marking in DataLad datasets with varying, but large amounts of tiny files
 on different file systems and different git-annex repository versions show that
-a mere :command:`datalad save` or :command:`datalad status` command
+a mere :dlcmd:`save` or :dlcmd:`status` command
 can take from 15 minutes up to several hours. Its neither fun nor feasible to
 work with performance drops like this -- so how can this be avoided?
 
@@ -71,7 +71,7 @@ more subdatasets, depending on how much data modalities are available. A similar
 approach was chosen for the
 `Datalad UKbiobank extension <https://github.com/datalad/datalad-ukbiobank>`_
 that can enable to obtain and version control imaging releases of the up to
-100000 participants of the `UKbiobank project <https://www.ukbiobank.ac.uk/>`_.
+100000 participants of the `UKbiobank project <https://www.ukbiobank.ac.uk>`_.
 
 **"But why use DataLad for this?"**
 In principle, using many instead of a single repository/dataset for large amounts
@@ -154,7 +154,7 @@ Tool-specific and smaller advice
 .. [#f1] For example: A Git repository with more than a million (albeit tiny) files
         `takes hours and hours to merely create <https://www.monperrus.net/martin/one-million-files-on-git-and-github>`_,
         if standard Git workflows are used.
-        `This post <https://breckyunits.com/building-a-treebase-with-6-point-5-million-files.html>`_
+        `This post <https://breckyunits.com/building-a-treebase-with-6.5-million-files.html>`_
         contains an entertaining description of what happens if one attempts to create
         a Git repository with 6.5 million files -- up to the point when some Git
         commands stop working.

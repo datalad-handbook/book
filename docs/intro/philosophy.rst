@@ -15,7 +15,7 @@ of what DataLad is, to give you, whoever you may be, some idea of what kind of
 tool you will learn to master in this handbook, and to combat some prejudices
 or presumptions about DataLad one could have.
 
-To make it short, DataLad is a software tool developed to aid with everything
+To make it short, DataLad (`www.datalad.org <https://datalad.org>`_) is a software tool developed to aid with everything
 related to the evolution of digital objects.
 
 It is **not only keeping track of code**, it is
@@ -24,19 +24,19 @@ It is **not only keeping track of code**, it is
 but it assists with the combination of all things
 necessary in the digital workflow of data and science.
 
-As built-in, but *optional* features, DataLad yields FAIR resources -- for example
+As built-in, but *optional* features, DataLad yields FAIR_ resources -- for example
 :term:`metadata` and :term:`provenance` -- and anything (or everything)
 can be easily shared *should the user want this*.
 
 
-On Data
+On data
 ^^^^^^^
 
 Everyone uses data. But once it exists, it does not suffice for most data
 to simply reside unchanged in a single location for eternity.
 
 Most **data need to be shared** -- may it be a digital collection of family
-photos, a genomic database between researchers around the world, or inventory
+photos, a genomics database between researchers around the world, or inventory
 lists of one company division to another. Some data are public and should be
 accessible to everyone.  Other data should circulate only among a select few.
 There are various ways to distribute data, from emailing files to sending
@@ -60,8 +60,8 @@ tools allow users to keep track of changes, view previous states, or restore
 older versions.  How about a **version control system for data**?
 
 
-If data are shared as a copy *of one state* of its history, **keeping all shared
-copies of this data up-to-date** once the original data changes or evolves is at
+If data are shared as copies *of one state* of their history, **keeping all shared
+copies up-to-date** once the original data change or evolve is at
 best tedious, but likely impossible. What about ways to easily **update data and
 its shared copies**?
 
@@ -69,7 +69,7 @@ its shared copies**?
 The world is full of data. The public and private sector make use of it to
 understand, improve, and innovate the complex world we live in.  Currently, this
 process is far from optimal.  In order for society to get the most out of public
-data collections, public **data need to be** `FAIR <https://www.go-fair.org/>`_: Findable,
+data collections, public **data need to be** FAIR_: Findable,
 Accessible, Interoperable, and Reusable. Apart from easy ways to share or update
 shared copies of data, extensive **metadata** is required to identify data, link
 data collections together, and make them findable and searchable in a
@@ -81,11 +81,11 @@ evolution**?
 digital workflow of using data -- regardless of the data's type, content, size,
 location, generation, or development.  It provides functionality to share,
 search, obtain, and version control data in a distributed fashion, and it aids
-managing the evolution of digital objects in a way that fulfills the `FAIR <https://www.go-fair.org/>`_
+managing the evolution of digital objects in a way that fulfills the FAIR_
 principles.
 
 
-The DataLad Philosophy
+The DataLad philosophy
 ^^^^^^^^^^^^^^^^^^^^^^
 From a software point of view, DataLad is a command line tool, with an additional
 Python API to use its features within your software and scripts.
@@ -106,7 +106,7 @@ that captures the spirit of what DataLad is, and here is a brief overview on it.
    You can use it whether you have a PhD in Neuroscience and want to
    `share one of the largest whole brain MRI images in the world <https://github.com/datalad-datasets/bmmr-t1w-250um>`_,
    organize your private music library, keep track of all
-   `cat memes <https://www.diabloii.net/gallery/data/500/medium/moar6-cat.jpg>`_
+   `cat memes <https://imgflip.com/memesearch?q=cat>`_
    on the internet, or `anything else <https://media.giphy.com/media/3o6YfXCehdioMXYbcs/giphy.gif>`_.
 
 #. **A dataset is a Git repository**. 
@@ -144,14 +144,14 @@ that captures the spirit of what DataLad is, and here is a brief overview on it.
    There is no required central server or service necessary to use DataLad. In this
    way, no central infrastructure needs to be maintained (or paid for).
    Your own laptop is the perfect place for your DataLad project to live, as is your
-   institution's webserver, or any other common computational infrastructure you
+   institution's web server, or any other common computational infrastructure you
    might be using.
 
 #. Simultaneously, though, DataLad aims to
    **maximize the (re-)use of existing 3rd-party data resources and infrastructure**.
    Users *can* use existing central infrastructures should they want to.
    DataLad works with any infrastructure from :term:`GitHub` to
-   `Dropbox <https://www.dropbox.com>`_, `Figshare <https://figshare.com/>`_
+   `Dropbox <https://www.dropbox.com>`_, `Figshare <https://figshare.com>`_
    or institutional repositories,
    enabling users to harvest all of the advantages of their preferred
    infrastructure without tying anyone down to central services.
@@ -163,3 +163,4 @@ of the functionality and commands you will learn with this handbook. But before 
 get there, let's get ready to *use* DataLad. For this, the next
 section will show you how to use the handbook.
 
+.. _FAIR: https://www.go-fair.org

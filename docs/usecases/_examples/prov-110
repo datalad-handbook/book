@@ -1,8 +1,11 @@
 
-$ datalad rerun 7c0abb56027b1dd58e36e8cccac6e0a362b22ba4
-[INFO] run commit 7c0abb5; (blur image)
+$ datalad rerun 4086a10f2b436bc20df4950d911df188b733ed46
+[INFO] run commit 4086a10; (blur image) 
 [INFO] Making sure inputs are available (this may take some time) 
+[INFO] Unlocking files 
 unlock(ok): st-bernard-displaced.jpg (file)
+[INFO] Recording unlocked state in git 
+[INFO] Completed unlocking files 
 [INFO] == Command start (output follows) ===== 
 [INFO] == Command exit (modification check follows) ===== 
 run(ok): /home/me/usecases/provenance/artproject (dataset) [convert -spread 10 st-bernard.jpg st-ber...]

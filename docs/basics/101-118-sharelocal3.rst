@@ -8,22 +8,22 @@ is super helpful. I'm sure I'll catch up in no time!",
 your room mate says confidently. "How far did you get
 with the DataLad commands yet?" he asks at last.
 
-"Mhh, I think the last big one was :command:`datalad run`.
+"Mhh, I think the last big one was :dlcmd:`run`.
 Actually, let me quickly show you what this command
 does. There is something that I've been wanting to try
 anyway." you say.
 
-The dataset you shared contained a number of :command:`datalad run`
+The dataset you shared contained a number of :dlcmd:`run`
 commands. For example, you created the simple ``podcasts.tsv``
 file that listed all titles and speaker names of the longnow
 podcasts.
 
-Given that you learned to create "proper" :command:`datalad run` commands,
+Given that you learned to create "proper" :dlcmd:`run` commands,
 complete with ``--input`` and ``--output`` specification,
-anyone should be able to :command:`datalad rerun` these commits
+anyone should be able to :dlcmd:`rerun` these commits
 easily. This is what you want to try now.
 
-You begin to think about which :command:`datalad run` commit would be
+You begin to think about which :dlcmd:`run` commit would be
 the most useful one to take a look at. The creation of
 ``podcasts.tsv`` was a bit dull -- at this point in time, you
 didn't yet know about ``--input`` and ``--output`` arguments,
@@ -45,7 +45,7 @@ want to run by taking a look into the history of the dataset
    :notes: More cool things on shared datasets: rerunning run commands
    :cast: 04_collaboration
 
-   # navigate into the shared copy
+   $ # navigate into the shared copy
    $ cd ../mock_user/DataLad-101
 
 .. runrecord:: _examples/DL-101-118-102
@@ -55,12 +55,12 @@ want to run by taking a look into the history of the dataset
    :notes: find the shasum
    :cast: 04_collaboration
 
-   # lets view the history
+   $ # lets view the history
    $ git log --oneline -n 10
 
 Ah, there it is, the second most recent commit.
 Just as already done in section :ref:`run2`,
-take this shasum and plug it into a :command:`datalad rerun`
+take this shasum and plug it into a :dlcmd:`rerun`
 command:
 
 .. runrecord:: _examples/DL-101-118-103
@@ -74,8 +74,7 @@ command:
 file content from the subdataset and it tried to unlock the output
 prior to the command execution. Note that because you did not retrieve
 the output, ``recordings/salt_logo_small.jpg``, yet, the missing content
-could not be unlocked. DataLad warns you about this, but proceeds
-successfully.
+could not be "unlocked", but is reportedly "removed" prior to the successful rerun.
 
 Your room mate now not only knows how exactly the resized file
 came into existence, but he can also reproduce your exact steps to

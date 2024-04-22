@@ -8,12 +8,12 @@ strategies to them prevent them.
 This section introduces some strategies to clean and fix up datasets that got out
 of hand size-wise. If there are use cases you would want to see discussed here
 or propose solutions for, please
-`get in touch <https://github.com/datalad-handbook/book/issues/new/>`_.
+`get in touch <https://github.com/datalad-handbook/book/issues/new>`_.
 
 Getting contents out of Git
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Let's say you did a :command:`datalad run` with an analysis that put too
+Let's say you did a :dlcmd:`run` with an analysis that put too
 many files under version control by Git, and you want to see them gone.
 Sticking to the FSL FEAT analysis example from earlier, you may, for example,
 want to get rid of every ``tsplot`` directory, as it contains results that are
@@ -40,14 +40,14 @@ history. Before you use it, please make sure to read its help page thoroughly.
    Its `GitHub repository <https://github.com/newren/git-filter-repo>`_ contains
    more and more detailed instructions, but it is possible to install via :term:`pip`
    (``pip install git-filter-repo``), and available via standard package managers
-   for MacOS and some Linux distributions (mostly rpm-based ones).
+   for macOS and some Linux distributions (mostly rpm-based ones).
 
 The general procedure you should follow is the following:
 
-1. :command:`datalad clone` the repository. This is a safeguard to protect your
+1. :dlcmd:`clone` the repository. This is a safeguard to protect your
    dataset should something go wrong. The clone you are creating will be your
    new, cleaned up dataset.
-2. :command:`datalad get` all the dataset contents by running ``datalad get .``
+2. :dlcmd:`get` all the dataset contents by running ``datalad get .``
    in the clone.
 3. ``git-filter-repo`` what you don't want anymore (see below)
 4. Run ``git annex unused`` and a subsequent ``git annex dropunused all`` to remove
@@ -94,7 +94,7 @@ Please see the manual of ``git-filter-repo`` for more information.
          ``git-filter-repo``, Git also discourages the use of ``filter-branch``
          for safety reasons and points to ``git-filter-repo`` as an alternative.
          For more background info, see this
-         `thread <https://lore.kernel.org/git/CABPp-BEr8LVM+yWTbi76hAq7Moe1hyp2xqxXfgVV4_teh_9skA@mail.gmail.com/>`_.
+         `thread <https://lore.kernel.org/git/CABPp-BEr8LVM+yWTbi76hAq7Moe1hyp2xqxXfgVV4_teh_9skA@mail.gmail.com>`_.
 
 .. [#f2] Regular expressions can be a pain to comprehend if you're not used to
          reading them. This one matches paths that start with (``^``) ``sub-``
@@ -104,4 +104,4 @@ Please see the manual of ``git-filter-repo`` for more information.
          (``*``) until ``.feat/tsplot/``, and ending (``$``) with any amount of
          any character (``.*``). Not exactly easy, but effective.
          One way to practice reading regular expressions, if you're interested
-         in that, is by playing `regex crossword <https://regexcrossword.com/>`_.
+         in that, is by playing `regex crossword <https://regexcrossword.com>`_.

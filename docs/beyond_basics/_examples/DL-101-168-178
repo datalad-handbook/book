@@ -1,19 +1,17 @@
-$ datalad rerun --branch="randomforrest" -m "Recompute classification with random forrest classifier" ready-for-analysis..SGD
-[INFO] checkout commit c494546;
-[INFO] run commit d0ee0d4; (Train an SGD clas...)
-[INFO] Making sure inputs are available (this may take some time) 
+$ datalad rerun --branch="randomforest" -m "Recompute classification with random forest classifier" ready-for-analysis..SGD
+[INFO] checkout commit 1b3b757;
+[INFO] run commit 88a6e86; (Train an SGD clas...)
 unlock(ok): model/model.joblib (file)
-[INFO] == Command start (output follows) ===== 
-[INFO] == Command exit (modification check follows) ===== 
+[INFO] == Command start (output follows) =====
+[INFO] == Command exit (modification check follows) =====
 run(ok): /home/me/DVCvsDL/DVC-DataLad (dataset) [python code/train.py]
 add(ok): model/model.joblib (file)
 save(ok): . (dataset)
-[INFO] run commit 8d1bc3b; (Evaluate SGD clas...)
-[INFO] Making sure inputs are available (this may take some time) 
-[INFO] == Command start (output follows) ===== 
-[INFO] == Command exit (modification check follows) ===== 
+[INFO] run commit 2d07713; (Evaluate SGD clas...)
+[INFO] == Command start (output follows) =====
+[INFO] == Command exit (modification check follows) =====
 run(ok): /home/me/DVCvsDL/DVC-DataLad (dataset) [python code/evaluate.py]
-add(ok): code/__pycache__/train.cpython-39.pyc (file)
+add(ok): code/__pycache__/train.cpython-38.pyc (file)
 add(ok): metrics/accuracy.json (file)
 save(ok): . (dataset)
 action summary:

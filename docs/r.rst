@@ -35,6 +35,8 @@ failed -- sorry about this.
   :ref:`abcd`
 :redirect:`about`
   :ref:`executive_summary`
+:redirect:`book-intro-v1`
+  :ref:`book-intro-v1`
 :redirect:`cheatsheet`
   :ref:`cheat`
 :redirect:`clone-priority`
@@ -61,6 +63,8 @@ failed -- sorry about this.
   :ref:`usecase_HCP_dataset`
 :redirect:`install`
   :ref:`install`
+:redirect:`osoh`
+  :ref:`osoh`
 :redirect:`reproducible-paper`
   :ref:`usecase_reproducible_paper`
 :redirect:`RIA`
@@ -85,7 +89,7 @@ failed -- sorry about this.
   :ref:`yale`
 
 Alternatively, try searching in the "Quick Search" at the left-hand side, or
-scan the handbook's front page at `handbook.datalad.org <http://handbook.datalad.org/en/latest/>`_
+scan the handbook's front page at `handbook.datalad.org <https://handbook.datalad.org>`_
 for directions.
 
 ..
@@ -95,8 +99,8 @@ for directions.
 .. raw:: html
 
    <script>
-   // take everything after "?" as a code to identify the redirect
-   redirect_code = window.location.href.replace(/.*\?/, "");
+   // take everything after "?" as a code to identify the redirect. If there is a '=' appended (a glitch that started to surface Dec 2022), remove it and everything afterwards
+   redirect_code = window.location.href.replace(/.*\?/, "").replace(/=.*/, "");
    success = false;
    // loop over all redirect definitions (see above)
    for (rd of document.getElementsByClassName('redirect')){

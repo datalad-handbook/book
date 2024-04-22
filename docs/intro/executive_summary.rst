@@ -78,7 +78,7 @@ environments).
    :alt: provenance capture
    :width: 100%
 
-You or your collaborators can thus re-obtain or reproducibly recompute content
+You or your collaborators can thus reobtain or reproducibly recompute content
 with a single command, and make use of extensive provenance of dataset content
 (who created it, when, and how?).
 
@@ -86,16 +86,16 @@ Third party service integration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Export datasets to third party services such as
-`GitHub <https://github.com/>`_, `GitLab <https://about.gitlab.com/>`_, or
-`Figshare <https://figshare.com/>`_ with built-in commands.
+`GitHub <https://github.com>`_, `GitLab <https://about.gitlab.com>`_, or
+`Figshare <https://figshare.com>`_ with built-in commands.
 
 .. figure:: ../artwork/src/thirdparty.svg
    :alt: third party integration
    :width: 100%
 
 Alternatively, you can use a multitude of other available third party services such as
-`Dropbox <https://dropbox.com>`_, `Google Drive <https://drive.google.com/drive/my-drive>`_,
-`Amazon S3 <https://aws.amazon.com/de/s3/>`_, `owncloud <https://owncloud.org/>`_,
+`Dropbox <https://www.dropbox.com>`_, `Google Drive <https://drive.google.com/drive/my-drive>`_,
+`Amazon S3 <https://aws.amazon.com/s3>`_, `owncloud <https://owncloud.com>`_,
 or many more that DataLad datasets are compatible with.
 
 Metadata handling

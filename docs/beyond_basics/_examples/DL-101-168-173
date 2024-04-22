@@ -3,11 +3,10 @@ $ datalad run --message "Train an SGD classifier" \
    --input "data/prepared/*" \
    --output "model/model.joblib" \
    python code/train.py
-[INFO] Making sure inputs are available (this may take some time) 
-[INFO] == Command start (output follows) ===== 
-/home/adina/env/handbook2/lib/python3.9/site-packages/sklearn/linear_model/_stochastic_gradient.py:570: ConvergenceWarning: Maximum number of iteration reached before convergence. Consider increasing max_iter to improve the fit.
-  warnings.warn("Maximum number of iteration reached before "
-[INFO] == Command exit (modification check follows) ===== 
+[INFO] == Command start (output follows) =====
+VIRTUALENV/lib/python3.8/site-packages/sklearn/linear_model/_stochastic_gradient.py:713: ConvergenceWarning: Maximum number of iteration reached before convergence. Consider increasing max_iter to improve the fit.
+  warnings.warn(
+[INFO] == Command exit (modification check follows) =====
 run(ok): /home/me/DVCvsDL/DVC-DataLad (dataset) [python code/train.py]
 add(ok): model/model.joblib (file)
 save(ok): . (dataset)

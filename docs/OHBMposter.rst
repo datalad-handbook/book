@@ -1,9 +1,8 @@
+.. index:: ! OHBM 2020 Poster
 .. _ohbm2020poster:
 
 Handbook Poster from the 2020 (virtual) OHBM
 --------------------------------------------
-
-.. index:: ! OHBM 2020 Poster
 
 Here you can find the poster about the DataLad Handbook, presented at the `2020 virtual OHBM <https://www.humanbrainmapping.org/i4a/pages/index.cfm?pageid=3958>`_ und poster number 1914.
 
@@ -12,7 +11,7 @@ Here you can find the poster about the DataLad Handbook, presented at the `2020 
    Click on the image below to obtain a PDF version of it.
 
    .. figure:: artwork/src/OHBM_2020.png
-      :target: https://github.com/datalad-handbook/book/raw/master/artwork/OHBM_2020.pdf
+      :target: https://github.com/datalad-handbook/book/raw/main/artwork/OHBM_2020.pdf
 
 
 .. only:: latex
@@ -21,4 +20,4 @@ Here you can find the poster about the DataLad Handbook, presented at the `2020 
       :width: 80%
 
       A high-resolution version is available for download
-      at https://github.com/datalad-handbook/book/raw/master/artwork/OHBM_2020.pdf
+      at https://github.com/datalad-handbook/book/raw/main/artwork/OHBM_2020.pdf

@@ -1,4 +1,5 @@
-.. index:: ! datalad command; clone
+.. index::
+   pair: clone; DataLad command
 .. _cloneprio:
 
 Prioritizing subdataset clone locations
@@ -12,6 +13,8 @@ This can create a more flawless and less error-prone user experience as well as 
 .. figure:: ../artwork/src/origin.svg
    :width: 50%
 
+.. index::
+   single: configuration item; datalad.get.subdataset-source-candidate-<name>
 
 Clone candidates
 ^^^^^^^^^^^^^^^^
@@ -48,7 +51,7 @@ Clone candidate priority
 We have established that subdatasets can come from several sources.
 Let's now motivate *why* it might be useful to prioritize one subdataset clone location over another one.
 
-Consider a hierarchy of datasets that exist in several locations, for example one :term:`Remote Indexed Archive (RIA) store` *with* a storage special remote [#f2]_, and one without a special remote.
+Consider a hierarchy of datasets that exist in several locations, for example, one :term:`Remote Indexed Archive (RIA) store` *with* a storage special remote [#f2]_, and one without a special remote.
 The topmost superdataset is published to a human-readable and accessible location such as :term:`GitHub` or :term:`GitLab`, and should be configured to always clone subdatasets from the RIA store *with* the storage special remote, even if it was originally created with subdatasets from the RIA store with no storage sibling.
 In order to be able to retrieve subdataset *data* from the subdatasets after cloning the hierarchy of datasets, the RIA store with the storage special remote needs to be configured as a clone candidate.
 Importantly, it should not only be configured as one alternative, but it should be configured as the first location to try to clone from -- else, cloning from the wrong RIA store could succeed and prevent any configured second clone candidate location from being tried.
@@ -61,7 +64,7 @@ The priority of subdataset clone locations is configured by attaching a *cost* t
 The cost is a three digit value (range ``000-999``), and the lower the cost of a candidate, the higher its priority, i.e., the candidate with the lowest cost is attempted first.
 In order to prefer any particular RIA store for subdataset cloning, one could configure the superdataset with the following command [#f3]_::
 
-    $ git config -f .datalad/config datalad.get.subdataset-source-candidate-000mypreferredRIAstore ria+http://store.datalad.org#{id}
+    $ git config -f .datalad/config datalad.get.subdataset-source-candidate-000mypreferredRIAstore ria+https://store.datalad.org#{id}
 
 where ``mypreferredRIAstore`` is the (arbitrary) ``<name>`` of the source candidate, and the ``000`` prefix is the (lowest possible) cost.
 Such a configuration will ensure that the first location any subdataset is attempted to be installed from is the RIA store at ``store.datalad.org``.
@@ -89,7 +92,7 @@ Instead of adding configurations with precise URLs you can also make use of temp
 A placeholder takes the form ``{placeholdername}`` and can reference any property that can be inferred from the parent dataset's knowledge about the target superset, specifically any subdataset information that exists as a key-value pair within ``.gitmodules``.
 For convenience, an existing `datalad-id` record is made available under the shortened name `id`.
 In all likelihood, the list of available placeholders will be expanded in the future.
-Do you have a usecase and need a specific placeholder?
+Do you have a use case and need a specific placeholder?
 `Reach out to us <https://github.com/datalad/datalad/issues/new>`_, we may be able to add the placeholders you need!
 
 When could this be useful?
@@ -105,4 +108,4 @@ Thus, whenever more than one subdataset exists in a superdataset, make sure to n
 
 .. [#f2] To re-read about RIA stores and their ORA special remote storage siblings, please take a look at the section :ref:`riastore`.
 
-.. [#f3] If you are unsure how the :command:`git config` command works, please check out section :ref:`config`.
+.. [#f3] If you are unsure how the :gitcmd:`config` command works, please check out section :ref:`config`.

@@ -1,14 +1,12 @@
-.. index:: ! 1-002
 .. _1-002:
 .. _chapter_run:
 
-DataLad, Run!
+DataLad, run!
 -------------
 
-.. index:: ! Chapter; 2. DataLad Run
-
-.. figure:: ../artwork/src/keeptrack.svg
+.. image:: ../artwork/src/keeptrack.svg
    :width: 50%
+   :align: center
 
 .. toctree::
    :maxdepth: 1

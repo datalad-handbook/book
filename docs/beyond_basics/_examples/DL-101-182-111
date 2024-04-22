@@ -1,0 +1,65 @@
+$ cat data-cat/config.json | jq .
+{
+  "catalog_name": "DataCat",
+  "logo_path": "",
+  "link_color": "#fba304",
+  "link_hover_color": "#af7714",
+  "social_links": {
+    "about": null,
+    "documentation": "https://docs.datalad.org/projects/catalog/en/latest/",
+    "github": "https://github.com/datalad/datalad-catalog",
+    "mastodon": "https://fosstodon.org/@datalad",
+    "x": "https://x.com/datalad"
+  },
+  "dataset_options": {
+    "include_metadata_export": true
+  },
+  "property_sources": {
+    "dataset": {
+      "dataset_id": {},
+      "dataset_version": {},
+      "type": {},
+      "children": {
+        "rule": "merge",
+        "source": "any"
+      },
+      "name": {},
+      "short_name": {},
+      "description": {},
+      "doi": {},
+      "url": {
+        "rule": "merge",
+        "source": "any"
+      },
+      "authors": {
+        "rule": "merge",
+        "source": "any"
+      },
+      "keywords": {
+        "rule": "merge",
+        "source": "any"
+      },
+      "license": {},
+      "funding": {
+        "rule": "merge",
+        "source": "any"
+      },
+      "publications": {
+        "rule": "merge",
+        "source": "any"
+      },
+      "subdatasets": {
+        "rule": "merge",
+        "source": "any"
+      },
+      "additional_display": {
+        "rule": "merge",
+        "source": "any"
+      },
+      "top_display": {
+        "rule": "merge",
+        "source": "any"
+      }
+    }
+  }
+}

@@ -61,13 +61,13 @@ Let's see what happens when we delete placeholders in the ``README``::
 
    echo " " >| README.md       # this overwrites existing contents
 
-:command:`datalad status` can report on the state of a dataset.
+:dlcmd:`status` can report on the state of a dataset.
 As we modified a version controlled file, this file shows up as being "modified"::
 
    datalad status
 
 What has changed compared to the files last known version state?
-The :command:`git diff` can tell us::
+The :gitcmd:`diff` can tell us::
 
    git diff
 
@@ -76,7 +76,7 @@ Let's also replace the contents of the other README::
    echo " " >| code/README.md
    git diff
 
-In order to save a modification one needs to use the :command:`datalad save` command.
+In order to save a modification one needs to use the :dlcmd:`save` command.
 The ``-m/--message`` option lets you attach a concise summary of your change.
 Such a :term:`commit message` makes it easier for others and your later self to understand a dataset's history::
 
@@ -97,7 +97,7 @@ You can add a path to make sure only modifications in the specified file are sav
    datalad save -m "Add project information to README" README.md
 
 Your dataset has now started to grow a log of everything that was done.
-You can view this history with the command :command:`git log`, or any tool that can display :term:`Git` history, such as :term:`tig`.
+You can view this history with the command :gitcmd:`log`, or any tool that can display :term:`Git` history, such as :term:`tig`.
 You can even ask a specific file what has been done to it::
 
    git log README.md
@@ -124,9 +124,9 @@ If the origin of a file (such as a web source) is known, you can drop file *cont
 
 Afterwards, only "metadata" about file content and file availability stays behind, and you can't open the file anymore::
 
-   xdg-open .easteregg    # its gone :(!
+   xdg-open .easteregg    # it is gone :(!
 
-But because the origin of the file is known, it can be reobtained using the :command:`datalad get`::
+But because the origin of the file is known, it can be reobtained using the :dlcmd:`get`::
 
    datalad get .easteregg
 
@@ -134,7 +134,7 @@ Opening the comic works again, afterwards::
 
    xdg-open .easteregg
 
-Let's now see this in action  with really large data, and use the :command:`datalad clone` command to get a neuroimaging dataset published by a group of MPI researchers.
+Let's now see this in action  with really large data, and use the :dlcmd:`clone` command to get a neuroimaging dataset published by a group of MPI researchers.
 First, let's go one directory up::
 
    cd ../
@@ -149,20 +149,20 @@ You can list all directories in the dataset::
     ls
 
 But even though it looks like a substantial amount of files, the total size of the dataset is very small.
-The :command:`du -sh` (*disk usage* in human readable units) demonstrates this::
+The :shcmd:`du -sh` (*disk usage* in human readable units) demonstrates this::
 
    du -sh
 
-The total available size of files can be shown with :command:`datalad status --annex`::
+The total available size of files can be shown with :dlcmd:`status --annex`::
 
    datalad status --annex
 
 Congrats! You have easy access to almost 400GB of data, but it only takes up a few MB on your computer.
-Let's get one subject's anatomical files by using :command:`datalad get` and a path to one directory::
+Let's get one subject's anatomical files by using :dlcmd:`get` and a path to one directory::
 
    datalad get sub-010002/ses-01/anat/
 
-Afterwards, :command:`datalad status --annex all` shows how much of the total available data is already retrieved::
+Afterwards, :dlcmd:`status --annex all` shows how much of the total available data is already retrieved::
 
    datalad status --annex all
 
@@ -177,7 +177,7 @@ We will start a data analysis in the ``myanalysis`` dataset::
    cd ../myanalysis
 
 First, let's install input data (a small dataset from GitHub) as a subdataset.
-This is done with the ``-d/--dataset`` option of :command:`datalad clone`::
+This is done with the ``-d/--dataset`` option of :dlcmd:`clone`::
 
    datalad clone -d . git@github.com:datalad-handbook/iris_data.git input/
 
@@ -305,7 +305,7 @@ In order to be computationally reproducible I need to attach the software that i
    cd ../myanalysis
 
 And the way I can do this is with a datalad extension called datalad containers.
-You can install this extension with pip by running ``pip install datalad-containers``.
+You can install this extension with pip by running ``pip install datalad-container``.
 This extension allow to attach software containers such as singularity images to my dataset and execute my commands inside of these containers.
 Thus, I can share share data, code, code execution, and software.
 
@@ -314,7 +314,7 @@ This records the software in the dataset::
 
    datalad containers-add software --url shub://adswa/resources:2
 
-Note: You need to have `singularity <https://sylabs.io/guides/3.5/user-guide/>`_ installed to run this!
+Note: You need to have `singularity <https://docs.sylabs.io/guides/3.5/user-guide>`_ installed to run this!
 
 Afterwards, rerun the analysis in the software container with the ``datalad containers-run`` command.
 This container works just as the run command before, I only need to specify the container name.

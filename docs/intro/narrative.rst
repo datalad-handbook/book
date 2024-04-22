@@ -38,23 +38,25 @@ with each. While learning, it will be easy to
 
    Throughout the book numerous *terms* for concepts and technical components
    are used. They are all defined in a :ref:`glossary`, and are printed
-   in small-caps, such as :term:`Git`, or :term:`commit message`.
+   with a glossary icon, such as :term:`Git`, or :term:`commit message`.
+   Links to external resources have a superscript that you can find in the Hyperlink index at the end of the book.
+   And internal links reference the page number of the box, section, or chapter in question.
 
 As the handbook is to be a practical guide it includes as many hands-on examples
 as we can fit into it. Code snippets look like this, and you should
 **copy them into your own terminal to try them out**, but you can also
 **modify them to fit your custom needs in your own use cases**.
-Note how we distinguish ``comments (#)`` from ``commands ($)`` and their output
+Note how we distinguish ``comments ($ #)`` from ``commands ($)`` and their output
 in the example below (it shows the creation of a DataLad dataset):
 
-.. code-block:: bash
+.. code-block:: console
 
-   # this is a comment used for additional explanations.
-   # Anything preceded by $ is a command to try.
-   # if the line starts with neither # nor $, its the output of a command
+   $ # This is a comment used for additional explanations.
+   $ # Otherwise, anything preceded by $ is a command to try.
+   $ # If the line starts with no $, it is an output of a command.
    $ datalad create myfirstrepo
-   [INFO   ] Creating a new annex repo at /home/adina/DataLad-101
-   create(ok): /home/adina/DataLad-101 (dataset)
+   [INFO   ] Creating a new annex repo at /home/me/DataLad-101
+   create(ok): /home/me/DataLad-101 (dataset)
 
 When copying code snippets into your own terminal, do not copy the leading
 ``$`` -- this only indicates that the line is a command, and would lead to an
@@ -65,6 +67,16 @@ Instead of copying manually, you can also click on the clipboard icon at the top
 right of each code snippet.
 Clicking on that icon will copy all relevant lines from the code snippet,
 and will drop all comments and the ``$`` automatically.
+
+Whenever you see a ✂ symbol, command output has been shortened for better readability.
+In the example below, the commit :term:`shasum` has been shortened and marked with ``✂SHA1``.
+
+.. code-block:: console
+
+   $ git log --reverse
+   commit 8df130bb✂SHA1
+   Author: Elena Piscopia <elena@example.net>
+   Date:   Tue Jun 18 16:13:00 2019 +0000
 
 The book is split into different parts. The upcoming chapters
 are the *Basics* that intend to show you the core DataLad functionality
@@ -121,13 +133,13 @@ You can decide for yourself whether you want to check them out:
    the book when there is no better alternative, and executing those commands will
    suffice to follow along.
 
-If you are a Windows 10 user with a native (i.e., not `Windows Subsystem for Linux (WSL) <https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux>`_-based DataLad installation, pay close attention to the special notes in so-called "Windows-Wits":
+If you are a Windows user with a native (i.e., not `Windows Subsystem for Linux (WSL) <https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux>`_-based) DataLad installation, pay close attention to the special notes in so-called "Windows-Wits":
 
 .. windows-wit:: For Windows users only
 
-   A range of file system issues can affect the behavior of DataLad or its underlying tools on Windows 10.
+   A range of file system issues can affect the behavior of DataLad or its underlying tools on Windows.
    If necessary, the handbook provides workarounds for problems, explanations, or at least apologies for those inconveniences.
-   If you want to help us make the handbook or DataLad better for Windows users, please `get in touch <https://github.com/datalad-handbook/book/issues/new/>`_ -- every little improvement or bug report can help.
+   If you want to help us make the handbook or DataLad better for Windows users, please `get in touch <https://github.com/datalad-handbook/book/issues/new>`_ -- every little improvement or bug report can help.
 
 Apart from core DataLad commands (introduced in the *Basics* part of this book),
 DataLad also comes with many extensions and advanced commands not (yet) referenced
@@ -135,12 +147,12 @@ in this handbook. The development of many of these features
 is ongoing, and this handbook will incorporate all DataLad commands and extensions
 *once they are stable* (that is, once the command(-structure) is likely not to
 change anymore). If you are looking for a feature but cannot find it in this
-handbook, please take a look at the `documentation <http://docs.datalad.org>`_,
-`write <http://handbook.datalad.org/en/latest/contributing.html>`_ or
+handbook, please take a look at the `documentation <https://docs.datalad.org>`_,
+`write <https://handbook.datalad.org/contributing.html>`_ or
 `request <https://github.com/datalad-handbook/book/issues/new>`_
 an additional chapter if you believe it is a worthwhile addition, or
 `ask a question on Neurostars.org <https://neurostars.org/latest>`_
-with a :command:`datalad` tag if you need help.
+with a :shcmd:`datalad` tag if you need help.
 
 
 What you will learn in this book
@@ -148,7 +160,7 @@ What you will learn in this book
 
 This handbook will teach you simple, yet advanced principles of data
 management for reproducible, comprehensible, transparent, and
-`FAIR <https://www.go-fair.org/fair-principles/>`_ data
+`FAIR <https://www.go-fair.org>`_ data
 projects. It does so with hands-on tool use of DataLad and its
 underlying software, blended with clear explanations of relevant
 theoretical backgrounds whenever necessary, and by demonstrating
@@ -210,7 +222,7 @@ share and publish with DataLad.
 .. figure:: ../artwork/src/student.svg
    :width: 70%
 
-.. find-out-more:: I can not/do not want to code along...
+.. find-out-more:: I cannot/do not want to code along...
    :name: fom-lazy
    :float:
 
@@ -231,6 +243,6 @@ share and publish with DataLad.
 Let's get going!
 ----------------
 
-If you have DataLad installed, you can dive straight into chapter 1, :ref:`createDS`.
+If you have DataLad installed, you can dive straight into chapter :ref:`createDS`.
 For everyone new, there are the sections :ref:`howto` as a minimal tutorial
 to using the shell and :ref:`install` to get your DataLad installation set up.

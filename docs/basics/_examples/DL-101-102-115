@@ -1,7 +1,7 @@
 $ git log -p -n 1
-commit da75663ba7058b6fb91b3eea2c726ad067976531
+commit 59ac8d32✂SHA1
 Author: Elena Piscopia <elena@example.net>
-Date:   Wed Apr 13 10:39:39 2022 +0200
+Date:   Tue Jun 18 16:13:00 2019 +0000
 
     add beginners guide on bash
 
@@ -11,5 +11,5 @@ index 0000000..00ca6bd
 --- /dev/null
 +++ b/books/bash_guide.pdf
 @@ -0,0 +1 @@
-+../.git/annex/objects/WF/Gq/MD5E-s1198170--0ab2c121bcf68d7278af266f6a399c5f.pdf/MD5E-s1198170--0ab2c121bcf68d7278af266f6a399c5f.pdf
++../.git/annex/objects/WF/Gq/✂/MD5E-s1198170--0ab2c121✂MD5.pdf
 \ No newline at end of file

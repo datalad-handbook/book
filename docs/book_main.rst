@@ -18,3 +18,8 @@ The DataLad Handbook
 .. toctree::
 
    book_appendix
+
+.. toctree::
+   :hidden:
+
+   topic_index

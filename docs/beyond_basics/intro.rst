@@ -24,6 +24,8 @@ associated usecases.
    basics-retrospective
    basics-specialpurpose
    basics-dataladinternals
+   basics-extensions.rst
 
-.. figure:: /artwork/src/hero.svg
+.. image:: /artwork/src/hero.svg
    :width: 50%
+   :align: center

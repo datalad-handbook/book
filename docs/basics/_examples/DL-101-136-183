@@ -1,10 +1,3 @@
 $ datalad get -n cloud
-[INFO] Cloning dataset to Dataset(/home/me/dl-101/DataLad-101/cloud)
-[INFO] Attempting to clone from https://github.com/datalad-datasets/disneyanimation-cloud.git to /home/me/dl-101/DataLad-101/cloud
-[INFO] Start enumerating objects
-[INFO] Start receiving objects
-[INFO] Start resolving deltas
-[INFO] Completed clone attempts for Dataset(/home/me/dl-101/DataLad-101/cloud)
 [INFO] Remote origin not usable by git-annex; setting annex-ignore
-[INFO] https://github.com/datalad-datasets/disneyanimation-cloud.git/config download failed: Not Found
 install(ok): /home/me/dl-101/DataLad-101/cloud (dataset) [Installed subdataset in order to get /home/me/dl-101/DataLad-101/cloud]

@@ -1,12 +1,12 @@
 $ git log -2
-commit 5b540479e3072ec2a0d9eb7b241cf4e2ff32c137
+commit 4bdb06cf✂SHA1
 Author: Elena Piscopia <elena@example.net>
-Date:   Wed Apr 13 10:47:55 2022 +0200
+Date:   Tue Jun 18 16:13:00 2019 +0000
 
     save my favorite Git joke
 
-commit 92faed1edfacbb527d874538c479f85dbc1f9803
+commit 996f459a✂SHA1
 Author: Elena Piscopia <elena@example.net>
-Date:   Wed Apr 13 10:47:52 2022 +0200
+Date:   Tue Jun 18 16:13:00 2019 +0000
 
     remove obsolete subds

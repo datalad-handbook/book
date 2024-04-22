@@ -1,5 +1,3 @@
 ### DVC-DataLad
 $ datalad get data/raw/val
 get(ok): data/raw/val (directory)
-action summary:
-  get (ok: 790)

@@ -1,16 +1,16 @@
 $ git show ready4analysis
-commit 56a994682631d4b0591f0d591376a6594879b8b3
+commit ca0c7477✂SHA1
 Author: Elena Piscopia <elena@example.net>
-Date:   Wed May 25 09:44:35 2022 +0200
+Date:   Tue Jun 18 16:13:00 2019 +0000
 
     add script for kNN classification and plotting
 
 diff --git a/code/script.py b/code/script.py
 new file mode 100644
-index 0000000..4f5833b
+index 0000000..c7a6ea9
 --- /dev/null
 +++ b/code/script.py
-@@ -0,0 +1,42 @@
+@@ -0,0 +1,43 @@
 +
 +import argparse
 +import pandas as pd
@@ -41,9 +41,10 @@ index 0000000..4f5833b
 +Y = array[:,4]
 +test_size = 0.20
 +seed = 7
-+X_train, X_test, Y_train, Y_test = model_selection.train_test_split(X, Y,
-+                                                                    test_size=test_size,
-+                                                                    random_state=seed)
++X_train, X_test, Y_train, Y_test = model_selection.train_test_split(
++    X, Y,
++    test_size=test_size,
++    random_state=seed)
 +# Step 2: Fit the model and make predictions on the test dataset
 +knn = KNeighborsClassifier()
 +knn.fit(X_train, Y_train)

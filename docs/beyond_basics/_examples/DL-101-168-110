@@ -4,8 +4,16 @@ $ dvc add data/raw/val
 
 To track the changes with git, run:
 
-	git add data/raw/.gitignore data/raw/train.dvc
+	git add data/raw/train.dvc data/raw/.gitignore
+
+To enable auto staging, run:
+
+	dvc config core.autostage true
 
 To track the changes with git, run:
 
 	git add data/raw/val.dvc data/raw/.gitignore
+
+To enable auto staging, run:
+
+	dvc config core.autostage true

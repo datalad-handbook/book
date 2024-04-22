@@ -22,3 +22,4 @@ venv/
 __pycache__
 
 *.swp
+venvs

@@ -1,9 +1,8 @@
+.. index:: ! procedures, run-procedures
 .. _procedures:
 
 Configurations to go
 --------------------
-
-.. index:: ! procedures, run-procedures
 
 The past two sections should have given you a comprehensive
 overview on the different configuration options the tools
@@ -25,7 +24,7 @@ In order to learn about procedures in general, let's demystify
 what the ``text2git`` procedure exactly is: It is
 nothing more than a simple script that
 
-- writes the relevant configuration (``annex_largefiles = '((mimeencoding=binary)and(largerthan=0))'``,  i.e., "Do not put anything that is a text file in the annex") to the ``.gitattributes`` file of a dataset, and
+- writes the relevant ``annex_largefiles`` configuration,  i.e., "Do not put anything that is a text file in the annex") to the ``.gitattributes`` file of a dataset, and
 - saves this modification with the commit message "Instruct annex to add text files to Git".
 
 This particular procedure lives in a script called
@@ -33,7 +32,7 @@ This particular procedure lives in a script called
 in this script is not large, and the relevant lines of code
 are highlighted:
 
-.. code-block:: bash
+.. code-block:: python
    :emphasize-lines: 12, 16-17
 
     import sys
@@ -64,7 +63,7 @@ Just like ``cfg_text2git``, all DataLad procedures are
 executables (such as a script, or compiled code).
 In principle, they can be written in any language, and perform
 any task inside of a dataset.
-The ``text2git`` configuration for example applies a configuration for how
+The ``text2git`` configuration, for example, applies a configuration for how
 git-annex treats different file types. Other procedures do not
 only modify ``.gitattributes``, but can also populate a dataset
 with particular content, or automate routine tasks such as
@@ -73,7 +72,7 @@ What makes them a particularly versatile and flexible tool is
 that anyone can write their own procedures.
 If a workflow is a standard in a team and needs to be applied often, turning it into
 a script can save time and effort.
-To learn how to do this, read the :ref:`with a tutorial on writing own procedures <fom-procedures>`.
+To learn how to do this, read the :ref:`tutorial on writing own procedures <fom-procedures>`.
 By pointing DataLad to the location the procedures reside in they can be applied, and by
 including them in a dataset they can even be shared.
 And even if the script is simple, it is very handy to have preconfigured
@@ -85,12 +84,13 @@ spares naive users the necessity to learn about the ``.gitattributes``
 file when setting up a dataset.
 
 
-.. index:: ! datalad command; run-procedure
-
+.. index::
+   pair: run-procedure; DataLad command
+   pair: discover dataset procedures; with DataLad
+   pair: discover; dataset procedure
 
 To find out available procedures, the command
-:command:`datalad run-procedure --discover` (:manpage:`datalad-run-procedure`
-manual) is helpful.
+:dlcmd:`run-procedure --discover` is helpful.
 This command will make DataLad search the default location for
 procedures in a dataset, the source code of DataLad or
 installed DataLad extensions, and the default locations for
@@ -102,72 +102,87 @@ procedures on the system for available procedures:
 
    $ datalad run-procedure --discover
 
-The output shows that in this particular dataset, on the particular
-system the book is written on, there are at least three procedures available:
-``cfg_metadatatypes``, ``cfg_text2git``, and ``cfg_yoda``.
+The output shows that four procedures available in this particular dataset and the system it exists on:
+``cfg_metadatatypes``, ``cfg_text2git``, ``cfg_yoda``, and ``cfg_noannex``.
 It also lists where they are stored -- in this case,
 they are all part of the source code of DataLad [#f1]_.
 
+- ``cfg_noannex`` configures a dataset to not have an annex at all.
 - ``cfg_yoda`` configures a dataset according to the yoda
   principles -- the section :ref:`yoda` talks about this in detail.
 - ``cfg_text2git`` configures text files to be stored in Git.
 - ``cfg_metadatatypes`` lets users configure additional metadata
-  types -- more about this in a later section on DataLad's metadata
-  handling.
+  types.
+
+.. index::
+   pair: run dataset procedure; with DataLad
+   pair: run; dataset procedure
 
 Applying procedures
 ^^^^^^^^^^^^^^^^^^^
 
-:command:`datalad run-procedure` not only *discovers*
+:dlcmd:`run-procedure` not only *discovers*
 but also *executes* procedures. If given the name of
 a procedure, this command will apply the procedure to
 the current dataset, or the dataset that is specified
-with the ``-d/--dataset`` flag::
+with the ``-d/--dataset`` flag:
+
+.. code-block:: bash
 
    datalad run-procedure [-d <PATH>] cfg_text2git
+
+.. index::
+   pair: run dataset procedure on dataset creation; with DataLad
+   pair: run on dataset creation; dataset procedure
 
 The typical workflow is to create a dataset and apply
 a procedure afterwards.
 However, some procedures shipped with DataLad or its extensions with a
 ``cfg_`` prefix can also be applied right at the creation of a dataset
-with the ``-c/--cfg-proc <name>`` option in a :command:`datalad create`
+with the ``-c/--cfg-proc <name>`` option in a :dlcmd:`create`
 command. This is a peculiarity of these procedures because, by convention,
 all of these procedures are written to not require arguments.
-The command structure looks like this::
+The command structure looks like this:
 
-   datalad create -c text2git DataLad-101
+.. code-block:: console
+
+   $ datalad create -c text2git DataLad-101
 
 Note that the ``cfg_`` prefix of the procedures is omitted in these
 calls to keep it extra simple and short. The
 available procedures in this example (``cfg_yoda``, ``cfg_text2git``)
-could thus be applied within a :command:`datalad create` as
+could thus be applied within a :dlcmd:`create` as
 
 - ``datalad create -c yoda <DSname>``
 - ``datalad create -c text2git <DSname>``
 
+.. index:: dataset procedure; apply more than one configuration
 .. find-out-more:: Applying multiple procedures
 
    If you want to apply several configurations at once, feel free to do so,
-   for example like this::
+   for example like this:
+
+   .. code-block:: console
 
       $ datalad create -c yoda -c text2git
 
+.. index:: dataset procedure; apply to subdatasets
 .. find-out-more:: Applying procedures in subdatasets
 
    Procedures can be applied in datasets on any level in the dataset hierarchy, i.e.,
    also in subdatasets. Note, though, that a subdataset will show up as being
-   ``modified`` in :command:`datalad status` *in the superdataset*
+   ``modified`` in :dlcmd:`status` *in the superdataset*
    after applying a procedure.
    This is expected, and it would also be the case with any other modification
    (saved or not) in the subdataset, as the version of the subdataset that is tracked
-   in the superdataset simply changed. A :command:`datalad save` in the superdataset
+   in the superdataset simply changed. A :dlcmd:`save` in the superdataset
    will make sure that the version of the subdataset gets updated in the superdataset.
    The section :ref:`nesting2` will elaborate on this general principle later in the
    handbook.
 
 As a general note, it can be useful to apply procedures
 early in the life of a dataset. Procedures such
-as ``cfg_yoda`` (explained in detail in section :ref:`yoda`),
+as ``cfg_yoda``, explained in detail in section :ref:`yoda`,
 create files, change ``.gitattributes``, or apply other configurations.
 If many other (possibly complex) configurations are
 already in place, or if files of the same name as the ones created by
@@ -178,7 +193,13 @@ to a default dataset in which one has saved many text files already
 files into Git -- only those text files created *after* the configuration
 was applied.
 
-
+.. index::
+   single: configuration item; datalad.locations.system-procedures
+   single: configuration item; datalad.locations.user-procedures
+   single: configuration item; datalad.locations.dataset-procedures
+   single: configuration item; datalad.procedures.<name>.call-format
+   single: configuration item; datalad.procedures.<name>.help
+   single: datasets procedures; write your own
 .. find-out-more:: Write your own procedures
    :name: fom-procedures
    :float:
@@ -187,8 +208,7 @@ was applied.
    write their own ones in addition, and deploy them on individual machines,
    or ship them within DataLad datasets. This allows to
    automate routine configurations or tasks in a dataset, or share configurations that would otherwise not "stick" to the dataset.
-   Some general rules for creating a custom procedure are outlined
-   below:
+   Here are some general rules for creating a custom procedure:
 
    - A procedure can be any executable. Executables must have the
      appropriate permissions and, in the case of a script,
@@ -207,7 +227,7 @@ was applied.
      a short "help" description on what the procedure does. Below is a minimal
      ``.datalad/config`` entry for a custom procedure:
 
-     .. code-block:: bash
+     .. code-block:: ini
 
         [datalad "procedures.<NAME>"]
            help = This is a string to describe what the procedure does
@@ -229,13 +249,15 @@ was applied.
          or ``datalad.locations.dataset-procedures`` (for changing the *local* default).
          An example ``.datalad/config`` entry for the local scope is shown below.
 
-         .. code-block:: bash
+         .. code-block:: ini
 
             [datalad "locations"]
                 dataset-procedures = relative/path/from/dataset-root
 
     - By default, DataLad will call a procedure with a standard template
-      defined by a format string::
+      defined by a format string:
+
+      .. code-block::
 
          interpreter {script} {ds} {arguments}
 
@@ -245,7 +267,7 @@ was applied.
       An example ``.datalad/config`` entry with a changed call format string
       is shown below.
 
-      .. code-block:: bash
+      .. code-block:: ini
 
          [datalad "procedures.<NAME>"]
             help = This is a string to describe what the procedure does
@@ -329,14 +351,14 @@ was applied.
       :language: console
       :workdir: procs/somedataset
 
-      #the directory structure has been created
+      $ # the directory structure has been created
       $ tree
 
    .. runrecord:: _examples/DL-101-124-108
       :workdir: procs/somedataset
       :language: console
 
-      #lets check out the contents in the files
+      $ # lets check out the contents in the files
       $ cat example2  && echo '' && cat somedir/example
 
    .. runrecord:: _examples/DL-101-124-109
@@ -355,7 +377,7 @@ was applied.
       $ datalad run-procedure --help-proc example
 
 
-Summing up, DataLad's :command:`run-procedure` command is a handy tool
+Summing up, DataLad's :dlcmd:`run-procedure` command is a handy tool
 with useful existing procedures but much flexibility for your own
 DIY procedure scripts. With the information of the last three sections
 you should be able to write and understand necessary configurations,
@@ -369,11 +391,9 @@ the dataset is set-up, structured, processed, or configured automatically
 with the help of a procedure.
 Especially in the case of trainees and new users, applying procedures
 instead of doing relevant routines "by hand" can help to ease
-working with the dataset, as the use case :ref:`usecase_student_supervision`
-showcases. Other than by users, procedures can also be triggered to automatically
+working with the dataset. Other than by users, procedures can also be triggered to automatically
 run after any command execution if a command results matches a specific
-requirement. If you are interested in finding out more about this, read on in
-section :ref:`hooks`.
+requirement.
 
 Finally, make a note about running procedures inside of ``notes.txt``:
 

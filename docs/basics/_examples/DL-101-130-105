@@ -1,25 +1,12 @@
 $ cd midterm_project
-# we are in midterm_project, thus -d . points to the root of it.
+$ # we are in midterm_project, thus -d . points to the root of it.
 $ datalad clone -d . \
   https://github.com/datalad-handbook/iris_data.git \
   input/
-[INFO] Cloning dataset to Dataset(/home/me/dl-101/DataLad-101/midterm_project/input)
-[INFO] Attempting to clone from https://github.com/datalad-handbook/iris_data.git to /home/me/dl-101/DataLad-101/midterm_project/input
-[INFO] Start enumerating objects
-[INFO] Start counting objects
-[INFO] Start compressing objects
-[INFO] Start receiving objects
-[INFO] Start resolving deltas
-[INFO] Completed clone attempts for Dataset(/home/me/dl-101/DataLad-101/midterm_project/input)
 [INFO] Remote origin not usable by git-annex; setting annex-ignore
-[INFO] https://github.com/datalad-handbook/iris_data.git/config download failed: Not Found
 install(ok): input (dataset)
-add(ok): input (file)
+add(ok): input (dataset)
 add(ok): .gitmodules (file)
 save(ok): . (dataset)
 add(ok): .gitmodules (file)
 save(ok): . (dataset)
-action summary:
-  add (ok: 3)
-  install (ok: 1)
-  save (ok: 2)

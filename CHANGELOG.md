@@ -3,6 +3,65 @@
 All notable changes to this project between releases will be documented in this
 file.
 
+## v0.18 (February 14 2023) -- Handbook love
+
+A handbook release matching (delayed) the release of DataLad v0.18.0.
+This release contains notable changes resulting from a Handbook hackathon in December 2022. It also increases the required version of DataLad to 0.17
+
+
+### Refactoring or deletions
+
+All over the handbook, version notes or information relating to datalad versions lower than 0.17 were removed ([#905][])
+
+### Additions
+- A new standalone chapter about datalad extensions was added, and sections on datalad-catalog ([#917][]), datalad-metalad ([#930][]), and datalad-gooey were included. 
+- A new standalone chapter about datalad extensions was added, and sections on datalad-catalog ([#917][]), datalad-metalad ([#930][]), and datalad-gooey were included.
+
+#### Introduction
+
+#### Basics
+- The Cheatsheet was updated with modern commands ([#912][])
+- 
+#### Advanced
+
+#### Usecases
+- A new use case about encrypted workflows is now part of the handbook ([#895][])
+
+#### Miscellaneous additions
+- The Makefile in the source repository received a more intuitive and fine-grained structure ([#901][])
+- The handbook has gained an Appveyor configuration that allows building the entire Basis and Beyond Basics parts from scratch, and allows an export of generated code snippets. This makes builds on local machines obsolete for contributors that don't want to go through this trouble ([#908][])
+- the handbook now has a tool to report readthedocs metrics for authenticated and authorized users ([#902][])
+
+## v0.17 (December 20 2022) -- Better late than never
+
+Handbook release matching the release of DataLad v0.17.0, which was for the most part only an internal change to a different testing framework (pytest instead of nose)
+
+
+It includes contributions the new contributors @Arshitha, @ajveltri22, @complexbrains, @jkosciessa, @candleindark, and @asmacdo, as well as contributions from established contributors @mslw, @sappelhoff, @kimsin98, @adswa, @yarikoptic.
+
+
+### Refactoring or deletions
+
+
+### Additions
+- A new walkthrough for the neurohackademy was added ([#852][])
+-
+#### Introduction
+- The installation instructions were updated for Windows ([#872][])([#868][]), conda ([#869][]), and Mac ([#875][])([#859][])([#846][])
+
+#### Basics
+- The midterm project scripts was improved and made functional again ([#854][]), ([#853][])
+- The GitLFS section now mentions a publication dependency for automation ([#842][])
+#### Advanced
+- The `alias` parameter of `create-sibling-ria` is now mentioned ([#855][])
+
+#### Usecases
+
+
+#### Miscellaneous additions
+- The JS-based redirection of the handbook now works around an unintentional prefix-redirection glitch of readthedocs ([#880][])
+- The GitHub repository gained a codespell workflow ([#892][])
+
 ## v0.16 (April 13 2022) -- Spring cleaning
 
 Handbook release matching the release of DataLad v0.16.0.
@@ -41,7 +100,7 @@ It includes contributions the new contributors @eort, @mslw, @tguiot, @jhpb7 and
 
 - The GitHub project of the handbook now uses templates for easier issue generation. ([#768][])
 - A number of CSS improvements fix the rendering of bullet points ([#770][])
-- The ML usecase was minified to speed up builds ([#790][])
+- The ML use case was minified to speed up builds ([#790][])
 - A new code list for the DGPA workshop was added  ([#820][])
 
 ## v0.15 (November 25 2021) -- LaTeX improvements
@@ -136,8 +195,8 @@ and Michael Hanke -- thank you!
 
 - RF: Replace `datalad publish` with `datalad push` ([#412][])
 - RF: The Basics part was split into a Basics and Advanced part ([#450][]). The
-  chapters "[Advanced Options](http://handbook.datalad.org/en/latest/beyond_basics/basics-advancedoptions.html)"
-  and "[Go big or go home](http://handbook.datalad.org/en/latest/beyond_basics/basics-scaling.html)"
+  chapters "[Advanced Options](https://handbook.datalad.org/en/latest/beyond_basics/basics-advancedoptions.html)"
+  and "[Go big or go home](https://handbook.datalad.org/en/latest/beyond_basics/basics-scaling.html)"
   have been moved/added there.
 - Installation instructions for Windows subsystem for linux have been removed ([#397][])
 
@@ -150,31 +209,31 @@ and Michael Hanke -- thank you!
 
 #### Basics
 
-- A [stand-alone section](http://handbook.datalad.org/en/latest/basics/101-141-push.html)
+- A [stand-alone section](https://handbook.datalad.org/en/latest/basics/101-141-push.html)
   on `datalad push` summarizes all previous publishing-related information ([#417][])
 - A section for collecting gists (nifty code snippets for various tasks) is added to the
-  chapter on [help](http://handbook.datalad.org/en/latest/basics/basics-help.html)([#445][])
+  chapter on [help](https://handbook.datalad.org/en/latest/basics/basics-help.html)([#445][])
 - `datalad drop` is introduced in the first chapter ([#463][])
 - [Gin's](https://gin.g-node.org/) new feature of anonymous read-only access to datasets is
   now mentioned in the chapter on using
-  [third party infrastructure](http://handbook.datalad.org/en/latest/basics/101-139-gin.html)([#456][])
-- The [section on getting help](http://handbook.datalad.org/en/latest/basics/101-135-help.html)
+  [third party infrastructure](https://handbook.datalad.org/en/latest/basics/101-139-gin.html)([#456][])
+- The [section on getting help](https://handbook.datalad.org/en/latest/basics/101-135-help.html)
   started to collect and explain common warnings and error messages ([#418][])
 
 #### Advanced
 
-- A new [chapter on scaling up with DataLad](http://handbook.datalad.org/en/latest/beyond_basics/basics-scaling.html) was added ([#414][])
-- A [section on configuring custom data access](http://handbook.datalad.org/en/latest/beyond_basics/101-146-providers.html) was added to the chapter
-  ["Advanced Options"](http://handbook.datalad.org/en/latest/beyond_basics/basics-advancedoptions.html)([#440][])
-- The [extension overview](http://handbook.datalad.org/en/latest/extension_pkgs.html)
+- A new [chapter on scaling up with DataLad](https://handbook.datalad.org/en/latest/beyond_basics/basics-scaling.html) was added ([#414][])
+- A [section on configuring custom data access](https://handbook.datalad.org/en/latest/beyond_basics/101-146-providers.html) was added to the chapter
+  ["Advanced Options"](https://handbook.datalad.org/en/latest/beyond_basics/basics-advancedoptions.html)([#440][])
+- The [extension overview](https://handbook.datalad.org/en/latest/extension_pkgs.html)
   has been updated to a complete overview ([#477][])
 #### Usecases
 
 - A new Usecase
-  [Scaling Up: Managing 80TB and 15 Million files from the HCP release](http://handbook.datalad.org/en/latest/usecases/datastorage_for_institutions.html)
+  [Scaling Up: Managing 80TB and 15 Million files from the HCP release](https://handbook.datalad.org/en/latest/usecases/datastorage_for_institutions.html)
   was added ([#225][])
 - Giulia Ippoliti contributed the Usecase
-  [Using Globus as a data store for the Canadian Open Neuroscience Portal](http://handbook.datalad.org/en/latest/usecases/using_globus_as_datastore.html)
+  [Using Globus as a data store for the Canadian Open Neuroscience Portal](https://handbook.datalad.org/en/latest/usecases/using_globus_as_datastore.html)
   (opened in [#421][], merged as [#479][])
 
 #### Miscellaneous additions
@@ -392,3 +451,24 @@ Alpha stage release with handbook content covering most of the core commands.
 [#723]: https://github.com/datalad-handbook/book/pull/723
 [#724]: https://github.com/datalad-handbook/book/pull/724
 [#743]: https://github.com/datalad-handbook/book/pull/743
+[#842]: https://github.com/datalad-handbook/book/pull/842
+[#845]: https://github.com/datalad-handbook/book/pull/845
+[#846]: https://github.com/datalad-handbook/book/pull/846
+[#852]: https://github.com/datalad-handbook/book/pull/852
+[#853]: https://github.com/datalad-handbook/book/pull/853
+[#854]: https://github.com/datalad-handbook/book/pull/854
+[#859]: https://github.com/datalad-handbook/book/pull/859
+[#868]: https://github.com/datalad-handbook/book/pull/868
+[#869]: https://github.com/datalad-handbook/book/pull/869
+[#872]: https://github.com/datalad-handbook/book/pull/872
+[#875]: https://github.com/datalad-handbook/book/pull/875
+[#880]: https://github.com/datalad-handbook/book/pull/880
+[#892]: https://github.com/datalad-handbook/book/pull/892
+[#895]: https://github.com/datalad-handbook/book/pull/895
+[#901]: https://github.com/datalad-handbook/book/pull/901
+[#902]: https://github.com/datalad-handbook/book/pull/902
+[#905]: https://github.com/datalad-handbook/book/pull/905
+[#908]: https://github.com/datalad-handbook/book/pull/908
+[#912]: https://github.com/datalad-handbook/book/pull/912
+[#917]: https://github.com/datalad-handbook/book/pull/917
+[#930]: https://github.com/datalad-handbook/book/pull/930

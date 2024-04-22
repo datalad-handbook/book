@@ -9,7 +9,7 @@ and *not-so-basic-anymore*\s of DataLad.
 You know how to add, modify, and save files, even completely
 reproducibly, and how to share your work with others.
 
-By now, the :command:`datalad save` command is probably
+By now, the :dlcmd:`save` command is probably
 the most often used command in this dataset.
 This means that you have seen some of its peculiarities.
 The most striking was that it by default
@@ -35,16 +35,16 @@ We would not judge in any way.
 
 In principle, you already know a few
 tricks on how to be "messy" and have untracked files.
-For :command:`datalad save`, you know that precise file paths allow
+For :dlcmd:`save`, you know that precise file paths allow
 you to save only those modifications you want to change.
-For :command:`datalad run` you know that one
+For :dlcmd:`run` you know that one
 can specify the ``--explicit`` option
 to only save those modifications that are specified in the ``--output``
 argument.
 
 Beyond these tricks, there are two ways to leave *untracked* content unaffected
-by a :command:`datalad save`. One is the ``-u/--updated`` option of
-:command:`datalad save`::
+by a :dlcmd:`save`. One is the ``-u/--updated`` option of
+:dlcmd:`save`::
 
    $ datalad save -m "my commit message here" -u/--updated
 
@@ -67,8 +67,7 @@ or create your own one.
 To specify dataset content to be git-ignored, you can either write
 a full file name, e.g. ``playlists/my-little-pony-themesongs/Friendship-is-magic.mp3``
 into this file, or paths or patterns that make use of globbing, such as
-``playlists/my-little-pony-themesongs/*``. The hidden section at the end of this
-page contains some general rules for patterns in ``.gitignore`` files. Afterwards,
+``playlists/my-little-pony-themesongs/*``. The :find-out-more:`on general rules for patterns in .gitignore files <fom-gitignore>` contains a helpful overview. Afterwards,
 you just need to save the file once to your dataset so that it is version controlled.
 If you have new content you do not want to track, you can add
 new paths or patterns to the file, and save these modifications.
@@ -120,6 +119,7 @@ ignored! Therefore, a ``.gitignore`` file can give you a space inside of
 your dataset to be messy, if you want to be.
 
 .. find-out-more:: Rules for .gitignore files
+   :name: fom-gitignore
 
    Here are some general rules for the patterns you can put into a ``.gitignore``
    file, taken from the book `Pro Git <https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository#_ignoring>`_ :
@@ -152,7 +152,7 @@ your dataset to be messy, if you want to be.
    subdirectories of your dataset. The rules in these nested ``.gitignore`` files only
    apply to the files under the directory where they are located.
 
-.. importantnote:: Implications of git-ignored outputs for re-running
+.. importantnote:: Implications of git-ignored outputs for rerunning
 
    Note one caveat: If a command creates an output that is git-ignored,
    (e.g. anything inside of ``tmp/`` in our dataset), a subsequent command
@@ -162,7 +162,7 @@ your dataset to be messy, if you want to be.
 
 .. find-out-more:: Globally ignoring files
 
-   Its not only possible to define files or patterns for files to ignore inside
+   It is not only possible to define files or patterns for files to ignore inside
    of individual datasets, but to also set global specifications to have every
    single dataset you own ignore certain files or file types.
 
@@ -186,8 +186,14 @@ your dataset to be messy, if you want to be.
       $ git config --global core.excludesfile ~/.gitignore_global
 
    Git -- and consequently DataLad -- will not bother you about any of the files
-   or file types you have specified.
+   or file types you have specified. The following snippet defines a typical
+   collection of ignored files to be defined across different platforms, and should work on Unix-like systems (like macOS and Linux distributions).
 
+   .. code-block:: bash
+
+     $ touch ~/.gitignore_global
+     $ for f in .DS_Store ._.DS_Store '*.swp' Thumbs.db ehthumbs.db; do \
+       echo "$f" >> ~/.gitignore_global; done
 
 
 .. only:: adminmode
@@ -223,11 +229,11 @@ your dataset to be messy, if you want to be.
       $ datalad save -m "SERVICE COMMIT - IGNORE. This commit only serves to appropriately reference the subdataset in the public showroom dataset"
 
    This allows to automatically push all section branches (not accidentally synced or adjusted annex branches) with
-   git push. Note: requires git push; datalad publish can not handle this atm (see https://github.com/datalad/datalad/issues/4006)
+   git push. Note: requires git push; datalad publish cannot handle this atm (see https://github.com/datalad/datalad/issues/4006)
 
    .. runrecord:: _examples/DL-101-179-110
       :language: console
       :workdir: dl-101/DataLad-101
 
       $ git config --local remote.public.push 'refs/heads/sct*'
-      $ git config --local --add remote.public.push 'refs/heads/master'
+      $ git config --local --add remote.public.push 'refs/heads/main'

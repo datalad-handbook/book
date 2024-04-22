@@ -1,88 +1,93 @@
+.. index::
+   pair: push; DataLad command
 .. _push:
 
-Overview: The datalad push command
-----------------------------------
+The datalad push command
+------------------------
 
 Previous sections on publishing DataLad datasets  have each
 shown you crucial aspects of the functions of dataset publishing with
-:command:`datalad push`. This section wraps them all together.
-
-.. importantnote:: push availability
-
-   :command:`datalad push` requires DataLad version ``0.13.0`` or higher.
-   Older DataLad versions need to use the :command:`datalad publish` command.
-   For details into ``datalad publish``, please check out the :ref:`find-out-more on the difference between the two commands <fom-publish>` at the end of this page.
+:dlcmd:`push`. This section wraps them all together.
 
 The general overview
 ^^^^^^^^^^^^^^^^^^^^
 
-:command:`datalad push` is the command to turn to when you want to publish datasets.
+:dlcmd:`push` is the command to turn to when you want to publish datasets.
 It is capable of publishing all dataset content, i.e., files stored in :term:`Git`,
 and files stored with :term:`git-annex`, to a known dataset :term:`sibling`.
 
+.. index::
+   pair: push; DataLad concept
 .. gitusernote:: Push internals
 
-   The :command:`datalad push` uses ``git push``, and ``git annex copy`` under
+   The :dlcmd:`push` uses ``git push``, and ``git annex copy`` under
    the hood. Publication targets need to either be configured remote Git repositories,
    or git-annex special remotes (if they support data upload).
 
 In order to publish a dataset, the dataset needs to have a sibling to push to.
-This, for instance, can be a :term:`GitHub`, :term:`GitLab`, or :term:`Gin`
+This, for instance, can be a :term:`GitHub`, :term:`GitLab`, or :term:`GIN`
 repository, but it can also be a Remote Indexed Archive (RIA) store for backup
 or storage of datasets [#f1]_, or a regular clone.
 
+.. index::
+   pair: create-sibling-github; DataLad command
+   pair: create-sibling-gitlab; DataLad command
+   pair: create-sibling-ria; DataLad command
+   pair: GitHub; dataset hosting
+   pair: GitLab; dataset hosting
+   pair: RIA; dataset hosting
+   pair: create sibling; with DataLad
 .. find-out-more:: all of the ways to configure siblings
 
-   .. index:: ! datalad command; create-sibling-github
-   .. index:: ! datalad command; create-sibling-gitlab
-   .. index:: ! datalad command; create-sibling-ria
+   - Add an existing repository as a sibling with the :dlcmd:`siblings`
+     command. Here are common examples:
 
-   - Add an existing repository as a sibling with the :command:`datalad siblings`
-     command. Here are common examples::
+     .. code-block:: console
 
-        # to a remote repository
+        $ # to a remote repository
         $ datalad siblings add --name github-repo --url <url.to.github>
-        # to a local path
+        $ # to a local path
         $ datalad siblings add --name local-sibling --url /path/to/sibling/ds
-        # to a clone on an SSH-accessible machine
+        $ # to a clone on an SSH-accessible machine
         $ datalad siblings add --name server-sibling --url [user@]hostname:/path/to/sibling/ds
 
    - Create a sibling on an external hosting service from scratch, right from
      within your repository:
-     This can be done with the commands :command:`create-sibling-github` (for GitHub)
-     or :command:`create-siblings-gitlab` (for GitLab), or
-     :command:`create-sibling-ria` (for a remote indexed archive dataset store [#f1]_).
-     Note that :command:`create-sibling-ria` can add an existing store as a sibling
+     This can be done with the commands :dlcmd:`create-sibling-github` (for GitHub)
+     or :dlcmd:`create-siblings-gitlab` (for GitLab), or
+     :dlcmd:`create-sibling-ria` (for a remote indexed archive dataset store).
+     Note that :dlcmd:`create-sibling-ria` can add an existing store as a sibling
      or create a new one from scratch.
 
    - Create a sibling on a local or SSH accessible Unix machine with
-     :command:`datalad create-sibling` (:manpage:`datalad-create-sibling`
-     manual).
+     :dlcmd:`create-sibling`.
 
 
 In order to publish dataset content, DataLad needs to know to which sibling
 content shall be pushed. This can be specified with the ``--to`` option directly
-from the command line::
+from the command line:
+
+.. code-block:: console
 
    $ datalad push --to <sibling>
 
 If you have more than one :term:`branch` in your dataset, note that a
-:command:`datalad push` command will by default update only the current branch.
+:dlcmd:`push` command will by default update only the current branch.
 If updating multiple branches is relevant for your workflow, please check out
 the :ref:`find-out-more about this <fom-push-branch>`.
 
-By default, :command:`push` will make the last saved state of the dataset
+By default, :dlcmd:`push` will make the last saved state of the dataset
 available. Consequently, if the sibling is in the same state as the dataset,
 no push is attempted.
-Additionally, :command:`push` will attempt to automatically decide what type
+Additionally, :dlcmd:`push` will attempt to automatically decide what type
 of dataset contents are going to be published. With a sibling that has a
 :term:`special remote` configured as a :term:`publication dependency`,
-or a sibling that contains an annex (such as a Gin repository or a
+or a sibling that contains an annex (such as a GIN repository or a
 :term:`Remote Indexed Archive (RIA) store`), both the contents
 stored in Git (i.e., a dataset's history) as well as file contents stored in
 git-annex will be published unless dataset configurations overrule this.
 Alternatively, one can enforce particular operations or push a subset of dataset
-contents. For one, when specifying a path in the :command:`datalad push` command,
+contents. For one, when specifying a path in the :dlcmd:`push` command,
 only data or changes for those paths are considered for a push.
 Additionally, one can select a particular mode of operation with the ``-data`` option.
 Several different modes are possible:
@@ -113,27 +118,29 @@ Be careful when using it, as its modes possibly overrule safety protections or o
 - ``all``: The final mode, ``all``, combines all force modes -- thus attempting to really get your dataset contents published by any means.
 
 
-:command:`datalad push` can publish available subdatasets recursively if the
+:dlcmd:`push` can publish available subdatasets recursively if the
 ``-r/--recursive`` flag is specified. Note that this requires that all subdatasets
 that should be published have sibling names identical to the sibling specified in
-the top-level :command:`push` command, or that appropriate default publication
+the top-level :dlcmd:`push` command, or that appropriate default publication
 targets are configured throughout the dataset hierarchy.
 
+.. index::
+   pair: configure which branches to push; with Git
 .. find-out-more:: Pushing more than the current branch
    :name: fom-push-branch
    :float:
 
    If you have more than one :term:`branch` in your
-   dataset, a :command:`datalad push --to <sibling>` will by default only push
+   dataset, a :dlcmd:`push --to <sibling>` will by default only push
    the current :term:`branch`, *unless* you provide configurations that alter
    this default. Here are two ways in which this can be achieved:
 
    **Option 1:** Setting the ``push.default`` configuration variable from
    ``simple`` (the default) to ``matching`` will configure the dataset such that
-   :command:`push` pushes *all* branches to the sibling.
+   :dlcmd:`push` pushes *all* branches to the sibling.
    A concrete example: On a dataset level, this can be done using
 
-   .. code-block:: bash
+   .. code-block:: console
 
        $ git config --local push.default matching
 
@@ -146,10 +153,12 @@ targets are configured throughout the dataset hierarchy.
    The published version of the handbook is known to the local handbook dataset
    as a :term:`remote` called ``public``, and each section of the book is identified
    with a custom branch name that corresponds to the section name. Whenever an
-   update to the public dataset is pushed, apart from pushing only the ``master``
+   update to the public dataset is pushed, apart from pushing only the ``main``
    branch, all branches starting with the section identifier ``sct`` are pushed
    automatically as well. This configuration was achieved by specifying these branches
-   (using :term:`globbing` with ``*``) in the ``push`` specification of this :term:`remote`::
+   (using :term:`globbing` with ``*``) in the ``push`` specification of this :term:`remote`:
+
+   .. code-block:: console
 
       $ git config --local remote.public.push 'refs/heads/sct*'
 
@@ -157,61 +166,22 @@ Pushing errors
 ^^^^^^^^^^^^^^
 
 If you are unfamiliar with Git, please be aware that cloning a dataset to a different place and subsequently pushing to it can lead to Git error messages if changes are pushed to a currently checked out :term:`branch` of the sibling (in technical Git terms: When pushing to a checked-out branch of a non-bare repository remote).
-As an example, consider what happens if we attempt a :command:`datalad push` to the sibling ``roommate`` that we created in the chapter :ref:`chapter_collaboration`:
+As an example, consider what happens if we attempt a :dlcmd:`push` to the sibling ``roommate`` that we created in the chapter :ref:`chapter_collaboration`:
 
 .. runrecord:: _examples/DL-101-141-101
    :language: console
+   :exitcode: 1
    :workdir: dl-101/DataLad-101
 
    $ datalad push --to roommate
 
 Publishing fails with the error message ``[remote rejected] (branch is currently checked out)``.
-This can be prevented with  `configuration settings <https://github.blog/2015-02-06-git-2-3-has-been-released/>`_ in Git versions 2.3 or higher, or by pushing to a branch of the sibling that is currently not checked-out.
+This can be prevented with  `configuration settings <https://github.blog/2015-02-06-git-2-3-has-been-released>`_ in Git versions 2.3 or higher, or by pushing to a branch of the sibling that is currently not checked-out.
 For more information on this, and other error messages during push, please checkout the section :ref:`help`.
 
-.. find-out-more:: On the datalad publish command
-   :float:
-   :name: fom-publish
-
-   Starting with DataLad version ``0.13.0``, :command:`datalad push` was introduced
-   and became an alternative to :command:`datalad publish`, which will be
-   removed in a future DataLad release.
-
-   By default, :command:`datalad publish` publishes the last saved state of the
-   dataset (i.e., its Git history) to a specified sibling:
-
-   .. code-block:: bash
-
-      $ datalad publish --to <sibling>
-
-   Like :command:`push`, it supports recursive publishing across dataset
-   hierarchies (if all datasets have appropriately configured default publication
-   targets or identical sibling names) with the ``-r/--recursive`` flag, and it
-   supports the ``--since`` option.
-
-   Main differences to :command:`push` lie in :command:`publish`\s ``--transfer-data``
-   option that can be specified with either ``all``, ``auto`` or ``none`` and
-   determines whether and how annexed contents should be published if the sibling
-   carries an annex: ``none`` will transfer only Git history and no annexed
-   data, ``auto`` relies on configurations of the sibling, and ``all`` will
-   publish all annexed contents.
-
-   By default, when using a plain ``datalad publish --to <sibling>`` with no path
-   specification or ``--transfer-data`` option, :command:`publish` will be used
-   in ``auto`` mode.
-   In practice, this default will most likely lead to the same outcome as when
-   specifying ``none``: only your datasets history, but no annexed contents
-   will be published.
-   On a technical level, the ``auto`` option leads to adding ``auto`` to the underlying ``git annex copy`` command, which in turn publishes annexed contents based on the `git-annex preferred content configuration <https://git-annex.branchable.com/git-annex-preferred-content/>`_ of the sibling.
-
-   In order to publish all annexed contents, one needs to specify ``--transfer-data all``.
-   Alternatively, adding paths to the ``publish`` call will publish the specified
-   annexed content (unless ``--transfer-data none`` is explicitly added).
-   As yet another alternative, one needs to add the same configuration for :term:`git-annex` that the option ``--auto`` of :command:`push` need.
 
 .. rubric:: Footnotes
 
-.. [#f1]  RIA siblings are filesystem-based, scalable storage solutions for
-          DataLad datasets. You can find out more about them in the section
-          :ref:`riastore`.
-.. [#f2] For information on the ``numcopies`` and ``wanted`` settings of git-annex see its documentation at `git-annex.branchable.com/git-annex-wanted/ <https://git-annex.branchable.com/git-annex-wanted/>`_ and `git-annex.branchable.com/git-annex-numcopies/ <https://git-annex.branchable.com/git-annex-numcopies/>`_.
+.. [#f1]  RIA siblings are file system based, scalable storage solutions for
+          DataLad datasets. You can find out more about them in the online-handbook.
+.. [#f2] For information on the ``numcopies`` and ``wanted`` settings of git-annex see its documentation at `git-annex.branchable.com/git-annex-wanted/ <https://git-annex.branchable.com/git-annex-wanted>`_ and `git-annex.branchable.com/git-annex-numcopies/ <https://git-annex.branchable.com/git-annex-numcopies>`_.

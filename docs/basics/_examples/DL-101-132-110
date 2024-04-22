@@ -1,6 +1,3 @@
-$ datalad save -d . -m "finished my midterm project" midterm_project
-add(ok): midterm_project (file)
-save(ok): . (dataset)
-action summary:
-  add (ok: 1)
-  save (ok: 1)
+$ datalad status --recursive
+ modified: midterm_project (dataset)
+untracked: midterm_project/an_empty_file (file)

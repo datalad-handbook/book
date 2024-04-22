@@ -3,12 +3,11 @@
 Under the hood: git-annex
 -------------------------
 
-.. index:: ! Chapter; 3. git-annex
-
-.. figure:: ../artwork/src/security.svg
+.. image:: ../artwork/src/security.svg
    :width: 50%
+   :align: center
 
-A closer look at how and why things work
+A closer look at how and why things work.
 
 .. toctree::
    :maxdepth: 1

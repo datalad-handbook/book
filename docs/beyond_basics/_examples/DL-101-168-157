@@ -1,12 +1,17 @@
-$ dvc run -n evaluate \
+$ dvc stage add -n evaluate \
          -d src/evaluate.py -d model/model.joblib \
          -M metrics/accuracy.json \
+         --run \
          python src/evaluate.py
-Running stage 'evaluate' with command:
-	python src/evaluate.py
-Adding stage 'evaluate' in 'dvc.yaml'
+Added stage 'evaluate' in 'dvc.yaml'
+Running stage 'evaluate':
+> python src/evaluate.py
 Updating lock file 'dvc.lock'
 
 To track the changes with git, run:
 
 	git add dvc.yaml dvc.lock
+
+To enable auto staging, run:
+
+	dvc config core.autostage true

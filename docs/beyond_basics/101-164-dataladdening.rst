@@ -23,7 +23,7 @@ If you're really pressed for time because your dog is sick, your toddler keeps e
 
    To gain a good understanding of some important parts of DataLad, please read chapter :ref:`chapter_datasets`, :ref:`chapter_run`, and :ref:`chapter_gitannex` (reading time: 60 minutes).
 
-   To become confident in using DataLad, sections :ref:`help`, :ref:`filesystem` can be very useful. Depending on your aim, :ref:`chapter_collaboration` (for collaborative workflows), :ref:`chapter_thirdparty` (for data sharing), or :ref:`chapter_yoda` (for data analysis) may contain the relevant background for you.
+   To become confident in using DataLad, sections :ref:`help`, :ref:`file system` can be very useful. Depending on your aim, :ref:`chapter_collaboration` (for collaborative workflows), :ref:`chapter_thirdparty` (for data sharing), or :ref:`chapter_yoda` (for data analysis) may contain the relevant background for you.
 
 Prior to transforming your project, regardless of how advanced of a user you are, **we recommend to create a copy of it**.
 We don't believe there is much that can go wrong from the software-side of things, but data is precious and backups a necessity, so better be safe than sorry.
@@ -43,30 +43,30 @@ You should consider the size, file type and modification frequency of files in y
 Step 2: Dataset creation
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-Transforming a directory into a dataset is done with :command:`datalad create --force`.
+Transforming a directory into a dataset is done with :dlcmd:`create --force`.
 The ``-f``/``--force`` option enforces dataset creation in non-empty directories.
 Consider :ref:`applying procedures <procedures>` with ``-c <procedure-name>`` to apply configurations that suit your use case.
 
 .. find-out-more:: What if my directory is already a Git repository?
 
-   If you want to transform a Git repository to a DataLad dataset, a :command:`datalad create -f` is the way to go, too, and completely safe.
+   If you want to transform a Git repository to a DataLad dataset, a :dlcmd:`create -f` is the way to go, too, and completely safe.
    Your Git history will stay intact and will not be tampered with.
 
-If you want to transform a series of nested directories into nested datasets, continue with :command:`datalad create -f` commands in all further subdirectories.
+If you want to transform a series of nested directories into nested datasets, continue with :dlcmd:`create -f` commands in all further subdirectories.
 
 .. find-out-more:: One or many datasets?
 
    In deciding how many datasets you need, try to follow the benchmarks in chapter :ref:`chapter_gobig` and the yoda principles in section :ref:`yoda`.
    Two simple questions can help you make a decision:
 
-   #. Do you have independently reusable components in your directory, for example data from several studies, or data and code/results? If yes, make each individual component a dataset.
-   #. How large is each individual component? If it exceeds 100k files, split it up into smaller datasets. The decision on where to place subdataset boundaries can be guided by the existing directory structure or by common access patterns, for example based on data type (raw, processed, ...) or subject association. One straightforward organization may be a top-level superdataset and subject-specific subdatasets, mimicking the structure chosen in the use case :ref:`usecase_HCP_dataset`.
+   #. Do you have independently reusable components in your directory, such as data from several studies, or data and code/results? If yes, make each individual component a dataset.
+   #. How large is each individual component? If it exceeds 100k files, split it up into smaller datasets. The decision on where to place subdataset boundaries can be guided by the existing directory structure or by common access patterns, for example, based on data type (raw, processed, ...) or subject association. One straightforward organization may be a top-level superdataset and subject-specific subdatasets, mimicking the structure chosen in the use case :ref:`usecase_HCP_dataset`.
 
 You can automate this with :term:`bash` loops, if you want.
 
 .. find-out-more:: Example bash loops
 
-   Consider a directory structure that follows a naming standard such as `BIDS <https://bids.neuroimaging.io/>`_::
+   Consider a directory structure that follows a naming standard such as `BIDS <https://bids.neuroimaging.io>`_::
 
       # create a mock-directory structure:
       $ mkdir -p study/sub-0{1,2,3,4,5}/{anat,func}
@@ -97,8 +97,8 @@ Step 3: Saving dataset contents
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Any existing content in your newly created dataset(s) still needs to be saved into its dataset at this point (unless it was already under version control with Git).
-This can be done with the :command:`datalad save` command -- either "in one go" using a plain ``datalad save`` (saves all untracked files and modifications to a dataset -- by default into the dataset annex), or step-by-step by attaching paths to the ``save`` command.
-Make sure to run :command:`datalad status` frequently.
+This can be done with the :dlcmd:`save` command -- either "in one go" using a plain ``datalad save`` (saves all untracked files and modifications to a dataset -- by default into the dataset annex), or step-by-step by attaching paths to the ``save`` command.
+Make sure to run :dlcmd:`status` frequently.
 
 .. find-out-more:: Save things to Git or to git-annex?
 
@@ -108,14 +108,14 @@ Make sure to run :command:`datalad status` frequently.
 
    - large files, in particular binary files should almost always go into :term:`git-annex`. If you have pure data dataset made up of large files, put it into the dataset annex.
    - small files, especially if they are text files and undergo frequent modifications (e.g., code, manuscripts, notes) are best put under version control by :term:`Git`.
-   - If you plan to publish a dataset to a repository hosting site without annex support such as :term:`GitHub` or :term:`GitLab`, and do not intend to set up third party storage for annexed contents, be aware that only contents placed in Git will be available to others after cloning your repository. At the same time, be mindful of file size limits the services impose. The largest file size GitHub allows is 100MB -- a dataset with files exceeding 100MB in size in Git will be rejected by GitHub. :term:`Gin` is an alternative hosting service with annex support, and the `Open Science Framework (OSF) <https://readthedocs.org/projects/datalad-osf/>`_ may also be a suitable option to share datasets including their annexed files.
+   - If you plan to publish a dataset to a repository hosting site without annex support such as :term:`GitHub` or :term:`GitLab`, and do not intend to set up third party storage for annexed contents, be aware that only contents placed in Git will be available to others after cloning your repository. At the same time, be mindful of file size limits the services impose. The largest file size GitHub allows is 100MB -- a dataset with files exceeding 100MB in size in Git will be rejected by GitHub. :term:`GIN` is an alternative hosting service with annex support, and the `Open Science Framework (OSF) <https://readthedocs.org/projects/datalad-osf>`_ may also be a suitable option to share datasets including their annexed files.
 
    You can find guidance on how to create configurations for your dataset (which need to be in place and saved prior to saving contents!) in the chapter :ref:`chapter_config`, in particular section :ref:`config2`.
 
 .. importantnote:: Create desired subdatasets first
 
    Be mindful during saving if you have a directory that should hold more, yet uncreated datasets down its hierarchy, as a plain ``datalad save`` will save *all* files and directories to the dataset!
-   Its best to first create all subdatasets, and only then save their contents.
+   It is best to first create all subdatasets, and only then save their contents.
 
 If you are operating in a hierarchy of datasets, running a recursive save from the top-most dataset (``datalad save -r``) will save you time: All contents are saved to their respective datasets, all subdatasets are registered to their respective superdatasets.
 
@@ -124,7 +124,7 @@ Step 4: Rerunning analyses reproducibly
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you are transforming a complete data analysis into a dataset, you may also want to rerun any computation with DataLad's ``run`` commands.
-You can compose any :command:`datalad run` or :command:`datalad containers-run` [#f1]_ command to recreate and capture your previous analysis.
+You can compose any :dlcmd:`run` or :dlcmd:`containers-run` [#f1]_ command to recreate and capture your previous analysis.
 Make sure to specify your previous results as ``--output`` in order to unlock them [#f2]_.
 
 Summary
@@ -132,11 +132,11 @@ Summary
 
 Existing projects and analysis can be DataLad-ified with a few standard commands.
 Be mindful about dataset sizes and whether you save contents into Git or git-annex, though, as these choices could potentially spoil your DataLad experience.
-The sections :ref:`filesystem` and :ref:`cleanup` can help you to undo unwanted changes, but its better to do things right instead of having to fix them up.
+The sections :ref:`file system` and :ref:`cleanup` can help you to undo unwanted changes, but it's better to do things right instead of having to fix them up.
 If you can, read up on the DataLad Basics to understand what you are doing, and create a backup in case things go not as planned in your first attempts.
 
 .. rubric:: Footnotes
 
-.. [#f1] Prior to using a software container, install the :ref:`datalad-containers <extensions_intro>` extension and add the container with the :command:`datalad containers-add` command. You can find a concrete data analysis example with ``datalad-containers`` in the section :ref:`containersrun`.
+.. [#f1] Prior to using a software container, install the :ref:`datalad-containers <extensions_intro>` extension and add the container with the :dlcmd:`containers-add` command. You can find a concrete data analysis example with ``datalad-containers`` in the section :ref:`containersrun`.
 
 .. [#f2] If you are unfamiliar with ``datalad run``, please work through chapter :ref:`chapter_run` first.

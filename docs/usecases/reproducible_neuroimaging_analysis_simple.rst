@@ -1,18 +1,17 @@
+.. index:: ! Usecase; Basic Reproducible Neuroimaging
 .. _usecase_reproduce_neuroimg_simple:
 
 A basic automatically and computationally reproducible neuroimaging analysis
 ----------------------------------------------------------------------------
 
-.. index:: ! Usecase; Basic Reproducible Neuroimaging
-
 This use case sketches the basics of a portable analysis of public neuroimaging data
 that can be automatically computationally reproduced by anyone:
 
 #. Public open data stems from :term:`the DataLad superdataset ///`.
-#. Automatic data retrieval can be ensured by using DataLad's commands in the analysis scripts, or the ``--input`` specification of :command:`datalad run`,
-#. Analyses are executed using :command:`datalad run` and :command:`datalad rerun` commands to capture everything relevant to reproduce the analysis.
-#. The final dataset can be kept as lightweight as possible by dropping input that can be easily re-obtained.
-#. A complete reproduction of the computation (including input retrieval), is possible with a single :command:`datalad rerun` command.
+#. Automatic data retrieval can be ensured by using DataLad's commands in the analysis scripts, or the ``--input`` specification of :dlcmd:`run`,
+#. Analyses are executed using :dlcmd:`run` and :dlcmd:`rerun` commands to capture everything relevant to reproduce the analysis.
+#. The final dataset can be kept as lightweight as possible by dropping input that can be easily reobtained.
+#. A complete reproduction of the computation (including input retrieval), is possible with a single :dlcmd:`rerun` command.
 
 This use case is a specialization of :ref:`usecase_reproducible_paper`, and a simpler version of :ref:`usecase_reproduce_neuroimg`:
 It is a data analysis that requires and creates large data files, uses specialized analysis software, and is fully automated using solely DataLad commands and tools.
@@ -35,8 +34,8 @@ DataLad can help with the technical aspects of reproducible science.
 
 For neuroscientific studies, :term:`the DataLad superdataset ///` provides unified access to a large amount of data.
 Using it to install datasets into an analysis-superdataset makes it easy to share this data together with the analysis.
-By ensuring that all relevant data is downloaded via :command:`datalad get` via DataLad's command line tools in the analysis scripts, or ``--input`` specifications in a :command:`datalad run`, an analysis can retrieve all required inputs fully automatically during execution.
-Recording executed commands with :command:`datalad run` allows to rerun complete analysis workflows with a single command, even if input data does not exist locally.
+By ensuring that all relevant data is downloaded via :dlcmd:`get` via DataLad's command line tools in the analysis scripts, or ``--input`` specifications in a :dlcmd:`run`, an analysis can retrieve all required inputs fully automatically during execution.
+Recording executed commands with :dlcmd:`run` allows to rerun complete analysis workflows with a single command, even if input data does not exist locally.
 Combining these three steps allows to share fully automatically reproducible analyses as lightweight datasets.
 
 Step-by-Step
@@ -50,9 +49,9 @@ It always starts with a dataset:
 
    $ datalad create -c yoda demo
 
-For this demo we are using two public brain imaging datasets that were published on `OpenFMRI.org <https://legacy.openfmri.org/>`_, and are available from :term:`the DataLad superdataset ///` (datasets.datalad.org).
+For this demo we are using two public brain imaging datasets that were published on `OpenFMRI.org <https://legacy.openfmri.org>`_, and are available from :term:`the DataLad superdataset ///` (datasets.datalad.org).
 When installing datasets from this superdataset, we can use its abbreviation ``///``.
-The two datasets, `ds000001 <https://legacy.openfmri.org/dataset/ds000001/>`_ and `ds000002 <https://legacy.openfmri.org/dataset/ds000002/>`_, are installed into the subdirectory ``inputs/``.
+The two datasets, `ds000001 <https://legacy.openfmri.org/dataset/ds000001>`_ and `ds000002 <https://legacy.openfmri.org/dataset/ds000002>`_, are installed into the subdirectory ``inputs/``.
 
 .. runrecord:: _examples/repro-102
    :language: console
@@ -94,10 +93,10 @@ Both datasets would actually be several gigabytes in size, once the dataset cont
    $ datalad -C inputs/ds000001 status --annex
    $ datalad -C inputs/ds000002 status --annex
 
-Both datasets contain brain imaging data, and are compliant with the `BIDS standard <https://bids.neuroimaging.io/>`_.
+Both datasets contain brain imaging data, and are compliant with the `BIDS standard <https://bids.neuroimaging.io>`_.
 This makes it really easy to locate particular images and perform analysis across datasets.
 
-Here we will use a small script that performs ‘brain extraction’ using `FSL <https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FSL>`__ as a stand-in for a full analysis pipeline. The script will be stored inside of the ``code/`` directory that the yoda-procedure created that at the time of dataset-creation.
+Here we will use a small script that performs ‘brain extraction’ using `FSL <https://fsl.fmrib.ox.ac.uk>`__ as a stand-in for a full analysis pipeline. The script will be stored inside of the ``code/`` directory that the yoda-procedure created that at the time of dataset-creation.
 
 .. runrecord:: _examples/repro-107
    :language: console
@@ -121,7 +120,7 @@ Here we will use a small script that performs ‘brain extraction’ using `FSL 
    done
    EOT
 
-Note that this script uses the :command:`datalad get` command which automatically obtains the required files from their remote source – we will see this in action shortly.
+Note that this script uses the :dlcmd:`get` command which automatically obtains the required files from their remote source – we will see this in action shortly.
 
 We are saving this script in the dataset. This way, we will know exactly which code was used for the analysis.
 Everything inside of ``code/`` is tracked with Git thanks to the yoda-procedure, so we can see more easily how it was edited over time.
@@ -143,7 +142,7 @@ While the command runs, you should notice a few things:
 
 1) We run this command with ‘bash -e’ to stop at any failure that may occur
 
-2) You’ll see the required data files being obtained as they are needed – and   only those that are actually required will be downloaded (because of the appropriate ``--input`` specification of the :command:`datalad run` -- but as a :command:`datalad get` is also included in the bash script, forgetting an ``--input`` specification would not be problem).
+2) You’ll see the required data files being obtained as they are needed – and   only those that are actually required will be downloaded (because of the appropriate ``--input`` specification of the :dlcmd:`run` -- but as a :dlcmd:`get` is also included in the bash script, forgetting an ``--input`` specification would not be problem).
 
 .. runrecord:: _examples/repro-109
    :language: console
@@ -165,10 +164,10 @@ All changes, including the command that caused them are on record:
 
    $ git show --stat
 
-DataLad has enough information stored to be able to re-run a command.
+DataLad has enough information stored to be able to rerun a command.
 
 On command exit, it will inspect the results and save them again, but only if they are different.
-In our case, the re-run yields bit-identical results, hence nothing new is saved.
+In our case, the rerun yields bit-identical results, hence nothing new is saved.
 
 .. runrecord:: _examples/repro-111
    :language: console
@@ -176,7 +175,7 @@ In our case, the re-run yields bit-identical results, hence nothing new is saved
 
    $ datalad rerun
 
-Now that we are done, and have checked that we can reproduce the results ourselves, we can clean up. DataLad can easily verify if any part of our input dataset was modified since we configured our analysis, using :command:`datalad diff` and the tag we provided:
+Now that we are done, and have checked that we can reproduce the results ourselves, we can clean up. DataLad can easily verify if any part of our input dataset was modified since we configured our analysis, using :dlcmd:`diff` and the tag we provided:
 
 .. runrecord:: _examples/repro-112
    :language: console
@@ -217,10 +216,10 @@ The dataset is substantially smaller as all inputs are gone…
 
 But as these inputs were registered in the dataset when we installed them, getting them back is very easy.
 Only the remaining data (our code and the results) need to be kept and require a backup for long term archival.
-Everything else can be re-obtained as needed, when needed.
+Everything else can be reobtained as needed, when needed.
 
-As DataLad knows everything needed about the inputs, including where to get the right version, we can re-run the analysis with a single command.
-Watch how DataLad re-obtains all required data, re-runs the code, and checks that none of the results changed and need saving.
+As DataLad knows everything needed about the inputs, including where to get the right version, we can rerun the analysis with a single command.
+Watch how DataLad reobtains all required data, reruns the code, and checks that none of the results changed and need saving.
 
 .. runrecord:: _examples/repro-117
    :language: console

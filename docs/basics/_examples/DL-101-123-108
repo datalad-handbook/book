@@ -9,4 +9,4 @@ index 9bc9ee9..11273e1 100644
 -	url = https://github.com/datalad-datasets/longnow-podcasts.git
 +	url = git@github.com:datalad-datasets/longnow-podcasts.git
  	datalad-id = b3ca2718-8901-11e8-99aa-a0369f7c647e
-	datalad-url = https://github.com/datalad-datasets/longnow-podcasts.git
+ 	datalad-url = https://github.com/datalad-datasets/longnow-podcasts.git

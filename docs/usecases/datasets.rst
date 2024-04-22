@@ -7,7 +7,7 @@ A Neuroimaging Datasets
 .. todo::
 
    Currently, this is a left over. Later, we can rework this into something,
-   but its unclear yet what ;-)
+   but it's unclear yet what ;-)
 
 This section is a concise demonstration of what a DataLad dataset is,
 showcased on a dataset from the field of neuroimaging.
@@ -25,7 +25,7 @@ a hands-on experience.
 
       $ datalad install https://github.com/psychoinformatics-de/studyforrest-data-phase2.git
 
-Once installed, a DataLad dataset looks like any other directory on your filesystem:
+Once installed, a DataLad dataset looks like any other directory on your file system:
 
 .. runrecord:: _examples/dataset2
    :language: console
@@ -64,7 +64,7 @@ in this original DataLad dataset happen, the installed dataset can simply be upd
 
 You can view the DataLad datasets history with tools of your choice.
 The code block below is used to illustrate the history and is an exempt
-from :command:`git log`.
+from :gitcmd:`log`.
 
 .. runrecord:: _examples/dataset4
    :language: console
@@ -122,7 +122,7 @@ Dataset Nesting
 
 Within DataLad datasets one can *nest* other DataLad
 datasets arbitrarily deep. This does not seem particularly spectacular -
-after all, any directory on a filesystem can have other directories inside it.
+after all, any directory on a file system can have other directories inside it.
 The possibility for nested Datasets, however, is one of many advantages
 DataLad datasets have:
 Any lower-level DataLad dataset (the *subdataset*) has a stand-alone
@@ -156,7 +156,7 @@ to the history.
 
 .. gitusernote:: Create internals
 
-   Creation of datasets relies on the :command:`git init` and :command:`git annex init` commands.
+   Creation of datasets relies on the :gitcmd:`init` and :gitannexcmd:`init` commands.
 
 As already shown, already existing datalad dataset can be simply installed
 from a url or path, or from the datalad open-data collection.
@@ -164,6 +164,6 @@ from a url or path, or from the datalad open-data collection.
 .. gitusernote:: Install internals
 
 
-   :command:`datalad install` used the :command:`git clone` command.
+   :dlcmd:`install` used the :gitcmd:`clone` command.
 
 

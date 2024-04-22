@@ -32,7 +32,7 @@ The :ref:`cheat`, finally, can give you concrete command overviews.
 
 Awesome, and Welcome! The complete :ref:`basics-intro` part of the book was
 written for you. If you read it from start to end, you will become a DataLad
-expert. Don't forget to `install <installation>`_ DataLad first, though.
+expert. Don't forget to :ref:`install <install>` DataLad first, though.
 And if the Basics are not enough, continue right into the :ref:`usecase-intro`
 afterwards.
 
@@ -43,12 +43,12 @@ afterwards.
 
 The section :ref:`help` may give you a good general overview on what to do if
 you encountered a problem. If you're dealing with file system operations,
-:ref:`filesystem` could be a resource to help you, and for all things configuration,
+:ref:`file system` could be a resource to help you, and for all things configuration,
 the chapter :ref:`chapter_config` is your place to go to. If you are confused by
 symlinks or "permission denied" error in your dataset, checkout section
 :ref:`symlink` for some Basics on :term:`git-annex`. The "Quick search" bar at
 the sidebar can also help to navigate to relevant sections, and the
-`index <http://handbook.datalad.org/en/latest/genindex.html>`_ at the end of the
+`index <https://handbook.datalad.org/genindex.html>`_ at the end of the
 book can show you where all commands mentioned in the handbook are introduced.
 
 If you're seeking help with regard to large datasets you might want to take a look at
@@ -78,7 +78,7 @@ with DataLad? Reading chapters :ref:`chapter_datasets`, :ref:`chapter_gitannex`,
 :ref:`chapter_yoda` and chapter :ref:`chapter_thirdparty` should work for you.
 
 You want to use DataLad as a back-up or dataset storage solution? Go to
-section :ref:`riastore` and usecase :ref:`usecase_datastore`.
+section :ref:`riastore` and use case :ref:`usecase_datastore`.
 
 
 **5** The data publisher
@@ -92,9 +92,9 @@ through the chapter :ref:`chapter_datasets`, and reading :ref:`chapter_gitannex`
 is also a good idea to get the Basics of how large files in datasets are handled.
 Afterwards, jump to chapter :ref:`chapter_thirdparty`.
 Depending on the amount of data, it may make sense to read about an example
-of a large dataset (80TB/15 million files) in the usecase :ref:`usecase_HCP_dataset`,
+of a large dataset (80TB/15 million files) in the use case :ref:`usecase_HCP_dataset`,
 and about the possibility of a :term:`Remote Indexed Archive (RIA) store` in the
-section :ref:`riastore` and the usecase :ref:`usecase_datastore`.
+section :ref:`riastore` and the use case :ref:`usecase_datastore`.
 
 
 **6** The advanced user

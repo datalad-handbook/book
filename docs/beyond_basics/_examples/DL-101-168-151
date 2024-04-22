@@ -1,15 +1,19 @@
 ### DVC
-$ dvc run -n prepare \
+$ dvc stage add -n prepare \
   -d src/prepare.py -d data/raw \
   -o data/prepared/train.csv -o data/prepared/test.csv \
+  --run \
   python src/prepare.py
-Running stage 'prepare' with command:
-	python src/prepare.py
-Creating 'dvc.yaml'
-Adding stage 'prepare' in 'dvc.yaml'
+Added stage 'prepare' in 'dvc.yaml'
+Running stage 'prepare':
+> python src/prepare.py
 Generating lock file 'dvc.lock'
 Updating lock file 'dvc.lock'
 
 To track the changes with git, run:
 
-	git add data/prepared/.gitignore dvc.yaml dvc.lock
+	git add data/prepared/.gitignore dvc.lock dvc.yaml
+
+To enable auto staging, run:
+
+	dvc config core.autostage true

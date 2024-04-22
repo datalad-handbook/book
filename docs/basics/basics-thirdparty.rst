@@ -3,10 +3,9 @@
 Third party infrastructure
 --------------------------
 
-.. index:: ! Chapter; 8. Third party infrastructure
-
-.. figure:: ../artwork/src/clouds.svg
+.. image:: ../artwork/src/clouds.svg
    :width: 50%
+   :align: center
 
 .. toctree::
    :maxdepth: 1

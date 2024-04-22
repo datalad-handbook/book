@@ -4,27 +4,27 @@ Publishing datasets to Git repository hosting
 ---------------------------------------------
 
 Because DataLad datasets are :term:`Git` repositories, it is possible to
-:command:`push` datasets to any Git repository hosting service, such as
-:term:`GitHub`, :term:`GitLab`, :term:`Gin`, :term:`Bitbucket`, `Gogs <https://gogs.io/>`_, or `Gitea <https://gitea.io/en-us/>`_.
+:dlcmd:`push` datasets to any Git repository hosting service, such as
+:term:`GitHub`, :term:`GitLab`, :term:`GIN`, :term:`Bitbucket`, `Gogs <https://gogs.io>`_, or Gitea_.
 These published datasets are ordinary :term:`sibling`\s of your dataset, and among other advantages, they can constitute a back-up, an entry-point to retrieve your dataset for others or yourself, the backbone for collaboration on datasets, or the means to enhance visibility, findability and citeability of your work [#f1]_.
 This section contains a brief overview on how to publish your dataset to different services.
 
 Git repository hosting and annexed data
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-As outlined in a number of sections before, Git repository hosting sites typically do not support dataset annexes - some, like :term:`gin` however, do.
+As outlined in a number of sections before, Git repository hosting sites typically do not support dataset annexes - some, like :term:`GIN` however, do.
 Depending on whether or not an annex is supported, you can push either only your Git history to the sibling, or the complete dataset including annexed file contents.
-You can find out whether a sibling on a remote hosting services carries an annex or not by running the :command:`datalad siblings` command.
+You can find out whether a sibling on a remote hosting services carries an annex or not by running the :dlcmd:`siblings` command.
 A ``+``, ``-``, or ``?`` sign in parenthesis indicates whether the sibling carries an annex, does not carry an annex, or whether this information isn't yet known.
-In the example below you can see that a public GitHub repository `<https://github.com/psychoinformatics-de/studyforrest-data-phase2>`_ does not carry an annex on ``github`` (the sibling ``origin``), but that the annexed data are served from an additional sibling ``mddatasrc`` (a :term:`special remote` with annex support).
+In the example below you can see that the public GitHub repository `github.com/psychoinformatics-de/studyforrest-data-phase2 <https://github.com/psychoinformatics-de/studyforrest-data-phase2>`_ does not carry an annex on GitHub (the sibling ``origin``), but that the annexed data are served from an additional sibling ``mddatasrc`` (a :term:`special remote` with annex support).
 Even though the dataset sibling on GitHub does not serve the data, it constitutes a simple, findable access point to retrieve the dataset, and can be used to provide updates and fixes via :term:`pull request`\s, issues, etc.
 
-.. code-block:: bash
+.. code-block:: console
 
-    # a clone of github/psychoinformatics/studyforrest-data-phase2 has the following siblings:
+    $ # a clone of github/psychoinformatics/studyforrest-data-phase2 has the following siblings:
     $ datalad siblings
     .: here(+) [git]
-    .: mddatasrc(+) [http://psydata.ovgu.de/studyforrest/phase2/.git (git)]
+    .: mddatasrc(+)  [https://datapub.fz-juelich.de/studyforrest/studyforrest/phase2/.git (git)]
     .: origin(-) [git@github.com:psychoinformatics-de/studyforrest-data-phase2.git (git)]
 
 
@@ -34,23 +34,39 @@ How to add a sibling on a Git repository hosting site: The manual way
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-#. Create a new repository via the webinterface of the hosting service of your choice.
-   It does not need to have the same name as your local dataset, but it helps to associate local dataset and remote siblings.
+#. Create a new repository via the webinterface of the hosting service of your choice. The screenshots in :numref:`fig-newrepogin` and :numref:`fig-newrepogithub` show examples of this.
+   The new repository does not need to have the same name as your local dataset, but it helps to associate local dataset and remote siblings.
+
+#. Afterwards, copy the :term:`SSH` or :term:`HTTPS` URL of the repository. Usually, repository hosting services will provide you with a convenient way to copy it to your clipboard. An SSH URL takes the form ``git@<hosting-service>:/<user>/<repo-name>.git`` and an HTTPS URL takes the form ``https://<hosting-service>/<user>/<repo-name>.git``. The type of URL you choose determines whether and how you will be able to ``push`` to your repository. Note that many services will require you to use the SSH URL to your repository in order to do :dlcmd:`push` operations, so make sure to take the :term:`SSH` and not the :term:`HTTPS` URL if this is the case.
+
+#. If you pick the :term:`SSH` URL, make sure to have an :term:`SSH key` set up. This usually requires generating an SSH key pair if you do not have one yet, and uploading the public key to the repository hosting service. The :find-out-more:`on SSH keys <fom-sshkey>` points to a useful tutorial for this.
+
+#. Use the URL to add the repository as a sibling. There are two commands that allow you to do that; both require you give the sibling a name of your choice (common name choices are ``upstream``, or a short-cut for your user name or the hosting platform, but its completely up to you to decide):
+
+   #. ``git remote add <name> <url>``
+   #. ``datalad siblings add --dataset . --name <name> --url <url>``
+
+#. Push your dataset to the new sibling: ``datalad push --to <name>``
+
+
+.. _fig-newrepogin:
 
 .. figure:: ../artwork/src/GIN_newrepo.png
+   :width: 80%
 
-   Webinterface of :term:`gin` during the creation of a new repository.
+   Webinterface of :term:`GIN` during the creation of a new repository.
+
+
+.. _fig-newrepogithub:
 
 .. figure:: ../artwork/src/newrepo-github.png
+   :width: 80%
 
-	Webinterface of :term:`github` during the creation of a new repository.
+   Webinterface of :term:`GitHub` during the creation of a new repository.
 
-#. Afterwards, copy the :term:`SSH` or :term:`HTTPS` URL of the repository. Usually, repository hosting services will provide you with a convenient way to copy it to your clipboard. An SSH URL takes the form ``git@<hosting-service>:/<user>/<repo-name>.git`` and an HTTPS URL takes the form ``https://<hosting-service>/<user>/<repo-name>.git``. The type of URL you choose determines whether and how you will be able to ``push`` to your repository. Note that many services will require you to use the SSH URL to your repository in order to do :command:`push` operations, so make sure to take the :term:`SSH` and not the :term:`HTTPS` URL if this is the case.
 
-#. If you pick the :term:`SSH` URL, make sure to have an :term:`SSH key` set up. This usually requires generating an SSH key pair if you do not have one yet, and uploading the public key to the repository hosting service.
-
+.. index:: concepts; SSH key, SSH; key
 .. _sshkey:
-
 .. find-out-more:: What is an SSH key and how can I create one?
    :name: fom-sshkey
 
@@ -60,11 +76,11 @@ How to add a sibling on a Git repository hosting site: The manual way
    :term:`GitHub`, or :term:`GitLab`, it can be used to connect and authenticate
    without supplying your username or password for each action.
 
-   This `tutorial by GitHub <https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent>`_
-   is a detailed step-by-step instruction to generate and use SSH keys for authentication,
-   and it also shows you how to add your public SSH key to your GitHub account
+   A tutorial by GitHub at `docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh <https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent>`_
+   has a detailed step-by-step instruction to generate and use SSH keys for authentication.
+   You will also learn how add your public SSH key to your hosting service account
    so that you can install or clone datasets or Git repositories via ``SSH`` (in addition
-   to the ``http`` protocol), and the same procedure applies to GitLab and Gin.
+   to the ``http`` protocol).
 
    Don't be intimidated if you have never done this before -- it is fast and easy:
    First, you need to create a private and a public key (an SSH key pair).
@@ -82,135 +98,35 @@ How to add a sibling on a Git repository hosting site: The manual way
    others -- e.g., in case of theft -- to log in to servers or services with
    SSH authentication [#f2]_, and configure an ``ssh agent``
    to handle this passphrase for you with a single command. How to do all of this
-   is detailed in the above tutorial.
-
-
-#. Use the URL to add the repository as a sibling. There are two commands that allow you to do that; both require you give the sibling a name of your choice (common name choices are ``upstream``, or a short-cut for your user name or the hosting platform, but its completely up to you to decide):
-
-   #. ``git remote add <name> <url>``
-   #. ``datalad siblings add --dataset . --name <name> --url <url>``
-
-#. Push your dataset to the new sibling: ``datalad push --to <name>``
-
+   is detailed in the tutorial.
 
 How to add a sibling on a Git repository hosting site: The automated way
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 DataLad provides ``create-sibling-*`` commands to automatically create datasets on certain hosting sites.
-DataLad versions ``0.16.0`` and higher contain more of these commands, and provide a more streamlined parametrization.
-Please read the paragraph that matches your version of DataLad below, and be mindful of a change in command arguments between DataLad versions ``0.15.x`` and ``0.16.x``.
-
-Using DataLad version < 0.16.0
-""""""""""""""""""""""""""""""
-
-If you are using DataLad version below ``0.16.0``, you can automatically create new repositories from the command line for :term:`GitHub` and :term:`GitLab` using the commands :command:`datalad create-sibling-github` and :command:`datalad create-sibling-gitlab`.
-Due to the different representation of repositories on the two sites, the two commands are parametrized differently, and it is worth to consult each command's :term:`manpage` or ``--help``, but below are basic usage examples for the two commands:
-
-**GitLab:**
-Using :command:`datalad create-sibling-gitlab` is easiest with a ``python-gitlab`` configuration.
-Please consult the ``python-gitlab`` `documentation <https://python-gitlab.readthedocs.io/en/stable/cli-usage.html#configuration>`_ for details, but a basic configuration in the file ``~/.python-gitlab.cfg`` can look like this:
-
-.. code-block::
-
-	[global]
-	default = gitlab
-	ssl_verify = true
-	timeout = 5
-
-	[gitlab]
-	url = https://gitlab.myinstance.com
-	private_token = <super-secret-token>
-	api_version = 4
-
-This configures the default GitLab instance (here, we have called it ``gitlab``) with a specific base URL and the user's personal access token for authentication.
-Note that you will need to generate and retrieve your own personal access token under the profile settings of the gitlab instance of your choice (see the :ref:`paragraph on authentication tokens below for more information <token>`).
-With this configuration, the ``--site`` parameter can identify the GitLab instance by its name ``gitlab``.
-If you have an :term:`SSH key` configured, it is useful to specify ``--access`` as ``ssh`` -- this saves you the need to authenticate with every ``push``:
-
-.. code-block:: bash
-
-   $ datalad create-sibling-gitlab \
-     -d . \              	# current dataset
-     --site gitlab \      	# to the configured GitLab instance
-     --project DataLad-101 \	# repository name
-     --layout flat \
-     --access ssh 		# optional, but useful
-	create_sibling_gitlab(ok): . (dataset)
-	configure-sibling(ok): . (sibling)
-	action summary:
-	  configure-sibling (ok: 1)
-	  create_sibling_gitlab (ok: 1)
-   $ datalad siblings
-     here(+) [git]
-	 jugit(-) [git@gitlab.myinstance.com:<user>/<repo>.git (git)]
-   $ datalad push --to gitlab
-	publish(ok): . (dataset)
-	action summary:
-	  publish (ok: 1)
-
-
-**GitHub:**
-The command :command:`datalad create-sibling-github` requires a personal access token from GitHub (see the :ref:`paragraph on authentication tokens below for more information <token>`).
-When you are using it for the first time, you should be queried interactively for it.
-Subsequently, your token should be stored internally.
-
-By default, the URL that is set up for you is an :term:`HTTPS` URL.
-If you have an :term:`SSH key` configured, it is useful to specify ``--access-protocol`` as ``ssh`` -- with this the :term:`SSH` URL is configured, saving you the need to authenticate with every ``push``.
-
-.. code-block:: bash
-
-    $ datalad create-sibling-github \
-      -d . \ 				# current dataset
-      DataLad-101 \     		# repository name
-      --access-protocol ssh 		# optional, but useful
-    You need to authenticate with 'github' credentials. https://github.com/settings/tokens provides information on how to gain access
-    token: <my-super-secret-token>
-    create_sibling_github(ok): . (dataset) [Dataset sibling 'github', project at https://github.com/adswa/DataLad-101.git]
-    configure-sibling(ok): . (sibling)
-    action summary:
-      configure-sibling (ok: 1)
-      create_sibling_github (ok: 1)
-    $ datalad push --to github
-    publish(ok): . (dataset)
-    action summary:
-      publish (ok: 1)
-
-
-Using DataLad version 0.16.0 and higher
-"""""""""""""""""""""""""""""""""""""""
-
-Starting with DataLad version ``0.16.0`` or higher, you can automatically create new repositories from the command line for :term:`GitHub`, :term:`GitLab`, :term:`gin`, `Gogs <https://gogs.io/>`__, or `Gitea <https://gitea.io/en-us/>`__.
-This is implemented with a new set of commands called :command:`create-sibling-github`, :command:`create-sibling-gitlab`, :command:`create-sibling-gin`, :command:`create-sibling-gogs`, and :command:`create-sibling-gitea`.
-
-.. gitusernote:: Get DataLad features ahead of time by installing from a commit
-
-   If you want to get this feature ahead of the ``0.16.0`` release, you can install the most recent version of the :term:`master` :term:`branch` or a specific :term:`commit` hash from GitHub, for example with
-
-   .. code-block::
-
-      $ pip install git+git://github.com/datalad/datalad.git@master
-
-   When getting features ahead of time, your feedback is especially valuable. If you find that something
-   does not work, or if you have an idea for improvements, please `get in touch <https://github.com/datalad/datalad/issues/new>`_.
+You can automatically create new repositories from the command line for :term:`GitHub`, :term:`GitLab`, :term:`GIN`, `Gogs <https://gogs.io>`__, or Gitea_.
+This is implemented with a set of commands called :dlcmd:`create-sibling-github`, :dlcmd:`create-sibling-gitlab`, :dlcmd:`create-sibling-gin`, :dlcmd:`create-sibling-gogs`, and :dlcmd:`create-sibling-gitea`.
 
 Each command is slightly tuned towards the peculiarities of each particular platform, but the most important common parameters are streamlined across commands as follows:
 
 - ``[REPONAME]`` (required): The name of the repository on the hosting site. It will be created under a user's namespace, unless this argument includes an organization name prefix. For example, ``datalad create-sibling-github my-awesome-repo`` will create a new repository under ``github.com/<user>/my-awesome-repo``, while ``datalad create-sibling-github <orgname>/my-awesome-repo`` will create a new repository of this name under the GitHub organization ``<orgname>`` (given appropriate permissions).
 - ``-s/--name <name>`` (required): A name under which the sibling is identified. By default, it will be based on or similar to the hosting site. For example, the sibling created with ``datalad create-sibling-github`` will  be called ``github`` by default.
-- ``--credential <name>`` (optional): Credentials used for authentication are stored internally by DataLad under specific names. These names allow you to have multiple credentials, and flexibly decide which one to use. When ``--credential <name>`` is the name of an existing credential, DataLad tries to authenticate with the specified credential; when it does not yet exist DataLad will prompt interactively for a credential, such as an access token, and store it under the given ``<name>`` for future authentications. By default, DataLad will name a credential according to the hosting service URL it used for, for example ``datalad-api.github.com`` as the default for credentials used to authenticate against GitHub.
+- ``--credential <name>`` (optional): Credentials used for authentication are stored internally by DataLad under specific names. These names allow you to have multiple credentials, and flexibly decide which one to use. When ``--credential <name>`` is the name of an existing credential, DataLad tries to authenticate with the specified credential; when it does not yet exist DataLad will prompt interactively for a credential, such as an access token, and store it under the given ``<name>`` for future authentications. By default, DataLad will name a credential according to the hosting service URL it used for, such as ``datalad-api.github.com`` as the default for credentials used to authenticate against GitHub.
 - ``--access-protocol {https|ssh|https-ssh}`` (default ``https``): Whether to use :term:`SSH` or :term:`HTTPS` URLs, or a hybrid version in which HTTPS is used to *pull* and SSH is used to *push*. Using :term:`SSH` URLs requires an :term:`SSH key` setup, but is a very convenient authentication method, especially when pushing updates -- which would need manual input on user name and token with every ``push`` over HTTPS.
 - ``--dry-run`` (optional): With this flag set, the command will not actually create the target repository, but only perform tests for name collisions and report repository name(s).
 - ``--private`` (optional): A switch that, if set, makes sure that the created repository is private.
 
-Other streamlined arguments, such as ``--recursive`` or ``--publish-depends`` allow you to perform more complex configurations, for example publication of dataset hierarchies or connections to :term:`special remote`\s. Upcoming walk-throughs will demonstrate them.
+Other streamlined arguments, such as ``--recursive`` or ``--publish-depends`` allow you to perform more complex configurations, such as publication of dataset hierarchies or connections to :term:`special remote`\s. Upcoming walk-throughs will demonstrate them.
 
 Self-hosted repository services, e.g., Gogs or Gitea instances, have an additional required argument, the ``--api`` flag.
 It needs to point to the URL of the instance, for example
 
-.. code-block:: bash
+.. code-block:: console
 
    $ datalad create-sibling-gogs my_repo_on_gogs  --api "https://try.gogs.io"
 
+:term:`GitLab`'s internal organization differs from that of the other hosting services, and as there are multiple different GitLab instances, ``create-sibling-gitlab`` requires slightly more configuration than the other commands.
+Thus, a short walk-through is at the :ref:`end of this section <gitlab>`.
 
 .. _token:
 
@@ -227,6 +143,7 @@ Personal access tokens are an alternative to authenticating via your password, a
 If you are prompted for ``username`` and ``password`` in the command line, you would enter your token in place of the ``password`` [#f3]_.
 Note that you do not have to type your token at every authentication -- your token will be stored on your system the first time you have used it and automatically reused whenever relevant.
 
+.. index:: credential; storage
 .. find-out-more:: How does the authentication storage work?
 
    Passwords, user names, tokens, or any other login information is stored in
@@ -240,27 +157,219 @@ Which permissions do they need?
 """""""""""""""""""""""""""""""
 
 The most convenient way to generate tokens is typically via the webinterface of the hosting service of your choice.
-Often, you can specifically select which set of permissions a specific token has in a drop-down menu similar (but likely not identical) to this screenshot from GitHub:
+Often, you can specifically select which set of permissions a specific token has in a drop-down menu similar (but likely not identical) to the screenshot from GitHub in :numref:`fig-token`.
+
+.. _fig-token:
 
 .. figure:: ../artwork/src/github-token.png
+   :width: 80%
 
    Webinterface to generate an authentication token on GitHub. One typically has to set a name and
    permission set, and potentially an expiration date.
 
 For creating and updating repositories with DataLad commands it is usually sufficient to grant only repository-related permissions.
 However, broader permission sets may also make sense.
-Should you employ GitHub workflows, for example, a token without "workflow" scope could not push changes to workflow files, resulting in errors like this one::
+Should you employ GitHub workflows, for example, a token without "workflow" scope could not push changes to workflow files, resulting in errors like this one:
+
+.. code-block:: console
 
     [remote rejected] (refusing to allow a Personal Access Token to create or update workflow `.github/workflows/benchmarks.yml` without `workflow` scope)]
 
+.. _gitlab:
+
+Creating a sibling on GitLab
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+:term:`GitLab` is an open source Git repository hosting platform, and many institutions and companies deploy their own instance.
+This short walk-through demonstrates the necessary steps to create a GitLab sibling, and the different options GitLab allows for when creating siblings recursively for a dataset hierarchy.
+
+Step 1: Configure your site
+"""""""""""""""""""""""""""
+
+As a first step, users will need to create a configuration file following the format of `python-gitlab <https://python-gitlab.readthedocs.io/en/stable/cli-usage.html#configuration-file-format>`_.
+This configuration file is typically called ``.python-gitlab.cfg`` and placed into a users home directory.
+It contains one section per GitLab instance, and a ``[global]`` section that defines the default instance to use.
+Here is an example:
+
+.. code-block:: console
+
+   $ cat ~/.python-gitlab.cfg
+    [global]
+    default = my-university-gitlab
+    ssl_verify = true
+    timeout = 5
+
+    [my-university-gitlab]
+    url = https://gitlab.my-university.com
+    private_token = <here-is-your-token>
+    api_version = 4
+
+    [gitlab-general]
+    url = https://gitlab.com
+    api_version = 4
+    private_token = <here-is-your-token>
+
+Once this configuration is in place, ``create-sibling-gitlab``'s ``--site`` parameter can be supplied with the name of the instance you want to use (e.g., ``datalad create-sibling-gitlab --site gitlab-general``).
+Ensure that the token for each instance has appropriate permissions to create new groups and projects under your user account using the GitLab API in :numref:`fig-gitlabtoken`.
+
+.. _fig-gitlabtoken:
+
+.. figure:: ../artwork/src/gitlab-token.png
+   :width: 80%
+
+   Webinterface to generate an authentication token on GitLab. One typically has to set a name and
+   permission set, and potentially an expiration date.
+
+Step 2: Create or select a group
+""""""""""""""""""""""""""""""""
+
+GitLab's organization consists of *projects* and *groups*.
+Projects are single repositories, and groups can be used to manage one or more projects at the same time.
+In order to use ``create-sibling-gitlab``, a user **must** `create a group <https://docs.gitlab.com/ee/user/group/#create-a-group>`_ via the web interface, or specify a pre-existing group, because `GitLab does not allow root-level groups to be created via their API <https://docs.gitlab.com/ee/api/groups.html#new-group>`_.
+Only when there already is a "parent" group DataLad and other tools can create sub-groups and projects automatically.
+In the screenshots :numref:`fig-rootgroup-gitlab1` and :numref:`fig-rootgroup-gitlab2`, a new group ``my-datalad-root-level-group`` is created right underneath the user account.
+The group name as shown in the URL bar is what DataLad needs in order to create sibling datasets.
+
+.. _fig-rootgroup-gitlab1:
+.. figure:: ../artwork/src/gitlab-rootgroup.png
+   :width: 80%
+
+   Webinterface to create a root-level group on GitLab.
+
+.. _fig-rootgroup-gitlab2:
+.. figure:: ../artwork/src/gitlab-rootgroup2.png
+   :width: 80%
+
+   A created root-level group in GitLab's webinterface.
+
+Step 3: Select a layout
+"""""""""""""""""""""""
+
+Due to the distinction between groups and projects, GitLab allows two different layouts that DataLad can use to publish datasets or dataset hierarchies:
+
+* **flat**:
+  All datasets become projects in the same, pre-existing group.
+  The name of a project is its relative path within the root dataset, with all path separator characters replaced by '-' [#f4]_.
+* **collection**:
+  A new group is created for the dataset. The root dataset (the topmost superdataset) is placed in a "project" project inside this group, and all nested subdatasets are represented inside the group using a "flat" layout [#f4]_. This layout is the default.
+
+Consider the ``DataLad-101`` dataset, a superdataset with a several subdatasets in the following layout:
+
+.. code-block:: bash
+
+    /home/me/dl-101/DataLad-101    # dataset
+    ├── books/
+    │   └── [...]
+    ├── code/
+    │   └── [...]
+    ├── midterm_project/    # subdataset
+    │   ├── code/
+    │       └── [...]
+    │   └──  input/		# sub-subdataset
+    ├── recordings/
+    │   └── longnow/    # subdataset
+    │       ├── [...]
 
 
+How the ``collection`` and ``flat`` layouts for this dataset look in practice is shown in :numref:`fig-gitlab-layout`.
+
+.. _fig-gitlab-layout:
+
+.. figure:: ../artwork/src/gitlab-layouts.png
+   :width: 50%
+
+   The ``collection`` layout has a group (``DataLad-101_collection``, defined by the user with a configuration) with four projects underneath. The ``project`` project contains the root-level dataset, and all contained subdatasets are named according to their location in the dataset. The ``flat`` layout consists of projects in the root-level group. The project name for the superdataset (``DataLad-101_flat``) is defined by the user with a configuration, and the names of the subdatasets extend this project name based on their location in the dataset hierarchy.
+
+Publishing a single dataset
+"""""""""""""""""""""""""""
+
+When publishing a single dataset, users can configure the project or group name as a command argument ``--project``.
+Here are two command examples and their outcomes.
+
+For a **flat** layout, the ``--project`` parameter determines the project name, shown in :numref:`fig-gitlab-flat`.
+
+.. code-block:: console
+
+   $ datalad create-sibling-gitlab --site gitlab-general --layout flat --project my-datalad-root-level-group/this-will-be-the-project-name
+   create_sibling_gitlab(ok): . (dataset) [sibling repository 'gitlab' created at https://gitlab.com/my-datalad-root-level-group/this-will-be-the-project-name]
+   configure-sibling(ok): . (sibling)
+   action summary:
+     configure-sibling (ok: 1)
+     create_sibling_gitlab (ok: 1)
+
+.. _fig-gitlab-flat:
+
+.. figure:: ../artwork/src/gitlab-layout-flat.png
+   :width: 50%
+
+   An example dataset using GitLab's "flat" layout.
+
+For a **collection** layout, the ``--project`` parameter determines the group name, shown in figure :numref:`fig-gitlab-collection`.
+
+.. code-block:: console
+
+   $ datalad create-sibling-gitlab --site gitlab-general --layout collection --project my-datalad-root-level-group/this-will-be-the-group-name
+    create_sibling_gitlab(ok): . (dataset) [sibling repository 'gitlab' created at https://gitlab.com/my-datalad-root-level-group/this-will-be-the-group-name/project]
+    configure-sibling(ok): . (sibling)
+    action summary:
+      configure-sibling (ok: 1)
+      create_sibling_gitlab (ok: 1)
+
+.. _fig-gitlab-collection:
+
+.. figure:: ../artwork/src/gitlab-layout-collection.png
+   :width: 50%
+
+   An example dataset using GitLab's "collection" layout.
+
+Publishing datasets recursively
+"""""""""""""""""""""""""""""""
+
+When publishing a series of datasets recursively, the ``--project`` argument cannot be used anymore - otherwise, all datasets in the hierarchy would attempt to create the same group or project over and over again.
+Instead, one configures the root level dataset, and the names for underlying datasets will be derived from this configuration:
+
+.. index::
+   single: configuration item; datalad.gitlab-<name>-project
+.. code-block:: console
+
+   $ # do the configuration for the top-most dataset
+   $ # either configure with Git
+   $ git config --local --replace-all \
+     datalad.gitlab-<gitlab-site>-project \
+     'my-datalad-root-level-group/DataLad-101_flat'
+   $ # or configure with DataLad
+   $ datalad configuration set \
+     datalad.gitlab-<gitlab-site>-project='my-datalad-root-level-group/DataLad-101_flat'
+
+Afterwards, publish dataset hierarchies with the ``--recursive`` flag:
+
+.. code-block:: console
+
+   $ datalad create-sibling-gitlab --site gitlab-general --recursive --layout flat
+   create_sibling_gitlab(ok): . (dataset) [sibling repository 'gitlab' created at https://gitlab.com/my-datalad-root-level-group/DataLad-101_flat]
+   configure-sibling(ok): . (sibling)
+   create_sibling_gitlab(ok): midterm_project (dataset) [sibling repository 'gitlab' created at https://gitlab.com/my-datalad-root-level-group/DataLad-101_flat-midterm_project]
+   configure-sibling(ok): . (sibling)
+   create_sibling_gitlab(ok): midterm_project/input (dataset) [sibling repository 'gitlab' created at https://gitlab.com/my-datalad-root-level-group/DataLad-101_flat-midterm_project-input]
+   configure-sibling(ok): . (sibling)
+   create_sibling_gitlab(ok): recordings/longnow (dataset) [sibling repository 'gitlab' created at https://gitlab.com/my-datalad-root-level-group/DataLad-101_flat-recordings-longnow]
+   configure-sibling(ok): . (sibling)
+   action summary:
+     configure-sibling (ok: 4)
+     create_sibling_gitlab (ok: 4)
+
+Final step: Pushing to GitLab
+"""""""""""""""""""""""""""""
+
+Once you have set up your dataset sibling(s), you can push individual datasets with ``datalad push --to gitlab`` or push recursively across a hierarchy by adding the ``--recursive`` flag to the push command. 
+
+.. _gitea: https://about.gitea.com
 
 .. rubric:: Footnotes
 
 
 .. [#f1] Many repository hosting services have useful features to make your work citeable.
-         For example, :term:`gin` is able to assign a :term:`DOI` to your dataset, and GitHub allows ``CITATION.cff`` files. At the same time, archival services such as `Zenodo <https://zenodo.org/>`_ often integrate with published repositories, allowing you to preserve your dataset with them.
+         For example, :term:`gin` is able to assign a :term:`DOI` to your dataset, and GitHub allows ``CITATION.cff`` files. At the same time, archival services such as `Zenodo <https://zenodo.org>`_ often integrate with published repositories, allowing you to preserve your dataset with them.
 
 .. [#f2] Your private SSH key is incredibly valuable, and it is important to keep
          it secret!
@@ -268,4 +377,9 @@ Should you employ GitHub workflows, for example, a token without "workflow" scop
          is protecting. If the private key does not have a passphrase, simply copying
          this file grants a person access!
 
-.. [#f3]  GitHub `deprecated user-password authentication <https://developer.github.com/changes/2020-02-14-deprecating-password-auth/>`_ and only supports authentication via personal access token from November 13th 2020 onwards. Supplying a password instead of a token will fail to authenticate.
+.. [#f3]  GitHub `deprecated user-password authentication <https://developer.github.com/changes/2020-02-14-deprecating-password-auth>`_ in favor of authentication via personal access token. Supplying a password instead of a token will fail to authenticate.
+
+.. index::
+   single: configuration item; datalad.gitlab-default-projectname
+   single: configuration item; datalad.gitlab-default-pathseparator
+.. [#f4] The default project name ``project`` and path separator ``-`` are configurable using the dataset-level configurations ``datalad.gitlab-default-projectname`` and ``datalad.gitlab-default-pathseparator``

@@ -47,7 +47,7 @@
       "login": "mih",
       "name": "Michael Hanke",
       "avatar_url": "https://avatars1.githubusercontent.com/u/136479?v=4",
-      "profile": "http://psychoinformatics.de",
+      "profile": "https://psychoinformatics.de",
       "contributions": [
         "question",
         "bug",
@@ -110,7 +110,7 @@
       "login": "yarikoptic",
       "name": "Yaroslav Halchenko",
       "avatar_url": "https://avatars3.githubusercontent.com/u/39889?v=4",
-      "profile": "http://www.onerussian.com",
+      "profile": "http://www.oneukrainian.com",
       "contributions": [
         "review",
         "content",
@@ -424,7 +424,8 @@
         "bug",
         "maintenance",
         "content",
-        "example"
+        "example",
+        "review"
       ]
     },
     {
@@ -511,6 +512,140 @@
       "contributions": [
         "bug"
       ]
+    },
+    {
+      "login": "Arshitha",
+      "name": "Arshitha Basavaraj",
+      "avatar_url": "https://avatars.githubusercontent.com/u/10297203?v=4",
+      "profile": "http://cmn.nimh.nih.gov/dsst",
+      "contributions": [
+        "content",
+        "bug",
+        "maintenance"
+      ]
+    },
+    {
+      "login": "ajveltri22",
+      "name": "Anthony J Veltri",
+      "avatar_url": "https://avatars.githubusercontent.com/u/16944711?v=4",
+      "profile": "https://github.com/ajveltri22",
+      "contributions": [
+        "userTesting"
+      ]
+    },
+    {
+      "login": "complexbrains",
+      "name": "Isil Bilgin",
+      "avatar_url": "https://avatars.githubusercontent.com/u/45263281?v=4",
+      "profile": "https://twitter.com/complexbrains",
+      "contributions": [
+        "bug",
+        "maintenance"
+      ]
+    },
+    {
+      "login": "jkosciessa",
+      "name": "Julian Kosciessa",
+      "avatar_url": "https://avatars.githubusercontent.com/u/40263608?v=4",
+      "profile": "http://juliankosciessa.eu",
+      "contributions": [
+        "content"
+      ]
+    },
+    {
+      "login": "candleindark",
+      "name": "Isaac To",
+      "avatar_url": "https://avatars.githubusercontent.com/u/12135617?v=4",
+      "profile": "https://github.com/candleindark",
+      "contributions": [
+        "maintenance",
+        "content",
+        "bug"
+      ]
+    },
+    {
+      "login": "asmacdo",
+      "name": "Austin Macdonald",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1028657?v=4",
+      "profile": "https://github.com/asmacdo",
+      "contributions": [
+        "bug"
+      ]
+    },
+    {
+      "login": "cs-hall",
+      "name": "Christopher S. Hall",
+      "avatar_url": "https://avatars.githubusercontent.com/u/67027056?v=4",
+      "profile": "https://github.com/cs-hall",
+      "contributions": [
+        "bug"
+      ]
+    },
+    {
+      "login": "jcf2",
+      "name": "jcf2",
+      "avatar_url": "https://avatars.githubusercontent.com/u/48492023?v=4",
+      "profile": "https://github.com/jcf2",
+      "contributions": [
+        "bug"
+      ]
+    },
+    {
+      "login": "jcolomb",
+      "name": "Julien Colomb",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1876667?v=4",
+      "profile": "https://orcid.org/0000-0002-3127-5520",
+      "contributions": [
+        "content"
+      ]
+    },
+    {
+      "login": "da5nsy",
+      "name": "Danny Garside",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3739866?v=4",
+      "profile": "http://dannygarside.co.uk",
+      "contributions": [
+        "bug",
+        "maintenance"
+      ]
+    },
+    {
+      "login": "jkuhl-uni",
+      "name": "Justus Kuhlmann",
+      "avatar_url": "https://avatars.githubusercontent.com/u/82444481?v=4",
+      "profile": "https://github.com/jkuhl-uni",
+      "contributions": [
+        "content"
+      ]
+    },
+    {
+      "login": "melanieganz",
+      "name": "melanieganz",
+      "avatar_url": "https://avatars.githubusercontent.com/u/25242978?v=4",
+      "profile": "https://sites.google.com/view/melanieganz/home",
+      "contributions": [
+        "bug"
+      ]
+    },
+    {
+      "login": "damienfrancois",
+      "name": "Damien François",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1721582?v=4",
+      "profile": "http://www.uclouvain.be/damien.francois",
+      "contributions": [
+        "bug",
+        "content"
+      ]
+    },
+    {
+      "login": "tmheunis",
+      "name": "Tosca Heunis",
+      "avatar_url": "https://avatars.githubusercontent.com/u/11378509?v=4",
+      "profile": "https://github.com/tmheunis",
+      "contributions": [
+        "bug",
+        "userTesting"
+      ]
     }
   ],
   "contributorsPerLine": 7,
@@ -518,5 +653,7 @@
   "projectOwner": "datalad-handbook",
   "repoType": "github",
   "repoHost": "https://github.com",
-  "skipCi": true
+  "skipCi": true,
+  "commitConvention": "angular",
+  "commitType": "docs"
 }

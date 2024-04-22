@@ -1,6 +1,6 @@
 .. _intromidterm:
 
-A Data Analysis Project with DataLad
+A data analysis project with DataLad
 ------------------------------------
 
 

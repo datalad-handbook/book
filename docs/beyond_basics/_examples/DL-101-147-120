@@ -1,11 +1,5 @@
 
-$ datalad clone ria+file:///home/me/myriastore#3503e51d-96c9-40e3-814d-4b0e719e72eb myclone
-[INFO] Cloning dataset to Dataset(/home/me/dl-101/myclone) 
-[INFO] Attempting to clone from file:///home/me/myriastore/350/3e51d-96c9-40e3-814d-4b0e719e72eb to /home/me/dl-101/myclone
-[INFO] Completed clone attempts for Dataset(/home/me/dl-101/myclone) 
-[INFO] Configure additional publication dependency on "ria-backup-storage" 
+$ datalad clone ria+file:///home/me/myriastore#e3e70682-c209-4cac-629f-6fbed82c07cd myclone
+[INFO] Configure additional publication dependency on "ria-backup-storage"
 configure-sibling(ok): . (sibling)
-install(ok): /home/me/dl-101/myclone (dataset)
-action summary:
-  configure-sibling (ok: 1)
-  install (ok: 1)
+install(ok): /home/me/beyond_basics/myclone (dataset)

@@ -273,7 +273,7 @@ First a dataset:
        "authors": [
            {
                "givenName":"Stephan",
-               "familyName":"Heunis",
+               "familyName":"Heunis"
            }
        ],
        "keywords": ["lorum", "ipsum", "foxes"],
@@ -307,7 +307,7 @@ And then two files of the dataset:
       "type": "file"
       "dataset_id": "5df8eb3a-95c5-11ea-b4b9-a0369f287950",
       "dataset_version": "dae38cf901995aace0dde5346515a0134f919523",
-      "contentbytesize": 1403
+      "contentbytesize": 1403,
       "path": "README",
       "metadata_sources": {
          "key_source_map": {},
@@ -327,7 +327,7 @@ And then two files of the dataset:
       "type": "file"
       "dataset_id": "5df8eb3a-95c5-11ea-b4b9-a0369f287950",
       "dataset_version": "dae38cf901995aace0dde5346515a0134f919523",
-      "contentbytesize": 15572
+      "contentbytesize": 15572,
       "path": "main_data/main_results.png",
       "metadata_sources": {
          "key_source_map": {},

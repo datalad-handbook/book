@@ -79,10 +79,8 @@ common scenarios, operating systems, or platforms.
 Windows 10 and 11
 """""""""""""""""
 
-There are countless ways to install software on Windows. If you use `Windows Subsystem 2 for 
-Linux <https://docs.microsoft.com/en-us/windows/wsl/install-win10>`_, with Ubuntu follow the 
-`instruction for linux <http://handbook.datalad.org/en/latest/intro/installation.html#linux-neuro-debian-ubuntu-and-similar-systems>`_.
-Here we describe *one* possible approach that should work on any Windows computer, like one that you
+There are countless ways to install software on Windows. Here we describe *one*
+possible approach that should work on any Windows computer, like one that you
 may have just bought.
 
 Python:

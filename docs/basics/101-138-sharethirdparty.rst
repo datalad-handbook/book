@@ -74,7 +74,7 @@ You have already done this in section :ref:`yoda_project` when you shared your `
 
 However, most Git repository hosting services do not support hosting the file content
 of the files managed by :term:`git-annex`.
-For example, the the results of the analysis in section :ref:`yoda_project`,
+For example, the results of the analysis in section :ref:`yoda_project`,
 ``pairwise_comparisons.png`` and ``prediction_report.csv``, were not published to
 GitHub: There was meta data about their file availability, but if a friend cloned
 this dataset and ran a :dlcmd:`get` command, content retrieval would fail

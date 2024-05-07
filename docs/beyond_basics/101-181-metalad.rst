@@ -178,7 +178,7 @@ The following call would add the metadata entry to the current dataset, ``cozy-s
 	But there are also some internal checks that might be surprising.
 	If you want to add the metadata above to your own dataset, you should make sure to adjust the ``dataset_id`` to the ID of your own dataset, found via the command ``datalad configuration get datalad.dataset.id`` - otherwise you'll see an error [#f4]_, and likewise the ``dataset_version``.
 	And in case you'd supply the ``extraction_time`` as "this morning at 8AM" instead of a time stamp, the command will be unhappy as well.
-	In case an error occurs, make sure to read the error message, and turn the the commands' ``--help`` for insights about requirements you might have missed.
+	In case an error occurs, make sure to read the error message, and turn the commands' ``--help`` for insights about requirements you might have missed.
 
 After the metadata has been added, you can view it via the command :dlcmd:`meta-dump`.
 The simplest form of this command is ``meta-dump -r``, which will show all metadata that is stored in the dataset in the current directory.

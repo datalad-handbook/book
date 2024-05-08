@@ -119,7 +119,7 @@ only using Git tools only, outlined in the :find-out-more:`on faster renaming <f
 
    Git has built-in commands that provide a solution in two steps.
 
-   If you have followed along with the previous :dlcmd:`save`, let's revert the renaming of the the files:
+   If you have followed along with the previous :dlcmd:`save`, let's revert the renaming of the files:
 
    .. runrecord:: _examples/DL-101-136-105
       :language: console
@@ -278,7 +278,7 @@ the best option to turn to.
 
 .. index::
    pair: fix; git-annex command
-.. gitusernote:: 'datalad save' internals: 'git annex fix' 
+.. gitusernote:: 'datalad save' internals: 'git annex fix'
 
    A :dlcmd:`save` command internally uses a :gitcmd:`commit` to save changes to a dataset.
    :gitcmd:`commit` in turn triggers a :gitannexcmd:`fix`

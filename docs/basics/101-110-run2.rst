@@ -170,7 +170,7 @@ If outputs already exist...
 
    .. include:: topic/adjustedmode-unlockedfiles.rst
 
-Looking at the resulting image, you wonder whether 400x400 might be a tiny bit to small.
+Looking at the resulting image, you wonder whether 400x400 might be a tiny bit too small.
 Maybe we should try to resize it to 450x450, and see whether that looks better?
 
 Note that we cannot use a :dlcmd:`rerun` for this: if we want to change the dimension option

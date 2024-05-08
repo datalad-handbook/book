@@ -14,7 +14,7 @@ This extension takes your favorite datasets and metadata, and generates a static
 
 For quick access to more resources, have a look at:
 
-- The `live demo catalog <https://datalad.github.io/datalad-catalog>`_
+- The `live demo catalog <https://datalad-catalog.netlify.app/>`_
 - A 3-minute `explainer video <https://youtu.be/4GERwj49KFc>`_
 - The `datalad-catalog documentation <https://docs.datalad.org/projects/catalog>`_
 - The `source repository <https://github.com/datalad/datalad-catalog>`_ for an up-to-date overview of functionality

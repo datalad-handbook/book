@@ -50,7 +50,7 @@ begin to see performance issues in datasets.
 Bench marking in DataLad datasets with varying, but large amounts of tiny files
 on different file systems and different git-annex repository versions show that
 a mere :dlcmd:`save` or :dlcmd:`status` command
-can take from 15 minutes up to several hours. Its neither fun nor feasible to
+can take from 15 minutes up to several hours. It's neither fun nor feasible to
 work with performance drops like this -- so how can this be avoided?
 
 General advice: Use several subdatasets

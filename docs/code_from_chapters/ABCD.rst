@@ -383,7 +383,7 @@ This allows others to very easily rerun computations, but it also spares yoursel
 Computational reproducibility
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Its fantastic to have means to recompute a command automatically, but the ability to re-execute a command is often not enough.
+It's fantastic to have means to recompute a command automatically, but the ability to re-execute a command is often not enough.
 If you don't have the required Python packages available, or in a wrong version, running the script and computing the results will fail.
 In order to be *computationally* reproducible the run record does not only need to link code, command, and data, but also encapsulate the *software* that is necessary for a computation::
 

@@ -280,7 +280,7 @@ DataLad save can in addition also attach an identifier in the form of a :term:`t
 
 The :dlcmd:`run` command can run this script in a way that links the script to the results it produces and the data it was computed from.
 In principle, the command is simple: Execute any command, save the resulting changes in the dataset, and associate them as well as all other optional information provided.
-Because each :dlcmd:`run` ends with a :dlcmd:`save`, its recommended to start with a clean dataset (see :ref:`chapter_run` for details on how to use it in unclean datasets)::
+Because each :dlcmd:`run` ends with a :dlcmd:`save`, it's recommended to start with a clean dataset (see :ref:`chapter_run` for details on how to use it in unclean datasets)::
 
    datalad status
 
@@ -334,7 +334,7 @@ This allows others to very easily rerun computations, but it also spares yoursel
 Computational reproducibility
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Its fantastic to have means to recompute a command automatically, but the ability to re-execute a command is often not enough.
+It's fantastic to have means to recompute a command automatically, but the ability to re-execute a command is often not enough.
 If you don't have the required Python packages available, or in a wrong version, running the script and computing the results will fail.
 In order to be *computationally* reproducible the run record does not only need to link code, command, and data, but also encapsulate the *software* that is necessary for a computation::
 

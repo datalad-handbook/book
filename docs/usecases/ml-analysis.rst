@@ -376,7 +376,7 @@ We will use the following script for this:
 It will load the trained and dumped model and use it to test its prediction performance on the yet unseen test data.
 To evaluate the model performance, it calculates the accuracy of the prediction, i.e., the proportion of correctly labeled images, prints it to the terminal, and saves it into a json file in the superdataset.
 As this script constitutes the last analysis step, let's save it with a :term:`tag`.
-Its entirely optional to do this, but just as commit messages are an easier way for humans to get an overview of a commits contents, a tag is an easier way for humans to identify a change than a commit hash.
+It is entirely optional to do this, but just as commit messages are an easier way for humans to get an overview of a commits contents, a tag is an easier way for humans to identify a change than a commit hash.
 With this script set up, we're ready for analysis, and thus can tag this state ``ready4analysis`` to identify it more easily later.
 
 .. runrecord:: _examples/ml-114

@@ -227,7 +227,7 @@ Importantly, the ``$JOBID`` isn't hardcoded into the script but it can be given 
 The code snippet above uses a bash :term:`environment variable` (``$JOBID``, as indicated by the all-upper-case variable name with a leading ``$``).
 It will be defined in the job submission -- this is shown and explained in detail in the respective paragraph below.
 
-Next, its time for the :dlcmd:`containers-run` command.
+Next, it's time for the :dlcmd:`containers-run` command.
 The invocation will depend on the container and dataset configuration (both of which are demonstrated in the real-life example in the next section), and below, we pretend that the container invocation only needs an input file and an output file.
 These input file is specified via a bash variables (``$inputfile``) that will be defined in the script and provided at the time of job submission via command line argument from the job scheduler, and the output file name is based on the input file name.
 
@@ -311,7 +311,7 @@ Here's how the full general script looks like.
 
     # Done - job handler should clean up workspace
 
-Its a short script that encapsulates a complete workflow.
+It's a short script that encapsulates a complete workflow.
 Think of it as the sequence of necessary DataLad commands you would need to do in order to compute a job.
 You can save this script into your analysis dataset, e.g., as ``code/analysis_job.sh``, and make it executable (such that it is executed automatically by the program specified in the :term:`shebang`)using ``chmod +x code/analysis_job.sh``.
 

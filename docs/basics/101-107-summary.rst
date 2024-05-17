@@ -91,7 +91,7 @@ Currently, this can be considered "best-practice building": Frequent :dlcmd:`sta
 commands, :dlcmd:`save` commands to save dataset modifications,
 and concise :term:`commit message`\s are the main take always from this. You can already explore
 the history of a dataset and you know about many types of provenance information
-captured by DataLad, but for now, its been only informative, and has not been used
+captured by DataLad, but for now, it has been only informative, and has not been used
 for anything more fancy. Later on, we will look into utilizing the history
 in order to undo mistakes, how the origin of files or datasets becomes helpful
 when sharing datasets or removing file contents, and how to make changes to large

@@ -284,7 +284,7 @@ Let's share this data with our friends and collaborators.
 There are many ways to do this (section :ref:`chapter_thirdparty` has all the details), but
 a convenient way is `Gin <https://gin.g-node.org>`_, a free hosting service for DataLad datasets.
 
-First, you need to head over to `gin.g-node.org <https://gin.g-node.org>`__, log in, and upload an :term:`SSH key`. Then, under your user account, create a new repository, and copy it's SSH URL.
+First, you need to head over to `gin.g-node.org <https://gin.g-node.org>`__, log in, and upload an :term:`SSH key`. Then, under your user account, create a new repository, and copy its SSH URL.
 A step by step instruction with screenshots is in the section :ref:`gin`.
 
 .. importantnote:: The 0.16 release will have a convenience command

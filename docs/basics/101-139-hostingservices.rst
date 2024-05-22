@@ -41,7 +41,7 @@ How to add a sibling on a Git repository hosting site: The manual way
 
 #. If you pick the :term:`SSH` URL, make sure to have an :term:`SSH key` set up. This usually requires generating an SSH key pair if you do not have one yet, and uploading the public key to the repository hosting service. The :find-out-more:`on SSH keys <fom-sshkey>` points to a useful tutorial for this.
 
-#. Use the URL to add the repository as a sibling. There are two commands that allow you to do that; both require you give the sibling a name of your choice (common name choices are ``upstream``, or a short-cut for your user name or the hosting platform, but its completely up to you to decide):
+#. Use the URL to add the repository as a sibling. There are two commands that allow you to do that; both require that you give the sibling a name of your choice (common name choices are ``upstream``, or a short-cut for your user name or the hosting platform, but it's completely up to you to decide):
 
    #. ``git remote add <name> <url>``
    #. ``datalad siblings add --dataset . --name <name> --url <url>``

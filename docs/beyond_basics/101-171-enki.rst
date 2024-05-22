@@ -14,7 +14,7 @@ Walkthrough: Parallel ENKI preprocessing with fMRIprep
 
 The previous section has been an overview on parallel, provenance-tracked computations in DataLad datasets.
 While the general workflow entails a complete setup, it is usually easier to understand it by seeing it applied to a concrete usecase.
-Its even more informative if that use case includes some complexities that do not exist in the "picture-perfect" example but are likely to arise in real life.
+It is even more informative if that use case includes some complexities that do not exist in the "picture-perfect" example but are likely to arise in real life.
 Therefore, the following walk-through in this section is a write-up of an existing and successfully executed analysis.
 
 The analysis

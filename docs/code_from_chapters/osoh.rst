@@ -344,7 +344,7 @@ To get an overview on publishing datasets, however, you best go to :ref:`shareth
 
 Another convenient way is `Gin <https://gin.g-node.org>`_, a free hosting service for DataLad datasets.
 
-First, you need to head over to `gin.g-node.org <https://gin.g-node.org>`__, log in, and upload an :term:`SSH key`. Then, under your user account, create a new repository, and copy it's SSH URL.
+First, you need to head over to `gin.g-node.org <https://gin.g-node.org>`__, log in, and upload an :term:`SSH key`. Then, under your user account, create a new repository, and copy its SSH URL.
 A step by step instruction with screenshots is in the section :ref:`gin`::
 
    datalad create-sibling-gin \

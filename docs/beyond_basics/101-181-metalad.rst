@@ -173,8 +173,8 @@ The following call would add the metadata entry to the current dataset, ``cozy-s
    single: configuration item; datalad.dataset.id
 .. find-out-more:: meta-add validity checks
 
-	When adding metadata for the first time, its not uncommon to run into errors.
-	Its quite easy, for example, to miss a comma or quotation mark when creating a JSON object by hand.
+	When adding metadata for the first time, it is not uncommon to run into errors.
+	It is quite easy, for example, to miss a comma or quotation mark when creating a JSON object by hand.
 	But there are also some internal checks that might be surprising.
 	If you want to add the metadata above to your own dataset, you should make sure to adjust the ``dataset_id`` to the ID of your own dataset, found via the command ``datalad configuration get datalad.dataset.id`` - otherwise you'll see an error [#f4]_, and likewise the ``dataset_version``.
 	And in case you'd supply the ``extraction_time`` as "this morning at 8AM" instead of a time stamp, the command will be unhappy as well.
@@ -407,7 +407,7 @@ As with DataLad and other Python packages, you might want to do the installation
 
 .. [#f1] It may seem like an unnecessary duplicated effort to record the names of contained files or certain file properties as metadata in a dataset already containing these files. However, metadata can be very useful whenever the primary data can't be shared, for example due to its large size or sensitive nature, allowing consumers to, for example, derive anonymized information, aggregate data with search queries, or develop code and submit it to the data holders to be ran on their behalf.
 
-.. [#f2] `JSON <https://en.wikipedia.org/wiki/JSON>`_ is a language-independent, open and lightweight data interchange format. Data is represented as human readable text, organized in key-value pairs (e.g., 'name': 'Bob') or arrays, and thus easily readable by both humans and machines. A *JSON object* is a collection of key-value pairs. Its enclosed in curly brackets, and individual pairs in the object are separated by commas.
+.. [#f2] `JSON <https://en.wikipedia.org/wiki/JSON>`_ is a language-independent, open and lightweight data interchange format. Data is represented as human readable text, organized in key-value pairs (e.g., 'name': 'Bob') or arrays, and thus easily readable by both humans and machines. A *JSON object* is a collection of key-value pairs. It's enclosed in curly brackets, and individual pairs in the object are separated by commas.
 
 .. [#f3] A Unix timestamp is widely used in computing and measures time as the number of seconds passed since January 1st, 1970. The timestamp in the example metadata entry (``1675113291.1464975``) translates to January 30th, 2023, 22:14:51.146497 with the code snippet below. Lots of software tools have the ability to generate timestamps for you, for example Python's `time <https://docs.python.org/3/library/time.html>`_ module or the command ``date +%s`` in a command line on Unix systems.
 

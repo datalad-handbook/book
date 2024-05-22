@@ -141,7 +141,7 @@ And here is how to set the values for these variables:
   command the hook operates on, and any key from the result evaluation can be
   expanded to the respective value in the result dictionary. Curly braces need to
   be escaped by doubling them.
-  This is not the easiest specification there is, but its also not as hard as it
+  This is not the easiest specification there is, but it's also not as hard as it
   may sound. Here is how this could look like for a :dlcmd:`unlock`::
 
      $ unlock {{"dataset": "{dsarg}", "path": "{path}"}}

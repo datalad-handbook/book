@@ -96,7 +96,7 @@ a ``tmp/`` directory in the ``DataLad-101`` dataset:
 
    $ datalad save -m "add something to ignore" .gitignore
 
-This ``.gitignore`` file is very minimalistic, but its sufficient to show
+This ``.gitignore`` file is very minimalistic, but it's sufficient to show
 how it works. If you now create a ``tmp/`` directory, all of its contents would be
 ignored by your datasets version control. Let's do so, and add a file into it
 that we do not (yet?) want to save to the dataset's history.

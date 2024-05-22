@@ -10,7 +10,7 @@ This section is a selection of code snippets tuned to perform specific,
 non-trivial tasks in datasets. Often, they are not limited to single commands of
 the version control tools you know, but combine helpful other command line
 tools and general Unix command line magic. Just like
-`GitHub gists <https://gist.github.com>`_, its a collection of lightweight
+`GitHub gists <https://gist.github.com>`_, it's a collection of lightweight
 and easily accessible tips and tricks. For a more basic command overview,
 take a look at the :ref:`cheat`. The
 `tips collection of git-annex <https://git-annex.branchable.com/tips>`_ is also

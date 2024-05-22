@@ -47,7 +47,7 @@ Now what can I do with it?
 
 For one, you will not be surprised if you ever see a subdataset being shown as
 ``modified`` by :dlcmd:`status`: You now know that if a subdataset
-evolves, it's most recent state needs to be explicitly saved to the superdatasets
+evolves, its most recent state needs to be explicitly saved to the superdataset's
 history.
 
 On a different matter, you are now able to capture and share analysis provenance that

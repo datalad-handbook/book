@@ -1133,7 +1133,7 @@ both  ``--recursive`` and ``--reckless [availability|undead|kill]`` flags are ne
 to traverse into subdatasets and to remove content that does not have verified remotes.
 
 Be aware, though, that deleting a dataset in which ever way will
-irretrievably delete the dataset, it's contents, and it's history.
+irretrievably delete the dataset, its contents, and its history.
 
 Summary
 ^^^^^^^

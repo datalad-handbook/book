@@ -94,7 +94,7 @@ we can set subdatasets to previous states, or *update* them.
 
 .. index::
    pair: temporary working directory change; with Git
-.. find-out-more:: Do I have to navigate into the subdataset to see it's history?
+.. find-out-more:: Do I have to navigate into the subdataset to see its history?
 
    Previously, we used :shcmd:`cd` to navigate into the subdataset, and
    subsequently opened the Git log. This is necessary, because a :gitcmd:`log`

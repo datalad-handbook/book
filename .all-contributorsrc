@@ -655,6 +655,15 @@
       "contributions": [
         "bug"
       ]
+    },
+    {
+      "login": "matrss",
+      "name": "Matthias Riße",
+      "avatar_url": "https://avatars.githubusercontent.com/u/9308656?v=4",
+      "profile": "https://github.com/matrss",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,

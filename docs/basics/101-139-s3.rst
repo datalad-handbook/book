@@ -3,6 +3,12 @@
 Walk-through: Amazon S3 as a special remote
 -------------------------------------------
 
+.. importantnote:: This walk-through requires git-annex >= 10.20230802
+
+   Prior versions of git-annex do not support public access via the ``publicurl`` parameter with S3 buckets created after April 2023.
+   Find out more about this in `this discussion <https://git-annex.branchable.com/bugs/S3_ACL_deprecation/>`_.
+
+
 `Amazon S3 <https://aws.amazon.com/s3>`_ (or Amazon Simple Storage Service) is a
 popular service by `Amazon Web Services <https://aws.amazon.com>`_ (AWS) that
 provides object storage through a web service interface. An S3 bucket can be 

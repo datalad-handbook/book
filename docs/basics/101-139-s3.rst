@@ -224,7 +224,7 @@ To make them public, switch to the "Permissions" tab in your buckets S3 console 
 
 .. find-out-more:: Info on public buckets created prior to April 2023
 
-    Amazon S3 buckets created after April 2023 had support for using ACLs for public read access to files.
+    Amazon S3 buckets created before April 2023 supported using ACLs for public read access to files.
     This functionality has since been deprecated, and only remains for legacy buckets.
     When dealing with an old S3 bucket using ACLs like that, it is possible to use the deprecated ``public`` parameter and set it to "yes".
 

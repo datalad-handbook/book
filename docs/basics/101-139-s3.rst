@@ -3,6 +3,12 @@
 Walk-through: Amazon S3 as a special remote
 -------------------------------------------
 
+.. importantnote:: This walk-through requires git-annex >= 10.20230802
+
+   Prior versions of git-annex do not support public access via the ``publicurl`` parameter with S3 buckets created after April 2023.
+   Find out more about this in `this discussion <https://git-annex.branchable.com/bugs/S3_ACL_deprecation/>`_.
+
+
 `Amazon S3 <https://aws.amazon.com/s3>`_ (or Amazon Simple Storage Service) is a
 popular service by `Amazon Web Services <https://aws.amazon.com>`_ (AWS) that
 provides object storage through a web service interface. An S3 bucket can be 
@@ -156,6 +162,7 @@ Initialize the S3 special remote
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The steps below have been adapted from instructions provided on `git-annex documentation <https://git-annex.branchable.com/tips/public_Amazon_S3_remote>`_.
+For more info on the S3 special remote, see `the s3 special remote manpage <https://git-annex.branchable.com/special_remotes/S3>`.
 
 By initializing the special remote, what actually happens in the background
 is that a :term:`sibling` is added to the DataLad dataset. This can be verified
@@ -178,7 +185,7 @@ it will be used again later.
 
    $ BUCKET=sample-neurodata-public
    $ git annex initremote public-s3 type=S3 encryption=none \
-   bucket=$BUCKET public=yes datacenter=EU autoenable=true
+   bucket=$BUCKET datacenter=EU autoenable=true
    initremote public-s3 (checking bucket...) (creating bucket in EU...) ok
    (recording state in git...)
 
@@ -188,7 +195,6 @@ The options used in this example include:
 - ``type=S3``: the type of special remote (git-annex can work with many `special remote types <https://git-annex.branchable.com/special_remotes>`_)
 - ``encryption=none``: no encryption (alternatively enable ``encryption=shared``, meaning files will be encrypted on S3, and anyone with a clone of the git repository will be able to download and decrypt them)
 - ``bucket=$BUCKET``: the name of the bucket to be created on S3 (using the declared variable)
-- ``public=yes``: Set to "yes" to allow public read access to files sent to the S3 remote
 - ``datacenter=EU``: specify where the data will be located; here we set "EU" which is EU/Ireland a.k.a. ``eu-west-1`` (defaults to "US" if not specified)
 - ``autoenable=true``: git-annex will attempt to enable the special remote when it is run in a new clone, implying that users won't have to run extra steps when installing the dataset with DataLad
 
@@ -208,6 +214,44 @@ to "Buckets" to see your newly created bucket. It should only have a single
 .. figure:: ../artwork/src/aws_s3_bucket_empty.png
 
    A newly created public S3 bucket
+
+By default, this bucket and its contents are not publicly accessible.
+To make them public, switch to the "Permissions" tab in your buckets S3 console overview, and turn the option "Block all public access" off.
+
+.. figure:: ../artwork/src/aws_s3_bucket_permissions.png
+
+   Bucket settings allow making the bucket public
+
+Alternatively, create a bucket policy as shown below, inserting your own bucket name into the two placeholders::
+
+    {
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": "s3:GetObject",
+            "Resource": [
+                "arn:aws:s3:::YOUR-BUCKET-NAME-HERE",
+                "arn:aws:s3:::YOUR-BUCKET-NAME-HERE/*"
+                ]
+            }
+        ]
+    }
+
+.. figure:: ../artwork/src/aws_s3_bucket_policy.png
+
+   Bucket policy to allow objects in the bucket to be retrieved by anyone.
+
+
+.. find-out-more:: Info on public buckets created prior to April 2023
+
+    Amazon S3 buckets created before April 2023 supported using ACLs for public read access to files.
+    This functionality has since been deprecated, and only remains for legacy buckets.
+    When dealing with an old S3 bucket using ACLs like that, it is possible to use the deprecated ``public`` parameter and set it to "yes".
+
+    - ``public=yes``: Set to "yes" to allow public read access to files sent to the S3 remote
+
 
 Lastly, for git-annex to be able to download files from the bucket without requiring your
 AWS credentials, it needs to know where to find the bucket. We do this by setting the bucket
@@ -235,7 +279,7 @@ option. For consistency, we'll give the GitHub repository the same name as the d
 .. code-block:: console
 
    $ datalad create-sibling-github -d . neuro-data-s3 \
-   --publish-depends public-s3
+   --publish-depends public-s3 --access-protocol ssh
    [INFO   ] Configure additional publication dependency on "public-s3"
    .: github(-) [https://github.com/jsheunis/sample-neuro-data.git (git)]
    'https://github.com/jsheunis/sample-neuro-data.git' configured as sibling 'github' for Dataset(/Users/jsheunis/Documents/neuro-data-s3)

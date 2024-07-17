@@ -265,7 +265,17 @@ smartquotes = True
 trim_footnote_reference_space = True
 
 # -- Options for HTML output ---------------------------------------------------
-html_baseurl = 'https://handbook.datalad.org/'
+#html_baseurl = 'https://handbook.datalad.org/'
+# see https://about.readthedocs.com/blog/2024/07/addons-by-default/ for the
+# reasoning behind the following:
+import os
+html_context = {}
+# Set canonical URL from the Read the Docs Domain
+html_baseurl = os.environ.get("READTHEDOCS_CANONICAL_URL", "")
+print("########### this is the baseurl", html_baseurl)
+# Tell Jinja2 templates the build is running on Read the Docs
+if os.environ.get("READTHEDOCS", "") == "True":
+    html_context["READTHEDOCS"] = True
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.

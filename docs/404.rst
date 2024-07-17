@@ -16,3 +16,5 @@ It looks like this was the result of either:
 `Click here to go back to the homepage. <https://handbook.datalad.org>`_
 
 Or, try `searching <https://handbook.datalad.org/search.html>`_.
+
+arbitrary change

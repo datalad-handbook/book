@@ -82,7 +82,7 @@ However, all files and directories you store within the DataLad dataset
 can be tracked (should you want them to be tracked).
 *Tracking* in this context means that edits done to a file are automatically
 associated with information about the change, the author of the edit,
-and the time of this change. This is already informative important on its own
+and the time of this change. This is already important information on its own
 -- the :term:`provenance` captured with this can, for example, be used to learn
 about a file's lineage, and can establish trust in it.
 But what is especially helpful is that previous states of files or directories

@@ -137,7 +137,7 @@ prior to running the command.
    "convert -resize 400x400 recordings/longnow/.datalad/feed_metadata/logo_salt.jpg recordings/salt_logo_small.jpg"
 
 
-Cool! You can see in this output that prior to the data command execution, DataLad did a :dlcmd:`get`.
+Cool! You can see in this output that prior to the command execution, DataLad did a :dlcmd:`get`.
 This is useful for several reasons. For one, it saved us the work of manually
 getting content. But moreover, this is useful for anyone with whom we might share the
 dataset: With an installed dataset one can very simply rerun :dlcmd:`run` commands

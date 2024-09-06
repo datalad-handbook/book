@@ -379,7 +379,7 @@ This was only a quick digression into :dlcmd:`drop`. The main principles
 of this command will become clear after chapter
 :ref:`chapter_gitannex`, and its precise use is shown in the paragraph on
 :ref:`removing file contents <remove>`.
-At this point, however, you already know that datasets allow you do
+At this point, however, you already know that datasets allow you to
 :dlcmd:`drop` file contents flexibly. If you want to, you could have more
 podcasts (or other data) on your computer than you have disk space available
 by using DataLad datasets -- and that really is a cool feature to have.

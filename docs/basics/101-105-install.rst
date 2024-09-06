@@ -334,7 +334,7 @@ really helpful to save disk space for data you can easily reobtain, for example"
 The :dlcmd:`drop` command will remove
 file contents completely from your dataset.
 You should only use this command to remove contents that you can :dlcmd:`get`
-again, or generate again (for example, with next chapter's :dlcmd:`datalad run`
+again, or generate again (for example, with next chapter's :dlcmd:`run`
 command), or that you really do not need anymore.
 
 Let's remove the content of one of the files that we have downloaded, and check

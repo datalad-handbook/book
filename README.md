@@ -4,7 +4,7 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3608611.svg)](https://doi.org/10.5281/zenodo.3608611)
 [![made-with-datalad](https://www.datalad.org/badges/made_with.svg)](https://datalad.org)
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-64-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-65-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END --> 
 
 # The DataLad handbook :orange_book:
@@ -145,6 +145,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     </tr>
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://nicholdav.info/"><img src="https://avatars.githubusercontent.com/u/11934090?v=4?s=100" width="100px;" alt="David Nicholson"/><br /><sub><b>David Nicholson</b></sub></a><br /><a href="https://github.com/datalad-handbook/book/issues?q=author%3ANickleDave" title="Bug reports">🐛</a> <a href="#content-NickleDave" title="Content">🖋</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://www.climate-resource.com/about-us"><img src="https://avatars.githubusercontent.com/u/7226087?v=4?s=100" width="100px;" alt="Mika Pflüger"/><br /><sub><b>Mika Pflüger</b></sub></a><br /><a href="#maintenance-mikapfl" title="Maintenance">🚧</a></td>
     </tr>
   </tbody>
 </table>

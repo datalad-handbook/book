@@ -261,7 +261,7 @@ Alternatively, this URL can also be copied from your AWS console.
 .. code-block:: console
 
    $ git annex enableremote public-s3 \
-   publicurl="https://$BUCKET.s3-eu-west-1.amazonaws.com"
+   publicurl="https://$BUCKET.s3.eu-west-1.amazonaws.com"
    enableremote public-s3 ok
    (recording state in git...)
 

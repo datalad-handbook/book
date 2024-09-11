@@ -216,7 +216,7 @@ to "Buckets" to see your newly created bucket. It should only have a single
    A newly created public S3 bucket
 
 By default, this bucket and its contents are not publicly accessible.
-To make them public, switch to the "Permissions" tab in your buckets S3 console overview, and turn the option "Block all public access" off.
+To make them public, switch to the "Permissions" tab in your buckets S3 console overview, and turn the option "Block all public access" off (see :ref:`s3_terraform` for how to do this using terraform).
 
 .. figure:: ../artwork/src/aws_s3_bucket_permissions.png
 
@@ -363,8 +363,8 @@ and :dlcmd:`get` all annexed file content successfully from the ``public-s3`` si
 Congrats!
 
 
-Advanced examples
-^^^^^^^^^^^^^^^^^
+Advanced examples - automatically export a hierarchy of datasets
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 When there is a lot to upload, automation is your friend.
 One example is the automated upload of dataset hierarchies to S3
@@ -419,3 +419,44 @@ It needs to be invoked with three positional arguments, the path to the :term:`D
 
 	)
    done
+
+.. _s3_terraform:
+
+Advanced examples - configure s3 via terraform
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If you are using terraform or `tofu <https://opentofu.org/>`_ for managing AWS configuration, you can add an S3 bucket with public read access using this snippet (replacing my-example-bucket with the intended bucket name):
+
+.. code-block:: terraform
+
+   resource "aws_s3_bucket" "datalad_bucket" {
+     bucket = "my-example-bucket"
+   }
+
+   resource "aws_s3_bucket_public_access_block" "datalad_bucket_enable_public_read" {
+     bucket = aws_s3_bucket.datalad_bucket.id
+
+     block_public_policy     = false
+     ignore_public_acls      = false
+     restrict_public_buckets = false
+   }
+
+   resource "aws_s3_bucket_policy" "datalad_bucket_read_publicly_policy" {
+     depends_on = [aws_s3_bucket_public_access_block.datalad_bucket_enable_public_read]
+     bucket = aws_s3_bucket.datalad_bucket.id
+     policy = jsonencode({
+       "Version" : "2012-10-17",
+       "Statement" : [{
+         "Principal": "*",
+         "Action" : [
+           "s3:GetObject",
+           "s3:ListBucket"
+         ],
+         "Resource" : [
+           aws_s3_bucket.datalad_bucket.arn,
+           "${aws_s3_bucket.datalad_bucket.arn}/*",
+         ]
+         "Effect" : "Allow",
+       }]
+     })
+   }

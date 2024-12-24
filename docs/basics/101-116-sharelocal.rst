@@ -283,7 +283,7 @@ Write this note in "your own" (the original) ``DataLad-101`` dataset, though!
    Note that subdatasets will not be installed by default, but are only
    registered in the superdataset -- you will have to do a
    "datalad get -n PATH/TO/SUBDATASET" to install the subdataset for file
-   availability meta data. The -n/--no-data options prevents that file
+   availability meta data. The -n/--no-data option prevents that file
    contents are also downloaded.
 
    Note that a recursive "datalad get" would install all further

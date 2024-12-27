@@ -324,7 +324,7 @@ the ``-o``/``--output`` option.
    pair: declare command output; with DataLad run
 
 In order to execute :dlcmd:`run` with both the ``-i``/``--input`` and ``-o``/``--output``
-flag and see their magic, let's crop the second logo, ``logo_interval.jpg``:
+flag and see their magic, let's resize the second logo, ``logo_interval.jpg``:
 
 .. index::
    pair: files are unlocked by default; on Windows

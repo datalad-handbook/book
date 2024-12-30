@@ -204,7 +204,7 @@ Here is the directory structure:
 
 .. code-block:: console
 
-    $ cd ../ && tree
+    $ cd superds/ && tree
     .
     ├── subds1
     │   ├── subsubds1

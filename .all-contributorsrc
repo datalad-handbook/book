@@ -684,6 +684,15 @@
         "maintenance",
         "content"
       ]
+    },
+    {
+      "login": "malikwirin",
+      "name": "Malik",
+      "avatar_url": "https://avatars.githubusercontent.com/u/117918464?v=4",
+      "profile": "https://github.com/malikwirin",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,

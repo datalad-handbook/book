@@ -464,7 +464,7 @@ Write a note about configurations in datasets into ``notes.txt``.
    take precedence over more global or hared configurations, and
    environment variables take precedence over configurations in files.
 
-   The git config --list --show-origin command is a useful tool to give
+   The "git config --list --show-origin" command is a useful tool to give
    an overview over existing configurations. Particularly important may
    be the .gitattributes file, in which one can set rules for git-annex
    about which files should be version-controlled with Git instead of

@@ -16,6 +16,7 @@ docs/_build
 build/
 
 venv/
+.venv/
 
 *.egg-info
 

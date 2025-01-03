@@ -158,11 +158,11 @@ This key is defined on a per subdataset basis, and if set to "``skip``", the giv
 If you are a maintainer of a superdataset with monstrous amounts of subdatasets, you can set this option and share it together with the dataset to prevent an accidental, large recursive installation in particularly deeply nested subdatasets.
 Below is a minimally functional example on how to apply the configuration and how it works:
 
-Let's create a dataset hierarchy to work with (note that we concatenate multiple commands into a single line using bash's "and" ``&&`` operator):
+Let's create a dataset hierarchy in a temporary location as an example to work with (note that we concatenate multiple commands into a single line using bash's "and" ``&&`` operator):
 
 .. code-block:: console
 
-    $ # create a superdataset with two subdatasets
+    $ # create a superdataset with two subdatasets in a temporary directory
     $ datalad create superds && datalad -C superds create -d . subds1 && datalad -C superds create -d . subds2
     create(ok): /tmp/superds (dataset)
     add(ok): subds1 (file)
@@ -204,7 +204,7 @@ Here is the directory structure:
 
 .. code-block:: console
 
-    $ cd ../ && tree
+    $ cd superds/ && tree
     .
     ├── subds1
     │   ├── subsubds1
@@ -464,7 +464,7 @@ Write a note about configurations in datasets into ``notes.txt``.
    take precedence over more global or hared configurations, and
    environment variables take precedence over configurations in files.
 
-   The git config --list --show-origin command is a useful tool to give
+   The "git config --list --show-origin" command is a useful tool to give
    an overview over existing configurations. Particularly important may
    be the .gitattributes file, in which one can set rules for git-annex
    about which files should be version-controlled with Git instead of

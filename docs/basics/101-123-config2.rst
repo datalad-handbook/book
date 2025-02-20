@@ -95,7 +95,7 @@ Lastly, if you wanted to configure a rule based on **size**, you could add a row
 
 .. code-block:: bash
 
-   ** annex.largefiles(largerthan=20kb)
+   ** annex.largefiles=(largerthan=20kb)
 
 to store only files exceeding 20KB in size in git-annex [#f2]_.
 

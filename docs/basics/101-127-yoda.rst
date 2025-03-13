@@ -222,7 +222,7 @@ more.
    :name: dataset_modules
    :alt: Modular structure of a data analysis project
 
-   Data are modular components that can be re-used easily.
+   Data are modular components that can be reused easily.
 
 The directory tree above and :numref:`dataset_modules` highlight different aspects
 of this principle. The directory tree illustrates the structure of

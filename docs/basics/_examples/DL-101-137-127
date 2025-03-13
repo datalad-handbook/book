@@ -1,5 +1,5 @@
 
-$ git cat-file --textconv 1e73592e✂SHA1:notes.txt
+$ git cat-file --textconv d0e83f29✂SHA1:notes.txt
 One can create a new dataset with 'datalad create [--description] PATH'.
 The dataset is created empty
 
@@ -49,7 +49,7 @@ location of the new dataset clone with the -D/--description option.
 Note that subdatasets will not be installed by default, but are only
 registered in the superdataset -- you will have to do a
 "datalad get -n PATH/TO/SUBDATASET" to install the subdataset for file
-availability meta data. The -n/--no-data options prevents that file
+availability meta data. The -n/--no-data option prevents that file
 contents are also downloaded.
 
 Note that a recursive "datalad get" would install all further

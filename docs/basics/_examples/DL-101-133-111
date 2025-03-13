@@ -1,5 +1,5 @@
 $ git log -p -n 1
-commit 4f00ad07✂SHA1
+commit ea455892✂SHA1
 Author: Elena Piscopia <elena@example.net>
 Date:   Tue Jun 18 16:13:00 2019 +0000
 
@@ -26,11 +26,11 @@ Date:   Tue Jun 18 16:13:00 2019 +0000
     ^^^ Do not change lines above ^^^
 
 diff --git a/pairwise_relationships.png b/pairwise_relationships.png
-index a24e6b9..963d5a8 120000
+index c2951c3..963d5a8 120000
 --- a/pairwise_relationships.png
 +++ b/pairwise_relationships.png
 @@ -1 +1 @@
--.git/annex/objects/G3/Mg/✂/MD5E-s260649--127313ad✂MD5.png
+-.git/annex/objects/ZM/F8/✂/MD5E-s260649--49cfa6f0✂MD5.png
 \ No newline at end of file
 +.git/annex/objects/q1/gp/✂/MD5E-s261062--025dc493✂MD5.png
 \ No newline at end of file

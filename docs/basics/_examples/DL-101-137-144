@@ -1,5 +1,5 @@
 
-$ git revert 713e79d3✂SHA1
-[main 6d3d93b] Revert "did a bad modification"
+$ git revert ed212010✂SHA1
+[main 7dd7551] Revert "did a bad modification"
  Date: Tue Jun 18 16:13:00 2019 +0000
  1 file changed, 1 deletion(-)

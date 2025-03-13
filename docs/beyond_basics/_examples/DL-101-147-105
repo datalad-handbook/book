@@ -25,6 +25,7 @@ $ tree /home/me/myriastore
 │       │   ├── pre-rebase.sample
 │       │   ├── pre-receive.sample
 │       │   ├── push-to-checkout.sample
+│       │   ├── sendemail-validate.sample
 │       │   └── update.sample
 │       ├── info
 │       │   └── exclude
@@ -38,4 +39,4 @@ $ tree /home/me/myriastore
 ├── error_logs
 └── ria-layout-version
 
-17 directories, 20 files
+17 directories, 21 files

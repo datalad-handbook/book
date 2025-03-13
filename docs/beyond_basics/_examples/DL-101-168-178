@@ -1,13 +1,13 @@
 $ datalad rerun --branch="randomforest" -m "Recompute classification with random forest classifier" ready-for-analysis..SGD
-[INFO] checkout commit 1b3b757;
-[INFO] run commit 88a6e86; (Train an SGD clas...)
+[INFO] checkout commit c4e30d5;
+[INFO] run commit 4759bf7; (Train an SGD clas...)
 unlock(ok): model/model.joblib (file)
 [INFO] == Command start (output follows) =====
 [INFO] == Command exit (modification check follows) =====
 run(ok): /home/me/DVCvsDL/DVC-DataLad (dataset) [python code/train.py]
 add(ok): model/model.joblib (file)
 save(ok): . (dataset)
-[INFO] run commit 2d07713; (Evaluate SGD clas...)
+[INFO] run commit 8a9a2a0; (Evaluate SGD clas...)
 [INFO] == Command start (output follows) =====
 [INFO] == Command exit (modification check follows) =====
 run(ok): /home/me/DVCvsDL/DVC-DataLad (dataset) [python code/evaluate.py]

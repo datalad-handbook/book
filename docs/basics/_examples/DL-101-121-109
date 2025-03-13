@@ -65,7 +65,7 @@ index f84c817..0000000
 -# commits throughout the repository tree
 -datalad diff --revision @~1 -r
 diff --git a/notes.txt b/notes.txt
-index 655be7d..ff02f68 100644
+index c302a3c..1c681e5 100644
 --- a/notes.txt
 +++ b/notes.txt
 @@ -59,3 +59,7 @@ The command "git annex whereis PATH" lists the repositories that have

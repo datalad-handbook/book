@@ -362,6 +362,9 @@ To compute the analysis you create the following Python script inside of ``code/
    $ cat << EOT > code/script.py
 
    import argparse
+   import matplotlib
+   matplotlib.use('Agg')
+
    import pandas as pd
    import seaborn as sns
    from sklearn import model_selection

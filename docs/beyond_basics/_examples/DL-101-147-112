@@ -37,15 +37,17 @@ $ tree /home/me/myriastore
 │       │   ├── pre-rebase.sample
 │       │   ├── pre-receive.sample
 │       │   ├── push-to-checkout.sample
+│       │   ├── sendemail-validate.sample
 │       │   └── update.sample
 │       ├── info
 │       │   └── exclude
 │       ├── objects
 │       │   ├── info
 │       │   └── pack
-│       │       ├── pack-e79ad660✂SHA1.idx
-│       │       └── pack-e79ad660✂SHA1.pack
-│       ├── ora-remote-aa9031bf-0855-4611-aa21-da0698cce020
+│       │       ├── pack-d6432779✂SHA1.idx
+│       │       ├── pack-d6432779✂SHA1.pack
+│       │       └── pack-d6432779✂SHA1.rev
+│       ├── ora-remote-fb058179-25cf-448d-9bf0-d9194c5d01ee
 │       │   └── transfer
 │       ├── refs
 │       │   ├── heads
@@ -92,14 +94,16 @@ $ tree /home/me/myriastore
 │       │   ├── pre-rebase.sample
 │       │   ├── pre-receive.sample
 │       │   ├── push-to-checkout.sample
+│       │   ├── sendemail-validate.sample
 │       │   └── update.sample
 │       ├── info
 │       │   └── exclude
 │       ├── objects
 │       │   ├── info
 │       │   └── pack
-│       │       ├── pack-a02f2380✂SHA1.idx
-│       │       └── pack-a02f2380✂SHA1.pack
+│       │       ├── pack-f86586c3✂SHA1.idx
+│       │       ├── pack-f86586c3✂SHA1.pack
+│       │       └── pack-f86586c3✂SHA1.rev
 │       ├── ora-remote-46b169aa-bb91-42d6-be06-355d957fb4f7
 │       │   └── transfer
 │       ├── refs
@@ -111,4 +115,4 @@ $ tree /home/me/myriastore
 ├── error_logs
 └── ria-layout-version
 
-56 directories, 54 files
+56 directories, 58 files

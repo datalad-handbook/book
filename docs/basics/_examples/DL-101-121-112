@@ -1,9 +1,9 @@
 $ git log --oneline
-6ae8e71 Merge remote-tracking branch 'roommate/main'
-4bb5d39 add note about datalad update
-5b6e19a Include nesting demo from datalad website
-adb4b5d add note on git annex whereis
-1e73592 add note about cloning from paths and recursive datalad get
+6343867 Merge remote-tracking branch 'roommate/main'
+822bf54 add note about datalad update
+191e2a3 Include nesting demo from datalad website
+d664af1 add note on git annex whereis
+d0e83f2 add note about cloning from paths and recursive datalad get
 41fdaab add note on clean datasets
 fd4a25e [DATALAD RUNCMD] Resize logo for slides
 08f2efb [DATALAD RUNCMD] Resize logo for slides

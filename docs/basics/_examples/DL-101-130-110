@@ -1,5 +1,5 @@
 $ git show ready4analysis
-commit ca0c7477✂SHA1
+commit 0915b050✂SHA1
 Author: Elena Piscopia <elena@example.net>
 Date:   Tue Jun 18 16:13:00 2019 +0000
 
@@ -7,12 +7,15 @@ Date:   Tue Jun 18 16:13:00 2019 +0000
 
 diff --git a/code/script.py b/code/script.py
 new file mode 100644
-index 0000000..c7a6ea9
+index 0000000..2d9bf3a
 --- /dev/null
 +++ b/code/script.py
-@@ -0,0 +1,43 @@
+@@ -0,0 +1,46 @@
 +
 +import argparse
++import matplotlib
++matplotlib.use('Agg')
++
 +import pandas as pd
 +import seaborn as sns
 +from sklearn import model_selection

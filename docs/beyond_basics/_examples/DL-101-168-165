@@ -6,7 +6,7 @@ $ git push --set-upstream origin random-forest
 $ git tag -a randomforest -m "Random Forest classifier with 80.99% accuracy."
 $ git push origin --tags
 $ dvc push
-[random-forest c565b15] Train Random Forest classifier
+[random-forest 523abff] Train Random Forest classifier
  3 files changed, 11 insertions(+), 17 deletions(-)
 To /home/me/pushes/data-version-control
  * [new branch]      random-forest -> random-forest

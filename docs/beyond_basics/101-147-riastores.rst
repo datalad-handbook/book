@@ -138,7 +138,7 @@ archives (``archives/``), either for compression gains, or for use on HPC-system
 `inode <https://en.wikipedia.org/wiki/Inode>`_ limitations [#f4]_.
 Despite being 7zipped, those archives can be indexed and support
 relatively fast random read access. Thus, the entire key store can be put into an
-archive, re-using the exact same directory structure, and remains fully
+archive, reusing the exact same directory structure, and remains fully
 accessible while only using a handful of inodes, regardless of file
 number and size. If the dataset contains only annexed files, a complete dataset
 can be represented in about 25 inodes.

@@ -27,6 +27,9 @@ failed -- sorry about this.
 
 **Here are some links that may take you to where you need to go:**
 
+Handbook content
+~~~~~~~~~~~~~~~~
+
 ..
    This defines a mapping of redirect codes to their present URLs.
    Please keep sorted by redirection label.
@@ -91,6 +94,14 @@ failed -- sorry about this.
 Alternatively, try searching in the "Quick Search" at the left-hand side, or
 scan the handbook's front page at `handbook.datalad.org <https://handbook.datalad.org>`_
 for directions.
+
+
+GitHub
+~~~~~~
+
+:redirect:`fairly-big-processing-workflow`
+    `psychoinformatics-de/fairly-big-processing-workflow <https://github.com/psychoinformatics-de/fairly-big-processing-workflow>`_
+
 
 ..
    This code replaces the r.html?key part with the final URL, while keeping

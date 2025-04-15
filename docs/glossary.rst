@@ -266,6 +266,11 @@ Glossary
       option. Find out more in the
       `documentation of git push <https://git-scm.com/docs/git-push#Documentation/git-push.txt---force>`_.
 
+   forgejo
+      .. index:: dataset-hosting; Forgejo
+
+      Forgejo is a self-hosted Git repository hosting service, and specifically an open source, exclusively Free Software fork of `Gitea <https://about.gitea.com/>`_.
+
    forgejo-aneksajo
       .. index:: dataset hosting; Forgejo-aneksajo
 

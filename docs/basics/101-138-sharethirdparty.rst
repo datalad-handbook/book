@@ -23,7 +23,7 @@ But at some point in a dataset's life, you may want to share it with people that
 can't access the computer or server your dataset lives on, store it on other infrastructure
 to save diskspace, or create a backup.
 When this happens, you will want to publish your dataset to repository hosting
-services (for example, :term:`GitHub`, :term:`GitLab`, or :term:`GIN`)
+services (for example, :term:`GitHub`, :term:`GitLab`, :term:`GIN`, :term:`forgejo`, or :term:`forgejo-aneksajo`)
 and/or third party storage providers (such as Dropbox_, Google_,
 `Amazon S3 buckets <https://aws.amazon.com/s3>`_,
 the `Open Science Framework`_ (OSF), and many others).
@@ -184,6 +184,10 @@ What makes them extremely convenient is that there is no need to configure a spe
    Some repository hosting services have annex support - they can host both the Git and git-annex parts of your dataset.
 
 Read the section :ref:`gin` for a walk-through.
+
+Another solution is :term:`forgejo-aneksajo`.
+While there are no public instances readily available, it is lightweight and easy to install and run, for example for a group in an academic setting.
+You could read up on how to do this `in this blogpost in the DataLad Blog <https://blog.datalad.org/posts/lab-infra-forgejo/>`_.
 
 The uncommon case: Special remotes with repository hosting support
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

@@ -1,0 +1,3 @@
+$ datalad save -m "add a README to the dataset"
+add(ok): README.md (file)
+save(ok): . (dataset)

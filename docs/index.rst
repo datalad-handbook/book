@@ -100,6 +100,7 @@ Appendix
    basics/101-180-FAQ
    basics/101-136-cheatsheet
    contributing
+   challenges/intro
    teaching
    acknowledgements
    licenses

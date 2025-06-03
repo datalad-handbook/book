@@ -1,0 +1,4 @@
+$ datalad download-url -m "Add image from unsplash" -O chinstrap_02.jpg "https://unsplash.com/photos/8PxCm4HsPX8/download?force=true"
+download_url(ok): /home/me/challenges/102-101-dataset/my-dataset/chinstrap_02.jpg (file)
+add(ok): chinstrap_02.jpg (file)
+save(ok): . (dataset)

@@ -1,0 +1,4 @@
+$ echo "This is my example dataset" >> README.md
+$ datalad save -m "Add redundant explanation"
+add(ok): README.md (file)
+save(ok): . (dataset)

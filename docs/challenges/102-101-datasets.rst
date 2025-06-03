@@ -108,6 +108,7 @@ DataLad datasets can version control their contents, regardless of size.
 
 Create a new dataset ``my-dataset`` that is configured to store text files in Git (see previous challenge) and add a ``README.md`` file with some content into it.
 Make sure to save it with a helpful commit message, and inspect your datasets revision history.
+Afterwards, edit the README and save it again.
 
 .. find-out-more:: Let's go!
 
@@ -143,4 +144,44 @@ Make sure to save it with a helpful commit message, and inspect your datasets re
 
       $ git log
 
+   .. runrecord:: _examples/cha-102-101-datasets-11
+      :language: console
+      :workdir: challenges/102-101-dataset/my-dataset
+
+      $ echo "This is my example dataset" >> README.md
+      $ datalad save -m "Add redundant explanation"
+
+Challenge 4
+"""""""""""
+
+Download and save the following set of penguin images available at the URLs below into a dataset:
+
+- ``chinstrap_01.jpg``: https://unsplash.com/photos/3Xd5j9-drDA/download?force=true
+- ``chinstrap_02.jpg``: https://unsplash.com/photos/8PxCm4HsPX8/download?force=true
+
+You can reuse the dataset from the previous challenge, or create a new one.
+Can you do the download while recording provenance?
+
+.. find-out-more:: Give me a hint about provenance
+
+   Try using :dlcmd:`download-url`.
+
+.. find-out-more:: Show me the entire solution
+
+   You can download a file and save it manually:
+
+   .. runrecord:: _examples/cha-102-101-datasets-12
+      :language: console
+      :workdir: challenges/102-101-dataset/my-dataset
+
+      $ wget -q -O chinstrap_01.jpg "https://unsplash.com/photos/3Xd5j9-drDA/download?force=true"
+      $ datalad save -m "Add image manually downloaded from unsplash"
+
+   Or download it recording its origin as provenance:
+
+   .. runrecord:: _examples/cha-102-101-datasets-13
+      :language: console
+      :workdir: challenges/102-101-dataset/my-dataset
+
+      $ datalad download-url -m "Add image from unsplash" -O chinstrap_02.jpg "https://unsplash.com/photos/8PxCm4HsPX8/download?force=true"
 

@@ -1,0 +1,5 @@
+$ datalad clone https://github.com/lnnrtwttkhn/highspeed-analysis.git
+[INFO] Remote origin not usable by git-annex; setting annex-ignore
+[INFO] access to 1 dataset sibling keeper not auto-enabled, enable with:
+| 		datalad siblings -d "/home/me/challenges/102-101-dataset/highspeed-analysis" enable -s keeper
+install(ok): /home/me/challenges/102-101-dataset/highspeed-analysis (dataset)

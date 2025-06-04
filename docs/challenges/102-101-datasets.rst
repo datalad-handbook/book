@@ -185,3 +185,95 @@ Can you do the download while recording provenance?
 
       $ datalad download-url -m "Add image from unsplash" -O chinstrap_02.jpg "https://unsplash.com/photos/8PxCm4HsPX8/download?force=true"
 
+Challenge 5
+"""""""""""
+
+Other than creating datasets on your own, DataLad allows to clone existing datasets, too.
+Clone and explore the dataset from the following publication:
+
+> *Wittkuhn, L., Schuck, N.W. Dynamics of fMRI patterns reflect sub-second activation sequences and reveal replay in human visual cortex. Nat Commun 12, 1795 (2021). https://doi.org/10.1038/s41467-021-21970-2*
+
+You can find it at https://github.com/lnnrtwttkhn/highspeed-analysis.
+
+
+.. find-out-more:: Show me how to clone it
+
+   .. runrecord:: _examples/cha-102-101-datasets-14
+      :language: console
+      :workdir: challenges/102-101-dataset/
+
+      $ datalad clone https://github.com/lnnrtwttkhn/highspeed-analysis.git
+
+Explore the dataset:
+
+- When was it created?
+- When was it last updated?
+- How many contributors does it have?
+- How much annexed file content does it contain?
+- How many subdatasets are there?
+
+.. find-out-more:: Let's compare explorations
+
+   When was it created?
+
+   .. runrecord:: _examples/cha-102-101-datasets-15
+      :language: console
+      :workdir: challenges/102-101-dataset/
+
+      $ cd highspeed-analysis
+      # first commit
+      $ git log $(git rev-list --max-parents=0 HEAD)
+
+   When was it last updated?
+
+   .. runrecord:: _examples/cha-102-101-datasets-16
+      :language: console
+      :workdir: challenges/102-101-dataset/highspeed-analysis
+
+      # most recent commit
+      $ git show
+
+   How many contributors does it have?
+
+   .. runrecord:: _examples/cha-102-101-datasets-17
+      :language: console
+      :workdir: challenges/102-101-dataset/highspeed-analysis
+
+      # contributions by contributor
+      $ git shortlog -s
+
+   How much annexed file content does it contain?
+
+   .. runrecord:: _examples/cha-102-101-datasets-18
+      :language: console
+      :workdir: challenges/102-101-dataset/highspeed-analysis
+
+      $ datalad status --annex all
+
+   How many subdatasets are there?
+
+   .. runrecord:: _examples/cha-102-101-datasets-19
+      :language: console
+      :workdir: challenges/102-101-dataset/highspeed-analysis
+
+      $ datalad subdatasets
+
+Finally, get the annexed file content and drop it afterwards.
+
+.. find-out-more:: Yeah, data!
+
+   Get it...
+
+   .. runrecord:: _examples/cha-102-101-datasets-20
+      :language: console
+      :workdir: challenges/102-101-dataset/highspeed-analysis
+
+      $ datalad get .
+
+   Drop it!
+
+   .. runrecord:: _examples/cha-102-101-datasets-21
+      :language: console
+      :workdir: challenges/102-101-dataset/highspeed-analysis
+
+      $ datalad drop .

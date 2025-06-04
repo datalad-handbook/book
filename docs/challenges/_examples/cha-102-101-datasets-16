@@ -1,0 +1,22 @@
+# most recent commit
+$ git show
+commit 5ed32fa7✂SHA1
+Author: Lennart Wittkuhn <wittkuhn@mpib-berlin.mpg.de>
+Date:   Mon Aug 23 10:24:36 2021 +0200
+
+    update state of input subdatasets in /data
+
+diff --git a/data/bids b/data/bids
+index 5dd8eb8..4b59024 160000
+--- a/data/bids
++++ b/data/bids
+@@ -1 +1 @@
+-Subproject commit 5dd8eb86✂SHA1
++Subproject commit 4b59024c✂SHA1
+diff --git a/data/decoding b/data/decoding
+index 332d94a..a05eb37 160000
+--- a/data/decoding
++++ b/data/decoding
+@@ -1 +1 @@
+-Subproject commit 332d94a2✂SHA1
++Subproject commit a05eb37d✂SHA1

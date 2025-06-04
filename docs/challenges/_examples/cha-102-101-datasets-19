@@ -1,0 +1,5 @@
+# and finally, number of subdatasets
+$ datalad subdatasets
+subdataset(ok): code/raincloud-plots (dataset)
+subdataset(ok): data/bids (dataset)
+subdataset(ok): data/decoding (dataset)

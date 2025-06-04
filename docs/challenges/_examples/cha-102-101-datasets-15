@@ -1,0 +1,8 @@
+$ cd highspeed-analysis
+# first commit
+$ git log $(git rev-list --max-parents=0 HEAD)
+commit 34eeffcc✂SHA1
+Author: Lennart Wittkuhn <wittkuhn@mpib-berlin.mpg.de>
+Date:   Thu Nov 5 08:45:43 2020 +0100
+
+    [DATALAD] new dataset

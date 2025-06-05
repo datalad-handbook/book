@@ -15,19 +15,30 @@ Challenge 1
 """""""""""
 
 Create a dataset called ``my-dataset`` on your computer.
-You can ``cd`` into it and explore it, if you like.
-Afterwards, remove it.
+Inside of the dataset, run the command ``gitk`` and explore it.
 
+Can you find:
+
+- the dataset identifier?
+- the version label?
+- the dataset creator?
+- the dataset creation date?
+
+Afterwards, run the command ``gitk --all``. What is the difference from before?
 
 .. find-out-more:: Show me how to do it
 
-	Create a new dataset:
+	To create a new dataset, run:
 
 	.. runrecord:: _examples/cha-102-101-datasets-1
 	   :language: console
 	   :workdir: challenges/102-101-dataset
 
 	   $ datalad create my-dataset
+
+Finally, remove the dataset.
+
+.. find-out-more:: How do I do that?
 
 	To remove it, run :dlcmd:`drop`. Importantly, this command needs to run *outside* of the dataset.
 
@@ -90,6 +101,10 @@ Create a DataLad dataset called ``text2gitdataset`` and configure it to never an
       $ echo "* annex.largefiles=(mimeencoding=binary)and(largerthan=0))" >> .gitattributes
       $ datalad save -m "configure Dataset to keep text files in Git"
 
+In the end, remove the datasets.
+
+.. find-out-more:: Can you show me again?
+
    Clean-up:
 
    .. runrecord:: _examples/cha-102-101-datasets-6
@@ -108,7 +123,6 @@ DataLad datasets can version control their contents, regardless of size.
 
 Create a new dataset ``my-dataset`` that is configured to store text files in Git (see previous challenge) and add a ``README.md`` file with some content into it.
 Make sure to save it with a helpful commit message, and inspect your datasets revision history.
-Afterwards, edit the README and save it again.
 
 .. find-out-more:: Let's go!
 
@@ -143,6 +157,12 @@ Afterwards, edit the README and save it again.
       :workdir: challenges/102-101-dataset/my-dataset
 
       $ git log
+
+Run ``gitk`` again. Can you find the dataset modification date?
+
+Finally, edit the README and save it again.
+
+.. find-out-more:: Let's go!
 
    .. runrecord:: _examples/cha-102-101-datasets-11
       :language: console
@@ -184,6 +204,9 @@ Can you do the download while recording provenance?
       :workdir: challenges/102-101-dataset/my-dataset
 
       $ datalad download-url -m "Add image from unsplash" -O chinstrap_02.jpg "https://unsplash.com/photos/8PxCm4HsPX8/download?force=true"
+
+Run ``gitk`` in the dataset.
+Can you find the file identifier of any of the newly downloaded files?
 
 Challenge 5
 """""""""""

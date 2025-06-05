@@ -1,0 +1,3 @@
+$ datalad save -m "Create the desired setosa variety petal length data file"
+add(ok): outputs.dat (file)
+save(ok): . (dataset)

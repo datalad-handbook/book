@@ -1,0 +1,6 @@
+$ datalad run -i inputs/iris.csv -o plength.txt "python code/extract.py > {outputs}"
+[INFO] == Command start (output follows) =====
+[INFO] == Command exit (modification check follows) =====
+run(ok): /home/me/challenges/102-103-provenance/iyoda (dataset) [python code/extract.py > plength.txt]
+add(ok): plength.txt (file)
+save(ok): . (dataset)

@@ -96,3 +96,25 @@ Where can you find out about the subdataset version?
 
       $ git show inputs
 
+Challenge 4
+"""""""""""
+
+Clone the following dataset: https://github.com/psychoinformatics-de/studyforrest-data
+Where can you find out about the origin location of its subdatasets?
+
+.. find-out-more:: Let's see!
+
+   The information is stored in the superdatasets' ``.gitmodules`` file:
+
+   .. runrecord:: _examples/cha-102-102-subdatasets-7
+      :language: console
+      :workdir: challenges/102-102-subdataset
+
+      $ datalad clone https://github.com/psychoinformatics-de/studyforrest-data.git
+
+   .. runrecord:: _examples/cha-102-102-subdatasets-8
+      :language: console
+      :workdir: challenges/102-102-subdataset/studyforrest-data
+
+      $ cd studyforrest-data
+      $ cat .gitmodules

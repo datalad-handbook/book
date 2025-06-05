@@ -1,0 +1,4 @@
+$ datalad clone https://github.com/psychoinformatics-de/studyforrest-data.git
+[INFO] Remote origin not usable by git-annex; setting annex-ignore
+[INFO] RIA store unavailable. -caused by- Failed to access http://studyforrest.ds.inm7.de/ria-layout-version -caused by- Failed to access http://studyforrest.ds.inm7.de/ria-layout-version -caused by- Failed to establish a new session 1 times.  -caused by- HTTPConnectionPool(host='studyforrest.ds.inm7.de', port=80): Max retries exceeded with url: /ria-layout-version (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at ✂MEMORYADDRESS✂: Failed to resolve 'studyforrest.ds.inm7.de' ([Errno -2] Name or service not known)"))
+install(ok): /home/me/challenges/102-102-subdataset/studyforrest-data (dataset)

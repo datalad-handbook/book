@@ -1,0 +1,2 @@
+$ datalad drop --what all -d my-dataset --reckless availability
+uninstall(ok): . (dataset)

@@ -84,6 +84,7 @@ test_script:
   # Wipe out runrecords to trigger rebuild
   - rm -rf docs/basics/_examples
   - rm -rf docs/beyond_basics/_examples
+  - rm -rf docs/challenges/_examples
   - make build
 
 

@@ -22,4 +22,4 @@ jobs:
         uses: codespell-project/actions-codespell@v2
         with:
           skip: '.git,*.pdf,*.svg,venvs,versioneer.py,DL-*,.github,_build'
-          ignore_words_list: 'wit,thirdparty'
+          ignore_words_list: 'wit,thirdparty,commun'

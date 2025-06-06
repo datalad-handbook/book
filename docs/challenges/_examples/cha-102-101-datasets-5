@@ -1,0 +1,7 @@
+$ datalad create text2gitdataset-3
+$ cd text2gitdataset-3
+$ echo "* annex.largefiles=(mimeencoding=binary)and(largerthan=0))" >> .gitattributes
+$ datalad save -m "configure Dataset to keep text files in Git"
+create(ok): /home/me/challenges/102-101-dataset/text2gitdataset-3 (dataset)
+add(ok): .gitattributes (file)
+save(ok): . (dataset)

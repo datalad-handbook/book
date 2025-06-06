@@ -1,0 +1,5 @@
+$ datalad create -d . inputs
+add(ok): inputs (dataset)
+add(ok): .gitmodules (file)
+save(ok): . (dataset)
+create(ok): inputs (dataset)

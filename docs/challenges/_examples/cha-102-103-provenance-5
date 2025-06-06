@@ -1,0 +1,4 @@
+$ datalad get inputs
+get(ok): inputs/iris.csv (file) [from web...]
+action summary:
+  get (notneeded: 1, ok: 1)

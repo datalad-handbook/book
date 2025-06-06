@@ -3,6 +3,12 @@
 Challenge: Provenance Capture
 *****************************
 
+
+.. importantnote:: You can always get help
+
+   In order to learn about available DataLad commands, use ``datalad --help``. In order to learn more about a specific command, use ``datalad <subcommand> --help``.
+
+
 Challenge 1:
 """"""""""""
 

@@ -53,7 +53,9 @@ Challenge 2
 """""""""""
 
 Text files are digital files containing plain text.
-Take a minute to think: Why is it often useful to keep textfiles out of git-annex? What could be a reason to annex text files?
+Take a minute to think:
+- Why is it often useful to keep textfiles out of git-annex?
+On the other hand, what could be a reason to annex text files?
 
 .. find-out-more:: Tell me!
 

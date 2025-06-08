@@ -50,6 +50,14 @@ install:
   - tools/appveyor/install-syspkgs $INSTALL_SYSPKGS
   # pull latest singularity
   - tools/appveyor/install-singularity.sh
+  # in case of a snapshot installation, use the following approach to adjust
+  # If a particular Python version is requested, use env setup (using the
+  # appveyor provided environments/installation). Note, these are broken
+  # on the ubuntu images
+  # https://help.appveyor.com/discussions/problems/28217-appveyor-ubunu-image-with-python3-lzma-module
+  # Otherwise create a virtualenv using the default Python 3, to enable uniform
+  # use of python/pip executables below
+  - "[ \"x$PY\" != x ] && . ${HOME}/venv${PY}/bin/activate || virtualenv -p 3 ${HOME}/dlvenv && . ${HOME}/dlvenv/bin/activate; ln -s \"$VIRTUAL_ENV\" \"${HOME}/VENV\""
 
 build_script:
   - chronic python -m pip install -r requirements.txt

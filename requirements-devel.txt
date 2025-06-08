@@ -6,6 +6,6 @@ pandas
 scikit-learn
 scikit-image
 # https://github.com/mwaskom/seaborn/issues/3192
-numpy < 1.24
+numpy
 dvc >= 3.0
 datalad-catalog >= 1.1.1

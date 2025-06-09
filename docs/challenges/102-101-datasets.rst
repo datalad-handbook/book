@@ -186,7 +186,7 @@ Can you do the download while recording provenance?
 
 .. find-out-more:: Give me a hint about provenance
 
-   Try using :dlcmd:`download-url`.
+   Try using :dlcmd:`download-url` or `datalad-next's  "download" command <https://docs.datalad.org/projects/next/en/stable/generated/man/datalad-download.html>`_ combined with :dlcmd:`run`.
 
 .. find-out-more:: Show me the entire solution
 
@@ -205,7 +205,7 @@ Can you do the download while recording provenance?
       :language: console
       :workdir: challenges/102-101-dataset/my-dataset
 
-      $ datalad download-url -m "Add image from unsplash" -O chinstrap_02.jpg "https://unsplash.com/photos/8PxCm4HsPX8/download?force=true"
+      $ datalad run -m "Add image from unsplash" " datalad download 'https://unsplash.com/photos/8PxCm4HsPX8/download?force=true chinstrap_02.jpg'"
 
 Run ``gitk`` in the dataset.
 Can you find the file identifier of any of the newly downloaded files?

@@ -83,56 +83,12 @@ There are countless ways to install software on Windows. Here we describe *one*
 possible approach that should work on any Windows computer, like one that you
 may have just bought.
 
-Python:
-    .. index::
-       pair: install Python; on Windows
-       single: installation; Python
-
-    Windows itself does not ship with Python, it must be installed separately.
-    If you already did that, please check the :find-out-more:`on Python
-    versions <fom-py2v3>`, if it matches the requirements. Otherwise, head over
-    to the `download section of the Python website
-    <https://www.python.org/downloads>`_, and download an installer. Unless you
-    have specific requirements, go with the 64bit installer of the latest
-    Python 3 release.
-
-    .. windows-wit:: Avoid installing Python from the Windows store
-
-       We recommend to **not** install Python via the Windows store, even if it
-       opens after you typed :shcmd:`python`, as this version requires
-       additional configurations by hand (in particular of your ``$PATH``
-       :term:`environment variable`).
-
-    When you run the installer, make sure to select the *Add Python to PATH* option,
-    as this is required for subsequent installation steps and interactive use later on.
-    Other than that, using the default installation settings is just fine.
-
-    .. windows-wit:: Verify Python installation
-
-       It is not uncommon for multiple Python installations to co-exist on a Windows machine, because particular applications can ship their own.
-       Such alternative installations may even be or become the default.
-       This can cause confusing behavior, because each Python installation will have different package versions installed.
-
-       To verify if there are multiple installations, open the windows command line ``cmd.exe`` and run ``where python``.
-       This will list all variants of ``python.exe``.
-       There will be one in ``WindowsApps``, which is only a link to the Windows app store.
-       Make sure the Python version that you installed is listed too.
-
-       If there are multiple Python installation, you can tell which one is default by running this command in ``cmd.exe``::
-
-         > python -c "import sys; print(sys.executable)"
-
-       This will print the path of the default ``python.exe``.
-       If the output is not matching the expected Python installation, likely the ``$PATH`` environment variable needs to be adjusted.
-       This can be done in the Windows system properties.
-       It is sufficient to move the entries created by the Python installer to the start of the declaration list.
-
-Git:
+**Git**:
     .. index::
        pair: install Git; on Windows
        single: installation; Git
 
-    Windows also does not come with Git. If you happen to have it installed already,
+    Windows does not come with Git preinstalled. If you happen to have it installed already,
     please check if you have configured it for command line use. You should be able
     to open the Windows command prompt and run a command like :shcmd:`git --version`.
     It should return a version number and not an error.
@@ -150,28 +106,24 @@ Git:
     - *Enable symbolic links*
 
 
-Git-annex:
+**Git-annex**:
     .. index::
        pair: install git-annex; on Windows
        single: installation; git-annex
 
-    There are two convenient ways to install git-annex. The first is `downloading the installer from git-annex' homepage <https://git-annex.branchable.com/install/Windows>`_. The other is to deploy git-annex via the `DataLad installer`_.
-    The latter option requires the installation of the ``datalad-installer`` Python package.
-    Once Python is available, it can be done with the Python package manager
-    :shcmd:`pip`. Open a command prompt and run:
+    git-annex is deployed via `uv <https://docs.astral.sh/uv/getting-started/installation/>`_, which is installed first. Open ``CMD.exe`` and execute
 
     .. code-block:: bat
 
-      > python -m pip install datalad-installer
+       powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
 
-    Afterwards, open another command prompt in administrator mode and run:
+    Afterwards, install git-annex:
 
     .. code-block:: bat
 
-      > datalad-installer git-annex -m datalad/git-annex:release
+       uv tool update git-annex
 
-    This will download a recent git-annex, and configure it for your Git installation.
-    The admin command prompt can be closed afterwards, all other steps do not need it.
+    This will have also taken care of installing Python. You can test your git-annex installation by running ``git annex test`` (2-3 minutes runtime).
 
     For `performance improvements <https://git-annex.branchable.com/projects/datalad/bugs-done/Windows__58___substantial_per-file_cost_for___96__add__96__>`_, regardless of which installation method you chose, we recommend to also set the following git-annex configuration:
 
@@ -179,15 +131,14 @@ Git-annex:
 
       > git config --global filter.annex.process "git-annex filter-process"
 
-DataLad:
-    With Python, Git, and git-annex installed, DataLad can be installed, and later also
-    upgraded using :shcmd:`pip` by running:
+**DataLad**:
+    With uv, DataLad can be installed in the same fashion as ``git-annex``.
 
     .. code-block:: bat
 
-      > python -m pip install datalad
+      > uv tool install datalad
 
-7-Zip (optional, but highly recommended):
+**7-Zip** (optional, but highly recommended):
     .. index::
        pair: install 7-zip; on Windows
        single: installation; 7-Zip

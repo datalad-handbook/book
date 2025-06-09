@@ -1,3 +1,5 @@
+# until datalad depends on it, pull git-annex here
+git-annex
 # install python packages that are relevant to build all handbook examples
 datalad-container
 pytest

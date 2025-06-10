@@ -1,7 +1,7 @@
-$ datalad run -m "Add image from unsplash" " datalad download 'https://unsplash.com/photos/8PxCm4HsPX8/download?force=true chinstrap_02.jpg'"
+$ datalad run -m "Add image from unsplash" " datalad download 'https://hub.datalad.org/edu/penguins/media/branch/main/chinstrap_2.jpg'"
 [INFO] == Command start (output follows) =====
-download(ok): chinstrap_02.jpg
+download(ok): chinstrap_2.jpg
 [INFO] == Command exit (modification check follows) =====
-run(ok): /home/me/challenges/102-101-dataset/my-dataset (dataset) [ datalad download 'https://unsplash.com/...]
-add(ok): chinstrap_02.jpg (file)
+run(ok): /home/me/challenges/102-101-dataset/my-dataset (dataset) [ datalad download 'https://hub.datalad.o...]
+add(ok): chinstrap_2.jpg (file)
 save(ok): . (dataset)

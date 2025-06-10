@@ -1,14 +1,14 @@
 $ git show inputs
-commit 11878697✂SHA1
+commit bbfebc66✂SHA1
 Author: Elena Piscopia <elena@example.net>
 Date:   Tue Jun 18 16:13:00 2019 +0200
 
     Save updated subdataset version
 
 diff --git a/inputs b/inputs
-index d99ecf1..ee2b5af 160000
+index 7dab0f4..f672de9 160000
 --- a/inputs
 +++ b/inputs
 @@ -1 +1 @@
--Subproject commit d99ecf11✂SHA1
-+Subproject commit ee2b5af6✂SHA1
+-Subproject commit 7dab0f49✂SHA1
++Subproject commit f672de93✂SHA1

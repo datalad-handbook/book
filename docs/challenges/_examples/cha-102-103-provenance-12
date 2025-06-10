@@ -1,5 +1,5 @@
 $ datalad rerun HEAD
-[INFO] run commit 1e5e3f2; (python code/extra...)
+[INFO] run commit 3f4aa8f; (python code/extra...)
 [INFO] == Command start (output follows) =====
 [INFO] == Command exit (modification check follows) =====
 run.remove(ok): plength.txt (file) [Removed file]

@@ -1,4 +1,4 @@
-$ wget -q -O chinstrap_01.jpg "https://unsplash.com/photos/3Xd5j9-drDA/download?force=true"
+$ wget -q -O chinstrap_01.jpg "https://hub.datalad.org/edu/penguins/media/branch/main/chinstrap_1.jpg"
 $ datalad save -m "Add image manually downloaded from unsplash"
 add(ok): chinstrap_01.jpg (file)
 save(ok): . (dataset)

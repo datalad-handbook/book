@@ -50,16 +50,15 @@ Download the following set of CSV files into the ``inputs`` dataset and save the
 
 .. find-out-more:: Downloading first:
 
-   There are several ways to accomplish this. The solution below uses :dlcmd:`download` inside of the subdataset.
+   There are several ways to accomplish this. The solution below uses ``download`` command from ``datalad-next`` and :dlcmd:`run` inside of the subdataset.
 
    .. runrecord:: _examples/cha-102-102-subdatasets-3
       :language: console
       :workdir: challenges/102-102-subdataset/penguin-report
 
       $ cd inputs
-      $ datalad download-url -d . -m "Add Adelie data" -O adelie.csv https://pasta.lternet.edu/package/data/eml/knb-lter-pal/219/5/002f3893385f710df69eeebe893144ff
-      $ datalad download-url -d . -m "Add Gentoo data" -O gentoo.csv https://pasta.lternet.edu/package/data/eml/knb-lter-pal/220/7/e03b43c924f226486f2f0ab6709d2381
-      $ datalad download-url -d . -m "Add Chinstrap data" -O chinstrap.csv https://pasta.lternet.edu/package/data/eml/knb-lter-pal/221/8/fe853aa8f7a59aa84cdd3197619ef462
+      $ datalad run -m "Add image from unsplash" "datalad download 'https://pasta.lternet.edu/package/data/eml/knb-lter-pal/219/5/002f3893385f710df69eeebe893144ff adelie.tst' 'https://pasta.lternet.edu/package/data/eml/knb-lter-pal/220/7/e03b43c924f226486f2f0ab6709d2381 gentoo.tsv' 'https://pasta.lternet.edu/package/data/eml/knb-lter-pal/221/8/fe853aa8f7a59aa84cdd3197619ef462 chinstrap.csv'"
+
 
 Afterwards, record the new subdataset state in the superdataset.
 
@@ -153,7 +152,6 @@ Where can you find out about the origin location of a dataset's subdatasets?
       :language: console
       :workdir: challenges/102-102-subdataset/studyforrest-data
 
-      $ cd studyforrest-data
       $ cat .gitmodules
 
 Navigate into the newly installed subdataset ``original/phase2``.

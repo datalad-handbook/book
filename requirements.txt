@@ -22,6 +22,6 @@ sphinx-copybutton
 urllib3
 sphinxcontrib-jquery
 sphinxcontrib-svg2pdfconverter
--e git+https://github.com/mih/autorunrecord.git@main#egg=autorunrecord
+git+https://github.com/mih/autorunrecord.git@main#egg=autorunrecord
 # install our own directives
 -e .

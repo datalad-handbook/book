@@ -1,6 +1,4 @@
-$ cd studyforrest-data
 $ cat .gitmodules
-bash: line 1: cd: studyforrest-data: No such file or directory
 [submodule "artifact/7T_audiomovie"]
 	path = artifact/7T_audiomovie
 	url = http://studyforrest.ds.inm7.de/d47/59300-5563-467d-be5f-e5b164fb3060

@@ -25,12 +25,10 @@ shallow_clone: false
 
 environment:
   DTS: datalad_next
-  APPVEYOR_BUILD_WORKER_IMAGE: Ubuntu2004
+  # 20.04 would require a 2.31 GLIBC, but git-annex is only built for 2.34
+  APPVEYOR_BUILD_WORKER_IMAGE: Ubuntu2204
   INSTALL_SYSPKGS: graphicsmagick-imagemagick-compat moreutils jq uidmap fuse2fs
-  # go with whatever is most recent to catch anything that might break
-  # with them
-  INSTALL_GITANNEX: git-annex -m snapshot
-
+  UV_CACHE: /home/appveyor/.cache/uv
 
 skip_commits:
   files:
@@ -38,13 +36,15 @@ skip_commits:
 
 # it is OK to specify paths that may not exist for a particular test run
 cache:
-  # pip cache
-  - /home/appveyor/.cache/pip -> .appveyor.yml
+  - "${UV_CACHE} -> .appveyor.yml"
 
 
 # turn of support for MS project build support (not needed)
 build: off
 
+init:
+  - curl -LsSf https://astral.sh/uv/install.sh | sh
+  - source $HOME/.local/bin/env
 
 install:
   - tools/appveyor/enable-ssh-login
@@ -54,23 +54,13 @@ install:
   - tools/appveyor/install-syspkgs $INSTALL_SYSPKGS
   # pull latest singularity
   - tools/appveyor/install-singularity.sh
-  # in case of a snapshot installation, use the following approach to adjust
-  # If a particular Python version is requested, use env setup (using the
-  # appveyor provided environments/installation). Note, these are broken
-  # on the ubuntu images
-  # https://help.appveyor.com/discussions/problems/28217-appveyor-ubunu-image-with-python3-lzma-module
-  # Otherwise create a virtualenv using the default Python 3, to enable uniform
-  # use of python/pip executables below
-  - "[ \"x$PY\" != x ] && . ${HOME}/venv${PY}/bin/activate || virtualenv -p 3 ${HOME}/dlvenv && . ${HOME}/dlvenv/bin/activate; ln -s \"$VIRTUAL_ENV\" \"${HOME}/VENV\""
-  - chronic tools/appveyor/install-git-annex ${INSTALL_GITANNEX}
-  # enable the git-annex provisioned by the installer
-  - "[ -f ${HOME}/dlinstaller_env.sh ] && . ${HOME}/dlinstaller_env.sh || true"
-
 
 build_script:
-  - chronic python -m pip install -r requirements.txt
-  - chronic python -m pip install -r requirements-devel.txt
-  - chronic python -m pip install .
+  - uv venv
+  - source .venv/bin/activate
+  - chronic uv pip install -r requirements.txt
+  - chronic uv pip install -r requirements-devel.txt
+  - chronic uv pip install .
   # pull all submodules
   - chronic datalad get . -r -n
 

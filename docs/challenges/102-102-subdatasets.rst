@@ -152,7 +152,6 @@ Where can you find out about the origin location of a dataset's subdatasets?
       :language: console
       :workdir: challenges/102-102-subdataset/studyforrest-data
 
-      $ cd studyforrest-data
       $ cat .gitmodules
 
 Navigate into the newly installed subdataset ``original/phase2``.

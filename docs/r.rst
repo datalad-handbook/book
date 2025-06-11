@@ -39,6 +39,12 @@ failed -- sorry about this.
   :ref:`book-intro-v1`
 :redirect:`cheatsheet`
   :ref:`cheat`
+:redirect:`challenge-datasets`
+  :ref:`challengeDS`
+:redirect:`challenge-subdatasets`
+  :ref:`challengeSubDS`
+:redirect:`challenge-prov`
+  :ref:`challengeProv`
 :redirect:`clone-priority`
   :ref:`cloneprio`
 :redirect:`containers`

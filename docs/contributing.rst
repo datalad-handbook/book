@@ -62,22 +62,21 @@ If you want to be able to build the book locally, though, please follow these in
 
 The code examples that need to be executed to build the book (see also the paragraph "Code" in
 :ref:`directive` to learn more about this) are executed inside of
-the directory ``/home/me``. This means that *this directory needs to exist* on your machine.
-Essentially, ``/home/me`` is a mock directory set up in order to have identical paths
-in code snippets regardless of the machine the book is build on: Else, code snippets
+the directory define by the environment variable ``AUTORUNRECORD_BASEDIR``.
+This can be any directory, and it is advisable to use a temporary directory.
+Essentially, this directory is a mock HOME directory. The build is set up to yield
+identical paths in code snippets regardless of the machine the book is built on: Else, code snippets
 created on one machine might have the path ``/home/adina``, and others created on
 a second machine ``/home/mih``, for example, leading to some potential confusion for readers.
 Therefore, you need to create this directory, and also --
-for consistency in the Git logs as well -- a separate, mock Git identity
+for consistency -- define a minimal Git configuration for the mock handbook user
 (we chose `Elena Piscopia <https://en.wikipedia.org/wiki/Elena_Cornaro_Piscopia>`_, the first
 woman to receive a PhD. Do not worry, this does not mess with your own Git identity):
 
 .. code-block:: bash
 
-   $ sudo mkdir /home/me
-   $ sudo chown $USER:$USER /home/me
-   $ HOME=/home/me git config --global user.name "Elena Piscopia"
-   $ HOME=/home/me git config --global user.email "elena@example.net"
+   $ export AUTORUNRECORD_BASEDIR=/tmp/handbook_workdir
+   $ tools/bootstrap-handbook-user
 
 Once this is configured, you can build the book locally by running ``make build`` in the root
 of the repository, and open it in your browser, for example with
@@ -113,8 +112,8 @@ use them in the same way they are used throughout the book.
 
 
 **Code:** For code that runs inside a dataset such as ``DataLad-101``,
-working directories exist inside of ``/home/me``. The ``DataLad-101``
-dataset for example lives in ``/home/me/dl-101``. This comes with the advantage
+working directories exist inside of ``$AUTORUNRECORD_BASEDIR``. The ``DataLad-101``
+dataset for example lives in ``$AUTORUNRECORD_BASEDIR/dl-101``. This comes with the advantage
 that code is tested immediately -- if the code snippet contains an error, this error will
 be written into the book, and thus prevent faulty commands from being published.
 Running code in a working directory will furthermore build up on the existing history
@@ -134,13 +133,15 @@ Here is how a ``runrecord`` directive can look like:
 
    .. runrecord:: _examples/DL-101-101-101   # give the path to the resulting file, start with _examples
       :language: console
-      :workdir: dl-101/DataLad-101    # specify a working directory here. This translates to /home/me/dl-101/DataLad-101
+      # specify a working directory here.
+      # This translates to $AUTORUNRECORD_BASEDIR/dl-101/DataLad-101
+      :workdir: dl-101/DataLad-101
 
       # this is a comment
       $ this line will be executed
 
 Afterwards, the resulting example files need to be committed into Git. To clear existing
-examples in ``docs/PART/_examples`` and the mock directories in ``/home/me``, run
+examples in ``docs/PART/_examples`` and the mock directories in ``$AUTORUNRECORD_BASEDIR``, run
 ``make clean`` (to remove working directories and examples for all parts of the book)
 or ``make clean-examples`` (to remove only examples and workdirs of the Basics part).
 
@@ -171,7 +172,7 @@ following prerequisites exist:
   This should be a path that points to any directory in which demos should be
   created and saved. An invocation could look like this::
 
-     $ CAST_DIR=/home/me/casts make
+     $ CAST_DIR=$AUTORUNRECORD_BASEDIR/casts make
 
 This is a fully specified ``runrecord``:
 

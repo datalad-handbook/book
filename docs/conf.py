@@ -30,7 +30,7 @@ authors.append(authors.pop(authors.index('Michael Hanke')))
 
 # autorunrecord setup (extension used to run and capture the output of
 # examples)
-autorunrecord_basedir = '/home/me'
+autorunrecord_basedir = os.environ.get('AUTORUNRECORD_BASEDIR', '/home/me')
 autorunrecord_line_replace = [
     # trailing space removal
     (r'[ ]+$', ''),
@@ -90,6 +90,8 @@ autorunrecord_line_replace = [
     (r'\[INFO\] Update availability information$\n', ''),
     (r'\[INFO\] Finished push of Dataset.*$\n', ''),
     (r'\[INFO\] Finished$\n', ''),
+    # translate the real workdir into a standard name
+    (autorunrecord_basedir, '/home/me'),
 ]
 # pre-crafted artificial environment to run the code examples in
 # start with all datalad settings

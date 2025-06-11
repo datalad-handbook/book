@@ -26,6 +26,7 @@ shallow_clone: false
 environment:
   DTS: datalad_next
   APPVEYOR_BUILD_WORKER_IMAGE: Ubuntu2004
+  AUTORUNRECORD_BASEDIR: /home/appveyor/workdir
   INSTALL_SYSPKGS: graphicsmagick-imagemagick-compat moreutils jq uidmap fuse2fs
   UV_CACHE: /home/appveyor/.cache/uv
 
@@ -59,7 +60,6 @@ build_script:
   - source .venv/bin/activate
   - chronic uv pip install -r requirements.txt
   - chronic uv pip install -r requirements-devel.txt
-  - chronic uv pip install .
   # pull all submodules
   - chronic datalad get . -r -n
 

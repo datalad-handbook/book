@@ -116,11 +116,11 @@ autorunrecord_env.update(**{
     # (gitshas etc)
     # funnily I cannot set a date in 1678: `fatal: invalid date format`
     # let's go with the first commit in the handbook
-    'GIT_AUTHOR_DATE': '2019-06-18T16:13:00',
+    'GIT_AUTHOR_DATE': '2019-06-18T16:13:00+0000',
     # and same for the committer
     'GIT_COMMITTER_EMAIL': 'elena@example.net',
     'GIT_COMMITTER_NAME': 'Elena Piscopia',
-    'GIT_COMMITTER_DATE': '2019-06-18T16:13:00',
+    'GIT_COMMITTER_DATE': '2019-06-18T16:13:00+0000',
     'HOST': 'padua',
     # maintain the PATH to keep all installed software functional
     'PATH': os.environ['PATH'],

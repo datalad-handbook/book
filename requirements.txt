@@ -23,4 +23,4 @@ sphinxcontrib-jquery
 sphinxcontrib-svg2pdfconverter
 git+https://github.com/mih/autorunrecord.git@main#egg=autorunrecord
 # install our own directives
--e .
+.

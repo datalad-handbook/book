@@ -53,7 +53,6 @@ If you want to be able to build the book locally, though, please follow these in
    # install required software
    $ pip install -r requirements.txt
    $ pip install -r requirements-devel.txt
-   $ pip install -e .
 
 - install ``librsvg2-bin`` (a tool to render ``.svgs``) with your package manager
 

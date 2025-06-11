@@ -25,8 +25,8 @@ shallow_clone: false
 
 environment:
   DTS: datalad_next
-  # 20.04 would require a 2.31 GLIBC, but git-annex is only built for 2.34
-  APPVEYOR_BUILD_WORKER_IMAGE: Ubuntu2204
+  APPVEYOR_BUILD_WORKER_IMAGE: Ubuntu2004
+  AUTORUNRECORD_BASEDIR: /home/appveyor/workdir
   INSTALL_SYSPKGS: graphicsmagick-imagemagick-compat moreutils jq uidmap fuse2fs
   UV_CACHE: /home/appveyor/.cache/uv
 
@@ -60,7 +60,6 @@ build_script:
   - source .venv/bin/activate
   - chronic uv pip install -r requirements.txt
   - chronic uv pip install -r requirements-devel.txt
-  - chronic uv pip install .
   # pull all submodules
   - chronic datalad get . -r -n
 

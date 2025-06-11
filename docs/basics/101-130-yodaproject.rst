@@ -721,7 +721,7 @@ configure this repository as a sibling of the dataset:
     .. runrecord:: _examples/DL-101-130-116
        :language: console
 
-       $ python3 /home/me/makepushtarget.py '/home/me/dl-101/DataLad-101/midterm_project' 'github' '/home/me/pushes/midterm_project' False True
+       $ python3 $HOME/makepushtarget.py "$HOME/dl-101/DataLad-101/midterm_project" 'github' "$HOME/pushes/midterm_project" False True
 
 
 .. index:: credential; entry

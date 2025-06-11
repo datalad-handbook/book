@@ -347,7 +347,7 @@ Make sure that the ``--new-store-ok`` parameter is set to allow the creation of 
    :workdir: dl-101/DataLad-101
 
    # inside of the dataset DataLad-101
-   $ datalad create-sibling-ria -s ria-backup --alias dl-101 --new-store-ok "ria+file:///home/me/myriastore"
+   $ datalad create-sibling-ria -s ria-backup --alias dl-101 --new-store-ok "ria+file://$HOME/myriastore"
 
 Afterwards, the dataset has two additional siblings: ``ria-backup``, and
 ``ria-backup-storage``.
@@ -374,7 +374,7 @@ but alternative names can be supplied with the ``--storage-name`` option.
        :language: console
        :workdir: dl-101/DataLad-101
 
-       $ tree /home/me/myriastore
+       $ tree $HOME/myriastore
 
     Note that there is one dataset represented in the RIA store. The two-directory
     structure it is represented under corresponds to the dataset ID of ``DataLad-101``:
@@ -408,7 +408,7 @@ a single :dlcmd:`push` to the RIA sibling suffices:
        :workdir: dl-101/DataLad-101
        :lines: 1-25, 38-
 
-       $ tree /home/me/myriastore
+       $ tree $HOME/myriastore
 
 A second dataset can be added and published to the store in the very same way.
 As a demonstration, we'll do it for the ``midterm_project`` subdataset:
@@ -418,7 +418,7 @@ As a demonstration, we'll do it for the ``midterm_project`` subdataset:
    :workdir: dl-101/DataLad-101
 
    $ cd midterm_project
-   $ datalad create-sibling-ria -s ria-backup ria+file:///home/me/myriastore
+   $ datalad create-sibling-ria -s ria-backup ria+file://$HOME/myriastore
 
 .. runrecord:: _examples/DL-101-147-110
    :language: console
@@ -445,7 +445,7 @@ As a demonstration, we'll do it for the ``midterm_project`` subdataset:
        :workdir: dl-101/DataLad-101
        :lines: 1-25, 38-58
 
-       $ tree /home/me/myriastore
+       $ tree $HOME/myriastore
 
 Thus, in order to create and populate RIA stores, only the commands
 :dlcmd:`create-sibling-ria` and :dlcmd:`push` are required.
@@ -478,7 +478,7 @@ dataset ID:
 .. runrecord:: _examples/DL-101-147-120
    :language: console
    :workdir: beyond_basics
-   :realcommand: echo "$ datalad clone ria+file:///home/me/myriastore#$(datalad -C /home/me/dl-101/DataLad-101 -f'{infos[dataset][id]}' wtf) myclone" && datalad clone ria+file:///home/me/myriastore#$(datalad -C /home/me/dl-101/DataLad-101 -f'{infos[dataset][id]}' wtf) myclone
+   :realcommand: echo "$ datalad clone ria+file://$HOME/myriastore#$(datalad -C $HOME/dl-101/DataLad-101 -f'{infos[dataset][id]}' wtf) myclone" && datalad clone ria+file://$HOME/myriastore#$(datalad -C $HOME/dl-101/DataLad-101 -f'{infos[dataset][id]}' wtf) myclone
 
 There are two downsides to this method: For one, it is hard to type, remember, and
 know the dataset ID of a desired dataset. Secondly, if no additional path is given to
@@ -491,7 +491,7 @@ an alias ``dl-101``, the above call would simplify to
 
 .. code-block:: bash
 
-   $ datalad clone ria+file:///home/me/myriastore#~dl-101
+   $ datalad clone ria+file://$HOME/myriastore#~dl-101
 
 .. find-out-more:: Configure an alias for a dataset manually
 
@@ -505,7 +505,7 @@ an alias ``dl-101``, the above call would simplify to
    .. runrecord:: _examples/DL-101-147-121
       :language: console
       :workdir: beyond_basics
-      :realcommand: echo "$ mkdir /home/me/myriastore/alias"
+      :realcommand: echo "$ mkdir $HOME/myriastore/alias"
 
 
    Afterwards, place a :term:`symlink` with a name of your choice to the dataset
@@ -514,7 +514,7 @@ an alias ``dl-101``, the above call would simplify to
    .. runrecord:: _examples/DL-101-147-122
       :language: console
       :workdir: beyond_basics
-      :realcommand: echo "$ ln -s /home/me/myriastore/$(datalad -C /home/me/dl-101/DataLad-101/midterm_project -f'{infos[dataset][id]}' wtf | sed 's/^\(...\)\(.*\)/\1\/\2/') /home/me/myriastore/alias/midterm_project" && ln -s /home/me/myriastore/$(datalad -C /home/me/dl-101/DataLad-101/midterm_project -f'{infos[dataset][id]}' wtf | sed 's/^\(...\)\(.*\)/\1\/\2/') /home/me/myriastore/alias/midterm_project
+      :realcommand: echo "$ ln -s $HOME/myriastore/$(datalad -C $HOME/dl-101/DataLad-101/midterm_project -f'{infos[dataset][id]}' wtf | sed 's/^\(...\)\(.*\)/\1\/\2/') $HOME/myriastore/alias/midterm_project" && ln -s $HOME/myriastore/$(datalad -C $HOME/dl-101/DataLad-101/midterm_project -f'{infos[dataset][id]}' wtf | sed 's/^\(...\)\(.*\)/\1\/\2/') $HOME/myriastore/alias/midterm_project
 
    Here is how it looks like inside of this directory. You can see both the automatically created alias as well as the newly manually created one:
 
@@ -522,7 +522,7 @@ an alias ``dl-101``, the above call would simplify to
       :language: console
       :workdir: beyond_basics
 
-      $ tree /home/me/myriastore/alias
+      $ tree $HOME/myriastore/alias
 
    Afterwards, the alias name, prefixed with a ``~``, can be used as a dataset
    identifier:
@@ -531,7 +531,7 @@ an alias ``dl-101``, the above call would simplify to
       :language: console
       :workdir: beyond_basics
 
-      datalad clone ria+file:///home/me/myriastore#~midterm_project
+      datalad clone ria+file://$HOME/myriastore#~midterm_project
 
    This makes it easier for others to clone the dataset and will provide a sensible
    default name for the clone if no additional path is provided in the command.

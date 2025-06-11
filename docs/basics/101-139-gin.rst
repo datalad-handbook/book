@@ -83,7 +83,7 @@ and you can type "yes" to continue:
     .. runrecord:: _examples/DL-101-139-101
        :language: console
 
-       $ python3 /home/me/makepushtarget.py '/home/me/dl-101/DataLad-101' 'gin' '/home/me/pushes/DataLad-101' True True
+       $ python3 $HOME/makepushtarget.py "$HOME/dl-101/DataLad-101" 'gin' "$HOME/pushes/DataLad-101" True True
 
 **2) via command-line:**
 If you choose to use the :dlcmd:`create-sibling-gin` command, supply the command with a name for the repository, and optionally add a ``-s/--siblingname [NAME]`` parameter (if unconfigured it will be ``gin``), and ``--access-protocol [https|ssh|https-ssh]`` (ideally ``ssh``).

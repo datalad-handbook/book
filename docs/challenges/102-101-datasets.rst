@@ -178,8 +178,8 @@ Challenge 4
 
 Download and save the following set of penguin images available at the URLs below into a dataset:
 
-- ``chinstrap_01.jpg``: https://hub.datalad.org/edu/penguins/media/branch/main/chinstrap_1.jpg
-- ``chinstrap_02.jpg``: https://hub.datalad.org/edu/penguins/media/branch/main/chinstrap_2.jpg
+- ``chinstrap_01.jpg``: https://hub.datalad.org/edu/penguins/media/branch/main/examples/adelie.jpg
+- ``chinstrap_02.jpg``: https://hub.datalad.org/edu/penguins/media/branch/main/examples/chinstrap.jpg
 
 You can reuse the dataset from the previous challenge, or create a new one.
 Can you do the download while recording provenance?
@@ -196,8 +196,8 @@ Can you do the download while recording provenance?
       :language: console
       :workdir: challenges/102-101-dataset/my-dataset
 
-      $ wget -q -O chinstrap_01.jpg "https://hub.datalad.org/edu/penguins/media/branch/main/chinstrap_1.jpg"
-      $ datalad save -m "Add image manually downloaded from unsplash"
+      $ wget -q -O chinstrap_01.jpg "https://hub.datalad.org/edu/penguins/media/branch/main/examples/adelie.jpg"
+      $ datalad save -m "Add manually downloaded images"
 
    Or download it recording its origin as provenance:
 
@@ -205,7 +205,7 @@ Can you do the download while recording provenance?
       :language: console
       :workdir: challenges/102-101-dataset/my-dataset
 
-      $ datalad run -m "Add image from unsplash" " datalad download 'https://hub.datalad.org/edu/penguins/media/branch/main/chinstrap_2.jpg'"
+      $ datalad run -m "Add image from the web" " datalad download 'https://hub.datalad.org/edu/penguins/media/branch/main/examples/chinstrap.jpg'"
 
 Run :term:`gitk` in the dataset.
 Can you find the file identifier of any of the newly downloaded files?

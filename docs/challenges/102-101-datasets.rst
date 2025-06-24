@@ -15,7 +15,7 @@ Challenge 1
 """""""""""
 
 Create a dataset called ``my-dataset`` on your computer.
-Inside of the dataset, run the command ``gitk`` and explore it.
+Inside of the dataset, run the command :term:`gitk` and explore it.
 
 Can you find:
 
@@ -160,7 +160,7 @@ Make sure to save it with a helpful commit message, and inspect your datasets re
 
       $ git log
 
-Run ``gitk`` again. Can you find the dataset modification date?
+Run :term:`gitk` again. Can you find the dataset modification date?
 
 Finally, edit the README and save it again.
 
@@ -207,7 +207,7 @@ Can you do the download while recording provenance?
 
       $ datalad run -m "Add image from unsplash" " datalad download 'https://hub.datalad.org/edu/penguins/media/branch/main/chinstrap_2.jpg'"
 
-Run ``gitk`` in the dataset.
+Run :term:`gitk` in the dataset.
 Can you find the file identifier of any of the newly downloaded files?
 
 Challenge 5

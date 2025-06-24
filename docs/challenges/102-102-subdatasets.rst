@@ -155,4 +155,4 @@ Where can you find out about the origin location of a dataset's subdatasets?
       $ cat .gitmodules
 
 Navigate into the newly installed subdataset ``original/phase2``.
-Run ``gitk`` and explore its files to find out what this dataset is all about.
+Run :term:`gitk` and explore its files to find out what this dataset is all about.

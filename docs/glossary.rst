@@ -107,6 +107,9 @@ Glossary
       more, or changed files compared to other branches, and one can :term:`merge` the changes
       a branch contains into another branch.
 
+   brew
+     Homebrew is a package manager for macOS or Linux systems (`https://brew.sh <https://brew.sh>`_).
+
    checksum
       .. index::
          seealso: checksum; 'shasum'
@@ -328,7 +331,7 @@ Glossary
 
       A repository browser that displays changes in a repository or a selected set of commits. It
       visualizes a commit graph, information related to each commit, and the files in the trees
-      of each revision.
+      of each revision. Typically, it is a `built-in Git command <https://git-scm.com/docs/gitk>`_ that you get by installing Git. Some package managers may require an additional installation, though, e.g., ``git-gui`` if you use :term:`brew`.
 
    GitLab
       .. index:: dataset hosting; GitLab

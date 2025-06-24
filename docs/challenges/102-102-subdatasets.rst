@@ -57,7 +57,7 @@ Download the following set of CSV files into the ``inputs`` dataset and save the
       :workdir: challenges/102-102-subdataset/penguin-report
 
       $ cd inputs
-      $ datalad run -m "Add image from unsplash" "datalad download 'https://pasta.lternet.edu/package/data/eml/knb-lter-pal/219/5/002f3893385f710df69eeebe893144ff adelie.tst' 'https://pasta.lternet.edu/package/data/eml/knb-lter-pal/220/7/e03b43c924f226486f2f0ab6709d2381 gentoo.tsv' 'https://pasta.lternet.edu/package/data/eml/knb-lter-pal/221/8/fe853aa8f7a59aa84cdd3197619ef462 chinstrap.csv'"
+      $ datalad run -m "Download penguin data" "datalad download 'https://pasta.lternet.edu/package/data/eml/knb-lter-pal/219/5/002f3893385f710df69eeebe893144ff adelie.tst' 'https://pasta.lternet.edu/package/data/eml/knb-lter-pal/220/7/e03b43c924f226486f2f0ab6709d2381 gentoo.tsv' 'https://pasta.lternet.edu/package/data/eml/knb-lter-pal/221/8/fe853aa8f7a59aa84cdd3197619ef462 chinstrap.csv'"
 
 
 Afterwards, record the new subdataset state in the superdataset.

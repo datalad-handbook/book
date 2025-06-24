@@ -1,5 +1,5 @@
 $ cd inputs
-$ datalad run -m "Add image from unsplash" "datalad download 'https://pasta.lternet.edu/package/data/eml/knb-lter-pal/219/5/002f3893385f710df69eeebe893144ff adelie.tst' 'https://pasta.lternet.edu/package/data/eml/knb-lter-pal/220/7/e03b43c924f226486f2f0ab6709d2381 gentoo.tsv' 'https://pasta.lternet.edu/package/data/eml/knb-lter-pal/221/8/fe853aa8f7a59aa84cdd3197619ef462 chinstrap.csv'"
+$ datalad run -m "Download penguin data" "datalad download 'https://pasta.lternet.edu/package/data/eml/knb-lter-pal/219/5/002f3893385f710df69eeebe893144ff adelie.tst' 'https://pasta.lternet.edu/package/data/eml/knb-lter-pal/220/7/e03b43c924f226486f2f0ab6709d2381 gentoo.tsv' 'https://pasta.lternet.edu/package/data/eml/knb-lter-pal/221/8/fe853aa8f7a59aa84cdd3197619ef462 chinstrap.csv'"
 [INFO] == Command start (output follows) =====
 download(ok): adelie.tst
 download(ok): gentoo.tsv

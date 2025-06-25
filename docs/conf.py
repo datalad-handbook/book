@@ -30,7 +30,7 @@ authors.append(authors.pop(authors.index('Michael Hanke')))
 
 # autorunrecord setup (extension used to run and capture the output of
 # examples)
-autorunrecord_basedir = '/home/me'
+autorunrecord_basedir = os.environ.get('AUTORUNRECORD_BASEDIR', '/home/me')
 autorunrecord_line_replace = [
     # trailing space removal
     (r'[ ]+$', ''),
@@ -90,6 +90,8 @@ autorunrecord_line_replace = [
     (r'\[INFO\] Update availability information$\n', ''),
     (r'\[INFO\] Finished push of Dataset.*$\n', ''),
     (r'\[INFO\] Finished$\n', ''),
+    # translate the real workdir into a standard name
+    (autorunrecord_basedir, '/home/me'),
 ]
 # pre-crafted artificial environment to run the code examples in
 # start with all datalad settings
@@ -116,11 +118,11 @@ autorunrecord_env.update(**{
     # (gitshas etc)
     # funnily I cannot set a date in 1678: `fatal: invalid date format`
     # let's go with the first commit in the handbook
-    'GIT_AUTHOR_DATE': '2019-06-18T16:13:00',
+    'GIT_AUTHOR_DATE': '2019-06-18T16:13:00+0000',
     # and same for the committer
     'GIT_COMMITTER_EMAIL': 'elena@example.net',
     'GIT_COMMITTER_NAME': 'Elena Piscopia',
-    'GIT_COMMITTER_DATE': '2019-06-18T16:13:00',
+    'GIT_COMMITTER_DATE': '2019-06-18T16:13:00+0000',
     'HOST': 'padua',
     # maintain the PATH to keep all installed software functional
     'PATH': os.environ['PATH'],

@@ -24,13 +24,13 @@ Create a DataLad dataset called ``iyoda``, applying a specific post-creation rou
 
       $ datalad create -c yoda iyoda
 
-Run the command ``gitk``:
+Run the command :term:`gitk`:
 
 - What did the "YODA" setup actually do?
 - How do we know that data module should go into ``inputs/``?
 
 Add the following dataset as a subdataset called ``inputs``: https://github.com/datalad-handbook/iris_data.
-Inspect its history with ``gitk``. When was it made, what does it contain?
+Inspect its history with :term:`gitk`. When was it made, what does it contain?
 
 .. find-out-more:: Show me the solution
 
@@ -158,7 +158,7 @@ Check the dataset state and save the modification. Inspect the change record:
 
 Run the script again, but through DataLad, and declare inputs and outputs.
 This time, save the output file as ``plength.txt``.
-Use ``gitk`` to inspect the change record.
+Use :term:`gitk` to inspect the change record.
 What is different now?
 
 .. find-out-more:: Let's take a look

@@ -15,7 +15,7 @@ Challenge 1
 """""""""""
 
 Create a dataset called ``my-dataset`` on your computer.
-Inside of the dataset, run the command ``gitk`` and explore it.
+Inside of the dataset, run the command :term:`gitk` and explore it.
 
 Can you find:
 
@@ -160,7 +160,7 @@ Make sure to save it with a helpful commit message, and inspect your datasets re
 
       $ git log
 
-Run ``gitk`` again. Can you find the dataset modification date?
+Run :term:`gitk` again. Can you find the dataset modification date?
 
 Finally, edit the README and save it again.
 
@@ -178,15 +178,15 @@ Challenge 4
 
 Download and save the following set of penguin images available at the URLs below into a dataset:
 
-- ``chinstrap_01.jpg``: https://unsplash.com/photos/3Xd5j9-drDA/download?force=true
-- ``chinstrap_02.jpg``: https://unsplash.com/photos/8PxCm4HsPX8/download?force=true
+- ``chinstrap_01.jpg``: https://hub.datalad.org/edu/penguins/media/branch/main/examples/adelie.jpg
+- ``chinstrap_02.jpg``: https://hub.datalad.org/edu/penguins/media/branch/main/examples/chinstrap.jpg
 
 You can reuse the dataset from the previous challenge, or create a new one.
 Can you do the download while recording provenance?
 
 .. find-out-more:: Give me a hint about provenance
 
-   Try using :dlcmd:`download-url`.
+   Try using :dlcmd:`download-url` or `datalad-next's  "download" command <https://docs.datalad.org/projects/next/en/stable/generated/man/datalad-download.html>`_ combined with :dlcmd:`run`.
 
 .. find-out-more:: Show me the entire solution
 
@@ -196,8 +196,8 @@ Can you do the download while recording provenance?
       :language: console
       :workdir: challenges/102-101-dataset/my-dataset
 
-      $ wget -q -O chinstrap_01.jpg "https://unsplash.com/photos/3Xd5j9-drDA/download?force=true"
-      $ datalad save -m "Add image manually downloaded from unsplash"
+      $ wget -q -O chinstrap_01.jpg "https://hub.datalad.org/edu/penguins/media/branch/main/examples/adelie.jpg"
+      $ datalad save -m "Add manually downloaded images"
 
    Or download it recording its origin as provenance:
 
@@ -205,9 +205,9 @@ Can you do the download while recording provenance?
       :language: console
       :workdir: challenges/102-101-dataset/my-dataset
 
-      $ datalad download-url -m "Add image from unsplash" -O chinstrap_02.jpg "https://unsplash.com/photos/8PxCm4HsPX8/download?force=true"
+      $ datalad run -m "Add image from the web" " datalad download 'https://hub.datalad.org/edu/penguins/media/branch/main/examples/chinstrap.jpg'"
 
-Run ``gitk`` in the dataset.
+Run :term:`gitk` in the dataset.
 Can you find the file identifier of any of the newly downloaded files?
 
 Challenge 5

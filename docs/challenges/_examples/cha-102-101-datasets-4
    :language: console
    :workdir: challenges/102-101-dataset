@@ -1,8 +1,0 @@
-$ datalad create text2gitdataset-2
-$ cd text2gitdataset-2
-$ datalad run-procedure cfg_text2git
-create(ok): /home/me/challenges/102-101-datasets/text2gitdataset-2 (dataset)
-[INFO] Running procedure cfg_text2git
-[INFO] == Command start (output follows) =====
-[INFO] == Command exit (modification check follows) =====
-run(ok): /home/me/challenges/102-101-datasets/text2gitdataset-2 (dataset) [VIRTUALENV/bin/python /home...]

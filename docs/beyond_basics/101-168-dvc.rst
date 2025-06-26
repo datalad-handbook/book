@@ -70,7 +70,7 @@ The `DVC tutorial <https://realpython.com/python-data-version-control>`_ comes w
     .. runrecord:: _examples/DL-101-168-102b
        :language: console
 
-       $ python3 /home/me/makepushtarget.py '/home/me/DVCvsDL/DVC' 'origin' '/home/me/pushes/data-version-control' True True
+       $ python3 $HOME/makepushtarget.py "$HOME/DVCvsDL/DVC" 'origin' "$HOME/pushes/data-version-control" True True
 
 The resulting Git repository is already pre-structured in a way that aids DVC ML analyses: It has the directories ``model`` and ``metrics``, and a set of Python scripts for a machine learning analysis in ``src/``.
 
@@ -439,7 +439,7 @@ To demonstrate this, let's look at a repository with an empty cache by cloning t
 .. runrecord:: _examples/DL-101-168-129
    :workdir: DVCvsDL/DVC
    :language: console
-   :realcommand: cd ../ && git clone -b master /home/me/pushes/data-version-control DVC-2
+   :realcommand: cd ../ && git clone -b master $HOME/pushes/data-version-control DVC-2
 
    ### DVC
    # clone the repo into a new location for demonstration purposes:

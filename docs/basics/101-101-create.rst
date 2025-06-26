@@ -186,7 +186,7 @@ Let us now put some content inside.
        :language: console
        :workdir: dl-101/DataLad-101
 
-       $ cat << EOT >| /home/me/makepushtarget.py
+       $ cat << EOT >| $HOME/makepushtarget.py
 
        #!/usr/bin/python3
 

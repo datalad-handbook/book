@@ -83,6 +83,10 @@ There are countless ways to install software on Windows. Here we describe *one*
 possible approach that should work on any Windows computer, like one that you
 may have just bought.
 
+**Python**:
+   Windows itself does not ship with Python, it must be installed separately.
+   An installation via ``uv`` (described below) can automatically take care of installing it.
+
 **Git**:
     .. index::
        pair: install Git; on Windows
@@ -111,7 +115,7 @@ may have just bought.
        pair: install git-annex; on Windows
        single: installation; git-annex
 
-    git-annex is deployed via `uv <https://docs.astral.sh/uv/getting-started/installation/>`_, which is installed first. Open ``CMD.exe`` and execute
+    One way to deploy git-annex is via `uv <https://docs.astral.sh/uv/getting-started/installation/>`_, which is installed first. Open ``CMD.exe`` and execute
 
     .. code-block:: bat
 
@@ -125,6 +129,8 @@ may have just bought.
 
     This will have also taken care of installing Python. You can test your git-annex installation by running ``git annex test`` (2-3 minutes runtime).
 
+    Alternative ways to install git-annex are the `Windows installer <https://git-annex.branchable.com/install/Windows/>`_ of git-annex, or with the Python package `datalad-installer <https://github.com/datalad/datalad-installer/>`_, which can install git-annex via ``datalad-installer git-annex -m datalad/git-annex:release`` in a ``CMD`` with administrator rights. Please take a look at the respective tools for details.
+
     For `performance improvements <https://git-annex.branchable.com/projects/datalad/bugs-done/Windows__58___substantial_per-file_cost_for___96__add__96__>`_, regardless of which installation method you chose, we recommend to also set the following git-annex configuration:
 
     .. code-block:: bat
@@ -137,6 +143,8 @@ may have just bought.
     .. code-block:: bat
 
       > uv tool install datalad
+
+   Beyond ``uv``, the standard Python package manager :term:`pip` can install DataLad as well (see :ref:`pipinstall`).
 
 **7-Zip** (optional, but highly recommended):
     .. index::

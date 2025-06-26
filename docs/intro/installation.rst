@@ -21,7 +21,7 @@ In general, the DataLad installation requires Python 3 (see the
 why this is required), :term:`Git`, and :term:`git-annex`, and for some
 functionality `7-Zip <https://7-zip.org>`_.  The instructions below detail how
 to install the core DataLad tool and its dependencies on common operating
-systems. They do not cover the various :term:`DataLad extension`\s that need to be installed separately, if desired.
+systems. Various :term:`DataLad extension`\s can be installed separately, if desired.
 
 .. index::
    pair: determine version; with Python
@@ -429,6 +429,20 @@ An existing installation can be upgraded with ``python -m pip install -U datalad
 ``pip`` is not able to install non-Python software, such as 7-zip or
 :term:`git-annex`.  But you can install the `DataLad installer`_ via a ``python -m pip install datalad-installer``. This is a command-line tool that aids installation
 of DataLad and its key software dependencies on a range of platforms.
+
+
+Install datalad-next
+^^^^^^^^^^^^^^^^^^^^
+
+``datalad-next`` is a :term:`DataLad extension`, i.e., a separate Python package that equips DataLad with additional functionality.
+You can read more about extensions in general in :ref:`extensions_intro`, and more about ``datalad-next`` specifically in :ref:`datalad-next`.
+
+As ``datalad-next`` brings next-generation commands and performance improvements to existing commands, we recommend users to **install** and **configure** it.
+It is available via Python package managers such as :term:`pip` and ``uv`` (e.g., ``pip install datalad-next``).
+
+After installation, you need to enable the use of the extension with the following configuration::
+
+   git config --global --add datalad.extensions.load next
 
 .. index:: ! configure user identity; with Git
 .. _installconfig:

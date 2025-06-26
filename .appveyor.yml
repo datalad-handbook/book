@@ -25,7 +25,7 @@ shallow_clone: false
 
 environment:
   DTS: datalad_next
-  APPVEYOR_BUILD_WORKER_IMAGE: Ubuntu2004
+  APPVEYOR_BUILD_WORKER_IMAGE: Ubuntu2204
   AUTORUNRECORD_BASEDIR: /home/appveyor/workdir
   INSTALL_SYSPKGS: graphicsmagick-imagemagick-compat moreutils jq uidmap fuse2fs
   UV_CACHE: /home/appveyor/.cache/uv

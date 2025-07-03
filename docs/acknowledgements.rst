@@ -20,5 +20,6 @@ The DataLad project received support through the following grants:
   * VirtualBrainCloud (H2020-EU.3.1.5.3, grant no. 826421)
 
 * Deutsche Forschungsgemeinschaft (DFG, German Research Foundation) under grant CRC 379 (512007073, Q02)
+* `Ministry of Culture and Science <https://www.mkw.nrw/english-information>`_ of the German state of North Rhine-Westphalia by funding the `ABCD-J platform <https://www.abcd-j.de/>`_ through the Kooperationsplattformen 2022 program (grant number: KP22-106A)
 
 .. figure:: artwork/src/funding.svg

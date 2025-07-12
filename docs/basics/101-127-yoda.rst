@@ -129,7 +129,7 @@ computational environments, results, ...) in dedicated directories. For example:
   directory, outside of the data component of the dataset.
 
 - Collect **results** of an analysis in a dedicated place, outside of the ``inputs/`` directory, and
-  leave the input data of an analysis untouched by your computations.
+  leave the input data of an analysis untouched by your computations. (Ideally, don't create an "``outputs``" directory for this - when your dataset becomes an input for another, the resulting file paths would be something like ``/inputs/outputs/somefile.dat``)
 
 - Include a place for complete **execution environments**, such as
   `singularity images <https://singularity.lbl.gov>`_ or

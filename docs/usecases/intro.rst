@@ -30,6 +30,7 @@ the solutions they demonstrate.
    using_globus_as_datastore
    ml-analysis
    encrypted_annex
+   external_collaboration
 
 
 

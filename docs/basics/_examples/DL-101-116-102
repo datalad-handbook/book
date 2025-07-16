@@ -1,4 +1,3 @@
 $ cd mock_user
-$ datalad install --source ../DataLad-101 --description "DataLad-101 in mock_user"
-[INFO] Cloning ../DataLad-101 into '/home/me/dl-101/mock_user/DataLad-101' 
+$ datalad clone --description "DataLad-101 in mock_user" ../DataLad-101
 install(ok): /home/me/dl-101/mock_user/DataLad-101 (dataset)

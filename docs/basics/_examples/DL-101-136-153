@@ -1,4 +1,2 @@
-$ mv recordings/longnow .
-$ datalad status
-untracked: longnow (directory)
-  deleted: recordings/longnow (dataset)
+$ git reset --hard HEAD~1
+HEAD is now at c7f94fa move book back from midterm_project

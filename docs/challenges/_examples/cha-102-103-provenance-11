@@ -1,0 +1,2 @@
+$ datalad drop --reckless availability plength.txt
+drop(ok): plength.txt (file)

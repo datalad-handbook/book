@@ -11,23 +11,23 @@ For this, in the root of ``DataLad-101``, create a plain text file
 called ``notes.txt``. It will contain all of the notes that you take
 throughout the course.
 
-Use an editor of your choice and write a short summary of how to create
-a DataLad dataset from scratch:
+Let's write a short summary of how to create a DataLad dataset from scratch:
 
   "One can create a new dataset with 'datalad create
   [--description] PATH'. The dataset is created empty".
 
 This is meant to be a note you would take in an educational course.
 You can take this note and write it to a file with an editor of your choice.
-The code below, however, contains this note within the start and end part of a
-`here document <https://en.wikipedia.org/wiki/Here_document>`_.
+The code snippet, however, contains this note within the start and end part of a
+`heredoc <https://en.wikipedia.org/wiki/Here_document>`_.
 You can also copy the full code snippet, starting
 from ``cat << EOT > notes.txt``, including the ``EOT`` in the last line, in your
 terminal to write this note from the terminal (without any editor) into ``notes.txt``.
 
-.. findoutmore:: How does a here-document work?
+.. index:: here-document, heredoc
+.. find-out-more:: How does a heredoc (here-document) work?
 
-   The code snippet below makes sure to write lines of text into a
+   The code snippet makes sure to write lines of text into a
    file (that so far does not exist) called ``notes.txt``.
 
    To do this, the content of the "document" is wrapped in between
@@ -50,14 +50,22 @@ terminal to write this note from the terminal (without any editor) into ``notes.
    It might seem like a slightly convoluted way to create a text file with
    a note in it. But it allows to write notes from the terminal, enabling
    this book to create commands you can execute with nothing other than your terminal.
-   You are free to copy-paste the snippets with the here-documents,
+   You are free to copy-paste the snippets with the heredocs,
    or find a workflow that suites you better. The only thing important is that
    you create and modify a ``.txt`` file over the course of the Basics part of this
    handbook.
 
-Running the command below will create ``notes.txt`` in the
+Running this command will create ``notes.txt`` in the
 root of your ``DataLad-101`` dataset:
 
+.. index:: heredoc
+   pair: heredoc; on Windows in a terminal
+.. windows-wit:: Heredocs don't work under non-Git-Bash Windows terminals
+
+   .. include:: topic/heredoc-windows.rst
+
+.. index::
+   pair: create heredoc; in a terminal
 .. runrecord:: _examples/DL-101-103-101
    :language: console
    :workdir: dl-101/DataLad-101
@@ -70,7 +78,10 @@ root of your ``DataLad-101`` dataset:
 
    EOT
 
-Run :command:`datalad status` to confirm that there is a new, untracked file:
+.. index::
+   pair: check dataset for modification; with DataLad
+
+Run :dlcmd:`status` to confirm that there is a new, untracked file:
 
 .. runrecord:: _examples/DL-101-103-102
    :language: console
@@ -79,6 +90,9 @@ Run :command:`datalad status` to confirm that there is a new, untracked file:
    :notes: As expected, there is a new file in the dataset. At first the file is untracked. We can save without a path specification because it is the only existing modification
 
    $ datalad status
+
+.. index::
+   pair: save dataset modification; with DataLad
 
 Save the current state of this file in your dataset's history. Because it is the only modification
 in the dataset, there is no need to specify a path.
@@ -92,9 +106,9 @@ in the dataset, there is no need to specify a path.
 
 But now, let's see how *changing* tracked content works.
 Modify this file by adding another note. After all, you already know how to use
-:command:`datalad save`, so write a short summary on that as well.
+:dlcmd:`save`, so write a short summary on that as well.
 
-Again, the example below uses Unix commands (``cat`` and redirecting, this time however
+Again, the example uses Unix commands (``cat`` and redirection, this time however
 with ``>>`` to *append* new content to the existing file)
 to accomplish this, but you can take any editor of your choice.
 
@@ -105,9 +119,9 @@ to accomplish this, but you can take any editor of your choice.
    :notes: Now let's start to modify this text file by adding more notes to it. Think about this being a code file that you add functions to:
 
    $ cat << EOT >> notes.txt
-   The command "datalad save [-m] PATH" saves the file
-   (modifications) to history. Note to self:
-   Always use informative, concise commit messages.
+   The command "datalad save [-m] PATH" saves the file (modifications) to
+   history.
+   Note to self: Always use informative, concise commit messages.
 
    EOT
 
@@ -131,10 +145,8 @@ and save the file in DataLad:
    $ datalad save -m "add note on datalad save"
 
 Let's take another look into our history to see the development of this file.
-We're using :command:`git log -p -n 2` to see last two commits and explore
+We are using :gitcmd:`log -p -n 2` to see last two commits and explore
 the difference to the previous state of a file within each commit.
-Note: git log may be opened in a `pager <https://en.wikipedia.org/wiki/Terminal_pager>`_.
-You can get out of it by pressing ``q``.
 
 .. runrecord:: _examples/DL-101-103-107
    :language: console
@@ -152,10 +164,25 @@ Additions are marked with a ``+``, and deletions would be shown with a leading `
 From the dataset's history, we can therefore also find out *how* the text file
 evolved over time. That's quite neat, isn't it?
 
-.. findoutmore:: git log has many more useful options
+.. index::
+   pair: log; Git command
+   pair: get help; with Git
+   pair: filter history; with Git
+.. find-out-more:: 'git log' has many more useful options
 
-   ``git log``, as many other ``git`` commands, has a good number of options
+   ``git log``, as many other ``Git`` commands, has a good number of options
    which you can discover if you run ``git log --help``.  Those options could
    help to find specific changes (e.g., which added or removed a specific word
-   with ``-S``), or change how git log output will look (e.g.,
-   ``--word-diff`` to highlight individual word changes in the ``-p`` output).
+   with ``-S``), or change how ``git log`` output will look (e.g.,
+   ``--word-diff`` to highlight individual word changes).
+
+
+.. only:: adminmode
+
+   Add a tag at the section end.
+
+     .. runrecord:: _examples/DL-101-103-108
+        :language: console
+        :workdir: dl-101/DataLad-101
+
+        $ git branch sct_modify_content

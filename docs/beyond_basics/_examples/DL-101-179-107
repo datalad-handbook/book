@@ -1,0 +1,8 @@
+$ datalad siblings add -d . --name public --url https://github.com/datalad-handbook/DataLad-101.git
+[INFO] Could not annex-enable public:   Remote public not usable by git-annex; setting annex-ignore
+  https://github.com/datalad-handbook/DataLad-101.git/config download failed: Not Found
+  Remote public not usable by git-annex; setting annex-ignore
+  https://github.com/datalad-handbook/DataLad-101.git/config download failed: Not Found
+enableremote: 1 failed
+
+.: public(-) [https://github.com/datalad-handbook/DataLad-101.git (git)]

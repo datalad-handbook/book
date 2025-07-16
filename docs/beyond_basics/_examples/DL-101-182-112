@@ -1,0 +1,14 @@
+$ cat << EOT >> cat_config.yml
+# Catalog properties
+catalog_name: "Toy Catalog"
+
+# Styling
+logo_path: "datalad_logo_funky.svg" # path to logo
+link_color: "#32A287" # hex color code
+link_hover_color: "#A9FDAC" # hex color code
+
+# Handling multiple metadata sources
+property_sources:
+  dataset: {}
+
+EOT

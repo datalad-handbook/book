@@ -1,1 +1,5 @@
-$ datalad status
+$ datalad save -m "moved subdataset"
+delete(ok): recordings/longnow (dataset)
+add(ok): longnow (dataset)
+add(ok): .gitmodules (file)
+save(ok): . (dataset)

@@ -1,0 +1,24 @@
+$ datalad -f json_pp meta-dump -d . .:zen.png
+{
+  "action": "meta_dump",
+  "backend": "git",
+  "metadata": {
+    "agent_email": "closetoburnout@randomtechconsultancy.com",
+    "agent_name": "Overworked CTO",
+    "dataset_id": "2d540a9d-2ef7-4b5f-8931-7c92f483f0c7",
+    "dataset_version": "19f2d98d✂SHA1",
+    "extracted_metadata": {
+      "description": "A lake with waterlilies in a front of snow covered mountains"
+    },
+    "extraction_parameter": {},
+    "extraction_time": 1675113291.1464975,
+    "extractor_name": "Picture2Words",
+    "extractor_version": "0.1",
+    "path": "zen.png",
+    "type": "file"
+  },
+  "metadata_source": ".",
+  "path": "/home/me/beyond_basics/meta/cozy-screensavers/zen.png",
+  "status": "ok",
+  "type": "dataset"
+}

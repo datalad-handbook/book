@@ -1,0 +1,18 @@
+$ git log
+commit 2b505f91✂SHA1
+Author: Elena Piscopia <elena@example.net>
+Date:   Tue Jun 18 16:13:00 2019 +0200
+
+    add a README to the dataset
+
+commit 5ec4dab1✂SHA1
+Author: Elena Piscopia <elena@example.net>
+Date:   Tue Jun 18 16:13:00 2019 +0200
+
+    Instruct annex to add text files to Git
+
+commit 1e658827✂SHA1
+Author: Elena Piscopia <elena@example.net>
+Date:   Tue Jun 18 16:13:00 2019 +0200
+
+    [DATALAD] new dataset

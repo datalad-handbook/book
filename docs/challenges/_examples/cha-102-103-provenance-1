@@ -1,0 +1,6 @@
+$ datalad create -c yoda iyoda
+[INFO] Running procedure cfg_yoda
+[INFO] == Command start (output follows) =====
+[INFO] == Command exit (modification check follows) =====
+run(ok): /home/me/challenges/102-103-provenance/iyoda (dataset) [VIRTUALENV/bin/python /home...]
+create(ok): /home/me/challenges/102-103-provenance/iyoda (dataset)

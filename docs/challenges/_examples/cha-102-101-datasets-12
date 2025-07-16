@@ -1,0 +1,4 @@
+$ wget -q -O chinstrap_01.jpg "https://hub.datalad.org/edu/penguins/media/branch/main/examples/adelie.jpg"
+$ datalad save -m "Add manually downloaded images"
+add(ok): chinstrap_01.jpg (file)
+save(ok): . (dataset)

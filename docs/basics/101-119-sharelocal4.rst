@@ -7,15 +7,15 @@ Stay up to date
 
 All of what you have seen about sharing dataset was really
 cool, and for the most part also surprisingly intuitive.
-:command:`datalad run` commands or file retrieval worked exactly as
+:dlcmd:`run` commands or file retrieval worked exactly as
 you imagined it to work, and you begin to think that slowly but
-steadily you're getting a feel about how DataLad really works.
+steadily you are getting a feel about how DataLad really works.
 
 But to be honest, so far, sharing the dataset with DataLad was
 also remarkably unexciting given that you already knew most of
 the dataset magic that your room mate currently is still
 mesmerized about.
-To be honest, you're not yet certain whether
+To be honest, you are not yet certain whether
 sharing data with DataLad really improves your life up
 until this point. After all, you could have just copied
 your directory into your ``mock_user`` directory and
@@ -24,8 +24,9 @@ this would have resulted in about the same output, right?
 What we will be looking into now is how shared DataLad
 datasets can be updated.
 
-Remember that you added some notes on :command:`datalad install`
-and :command:`git annex whereis` into the original ``DataLad-101``?
+Remember that you added some notes on :dlcmd:`clone`,
+:dlcmd:`get`, and :gitannexcmd:`whereis` into the
+original ``DataLad-101``?
 
 This is a change that is not reflected in your "shared"
 installation in ``../mock_user/DataLad-101``:
@@ -35,24 +36,26 @@ installation in ``../mock_user/DataLad-101``:
    :notes: On updating dataset. How do we get the updated notes from the original dataset?
    :cast: 04_collaboration
 
-   # we are inside the installed copy
-   $ cat notes.txt
+   $ # Inside the installed copy, view the last 15 lines of notes.txt
+   $ tail notes.txt
 
 But the original intention of sharing the dataset with
 your room mate was to give him access to your notes.
 How does he get the notes that you have added in the last
 two sections, for example?
 
-This installed copy of ``DataLad-101`` knows its ``origin``, i.e.
+This installed copy of ``DataLad-101`` knows its ``origin``, i.e.,
 the place it was installed from. Using this information,
 it can query the original dataset whether any changes
 happened since the last time it checked, and if so, retrieve and
 integrate them.
 
-.. index:: ! datalad command; update
+.. index::
+   pair: update; DataLad command
+   pair: update dataset with remote change; with DataLad
 
-This is done with the :command:`datalad update --merge`
-command (:manpage:`datalad-update` manual).
+This is done with the :dlcmd:`update --how merge`
+command.
 
 .. runrecord:: _examples/DL-101-119-102
    :language: console
@@ -60,7 +63,7 @@ command (:manpage:`datalad-update` manual).
    :notes: retrieve and integrate changes from origin with datalad update --merge
    :cast: 04_collaboration
 
-   $ datalad update --merge
+   $ datalad update --how merge
 
 Importantly, run this command either within the specific
 (sub)dataset you are interested in, or provide a path to
@@ -79,7 +82,8 @@ the previously missing changes are now present:
    :notes: let's check whether the updates are there
    :cast: 04_collaboration
 
-   $ cat notes.txt
+   $ # view the last 15 lines of notes.txt
+   $ tail notes.txt
 
 Wohoo, the contents are here!
 
@@ -97,12 +101,12 @@ dataset to your own ``DataLad-101`` dataset:
    :notes: note in original ds
    :cast: 04_collaboration
 
-   # navigate back:
+   $ # navigate back:
    $ cd ../../DataLad-101
 
-   # write the note
+   $ # write the note
    $ cat << EOT >> notes.txt
-   To update a shared dataset, run the command "datalad update --merge".
+   To update a shared dataset, run the command "datalad update --how merge".
    This command will query its origin for changes, and integrate the
    changes into the dataset.
 
@@ -114,24 +118,35 @@ dataset to your own ``DataLad-101`` dataset:
    :notes:
    :cast: 04_collaboration
 
-   # save the changes
-
+   $ # save the changes
    $ datalad save -m "add note about datalad update"
 
 
-PS: You might wonder whether there is also a sole
-:command:`datalad update` command. Yes, there is -- if you are
-a Git-user and know about branches and merging you can read the
-``Note for Git-users`` below. However, a thorough explanation
+PS: You might wonder what a plain :dlcmd:`update` command with no option does.
+If you are a Git-user and know about branches and merging you can read the
+``Note for Git-users``. However, a thorough explanation
 and demonstration will be in the next section.
 
-.. gitusernote::
+.. index::
+   pair: update; DataLad concept
+.. gitusernote:: Update internals
 
-   :command:`datalad update` is the DataLad equivalent of a :command:`git fetch`,
-   :command:`datalad update --merge` is the DataLad equivalent of a
-   :command:`git pull`.
-   Upon a simple :command:`datalad update`, the remote information
-   is available on a branch separate from the master branch
-   -- in most cases this will be ``remotes/origin/master``.
-   You can :command:`git checkout` this branch or run :command:`git diff` to
+   :dlcmd:`update` is the DataLad equivalent of a :gitcmd:`fetch`,
+   :dlcmd:`update --how merge` is the DataLad equivalent of a
+   :gitcmd:`pull`.
+   Upon a simple :dlcmd:`update`, the remote information
+   is available on a branch separate from the main branch
+   -- in most cases this will be ``remotes/origin/main``.
+   You can :gitcmd:`checkout` this branch or run :gitcmd:`diff` to
    explore the changes and identify potential merge conflicts.
+
+
+.. only:: adminmode
+
+   Add a tag at the section end.
+
+     .. runrecord:: _examples/DL-101-119-106
+        :language: console
+        :workdir: dl-101/DataLad-101
+
+        $ git branch sct_stay_up_to_date

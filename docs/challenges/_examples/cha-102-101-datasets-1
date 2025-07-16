@@ -1,0 +1,2 @@
+$ datalad create my-dataset
+create(ok): /home/me/challenges/102-101-dataset/my-dataset (dataset)

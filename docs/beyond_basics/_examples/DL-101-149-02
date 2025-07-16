@@ -1,0 +1,47 @@
+$ cd hcp
+$ datalad get -n -r HCP1200/130*
+install(ok): /home/me/beyond_basics/HPC/hcp/HCP1200/130013 (dataset) [Installed subdataset in order to get /home/me/beyond_basics/HPC/hcp/HCP1200/130013]
+[INFO] Ensuring presence of Dataset(/home/me/beyond_basics/HPC/hcp) to get /home/me/beyond_basics/HPC/hcp/HCP1200/130013
+install(ok): /home/me/beyond_basics/HPC/hcp/HCP1200/130013/MNINonLinear (dataset)
+install(ok): /home/me/beyond_basics/HPC/hcp/HCP1200/130013/T1w (dataset)
+install(ok): /home/me/beyond_basics/HPC/hcp/HCP1200/130013/unprocessed (dataset)
+install(ok): /home/me/beyond_basics/HPC/hcp/HCP1200/130114 (dataset) [Installed subdataset in order to get /home/me/beyond_basics/HPC/hcp/HCP1200/130114]
+[INFO] Ensuring presence of Dataset(/home/me/beyond_basics/HPC/hcp) to get /home/me/beyond_basics/HPC/hcp/HCP1200/130114
+install(ok): /home/me/beyond_basics/HPC/hcp/HCP1200/130114/MNINonLinear (dataset)
+install(ok): /home/me/beyond_basics/HPC/hcp/HCP1200/130114/T1w (dataset)
+install(ok): /home/me/beyond_basics/HPC/hcp/HCP1200/130114/unprocessed (dataset)
+install(ok): /home/me/beyond_basics/HPC/hcp/HCP1200/130316 (dataset) [Installed subdataset in order to get /home/me/beyond_basics/HPC/hcp/HCP1200/130316]
+[INFO] Ensuring presence of Dataset(/home/me/beyond_basics/HPC/hcp) to get /home/me/beyond_basics/HPC/hcp/HCP1200/130316
+install(ok): /home/me/beyond_basics/HPC/hcp/HCP1200/130316/MNINonLinear (dataset)
+install(ok): /home/me/beyond_basics/HPC/hcp/HCP1200/130316/T1w (dataset)
+install(ok): /home/me/beyond_basics/HPC/hcp/HCP1200/130316/unprocessed (dataset)
+install(ok): /home/me/beyond_basics/HPC/hcp/HCP1200/130417 (dataset) [Installed subdataset in order to get /home/me/beyond_basics/HPC/hcp/HCP1200/130417]
+[INFO] Ensuring presence of Dataset(/home/me/beyond_basics/HPC/hcp) to get /home/me/beyond_basics/HPC/hcp/HCP1200/130417
+install(ok): /home/me/beyond_basics/HPC/hcp/HCP1200/130417/MNINonLinear (dataset)
+install(ok): /home/me/beyond_basics/HPC/hcp/HCP1200/130417/T1w (dataset)
+install(ok): /home/me/beyond_basics/HPC/hcp/HCP1200/130417/unprocessed (dataset)
+install(ok): /home/me/beyond_basics/HPC/hcp/HCP1200/130518 (dataset) [Installed subdataset in order to get /home/me/beyond_basics/HPC/hcp/HCP1200/130518]
+[INFO] Ensuring presence of Dataset(/home/me/beyond_basics/HPC/hcp) to get /home/me/beyond_basics/HPC/hcp/HCP1200/130518
+install(ok): /home/me/beyond_basics/HPC/hcp/HCP1200/130518/MNINonLinear (dataset)
+install(ok): /home/me/beyond_basics/HPC/hcp/HCP1200/130518/T1w (dataset)
+install(ok): /home/me/beyond_basics/HPC/hcp/HCP1200/130518/unprocessed (dataset)
+install(ok): /home/me/beyond_basics/HPC/hcp/HCP1200/130619 (dataset) [Installed subdataset in order to get /home/me/beyond_basics/HPC/hcp/HCP1200/130619]
+[INFO] Ensuring presence of Dataset(/home/me/beyond_basics/HPC/hcp) to get /home/me/beyond_basics/HPC/hcp/HCP1200/130619
+install(ok): /home/me/beyond_basics/HPC/hcp/HCP1200/130619/MNINonLinear (dataset)
+install(ok): /home/me/beyond_basics/HPC/hcp/HCP1200/130619/T1w (dataset)
+install(ok): /home/me/beyond_basics/HPC/hcp/HCP1200/130619/unprocessed (dataset)
+install(ok): /home/me/beyond_basics/HPC/hcp/HCP1200/130720 (dataset) [Installed subdataset in order to get /home/me/beyond_basics/HPC/hcp/HCP1200/130720]
+[INFO] Ensuring presence of Dataset(/home/me/beyond_basics/HPC/hcp) to get /home/me/beyond_basics/HPC/hcp/HCP1200/130720
+install(ok): /home/me/beyond_basics/HPC/hcp/HCP1200/130720/MNINonLinear (dataset)
+install(ok): /home/me/beyond_basics/HPC/hcp/HCP1200/130720/T1w (dataset)
+install(ok): /home/me/beyond_basics/HPC/hcp/HCP1200/130720/unprocessed (dataset)
+install(ok): /home/me/beyond_basics/HPC/hcp/HCP1200/130821 (dataset) [Installed subdataset in order to get /home/me/beyond_basics/HPC/hcp/HCP1200/130821]
+[INFO] Ensuring presence of Dataset(/home/me/beyond_basics/HPC/hcp) to get /home/me/beyond_basics/HPC/hcp/HCP1200/130821
+install(ok): /home/me/beyond_basics/HPC/hcp/HCP1200/130821/MNINonLinear (dataset)
+install(ok): /home/me/beyond_basics/HPC/hcp/HCP1200/130821/T1w (dataset)
+install(ok): /home/me/beyond_basics/HPC/hcp/HCP1200/130821/unprocessed (dataset)
+install(ok): /home/me/beyond_basics/HPC/hcp/HCP1200/130922 (dataset) [Installed subdataset in order to get /home/me/beyond_basics/HPC/hcp/HCP1200/130922]
+[INFO] Ensuring presence of Dataset(/home/me/beyond_basics/HPC/hcp) to get /home/me/beyond_basics/HPC/hcp/HCP1200/130922
+install(ok): /home/me/beyond_basics/HPC/hcp/HCP1200/130922/MNINonLinear (dataset)
+install(ok): /home/me/beyond_basics/HPC/hcp/HCP1200/130922/T1w (dataset)
+install(ok): /home/me/beyond_basics/HPC/hcp/HCP1200/130922/unprocessed (dataset)

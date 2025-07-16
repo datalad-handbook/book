@@ -1,4 +1,4 @@
-$ datalad update --merge
-[INFO] Fetching updates for <Dataset path=/home/me/dl-101/mock_user/DataLad-101> 
-[INFO] Applying updates to <Dataset path=/home/me/dl-101/mock_user/DataLad-101> 
+$ datalad update --how merge
+merge(ok): . (dataset) [Merged origin/main]
+update.annex_merge(ok): . (dataset) [Merged annex branch]
 update(ok): . (dataset)

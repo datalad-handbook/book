@@ -1,2 +1,28 @@
-$ git reset --hard HEAD~2
-HEAD is now at cc27fbf add container and execute analysis within container
+$ cat .git/config
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+	editor = nano
+[annex]
+	uuid = 46b169aa-bb91-42d6-be06-355d957fb4f7
+	version = 10
+[filter "annex"]
+	smudge = git-annex smudge -- %f
+	clean = git-annex smudge --clean -- %f
+	process = git-annex filter-process
+[submodule "recordings/longnow"]
+	active = true
+	url = https://github.com/datalad-datasets/longnow-podcasts.git
+[remote "roommate"]
+	url = ../mock_user/onemoredir/DataLad-101
+	fetch = +refs/heads/*:refs/remotes/roommate/*
+	annex-uuid = ✂UUID✂
+	annex-ignore = false
+[submodule "midterm_project"]
+	active = true
+	url = ./midterm_project
+[submodule "longnow"]
+	active = true
+	url = https://github.com/datalad-datasets/longnow-podcasts.git

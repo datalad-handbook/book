@@ -7,7 +7,7 @@ Just now you realize that you need to fit both logos onto the same slide.
 "Ah, damn, I might then really need to have them 400 by 400 pixel to fit",
 you think. "Good that I know how to not run into the permission denied errors anymore!"
 
-Therefore, we need to do the :command:`datalad run` command yet again - we wanted to have
+Therefore, we need to do the :dlcmd:`run` command yet again - we wanted to have
 the image in 400x400 px size. "Now this definitely will be the last time I'm running this",
 you think.
 
@@ -16,6 +16,7 @@ you think.
    :workdir: dl-101/DataLad-101
    :emphasize-lines: 5
    :notes: mhh, 450x450px seems a bit large, we have to go back to 400. Lets make yet another, complete run command
+   :exitcode: 1
    :cast: 02_reproducible_execution
 
    $ datalad run -m "Resize logo for slides" \
@@ -29,7 +30,7 @@ Oh for f**** sake... run is "impossible"?
 Weird. After the initial annoyance about yet another error message faded,
 and you read on,
 DataLad informs that a "clean dataset" is required.
-Run a :command:`datalad status` to see what is meant by this:
+Run a :dlcmd:`status` to see what is meant by this:
 
 .. runrecord:: _examples/DL-101-112-102
    :language: console
@@ -43,13 +44,13 @@ Ah right. We forgot to save the notes we added, and thus there are
 unsaved modifications present in ``DataLad-101``.
 But why is this a problem?
 
-By default, at the end of a :command:`datalad run` is a :command:`datalad save`.
-Remember the section on :ref:`populate`: A general :command:`datalad save` without
+By default, at the end of a :dlcmd:`run` is a :dlcmd:`save`.
+Remember the section :ref:`populate`: A general :dlcmd:`save` without
 a path specification will save *all* of the modified or untracked
 contents to the dataset.
 
 Therefore, in order to not mix any changes in the dataset that are unrelated
-to the command plugged into :command:`datalad run`, by default it will only run
+to the command plugged into :dlcmd:`run`, by default it will only run
 on a clean dataset with no changes or untracked files present.
 
 There are two ways to get around this error message:
@@ -81,11 +82,11 @@ and then try again:
    --output "recordings/interval_logo_small.jpg" \
    "convert -resize 400x400 recordings/longnow/.datalad/feed_metadata/logo_interval.jpg recordings/interval_logo_small.jpg"
 
-Note how in this execution of :command:`datalad run`, output unlocking was actually
+Note how in this execution of :dlcmd:`run`, output unlocking was actually
 necessary and DataLad provides a summary of this action in its output.
 
 Add a quick addition to your notes about this way of cleaning up prior
-to a :command:`datalad run`:
+to a :dlcmd:`run`:
 
 .. runrecord:: _examples/DL-101-112-105
    :language: console
@@ -94,14 +95,17 @@ to a :command:`datalad run`:
    :cast: 02_reproducible_execution
 
    $ cat << EOT >> notes.txt
-   Important! If the dataset is not "clean" (a datalad status output is empty),
-   datalad run will not work - you will have to save modifications present in your
-   dataset.
+   Important! If the dataset is not "clean" (a datalad status output is
+   empty), datalad run will not work - you will have to save
+   modifications present in your dataset.
    EOT
 
 
-A way of executing a :command:`datalad run` *despite* an "unclean" dataset,
-though, is to add the ``--explicit`` flag to :command:`datalad run`.
+.. index::
+   pair: run command on dirty dataset; with DataLad run
+
+A way of executing a :dlcmd:`run` *despite* an "unclean" dataset,
+though, is to add the ``--explicit`` flag to :dlcmd:`run`.
 We will try this flag with the remaining ``logo_salt.jpg``. Note that
 we have an "unclean dataset" again because of the
 additional note in ``notes.txt``.
@@ -120,11 +124,19 @@ additional note in ``notes.txt``.
    "convert -resize 400x400 recordings/longnow/.datalad/feed_metadata/logo_salt.jpg recordings/salt_logo_small.jpg"
 
 With this flag, DataLad considers the specification of inputs and outputs to be "explicit".
-It doesn't warn if the repository is dirty, but importantly, it
+It does not warn if the repository is dirty, but importantly, it
 **only** saves modifications to the *listed outputs* (which is a problem in the
 vast amount of cases where one does not exactly know which outputs are produced).
 
-A :command:`datalad status` will show that your previously modified ``notes.txt``
+.. index::
+   pair: explicit input/output declaration; with DataLad run
+.. importantnote:: Put explicit first!
+
+   The ``--explicit`` flag has to be given anywhere *prior* to the command that
+   should be run -- the command needs to be the last element of a
+   :dlcmd:`run` call.
+
+A :dlcmd:`status` will show that your previously modified ``notes.txt``
 is still modified:
 
 .. runrecord:: _examples/DL-101-112-110
@@ -144,9 +156,8 @@ Add an additional note on the ``--explicit`` flag, and finally save your changes
    :cast: 02_reproducible_execution
 
    $ cat << EOT >> notes.txt
-   A suboptimal alternative is the --explicit flag,
-   used to record only those changes done
-   to the files listed with --output flags.
+   A suboptimal alternative is the --explicit flag, used to record only
+   those changes done to the files listed with --output flags.
 
    EOT
 
@@ -158,15 +169,26 @@ Add an additional note on the ``--explicit`` flag, and finally save your changes
 
    $ datalad save -m "add note on clean datasets"
 
-To conclude this section on :command:`datalad run`, take a look at the last :command:`datalad run`
+To conclude this section on :dlcmd:`run`, take a look at the last :dlcmd:`run`
 commit to see a :term:`run record` with more content:
 
 .. runrecord:: _examples/DL-101-112-109
    :language: console
    :workdir: dl-101/DataLad-101
    :lines: 1, 24-50
-   :emphasize-lines: 11, 15-17, 18-20
+   :emphasize-lines: 10, 14-19
    :notes: finally, lets see a more complex runrecord
    :cast: 02_reproducible_execution
 
    $ git log -p -n 2
+
+
+.. only:: adminmode
+
+   Add a tag at the section end.
+
+     .. runrecord:: _examples/DL-101-112-110
+        :language: console
+        :workdir: dl-101/DataLad-101
+
+        $ git branch sct_clean_desk

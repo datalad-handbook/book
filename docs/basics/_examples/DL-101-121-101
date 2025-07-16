@@ -1,17 +1,12 @@
-# navigate into the installed copy
+$ # navigate into the installed copy
 $ cd ../mock_user/DataLad-101
 
-# download the shell script and save it in your code/ directory
+$ # download the shell script and save it in your code/ directory
 $ datalad download-url \
   -d . \
   -m "Include nesting demo from datalad website" \
   -O code/nested_repos.sh \
-  https://raw.githubusercontent.com/datalad/datalad.org/7e8e39b1f08d0a54ab521586f27ee918b4441d69/content/asciicast/seamless_nested_repos.sh
-[INFO] Downloading 'https://raw.githubusercontent.com/datalad/datalad.org/7e8e39b1f08d0a54ab521586f27ee918b4441d69/content/asciicast/seamless_nested_repos.sh' into 'code/nested_repos.sh' 
-download_url(ok): code/nested_repos.sh (file)
+  https://raw.githubusercontent.com/datalad/datalad.org/7e8e39b1/content/asciicast/seamless_nested_repos.sh
+download_url(ok): /home/me/dl-101/mock_user/DataLad-101/code/nested_repos.sh (file)
 add(ok): code/nested_repos.sh (file)
 save(ok): . (dataset)
-action summary:
-  add (ok: 1)
-  download_url (ok: 1)
-  save (ok: 1)

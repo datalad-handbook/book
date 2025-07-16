@@ -1,0 +1,4 @@
+datalad clone ria+file:///home/me/myriastore#~midterm_project
+[INFO] Configure additional publication dependency on "ria-backup-storage"
+configure-sibling(ok): . (sibling)
+install(ok): /home/me/beyond_basics/midterm_project (dataset)

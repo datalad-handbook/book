@@ -1,0 +1,13 @@
+$ datalad rerun HEAD
+[INFO] run commit 3f4aa8f; (python code/extra...)
+[INFO] == Command start (output follows) =====
+[INFO] == Command exit (modification check follows) =====
+run.remove(ok): plength.txt (file) [Removed file]
+run(ok): /home/me/challenges/102-103-provenance/iyoda (dataset) [python code/extract.py > plength.txt]
+add(ok): plength.txt (file)
+action summary:
+  add (ok: 1)
+  get (notneeded: 3)
+  run (ok: 1)
+  run.remove (ok: 1)
+  save (notneeded: 2)

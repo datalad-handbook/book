@@ -1,0 +1,15 @@
+$ tree midterm_project
+midterm_project
+├── bash_guide.pdf -> .git/annex/objects/31/wQ/SHA256E-s1198170--d08f2c7b✂SHA162d6b24a20cb5abae4d4402c.pdf/SHA256E-s1198170--d08f2c7b✂SHA162d6b24a20cb5abae4d4402c.pdf
+├── CHANGELOG.md
+├── code
+│   ├── README.md
+│   └── script.py
+├── input
+│   └── iris.csv -> .git/annex/objects/qz/Jg/✂/MD5E-s3975--341a3b52✂MD5.csv
+├── notes.txt -> .git/annex/objects/K2/XG/✂/MD5E-s5082--f1dfda6c✂MD5.txt
+├── pairwise_relationships.png -> .git/annex/objects/q1/gp/✂/MD5E-s261062--025dc493✂MD5.png
+├── prediction_report.csv -> .git/annex/objects/8q/6M/✂/MD5E-s345--a88cab39✂MD5.csv
+└── README.md
+
+2 directories, 9 files

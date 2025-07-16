@@ -1,0 +1,4 @@
+$ datalad push --to gin
+publish(ok): . (dataset) [refs/heads/main->gin:refs/heads/main 7dd7551..445460d]
+action summary:
+  publish (notneeded: 1, ok: 1)

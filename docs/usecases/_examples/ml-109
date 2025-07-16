@@ -1,0 +1,6 @@
+$ datalad save -m "Add script for data preparation for 2 categories" code/prepare.py
+add(ok): code/prepare.py (file)
+save(ok): . (dataset)
+action summary:
+  add (ok: 1)
+  save (ok: 1)

@@ -1,0 +1,4 @@
+$ datalad clone https://github.com/datalad-handbook/cozy-screensavers.git
+$ cd cozy-screensavers
+[INFO] Remote origin not usable by git-annex; setting annex-ignore
+install(ok): /home/me/beyond_basics/meta/cozy-screensavers (dataset)

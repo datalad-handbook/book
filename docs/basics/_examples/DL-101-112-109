@@ -1,37 +1,36 @@
 $ git log -p -n 2
-commit 78ea5d54534eef3a7b7216b3e3c7e282de53770e
+commit 41fdaab8✂SHA1
 Author: Elena Piscopia <elena@example.net>
-Date:   Tue Dec 10 09:08:52 2019 +0100
+Date:   Tue Jun 18 16:13:00 2019 +0000
 
     add note on clean datasets
 
 diff --git a/notes.txt b/notes.txt
-index d1ba8fc..8f0124f 100644
+index 6a465f0..e2829b2 100644
 --- a/notes.txt
 +++ b/notes.txt
-@@ -30,3 +30,10 @@ files will be retrieved prior to the command execution. Any content that is modi
- produced by the command should be specified with an -o/--output flag. Upon a run or rerun
- of the command, the contents of these files will get unlocked so that they can be modified.
- 
-+Important! If the dataset is not "clean" (a datalad status output is empty),
-+datalad run will not work - you will have to save modifications present in your
-+dataset.
-+A suboptimal alternative is the --explicit flag,
-+used to record only those changes done
-+to the files listed with --output flags.
+@@ -32,3 +32,9 @@ should be specified with an -o/--output flag. Upon a run or rerun of
+ the command, the contents of these files will get unlocked so that
+ they can be modified.
+
++Important! If the dataset is not "clean" (a datalad status output is
++empty), datalad run will not work - you will have to save
++modifications present in your dataset.
++A suboptimal alternative is the --explicit flag, used to record only
++those changes done to the files listed with --output flags.
 +
 
-commit 231d15dadd9d7a62215cf9393368dbc06cd6fc87
+commit fd4a25e6✂SHA1
 Author: Elena Piscopia <elena@example.net>
-Date:   Tue Dec 10 09:08:51 2019 +0100
+Date:   Tue Jun 18 16:13:00 2019 +0000
 
     [DATALAD RUNCMD] Resize logo for slides
-    
+
     === Do not change lines below ===
     {
      "chain": [],
      "cmd": "convert -resize 400x400 recordings/longnow/.datalad/feed_metadata/logo_salt.jpg recordings/salt_logo_small.jpg",
-     "dsid": "361f840a-1b24-11ea-a08c-e86a64c8054c",
+     "dsid": "e3e70682-c209-4cac-629f-6fbed82c07cd",
      "exit": 0,
      "extra_inputs": [],
      "inputs": [
@@ -45,11 +44,11 @@ Date:   Tue Dec 10 09:08:51 2019 +0100
     ^^^ Do not change lines above ^^^
 
 diff --git a/recordings/salt_logo_small.jpg b/recordings/salt_logo_small.jpg
-index b6a0a1d..55ada0f 120000
+index 0985399..d90c601 120000
 --- a/recordings/salt_logo_small.jpg
 +++ b/recordings/salt_logo_small.jpg
 @@ -1 +1 @@
--../.git/annex/objects/1W/zw/MD5E-s317889--c88b2b3f61e13edd33dc8d0a3b15eff7.jpg/MD5E-s317889--c88b2b3f61e13edd33dc8d0a3b15eff7.jpg
+-../.git/annex/objects/jX/gq/✂/MD5E-s87553--4b3c61df✂MD5.jpg
 \ No newline at end of file
-+../.git/annex/objects/xJ/4G/MD5E-s260607--4e695af0f3e8e836fcfc55f815940059.jpg/MD5E-s260607--4e695af0f3e8e836fcfc55f815940059.jpg
++../.git/annex/objects/fZ/wg/✂/MD5E-s76402--87da732f✂MD5.jpg
 \ No newline at end of file

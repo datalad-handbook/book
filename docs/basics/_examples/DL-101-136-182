@@ -1,0 +1,2 @@
+$ datalad drop --what all --reckless kill --recursive cloud
+uninstall(ok): cloud (dataset)

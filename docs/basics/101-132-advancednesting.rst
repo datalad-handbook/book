@@ -1,6 +1,8 @@
+.. index::
+   pair: dataset nesting; DataLad concept
 .. _nesting2:
 
-More on Dataset nesting
+More on dataset nesting
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 You may have noticed how working in the subdataset felt as if you would be
@@ -15,8 +17,8 @@ completely stand-alone history:
    $ git log --oneline
 
 In principle, this is no news to you. From section :ref:`nesting` and the
-YODA principles you already know that nesting allows for a modular re-use of
-any other DataLad dataset, and that this re-use is possible and simple
+YODA principles you already know that nesting allows for a modular reuse of
+any other DataLad dataset, and that this reuse is possible and simple
 precisely because all of the information is kept within a (sub)dataset.
 
 What is new now, however, is that you applied changes to the dataset. While
@@ -34,7 +36,7 @@ evolved. Let's query the superdataset what it thinks about this.
    :language: console
    :workdir: dl-101/DataLad-101/midterm_project
 
-   # move into the superdataset
+   $ # move into the superdataset
    $ cd ../
    $ datalad status
 
@@ -43,169 +45,60 @@ From the superdataset's perspective, the subdataset appears as being
 indeed the complete subdataset as a single entity.
 
 What this shows you is that the modifications of the subdataset you performed are not
-automatically recorded to the superdataset. This makes sense -- after all it
-should be up to you to decide whether you want record something or not --,
-but it is worth repeating: If you modify a subdataset, you will need to save
+automatically recorded to the superdataset. This makes sense, after all it
+should be up to you to decide whether you want record something or not.
+But it is worth repeating: If you modify a subdataset, you will need to save
 this *in the superdataset* in order to have a clean superdataset status.
-
-This point in time in DataLad-101 is a convenient moment to dive a bit deeper
-into the functions of the :command:`datalad status` command. If you are
-interested in this, checkout the hidden section below.
-
-.. findoutmore:: More on datalad status
-
-   First of all, let's start with a quick overview of the different content *types*
-   and content *states* various :command:`datalad status` commands in the course
-   of DataLad-101 have shown up to this point:
-
-   You have seen the following *content types*:
-
-   - ``file``, e.g., ``notes.txt``: any file (or symlink that is a placeholder to an annexed file)
-   - ``directory``, e.g., ``books``: any directory that does not qualify for the ``dataset`` type
-   - ``symlink``, e.g., the ``.jgp`` that was manually unlocked in section :ref:`run3`:
-     any symlink that is not used as a placeholder for an annexed file
-   - ``dataset``, e.g., the ``midterm_project``: any top-level dataset, or any subdataset
-     that is properly registered in the superdataset
-
-   And you have seen the following *content states*: ``modified`` and ``untracked``.
-   The section :ref:`filesystem` will show you many instances of ``deleted`` content
-   state as well.
-
-   But beyond understanding the report of :command:`datalad status`, there is also
-   additional functionality:
-   :command:`datalad status` can handle status reports for a whole hierarchy
-   of datasets, and it can report on a subset of the content across any number of
-   datasets in this hierarchy by providing selected paths. This is useful as soon
-   as datasets become more complex and contain subdatasets with changing contents.
-
-   When performed without any arguments, :command:`datalad status` will report
-   the state of the current dataset. However, you can specify a path to any
-   sub- or superdataset with the ``--dataset`` option.
-
-   In order to demonstrate this a bit better, we will make sure that not only the
-   state of the subdataset *within* the superdataset is modified, but also that the
-   subdataset contains a modification. For this, let's add an empty text file into
-   the ``midterm_project`` subdataset:
-
-   .. runrecord:: _examples/DL-101-132-103
-      :language: console
-      :workdir: dl-101/DataLad-101
-
-      $ touch midterm_project/an_empty_file
-
-   If you are in the root of ``DataLad-101``, but interested in the status
-   *within* the subdataset, simply provide a path (relative to your current location)
-   to the command:
-
-   .. runrecord:: _examples/DL-101-132-104
-      :language: console
-      :workdir: dl-101/DataLad-101
-
-      $ datalad status midterm_project
-
-   Alternatively, to achieve the same, specify the superdataset as the ``--dataset``
-   and provide a path to the subdataset *with a trailing path separator* like
-   this:
-
-   .. runrecord:: _examples/DL-101-132-105
-      :language: console
-      :workdir: dl-101/DataLad-101
-
-      $ datalad status -d . midterm_project/
-
-   Note that both of these commands return only the ``untracked`` file and not
-   not the ``modified`` subdataset because we're explicitly querying only the
-   subdataset for its status.
-   If you however, as done outside of this hidden section, you want to know about
-   the subdataset record in the superdataset without causing a status query for
-   the state *within* the subdataset itself, you can also provide an explicit
-   path to the dataset (without a trailing path separator). This can be used
-   to specify a specific subdataset in the case of a dataset with many subdatasets:
-
-   .. runrecord:: _examples/DL-101-132-106
-      :language: console
-      :workdir: dl-101/DataLad-101
-
-      $ datalad status -d . midterm_project
-
-
-   But if you are interested in both the state within the subdataset, and
-   the state of the subdataset within the superdataset, you can combine the
-   two paths:
-
-   .. runrecord:: _examples/DL-101-132-107
-      :language: console
-      :workdir: dl-101/DataLad-101
-
-      $ datalad status -d . midterm_project midterm_project/
-
-   Finally, if these subtle differences in the paths are not easy to memorize,
-   the ``-r/--recursive`` option will also report you both status aspects:
-
-   .. runrecord:: _examples/DL-101-132-108
-      :language: console
-      :workdir: dl-101/DataLad-101
-
-      $ datalad status --recursive
-
-   This still was not all of the available functionality of the
-   :command:`datalad status` command. You could for example adjust whether and
-   how untracked dataset content should be reported with the ``--untracked``
-   option, or get additional information from annexed content with the ``--annex``
-   option. To get a complete overview on what you could do, check out the technical
-   documentation of :command:`datalad status` `here <http://docs.datalad.org/en/latest/generated/man/datalad-status.html>`_.
-
-   Before we leave this hidden section, lets undo the modification of the subdataset
-   by removing the untracked file:
-
-   .. runrecord:: _examples/DL-101-132-109
-      :language: console
-      :workdir: dl-101/DataLad-101
-
-      $ rm midterm_project/an_empty_file
-      $ datalad status --recursive
 
 Let's save the modification of the subdataset into the history of the
 superdataset. For this, to avoid confusion, you can specify explicitly to
 which dataset you want to save a modification. ``-d .`` specifies the current
 dataset, i.e., ``DataLad-101``, as the dataset to save to:
 
-.. runrecord:: _examples/DL-101-132-110
+.. runrecord:: _examples/DL-101-132-103
    :language: console
    :workdir: dl-101/DataLad-101/
 
-   $ datalad save -d . -m "finished my midterm project!" midterm_project
+   $ datalad save -d . -m "finished my midterm project" midterm_project
 
-.. findoutmore:: More on how save can operate on nested datasets
+.. index::
+   pair: save modification in nested dataset; with DataLad
+.. find-out-more:: More on how 'datalad save' can operate on nested datasets
 
-   In a superdataset with subdatasets, :command:`datalad save` by default
+   In a superdataset with subdatasets, :dlcmd:`save` by default
    tries to figure out on its own which dataset's history of all available
-   datasets a :command:`save` should be written to. However, it can reduce
+   datasets a :dlcmd:`save` should be written to. However, it can reduce
    confusion or allow specific operations to be very explicit in the command
    call and tell DataLad where to save what kind of modifications to.
 
    If you want to save the current state of the subdataset into the superdataset
    (as necessary here), start a ``save`` from the superdataset and have the
-   ``-d/--dataset`` option point to its root::
+   ``-d/--dataset`` option point to its root:
 
-      # in the root of the superds
+   .. code-block:: console
+
+      $ # in the root of the superds
       $ datalad save -d . -m "update subdataset"
 
    If you are in the superdataset, and you want to save an unsaved modification
    in a subdataset to the *subdatasets* history, let ``-d/--dataset`` point to
-   the subdataset::
+   the subdataset:
 
-      # in the superds
+   .. code-block:: console
+
+      $ # in the superds
       $ datalad save -d path/to/subds -m "modified XY"
 
    The recursive option allows you to save any content underneath the specified
-   directory, and recurse into any potential subdatasets::
+   directory, and recurse into any potential subdatasets:
+
+   .. code-block:: console
 
       $ datalad save . --recursive
 
 Let's check which subproject commit is now recorded in the superdataset:
 
-.. runrecord:: _examples/DL-101-132-112
+.. runrecord:: _examples/DL-101-132-104
    :language: console
    :workdir: dl-101/DataLad-101/
    :emphasize-lines: 14
@@ -216,3 +109,143 @@ As you can see in the log entry, the subproject commit changed from the
 first commit hash in the subdataset history to the most recent one. With this
 change, therefore, your superdataset tracks the most recent version of
 the ``midterm_project`` dataset, and your dataset's status is clean again.
+
+
+This time in DataLad-101 is a convenient moment to dive a bit deeper
+into the functions of the :dlcmd:`status` command. If you are
+interested in this, checkout the :ref:`dedicated Findoutmore <fom-status>`.
+
+.. index::
+   pair: status; DataLad command
+   pair: check dataset for modification; with DataLad
+.. find-out-more:: More on 'datalad status'
+   :name: fom-status
+   :float:
+
+   First of all, let's start with a quick overview of the different content *types*
+   and content *states* various :dlcmd:`status` commands in the course
+   of DataLad-101 have shown up to this point.
+   You have seen the following *content types*:
+
+   - ``file``, e.g., ``notes.txt``: any file (or symlink that is a placeholder to an annexed file)
+   - ``directory``, e.g., ``books``: any directory that does not qualify for the ``dataset`` type
+   - ``symlink``, e.g., the ``.jgp`` that was manually unlocked in section :ref:`run3`:
+     any symlink that is not used as a placeholder for an annexed file
+   - ``dataset``, e.g., the ``midterm_project``: any top-level dataset, or any subdataset
+     that is properly registered in the superdataset
+
+   And you have seen the following *content states*: ``modified`` and ``untracked``.
+   The section :ref:`file system` will show you many instances of ``deleted`` content
+   state as well.
+
+   But beyond understanding the report of :dlcmd:`status`, there is also
+   additional functionality:
+   :dlcmd:`status` can handle status reports for a whole hierarchy
+   of datasets, and it can report on a subset of the content across any number of
+   datasets in this hierarchy by providing selected paths. This is useful as soon
+   as datasets become more complex and contain subdatasets with changing contents.
+
+   When performed without any arguments, :dlcmd:`status` will report
+   the state of the current dataset. However, you can specify a path to any
+   sub- or superdataset with the ``--dataset`` option.
+   In order to demonstrate this a bit better, we will make sure that not only the
+   state of the subdataset *within* the superdataset is modified, but also that the
+   subdataset contains a modification. For this, let's add an empty text file into
+   the ``midterm_project`` subdataset:
+
+   .. runrecord:: _examples/DL-101-132-105
+      :language: console
+      :workdir: dl-101/DataLad-101
+
+      $ touch midterm_project/an_empty_file
+
+   If you are in the root of ``DataLad-101``, but interested in the status
+   *within* the subdataset, simply provide a path (relative to your current location)
+   to the command:
+
+   .. runrecord:: _examples/DL-101-132-106
+      :language: console
+      :workdir: dl-101/DataLad-101
+
+      $ datalad status midterm_project
+
+   Alternatively, to achieve the same, specify the superdataset as the ``--dataset``
+   and provide a path to the subdataset *with a trailing path separator* like
+   this:
+
+   .. runrecord:: _examples/DL-101-132-107
+      :language: console
+      :workdir: dl-101/DataLad-101
+
+      $ datalad status -d . midterm_project/
+
+   Note that both of these commands return only the ``untracked`` file and not
+   not the ``modified`` subdataset because we're explicitly querying only the
+   subdataset for its status.
+   If you however, as done outside of this Find-out-more, you want to know about
+   the subdataset record in the superdataset without causing a status query for
+   the state *within* the subdataset itself, you can also provide an explicit
+   path to the dataset (without a trailing path separator). This can be used
+   to specify a specific subdataset in the case of a dataset with many subdatasets:
+
+   .. runrecord:: _examples/DL-101-132-108
+      :language: console
+      :workdir: dl-101/DataLad-101
+
+      $ datalad status -d . midterm_project
+
+
+   But if you are interested in both the state within the subdataset, and
+   the state of the subdataset within the superdataset, you can combine the
+   two paths:
+
+   .. runrecord:: _examples/DL-101-132-109
+      :language: console
+      :workdir: dl-101/DataLad-101
+
+      $ datalad status -d . midterm_project midterm_project/
+
+   Finally, if these subtle differences in the paths are not easy to memorize,
+   the ``-r/--recursive`` option will also report you both status aspects:
+
+   .. runrecord:: _examples/DL-101-132-110
+      :language: console
+      :workdir: dl-101/DataLad-101
+
+      $ datalad status --recursive
+
+   Importantly, the regular output from a :dlcmd:`status` command in the commandline is "condensed" to the most important information by a tailored result renderer.
+   You can, however, also get ``status``' unfiltered full output by switching the ``-f``/``--output-format`` from ``tailored`` (the default) to ``json`` or, for the same infos as ``json`` but better readability, ``json_pp``:
+
+   .. runrecord:: _examples/DL-101-132-111
+      :language: console
+      :workdir: dl-101/DataLad-101
+
+      $ datalad -f json_pp status -d . midterm_project
+
+   This still was not all of the available functionality of the
+   :dlcmd:`status` command. You could, for example, adjust whether and
+   how untracked dataset content should be reported with the ``--untracked``
+   option, or get additional information from annexed content with the ``--annex``
+   option (especially powerful when combined with ``-f json_pp``). To get a complete overview on what you could do, check out the technical
+   documentation of :dlcmd:`status` `here <https://docs.datalad.org/en/latest/generated/man/datalad-status.html>`_.
+
+   Before we leave this Find-out-more, lets undo the modification of the subdataset
+   by removing the untracked file:
+
+   .. runrecord:: _examples/DL-101-132-112
+      :language: console
+      :workdir: dl-101/DataLad-101
+
+      $ rm midterm_project/an_empty_file
+      $ datalad status --recursive
+
+.. only:: adminmode
+
+    Add a tag at the section end.
+
+      .. runrecord:: _examples/DL-101-132-113
+         :language: console
+         :workdir: dl-101/DataLad-101
+
+         $ git branch sct_more_on_dataset_nesting

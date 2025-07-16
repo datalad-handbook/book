@@ -1,0 +1,16 @@
+### DVC
+$ tree DVC
+DVC
+├── data
+│   ├── prepared
+│   └── raw
+├── LICENSE
+├── metrics
+├── model
+├── README.md
+└── src
+    ├── evaluate.py
+    ├── prepare.py
+    └── train.py
+
+6 directories, 5 files

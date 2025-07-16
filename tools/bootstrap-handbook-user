@@ -1,0 +1,7 @@
+#!/bin/bash
+
+set -e -u
+
+export HOME=${AUTORUNRECORD_BASEDIR}
+mkdir -p $HOME
+git config --global init.defaultBranch main

@@ -1,0 +1,21 @@
+$ cd myclone
+$ tree
+.
+├── books
+│   ├── bash_guide.pdf -> ../.git/annex/objects/WF/Gq/✂/MD5E-s1198170--0ab2c121✂MD5.pdf
+│   ├── byte-of-python.pdf -> ../.git/annex/objects/xF/42/✂/MD5E-s4161086--c832fc13✂MD5.pdf
+│   ├── progit.pdf -> ../.git/annex/objects/G6/Gj/✂/MD5E-s12465653--05cd7ed5✂MD5.pdf
+│   └── TLCL.pdf -> ../.git/annex/objects/jf/3M/✂/MD5E-s2120211--06d1efcb✂MD5.pdf
+├── code
+│   ├── list_titles.sh
+│   └── nested_repos.sh
+├── Gitjoke2.txt
+├── midterm_project
+├── notes.txt
+└── recordings
+    ├── interval_logo_small.jpg
+    ├── longnow
+    ├── podcasts.tsv
+    └── salt_logo_small.jpg
+
+5 directories, 11 files

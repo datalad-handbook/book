@@ -1,4 +1,5 @@
 $ cd ../../DataLad-101
-# add a sibling
-$ datalad siblings add -d . --name roommate --url ../mock_user/DataLad-101
+$ # add a sibling
+$ datalad siblings add -d . \
+  --name roommate --url ../mock_user/DataLad-101
 .: roommate(+) [../mock_user/DataLad-101 (git)]

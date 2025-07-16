@@ -1,0 +1,6 @@
+$ datalad drop -d text2gitdataset --what all --reckless availability
+$ datalad drop -d text2gitdataset-2 --what all --reckless availability
+$ datalad drop -d text2gitdataset-3 --what all --reckless availability
+uninstall(ok): . (dataset)
+uninstall(ok): . (dataset)
+uninstall(ok): . (dataset)

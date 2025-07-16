@@ -1,2 +1,14 @@
-$ datalad status midterm_project
-untracked: midterm_project/an_empty_file (file)
+$ git log -p -n 1
+commit ebc300ec✂SHA1
+Author: Elena Piscopia <elena@example.net>
+Date:   Tue Jun 18 16:13:00 2019 +0000
+
+    finished my midterm project
+
+diff --git a/midterm_project b/midterm_project
+index 18f4a98..a0e3095 160000
+--- a/midterm_project
++++ b/midterm_project
+@@ -1 +1 @@
+-Subproject commit 18f4a981✂SHA1
++Subproject commit a0e3095e✂SHA1

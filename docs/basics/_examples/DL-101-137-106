@@ -1,4 +1,4 @@
 $ git log -n 3 --oneline
-2c3fcfd [DATALAD] Recorded changes
-cc27fbf add container and execute analysis within container
-12e9c4a finished my midterm project!
+59bb846 [DATALAD] Recorded changes
+23072dd remove obsolete subds
+50359f3 [DATALAD] Added subdataset

@@ -1,0 +1,9 @@
+# inside of the dataset DataLad-101
+$ datalad create-sibling-ria -s ria-backup --alias dl-101 --new-store-ok "ria+file:///home/me/myriastore"
+[INFO] Creating a new RIA store at /home/me/myriastore
+[INFO] create siblings 'ria-backup' and 'ria-backup-storage' ...
+update(ok): . (dataset)
+update(ok): . (dataset)
+[INFO] Configure additional publication dependency on "ria-backup-storage"
+configure-sibling(ok): . (sibling)
+create-sibling-ria(ok): /home/me/dl-101/DataLad-101 (dataset)

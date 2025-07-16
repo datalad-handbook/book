@@ -1,7 +1,4 @@
-$ convert xc:none -page Letter a.pdf
-$ datalad save -m "add empty pdf"
+$ dd if=/dev/zero | head -c 18520 > a.pdf
+$ datalad save -m "add some file" a.pdf
 add(ok): a.pdf (file)
 save(ok): . (dataset)
-action summary:
-  add (ok: 1)
-  save (ok: 1)

@@ -1,0 +1,10 @@
+### DVC
+# download the data
+$ wget -q https://osf.io/d6qbz/download -O imagenette2-160.tgz
+# extract it
+$ tar -xzf imagenette2-160.tgz
+# move it into the directories
+$ mv train data/raw/
+$ mv val data/raw/
+# remove the archive
+$ rm -rf imagenette2-160.tgz

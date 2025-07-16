@@ -1,3 +1,2 @@
-$ git reset --hard HEAD~1
-warning: unable to rmdir 'longnow': Directory not empty
-HEAD is now at cc27fbf add container and execute analysis within container
+$ datalad status
+nothing to save, working tree clean

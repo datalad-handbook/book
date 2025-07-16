@@ -1,0 +1,25 @@
+---
+name: Codespell
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  codespell:
+    name: Check for spelling errors
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Codespell
+        uses: codespell-project/actions-codespell@v2
+        with:
+          skip: '.git,*.pdf,*.svg,venvs,versioneer.py,DL-*,.github,_build'
+          ignore_words_list: 'wit,thirdparty,commun'

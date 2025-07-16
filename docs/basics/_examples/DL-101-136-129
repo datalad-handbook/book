@@ -1,0 +1,8 @@
+$ # in midterm_project
+$ git reset --hard HEAD~
+
+$ # in DataLad-101
+$ cd ../
+$ git reset --hard HEAD~
+HEAD is now at ea45589 [DATALAD RUNCMD] rerun analysis in container
+HEAD is now at ba91786 add container and execute analysis within container

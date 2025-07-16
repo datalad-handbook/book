@@ -1,211 +1,305 @@
 $ datalad wtf
 # WTF
 ## configuration <SENSITIVE, report disabled by configuration>
-## datalad 
-  - version: 0.12.0rc6.dev97
-  - full_version: 0.12.0rc6.dev97-g9250-dirty
-## dataset 
+## credentials
+  - keyring:
+    - active_backends:
+      - PlaintextKeyring with no encyption v.1.0 at /home/me/.local/share/python_keyring/keyring_pass.cfg
+    - config_file: /home/me/.config/python_keyring/keyringrc.cfg
+    - data_root: /home/me/.local/share/python_keyring
+## datalad
+  - version: 1.1.3
+## dataset
+  - branches:
+    - git-annex@✂GITSHA✂
+    - main@ba91786
+    - sct_computational_reproducibility@ba91786
+    - sct_create_a_dataset@e0ff3a7
+    - sct_datalad_rerun@4b7a0a0
+    - sct_input_and_output@d0c060f
+    - sct_install_datasets@87609a3
+    - sct_keeping_track@e37c9fc
+    - sct_looking_without_touching@d0e83f2
+    - sct_modify_content@e310b46
+    - sct_more_on_DYI_configurations@39c928e
+    - sct_more_on_dataset_nesting@ebc300e
+    - sct_networking@4beb2bc
+    - sct_populate_a_dataset@59ac8d3
+    - sct_retrace_and_reenact@d664af1
+    - sct_stay_up_to_date@822bf54
+    - sct_where_is_waldo@d664af1
+    - sct_yoda_project@efc0ab0
+  - id: e3e70682-c209-4cac-629f-6fbed82c07cd
   - path: /home/me/dl-101/DataLad-101
   - repo: AnnexRepo
-  - metadata: <SENSITIVE, report disabled by configuration>
-## dependencies 
-  - tqdm: 4.32.2
-  - cmd:annex: 7.20190129
-  - cmd:git: 2.24.0
-  - cmd:bundled-git: 2.24.0
-  - cmd:system-git: 2.24.0
-  - cmd:system-ssh: 7.9p1
-  - appdirs: 1.4.3
-  - boto: 2.49.0
-  - exifread: 2.1.2
-  - git: 2.1.11
-  - gitdb: 2.0.5
-  - humanize: 0.5.1
-  - iso8601: 0.1.12
-  - keyring: 19.0.2
-  - keyrings.alt: 3.1.1
-  - msgpack: 0.6.1
-  - mutagen: 1.43.0
-  - requests: 2.22.0
-  - scrapy: 1.7.4
-  - wrapt: 1.11.2
-## environment 
-  - LANGUAGE: en_US:en
-  - LANG: en_US.UTF-8
+## dependencies
+  - annexremote: 1.6.6
+  - boto3: 1.37.9
+  - cmd:7z: 16.02
+  - cmd:annex: 10.20250115-ga55e1da1✂SHA1
+  - cmd:bundled-git: UNKNOWN
+  - cmd:git: 2.47.1
+  - cmd:ssh: 8.2p1
+  - cmd:system-git: 2.47.1
+  - cmd:system-ssh: 8.2p1
+  - git: 3.1.44
+  - gitdb: 4.0.12
+  - humanize: 4.10.0
+  - iso8601: 2.1.0
+  - keyring: 25.5.0
+  - keyrings.alt: 5.0.2
+  - msgpack: 1.1.0
+  - platformdirs: 3.11.0
+  - requests: 2.32.3
+## environment
+  - GIT_AUTHOR_DATE: 2019-06-18T16:13:00
   - GIT_AUTHOR_EMAIL: elena@example.net
-  - GIT_EDITOR: vim
-  - LC_CTYPE: en_US.UTF-8
   - GIT_AUTHOR_NAME: Elena Piscopia
-  - PATH: /home/adina/env/handbook/bin:/home/adina/Documents/freesurfer/bin:/home/adina/Documents/freesurfer/fsfast/bin:/home/adina/Documents/freesurfer/tktools:/usr/share/fsl/5.0/bin:/usr/lib/fsl/5.0:/home/adina/Documents/freesurfer/mni/bin:/usr/share/fsl/5.0/5.0/bin:/home/adina/.local/bin:/home/adina/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/home/adina/.dotfiles/bin
-  - GIT_PYTHON_GIT_EXECUTABLE: /usr/bin/git
+  - GIT_COMMITTER_DATE: 2019-06-18T16:13:00
+  - GIT_COMMITTER_EMAIL: elena@example.net
+  - GIT_COMMITTER_NAME: Elena Piscopia
+  - GIT_EDITOR: vim
+  - LANG: en_US.UTF-8
+  - LANGUAGE: en_US:en
+  - LC_CTYPE: en_US.UTF-8
+  - PATH: REDACTED
 ## extensions
-  - webapp:
-    - load_error: None
-    - description: Generic web app support
-    - module: datalad_webapp
-    - version: 0.2
+  - catalog:
+    - description: DataLad Catalog command suite
     - entrypoints:
-      - datalad_webapp.WebApp:
-        - module: datalad_webapp
-        - class: WebApp
+      - datalad_catalog.add.Add:
+        - class: Add
+        - module: datalad_catalog.add
         - names:
-          - webapp
-          - webapp
-        - load_error: None
-  - hirni:
-    - load_error: None
-    - description: HIRNI workflows
-    - module: datalad_hirni
-    - version: 0.0.4
-    - entrypoints:
-      - datalad_hirni.commands.import_dicoms.ImportDicoms:
-        - module: datalad_hirni.commands.import_dicoms
-        - class: ImportDicoms
+          - catalog-add
+          - catalog_add
+      - datalad_catalog.catalog.Catalog:
+        - class: Catalog
+        - module: datalad_catalog.catalog
         - names:
-          - hirni-import-dcm
-          - hirni_import_dcm
-        - load_error: None
-      - datalad_hirni.commands.spec4anything.Spec4Anything:
-        - module: datalad_hirni.commands.spec4anything
-        - class: Spec4Anything
+          - catalog
+          - catalog
+      - datalad_catalog.create.Create:
+        - class: Create
+        - module: datalad_catalog.create
         - names:
-          - hirni-spec4anything
-          - hirni_spec4anything
-        - load_error: None
-      - datalad_hirni.commands.dicom2spec.Dicom2Spec:
-        - module: datalad_hirni.commands.dicom2spec
-        - class: Dicom2Spec
+          - catalog-create
+          - catalog_create
+      - datalad_catalog.get.Get:
+        - class: Get
+        - module: datalad_catalog.get
         - names:
-          - hirni-dicom2spec
-          - hirni_dicom2spec
-        - load_error: None
-      - datalad_hirni.commands.spec2bids.Spec2Bids:
-        - module: datalad_hirni.commands.spec2bids
-        - class: Spec2Bids
+          - catalog-get
+          - catalog_get
+      - datalad_catalog.remove.Remove:
+        - class: Remove
+        - module: datalad_catalog.remove
         - names:
-          - hirni-spec2bids
-          - hirni_spec2bids
-        - load_error: None
-  - crawler: 
-    - load_error: None
-    - description: Crawl web resources
-    - module: datalad_crawler
-    - version: 0.4.1
-    - entrypoints: 
-      - datalad_crawler.crawl.Crawl: 
-        - module: datalad_crawler.crawl
-        - class: Crawl
-        - names: 
-          - crawl
-        - load_error: None
-      - datalad_crawler.crawl_init.CrawlInit: 
-        - module: datalad_crawler.crawl_init
-        - class: CrawlInit
-        - names: 
-          - crawl-init
-          - crawl_init
-        - load_error: None
-  - container: 
-    - load_error: None
+          - catalog-remove
+          - catalog_remove
+      - datalad_catalog.serve.Serve:
+        - class: Serve
+        - module: datalad_catalog.serve
+        - names:
+          - catalog-serve
+          - catalog_serve
+      - datalad_catalog.set.Set:
+        - class: Set
+        - module: datalad_catalog.set
+        - names:
+          - catalog-set
+          - catalog_set
+      - datalad_catalog.translate.MetaTranslate:
+        - class: MetaTranslate
+        - module: datalad_catalog.translate
+        - names:
+          - catalog-translate
+          - catalog_translate
+      - datalad_catalog.validate.Validate:
+        - class: Validate
+        - module: datalad_catalog.validate
+        - names:
+          - catalog-validate
+          - catalog_validate
+      - datalad_catalog.workflow.Workflow:
+        - class: Workflow
+        - module: datalad_catalog.workflow
+        - names:
+          - catalog-workflow
+          - catalog_workflow
+    - module: datalad_catalog
+    - version: 1.1.1
+  - container:
     - description: Containerized environments
-    - module: datalad_container
-    - version: 0.5.0
-    - entrypoints: 
-      - datalad_container.containers_list.ContainersList: 
-        - module: datalad_container.containers_list
-        - class: ContainersList
-        - names: 
-          - containers-list
-          - containers_list
-        - load_error: None
-      - datalad_container.containers_remove.ContainersRemove: 
-        - module: datalad_container.containers_remove
-        - class: ContainersRemove
-        - names: 
-          - containers-remove
-          - containers_remove
-        - load_error: None
-      - datalad_container.containers_add.ContainersAdd: 
-        - module: datalad_container.containers_add
+    - entrypoints:
+      - datalad_container.containers_add.ContainersAdd:
         - class: ContainersAdd
-        - names: 
+        - module: datalad_container.containers_add
+        - names:
           - containers-add
           - containers_add
-        - load_error: None
-      - datalad_container.containers_run.ContainersRun: 
-        - module: datalad_container.containers_run
+      - datalad_container.containers_list.ContainersList:
+        - class: ContainersList
+        - module: datalad_container.containers_list
+        - names:
+          - containers-list
+          - containers_list
+      - datalad_container.containers_remove.ContainersRemove:
+        - class: ContainersRemove
+        - module: datalad_container.containers_remove
+        - names:
+          - containers-remove
+          - containers_remove
+      - datalad_container.containers_run.ContainersRun:
         - class: ContainersRun
-        - names: 
+        - module: datalad_container.containers_run
+        - names:
           - containers-run
           - containers_run
-        - load_error: None
-  - neuroimaging: 
-    - load_error: None
-    - description: Neuroimaging tools
-    - module: datalad_neuroimaging
-    - version: 0.2.3
-    - entrypoints: 
-      - datalad_neuroimaging.bids2scidata.BIDS2Scidata: 
-        - module: datalad_neuroimaging.bids2scidata
-        - class: BIDS2Scidata
-        - names: 
-          - bids2scidata
-        - load_error: None
-  - metalad: 
-    - load_error: None
+    - module: datalad_container
+    - version: 1.2.5
+  - deprecated:
+    - description: Deprecated functionality
+    - entrypoints:
+      - datalad_deprecated.annotate_paths.AnnotatePaths:
+        - class: AnnotatePaths
+        - module: datalad_deprecated.annotate_paths
+        - names:
+      - datalad_deprecated.ls.Ls:
+        - class: Ls
+        - module: datalad_deprecated.ls
+        - names:
+      - datalad_deprecated.metadata.aggregate.AggregateMetaData:
+        - class: AggregateMetaData
+        - module: datalad_deprecated.metadata.aggregate
+        - names:
+          - aggregate-metadata
+          - aggregate_metadata
+      - datalad_deprecated.metadata.extract_metadata.ExtractMetadata:
+        - class: ExtractMetadata
+        - module: datalad_deprecated.metadata.extract_metadata
+        - names:
+          - extract-metadata
+          - extract_metadata
+      - datalad_deprecated.metadata.metadata.Metadata:
+        - class: Metadata
+        - module: datalad_deprecated.metadata.metadata
+        - names:
+      - datalad_deprecated.metadata.search.Search:
+        - class: Search
+        - module: datalad_deprecated.metadata.search
+        - names:
+      - datalad_deprecated.publish.Publish:
+        - class: Publish
+        - module: datalad_deprecated.publish
+        - names:
+    - module: datalad_deprecated
+    - version: 0.3.0
+  - metalad:
     - description: DataLad semantic metadata command suite
-    - module: datalad_metalad
-    - version: 0.2.0
-    - entrypoints: 
-      - datalad_metalad.dump.Dump: 
-        - module: datalad_metalad.dump
-        - class: Dump
-        - names: 
-          - meta-dump
-          - meta_dump
-        - load_error: None
-      - datalad_metalad.extract.Extract: 
-        - module: datalad_metalad.extract
-        - class: Extract
-        - names: 
-          - meta-extract
-          - meta_extract
-        - load_error: None
-      - datalad_metalad.aggregate.Aggregate: 
-        - module: datalad_metalad.aggregate
+    - entrypoints:
+      - datalad_metalad.add.Add:
+        - class: Add
+        - module: datalad_metalad.add
+        - names:
+          - meta-add
+          - meta_add
+      - datalad_metalad.aggregate.Aggregate:
         - class: Aggregate
-        - names: 
+        - module: datalad_metalad.aggregate
+        - names:
           - meta-aggregate
           - meta_aggregate
-        - load_error: None
-## git-annex 
-  - version: 7.20190129
-  - build flags: 
+      - datalad_metalad.conduct.Conduct:
+        - class: Conduct
+        - module: datalad_metalad.conduct
+        - names:
+          - meta-conduct
+          - meta_conduct
+      - datalad_metalad.dump.Dump:
+        - class: Dump
+        - module: datalad_metalad.dump
+        - names:
+          - meta-dump
+          - meta_dump
+      - datalad_metalad.extract.Extract:
+        - class: Extract
+        - module: datalad_metalad.extract
+        - names:
+          - meta-extract
+          - meta_extract
+      - datalad_metalad.filter.Filter:
+        - class: Filter
+        - module: datalad_metalad.filter
+        - names:
+          - meta-filter
+          - meta_filter
+    - module: datalad_metalad
+    - version: 0.4.22
+  - next:
+    - description: What is next in DataLad
+    - entrypoints:
+      - datalad_next.commands.create_sibling_webdav.CreateSiblingWebDAV:
+        - class: CreateSiblingWebDAV
+        - module: datalad_next.commands.create_sibling_webdav
+        - names:
+          - create-sibling-webdav
+      - datalad_next.commands.credentials.Credentials:
+        - class: Credentials
+        - module: datalad_next.commands.credentials
+        - names:
+      - datalad_next.commands.download.Download:
+        - class: Download
+        - module: datalad_next.commands.download
+        - names:
+          - download
+      - datalad_next.commands.ls_file_collection.LsFileCollection:
+        - class: LsFileCollection
+        - module: datalad_next.commands.ls_file_collection
+        - names:
+          - ls-file-collection
+      - datalad_next.commands.status.Status:
+        - class: Status
+        - module: datalad_next.commands.status
+        - names:
+          - next-status
+          - next_status
+      - datalad_next.commands.tree.TreeCommand:
+        - class: TreeCommand
+        - module: datalad_next.commands.tree
+        - names:
+          - tree
+    - module: datalad_next
+    - version: 1.5.0
+## git-annex
+  - build flags:
     - Assistant
     - Webapp
     - Pairing
-    - S3(multipartupload)(storageclasses)
-    - WebDAV
     - Inotify
     - DBus
     - DesktopNotify
     - TorrentParser
     - MagicMime
+    - Servant
+    - Benchmark
     - Feeds
     - Testsuite
-  - dependency versions: 
-    - aws-0.20
-    - bloomfilter-2.0.1.0
-    - cryptonite-0.25
-    - DAV-1.3.3
-    - feed-1.0.0.0
-    - ghc-8.4.4
-    - http-client-0.5.13.1
-    - persistent-sqlite-2.8.2
-    - torrent-10000.1.1
-    - uuid-1.3.13
-    - yesod-1.6.0
-  - key/value backends: 
+    - S3
+    - WebDAV
+  - dependency versions:
+    - aws-0.24.1
+    - bloomfilter-2.0.1.2
+    - crypton-0.34
+    - DAV-1.3.4
+    - feed-1.3.2.1
+    - ghc-9.6.6
+    - http-client-0.7.17
+    - persistent-sqlite-2.13.3.0
+    - torrent-10000.1.3
+    - uuid-1.3.15
+    - yesod-1.6.2.1
+  - key/value backends:
     - SHA256E
     - SHA256
     - SHA512E
@@ -236,6 +330,8 @@ $ datalad wtf
     - BLAKE2B224
     - BLAKE2B384E
     - BLAKE2B384
+    - BLAKE2BP512E
+    - BLAKE2BP512
     - BLAKE2S256E
     - BLAKE2S256
     - BLAKE2S160E
@@ -252,7 +348,13 @@ $ datalad wtf
     - MD5
     - WORM
     - URL
-  - remote types: 
+    - GITBUNDLE
+    - GITMANIFEST
+    - VURL
+    - X*
+  - local repository version: 10
+  - operating system: linux x86_64
+  - remote types:
     - git
     - gcrypt
     - p2p
@@ -267,13 +369,17 @@ $ datalad wtf
     - tahoe
     - glacier
     - ddar
+    - git-lfs
+    - httpalso
+    - borg
+    - rclone
     - hook
     - external
-  - operating system: linux x86_64
-  - supported repository versions: 
-    - 5
-    - 7
-  - upgrade supported from repository versions: 
+  - supported repository versions:
+    - 8
+    - 9
+    - 10
+  - upgrade supported from repository versions:
     - 0
     - 1
     - 2
@@ -281,90 +387,156 @@ $ datalad wtf
     - 4
     - 5
     - 6
-  - local repository version: 5
-## location 
+    - 7
+    - 8
+    - 9
+    - 10
+  - version: 10.20250115-ga55e1da1✂SHA1
+## location
   - path: /home/me/dl-101/DataLad-101
   - type: dataset
-## metadata_extractors 
-  - bids: 
-    - module: datalad_neuroimaging.extractors.bids
-    - version: None
-    - load_error: None
-  - dicom: 
-    - module: datalad_neuroimaging.extractors.dicom
-    - version: None
-    - load_error: None
-  - nidm: 
-    - module: datalad_neuroimaging.extractors.nidm
-    - version: None
-    - load_error: None
-  - nifti1: 
-    - module: datalad_neuroimaging.extractors.nifti1
-    - version: None
-    - load_error: None
-  - metalad_annex: 
+## metadata.extractors
+  - annex:
+    - distribution: datalad_metalad 0.4.22
+    - generation: 2
+    - module: datalad_metalad.extractors.legacy.annex
+  - audio:
+    - distribution: datalad_metalad 0.4.22
+    - generation: 2
+    - module: datalad_metalad.extractors.legacy.audio
+  - container_inspect:
+    - distribution: datalad_container 1.2.5
+    - doc: Populates metadata singularity/apptainer version and `inspect` output.
+    - generation: 4
+    - load_error: TypeError(get_version() takes 0 positional arguments but 1 was given)
+    - module: datalad_container.extractors.metalad_container
+  - datacite:
+    - distribution: datalad_metalad 0.4.22
+    - generation: 2
+    - module: datalad_metalad.extractors.legacy.datacite
+  - datacite_gin:
+    - distribution: datalad_catalog 1.1.1
+    - doc: Inherits from metalad's DatasetMetadataExtractor class
+    - generation: 4
+    - module: datalad_catalog.extractors.datacite_gin
+    - version: 0.0.1
+  - datalad_core:
+    - distribution: datalad_metalad 0.4.22
+    - generation: 2
+    - module: datalad_metalad.extractors.legacy.datalad_core
+  - datalad_rfc822:
+    - distribution: datalad_metalad 0.4.22
+    - generation: 2
+    - module: datalad_metalad.extractors.legacy.datalad_rfc822
+  - exif:
+    - distribution: datalad_metalad 0.4.22
+    - generation: 2
+    - module: datalad_metalad.extractors.legacy.exif
+  - external_dataset:
+    - distribution: datalad_metalad 0.4.22
+    - generation: 4
+    - module: datalad_metalad.extractors.external_dataset
+  - external_file:
+    - distribution: datalad_metalad 0.4.22
+    - generation: 4
+    - module: datalad_metalad.extractors.external_file
+  - frictionless_datapackage:
+    - distribution: datalad_metalad 0.4.22
+    - generation: 2
+    - module: datalad_metalad.extractors.legacy.frictionless_datapackage
+  - image:
+    - distribution: datalad_metalad 0.4.22
+    - generation: 2
+    - module: datalad_metalad.extractors.legacy.image
+  - metalad_annex:
+    - distribution: datalad_metalad 0.4.22
+    - generation: 3
     - module: datalad_metalad.extractors.annex
-    - version: None
-    - load_error: None
-  - metalad_core: 
+  - metalad_core:
+    - distribution: datalad_metalad 0.4.22
+    - generation: 3
     - module: datalad_metalad.extractors.core
-    - version: None
-    - load_error: None
-  - metalad_custom: 
+  - metalad_custom:
+    - distribution: datalad_metalad 0.4.22
+    - generation: 3
     - module: datalad_metalad.extractors.custom
-    - version: None
-    - load_error: None
-  - metalad_runprov: 
+  - metalad_example_dataset:
+    - distribution: datalad_metalad 0.4.22
+    - generation: 4
+    - module: datalad_metalad.extractors.metalad_example_dataset
+    - version: 0.0.1
+  - metalad_example_file:
+    - distribution: datalad_metalad 0.4.22
+    - generation: 4
+    - module: datalad_metalad.extractors.metalad_example_file
+    - version: 0.0.1
+  - metalad_external_dataset:
+    - distribution: datalad_metalad 0.4.22
+    - generation: 4
+    - module: datalad_metalad.extractors.external_dataset
+  - metalad_external_file:
+    - distribution: datalad_metalad 0.4.22
+    - generation: 4
+    - module: datalad_metalad.extractors.external_file
+  - metalad_genericjson_dataset:
+    - distribution: datalad_metalad 0.4.22
+    - doc: Generic JSON dataset-level extractor class     Inherits from metalad's DatasetMetadataExtractor class
+    - generation: 4
+    - module: datalad_metalad.extractors.genericjson_dataset
+    - version: 0.0.1
+  - metalad_genericjson_file:
+    - distribution: datalad_metalad 0.4.22
+    - doc: Main 'custom' file-level extractor class     Inherits from metalad's FileMetadataExtractor class
+    - generation: 4
+    - module: datalad_metalad.extractors.genericjson_file
+    - version: 0.0.1
+  - metalad_runprov:
+    - distribution: datalad_metalad 0.4.22
+    - generation: 3
     - module: datalad_metalad.extractors.runprov
-    - version: None
-    - load_error: None
-  - annex: 
-    - module: datalad.metadata.extractors.annex
-    - version: None
-    - load_error: None
-  - audio: 
-    - module: datalad.metadata.extractors.audio
-    - version: None
-    - load_error: None
-  - datacite: 
-    - module: datalad.metadata.extractors.datacite
-    - version: None
-    - load_error: None
-  - datalad_core: 
-    - module: datalad.metadata.extractors.datalad_core
-    - version: None
-    - load_error: None
-  - datalad_rfc822: 
-    - module: datalad.metadata.extractors.datalad_rfc822
-    - version: None
-    - load_error: None
-  - exif: 
-    - module: datalad.metadata.extractors.exif
-    - version: None
-    - load_error: None
-  - frictionless_datapackage: 
-    - module: datalad.metadata.extractors.frictionless_datapackage
-    - version: None
-    - load_error: None
-  - image: 
-    - module: datalad.metadata.extractors.image
-    - version: None
-    - load_error: None
-  - xmp: 
-    - module: datalad.metadata.extractors.xmp
-    - version: None
-    - load_error: None
-## python 
-  - version: 3.7.3
+  - metalad_studyminimeta:
+    - distribution: datalad_metalad 0.4.22
+    - generation: 3
+    - module: datalad_metalad.extractors.studyminimeta.main
+  - xmp:
+    - distribution: datalad_metalad 0.4.22
+    - load_error: ExempiLoadError(Exempi library not found.)
+    - module: datalad_metalad.extractors.legacy.xmp
+## metadata.filters
+  - metalad_demofilter:
+    - distribution: datalad_metalad 0.4.22
+    - doc: Create a "histogram"-like summary of the key values of all specified name_tuple     across all metadata that is yielded by the metadata iterables.      Histograms bins are determined by the metadata format and "name" within the     format. The "name" is a flattened JSON key hierarchy.      The set of metadata yielded by the iterables is determined by the     metadata urls and the recursion flag that are passed to     "datalad meta-filter".
+    - module: datalad_metalad.filters.demofilter
+    - version: 1.0
+## metadata.indexers
+  - metalad_studyminimeta:
+    - distribution: datalad_metalad 0.4.22
+    - doc: Indexer for metadata that was extracted from studyminimeta metadata (usually contained in ".studyminimeta.yaml"-files).
+    - module: datalad_metalad.indexers.studyminimeta
+## python
   - implementation: CPython
-## system 
-  - type: posix
-  - name: Linux
-  - release: 4.19.0-6-amd64
-  - version: #1 SMP Debian 4.19.67-2+deb10u2 (2019-11-11)
-  - distribution: debian/10.2
-  - max_path_length: 283
-  - encoding: 
+  - version: 3.8.10
+## system
+  - distribution: ubuntu/20.04/focal
+  - encoding:
     - default: utf-8
     - filesystem: utf-8
     - locale.prefered: UTF-8
+  - filesystem:
+    - CWD:
+      - mount_opts: rw,relatime
+      - path: /home/me/dl-101/DataLad-101
+      - type: ext4
+    - HOME:
+      - mount_opts: rw,relatime
+      - path: /home/me
+      - type: ext4
+    - TMP:
+      - mount_opts: rw,relatime
+      - path: /tmp
+      - type: ext4
+  - max_path_length: 283
+  - name: Linux
+  - release: 5.15.0-1079-azure
+  - type: posix
+  - version: #88~20.04.1-Ubuntu SMP Fri Jan 17 18:28:29 UTC 2025

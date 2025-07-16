@@ -1,0 +1,7 @@
+$ datalad run -m "Add image from the web" " datalad download 'https://hub.datalad.org/edu/penguins/media/branch/main/examples/chinstrap.jpg'"
+[INFO] == Command start (output follows) =====
+download(ok): chinstrap.jpg
+[INFO] == Command exit (modification check follows) =====
+run(ok): /home/me/challenges/102-101-dataset/my-dataset (dataset) [ datalad download 'https://hub.datalad.o...]
+add(ok): chinstrap.jpg (file)
+save(ok): . (dataset)

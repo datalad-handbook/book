@@ -1,0 +1,24 @@
+$ tree dataset-to-copy-to
+dataset-to-copy-to
+├── 130114
+│   └── T1w
+│       └── Diffusion
+│           ├── bvals -> ../../../.git/annex/objects/w8/VX/✂/MD5E-s1344--4c9ca43c✂MD5
+│           ├── bvecs -> ../../../.git/annex/objects/61/80/✂/MD5E-s9507--24793fb9✂MD5
+│           ├── data.nii.gz -> ../../../.git/annex/objects/K0/mJ/✂/MD5E-s1468805393--f8077751✂MD5.nii.gz
+│           ├── eddylogs
+│           │   ├── eddy_unwarped_images.eddy_movement_rms -> ../../../../.git/annex/objects/xX/GF/✂/MD5E-s15991--287c3e06✂MD5
+│           │   ├── eddy_unwarped_images.eddy_outlier_map -> ../../../../.git/annex/objects/87/Xx/✂/MD5E-s127363--919aed21✂MD5
+│           │   ├── eddy_unwarped_images.eddy_outlier_n_sqr_stdev_map -> ../../../../.git/annex/objects/PP/GX/✂/MD5E-s523738--1bd90e1e✂MD5
+│           │   ├── eddy_unwarped_images.eddy_outlier_n_stdev_map -> ../../../../.git/annex/objects/qv/0F/✂/MD5E-s520714--f995a46e✂MD5
+│           │   ├── eddy_unwarped_images.eddy_outlier_report -> ../../../../.git/annex/objects/Xq/xV/✂/MD5E-s10177--2934d2c7✂MD5
+│           │   ├── eddy_unwarped_images.eddy_parameters -> ../../../../.git/annex/objects/60/gf/✂/MD5E-s141201--9a94e9fa✂MD5
+│           │   ├── eddy_unwarped_images.eddy_post_eddy_shell_alignment_parameters -> ../../../../.git/annex/objects/kJ/0W/✂/MD5E-s2171--c2e0deca✂MD5
+│           │   └── eddy_unwarped_images.eddy_restricted_movement_rms -> ../../../../.git/annex/objects/6K/X6/✂/MD5E-s16134--5321d11d✂MD5
+│           ├── grad_dev.nii.gz -> ../../../.git/annex/objects/zz/51/✂/MD5E-s46820650--13be960c✂MD5.nii.gz
+│           └── nodif_brain_mask.nii.gz -> ../../../.git/annex/objects/0Q/Kk/✂/MD5E-s67280--9042713a✂MD5.nii.gz
+├── anothercopyofbvecs -> .git/annex/objects/X0/Vg/✂/MD5E-s9507--f4cf263d✂MD5
+├── bvals -> .git/annex/objects/Fj/Wg/✂/MD5E-s1344--84368879✂MD5
+└── bvecs -> .git/annex/objects/X0/Vg/✂/MD5E-s9507--f4cf263d✂MD5
+
+4 directories, 16 files

@@ -1,8 +1,21 @@
-$ datalad install -d . --source https://github.com/psychoinformatics-de/studyforrest-data-structural.git src/forrest_structural
-[INFO] Cloning https://github.com/psychoinformatics-de/studyforrest-data-structural.git [1 other candidates] into '/home/me/usecases/collab/myanalysis/src/forrest_structural' 
-[INFO]   Remote origin not usable by git-annex; setting annex-ignore 
+$ datalad clone -d . https://github.com/psychoinformatics-de/studyforrest-data-structural.git src/forrest_structural
+[INFO] Cloning dataset to Dataset(/home/me/usecases/collab/myanalysis/src/forrest_structural)
+[INFO] Attempting to clone from https://github.com/psychoinformatics-de/studyforrest-data-structural.git to /home/me/usecases/collab/myanalysis/src/forrest_structural
+[INFO] Start enumerating objects
+[INFO] Start counting objects
+[INFO] Start compressing objects
+[INFO] Start receiving objects
+[INFO] Start resolving deltas
+[INFO] Completed clone attempts for Dataset(/home/me/usecases/collab/myanalysis/src/forrest_structural)
+[INFO] scanning for unlocked files (this may take some time)
+[INFO] Remote origin not usable by git-annex; setting annex-ignore
 install(ok): src/forrest_structural (dataset)
+add(ok): src/forrest_structural (file)
+add(ok): .gitmodules (file)
+save(ok): . (dataset)
+add(ok): .gitmodules (file)
+save(ok): . (dataset)
 action summary:
-  add (ok: 1)
+  add (ok: 3)
   install (ok: 1)
-  save (ok: 1)
+  save (ok: 2)

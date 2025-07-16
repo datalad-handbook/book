@@ -1,0 +1,9 @@
+$ cd iyoda
+$ datalad clone -d . https://github.com/datalad-handbook/iris_data.git inputs
+[INFO] Remote origin not usable by git-annex; setting annex-ignore
+install(ok): inputs (dataset)
+add(ok): inputs (dataset)
+add(ok): .gitmodules (file)
+save(ok): . (dataset)
+add(ok): .gitmodules (file)
+save(ok): . (dataset)

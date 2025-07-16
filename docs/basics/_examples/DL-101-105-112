@@ -1,0 +1,3 @@
+$ datalad status --annex all
+236 annex'd files (93.5 MB/15.4 GB present/total size)
+nothing to save, working tree clean

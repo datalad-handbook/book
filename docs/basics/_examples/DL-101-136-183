@@ -1,0 +1,3 @@
+$ datalad get -n cloud
+[INFO] Remote origin not usable by git-annex; setting annex-ignore
+install(ok): /home/me/dl-101/DataLad-101/cloud (dataset) [Installed subdataset in order to get /home/me/dl-101/DataLad-101/cloud]

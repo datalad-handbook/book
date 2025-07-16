@@ -1,6 +1,3 @@
-$ datalad save -m "add note on DataLads procedures"
+$ datalad save -m "add note on DataLad's procedures"
 add(ok): notes.txt (file)
 save(ok): . (dataset)
-action summary:
-  add (ok: 1)
-  save (ok: 1)

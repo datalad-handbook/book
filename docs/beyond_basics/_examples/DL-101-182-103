@@ -1,0 +1,12 @@
+$ tree -L 1 data-cat
+data-cat
+├── artwork
+├── assets
+├── config.json
+├── index.html
+├── metadata
+├── README.md
+├── schema
+└── templates
+
+5 directories, 3 files

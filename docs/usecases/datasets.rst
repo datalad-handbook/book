@@ -7,13 +7,13 @@ A Neuroimaging Datasets
 .. todo::
 
    Currently, this is a left over. Later, we can rework this into something,
-   but its unclear yet what ;-)
+   but it's unclear yet what ;-)
 
 This section is a concise demonstration of what a DataLad dataset is,
 showcased on a dataset from the field of neuroimaging.
 A DataLad dataset is the core data type of DataLad. We will explore the concepts
 of it with one public example dataset, the studyforrest phase 2 data (studyforrest.org).
-Note that this is just one type and use of a Datalad dataset, and you throughout there are
+Note that this is just one type and use of a DataLad dataset, and you throughout there are
 many more flavors of using DataLad datasets in the basics or in upcoming use cases.
 
 Please follow along and run the commands below in your own terminal for
@@ -25,7 +25,7 @@ a hands-on experience.
 
       $ datalad install https://github.com/psychoinformatics-de/studyforrest-data-phase2.git
 
-Once installed, a DataLad dataset looks like any other directory on your filesystem:
+Once installed, a DataLad dataset looks like any other directory on your file system:
 
 .. runrecord:: _examples/dataset2
    :language: console
@@ -41,7 +41,7 @@ Large content is tracked in an *annex* that is automatically
 created and handled by DataLad. Whether text files or larger files change,
 all of these changes can be written to your DataLad datasets history.
 
-.. gitusernote::
+.. gitusernote:: Large-file tracking
 
    A DataLad dataset is a Git repository. Large file content in the
    dataset in the annex is tracked with git-annex. An ``ls -a``
@@ -64,7 +64,7 @@ in this original DataLad dataset happen, the installed dataset can simply be upd
 
 You can view the DataLad datasets history with tools of your choice.
 The code block below is used to illustrate the history and is an exempt
-from :command:`git log`.
+from :gitcmd:`log`.
 
 .. runrecord:: _examples/dataset4
    :language: console
@@ -121,8 +121,8 @@ Dataset Nesting
 ===============
 
 Within DataLad datasets one can *nest* other DataLad
-datasets arbitralily deep. This does not seem particulary spectacular -
-after all, any directory on a filesystem can have other directories inside it.
+datasets arbitrarily deep. This does not seem particularly spectacular -
+after all, any directory on a file system can have other directories inside it.
 The possibility for nested Datasets, however, is one of many advantages
 DataLad datasets have:
 Any lower-level DataLad dataset (the *subdataset*) has a stand-alone
@@ -141,7 +141,7 @@ The figure below illustrates dataset nesting in a neuroimaging context
 schematically:
 
 
-.. figure:: ../img/virtual_dirtree.svg
+.. figure:: ../artwork/src/img/virtual_dirtree.svg
    :alt: Virtual directory tree of a nested DataLad dataset
 
 Creating your own dataset yourself
@@ -150,20 +150,20 @@ Creating your own dataset yourself
 Anyone can create, populate, and optionally share a *new* DataLad dataset.
 A new DataLad dataset is always created empty, even if the target
 directory already contains additional files or directories. After creation,
-arbitralily large amounts of data can be added. Once files are added and
+arbitrarily large amounts of data can be added. Once files are added and
 saved to the dataset, any changes done to these data files can be saved
 to the history.
 
-.. gitusernote::
+.. gitusernote:: Create internals
 
-   Creation of datasets relies on the :command:`git init` and :command:`git annex init` commands.
+   Creation of datasets relies on the :gitcmd:`init` and :gitannexcmd:`init` commands.
 
 As already shown, already existing datalad dataset can be simply installed
 from a url or path, or from the datalad open-data collection.
 
-.. gitusernote::
+.. gitusernote:: Install internals
 
 
-   :command:`datalad install` used the :command:`git clone` command.
+   :dlcmd:`install` used the :gitcmd:`clone` command.
 
 

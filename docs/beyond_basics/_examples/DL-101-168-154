@@ -1,0 +1,25 @@
+### DVC
+$ cat dvc.lock
+schema: '2.0'
+stages:
+  prepare:
+    cmd: python src/prepare.py
+    deps:
+    - path: data/raw
+      hash: md5
+      md5: 3f163676✂MD5.dir
+      size: 16711951
+      nfiles: 2704
+    - path: src/prepare.py
+      hash: md5
+      md5: ef804f35✂MD5
+      size: 1231
+    outs:
+    - path: data/prepared/test.csv
+      hash: md5
+      md5: 0b90b0e8✂MD5
+      size: 62023
+    - path: data/prepared/train.csv
+      hash: md5
+      md5: 360a73ac✂MD5
+      size: 155128

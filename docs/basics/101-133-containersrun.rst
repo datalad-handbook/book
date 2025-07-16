@@ -8,7 +8,7 @@ with your friends. "I'm curious: So what kind of analyses did y'all carry out?"
 you ask. The variety of methods and datasets the others used is huge, and
 one analysis interests you in particular. Later that day, you decide to
 install this particular analysis dataset to learn more about the methods used
-in there. However, when you :command:`re-run` your friends analysis script,
+in there. However, when you :dlcmd:`rerun` your friends analysis script,
 it throws an error. Hastily, you call her -- maybe she can quickly fix her
 script and resubmit the project with only minor delays. "I don't know what
 you mean", you hear in return.
@@ -34,12 +34,29 @@ on your own machine once a new software update is installed. Therefore, it is
 important to communicate all details about the computational environment for
 an analysis as thoroughly as possible. Luckily, DataLad provides an extension
 that can link computational environments to datasets, the
-`datalad containers <http://docs.datalad.org/projects/container/en/latest/>`_
-extension [#f1]_.
+`datalad containers <https://docs.datalad.org/projects/container>`_
+extension.
 
 This section will give a quick overview on what containers are and
-demonstrate how ``datalad-containers`` helps to capture full provenance of an
+demonstrate how ``datalad-container`` helps to capture full provenance of an
 analysis by linking containers to datasets and analyses.
+
+.. importantnote:: Install the datalad-container extension
+
+   This section uses the :term:`DataLad extension` ``datalad-container``.
+   As other extensions, it is a stand-alone Python package, and can be installed using :term:`pip`:
+
+   .. code-block:: bash
+
+      $ pip install datalad-container
+
+   As with DataLad and other Python packages, you might want to do the installation in a :term:`virtual environment`.
+
+
+.. index::
+   pair: recipe; software container concept
+   pair: image; software container concept
+   pair: container; software container concept
 
 Containers
 ^^^^^^^^^^
@@ -51,13 +68,13 @@ others. On your own and other's machines, the container constitutes a secluded
 software environment that
 
 - contains the exact software environment that you specified, ready to run
-  analyses in
+  analyses
 - does not effect any software outside of the container
 
-Unlike virtual machines, software containers do not have their own operating
-system. Instead, they use basic services of the underlying operating system
-of the computer they run on (in a read-only fashion). This makes them
-lightweight and portable. By sharing software environments with containers,
+Unlike virtual machines, software containers do not run a full operating
+system on virtualized hardware. Instead, they use basic services of the host operating system
+(in a read-only fashion). This makes them
+lightweight and still portable. By sharing software environments with containers,
 others (and also yourself) have easy access to the correct software
 without the need to modify the software environment of the machine the
 container runs on. Thus, containers are ideal to encapsulate the software
@@ -67,192 +84,230 @@ software environment on a computer that you do not have permissions to deploy
 software on.
 
 There are a number of different tools to create and use containers, with
-`Docker <https://www.docker.com/>`_ being one of the most well-known of them.
+`Docker <https://www.docker.com>`_ being one of the most well-known of them.
 While being a powerful tool, it is only rarely used on high performance computing
 (HPC) infrastructure [#f2]_. An alternative is `Singularity <https://sylabs
-.io/docs/>`_.
+.io/docs>`_.
 Both of these tools share core terminology:
 
-**Recipe**
-   A text file template that lists all required components of the computational environment.
+:term:`container recipe`
+   A text file that lists all required components of the computational environment.
    It is made by a human user.
 
-**Image**
-   This is *built* from the recipe file. It is a static filesystem inside a file,
+:term:`container image`
+   This is *built* from the recipe file. It is a static file system inside a file,
    populated with the software specified in the recipe, and some initial configuration.
 
-**Container**
-  A running instance of an Image that you can actually use for your computations.
+:term:`container`
+  A running instance of an image that you can actually use for your computations.
   If you want to create and run your own software container, you start by writing
-  a recipe file and build an Image from it. Alternatively, you can can also *pull*
-  an Image built from a publicly shared recipe from the *Hub* of the tool you are using.
+  a recipe file and build an image from it. Alternatively, you can can also *pull*
+  an image built from a publicly shared recipe from the *Hub* of the tool you are using.
 
-**Hub**
-  A storage resource to share and consume images. There is
-  `Singularity-Hub <https://singularity-hub.org/>`_ and
-  `Docker-Hub <https://hub.docker.com/>`_. Both are optional, additional services
-  not required to use software containers, but a convenient way to share recipes
-  and have imaged built from them by a service (instead of building them
-  manually and locally).
+hub
+  A storage resource to share and consume images. Examples are
+  :term:`Singularity-Hub`, :term:`Docker-Hub`, and `Amazon ECR <https://aws.amazon.com/ecr>`_ which hosts Docker images.
 
-Note that as of now, the ``datalad-containers`` extension supports
+Note that as of now, the ``datalad-container`` extension supports
 Singularity and Docker images.
 Singularity furthermore is compatible with Docker -- you can use
-Docker Images as a basis for Singularity Images, or run Docker Images with
+Docker images as a basis for Singularity images, or run Docker images with
 Singularity (even without having Docker installed).
+See the :windows-wit:`on Docker <ww-docker>` for installation options.
 
-.. note::
+.. importantnote:: Additional requirement: Singularity
 
-   In order to use Singularity containers (and thus ``datalad containers``), you have to
-   `install <https://singularity.lbl.gov/docs-installation>`_ the software singularity.
+   To use Singularity containers you have to
+   `install <https://docs.sylabs.io/guides/3.4/user-guide/installation.html>`_ the software singularity.
+
+.. index::
+   pair: installation; Docker
+   pair: install Docker; on Windows
+.. find-out-more:: Docker installation Windows
+   :name: ww-docker
+
+   The software singularity is not available for Windows.
+   Windows users therefore need to install :term:`Docker`.
+   The currently recommended way to do so is by installing `Docker Desktop <https://docs.docker.com/desktop/install/windows-install/>`_, and use its "WSL2" backend (a choice one can set during the installation).
+   In the case of an "outdated WSL kernel version" issue, run ``wsl --update`` in a regular Windows Command Prompt (CMD).
+   After the installation, run Docker Desktop, and wait several minutes for it to start the Docker engine in the background.
+   To verify that everything works as it should, run ``docker ps`` in a Windows Command Prompt (CMD).
+   If it reports an error that asks "Is the docker daemon running?" give it a few more minutes to let Docker Desktop start it.
+   If it can't find the docker command, something went wrong during installation.
+
+.. index::
+   pair: containers-add; DataLad command
+   pair: containers-run; DataLad command
 
 Using ``datalad containers``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. index:: ! datalad command; containers-add
-.. index:: ! datalad command; containers-run
-
 One core feature of the ``datalad containers`` extension is that it registers
-computational containers to a dataset. This is done with the
-:command:`datalad containers-add` command.
+computational containers with a dataset. This is done with the
+:dlcmd:`containers-add` command.
 Once a container is registered, arbitrary commands can be executed inside of
 it, i.e., in the precise software environment the container encapsulates. All it
-needs for this it to swap the :command:`datalad run` command introduced in
-section :ref:`run` with the :command:`datalad containers-run` command.
+needs for this it to swap the :dlcmd:`run` command introduced in
+section :ref:`run` with the :dlcmd:`containers-run` command.
 
 Let's see this in action for the ``midterm_analysis`` dataset by rerunning
 the analysis you did for the midterm project within a Singularity container.
 We start by registering a container to the dataset.
-For this, we will pull an Image from Singularity hub. This Image was made
+For this, we will pull an image from Singularity hub. This image was made
 for the handbook, and it contains the relevant Python setup for
 the analysis. Its recipe lives in the handbook's
-`resources repository <https://github.com/datalad-handbook/resources>`_, and the
-Image is built from the recipe via Singularity hub.
-If you're curious how to create a Singularity Image, the hidden
-section below has some pointers:
+`resources repository <https://github.com/datalad-handbook/resources>`_.
+If you are curious how to create a Singularity image, the :find-out-more:`on this topic <fom-container-creation>` has some pointers:
 
-.. findoutmore:: How to make a Singularity Image
+.. index::
+   pair: build container image; with Singularity
+.. windows-wit:: How to make a Singularity image
+   :name: fom-container-creation
 
-   Singularity containers are build from Image files, often
+   Singularity containers are build from image files, often
    called "recipes", that hold a "definition" of the software container and its
    contents and components. The
-   `singularity documentation <https://sylabs.io/guides/3.4/user-guide/build_a_container.html>`_
-   has its own tutorial on how to build such Images from scratch.
-   An alternative to writing the Image file by hand is to use
-   `Neurodocker <https://github.com/kaczmarj/neurodocker#singularity>`_. This
+   `singularity documentation <https://docs.sylabs.io/guides/3.4/user-guide/build_a_container.html>`_
+   has its own tutorial on how to build such images from scratch.
+   An alternative to writing the image file by hand is to use
+   `Neurodocker <https://github.com/ReproNim/neurodocker>`_. This
    command-line program can help you generate custom Singularity recipes (and
-   also ``Dockerfiles``, from which Docker Images are build). A wonderful tutorial
+   also ``Dockerfiles``, from which Docker images are built). A wonderful tutorial
    on how to use Neurodocker is
    `this introduction <https://miykael.github.io/nipype_tutorial/notebooks/introduction_neurodocker.html>`_
    by Michael Notter.
 
    Once a recipe exists, the command
 
-   .. code-block:: bash
+   .. code-block:: console
 
-      sudo singularity build <NAME> <RECIPE>
+      $ sudo singularity build <NAME> <RECIPE>
 
    will build a container (called ``<NAME>``) from the recipe. Note that this
    command requires ``root`` privileges ("``sudo``"). You can build the container
    on any machine, though, not necessarily the one that is later supposed to
    actually run the analysis, e.g., your own laptop versus a compute cluster.
-   Alternatively, `Singularity Hub <https://singularity-hub.org/>`_ integrates
-   with Github and builds containers from Images pushed to repositories on Github.
-   `The docs <https://singularityhub.github.io/singularityhub-docs/>`_
-   give you a set of instructions on how to do this.
 
-The :command:`datalad containers-add` command takes an arbitrary
-name to give to the container, and a path or url to a container Image:
+.. index::
+   pair: add container image to dataset; with DataLad
+
+The :dlcmd:`containers-add` command takes an arbitrary
+name to give to the container, and a path or URL to a container image:
 
 .. runrecord:: _examples/DL-101-133-101
    :language: console
    :workdir: dl-101/DataLad-101/midterm_project
+   :cast: 10_yoda
+   :notes: Computational reproducibility: add a software container
 
-   # we are in the midterm_project subdataset
-   $ datalad containers-add midterm-software --url shub://adswa/resources:1
+   $ # we are in the midterm_project subdataset
+   $ datalad containers-add midterm-software --url shub://adswa/resources:2
 
+.. index::
+   pair: hub; Docker
+.. find-out-more:: How do I add an image from Docker-Hub, Amazon ECR, or a local container?
+
+   Should the image you want to use sit on Dockerhub, specify the ``--url``
+   option prefixed with ``docker://`` or ``dhub://`` instead of ``shub://``:
+
+   .. code-block:: console
+
+      $ datalad containers-add midterm-software --url docker://adswa/resources:2
+
+   If your image lives on Amazon ECR, use a ``dhub://`` prefix followed by the AWS ECR URL as in
+
+   .. code-block:: console
+
+      $ datalad containers-add --url dhub://12345678.dkr.ecr.us-west-2.amazonaws.com/maze-code/data-import:latest data-import
+
+   If you want to add a container that exists locally, specify the path to it
+   like this:
+
+   .. code-block:: console
+
+      $ datalad containers-add midterm-software --url path/to/container
 
 This command downloaded the container from Singularity Hub, added it to
 the ``midterm_project`` dataset, and recorded basic information on the
 container under its name "midterm-software" in the dataset's configuration at
-``.datalad/config``.
+``.datalad/config``. You can find out more about them in a dedicated :ref:`find-out-more on these additional configurations <fom-containerconfig>`.
 
-.. findoutmore:: What has been added to .datalad/config?
+.. index::
+   pair: DataLad concept; container image registration
+.. find-out-more:: What changes in .datalad/config when one adds a container?
+   :name: fom-containerconfig
+   :float:
 
-   .. runrecord:: _examples/DL-101-133-102
-      :language: console
-      :workdir: dl-101/DataLad-101/midterm_project
+   .. include:: topic/container-imgcfg.rst
 
-      $ cat .datalad/config
+Such configurations can, among other things, be important to ensure correct container invocation on specific systems or across systems.
+One example is *bind-mounting* directories into containers, i.e., making a specific directory and its contents available inside a container.
+Different containerization software (versions) or configurations of those determine *default bind-mounts* on a given system.
+Thus, depending on the system and the location of the dataset on this system, a shared dataset may be automatically bind-mounted or not.
+To ensure that the dataset is correctly bind-mounted on all systems, let's add a call-format specification with a bind-mount to the current working directory following the information in the :ref:`find-out-more on additional container configurations <fom-containerconfig>`.
 
-   This recorded the Image's origin on Singularity-Hub, the location of the
-   Image in the dataset under ``.datalad/environments/<NAME>/image``, and it
-   specifies the way in which the container should be used: The line
-
-   .. code-block:: bash
-
-       cmdexec = singularity exec {img} {cmd}
-
-   can be read as: "If this container is used, take the ``cmd`` (what you wrap in a
-   :command:`datalad containers-run` command) and plug it into a
-   :command:`singularity exec` command. The mode of calling Singularity,
-   namely ``exec``, means that the command will be executed inside of the container.
-
-   Note that the Image is saved under ``.datalad/environments`` and the
-   configuration is done in ``.datalad/config`` -- as these files are version
-   controlled and shared with together with a dataset, your software
-   container and the information where it can be re-obtained from are linked
-   to your dataset.
-
-   This is how the ``containers-add`` command is recorded in your history:
-
-   .. runrecord:: _examples/DL-101-133-103
-      :language: console
-      :workdir: dl-101/DataLad-101/midterm_project
-
-      $ git log -n 1 -p
-
-Now that we have a complete computational environment linked to the ``midterm_project``
-dataset, we can execute commands in this environment. Let us for example try to repeat
-the :command:`datalad run` command from the section :ref:`yoda_project` as a
-:command:`datalad containers-run` command.
-
-The previous ``run`` command looked like this::
-
-   $ datalad run -m "analyze iris data with classification analysis" \
-     --input "input/iris.csv" \
-     --output "prediction_report.csv" \
-     --output "pairwise_relationships.png" \
-     "python3 code/script.py"
-
-How would it look like as a ``containers-run`` command?
-
+.. index::
+   single: configuration.item; datalad.containers.<name>.cmdexec
 .. runrecord:: _examples/DL-101-133-104
    :language: console
    :workdir: dl-101/DataLad-101/midterm_project
+   :cast: 10_yoda
+
+   $ git config -f .datalad/config datalad.containers.midterm-software.cmdexec 'singularity exec -B {{pwd}} {img} {cmd}'
+   $ datalad save -m "Modify the container call format to bind-mount the working directory"
+
+.. index::
+   pair: run command with provenance capture; with DataLad
+   pair: run command; with DataLad containers-run
+
+Now that we have a complete computational environment linked to the ``midterm_project``
+dataset, we can execute commands in this environment. Let us, for example, try to repeat
+the :dlcmd:`run` command from the section :ref:`yoda_project` as a
+:dlcmd:`containers-run` command.
+
+The previous ``run`` command looked like this:
+
+.. code-block:: console
+
+   $ datalad run -m "analyze iris data with classification analysis" \
+     --input "input/iris.csv" \
+     --output "pairwise_relationships.png" \
+     --output "prediction_report.csv" \
+     "python3 code/script.py {inputs} {outputs}"
+
+How would it look like as a ``containers-run`` command?
+
+.. runrecord:: _examples/DL-101-133-105
+   :language: console
+   :workdir: dl-101/DataLad-101/midterm_project
+   :cast: 10_yoda
+   :notes: The analysis can be rerun in a software container
 
    $ datalad containers-run -m "rerun analysis in container" \
      --container-name midterm-software \
      --input "input/iris.csv" \
-     --output "prediction_report.csv" \
      --output "pairwise_relationships.png" \
-     "python3 code/script.py"
+     --output "prediction_report.csv" \
+     "python3 code/script.py {inputs} {outputs}"
 
-Almost exactly like a :command:`datalad run` command! The only additional parameter
+Almost exactly like a :dlcmd:`run` command! The only additional parameter
 is ``container-name``. At this point, though, the ``--container-name``
 flag is even *optional* because there is only a single container registered to the dataset.
 But if your dataset contains more than one container you will *need* to specify
 the name of the container you want to use in your command.
-The complete command's structure looks like this::
+The complete command's structure looks like this:
+
+.. code-block:: console
 
    $ datalad containers-run --name <containername> [-m ...] [--input ...] [--output ...] <COMMAND>
 
-.. index:: ! datalad command; containers-remove
-.. index:: ! datalad command; containers-list
+.. index::
+   pair: containers-remove; DataLad command
+   pair: containers-list; DataLad command
+   pair: list known containers; with DataLad
+.. find-out-more:: How can I list available containers or remove them?
 
-.. findoutmore:: How can I list available containers or remove them?
-
-   The command :command:`datalad containers-list` will list all containers in
+   The command :dlcmd:`containers-list` will list all containers in
    the current dataset:
 
    .. runrecord:: _examples/DL-101-133-110
@@ -262,9 +317,9 @@ The complete command's structure looks like this::
 
       $ datalad containers-list
 
-   The command :command:`datalad containers-remove` will remove a container
+   The command :dlcmd:`containers-remove` will remove a container
    from the dataset, if there exists a container with name given to the
-   command. Note that this will remove not only the Image from the dataset,
+   command. Note that this will remove not only the image from the dataset,
    but also the configuration for it in ``.datalad/config``.
 
 
@@ -273,22 +328,26 @@ Here is how the history entry looks like:
 .. runrecord:: _examples/DL-101-133-111
    :language: console
    :workdir: dl-101/DataLad-101/midterm_project
+   :cast: 10_yoda
+   :notes: Here is how that looks like in the history:
 
    $ git log -p -n 1
 
-If you would :command:`rerun` this commit, it would be re-executed in the
+If you would :dlcmd:`rerun` this commit, it would be re-executed in the
 software container registered to the dataset. If you would share the dataset
-with a friend and they would :command:`rerun` this commit, the Image would first
+with a friend and they would :dlcmd:`rerun` this commit, the image would first
 be obtained from its registered url, and thus your
 friend can obtain the correct execution environment automatically.
 
-Note that because this new :command:`containers-run` command modified the
+Note that because this new :dlcmd:`containers-run` command modified the
 ``midterm_project`` subdirectory, we need to also save
 the most recent state of the subdataset to the superdataset ``DataLad-101``.
 
 .. runrecord:: _examples/DL-101-133-112
    :language: console
    :workdir: dl-101/DataLad-101/midterm_project
+   :cast: 10_yoda
+   :notes: Save the change in the superdataset
 
    $ cd ../
    $ datalad status
@@ -296,25 +355,33 @@ the most recent state of the subdataset to the superdataset ``DataLad-101``.
 .. runrecord:: _examples/DL-101-133-113
    :language: console
    :workdir: dl-101/DataLad-101
+   :cast: 10_yoda
+   :notes: Save the change in the superdataset
 
    $ datalad save -d . -m "add container and execute analysis within container" midterm_project
 
 
-Software containers, the ``datalad-containers`` extension, and DataLad thus work well together
+Software containers, the ``datalad-container`` extension, and DataLad thus work well together
 to make your analysis completely reproducible -- by not only linking code, data,
 and outputs, but also the software environment of an analysis. And this does not
 only benefit your future self, but also whomever you share your dataset with, as
 the information about the container is shared together with the dataset. How cool
 is that?
 
-If you are interested in more, you can read about another example of :command:`datalad containers-run`
-in the usecase :ref:`usecase_reproduce_neuroimg`.
+.. only:: adminmode
+
+    Add a tag at the section end.
+
+      .. runrecord:: _examples/DL-101-133-114
+         :language: console
+         :workdir: dl-101/DataLad-101
+
+         $ git branch sct_computational_reproducibility
 
 .. rubric:: Footnotes
 
-.. [#f1] To read more about DataLad's extensions, see section :ref:`extensions_intro`.
 .. [#f2] The main reason why Docker is not deployed on HPC systems is because
          it grants users "`superuser privileges <https://en.wikipedia.org/wiki/Superuser>`_".
          On multi-user systems such as HPC, users should not have those
-         privileges, as it would enable them to temper with other's or shared
+         privileges, as it would enable them to tamper with other's or shared
          data and resources, posing a severe security threat.

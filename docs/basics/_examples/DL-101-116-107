@@ -1,3 +1,3 @@
-$ datalad install recordings/longnow
-[INFO] Cloning /home/me/dl-101/DataLad-101/recordings/longnow [2 other candidates] into '/home/me/dl-101/mock_user/DataLad-101/recordings/longnow'
+$ datalad get -n recordings/longnow
+[INFO] Remote origin not usable by git-annex; setting annex-ignore
 install(ok): /home/me/dl-101/mock_user/DataLad-101/recordings/longnow (dataset) [Installed subdataset in order to get /home/me/dl-101/mock_user/DataLad-101/recordings/longnow]

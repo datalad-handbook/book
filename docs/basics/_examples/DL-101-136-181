@@ -1,0 +1,11 @@
+$ # clone a subdataset - the content is irrelevant, so why not a cloud :)
+$ datalad clone -d . \
+ https://github.com/datalad-datasets/disneyanimation-cloud.git \
+ cloud
+[INFO] Remote origin not usable by git-annex; setting annex-ignore
+install(ok): cloud (dataset)
+add(ok): cloud (dataset)
+add(ok): .gitmodules (file)
+save(ok): . (dataset)
+add(ok): .gitmodules (file)
+save(ok): . (dataset)

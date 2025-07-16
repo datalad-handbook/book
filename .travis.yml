@@ -1,13 +1,13 @@
-dist: xenial
+dist: bionic
 language: python
 python:
-  - "3.6"
+  - "3.8"
 cache:
   - apt
 install:
   - sudo apt-get install texlive-latex-recommended texlive-fonts-recommended texlive-fonts-extra texlive-latex-extra latexmk librsvg2-bin plantuml
   # plantuml is really outdated, smuggle in the latest upstream
-  - sudo wget -O /usr/share/plantuml/plantuml.jar http://sourceforge.net/projects/plantuml/files/plantuml.jar/download
+  - sudo wget -O /usr/share/plantuml/plantuml.jar https://sourceforge.net/projects/plantuml/files/plantuml.jar/download
   - pip install -r requirements.txt
   - pip install -e .
 script:

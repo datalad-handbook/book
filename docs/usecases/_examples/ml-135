@@ -1,0 +1,4 @@
+$ git checkout main
+$ cat accuracy.json
+Switched to branch 'main'
+{"accuracy": 0.743979721166033}

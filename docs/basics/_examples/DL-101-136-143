@@ -1,1 +1,4 @@
-$ sed -i 's/..\/mock_user\/DataLad-101/..\/mock_user\/onemoredir\/DataLad-101/' .git/config
+$ ls -l copyofTLCL.pdf
+$ ls -l books/TLCL.pdf
+lrwxrwxrwx 1 elena elena 128 2019-06-18 16:13 copyofTLCL.pdf -> .git/annex/objects/jf/3M/✂/MD5E-s2120211--06d1efcb✂MD5.pdf
+lrwxrwxrwx 1 elena elena 131 2019-06-18 16:13 books/TLCL.pdf -> ../.git/annex/objects/jf/3M/✂/MD5E-s2120211--06d1efcb✂MD5.pdf

@@ -3,7 +3,7 @@
 Keeping track
 -------------
 
-In previous examples, with the exception of :command:`datalad download-url`, all
+In previous examples, with the exception of :dlcmd:`download-url`, all
 changes that happened to the dataset or the files it contains were
 saved to the dataset's history by hand. We added larger and smaller
 files and saved them, and we also modified smaller file contents and
@@ -11,7 +11,7 @@ saved these modifications.
 
 Often, however, files get changed by shell commands
 or by scripts.
-Consider a `data scientist <https://xkcd.com/1838/>`_.
+Consider a data scientist.
 She has data files with numeric data,
 and code scripts in Python, R, Matlab or any other programming language
 that will use the data to compute results or figures. Such output is
@@ -24,7 +24,7 @@ to run again on which data to produce this particular figure?
 
 In this section we will experience how DataLad can help
 to record the changes in a dataset after executing a script
-from the shell. Just as :command:`datalad download-url` was able to associate
+from the shell. Just as :dlcmd:`download-url` was able to associate
 a file with its origin and store this information, we want to be
 able to associate a particular file with the commands, scripts, and inputs
 it was produced from, and thus capture and store full :term:`provenance`.
@@ -36,13 +36,13 @@ list of speakers and titles to cross out what they've already listened
 to, and ask you to prepare such a list.
 
 "Mhh... probably there is a DataLad way to do this... wasn't there also
-a note about metadata extraction at some point?" But as we're not that
+a note about metadata extraction at some point?" But as we are not that
 far into the lectures, you decide to write a short shell script
 to generate a text file that lists speaker and title
 name instead.
 
-To do this, we're following a best practice that will reappear in the
-later section on `YODA principles <101-123-yoda.html>`_: Collecting all
+To do this, we are following a best practice that will reappear in the
+later section on :ref:`YODA principles <yoda>`: Collecting all
 additional scripts that work with content of a subdataset *outside*
 of this subdataset, in a dedicated ``code/`` directory,
 and collating the output of the execution of these scripts
@@ -57,19 +57,28 @@ superdataset:
 .. runrecord:: _examples/DL-101-108-101
    :language: console
    :workdir: dl-101
-   :notes: its impossible to remember how a large data analysis produced which result for a human, but datalad can help to keep track. To see this in action, we'll do a data analysis. Start with yoda principles and structure ds with code directory.
+   :notes: it's impossible to remember how a large data analysis produced which result for a human, but datalad can help to keep track. To see this in action, we'll do a data analysis. Start with yoda principles and structure ds with code directory.
    :cast: 02_reproducible_execution
    :realcommand: cd DataLad-101 && mkdir code && tree -d
 
    $ mkdir code
    $ tree -d
 
-Inside of ``Datalad-101/code``, create a simple shell script ``list_titles.sh``.
+Inside of ``DataLad-101/code``, create a simple shell script ``list_titles.sh``.
 This script will carry out a simple task:
 It will loop through the file names of the ``.mp3`` files and
 write out speaker names and talk titles in a very basic fashion.
-The content of this script is written below -- the ``cat`` command
-will write it into the script.
+The ``cat`` command will write the script content into ``code/list_titles.sh``.
+
+.. windows-wit:: Here's a script for Windows users
+
+   .. include:: topic/globscript1-windows.rst
+
+.. index::
+   pair: hidden file name extensions; on Windows
+.. windows-wit:: Be mindful of hidden extensions when creating files!
+
+   .. include:: topic/hidden-extensions.rst
 
 .. runrecord:: _examples/DL-101-108-102
    :language: console
@@ -119,21 +128,24 @@ in a bit of time, we will forget how this file came into existence, or
 that the script ``code/list_titles.sh`` is associated with this file, and
 can be used to update it later on.
 
-.. index:: ! datalad command; run
+.. index::
+   pair: run; DataLad command
+   pair: run command with provenance capture; with DataLad
+   pair: run command with provenance capture; with DataLad run
 
-The :command:`datalad run` command (:manpage:`datalad-run` manual)
+The :dlcmd:`run` command
 can help with this. Put simply, it records a command's impact on a dataset. Put
-more technically, it will record a shell command, and :command:`save` all changes
+more technically, it will record a shell command, and :dlcmd:`save` all changes
 this command triggered in the dataset -- be that new files or changes to existing
 files.
 
-Let's try the simplest way to use this command: :command:`datalad run`,
+Let's try the simplest way to use this command: :dlcmd:`run`,
 followed by a commit message (``-m "a concise summary"``), and the
 command that executes the script from the shell: ``bash code/list_titles.sh > recordings/podcasts.tsv``.
 It is helpful to enclose the command in quotation marks.
 
 Note that we execute the command from the root of the superdataset.
-It is recommended to use :command:`datalad run` in the root of the dataset
+It is recommended to use :dlcmd:`run` in the root of the dataset
 you want to record the changes in, so make sure to run this
 command from the root of ``DataLad-101``.
 
@@ -143,18 +155,8 @@ command from the root of ``DataLad-101``.
    :notes: The datalad run command records a command's impact on a dataset. We try it in the most simple way:
    :cast: 02_reproducible_execution
 
-   $ datalad run -m "create a list of podcast titles" "bash code/list_titles.sh > recordings/podcasts.tsv"
-
-.. findoutmore:: Why is there a "notneeded" in the command summary?
-
-   If you have stumbled across the command execution summary
-   ``save (notneeded: 1, ok: 1)`` and wondered what is "notneeded":
-   the :command:`datalad save` at the end of a :command:`datalad run` will query all potential
-   subdatasets *recursively* for modifications, and as there are no
-   modifications in the ``longnow`` subdataset, this part of ``save`` returns
-   a "notneeded" summary. Thus, after a :command:`datalad run`, you'll get a
-   "notneeded" for every subdataset with no modifications in the execution
-   summary.
+   $ datalad run -m "create a list of podcast titles" \
+     "bash code/list_titles.sh > recordings/podcasts.tsv"
 
 Let's take a look into the history:
 
@@ -166,9 +168,9 @@ Let's take a look into the history:
    :notes: Let's now check what has been written into the history. (runrecord)
    :cast: 02_reproducible_execution
 
-   $ git log -p -n 1
+   $ git log -p -n 1   # On Windows, you may just want to type "git log".
 
-The commit message we have supplied with ``-m`` directly after :command:`datalad run` appears
+The commit message we have supplied with ``-m`` directly after :dlcmd:`run` appears
 in our history as a short summary.
 Additionally, the output of the command, ``recordings/podcasts.tsv``,
 was saved right away.
@@ -181,7 +183,7 @@ But there is more in this log entry, a section in between the markers
 ``^^^ Do not change lines above ^^^``.
 
 This is the so-called ``run record`` -- a recording of all of the
-information in the :command:`datalad run` command, generated by DataLad.
+information in the :dlcmd:`run` command, generated by DataLad.
 In this case, it is a very simple summary. One informative
 part is highlighted:
 ``"cmd": "bash code/list_titles.sh"`` is the command that was run
@@ -192,25 +194,26 @@ to the output file, in one commit. Nice, isn't it?
 Arguably, the :term:`run record` is not the most human-readable way to display information.
 This representation however is less for the human user (the human user should
 rely on their informative commit message), but for DataLad, in particular for the
-:command:`datalad rerun` command, which you will see in action shortly. This
+:dlcmd:`rerun` command, which you will see in action shortly. This
 ``run record`` is machine-readable provenance that associates an output with
 the command that produced it.
 
-You have probably already guessed that every :command:`datalad run` command
+You have probably already guessed that every :dlcmd:`run` command
 ends with a ``datalad save``. A logical consequence from this fact is that any
-:command:`datalad run` does not result in any changes in a dataset (no modification
+:dlcmd:`run` that does not result in any changes in a dataset (no modification
 of existing content; no additional files) will not produce any record in the
-dataset's history (just as a :command:`datalad save` with no modifications present
+dataset's history (just as a :dlcmd:`save` with no modifications present
 will not create a history entry). Try to run the exact same
 command as before, and check whether anything in your log changes:
 
 .. runrecord:: _examples/DL-101-108-107
    :language: console
    :workdir: dl-101/DataLad-101
-   :notes: A run command that does not result in changes (no modifcations, no additional files) will not produce a record in the dataset history. So what happens if we do the same again?
+   :notes: A run command that does not result in changes (no modifications, no additional files) will not produce a record in the dataset history. So what happens if we do the same again?
    :cast: 02_reproducible_execution
 
-   $ datalad run -m "Try again to create a list of podcast titles" "bash code/list_titles.sh > recordings/podcasts.tsv"
+   $ datalad run -m "Try again to create a list of podcast titles" \
+     "bash code/list_titles.sh > recordings/podcasts.tsv"
 
 .. runrecord:: _examples/DL-101-108-108
    :language: console
@@ -222,12 +225,23 @@ command as before, and check whether anything in your log changes:
 
    $ git log --oneline
 
-The most recent commit is still the :command:`datalad run` command from before,
-and there was no second :command:`datalad run` commit created.
+The most recent commit is still the :dlcmd:`run` command from before,
+and there was no second :dlcmd:`run` commit created.
 
-The :command:`datalad run` can therefore help you to keep track of what you are doing
+The :dlcmd:`run` can therefore help you to keep track of what you are doing
 in a dataset and capture provenance of your files: When, by whom, and how exactly
 was a particular file created or modified?
 The next sections will demonstrate how to make use of this information,
 and also how to extend the command with additional arguments that will prove to
 be helpful over the course of this chapter.
+
+
+.. only:: adminmode
+
+   Add a tag at the section end.
+
+     .. runrecord:: _examples/DL-101-108-109
+        :language: console
+        :workdir: dl-101/DataLad-101
+
+        $ git branch sct_keeping_track

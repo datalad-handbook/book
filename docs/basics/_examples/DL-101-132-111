@@ -1,0 +1,12 @@
+$ datalad -f json_pp status -d . midterm_project
+{
+  "action": "status",
+  "gitshasum": "a0e3095e✂SHA1",
+  "parentds": "/home/me/dl-101/DataLad-101",
+  "path": "/home/me/dl-101/DataLad-101/midterm_project",
+  "prev_gitshasum": "a0e3095e✂SHA1",
+  "refds": "/home/me/dl-101/DataLad-101",
+  "state": "modified",
+  "status": "ok",
+  "type": "dataset"
+}

@@ -1,5 +1,3 @@
-# add an intermediate directory
-$ cd ../mock_user
-$ mkdir onemoredir
-# move your room mates dataset into this new directory
-$ mv DataLad-101 onemoredir
+$ datalad save -m "add copy of TLCL.pdf"
+add(ok): copyofTLCL.pdf (file)
+save(ok): . (dataset)

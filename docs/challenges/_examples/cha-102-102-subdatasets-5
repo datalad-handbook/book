@@ -1,0 +1,6 @@
+# navigate into penguin-report superdataset
+$ cd ..
+$ datalad save -d . -m "Save updated subdataset version"
+add(ok): inputs (dataset)
+add(ok): .gitmodules (file)
+save(ok): . (dataset)

@@ -1,0 +1,1 @@
+$ python3 /home/me/makepushtarget.py '/home/me/dl-101/DataLad-101' 'gin' '/home/me/pushes/DataLad-101' True True

@@ -1,0 +1,12 @@
+$ cat << EOT > code/extract.py
+
+from os.path import join as opj
+import csv
+with open(opj('inputs', 'iris.csv')) as csvfile:
+    reader = csv.DictReader(csvfile)
+    for row in reader:
+        if row['variety'] != 'Setosa':
+            continue
+        print(row['petal.length'])
+
+EOT

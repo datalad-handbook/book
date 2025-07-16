@@ -1,0 +1,3 @@
+$ datalad create localizer_scans
+$ cd localizer_scans
+create(ok): /home/me/usecases/repro2/localizer_scans (dataset)

@@ -1,14 +1,3 @@
-$ git log -p -n 1
-commit 12e9c4ad0ec49811da8ab995d302c69c14bcb40a
-Author: Elena Piscopia <elena@example.net>
-Date:   Tue Dec 10 09:09:33 2019 +0100
-
-    finished my midterm project!
-
-diff --git a/midterm_project b/midterm_project
-index 5094c1b..30e33fd 160000
---- a/midterm_project
-+++ b/midterm_project
-@@ -1 +1 @@
--Subproject commit 5094c1b782af4801e4d6f968d7c1314ee01f4029
-+Subproject commit 30e33fd15611f23fd1b96c7e33bdd67ff077c227
+$ rm midterm_project/an_empty_file
+$ datalad status --recursive
+nothing to save, working tree clean

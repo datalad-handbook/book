@@ -1,11 +1,28 @@
-# Install a subdataset - the content is irrelevant, so why not a cloud :)
-$ datalad install -d . \
- --source https://github.com/datalad-datasets/disneyanimation-cloud.git \
- cloud
-[INFO] Cloning https://github.com/datalad-datasets/disneyanimation-cloud.git [1 other candidates] into '/home/me/dl-101/DataLad-101/cloud' 
-[INFO]   Remote origin not usable by git-annex; setting annex-ignore 
-install(ok): cloud (dataset)
-action summary:
-  add (ok: 2)
-  install (ok: 1)
-  save (ok: 1)
+$ cat .git/config
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+	editor = nano
+[annex]
+	uuid = 46b169aa-bb91-42d6-be06-355d957fb4f7
+	version = 10
+[filter "annex"]
+	smudge = git-annex smudge -- %f
+	clean = git-annex smudge --clean -- %f
+	process = git-annex filter-process
+[submodule "recordings/longnow"]
+	active = true
+	url = https://github.com/datalad-datasets/longnow-podcasts.git
+[remote "roommate"]
+	url = ../mock_user/DataLad-101
+	fetch = +refs/heads/*:refs/remotes/roommate/*
+	annex-uuid = ✂UUID✂
+	annex-ignore = false
+[submodule "midterm_project"]
+	active = true
+	url = ./midterm_project
+[submodule "longnow"]
+	active = true
+	url = https://github.com/datalad-datasets/longnow-podcasts.git

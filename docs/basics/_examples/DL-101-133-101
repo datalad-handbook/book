@@ -1,9 +1,8 @@
-# we are in the midterm_project subdataset
-$ datalad containers-add midterm-software --url shub://adswa/resources:1
+$ # we are in the midterm_project subdataset
+$ datalad containers-add midterm-software --url shub://adswa/resources:2
+[INFO] Initializing special remote datalad
+add(ok): .datalad/config (file)
+save(ok): . (dataset)
 add(ok): .datalad/config (file)
 save(ok): . (dataset)
 containers_add(ok): /home/me/dl-101/DataLad-101/midterm_project/.datalad/environments/midterm-software/image (file)
-action summary:
-  add (ok: 1)
-  containers_add (ok: 1)
-  save (ok: 1)

@@ -1,0 +1,7 @@
+$ datalad push --to gin
+copy(ok): books/TLCL.pdf (file) [to gin...]
+copy(ok): books/bash_guide.pdf (file) [to gin...]
+copy(ok): books/byte-of-python.pdf (file) [to gin...]
+copy(ok): books/progit.pdf (file) [to gin...]
+publish(ok): . (dataset) [refs/heads/git-annex->gin:refs/heads/git-annex ✂FROM✂..✂TO✂]
+publish(ok): . (dataset) [refs/heads/main->gin:refs/heads/main [new branch]]

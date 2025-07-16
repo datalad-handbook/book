@@ -24,12 +24,83 @@ authors = [
         (Path(__file__).parent.parent / '.all-contributorsrc').open()).get(
             'contributors', [])
 ]
+# make sure mih is last author
+authors.append(authors.pop(authors.index('Michael Hanke')))
+
 
 # autorunrecord setup (extension used to run and capture the output of
 # examples)
-autorunrecord_basedir = '/home/me'
+autorunrecord_basedir = os.environ.get('AUTORUNRECORD_BASEDIR', '/home/me')
+autorunrecord_line_replace = [
+    # trailing space removal
+    (r'[ ]+$', ''),
+    # strip the keydir for MD5(E) or SHA1(E) annex keys
+    # the keydir is identical to the annex key name, but consumes
+    # a lot of space. we replace it with a UTF scissors icon
+    (r'(?P<prefix>.*)/(?P<key>[MD5SHA1]+[E-]+s[0-9]+--[0-9a-f]{32,40})(?P<ext>[^/]*)/(?P=key)(?P=ext)(?P<suffix>.*)',
+     r'\g<prefix>/✂/\g<key>\g<ext>\g<suffix>'),
+    # Python debug output will contain random memory locations
+    (r'object at 0x[0-9a-f]{12}>', 'object at ✂MEMORYADDRESS✂'),
+    # branch state indicators will always be different for git-annex
+    # (branch contains timestamps)
+    (r'git-annex@[0-9a-f]{7}', 'git-annex@✂GITSHA✂'),
+    (r'refs/heads/git-annex(?P<whitey>[ ]+)[0-9a-f]{7}\.\.[0-9a-f]{7}',
+     'refs/heads/git-annex\g<whitey>✂FROM✂..✂TO✂'),
+    # ls -l output will have times and user names
+    # normalize to 'elena' and the "standard timestamp"
+    # this only works when ls --time-style=long-iso was used
+    (r'(?P<perms>[-ldrwx]{10})[ ]+(?P<size1>[^ ]+)[ ]+(?P<user>[^ ]+)[ ]+(?P<group>[^ ]+)[ ]+(?P<size2>[^ ]+)[ ]+(?P<date>[^ ]+)[ ]+(?P<time>[^ ]+)',
+     r'\g<perms> \g<size1> elena elena \g<size2> 2019-06-18 16:13'),
+    # we cannot fix git-annex's location IDs, filter them out
+    (r'annex-uuid = [0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}',
+     'annex-uuid = ✂UUID✂'),
+    (r'[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12} -- (?!web)',
+     '✂UUID✂ -- '),
+    # Filter out needless git status info that adds randomness to the output
+    (r'Delta compression using up to.*', 'Delta compression'),
+    ('Total .*delta.*, reused .*delta.*$', '✂COMPRESSION STATS✂'),
+    # truncate any SHA1 or MD5 to the first 8 chars
+    # should still be functional and save 30+% of line length
+    (r'(?P<lead>[0-9a-f]{8})[0-9a-f]{32}', r'\g<lead>✂SHA1'),
+    (r'(?P<lead>[0-9a-f]{8})[0-9a-f]{24}', r'\g<lead>✂MD5'),
+    # remove any action summary that contains no `notneeded`, the latter
+    # need to be kept, because they are not renderer individually
+    (r'(action summary:(\n^  \S+ \(\S+(?<!notneeded): \d+\)$)+)\n(?!  )', ''),
+    # wipe out a set of noisy INFO log messages
+    # git progress reports
+    (r'\[INFO\] Start \S+ (objects|deltas)$\n', ''),
+    # 'still alive'-style log messages
+    (r'\[INFO\] Attempting a clone into .*$\n', ''),
+    (r'\[INFO\] Attempting to clone from \S+ to .*$\n', ''),
+    (r'\[INFO\] Downloading \S+ into .*$\n', ''),
+    (r'\[INFO\] Completed clone attempts for Dataset.*$\n', ''),
+    (r'\[INFO\] Fetching updates for Dataset.*$\n', ''),
+    (r'\[INFO\] Unlocking files$\n', ''),
+    (r'\[INFO\] Recording unlocked state in git$\n', ''),
+    (r'\[INFO\] Completed unlocking files$\n', ''),
+    (r'\[INFO\] Making sure inputs are available \(this may take some time\).*$\n', ''),
+    (r'\[INFO\] Creating a new annex repo at .*$\n', ''),
+    (r'\[INFO\] Copying non-annexed file or copy into non-annex dataset:.*$\n', ''),
+    # annoying always-true test for a non-annex git remote
+    (r'\[INFO\] \S+/config download failed: Not Found$\n', ''),
+    # datalad push step-progress
+    (r'\[INFO\] Determine push target$\n', ''),
+    (r'\[INFO\] Push refspecs$\n', ''),
+    (r'\[INFO\] Transfer data$\n', ''),
+    (r'\[INFO\] Update availability information$\n', ''),
+    (r'\[INFO\] Finished push of Dataset.*$\n', ''),
+    (r'\[INFO\] Finished$\n', ''),
+    # translate the real workdir into a standard name
+    (autorunrecord_basedir, '/home/me'),
+]
 # pre-crafted artificial environment to run the code examples in
+# start with all datalad settings
 autorunrecord_env = {
+    k: v for k, v in os.environ.items()
+    if k.startswith('DATALAD_')
+}
+# and then pin various other aspects to yield reproducible results
+autorunrecord_env.update(**{
     # make everything talk in english
     'LANG': 'en_US.UTF-8',
     'LANGUAGE': 'en_US:en',
@@ -43,16 +114,30 @@ autorunrecord_env = {
     # earned a PhD in 1678 and taught mathematics at the University of Padua
     'GIT_AUTHOR_EMAIL': 'elena@example.net',
     'GIT_AUTHOR_NAME': 'Elena Piscopia',
+    # set a fixed date to reduce time-induced randomness in output
+    # (gitshas etc)
+    # funnily I cannot set a date in 1678: `fatal: invalid date format`
+    # let's go with the first commit in the handbook
+    'GIT_AUTHOR_DATE': '2019-06-18T16:13:00+0000',
+    # and same for the committer
+    'GIT_COMMITTER_EMAIL': 'elena@example.net',
+    'GIT_COMMITTER_NAME': 'Elena Piscopia',
+    'GIT_COMMITTER_DATE': '2019-06-18T16:13:00+0000',
     'HOST': 'padua',
     # maintain the PATH to keep all installed software functional
     'PATH': os.environ['PATH'],
     'GIT_EDITOR': 'vim',
-}
+    # prevent progress bars - makes for ugly runrecords. See https://github.com/datalad-handbook/book/issues/390
+    'DATALAD_UI_PROGRESSBAR': 'none',
+})
 if 'CAST_DIR' in os.environ:
     autorunrecord_env['CAST_DIR'] = os.environ['CAST_DIR']
 if 'VIRTUAL_ENV' in os.environ:
     # inherit venv, if there is any
     autorunrecord_env.update(VIRTUAL_ENV=os.environ['VIRTUAL_ENV'])
+    autorunrecord_line_replace.append(
+        (os.environ['VIRTUAL_ENV'], 'VIRTUALENV')
+    )
 
 
 # If extensions (or modules to document with autodoc) are in another directory,
@@ -74,8 +159,33 @@ extensions = [
     'sphinx.ext.doctest',
     'sphinxcontrib.autorunrecord',
     'sphinxcontrib.rsvgconverter',
-    'sphinxcontrib.plantuml',
     'dataladhandbook_support',
+    'notfound.extension',
+    'sphinx_copybutton',
+    'sphinxcontrib.jquery',
+]
+
+# configure sphinx-copybutton
+# a prompt is anything that starts with $ or > plus space
+# that is not followed by # (to catch comment lines in console
+# markup)
+copybutton_prompt_text = r"[$>] (?!#)"
+copybutton_prompt_is_regexp = True
+copybutton_line_continuation_character = "\\"
+copybutton_here_doc_delimiter = "EOT"
+
+# Linkcheck settings
+linkcheck_ignore = [
+    # refuses to find the anchor
+    'https://app.element.io/#/room/%23datalad:matrix.org',
+    # we seem to run into rate limits
+    'https://twitter.com/datalad',
+    # maybe a user-agent issue? github.com/sphinx-doc/sphinx//issues/10343
+    'https://github.com/datalad/datalad-extension-template/generate',
+    # (temporary?) SSL certificate error
+    'https://fcon_1000.projects.nitrc.org/*',
+    # local link fails to resolve, maybe because its a build artifact?
+    '../_images/intro-v1-cover.jpg',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -87,8 +197,8 @@ source_suffix = '.rst'
 # The encoding of source files.
 #source_encoding = 'utf-8-sig'
 
-# The master toctree document.
-master_doc = 'index'
+# The root toctree document.
+root_doc = 'index'
 
 # General information about the project.
 current_year = datetime.datetime.now().year
@@ -119,6 +229,7 @@ release = version
 exclude_patterns = [
     '_build',
     '_themes/*.rst',  # Excluded due to README.rst in _themes/
+    '**/*admin', # useful for executing, but not showing code
 ]
 
 # The reST default role (used for this markup: `text`) to use for all documents.
@@ -141,7 +252,8 @@ pygments_style = 'tango'
 # A list of ignored prefixes for module index sorting.
 #modindex_common_prefix = []
 
-manpages_url = 'http://docs.datalad.org/generated/man/{page}.html'
+# this is now (largely?) unused and replaced by the {dl|git|gitannex}cmd roles
+manpages_url = 'https://docs.datalad.org/generated/man/{page}.html'
 
 # numbered figures for better referencing
 numfig = True
@@ -155,7 +267,17 @@ smartquotes = True
 trim_footnote_reference_space = True
 
 # -- Options for HTML output ---------------------------------------------------
-html_baseurl = 'http://handbook.datalad.org/'
+#html_baseurl = 'https://handbook.datalad.org/'
+# see https://about.readthedocs.com/blog/2024/07/addons-by-default/ for the
+# reasoning behind the following:
+import os
+html_context = {}
+# Set canonical URL from the Read the Docs Domain
+html_baseurl = os.environ.get("READTHEDOCS_CANONICAL_URL", "")
+
+# Tell Jinja2 templates the build is running on Read the Docs
+if os.environ.get("READTHEDOCS", "") == "True":
+    html_context["READTHEDOCS"] = True
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
@@ -199,7 +321,7 @@ html_title = 'The DataLad Handbook'
 # The name of an image file (within the static path) to use as favicon of the
 # docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
 # pixels large.
-#html_favicon = None
+html_favicon = 'favicon/favicon.ico'
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
@@ -252,52 +374,70 @@ htmlhelp_basename = 'dataladhandbookdoc'
 
 
 # -- Options for LaTeX output --------------------------------------------------
+latex_engine = 'pdflatex'
 
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
   (
-      'index',
+      'book_main',
       'dataladhandbook.tex',
-      u'The DataLad Handbook',
-      u' \\and '.join(a.replace(' ', '~') for a in authors),
+      'The DataLad Handbook',
+      '',
       'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
 # the title page.
-latex_logo = None
+latex_logo = '../artwork/logo.pdf'
+latex_additional_files = [
+    '../artwork/git_boxicon.pdf',
+    '../artwork/important_boxicon.pdf',
+    '../artwork/more_boxicon.pdf',
+    '../artwork/more_boxicon_inline.pdf',
+    '../artwork/win_boxicon.pdf',
+    # the following files are included in the main latex document
+    # in the order with which the are listed here
+    'latex/preamble_start.sty',
+    'latex/fontpkg.sty',
+    'latex/preamble_end.sty',
+    'latex/titlepage.sty',
+]
 
 latex_toplevel_sectioning = 'part'
 latex_show_pagerefs = True
 latex_show_urls = 'footnote'
 latex_elements = {
-    'papersize': 'a4',
+    'papersize': 'a4paper',
     'pointsize': '11pt',
-    'figure_align': 'tbp',
-    'preamble': r"""
-\usepackage{charter}
-\usepackage[defaultsans]{lato}
-\usepackage{inconsolata}
-\setcounter{tocdepth}{0}
-\usepackage{xcolor}
-\newsavebox\mytempbox
-\definecolor{sphinxnoteBgColor}{RGB}{255, 193, 84}
-\renewenvironment{sphinxnote}[1]
-   {\begin{lrbox}{\mytempbox}\begin{minipage}{\columnwidth}%
-    \begin{sphinxlightbox}\sphinxstrong{#1} }
-   {\end{sphinxlightbox}\end{minipage}\end{lrbox}%
-    \colorbox{sphinxnoteBgColor}{\usebox{\mytempbox}}}
-\renewenvironment{sphinximportant}[2]
-   {\begin{lrbox}{\mytempbox}\begin{minipage}{\columnwidth}%
-    \begin{sphinxlightbox}\sphinxstrong{#1} }
-   {\end{sphinxlightbox}\end{minipage}\end{lrbox}%
-    \colorbox{sphinxnoteBgColor}{\usebox{\mytempbox}}}
+    'figure_align': 'htbp',
+    'extraclassoptions': 'openany,twoside',
+    'passoptionstopackages': r'\input{preamble_start.sty}',
+    'fontpkg': r'\input{fontpkg.sty}',
+    'fncychap': r'\usepackage[Bjarne]{fncychap}',
+    'sphinxsetup': r"""
+verbatimwithframe=false,%
+VerbatimColor={rgb}{1,1,1},%
+VerbatimHighlightColor={named}{OldLace},%
+TitleColor={named}{DarkGoldenrod},%
+hintBorderColor={named}{LightCoral},%
+attentionborder=3pt,%
+attentionBorderColor={named}{Crimson},%
+attentionBgColor={named}{FloralWhite},%
+noteborder=2pt,%
+noteBorderColor={named}{Orange},%
+cautionborder=3pt,%
+cautionBorderColor={named}{Cyan},%
+cautionBgColor={named}{LightCyan}%
 """,
+    'preamble': r'\input{preamble_end.sty}',
+    'maketitle':
+        '%s%s%s\n\\input{titlepage.sty}' % (
+            r'\newcommand{\withauthors}{',
+            ', '.join('\\mbox{%s}' % a for a in authors[1:-1]),
+            '}',
+        ),
 }
-
-# Documents to append as an appendix to all manuals.
-#latex_appendices = []
 
 # If false, no module index is generated.
 #latex_domain_indices = True
@@ -354,7 +494,7 @@ epub_exclude_files = [
 # Allow duplicate toc entries.
 #epub_tocdup = True
 
-todo_include_todos = True
+todo_include_todos = False
 
 intersphinx_mapping = {
     'python': ('https://docs.python.org/3', None),
@@ -365,5 +505,5 @@ plantuml_latex_output_format = 'pdf'
 
 
 def setup(app):
-    app.add_stylesheet('custom.css')
+    app.add_css_file('custom.css')
     app.add_config_value('internal', '', 'env')

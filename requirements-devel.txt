@@ -1,0 +1,13 @@
+# until datalad depends on it, pull git-annex here
+git-annex
+# install python packages that are relevant to build all handbook examples
+datalad-container
+pytest
+seaborn
+pandas
+scikit-learn
+scikit-image
+# https://github.com/mwaskom/seaborn/issues/3192
+numpy
+dvc >= 3.0
+datalad-catalog >= 1.1.1

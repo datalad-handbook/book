@@ -1,0 +1,2 @@
+$ datalad create imagenette
+create(ok): /home/me/usecases/imagenette (dataset)

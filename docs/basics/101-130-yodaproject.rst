@@ -10,98 +10,149 @@ knowledge about the YODA principles, but also gain practical experience.
 
 In principle, you can prepare YODA-compliant data analyses in any programming
 language of your choice. But because you are already familiar with
-the `Python <https://www.python.org/>`__ programming language, you decide
+the `Python <https://www.python.org>`__ programming language, you decide
 to script your analysis in Python. Delighted, you find out that there is even
-a Python API for DataLad's functionality that you can read about in the hidden
-section below:
+a Python API for DataLad's functionality that you can read about in :ref:`a Findoutmore on DataLad in Python<fom-pythonapi>`.
 
-.. findoutmore:: DataLad's Python API
+.. _pythonapi:
+.. index::
+   pair: use DataLad API; with Python
+.. find-out-more:: DataLad's Python API
+   :name: fom-pythonapi
+   :float:
 
-    .. _python:
+   .. _python:
 
-    "Whatever you can do with DataLad from the command line, you can also do it with
-    DataLad's Python API", begins the lecturer.
-    "In addition to the command line interface you are already very familiar with,
-    DataLad's functionality can also be used within interactive Python sessions
-    or Python scripts.
-    This feature can help to automate dataset operations, provides an alternative
-    to the command line, and it is immensely useful when creating reproducible
-    data analyses."
+   Whatever you can do with DataLad from the command line, you can also do it with
+   DataLad's Python API.
+   Thus, DataLad's functionality can also be used within interactive Python sessions
+   or Python scripts.
+   All of DataLad's user-oriented commands are exposed via ``datalad.api``.
+   Thus, any command can be imported as a stand-alone command like this:
 
-    This short section will give you an overview on DataLad's Python API and explore
-    how to make use of it in an analysis project. Together with the previous
-    section on the YODA principles, it is a good basis for a data analysis midterm project
-    in Python.
+   .. code-block:: python
 
-    All of DataLad's user-oriented commands are exposed via ``datalad.api``.
-    Thus, any command can be imported as a stand-alone command like this::
+      >>> from datalad.api import <COMMAND>
 
-       >>> from datalad.api import <COMMAND>
+   Alternatively, to import all commands, one can use
 
-    Alternatively, to import all commands, one can use
+   .. code-block:: python
 
-    .. code-block:: python
+      >>> import datalad.api as dl
+
+   and subsequently access commands as ``dl.get()``, ``dl.clone()``, and so forth.
+
+
+   The `developer documentation <https://docs.datalad.org/en/latest/modref.html>`_
+   of DataLad lists an overview of all commands, but naming is congruent to the
+   command line interface. The only functionality that is not available at the
+   command line is ``datalad.api.Dataset``, DataLad's core Python data type.
+   Just like any other command, it can be imported like this:
+
+   .. code-block:: python
+
+      >>> from datalad.api import Dataset
+
+   or like this:
+
+   .. code-block:: python
+
+      >>> import datalad.api as dl
+      >>> dl.Dataset()
+
+   A ``Dataset`` is a `class <https://docs.python.org/3/tutorial/classes.html>`_
+   that represents a DataLad dataset. In addition to the
+   stand-alone commands, all of DataLad's functionality is also available via
+   `methods <https://docs.python.org/3/tutorial/classes.html#method-objects>`_
+   of this class. Thus, these are two equally valid ways to create a new
+   dataset with DataLad in Python:
+
+   .. code-block:: python
+
+      >>> from datalad.api import create, Dataset
+      # create as a stand-alone command
+      >>> create(path='scratch/test')
+      [INFO   ] Creating a new annex repo at /.../scratch/test
+      Out[3]: <Dataset path=/home/me/scratch/test>
+      # create as a dataset method
+      >>> ds = Dataset(path='scratch/test')
+      >>> ds.create()
+      [INFO   ] Creating a new annex repo at /.../scratch/test
+      Out[3]: <Dataset path=/home/me/scratch/test>
+
+   As shown above, the only required parameter for a Dataset is the ``path`` to
+   its location, and this location may or may not exist yet.
+
+   Stand-alone functions have a ``dataset=`` argument, corresponding to the
+   ``-d/--dataset`` option in their command-line equivalent. You can specify
+   the ``dataset=`` argument with a path (string) to your dataset (such as
+   ``dataset='.'`` for the current directory, or ``dataset='path/to/ds'`` to
+   another location). Alternatively, you can pass a ``Dataset`` instance to it:
+
+   .. code-block:: python
+
+       >>> from datalad.api import save, Dataset
+       # use save with dataset specified as a path
+       >>> save(dataset='path/to/dataset/')
+       # use save with dataset specified as a dataset instance
+       >>> ds = Dataset('path/to/dataset')
+       >>> save(dataset=ds, message="saving all modifications")
+       # use save as a dataset method (no dataset argument)
+       >>> ds.save(message="saving all modifications")
+
+
+   **Use cases for DataLad's Python API**
+
+   Using the command line or the Python API of DataLad are both valid ways to accomplish the same results.
+   Depending on your workflows, using the Python API can help to automate dataset operations, provides an alternative
+   to the command line, or could be useful for scripting reproducible data analyses.
+   One unique advantage of the Python API is the ``Dataset``:
+   As the Python API does not suffer from the startup time cost of the command line,
+   there is the potential for substantial speed-up when doing many calls to the API,
+   and using a persistent Dataset object instance.
+   You will also notice that the output of Python commands can be more verbose as the result records returned by each command do not get filtered by command-specific result renderers.
+   Thus, the outcome of ``dl.status('myfile')`` matches that of :dlcmd:`status` only when ``-f``/``--output-format`` is set to ``json`` or ``json_pp``, as illustrated below.
+
+   .. code-block:: python
 
        >>> import datalad.api as dl
+       >>> dl.status('myfile')
+       [{'type': 'file',
+       'gitshasum': '915983d6576b56792b4647bf0d9fa04d83ce948d',
+       'bytesize': 85,
+       'prev_gitshasum': '915983d6576b56792b4647bf0d9fa04d83ce948d',
+       'state': 'clean',
+       'path': '/home/me/my-ds/myfile',
+       'parentds': '/home/me/my-ds',
+       'status': 'ok',
+       'refds': '/home/me/my-ds',
+       'action': 'status'}]
 
-    and subsequently access commands as ``dl.get()``, ``dl.install()``, and so forth.
+   .. code-block:: console
+
+      $ datalad -f json_pp status myfile
+       {"action": "status",
+        "bytesize": 85,
+        "gitshasum": "915983d6576b56792b4647bf0d9fa04d83ce948d",
+        "parentds": "/home/me/my-ds",
+        "path": "/home/me/my-ds/myfile",
+        "prev_gitshasum": "915983d6576b56792b4647bf0d9fa04d83ce948d",
+        "refds": "/home/me/my-ds/",
+        "state": "clean",
+        "status": "ok",
+        "type": "file"}
 
 
-    The `developer documentation <http://docs.datalad.org/en/latest/modref.html>`_
-    of DataLad lists an overview of all commands, but naming is congruent to the
-    command line interface. The only functionality that is not available at the
-    command line is ``datalad.api.Dataset``, DataLad's core Python data type.
-    Just like any other command, it can be imported like this::
-
-       >>> from datalad.api import Dataset
-
-    or like this::
-
-       >>> import datalad.api as dl
-       >>> dl.Dataset()
-
-    A ``Dataset`` is a `class <https://docs.python.org/3/tutorial/classes.html>`_
-    that represents a DataLad dataset. In addition to the
-    stand-alone commands, all of DataLad's functionality is also available via
-    `methods <https://docs.python.org/3/tutorial/classes.html#method-objects>`_
-    of this class. Thus, these are two equally valid ways to create a new
-    dataset with DataLad in Python::
-
-       >>> from datalad.api import create, Dataset
-       # create as a stand-alone command
-       >>> create(path='scratch/test')
-       [INFO   ] Creating a new annex repo at /home/me/scratch/test
-       Out[3]: <Dataset path=/home/me/scratch/test>
-
-       # create as a dataset method
-       >>> ds = Dataset(path='scratch/test')
-       >>> ds.create()
-       [INFO   ] Creating a new annex repo at /home/me/scratch/test
-       Out[3]: <Dataset path=/home/me/scratch/test>
-
-    As shown above, the only required parameter for a Dataset is the ``path`` to
-    its location, and this location may or may not exist yet.
-
-    **Use cases for DataLad's Python API**
-
-    "Why should one use the Python API? Can we not do everything necessary via the
-    command line already? Does Python add anything to this?" asks somebody.
-
-    It is completely up to on you and dependent on your preferred workflow
-    whether you decide to use the command line or the Python API of DataLad for
-    the majority of tasks. Both are valid ways to accomplish the same results.
-    One advantage of using the Python API is the ``Dataset`` though:
-    Given that the command line ``datalad`` command has a startup time (even when doing nothing) of
-    ~200ms, this means that there is the potential for substantial speed-up when
-    doing many calls to the API, and using a persistent Dataset object instance.
-
-.. note::
+.. index::
+   pair: use DataLad API; with Matlab
+   pair: use DataLad API; with R
+.. importantnote:: Use DataLad in languages other than Python
 
    While there is a dedicated API for Python, DataLad's functions can of course
-   also be used with other programming languages, such as Matlab, via standard
+   also be used with other programming languages, such as Matlab, or R, via standard
    system calls.
 
-   Even if you don't know or like Python, you can just copy-paste the code
+   Even if you do not know or like Python, you can just copy-paste the code
    and follow along -- the high-level YODA principles demonstrated in this
    section generalize across programming languages.
 
@@ -112,6 +163,13 @@ flowers (*Setosa*, *Versicolor*, or *Virginica*), with four variables: the lengt
 of the flowers in centimeters. It is often used in introductory data science
 courses for statistical classification techniques in machine learning, and
 widely available -- a perfect dataset for your midterm project!
+
+.. index::
+   pair: reproducible paper; with DataLad
+.. importantnote:: Turn data analysis into dynamically generated documents
+
+   Beyond the contents of this section, we have transformed the example analysis also into a template to write a reproducible paper.
+   If you are interested in checking that out, please head over to `github.com/datalad-handbook/repro-paper-sketch/ <https://github.com/datalad-handbook/repro-paper-sketch>`_.
 
 Raw data as a modular, independent entity
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -129,20 +187,20 @@ For the purpose of this analysis, the DataLad handbook provides an ``iris_data``
 dataset at `https://github.com/datalad-handbook/iris_data <https://github.com/datalad-handbook/iris_data>`_.
 
 You can either use this provided input dataset, or find out how to create an
-independent dataset from scratch in the hidden section below.
+independent dataset from scratch in a :ref:`dedicated Findoutmore <fom-iris>`.
 
-.. findoutmore:: Creating an independent input dataset
+.. index::
+   pair: create and publish dataset as dependency; with DataLad
+.. find-out-more:: Creating an independent input dataset
+   :name: fom-iris
 
-   If you acquire your own data for a data analysis, it will not magically exist as a
-   DataLad dataset that you can simply install from somewhere -- you'll have
-   to turn it into a dataset yourself. Any directory with data that exists on
-   your computer can be turned into a dataset with :command:`datalad create --force`
-   and a subsequent :command:`datalad save -m "add data" .` to first create a dataset inside of
+   If you acquire your own data for a data analysis, you will have
+   to turn it into a DataLad dataset in order to install it as a subdataset.
+   Any directory with data that exists on
+   your computer can be turned into a dataset with :dlcmd:`create --force`
+   and a subsequent :dlcmd:`save -m "add data" .` to first create a dataset inside of
    an existing, non-empty directory, and subsequently save all of its contents into
    the history of the newly created dataset.
-   And that's it already -- it does not take anything more to create a stand-alone
-   input dataset from existing data (apart from restraining yourself from
-   modifying it afterwards).
 
    To create the ``iris_data`` dataset at https://github.com/datalad-handbook/iris_data
    we first created a DataLad dataset...
@@ -150,21 +208,16 @@ independent dataset from scratch in the hidden section below.
    .. runrecord:: _examples/DL-101-130-101
       :language: console
       :workdir: dl-101/DataLad-101
+      :env:
+         DATALAD_SEED=1
 
-      # make sure to move outside of DataLad-101!
+      $ # make sure to move outside of DataLad-101!
       $ cd ../
       $ datalad create iris_data
 
    and subsequently got the data from a publicly available
-   `GitHub Gist <https://gist.github.com/netj/8836201>`_ with a
-   :command:`datalad download-url` command:
-
-    .. findoutmore:: What are GitHub Gists?
-
-       GitHub Gists are a particular service offered by GitHub that allow users
-       to share pieces of code snippets and other short/small standalone
-       information. Find out more on Gists
-       `here <https://help.github.com/en/github/writing-on-github/creating-gists#about-gists>`__.
+   `GitHub Gist <https://gist.github.com/netj/8836201>`__, a code snippet, or other short standalone information with a
+   :dlcmd:`download-url` command:
 
     .. runrecord:: _examples/DL-101-130-102
        :workdir: dl-101
@@ -173,15 +226,14 @@ independent dataset from scratch in the hidden section below.
        $ cd iris_data
        $ datalad download-url https://gist.githubusercontent.com/netj/8836201/raw/6f9306ad21398ea43cba4f7d537619d0e07d5ae3/iris.csv
 
-   Finally, we *published* (more on this later in this section) the dataset
-   to :term:`GitHub`.
+   Finally, we *published* the dataset  to :term:`GitHub`.
 
    With this setup, the iris dataset (a single comma-separated (``.csv``)
    file) is downloaded, and, importantly, the dataset recorded *where* it
-   was obtained from thanks to :command:`datalad download-url`, thus complying
+   was obtained from thanks to :dlcmd:`download-url`, thus complying
    to the second YODA principle.
-   This way, upon an installation of the dataset, DataLad knows where to
-   obtain the file content from. You can :command:`datalad install` the iris
+   This way, upon installation of the dataset, DataLad knows where to
+   obtain the file content from. You can :dlcmd:`clone` the iris
    dataset and find out with a ``git annex whereis iris.csv`` command.
 
 
@@ -197,7 +249,7 @@ There is an independent raw dataset as input data, but there is no place
 for your analysis to live, yet. Therefore, you start your midterm project
 by creating an analysis dataset. As this project is part of ``DataLad-101``,
 you do it as a subdataset of ``DataLad-101``.
-Remember to specify the ``--dataset`` option of :command:`datalad create`
+Remember to specify the ``--dataset`` option of :dlcmd:`create`
 to link it as a subdataset!
 
 You naturally want your dataset to follow the YODA principles, and, as a start,
@@ -207,14 +259,18 @@ you use the ``cfg_yoda`` procedure to help you structure the dataset [#f1]_:
    :language: console
    :workdir: dl-101/DataLad-101
    :cast: 10_yoda
+   :env:
+      DATALAD_SEED=2
    :notes: Let's create a data analysis project with a yoda procedure
 
-   # inside of DataLad-101
+   $ # inside of DataLad-101
    $ datalad create -c yoda --dataset . midterm_project
 
-.. index:: ! datalad command; datalad subdatasets
+.. index::
+   pair: subdatasets; DataLad command
+   pair: list subdatasets; with DataLad
 
-The :command:`datalad subdatasets` command can report on which subdatasets exist for
+The :dlcmd:`subdatasets` command can report on which subdatasets exist for
 ``DataLad-101``. This helps you verify that the command succeeded and the
 dataset was indeed linked as a subdataset to ``DataLad-101``:
 
@@ -237,11 +293,13 @@ by installing it as a subdataset. Make sure to install it as a subdataset of
    :language: console
    :workdir: dl-101/DataLad-101
    :cast: 10_yoda
-   :notes: Now install input data as a subdataset
+   :notes: Now clone input data as a subdataset
 
    $ cd midterm_project
-   # we are in midterm_project, thus -d . points to the root of it.
-   $ datalad install -d . --source https://github.com/datalad-handbook/iris_data.git input/
+   $ # we are in midterm_project, thus -d . points to the root of it.
+   $ datalad clone -d . \
+     https://github.com/datalad-handbook/iris_data.git \
+     input/
 
 Note that we did not keep its original name, ``iris_data``, but rather provided
 a path with a new name, ``input``, because this much more intuitively comprehensible.
@@ -261,12 +319,14 @@ looks like this:
 
 Importantly, all of the subdatasets are linked to the higher-level datasets,
 and despite being inside of ``DataLad-101``, your ``midterm_project`` is an independent
-dataset, as is its ``input/`` subdataset:
+dataset, as is its ``input/`` subdataset. An overview is shown in :numref:`fig-linkeddl101`.
+
+.. _fig-linkeddl101:
 
 .. figure:: ../artwork/src/virtual_dstree_dl101_midterm.svg
-   :alt: Overview of (linked) datasets in DataLad-101.
-   :figwidth: 100%
+   :width: 50%
 
+   Overview of (linked) datasets in DataLad-101.
 
 
 YODA-compliant analysis scripts
@@ -275,7 +335,7 @@ YODA-compliant analysis scripts
 Now that you have an ``input/`` directory with data, and a ``code/`` directory
 (created by the YODA procedure) for your scripts, it is time to work on the script
 for your analysis. Within ``midterm_project``, the ``code/`` directory is where
-you want to place your scripts. Finally you can try out the Python API of DataLad!
+you want to place your scripts.
 
 But first, you plan your research question. You decide to do a
 classification analysis with a k-nearest neighbors algorithm [#f2]_. The iris
@@ -295,32 +355,36 @@ To compute the analysis you create the following Python script inside of ``code/
 .. runrecord:: _examples/DL-101-130-107
    :language: console
    :workdir: dl-101/DataLad-101/midterm_project
-   :emphasize-lines: 5, 10, 13, 22, 41
+   :emphasize-lines: 11-13, 23, 43
    :cast: 10_yoda
    :notes: Let's create code for an analysis
 
    $ cat << EOT > code/script.py
 
+   import argparse
+   import matplotlib
+   matplotlib.use('Agg')
+
    import pandas as pd
    import seaborn as sns
-   import datalad.api as dl
    from sklearn import model_selection
    from sklearn.neighbors import KNeighborsClassifier
    from sklearn.metrics import classification_report
 
-   data = "input/iris.csv"
-
-   # make sure that the data are obtained (get will also install linked sub-ds!):
-   dl.get(data)
+   parser = argparse.ArgumentParser(description="Analyze iris data")
+   parser.add_argument('data', help="Input data (CSV) to process")
+   parser.add_argument('output_figure', help="Output figure path")
+   parser.add_argument('output_report', help="Output report path")
+   args = parser.parse_args()
 
    # prepare the data as a pandas dataframe
-   df = pd.read_csv(data)
+   df = pd.read_csv(args.data)
    attributes = ["sepal_length", "sepal_width", "petal_length","petal_width", "class"]
    df.columns = attributes
 
    # create a pairplot to plot pairwise relationships in the dataset
-   plot = sns.pairplot(df, hue='class')
-   plot.savefig('pairwise_relationships.png')
+   plot = sns.pairplot(df, hue='class', palette='muted')
+   plot.savefig(args.output_figure)
 
    # perform a K-nearest-neighbours classification with scikit-learn
    # Step 1: split data in test and training dataset (20:80)
@@ -329,9 +393,10 @@ To compute the analysis you create the following Python script inside of ``code/
    Y = array[:,4]
    test_size = 0.20
    seed = 7
-   X_train, X_test, Y_train, Y_test = model_selection.train_test_split(X, Y,
-                                                                       test_size=test_size,
-                                                                       random_state=seed)
+   X_train, X_test, Y_train, Y_test = model_selection.train_test_split(
+       X, Y,
+       test_size=test_size,
+       random_state=seed)
    # Step 2: Fit the model and make predictions on the test dataset
    knn = KNeighborsClassifier()
    knn.fit(X_train, Y_train)
@@ -339,23 +404,37 @@ To compute the analysis you create the following Python script inside of ``code/
 
    # Step 3: Save the classification report
    report = classification_report(Y_test, predictions, output_dict=True)
-   df_report = pd.DataFrame(report).transpose().to_csv('prediction_report.csv')
+   df_report = pd.DataFrame(report).transpose().to_csv(args.output_report)
 
    EOT
 
 This script will
 
-- import DataLad's functionality and expose it as ``dl.<COMMAND>``
-- make sure to install the linked subdataset and retrieve the data with
-  :command:`datalad get` (l. 12) prior to reading it in, and
-- save the resulting figure (l. 21) and ``.csv`` file (l. 40) into the root of
-  ``midterm_project/``. Note how this helps to fulfil YODA principle 1 on modularity:
+- take three positional arguments: The input data, a path to save a figure under, and path to save the final prediction report under. By including these input and output specifications in a :dlcmd:`run` command when we run the analysis, we can ensure that input data is retrieved prior to the script execution, and that as much actionable provenance as possible is recorded [#f5]_.
+- read in the data, perform the analysis, and save the resulting figure and ``.csv`` prediction report into the root of ``midterm_project/``. Note how this helps to fulfil YODA principle 1 on modularity:
   Results are stored outside of the pristine input subdataset.
-- Note further how all paths (to input data and output files) are *relative*, such that the
-  ``midterm_project`` analysis is completely self-contained within the dataset,
-  contributing to fulfill the second YODA principle.
 
-Let's run a quick :command:`datalad status`...
+A short help text explains how the script shall be used:
+
+.. code-block:: console
+
+   $ python code/script.py -h
+   usage: script.py [-h] data output_figure output_report
+
+   Analyze iris data
+
+   positional arguments:
+      data           Input data (CSV) to process
+      output_figure  Output figure path
+      output_report  Output report path
+
+   optional arguments:
+   -h, --help     show this help message and exit
+
+The script execution would thus be ``python3 code/script.py <path-to-input> <path-to-figure-output> <path-to-report-output>``.
+When parametrizing the input and output path parameters, we just need make sure that all paths  are *relative*, such that the ``midterm_project`` analysis is completely self-contained within the dataset, contributing to fulfill the second YODA principle.
+
+Let's run a quick :dlcmd:`status`...
 
 .. runrecord:: _examples/DL-101-130-108
    :language: console
@@ -365,9 +444,13 @@ Let's run a quick :command:`datalad status`...
 
    $ datalad status
 
+
+.. index::
+   pair: tag dataset version; with DataLad
+
 ... and save the script to the subdataset's history. As the script completes your
 analysis setup, we *tag* the state of the dataset to refer to it easily at a later
-point with the ``--version-tag`` option of :command:`datalad save`.
+point with the ``--version-tag`` option of :dlcmd:`save`.
 
 .. runrecord:: _examples/DL-101-130-109
    :language: console
@@ -375,18 +458,25 @@ point with the ``--version-tag`` option of :command:`datalad save`.
    :cast: 10_yoda
    :notes: Save the analysis to the history
 
-   $ datalad save -m "add script for kNN classification and plotting" --version-tag ready4analysis code/script.py
+   $ datalad save -m "add script for kNN classification and plotting" \
+     --version-tag ready4analysis \
+     code/script.py
 
-.. findoutmore:: What is a tag?
+.. index::
+   pair: tag; Git concept
+   pair: show; Git command
+   pair: rerun command; with DataLad
+.. find-out-more:: What is a tag?
 
    :term:`tag`\s are markers that you can attach to commits in your dataset history.
    They can have any name, and can help you and others to identify certain commits
    or dataset states in the history of a dataset. Let's take a look at how the tag
-   you just created looks like in your history with :command:`git show`.
+   you just created looks like in your history with :gitcmd:`show`.
    Note how we can use a tag just as easily as a commit :term:`shasum`:
 
    .. runrecord:: _examples/DL-101-130-110
       :workdir: dl-101/DataLad-101/midterm_project
+      :lines: 1-13
       :language: console
 
       $ git show ready4analysis
@@ -395,36 +485,46 @@ point with the ``--version-tag`` option of :command:`datalad save`.
    was added.
    Later we can use this tag to identify the point in time at which
    the analysis setup was ready -- much more intuitive than a 40-character shasum!
-   This is handy in the context of a :command:`datalad rerun` for example::
+   This is handy in the context of a :dlcmd:`rerun`, for example:
+
+   .. code-block:: console
 
       $ datalad rerun --since ready4analysis
 
-   would rerun any :command:`run` command in the history performed between tagging
+   would rerun any :dlcmd:`run` command in the history performed between tagging
    and the current dataset state.
 
 Finally, with your directory structure being modular and intuitive,
 the input data installed, the script ready, and the dataset status clean,
-you can wrap the execution of the script (which is a simple
-``python3 code/script.py``) in a :command:`datalad run` command. Note that
+you can wrap the execution of the script in a :dlcmd:`run` command. Note that
 simply executing the script would work as well -- thanks to DataLad's Python API.
-But using :command:`datalad run` will capture full provenance, and will make
-re-execution with :command:`datalad rerun` easy.
+But using :dlcmd:`run` will capture full provenance, and will make
+re-execution with :dlcmd:`rerun` easy.
 
-.. note::
+.. importantnote:: Additional software requirements: pandas, seaborn, sklearn
 
    Note that you need to have the following Python packages installed to run the
    analysis [#f3]_:
 
-   - `pandas <https://pandas.pydata.org/>`_
-   - `seaborn <https://seaborn.pydata.org/>`_
-   - `sklearn <https://scikit-learn.org/>`_
+   - `pandas <https://pandas.pydata.org>`_
+   - `seaborn <https://seaborn.pydata.org>`_
+   - `sklearn <https://scikit-learn.org>`_
 
-   The packages can be installed via ``pip``. Check the footnote [#f3]_ for code
-   snippets to copy and paste. However, if you do not want to install any
+   The packages can be installed via :term:`pip`.
+   However, if you do not want to install any
    Python packages, do not execute the remaining code examples in this section
    -- an upcoming section on ``datalad containers-run`` will allow you to
-   perform the analysis without changing with your Python software-setup.
+   perform the analysis without changing your Python software-setup.
 
+
+.. index::
+   pair: python instead of python3; on Windows
+.. windows-wit:: You may need to use 'python', not 'python3'
+
+   .. include:: topic/py-or-py3.rst
+
+.. index::
+   pair: run command with provenance capture; with DataLad
 .. runrecord:: _examples/DL-101-130-111
    :language: console
    :workdir: dl-101/DataLad-101/midterm_project
@@ -433,9 +533,9 @@ re-execution with :command:`datalad rerun` easy.
 
    $ datalad run -m "analyze iris data with classification analysis" \
      --input "input/iris.csv" \
-     --output "prediction_report.csv" \
      --output "pairwise_relationships.png" \
-     "python3 code/script.py"
+     --output "prediction_report.csv" \
+     "python3 code/script.py {inputs} {outputs}"
 
 As the successful command summary indicates, your analysis seems to work! Two
 files were created and saved to the dataset: ``pairwise_relationships.png``
@@ -444,12 +544,12 @@ your analysis. But what excites you even more than a successful data science
 project on first try is that you achieved complete provenance capture:
 
 - Every single file in this dataset is associated with an author and a time
-  stamp for each modification thanks to :command:`datalad save`.
-- The raw dataset knows where the data came from thanks to :command:`datalad install`
-  and :command:`datalad download-url`.
+  stamp for each modification thanks to :dlcmd:`save`.
+- The raw dataset knows where the data came from thanks to :dlcmd:`clone`
+  and :dlcmd:`download-url`.
 - The subdataset is linked to the superdataset thanks to
-  :command:`datalad install -d`.
-- The :command:`datalad run` command took care of linking the outputs of your
+  :dlcmd:`clone -d`.
+- The :dlcmd:`run` command took care of linking the outputs of your
   analysis with the script and the input data it was generated from, fulfilling
   the third YODA principle.
 
@@ -464,11 +564,12 @@ dataset:
 
    $ git log --oneline
 
-"Wow, this is so clean an intuitive!" you congratulate yourself. "And I think
+"Wow, this is so clean and intuitive!" you congratulate yourself. "And I think
 this was and will be the fastest I have ever completed a midterm project!"
 But what is still missing is a human readable description of your dataset.
 The YODA procedure kindly placed a ``README.md`` file into the root of your
 dataset that you can use for this [#f4]_.
+
 
 .. runrecord:: _examples/DL-101-130-113
    :language: console
@@ -476,7 +577,7 @@ dataset that you can use for this [#f4]_.
    :cast: 10_yoda
    :notes: create human readable information for your project
 
-   # with the >| redirection we are replacing existing contents in the file
+   $ # with the >| redirection we are replacing existing contents in the file
    $ cat << EOT >| README.md
 
    # Midterm YODA Data Analysis Project
@@ -508,13 +609,15 @@ dataset that you can use for this [#f4]_.
    $ datalad save -m "Provide project description" README.md
 
 Note that one feature of the YODA procedure was that it configured certain files
-(for example everything inside of ``code/``, and the ``README.md`` file in the
+(for example, everything inside of ``code/``, and the ``README.md`` file in the
 root of the dataset) to be saved in Git instead of git-annex. This was the
-reason why the ``README.md`` in the root of the dataset was easily modifiable [#f4]_.
+reason why the ``README.md`` in the root of the dataset was easily modifiable.
 
-.. findoutmore:: Saving contents with Git regardless of configuration with --to-git
+.. index::
+   pair: save; DataLad command
+   pair: save file content directly in Git (no annex); with DataLad
+.. find-out-more:: Saving contents with Git regardless of configuration with --to-git
 
-   .. index:: datalad command; save --to-git
 
    The ``yoda`` procedure in ``midterm_project`` applied a different configuration
    within ``.gitattributes`` than the ``text2git`` procedure did in ``DataLad-101``.
@@ -523,14 +626,14 @@ reason why the ``README.md`` in the root of the dataset was easily modifiable [#
    anything within ``code/`` are stored -- everything else will be annexed.
    That means that if you create any other file, even text files, inside of
    ``midterm_project`` (but not in ``code/``), it will be managed by :term:`git-annex`
-   and content-locked after a :command:`datalad save` -- an inconvenience if it
+   and content-locked after a :dlcmd:`save` -- an inconvenience if it
    would be a file that is small enough to be handled by Git.
 
    Luckily, there is a handy shortcut to saving files in Git that does not
    require you to edit configurations in ``.gitattributes``: The ``--to-git``
-   option for :command:`datalad save`.
+   option for :dlcmd:`save`.
 
-   .. code-block:: bash
+   .. code-block:: console
 
       $ datalad save -m "add sometextfile.txt" --to-git sometextfile.txt
 
@@ -540,63 +643,75 @@ everything you did easily.
 The only thing left to do is to hand in your assignment. According to the
 syllabus, this should be done via :term:`GitHub`.
 
-.. findoutmore:: What is GitHub?
+.. index:: dataset hosting; GitHub
+.. find-out-more:: What is GitHub?
 
    GitHub is a web based hosting service for Git repositories. Among many
    different other useful perks it adds features that allow collaboration on
-   Git repositories. `GitLab <https://about.gitlab.com/>`_ is a similar
+   Git repositories. `GitLab <https://about.gitlab.com>`_ is a similar
    service with highly similar features, but its source code is free and open,
    whereas GitHub is a subsidiary of Microsoft.
 
    Web-hosting services like GitHub and :term:`GitLab` integrate wonderfully with
    DataLad. They are especially useful for making your dataset publicly available,
    if you have figured out storage for your large files otherwise (as large content
-   can not be hosted for free by GitHub). You can make DataLad publish large file content to one location
+   cannot be hosted for free by GitHub). You can make DataLad publish large file content to one location
    and afterwards automatically push an update to GitHub, such that
    users can install directly from GitHub/GitLab and seemingly also obtain large file
    content from GitHub. GitHub can also resolve subdataset links to other GitHub
    repositories, which lets you navigate through nested datasets in the web-interface.
 
-   .. figure:: ../artwork/src/screenshot_midtermproject.png
+   ..
+      the images below can't become figures because they can't be used in LaTeXs minipage environment
+
+   .. image:: ../artwork/src/screenshot_midtermproject.png
       :alt: The midterm project repository, published to GitHub
 
    The above screenshot shows the linkage between the analysis project you will create
    and its subdataset. Clicking on the subdataset (highlighted) will take you to the iris dataset
    the handbook provides, shown below.
 
-   .. figure:: ../artwork/src/screenshot_submodule.png
+   .. image:: ../artwork/src/screenshot_submodule.png
       :alt: The input dataset is linked
 
-.. note::
+.. index::
+   pair: create-sibling-github; DataLad command
+.. _publishtogithub:
 
-   The upcoming part requires a GitHub account. If you do not have one you
-   can either
-
-   - Create one now -- it is fast, free, and you can get rid of it afterwards,
-     if you want to.
-   - Or exchange the command ``create-sibling-github`` with
-     ``create-sibling-gitlab`` if you have a GitLab account instead of a GitHub
-     account.
-   - Decide to not follow along.
+Publishing the dataset to GitHub
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 For this, you need to
 
+- create a GitHub account, if you do not yet have one
 - create a repository for this dataset on GitHub,
 - configure this GitHub repository to be a :term:`sibling` of the ``midterm_project`` dataset,
 - and *publish* your dataset to GitHub.
 
-Luckily, DataLad can make all of this very easy with the
-:command:`datalad create-sibling-github` (:manpage:`datalad-create-sibling-github` manual)
-command (or, for `GitLab <https://about.gitlab.com/>`_, :command:`datalad create-sibling-gitlab`,
-:manpage:`datalad-create-sibling-gitlab` manual).
+.. index::
+   pair: create-sibling-gitlab; DataLad command
 
-.. index:: ! datalad command; create-sibling-github
-.. index:: ! datalad command; create-sibling-gitlab
+Luckily, DataLad can make this very easy with the
+:dlcmd:`create-sibling-github`
+command (or, for `GitLab <https://about.gitlab.com>`_, :dlcmd:`create-sibling-gitlab`).
 
+The two commands have different arguments and options.
+Here, we look at :dlcmd:`create-sibling-github`.
 The command takes a repository name and GitHub authentication credentials
-(either in the command line call with options ``github-login <NAME>`` and
-``github-passwd <PASSWORD>``, with an *oauth* token stored in the Git
-configuration [#f5]_, or interactively). Based on the credentials and the
+(either in the command line call with options ``github-login <TOKEN>``, with an *oauth* `token <https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens>`_ stored in the Git
+configuration, or interactively).
+
+.. index::
+   pair: GitHub token; credential
+.. importantnote:: Generate a GitHub token
+
+   GitHub `deprecated user-password authentication <https://developer.github.com/changes/2020-02-14-deprecating-password-auth>`_ and instead supports authentication via personal access token.
+   To ensure successful authentication, don't supply your password, but create a personal access token at `github.com/settings/tokens <https://github.com/settings/tokens>`_ [#f6]_ instead, and either
+
+   * supply the token with the argument ``--github-login <TOKEN>`` from the command line,
+   * or supply the token from the command line when queried for a password
+
+Based on the credentials and the
 repository name, it will create a new, empty repository on GitHub, and
 configure this repository as a sibling of the dataset:
 
@@ -605,10 +720,17 @@ configure this repository as a sibling of the dataset:
 
     .. runrecord:: _examples/DL-101-130-116
        :language: console
-       :workdir: dl-101/DataLad-101/midterm_project
-       :realcommand: datalad --log-level critical siblings add -d . --name github --url https://github.com/adswa/midtermproject.git
 
-.. code-block:: bash
+       $ python3 $HOME/makepushtarget.py "$HOME/dl-101/DataLad-101/midterm_project" 'github' "$HOME/pushes/midterm_project" False True
+
+
+.. index:: credential; entry
+   pair: typed credentials are not displayed; on Windows
+.. windows-wit:: Your shell will not display credentials
+
+   .. include:: topic/credential-nodisplay.rst
+
+.. code-block:: console
 
    $ datalad create-sibling-github -d . midtermproject
    .: github(-) [https://github.com/adswa/midtermproject.git (git)]
@@ -617,76 +739,135 @@ configure this repository as a sibling of the dataset:
 
 Verify that this worked by listing the siblings of the dataset:
 
-.. runrecord:: _examples/DL-101-130-117
-   :language: console
-   :workdir: dl-101/DataLad-101/midterm_project
+.. code-block:: console
 
    $ datalad siblings
+   [WARNING] Failed to determine if github carries annex.
+   .: here(+) [git]
+   .: github(-) [https://github.com/adswa/midtermproject.git (git)]
 
-.. gitusernote::
+.. index::
+   pair: sibling (GitHub); DataLad concept
+.. gitusernote:: Create-sibling-github internals
 
    Creating a sibling on GitHub will create a new empty repository under the
    account that you provide and set up a *remote* to this repository. Upon a
-   :command:`datalad publish` to this sibling, your datasets history
+   :dlcmd:`push` to this sibling, your datasets history
    will be pushed there.
 
-   .. index:: datalad command; publish
+.. index::
+   pair: push; DataLad concept
+   pair: push (dataset); with DataLad
 
 On GitHub, you will see a new, empty repository with the name
 ``midtermproject``. However, the repository does not yet contain
 any of your dataset's history or files. This requires *publishing* the current
-state of the dataset to this :term:`sibling` with the :command:`datalad publish`
-(:manpage:`datalad-publish` manual) command. The :command:`datalad publish` command
-will make the last saved state of your dataset available to the :term:`sibling`
-you provide with the ``--to`` option.
+state of the dataset to this :term:`sibling` with the :dlcmd:`push`
+command.
 
-.. code-block:: bash
+.. importantnote:: Learn how to push "on the job"
 
-   $ datalad publish --to github
-   [INFO   ] Publishing <Dataset path=/home/me/dl-101/DataLad-101/midterm_project> to github
-   publish(ok): . (dataset) [pushed to github: ['[new branch]', '[new branch]']]
-   action summary:
-     publish (ok: 1)
+    Publishing is one of the remaining big concepts that this handbook tries to
+    convey. However, publishing is a complex concept that encompasses a large
+    proportion of the previous handbook content as a prerequisite. In order to be
+    not too overwhelmingly detailed, the upcoming sections will approach
+    :dlcmd:`push` from a "learning-by-doing" perspective:
+    First, you will see a :dlcmd:`push` to GitHub, and the :ref:`Findoutmore on the published dataset <fom-midtermclone>`
+    at the end of this section will already give a practical glimpse into the
+    difference between annexed contents and contents stored in Git when pushed
+    to GitHub. The chapter :ref:`chapter_thirdparty` will extend on this,
+    but the section :ref:`push`
+    will finally combine and link all the previous contents to give a comprehensive
+    and detailed wrap up of the concept of publishing datasets. In this section,
+    you will also find a detailed overview on how :dlcmd:`push` works and which
+    options are available. If you are impatient or need an overview on publishing,
+    feel free to skip ahead. If you have time to follow along, reading the next
+    sections will get you towards a complete picture of publishing a bit more
+    small-stepped and gently.
+    For now, we will start with learning by doing, and
+    the fundamental basics of :dlcmd:`push`: The command
+    will make the last saved state of your dataset available (i.e., publish it)
+    to the :term:`sibling` you provide with the ``--to`` option.
 
-.. gitusernote::
+.. runrecord:: _examples/DL-101-130-118
+   :language: console
+   :workdir: dl-101/DataLad-101/midterm_project
 
-   The :command:`datalad publish` uses ``git push``, and ``git annex copy`` under
-   the hood. Publication targets need to either be configured remote Git repositories,
-   or git-annex special remotes (if they support data upload).
+   $ datalad push --to github
 
-Here is one important detail, though: By default, your tags will not be published.
+Thus, you have now published your dataset's history to a public place for others
+to see and clone. Now we will explore how this may look and feel for others.
+
+There is one important detail first, though: By default, your tags will not be published.
+Thus, the tag ``ready4analysis`` is not pushed to GitHub, and currently this
+version identifier is unavailable to anyone else but you.
 The reason for this is that tags are viral -- they can be removed locally, and old
 published tags can cause confusion or unwanted changes. In order to publish a tag,
-an additional :command:`git push` with the ``--tags`` option to the
-sibling would be required:
+an additional :gitcmd:`push`  with the ``--tags`` option is required:
 
-.. code-block:: bash
+.. index::
+   pair: push; DataLad concept
+   pair: push (tag); with Git
+.. code-block:: console
 
    $ git push github --tags
 
+.. index::
+   pair: push (tag); with DataLad
+.. gitusernote:: Pushing tags
+
+    Note that this is a :gitcmd:`push`, not :dlcmd:`push`.
+    Tags could be pushed upon a :dlcmd:`push`, though, if one
+    configures (what kind of) tags to be pushed. This would need to be done
+    on a per-sibling basis in ``.git/config`` in the ``remote.*.push``
+    configuration. If you had a :term:`sibling` "github", the following
+    configuration would push all tags that start with a ``v`` upon a
+    :dlcmd:`push --to github`:
+
+    .. code-block:: console
+
+       $ git config --local remote.github.push 'refs/tags/v*'
+
+    This configuration would result in the following entry in ``.git/config``:
+
+    .. code-block:: ini
+
+       [remote "github"]
+             url = git@github.com/adswa/midtermproject.git
+             fetch = +refs/heads/*:refs/remotes/github/*
+             annex-ignore = true
+             push = refs/tags/v*
+
 Yay! Consider your midterm project submitted! Others can now install your
 dataset and check out your data science project -- and even better: they can
-reproduce your data science project easily from scratch!
+reproduce your data science project easily from scratch (take a look into the :ref:`Findoutmore <fom-midtermclone>` to see how)!
 
-.. findoutmore:: On the looks and feels of this published dataset
+.. index::
+   pair: work on published YODA dataset; with DataLad
+   pair: rerun command; with DataLad
+.. find-out-more:: On the looks and feels of this published dataset
+   :name: fom-midtermclone
+   :float:
 
    Now that you have created and published such a YODA-compliant dataset, you
    are understandably excited how this dataset must look and feel for others.
-   Therefore, you decide to install this dataset in a new location on your
+   Therefore, you decide to install this dataset into a new location on your
    computer, just to get a feel for it.
 
-   Replace the ``url`` in the :command:`install` command below with the path
-   to your own ``midtermproject`` GitHub repository:
+   Replace the ``url`` in the :dlcmd:`clone` command with the path
+   to your own ``midtermproject`` GitHub repository, or clone the "public"
+   ``midterm_project`` repository that is available via the Handbook's GitHub
+   organization at `github.com/datalad-handbook/midterm_project <https://github.com/datalad-handbook/midterm_project>`_:
 
    .. runrecord:: _examples/DL-101-130-119
       :language: console
       :workdir: dl-101/DataLad-101/midterm_project
 
       $ cd ../../
-      $ datalad install --source "https://github.com/adswa/midtermproject.git"
+      $ datalad clone "https://github.com/adswa/midtermproject.git"
 
    Let's start with the subdataset, and see whether we can retrieve the
-   input ``iris.csv`` file. This should not be a problem, since it's origin
+   input ``iris.csv`` file. This should not be a problem, since its origin
    is recorded:
 
    .. runrecord:: _examples/DL-101-130-120
@@ -696,32 +877,32 @@ reproduce your data science project easily from scratch!
       $ cd midtermproject
       $ datalad get input/iris.csv
 
-   Nice, this worked well. The output files, however, can not be easily
+   Nice, this worked well. The output files, however, cannot be easily
    retrieved:
 
    .. runrecord:: _examples/DL-101-130-121
       :language: console
+      :exitcode: 1
       :workdir: dl-101/midtermproject
 
       $ datalad get prediction_report.csv pairwise_relationships.png
 
-   Why is that? The file content of these files is managed by git-annex, and
+   Why is that? This is the first detail of publishing datasets we will dive into.
+   When publishing dataset content to GitHub with :dlcmd:`push`, it is
+   the dataset's *history*, i.e., everything that is stored in Git, that is
+   published. The file *content* of these particular files, though, is managed
+   by :term:`git-annex` and not stored in Git, and
    thus only information about the file name and location is known to Git.
    Because GitHub does not host large data for free, annexed file content always
    needs to be deposited somewhere else (e.g., a web server) to make it
-   accessible via :command:`datalad get`. A later section
-
-   .. todo::
-
-      link 3rd party infra section
-
+   accessible via :dlcmd:`get`. The chapter :ref:`chapter_thirdparty`
    will demonstrate how this can be done. For this dataset, it is not
    necessary to make the outputs available, though: Because all provenance
    on their creation was captured, we can simply recompute them with the
-   :command:`datalad rerun` command. If the tag was published we can simply
-   rerun any :command:`datalad run` command since this tag:
+   :dlcmd:`rerun` command. If the tag was published we can simply
+   rerun any :dlcmd:`run` command since this tag:
 
-   .. code-block:: bash
+   .. code-block:: console
 
       $ datalad rerun --since ready4analysis
 
@@ -739,14 +920,40 @@ reproduce your data science project easily from scratch!
    With this, you realize again how letting DataLad take care of linking input,
    output, and code can make your life and others' lives so much easier.
    Applying the YODA principles to your data analysis was very beneficial indeed.
-   Proud of your midterm project you can not wait to use those principles the
+   Proud of your midterm project you cannot wait to use those principles the
    next time again.
+
+    .. image:: ../artwork/src/reproduced.svg
+       :width: 50%
+       :align: center
+
+.. index::
+   pair: push; DataLad concept
+.. gitusernote:: Push internals
+
+   The :dlcmd:`push` uses ``git push``, and ``git annex copy`` under
+   the hood. Publication targets need to either be configured remote Git repositories,
+   or git-annex :term:`special remote`\s (if they support data upload).
+
+
+.. only:: adminmode
+
+    Add a tag at the section end.
+
+      .. runrecord:: _examples/DL-101-130-123
+         :language: console
+         :workdir: dl-101/DataLad-101
+
+         $ git branch sct_yoda_project
+
 
 .. rubric:: Footnotes
 
 .. [#f1] Note that you could have applied the YODA procedure not only right at
          creation of the dataset with ``-c yoda``, but also after creation
-         with the :command:`datalad run-procedure` command::
+         with the :dlcmd:`run-procedure` command:
+
+         .. code-block:: console
 
            $ cd midterm_project
            $ datalad run-procedure cfg_yoda
@@ -754,9 +961,7 @@ reproduce your data science project easily from scratch!
          Both ways of applying the YODA procedure will lead to the same
          outcome.
 
-.. [#f2] If you want to know more about this algorithm,
-         `this blogpost <https://towardsdatascience.com/machine-learning-basics-with-the-k-nearest-neighbors-algorithm-6a6e71d01761>`_
-         gives an accessible overview. However, the choice of analysis method
+.. [#f2] The choice of analysis method
          for the handbook is rather arbitrary, and understanding the k-nearest
          neighbor algorithm is by no means required for this section.
 
@@ -764,24 +969,26 @@ reproduce your data science project easily from scratch!
          `virtual environment <https://docs.python.org/3/tutorial/venv.html>`_ and
          install the required Python packages inside of it:
 
-         .. code-block:: bash
+         .. code-block:: console
 
-            # create and enter a new virtual environment (optional)
+            $ # create and enter a new virtual environment (optional)
             $ virtualenv --python=python3 ~/env/handbook
             $ . ~/env/handbook/bin/activate
 
-         .. code-block:: bash
+         .. code-block:: console
 
-            # install the Python packages from PyPi via pip
-            pip install seaborn, pandas, sklearn
+            $ # install the Python packages from PyPi via pip
+            $ pip install seaborn pandas sklearn
 
-.. [#f4] Note that all ``README.md`` files the YODA procedure created are
+.. [#f4] All ``README.md`` files the YODA procedure created are
          version controlled by Git, not git-annex, thanks to the
          configurations that YODA supplied. This makes it easy to change the
          ``README.md`` file. The previous section detailed how the YODA procedure
          configured your dataset. If you want to re-read the full chapter on
          configurations and run-procedures, start with section :ref:`config`.
 
-.. [#f5] Such a token can be obtained, for example, using the command line
-         GitHub interface (https://github.com/sociomantic/git-hub) by running:
-         ``git hub setup`` (if no 2FA is used).
+
+.. [#f5]  Alternatively, if you were to use DataLad's Python API, you could import and expose it as ``dl.<COMMAND>`` and ``dl.get()`` the relevant files. This however, would not record them as provenance in the dataset's history.
+
+.. [#f6] Instead of using GitHub's WebUI you could also obtain a token using the command line GitHub interface (https://github.com/sociomantic-tsunami/git-hub) by running ``git hub setup`` (if no 2FA is used).
+

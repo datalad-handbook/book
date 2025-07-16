@@ -1,3 +1,4 @@
+.. index:: ! Usecase; reproducible paper
 .. _usecase_reproducible_paper:
 
 Writing a reproducible paper
@@ -16,6 +17,7 @@ for data analysis projects [#f1]_. The resulting superdataset can be publicly
 shared, data can be obtained effortlessly on demand by anyone that has the superdataset,
 and results and paper can be generated and recomputed everywhere on demand.
 
+A template to start your own reproducible paper with the same set up can be found `on GitHub <https://github.com/datalad-handbook/repro-paper-sketch>`__.
 
 The Challenge
 ^^^^^^^^^^^^^
@@ -26,7 +28,7 @@ data collection. After completion, he continued to work on validation analyses t
 prove the functionality and usefulness of his software. Next to a directory in which he developed
 his code, and directories with data he tested his code on, he now also has other directories
 with different data sources used for validation analyses.
-"This can not take too long!" Steve thinks optimistically when he finally sits down to write up a paper.
+"This cannot take too long!" Steve thinks optimistically when he finally sits down to write up a paper.
 
 
 His scripts run his algorithm on the different data collections, create derivatives of his raw data,
@@ -56,7 +58,7 @@ dataset, he creates several subdirectories to collate everything that is relevan
 the manuscript: Data, code, a manuscript backbone without results.
 ``code/`` contains a Python script that he uses for validation analyses, and
 prior to computing results, the script
-attempts to download the data should the files need to be obtained using DataLads Python API.
+attempts to download the data should the files need to be obtained using DataLad's Python API.
 ``data/`` contains a separate DataLad subdataset for every dataset he uses. An
 ``algorithm/`` directory is a DataLad dataset containing a clone of his software repository,
 and within it, in the directory ``test/data/``, are additional DataLad subdatasets that
@@ -80,19 +82,22 @@ update of the ``algorithm/`` subdataset, and upon command-line invocation his ma
 itself with the new figures.
 
 
-.. note::
+.. importantnote:: Take a look at the real manuscript dataset
+
    The actual manuscript this use case is based on can be found
-   `here <https://github.com/psychoinformatics-de/paper-remodnav/>`_:
-   https://github.com/psychoinformatics-de/paper-remodnav/. :command:`datalad install`
+   `here <https://github.com/psychoinformatics-de/paper-remodnav>`_:
+   https://github.com/psychoinformatics-de/paper-remodnav. :dlcmd:`clone`
    the repository and follow the few instructions in the README to experience the
    DataLad approach described above.
+
+   There is also a slimmed down template that uses the analysis demonstrated in :ref:`yoda_project` and packages it up into a reproducible paper using the same tools: `github.com/datalad-handbook/repro-paper-sketch <https://github.com/datalad-handbook/repro-paper-sketch>`_.
 
 
 Step-by-Step
 ^^^^^^^^^^^^
 
-:command:`datalad create` a DataLad dataset. In this example, it is named "algorithm-paper",
-and :command:`datalad create` uses the yoda procedure [#f1]_ to apply useful configurations
+:dlcmd:`create` a DataLad dataset. In this example, it is named "algorithm-paper",
+and :dlcmd:`create` uses the yoda procedure [#f1]_ to apply useful configurations
 for a data analysis project:
 
 .. code-block:: bash
@@ -130,46 +135,46 @@ To populate the DataLad dataset, add all the
 data collections you want to perform analyses on as individual DataLad subdatasets within
 ``data/``.
 In this example, all data collections are already DataLad datasets or git repositories and hosted on GitHub.
-:command:`datalad install` therefore installs them as subdatasets. ``-s`` specifies the source,
-and ``-d ../`` registers them as subdatasets to the superdataset [#f2]_.
+:dlcmd:`clone` therefore installs them as subdatasets, with ``-d ../``
+registering them as subdatasets to the superdataset [#f2]_.
 
 .. code-block:: bash
 
    $ cd data
-   # install existing git repositories with data (-s specifies the source, in this case, GitHub repositories)
+   # clone existing git repositories with data (-s specifies the source, in this case, GitHub repositories)
    # -d points to the root of the superdataset
-   datalad install -d ../ -s https://github.com/psychoinformatics-de/studyforrest-data-phase2.git
+   datalad clone -d ../ https://github.com/psychoinformatics-de/studyforrest-data-phase2.git
 
    [INFO   ] Cloning https://github.com/psychoinformatics-de/studyforrest-data-phase2.git [1 other candidates] into '/home/adina/repos/testing/algorithm-paper/data/raw_eyegaze'
    install(ok): /home/adina/repos/testing/algorithm-paper/data/raw_eyegaze (dataset)
 
-   $ datalad install -d ../ -s git@github.com:psychoinformatics-de/studyforrest-data-eyemovementlabels.git
+   $ datalad clone -d ../ git@github.com:psychoinformatics-de/studyforrest-data-eyemovementlabels.git
 
    [INFO   ] Cloning git@github.com:psychoinformatics-de/studyforrest-data-eyemovementlabels.git into '/home/adina/repos/testing/algorithm-paper/data/studyforrest-data-eyemovementlabels'
    Cloning (compressing objects):  45% 1.80k/4.00k [00:01<00:01, 1.29k objects/s
    [...]
 
 Any script we need for the analysis should live inside ``code/``. During script writing, save any changes
-to you want to record in your history with :command:`datalad save`.
+to you want to record in your history with :dlcmd:`save`.
 
 The eventual outcome of this work is a GitHub repository that anyone can use to get the data
 and recompute all results
 when running the script after cloning and setting up the necessary software.
 This requires minor preparation:
 
-* The final analysis should be able to run on anyone's filesystem.
+* The final analysis should be able to run on anyone's file system.
   It is therefore important to reference datafiles with the scripts in ``code/`` as
   :term:`relative path`\s instead of hard-coding :term:`absolute path`\s.
 
 * After cloning the ``algorithm-paper`` repository, data files are not yet present
-  locally. To spare users the work of a manual :command:`datalad get`, you can have your
+  locally. To spare users the work of a manual :dlcmd:`get`, you can have your
   script take care of data retrieval via DataLad's Python API.
 
 These two preparations can be seen in this excerpt from the Python script:
 
 .. code-block:: python
 
-   # import Datalads API
+   # import DataLad's API
    from datalad.api import get
 
    # note that the datapath is relative
@@ -183,13 +188,13 @@ These two preparations can be seen in this excerpt from the Python script:
    get(dataset='.', path=data)
 
 
-Lastly, :command:`datalad install` the software repository as a subdataset in the
+Lastly, :dlcmd:`clone` the software repository as a subdataset in the
 root of the superdataset [#f3]_.
 
 .. code-block:: bash
 
    # in the root of ``algorithm-paper`` run
-   $ datalad install -d . -s git@github.com:psychoinformatics-de/remodnav.git
+   $ datalad clone -d . git@github.com:psychoinformatics-de/remodnav.git
 
 This repository has also subdatasets in which the datasets used for testing live (``tests/data/``):
 
@@ -292,7 +297,7 @@ to fill tables with unique names with minimal work, for example like this (excer
        AL versus RA        & \kappaALRAimgSac & \kappaALRAdotsSac \\
        AL versus MN        & \kappaALMNimgSac & \kappaALMNdotsSac \\
        \noalign{\smallskip}
-       % [..] more content ommitted
+       % [..] more content omitted
      \end{tabular*}
    \end{table}
 
@@ -303,7 +308,7 @@ stimulus types (Images, Dots, and Videos). The latter event and stimulus are omi
 better readability of the ``.tex`` excerpt. Here is how this table looks like in the manuscript
 (cropped to match the ``.tex`` snippet):
 
-.. figure:: ../img/remodnav.png
+.. figure:: ../artwork/src/img/remodnav.png
 
 It might appear tedious to write scripts that output results for such tables with individual names.
 However, ``print()`` statements to fill those tables can utilize Pythons string concatenation methods
@@ -331,9 +336,9 @@ and loops to keep the code within a few lines for a full table, such as
 Running the python script will hence print plenty of LaTeX commands to your screen (try it out
 in the actual manuscript, if you want!). This was step number 1 of 4.
 
-.. findoutmore:: How about figures?
+.. find-out-more:: How about figures?
 
-   To include figures, the figures just need to be saved into a dedicated location (for example
+   To include figures, the figures just need to be saved into a dedicated location (for example,
    a directory ``img/``) and included into the ``.tex`` file with standard ``LaTeX`` syntax.
    Larger figures with subfigures can be created by combining several figures:
 
@@ -355,7 +360,10 @@ in the actual manuscript, if you want!). This was step number 1 of 4.
 
    This figure looks like this in the manuscript:
 
-   .. figure:: ../img/remodnav2.png
+   ..
+      the image can't become a figure because it can't be used in LaTeXs minipage environment
+
+   .. image:: ../artwork/src/img/remodnav2.png
 
 For step 2 and 3, the print statements need to be captured and bound to the ``.tex`` file.
 The `tee <https://en.wikipedia.org/wiki/Tee_(command)>`_ command can write all of the output to
@@ -379,6 +387,8 @@ For step 3, one can include this file as an input source into the ``.tex`` file 
 Upon compilation of the ``.tex`` file into a PDF, the results of the
 computations captured with ``\newcommand`` definitions are inserted into the respective part
 of the manuscript.
+
+.. index:: ! Make
 
 The last step is to automate this procedure. So far, the script would need to be executed
 with a command line call, and the PDF compilation would require another commandline call.
@@ -430,7 +440,7 @@ compilation upon typing ``make``.
 The last three lines define that a ``make clean`` removes all computed files, and also all
 images.
 
-Finally, by wrapping ``make`` in a :command:`datalad run` command, the computation of results
+Finally, by wrapping ``make`` in a :dlcmd:`run` command, the computation of results
 and compiling of the manuscript with all generated output can be written to the history of
 the superdataset. ``datalad run make`` will thus capture all provenance for the results
 and the final PDF.
@@ -439,13 +449,13 @@ Thus, by using DataLad and its Python API, a few clever Unix and ``LaTeX`` trick
 and Makefiles, anyone can create a reproducible paper. This saves time, increases your own
 trust in the results, and helps to make a more convincing case with your research.
 If you have not yet, but are curious, checkout the
-`manuscript this use case is based on <http://github.com/psychoinformatics-de/paper-remodnav/>`_.
+`manuscript this use case is based on <https://github.com/psychoinformatics-de/paper-remodnav>`_.
 Any questions can be asked by `opening an issue <https://github.com/psychoinformatics-de/paper-remodnav/issues/new>`_.
 
 .. rubric:: Footnotes
 
 .. [#f1] You can read up on the YODA principles again in section :ref:`yoda`
 
-.. [#f2] You can read up on installing datasets as subdatasets again in section :ref:`installds`.
+.. [#f2] You can read up on cloning datasets as subdatasets again in section :ref:`installds`.
 
-.. [#f3] Note that the software repository may just as well be installed within ``data/``.
+.. [#f3] Note that the software repository may just as well be cloned into ``data/``.

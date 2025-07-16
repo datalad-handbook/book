@@ -1,0 +1,13 @@
+$ mv TLCL.pdf ../books
+$ cd ../
+$ datalad save -r -m "move book back from midterm_project"
+delete(ok): TLCL.pdf (symlink)
+save(ok): midterm_project (dataset)
+add(ok): midterm_project (dataset)
+add(ok): .gitmodules (file)
+add(ok): books/TLCL.pdf (file)
+save(ok): . (dataset)
+action summary:
+  add (ok: 3)
+  delete (ok: 1)
+  save (notneeded: 2, ok: 2)

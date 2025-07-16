@@ -1,0 +1,2 @@
+$ datalad catalog-set --catalog data-cat --dataset-id 5df8eb3a-95c5-11ea-b4b9-a0369f287950 --dataset-version dae38cf901995aace0dde5346515a0134f919523 home
+catalog_set(ok): data-cat [Home page successfully set to: dataset_id=5df8eb3a-95c5-11ea-b4b9-a0369f287950, dataset_version=dae38cf9✂SHA1.]

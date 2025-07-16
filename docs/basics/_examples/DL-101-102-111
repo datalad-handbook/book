@@ -1,6 +1,6 @@
-# lets make the output a bit more concise with the --oneline option
+$ # lets make the output a bit more concise with the --oneline option
 $ git log --oneline
-bc53fbe add reference book about git
-3d6141e add books on Python and Unix to read later
-aef8e52 Instruct annex to add text files to Git
-237212e [DATALAD] new dataset
+a875e49 add reference book about git
+b40316a add books on Python and Unix to read later
+e0ff3a7 Instruct annex to add text files to Git
+4ce681d [DATALAD] new dataset

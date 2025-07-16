@@ -1,6 +1,0 @@
-$ datalad save -m "add note on basic datalad run and datalad rerun"
-add(ok): notes.txt (file)
-save(ok): . (dataset)
-action summary:
-  add (ok: 1)
-  save (ok: 1)

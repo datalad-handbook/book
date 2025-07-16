@@ -1,0 +1,9 @@
+$ datalad push --to roommate
+copy(ok): books/TLCL.pdf (file) [to roommate...]
+copy(ok): books/bash_guide.pdf (file) [to roommate...]
+copy(ok): books/byte-of-python.pdf (file) [to roommate...]
+publish(ok): . (dataset) [refs/heads/git-annex->roommate:refs/heads/git-annex ✂FROM✂..✂TO✂]
+publish(error): . (dataset) [refs/heads/main->roommate:refs/heads/main [remote rejected] (branch is currently checked out)]
+action summary:
+  copy (ok: 3)
+  publish (error: 1, ok: 1)

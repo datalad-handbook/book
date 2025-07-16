@@ -1,9 +1,9 @@
-# navigate back:
+$ # navigate back:
 $ cd ../../DataLad-101
 
-# write the note
+$ # write the note
 $ cat << EOT >> notes.txt
-To update a shared dataset, run the command "datalad update --merge".
+To update a shared dataset, run the command "datalad update --how merge".
 This command will query its origin for changes, and integrate the
 changes into the dataset.
 

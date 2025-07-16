@@ -1,3 +1,4 @@
+.. index:: ! Usecase; Student supervision
 .. _usecase_student_supervision:
 
 Student supervision in a research project
@@ -29,7 +30,7 @@ to work on autonomously. The data are already collected, and everyone involved
 is certain that Megan will be fine performing the analyses she has
 experience with. Her supervisor confidently proposes the research project as a
 conference talk Megan should give at the end of her stay. Megan is excited about the
-responsibility and her project, and can not wait to start.
+responsibility and her project, and cannot wait to start.
 
 On the first day, her supervisor spends an hour to show her the office,
 the coffee machine, and they chat about the high-level aspects
@@ -81,7 +82,7 @@ data take an hour to meet and talk about the upcoming project. To ease the techn
 complexities for a new student like Megan on an unfamiliar computational infrastructure,
 they talk about the YODA principles, basic DataLad commands, and
 set up a project dataset for Megan to work in. Inside of this dataset, the original
-data are installed as a subdataset, code is tracked with Git, and the appropriate software
+data are cloned as a subdataset, code is tracked with Git, and the appropriate software
 is provided with a containerized image tracked in the dataset.
 Megan can adopt the version control workflow and data
 analysis principles very fast and is thankful for the brief but sufficient introduction.
@@ -118,13 +119,13 @@ dataset in a dedicated directory everyone involved in the project has access to:
 All data that this lab generates or uses is a standalone DataLad dataset that lives
 in a dedicated ``data\`` directory on a server. To give Megan access to the data without
 endangering or potentially modifying the pristine data kept in there, complying to the
-YODA principles, they install the data she is supposed to analyze as a subdataset:
+YODA principles, they clone the data she is supposed to analyze as a subdataset:
 
 .. code-block:: bash
 
    $ cd project-megan
-   $ datalad install -d . \
-     --source /home/data/ABC-project \
+   $ datalad clone -d . \
+     /home/data/ABC-project \
      data/ABC-project
 
     [INFO   ] Cloning /home/data/ABC-project [1 other candidates] into '/home/projects/project-megan/data/ABC-project'
@@ -155,19 +156,15 @@ Within a 20-minute walk-through, Megan learns the general concepts of version-
 control, gets an overview of the YODA principles [#f1]_,
 configures her Git identity with the help of her supervisor, and is
 given an introduction to the most important DataLad commands relevant to her,
-:command:`datalad save` [#f2]_, :command:`datalad containers-run` [#f3]_,
-and :command:`datalad rerun` [#f4]_.
-For reference, they also give her the `cheat sheet <TODO: link>`_ and the link
+:dlcmd:`save` [#f2]_, :dlcmd:`containers-run` [#f3]_,
+and :dlcmd:`rerun` [#f4]_.
+For reference, they also give her the :ref:`cheat sheet <cheat>` and the link
 to the DataLad handbook as a resource if she has further questions.
-
-.. todo::
-
-   link cheat sheet once it exists
 
 To make the analysis reproducible, they spent the final part of the meeting
 on adding the labs default singularity image to the dataset.
 The lab has a singularity image with all the relevant software on
-`Singularity-Hub <https://singularity-hub.org/>`_,
+`Singularity-Hub <https://singularity-hub.org>`_,
 and it can easily be added to the dataset with the DataLad-containers extension [#f3]_:
 
 .. code-block:: bash
@@ -180,7 +177,7 @@ and creates a more reproducible analysis.
 
 With only a single command to run, Megan finds it easy to version control her
 scripts and gets into the habit of
-running :command:`datalad save` frequently. This way, she can fully concentrate
+running :dlcmd:`save` frequently. This way, she can fully concentrate
 on writing up the analysis. In the beginning, her commit messages
 may not be optimal, and the changes she commits into a single commit might have
 better been split up into separate commits. But from the very beginning she is
@@ -189,7 +186,7 @@ the project develops.
 
 Knowing the YODA principles gives her clear and easy-to-follow guidelines
 on how to work. Her scripts are producing results in dedicated ``output/`` directories
-and are executed with :command:`datalad containers-run` to capture the provenance of how
+and are executed with :dlcmd:`containers-run` to capture the provenance of how
 which result came to be with which software. These guidelines are not complex, and yet
 make her whole workflow much more comprehensible, organized, and transparent.
 
@@ -213,15 +210,15 @@ Megan finishes her analysis well ahead of time and can prepare her talk.
 Together with her supervisor she decides which figures look good and
 which results are important. All results that are deemed irrelevant can be dropped
 to keep the dataset lean, but could be recomputed as their provenance was tracked.
-Finally, the data analysis project is installed as an input into a new dataset
+Finally, the data analysis project is cloned as an input into a new dataset
 created for collaborative paper-writing on the analysis:
 
 .. code-block:: bash
 
    $ datalad create megans-paper
    $ cd megans-paper
-   $ datalad install -d . \
-     --source /home/projects/project-megan \
+   $ datalad clone -d . \
+     /home/projects/project-megan \
      analysis
 
    [INFO   ] Cloning /home/projects/project-megan [1 other candidates] into '/home/paper/megans-paper'
@@ -256,7 +253,7 @@ projects. It requires minimal effort, but comes with great benefit:
   of any external inputs of a project make it possible (when a project is completed)
   that a supervisor can efficiently test the integrity of the inputs, discard them
   (if unmodified), and only archive the outputs that are unique to the project --
-  which then can become a modular component for re-use in a future project.
+  which then can become a modular component for reuse in a future project.
 
 
 .. rubric:: Footnotes

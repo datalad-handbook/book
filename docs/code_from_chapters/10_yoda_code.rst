@@ -1,27 +1,27 @@
 Code from chapter: 10_yoda
 --------------------------
 
-Code snippet 123::
+Code snippet 126::
 
    # inside of DataLad-101
    datalad create -c yoda --dataset . midterm_project
 
 
-Code snippet 124::
+Code snippet 127::
 
    cd midterm_project
    # we are in midterm_project, thus -d . points to the root of it.
-   datalad install -d . --source https://github.com/datalad-handbook/iris_data.git input/
+   datalad clone -d . https://github.com/datalad-handbook/iris_data.git input/
 
 
-Code snippet 125::
+Code snippet 128::
 
    cd ../
    tree -d
    cd midterm_project
 
 
-Code snippet 126::
+Code snippet 129::
 
    cat << EOT > code/script.py
 
@@ -34,7 +34,7 @@ Code snippet 126::
 
    data = "input/iris.csv"
 
-   # make sure that the data is obtained (get will also install linked sub-ds!):
+   # make sure that the data are obtained (get will also install linked sub-ds!):
    dl.get(data)
 
    # prepare the data as a pandas dataframe
@@ -43,7 +43,7 @@ Code snippet 126::
    df.columns = attributes
 
    # create a pairplot to plot pairwise relationships in the dataset
-   plot = sns.pairplot(df, hue='class')
+   plot = sns.pairplot(df, hue='class', palette='muted')
    plot.savefig('pairwise_relationships.png')
 
    # perform a K-nearest-neighbours classification with scikit-learn
@@ -68,17 +68,17 @@ Code snippet 126::
    EOT
 
 
-Code snippet 127::
+Code snippet 130::
 
    datalad status
 
 
-Code snippet 128::
+Code snippet 131::
 
    datalad save -m "add script for kNN classification and plotting" --version-tag ready4analysis code/script.py
 
 
-Code snippet 129::
+Code snippet 132::
 
    datalad run -m "analyze iris data with classification analysis" \
      --input "input/iris.csv" \
@@ -87,12 +87,12 @@ Code snippet 129::
      "python3 code/script.py"
 
 
-Code snippet 130::
+Code snippet 133::
 
    git log --oneline
 
 
-Code snippet 131::
+Code snippet 134::
 
    # with the >| redirection we are replacing existing contents in the file
    cat << EOT >| README.md
@@ -110,13 +110,48 @@ Code snippet 131::
    EOT
 
 
-Code snippet 132::
+Code snippet 135::
 
    datalad status
 
 
-Code snippet 133::
+Code snippet 136::
 
    datalad save -m "Provide project description" README.md
 
 
+Code snippet 137::
+
+   # we are in the midterm_project subdataset
+   datalad containers-add midterm-software --url shub://adswa/resources:2
+
+
+Code snippet 138::
+
+   git log -n 1 -p
+
+
+Code snippet 139::
+
+   datalad containers-run -m "rerun analysis in container" \
+     --container-name midterm-software \
+     --input "input/iris.csv" \
+     --output "prediction_report.csv" \
+     --output "pairwise_relationships.png" \
+     "python3 code/script.py"
+
+
+Code snippet 140::
+
+   git log -p -n 1
+
+
+Code snippet 141::
+
+   cd ../
+   datalad status
+
+
+Code snippet 142::
+
+   datalad save -d . -m "add container and execute analysis within container" midterm_project

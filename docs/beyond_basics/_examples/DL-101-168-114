@@ -1,0 +1,16 @@
+### DVC-DataLad
+$ cd ../DVC-DataLad
+$ datalad download-url \
+  --archive \
+  --message "Download Imagenette dataset" \
+  https://osf.io/d6qbz/download \
+  -O 'data/raw/'
+download_url(ok): /home/me/DVCvsDL/DVC-DataLad/data/raw/imagenette2-160.tgz (file)
+add(ok): data/raw/imagenette2-160.tgz (file)
+save(ok): . (dataset)
+[INFO] Adding content of the archive /home/me/DVCvsDL/DVC-DataLad/data/raw/imagenette2-160.tgz into annex AnnexRepo(/home/me/DVCvsDL/DVC-DataLad)
+[INFO] Initializing special remote datalad-archives
+[INFO] Extracting archive
+[INFO] Finished adding /home/me/DVCvsDL/DVC-DataLad/data/raw/imagenette2-160.tgz: Files processed: 2701, renamed: 2701, +annex: 2701
+[INFO] Finished extraction
+add-archive-content(ok): /home/me/DVCvsDL/DVC-DataLad (dataset)

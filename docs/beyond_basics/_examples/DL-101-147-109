@@ -1,0 +1,9 @@
+$ cd midterm_project
+$ datalad create-sibling-ria -s ria-backup ria+file:///home/me/myriastore
+[INFO] Creating a new RIA store at /home/me/myriastore
+[INFO] create siblings 'ria-backup' and 'ria-backup-storage' ...
+update(ok): . (dataset)
+update(ok): . (dataset)
+[INFO] Configure additional publication dependency on "ria-backup-storage"
+configure-sibling(ok): . (sibling)
+create-sibling-ria(ok): /home/me/dl-101/DataLad-101/midterm_project (dataset)

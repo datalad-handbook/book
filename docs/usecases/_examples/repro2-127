@@ -1,0 +1,5 @@
+# switch back to the main branch and remove the `verify` branch
+$ git checkout main
+$ git branch -D verify
+Switched to branch 'main'
+Deleted branch verify (was 29c21ca).

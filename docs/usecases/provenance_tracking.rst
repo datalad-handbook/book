@@ -1,3 +1,4 @@
+.. index:: ! Usecase; Basic provenance tracking
 .. _usecase_provenance_tracking:
 
 Basic provenance tracking
@@ -10,7 +11,7 @@ can be captured with DataLad by
 #. perform changes to this data file and
 #. capture provenance for all of this
 
-.. note::
+.. importantnote:: How to become a Git pro
 
    This section uses advanced Git commands and concepts on the side
    that are not covered in the book. If you want to learn more about
@@ -52,7 +53,7 @@ be version controlled and tracked:
 For his art project, Rob decides to download a mosaic image composed of flowers
 from Wikimedia. As a first step, he extracts some of the flowers into individual
 files to reuse them later.
-He uses the :command:`datalad download-url` command to get the resource straight
+He uses the :dlcmd:`download-url` command to get the resource straight
 from the web, but also capture all provenance automatically, and save the
 resource in his dataset together with a useful commit message:
 
@@ -66,7 +67,7 @@ resource in his dataset together with a useful commit message:
      --path sources/flowers.jpg
 
 If he later wants to find out where he obtained this file from, a
-:command:`git annex whereis` [#f1]_ command will tell him:
+:gitannexcmd:`whereis` [#f1]_ command will tell him:
 
 .. runrecord:: _examples/prov-103
    :workdir: usecases/provenance/artproject
@@ -79,7 +80,7 @@ the ``extract`` tool from `ImageMagick <https://imagemagick.org/index.php>`_ to
 extract the St. Bernard's Lily from the upper left corner, and the pimpernel
 from the upper right corner. The commands will take the
 Wikimedia poster as an input and produce output files from it. To capture
-provenance on this action, Rob wraps it into :command:`datalad run` [#f2]_
+provenance on this action, Rob wraps it into :dlcmd:`run` [#f2]_
 commands.
 
 .. runrecord:: _examples/prov-104
@@ -103,8 +104,8 @@ commands.
 He continues to process the images, capturing all provenance with DataLad.
 Later, he can always find out which commands produced or changed which file.
 This information is easily accessible within the history of his dataset,
-both with Git and DataLad commands such as :command:`git log` or
-:command:`datalad diff`.
+both with Git and DataLad commands such as :gitcmd:`log` or
+:dlcmd:`diff`.
 
 .. runrecord:: _examples/prov-106
    :workdir: usecases/provenance/artproject
@@ -134,7 +135,7 @@ be to displace pixels of an image by a random amount to blur the image:
       "convert -spread 10 st-bernard.jpg st-bernard-displaced.jpg"
 
 Because he is not completely satisfied with the first random pixel displacement,
-he decides to retry the operation. Because everything was wrapped in :command:`datalad run`,
+he decides to retry the operation. Because everything was wrapped in :dlcmd:`run`,
 he can rerun the command. Rerunning the command will produce a commit, because the displacement is
 random and the output file changes slightly from its previous version.
 
@@ -177,7 +178,7 @@ run commit in the revision list specified with ``--since``.
 When both arguments are set to empty strings, it therefore means
 "rerun all commands with HEAD at the parent of the first commit a command".
 In other words, Rob can "replay" all the history for his artproject in a single
-command. Using the ``--branch`` option of :command:`datalad rerun`,
+command. Using the ``--branch`` option of :dlcmd:`rerun`,
 he does it on a new branch he names ``replay``:
 
 .. runrecord:: _examples/prov-112
@@ -192,7 +193,7 @@ Now he is on a new branch of his project, which contains "replayed" history.
    :workdir: usecases/provenance/artproject
    :language: console
 
-   $ git log --oneline --graph master replay
+   $ git log --oneline --graph main replay
 
 He can even compare the two branches:
 
@@ -200,7 +201,7 @@ He can even compare the two branches:
    :workdir: usecases/provenance/artproject
    :language: console
 
-   $ datalad diff -t master -f replay
+   $ datalad diff -t main -f replay
 
 He can see that the blurring, which involved a random element,
 produced different results. Because his dataset contains two branches,
@@ -213,18 +214,18 @@ Notice that all commits are marked as equivalent (=) except the ‘random spread
    :workdir: usecases/provenance/artproject
    :language: console
 
-   $ git log --oneline --left-right --cherry-mark master...replay
+   $ git log --oneline --left-right --cherry-mark main...replay
 
-Rob can continue processing images, and will turn in a sucessful art project.
+Rob can continue processing images, and will turn in a successful art project.
 Long after he finishes high school, he finds his dataset on his old computer
 again and remembers this small project fondly.
 
 .. rubric:: Footnotes
 
 
-.. [#f1] If you want to learn more about :command:`git annex whereis`, re-read
+.. [#f1] If you want to learn more about :gitannexcmd:`whereis`, re-read
          section :ref:`sharelocal2`.
-.. [#f2] If you want to learn more about :command:`datalad run`, read on from
+.. [#f2] If you want to learn more about :dlcmd:`run`, read on from
          section :ref:`run`.
 .. [#f3] Find out more about working with the history of a dataset with Git in
-         section :ref:`filesystem`
+         section :ref:`file system`

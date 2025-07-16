@@ -1,4 +1,4 @@
-$ git diff remotes/roommate/master
+$ git diff remotes/roommate/main
 diff --git a/code/nested_repos.sh b/code/nested_repos.sh
 deleted file mode 100644
 index f84c817..0000000
@@ -65,14 +65,14 @@ index f84c817..0000000
 -# commits throughout the repository tree
 -datalad diff --revision @~1 -r
 diff --git a/notes.txt b/notes.txt
-index 4babdbd..eea54f5 100644
+index c302a3c..1c681e5 100644
 --- a/notes.txt
 +++ b/notes.txt
 @@ -59,3 +59,7 @@ The command "git annex whereis PATH" lists the repositories that have
- the file content of an annexed file. When using "datalad get" to retrieve
- file content, those repositories will be queried.
- 
-+To update a shared dataset, run the command "datalad update --merge".
+ the file content of an annexed file. When using "datalad get" to
+ retrieve file content, those repositories will be queried.
+
++To update a shared dataset, run the command "datalad update --how merge".
 +This command will query its origin for changes, and integrate the
 +changes into the dataset.
 +

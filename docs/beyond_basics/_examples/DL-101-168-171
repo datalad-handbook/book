@@ -1,0 +1,9 @@
+### DVC-DataLad
+$ datalad run --message "Prepare the train and testing data" \
+   --input "data/raw/*" \
+   --output "data/prepared/*" \
+   python code/prepare.py
+[INFO] == Command start (output follows) =====
+[INFO] == Command exit (modification check follows) =====
+run(ok): /home/me/DVCvsDL/DVC-DataLad (dataset) [python code/prepare.py]
+save(ok): . (dataset)

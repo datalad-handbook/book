@@ -1,0 +1,14 @@
+# show the directory hierarchy
+$ tree -d
+.
+├── code
+└── data
+    └── raw
+        ├── train
+        │   ├── n03445777
+        │   └── n03888257
+        └── val
+            ├── n03445777
+            └── n03888257
+
+9 directories

@@ -1,0 +1,7 @@
+$ datalad catalog-create -c custom-cat -m toy_metadata.jsonl -F cat_config.yml
+$ datalad catalog-set -c custom-cat -i 5df8eb3a-95c5-11ea-b4b9-a0369f287950 -v dae38cf901995aace0dde5346515a0134f919523 home
+catalog_create(ok): custom-cat [Catalog successfully created at: custom-cat]
+catalog_add(ok): custom-cat [Metadata record successfully added to catalog (dataset: dataset_id=5df8eb3a-95c5-11ea-b4b9-a0369f287950, dataset_version=dae38cf9✂SHA1)]
+catalog_add(ok): custom-cat [Metadata record successfully updated in catalog (filetree of dataset: dataset_id=5df8eb3a-95c5-11ea-b4b9-a0369f287950, dataset_version=dae38cf9✂SHA1)]
+catalog_add(ok): custom-cat [Metadata record successfully updated in catalog (filetree of dataset: dataset_id=5df8eb3a-95c5-11ea-b4b9-a0369f287950, dataset_version=dae38cf9✂SHA1)]
+catalog_set(ok): custom-cat [Home page successfully set to: dataset_id=5df8eb3a-95c5-11ea-b4b9-a0369f287950, dataset_version=dae38cf9✂SHA1.]

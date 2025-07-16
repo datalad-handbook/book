@@ -1,0 +1,4 @@
+### DVC-DataLad
+$ datalad push --to mysibling
+publish(ok): . (dataset) [refs/heads/git-annex->mysibling:refs/heads/git-annex ✂FROM✂..✂TO✂]
+publish(ok): . (dataset) [refs/heads/main->mysibling:refs/heads/main [new branch]]

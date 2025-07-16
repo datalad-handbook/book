@@ -1,7 +1,7 @@
 $ git log -p -n 1
-commit 3d6141e1a958804a7d1c4d1585ec9ce964367d46
+commit b40316a6✂SHA1
 Author: Elena Piscopia <elena@example.net>
-Date:   Tue Dec 10 09:08:17 2019 +0100
+Date:   Tue Jun 18 16:13:00 2019 +0000
 
     add books on Python and Unix to read later
 
@@ -11,13 +11,13 @@ index 0000000..4c84b61
 --- /dev/null
 +++ b/books/TLCL.pdf
 @@ -0,0 +1 @@
-+../.git/annex/objects/jf/3M/MD5E-s2120211--06d1efcb05bb2c55cd039dab3fb28455.pdf/MD5E-s2120211--06d1efcb05bb2c55cd039dab3fb28455.pdf
++../.git/annex/objects/jf/3M/✂/MD5E-s2120211--06d1efcb✂MD5.pdf
 \ No newline at end of file
 diff --git a/books/byte-of-python.pdf b/books/byte-of-python.pdf
 new file mode 120000
-index 0000000..9a812a0
+index 0000000..7a6e51e
 --- /dev/null
 +++ b/books/byte-of-python.pdf
 @@ -0,0 +1 @@
-+../.git/annex/objects/ZZ/f1/MD5E-s4407669--32e6b03a08a6edda12ad42eb7bb06a5c.pdf/MD5E-s4407669--32e6b03a08a6edda12ad42eb7bb06a5c.pdf
++../.git/annex/objects/xF/42/✂/MD5E-s4161086--c832fc13✂MD5.pdf
 \ No newline at end of file

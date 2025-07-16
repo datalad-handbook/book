@@ -1,0 +1,12 @@
+$ tree .git/refs
+.git/refs
+├── datalad
+│   ├── dataset-tree-version-list
+│   ├── dataset-uuid-set
+│   └── object-references-2.0
+├── heads
+│   ├── git-annex
+│   └── main
+└── tags
+
+3 directories, 5 files

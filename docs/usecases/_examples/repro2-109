@@ -1,0 +1,23 @@
+$ git log -n 1
+commit dd8b5e1331bb278774d08be3d5c748566b681e7f
+Author: Elena Piscopia <elena@example.net>
+Date:   Wed Dec 14 17:25:23 2022 +0100
+
+    [DATALAD RUNCMD] Import stimulation events
+    
+    === Do not change lines below ===
+    {
+     "chain": [],
+     "cmd": "cp '{inputs}' '{outputs}'",
+     "dsid": "c25e7e1f-e9e9-4521-8644-6aaf5c3d77b1",
+     "exit": 0,
+     "extra_inputs": [],
+     "inputs": [
+      "inputs/rawdata/events.tsv"
+     ],
+     "outputs": [
+      "sub-02/func/sub-02_task-oneback_run-01_events.tsv"
+     ],
+     "pwd": "."
+    }
+    ^^^ Do not change lines above ^^^

@@ -1,6 +1,5 @@
 $ datalad run-procedure --discover
-cfg_hirni (../../../adina/env/handbook/lib/python3.7/site-packages/datalad_hirni/resources/procedures/cfg_hirni.py) [python_script]
-cfg_bids (../../../adina/repos/datalad-neuroimaging/datalad_neuroimaging/resources/procedures/cfg_bids.py) [python_script]
-cfg_metadatatypes (../../../adina/repos/datalad/datalad/resources/procedures/cfg_metadatatypes.py) [python_script]
-cfg_text2git (../../../adina/repos/datalad/datalad/resources/procedures/cfg_text2git.py) [python_script]
-cfg_yoda (../../../adina/repos/datalad/datalad/resources/procedures/cfg_yoda.py) [python_script]
+cfg_metadatatypes (VIRTUALENV/lib/python3.8/site-packages/datalad_deprecated/resources/procedures/cfg_metadatatypes.py) [python_script]
+cfg_noannex (VIRTUALENV/lib/python3.8/site-packages/datalad/resources/procedures/cfg_noannex.py) [python_script]
+cfg_text2git (VIRTUALENV/lib/python3.8/site-packages/datalad/resources/procedures/cfg_text2git.py) [python_script]
+cfg_yoda (VIRTUALENV/lib/python3.8/site-packages/datalad/resources/procedures/cfg_yoda.py) [python_script]

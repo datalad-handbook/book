@@ -1,4 +1,4 @@
 $ git log -n 3 --oneline
-0adc3de [DATALAD] Recorded changes
-dd375f2 save my favorite Git joke
-cc27fbf add container and execute analysis within container
+0079afc [DATALAD] Recorded changes
+f7863f3 save my favorite Git joke
+23072dd remove obsolete subds

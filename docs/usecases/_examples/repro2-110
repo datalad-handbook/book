@@ -1,0 +1,6 @@
+# get out of localizer_scans
+$ cd ../
+
+$ datalad create glm_analysis
+$ cd glm_analysis
+create(ok): /home/me/usecases/repro2/glm_analysis (dataset)

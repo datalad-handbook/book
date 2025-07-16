@@ -1,0 +1,11 @@
+$ datalad save -r -m "move book into midterm_project"
+add(ok): TLCL.pdf (file)
+save(ok): midterm_project (dataset)
+delete(ok): books/TLCL.pdf (file)
+add(ok): midterm_project (dataset)
+add(ok): .gitmodules (file)
+save(ok): . (dataset)
+action summary:
+  add (ok: 3)
+  delete (ok: 1)
+  save (notneeded: 2, ok: 2)

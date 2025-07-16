@@ -12,7 +12,7 @@ you to fire up your terminal and follow along.
 **If you are interested in learning how to use DataLad, this handbook is for you.**
 
 You do not need to be a programmer, computer scientist, or Linux-crank.
-If you have never touched your computers shell before, you will be fine.
+If you have never touched your computer's shell before, you will be fine.
 No knowledge about :term:`Git` or :term:`git-annex` is required or necessary.
 Regardless of your background and personal use cases for DataLad, the
 handbook will show you the principles of DataLad, and from chapter 1 onwards
@@ -21,11 +21,11 @@ you will be using them.
 How to read this book
 ---------------------
 
-First of all: Be excited. DataLad can help you to manage your digital data
+First of all: be excited. DataLad can help you to manage your digital data
 workflow in various ways, and in this book you will use many of them right
 from the start.
 There are many topics you can explore, if you wish:
-Local or collaborative workflows, reproducible analyses, data publishing, ... .
+local or collaborative workflows, reproducible analyses, data publishing, and so on.
 If anything seems particularly exciting, you can go ahead, read it, *and do it*.
 Therefore, **grab your computer, and be ready to use it**.
 
@@ -34,31 +34,58 @@ workflows to more advanced commands, and you will see your skills increase
 with each. While learning, it will be easy to
 **find use cases in your own work for the commands you come across**.
 
+.. only:: latex
+
+   Throughout the book numerous *terms* for concepts and technical components
+   are used. They are all defined in a :ref:`glossary`, and are printed
+   with a glossary icon, such as :term:`Git`, or :term:`commit message`.
+   Links to external resources have a superscript that you can find in the Hyperlink index at the end of the book.
+   And internal links reference the page number of the box, section, or chapter in question.
+
 As the handbook is to be a practical guide it includes as many hands-on examples
 as we can fit into it. Code snippets look like this, and you should
 **copy them into your own terminal to try them out**, but you can also
 **modify them to fit your custom needs in your own use cases**.
-Note in the example below that shows the creation of a DataLad dataset how
-we distinguish ``comments (#)`` from ``commands ($)`` and their output:
+Note how we distinguish ``comments ($ #)`` from ``commands ($)`` and their output
+in the example below (it shows the creation of a DataLad dataset):
 
-.. code-block:: bash
+.. code-block:: console
 
-   # this is a comment used for additional explanations. Anything preceded by $ is a command to try.
-   # if the line starts with neither # nor $, its the output of a command
+   $ # This is a comment used for additional explanations.
+   $ # Otherwise, anything preceded by $ is a command to try.
+   $ # If the line starts with no $, it is an output of a command.
    $ datalad create myfirstrepo
-   [INFO   ] Creating a new annex repo at /home/adina/DataLad-101
-   create(ok): /home/adina/DataLad-101 (dataset)
+   [INFO   ] Creating a new annex repo at /home/me/DataLad-101
+   create(ok): /home/me/DataLad-101 (dataset)
 
 When copying code snippets into your own terminal, do not copy the leading
 ``$`` -- this only indicates that the line is a command, and would lead to an
 error when executed.
+Don't worry :ref:`if you do not want to code along <fom-lazy>`, though.
 
-The book is split in two different parts. The upcoming chapters
+Instead of copying manually, you can also click on the clipboard icon at the top
+right of each code snippet.
+Clicking on that icon will copy all relevant lines from the code snippet,
+and will drop all comments and the ``$`` automatically.
+
+Whenever you see a ✂ symbol, command output has been shortened for better readability.
+In the example below, the commit :term:`shasum` has been shortened and marked with ``✂SHA1``.
+
+.. code-block:: console
+
+   $ git log --reverse
+   commit 8df130bb✂SHA1
+   Author: Elena Piscopia <elena@example.net>
+   Date:   Tue Jun 18 16:13:00 2019 +0000
+
+The book is split into different parts. The upcoming chapters
 are the *Basics* that intend to show you the core DataLad functionality
-and challenges you to use it. It is recommended to start with this part
-and read it from start to end.
-In the chapter *use cases* you will find concrete examples of
+and challenge you to use it. If you want to learn how to use DataLad, it is
+recommended to start with this part and read it from start to end.
+In the part *use cases*, you will find concrete examples of
 DataLad applications for general inspiration -- this is the second part of this book.
+If you want to get an overview of what is possible with DataLad, this section will
+show you in a concise and non-technical manner.
 Pick whatever you find interesting and disregard the rest. Afterwards,
 you might even consider :ref:`contribute` to this book by sharing your own use case.
 
@@ -71,41 +98,61 @@ will let you master a given task and get along comfortably.
 Having the basics will be your multi-purpose swiss army knife.
 But if you want to have the special knowledge for a very peculiar type
 of problem set or that extra increase in skill or understanding,
-you'll have to do a detour into some of the *hidden* parts of the book:
+you'll have to do a detour into some of the "hidden" parts of the book:
 When there are command options or explanations that go beyond basics and
-best practices, we hide them in foldable book sections in order
+best practices, we put them in special boxes in order
 to not be too distracting for anyone only interested in the basics.
 You can decide for yourself whether you want to check them out:
 
-.. findoutmore:: Click here to show/hide further commands
+"Find-out-more" boxes contain general additional information:
 
-    Sections like this contain content that goes beyond the basics
-    necessary to complete a challenge.
+.. only:: html
 
-Note further that...
+   .. find-out-more:: Click here to show/hide further commands
 
-.. gitusernote::
+       Sections like this contain content that goes beyond the basics
+       necessary to complete a challenge.
+
+.. only:: latex
+
+   .. find-out-more:: For curious minds
+      :name: fom-intro
+
+      Sections like this contain content that goes beyond the basics
+      necessary to complete a challenge.
+
+
+"Git user notes" elaborate on technical details from under the hood:
+
+.. gitusernote:: For (future) Git experts
 
    DataLad uses :term:`Git` and :term:`git-annex` underneath the hood. Readers that
-   are familiar with these tools can find occasional notes on how a DataLad
-   command links to a Git(-annex) command or concept in boxes like this.
+   are familiar with these tools can find occasional notes on how a DataLad   command links to a Git(-annex) command or concept in boxes like this.
    There is, however, absolutely no knowledge of Git or git-annex necessary
    to follow this book. You will, though, encounter Git commands throughout
    the book when there is no better alternative, and executing those commands will
    suffice to follow along.
 
-Apart from core DataLad commands (introduced in the second part of this book),
+If you are a Windows user with a native (i.e., not `Windows Subsystem for Linux (WSL) <https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux>`_-based) DataLad installation, pay close attention to the special notes in so-called "Windows-Wits":
+
+.. windows-wit:: For Windows users only
+
+   A range of file system issues can affect the behavior of DataLad or its underlying tools on Windows.
+   If necessary, the handbook provides workarounds for problems, explanations, or at least apologies for those inconveniences.
+   If you want to help us make the handbook or DataLad better for Windows users, please `get in touch <https://github.com/datalad-handbook/book/issues/new>`_ -- every little improvement or bug report can help.
+
+Apart from core DataLad commands (introduced in the *Basics* part of this book),
 DataLad also comes with many extensions and advanced commands not (yet) referenced
 in this handbook. The development of many of these features
 is ongoing, and this handbook will incorporate all DataLad commands and extensions
 *once they are stable* (that is, once the command(-structure) is likely not to
 change anymore). If you are looking for a feature but cannot find it in this
-handbook, please take a look at the `documentation <http://docs.datalad.org>`_,
-`write <http://handbook.datalad.org/en/latest/contributing.html>`_ or
+handbook, please take a look at the `documentation <https://docs.datalad.org>`_,
+`write <https://handbook.datalad.org/contributing.html>`_ or
 `request <https://github.com/datalad-handbook/book/issues/new>`_
 an additional chapter if you believe it is a worthwhile addition, or
 `ask a question on Neurostars.org <https://neurostars.org/latest>`_
-with a :command:`datalad` tag if you need help.
+with a :shcmd:`datalad` tag if you need help.
 
 
 What you will learn in this book
@@ -113,7 +160,7 @@ What you will learn in this book
 
 This handbook will teach you simple, yet advanced principles of data
 management for reproducible, comprehensible, transparent, and
-`FAIR <https://www.go-fair.org/fair-principles/>`_ data
+`FAIR <https://www.go-fair.org>`_ data
 projects. It does so with hands-on tool use of DataLad and its
 underlying software, blended with clear explanations of relevant
 theoretical backgrounds whenever necessary, and by demonstrating
@@ -149,7 +196,7 @@ things you will know how to do, and understand why doing them is useful:
 After having read this handbook, you will find it easy to create, build up, and
 share intuitively structured and version-controlled data projects that
 fulfill high standards for reproducibility and FAIRness. You are able to
-decide for yourself how deep you want to delve into the DataLad world 
+decide for yourself how deep you want to delve into the DataLad world
 based on your individual use cases, and with every section you will learn
 more about state-of-the-art data management.
 
@@ -172,15 +219,30 @@ populating them by ``installing`` and ``creating`` several
 and executing simple scripts with input data to create results we can
 share and publish with DataLad.
 
-If you do not want to follow along and only read, there will be a
-finished DataLad-101 project for you to download and explore in the future.
-The dataset will contain tags that relate different states of it to the
-respective book sections.
+.. figure:: ../artwork/src/student.svg
+   :width: 70%
 
+.. find-out-more:: I cannot/do not want to code along...
+   :name: fom-lazy
+   :float:
+
+   If you do not want to follow along and only read, there is a showroom dataset
+   of the complete DataLad-101 project at
+   `github.com/datalad-handbook/DataLad-101 <https://github.com/datalad-handbook/DataLad-101>`_.
+   This dataset contains a separate :term:`branch` for each section that introduced changes
+   in the repository. The branches have the names of the sections, e.g.,
+   ``sct_create_a_dataset`` marks the repository state at the end of the first section
+   in the first chapter. You can checkout a branch with `git checkout <branch-name>`
+   to explore how the dataset looks like at the end of a given section.
+
+   Note that this "public" dataset has a number of limitations, but it is useful
+   for an overview of the dataset history (and thus the actions performed throughout
+   the "course"), a good display of how many and what files will be present in the
+   end of the book, and a demonstration of how subdatasets are linked.
 
 Let's get going!
 ----------------
 
-If you have DataLad installed, you can dive straight into chapter 1, :ref:`createDS`.
+If you have DataLad installed, you can dive straight into chapter :ref:`createDS`.
 For everyone new, there are the sections :ref:`howto` as a minimal tutorial
 to using the shell and :ref:`install` to get your DataLad installation set up.

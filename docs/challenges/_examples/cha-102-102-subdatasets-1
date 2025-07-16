@@ -1,0 +1,3 @@
+$ datalad create penguin-report
+$ cd penguin-report
+create(ok): /home/me/challenges/102-102-subdataset/penguin-report (dataset)

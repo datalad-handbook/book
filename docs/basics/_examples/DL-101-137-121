@@ -1,21 +1,17 @@
-$ git log -n 20 --oneline
-dd375f2 save my favorite Git joke
-cc27fbf add container and execute analysis within container
-12e9c4a finished my midterm project!
-8356a71 [DATALAD] Recorded changes
-1948a37 add note on DataLads procedures
-a19bd24 add note on configurations and git config
-cda7d02 Add note on adding siblings
-ba1b576 Merge remote-tracking branch 'refs/remotes/roommate/master'
-462a468 Include nesting demo from datalad website
-a746756 add note about datalad update
-f530382 add note on git annex whereis
-53e05c4 add note about installing from paths and recursive installations
-78ea5d5 add note on clean datasets
-231d15d [DATALAD RUNCMD] Resize logo for slides
-8542779 [DATALAD RUNCMD] Resize logo for slides
-a9ead0b add additional notes on run options
-63b2b51 [DATALAD RUNCMD] convert -resize 450x450 recordings/longn...
-d01aaf1 resized picture by hand
-0e38ca9 [DATALAD RUNCMD] convert -resize 400x400 recordings/longn...
-d52fad8 add note on basic datalad run and datalad rerun
+$ git log -n 16 --oneline
+f7863f3 save my favorite Git joke
+23072dd remove obsolete subds
+50359f3 [DATALAD] Added subdataset
+f7a31cb save cropped logos to Git
+c7f94fa move book back from midterm_project
+d8a4aec move book into midterm_project
+ba91786 add container and execute analysis within container
+ebc300e finished my midterm project
+efc0ab0 [DATALAD] Recorded changes
+c403f14 add note on DataLad's procedures
+39c928e add note on configurations and git config
+4beb2bc Add note on adding siblings
+6343867 Merge remote-tracking branch 'roommate/main'
+822bf54 add note about datalad update
+191e2a3 Include nesting demo from datalad website
+d664af1 add note on git annex whereis

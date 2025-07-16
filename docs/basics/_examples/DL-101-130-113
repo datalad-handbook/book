@@ -1,4 +1,4 @@
-# with the >| redirection we are replacing existing contents in the file
+$ # with the >| redirection we are replacing existing contents in the file
 $ cat << EOT >| README.md
 
 # Midterm YODA Data Analysis Project

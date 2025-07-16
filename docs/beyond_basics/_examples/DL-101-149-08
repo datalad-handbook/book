@@ -1,0 +1,4 @@
+$ cd dataset-to-copy-to
+$ datalad status
+    added: anothercopyofbvecs (symlink)
+    added: bvecs (symlink)

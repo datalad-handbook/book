@@ -49,8 +49,33 @@ All results computed from this are aggregated into their collaborator's dataset.
 Upon completion, only the results, not the sensitive input data, are pushed back.
 
 
+.. find-out-more:: Advice for the holder of sensitive data
+
+   When providing data in a remote analysis, the data holder should make an effort for external collaborators' computations to succeed in their own interest: In an ideal, smooth case, the data holder only reviews and runs the code, and doesn't need to spent time debugging.
+   For this, the following pieces of advice can help:
+
+   * If you can, make use of applicable organizational standards in your field. The more predictable your data layout, the easier it is to develop code against it.
+   * Document relevant information about the data. This could be variable names and data ranges in tabular files, values used to denote missing data or other special cases, etc. Use your own analyses scripts for insights: Is there anything you adjust for? Maybe you can even share own scripts for guidance.
+   * Document relevant information about the compute environment. What would the external collaborator need to pay attention to? Is there specific architecture the code needs to be compatible with (e.g., GPUs?).
+
+
+.. find-out-more:: Advice for the external collaborator
+
+   When providing code in a remote analysis, the external collaborator should make the execution as easy as possible for the data holder.
+   For this, the following pieces of advice can help:
+
+   * Write clean and well-documented code to make a pre-execution review simple.
+   * Write your code as generic as you can: If the data follows data organization standards, make use of existing tools that understand the standard (e.g., for data ingestion).
+   * Provide detailed information about the required software, or, even better, provide a :term:`software container` that contains it. See the chapter :ref:`chapter_containersrun` on why and how.
+   * Make your code portable: Use relative paths instead of absolute paths, define all necessary environment variables in your code, and test your code and software on a different computer to rule out that anything on your particular system is required for the code execution to succeed.
 
 
 
 Step-by-Step
 ^^^^^^^^^^^^
+
+
+
+.. rubric:: Footnotes
+
+.. [#f1] When would it be useful to have simulated data? For example for variable names or data ranges in tabular data. This way, external collaborators know that their scripts need to extract the columns "``age``", "``cortisol_morning``" and "``cortisol_evening``", and that a value of "``-2``" denotes missing data that should be filtered out.

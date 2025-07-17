@@ -1,0 +1,12 @@
+$ datalad containers-run -n software -m "run analysis on mock data" -i 'inputs/*/*table*.csv' -o "predictions.csv" "python3 code/predict.py"
+[INFO] == Command start (output follows) =====
+average model accuracy is 0.855
+[INFO] == Command exit (modification check follows) =====
+run(ok): /home/me/usecases/remote-analysis/penguin-jelly (dataset) [singularity exec .datalad/environments/s...]
+add(ok): predictions.csv (file)
+save(ok): . (dataset)
+action summary:
+  add (ok: 1)
+  get (notneeded: 5)
+  run (ok: 1)
+  save (notneeded: 1, ok: 1)

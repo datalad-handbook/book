@@ -1,0 +1,12 @@
+$ datalad drop --what datasets inputs
+$ datalad clone -d . https://hub.datalad.org/edu/penguins.git inputs
+drop(ok): inputs (key) [locking origin...]
+drop(ok): inputs (key) [locking origin...]
+drop(ok): inputs (key) [locking origin...]
+uninstall(ok): inputs (dataset)
+install(ok): inputs (dataset)
+add(ok): inputs (dataset)
+add(ok): .gitmodules (file)
+save(ok): . (dataset)
+add(ok): .gitmodules (file)
+save(ok): . (dataset)

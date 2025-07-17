@@ -69,6 +69,129 @@ Upon completion, only the results, not the sensitive input data, are pushed back
    * Provide detailed information about the required software, or, even better, provide a :term:`software container` that contains it. See the chapter :ref:`chapter_containersrun` on why and how.
    * Make your code portable: Use relative paths instead of absolute paths, define all necessary environment variables in your code, and test your code and software on a different computer to rule out that anything on your particular system is required for the code execution to succeed.
 
+Toy Example
+^^^^^^^^^^^
+
+Let's play this through from start to end with a toy example.
+You can decide whether you would like to take the collaborators' perspective, or the data holders' perspective - or both.
+
+The dataset we will be working with is `The Palmer Penguins <https://hub.datalad.org/edu/penguins>`_ dataset, which contains data from several penguin species.
+It is not sensitive data, but for the sake of the example, let us pretend it is.
+
+Central to the dataset are ``.csv`` files, i.e., tabular data.
+As a collaborator, you will want to script an analysis that makes use of this tabular data.
+As a data provider, you will want to keep the true file contents of the tables private, but nevertheless provide enough information about them for collaborators to write successfully executable scripts.
+
+The collaborators perspective
+"""""""""""""""""""""""""""""
+
+You are an expert on jelly fish, and currently on a scientific exploration in the Ocean.
+The population of jelly fish you study hangs out with a group of penguins - a sensational finding.
+Sadly, you have no idea at all about penguins, and do not even know their species.
+Rather than giving up, you measure a few of their characteristics and hope that you can determine the species with the help of the external "penguin" dataset:
+You plan to
+
+- train a model to predict species based on body features - using the external dataset;
+- and then use the model to predict the species in your own samples
+
+Start by creating a DataLad Dataset for your analysis (e.g., using the YODA configuration):
+
+.. runrecord:: _examples/remote-analysis-101
+   :language: console
+   :workdir: usecases/remote-analysis
+
+   $ datalad create -c yoda penguin-jelly
+
+Save your own measurements into it:
+
+.. runrecord:: _examples/remote-analysis-102
+   :language: console
+   :workdir: usecases/remote-analysis
+
+   $ cd penguin-jelly
+   $ mkdir data
+   $ wget -q https://hub.datalad.org/edu/scripts/raw/branch/main/remote-analysis/local-samples.csv -O data/local-samples.csv
+   $ datalad save -m "add own measurements"
+
+Next, clone the access-restricted dataset as a subdataset of your analysis.
+To explore how different variations of remote analyses feel, you can either:
+
+- clone an empty dataset, which provides file names, but where file contents can't be retrieved: https://hub.datalad.org/edu/penguins-empty.git
+- or clone a dataset with simulated file contents: https://hub.datalad.org/edu/penguins-mock.git
+
+.. runrecord:: _examples/remote-analysis-103
+   :language: console
+   :workdir: usecases/remote-analysis/penguin-jelly
+
+   $ datalad clone -d . https://hub.datalad.org/edu/penguins-mock.git inputs
+
+Afterwards, it is time to "develop" your analysis.
+In this toy example, you can download it, but its also a good exercise to take a look at the available information in the shared dataset and write a script to compute something simple from it - like for example a mean.
+
+
+.. runrecord:: _examples/remote-analysis-104
+   :language: console
+   :workdir: usecases/remote-analysis/penguin-jelly
+
+   $ wget https://hub.datalad.org/edu/scripts/raw/branch/main/remote-analysis/predict.py -O code/predict.py
+   $ datalad save -m "Write a remote analysis script"
+
+.. find-out-more:: What does the script do?
+
+   TODO
+
+To make things easier for the data provider, you can add a software container that includes all required software, using the ``datalad-containers`` extension.
+
+.. runrecord:: _examples/remote-analysis-105
+   :language: console
+   :workdir: usecases/remote-analysis/penguin-jelly
+
+   $ datalad containers-add software --url shub://adswa/resources:2
+
+Let's run the script on mock data in the software container.
+Keep in mind to properly define inputs and outputs, so that the analysis can easily be rerun.
+
+.. runrecord:: _examples/remote-analysis-106
+   :language: console
+   :workdir: usecases/remote-analysis/penguin-jelly
+
+   $ datalad containers-run -n software -m "run analysis on mock data" -i 'inputs/*/*table*.csv' -o "predictions.csv" "python3 code/predict.py"
+
+We can tag the dataset state to make rerunning easier:
+
+.. runrecord:: _examples/remote-analysis-107
+   :language: console
+   :workdir: usecases/remote-analysis/penguin-jelly
+
+   $ git tag runme
+
+The question is: How does this look like on the real data?
+A data provider would clone your dataset and replace the subdataset with the actual sensitive dataset.
+
+We can pretend to do this:
+
+.. runrecord:: _examples/remote-analysis-108
+   :language: console
+   :workdir: usecases/remote-analysis/penguin-jelly
+
+   $ datalad drop --what datasets inputs
+   $ datalad clone -d . https://hub.datalad.org/edu/penguins.git inputs
+
+
+Then, we rerun the analysis:
+
+.. runrecord:: _examples/remote-analysis-109
+   :language: console
+   :workdir: usecases/remote-analysis/penguin-jelly
+
+   $ datalad rerun runme
+
+
+
+
+The data providers perspective
+""""""""""""""""""""""""""""""
+
 
 
 Step-by-Step

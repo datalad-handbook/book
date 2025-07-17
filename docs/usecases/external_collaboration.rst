@@ -1,7 +1,7 @@
 .. _usecase_external_collaboration:
 
-Collaborations on sensitive data
---------------------------------
+Collaborations on sensitive data with remote analyses
+-----------------------------------------------------
 
 This usecase is based on a common problem:
 An external collaborator would like to perform an analysis on a dataset that contains personal information of participants and thus can't be shared outside of the lab.

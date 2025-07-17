@@ -197,6 +197,40 @@ The data providers perspective
 Step-by-Step
 ^^^^^^^^^^^^
 
+Creating a dataset
+""""""""""""""""""
+
+The first step is likely the initial creation of a DataLad dataset.
+To be able to keep all or selected file contents private, data providers should make sure that
+
+* any sensitive files are annexed
+* file names do not contain sensitive information, regardless if there annexed or in :term:`Git`
+
+The section :ref:`config2` contains information on the possible configuration mechanisms to achieve this.
+
+
+Configuring public siblings
+"""""""""""""""""""""""""""
+
+External collaborators need to be able to access a dataset to script their analyses against.
+This "public" dataset must not contain any sensitive file content.
+This can be achieved in several ways.
+One is to publish the dataset to a place that doesn't support hosting annexed files such as :term:`GitHub` or :term:`GitLab`.
+If you are using annex-aware services like :term:`forgejo-aneksajo` or :term:`Gin`, make sure that annexed file contents are not pushed there.
+This could be done "manually" using the ``--data nothing`` option of :dlcmd:`push`, or with an ``annex wanted`` configuration.
+For example, you can configure your "public" dataset to "not want" any annexed files::
+
+   $ git annex wanted public-org "exclude=*"
+
+Such a configuration would be honored automatically when you use :dlcmd:`push`.
+
+.. importantnote:: Beware of autoenabled special remotes!
+
+   DataLad Datasets are made for decentralization.
+   As such, the availability information of their files can span an arbitrarily large network.
+   Be mindful that the dataset you are sharing does not "accidentally" make file contents available with an autoenabled special remote that is accessible (to some).
+   Before publishing a "public" dataset, consider running ``git annex dead [remote-name]`` for any special remotes that you want to hide.
+
 
 
 .. rubric:: Footnotes

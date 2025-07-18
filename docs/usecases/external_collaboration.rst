@@ -267,6 +267,7 @@ To make things easier for the data provider, you can add a software container th
    $ datalad containers-add software --url shub://adswa/resources:2
 
 Let's run the script on mock data in the software container.
+The results will not be correct because the data is only simulated, but it generates a run record that the data provider can very easily rerun - sparing you the need for detailed instructions in an Email or a README file.
 Keep in mind to properly define inputs and outputs, so that the analysis can easily be rerun.
 
 .. runrecord:: _examples/remote-analysis-106
@@ -275,6 +276,7 @@ Keep in mind to properly define inputs and outputs, so that the analysis can eas
 
    $ datalad containers-run -n software -m "run analysis on mock data" -i 'inputs/*/*table*.csv' -o "predictions.csv" "python3 code/predict.py"
 
+Note how bad the model performs - this accuracy will likely improve on the real data.
 We can tag the dataset state to make rerunning easier:
 
 .. runrecord:: _examples/remote-analysis-107

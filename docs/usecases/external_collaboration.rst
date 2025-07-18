@@ -135,12 +135,128 @@ In this toy example, you can download it, but its also a good exercise to take a
    :language: console
    :workdir: usecases/remote-analysis/penguin-jelly
 
-   $ wget https://hub.datalad.org/edu/scripts/raw/branch/main/remote-analysis/predict.py -O code/predict.py
+   $ wget -q https://hub.datalad.org/edu/scripts/raw/branch/main/remote-analysis/predict.py -O code/predict.py
    $ datalad save -m "Write a remote analysis script"
 
 .. find-out-more:: What does the script do?
 
-   TODO
+   The first part is an import of necessary libraries and functions, as is custom in Python:
+
+   .. code-block::
+
+      import argparse
+      import pandas as pd
+      import seaborn as sns
+
+      from glob import glob
+      from pathlib import Path
+
+      from sklearn.model_selection import cross_validate
+      from sklearn.linear_model import LogisticRegression
+      from sklearn.pipeline import make_pipeline
+      from sklearn.preprocessing import StandardScaler
+
+   Next, a simple command line interface is defined, so that three arguments can be given to the script: ``--input``, ``--measurements``, and ``--output``.
+
+   .. code-block::
+
+      # simple command line interface
+      parser = argparse.ArgumentParser(
+               description='''
+                   This script fits a regression model on external input
+                   data from penguin beak measurements and uses the model
+                   to predict Species membership of own measurements. ''')
+      parser.add_argument('-i', '--input',
+               type=str,
+               default='inputs/',
+               help='''
+                   Path to an input dataset with penguin data. The dataset
+                   should contain csv tables with the columns "Culmen Length
+                    (mm)" and "Culmen Depth (mm)".''')
+      parser.add_argument('-m', '--measurements',
+               default='data/local-samples.csv',
+               help='''
+                   Path to a csv file with own beak measurements. Should
+                   contain columns "Culmen Length (mm)" and "Culmen Depth (mm)".''')
+      parser.add_argument('-o', '--output',
+               default='predictions.csv',
+               help='''
+                   Path where results shall be saved as a csv file.''')
+      args = parser.parse_args()
+      # extract commandline arguments:
+      measurements = Path(args.measurements)
+      inputs = Path(args.input)
+
+   Thanks to this, running the script with ``--help`` prints the following::
+
+		python code/predict.py --help
+		usage: predict.py [-h] [-i INPUT] [-m MEASUREMENTS] [-o OUTPUT]
+
+		This script fits a regression model on external input data from penguin beak
+		measurements and uses the model to predict Species membership of own
+		measurements.
+
+		options:
+		  -h, --help            show this help message and exit
+		  -i, --input INPUT     Path to an input dataset with penguin data. The
+					dataset should contain csv tables with the columns
+					"Culmen Length (mm)" and "Culmen Depth (mm)".
+		  -m, --measurements MEASUREMENTS
+						Path to a csv file with own beak measurements. Should
+						contain columns "Culmen Length (mm)" and "Culmen Depth
+						(mm) ".
+		  -o, --output OUTPUT   Path where results shall be saved as a csv file.
+
+   The actual data wrangling starts here.
+   The script finds all files that match ``*/*table*.csv`` within the input dataset and reads them into a single data frame.
+   It also reads in the "local samples".
+
+   .. code-block::
+
+      # find all tables
+      files = sorted(inputs.glob('*/*table*.csv'))
+
+      # combine the data into a single DataFrame
+      dfs = []
+      for file in files:
+          df = pd.read_csv(file)
+          dfs.append(df)
+
+      combined_data = pd.concat(dfs, ignore_index=True)
+
+      # read local samples
+      local_samples = pd.read_csv(measurements,
+								usecols=['Culmen Length (mm)', 'Culmen Depth (mm)'])
+
+   Next, it builds the model using variable names from the spreadsheet:
+   "Culmen Length (mm)" and "Culmen Depth (mm)" are used as features to predict the "Species".
+   The model performance is evaluated in a cross-validation, and the script prints the average accuracy.
+
+   .. code-block::
+
+      # define features and targets, build a smaller dataset
+      penguins = combined_data[["Culmen Length (mm)", "Culmen Depth (mm)", "Species"]]
+      penguins = penguins.dropna()
+      data, target = penguins.drop(columns="Species"), penguins["Species"]
+
+
+      # build a pipeline with a Logistic Regression
+      model = make_pipeline(StandardScaler(), LogisticRegression())
+      # evaluate the model using cross-validation
+      cv_result = cross_validate(model, data, target, cv=3)
+      print(f'average model accuracy is {cv_result["test_score"].mean():.3f}')
+
+   Finally, the trained model is used to predict the penguin species of your own samples, and writes it to a file.
+
+   .. code-block::
+
+      # fit the model on data; predict Species of own data points
+      model.fit(data, target)
+      res = model.predict(local_samples)
+      local_samples['prediction'] = res
+      # save the prediction
+      local_samples.to_csv(args.output)
+
 
 To make things easier for the data provider, you can add a software container that includes all required software, using the ``datalad-containers`` extension.
 

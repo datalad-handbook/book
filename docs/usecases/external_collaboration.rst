@@ -56,7 +56,8 @@ Upon completion, only the results, not the sensitive input data, are pushed back
 
    * If you can, make use of applicable organizational standards in your field. The more predictable your data layout, the easier it is to develop code against it.
    * Document relevant information about the data. This could be variable names and data ranges in tabular files, values used to denote missing data or other special cases, etc. Use your own analyses scripts for insights: Is there anything you adjust for? Maybe you can even share own scripts for guidance.
-   * Document relevant information about the compute environment. What would the external collaborator need to pay attention to? Is there specific architecture the code needs to be compatible with (e.g., GPUs?).
+   * A middle ground between keeping all data inaccessible and creating simulated data is to keep all real data inaccessible but add a "dummy" data point (e.g., a phantom scan or other example data) that is always publicly accessible.
+   * Document relevant information about the compute environment. What would the external collaborator need to pay attention to? Is there specific architecture the code needs to be compatible with (e.g., GPUs?). Is there a specific container solution (e.g., Docker, Singularity) you can or wish to receive?
 
 
 .. find-out-more:: Advice for the external collaborator
@@ -68,6 +69,7 @@ Upon completion, only the results, not the sensitive input data, are pushed back
    * Write your code as generic as you can: If the data follows data organization standards, make use of existing tools that understand the standard (e.g., for data ingestion).
    * Provide detailed information about the required software, or, even better, provide a :term:`software container` that contains it. See the chapter :ref:`chapter_containersrun` on why and how.
    * Make your code portable: Use relative paths instead of absolute paths, define all necessary environment variables in your code, and test your code and software on a different computer to rule out that anything on your particular system is required for the code execution to succeed.
+   * If your analysis shall run on specific data, either write your code to automatically "do the right thing", or provide detailed instructions how the computation shall be done.
 
 Toy Example
 ^^^^^^^^^^^

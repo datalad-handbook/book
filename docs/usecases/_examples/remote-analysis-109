@@ -1,17 +1,18 @@
 $ datalad rerun runme
-[INFO] run commit ccbc7da; (run analysis on m...)
+[INFO] run commit 245eb80; (run analysis on m...)
 [INFO] == Command start (output follows) =====
 average model accuracy is 0.950
 [INFO] == Command exit (modification check follows) =====
+get(ok): inputs/chinstrap/table_221.csv (file) [from origin...]
 get(ok): inputs/gentoo/table_220.csv (file) [from origin...]
 get(ok): inputs/adelie/table_219.csv (file) [from origin...]
-get(ok): inputs/chinstrap/table_221.csv (file) [from origin...]
 unlock(ok): predictions.csv (file)
 run(ok): /home/me/usecases/remote-analysis/penguin-jelly (dataset) [singularity exec .datalad/environments/s...]
 add(ok): predictions.csv (file)
+save(ok): . (dataset)
 action summary:
   add (ok: 1)
   get (notneeded: 2, ok: 3)
   run (ok: 1)
-  save (notneeded: 2)
+  save (notneeded: 1, ok: 1)
   unlock (ok: 1)

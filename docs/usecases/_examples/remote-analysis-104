@@ -1,15 +1,4 @@
-$ wget https://hub.datalad.org/edu/scripts/raw/branch/main/remote-analysis/predict.py -O code/predict.py
+$ wget -q https://hub.datalad.org/edu/scripts/raw/branch/main/remote-analysis/predict.py -O code/predict.py
 $ datalad save -m "Write a remote analysis script"
---2025-07-17 21:02:48--  https://hub.datalad.org/edu/scripts/raw/branch/main/remote-analysis/predict.py
-Resolving hub.datalad.org (hub.datalad.org)... 62.169.28.55
-Connecting to hub.datalad.org (hub.datalad.org)|62.169.28.55|:443... connected.
-HTTP request sent, awaiting response... 200 OK
-Length: 2634 (2.6K) [text/plain]
-Saving to: ‘code/predict.py’
-
-     0K ..                                                    100% 1.22M=0.002s
-
-2025-07-17 21:02:49 (1.22 MB/s) - ‘code/predict.py’ saved [2634/2634]
-
 add(ok): code/predict.py (file)
 save(ok): . (dataset)

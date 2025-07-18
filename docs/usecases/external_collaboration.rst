@@ -4,7 +4,7 @@ Collaborations on sensitive data with remote analyses
 -----------------------------------------------------
 
 This usecase is based on a common problem:
-An external collaborator would like to perform an analysis on a dataset that contains personal information of participants and thus can't be shared outside of the lab.
+An external collaborator would like to perform an analysis on a dataset that can't be shared outside of the lab.
 With DataLad, the collaboration can succeed:
 
 #. A mock dataset with the same structure (organization, file names, potentially mock-content) but without (access to) the actual problematic data is shared or made publicly available instead of the original dataset.

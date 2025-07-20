@@ -7,7 +7,7 @@ This usecase is based on a common problem:
 An external collaborator would like to perform an analysis on a dataset that can't be shared outside of the lab.
 With DataLad, the collaboration can succeed:
 
-#. A mock dataset with the same structure (organization, file names, potentially mock-content) but without (access to) the actual problematic data is shared or made publicly available instead of the original dataset.
+#. A mock dataset with the same structure (organization, file names, potentially mock-content) but without (access to) the actual sensitive data is shared or made publicly available instead of the original dataset.
 #. This mock dataset can assist others to develop their code, without disclosing personal information.
 #. External collaborators create a new dataset for their analysis code, with the mock dataset as a subdataset.
 #. The collaborator submits their dataset back to the lab that has all of the data. After code review, the code is executed on the actual data, its results are captured in the submitted dataset, and only results are pushed back to the external collaborators.
@@ -16,12 +16,12 @@ The Challenge
 ^^^^^^^^^^^^^
 
 The ABC-Lab collected data from patients for one of their studies.
-After publication, a Post-doc from the XYZ-Lab reaches out and proposes and interesting analysis of the same data on a new research question.
+After publication, a Post-doc from the XYZ-Lab reaches out and proposes an interesting analysis of the same data on a new research question.
 Everyone involved is excited about this collaboration:
 The XYZ-Lab is happy that such a valuable dataset exists and is eager to give credit and co-authorship to collaborators in the ABC-Lab.
 The ABC-Lab is happy that someone else is interested in using their data and appreciates the possibility of another publication with lab-members as co-authors.
 
-However, the legal department in ABC's institutes steps in: The data can not be shared with anyone outside as this would be a privacy violation.
+However, the legal department in ABC's institute steps in: The data can not be shared with anyone outside as this would be a privacy violation.
 The data contains potentially identifying or personal information of the patients it was collected from.
 
 With such legal problems, the promising collaboration ceases before it even started, the data remains disclosed but also unused, and an interesting research question remains unanswered.
@@ -29,7 +29,7 @@ With such legal problems, the promising collaboration ceases before it even star
 The DataLad Approach
 ^^^^^^^^^^^^^^^^^^^^
 
-Scientists take their participant's privacy very seriously, and everyone is well aware that certain data can not leave the institute's computational premises.
+Scientists take their participants' privacy very seriously, and everyone is well aware that certain data can not leave the institute's computational premises.
 Nevertheless, valuable data should not remain accessible to only selected few.
 To enable data analysis by others without disclosing private information researchers can make use of DataLad.
 

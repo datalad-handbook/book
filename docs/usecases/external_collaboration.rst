@@ -306,43 +306,26 @@ Then, we rerun the analysis:
 
    $ datalad rerun runme
 
-
-
-
 The data providers perspective
 """"""""""""""""""""""""""""""
 
-
-
-Step-by-Step
-^^^^^^^^^^^^
-
-Creating a dataset
-""""""""""""""""""
-
-The first step is likely the initial creation of a DataLad dataset.
+How does it look like from the data provider perspective?
+A possible first step could be the initial creation of a DataLad dataset.
 To be able to keep all or selected file contents private, data providers should make sure that
 
-* any sensitive files are annexed
+* any sensitive files are annexed [#f2]_
 * file names do not contain sensitive information, regardless if there annexed or in :term:`Git`
 
-The section :ref:`config2` contains information on the possible configuration mechanisms to achieve this.
+If your data already is a DataLad dataset, make sure it adheres to the above points, too.
+If it does not, for example because some sensitive content *is* (or *was*!) kept in Git, your revision history can leak information that should stay private.
+In those cases, its better to recreate the dataset from scratch for the purpose of publishing it in a "safe" version [#f3]_.
 
+If you want to publish a dataset by simply not making annexed file contents available, the next step is already about finding a suitable place for the dataset and pushing to it.
+There are several easy ways to make a dataset but not its file contents available to external collaborators:
 
-Configuring public siblings
-"""""""""""""""""""""""""""
+* Chose a hosting service that can not host annexed data to begin with (e.g., :term:`GitHub` or :term:`GitLab`).
+* If you are using annex-aware services like :term:`forgejo-aneksajo` or :term:`Gin`, make sure that annexed file contents are not pushed there. This could be done "manually" using the ``--data nothing`` option of :dlcmd:`push`, or with an ``annex wanted`` configuration [#f4]_.
 
-External collaborators need to be able to access a dataset to script their analyses against.
-This "public" dataset must not contain any sensitive file content.
-This can be achieved in several ways.
-One is to publish the dataset to a place that doesn't support hosting annexed files such as :term:`GitHub` or :term:`GitLab`.
-If you are using annex-aware services like :term:`forgejo-aneksajo` or :term:`Gin`, make sure that annexed file contents are not pushed there.
-This could be done "manually" using the ``--data nothing`` option of :dlcmd:`push`, or with an ``annex wanted`` configuration.
-For example, you can configure your "public" dataset to "not want" any annexed files::
-
-   $ git annex wanted public-org "exclude=*"
-
-Such a configuration would be honored automatically when you use :dlcmd:`push`.
 
 .. importantnote:: Beware of autoenabled special remotes!
 
@@ -351,8 +334,31 @@ Such a configuration would be honored automatically when you use :dlcmd:`push`.
    Be mindful that the dataset you are sharing does not "accidentally" make file contents available with an autoenabled special remote that is accessible (to some).
    Before publishing a "public" dataset, consider running ``git annex dead [remote-name]`` for any special remotes that you want to hide.
 
+If you want to generate artificial data in place of sensitive content, you need to do that prior to publishing your dataset.
+How to do this will depend on your data, and not always will this be easy.
+While it may be easy to generate good-enough artificial tabular data [#f5]_, it can be near impossible for more complex, multidimensional data.
+In the latter cases, it may be easier to add example files that follow the naming scheme of the dataset but are fine to share openly (e.g., public data, phantom/test data, ...).
 
+The ``penguins-mock`` dataset was published with only artificial contents of three files made available, using :dlcmd:`push` with a simple path specification [#f6]_::
+
+   $ git remote add public-mock https://hub.datalad.org/edu/penguins-mock.git
+   $ datalad push --to public-mock */*table*.csv
 
 .. rubric:: Footnotes
 
 .. [#f1] When would it be useful to have simulated data? For example for variable names or data ranges in tabular data. This way, external collaborators know that their scripts need to extract the columns "``age``", "``cortisol_morning``" and "``cortisol_evening``", and that a value of "``-2``" denotes missing data that should be filtered out.
+
+.. [#f2] The section :ref:`config2` contains information on the possible configuration mechanisms to achieve this.
+
+.. [#f3] You could also very aggressively clean the Git history (see e.g., :ref:`cleanup` for a few glimpses into that). But this is a technically complex task in which you can very easily lose data or provenance you did not intend to lose.
+
+.. [#f4] For example, you can configure your "public" dataset to "not want" any annexed files::
+
+   $ git annex wanted public-org "exclude=*"
+
+   Such a configuration would be honored automatically when you use :dlcmd:`push`. Find out more at `git-annex.branchable.com/git-annex-wanted <https://git-annex.branchable.com/git-annex-wanted/>`_.
+
+
+.. [#f5] The script that was used for mock penguin data is in `hub.datalad.org/edu/penguins-mock/src/branch/main/code/mock-data.py <https://hub.datalad.org/edu/penguins-mock/src/branch/main/code/mock-data.py>`_
+
+.. [#f6] Hint: If you ever accidentally pushed more than you wanted to push, you can ``git annex drop -f <sibling-name>``.

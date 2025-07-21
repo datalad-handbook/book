@@ -24,13 +24,13 @@ The ABC-Lab is happy that someone else is interested in using their data and app
 However, the legal department in ABC's institute steps in: The data can not be shared with anyone outside as this would be a privacy violation.
 The data contains potentially identifying or personal information of the patients it was collected from.
 
-With such legal problems, the promising collaboration ceases before it even started, the data remains disclosed but also unused, and an interesting research question remains unanswered.
+With such legal problems, the promising collaboration ceases before it even started, the data remains unused, and an interesting research question unanswered.
 
 The DataLad Approach
 ^^^^^^^^^^^^^^^^^^^^
 
 Scientists take their participants' privacy very seriously, and everyone is well aware that certain data can not leave the institute's computational premises.
-Nevertheless, valuable data should not remain accessible to only selected few.
+Nevertheless, valuable data can be made accessible without providing direct access.
 To enable data analysis by others without disclosing private information researchers can make use of DataLad.
 
 In order to *develop* analysis scripts that can analyze the data, the actual sensitive data is not needed.
@@ -306,8 +306,8 @@ Then, we rerun the analysis:
 
    $ datalad rerun runme
 
-The data providers perspective
-""""""""""""""""""""""""""""""
+The data provider perspective
+"""""""""""""""""""""""""""""
 
 How does it look like from the data provider perspective?
 A possible first step could be the initial creation of a DataLad dataset.

@@ -140,7 +140,7 @@ Let's take a look where data could be coming from:
 
 There are 4 copies of the table:
 Your local copy, the :term:`forgejo-aneksajo` instance it was just cloned from, the "archivist" special remote and "jsheunis"' macbook.
-As the square brackets indiciate, both the archivist special remote as well as the forgejo-aneksajo instance are autoenabled and would provide data even if we were to publish the dataset without pushing file contents.
+As the square brackets indicate, both the archivist special remote as well as the forgejo-aneksajo instance are autoenabled and would provide data even if we were to publish the dataset without pushing file contents.
 Thus, we can declare those locations "dead" to make the file contents they host inaccessible to the dataset:
 
 .. runrecord:: _examples/remote-analysis-113

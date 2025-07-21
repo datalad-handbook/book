@@ -49,9 +49,9 @@ All results computed from this are aggregated into their collaborator's dataset.
 Upon completion, only the results, not the sensitive input data, are pushed back.
 
 
-.. find-out-more:: Advice for the holder of sensitive data
+.. find-out-more:: Advice for the provider of sensitive data
 
-   When providing data in a remote analysis, the data holder should make an effort for external collaborators' computations to succeed in their own interest: In an ideal, smooth case, the data holder only reviews and runs the code, and doesn't need to spent time debugging.
+   When providing data in a remote analysis, the data provider should make an effort for external collaborators' computations to succeed in their own interest: In an ideal, smooth case, the data provider only reviews and runs the code, and doesn't need to spent time debugging.
    For this, the following pieces of advice can help:
 
    * If you can, make use of applicable organizational standards in your field. The more predictable your data layout, the easier it is to develop code against it.
@@ -62,7 +62,7 @@ Upon completion, only the results, not the sensitive input data, are pushed back
 
 .. find-out-more:: Advice for the external collaborator
 
-   When providing code in a remote analysis, the external collaborator should make the execution as easy as possible for the data holder.
+   When providing code in a remote analysis, the external collaborator should make the execution as easy as possible for the data provider.
    For this, the following pieces of advice can help:
 
    * Write clean and well-documented code to make a pre-execution review simple.
@@ -75,7 +75,7 @@ Toy Example
 ^^^^^^^^^^^
 
 Let's play this through from start to end with a toy example.
-You can decide whether you would like to take the collaborators' perspective, or the data holders' perspective - or both.
+You can decide whether you would like to take the collaborators' perspective, or the data providers' perspective - or both.
 
 The dataset we will be working with is `The Palmer Penguins <https://hub.datalad.org/edu/penguins>`_ dataset, which contains data from several penguin species.
 It is not sensitive data, but for the sake of the example, let us pretend it is.

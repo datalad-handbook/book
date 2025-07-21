@@ -84,8 +84,105 @@ Central to the dataset are ``.csv`` files, i.e., tabular data.
 As a collaborator, you will want to script an analysis that makes use of this tabular data.
 As a data provider, you will want to keep the true file contents of the tables private, but nevertheless provide enough information about them for collaborators to write successfully executable scripts.
 
-The collaborators perspective
-"""""""""""""""""""""""""""""
+1. Perspective: Prepare a dataset as a data provider
+""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+You are a penguin expert and have devoted your life to study them.
+After spending many months alone with no company but penguins, you have returned home and written a paper on your findings.
+As you are sure that characteristics of various penguin species can be useful to other scientists as well, you decide to publish your dataset without infringing your wobbly participant's privacy.
+
+A possible first step could be the initial creation of a DataLad dataset.
+To be able to keep all or selected file contents private, data providers should make sure that
+
+* any sensitive files are annexed [#f2]_
+* file names do not contain sensitive information, regardless if there annexed or in :term:`Git`
+
+If your data already is a DataLad dataset, make sure it adheres to the above points, too.
+If it does not, for example because some sensitive content *is* (or *was*!) kept in Git, your revision history can leak information that should stay private.
+In those cases, its better to recreate the dataset from scratch for the purpose of publishing it in a "safe" version [#f3]_.
+
+If you want to publish a dataset by simply not making annexed file contents available, the next step is already about finding a suitable place for the dataset and pushing to it.
+There are several easy ways to make a dataset but not its file contents available to external collaborators:
+
+* Chose a hosting service that can not host annexed data to begin with (e.g., :term:`GitHub` or :term:`GitLab`).
+* If you are using annex-aware services like :term:`forgejo-aneksajo` or :term:`Gin`, make sure that annexed file contents are not pushed there. This could be done "manually" using the ``--data nothing`` option of :dlcmd:`push`, or with an ``annex wanted`` configuration [#f4]_.
+
+
+.. importantnote:: Beware of autoenabled special remotes!
+
+   DataLad Datasets are made for decentralization.
+   As such, the availability information of their files can span an arbitrarily large network.
+   Be mindful that the dataset you are sharing does not "accidentally" make file contents available with an autoenabled special remote that is accessible (to some).
+   Before publishing a "public" dataset, consider running ``git annex dead [remote-name]`` for any special remotes that you want to hide.
+
+If you want to generate artificial data in place of sensitive content, you need to do that prior to publishing your dataset.
+How to do this will depend on your data, and not always will this be easy.
+While it may be easy to generate good-enough artificial tabular data [#f5]_, it can be near impossible for more complex, multidimensional data.
+In the latter cases, it may be easier to add example files that follow the naming scheme of the dataset but are fine to share openly (e.g., public data, phantom/test data, ...).
+Let's take a look how some of these options could look in practice.
+For this, we will first clone the dataset and get the relevant files:
+
+.. runrecord:: _examples/remote-analysis-111
+   :language: console
+   :workdir: usecases/remote-analysis
+
+   $ datalad clone https://hub.datalad.org/edu/penguins palmer-penguins
+   $ cd palmer-penguins
+   $ datalad get */*table*.csv
+
+Let's take a look where data could be coming from:
+
+.. runrecord:: _examples/remote-analysis-112
+   :language: console
+   :workdir: usecases/remote-analysis/palmer-penguins
+
+   $ git annex whereis adelie/table_219.csv
+
+There are 4 copies of the table:
+Your local copy, the :term:`forgejo-aneksajo` instance it was just cloned from, the "archivist" special remote and "jsheunis"' macbook.
+As the square brackets indiciate, both the archivist special remote as well as the forgejo-aneksajo instance are autoenabled and would provide data even if we were to publish the dataset without pushing file contents.
+Thus, we can declare those locations "dead" to make the file contents they host inaccessible to the dataset:
+
+.. runrecord:: _examples/remote-analysis-113
+   :language: console
+   :workdir: usecases/remote-analysis/palmer-penguins
+
+   $ git annex dead archivist
+   $ git annex dead origin
+
+Afterwards, we could already publish the dataset without file contents::
+
+   $ git remote add public-empty https://hub.datalad.org/edu/penguins-empty.git
+   $ datalad push --to public-empty --data nothing
+
+
+Alternatively, we can create artificial mock data in place of the tables.
+This way, a data provider would not need to extensively document variable names or coding schemes.
+For simple tables like the ones in the penguin dataset, a `short script <https://hub.datalad.org/edu/scripts/raw/branch/main/remote-analysis/mock-data.py>`_ will do the job::
+
+   $ wget -q https://hub.datalad.org/edu/scripts/raw/branch/main/remote-analysis/mock-data.py -O code/mock-data.py
+   $ datalad save -m "add script to create mock data"
+   # running the script requires numpy and pandas
+   $ datalad run -m "create artificial data" -o '*/*table*.csv' 'python code/mock-data.py'
+   [INFO] == Command start (output follows) =====
+   [INFO] == Command exit (modification check follows) =====
+   unlock(ok): adelie/table_219.csv (file)
+   unlock(ok): chinstrap/table_221.csv (file)
+   unlock(ok): gentoo/table_220.csv (file)
+   run(ok): /home/me/usecases/remote-analysis/palmer-penguins (dataset) [python code/mock-data.py]
+   add(ok): adelie/table_219.csv (file) [Copied metadata from old version of adelie/table_219.csv to new version. If you don't want this copied metadata, run: git annex metadata --remove-all adelie/table_219.csv]
+   add(ok): chinstrap/table_221.csv (file) [Copied metadata from old version of chinstrap/table_221.csv to new version. If you don't want this copied metadata, run: git annex metadata --remove-all chinstrap/table_221.csv]
+   add(ok): gentoo/table_220.csv (file) [Copied metadata from old version of gentoo/table_220.csv to new version. If you don't want this copied metadata, run: git annex metadata --remove-all gentoo/table_220.csv]
+   save(ok): . (dataset)
+
+The three tables now have gotten their "sensitive" content replaced with random data.
+We can publish this dataset with the artificial contents of these three files, using :dlcmd:`push` with a simple path specification [#f6]_::
+
+   $ git remote add public-mock https://hub.datalad.org/edu/penguins-mock.git
+   $ datalad push --to public-mock */*table*.csv
+
+2. Perspective: Prepare a remote analyses as a collaborator
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 You are an expert on jelly fish, and currently on a scientific exploration in the Ocean.
 The population of jelly fish you study hangs out with a group of penguins - a sensational finding.
@@ -285,6 +382,11 @@ We can tag the dataset state to make rerunning easier:
 
    $ git tag runme
 
+
+
+3. Perspective: Execute the remote analysis
+"""""""""""""""""""""""""""""""""""""""""""
+
 The question is: How does this look like on the real data?
 A data provider would clone your dataset and replace the subdataset with the actual sensitive dataset.
 
@@ -306,43 +408,6 @@ Then, we rerun the analysis:
 
    $ datalad rerun runme
 
-The data provider perspective
-"""""""""""""""""""""""""""""
-
-How does it look like from the data provider perspective?
-A possible first step could be the initial creation of a DataLad dataset.
-To be able to keep all or selected file contents private, data providers should make sure that
-
-* any sensitive files are annexed [#f2]_
-* file names do not contain sensitive information, regardless if there annexed or in :term:`Git`
-
-If your data already is a DataLad dataset, make sure it adheres to the above points, too.
-If it does not, for example because some sensitive content *is* (or *was*!) kept in Git, your revision history can leak information that should stay private.
-In those cases, its better to recreate the dataset from scratch for the purpose of publishing it in a "safe" version [#f3]_.
-
-If you want to publish a dataset by simply not making annexed file contents available, the next step is already about finding a suitable place for the dataset and pushing to it.
-There are several easy ways to make a dataset but not its file contents available to external collaborators:
-
-* Chose a hosting service that can not host annexed data to begin with (e.g., :term:`GitHub` or :term:`GitLab`).
-* If you are using annex-aware services like :term:`forgejo-aneksajo` or :term:`Gin`, make sure that annexed file contents are not pushed there. This could be done "manually" using the ``--data nothing`` option of :dlcmd:`push`, or with an ``annex wanted`` configuration [#f4]_.
-
-
-.. importantnote:: Beware of autoenabled special remotes!
-
-   DataLad Datasets are made for decentralization.
-   As such, the availability information of their files can span an arbitrarily large network.
-   Be mindful that the dataset you are sharing does not "accidentally" make file contents available with an autoenabled special remote that is accessible (to some).
-   Before publishing a "public" dataset, consider running ``git annex dead [remote-name]`` for any special remotes that you want to hide.
-
-If you want to generate artificial data in place of sensitive content, you need to do that prior to publishing your dataset.
-How to do this will depend on your data, and not always will this be easy.
-While it may be easy to generate good-enough artificial tabular data [#f5]_, it can be near impossible for more complex, multidimensional data.
-In the latter cases, it may be easier to add example files that follow the naming scheme of the dataset but are fine to share openly (e.g., public data, phantom/test data, ...).
-
-The ``penguins-mock`` dataset was published with only artificial contents of three files made available, using :dlcmd:`push` with a simple path specification [#f6]_::
-
-   $ git remote add public-mock https://hub.datalad.org/edu/penguins-mock.git
-   $ datalad push --to public-mock */*table*.csv
 
 .. rubric:: Footnotes
 

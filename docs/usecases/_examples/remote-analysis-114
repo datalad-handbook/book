@@ -1,0 +1,14 @@
+$ wget -q https://hub.datalad.org/edu/scripts/raw/branch/main/remote-analysis/mock-data.py -O code/mock-data.py
+$ datalad save -m "add script to create mock data"
+$ datalad run -m "create artificial data" -o '*/*table*.csv' python code/mock-data.py
+code/mock-data.py: Permission denied
+[INFO] == Command start (output follows) =====
+[INFO] == Command exit (modification check follows) =====
+unlock(ok): adelie/table_219.csv (file)
+unlock(ok): chinstrap/table_221.csv (file)
+unlock(ok): gentoo/table_220.csv (file)
+run(ok): /home/me/usecases/remote-analysis/palmer-penguins (dataset) [python code/mock-data.py]
+add(ok): adelie/table_219.csv (file) [Copied metadata from old version of adelie/table_219.csv to new version. If you don't want this copied metadata, run: git annex metadata --remove-all adelie/table_219.csv]
+add(ok): chinstrap/table_221.csv (file) [Copied metadata from old version of chinstrap/table_221.csv to new version. If you don't want this copied metadata, run: git annex metadata --remove-all chinstrap/table_221.csv]
+add(ok): gentoo/table_220.csv (file) [Copied metadata from old version of gentoo/table_220.csv to new version. If you don't want this copied metadata, run: git annex metadata --remove-all gentoo/table_220.csv]
+save(ok): . (dataset)

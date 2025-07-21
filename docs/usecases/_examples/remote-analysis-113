@@ -1,0 +1,6 @@
+$ git annex dead archivist
+$ git annex dead origin
+dead archivist ok
+(recording state in git...)
+dead origin ok
+(recording state in git...)

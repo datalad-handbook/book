@@ -1,0 +1,7 @@
+$ datalad clone https://hub.datalad.org/edu/penguins palmer-penguins
+$ cd palmer-penguins
+$ datalad get */*table*.csv
+install(ok): /home/me/usecases/remote-analysis/palmer-penguins (dataset)
+get(ok): chinstrap/table_221.csv (file) [from origin...]
+get(ok): adelie/table_219.csv (file) [from origin...]
+get(ok): gentoo/table_220.csv (file) [from origin...]

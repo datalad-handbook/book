@@ -95,7 +95,7 @@ A possible first step could be the initial creation of a DataLad dataset.
 To be able to keep all or selected file contents private, data providers should make sure that
 
 * any sensitive files are annexed [#f2]_;
-* and file names do not contain sensitive information, regardless if there annexed or in :term:`Git`.
+* and file names do not contain sensitive information, regardless if they are annexed or in :term:`Git`.
 
 If your data are already in a DataLad dataset, make sure the dataset adheres to the above points, too.
 If it does not, for example because some sensitive content *is* (or *was*!) kept in Git, your revision history can leak information that should stay private.

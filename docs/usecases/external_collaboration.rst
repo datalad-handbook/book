@@ -35,9 +35,9 @@ To enable data analysis by others without disclosing private information researc
 
 In order to *develop* analysis scripts that can analyze the data, the actual sensitive data is not needed.
 A mock dataset that has the same structural layout and the same file names as the original dataset can already be sufficient information to create a working script.
-Therefore, the ABC-Lab shares a mock dataset with its collaborators that does not contain sensitive information.
 In the simplest case, this can be achieved by not making the annexed data available and thus providing only file names and availability information without content.
 If certain properties of the data are relevant to develop analyses (for example because they don't follow a common standard or can't be anticipated otherwise for the external collaborators [#f1]_), simulated data with relevant properties can replace the actual file content.
+Therefore, the ABC-Lab shares a mock dataset with its collaborators that does not contain sensitive information.
 
 Collaborators can install this dataset as a subdataset in their own analysis datasets, and develop their code against the layout and potentially mock-content.
 This ensures that the script is adjusted to the actual file names and works "out-of-the-box".

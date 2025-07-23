@@ -1,0 +1,25 @@
+$ cd ..
+$ datalad clone https://hub.datalad.org/edu/penguins-empty.git
+$ cd penguins-empty
+$ datalad get .
+get(error): adelie/knb-lter-pal.219.5.report.xml (file) [not available]
+get(error): adelie/knb-lter-pal.219.5.txt (file) [not available]
+get(error): adelie/knb-lter-pal.219.5.xml (file) [not available]
+get(error): adelie/manifest.txt (file) [not available]
+get(error): adelie/table_219.csv (file) [not available]
+get(error): chinstrap/knb-lter-pal.221.6.report.xml (file) [not available]
+get(error): chinstrap/knb-lter-pal.221.6.txt (file) [not available]
+get(error): chinstrap/knb-lter-pal.221.6.xml (file) [not available]
+get(error): chinstrap/manifest.txt (file) [not available]
+get(error): chinstrap/table_221.csv (file) [not available]
+get(error): examples/adelie.jpg (file) [not available]
+get(error): examples/chinstrap.jpg (file) [not available]
+get(error): examples/gentoo.jpg (file) [not available]
+get(error): gentoo/knb-lter-pal.220.5.report.xml (file) [not available]
+get(error): gentoo/knb-lter-pal.220.5.txt (file) [not available]
+get(error): gentoo/knb-lter-pal.220.5.xml (file) [not available]
+get(error): gentoo/manifest.txt (file) [not available]
+get(error): gentoo/table_220.csv (file) [not available]
+get(error): portal.edirepository.org/knb-lter-pal.219.5.zip (file) [not available]
+get(error): portal.edirepository.org/knb-lter-pal.220.5.zip (file) [not available]
+get(error): portal.edirepository.org/knb-lter-pal.221.6.zip (file) [not available]

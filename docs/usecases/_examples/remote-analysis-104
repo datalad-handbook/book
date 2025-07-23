@@ -1,0 +1,4 @@
+$ wget -q https://hub.datalad.org/edu/scripts/raw/branch/main/remote-analysis/predict.py -O code/predict.py
+$ datalad save -m "Write a remote analysis script"
+add(ok): code/predict.py (file)
+save(ok): . (dataset)

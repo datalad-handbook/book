@@ -1,0 +1,6 @@
+$ cd penguin-jelly
+$ mkdir data
+$ wget -q https://hub.datalad.org/edu/scripts/raw/branch/main/remote-analysis/local-samples.csv -O data/local-samples.csv
+$ datalad save -m "add own measurements"
+add(ok): data/local-samples.csv (file)
+save(ok): . (dataset)

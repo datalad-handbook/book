@@ -1,0 +1,9 @@
+$ git annex whereis adelie/table_219.csv
+whereis adelie/table_219.csv (4 copies)
+  	✂UUID✂ -- jsheunis@bnbmac48.local:~/Documents/psyinf/edu/palmerpenguins
+  	✂UUID✂ -- [archivist]
+  	✂UUID✂ -- git@2f026f1d3470:/var/lib/gitea/git/repositories/jsheunis/palmerpenguins.git [origin]
+  	✂UUID✂ -- me@muninn:~/usecases/remote-analysis/palmer-penguins [here]
+
+  archivist: dl+archive:MD5E-s18662--c4475172✂MD5.5.zip#path=table_219.csv&size=23755
+ok

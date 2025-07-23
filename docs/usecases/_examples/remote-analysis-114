@@ -1,0 +1,4 @@
+$ wget -q https://hub.datalad.org/edu/scripts/raw/branch/main/remote-analysis/README.md -O README.md
+$ datalad save -m "Add better description of dataset contents"
+add(ok): README.md (file)
+save(ok): . (dataset)

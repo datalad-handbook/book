@@ -1,0 +1,6 @@
+$ datalad create -c yoda penguin-jelly
+[INFO] Running procedure cfg_yoda
+[INFO] == Command start (output follows) =====
+[INFO] == Command exit (modification check follows) =====
+run(ok): /home/me/usecases/remote-analysis/penguin-jelly (dataset) [VIRTUALENV/bin/python /hom...]
+create(ok): /home/me/usecases/remote-analysis/penguin-jelly (dataset)

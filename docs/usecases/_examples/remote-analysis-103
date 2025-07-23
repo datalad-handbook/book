@@ -1,0 +1,7 @@
+$ datalad clone -d . https://hub.datalad.org/edu/penguins-mock.git inputs
+install(ok): inputs (dataset)
+add(ok): inputs (dataset)
+add(ok): .gitmodules (file)
+save(ok): . (dataset)
+add(ok): .gitmodules (file)
+save(ok): . (dataset)

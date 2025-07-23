@@ -1,0 +1,7 @@
+$ datalad containers-add software --url shub://adswa/resources:2
+[INFO] Initializing special remote datalad
+add(ok): .datalad/config (file)
+save(ok): . (dataset)
+add(ok): .datalad/config (file)
+save(ok): . (dataset)
+containers_add(ok): /home/me/usecases/remote-analysis/penguin-jelly/.datalad/environments/software/image (file)

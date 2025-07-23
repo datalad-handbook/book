@@ -101,6 +101,8 @@ If your data are already in a DataLad dataset, make sure the dataset adheres to 
 If it does not, for example because some sensitive content *is* (or *was*!) kept in Git, your revision history can leak information that should stay private.
 In those cases, it's better to recreate the dataset from scratch for the purpose of publishing it in a "safe" version [#f3]_.
 
+**Publishing an empty dataset**
+
 If you want to publish a dataset by simply not making annexed file contents available, the next step is already about finding a suitable place for the dataset and pushing to it.
 There are several easy ways to make a dataset but not its file contents available to external collaborators:
 
@@ -115,12 +117,8 @@ There are several easy ways to make a dataset but not its file contents availabl
    Be mindful that the dataset you are sharing does not "accidentally" make file contents available with an autoenabled special remote that is accessible (to some).
    Before publishing a "public" dataset, consider running ``git annex dead [remote-name]`` for any special remotes that you want to hide.
 
-If you want to generate artificial data in place of sensitive content, you need to do that prior to publishing your dataset.
-How to do this will depend on your data, and not always will this be easy.
-While it may be easy to generate good-enough artificial tabular data [#f5]_, it can be near impossible for more complex, multidimensional data.
-In the latter cases, it may be easier to add example files that follow the naming scheme of the dataset but are fine to share openly (e.g., public data, phantom/test data, ...).
-Let's take a look at how some of these options could look in practice.
-For this, we will first clone the dataset and get the relevant files:
+Let's take a look at how this could look in practice.
+We will first clone the dataset and get the relevant files:
 
 .. runrecord:: _examples/remote-analysis-111
    :language: console
@@ -150,15 +148,26 @@ Thus, we can declare those locations "dead" to make the file contents they host 
    $ git annex dead archivist
    $ git annex dead origin
 
-Afterwards, we could already publish the dataset without file contents::
+Afterwards, we can already publish the dataset without file contents::
 
    $ git remote add public-empty https://hub.datalad.org/edu/penguins-empty.git
    $ datalad push --to public-empty --data nothing
 
+In real life, however, you will want to document the unavailable data more.
+You could add descriptions of file properties, variable names, or other important features to a README file.
+Make sure that the file you are documenting this is is kept in *Git* so that it can be read by your new collaborators.
 
-Alternatively, we can create artificial mock data in place of the tables.
+**Publishing a mock dataset**
+
+If you want to generate artificial data in place of sensitive content, you need to do that prior to publishing your dataset.
+
+How to do this will depend on your data, and not always will this be easy.
+While it may be easy to generate good-enough artificial tabular data [#f5]_, it can be near impossible for more complex, multidimensional data.
+In the latter cases, it may be easier to add example files that follow the naming scheme of the dataset but are fine to share openly (e.g., public data, phantom/test data, ...).
+
+In our example, we can create artificial mock data in place of the tables.
 This way, a data provider would not need to extensively document variable names or coding schemes.
-For simple tables like the ones in the penguin dataset, a `short script <https://hub.datalad.org/edu/scripts/raw/branch/main/remote-analysis/mock-data.py>`_ will do the job::
+A `short script <https://hub.datalad.org/edu/scripts/raw/branch/main/remote-analysis/mock-data.py>`_ will do the job, which we record reproducibly and transparently with :dlcmd:`run`::
 
    $ wget -q https://hub.datalad.org/edu/scripts/raw/branch/main/remote-analysis/mock-data.py -O code/mock-data.py
    $ datalad save -m "add script to create mock data"

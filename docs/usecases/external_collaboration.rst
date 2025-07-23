@@ -148,14 +148,36 @@ Thus, we can declare those locations "dead" to make the file contents they host 
    $ git annex dead archivist
    $ git annex dead origin
 
-Afterwards, we can already publish the dataset without file contents::
+In real life, you will also want to document the unavailable data more.
+You could add descriptions of file properties, variable names, or other important features to a README file.
+Make sure that the file you are documenting this is is kept in *Git* so that it can be read by your new collaborators.
+
+.. runrecord:: _examples/remote-analysis-114
+   :language: console
+   :workdir: usecases/remote-analysis/palmer-penguins
+
+   $ wget -q https://hub.datalad.org/edu/scripts/raw/branch/main/remote-analysis/README.md -O README.md
+   $ datalad save -m "Add better description of dataset contents"
+
+Afterwards, we can publish the dataset without file contents::
 
    $ git remote add public-empty https://hub.datalad.org/edu/penguins-empty.git
    $ datalad push --to public-empty --data nothing
 
-In real life, however, you will want to document the unavailable data more.
-You could add descriptions of file properties, variable names, or other important features to a README file.
-Make sure that the file you are documenting this is is kept in *Git* so that it can be read by your new collaborators.
+.. find-out-more:: Check if everything works as expected
+
+   It is a good idea to test if your dataset keeps everything private as expected.
+   Let's clone the dataset and confirm that dataset contents can not be retrieved:
+
+   .. runrecord:: _examples/remote-analysis-115
+      :language: console
+      :workdir: usecases/remote-analysis/palmer-penguins
+      :exitcode: 1
+
+      $ cd ..
+      $ datalad clone https://hub.datalad.org/edu/penguins-empty.git
+      $ cd penguins-empty
+      $ datalad get .
 
 **Publishing a mock dataset**
 

@@ -190,6 +190,9 @@ We can publish this dataset with the artificial contents of these three files, u
    $ git remote add public-mock https://hub.datalad.org/edu/penguins-mock.git
    $ datalad push --to public-mock */*table*.csv
 
+Note that this does *not* publish the previous, sensitive version of file contents, but only the most recent version with mock data.
+And as the recorded special remotes were declared "dead", past versions of the content can't be retrieved.
+
 2. Perspective: Prepare a remote analysis as a collaborator
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -224,8 +227,8 @@ Save your own measurements into it:
 Next, clone the access-restricted dataset as a subdataset of your analysis.
 To explore how different variations of remote analyses feel, you can either:
 
-- clone an empty dataset, which provides file names, but where file contents can't be retrieved: https://hub.datalad.org/edu/penguins-empty.git
-- or clone a dataset with simulated file contents: https://hub.datalad.org/edu/penguins-mock.git.
+- clone the empty dataset, which provides file names, but where file contents can't be retrieved: https://hub.datalad.org/edu/penguins-empty.git
+- or clone the dataset with simulated file contents: https://hub.datalad.org/edu/penguins-mock.git.
 
 .. runrecord:: _examples/remote-analysis-103
    :language: console
@@ -234,7 +237,7 @@ To explore how different variations of remote analyses feel, you can either:
    $ datalad clone -d . https://hub.datalad.org/edu/penguins-mock.git inputs
 
 Afterwards, it is time to "develop" your analysis.
-In this toy example, you can download a demo analysis, but its also a good exercise to take a look at the available information in the shared dataset and write a script to compute something simple from it - like for example a mean.
+In this toy example, you can download a demo analysis, but its also a good exercise to take a look at the available information in the shared dataset and write a script to compute something simple from it - like for example an arithmetic mean.
 
 
 .. runrecord:: _examples/remote-analysis-104
@@ -295,7 +298,7 @@ In this toy example, you can download a demo analysis, but its also a good exerc
 
    Thanks to this, running the script with ``--help`` prints the following::
 
-		python code/predict.py --help
+		$ python code/predict.py --help
 		usage: predict.py [-h] [-i INPUT] [-m MEASUREMENTS] [-o OUTPUT]
 
 		This script fits a regression model on external input data from penguin beak
@@ -391,7 +394,8 @@ We can tag the dataset state to make rerunning easier:
 
    $ git tag runme
 
-
+At this point, you will want to share your analysis dataset with the data provider.
+You could, for example, publish it and share a URL that can be cloned.
 
 3. Perspective: Execute the remote analysis
 """""""""""""""""""""""""""""""""""""""""""
@@ -417,7 +421,11 @@ Then, the data provider would rerun the analysis:
 
    $ datalad rerun runme
 
-Finally, the data provider would share the resulting outputs back to the external collaborator.
+Note how much better the model performs on the real data, and how the contents in ``predictions.csv`` change.
+The data provider would then share the resulting outputs back to the external collaborator - and not the sensitive input data.
+Thus, the analysis was conducted verifiably on specified sensitive input data in a transparently recorded version, but without sharing the sensitive file contents.
+
+
 .. rubric:: Footnotes
 
 .. [#f1] When would it be useful to have simulated data? For example for variable names or data ranges in tabular data. This way, external collaborators know that their scripts need to extract the columns "``age``", "``cortisol_morning``" and "``cortisol_evening``", and that a value of "``-2``" denotes missing data that should be filtered out.
@@ -426,7 +434,7 @@ Finally, the data provider would share the resulting outputs back to the externa
 
 .. [#f3] You could also very aggressively clean the Git history (see e.g., :ref:`cleanup` for a few glimpses into that). But this is a technically complex task in which you can very easily lose data or provenance you did not intend to lose.
 
-.. [#f4] For example, you can configure your "public" dataset to "not want" any annexed files::
+.. [#f4] For example, you can configure a "public" dataset sibling (in the code below identified with the sibling name ``public-org``) to "not want" any annexed files::
 
    $ git annex wanted public-org "exclude=*"
 

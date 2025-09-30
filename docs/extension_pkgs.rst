@@ -68,6 +68,18 @@ find out more about them.
        project, thus utilizing the OSF for dataset storage and sharing.
 
 
+   * - `SLURM <https://github.com/knuedd/datalad-slurm>`__
+     - Adds datalad subcommands for High Performance Computing (HPC) and 
+       the SLURM batch job scheduler. They replace the `datalad run` / 
+       `datalad rerun` functionality which is incompatible with HPC 
+       batch processing. Instead, `datalad slurm-schedule` + 
+       `datalad slurm-finish` are introduced to handle batch jobs and 
+       `datalad slurm-reschedule` + `datalad slurm-finish` to reproduce them.
+       (Currently available from the Github repository 
+       <https://github.com/knuedd/datalad-slurm> only, will be available for 
+       installation via pip soon.
+
+
    * - `ukbiobank <https://github.com/datalad/datalad-ukbiobank>`__
      - Equips DataLad with a set of commands to obtain and monitor imaging data
        releases of the `UKBiobank <https://www.ukbiobank.ac.uk>`_.

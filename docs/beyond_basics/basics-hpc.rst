@@ -12,5 +12,6 @@ Computing on clusters
    :caption: Strategies for high performance computing with DataLad
 
    101-169-cluster
+   101-174-slurm
    101-170-dataladrun
    101-171-enki

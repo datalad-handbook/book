@@ -1,0 +1,190 @@
+.. _slurm:
+
+Native High Performance Computing integration for SLURM
+---------------------------------------------------------------
+
+For High Performance Computing we need a special flavor of DataLad's reproducibility approach.
+
+Why datalad run/rerun conflicts with HPC batch processing
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Using ``datalad run`` *outside*, as a prefix command when submitting a SLURM job with ``sbatch slurm.sh`` would not work, because the job didn't even start running when the ``sbatch`` call returns. 
+
+The other way around if one used ``datalad run`` *inside* a SLURM batch jobs it would cause three problems:
+
+1. Critical conflict: A git repository must not be accessed concurrently
+
+      * Parallel I/O inside a job is fine
+      * Concurrent git calls are race conditions == undefined bahavior. Imagine conflicting git checkout calls in the same clone ...
+
+2. Critical inefficiency: Sequential git / datalad calls inside a (highly) parallel SLURM job are considered a waste of compute time
+
+      * ``datalad status`` would be a sequential section, may take many seconds or minutes
+      * ``git annex get`` can take pretty long, unwelcome inside a job, even with ``-J``
+
+3. Breaking machine-actionable reproducibility: Should the SLURM job script be part of the rerun record?
+
+      * Yes it should because it contains the resource definitions for the job and the actual commands.
+      * It is actually needed to rerun (even though SLURM jobs scripts are not super portable between clusters)
+      * If the ``datalad run ...`` call was inside the SLURM job script then it would need to be modified to rerun from ``datalad run <command>`` to ``datalad rerun <commithash>``. Thus is cannot be re-used unmodified.
+
+
+The DataLad SLURM extension
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The `DataLad SLURM extension <https://github.com/knuedd/datalad-slurm>`_ introduces alternatives to the ``datalad run`` and ``datalad rerun`` commands.
+
+* The ``datalad slurm-schedule`` command will schedule a SLURM job. It is a prefix command to the usual ``sbatch slurm.sh ...`` command with its own command line options. It requires to specify all the output files of the job or output directories where all the output files will be in.
+* During the time that the job runs, no DataLad activity happens. 
+* Some time after the job finishes (or a set of jobs) ``datalad slurm-finish`` needs to be called. It will check the job's status and will commit the job's outputs to the repository. This will happen outside of any job and handles jobs one after the other. Thus, it avoids the problems mentioned above.
+* To reproduce some job's result simply execute ``datalad slurm-reschedule <commithash>`` similar to ``datalad rerun``. The re-scheduled jobs also need to be finished with ``datalad slurm-finish`` after they are done.
+
+Currently this extension is available from the `Github page <https://github.com/knuedd/datalad-slurm>`_ only, it will be available for installation via pip soon.
+
+
+Example usage
+^^^^^^^^^^^^^
+
+To **schedule** a slurm script:
+
+.. code-block:: bash
+
+    datalad slurm-schedule --output=<output_files_or_dir> sbatch slurm.sh [optional arguments]
+
+where `<output_files_or_dir>` are the expected outputs from the job. Further optional command line arguments can be found in the documentation.
+
+Multiple jobs (including array jobs) can be scheduled one after the other. They are tracked in an SQLite database. Note that any open jobs must not have conflicting outputs with previously scheduled jobs. This is so that the outputs of each slurm run can be tracked to the slurm job which generated them.
+
+To **finish** these jobs once they are complete, simply run:
+
+.. code-block:: bash
+
+    datalad slurm-finish
+
+Alternatively, to finish a particular scheduled job, run:
+
+.. code-block:: bash
+
+    datalad slurm-finish <slurm_job_id>
+
+This will create a `[DATALAD SLURM RUN]` entry in the git log, analogous to a `datalad run` command.
+
+``datalad slurm-finish`` will flag an error for any jobs which could not be handled, either because they are still running, or the job failed. These are not committed to the repository but also not automatically cleared from the SQLite database. 
+
+Instead, the user needs to decide how to handle failed jobs. Either use the ``--accept-failed-jobs``
+flag to handle them like successful jobs or ``--close-failed-jobs`` to discrad them. This can be per job or for all failed jobs left.
+
+To list the current status of all open jobs without saving anything in git yet, run:
+
+.. code-block:: bash
+
+    datalad slurm-finish --list-open-jobs
+
+To **reschedule** a previously scheduled job:
+
+.. code-block:: bash
+
+    datalad slurm-reschedule <schedule_commit_hash>
+
+where `<schedule_commit_hash>` is the commit hash of the previously scheduled job which must be properly finalized already. Such a reproduced job also needs a subsequent ``datalad slurm-finish`` call.
+
+In the lingo of the original DataLad package, the combination of `datalad slurm-schedule + datalad slurm-finish` is similar to `datalad run`, and `datalad slurm-reschedule + datalad slurm-finish` is similar to `datalad rerun`.
+
+An example workflow could look like this (constructed deliberately to have some failed jobs):
+
+.. code-block:: bash
+
+    datalad slurm-schedule -o models/abrupt/gold/ sbatch submit_gold.slurm
+    datalad slurm-schedule -o models/abrupt/silver/ sbatch submit_silver.slurm
+    datalad slurm-schedule -o models/abrupt/bronze/ sbatch submit_bronze.slurm
+    datalad slurm-schedule -o models/abrupt/platinum/ sbatch submit_array_platinum.slurm
+
+Checking the job statuses at some point while they are running:
+
+.. code-block:: bash
+
+    datalad slurm-finish --list-open-jobs
+    
+    The following jobs are open: 
+
+    slurm-job-id   slurm-job-status
+    10524442       COMPLETED
+    10524535       RUNNING
+    10524556       FAILED
+    10524620       PENDING
+
+Later, once all the jobs have finished running:
+
+.. code-block:: bash
+
+    datalad slurm-finish
+
+    add(ok): models/abrupt/gold/05_02/slurm-10524442.out (file)                                                                                                                                                         
+    add(ok): models/abrupt/gold/05_02/slurm-job-10524442.env.json (file)                                                                                                                                                
+    add(ok): models/abrupt/gold/05_02/model_0.model.gz (file)                                                                                                                                                           
+    save(ok): . (dataset)                                                                                                                                                                                               
+    add(ok): models/abrupt/silver/05_02/slurm-10524535.out (file)                                                                                                                                                       
+    add(ok): models/abrupt/silver/05_02/slurm-job-10524535.env.json (file)                                                                                                                                              
+    add(ok): models/abrupt/silver/05_02/model_0.model.gz (file)                                                                                                                                                         
+    add(ok): models/abrupt/silver/05_02/model.scaler.gz (file)                                                                                                                                                          
+    save(ok): . (dataset)                                                                                                                                                                                               
+    finish(impossible): [Slurm job(s) for job 10524556 are not complete.Statuses: 10524556: FAILED]                                                                                                                     
+    finish(impossible): [Slurm job(s) for job 10524620 are not complete.Statuses: 10524620_0: COMPLETED, 10524620_1: COMPLETED, 10524620_2: TIMEOUT]
+    action summary:
+      add (ok: 7)
+      finish (impossible: 2)
+      save (ok: 2)
+
+To close the failed jobs:
+
+.. code-block:: bash
+
+    datalad slurm-finish --close-failed-jobs
+
+    finish(ok): [Closing failed / cancelled jobs. Statuses: 10524556: FAILED]
+    finish(ok): [Closing failed / cancelled jobs. Statuses: 10524620_0: COMPLETED, 10524620_1: COMPLETED, 10524620_2: TIMEOUT]
+    action summary:
+    finish (ok: 2)
+
+Note that if any sub-job of an array job fails, that whole job is treated as a failed job. The user always has the option to manually commit the successful outputs if desired.
+
+The git history would then appear like so:
+
+.. code-block:: bash
+
+    git log --oneline
+
+    a8e4aa6 (HEAD -> master) [DATALAD SLURM RUN] Slurm job 10524535: Completed
+    25067fe [DATALAD SLURM RUN] Slurm job 10524442: Completed
+
+With one particular entry looking like:
+
+.. code-block:: bash
+
+    commit a8e4aa62519db3b5f63243cc925ee918984bf506 (HEAD -> master)
+    Author: Tim Callow <tim@notmyrealemail.com>
+    Date:   Tue Feb 18 09:31:47 2025 +0100
+
+        [DATALAD SLURM RUN] Slurm job 10524535: Completed
+    
+        === Do not change lines below ===
+        {
+         "chain": [],
+         "cmd": "sbatch submit_silver.slurm",
+         "commit_id": null,
+         "dsid": "61576cad-ea4f-4425-8f35-16b9955c9926",
+         "extra_inputs": [],
+         "inputs": [],
+         "outputs": [
+          "models/abrupt/silver",
+          "models/abrupt/silver/05_02/slurm-10524535.out",
+          "models/abrupt/silver/05_02/slurm-job-10524535.env.json"
+         ],
+         "pwd": ".",
+         "slurm_job_id": 10524535,
+         "slurm_outputs": [
+          "models/abrupt/silver/05_02/slurm-10524535.out",
+          "models/abrupt/silver/05_02/slurm-job-10524535.env.json"
+         ]
+        }
+        ^^^ Do not change lines above ^^^

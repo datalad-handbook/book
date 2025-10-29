@@ -75,9 +75,7 @@ find out more about them.
        batch processing. Instead, ``datalad slurm-schedule`` + 
        ``datalad slurm-finish`` are introduced to handle batch jobs and 
        ``datalad slurm-reschedule`` + ``datalad slurm-finish`` to reproduce them.
-       (Currently available from the Github repository 
-       <https://github.com/knuedd/datalad-slurm> only, will be available for 
-       installation via pip soon.
+       More info and installation instructions at <https://github.com/knuedd/datalad-slurm>.
 
 
    * - `ukbiobank <https://github.com/datalad/datalad-ukbiobank>`__

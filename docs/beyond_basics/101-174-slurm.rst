@@ -15,7 +15,7 @@ The other way around if one used ``datalad run`` *inside* a SLURM batch jobs it 
 1. Critical conflict: A git repository must not be accessed concurrently
 
       * Parallel I/O inside a job is fine
-      * Concurrent git calls are race conditions == undefined bahavior. Imagine conflicting git checkout calls in the same clone ...
+      * Concurrent git calls are race conditions == undefined behavior. Imagine conflicting git checkout calls in the same clone ...
 
 2. Critical inefficiency: Sequential git / datalad calls inside a (highly) parallel SLURM job are considered a waste of compute time
 
@@ -26,7 +26,7 @@ The other way around if one used ``datalad run`` *inside* a SLURM batch jobs it 
 
       * Yes it should because it contains the resource definitions for the job and the actual commands.
       * It is actually needed to rerun (even though SLURM jobs scripts are not super portable between clusters)
-      * If the ``datalad run ...`` call was inside the SLURM job script then it would need to be modified to rerun from ``datalad run <command>`` to ``datalad rerun <commithash>``. Thus is cannot be re-used unmodified.
+      * If the ``datalad run ...`` call was inside the SLURM job script then it would need to be modified to rerun from ``datalad run <command>`` to ``datalad rerun <commithash>``. Thus is cannot be reused unmodified.
 
 
 The DataLad SLURM extension

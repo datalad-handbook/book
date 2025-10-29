@@ -42,19 +42,20 @@ The `DataLad SLURM extension <https://github.com/knuedd/datalad-slurm>`_ introdu
 * Some time after the job finishes (or a set of jobs) ``datalad slurm-finish`` needs to be called. It will check the job's status and will commit the job's outputs to the repository. This will happen outside of any job and handles jobs one after the other. Thus, it avoids the problems mentioned above.
 * To reproduce some job's result simply execute ``datalad slurm-reschedule <commithash>`` similar to ``datalad rerun``. The re-scheduled jobs also need to be finished with ``datalad slurm-finish`` after they are done.
 
-Currently this extension is available from the `Github page <https://github.com/knuedd/datalad-slurm>`_ only, it will be available for installation via pip soon.
-
+For more information including installation instructions, checkout the `Github page <https://github.com/knuedd/datalad-slurm>`_.
 
 Example usage
 ^^^^^^^^^^^^^
 
-To **schedule** a slurm script:
+To **schedule** a slurm script ``slurm.sh``:
 
 .. code-block:: bash
 
-    datalad slurm-schedule --output=<output_files_or_dir> sbatch slurm.sh [optional arguments]
+  $ datalad slurm-schedule \
+   --output=<output_files_or_dir> \
+   sbatch slurm.sh [optional arguments]
 
-where `<output_files_or_dir>` are the expected outputs from the job. Further optional command line arguments can be found in the documentation.
+where ``<output_files_or_dir>`` are the expected outputs from the job. Further optional command line arguments can be found in the documentation.
 
 Multiple jobs (including array jobs) can be scheduled one after the other. They are tracked in an SQLite database. Note that any open jobs must not have conflicting outputs with previously scheduled jobs. This is so that the outputs of each slurm run can be tracked to the slurm job which generated them.
 
@@ -62,51 +63,55 @@ To **finish** these jobs once they are complete, simply run:
 
 .. code-block:: bash
 
-    datalad slurm-finish
+    $ datalad slurm-finish
 
 Alternatively, to finish a particular scheduled job, run:
 
 .. code-block:: bash
 
-    datalad slurm-finish <slurm_job_id>
+    $ datalad slurm-finish <slurm_job_id>
 
-This will create a `[DATALAD SLURM RUN]` entry in the git log, analogous to a `datalad run` command.
+This will create a ``[DATALAD SLURM RUN]`` entry in the git log, analogous to a :dlcmd:`run` command.
 
 ``datalad slurm-finish`` will flag an error for any jobs which could not be handled, either because they are still running, or the job failed. These are not committed to the repository but also not automatically cleared from the SQLite database. 
 
 Instead, the user needs to decide how to handle failed jobs. Either use the ``--accept-failed-jobs``
-flag to handle them like successful jobs or ``--close-failed-jobs`` to discrad them. This can be per job or for all failed jobs left.
+flag to handle them like successful jobs or ``--close-failed-jobs`` to discard them. This can be per job or for all failed jobs left.
 
-To list the current status of all open jobs without saving anything in git yet, run:
+To list the current status of all open jobs without saving anything in Git yet, run:
 
 .. code-block:: bash
 
-    datalad slurm-finish --list-open-jobs
+   $ datalad slurm-finish --list-open-jobs
 
 To **reschedule** a previously scheduled job:
 
 .. code-block:: bash
 
-    datalad slurm-reschedule <schedule_commit_hash>
+   $ datalad slurm-reschedule <schedule_commit_hash>
 
-where `<schedule_commit_hash>` is the commit hash of the previously scheduled job which must be properly finalized already. Such a reproduced job also needs a subsequent ``datalad slurm-finish`` call.
+where ``<schedule_commit_hash>`` is the commit hash of the previously scheduled job which must be properly finalized already. Such a reproduced job also needs a subsequent ``datalad slurm-finish`` call.
 
-In the lingo of the original DataLad package, the combination of `datalad slurm-schedule + datalad slurm-finish` is similar to `datalad run`, and `datalad slurm-reschedule + datalad slurm-finish` is similar to `datalad rerun`.
+In the lingo of the original DataLad package, the combination of ``datalad slurm-schedule + datalad slurm-finish`` is similar to :dlcmd:`run`, and ``datalad slurm-reschedule + datalad slurm-finish`` is similar to :dlcmd:`rerun`.
 
 An example workflow could look like this (constructed deliberately to have some failed jobs):
 
 .. code-block:: bash
 
-    datalad slurm-schedule -o models/abrupt/gold/ sbatch submit_gold.slurm
-    datalad slurm-schedule -o models/abrupt/silver/ sbatch submit_silver.slurm
-    datalad slurm-schedule -o models/abrupt/bronze/ sbatch submit_bronze.slurm
-    datalad slurm-schedule -o models/abrupt/platinum/ sbatch submit_array_platinum.slurm
+   $ datalad slurm-schedule \
+     -o models/abrupt/gold/ sbatch submit_gold.slurm
+   $ datalad slurm-schedule \
+     -o models/abrupt/silver/ sbatch submit_silver.slurm
+   $ datalad slurm-schedule \
+     -o models/abrupt/bronze/ sbatch submit_bronze.slurm
+   $ datalad slurm-schedule \
+     -o models/abrupt/platinum/ sbatch submit_array_platinum.slurm
 
 Checking the job statuses at some point while they are running:
 
 .. code-block:: bash
 
-    datalad slurm-finish --list-open-jobs
+   $ datalad slurm-finish --list-open-jobs
     
     The following jobs are open: 
 
@@ -120,7 +125,7 @@ Later, once all the jobs have finished running:
 
 .. code-block:: bash
 
-    datalad slurm-finish
+   $ datalad slurm-finish
 
     add(ok): models/abrupt/gold/05_02/slurm-10524442.out (file)                                                                                                                                                         
     add(ok): models/abrupt/gold/05_02/slurm-job-10524442.env.json (file)                                                                                                                                                
@@ -142,7 +147,7 @@ To close the failed jobs:
 
 .. code-block:: bash
 
-    datalad slurm-finish --close-failed-jobs
+   $ datalad slurm-finish --close-failed-jobs
 
     finish(ok): [Closing failed / cancelled jobs. Statuses: 10524556: FAILED]
     finish(ok): [Closing failed / cancelled jobs. Statuses: 10524620_0: COMPLETED, 10524620_1: COMPLETED, 10524620_2: TIMEOUT]
@@ -151,11 +156,11 @@ To close the failed jobs:
 
 Note that if any sub-job of an array job fails, that whole job is treated as a failed job. The user always has the option to manually commit the successful outputs if desired.
 
-The git history would then appear like so:
+The Git history would then appear like so:
 
 .. code-block:: bash
 
-    git log --oneline
+    $ git log --oneline
 
     a8e4aa6 (HEAD -> master) [DATALAD SLURM RUN] Slurm job 10524535: Completed
     25067fe [DATALAD SLURM RUN] Slurm job 10524442: Completed

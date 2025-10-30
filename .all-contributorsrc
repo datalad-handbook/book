@@ -695,6 +695,15 @@
         "review",
         "code"
       ]
+    },
+    {
+      "login": "neuromechanist",
+      "name": "Seyed (Yahya) Shirazi",
+      "avatar_url": "https://avatars.githubusercontent.com/u/44906843?v=4",
+      "profile": "http://neuromechanist.github.io",
+      "contributions": [
+        "content"
+      ]
     }
   ],
   "contributorsPerLine": 7,

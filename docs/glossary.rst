@@ -367,6 +367,9 @@ Glossary
 
       Hypertext Transfer Protocol Secure; A protocol for file transfer over a network.
 
+   job scheduler
+      A job scheduler or job scheduling system is software that allocates resources of a computational cluster to users and distributes computational jobs across available nodes. Popular systems are :term:`SLURM` and `HTCondor <https://research.cs.wisc.edu/htcondor`.
+
    logging
       Automatic protocol creation of software processes, for example in order to gain insights into errors. To learn about logging to troubleshoot problems or remove or increase the amount of information printed to your terminal during the execution of a DataLad command, take a look at the section :ref:`logging`.
 
@@ -550,6 +553,9 @@ Glossary
       If the script has executable :term:`permissions`, it is henceforth able to call the interpreter itself.
       Instead of ``python code/myscript.py`` one can just run ``code/myscript`` if ``myscript`` has
       executable :term:`permissions` and a correctly specified shebang.
+
+   SLURM
+      A :term:`job scheduler` for :term:`HPC` and :term:`HTC` systems: `https://slurm.schedmd.com <https://slurm.schedmd.com/overview.html>`_
 
    shell
       A command line language and programming language. See also :term:`terminal`.

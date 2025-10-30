@@ -31,6 +31,8 @@ the solutions they demonstrate.
    ml-analysis
    encrypted_annex
    external_collaboration
+   openneuro
+   nemar
 
 
 

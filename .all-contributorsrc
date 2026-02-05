@@ -713,6 +713,16 @@
       "contributions": [
         "content"
       ]
+    },
+    {
+      "login": "aarpon",
+      "name": "Aaron Ponti",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1226043?v=4",
+      "profile": "https://aaronponti.ch",
+      "contributions": [
+        "bug",
+        "content"
+      ]
     }
   ],
   "contributorsPerLine": 7,

@@ -125,7 +125,7 @@ may have just bought.
 
     .. code-block:: bat
 
-       uv tool update git-annex
+       uv tool install git-annex
 
     This will have also taken care of installing Python. You can test your git-annex installation by running ``git annex test`` (2-3 minutes runtime).
 

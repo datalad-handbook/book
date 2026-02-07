@@ -1,0 +1,670 @@
+.. _kedro:
+
+Modular data science: DataLad compared to Kedro
+-----------------------------------------------
+
+Modern data science and data engineering projects face similar challenges to machine learning analyses:
+They involve complex pipelines with multiple stages, require reproducible environments, and benefit from modular organization that enables reuse.
+This has led to the emergence of multiple frameworks with similar goals but different philosophies and implementations.
+
+One notable framework is `Kedro <https://kedro.org>`__, an open-source Python framework for creating reproducible, maintainable, and modular data science code.
+Originally developed at McKinsey's QuantumBlack and now hosted by the LF AI & Data Foundation, Kedro has become widely adopted in the data engineering community.
+
+This section compares DataLad with its :ref:`YODA principles <yoda>` to Kedro, highlighting their similarities, differences, and potential for complementary use.
+While both tools aim to solve problems of reproducibility, version control, and modularity, they approach these challenges from different angles and serve somewhat different use cases.
+
+Philosophy and focus
+^^^^^^^^^^^^^^^^^^^^
+
+Both DataLad/YODA and Kedro emerged from practical experience with data-intensive projects and independently arrived at similar organizational principles.
+However, their focus and scope differ significantly.
+
+**Kedro** is a Python-specific framework designed for data engineering and data science pipelines.
+It emphasizes:
+
+- **Software engineering best practices** for data science code (`Kedro docs <https://docs.kedro.org/en/stable/>`__)
+- **Modular pipelines** that can be tested, documented, and reused (`modular pipelines <https://docs.kedro.org/en/stable/build/namespace_pipelines.html>`__)
+- **Abstracted data access** through a `Data Catalog <https://docs.kedro.org/en/stable/catalog-data/data_catalog.html>`__
+- **Built-in visualization** of pipeline structure (`Kedro-Viz <https://docs.kedro.org/projects/kedro-viz/en/stable/>`__)
+- **Integration with ML tools** like `MLflow <https://docs.kedro.org/en/stable/integrations-and-plugins/mlflow.html>`__ and experiment trackers
+
+**DataLad with** `YODA principles <https://github.com/myyoda/myyoda>`__ is a language-agnostic approach to research data management.
+It emphasizes:
+
+- **Version control** for data, code, and containers at any scale
+- **Federated composition** through nested subdatasets
+- **Provenance tracking** for computational results
+- **Decentralized data sharing** via multiple storage backends
+- **Domain-agnostic applicability** across research fields
+
+
+Setup
+^^^^^
+
+To illustrate the differences, let's set up equivalent project structures in both tools.
+
+Kedro setup
+"""""""""""
+
+Kedro projects are created using the Kedro CLI and follow a standardized template:
+
+.. code-block:: console
+
+   ### Kedro
+   # Create a new Kedro project
+   $ pip install kedro
+   $ kedro new --starter=spaceflights-pandas --name=my-analysis
+
+The resulting project has this structure::
+
+   my-analysis/
+   ├── conf/                  # Configuration files
+   │   ├── base/
+   │   │   ├── catalog.yml    # Data Catalog definitions
+   │   │   └── parameters.yml # Pipeline parameters
+   │   └── local/
+   │       └── credentials.yml
+   ├── data/                  # Data directory (layered)
+   │   ├── 01_raw/
+   │   ├── 02_intermediate/
+   │   ├── 03_primary/
+   │   └── ...
+   ├── notebooks/             # Jupyter notebooks
+   ├── src/
+   │   └── my_analysis/
+   │       ├── pipelines/     # Modular pipeline definitions
+   │       │   ├── data_processing/
+   │       │   │   ├── nodes.py
+   │       │   │   └── pipeline.py
+   │       │   └── data_science/
+   │       │       ├── nodes.py
+   │       │       └── pipeline.py
+   │       └── pipeline_registry.py
+   └── tests/
+
+This structure is designed around Kedro's core concepts: **nodes** (Python functions), **pipelines** (collections of nodes), and the **Data Catalog** (a registry mapping dataset names to storage locations).
+
+DataLad setup
+"""""""""""""
+
+A DataLad dataset following :ref:`YODA principles <yoda>` can be created with:
+
+.. code-block:: console
+
+   ### DataLad
+   $ datalad create -c yoda -c text2git my-analysis
+   $ cd my-analysis
+   $ mkdir -p data/{raw,intermediate,processed} model metrics
+
+but in principle could be any file-tree formalization like a `BIDS study dataset <https://bids-specification.readthedocs.io/en/stable/common-principles.html#study-dataset>`__.
+The resulting structure::
+
+   my-analysis/
+   ├── .datalad/              # DataLad configuration
+   ├── .gitattributes
+   ├── code/                  # Analysis scripts (any language)
+   │   └── README.md
+   ├── data/                  # Data directory
+   │   ├── raw/
+   │   ├── intermediate/
+   │   └── processed/
+   └── CHANGELOG.md
+
+Unlike Kedro, DataLad does not prescribe a specific code organization either -- it focuses on data and provenance management while remaining agnostic about how analysis code is structured [#f1]_.
+
+
+Version controlling data
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+Both tools address the fundamental challenge of managing data that is too large for Git, but they use different mechanisms.
+
+Kedro's Data Catalog and versioning
+"""""""""""""""""""""""""""""""""""
+
+Kedro manages data access through a **Data Catalog** defined in ``conf/base/catalog.yml``:
+
+.. code-block:: yaml
+
+   ### Kedro catalog.yml
+   companies:
+     type: pandas.CSVDataset
+     filepath: data/01_raw/companies.csv
+
+   model_input_table:
+     type: pandas.ParquetDataset
+     filepath: data/03_primary/model_input_table.parquet
+     versioned: true
+
+   regressor:
+     type: pickle.PickleDataset
+     filepath: data/06_models/regressor.pickle
+     versioned: true
+
+When ``versioned: true`` is set, Kedro automatically creates timestamped subdirectories for each save operation:
+
+.. code-block:: console
+
+   ### Kedro versioned dataset structure
+   data/06_models/regressor.pickle/
+   ├── 2024-01-15T10.30.45.123Z/
+   │   └── regressor.pickle
+   └── 2024-01-16T14.22.33.456Z/
+       └── regressor.pickle
+
+The Data Catalog abstracts storage locations, allowing the same pipeline code to work with local files, S3, GCS, or other storage backends simply by changing configuration.
+
+DataLad's git-annex versioning
+""""""""""""""""""""""""""""""
+
+DataLad uses :term:`git-annex` to handle large files while keeping them under full Git version control.
+Data is tracked at the file level, with content stored in the annex and only lightweight symlinks in the working tree [#f2]_:
+
+.. code-block:: console
+
+   ### DataLad
+   $ datalad download-url \
+       --archive \
+       --message "Download raw data" \
+       https://example.com/companies.csv \
+       -O 'data/raw/'
+
+   $ datalad status
+   $ datalad save -m "Process data" data/processed/
+
+Every version of every file is tracked in the Git history, and the full provenance is available through standard Git commands:
+
+.. code-block:: console
+
+   ### DataLad
+   $ git log --oneline data/processed/model_input.parquet
+   a1b2c3d Process data: filter outliers
+   d4e5f6g Initial data processing
+
+.. find-out-more:: How does versioning differ between the tools?
+
+   **Kedro versioning**:
+
+   - Timestamp-based directory structure
+   - Automatic versioning on each pipeline run
+   - Versions stored as separate files (no deduplication)
+   - Loading specific versions requires explicit specification
+   - Works within single project scope
+
+   **DataLad/git-annex versioning**:
+
+   - Content-addressed storage with deduplication
+   - Full Git history for all changes
+   - Can retrieve any historical version via Git checkout
+   - Distributed storage across multiple remotes
+   - Works across federated dataset hierarchies
+
+
+Sharing and reuse
+^^^^^^^^^^^^^^^^^
+
+One of the most significant differences between Kedro and DataLad lies in how they handle modularity and reuse.
+
+Kedro modular pipelines
+"""""""""""""""""""""""
+
+Kedro's approach to modularity is **modular pipelines** -- self-contained pipeline components that can be reused within a project or packaged for use in other projects:
+
+.. code-block:: console
+
+   ### Kedro: Create a modular pipeline
+   $ kedro pipeline create data_processing
+
+This creates a new pipeline with its own ``nodes.py``, ``pipeline.py``, and test structure.
+Pipelines can be composed:
+
+.. code-block:: python
+
+   ### Kedro pipeline_registry.py
+   from kedro.pipeline import Pipeline
+   from my_analysis.pipelines import data_processing, data_science
+
+   def register_pipelines() -> dict[str, Pipeline]:
+       return {
+           "data_processing": data_processing.create_pipeline(),
+           "data_science": data_science.create_pipeline(),
+           "__default__": (
+               data_processing.create_pipeline() +
+               data_science.create_pipeline()
+           ),
+       }
+
+Kedro pipelines can be **packaged and shared** via Python packages, though they remain within the Python ecosystem and typically within a single project's codebase.
+
+YODA subdatasets
+""""""""""""""""
+
+DataLad's approach to modularity is **subdatasets** -- nested Git repositories that can be independently versioned, shared, and composed.
+
+For example, using a publicly available dataset as a data dependency:
+
+.. code-block:: console
+
+   ### DataLad: Add data as a subdataset
+   $ datalad clone -d . \
+       https://github.com/datalad-handbook/iris_data \
+       data/raw/iris
+
+This clones the `iris flower dataset <https://github.com/datalad-handbook/iris_data>`__ as a subdataset, recording its exact version.
+For code dependencies, you can similarly clone analysis libraries:
+
+.. code-block:: console
+
+   ### DataLad: Add shared analysis code as subdataset
+   $ datalad clone -d . \
+       https://github.com/datalad/datalad \
+       code/datalad-lib
+
+The key difference is that subdatasets are **truly independent** -- they can live in different repositories, be shared separately, and be reused across completely different projects.
+A DataLad superdataset tracks the exact version of each subdataset, enabling perfect reproducibility:
+
+.. code-block:: console
+
+   ### DataLad: Check subdataset versions
+   $ datalad subdatasets
+
+   ### Anyone can recreate the exact state
+   $ datalad get -r .
+
+This federated approach scales from single files to thousands of datasets, as demonstrated by `datasets.datalad.org <http://datasets.datalad.org>`__ with over 8,000 subdatasets in a deep hierarchy.
+
+.. find-out-more:: Modular pipelines vs. subdatasets
+
+   The modularity approaches serve different purposes:
+
+   **Kedro modular pipelines**:
+
+   - Python code modularity
+   - Single project scope
+   - Shared via Python packages
+   - Focus on code organization
+   - Runtime composition
+
+   **YODA subdatasets**:
+
+   - Data and code modularity
+   - Federated, multi-project scope
+   - Shared via Git repositories
+   - Focus on data provenance
+   - Version-locked composition
+
+
+Pipeline execution and provenance
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Both tools support executing analyses and tracking what was done, but with different approaches.
+
+Kedro pipeline execution
+""""""""""""""""""""""""
+
+Kedro provides a complete pipeline execution framework with dependency resolution:
+
+.. code-block:: console
+
+   ### Kedro: Run the full pipeline
+   $ kedro run
+
+   ### Kedro: Run specific pipeline
+   $ kedro run --pipeline data_processing
+
+   ### Kedro: Run with specific parameters
+   $ kedro run --params model_options.test_size=0.3
+
+Kedro automatically resolves node dependencies and executes them in the correct order.
+The pipeline structure can be visualized with **Kedro-Viz**:
+
+.. code-block:: console
+
+   ### Kedro: Visualize pipeline
+   $ pip install kedro-viz
+   $ kedro viz run
+
+This opens an interactive web interface showing nodes, datasets, and their connections.
+
+DataLad run
+"""""""""""
+
+DataLad does not include a workflow manager, but provides :dlcmd:`run` to record any command execution with its inputs, outputs, and exact parameters [#f3]_:
+
+.. code-block:: console
+
+   ### DataLad: Record a computation
+   $ datalad run \
+       --message "Train classifier" \
+       --input data/processed/train.csv \
+       --output model/classifier.pkl \
+       python code/train.py
+
+The command, its inputs, and outputs are recorded in the Git history as machine-readable provenance.
+This can be re-executed later:
+
+.. code-block:: console
+
+   ### DataLad: Rerun a computation
+   $ datalad rerun <commit-hash>
+
+For complex pipelines, DataLad integrates with workflow managers like Snakemake or Nextflow, while still capturing provenance for each step.
+
+.. find-out-more:: Workflow management comparison
+
+   **Kedro**:
+
+   - Built-in workflow management
+   - Node-level dependency resolution
+   - Parallel execution support
+   - Interactive visualization (Kedro-Viz)
+   - Deployment to Airflow, Prefect, etc.
+
+   **DataLad**:
+
+   - Command-level provenance tracking
+   - Integrates with external workflow managers
+   - Full rerun capability
+   - CLI-focused interface
+   - Provenance embedded in Git history
+
+
+Configuration management
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+Both tools separate configuration from code, but in different ways.
+
+Kedro configuration
+"""""""""""""""""""
+
+Kedro uses a hierarchical configuration system with ``conf/base/`` for shared settings and ``conf/local/`` for environment-specific overrides:
+
+.. code-block:: yaml
+
+   ### conf/base/parameters.yml
+   model_options:
+     test_size: 0.2
+     random_state: 42
+     features:
+       - feature_a
+       - feature_b
+
+Parameters are accessed in nodes via dependency injection:
+
+.. code-block:: python
+
+   ### Kedro node
+   def train_model(data, params: dict):
+       test_size = params["model_options"]["test_size"]
+       # ...
+
+DataLad configuration
+"""""""""""""""""""""
+
+DataLad itself doesn't prescribe a configuration structure, but the YODA principles recommend separating configuration into clearly identifiable files.
+Configuration can be tracked in the dataset alongside code:
+
+.. code-block:: console
+
+   ### DataLad: Track configuration
+   $ datalad save -m "Update model parameters" code/config.yml
+
+For container-based workflows, configuration is often baked into the container definition or passed as command-line arguments, both of which are captured by :dlcmd:`run`.
+
+
+Summary
+^^^^^^^
+
+DataLad and Kedro share similar goals of enabling reproducible, modular data science, but they approach the problem from different angles.
+The choice between them depends on your specific needs, existing infrastructure, and team preferences.
+
+.. list-table:: Comparison of DataLad/YODA and Kedro
+   :header-rows: 1
+   :widths: 30 35 35
+
+   * - Feature
+     - Kedro
+     - DataLad/YODA
+   * - **Language**
+     - Python-specific
+     - Language-agnostic
+   * - **Primary focus**
+     - Data engineering pipelines
+     - Research data management
+   * - **Modularity**
+     - Modular pipelines (Python)
+     - Subdatasets (Git)
+   * - **Scope**
+     - Single project
+     - Federated multi-project
+   * - **Data versioning**
+     - Timestamp directories
+     - git-annex (content-addressed)
+   * - **Sharing model**
+     - Python packages
+     - Git repositories
+   * - **Workflow management**
+     - Built-in
+     - External (Snakemake, etc.)
+   * - **Visualization**
+     - Kedro-Viz (web UI)
+     - CLI / external tools
+   * - **Storage backends**
+     - Data Catalog abstraction
+     - git-annex special remotes
+   * - **Provenance**
+     - Pipeline structure
+     - Git history + run records
+   * - **Learning curve**
+     - Medium (Python patterns)
+     - Medium (Git/git-annex concepts)
+
+
+When to use which tool
+^^^^^^^^^^^^^^^^^^^^^^
+
+**Consider Kedro if you**:
+
+- Work primarily in Python
+- Need built-in workflow management and visualization
+- Want standardized project templates for data science teams
+- Focus on single-project data pipelines
+- Value integration with ML experiment tracking tools
+- Prefer configuration-driven data access abstraction
+
+**Consider DataLad/YODA if you**:
+
+- Work across multiple programming languages
+- Need to manage very large datasets (terabytes+)
+- Want federated composition across multiple projects
+- Require decentralized data sharing
+- Need fine-grained provenance for every file
+- Work in research environments with diverse tools
+
+
+Using them together
+^^^^^^^^^^^^^^^^^^^
+
+Kedro and DataLad can be complementary.
+A powerful pattern is to use **Kedro for pipeline execution** within a **DataLad dataset for version control and sharing**.
+
+The following walkthrough demonstrates this combination using a minimal Kedro project.
+
+Step 1: Create a DataLad dataset
+""""""""""""""""""""""""""""""""
+
+First, create a DataLad dataset that will contain the Kedro project:
+
+.. code-block:: console
+
+   ### Create a DataLad dataset with YODA configuration
+   $ datalad create -c yoda -c text2git kedro-datalad-demo
+   $ cd kedro-datalad-demo
+
+Step 2: Initialize a minimal Kedro project
+""""""""""""""""""""""""""""""""""""""""""
+
+Create a minimal Kedro project structure inside the dataset.
+This follows `Kedro's minimal project guide <https://docs.kedro.org/en/stable/create/minimal_kedro_project.html>`__:
+
+.. code-block:: console
+
+   ### Install Kedro (in your environment)
+   $ pip install kedro pandas
+
+   ### Create minimal Kedro structure
+   $ mkdir -p src/demo_pipeline
+   $ touch src/demo_pipeline/__init__.py
+
+Create the required Kedro configuration in ``pyproject.toml``:
+
+.. code-block:: console
+
+   $ cat >> pyproject.toml << 'EOF'
+
+   [tool.kedro]
+   package_name = "demo_pipeline"
+   project_name = "demo_pipeline"
+   kedro_init_version = "1.2.0"
+   source_dir = "src"
+   EOF
+
+Create the settings file:
+
+.. code-block:: console
+
+   $ cat > src/demo_pipeline/settings.py << 'EOF'
+   # Kedro settings
+   EOF
+
+Create the pipeline registry with a simple demo pipeline:
+
+.. code-block:: console
+
+   $ cat > src/demo_pipeline/pipeline_registry.py << 'EOF'
+   from kedro.pipeline import Pipeline, node
+
+   def greet(name: str) -> str:
+       greeting = f"Hello, {name}!"
+       # Write output for provenance tracking
+       with open("output.txt", "w") as f:
+           f.write(greeting)
+       return greeting
+
+   def register_pipelines():
+       return {
+           "__default__": Pipeline([
+               node(greet, inputs="params:name", outputs="greeting")
+           ])
+       }
+   EOF
+
+Create the configuration directory and parameters:
+
+.. code-block:: console
+
+   $ mkdir -p conf/base conf/local
+   $ cat > conf/base/parameters.yml << 'EOF'
+   name: DataLad
+   EOF
+
+   $ cat > conf/base/catalog.yml << 'EOF'
+   # Empty catalog (required by Kedro 1.x)
+   EOF
+
+Add Python cache files to ``.gitignore`` to keep the repository clean:
+
+.. code-block:: console
+
+   $ cat >> .gitignore << 'EOF'
+   __pycache__/
+   *.pyc
+   EOF
+
+Step 3: Save and run with provenance
+""""""""""""""""""""""""""""""""""""
+
+Save the Kedro project structure to the DataLad dataset:
+
+.. code-block:: console
+
+   ### Track Kedro project structure
+   $ datalad save -m "Initialize minimal Kedro project"
+
+Run the Kedro pipeline with DataLad provenance tracking:
+
+.. code-block:: console
+
+   ### Optional: Disable telemetry for cleaner output
+   $ export KEDRO_DISABLE_TELEMETRY=true
+
+   ### Run Kedro pipeline with DataLad provenance
+   $ datalad run \
+       --message "Execute Kedro demo pipeline" \
+       --output "output.txt" \
+       kedro run
+
+The pipeline execution is now recorded in the Git history with full provenance.
+You can verify that the output was created and tracked:
+
+.. code-block:: console
+
+   $ cat output.txt
+   Hello, DataLad!
+
+   $ git log --oneline -1
+   a1b2c3d Execute Kedro demo pipeline
+
+Step 4: Add data dependencies as subdatasets
+""""""""""""""""""""""""""""""""""""""""""""
+
+For data dependencies, you can use DataLad subdatasets while configuring Kedro's Data Catalog to point to those locations:
+
+.. code-block:: console
+
+   ### Add shared data as subdataset
+   $ datalad clone -d . \
+       https://github.com/datalad-handbook/iris_data \
+       data/01_raw/iris
+
+Then in ``conf/base/catalog.yml``:
+
+.. code-block:: yaml
+
+   iris_data:
+     type: pandas.CSVDataset
+     filepath: data/01_raw/iris/iris.csv
+
+Benefits of this combination
+""""""""""""""""""""""""""""
+
+This approach provides:
+
+- Kedro's workflow management and visualization
+- DataLad's version control and provenance for every pipeline run
+- YODA's federated composition for data dependencies
+- Git-based sharing of the complete reproducible analysis
+- Ability to retrieve any historical state with ``datalad get``
+
+Share the complete project:
+
+.. code-block:: console
+
+   ### Share to a sibling (after creating one)
+   $ datalad push --to origin
+
+Anyone cloning this dataset will get the exact versions of all subdatasets and can reproduce the analysis.
+
+.. admonition:: Testing these examples
+
+   A test script that validates all commands in this section is available at
+   ``docs/beyond_basics/kedro-examples-test.sh`` in the handbook repository.
+   Run it with ``./kedro-examples-test.sh --cleanup`` after installing prerequisites
+   (``pip install datalad kedro pandas``).
+
+.. rubric:: Footnotes
+
+.. [#f1] This flexibility is intentional -- YODA principles can be applied to projects using any programming language or workflow tool.
+
+.. [#f2] For more details on how git-annex handles file versioning, see the section :ref:`symlink`.
+
+.. [#f3] Chapter :ref:`chapter_run` provides a comprehensive introduction to :dlcmd:`run` and :dlcmd:`rerun`.

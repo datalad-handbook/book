@@ -12,3 +12,4 @@ Special purpose showrooms
    :caption: Workflows for specific applications
 
    101-168-dvc
+   101-185-kedro

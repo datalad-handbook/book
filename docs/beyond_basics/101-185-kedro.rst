@@ -487,60 +487,61 @@ Using them together
 Kedro and DataLad can be complementary.
 A powerful pattern is to use **Kedro for pipeline execution** within a **DataLad dataset for version control and sharing**.
 
+.. admonition:: Data versioning guidance
+
+   When combining Kedro and DataLad, **DataLad handles all data versioning** via git-annex.
+   Do **not** enable Kedro's ``versioned: true`` in the Data Catalog -- Kedro's timestamp-based
+   versioning creates duplicate copies of each file version, which conflicts with DataLad's
+   content-addressed storage and deduplication.
+   Conveniently, Kedro's Data Catalog is designed to make this easy: versioning is off by
+   default, so simply omit the ``versioned`` flag and let DataLad track file versions
+   through the Git history.
+
 The following walkthrough demonstrates this combination using a minimal Kedro project.
 
-Step 1: Create a DataLad dataset
-""""""""""""""""""""""""""""""""
+Step 1: Create a Kedro project
+""""""""""""""""""""""""""""""
 
-First, create a DataLad dataset that will contain the Kedro project:
-
-.. code-block:: console
-
-   ### Create a DataLad dataset with YODA configuration
-   $ datalad create -c yoda -c text2git kedro-datalad-demo
-   $ cd kedro-datalad-demo
-
-Step 2: Initialize a minimal Kedro project
-""""""""""""""""""""""""""""""""""""""""""
-
-Create a minimal Kedro project structure inside the dataset.
-This follows `Kedro's minimal project guide <https://docs.kedro.org/en/stable/create/minimal_kedro_project.html>`__:
+First, install Kedro and create a new project using ``kedro new``:
 
 .. code-block:: console
 
    ### Install Kedro (in your environment)
    $ pip install kedro pandas
 
-   ### Create minimal Kedro structure
-   $ mkdir -p src/demo_pipeline
-   $ touch src/demo_pipeline/__init__.py
+   ### Create a new Kedro project (non-interactive)
+   $ kedro new --name=kedro-datalad-demo --tools=none --example=no --telemetry=no
+   $ cd kedro-datalad-demo
 
-Create the required Kedro configuration in ``pyproject.toml``:
+This generates the standard Kedro project structure including ``pyproject.toml``,
+``settings.py``, ``pipeline_registry.py``, ``catalog.yml``, ``.gitignore``, and other
+scaffolding files.
 
-.. code-block:: console
+Step 2: Initialize DataLad inside the Kedro project
+""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-   $ cat >> pyproject.toml << 'EOF'
-
-   [tool.kedro]
-   package_name = "demo_pipeline"
-   project_name = "demo_pipeline"
-   kedro_init_version = "1.2.0"
-   source_dir = "src"
-   EOF
-
-Create the settings file:
+Turn the Kedro project into a DataLad dataset.
+We use ``--force`` because the directory already exists, and ``text2git`` to store
+text files directly in Git:
 
 .. code-block:: console
 
-   $ cat > src/demo_pipeline/settings.py << 'EOF'
-   # Kedro settings
-   EOF
+   ### Initialize DataLad in the existing Kedro project
+   $ datalad create --force -c text2git .
 
-Create the pipeline registry with a simple demo pipeline:
+.. note::
+
+   We skip the ``-c yoda`` configuration here because Kedro's ``kedro new``
+   already provides a project structure with sensible defaults.
+
+Step 3: Add demo pipeline, save, and run with provenance
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+Add a simple demo pipeline by modifying the generated ``pipeline_registry.py``:
 
 .. code-block:: console
 
-   $ cat > src/demo_pipeline/pipeline_registry.py << 'EOF'
+   $ cat > src/kedro_datalad_demo/pipeline_registry.py << 'EOF'
    from kedro.pipeline import Pipeline, node
 
    def greet(name: str) -> str:
@@ -558,37 +559,20 @@ Create the pipeline registry with a simple demo pipeline:
        }
    EOF
 
-Create the configuration directory and parameters:
+Set the pipeline parameter (``kedro new`` generates an empty ``parameters.yml``):
 
 .. code-block:: console
 
-   $ mkdir -p conf/base conf/local
    $ cat > conf/base/parameters.yml << 'EOF'
    name: DataLad
    EOF
 
-   $ cat > conf/base/catalog.yml << 'EOF'
-   # Empty catalog (required by Kedro 1.x)
-   EOF
-
-Add Python cache files to ``.gitignore`` to keep the repository clean:
-
-.. code-block:: console
-
-   $ cat >> .gitignore << 'EOF'
-   __pycache__/
-   *.pyc
-   EOF
-
-Step 3: Save and run with provenance
-""""""""""""""""""""""""""""""""""""
-
-Save the Kedro project structure to the DataLad dataset:
+Save the Kedro project with the demo pipeline to the DataLad dataset:
 
 .. code-block:: console
 
    ### Track Kedro project structure
-   $ datalad save -m "Initialize minimal Kedro project"
+   $ datalad save -m "Initialize Kedro project with demo pipeline"
 
 Run the Kedro pipeline with DataLad provenance tracking:
 

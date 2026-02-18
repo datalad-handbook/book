@@ -219,37 +219,19 @@ if [ "$SKIP_KEDRO" = true ]; then
 else
 log_section "TEST 3: Kedro + DataLad Combined Workflow"
 
-log_info "Creating DataLad dataset for Kedro project..."
+log_info "Creating Kedro project with kedro new..."
 
-### Create a DataLad dataset with YODA configuration
-datalad create -c yoda -c text2git kedro-datalad-demo
+### Create a new Kedro project (non-interactive)
+kedro new --name=kedro-datalad-demo --tools=none --example=no --telemetry=no
 cd kedro-datalad-demo
 
-log_info "Creating minimal Kedro project structure..."
+log_info "Initializing DataLad inside the Kedro project..."
 
-### Create minimal Kedro structure
-mkdir -p src/demo_pipeline
-touch src/demo_pipeline/__init__.py
+### Initialize DataLad in the existing Kedro project
+datalad create --force -c text2git .
 
-log_info "Creating pyproject.toml with Kedro configuration..."
-
-# Note: We append to the existing pyproject.toml or create one
-cat >> pyproject.toml << 'EOF'
-
-[tool.kedro]
-package_name = "demo_pipeline"
-project_name = "demo_pipeline"
-kedro_init_version = "1.2.0"
-source_dir = "src"
-EOF
-
-log_info "Creating settings.py..."
-cat > src/demo_pipeline/settings.py << 'EOF'
-# Kedro settings
-EOF
-
-log_info "Creating pipeline_registry.py with demo pipeline..."
-cat > src/demo_pipeline/pipeline_registry.py << 'EOF'
+log_info "Adding demo pipeline to pipeline_registry.py..."
+cat > src/kedro_datalad_demo/pipeline_registry.py << 'EOF'
 from kedro.pipeline import Pipeline, node
 
 def greet(name: str) -> str:
@@ -267,25 +249,14 @@ def register_pipelines():
     }
 EOF
 
-log_info "Creating configuration directories and parameters..."
-mkdir -p conf/base conf/local
+log_info "Setting pipeline parameter..."
 cat > conf/base/parameters.yml << 'EOF'
 name: DataLad
 EOF
 
-cat > conf/base/catalog.yml << 'EOF'
-# Empty catalog (required by Kedro 1.x)
-EOF
-
-log_info "Creating .gitignore for Python cache files..."
-cat >> .gitignore << 'EOF'
-__pycache__/
-*.pyc
-EOF
-
-log_info "Saving Kedro project structure to DataLad..."
+log_info "Saving Kedro project with demo pipeline to DataLad..."
 ### Track Kedro project structure
-datalad save -m "Initialize minimal Kedro project"
+datalad save -m "Initialize Kedro project with demo pipeline"
 
 log_info "Running Kedro pipeline with DataLad provenance..."
 # Disable telemetry for cleaner output
@@ -343,81 +314,6 @@ datalad save -m "Add iris data subdataset and catalog configuration"
 
 cd "$TEST_DIR"
 fi  # End of SKIP_KEDRO check for TEST 3
-
-# =============================================================================
-# TEST 4: Kedro Standalone (for reference)
-# =============================================================================
-if [ "$SKIP_KEDRO" = true ]; then
-    log_section "TEST 4: SKIPPED (Kedro Standalone Project)"
-    log_warn "Skipping Kedro tests as requested"
-else
-log_section "TEST 4: Kedro Standalone Project (Reference)"
-
-log_info "Creating a standalone Kedro minimal project..."
-mkdir -p kedro-standalone
-cd kedro-standalone
-
-# Create minimal Kedro project structure
-mkdir -p src/standalone_demo
-touch src/standalone_demo/__init__.py
-
-cat > pyproject.toml << 'EOF'
-[build-system]
-requires = ["setuptools"]
-build-backend = "setuptools.build_meta"
-
-[project]
-name = "standalone_demo"
-version = "0.1.0"
-
-[tool.kedro]
-package_name = "standalone_demo"
-project_name = "standalone_demo"
-kedro_init_version = "1.2.0"
-source_dir = "src"
-EOF
-
-cat > src/standalone_demo/settings.py << 'EOF'
-# Kedro settings
-EOF
-
-cat > src/standalone_demo/pipeline_registry.py << 'EOF'
-from kedro.pipeline import Pipeline, node
-
-def add_numbers(a: int, b: int) -> int:
-    return a + b
-
-def register_pipelines():
-    return {
-        "__default__": Pipeline([
-            node(add_numbers, inputs=["params:a", "params:b"], outputs="sum_result")
-        ])
-    }
-EOF
-
-mkdir -p conf/base conf/local
-cat > conf/base/parameters.yml << 'EOF'
-a: 5
-b: 3
-EOF
-
-cat > conf/base/catalog.yml << 'EOF'
-# Empty catalog (required by Kedro 1.x)
-EOF
-
-log_info "Running standalone Kedro project..."
-export KEDRO_DISABLE_TELEMETRY=true
-kedro run
-
-if [ $? -eq 0 ]; then
-    log_info "PASS: Standalone Kedro project runs successfully"
-else
-    log_error "FAIL: Standalone Kedro project failed"
-    exit 1
-fi
-
-cd "$TEST_DIR"
-fi  # End of SKIP_KEDRO check for TEST 4
 
 # =============================================================================
 # SUMMARY

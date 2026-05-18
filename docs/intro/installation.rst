@@ -156,7 +156,7 @@ may have just bought.
 
 There are many other ways to install DataLad on Windows, check for example the
 :windows-wit:`on the Windows Subsystem 2 for Linux <ww-wsl2>`.
-One attractive alternative approach is Conda_, a completely different approach is to install the :term:`DataLad Gooey`, which is a standalone installation of DataLad's graphical application (see `the DataLad Gooey documentation <https://docs.datalad.org/projects/gooey>`_ for installation instructions).
+One attractive alternative approach is Mamba_, a completely different approach is to install the :term:`DataLad Gooey`, which is a standalone installation of DataLad's graphical application (see `the DataLad Gooey documentation <https://docs.datalad.org/projects/gooey>`_ for installation instructions).
 
 .. index::
    pair: install DataLad; on WSL2
@@ -317,7 +317,7 @@ DataLad itself can be installed via ``pip``:
    $ python -m pip install datalad
 
 Alternatively, DataLad can be installed together with :term:`Git` and
-:term:`git-annex` via Conda_.
+:term:`git-annex` via Mamba_.
 
 .. index::
    pair: install DataLad; on HPC
@@ -326,68 +326,67 @@ Alternatively, DataLad can be installed together with :term:`Git` and
 Linux-machines with no root access (e.g. HPC systems)
 """""""""""""""""""""""""""""""""""""""""""""""""""""
 
-The most convenient user-based installation can be achieved via Conda_.
+The most convenient user-based installation can be achieved via Mamba_.
 
 .. index::
-   pair: install DataLad; with Conda
-.. _conda:
+   pair: install DataLad; with Mamba/(mamba)
+.. _mamba:
 
-Conda
+Mamba
 """""
 
-Conda is a software distribution available for all major operating systems, and
-its `Miniconda <https://docs.conda.io/miniconda.html>`_ installer
+Mamba is a software distribution available for all major operating systems, and
+its `Miniforge <https://github.com/conda-forge/miniforge>`_ installer
 offers a convenient way to bootstrap a DataLad installation. Importantly, it
 does not require admin/root access to a system.
 
-`Detailed, platform-specific installation instructions
-<https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html>`_ are available
-in the Conda documentation. In short: download and run the installer, or, from
+`Platform-specific installation instructions
+<https://github.com/conda-forge/miniforge#requirements-and-installers>`_ are available. In short: download and run the installer, or, from
 the command line, run
 
 .. code-block:: console
 
-   $ wget https://repo.anaconda.com/miniconda/Miniconda3-latest-<YOUR-OS>-x86_64.sh
-   $ bash Miniconda3-latest-<YOUR-OS>-x86_64.sh
+   $ wget "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-<YOUR-OS>-x86_64.sh"
+   $ bash Miniforge3-<YOUR-OS>-x86_64.sh
 
 In the above call, replace ``<YOUR-OS>`` with an identifier for your operating
-system, such as "Linux" or "MacOSX".  During the installation, you will need to
+system, such as "Linux" or "MacOS".  During the installation, you will need to
 accept a license agreement (press Enter to scroll down, and type "yes" and
 Enter to accept), confirm the installation into the default directory, and you
 should respond "yes" to the prompt ``“Do you wish the installer to initialize
-Miniconda3 by running conda init? [yes|no]”``.  Afterwards, you can remove the
-installation script by running ``rm ./Miniconda3-latest-*-x86_64.sh``.
+Miniforge3 by running conda init? [yes|no]”``.  Afterwards, you can remove the
+installation script by running ``rm ./Miniforge3-*-x86_64.sh``.
 
-The installer automatically configures the shell to make conda-installed tools
-accessible, so no further configuration is necessary.  Once Conda is installed,
+The installer automatically configures the shell to make mamba-installed tools
+accessible, so no further configuration is necessary. Once Mamba is installed,
 the DataLad package can be installed from the ``conda-forge`` channel:
 
 .. code-block:: console
 
-  $ conda install -c conda-forge datalad
+  $ mamba install datalad
 
 In general, all of DataLad's software dependencies are automatically installed, too.
-This makes a conda-based deployment very convenient. A from-scratch DataLad installation
+This makes a mamba-based deployment very convenient. A from-scratch DataLad installation
 on a HPC system, as a normal user, is done in three lines:
 
 .. code-block:: console
 
-  $ wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
-  $ bash Miniconda3-latest-Linux-x86_64.sh
+  $ wget "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Linux-x86_64.sh"
+  $ bash Miniforge3-Linux-x86_64.sh
   $ # acknowledge license, keep everything at default
-  $ conda install -c conda-forge datalad
+  $ mamba install datalad
 
-In case a dependency is not available from Conda (e.g., there is no git-annex
+In case a dependency is not available from Mamba (e.g., there is no git-annex
 package for Windows in Conda), please refer to the platform-specific
 instructions above.
 
-To update an existing installation with conda, use:
+To update an existing installation with mamba, use:
 
 .. code-block:: console
 
-  $ conda update -c conda-forge datalad
+  $ mamba update datalad
 
-The `DataLad installer`_ also supports setting up a Conda environment, in case
+The `DataLad installer`_ also supports setting up a Mamba environment, in case
 a suitable Python version is already available.
 
 .. index::

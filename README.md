@@ -4,7 +4,7 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3608611.svg)](https://doi.org/10.5281/zenodo.3608611)
 [![made-with-datalad](https://www.datalad.org/badges/made_with.svg)](https://datalad.org)
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-69-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-70-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END --> 
 
 # The DataLad handbook :orange_book:
@@ -150,6 +150,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="http://neuromechanist.github.io"><img src="https://avatars.githubusercontent.com/u/44906843?v=4?s=100" width="100px;" alt="Seyed (Yahya) Shirazi"/><br /><sub><b>Seyed (Yahya) Shirazi</b></sub></a><br /><a href="#content-neuromechanist" title="Content">🖋</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/knuedd"><img src="https://avatars.githubusercontent.com/u/15049630?v=4?s=100" width="100px;" alt="Andreas Knüpfer"/><br /><sub><b>Andreas Knüpfer</b></sub></a><br /><a href="#content-knuedd" title="Content">🖋</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://aaronponti.ch"><img src="https://avatars.githubusercontent.com/u/1226043?v=4?s=100" width="100px;" alt="Aaron Ponti"/><br /><sub><b>Aaron Ponti</b></sub></a><br /><a href="https://github.com/datalad-handbook/book/issues?q=author%3Aaarpon" title="Bug reports">🐛</a> <a href="#content-aarpon" title="Content">🖋</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://www.fz-juelich.de/SharedDocs/Personen/INM/INM-7/EN/hoffstaedter_f.html"><img src="https://avatars.githubusercontent.com/u/16700556?v=4?s=100" width="100px;" alt="FelixH"/><br /><sub><b>FelixH</b></sub></a><br /><a href="#content-FeHoff" title="Content">🖋</a></td>
     </tr>
   </tbody>
 </table>

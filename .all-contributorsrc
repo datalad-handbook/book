@@ -723,6 +723,15 @@
         "bug",
         "content"
       ]
+    },
+    {
+      "login": "FeHoff",
+      "name": "FelixH",
+      "avatar_url": "https://avatars.githubusercontent.com/u/16700556?v=4",
+      "profile": "https://www.fz-juelich.de/SharedDocs/Personen/INM/INM-7/EN/hoffstaedter_f.html",
+      "contributions": [
+        "content"
+      ]
     }
   ],
   "contributorsPerLine": 7,

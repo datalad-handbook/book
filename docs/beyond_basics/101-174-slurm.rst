@@ -42,7 +42,20 @@ The `DataLad SLURM extension <https://github.com/knuedd/datalad-slurm>`_ introdu
 * Some time after the job finishes (or a set of jobs) ``datalad slurm-finish`` needs to be called. It will check the job's status and will commit the job's outputs to the repository. This will happen outside of any job and handles jobs one after the other. Thus, it avoids the problems mentioned above.
 * To reproduce some job's result simply execute ``datalad slurm-reschedule <commithash>`` similar to ``datalad rerun``. The re-scheduled jobs also need to be finished with ``datalad slurm-finish`` after they are done.
 
-For more information including installation instructions, checkout the `Github page <https://github.com/knuedd/datalad-slurm>`_.
+Install on top of an existing DataLad installation, regardless how DataLad itself was installed.
+
+.. code-block:: bash
+    pip install datalad-slurm
+
+Then check
+
+.. code-block:: bash
+    datalad -h
+
+if the new sub-commands ``slurm-finish``, ``slurm-reschedule``, and ``slurm-schedule`` are present.
+
+For more information see the `Github page <https://github.com/knuedd/datalad-slurm>`_.
+
 
 Example usage
 ^^^^^^^^^^^^^

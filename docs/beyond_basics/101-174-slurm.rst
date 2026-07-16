@@ -45,11 +45,13 @@ The `DataLad SLURM extension <https://github.com/knuedd/datalad-slurm>`_ introdu
 Install on top of an existing DataLad installation, regardless how DataLad itself was installed.
 
 .. code-block:: bash
+
     pip install datalad-slurm
 
 Then check
 
 .. code-block:: bash
+
     datalad -h
 
 if the new sub-commands ``slurm-finish``, ``slurm-reschedule``, and ``slurm-schedule`` are present.
